@@ -2,7 +2,7 @@
 ![LeetCode-GitHub](http://p9ucdlghd.bkt.clouddn.com/leetcode-github.png)
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Java Version](https://img.shields.io/badge/Lang-Java-red.svg)](https://github.com/yanglbme/qa)
+[![Language](https://img.shields.io/badge/Lang-Java%2FPython-blue.svg)](https://github.com/yanglbme/leetcode)
 ## Introduction
 Complete solutions to Leetcode problems, updated daily.
 
