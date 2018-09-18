@@ -13,6 +13,7 @@ Complete solutions to Leetcode problems, updated daily.
 | # | Title | Tags |
 |---|---|---|
 | 001 | [Two Sum](https://github.com/yanglbme/leetcode/tree/master/solution/001.Two%20Sum) | `Array`, `Hash Table` |
+| 021 | [Merge Two Sorted Lists](https://github.com/yanglbme/leetcode/tree/master/solution/021.Merge%20Two%20Sorted%20Lists) | `Linked List` |
 | 203 | [Remove Linked List Elements](https://github.com/yanglbme/leetcode/tree/master/solution/203.Remove%20Linked%20List%20Elements) | `Linked List` |
 
 ### Medium
