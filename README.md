@@ -13,6 +13,7 @@ Complete solutions to Leetcode problems, updated daily.
 | # | Title | Tags |
 |---|---|---|
 | 001 | [Two Sum](https://github.com/yanglbme/leetcode/tree/master/solution/001.Two%20Sum) | `Array`, `Hash Table` |
+| 021 | [Merge Two Sorted Lists](https://github.com/yanglbme/leetcode/tree/master/solution/021.Merge%20Two%20Sorted%20Lists) | `Linked List` |
 | 203 | [Remove Linked List Elements](https://github.com/yanglbme/leetcode/tree/master/solution/203.Remove%20Linked%20List%20Elements) | `Linked List` |
 
 ### Medium
@@ -33,7 +34,7 @@ I'm looking for long-term contributors/partners to this repo! Send me PRs if you
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="100px;"/><br /><sub><b>yanglbme</b></sub>](https://github.com/yanglbme)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=yanglbme "Code") </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="100px;"/><br /><sub><b>yanglbme</b></sub>](https://github.com/yanglbme)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=yanglbme "Code") </center> | <center>[<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="100px;"/><br /><sub><b>yanglbme</b></sub>](https://github.com/yanglbme)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=yanglbme "Code") </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="100px;"/><br /><sub><b>yanglbme</b></sub>](https://github.com/yanglbme)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=yanglbme "Code") </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="100px;"/><br /><sub><b>yanglbme</b></sub>](https://github.com/yanglbme)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=yanglbme "Code") </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="100px;"/><br /><sub><b>yanglbme</b></sub>](https://github.com/yanglbme)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=yanglbme "Code") </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="100px;"/><br /><sub><b>yanglbme</b></sub>](https://github.com/yanglbme)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=yanglbme "Code") </center> | 
-|---|---|---|---|---|---|---|
+| <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="100px;"/><br /><sub><b>yanglbme</b></sub>](https://github.com/yanglbme)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=yanglbme "Code") </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/23625436?v=4" width="100px;"/><br /><sub><b>chakyam</b></sub>](https://github.com/chakyam)<br />[💻](https://github.com/yanglbme/leetcode/commits?author=chakyam "Code") </center> | 
+|---|---|
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
