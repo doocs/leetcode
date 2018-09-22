@@ -30,6 +30,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 002 | [Add Two Numbers](https://github.com/yanglbme/leetcode/tree/master/solution/002.Add%20Two%20Numbers) | `Linked List`, `Math` |
 | 019 | [Remove Nth Node From End of List](https://github.com/yanglbme/leetcode/tree/master/solution/019.Remove%20Nth%20Node%20From%20End%20of%20List) | `Linked List`, `Two Pointers` |
 | 024 | [Swap Nodes in Pairs](https://github.com/yanglbme/leetcode/tree/master/solution/024.Swap%20Nodes%20in%20Pairs) | `Linked List` |
+| 062 | [Unique Paths](https://github.com/yanglbme/leetcode/tree/master/solution/062.Unique%20Paths) | `Array`, `Dynamic Programming` |
 | 082 | [Remove Duplicates from Sorted List II](https://github.com/yanglbme/leetcode/tree/master/solution/082.Remove%20Duplicates%20from%20Sorted%20List%20II) | `Linked List` |
 
 
