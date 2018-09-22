@@ -14,6 +14,7 @@ Complete solutions to Leetcode problems, updated daily.
 |---|---|---|
 | 001 | [Two Sum](https://github.com/yanglbme/leetcode/tree/master/solution/001.Two%20Sum) | `Array`, `Hash Table` |
 | 007 | [Reverse Integer](https://github.com/yanglbme/leetcode/tree/master/solution/007.Reverse%20Integer) | `Math` |
+| 013 | [Roman to Integer](https://github.com/yanglbme/leetcode/tree/master/solution/013.Roman%20to%20Integer) | `Math`, `String` |
 | 021 | [Merge Two Sorted Lists](https://github.com/yanglbme/leetcode/tree/master/solution/021.Merge%20Two%20Sorted%20Lists) | `Linked List` |
 | 083 | [Remove Duplicates from Sorted List](https://github.com/yanglbme/leetcode/tree/master/solution/083.Remove%20Duplicates%20from%20Sorted%20List) | `Linked List` |
 | 198 | [House Robber](https://github.com/yanglbme/leetcode/tree/master/solution/198.House%20Robber) | `Dynamic Programming` |
