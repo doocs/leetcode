@@ -33,19 +33,12 @@ class Solution {
                 tmp.add(val);
             }
             
-            // 已存在，则不添加
-            if (!list.contains(tmp)) {
-                list.add(tmp);
-                return;
-            }
+            list.add(tmp);
             
         }
         
         for (int i = start; i <= end; ++i) {
-            if (i == start) {
-                permute(list, nums, start + 1);
-            } else if (nums[i] != nums[start]) {
-                // i 与 start 不相等，且对应的数组值也不相等，才进行交换
+            if (isSwap(nums, start, i)) {
                 swap(nums, i, start);
                 permute(list, nums, start + 1);
                 swap(nums, i, start);
@@ -53,10 +46,19 @@ class Solution {
             
         }
         
-        
     }
     
-    private static void swap(int[] nums, int i, int j) {
+    private boolean isSwap(int[] nums, int from, int to) {
+        for (int i = from; i < to; ++i) {
+            if (nums[i] == nums[to]) {
+                // 相等，不进行交换
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private void swap(int[] nums, int i, int j) {
         int t = nums[i];
         nums[i] = nums[j];
         nums[j] = t;
