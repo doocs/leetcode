@@ -16,6 +16,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 007 | [Reverse Integer](https://github.com/yanglbme/leetcode/tree/master/solution/007.Reverse%20Integer) | `Math` |
 | 013 | [Roman to Integer](https://github.com/yanglbme/leetcode/tree/master/solution/013.Roman%20to%20Integer) | `Math`, `String` |
 | 021 | [Merge Two Sorted Lists](https://github.com/yanglbme/leetcode/tree/master/solution/021.Merge%20Two%20Sorted%20Lists) | `Linked List` |
+| 053 | [Maximum Subarray](https://github.com/yanglbme/leetcode/tree/master/solution/053.Maximum%20Subarray) | `Array`, `Divide and Conquer`, `Dynamic Programming` |
 | 070 | [Climbing Stairs](https://github.com/yanglbme/leetcode/tree/master/solution/070.Climbing%20Stairs) | `Dynamic Programming` |
 | 083 | [Remove Duplicates from Sorted List](https://github.com/yanglbme/leetcode/tree/master/solution/083.Remove%20Duplicates%20from%20Sorted%20List) | `Linked List` |
 | 198 | [House Robber](https://github.com/yanglbme/leetcode/tree/master/solution/198.House%20Robber) | `Dynamic Programming` |
