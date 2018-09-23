@@ -35,6 +35,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 062 | [Unique Paths](https://github.com/yanglbme/leetcode/tree/master/solution/062.Unique%20Paths) | `Array`, `Dynamic Programming` |
 | 063 | [Unique Paths II](https://github.com/yanglbme/leetcode/tree/master/solution/063.Unique%20Paths%20II) | `Array`, `Dynamic Programming` |
 | 082 | [Remove Duplicates from Sorted List II](https://github.com/yanglbme/leetcode/tree/master/solution/082.Remove%20Duplicates%20from%20Sorted%20List%20II) | `Linked List` |
+| 153 | [Find Minimum in Rotated Sorted Array](https://github.com/yanglbme/leetcode/tree/master/solution/153.Find%20Minimum%20in%20Rotated%20Sorted%20Array) | `Array`, `Binary Search` |
 
 
 ### Hard
