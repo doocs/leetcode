@@ -1,12 +1,13 @@
+<p align="center">
+  <a href="https://github.com/yanglbme/leetcode"><img src="http://p9ucdlghd.bkt.clouddn.com/leetcode-github.png" alt="LeetCode-GitHub"></a>
+</p>
 
-![LeetCode-GitHub](http://p9ucdlghd.bkt.clouddn.com/leetcode-github.png)
+<p align="center">
+  <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome"></a>
+  <a href="https://github.com/yanglbme/leetcode"><img src="https://img.shields.io/badge/Lang-Java%2FPython%2FJS%2FCPP%2FGo%2F...-blue.svg" alt="Language"></a>
+</p>
 
-<center>
-
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Language](https://img.shields.io/badge/Lang-Java%2FPython%2FJS%2FCPP%2FGo%2F...-blue.svg)](https://github.com/yanglbme/leetcode)
-
-</center>
+<h2 align="center">LeetCode Solution</h2>
 
 ## Introduction
 Complete solutions to Leetcode problems, updated daily.

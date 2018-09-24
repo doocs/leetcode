@@ -17,6 +17,8 @@
 ### 解法
 将数组的首元素依次与数组的每个元素交换(两元素不相等才进行交换)，对于每一轮交换，对后面的数组进行递归调用。当元素只剩下一个时，添加此时的数组到 list 中。
 
+注意：第 i 个数字与第 j 个数字交换时，要求[i, j) 中没有与第 j 个数字相等的数。
+
 ```java
 class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
@@ -51,7 +53,7 @@ class Solution {
     private boolean isSwap(int[] nums, int from, int to) {
         for (int i = from; i < to; ++i) {
             if (nums[i] == nums[to]) {
-                // 相等，不进行交换
+                // [from, to) 中出现与 第 to 个数相等的数，返回 false，不进行交换和全排列操作
                 return false;
             }
         }
