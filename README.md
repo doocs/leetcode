@@ -1,8 +1,15 @@
-# LeetCode
+
 ![LeetCode-GitHub](http://p9ucdlghd.bkt.clouddn.com/leetcode-github.png)
+
+<center>
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Language](https://img.shields.io/badge/Lang-Java%2FPython%2FJS%2FCPP%2FGo%2F...-blue.svg)](https://github.com/yanglbme/leetcode)
+
+</center>
+
+# <center>LeetCode Solutions</center>
+
 ## Introduction
 Complete solutions to Leetcode problems, updated daily.
 
@@ -19,6 +26,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 053 | [Maximum Subarray](https://github.com/yanglbme/leetcode/tree/master/solution/053.Maximum%20Subarray) | `Array`, `Divide and Conquer`, `Dynamic Programming` |
 | 070 | [Climbing Stairs](https://github.com/yanglbme/leetcode/tree/master/solution/070.Climbing%20Stairs) | `Dynamic Programming` |
 | 083 | [Remove Duplicates from Sorted List](https://github.com/yanglbme/leetcode/tree/master/solution/083.Remove%20Duplicates%20from%20Sorted%20List) | `Linked List` |
+| 189 | [Rotate Array](https://github.com/yanglbme/leetcode/tree/master/solution/189.Rotate%20Array) | `Array` |
 | 198 | [House Robber](https://github.com/yanglbme/leetcode/tree/master/solution/198.House%20Robber) | `Dynamic Programming` |
 | 203 | [Remove Linked List Elements](https://github.com/yanglbme/leetcode/tree/master/solution/203.Remove%20Linked%20List%20Elements) | `Linked List` |
 | 237 | [Delete Node in a Linked List](https://github.com/yanglbme/leetcode/tree/master/solution/237.Delete%20Node%20in%20a%20Linked%20List) | `Linked List` |
