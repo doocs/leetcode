@@ -9,7 +9,6 @@
 
 <h2 align="center">LeetCode Solution</h2>
 
-## Introduction
 Complete solutions to Leetcode problems, updated daily.
 
 ## Solution List
