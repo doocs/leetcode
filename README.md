@@ -8,8 +8,6 @@
 
 </center>
 
-# <center>LeetCode Solutions</center>
-
 ## Introduction
 Complete solutions to Leetcode problems, updated daily.
 
@@ -29,6 +27,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 189 | [Rotate Array](https://github.com/yanglbme/leetcode/tree/master/solution/189.Rotate%20Array) | `Array` |
 | 198 | [House Robber](https://github.com/yanglbme/leetcode/tree/master/solution/198.House%20Robber) | `Dynamic Programming` |
 | 203 | [Remove Linked List Elements](https://github.com/yanglbme/leetcode/tree/master/solution/203.Remove%20Linked%20List%20Elements) | `Linked List` |
+| 231 | [Power of Two](https://github.com/yanglbme/leetcode/tree/master/solution/231.Power%20of%20Two) | `Math`, `Bit Manipulation` |
 | 237 | [Delete Node in a Linked List](https://github.com/yanglbme/leetcode/tree/master/solution/237.Delete%20Node%20in%20a%20Linked%20List) | `Linked List` |
 | 344 | [Reverse String](https://github.com/yanglbme/leetcode/tree/master/solution/344.Reverse%20String) | `Two Pointers`, `String` |
 | 876 | [Middle of the Linked List](https://github.com/yanglbme/leetcode/tree/master/solution/876.Middle%20of%20the%20Linked%20List) | `Linked List` |
