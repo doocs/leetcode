@@ -7,8 +7,7 @@
   <a href="https://github.com/yanglbme/leetcode"><img src="https://img.shields.io/badge/Lang-Java%2FPython%2FJS%2FCPP%2FGo%2F...-blue.svg" alt="Language"></a>
 </p>
 
-<h2 align="center">LeetCode Solution</h2>
-
+## Introduction
 Complete solutions to Leetcode problems, updated daily.
 
 ## Solution List
@@ -20,6 +19,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 001 | [Two Sum](https://github.com/yanglbme/leetcode/tree/master/solution/001.Two%20Sum) | `Array`, `Hash Table` |
 | 007 | [Reverse Integer](https://github.com/yanglbme/leetcode/tree/master/solution/007.Reverse%20Integer) | `Math` |
 | 013 | [Roman to Integer](https://github.com/yanglbme/leetcode/tree/master/solution/013.Roman%20to%20Integer) | `Math`, `String` |
+| 014 | [Longest Common Prefix](https://github.com/yanglbme/leetcode/tree/master/solution/014.Longest%20Common%20Prefix) | `String` |
 | 021 | [Merge Two Sorted Lists](https://github.com/yanglbme/leetcode/tree/master/solution/021.Merge%20Two%20Sorted%20Lists) | `Linked List` |
 | 053 | [Maximum Subarray](https://github.com/yanglbme/leetcode/tree/master/solution/053.Maximum%20Subarray) | `Array`, `Divide and Conquer`, `Dynamic Programming` |
 | 070 | [Climbing Stairs](https://github.com/yanglbme/leetcode/tree/master/solution/070.Climbing%20Stairs) | `Dynamic Programming` |
