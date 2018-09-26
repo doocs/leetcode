@@ -38,6 +38,7 @@ Complete solutions to Leetcode problems, updated daily.
 | # | Title | Tags |
 |---|---|---|
 | 002 | [Add Two Numbers](https://github.com/yanglbme/leetcode/tree/master/solution/002.Add%20Two%20Numbers) | `Linked List`, `Math` |
+| 015 | [3Sum](https://github.com/yanglbme/leetcode/tree/master/solution/015.3Sum) | `Array`, `Two Pointers` |
 | 019 | [Remove Nth Node From End of List](https://github.com/yanglbme/leetcode/tree/master/solution/019.Remove%20Nth%20Node%20From%20End%20of%20List) | `Linked List`, `Two Pointers` |
 | 024 | [Swap Nodes in Pairs](https://github.com/yanglbme/leetcode/tree/master/solution/024.Swap%20Nodes%20in%20Pairs) | `Linked List` |
 | 046 | [Permutations](https://github.com/yanglbme/leetcode/tree/master/solution/046.Permutations) | `Backtracking` |
