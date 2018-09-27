@@ -41,12 +41,12 @@ Complete solutions to Leetcode problems, updated daily.
 | 015 | [3Sum](https://github.com/yanglbme/leetcode/tree/master/solution/015.3Sum) | `Array`, `Two Pointers` |
 | 019 | [Remove Nth Node From End of List](https://github.com/yanglbme/leetcode/tree/master/solution/019.Remove%20Nth%20Node%20From%20End%20of%20List) | `Linked List`, `Two Pointers` |
 | 024 | [Swap Nodes in Pairs](https://github.com/yanglbme/leetcode/tree/master/solution/024.Swap%20Nodes%20in%20Pairs) | `Linked List` |
+| 031 | [Next Permutation](https://github.com/yanglbme/leetcode/tree/master/solution/031.Next%20Permutation) | `Array` |
 | 046 | [Permutations](https://github.com/yanglbme/leetcode/tree/master/solution/046.Permutations) | `Backtracking` |
 | 047 | [Permutations II](https://github.com/yanglbme/leetcode/tree/master/solution/047.Permutations%20II) | `Backtracking` |
 | 062 | [Unique Paths](https://github.com/yanglbme/leetcode/tree/master/solution/062.Unique%20Paths) | `Array`, `Dynamic Programming` |
 | 063 | [Unique Paths II](https://github.com/yanglbme/leetcode/tree/master/solution/063.Unique%20Paths%20II) | `Array`, `Dynamic Programming` |
 | 075 | [Sort Colors](https://github.com/yanglbme/leetcode/tree/master/solution/075.Sort%20Colors) | `Array`, `Two Pointers`, `Sort` |
-075.Sort Colors
 | 082 | [Remove Duplicates from Sorted List II](https://github.com/yanglbme/leetcode/tree/master/solution/082.Remove%20Duplicates%20from%20Sorted%20List%20II) | `Linked List` |
 | 153 | [Find Minimum in Rotated Sorted Array](https://github.com/yanglbme/leetcode/tree/master/solution/153.Find%20Minimum%20in%20Rotated%20Sorted%20Array) | `Array`, `Binary Search` |
 
