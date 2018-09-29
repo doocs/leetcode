@@ -20,6 +20,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 007 | [Reverse Integer](https://github.com/yanglbme/leetcode/tree/master/solution/007.Reverse%20Integer) | `Math` |
 | 013 | [Roman to Integer](https://github.com/yanglbme/leetcode/tree/master/solution/013.Roman%20to%20Integer) | `Math`, `String` |
 | 014 | [Longest Common Prefix](https://github.com/yanglbme/leetcode/tree/master/solution/014.Longest%20Common%20Prefix) | `String` |
+| 020 | [Valid Parentheses](https://github.com/yanglbme/leetcode/tree/master/solution/020.Valid%20Parentheses) | `String`, `Stack` |
 | 021 | [Merge Two Sorted Lists](https://github.com/yanglbme/leetcode/tree/master/solution/021.Merge%20Two%20Sorted%20Lists) | `Linked List` |
 | 053 | [Maximum Subarray](https://github.com/yanglbme/leetcode/tree/master/solution/053.Maximum%20Subarray) | `Array`, `Divide and Conquer`, `Dynamic Programming` |
 | 070 | [Climbing Stairs](https://github.com/yanglbme/leetcode/tree/master/solution/070.Climbing%20Stairs) | `Dynamic Programming` |
