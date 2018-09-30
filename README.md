@@ -60,6 +60,7 @@ Complete solutions to Leetcode problems, updated daily.
 | # | Title | Tags |
 |---|---|---|
 | 023 | [Merge k Sorted Lists](https://github.com/yanglbme/leetcode/tree/master/solution/023.Merge%20k%20Sorted%20Lists) | `Linked List`, `Divide and Conquer`, `Heap` |
+| 145 | [Binary Tree Postorder Traversal](https://github.com/yanglbme/leetcode/tree/master/solution/145.Binary%20Tree%20Postorder%20Traversal) | `Stack`, `Tree` |
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me PRs if you're interested! See the following:
