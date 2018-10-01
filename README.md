@@ -50,6 +50,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 063 | [Unique Paths II](https://github.com/yanglbme/leetcode/tree/master/solution/063.Unique%20Paths%20II) | `Array`, `Dynamic Programming` |
 | 075 | [Sort Colors](https://github.com/yanglbme/leetcode/tree/master/solution/075.Sort%20Colors) | `Array`, `Two Pointers`, `Sort` |
 | 082 | [Remove Duplicates from Sorted List II](https://github.com/yanglbme/leetcode/tree/master/solution/082.Remove%20Duplicates%20from%20Sorted%20List%20II) | `Linked List` |
+| 086 | [Partition List](https://github.com/yanglbme/leetcode/tree/master/solution/086.Partition%20List) | `Linked List`, `Two Pointers` |
 | 092 | [Reverse Linked List II](https://github.com/yanglbme/leetcode/tree/master/solution/092.Reverse%20Linked%20List%20II) | `Linked List` |
 | 094 | [Binary Tree Inorder Traversal](https://github.com/yanglbme/leetcode/tree/master/solution/094.Binary%20Tree%20Inorder%20Traversal) | `Hash Table`, `Stack`, `Tree` |
 | 144 | [Binary Tree Preorder Traversal](https://github.com/yanglbme/leetcode/tree/master/solution/144.Binary%20Tree%20Preorder%20Traversal) | `Stack`, `Tree` |
