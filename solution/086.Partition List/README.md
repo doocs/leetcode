@@ -13,7 +13,7 @@
 ```
 
 ### 解法
-维护 left, right 两个链表，遍历 head 链表，若对应元素值小于 x，将该结点插入 left 链表种，否则插入 right 链表中。最后 right 尾部指向空，并将 left 尾部指向 right 头部，使得它们串在一起。
+维护 `left`, `right` 两个链表，遍历 `head` 链表，若对应元素值小于 `x`，将该结点插入 `left` 链表中，否则插入 `right` 链表中。最后 `right` 尾部指向空，并将 `left` 尾部指向 `right` 头部，使得它们串在一起。
 
 ```java
 /**
