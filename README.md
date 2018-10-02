@@ -58,6 +58,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 092 | [Reverse Linked List II](https://github.com/doocs/leetcode/tree/master/solution/092.Reverse%20Linked%20List%20II) | `Linked List` |
 | 094 | [Binary Tree Inorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/094.Binary%20Tree%20Inorder%20Traversal) | `Hash Table`, `Stack`, `Tree` |
 | 144 | [Binary Tree Preorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/144.Binary%20Tree%20Preorder%20Traversal) | `Stack`, `Tree` |
+| 150 | [Evaluate Reverse Polish Notation](https://github.com/doocs/leetcode/tree/master/solution/150.Evaluate%20Reverse%20Polish%20Notation) | `Stack` |
 | 153 | [Find Minimum in Rotated Sorted Array](https://github.com/doocs/leetcode/tree/master/solution/153.Find%20Minimum%20in%20Rotated%20Sorted%20Array) | `Array`, `Binary Search` |
 
 
