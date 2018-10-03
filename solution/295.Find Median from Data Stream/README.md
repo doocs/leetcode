@@ -5,9 +5,9 @@
 
 例如，
 
-[2,3,4] 的中位数是 3
+`[2,3,4]` 的中位数是 `3`
 
-[2,3] 的中位数是 (2 + 3) / 2 = 2.5
+`[2,3]` 的中位数是 `(2 + 3) / 2 = 2.5`
 
 设计一个支持以下两种操作的数据结构：
 
@@ -25,8 +25,8 @@ findMedian() -> 2
 
 进阶:
 
-- 1. 如果数据流中所有整数都在 0 到 100 范围内，你将如何优化你的算法？
-- 2. 如果数据流中 99% 的整数都在 0 到 100 范围内，你将如何优化你的算法？
+- 如果数据流中所有整数都在 0 到 100 范围内，你将如何优化你的算法？
+- 如果数据流中 99% 的整数都在 0 到 100 范围内，你将如何优化你的算法？
 
 ### 解法
 维护一个大根堆 bigRoot 和一个小根堆 smallRoot，若有 n 个数，较小的 n/2 个数放在大根堆，而较大的 n/2 个数放在小根堆。
@@ -48,17 +48,17 @@ class MedianFinder {
     
     public void addNum(int num) {
         if (bigRoot.isEmpty() || bigRoot.peek() > num) {
-            bigRoot.add(num);
+            bigRoot.offer(num);
         } else {
-            smallRoot.add(num);
+            smallRoot.offer(num);
         }
         
         int size1 = bigRoot.size();
         int size2 = smallRoot.size();
         if (size1 - size2 > 1) {
-            smallRoot.add(bigRoot.poll());
+            smallRoot.offer(bigRoot.poll());
         } else if (size2 - size1 > 1) {
-            bigRoot.add(smallRoot.poll());
+            bigRoot.offer(smallRoot.poll());
         }
     }
     

@@ -11,17 +11,17 @@ class MedianFinder {
 
     public void addNum(int num) {
         if (bigRoot.isEmpty() || bigRoot.peek() > num) {
-            bigRoot.add(num);
+            bigRoot.offer(num);
         } else {
-            smallRoot.add(num);
+            smallRoot.offer(num);
         }
 
         int size1 = bigRoot.size();
         int size2 = smallRoot.size();
         if (size1 - size2 > 1) {
-            smallRoot.add(bigRoot.poll());
+            smallRoot.offer(bigRoot.poll());
         } else if (size2 - size1 > 1) {
-            bigRoot.add(smallRoot.poll());
+            bigRoot.offer(smallRoot.poll());
         }
     }
 
@@ -36,6 +36,7 @@ class MedianFinder {
 
 /**
  * Your MedianFinder object will be instantiated and called as such:
- * MedianFinder obj = new MedianFinder(); obj.addNum(num); double param_2 =
- * obj.findMedian();
+ * MedianFinder obj = new MedianFinder(); 
+ * obj.addNum(num); 
+ * double param_2 = obj.findMedian();
  */
