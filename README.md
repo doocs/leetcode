@@ -70,6 +70,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 032 | [Longest Valid Parentheses](https://github.com/doocs/leetcode/tree/master/solution/032.Longest%20Valid%20Parentheses) | `String`, `Dynamic Programming` |
 | 084 | [Largest Rectangle in Histogram](https://github.com/doocs/leetcode/tree/master/solution/084.Largest%20Rectangle%20in%20Histogram) | `Array`, `Stack` |
 | 145 | [Binary Tree Postorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/145.Binary%20Tree%20Postorder%20Traversal) | `Stack`, `Tree` |
+| 295 | [Find Median from Data Stream](https://github.com/doocs/leetcode/tree/master/solution/295.Find%20Median%20from%20Data%20Stream) | `Heap`, `Design` |
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me PRs if you're interested! See the following:
