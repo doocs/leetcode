@@ -68,6 +68,7 @@ Complete solutions to Leetcode problems, updated daily.
 |---|---|---|
 | 023 | [Merge k Sorted Lists](https://github.com/doocs/leetcode/tree/master/solution/023.Merge%20k%20Sorted%20Lists) | `Linked List`, `Divide and Conquer`, `Heap` |
 | 032 | [Longest Valid Parentheses](https://github.com/doocs/leetcode/tree/master/solution/032.Longest%20Valid%20Parentheses) | `String`, `Dynamic Programming` |
+| 084 | [Largest Rectangle in Histogram](https://github.com/doocs/leetcode/tree/master/solution/084.Largest%20Rectangle%20in%20Histogram) | `Array`, `Stack` |
 | 145 | [Binary Tree Postorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/145.Binary%20Tree%20Postorder%20Traversal) | `Stack`, `Tree` |
 
 ## Contributions
