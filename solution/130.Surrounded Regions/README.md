@@ -38,7 +38,7 @@ class Solution {
         int x;
         int y;
 
-        public Point(int x, int y) {
+        Point(int x, int y) {
             this.x = x;
             this.y = y;
         }
@@ -91,9 +91,8 @@ class Solution {
 
         while (!queue.isEmpty()) {
             Point p = queue.poll();
-            // 获取下一层所有有效坐标点
+            // 获取下一层所有有效坐标点，并加入队列
             List<Point> points = getNextLevelValidPoints(board, p.x, p.y);
-
             for (Point point : points) {
                 queue.offer(point);
             }
@@ -132,7 +131,7 @@ class Solution {
         int m = board.length;
         int n = board[0].length;
         // 当前坐标对应的值是'O'，才算有效
-        return (i < 0 || i > m - 1 || j < 0 || j > n - 1 || board[i][j] != 'O') ? false : true;
+        return i >= 0 && i <= m - 1 && j >= 0 && j <= n - 1 && board[i][j] == 'O';
     }
 
 }
