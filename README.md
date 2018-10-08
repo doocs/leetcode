@@ -61,6 +61,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 102 | [Binary Tree Level Order Traversal](https://github.com/doocs/leetcode/tree/master/solution/102.Binary%20Tree%20Level%20Order%20Traversal) | `Tree`, `Breadth-first Search` |
 | 127 | [Word Ladder](https://github.com/doocs/leetcode/tree/master/solution/127.Word%20Ladder) | `Breadth-first Search` |
 | 130 | [Surrounded Regions](https://github.com/doocs/leetcode/tree/master/solution/130.Surrounded%20Regions) | `Depth-first Search`, `Breadth-first Search`, `Union Find` |
+| 137 | [Single Number II](https://github.com/doocs/leetcode/tree/master/solution/137.Single%20Number%20II) | `Bit Manipulation` |
 | 144 | [Binary Tree Preorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/144.Binary%20Tree%20Preorder%20Traversal) | `Stack`, `Tree` |
 | 150 | [Evaluate Reverse Polish Notation](https://github.com/doocs/leetcode/tree/master/solution/150.Evaluate%20Reverse%20Polish%20Notation) | `Stack` |
 | 153 | [Find Minimum in Rotated Sorted Array](https://github.com/doocs/leetcode/tree/master/solution/153.Find%20Minimum%20in%20Rotated%20Sorted%20Array) | `Array`, `Binary Search` |
