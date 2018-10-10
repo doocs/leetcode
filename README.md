@@ -21,6 +21,7 @@ Complete solutions to Leetcode problems, updated daily.
 |---|---|---|
 | 001 | [Two Sum](https://github.com/doocs/leetcode/tree/master/solution/001.Two%20Sum) | `Array`, `Hash Table` |
 | 007 | [Reverse Integer](https://github.com/doocs/leetcode/tree/master/solution/007.Reverse%20Integer) | `Math` |
+| 009 | [Palindrome Number](https://github.com/doocs/leetcode/tree/master/solution/009.Palindrome%20Number) | `Math` |
 | 013 | [Roman to Integer](https://github.com/doocs/leetcode/tree/master/solution/013.Roman%20to%20Integer) | `Math`, `String` |
 | 014 | [Longest Common Prefix](https://github.com/doocs/leetcode/tree/master/solution/014.Longest%20Common%20Prefix) | `String` |
 | 020 | [Valid Parentheses](https://github.com/doocs/leetcode/tree/master/solution/020.Valid%20Parentheses) | `String`, `Stack` |
