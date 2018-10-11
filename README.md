@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/Lang-Java%2FPython%2FJS%2FCPP%2FGo%2F...-blue.svg" alt="Language"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/lang-Java%2FPython%2FRuby%2FCPP%2FJS%2FGo...-blue.svg" alt="Language"></a>
   <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome"></a>
   <a href="https://github.com/doocs/leetcode/issues"><img src="https://img.shields.io/github/issues/doocs/leetcode.svg" alt="issues"></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode.svg" alt="stars"></a>
