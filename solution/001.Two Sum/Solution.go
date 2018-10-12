@@ -1,7 +1,4 @@
-package main
-
 func twoSum(nums []int, target int) []int {
-
 	var numsMap map[int]int
 	numsMap = make(map[int]int)
 	for i := 0; i < len(nums); i++ {
@@ -12,5 +9,4 @@ func twoSum(nums []int, target int) []int {
 		numsMap[nums[i]] = i
 	}
 	return nil
-
 }
