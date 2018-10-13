@@ -15,7 +15,8 @@ Complete solutions to Leetcode problems, updated daily.
 
 ## Solution List
 
-### Easy
+<detail>
+<summary><b>Easy</b></summary>
 
 | # | Title | Tags |
 |---|---|---|
@@ -40,8 +41,11 @@ Complete solutions to Leetcode problems, updated daily.
 | 703 | [Kth Largest Element in a Stream](https://github.com/doocs/leetcode/tree/master/solution/703.Kth%20Largest%20Element%20in%20a%20Stream) | `Heap` |
 | 876 | [Middle of the Linked List](https://github.com/doocs/leetcode/tree/master/solution/876.Middle%20of%20the%20Linked%20List) | `Linked List` |
 
+</detail>
 
-### Medium
+
+<detail>
+<summary><b>Medium</b></summary>
 
 | # | Title | Tags |
 |---|---|---|
@@ -52,6 +56,7 @@ Complete solutions to Leetcode problems, updated daily.
 | 031 | [Next Permutation](https://github.com/doocs/leetcode/tree/master/solution/031.Next%20Permutation) | `Array` |
 | 046 | [Permutations](https://github.com/doocs/leetcode/tree/master/solution/046.Permutations) | `Backtracking` |
 | 047 | [Permutations II](https://github.com/doocs/leetcode/tree/master/solution/047.Permutations%20II) | `Backtracking` |
+| 061 | [Rotate List](https://github.com/doocs/leetcode/tree/master/solution/061.Rotate%20List) | `Linked List`, `Two Pointers` |
 | 062 | [Unique Paths](https://github.com/doocs/leetcode/tree/master/solution/062.Unique%20Paths) | `Array`, `Dynamic Programming` |
 | 063 | [Unique Paths II](https://github.com/doocs/leetcode/tree/master/solution/063.Unique%20Paths%20II) | `Array`, `Dynamic Programming` |
 | 075 | [Sort Colors](https://github.com/doocs/leetcode/tree/master/solution/075.Sort%20Colors) | `Array`, `Two Pointers`, `Sort` |
@@ -67,8 +72,10 @@ Complete solutions to Leetcode problems, updated daily.
 | 150 | [Evaluate Reverse Polish Notation](https://github.com/doocs/leetcode/tree/master/solution/150.Evaluate%20Reverse%20Polish%20Notation) | `Stack` |
 | 153 | [Find Minimum in Rotated Sorted Array](https://github.com/doocs/leetcode/tree/master/solution/153.Find%20Minimum%20in%20Rotated%20Sorted%20Array) | `Array`, `Binary Search` |
 
+</detail>
 
-### Hard
+<detail>
+<summary><b>Hard</b></summary>
 
 | # | Title | Tags |
 |---|---|---|
@@ -77,6 +84,8 @@ Complete solutions to Leetcode problems, updated daily.
 | 084 | [Largest Rectangle in Histogram](https://github.com/doocs/leetcode/tree/master/solution/084.Largest%20Rectangle%20in%20Histogram) | `Array`, `Stack` |
 | 145 | [Binary Tree Postorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/145.Binary%20Tree%20Postorder%20Traversal) | `Stack`, `Tree` |
 | 295 | [Find Median from Data Stream](https://github.com/doocs/leetcode/tree/master/solution/295.Find%20Median%20from%20Data%20Stream) | `Heap`, `Design` |
+
+</detail>
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me PRs if you're interested! See the following:
