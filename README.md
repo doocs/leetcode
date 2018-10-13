@@ -11,12 +11,11 @@
 </p>
 
 ## Introduction
-Complete solutions to Leetcode problems, updated daily.
+Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to Leetcode problems, [updated daily](https://github.com/doocs/leetcode/projects/1).
 
 ## Solution List
 
-<detail>
-<summary><b>Easy</b></summary>
+### Easy
 
 | # | Title | Tags |
 |---|---|---|
@@ -41,11 +40,8 @@ Complete solutions to Leetcode problems, updated daily.
 | 703 | [Kth Largest Element in a Stream](https://github.com/doocs/leetcode/tree/master/solution/703.Kth%20Largest%20Element%20in%20a%20Stream) | `Heap` |
 | 876 | [Middle of the Linked List](https://github.com/doocs/leetcode/tree/master/solution/876.Middle%20of%20the%20Linked%20List) | `Linked List` |
 
-</detail>
 
-
-<detail>
-<summary><b>Medium</b></summary>
+### Medium
 
 | # | Title | Tags |
 |---|---|---|
@@ -71,11 +67,10 @@ Complete solutions to Leetcode problems, updated daily.
 | 144 | [Binary Tree Preorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/144.Binary%20Tree%20Preorder%20Traversal) | `Stack`, `Tree` |
 | 150 | [Evaluate Reverse Polish Notation](https://github.com/doocs/leetcode/tree/master/solution/150.Evaluate%20Reverse%20Polish%20Notation) | `Stack` |
 | 153 | [Find Minimum in Rotated Sorted Array](https://github.com/doocs/leetcode/tree/master/solution/153.Find%20Minimum%20in%20Rotated%20Sorted%20Array) | `Array`, `Binary Search` |
+| 328 | [Odd Even Linked List](https://github.com/doocs/leetcode/tree/master/solution/328.Odd%20Even%20Linked%20List) | `Linked List` |
 
-</detail>
 
-<detail>
-<summary><b>Hard</b></summary>
+### Hard
 
 | # | Title | Tags |
 |---|---|---|
@@ -85,10 +80,9 @@ Complete solutions to Leetcode problems, updated daily.
 | 145 | [Binary Tree Postorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/145.Binary%20Tree%20Postorder%20Traversal) | `Stack`, `Tree` |
 | 295 | [Find Median from Data Stream](https://github.com/doocs/leetcode/tree/master/solution/295.Find%20Median%20from%20Data%20Stream) | `Heap`, `Design` |
 
-</detail>
 
 ## Contributions
-I'm looking for long-term contributors/partners to this repo! Send me PRs if you're interested! See the following:
+I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
 - Fork this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
 - Submit a pull request with your changes!
 
