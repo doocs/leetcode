@@ -69,6 +69,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 130 | [Surrounded Regions](https://github.com/doocs/leetcode/tree/master/solution/130.Surrounded%20Regions) | `Depth-first Search`, `Breadth-first Search`, `Union Find` |
 | 137 | [Single Number II](https://github.com/doocs/leetcode/tree/master/solution/137.Single%20Number%20II) | `Bit Manipulation` |
 | 142 | [Linked List Cycle II](https://github.com/doocs/leetcode/tree/master/solution/142.Linked%20List%20Cycle%20II) | `Linked List`, `Two Pointers` |
+| 143| [Reorder List](https://github.com/doocs/leetcode/tree/master/solution/143.Reorder%20List) | `Linked List` |
 | 144 | [Binary Tree Preorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/144.Binary%20Tree%20Preorder%20Traversal) | `Stack`, `Tree` |
 | 150 | [Evaluate Reverse Polish Notation](https://github.com/doocs/leetcode/tree/master/solution/150.Evaluate%20Reverse%20Polish%20Notation) | `Stack` |
 | 153 | [Find Minimum in Rotated Sorted Array](https://github.com/doocs/leetcode/tree/master/solution/153.Find%20Minimum%20in%20Rotated%20Sorted%20Array) | `Array`, `Binary Search` |
