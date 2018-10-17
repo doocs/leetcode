@@ -60,6 +60,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 031 | [Next Permutation](https://github.com/doocs/leetcode/tree/master/solution/031.Next%20Permutation) | `Array` |
 | 046 | [Permutations](https://github.com/doocs/leetcode/tree/master/solution/046.Permutations) | `Backtracking` |
 | 047 | [Permutations II](https://github.com/doocs/leetcode/tree/master/solution/047.Permutations%20II) | `Backtracking` |
+| 054 | [Spiral Matrix](https://github.com/doocs/leetcode/tree/master/solution/054.Spiral%20Matrix) | `Array` |
 | 061 | [Rotate List](https://github.com/doocs/leetcode/tree/master/solution/061.Rotate%20List) | `Linked List`, `Two Pointers` |
 | 062 | [Unique Paths](https://github.com/doocs/leetcode/tree/master/solution/062.Unique%20Paths) | `Array`, `Dynamic Programming` |
 | 063 | [Unique Paths II](https://github.com/doocs/leetcode/tree/master/solution/063.Unique%20Paths%20II) | `Array`, `Dynamic Programming` |
