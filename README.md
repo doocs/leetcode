@@ -41,6 +41,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 235 | [Lowest Common Ancestor of a Binary Search Tree](https://github.com/doocs/leetcode/tree/master/solution/235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree) | `Tree` |
 | 237 | [Delete Node in a Linked List](https://github.com/doocs/leetcode/tree/master/solution/237.Delete%20Node%20in%20a%20Linked%20List) | `Linked List` |
 | 344 | [Reverse String](https://github.com/doocs/leetcode/tree/master/solution/344.Reverse%20String) | `Two Pointers`, `String` |
+| 581 | [Shortest Unsorted Continuous Subarray](https://github.com/doocs/leetcode/tree/master/solution/581.Shortest%20Unsorted%20Continuous%20Subarray) | `Array` |
 | 695 | [Max Area of Island](https://github.com/doocs/leetcode/tree/master/solution/695.Max%20Area%20of%20Island) | `Array`, `Depth-first Search` |
 | 703 | [Kth Largest Element in a Stream](https://github.com/doocs/leetcode/tree/master/solution/703.Kth%20Largest%20Element%20in%20a%20Stream) | `Heap` |
 | 707 | [Design Linked List](https://github.com/doocs/leetcode/tree/master/solution/707.Design%20Linked%20List) | `Linked List`, `Design` |
