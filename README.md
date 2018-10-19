@@ -42,6 +42,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 237 | [Delete Node in a Linked List](https://github.com/doocs/leetcode/tree/master/solution/237.Delete%20Node%20in%20a%20Linked%20List) | `Linked List` |
 | 344 | [Reverse String](https://github.com/doocs/leetcode/tree/master/solution/344.Reverse%20String) | `Two Pointers`, `String` |
 | 581 | [Shortest Unsorted Continuous Subarray](https://github.com/doocs/leetcode/tree/master/solution/581.Shortest%20Unsorted%20Continuous%20Subarray) | `Array` |
+| 595 | [Big Countries](https://github.com/doocs/leetcode/tree/master/solution/595.Big%20Countries) | `SQL` |
 | 605 | [Can Place Flowers](https://github.com/doocs/leetcode/tree/master/solution/605.Can%20Place%20Flowers) | `Array` |
 | 695 | [Max Area of Island](https://github.com/doocs/leetcode/tree/master/solution/695.Max%20Area%20of%20Island) | `Array`, `Depth-first Search` |
 | 703 | [Kth Largest Element in a Stream](https://github.com/doocs/leetcode/tree/master/solution/703.Kth%20Largest%20Element%20in%20a%20Stream) | `Heap` |
@@ -100,6 +101,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
 - Fork this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
+- Add or update file of the repository, then commit and push it to your GitHub repository.
 - Submit a pull request with your changes!
 
 ![how-to-contribute](http://p9ucdlghd.bkt.clouddn.com/how-to-contribute-yanglbme.png)
