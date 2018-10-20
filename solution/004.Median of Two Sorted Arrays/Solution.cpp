@@ -15,6 +15,7 @@ public:
 				it1++;
 			}
 		}
+		
 		while (it1 != nums1.end()) {
 			nums[index++] = *it1;
 			it1++;
