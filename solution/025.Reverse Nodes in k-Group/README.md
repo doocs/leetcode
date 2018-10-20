@@ -47,7 +47,7 @@ class Solution {
             if(num >= k) {
                 num = 0;
                 ListNode tempNode = pNode.next;
-                reserver(lastNode.next, k);
+                reverse(lastNode.next, k);
 				// k 个节点的尾节点指向下一组的头节点
                 lastNode.next.next = tempNode;	
 				// 上一组的尾节点指向当前 k 个节点的头节点				
@@ -64,11 +64,11 @@ class Solution {
         return reNode.next;
     }
 
-    private ListNode reserver(ListNode node, int i) {
+    private ListNode reverse(ListNode node, int i) {
         if(i <= 1 || node.next == null) {
             return node;
         }
-        ListNode lastNode = reserver(node.next, i - 1);
+        ListNode lastNode = reverse(node.next, i - 1);
         lastNode.next = node;
         return node;
     }
