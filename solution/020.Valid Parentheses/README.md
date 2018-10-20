@@ -42,10 +42,10 @@
 ### 解法
 遍历 string，遇到左括号，压入栈中；遇到右括号，从栈中弹出元素，元素不存在或者元素与该右括号不匹配，返回 false。遍历结束，栈为空则返回 true，否则返回 false。
 
-因为字符串只包含"(){}[]",也可以进行特殊处理，用映射来做
+因为字符串只包含"(){}[]",也可以进行特殊处理，用映射来做。
 
-#### java
-```
+#### Java 版实现
+```java
 class Solution {
     public boolean isValid(String s) {
         if (s == null || s == "") {
@@ -85,8 +85,8 @@ class Solution {
 }
 ```
 
-#### C++
-```
+#### C++ 版实现
+```cpp
 
 class Solution {
 public:
@@ -135,7 +135,7 @@ public:
     }
 };
 
-//特殊
+// 特殊
 class Solution {
 public:
     bool isValid(string s) {
