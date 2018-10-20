@@ -1,4 +1,6 @@
-# How to contribute to doocs/leetcode project
+# Contribute to doocs/leetcode project
+
+![hardcore-forking-yanglbme](http://p9ucdlghd.bkt.clouddn.com/hardcore-forking-yanglbme.gif)
 
 由于此前不少小伙伴跑来问我要怎么参与这个项目，他们还没有在 GitHub 上搞过这种团队合作项目，对整个流程不太熟悉。因此，我实际操作了一遍，写下了这个教程，希望可以帮助到那些想要参与进来却不太熟悉操作的小伙伴们，让你们能够快速入门😄~
 
