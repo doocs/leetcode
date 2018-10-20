@@ -108,6 +108,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 - Fork this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
 - Add or update file of the repository, then commit and push it to your GitHub repository.
 - Submit a pull request with your changes!
+- For more details, see [CONTRIBUTING.md](https://github.com/doocs/leetcode/blob/master/.github/CONTRIBUTING.md)
 
 ![how-to-contribute](http://p9ucdlghd.bkt.clouddn.com/how-to-contribute-yanglbme.png)
 
@@ -118,6 +119,6 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 | <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="80px;"/>](https://github.com/yanglbme) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/23625436?v=4" width="80px;"/>](https://github.com/chakyam) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/10081554?v=4" width="80px;"/>](https://github.com/zhkmxx9302013) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/40383345?v=4" width="80px;"/>](https://github.com/MarkKuang1991) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/12371194?v=4" width="80px;"/>](https://github.com/fonxian) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/25222367?v=4" width="80px;"/>](https://github.com/zhanary) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/42396616?v=4" width="80px;"/>](https://github.com/ZhouTingZhaobiu) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/31923541?v=4" width="80px;"/>](https://github.com/zouwx2cs) </center> |
 |---|---|---|---|---|---|---|---|
-| <center> [<img src="https://avatars3.githubusercontent.com/u/20679510?v=4" width="80px;"/>](https://github.com/Mrzhudky) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/44309823?v=4" width="80px;"/>](https://github.com/KongJHong) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/18181519?v=4" width="80px;"/>](https://github.com/limbowandering) </center> |
+| <center> [<img src="https://avatars3.githubusercontent.com/u/20679510?v=4" width="80px;"/>](https://github.com/Mrzhudky) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/44309823?v=4" width="80px;"/>](https://github.com/KongJHong) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/18181519?v=4" width="80px;"/>](https://github.com/limbowandering) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/37685012?v=4" width="80px;"/>](https://github.com/jxdeng3989) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/44314231?v=4" width="80px;"/>](https://github.com/igayhub) </center> |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
