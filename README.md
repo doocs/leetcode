@@ -88,6 +88,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 150 | [Evaluate Reverse Polish Notation](https://github.com/doocs/leetcode/tree/master/solution/150.Evaluate%20Reverse%20Polish%20Notation) | `Stack` |
 | 153 | [Find Minimum in Rotated Sorted Array](https://github.com/doocs/leetcode/tree/master/solution/153.Find%20Minimum%20in%20Rotated%20Sorted%20Array) | `Array`, `Binary Search` |
 | 177 | [Nth Highest Salary](https://github.com/doocs/leetcode/tree/master/solution/177.Nth%20Highest%20Salary) | `SQL` |
+| 178 | [Rank Scores](https://github.com/doocs/leetcode/tree/master/solution/178.Rank%20Scores) | `SQL` |
 | 328 | [Odd Even Linked List](https://github.com/doocs/leetcode/tree/master/solution/328.Odd%20Even%20Linked%20List) | `Linked List` |
 
 
