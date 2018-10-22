@@ -51,6 +51,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 595 | [Big Countries](https://github.com/doocs/leetcode/tree/master/solution/595.Big%20Countries) | `SQL` |
 | 596 | [Classes More Than 5 Students](https://github.com/doocs/leetcode/tree/master/solution/596.Classes%20More%20Than%205%20Students) | `SQL` |
 | 605 | [Can Place Flowers](https://github.com/doocs/leetcode/tree/master/solution/605.Can%20Place%20Flowers) | `Array` |
+| 627 | [Swap Salary](https://github.com/doocs/leetcode/tree/master/solution/627.Swap%20Salary) | `SQL` |
 | 695 | [Max Area of Island](https://github.com/doocs/leetcode/tree/master/solution/695.Max%20Area%20of%20Island) | `Array`, `Depth-first Search` |
 | 703 | [Kth Largest Element in a Stream](https://github.com/doocs/leetcode/tree/master/solution/703.Kth%20Largest%20Element%20in%20a%20Stream) | `Heap` |
 | 707 | [Design Linked List](https://github.com/doocs/leetcode/tree/master/solution/707.Design%20Linked%20List) | `Linked List`, `Design` |
