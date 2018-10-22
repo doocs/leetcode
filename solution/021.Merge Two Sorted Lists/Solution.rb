@@ -11,29 +11,15 @@
 # @param {ListNode} l2
 # @return {ListNode}
 def merge_two_lists(l1, l2)
-  return l1 if l2.nil?
-  return l2 if l1.nil?
-
-  head = ListNode.new(0)
-  temp = head
-
-  until l1.nil? && l2.nil?
-    if l1.nil?
-      head.next = l2
-      break
-    elsif l2.nil?
-      head.next = l1
-      break
-    elsif l1.val < l2.val
-      head.next = ListNode.new(l1.val)
-      head = head.next
-      l1 = l1.next
-    else
-      head.next = ListNode.new(l2.val)
-      head = head.next
-      l2 = l2.next
-    end
+  if l1.nil?
+    l2
+  elsif l2.nil?
+    l1
+  elsif l1.val < l2.val
+    l1.next = merge_two_lists(l1.next, l2)
+    l1
+  else
+    l2.next = merge_two_lists(l1, l2.next)
+    l2
   end
-  temp.next
 end
-
