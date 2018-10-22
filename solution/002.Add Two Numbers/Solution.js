@@ -12,7 +12,7 @@
  */
 var addTwoNumbers = function(l1, l2) {
   var c1 = l1,c2 = l2,c3,l3,carry = 0;
-  while(c1||c2||carry){
+  while(c1 || c2 || carry){
       var v1 = 0,v2 = 0;
       if(c1){
           v1 = c1.val;
@@ -23,7 +23,7 @@ var addTwoNumbers = function(l1, l2) {
           c2 = c2.next;
       }
       var sum = v1 + v2 + carry;
-      carry = (sum - sum%10)/10;
+      carry = (sum - sum % 10) / 10;
       if(!c3){
           l3 = new ListNode(sum%10);
           c3 = l3;
