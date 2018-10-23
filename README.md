@@ -40,6 +40,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 182 | [Duplicate Emails](https://github.com/doocs/leetcode/tree/master/solution/182.Duplicate%20Emails) | `SQL` |
 | 183 | [Customers Who Never Order](https://github.com/doocs/leetcode/tree/master/solution/183.Customers%20Who%20Never%20Order) | `SQL` |
 | 189 | [Rotate Array](https://github.com/doocs/leetcode/tree/master/solution/189.Rotate%20Array) | `Array` |
+| 196 | [Delete Duplicate Emails](https://github.com/doocs/leetcode/tree/master/solution/196.Delete%20Duplicate%20Emails) | `SQL` |
 | 198 | [House Robber](https://github.com/doocs/leetcode/tree/master/solution/198.House%20Robber) | `Dynamic Programming` |
 | 203 | [Remove Linked List Elements](https://github.com/doocs/leetcode/tree/master/solution/203.Remove%20Linked%20List%20Elements) | `Linked List` |
 | 231 | [Power of Two](https://github.com/doocs/leetcode/tree/master/solution/231.Power%20of%20Two) | `Math`, `Bit Manipulation` |
