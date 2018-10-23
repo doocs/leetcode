@@ -21,6 +21,7 @@
 │   │   ├── README.md
 │   │   ├── Solution.cpp
 │   │   ├── Solution.java
+│   │   ├── Solution.js
 │   │   ├── Solution.py
 │   │   └── Solution.rb
 │   ├── 003.Longest Substring Without Repeating Characters
@@ -77,6 +78,7 @@
 │   │   ├── README.md
 │   │   ├── Solution.cpp
 │   │   ├── Solution.java
+│   │   ├── Solution.js
 │   │   ├── Solution.py
 │   │   └── Solution.rb
 │   ├── 021.Merge Two Sorted Lists
@@ -92,7 +94,8 @@
 │   ├── 024.Swap Nodes in Pairs
 │   │   ├── README.md
 │   │   ├── Solution.java
-│   │   └── Solution.py
+│   │   ├── Solution.py
+│   │   └── Solution.rb
 │   ├── 025.Reverse Nodes in k-Group
 │   │   ├── README.md
 │   │   └── Solution.java
@@ -103,6 +106,9 @@
 │   │   ├── README.md
 │   │   └── Solution.java
 │   ├── 028.Implement strStr()
+│   │   ├── README.md
+│   │   └── Solution.java
+│   ├── 029.Divide Two Integers
 │   │   ├── README.md
 │   │   └── Solution.java
 │   ├── 031.Next Permutation
@@ -213,6 +219,9 @@
 │   ├── 145.Binary Tree Postorder Traversal
 │   │   ├── README.md
 │   │   └── Solution.java
+│   ├── 146.Lru Cache
+│   │   ├── README.md
+│   │   └── Solution.java
 │   ├── 150.Evaluate Reverse Polish Notation
 │   │   ├── README.md
 │   │   └── Solution.java
@@ -240,11 +249,18 @@
 │   │   └── README.md
 │   ├── 180.Consecutive Numbers
 │   │   └── README.md
+│   ├── 181.Employees Earning More Than Their Managers
+│   │   └── README.md
+│   ├── 182.Duplicate Emails
+│   │   └── README.md
+│   ├── 183.Customers Who Never Order
+│   │   └── README.md
 │   ├── 189.Rotate Array
 │   │   ├── README.md
 │   │   └── Solution.java
 │   ├── 190.Reverse Bits
-│   │   └── Solution.cpp
+│   │   ├── Solution.cpp
+│   │   └── Solution.js
 │   ├── 191.Number of 1 Bits
 │   │   └── Solution.js
 │   ├── 198.House Robber
@@ -292,6 +308,8 @@
 │   │   └── Solution.cpp
 │   ├── 443.String Compression
 │   │   └── Solution.cpp
+│   ├── 461.Hamming Distance
+│   │   └── Solution.js
 │   ├── 581.Shortest Unsorted Continuous Subarray
 │   │   ├── README.md
 │   │   ├── Solution.cpp
@@ -304,6 +322,8 @@
 │   │   ├── README.md
 │   │   ├── Solution.cpp
 │   │   └── Solution.java
+│   ├── 627.Swap Salary
+│   │   └── README.md
 │   ├── 695.Max Area of Island
 │   │   ├── README.md
 │   │   ├── Solution.cpp
@@ -325,6 +345,4 @@
 │   └── 926.Flip String to Monotone Increasing
 │       └── Solution.js
 └── SOLUTION_TREE.md
-
-
 ```
