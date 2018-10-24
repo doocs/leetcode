@@ -83,6 +83,21 @@ class Solution {
 #### CPP
 
 ```C++
+class compare
+{
+public:
+    bool operator()(ListNode *l1,ListNode *l2){
+        //if(!l1 || !l2)
+          //  return !l1;
+
+        if(l1 == NULL)return 1;
+        if(l2 == NULL)return 0;
+        return l1->val > l2->val;
+        //这里比较的是优先级，默认优先级排序是“<”号，若 l1Val > l2Val 返回真，即表示l1优先级比l2小,l2先入队
+        //队列的top()函数指的就是优先级最高的元素，即队头元素
+    }
+};
+
 class Solution{
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
