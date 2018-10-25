@@ -9,30 +9,14 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        if(head==NULL||head->next==NULL)
+        if(head==NULL||head->next==NULL)//递归的最小情况，链表为空，或者长度为1，直接返回
             return head;
-        ListNode *real_head=head->next;
-        
-        
-        ListNode * tw=head->next;
-        head->next=head->next->next;
-        tw->next=head;
-        ListNode *tail=head;
-        head=tw->next->next;
-        while(head!=NULL&&head->next!=NULL)
-        {
-            tw=head->next;
-            head->next=head->next->next;
-            tw->next=head;
-            tail->next=tw;
-            tail=head;
-            head=tw->next->next;
-        }
-        return real_head;
+        ListNode *temp=head->next;//定义temp为head->next的node
+        ListNode *nextChain=swapPairs(head->next->next);//递归调用得到head->next->next链表交换结果
+        head->next=nextChain;//head的next指向递归后的结果
+        temp->next=head;//temp也就是之前的head->next节点指向head,那么现在的head为temp
+        return temp;
     }
-
-
 };
-
-
+        
 
