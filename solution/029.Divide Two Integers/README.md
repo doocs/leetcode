@@ -4,6 +4,7 @@
 
 返回被除数 dividend 除以除数 divisor 得到的商。
 
+```
 示例 1:
 
 输入: dividend = 10, divisor = 3
@@ -13,6 +14,7 @@
 
 输入: dividend = 7, divisor = -3
 输出: -2
+```
 
 说明:
 
