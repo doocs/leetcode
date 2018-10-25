@@ -15,7 +15,7 @@ var reverse = function(x) {
   }
   let a = x.toString();
   let len = a.length,b='';
-  for(let i = len - 1;i >= 0;i--)b+=a[i];
+  for(let i = len - 1;i >= 0;i--)b += a[i];
   b = sign * Number(b);
   if(b > max || b < min) return 0;
   return b;
