@@ -38,6 +38,7 @@
 
 除此之外还可用二分法做解。
 
+
 ```java
 class Solution {
     public int searchInsert(int[] nums, int target) {
@@ -92,6 +93,19 @@ class Solution {
 ```
 
 #### CPP
+
+思路1：
+
+1. 先调函数查找是否存在target元素
+2. 若存在，用二分法进行查找，或者顺序遍历
+3. 若不存在，则顺序遍历插入
+
+时间复杂度O(log2(n))~O(n)
+
+思路2：
+ 1. 直接顺序遍历---需要点取巧，下标比nums长度小，nums[p]元素要比targat小
+
+ 时间复杂度O(n)
 
 ```CPP
 class Solution {
