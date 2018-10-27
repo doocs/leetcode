@@ -4,18 +4,23 @@
 
 注意子串要与 words 中的单词完全匹配，中间不能有其他字符，但不需要考虑 words 中单词串联的顺序。
 
-```
-示例 1:
 
+**示例** 1:
+```
 输入:
+
   s = "barfoothefoobarman",
   words = ["foo","bar"]
+
 输出: [0,9]
 解释: 从索引 0 和 9 开始的子串分别是 "barfoor" 和 "foobar" 。
 输出的顺序不重要, [9,0] 也是有效答案。
-示例 2:
+```
 
+**示例** 2:
+```
 输入:
+
   s = "wordgoodstudentgoodword",
   words = ["word","good","good"] 
   (ps:原题的例子为 words = ["word","student"] 和题目描述不符，这里私自改了一下)
@@ -44,8 +49,8 @@ class Solution {
         }
         if(s.length() == 0 || words[0].length() == 0 || s.length() < words.length * words[0].length()) {
             return re;
-        }
-		// 用< 单词，出现次数 > 来存储 words 中的元素，方便查找
+        }  
+		// 用< 单词，出现次数 > 来存储 words 中的元素，方便查找    
         HashMap<String,Integer> map = new HashMap();
         for (String string : words) {
             map.put(string, map.getOrDefault(string,0) + 1);
@@ -58,12 +63,12 @@ class Solution {
             for (int j = i; j <= strLen - len - lastStart; j += len) {
                 String tempStr = s.substring(j, j + len);
                 if(map.containsKey(tempStr)) {                    
-                    HashMap<String,Integer> searched = new HashMap<>();
-					// 从后向前依次对比
+                    HashMap<String,Integer> searched = new HashMap<>();  
+					// 从后向前依次对比  
 					int tempIndex = j + lastStart;
-                    String matchedStr = s.substring(tempIndex, tempIndex + len);
-                    while (tempIndex >= j && map.containsKey(matchedStr)) {
-                        // 正确匹配到单词
+                    String matchedStr = s.substring(tempIndex, tempIndex + len);  
+                    while (tempIndex >= j && map.containsKey(matchedStr)) {  
+                        // 正确匹配到单词  
                         if(searched.getOrDefault(matchedStr,0) < map.get(matchedStr)) {
                             searched.put(matchedStr, searched.getOrDefault(matchedStr,0) + 1);
                         }
@@ -75,12 +80,12 @@ class Solution {
                             break;
                         }
                         matchedStr = s.substring(tempIndex, tempIndex + len);
-                    }
-					// 完全匹配所以单词
-                    if(j > tempIndex) {
+                    }  
+					// 完全匹配所以单词  
+                    if(j > tempIndex) {  
                         re.add(j);
-                    }
-					// 从tempIndex 到 tempIndex + len 这个单词不能正确匹配
+                    }  
+					// 从tempIndex 到 tempIndex + len 这个单词不能正确匹配  
                     else {
                         j = tempIndex;
                     }
