@@ -8,7 +8,7 @@ class Solution {
         }
         if(s.length() == 0 || words[0].length() == 0 || s.length() < words.length * words[0].length()) {
             return re;
-        }  
+        }
 		// 用< 单词，出现次数 > 来存储 words 中的元素，方便查找
         HashMap<String,Integer> map = new HashMap();
         for (String string : words) {
@@ -22,7 +22,7 @@ class Solution {
             for (int j = i; j <= strLen - len - lastStart; j += len) {
                 String tempStr = s.substring(j, j + len);
                 if(map.containsKey(tempStr)) {                    
-                    HashMap<String,Integer> searched = new HashMap<>();  
+                    HashMap<String,Integer> searched = new HashMap<>();
 					// 从后向前依次对比    
 					int tempIndex = j + lastStart;  
                     String matchedStr = s.substring(tempIndex, tempIndex + len);
