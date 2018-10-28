@@ -1,4 +1,4 @@
-#time 32ms
+#time 32ms with python2
 class Solution(object):
     def twoSum(self, nums, target):
         buff = {}
