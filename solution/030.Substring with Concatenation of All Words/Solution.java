@@ -23,8 +23,8 @@ class Solution {
                 String tempStr = s.substring(j, j + len);
                 if(map.containsKey(tempStr)) {                    
                     HashMap<String,Integer> searched = new HashMap<>();
-					// 从后向前依次对比
-					int tempIndex = j + lastStart;
+					// 从后向前依次对比    
+					int tempIndex = j + lastStart;  
                     String matchedStr = s.substring(tempIndex, tempIndex + len);
                     while (tempIndex >= j && map.containsKey(matchedStr)) {
                         // 正确匹配到单词
@@ -39,11 +39,11 @@ class Solution {
                             break;
                         }
                         matchedStr = s.substring(tempIndex, tempIndex + len);
-                    }
-					// 完全匹配所以单词
+                    }  
+					// 完全匹配所以单词  
                     if(j > tempIndex) {
                         re.add(j);
-                    }
+                    }  
 					// 从tempIndex 到 tempIndex + len 这个单词不能正确匹配
                     else {
                         j = tempIndex;
