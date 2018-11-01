@@ -28,6 +28,16 @@ cur 从 0 开始遍历：
 - 若 nums[cur] == 1，++cur；
 - 若 nums[cur] == 2，则与 q 的前一个位置的元素互换，q-1，cur不变。
 
+### 解法2
+
+因为排序元素的类型有限而且不多，比较直观的方法是使用计数排序，就是创建一个包含所有类型的数组`（如创建数组count[3],count[0]=k表示类型是“0”的元素有k个）`，利用下标作为统计标识，在对应下标元素上+-
+
+1. 创建一个含有3个元素的数组并初始化为0 `count[3] = {0}`
+2. 遍历nums，在`count`数组对应数字下+1
+3. 利用计数数组对nums重新赋值
+
+#### Java(解法1)
+
 ```java
 class Solution {
     public void sortColors(int[] nums) {
@@ -51,4 +61,30 @@ class Solution {
         nums[j] = t;
     }
 }
+```
+
+#### CPP(解法2)
+
+```
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        if(nums.empty())return ;
+        
+        int count[3] = {0};
+        size_t len = nums.size();
+        
+        for(int i = 0;i<len;i++){
+            count[nums[i]]++;
+        }
+        int index = 0;
+        for(int i = 0;i<3;i++){
+            while(count[i] != 0){
+                nums[index++] = i;
+                count[i]--;
+            }
+        }   
+    }
+};
+
 ```
