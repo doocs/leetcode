@@ -11,5 +11,5 @@ class Solution2:
         while i < len(nums):
             for j in range(Count[color]):
                 nums[i] = color
-                i+=1
-            color+=1
+                i += 1
+            color += 1
