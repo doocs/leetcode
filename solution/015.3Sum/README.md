@@ -17,6 +17,8 @@
 ### 解法
 先对数组进行排序，遍历数组，固定第一个数i。利用两个指针 p, q 分别指示 i+1, n-1。如果三数之和为0，移动 p, q；如果大于 0，左移 q；如果小于 0，右移 p。遍历到 nums[i] > 0 时，退出循环。
 
+还要注意过滤重复元素
+
 ```java
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -64,4 +66,49 @@ class Solution {
     }
     
 }
+```
+
+#### CPP
+
+```CPP
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        
+        vector<vector<int>> ans;
+        
+        int sum;
+        int len = nums.size();
+        int left,right;
+        for(int i = 0; i< len;i++){
+            left = i + 1;
+            right = len - 1;
+            while(left < right){
+                sum = nums[i] + nums[left] + nums[right];
+                if(sum == 0){
+                    vector<int> vec;
+                    vec.push_back(nums[i]);
+                    vec.push_back(nums[left]);
+                    vec.push_back(nums[right]);
+                    ans.push_back(vec);
+                    
+                    while(left < right && nums[left] == nums[left + 1])left++;
+                    while(left < right && nums[right] == nums[right - 1])right--;
+                    
+                    left++;
+                    right--;
+                    
+                }
+                if(sum > 0)right--;
+                if(sum < 0)left++;
+            }
+            
+            while(i<len-1 && nums[i] == nums[i+1])i++;
+        }
+        
+        return ans;
+        
+    }
+};
 ```

@@ -20,12 +20,15 @@
 ```
 
 ### 解法
+#### 思路一
 从前往后遍历 heightss[0...n]：
 
 - 若 heightss[i] > heightss[i - 1]，则将 i 压入栈中；
 - 若 heightss[i] <= heightss[i - 1]，则依次弹出栈，计算栈中能得到的最大矩形面积。
 
 注意，压入栈中的是柱子的索引，而非柱子的高度。（通过索引可以获得高度、距离差）
+
+
 
 ```java
 class Solution {
@@ -64,4 +67,53 @@ class Solution {
         
     }
 }
+```
+
+
+
+**C++版实现：**
+
+```CPP
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        if(heights.empty())return 0;
+        int len = heights.size();
+        
+        stack<int> s_stack;
+        int ans = 0;
+        
+        for(int i = 0;i < len;i++){
+            if(s_stack.empty() || heights[i] >= s_stack.top())
+            {//满足升序条件
+                s_stack.push(heights[i]);
+            }
+            else
+            {//不满足升序
+                int count = 0;
+                while(!s_stack.empty() && s_stack.top() > heights[i])
+                {
+                    count++;
+                    ans = max(ans,s_stack.top() * count);
+                    s_stack.pop();
+                }
+                while(count > 0)
+                {
+                    s_stack.push(heights[i]);
+                    count--;
+                }
+                s_stack.push(heights[i]);
+            }
+        }
+        
+        int count = 1;
+        while(!s_stack.empty()){
+            ans = max(ans,s_stack.top() * count);
+            s_stack.pop();
+            count++;
+        }
+        
+        return ans;
+    }
+};
 ```
