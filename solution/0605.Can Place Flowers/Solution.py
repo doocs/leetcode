@@ -16,5 +16,7 @@ class Solution:
             elif flowerBed[i] == 0 and flowerBed[i-1] == 0 and flowerBed[i+1] == 0:
                 n -= 1
                 flowerBed[i] = 1
-        
+            if n == 0:
+                break
+                
         return n==0
