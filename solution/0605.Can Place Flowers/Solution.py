@@ -5,7 +5,8 @@ class Solution:
         rtype : bool
         """
         
-        for i in range(len(flowerBed)):
+        i = 0
+        while n > 0 and i < len(flowerBed):
             if i == 0 and flowerBed[0] == 0:        # for 1st Element
                 if len(flowerBed) == 1 or (len(flowerBed) > 1 and flowerBed[1] == 0):
                     n -= 1
@@ -16,7 +17,6 @@ class Solution:
             elif flowerBed[i] == 0 and flowerBed[i-1] == 0 and flowerBed[i+1] == 0:
                 n -= 1
                 flowerBed[i] = 1
-            if n == 0:
-                break
+            i += 1
                 
         return n==0
