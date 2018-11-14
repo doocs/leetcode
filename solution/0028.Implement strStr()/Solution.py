@@ -9,8 +9,8 @@ class Solution:
             p = i
             q = 0
             while p < len(haystack) and q < len(needle) and haystack[p] == needle[q]:
-                p+=1
-                q+=1
+                p += 1
+                q += 1
             
             if q == len(needle):
                 return i
