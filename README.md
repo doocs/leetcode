@@ -120,7 +120,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 - Submit a pull request with your changes!
 - For more details, see [CONTRIBUTING.md](https://github.com/doocs/leetcode/blob/master/.github/CONTRIBUTING.md)
 
-![how-to-contribute](http://p9ucdlghd.bkt.clouddn.com/how-to-contribute-yanglbme.png)
+![how-to-contribute](/img/how-to-contribute-yanglbme.png)
 
 ## Contributors
 
