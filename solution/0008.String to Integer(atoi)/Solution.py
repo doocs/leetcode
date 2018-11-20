@@ -18,6 +18,8 @@ class Solution:
         
         Num = 0
         for i in s:
+            if i == '.':
+                break
             Num *= 10
             Num += Digits[i]
         
