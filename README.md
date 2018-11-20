@@ -99,6 +99,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0180 | [Consecutive Numbers](https://github.com/doocs/leetcode/tree/master/solution/0180.Consecutive%20Numbers) | `SQL` |
 | 0184 | [Department Highest Salary](https://github.com/doocs/leetcode/tree/master/solution/0184.Department%20Highest%20Salary) | `SQL` |
 | 0328 | [Odd Even Linked List](https://github.com/doocs/leetcode/tree/master/solution/0328.Odd%20Even%20Linked%20List) | `Linked List` |
+| 0343 | [Integer Break](https://github.com/doocs/leetcode/tree/master/solution/0343.Integer%20Break) | `Math`, `Dynamic Programming` |
 
 
 ### Hard
