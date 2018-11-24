@@ -89,6 +89,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0127 | [Word Ladder](https://github.com/doocs/leetcode/tree/master/solution/0127.Word%20Ladder) | `Breadth-first Search` |
 | 0130 | [Surrounded Regions](https://github.com/doocs/leetcode/tree/master/solution/0130.Surrounded%20Regions) | `Depth-first Search`, `Breadth-first Search`, `Union Find` |
 | 0137 | [Single Number II](https://github.com/doocs/leetcode/tree/master/solution/0137.Single%20Number%20II) | `Bit Manipulation` |
+| 0138 | [Copy List with Random Pointer](https://github.com/doocs/leetcode/tree/master/solution/0138.Copy%20List%20with%20Random%20Pointer) | `Hash Table`, `Linked List` |
 | 0142 | [Linked List Cycle II](https://github.com/doocs/leetcode/tree/master/solution/0142.Linked%20List%20Cycle%20II) | `Linked List`, `Two Pointers` |
 | 0143| [Reorder List](https://github.com/doocs/leetcode/tree/master/solution/0143.Reorder%20List) | `Linked List` |
 | 0144 | [Binary Tree Preorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0144.Binary%20Tree%20Preorder%20Traversal) | `Stack`, `Tree` |
