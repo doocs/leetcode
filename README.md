@@ -85,6 +85,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0086 | [Partition List](https://github.com/doocs/leetcode/tree/master/solution/0086.Partition%20List) | `Linked List`, `Two Pointers` |
 | 0092 | [Reverse Linked List II](https://github.com/doocs/leetcode/tree/master/solution/0092.Reverse%20Linked%20List%20II) | `Linked List` |
 | 0094 | [Binary Tree Inorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0094.Binary%20Tree%20Inorder%20Traversal) | `Hash Table`, `Stack`, `Tree` |
+| 0096 | [Unique Binary Search Trees](https://github.com/doocs/leetcode/tree/master/solution/0096.Unique%20Binary%20Search%20Trees) | `Tree`, `Dynamic Programming` |
 | 0102 | [Binary Tree Level Order Traversal](https://github.com/doocs/leetcode/tree/master/solution/0102.Binary%20Tree%20Level%20Order%20Traversal) | `Tree`, `Breadth-first Search` |
 | 0127 | [Word Ladder](https://github.com/doocs/leetcode/tree/master/solution/0127.Word%20Ladder) | `Breadth-first Search` |
 | 0130 | [Surrounded Regions](https://github.com/doocs/leetcode/tree/master/solution/0130.Surrounded%20Regions) | `Depth-first Search`, `Breadth-first Search`, `Union Find` |
