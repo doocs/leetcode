@@ -114,6 +114,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0084 | [Largest Rectangle in Histogram](https://github.com/doocs/leetcode/tree/master/solution/0084.Largest%20Rectangle%20in%20Histogram) | `Array`, `Stack` |
 | 0145 | [Binary Tree Postorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0145.Binary%20Tree%20Postorder%20Traversal) | `Stack`, `Tree` |
 | 0295 | [Find Median from Data Stream](https://github.com/doocs/leetcode/tree/master/solution/0295.Find%20Median%20from%20Data%20Stream) | `Heap`, `Design` |
+| 0312 | [Burst Balloons](https://github.com/doocs/leetcode/tree/master/solution/0312.Burst%20Balloons) | `Divide and Conquer`, `Dynamic Programming` |
 
 
 ## Contributions
