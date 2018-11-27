@@ -88,6 +88,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0096 | [Unique Binary Search Trees](https://github.com/doocs/leetcode/tree/master/solution/0096.Unique%20Binary%20Search%20Trees) | `Tree`, `Dynamic Programming` |
 | 0102 | [Binary Tree Level Order Traversal](https://github.com/doocs/leetcode/tree/master/solution/0102.Binary%20Tree%20Level%20Order%20Traversal) | `Tree`, `Breadth-first Search` |
 | 0105 | [Construct Binary Tree from Preorder and Inorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal) | `Array`, `Tree`, `Depth-first Search` |
+| 0106 | [Construct Binary Tree from Inorder and Postorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal) | `Array`, `Tree`, `Depth-first Search` |
 | 0127 | [Word Ladder](https://github.com/doocs/leetcode/tree/master/solution/0127.Word%20Ladder) | `Breadth-first Search` |
 | 0130 | [Surrounded Regions](https://github.com/doocs/leetcode/tree/master/solution/0130.Surrounded%20Regions) | `Depth-first Search`, `Breadth-first Search`, `Union Find` |
 | 0137 | [Single Number II](https://github.com/doocs/leetcode/tree/master/solution/0137.Single%20Number%20II) | `Bit Manipulation` |
