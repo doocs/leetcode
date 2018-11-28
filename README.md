@@ -102,6 +102,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0178 | [Rank Scores](https://github.com/doocs/leetcode/tree/master/solution/0178.Rank%20Scores) | `SQL` |
 | 0180 | [Consecutive Numbers](https://github.com/doocs/leetcode/tree/master/solution/0180.Consecutive%20Numbers) | `SQL` |
 | 0184 | [Department Highest Salary](https://github.com/doocs/leetcode/tree/master/solution/0184.Department%20Highest%20Salary) | `SQL` |
+| 0300 | [Longest Increasing Subsequence](https://github.com/doocs/leetcode/tree/master/solution/0300.Longest%20Increasing%20Subsequence) | `Binary Search`, `Dynamic Programming` |
 | 0328 | [Odd Even Linked List](https://github.com/doocs/leetcode/tree/master/solution/0328.Odd%20Even%20Linked%20List) | `Linked List` |
 | 0343 | [Integer Break](https://github.com/doocs/leetcode/tree/master/solution/0343.Integer%20Break) | `Math`, `Dynamic Programming` |
 | 0817 | [Linked List Components](https://github.com/doocs/leetcode/tree/master/solution/0817.Linked%20List%20Components) | `Linked List` |
