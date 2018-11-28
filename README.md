@@ -85,7 +85,10 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0086 | [Partition List](https://github.com/doocs/leetcode/tree/master/solution/0086.Partition%20List) | `Linked List`, `Two Pointers` |
 | 0092 | [Reverse Linked List II](https://github.com/doocs/leetcode/tree/master/solution/0092.Reverse%20Linked%20List%20II) | `Linked List` |
 | 0094 | [Binary Tree Inorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0094.Binary%20Tree%20Inorder%20Traversal) | `Hash Table`, `Stack`, `Tree` |
+| 0096 | [Unique Binary Search Trees](https://github.com/doocs/leetcode/tree/master/solution/0096.Unique%20Binary%20Search%20Trees) | `Tree`, `Dynamic Programming` |
 | 0102 | [Binary Tree Level Order Traversal](https://github.com/doocs/leetcode/tree/master/solution/0102.Binary%20Tree%20Level%20Order%20Traversal) | `Tree`, `Breadth-first Search` |
+| 0105 | [Construct Binary Tree from Preorder and Inorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal) | `Array`, `Tree`, `Depth-first Search` |
+| 0106 | [Construct Binary Tree from Inorder and Postorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal) | `Array`, `Tree`, `Depth-first Search` |
 | 0127 | [Word Ladder](https://github.com/doocs/leetcode/tree/master/solution/0127.Word%20Ladder) | `Breadth-first Search` |
 | 0130 | [Surrounded Regions](https://github.com/doocs/leetcode/tree/master/solution/0130.Surrounded%20Regions) | `Depth-first Search`, `Breadth-first Search`, `Union Find` |
 | 0137 | [Single Number II](https://github.com/doocs/leetcode/tree/master/solution/0137.Single%20Number%20II) | `Bit Manipulation` |
@@ -99,8 +102,10 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0178 | [Rank Scores](https://github.com/doocs/leetcode/tree/master/solution/0178.Rank%20Scores) | `SQL` |
 | 0180 | [Consecutive Numbers](https://github.com/doocs/leetcode/tree/master/solution/0180.Consecutive%20Numbers) | `SQL` |
 | 0184 | [Department Highest Salary](https://github.com/doocs/leetcode/tree/master/solution/0184.Department%20Highest%20Salary) | `SQL` |
+| 0300 | [Longest Increasing Subsequence](https://github.com/doocs/leetcode/tree/master/solution/0300.Longest%20Increasing%20Subsequence) | `Binary Search`, `Dynamic Programming` |
 | 0328 | [Odd Even Linked List](https://github.com/doocs/leetcode/tree/master/solution/0328.Odd%20Even%20Linked%20List) | `Linked List` |
 | 0343 | [Integer Break](https://github.com/doocs/leetcode/tree/master/solution/0343.Integer%20Break) | `Math`, `Dynamic Programming` |
+| 0817 | [Linked List Components](https://github.com/doocs/leetcode/tree/master/solution/0817.Linked%20List%20Components) | `Linked List` |
 | 0938 | [Range Sum of BST](https://github.com/doocs/leetcode/tree/master/solution/0938.Range%20Sum%20of%20BST) | `Binary Search Tree` |
 
 
@@ -114,6 +119,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0084 | [Largest Rectangle in Histogram](https://github.com/doocs/leetcode/tree/master/solution/0084.Largest%20Rectangle%20in%20Histogram) | `Array`, `Stack` |
 | 0145 | [Binary Tree Postorder Traversal](https://github.com/doocs/leetcode/tree/master/solution/0145.Binary%20Tree%20Postorder%20Traversal) | `Stack`, `Tree` |
 | 0295 | [Find Median from Data Stream](https://github.com/doocs/leetcode/tree/master/solution/0295.Find%20Median%20from%20Data%20Stream) | `Heap`, `Design` |
+| 0312 | [Burst Balloons](https://github.com/doocs/leetcode/tree/master/solution/0312.Burst%20Balloons) | `Divide and Conquer`, `Dynamic Programming` |
 
 
 ## Contributions
