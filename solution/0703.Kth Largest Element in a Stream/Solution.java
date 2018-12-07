@@ -1,46 +1,30 @@
 class KthLargest {
 
-    PriorityQueue<Integer> queue;
-
-    private int size = 0;
+    private PriorityQueue<Integer> minHeap;
+    private int size;
 
     public KthLargest(int k, int[] nums) {
+        minHeap = new PriorityQueue<>(k);
         size = k;
-        queue = new PriorityQueue<>(k, Integer::compareTo);
-        int gap = nums.length - k;
-        if (gap > 0) {
-            for (int i = 0; i < k; ++i) {
-                queue.offer(nums[i]);
-            }
-            for (int i = k; i < nums.length; ++i) {
-                add(nums[i]);
-            }
-        } else {
-            for (int i = 0; i < nums.length; ++i) {
-                queue.offer(nums[i]);
-            }
+        for (int e : nums) {
+            add(e);
         }
     }
 
     public int add(int val) {
-        if (queue.size() < size) {
-            queue.offer(val);
-            return queue.peek();
+        if (minHeap.size() < size) {
+            minHeap.add(val);
+        } else {
+            if (minHeap.peek() < val) {
+                minHeap.poll();
+                minHeap.add(val);
+            }
         }
-
-        if (queue.peek() >= val) {
-            return queue.peek();
-        }
-
-        queue.poll();
-        queue.offer(val);
-        return queue.peek();
-
+        return minHeap.peek();
     }
 }
 
 /**
- * Your KthLargest object will be instantiated and called as such: 
- * KthLargest obj = new KthLargest(k, nums); 
- * int param_1 = obj.add(val);
+ * Your KthLargest object will be instantiated and called as such: KthLargest
+ * obj = new KthLargest(k, nums); int param_1 = obj.add(val);
  */

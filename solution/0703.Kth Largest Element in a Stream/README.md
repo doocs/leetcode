@@ -5,7 +5,8 @@
 
 你的 `KthLargest` 类需要一个同时接收整数 `k` 和整数数组`nums` 的构造器，它包含数据流中的初始元素。每次调用 `KthLargest.add`，返回当前数据流中第 K 大的元素。
 
-示例:
+**示例:**
+
 ```
 int k = 3;
 int[] arr = [4,5,8,2];
@@ -17,7 +18,7 @@ kthLargest.add(9);   // returns 8
 kthLargest.add(4);   // returns 8
 ```
 
-说明: 
+**说明:**
 
 你可以假设 `nums` 的长度≥ `k-1` 且 `k` ≥ 1。
 
@@ -30,42 +31,27 @@ kthLargest.add(4);   // returns 8
 ```java
 class KthLargest {
 
-    PriorityQueue<Integer> queue;
-    
-    private int size = 0;
+    private PriorityQueue<Integer> minHeap;
+    private int size;
     
     public KthLargest(int k, int[] nums) {
+        minHeap = new PriorityQueue<>(k);
         size = k;
-        queue = new PriorityQueue<>(k, Integer::compareTo);
-        int gap = nums.length - k;
-        if (gap > 0) {
-            for (int i = 0; i < k; ++i) {
-                queue.offer(nums[i]);
-            }
-            for (int i = k; i < nums.length; ++i) {
-                add(nums[i]);
-            }
-        } else {
-            for (int i = 0; i < nums.length; ++i) {
-                queue.offer(nums[i]);
-            }
+        for (int e : nums) {
+            add(e);
         }
     }
     
     public int add(int val) {
-        if (queue.size() < size) {
-            queue.offer(val);
-            return queue.peek();
+        if (minHeap.size() < size) {
+            minHeap.add(val);
+        } else {
+            if (minHeap.peek() < val) {
+                minHeap.poll();
+                minHeap.add(val);
+            }
         }
-        
-        if (queue.peek() >= val) {
-            return queue.peek();
-        }
-        
-        queue.poll();
-        queue.offer(val);
-        return queue.peek();
-        
+        return minHeap.peek();
     }
 }
 
