@@ -19,7 +19,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 
 | # | Title | Tags |
 |---|---|---|
-| 0001 | [Two Sum](https://github.com/doocs/leetcode/tree/master/solution/0001.Two%20Sum) | `Array`, `Hash Table` |
+| 0001 | [Two Sum](/solution/0001.Two%20Sum) | `Array`, `Hash Table` |
 | 0007 | [Reverse Integer](https://github.com/doocs/leetcode/tree/master/solution/0007.Reverse%20Integer) | `Math` |
 | 0009 | [Palindrome Number](https://github.com/doocs/leetcode/tree/master/solution/0009.Palindrome%20Number) | `Math` |
 | 0013 | [Roman to Integer](https://github.com/doocs/leetcode/tree/master/solution/0013.Roman%20to%20Integer) | `Math`, `String` |
@@ -102,6 +102,7 @@ Complete [solutions](https://github.com/doocs/leetcode/tree/master/solution) to 
 | 0178 | [Rank Scores](https://github.com/doocs/leetcode/tree/master/solution/0178.Rank%20Scores) | `SQL` |
 | 0180 | [Consecutive Numbers](https://github.com/doocs/leetcode/tree/master/solution/0180.Consecutive%20Numbers) | `SQL` |
 | 0184 | [Department Highest Salary](https://github.com/doocs/leetcode/tree/master/solution/0184.Department%20Highest%20Salary) | `SQL` |
+| 0215 | [Kth Largest Element in an Array](https://github.com/doocs/leetcode/tree/master/solution/0215.Kth%20Largest%20Element%20in%20an%20Array) | `Heap`, `Divide and Conquer` |
 | 0300 | [Longest Increasing Subsequence](https://github.com/doocs/leetcode/tree/master/solution/0300.Longest%20Increasing%20Subsequence) | `Binary Search`, `Dynamic Programming` |
 | 0328 | [Odd Even Linked List](https://github.com/doocs/leetcode/tree/master/solution/0328.Odd%20Even%20Linked%20List) | `Linked List` |
 | 0343 | [Integer Break](https://github.com/doocs/leetcode/tree/master/solution/0343.Integer%20Break) | `Math`, `Dynamic Programming` |
