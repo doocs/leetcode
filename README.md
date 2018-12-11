@@ -11,17 +11,17 @@
 </p>
 
 ## Introduction
-Complete [solutions](/solution) to Leetcode problems, [updated daily](https://github.com/doocs/leetcode/projects/1).
+Complete [solutions](/solution) to Leetcode problems, updated daily.
 
 ## Solution Tree
-See [SOLUTION_TREE.md](/SOLUTION_TREE.md)
+See [SOLUTION_TREE](/SOLUTION_TREE.md).
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
 - Fork this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
 - Add or update file of the repository, then commit and push it to your GitHub repository.
 - Submit a pull request with your changes!
-- For more details, see [CONTRIBUTING.md](/.github/CONTRIBUTING.md)
+- For more details, see [CONTRIBUTING](/.github/CONTRIBUTING.md).
 
 ![how-to-contribute](/img/how-to-contribute-yanglbme.png)
 
