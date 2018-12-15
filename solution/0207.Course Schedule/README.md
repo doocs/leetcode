@@ -36,6 +36,11 @@
 
 如果存在拓扑排序，那么就可以完成所有课程的学习。
 
+**说明：**
+
+- 拓扑排序的本质是不断输出入度为 0 的点，该算法可**用于判断图中是否存在环**；
+- 可以用队列（或者栈）保存入度为 0 的点，避免每次遍历所有的点。
+
 ```java
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
