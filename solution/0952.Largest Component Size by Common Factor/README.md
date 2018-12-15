@@ -32,7 +32,7 @@
 输出: 8
 ```
 
-![示例3](/img/Largest-Component-Size-by-Common-Factor2.png)
+![示例3](/img/Largest-Component-Size-by-Common-Factor3.png)
 
 **提示:**
 
