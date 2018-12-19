@@ -152,5 +152,4 @@ class Solution {
 }
 ```
 
-
-
+解法只用到了额外的 cut boolean 数组，空间复杂度为 O(M)，时间复杂度为 O(NM)，其中 N 为 word 长度，M 为数组长度。
