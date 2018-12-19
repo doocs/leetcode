@@ -15,6 +15,8 @@
 ### 解法
 同时遍历两个链表，对应值相加(还有 quotient)求余数得到值并赋给新创建的结点。而商则用quotient存储，供下次相加。
 
+#### Java
+
 初始版本：
 
 ```java
@@ -99,6 +101,7 @@ class Solution {
     }
 }
 ```
+
 #### CPP
 ```CPP
 class Solution {

@@ -15,7 +15,7 @@
 ```
 
 ### 解法
-从链表数组索引 0 开始，[合并前后相邻两个有序链表](https://github.com/yanglbme/leetcode/tree/master/solution/021.Merge%20Two%20Sorted%20Lists)，放在后一个链表位置上，依次循环下去...最后 lists[len - 1] 即为合并后的链表。注意处理链表数组元素小于 2 的情况。
+从链表数组索引 0 开始，[合并前后相邻两个有序链表](https://github.com/doocs/leetcode/tree/master/solution/021.Merge%20Two%20Sorted%20Lists)，放在后一个链表位置上，依次循环下去...最后 lists[len - 1] 即为合并后的链表。注意处理链表数组元素小于 2 的情况。
 
 --------------------------------
 思路1：                     170ms

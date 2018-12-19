@@ -24,6 +24,7 @@
 ```
 
 ### 解法
+#### 解法一
 可以利用 2^31 对该数取余，结果为 0 则为 2 的幂次方。
 ```java
 class Solution {
@@ -33,6 +34,7 @@ class Solution {
 }
 ```
 
+#### 解法二
 也可以循环取余，每次除以 2，判断最终结果是否为 1。
 ```java
 class Solution {
@@ -48,3 +50,19 @@ class Solution {
     }
 }
 ```
+
+#### 解法三
+利用 `n & -n`：
+```
+n & -n 表示 n 的二进制表示的最右边一个1
+```
+
+只要 (n & -n) == n，说明 n 的二进制表示中只有一个 1，那么也就说明它是 2 的幂。
+```java
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return n > 0 && (n & -n) == n;
+    }
+}
+```
+

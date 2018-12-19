@@ -1,13 +1,11 @@
 # Contribute to doocs/leetcode project
 
-![hardcore-forking-yanglbme](http://p9ucdlghd.bkt.clouddn.com/hardcore-forking-yanglbme.gif)
+![hardcore-forking-yanglbme](/img/hardcore-forking-yanglbme.gif)
 
 由于此前不少小伙伴跑来问我要怎么参与这个项目，他们还没有在 GitHub 上搞过这种团队合作项目，对整个流程不太熟悉。因此，我实际操作了一遍，写下了这个教程，希望可以帮助到那些想要参与进来却不太熟悉操作的小伙伴们，让你们能够快速入门😄~
 
 
 ##  安装并配置 Git
-
-![git](http://p9ucdlghd.bkt.clouddn.com/git-logo-2color-lightbg.png)
 
 首先你需要在自己电脑上安装 Git，对于已经安装过 Git 并配置好相关信息的小伙伴们，这第一步就不用再做啦~
 
@@ -41,19 +39,15 @@ git config --global user.email "contact@yanglibin.info"
 
 ## Fork 代码仓库
 
-在[本代码仓库](https://github.com/doocs/leetcode)中，点击图示中的 `Fork` 按钮。 
-
-![fork-doocs-leetcode](http://p9ucdlghd.bkt.clouddn.com/fork-doocs-leetcode.png)
+在[本代码仓库](https://github.com/doocs/leetcode)中，点击 `Fork` 按钮。 
 
 这个操作会将代码仓库复制到你的账户名下，如：`igayhub/leetcode`
-
-![result-of-fork](http://p9ucdlghd.bkt.clouddn.com/result-of-fork.png)
 
 
 ## Clone 代码仓库
 将复制后的代码仓库克隆到你的本地电脑上，点击绿色按钮 `Clone or download`，可以看到链接。链接有 `HTTPS` 跟 `SSH` 两种，在这里，我选择 `HTTPS` 链接。
 
-![clone-fork-doocs-leetcode](http://p9ucdlghd.bkt.clouddn.com/clone-fork-doocs-leetcode.png)
+![clone-fork-doocs-leetcode](/img/clone-fork-doocs-leetcode.jpg)
 
 复制该链接，在命令行窗口中执行命令 “`git clone` + 刚才复制的 `HTTPS` 链接”，如：
 ```
@@ -134,15 +128,15 @@ To https://github.com/igayhub/leetcode.git
 ## 提出 pull request
 push 之后，在你的 GitHub 项目上，可以看到 `Compare & pull request` 绿色按钮：
 
-![dev-pull-request](http://p9ucdlghd.bkt.clouddn.com/dev-pull-request.png)
+![dev-pull-request](/img/dev-pull-request.png)
 
 点击按钮，创建 pull request。
 
-![create-pull-request](http://p9ucdlghd.bkt.clouddn.com/create-pull-request.png)
+![create-pull-request](/img/create-pull-request.png)
 
 pull request 完成之后，我会收到一份邮件通知。
 
-![email-of-pull-request](http://p9ucdlghd.bkt.clouddn.com/email-of-pull-request.jpg)
+![email-of-pull-request](/img/email-of-pull-request.jpg)
 
 不久之后，如果 Review 完觉得没有问题的话，我会把你所有的 create/update 变化合并到这个项目的主分支。合并后，我想你应该也会收到电子邮件通知吧😁。这样也就完成了整个 contribute 过程啦~
 
