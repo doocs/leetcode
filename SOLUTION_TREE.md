@@ -7,6 +7,7 @@
 │   ├── README.md
 │   ├── Solution2.js
 │   ├── Solution2.py
+│   ├── Solution3.js
 │   ├── Solution.cpp
 │   ├── Solution.go
 │   ├── Solution.java
@@ -16,6 +17,7 @@
 │   └── Solution.scala
 ├── 0002.Add Two Numbers
 │   ├── README.md
+│   ├── Solution2.js
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.js
@@ -23,7 +25,8 @@
 │   └── Solution.rb
 ├── 0003.Longest Substring Without Repeating Characters
 │   ├── README.md
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.js
 ├── 0004.Median of Two Sorted Arrays
 │   ├── README.md
 │   ├── Solution.cpp
@@ -295,13 +298,17 @@
 │   └── Solution.py
 ├── 0071.Simplify Path
 │   └── Solution.java
+├── 0072.Edit Distance
+│   └── Solution.java
 ├── 0073.Set Matrix Zeroes
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.java
 │   └── Solution.py
 ├── 0074.Search a 2D Matrix
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.java
 │   └── Solution.py
 ├── 0075.Sort Colors
 │   ├── README.md
@@ -620,6 +627,9 @@
 ├── 0735.Asteroid Collision
 │   ├── README.md
 │   └── Solution.py
+├── 0769.Max Chunks To Make Sorted
+│   ├── README.md
+│   └── Solution.py
 ├── 0789.Escape The Ghosts
 │   ├── README.md
 │   └── Solution.py
@@ -666,8 +676,10 @@
 │   ├── README.md
 │   ├── Solution.java
 │   └── Solution.py
-└── 0952.Largest Component Size by Common Factor
-    ├── README.md
-    └── Solution.java
+├── 0952.Largest Component Size by Common Factor
+│   ├── README.md
+│   └── Solution.java
+└── 0953.Verifying an Alien Dictionary
+    └── Solution.cpp
 
 ```
