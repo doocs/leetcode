@@ -6,17 +6,17 @@ class Solution:
         :rtype: bool
         """
 
-        order = {a:d for d, a in enumerate(order)}
+        order = {a: d for d, a in enumerate(order)}
 
         for i in range(1, len(words)):
             j = 0
-            while len(words[i-1]) > j < len(words[i]) :
+            while len(words[i - 1]) > j < len(words[i]):
 
-                value = order[words[i-1][j]] - order[words[i][j]]
+                value = order[words[i - 1][j]] - order[words[i][j]]
 
-                if value < 0 :
+                if value < 0:
                     break
-                elif value > 0 or (j+1) == len(words[i]):
+                elif value > 0 or (j + 1) == len(words[i]):
                     return False
 
                 j += 1
