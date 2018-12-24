@@ -28,4 +28,3 @@ var reverse = function (x) {
     return num
 };
 
-console.log(reverse(1563847412))
