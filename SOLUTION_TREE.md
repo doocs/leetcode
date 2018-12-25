@@ -30,16 +30,20 @@
 ├── 0004.Median of Two Sorted Arrays
 │   ├── README.md
 │   ├── Solution.cpp
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.js
 ├── 0005.Longest Palindromic Substring
 │   ├── README.md
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.js
 ├── 0006.ZigZag Conversion
 │   ├── Solution.cpp
 │   ├── Solution.java
+│   ├── Solution.js
 │   └── Solution.py
 ├── 0007.Reverse Integer
 │   ├── README.md
+│   ├── Solution2.js
 │   ├── Solution2.py
 │   ├── Solution.java
 │   ├── Solution.js
@@ -316,6 +320,14 @@
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   └── Solution.py
+├── 0076.Minimum Window Substring
+│   └── Solution.java
+├── 0077.Combinations
+│   └── Solution.java
+├── 0078.Subsets
+│   └── Solution.java
+├── 0079.Word Search
+│   └── Solution.java
 ├── 0080.Remove Duplicates from Sorted Array II
 │   ├── README.md
 │   └── Solution.cpp
@@ -583,6 +595,9 @@
 ├── 0521.Longest Uncommon Subsequence I
 │   ├── README.md
 │   └── Solution.py
+├── 0554.Brick Wall
+│   ├── README.md
+│   └── Solution.py
 ├── 0567.Permutation in String
 │   ├── README.md
 │   └── Solution.py
@@ -627,6 +642,9 @@
 ├── 0735.Asteroid Collision
 │   ├── README.md
 │   └── Solution.py
+├── 0762.Prime Number of Set Bits in Binary Representation
+│   ├── README.md
+│   └── Solution.py
 ├── 0769.Max Chunks To Make Sorted
 │   ├── README.md
 │   └── Solution.py
@@ -641,6 +659,9 @@
 │   └── Solution.py
 ├── 0826.Most Profit Assigning Work
 │   ├── README.md
+│   └── Solution.py
+├── 0832.Flipping an Image
+│   ├── Solution.cpp
 │   └── Solution.py
 ├── 0836.Rectangle Overlap
 │   └── Solution.cpp
@@ -662,6 +683,8 @@
 ├── 0889.Construct Binary Tree from Preorder and Postorder Traversal
 │   ├── README.md
 │   └── Solution.py
+├── 0905.Sort Array By Parity
+│   └── Solution.py
 ├── 0915.Partition Array into Disjoint Intervals
 │   ├── README.md
 │   └── Solution.py
@@ -679,7 +702,15 @@
 ├── 0952.Largest Component Size by Common Factor
 │   ├── README.md
 │   └── Solution.java
-└── 0953.Verifying an Alien Dictionary
-    └── Solution.cpp
+├── 0953.Verifying an Alien Dictionary
+│   ├── Solution.cpp
+│   └── Solution.py
+├── 0955.Delete Columns to Make Sorted II
+│   ├── README.md
+│   └── Solution.java
+└── 0961.N-Repeated Element in Size 2N Array
+    ├── README.md
+│   ├── Solution.java    
+    └── Solution.py
 
 ```
