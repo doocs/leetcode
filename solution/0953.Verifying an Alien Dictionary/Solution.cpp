@@ -20,8 +20,7 @@ public:
     
     bool cmp(string a, string b) 
     {
-        int i ;
-        int len = min(a.size(), b.size()) ;
+        int i, len = min(a.size(), b.size()) ;
         for (i = 0; i < len; ++i)
         {
             int c = ala[ a[i] - 'a' ] - ala[ b[i] - 'a' ] ;
@@ -31,9 +30,6 @@ public:
                 return false ;
         }
         
-        if (i == a.size())
-            return true ;
-        else
-            return false ;
+        return i == a.size() ;
     }
 };
