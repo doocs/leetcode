@@ -11,7 +11,7 @@ class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
         ListNode *pPre, *p1, *p2 ;
-		// 建立一个头结点就不用特殊处理第一个工作节点了
+	// 建立一个头结点就不用特殊处理第一个工作节点了
         ListNode node(0) ;
         node.next = head ;
         p2 = &node ;
