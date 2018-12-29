@@ -127,6 +127,7 @@
 │   └── Solution.rb
 ├── 0024.Swap Nodes in Pairs
 │   ├── README.md
+│   ├── Solution2.cpp
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.py
@@ -330,7 +331,10 @@
 │   └── Solution.java
 ├── 0080.Remove Duplicates from Sorted Array II
 │   ├── README.md
-│   └── Solution.cpp
+│   ├── Solution.cpp
+│   └── Solution.java
+├── 0081.Search in Rotated Sorted Array II
+│   └── Solution.java
 ├── 0082.Remove Duplicates from Sorted List II
 │   ├── README.md
 │   ├── Solution.java
@@ -343,10 +347,14 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   └── Solution.java
+├── 0085.Maximal Rectangle
+│   └── Solution.java
 ├── 0086.Partition List
 │   ├── README.md
 │   ├── Solution.java
 │   └── Solution.py
+├── 0087.Scramble String
+│   └── Solution.java
 ├── 0088.Merge Sorted Array
 │   └── Solution.js
 ├── 0090.Subsets II
@@ -570,6 +578,8 @@
 ├── 0387.First Unique Character in a String
 │   ├── Solution.cpp
 │   └── Solution.js
+├── 0393.UTF-8 Validation
+│   └── Solution.cpp
 ├── 0394.Decode String
 │   ├── README.md
 │   └── Solution.py
@@ -639,6 +649,8 @@
 ├── 0707.Design Linked List
 │   ├── README.md
 │   └── Solution.java
+├── 0728.Self Dividing Numbers
+│   └── Solution.cpp
 ├── 0735.Asteroid Collision
 │   ├── README.md
 │   └── Solution.py
@@ -651,6 +663,8 @@
 ├── 0789.Escape The Ghosts
 │   ├── README.md
 │   └── Solution.py
+├── 0797.All Paths From Source to Target
+│   └── Solution.cpp
 ├── 0804.Unique Morse Code Words
 │   └── Solution.py
 ├── 0817.Linked List Components
@@ -697,8 +711,11 @@
 │   └── Solution.js
 ├── 0938.Range Sum of BST
 │   ├── README.md
+│   ├── Solution.cpp
 │   ├── Solution.java
 │   └── Solution.py
+├── 0950.Reveal Cards In Increasing Order
+│   └── Solution.cpp
 ├── 0952.Largest Component Size by Common Factor
 │   ├── README.md
 │   └── Solution.java
@@ -710,7 +727,7 @@
 │   └── Solution.java
 └── 0961.N-Repeated Element in Size 2N Array
     ├── README.md
-│   ├── Solution.java    
+    ├── Solution.java
+    ├── Solution.js
     └── Solution.py
-
 ```
