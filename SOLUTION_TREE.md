@@ -5,24 +5,24 @@
 .
 ├── 0001.Two Sum
 │   ├── README.md
-│   ├── Solution2.js
-│   ├── Solution2.py
-│   ├── Solution3.js
 │   ├── Solution.cpp
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
 │   ├── Solution.py
 │   ├── Solution.rb
-│   └── Solution.scala
+│   ├── Solution.scala
+│   ├── Solution2.js
+│   ├── Solution2.py
+│   └── Solution3.js
 ├── 0002.Add Two Numbers
 │   ├── README.md
-│   ├── Solution2.js
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.js
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   └── Solution2.js
 ├── 0003.Longest Substring Without Repeating Characters
 │   ├── README.md
 │   ├── Solution.java
@@ -43,12 +43,12 @@
 │   └── Solution.py
 ├── 0007.Reverse Integer
 │   ├── README.md
-│   ├── Solution2.js
-│   ├── Solution2.py
 │   ├── Solution.java
 │   ├── Solution.js
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   ├── Solution2.js
+│   └── Solution2.py
 ├── 0008.String to Integer (atoi)
 │   ├── Solution.java
 │   ├── Solution.js
@@ -56,6 +56,7 @@
 ├── 0009.Palindrome Number
 │   ├── README.md
 │   ├── Solution.java
+│   ├── Solution.js
 │   └── Solution.py
 ├── 0010.Regular Expression Matching
 │   └── Solution.java
@@ -67,26 +68,26 @@
 │   └── Solution.java
 ├── 0013.Roman to Integer
 │   ├── README.md
-│   ├── Solution2.py
 │   ├── Solution.java
 │   ├── Solution.js
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   └── Solution2.py
 ├── 0014.Longest Common Prefix
 │   ├── README.md
-│   ├── Solution2.py
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.js
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   └── Solution2.py
 ├── 0015.3Sum
 │   ├── README.md
-│   ├── solution.cpp
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   └── solution.cpp
 ├── 0016.3Sum Closest
 │   └── Solution.java
 ├── 0017.Letter Combinations of a Phone Number
@@ -104,19 +105,20 @@
 │   └── Solution.rb
 ├── 0020.Valid Parentheses
 │   ├── README.md
-│   ├── Solution2.py
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.js
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   └── Solution2.py
 ├── 0021.Merge Two Sorted Lists
 │   ├── README.md
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.js
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   └── Solution2.js
 ├── 0022.Generate Parentheses
 │   └── Solution.java
 ├── 0023.Merge k Sorted Lists
@@ -127,11 +129,11 @@
 │   └── Solution.rb
 ├── 0024.Swap Nodes in Pairs
 │   ├── README.md
-│   ├── Solution2.cpp
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   └── Solution2.cpp
 ├── 0025.Reverse Nodes in k-Group
 │   ├── README.md
 │   └── Solution.java
@@ -149,6 +151,7 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   ├── Solution.java
+│   ├── Solution.js
 │   └── Solution.py
 ├── 0029.Divide Two Integers
 │   ├── README.md
@@ -167,7 +170,8 @@
 ├── 0033.Search in Rotated Sorted Array
 │   ├── README.md
 │   ├── Solution.cpp
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.js
 ├── 0034.Find First and Last Position of Element in Sorted Array
 │   ├── README.md
 │   ├── Solution.cpp
@@ -229,7 +233,8 @@
 ├── 0049.Group Anagrams
 │   └── Solution.java
 ├── 0050.Pow(x, n)
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.js
 ├── 0051.N-Queens
 │   └── Solution.java
 ├── 0052.N-Queens II
@@ -281,20 +286,22 @@
 │   └── Solution.java
 ├── 0066.Plus One
 │   ├── README.md
-│   ├── Solution2.py
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.js
-│   └── Solution.py
+│   ├── Solution.py
+│   ├── Solution2.js
+│   └── Solution2.py
 ├── 0067.Add Binary
 │   └── Solution.java
 ├── 0068.Text Justification
 │   └── Solution.java
 ├── 0069.Sqrt(x)
 │   ├── README.md
-│   ├── Solution2.py
 │   ├── Solution.java
-│   └── Solution.py
+│   ├── Solution.js
+│   ├── Solution.py
+│   └── Solution2.py
 ├── 0070.Climbing Stairs
 │   ├── README.md
 │   ├── Solution.cpp
@@ -317,10 +324,10 @@
 │   └── Solution.py
 ├── 0075.Sort Colors
 │   ├── README.md
-│   ├── Solution2.py
 │   ├── Solution.cpp
 │   ├── Solution.java
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.py
 ├── 0076.Minimum Window Substring
 │   └── Solution.java
 ├── 0077.Combinations
@@ -356,17 +363,27 @@
 ├── 0087.Scramble String
 │   └── Solution.java
 ├── 0088.Merge Sorted Array
+│   ├── Solution.java
 │   └── Solution.js
+├── 0089.Gray Code
+│   └── Solution.java
 ├── 0090.Subsets II
 │   ├── README.md
-│   └── Solution.cpp
+│   ├── Solution.cpp
+│   └── Solution.java
+├── 0091.Decode Ways
+│   └── Solution.java
 ├── 0092.Reverse Linked List II
 │   ├── README.md
+│   └── Solution.java
+├── 0093.Restore IP Addresses
 │   └── Solution.java
 ├── 0094.Binary Tree Inorder Traversal
 │   ├── README.md
 │   ├── Solution.java
 │   └── Solution.py
+├── 0095.Unique Binary Search Trees II
+│   └── Solution.java
 ├── 0096.Unique Binary Search Trees
 │   ├── README.md
 │   ├── Solution.java
@@ -540,13 +557,15 @@
 ├── 0242.Valid Anagram
 │   └── Solution.js
 ├── 0268.Missing Number
-│   └── Solution.js
+│   ├── Solution.js
+│   └── Solution2.js
 ├── 0278.First Bad Version
 │   └── Solution.js
 ├── 0283.Move Zeroes
 │   ├── README.md
 │   ├── Solution.cpp
-│   └── Solution.js
+│   ├── Solution.js
+│   └── Solution2.js
 ├── 0295.Find Median from Data Stream
 │   ├── README.md
 │   └── Solution.java
@@ -602,6 +621,10 @@
 │   └── Solution.cpp
 ├── 0461.Hamming Distance
 │   └── Solution.js
+├── 0476.Number Complement
+│   └── Solution.cpp
+├── 0485. Max Consecutive Ones
+│   └── Solution.js
 ├── 0521.Longest Uncommon Subsequence I
 │   ├── README.md
 │   └── Solution.py
@@ -640,6 +663,9 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   └── Solution.java
+├── 0700.Search in a Binary Search Tree
+│   ├── Solution.cpp
+│   └── Solution.py
 ├── 0701.Insert into a Binary Search Tree
 │   ├── README.md
 │   └── Solution.py
@@ -659,6 +685,8 @@
 │   └── Solution.py
 ├── 0769.Max Chunks To Make Sorted
 │   ├── README.md
+│   └── Solution.py
+├── 0771.Jewels and Stones
 │   └── Solution.py
 ├── 0789.Escape The Ghosts
 │   ├── README.md
@@ -725,9 +753,14 @@
 ├── 0955.Delete Columns to Make Sorted II
 │   ├── README.md
 │   └── Solution.java
-└── 0961.N-Repeated Element in Size 2N Array
-    ├── README.md
-    ├── Solution.java
-    ├── Solution.js
-    └── Solution.py
+├── 0961.N-Repeated Element in Size 2N Array
+│   ├── README.md
+│   ├── Solution.cpp
+│   ├── Solution.java
+│   ├── Solution.js
+│   ├── Solution.py
+│   ├── Solution2.cpp
+│   └── Solution2.py
+└── 0965.Univalued Binary Tree
+    └── Solution.cpp
 ```
