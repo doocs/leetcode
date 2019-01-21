@@ -546,6 +546,9 @@
 ├── 0200.Number of Islands
 │   ├── README.md
 │   └── Solution.py
+├── 0202.Happy Number
+│   ├── README.md
+│   └── Solution.java
 ├── 0203.Remove Linked List Elements
 │   ├── README.md
 │   ├── Solution.java
@@ -639,6 +642,8 @@
 │   ├── Solution.cpp
 │   ├── Solution.js
 │   └── Solution.py
+├── 0423.Reconstruct Original Digits from English
+│   └── Solution.cpp
 ├── 0427.Construct Quad Tree
 │   └── Solution.cpp
 ├── 0434.Number of Segments in a String
