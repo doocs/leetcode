@@ -27,7 +27,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 
 ## Contributors
 
-" If you want to go fast, go alone. If you want to go far, go together. And that's the spirit of [teamwork](https://github.com/doocs/leetcode/graphs/contributors) ".
+" If you want to go fast, go alone. If you want to go far, go together. And that's the spirit of [teamwork](https://github.com/doocs/leetcode/graphs/contributors) ."
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 | <center> [<img src="https://avatars3.githubusercontent.com/u/21008209?v=4" width="80px;"/>](https://github.com/yanglbme) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/23625436?v=4" width="80px;"/>](https://github.com/chakyam) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/10081554?v=4" width="80px;"/>](https://github.com/zhkmxx9302013) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/40383345?v=4" width="80px;"/>](https://github.com/MarkKuang1991) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/12371194?v=4" width="80px;"/>](https://github.com/fonxian) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/25222367?v=4" width="80px;"/>](https://github.com/zhanary) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/42396616?v=4" width="80px;"/>](https://github.com/ZhouTingZhaobiu) </center> | <center> [<img src="https://avatars3.githubusercontent.com/u/31923541?v=4" width="80px;"/>](https://github.com/zouwx2cs) </center> |
