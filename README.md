@@ -8,6 +8,8 @@
   <a href="https://github.com/doocs/leetcode/issues"><img src="https://img.shields.io/github/issues/doocs/leetcode.svg" alt="issues"></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode.svg" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
+  <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/leetcode-280/backers/badge.svg" /></a> 
+  <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/leetcode-280/sponsors/badge.svg" /></a>
 </p>
 
 ## Introduction
@@ -37,3 +39,31 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 | <center> [<img src="https://avatars3.githubusercontent.com/u/31801502?v=4" width="80px;"/>](https://github.com/Wushiyii) </center> | | | | | | | |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## Contributors
+
+This project exists thanks to all the people who contribute. 
+<a href="https://github.com/doocs/leetcode/graphs/contributors"><img src="https://opencollective.com/leetcode-280/contributors.svg?width=890&button=false" /></a>
+
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/leetcode-280#backer)]
+
+<a href="https://opencollective.com/leetcode-280#backers" target="_blank"><img src="https://opencollective.com/leetcode-280/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/leetcode-280#sponsor)]
+
+<a href="https://opencollective.com/leetcode-280/sponsor/0/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/1/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/2/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/3/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/4/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/5/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/6/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/7/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/8/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/leetcode-280/sponsor/9/website" target="_blank"><img src="https://opencollective.com/leetcode-280/sponsor/9/avatar.svg"></a>
