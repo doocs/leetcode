@@ -15,7 +15,7 @@
  * Author: Mcnwork2018 
  */
 var addTwoNumbers = function (l1, l2) {
-	let c1 = l1, c2 = l2,c3 = 0, l3 = 0, carry = 0;
+	let c1 = l1, c2 = l2, c3 = 0, l3 = 0, carry = 0;
 	while (c1 || c2 || carry) {
 		var v1 = 0, v2 = 0;
 		if (c1) {
