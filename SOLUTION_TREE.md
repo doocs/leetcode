@@ -10,9 +10,7 @@
 │   ├── Solution.py
 │   ├── Solution.rb
 │   ├── Solution.scala
-│   ├── Solution2.js
-│   ├── Solution2.py
-│   └── Solution3.js
+│   └── Solution2.py
 ├── 0002.Add Two Numbers
 │   ├── README.md
 │   ├── Solution.cpp
@@ -45,7 +43,6 @@
 │   ├── Solution.js
 │   ├── Solution.py
 │   ├── Solution.rb
-│   ├── Solution2.js
 │   └── Solution2.py
 ├── 0008.String to Integer (atoi)
 │   ├── Solution.java
@@ -489,6 +486,16 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   └── Solution.java
+├── 0131.Palindrome Partitioning
+│   └── Solution.java
+├── 0132.Palindrome Partitioning II
+│   └── Solution.java
+├── 0133.Clone Graph
+│   └── Solution.java
+├── 0134.Gas Station
+│   └── Solution.java
+├── 0135.Candy
+│   └── Solution.java
 ├── 0136.Single Number
 │   ├── README.md
 │   ├── Solution.java
@@ -500,6 +507,10 @@
 │   └── Solution.py
 ├── 0138.Copy List with Random Pointer
 │   ├── README.md
+│   └── Solution.java
+├── 0139.Word Break
+│   └── Solution.java
+├── 0140.Word Break II
 │   └── Solution.java
 ├── 0141.Linked List Cycle
 │   ├── README.md
@@ -708,13 +719,18 @@
 ├── 0500.Keyboard Row
 │   └── Solution.py
 ├── 0509.Fibonacci
-│   └── Solution.cpp
+│   ├── README.md
+│   ├── Solution.cpp
+│   └── Solution.js
 ├── 0521.Longest Uncommon Subsequence I
 │   ├── README.md
 │   └── Solution.py
 ├── 0554.Brick Wall
 │   ├── README.md
 │   └── Solution.py
+├── 0561.Array Partition I
+│   ├── README.md
+│   └── Solution.js
 ├── 0567.Permutation in String
 │   ├── README.md
 │   └── Solution.py
@@ -791,7 +807,9 @@
 │   ├── README.md
 │   └── Solution.py
 ├── 0832.Flipping an Image
+│   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.js
 │   └── Solution.py
 ├── 0836.Rectangle Overlap
 │   └── Solution.cpp
@@ -801,6 +819,9 @@
 ├── 0853.Car Fleet
 │   ├── README.md
 │   └── Solution.py
+├── 0867.Transpose Matrix
+│   ├── README.md
+│   └── Solution.js
 ├── 0874.Walking Robot Simulation
 │   └── Solution.cpp
 ├── 0876.Middle of the Linked List
@@ -814,6 +835,7 @@
 │   ├── README.md
 │   └── Solution.py
 ├── 0905.Sort Array By Parity
+│   ├── README.md
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0915.Partition Array into Disjoint Intervals
@@ -822,6 +844,9 @@
 ├── 0917.Reverse Only Letters
 │   ├── Solution.cpp
 │   └── Solution.py
+├── 0922.Sort Array By Parity II
+│   ├── README.md
+│   └── Solution.js
 ├── 0926.Flip String to Monotone Increasing
 │   └── Solution.js
 ├── 0929.Unique Email Addresses
@@ -867,6 +892,7 @@
 │   ├── Solution.java
 │   └── Solution.js
 └── 0985.Sum of Even Numbers After Queries
+    ├── README.md
     ├── Solution.cpp
     ├── Solution.js
     └── Solution.py
