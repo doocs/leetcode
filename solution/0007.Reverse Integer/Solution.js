@@ -2,50 +2,50 @@
  * @param {number} x
  * @return {number}
  */
-const reverse1 = function(x){
-  let s = String(x);
-  let isNegative = false;
-  if(s[0] === '-'){
-    isNegative = true;
-  }
-  s = parseInt(s.split('').reverse().join(''));
-  return isNegative ? (s > Math.pow(2,31) ? 0 : -s) : (s > Math.pow(2,31) - 1 ? 0 : s);
-}
 
-const reverse = function(x){
-  let result = parseInt(x.toString().split('').reverse().join(''));
-  if(result > Math.pow(2,31) - 1 || -result < Math.pow(-2,31)) return 0;
-  return x > 0 ? result: -result;
-}
-/**
- *  author:mcn  date：2018/10/25
- */
-
-/**
- *  First Way：将数字转化为字符串的处理
- */
-var reverse = function(x) {
-  const min = -Math.pow(2,31),max = Math.pow(2,31) - 1;
-  let sign = 1;
-  if(x < 0){
-      sign = -sign;
-      x = sign * x;
-  }
-  let a = x.toString();
-  let len = a.length,b='';
-  for(let i = len - 1;i >= 0;i--)b += a[i];
-  b = sign * Number(b);
-  if(b > max || b < min) return 0;
-  return b;
-};
 /** 
- *  Second Way: 弹出和推入数字
+ *  Author: mcnwork2018
  */
-let reverse = function(x) {
-  let res = 0;
-  while (x !== 0) {
-      res = res * 10 + x % 10;
-      x = x < 0 ? Math.ceil(x / 10) : Math.floor(x / 10);
+
+var reverse = function(x) {
+  let min = -Math.pow(2,31), max = Math.pow(2,31) - 1;
+  let rev = 0;
+  while (x != 0) {
+    let pop = x % 10;
+    x = (x - pop) / 10;
+    if (rev > max / 10 || (rev == max / 10 && pop > 7)) return 0;
+    if (rev < min / 10 || (rev == min / 10 && pop < -8)) return 0;
+    rev = rev * 10 + pop;
   }
-  return res < -(2**31) || res > 2**31 - 1 ? 0 : res;
+  return rev;
+};
+
+/** 
+ *  Author: rookie
+ */
+
+var reverse = function (x) {
+  const s = x + ""
+  let i = 0
+  let sign = 1
+  if (s[i] == "-") {
+    i++
+    sign = -1
+  }
+  if (s[i] == "+") {
+    i++
+  }
+  let num = 0
+  for (let j = s.length - 1; j >= i; j--) {
+    num = num * 10 + parseInt(s[j])
+  }
+  num *= sign
+  let max = 2 
+  for (let n = 0; n < 30; n++) {
+    max *= 2
+  }
+  if (num > max || num < -max) {
+    return 0
+  }
+  return num
 };
