@@ -533,6 +533,11 @@
 ├── 0146.Lru Cache
 │   ├── README.md
 │   └── Solution.java
+├── 0147.Insertion Sort List
+│   ├── README.md
+│   └── Solution.java
+├── 0148.Sort List
+│   └── Solution.java
 ├── 0150.Evaluate Reverse Polish Notation
 │   ├── README.md
 │   ├── Solution.java
@@ -891,9 +896,19 @@
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   └── Solution.js
-└── 0985.Sum of Even Numbers After Queries
+├── 0985.Sum of Even Numbers After Queries
+│   ├── README.md
+│   ├── Solution.cpp
+│   ├── Solution.js
+│   └── Solution.py
+├── 1005.Maximize Sum Of Array After K Negations
+│   └── Solution.py
+├── 1006.Clumsy Factorial
+│   └── Solution.py
+├── 1007.Minimum Domino Rotations For Equal Row
+│   └── Solution.py
+└── 1008.Construct Binary Search Tree from Preorder Traversal
     ├── README.md
-    ├── Solution.cpp
-    ├── Solution.js
+    ├── Solution.java
     └── Solution.py
 ```
