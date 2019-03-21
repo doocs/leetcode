@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="/img/leetcode-github-yanglbme.png" alt="LeetCode-GitHub-yanglbme"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="/img/leetcode-github-yanglbme.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
