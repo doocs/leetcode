@@ -33,7 +33,7 @@ class Solution {
                     return maxLeft;
                 }
 
-                int minRight = i == len1 ? nums2[j] : j == len2 ? nums1[i] : Math.min(nums2[i], nums1[j]);
+                int minRight = i == len1 ? nums2[j] : j == len2 ? nums1[i] : Math.min(nums2[j], nums1[i]);
 
                 return (maxLeft + minRight) / 2.0;
 
