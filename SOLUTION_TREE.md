@@ -569,8 +569,18 @@
 │   └── Solution.java
 ├── 0164.Maximum Gap
 │   └── Solution.java
+├── 0165.Compare Version Numbers
+│   └── Solution.java
+├── 0166.Fraction to Recurring Decimal
+│   └── Solution.java
 ├── 0167.Two Sum II - Input array is sorted
-│   └── Solution.cpp
+│   ├── Solution.cpp
+│   └── Solution.java
+├── 0168.Excel Sheet Column Title
+│   ├── README.md
+│   └── Solution.java
+├── 0169.Majority Element
+│   └── Solution.java
 ├── 0172.Factorial Trailing Zeroes
 │   └── Solution.cpp
 ├── 0175.Combine Two Tables
@@ -728,6 +738,9 @@
 ├── 0448.Find All Numbers Disappeared in an Array
 │   ├── README.md
 │   └── Solution.cpp
+├── 0457.Circular Array Loop
+│   ├── README.md
+│   └── Solution.py
 ├── 0461.Hamming Distance
 │   └── Solution.js
 ├── 0476.Number Complement
@@ -926,7 +939,20 @@
 │   ├── README.md
 │   ├── Solution.java
 │   └── Solution.py
-└── 1012.Complement of Base 10 Integer
-    ├── README.md
-    └── Solution.java
+├── 1012.Complement of Base 10 Integer
+│   ├── README.md
+│   ├── Solution.java
+│   └── Solution.py
+├── 1013.Pairs of Songs With Total Durations Divisible by 60
+│   └── Solution.py
+├── 1014.Capacity To Ship Packages Within D Days
+│   └── Solution.py
+├── 1020.Partition Array Into Three Parts With Equal Sum
+│   └── Solution.py
+├── 1021.Best Sightseeing Pair
+│   └── Solution.py
+├── 1022.Smallest Integer Divisible by K
+│   └── Solution.py
+└── 1023.Binary String With Substrings Representing 1 To N
+    └── Solution.py
 ```
