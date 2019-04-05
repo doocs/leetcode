@@ -15,19 +15,19 @@
 </p>
 
 ## Introduction
-Complete [solutions](/solution) to Leetcode problems, updated daily.
+Complete [solutions](/solution) to [LeetCode problems](https://leetcode-cn.com/problemset/all/), updated daily.
 
 ## Solution Tree
 See [SOLUTION_TREE](/SOLUTION_TREE.md).
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
-- `Fork` [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then [`clone`](https://help.github.com/articles/cloning-a-repository/) it to your local device.
+- `Fork` [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then [`clone`](https://help.github.com/articles/cloning-a-repository/) it to your local machine.
 - Make some changes to your leetcode repository, then `add`, `commit` and `push` it to your remote GitHub repository.
 - Submit a pull request with your changes!
 - See [CONTRIBUTING](/.github/CONTRIBUTING.md) for more details.
 
-![how-to-contribute](/img/how-to-contribute-yanglbme.png)
+![how-to-contribute](/img/how-to-contribute.png)
 
 ## Contributors
 This project exists thanks to all the people who contribute. 
