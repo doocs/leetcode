@@ -1,13 +1,15 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="/img/leetcode-github-yanglbme.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="./img/leetcode-github-yanglbme.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/lang-Java%2FPython%2FRuby%2FCPP%2FJS%2FGo...-blue.svg" alt="Language"></a>
-  <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome"></a>
-  <a href="https://github.com/doocs/leetcode/issues"><img src="https://img.shields.io/github/issues/doocs/leetcode.svg" alt="issues"></a>
-  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode.svg" alt="stars"></a>
-  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
+  <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/badge/license/Attribution-ShareAlike%204.0%20International/F96854" alt="Language"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/lang/Java,CPP,Python,JS,Ruby,Go,.../orange?list=1g" alt="Language"></a>
+  <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
+  <a href="https://github.com/doocs/leetcode/issues"><img src="https://badgen.net/github/open-issues/doocs/leetcode" alt="issues"></a>
+  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
+  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode" alt="forks"></a>
+  <a href="https://github.com/doocs/intro"><img src="https://badgen.net/badge/organization/join%20us/pink" alt="open-source-organization"></a>
   <!-- <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/leetcode-280/backers/badge.svg" /></a> 
   <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/leetcode-280/sponsors/badge.svg" /></a> -->
 </p>
