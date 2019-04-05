@@ -581,8 +581,11 @@
 │   └── Solution.java
 ├── 0169.Majority Element
 │   └── Solution.java
+├── 0171.Excel Sheet Column Number
+│   └── Solution.java
 ├── 0172.Factorial Trailing Zeroes
-│   └── Solution.cpp
+│   ├── Solution.cpp
+│   └── Solution.java
 ├── 0175.Combine Two Tables
 │   └── README.md
 ├── 0176.Second Highest Salary
