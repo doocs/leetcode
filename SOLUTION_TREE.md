@@ -36,6 +36,7 @@
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0006.ZigZag Conversion
+│   ├── README.md
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   ├── Solution.js
@@ -956,6 +957,16 @@
 │   └── Solution.py
 ├── 1022.Smallest Integer Divisible by K
 │   └── Solution.py
-└── 1023.Binary String With Substrings Representing 1 To N
-    └── Solution.py
+├── 1023.Binary String With Substrings Representing 1 To N
+│   └── Solution.py
+├── 1024.Video Stitching
+│   └── Solution.cpp
+├── 1025.Divisor Game
+│   └── Solution.cpp
+├── 1026.Maximum Difference Between Node and Ancestor
+│   └── Solution.cpp
+├── 1027.Longest Arithmetic Sequence
+│   └── Solution.cpp
+└── 1028.Recover a Tree From Preorder Traversal
+    └── Solution.cpp
 ```
