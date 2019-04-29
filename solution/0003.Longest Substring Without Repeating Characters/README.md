@@ -42,7 +42,7 @@ class Solution {
         while (q < len) {
             if (map.containsKey(chars[q])) {
                 // 防止p指针回溯，导致计算到重复字符的长度
-                // eg. abba,当p指向最右的a时，若简单把p赋为map.get(chars[q] + 1)，则出现指针回溯
+                // eg. abba,当q指向最右的a时，若简单把p赋为map.get(chars[q] + 1)，则出现指针回溯
                 p = Math.max(p, map.get(chars[q]) + 1);
             }
             map.put(chars[q], q);
