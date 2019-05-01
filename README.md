@@ -22,8 +22,8 @@ See [SOLUTION_TREE](/SOLUTION_TREE.md).
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
-- `Fork` [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then [`clone`](https://help.github.com/articles/cloning-a-repository/) it to your local machine.
-- Make some changes to your leetcode repository, then `add`, `commit` and `push` it to your remote GitHub repository.
+- <kbd>Fork</kbd> [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then <kbd>[clone](https://help.github.com/articles/cloning-a-repository/)</kbd> it to your local machine.
+- Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> it to your remote GitHub repository.
 - Submit a pull request with your changes!
 - See [CONTRIBUTING](/.github/CONTRIBUTING.md) for more details.
 
