@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./img/leetcode-github-yanglbme.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="./img/doocs-leetcode.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
@@ -10,8 +10,8 @@
   <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/badge/license/Attribution-ShareAlike%204.0%20International/green" alt="LICENSE"></a>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://github.com/doocs/intro"><img src="https://badgen.net/badge/organization/join%20us/pink" alt="open-source-organization"></a>
-  <!-- <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/leetcode-280/backers/badge.svg" /></a> 
-  <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/leetcode-280/sponsors/badge.svg" /></a> -->
+  <!-- <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
+  <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a> -->
 </p>
 
 ## Introduction
@@ -32,4 +32,4 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 ## Contributors
 This project exists thanks to all the people who contribute. 
 
-<a href="https://github.com/doocs/leetcode/graphs/contributors"><img src="https://opencollective.com/leetcode-280/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/doocs/leetcode/graphs/contributors"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
