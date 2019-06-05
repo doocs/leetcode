@@ -1,4 +1,3 @@
-```java
 class Solution {
     public int[] singleNumber(int[] nums) {
         int t = 0;
@@ -17,4 +16,3 @@ class Solution {
         return new int[]{t1, t2};
     }
 }
-```
