@@ -409,7 +409,8 @@
 ├── 0099.Recover Binary Search Tree
 │   └── Solution.java
 ├── 0100.Same Tree
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.py
 ├── 0101.Symmetric Tree
 │   ├── Solution.java
 │   └── Solution.js
@@ -419,10 +420,13 @@
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0103.Binary Tree Zigzag Level Order Traversal
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.py
 ├── 0104.Maximum Depth of Binary Tree
 │   ├── Solution.java
-│   └── Solution.js
+│   ├── Solution.js
+│   ├── Solution.py
+│   └── new.md
 ├── 0105.Construct Binary Tree from Preorder and Inorder Traversal
 │   ├── README.md
 │   ├── Solution.cpp
@@ -637,6 +641,8 @@
 ├── 0200.Number of Islands
 │   ├── README.md
 │   └── Solution.py
+├── 0201.Bitwise AND of Numbers Range
+│   └── Solution.java
 ├── 0202.Happy Number
 │   ├── README.md
 │   └── Solution.java
@@ -664,6 +670,8 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   └── Solution.py
+├── 0229.Majority Element II
+│   └── Solution.java
 ├── 0231.Power of Two
 │   ├── README.md
 │   ├── Solution.java
@@ -682,6 +690,12 @@
 │   └── Solution.py
 ├── 0242.Valid Anagram
 │   └── Solution.js
+├── 0260.Single Number III
+│   └── Solution.java
+├── 0263.Ugly Number
+│   └── Solution.java
+├── 0264.Ugly Number II
+│   └── Solution.java
 ├── 0268.Missing Number
 │   ├── Solution.js
 │   └── Solution2.js
@@ -705,6 +719,8 @@
 │   └── Solution.java
 ├── 0318.Maximum Product of Word Lengths
 │   └── Solution.cpp
+├── 0319.Bulb Switcher
+│   └── Solution.java
 ├── 0326.Power of Three
 │   └── Solution.js
 ├── 0328.Odd Even Linked List
@@ -712,6 +728,8 @@
 │   └── Solution.java
 ├── 0329.Longest Increasing Path in a Matrix
 │   └── Solution.cpp
+├── 0331.Verify Preorder Serialization of a Binary Tree
+│   └── Solution.java
 ├── 0343.Integer Break
 │   ├── README.md
 │   └── Solution.java
@@ -724,6 +742,8 @@
 │   └── Solution.py
 ├── 0350.Intersection of Two Arrays II
 │   └── Solution.js
+├── 0371.Sum of Two Integers
+│   └── Solution.java
 ├── 0384.Shuffle an Array
 │   └── Solution.js
 ├── 0387.First Unique Character in a String
@@ -734,10 +754,16 @@
 ├── 0394.Decode String
 │   ├── README.md
 │   └── Solution.py
+├── 0397.Integer Replacement
+│   └── Solution.java
+├── 0401.Binary Watch
+│   └── Solution.java
 ├── 0412.Fizz Buzz
 │   ├── Solution.cpp
 │   ├── Solution.js
 │   └── Solution.py
+├── 0415.Add Strings
+│   └── Solution.java
 ├── 0423.Reconstruct Original Digits from English
 │   └── Solution.cpp
 ├── 0427.Construct Quad Tree
@@ -773,6 +799,8 @@
 ├── 0521.Longest Uncommon Subsequence I
 │   ├── README.md
 │   └── Solution.py
+├── 0542.01 Matrix
+│   └── Solution.java
 ├── 0554.Brick Wall
 │   ├── README.md
 │   └── Solution.py
@@ -784,6 +812,9 @@
 │   └── Solution.py
 ├── 0572.Subtree of Another Tree
 │   └── Solution.cpp
+├── 0576.
+│   └── Out of Boundary Paths
+│       └── Solution.java
 ├── 0581.Shortest Unsorted Continuous Subarray
 │   ├── README.md
 │   ├── Solution.cpp
@@ -797,10 +828,14 @@
 │   ├── Solution.cpp
 │   ├── Solution.java
 │   └── Solution.py
+├── 0606.Construct String from Binary Tree
+│   └── Solution.java
 ├── 0620.Not Boring Movies
 │   └── README.md
 ├── 0627.Swap Salary
 │   └── README.md
+├── 0652.Find Duplicate Subtrees
+│   └── Solution.java
 ├── 0657.Robot Return to Origin
 │   └── Solution.py
 ├── 0665.Non-decreasing Array
@@ -809,6 +844,8 @@
 ├── 0670.Maximum Swap
 │   ├── README.md
 │   └── Solution.py
+├── 0687.Longest Univalue Path
+│   └── Solution.java
 ├── 0695.Max Area of Island
 │   ├── README.md
 │   ├── Solution.cpp
@@ -830,6 +867,10 @@
 ├── 0735.Asteroid Collision
 │   ├── README.md
 │   └── Solution.py
+├── 0739.Daily Temperatures
+│   └── Solution.java
+├── 0746.Min Cost Climbing Stairs
+│   └── Solution.java
 ├── 0762.Prime Number of Set Bits in Binary Representation
 │   ├── README.md
 │   └── Solution.py
@@ -837,7 +878,14 @@
 │   ├── README.md
 │   └── Solution.py
 ├── 0771.Jewels and Stones
+│   ├── Solution.cpp
 │   └── Solution.py
+├── 0777.Swap Adjacent in LR String
+│   └── Solution.java
+├── 0783.Minimum Distance Between BST Nodes
+│   └── Solution.java
+├── 0784.Letter Case Permutation
+│   └── Solution.java
 ├── 0789.Escape The Ghosts
 │   ├── README.md
 │   └── Solution.py
@@ -882,6 +930,8 @@
 ├── 0889.Construct Binary Tree from Preorder and Postorder Traversal
 │   ├── README.md
 │   └── Solution.py
+├── 0898.Bitwise ORs of Subarrays
+│   └── Solution.java
 ├── 0905.Sort Array By Parity
 │   ├── README.md
 │   ├── Solution.js
@@ -902,6 +952,8 @@
 │   └── Solution.py
 ├── 0930.Binary Subarrays With Sum
 │   └── Solution.js
+├── 0931.Minimum Falling Path Sum
+│   └── Solution.java
 ├── 0938.Range Sum of BST
 │   ├── README.md
 │   ├── Solution.cpp
@@ -929,7 +981,8 @@
 │   ├── Solution.js
 │   ├── Solution.py
 │   ├── Solution2.cpp
-│   └── Solution2.py
+│   ├── Solution2.py
+│   └── Solution3.cpp
 ├── 0965.Univalued Binary Tree
 │   └── Solution.cpp
 ├── 0976.Largest Perimeter Triangle
@@ -944,6 +997,8 @@
 │   ├── Solution.cpp
 │   ├── Solution.js
 │   └── Solution.py
+├── 0989.Add to Array-Form of Integer
+│   └── Solution.java
 ├── 1005.Maximize Sum Of Array After K Negations
 │   └── Solution.py
 ├── 1006.Clumsy Factorial
@@ -978,6 +1033,26 @@
 │   └── Solution.cpp
 ├── 1027.Longest Arithmetic Sequence
 │   └── Solution.cpp
-└── 1028.Recover a Tree From Preorder Traversal
-    └── Solution.cpp
+├── 1028.Recover a Tree From Preorder Traversal
+│   └── Solution.cpp
+├── 1033.Moving Stones Until Consecutive
+│   └── Solution.java
+├── 1034.Coloring A Border
+│   └── Solution.java
+├── 5075.Number of Submatrices That Sum to Target
+│   └── Solution.py
+├── 5076.Greatest Common Divisor of Strings
+│   └── Solution.py
+├── 5077.Flip Columns For Maximum Number of Equal Rows
+│   └── Solution.py
+├── 5078.Adding Two Negabinary Numbers
+│   └── Solution.py
+├── 5083.Occurrences After Bigram
+│   └── Solution.py
+├── 5084.Insufficient Nodes in Root to Leaf Paths
+│   └── Solution.py
+├── 5086.Smallest Subsequence of Distinct Characters
+│   └── Solution.py
+└── 5087.Letter Tile Possibilities
+    └── Solution.py
 ```
