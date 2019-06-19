@@ -18,7 +18,7 @@
 Complete [solutions](/solution) to [LeetCode problems](https://leetcode-cn.com/problemset/all/), updated daily.
 
 ## Solution Tree
-See [SOLUTION_TREE](/SOLUTION_TREE.md).
+See [SOLUTION_TREE](/solution/README.md).
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
