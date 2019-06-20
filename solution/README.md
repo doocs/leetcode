@@ -25,7 +25,8 @@
 │   ├── README.md
 │   ├── Solution.go
 │   ├── Solution.java
-│   └── Solution.js
+│   ├── Solution.js
+│   └── Solution.py
 ├── 0004.Median of Two Sorted Arrays
 │   ├── README.md
 │   ├── Solution.cpp
