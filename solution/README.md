@@ -25,7 +25,8 @@
 │   ├── README.md
 │   ├── Solution.go
 │   ├── Solution.java
-│   └── Solution.js
+│   ├── Solution.js
+│   └── Solution.py
 ├── 0004.Median of Two Sorted Arrays
 │   ├── README.md
 │   ├── Solution.cpp
@@ -767,7 +768,8 @@
 │   └── Solution.java
 ├── 0421.Maximum XOR of Two Numbers in an Array
 │   ├── README.md
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.py
 ├── 0423.Reconstruct Original Digits from English
 │   └── Solution.cpp
 ├── 0427.Construct Quad Tree
