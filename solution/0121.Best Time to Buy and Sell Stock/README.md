@@ -23,9 +23,7 @@
 ```
 
 ### 解法
-可以将整个数组中的树画到一张折现图中, 需要求的就是从图中找到一个波谷和一个波峰, 使其二者的差值最大化(其中波谷点需要在波峰点之前)。
+可以将整个数组中的数画到一张折现图中, 需要求的就是从图中找到一个波谷和一个波峰, 使其二者的差值最大化(其中波谷点需要在波峰点之前)。
 
-我们可以维持两个变量, minprice(可能产生最大差值的波谷)初始值最大整数((1 << 31) -1), maxprofit(产生的最大差值)初始值0, 然后迭代处理数组中的每个数进而优化
-两个变量的值; 如果数组元素prices[i]不比minprice大, 那就是目前为止最小波谷, 将minprice=prices[i];如果数组元素prices[i]比minprice大, 那就判断prices[i]与
-minprice的差值是否比maxprofit大, 如果是就更新maxprofit=prices[i]-minprice, 并且minprice即为波谷, prices[i]为波谷; 否的话继续处理下一个数组元素
+我们可以维持两个变量, minprice(可能产生最大差值的波谷)初始值最大整数((1 << 31) -1), maxprofit(产生的最大差值)初始值 0, 然后迭代处理数组中的每个数进而优化两个变量的值; 如果数组元素`prices[i]`不比`minprice`大, 那就是目前为止最小波谷, 将 `minprice=prices[i]`;如果数组元素`prices[i]`比`minprice大`, 那就判断`prices[i]`与`minprice`的差值是否比`maxprofit`大, 如果是就更新`maxprofit=prices[i]-minprice`, 并且`minprice`即为波谷, `prices[i]`为波谷; 否的话继续处理下一个数组元素。
 
