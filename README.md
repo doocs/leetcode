@@ -3,13 +3,13 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/lang/Java,C++,Python,JS,Ruby,Go,.../orange?list=1" alt="language"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/lang/Java,C++,Python,JS,Ruby,Go,.../green?list=1" alt="language"></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
-  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode" alt="forks"></a>
   <a href="https://github.com/doocs/leetcode/issues"><img src="https://badgen.net/github/open-issues/doocs/leetcode" alt="issues"></a>
+  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
   <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/badge/license/Attribution-ShareAlike%204.0%20International/green" alt="LICENSE"></a>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
-  <a href="https://github.com/doocs/intro"><img src="https://badgen.net/badge/organization/join%20us/pink" alt="open-source-organization"></a>
+  <a href="https://github.com/doocs/intro"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
   <!-- <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
   <a href="#sponsors" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a> -->
 </p>
@@ -33,3 +33,6 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 This project exists thanks to all the people who contribute. 
 
 <a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
+
+## License
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

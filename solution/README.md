@@ -1,5 +1,4 @@
 # Solution Tree
-
 ```
 .
 ├── 0001.Two Sum
@@ -809,6 +808,8 @@
 ├── 0521.Longest Uncommon Subsequence I
 │   ├── README.md
 │   └── Solution.py
+├── 0526.Beautiful Arrangement
+│   └── Solution.java
 ├── 0542.01 Matrix
 │   └── Solution.java
 ├── 0554.Brick Wall
@@ -822,9 +823,8 @@
 │   └── Solution.py
 ├── 0572.Subtree of Another Tree
 │   └── Solution.cpp
-├── 0576.
-│   └── Out of Boundary Paths
-│       └── Solution.java
+├── 0576.Out of Boundary Paths
+│   └── Solution.java
 ├── 0581.Shortest Unsorted Continuous Subarray
 │   ├── README.md
 │   ├── Solution.cpp
@@ -1063,6 +1063,7 @@
 │   └── Solution.py
 ├── 5086.Smallest Subsequence of Distinct Characters
 │   └── Solution.py
-└── 5087.Letter Tile Possibilities
-    └── Solution.py
+├── 5087.Letter Tile Possibilities
+│   └── Solution.py
+└── README.md
 ```
