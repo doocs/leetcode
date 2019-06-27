@@ -941,6 +941,9 @@
 ├── 0881.Boats to Save People
 │   ├── README.md
 │   └── Solution.py
+├── 0887.Super Egg Drop
+│   ├── README.md
+│   └── Solution.java
 ├── 0889.Construct Binary Tree from Preorder and Postorder Traversal
 │   ├── README.md
 │   └── Solution.py
