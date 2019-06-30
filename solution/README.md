@@ -54,6 +54,7 @@
 │   └── Solution2.py
 ├── 0008.String to Integer (atoi)
 │   ├── Solution.java
+│   ├── Solution.go
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0009.Palindrome Number
