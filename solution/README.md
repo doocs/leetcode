@@ -34,27 +34,27 @@
 │   └── Solution.js
 ├── 0005.Longest Palindromic Substring
 │   ├── README.md
-│   ├── Solution.java
 │   ├── Solution.go
+│   ├── Solution.java
 │   └── Solution.js
 ├── 0006.ZigZag Conversion
 │   ├── README.md
 │   ├── Solution.cpp
-│   ├── Solution.java
 │   ├── Solution.go
+│   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0007.Reverse Integer
 │   ├── README.md
-│   ├── Solution.java
 │   ├── Solution.go
+│   ├── Solution.java
 │   ├── Solution.js
 │   ├── Solution.py
 │   ├── Solution.rb
 │   └── Solution2.py
 ├── 0008.String to Integer (atoi)
-│   ├── Solution.java
 │   ├── Solution.go
+│   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0009.Palindrome Number
@@ -629,6 +629,8 @@
 │   └── README.md
 ├── 0184.Department Highest Salary
 │   └── README.md
+├── 0187.Repeated DNA Sequences
+│   └── Solution.java
 ├── 0188.Best Time to Buy and Sell Stock IV
 │   ├── README.md
 │   └── Solution.py
@@ -701,6 +703,10 @@
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
+├── 0239.Sliding Window Maximum
+│   └── Solution.java
+├── 0240.Search a 2D Matrix II
+│   └── Solution.java
 ├── 0242.Valid Anagram
 │   └── Solution.js
 ├── 0260.Single Number III
@@ -712,6 +718,10 @@
 ├── 0268.Missing Number
 │   ├── Solution.js
 │   └── Solution2.js
+├── 0274.H-Index
+│   └── Solution.java
+├── 0275.H-Index II
+│   └── Solution.java
 ├── 0278.First Bad Version
 │   └── Solution.js
 ├── 0283.Move Zeroes
@@ -719,6 +729,8 @@
 │   ├── Solution.cpp
 │   ├── Solution.js
 │   └── Solution2.js
+├── 0290.Word Pattern
+│   └── Solution.java
 ├── 0295.Find Median from Data Stream
 │   ├── README.md
 │   └── Solution.java
@@ -751,17 +763,30 @@
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
+├── 0347.Top K Frequent Elements
+│   └── Solution.java
 ├── 0349.Intersection of Two Arrays
 │   └── Solution.py
 ├── 0350.Intersection of Two Arrays II
+│   ├── Solution.java
 │   └── Solution.js
+├── 0355.Design Twitter
+│   └── Solution.java
+├── 0367.Valid Perfect Square
+│   └── Solution.java
 ├── 0371.Sum of Two Integers
+│   └── Solution.java
+├── 0374.Guess Number Higher or Lower
+│   └── Solution.java
+├── 0376.Wiggle Subsequence
 │   └── Solution.java
 ├── 0384.Shuffle an Array
 │   └── Solution.js
 ├── 0387.First Unique Character in a String
 │   ├── Solution.cpp
 │   └── Solution.js
+├── 0392.Is Subsequence
+│   └── Solution.java
 ├── 0393.UTF-8 Validation
 │   └── Solution.cpp
 ├── 0394.Decode String
@@ -770,6 +795,10 @@
 ├── 0397.Integer Replacement
 │   └── Solution.java
 ├── 0401.Binary Watch
+│   └── Solution.java
+├── 0402.Remove K Digits
+│   └── Solution.java
+├── 0406.Queue Reconstruction by Height
 │   └── Solution.java
 ├── 0412.Fizz Buzz
 │   ├── Solution.cpp
@@ -791,24 +820,42 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   └── Solution.py
+├── 0441.Arranging Coins
+│   └── Solution.java
 ├── 0443.String Compression
 │   └── Solution.cpp
 ├── 0448.Find All Numbers Disappeared in an Array
 │   ├── README.md
 │   └── Solution.cpp
+├── 0452.Minimum Number of Arrows to Burst Balloons
+│   └── Solution.java
+├── 0454.4Sum II
+│   └── Solution.java
+├── 0456.132 Pattern
+│   └── Solution.java
 ├── 0457.Circular Array Loop
 │   ├── README.md
 │   └── Solution.py
 ├── 0461.Hamming Distance
 │   └── Solution.js
+├── 0462.Minimum Moves to Equal Array Elements II
+│   └── Solution.java
+├── 0475.Heaters
+│   └── Solution.java
 ├── 0476.Number Complement
 │   └── Solution.cpp
 ├── 0485. Max Consecutive Ones
 │   └── Solution.js
+├── 0486.Predict the Winner
+│   └── Solution.java
 ├── 0493.Reverse Pairs
 │   └── Solution.cpp
+├── 0496.Next Greater Element I
+│   └── Solution.java
 ├── 0500.Keyboard Row
 │   └── Solution.py
+├── 0503.Next Greater Element II
+│   └── Solution.java
 ├── 0509.Fibonacci
 │   ├── README.md
 │   ├── Solution.cpp
@@ -816,13 +863,20 @@
 ├── 0521.Longest Uncommon Subsequence I
 │   ├── README.md
 │   └── Solution.py
+├── 0525.Contiguous Array
+│   └── Solution.java
 ├── 0526.Beautiful Arrangement
 │   └── Solution.java
 ├── 0542.01 Matrix
 │   └── Solution.java
 ├── 0554.Brick Wall
 │   ├── README.md
+│   ├── Solution.java
 │   └── Solution.py
+├── 0556.Next Greater Element III
+│   └── Solution.java
+├── 0560.Subarray Sum Equals K
+│   └── Solution.java
 ├── 0561.Array Partition I
 │   ├── README.md
 │   └── Solution.js
@@ -852,6 +906,8 @@
 │   └── README.md
 ├── 0627.Swap Salary
 │   └── README.md
+├── 0633.Sum of Square Numbers
+│   └── Solution.java
 ├── 0652.Find Duplicate Subtrees
 │   └── Solution.java
 ├── 0657.Robot Return to Origin
@@ -877,8 +933,12 @@
 ├── 0703.Kth Largest Element in a Stream
 │   ├── README.md
 │   └── Solution.java
+├── 0704.Binary Search
+│   └── Solution.java
 ├── 0707.Design Linked List
 │   ├── README.md
+│   └── Solution.java
+├── 0724.Find Pivot Index
 │   └── Solution.java
 ├── 0728.Self Dividing Numbers
 │   └── Solution.cpp
@@ -930,9 +990,13 @@
 ├── 0848.Shifting Letters
 │   ├── README.md
 │   └── Solution.py
+├── 0852.Peak Index in a Mountain Array
+│   └── Solution.java
 ├── 0853.Car Fleet
 │   ├── README.md
 │   └── Solution.py
+├── 0860.Lemonade Change
+│   └── Solution.java
 ├── 0867.Transpose Matrix
 │   ├── README.md
 │   └── Solution.js
@@ -942,6 +1006,8 @@
 │   ├── README.md
 │   ├── Solution.java
 │   └── Solution.py
+├── 0878.Nth Magical Number
+│   └── Solution.java
 ├── 0881.Boats to Save People
 │   ├── README.md
 │   └── Solution.py
@@ -1060,6 +1126,16 @@
 ├── 1033.Moving Stones Until Consecutive
 │   └── Solution.java
 ├── 1034.Coloring A Border
+│   └── Solution.java
+├── 1089.Duplicate Zeros
+│   └── Solution.java
+├── 1091.Shortest Path in Binary Matrix
+│   └── Solution.java
+├── 1093.Statistics from a Large Sample
+│   └── Solution.java
+├── 1094.Car Pooling
+│   └── Solution.java
+├── 1095.Find in Mountain Array
 │   └── Solution.java
 ├── 5075.Number of Submatrices That Sum to Target
 │   └── Solution.py
