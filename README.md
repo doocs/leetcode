@@ -27,7 +27,9 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 - Submit a pull request with your changes!
 - See [CONTRIBUTING](/.github/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
-![how-to-contribute](/img/how-to-contribute.png)
+<p align="center">
+  <a href="https://github.com/doocs/leetcode"><img src="./img/how-to-contribute.png" alt="how-to-contribute"></a>
+</p>
 
 ## Contributors
 This project exists thanks to all the people who contribute. 
