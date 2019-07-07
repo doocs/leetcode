@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/lang/Java,C++,Python,JS,Ruby,Go,.../green?list=1" alt="language"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/lang/Java,C++,Python,.../green?list=1" alt="language"></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/issues"><img src="https://badgen.net/github/open-issues/doocs/leetcode" alt="issues"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
-  <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/badge/license/Attribution-ShareAlike%204.0%20International/green" alt="LICENSE"></a>
+  <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://github.com/doocs/intro"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
   <!-- <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
@@ -23,9 +23,9 @@ See [SOLUTION_TREE](/solution/README.md).
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
 - <kbd>Fork</kbd> [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then <kbd>clone</kbd> it to your local machine.
-- Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> it to your remote GitHub repository.
+- Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> the changes to your remote GitHub repository.
 - Submit a pull request with your changes!
-- See [CONTRIBUTING](/.github/CONTRIBUTING.md) for more details.
+- See [CONTRIBUTING](/.github/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
 ![how-to-contribute](/img/how-to-contribute.png)
 
