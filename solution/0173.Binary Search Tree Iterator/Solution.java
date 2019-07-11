@@ -9,40 +9,34 @@ public class Solution {
      *     TreeNode(int x) { val = x; }
      * }
      */
-
-    class TreeNode {
-          int val;
-          TreeNode left;
-          TreeNode right;
-          TreeNode(int x) { val = x; }
-    }
-
     class BSTIterator {
 
-        Stack<TreeNode> stack = new Stack<>();
+        private TreeNode currentNode = null;
+        private Stack<TreeNode> stack = new Stack<TreeNode>();
 
         public BSTIterator(TreeNode root) {
-            while (root!=null){
-                stack.add(root);
-                root=root.left;
+            if (root != null) {
+                currentNode = root;
             }
-        }
-
-        /** @return whether we have a next smallest number */
-        public boolean hasNext() {
-            return !stack.isEmpty();
         }
 
         /** @return the next smallest number */
         public int next() {
-            TreeNode current = stack.pop();
-            TreeNode res  = current;
-            current =current.right;
-            while (current!=null){
-                stack.push(current);
-                current = current.left;
+            while (currentNode != null) {
+                stack.push(currentNode);
+                currentNode = currentNode.left;
             }
-            return res.val;
+
+            currentNode = stack.pop();
+            TreeNode node = currentNode;
+            currentNode = currentNode.right;
+
+            return node.val;
+        }
+
+        /** @return whether we have a next smallest number */
+        public boolean hasNext() {
+            return currentNode != null || !stack.isEmpty();
         }
     }
 
