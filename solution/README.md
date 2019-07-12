@@ -32,6 +32,7 @@
 │   ├── Solution.go
 │   ├── Solution.java
 │   └── Solution.js
+│   └── Solution.py
 ├── 0005.Longest Palindromic Substring
 │   ├── README.md
 │   ├── Solution.go
