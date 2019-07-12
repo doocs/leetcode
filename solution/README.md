@@ -183,6 +183,7 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   └── Solution.java
+│   └── Solution.py
 ├── 0035.Search Insert Position
 │   ├── README.md
 │   ├── Solution.cpp
