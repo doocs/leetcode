@@ -31,7 +31,7 @@
 │   ├── Solution.cpp
 │   ├── Solution.go
 │   ├── Solution.java
-│   └── Solution.js
+│   ├── Solution.js
 │   └── Solution.py
 ├── 0005.Longest Palindromic Substring
 │   ├── README.md
@@ -183,7 +183,7 @@
 ├── 0034.Find First and Last Position of Element in Sorted Array
 │   ├── README.md
 │   ├── Solution.cpp
-│   └── Solution.java
+│   ├── Solution.java
 │   └── Solution.py
 ├── 0035.Search Insert Position
 │   ├── README.md
@@ -719,7 +719,6 @@
 ├── 0242.Valid Anagram
 │   ├── Solution.java
 │   └── Solution.js
-|   └── Solution.java
 ├── 0260.Single Number III
 │   └── Solution.java
 ├── 0263.Ugly Number
@@ -827,6 +826,8 @@
 │   └── Solution.java
 ├── 0427.Construct Quad Tree
 │   └── Solution.cpp
+├── 0429.N-ary Tree Level Order Traversal
+│   └── Solution.java
 ├── 0430.Flatten a Multilevel Doubly Linked List
 │   └── Solution.java
 ├── 0434.Number of Segments in a String
@@ -844,6 +845,8 @@
 ├── 0448.Find All Numbers Disappeared in an Array
 │   ├── README.md
 │   └── Solution.cpp
+├── 0450.Delete Node in a BST
+│   └── Solution.java
 ├── 0452.Minimum Number of Arrows to Burst Balloons
 │   └── Solution.java
 ├── 0453.Minimum Moves to Equal Array Elements
@@ -919,6 +922,10 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   └── Solution.java
+├── 0589.N-ary Tree Preorder Traversal
+│   └── Solution.java
+├── 0590.N-ary Tree Postorder Traversal
+│   └── Solution.java
 ├── 0595.Big Countries
 │   └── README.md
 ├── 0596.Classes More Than 5 Students
@@ -947,6 +954,8 @@
 ├── 0665.Non-decreasing Array
 │   ├── README.md
 │   └── Solution.py
+├── 0669.Trim a Binary Search Tree
+│   └── Solution.java
 ├── 0670.Maximum Swap
 │   ├── README.md
 │   └── Solution.py
@@ -1159,6 +1168,8 @@
 │   └── Solution.java
 ├── 1022.Smallest Integer Divisible by K
 │   └── Solution.py
+├── 1022.Sum of Root To Leaf Binary Numbers
+│   └── Solution.java
 ├── 1023.Binary String With Substrings Representing 1 To N
 │   └── Solution.py
 ├── 1024.Video Stitching
@@ -1194,6 +1205,8 @@
 ├── 1109.Corporate Flight Bookings
 │   └── Solution.java
 ├── 1110.Delete Nodes And Return Forest
+│   └── Solution.java
+├── 1111.Maximum Nesting Depth of Two Valid Parentheses Strings
 │   └── Solution.java
 ├── 5075.Number of Submatrices That Sum to Target
 │   └── Solution.py

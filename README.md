@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/lang/Java,C++,Python,.../green?list=1" alt="language"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/lang/Java,C++,Python,JavaScript,Go,.../green?list=1" alt="language"></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/issues"><img src="https://badgen.net/github/open-issues/doocs/leetcode" alt="issues"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
-  <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
+  <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://github.com/doocs/intro"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
   <!-- <a href="#backers" alt="sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
