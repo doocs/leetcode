@@ -25,7 +25,7 @@ class Solution {
                 }
             }
         }
-        while (!op.isEmpty()) {
+        if (!op.isEmpty()) {
             calc(op, num);
         }
         return num.peek();
