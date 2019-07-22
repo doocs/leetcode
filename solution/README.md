@@ -249,6 +249,7 @@
 ├── 0050.Pow(x, n)
 │   ├── Solution.java
 │   └── Solution.js
+│   └── Solution.py
 ├── 0051.N-Queens
 │   └── Solution.java
 ├── 0052.N-Queens II
