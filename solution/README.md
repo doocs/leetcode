@@ -19,8 +19,8 @@
 │   ├── Solution.js
 │   ├── Solution.py
 │   ├── Solution.rb
-│   ├── Solution2.py
-│   └── Solution2.js
+│   ├── Solution2.js
+│   └── Solution2.py
 ├── 0003.Longest Substring Without Repeating Characters
 │   ├── README.md
 │   ├── Solution.go
@@ -101,6 +101,7 @@
 │   ├── Solution.rb
 │   └── solution.cpp
 ├── 0016.3Sum Closest
+│   ├── Solution.go
 │   └── Solution.java
 ├── 0017.Letter Combinations of a Phone Number
 │   └── Solution.java
@@ -190,6 +191,7 @@
 ├── 0034.Find First and Last Position of Element in Sorted Array
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.go
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0035.Search Insert Position
@@ -227,7 +229,7 @@
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0043.Multiply Strings
-│   └── Solution.java
+│   ├── Solution.java
 │   └── Solution.py
 ├── 0044.Wildcard Matching
 │   └── Solution.java
@@ -254,7 +256,7 @@
 │   └── Solution.java
 ├── 0050.Pow(x, n)
 │   ├── Solution.java
-│   └── Solution.js
+│   ├── Solution.js
 │   └── Solution.py
 ├── 0051.N-Queens
 │   └── Solution.java
@@ -330,6 +332,7 @@
 ├── 0070.Climbing Stairs
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
@@ -415,6 +418,7 @@
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0095.Unique Binary Search Trees II
+│   ├── Solution.go
 │   └── Solution.java
 ├── 0096.Unique Binary Search Trees
 │   ├── README.md
@@ -594,6 +598,7 @@
 ├── 0153.Find Minimum in Rotated Sorted Array
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.go
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0154.Find Minimum in Rotated Sorted Array II
@@ -668,6 +673,7 @@
 ├── 0198.House Robber
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.go
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0200.Number of Islands
@@ -733,6 +739,8 @@
 │   └── Solution.java
 ├── 0240.Search a 2D Matrix II
 │   └── Solution.java
+├── 0241.Different Ways to Add Parentheses
+│   └── Solution.go
 ├── 0242.Valid Anagram
 │   ├── Solution.java
 │   └── Solution.js
@@ -879,6 +887,8 @@
 │   ├── README.md
 │   └── Solution.py
 ├── 0458.Poor Pigs
+│   └── Solution.java
+├── 0459.Repeated Substring Pattern
 │   └── Solution.java
 ├── 0461.Hamming Distance
 │   └── Solution.js
