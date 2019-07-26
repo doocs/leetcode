@@ -999,6 +999,7 @@
 ├── 0701.Insert into a Binary Search Tree
 │   ├── README.md
 │   └── Solution.py
+│   └── Solution.java
 ├── 0703.Kth Largest Element in a Stream
 │   ├── README.md
 │   └── Solution.java
