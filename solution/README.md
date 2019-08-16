@@ -182,7 +182,8 @@
 ├── 0032.Longest Valid Parentheses
 │   ├── README.md
 │   ├── Solution.java
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.java
 ├── 0033.Search in Rotated Sorted Array
 │   ├── README.md
 │   ├── Solution.cpp
@@ -366,6 +367,8 @@
 ├── 0077.Combinations
 │   └── Solution.java
 ├── 0078.Subsets
+│   ├── Solution.cpp
+│   ├── Solution.go
 │   └── Solution.java
 ├── 0079.Word Search
 │   └── Solution.java
@@ -517,6 +520,8 @@
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0124.Binary Tree Maximum Path Sum
+│   ├── Solution.cpp
+│   ├── Solution.go
 │   └── Solution.java
 ├── 0125.Valid Palindrome
 │   ├── Solution.java
@@ -610,6 +615,7 @@
 │   └── Solution.java
 ├── 0155.Min Stack
 │   ├── README.md
+│   ├── Solution.cpp
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0160.Intersection of Two Linked Lists
@@ -769,6 +775,8 @@
 │   └── Solution.java
 ├── 0278.First Bad Version
 │   └── Solution.js
+├── 0279.Perfect Squares
+│   └── Solution.go
 ├── 0283.Move Zeroes
 │   ├── README.md
 │   ├── Solution.cpp
@@ -904,6 +912,8 @@
 │   └── Solution.js
 ├── 0462.Minimum Moves to Equal Array Elements II
 │   └── Solution.java
+├── 0473.Matchsticks to Square
+│   └── Solution.java
 ├── 0475.Heaters
 │   └── Solution.java
 ├── 0476.Number Complement
@@ -923,10 +933,17 @@
 │   └── Solution.py
 ├── 0503.Next Greater Element II
 │   └── Solution.java
+├── 0504.Base 7
+│   └── Solution.java
+├── 0506.Relative Ranks
+│   └── Solution.java
 ├── 0509.Fibonacci
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.java
 │   └── Solution.js
+├── 0518.Coin Change 2
+│   └── Solution.java
 ├── 0521.Longest Uncommon Subsequence I
 │   ├── README.md
 │   └── Solution.py
@@ -1122,6 +1139,8 @@
 │   └── Solution.py
 ├── 0891.Sum of Subsequence Widths
 │   └── Solution.java
+├── 0892.Surface Area of 3D Shapes
+│   └── Solution.java
 ├── 0898.Bitwise ORs of Subarrays
 │   └── Solution.java
 ├── 0905.Sort Array By Parity
@@ -1271,6 +1290,12 @@
 │   └── Solution.java
 ├── 1073.Adding Two Negabinary Numbers
 │   └── Solution.java
+├── 1079.Letter Tile Possibilities
+│   └── Solution.java
+├── 1080.Insufficient Nodes in Root to Leaf Paths
+│   └── Solution.java
+├── 1081.Smallest Subsequence of Distinct Characters
+│   └── Solution.java
 ├── 1089.Duplicate Zeros
 │   └── Solution.java
 ├── 1090.Largest Values From Labels
@@ -1284,6 +1309,8 @@
 ├── 1095.Find in Mountain Array
 │   └── Solution.java
 ├── 1103.Distribute Candies to People
+│   └── Solution.java
+├── 1104.Path In Zigzag Labelled Binary Tree
 │   └── Solution.java
 ├── 1108.Defanging an IP Address
 │   └── Solution.java
@@ -1318,6 +1345,14 @@
 ├── 1138.Alphabet Board Path
 │   └── Solution.java
 ├── 1139.Largest 1-Bordered Square
+│   └── Solution.java
+├── 1140.Stone Game II
+│   └── Solution.java
+├── 1144.Decrease Elements To Make Array Zigzag
+│   └── Solution.java
+├── 1147.Longest Chunked Palindrome Decomposition
+│   └── Solution.java
+├── 1155.Number of Dice Rolls With Target Sum
 │   └── Solution.java
 ├── 5075.Number of Submatrices That Sum to Target
 │   └── Solution.py
