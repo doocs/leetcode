@@ -31,6 +31,10 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
   <a href="https://github.com/doocs/leetcode"><img src="./img/how-to-contribute.png" alt="how-to-contribute"></a>
 </p>
 
+You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) using [Gitpod.io](https://www.gitpod.io), a free online dev environment with a single click.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/doocs/leetcode)
+
 ## Contributors
 This project exists thanks to all the people who contribute. 
 
