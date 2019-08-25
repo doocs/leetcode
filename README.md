@@ -25,7 +25,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 - <kbd>Fork</kbd> [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then <kbd>clone</kbd> it to your local machine.
 - Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> the changes to your remote GitHub repository.
 - Submit a pull request with your changes!
-- See [CONTRIBUTING](/.github/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
+- See [CONTRIBUTING](https://github.com/doocs/.github/blob/master/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="./img/how-to-contribute.png" alt="how-to-contribute"></a>

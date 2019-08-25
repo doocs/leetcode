@@ -604,7 +604,8 @@
 ├── 0151.Reverse Words in a String
 │   └── Solution.java
 ├── 0152.Maximum Product Subarray
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.py
 ├── 0153.Find Minimum in Rotated Sorted Array
 │   ├── README.md
 │   ├── Solution.cpp
@@ -852,12 +853,18 @@
 │   └── Solution.java
 ├── 0402.Remove K Digits
 │   └── Solution.java
+├── 0405.Convert a Number to Hexadecimal
+│   └── Solution.java
 ├── 0406.Queue Reconstruction by Height
+│   └── Solution.java
+├── 0410.Split Array Largest Sum
 │   └── Solution.java
 ├── 0412.Fizz Buzz
 │   ├── Solution.cpp
 │   ├── Solution.js
 │   └── Solution.py
+├── 0414.Third Maximum Number
+│   └── Solution.java
 ├── 0415.Add Strings
 │   └── Solution.java
 ├── 0421.Maximum XOR of Two Numbers in an Array
@@ -1018,6 +1025,8 @@
 │   └── Solution.java
 ├── 0674.Longest Continuous Increasing Subsequence
 │   └── Solution.java
+├── 0684.Redundant Connection
+│   └── Solution.java
 ├── 0687.Longest Univalue Path
 │   └── Solution.java
 ├── 0695.Max Area of Island
@@ -1094,6 +1103,7 @@
 ├── 0832.Flipping an Image
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0836.Rectangle Overlap
@@ -1119,6 +1129,8 @@
 │   └── Solution.js
 ├── 0874.Walking Robot Simulation
 │   └── Solution.cpp
+├── 0875.Koko Eating Bananas
+│   └── Solution.java
 ├── 0876.Middle of the Linked List
 │   ├── README.md
 │   ├── Solution.java
@@ -1153,6 +1165,8 @@
 ├── 0917.Reverse Only Letters
 │   ├── Solution.cpp
 │   └── Solution.py
+├── 0918.Maximum Sum Circular Subarray
+│   └── Solution.java
 ├── 0922.Sort Array By Parity II
 │   ├── README.md
 │   └── Solution.js
