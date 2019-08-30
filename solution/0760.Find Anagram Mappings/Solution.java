@@ -11,7 +11,6 @@ class Solution {
         for (int k : A) {
             res[j++] = map.get(k);
         }
-
         return res;
     }
 }
