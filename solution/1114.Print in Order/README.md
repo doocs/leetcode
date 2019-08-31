@@ -20,7 +20,6 @@ public class Foo {
 
 请设计修改程序，以确保 `two()` 方法在 `one()` 方法之后被执行，`three()` 方法在 `two()` 方法之后被执行。
 
- 
 
 **示例 1:**
 
@@ -47,7 +46,7 @@ public class Foo {
 
 多线程同步问题，很好理解。
 
-#### CPP
+1. C++ 解法
 
 ```cpp
 class Foo { //C++ 11
@@ -86,3 +85,33 @@ private:
 };
 ```
 
+2. Java 解法
+
+```java
+import java.util.concurrent.Semaphore;
+
+class Foo {
+    private Semaphore twoS = new Semaphore(0);
+    private Semaphore threeS = new Semaphore(0);
+    
+    public Foo() {
+        
+    }
+
+    public void first(Runnable printFirst) throws InterruptedException {
+        printFirst.run();
+        twoS.release();
+    }
+
+    public void second(Runnable printSecond) throws InterruptedException {
+        twoS.acquire();
+        printSecond.run();
+        threeS.release();
+    }
+
+    public void third(Runnable printThird) throws InterruptedException {
+        threeS.acquire();
+        printThird.run();
+    }
+}
+```
