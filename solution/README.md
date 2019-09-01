@@ -1013,6 +1013,8 @@
 │   └── Solution.java
 ├── 0657.Robot Return to Origin
 │   └── Solution.py
+├── 0664.Strange Printer
+│   └── Solution.java
 ├── 0665.Non-decreasing Array
 │   ├── README.md
 │   └── Solution.py
@@ -1063,6 +1065,10 @@
 │   └── Solution.go
 ├── 0746.Min Cost Climbing Stairs
 │   └── Solution.java
+├── 0760.Find Anagram Mappings
+│   ├── README.md
+│   ├── Solution.java
+│   └── Solution.py
 ├── 0762.Prime Number of Set Bits in Binary Representation
 │   ├── README.md
 │   └── Solution.py
@@ -1072,7 +1078,9 @@
 │   ├── README.md
 │   └── Solution.py
 ├── 0771.Jewels and Stones
+│   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.java
 │   └── Solution.py
 ├── 0777.Swap Adjacent in LR String
 │   └── Solution.java
@@ -1336,7 +1344,8 @@
 │   └── Solution.java
 ├── 1114.Print in Order
 │   ├── README.md
-│   └── Solution.cpp
+│   ├── Solution.cpp
+│   └── Solution.java
 ├── 1115.Print FooBar Alternately
 │   ├── README.md
 │   └── Solution.cpp
