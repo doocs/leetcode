@@ -678,6 +678,14 @@
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
+├── 0192.Word Frequency
+│   └── Solution.sh
+├── 0193.Valid Phone Numbers
+│   └── Solution.sh
+├── 0194.Transpose File
+│   └── Solution.sh
+├── 0195.Tenth Line
+│   └── Solution.sh
 ├── 0196.Delete Duplicate Emails
 │   └── README.md
 ├── 0197.Rising Temperature
