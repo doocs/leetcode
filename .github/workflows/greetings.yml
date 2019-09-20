@@ -10,4 +10,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: 'Thanks for your feedback.'
-        pr-message: 'Thanks for your first contribution to [doocs/leetcode](https://github.com/doocs/leetcode).'
+        pr-message: 'Thanks for your first contribution to the leetcode project.'
