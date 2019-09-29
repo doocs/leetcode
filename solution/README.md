@@ -294,7 +294,8 @@
 │   └── Solution.java
 ├── 0061.Rotate List
 │   ├── README.md
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0062.Unique Paths
 │   ├── README.md
 │   ├── Solution.cpp
@@ -741,7 +742,8 @@
 ├── 0229.Majority Element II
 │   └── Solution.java
 ├── 0230.Kth Smallest Element in a BST
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0231.Power of Two
 │   ├── README.md
 │   ├── Solution.java
@@ -1011,6 +1013,9 @@
 │   └── Solution.java
 ├── 0620.Not Boring Movies
 │   └── README.md
+├── 0622.Design Circular Queue
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 0627.Swap Salary
 │   └── README.md
 ├── 0633.Sum of Square Numbers
@@ -1043,8 +1048,13 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   └── Solution.java
+├── 0696.Count Binary Substrings
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 0700.Search in a Binary Search Tree
+│   ├── README_EN.md
 │   ├── Solution.cpp
+│   ├── Solution.java
 │   └── Solution.py
 ├── 0701.Insert into a Binary Search Tree
 │   ├── README.md
@@ -1072,6 +1082,9 @@
 ├── 0744.Find Smallest Letter Greater Than Target
 │   └── Solution.go
 ├── 0746.Min Cost Climbing Stairs
+│   └── Solution.java
+├── 0752.Open the Lock
+│   ├── README_EN.md
 │   └── Solution.java
 ├── 0760.Find Anagram Mappings
 │   ├── README.md
@@ -1175,6 +1188,9 @@
 │   ├── README.md
 │   ├── Solution.js
 │   └── Solution.py
+├── 0912.Sort an Array
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 0915.Partition Array into Disjoint Intervals
 │   ├── README.md
 │   └── Solution.py
@@ -1260,6 +1276,12 @@
 │   ├── README.md
 │   ├── Solution.java
 │   └── Solution.py
+├── 1009.Complement of Base 10 Integer
+│   ├── README_EN.md
+│   └── Solution.java
+├── 1010.Pairs of Songs With Total Durations Divisible by 60
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 1012.Complement of Base 10 Integer
 │   ├── README.md
 │   ├── Solution.java
@@ -1287,16 +1309,38 @@
 ├── 1024.Video Stitching
 │   └── Solution.cpp
 ├── 1025.Divisor Game
-│   └── Solution.cpp
+│   ├── README_EN.md
+│   ├── Solution.cpp
+│   └── Solution.java
 ├── 1026.Maximum Difference Between Node and Ancestor
-│   └── Solution.cpp
+│   ├── README_EN.md
+│   ├── Solution.cpp
+│   └── Solution.java
 ├── 1027.Longest Arithmetic Sequence
 │   └── Solution.cpp
 ├── 1028.Recover a Tree From Preorder Traversal
 │   └── Solution.cpp
+├── 1029.Two City Scheduling
+│   ├── README_EN.md
+│   └── Solution.java
+├── 1030.Matrix Cells in Distance Order
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 1033.Moving Stones Until Consecutive
 │   └── Solution.java
 ├── 1034.Coloring A Border
+│   └── Solution.java
+├── 1037.Valid Boomerang
+│   ├── README_EN.md
+│   └── Solution.java
+├── 1038.Binary Search Tree to Greater Sum Tree
+│   ├── README_EN.md
+│   └── Solution.java
+├── 1041.Robot Bounded In Circle
+│   ├── README_EN.md
+│   └── Solution.java
+├── 1043.Partition Array for Maximum Sum
+│   ├── README_EN.md
 │   └── Solution.java
 ├── 1046.Last Stone Weight
 │   └── Solution.java
@@ -1384,6 +1428,12 @@
 ├── 1147.Longest Chunked Palindrome Decomposition
 │   └── Solution.java
 ├── 1155.Number of Dice Rolls With Target Sum
+│   └── Solution.java
+├── 1184.Distance Between Bus Stops
+│   ├── README_EN.md
+│   └── Solution.java
+├── 1185.Day of the Week
+│   ├── README_EN.md
 │   └── Solution.java
 ├── 5075.Number of Submatrices That Sum to Target
 │   └── Solution.py
