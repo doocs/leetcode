@@ -1,3 +1,6 @@
-.md         @yanglbme
+*.md        @yanglbme
+.gitignore  @yanglbme
+LICENSE     @yanglbme
+
 solution/   @yanglbme
 img/        @yanglbme
