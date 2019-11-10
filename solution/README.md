@@ -1489,13 +1489,12 @@
 │   ├── Solution.java
 │   ├── Solution2.java
 │   └── Solution3.java
-├── 1116. Print Zero Even Odd
-│   ├── README_EN.md
-│   ├── Solution.java
-│   └── Solution2.java
 ├── 1116.Print Zero Even Odd
 │   ├── README.md
-│   └── Solution.cpp
+│   ├── README_EN.md
+│   ├── Solution.cpp
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 1117.Building H2O
 │   ├── README.md
 │   └── Solution.cpp
