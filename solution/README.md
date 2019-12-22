@@ -1056,6 +1056,8 @@
 ├── 0557.Reverse Words in a String III
 │   ├── README_EN.md
 │   └── Solution.java
+├── 0559.Maximum Depth of N-ary Tree
+│   └── Solution.py
 ├── 0560.Subarray Sum Equals K
 │   └── Solution.java
 ├── 0561.Array Partition I
@@ -1146,7 +1148,8 @@
 │   ├── README.md
 │   └── Solution.java
 ├── 0704.Binary Search
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution.py
 ├── 0707.Design Linked List
 │   ├── README.md
 │   └── Solution.java
@@ -1163,6 +1166,8 @@
 │   ├── README_EN.md
 │   ├── Solution.java
 │   └── Solution2.java
+├── 0743.Network Delay Time
+│   └── Solution.py
 ├── 0744.Find Smallest Letter Greater Than Target
 │   └── Solution.go
 ├── 0746.Min Cost Climbing Stairs
@@ -1275,6 +1280,8 @@
 ├── 0912.Sort an Array
 │   ├── README_EN.md
 │   └── Solution.java
+├── 0914.X of a Kind in a Deck of Cards
+│   └── Solution.py
 ├── 0915.Partition Array into Disjoint Intervals
 │   ├── README.md
 │   └── Solution.py
@@ -1539,6 +1546,14 @@
 │   └── Solution2.java
 ├── 1234.Replace the Substring for Balanced String
 │   └── Solution.py
+├── 1275.Find Winner on a Tic Tac Toe Game
+│   └── Solution.cpp
+├── 1276.Number of Burgers with No Waste of Ingredients
+│   └── Solution.cpp
+├── 1277.Count Squre Submatrices with All Ones
+│   └── Solution.cpp
+├── 1278.Palindrome Partitioning III
+│   └── Solution.cpp
 ├── 5075.Number of Submatrices That Sum to Target
 │   └── Solution.py
 ├── 5076.Greatest Common Divisor of Strings
