@@ -11,6 +11,7 @@ class Solution {
         }
         return new int[]{-1,-1};
     }
+
     private int findFirst(int[] nums, int start, int end, int target) {
         while (start < end) {
             int temp = start + (end - start) / 2;
@@ -19,6 +20,7 @@ class Solution {
         }
         return start;
     }
+
     private int findEnd(int[] nums, int start, int end, int target) {
         while (start < end) {
             int temp = start + (end - start + 1) / 2;
