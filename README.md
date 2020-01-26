@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/lang/Java,C++,Python,JavaScript,Go,.../green?list=1" alt="language"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,C#,C++,Python,JavaScript,Go,.../green?list=1" alt="languages"></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/issues"><img src="https://badgen.net/github/open-issues/doocs/leetcode" alt="issues"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
