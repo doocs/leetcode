@@ -4,10 +4,10 @@ using System;
 
 public partial class Solution
 {
-    public int MaximalSquare(char[,] matrix)
+    public int MaximalSquare(char[][] matrix)
     {
-        var lengthI = matrix.GetLength(0);
-        var lengthJ = matrix.GetLength(1);
+        var lengthI = matrix.Length;
+        var lengthJ = lengthI == 0 ? 0 : matrix[0].Length;
         if (lengthI == 0 || lengthJ == 0) return 0;
 
         var lenI = new int[lengthI, lengthJ];
@@ -18,7 +18,7 @@ public partial class Solution
         {
             for (var j = 0; j < lengthJ ; ++j)
             {
-                if (matrix[i, j] == '1')
+                if (matrix[i][j] == '1')
                 {
                     lenI[i, j] = i == 0 ? 1 : lenI[i - 1, j] + 1;
                     lenJ[i, j] = j == 0 ? 1 : lenJ[i, j - 1] + 1;

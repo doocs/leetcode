@@ -1,13 +1,13 @@
 public class Solution {
-    public void SolveSudoku(char[,] board) {
+    public void SolveSudoku(char[][] board) {
         this.board = new ushort?[9,9];
         for (var i = 0; i < 9; ++i)
         {
             for (var j = 0; j < 9; ++j)
             {
-                if (board[i, j] != '.')
+                if (board[i][j] != '.')
                 {
-                    this.board[i, j] = (ushort) (1 << (board[i, j] - '0' - 1));
+                    this.board[i, j] = (ushort) (1 << (board[i][j] - '0' - 1));
                 }
             }
         }
@@ -18,12 +18,12 @@ public class Solution {
             {
                 for (var j = 0; j < 9; ++j)
                 {
-                    if (board[i, j] == '.')
+                    if (board[i][j] == '.')
                     {
-                        board[i, j] = '0';
+                        board[i][j] = '0';
                         while (this.board[i, j].Value != 0)
                         {
-                            board[i, j] = (char)(board[i, j] + 1);
+                            board[i][j] = (char)(board[i][j] + 1);
                             this.board[i, j] >>= 1;
                         }
                     }

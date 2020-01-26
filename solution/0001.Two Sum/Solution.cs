@@ -8,7 +8,7 @@ public class Solution {
             int index;
             if (dict.TryGetValue(target - nums[i], out index))
             {
-                return new [] { index + 1, i + 1};
+                return new [] { index, i};
             }
             if (!dict.ContainsKey(nums[i]))
             {

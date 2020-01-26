@@ -34,7 +34,7 @@ public class LRUCache
         return -1;
     }
 
-    public void Set(int key, int value)
+    public void Put(int key, int value)
     {
         Node node;
         if (keyMap.TryGetValue(key, out node))

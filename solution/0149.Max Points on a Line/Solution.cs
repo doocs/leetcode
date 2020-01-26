@@ -4,49 +4,87 @@ using System.Collections.Generic;
 
 public class Solution
 {
-    public int MaxPoints(Point[] points)
+    class Slope {
+        private int _x;
+        private int _y;
+
+        public Slope(int x, int y) {
+            if (x == 0 && y == 0) {
+                throw new ArgumentException("Invalid slope.");
+            }
+            if (x == 0) {
+                _x = 0;
+                _y = 1;
+                return;
+            }
+            if (y == 0) {
+                _x = 1;
+                _y = 0;
+                return;
+            }
+
+            bool negative = x < 0 && y > 0 || x > 0 && y < 0;
+            x = Math.Abs(x);
+            y = Math.Abs(y);
+            int tx = x;
+            int ty = y;
+            int tz = tx % ty;
+            while (tz > 0) {
+                tx = ty;
+                ty = tz;
+                tz = tx % ty;
+            }
+
+            _x = x / ty;
+            _y = (negative ? -1 : 1) * (y / ty);
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || !(obj is Slope)) {
+                return false;
+            } else {
+                return _x == ((Slope) obj)._x && _y == ((Slope) obj)._y;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return _x.GetHashCode() ^ _y.GetHashCode();
+        }
+    }
+
+    public int MaxPoints(int[][] points)
     {
         var answer = 0;
         for (var i = 0; i < points.Length; ++i)
         {
-            var ratios = new Dictionary<double, int>();
-            var verticalRatio = 0;
+            var slopes = new Dictionary<Slope, int>();
             var samePoint = 0;
             var max = 0;
             for (var j = i + 1; j < points.Length; ++j)
             {
-                if (points[i].x == points[j].x && points[i].y == points[j].y)
+                if (points[i][0] == points[j][0] && points[i][1] == points[j][1])
                 {
                     ++samePoint;
                 }
                 else
                 {
-                    var ratio = ((double)points[j].y - (double)points[i].y) / ((double)points[j].x - (double)points[i].x);
-                    if (double.IsInfinity(ratio))
+                    var slope = new Slope(points[j][0] - points[i][0], points[j][1] - points[i][1]);
+                    if (slopes.ContainsKey(slope))
                     {
-                        ++verticalRatio;
-                        if (max < verticalRatio)
+                        ++slopes[slope];
+                        if (max < slopes[slope])
                         {
-                            max = verticalRatio;
+                            max = slopes[slope];
                         }
                     }
                     else
                     {
-                        if (ratios.ContainsKey(ratio))
+                        slopes[slope] = 1;
+                        if (max < 1)
                         {
-                            ++ratios[ratio];
-                            if (max < ratios[ratio])
-                            {
-                                max = ratios[ratio];
-                            }
-                        }
-                        else
-                        {
-                            ratios[ratio] = 1;
-                            if (max < 1)
-                            {
-                                max = 1;
-                            }
+                            max = 1;
                         }
                     }
                 }

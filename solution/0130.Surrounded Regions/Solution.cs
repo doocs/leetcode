@@ -2,20 +2,20 @@ using System;
 using System.Collections.Generic;
 
 public class Solution {
-    private static readonly int[,] directions = new int[4, 2] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 }}; 
-    public void Solve(char[,] board) {
-        var lenI = board.GetLength(0);
-        var lenJ = board.GetLength(1);
-        
+    private static readonly int[,] directions = new int[4, 2] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 }};
+    public void Solve(char[][] board) {
+        var lenI = board.Length;
+        var lenJ = lenI == 0 ? 0 : board[0].Length;
+
         for (var i = 0; i < lenI; ++i)
         {
             for (var j = 0; j < lenJ; ++j)
             {
-                if (board[i, j] == 'O')
+                if (board[i][j] == 'O')
                 {
                     var marked = new List<Tuple<int, int>>();
                     marked.Add(Tuple.Create(i, j));
-                    board[i, j] = 'M';
+                    board[i][j] = 'M';
                     bool escaped = false;
                     for (var m = 0; m < marked.Count; ++m)
                     {
@@ -27,32 +27,32 @@ public class Solution {
                             {
                                 escaped = true;
                             }
-                            else if (board[newI, newJ] == 'O')
+                            else if (board[newI][newJ] == 'O')
                             {
-                                board[newI, newJ] = 'M';
+                                board[newI][newJ] = 'M';
                                 marked.Add(Tuple.Create(newI, newJ));
                             }
                         }
                     }
-                    
+
                     if (!escaped)
                     {
                         foreach (var item in marked)
                         {
-                            board[item.Item1, item.Item2] = 'X';
+                            board[item.Item1][item.Item2] = 'X';
                         }
                     }
                 }
             }
         }
-        
+
         for (var i = 0; i < lenI; ++i)
         {
             for (var j = 0; j < lenJ; ++j)
             {
-                if (board[i, j] == 'M')
+                if (board[i][j] == 'M')
                 {
-                    board[i, j] = 'O';
+                    board[i][j] = 'O';
                 }
             }
         }

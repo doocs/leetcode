@@ -1,37 +1,34 @@
 using System.Collections.Generic;
 
 public class Solution {
-    public UndirectedGraphNode CloneGraph(UndirectedGraphNode node) {
+    public Node CloneGraph(Node node) {
         if (node == null) return null;
-        var dict = new Dictionary<int, UndirectedGraphNode>();
-        var queue = new Queue<UndirectedGraphNode>();
-        queue.Enqueue(CloneLabel(node));
-        dict.Add(node.label, queue.Peek());
+        var dict = new Dictionary<int, Node>();
+        var queue = new Queue<Node>();
+        queue.Enqueue(CloneVal(node));
+        dict.Add(node.val, queue.Peek());
         while (queue.Count > 0)
         {
             var current = queue.Dequeue();
-            var newNeighbors = new List<UndirectedGraphNode>(current.neighbors.Count);
+            var newNeighbors = new List<Node>(current.neighbors.Count);
             foreach (var oldNeighbor in current.neighbors)
             {
-                UndirectedGraphNode newNeighbor;
-                if (!dict.TryGetValue(oldNeighbor.label, out newNeighbor))
+                Node newNeighbor;
+                if (!dict.TryGetValue(oldNeighbor.val, out newNeighbor))
                 {
-                    newNeighbor = CloneLabel(oldNeighbor);
+                    newNeighbor = CloneVal(oldNeighbor);
                     queue.Enqueue(newNeighbor);
-                    dict.Add(newNeighbor.label, newNeighbor);
+                    dict.Add(newNeighbor.val, newNeighbor);
                 }
                 newNeighbors.Add(newNeighbor);
             }
             current.neighbors = newNeighbors;
         }
-        return dict[node.label];
+        return dict[node.val];
     }
 
-    private UndirectedGraphNode CloneLabel(UndirectedGraphNode node)
+    private Node CloneVal(Node node)
     {
-        return new UndirectedGraphNode(node.label)
-        {
-            neighbors = new List<UndirectedGraphNode>(node.neighbors)
-        };
+        return new Node(node.val, new List<Node>(node.neighbors));
     }
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class Solution {
-    public bool WordBreak(string s, ISet<string> wordDict) {
+    public bool WordBreak(string s, IList<string> wordDict) {
         var f = new bool[s.Length + 1];
         f[0] = true;
         var wordDictGroup = wordDict.GroupBy(word => word.Length);

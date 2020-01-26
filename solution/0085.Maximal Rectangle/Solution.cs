@@ -25,16 +25,16 @@ public class Solution {
         return result;
     }
 
-    public int MaximalRectangle(char[,] matrix) {
-        var lenI = matrix.GetLength(0);
-        var lenJ = matrix.GetLength(1);
+    public int MaximalRectangle(char[][] matrix) {
+        var lenI = matrix.Length;
+        var lenJ = lenI == 0 ? 0 : matrix[0].Length;
         var height = new int[lenJ];
         var result = 0;
         for (var i = 0; i < lenI; ++i)
         {
             for (var j = 0; j < lenJ; ++j)
             {
-                if (matrix[i, j] == '1')
+                if (matrix[i][j] == '1')
                 {
                     ++height[j];
                 }

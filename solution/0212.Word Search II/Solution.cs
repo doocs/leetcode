@@ -11,7 +11,7 @@ public class WordDictionary : Dictionary<char, WordDictionary>
 
 public class Solution
 {
-    public IList<string> FindWords(char[,] board, string[] words)
+    public IList<string> FindWords(char[][] board, string[] words)
     {
         var dict = new WordDictionary();
         foreach (var word in words)
@@ -34,9 +34,9 @@ public class Solution
         }
 
         var results = new List<string>();
-        for (var i = 0; i < board.GetLength(0); ++i)
+        for (var i = 0; i < board.Length; ++i)
         {
-            for (var j = 0; j < board.GetLength(1); ++j)
+            for (var j = 0; j < board[0].Length; ++j)
             {
                 var sb = new StringBuilder();
                 foreach (var word in FindWords_Search(board, i, j, sb, dict))
@@ -51,23 +51,23 @@ public class Solution
 
     private readonly int[,] FindWords_SearchPath = new int[4, 2] { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 
-    private IEnumerable<string> FindWords_Search(char[,] board, int i, int j, StringBuilder sb, WordDictionary dict)
+    private IEnumerable<string> FindWords_Search(char[][] board, int i, int j, StringBuilder sb, WordDictionary dict)
     {
         WordDictionary childDict;
-        if (dict.Keys.Count > 0 && char.IsLower(board[i, j]) && dict.TryGetValue(board[i, j], out childDict))
+        if (dict.Keys.Count > 0 && char.IsLower(board[i][j]) && dict.TryGetValue(board[i][j], out childDict))
         {
-            sb.Append(board[i, j]);
+            sb.Append(board[i][j]);
             if (childDict.CanEnd)
             {
                 yield return sb.ToString();
             }
 
-            board[i, j] = char.ToUpper(board[i, j]);
+            board[i][j] = char.ToUpper(board[i][j]);
             for (var k = 0; k < 4; ++k)
             {
                 var newI = i + FindWords_SearchPath[k, 0];
                 var newJ = j + FindWords_SearchPath[k, 1];
-                if (newI >= 0 && newI < board.GetLength(0) && newJ >= 0 && newJ < board.GetLength(1))
+                if (newI >= 0 && newI < board.Length && newJ >= 0 && newJ < board[0].Length)
                 {
                     foreach (var word in FindWords_Search(board, newI, newJ, sb, childDict))
                     {
@@ -76,7 +76,7 @@ public class Solution
                 }
             }
             sb.Remove(sb.Length - 1, 1);
-            board[i, j] = char.ToLower(board[i, j]);
+            board[i][j] = char.ToLower(board[i][j]);
         }
     }
 }

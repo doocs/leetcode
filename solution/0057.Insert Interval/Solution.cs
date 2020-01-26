@@ -2,28 +2,28 @@ using System;
 using System.Collections.Generic;
 
 public class Solution {
-    public IList<Interval> Insert(IList<Interval> intervals, Interval newInterval) {
-        var result = new List<Interval>();
+    public int[][] Insert(int[][] intervals, int[] newInterval) {
+        var result = new List<int[]>();
         var i = 0;
 
-        while (i < intervals.Count && intervals[i].end < newInterval.start)
+        while (i < intervals.Length && intervals[i][1] < newInterval[0])
         {
             result.Add(intervals[i++]);
         }
 
-        while (i < intervals.Count && intervals[i].start <= newInterval.end && intervals[i].end >= newInterval.start)
+        while (i < intervals.Length && intervals[i][0] <= newInterval[1] && intervals[i][1] >= newInterval[0])
         {
-            newInterval.start = Math.Min(intervals[i].start, newInterval.start);
-            newInterval.end = Math.Max(intervals[i].end, newInterval.end);
+            newInterval[0] = Math.Min(intervals[i][0], newInterval[0]);
+            newInterval[1] = Math.Max(intervals[i][1], newInterval[1]);
             ++i;
         }
         result.Add(newInterval);
 
-        while (i < intervals.Count)
+        while (i < intervals.Length)
         {
             result.Add(intervals[i++]);
         }
 
-        return result;
+        return result.ToArray();
     }
 }

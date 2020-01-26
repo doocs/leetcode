@@ -10,7 +10,7 @@ class Node
 }
 
 public class Solution {
-    public IList<string> WordBreak(string s, ISet<string> wordDict) {
+    public IList<string> WordBreak(string s, IList<string> wordDict) {
         var paths = new List<Tuple<int, string>>[s.Length + 1];
         paths[s.Length] = new List<Tuple<int, string>> { Tuple.Create(-1, (string)null) };
         var wordDictGroup = wordDict.GroupBy(word => word.Length);
@@ -32,14 +32,14 @@ public class Solution {
                 }
             }
         }
-        
+
         return GenerateResults(paths);
     }
-    
+
     private IList<string> GenerateResults(List<Tuple<int, string>>[] paths)
     {
         var results = new List<string>();
-        var sb = new StringBuilder(); 
+        var sb = new StringBuilder();
         var stack = new Stack<Node>();
         stack.Push(new Node());
         while (stack.Count > 0)

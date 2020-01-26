@@ -1,10 +1,10 @@
 using System;
 
 public class Solution {
-    public int CalculateMinimumHP(int[,] dungeon) {
-        var len1 = dungeon.GetLength(0);
-        var len2 = dungeon.GetLength(1);
-        var f = new long[len1, len2]; 
+    public int CalculateMinimumHP(int[][] dungeon) {
+        var len1 = dungeon.Length;
+        var len2 = len1 == 0 ? 0 : dungeon[0].Length;
+        var f = new long[len1, len2];
         for (var i = len1 - 1; i >= 0; --i)
         {
             for (var j = len2 - 1; j >= 0; --j)
@@ -13,7 +13,7 @@ public class Solution {
                 var right = (j == len2 - 1) ? long.MaxValue : f[i, j + 1];
                 f[i, j] = Math.Min(down, right);
                 if (f[i, j] == long.MaxValue) f[i, j] = 1;
-                f[i, j] -= dungeon[i, j];
+                f[i, j] -= dungeon[i][j];
                 if (f[i, j] < 1) f[i, j] = 1;
             }
         }

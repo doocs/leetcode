@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class Solution {
-    public IList<Interval> Merge(IList<Interval> intervals) {
-        var result = new List<Interval>();
-        foreach (var interval in intervals.OrderBy(i => i.start))
+    public int[][] Merge(int[][] intervals) {
+        var result = new List<int[]>();
+        foreach (var interval in intervals.OrderBy(i => i[0]))
         {
             if (!result.Any())
             {
@@ -13,16 +13,16 @@ public class Solution {
             else
             {
                 var last = result.Last();
-                if (last.end < interval.start)
+                if (last[1] < interval[0])
                 {
                     result.Add(interval);
                 }
-                else if (last.end < interval.end)
+                else if (last[1] < interval[1])
                 {
-                    last.end = interval.end;
+                    last[1] = interval[1];
                 }
             }
         }
-        return result;
+        return result.ToArray();
     }
 }
