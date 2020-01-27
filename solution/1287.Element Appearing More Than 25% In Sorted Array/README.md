@@ -1,8 +1,10 @@
 ## 1287. 有序数组中出现次数超过 25% 的元素
+### 题目描述
 给你一个非递减的 有序 整数数组，已知这个数组中恰好有一个整数，它的出现次数超过数组元素总数的 25%。
 
 请你找到并返回这个整数。
 
+### 代码实现
 - JavaScript
 
 ```javascript
@@ -38,4 +40,16 @@ class Solution {
         return 0;
     }
 }
+```
+
+- Python
+
+```python
+class Solution:
+    def findSpecialInteger(self, arr: List[int]) -> int:
+        total = len(arr)
+        for i, val in enumerate(arr):
+            if val == arr[i + (total >> 2)]:
+                return val
+        return 0
 ```
