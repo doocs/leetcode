@@ -1554,6 +1554,8 @@
 │   └── Solution.cpp
 ├── 1278.Palindrome Partitioning III
 │   └── Solution.cpp
+├── 1287.Element Appearing More Than 25% In Sorted Array
+│   └── Solution.js 
 ├── 5075.Number of Submatrices That Sum to Target
 │   └── Solution.py
 ├── 5076.Greatest Common Divisor of Strings
