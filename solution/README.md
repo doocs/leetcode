@@ -876,6 +876,8 @@
 │   └── Solution.cpp
 ├── 0331.Verify Preorder Serialization of a Binary Tree
 │   └── Solution.java
+├── 0342.Power of Four
+│   └── Solution.js
 ├── 0343.Integer Break
 │   ├── README.md
 │   ├── README_EN.md
