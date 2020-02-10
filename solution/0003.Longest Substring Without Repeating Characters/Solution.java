@@ -1,23 +1,15 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        if (s == null || s.length() == 0) {
-            return 0;
-        }
-        char[] chars = s.toCharArray();
-        int len = chars.length;
-        int p = 0, q = 0;
-        int max = 0;
         Map<Character, Integer> map = new HashMap<>();
-        while (q < len) {
-            if (map.containsKey(chars[q])) {
-                // 防止p指针回溯，导致计算到重复字符的长度
-                p = Math.max(p, map.get(chars[q]) + 1);
+        int max = 0;
+        for (int fast = 0, slow = 0; fast < s.length(); fast ++) {
+            if (map.containsKey(s.charAt(fast))) {
+                int target = map.get(s.charAt(fast)) + 1;
+                slow = target < slow ? slow : target;
             }
-            map.put(chars[q], q);
-            max = Math.max(max, q - p + 1);
-            ++q;
+            map.put(s.charAt(fast), fast);
+            max = Math.max(max, fast - slow + 1);
         }
-
         return max;
     }
 }
