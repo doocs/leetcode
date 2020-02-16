@@ -1534,6 +1534,8 @@
 │   └── Solution.java
 ├── 1147.Longest Chunked Palindrome Decomposition
 │   └── Solution.java
+├── 1154.Day of the Year
+│   └── Solution.js
 ├── 1155.Number of Dice Rolls With Target Sum
 │   └── Solution.java
 ├── 1171.Remove Zero Sum Consecutive Nodes from Linked List
