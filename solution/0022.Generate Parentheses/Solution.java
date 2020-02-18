@@ -1,21 +1,20 @@
 class Solution {
-	List<String> result = new ArrayList<>();
     public List<String> generateParenthesis(int n) {
-        generateParenthesis(n, n, new char[n * 2], 0);
-        return result;
+        List<String> res = new ArrayList<>();
+        dfs(res, "", 0, 0, n);
+        return res;
     }
-    void generateParenthesis(int left, int right, char[] cache, int index) {
-        if (right == 0) {
-            result.add(String.valueOf(cache));
+
+    private void dfs(List<String> res, String ans, int l, int r, int length) {
+        if (ans.length() == length * 2) {
+            res.add(ans);
             return;
         }
-        if (left > 0) {
-            cache[index] = '(';
-            generateParenthesis(left - 1, right, cache, index + 1);
+        if (l < length) {
+            dfs(res, ans + "(", l + 1, r, length);
         }
-        if (right > left) {
-            cache[index] = ')';
-            generateParenthesis(left, right - 1, cache, index + 1);
+        if (r < l) {
+            dfs(res, ans + ")", l, r + 1, length);
         }
     }
 }
