@@ -1273,6 +1273,8 @@
 │   └── Solution.java
 ├── 0892.Surface Area of 3D Shapes
 │   └── Solution.java
+├── 0896.Monotonic Array
+│   └── Solution.js
 ├── 0898.Bitwise ORs of Subarrays
 │   └── Solution.java
 ├── 0905.Sort Array By Parity
