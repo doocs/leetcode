@@ -4,6 +4,7 @@
 ├── 0001.Two Sum
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -14,6 +15,7 @@
 ├── 0002.Add Two Numbers
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -23,31 +25,37 @@
 │   └── Solution2.py
 ├── 0003.Longest Substring Without Repeating Characters
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.java
 ├── 0004.Median of Two Sorted Arrays
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0005.Longest Palindromic Substring
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0006.ZigZag Conversion
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0007.Reverse Integer
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -55,6 +63,7 @@
 │   ├── Solution.rb
 │   └── Solution2.py
 ├── 0008.String to Integer (atoi)
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -66,6 +75,7 @@
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0010.Regular Expression Matching
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   └── Solution2.go
@@ -89,6 +99,7 @@
 ├── 0014.Longest Common Prefix
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -98,6 +109,7 @@
 ├── 0015.3Sum
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.py
@@ -106,13 +118,17 @@
 │   ├── Solution.go
 │   └── Solution.java
 ├── 0017.Letter Combinations of a Phone Number
+│   ├── Solution.cs
 │   ├── Solution.go
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0018.4Sum
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0019.Remove Nth Node From End of List
 │   ├── README.md
 │   ├── Solution.cpp
@@ -129,6 +145,7 @@
 │   ├── Solution.js
 │   ├── Solution.py
 │   ├── Solution.rb
+│   ├── Solution2.java
 │   └── Solution2.py
 ├── 0021.Merge Two Sorted Lists
 │   ├── README.md
@@ -146,10 +163,12 @@
 ├── 0023.Merge k Sorted Lists
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.py
-│   └── Solution.rb
+│   ├── Solution.rb
+│   └── Solution2.java
 ├── 0024.Swap Nodes in Pairs
 │   ├── README.md
 │   ├── Solution.cpp
@@ -160,10 +179,13 @@
 │   └── Solution2.cpp
 ├── 0025.Reverse Nodes in k-Group
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.go
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0026.Remove Duplicates from Sorted Array
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -180,23 +202,28 @@
 ├── 0028.Implement strStr()
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0029.Divide Two Integers
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0030.Substring with Concatenation of All Words
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0031.Next Permutation
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0032.Longest Valid Parentheses
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   ├── Solution.py
 │   └── Solution2.java
@@ -204,13 +231,15 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   ├── Solution.java
-│   └── Solution.js
+│   ├── Solution.js
+│   └── Solution2.java
 ├── 0034.Find First and Last Position of Element in Sorted Array
 │   ├── README.md
 │   ├── Solution.cpp
 │   ├── Solution.go
 │   ├── Solution.java
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.java
 ├── 0035.Search Insert Position
 │   ├── README.md
 │   ├── Solution.cpp
@@ -223,9 +252,11 @@
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0037.Sudoku Solver
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0038.Count and Say
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -233,15 +264,19 @@
 ├── 0039.Combination Sum
 │   ├── README.md
 │   ├── Solution.cpp
-│   └── Solution.java
+│   ├── Solution.cs
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0040.Combination Sum II
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0041.First Missing Positive
 │   ├── README.md
 │   ├── Solution.c
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0042.Trapping Rain Water
@@ -250,15 +285,19 @@
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0043.Multiply Strings
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0044.Wildcard Matching
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0045.Jump Game II
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0046.Permutations
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.py
@@ -266,6 +305,7 @@
 ├── 0047.Permutations II
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.java
 │   ├── Solution.py
 │   └── Solution2.cpp
@@ -275,15 +315,19 @@
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0049.Group Anagrams
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0050.Pow(x, n)
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0051.N-Queens
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0052.N-Queens II
-│   └── Solution.java
+│   ├── README_EN.md
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0053.Maximum Subarray
 │   ├── README.md
 │   ├── Solution.go
@@ -293,16 +337,23 @@
 ├── 0054.Spiral Matrix
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0055.Jump Game
-│   └── Solution.java
+│   ├── README_EN.md
+│   ├── Solution.cs
+│   ├── Solution.java
+│   ├── Solution2.java
+│   └── Solution3.java
 ├── 0056.Merge Intervals
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0057.Insert Interval
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0058.Length of Last Word
 │   ├── README.md
@@ -314,9 +365,11 @@
 │   ├── Solution.cpp
 │   └── Solution.java
 ├── 0060.Permutation Sequence
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0061.Rotate List
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution2.java
 ├── 0062.Unique Paths
@@ -328,7 +381,8 @@
 ├── 0063.Unique Paths II
 │   ├── README.md
 │   ├── Solution.java
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.java
 ├── 0064.Minimum Path Sum
 │   ├── README.md
 │   ├── Solution.cpp
@@ -336,6 +390,7 @@
 │   ├── Solution.java
 │   └── Solution2.cpp
 ├── 0065.Valid
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0066.Plus One
@@ -348,12 +403,15 @@
 │   ├── Solution2.js
 │   └── Solution2.py
 ├── 0067.Add Binary
+│   ├── Solution.cs
 │   ├── Solution.go
 │   └── Solution.java
 ├── 0068.Text Justification
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0069.Sqrt(x)
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -368,6 +426,7 @@
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0071.Simplify Path
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0072.Edit Distance
 │   └── Solution.java
@@ -390,6 +449,7 @@
 │   ├── Solution2.cpp
 │   └── Solution2.py
 ├── 0076.Minimum Window Substring
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0077.Combinations
 │   └── Solution.java
@@ -398,19 +458,23 @@
 │   ├── Solution.go
 │   └── Solution.java
 ├── 0079.Word Search
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0080.Remove Duplicates from Sorted Array II
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0081.Search in Rotated Sorted Array II
 │   └── Solution.java
 ├── 0082.Remove Duplicates from Sorted List II
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0083.Remove Duplicates from Sorted List
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.go
 │   ├── Solution.java
 │   ├── Solution.js
@@ -419,8 +483,10 @@
 ├── 0084.Largest Rectangle in Histogram
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0085.Maximal Rectangle
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0086.Partition List
 │   ├── README.md
@@ -428,6 +494,7 @@
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0087.Scramble String
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0088.Merge Sorted Array
 │   ├── Solution.go
@@ -442,18 +509,23 @@
 │   ├── Solution.java
 │   └── Solution2.cpp
 ├── 0091.Decode Ways
-│   └── Solution.java
+│   ├── Solution.cs
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0092.Reverse Linked List II
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0093.Restore IP Addresses
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0094.Binary Tree Inorder Traversal
 │   ├── README.md
 │   ├── Solution.java
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.java
 ├── 0095.Unique Binary Search Trees II
 │   ├── Solution.go
 │   └── Solution.java
@@ -462,12 +534,15 @@
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0097.Interleaving String
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0098.Validate Binary Search Tree
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0099.Recover Binary Search Tree
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0100.Same Tree
 │   ├── README.md
@@ -477,7 +552,8 @@
 ├── 0101.Symmetric Tree
 │   ├── Solution.java
 │   ├── Solution.js
-│   └── Solution2.java
+│   ├── Solution2.java
+│   └── Solution3.java
 ├── 0102.Binary Tree Level Order Traversal
 │   ├── README.md
 │   ├── Solution.java
@@ -494,10 +570,13 @@
 ├── 0105.Construct Binary Tree from Preorder and Inorder Traversal
 │   ├── README.md
 │   ├── Solution.cpp
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0106.Construct Binary Tree from Inorder and Postorder Traversal
 │   ├── README.md
-│   └── Solution.java
+│   ├── Solution.java
+│   ├── Solution2.java
+│   └── Solution3.java
 ├── 0107.Binary Tree Level Order Traversal II
 │   └── Solution.java
 ├── 0108.Convert Sorted Array to Binary Search Tree
@@ -508,11 +587,13 @@
 ├── 0110.Balanced Binary Tree
 │   └── Solution.java
 ├── 0111.Minimum Depth of Binary Tree
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0112.Path Sum
 │   ├── README.md
 │   ├── Solution.cpp
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0113.Path Sum II
 │   └── Solution.java
 ├── 0114.Flatten Binary Tree to Linked List
@@ -539,31 +620,37 @@
 │   └── Solution2.cpp
 ├── 0121.Best Time to Buy and Sell Stock
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0122.Best Time to Buy and Sell Stock II
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0123.Best Time to Buy and Sell Stock III
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0124.Binary Tree Maximum Path Sum
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   └── Solution.java
 ├── 0125.Valid Palindrome
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0126.Word Ladder II
 │   └── Solution.java
 ├── 0127.Word Ladder
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0128.Longest Consecutive Sequence
 │   └── Solution.java
@@ -572,16 +659,22 @@
 ├── 0130.Surrounded Regions
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0131.Palindrome Partitioning
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0132.Palindrome Partitioning II
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0133.Clone Graph
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0134.Gas Station
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0135.Candy
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0136.Single Number
 │   ├── README.md
@@ -594,10 +687,13 @@
 │   └── Solution.py
 ├── 0138.Copy List with Random Pointer
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0139.Word Break
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0140.Word Break II
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0141.Linked List Cycle
 │   ├── README.md
@@ -612,6 +708,7 @@
 │   └── Solution.java
 ├── 0143.Reorder List
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0144.Binary Tree Preorder Traversal
 │   ├── README.md
@@ -622,6 +719,7 @@
 ├── 0146.Lru Cache
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.go
 │   └── Solution.java
 ├── 0147.Insertion Sort List
@@ -629,18 +727,23 @@
 │   └── Solution.java
 ├── 0148.Sort List
 │   ├── README_EN.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   ├── Solution2.java
 │   └── Solution3.java
 ├── 0149.Max Points on a Line
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0150.Evaluate Reverse Polish Notation
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0151.Reverse Words in a String
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0152.Maximum Product Subarray
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0153.Find Minimum in Rotated Sorted Array
@@ -654,6 +757,7 @@
 ├── 0155.Min Stack
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0160.Intersection of Two Linked Lists
@@ -663,10 +767,13 @@
 ├── 0162.Find Peak Element
 │   └── Solution.java
 ├── 0164.Maximum Gap
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0165.Compare Version Numbers
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0166.Fraction to Recurring Decimal
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0167.Two Sum II - Input array is sorted
 │   ├── README_EN.md
@@ -675,14 +782,18 @@
 │   └── Solution2.java
 ├── 0168.Excel Sheet Column Title
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0169.Majority Element
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0171.Excel Sheet Column Number
 │   └── Solution.java
 ├── 0172.Factorial Trailing Zeroes
 │   ├── Solution.cpp
 │   └── Solution.java
+├── 0174.Dungeon Game
+│   └── Solution.cs
 ├── 0175.Combine Two Tables
 │   └── README.md
 ├── 0176.Second Highest Salary
@@ -691,6 +802,8 @@
 │   └── README.md
 ├── 0178.Rank Scores
 │   └── README.md
+├── 0179.Largest Number
+│   └── Solution.cs
 ├── 0180.Consecutive Numbers
 │   └── README.md
 ├── 0181.Employees Earning More Than Their Managers
@@ -702,15 +815,19 @@
 ├── 0184.Department Highest Salary
 │   └── README.md
 ├── 0187.Repeated DNA Sequences
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0188.Best Time to Buy and Sell Stock IV
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.py
 ├── 0189.Rotate Array
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0190.Reverse Bits
 │   ├── Solution.cpp
+│   ├── Solution.java
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0191.Number of 1 Bits
@@ -739,9 +856,11 @@
 ├── 0200.Number of Islands
 │   ├── README.md
 │   ├── README_EN.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0201.Bitwise AND of Numbers Range
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0202.Happy Number
 │   ├── README.md
@@ -750,55 +869,96 @@
 │   └── Solution2.java
 ├── 0203.Remove Linked List Elements
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.java
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.java
 ├── 0204.Count Primes
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   └── Solution.js
+├── 0205.Isomorphic Strings
+│   └── Solution.cs
 ├── 0206.Reverse Linked List
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0207.Course Schedule
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.java
+├── 0208. Implement Trie (Prefix Tree)
+│   ├── Solution.cs
+│   └── Solution.java
+├── 0209.Minimum Size Subarray Sum
+│   └── Solution.cs
+├── 0210.Course Schedule II
+│   └── Solution.cs
+├── 0211.Add and Search Word - Data structure design
+│   ├── Solution.cs
+│   └── Solution.java
+├── 0212.Word Search II
+│   └── Solution.cs
 ├── 0213.House Robber II
 │   └── Solution.go
+├── 0214.Shortest Palindrome
+│   └── Solution.cs
 ├── 0215.Kth Largest Element in an Array
 │   ├── README.md
 │   ├── Solution.cpp
 │   ├── Solution.go
 │   └── Solution.java
+├── 0216.Combination Sum III
+│   └── Solution.cs
 ├── 0217.Contains Duplicate
+│   ├── Solution.cs
 │   └── Solution.js
 ├── 0218.The Skyline Problem
 │   └── Solution.cpp
 ├── 0219.Contains Duplicate II
+│   ├── Solution.cs
 │   └── Solution.py
+├── 0220.Contains Duplicate III
+│   └── Solution.cs
+├── 0221.Maximal Square
+│   └── Solution.cs
+├── 0222.Count Complete Tree Nodes
+│   └── Solution.cs
 ├── 0223.Rectangle Area
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0224.Basic Calculator
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0226.Invert Binary Tree
 │   ├── README_EN.md
 │   └── Solution.java
 ├── 0227.Basic Calculator II
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0228.Summary Ranges
 │   ├── README.md
 │   ├── Solution.cpp
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.py
 ├── 0229.Majority Element II
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0230.Kth Smallest Element in a BST
 │   ├── Solution.java
-│   └── Solution2.java
+│   ├── Solution2.java
+│   └── Solution3.java
 ├── 0231.Power of Two
 │   ├── README.md
 │   ├── Solution.java
 │   └── Solution.py
+├── 0233.Number of Digit One
+│   ├── Solution.cs
+│   └── Solution.java
 ├── 0234.Palindrome Linked List
 │   ├── README.md
+│   ├── Solution.cs
 │   ├── Solution.java
 │   └── Solution.js
 ├── 0235.Lowest Common Ancestor of a Binary Search Tree
@@ -808,19 +968,26 @@
 │   ├── README.md
 │   ├── Solution.java
 │   ├── Solution.js
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.java
 ├── 0238.Product of Array Except Self
 │   ├── README_EN.md
 │   └── Solution.java
 ├── 0239.Sliding Window Maximum
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0240.Search a 2D Matrix II
 │   └── Solution.java
 ├── 0241.Different Ways to Add Parentheses
+│   ├── Solution.cs
 │   └── Solution.go
 ├── 0242.Valid Anagram
 │   ├── Solution.java
-│   └── Solution.js
+│   ├── Solution.js
+│   └── Solution2.java
+├── 0257.Binary Tree Paths
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 0260.Single Number III
 │   └── Solution.java
 ├── 0263.Ugly Number
@@ -832,6 +999,7 @@
 │   ├── Solution.js
 │   └── Solution2.js
 ├── 0273.Integer to English Words
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0274.H-Index
 │   └── Solution.java
@@ -841,6 +1009,8 @@
 │   └── Solution.js
 ├── 0279.Perfect Squares
 │   └── Solution.go
+├── 0282.Expression Add Operators
+│   └── Solution.cs
 ├── 0283.Move Zeroes
 │   ├── README.md
 │   ├── Solution.cpp
@@ -854,12 +1024,16 @@
 │   └── Solution.java
 ├── 0295.Find Median from Data Stream
 │   ├── README.md
+│   ├── Solution.cs
 │   └── Solution.java
 ├── 0300.Longest Increasing Subsequence
 │   ├── README.md
 │   ├── Solution.cpp
 │   ├── Solution.java
-│   └── Solution2.cpp
+│   ├── Solution2.cpp
+│   └── Solution2.java
+├── 0307.Range Sum Query - Mutable
+│   └── Solution.cs
 ├── 0312.Burst Balloons
 │   ├── README.md
 │   └── Solution.java
@@ -876,7 +1050,15 @@
 │   └── Solution.cpp
 ├── 0331.Verify Preorder Serialization of a Binary Tree
 │   └── Solution.java
+├── 0335.Self Crossing
+│   └── Solution.cs
+├── 0336.Palindrome Pairs
+│   └── Solution.cs
+├── 0337.House Robber III
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0342.Power of Four
+│   ├── README.md
 │   └── Solution.js
 ├── 0343.Integer Break
 │   ├── README.md
@@ -889,7 +1071,8 @@
 │   ├── Solution.js
 │   └── Solution.py
 ├── 0347.Top K Frequent Elements
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0349.Intersection of Two Arrays
 │   ├── README_EN.md
 │   ├── Solution.java
@@ -899,6 +1082,8 @@
 │   └── Solution.js
 ├── 0355.Design Twitter
 │   └── Solution.java
+├── 0365.Water and Jug Problem
+│   └── Solution.cs
 ├── 0367.Valid Perfect Square
 │   └── Solution.java
 ├── 0371.Sum of Two Integers
@@ -922,9 +1107,14 @@
 │   └── Solution.py
 ├── 0397.Integer Replacement
 │   └── Solution.java
+├── 0399.Find the Difference
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 0401.Binary Watch
 │   └── Solution.java
 ├── 0402.Remove K Digits
+│   └── Solution.java
+├── 0404.Sum of Left Leaves
 │   └── Solution.java
 ├── 0405.Convert a Number to Hexadecimal
 │   └── Solution.java
@@ -956,6 +1146,8 @@
 │   └── Solution.java
 ├── 0434.Number of Segments in a String
 │   └── Solution.cpp
+├── 0437.Path Sum III
+│   └── Solution.java
 ├── 0438.Find All Anagrams in a String
 │   ├── README.md
 │   ├── Solution.cpp
@@ -1039,11 +1231,16 @@
 │   └── Solution.java
 ├── 0526.Beautiful Arrangement
 │   └── Solution.java
+├── 0530.Minimum Absolute Difference in BST
+│   └── Solution.java
 ├── 0538.Convert BST to Greater Tree
 │   ├── README_EN.md
 │   └── Solution.java
 ├── 0540.Single Element in a Sorted Array
 │   └── Solution.go
+├── 0541.Reverse String II
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 0542.01 Matrix
 │   └── Solution.java
 ├── 0543.Diameter of Binary Tree
@@ -1065,11 +1262,14 @@
 ├── 0561.Array Partition I
 │   ├── README.md
 │   └── Solution.js
+├── 0563.Binary Tree Tilt
+│   └── Solution.java
 ├── 0567.Permutation in String
 │   ├── README.md
 │   └── Solution.py
 ├── 0572.Subtree of Another Tree
-│   └── Solution.cpp
+│   ├── Solution.cpp
+│   └── Solution.java
 ├── 0576.Out of Boundary Paths
 │   └── Solution.java
 ├── 0581.Shortest Unsorted Continuous Subarray
@@ -1080,7 +1280,8 @@
 ├── 0589.N-ary Tree Preorder Traversal
 │   └── Solution.java
 ├── 0590.N-ary Tree Postorder Traversal
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
 ├── 0595.Big Countries
 │   └── README.md
 ├── 0596.Classes More Than 5 Students
@@ -1106,6 +1307,8 @@
 │   └── README.md
 ├── 0633.Sum of Square Numbers
 │   └── Solution.java
+├── 0637.Average of Levels in Binary Tree
+│   └── Solution.java
 ├── 0650.2 Keys Keyboard
 │   └── Solution.java
 ├── 0652.Find Duplicate Subtrees
@@ -1122,6 +1325,8 @@
 ├── 0670.Maximum Swap
 │   ├── README.md
 │   └── Solution.py
+├── 0671.Second Minimum Node In a Binary Tree
+│   └── Solution.java
 ├── 0673.Number of Longest Increasing Subsequence
 │   └── Solution.java
 ├── 0674.Longest Continuous Increasing Subsequence
@@ -1129,7 +1334,13 @@
 ├── 0684.Redundant Connection
 │   └── Solution.java
 ├── 0687.Longest Univalue Path
-│   └── Solution.java
+│   ├── Solution.java
+│   └── Solution2.java
+├── 0690.Employee Importance
+│   ├── README_EN.md
+│   ├── Solution.java
+│   ├── Solution2.java
+│   └── Solution3.java
 ├── 0695.Max Area of Island
 │   ├── README.md
 │   ├── Solution.cpp
@@ -1247,6 +1458,8 @@
 ├── 0867.Transpose Matrix
 │   ├── README.md
 │   └── Solution.js
+├── 0872.Leaf-Similar Trees
+│   └── Solution.java
 ├── 0874.Walking Robot Simulation
 │   └── Solution.cpp
 ├── 0875.Koko Eating Bananas
@@ -1274,6 +1487,7 @@
 ├── 0892.Surface Area of 3D Shapes
 │   └── Solution.java
 ├── 0896.Monotonic Array
+│   ├── README.md
 │   └── Solution.js
 ├── 0898.Bitwise ORs of Subarrays
 │   └── Solution.java
@@ -1313,11 +1527,14 @@
 │   ├── README.md
 │   ├── Solution.cpp
 │   ├── Solution.java
-│   └── Solution.py
+│   ├── Solution.py
+│   └── Solution2.java
 ├── 0941.Valid Mountain Array
 │   └── Solution.cpp
 ├── 0944.Delete Columns to Make Sorted
 │   └── Solution.py
+├── 0946.Validate Stack Sequences
+│   └── Solution.java
 ├── 0950.Reveal Cards In Increasing Order
 │   └── Solution.cpp
 ├── 0952.Largest Component Size by Common Factor
@@ -1342,6 +1559,8 @@
 │   └── Solution3.cpp
 ├── 0965.Univalued Binary Tree
 │   └── Solution.cpp
+├── 0973.K Closest Points to Origin
+│   └── Solution.java
 ├── 0976.Largest Perimeter Triangle
 │   └── Solution.cpp
 ├── 0977.Squares of a Sorted Array
@@ -1537,6 +1756,7 @@
 ├── 1147.Longest Chunked Palindrome Decomposition
 │   └── Solution.java
 ├── 1154.Day of the Year
+│   ├── README.md
 │   └── Solution.js
 ├── 1155.Number of Dice Rolls With Target Sum
 │   └── Solution.java
@@ -1561,7 +1781,19 @@
 ├── 1278.Palindrome Partitioning III
 │   └── Solution.cpp
 ├── 1287.Element Appearing More Than 25% In Sorted Array
-│   └── Solution.js 
+│   ├── README.md
+│   ├── Solution.java
+│   ├── Solution.js
+│   └── Solution.py
+├── 1290.Convert Binary Number in a Linked List to Integer
+│   ├── Solution.java
+│   └── Solution2.java
+├── 1346.Check If N and Its Double Exist
+│   ├── README_EN.md
+│   └── Solution.java
+├── 1347.Minimum Number of Steps to Make Two Strings Anagram
+│   ├── README_EN.md
+│   └── Solution.java
 ├── 5075.Number of Submatrices That Sum to Target
 │   └── Solution.py
 ├── 5076.Greatest Common Divisor of Strings
