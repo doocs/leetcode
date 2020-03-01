@@ -32,3 +32,13 @@ class Solution:
                 nums[i], nums[num] = nums[num], nums[i]
 
 ```
+
+### Java
+```java
+
+```
+
+### ...
+```
+
+```
