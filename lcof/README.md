@@ -7,8 +7,16 @@
 .
 ├── README.md
 ├── template.md
-└── 面试题03. 数组中重复的数字
+├── 面试题03. 数组中重复的数字
+│   ├── README.md
+│   └── Solution.py
+├── 面试题04. 二维数组中的查找
+│   ├── README.md
+│   ├── Solution.java
+│   └── Solution.py
+└── 面试题05. 替换空格
     ├── README.md
+    ├── Solution.java
     └── Solution.py
 ```
 
