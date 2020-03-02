@@ -6,7 +6,7 @@
 ```
 .
 ├── README.md
-├── template.md
+├── README_TEMPLATE.md
 ├── 面试题 01.01. 判定字符是否唯一
 │   ├── README.md
 │   ├── Solution.java
