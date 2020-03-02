@@ -15,12 +15,11 @@
 </p>
 
 ## Introduction
-Complete solutions to [LeetCode problems](https://leetcode-cn.com/problemset/all/), [LCCI problems](https://leetcode-cn.com/problemset/lcci/) and [LCOF problems](https://leetcode-cn.com/problemset/lcof/), updated daily.
+Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCCI](https://leetcode-cn.com/problemset/lcci/) and [LCOF](https://leetcode-cn.com/problemset/lcof/) problems, updated daily.
 
 ## Solution Tree
 - [leetcode](https://github.com/doocs/leetcode/blob/master/solution/README.md)
-- [lcci](https://github.com/doocs/leetcode/blob/master/lcci/README.md)
-- [lcof](https://github.com/doocs/leetcode/blob/master/lcof/README.md)
+- [lcci](https://github.com/doocs/leetcode/blob/master/lcci/README.md) / [lcof](https://github.com/doocs/leetcode/blob/master/lcof/README.md)
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
