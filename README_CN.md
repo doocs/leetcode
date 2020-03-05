@@ -15,21 +15,22 @@
 </p>
 
 ## 项目介绍
-本项目包含 [LeetCode](https://leetcode-cn.com/problemset/all/)、[《程序员面试金典（第 6 版）》](https://leetcode-cn.com/problemset/lcci/)、[《剑指 Offer（第 2 版）》](https://leetcode-cn.com/problemset/lcof/)等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。
+本项目包含 [LeetCode](https://leetcode-cn.com/problemset/all/)、[《剑指 Offer（第 2 版）》](https://leetcode-cn.com/problemset/lcof/)、[《程序员面试金典（第 6 版）》](https://leetcode-cn.com/problemset/lcci/)等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。
 
-[English version](./README.md)
+[English version here.](./README.md)
 
 ## 题解
-- [LeetCode](https://github.com/doocs/leetcode/blob/master/solution/README.md)
-- [LCCI](https://github.com/doocs/leetcode/blob/master/lcci/README.md) / [LCOF](https://github.com/doocs/leetcode/blob/master/lcof/README.md)
+- [LeetCode](./solution/README.md)
+- [剑指 Offer（第 2 版）](./lcof/README.md)
+- [程序员面试金典（第 6 版）](./lcci/README.md)
 
 ## 参与项目
-如果你对该项目有兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
+如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
-- 将本项目 <kbd>Fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
+- 将[本项目](https://github.com/doocs/leetcode) <kbd>Fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
 - 对项目做出一些变更，然后使用 git <kbd>add</kbd>、<kbd>commit</kbd>、<kbd>push</kbd> 等命令将你的变更提交到你的远程 GitHub 仓库；
 - 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
-- 你也可以参考 [CONTRIBUTING](https://github.com/doocs/.github/blob/master/CONTRIBUTING.md) 或者 [GitHub Help](https://help.github.com/en) 了解更多细节。
+- 你也可以参考 [GitHub 帮助文档](https://help.github.com/cn) 了解更多细节。
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="./img/how-to-contribute.png" alt="how-to-contribute"></a>

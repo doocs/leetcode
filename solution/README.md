@@ -1,4 +1,4 @@
-# Solution Tree
+# [Solution Tree](../solution)
 ```
 .
 ├── 0001.Two Sum
