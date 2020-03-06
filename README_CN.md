@@ -17,7 +17,7 @@
 ## 项目介绍
 本项目包含 [LeetCode](https://leetcode-cn.com/problemset/all/)、[《剑指 Offer（第 2 版）》](https://leetcode-cn.com/problemset/lcof/)、[《程序员面试金典（第 6 版）》](https://leetcode-cn.com/problemset/lcci/)等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。
 
-[English version here.](./README.md)
+[English Version](./README.md)
 
 ## 题解
 - [LeetCode](./solution/README.md)
