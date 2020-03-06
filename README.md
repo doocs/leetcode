@@ -20,8 +20,8 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCCI
 [中文文档](./README_CN.md)
 
 ## Solution Tree
-- [LeetCode](https://github.com/doocs/leetcode/blob/master/solution/README.md)
-- [LCCI](https://github.com/doocs/leetcode/blob/master/lcci/README.md) / [LCOF](https://github.com/doocs/leetcode/blob/master/lcof/README.md)
+- [LeetCode](./solution/README.md)
+- [LCCI](./lcci/README.md) / [LCOF](./lcof/README.md)
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
