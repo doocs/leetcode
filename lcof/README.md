@@ -1,68 +1,86 @@
 # [《剑指 Offer（第 2 版）》系列](https://leetcode-cn.com/problemset/lcof/)
 本书精选谷歌、微软等知名IT企业的典型面试题，系统地总结了如何在面试时写出高质量代码，如何优化代码效率，以及分析、解决难题的常用方法。
 
-## [题解](https://github.com/doocs/leetcode/tree/master/lcci)
+## [题解](https://github.com/doocs/leetcode/tree/master/lcof)
 
-```
-.
-├── README.md
-├── README_TEMPLATE.md
-├── 面试题03. 数组中重复的数字
-│   ├── README.md
-│   └── Solution.py
-├── 面试题04. 二维数组中的查找
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题05. 替换空格
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题06. 从尾到头打印链表
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题07. 重建二叉树
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题09. 用两个栈实现队列
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题10- I. 斐波那契数列
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题10- II. 青蛙跳台阶问题
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题11. 旋转数组的最小数字
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题18. 删除链表的节点
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题22. 链表中倒数第k个节点
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题24. 反转链表
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-├── 面试题25. 合并两个排序的链表
-│   ├── README.md
-│   ├── Solution.java
-│   └── Solution.py
-└── 面试题26. 树的子结构
-    ├── README.md
-    ├── Solution.java
-    └── Solution.py
-```
+|  题号  |  题解  |  难度  |
+| --- | --- | --- |
+|  [03](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof)  |  [数组中重复的数字](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9803.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97)  |  简单  |
+|  [04](https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof)  |  [二维数组中的查找](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9804.%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE)  |  简单  |
+|  [05](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof)  |  [替换空格](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9805.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC)  |  简单  |
+|  [06](https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof)  |  [从尾到头打印链表](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9806.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8)  |  简单  |
+|  [07](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof)  |  [重建二叉树](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9807.%20%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91)  |  中等  |
+|  [09](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof)  |  [用两个栈实现队列](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9809.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97)  |  简单  |
+|  [10- II](https://leetcode-cn.com/problems/qing-wa-tiao-tai-jie-wen-ti-lcof)  |  [青蛙跳台阶问题](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9810-%20II.%20%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%98)  |  简单  |
+|  [10- I](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof)  |  [斐波那契数列](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9810-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97)  |  简单  |
+|  [11](https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof)  |  [旋转数组的最小数字](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9811.%20%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97)  |  简单  |
+|  [12](https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof)  |  [矩阵中的路径](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9812.%20%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84)  |  中等  |
+|  [13](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof)  |  [机器人的运动范围](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9813.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4)  |  中等  |
+|  [14- II](https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof)  |  [剪绳子 II](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9814-%20II.%20%E5%89%AA%E7%BB%B3%E5%AD%90%20II)  |  中等  |
+|  [14- I](https://leetcode-cn.com/problems/jian-sheng-zi-lcof)  |  [剪绳子](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9814-%20I.%20%E5%89%AA%E7%BB%B3%E5%AD%90)  |  中等  |
+|  [15](https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof)  |  [二进制中1的个数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9815.%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0)  |  简单  |
+|  [16](https://leetcode-cn.com/problems/shu-zhi-de-zheng-shu-ci-fang-lcof)  |  [数值的整数次方](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9816.%20%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9)  |  中等  |
+|  [17](https://leetcode-cn.com/problems/da-yin-cong-1dao-zui-da-de-nwei-shu-lcof)  |  [打印从1到最大的n位数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9817.%20%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0)  |  简单  |
+|  [18](https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof)  |  [删除链表的节点](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9818.%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9)  |  简单  |
+|  [19](https://leetcode-cn.com/problems/zheng-ze-biao-da-shi-pi-pei-lcof)  |  [正则表达式匹配](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9819.%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D)  |  困难  |
+|  [20](https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof)  |  [表示数值的字符串](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9820.%20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2)  |  中等  |
+|  [21](https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof)  |  [调整数组顺序使奇数位于偶数前面](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9821.%20%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2)  |  简单  |
+|  [22](https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof)  |  [链表中倒数第k个节点](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9822.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9)  |  简单  |
+|  [24](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof)  |  [反转链表](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9824.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8)  |  简单  |
+|  [25](https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof)  |  [合并两个排序的链表](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9825.%20%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8)  |  简单  |
+|  [26](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof)  |  [树的子结构](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9826.%20%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84)  |  中等  |
+|  [27](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof)  |  [二叉树的镜像](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9827.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F)  |  简单  |
+|  [28](https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof)  |  [对称的二叉树](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9828.%20%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91)  |  简单  |
+|  [29](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof)  |  [顺时针打印矩阵](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9829.%20%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5)  |  简单  |
+|  [30](https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof)  |  [包含min函数的栈](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9830.%20%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88)  |  简单  |
+|  [31](https://leetcode-cn.com/problems/zhan-de-ya-ru-dan-chu-xu-lie-lcof)  |  [栈的压入、弹出序列](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9831.%20%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E3%80%81%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97)  |  中等  |
+|  [32 - III](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof)  |  [从上到下打印二叉树 III](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9832%20-%20III.%20%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91%20III)  |  中等  |
+|  [32 - II](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-ii-lcof)  |  [从上到下打印二叉树 II](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9832%20-%20II.%20%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91%20II)  |  简单  |
+|  [32 - I](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof)  |  [从上到下打印二叉树](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9832%20-%20I.%20%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91)  |  中等  |
+|  [33](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof)  |  [二叉搜索树的后序遍历序列](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9833.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97)  |  中等  |
+|  [34](https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof)  |  [二叉树中和为某一值的路径](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9834.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84)  |  中等  |
+|  [35](https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof)  |  [复杂链表的复制](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9835.%20%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6)  |  中等  |
+|  [36](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof)  |  [二叉搜索树与双向链表](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9836.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8)  |  中等  |
+|  [37](https://leetcode-cn.com/problems/xu-lie-hua-er-cha-shu-lcof)  |  [序列化二叉树](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9837.%20%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91)  |  困难  |
+|  [38](https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof)  |  [字符串的排列](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9838.%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97)  |  中等  |
+|  [39](https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof)  |  [数组中出现次数超过一半的数字](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9839.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97)  |  简单  |
+|  [40](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof)  |  [最小的k个数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9840.%20%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0)  |  简单  |
+|  [41](https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof)  |  [数据流中的中位数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9841.%20%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0)  |  困难  |
+|  [42](https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof)  |  [连续子数组的最大和](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9842.%20%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C)  |  简单  |
+|  [43](https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof)  |  [1～n整数中1出现的次数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9843.%201%EF%BD%9En%E6%95%B4%E6%95%B0%E4%B8%AD1%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0)  |  中等  |
+|  [44](https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof)  |  [数字序列中某一位的数字](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9844.%20%E6%95%B0%E5%AD%97%E5%BA%8F%E5%88%97%E4%B8%AD%E6%9F%90%E4%B8%80%E4%BD%8D%E7%9A%84%E6%95%B0%E5%AD%97)  |  中等  |
+|  [45](https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof)  |  [把数组排成最小的数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9845.%20%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0)  |  中等  |
+|  [46](https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof)  |  [把数字翻译成字符串](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9846.%20%E6%8A%8A%E6%95%B0%E5%AD%97%E7%BF%BB%E8%AF%91%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2)  |  中等  |
+|  [47](https://leetcode-cn.com/problems/li-wu-de-zui-da-jie-zhi-lcof)  |  [礼物的最大价值](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9847.%20%E7%A4%BC%E7%89%A9%E7%9A%84%E6%9C%80%E5%A4%A7%E4%BB%B7%E5%80%BC)  |  中等  |
+|  [48](https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof)  |  [最长不含重复字符的子字符串](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9848.%20%E6%9C%80%E9%95%BF%E4%B8%8D%E5%90%AB%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2)  |  中等  |
+|  [49](https://leetcode-cn.com/problems/chou-shu-lcof)  |  [丑数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9849.%20%E4%B8%91%E6%95%B0)  |  中等  |
+|  [50](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof)  |  [第一个只出现一次的字符](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9850.%20%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6)  |  简单  |
+|  [51](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof)  |  [数组中的逆序对](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9851.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%80%86%E5%BA%8F%E5%AF%B9)  |  困难  |
+|  [52](https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof)  |  [两个链表的第一个公共节点](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9852.%20%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E8%8A%82%E7%82%B9)  |  简单  |
+|  [53 - II](https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof)  |  [缺失的数字](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9853%20-%20II.%20%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97)  |  简单  |
+|  [53 - I](https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof)  |  [在排序数组中查找数字](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9853%20-%20I.%20%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%95%B0%E5%AD%97)  |  简单  |
+|  [54](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof)  |  [二叉搜索树的第k大节点](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9854.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E5%A4%A7%E8%8A%82%E7%82%B9)  |  简单  |
+|  [55 - II](https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof)  |  [平衡二叉树](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9855%20-%20II.%20%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91)  |  简单  |
+|  [55 - I](https://leetcode-cn.com/problems/er-cha-shu-de-shen-du-lcof)  |  [二叉树的深度](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9855%20-%20I.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6)  |  简单  |
+|  [56 - II](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof)  |  [数组中数字出现的次数 II](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9856%20-%20II.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%20II)  |  中等  |
+|  [56 - I](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof)  |  [数组中数字出现的次数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9856%20-%20I.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0)  |  中等  |
+|  [57 - II](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof)  |  [和为s的连续正数序列](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9857%20-%20II.%20%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97)  |  简单  |
+|  [57](https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof)  |  [和为s的两个数字](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9857.%20%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97)  |  简单  |
+|  [58 - II](https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof)  |  [左旋转字符串](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9858%20-%20II.%20%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2)  |  简单  |
+|  [58 - I](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof)  |  [翻转单词顺序](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9858%20-%20I.%20%E7%BF%BB%E8%BD%AC%E5%8D%95%E8%AF%8D%E9%A1%BA%E5%BA%8F)  |  简单  |
+|  [59 - II](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof)  |  [队列的最大值](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9859%20-%20II.%20%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC)  |  中等  |
+|  [59 - I](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof)  |  [滑动窗口的最大值](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9859%20-%20I.%20%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC)  |  简单  |
+|  [60](https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof)  |  [n个骰子的点数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9860.%20n%E4%B8%AA%E9%AA%B0%E5%AD%90%E7%9A%84%E7%82%B9%E6%95%B0)  |  简单  |
+|  [61](https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof)  |  [扑克牌中的顺子](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9861.%20%E6%89%91%E5%85%8B%E7%89%8C%E4%B8%AD%E7%9A%84%E9%A1%BA%E5%AD%90)  |  简单  |
+|  [62](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof)  |  [圆圈中最后剩下的数字](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9862.%20%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97)  |  简单  |
+|  [63](https://leetcode-cn.com/problems/gu-piao-de-zui-da-li-run-lcof)  |  [股票的最大利润](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9863.%20%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6)  |  中等  |
+|  [64](https://leetcode-cn.com/problems/qiu-12n-lcof)  |  [求1+2+…+n](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9864.%20%E6%B1%821%2B2%2B%E2%80%A6%2Bn)  |  中等  |
+|  [65](https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof)  |  [不用加减乘除做加法](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9865.%20%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95)  |  简单  |
+|  [66](https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof)  |  [构建乘积数组](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9866.%20%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84)  |  简单  |
+|  [67](https://leetcode-cn.com/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof)  |  [把字符串转换成整数](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9867.%20%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0)  |  中等  |
+|  [68 - II](https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof)  |  [二叉树的最近公共祖先](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9868%20-%20II.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88)  |  简单  |
+|  [68 - I](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof)  |  [二叉搜索树的最近公共祖先](https://github.com/doocs/leetcode/tree/master/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9868%20-%20I.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88)  |  简单  |
+
 
 ## 版权
 著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 [@yanglbme](mailto:contact@yanglibin.info) 授权，非商业转载请注明出处。
