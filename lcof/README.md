@@ -42,6 +42,10 @@
 │   ├── README.md
 │   ├── Solution.java
 │   └── Solution.py
+├── 面试题18. 删除链表的节点
+│   ├── README.md
+│   ├── Solution.java
+│   └── Solution.py
 ├── 面试题22. 链表中倒数第k个节点
 │   ├── README.md
 │   ├── Solution.java
