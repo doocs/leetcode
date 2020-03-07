@@ -42,8 +42,6 @@ class Solution:
         visited = [[False for _ in range(cols)] for _ in range(rows)]
         for i in range(rows):
             for j in range(cols):
-                if board[i][j] != word[0]:
-                    continue
                 if self.visit(board, visited, i, j, rows, cols, word):
                     return True
         return False
@@ -70,9 +68,6 @@ class Solution {
         boolean[][] visited = new boolean[rows][cols];
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < cols; ++j) {
-                if (board[i][j] != word.charAt(0)) {
-                    continue;
-                }
                 if (visit(board, visited, i, j, rows, cols, word)) {
                     return true;
                 }

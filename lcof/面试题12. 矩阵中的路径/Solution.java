@@ -7,9 +7,6 @@ class Solution {
         boolean[][] visited = new boolean[rows][cols];
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < cols; ++j) {
-                if (board[i][j] != word.charAt(0)) {
-                    continue;
-                }
                 if (visit(board, visited, i, j, rows, cols, word)) {
                     return true;
                 }
