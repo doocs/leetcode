@@ -2,6 +2,7 @@
 本书精选谷歌、微软等知名IT企业的典型面试题，系统地总结了如何在面试时写出高质量代码，如何优化代码效率，以及分析、解决难题的常用方法。
 
 ## [题解](../lcof)
+以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/lcof/)，题解由 [doocs/leetcode](https://github.com/doocs/leetcode) 贡献者提供。
 
 |  题号  |  题解  |  难度  |
 | --- | --- | --- |
