@@ -18,4 +18,4 @@ class Solution:
         return [matrix[s1][j] for j in range(e1, e2)] + \
                [matrix[i][e2] for i in range(s1, s2)] + \
                [matrix[s2][j] for j in range(e2, e1, -1)] + \
-               [ matrix[i][e1] for i in range(s2, s1, -1)]
+               [matrix[i][e1] for i in range(s2, s1, -1)]
