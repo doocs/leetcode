@@ -15,13 +15,14 @@
 </p>
 
 ## Introduction
-Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCCI](https://leetcode-cn.com/problemset/lcci/) and [LCOF](https://leetcode-cn.com/problemset/lcof/) problems, updated daily.
+Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF](https://leetcode-cn.com/problemset/lcof/) and [LCCI](https://leetcode-cn.com/problemset/lcci/) problems, updated daily.
 
 [中文文档](./README_CN.md)
 
 ## Solutions
 - [LeetCode](./solution/README.md)
-- [LCCI](./lcci/README.md) / [LCOF](./lcof/README.md)
+- [LCOF: *Coding Interviews, 2nd Edition*](./lcof/README.md)
+- [LCCI: *Cracking the Coding Interview, 6th Edition*](./lcci/README.md)
 
 ## Contributions
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
