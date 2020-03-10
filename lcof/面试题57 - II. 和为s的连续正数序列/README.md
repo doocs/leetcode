@@ -1,0 +1,80 @@
+# [面试题57 - II. 和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/)
+
+## 题目描述
+输入一个正整数 `target` ，输出所有和为 `target` 的连续正整数序列（至少含有两个数）。
+
+序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。
+
+**示例 1：**
+
+```
+输入：target = 9
+输出：[[2,3,4],[4,5]]
+```
+
+**示例 2：**
+
+```
+输入：target = 15
+输出：[[1,2,3,4,5],[4,5,6],[7,8]]
+```
+
+**限制：**
+
+- `1 <= target <= 10^5`
+
+## 解法
+双指针：`p = 1`，`q = 2`。
+
+### Python3
+```python
+class Solution:
+    def findContinuousSequence(self, target: int) -> List[List[int]]:
+        res = []
+        p, q = 1, 2
+        while p < q:
+            s = (p + q) * (q - p + 1) >> 1
+            if s == target:
+                res.append([i for i in range(p, q + 1)])
+                p += 1
+            elif s < target:
+                q += 1
+            else:
+                p += 1
+        return res        
+```
+
+### Java
+```java
+class Solution {
+    public int[][] findContinuousSequence(int target) {
+        List<int[]> list = new ArrayList<>();
+        int p = 1, q = 2;
+        while (p < q) {
+            int s = (p + q) * (q - p + 1) >> 1;
+            if (s == target) {
+                int[] t = new int[q - p + 1];
+                for (int i = 0; i < t.length; ++i) {
+                    t[i] = p + i;
+                }
+                list.add(t);
+                ++p;
+            } else if (s < target) {
+                ++q;
+            } else {
+                ++p;
+            }
+        }
+        int[][] res = new int[list.size()][];
+        for (int i = 0; i < res.length; ++i) {
+            res[i] = list.get(i);
+        }
+        return res;
+    }
+}
+```
+
+### ...
+```
+
+```
