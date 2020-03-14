@@ -2,7 +2,7 @@
 
 
 ## 题解
-以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/all)，题解由 [doocs/leetcode](https://github.com/doocs/leetcode) 贡献者提供，正在完善中，敬请期待！
+以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/all)，题解由 [doocs/leetcode 贡献者](https://github.com/doocs/leetcode/graphs/contributors) 提供，正在完善中，敬请期待！
 
 |  题号  |  题解  |  难度  |
 | --- | --- | --- |
