@@ -1,8 +1,6 @@
 class Solution:
     def maxValue(self, grid: List[List[int]]) -> int:
         rows, cols = len(grid), len(grid[0])
-        if rows == 0 or cols == 0:
-            return 0
         vals = [[0 for _ in range(cols)] for _ in range(rows)]
         vals[0][0] = grid[0][0]
         for i in range(1, rows):

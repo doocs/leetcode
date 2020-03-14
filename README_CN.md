@@ -25,6 +25,8 @@
 - [程序员面试金典（第 6 版）](./lcci/README.md)
 
 ## 参与项目
+刷编程题的最大好处就是**可以锻炼解决问题的思维能力**。相信我，「如何去思考」​本身也是一项需要不断学习和练习的技能。非常感谢前微软工程师、现蚂蚁金服技术专家 [@kfstorm](https://github.com/kfstorm) 贡献了本项目的所有 [C# 题解](https://github.com/doocs/leetcode/pull/245)。
+
 如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
 - 将[本项目](https://github.com/doocs/leetcode) <kbd>Fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
