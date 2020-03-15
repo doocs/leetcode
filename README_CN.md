@@ -19,6 +19,9 @@
 
 [English Version](./README.md)
 
+## 维护者
+[@yanglbme](https://github.com/yanglbme): [Doocs](https://github.com/doocs) 技术社区创建者。
+
 ## 站点
 - Gitee Pages: https://doocs.gitee.io/leetcode
 - GitHub Pages: https://doocs.github.io/leetcode
