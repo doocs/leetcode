@@ -28,7 +28,7 @@
 ### 解法
 - 解法1
 
-用 long 型存储该整数，取绝对值，然后转成 StringBuilder 进行 reverse，后转回 int。注意判断该数是否在[Integer.MIN_VALUE, Intger.MAX_VALUE] 范围内。
+用 long 型存储该整数，取绝对值，然后转成 StringBuilder 进行 reverse，后转回 int。注意判断该数是否在 `[Integer.MIN_VALUE, Integer.MAX_VALUE]` 范围内。
 
 ```java
 class Solution {
