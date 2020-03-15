@@ -2,6 +2,7 @@
 from enum import unique, Enum
 
 cn_graphql_url = 'https://leetcode-cn.com/graphql'
+problems_url = 'https://leetcode-cn.com/problems/'
 all_problems_url = 'https://leetcode.com/api/problems/all/'
 lcof_problems_url = 'https://leetcode-cn.com/api/problems/lcof/'
 lcci_problems_url = 'https://leetcode-cn.com/api/problems/lcci/'

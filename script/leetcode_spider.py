@@ -2,7 +2,7 @@ import json
 from urllib.parse import quote
 
 from config import async_headers, cn_graphql_url, Req, all_problems_url, difficulties, lcof_problems_url, \
-    lcci_problems_url
+    lcci_problems_url, problems_url
 from fetch import fetch
 
 
@@ -41,7 +41,7 @@ def get_all_questions():
     for question in questions:
         qid = str(question['stat']['question_id']).zfill(4)
         title = question['stat']['question__title']
-        link = 'https://leetcode-cn.com/problems/' + question['stat']['question__title_slug']
+        link = problems_url + question['stat']['question__title_slug']
         git_link = '/solution/{}/README.md'.format(qid + '.' + quote(title))
         cn_title = cn_res.get(qid) or title
         col1 = '[{}]({})'.format(qid, link)
@@ -61,7 +61,7 @@ def get_lcof_questions():
         fe_qid = question['stat']['frontend_question_id']
         qno = fe_qid.replace('面试题', '').strip()
         title = question['stat']['question__title'].replace(' LCOF', '').strip()
-        link = 'https://leetcode-cn.com/problems/' + question['stat']['question__title_slug']
+        link = problems_url + question['stat']['question__title_slug']
         git_link = '/lcof/{}/README.md'.format(quote(fe_qid + '. ' + title))
         col1 = '[{}]({})'.format(qno, link)
         col2 = '[{}]({})'.format(title, git_link)
@@ -82,7 +82,7 @@ def get_lcci_questions():
         fe_qid = question['stat']['frontend_question_id']
         qno = fe_qid.replace('面试题', '').strip()
         cn_title = cn_res.get(str(qid))
-        link = 'https://leetcode-cn.com/problems/' + question['stat']['question__title_slug']
+        link = problems_url + question['stat']['question__title_slug']
         git_link = '/lcci/{}/README.md'.format(quote(fe_qid + '. ' + cn_title))
         col1 = '[{}]({})'.format(qno, link)
         col2 = '[{}]({})'.format(cn_title, git_link)
