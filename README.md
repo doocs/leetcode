@@ -20,7 +20,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 [中文文档](./README_CN.md)
 
 ## Maintainer
-[@yanglbme](https://github.com/yanglbme): Creator of [@Doocs](https://github.com/doocs) technical community.
+[@yanglbme](https://github.com/yanglbme): Creator of [@Doocs](https://github.com/doocs) technical community; member of [@TheAlgorithms](https://github.com/TheAlgorithms) organization.
 
 ## Sites
 - Gitee Pages: https://doocs.gitee.io/leetcode

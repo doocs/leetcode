@@ -20,7 +20,7 @@
 [English Version](./README.md)
 
 ## 维护者
-[@yanglbme](https://github.com/yanglbme): [Doocs](https://github.com/doocs) 技术社区创建者。
+[@yanglbme](https://github.com/yanglbme): GitHub 技术社区 [@Doocs](https://github.com/doocs) 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。
 
 ## 站点
 - Gitee Pages: https://doocs.gitee.io/leetcode
