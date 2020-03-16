@@ -27,3 +27,33 @@
 
 我们可以维持两个变量, minprice(可能产生最大差值的波谷)初始值最大整数((1 << 31) -1), maxprofit(产生的最大差值)初始值 0, 然后迭代处理数组中的每个数进而优化两个变量的值; 如果数组元素`prices[i]`不比`minprice`大, 那就是目前为止最小波谷, 将 `minprice=prices[i]`;如果数组元素`prices[i]`比`minprice`大, 那就判断`prices[i]`与`minprice`的差值是否比`maxprofit`大, 如果是就更新`maxprofit=prices[i]-minprice`, 并且`minprice`即为波谷, `prices[i]`为波谷; 否的话继续处理下一个数组元素。
 
+
+# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+
+## 题目描述
+<!-- 这里写题目描述 -->
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+
+```
+
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
+```
+
+### ...
+```
+
+```
+

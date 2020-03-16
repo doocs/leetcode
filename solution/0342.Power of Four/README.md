@@ -1,17 +1,28 @@
-# 342. Power of Four
+# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
 
-Given an integer (signed 32 bits), write a function to check whether it is a power of 4.
+## 题目描述
+<!-- 这里写题目描述 -->
 
-## Example 1:
-```
-Input: 16
-Output: true
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+
 ```
 
-## Example 2:
-```
-Input: 5
-Output: false
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
 ```
 
-Follow up: Could you solve it without loops/recursion?
+### ...
+```
+
+```
