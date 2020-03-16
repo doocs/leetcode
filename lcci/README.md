@@ -2,7 +2,7 @@
 本书是原谷歌资深面试官的经验之作，帮助了许多想要加入脸书、苹果、谷歌等 IT 名企的求职者拿到 Dream offer。本专题的 100+ 编程面试题是在原书基础上精心挑选出来的，帮助你轻松应战 IT 名企技术面试。
 
 ## 题解
-以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/lcci/)，题解由 [doocs/leetcode 贡献者](https://github.com/doocs/leetcode/graphs/contributors) 提供，正在完善中，敬请期待！
+以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/lcci/)，题解由 [doocs/leetcode 贡献者](https://github.com/doocs/leetcode/graphs/contributors) 提供，正在完善中，欢迎贡献你的题解！
 
 |  题号  |  题解  |  难度  |
 | --- | --- | --- |
