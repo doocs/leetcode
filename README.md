@@ -14,7 +14,7 @@
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
 </p>
 
-## 项目介绍
+## 介绍
 本项目包含 [LeetCode](https://leetcode-cn.com/problemset/all/)、[《剑指 Offer（第 2 版）》](https://leetcode-cn.com/problemset/lcof/)、[《程序员面试金典（第 6 版）》](https://leetcode-cn.com/problemset/lcci/)等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。
 
 [English Version](./README_EN.md)
@@ -33,7 +33,7 @@
 ## 维护者
 [Yang Libin](https://github.com/yanglbme): GitHub 技术社区 [@Doocs](https://github.com/doocs) 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。
 
-## 参与项目
+## 加入我们
 刷编程题的最大好处就是**可以锻炼解决问题的思维能力**。相信我，「如何去思考」​本身也是一项需要不断学习和练习的技能。非常感谢前微软工程师、现蚂蚁金服技术专家 [@kfstorm](https://github.com/kfstorm) 贡献了本项目的所有 [C# 题解](https://github.com/doocs/leetcode/pull/245)。
 
 如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
