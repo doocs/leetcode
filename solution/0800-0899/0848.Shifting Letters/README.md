@@ -1,44 +1,56 @@
-## 字母移位
+# [848. 字母移位](https://leetcode-cn.com/problems/shifting-letters)
 
-### 问题描述
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>有一个由小写字母组成的字符串 <code>S</code>，和一个整数数组 <code>shifts</code>。</p>
 
-有一个由小写字母组成的字符串 `S`，和一个整数数组 `shifts`。
+<p>我们将字母表中的下一个字母称为原字母的 <em>移位</em>（由于字母表是环绕的， <code>&#39;z&#39;</code>&nbsp;将会变成&nbsp;<code>&#39;a&#39;</code>）。</p>
 
-我们将字母表中的下一个字母称为原字母的 移位（由于字母表是环绕的， `'z'` 将会变成 `'a'`）。
+<p>例如&middot;，<code>shift(&#39;a&#39;) = &#39;b&#39;</code>，&nbsp;<code>shift(&#39;t&#39;) = &#39;u&#39;</code>,， 以及&nbsp;<code>shift(&#39;z&#39;) = &#39;a&#39;</code>。</p>
 
-例如·，`shift('a') = 'b'`， `shift('t') = 'u'`,， 以及 `shift('z') = 'a'`。
+<p>对于每个&nbsp;<code>shifts[i] = x</code>&nbsp;， 我们会将 <code>S</code>&nbsp;中的前&nbsp;<code>i+1</code>&nbsp;个字母移位&nbsp;<code>x</code>&nbsp;次。</p>
 
-对于每个 `shifts[i] = x`， 我们会将 `S` 中的前 `i+1` 个字母移位 `x` 次。
+<p>返回将所有这些移位都应用到 <code>S</code> 后最终得到的字符串。</p>
 
-返回将所有这些移位都应用到 `S` 后最终得到的字符串。
+<p><strong>示例：</strong></p>
 
-**示例:**
-```
-输入：S = "abc", shifts = [3,5,9]
-输出："rpl"
-解释：
-我们以 "abc" 开始。
-将 S 中的第 1 个字母移位 3 次后，我们得到 "dbc"。
-再将 S 中的前 2 个字母移位 5 次后，我们得到 "igc"。
-最后将 S 中的这 3 个字母移位 9 次后，我们得到答案 "rpl"。
-```
+<pre><strong>输入：</strong>S = &quot;abc&quot;, shifts = [3,5,9]
+<strong>输出：</strong>&quot;rpl&quot;
+<strong>解释： </strong>
+我们以 &quot;abc&quot; 开始。
+将 S 中的第 1 个字母移位 3 次后，我们得到 &quot;dbc&quot;。
+再将 S 中的前 2 个字母移位 5 次后，我们得到 &quot;igc&quot;。
+最后将 S 中的这 3 个字母移位 9 次后，我们得到答案 &quot;rpl&quot;。
+</pre>
 
-**提示:**
-- 1 <= S.length = shifts.length <= 20000
-- 0 <= shifts[i] <= 10 ^ 9
+<p><strong>提示：</strong></p>
 
-### 解法
+<ol>
+	<li><code>1 &lt;= S.length = shifts.length &lt;= 20000</code></li>
+	<li><code>0 &lt;= shifts[i] &lt;= 10 ^ 9</code></li>
+</ol>
 
-对于`S`中的每个字母，先将需要移动的长度求出，然后直接移位即可。从后往前遍历会比从前往后遍历快一点点，因为从前往后需要先求出`shifts`的和。
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def shiftingLetters(self, S, shifts):
-        mov = 0
-        ans = list(S)
-        for i in range(len(S) - 1, -1, -1):
-            mov += shifts[i]
-            ans[i] = chr((ord(S[i]) - 97 + mov % 26) % 26 + 97)
-        return ''.join(ans)
+
+```
+
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
+```
+
+### ...
+```
 
 ```

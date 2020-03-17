@@ -1,22 +1,23 @@
 template = """# [{}]({})
 
-## Description
+## 题目描述
+<!-- 这里写题目描述 -->
 {}
 
 
-## Solution
-<!-- Type common method here -->
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
 
 
 ### Python3
-<!-- Type special method here -->
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 
 ```
 
 ### Java
-<!-- Type special method here -->
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 
@@ -26,5 +27,4 @@ template = """# [{}]({})
 ```
 
 ```
-
 """

@@ -1,15 +1,15 @@
-## 子集 II
+# [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii)
 
-### 问题描述
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>给定一个可能包含重复元素的整数数组 <em><strong>nums</strong></em>，返回该数组所有可能的子集（幂集）。</p>
 
-给定一个可能包含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+<p><strong>说明：</strong>解集不能包含重复的子集。</p>
 
-说明：解集不能包含重复的子集。
+<p><strong>示例:</strong></p>
 
-```
-示例:
-输入: [1,2,2]
-输出:
+<pre><strong>输入:</strong> [1,2,2]
+<strong>输出:</strong>
 [
   [2],
   [1],
@@ -17,43 +17,8 @@
   [2,2],
   [1,2],
   []
-]
-```
+]</pre>
 
-
-### 思路
-
-回溯+排序去重
-
-```CPP
-class Solution {
-public:
-    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        vector<int> tmp;
-        vector<vector<int>> ans;
-        int len = nums.size();
-        if(len == 0)return ans;
-        dfs(nums,ans,tmp,len,0);
-        return ans;
-    }
-    
-    void dfs(vector<int> &nums,vector<vector<int>> &ans,vector<int> tmp,int len,int k){
-        sort(tmp.begin(),tmp.end());
-        auto iter = find(ans.begin(),ans.end(),tmp);
-        if(iter == ans.end())ans.push_back(tmp);
-        for(int i = k;i<len;i++){
-            tmp.push_back(nums[i]);
-            dfs(nums,ans,tmp,len,i+1);
-            tmp.pop_back();
-        }
-    }
-};
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

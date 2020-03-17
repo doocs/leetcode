@@ -1,88 +1,27 @@
-## 第N高的薪水
-### 题目描述
+# [177. 第N高的薪水](https://leetcode-cn.com/problems/nth-highest-salary)
 
-编写一个 SQL 查询，获取 `Employee` 表中第 n 高的薪水（Salary）。
-```
-+----+--------+
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>编写一个 SQL 查询，获取 <code>Employee</code> 表中第&nbsp;<em>n&nbsp;</em>高的薪水（Salary）。</p>
+
+<pre>+----+--------+
 | Id | Salary |
 +----+--------+
 | 1  | 100    |
 | 2  | 200    |
 | 3  | 300    |
 +----+--------+
-```
+</pre>
 
-例如上述 `Employee` 表，n = 2 时，应返回第二高的薪水 `200`。如果不存在第 n 高的薪水，那么查询应返回 null。
-```
-+------------------------+
+<p>例如上述&nbsp;<code>Employee</code>&nbsp;表，<em>n = 2&nbsp;</em>时，应返回第二高的薪水&nbsp;<code>200</code>。如果不存在第&nbsp;<em>n&nbsp;</em>高的薪水，那么查询应返回&nbsp;<code>null</code>。</p>
+
+<pre>+------------------------+
 | getNthHighestSalary(2) |
 +------------------------+
 | 200                    |
 +------------------------+
-```
+</pre>
 
-### 解法
-对 Salary 进行分组，然后根据 Salary 降序排列。选出偏移为 n-1 的一个记录即可。
-
-```sql
-CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
-BEGIN
-  SET N = N - 1;
-  RETURN (
-      # Write your MySQL query statement below.
-      select Salary from Employee group by Salary order by Salary desc limit 1 offset N
-  );
-END
-
-```
-
-#### Input
-```json
-{
-    "headers": {
-        "Employee": [
-            "Id",
-            "Salary"
-        ]
-    },
-    "argument": 2,
-    "rows": {
-        "Employee": [
-            [
-                1,
-                100
-            ],
-            [
-                2,
-                200
-            ],
-            [
-                3,
-                300
-            ]
-        ]
-    }
-}
-```
-
-#### Output
-```json
-{
-    "headers": [
-        "getNthHighestSalary(2)"
-    ],
-    "values": [
-        [
-            200
-        ]
-    ]
-}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

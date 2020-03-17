@@ -1,43 +1,24 @@
-## 只出现一次的数字
-### 题目描述
-
-给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
-
-说明：
-
-你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
-
-示例 1:
-```
-输入: [2,2,1]
-输出: 1
-```
-
-示例 2:
-```
-输入: [4,1,2,1,2]
-输出: 4
-```
-
-### 解法
-任意数与 0 异或，都等于它本身。而任意数与自身异或，都等于 0。
-
-```java
-class Solution {
-    public int singleNumber(int[] nums) {
-        int res = 0;
-        for (int num : nums) {
-            res ^= num;
-        }
-        return res;
-    }
-}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number)
 
 ## 题目描述
 <!-- 这里写题目描述 -->
+<p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+
+<p><strong>说明：</strong></p>
+
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> [2,2,1]
+<strong>输出:</strong> 1
+</pre>
+
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre><strong>输入:</strong> [4,1,2,1,2]
+<strong>输出:</strong> 4</pre>
+
 
 
 ## 解法

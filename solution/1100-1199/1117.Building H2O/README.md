@@ -1,81 +1,75 @@
-## 1117. H2O 生成
+# [1117. H2O 生成](https://leetcode-cn.com/problems/building-h2o)
 
-### 问题描述
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>现在有两种线程，氢 <code>oxygen</code> 和氧 <code>hydrogen</code>，你的目标是组织这两种线程来产生水分子。</p>
 
-现在有两种线程，氢 `oxygen` 和氧 `hydrogen`，你的目标是组织这两种线程来产生水分子。
+<p>存在一个屏障（barrier）使得每个线程必须等候直到一个完整水分子能够被产生出来。</p>
 
-存在一个屏障（barrier）使得每个线程必须等候直到一个完整水分子能够被产生出来。
+<p>氢和氧线程会被分别给予 <code>releaseHydrogen</code> 和 <code>releaseOxygen</code> 方法来允许它们突破屏障。</p>
 
-氢和氧线程会被分别给予 `releaseHydrogen` 和 `releaseOxygen` 方法来允许它们突破屏障。
+<p>这些线程应该三三成组突破屏障并能立即组合产生一个水分子。</p>
 
-这些线程应该三三成组突破屏障并能立即组合产生一个水分子。
+<p>你必须保证产生一个水分子所需线程的结合必须发生在下一个水分子产生之前。</p>
 
-你必须保证产生一个水分子所需线程的结合必须发生在下一个水分子产生之前。
+<p>换句话说:</p>
 
-换句话说:
+<ul>
+	<li>如果一个氧线程到达屏障时没有氢线程到达，它必须等候直到两个氢线程到达。</li>
+	<li>如果一个氢线程到达屏障时没有其它线程到达，它必须等候直到一个氧线程和另一个氢线程到达。</li>
+</ul>
 
-- 如果一个氧线程到达屏障时没有氢线程到达，它必须等候直到两个氢线程到达。
-- 如果一个氢线程到达屏障时没有其它线程到达，它必须等候直到一个氧线程和另一个氢线程到达。
+<p>书写满足这些限制条件的氢、氧线程同步代码。</p>
 
-书写满足这些限制条件的氢、氧线程同步代码。
+<p>&nbsp;</p>
 
- 
+<p><strong>示例 1:</strong></p>
 
-**示例 1:**
+<pre>
+<strong>输入: </strong>&quot;HOH&quot;
+<strong>输出: </strong>&quot;HHO&quot;
+<strong>解释:</strong> &quot;HOH&quot; 和 &quot;OHH&quot; 依然都是有效解。
+</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入: </strong>&quot;OOHHHH&quot;
+<strong>输出: </strong>&quot;HHOHHO&quot;
+<strong>解释:</strong> &quot;HOHHHO&quot;, &quot;OHHHHO&quot;, &quot;HHOHOH&quot;, &quot;HOHHOH&quot;, &quot;OHHHOH&quot;, &quot;HHOOHH&quot;, &quot;HOHOHH&quot; 和 &quot;OHHOHH&quot; 依然都是有效解。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制条件:</strong></p>
+
+<ul>
+	<li>输入字符串的总长将会是 3<em>n</em>, 1 &le;&nbsp;<em>n</em>&nbsp;&le; 50；</li>
+	<li>输入字符串中的 &ldquo;H&rdquo; 总数将会是 2n；</li>
+	<li>输入字符串中的 &ldquo;O&rdquo; 总数将会是 n。</li>
+</ul>
+
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
 
 ```
-输入: "HOH"
-输出: "HHO"
-解释: "HOH" 和 "OHH" 依然都是有效解。
+
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
 ```
 
-**示例 2:**
-
-```
-输入: "OOHHHH"
-输出: "HHOHHO"
-解释: "HOHHHO", "OHHHHO", "HHOHOH", "HOHHOH", "OHHHOH", "HHOOHH", "HOHOHH" 和 "OHHOHH" 依然都是有效解。
+### ...
 ```
 
- 
-
-**限制条件:**
-
-- 输入字符串的总长将会是 $3n, 1 ≤ n ≤ 50$；
-- 输入字符串中的 “H” 总数将会是 $2n$；
-- 输入字符串中的 “O” 总数将会是 $n$。
-
-### 思路
-
-同步问题,这里的策略是先输出2个H，再输出1个O
-
-```cpp
-class H2O {
-private:
-    int n_h;
-    mutex m_h,m_o;
-public:
-    H2O() {
-        m_o.lock();
-        n_h = 2;
-    }
-
-    void hydrogen(function<void()> releaseHydrogen) {
-        m_h.lock();
-        releaseHydrogen();
-        n_h--;
-        if(n_h > 0)m_h.unlock();
-        else m_o.unlock();
-    }
-
-    void oxygen(function<void()> releaseOxygen) {
-        m_o.lock();
-        releaseOxygen();
-        n_h = 2;
-        m_h.unlock();
-    }
-};
 ```
-
-
-

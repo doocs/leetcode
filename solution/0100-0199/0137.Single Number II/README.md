@@ -1,55 +1,24 @@
-## 只出现一次的数字 II
-
-### 题目描述
-给定一个**非空**整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。
-
-说明：
-
-你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
-
-**示例 1:**
-```
-输入: [2,2,3,2]
-输出: 3
-```
-
-**示例 2:**
-```
-输入: [0,1,0,1,0,1,99]
-输出: 99
-```
-
-### 解法
-遍历数组元素，对于每一个元素，获得二进制位（0/1），累加到 bits 数组中，这样下来，出现三次的元素，bits 数组上的值一定能被 3 整除；找出不能被 3 整除的位，计算出实际的十进制数即可。
-
-```java
-class Solution {
-    public int singleNumber(int[] nums) {
-        int[] bits = new int[32];
-        int n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < 32; ++j) {
-                bits[j] += ((nums[i] >> j) & 1);
-            }
-        }
-        
-        int res = 0;
-        for (int i = 0; i < 32; ++i) {
-            if (bits[i] % 3 != 0) {
-                res += (1 << i);
-            }
-        }
-        return res;
-        
-    }
-}
-```
-
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii)
 
 ## 题目描述
 <!-- 这里写题目描述 -->
+<p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>
+
+<p><strong>说明：</strong></p>
+
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> [2,2,3,2]
+<strong>输出:</strong> 3
+</pre>
+
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre><strong>输入:</strong> [0,1,0,1,0,1,99]
+<strong>输出:</strong> 99</pre>
+
 
 
 ## 解法

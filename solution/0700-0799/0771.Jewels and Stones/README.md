@@ -1,59 +1,51 @@
-## 宝石与石头
+# [771. 宝石与石头](https://leetcode-cn.com/problems/jewels-and-stones)
 
-### 问题描述
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>&nbsp;给定字符串<code>J</code>&nbsp;代表石头中宝石的类型，和字符串&nbsp;<code>S</code>代表你拥有的石头。&nbsp;<code>S</code>&nbsp;中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。</p>
 
- 给定字符串 `J` 代表石头中宝石的类型，和字符串 `S` 代表你拥有的石头。 `S` 中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。
+<p><code>J</code>&nbsp;中的字母不重复，<code>J</code>&nbsp;和&nbsp;<code>S</code>中的所有字符都是字母。字母区分大小写，因此<code>&quot;a&quot;</code>和<code>&quot;A&quot;</code>是不同类型的石头。</p>
 
-`J` 中的字母不重复，`J` 和 `S` 中的所有字符都是字母。字母区分大小写，因此`"a"`和`"A"`是不同类型的石头。
+<p><strong>示例 1:</strong></p>
 
-**示例1:**
+<pre><strong>输入:</strong> J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;
+<strong>输出:</strong> 3
+</pre>
 
-```
-输入: J = "aA", S = "aAAbbbb"
-输出: 3
-```
+<p><strong>示例 2:</strong></p>
 
-**示例2:**
+<pre><strong>输入:</strong> J = &quot;z&quot;, S = &quot;ZZ&quot;
+<strong>输出:</strong> 0
+</pre>
 
-```
-输入: J = "z", S = "ZZ"
-输出: 0
-```
+<p><strong>注意:</strong></p>
 
-**注意:**
+<ul>
+	<li><code>S</code>&nbsp;和&nbsp;<code>J</code>&nbsp;最多含有50个字母。</li>
+	<li>&nbsp;<code>J</code>&nbsp;中的字符不重复。</li>
+</ul>
 
-- `S` 和 `J` 最多含有 50 个字母。
-- `J` 中的字符不重复。
 
-### 解法
-题目中 `J` 字母不重复，因此，直接将 `J` 转换为 set。之后遍历 `S` 中每个字符，判断该字符是否在 set 中，若是则累加 1。最后得到累计后的结果。
 
-1. Java 解法
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
 
-```java
-class Solution {
-    public int numJewelsInStones(String J, String S) {
-        Set<Character> set = new HashSet<>();
-        for (char ch : J.toCharArray()) {
-            set.add(ch);
-        }
-        int res = 0;
-        for (char ch : S.toCharArray()) {
-            res += (set.contains(ch) ? 1 : 0);
-        }
-        return res;
-    }
-}
-```
 
-2. Python 解法
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def numJewelsInStones(self, J: str, S: str) -> int:
-        record = {ch for ch in J}
-        sum = 0
-        for ch in S:
-            sum += 1 if ch in record else 0
-        return sum
+
+```
+
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
+```
+
+### ...
+```
+
 ```

@@ -1,55 +1,31 @@
-## 查找重复的电子邮箱
-### 题目描述
+# [182. 查找重复的电子邮箱](https://leetcode-cn.com/problems/duplicate-emails)
 
-编写一个 SQL 查询，查找 `Person` 表中所有重复的电子邮箱。
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>编写一个 SQL 查询，查找&nbsp;<code>Person</code> 表中所有重复的电子邮箱。</p>
 
-示例：
-```
-+----+---------+
+<p><strong>示例：</strong></p>
+
+<pre>+----+---------+
 | Id | Email   |
 +----+---------+
 | 1  | a@b.com |
 | 2  | c@d.com |
 | 3  | a@b.com |
 +----+---------+
-```
+</pre>
 
-根据以上输入，你的查询应返回以下结果：
-```
-+---------+
+<p>根据以上输入，你的查询应返回以下结果：</p>
+
+<pre>+---------+
 | Email   |
 +---------+
 | a@b.com |
 +---------+
-```
+</pre>
 
-**说明：**所有电子邮箱都是小写字母。
+<p><strong>说明：</strong>所有电子邮箱都是小写字母。</p>
 
-### 解法
-对 `Email` 进行分组，选出数量大于 1 的 `Email` 即可。
-
-```sql
-# Write your MySQL query statement below
-select Email 
-from Person 
-group by Email 
-having count(Email) > 1;
-```
-
-#### Input
-```json
-{"headers": {"Person": ["Id", "Email"]}, "rows": {"Person": [[1, "a@b.com"], [2, "c@d.com"], [3, "a@b.com"]]}}
-```
-
-#### Output
-```json
-{"headers":["Email"],"values":[["a@b.com"]]}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

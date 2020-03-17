@@ -1,47 +1,52 @@
-## 交换工资
-### 题目描述
+# [627. 交换工资](https://leetcode-cn.com/problems/swap-salary)
 
-给定一个 `salary` 表，如下所示，有m=男性 和 f=女性的值 。交换所有的 f 和 m 值(例如，将所有 f 值更改为 m，反之亦然)。要求使用一个更新查询，并且没有中间临时表。
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>给定一个&nbsp;<code>salary</code>&nbsp;表，如下所示，有 m = 男性 和 f = 女性 的值。交换所有的 f 和 m 值（例如，将所有 f 值更改为 m，反之亦然）。要求只使用一个更新（Update）语句，并且没有中间的临时表。</p>
 
-例如:
-```
-| id | name | sex | salary |
+<p>注意，您必只能写一个 Update 语句，请不要编写任何 Select 语句。</p>
+
+<p><strong>例如：</strong></p>
+
+<pre>| id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | m   | 2500   |
 | 2  | B    | f   | 1500   |
 | 3  | C    | m   | 5500   |
 | 4  | D    | f   | 500    |
-```
+</pre>
 
-运行你所编写的查询语句之后，将会得到以下表:
-```
-| id | name | sex | salary |
+<p>运行你所编写的更新语句之后，将会得到以下表:</p>
+
+<pre>| id | name | sex | salary |
 |----|------|-----|--------|
 | 1  | A    | f   | 2500   |
 | 2  | B    | m   | 1500   |
 | 3  | C    | f   | 5500   |
 | 4  | D    | m   | 500    |
+</pre>
+
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+
 ```
 
-### 解法
-使用 `if` 函数 或者 `case when .. then .. else ... end`。
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```sql
-# Write your MySQL query statement below
-# update salary
-# set sex = if(sex = 'm', 'f', 'm')
-
-update salary
-set sex = (case when sex = 'f' then 'm' else 'f' end)
+```java
 
 ```
 
-#### Input
-```json
-{"headers":{"salary":["id","name","sex","salary"]},"rows":{"salary":[[1,"A","m",2500],[2,"B","f",1500],[3,"C","m",5500],[4,"D","f",500]]}}
+### ...
 ```
 
-#### Output
-```json
-{"headers":["id","name","sex","salary"],"values":[[1,"A","f",2500],[2,"B","m",1500],[3,"C","f",5500],[4,"D","m",500]]}
 ```

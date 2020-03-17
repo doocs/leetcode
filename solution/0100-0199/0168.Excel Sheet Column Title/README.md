@@ -1,66 +1,39 @@
-## Excel表列名称
-### 题目描述
-
-给定一个正整数，返回它在 Excel 表中相对应的列名称。
-
-例如，
-```
-    1 -> A
-    2 -> B
-    3 -> C
-    ...
-    26 -> Z
-    27 -> AA
-    28 -> AB 
-    ...
-```
-
-**示例 1:**
-```
-输入: 1
-输出: "A"
-```
-
-**示例 2:**
-```
-输入: 28
-输出: "AB"
-```
-
-**示例 3:**
-```
-输入: 701
-输出: "ZY"
-```
-
-### 解法
-1. 将数字 n 减一，则尾数转换为 0-25 的 26 进制数的个位；用除 26 取余的方式，获得尾数对应的符号。
-2. 用除26取余的方式，获得尾数对应的符号;
-3. 重复步骤1、2直至 n 为 0。
-
-```java
-class Solution {
-    public String convertToTitle(int n) {
-        if (n < 0) {
-            return "";
-        }        
-        StringBuilder sb = new StringBuilder();
-        while (n > 0) {
-            n--;
-            int temp = n % 26;
-            sb.insert(0,(char)(temp + 'A'));
-            n /= 26;
-        }
-        return sb.toString();
-    }
-}
-
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [168. Excel表列名称](https://leetcode-cn.com/problems/excel-sheet-column-title)
 
 ## 题目描述
 <!-- 这里写题目描述 -->
+<p>给定一个正整数，返回它在 Excel 表中相对应的列名称。</p>
+
+<p>例如，</p>
+
+<pre>    1 -&gt; A
+    2 -&gt; B
+    3 -&gt; C
+    ...
+    26 -&gt; Z
+    27 -&gt; AA
+    28 -&gt; AB 
+    ...
+</pre>
+
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> 1
+<strong>输出:</strong> &quot;A&quot;
+</pre>
+
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre><strong>输入:</strong> 28
+<strong>输出:</strong> &quot;AB&quot;
+</pre>
+
+<p><strong>示例&nbsp;3:</strong></p>
+
+<pre><strong>输入:</strong> 701
+<strong>输出:</strong> &quot;ZY&quot;
+</pre>
+
 
 
 ## 解法

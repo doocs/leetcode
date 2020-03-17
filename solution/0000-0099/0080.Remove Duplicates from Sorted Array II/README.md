@@ -1,90 +1,45 @@
-## 删除排序数组中的重复项 II
-
-### 问题描述
-
-给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素最多出现两次，返回移除后数组的新长度。
-
-不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
-```
-示例 1:
-给定 nums = [1,1,1,2,2,3],
-
-函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3 。
-
-你不需要考虑数组中超出新长度后面的元素。
-
-示例 2:
-给定 nums = [0,0,1,1,1,1,2,3,3],
-
-函数应返回新长度 length = 7, 并且原数组的前五个元素被修改为 0, 0, 1, 1, 2, 3, 3 。
-
-你不需要考虑数组中超出新长度后面的元素。
-```
-
-#### 说明:
-
-```
-为什么返回数值是整数，但输出的答案是数组呢?
-
-请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
-
-你可以想象内部操作如下:
-
-// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
-int len = removeDuplicates(nums);
-
-// 在函数里修改输入数组对于调用者是可见的。
-// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
-for (int i = 0; i < len; i++) {
-    print(nums[i]);
-}
-```
-
-
-### 思路[CPP]
-
-本题对CPP而言主要考察STL，遍历+统计+迭代器指针
-
-0. 去除特殊情况(如数组空或长度为1)
-1. 设置统计位k=1，用迭代器指向数组第二位元素
-2. 遍历，让迭代器指向元素与迭代器前一位元素比较，相同则k++,不同则k=1
-3. 若k==3,立即删除当前元素，指针不动，仍是指向当前位置；否则执行指针后移
-
-```
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        if(nums.empty())return 0;
-        size_t len = nums.size();
-        if(len == 1)return 1;
-        
-        auto iter = nums.begin();
-        iter++;
-        int k = 1;
-        while(iter != nums.end()){
-            if(*iter == *(iter-1))k++;
-            else k = 1;
-            
-            if(k==3){
-                nums.erase(iter);
-                k--;
-            }
-            else {
-                iter++;
-            }
-        }
-        
-        len = nums.size();
-        return len;
-    }
-};
-```
-
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [80. 删除排序数组中的重复项 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii)
 
 ## 题目描述
 <!-- 这里写题目描述 -->
+<p>给定一个排序数组，你需要在<strong><a href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong>删除重复出现的元素，使得每个元素最多出现两次，返回移除后数组的新长度。</p>
+
+<p>不要使用额外的数组空间，你必须在<strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a>修改输入数组</strong>并在使用 O(1) 额外空间的条件下完成。</p>
+
+<p><strong>示例&nbsp;1:</strong></p>
+
+<pre>给定 <em>nums</em> = <strong>[1,1,1,2,2,3]</strong>,
+
+函数应返回新长度 length = <strong><code>5</code></strong>, 并且原数组的前五个元素被修改为 <strong><code>1, 1, 2, 2,</code></strong> <strong>3 </strong>。
+
+你不需要考虑数组中超出新长度后面的元素。</pre>
+
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre>给定 <em>nums</em> = <strong>[0,0,1,1,1,1,2,3,3]</strong>,
+
+函数应返回新长度 length = <strong><code>7</code></strong>, 并且原数组的前五个元素被修改为&nbsp;<strong><code>0</code></strong>, <strong>0</strong>, <strong>1</strong>, <strong>1</strong>, <strong>2</strong>, <strong>3</strong>, <strong>3 。</strong>
+
+你不需要考虑数组中超出新长度后面的元素。
+</pre>
+
+<p><strong>说明:</strong></p>
+
+<p>为什么返回数值是整数，但输出的答案是数组呢?</p>
+
+<p>请注意，输入数组是以<strong>&ldquo;引用&rdquo;</strong>方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
+
+<p>你可以想象内部操作如下:</p>
+
+<pre>// <strong>nums</strong> 是以&ldquo;引用&rdquo;方式传递的。也就是说，不对实参做任何拷贝
+int len = removeDuplicates(nums);
+
+// 在函数里修改输入数组对于调用者是可见的。
+// 根据你的函数返回的长度, 它会打印出数组中<strong>该长度范围内</strong>的所有元素。
+for (int i = 0; i &lt; len; i++) {
+&nbsp; &nbsp; print(nums[i]);
+}</pre>
+
 
 
 ## 解法

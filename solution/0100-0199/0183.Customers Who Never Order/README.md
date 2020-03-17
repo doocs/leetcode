@@ -1,11 +1,12 @@
-## 从不订购的客户
-### 题目描述
+# [183. 从不订购的客户](https://leetcode-cn.com/problems/customers-who-never-order)
 
-某网站包含两个表，`Customers` 表和 `Orders` 表。编写一个 SQL 查询，找出所有从不订购任何东西的客户。
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>某网站包含两个表，<code>Customers</code> 表和 <code>Orders</code> 表。编写一个 SQL 查询，找出所有从不订购任何东西的客户。</p>
 
-`Customers` 表：
-```
-+----+-------+
+<p><code>Customers</code> 表：</p>
+
+<pre>+----+-------+
 | Id | Name  |
 +----+-------+
 | 1  | Joe   |
@@ -13,55 +14,28 @@
 | 3  | Sam   |
 | 4  | Max   |
 +----+-------+
-```
+</pre>
 
-`Orders` 表：
-```
-+----+------------+
+<p><code>Orders</code> 表：</p>
+
+<pre>+----+------------+
 | Id | CustomerId |
 +----+------------+
 | 1  | 3          |
 | 2  | 1          |
 +----+------------+
-```
+</pre>
 
-例如给定上述表格，你的查询应返回：
-```
-+-----------+
+<p>例如给定上述表格，你的查询应返回：</p>
+
+<pre>+-----------+
 | Customers |
 +-----------+
 | Henry     |
 | Max       |
 +-----------+
-```
+</pre>
 
-### 解法
-两个表左连接，找出 `CustomerId` 为 `null` 的记录即可。
-
-```sql
-# Write your MySQL query statement below
-
-select Name as Customers 
-from Customers c
-left join Orders o
-on c.Id = o.CustomerId
-where o.CustomerId is null
-```
-
-#### Input
-```json
-{"headers": {"Customers": ["Id", "Name"], "Orders": ["Id", "CustomerId"]}, "rows": {"Customers": [[1, "Joe"], [2, "Henry"], [3, "Sam"], [4, "Max"]], "Orders": [[1, 3], [2, 1]]}}
-```
-
-#### Output
-```json
-{"headers":["Customers"],"values":[["Henry"],["Max"]]}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

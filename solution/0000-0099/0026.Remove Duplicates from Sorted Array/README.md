@@ -1,70 +1,50 @@
-## 删除排序数组中的重复项
-### 题目描述
-
-给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
-
-不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
-
-示例 1:
-
-给定数组 nums = [1,1,2], 
-
-函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 
-
-你不需要考虑数组中超出新长度后面的元素。
-示例 2:
-
-给定 nums = [0,0,1,1,1,2,2,3,3,4],
-
-函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
-
-你不需要考虑数组中超出新长度后面的元素。
-说明:
-
-为什么返回数值是整数，但输出的答案是数组呢?
-
-请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。
-
-你可以想象内部操作如下:
-
-// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
-int len = removeDuplicates(nums);
-
-// 在函数里修改输入数组对于调用者是可见的。
-// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
-```
-for (int i = 0; i < len; i++) {
-    print(nums[i]);
-}
-```
-
-### 解法
-1. 维护 i 和 j 两个指针，i 从左向右遍历数组, j 指针指向当前完成去除重复元素的最后一个值。
-2. 通过比较 nums[i] 与 nums[j] 的值判断 i 指向的元素是否为前一个元素的重复，若是，进入步骤3，否则，重复步骤2；
-3. j 向左移动，将 nums[i] 拷贝至 nums[j] 成为新的末尾元素。
-
-```java
-class Solution {
-    public int removeDuplicates(int[] nums) {
-        if(nums == null || nums.length == 0) {
-            return 0;
-        }
-        
-        int j = 0;
-        for(int i = 1; i < nums.length; i++) {
-            if(nums[i] != nums[j]) { 
-                nums[++j] = nums[i];
-            }
-        }
-        return j + 1;
-    }
-}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [26. 删除排序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array)
 
 ## 题目描述
 <!-- 这里写题目描述 -->
+<p>给定一个排序数组，你需要在<strong><a href="http://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank"> 原地</a></strong> 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p>
+
+<p>不要使用额外的数组空间，你必须在 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地 </a>修改输入数组 </strong>并在使用 O(1) 额外空间的条件下完成。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例&nbsp;1:</strong></p>
+
+<pre>给定数组 <em>nums</em> = <strong>[1,1,2]</strong>, 
+
+函数应该返回新的长度 <strong>2</strong>, 并且原数组 <em>nums </em>的前两个元素被修改为 <strong><code>1</code></strong>, <strong><code>2</code></strong>。 
+
+你不需要考虑数组中超出新长度后面的元素。</pre>
+
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre>给定<em> nums </em>= <strong>[0,0,1,1,1,2,2,3,3,4]</strong>,
+
+函数应该返回新的长度 <strong>5</strong>, 并且原数组 <em>nums </em>的前五个元素被修改为 <strong><code>0</code></strong>, <strong><code>1</code></strong>, <strong><code>2</code></strong>, <strong><code>3</code></strong>, <strong><code>4</code></strong>。
+
+你不需要考虑数组中超出新长度后面的元素。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>说明:</strong></p>
+
+<p>为什么返回数值是整数，但输出的答案是数组呢?</p>
+
+<p>请注意，输入数组是以<strong>「引用」</strong>方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
+
+<p>你可以想象内部操作如下:</p>
+
+<pre>// <strong>nums</strong> 是以&ldquo;引用&rdquo;方式传递的。也就是说，不对实参做任何拷贝
+int len = removeDuplicates(nums);
+
+// 在函数里修改输入数组对于调用者是可见的。
+// 根据你的函数返回的长度, 它会打印出数组中<strong>该长度范围内</strong>的所有元素。
+for (int i = 0; i &lt; len; i++) {
+&nbsp; &nbsp; print(nums[i]);
+}
+</pre>
+
 
 
 ## 解法

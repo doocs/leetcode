@@ -1,10 +1,10 @@
-## 删除重复的电子邮箱
-### 题目描述
+# [196. 删除重复的电子邮箱](https://leetcode-cn.com/problems/delete-duplicate-emails)
 
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>编写一个 SQL 查询，来删除&nbsp;<code>Person</code>&nbsp;表中所有重复的电子邮箱，重复的邮箱里只保留&nbsp;<strong>Id&nbsp;</strong><em>最小&nbsp;</em>的那个。</p>
 
-编写一个 SQL 查询，来删除 `Person` 表中所有重复的电子邮箱，重复的邮箱里只保留 **Id** 最小 的那个。
-```
-+----+------------------+
+<pre>+----+------------------+
 | Id | Email            |
 +----+------------------+
 | 1  | john@example.com |
@@ -12,56 +12,27 @@
 | 3  | john@example.com |
 +----+------------------+
 Id 是这个表的主键。
-```
+</pre>
 
-例如，在运行你的查询语句之后，上面的 `Person` 表应返回以下几行:
-```
-+----+------------------+
+<p>例如，在运行你的查询语句之后，上面的 <code>Person</code> 表应返回以下几行:</p>
+
+<pre>+----+------------------+
 | Id | Email            |
 +----+------------------+
 | 1  | john@example.com |
 | 2  | bob@example.com  |
 +----+------------------+
-```
+</pre>
 
-### 解法
-先根据 `Email` 分组，选出每个组中最小的 `Id`，作为一张临时表，再删除掉所有 Id 不在这张临时表的记录。
+<p>&nbsp;</p>
 
-```sql
-# Write your MySQL query statement below
+<p><strong>提示：</strong></p>
 
-# 用这里注释的语句运行会报错，不能 select 之后再 update
-# You can't specify target table 'Person' for update in FROM clause
-# delete from Person
-# where Id not in(
-# select min(Id) as Id
-# from Person
-# group by Email);
+<ul>
+	<li>执行 SQL 之后，输出是整个 <code>Person</code>&nbsp;表。</li>
+	<li>使用 <code>delete</code> 语句。</li>
+</ul>
 
-delete from Person
-where Id not in(
-    select Id from (
-        select min(id) as Id
-        from Person
-        group by Email
-    ) a
-);
-```
-
-#### Input
-```json
-{"headers": {"Person": ["Id", "Email"]}, "rows": {"Person": [[1, "john@example.com"], [2, "bob@example.com"], [3, "john@example.com"]]}}
-```
-
-#### Output
-```json
-{"headers":["Id","Email"],"values":[[1,"john@example.com"],[2,"bob@example.com"]]}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

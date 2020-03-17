@@ -1,80 +1,50 @@
-## 先序遍历构造二叉树
+# [1008. 先序遍历构造二叉树](https://leetcode-cn.com/problems/construct-binary-search-tree-from-preorder-traversal)
 
-### 问题描述
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>返回与给定先序遍历&nbsp;<code>preorder</code> 相匹配的二叉搜索树（binary <strong>search</strong> tree）的根结点。</p>
 
-返回与给定先序遍历 **preorder** 相匹配的二叉搜索树（binary **search** tree）的根结点。
+<p><em>(回想一下，二叉搜索树是二叉树的一种，其每个节点都满足以下规则，对于&nbsp;<code>node.left</code>&nbsp;的任何后代，值总 <code>&lt;</code> <code>node.val</code>，而 <code>node.right</code> 的任何后代，值总 <code>&gt;</code> <code>node.val</code>。此外，先序遍历首先显示节点的值，然后遍历 <code>node.left</code>，接着遍历 <code>node.right</code>。）</em></p>
 
-**示例1:**
+<p>&nbsp;</p>
+
+<p><strong>示例：</strong></p>
+
+<pre><strong>输入：</strong>[8,5,1,7,10,12]
+<strong>输出：</strong>[8,5,10,1,7,null,12]
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/08/1266.png" style="height: 200px; width: 306px;">
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>1 &lt;= preorder.length &lt;= 100</code></li>
+	<li>先序&nbsp;<code>preorder</code>&nbsp;中的值是不同的。</li>
+</ol>
+
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
 
 ```
-输入：[8,5,1,7,10,12]
-输出：[8,5,10,1,7,null,12]
-```
 
-![示例1](/img/Construct-Binary-Search-Tree-from-Preorder-Traversal.png)
-
-**提示:**
-
-- `1 <= preorder.length <= 100`
-- The values of `preorder` are distinct.
-
-### 解法
-
-二叉树类的题目可以考虑使用递归中的分治法，让本次递归的根节点（sub-root）来管理自身子树的生成方式。而本题使用的是**前序遍历法**所生成的数组，则先检查了根节点，再检查左子树，再检查右子树。因此每层递归我们需要确定的是：
-
-* 本层递归的根节点是什么？
-* 根节点确定后，本层递归之后的左子树范围是什么，右子树的范围是什么？
-
-对于第一个问题，我们知道前序遍历法的根节点一定是当前范围内的第一个元素；而对于第二个问题，我们知道右子树开始于**第一个比当前根节点大的元素**，而左子树结束于该元素的前面一个元素。在解决了这两个问题后，答案已经比较明确了，在每一层递归中，我们需要一个 start 和一个 end 来表示当前的递归所涉及的元素范围：
-
-* 确定当前的递归是否结束（start > end || start >= end）
-* 确定当前递归层的根节点（start）
-* 确定左子树的范围（start + 1, leftEnd - 1）和右子树的范围（leftEnd, end）
-
-因此有如下的递归解法：
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public TreeNode bstFromPreorder(int[] preorder) {
-        if (preorder == null || preorder.length == 0) {
-            return null;
-        }
-        // 进入分治法的递归
-        return helper(preorder, 0, preorder.length - 1);
-    }
-    
-    private TreeNode helper(int[] preorder, int start, int end) {
-        // System.out.println("start: " + start + " end: " + end);
-        // 确认递归结束的标志，当 start == end 时，表示该区间只剩下一个 subRoot 节点
-        if (start > end) {
-            return null;
-        }
-        if (start == end) {
-            return new TreeNode(preorder[start]);
-        }
-        // 前序遍历，首先遍历到的为根
-        TreeNode root = new TreeNode(preorder[start]);
-        int leftEnd = start;
-        while (leftEnd <= end) {
-            if (preorder[leftEnd] > preorder[start]) {
-                break;
-            }
-            leftEnd++;
-        }
-        // System.out.println("leftEnd:" + leftEnd + " num: " + preorder[leftEnd]);
-        root.left = helper(preorder, start + 1, leftEnd - 1);
-        root.right = helper(preorder, leftEnd, end);
-        return root;
-    }
-}
+
 ```
 
+### ...
+```
+
+```

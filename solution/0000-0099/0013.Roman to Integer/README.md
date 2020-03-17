@@ -1,103 +1,58 @@
-## 罗马数字转整数
-### 题目描述
+# [13. 罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer)
 
-罗马数字包含以下七种字符：`I`， `V`， `X`， `L`，`C`，`D` 和 `M`。
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>罗马数字包含以下七种字符:&nbsp;<code>I</code>，&nbsp;<code>V</code>，&nbsp;<code>X</code>，&nbsp;<code>L</code>，<code>C</code>，<code>D</code>&nbsp;和&nbsp;<code>M</code>。</p>
 
-```
-字符          数值
+<pre><strong>字符</strong>          <strong>数值</strong>
 I             1
 V             5
 X             10
 L             50
 C             100
 D             500
-M             1000
-```
+M             1000</pre>
 
-例如， 罗马数字 2 写做 `II` ，即为两个并列的 1。12 写做 `XII` ，即为 `X` + `II` 。 27 写做  `XXVII`, 即为 `XX` + `V` + `II` 。
+<p>例如， 罗马数字 2 写做&nbsp;<code>II</code>&nbsp;，即为两个并列的 1。12 写做&nbsp;<code>XII</code>&nbsp;，即为&nbsp;<code>X</code>&nbsp;+&nbsp;<code>II</code>&nbsp;。 27 写做&nbsp;&nbsp;<code>XXVII</code>, 即为&nbsp;<code>XX</code>&nbsp;+&nbsp;<code>V</code>&nbsp;+&nbsp;<code>II</code>&nbsp;。</p>
 
-通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 `IIII`，而是 `IV`。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 `IX`。这个特殊的规则只适用于以下六种情况：
+<p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做&nbsp;<code>IIII</code>，而是&nbsp;<code>IV</code>。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为&nbsp;<code>IX</code>。这个特殊的规则只适用于以下六种情况：</p>
 
-- `I` 可以放在 `V` (5) 和 `X` (10) 的左边，来表示 4 和 9。
-- `X` 可以放在 `L` (50) 和 `C` (100) 的左边，来表示 40 和 90。 
-- `C` 可以放在 `D` (500) 和 `M` (1000) 的左边，来表示 400 和 900。
+<ul>
+	<li><code>I</code>&nbsp;可以放在&nbsp;<code>V</code>&nbsp;(5) 和&nbsp;<code>X</code>&nbsp;(10) 的左边，来表示 4 和 9。</li>
+	<li><code>X</code>&nbsp;可以放在&nbsp;<code>L</code>&nbsp;(50) 和&nbsp;<code>C</code>&nbsp;(100) 的左边，来表示 40 和&nbsp;90。&nbsp;</li>
+	<li><code>C</code>&nbsp;可以放在&nbsp;<code>D</code>&nbsp;(500) 和&nbsp;<code>M</code>&nbsp;(1000) 的左边，来表示&nbsp;400 和&nbsp;900。</li>
+</ul>
 
-给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。
+<p>给定一个罗马数字，将其转换成整数。输入确保在 1&nbsp;到 3999 的范围内。</p>
 
-示例 1:
-```
-输入: "III"
-输出: 3
-```
+<p><strong>示例&nbsp;1:</strong></p>
 
-示例 2:
-```
-输入: "IV"
-输出: 4
-```
+<pre><strong>输入:</strong>&nbsp;&quot;III&quot;
+<strong>输出:</strong> 3</pre>
 
-示例 3:
-```
-输入: "IX"
-输出: 9
-```
+<p><strong>示例&nbsp;2:</strong></p>
 
-示例 4:
-```
-输入: "LVIII"
-输出: 58
-解释: C = 100, L = 50, XXX = 30, III = 3.
-```
+<pre><strong>输入:</strong>&nbsp;&quot;IV&quot;
+<strong>输出:</strong> 4</pre>
 
-示例 5:
-```
-输入: "MCMXCIV"
-输出: 1994
-解释: M = 1000, CM = 900, XC = 90, IV = 4.
-```
+<p><strong>示例&nbsp;3:</strong></p>
 
-### 解法
-用 map 存储字符串及对应的值，遍历 `s`，若 s[i, i + 1] 在 map 中，累加对应的值，i 向右移动两格；否则累加 s[i]，i 向右移动一格。
+<pre><strong>输入:</strong>&nbsp;&quot;IX&quot;
+<strong>输出:</strong> 9</pre>
 
-```java
-class Solution {
-    public int romanToInt(String s) {
-        Map<String, Integer> map = new HashMap<String, Integer>(13) {{
-            put("I", 1);
-            put("V", 5);
-            put("X", 10);
-            put("L", 50);
-            put("C", 100);
-            put("D", 500);
-            put("M", 1000);
-            put("IV", 4);
-            put("IX", 9);
-            put("XL", 40);
-            put("XC", 90);
-            put("CD", 400);
-            put("CM", 900);
-        }};
+<p><strong>示例&nbsp;4:</strong></p>
 
-        int res = 0;
-        int len = s.length();
-        for (int i = 0; i < len; ++i) {
-            if (i != len - 1 && map.get(s.substring(i, i + 2)) != null) {
-                res += map.get(s.substring(i, i + 2));
-                ++i;
-                continue;
-            }
-            res += map.get(s.substring(i, i + 1));
-        }
-        return res;
-        
-    }
-}
-```
+<pre><strong>输入:</strong>&nbsp;&quot;LVIII&quot;
+<strong>输出:</strong> 58
+<strong>解释:</strong> L = 50, V= 5, III = 3.
+</pre>
 
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+<p><strong>示例&nbsp;5:</strong></p>
 
-## 题目描述
-<!-- 这里写题目描述 -->
+<pre><strong>输入:</strong>&nbsp;&quot;MCMXCIV&quot;
+<strong>输出:</strong> 1994
+<strong>解释:</strong> M = 1000, CM = 900, XC = 90, IV = 4.</pre>
+
 
 
 ## 解法

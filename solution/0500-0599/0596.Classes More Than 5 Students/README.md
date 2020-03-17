@@ -1,12 +1,14 @@
-## 超过5名学生的课
-### 题目描述
+# [596. 超过5名学生的课](https://leetcode-cn.com/problems/classes-more-than-5-students)
 
-有一个 `courses` 表 ，有: **student(学生)** 和 **class(课程)**。
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>有一个<code>courses</code> 表 ，有: <strong>student&nbsp;(学生) </strong>和 <strong>class (课程)</strong>。</p>
 
-请列出所有超过或等于5名学生的课。
+<p>请列出所有超过或等于5名学生的课。</p>
 
-例如,表:
-```
+<p>例如,表:</p>
+
+<pre>
 +---------+------------+
 | student | class      |
 +---------+------------+
@@ -20,25 +22,42 @@
 | H       | Math       |
 | I       | Math       |
 +---------+------------+
-```
+</pre>
 
-应该输出:
-```
+<p>应该输出:</p>
+
+<pre>
 +---------+
 | class   |
 +---------+
 | Math    |
 +---------+
+</pre>
+
+<p><strong>Note:</strong><br />
+学生在每个课中不应被重复计算。</p>
+
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+
 ```
 
-**Note:**
-学生在每个课中不应被重复计算。
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
-### 解法
-注意学生可能被重复计算，需要 `distinct`。
+```java
 
-```sql
-# Write your MySQL query statement below
-select class from courses group by class having count(distinct student) >= 5
+```
+
+### ...
+```
 
 ```

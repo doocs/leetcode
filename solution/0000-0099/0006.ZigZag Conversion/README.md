@@ -1,73 +1,58 @@
-# [6. Z 字形变换](https://leetcode-cn.com/problems/zigzag-conversion/)
+# [6. Z 字形变换](https://leetcode-cn.com/problems/zigzag-conversion)
 
 ## 题目描述
 <!-- 这里写题目描述 -->
-将一个给定字符串根据给定的行数，以从上往下、从左到右进行 Z 字形排列。
+<p>将一个给定字符串根据给定的行数，以从上往下、从左到右进行&nbsp;Z 字形排列。</p>
 
-比如输入字符串为 `"LEETCODEISHIRING"` 行数为 3 时，排列如下：
+<p>比如输入字符串为 <code>&quot;LEETCODEISHIRING&quot;</code>&nbsp;行数为 3 时，排列如下：</p>
 
-```
-L   C   I   R
+<pre>L   C   I   R
 E T O E S I I G
 E   D   H   N
-```
+</pre>
 
-之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：`"LCIRETOESIIGEDHN"`。
+<p>之后，你的输出需要从左往右逐行读取，产生出一个新的字符串，比如：<code>&quot;LCIRETOESIIGEDHN&quot;</code>。</p>
 
-请你实现这个将字符串进行指定行数变换的函数：
+<p>请你实现这个将字符串进行指定行数变换的函数：</p>
 
-```
-string convert(string s, int numRows);
-```
+<pre>string convert(string s, int numRows);</pre>
 
-**示例 1:**
+<p><strong>示例&nbsp;1:</strong></p>
 
-```
-输入: s = "LEETCODEISHIRING", numRows = 3
-输出: "LCIRETOESIIGEDHN"
-```
+<pre><strong>输入:</strong> s = &quot;LEETCODEISHIRING&quot;, numRows = 3
+<strong>输出:</strong> &quot;LCIRETOESIIGEDHN&quot;
+</pre>
 
-**示例 2:**
+<p><strong>示例&nbsp;2:</strong></p>
 
-```
-输入: s = "LEETCODEISHIRING", numRows = 4
-输出: "LDREOEIIECIHNTSG"
-解释:
+<pre><strong>输入:</strong> s = &quot;LEETCODEISHIRING&quot;, numRows =&nbsp;4
+<strong>输出:</strong>&nbsp;&quot;LDREOEIIECIHNTSG&quot;
+<strong>解释:</strong>
 
 L     D     R
 E   O E   I I
 E C   I H   N
-T     S     G
-```
+T     S     G</pre>
+
+
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+
+```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-class Solution {
-    public String convert(String s, int numRows) {
-        if (numRows == 1) return s;
-        StringBuilder result = new StringBuilder();
-        int group = 2 * numRows - 2;
-        for (int i = 1; i <= numRows; i++) {
-            int interval = 2 * numRows - 2 * i;
-            if (i == numRows) interval = 2 * numRows - 2;
-            int index = i;
-            while (index <= s.length()) {
-                result.append(s.charAt(index - 1));
-                index += interval;
-                interval = group - interval;
-                if (interval == 0) interval = group;
-            }
-        }
-        return result.toString();
-    }
-}
-```
 
+```
 
 ### ...
 ```

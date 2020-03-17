@@ -1,43 +1,50 @@
-## 根据前序和后序遍历构造二叉树
-### 题目描述
+# [889. 根据前序和后序遍历构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal)
 
-返回与给定的前序和后序遍历匹配的任何二叉树。
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>返回与给定的前序和后序遍历匹配的任何二叉树。</p>
 
- `pre` 和 `post` 遍历中的值是不同的正整数。
+<p>&nbsp;<code>pre</code>&nbsp;和&nbsp;<code>post</code>&nbsp;遍历中的值是不同的正整数。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例：</strong></p>
+
+<pre><strong>输入：</strong>pre = [1,2,4,5,3,6,7], post = [4,5,2,6,7,3,1]
+<strong>输出：</strong>[1,2,3,4,5,6,7]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= pre.length == post.length &lt;= 30</code></li>
+	<li><code>pre[]</code>&nbsp;和&nbsp;<code>post[]</code>&nbsp;都是&nbsp;<code>1, 2, ..., pre.length</code>&nbsp;的排列</li>
+	<li>每个输入保证至少有一个答案。如果有多个答案，可以返回其中一个。</li>
+</ul>
 
 
-示例 ：
-```
-输入：pre = [1,2,4,5,3,6,7], post = [4,5,2,6,7,3,1]
-输出：[1,2,3,4,5,6,7]
-```
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
 
 
-提示：
-
-- 1 <= pre.length == post.length <= 30
-- pre[] 和 post[] 都是 1, 2, ..., pre.length 的排列
-- 每个输入保证至少有一个答案。如果有多个答案，可以返回其中一个。
-
-### 解法
-由前序可以知道哪个是根节点（第一个节点即为根节点），由后序可以知道根节点的子节点有哪些（根节点之前的节点都是其子节点），递归可求。
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def constructFromPrePost(self, pre, post):
-        if pre:
-            root = TreeNode(pre[0])
-            if len(pre) == 1:
-                return root
-            else:
-                for i in range(0, len(pre) - 1):
-                    if post[i] == pre[1]:
-                        root.left = self.constructFromPrePost(
-                            pre[1:i + 1 + 1], post[:i + 1])
-                        root.right = self.constructFromPrePost(
-                            pre[i + 1 + 1:], post[i + 1:-1])
-                        break
-                return root
-        else:
-            return None
+
+```
+
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
+```
+
+### ...
+```
+
 ```

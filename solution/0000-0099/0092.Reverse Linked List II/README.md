@@ -1,61 +1,17 @@
-## 反转链表 II
-### 题目描述
-
-反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
-
-说明:
-1 ≤ m ≤ n ≤ 链表长度。
-
-示例:
-
-```
-输入: 1->2->3->4->5->NULL, m = 2, n = 4
-输出: 1->4->3->2->5->NULL
-```
-
-### 解法
-利用头插法，对 [m + 1, n] 范围内的元素逐一插入。
-
-```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode reverseBetween(ListNode head, int m, int n) {
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode pre = dummy;
-        int i = 0;
-        for (; i < m - 1; ++i) {
-            pre = pre.next;
-        }
-        
-        ListNode head2 = pre;
-        pre = pre.next;
-        ListNode cur = pre.next;
-        for (; i < n - 1; ++i) {
-            pre.next = cur.next;
-            cur.next = head2.next;
-            head2.next = cur;
-            cur = pre.next;
-        }
-        
-        return dummy.next;
-        
-        
-    }
-}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii)
 
 ## 题目描述
 <!-- 这里写题目描述 -->
+<p>反转从位置 <em>m</em> 到 <em>n</em> 的链表。请使用一趟扫描完成反转。</p>
+
+<p><strong>说明:</strong><br>
+1 &le;&nbsp;<em>m</em>&nbsp;&le;&nbsp;<em>n</em>&nbsp;&le; 链表长度。</p>
+
+<p><strong>示例:</strong></p>
+
+<pre><strong>输入:</strong> 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, <em>m</em> = 2, <em>n</em> = 4
+<strong>输出:</strong> 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL</pre>
+
 
 
 ## 解法

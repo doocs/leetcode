@@ -1,12 +1,13 @@
-## 全排列
-### 题目描述
+# [46. 全排列](https://leetcode-cn.com/problems/permutations)
 
-给定一个没有重复数字的序列，返回其所有可能的全排列。
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>给定一个<strong>没有重复</strong>数字的序列，返回其所有可能的全排列。</p>
 
-示例:
-```
-输入: [1,2,3]
-输出:
+<p><strong>示例:</strong></p>
+
+<pre><strong>输入:</strong> [1,2,3]
+<strong>输出:</strong>
 [
   [1,2,3],
   [1,3,2],
@@ -14,48 +15,8 @@
   [2,3,1],
   [3,1,2],
   [3,2,1]
-]
-```
+]</pre>
 
-### 解法
-将数组的首元素依次与数组的每个元素交换，对于每一轮交换，对后面的数组进行递归调用。当元素只剩下一个时，添加此时的数组到 list 中。
-
-```java
-class Solution {
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        permute(list, nums, 0);
-        return list;
-    }
-    
-    private void permute(List<List<Integer>> list, int[] nums, int start) {
-        int end = nums.length - 1;
-        if (start == end) {
-            list.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
-            return;
-        }
-        
-        for (int i = start; i <= end; ++i) {
-            swap(nums, i, start);
-            permute(list, nums, start + 1);
-            swap(nums, i, start);
-        }
-        
-        
-    }
-    
-    private static void swap(int[] nums, int i, int j) {
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
-    }
-}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

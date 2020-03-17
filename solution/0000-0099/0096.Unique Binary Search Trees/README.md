@@ -1,53 +1,22 @@
-## 不同的二叉搜索树
-### 题目描述
+# [96. 不同的二叉搜索树](https://leetcode-cn.com/problems/unique-binary-search-trees)
 
-给定一个整数 `n`，求以 `1 ... n` 为节点组成的二叉搜索树有多少种？
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>给定一个整数 <em>n</em>，求以&nbsp;1 ...&nbsp;<em>n</em>&nbsp;为节点组成的二叉搜索树有多少种？</p>
 
-**示例:**
-```
-输入: 3
-输出: 5
-解释:
-给定 n = 3, 一共有 5 种不同结构的二叉搜索树:
+<p><strong>示例:</strong></p>
+
+<pre><strong>输入:</strong> 3
+<strong>输出:</strong> 5
+<strong>解释:
+</strong>给定 <em>n</em> = 3, 一共有 5 种不同结构的二叉搜索树:
 
    1         3     3      2      1
     \       /     /      / \      \
      3     2     1      1   3      2
     /     /       \                 \
-   2     1         2                 3
-```
+   2     1         2                 3</pre>
 
-### 解法
-原问题可拆解为子问题的求解。
-
-二叉搜索树，可以分别以 `1/2/3..n` 做为根节点。所有情况累加起来，也就得到了最终结果。
-
-res[n] 表示整数n组成的二叉搜索树个数。它的左子树可以有`0/1/2...n-1` 个节点，右子树可以有`n-1/n-2...0` 个节点。res[n] 是所有这些情况的加和。
-
-时间复杂度分析：状态总共有 `n` 个，状态转移的复杂度是 `O(n)`，所以总时间复杂度是 `O(n²)`。
-
-```java
-class Solution {
-    public int numTrees(int n) {
-        
-        // res[n] 表示整数n组成的二叉搜索树个数
-        int[] res = new int[n + 1];
-        res[0] = 1;
-        
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                res[i] += res[j] * res[i - j - 1];
-            }
-        }
-        return res[n];
-    }
-}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

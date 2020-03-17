@@ -1,52 +1,55 @@
-# 按奇偶排序数组 II
+# [922. 按奇偶排序数组 II](https://leetcode-cn.com/problems/sort-array-by-parity-ii)
 
-### 题目描述
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>给定一个非负整数数组&nbsp;<code>A</code>， A 中一半整数是奇数，一半整数是偶数。</p>
 
-给定一个非负整数数组 `A`， A 中一半整数是奇数，一半整数是偶数。
+<p>对数组进行排序，以便当&nbsp;<code>A[i]</code> 为奇数时，<code>i</code>&nbsp;也是奇数；当&nbsp;<code>A[i]</code>&nbsp;为偶数时， <code>i</code> 也是偶数。</p>
 
-对数组进行排序，以便当 `A[i]` 为奇数时，`i` 也是奇数；当 `A[i]` 为偶数时， `i` 也是偶数。
+<p>你可以返回任何满足上述条件的数组作为答案。</p>
 
-你可以返回任何满足上述条件的数组作为答案。
+<p>&nbsp;</p>
 
-**示例**
+<p><strong>示例：</strong></p>
+
+<pre><strong>输入：</strong>[4,2,5,7]
+<strong>输出：</strong>[4,5,2,7]
+<strong>解释：</strong>[4,7,2,5]，[2,5,4,7]，[2,7,4,5] 也会被接受。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>2 &lt;= A.length &lt;= 20000</code></li>
+	<li><code>A.length % 2 == 0</code></li>
+	<li><code>0 &lt;= A[i] &lt;= 1000</code></li>
+</ol>
+
+<p>&nbsp;</p>
+
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
 
 ```
-输入：[4,2,5,7]
-输出：[4,5,2,7]
-解释：[4,7,2,5]，[2,5,4,7]，[2,7,4,5] 也会被接受。
+
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
 ```
 
-**提示**
-
-1. `2 <= A.length <= 20000`
-2. `A.length % 2 == 0`
-3. `0 <= A[i] <= 1000`
-
-### 解题思路
-
-**思路**
-
-两个指针`i`、`j`分别指向偶数位和奇数位，当`A[i]`是奇数时，寻找最近的`A[j]`是偶数的位置，交换两个数字。直至遍历完整个数组的偶数位。
-
-**算法**
-
-```javascript
-var sortArrayByParityII = function(A) {
-  let index = A.length - 1, i = 0, j = 1; // index A的索引,i偶数位，j奇数位。 
-  for( ; i < index; i += 2 ){ 
-    if( (A[i] & 1) != 0 ){                // 寻找A[i]是奇数的情况。
-      while( (A[j] & 1) != 0 ){           // 寻找A[j]是偶数的情况。
-        j += 2;
-      }
-      let temp = A[j];
-      A[j] = A[i];
-      A[i] = temp;
-    }
-  }
-  return A;
-};
+### ...
 ```
 
-**复杂度分析**
-
-暂无
+```

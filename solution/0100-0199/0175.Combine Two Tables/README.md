@@ -1,9 +1,10 @@
-## 组合两个表
-### 题目描述
+# [175. 组合两个表](https://leetcode-cn.com/problems/combine-two-tables)
 
-表1: `Person`
-```
-+-------------+---------+
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>表1: <code>Person</code></p>
+
+<pre>+-------------+---------+
 | 列名         | 类型     |
 +-------------+---------+
 | PersonId    | int     |
@@ -11,11 +12,11 @@
 | LastName    | varchar |
 +-------------+---------+
 PersonId 是上表主键
-```
+</pre>
 
-表2: `Address`
-```
-+-------------+---------+
+<p>表2: <code>Address</code></p>
+
+<pre>+-------------+---------+
 | 列名         | 类型    |
 +-------------+---------+
 | AddressId   | int     |
@@ -24,82 +25,17 @@ PersonId 是上表主键
 | State       | varchar |
 +-------------+---------+
 AddressId 是上表主键
-```
+</pre>
 
-编写一个 SQL 查询，满足条件：无论 person 是否有地址信息，都需要基于上述两表提供 person 的以下信息：
-```
-FirstName, LastName, City, State
-```
+<p>&nbsp;</p>
 
-### 解法
-题意中说无论 `person` 是否有地址信息，都要查出来，因此，使用左外连接查询。注意使用 `on` 关键字。
+<p>编写一个 SQL 查询，满足条件：无论 person 是否有地址信息，都需要基于上述两表提供&nbsp;person 的以下信息：</p>
 
-```sql
-# Write your MySQL query statement below
-select a.FirstName, a.LastName, b.City, b.State from Person a left join Address b on a.PersonId = b.PersonId;
+<p>&nbsp;</p>
 
-```
+<pre>FirstName, LastName, City, State
+</pre>
 
-#### Input
-```json
-{
-    "headers": {
-        "Person": [
-            "PersonId",
-            "LastName",
-            "FirstName"
-        ],
-        "Address": [
-            "AddressId",
-            "PersonId",
-            "City",
-            "State"
-        ]
-    },
-    "rows": {
-        "Person": [
-            [
-                1,
-                "Wang",
-                "Allen"
-            ]
-        ],
-        "Address": [
-            [
-                1,
-                2,
-                "New York City",
-                "New York"
-            ]
-        ]
-    }
-}
-```
-
-#### Output
-```json
-{
-    "headers": [
-        "FirstName",
-        "LastName",
-        "City",
-        "State"
-    ],
-    "values": [
-        [
-            "Allen",
-            "Wang",
-            null,
-            null
-        ]
-    ]
-}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

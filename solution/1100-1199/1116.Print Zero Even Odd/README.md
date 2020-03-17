@@ -1,91 +1,63 @@
-## 1116.Print Zero Even Odd（leetcode未翻译）
-### 问题描述
+# [1116. 打印零与奇偶数](https://leetcode-cn.com/problems/print-zero-even-odd)
 
-Suppose you are given the following code:
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>假设有这么一个类：</p>
 
-```
-class ZeroEvenOdd {
-  public ZeroEvenOdd(int n) { ... }      // constructor
-  public void zero(printNumber) { ... }  // only output 0's
-  public void even(printNumber) { ... }  // only output even numbers
-  public void odd(printNumber) { ... }   // only output odd numbers
+<pre>class ZeroEvenOdd {
+&nbsp; public ZeroEvenOdd(int n) { ... }&nbsp;     // 构造函数
+  public void zero(printNumber) { ... }  // 仅打印出 0
+  public void even(printNumber) { ... }  // 仅打印出 偶数
+  public void odd(printNumber) { ... }   // 仅打印出 奇数
 }
+</pre>
+
+<p>相同的一个&nbsp;<code>ZeroEvenOdd</code>&nbsp;类实例将会传递给三个不同的线程：</p>
+
+<ol>
+	<li>线程 A 将调用&nbsp;<code>zero()</code>，它只输出 0 。</li>
+	<li>线程 B 将调用&nbsp;<code>even()</code>，它只输出偶数。</li>
+	<li>线程 C 将调用&nbsp;<code>odd()</code>，它只输出奇数。</li>
+</ol>
+
+<p>每个线程都有一个&nbsp;<code>printNumber</code> 方法来输出一个整数。请修改给出的代码以输出整数序列&nbsp;<code>010203040506</code>... ，其中序列的长度必须为 2<em>n</em>。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入：</strong>n = 2
+<strong>输出：</strong>&quot;0102&quot;
+<strong>说明：</strong>三条线程异步执行，其中一个调用 zero()，另一个线程调用 even()，最后一个线程调用odd()。正确的输出为 &quot;0102&quot;。
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre><strong>输入：</strong>n = 5
+<strong>输出：</strong>&quot;0102030405&quot;
+</pre>
+
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
+
 ```
 
-The same instance of `ZeroEvenOdd` will be passed to three different threads:
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
-1. Thread A will call `zero()` which should only output 0's.
-2. Thread B will call `even()` which should only ouput even numbers.
-3. Thread C will call `odd()` which should only output odd numbers.
-
-Each of the thread is given a `printNumber` method to output an integer. Modify the given program to output the series `010203040506`... where the length of the series must be 2*n*.
-
- 
-
-**Example 1:**
+```java
 
 ```
-Input: n = 2
-Output: "0102"
-Explanation: There are three threads being fired asynchronously. One of them calls zero(), the other calls even(), and the last one calls odd(). "0102" is the correct output.
+
+### ...
 ```
 
-**Example 2:**
-
 ```
-Input: n = 5
-Output: "0102030405"
-```
-
-
-
-### 思路
-
-一个同步问题，一个互斥问题，奇偶打印是互斥，0和奇/偶的打印是同步问题，所以用到3把锁
-
-```cpp
-class ZeroEvenOdd {
-private:
-    int n;
-    int flag;
-    mutex m1,m2,m3;
-
-public:
-    ZeroEvenOdd(int n) {
-        this->n = n;
-        flag = 1; //奇偶判断
-        m1.lock();
-        m2.lock();
-        m3.lock();
-    }
-
-    // printNumber(x) outputs "x", where x is an integer.
-    void zero(function<void(int)> printNumber) {
-        m3.unlock();
-        for(int i = 0; i < n ;i++){
-            m3.lock();
-            printNumber(0);
-            if(flag == 1)flag = 0,m2.unlock();  
-            else flag = 1,m1.unlock();           
-        }
-    }
-    
-
-    void odd(function<void(int)> printNumber) { //输出奇数
-        for(int i = 1;i <= n; i+=2){
-            m2.lock();
-            printNumber(i);
-            m3.unlock();
-        }
-    }
-
-    void even(function<void(int)> printNumber) { //输出偶数
-        for(int i = 2;i <= n; i+=2){
-            m1.lock();
-            printNumber(i);
-            m3.unlock();
-        }
-    }
-};
-```
-

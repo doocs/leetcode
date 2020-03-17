@@ -103,51 +103,73 @@ def generate_md_table_for_questions(res):
     print('-------------------------')
 
 
-def get_en_questions():
+no_dict = {
+    '0': '0000-0099',
+    '1': '0100-0199',
+    '2': '0200-0299',
+    '3': '0300-0399',
+    '4': '0400-0499',
+    '5': '0500-0599',
+    '6': '0600-0699',
+    '7': '0700-0799',
+    '8': '0800-0899',
+    '9': '0900-0999',
+    '10': '1000-1099',
+    '11': '1100-1199',
+    '12': '1200-1299',
+    '13': '1300-1399',
+    '14': '1400-1499',
+
+}
+
+def get_cn_questions():
     form_data = {
-        'operationName': 'allQuestionsRaw',
-        'query': 'query allQuestionsRaw {\n  allQuestions: allQuestionsRaw {\n    title\n    titleSlug\n    translatedTitle\n    questionId\n    questionFrontendId\n    status\n    difficulty\n    isPaidOnly\n    categoryTitle\n    __typename\n  }\n}\n',
+        'operationName': 'allQuestions',
+        'query': 'query allQuestions {\n  allQuestionsBeta {\n    ...questionSummaryFields\n    __typename\n  }\n}\n\nfragment questionSummaryFields on QuestionNode {\n  title\n  titleSlug\n  translatedTitle\n  questionId\n  questionFrontendId\n  status\n  difficulty\n  isPaidOnly\n  categoryTitle\n  __typename\n}\n',
         'variables': {
 
         }
     }
     detail_data = {
         'operationName': 'questionData',
-        'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    boundTopicId\n    title\n    titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    }\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    solution {\n      id\n      canSeeDetail\n      paidOnly\n      __typename\n    }\n    status\n    sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    enableRunCode\n    enableTestMode\n    enableDebugger\n    envInfo\n    libraryUrl\n    adminUrl\n    __typename\n  }\n}\n',
+        'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    boundTopicId\n    title\n    titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    }\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    __typename\n  }\n}\n',
         'variables': {
             'titleSlug': ''
         }
     }
 
-    resp = fetch(url=en_graphql_url, method=Req.POST, headers=async_headers, data=json.dumps(form_data))
+    resp = fetch(url=cn_graphql_url, method=Req.POST, headers=async_headers, data=json.dumps(form_data))
     if resp is None:
         return
+    print(resp.text)
     res = resp.json()
-    questions = res['data']['allQuestions']
+    questions = res['data']['allQuestionsBeta']
     final_res = dict()
 
     for q in questions:
         qfid = q['questionFrontendId']
         qfid_zero = str(q['questionFrontendId']).zfill(4)
         title = q['title'].strip()
+        cn_title = q['translatedTitle'].strip()
         title_slug = q['titleSlug'].strip()
         difficulty = q['difficulty']
-        folder_name = '{}.{}'.format(qfid_zero, title).replace('?', '').replace(':', '')
-        link = 'https://leetcode.com/problems/{}'.format(title_slug)
+        pre = no_dict[str(int(qfid) // 100)]
+        folder_name = '{}/{}.{}'.format(pre, qfid_zero, title).replace('?', '').replace(':', '')
+        link = 'https://leetcode-cn.com/problems/{}'.format(title_slug)
         detail_data['variables']['titleSlug'] = title_slug
-
-        detail_resp = fetch(en_graphql_url, method=Req.POST, headers=async_headers, data=json.dumps(detail_data))
+        print(detail_data)
+        detail_resp = fetch(cn_graphql_url, method=Req.POST, headers=async_headers, data=json.dumps(detail_data))
         if detail_resp is None:
             continue
         detail_res = detail_resp.json()
-        question_content = detail_res['data']['question']['content']
+        question_content = detail_res['data']['question']['translatedContent']
 
         file_dir = '{}'.format(folder_name)
         if not os.path.isdir(file_dir):
             os.makedirs(file_dir)
         print(file_dir)
-        with open(file_dir + '/README_EN.md', 'w') as f:
-            content = template.format(qfid + '. ' + title, link, question_content).replace('\u200b', '').replace('\ufe48', '')
+        with open(file_dir + '/README.md', 'w', encoding='utf-8') as f:
+            content = template.format(qfid + '. ' + cn_title, link, question_content).replace('\u200b', '').replace('\ufe48', '')
             f.flush()
             f.write(content)
 
@@ -156,4 +178,4 @@ if __name__ == '__main__':
     # generate_md_table_for_questions(get_all_questions())
     # generate_md_table_for_questions(get_lcof_questions())
     # generate_md_table_for_questions(get_lcci_questions())
-    get_en_questions()
+    get_cn_questions()

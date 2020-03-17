@@ -1,55 +1,50 @@
-## 1287. 有序数组中出现次数超过 25% 的元素
-### 题目描述
-给你一个非递减的 有序 整数数组，已知这个数组中恰好有一个整数，它的出现次数超过数组元素总数的 25%。
+# [1287. 有序数组中出现次数超过25%的元素](https://leetcode-cn.com/problems/element-appearing-more-than-25-in-sorted-array)
 
-请你找到并返回这个整数。
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>给你一个非递减的&nbsp;<strong>有序&nbsp;</strong>整数数组，已知这个数组中恰好有一个整数，它的出现次数超过数组元素总数的 25%。</p>
 
-### 代码实现
-- JavaScript
+<p>请你找到并返回这个整数</p>
 
-```javascript
-const findSpecialInteger = function(arr) {
-  let count = 0;
-  let item = -1;
-  for (var i = 0; i < arr.length; i++) {
-      if (item == arr[i]) {
-          count++;
-      } else {
-          item = arr[i];
-          count = 1;
-      }
-      if (count > arr.length * 0.25) {
-          return item;
-      }
-  }
-  return item;
-};
-```
+<p>&nbsp;</p>
 
-- Java
+<p><strong>示例：</strong></p>
 
-```java
-class Solution {
-    public int findSpecialInteger(int[] arr) {
-        int total = arr.length;
-        for (int i = 0; i < total; ++i) {
-            if (arr[i] == arr[i + (total >> 2)]) {
-                return arr[i];
-            }
-        }
-        return 0;
-    }
-}
-```
+<pre>
+<strong>输入：</strong>arr = [1,2,2,6,6,6,6,7,10]
+<strong>输出：</strong>6
+</pre>
 
-- Python
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= arr.length &lt;= 10^4</code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 10^5</code></li>
+</ul>
+
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-class Solution:
-    def findSpecialInteger(self, arr: List[int]) -> int:
-        total = len(arr)
-        for i, val in enumerate(arr):
-            if val == arr[i + (total >> 2)]:
-                return val
-        return 0
+
+```
+
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
+```
+
+### ...
+```
+
 ```

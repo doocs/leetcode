@@ -1,76 +1,39 @@
-## 组合总和2
+# [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii)
 
-### 题目描述
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>给定一个数组&nbsp;<code>candidates</code>&nbsp;和一个目标数&nbsp;<code>target</code>&nbsp;，找出&nbsp;<code>candidates</code>&nbsp;中所有可以使数字和为&nbsp;<code>target</code>&nbsp;的组合。</p>
 
-给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+<p><code>candidates</code>&nbsp;中的每个数字在每个组合中只能使用一次。</p>
 
-candidates 中的每个数字在每个组合中只能使用一次。
+<p><strong>说明：</strong></p>
 
-说明：
+<ul>
+	<li>所有数字（包括目标数）都是正整数。</li>
+	<li>解集不能包含重复的组合。&nbsp;</li>
+</ul>
 
-所有数字（包括目标数）都是正整数。
-解集不能包含重复的组合。 
+<p><strong>示例&nbsp;1:</strong></p>
 
-```
-示例 1:
-输入: candidates = [10,1,2,7,6,1,5], target = 8,
-所求解集为:
+<pre><strong>输入:</strong> candidates =&nbsp;<code>[10,1,2,7,6,1,5]</code>, target =&nbsp;<code>8</code>,
+<strong>所求解集为:</strong>
 [
   [1, 7],
   [1, 2, 5],
   [2, 6],
   [1, 1, 6]
 ]
+</pre>
 
-示例 2:
-输入: candidates = [2,5,2,1,2], target = 5,
-所求解集为:
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre><strong>输入:</strong> candidates =&nbsp;[2,5,2,1,2], target =&nbsp;5,
+<strong>所求解集为:</strong>
 [
-  [1,2,2],
-  [5]
-]
-```
+&nbsp; [1,2,2],
+&nbsp; [5]
+]</pre>
 
-### 思路
-
-和39题一模一样，注意他有重复数，需要去除重复的结果.
-
-还要注意回溯是往后回溯，不是原地回溯了
-
-```CPP
-class Solution {
-public:
-    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
-        vector<vector<int>> ans;
-        vector<int> tmp;
-        sort(candidates.begin(),candidates.end());
-        int len = candidates.size();
-        
-        dfs(ans,tmp,candidates,target,len,0);
-        
-        return ans;
-    }
-    
-    void dfs(vector<vector<int>> &ans,vector<int> &tmp,vector<int> &nums,int target,int len,int index) {
-        
-        if(target == 0){
-            auto iter = find(ans.begin(),ans.end(),tmp);
-            if(iter == ans.end())ans.push_back(tmp);
-        }
-
-        for(int i = index;i<len && target >= nums[i];i++){
-            tmp.push_back(nums[i]);
-            dfs(ans,tmp,nums,target - nums[i],len,i+1);//注意i+1
-            tmp.pop_back();
-        }    
-    }
-};
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
 
 
 ## 解法

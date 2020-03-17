@@ -1,55 +1,55 @@
-# 转置矩阵
+# [867. 转置矩阵](https://leetcode-cn.com/problems/transpose-matrix)
 
-### 题目描述
+## 题目描述
+<!-- 这里写题目描述 -->
+<p>给定一个矩阵&nbsp;<code>A</code>，&nbsp;返回&nbsp;<code>A</code>&nbsp;的转置矩阵。</p>
 
-给定一个矩阵 `A`， 返回 `A` 的转置矩阵。
+<p>矩阵的转置是指将矩阵的主对角线翻转，交换矩阵的行索引与列索引。</p>
 
-矩阵的转置是指将矩阵的主对角线翻转，交换矩阵的行索引与列索引。 
+<p>&nbsp;</p>
 
-**示例 1**
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入：</strong>[[1,2,3],[4,5,6],[7,8,9]]
+<strong>输出：</strong>[[1,4,7],[2,5,8],[3,6,9]]
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre><strong>输入：</strong>[[1,2,3],[4,5,6]]
+<strong>输出：</strong>[[1,4],[2,5],[3,6]]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>1 &lt;= A.length&nbsp;&lt;= 1000</code></li>
+	<li><code>1 &lt;= A[0].length&nbsp;&lt;= 1000</code></li>
+</ol>
+
+
+
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+
+
+### Python3
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```python
 
 ```
-输入：[[1,2,3],[4,5,6],[7,8,9]]
-输出：[[1,4,7],[2,5,8],[3,6,9]]
+
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+
 ```
 
-**示例 2**
-
-```
-输入：[[1,2,3],[4,5,6]]
-输出：[[1,4],[2,5],[3,6]]
+### ...
 ```
 
-**提示**
-
-1. `1 <= A.length <= 1000`
-2. `1 <= A[0].length <= 1000`
-
-### 解题思路
-
-**思路**
-
-尺寸为 `R x C` 的矩阵 `A` 转置后会得到尺寸为 `C x R` 的矩阵 `ans`，对此有 `ans[c][r] = A[r][c]`。
-
-让我们初始化一个新的矩阵 `ans` 来表示答案。然后，我们将酌情复制矩阵的每个条目。
-
-**算法**
-
-```javascript
-var transpose = function (A) {
-  if ( A.length === 1 && A[0].length === 1 ) return A;
-  let tran_matrix = [];
-  for ( let i = 0; i < A[0].length; ++i ) {
-    tran_matrix[i] = [];
-    for ( let j = 0; j < A.length; ++j ) {
-      tran_matrix[i][j] = A[j][i];
-    }
-  }
-  return tran_matrix;
-};
 ```
-
-**复杂度分析**
-
-- 时间复杂度：*O*(*R*∗*C*)，其中 *R* 和 *C* 是给定矩阵 `A` 的行数和列数。
-- 空间复杂度：*O*(*R*∗*C*)，也就是答案所使用的空间。

@@ -1,67 +1,25 @@
-## 寻找旋转排序数组中的最小值
-### 题目描述
-
-假设按照升序排序的数组在预先未知的某个点上进行了旋转。
-
-( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
-
-请找出其中最小的元素。
-
-你可以假设数组中不存在重复元素。
-
-示例 1:
-```
-输入: [3,4,5,1,2]
-输出: 1
-```
-
-示例 2:
-```
-输入: [4,5,6,7,0,1,2]
-输出: 0   
-```
-
-### 解法
-利用两个指针 p,q 指示数组的首尾两端，若 nums[p] <= nums[q]，说明数组呈递增趋势，返回 nums[p]；否则判断 nums[p] 与 nums[mid] 的大小，从而决定新的数组首尾两端，循环二分查找。
-
-```java
-class Solution {
-    public int findMin(int[] nums) {
-        int n = nums.length;
-        if (n == 1) {
-            return nums[0];
-        }
-        
-        int p = 0;
-        int q = n - 1;
-        
-        
-        int mid = p + ((q - p) >> 1);
-        
-        while (p < q) {
-            if (nums[p] <= nums[q]) {
-                break;
-            }
-            
-            if (nums[p] > nums[mid]) {
-                q = mid;
-            } else {
-                p = mid + 1;
-            }
-            
-            mid = p + ((q - p) >> 1);
-        }
-        
-        return nums[p];
-        
-    }
-}
-```
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array)
 
 ## 题目描述
 <!-- 这里写题目描述 -->
+<p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>
+
+<p>( 例如，数组&nbsp;<code>[0,1,2,4,5,6,7]</code> <strong> </strong>可能变为&nbsp;<code>[4,5,6,7,0,1,2]</code>&nbsp;)。</p>
+
+<p>请找出其中最小的元素。</p>
+
+<p>你可以假设数组中不存在重复元素。</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> [3,4,5,1,2]
+<strong>输出:</strong> 1</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre><strong>输入:</strong> [4,5,6,7,0,1,2]
+<strong>输出:</strong> 0</pre>
+
 
 
 ## 解法
