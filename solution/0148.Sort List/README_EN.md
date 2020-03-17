@@ -1,16 +1,43 @@
-# Sort List
+# [148. Sort List](https://leetcode.com/problems/sort-list)
 
-Sort a linked list in O(n log n) time using constant space complexity.
+## Description
+<p>Sort a linked list in <em>O</em>(<em>n</em> log <em>n</em>) time using constant space complexity.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> 4-&gt;2-&gt;1-&gt;3
+<strong>Output:</strong> 1-&gt;2-&gt;3-&gt;4
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> -1-&gt;5-&gt;3-&gt;4-&gt;0
+<strong>Output:</strong> -1-&gt;0-&gt;3-&gt;4-&gt;5</pre>
 
 
-## Example 1:
-```
- Input: 4->2->1->3
- Output: 1->2->3->4
+
+## Solution
+<!-- Type common method here -->
+
+
+### Python3
+<!-- Type special method here -->
+
+```python
+
 ```
 
-## Example 2:
+### Java
+<!-- Type special method here -->
+
+```java
+
 ```
- Input: -1->5->3->4->0
- Output: -1->5->3->4->0
+
+### ...
 ```
+
+```
+

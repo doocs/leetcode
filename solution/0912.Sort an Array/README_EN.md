@@ -1,22 +1,46 @@
-#  Sort an Array
+# [912. Sort an Array](https://leetcode.com/problems/sort-an-array)
 
-Given an array of integers nums, sort the array in ascending order.
+## Description
+<p>Given an array of integers <code>nums</code>, sort the array in ascending order.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [5,2,3,1]
+<strong>Output:</strong> [1,2,3,5]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [5,1,1,2,0,0]
+<strong>Output:</strong> [0,0,1,1,2,5]
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 50000</code></li>
+	<li><code>-50000 &lt;= nums[i] &lt;= 50000</code></li>
+</ul>
 
 
 
-## Example 1:
-```text
-Input: [5,2,3,1]
-Output: [1,2,3,5]
+## Solution
+<!-- Type common method here -->
+
+
+### Python3
+<!-- Type special method here -->
+
+```python
+
 ```
 
-## Example 2:
-```text
-Input: [5,1,1,2,0,0]
-Output: [0,0,1,1,2,5]
+### Java
+<!-- Type special method here -->
+
+```java
+
 ```
 
-## Note:
+### ...
+```
 
-- 1 <= A.length <= 10000
-- -50000 <= A[i] <= 50000
+```
+

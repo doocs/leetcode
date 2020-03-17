@@ -1,39 +1,79 @@
-# Matrix Cells in Distance Order
+# [1030. Matrix Cells in Distance Order](https://leetcode.com/problems/matrix-cells-in-distance-order)
 
-We are given a matrix with R rows and C columns has cells with integer coordinates (r, c), where 0 <= r < R and 0 <= c < C.
+## Description
+<p>We are given a matrix with <code>R</code> rows and <code>C</code> columns has cells with integer coordinates&nbsp;<code>(r, c)</code>, where <code>0 &lt;= r &lt; R</code> and <code>0 &lt;= c &lt; C</code>.</p>
+
+<p>Additionally, we are given a cell in that matrix with coordinates&nbsp;<code>(r0, c0)</code>.</p>
+
+<p>Return the coordinates of&nbsp;all cells in the matrix, sorted by their distance from <code>(r0, c0)</code>&nbsp;from smallest distance to largest distance.&nbsp; Here,&nbsp;the distance between two cells <code>(r1, c1)</code> and <code>(r2, c2)</code> is the Manhattan distance,&nbsp;<code>|r1 - r2| + |c1 - c2|</code>.&nbsp; (You may return the answer in any order that satisfies this condition.)</p>
+
+<p>&nbsp;</p>
+
+<div>
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input: </strong>R = <span id="example-input-1-1">1</span>, C = <span id="example-input-1-2">2</span>, r0 = <span id="example-input-1-3">0</span>, c0 = <span id="example-input-1-4">0</span>
+<strong>Output: </strong><span id="example-output-1">[[0,0],[0,1]]
+<strong>Explanation:</strong> The distances from (r0, c0) to other cells are: [0,1]</span>
+</pre>
+
+<div>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input: </strong>R = <span id="example-input-2-1">2</span>, C = <span id="example-input-2-2">2</span>, r0 = <span id="example-input-2-3">0</span>, c0 = <span id="example-input-2-4">1</span>
+<strong>Output: </strong><span id="example-output-2">[[0,1],[0,0],[1,1],[1,0]]
+</span><span id="example-output-1"><strong>Explanation:</strong> The distances from (r0, c0) to other cells are:</span><span> [0,1,1,2]</span>
+The answer [[0,1],[1,1],[0,0],[1,0]] would also be accepted as correct.
+</pre>
+
+<div>
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input: </strong>R = <span id="example-input-3-1">2</span>, C = <span id="example-input-3-2">3</span>, r0 = <span id="example-input-3-3">1</span>, c0 = <span id="example-input-3-4">2</span>
+<strong>Output: </strong><span id="example-output-3">[[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]</span>
+<span id="example-output-1"><strong>Explanation:</strong> The distances from (r0, c0) to other cells are:</span><span> [0,1,1,2,2,3]</span>
+There are other answers that would also be accepted as correct, such as [[1,2],[1,1],[0,2],[1,0],[0,1],[0,0]].
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong><span>Note:</span></strong></p>
+
+<ol>
+	<li><code>1 &lt;= R &lt;= 100</code></li>
+	<li><code>1 &lt;= C &lt;= 100</code></li>
+	<li><code>0 &lt;= r0 &lt; R</code></li>
+	<li><code>0 &lt;= c0 &lt; C</code></li>
+</ol>
+</div>
+</div>
+</div>
 
-Additionally, we are given a cell in that matrix with coordinates (r0, c0).
-
-Return the coordinates of all cells in the matrix, sorted by their distance from (r0, c0) from smallest distance to largest distance.  Here, the distance between two cells (r1, c1) and (r2, c2) is the Manhattan distance, |r1 - r2| + |c1 - c2|.  (You may return the answer in any order that satisfies this condition.)
 
 
+## Solution
+<!-- Type common method here -->
 
-## Example 1:
-```text
-Input: R = 1, C = 2, r0 = 0, c0 = 0
-Output: [[0,0],[0,1]]
-Explanation: The distances from (r0, c0) to other cells are: [0,1]
+
+### Python3
+<!-- Type special method here -->
+
+```python
+
 ```
 
-## Example 2:
-```text
-Input: R = 2, C = 2, r0 = 0, c0 = 1
-Output: [[0,1],[0,0],[1,1],[1,0]]
-Explanation: The distances from (r0, c0) to other cells are: [0,1,1,2]
-The answer [[0,1],[1,1],[0,0],[1,0]] would also be accepted as correct.
+### Java
+<!-- Type special method here -->
+
+```java
+
 ```
 
-## Example 3:
-```text
-Input: R = 2, C = 3, r0 = 1, c0 = 2
-Output: [[1,2],[0,2],[1,1],[0,1],[1,0],[0,0]]
-Explanation: The distances from (r0, c0) to other cells are: [0,1,1,2,2,3]
-There are other answers that would also be accepted as correct, such as [[1,2],[1,1],[0,2],[1,0],[0,1],[0,0]].
+### ...
 ```
 
-## Note:
+```
 
-- 1 <= R <= 100
-- 1 <= C <= 100
-- 0 <= r0 < R
-- 0 <= c0 < C

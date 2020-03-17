@@ -1,13 +1,43 @@
-# Find All Numbers Disappeared in an Array
+# [448. Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array)
 
-Given an array of integers where **1 ≤ a[i] ≤ n** (n = _size of array_), some elements appear twice and others appear once.
+## Description
+<p>Given an array of integers where 1 &le; a[i] &le; <i>n</i> (<i>n</i> = size of array), some elements appear twice and others appear once.</p>
+
+<p>Find all the elements of [1, <i>n</i>] inclusive that do not appear in this array.</p>
+
+<p>Could you do it without extra space and in O(<i>n</i>) runtime? You may assume the returned list does not count as extra space.</p>
+
+<p><b>Example:</b>
+<pre>
+<b>Input:</b>
+[4,3,2,7,8,2,3,1]
+
+<b>Output:</b>
+[5,6]
+</pre>
+</p>
 
-Find all the elements of [1, _n_] inclusive that do not appear in this array.
 
-Could you do it without extra space and in O(_n_) runtime? You may assume the returned list does not count as extra space.
+## Solution
+<!-- Type common method here -->
 
-## Example:
+
+### Python3
+<!-- Type special method here -->
+
+```python
+
 ```
- Input: [4,3,2,7,8,2,3,1]
- Output: [5,6]
+
+### Java
+<!-- Type special method here -->
+
+```java
+
 ```
+
+### ...
+```
+
+```
+

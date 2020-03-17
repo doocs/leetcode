@@ -1,17 +1,50 @@
-# Partition Array for Maximum Sum
-Given an integer array A, you partition the array into (contiguous) subarrays of length at most K.  After partitioning, each subarray has their values changed to become the maximum value of that subarray.
+# [1043. Partition Array for Maximum Sum](https://leetcode.com/problems/partition-array-for-maximum-sum)
 
-Return the largest sum of the given array after partitioning.
+## Description
+<p>Given an integer array <code>A</code>, you partition the array into (contiguous) subarrays of length at most <code>K</code>.&nbsp; After partitioning, each subarray has their values changed to become the maximum value of that subarray.</p>
+
+<p>Return the largest sum of the given array after partitioning.</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input: </strong>A = <span id="example-input-1-1">[1,15,7,9,2,5,10]</span>, K = <span id="example-input-1-2">3</span>
+<strong>Output: </strong><span id="example-output-1">84
+</span><strong>Explanation</strong>: A becomes [15,15,15,9,10,10,10]</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Note:</strong></p>
+
+<ol>
+	<li><code>1 &lt;= K &lt;= A.length&nbsp;&lt;= 500</code></li>
+	<li><code>0 &lt;= A[i] &lt;= 10^6</code></li>
+</ol>
 
 
-#### Example 1:
-```text
-Input: A = [1,15,7,9,2,5,10], K = 3
-Output: 84
-Explanation: A becomes [15,15,15,9,10,10,10]
+
+## Solution
+<!-- Type common method here -->
+
+
+### Python3
+<!-- Type special method here -->
+
+```python
+
 ```
 
-#### Note:
+### Java
+<!-- Type special method here -->
 
-- 1 <= K <= A.length <= 500
-- 0 <= A[i] <= 10^6
+```java
+
+```
+
+### ...
+```
+
+```
+

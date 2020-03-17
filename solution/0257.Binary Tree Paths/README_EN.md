@@ -1,22 +1,47 @@
-# Binary Tree Paths
+# [257. Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths)
 
-Given a binary tree, return all root-to-leaf paths.
+## Description
+<p>Given a binary tree, return all root-to-leaf paths.</p>
+
+<p><strong>Note:</strong>&nbsp;A leaf is a node with no children.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre>
+<strong>Input:</strong>
+
+   1
+ /   \
+2     3
+ \
+  5
+
+<strong>Output:</strong> [&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]
+
+<strong>Explanation:</strong> All root-to-leaf paths are: 1-&gt;2-&gt;5, 1-&gt;3
+</pre>
 
-## Note: A leaf is a node with no children.
+
+## Solution
+<!-- Type common method here -->
 
 
-## Example :
+### Python3
+<!-- Type special method here -->
+
+```python
+
 ```
-    Input:
-    
-       1
-     /   \
-    2     3
-     \
-      5
-    
-    Output: ["1->2->5", "1->3"]
-    
-    Explanation: All root-to-leaf paths are: 1->2->5, 1->3
-    
+
+### Java
+<!-- Type special method here -->
+
+```java
+
 ```
+
+### ...
+```
+
+```
+
