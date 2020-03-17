@@ -17,8 +17,6 @@
     - 例如，表达式 `{a,b}{c,d}` 表示字符串 `"ac","ad","bc","bd"`。
 - 表达式之间允许嵌套，单一元素与表达式的连接也是允许的。
     - 例如，表达式 `a{b,c,d}` 表示字符串 `"ab","ac","ad"`。
-    - 例如，表达式 `{a{b,c}}{{d,e}f{g,h}}` 可以代换为 `{ab,ac}{dfg,dfh,efg,efh}`，表示字符串 `"abdfg", "abdfh", "abefg", "abefh", "acdfg", "acdfh", "acefg", "acefh"`。
-
 
 给出表示基于给定语法规则的表达式 `expression`，返回它所表示的所有字符串组成的有序列表。
 
