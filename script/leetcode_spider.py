@@ -28,6 +28,26 @@ def get_cn_questions() -> dict:
         final_res[qid] = q['title']
     return final_res
 
+no_dict = {
+    '0': '0000-0099',
+    '1': '0100-0199',
+    '2': '0200-0299',
+    '3': '0300-0399',
+    '4': '0400-0499',
+    '5': '0500-0599',
+    '6': '0600-0699',
+    '7': '0700-0799',
+    '8': '0800-0899',
+    '9': '0900-0999',
+    '10': '1000-1099',
+    '11': '1100-1199',
+    '12': '1200-1299',
+    '13': '1300-1399',
+    '14': '1400-1499',
+    '15': '1500-1599',
+
+}
+
 
 def get_all_questions():
     """获取所有题目"""
@@ -39,10 +59,12 @@ def get_all_questions():
     questions = res['stat_status_pairs']
 
     for question in questions:
+        int_id = question['stat']['question_id']
         qid = str(question['stat']['question_id']).zfill(4)
         title = question['stat']['question__title']
         link = problems_url + question['stat']['question__title_slug']
-        git_link = '/solution/{}/README.md'.format(qid + '.' + quote(title))
+        pre = no_dict[str(int(int_id) // 100)]
+        git_link = '/solution/{}/{}/README.md'.format(pre, qid + '.' + quote(title))
         cn_title = cn_res.get(qid) or title
         col1 = '[{}]({})'.format(qid, link)
         col2 = '[{}]({})'.format(cn_title, git_link)
@@ -103,5 +125,5 @@ def generate_md_table_for_questions(res):
 
 if __name__ == '__main__':
     generate_md_table_for_questions(get_all_questions())
-    generate_md_table_for_questions(get_lcof_questions())
-    generate_md_table_for_questions(get_lcci_questions())
+    # generate_md_table_for_questions(get_lcof_questions())
+    # generate_md_table_for_questions(get_lcci_questions())
