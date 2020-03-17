@@ -2,7 +2,7 @@ import json
 from urllib.parse import quote
 
 from config import async_headers, cn_graphql_url, Req, all_problems_url, difficulties, lcof_problems_url, \
-    lcci_problems_url, problems_url
+    lcci_problems_url, problems_url, en_problems_url, difficulties_en
 from fetch import fetch
 
 
@@ -62,13 +62,13 @@ def get_all_questions():
         int_id = question['stat']['question_id']
         qid = str(question['stat']['question_id']).zfill(4)
         title = question['stat']['question__title']
-        link = problems_url + question['stat']['question__title_slug']
+        link = en_problems_url + question['stat']['question__title_slug']
         pre = no_dict[str(int(int_id) // 100)]
-        git_link = '/solution/{}/{}/README.md'.format(pre, qid + '.' + quote(title))
+        git_link = '/solution/{}/{}/README_EN.md'.format(pre, qid + '.' + quote(title))
         cn_title = cn_res.get(qid) or title
         col1 = '[{}]({})'.format(qid, link)
-        col2 = '[{}]({})'.format(cn_title, git_link)
-        col3 = difficulties.get(str(question['difficulty']['level']))
+        col2 = '[{}]({})'.format(title, git_link)
+        col3 = difficulties_en.get(str(question['difficulty']['level']))
         yield [col1, col2, col3]
 
 

@@ -3,6 +3,7 @@ from enum import unique, Enum
 
 cn_graphql_url = 'https://leetcode-cn.com/graphql'
 problems_url = 'https://leetcode-cn.com/problems/'
+en_problems_url = 'https://leetcode.com/problems/'
 all_problems_url = 'https://leetcode.com/api/problems/all/'
 lcof_problems_url = 'https://leetcode-cn.com/api/problems/lcof/'
 lcci_problems_url = 'https://leetcode-cn.com/api/problems/lcci/'
@@ -27,6 +28,12 @@ difficulties = {
     '1': '简单',
     '2': '中等',
     '3': '困难'
+}
+
+difficulties_en = {
+    '1': 'Easy',
+    '2': 'Medium',
+    '3': 'Hard'
 }
 
 
