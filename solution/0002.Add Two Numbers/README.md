@@ -1,79 +1,28 @@
-## 两数相加
-### 题目描述
+# [2. 两数相加](https://leetcode-cn.com/problems/add-two-numbers/)
 
-给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。
+## 题目描述
+<!-- 这里写题目描述 -->
+给出两个**非空**的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储**一位**数字。
 
-你可以假设除了数字 0 之外，这两个数字都不会以零开头。
+如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
 
-示例：
+您可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+
+**示例：**
+
 ```
 输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
 输出：7 -> 0 -> 8
 原因：342 + 465 = 807
 ```
 
-### 解法
-同时遍历两个链表，对应值相加(还有 quotient)求余数得到值并赋给新创建的结点。而商则用quotient存储，供下次相加。
+## 解法
+<!-- 这里可写通用的实现逻辑 -->
+同时遍历两个链表，对应值相加(还有 quotient)求余数得到值并赋给新创建的结点。而商则用 quotient 存储，供下次相加。
 
-#### Java
+### Java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
-初始版本：
-
-```java
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode res = new ListNode(-1);
-        ListNode cur = res;
-        int quotient = 0;
-        int t = 0;
-        while (l1 != null && l2 != null) {
-            t = l1.val + l2.val + quotient;
-            quotient = t / 10;
-            ListNode node = new ListNode(t % 10);
-            cur.next = node;
-            l1 = l1.next;
-            l2 = l2.next;
-            cur = node;
-        }
-        
-        while (l1 != null) {
-            t = l1.val + quotient;
-            quotient = t / 10;
-            ListNode node = new ListNode(t % 10);
-            cur.next = node;
-            l1 = l1.next;
-            cur = node;
-        }
-        
-        while (l2 != null) {
-            t = l2.val + quotient;
-            quotient = t / 10;
-            ListNode node = new ListNode(t % 10);
-            cur.next = node;
-            l2 = l2.next;
-            cur = node;
-        }
-        
-        if (quotient != 0) {
-            cur.next = new ListNode(quotient);
-            cur = cur.next;
-        }
-        
-        return res.next;
-        
-    }
-}
-```
-
-简化版本：
 ```java
 /**
  * Definition for singly-linked list.
@@ -102,8 +51,8 @@ class Solution {
 }
 ```
 
-#### CPP
-```CPP
+### CPP
+```cpp
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -141,35 +90,4 @@ public:
         return head->next;
     }
 };
-
-```
-
-
-# [题目](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
-
-## 题目描述
-<!-- 这里写题目描述 -->
-
-
-## 解法
-<!-- 这里可写通用的实现逻辑 -->
-
-
-### Python3
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
-
-```
-
-### Java
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### ...
-```
-
 ```
