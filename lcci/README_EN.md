@@ -1,4 +1,4 @@
-# LCCI
+# *Cracking the Coding Interview, 6th Edition*
 
 [中文文档](/lcci/README.md)
 
