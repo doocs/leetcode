@@ -8,8 +8,8 @@
   <a href="https://github.com/doocs/leetcode/issues"><img src="https://badgen.net/github/open-issues/doocs/leetcode" alt="issues"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
   <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
-  <a href="https://github.com/doocs/leetcode" alt="github"><img src="https://badgen.net/badge/⭐/GitHub/cyan" /></a> 
-  <a href="https://gitee.com/doocs/leetcode" alt="gitee"><img src="https://badgen.net/badge/⭐/Gitee/cyan" /></a>
+  <!-- <a href="https://github.com/doocs/leetcode" alt="github"><img src="https://badgen.net/badge/⭐/GitHub/cyan" /></a> 
+  <a href="https://gitee.com/doocs/leetcode" alt="gitee"><img src="https://badgen.net/badge/⭐/Gitee/cyan" /></a> -->
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
 </p>
@@ -17,13 +17,14 @@
 ## 介绍
 本项目包含 [LeetCode](https://leetcode-cn.com/problemset/all/)、[《剑指 Offer（第 2 版）》](https://leetcode-cn.com/problemset/lcof/)、[《程序员面试金典（第 6 版）》](https://leetcode-cn.com/problemset/lcci/)等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。
 
-[English Version](./README_EN.md)
+[English Version](/README_EN.md)
 
 ## 站点
-- Gitee Pages: https://doocs.gitee.io/leetcode
-- GitHub Pages: https://doocs.github.io/leetcode
+<!-- - Gitee Pages: https://doocs.gitee.io/leetcode
+- GitHub Pages: https://doocs.github.io/leetcode -->
 
-注：对于国内（中国）的朋友，访问 Gitee Pages 速度会相对快一些。
+<!-- 注：对于国内（中国）的朋友，访问 Gitee Pages 速度会相对快一些。 -->
+https://doocs.github.io/leetcode/#/README_EN
 
 ## 题解
 - [LeetCode](./solution/README.md)

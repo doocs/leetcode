@@ -8,8 +8,8 @@
   <a href="https://github.com/doocs/leetcode/issues"><img src="https://badgen.net/github/open-issues/doocs/leetcode" alt="issues"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
   <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
-  <a href="https://github.com/doocs/leetcode" alt="github"><img src="https://badgen.net/badge/⭐/GitHub/cyan" /></a> 
-  <a href="https://gitee.com/doocs/leetcode" alt="gitee"><img src="https://badgen.net/badge/⭐/Gitee/cyan" /></a>
+  <!-- <a href="https://github.com/doocs/leetcode" alt="github"><img src="https://badgen.net/badge/⭐/GitHub/cyan" /></a> 
+  <a href="https://gitee.com/doocs/leetcode" alt="gitee"><img src="https://badgen.net/badge/⭐/Gitee/cyan" /></a> -->
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
 </p>
@@ -17,11 +17,12 @@
 ## Introduction
 Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF](https://leetcode-cn.com/problemset/lcof/) and [LCCI](https://leetcode-cn.com/problemset/lcci/) problems, updated daily.
 
-[中文文档](./README.md)
+[中文文档](/README.md)
 
 ## Sites
-- Gitee Pages: https://doocs.gitee.io/leetcode
-- GitHub Pages: https://doocs.github.io/leetcode
+<!-- - Gitee Pages: https://doocs.gitee.io/leetcode
+- GitHub Pages: https://doocs.github.io/leetcode -->
+https://doocs.gitee.io/leetcode
 
 ## Solutions
 - [LeetCode](./solution/README.md)
