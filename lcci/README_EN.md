@@ -1,4 +1,5 @@
 # *Cracking the Coding Interview, 6th Edition*
+*Cracking the Coding Interview, 6th Edition* is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best. I've coached and interviewed hundreds of software engineers. The result is this book.
 
 [中文文档](/lcci/README.md)
 
