@@ -19,13 +19,6 @@
 
 [English Version](/README_EN.md)
 
-## 站点
-<!-- - Gitee Pages: https://doocs.gitee.io/leetcode
-- GitHub Pages: https://doocs.github.io/leetcode -->
-
-<!-- 注：对于国内（中国）的朋友，访问 Gitee Pages 速度会相对快一些。 -->
-https://doocs.github.io/leetcode
-
 ## 题解
 - [LeetCode](./solution/README.md)
 - [剑指 Offer（第 2 版）](./lcof/README.md)

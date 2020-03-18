@@ -19,15 +19,10 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 [中文文档](/README.md)
 
-## Sites
-<!-- - Gitee Pages: https://doocs.gitee.io/leetcode
-- GitHub Pages: https://doocs.github.io/leetcode -->
-https://doocs.github.io/leetcode/#/README_EN
-
 ## Solutions
-- [LeetCode](./solution/README.md)
-- [LCOF: *Coding Interviews, 2nd Edition*](./lcof/README.md)
-- [LCCI: *Cracking the Coding Interview, 6th Edition*](./lcci/README.md)
+- [LeetCode](./solution/README_EN.md)
+- [LCOF: *Coding Interviews, 2nd Edition*](./lcof/README_EN.md)
+- [LCCI: *Cracking the Coding Interview, 6th Edition*](./lcci/README_EN.md)
 
 ## Maintainer
 [Yang Libin](https://github.com/yanglbme): Creator of [@Doocs](https://github.com/doocs) technical community; member of [@TheAlgorithms](https://github.com/TheAlgorithms) organization.
