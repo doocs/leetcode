@@ -22,7 +22,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 ## Sites
 <!-- - Gitee Pages: https://doocs.gitee.io/leetcode
 - GitHub Pages: https://doocs.github.io/leetcode -->
-https://doocs.gitee.io/leetcode
+https://doocs.github.io/leetcode/#/README_EN
 
 ## Solutions
 - [LeetCode](./solution/README.md)
