@@ -5,7 +5,7 @@ Interview questions from the most popular companies in the IT industry are taken
 
 Readers will improve their interview performance after reading this book. It will be beneficial for them even after they get offers, because its topics, such as approaches to analyzing difficult problems, writing robust code and optimizing, are all essential for high-performing coders.
 
-[中文文档](/solution/README.md)
+[中文文档](/lcof/README.md)
 
 ## Solutions
 English Solutions is not available for the book. Please switch to Chinese version.
