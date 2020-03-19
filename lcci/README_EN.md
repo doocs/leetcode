@@ -1,4 +1,4 @@
-# *Cracking the Coding Interview, 6th Edition*
+# [*Cracking the Coding Interview, 6th Edition*](http://ahmed-badawy.com/blog/wp-content/uploads/2018/10/Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf)
 *Cracking the Coding Interview, 6th Edition* is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best. I've coached and interviewed hundreds of software engineers. The result is this book.
 
 [中文文档](/lcci/README.md)
@@ -116,3 +116,6 @@
 |  [17.24](https://leetcode-cn.com/problems/max-submatrix-lcci)  |  [Max Submatrix](/lcci/17.24.Max%20Submatrix/README_EN.md)  |  `Dynamic Programming`  |  Hard  |
 |  [17.25](https://leetcode-cn.com/problems/word-rectangle-lcci)  |  [Word Rectangle](/lcci/17.25.Word%20Rectangle/README_EN.md)  |    |  Hard  |
 |  [17.26](https://leetcode-cn.com/problems/sparse-similarity-lcci)  |  [Sparse Similarity](/lcci/17.26.Sparse%20Similarity/README_EN.md)  |  `Hash Table`  |  Hard  |
+
+## Copyright
+[@Doocs](https://github.com/doocs)

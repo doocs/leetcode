@@ -1390,3 +1390,5 @@
 |  [1504](https://leetcode.com/problems/get-the-second-most-recent-activity)  |  [Get the Second Most Recent Activity](/solution/1500-1599/1504.Get%20the%20Second%20Most%20Recent%20Activity/README_EN.md)  |  Hard  |
 |  [1509](https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier)  |  [Replace Employee ID With The Unique Identifier](/solution/1500-1599/1509.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README_EN.md)  |  Easy  |
 
+## Copyright
+[@Doocs](https://github.com/doocs)
