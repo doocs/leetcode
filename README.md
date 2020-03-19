@@ -48,7 +48,7 @@
 ## 贡献者
 非常感谢以下所有朋友对本项目的贡献，你们是最可爱的人！
 
-<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
+<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=1200&button=false" /></a>
 
 ## 许可证
 <a rel="license" href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./img/cc-by-sa-88x31.png" /></a><br /><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>

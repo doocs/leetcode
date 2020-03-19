@@ -21,20 +21,54 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+用哈希表存储每个字符出现的次数。若次数为奇数的字符超过 1 个，则不是回文排列。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canPermutePalindrome(self, s: str) -> bool:
+        if s is None or len(s) < 2:
+            return True
+        cache = {}
+        for ch in s:
+            cache[ch] = 1 if cache.get(ch) is None else cache[ch] + 1
+        cnt = 0
+        for k, v in cache.items():
+            if (v & 1) == 1:
+                cnt += 1
+            if cnt > 1:
+                return False
+        return cnt <= 1
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean canPermutePalindrome(String s) {
+        if (s == null || s.length() < 2) {
+            return true;
+        }
+        char[] chars = s.toCharArray();
+        Map<Character, Integer> counter = new HashMap<>();
+        for (char ch : chars) {
+            counter.put(ch, counter.get(ch) == null ? 1 : counter.get(ch) + 1);
+        }
+        int cnt = 0;
+        for (Map.Entry<Character, Integer> entry : counter.entrySet()) {
+            if ((entry.getValue() & 1) == 1) {
+                ++cnt;
+            }
+            if (cnt > 1) {
+                return false;
+            }
+        }
+        return cnt <= 1;
+    }
+}
 ```
 
 ### ...
