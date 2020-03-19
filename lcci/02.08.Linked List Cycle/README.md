@@ -12,14 +12,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        fast = slow = p = head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                break
+        if fast is None or fast.next is None:
+            return None
+        while slow != p:
+            p = p.next
+            slow = slow.next
+        return p
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+         ListNode fast = head, slow = head;
+         while (fast != null && fast.next != null) {
+             fast = fast.next.next;
+             slow = slow.next;
+             if (fast == slow) break;
+         }
+         if (fast == null || fast.next == null) return null;
+         ListNode p = head;
+         while (p != slow) {
+             p = p.next;
+             slow = slow.next;
+         }
+         return p;
+    }
+}
 ```
 
 ### ...
