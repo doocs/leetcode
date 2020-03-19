@@ -48,25 +48,12 @@
 <strong>Explanation:</strong> The two lists do not intersect, so return null.</pre>
 
 
-
 <p><b>Notes:</b></p>
 
-
-
-<ul>
-
-	<li>If the two linked lists have no intersection at all, return&nbsp;<code>null</code>.</li>
-
-	<li>The linked lists must retain their original structure after the function returns.</li>
-
-	<li>You may assume there are no cycles anywhere in the entire linked structure.</li>
-
-	<li>Your code should preferably run in O(n) time and use only O(1) memory.</li>
-
-</ul>
-
-
-
+- If the two linked lists have no intersection at all, return&nbsp;<code>null</code>.
+- The linked lists must retain their original structure after the function returns.
+- You may assume there are no cycles anywhere in the entire linked structure.
+- Your code should preferably run in O(n) time and use only O(1) memory.
 
 ## Solutions
 
@@ -106,7 +93,48 @@ class Solution:
 ### Java
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int len1 = len(headA), len2 = len(headB);
+        int differ = Math.abs(len1 - len2);
+        if (len1 < len2) {
+            ListNode t = headA;
+            headA = headB;
+            headB = t;
+        }
+        while (differ-- > 0) {
+            headA = headA.next;
+        }
+        while (headA != null) {
+            if (headA == headB) {
+                return headA;
+            }
+            headA = headA.next;
+            headB = headB.next;
+        }
+        return null;
+    }
 
+    private int len(ListNode node) {
+        int n = 0;
+        while (node != null) {
+            node = node.next;
+            ++n;
+        }
+        return n;
+    }
+}
 ```
 
 ### ...
