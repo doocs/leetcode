@@ -28,20 +28,51 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+双指针遍历字符串求解。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def compressString(self, S: str) -> str:
+        if len(S) < 2:
+            return S
+        p, q = 0, 1
+        res = ''
+        while q < len(S):
+            if S[p] != S[q]:
+                res += (S[p] + str(q - p))
+                p = q
+            q += 1
+        res += (S[p] + str(q - p))
+        return res if len(res) < len(S) else S
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String compressString(String S) {
+        if (S == null || S.length() < 2) {
+            return S;
+        }
+        char[] chars = S.toCharArray();
+        int p = 0, q = 1, n = chars.length;
+        StringBuilder sb = new StringBuilder();
+        while (q < n) {
+            if (chars[p] != chars[q]) {
+                sb.append(chars[p]).append(q - p);
+                p = q;
+            }
+            q += 1;
+        }
+        sb.append(chars[p]).append(q - p);
+        String res = sb.toString();
+        return res.length() < n ? res : S;
+    }
+}
 ```
 
 ### ...
