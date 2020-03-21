@@ -13,20 +13,74 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+创建两个链表，一个存放小于 `x` 的节点，另一个存放大于等于 `x` 的节点，之后进行拼接即可。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def partition(self, head: ListNode, x: int) -> ListNode:
+        if head is None or head.next is None:
+            return head
+        left, right = ListNode(-1), ListNode(-1)
+        p, q = left, right
+        while head:
+            t = head.next
+            head.next = None
+            if head.val < x:
+                p.next = head
+                p = p.next
+            else:
+                q.next = head
+                q = q.next
+            head = t
+        p.next = right.next
+        return left.next
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode partition(ListNode head, int x) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode left = new ListNode(-1);
+        ListNode right = new ListNode(-1);
+        ListNode p = left, q = right;
+        while (head != null) {
+            ListNode t = head.next;
+            head.next = null;
+            if (head.val < x) {
+                p.next = head;
+                p = p.next;
+            } else {
+                q.next = head;
+                q = q.next;
+            }
+            head = t;
+        }
+        p.next = right.next;
+        return left.next;
+    }
+}
 ```
 
 ### ...
