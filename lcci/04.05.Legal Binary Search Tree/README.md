@@ -6,20 +6,72 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+一棵合法的二叉搜索树，其中序遍历的结果应该升序排列。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    res, t = True, None
+    def isValidBST(self, root: TreeNode) -> bool:
+        self.isValid(root)
+        return self.res
+
+    def isValid(self, root):
+        if not root:
+            return
+        self.isValid(root.left)
+        if self.t is None or self.t < root.val:
+            self.t = root.val
+        else:
+            self.res = False
+            return
+        self.isValid(root.right)
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private boolean res = true;
+    private Integer t = null;
+    public boolean isValidBST(TreeNode root) {
+        isValid(root);
+        return res;
+    }
 
+    private void isValid(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        isValid(root.left);
+        if (t == null || t < root.val) {
+            t = root.val;
+        } else {
+            res = false;
+            return;
+        }
+        isValid(root.right);
+    }
+}
 ```
 
 ### ...
