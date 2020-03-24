@@ -48,7 +48,7 @@ class Solution:
         if n < 3:
             return n
         a, b, c = 1, 2, 4
-        for i in range(4, n + 1):
+        for _ in range(4, n + 1):
             a, b, c = b, c, (a + b + c) % 1000000007
         return c
 ```
@@ -73,7 +73,22 @@ class Solution {
 }
 ```
 
-### ...
-```
-
+### C++
+```cpp
+class Solution {
+public:
+    int waysToStep(int n) {
+        if (n < 3) {
+            return n;
+        }
+        int a = 1, b = 2, c = 4, i = 4;
+        while (i++ <= n) {
+            int t = ((a + b) % 1000000007 + c) % 1000000007;
+            a = b;
+            b = c;
+            c = t;
+        }
+        return c;
+    }
+};
 ```
