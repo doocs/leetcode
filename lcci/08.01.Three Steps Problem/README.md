@@ -28,20 +28,41 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+递推法。`f(n)=f(n-1)+f(n-2)+f(n-3)`
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def waysToStep(self, n: int) -> int:
+        if n < 3:
+            return n
+        a, b, c = 1, 2, 4
+        for i in range(4, n + 1):
+            a, b, c = b, c, (a + b + c) % 1000000007
+        return c
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int waysToStep(int n) {
+        if (n < 3) {
+            return n;
+        }
+        int a = 1, b = 2, c = 4;
+        for (int i = 4; i <= n; ++i) {
+            int t = a;
+            a = b;
+            b = c;
+            c = ((a + b) % 1000000007 + t) % 1000000007;
+        }
+        return c;
+    }
+}
 ```
 
 ### ...
