@@ -32,20 +32,49 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
+动态规划求解。
 
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def massage(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        n = len(nums)
+        if n < 2:
+            return nums[0]
+        dp = [0 for _ in range(n)]
+        dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+        for i in range(2, n):
+            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
+        return dp[n - 1]
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int massage(int[] nums) {
+        if (nums == null) {
+            return 0;
+        }
+        int n = nums.length;
+        if (n < 2) {
+            return n == 0 ? 0 : nums[0];
+        }
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < n; ++i) {
+            dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+        }
+        return dp[n - 1];
+    }
+}
 ```
 
 ### ...
