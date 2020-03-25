@@ -5,8 +5,9 @@ class Solution:
         n = len(nums)
         if n < 2:
             return nums[0]
-        dp = [0 for _ in range(n)]
-        dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+        a, b = nums[0], max(nums[0], nums[1])
+        res = b
         for i in range(2, n):
-            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
-        return dp[n - 1]
+            res = max(a + nums[i], b)
+            a, b = b, res
+        return res

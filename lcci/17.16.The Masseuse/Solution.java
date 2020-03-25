@@ -7,12 +7,13 @@ class Solution {
         if (n < 2) {
             return n == 0 ? 0 : nums[0];
         }
-        int[] dp = new int[n];
-        dp[0] = nums[0];
-        dp[1] = Math.max(nums[0], nums[1]);
+        int a = nums[0], b = Math.max(nums[0], nums[1]);
+        int res = b;
         for (int i = 2; i < n; ++i) {
-            dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+            res = Math.max(a + nums[i], b);
+            a = b;
+            b = res;
         }
-        return dp[n - 1];
+        return res;
     }
 }
