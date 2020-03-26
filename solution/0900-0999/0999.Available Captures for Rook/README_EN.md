@@ -127,7 +127,7 @@ class Solution:
 ```java
 class Solution {
     public int numRookCaptures(char[][] board) {
-        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int[][] directions = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
         int res = 0;
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
