@@ -53,20 +53,63 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+先找到 R 的位置，之后向“上、下、左、右”四个方向查找，累加结果。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def numRookCaptures(self, board: List[List[str]]) -> int:
 
+        def search(board, i, j, direction):
+            while i >= 0 and i < 8 and j >= 0 and j < 8:
+                if board[i][j] == 'B': return 0
+                if board[i][j] == 'p': return 1
+                i += direction[0]
+                j += direction[1]
+            return 0
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        res = 0;
+        for i in range(8):
+            for j in range(8):
+                if board[i][j] == 'R':
+                    for direction in directions:
+                        res += search(board, i, j, direction)
+                    return res
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numRookCaptures(char[][] board) {
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int res = 0;
+        for (int i = 0; i < 8; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                if (board[i][j] == 'R') {
+                    for (int[] direction : directions) {
+                        res += search(board, i, j, direction);
+                    }
+                    return res;
+                }
+            }
+        }
+        return res;
+    }
 
+    private int search(char[][] board, int i, int j, int[] direction) {
+        while (i >= 0 && i < 8 && j >= 0 && j < 8) {
+            if (board[i][j] == 'B') return 0;
+            if (board[i][j] == 'p') return 1;
+            i += direction[0];
+            j += direction[1];
+        }
+        return 0;
+    }
+}
 ```
 
 ### ...
