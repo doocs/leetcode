@@ -35,20 +35,85 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+双队列存储。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class AnimalShelf:
 
+    def __init__(self):
+        self.cats = []
+        self.dogs = []
+
+    def enqueue(self, animal: List[int]) -> None:
+        if animal[1] == 0:
+            self.cats.insert(0, animal[0])
+        else:
+            self.dogs.insert(0, animal[0])
+
+    def dequeueAny(self) -> List[int]:
+        if len(self.dogs) == 0: return self.dequeueCat()
+        if len(self.cats) == 0: return self.dequeueDog()
+        return self.dequeueDog() if self.dogs[-1] < self.cats[-1] else self.dequeueCat()
+
+    def dequeueDog(self) -> List[int]:
+        return [-1, -1] if len(self.dogs) == 0 else [self.dogs.pop(), 1]
+
+    def dequeueCat(self) -> List[int]:
+        return [-1, -1] if len(self.cats) == 0 else [self.cats.pop(), 0]
+
+
+# Your AnimalShelf object will be instantiated and called as such:
+# obj = AnimalShelf()
+# obj.enqueue(animal)
+# param_2 = obj.dequeueAny()
+# param_3 = obj.dequeueDog()
+# param_4 = obj.dequeueCat()
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class AnimalShelf {
+    Queue<Integer> cats;
+    Queue<Integer> dogs;
+    public AnimalShelf() {
+        cats = new LinkedList<>();
+        dogs = new LinkedList<>();
+    }
+    
+    public void enqueue(int[] animal) {
+        if (animal[1] == 0) {
+            cats.offer(animal[0]);
+        } else {
+            dogs.offer(animal[0]);
+        }
+    }
+    
+    public int[] dequeueAny() {
+        return dogs.isEmpty() ? dequeueCat() : (cats.isEmpty() ? dequeueDog() : (dogs.peek() < cats.peek() ? dequeueDog() : dequeueCat()));
+    }
+    
+    public int[] dequeueDog() {
+        return dogs.isEmpty() ? new int[]{-1, -1} : new int[]{dogs.poll(), 1};
+    }
+    
+    public int[] dequeueCat() {
+        return cats.isEmpty() ? new int[]{-1, -1} : new int[]{cats.poll(), 0};
+    }
+}
 
+/**
+ * Your AnimalShelf object will be instantiated and called as such:
+ * AnimalShelf obj = new AnimalShelf();
+ * obj.enqueue(animal);
+ * int[] param_2 = obj.dequeueAny();
+ * int[] param_3 = obj.dequeueDog();
+ * int[] param_4 = obj.dequeueCat();
+ */
 ```
 
 ### ...
