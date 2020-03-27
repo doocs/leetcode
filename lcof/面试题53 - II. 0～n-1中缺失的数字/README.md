@@ -22,6 +22,8 @@
 - `1 <= 数组长度 <= 10000`
 
 ## 解法
+二分法。
+
 ### Python3
 ```python
 class Solution:

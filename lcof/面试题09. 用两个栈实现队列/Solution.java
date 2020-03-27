@@ -8,20 +8,20 @@ class CQueue {
     
     public void appendTail(int value) {
         s1.push(value);
-        if (s2.empty()) {
-            while (!s1.empty()) {
-                s2.push(s1.pop());
-            }
-        }
+        check();
     }
     
     public int deleteHead() {
+        check();
+        return s2.empty() ? -1 : s2.pop();
+    }
+
+    private void check() {
         if (s2.empty()) {
             while (!s1.empty()) {
                 s2.push(s1.pop());
             }
         }
-        return s2.empty() ? -1 : s2.pop();
     }
 }
 

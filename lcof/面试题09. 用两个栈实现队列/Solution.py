@@ -4,16 +4,17 @@ class CQueue:
         self._s1 = []
         self._s2 = []
 
-    def appendTail(self, value: int) -> None:
-        self._s1.append(value)
+    def _check(self):
         if not self._s2:
             while self._s1:
                 self._s2.append(self._s1.pop())
 
+    def appendTail(self, value: int) -> None:
+        self._s1.append(value)
+        self._check()
+
     def deleteHead(self) -> int:
-        if not self._s2:
-            while self._s1:
-                self._s2.append(self._s1.pop())
+        self._check()
         return -1 if not self._s2 else self._s2.pop()
 
 
