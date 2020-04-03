@@ -54,6 +54,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
+class Solution:
+    def copyRandomList(self, head: 'Node') -> 'Node':
+        if not head:
+            return None
+        copy_head = Node(-1)
+        cur, t = copy_head, head
+        cache = {}
+        while t:
+            cur.next = Node(t.val)
+            cache[t] = cur.next
+            cur, t = cur.next, t.next
+        t, cur = head, copy_head.next
+        while t:
+            cur.random = cache.get(t.random)
+            cur, t = cur.next, t.next
+        return copy_head.next
 
 ```
 
@@ -61,7 +85,45 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    int val;
+    Node next;
+    Node random;
 
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+}
+*/
+class Solution {
+    public Node copyRandomList(Node head) {
+        if (head == null) {
+            return null;
+        }
+        Map<Node, Node> map = new HashMap<>();
+        Node copyHead = new Node(-1);
+        Node cur = copyHead, t = head;
+        while (t != null) {
+            Node node = new Node(t.val);
+            map.put(t, node);
+            cur.next = node;
+            cur = node;
+            t = t.next;
+        }
+        cur = copyHead.next;
+        while (head != null) {
+            cur.random = map.get(head.random);
+            cur = cur.next;
+            head = head.next;
+        }
+        return copyHead.next;
+
+    }
+}
 ```
 
 ### ...
