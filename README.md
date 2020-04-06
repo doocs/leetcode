@@ -20,7 +20,6 @@
 ## 站点
 - GitHub Pages: https://doocs.github.io/leetcode
 - Coding Pages: https://d3jc40.coding-pages.com
-- Gitee Pages(构建失败): https://doocs.gitee.io/leetcode
 
 注：若 [GitHub Pages](https://doocs.github.io/leetcode) 访问加载过慢，可访问 [Coding Pages](https://d3jc40.coding-pages.com)。
 
