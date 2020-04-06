@@ -17,8 +17,10 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 [中文文档](/README.md)
 
-## Site
-GitHub Pages: https://doocs.github.io/leetcode
+## Sites
+- GitHub Pages: https://doocs.github.io/leetcode
+- Coding Pages: https://d3jc40.coding-pages.com
+- Gitee Pages(build failed): https://doocs.gitee.io/leetcode
 
 ## Solutions
 - [LeetCode](/solution/README_EN.md)
