@@ -1,4 +1,4 @@
-- 程序员面试金典题解
+- 程序员面试金典（第 6 版）题解
     - [01.01. 判定字符是否唯一](/lcci/01.01.Is%20Unique/README.md)
     - [01.02. 判定是否互为字符重排](/lcci/01.02.Check%20Permutation/README.md)
     - [01.03. URL化](/lcci/01.03.String%20to%20URL/README.md)
