@@ -41,20 +41,81 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+- 创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
+- 添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多1）；若不等，放入大根堆（使得大小根堆元素个数相等）
+- 取中位数时，若两队元素个数相等，取两堆顶求平均值；若不等，取小根堆堆顶。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class MedianFinder:
 
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.max_heap = []
+        self.min_heap = []
+
+
+    def addNum(self, num: int) -> None:
+        if len(self.max_heap) == len(self.min_heap):
+            heapq.heappush(self.min_heap, -heapq.heappushpop(self.max_heap, -num))
+        else:
+            heapq.heappush(self.max_heap, -heapq.heappushpop(self.min_heap, num))
+
+    def findMedian(self) -> float:
+        return (-self.max_heap[0] + self.min_heap[0]) / 2 if len(self.max_heap) == len(self.min_heap) else self.min_heap[0]
+
+
+# Your MedianFinder object will be instantiated and called as such:
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class MedianFinder {
+    Queue<Integer> minHeap;
+    Queue<Integer> maxHeap;
 
+    /** initialize your data structure here. */
+    public MedianFinder() {
+        minHeap = new PriorityQueue<>();
+        maxHeap = new PriorityQueue<>((a, b) -> b - a);
+    }
+    
+    public void addNum(int num) {
+        if (maxHeap.size() == minHeap.size()) {
+            maxHeap.offer(num);
+            // 放入小根堆(小根堆多1)
+            minHeap.offer(maxHeap.poll());
+        } else {
+            minHeap.offer(num);
+            // 放入大根堆(大小堆数量相等)
+            maxHeap.offer(minHeap.poll());
+        }
+    }
+    
+    public double findMedian() {
+        if (((maxHeap.size() + minHeap.size()) & 1) == 0) {
+            // 偶数个，取两个堆顶平均值
+            return (maxHeap.peek() + minHeap.peek()) / 2.0;
+        }
+        return minHeap.peek();
+    }
+}
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder obj = new MedianFinder();
+ * obj.addNum(num);
+ * double param_2 = obj.findMedian();
+ */
 ```
 
 ### ...

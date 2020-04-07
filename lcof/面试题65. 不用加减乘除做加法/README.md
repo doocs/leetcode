@@ -33,8 +33,7 @@ class Solution:
             s = a ^ b
             carry = ((a & b) << 1) & 0xffffffff
             a, b = s, carry
-        # 若a是正数，直接返回；若是负数，转为原码
-        return a if a < 0x80000000 else ~(a^0xffffffff)
+        return a if a < 0x80000000 else ~(a ^ 0xffffffff)
 ```
 
 ### Java

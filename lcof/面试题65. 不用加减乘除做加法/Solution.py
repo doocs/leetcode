@@ -6,4 +6,4 @@ class Solution:
             s = a ^ b
             carry = ((a & b) << 1) & 0xffffffff
             a, b = s, carry
-        return a if a < 0x80000000 else ~(a^0xffffffff)
+        return a if a < 0x80000000 else ~(a ^ 0xffffffff)
