@@ -39,6 +39,7 @@
 ```
 
 ### JavaScript
+* Dynamic programming:
 ```JavaScript
 var coinChange = function(coins, amount) {
   var dp = Array(amount + 1).fill(amount + 1);
