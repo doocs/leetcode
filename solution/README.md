@@ -867,6 +867,8 @@
 │   └── Solution.cpp
 ├── 0319.Bulb Switcher
 │   └── Solution.java
+├── 0322.Coin Change
+│   └── Solution.js
 ├── 0326.Power of Three
 │   └── Solution.js
 ├── 0328.Odd Even Linked List
