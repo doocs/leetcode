@@ -6,6 +6,8 @@
 ## 题解
 以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/lcof/)，题解由 [doocs/leetcode 贡献者](https://github.com/doocs/leetcode/graphs/contributors) 提供，正在完善中，欢迎贡献你的题解！
 
+快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd>+<kbd>F</kbd>（或者 <kbd>Command</kbd>+<kbd>F</kbd>）。
+
 |  题号  |  题解  |  标签  | 难度  |
 | --- | --- | --- | --- |
 |  [03](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof)  |  [数组中重复的数字](/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9803.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/README.md)  |  `数组`,`哈希表`  |  简单  |

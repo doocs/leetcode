@@ -55,6 +55,7 @@
         },
         function (hook, vm) {
           hook.beforeEach(function (html) {
+            var englishVersion = vm.route.file.indexOf('README_EN') != -1
             if (/githubusercontent\.com/.test(vm.route.file)) {
               url = vm.route.file
                 .replace('raw.githubusercontent.com', 'github.com')
@@ -62,8 +63,9 @@
             } else {
               url = 'https://github.com/doocs/leetcode/blob/master/' + vm.route.file
             }
-            var editHtml = '[:memo: Edit on GitHub](' + url + ')\n'
-            return editHtml + html
+            var editHtml = '[:memo: 在 GitHub 编辑](' + url + ')\n'
+            var editHtmlEN = '[:memo: Edit on GitHub](' + url + ')\n'
+            return (englishVersion ? editHtmlEN : editHtml) + html
           })
         },
       ]

@@ -5,6 +5,8 @@
 ## 题解
 以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/all)，题解由 [doocs/leetcode 贡献者](https://github.com/doocs/leetcode/graphs/contributors) 提供，正在完善中，欢迎贡献你的题解！
 
+快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd>+<kbd>F</kbd>（或者 <kbd>Command</kbd>+<kbd>F</kbd>）。
+
 |  题号  |  题解  |  标签  | 难度  |
 | --- | --- | --- | --- |
 |  [1](https://leetcode-cn.com/problems/two-sum)  |  [两数之和](/solution/0000-0099/0001.Two%20Sum/README.md)  |  `数组`,`哈希表`  |  简单  |

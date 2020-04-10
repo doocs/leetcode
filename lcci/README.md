@@ -6,6 +6,8 @@
 ## 题解
 以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/lcci/)，题解由 [doocs/leetcode 贡献者](https://github.com/doocs/leetcode/graphs/contributors) 提供，正在完善中，欢迎贡献你的题解！
 
+快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd>+<kbd>F</kbd>（或者 <kbd>Command</kbd>+<kbd>F</kbd>）。
+
 |  题号  |  题解  |  标签 | 难度  |
 | --- | --- | --- | --- |
 |  [01.01](https://leetcode-cn.com/problems/is-unique-lcci)  |  [判定字符是否唯一](/lcci/01.01.Is%20Unique/README.md)  |  `数组`  |  简单  |
