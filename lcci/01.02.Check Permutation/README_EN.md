@@ -34,15 +34,9 @@
 
 
 <p><strong>Note:</strong></p>
-
-
-
 <ol>
-
 	<li><code>0 &lt;= len(s1) &lt;= 100 </code></li>
-
 	<li><code>0 &lt;= len(s2) &lt;= 100</code></li>
-
 </ol>
 
 

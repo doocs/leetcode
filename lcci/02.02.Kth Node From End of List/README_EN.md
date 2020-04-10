@@ -23,11 +23,7 @@
 
 <p><strong>Note: </strong></p>
 
-
-
 <p>k is always valid.</p>
-
-
 
 
 ## Solutions
