@@ -18,10 +18,11 @@
 [English Version](/README_EN.md)
 
 ## 站点
+- Netlify: https://lc.netlify.com
 - GitHub Pages: https://doocs.github.io/leetcode
 - Coding Pages: https://d3jc40.coding-pages.com
 
-注：若 [GitHub Pages](https://doocs.github.io/leetcode) 访问加载过慢，可访问 [Coding Pages](https://d3jc40.coding-pages.com)。
+注：对于国内（中国）的朋友，推荐访问 [Coding Pages](https://d3jc40.coding-pages.com)，页面加载速度最快。
 
 ## 题解
 - [LeetCode](/solution/README.md)
@@ -36,7 +37,7 @@
 
 如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
-- 将[本项目](https://github.com/doocs/leetcode) <kbd>Fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
+- 将[本项目](https://github.com/doocs/leetcode) <kbd>fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
 - 对项目做出一些变更，然后使用 git <kbd>add</kbd>、<kbd>commit</kbd>、<kbd>push</kbd> 等命令将你的变更提交到你的远程 GitHub 仓库；
 - 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
 - 你也可以参考 [GitHub 帮助文档](https://help.github.com/cn) 了解更多细节。

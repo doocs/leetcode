@@ -41,21 +41,9 @@
         }
       },
       plugins: [
-        function (hook) {
-          var footer = [
-            '<hr/>',
-            '<footer>',
-            '<span>Copyright © 2018-2020 <a href="https://github.com/doocs" target="_blank">Doocs</a>. All rights reserved.',
-            '</footer>'
-          ].join('')
-
-          hook.afterEach(function (html) {
-            return html + footer
-          })
-        },
         function (hook, vm) {
           hook.beforeEach(function (html) {
-            var englishVersion = vm.route.file.indexOf('README_EN') != -1
+            const en = vm.route.file.indexOf('README_EN') > -1
             if (/githubusercontent\.com/.test(vm.route.file)) {
               url = vm.route.file
                 .replace('raw.githubusercontent.com', 'github.com')
@@ -63,9 +51,16 @@
             } else {
               url = 'https://github.com/doocs/leetcode/blob/master/' + vm.route.file
             }
-            var editHtml = '[:memo: 在 GitHub 编辑](' + url + ')\n'
-            var editHtmlEN = '[:memo: Edit on GitHub](' + url + ')\n'
-            return (englishVersion ? editHtmlEN : editHtml) + html
+            const edit = en ? 'Edit on GitHub' : '在 GitHub 编辑'
+            const editHtml = `[:memo: ${edit}](${url})\n`
+            return editHtml + html
+          })
+
+          hook.afterEach(function (html) {
+            const en = vm.route.file.indexOf('README_EN') != -1
+            const copyright = en ? '. All Rights Reserved' : ' 版权所有'
+            const footer = `<footer><span>Copyright © 2018-2020 <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
+            return html + footer
           })
         },
       ]

@@ -18,6 +18,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 [中文文档](/README.md)
 
 ## Sites
+- Netlify: https://lc.netlify.com
 - GitHub Pages: https://doocs.github.io/leetcode
 - Coding Pages: https://d3jc40.coding-pages.com
 
