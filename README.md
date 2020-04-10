@@ -25,8 +25,8 @@
 
 ## 题解
 - [LeetCode](/solution/README.md)
-- [剑指 Offer（第 2 版）](/lcof/README.md)
-- [程序员面试金典（第 6 版）](/lcci/README.md)
+- [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
+- [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
 
 ## 维护者
 [Yang Libin](https://github.com/yanglbme): GitHub 技术社区 [@Doocs](https://github.com/doocs) 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。
