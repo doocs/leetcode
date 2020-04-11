@@ -28,20 +28,59 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
+将 n 拆为两部分：最高位 high 和低位 lows。按 high 是否为 1 分别递归求解结果 f(n)。
 
+举例说明。
+
+n=3356: high=3,lows=356,base=1000
+
+此时数字划分为 0~999,1000~1999,2000~2999,3000~3356，其中：
+
+- 0~999 这个范围内 1 的个数为 f(base-1)
+- 1000~1999 这个范围内 1 的个数可分为两部分：千位、其余位。千位都为 1，所以 1 的个数为 base+f(base-1)
+- 2000~2999 这个范围内 1 的个数为 f(base-1)
+- 3000~3356 这个范围内 1 的个数为 f(lows)
+
+因此，1 的总个数为 `high*f(base-1)+f(lows)+base`。
+
+最高位非 1 的情况，也可以按照同样的方法分析。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+from functools import lru_cache
 
+class Solution:
+    @lru_cache
+    def countDigitOne(self, n: int) -> int:
+        if n < 1:
+            return 0
+        s = str(n)
+        high = int(s[0])
+        base = pow(10, len(s) - 1)
+        lows = n % base
+        return self.countDigitOne(base - 1) + lows + 1 + self.countDigitOne(lows) if high == 1 else high * self.countDigitOne(base - 1) + base + self.countDigitOne(lows)
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countDigitOne(int n) {
+        if (n < 1) {
+            return 0;
+        }
+        String s = String.valueOf(n);
+        int high = s.charAt(0) - '0'; // 最高位
+        int base = (int) Math.pow(10, s.length() - 1); // 基数
+        int lows = n % base; // 低位
+        return high == 1
+            ? countDigitOne(base - 1) + countDigitOne(lows) + lows + 1
+            : high * countDigitOne(base - 1) + countDigitOne(lows) + base;
+    }
+}
 ```
 
 ### ...
