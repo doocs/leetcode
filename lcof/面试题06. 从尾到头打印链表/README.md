@@ -14,6 +14,8 @@
 - `0 <= 链表长度 <= 10000`
 
 ## 解法
+栈实现。
+
 ### Python3
 ```python
 # Definition for singly-linked list.

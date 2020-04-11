@@ -15,6 +15,8 @@
 - `0 <= s 的长度 <= 10000`
 
 ## 解法
+使用 replace 替换即可。
+
 ### Python3
 ```python
 class Solution:

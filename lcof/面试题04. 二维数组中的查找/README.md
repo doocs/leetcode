@@ -28,6 +28,8 @@
 - `0 <= m <= 1000`
 
 ## 解法
+从左下角（或右上角）开始查找即可。
+
 ### Python3
 ```python
 class Solution:
