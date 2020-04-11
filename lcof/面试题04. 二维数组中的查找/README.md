@@ -34,38 +34,38 @@
 ```python
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
-        if not matrix:
+        if not matrix or not matrix[0]:
             return False
-        
-        i, j = len(matrix) - 1, 0
-        while i >= 0 and j < len(matrix[0]):
+        rows, cols = len(matrix), len(matrix[0])
+        i, j = rows - 1, 0
+        while i >= 0 and j < cols:
             if matrix[i][j] == target:
                 return True
-            if matrix[i][j] < target:
-                j += 1
-            else:
+            if matrix[i][j] > target:
                 i -= 1
+            else:
+                j += 1
         return False
+
 ```
 
 ### Java
 ```java
 class Solution {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        if (matrix == null || matrix.length == 0) {
+        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
             return false;
         }
         int rows = matrix.length, cols = matrix[0].length;
-
         int i = rows - 1, j = 0;
         while (i >= 0 && j < cols) {
             if (matrix[i][j] == target) {
                 return true;
             }
-            if (matrix[i][j] < target) {
-                ++j;
-            } else {
+            if (matrix[i][j] > target) {
                 --i;
+            } else {
+                ++j;
             }
         }
         return false;
