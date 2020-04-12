@@ -31,6 +31,8 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 - `0 <= n <= 100`
 
 ## 解法
+递推求解。
+
 ### Python3
 ```python
 class Solution:
