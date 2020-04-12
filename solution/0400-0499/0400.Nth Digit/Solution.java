@@ -6,17 +6,18 @@ class Solution {
          * 举例15,15-9=6,6/2=3...0,余数是0,那么这个数值value=10*(2-1)+(3-1)=12,整除取最后一位  12%10=2
          * 举例14,14-9=5,5/2=2...1,余数不为0,那么这个数值value=10*(2-1)+2=12,则为这个数的第余数个 12/(10*(2-1))%10=1
          */
-        long max = 9;
-        long num = n;
-        long digits = 1;//是几位数
-        while (n > 0) {
-            if (num - max * size > 0) {
-                num = num - max * size;
+        long max=9;
+        long num=n;
+        long digits=1;
+        while (n>0) {
+            if(num-max*digits>0) {
+                num=num-max*digits;
                 digits++;
-                max = max * 10;
-            } else {
-                long count = num / digits;
-                long childDigits = num % digits;
+                max=max*10;
+            }else {
+                long count=num/digits;
+                long childDigits=num%digits;
+                long value=(long)Math.pow(10,digits-1)+count-1;
                 if (childDigits == 0) {
                     return (int) (((long) Math.pow(10, digits - 1) + count - 1) % 10);
                 } else {
