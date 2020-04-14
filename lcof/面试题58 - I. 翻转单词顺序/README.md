@@ -37,6 +37,8 @@
 **注意：** 此题对比原题有改动
 
 ## 解法
+按空格分割字符串后逆序。
+
 ### Python3
 ```python
 class Solution:
