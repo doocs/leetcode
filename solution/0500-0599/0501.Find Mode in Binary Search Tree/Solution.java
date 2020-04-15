@@ -1,8 +1,13 @@
-import java.util.List;
-import java.util.ArrayList;
-
-public class Solution {
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
     int max = 0;
     int cur = 0;
     TreeNode preNode = null;
