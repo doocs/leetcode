@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-
-public class Solution {
+class Solution {
 
     public String[] findWords(String[] words) {
         if (words == null) {
