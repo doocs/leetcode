@@ -47,11 +47,11 @@ class FizzBuzz {
             nSema.acquire();
             if (i % 3 == 0 && i % 5 == 0) {
                 fbSema.release();
-            }else if (i % 3 == 0) {
+            } else if (i % 3 == 0) {
                 fSema.release();
-            }else if (i % 5 == 0) {
+            } else if (i % 5 == 0) {
                 bSema.release();
-            }else {
+            } else {
                 printNumber.accept(i);
                 nSema.release();
             }
