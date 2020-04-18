@@ -1,7 +1,7 @@
 class H2O {
 
-    private Semaphore h=new Semaphore(2);
-    private Semaphore o=new Semaphore(0);
+    private Semaphore h = new Semaphore(2);
+    private Semaphore o = new Semaphore(0);
     public H2O() {
 
     }
