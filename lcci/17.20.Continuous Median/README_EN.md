@@ -59,13 +59,66 @@ findMedian() -&gt; 2
 ### Python3
 
 ```python
+class MedianFinder:
 
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.max_heap = []
+        self.min_heap = []
+
+
+    def addNum(self, num: int) -> None:
+        if len(self.max_heap) == len(self.min_heap):
+            heapq.heappush(self.min_heap, -heapq.heappushpop(self.max_heap, -num))
+        else:
+            heapq.heappush(self.max_heap, -heapq.heappushpop(self.min_heap, num))
+
+    def findMedian(self) -> float:
+        return (-self.max_heap[0] + self.min_heap[0]) / 2 if len(self.max_heap) == len(self.min_heap) else self.min_heap[0]
+
+
+# Your MedianFinder object will be instantiated and called as such:
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()
 ```
 
 ### Java
 
 ```java
+class MedianFinder {
+    private Queue<Integer> minHeap;
+    private Queue<Integer> maxHeap;
 
+    /** initialize your data structure here. */
+    public MedianFinder() {
+        minHeap = new PriorityQueue<>();
+        maxHeap = new PriorityQueue<>((a, b) -> b - a);
+    }
+    
+    public void addNum(int num) {
+        if (minHeap.size() == maxHeap.size()) {
+            maxHeap.offer(num);
+            minHeap.offer(maxHeap.poll());
+        } else {
+            minHeap.offer(num);
+            maxHeap.offer(minHeap.poll());
+        }
+    }
+    
+    public double findMedian() {
+        return minHeap.size() == maxHeap.size() ? (minHeap.peek() + maxHeap.peek()) / 2.0 : minHeap.peek();
+    }
+}
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder obj = new MedianFinder();
+ * obj.addNum(num);
+ * double param_2 = obj.findMedian();
+ */
 ```
 
 ### ...
