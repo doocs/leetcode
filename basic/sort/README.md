@@ -56,7 +56,7 @@ public class BubbleSort {
 与冒泡排序对比：
 
 - 在冒泡排序中，经过每一轮的排序处理后，数组后端的数是排好序的。
-- 在插入排序中，经过每一轮的排序处理后，数组前端的数是拍好序的。
+- 在插入排序中，经过每一轮的排序处理后，数组前端的数是排好序的。
 
 插入排序的算法思想是：不断将尚未排好序的数插入到已经排好序的部分。
 
@@ -139,8 +139,9 @@ public class MergeSort {
     }
 
     private static void mergeSort(int[] nums) {
-        int[] temp = new int[nums.length];
-        mergeSort(nums, 0, nums.length - 1, temp);
+        int n = nums.length;
+        int[] temp = new int[n];
+        mergeSort(nums, 0, n - 1, temp);
     }
 
     public static void main(String[] args) {
@@ -150,3 +151,17 @@ public class MergeSort {
     }
 }
 ```
+
+### 算法分析
+
+空间复杂度 O(n)，时间复杂度 O(nlogn)。
+
+对于规模为 n 的问题，一共要进行 log(n) 次的切分，每一层的合并复杂度都是 O(n)，所以整体时间复杂度为 O(nlogn)。
+
+由于合并 n 个元素需要分配一个大小为 n 的额外数组，所以空间复杂度为 O(n)。
+
+这是一种稳定的排序算法。
+
+## 快速排序
+
+快速排序也采用了分治的思想：把原始的数组筛选成较小和较大的两个子数组，然后递归地排序两个子数组。
