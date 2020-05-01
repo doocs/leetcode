@@ -59,14 +59,9 @@
 
 <p><strong>Notes:</strong></p>
 
-
-
 <ul>
-
 	<li>All node values are pairwise distinct.</li>
-
 	<li>p, q are different node and both can be found in the given tree.</li>
-
 </ul>
 
 

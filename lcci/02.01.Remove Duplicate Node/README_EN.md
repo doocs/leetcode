@@ -3,10 +3,7 @@
 ## Description
 <p>Write code to remove duplicates from an unsorted linked list.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
 
 
 <pre>
@@ -18,10 +15,7 @@
 </pre>
 
 
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -31,18 +25,12 @@
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
 
-
-
 <ol>
-
 	<li>The length of the list is within the range[0, 20000].</li>
 
 	<li>The values of the list elements are within the range [0, 20000].</li>
-
 </ol>
 
 

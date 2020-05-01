@@ -3,7 +3,6 @@
 ## 题目描述
 找出数组中重复的数字。
 
-
 在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。
 
 **示例 1：**
@@ -21,6 +20,10 @@
 ```
 
 ## 解法
+0～n-1 范围内的数，分别还原到对应的位置上，如：数字 2 交换到下标为 2 的位置。
+
+若交换过程中发现重复，则直接返回。
+
 ### Python3
 ```python
 class Solution:
@@ -54,6 +57,21 @@ class Solution {
         nums[j] = t;
     }
 }
+```
+
+### JavaScript
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findRepeatNumber = function(nums) {
+    let m = {}
+    for(let num of nums) {
+        if(m[num]) return num
+        m[num] = 1
+    }
+};
 ```
 
 ### ...

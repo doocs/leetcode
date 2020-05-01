@@ -22,6 +22,8 @@
 - `1 <= n <= 10000`
 
 ## 解法
+递归，结合**逻辑与**短路运算符求解。
+
 ### Python3
 ```python
 class Solution:
@@ -38,6 +40,17 @@ class Solution {
         return s;
     }
 }
+```
+
+### JavaScript
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var sumNums = function(n) {
+    return (n**2 + n) >> 1
+};
 ```
 
 ### ...

@@ -50,9 +50,7 @@
 
 
 <ol>
-
 	<li>The total number of elements in the stack is within the range [0, 5000].</li>
-
 </ol>
 
 

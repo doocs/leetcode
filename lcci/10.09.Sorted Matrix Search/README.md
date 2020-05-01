@@ -24,12 +24,26 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+从左下角（或右上角）开始查找即可。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        if not matrix or not matrix[0]:
+            return False
+        rows, cols = len(matrix), len(matrix[0])
+        i, j = rows - 1, 0
+        while i >= 0 and j < cols:
+            if matrix[i][j] == target:
+                return True
+            if matrix[i][j] > target:
+                i -= 1
+            else:
+                j += 1
+        return False
 
 ```
 
@@ -37,7 +51,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
+            return false;
+        }
+        int rows = matrix.length, cols = matrix[0].length;
+        int i = rows - 1, j = 0;
+        while (i >= 0 && j < cols) {
+            if (matrix[i][j] == target) {
+                return true;
+            }
+            if (matrix[i][j] > target) {
+                --i;
+            } else {
+                ++j;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ### ...

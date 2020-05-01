@@ -22,14 +22,32 @@
 
 - 数组长度为 5 
 - 数组的数取值为 `[0, 13]`
+
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+用数组 t 记录是否存在重复的数，存在则直接返回 false。
+
+遍历数组，忽略大小王(0)，求出数组的最大、最小值。若最后差值超过 4，则无法构成顺子，例如：`5,6,(0),8,10`。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def isStraight(self, nums: List[int]) -> bool:
+        t = [False for _ in range(14)]
+        max_val, min_val = 0, 14
+        for num in nums:
+            if num == 0:
+                continue
+            if t[num]:
+                return False
+            t[num] = True
+            max_val = max(max_val, num)
+            min_val = min(min_val, num)
+        return max_val - min_val <= 4
+
 
 ```
 
@@ -37,7 +55,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isStraight(int[] nums) {
+        boolean[] t = new boolean[14];
+        int maxVal = Integer.MIN_VALUE, minVal = Integer.MAX_VALUE;
+        for (int num : nums) {
+            if (num == 0) {
+                continue;
+            }
+            if (t[num]) {
+                return false;
+            }
+            t[num] = true;
+            maxVal = Math.max(maxVal, num);
+            minVal = Math.min(minVal, num);
+        }
+        return maxVal - minVal <= 4;
+    }
+}
+```
 
+### JavaScript
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var isStraight = function(nums) {
+    let zeroCnt = 0
+    nums.sort((a,b)=>a-b)
+    for(let i=0;i<nums.length - 1;i++) {
+        if(nums[i] === 0) zeroCnt++
+        else {
+            if(nums[i] === nums[i+1]) return false
+            else if(nums[i] === nums[i+1] - 1) {
+                continue
+            } else if(nums[i] >= nums[i+1] - zeroCnt - 1) {
+                zeroCnt--
+            } else {
+                return false
+            }
+        }
+        if(zeroCnt < 0) return false
+    }
+    return true
+};
 ```
 
 ### ...

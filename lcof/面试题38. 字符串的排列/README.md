@@ -25,14 +25,89 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def permutation(self, s: str) -> List[str]:
+        def dfs(x):
+            if x == len(s) - 1:
+                res.append("".join(chars))
+                return
+            t = set()
+            for i in range(x, len(s)):
+                if chars[i] in t:
+                    continue
+                t.add(chars[i])
+                chars[i], chars[x] = chars[x], chars[i]
+                dfs(x + 1)
+                chars[i], chars[x] = chars[x], chars[i]
+        chars, res = list(s), []
+        dfs(0)
+        return res
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private char[] chars;
+    private List<String> res;
 
+    public String[] permutation(String s) {
+        chars = s.toCharArray();
+        res = new ArrayList<>();
+        dfs(0);
+        return res.toArray(new String[res.size()]);
+    }
+
+    private void dfs(int x) {
+        if (x == chars.length - 1) {
+            res.add(String.valueOf(chars));
+            return;
+        }
+        Set<Character> set = new HashSet<>();
+        for (int i = x; i < chars.length; ++i) {
+            if (set.contains(chars[i])) {
+                continue;
+            }
+            set.add(chars[i]);
+            swap(i, x);
+            dfs(x + 1);
+            swap(i, x);
+        }
+    }
+
+    private void swap(int i, int j) {
+        char t = chars[i];
+        chars[i] = chars[j];
+        chars[j] = t;
+    }
+}
+```
+
+### JavaScript
+```js
+/**
+ * @param {string} s
+ * @return {string[]}
+ */
+var permutation = function(s) {
+    let len = s.length
+    let res = new Set()
+    function dfs(str, isRead) {
+        if(str.length === len) {
+             res.add(str)
+             return
+        }
+        for(let i=0;i<len;i++) {
+            if(isRead[i]) continue
+            isRead[i] = 1
+            dfs(str.concat(s[i]),isRead)
+            isRead[i] = 0
+        }
+    }
+    dfs('',{})
+    return [...res]
+};
 ```
 
 ### ...

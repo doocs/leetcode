@@ -38,13 +38,9 @@ queue.empty(); // return false</pre>
 
 
 <ul>
-
 	<li>You must use&nbsp;<i>only</i>&nbsp;standard operations of a stack -- which means only&nbsp;<code>push to top</code>,&nbsp;<code>peek/pop from top</code>,&nbsp;<code>size</code>, and&nbsp;<code>is empty</code>&nbsp;operations are valid.</li>
-
 	<li>Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.</li>
-
 	<li>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</li>
-
 </ul>
 
 

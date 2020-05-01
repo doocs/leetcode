@@ -15,6 +15,8 @@
 - `0 <= s 的长度 <= 10000`
 
 ## 解法
+使用 replace 替换即可。
+
 ### Python3
 ```python
 class Solution:
@@ -29,6 +31,17 @@ class Solution {
         return s.replaceAll(" ", "%20");
     }
 }
+```
+
+### JavaScript
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var replaceSpace = function(s) {
+    return s.split(' ').join('%20')
+};
 ```
 
 ### ...

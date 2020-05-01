@@ -28,47 +28,74 @@
 - `0 <= m <= 1000`
 
 ## 解法
+从左下角（或右上角）开始查找即可。
+
 ### Python3
 ```python
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
-        if not matrix:
+        if not matrix or not matrix[0]:
             return False
-        
-        i, j = len(matrix) - 1, 0
-        while i >= 0 and j < len(matrix[0]):
+        rows, cols = len(matrix), len(matrix[0])
+        i, j = rows - 1, 0
+        while i >= 0 and j < cols:
             if matrix[i][j] == target:
                 return True
-            if matrix[i][j] < target:
-                j += 1
-            else:
+            if matrix[i][j] > target:
                 i -= 1
+            else:
+                j += 1
         return False
+
 ```
 
 ### Java
 ```java
 class Solution {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
-        if (matrix == null || matrix.length == 0) {
+        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
             return false;
         }
         int rows = matrix.length, cols = matrix[0].length;
-
         int i = rows - 1, j = 0;
         while (i >= 0 && j < cols) {
             if (matrix[i][j] == target) {
                 return true;
             }
-            if (matrix[i][j] < target) {
-                ++j;
-            } else {
+            if (matrix[i][j] > target) {
                 --i;
+            } else {
+                ++j;
             }
         }
         return false;
     }
 }
+```
+
+### JavaScript
+```js
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var findNumberIn2DArray = function(matrix, target) {
+    let row = matrix.length
+    let col = matrix[0].length
+    function dfs(i,j) {
+        if(i < 0 || j >= col) {
+            return false
+        }
+        if(matrix[i][j] === target) return true
+        else if(matrix[i][j] > target) {
+            return dfs(i-1,j)
+        } else {
+            return dfs(i,j+1)
+        }
+    }
+    return dfs(row-1,0)
+};
 ```
 
 ### ...

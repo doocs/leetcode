@@ -25,6 +25,9 @@
 
 
 ## 解法
+青蛙想上第 `n` 级台阶，可从第 `n-1` 级台阶跳一级上去，也可从第 `n-2` 级台阶跳两级上去，即：`f(n) = f(n-1) + f(n-2)`。递推求解即可。
+
+
 ### Python3
 ```python
 class Solution:
@@ -48,6 +51,25 @@ class Solution {
         return b;
     }
 }
+```
+
+### JavaScript
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var numWays = function(n) {
+    if(!n) return 1
+    let pre = 1
+    let cur = 1
+    for(let i=2;i<=n;i++) {
+        let c = (pre + cur) % (1e9 + 7)
+        pre = cur
+        cur = c
+    }
+    return cur
+};
 ```
 
 ### ...

@@ -22,6 +22,11 @@
 - `2 <= nums <= 10000`
 
 ## 解法
+异或运算求解。
+
+首先明确，两个相同的数异或之后的结果为 0。对该数组所有元素进行异或运算，结果就是**两个只出现一次的数字异或的结果**。找出这个结果中某个二进制位为 1 的位置，之后对数组所有元素进行分类，二进制位为 0 的异或到 a，二进制位为 1 的异或到 b，结果就是 a，b。
+
+
 ### Python3
 ```python
 class Solution:
@@ -69,6 +74,34 @@ class Solution {
         return new int[] {a, b};
     }
 }
+```
+
+### JavaScript
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var singleNumbers = function(nums) {
+    let xor = 0
+    let bit = 1
+    let res = [0,0]
+    for(let num of nums) {
+        xor ^= num
+    }
+    while((xor & 1) === 0) {
+        xor >>= 1
+        bit <<= 1
+    }
+    for(let num of nums) {
+        if((num & bit) === 0) {
+            res[0] ^= num
+        } else {
+            res[1] ^= num
+        }
+    }
+    return res
+};
 ```
 
 ### ...

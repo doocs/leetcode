@@ -46,9 +46,7 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 
 
 <ol>
-
 	<li><code>0 &lt;= S.length &lt;= 500000</code></li>
-
 </ol>
 
 

@@ -22,20 +22,37 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+利用异或的特性，`res = res ^ x ^ x`。对同一个值异或两次，结果等于它本身。最后异或的结果，就是只出现一次的数字，即数组中缺失的整数。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        res = 0
+        for i, num in enumerate(nums):
+            res ^= i
+            res ^= num
+        res ^= len(nums)
+        return res
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int missingNumber(int[] nums) {
+        int res = 0, n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            res ^= i;
+            res ^= nums[i];
+        }
+        res ^= n;
+        return res;
+    }
+}
 ```
 
 ### ...

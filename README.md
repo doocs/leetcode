@@ -5,8 +5,7 @@
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,C++,Python,JavaScript,Go,.../green?list=1" alt="languages"></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
-  <a href="https://github.com/doocs/leetcode/issues"><img src="https://badgen.net/github/open-issues/doocs/leetcode" alt="issues"></a>
-  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode.svg" alt="forks"></a>
+  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode" alt="forks"></a>
   <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
@@ -18,25 +17,24 @@
 [English Version](/README_EN.md)
 
 ## 站点
+- Netlify: https://lc.netlify.app
 - GitHub Pages: https://doocs.github.io/leetcode
 - Coding Pages: https://d3jc40.coding-pages.com
 
-注：若 [GitHub Pages](https://doocs.github.io/leetcode) 访问加载过慢，可访问 [Coding Pages](https://d3jc40.coding-pages.com)。
-
 ## 题解
 - [LeetCode](/solution/README.md)
-- [剑指 Offer（第 2 版）](/lcof/README.md)
-- [程序员面试金典（第 6 版）](/lcci/README.md)
+- [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
+- [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
 
 ## 维护者
 [Yang Libin](https://github.com/yanglbme): GitHub 技术社区 [@Doocs](https://github.com/doocs) 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。
 
 ## 加入我们
-刷编程题的最大好处就是**可以锻炼解决问题的思维能力**。相信我，「如何去思考」​本身也是一项需要不断学习和练习的技能。非常感谢前微软工程师、现蚂蚁金服技术专家 [@kfstorm](https://github.com/kfstorm) 贡献了本项目的所有 [C# 题解](https://github.com/doocs/leetcode/pull/245)。
+刷编程题的最大好处就是可以锻炼解决问题的思维能力。相信我，「如何去思考」​本身也是一项需要不断学习和练习的技能。非常感谢前微软工程师、现蚂蚁金服技术专家 [@kfstorm](https://github.com/kfstorm) 贡献了本项目的所有 [C# 题解](https://github.com/doocs/leetcode/pull/245)。
 
 如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
-- 将[本项目](https://github.com/doocs/leetcode) <kbd>Fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
+- 将[本项目](https://github.com/doocs/leetcode) <kbd>fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
 - 对项目做出一些变更，然后使用 git <kbd>add</kbd>、<kbd>commit</kbd>、<kbd>push</kbd> 等命令将你的变更提交到你的远程 GitHub 仓库；
 - 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
 - 你也可以参考 [GitHub 帮助文档](https://help.github.com/cn) 了解更多细节。

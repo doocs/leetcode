@@ -31,6 +31,8 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 - `0 <= n <= 100`
 
 ## 解法
+递推求解。
+
 ### Python3
 ```python
 class Solution:
@@ -54,6 +56,25 @@ class Solution {
         return a;
     }
 }
+```
+
+### JavaScript
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var fib = function(n) {
+    if(!n) return 0
+    let pre = 0
+    let cur = 1
+    for(let i=2;i<=n;i++) {
+        let c = (pre + cur)%(1e9+7)
+        pre = cur
+        cur = c
+    }
+    return cur
+};
 ```
 
 ### ...

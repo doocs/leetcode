@@ -58,9 +58,7 @@
 
 
 <ol>
-
 	<li>The number of animals in the shelter will not exceed 20000.</li>
-
 </ol>
 
 

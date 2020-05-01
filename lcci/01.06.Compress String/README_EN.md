@@ -7,8 +7,6 @@
 
 <p><strong>Example 1:</strong></p>
 
-
-
 <pre>
 
 <strong>Input: </strong>&quot;aabcccccaaa&quot;
@@ -34,8 +32,6 @@
 The compressed string is &quot;a1b2c2d1&quot;, which is longer than the original string.
 
 </pre>
-
-<p>&nbsp;</p>
 
 <p><strong>Note:</strong></p>
 

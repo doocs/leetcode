@@ -18,20 +18,65 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+递归求解。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def translateNum(self, num: int) -> int:
+        def cal(s):
+            if len(s) < 2:
+                return 1
+            t = int(s[:2])
+            return cal(s[1:]) if t < 10 or t > 25 else cal(s[1:]) + cal(s[2:])
+        return cal(str(num))
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int translateNum(int num) {
+        return cal(String.valueOf(num));
+    }
 
+    private int cal(String s) {
+        int n = s.length();
+        if (n < 2) {
+            return 1;
+        }
+        int t = Integer.parseInt(s.substring(0, 2));
+        return t < 10 || t > 25 ? cal(s.substring(1)) : cal(s.substring(1)) + cal(s.substring(2));
+    }
+}
+```
+
+### JavaScript
+```js
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var translateNum = function(num) {
+    let res = 0
+    num = num.toString()
+    function dfs(i) {
+        if(i >= num.length) {
+            res++
+            return
+        }
+        dfs(i+1)
+        let tmp = +(num[i] + num[i+1])
+        if(num[i] !== '0' && tmp >= 0 && tmp < 26 ) {
+            dfs(i+2)
+        }
+    }
+    dfs(0)
+    return res
+};
 ```
 
 ### ...
