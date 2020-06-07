@@ -15,10 +15,3 @@ jobs:
       with:
           source-repo: "git@github.com:doocs/leetcode.git"
           destination-repo: "git@gitee.com:Doocs/leetcode.git"
-    - name: Sync to coding.net
-      uses: wearerequired/git-mirror-action@master
-      env:
-          SSH_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
-      with:
-          source-repo: "git@github.com:doocs/leetcode.git"
-          destination-repo: "git@e.coding.net:doocs/leetcode.git"
