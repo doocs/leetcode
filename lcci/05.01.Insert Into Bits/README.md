@@ -34,7 +34,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int insertBits(int N, int M, int i, int j) {
+        for (int k = i; k <= j; k++) {
+            N &= ~(1 << k);
+        }
+        return N ^ (M << i);
+    }
+}
 ```
 
 ### ...

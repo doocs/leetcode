@@ -40,7 +40,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int convertInteger(int A, int B) {
+        return Integer.bitCount(A ^ B);
+    }
+}
 ```
 
 ### ...
