@@ -1,20 +1,20 @@
 class Solution {
     public String addBinary(String a, String b) {
-        int al = a.length(), bl = b.length(), di = Math.max(al, bl);
-        char[] ac = a.toCharArray(), bc = b.toCharArray(), re = new char[di + 1];
-        boolean jw = false;
-        for (int i = 1; i <= di; i++) {
-            int alc = al - i , blc = bl - i;
-            char aChar = alc >= 0 ? ac[alc] : '0';
-            char bChar = blc >= 0 ? bc[blc] : '0';
-            if (aChar == bChar) {
-                re[di + 1 - i] = jw ? '1' : '0';
-                jw = aChar == '1';
-            } else re[di + 1 - i] = jw ? '0' : '1';
+        StringBuilder reverseAnswer = new StringBuilder();
+        int maxLength = Math.max(a.length(), b.length());
+        int carry = 0;
+
+        for (int i = 0;i < maxLength;i++) {
+            carry += i < a.length() ? a.charAt(a.length() - 1 - i) - 48 : 0;
+            carry += i < b.length() ? b.charAt(b.length() - 1 - i) - 48 : 0;
+
+            reverseAnswer.append(carry % 2);
+            carry /= 2;
         }
-        if (jw) re[0] = '1';
-        StringBuilder builder = new StringBuilder();
-        for (char c : re) if (c != 0) builder.append(c);
-        return builder.toString();
+
+        if (carry == 1) {
+            reverseAnswer.append(1);
+        }
+        return reverseAnswer.reverse().toString();
     }
 }
