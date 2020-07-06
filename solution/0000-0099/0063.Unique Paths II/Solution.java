@@ -1,33 +1,30 @@
 class Solution {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int n = obstacleGrid.length;
-        int m = obstacleGrid[0].length;
-        int[][] res = new int[n][m];
-        int i = 0;
-        while (i < n && obstacleGrid[i][0] == 0) {
-            // 无障碍物
-            res[i++][0] = 1;
+        int column = obstacleGrid[0].length, row = obstacleGrid.length;
+        int[][] dp = new int[row][column];
+        // 第一行
+        for (int i = 0; i < column; i++) {
+            if (obstacleGrid[0][i] == 1) {
+                break;
+            }
+            dp[0][i] = 1;
         }
-        while (i < n) {
-            res[i++][0] = 0;
+
+        // 第一列
+        for (int i = 0; i < row; i++) {
+            if (obstacleGrid[i][0] == 1) {
+                break;
+            }
+            dp[i][0] = 1;
         }
-        
-        i = 0;
-        while (i < m && obstacleGrid[0][i] == 0) {
-            // 无障碍物
-            res[0][i++] = 1;
-        }
-        while (i < m) {
-            res[0][i++] = 0;
-        }
-        
-        for (int k = 1; k < n; ++k) {
-            for (int j = 1; j < m; ++j) {
-                res[k][j] = obstacleGrid[k][j] == 1 ? 0 : (res[k - 1][j] + res[k][j - 1]);
+
+        // dp
+        for (int i = 1; i < row; i++) {
+            for (int j = 1; j < column; j++) {
+                dp[i][j] = obstacleGrid[i][j] == 1 ? 0 : dp[i - 1][j] + dp[i][j - 1];
             }
         }
-        
-        return res[n - 1][m - 1];
-        
+
+        return dp[row - 1][column - 1];
     }
 }
