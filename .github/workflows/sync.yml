@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     steps:
     - name: Sync to gitee.com
@@ -18,7 +18,7 @@ jobs:
 
     - name: Set ssh environment
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
+        SSH_PRIVATE_KEY: ${{ secrets.CODING_RSA_PRIVATE_KEY }}
       run: |
         mkdir -p ~/.ssh/
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
@@ -33,6 +33,4 @@ jobs:
         cd /tmp
         git clone git@github.com:doocs/leetcode.git leetcode
         cd leetcode
-        git checkout master
         git remote add coding git@e.coding.net:doocs/leetcode.git
-        git push coding master
