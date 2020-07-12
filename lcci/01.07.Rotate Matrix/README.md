@@ -48,11 +48,25 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+原地旋转，i 的范围是 `[0, n/2)`，j 的范围是 `[i, n-1-i)`。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        n = len(matrix)
+        for i in range(n // 2):
+            for j in range(i, n - 1 - i):
+                t = matrix[i][j]
+                matrix[i][j] = matrix[n - j - 1][i]
+                matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]
+                matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]
+                matrix[j][n - i - 1] = t
 
 ```
 
@@ -60,7 +74,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n / 2; ++i) {
+            for (int j = i; j < n - 1 - i; ++j) {
+                int t = matrix[i][j];
+                matrix[i][j] = matrix[n - j - 1][i];
+                matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+                matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
+                matrix[j][n - i - 1] = t;
+            }
+        }
+    }
+}
 ```
 
 ### ...
