@@ -42,11 +42,36 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+用 set 记录需要清零的行 `zero_rows` 跟列 `zero_cols`，之后分别将需要清零的行、列上的所有元素清零。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        rows, cols = len(matrix), len(matrix[0])
+        zero_rows, zero_cols = set(), set()
+        for i in range(rows):
+            for j in range(cols):
+                if matrix[i][j] == 0:
+                    zero_rows.add(i)
+                    zero_cols.add(j)
+        
+        # 行清零
+        for i in zero_rows:
+            for j in range(cols):
+                matrix[i][j] = 0
+        
+        # 列清零
+        for j in zero_cols:
+            for i in range(rows):
+                matrix[i][j] = 0
+        
+        return matrix
 
 ```
 
@@ -54,7 +79,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int rows = matrix.length, cols = matrix[0].length;
+        Set<Integer> zeroRows = new HashSet<>();
+        Set<Integer> zeroCols = new HashSet<>();
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                if (matrix[i][j] == 0) {
+                    zeroRows.add(i);
+                    zeroCols.add(j);
+                }
+            }
+        }
 
+        // 行清零
+        for (int row : zeroRows) {
+            for (int j = 0; j < cols; ++j) {
+                matrix[row][j] = 0;
+            }
+        }
+
+        // 列清零
+        for (int col : zeroCols) {
+            for (int i = 0; i < rows; ++i) {
+                matrix[i][col] = 0;
+            }
+        }
+    }
+}
 ```
 
 ### ...
