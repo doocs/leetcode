@@ -38,13 +38,40 @@
 ### Python3
 
 ```python
-
+class Solution:
+    def smallestDifference(self, a: List[int], b: List[int]) -> int:
+        a.sort()
+        b.sort()
+        i, j, res = 0, 0, 2147483647
+        m, n = len(a), len(b)
+        while i < m and j < n:
+            if a[i] == b[j]: return 0
+            res = min(res, abs(a[i] - b[j]))
+            if a[i] > b[j]: j += 1
+            else: i += 1
+        return res
+        
 ```
 
 ### Java
 
 ```java
-
+class Solution {
+    public int smallestDifference(int[] a, int[] b) {
+        Arrays.sort(a);
+        Arrays.sort(b);
+        int m = a.length, n = b.length;
+        int i = 0, j = 0;
+        long res = Long.MAX_VALUE;
+        while (i < m && j < n) {
+            if (a[i] == b[j]) return 0;
+            res = Math.min(res, Math.abs((long) a[i] - (long) b[j]));
+            if (a[i] > b[j]) ++j;
+            else ++i;
+        }
+        return (int) res;
+    }
+}
 ```
 
 ### ...
