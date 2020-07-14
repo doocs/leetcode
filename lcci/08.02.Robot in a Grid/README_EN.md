@@ -4,17 +4,12 @@
 <p>Imagine a robot sitting on the upper left corner of grid with r rows and c columns. The robot can only move in two directions, right and down, but certain cells are &quot;off limits&quot; such that the robot cannot step on them. Design an algorithm to find a path for the robot from the top left to the bottom right.</p>
 
 
-
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png" style="height: 183px; width: 400px;" /></p>
-
-
+![](./images/robot_maze.png)
 
 <p>&quot;off limits&quot; and empty grid are represented by&nbsp;<code>1</code> and&nbsp;<code>0</code>&nbsp;respectively.</p>
 
 
-
 <p>Return a valid path, consisting of row number and column number of grids in the path.</p>
-
 
 
 <p><strong>Example&nbsp;1:</strong></p>
