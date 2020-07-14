@@ -50,19 +50,49 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+取行最小值与列最大值的交集即可。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
+        row_min = {min(rows) for rows in matrix}
+        col_max = {max(cols) for cols in zip(*matrix)}
+        return [e for e in row_min if e in col_max]
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> luckyNumbers (int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        Set<Integer> rowMin = new HashSet<>();
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < m; ++i) {
+            int min = Integer.MAX_VALUE;
+            for (int j = 0; j < n; ++j) {
+                min = Math.min(min, matrix[i][j]);
+            }
+            rowMin.add(min);
+        }
 
+        for (int j = 0; j < n; ++j) {
+            int max = Integer.MIN_VALUE;
+            for (int i = 0; i < m; ++i) {
+                max = Math.max(max, matrix[i][j]);
+            }
+            if (rowMin.contains(max)) {
+                res.add(max);
+            }
+
+        }
+        return res;
+    }
+}
 ```
 
 ### ...
