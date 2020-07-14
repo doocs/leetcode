@@ -16,21 +16,9 @@ jobs:
           source-repo: "git@github.com:doocs/leetcode.git"
           destination-repo: "git@gitee.com:Doocs/leetcode.git"
 
-    - name: Set ssh environment
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.CODING_RSA_PRIVATE_KEY }}
-      run: |
-        mkdir -p ~/.ssh/
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com > ~/.ssh/known_hosts
-        chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
-        git config --global user.name "yanglbme"
-        git config --global user.email "szuyanglb@outlook.com"
-    
-    - name: Sync to coding.net
-      run: |
-        cd /tmp
-        git clone git@github.com:doocs/leetcode.git leetcode
-        cd leetcode
-        git remote add coding git@e.coding.net:doocs/leetcode.git
+    - name: Build Gitee Pages
+      uses: yanglbme/gitee-pages-action@master
+      with:
+          gitee-username: yanglbme
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          gitee-repo: doocs/leetcode

@@ -51,8 +51,10 @@
             } else {
               url = 'https://github.com/doocs/leetcode/blob/master/' + vm.route.file
             }
-            const edit = en ? 'Edit on GitHub' : '在 GitHub 编辑'
-            const editHtml = `[:memo: ${edit}](${url})\n`
+
+            const github = `[GitHub](${url})`
+            const gitee = `[Gitee](${url.replace("github", "gitee")})`
+            const editHtml = en ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
             return editHtml + html
           })
 
