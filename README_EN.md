@@ -4,9 +4,11 @@
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,C++,Python,JavaScript,Go,.../green?list=1" alt="languages"></a>
+  <a href="https://opencollective.com/doocs-leetcode#backers" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
+  <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a>
+  <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode" alt="forks"></a>
-  <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
 </p>
@@ -55,6 +57,15 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 This project exists thanks to all the people who contribute. 
 
 <a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=1200&button=false" /></a>
+
+## Backers
+
+<a href="https://opencollective.com/doocs-leetcode#backers" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
+
+
+## Sponsors
+
+<a href="https://opencollective.com/doocs-leetcode/sponsor/0/website" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsor/0/avatar.svg"></a>
 
 ## License
 
