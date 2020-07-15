@@ -60,14 +60,20 @@ This project exists thanks to all the people who contribute.
 
 ## Backers
 
+Thank you to all our backers!
+
 <a href="https://opencollective.com/doocs-leetcode#backers" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
 
 > You help the developer community practice for interviews, and there is nothing better we could ask for. -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
 ## Sponsors
 
-<a href="https://opencollective.com/doocs-leetcode/sponsor/0/website" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsor/0/avatar.svg"></a>
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
+
+<a href="https://opencollective.com/doocs-leetcode#sponsors" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
 ## License
 
-<a rel="license" href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./img/cc-by-sa-88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+<a rel="license" href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./img/cc-by-sa-88x31.png" /></a>
