@@ -62,6 +62,7 @@ This project exists thanks to all the people who contribute.
 
 <a href="https://opencollective.com/doocs-leetcode#backers" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
 
+> You help the developer community practice for interviews, and there is nothing better we could ask for. -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
 ## Sponsors
 
