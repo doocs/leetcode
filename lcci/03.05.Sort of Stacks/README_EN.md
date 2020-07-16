@@ -1,5 +1,7 @@
 # [03.05. Sort of Stacks](https://leetcode-cn.com/problems/sort-of-stacks-lcci)
 
+[中文文档](/lcci/03.05.Sort%20of%20Stacks/README.md)
+
 ## Description
 <p>Write a program to sort a stack such that the smallest items are on the top. You can use an additional temporary stack, but you may not copy the elements into any other data structure (such as an array). The stack supports the following operations: <code>push</code>, <code>pop</code>, <code>peek</code>, and <code>isEmpty</code>. When the stack is empty, <code>peek</code> should return -1.</p>
 

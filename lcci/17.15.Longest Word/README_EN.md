@@ -1,5 +1,7 @@
 # [17.15. Longest Word](https://leetcode-cn.com/problems/longest-word-lcci)
 
+[中文文档](/lcci/17.15.Longest%20Word/README.md)
+
 ## Description
 <p>Given a list of words, write a program to find the longest word made of other words in the list. If there are more than one answer, return the one that has smallest lexicographic order. If no answer, return an empty string.</p>
 

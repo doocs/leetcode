@@ -1,5 +1,7 @@
 # [08.09. Bracket](https://leetcode-cn.com/problems/bracket-lcci)
 
+[中文文档](/lcci/08.09.Bracket/README.md)
+
 ## Description
 <p>Implement an algorithm to print all valid (e.g., properly opened and closed) combinations of n pairs of parentheses.</p>
 

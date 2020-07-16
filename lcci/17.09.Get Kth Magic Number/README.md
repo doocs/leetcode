@@ -1,6 +1,6 @@
 # [面试题 17.09. 第 k 个数](https://leetcode-cn.com/problems/get-kth-magic-number-lcci)
 
-[English Version](/lcci/17.09.Get%20Kth%20Magic%20Number/README_EN.md)
+[中文文档](/lcci/17.09.Get%20Kth%20Magic%20Number/README.md)
 
 ## 题目描述
 <!-- 这里写题目描述 -->

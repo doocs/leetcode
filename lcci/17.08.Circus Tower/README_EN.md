@@ -1,5 +1,7 @@
 # [17.08. Circus Tower](https://leetcode-cn.com/problems/circus-tower-lcci)
 
+[中文文档](/lcci/17.08.Circus%20Tower/README.md)
+
 ## Description
 <p>A circus is designing a tower routine consisting of people standing atop one anoth&shy;er&#39;s shoulders. For practical and aesthetic reasons, each person must be both shorter and lighter than the person below him or her. Given the heights and weights of each person in the circus, write a method to compute the largest possible number of people in such a tower.</p>
 

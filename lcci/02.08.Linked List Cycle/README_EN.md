@@ -1,5 +1,7 @@
 # [02.08. Linked List Cycle](https://leetcode-cn.com/problems/linked-list-cycle-lcci)
 
+[中文文档](/lcci/02.08.Linked%20List%20Cycle/README.md)
+
 ## Description
 <p>Given a circular linked list, implement an algorithm that returns the node at the beginning of the loop.</p>
 

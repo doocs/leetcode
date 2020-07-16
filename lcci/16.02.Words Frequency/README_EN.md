@@ -1,5 +1,7 @@
 # [16.02. Words Frequency](https://leetcode-cn.com/problems/words-frequency-lcci)
 
+[中文文档](/lcci/16.02.Words%20Frequency/README.md)
+
 ## Description
 <p>Design a method to find the frequency of occurrences of any given word in a book. What if we were running this algorithm multiple times?</p>
 

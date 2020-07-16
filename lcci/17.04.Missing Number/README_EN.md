@@ -1,5 +1,7 @@
 # [17.04. Missing Number](https://leetcode-cn.com/problems/missing-number-lcci)
 
+[中文文档](/lcci/17.04.Missing%20Number/README.md)
+
 ## Description
 <p>An array&nbsp;contains all the integers from 0 to n, except for one number which is missing.&nbsp; Write code to find the missing integer. Can you do it in O(n) time?</p>
 

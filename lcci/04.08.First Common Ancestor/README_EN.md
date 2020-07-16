@@ -1,5 +1,7 @@
 # [04.08. First Common Ancestor](https://leetcode-cn.com/problems/first-common-ancestor-lcci)
 
+[中文文档](/lcci/04.08.First%20Common%20Ancestor/README.md)
+
 ## Description
 <p>Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE: This is not necessarily a binary search tree.</p>
 

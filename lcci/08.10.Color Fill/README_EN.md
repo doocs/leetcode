@@ -1,5 +1,7 @@
 # [08.10. Color Fill](https://leetcode-cn.com/problems/color-fill-lcci)
 
+[中文文档](/lcci/08.10.Color%20Fill/README.md)
+
 ## Description
 <p>Implement the &quot;paint fill&quot; function that one might see on many image editing programs. That is, given a screen (represented by a two-dimensional array of colors), a point, and a new color, fill in the surrounding area until the color changes from the original color.</p>
 

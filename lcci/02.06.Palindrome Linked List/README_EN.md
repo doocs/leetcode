@@ -1,5 +1,7 @@
 # [02.06. Palindrome Linked List](https://leetcode-cn.com/problems/palindrome-linked-list-lcci)
 
+[中文文档](/lcci/02.06.Palindrome%20Linked%20List/README.md)
+
 ## Description
 <p>Implement a function to check if a linked list is a palindrome.</p>
 

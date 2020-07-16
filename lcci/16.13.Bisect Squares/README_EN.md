@@ -1,5 +1,7 @@
 # [16.13. Bisect Squares](https://leetcode-cn.com/problems/bisect-squares-lcci)
 
+[中文文档](/lcci/16.13.Bisect%20Squares/README.md)
+
 ## Description
 <p>Given two squares on a two-dimensional plane, find a line that would cut these two squares in half. Assume that the top and the bottom sides of the square run parallel to the x-axis.</p>
 

@@ -1,5 +1,7 @@
 # [01.09. String Rotation](https://leetcode-cn.com/problems/string-rotation-lcci)
 
+[中文文档](/lcci/01.09.String%20Rotation/README.md)
+
 ## Description
 <p>Given two strings, <code>s1</code>&nbsp;and <code>s2</code>, write code to check if <code>s2</code> is a rotation of <code>s1</code> (e.g.,&quot;waterbottle&quot; is a rotation of&quot;erbottlewat&quot;).&nbsp;Can you use&nbsp;only one call to the method that&nbsp;checks if one word is a substring of another?</p>
 

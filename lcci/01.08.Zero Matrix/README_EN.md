@@ -1,5 +1,7 @@
 # [01.08. Zero Matrix](https://leetcode-cn.com/problems/zero-matrix-lcci)
 
+[中文文档](/lcci/01.08.Zero%20Matrix/README.md)
+
 ## Description
 <p>Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.</p>
 

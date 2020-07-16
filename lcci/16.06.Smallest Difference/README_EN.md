@@ -1,5 +1,7 @@
 # [16.06. Smallest Difference](https://leetcode-cn.com/problems/smallest-difference-lcci)
 
+[中文文档](/lcci/16.06.Smallest%20Difference/README.md)
+
 ## Description
 <p>Given two arrays of integers, compute the pair of values (one value in each array) with the smallest (non-negative) difference. Return the difference.</p>
 

@@ -1,5 +1,7 @@
 # [04.05. Legal Binary Search Tree](https://leetcode-cn.com/problems/legal-binary-search-tree-lcci)
 
+[中文文档](/lcci/04.05.Legal%20Binary%20Search%20Tree/README.md)
+
 ## Description
 <p>Implement a function to check if a binary tree is a binary search tree.</p>
 

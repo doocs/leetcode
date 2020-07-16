@@ -1,5 +1,7 @@
 # [05.04. Closed Number](https://leetcode-cn.com/problems/closed-number-lcci)
 
+[中文文档](/lcci/05.04.Closed%20Number/README.md)
+
 ## Description
 <p>Given a positive integer, print the next smallest and the next largest number that have the same number of 1 bits in their binary representation.</p>
 

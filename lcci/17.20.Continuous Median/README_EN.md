@@ -1,5 +1,7 @@
 # [17.20. Continuous Median](https://leetcode-cn.com/problems/continuous-median-lcci)
 
+[中文文档](/lcci/17.20.Continuous%20Median/README.md)
+
 ## Description
 <p>Numbers are randomly generated and passed to a method. Write a program to find and maintain the median value as new values are generated.</p>
 

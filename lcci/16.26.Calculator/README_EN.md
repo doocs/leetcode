@@ -1,5 +1,7 @@
 # [16.26. Calculator](https://leetcode-cn.com/problems/calculator-lcci)
 
+[中文文档](/lcci/16.26.Calculator/README.md)
+
 ## Description
 <p>Given an arithmetic equation consisting of positive integers, +, -, * and / (no paren&shy;theses), compute the result.</p>
 

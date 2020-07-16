@@ -1,5 +1,7 @@
 # [08.02. Robot in a Grid](https://leetcode-cn.com/problems/robot-in-a-grid-lcci)
 
+[中文文档](/lcci/08.02.Robot%20in%20a%20Grid/README.md)
+
 ## Description
 <p>Imagine a robot sitting on the upper left corner of grid with r rows and c columns. The robot can only move in two directions, right and down, but certain cells are &quot;off limits&quot; such that the robot cannot step on them. Design an algorithm to find a path for the robot from the top left to the bottom right.</p>
 

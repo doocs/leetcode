@@ -1,5 +1,7 @@
 # [08.07. Permutation I](https://leetcode-cn.com/problems/permutation-i-lcci)
 
+[中文文档](/lcci/08.07.Permutation%20I/README.md)
+
 ## Description
 <p>Write a method to compute all permutations of a string of unique characters.</p>
 

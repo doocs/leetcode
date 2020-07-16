@@ -1,5 +1,7 @@
 # [05.08. Draw Line](https://leetcode-cn.com/problems/draw-line-lcci)
 
+[中文文档](/lcci/05.08.Draw%20Line/README.md)
+
 ## Description
 <p>A monochrome screen is stored as a single array of int, allowing 32 consecutive pixels to be stored in one int. The screen has width <code>w</code>, where <code>w</code> is divisible by 32&nbsp;(that is, no byte will be split across rows). The height of the screen, of course, can be derived from the length of the array and the width. Implement a function that draws a horizontal line from <code>(x1, y)</code> to <code>(x2, y)</code>.</p>
 

@@ -1,6 +1,6 @@
 # [面试题 10.05. 稀疏数组搜索](https://leetcode-cn.com/problems/sparse-array-search-lcci)
 
-[English Version](/lcci/10.05.Sparse%20Array%20Search/README_EN.md)
+[中文文档](/lcci/10.05.Sparse%20Array%20Search/README.md)
 
 ## 题目描述
 <!-- 这里写题目描述 -->

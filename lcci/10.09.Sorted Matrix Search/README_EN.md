@@ -1,5 +1,7 @@
 # [10.09. Sorted Matrix Search](https://leetcode-cn.com/problems/sorted-matrix-search-lcci)
 
+[中文文档](/lcci/10.09.Sorted%20Matrix%20Search/README.md)
+
 ## Description
 <p>Given an M x N matrix in which each row and each column is sorted in ascending order, write a method to find an element.</p>
 

@@ -1,5 +1,7 @@
 # [01.01. Is Unique](https://leetcode-cn.com/problems/is-unique-lcci)
 
+[中文文档](/lcci/01.01.Is%20Unique/README.md)
+
 ## Description
 <p>Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?</p>
 

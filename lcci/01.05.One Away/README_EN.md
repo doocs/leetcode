@@ -1,5 +1,7 @@
 # [01.05. One Away](https://leetcode-cn.com/problems/one-away-lcci)
 
+[中文文档](/lcci/01.05.One%20Away/README.md)
+
 ## Description
 <p>There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away.</p>
 

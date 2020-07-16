@@ -1,5 +1,7 @@
 # [16.15. Master Mind](https://leetcode-cn.com/problems/master-mind-lcci)
 
+[中文文档](/lcci/16.15.Master%20Mind/README.md)
+
 ## Description
 <p>The Game of Master Mind is played as follows:</p>
 

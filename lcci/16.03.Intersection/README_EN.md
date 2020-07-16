@@ -1,5 +1,7 @@
 # [16.03. Intersection](https://leetcode-cn.com/problems/intersection-lcci)
 
+[中文文档](/lcci/16.03.Intersection/README.md)
+
 ## Description
 <p>Given two straight line segments (represented as a start point and an end point), compute the point of intersection, if any. If there&#39;s no intersection, return an empty array.</p>
 

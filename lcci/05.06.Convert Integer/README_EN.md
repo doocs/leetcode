@@ -1,5 +1,7 @@
 # [05.06. Convert Integer](https://leetcode-cn.com/problems/convert-integer-lcci)
 
+[中文文档](/lcci/05.06.Convert%20Integer/README.md)
+
 ## Description
 <p>Write a function to determine the number of bits you would need to flip to convert integer A to integer B.</p>
 

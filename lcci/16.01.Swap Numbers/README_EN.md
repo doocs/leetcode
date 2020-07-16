@@ -1,5 +1,7 @@
 # [16.01. Swap Numbers](https://leetcode-cn.com/problems/swap-numbers-lcci)
 
+[中文文档](/lcci/16.01.Swap%20Numbers/README.md)
+
 ## Description
 <p>Write a function to swap a number in place (that is, without temporary vari&shy; ables).</p>
 

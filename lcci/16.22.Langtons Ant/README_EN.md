@@ -1,5 +1,7 @@
 # [16.22. Langtons Ant](https://leetcode-cn.com/problems/langtons-ant-lcci)
 
+[中文文档](/lcci/16.22.Langtons%20Ant/README.md)
+
 ## Description
 <p>An ant is sitting on an infinite grid of white and black squares. It initially faces right. All squares are white initially.</p>
 

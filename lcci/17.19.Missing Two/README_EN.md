@@ -1,5 +1,7 @@
 # [17.19. Missing Two](https://leetcode-cn.com/problems/missing-two-lcci)
 
+[中文文档](/lcci/17.19.Missing%20Two/README.md)
+
 ## Description
 <p>You are given an array with all the numbers from 1 to N appearing exactly once, except for two number that is missing. How can you find the missing number in O(N) time and 0(1) space?</p>
 

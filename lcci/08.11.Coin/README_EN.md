@@ -1,5 +1,7 @@
 # [08.11. Coin](https://leetcode-cn.com/problems/coin-lcci)
 
+[中文文档](/lcci/08.11.Coin/README.md)
+
 ## Description
 <p>Given an infinite number of quarters (25 cents), dimes (10 cents), nickels (5 cents), and pennies (1 cent), write code to calculate the number of ways of representing n cents.&nbsp;(The result may be large, so you should return it modulo 1000000007)</p>
 

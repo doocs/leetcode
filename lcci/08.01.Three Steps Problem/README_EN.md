@@ -1,5 +1,7 @@
 # [08.01. Three Steps Problem](https://leetcode-cn.com/problems/three-steps-problem-lcci)
 
+[中文文档](/lcci/08.01.Three%20Steps%20Problem/README.md)
+
 ## Description
 <p>A child is running up a staircase with n steps and can hop either 1 step, 2 steps, or 3 steps at a time. Implement a method to count how many possible ways the child can run up the stairs.&nbsp;The result may be large, so return it modulo 1000000007.</p>
 

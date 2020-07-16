@@ -1,5 +1,7 @@
 # [17.14. Smallest K](https://leetcode-cn.com/problems/smallest-k-lcci)
 
+[中文文档](/lcci/17.14.Smallest%20K/README.md)
+
 ## Description
 <p>Design an algorithm to find the smallest K numbers in an array.</p>
 

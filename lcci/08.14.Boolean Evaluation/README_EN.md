@@ -1,5 +1,7 @@
 # [08.14. Boolean Evaluation](https://leetcode-cn.com/problems/boolean-evaluation-lcci)
 
+[中文文档](/lcci/08.14.Boolean%20Evaluation/README.md)
+
 ## Description
 <p>Given a boolean expression consisting of the symbols <code>0</code> (false), <code>1</code> (true), <code>&amp;</code> (AND), <code>|</code> (OR), and <code>^</code>&nbsp;(XOR), and a desired boolean result value result, implement a function to count the number of ways of parenthesizing the expression such that it evaluates to result.</p>
 

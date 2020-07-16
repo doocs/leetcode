@@ -1,5 +1,7 @@
 # [01.02. Check Permutation](https://leetcode-cn.com/problems/check-permutation-lcci)
 
+[中文文档](/lcci/01.02.Check%20Permutation/README.md)
+
 ## Description
 <p>Given two strings,write a method to decide if one is a permutation of the other.</p>
 

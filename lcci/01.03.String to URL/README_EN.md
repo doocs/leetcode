@@ -1,5 +1,7 @@
 # [01.03. String to URL](https://leetcode-cn.com/problems/string-to-url-lcci)
 
+[中文文档](/lcci/01.03.String%20to%20URL/README.md)
+
 ## Description
 <p>Write a method to replace all spaces in a string with &#39;%20&#39;. You may assume that the string has sufficient space at the end to hold the additional characters,and that you are given the &quot;true&quot; length of the string. (Note: If implementing in Java,please use a character array so that you can perform this operation in place.)</p>
 

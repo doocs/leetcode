@@ -1,5 +1,7 @@
 # [04.10. Check SubTree](https://leetcode-cn.com/problems/check-subtree-lcci)
 
+[中文文档](/lcci/04.10.Check%20SubTree/README.md)
+
 ## Description
 <p>T1&nbsp;and T2 are two very large binary trees, with T1&nbsp;much bigger than T2. Create an algorithm to determine if T2 is a subtree of T1.</p>
 

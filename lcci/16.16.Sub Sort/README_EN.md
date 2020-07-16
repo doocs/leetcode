@@ -1,5 +1,7 @@
 # [16.16. Sub Sort](https://leetcode-cn.com/problems/sub-sort-lcci)
 
+[中文文档](/lcci/16.15.Master%20Mind/README.md)
+
 ## Description
 <p>Given an array of integers, write a method to find indices m and n such that if you sorted&nbsp;elements m through n, the entire array would be sorted. Minimize <code>n - m</code> (that is, find the smallest such sequence).</p>
 

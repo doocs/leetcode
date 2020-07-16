@@ -1,5 +1,7 @@
 # [03.04. Implement Queue using Stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks-lcci)
 
+[中文文档](/lcci/03.04.Implement%20Queue%20using%20Stacks/README.md)
+
 ## Description
 <p>Implement a MyQueue class which implements a queue using two stacks.</p>
 

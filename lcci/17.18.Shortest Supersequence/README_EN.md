@@ -1,5 +1,7 @@
 # [17.18. Shortest Supersequence](https://leetcode-cn.com/problems/shortest-supersequence-lcci)
 
+[中文文档](/lcci/17.18.Shortest%20Supersequence/README.md)
+
 ## Description
 <p>You are given two arrays, one shorter (with all distinct elements) and one longer. Find the shortest subarray in the longer array that contains all the elements in the shorter array. The items can appear in any order.</p>
 

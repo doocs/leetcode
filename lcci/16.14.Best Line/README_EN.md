@@ -1,5 +1,7 @@
 # [16.14. Best Line](https://leetcode-cn.com/problems/best-line-lcci)
 
+[中文文档](/lcci/16.14.Best%20Line/README.md)
+
 ## Description
 <p>Given a two-dimensional graph with points on it, find a line which passes the most number of points.</p>
 

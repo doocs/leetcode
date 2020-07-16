@@ -1,5 +1,7 @@
 # [17.17. Multi Search](https://leetcode-cn.com/problems/multi-search-lcci)
 
+[中文文档](/lcci/17.17.Multi%20Search/README.md)
+
 ## Description
 <p>Given a string band an array of smaller strings T, design a method to search b for each small string in T. Output&nbsp;<code>positions</code> of all strings in&nbsp;<code>smalls</code>&nbsp;that appear in <code>big</code>,&nbsp;where <code>positions[i]</code> is all positions of <code>smalls[i]</code>.</p>
 

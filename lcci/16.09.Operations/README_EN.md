@@ -1,5 +1,7 @@
 # [16.09. Operations](https://leetcode-cn.com/problems/operations-lcci)
 
+[中文文档](/lcci/16.09.Operations/README.md)
+
 ## Description
 <p>rite methods to implement the multiply, subtract, and divide operations for integers. The results of all of these are integers. Use only the add operator.</p>
 

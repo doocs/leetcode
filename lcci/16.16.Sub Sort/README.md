@@ -1,6 +1,6 @@
 # [面试题 16.16. 部分排序](https://leetcode-cn.com/problems/sub-sort-lcci)
 
-[English Version](/lcci/16.16.Sub%20Sort/README_EN.md)
+[English Version](/lcci/16.15.Master%20Mind/README_EN.md)
 
 ## 题目描述
 <!-- 这里写题目描述 -->

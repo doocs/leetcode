@@ -1,5 +1,7 @@
 # [17.11. Find Closest](https://leetcode-cn.com/problems/find-closest-lcci)
 
+[中文文档](/lcci/17.11.Find%20Closest/README.md)
+
 ## Description
 <p>You have a large text file containing words. Given any two words, find the shortest distance (in terms of number of words) between them in the file. If the operation will be repeated many times for the same file (but different pairs of words), can you optimize your solution?</p>
 

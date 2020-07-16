@@ -1,5 +1,7 @@
 # [10.02. Group Anagrams](https://leetcode-cn.com/problems/group-anagrams-lcci)
 
+[中文文档](/lcci/10.02.Group%20Anagrams/README.md)
+
 ## Description
 <p>Write a method to sort an array of strings so that all the anagrams are in the same group.</p>
 

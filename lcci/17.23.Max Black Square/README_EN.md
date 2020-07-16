@@ -1,5 +1,7 @@
 # [17.23. Max Black Square](https://leetcode-cn.com/problems/max-black-square-lcci)
 
+[中文文档](/lcci/17.23.Max%20Black%20Square/README.md)
+
 ## Description
 <p>Imagine you have a square matrix, where each cell (pixel) is either black or white Design an algorithm to find the maximum subsquare such that all four borders are filled with black pixels.</p>
 
