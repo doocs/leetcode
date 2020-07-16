@@ -1,5 +1,7 @@
 # [面试题 16.13. 平分正方形](https://leetcode-cn.com/problems/bisect-squares-lcci)
 
+[English Version](/lcci/16.13.Bisect%20Squares/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个正方形及一个二维平面。请找出将这两个正方形分割成两半的一条直线。假设正方形顶边和底边与 x 轴平行。</p>

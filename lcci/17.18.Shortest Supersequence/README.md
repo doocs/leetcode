@@ -1,5 +1,7 @@
 # [面试题 17.18. 最短超串](https://leetcode-cn.com/problems/shortest-supersequence-lcci)
 
+[English Version](/lcci/17.18.Shortest%20Supersequence/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>假设你有两个数组，一个长一个短，短的元素均不相同。找到长数组中包含短数组所有的元素的最短子数组，其出现顺序无关紧要。</p>

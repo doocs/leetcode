@@ -1,5 +1,7 @@
 # [面试题 02.04. 分割链表](https://leetcode-cn.com/problems/partition-list-lcci)
 
+[English Version](/lcci/02.04.Partition%20List/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写程序以 x 为基准分割链表，使得所有小于 x 的节点排在大于或等于 x 的节点之前。如果链表中包含 x，x 只需出现在小于 x 的元素之后(如下所示)。分割元素 x 只需处于&ldquo;右半部分&rdquo;即可，其不需要被置于左右两部分之间。</p>

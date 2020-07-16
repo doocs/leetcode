@@ -1,5 +1,7 @@
 # [面试题 08.01. 三步问题](https://leetcode-cn.com/problems/three-steps-problem-lcci)
 
+[English Version](/lcci/08.01.Three%20Steps%20Problem/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>三步问题。有个小孩正在上楼梯，楼梯有n阶台阶，小孩一次可以上1阶、2阶或3阶。实现一种方法，计算小孩有多少种上楼梯的方式。结果可能很大，你需要对结果模1000000007。</p>

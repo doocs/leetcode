@@ -1,5 +1,7 @@
 # [面试题 17.04. 消失的数字](https://leetcode-cn.com/problems/missing-number-lcci)
 
+[English Version](/lcci/17.04.Missing%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>数组<code>nums</code>包含从<code>0</code>到<code>n</code>的所有整数，但其中缺了一个。请编写代码找出那个缺失的整数。你有办法在O(n)时间内完成吗？</p>

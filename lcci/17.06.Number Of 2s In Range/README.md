@@ -1,5 +1,7 @@
 # [面试题 17.06. 2出现的次数](https://leetcode-cn.com/problems/number-of-2s-in-range-lcci)
 
+[English Version](/lcci/17.06.Number%20Of%202s%20In%20Range/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个方法，计算从 0 到 n (含 n) 中数字 2 出现的次数。</p>

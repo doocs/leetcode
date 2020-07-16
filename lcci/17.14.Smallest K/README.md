@@ -1,5 +1,7 @@
 # [面试题 17.14. 最小K个数](https://leetcode-cn.com/problems/smallest-k-lcci)
 
+[English Version](/lcci/17.14.Smallest%20K/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>设计一个算法，找出数组中最小的k个数。以任意顺序返回这k个数均可。</p>

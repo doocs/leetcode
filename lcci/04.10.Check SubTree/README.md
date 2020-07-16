@@ -1,5 +1,7 @@
 # [面试题 04.10. 检查子树](https://leetcode-cn.com/problems/check-subtree-lcci)
 
+[English Version](/lcci/04.10.Check%20SubTree/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>检查子树。你有两棵非常大的二叉树：T1，有几万个节点；T2，有几万个节点。设计一个算法，判断 T2 是否为 T1 的子树。</p>

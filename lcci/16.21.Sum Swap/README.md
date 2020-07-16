@@ -1,5 +1,7 @@
 # [面试题 16.21. 交换和](https://leetcode-cn.com/problems/sum-swap-lcci)
 
+[English Version](/lcci/16.21.Sum%20Swap/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个整数数组，请交换一对数值（每个数组中取一个数值），使得两个数组所有元素的和相等。</p>

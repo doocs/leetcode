@@ -1,5 +1,7 @@
 # [面试题 16.22. 兰顿蚂蚁](https://leetcode-cn.com/problems/langtons-ant-lcci)
 
+[English Version](/lcci/16.22.Langtons%20Ant/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>一只蚂蚁坐在由白色和黑色方格构成的无限网格上。开始时，网格全白，蚂蚁面向右侧。每行走一步，蚂蚁执行以下操作。</p>

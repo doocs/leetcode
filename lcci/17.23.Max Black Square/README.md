@@ -1,5 +1,7 @@
 # [面试题 17.23. 最大黑方阵](https://leetcode-cn.com/problems/max-black-square-lcci)
 
+[English Version](/lcci/17.23.Max%20Black%20Square/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个方阵，其中每个单元(像素)非黑即白。设计一个算法，找出 4 条边皆为黑色像素的最大子方阵。</p>

@@ -1,5 +1,7 @@
 # [面试题 02.06. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list-lcci)
 
+[English Version](/lcci/02.06.Palindrome%20Linked%20List/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个函数，检查输入的链表是否是回文的。</p>

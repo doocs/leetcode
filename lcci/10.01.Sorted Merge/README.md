@@ -1,5 +1,7 @@
 # [面试题 10.01. 合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci)
 
+[English Version](/lcci/10.01.Sorted%20Merge/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个排序后的数组 A 和 B，其中 A 的末端有足够的缓冲空间容纳 B。 编写一个方法，将 B 合并入 A 并排序。</p>

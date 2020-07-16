@@ -1,5 +1,7 @@
 # [面试题 03.01. 三合一](https://leetcode-cn.com/problems/three-in-one-lcci)
 
+[English Version](/lcci/03.01.Three%20in%20One/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>三合一。描述如何只用一个数组来实现三个栈。</p>

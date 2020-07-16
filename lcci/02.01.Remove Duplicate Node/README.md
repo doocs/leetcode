@@ -1,5 +1,7 @@
 # [面试题 02.01. 移除重复节点](https://leetcode-cn.com/problems/remove-duplicate-node-lcci)
 
+[English Version](/lcci/02.01.Remove%20Duplicate%20Node/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写代码，移除未排序链表中的重复节点。保留最开始出现的节点。</p>

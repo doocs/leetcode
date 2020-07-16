@@ -1,5 +1,7 @@
 # [面试题 17.12. BiNode](https://leetcode-cn.com/problems/binode-lcci)
 
+[English Version](/lcci/17.12.BiNode/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>二叉树数据结构<code>TreeNode</code>可用来表示单向链表（其中<code>left</code>置空，<code>right</code>为下一个链表节点）。实现一个方法，把二叉搜索树转换为单向链表，要求值的顺序保持不变，转换操作应是原址的，也就是在原始的二叉搜索树上直接修改。</p>

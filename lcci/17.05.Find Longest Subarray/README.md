@@ -1,5 +1,7 @@
 # [面试题 17.05.  字母与数字](https://leetcode-cn.com/problems/find-longest-subarray-lcci)
 
+[English Version](/lcci/17.05.Find%20Longest%20Subarray/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个放有字符和数字的数组，找到最长的子数组，且包含的字符和数字的个数相同。</p>

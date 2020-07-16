@@ -1,5 +1,7 @@
 # [面试题 01.04. 回文排列](https://leetcode-cn.com/problems/palindrome-permutation-lcci)
 
+[English Version](/lcci/01.04.Palindrome%20Permutation/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串，编写一个函数判定其是否为某个回文串的排列之一。</p>

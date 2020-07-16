@@ -1,5 +1,7 @@
 # [面试题 16.06. 最小差](https://leetcode-cn.com/problems/smallest-difference-lcci)
 
+[English Version](/lcci/16.06.Smallest%20Difference/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个整数数组<code>a</code>和<code>b</code>，计算具有最小差绝对值的一对数值（每个数组中取一个值），并返回该对数值的差</p>

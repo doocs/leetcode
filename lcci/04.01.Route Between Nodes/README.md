@@ -1,5 +1,7 @@
 # [面试题 04.01. 节点间通路](https://leetcode-cn.com/problems/route-between-nodes-lcci)
 
+[English Version](/lcci/04.01.Route%20Between%20Nodes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>节点间通路。给定有向图，设计一个算法，找出两个节点之间是否存在一条路径。</p>

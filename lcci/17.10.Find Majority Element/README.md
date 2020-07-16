@@ -1,5 +1,7 @@
 # [面试题 17.10. 主要元素](https://leetcode-cn.com/problems/find-majority-element-lcci)
 
+[English Version](/lcci/17.10.Find%20Majority%20Element/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>如果数组中多一半的数都是同一个，则称之为主要元素。给定一个<strong>整数</strong>数组，找到它的主要元素。若没有，返回-1。</p>

@@ -1,5 +1,7 @@
 # [面试题 16.14. 最佳直线](https://leetcode-cn.com/problems/best-line-lcci)
 
+[English Version](/lcci/16.14.Best%20Line/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二维平面及平面上的 N 个点列表<code>Points</code>，其中第<code>i</code>个点的坐标为<code>Points[i]=[X<sub>i</sub>,Y<sub>i</sub>]</code>。请找出一条直线，其通过的点的数目最多。</p>

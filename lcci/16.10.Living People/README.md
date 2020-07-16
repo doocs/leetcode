@@ -1,5 +1,7 @@
 # [面试题 16.10. 生存人数](https://leetcode-cn.com/problems/living-people-lcci)
 
+[English Version](/lcci/16.10.Living%20People/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定N个人的出生年份和死亡年份，第<code>i</code>个人的出生年份为<code>birth[i]</code>，死亡年份为<code>death[i]</code>，实现一个方法以计算生存人数最多的年份。</p>

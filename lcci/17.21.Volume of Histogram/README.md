@@ -1,5 +1,7 @@
 # [面试题 17.21. 直方图的水量](https://leetcode-cn.com/problems/volume-of-histogram-lcci)
 
+[English Version](/lcci/17.21.Volume%20of%20Histogram/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个直方图(也称柱状图)，假设有人从上面源源不断地倒水，最后直方图能存多少水量?直方图的宽度为 1。</p>
