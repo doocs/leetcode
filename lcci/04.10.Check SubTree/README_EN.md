@@ -51,18 +51,52 @@
 
 
 ## Solutions
-
+Find the t2 node in t1 first, then use the depth-first search (DFS) algorithm to make sure that the subtree and the subtree of t2 are identical, otherwise return FALSE.
 
 ### Python3
 
 ```python
-
+class Solution:
+    def checkSubTree(self,t1,t2):
+        if t1 == None:
+            return False
+        if t2 == None:
+            return True
+        return self.dfs(t1,t2) or self.checkSubTree(t1.left,t2) or self.checkSubTree(t1.right,t2)
+    
+    def dfs(self,t1,t2):
+        if not t1 and t2 :
+            return False
+        if not t2 and not t1:
+            return True
+        if t1.val != t2.val:
+            return False
+        else:
+            return self.dfs(t1.left,t2.left) and self.dfs(t1.right,t2.right)
 ```
 
 ### Java
 
 ```java
+class Solution {
+    public boolean checkSubTree(TreeNode t1, TreeNode t2) {
+        if (t2 == null)
+            return true;
+        if (t1 == null)
+            return false;
+        return isSubTree(t1, t2) || checkSubTree(t1.left, t2) || checkSubTree(t1.right, t2);
+    }
 
+    public boolean isSubTree(TreeNode t1, TreeNode t2){
+        if (t2 == null)
+            return true;
+        if (t1 == null)
+            return false;
+        if (t1.val != t2.val)
+            return false;
+        return isSubTree(t1.left,t2.left) && isSubTree(t1.right,t2.right);
+    }
+}
 ```
 
 ### ...
