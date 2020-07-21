@@ -23,20 +23,63 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
+动态规划求解。
 
+定义 `dp[i]` 为以 `nums[i]` 结尾的最长子序列的长度。即题目求的是 `dp[i]` （`i ∈[0, n-1]`）的最大值。
+
+状态转移方程为：
+
+`dp[i] = max(dp[j]) + 1`，其中 `0≤j<i` 且 `nums[j]<nums[i]`。
 
 ### Python3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 2:
+            return n
+        dp = [0 for _ in range(n)]
+        dp[0] = 1
+        res = 1
+        for i in range(n):
+            max_val = 0
+            for j in range(0, i):
+                if nums[j] < nums[i]:
+                    max_val = max(max_val, dp[j])
+                dp[i] = max_val + 1
+                res = max(res, dp[i])
+        return res
 ```
 
 ### Java
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        if (n < 2) {
+            return n;
+        }
+        int[] dp = new int[n];
+        dp[0] = 1;
+        int res = 1;
+        for (int i = 1; i < n; ++i) {
+            int maxVal = 0;
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    maxVal = Math.max(maxVal, dp[j]);
+                }
+            }
+            dp[i] = maxVal + 1;
+            res = Math.max(res, dp[i]);
+        }
+        return res;
 
+    }
+}
 ```
 
 ### ...
