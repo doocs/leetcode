@@ -4,29 +4,32 @@
 
 定义一个布尔变量 `hasChange`，用来标记每轮是否进行了交换。在每轮遍历开始时，将 `hasChange` 设置为 false。
 
+若当轮没有发生交换，说明此时数组已经按照升序排列，`hashChange` 依然是为 false。此时外层循环直接退出，排序结束。
+
 ### 代码示例
 
 ```java
 import java.util.Arrays;
 
 public class BubbleSort {
-    private static void swap(int[] nums, int i, int j) {
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
-    }
 
     private static void bubbleSort(int[] nums) {
         boolean hasChange = true;
-        for (int i = 0; i < nums.length - 1 && hasChange; ++i) {
+        for (int i = 0, n = nums.length; i < n - 1 && hasChange; ++i) {
             hasChange = false;
-            for (int j = 0; j < nums.length - 1 - i; ++j) {
+            for (int j = 0; j < n - i - 1; ++j) {
                 if (nums[j] > nums[j + 1]) {
                     swap(nums, j, j + 1);
                     hasChange = true;
                 }
             }
         }
+    }
+
+    private static void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
     }
 
     public static void main(String[] args) {
@@ -39,15 +42,15 @@ public class BubbleSort {
 
 ### 算法分析
 
-空间复杂度 O(1)、时间复杂度 O(n^2)。
+空间复杂度 O(1)、时间复杂度 O(n²)。
 
 分情况讨论：
 
 1. 给定的数组按照顺序已经排好：只需要进行 `n-1` 次比较，两两交换次数为 0，时间复杂度为 O(n)，这是最好的情况。
-2. 给定的数组按照逆序排列：需要进行 `n*(n-1)/2` 次比较，时间复杂度为 O(n^2)，这是最坏的情况。
-3. 给定的数组杂乱无章。在这种情况下，平均时间复杂度 O(n^2)。
+2. 给定的数组按照逆序排列：需要进行 `n*(n-1)/2` 次比较，时间复杂度为 O(n²)，这是最坏的情况。
+3. 给定的数组杂乱无章。在这种情况下，平均时间复杂度 O(n²)。
 
-因此，时间复杂度是 O(n^2)，这是一种稳定的排序算法。
+因此，时间复杂度是 O(n²)，这是一种稳定的排序算法。
 
 > 稳定是指，两个相等的数，在排序过后，相对位置保持不变。
 
@@ -66,18 +69,19 @@ public class BubbleSort {
 import java.util.Arrays;
 
 public class InsertionSort {
+
     private static void insertionSort(int[] nums) {
-        for (int i = 1, j, current; i < nums.length; ++i) {
-            current = nums[i];
-            for (j = i - 1; j >= 0 && nums[j] > current; --j) {
+        for (int i = 1, j, n = nums.length; i < n; ++i) {
+            int num = nums[i];
+            for (j = i - 1; j >=0 && nums[j] > num; --j) {
                 nums[j + 1] = nums[j];
             }
-            nums[j + 1] = current;
+            nums[j + 1] = num;
         }
     }
-    
+
     public static void main(String[] args) {
-        int[] nums = { 1, 2, 7, 9, 5, 8 };
+        int[] nums = {1, 2, 7, 9, 5, 8};
         insertionSort(nums);
         System.out.println(Arrays.toString(nums));
     }
@@ -86,15 +90,15 @@ public class InsertionSort {
 
 ### 算法分析
 
-空间复杂度 O(1)，时间复杂度 O(n^2)。
+空间复杂度 O(1)，时间复杂度 O(n²)。
 
 分情况讨论：
 
 1. 给定的数组按照顺序排好序：只需要进行 n-1 次比较，两两交换次数为 0，时间复杂度为 O(n)，这是最好的情况。
-2. 给定的数组按照逆序排列：需要进行 `n*(n-1)/2` 次比较，时间复杂度为 O(n^2)，这是最坏的情况。
-3. 给定的数组杂乱无章：在这种情况下，平均时间复杂度是 O(n^2)。
+2. 给定的数组按照逆序排列：需要进行 `n*(n-1)/2` 次比较，时间复杂度为 O(n²)，这是最坏的情况。
+3. 给定的数组杂乱无章：在这种情况下，平均时间复杂度是 O(n²)。
 
-因此，时间复杂度是 O(n^2)，这也是一种稳定的排序算法。
+因此，时间复杂度是 O(n²)，这也是一种稳定的排序算法。
 
 ## 归并排序
 
