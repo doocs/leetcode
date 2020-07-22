@@ -39,19 +39,23 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

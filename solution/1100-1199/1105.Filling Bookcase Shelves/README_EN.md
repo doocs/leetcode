@@ -36,19 +36,23 @@ Notice that book number 2 does not have to be on the first shelf.
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

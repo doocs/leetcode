@@ -31,7 +31,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 双端队列实现。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,7 +53,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -80,7 +82,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -113,7 +115,9 @@ var maxSlidingWindow = function(nums, k) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

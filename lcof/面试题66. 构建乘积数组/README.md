@@ -22,7 +22,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 `B[i] = (A[0] * A[1] * ... * A[i-1]) * (A[i+1] * ... * A[n-1])`
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -41,7 +43,7 @@ class Solution:
         return [(1 if i - 1 < 0 else dp1[i - 1]) * (1 if i + 1 >= n else dp2[i + 1]) for i in range(0, n)]
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -70,7 +72,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} a
@@ -92,7 +94,9 @@ var constructArr = function(a) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -49,7 +49,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -75,7 +77,7 @@ class Solution:
         return head
 ```
 
-### Java
+### **Java**
 
 ```java
 /**
@@ -109,7 +111,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

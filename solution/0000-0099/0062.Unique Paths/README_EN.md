@@ -43,19 +43,23 @@ From the top-left corner, there are a total of 3 ways to reach the bottom-right 
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

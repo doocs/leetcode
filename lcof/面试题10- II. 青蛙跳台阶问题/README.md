@@ -28,7 +28,9 @@
 青蛙想上第 `n` 级台阶，可从第 `n-1` 级台阶跳一级上去，也可从第 `n-2` 级台阶跳两级上去，即：`f(n) = f(n-1) + f(n-2)`。递推求解即可。
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def numWays(self, n: int) -> int:
@@ -38,7 +40,7 @@ class Solution:
         return b % 1000000007
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int numWays(int n) {
@@ -53,7 +55,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} n
@@ -74,7 +76,7 @@ var numWays = function(n) {
 
 
 
-### Go
+### **Go**
 
 ```go
 func numWays(n int) int {
@@ -96,8 +98,10 @@ func numWays(n int) int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

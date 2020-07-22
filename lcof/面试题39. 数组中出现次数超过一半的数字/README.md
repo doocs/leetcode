@@ -19,7 +19,9 @@
 ## 解法
 摩尔投票法。时间复杂度 O(n)，空间复杂度 O(1)。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -33,7 +35,7 @@ class Solution:
         return major
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int majorityElement(int[] nums) {
@@ -51,7 +53,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -74,7 +76,9 @@ var majorityElement = function(nums) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -59,7 +59,9 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 ## Solutions
 Depth-First-Search
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 Using the idea of recursion, at each recursion to a node.
 - If root.val-sum == 0, add 1 to the result
 - Consider two scenarios for inclusion or exclusion of this node from the pathway
@@ -88,7 +90,7 @@ class Solution:
         return ans
 ```
 
-### Java
+### **Java**
 Use to 2 recursive processes.
 
 - BFS: (traverse) traverses each tree node.
@@ -124,7 +126,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

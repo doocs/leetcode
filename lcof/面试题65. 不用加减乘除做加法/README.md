@@ -22,7 +22,9 @@
 - 对两数进行按位 `&` 与运算，然后左移一位，得到进位；
 - 循环，直至进位为 0。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 由于 python `int` 是无限长整型，左移不会自动溢出，因此需要特殊处理。
 
@@ -38,7 +40,7 @@ class Solution:
         return a if a < 0x80000000 else ~(a ^ 0xffffffff)
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -56,7 +58,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} a
@@ -72,7 +74,9 @@ var add = function(a, b) {
 // 两者相加得结果，由于本题禁止 + 号，所以递归
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

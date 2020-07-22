@@ -104,19 +104,23 @@ The resulting matrix is of size 1*1 with also zero.
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

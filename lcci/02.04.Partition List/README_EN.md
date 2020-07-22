@@ -25,7 +25,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -54,7 +56,7 @@ class Solution:
         return left.next
 ```
 
-### Java
+### **Java**
 
 ```java
 /**
@@ -91,7 +93,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

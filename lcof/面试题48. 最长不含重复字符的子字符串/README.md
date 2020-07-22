@@ -33,7 +33,9 @@
 - `s.length <= 40000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -56,7 +58,7 @@ class Solution:
         return res
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
@@ -88,7 +90,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {string} s
@@ -117,7 +119,9 @@ var lengthOfLongestSubstring = function(s) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

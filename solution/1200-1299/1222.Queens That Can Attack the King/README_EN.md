@@ -57,19 +57,23 @@ The queen at [2,4] can&#39;t attack the king cause it&#39;s not in the same row/
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

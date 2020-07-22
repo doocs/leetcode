@@ -51,19 +51,23 @@ Note that you can&#39;t swap s1[0] and s1[1] to make s1 equal to &quot;yx&quot;,
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -19,7 +19,9 @@
 - `-100 <= arr[i] <= 100`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
@@ -31,7 +33,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int maxSubArray(int[] nums) {
@@ -45,7 +47,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -63,7 +65,9 @@ var maxSubArray = function(nums) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

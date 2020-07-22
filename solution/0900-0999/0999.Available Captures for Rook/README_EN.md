@@ -99,7 +99,9 @@ The rook can capture the pawns at positions b5, d6 and f5.
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class Solution:
@@ -122,7 +124,7 @@ class Solution:
                     return res
 ```
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -154,7 +156,8 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+<!-- tabs:end -->

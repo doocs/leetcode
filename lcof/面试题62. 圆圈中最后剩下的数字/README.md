@@ -38,7 +38,9 @@
 
 递归求解即可，也可以改成迭代。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 递归版本：
@@ -65,7 +67,7 @@ class Solution:
         return f
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -80,7 +82,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} n
@@ -97,7 +99,9 @@ var lastRemaining = function(n, m) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

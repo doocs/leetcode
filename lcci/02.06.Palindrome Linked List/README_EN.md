@@ -50,7 +50,9 @@ Could you do it in O(n) time and O(1) space?</p>
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -83,7 +85,7 @@ class Solution:
         return True
 ```
 
-### Java
+### **Java**
 
 ```java
 /**
@@ -125,7 +127,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -30,7 +30,9 @@
 
 遍历数组，忽略大小王(0)，求出数组的最大、最小值。若最后差值超过 4，则无法构成顺子，例如：`5,6,(0),8,10`。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,7 +53,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -75,7 +77,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -102,7 +104,9 @@ var isStraight = function(nums) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

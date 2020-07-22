@@ -32,19 +32,23 @@ The falling path with the smallest sum is&nbsp;[1,5,7], so the answer is&nbsp;13
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

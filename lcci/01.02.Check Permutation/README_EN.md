@@ -47,7 +47,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class Solution:
@@ -55,7 +57,7 @@ class Solution:
         return sorted(s1) == sorted(s2)
 ```
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -72,7 +74,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

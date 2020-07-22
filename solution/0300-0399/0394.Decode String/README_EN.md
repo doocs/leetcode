@@ -24,19 +24,23 @@ s = &quot;2[abc]3[cd]ef&quot;, return &quot;abcabccdcdcdef&quot;.
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -21,7 +21,9 @@ minStack.min();   --> 返回 -2.
 - 各函数的调用总次数不超过 20000 次
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class MinStack:
 
@@ -55,7 +57,7 @@ class MinStack:
 # param_4 = obj.min()
 ```
 
-### Java
+### **Java**
 ```java
 class MinStack {
     private Stack<Integer> s1;
@@ -96,7 +98,7 @@ class MinStack {
  */
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * initialize your data structure here.
@@ -150,7 +152,9 @@ MinStack.prototype.min = function() {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

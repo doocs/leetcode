@@ -61,7 +61,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class SortedStack:
@@ -88,7 +90,7 @@ class SortedStack:
         return len(self.s) == 0
 ```
 
-### Java
+### **Java**
 
 ```java
 class SortedStack {
@@ -133,7 +135,9 @@ class SortedStack {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

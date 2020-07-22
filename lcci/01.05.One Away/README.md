@@ -30,7 +30,9 @@ second = &quot;pal&quot;
 <!-- 这里可写通用的实现逻辑 -->
 遍历两个字符串，逐个字符比较判断。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -50,7 +52,7 @@ class Solution:
             return self.oneEditAway(first[1:], second[1:])
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -77,7 +79,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -40,19 +40,23 @@ The final matrix will be [[1,3,1],[1,3,1]] which contains 6 odd numbers.
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

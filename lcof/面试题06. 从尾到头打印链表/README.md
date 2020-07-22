@@ -16,7 +16,9 @@
 ## 解法
 栈实现。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -33,7 +35,7 @@ class Solution:
         return res[::-1]
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for singly-linked list.
@@ -60,7 +62,7 @@ class Solution {
 }
 ```
 
-### Go
+### **Go**
 ```go
 /**
  * Definition for singly-linked list.
@@ -80,7 +82,9 @@ func reversePrint(head *ListNode) []int {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

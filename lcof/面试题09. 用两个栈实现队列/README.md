@@ -27,7 +27,9 @@
 - `最多会对 appendTail、deleteHead 进行 10000 次调用`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class CQueue:
 
@@ -55,7 +57,7 @@ class CQueue:
 # param_2 = obj.deleteHead()
 ```
 
-### Java
+### **Java**
 ```java
 class CQueue {
     private Stack<Integer> s1 = new Stack<>();
@@ -92,7 +94,7 @@ class CQueue {
  */
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 var CQueue = function() {
     this.data = []
@@ -124,7 +126,7 @@ CQueue.prototype.deleteHead = function() {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 type CQueue struct {
@@ -165,8 +167,10 @@ func (this *CQueue) DeleteHead() int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

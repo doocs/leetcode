@@ -24,7 +24,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 层次遍历解决。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -90,7 +92,7 @@ class Codec:
 # codec.deserialize(codec.serialize(root))
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -159,7 +161,7 @@ public class Codec {
 // codec.deserialize(codec.serialize(root));
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -225,7 +227,9 @@ var deserialize = function(data) {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

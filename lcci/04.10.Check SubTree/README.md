@@ -31,7 +31,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 先找 t1 中 t2 结点,找到后进行 DFS，确认子树和 t2 的子树完全相同，否则返回 FALSE。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -54,7 +56,7 @@ class Solution:
             return self.dfs(t1.left,t2.left) and self.dfs(t1.right,t2.right)
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -79,7 +81,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

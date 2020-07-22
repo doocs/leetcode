@@ -15,7 +15,9 @@
 - `0 <= 链表长度 <= 1000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -45,7 +47,7 @@ class Solution:
         return head.next
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for singly-linked list.
@@ -85,7 +87,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for singly-linked list.
@@ -136,7 +138,7 @@ var mergeTwoLists = function(l1, l2) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
@@ -157,8 +159,10 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

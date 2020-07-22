@@ -42,7 +42,9 @@
 - `0 <= 节点个数 <= 1000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -65,7 +67,7 @@ class Solution:
         return self.symmetric(node1.left, node2.right) and self.symmetric(node1.right, node2.left)
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for a binary tree node.
@@ -96,7 +98,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -120,7 +122,7 @@ var isSymmetric = function(root) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func isSymmetric(root *TreeNode) bool {
@@ -146,8 +148,10 @@ func isSymme(a *TreeNode, b *TreeNode) bool {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -31,7 +31,9 @@
 - n 是 32 位有符号整数，其数值范围是  `[−231, 231 − 1]` 。
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     cache = {}
@@ -51,7 +53,7 @@ class Solution:
         return half * half * self.pow(x, n % 2)
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public double myPow(double x, int n) {
@@ -64,7 +66,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} x
@@ -90,7 +92,7 @@ var myPow = function(x, n) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func myPow(x float64, n int) float64 {
@@ -120,8 +122,10 @@ func abs(x int) int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

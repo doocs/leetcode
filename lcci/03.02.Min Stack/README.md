@@ -11,7 +11,9 @@
 利用辅助栈存放栈的最小元素。
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -48,7 +50,7 @@ class MinStack:
 # param_4 = obj.getMin()
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -91,7 +93,9 @@ class MinStack {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

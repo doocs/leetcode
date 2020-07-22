@@ -57,7 +57,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -85,7 +87,7 @@ class Solution:
         self.isValid(root.right)
 ```
 
-### Java
+### **Java**
 
 ```java
 /**
@@ -121,7 +123,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

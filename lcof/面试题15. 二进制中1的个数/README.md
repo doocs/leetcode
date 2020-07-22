@@ -30,7 +30,9 @@
 ## 解法
 `n & (n - 1)` 会消除 n 中最后一位中的 1。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
@@ -41,7 +43,7 @@ class Solution:
         return res
 ```
 
-### Java
+### **Java**
 ```java
 public class Solution {
     // you need to treat n as an unsigned value
@@ -56,7 +58,7 @@ public class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} n - a positive integer
@@ -72,7 +74,7 @@ var hammingWeight = function(n) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func hammingWeight(num uint32) int {
@@ -88,8 +90,10 @@ func hammingWeight(num uint32) int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

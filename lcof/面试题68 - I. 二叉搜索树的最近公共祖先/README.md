@@ -35,7 +35,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 从上到下搜索，找到第一个值位于 `[p, q]` 之间的结点即可。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -59,7 +61,7 @@ class Solution:
                 return root
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -91,7 +93,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -118,7 +120,9 @@ var lowestCommonAncestor = function(root, p, q) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

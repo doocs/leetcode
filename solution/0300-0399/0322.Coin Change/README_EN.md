@@ -43,19 +43,21 @@ You may assume that you have an infinite number of each kind of coin.</p>
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### JavaScript
+### **JavaScript**
 Dynamic programming.
 
 ```javascript
@@ -77,3 +79,5 @@ var coinChange = function (coins, amount) {
 
     return dp[amount] > amount ? -1 : dp[amount];
 };
+
+<!-- tabs:end -->

@@ -24,14 +24,16 @@
 ## 解法
 递归，结合**逻辑与**短路运算符求解。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def sumNums(self, n: int) -> int:
         return n and (n + self.sumNums(n - 1))
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int sumNums(int n) {
@@ -42,7 +44,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} n
@@ -53,7 +55,9 @@ var sumNums = function(n) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

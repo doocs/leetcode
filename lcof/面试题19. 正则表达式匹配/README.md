@@ -67,7 +67,9 @@ p = "mis*is*p*."
     - `p[j-1] == s[i]` or `p[j-1] == '.'`：`*` 前面的字符可以与 s[i] 匹配，这种情况下，`*` 可能匹配了前面的字符的 0 个，也可能匹配了前面字符的多个，当匹配 0 个时，如 `ab` 和 `abb*`，或者 `ab` 和 `ab.*` ，这时我们需要去掉 p 中的 `b*` 或 `.*` 后进行比较，即 `dp[i][j] = dp[i][j-2]`；当匹配多个时，如 `abbb` 和 `ab*`，或者 `abbb` 和 `a.*`，我们需要将 s[i] 前面的与 p 重新比较，即 `dp[i][j] = dp[i-1][j]`。
 3. 其他情况：以上两种情况把能匹配的都考虑全面了，所以其他情况为不匹配，即 `dp[i][j] = False`。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
@@ -94,7 +96,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public boolean isMatch(String s, String p) {
@@ -130,7 +132,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {string} s
@@ -157,7 +159,9 @@ var isMatch = function(s, p) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

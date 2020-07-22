@@ -1,11 +1,16 @@
 # [1131. Maximum of Absolute Value Expression](https://leetcode.com/problems/maximum-of-absolute-value-expression)
 
 ## Description
-<p>Given two arrays of integers with equal lengths, return the maximum value of:</p>
-
-<p><code>|arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| + |i - j|</code></p>
-
-<p>where the maximum is taken over all <code>0 &lt;= i, j &lt; arr1.length</code>.</p>
+<p>Given two arrays of integers with equal lengths, return the maximum value of:</p>
+
+
+
+<p><code>|arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| + |i - j|</code></p>
+
+
+
+<p>where the maximum is taken over all <code>0 &lt;= i, j &lt; arr1.length</code>.</p>
+
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -35,19 +40,23 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

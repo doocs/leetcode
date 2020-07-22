@@ -60,19 +60,23 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

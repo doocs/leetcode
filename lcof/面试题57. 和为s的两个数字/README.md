@@ -23,7 +23,9 @@
 - `1 <= nums[i] <= 10^6`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -39,7 +41,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
@@ -60,7 +62,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -84,7 +86,9 @@ var twoSum = function(nums, target) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

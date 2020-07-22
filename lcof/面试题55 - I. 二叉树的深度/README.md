@@ -22,7 +22,9 @@
 - `节点总数 <= 10000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -38,7 +40,7 @@ class Solution:
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for a binary tree node.
@@ -59,7 +61,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -87,7 +89,9 @@ var maxDepth = function(root) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

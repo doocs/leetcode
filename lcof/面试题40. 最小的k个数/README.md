@@ -23,7 +23,9 @@
 - `0 <= arr[i] <= 10000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 import heapq
 
@@ -37,7 +39,7 @@ class Solution:
         return heapq.nsmallest(k, heap)
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int[] getLeastNumbers(int[] arr, int k) {
@@ -64,7 +66,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} arr
@@ -106,7 +108,9 @@ var getLeastNumbers = function(arr, k) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

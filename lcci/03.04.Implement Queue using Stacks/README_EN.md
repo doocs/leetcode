@@ -55,7 +55,9 @@ queue.empty(); // return false</pre>
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class MyQueue:
@@ -110,7 +112,7 @@ class MyQueue:
 # param_4 = obj.empty()
 ```
 
-### Java
+### **Java**
 
 ```java
 class MyQueue {
@@ -164,7 +166,9 @@ class MyQueue {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

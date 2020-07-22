@@ -41,7 +41,9 @@ second = &quot;pal&quot;
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class Solution:
@@ -60,7 +62,7 @@ class Solution:
             return self.oneEditAway(first[1:], second[1:])
 ```
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -86,7 +88,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

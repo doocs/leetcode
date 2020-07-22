@@ -35,7 +35,7 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
-### Go
+### **Go**
 ``` go
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
     m,n := len(obstacleGrid),len(obstacleGrid[0])
@@ -62,21 +62,25 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 }
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

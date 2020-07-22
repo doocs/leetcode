@@ -20,7 +20,9 @@ s = ""
 ## 解法
 有序字典解决。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 import collections
 
@@ -37,7 +39,7 @@ class Solution:
         return ' '
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public char firstUniqChar(String s) {
@@ -59,7 +61,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {string} s
@@ -78,7 +80,9 @@ var firstUniqChar = function(s) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

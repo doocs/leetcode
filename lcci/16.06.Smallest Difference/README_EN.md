@@ -37,7 +37,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class Solution:
@@ -55,7 +57,7 @@ class Solution:
         
 ```
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -76,7 +78,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

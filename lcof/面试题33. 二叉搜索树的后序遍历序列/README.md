@@ -37,7 +37,9 @@
 二叉搜索树的后序遍历序列是 `[左子树, 右子树, 根结点]`，且左子树结点值均小于根结点，右子树结点值均大于根结点，递归判断即可。
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -56,7 +58,7 @@ class Solution:
         
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -90,7 +92,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} postorder
@@ -110,7 +112,7 @@ var verifyPostorder = function(postorder) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func verifyPostorder(postorder []int) bool {
@@ -145,8 +147,10 @@ func helper(postorder []int , left,right int) bool {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

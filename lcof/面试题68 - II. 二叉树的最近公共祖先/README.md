@@ -35,7 +35,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 递归求解。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -55,7 +57,7 @@ class Solution:
         return right if left is None else (left if right is None else root)
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -80,7 +82,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -107,7 +109,9 @@ var lowestCommonAncestor = function(root, p, q) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

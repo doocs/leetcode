@@ -17,14 +17,16 @@
 ## 解法
 使用 replace 替换即可。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def replaceSpace(self, s: str) -> str:
         return s.replace(' ', '%20')
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public String replaceSpace(String s) {
@@ -33,7 +35,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {string} s
@@ -44,14 +46,16 @@ var replaceSpace = function(s) {
 };
 ```
 
-### Go
+### **Go**
 ```go
 func replaceSpace(s string) string {
     return strings.Replace(s, " ", "%20", -1 )
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

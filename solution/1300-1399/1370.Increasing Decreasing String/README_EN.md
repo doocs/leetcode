@@ -72,19 +72,23 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

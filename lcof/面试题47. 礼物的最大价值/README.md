@@ -22,7 +22,9 @@
 - `0 < grid[0].length <= 200`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def maxValue(self, grid: List[List[int]]) -> int:
@@ -40,7 +42,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int maxValue(int[][] grid) {
@@ -63,7 +65,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[][]} grid
@@ -82,7 +84,9 @@ var maxValue = function(grid) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

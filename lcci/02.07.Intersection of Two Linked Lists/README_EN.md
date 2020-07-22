@@ -60,7 +60,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -92,7 +94,7 @@ class Solution:
         return n
 ```
 
-### Java
+### **Java**
 
 ```java
 /**
@@ -139,7 +141,9 @@ public class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

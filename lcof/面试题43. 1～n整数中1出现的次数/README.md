@@ -43,7 +43,9 @@ high=3,lows=356,base=1000。此时 n 可拆分为 `0~999`,`1000~1999`,`2000~2999
 
 最高位非 1 的情况，也可以按照同样的方法分析。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -61,7 +63,7 @@ class Solution:
         return self.countDigitOne(base - 1) + lows + 1 + self.countDigitOne(lows) if high == 1 else high * self.countDigitOne(base - 1) + base + self.countDigitOne(lows)
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -81,7 +83,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} n
@@ -105,7 +107,9 @@ var countDigitOne = function(n) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

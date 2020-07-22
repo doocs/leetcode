@@ -40,19 +40,23 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

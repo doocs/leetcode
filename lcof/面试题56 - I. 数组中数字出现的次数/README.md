@@ -27,7 +27,9 @@
 首先明确，两个相同的数异或之后的结果为 0。对该数组所有元素进行异或运算，结果就是**两个只出现一次的数字异或的结果**。找出这个结果中某个二进制位为 1 的位置，之后对数组所有元素进行分类，二进制位为 0 的异或到 a，二进制位为 1 的异或到 b，结果就是 a，b。
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def singleNumbers(self, nums: List[int]) -> List[int]:
@@ -49,7 +51,7 @@ class Solution:
         return [a, b]
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int[] singleNumbers(int[] nums) {
@@ -76,7 +78,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -104,7 +106,9 @@ var singleNumbers = function(nums) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

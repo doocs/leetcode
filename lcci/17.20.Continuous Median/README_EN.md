@@ -58,7 +58,9 @@ findMedian() -&gt; 2
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class MedianFinder:
@@ -87,7 +89,7 @@ class MedianFinder:
 # param_2 = obj.findMedian()
 ```
 
-### Java
+### **Java**
 
 ```java
 class MedianFinder {
@@ -123,7 +125,9 @@ class MedianFinder {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

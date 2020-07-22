@@ -44,7 +44,9 @@ The compressed string is &quot;a1b2c2d1&quot;, which is longer than the original
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class Solution:
@@ -62,7 +64,7 @@ class Solution:
         return res if len(res) < len(S) else S
 ```
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -87,7 +89,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

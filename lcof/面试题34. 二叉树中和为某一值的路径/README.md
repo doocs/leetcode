@@ -35,7 +35,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 先序遍历+路径记录。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -66,7 +68,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -107,7 +109,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -139,7 +141,7 @@ var pathSum = function(root, sum) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 var res [][]int 
@@ -171,8 +173,10 @@ func helper(node *TreeNode, target int, ans []int) {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

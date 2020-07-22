@@ -69,7 +69,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class AnimalShelf:
@@ -104,7 +106,7 @@ class AnimalShelf:
 # param_4 = obj.dequeueCat()
 ```
 
-### Java
+### **Java**
 
 ```java
 class AnimalShelf {
@@ -146,7 +148,9 @@ class AnimalShelf {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

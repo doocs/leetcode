@@ -35,7 +35,9 @@
 - `0 <= 节点个数 <= 1000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -55,7 +57,7 @@ class Solution:
         return root
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for a binary tree node.
@@ -81,7 +83,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -107,7 +109,7 @@ var mirrorTree = function(root) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func mirrorTree(root *TreeNode) *TreeNode {
@@ -123,8 +125,10 @@ func mirrorTree(root *TreeNode) *TreeNode {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -20,7 +20,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 把 node 的下一个节点的值赋给 node，然后改变 node 的 next 指向。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -40,7 +42,7 @@ class Solution:
         node.next = node.next.next
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,7 +62,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

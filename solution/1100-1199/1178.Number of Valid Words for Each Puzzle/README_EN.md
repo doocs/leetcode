@@ -42,19 +42,23 @@ There&#39;re&nbsp;no valid words for&nbsp;&quot;gaswxyz&quot; cause none of the 
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

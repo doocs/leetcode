@@ -52,7 +52,7 @@
 
 ## Solutions
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -81,7 +81,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

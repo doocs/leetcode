@@ -25,7 +25,9 @@
 - `0 <= 数组长度 <= 10^5`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
@@ -39,7 +41,7 @@ class Solution:
         return res
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
@@ -58,7 +60,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} prices
@@ -75,7 +77,9 @@ var maxProfit = function(prices) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

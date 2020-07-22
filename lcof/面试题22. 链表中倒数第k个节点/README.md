@@ -11,7 +11,9 @@
 返回链表 4->5.
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -34,7 +36,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for singly-linked list.
@@ -62,7 +64,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {ListNode} head
@@ -96,7 +98,7 @@ var getKthFromEnd = function(head, k) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func getKthFromEnd(head *ListNode, k int) *ListNode {
@@ -117,8 +119,10 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

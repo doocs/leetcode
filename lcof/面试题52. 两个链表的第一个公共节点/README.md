@@ -48,7 +48,9 @@
 - 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -81,7 +83,7 @@ class Solution:
         
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for singly-linked list.
@@ -132,7 +134,7 @@ public class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for singly-linked list.
@@ -158,7 +160,9 @@ var getIntersectionNode = function(headA, headB) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

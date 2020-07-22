@@ -32,7 +32,9 @@
 - `1 <= board[i].length <= 200`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
@@ -57,7 +59,7 @@ class Solution:
         return res
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public boolean exist(char[][] board, String word) {
@@ -97,7 +99,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {character[][]} board
@@ -138,7 +140,7 @@ var exist = function(board, word) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func exist(board [][]byte, word string) bool {
@@ -181,8 +183,10 @@ func bfs(board [][]byte, i,j int, isVisited [][]bool, word string, index int) bo
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

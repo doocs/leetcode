@@ -61,7 +61,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class TripleInOne:
@@ -92,7 +94,7 @@ class TripleInOne:
 # param_4 = obj.isEmpty(stackNum)
 ```
 
-### Java
+### **Java**
 
 ```java
 class TripleInOne {
@@ -138,7 +140,9 @@ class TripleInOne {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

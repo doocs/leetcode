@@ -31,7 +31,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 自定义排序比较器。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -52,7 +54,7 @@ class Solution:
         return ''.join(sorted([str(x) for x in nums], key=functools.cmp_to_key(compare)))
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -66,7 +68,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -84,7 +86,9 @@ var minNumber = function(nums) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

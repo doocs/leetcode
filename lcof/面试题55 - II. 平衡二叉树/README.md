@@ -38,7 +38,9 @@
 - `1 <= 树的结点个数 <= 10000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -59,7 +61,7 @@ class Solution:
         return 1 + max(self._height(tree.left), self._height(tree.right))
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for a binary tree node.
@@ -87,7 +89,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -113,7 +115,9 @@ function getDepth(node) {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

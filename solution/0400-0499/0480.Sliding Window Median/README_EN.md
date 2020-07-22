@@ -35,19 +35,23 @@ Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

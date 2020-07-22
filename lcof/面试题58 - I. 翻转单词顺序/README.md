@@ -39,7 +39,9 @@
 ## 解法
 按空格分割字符串后逆序。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
@@ -48,7 +50,7 @@ class Solution:
         return ' '.join(list(filter(lambda x: x != '', s.strip(' ').split(' ')))[::-1])
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public String reverseWords(String s) {
@@ -70,7 +72,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {string} s
@@ -81,7 +83,9 @@ var reverseWords = function(s) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

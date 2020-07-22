@@ -23,7 +23,9 @@
 - `0 <= k <= 20`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
 
@@ -51,7 +53,7 @@ class Solution:
         return sum([int(i) for i in s])
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     private int cnt;
@@ -91,7 +93,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} m
@@ -127,7 +129,7 @@ var movingCount = function(m, n, k) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func movingCount(m int, n int, k int) int {
@@ -150,8 +152,10 @@ func dfs(x,y,m,n,k int, visited [][]bool) int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

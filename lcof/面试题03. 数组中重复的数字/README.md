@@ -24,7 +24,9 @@
 
 若交换过程中发现重复，则直接返回。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def findRepeatNumber(self, nums: List[int]) -> int:
@@ -36,7 +38,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int findRepeatNumber(int[] nums) {
@@ -59,7 +61,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -74,7 +76,7 @@ var findRepeatNumber = function(nums) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func findRepeatNumber(nums []int) int {
@@ -90,7 +92,8 @@ func findRepeatNumber(nums []int) int {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+<!-- tabs:end -->

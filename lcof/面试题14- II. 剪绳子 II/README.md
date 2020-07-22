@@ -26,7 +26,9 @@
 - `2 <= n <= 1000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def cuttingRope(self, n: int) -> int:
@@ -39,7 +41,7 @@ class Solution:
         return (pow(3, s1) * (1 if m == 0 else m)) % 1000000007
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int cuttingRope(int n) {
@@ -62,7 +64,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} n
@@ -88,7 +90,7 @@ var cuttingRope = function(n) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func cuttingRope(n int) int {
@@ -107,8 +109,10 @@ func cuttingRope(n int) int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

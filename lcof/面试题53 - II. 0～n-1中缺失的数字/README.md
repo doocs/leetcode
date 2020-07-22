@@ -24,7 +24,9 @@
 ## 解法
 二分法。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
@@ -42,7 +44,7 @@ class Solution:
         return nums[r] - 1
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int missingNumber(int[] nums) {
@@ -66,7 +68,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -88,7 +90,9 @@ var missingNumber = function(nums) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

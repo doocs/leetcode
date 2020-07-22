@@ -42,7 +42,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class Solution:
@@ -55,7 +57,7 @@ class Solution:
         return c
 ```
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -75,7 +77,7 @@ class Solution {
 }
 ```
 
-### C++
+### **C++**
 ```cpp
 class Solution {
 public:
@@ -94,3 +96,5 @@ public:
     }
 };
 ```
+
+<!-- tabs:end -->

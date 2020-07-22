@@ -26,7 +26,9 @@
 ## 解法
 双指针：`p = 1`，`q = 2`。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def findContinuousSequence(self, target: int) -> List[List[int]]:
@@ -44,7 +46,7 @@ class Solution:
         return res        
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int[][] findContinuousSequence(int target) {
@@ -74,7 +76,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} target
@@ -106,7 +108,9 @@ var findContinuousSequence = function(target) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

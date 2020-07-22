@@ -23,7 +23,9 @@
 - `1 <= nums[i] < 2^31`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -40,7 +42,7 @@ class Solution:
         return res
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int singleNumber(int[] nums) {
@@ -62,7 +64,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -79,7 +81,9 @@ var singleNumber = function(nums) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

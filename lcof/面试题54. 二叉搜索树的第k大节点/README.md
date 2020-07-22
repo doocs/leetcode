@@ -37,7 +37,9 @@
 先遍历右子树，访问根节点，再遍历左子树。遍历到第 k 个结点时，存储结果。
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -63,7 +65,7 @@ class Solution:
             self._traverse(node.left)
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for a binary tree node.
@@ -97,7 +99,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -125,7 +127,9 @@ var kthLargest = function(root, k) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -65,7 +65,9 @@ return&nbsp;false.</pre>
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -88,7 +90,7 @@ class Solution:
         return 1 + max(self._height(node.left), self._height(node.right))
 ```
 
-### Java
+### **Java**
 
 ```java
 /**
@@ -118,7 +120,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

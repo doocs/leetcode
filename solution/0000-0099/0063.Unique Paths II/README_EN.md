@@ -62,7 +62,7 @@ There are two ways to reach the bottom-right corner:
 
 ## Solutions
 
-### Go
+### **Go**
 ```go
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
     m,n := len(obstacleGrid),len(obstacleGrid[0])
@@ -88,19 +88,23 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
     return dp[m-1][n-1]
 }
 ```
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

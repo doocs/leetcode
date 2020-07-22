@@ -26,7 +26,9 @@
 - `0 <= 节点个数 <= 5000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -57,7 +59,7 @@ class Solution:
         return -1
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for a binary tree node.
@@ -99,7 +101,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -136,7 +138,7 @@ var buildTree = function(preorder, inorder) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 /**
@@ -168,8 +170,10 @@ func helper(preorder, inorder []int, index, start, end int) *TreeNode {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

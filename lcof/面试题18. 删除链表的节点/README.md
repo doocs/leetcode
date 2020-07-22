@@ -29,7 +29,9 @@
 - 若使用 C 或 C++ 语言，你不需要 `free` 或 `delete` 被删除的节点
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -53,7 +55,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for singly-linked list.
@@ -82,7 +84,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for singly-linked list.
@@ -114,7 +116,7 @@ var deleteNode = function(head, val) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func deleteNode(head *ListNode, val int) *ListNode {
@@ -138,8 +140,10 @@ func deleteNode(head *ListNode, val int) *ListNode {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

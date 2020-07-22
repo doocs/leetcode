@@ -32,7 +32,9 @@ push(5), pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
 <!-- 这里可写通用的实现逻辑 -->
 借助一个辅助栈实现。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -50,7 +52,7 @@ class Solution:
             
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -72,7 +74,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} pushed
@@ -101,7 +103,9 @@ var validateStackSequences = function(pushed, popped) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

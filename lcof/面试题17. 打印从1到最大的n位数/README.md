@@ -16,14 +16,16 @@
 - n 为正整数
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def printNumbers(self, n: int) -> List[int]:
         return [i for i in range(1, pow(10, n))]
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int[] printNumbers(int n) {
@@ -37,7 +39,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} n
@@ -52,7 +54,7 @@ var printNumbers = function(n) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func printNumbers(n int) []int {
@@ -70,8 +72,10 @@ func printNumbers(n int) []int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

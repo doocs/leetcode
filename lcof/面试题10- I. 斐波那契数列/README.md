@@ -33,7 +33,9 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 ## 解法
 递推求解。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def fib(self, n: int) -> int:
@@ -43,7 +45,7 @@ class Solution:
         return a % 1000000007
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int fib(int n) {
@@ -58,7 +60,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number} n
@@ -79,7 +81,7 @@ var fib = function(n) {
 
 
 
-### Go
+### **Go**
 
 ```go
 func fib(n int) int {
@@ -100,8 +102,10 @@ func fib(n int) int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

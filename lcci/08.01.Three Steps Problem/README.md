@@ -32,7 +32,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 递推法。`f(n)=f(n-1)+f(n-2)+f(n-3)`
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -46,7 +48,7 @@ class Solution:
         return c
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -67,7 +69,7 @@ class Solution {
 }
 ```
 
-### C++
+### **C++**
 ```cpp
 class Solution {
 public:
@@ -86,3 +88,5 @@ public:
     }
 };
 ```
+
+<!-- tabs:end -->

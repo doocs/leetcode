@@ -14,7 +14,9 @@
 - 出现 `.` 时，在此之前不能出现 `.` 或者 `e`/`E`
 - 出现 `e`/`E` 时，前面不能出现 `e`/`E`，并且必须出现过数字
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,7 +46,7 @@ class Solution:
         return find_num
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -84,7 +86,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {string} s
@@ -95,7 +97,9 @@ var isNumber = function(s) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

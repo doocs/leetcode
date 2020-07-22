@@ -35,7 +35,9 @@ minStack.getMin();   --&gt; return -2.</pre>
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class MinStack:
@@ -71,7 +73,7 @@ class MinStack:
 # param_4 = obj.getMin()
 ```
 
-### Java
+### **Java**
 
 ```java
 class MinStack {
@@ -113,7 +115,9 @@ class MinStack {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

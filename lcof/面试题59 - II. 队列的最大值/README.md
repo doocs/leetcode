@@ -35,7 +35,9 @@
 利用一个辅助队列按单调顺序存储当前队列的最大值。
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 ```python
 class MaxQueue:
@@ -62,7 +64,7 @@ class MaxQueue:
         return res
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 ```java
 class MaxQueue {
@@ -107,7 +109,7 @@ class MaxQueue {
  */
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 var MaxQueue = function() {
     this.queue = []
@@ -159,7 +161,8 @@ MaxQueue.prototype.pop_front = function() {
 ```
 
 
-### ...
+### **...**
 ```
 
 ```
+<!-- tabs:end -->

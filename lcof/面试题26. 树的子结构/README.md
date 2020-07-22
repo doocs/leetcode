@@ -46,7 +46,9 @@ B 是 A 的子结构， 即 A 中有出现和 B 相同的结构和节点值。
 - `0 <= 节点个数 <= 10000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -76,7 +78,7 @@ class Solution:
         return self.same(A.left, B.left) and self.same(A.right, B.right)
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for a binary tree node.
@@ -118,7 +120,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -161,7 +163,7 @@ var isSubStructure = function(A, B) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func isSubStructure(A *TreeNode, B *TreeNode) bool {
@@ -185,8 +187,10 @@ func helper(a *TreeNode, b *TreeNode) bool {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

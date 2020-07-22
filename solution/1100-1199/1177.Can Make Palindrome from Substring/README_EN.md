@@ -40,19 +40,23 @@ queries[4] :&nbsp;substring = &quot;abcda&quot;,&nbsp;could be changed to &quot;
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 
 ```
 
-### Java
+### **Java**
 
 ```java
 
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

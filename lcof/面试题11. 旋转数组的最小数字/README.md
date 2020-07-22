@@ -18,7 +18,9 @@
 ```
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def minArray(self, numbers: List[int]) -> int:
@@ -36,7 +38,7 @@ class Solution:
         return numbers[right]
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int minArray(int[] numbers) {
@@ -72,7 +74,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} numbers
@@ -96,7 +98,7 @@ var minArray = function(numbers) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func minArray(nums []int) int {
@@ -119,8 +121,10 @@ func minArray(nums []int) int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

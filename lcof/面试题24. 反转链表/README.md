@@ -14,7 +14,9 @@
 - `0 <= 节点个数 <= 5000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -36,7 +38,7 @@ class Solution:
         return dummy.next
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for singly-linked list.
@@ -64,7 +66,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for singly-linked list.
@@ -90,7 +92,7 @@ var reverseList = function(head) {
 };
 ```
 
-### Go
+### **Go**
 
 ```Go
 func reverseList(head *ListNode) *ListNode {
@@ -111,8 +113,10 @@ func reverseList(head *ListNode) *ListNode {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

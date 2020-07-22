@@ -57,7 +57,9 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class Solution:
@@ -66,7 +68,7 @@ class Solution:
         return S.replace(' ', '%20')
 ```
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -87,7 +89,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

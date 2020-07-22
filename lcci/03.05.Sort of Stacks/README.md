@@ -35,7 +35,9 @@
 <!-- 这里可写通用的实现逻辑 -->
 利用辅助栈实现 `push` 操作，其余操作不变。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -63,7 +65,7 @@ class SortedStack:
         return len(self.s) == 0
 ```
 
-### Java
+### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -109,7 +111,9 @@ class SortedStack {
  */
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

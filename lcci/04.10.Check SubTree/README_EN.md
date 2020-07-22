@@ -53,7 +53,9 @@
 ## Solutions
 Find the t2 node in t1 first, then use the depth-first search (DFS) algorithm to make sure that the subtree and the subtree of t2 are identical, otherwise return FALSE.
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 class Solution:
@@ -75,7 +77,7 @@ class Solution:
             return self.dfs(t1.left,t2.left) and self.dfs(t1.right,t2.right)
 ```
 
-### Java
+### **Java**
 
 ```java
 class Solution {
@@ -99,7 +101,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

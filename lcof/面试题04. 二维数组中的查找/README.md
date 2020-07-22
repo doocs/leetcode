@@ -30,7 +30,9 @@
 ## 解法
 从左下角（或右上角）开始查找即可。
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
@@ -49,7 +51,7 @@ class Solution:
 
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
@@ -73,7 +75,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[][]} matrix
@@ -98,7 +100,7 @@ var findNumberIn2DArray = function(matrix, target) {
 };
 ```
 
-### Go
+### **Go**
 ```go
 func findNumberIn2DArray(matrix [][]int, target int) bool {
     if len(matrix) == 0 {
@@ -121,7 +123,8 @@ func findNumberIn2DArray(matrix [][]int, target int) bool {
 ```
 
 
-### ...
+### **...**
 ```
 
 ```
+<!-- tabs:end -->

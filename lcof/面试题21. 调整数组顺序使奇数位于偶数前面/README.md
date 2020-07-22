@@ -17,7 +17,9 @@
 - 1 <= nums[i] <= 10000
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def exchange(self, nums: List[int]) -> List[int]:
@@ -33,7 +35,7 @@ class Solution:
         return res
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int[] exchange(int[] nums) {
@@ -52,7 +54,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -76,7 +78,9 @@ var exchange = function(nums) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

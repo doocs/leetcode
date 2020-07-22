@@ -22,7 +22,9 @@
 - `1 <= k < s.length <= 10000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def reverseLeftWords(self, s: str, n: int) -> str:
@@ -30,7 +32,7 @@ class Solution:
         return s[n:] + s[:n]
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public String reverseLeftWords(String s, int n) {
@@ -41,7 +43,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {string} s
@@ -53,7 +55,9 @@ var reverseLeftWords = function(s, n) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -26,7 +26,9 @@
 - `节点总数 <= 1000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -54,7 +56,7 @@ class Solution:
         return res            
 ```
 
-### Java
+### **Java**
 ```java
 /**
  * Definition for a binary tree node.
@@ -95,7 +97,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * Definition for a binary tree node.
@@ -122,7 +124,7 @@ var levelOrder = function(root) {
 };
 ```
 
-### Go
+### **Go**
 
 ```go
 func levelOrder(root *TreeNode) []int {
@@ -150,8 +152,10 @@ func levelOrder(root *TreeNode) []int {
 
 
 
-### ...
+### **...**
 
 ```
 
 ```
+
+<!-- tabs:end -->

@@ -72,7 +72,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 # Definition for a binary tree node.
@@ -91,7 +93,7 @@ class Solution:
         return right if left is None else (left if right is None else root)
 ```
 
-### Java
+### **Java**
 
 ```java
 /**
@@ -115,7 +117,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

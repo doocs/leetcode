@@ -29,7 +29,9 @@
 ## Solutions
 
 
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 
 ```python
 # Definition for singly-linked list.
@@ -48,7 +50,7 @@ class Solution:
         node.next = node.next.next
 ```
 
-### Java
+### **Java**
 
 ```java
 /**
@@ -67,7 +69,9 @@ class Solution {
 }
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->

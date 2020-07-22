@@ -22,7 +22,9 @@
 - `0 <= 数组长度 <= 50000`
 
 ## 解法
-### Python3
+<!-- tabs:start -->
+
+### **Python3**
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
@@ -55,7 +57,7 @@ class Solution:
         return cnt
 ```
 
-### Java
+### **Java**
 ```java
 class Solution {
     public int search(int[] nums, int target) {
@@ -98,7 +100,7 @@ class Solution {
 }
 ```
 
-### JavaScript
+### **JavaScript**
 ```js
 /**
  * @param {number[]} nums
@@ -134,7 +136,9 @@ var search = function(nums, target) {
 };
 ```
 
-### ...
+### **...**
 ```
 
 ```
+
+<!-- tabs:end -->
