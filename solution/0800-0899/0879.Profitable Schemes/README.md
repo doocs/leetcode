@@ -1,5 +1,7 @@
 # [879. 盈利计划](https://leetcode-cn.com/problems/profitable-schemes)
 
+[English Version](/solution/0800-0899/0879.Profitable%20Schemes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>帮派里有 G 名成员，他们可能犯下各种各样的罪行。</p>

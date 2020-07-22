@@ -1,5 +1,7 @@
 # [567. Permutation in String](https://leetcode.com/problems/permutation-in-string)
 
+[中文文档](/solution/0500-0599/0567.Permutation%20in%20String/README.md)
+
 ## Description
 <p>Given two strings <b>s1</b> and <b>s2</b>, write a function to return true if <b>s2</b> contains the permutation of <b>s1</b>. In other words, one of the first string&#39;s permutations is the <b>substring</b> of the second string.</p>
 

@@ -1,5 +1,7 @@
 # [424. 替换后的最长重复字符](https://leetcode-cn.com/problems/longest-repeating-character-replacement)
 
+[English Version](/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个仅由大写英文字母组成的字符串，你可以将任意位置上的字符替换成另外的字符，总共可最多替换&nbsp;<em>k&nbsp;</em>次。在执行上述操作后，找到包含重复字母的最长子串的长度。</p>

@@ -1,5 +1,7 @@
 # [79. 单词搜索](https://leetcode-cn.com/problems/word-search)
 
+[English Version](/solution/0000-0099/0079.Word%20Search/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二维网格和一个单词，找出该单词是否存在于网格中。</p>

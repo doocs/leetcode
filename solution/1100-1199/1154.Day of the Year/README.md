@@ -1,5 +1,7 @@
 # [1154. 一年中的第几天](https://leetcode-cn.com/problems/day-of-the-year)
 
+[English Version](/solution/1100-1199/1154.Day%20of%20the%20Year/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个按 <code>YYYY-MM-DD</code> 格式表示日期的字符串&nbsp;<code>date</code>，请你计算并返回该日期是当年的第几天。</p>

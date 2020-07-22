@@ -1,5 +1,7 @@
 # [819. Most Common Word](https://leetcode.com/problems/most-common-word)
 
+[中文文档](/solution/0800-0899/0819.Most%20Common%20Word/README.md)
+
 ## Description
 <p>Given a paragraph&nbsp;and a list of banned words, return the most frequent word that is not in the list of banned words.&nbsp; It is guaranteed there is at least one word that isn&#39;t banned, and that the answer is unique.</p>
 

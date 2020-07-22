@@ -1,5 +1,7 @@
 # [1323. 6 和 9 组成的最大数字](https://leetcode-cn.com/problems/maximum-69-number)
 
+[English Version](/solution/1300-1399/1323.Maximum%2069%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个仅由数字 6 和 9 组成的正整数&nbsp;<code>num</code>。</p>

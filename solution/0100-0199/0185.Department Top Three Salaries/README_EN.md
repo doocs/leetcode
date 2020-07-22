@@ -1,5 +1,7 @@
 # [185. Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries)
 
+[中文文档](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README.md)
+
 ## Description
 <p>The <code>Employee</code> table holds all employees. Every employee has an Id, and there is also a column for the department Id.</p>
 

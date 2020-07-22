@@ -1,5 +1,7 @@
 # [1367. 二叉树中的列表](https://leetcode-cn.com/problems/linked-list-in-binary-tree)
 
+[English Version](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一棵以&nbsp;<code>root</code>&nbsp;为根的二叉树和一个&nbsp;<code>head</code>&nbsp;为第一个节点的链表。</p>

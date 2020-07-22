@@ -1,5 +1,7 @@
 # [563. Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt)
 
+[中文文档](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README.md)
+
 ## Description
 <p>Given a binary tree, return the tilt of the <b>whole tree</b>.</p>
 

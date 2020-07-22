@@ -1,5 +1,7 @@
 # [1145. Binary Tree Coloring Game](https://leetcode.com/problems/binary-tree-coloring-game)
 
+[中文文档](/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README.md)
+
 ## Description
 <p>Two players play a turn based game on a binary tree.&nbsp; We are given&nbsp;the <code>root</code> of this binary tree, and the number of nodes <code>n</code>&nbsp;in the tree.&nbsp; <code>n</code> is odd, and&nbsp;each node has a distinct value from <code>1</code> to <code>n</code>.</p>
 

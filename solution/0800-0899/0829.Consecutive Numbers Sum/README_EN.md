@@ -1,5 +1,7 @@
 # [829. Consecutive Numbers Sum](https://leetcode.com/problems/consecutive-numbers-sum)
 
+[中文文档](/solution/0800-0899/0829.Consecutive%20Numbers%20Sum/README.md)
+
 ## Description
 <p>Given a positive integer&nbsp;<code>N</code>, how many ways can we write it as a sum of&nbsp;consecutive positive integers?</p>
 

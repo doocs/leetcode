@@ -1,5 +1,7 @@
 # [1293. Shortest Path in a Grid with Obstacles Elimination](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination)
 
+[中文文档](/solution/1200-1299/1293.Shortest%20Path%20in%20a%20Grid%20with%20Obstacles%20Elimination/README.md)
+
 ## Description
 <p>Given a <code>m * n</code> grid, where each cell is either <code>0</code> (empty)&nbsp;or <code>1</code> (obstacle).&nbsp;In one step, you can move up, down, left or right from and to an empty cell.</p>
 

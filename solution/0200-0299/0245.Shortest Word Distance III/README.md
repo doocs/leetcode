@@ -1,5 +1,7 @@
 # [245. 最短单词距离 III](https://leetcode-cn.com/problems/shortest-word-distance-iii)
 
+[English Version](/solution/0200-0299/0245.Shortest%20Word%20Distance%20III/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

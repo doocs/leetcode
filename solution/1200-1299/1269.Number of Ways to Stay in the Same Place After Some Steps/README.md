@@ -1,5 +1,7 @@
 # [1269. 停在原地的方案数](https://leetcode-cn.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps)
 
+[English Version](/solution/1200-1299/1269.Number%20of%20Ways%20to%20Stay%20in%20the%20Same%20Place%20After%20Some%20Steps/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有一个长度为&nbsp;<code>arrLen</code>&nbsp;的数组，开始有一个指针在索引&nbsp;<code>0</code> 处。</p>

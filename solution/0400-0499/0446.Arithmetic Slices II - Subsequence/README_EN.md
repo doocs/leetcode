@@ -1,5 +1,7 @@
 # [446. Arithmetic Slices II - Subsequence](https://leetcode.com/problems/arithmetic-slices-ii-subsequence)
 
+[中文文档](/solution/0400-0499/0446.Arithmetic%20Slices%20II%20-%20Subsequence/README.md)
+
 ## Description
 <p>A sequence of numbers is called arithmetic if it consists of at least three elements and if the difference between any two consecutive elements is the same.</p>
 

@@ -1,5 +1,7 @@
 # [1248. 统计「优美子数组」](https://leetcode-cn.com/problems/count-number-of-nice-subarrays)
 
+[English Version](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个整数数组&nbsp;<code>nums</code> 和一个整数 <code>k</code>。</p>

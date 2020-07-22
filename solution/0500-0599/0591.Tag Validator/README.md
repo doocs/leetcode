@@ -1,5 +1,7 @@
 # [591. 标签验证器](https://leetcode-cn.com/problems/tag-validator)
 
+[English Version](/solution/0500-0599/0591.Tag%20Validator/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个表示代码片段的字符串，你需要实现一个验证器来解析这段代码，并返回它是否合法。合法的代码片段需要遵守以下的所有规则：</p>

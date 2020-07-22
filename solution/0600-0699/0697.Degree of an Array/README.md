@@ -1,5 +1,7 @@
 # [697. 数组的度](https://leetcode-cn.com/problems/degree-of-an-array)
 
+[English Version](/solution/0600-0699/0697.Degree%20of%20an%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个非空且只包含非负数的整数数组&nbsp;<code>nums</code>, 数组的度的定义是指数组里任一元素出现频数的最大值。</p>

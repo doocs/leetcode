@@ -1,5 +1,7 @@
 # [530. Minimum Absolute Difference in BST](https://leetcode.com/problems/minimum-absolute-difference-in-bst)
 
+[中文文档](/solution/0500-0599/0530.Minimum%20Absolute%20Difference%20in%20BST/README.md)
+
 ## Description
 <p>Given a binary search tree with non-negative values, find the minimum <a href="https://en.wikipedia.org/wiki/Absolute_difference">absolute difference</a> between values of any two nodes.</p>
 

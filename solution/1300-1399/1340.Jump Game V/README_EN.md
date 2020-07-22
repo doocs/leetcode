@@ -1,5 +1,7 @@
 # [1340. Jump Game V](https://leetcode.com/problems/jump-game-v)
 
+[中文文档](/solution/1300-1399/1340.Jump%20Game%20V/README.md)
+
 ## Description
 <p>Given an array of&nbsp;integers <code>arr</code> and an integer <code>d</code>. In one step you can jump from index <code>i</code> to index:</p>
 

@@ -1,5 +1,7 @@
 # [1001. Grid Illumination](https://leetcode.com/problems/grid-illumination)
 
+[中文文档](/solution/1000-1099/1001.Grid%20Illumination/README.md)
+
 ## Description
 <p>On a <code>N x N</code> grid of cells, each cell <code>(x, y)</code> with <code>0 &lt;= x &lt; N</code> and <code>0 &lt;= y &lt; N</code> has a lamp.</p>
 

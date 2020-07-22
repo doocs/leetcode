@@ -1,5 +1,7 @@
 # [262. 行程和用户](https://leetcode-cn.com/problems/trips-and-users)
 
+[English Version](/solution/0200-0299/0262.Trips%20and%20Users/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p><code>Trips</code>&nbsp;表中存所有出租车的行程信息。每段行程有唯一键 Id，Client_Id 和&nbsp;Driver_Id 是&nbsp;<code>Users</code>&nbsp;表中 Users_Id 的外键。Status 是枚举类型，枚举成员为 (&lsquo;completed&rsquo;, &lsquo;cancelled_by_driver&rsquo;, &lsquo;cancelled_by_client&rsquo;)。</p>

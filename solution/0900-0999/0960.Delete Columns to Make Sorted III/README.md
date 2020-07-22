@@ -1,5 +1,7 @@
 # [960. 删列造序 III](https://leetcode-cn.com/problems/delete-columns-to-make-sorted-iii)
 
+[English Version](/solution/0900-0999/0960.Delete%20Columns%20to%20Make%20Sorted%20III/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定由&nbsp;<code>N</code>&nbsp;个小写字母字符串组成的数组&nbsp;<code>A</code>，其中每个字符串长度相等。</p>

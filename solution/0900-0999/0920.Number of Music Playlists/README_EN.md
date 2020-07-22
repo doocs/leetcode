@@ -1,5 +1,7 @@
 # [920. Number of Music Playlists](https://leetcode.com/problems/number-of-music-playlists)
 
+[中文文档](/solution/0900-0999/0920.Number%20of%20Music%20Playlists/README.md)
+
 ## Description
 <p>Your music player contains <code>N</code>&nbsp;different songs and she wants to listen to <code>L</code><strong> </strong>(not necessarily different) songs during your trip. &nbsp;You&nbsp;create&nbsp;a playlist so&nbsp;that:</p>
 

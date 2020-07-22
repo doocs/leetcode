@@ -1,5 +1,7 @@
 # [916. Word Subsets](https://leetcode.com/problems/word-subsets)
 
+[中文文档](/solution/0900-0999/0916.Word%20Subsets/README.md)
+
 ## Description
 <p>We are given two arrays <code>A</code> and <code>B</code> of words.&nbsp; Each word is a string of lowercase letters.</p>
 

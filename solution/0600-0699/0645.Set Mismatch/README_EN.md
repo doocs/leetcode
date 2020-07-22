@@ -1,5 +1,7 @@
 # [645. Set Mismatch](https://leetcode.com/problems/set-mismatch)
 
+[中文文档](/solution/0600-0699/0645.Set%20Mismatch/README.md)
+
 ## Description
 <p>
 

@@ -1,5 +1,7 @@
 # [1093. 大样本统计](https://leetcode-cn.com/problems/statistics-from-a-large-sample)
 
+[English Version](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们对&nbsp;<code>0</code>&nbsp;到&nbsp;<code>255</code>&nbsp;之间的整数进行采样，并将结果存储在数组&nbsp;<code>count</code>&nbsp;中：<code>count[k]</code>&nbsp;就是整数&nbsp;<code>k</code> 的采样个数。</p>

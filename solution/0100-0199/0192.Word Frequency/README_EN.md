@@ -1,5 +1,7 @@
 # [192. Word Frequency](https://leetcode.com/problems/word-frequency)
 
+[中文文档](/solution/0100-0199/0192.Word%20Frequency/README.md)
+
 ## Description
 <p>Write a bash script to calculate the frequency of each word in a text file <code>words.txt</code>.</p>
 

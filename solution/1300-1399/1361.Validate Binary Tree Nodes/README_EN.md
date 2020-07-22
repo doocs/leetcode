@@ -1,5 +1,7 @@
 # [1361. Validate Binary Tree Nodes](https://leetcode.com/problems/validate-binary-tree-nodes)
 
+[中文文档](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README.md)
+
 ## Description
 <p>You have&nbsp;<code>n</code> binary tree nodes&nbsp;numbered from <code>0</code>&nbsp;to <code>n - 1</code> where node&nbsp;<code>i</code>&nbsp;has two children&nbsp;<code>leftChild[i]</code>&nbsp;and&nbsp;<code>rightChild[i]</code>, return&nbsp;<code>true</code>&nbsp;if and only if <strong>all</strong> the given nodes form <strong>exactly one</strong> valid binary tree.</p>
 

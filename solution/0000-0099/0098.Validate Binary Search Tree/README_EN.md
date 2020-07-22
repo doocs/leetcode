@@ -1,5 +1,7 @@
 # [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree)
 
+[中文文档](/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README.md)
+
 ## Description
 <p>Given a binary tree, determine if it is a valid binary search tree (BST).</p>
 

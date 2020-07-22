@@ -1,5 +1,7 @@
 # [1052. Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner)
 
+[中文文档](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README.md)
+
 ## Description
 <p>Today, the bookstore owner has a store open for <code>customers.length</code> minutes.&nbsp; Every minute, some number of customers (<code>customers[i]</code>) enter the store, and all those customers leave after the end of that minute.</p>
 

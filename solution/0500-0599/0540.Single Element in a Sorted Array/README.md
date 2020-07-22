@@ -1,5 +1,7 @@
 # [540. 有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array)
 
+[English Version](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。</p>

@@ -1,5 +1,7 @@
 # [1034. 边框着色](https://leetcode-cn.com/problems/coloring-a-border)
 
+[English Version](/solution/1000-1099/1034.Coloring%20A%20Border/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一个二维整数网格&nbsp;<code>grid</code>，网格中的每个值表示该位置处的网格块的颜色。</p>

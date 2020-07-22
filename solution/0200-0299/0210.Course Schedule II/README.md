@@ -1,5 +1,7 @@
 # [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii)
 
+[English Version](/solution/0200-0299/0210.Course%20Schedule%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>现在你总共有 <em>n</em> 门课需要选，记为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n-1</code>。</p>

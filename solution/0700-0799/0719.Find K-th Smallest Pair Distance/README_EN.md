@@ -1,5 +1,7 @@
 # [719. Find K-th Smallest Pair Distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance)
 
+[中文文档](/solution/0700-0799/0719.Find%20K-th%20Smallest%20Pair%20Distance/README.md)
+
 ## Description
 <p>Given an integer array, return the k-th smallest <b>distance</b> among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B. </p>
 

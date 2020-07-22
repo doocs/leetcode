@@ -1,5 +1,7 @@
 # [1053. Previous Permutation With One Swap](https://leetcode.com/problems/previous-permutation-with-one-swap)
 
+[中文文档](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md)
+
 ## Description
 <p>Given an array <code>A</code> of positive integers (not necessarily distinct), return the lexicographically largest permutation that is smaller than <code>A</code>, that can be <strong>made with one swap</strong> (A <em>swap</em> exchanges the positions of two numbers <code>A[i]</code> and <code>A[j]</code>).&nbsp; If it cannot be done, then return the same array.</p>
 

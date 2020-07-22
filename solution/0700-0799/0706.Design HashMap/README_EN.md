@@ -1,5 +1,7 @@
 # [706. Design HashMap](https://leetcode.com/problems/design-hashmap)
 
+[中文文档](/solution/0700-0799/0706.Design%20HashMap/README.md)
+
 ## Description
 <p>Design a HashMap&nbsp;without using any built-in hash table libraries.</p>
 

@@ -1,5 +1,7 @@
 # [779. 第K个语法符号](https://leetcode-cn.com/problems/k-th-symbol-in-grammar)
 
+[English Version](/solution/0700-0799/0779.K-th%20Symbol%20in%20Grammar/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在第一行我们写上一个 <code>0</code>。接下来的每一行，将前一行中的<code>0</code>替换为<code>01</code>，<code>1</code>替换为<code>10</code>。</p>

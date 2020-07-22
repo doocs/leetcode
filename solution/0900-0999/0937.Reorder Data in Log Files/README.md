@@ -1,5 +1,7 @@
 # [937. 重新排列日志文件](https://leetcode-cn.com/problems/reorder-data-in-log-files)
 
+[English Version](/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你有一个日志数组 <code>logs</code>。每条日志都是以空格分隔的字串。</p>

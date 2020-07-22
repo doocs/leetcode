@@ -1,5 +1,7 @@
 # [412. Fizz Buzz](https://leetcode-cn.com/problems/fizz-buzz)
 
+[English Version](/solution/0400-0499/0412.Fizz%20Buzz/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>写一个程序，输出从 1 到 <em>n</em> 数字的字符串表示。</p>

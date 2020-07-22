@@ -1,5 +1,7 @@
 # [897. 递增顺序查找树](https://leetcode-cn.com/problems/increasing-order-search-tree)
 
+[English Version](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个树，请你 <strong>按中序遍历</strong> 重新排列树，使树中最左边的结点现在是树的根，并且每个结点没有左子结点，只有一个右子结点。</p>

@@ -1,5 +1,7 @@
 # [1001. 网格照明](https://leetcode-cn.com/problems/grid-illumination)
 
+[English Version](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在&nbsp;<code>N x N</code>&nbsp;的网格上，每个单元格&nbsp;<code>(x, y)</code>&nbsp;上都有一盏灯，其中&nbsp;<code>0 &lt;= x &lt; N</code>&nbsp;且&nbsp;<code>0 &lt;= y &lt; N</code> 。</p>

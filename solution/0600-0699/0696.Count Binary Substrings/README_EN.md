@@ -1,5 +1,7 @@
 # [696. Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings)
 
+[中文文档](/solution/0600-0699/0696.Count%20Binary%20Substrings/README.md)
+
 ## Description
 <p>Give a string <code>s</code>, count the number of non-empty (contiguous) substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively. 
 

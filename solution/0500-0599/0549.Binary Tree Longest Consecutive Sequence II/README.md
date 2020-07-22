@@ -1,5 +1,7 @@
 # [549. 二叉树中最长的连续序列](https://leetcode-cn.com/problems/binary-tree-longest-consecutive-sequence-ii)
 
+[English Version](/solution/0500-0599/0549.Binary%20Tree%20Longest%20Consecutive%20Sequence%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

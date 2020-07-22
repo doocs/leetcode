@@ -1,5 +1,7 @@
 # [1352. Product of the Last K Numbers](https://leetcode.com/problems/product-of-the-last-k-numbers)
 
+[中文文档](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README.md)
+
 ## Description
 <p>Implement the class <code>ProductOfNumbers</code>&nbsp;that supports two methods:</p>
 

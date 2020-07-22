@@ -1,5 +1,7 @@
 # [69. Sqrt(x)](https://leetcode.com/problems/sqrtx)
 
+[中文文档](/solution/0000-0099/0069.Sqrt(x)/README.md)
+
 ## Description
 <p>Implement <code>int sqrt(int x)</code>.</p>
 

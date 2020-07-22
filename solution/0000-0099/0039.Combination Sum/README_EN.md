@@ -1,5 +1,7 @@
 # [39. Combination Sum](https://leetcode.com/problems/combination-sum)
 
+[中文文档](/solution/0000-0099/0039.Combination%20Sum/README.md)
+
 ## Description
 <p>Given a <strong>set</strong> of candidate numbers (<code>candidates</code>) <strong>(without duplicates)</strong> and a target number (<code>target</code>), find all unique combinations in <code>candidates</code>&nbsp;where the candidate numbers sums to <code>target</code>.</p>
 

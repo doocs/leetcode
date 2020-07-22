@@ -1,5 +1,7 @@
 # [81. Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii)
 
+[中文文档](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README.md)
+
 ## Description
 <p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p>
 

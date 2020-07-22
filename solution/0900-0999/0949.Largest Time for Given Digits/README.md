@@ -1,5 +1,7 @@
 # [949. 给定数字能组成的最大时间](https://leetcode-cn.com/problems/largest-time-for-given-digits)
 
+[English Version](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个由 4 位数字组成的数组，返回可以设置的符合 24 小时制的最大时间。</p>

@@ -1,5 +1,7 @@
 # [554. Brick Wall](https://leetcode.com/problems/brick-wall)
 
+[中文文档](/solution/0500-0599/0554.Brick%20Wall/README.md)
+
 ## Description
 <p>There is a brick wall in front of you. The wall is rectangular and has several rows of bricks. The bricks have the same height but different width. You want to draw a vertical line from the <b>top</b> to the <b>bottom</b> and cross the <b>least</b> bricks.</p>
 

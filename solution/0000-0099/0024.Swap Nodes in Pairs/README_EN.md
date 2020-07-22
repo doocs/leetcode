@@ -1,5 +1,7 @@
 # [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs)
 
+[中文文档](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
+
 ## Description
 <p>Given a&nbsp;linked list, swap every two adjacent nodes and return its head.</p>
 

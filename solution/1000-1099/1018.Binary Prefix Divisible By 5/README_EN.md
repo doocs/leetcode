@@ -1,5 +1,7 @@
 # [1018. Binary Prefix Divisible By 5](https://leetcode.com/problems/binary-prefix-divisible-by-5)
 
+[中文文档](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README.md)
+
 ## Description
 <p>Given an array <code>A</code> of <code>0</code>s and <code>1</code>s, consider <code>N_i</code>: the i-th subarray from <code>A[0]</code> to <code>A[i]</code>&nbsp;interpreted&nbsp;as a binary number (from most-significant-bit to least-significant-bit.)</p>
 

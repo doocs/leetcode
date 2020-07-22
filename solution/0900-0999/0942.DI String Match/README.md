@@ -1,5 +1,7 @@
 # [942. 增减字符串匹配](https://leetcode-cn.com/problems/di-string-match)
 
+[English Version](/solution/0900-0999/0942.DI%20String%20Match/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定只含&nbsp;<code>&quot;I&quot;</code>（增大）或 <code>&quot;D&quot;</code>（减小）的字符串&nbsp;<code>S</code>&nbsp;，令&nbsp;<code>N = S.length</code>。</p>

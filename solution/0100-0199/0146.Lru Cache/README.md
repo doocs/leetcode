@@ -1,5 +1,7 @@
 # [146. LRU缓存机制](https://leetcode-cn.com/problems/lru-cache)
 
+[English Version](/solution/0100-0199/0146.Lru%20Cache/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>运用你所掌握的数据结构，设计和实现一个&nbsp; <a href="https://baike.baidu.com/item/LRU" target="_blank">LRU (最近最少使用) 缓存机制</a>。它应该支持以下操作： 获取数据 <code>get</code> 和 写入数据 <code>put</code> 。</p>

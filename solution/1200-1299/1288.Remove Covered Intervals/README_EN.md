@@ -1,5 +1,7 @@
 # [1288. Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals)
 
+[中文文档](/solution/1200-1299/1288.Remove%20Covered%20Intervals/README.md)
+
 ## Description
 <p>Given a list of intervals, remove all intervals that are covered by another interval in the list.&nbsp;Interval <code>[a,b)</code> is covered by&nbsp;interval <code>[c,d)</code> if and only if <code>c &lt;= a</code> and <code>b &lt;= d</code>.</p>
 

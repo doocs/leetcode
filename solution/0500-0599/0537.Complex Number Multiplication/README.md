@@ -1,5 +1,7 @@
 # [537. 复数乘法](https://leetcode-cn.com/problems/complex-number-multiplication)
 
+[English Version](/solution/0500-0599/0537.Complex%20Number%20Multiplication/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个表示<a href="https://baike.baidu.com/item/%E5%A4%8D%E6%95%B0/254365?fr=aladdin">复数</a>的字符串。</p>

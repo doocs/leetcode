@@ -1,5 +1,7 @@
 # [623. 在二叉树中增加一行](https://leetcode-cn.com/problems/add-one-row-to-tree)
 
+[English Version](/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二叉树，根节点为第1层，深度为 1。在其第&nbsp;<code>d</code>&nbsp;层追加一行值为&nbsp;<code>v</code>&nbsp;的节点。</p>

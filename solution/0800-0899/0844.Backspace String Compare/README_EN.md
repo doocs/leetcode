@@ -1,5 +1,7 @@
 # [844. Backspace String Compare](https://leetcode.com/problems/backspace-string-compare)
 
+[中文文档](/solution/0800-0899/0844.Backspace%20String%20Compare/README.md)
+
 ## Description
 <p>Given two&nbsp;strings&nbsp;<code>S</code>&nbsp;and <code>T</code>,&nbsp;return if they are equal when both are typed into empty text editors. <code>#</code> means a backspace character.</p>
 

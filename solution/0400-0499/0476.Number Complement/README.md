@@ -1,5 +1,7 @@
 # [476. 数字的补数](https://leetcode-cn.com/problems/number-complement)
 
+[English Version](/solution/0400-0499/0476.Number%20Complement/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个正整数，输出它的补数。补数是对该数的二进制表示取反。</p>

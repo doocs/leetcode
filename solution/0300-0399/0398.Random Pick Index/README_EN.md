@@ -1,5 +1,7 @@
 # [398. Random Pick Index](https://leetcode.com/problems/random-pick-index)
 
+[中文文档](/solution/0300-0399/0398.Random%20Pick%20Index/README.md)
+
 ## Description
 <p>Given an array of integers with possible duplicates, randomly output the index of a given target number. You can assume that the given target number must exist in the array.</p>
 

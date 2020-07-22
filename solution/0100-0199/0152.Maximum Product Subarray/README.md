@@ -1,5 +1,7 @@
 # [152. 乘积最大子序列](https://leetcode-cn.com/problems/maximum-product-subarray)
 
+[English Version](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组 <code>nums</code>&nbsp;，找出一个序列中乘积最大的连续子序列（该序列至少包含一个数）。</p>

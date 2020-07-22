@@ -1,5 +1,7 @@
 # [913. Cat and Mouse](https://leetcode.com/problems/cat-and-mouse)
 
+[中文文档](/solution/0900-0999/0913.Cat%20and%20Mouse/README.md)
+
 ## Description
 <p>A game on an <strong>undirected</strong> graph is played by two players, Mouse and Cat, who alternate turns.</p>
 

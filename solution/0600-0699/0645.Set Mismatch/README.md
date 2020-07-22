@@ -1,5 +1,7 @@
 # [645. 错误的集合](https://leetcode-cn.com/problems/set-mismatch)
 
+[English Version](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>集合 <code>S</code> 包含从1到&nbsp;<code>n</code>&nbsp;的整数。不幸的是，因为数据错误，导致集合里面某一个元素复制了成了集合里面的另外一个元素的值，导致集合丢失了一个整数并且有一个元素重复。</p>

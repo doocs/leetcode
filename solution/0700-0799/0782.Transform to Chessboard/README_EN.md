@@ -1,5 +1,7 @@
 # [782. Transform to Chessboard](https://leetcode.com/problems/transform-to-chessboard)
 
+[中文文档](/solution/0700-0799/0782.Transform%20to%20Chessboard/README.md)
+
 ## Description
 <p>An N x N <code>board</code> contains only <code>0</code>s and <code>1</code>s. In each move, you can swap any 2 rows with each other, or any 2 columns with each other.</p>
 

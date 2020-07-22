@@ -1,5 +1,7 @@
 # [191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits)
 
+[中文文档](/solution/0100-0199/0191.Number%20of%201%20Bits/README.md)
+
 ## Description
 <p>Write a function that takes an unsigned integer and return&nbsp;the number of &#39;1&#39;&nbsp;bits it has (also known as the <a href="http://en.wikipedia.org/wiki/Hamming_weight" target="_blank">Hamming weight</a>).</p>
 

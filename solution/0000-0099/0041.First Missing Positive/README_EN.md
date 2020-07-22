@@ -1,5 +1,7 @@
 # [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive)
 
+[中文文档](/solution/0000-0099/0041.First%20Missing%20Positive/README.md)
+
 ## Description
 <p>Given an unsorted integer array, find the smallest missing&nbsp;positive integer.</p>
 

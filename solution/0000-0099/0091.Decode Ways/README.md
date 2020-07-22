@@ -1,5 +1,7 @@
 # [91. 解码方法](https://leetcode-cn.com/problems/decode-ways)
 
+[English Version](/solution/0000-0099/0091.Decode%20Ways/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>一条包含字母&nbsp;<code>A-Z</code> 的消息通过以下方式进行了编码：</p>

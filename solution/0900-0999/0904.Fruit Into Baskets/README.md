@@ -1,5 +1,7 @@
 # [904. 水果成篮](https://leetcode-cn.com/problems/fruit-into-baskets)
 
+[English Version](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一排树中，第 <code>i</code> 棵树产生&nbsp;<code>tree[i]</code> 型的水果。<br>

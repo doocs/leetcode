@@ -1,5 +1,7 @@
 # [740. Delete and Earn](https://leetcode.com/problems/delete-and-earn)
 
+[中文文档](/solution/0700-0799/0740.Delete%20and%20Earn/README.md)
+
 ## Description
 <p>Given an array <code>nums</code> of integers, you can perform operations on the array.</p>
 

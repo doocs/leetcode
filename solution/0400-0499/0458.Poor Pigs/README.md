@@ -1,5 +1,7 @@
 # [458. 可怜的小猪](https://leetcode-cn.com/problems/poor-pigs)
 
+[English Version](/solution/0400-0499/0458.Poor%20Pigs/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有 1000 只水桶，其中有且只有一桶装的含有毒药，其余装的都是水。它们从外观看起来都一样。如果小猪喝了毒药，它会在 15 分钟内死去。</p>

@@ -1,5 +1,7 @@
 # [1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum)
 
+[中文文档](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md)
+
 ## Description
 Given a binary tree, return the sum of values of its deepest leaves.
 

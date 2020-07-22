@@ -1,5 +1,7 @@
 # [306. 累加数](https://leetcode-cn.com/problems/additive-number)
 
+[English Version](/solution/0300-0399/0306.Additive%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>累加数是一个字符串，组成它的数字可以形成累加序列。</p>

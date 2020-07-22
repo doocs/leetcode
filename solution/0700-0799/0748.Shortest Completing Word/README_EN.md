@@ -1,5 +1,7 @@
 # [748. Shortest Completing Word](https://leetcode.com/problems/shortest-completing-word)
 
+[中文文档](/solution/0700-0799/0748.Shortest%20Completing%20Word/README.md)
+
 ## Description
 <p>
 

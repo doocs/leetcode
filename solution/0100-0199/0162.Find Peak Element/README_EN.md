@@ -1,5 +1,7 @@
 # [162. Find Peak Element](https://leetcode.com/problems/find-peak-element)
 
+[中文文档](/solution/0100-0199/0162.Find%20Peak%20Element/README.md)
+
 ## Description
 <p>A peak element is an element that is greater than its neighbors.</p>
 

@@ -1,5 +1,7 @@
 # [321. Create Maximum Number](https://leetcode.com/problems/create-maximum-number)
 
+[中文文档](/solution/0300-0399/0321.Create%20Maximum%20Number/README.md)
+
 ## Description
 <p>Given two arrays of length <code>m</code> and <code>n</code> with digits <code>0-9</code> representing two numbers. Create the maximum number of length <code>k &lt;= m + n</code> from digits of the two. The relative order of the digits from the same array must be preserved. Return an array of the <code>k</code> digits.</p>
 

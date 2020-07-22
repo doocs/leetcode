@@ -1,5 +1,7 @@
 # [874. Walking Robot Simulation](https://leetcode.com/problems/walking-robot-simulation)
 
+[中文文档](/solution/0800-0899/0874.Walking%20Robot%20Simulation/README.md)
+
 ## Description
 <p>A robot on an infinite grid starts at point (0, 0) and faces north.&nbsp; The robot can receive one of three possible types of commands:</p>
 

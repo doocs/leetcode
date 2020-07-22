@@ -1,5 +1,7 @@
 # [1283. Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold)
 
+[中文文档](/solution/1200-1299/1283.Find%20the%20Smallest%20Divisor%20Given%20a%20Threshold/README.md)
+
 ## Description
 <p>Given an array of integers <code>nums</code> and an integer <code>threshold</code>, we will choose a positive integer divisor and&nbsp;divide&nbsp;all the array by it and sum the result of the division. Find the <strong>smallest</strong> divisor such that the result mentioned above is less than&nbsp;or equal to <code>threshold</code>.</p>
 

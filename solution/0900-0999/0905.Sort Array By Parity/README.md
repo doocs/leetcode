@@ -1,5 +1,7 @@
 # [905. 按奇偶排序数组](https://leetcode-cn.com/problems/sort-array-by-parity)
 
+[English Version](/solution/0900-0999/0905.Sort%20Array%20By%20Parity/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个非负整数数组 <code>A</code>，返回一个数组，在该数组中，&nbsp;<code>A</code> 的所有偶数元素之后跟着所有奇数元素。</p>

@@ -1,5 +1,7 @@
 # [164. Maximum Gap](https://leetcode.com/problems/maximum-gap)
 
+[中文文档](/solution/0100-0199/0164.Maximum%20Gap/README.md)
+
 ## Description
 <p>Given an unsorted array, find the maximum difference between the successive elements in its sorted form.</p>
 

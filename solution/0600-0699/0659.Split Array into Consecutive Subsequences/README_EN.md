@@ -1,5 +1,7 @@
 # [659. Split Array into Consecutive Subsequences](https://leetcode.com/problems/split-array-into-consecutive-subsequences)
 
+[中文文档](/solution/0600-0699/0659.Split%20Array%20into%20Consecutive%20Subsequences/README.md)
+
 ## Description
 <p>Given an array <code>nums</code>&nbsp;sorted in ascending order, return <code>true</code> if and only if you can split it into 1 or more subsequences such that each subsequence consists of consecutive integers&nbsp;and has length at least 3.</p>
 

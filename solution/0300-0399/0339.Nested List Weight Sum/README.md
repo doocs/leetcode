@@ -1,5 +1,7 @@
 # [339. 嵌套列表权重和](https://leetcode-cn.com/problems/nested-list-weight-sum)
 
+[English Version](/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

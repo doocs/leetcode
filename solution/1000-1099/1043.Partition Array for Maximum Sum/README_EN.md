@@ -1,5 +1,7 @@
 # [1043. Partition Array for Maximum Sum](https://leetcode.com/problems/partition-array-for-maximum-sum)
 
+[中文文档](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README.md)
+
 ## Description
 <p>Given an integer array <code>A</code>, you partition the array into (contiguous) subarrays of length at most <code>K</code>.&nbsp; After partitioning, each subarray has their values changed to become the maximum value of that subarray.</p>
 

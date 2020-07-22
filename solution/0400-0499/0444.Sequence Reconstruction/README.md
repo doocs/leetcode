@@ -1,5 +1,7 @@
 # [444. 序列重建](https://leetcode-cn.com/problems/sequence-reconstruction)
 
+[English Version](/solution/0400-0499/0444.Sequence%20Reconstruction/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

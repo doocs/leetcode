@@ -1,5 +1,7 @@
 # [767. 重构字符串](https://leetcode-cn.com/problems/reorganize-string)
 
+[English Version](/solution/0700-0799/0767.Reorganize%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串<code>S</code>，检查是否能重新排布其中的字母，使得两相邻的字符不同。</p>

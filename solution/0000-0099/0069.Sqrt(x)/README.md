@@ -1,5 +1,7 @@
 # [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx)
 
+[English Version](/solution/0000-0099/0069.Sqrt(x)/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现&nbsp;<code>int sqrt(int x)</code>&nbsp;函数。</p>

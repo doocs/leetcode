@@ -1,5 +1,7 @@
 # [313. Super Ugly Number](https://leetcode.com/problems/super-ugly-number)
 
+[中文文档](/solution/0300-0399/0313.Super%20Ugly%20Number/README.md)
+
 ## Description
 <p>Write a program to find the <code>n<sup>th</sup></code> super ugly number.</p>
 

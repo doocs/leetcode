@@ -1,5 +1,7 @@
 # [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin)
 
+[中文文档](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README.md)
+
 ## Description
 <p>We have a list of <code>points</code>&nbsp;on the plane.&nbsp; Find the <code>K</code> closest points to the origin <code>(0, 0)</code>.</p>
 

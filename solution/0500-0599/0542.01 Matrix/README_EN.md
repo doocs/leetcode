@@ -1,5 +1,7 @@
 # [542. 01 Matrix](https://leetcode.com/problems/01-matrix)
 
+[中文文档](/solution/0500-0599/0542.01%20Matrix/README.md)
+
 ## Description
 <p>Given a matrix consists of 0 and 1, find the distance of the nearest 0 for each cell.</p>
 

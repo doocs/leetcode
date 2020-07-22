@@ -1,5 +1,7 @@
 # [1015. 可被 K 整除的最小整数](https://leetcode-cn.com/problems/smallest-integer-divisible-by-k)
 
+[English Version](/solution/1000-1099/1015.Smallest%20Integer%20Divisible%20by%20K/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定正整数&nbsp;<code>K</code>，你需要找出可以被 K 整除的、仅包含数字 <strong>1</strong> 的最小正整数 N。</p>

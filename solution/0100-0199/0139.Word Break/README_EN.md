@@ -1,5 +1,7 @@
 # [139. Word Break](https://leetcode.com/problems/word-break)
 
+[中文文档](/solution/0100-0199/0139.Word%20Break/README.md)
+
 ## Description
 <p>Given a <strong>non-empty</strong> string <em>s</em> and a dictionary <em>wordDict</em> containing a list of <strong>non-empty</strong> words, determine if <em>s</em> can be segmented into a space-separated sequence of one or more dictionary words.</p>
 

@@ -1,5 +1,7 @@
 # [1156. Swap For Longest Repeated Character Substring](https://leetcode.com/problems/swap-for-longest-repeated-character-substring)
 
+[中文文档](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README.md)
+
 ## Description
 <p>Given a string <code>text</code>, we are allowed to swap two of the characters in the string. Find the length of the longest substring with repeated characters.</p>
 

@@ -1,5 +1,7 @@
 # [1187. 使数组严格递增](https://leetcode-cn.com/problems/make-array-strictly-increasing)
 
+[English Version](/solution/1100-1199/1187.Make%20Array%20Strictly%20Increasing/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你两个整数数组&nbsp;<code>arr1</code> 和 <code>arr2</code>，返回使&nbsp;<code>arr1</code>&nbsp;严格递增所需要的最小「操作」数（可能为 0）。</p>

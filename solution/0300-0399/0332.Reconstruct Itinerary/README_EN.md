@@ -1,5 +1,7 @@
 # [332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary)
 
+[中文文档](/solution/0300-0399/0332.Reconstruct%20Itinerary/README.md)
+
 ## Description
 <p>Given a list of airline tickets represented by pairs of departure and arrival airports <code>[from, to]</code>, reconstruct the itinerary in order. All of the tickets belong to a man who departs from <code>JFK</code>. Thus, the itinerary must begin with <code>JFK</code>.</p>
 

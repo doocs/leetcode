@@ -1,5 +1,7 @@
 # [1033. Moving Stones Until Consecutive](https://leetcode.com/problems/moving-stones-until-consecutive)
 
+[中文文档](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README.md)
+
 ## Description
 <p>Three stones are on a number line at positions <code>a</code>, <code>b</code>, and <code>c</code>.</p>
 

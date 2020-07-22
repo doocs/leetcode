@@ -1,5 +1,7 @@
 # [90. Subsets II](https://leetcode.com/problems/subsets-ii)
 
+[中文文档](/solution/0000-0099/0090.Subsets%20II/README.md)
+
 ## Description
 <p>Given a collection of integers that might contain duplicates, <strong><em>nums</em></strong>, return all possible subsets (the power set).</p>
 

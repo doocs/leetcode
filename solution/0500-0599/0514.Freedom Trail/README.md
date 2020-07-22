@@ -1,5 +1,7 @@
 # [514. 自由之路](https://leetcode-cn.com/problems/freedom-trail)
 
+[English Version](/solution/0500-0599/0514.Freedom%20Trail/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>视频游戏&ldquo;辐射4&rdquo;中，任务&ldquo;通向自由&rdquo;要求玩家到达名为&ldquo;Freedom Trail Ring&rdquo;的金属表盘，并使用表盘拼写特定关键词才能开门。</p>

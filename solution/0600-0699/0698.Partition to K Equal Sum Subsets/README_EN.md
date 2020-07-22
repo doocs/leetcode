@@ -1,5 +1,7 @@
 # [698. Partition to K Equal Sum Subsets](https://leetcode.com/problems/partition-to-k-equal-sum-subsets)
 
+[中文文档](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md)
+
 ## Description
 <p>Given an array of integers <code>nums</code> and a positive integer <code>k</code>, find whether it&#39;s possible to divide this array into <code>k</code> non-empty subsets whose sums are all equal.</p>
 

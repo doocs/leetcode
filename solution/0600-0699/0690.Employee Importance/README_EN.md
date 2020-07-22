@@ -1,5 +1,7 @@
 # [690. Employee Importance](https://leetcode.com/problems/employee-importance)
 
+[中文文档](/solution/0600-0699/0690.Employee%20Importance/README.md)
+
 ## Description
 <p>You are given a data structure of employee information, which includes the employee&#39;s <b>unique id</b>, his <b>importance value</b> and his <b>direct</b> subordinates&#39; id.</p>
 

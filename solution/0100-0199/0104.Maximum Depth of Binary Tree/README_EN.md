@@ -1,5 +1,7 @@
 # [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree)
 
+[中文文档](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README.md)
+
 ## Description
 <p>Given a binary tree, find its maximum depth.</p>
 

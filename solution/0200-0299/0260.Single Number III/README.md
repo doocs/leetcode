@@ -1,5 +1,7 @@
 # [260. 只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii)
 
+[English Version](/solution/0200-0299/0260.Single%20Number%20III/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组&nbsp;<code>nums</code>，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。</p>

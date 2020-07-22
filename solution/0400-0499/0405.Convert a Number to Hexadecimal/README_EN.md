@@ -1,5 +1,7 @@
 # [405. Convert a Number to Hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal)
 
+[中文文档](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README.md)
+
 ## Description
 <p>
 

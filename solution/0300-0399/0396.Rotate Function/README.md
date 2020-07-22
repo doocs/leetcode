@@ -1,5 +1,7 @@
 # [396. 旋转函数](https://leetcode-cn.com/problems/rotate-function)
 
+[English Version](/solution/0300-0399/0396.Rotate%20Function/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个长度为 <em>n</em> 的整数数组&nbsp;<code>A</code>&nbsp;。</p>

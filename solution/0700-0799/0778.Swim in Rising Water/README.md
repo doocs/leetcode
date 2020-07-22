@@ -1,5 +1,7 @@
 # [778. 水位上升的泳池中游泳](https://leetcode-cn.com/problems/swim-in-rising-water)
 
+[English Version](/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个 N x N 的坐标方格&nbsp;<code>grid</code> 中，每一个方格的值 <code>grid[i][j]</code> 表示在位置 <code>(i,j)</code> 的平台高度。</p>

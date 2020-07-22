@@ -1,5 +1,7 @@
 # [507. Perfect Number](https://leetcode.com/problems/perfect-number)
 
+[中文文档](/solution/0500-0599/0507.Perfect%20Number/README.md)
+
 ## Description
 <p>We define the Perfect Number is a <b>positive</b> integer that is equal to the sum of all its <b>positive</b> divisors except itself. 
 

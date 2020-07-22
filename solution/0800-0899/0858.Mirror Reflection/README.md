@@ -1,5 +1,7 @@
 # [858. 镜面反射](https://leetcode-cn.com/problems/mirror-reflection)
 
+[English Version](/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有一个特殊的正方形房间，每面墙上都有一面镜子。除西南角以外，每个角落都放有一个接受器，编号为&nbsp;<code>0</code>，&nbsp;<code>1</code>，以及&nbsp;<code>2</code>。</p>

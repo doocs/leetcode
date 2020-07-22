@@ -1,5 +1,7 @@
 # [704. Binary Search](https://leetcode.com/problems/binary-search)
 
+[中文文档](/solution/0700-0799/0704.Binary%20Search/README.md)
+
 ## Description
 <p>Given a <strong>sorted</strong> (in ascending order) integer array <code>nums</code> of <code>n</code> elements and a <code>target</code> value, write a function to search <code>target</code> in <code>nums</code>. If <code>target</code> exists, then return its index, otherwise return <code>-1</code>.</p>
 

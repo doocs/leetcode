@@ -1,5 +1,7 @@
 # [1191. K-Concatenation Maximum Sum](https://leetcode.com/problems/k-concatenation-maximum-sum)
 
+[中文文档](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md)
+
 ## Description
 <p>Given an integer array <code>arr</code>&nbsp;and an integer <code>k</code>, modify the array by repeating it <code>k</code> times.</p>
 

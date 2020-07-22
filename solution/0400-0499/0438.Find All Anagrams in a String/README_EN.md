@@ -1,5 +1,7 @@
 # [438. Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string)
 
+[中文文档](/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README.md)
+
 ## Description
 <p>Given a string <b>s</b> and a <b>non-empty</b> string <b>p</b>, find all the start indices of <b>p</b>'s anagrams in <b>s</b>.</p>
 

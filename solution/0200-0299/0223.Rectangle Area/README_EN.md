@@ -1,5 +1,7 @@
 # [223. Rectangle Area](https://leetcode.com/problems/rectangle-area)
 
+[中文文档](/solution/0200-0299/0223.Rectangle%20Area/README.md)
+
 ## Description
 <p>Find the total area covered by two <strong>rectilinear</strong> rectangles in a <strong>2D</strong> plane.</p>
 

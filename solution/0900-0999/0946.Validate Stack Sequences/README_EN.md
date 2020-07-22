@@ -1,5 +1,7 @@
 # [946. Validate Stack Sequences](https://leetcode.com/problems/validate-stack-sequences)
 
+[中文文档](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README.md)
+
 ## Description
 <p>Given two sequences <code>pushed</code> and <code>popped</code>&nbsp;<strong>with distinct values</strong>,&nbsp;return <code>true</code> if and only if this could have been the result of a sequence of push and pop operations on an initially empty stack.</p>
 

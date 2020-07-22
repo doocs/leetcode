@@ -1,5 +1,7 @@
 # [815. Bus Routes](https://leetcode.com/problems/bus-routes)
 
+[中文文档](/solution/0800-0899/0815.Bus%20Routes/README.md)
+
 ## Description
 <p>We have a list of bus routes. Each <code>routes[i]</code> is a bus route that the i-th bus&nbsp;repeats forever. For example if <code>routes[0] = [1, 5, 7]</code>, this means that the first&nbsp;bus (0-th indexed) travels in the sequence 1-&gt;5-&gt;7-&gt;1-&gt;5-&gt;7-&gt;1-&gt;... forever.</p>
 

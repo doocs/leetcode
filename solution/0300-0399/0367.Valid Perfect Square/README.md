@@ -1,5 +1,7 @@
 # [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square)
 
+[English Version](/solution/0300-0399/0367.Valid%20Perfect%20Square/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个正整数 <em>num</em>，编写一个函数，如果 <em>num</em> 是一个完全平方数，则返回 True，否则返回 False。</p>

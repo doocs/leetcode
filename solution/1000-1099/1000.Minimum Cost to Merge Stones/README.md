@@ -1,5 +1,7 @@
 # [1000. 合并石头的最低成本](https://leetcode-cn.com/problems/minimum-cost-to-merge-stones)
 
+[English Version](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有 <code>N</code> 堆石头排成一排，第 <code>i</code> 堆中有&nbsp;<code>stones[i]</code>&nbsp;块石头。</p>

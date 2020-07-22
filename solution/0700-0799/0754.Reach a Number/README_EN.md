@@ -1,5 +1,7 @@
 # [754. Reach a Number](https://leetcode.com/problems/reach-a-number)
 
+[中文文档](/solution/0700-0799/0754.Reach%20a%20Number/README.md)
+
 ## Description
 <p>
 

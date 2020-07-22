@@ -1,5 +1,7 @@
 # [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list)
 
+[English Version](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>请判断一个链表是否为回文链表。</p>

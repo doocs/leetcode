@@ -1,5 +1,7 @@
 # [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
 
+[中文文档](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
+
 ## Description
 <p>Given a string containing just the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;{&#39;</code>, <code>&#39;}&#39;</code>, <code>&#39;[&#39;</code> and <code>&#39;]&#39;</code>, determine if the input string is valid.</p>
 

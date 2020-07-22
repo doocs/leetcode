@@ -1,5 +1,7 @@
 # [552. 学生出勤记录 II](https://leetcode-cn.com/problems/student-attendance-record-ii)
 
+[English Version](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个正整数&nbsp;<strong>n</strong>，返回长度为 n 的所有可被视为可奖励的出勤记录的数量。 答案可能非常大，你只需返回结果mod 10<sup>9</sup> + 7的值。</p>

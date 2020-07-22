@@ -1,5 +1,7 @@
 # [1051. 高度检查器](https://leetcode-cn.com/problems/height-checker)
 
+[English Version](/solution/1000-1099/1051.Height%20Checker/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>学校在拍年度纪念照时，一般要求学生按照 <strong>非递减</strong> 的高度顺序排列。</p>

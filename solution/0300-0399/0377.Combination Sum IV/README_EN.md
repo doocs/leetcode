@@ -1,5 +1,7 @@
 # [377. Combination Sum IV](https://leetcode.com/problems/combination-sum-iv)
 
+[中文文档](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md)
+
 ## Description
 <p>Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.</p>
 

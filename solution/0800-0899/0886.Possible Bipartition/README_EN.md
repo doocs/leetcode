@@ -1,5 +1,7 @@
 # [886. Possible Bipartition](https://leetcode.com/problems/possible-bipartition)
 
+[中文文档](/solution/0800-0899/0886.Possible%20Bipartition/README.md)
+
 ## Description
 <p>Given a set of <code>N</code>&nbsp;people (numbered <code>1, 2, ..., N</code>), we would like to split everyone into two groups of <strong>any</strong> size.</p>
 

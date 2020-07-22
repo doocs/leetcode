@@ -1,5 +1,7 @@
 # [728. 自除数](https://leetcode-cn.com/problems/self-dividing-numbers)
 
+[English Version](/solution/0700-0799/0728.Self%20Dividing%20Numbers/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p><em>自除数&nbsp;</em>是指可以被它包含的每一位数除尽的数。</p>

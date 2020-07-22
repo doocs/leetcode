@@ -1,5 +1,7 @@
 # [279. Perfect Squares](https://leetcode.com/problems/perfect-squares)
 
+[中文文档](/solution/0200-0299/0279.Perfect%20Squares/README.md)
+
 ## Description
 <p>Given a positive integer <i>n</i>, find the least number of perfect square numbers (for example, <code>1, 4, 9, 16, ...</code>) which sum to <i>n</i>.</p>
 

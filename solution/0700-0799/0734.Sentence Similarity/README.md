@@ -1,5 +1,7 @@
 # [734. 句子相似性](https://leetcode-cn.com/problems/sentence-similarity)
 
+[English Version](/solution/0700-0799/0734.Sentence%20Similarity/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

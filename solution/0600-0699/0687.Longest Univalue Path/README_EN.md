@@ -1,5 +1,7 @@
 # [687. Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path)
 
+[中文文档](/solution/0600-0699/0687.Longest%20Univalue%20Path/README.md)
+
 ## Description
 <p>Given a binary tree, find the length of the longest path where each node in the path has the same value. This path may or may not pass through the root.</p>
 

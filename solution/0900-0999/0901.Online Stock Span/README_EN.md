@@ -1,5 +1,7 @@
 # [901. Online Stock Span](https://leetcode.com/problems/online-stock-span)
 
+[中文文档](/solution/0900-0999/0901.Online%20Stock%20Span/README.md)
+
 ## Description
 <p>Write a class <code>StockSpanner</code> which collects daily price quotes for some stock, and returns the <em>span</em>&nbsp;of that stock&#39;s price for the current day.</p>
 

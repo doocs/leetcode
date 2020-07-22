@@ -1,5 +1,7 @@
 # [398. 随机数索引](https://leetcode-cn.com/problems/random-pick-index)
 
+[English Version](/solution/0300-0399/0398.Random%20Pick%20Index/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个可能含有重复元素的整数数组，要求随机输出给定的数字的索引。 您可以假设给定的数字一定存在于数组中。</p>

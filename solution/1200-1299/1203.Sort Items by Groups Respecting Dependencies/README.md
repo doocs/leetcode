@@ -1,5 +1,7 @@
 # [1203. 项目管理](https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies)
 
+[English Version](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>公司共有&nbsp;<code>n</code>&nbsp;个项目和 &nbsp;<code>m</code>&nbsp;个小组，每个项目要不没有归属，要不就由其中的一个小组负责。</p>

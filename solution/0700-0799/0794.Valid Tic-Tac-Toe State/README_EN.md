@@ -1,5 +1,7 @@
 # [794. Valid Tic-Tac-Toe State](https://leetcode.com/problems/valid-tic-tac-toe-state)
 
+[中文文档](/solution/0700-0799/0794.Valid%20Tic-Tac-Toe%20State/README.md)
+
 ## Description
 <p>A Tic-Tac-Toe board is given as a string array <code>board</code>. Return True if and only if it is possible to reach this board position during the course of a valid tic-tac-toe game.</p>
 

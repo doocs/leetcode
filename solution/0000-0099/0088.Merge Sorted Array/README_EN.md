@@ -1,5 +1,7 @@
 # [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array)
 
+[中文文档](/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md)
+
 ## Description
 <p>Given two sorted integer arrays <em>nums1</em> and <em>nums2</em>, merge <em>nums2</em> into <em>nums1</em> as one sorted array.</p>
 

@@ -1,5 +1,7 @@
 # [896. 单调数列](https://leetcode-cn.com/problems/monotonic-array)
 
+[English Version](/solution/0800-0899/0896.Monotonic%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>如果数组是单调递增或单调递减的，那么它是<em>单调的</em>。</p>

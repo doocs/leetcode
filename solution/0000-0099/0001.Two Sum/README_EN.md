@@ -1,5 +1,7 @@
 # [1. Two Sum](https://leetcode.com/problems/two-sum)
 
+[中文文档](/solution/0000-0099/0001.Two%20Sum/README.md)
+
 ## Description
 <p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p>
 

@@ -1,5 +1,7 @@
 # [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers)
 
+[English Version](/solution/0000-0099/0029.Divide%20Two%20Integers/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个整数，被除数&nbsp;<code>dividend</code>&nbsp;和除数&nbsp;<code>divisor</code>。将两数相除，要求不使用乘法、除法和 mod 运算符。</p>

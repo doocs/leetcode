@@ -1,5 +1,7 @@
 # [218. The Skyline Problem](https://leetcode.com/problems/the-skyline-problem)
 
+[中文文档](/solution/0200-0299/0218.The%20Skyline%20Problem/README.md)
+
 ## Description
 <p>A city&#39;s skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are <b>given the locations and height of all the buildings</b> as shown on a cityscape photo (Figure A), write a program to <b>output the skyline</b> formed by these buildings collectively (Figure B).</p>
 

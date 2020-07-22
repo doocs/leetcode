@@ -1,5 +1,7 @@
 # [982. Triples with Bitwise AND Equal To Zero](https://leetcode.com/problems/triples-with-bitwise-and-equal-to-zero)
 
+[中文文档](/solution/0900-0999/0982.Triples%20with%20Bitwise%20AND%20Equal%20To%20Zero/README.md)
+
 ## Description
 <p>Given an array of integers <code>A</code>, find the number of&nbsp;triples of indices (i, j, k)&nbsp;such that:</p>
 

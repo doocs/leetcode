@@ -1,5 +1,7 @@
 # [818. Race Car](https://leetcode.com/problems/race-car)
 
+[中文文档](/solution/0800-0899/0818.Race%20Car/README.md)
+
 ## Description
 <p>Your car starts at position 0 and speed +1 on an infinite number line.&nbsp; (Your car can go into negative positions.)</p>
 

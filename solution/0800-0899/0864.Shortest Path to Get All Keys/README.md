@@ -1,5 +1,7 @@
 # [864. 获取所有钥匙的最短路径](https://leetcode-cn.com/problems/shortest-path-to-get-all-keys)
 
+[English Version](/solution/0800-0899/0864.Shortest%20Path%20to%20Get%20All%20Keys/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二维网格&nbsp;<code>grid</code>。&nbsp;<code>&quot;.&quot;</code>&nbsp;代表一个空房间，&nbsp;<code>&quot;#&quot;</code>&nbsp;代表一堵墙，&nbsp;<code>&quot;@&quot;</code>&nbsp;是起点，（<code>&quot;a&quot;</code>,&nbsp;<code>&quot;b&quot;</code>, ...）代表钥匙，（<code>&quot;A&quot;</code>,&nbsp;<code>&quot;B&quot;</code>, ...）代表锁。</p>

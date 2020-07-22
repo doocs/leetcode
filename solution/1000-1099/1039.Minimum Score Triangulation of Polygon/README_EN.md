@@ -1,5 +1,7 @@
 # [1039. Minimum Score Triangulation of Polygon](https://leetcode.com/problems/minimum-score-triangulation-of-polygon)
 
+[中文文档](/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md)
+
 ## Description
 <p>Given <code>N</code>, consider a convex <code>N</code>-sided polygon with vertices labelled <code>A[0], A[i], ..., A[N-1]</code>&nbsp;in clockwise order.</p>
 

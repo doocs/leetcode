@@ -1,5 +1,7 @@
 # [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching)
 
+[中文文档](/solution/0000-0099/0010.Regular%20Expression%20Matching/README.md)
+
 ## Description
 <p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement regular expression matching with support for <code>&#39;.&#39;</code> and <code>&#39;*&#39;</code>.</p>
 

@@ -1,5 +1,7 @@
 # [609. Find Duplicate File in System](https://leetcode.com/problems/find-duplicate-file-in-system)
 
+[中文文档](/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README.md)
+
 ## Description
 <p>Given a list of directory info including directory path, and all the files with contents in this directory, you need to find out all the groups of duplicate files in the file system in terms of their paths.</p>
 

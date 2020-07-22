@@ -1,5 +1,7 @@
 # [991. Broken Calculator](https://leetcode.com/problems/broken-calculator)
 
+[中文文档](/solution/0900-0999/0991.Broken%20Calculator/README.md)
+
 ## Description
 <p>On a broken calculator that has a number showing on its display, we can perform two operations:</p>
 

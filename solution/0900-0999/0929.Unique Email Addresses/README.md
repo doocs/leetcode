@@ -1,5 +1,7 @@
 # [929. 独特的电子邮件地址](https://leetcode-cn.com/problems/unique-email-addresses)
 
+[English Version](/solution/0900-0999/0929.Unique%20Email%20Addresses/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>每封电子邮件都由一个本地名称和一个域名组成，以 @ 符号分隔。</p>

@@ -1,5 +1,7 @@
 # [810. 黑板异或游戏](https://leetcode-cn.com/problems/chalkboard-xor-game)
 
+[English Version](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>一个黑板上写着一个非负整数数组 nums[i] 。小红和小明轮流从黑板上擦掉一个数字，小红先手。如果擦除一个数字后，剩余的所有数字按位异或运算得出的结果等于 0 的话，当前玩家游戏失败。&nbsp;(另外，如果只剩一个数字，按位异或运算得到它本身；如果无数字剩余，按位异或运算结果为&nbsp;0。）</p>

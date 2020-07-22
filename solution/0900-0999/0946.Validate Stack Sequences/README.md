@@ -1,5 +1,7 @@
 # [946. 验证栈序列](https://leetcode-cn.com/problems/validate-stack-sequences)
 
+[English Version](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定&nbsp;<code>pushed</code>&nbsp;和&nbsp;<code>popped</code>&nbsp;两个序列，每个序列中的 <strong>值都不重复</strong>，只有当它们可能是在最初空栈上进行的推入 push 和弹出 pop 操作序列的结果时，返回 <code>true</code>；否则，返回 <code>false</code>&nbsp;。</p>

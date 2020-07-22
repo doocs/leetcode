@@ -1,5 +1,7 @@
 # [1315. Sum of Nodes with Even-Valued Grandparent](https://leetcode.com/problems/sum-of-nodes-with-even-valued-grandparent)
 
+[中文文档](/solution/1300-1399/1315.Sum%20of%20Nodes%20with%20Even-Valued%20Grandparent/README.md)
+
 ## Description
 <p>Given a binary tree, return the sum of values of nodes with even-valued grandparent.&nbsp; (A <em>grandparent</em> of a node is the parent of its parent, if it exists.)</p>
 

@@ -1,5 +1,7 @@
 # [312. 戳气球](https://leetcode-cn.com/problems/burst-balloons)
 
+[English Version](/solution/0300-0399/0312.Burst%20Balloons/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有 <code>n</code> 个气球，编号为<code>0</code> 到 <code>n-1</code>，每个气球上都标有一个数字，这些数字存在数组&nbsp;<code>nums</code>&nbsp;中。</p>

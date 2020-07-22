@@ -1,5 +1,7 @@
 # [740. 删除与获得点数](https://leetcode-cn.com/problems/delete-and-earn)
 
+[English Version](/solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组&nbsp;<code>nums</code>&nbsp;，你可以对它进行一些操作。</p>

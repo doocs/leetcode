@@ -1,5 +1,7 @@
 # [1259. 不相交的握手](https://leetcode-cn.com/problems/handshakes-that-dont-cross)
 
+[English Version](/solution/1200-1299/1259.Handshakes%20That%20Don't%20Cross/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

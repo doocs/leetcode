@@ -1,5 +1,7 @@
 # [1125. Smallest Sufficient Team](https://leetcode.com/problems/smallest-sufficient-team)
 
+[中文文档](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README.md)
+
 ## Description
 <p>In a project, you have a list of required skills <code>req_skills</code>,&nbsp;and a list of <code>people</code>.&nbsp; The i-th person <code>people[i]</code>&nbsp;contains a list of skills that person has.</p>
 

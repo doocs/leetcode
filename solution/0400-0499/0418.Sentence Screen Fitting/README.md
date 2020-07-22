@@ -1,5 +1,7 @@
 # [418. 屏幕可显示句子的数量](https://leetcode-cn.com/problems/sentence-screen-fitting)
 
+[English Version](/solution/0400-0499/0418.Sentence%20Screen%20Fitting/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

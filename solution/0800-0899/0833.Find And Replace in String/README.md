@@ -1,5 +1,7 @@
 # [833. 字符串中的查找与替换](https://leetcode-cn.com/problems/find-and-replace-in-string)
 
+[English Version](/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>对于某些字符串 <code>S</code>，我们将执行一些替换操作，用新的字母组替换原有的字母组（不一定大小相同）。</p>

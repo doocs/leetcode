@@ -1,5 +1,7 @@
 # [651. 4键键盘](https://leetcode-cn.com/problems/4-keys-keyboard)
 
+[English Version](/solution/0600-0699/0651.4%20Keys%20Keyboard/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

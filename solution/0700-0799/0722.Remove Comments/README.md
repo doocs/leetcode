@@ -1,5 +1,7 @@
 # [722. 删除注释](https://leetcode-cn.com/problems/remove-comments)
 
+[English Version](/solution/0700-0799/0722.Remove%20Comments/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给一个 C++ 程序，删除程序中的注释。这个程序<code>source</code>是一个数组，其中<code>source[i]</code>表示第<code>i</code>行源码。&nbsp;这表示每行源码由<code>\n</code>分隔。</p>

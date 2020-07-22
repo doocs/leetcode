@@ -1,5 +1,7 @@
 # [138. 复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer)
 
+[English Version](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。</p>

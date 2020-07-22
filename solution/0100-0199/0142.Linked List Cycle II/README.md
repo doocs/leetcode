@@ -1,5 +1,7 @@
 # [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii)
 
+[English Version](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个链表，返回链表开始入环的第一个节点。&nbsp;如果链表无环，则返回&nbsp;<code>null</code>。</p>

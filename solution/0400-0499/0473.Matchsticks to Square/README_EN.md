@@ -1,5 +1,7 @@
 # [473. Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square)
 
+[中文文档](/solution/0400-0499/0473.Matchsticks%20to%20Square/README.md)
+
 ## Description
 <p>Remember the story of Little Match Girl? By now, you know exactly what matchsticks the little match girl has, please find out a way you can make one square by using up all those matchsticks. You should not break any stick, but you can link them up, and each matchstick must be used <b>exactly</b> one time.</P>
 

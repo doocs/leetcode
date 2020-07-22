@@ -1,5 +1,7 @@
 # [185. 部门工资前三高的所有员工](https://leetcode-cn.com/problems/department-top-three-salaries)
 
+[English Version](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p><code>Employee</code> 表包含所有员工信息，每个员工有其对应的工号&nbsp;<code>Id</code>，姓名 <code>Name</code>，工资 <code>Salary</code> 和部门编号 <code>DepartmentId</code> 。</p>

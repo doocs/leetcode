@@ -1,5 +1,7 @@
 # [767. Reorganize String](https://leetcode.com/problems/reorganize-string)
 
+[中文文档](/solution/0700-0799/0767.Reorganize%20String/README.md)
+
 ## Description
 <p>Given a string <code>S</code>, check if the letters can be rearranged so that two characters that are adjacent to each other are not the same.</p>
 

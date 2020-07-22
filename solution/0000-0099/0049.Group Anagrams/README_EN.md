@@ -1,5 +1,7 @@
 # [49. Group Anagrams](https://leetcode.com/problems/group-anagrams)
 
+[中文文档](/solution/0000-0099/0049.Group%20Anagrams/README.md)
+
 ## Description
 <p>Given an array of strings, group anagrams together.</p>
 

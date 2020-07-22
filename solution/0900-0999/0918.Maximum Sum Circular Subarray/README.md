@@ -1,5 +1,7 @@
 # [918. 环形子数组的最大和](https://leetcode-cn.com/problems/maximum-sum-circular-subarray)
 
+[English Version](/solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个由整数数组 <code>A</code>&nbsp;表示的<strong>环形数组 <code>C</code></strong>，求 <code><strong>C</strong></code>&nbsp;的非空子数组的最大可能和。</p>

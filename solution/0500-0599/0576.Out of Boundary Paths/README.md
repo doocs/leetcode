@@ -1,5 +1,7 @@
 # [576. 出界的路径数](https://leetcode-cn.com/problems/out-of-boundary-paths)
 
+[English Version](/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个 <strong>m &times; n </strong>的网格和一个球。球的起始坐标为&nbsp;<strong>(i,j)</strong>&nbsp;，你可以将球移到<strong>相邻</strong>的单元格内，或者往上、下、左、右四个方向上移动使球穿过网格边界。但是，你<strong>最多</strong>可以移动&nbsp;<strong>N&nbsp;</strong>次。找出可以将球移出边界的路径数量。答案可能非常大，返回 结果 mod 10<sup>9</sup>&nbsp;+ 7 的值。</p>

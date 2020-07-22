@@ -1,5 +1,7 @@
 # [1089. 复写零](https://leetcode-cn.com/problems/duplicate-zeros)
 
+[English Version](/solution/1000-1099/1089.Duplicate%20Zeros/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个长度固定的整数数组&nbsp;<code>arr</code>，请你将该数组中出现的每个零都复写一遍，并将其余的元素向右平移。</p>

@@ -1,5 +1,7 @@
 # [393. UTF-8 Validation](https://leetcode.com/problems/utf-8-validation)
 
+[中文文档](/solution/0300-0399/0393.UTF-8%20Validation/README.md)
+
 ## Description
 <p>A character in UTF8 can be from <b>1 to 4 bytes</b> long, subjected to the following rules:</p>
 

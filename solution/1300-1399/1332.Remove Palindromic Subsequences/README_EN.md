@@ -1,5 +1,7 @@
 # [1332. Remove Palindromic Subsequences](https://leetcode.com/problems/remove-palindromic-subsequences)
 
+[中文文档](/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README.md)
+
 ## Description
 <p>Given a string <code>s</code> consisting only of&nbsp;letters&nbsp;<code>&#39;a&#39;</code> and <code>&#39;b&#39;</code>. In a single step you can remove one&nbsp;palindromic <strong>subsequence</strong>&nbsp;from <code>s</code>.</p>
 

@@ -1,5 +1,7 @@
 # [933. Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls)
 
+[中文文档](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
+
 ## Description
 <p>Write a class <code>RecentCounter</code> to count recent requests.</p>
 

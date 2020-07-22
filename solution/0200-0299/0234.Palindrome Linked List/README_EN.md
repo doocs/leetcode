@@ -1,5 +1,7 @@
 # [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list)
 
+[中文文档](/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md)
+
 ## Description
 <p>Given a singly linked list, determine if it is a palindrome.</p>
 

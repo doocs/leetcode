@@ -1,5 +1,7 @@
 # [840. Magic Squares In Grid](https://leetcode.com/problems/magic-squares-in-grid)
 
+[中文文档](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)
+
 ## Description
 <p>A 3 x 3 magic square is a 3 x 3 grid filled with distinct numbers <strong>from 1 to 9</strong> such that each row, column, and both diagonals all have the same sum.</p>
 

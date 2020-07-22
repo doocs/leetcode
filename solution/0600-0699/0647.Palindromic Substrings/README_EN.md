@@ -1,5 +1,7 @@
 # [647. Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings)
 
+[中文文档](/solution/0600-0699/0647.Palindromic%20Substrings/README.md)
+
 ## Description
 <p>Given a string, your task is to count how many palindromic substrings in this string.</p>
 

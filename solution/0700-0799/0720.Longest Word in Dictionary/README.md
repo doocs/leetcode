@@ -1,5 +1,7 @@
 # [720. 词典中最长的单词](https://leetcode-cn.com/problems/longest-word-in-dictionary)
 
+[English Version](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一个字符串数组<code>words</code>组成的一本英语词典。从中找出最长的一个单词，该单词是由<code>words</code>词典中其他单词逐步添加一个字母组成。若其中有多个可行的答案，则返回答案中字典序最小的单词。</p>

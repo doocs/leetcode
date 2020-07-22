@@ -1,5 +1,7 @@
 # [948. 令牌放置](https://leetcode-cn.com/problems/bag-of-tokens)
 
+[English Version](/solution/0900-0999/0948.Bag%20of%20Tokens/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你的初始能量为&nbsp;<code>P</code>，初始分数为&nbsp;<code>0</code>，只有一包令牌。</p>

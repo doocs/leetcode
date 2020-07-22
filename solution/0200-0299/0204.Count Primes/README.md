@@ -1,5 +1,7 @@
 # [204. 计数质数](https://leetcode-cn.com/problems/count-primes)
 
+[English Version](/solution/0200-0299/0204.Count%20Primes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>统计所有小于非负整数&nbsp;<em>n&nbsp;</em>的质数的数量。</p>

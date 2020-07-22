@@ -1,5 +1,7 @@
 # [1218. 最长定差子序列](https://leetcode-cn.com/problems/longest-arithmetic-subsequence-of-given-difference)
 
+[English Version](/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;和一个整数&nbsp;<code>difference</code>，请你找出&nbsp;<code>arr</code>&nbsp;中所有相邻元素之间的差等于给定&nbsp;<code>difference</code>&nbsp;的等差子序列，并返回其中最长的等差子序列的长度。</p>

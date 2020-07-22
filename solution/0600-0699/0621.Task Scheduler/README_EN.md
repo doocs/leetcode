@@ -1,5 +1,7 @@
 # [621. Task Scheduler](https://leetcode.com/problems/task-scheduler)
 
+[中文文档](/solution/0600-0699/0621.Task%20Scheduler/README.md)
+
 ## Description
 <p>Given a char array representing tasks CPU need to do. It contains capital letters A to Z where different letters represent different tasks. Tasks could be done without original order. Each task could be done in one interval. For each interval, CPU could finish one task or just be idle.</p>
 

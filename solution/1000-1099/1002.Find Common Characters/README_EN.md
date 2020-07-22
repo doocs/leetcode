@@ -1,5 +1,7 @@
 # [1002. Find Common Characters](https://leetcode.com/problems/find-common-characters)
 
+[中文文档](/solution/1000-1099/1002.Find%20Common%20Characters/README.md)
+
 ## Description
 <p>Given an array&nbsp;<code>A</code> of strings made only from lowercase letters, return a list of all characters that show up in all strings within the list <strong>(including duplicates)</strong>.&nbsp;&nbsp;For example, if a character occurs 3 times&nbsp;in all strings but not 4 times, you need to include that character three times&nbsp;in the final answer.</p>
 

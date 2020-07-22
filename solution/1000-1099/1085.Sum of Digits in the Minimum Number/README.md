@@ -1,5 +1,7 @@
 # [1085. 最小元素各数位之和](https://leetcode-cn.com/problems/sum-of-digits-in-the-minimum-number)
 
+[English Version](/solution/1000-1099/1085.Sum%20of%20Digits%20in%20the%20Minimum%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

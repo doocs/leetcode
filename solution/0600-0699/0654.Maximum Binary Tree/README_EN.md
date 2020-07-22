@@ -1,5 +1,7 @@
 # [654. Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree)
 
+[中文文档](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README.md)
+
 ## Description
 <p>
 

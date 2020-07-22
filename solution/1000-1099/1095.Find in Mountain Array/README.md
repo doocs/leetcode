@@ -1,5 +1,7 @@
 # [1095. 山脉数组中查找目标值](https://leetcode-cn.com/problems/find-in-mountain-array)
 
+[English Version](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>（这是一个 <strong>交互式问题&nbsp;</strong>）</p>

@@ -1,5 +1,7 @@
 # [793. 阶乘函数后K个零](https://leetcode-cn.com/problems/preimage-size-of-factorial-zeroes-function)
 
+[English Version](/solution/0700-0799/0793.Preimage%20Size%20of%20Factorial%20Zeroes%20Function/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>&nbsp;<code>f(x)</code>&nbsp;是&nbsp;<code>x!</code>&nbsp;末尾是0的数量。（回想一下&nbsp;<code>x! = 1 * 2 * 3 * ... * x</code>，且<code>0! = 1</code>）</p>

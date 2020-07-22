@@ -1,5 +1,7 @@
 # [1278. Palindrome Partitioning III](https://leetcode.com/problems/palindrome-partitioning-iii)
 
+[中文文档](/solution/1200-1299/1278.Palindrome%20Partitioning%20III/README.md)
+
 ## Description
 <p>You are given a string&nbsp;<code>s</code> containing lowercase letters and an integer <code>k</code>. You need to :</p>
 

@@ -1,5 +1,7 @@
 # [289. 生命游戏](https://leetcode-cn.com/problems/game-of-life)
 
+[English Version](/solution/0200-0299/0289.Game%20of%20Life/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>根据<a href="https://baike.baidu.com/item/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/2926434?fr=aladdin" target="_blank">百度百科</a>，生命游戏，简称为生命，是英国数学家约翰&middot;何顿&middot;康威在1970年发明的细胞自动机。</p>

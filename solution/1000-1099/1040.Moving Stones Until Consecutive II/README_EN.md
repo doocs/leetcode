@@ -1,5 +1,7 @@
 # [1040. Moving Stones Until Consecutive II](https://leetcode.com/problems/moving-stones-until-consecutive-ii)
 
+[中文文档](/solution/1000-1099/1040.Moving%20Stones%20Until%20Consecutive%20II/README.md)
+
 ## Description
 <p>On an <strong>infinite</strong> number line, the position of the i-th stone is given by&nbsp;<code>stones[i]</code>.&nbsp; Call a stone an <em>endpoint stone</em> if it has the smallest or largest position.</p>
 

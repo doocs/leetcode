@@ -1,5 +1,7 @@
 # [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst)
 
+[中文文档](/solution/0900-0999/0938.Range%20Sum%20of%20BST/README.md)
+
 ## Description
 <p>Given the <code>root</code> node of a binary search tree, return the sum of values of all nodes with value between <code>L</code> and <code>R</code> (inclusive).</p>
 

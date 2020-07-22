@@ -1,5 +1,7 @@
 # [399. Evaluate Division](https://leetcode.com/problems/evaluate-division)
 
+[中文文档](/solution/0300-0399/0399.Evaluate%20Division/README.md)
+
 ## Description
 <p>Equations are given in the format <code>A / B = k</code>, where <code>A</code> and <code>B</code> are variables represented as strings, and <code>k</code> is a real number (floating point number). Given some queries, return the answers. If the answer does not exist, return <code>-1.0</code>.</p>
 

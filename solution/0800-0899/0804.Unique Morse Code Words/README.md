@@ -1,5 +1,7 @@
 # [804. 唯一摩尔斯密码词](https://leetcode-cn.com/problems/unique-morse-code-words)
 
+[English Version](/solution/0800-0899/0804.Unique%20Morse%20Code%20Words/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>国际摩尔斯密码定义一种标准编码方式，将每个字母对应于一个由一系列点和短线组成的字符串，&nbsp;比如: <code>&quot;a&quot;</code> 对应 <code>&quot;.-&quot;</code>, <code>&quot;b&quot;</code> 对应 <code>&quot;-...&quot;</code>, <code>&quot;c&quot;</code> 对应 <code>&quot;-.-.&quot;</code>, 等等。</p>

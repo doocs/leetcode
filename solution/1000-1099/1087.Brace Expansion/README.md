@@ -1,5 +1,7 @@
 # [1087. 字母切换](https://leetcode-cn.com/problems/brace-expansion)
 
+[English Version](/solution/1000-1099/1087.Brace%20Expansion/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

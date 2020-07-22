@@ -1,5 +1,7 @@
 # [837. 新21点](https://leetcode-cn.com/problems/new-21-game)
 
+[English Version](/solution/0800-0899/0837.New%2021%20Game/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>爱丽丝参与一个大致基于纸牌游戏 &ldquo;21点&rdquo; 规则的游戏，描述如下：</p>

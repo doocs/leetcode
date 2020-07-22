@@ -1,5 +1,7 @@
 # [177. 第N高的薪水](https://leetcode-cn.com/problems/nth-highest-salary)
 
+[English Version](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个 SQL 查询，获取 <code>Employee</code> 表中第&nbsp;<em>n&nbsp;</em>高的薪水（Salary）。</p>

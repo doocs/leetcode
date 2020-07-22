@@ -1,5 +1,7 @@
 # [1018. 可被 5 整除的二进制前缀](https://leetcode-cn.com/problems/binary-prefix-divisible-by-5)
 
+[English Version](/solution/1000-1099/1018.Binary%20Prefix%20Divisible%20By%205/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定由若干&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;组成的数组 <code>A</code>。我们定义&nbsp;<code>N_i</code>：从&nbsp;<code>A[0]</code> 到&nbsp;<code>A[i]</code>&nbsp;的第 <code>i</code>&nbsp;个子数组被解释为一个二进制数（从最高有效位到最低有效位）。</p>

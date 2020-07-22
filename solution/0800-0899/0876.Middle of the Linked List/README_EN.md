@@ -1,5 +1,7 @@
 # [876. Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list)
 
+[中文文档](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README.md)
+
 ## Description
 <p>Given a non-empty, singly&nbsp;linked list with head node <code>head</code>, return&nbsp;a&nbsp;middle node of linked list.</p>
 

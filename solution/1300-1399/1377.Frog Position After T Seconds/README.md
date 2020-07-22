@@ -1,5 +1,7 @@
 # [1377. T 秒后青蛙的位置](https://leetcode-cn.com/problems/frog-position-after-t-seconds)
 
+[English Version](/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一棵由 n 个顶点组成的无向树，顶点编号从 1 到 <code>n</code>。青蛙从 <strong>顶点 1</strong> 开始起跳。规则如下：</p>

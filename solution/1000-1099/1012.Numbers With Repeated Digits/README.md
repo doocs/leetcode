@@ -1,5 +1,7 @@
 # [1012. 至少有 1 位重复的数字](https://leetcode-cn.com/problems/numbers-with-repeated-digits)
 
+[English Version](/solution/1000-1099/1012.Numbers%20With%20Repeated%20Digits/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定正整数&nbsp;<code>N</code>，返回小于等于 <code>N</code>&nbsp;且具有至少 1 位重复数字的正整数。</p>

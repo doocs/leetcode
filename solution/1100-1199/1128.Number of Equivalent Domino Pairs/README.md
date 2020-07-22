@@ -1,5 +1,7 @@
 # [1128. 等价多米诺骨牌对的数量](https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs)
 
+[English Version](/solution/1100-1199/1128.Number%20of%20Equivalent%20Domino%20Pairs/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个由一些多米诺骨牌组成的列表&nbsp;<code>dominoes</code>。</p>

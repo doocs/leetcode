@@ -1,5 +1,7 @@
 # [686. Repeated String Match](https://leetcode.com/problems/repeated-string-match)
 
+[中文文档](/solution/0600-0699/0686.Repeated%20String%20Match/README.md)
+
 ## Description
 <p>Given two strings A and B, find the minimum number of times A has to be repeated such that B is a substring of it. If no such solution, return -1.</p>
 

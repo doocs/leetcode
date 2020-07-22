@@ -1,5 +1,7 @@
 # [1236. 网络爬虫](https://leetcode-cn.com/problems/web-crawler)
 
+[English Version](/solution/1200-1299/1236.Web%20Crawler/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

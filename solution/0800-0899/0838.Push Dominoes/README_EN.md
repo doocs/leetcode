@@ -1,5 +1,7 @@
 # [838. Push Dominoes](https://leetcode.com/problems/push-dominoes)
 
+[中文文档](/solution/0800-0899/0838.Push%20Dominoes/README.md)
+
 ## Description
 <p>There are<font face="monospace">&nbsp;<code>N</code></font> dominoes in a line, and we place each domino vertically upright.</p>
 

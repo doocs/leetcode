@@ -1,5 +1,7 @@
 # [149. 直线上最多的点数](https://leetcode-cn.com/problems/max-points-on-a-line)
 
+[English Version](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二维平面，平面上有&nbsp;<em>n&nbsp;</em>个点，求最多有多少个点在同一条直线上。</p>

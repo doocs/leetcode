@@ -1,5 +1,7 @@
 # [1247. Minimum Swaps to Make Strings Equal](https://leetcode.com/problems/minimum-swaps-to-make-strings-equal)
 
+[中文文档](/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README.md)
+
 ## Description
 <p>You are given two strings&nbsp;<code>s1</code>&nbsp;and&nbsp;<code>s2</code>&nbsp;of equal length&nbsp;consisting of letters <code>&quot;x&quot;</code> and <code>&quot;y&quot;</code> <strong>only</strong>. Your task is to&nbsp;make these two strings equal to each other. You can swap any two characters that belong to <strong>different</strong> strings,&nbsp;which means: swap <code>s1[i]</code> and <code>s2[j]</code>.</p>
 

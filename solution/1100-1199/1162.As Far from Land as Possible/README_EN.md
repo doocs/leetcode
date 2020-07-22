@@ -1,5 +1,7 @@
 # [1162. As Far from Land as Possible](https://leetcode.com/problems/as-far-from-land-as-possible)
 
+[中文文档](/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README.md)
+
 ## Description
 <p>Given an N x N <code>grid</code>&nbsp;containing only values <code>0</code> and <code>1</code>, where&nbsp;<code>0</code> represents water&nbsp;and <code>1</code> represents land, find a water cell such that its distance to the nearest land cell is maximized and return the distance.</p>
 

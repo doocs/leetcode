@@ -1,5 +1,7 @@
 # [1108. Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address)
 
+[中文文档](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README.md)
+
 ## Description
 <p>Given a valid (IPv4) IP <code>address</code>, return a defanged version of that IP address.</p>
 

@@ -1,5 +1,7 @@
 # [528. Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight)
 
+[中文文档](/solution/0500-0599/0528.Random%20Pick%20with%20Weight/README.md)
+
 ## Description
 <p>Given an array <code>w</code> of positive integers, where <code>w[i]</code> describes the weight of index <code>i</code>,&nbsp;write a function <code>pickIndex</code>&nbsp;which randomly&nbsp;picks an index&nbsp;in proportion&nbsp;to its weight.</p>
 

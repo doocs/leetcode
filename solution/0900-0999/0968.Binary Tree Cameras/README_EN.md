@@ -1,5 +1,7 @@
 # [968. Binary Tree Cameras](https://leetcode.com/problems/binary-tree-cameras)
 
+[中文文档](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README.md)
+
 ## Description
 <p>Given a binary tree, we install cameras on the nodes of the tree.&nbsp;</p>
 

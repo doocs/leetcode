@@ -1,5 +1,7 @@
 # [993. Cousins in Binary Tree](https://leetcode.com/problems/cousins-in-binary-tree)
 
+[中文文档](/solution/0900-0999/0993.Cousins%20in%20Binary%20Tree/README.md)
+
 ## Description
 <p>In a binary tree, the root node is at depth <code>0</code>, and children of each depth <code>k</code> node are at depth <code>k+1</code>.</p>
 

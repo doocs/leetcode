@@ -1,5 +1,7 @@
 # [553. 最优除法](https://leetcode-cn.com/problems/optimal-division)
 
+[English Version](/solution/0500-0599/0553.Optimal%20Division/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一组<strong>正整数，</strong>相邻的整数之间将会进行浮点除法操作。例如，&nbsp;[2,3,4] -&gt; 2 / 3 / 4 。</p>

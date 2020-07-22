@@ -1,5 +1,7 @@
 # [773. Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle)
 
+[中文文档](/solution/0700-0799/0773.Sliding%20Puzzle/README.md)
+
 ## Description
 <p>On a 2x3 <code>board</code>, there are 5 tiles represented by the integers 1 through 5, and an empty square represented by 0.</p>
 

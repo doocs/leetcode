@@ -1,5 +1,7 @@
 # [927. 三等分](https://leetcode-cn.com/problems/three-equal-parts)
 
+[English Version](/solution/0900-0999/0927.Three%20Equal%20Parts/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个由 <code>0</code> 和 <code>1</code> 组成的数组&nbsp;<code>A</code>，将数组分成 3&nbsp;个非空的部分，使得所有这些部分表示相同的二进制值。</p>

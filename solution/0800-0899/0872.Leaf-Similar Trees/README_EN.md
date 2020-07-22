@@ -1,5 +1,7 @@
 # [872. Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees)
 
+[中文文档](/solution/0800-0899/0872.Leaf-Similar%20Trees/README.md)
+
 ## Description
 <p>Consider all the leaves of a binary tree.&nbsp; From&nbsp;left to right order, the values of those&nbsp;leaves form a <em>leaf value sequence.</em></p>
 

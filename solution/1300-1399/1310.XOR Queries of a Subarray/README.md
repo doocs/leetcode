@@ -1,5 +1,7 @@
 # [1310. 子数组异或查询](https://leetcode-cn.com/problems/xor-queries-of-a-subarray)
 
+[English Version](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有一个正整数数组&nbsp;<code>arr</code>，现给你一个对应的查询数组&nbsp;<code>queries</code>，其中&nbsp;<code>queries[i] = [L<sub>i,&nbsp;</sub>R<sub>i</sub>]</code>。</p>

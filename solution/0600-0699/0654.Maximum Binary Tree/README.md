@@ -1,5 +1,7 @@
 # [654. 最大二叉树](https://leetcode-cn.com/problems/maximum-binary-tree)
 
+[English Version](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个不含重复元素的整数数组。一个以此数组构建的最大二叉树定义如下：</p>

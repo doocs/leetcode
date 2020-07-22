@@ -1,5 +1,7 @@
 # [449. Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst)
 
+[中文文档](/solution/0400-0499/0449.Serialize%20and%20Deserialize%20BST/README.md)
+
 ## Description
 <p>Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>
 

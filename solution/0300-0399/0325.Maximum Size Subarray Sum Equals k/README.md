@@ -1,5 +1,7 @@
 # [325. 和等于 k 的最长子数组长度](https://leetcode-cn.com/problems/maximum-size-subarray-sum-equals-k)
 
+[English Version](/solution/0300-0399/0325.Maximum%20Size%20Subarray%20Sum%20Equals%20k/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

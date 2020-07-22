@@ -1,5 +1,7 @@
 # [359. 日志速率限制器](https://leetcode-cn.com/problems/logger-rate-limiter)
 
+[English Version](/solution/0300-0399/0359.Logger%20Rate%20Limiter/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

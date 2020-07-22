@@ -1,5 +1,7 @@
 # [282. 给表达式添加运算符](https://leetcode-cn.com/problems/expression-add-operators)
 
+[English Version](/solution/0200-0299/0282.Expression%20Add%20Operators/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个仅包含数字&nbsp;<code>0-9</code>&nbsp;的字符串和一个目标值，在数字之间添加<strong>二元</strong>运算符（不是一元）<code>+</code>、<code>-</code>&nbsp;或&nbsp;<code>*</code>&nbsp;，返回所有能够得到目标值的表达式。</p>

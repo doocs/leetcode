@@ -1,5 +1,7 @@
 # [842. Split Array into Fibonacci Sequence](https://leetcode.com/problems/split-array-into-fibonacci-sequence)
 
+[中文文档](/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README.md)
+
 ## Description
 <p>Given a string <code>S</code>&nbsp;of digits, such as <code>S = &quot;123456579&quot;</code>, we can split it into a <em>Fibonacci-like sequence</em>&nbsp;<code>[123, 456, 579].</code></p>
 

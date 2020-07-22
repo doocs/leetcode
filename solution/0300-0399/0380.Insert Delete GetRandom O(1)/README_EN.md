@@ -1,5 +1,7 @@
 # [380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1)
 
+[中文文档](/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O(1)/README.md)
+
 ## Description
 <p>Design a data structure that supports all following operations in <i>average</i> <b>O(1)</b> time.</p>
 

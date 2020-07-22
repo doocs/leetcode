@@ -1,5 +1,7 @@
 # [749. Contain Virus](https://leetcode.com/problems/contain-virus)
 
+[中文文档](/solution/0700-0799/0749.Contain%20Virus/README.md)
+
 ## Description
 <p>
 

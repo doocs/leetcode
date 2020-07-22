@@ -1,5 +1,7 @@
 # [590. N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal)
 
+[中文文档](/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/README.md)
+
 ## Description
 <p>Given an n-ary tree, return the <i>postorder</i> traversal of its nodes&#39; values.</p>
 

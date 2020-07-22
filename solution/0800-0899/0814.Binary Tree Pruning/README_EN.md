@@ -1,5 +1,7 @@
 # [814. Binary Tree Pruning](https://leetcode.com/problems/binary-tree-pruning)
 
+[中文文档](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README.md)
+
 ## Description
 <p>We are given the head node <code>root</code>&nbsp;of a binary tree, where additionally every node&#39;s value is either a 0 or a 1.</p>
 

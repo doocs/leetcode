@@ -1,5 +1,7 @@
 # [404. Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves)
 
+[中文文档](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README.md)
+
 ## Description
 <p>Find the sum of all left leaves in a given binary tree.</p>
 

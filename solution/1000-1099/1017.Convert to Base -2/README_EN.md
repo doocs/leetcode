@@ -1,5 +1,7 @@
 # [1017. Convert to Base -2](https://leetcode.com/problems/convert-to-base-2)
 
+[中文文档](/solution/1000-1099/1017.Convert%20to%20Base%20-2/README.md)
+
 ## Description
 <p>Given a number <code>N</code>, return a string consisting of <code>&quot;0&quot;</code>s and <code>&quot;1&quot;</code>s&nbsp;that represents its value in base <code><strong>-2</strong></code>&nbsp;(negative two).</p>
 

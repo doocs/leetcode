@@ -1,5 +1,7 @@
 # [382. 链表随机节点](https://leetcode-cn.com/problems/linked-list-random-node)
 
+[English Version](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个单链表，随机选择链表的一个节点，并返回相应的节点值。保证每个节点<strong>被选的概率一样</strong>。</p>

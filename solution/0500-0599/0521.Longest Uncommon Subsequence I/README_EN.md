@@ -1,5 +1,7 @@
 # [521. Longest Uncommon Subsequence I](https://leetcode.com/problems/longest-uncommon-subsequence-i)
 
+[中文文档](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)
+
 ## Description
 <p>
 

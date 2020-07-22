@@ -1,5 +1,7 @@
 # [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray)
 
+[English Version](/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给两个整数数组&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;，返回两个数组中公共的、长度最长的子数组的长度。</p>

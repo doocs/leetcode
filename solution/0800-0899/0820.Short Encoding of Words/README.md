@@ -1,5 +1,7 @@
 # [820. 单词的压缩编码](https://leetcode-cn.com/problems/short-encoding-of-words)
 
+[English Version](/solution/0800-0899/0820.Short%20Encoding%20of%20Words/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个单词列表，我们将这个列表编码成一个索引字符串&nbsp;<code>S</code>&nbsp;与一个索引列表 <code>A</code>。</p>

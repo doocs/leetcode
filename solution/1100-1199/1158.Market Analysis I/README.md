@@ -1,5 +1,7 @@
 # [1158. 市场分析 I](https://leetcode-cn.com/problems/market-analysis-i)
 
+[English Version](/solution/1100-1199/1158.Market%20Analysis%20I/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

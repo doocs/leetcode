@@ -1,5 +1,7 @@
 # [672. 灯泡开关 Ⅱ](https://leetcode-cn.com/problems/bulb-switcher-ii)
 
+[English Version](/solution/0600-0699/0672.Bulb%20Switcher%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>现有一个房间，墙上挂有&nbsp;<code>n</code>&nbsp;只已经打开的灯泡和 4 个按钮。在进行了&nbsp;<code>m</code>&nbsp;次未知操作后，你需要返回这&nbsp;<code>n</code>&nbsp;只灯泡可能有多少种不同的状态。</p>

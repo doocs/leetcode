@@ -1,5 +1,7 @@
 # [529. Minesweeper](https://leetcode.com/problems/minesweeper)
 
+[中文文档](/solution/0500-0599/0529.Minesweeper/README.md)
+
 ## Description
 <p>Let&#39;s play the minesweeper game (<a href="https://en.wikipedia.org/wiki/Minesweeper_(video_game)">Wikipedia</a>, <a href="http://minesweeperonline.com">online game</a>)!</p>
 

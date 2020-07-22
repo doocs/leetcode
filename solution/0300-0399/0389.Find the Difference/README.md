@@ -1,5 +1,7 @@
 # [389. 找不同](https://leetcode-cn.com/problems/find-the-difference)
 
+[English Version](/solution/0300-0399/0389.Find%20the%20Difference/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个字符串 <em><strong>s</strong></em> 和 <em><strong>t</strong></em>，它们只包含小写字母。</p>

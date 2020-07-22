@@ -1,5 +1,7 @@
 # [1131. Maximum of Absolute Value Expression](https://leetcode.com/problems/maximum-of-absolute-value-expression)
 
+[中文文档](/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md)
+
 ## Description
 <p>Given two arrays of integers with equal lengths, return the maximum value of:</p>
 

@@ -1,5 +1,7 @@
 # [115. 不同的子序列](https://leetcode-cn.com/problems/distinct-subsequences)
 
+[English Version](/solution/0100-0199/0115.Distinct%20Subsequences/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串&nbsp;<strong>S&nbsp;</strong>和一个字符串&nbsp;<strong>T</strong>，计算在 <strong>S</strong> 的子序列中 <strong>T</strong> 出现的个数。</p>

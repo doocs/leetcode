@@ -1,5 +1,7 @@
 # [802. 找到最终的安全状态](https://leetcode-cn.com/problems/find-eventual-safe-states)
 
+[English Version](/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在有向图中, 我们从某个节点和每个转向处开始, 沿着图的有向边走。 如果我们到达的节点是终点 (即它没有连出的有向边), 我们停止。</p>

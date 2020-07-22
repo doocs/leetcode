@@ -1,5 +1,7 @@
 # [638. 大礼包](https://leetcode-cn.com/problems/shopping-offers)
 
+[English Version](/solution/0600-0699/0638.Shopping%20Offers/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在LeetCode商店中， 有许多在售的物品。</p>

@@ -1,5 +1,7 @@
 # [626. Exchange Seats](https://leetcode.com/problems/exchange-seats)
 
+[中文文档](/solution/0600-0699/0626.Exchange%20Seats/README.md)
+
 ## Description
 <p>Mary is a teacher in a middle school and she has a table <code>seat</code> storing students&#39; names and their corresponding seat ids.</p>
 

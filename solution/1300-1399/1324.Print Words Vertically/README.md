@@ -1,5 +1,7 @@
 # [1324. 竖直打印单词](https://leetcode-cn.com/problems/print-words-vertically)
 
+[English Version](/solution/1300-1399/1324.Print%20Words%20Vertically/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个字符串&nbsp;<code>s</code>。请你按照单词在 <code>s</code> 中的出现顺序将它们全部竖直返回。<br>

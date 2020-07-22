@@ -1,5 +1,7 @@
 # [926. Flip String to Monotone Increasing](https://leetcode.com/problems/flip-string-to-monotone-increasing)
 
+[中文文档](/solution/0900-0999/0926.Flip%20String%20to%20Monotone%20Increasing/README.md)
+
 ## Description
 <p>A string of <code>&#39;0&#39;</code>s and <code>&#39;1&#39;</code>s is <em>monotone increasing</em> if it consists of some number of <code>&#39;0&#39;</code>s (possibly 0), followed by some number of <code>&#39;1&#39;</code>s (also possibly 0.)</p>
 

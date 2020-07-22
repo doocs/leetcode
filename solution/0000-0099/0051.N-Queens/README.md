@@ -1,5 +1,7 @@
 # [51. N皇后](https://leetcode-cn.com/problems/n-queens)
 
+[English Version](/solution/0000-0099/0051.N-Queens/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p><em>n&nbsp;</em>皇后问题研究的是如何将 <em>n</em>&nbsp;个皇后放置在 <em>n</em>&times;<em>n</em> 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>

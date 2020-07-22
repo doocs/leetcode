@@ -1,5 +1,7 @@
 # [61. Rotate List](https://leetcode.com/problems/rotate-list)
 
+[中文文档](/solution/0000-0099/0061.Rotate%20List/README.md)
+
 ## Description
 <p>Given a linked&nbsp;list, rotate the list to the right by <em>k</em> places, where <em>k</em> is non-negative.</p>
 

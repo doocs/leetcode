@@ -1,5 +1,7 @@
 # [91. Decode Ways](https://leetcode.com/problems/decode-ways)
 
+[中文文档](/solution/0000-0099/0091.Decode%20Ways/README.md)
+
 ## Description
 <p>A message containing letters from <code>A-Z</code> is being encoded to numbers using the following mapping:</p>
 

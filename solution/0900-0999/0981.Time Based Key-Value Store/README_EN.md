@@ -1,5 +1,7 @@
 # [981. Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store)
 
+[中文文档](/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README.md)
+
 ## Description
 <p>Create a timebased key-value store class&nbsp;<code>TimeMap</code>, that supports two operations.</p>
 

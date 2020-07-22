@@ -1,5 +1,7 @@
 # [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray)
 
+[English Version](/solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组 <code>nums</code>&nbsp;，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>

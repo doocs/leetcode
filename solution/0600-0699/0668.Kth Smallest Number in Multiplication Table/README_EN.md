@@ -1,5 +1,7 @@
 # [668. Kth Smallest Number in Multiplication Table](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table)
 
+[中文文档](/solution/0600-0699/0668.Kth%20Smallest%20Number%20in%20Multiplication%20Table/README.md)
+
 ## Description
 <p>
 

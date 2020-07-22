@@ -1,5 +1,7 @@
 # [1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses)
 
+[中文文档](/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README.md)
+
 ## Description
 <p>Given a string <font face="monospace">s</font>&nbsp;of&nbsp;<code>&#39;(&#39;</code>&nbsp;,&nbsp;<code>&#39;)&#39;</code>&nbsp;and lowercase English characters.&nbsp;</p>
 

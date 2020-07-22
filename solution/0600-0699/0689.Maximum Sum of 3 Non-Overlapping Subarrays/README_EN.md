@@ -1,5 +1,7 @@
 # [689. Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays)
 
+[中文文档](/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README.md)
+
 ## Description
 <p>In a given array <code>nums</code> of positive integers, find three non-overlapping subarrays with maximum sum.</p>
 

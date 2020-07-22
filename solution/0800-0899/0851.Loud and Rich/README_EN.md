@@ -1,5 +1,7 @@
 # [851. Loud and Rich](https://leetcode.com/problems/loud-and-rich)
 
+[中文文档](/solution/0800-0899/0851.Loud%20and%20Rich/README.md)
+
 ## Description
 <p>In a group of N people (labelled <code>0, 1, 2, ..., N-1</code>), each person has different amounts of money, and different levels of quietness.</p>
 

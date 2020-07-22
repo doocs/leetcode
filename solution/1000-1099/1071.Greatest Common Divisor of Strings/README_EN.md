@@ -1,5 +1,7 @@
 # [1071. Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings)
 
+[中文文档](/solution/1000-1099/1071.Greatest%20Common%20Divisor%20of%20Strings/README.md)
+
 ## Description
 <p>For strings <code>S</code> and <code>T</code>, we say &quot;<code>T</code> divides <code>S</code>&quot; if and only if <code>S = T + ... + T</code>&nbsp; (<code>T</code> concatenated with itself 1 or more times)</p>
 

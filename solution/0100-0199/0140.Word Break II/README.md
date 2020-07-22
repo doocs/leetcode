@@ -1,5 +1,7 @@
 # [140. 单词拆分 II](https://leetcode-cn.com/problems/word-break-ii)
 
+[English Version](/solution/0100-0199/0140.Word%20Break%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个<strong>非空</strong>字符串 <em>s</em> 和一个包含<strong>非空</strong>单词列表的字典 <em>wordDict</em>，在字符串中增加空格来构建一个句子，使得句子中所有的单词都在词典中。返回所有这些可能的句子。</p>

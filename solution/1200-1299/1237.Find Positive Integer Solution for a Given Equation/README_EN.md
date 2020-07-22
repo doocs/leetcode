@@ -1,5 +1,7 @@
 # [1237. Find Positive Integer Solution for a Given Equation](https://leetcode.com/problems/find-positive-integer-solution-for-a-given-equation)
 
+[中文文档](/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README.md)
+
 ## Description
 <p>Given a&nbsp;function&nbsp; <code>f(x, y)</code>&nbsp;and a value <code>z</code>, return all positive integer&nbsp;pairs <code>x</code> and <code>y</code> where <code>f(x,y) == z</code>.</p>
 

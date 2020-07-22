@@ -1,5 +1,7 @@
 # [474. Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes)
 
+[中文文档](/solution/0400-0499/0474.Ones%20and%20Zeroes/README.md)
+
 ## Description
 <p>In the computer world, use restricted resource you have to generate maximum benefit is what we always want to pursue.</p>
 

@@ -1,5 +1,7 @@
 # [890. 查找和替换模式](https://leetcode-cn.com/problems/find-and-replace-pattern)
 
+[English Version](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你有一个单词列表&nbsp;<code>words</code>&nbsp;和一个模式&nbsp;&nbsp;<code>pattern</code>，你想知道 <code>words</code> 中的哪些单词与模式匹配。</p>

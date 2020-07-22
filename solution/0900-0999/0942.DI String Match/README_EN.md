@@ -1,5 +1,7 @@
 # [942. DI String Match](https://leetcode.com/problems/di-string-match)
 
+[中文文档](/solution/0900-0999/0942.DI%20String%20Match/README.md)
+
 ## Description
 <p>Given a string <code>S</code> that <strong>only</strong> contains &quot;I&quot; (increase) or &quot;D&quot; (decrease), let <code>N = S.length</code>.</p>
 

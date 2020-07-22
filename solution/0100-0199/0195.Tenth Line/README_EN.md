@@ -1,5 +1,7 @@
 # [195. Tenth Line](https://leetcode.com/problems/tenth-line)
 
+[中文文档](/solution/0100-0199/0195.Tenth%20Line/README.md)
+
 ## Description
 <p>Given a text file&nbsp;<code>file.txt</code>, print&nbsp;just the 10th line of the&nbsp;file.</p>
 

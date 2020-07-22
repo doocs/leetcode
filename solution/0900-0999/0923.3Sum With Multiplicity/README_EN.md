@@ -1,5 +1,7 @@
 # [923. 3Sum With Multiplicity](https://leetcode.com/problems/3sum-with-multiplicity)
 
+[中文文档](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
+
 ## Description
 <p>Given an integer array <code>A</code>, and an integer <code>target</code>, return the number of&nbsp;tuples&nbsp;<code>i, j, k</code>&nbsp; such that <code>i &lt; j &lt; k</code> and&nbsp;<code>A[i] + A[j] + A[k] == target</code>.</p>
 

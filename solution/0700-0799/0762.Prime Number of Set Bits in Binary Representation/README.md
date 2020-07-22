@@ -1,5 +1,7 @@
 # [762. 二进制表示中质数个计算置位](https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation)
 
+[English Version](/solution/0700-0799/0762.Prime%20Number%20of%20Set%20Bits%20in%20Binary%20Representation/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个整数&nbsp;<code>L</code>&nbsp;和&nbsp;<code>R</code>&nbsp;，找到闭区间&nbsp;<code>[L, R]</code>&nbsp;范围内，计算置位位数为质数的整数个数。</p>

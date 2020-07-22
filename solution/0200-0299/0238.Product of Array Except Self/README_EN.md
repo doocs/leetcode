@@ -1,5 +1,7 @@
 # [238. Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self)
 
+[中文文档](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README.md)
+
 ## Description
 <p>Given an array <code>nums</code> of <em>n</em> integers where <em>n</em> &gt; 1, &nbsp;return an array <code>output</code> such that <code>output[i]</code> is equal to the product of all the elements of <code>nums</code> except <code>nums[i]</code>.</p>
 

@@ -1,5 +1,7 @@
 # [502. IPO](https://leetcode-cn.com/problems/ipo)
 
+[English Version](/solution/0500-0599/0502.IPO/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>假设 力扣（LeetCode）即将开始其 IPO。为了以更高的价格将股票卖给风险投资公司，力扣 希望在 IPO 之前开展一些项目以增加其资本。 由于资源有限，它只能在 IPO 之前完成最多 <strong>k</strong> 个不同的项目。帮助 力扣 设计完成最多 <strong>k</strong> 个不同项目后得到最大总资本的方式。</p>

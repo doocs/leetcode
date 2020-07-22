@@ -1,5 +1,7 @@
 # [95. Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii)
 
+[中文文档](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README.md)
+
 ## Description
 <p>Given an integer <em>n</em>, generate all structurally unique <strong>BST&#39;s</strong> (binary search trees) that store values 1 ...&nbsp;<em>n</em>.</p>
 

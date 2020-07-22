@@ -1,5 +1,7 @@
 # [855. Exam Room](https://leetcode.com/problems/exam-room)
 
+[中文文档](/solution/0800-0899/0855.Exam%20Room/README.md)
+
 ## Description
 <p>In an exam room, there are <code>N</code> seats in a single row, numbered <code>0, 1, 2, ..., N-1</code>.</p>
 

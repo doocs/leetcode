@@ -1,5 +1,7 @@
 # [841. 钥匙和房间](https://leetcode-cn.com/problems/keys-and-rooms)
 
+[English Version](/solution/0800-0899/0841.Keys%20and%20Rooms/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有 <code>N</code> 个房间，开始时你位于 <code>0</code> 号房间。每个房间有不同的号码：<code>0，1，2，...，N-1</code>，并且房间里可能有一些钥匙能使你进入下一个房间。</p>

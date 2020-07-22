@@ -1,5 +1,7 @@
 # [1111. 有效括号的嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings)
 
+[English Version](/solution/1100-1199/1111.Maximum%20Nesting%20Depth%20of%20Two%20Valid%20Parentheses%20Strings/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p><strong>有效括号字符串</strong> 仅由&nbsp;<code>&quot;(&quot;</code> 和&nbsp;<code>&quot;)&quot;</code>&nbsp;构成，并符合下述几个条件之一：</p>

@@ -1,5 +1,7 @@
 # [402. Remove K Digits](https://leetcode.com/problems/remove-k-digits)
 
+[中文文档](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)
+
 ## Description
 <p>Given a non-negative integer <i>num</i> represented as a string, remove <i>k</i> digits from the number so that the new number is the smallest possible.
 

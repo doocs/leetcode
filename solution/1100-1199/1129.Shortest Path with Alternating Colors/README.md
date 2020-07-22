@@ -1,5 +1,7 @@
 # [1129. 颜色交替的最短路径](https://leetcode-cn.com/problems/shortest-path-with-alternating-colors)
 
+[English Version](/solution/1100-1199/1129.Shortest%20Path%20with%20Alternating%20Colors/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个有向图中，节点分别标记为&nbsp;<code>0, 1, ..., n-1</code>。这个图中的每条边不是红色就是蓝色，且存在自环或平行边。</p>

@@ -1,5 +1,7 @@
 # [470. Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7)
 
+[中文文档](/solution/0400-0499/0470.Implement%20Rand10()%20Using%20Rand7()/README.md)
+
 ## Description
 <p>Given a function <code>rand7</code> which generates a uniform random integer in the range 1 to 7, write a function <code>rand10</code>&nbsp;which generates a uniform random integer in the range 1 to 10.</p>
 

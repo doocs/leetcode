@@ -1,5 +1,7 @@
 # [1262. 可被三整除的最大和](https://leetcode-cn.com/problems/greatest-sum-divisible-by-three)
 
+[English Version](/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个整数数组&nbsp;<code>nums</code>，请你找出并返回能被三整除的元素最大和。</p>

@@ -1,5 +1,7 @@
 # [1062. 最长重复子串](https://leetcode-cn.com/problems/longest-repeating-substring)
 
+[English Version](/solution/1000-1099/1062.Longest%20Repeating%20Substring/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

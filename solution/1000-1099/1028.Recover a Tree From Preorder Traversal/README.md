@@ -1,5 +1,7 @@
 # [1028. 从先序遍历还原二叉树](https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal)
 
+[English Version](/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们从二叉树的根节点 <code>root</code>&nbsp;开始进行深度优先搜索。</p>

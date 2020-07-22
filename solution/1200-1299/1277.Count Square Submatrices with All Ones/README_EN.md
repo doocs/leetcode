@@ -1,5 +1,7 @@
 # [1277. Count Square Submatrices with All Ones](https://leetcode.com/problems/count-square-submatrices-with-all-ones)
 
+[中文文档](/solution/1200-1299/1277.Count%20Square%20Submatrices%20with%20All%20Ones/README.md)
+
 ## Description
 <p>Given a <code>m * n</code> matrix of ones and zeros, return how many <strong>square</strong> submatrices have all ones.</p>
 

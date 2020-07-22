@@ -1,5 +1,7 @@
 # [1024. Video Stitching](https://leetcode.com/problems/video-stitching)
 
+[中文文档](/solution/1000-1099/1024.Video%20Stitching/README.md)
+
 ## Description
 <p>You are given a series of video clips from a sporting event that lasted <code>T</code> seconds.&nbsp;&nbsp;These video clips can be overlapping with each other and have varied lengths.</p>
 

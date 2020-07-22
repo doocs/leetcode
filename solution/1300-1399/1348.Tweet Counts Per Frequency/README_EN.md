@@ -1,5 +1,7 @@
 # [1348. Tweet Counts Per Frequency](https://leetcode.com/problems/tweet-counts-per-frequency)
 
+[中文文档](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README.md)
+
 ## Description
 <p>Implement the class <code>TweetCounts</code> that supports two methods:</p>
 

@@ -1,5 +1,7 @@
 # [722. Remove Comments](https://leetcode.com/problems/remove-comments)
 
+[中文文档](/solution/0700-0799/0722.Remove%20Comments/README.md)
+
 ## Description
 <p>Given a C++ program, remove comments from it. The program <code>source</code> is an array where <code>source[i]</code> is the <code>i</code>-th line of the source code.  This represents the result of splitting the original source code string by the newline character <code>\n</code>.</p>
 

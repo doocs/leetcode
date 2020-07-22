@@ -1,5 +1,7 @@
 # [726. Number of Atoms](https://leetcode.com/problems/number-of-atoms)
 
+[中文文档](/solution/0700-0799/0726.Number%20of%20Atoms/README.md)
+
 ## Description
 <p>Given a chemical <code>formula</code> (given as a string), return the count of each atom.
 

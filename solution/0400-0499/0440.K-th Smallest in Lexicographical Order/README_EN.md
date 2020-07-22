@@ -1,5 +1,7 @@
 # [440. K-th Smallest in Lexicographical Order](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order)
 
+[中文文档](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README.md)
+
 ## Description
 <p>Given integers <code>n</code> and <code>k</code>, find the lexicographically k-th smallest integer in the range from <code>1</code> to <code>n</code>.</p>
 

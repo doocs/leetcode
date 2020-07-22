@@ -1,5 +1,7 @@
 # [178. Rank Scores](https://leetcode.com/problems/rank-scores)
 
+[中文文档](/solution/0100-0199/0178.Rank%20Scores/README.md)
+
 ## Description
 <p>Write a SQL query to rank scores. If there is a tie between two scores, both should have the same ranking. Note that after a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no &quot;holes&quot; between ranks.</p>
 

@@ -1,5 +1,7 @@
 # [211. Add and Search Word - Data structure design](https://leetcode.com/problems/add-and-search-word-data-structure-design)
 
+[中文文档](/solution/0200-0299/0211.Add%20and%20Search%20Word%20-%20Data%20structure%20design/README.md)
+
 ## Description
 <p>Design a data structure that supports the following two operations:</p>
 

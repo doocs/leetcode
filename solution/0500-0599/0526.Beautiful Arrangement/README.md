@@ -1,5 +1,7 @@
 # [526. 优美的排列](https://leetcode-cn.com/problems/beautiful-arrangement)
 
+[English Version](/solution/0500-0599/0526.Beautiful%20Arrangement/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>假设有从 1 到 N 的&nbsp;<strong>N&nbsp;</strong>个整数，如果从这&nbsp;<strong>N&nbsp;</strong>个数字中成功构造出一个数组，使得数组的第 <strong>i</strong>&nbsp;位 (1 &lt;= i &lt;= N) 满足如下两个条件中的一个，我们就称这个数组为一个优美的排列。条件：</p>

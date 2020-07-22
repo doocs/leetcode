@@ -1,5 +1,7 @@
 # [1094. Car Pooling](https://leetcode.com/problems/car-pooling)
 
+[中文文档](/solution/1000-1099/1094.Car%20Pooling/README.md)
+
 ## Description
 <p>You are driving a vehicle that&nbsp;has <code>capacity</code> empty seats initially available for passengers.&nbsp; The vehicle <strong>only</strong> drives east (ie. it <strong>cannot</strong> turn around and drive west.)</p>
 

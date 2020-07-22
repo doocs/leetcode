@@ -1,5 +1,7 @@
 # [628. Maximum Product of Three Numbers](https://leetcode.com/problems/maximum-product-of-three-numbers)
 
+[中文文档](/solution/0600-0699/0628.Maximum%20Product%20of%20Three%20Numbers/README.md)
+
 ## Description
 <p>Given an integer array, find three numbers whose product is maximum and output the maximum product.</p>
 

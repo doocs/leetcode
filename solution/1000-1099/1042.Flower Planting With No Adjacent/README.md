@@ -1,5 +1,7 @@
 # [1042. 不邻接植花](https://leetcode-cn.com/problems/flower-planting-with-no-adjacent)
 
+[English Version](/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有&nbsp;<code>N</code>&nbsp;个花园，按从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>N</code>&nbsp;标记。在每个花园中，你打算种下四种花之一。</p>

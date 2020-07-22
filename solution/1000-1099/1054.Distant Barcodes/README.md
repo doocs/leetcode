@@ -1,5 +1,7 @@
 # [1054. 距离相等的条形码](https://leetcode-cn.com/problems/distant-barcodes)
 
+[English Version](/solution/1000-1099/1054.Distant%20Barcodes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个仓库里，有一排条形码，其中第 <code>i</code> 个条形码为&nbsp;<code>barcodes[i]</code>。</p>

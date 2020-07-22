@@ -1,5 +1,7 @@
 # [1254. Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands)
 
+[中文文档](/solution/1200-1299/1254.Number%20of%20Closed%20Islands/README.md)
+
 ## Description
 <p>Given a 2D&nbsp;<code>grid</code> consists of <code>0s</code> (land)&nbsp;and <code>1s</code> (water).&nbsp; An <em>island</em> is a maximal 4-directionally connected group of <code><font face="monospace">0</font>s</code> and a <em>closed island</em>&nbsp;is an island <strong>totally</strong>&nbsp;(all left, top, right, bottom) surrounded by <code>1s.</code></p>
 

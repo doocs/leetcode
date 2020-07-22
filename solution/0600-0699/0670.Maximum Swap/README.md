@@ -1,5 +1,7 @@
 # [670. 最大交换](https://leetcode-cn.com/problems/maximum-swap)
 
+[English Version](/solution/0600-0699/0670.Maximum%20Swap/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个非负整数，你<strong>至多</strong>可以交换一次数字中的任意两位。返回你能得到的最大值。</p>

@@ -1,5 +1,7 @@
 # [665. 非递减数列](https://leetcode-cn.com/problems/non-decreasing-array)
 
+[English Version](/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个长度为&nbsp;<code>n</code>&nbsp;的整数数组，你的任务是判断在<strong>最多</strong>改变&nbsp;<code>1</code> 个元素的情况下，该数组能否变成一个非递减数列。</p>

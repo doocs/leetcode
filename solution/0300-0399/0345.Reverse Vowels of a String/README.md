@@ -1,5 +1,7 @@
 # [345. 反转字符串中的元音字母](https://leetcode-cn.com/problems/reverse-vowels-of-a-string)
 
+[English Version](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个函数，以字符串作为输入，反转该字符串中的元音字母。</p>

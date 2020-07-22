@@ -1,5 +1,7 @@
 # [430. 扁平化多级双向链表](https://leetcode-cn.com/problems/flatten-a-multilevel-doubly-linked-list)
 
+[English Version](/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>您将获得一个双向链表，除了下一个和前一个指针之外，它还有一个子指针，可能指向单独的双向链表。这些子列表可能有一个或多个自己的子项，依此类推，生成多级数据结构，如下面的示例所示。</p>

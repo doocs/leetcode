@@ -1,5 +1,7 @@
 # [911. Online Election](https://leetcode.com/problems/online-election)
 
+[中文文档](/solution/0900-0999/0911.Online%20Election/README.md)
+
 ## Description
 <p>In an election, the <code>i</code>-th&nbsp;vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>
 

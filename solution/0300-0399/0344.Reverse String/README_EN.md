@@ -1,5 +1,7 @@
 # [344. Reverse String](https://leetcode.com/problems/reverse-string)
 
+[中文文档](/solution/0300-0399/0344.Reverse%20String/README.md)
+
 ## Description
 <p>Write a function that reverses a string. The input string is given as an array of characters <code>char[]</code>.</p>
 

@@ -1,5 +1,7 @@
 # [1054. Distant Barcodes](https://leetcode.com/problems/distant-barcodes)
 
+[中文文档](/solution/1000-1099/1054.Distant%20Barcodes/README.md)
+
 ## Description
 <p>In a warehouse, there is a row of barcodes, where the <code>i</code>-th barcode is&nbsp;<code>barcodes[i]</code>.</p>
 

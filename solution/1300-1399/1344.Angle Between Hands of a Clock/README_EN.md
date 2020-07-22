@@ -1,5 +1,7 @@
 # [1344. Angle Between Hands of a Clock](https://leetcode.com/problems/angle-between-hands-of-a-clock)
 
+[中文文档](/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README.md)
+
 ## Description
 <p>Given two numbers, <code>hour</code> and <code>minutes</code>. Return the smaller angle (in sexagesimal units) formed between the <code>hour</code> and the <code>minute</code> hand.</p>
 

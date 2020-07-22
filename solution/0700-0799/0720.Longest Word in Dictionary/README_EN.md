@@ -1,5 +1,7 @@
 # [720. Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary)
 
+[中文文档](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README.md)
+
 ## Description
 <p>Given a list of strings <code>words</code> representing an English Dictionary, find the longest word in <code>words</code> that can be built one character at a time by other words in <code>words</code>.  If there is more than one possible answer, return the longest word with the smallest lexicographical order.</p>  If there is no answer, return the empty string.
 

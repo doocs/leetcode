@@ -1,5 +1,7 @@
 # [1370. Increasing Decreasing String](https://leetcode.com/problems/increasing-decreasing-string)
 
+[中文文档](/solution/1300-1399/1370.Increasing%20Decreasing%20String/README.md)
+
 ## Description
 <p>Given a string <code>s</code>. You should re-order the string using the following algorithm:</p>
 

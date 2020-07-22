@@ -1,5 +1,7 @@
 # [831. Masking Personal Information](https://leetcode.com/problems/masking-personal-information)
 
+[中文文档](/solution/0800-0899/0831.Masking%20Personal%20Information/README.md)
+
 ## Description
 <p>We are given a&nbsp;personal information string <code>S</code>, which may represent&nbsp;either <strong>an email address</strong> or <strong>a phone number.</strong></p>
 

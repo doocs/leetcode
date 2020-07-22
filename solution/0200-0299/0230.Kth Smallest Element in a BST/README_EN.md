@@ -1,5 +1,7 @@
 # [230. Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
 
+[中文文档](/solution/0200-0299/0230.Kth%20Smallest%20Element%20in%20a%20BST/README.md)
+
 ## Description
 <p>Given a binary search tree, write a function <code>kthSmallest</code> to find the <b>k</b>th smallest element in it.</p>
 

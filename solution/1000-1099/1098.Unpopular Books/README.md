@@ -1,5 +1,7 @@
 # [1098. 小众书籍](https://leetcode-cn.com/problems/unpopular-books)
 
+[English Version](/solution/1000-1099/1098.Unpopular%20Books/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

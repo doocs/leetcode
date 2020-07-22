@@ -1,5 +1,7 @@
 # [396. Rotate Function](https://leetcode.com/problems/rotate-function)
 
+[中文文档](/solution/0300-0399/0396.Rotate%20Function/README.md)
+
 ## Description
 <p>
 

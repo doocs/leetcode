@@ -1,5 +1,7 @@
 # [931. Minimum Falling Path Sum](https://leetcode.com/problems/minimum-falling-path-sum)
 
+[中文文档](/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README.md)
+
 ## Description
 <p>Given a <strong>square</strong> array of integers <code>A</code>, we want the <strong>minimum</strong> sum of a <em>falling path</em> through <code>A</code>.</p>
 

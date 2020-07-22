@@ -1,5 +1,7 @@
 # [335. Self Crossing](https://leetcode.com/problems/self-crossing)
 
+[中文文档](/solution/0300-0399/0335.Self%20Crossing/README.md)
+
 ## Description
 <p>You are given an array <i>x</i> of <code>n</code> positive numbers. You start at point <code>(0,0)</code> and moves <code>x[0]</code> metres to the north, then <code>x[1]</code> metres to the west, <code>x[2]</code> metres to the south, <code>x[3]</code> metres to the east and so on. In other words, after each move your direction changes counter-clockwise.</p>
 

@@ -1,5 +1,7 @@
 # [434. 字符串中的单词数](https://leetcode-cn.com/problems/number-of-segments-in-a-string)
 
+[English Version](/solution/0400-0499/0434.Number%20of%20Segments%20in%20a%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>统计字符串中的单词个数，这里的单词指的是连续的不是空格的字符。</p>

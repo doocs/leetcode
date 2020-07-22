@@ -1,5 +1,7 @@
 # [990. Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations)
 
+[中文文档](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README.md)
+
 ## Description
 <p>Given an array <font face="monospace">equations</font>&nbsp;of strings that represent relationships between variables, each string <code>equations[i]</code>&nbsp;has length <code>4</code> and takes one of two different forms: <code>&quot;a==b&quot;</code> or <code>&quot;a!=b&quot;</code>.&nbsp; Here, <code>a</code> and <code>b</code> are lowercase letters (not necessarily different) that represent one-letter variable names.</p>
 

@@ -1,5 +1,7 @@
 # [894. All Possible Full Binary Trees](https://leetcode.com/problems/all-possible-full-binary-trees)
 
+[中文文档](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md)
+
 ## Description
 <p>A <em>full binary tree</em>&nbsp;is a binary tree where each node has exactly 0 or 2&nbsp;children.</p>
 

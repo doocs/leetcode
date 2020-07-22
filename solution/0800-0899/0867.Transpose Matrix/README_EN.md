@@ -1,5 +1,7 @@
 # [867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix)
 
+[中文文档](/solution/0800-0899/0867.Transpose%20Matrix/README.md)
+
 ## Description
 <p>Given a&nbsp;matrix <code>A</code>, return the transpose of <code>A</code>.</p>
 

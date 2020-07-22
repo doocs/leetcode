@@ -1,5 +1,7 @@
 # [1249. 移除无效的括号](https://leetcode-cn.com/problems/minimum-remove-to-make-valid-parentheses)
 
+[English Version](/solution/1200-1299/1249.Minimum%20Remove%20to%20Make%20Valid%20Parentheses/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个由 <code>&#39;(&#39;</code>、<code>&#39;)&#39;</code> 和小写字母组成的字符串 <code>s</code>。</p>

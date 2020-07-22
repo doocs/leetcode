@@ -1,5 +1,7 @@
 # [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence)
 
+[中文文档](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
+
 ## Description
 <p>Given an unsorted array of integers, find the length of longest increasing subsequence.</p>
 

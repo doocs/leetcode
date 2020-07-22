@@ -1,5 +1,7 @@
 # [978. Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray)
 
+[中文文档](/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README.md)
+
 ## Description
 <p>A subarray <code>A[i], A[i+1], ..., A[j]</code>&nbsp;of <code>A</code> is said to be <em>turbulent</em> if and only if:</p>
 

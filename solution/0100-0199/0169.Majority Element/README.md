@@ -1,5 +1,7 @@
 # [169. 多数元素](https://leetcode-cn.com/problems/majority-element)
 
+[English Version](/solution/0100-0199/0169.Majority%20Element/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个大小为 <em>n </em>的数组，找到其中的多数元素。多数元素是指在数组中出现次数<strong>大于</strong>&nbsp;<code>&lfloor; n/2 &rfloor;</code>&nbsp;的元素。</p>

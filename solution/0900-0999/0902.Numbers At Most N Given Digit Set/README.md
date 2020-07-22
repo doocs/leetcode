@@ -1,5 +1,7 @@
 # [902. 最大为 N 的数字组合](https://leetcode-cn.com/problems/numbers-at-most-n-given-digit-set)
 
+[English Version](/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们有一组<strong>排序的</strong>数字 <code>D</code>，它是&nbsp; <code>{&#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39;,&#39;5&#39;,&#39;6&#39;,&#39;7&#39;,&#39;8&#39;,&#39;9&#39;}</code>&nbsp;的非空子集。（请注意，<code>&#39;0&#39;</code> 不包括在内。）</p>

@@ -1,5 +1,7 @@
 # [752. Open the Lock](https://leetcode.com/problems/open-the-lock)
 
+[中文文档](/solution/0700-0799/0752.Open%20the%20Lock/README.md)
+
 ## Description
 <p>
 

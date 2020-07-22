@@ -1,5 +1,7 @@
 # [1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii)
 
+[中文文档](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
+
 ## Description
 <p>Given an array <code>A</code>&nbsp;of 0s and 1s, we may change up to <code>K</code>&nbsp;values from 0 to 1.</p>
 

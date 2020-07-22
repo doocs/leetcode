@@ -1,5 +1,7 @@
 # [1367. Linked List in Binary Tree](https://leetcode.com/problems/linked-list-in-binary-tree)
 
+[中文文档](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README.md)
+
 ## Description
 <p>Given a binary tree <code>root</code> and a&nbsp;linked list with&nbsp;<code>head</code>&nbsp;as the first node.&nbsp;</p>
 

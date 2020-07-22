@@ -1,5 +1,7 @@
 # [320. 列举单词的全部缩写](https://leetcode-cn.com/problems/generalized-abbreviation)
 
+[English Version](/solution/0300-0399/0320.Generalized%20Abbreviation/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

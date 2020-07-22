@@ -1,5 +1,7 @@
 # [630. Course Schedule III](https://leetcode.com/problems/course-schedule-iii)
 
+[中文文档](/solution/0600-0699/0630.Course%20Schedule%20III/README.md)
+
 ## Description
 <p>There are <code>n</code> different online courses numbered from <code>1</code> to <code>n</code>. Each course has some duration(course length) <code>t</code> and closed on <code>d<sub>th</sub></code> day. A course should be taken <b>continuously</b> for <code>t</code> days and must be finished before or on the <code>d<sub>th</sub></code> day. You will start at the <code>1<sub>st</sub></code> day.</p>
 

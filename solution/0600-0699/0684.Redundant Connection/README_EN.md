@@ -1,5 +1,7 @@
 # [684. Redundant Connection](https://leetcode.com/problems/redundant-connection)
 
+[中文文档](/solution/0600-0699/0684.Redundant%20Connection/README.md)
+
 ## Description
 <p>
 

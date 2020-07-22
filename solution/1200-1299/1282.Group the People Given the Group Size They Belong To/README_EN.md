@@ -1,5 +1,7 @@
 # [1282. Group the People Given the Group Size They Belong To](https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to)
 
+[中文文档](/solution/1200-1299/1282.Group%20the%20People%20Given%20the%20Group%20Size%20They%20Belong%20To/README.md)
+
 ## Description
 <p>There are <code>n</code> people whose <strong>IDs</strong> go from <code>0</code> to <code>n - 1</code> and each person belongs <strong>exactly</strong> to one&nbsp;group. Given the array&nbsp;<code>groupSizes</code> of length <code>n</code> telling the group size each person belongs to, return the groups there are and the people&#39;s&nbsp;<strong>IDs</strong> each group includes.</p>
 

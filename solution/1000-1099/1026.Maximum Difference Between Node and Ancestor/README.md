@@ -1,5 +1,7 @@
 # [1026. 节点与其祖先之间的最大差值](https://leetcode-cn.com/problems/maximum-difference-between-node-and-ancestor)
 
+[English Version](/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定二叉树的根节点&nbsp;<code>root</code>，找出存在于不同节点&nbsp;<code>A</code> 和&nbsp;<code>B</code>&nbsp;之间的最大值 <code>V</code>，其中&nbsp;<code>V = |A.val - B.val|</code>，且&nbsp;<code>A</code>&nbsp;是&nbsp;<code>B</code>&nbsp;的祖先。</p>

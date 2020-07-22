@@ -1,5 +1,7 @@
 # [1377. Frog Position After T Seconds](https://leetcode.com/problems/frog-position-after-t-seconds)
 
+[中文文档](/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README.md)
+
 ## Description
 <p>Given an undirected tree&nbsp;consisting of <code>n</code> vertices numbered from 1 to <code>n</code>. A frog starts jumping&nbsp;from the <strong>vertex 1</strong>. In one second, the frog&nbsp;jumps from its&nbsp;current&nbsp;vertex to another <strong>unvisited</strong> vertex if they are directly connected. The frog can not jump back to a visited vertex.&nbsp;In case the frog can jump to several vertices it jumps randomly to one of them with the same probability, otherwise, when the frog can not jump to any unvisited vertex it jumps forever on the same vertex.&nbsp;</p>
 

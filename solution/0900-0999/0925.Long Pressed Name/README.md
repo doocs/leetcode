@@ -1,5 +1,7 @@
 # [925. 长按键入](https://leetcode-cn.com/problems/long-pressed-name)
 
+[English Version](/solution/0900-0999/0925.Long%20Pressed%20Name/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你的朋友正在使用键盘输入他的名字&nbsp;<code>name</code>。偶尔，在键入字符&nbsp;<code>c</code>&nbsp;时，按键可能会被<em>长按</em>，而字符可能被输入 1 次或多次。</p>

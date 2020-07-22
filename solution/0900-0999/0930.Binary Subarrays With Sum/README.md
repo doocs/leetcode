@@ -1,5 +1,7 @@
 # [930. 和相同的二元子数组](https://leetcode-cn.com/problems/binary-subarrays-with-sum)
 
+[English Version](/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在由若干&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp; 组成的数组&nbsp;<code>A</code>&nbsp;中，有多少个和为 <code>S</code>&nbsp;的<strong>非空</strong>子数组。</p>

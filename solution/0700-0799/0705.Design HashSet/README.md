@@ -1,5 +1,7 @@
 # [705. 设计哈希集合](https://leetcode-cn.com/problems/design-hashset)
 
+[English Version](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>不使用任何内建的哈希表库设计一个哈希集合</p>

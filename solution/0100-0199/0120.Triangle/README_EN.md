@@ -1,5 +1,7 @@
 # [120. Triangle](https://leetcode.com/problems/triangle)
 
+[中文文档](/solution/0100-0199/0120.Triangle/README.md)
+
 ## Description
 <p>Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.</p>
 

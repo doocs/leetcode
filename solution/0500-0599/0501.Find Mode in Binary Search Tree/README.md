@@ -1,5 +1,7 @@
 # [501. 二叉搜索树中的众数](https://leetcode-cn.com/problems/find-mode-in-binary-search-tree)
 
+[English Version](/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。</p>

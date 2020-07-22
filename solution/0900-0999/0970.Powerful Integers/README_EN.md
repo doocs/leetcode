@@ -1,5 +1,7 @@
 # [970. Powerful Integers](https://leetcode.com/problems/powerful-integers)
 
+[中文文档](/solution/0900-0999/0970.Powerful%20Integers/README.md)
+
 ## Description
 <p>Given two positive integers <code>x</code> and <code>y</code>, an integer is <em>powerful</em>&nbsp;if it is equal to <code>x^i + y^j</code>&nbsp;for&nbsp;some integers <code>i &gt;= 0</code> and <code>j &gt;= 0</code>.</p>
 

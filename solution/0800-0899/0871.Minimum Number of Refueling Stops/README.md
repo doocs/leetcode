@@ -1,5 +1,7 @@
 # [871. 最低加油次数](https://leetcode-cn.com/problems/minimum-number-of-refueling-stops)
 
+[English Version](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>汽车从起点出发驶向目的地，该目的地位于出发位置东面 <code>target</code>&nbsp;英里处。</p>

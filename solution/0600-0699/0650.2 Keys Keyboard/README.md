@@ -1,5 +1,7 @@
 # [650. 只有两个键的键盘](https://leetcode-cn.com/problems/2-keys-keyboard)
 
+[English Version](/solution/0600-0699/0650.2%20Keys%20Keyboard/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>最初在一个记事本上只有一个字符 &#39;A&#39;。你每次可以对这个记事本进行两种操作：</p>

@@ -1,5 +1,7 @@
 # [695. 岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island)
 
+[English Version](/solution/0600-0699/0695.Max%20Area%20of%20Island/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个包含了一些 <code>0</code> 和 <code>1</code> 的非空二维数组&nbsp;<code>grid</code> 。</p>

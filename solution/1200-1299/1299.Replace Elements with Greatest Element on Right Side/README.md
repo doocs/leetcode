@@ -1,5 +1,7 @@
 # [1299. 将每个元素替换为右侧最大元素](https://leetcode-cn.com/problems/replace-elements-with-greatest-element-on-right-side)
 
+[English Version](/solution/1200-1299/1299.Replace%20Elements%20with%20Greatest%20Element%20on%20Right%20Side/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个数组&nbsp;<code>arr</code>&nbsp;，请你将每个元素用它右边最大的元素替换，如果是最后一个元素，用&nbsp;<code>-1</code> 替换。</p>

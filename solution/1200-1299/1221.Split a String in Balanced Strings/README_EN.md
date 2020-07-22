@@ -1,5 +1,7 @@
 # [1221. Split a String in Balanced Strings](https://leetcode.com/problems/split-a-string-in-balanced-strings)
 
+[中文文档](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README.md)
+
 ## Description
 <p><i data-stringify-type="italic">Balanced</i>&nbsp;strings are those who have equal quantity of &#39;L&#39; and &#39;R&#39; characters.</p>
 

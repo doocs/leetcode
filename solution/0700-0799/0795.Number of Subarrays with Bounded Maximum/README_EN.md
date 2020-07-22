@@ -1,5 +1,7 @@
 # [795. Number of Subarrays with Bounded Maximum](https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum)
 
+[中文文档](/solution/0700-0799/0795.Number%20of%20Subarrays%20with%20Bounded%20Maximum/README.md)
+
 ## Description
 <p>We are given an array <code>A</code> of positive integers, and two positive integers <code>L</code> and <code>R</code> (<code>L &lt;= R</code>).</p>
 

@@ -1,5 +1,7 @@
 # [184. 部门工资最高的员工](https://leetcode-cn.com/problems/department-highest-salary)
 
+[English Version](/solution/0100-0199/0184.Department%20Highest%20Salary/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p><code>Employee</code> 表包含所有员工信息，每个员工有其对应的&nbsp;Id, salary 和 department Id。</p>

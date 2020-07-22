@@ -1,5 +1,7 @@
 # [1127. 用户购买平台](https://leetcode-cn.com/problems/user-purchase-platform)
 
+[English Version](/solution/1100-1199/1127.User%20Purchase%20Platform/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

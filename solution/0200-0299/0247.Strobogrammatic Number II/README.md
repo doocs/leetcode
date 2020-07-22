@@ -1,5 +1,7 @@
 # [247. 中心对称数 II](https://leetcode-cn.com/problems/strobogrammatic-number-ii)
 
+[English Version](/solution/0200-0299/0247.Strobogrammatic%20Number%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

@@ -1,5 +1,7 @@
 # [60. 第k个排列](https://leetcode-cn.com/problems/permutation-sequence)
 
+[English Version](/solution/0000-0099/0060.Permutation%20Sequence/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出集合&nbsp;<code>[1,2,3,&hellip;,<em>n</em>]</code>，其所有元素共有&nbsp;<em>n</em>! 种排列。</p>

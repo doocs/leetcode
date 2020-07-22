@@ -1,5 +1,7 @@
 # [1108. IP 地址无效化](https://leetcode-cn.com/problems/defanging-an-ip-address)
 
+[English Version](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个有效的 <a href="https://baike.baidu.com/item/IPv4" target="_blank">IPv4</a> 地址&nbsp;<code>address</code>，返回这个 IP 地址的无效化版本。</p>

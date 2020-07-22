@@ -1,5 +1,7 @@
 # [1207. 独一无二的出现次数](https://leetcode-cn.com/problems/unique-number-of-occurrences)
 
+[English Version](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个整数数组&nbsp;<code>arr</code>，请你帮忙统计数组中每个数的出现次数。</p>

@@ -1,5 +1,7 @@
 # [1241. 每个帖子的评论数](https://leetcode-cn.com/problems/number-of-comments-per-post)
 
+[English Version](/solution/1200-1299/1241.Number%20of%20Comments%20per%20Post/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

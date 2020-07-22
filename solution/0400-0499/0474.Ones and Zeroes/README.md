@@ -1,5 +1,7 @@
 # [474. 一和零](https://leetcode-cn.com/problems/ones-and-zeroes)
 
+[English Version](/solution/0400-0499/0474.Ones%20and%20Zeroes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在计算机界中，我们总是追求用有限的资源获取最大的收益。</p>

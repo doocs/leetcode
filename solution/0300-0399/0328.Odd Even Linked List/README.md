@@ -1,5 +1,7 @@
 # [328. 奇偶链表](https://leetcode-cn.com/problems/odd-even-linked-list)
 
+[English Version](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。</p>

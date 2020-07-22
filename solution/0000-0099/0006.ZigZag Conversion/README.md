@@ -1,5 +1,7 @@
 # [6. Z 字形变换](https://leetcode-cn.com/problems/zigzag-conversion)
 
+[English Version](/solution/0000-0099/0006.ZigZag%20Conversion/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>将一个给定字符串根据给定的行数，以从上往下、从左到右进行&nbsp;Z 字形排列。</p>

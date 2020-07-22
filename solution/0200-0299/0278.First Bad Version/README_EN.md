@@ -1,5 +1,7 @@
 # [278. First Bad Version](https://leetcode.com/problems/first-bad-version)
 
+[中文文档](/solution/0200-0299/0278.First%20Bad%20Version/README.md)
+
 ## Description
 <p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>
 

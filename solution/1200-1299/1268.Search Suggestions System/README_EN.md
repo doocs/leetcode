@@ -1,5 +1,7 @@
 # [1268. Search Suggestions System](https://leetcode.com/problems/search-suggestions-system)
 
+[中文文档](/solution/1200-1299/1268.Search%20Suggestions%20System/README.md)
+
 ## Description
 <p>Given an array of strings <code>products</code> and a string <code>searchWord</code>. We want to design a system that suggests at most three product names from <code>products</code>&nbsp;after each character of&nbsp;<code>searchWord</code> is typed. Suggested products should have common prefix with the searchWord. If there are&nbsp;more than three products with a common prefix&nbsp;return the three lexicographically minimums products.</p>
 

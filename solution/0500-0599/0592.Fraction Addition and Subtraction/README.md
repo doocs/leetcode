@@ -1,5 +1,7 @@
 # [592. 分数加减运算](https://leetcode-cn.com/problems/fraction-addition-and-subtraction)
 
+[English Version](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个表示分数加减运算表达式的字符串，你需要返回一个字符串形式的计算结果。&nbsp;这个结果应该是不可约分的分数，即<a href="https://baike.baidu.com/item/%E6%9C%80%E7%AE%80%E5%88%86%E6%95%B0" target="_blank">最简分数</a>。&nbsp;如果最终结果是一个整数，例如&nbsp;<code>2</code>，你需要将它转换成分数形式，其分母为&nbsp;<code>1</code>。所以在上述例子中, <code>2</code>&nbsp;应该被转换为&nbsp;<code>2/1</code>。</p>

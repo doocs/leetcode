@@ -1,5 +1,7 @@
 # [1291. Sequential Digits](https://leetcode.com/problems/sequential-digits)
 
+[中文文档](/solution/1200-1299/1291.Sequential%20Digits/README.md)
+
 ## Description
 <p>An&nbsp;integer has <em>sequential digits</em> if and only if each digit in the number is one more than the previous digit.</p>
 

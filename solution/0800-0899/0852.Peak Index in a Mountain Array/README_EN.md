@@ -1,5 +1,7 @@
 # [852. Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array)
 
+[中文文档](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README.md)
+
 ## Description
 <p>Let&#39;s call an array <code>A</code> a <em>mountain</em>&nbsp;if the following properties hold:</p>
 

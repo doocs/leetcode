@@ -1,5 +1,7 @@
 # [850. Rectangle Area II](https://leetcode.com/problems/rectangle-area-ii)
 
+[中文文档](/solution/0800-0899/0850.Rectangle%20Area%20II/README.md)
+
 ## Description
 <p>We are given a list of (axis-aligned)&nbsp;<code>rectangles</code>.&nbsp; Each&nbsp;<code>rectangle[i] = [x1, y1, x2, y2]&nbsp;</code>, where (x1, y1) are the coordinates of the bottom-left corner, and (x2, y2) are the coordinates of the top-right corner of the <code>i</code>th rectangle.</p>
 

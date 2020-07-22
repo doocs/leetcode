@@ -1,5 +1,7 @@
 # [664. Strange Printer](https://leetcode.com/problems/strange-printer)
 
+[中文文档](/solution/0600-0699/0664.Strange%20Printer/README.md)
+
 ## Description
 <p>
 

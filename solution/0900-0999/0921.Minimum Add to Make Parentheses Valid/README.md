@@ -1,5 +1,7 @@
 # [921. 使括号有效的最少添加](https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid)
 
+[English Version](/solution/0900-0999/0921.Minimum%20Add%20to%20Make%20Parentheses%20Valid/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个由&nbsp;<code>&#39;(&#39;</code>&nbsp;和&nbsp;<code>&#39;)&#39;</code>&nbsp;括号组成的字符串 <code>S</code>，我们需要添加最少的括号（ <code>&#39;(&#39;</code>&nbsp;或是&nbsp;<code>&#39;)&#39;</code>，可以在任何位置），以使得到的括号字符串有效。</p>

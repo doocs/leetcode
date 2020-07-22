@@ -1,5 +1,7 @@
 # [96. Unique Binary Search Trees](https://leetcode.com/problems/unique-binary-search-trees)
 
+[中文文档](/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README.md)
+
 ## Description
 <p>Given <em>n</em>, how many structurally unique <strong>BST&#39;s</strong> (binary search trees) that store values 1 ...&nbsp;<em>n</em>?</p>
 

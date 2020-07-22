@@ -1,5 +1,7 @@
 # [1142. 过去30天的用户活动 II](https://leetcode-cn.com/problems/user-activity-for-the-past-30-days-ii)
 
+[English Version](/solution/1100-1199/1142.User%20Activity%20for%20the%20Past%2030%20Days%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

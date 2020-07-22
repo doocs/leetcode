@@ -1,5 +1,7 @@
 # [725. 分隔链表](https://leetcode-cn.com/problems/split-linked-list-in-parts)
 
+[English Version](/solution/0700-0799/0725.Split%20Linked%20List%20in%20Parts/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个头结点为 <code>root</code> 的链表, 编写一个函数以将链表分隔为 <code>k</code> 个连续的部分。</p>

@@ -1,5 +1,7 @@
 # [1317. Convert Integer to the Sum of Two No-Zero Integers](https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers)
 
+[中文文档](/solution/1300-1399/1317.Convert%20Integer%20to%20the%20Sum%20of%20Two%20No-Zero%20Integers/README.md)
+
 ## Description
 <p>Given an integer <code>n</code>. No-Zero integer is a positive integer which <strong>doesn&#39;t contain any 0</strong> in its decimal representation.</p>
 

@@ -1,5 +1,7 @@
 # [1223. Dice Roll Simulation](https://leetcode.com/problems/dice-roll-simulation)
 
+[中文文档](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README.md)
+
 ## Description
 <p>A die simulator generates a random number from 1 to 6 for each roll.&nbsp;You introduced a constraint to the generator such that it cannot roll the number <code>i</code> more than <code>rollMax[i]</code> (1-indexed) <strong>consecutive</strong> times.&nbsp;</p>
 

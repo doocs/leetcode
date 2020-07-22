@@ -1,5 +1,7 @@
 # [601. 体育馆的人流量](https://leetcode-cn.com/problems/human-traffic-of-stadium)
 
+[English Version](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>X 市建了一个新的体育馆，每日人流量信息被记录在这三列信息中：<strong>序号</strong> (id)、<strong>日期</strong> (visit_date)、&nbsp;<strong>人流量</strong> (people)。</p>

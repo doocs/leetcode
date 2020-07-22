@@ -1,5 +1,7 @@
 # [1199. 建造街区的最短时间](https://leetcode-cn.com/problems/minimum-time-to-build-blocks)
 
+[English Version](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

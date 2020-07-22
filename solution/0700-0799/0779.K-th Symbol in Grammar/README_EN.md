@@ -1,5 +1,7 @@
 # [779. K-th Symbol in Grammar](https://leetcode.com/problems/k-th-symbol-in-grammar)
 
+[中文文档](/solution/0700-0799/0779.K-th%20Symbol%20in%20Grammar/README.md)
+
 ## Description
 <p>On the first row, we write a <code>0</code>. Now in every subsequent row, we look at the previous row and replace each occurrence of <code>0</code> with <code>01</code>, and each occurrence of <code>1</code> with <code>10</code>.</p>
 

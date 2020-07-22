@@ -1,5 +1,7 @@
 # [1346. Check If N and Its Double Exist](https://leetcode.com/problems/check-if-n-and-its-double-exist)
 
+[中文文档](/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README.md)
+
 ## Description
 <p>Given an array <code>arr</code> of integers, check if there exists two integers <code>N</code> and <code>M</code> such that <code>N</code> is the double of <code>M</code> ( i.e. <code>N = 2 * M</code>).</p>
 

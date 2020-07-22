@@ -1,5 +1,7 @@
 # [252. 会议室](https://leetcode-cn.com/problems/meeting-rooms)
 
+[English Version](/solution/0200-0299/0252.Meeting%20Rooms/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

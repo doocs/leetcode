@@ -1,5 +1,7 @@
 # [872. 叶子相似的树](https://leetcode-cn.com/problems/leaf-similar-trees)
 
+[English Version](/solution/0800-0899/0872.Leaf-Similar%20Trees/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>请考虑一颗二叉树上所有的叶子，这些叶子的值按从左到右的顺序排列形成一个&nbsp;<em>叶值序列</em> 。</p>

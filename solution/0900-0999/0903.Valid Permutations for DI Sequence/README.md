@@ -1,5 +1,7 @@
 # [903. DI 序列的有效排列](https://leetcode-cn.com/problems/valid-permutations-for-di-sequence)
 
+[English Version](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们给出 <code>S</code>，一个源于&nbsp;<code>{&#39;D&#39;, &#39;I&#39;}</code>&nbsp;的长度为 <code>n</code>&nbsp;的字符串 。（这些字母代表 &ldquo;减少&rdquo; 和 &ldquo;增加&rdquo;。）<br>

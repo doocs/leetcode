@@ -1,5 +1,7 @@
 # [1279. 红绿灯路口](https://leetcode-cn.com/problems/traffic-light-controlled-intersection)
 
+[English Version](/solution/1200-1299/1279.Traffic%20Light%20Controlled%20Intersection/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

@@ -1,5 +1,7 @@
 # [242. Valid Anagram](https://leetcode.com/problems/valid-anagram)
 
+[中文文档](/solution/0200-0299/0242.Valid%20Anagram/README.md)
+
 ## Description
 <p>Given two strings <em>s</em> and <em>t&nbsp;</em>, write a function to determine if <em>t</em> is an anagram of <em>s</em>.</p>
 

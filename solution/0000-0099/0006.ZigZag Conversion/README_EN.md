@@ -1,5 +1,7 @@
 # [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion)
 
+[中文文档](/solution/0000-0099/0006.ZigZag%20Conversion/README.md)
+
 ## Description
 <p>The string <code>&quot;PAYPALISHIRING&quot;</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
 

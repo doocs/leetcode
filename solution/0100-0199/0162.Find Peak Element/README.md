@@ -1,5 +1,7 @@
 # [162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element)
 
+[English Version](/solution/0100-0199/0162.Find%20Peak%20Element/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>峰值元素是指其值大于左右相邻值的元素。</p>

@@ -1,5 +1,7 @@
 # [1096. 花括号展开 II](https://leetcode-cn.com/problems/brace-expansion-ii)
 
+[English Version](/solution/1000-1099/1096.Brace%20Expansion%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 

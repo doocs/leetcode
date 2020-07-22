@@ -1,5 +1,7 @@
 # [1355. 活动参与者](https://leetcode-cn.com/problems/activity-participants)
 
+[English Version](/solution/1300-1399/1355.Activity%20Participants/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

@@ -1,5 +1,7 @@
 # [890. Find and Replace Pattern](https://leetcode.com/problems/find-and-replace-pattern)
 
+[中文文档](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README.md)
+
 ## Description
 <p>You have a list of&nbsp;<code>words</code> and a <code>pattern</code>, and you want to know which words in <code>words</code> matches the pattern.</p>
 

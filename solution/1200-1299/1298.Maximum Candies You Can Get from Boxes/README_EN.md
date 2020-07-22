@@ -1,5 +1,7 @@
 # [1298. Maximum Candies You Can Get from Boxes](https://leetcode.com/problems/maximum-candies-you-can-get-from-boxes)
 
+[中文文档](/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README.md)
+
 ## Description
 <p>Given <code>n</code> boxes, each box is given in the format <code>[status, candies, keys, containedBoxes]</code> where:</p>
 

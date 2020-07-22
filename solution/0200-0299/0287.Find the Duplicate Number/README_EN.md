@@ -1,5 +1,7 @@
 # [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number)
 
+[中文文档](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README.md)
+
 ## Description
 <p>Given an array <i>nums</i> containing <i>n</i> + 1 integers where each integer is between 1 and <i>n</i> (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.</p>
 

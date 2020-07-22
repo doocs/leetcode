@@ -1,5 +1,7 @@
 # [1036. 逃离大迷宫](https://leetcode-cn.com/problems/escape-a-large-maze)
 
+[English Version](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个 10^6 x 10^6 的网格中，每个网格块的坐标为&nbsp;<code>(x, y)</code>，其中&nbsp;<code>0 &lt;= x, y &lt; 10^6</code>。</p>

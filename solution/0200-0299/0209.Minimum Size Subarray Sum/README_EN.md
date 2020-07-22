@@ -1,5 +1,7 @@
 # [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum)
 
+[中文文档](/solution/0200-0299/0209.Minimum%20Size%20Subarray%20Sum/README.md)
+
 ## Description
 <p>Given an array of <strong>n</strong> positive integers and a positive integer <strong>s</strong>, find the minimal length of a <b>contiguous</b> subarray of which the sum &ge; <strong>s</strong>. If there isn&#39;t one, return 0 instead.</p>
 

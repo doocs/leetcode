@@ -1,5 +1,7 @@
 # [472. Concatenated Words](https://leetcode.com/problems/concatenated-words)
 
+[中文文档](/solution/0400-0499/0472.Concatenated%20Words/README.md)
+
 ## Description
 Given a list of words (<b>without duplicates</b>), please write a program that returns all concatenated words in the given list of words.
 

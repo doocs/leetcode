@@ -1,5 +1,7 @@
 # [939. 最小面积矩形](https://leetcode-cn.com/problems/minimum-area-rectangle)
 
+[English Version](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定在 xy 平面上的一组点，确定由这些点组成的矩形的最小面积，其中矩形的边平行于 x 轴和 y 轴。</p>

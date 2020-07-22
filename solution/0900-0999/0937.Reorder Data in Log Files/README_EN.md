@@ -1,5 +1,7 @@
 # [937. Reorder Data in Log Files](https://leetcode.com/problems/reorder-data-in-log-files)
 
+[中文文档](/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README.md)
+
 ## Description
 <p>You have an array of <code>logs</code>.&nbsp; Each log is a space delimited string of words.</p>
 

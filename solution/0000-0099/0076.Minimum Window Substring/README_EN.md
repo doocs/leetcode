@@ -1,5 +1,7 @@
 # [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring)
 
+[中文文档](/solution/0000-0099/0076.Minimum%20Window%20Substring/README.md)
+
 ## Description
 <p>Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).</p>
 

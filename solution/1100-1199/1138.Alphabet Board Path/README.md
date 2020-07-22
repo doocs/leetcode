@@ -1,5 +1,7 @@
 # [1138. 字母板上的路径](https://leetcode-cn.com/problems/alphabet-board-path)
 
+[English Version](/solution/1100-1199/1138.Alphabet%20Board%20Path/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们从一块字母板上的位置&nbsp;<code>(0, 0)</code>&nbsp;出发，该坐标对应的字符为&nbsp;<code>board[0][0]</code>。</p>

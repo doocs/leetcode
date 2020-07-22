@@ -1,5 +1,7 @@
 # [390. Elimination Game](https://leetcode.com/problems/elimination-game)
 
+[中文文档](/solution/0300-0399/0390.Elimination%20Game/README.md)
+
 ## Description
 <p>
 

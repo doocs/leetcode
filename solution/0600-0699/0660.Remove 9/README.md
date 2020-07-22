@@ -1,5 +1,7 @@
 # [660. 移除 9](https://leetcode-cn.com/problems/remove-9)
 
+[English Version](/solution/0600-0699/0660.Remove%209/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

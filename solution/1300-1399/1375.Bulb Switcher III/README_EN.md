@@ -1,5 +1,7 @@
 # [1375. Bulb Switcher III](https://leetcode.com/problems/bulb-switcher-iii)
 
+[中文文档](/solution/1300-1399/1375.Bulb%20Switcher%20III/README.md)
+
 ## Description
 <p>There is a room with <code>n</code> bulbs, numbered from <code>1</code> to <code>n</code>, arranged in a row from left to right. Initially, all the bulbs are turned off.</p>
 

@@ -1,5 +1,7 @@
 # [1190. 反转每对括号间的子串](https://leetcode-cn.com/problems/reverse-substrings-between-each-pair-of-parentheses)
 
+[English Version](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一个字符串&nbsp;<code>s</code>（仅含有小写英文字母和括号）。</p>

@@ -1,5 +1,7 @@
 # [392. 判断子序列](https://leetcode-cn.com/problems/is-subsequence)
 
+[English Version](/solution/0300-0399/0392.Is%20Subsequence/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定字符串 <strong>s</strong> 和 <strong>t</strong> ，判断 <strong>s</strong> 是否为 <strong>t</strong> 的子序列。</p>

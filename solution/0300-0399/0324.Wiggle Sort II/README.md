@@ -1,5 +1,7 @@
 # [324. 摆动排序 II](https://leetcode-cn.com/problems/wiggle-sort-ii)
 
+[English Version](/solution/0300-0399/0324.Wiggle%20Sort%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个无序的数组&nbsp;<code>nums</code>，将它重新排列成&nbsp;<code>nums[0] &lt; nums[1] &gt; nums[2] &lt; nums[3]...</code>&nbsp;的顺序。</p>

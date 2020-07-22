@@ -1,5 +1,7 @@
 # [1337. The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix)
 
+[中文文档](/solution/1300-1399/1337.The%20K%20Weakest%20Rows%20in%20a%20Matrix/README.md)
+
 ## Description
 <p>Given a <code>m&nbsp;* n</code>&nbsp;matrix <code>mat</code> of <em>ones</em>&nbsp;(representing soldiers) and <em>zeros</em>&nbsp;(representing civilians), return the indexes of the <code>k</code> weakest rows in the matrix ordered from the weakest to the strongest.</p>
 

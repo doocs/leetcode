@@ -1,5 +1,7 @@
 # [1014. Best Sightseeing Pair](https://leetcode.com/problems/best-sightseeing-pair)
 
+[中文文档](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README.md)
+
 ## Description
 <p>Given an array <code>A</code> of positive integers, <code>A[i]</code> represents the value of the <code>i</code>-th sightseeing spot, and two&nbsp;sightseeing spots <code>i</code> and <code>j</code>&nbsp;have distance <code>j - i</code>&nbsp;between them.</p>
 

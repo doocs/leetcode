@@ -1,5 +1,7 @@
 # [274. H-Index](https://leetcode.com/problems/h-index)
 
+[中文文档](/solution/0200-0299/0274.H-Index/README.md)
+
 ## Description
 <p>Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&#39;s h-index.</p>
 

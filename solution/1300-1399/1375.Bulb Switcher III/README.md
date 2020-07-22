@@ -1,5 +1,7 @@
 # [1375. 灯泡开关 III](https://leetcode-cn.com/problems/bulb-switcher-iii)
 
+[English Version](/solution/1300-1399/1375.Bulb%20Switcher%20III/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>房间中有 <code>n</code> 枚灯泡，编号从 <code>1</code> 到 <code>n</code>，自左向右排成一排。最初，所有的灯都是关着的。</p>

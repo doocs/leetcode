@@ -1,5 +1,7 @@
 # [983. Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets)
 
+[中文文档](/solution/0900-0999/0983.Minimum%20Cost%20For%20Tickets/README.md)
+
 ## Description
 <p>In a country popular for train travel, you&nbsp;have planned some train travelling one year in advance.&nbsp; The days of the year that you will travel is given as an array <code>days</code>.&nbsp; Each day is an integer from <code>1</code> to <code>365</code>.</p>
 

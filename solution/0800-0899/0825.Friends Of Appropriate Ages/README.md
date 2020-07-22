@@ -1,5 +1,7 @@
 # [825. 适龄的朋友](https://leetcode-cn.com/problems/friends-of-appropriate-ages)
 
+[English Version](/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>人们会互相发送好友请求，现在给定一个包含有他们年龄的数组，<code>ages[i]</code>&nbsp;表示第 i 个人的年龄。</p>

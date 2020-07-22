@@ -1,5 +1,7 @@
 # [729. 我的日程安排表 I](https://leetcode-cn.com/problems/my-calendar-i)
 
+[English Version](/solution/0700-0799/0729.My%20Calendar%20I/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现一个 <code>MyCalendar</code> 类来存放你的日程安排。如果要添加的时间内没有其他安排，则可以存储这个新的日程安排。</p>

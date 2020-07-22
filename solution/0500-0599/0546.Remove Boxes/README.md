@@ -1,5 +1,7 @@
 # [546. 移除盒子](https://leetcode-cn.com/problems/remove-boxes)
 
+[English Version](/solution/0500-0599/0546.Remove%20Boxes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一些不同颜色的盒子，盒子的颜色由数字表示，即不同的数字表示不同的颜色。<br />

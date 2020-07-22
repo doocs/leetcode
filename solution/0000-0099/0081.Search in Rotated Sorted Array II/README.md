@@ -1,5 +1,7 @@
 # [81. 搜索旋转排序数组 II](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii)
 
+[English Version](/solution/0000-0099/0081.Search%20in%20Rotated%20Sorted%20Array%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>假设按照升序排序的数组在预先未知的某个点上进行了旋转。</p>

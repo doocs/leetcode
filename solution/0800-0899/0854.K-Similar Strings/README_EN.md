@@ -1,5 +1,7 @@
 # [854. K-Similar Strings](https://leetcode.com/problems/k-similar-strings)
 
+[中文文档](/solution/0800-0899/0854.K-Similar%20Strings/README.md)
+
 ## Description
 <p>Strings&nbsp;<code>A</code> and <code>B</code> are <code>K</code>-similar (for some non-negative integer <code>K</code>) if we can swap the positions of two letters in <code>A</code> exactly <code>K</code>&nbsp;times so that the resulting string equals <code>B</code>.</p>
 

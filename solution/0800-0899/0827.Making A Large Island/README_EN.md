@@ -1,5 +1,7 @@
 # [827. Making A Large Island](https://leetcode.com/problems/making-a-large-island)
 
+[中文文档](/solution/0800-0899/0827.Making%20A%20Large%20Island/README.md)
+
 ## Description
 <p>In a 2D grid of <code>0</code>s and <code>1</code>s, we change at most one <code>0</code> to a <code>1</code>.</p>
 

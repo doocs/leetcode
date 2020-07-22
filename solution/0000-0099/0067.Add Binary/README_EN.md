@@ -1,5 +1,7 @@
 # [67. Add Binary](https://leetcode.com/problems/add-binary)
 
+[中文文档](/solution/0000-0099/0067.Add%20Binary/README.md)
+
 ## Description
 <p>Given two binary strings, return their sum (also a binary string).</p>
 

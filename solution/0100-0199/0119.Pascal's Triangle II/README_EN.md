@@ -1,5 +1,7 @@
 # [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii)
 
+[中文文档](/solution/0100-0199/0119.Pascal's%20Triangle%20II/README.md)
+
 ## Description
 <p>Given a non-negative&nbsp;index <em>k</em>&nbsp;where <em>k</em> &le;&nbsp;33, return the <em>k</em><sup>th</sup>&nbsp;index row of the Pascal&#39;s triangle.</p>
 

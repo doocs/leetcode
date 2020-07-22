@@ -1,5 +1,7 @@
 # [789. Escape The Ghosts](https://leetcode.com/problems/escape-the-ghosts)
 
+[中文文档](/solution/0700-0799/0789.Escape%20The%20Ghosts/README.md)
+
 ## Description
 <p>You are playing a simplified Pacman game. You&nbsp;start at the point <code>(0, 0)</code>, and your destination is<code> (target[0], target[1])</code>. There are several ghosts on the map, the i-th ghost starts at<code> (ghosts[i][0], ghosts[i][1])</code>.</p>
 

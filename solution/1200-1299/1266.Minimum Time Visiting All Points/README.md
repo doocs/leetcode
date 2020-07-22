@@ -1,5 +1,7 @@
 # [1266. 访问所有点的最小时间](https://leetcode-cn.com/problems/minimum-time-visiting-all-points)
 
+[English Version](/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>平面上有&nbsp;<code>n</code>&nbsp;个点，点的位置用整数坐标表示&nbsp;<code>points[i] = [xi, yi]</code>。请你计算访问所有这些点需要的最小时间（以秒为单位）。</p>

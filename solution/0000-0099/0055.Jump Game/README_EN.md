@@ -1,5 +1,7 @@
 # [55. Jump Game](https://leetcode.com/problems/jump-game)
 
+[中文文档](/solution/0000-0099/0055.Jump%20Game/README.md)
+
 ## Description
 <p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p>
 

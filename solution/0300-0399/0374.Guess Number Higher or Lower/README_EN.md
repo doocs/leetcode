@@ -1,5 +1,7 @@
 # [374. Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower)
 
+[中文文档](/solution/0300-0399/0374.Guess%20Number%20Higher%20or%20Lower/README.md)
+
 ## Description
 <p>We are playing the Guess Game. The game is as follows:</p>
 

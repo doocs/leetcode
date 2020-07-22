@@ -1,5 +1,7 @@
 # [1020. 飞地的数量](https://leetcode-cn.com/problems/number-of-enclaves)
 
+[English Version](/solution/1000-1099/1020.Number%20of%20Enclaves/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一个二维数组&nbsp;<code>A</code>，每个单元格为 0（代表海）或 1（代表陆地）。</p>

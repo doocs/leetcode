@@ -1,5 +1,7 @@
 # [940. 不同的子序列 II](https://leetcode-cn.com/problems/distinct-subsequences-ii)
 
+[English Version](/solution/0900-0999/0940.Distinct%20Subsequences%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串&nbsp;<code>S</code>，计算&nbsp;<code>S</code>&nbsp;的不同非空子序列的个数。</p>

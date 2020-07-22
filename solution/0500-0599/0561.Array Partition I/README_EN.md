@@ -1,5 +1,7 @@
 # [561. Array Partition I](https://leetcode.com/problems/array-partition-i)
 
+[中文文档](/solution/0500-0599/0561.Array%20Partition%20I/README.md)
+
 ## Description
 <p>
 

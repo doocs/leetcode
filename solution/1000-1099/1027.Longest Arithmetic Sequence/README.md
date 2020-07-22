@@ -1,5 +1,7 @@
 # [1027. 最长等差数列](https://leetcode-cn.com/problems/longest-arithmetic-sequence)
 
+[English Version](/solution/1000-1099/1027.Longest%20Arithmetic%20Sequence/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组&nbsp;<code>A</code>，返回 <code>A</code>&nbsp;中最长等差子序列的<strong>长度</strong>。</p>

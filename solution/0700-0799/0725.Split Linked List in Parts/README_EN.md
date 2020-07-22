@@ -1,5 +1,7 @@
 # [725. Split Linked List in Parts](https://leetcode.com/problems/split-linked-list-in-parts)
 
+[中文文档](/solution/0700-0799/0725.Split%20Linked%20List%20in%20Parts/README.md)
+
 ## Description
 <p>Given a (singly) linked list with head node <code>root</code>, write a function to split the linked list into <code>k</code> consecutive linked list "parts".
 

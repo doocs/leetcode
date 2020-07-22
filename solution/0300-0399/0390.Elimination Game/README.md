@@ -1,5 +1,7 @@
 # [390. 消除游戏](https://leetcode-cn.com/problems/elimination-game)
 
+[English Version](/solution/0300-0399/0390.Elimination%20Game/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个从1 到 n 排序的整数列表。<br />

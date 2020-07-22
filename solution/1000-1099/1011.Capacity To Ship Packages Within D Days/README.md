@@ -1,5 +1,7 @@
 # [1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days)
 
+[English Version](/solution/1000-1099/1011.Capacity%20To%20Ship%20Packages%20Within%20D%20Days/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>传送带上的包裹必须在 D 天内从一个港口运送到另一个港口。</p>

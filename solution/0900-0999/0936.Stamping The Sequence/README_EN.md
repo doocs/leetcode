@@ -1,5 +1,7 @@
 # [936. Stamping The Sequence](https://leetcode.com/problems/stamping-the-sequence)
 
+[中文文档](/solution/0900-0999/0936.Stamping%20The%20Sequence/README.md)
+
 ## Description
 <p>You want to form a <code>target</code>&nbsp;string of <strong>lowercase letters</strong>.</p>
 

@@ -1,5 +1,7 @@
 # [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal)
 
+[English Version](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二叉树，返回它的<em>中序&nbsp;</em>遍历。</p>

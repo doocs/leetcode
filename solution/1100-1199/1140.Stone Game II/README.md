@@ -1,5 +1,7 @@
 # [1140. 石子游戏 II](https://leetcode-cn.com/problems/stone-game-ii)
 
+[English Version](/solution/1100-1199/1140.Stone%20Game%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>亚历克斯和李继续他们的石子游戏。许多堆石子&nbsp;<strong>排成一行</strong>，每堆都有正整数颗石子&nbsp;<code>piles[i]</code>。游戏以谁手中的石子最多来决出胜负。</p>

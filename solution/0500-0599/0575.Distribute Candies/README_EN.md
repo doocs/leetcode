@@ -1,5 +1,7 @@
 # [575. Distribute Candies](https://leetcode.com/problems/distribute-candies)
 
+[中文文档](/solution/0500-0599/0575.Distribute%20Candies/README.md)
+
 ## Description
 Given an integer array with <b>even</b> length, where different numbers in this array represent different <b>kinds</b> of candies. Each number means one candy of the corresponding kind. You need to distribute these candies <b>equally</b> in number to brother and sister. Return the maximum number of <b>kinds</b> of candies the sister could gain. 
 

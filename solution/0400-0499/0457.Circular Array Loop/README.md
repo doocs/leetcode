@@ -1,5 +1,7 @@
 # [457. 环形数组循环](https://leetcode-cn.com/problems/circular-array-loop)
 
+[English Version](/solution/0400-0499/0457.Circular%20Array%20Loop/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个含有正整数和负整数的<strong>环形</strong>数组&nbsp;<code>nums</code>。 如果某个索引中的数 <em>k</em>&nbsp;为正数，则向前移动 <em>k</em>&nbsp;个索引。相反，如果是负数 (<em>-k</em>)，则向后移动 <em>k</em>&nbsp;个索引。因为数组是环形的，所以可以假设最后一个元素的下一个元素是第一个元素，而第一个元素的前一个元素是最后一个元素。</p>

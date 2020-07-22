@@ -1,5 +1,7 @@
 # [783. Minimum Distance Between BST Nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes)
 
+[中文文档](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README.md)
+
 ## Description
 <p>Given a Binary Search Tree (BST) with the root node <code>root</code>, return&nbsp;the minimum difference between the values of any two different nodes in the tree.</p>
 

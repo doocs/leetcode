@@ -1,5 +1,7 @@
 # [824. 山羊拉丁文](https://leetcode-cn.com/problems/goat-latin)
 
+[English Version](/solution/0800-0899/0824.Goat%20Latin/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个由空格分割单词的句子&nbsp;<code>S</code>。每个单词只包含大写或小写字母。</p>

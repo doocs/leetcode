@@ -1,5 +1,7 @@
 # [344. 反转字符串](https://leetcode-cn.com/problems/reverse-string)
 
+[English Version](/solution/0300-0399/0344.Reverse%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 <code>char[]</code> 的形式给出。</p>

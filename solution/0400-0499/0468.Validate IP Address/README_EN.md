@@ -1,5 +1,7 @@
 # [468. Validate IP Address](https://leetcode.com/problems/validate-ip-address)
 
+[中文文档](/solution/0400-0499/0468.Validate%20IP%20Address/README.md)
+
 ## Description
 <p>
 

@@ -1,5 +1,7 @@
 # [648. 单词替换](https://leetcode-cn.com/problems/replace-words)
 
+[English Version](/solution/0600-0699/0648.Replace%20Words/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在英语中，我们有一个叫做&nbsp;<code>词根</code>(root)的概念，它可以跟着其他一些词组成另一个较长的单词&mdash;&mdash;我们称这个词为&nbsp;<code>继承词</code>(successor)。例如，词根<code>an</code>，跟随着单词&nbsp;<code>other</code>(其他)，可以形成新的单词&nbsp;<code>another</code>(另一个)。</p>

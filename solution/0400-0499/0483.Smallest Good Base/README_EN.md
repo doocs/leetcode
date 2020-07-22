@@ -1,5 +1,7 @@
 # [483. Smallest Good Base](https://leetcode.com/problems/smallest-good-base)
 
+[中文文档](/solution/0400-0499/0483.Smallest%20Good%20Base/README.md)
+
 ## Description
 <p>For an integer n, we call k&gt;=2 a <i><b>good base</b></i> of n, if all digits of n base k are 1.</p>
 

@@ -1,5 +1,7 @@
 # [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams)
 
+[English Version](/solution/0000-0099/0049.Group%20Anagrams/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。</p>

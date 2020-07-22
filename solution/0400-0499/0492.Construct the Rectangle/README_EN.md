@@ -1,5 +1,7 @@
 # [492. Construct the Rectangle](https://leetcode.com/problems/construct-the-rectangle)
 
+[中文文档](/solution/0400-0499/0492.Construct%20the%20Rectangle/README.md)
+
 ## Description
 <p>
 

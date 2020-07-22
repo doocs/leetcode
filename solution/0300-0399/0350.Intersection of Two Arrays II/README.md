@@ -1,5 +1,7 @@
 # [350. 两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii)
 
+[English Version](/solution/0300-0399/0350.Intersection%20of%20Two%20Arrays%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个数组，编写一个函数来计算它们的交集。</p>

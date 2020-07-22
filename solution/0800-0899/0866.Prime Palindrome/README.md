@@ -1,5 +1,7 @@
 # [866. 回文素数](https://leetcode-cn.com/problems/prime-palindrome)
 
+[English Version](/solution/0800-0899/0866.Prime%20Palindrome/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>求出大于或等于&nbsp;<code>N</code>&nbsp;的最小回文素数。</p>

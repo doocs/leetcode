@@ -1,5 +1,7 @@
 # [1252. Cells with Odd Values in a Matrix](https://leetcode.com/problems/cells-with-odd-values-in-a-matrix)
 
+[中文文档](/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/README.md)
+
 ## Description
 <p>Given&nbsp;<code>n</code>&nbsp;and&nbsp;<code>m</code>&nbsp;which are the dimensions of a matrix initialized by zeros and given an array <code>indices</code>&nbsp;where <code>indices[i] = [ri, ci]</code>. For each pair of <code>[ri, ci]</code>&nbsp;you have to increment all cells in row <code>ri</code> and column <code>ci</code>&nbsp;by 1.</p>
 

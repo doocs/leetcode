@@ -1,5 +1,7 @@
 # [1201. Ugly Number III](https://leetcode.com/problems/ugly-number-iii)
 
+[中文文档](/solution/1200-1299/1201.Ugly%20Number%20III/README.md)
+
 ## Description
 <p>Write a program to find the&nbsp;<code>n</code>-th ugly number.</p>
 

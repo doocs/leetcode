@@ -1,5 +1,7 @@
 # [56. Merge Intervals](https://leetcode.com/problems/merge-intervals)
 
+[中文文档](/solution/0000-0099/0056.Merge%20Intervals/README.md)
+
 ## Description
 <p>Given a collection of intervals, merge all overlapping intervals.</p>
 

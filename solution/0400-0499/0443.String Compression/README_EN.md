@@ -1,5 +1,7 @@
 # [443. String Compression](https://leetcode.com/problems/string-compression)
 
+[中文文档](/solution/0400-0499/0443.String%20Compression/README.md)
+
 ## Description
 <p>Given an array of characters, compress it <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><b>in-place</b></a>.</p>
 

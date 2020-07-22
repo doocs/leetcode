@@ -1,5 +1,7 @@
 # [954. Array of Doubled Pairs](https://leetcode.com/problems/array-of-doubled-pairs)
 
+[中文文档](/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README.md)
+
 ## Description
 <p>Given an array of integers <code>A</code>&nbsp;with even length, return <code>true</code> if and only if it is possible to reorder it such that <code>A[2 * i + 1] = 2 * A[2 * i]</code> for every <code>0 &lt;=&nbsp;i &lt; len(A) / 2</code>.</p>
 

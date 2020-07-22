@@ -1,5 +1,7 @@
 # [611. 有效三角形的个数](https://leetcode-cn.com/problems/valid-triangle-number)
 
+[English Version](/solution/0600-0699/0611.Valid%20Triangle%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个包含非负整数的数组，你的任务是统计其中可以组成三角形三条边的三元组个数。</p>

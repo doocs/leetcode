@@ -1,5 +1,7 @@
 # [400. 第N个数字](https://leetcode-cn.com/problems/nth-digit)
 
+[English Version](/solution/0400-0499/0400.Nth%20Digit/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在无限的整数序列&nbsp;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...中找到第&nbsp;<em>n&nbsp;</em>个数字。</p>

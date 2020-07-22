@@ -1,5 +1,7 @@
 # [60. Permutation Sequence](https://leetcode.com/problems/permutation-sequence)
 
+[中文文档](/solution/0000-0099/0060.Permutation%20Sequence/README.md)
+
 ## Description
 <p>The set <code>[1,2,3,...,<em>n</em>]</code> contains a total of <em>n</em>! unique permutations.</p>
 

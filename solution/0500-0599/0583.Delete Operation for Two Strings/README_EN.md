@@ -1,5 +1,7 @@
 # [583. Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings)
 
+[中文文档](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README.md)
+
 ## Description
 <p>
 

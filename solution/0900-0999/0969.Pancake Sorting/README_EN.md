@@ -1,5 +1,7 @@
 # [969. Pancake Sorting](https://leetcode.com/problems/pancake-sorting)
 
+[中文文档](/solution/0900-0999/0969.Pancake%20Sorting/README.md)
+
 ## Description
 <p>Given an array <code>A</code>, we can perform a&nbsp;<em>pancake flip</em>:&nbsp;We choose some positive integer&nbsp;<code><strong>k</strong> &lt;= A.length</code>, then reverse the order of the first <strong>k</strong> elements of <code>A</code>.&nbsp; We want to perform zero or more pancake flips (doing them one after another in succession) to sort the array <code>A</code>.</p>
 

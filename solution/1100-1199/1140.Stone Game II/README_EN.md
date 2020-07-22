@@ -1,5 +1,7 @@
 # [1140. Stone Game II](https://leetcode.com/problems/stone-game-ii)
 
+[中文文档](/solution/1100-1199/1140.Stone%20Game%20II/README.md)
+
 ## Description
 <p>Alex&nbsp;and Lee continue their&nbsp;games with piles of stones.&nbsp; There are a number of&nbsp;piles&nbsp;<strong>arranged in a row</strong>, and each pile has a positive integer number of stones&nbsp;<code>piles[i]</code>.&nbsp; The objective of the game is to end with the most&nbsp;stones.&nbsp;</p>
 

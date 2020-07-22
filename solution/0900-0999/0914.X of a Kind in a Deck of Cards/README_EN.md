@@ -1,5 +1,7 @@
 # [914. X of a Kind in a Deck of Cards](https://leetcode.com/problems/x-of-a-kind-in-a-deck-of-cards)
 
+[中文文档](/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README.md)
+
 ## Description
 <p>In a deck of cards, each card has an integer written on it.</p>
 

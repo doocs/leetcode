@@ -1,5 +1,7 @@
 # [763. Partition Labels](https://leetcode.com/problems/partition-labels)
 
+[中文文档](/solution/0700-0799/0763.Partition%20Labels/README.md)
+
 ## Description
 <p>
 

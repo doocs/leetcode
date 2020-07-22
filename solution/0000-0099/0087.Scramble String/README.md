@@ -1,5 +1,7 @@
 # [87. 扰乱字符串](https://leetcode-cn.com/problems/scramble-string)
 
+[English Version](/solution/0000-0099/0087.Scramble%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串&nbsp;<em>s1</em>，我们可以把它递归地分割成两个非空子字符串，从而将其表示为二叉树。</p>

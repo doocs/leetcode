@@ -1,5 +1,7 @@
 # [386. Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers)
 
+[中文文档](/solution/0300-0399/0386.Lexicographical%20Numbers/README.md)
+
 ## Description
 <p>Given an integer <i>n</i>, return 1 - <i>n</i> in lexicographical order.</p>
 

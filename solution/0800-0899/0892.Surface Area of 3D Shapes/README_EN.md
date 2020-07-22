@@ -1,5 +1,7 @@
 # [892. Surface Area of 3D Shapes](https://leetcode.com/problems/surface-area-of-3d-shapes)
 
+[中文文档](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md)
+
 ## Description
 <p>On a&nbsp;<code>N&nbsp;*&nbsp;N</code>&nbsp;grid, we place some&nbsp;<code>1 * 1 * 1&nbsp;</code>cubes.</p>
 

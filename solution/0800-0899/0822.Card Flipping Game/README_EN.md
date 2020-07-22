@@ -1,5 +1,7 @@
 # [822. Card Flipping Game](https://leetcode.com/problems/card-flipping-game)
 
+[中文文档](/solution/0800-0899/0822.Card%20Flipping%20Game/README.md)
+
 ## Description
 <p>On a table are <code>N</code> cards, with a positive integer printed on the front and back of each card (possibly different).</p>
 

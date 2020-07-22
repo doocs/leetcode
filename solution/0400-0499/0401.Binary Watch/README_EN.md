@@ -1,5 +1,7 @@
 # [401. Binary Watch](https://leetcode.com/problems/binary-watch)
 
+[中文文档](/solution/0400-0499/0401.Binary%20Watch/README.md)
+
 ## Description
 <p>A binary watch has 4 LEDs on the top which represent the <b>hours</b> (<b>0-11</b>), and the 6 LEDs on the bottom represent the <b>minutes</b> (<b>0-59</b>).</p>
 

@@ -1,5 +1,7 @@
 # [1073. 负二进制数相加](https://leetcode-cn.com/problems/adding-two-negabinary-numbers)
 
+[English Version](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出基数为 <strong>-2</strong>&nbsp;的两个数&nbsp;<code>arr1</code> 和&nbsp;<code>arr2</code>，返回两数相加的结果。</p>

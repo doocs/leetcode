@@ -1,5 +1,7 @@
 # [831. 隐藏个人信息](https://leetcode-cn.com/problems/masking-personal-information)
 
+[English Version](/solution/0800-0899/0831.Masking%20Personal%20Information/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一条个人信息 string <code>S</code>，它可能是一个邮箱地址，也可能是一个电话号码。</p>

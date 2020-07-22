@@ -1,5 +1,7 @@
 # [825. Friends Of Appropriate Ages](https://leetcode.com/problems/friends-of-appropriate-ages)
 
+[中文文档](/solution/0800-0899/0825.Friends%20Of%20Appropriate%20Ages/README.md)
+
 ## Description
 <p>Some people will make friend requests. The&nbsp;list of their ages is given and&nbsp;<code>ages[i]</code>&nbsp;is the age of the&nbsp;ith person.&nbsp;</p>
 

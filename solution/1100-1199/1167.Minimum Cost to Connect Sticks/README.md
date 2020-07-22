@@ -1,5 +1,7 @@
 # [1167. 连接棒材的最低费用](https://leetcode-cn.com/problems/minimum-cost-to-connect-sticks)
 
+[English Version](/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

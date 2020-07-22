@@ -1,5 +1,7 @@
 # [345. Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string)
 
+[中文文档](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
+
 ## Description
 <p>Write a function that takes a string as input and reverse only the vowels of a string.</p>
 

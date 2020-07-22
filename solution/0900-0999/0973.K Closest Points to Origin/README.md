@@ -1,5 +1,7 @@
 # [973. 最接近原点的 K 个点](https://leetcode-cn.com/problems/k-closest-points-to-origin)
 
+[English Version](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们有一个由平面上的点组成的列表 <code>points</code>。需要从中找出 <code>K</code> 个距离原点 <code>(0, 0)</code> 最近的点。</p>

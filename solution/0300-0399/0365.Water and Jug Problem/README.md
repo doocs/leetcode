@@ -1,5 +1,7 @@
 # [365. 水壶问题](https://leetcode-cn.com/problems/water-and-jug-problem)
 
+[English Version](/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有两个容量分别为&nbsp;<em>x</em>升 和<em> y</em>升 的水壶以及无限多的水。请判断能否通过使用这两个水壶，从而可以得到恰好&nbsp;<em>z</em>升 的水？</p>

@@ -1,5 +1,7 @@
 # [834. Sum of Distances in Tree](https://leetcode.com/problems/sum-of-distances-in-tree)
 
+[中文文档](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)
+
 ## Description
 <p>An undirected, connected&nbsp;tree with <code>N</code> nodes labelled <code>0...N-1</code> and <code>N-1</code> <code>edges</code>&nbsp;are&nbsp;given.</p>
 

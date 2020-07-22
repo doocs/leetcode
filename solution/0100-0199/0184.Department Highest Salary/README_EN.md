@@ -1,5 +1,7 @@
 # [184. Department Highest Salary](https://leetcode.com/problems/department-highest-salary)
 
+[中文文档](/solution/0100-0199/0184.Department%20Highest%20Salary/README.md)
+
 ## Description
 <p>The <code>Employee</code> table holds all employees. Every employee has an Id, a salary, and there is also a column for the department Id.</p>
 

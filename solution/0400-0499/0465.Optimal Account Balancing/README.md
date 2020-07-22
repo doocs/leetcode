@@ -1,5 +1,7 @@
 # [465. 最优账单平衡](https://leetcode-cn.com/problems/optimal-account-balancing)
 
+[English Version](/solution/0400-0499/0465.Optimal%20Account%20Balancing/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

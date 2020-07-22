@@ -1,5 +1,7 @@
 # [211. 添加与搜索单词 - 数据结构设计](https://leetcode-cn.com/problems/add-and-search-word-data-structure-design)
 
+[English Version](/solution/0200-0299/0211.Add%20and%20Search%20Word%20-%20Data%20structure%20design/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>设计一个支持以下两种操作的数据结构：</p>

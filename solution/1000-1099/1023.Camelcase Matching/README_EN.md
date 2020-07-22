@@ -1,5 +1,7 @@
 # [1023. Camelcase Matching](https://leetcode.com/problems/camelcase-matching)
 
+[中文文档](/solution/1000-1099/1023.Camelcase%20Matching/README.md)
+
 ## Description
 <p>A query word matches a given <code>pattern</code> if we can insert <strong>lowercase</strong> letters to the pattern word so that it equals the <code>query</code>. (We may insert each character at any position, and may insert 0 characters.)</p>
 

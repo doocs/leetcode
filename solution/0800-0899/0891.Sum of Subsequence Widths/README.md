@@ -1,5 +1,7 @@
 # [891. 子序列宽度之和](https://leetcode-cn.com/problems/sum-of-subsequence-widths)
 
+[English Version](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组 <code>A</code> ，考虑 <code>A</code> 的所有非空子序列。</p>

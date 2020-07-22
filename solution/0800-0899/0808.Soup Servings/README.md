@@ -1,5 +1,7 @@
 # [808. 分汤](https://leetcode-cn.com/problems/soup-servings)
 
+[English Version](/solution/0800-0899/0808.Soup%20Servings/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有&nbsp;A&nbsp;和&nbsp;B 两种类型的汤。一开始每种类型的汤有&nbsp;<code>N</code>&nbsp;毫升。有四种分配操作：</p>

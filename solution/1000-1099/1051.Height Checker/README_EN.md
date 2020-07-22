@@ -1,5 +1,7 @@
 # [1051. Height Checker](https://leetcode.com/problems/height-checker)
 
+[中文文档](/solution/1000-1099/1051.Height%20Checker/README.md)
+
 ## Description
 <p>Students are asked to stand in non-decreasing order of heights for an annual photo.</p>
 

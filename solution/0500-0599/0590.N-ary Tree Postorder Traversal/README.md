@@ -1,5 +1,7 @@
 # [590. N叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal)
 
+[English Version](/solution/0500-0599/0590.N-ary%20Tree%20Postorder%20Traversal/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个 N 叉树，返回其节点值的<em>后序遍历</em>。</p>

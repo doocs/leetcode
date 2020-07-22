@@ -1,5 +1,7 @@
 # [1076. 项目员工II](https://leetcode-cn.com/problems/project-employees-ii)
 
+[English Version](/solution/1000-1099/1076.Project%20Employees%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

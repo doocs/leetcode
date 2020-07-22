@@ -1,5 +1,7 @@
 # [903. Valid Permutations for DI Sequence](https://leetcode.com/problems/valid-permutations-for-di-sequence)
 
+[中文文档](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README.md)
+
 ## Description
 <p>We are given <code>S</code>, a length <code>n</code> string of characters from the set <code>{&#39;D&#39;, &#39;I&#39;}</code>. (These letters stand for &quot;decreasing&quot; and &quot;increasing&quot;.)</p>
 

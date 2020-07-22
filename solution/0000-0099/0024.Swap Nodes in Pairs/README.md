@@ -1,5 +1,7 @@
 # [24. 两两交换链表中的节点](https://leetcode-cn.com/problems/swap-nodes-in-pairs)
 
+[English Version](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>

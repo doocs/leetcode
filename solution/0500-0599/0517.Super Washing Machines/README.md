@@ -1,5 +1,7 @@
 # [517. 超级洗衣机](https://leetcode-cn.com/problems/super-washing-machines)
 
+[English Version](/solution/0500-0599/0517.Super%20Washing%20Machines/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>假设有 <strong>n&nbsp;</strong>台超级洗衣机放在同一排上。开始的时候，每台洗衣机内可能有一定量的衣服，也可能是空的。</p>

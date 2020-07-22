@@ -1,5 +1,7 @@
 # [1029. 两地调度](https://leetcode-cn.com/problems/two-city-scheduling)
 
+[English Version](/solution/1000-1099/1029.Two%20City%20Scheduling/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>公司计划面试 <code>2N</code> 人。第 <code>i</code> 人飞往 <code>A</code> 市的费用为 <code>costs[i][0]</code>，飞往 <code>B</code> 市的费用为 <code>costs[i][1]</code>。</p>

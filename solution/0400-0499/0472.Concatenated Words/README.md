@@ -1,5 +1,7 @@
 # [472. 连接词](https://leetcode-cn.com/problems/concatenated-words)
 
+[English Version](/solution/0400-0499/0472.Concatenated%20Words/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个<strong>不含重复</strong>单词的列表，编写一个程序，返回给定单词列表中所有的连接词。</p>

@@ -1,5 +1,7 @@
 # [1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree)
 
+[中文文档](/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/README.md)
+
 ## Description
 <p>Given a binary search tree, return a <strong>balanced</strong> binary search tree with the same node values.</p>
 

@@ -1,5 +1,7 @@
 # [433. Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation)
 
+[中文文档](/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README.md)
+
 ## Description
 <p>A gene string can be represented by an 8-character long string, with choices from <code>&quot;A&quot;</code>, <code>&quot;C&quot;</code>, <code>&quot;G&quot;</code>, <code>&quot;T&quot;</code>.</p>
 

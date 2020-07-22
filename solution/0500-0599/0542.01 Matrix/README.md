@@ -1,5 +1,7 @@
 # [542. 01 矩阵](https://leetcode-cn.com/problems/01-matrix)
 
+[English Version](/solution/0500-0599/0542.01%20Matrix/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个由 0 和 1 组成的矩阵，找出每个元素到最近的 0 的距离。</p>

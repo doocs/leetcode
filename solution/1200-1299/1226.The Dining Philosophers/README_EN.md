@@ -1,5 +1,7 @@
 # [1226. The Dining Philosophers](https://leetcode.com/problems/the-dining-philosophers)
 
+[中文文档](/solution/1200-1299/1226.The%20Dining%20Philosophers/README.md)
+
 ## Description
 <p>Five silent philosophers&nbsp;sit at a round table with bowls of spaghetti. Forks are placed between each pair of adjacent philosophers.</p>
 

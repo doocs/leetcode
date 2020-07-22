@@ -1,5 +1,7 @@
 # [669. Trim a Binary Search Tree](https://leetcode.com/problems/trim-a-binary-search-tree)
 
+[中文文档](/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README.md)
+
 ## Description
 <p>
 

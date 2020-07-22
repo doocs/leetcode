@@ -1,5 +1,7 @@
 # [1147. Longest Chunked Palindrome Decomposition](https://leetcode.com/problems/longest-chunked-palindrome-decomposition)
 
+[中文文档](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README.md)
+
 ## Description
 <p>Return the largest possible <code>k</code>&nbsp;such that there exists&nbsp;<code>a_1, a_2, ..., a_k</code>&nbsp;such that:</p>
 

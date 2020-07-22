@@ -1,5 +1,7 @@
 # [263. 丑数](https://leetcode-cn.com/problems/ugly-number)
 
+[English Version](/solution/0200-0299/0263.Ugly%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个程序判断给定的数是否为丑数。</p>

@@ -1,5 +1,7 @@
 # [910. Smallest Range II](https://leetcode.com/problems/smallest-range-ii)
 
+[中文文档](/solution/0900-0999/0910.Smallest%20Range%20II/README.md)
+
 ## Description
 <p>Given an array <code>A</code> of integers, for each integer <code>A[i]</code> we need to choose <strong>either&nbsp;<code>x = -K</code>&nbsp;or <code>x = K</code></strong>, and add <code>x</code> to <code>A[i] <strong>(only once)</strong></code>.</p>
 

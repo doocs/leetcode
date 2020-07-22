@@ -1,5 +1,7 @@
 # [1131. 绝对值表达式的最大值](https://leetcode-cn.com/problems/maximum-of-absolute-value-expression)
 
+[English Version](/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你两个长度相等的整数数组，返回下面表达式的最大值：</p>

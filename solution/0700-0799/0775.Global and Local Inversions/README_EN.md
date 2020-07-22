@@ -1,5 +1,7 @@
 # [775. Global and Local Inversions](https://leetcode.com/problems/global-and-local-inversions)
 
+[中文文档](/solution/0700-0799/0775.Global%20and%20Local%20Inversions/README.md)
+
 ## Description
 <p>We have some permutation <code>A</code> of <code>[0, 1, ..., N - 1]</code>, where <code>N</code> is the length of <code>A</code>.</p>
 

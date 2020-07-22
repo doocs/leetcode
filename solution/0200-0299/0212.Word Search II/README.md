@@ -1,5 +1,7 @@
 # [212. 单词搜索 II](https://leetcode-cn.com/problems/word-search-ii)
 
+[English Version](/solution/0200-0299/0212.Word%20Search%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二维网格&nbsp;<strong>board&nbsp;</strong>和一个字典中的单词列表 <strong>words</strong>，找出所有同时在二维网格和字典中出现的单词。</p>

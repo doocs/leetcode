@@ -1,5 +1,7 @@
 # [1273. 删除树节点](https://leetcode-cn.com/problems/delete-tree-nodes)
 
+[English Version](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

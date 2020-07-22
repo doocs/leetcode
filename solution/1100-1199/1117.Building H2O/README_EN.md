@@ -1,5 +1,7 @@
 # [1117. Building H2O](https://leetcode.com/problems/building-h2o)
 
+[中文文档](/solution/1100-1199/1117.Building%20H2O/README.md)
+
 ## Description
 <p>There are two kinds of threads, <code>oxygen</code> and <code>hydrogen</code>. Your goal is to group these threads to form water molecules.&nbsp;There is a barrier where each thread has to&nbsp;wait until a complete molecule can be formed. Hydrogen and oxygen threads will be given <code>releaseHydrogen</code>&nbsp;and <code>releaseOxygen</code>&nbsp;methods respectively, which will allow them to pass the barrier. These threads should pass the barrier in groups of three, and they must be able to immediately bond with each other to form a water molecule.&nbsp;You must guarantee that all the threads from one molecule bond <em>before</em> any other threads from the next molecule do.</p>
 

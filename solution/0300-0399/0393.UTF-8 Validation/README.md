@@ -1,5 +1,7 @@
 # [393. UTF-8 编码验证](https://leetcode-cn.com/problems/utf-8-validation)
 
+[English Version](/solution/0300-0399/0393.UTF-8%20Validation/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>UTF-8 中的一个字符可能的长度为 <strong>1 到 4 字节</strong>，遵循以下的规则：</p>

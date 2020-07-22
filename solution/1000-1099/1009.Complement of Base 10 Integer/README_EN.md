@@ -1,5 +1,7 @@
 # [1009. Complement of Base 10 Integer](https://leetcode.com/problems/complement-of-base-10-integer)
 
+[中文文档](/solution/1000-1099/1009.Complement%20of%20Base%2010%20Integer/README.md)
+
 ## Description
 <p>Every non-negative integer <code>N</code>&nbsp;has a binary representation.&nbsp; For example,&nbsp;<code>5</code> can be represented as <code>&quot;101&quot;</code>&nbsp;in binary, <code>11</code> as <code>&quot;1011&quot;</code>&nbsp;in binary, and so on.&nbsp; Note that except for <code>N = 0</code>, there are no leading zeroes in any&nbsp;binary representation.</p>
 

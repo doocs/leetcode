@@ -1,5 +1,7 @@
 # [773. 滑动谜题](https://leetcode-cn.com/problems/sliding-puzzle)
 
+[English Version](/solution/0700-0799/0773.Sliding%20Puzzle/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个 2 x 3 的板上（<code>board</code>）有 5 块砖瓦，用数字 <code>1~5</code> 来表示, 以及一块空缺用&nbsp;<code>0</code>&nbsp;来表示.</p>

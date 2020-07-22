@@ -1,5 +1,7 @@
 # [832. 翻转图像](https://leetcode-cn.com/problems/flipping-an-image)
 
+[English Version](/solution/0800-0899/0832.Flipping%20an%20Image/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二进制矩阵&nbsp;<code>A</code>，我们想先水平翻转图像，然后反转图像并返回结果。</p>

@@ -1,5 +1,7 @@
 # [274. H指数](https://leetcode-cn.com/problems/h-index)
 
+[English Version](/solution/0200-0299/0274.H-Index/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一位研究者论文被引用次数的数组（被引用次数是非负整数）。编写一个方法，计算出研究者的 <em>h&nbsp;</em>指数。</p>

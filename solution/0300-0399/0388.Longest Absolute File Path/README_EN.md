@@ -1,5 +1,7 @@
 # [388. Longest Absolute File Path](https://leetcode.com/problems/longest-absolute-file-path)
 
+[中文文档](/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README.md)
+
 ## Description
 <p>Suppose we abstract our file system by a string in the following manner:</p>
 

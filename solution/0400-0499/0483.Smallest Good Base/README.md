@@ -1,5 +1,7 @@
 # [483. 最小好进制](https://leetcode-cn.com/problems/smallest-good-base)
 
+[English Version](/solution/0400-0499/0483.Smallest%20Good%20Base/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>对于给定的整数 n, 如果n的k（k&gt;=2）进制数的所有数位全为1，则称&nbsp;k（k&gt;=2）是 n 的一个<em><strong>好进制</strong></em>。</p>

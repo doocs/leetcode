@@ -1,5 +1,7 @@
 # [932. Beautiful Array](https://leetcode.com/problems/beautiful-array)
 
+[中文文档](/solution/0900-0999/0932.Beautiful%20Array/README.md)
+
 ## Description
 <p>For some fixed <code>N</code>, an array <code>A</code> is <em>beautiful</em> if it is a permutation of the integers <code>1, 2, ..., N</code>, such that:</p>
 

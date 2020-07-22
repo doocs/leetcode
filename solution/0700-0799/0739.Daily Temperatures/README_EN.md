@@ -1,5 +1,7 @@
 # [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures)
 
+[中文文档](/solution/0700-0799/0739.Daily%20Temperatures/README.md)
+
 ## Description
 <p>
 

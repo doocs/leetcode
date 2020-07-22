@@ -1,5 +1,7 @@
 # [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree)
 
+[中文文档](/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/README.md)
+
 ## Description
 <p>Given the root node of a binary search tree (BST) and a value to be inserted into the tree,&nbsp;insert the value into the BST. Return the root node of the BST after the insertion. It is guaranteed that the new value does not exist in the original BST.</p>
 

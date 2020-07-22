@@ -1,5 +1,7 @@
 # [972. Equal Rational Numbers](https://leetcode.com/problems/equal-rational-numbers)
 
+[中文文档](/solution/0900-0999/0972.Equal%20Rational%20Numbers/README.md)
+
 ## Description
 <p>Given two strings <code>S</code> and <code>T</code>, each of which represents a non-negative rational number, return <strong>True</strong> if and only if they represent the same number. The strings may use parentheses to denote the repeating part of the rational number.</p>
 

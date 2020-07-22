@@ -1,5 +1,7 @@
 # [1023. 驼峰式匹配](https://leetcode-cn.com/problems/camelcase-matching)
 
+[English Version](/solution/1000-1099/1023.Camelcase%20Matching/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>如果我们可以将<strong>小写字母</strong>插入模式串&nbsp;<code>pattern</code>&nbsp;得到待查询项&nbsp;<code>query</code>，那么待查询项与给定模式串匹配。（我们可以在任何位置插入每个字符，也可以插入 0 个字符。）</p>

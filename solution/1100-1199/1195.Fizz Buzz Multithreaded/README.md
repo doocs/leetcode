@@ -1,5 +1,7 @@
 # [1195. 交替打印字符串](https://leetcode-cn.com/problems/fizz-buzz-multithreaded)
 
+[English Version](/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个可以从 1 到 n 输出代表这个数字的字符串的程序，但是：</p>

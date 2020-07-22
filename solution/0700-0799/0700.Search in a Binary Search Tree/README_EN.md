@@ -1,5 +1,7 @@
 # [700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree)
 
+[中文文档](/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README.md)
+
 ## Description
 <p>Given the root node of a binary search tree (BST) and a value. You need to find the node in the BST that the node&#39;s value equals the given value. Return the subtree rooted with that node. If such node doesn&#39;t exist, you should return NULL.</p>
 

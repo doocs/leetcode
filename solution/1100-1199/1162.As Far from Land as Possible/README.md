@@ -1,5 +1,7 @@
 # [1162. 地图分析](https://leetcode-cn.com/problems/as-far-from-land-as-possible)
 
+[English Version](/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你现在手里有一份大小为&nbsp;N x N 的『地图』（网格）&nbsp;<code>grid</code>，上面的每个『区域』（单元格）都用&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;标记好了。其中&nbsp;<code>0</code>&nbsp;代表海洋，<code>1</code>&nbsp;代表陆地，你知道距离陆地区域最远的海洋区域是是哪一个吗？请返回该海洋区域到离它最近的陆地区域的距离。</p>

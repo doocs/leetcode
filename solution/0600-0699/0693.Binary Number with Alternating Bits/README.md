@@ -1,5 +1,7 @@
 # [693. 交替位二进制数](https://leetcode-cn.com/problems/binary-number-with-alternating-bits)
 
+[English Version](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个正整数，检查他是否为交替位二进制数：换句话说，就是他的二进制数相邻的两个位数永不相等。</p>

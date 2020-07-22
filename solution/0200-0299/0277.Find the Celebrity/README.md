@@ -1,5 +1,7 @@
 # [277. 搜寻名人](https://leetcode-cn.com/problems/find-the-celebrity)
 
+[English Version](/solution/0200-0299/0277.Find%20the%20Celebrity/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

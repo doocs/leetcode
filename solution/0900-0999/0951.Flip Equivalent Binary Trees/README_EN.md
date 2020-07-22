@@ -1,5 +1,7 @@
 # [951. Flip Equivalent Binary Trees](https://leetcode.com/problems/flip-equivalent-binary-trees)
 
+[中文文档](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README.md)
+
 ## Description
 <p>For a binary tree T, we can define a flip operation as follows: choose any node, and swap the left and right child subtrees.</p>
 

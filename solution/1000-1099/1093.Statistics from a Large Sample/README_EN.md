@@ -1,5 +1,7 @@
 # [1093. Statistics from a Large Sample](https://leetcode.com/problems/statistics-from-a-large-sample)
 
+[中文文档](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README.md)
+
 ## Description
 <p>We sampled integers between <code>0</code> and <code>255</code>, and stored the results in an array <code>count</code>:&nbsp; <code>count[k]</code> is the number of integers we sampled equal to <code>k</code>.</p>
 

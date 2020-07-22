@@ -1,5 +1,7 @@
 # [179. 最大数](https://leetcode-cn.com/problems/largest-number)
 
+[English Version](/solution/0100-0199/0179.Largest%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一组非负整数，重新排列它们的顺序使之组成一个最大的整数。</p>

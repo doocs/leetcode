@@ -1,5 +1,7 @@
 # [806. Number of Lines To Write String](https://leetcode.com/problems/number-of-lines-to-write-string)
 
+[中文文档](/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README.md)
+
 ## Description
 <p>We are to write the letters of a given string <code>S</code>, from left to right into lines. Each line has maximum width 100 units, and if writing a letter would cause the width of the line to exceed 100 units, it is written on the next line. We are given an array&nbsp;<code>widths</code>, an array where widths[0] is the width of &#39;a&#39;, widths[1] is the width of &#39;b&#39;, ..., and widths[25] is the width of &#39;z&#39;.</p>
 

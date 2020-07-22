@@ -1,5 +1,7 @@
 # [909. Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders)
 
+[中文文档](/solution/0900-0999/0909.Snakes%20and%20Ladders/README.md)
+
 ## Description
 <p>On an N x N <code>board</code>, the numbers from <code>1</code> to <code>N*N</code> are written&nbsp;<em>boustrophedonically</em>&nbsp;<strong>starting from the bottom&nbsp;left of the board</strong>, and alternating direction each row.&nbsp; For example, for a 6 x 6 board, the numbers are written as follows:</p>
 

@@ -1,5 +1,7 @@
 # [639. 解码方法 2](https://leetcode-cn.com/problems/decode-ways-ii)
 
+[English Version](/solution/0600-0699/0639.Decode%20Ways%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>一条包含字母&nbsp;<code>A-Z</code> 的消息通过以下的方式进行了编码：</p>

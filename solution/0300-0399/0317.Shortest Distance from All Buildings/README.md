@@ -1,5 +1,7 @@
 # [317. 离建筑物最近的距离](https://leetcode-cn.com/problems/shortest-distance-from-all-buildings)
 
+[English Version](/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

@@ -1,5 +1,7 @@
 # [519. Random Flip Matrix](https://leetcode.com/problems/random-flip-matrix)
 
+[中文文档](/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md)
+
 ## Description
 <p>You are given the number of rows <code>n_rows</code>&nbsp;and number of columns <code>n_cols</code>&nbsp;of a&nbsp;2D&nbsp;binary matrix&nbsp;where all values are initially 0.&nbsp;Write a function <code>flip</code>&nbsp;which chooses&nbsp;a 0 value&nbsp;<a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution" target="_blank">uniformly at random</a>,&nbsp;changes it to 1,&nbsp;and then returns the position <code>[row.id, col.id]</code> of that value. Also, write a function <code>reset</code> which sets all values back to 0.&nbsp;<strong>Try to minimize the number of calls to system&#39;s Math.random()</strong> and optimize the time and&nbsp;space complexity.</p>
 

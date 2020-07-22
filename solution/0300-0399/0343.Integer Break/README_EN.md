@@ -1,5 +1,7 @@
 # [343. Integer Break](https://leetcode.com/problems/integer-break)
 
+[中文文档](/solution/0300-0399/0343.Integer%20Break/README.md)
+
 ## Description
 <p>Given a positive integer <i>n</i>, break it into the sum of <b>at least</b> two positive integers and maximize the product of those integers. Return the maximum product you can get.</p>
 

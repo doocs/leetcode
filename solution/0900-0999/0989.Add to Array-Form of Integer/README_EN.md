@@ -1,5 +1,7 @@
 # [989. Add to Array-Form of Integer](https://leetcode.com/problems/add-to-array-form-of-integer)
 
+[中文文档](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README.md)
+
 ## Description
 <p>For a non-negative integer <code>X</code>, the&nbsp;<em>array-form of <code>X</code></em>&nbsp;is an array of its digits in left to right order.&nbsp; For example, if <code>X = 1231</code>, then the array form is&nbsp;<code>[1,2,3,1]</code>.</p>
 

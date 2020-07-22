@@ -1,5 +1,7 @@
 # [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers)
 
+[中文文档](/solution/0000-0099/0002.Add%20Two%20Numbers/README.md)
+
 ## Description
 <p>You are given two <b>non-empty</b> linked lists representing two non-negative integers. The digits are stored in <b>reverse order</b> and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
 

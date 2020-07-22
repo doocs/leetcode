@@ -1,5 +1,7 @@
 # [732. My Calendar III](https://leetcode.com/problems/my-calendar-iii)
 
+[中文文档](/solution/0700-0799/0732.My%20Calendar%20III/README.md)
+
 ## Description
 <p>Implement a <code>MyCalendarThree</code> class to store your events. A new event can <b>always</b> be added.</p>
 

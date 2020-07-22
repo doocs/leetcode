@@ -1,5 +1,7 @@
 # [803. 打砖块](https://leetcode-cn.com/problems/bricks-falling-when-hit)
 
+[English Version](/solution/0800-0899/0803.Bricks%20Falling%20When%20Hit/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们有一组包含1和0的网格；其中1表示砖块。&nbsp;当且仅当一块砖直接连接到网格的顶部，或者它至少有一块相邻（4&nbsp;个方向之一）砖块不会掉落时，它才不会落下。</p>

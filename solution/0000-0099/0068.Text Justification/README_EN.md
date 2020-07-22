@@ -1,5 +1,7 @@
 # [68. Text Justification](https://leetcode.com/problems/text-justification)
 
+[中文文档](/solution/0000-0099/0068.Text%20Justification/README.md)
+
 ## Description
 <p>Given an array of words and a width&nbsp;<em>maxWidth</em>, format the text such that each line has exactly <em>maxWidth</em> characters and is fully (left and right) justified.</p>
 

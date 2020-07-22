@@ -1,5 +1,7 @@
 # [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters)
 
+[English Version](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>返回字符串 <code>text</code>&nbsp;中按字典序排列最小的子序列，该子序列包含&nbsp;<code>text</code>&nbsp;中所有不同字符一次。</p>

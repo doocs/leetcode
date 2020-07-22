@@ -1,5 +1,7 @@
 # [290. Word Pattern](https://leetcode.com/problems/word-pattern)
 
+[中文文档](/solution/0200-0299/0290.Word%20Pattern/README.md)
+
 ## Description
 <p>Given a <code>pattern</code> and a string <code>str</code>, find if <code>str</code> follows the same pattern.</p>
 

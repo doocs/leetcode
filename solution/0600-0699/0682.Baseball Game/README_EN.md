@@ -1,5 +1,7 @@
 # [682. Baseball Game](https://leetcode.com/problems/baseball-game)
 
+[中文文档](/solution/0600-0699/0682.Baseball%20Game/README.md)
+
 ## Description
 <p>
 

@@ -1,5 +1,7 @@
 # [945. Minimum Increment to Make Array Unique](https://leetcode.com/problems/minimum-increment-to-make-array-unique)
 
+[中文文档](/solution/0900-0999/0945.Minimum%20Increment%20to%20Make%20Array%20Unique/README.md)
+
 ## Description
 <p>Given an array of integers A, a <em>move</em> consists of choosing any <code>A[i]</code>, and incrementing it by <code>1</code>.</p>
 

@@ -1,5 +1,7 @@
 # [264. Ugly Number II](https://leetcode.com/problems/ugly-number-ii)
 
+[中文文档](/solution/0200-0299/0264.Ugly%20Number%20II/README.md)
+
 ## Description
 <p>Write a program to find the <code>n</code>-th ugly number.</p>
 

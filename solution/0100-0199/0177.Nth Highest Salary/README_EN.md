@@ -1,5 +1,7 @@
 # [177. Nth Highest Salary](https://leetcode.com/problems/nth-highest-salary)
 
+[中文文档](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)
+
 ## Description
 <p>Write a SQL query to get the <em>n</em><sup>th</sup> highest salary from the <code>Employee</code> table.</p>
 

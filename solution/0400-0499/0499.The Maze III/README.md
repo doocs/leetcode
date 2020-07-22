@@ -1,5 +1,7 @@
 # [499. 迷宫 III](https://leetcode-cn.com/problems/the-maze-iii)
 
+[English Version](/solution/0400-0499/0499.The%20Maze%20III/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

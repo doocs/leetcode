@@ -1,5 +1,7 @@
 # [508. Most Frequent Subtree Sum](https://leetcode.com/problems/most-frequent-subtree-sum)
 
+[中文文档](/solution/0500-0599/0508.Most%20Frequent%20Subtree%20Sum/README.md)
+
 ## Description
 <p>
 

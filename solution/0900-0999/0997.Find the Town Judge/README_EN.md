@@ -1,5 +1,7 @@
 # [997. Find the Town Judge](https://leetcode.com/problems/find-the-town-judge)
 
+[中文文档](/solution/0900-0999/0997.Find%20the%20Town%20Judge/README.md)
+
 ## Description
 <p>In a town, there are <code>N</code> people labelled from&nbsp;<code>1</code> to <code>N</code>.&nbsp; There is a rumor that one of these people is secretly the town judge.</p>
 

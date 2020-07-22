@@ -1,5 +1,7 @@
 # [410. Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum)
 
+[中文文档](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md)
+
 ## Description
 <p>Given an array which consists of non-negative integers and an integer <i>m</i>, you can split the array into <i>m</i> non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these <i>m</i> subarrays.
 

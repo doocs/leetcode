@@ -1,5 +1,7 @@
 # [830. Positions of Large Groups](https://leetcode.com/problems/positions-of-large-groups)
 
+[中文文档](/solution/0800-0899/0830.Positions%20of%20Large%20Groups/README.md)
+
 ## Description
 <p>In a string&nbsp;<code>S</code>&nbsp;of lowercase letters, these letters form consecutive groups of the same character.</p>
 

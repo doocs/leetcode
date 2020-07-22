@@ -1,5 +1,7 @@
 # [427. 建立四叉树](https://leetcode-cn.com/problems/construct-quad-tree)
 
+[English Version](/solution/0400-0499/0427.Construct%20Quad%20Tree/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们想要使用一棵四叉树来储存一个&nbsp;<code>N x N</code> 的布尔值网络。网络中每一格的值只会是真或假。树的根结点代表整个网络。对于每个结点, 它将被分等成四个孩子结点<strong>直到这个区域内的值都是相同的.</strong></p>

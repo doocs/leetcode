@@ -1,5 +1,7 @@
 # [207. 课程表](https://leetcode-cn.com/problems/course-schedule)
 
+[English Version](/solution/0200-0299/0207.Course%20Schedule/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你这个学期必须选修 <code>numCourse</code> 门课程，记为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>numCourse-1</code> 。</p>

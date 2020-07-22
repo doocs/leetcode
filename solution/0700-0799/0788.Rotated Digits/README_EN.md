@@ -1,5 +1,7 @@
 # [788. Rotated Digits](https://leetcode.com/problems/rotated-digits)
 
+[中文文档](/solution/0700-0799/0788.Rotated%20Digits/README.md)
+
 ## Description
 <p>X is a good number if after rotating each digit individually by 180 degrees, we get a valid number that is different from X.&nbsp; Each digit must be rotated - we cannot choose to leave it alone.</p>
 

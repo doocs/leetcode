@@ -1,5 +1,7 @@
 # [1005. K 次取反后最大化的数组和](https://leetcode-cn.com/problems/maximize-sum-of-array-after-k-negations)
 
+[English Version](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组 A，我们<strong>只能</strong>用以下方法修改该数组：我们选择某个个索引 <code>i</code>&nbsp;并将 <code>A[i]</code> 替换为 <code>-A[i]</code>，然后总共重复这个过程 <code>K</code> 次。（我们可以多次选择同一个索引 <code>i</code>。）</p>

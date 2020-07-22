@@ -1,5 +1,7 @@
 # [482. License Key Formatting](https://leetcode.com/problems/license-key-formatting)
 
+[中文文档](/solution/0400-0499/0482.License%20Key%20Formatting/README.md)
+
 ## Description
 <p>You are given a license key represented as a string S which consists only alphanumeric character and dashes. The string is separated into N+1 groups by N dashes.</p>
 

@@ -1,5 +1,7 @@
 # [1009. 十进制整数的反码](https://leetcode-cn.com/problems/complement-of-base-10-integer)
 
+[English Version](/solution/1000-1099/1009.Complement%20of%20Base%2010%20Integer/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>每个非负整数&nbsp;<code>N</code>&nbsp;都有其二进制表示。例如，&nbsp;<code>5</code>&nbsp;可以被表示为二进制&nbsp;<code>&quot;101&quot;</code>，<code>11</code> 可以用二进制&nbsp;<code>&quot;1011&quot;</code>&nbsp;表示，依此类推。注意，除&nbsp;<code>N = 0</code>&nbsp;外，任何二进制表示中都不含前导零。</p>

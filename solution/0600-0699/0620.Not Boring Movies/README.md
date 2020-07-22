@@ -1,5 +1,7 @@
 # [620. 有趣的电影](https://leetcode-cn.com/problems/not-boring-movies)
 
+[English Version](/solution/0600-0699/0620.Not%20Boring%20Movies/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>某城市开了一家新的电影院，吸引了很多人过来看电影。该电影院特别注意用户体验，专门有个 LED显示板做电影推荐，上面公布着影评和相关电影描述。</p>

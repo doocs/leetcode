@@ -1,5 +1,7 @@
 # [1157. Online Majority Element In Subarray](https://leetcode.com/problems/online-majority-element-in-subarray)
 
+[中文文档](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README.md)
+
 ## Description
 <p>Implementing the class <code>MajorityChecker</code>, which has the following API:</p>
 

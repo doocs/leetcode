@@ -1,5 +1,7 @@
 # [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache)
 
+[English Version](/solution/0400-0499/0460.LFU%20Cache/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>设计并实现<a href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95">最不经常使用（LFU）</a>缓存的数据结构。它应该支持以下操作：<code>get</code>&nbsp;和&nbsp;<code>put</code>。</p>

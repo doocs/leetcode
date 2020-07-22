@@ -1,5 +1,7 @@
 # [996. 正方形数组的数目](https://leetcode-cn.com/problems/number-of-squareful-arrays)
 
+[English Version](/solution/0900-0999/0996.Number%20of%20Squareful%20Arrays/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个非负整数数组&nbsp;<code>A</code>，如果该数组每对相邻元素之和是一个完全平方数，则称这一数组为<em>正方形</em>数组。</p>

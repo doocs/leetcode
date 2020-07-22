@@ -1,5 +1,7 @@
 # [190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits)
 
+[English Version](/solution/0100-0199/0190.Reverse%20Bits/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>颠倒给定的 32 位无符号整数的二进制位。</p>

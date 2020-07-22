@@ -1,5 +1,7 @@
 # [904. Fruit Into Baskets](https://leetcode.com/problems/fruit-into-baskets)
 
+[中文文档](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README.md)
+
 ## Description
 <p>In a row of trees, the <code>i</code>-th tree&nbsp;produces&nbsp;fruit with type&nbsp;<code>tree[i]</code>.</p>
 

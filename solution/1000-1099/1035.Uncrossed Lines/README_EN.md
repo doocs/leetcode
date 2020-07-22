@@ -1,5 +1,7 @@
 # [1035. Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines)
 
+[中文文档](/solution/1000-1099/1035.Uncrossed%20Lines/README.md)
+
 ## Description
 <p>We write the integers of <code>A</code> and <code>B</code>&nbsp;(in the order they are given) on two separate horizontal lines.</p>
 

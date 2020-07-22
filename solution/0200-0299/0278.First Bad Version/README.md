@@ -1,5 +1,7 @@
 # [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version)
 
+[English Version](/solution/0200-0299/0278.First%20Bad%20Version/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。</p>

@@ -1,5 +1,7 @@
 # [307. 区域和检索 - 数组可修改](https://leetcode-cn.com/problems/range-sum-query-mutable)
 
+[English Version](/solution/0300-0399/0307.Range%20Sum%20Query%20-%20Mutable/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组 &nbsp;<em>nums</em>，求出数组从索引&nbsp;<em>i&nbsp;</em>到&nbsp;<em>j&nbsp;&nbsp;</em>(<em>i</em>&nbsp;&le;&nbsp;<em>j</em>) 范围内元素的总和，包含&nbsp;<em>i,&nbsp; j&nbsp;</em>两点。</p>

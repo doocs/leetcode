@@ -1,5 +1,7 @@
 # [409. 最长回文串](https://leetcode-cn.com/problems/longest-palindrome)
 
+[English Version](/solution/0400-0499/0409.Longest%20Palindrome/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。</p>

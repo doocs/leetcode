@@ -1,5 +1,7 @@
 # [999. 车的可用捕获量](https://leetcode-cn.com/problems/available-captures-for-rook)
 
+[English Version](/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个 8 x 8 的棋盘上，有一个白色车（rook）。也可能有空方块，白色的象（bishop）和黑色的卒（pawn）。它们分别以字符 &ldquo;R&rdquo;，&ldquo;.&rdquo;，&ldquo;B&rdquo; 和 &ldquo;p&rdquo; 给出。大写字符表示白棋，小写字符表示黑棋。</p>

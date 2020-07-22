@@ -1,5 +1,7 @@
 # [1348. 推文计数](https://leetcode-cn.com/problems/tweet-counts-per-frequency)
 
+[English Version](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>请你实现一个能够支持以下两种方法的推文计数类&nbsp;<code>TweetCounts</code>：</p>

@@ -1,5 +1,7 @@
 # [809. Expressive Words](https://leetcode.com/problems/expressive-words)
 
+[中文文档](/solution/0800-0899/0809.Expressive%20Words/README.md)
+
 ## Description
 <p>Sometimes people repeat letters to represent extra feeling, such as &quot;hello&quot; -&gt; &quot;heeellooo&quot;, &quot;hi&quot; -&gt; &quot;hiiii&quot;.&nbsp; In these strings like &quot;heeellooo&quot;, we have <em>groups</em> of adjacent letters that are all the same:&nbsp; &quot;h&quot;, &quot;eee&quot;, &quot;ll&quot;, &quot;ooo&quot;.</p>
 

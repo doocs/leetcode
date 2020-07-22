@@ -1,5 +1,7 @@
 # [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii)
 
+[English Version](/solution/0100-0199/0137.Single%20Number%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>

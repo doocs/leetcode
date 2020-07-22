@@ -1,5 +1,7 @@
 # [737. 句子相似性 II](https://leetcode-cn.com/problems/sentence-similarity-ii)
 
+[English Version](/solution/0700-0799/0737.Sentence%20Similarity%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

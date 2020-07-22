@@ -1,5 +1,7 @@
 # [257. 二叉树的所有路径](https://leetcode-cn.com/problems/binary-tree-paths)
 
+[English Version](/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二叉树，返回所有从根节点到叶子节点的路径。</p>

@@ -1,5 +1,7 @@
 # [658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements)
 
+[中文文档](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README.md)
+
 ## Description
 <p>
 

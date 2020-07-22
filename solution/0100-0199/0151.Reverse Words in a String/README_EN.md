@@ -1,5 +1,7 @@
 # [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string)
 
+[中文文档](/solution/0100-0199/0151.Reverse%20Words%20in%20a%20String/README.md)
+
 ## Description
 <p>Given an input string, reverse the string word by word.</p>
 

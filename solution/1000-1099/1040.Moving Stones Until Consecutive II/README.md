@@ -1,5 +1,7 @@
 # [1040. 移动石子直到连续 II](https://leetcode-cn.com/problems/moving-stones-until-consecutive-ii)
 
+[English Version](/solution/1000-1099/1040.Moving%20Stones%20Until%20Consecutive%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个长度<strong>无限</strong>的数轴上，第 <code>i</code> 颗石子的位置为&nbsp;<code>stones[i]</code>。如果一颗石子的位置最小/最大，那么该石子被称作<strong>端点石子</strong>。</p>

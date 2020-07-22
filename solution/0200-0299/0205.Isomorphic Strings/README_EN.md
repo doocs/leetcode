@@ -1,5 +1,7 @@
 # [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings)
 
+[中文文档](/solution/0200-0299/0205.Isomorphic%20Strings/README.md)
+
 ## Description
 <p>Given two strings <b><i>s</i></b> and <b><i>t</i></b>, determine if they are isomorphic.</p>
 

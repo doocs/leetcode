@@ -1,5 +1,7 @@
 # [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii)
 
+[中文文档](/solution/0200-0299/0210.Course%20Schedule%20II/README.md)
+
 ## Description
 <p>There are a total of <em>n</em> courses you have to take, labeled from <code>0</code> to <code>n-1</code>.</p>
 

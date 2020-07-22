@@ -1,5 +1,7 @@
 # [826. 安排工作以达到最大收益](https://leetcode-cn.com/problems/most-profit-assigning-work)
 
+[English Version](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有一些工作：<code>difficulty[i]&nbsp;</code>表示第<code>i</code>个工作的难度，<code>profit[i]</code>表示第<code>i</code>个工作的收益。</p>

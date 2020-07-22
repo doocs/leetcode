@@ -1,5 +1,7 @@
 # [667. 优美的排列 II](https://leetcode-cn.com/problems/beautiful-arrangement-ii)
 
+[English Version](/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个整数&nbsp;<code>n</code>&nbsp;和&nbsp;<code>k</code>，你需要实现一个数组，这个数组包含从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code>&nbsp;的 <code>n</code>&nbsp;个不同整数，同时满足以下条件：</p>

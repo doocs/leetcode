@@ -1,5 +1,7 @@
 # [1024. 视频拼接](https://leetcode-cn.com/problems/video-stitching)
 
+[English Version](/solution/1000-1099/1024.Video%20Stitching/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你将会获得一系列视频片段，这些片段来自于一项持续时长为&nbsp;<code>T</code>&nbsp;秒的体育赛事。这些片段可能有所重叠，也可能长度不一。</p>

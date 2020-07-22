@@ -1,5 +1,7 @@
 # [343. 整数拆分](https://leetcode-cn.com/problems/integer-break)
 
+[English Version](/solution/0300-0399/0343.Integer%20Break/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个正整数&nbsp;<em>n</em>，将其拆分为<strong>至少</strong>两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。</p>

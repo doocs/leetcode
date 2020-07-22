@@ -1,5 +1,7 @@
 # [705. Design HashSet](https://leetcode.com/problems/design-hashset)
 
+[中文文档](/solution/0700-0799/0705.Design%20HashSet/README.md)
+
 ## Description
 <p>Design a HashSet&nbsp;without using any built-in hash table libraries.</p>
 

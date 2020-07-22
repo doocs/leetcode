@@ -1,5 +1,7 @@
 # [15. 三数之和](https://leetcode-cn.com/problems/3sum)
 
+[English Version](/solution/0000-0099/0015.3Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个包含 <em>n</em> 个整数的数组&nbsp;<code>nums</code>，判断&nbsp;<code>nums</code>&nbsp;中是否存在三个元素 <em>a，b，c ，</em>使得&nbsp;<em>a + b + c = </em>0 ？请你找出所有满足条件且不重复的三元组。</p>

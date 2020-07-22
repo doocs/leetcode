@@ -1,5 +1,7 @@
 # [900. RLE Iterator](https://leetcode.com/problems/rle-iterator)
 
+[中文文档](/solution/0900-0999/0900.RLE%20Iterator/README.md)
+
 ## Description
 <p>Write an iterator that iterates through a run-length encoded sequence.</p>
 

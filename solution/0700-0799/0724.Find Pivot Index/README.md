@@ -1,5 +1,7 @@
 # [724. 寻找数组的中心索引](https://leetcode-cn.com/problems/find-pivot-index)
 
+[English Version](/solution/0700-0799/0724.Find%20Pivot%20Index/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数类型的数组&nbsp;<code>nums</code>，请编写一个能够返回数组<strong>&ldquo;中心索引&rdquo;</strong>的方法。</p>

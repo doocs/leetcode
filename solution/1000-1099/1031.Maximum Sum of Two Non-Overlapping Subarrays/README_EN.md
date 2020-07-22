@@ -1,5 +1,7 @@
 # [1031. Maximum Sum of Two Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays)
 
+[中文文档](/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README.md)
+
 ## Description
 <p>Given an array <code>A</code> of non-negative integers, return the maximum sum of elements in two non-overlapping (contiguous) subarrays, which have lengths&nbsp;<code>L</code> and <code>M</code>.&nbsp; (For clarification, the <code>L</code>-length subarray could occur before or after the <code>M</code>-length subarray.)</p>
 

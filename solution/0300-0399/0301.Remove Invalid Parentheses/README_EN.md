@@ -1,5 +1,7 @@
 # [301. Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses)
 
+[中文文档](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md)
+
 ## Description
 <p>Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.</p>
 

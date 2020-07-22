@@ -1,5 +1,7 @@
 # [1147. 段式回文](https://leetcode-cn.com/problems/longest-chunked-palindrome-decomposition)
 
+[English Version](/solution/1100-1199/1147.Longest%20Chunked%20Palindrome%20Decomposition/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>段式回文 其实与 一般回文 类似，只不过是最小的单位是 一段字符&nbsp;而不是 单个字母。</p>

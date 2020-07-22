@@ -1,5 +1,7 @@
 # [884. 两句话中的不常见单词](https://leetcode-cn.com/problems/uncommon-words-from-two-sentences)
 
+[English Version](/solution/0800-0899/0884.Uncommon%20Words%20from%20Two%20Sentences/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个句子&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;。&nbsp;（<em>句子</em>是一串由空格分隔的单词。每个<em>单词</em>仅由小写字母组成。）</p>

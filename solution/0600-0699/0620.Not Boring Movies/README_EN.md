@@ -1,5 +1,7 @@
 # [620. Not Boring Movies](https://leetcode.com/problems/not-boring-movies)
 
+[中文文档](/solution/0600-0699/0620.Not%20Boring%20Movies/README.md)
+
 ## Description
 X city opened a new cinema, many people would like to go to this cinema. The cinema also gives out a poster indicating the movies&rsquo; ratings and descriptions.
 

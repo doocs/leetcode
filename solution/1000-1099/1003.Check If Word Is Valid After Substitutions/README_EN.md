@@ -1,5 +1,7 @@
 # [1003. Check If Word Is Valid After Substitutions](https://leetcode.com/problems/check-if-word-is-valid-after-substitutions)
 
+[中文文档](/solution/1000-1099/1003.Check%20If%20Word%20Is%20Valid%20After%20Substitutions/README.md)
+
 ## Description
 <p>We are given that the string <code>&quot;abc&quot;</code> is valid.</p>
 

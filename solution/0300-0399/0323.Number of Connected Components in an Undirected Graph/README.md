@@ -1,5 +1,7 @@
 # [323. 无向图中连通分量的数目](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph)
 
+[English Version](/solution/0300-0399/0323.Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

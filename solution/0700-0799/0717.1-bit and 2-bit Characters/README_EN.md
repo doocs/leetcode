@@ -1,5 +1,7 @@
 # [717. 1-bit and 2-bit Characters](https://leetcode.com/problems/1-bit-and-2-bit-characters)
 
+[中文文档](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README.md)
+
 ## Description
 <p>We have two special characters. The first character can be represented by one bit <code>0</code>. The second character can be represented by two bits (<code>10</code> or <code>11</code>).  </p>
 

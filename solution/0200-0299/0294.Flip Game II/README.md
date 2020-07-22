@@ -1,5 +1,7 @@
 # [294. 翻转游戏 II](https://leetcode-cn.com/problems/flip-game-ii)
 
+[English Version](/solution/0200-0299/0294.Flip%20Game%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

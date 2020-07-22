@@ -1,5 +1,7 @@
 # [1217. 玩筹码](https://leetcode-cn.com/problems/play-with-chips)
 
+[English Version](/solution/1200-1299/1217.Play%20with%20Chips/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>数轴上放置了一些筹码，每个筹码的位置存在数组&nbsp;<code>chips</code>&nbsp;当中。</p>

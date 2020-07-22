@@ -1,5 +1,7 @@
 # [1267. 统计参与通信的服务器](https://leetcode-cn.com/problems/count-servers-that-communicate)
 
+[English Version](/solution/1200-1299/1267.Count%20Servers%20that%20Communicate/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>这里有一幅服务器分布图，服务器的位置标识在&nbsp;<code>m * n</code>&nbsp;的整数矩阵网格&nbsp;<code>grid</code>&nbsp;中，1 表示单元格上有服务器，0 表示没有。</p>

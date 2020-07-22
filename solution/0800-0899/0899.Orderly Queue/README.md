@@ -1,5 +1,7 @@
 # [899. 有序队列](https://leetcode-cn.com/problems/orderly-queue)
 
+[English Version](/solution/0800-0899/0899.Orderly%20Queue/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出了一个由小写字母组成的字符串 <code>S</code>。然后，我们可以进行任意次数的<em>移动</em>。</p>

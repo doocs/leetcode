@@ -1,5 +1,7 @@
 # [932. 漂亮数组](https://leetcode-cn.com/problems/beautiful-array)
 
+[English Version](/solution/0900-0999/0932.Beautiful%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>对于某些固定的&nbsp;<code>N</code>，如果数组&nbsp;<code>A</code>&nbsp;是整数&nbsp;<code>1, 2, ..., N</code>&nbsp;组成的排列，使得：</p>

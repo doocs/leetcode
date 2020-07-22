@@ -1,5 +1,7 @@
 # [1036. Escape a Large Maze](https://leetcode.com/problems/escape-a-large-maze)
 
+[中文文档](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md)
+
 ## Description
 <p>In a 1 million by 1 million grid, the coordinates of each grid square are <code>(x, y)</code> with <code>0 &lt;= x, y &lt; 10^6</code>.</p>
 

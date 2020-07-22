@@ -1,5 +1,7 @@
 # [691. 贴纸拼词](https://leetcode-cn.com/problems/stickers-to-spell-word)
 
+[English Version](/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们给出了 N 种不同类型的贴纸。每个贴纸上都有一个小写的英文单词。</p>

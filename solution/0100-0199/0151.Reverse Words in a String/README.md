@@ -1,5 +1,7 @@
 # [151. 翻转字符串里的单词](https://leetcode-cn.com/problems/reverse-words-in-a-string)
 
+[English Version](/solution/0100-0199/0151.Reverse%20Words%20in%20a%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串，逐个翻转字符串中的每个单词。</p>

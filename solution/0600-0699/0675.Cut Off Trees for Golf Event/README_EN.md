@@ -1,5 +1,7 @@
 # [675. Cut Off Trees for Golf Event](https://leetcode.com/problems/cut-off-trees-for-golf-event)
 
+[中文文档](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README.md)
+
 ## Description
 <p>You are asked to cut off trees in a forest for a golf event. The forest is represented as a non-negative 2D map, in this map:</p>
 

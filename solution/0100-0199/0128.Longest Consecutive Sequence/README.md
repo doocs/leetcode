@@ -1,5 +1,7 @@
 # [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence)
 
+[English Version](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个未排序的整数数组，找出最长连续序列的长度。</p>

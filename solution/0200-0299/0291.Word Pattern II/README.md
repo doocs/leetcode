@@ -1,5 +1,7 @@
 # [291. 单词规律 II](https://leetcode-cn.com/problems/word-pattern-ii)
 
+[English Version](/solution/0200-0299/0291.Word%20Pattern%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

@@ -1,5 +1,7 @@
 # [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas)
 
+[English Version](/solution/0800-0899/0875.Koko%20Eating%20Bananas/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>珂珂喜欢吃香蕉。这里有&nbsp;<code>N</code>&nbsp;堆香蕉，第 <code>i</code> 堆中有&nbsp;<code>piles[i]</code>&nbsp;根香蕉。警卫已经离开了，将在&nbsp;<code>H</code>&nbsp;小时后回来。</p>

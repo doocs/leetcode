@@ -1,5 +1,7 @@
 # [699. 掉落的方块](https://leetcode-cn.com/problems/falling-squares)
 
+[English Version](/solution/0600-0699/0699.Falling%20Squares/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在无限长的数轴（即 x 轴）上，我们根据给定的顺序放置对应的正方形方块。</p>

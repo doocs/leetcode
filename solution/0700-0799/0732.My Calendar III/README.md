@@ -1,5 +1,7 @@
 # [732. 我的日程安排表 III](https://leetcode-cn.com/problems/my-calendar-iii)
 
+[English Version](/solution/0700-0799/0732.My%20Calendar%20III/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现一个 <code>MyCalendar</code> 类来存放你的日程安排，你可以一直添加新的日程安排。</p>

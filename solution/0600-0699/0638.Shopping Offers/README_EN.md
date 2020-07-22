@@ -1,5 +1,7 @@
 # [638. Shopping Offers](https://leetcode.com/problems/shopping-offers)
 
+[中文文档](/solution/0600-0699/0638.Shopping%20Offers/README.md)
+
 ## Description
 <p>
 

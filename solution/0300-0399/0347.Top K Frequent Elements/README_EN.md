@@ -1,5 +1,7 @@
 # [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements)
 
+[中文文档](/solution/0300-0399/0347.Top%20K%20Frequent%20Elements/README.md)
+
 ## Description
 <p>Given a non-empty array of integers, return the <b><i>k</i></b> most frequent elements.</p>
 

@@ -1,5 +1,7 @@
 # [592. Fraction Addition and Subtraction](https://leetcode.com/problems/fraction-addition-and-subtraction)
 
+[中文文档](/solution/0500-0599/0592.Fraction%20Addition%20and%20Subtraction/README.md)
+
 ## Description
 <p>Given a string representing an expression of fraction addition and subtraction, you need to return the calculation result in string format. The final result should be <a href = "https://en.wikipedia.org/wiki/Irreducible_fraction">irreducible fraction</a>. If your final result is an integer, say <code>2</code>, you need to change it to the format of fraction that has denominator <code>1</code>. So in this case, <code>2</code> should be converted to <code>2/1</code>.</p>
 

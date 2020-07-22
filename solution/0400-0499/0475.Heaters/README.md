@@ -1,5 +1,7 @@
 # [475. 供暖器](https://leetcode-cn.com/problems/heaters)
 
+[English Version](/solution/0400-0499/0475.Heaters/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>冬季已经来临。&nbsp;你的任务是设计一个有固定加热半径的供暖器向所有房屋供暖。</p>

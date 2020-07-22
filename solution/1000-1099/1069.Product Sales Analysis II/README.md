@@ -1,5 +1,7 @@
 # [1069. 产品销售分析 II](https://leetcode-cn.com/problems/product-sales-analysis-ii)
 
+[English Version](/solution/1000-1099/1069.Product%20Sales%20Analysis%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

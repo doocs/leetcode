@@ -1,5 +1,7 @@
 # [1209. Remove All Adjacent Duplicates in String II](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii)
 
+[中文文档](/solution/1200-1299/1209.Remove%20All%20Adjacent%20Duplicates%20in%20String%20II/README.md)
+
 ## Description
 <p>Given a string&nbsp;<code>s</code>, a <em>k</em>&nbsp;<em>duplicate removal</em>&nbsp;consists of choosing <code>k</code>&nbsp;adjacent and equal letters from&nbsp;<code>s</code> and removing&nbsp;them causing the left and the right side of the deleted substring to concatenate together.</p>
 

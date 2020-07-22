@@ -1,5 +1,7 @@
 # [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses)
 
+[中文文档](/solution/0000-0099/0022.Generate%20Parentheses/README.md)
+
 ## Description
 <p>
 

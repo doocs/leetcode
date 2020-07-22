@@ -1,5 +1,7 @@
 # [384. Shuffle an Array](https://leetcode.com/problems/shuffle-an-array)
 
+[中文文档](/solution/0300-0399/0384.Shuffle%20an%20Array/README.md)
+
 ## Description
 <p>Shuffle a set of numbers without duplicates.
 

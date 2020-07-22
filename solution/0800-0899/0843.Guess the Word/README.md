@@ -1,5 +1,7 @@
 # [843. 猜猜这个单词](https://leetcode-cn.com/problems/guess-the-word)
 
+[English Version](/solution/0800-0899/0843.Guess%20the%20Word/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>这个问题是 LeetCode 平台新增的<strong><em>交互式问题 </em></strong>。</p>

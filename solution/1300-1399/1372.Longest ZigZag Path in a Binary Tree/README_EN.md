@@ -1,5 +1,7 @@
 # [1372. Longest ZigZag Path in a Binary Tree](https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree)
 
+[中文文档](/solution/1300-1399/1372.Longest%20ZigZag%20Path%20in%20a%20Binary%20Tree/README.md)
+
 ## Description
 <p>Given a binary tree <code>root</code>, a&nbsp;ZigZag path for a binary tree is defined as follow:</p>
 

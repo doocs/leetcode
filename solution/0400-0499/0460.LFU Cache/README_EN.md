@@ -1,5 +1,7 @@
 # [460. LFU Cache](https://leetcode.com/problems/lfu-cache)
 
+[中文文档](/solution/0400-0499/0460.LFU%20Cache/README.md)
+
 ## Description
 <p>Design and implement a data structure for <a href="https://en.wikipedia.org/wiki/Least_frequently_used" target="_blank">Least Frequently Used (LFU)</a> cache. It should support the following operations: <code>get</code> and <code>put</code>.</p>
 

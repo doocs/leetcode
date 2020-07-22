@@ -1,5 +1,7 @@
 # [735. 行星碰撞](https://leetcode-cn.com/problems/asteroid-collision)
 
+[English Version](/solution/0700-0799/0735.Asteroid%20Collision/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组 <code>asteroids</code>，表示在同一行的行星。</p>

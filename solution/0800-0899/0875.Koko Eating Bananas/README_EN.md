@@ -1,5 +1,7 @@
 # [875. Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas)
 
+[中文文档](/solution/0800-0899/0875.Koko%20Eating%20Bananas/README.md)
+
 ## Description
 <p>Koko loves to eat bananas.&nbsp; There are <code>N</code>&nbsp;piles of bananas, the <code>i</code>-th&nbsp;pile has <code>piles[i]</code> bananas.&nbsp; The guards have gone and will come back in <code>H</code> hours.</p>
 

@@ -1,5 +1,7 @@
 # [990. 等式方程的可满足性](https://leetcode-cn.com/problems/satisfiability-of-equality-equations)
 
+[English Version](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个由表示变量之间关系的字符串方程组成的数组，每个字符串方程 <code>equations[i]</code> 的长度为 <code>4</code>，并采用两种不同的形式之一：<code>&quot;a==b&quot;</code> 或&nbsp;<code>&quot;a!=b&quot;</code>。在这里，a 和 b 是小写字母（不一定不同），表示单字母变量名。</p>

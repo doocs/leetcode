@@ -1,5 +1,7 @@
 # [847. Shortest Path Visiting All Nodes](https://leetcode.com/problems/shortest-path-visiting-all-nodes)
 
+[中文文档](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README.md)
+
 ## Description
 <p>An undirected, connected graph of N nodes (labeled&nbsp;<code>0, 1, 2, ..., N-1</code>) is given as <code>graph</code>.</p>
 

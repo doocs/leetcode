@@ -1,5 +1,7 @@
 # [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string)
 
+[English Version](/solution/0500-0599/0567.Permutation%20in%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个字符串&nbsp;<strong>s1</strong>&nbsp;和&nbsp;<strong>s2</strong>，写一个函数来判断 <strong>s2</strong> 是否包含 <strong>s1&nbsp;</strong>的排列。</p>

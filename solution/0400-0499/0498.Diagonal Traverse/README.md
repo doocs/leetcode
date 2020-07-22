@@ -1,5 +1,7 @@
 # [498. 对角线遍历](https://leetcode-cn.com/problems/diagonal-traverse)
 
+[English Version](/solution/0400-0499/0498.Diagonal%20Traverse/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个含有 M x N 个元素的矩阵（M 行，N 列），请以对角线遍历的顺序返回这个矩阵中的所有元素，对角线遍历如下图所示。</p>

@@ -1,5 +1,7 @@
 # [1240. Tiling a Rectangle with the Fewest Squares](https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares)
 
+[中文文档](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README.md)
+
 ## Description
 <p>Given a rectangle of size&nbsp;<code>n</code>&nbsp;x <code><font face="monospace">m</font></code>, find the minimum number of integer-sided squares that tile the rectangle.</p>
 

@@ -1,5 +1,7 @@
 # [1053. 交换一次的先前排列](https://leetcode-cn.com/problems/previous-permutation-with-one-swap)
 
+[English Version](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个正整数的数组 <code>A</code>（其中的元素不一定完全不同），请你返回可在&nbsp;<strong>一次交换</strong>（交换两数字 <code>A[i]</code> 和 <code>A[j]</code> 的位置）后得到的、按字典序排列小于 <code>A</code> 的最大可能排列。</p>

@@ -1,5 +1,7 @@
 # [818. 赛车](https://leetcode-cn.com/problems/race-car)
 
+[English Version](/solution/0800-0899/0818.Race%20Car/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你的赛车起始停留在位置 0，速度为 +1，正行驶在一个无限长的数轴上。（车也可以向负数方向行驶。）</p>

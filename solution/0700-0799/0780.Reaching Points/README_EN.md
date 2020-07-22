@@ -1,5 +1,7 @@
 # [780. Reaching Points](https://leetcode.com/problems/reaching-points)
 
+[中文文档](/solution/0700-0799/0780.Reaching%20Points/README.md)
+
 ## Description
 <p>A move consists of taking a point <code>(x, y)</code> and transforming it to either <code>(x, x+y)</code> or <code>(x+y, y)</code>.</p>
 

@@ -1,5 +1,7 @@
 # [1155. 掷骰子的N种方法](https://leetcode-cn.com/problems/number-of-dice-rolls-with-target-sum)
 
+[English Version](/solution/1100-1199/1155.Number%20of%20Dice%20Rolls%20With%20Target%20Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>这里有&nbsp;<code>d</code>&nbsp;个一样的骰子，每个骰子上都有&nbsp;<code>f</code>&nbsp;个面，分别标号为&nbsp;<code>1, 2, ..., f</code>。</p>

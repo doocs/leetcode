@@ -1,5 +1,7 @@
 # [1078. Occurrences After Bigram](https://leetcode.com/problems/occurrences-after-bigram)
 
+[中文文档](/solution/1000-1099/1078.Occurrences%20After%20Bigram/README.md)
+
 ## Description
 <p>Given words <code>first</code> and <code>second</code>, consider occurrences in some&nbsp;<code>text</code> of the form &quot;<code>first second third</code>&quot;, where <code>second</code> comes immediately after <code>first</code>, and <code>third</code> comes immediately after <code>second</code>.</p>
 

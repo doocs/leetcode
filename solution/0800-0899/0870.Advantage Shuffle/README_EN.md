@@ -1,5 +1,7 @@
 # [870. Advantage Shuffle](https://leetcode.com/problems/advantage-shuffle)
 
+[中文文档](/solution/0800-0899/0870.Advantage%20Shuffle/README.md)
+
 ## Description
 <p>Given two arrays <code>A</code> and <code>B</code> of equal size, the <em>advantage of <code>A</code> with respect to <code>B</code></em> is the number of indices <code>i</code>&nbsp;for which <code>A[i] &gt; B[i]</code>.</p>
 

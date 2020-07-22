@@ -1,5 +1,7 @@
 # [627. Swap Salary](https://leetcode.com/problems/swap-salary)
 
+[中文文档](/solution/0600-0699/0627.Swap%20Salary/README.md)
+
 ## Description
 <p>Given a table <code>salary</code>, such as the one below, that has m=male and f=female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a <strong>single update statement</strong> and no intermediate temp table.</p>
 

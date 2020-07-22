@@ -1,5 +1,7 @@
 # [394. 字符串解码](https://leetcode-cn.com/problems/decode-string)
 
+[English Version](/solution/0300-0399/0394.Decode%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个经过编码的字符串，返回它解码后的字符串。</p>

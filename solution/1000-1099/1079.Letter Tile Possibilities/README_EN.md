@@ -1,5 +1,7 @@
 # [1079. Letter Tile Possibilities](https://leetcode.com/problems/letter-tile-possibilities)
 
+[中文文档](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md)
+
 ## Description
 <p>You have a set of <code>tiles</code>, where each tile has one letter <code>tiles[i]</code> printed on it.&nbsp; Return the number of possible non-empty sequences of letters you can make.</p>
 

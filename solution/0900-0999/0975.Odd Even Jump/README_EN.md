@@ -1,5 +1,7 @@
 # [975. Odd Even Jump](https://leetcode.com/problems/odd-even-jump)
 
+[中文文档](/solution/0900-0999/0975.Odd%20Even%20Jump/README.md)
+
 ## Description
 <p>You are given an integer array <code>A</code>.&nbsp; From&nbsp;some starting index, you can make a series of jumps.&nbsp; The (1st, 3rd, 5th, ...)&nbsp;jumps in the series are called <em>odd numbered jumps</em>, and the (2nd, 4th, 6th, ...) jumps in the series are called <em>even numbered jumps</em>.</p>
 

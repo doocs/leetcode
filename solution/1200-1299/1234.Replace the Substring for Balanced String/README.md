@@ -1,5 +1,7 @@
 # [1234. 替换子串得到平衡字符串](https://leetcode-cn.com/problems/replace-the-substring-for-balanced-string)
 
+[English Version](/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有一个只含有&nbsp;<code>&#39;Q&#39;, &#39;W&#39;, &#39;E&#39;,&nbsp;&#39;R&#39;</code>&nbsp;四种字符，且长度为 <code>n</code>&nbsp;的字符串。</p>

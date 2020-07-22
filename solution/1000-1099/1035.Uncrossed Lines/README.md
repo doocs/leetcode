@@ -1,5 +1,7 @@
 # [1035. 不相交的线](https://leetcode-cn.com/problems/uncrossed-lines)
 
+[English Version](/solution/1000-1099/1035.Uncrossed%20Lines/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们在两条独立的水平线上按给定的顺序写下&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;中的整数。</p>

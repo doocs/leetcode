@@ -1,5 +1,7 @@
 # [962. Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp)
 
+[中文文档](/solution/0900-0999/0962.Maximum%20Width%20Ramp/README.md)
+
 ## Description
 <p>Given an array <code>A</code> of integers, a <em>ramp</em>&nbsp;is a tuple <code>(i, j)</code> for which <code>i &lt; j</code>&nbsp;and&nbsp;<code>A[i] &lt;= A[j]</code>.&nbsp; The width of such a&nbsp;ramp is <code>j - i</code>.</p>
 

@@ -1,5 +1,7 @@
 # [1232. 缀点成线](https://leetcode-cn.com/problems/check-if-it-is-a-straight-line)
 
+[English Version](/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个&nbsp;XY 坐标系中有一些点，我们用数组&nbsp;<code>coordinates</code>&nbsp;来分别记录它们的坐标，其中&nbsp;<code>coordinates[i] = [x, y]</code>&nbsp;表示横坐标为 <code>x</code>、纵坐标为 <code>y</code>&nbsp;的点。</p>

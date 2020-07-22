@@ -1,5 +1,7 @@
 # [710. Random Pick with Blacklist](https://leetcode.com/problems/random-pick-with-blacklist)
 
+[中文文档](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README.md)
+
 ## Description
 <p>Given a blacklist&nbsp;<code>B</code> containing unique integers&nbsp;from <code>[0, N)</code>, write a function to return a uniform random integer from <code>[0, N)</code> which is <strong>NOT</strong>&nbsp;in <code>B</code>.</p>
 

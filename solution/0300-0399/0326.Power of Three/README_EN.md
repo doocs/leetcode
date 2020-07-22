@@ -1,5 +1,7 @@
 # [326. Power of Three](https://leetcode.com/problems/power-of-three)
 
+[中文文档](/solution/0300-0399/0326.Power%20of%20Three/README.md)
+
 ## Description
 <p>Given an integer, write a function to determine if it is a power of three.</p>
 

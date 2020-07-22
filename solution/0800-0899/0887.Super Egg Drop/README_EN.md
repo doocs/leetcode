@@ -1,5 +1,7 @@
 # [887. Super Egg Drop](https://leetcode.com/problems/super-egg-drop)
 
+[中文文档](/solution/0800-0899/0887.Super%20Egg%20Drop/README.md)
+
 ## Description
 <p>You are given <code>K</code> eggs, and you have access to a building with <code>N</code> floors from <code>1</code> to <code>N</code>.&nbsp;</p>
 

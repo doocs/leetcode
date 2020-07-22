@@ -1,5 +1,7 @@
 # [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz)
 
+[中文文档](/solution/0400-0499/0412.Fizz%20Buzz/README.md)
+
 ## Description
 <p>Write a program that outputs the string representation of numbers from 1 to <i>n</i>.</p>
 

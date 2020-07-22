@@ -1,5 +1,7 @@
 # [1032. 字符流](https://leetcode-cn.com/problems/stream-of-characters)
 
+[English Version](/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>按下述要求实现 <code>StreamChecker</code> 类：</p>

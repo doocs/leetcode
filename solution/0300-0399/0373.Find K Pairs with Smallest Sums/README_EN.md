@@ -1,5 +1,7 @@
 # [373. Find K Pairs with Smallest Sums](https://leetcode.com/problems/find-k-pairs-with-smallest-sums)
 
+[中文文档](/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/README.md)
+
 ## Description
 <p>You are given two integer arrays <b>nums1</b> and <b>nums2</b> sorted in ascending order and an integer <b>k</b>.</p>
 

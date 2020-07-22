@@ -1,5 +1,7 @@
 # [677. Map Sum Pairs](https://leetcode.com/problems/map-sum-pairs)
 
+[中文文档](/solution/0600-0699/0677.Map%20Sum%20Pairs/README.md)
+
 ## Description
 <p>
 

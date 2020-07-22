@@ -1,5 +1,7 @@
 # [643. Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i)
 
+[中文文档](/solution/0600-0699/0643.Maximum%20Average%20Subarray%20I/README.md)
+
 ## Description
 <p>Given an array consisting of <code>n</code> integers, find the contiguous subarray of given length <code>k</code> that has the maximum average value. And you need to output the maximum average value.</p>
 

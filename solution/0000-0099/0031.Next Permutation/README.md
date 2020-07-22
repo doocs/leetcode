@@ -1,5 +1,7 @@
 # [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation)
 
+[English Version](/solution/0000-0099/0031.Next%20Permutation/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。</p>

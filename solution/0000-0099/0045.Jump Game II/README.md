@@ -1,5 +1,7 @@
 # [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii)
 
+[English Version](/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个非负整数数组，你最初位于数组的第一个位置。</p>

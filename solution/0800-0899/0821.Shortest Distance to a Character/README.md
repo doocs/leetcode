@@ -1,5 +1,7 @@
 # [821. 字符的最短距离](https://leetcode-cn.com/problems/shortest-distance-to-a-character)
 
+[English Version](/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串&nbsp;<code>S</code>&nbsp;和一个字符&nbsp;<code>C</code>。返回一个代表字符串&nbsp;<code>S</code>&nbsp;中每个字符到字符串&nbsp;<code>S</code>&nbsp;中的字符&nbsp;<code>C</code>&nbsp;的最短距离的数组。</p>

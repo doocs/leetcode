@@ -1,5 +1,7 @@
 # [491. 递增子序列](https://leetcode-cn.com/problems/increasing-subsequences)
 
+[English Version](/solution/0400-0499/0491.Increasing%20Subsequences/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。</p>

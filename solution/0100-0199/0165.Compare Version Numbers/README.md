@@ -1,5 +1,7 @@
 # [165. 比较版本号](https://leetcode-cn.com/problems/compare-version-numbers)
 
+[English Version](/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>比较两个版本号 <em>version1&nbsp;</em>和 <em>version2</em>。<br>

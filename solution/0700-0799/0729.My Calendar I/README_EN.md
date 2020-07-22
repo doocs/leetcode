@@ -1,5 +1,7 @@
 # [729. My Calendar I](https://leetcode.com/problems/my-calendar-i)
 
+[中文文档](/solution/0700-0799/0729.My%20Calendar%20I/README.md)
+
 ## Description
 <p>Implement a <code>MyCalendar</code> class to store your events. A new event can be added if adding the event will not cause a double booking.</p>
 

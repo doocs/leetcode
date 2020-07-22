@@ -1,5 +1,7 @@
 # [912. Sort an Array](https://leetcode.com/problems/sort-an-array)
 
+[中文文档](/solution/0900-0999/0912.Sort%20an%20Array/README.md)
+
 ## Description
 <p>Given an array of integers <code>nums</code>, sort the array in ascending order.</p>
 

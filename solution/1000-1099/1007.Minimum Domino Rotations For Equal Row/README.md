@@ -1,5 +1,7 @@
 # [1007. 行相等的最少多米诺旋转](https://leetcode-cn.com/problems/minimum-domino-rotations-for-equal-row)
 
+[English Version](/solution/1000-1099/1007.Minimum%20Domino%20Rotations%20For%20Equal%20Row/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一排多米诺骨牌中，<code>A[i]</code> 和 <code>B[i]</code>&nbsp;分别代表第 i 个多米诺骨牌的上半部分和下半部分。（一个多米诺是两个从 1 到 6 的数字同列平铺形成的&nbsp;&mdash;&mdash; 该平铺的每一半上都有一个数字。）</p>

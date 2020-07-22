@@ -1,5 +1,7 @@
 # [915. Partition Array into Disjoint Intervals](https://leetcode.com/problems/partition-array-into-disjoint-intervals)
 
+[中文文档](/solution/0900-0999/0915.Partition%20Array%20into%20Disjoint%20Intervals/README.md)
+
 ## Description
 <p>Given an array <code>A</code>, partition it&nbsp;into two (contiguous) subarrays&nbsp;<code>left</code>&nbsp;and <code>right</code>&nbsp;so that:</p>
 

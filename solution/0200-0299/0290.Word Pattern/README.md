@@ -1,5 +1,7 @@
 # [290. 单词规律](https://leetcode-cn.com/problems/word-pattern)
 
+[English Version](/solution/0200-0299/0290.Word%20Pattern/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一种规律 <code>pattern</code>&nbsp;和一个字符串&nbsp;<code>str</code>&nbsp;，判断 <code>str</code> 是否遵循相同的规律。</p>

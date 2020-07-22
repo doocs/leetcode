@@ -1,5 +1,7 @@
 # [176. 第二高的薪水](https://leetcode-cn.com/problems/second-highest-salary)
 
+[English Version](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个 SQL 查询，获取 <code>Employee</code>&nbsp;表中第二高的薪水（Salary）&nbsp;。</p>

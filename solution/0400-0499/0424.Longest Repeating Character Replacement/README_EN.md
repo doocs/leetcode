@@ -1,5 +1,7 @@
 # [424. Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement)
 
+[中文文档](/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README.md)
+
 ## Description
 <p>Given a string <code>s</code>&nbsp;that consists of only uppercase English letters, you can perform at most <code>k</code> operations on that string.</p>
 

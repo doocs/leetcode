@@ -1,5 +1,7 @@
 # [861. 翻转矩阵后的得分](https://leetcode-cn.com/problems/score-after-flipping-matrix)
 
+[English Version](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有一个二维矩阵&nbsp;<code>A</code> 其中每个元素的值为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>&nbsp;。</p>

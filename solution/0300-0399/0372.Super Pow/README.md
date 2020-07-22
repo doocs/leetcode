@@ -1,5 +1,7 @@
 # [372. 超级次方](https://leetcode-cn.com/problems/super-pow)
 
+[English Version](/solution/0300-0399/0372.Super%20Pow/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你的任务是计算&nbsp;<em>a</em><sup><em>b</em></sup>&nbsp;对&nbsp;1337 取模，<em>a</em> 是一个正整数，<em>b</em> 是一个非常大的正整数且会以数组形式给出。</p>

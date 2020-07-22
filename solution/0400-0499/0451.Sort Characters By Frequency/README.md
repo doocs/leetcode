@@ -1,5 +1,7 @@
 # [451. 根据字符出现频率排序](https://leetcode-cn.com/problems/sort-characters-by-frequency)
 
+[English Version](/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串，请将字符串里的字符按照出现的频率降序排列。</p>

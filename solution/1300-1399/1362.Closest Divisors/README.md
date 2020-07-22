@@ -1,5 +1,7 @@
 # [1362. 最接近的因数](https://leetcode-cn.com/problems/closest-divisors)
 
+[English Version](/solution/1300-1399/1362.Closest%20Divisors/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个整数&nbsp;<code>num</code>，请你找出同时满足下面全部要求的两个整数：</p>

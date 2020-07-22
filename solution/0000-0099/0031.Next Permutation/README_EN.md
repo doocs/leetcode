@@ -1,5 +1,7 @@
 # [31. Next Permutation](https://leetcode.com/problems/next-permutation)
 
+[中文文档](/solution/0000-0099/0031.Next%20Permutation/README.md)
+
 ## Description
 <p>Implement <strong>next permutation</strong>, which rearranges numbers into the lexicographically next greater permutation of numbers.</p>
 

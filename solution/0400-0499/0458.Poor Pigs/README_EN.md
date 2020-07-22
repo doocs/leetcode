@@ -1,5 +1,7 @@
 # [458. Poor Pigs](https://leetcode.com/problems/poor-pigs)
 
+[中文文档](/solution/0400-0499/0458.Poor%20Pigs/README.md)
+
 ## Description
 <p>There are 1000 buckets, one and only one of them is poisonous, while the rest are filled with water. They all look identical. If a pig drinks the poison it will die within 15 minutes. What is the minimum amount of pigs you need to figure out which bucket is poisonous within one hour?</p>
 

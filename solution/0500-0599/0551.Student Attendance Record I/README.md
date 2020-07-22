@@ -1,5 +1,7 @@
 # [551. 学生出勤记录 I](https://leetcode-cn.com/problems/student-attendance-record-i)
 
+[English Version](/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串来代表一个学生的出勤记录，这个记录仅包含以下三个字符：</p>

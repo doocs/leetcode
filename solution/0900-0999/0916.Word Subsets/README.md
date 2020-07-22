@@ -1,5 +1,7 @@
 # [916. 单词子集](https://leetcode-cn.com/problems/word-subsets)
 
+[English Version](/solution/0900-0999/0916.Word%20Subsets/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们给出两个单词数组 <code>A</code>&nbsp;和&nbsp;<code>B</code>。每个单词都是一串小写字母。</p>

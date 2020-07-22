@@ -1,5 +1,7 @@
 # [677. 键值映射](https://leetcode-cn.com/problems/map-sum-pairs)
 
+[English Version](/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现一个 MapSum 类里的两个方法，<code>insert</code>&nbsp;和&nbsp;<code>sum</code>。</p>

@@ -1,5 +1,7 @@
 # [1052. 爱生气的书店老板](https://leetcode-cn.com/problems/grumpy-bookstore-owner)
 
+[English Version](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>今天，书店老板有一家店打算试营业&nbsp;<code>customers.length</code>&nbsp;分钟。每分钟都有一些顾客（<code>customers[i]</code>）会进入书店，所有这些顾客都会在那一分钟结束后离开。</p>

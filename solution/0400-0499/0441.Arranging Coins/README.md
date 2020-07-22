@@ -1,5 +1,7 @@
 # [441. 排列硬币](https://leetcode-cn.com/problems/arranging-coins)
 
+[English Version](/solution/0400-0499/0441.Arranging%20Coins/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你总共有&nbsp;<em>n&nbsp;</em>枚硬币，你需要将它们摆成一个阶梯形状，第&nbsp;<em>k&nbsp;</em>行就必须正好有&nbsp;<em>k&nbsp;</em>枚硬币。</p>

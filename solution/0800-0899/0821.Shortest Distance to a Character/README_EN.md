@@ -1,5 +1,7 @@
 # [821. Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character)
 
+[中文文档](/solution/0800-0899/0821.Shortest%20Distance%20to%20a%20Character/README.md)
+
 ## Description
 <p>Given a string <code>S</code>&nbsp;and a character <code>C</code>, return an array of integers representing the shortest distance from the character <code>C</code> in the string.</p>
 

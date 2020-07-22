@@ -1,5 +1,7 @@
 # [762. Prime Number of Set Bits in Binary Representation](https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation)
 
+[中文文档](/solution/0700-0799/0762.Prime%20Number%20of%20Set%20Bits%20in%20Binary%20Representation/README.md)
+
 ## Description
 <p>
 

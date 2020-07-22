@@ -1,5 +1,7 @@
 # [771. 宝石与石头](https://leetcode-cn.com/problems/jewels-and-stones)
 
+[English Version](/solution/0700-0799/0771.Jewels%20and%20Stones/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>&nbsp;给定字符串<code>J</code>&nbsp;代表石头中宝石的类型，和字符串&nbsp;<code>S</code>代表你拥有的石头。&nbsp;<code>S</code>&nbsp;中每个字符代表了一种你拥有的石头的类型，你想知道你拥有的石头中有多少是宝石。</p>

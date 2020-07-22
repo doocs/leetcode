@@ -1,5 +1,7 @@
 # [756. 金字塔转换矩阵](https://leetcode-cn.com/problems/pyramid-transition-matrix)
 
+[English Version](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>现在，我们用一些方块来堆砌一个金字塔。 每个方块用仅包含一个字母的字符串表示。</p>

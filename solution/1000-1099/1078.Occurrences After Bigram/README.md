@@ -1,5 +1,7 @@
 # [1078. Bigram 分词](https://leetcode-cn.com/problems/occurrences-after-bigram)
 
+[English Version](/solution/1000-1099/1078.Occurrences%20After%20Bigram/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出第一个词&nbsp;<code>first</code> 和第二个词&nbsp;<code>second</code>，考虑在某些文本&nbsp;<code>text</code>&nbsp;中可能以 &quot;<code>first second third</code>&quot; 形式出现的情况，其中&nbsp;<code>second</code>&nbsp;紧随&nbsp;<code>first</code>&nbsp;出现，<code>third</code>&nbsp;紧随&nbsp;<code>second</code>&nbsp;出现。</p>

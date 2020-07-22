@@ -1,5 +1,7 @@
 # [194. Transpose File](https://leetcode.com/problems/transpose-file)
 
+[中文文档](/solution/0100-0199/0194.Transpose%20File/README.md)
+
 ## Description
 <p>Given a text file <code>file.txt</code>, transpose its content.</p>
 

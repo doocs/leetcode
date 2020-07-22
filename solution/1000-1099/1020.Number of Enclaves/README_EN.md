@@ -1,5 +1,7 @@
 # [1020. Number of Enclaves](https://leetcode.com/problems/number-of-enclaves)
 
+[中文文档](/solution/1000-1099/1020.Number%20of%20Enclaves/README.md)
+
 ## Description
 <p>Given a 2D array <code>A</code>, each cell is 0 (representing sea) or 1 (representing land)</p>
 

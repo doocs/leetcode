@@ -1,5 +1,7 @@
 # [672. Bulb Switcher II](https://leetcode.com/problems/bulb-switcher-ii)
 
+[中文文档](/solution/0600-0699/0672.Bulb%20Switcher%20II/README.md)
+
 ## Description
 <p>There is a room with <code>n</code> lights which are turned on initially and 4 buttons on the wall. After performing exactly <code>m</code> unknown operations towards buttons, you need to return how many different kinds of status of the <code>n</code> lights could be.</p>
 

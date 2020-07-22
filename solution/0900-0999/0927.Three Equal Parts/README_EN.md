@@ -1,5 +1,7 @@
 # [927. Three Equal Parts](https://leetcode.com/problems/three-equal-parts)
 
+[中文文档](/solution/0900-0999/0927.Three%20Equal%20Parts/README.md)
+
 ## Description
 <p>Given an array <code>A</code> of <code>0</code>s and <code>1</code>s, divide the array into 3 non-empty parts such that all of these parts represent the same binary value.</p>
 

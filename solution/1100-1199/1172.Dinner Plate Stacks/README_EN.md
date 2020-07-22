@@ -1,5 +1,7 @@
 # [1172. Dinner Plate Stacks](https://leetcode.com/problems/dinner-plate-stacks)
 
+[中文文档](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md)
+
 ## Description
 <p>You have an infinite number of stacks arranged in a row and numbered (left to right) from 0, each of the stacks has the same&nbsp;maximum <code>capacity</code>.</p>
 

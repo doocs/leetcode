@@ -1,5 +1,7 @@
 # [1331. Rank Transform of an Array](https://leetcode.com/problems/rank-transform-of-an-array)
 
+[中文文档](/solution/1300-1399/1331.Rank%20Transform%20of%20an%20Array/README.md)
+
 ## Description
 <p>Given an array of integers&nbsp;<code>arr</code>, replace each element with its rank.</p>
 

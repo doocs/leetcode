@@ -1,5 +1,7 @@
 # [796. 旋转字符串](https://leetcode-cn.com/problems/rotate-string)
 
+[English Version](/solution/0700-0799/0796.Rotate%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个字符串, <code>A</code>&nbsp;和&nbsp;<code>B</code>。</p>

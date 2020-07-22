@@ -1,5 +1,7 @@
 # [782. 变为棋盘](https://leetcode-cn.com/problems/transform-to-chessboard)
 
+[English Version](/solution/0700-0799/0782.Transform%20to%20Chessboard/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>一个 N&nbsp;x N的 <code>board</code>&nbsp;仅由&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;组成&nbsp;。每次移动，你能任意交换两列或是两行的位置。</p>

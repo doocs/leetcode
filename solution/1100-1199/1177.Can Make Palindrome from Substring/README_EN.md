@@ -1,5 +1,7 @@
 # [1177. Can Make Palindrome from Substring](https://leetcode.com/problems/can-make-palindrome-from-substring)
 
+[中文文档](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md)
+
 ## Description
 <p>Given a string <code>s</code>, we make queries on substrings of <code>s</code>.</p>
 

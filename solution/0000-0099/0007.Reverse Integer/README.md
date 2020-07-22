@@ -1,5 +1,7 @@
 # [7. 整数反转](https://leetcode-cn.com/problems/reverse-integer)
 
+[English Version](/solution/0000-0099/0007.Reverse%20Integer/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p>

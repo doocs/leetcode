@@ -1,5 +1,7 @@
 # [696. 计数二进制子串](https://leetcode-cn.com/problems/count-binary-substrings)
 
+[English Version](/solution/0600-0699/0696.Count%20Binary%20Substrings/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串&nbsp;<code>s</code>，计算具有相同数量0和1的非空(连续)子字符串的数量，并且这些子字符串中的所有0和所有1都是组合在一起的。</p>

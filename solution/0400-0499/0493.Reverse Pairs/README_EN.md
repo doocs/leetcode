@@ -1,5 +1,7 @@
 # [493. Reverse Pairs](https://leetcode.com/problems/reverse-pairs)
 
+[中文文档](/solution/0400-0499/0493.Reverse%20Pairs/README.md)
+
 ## Description
 <p>Given an array <code>nums</code>, we call <code>(i, j)</code> an <b><i>important reverse pair</i></b> if <code>i &lt; j</code> and <code>nums[i] &gt; 2*nums[j]</code>.</p>
 

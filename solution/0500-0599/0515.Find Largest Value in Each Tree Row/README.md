@@ -1,5 +1,7 @@
 # [515. 在每个树行中找最大值](https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row)
 
+[English Version](/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>您需要在二叉树的每一行中找到最大的值。</p>

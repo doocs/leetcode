@@ -1,5 +1,7 @@
 # [1329. Sort the Matrix Diagonally](https://leetcode.com/problems/sort-the-matrix-diagonally)
 
+[中文文档](/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/README.md)
+
 ## Description
 <p>Given a <code>m * n</code> matrix <code>mat</code>&nbsp;of integers, sort it diagonally in ascending order from the top-left to the bottom-right then return the sorted array.</p>
 

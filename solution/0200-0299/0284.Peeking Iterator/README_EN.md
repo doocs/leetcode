@@ -1,5 +1,7 @@
 # [284. Peeking Iterator](https://leetcode.com/problems/peeking-iterator)
 
+[中文文档](/solution/0200-0299/0284.Peeking%20Iterator/README.md)
+
 ## Description
 <p>Given an Iterator class interface with methods: <code>next()</code> and <code>hasNext()</code>, design and implement a PeekingIterator that support the <code>peek()</code> operation -- it essentially peek() at the element that will be returned by the next call to next().</p>
 

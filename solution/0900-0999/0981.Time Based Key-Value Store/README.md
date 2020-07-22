@@ -1,5 +1,7 @@
 # [981. 基于时间的键值存储](https://leetcode-cn.com/problems/time-based-key-value-store)
 
+[English Version](/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>创建一个基于时间的键值存储类&nbsp;<code>TimeMap</code>，它支持下面两个操作：</p>

@@ -1,5 +1,7 @@
 # [1221. 分割平衡字符串](https://leetcode-cn.com/problems/split-a-string-in-balanced-strings)
 
+[English Version](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个「平衡字符串」中，&#39;L&#39; 和 &#39;R&#39; 字符的数量是相同的。</p>

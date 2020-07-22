@@ -1,5 +1,7 @@
 # [414. Third Maximum Number](https://leetcode.com/problems/third-maximum-number)
 
+[中文文档](/solution/0400-0499/0414.Third%20Maximum%20Number/README.md)
+
 ## Description
 <p>Given a <b>non-empty</b> array of integers, return the <b>third</b> maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).</p>
 

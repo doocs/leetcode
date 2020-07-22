@@ -1,5 +1,7 @@
 # [287. 寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number)
 
+[English Version](/solution/0200-0299/0287.Find%20the%20Duplicate%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个包含&nbsp;<em>n</em> + 1 个整数的数组&nbsp;<em>nums</em>，其数字都在 1 到 <em>n&nbsp;</em>之间（包括 1 和 <em>n</em>），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。</p>

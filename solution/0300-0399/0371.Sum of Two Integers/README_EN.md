@@ -1,5 +1,7 @@
 # [371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers)
 
+[中文文档](/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README.md)
+
 ## Description
 <p>Calculate the sum of two integers <i>a</i> and <i>b</i>, but you are <b>not allowed</b> to use the operator <code>+</code> and <code>-</code>.</p>
 

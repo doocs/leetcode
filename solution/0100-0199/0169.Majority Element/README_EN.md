@@ -1,5 +1,7 @@
 # [169. Majority Element](https://leetcode.com/problems/majority-element)
 
+[中文文档](/solution/0100-0199/0169.Majority%20Element/README.md)
+
 ## Description
 <p>Given an array of size <i>n</i>, find the majority element. The majority element is the element that appears <b>more than</b> <code>&lfloor; n/2 &rfloor;</code> times.</p>
 

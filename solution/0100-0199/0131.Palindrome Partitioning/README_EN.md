@@ -1,5 +1,7 @@
 # [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning)
 
+[中文文档](/solution/0100-0199/0131.Palindrome%20Partitioning/README.md)
+
 ## Description
 <p>Given a string <em>s</em>, partition <em>s</em> such that every substring of the partition is a palindrome.</p>
 

@@ -1,5 +1,7 @@
 # [688. “马”在棋盘上的概率](https://leetcode-cn.com/problems/knight-probability-in-chessboard)
 
+[English Version](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>已知一个&nbsp;<code>N</code>x<code>N</code>&nbsp;的国际象棋棋盘，棋盘的行号和列号都是从 0 开始。即最左上角的格子记为&nbsp;<code>(0, 0)</code>，最右下角的记为&nbsp;<code>(N-1, N-1)</code>。&nbsp;</p>

@@ -1,5 +1,7 @@
 # [1090. Largest Values From Labels](https://leetcode.com/problems/largest-values-from-labels)
 
+[中文文档](/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README.md)
+
 ## Description
 <p>We have a set of items: the <code>i</code>-th item has value <code>values[i]</code> and label <code>labels[i]</code>.</p>
 

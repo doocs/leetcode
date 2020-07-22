@@ -1,5 +1,7 @@
 # [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum)
 
+[English Version](/solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个包含非负整数的 <em>m</em>&nbsp;x&nbsp;<em>n</em>&nbsp;网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>

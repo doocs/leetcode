@@ -1,5 +1,7 @@
 # [787. Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops)
 
+[中文文档](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README.md)
+
 ## Description
 <p>There are <code>n</code> cities connected by&nbsp;<code>m</code> flights. Each flight starts from city&nbsp;<code>u </code>and arrives at&nbsp;<code>v</code> with a price <code>w</code>.</p>
 

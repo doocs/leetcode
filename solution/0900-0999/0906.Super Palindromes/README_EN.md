@@ -1,5 +1,7 @@
 # [906. Super Palindromes](https://leetcode.com/problems/super-palindromes)
 
+[中文文档](/solution/0900-0999/0906.Super%20Palindromes/README.md)
+
 ## Description
 <p>Let&#39;s say a positive integer is a&nbsp;<em>superpalindrome</em>&nbsp;if it is a palindrome, and it is also the square of a palindrome.</p>
 

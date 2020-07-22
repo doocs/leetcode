@@ -1,5 +1,7 @@
 # [1261. Find Elements in a Contaminated Binary Tree](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree)
 
+[中文文档](/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README.md)
+
 ## Description
 <p>Given a&nbsp;binary tree with the following rules:</p>
 

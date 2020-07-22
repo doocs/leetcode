@@ -1,5 +1,7 @@
 # [709. To Lower Case](https://leetcode.com/problems/to-lower-case)
 
+[中文文档](/solution/0700-0799/0709.To%20Lower%20Case/README.md)
+
 ## Description
 <p>Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.</p>
 

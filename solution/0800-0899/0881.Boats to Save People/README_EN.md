@@ -1,5 +1,7 @@
 # [881. Boats to Save People](https://leetcode.com/problems/boats-to-save-people)
 
+[中文文档](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)
+
 ## Description
 <p>The <code>i</code>-th person has weight <code>people[i]</code>, and each boat can carry a maximum weight of <code>limit</code>.</p>
 

@@ -1,5 +1,7 @@
 # [172. 阶乘后的零](https://leetcode-cn.com/problems/factorial-trailing-zeroes)
 
+[English Version](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数 <em>n</em>，返回 <em>n</em>! 结果尾数中零的数量。</p>

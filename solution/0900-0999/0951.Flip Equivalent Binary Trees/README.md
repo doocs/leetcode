@@ -1,5 +1,7 @@
 # [951. 翻转等价二叉树](https://leetcode-cn.com/problems/flip-equivalent-binary-trees)
 
+[English Version](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>我们可以为二叉树 T 定义一个翻转操作，如下所示：选择任意节点，然后交换它的左子树和右子树。</p>

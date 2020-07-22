@@ -1,5 +1,7 @@
 # [326. 3的幂](https://leetcode-cn.com/problems/power-of-three)
 
+[English Version](/solution/0300-0399/0326.Power%20of%20Three/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数，写一个函数来判断它是否是 3&nbsp;的幂次方。</p>

@@ -1,5 +1,7 @@
 # [780. 到达终点](https://leetcode-cn.com/problems/reaching-points)
 
+[English Version](/solution/0700-0799/0780.Reaching%20Points/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>从点&nbsp;<code>(x, y)</code>&nbsp;可以<strong>转换</strong>到&nbsp;<code>(x, x+y)</code>&nbsp; 或者&nbsp;<code>(x+y, y)</code>。</p>

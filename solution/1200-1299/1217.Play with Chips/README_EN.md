@@ -1,5 +1,7 @@
 # [1217. Play with Chips](https://leetcode.com/problems/play-with-chips)
 
+[中文文档](/solution/1200-1299/1217.Play%20with%20Chips/README.md)
+
 ## Description
 <p>There are some chips, and the i-th chip is at position <code>chips[i]</code>.</p>
 

@@ -1,5 +1,7 @@
 # [1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings)
 
+[中文文档](/solution/1100-1199/1109.Corporate%20Flight%20Bookings/README.md)
+
 ## Description
 <p>There are <code>n</code> flights, and they are labeled&nbsp;from <code>1</code> to <code>n</code>.</p>
 

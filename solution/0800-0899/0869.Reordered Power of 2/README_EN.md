@@ -1,5 +1,7 @@
 # [869. Reordered Power of 2](https://leetcode.com/problems/reordered-power-of-2)
 
+[中文文档](/solution/0800-0899/0869.Reordered%20Power%20of%202/README.md)
+
 ## Description
 <p>Starting with a positive integer <code>N</code>, we reorder the digits in any order (including the original order) such that the leading digit is not zero.</p>
 

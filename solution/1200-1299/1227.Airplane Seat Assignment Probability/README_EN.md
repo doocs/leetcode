@@ -1,5 +1,7 @@
 # [1227. Airplane Seat Assignment Probability](https://leetcode.com/problems/airplane-seat-assignment-probability)
 
+[中文文档](/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README.md)
+
 ## Description
 <p><code data-stringify-type="code">n</code>&nbsp;passengers board an airplane with exactly&nbsp;<code data-stringify-type="code">n</code>&nbsp;seats. The first passenger has lost the ticket and picks a seat randomly. But after that, the rest of passengers will:</p>
 

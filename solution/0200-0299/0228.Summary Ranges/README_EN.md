@@ -1,5 +1,7 @@
 # [228. Summary Ranges](https://leetcode.com/problems/summary-ranges)
 
+[中文文档](/solution/0200-0299/0228.Summary%20Ranges/README.md)
+
 ## Description
 <p>Given a sorted integer array without duplicates, return the summary of its ranges.</p>
 

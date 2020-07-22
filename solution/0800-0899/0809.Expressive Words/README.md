@@ -1,5 +1,7 @@
 # [809. 情感丰富的文字](https://leetcode-cn.com/problems/expressive-words)
 
+[English Version](/solution/0800-0899/0809.Expressive%20Words/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有时候人们会用重复写一些字母来表示额外的感受，比如 <code>&quot;hello&quot; -&gt; &quot;heeellooo&quot;</code>, <code>&quot;hi&quot; -&gt; &quot;hiii&quot;</code>。我们将相邻字母都相同的一串字符定义为相同字母组，例如：&quot;h&quot;, &quot;eee&quot;, &quot;ll&quot;, &quot;ooo&quot;。</p>

@@ -1,5 +1,7 @@
 # [1276. Number of Burgers with No Waste of Ingredients](https://leetcode.com/problems/number-of-burgers-with-no-waste-of-ingredients)
 
+[中文文档](/solution/1200-1299/1276.Number%20of%20Burgers%20with%20No%20Waste%20of%20Ingredients/README.md)
+
 ## Description
 <p>Given two integers <code>tomatoSlices</code>&nbsp;and <code>cheeseSlices</code>. The ingredients of different burgers are as follows:</p>
 

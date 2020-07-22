@@ -1,5 +1,7 @@
 # [365. Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem)
 
+[中文文档](/solution/0300-0399/0365.Water%20and%20Jug%20Problem/README.md)
+
 ## Description
 <p>You are given two jugs with capacities <i>x</i> and <i>y</i> litres. There is an infinite amount of water supply available. You need to determine whether it is possible to measure exactly <i>z</i> litres using these two jugs.</p>
 

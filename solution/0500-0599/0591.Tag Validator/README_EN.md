@@ -1,5 +1,7 @@
 # [591. Tag Validator](https://leetcode.com/problems/tag-validator)
 
+[中文文档](/solution/0500-0599/0591.Tag%20Validator/README.md)
+
 ## Description
 <p>Given a string representing a code snippet, you need to implement a tag validator to parse the code and return whether it is valid. A code snippet is valid if all the following rules hold:<p>
 

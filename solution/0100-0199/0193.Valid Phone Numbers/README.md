@@ -1,5 +1,7 @@
 # [193. 有效电话号码](https://leetcode-cn.com/problems/valid-phone-numbers)
 
+[English Version](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个包含电话号码列表（一行一个电话号码）的文本文件 <code>file.txt</code>，写一个 bash 脚本输出所有有效的电话号码。</p>

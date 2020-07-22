@@ -1,5 +1,7 @@
 # [8. 字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi)
 
+[English Version](/solution/0000-0099/0008.String%20to%20Integer%20(atoi)/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>请你来实现一个&nbsp;<code>atoi</code>&nbsp;函数，使其能将字符串转换成整数。</p>

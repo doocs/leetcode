@@ -1,5 +1,7 @@
 # [805. 数组的均值分割](https://leetcode-cn.com/problems/split-array-with-same-average)
 
+[English Version](/solution/0800-0899/0805.Split%20Array%20With%20Same%20Average/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定的整数数组 A ，我们要将 A数组 中的每个元素移动到 B数组 或者 C数组中。（B数组和C数组在开始的时候都为空）</p>

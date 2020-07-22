@@ -1,5 +1,7 @@
 # [784. 字母大小写全排列](https://leetcode-cn.com/problems/letter-case-permutation)
 
+[English Version](/solution/0700-0799/0784.Letter%20Case%20Permutation/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串<code>S</code>，通过将字符串<code>S</code>中的每个字母转变大小写，我们可以获得一个新的字符串。返回所有可能得到的字符串集合。</p>

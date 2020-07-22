@@ -1,5 +1,7 @@
 # [741. Cherry Pickup](https://leetcode.com/problems/cherry-pickup)
 
+[中文文档](/solution/0700-0799/0741.Cherry%20Pickup/README.md)
+
 ## Description
 <p>In a N x N <code>grid</code> representing a field of cherries, each cell is one of three possible integers.</p>
 

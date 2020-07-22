@@ -1,5 +1,7 @@
 # [757. 设置交集大小至少为2](https://leetcode-cn.com/problems/set-intersection-size-at-least-two)
 
+[English Version](/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>一个整数区间&nbsp;<code>[a, b]</code>&nbsp;&nbsp;(&nbsp;<code>a &lt; b</code>&nbsp;) 代表着从&nbsp;<code>a</code>&nbsp;到&nbsp;<code>b</code>&nbsp;的所有连续整数，包括&nbsp;<code>a</code>&nbsp;和&nbsp;<code>b</code>。</p>

@@ -1,5 +1,7 @@
 # [338. Counting Bits](https://leetcode.com/problems/counting-bits)
 
+[中文文档](/solution/0300-0399/0338.Counting%20Bits/README.md)
+
 ## Description
 <p>Given a non negative integer number <b>num</b>. For every numbers <b>i</b> in the range <b>0 &le; i &le; num</b> calculate the number of 1&#39;s in their binary representation and return them as an array.</p>
 

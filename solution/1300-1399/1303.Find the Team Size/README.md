@@ -1,5 +1,7 @@
 # [1303. 求团队人数](https://leetcode-cn.com/problems/find-the-team-size)
 
+[English Version](/solution/1300-1399/1303.Find%20the%20Team%20Size/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

@@ -1,5 +1,7 @@
 # [1176. 健身计划评估](https://leetcode-cn.com/problems/diet-plan-performance)
 
+[English Version](/solution/1100-1199/1176.Diet%20Plan%20Performance/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

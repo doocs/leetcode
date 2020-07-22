@@ -1,5 +1,7 @@
 # [826. Most Profit Assigning Work](https://leetcode.com/problems/most-profit-assigning-work)
 
+[中文文档](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README.md)
+
 ## Description
 <p>We have jobs: <code>difficulty[i]</code>&nbsp;is the difficulty of the&nbsp;<code>i</code>th job, and&nbsp;<code>profit[i]</code>&nbsp;is the profit of the&nbsp;<code>i</code>th job.&nbsp;</p>
 

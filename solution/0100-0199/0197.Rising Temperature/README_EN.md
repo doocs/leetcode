@@ -1,5 +1,7 @@
 # [197. Rising Temperature](https://leetcode.com/problems/rising-temperature)
 
+[中文文档](/solution/0100-0199/0197.Rising%20Temperature/README.md)
+
 ## Description
 <p>Given a <code>Weather</code> table, write a SQL query to find all dates&#39; Ids with higher temperature compared to its previous (yesterday&#39;s) dates.</p>
 

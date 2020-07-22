@@ -1,5 +1,7 @@
 # [1116. 打印零与奇偶数](https://leetcode-cn.com/problems/print-zero-even-odd)
 
+[English Version](/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>假设有这么一个类：</p>

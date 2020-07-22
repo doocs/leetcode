@@ -1,5 +1,7 @@
 # [802. Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states)
 
+[中文文档](/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README.md)
+
 ## Description
 <p>In a directed graph, we start at some node and every turn, walk along a directed edge of the graph.&nbsp; If we reach a node that is terminal (that is, it has no outgoing directed edges), we stop.</p>
 

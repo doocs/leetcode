@@ -1,5 +1,7 @@
 # [959. Regions Cut By Slashes](https://leetcode.com/problems/regions-cut-by-slashes)
 
+[中文文档](/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/README.md)
+
 ## Description
 <p>In a N x N&nbsp;<code>grid</code> composed of 1 x 1 squares, each 1 x 1 square consists of a <code>/</code>, <code>\</code>, or blank space.&nbsp; These characters divide the square into contiguous regions.</p>
 

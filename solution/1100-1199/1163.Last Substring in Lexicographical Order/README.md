@@ -1,5 +1,7 @@
 # [1163. 按字典序排在最后的子串](https://leetcode-cn.com/problems/last-substring-in-lexicographical-order)
 
+[English Version](/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个字符串&nbsp;<code>s</code>，找出它的所有子串并按字典序排列，返回排在最后的那个子串。</p>

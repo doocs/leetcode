@@ -1,5 +1,7 @@
 # [998. Maximum Binary Tree II](https://leetcode.com/problems/maximum-binary-tree-ii)
 
+[中文文档](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README.md)
+
 ## Description
 <p>We are given the <code>root</code>&nbsp;node of a <em>maximum tree:</em> a tree where every node has a value greater than any other value in its subtree.</p>
 

@@ -1,5 +1,7 @@
 # [558. 四叉树交集](https://leetcode-cn.com/problems/logical-or-of-two-binary-grids-represented-as-quad-trees)
 
+[English Version](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>四叉树是一种树数据，其中每个结点恰好有四个子结点：<code>topLeft</code>、<code>topRight</code>、<code>bottomLeft</code>&nbsp;和&nbsp;<code>bottomRight</code>。四叉树通常被用来划分一个二维空间，递归地将其细分为四个象限或区域。</p>

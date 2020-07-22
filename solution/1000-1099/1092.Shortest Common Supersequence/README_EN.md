@@ -1,5 +1,7 @@
 # [1092. Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence)
 
+[中文文档](/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README.md)
+
 ## Description
 <p>Given two strings <code>str1</code> and <code>str2</code>,&nbsp;return the shortest string that has both <code>str1</code>&nbsp;and <code>str2</code>&nbsp;as subsequences.&nbsp;&nbsp;If multiple answers exist, you may return any of them.</p>
 

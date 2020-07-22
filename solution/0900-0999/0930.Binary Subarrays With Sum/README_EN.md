@@ -1,5 +1,7 @@
 # [930. Binary Subarrays With Sum](https://leetcode.com/problems/binary-subarrays-with-sum)
 
+[中文文档](/solution/0900-0999/0930.Binary%20Subarrays%20With%20Sum/README.md)
+
 ## Description
 <p>In an array <code>A</code> of <code>0</code>s and <code>1</code>s, how many <strong>non-empty</strong> subarrays have sum <code>S</code>?</p>
 

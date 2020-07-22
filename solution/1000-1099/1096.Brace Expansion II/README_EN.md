@@ -1,5 +1,7 @@
 # [1096. Brace Expansion II](https://leetcode.com/problems/brace-expansion-ii)
 
+[中文文档](/solution/1000-1099/1096.Brace%20Expansion%20II/README.md)
+
 ## Description
 Under a grammar given below, strings can represent a set of lowercase words.  Let's use `R(expr)` to denote the set of words the expression represents.
 

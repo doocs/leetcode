@@ -1,5 +1,7 @@
 # [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree)
 
+[中文文档](/solution/0200-0299/0208.Implement%20Trie%20(Prefix%20Tree)/README.md)
+
 ## Description
 <p>Implement a trie with <code>insert</code>, <code>search</code>, and <code>startsWith</code> methods.</p>
 

@@ -1,5 +1,7 @@
 # [811. Subdomain Visit Count](https://leetcode.com/problems/subdomain-visit-count)
 
+[中文文档](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README.md)
+
 ## Description
 <p>A website domain like &quot;discuss.leetcode.com&quot; consists of various subdomains. At the top level, we have &quot;com&quot;, at the next level, we have &quot;leetcode.com&quot;, and at the lowest level, &quot;discuss.leetcode.com&quot;. When we visit a domain like &quot;discuss.leetcode.com&quot;, we will also visit the parent domains &quot;leetcode.com&quot; and &quot;com&quot; implicitly.</p>
 

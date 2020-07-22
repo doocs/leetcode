@@ -1,5 +1,7 @@
 # [968. 监控二叉树](https://leetcode-cn.com/problems/binary-tree-cameras)
 
+[English Version](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二叉树，我们在树的节点上安装摄像头。</p>

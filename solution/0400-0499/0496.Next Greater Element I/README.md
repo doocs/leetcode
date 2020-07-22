@@ -1,5 +1,7 @@
 # [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i)
 
+[English Version](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个<strong>没有重复元素</strong>的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;，其中<code>nums1</code>&nbsp;是&nbsp;<code>nums2</code>&nbsp;的子集。找到&nbsp;<code>nums1</code>&nbsp;中每个元素在&nbsp;<code>nums2</code>&nbsp;中的下一个比其大的值。</p>

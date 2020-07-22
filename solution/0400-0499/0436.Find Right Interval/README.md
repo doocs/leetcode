@@ -1,5 +1,7 @@
 # [436. 寻找右区间](https://leetcode-cn.com/problems/find-right-interval)
 
+[English Version](/solution/0400-0499/0436.Find%20Right%20Interval/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一组区间，对于每一个区间 i，检查是否存在一个区间 j，它的起始点大于或等于区间&nbsp;i 的终点，这可以称为 j 在 i 的&ldquo;右侧&rdquo;。</p>

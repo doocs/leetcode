@@ -1,5 +1,7 @@
 # [636. 函数的独占时间](https://leetcode-cn.com/problems/exclusive-time-of-functions)
 
+[English Version](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一个非抢占单线程CPU的 <strong>n </strong>个函数运行日志，找到函数的独占时间。</p>

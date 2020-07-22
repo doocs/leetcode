@@ -1,5 +1,7 @@
 # [1016. 子串能表示从 1 到 N 数字的二进制串](https://leetcode-cn.com/problems/binary-string-with-substrings-representing-1-to-n)
 
+[English Version](/solution/1000-1099/1016.Binary%20String%20With%20Substrings%20Representing%201%20To%20N/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个二进制字符串&nbsp;<code>S</code>（一个仅由若干&nbsp;&#39;0&#39; 和 &#39;1&#39; 构成的字符串）和一个正整数&nbsp;<code>N</code>，如果对于从 <code>1</code> 到 <code>N</code> 的每个整数 <code>X</code>，其二进制表示都是&nbsp;<code>S</code> 的子串，就返回 <code>true</code>，否则返回 <code>false</code>。</p>

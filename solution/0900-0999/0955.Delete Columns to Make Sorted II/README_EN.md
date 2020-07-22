@@ -1,5 +1,7 @@
 # [955. Delete Columns to Make Sorted II](https://leetcode.com/problems/delete-columns-to-make-sorted-ii)
 
+[中文文档](/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README.md)
+
 ## Description
 <p>We are given an array&nbsp;<code>A</code> of <code>N</code> lowercase letter strings, all of the same length.</p>
 

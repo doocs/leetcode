@@ -1,5 +1,7 @@
 # [726. 原子的数量](https://leetcode-cn.com/problems/number-of-atoms)
 
+[English Version](/solution/0700-0799/0726.Number%20of%20Atoms/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个化学式<code>formula</code>（作为字符串），返回每种原子的数量。</p>

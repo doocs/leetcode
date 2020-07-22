@@ -1,5 +1,7 @@
 # [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures)
 
+[English Version](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>根据每日 <code>气温</code> 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高超过该日的天数。如果之后都不会升高，请在该位置用&nbsp;<code>0</code> 来代替。</p>

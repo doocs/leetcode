@@ -1,5 +1,7 @@
 # [516. 最长回文子序列](https://leetcode-cn.com/problems/longest-palindromic-subsequence)
 
+[English Version](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个字符串<code>s</code>，找到其中最长的回文子序列。可以假设<code>s</code>的最大长度为<code>1000</code>。</p>

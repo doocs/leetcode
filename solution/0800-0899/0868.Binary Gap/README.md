@@ -1,5 +1,7 @@
 # [868. 二进制间距](https://leetcode-cn.com/problems/binary-gap)
 
+[English Version](/solution/0800-0899/0868.Binary%20Gap/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个正整数&nbsp;<code>N</code>，找到并返回 <code>N</code>&nbsp;的二进制表示中两个连续的 1 之间的最长距离。&nbsp;</p>

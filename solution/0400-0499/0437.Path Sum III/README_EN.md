@@ -1,5 +1,7 @@
 # [437. Path Sum III](https://leetcode.com/problems/path-sum-iii)
 
+[中文文档](/solution/0400-0499/0437.Path%20Sum%20III/README.md)
+
 ## Description
 <p>You are given a binary tree in which each node contains an integer value.</p>
 

@@ -1,5 +1,7 @@
 # [28. Implement strStr()](https://leetcode.com/problems/implement-strstr)
 
+[中文文档](/solution/0000-0099/0028.Implement%20strStr()/README.md)
+
 ## Description
 <p>Implement <a href="http://www.cplusplus.com/reference/cstring/strstr/" target="_blank">strStr()</a>.</p>
 

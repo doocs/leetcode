@@ -1,5 +1,7 @@
 # [1206. 设计跳表](https://leetcode-cn.com/problems/design-skiplist)
 
+[English Version](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>不使用任何库函数，设计一个跳表。</p>

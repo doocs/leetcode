@@ -1,5 +1,7 @@
 # [1082. 销售分析 I](https://leetcode-cn.com/problems/sales-analysis-i)
 
+[English Version](/solution/1000-1099/1082.Sales%20Analysis%20I/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

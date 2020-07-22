@@ -1,5 +1,7 @@
 # [992. Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers)
 
+[中文文档](/solution/0900-0999/0992.Subarrays%20with%20K%20Different%20Integers/README.md)
+
 ## Description
 <p>Given an array <code>A</code> of positive integers, call a (contiguous, not necessarily distinct) subarray of <code>A</code> <em>good</em> if the number of different integers in that subarray is exactly <code>K</code>.</p>
 

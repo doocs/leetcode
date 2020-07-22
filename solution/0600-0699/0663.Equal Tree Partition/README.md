@@ -1,5 +1,7 @@
 # [663. 均匀树划分](https://leetcode-cn.com/problems/equal-tree-partition)
 
+[English Version](/solution/0600-0699/0663.Equal%20Tree%20Partition/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

@@ -1,5 +1,7 @@
 # [1029. Two City Scheduling](https://leetcode.com/problems/two-city-scheduling)
 
+[中文文档](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)
+
 ## Description
 <p>There are <code>2N</code> people a company is planning to interview. The cost of flying the <code>i</code>-th person to city <code>A</code> is <code>costs[i][0]</code>, and the cost of flying the <code>i</code>-th person to city <code>B</code> is <code>costs[i][1]</code>.</p>
 

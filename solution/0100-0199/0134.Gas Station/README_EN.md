@@ -1,5 +1,7 @@
 # [134. Gas Station](https://leetcode.com/problems/gas-station)
 
+[中文文档](/solution/0100-0199/0134.Gas%20Station/README.md)
+
 ## Description
 <p>There are <em>N</em> gas stations along a circular route, where the amount of gas at station <em>i</em> is <code>gas[i]</code>.</p>
 

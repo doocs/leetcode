@@ -1,5 +1,7 @@
 # [697. Degree of an Array](https://leetcode.com/problems/degree-of-an-array)
 
+[中文文档](/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md)
+
 ## Description
 <p>Given a non-empty array of non-negative integers <code>nums</code>, the <b>degree</b> of this array is defined as the maximum frequency of any one of its elements.</p>
 

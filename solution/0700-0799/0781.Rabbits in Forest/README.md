@@ -1,5 +1,7 @@
 # [781. 森林中的兔子](https://leetcode-cn.com/problems/rabbits-in-forest)
 
+[English Version](/solution/0700-0799/0781.Rabbits%20in%20Forest/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>森林中，每个兔子都有颜色。其中一些兔子（可能是全部）告诉你还有多少其他的兔子和自己有相同的颜色。我们将这些回答放在&nbsp;<code>answers</code>&nbsp;数组里。</p>

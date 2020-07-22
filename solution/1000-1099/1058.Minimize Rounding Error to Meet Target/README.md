@@ -1,5 +1,7 @@
 # [1058. 最小化舍入误差以满足目标](https://leetcode-cn.com/problems/minimize-rounding-error-to-meet-target)
 
+[English Version](/solution/1000-1099/1058.Minimize%20Rounding%20Error%20to%20Meet%20Target/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

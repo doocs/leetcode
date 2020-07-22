@@ -1,5 +1,7 @@
 # [893. Groups of Special-Equivalent Strings](https://leetcode.com/problems/groups-of-special-equivalent-strings)
 
+[中文文档](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)
+
 ## Description
 <p>You are given an array <code>A</code> of strings.</p>
 

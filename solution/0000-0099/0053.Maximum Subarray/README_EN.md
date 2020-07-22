@@ -1,5 +1,7 @@
 # [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray)
 
+[中文文档](/solution/0000-0099/0053.Maximum%20Subarray/README.md)
+
 ## Description
 <p>Given an integer array <code>nums</code>, find the contiguous subarray&nbsp;(containing at least one number) which has the largest sum and return its sum.</p>
 

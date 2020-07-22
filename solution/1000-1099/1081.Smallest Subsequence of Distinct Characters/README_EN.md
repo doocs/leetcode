@@ -1,5 +1,7 @@
 # [1081. Smallest Subsequence of Distinct Characters](https://leetcode.com/problems/smallest-subsequence-of-distinct-characters)
 
+[中文文档](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README.md)
+
 ## Description
 <p>Return the lexicographically smallest subsequence of <code>text</code> that contains all the distinct characters of <code>text</code> exactly once.</p>
 

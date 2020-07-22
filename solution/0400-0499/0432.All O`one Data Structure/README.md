@@ -1,5 +1,7 @@
 # [432. 全 O(1) 的数据结构](https://leetcode-cn.com/problems/all-oone-data-structure)
 
+[English Version](/solution/0400-0499/0432.All%20O`one%20Data%20Structure/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现一个数据结构支持以下操作：</p>

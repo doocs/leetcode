@@ -1,5 +1,7 @@
 # [1095. Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array)
 
+[中文文档](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md)
+
 ## Description
 <p><em>(This problem is an&nbsp;<strong>interactive problem</strong>.)</em></p>
 

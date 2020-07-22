@@ -1,5 +1,7 @@
 # [709. 转换成小写字母](https://leetcode-cn.com/problems/to-lower-case)
 
+[English Version](/solution/0700-0799/0709.To%20Lower%20Case/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现函数 ToLowerCase()，该函数接收一个字符串参数 str，并将该字符串中的大写字母转换成小写字母，之后返回新的字符串。</p>

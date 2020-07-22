@@ -1,5 +1,7 @@
 # [466. 统计重复个数](https://leetcode-cn.com/problems/count-the-repetitions)
 
+[English Version](/solution/0400-0499/0466.Count%20The%20Repetitions/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>定义由 n 个连接的字符串 s 组成字符串 S，即&nbsp;<code>S = [s,n]</code>。例如，<code>[&quot;abc&quot;, 3]</code>=&ldquo;abcabcabc&rdquo;。</p>

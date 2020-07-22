@@ -1,5 +1,7 @@
 # [397. 整数替换](https://leetcode-cn.com/problems/integer-replacement)
 
+[English Version](/solution/0300-0399/0397.Integer%20Replacement/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个正整数&nbsp;<em>n</em>，你可以做如下操作：</p>

@@ -1,5 +1,7 @@
 # [566. Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix)
 
+[中文文档](/solution/0500-0599/0566.Reshape%20the%20Matrix/README.md)
+
 ## Description
 <p>In MATLAB, there is a very useful function called 'reshape', which can reshape a matrix into a new one with different size but keep its original data.
 

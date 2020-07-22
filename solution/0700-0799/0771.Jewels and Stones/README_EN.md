@@ -1,5 +1,7 @@
 # [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)
 
+[中文文档](/solution/0700-0799/0771.Jewels%20and%20Stones/README.md)
+
 ## Description
 <p>You&#39;re given strings <code>J</code> representing the types of stones that are jewels, and <code>S</code> representing the stones you have.&nbsp; Each character in <code>S</code> is a type of stone you have.&nbsp; You want to know how many of the stones you have are also jewels.</p>
 

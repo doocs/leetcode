@@ -1,5 +1,7 @@
 # [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii)
 
+[English Version](/solution/0600-0699/0680.Valid%20Palindrome%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个非空字符串&nbsp;<code>s</code>，<strong>最多</strong>删除一个字符。判断是否能成为回文字符串。</p>

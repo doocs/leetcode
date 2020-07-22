@@ -1,5 +1,7 @@
 # [239. 滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum)
 
+[English Version](/solution/0200-0299/0239.Sliding%20Window%20Maximum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个数组 <em>nums</em>，有一个大小为&nbsp;<em>k&nbsp;</em>的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 <em>k</em>&nbsp;个数字。滑动窗口每次只向右移动一位。</p>

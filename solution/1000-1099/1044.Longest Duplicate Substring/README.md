@@ -1,5 +1,7 @@
 # [1044. 最长重复子串](https://leetcode-cn.com/problems/longest-duplicate-substring)
 
+[English Version](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一个字符串&nbsp;<code>S</code>，考虑其所有<strong>重复子串</strong>（<code>S</code> 的连续子串，出现两次或多次，可能会有重叠）。</p>

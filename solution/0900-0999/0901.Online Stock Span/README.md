@@ -1,5 +1,7 @@
 # [901. 股票价格跨度](https://leetcode-cn.com/problems/online-stock-span)
 
+[English Version](/solution/0900-0999/0901.Online%20Stock%20Span/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个 <code>StockSpanner</code> 类，它收集某些股票的每日报价，并返回该股票当日价格的跨度。</p>

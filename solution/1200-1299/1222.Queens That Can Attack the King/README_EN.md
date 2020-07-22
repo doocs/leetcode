@@ -1,5 +1,7 @@
 # [1222. Queens That Can Attack the King](https://leetcode.com/problems/queens-that-can-attack-the-king)
 
+[中文文档](/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README.md)
+
 ## Description
 <p>On an <strong>8x8</strong> chessboard, there can be multiple Black Queens and one White King.</p>
 

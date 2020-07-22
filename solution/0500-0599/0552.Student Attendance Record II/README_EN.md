@@ -1,5 +1,7 @@
 # [552. Student Attendance Record II](https://leetcode.com/problems/student-attendance-record-ii)
 
+[中文文档](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README.md)
+
 ## Description
 <p>Given a positive integer <b>n</b>, return the number of all possible attendance records with length n, which will be regarded as rewardable. The answer may be very large, return it after mod 10<sup>9</sup> + 7.</p>
 

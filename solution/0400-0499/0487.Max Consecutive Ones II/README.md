@@ -1,5 +1,7 @@
 # [487. 最大连续1的个数 II](https://leetcode-cn.com/problems/max-consecutive-ones-ii)
 
+[English Version](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

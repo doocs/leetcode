@@ -1,5 +1,7 @@
 # [51. N-Queens](https://leetcode.com/problems/n-queens)
 
+[中文文档](/solution/0000-0099/0051.N-Queens/README.md)
+
 ## Description
 <p>The <em>n</em>-queens puzzle is the problem of placing <em>n</em> queens on an <em>n</em>&times;<em>n</em> chessboard such that no two queens attack each other.</p>
 

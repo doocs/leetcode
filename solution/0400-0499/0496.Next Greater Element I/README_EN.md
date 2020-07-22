@@ -1,5 +1,7 @@
 # [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i)
 
+[中文文档](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md)
+
 ## Description
 <p>
 

@@ -1,5 +1,7 @@
 # [532. 数组中的K-diff数对](https://leetcode-cn.com/problems/k-diff-pairs-in-an-array)
 
+[English Version](/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组和一个整数&nbsp;<strong>k</strong>, 你需要在数组里找到<strong>不同的&nbsp;</strong>k-diff 数对。这里将&nbsp;<strong>k-diff</strong>&nbsp;数对定义为一个整数对 (i, j), 其中<strong> i </strong>和<strong> j </strong>都是数组中的数字，且两数之差的绝对值是&nbsp;<strong>k</strong>.</p>

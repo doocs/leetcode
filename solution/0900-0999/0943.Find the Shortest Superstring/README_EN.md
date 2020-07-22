@@ -1,5 +1,7 @@
 # [943. Find the Shortest Superstring](https://leetcode.com/problems/find-the-shortest-superstring)
 
+[中文文档](/solution/0900-0999/0943.Find%20the%20Shortest%20Superstring/README.md)
+
 ## Description
 <p>Given an array A of strings, find any&nbsp;smallest string that contains each string in <code>A</code> as a&nbsp;substring.</p>
 

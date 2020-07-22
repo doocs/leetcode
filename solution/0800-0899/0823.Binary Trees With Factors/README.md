@@ -1,5 +1,7 @@
 # [823. 带因子的二叉树](https://leetcode-cn.com/problems/binary-trees-with-factors)
 
+[English Version](/solution/0800-0899/0823.Binary%20Trees%20With%20Factors/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出一个含有不重复整数元素的数组，每个整数均大于 1。</p>

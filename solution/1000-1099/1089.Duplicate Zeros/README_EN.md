@@ -1,5 +1,7 @@
 # [1089. Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros)
 
+[中文文档](/solution/1000-1099/1089.Duplicate%20Zeros/README.md)
+
 ## Description
 <p>Given a fixed length&nbsp;array <code>arr</code> of integers, duplicate each occurrence of zero, shifting the remaining elements to the right.</p>
 

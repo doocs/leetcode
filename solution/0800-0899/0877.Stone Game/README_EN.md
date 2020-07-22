@@ -1,5 +1,7 @@
 # [877. Stone Game](https://leetcode.com/problems/stone-game)
 
+[中文文档](/solution/0800-0899/0877.Stone%20Game/README.md)
+
 ## Description
 <p>Alex and Lee play a game with piles of stones.&nbsp; There are an even number of&nbsp;piles <strong>arranged in a row</strong>, and each pile has a positive integer number of stones <code>piles[i]</code>.</p>
 

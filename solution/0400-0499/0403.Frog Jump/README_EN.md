@@ -1,5 +1,7 @@
 # [403. Frog Jump](https://leetcode.com/problems/frog-jump)
 
+[中文文档](/solution/0400-0499/0403.Frog%20Jump/README.md)
+
 ## Description
 <p>A frog is crossing a river. The river is divided into x units and at each unit there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.</p>
 

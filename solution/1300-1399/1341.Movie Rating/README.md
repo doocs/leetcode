@@ -1,5 +1,7 @@
 # [1341. 电影评分](https://leetcode-cn.com/problems/movie-rating)
 
+[English Version](/solution/1300-1399/1341.Movie%20Rating/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

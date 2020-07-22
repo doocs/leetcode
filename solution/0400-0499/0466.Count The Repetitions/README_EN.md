@@ -1,5 +1,7 @@
 # [466. Count The Repetitions](https://leetcode.com/problems/count-the-repetitions)
 
+[中文文档](/solution/0400-0499/0466.Count%20The%20Repetitions/README.md)
+
 ## Description
 <p>Define <code>S = [s,n]</code> as the string S which consists of n connected strings s. For example, <code>["abc", 3]</code> ="abcabcabc". </p>
 

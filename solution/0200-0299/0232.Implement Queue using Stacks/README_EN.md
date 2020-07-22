@@ -1,5 +1,7 @@
 # [232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks)
 
+[中文文档](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
+
 ## Description
 <p>Implement the following operations of a queue using stacks.</p>
 

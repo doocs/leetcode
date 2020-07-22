@@ -1,5 +1,7 @@
 # [443. 压缩字符串](https://leetcode-cn.com/problems/string-compression)
 
+[English Version](/solution/0400-0499/0443.String%20Compression/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一组字符，使用<a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地算法</a>将其压缩。</p>

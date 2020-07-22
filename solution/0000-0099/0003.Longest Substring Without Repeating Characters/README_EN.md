@@ -1,5 +1,7 @@
 # [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
 
+[中文文档](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README.md)
+
 ## Description
 <p>Given a string, find the length of the <b>longest substring</b> without repeating characters.</p>
 

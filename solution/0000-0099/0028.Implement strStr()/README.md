@@ -1,5 +1,7 @@
 # [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
 
+[English Version](/solution/0000-0099/0028.Implement%20strStr()/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现&nbsp;<a href="https://baike.baidu.com/item/strstr/811469" target="_blank">strStr()</a>&nbsp;函数。</p>

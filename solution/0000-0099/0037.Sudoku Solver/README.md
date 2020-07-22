@@ -1,5 +1,7 @@
 # [37. 解数独](https://leetcode-cn.com/problems/sudoku-solver)
 
+[English Version](/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个程序，通过已填充的空格来解决数独问题。</p>

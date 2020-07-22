@@ -1,5 +1,7 @@
 # [429. N叉树的层序遍历](https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal)
 
+[English Version](/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个 N 叉树，返回其节点值的<em>层序遍历</em>。 (即从左到右，逐层遍历)。</p>

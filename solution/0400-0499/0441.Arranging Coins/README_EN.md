@@ -1,5 +1,7 @@
 # [441. Arranging Coins](https://leetcode.com/problems/arranging-coins)
 
+[中文文档](/solution/0400-0499/0441.Arranging%20Coins/README.md)
+
 ## Description
 <p>You have a total of <i>n</i> coins that you want to form in a staircase shape, where every <i>k</i>-th row must have exactly <i>k</i> coins.</p>
 

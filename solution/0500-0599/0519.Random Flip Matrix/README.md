@@ -1,5 +1,7 @@
 # [519. 随机翻转矩阵](https://leetcode-cn.com/problems/random-flip-matrix)
 
+[English Version](/solution/0500-0599/0519.Random%20Flip%20Matrix/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>题中给出一个 <code>n</code> 行 <code>n</code> 列的二维矩阵<code> (n_rows,n_cols)</code>，且所有值被初始化为 0。要求编写一个 <code>flip</code> 函数，<a href="https://en.wikipedia.org/wiki/Discrete_uniform_distribution">均匀随机</a>的将矩阵中的 0 变为 1，并返回该值的位置下标 <code>[row_id,col_id]</code>；同样编写一个 <code>reset</code> 函数，将所有的值都重新置为 0。<strong>尽量最少调用随机函数 Math.random()</strong>，并且优化时间和空间复杂度。</p>

@@ -1,5 +1,7 @@
 # [389. Find the Difference](https://leetcode.com/problems/find-the-difference)
 
+[中文文档](/solution/0300-0399/0389.Find%20the%20Difference/README.md)
+
 ## Description
 <p>
 

@@ -1,5 +1,7 @@
 # [565. Array Nesting](https://leetcode.com/problems/array-nesting)
 
+[中文文档](/solution/0500-0599/0565.Array%20Nesting/README.md)
+
 ## Description
 <p>A zero-indexed array A of length N contains all integers from 0 to N-1. Find and return the longest length of set S, where S[i] = {A[i], A[A[i]], A[A[A[i]]], ... } subjected to the rule below.</p>
 

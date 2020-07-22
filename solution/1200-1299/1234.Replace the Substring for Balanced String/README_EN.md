@@ -1,5 +1,7 @@
 # [1234. Replace the Substring for Balanced String](https://leetcode.com/problems/replace-the-substring-for-balanced-string)
 
+[中文文档](/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README.md)
+
 ## Description
 <p>You are given a string containing only 4&nbsp;kinds of characters <code>&#39;Q&#39;,</code> <code>&#39;W&#39;, &#39;E&#39;</code> and&nbsp;<code>&#39;R&#39;</code>.</p>
 

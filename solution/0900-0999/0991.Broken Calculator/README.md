@@ -1,5 +1,7 @@
 # [991. 坏了的计算器](https://leetcode-cn.com/problems/broken-calculator)
 
+[English Version](/solution/0900-0999/0991.Broken%20Calculator/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在显示着数字的坏计算器上，我们可以执行以下两种操作：</p>

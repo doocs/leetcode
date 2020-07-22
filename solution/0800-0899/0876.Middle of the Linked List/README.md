@@ -1,5 +1,7 @@
 # [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list)
 
+[English Version](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个带有头结点&nbsp;<code>head</code>&nbsp;的非空单链表，返回链表的中间结点。</p>

@@ -1,5 +1,7 @@
 # [432. All O`one Data Structure](https://leetcode.com/problems/all-oone-data-structure)
 
+[中文文档](/solution/0400-0499/0432.All%20O`one%20Data%20Structure/README.md)
+
 ## Description
 <p>Implement a data structure supporting the following operations:</p>
 

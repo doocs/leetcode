@@ -1,5 +1,7 @@
 # [1185. 一周中的第几天](https://leetcode-cn.com/problems/day-of-the-week)
 
+[English Version](/solution/1100-1199/1185.Day%20of%20the%20Week/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。</p>

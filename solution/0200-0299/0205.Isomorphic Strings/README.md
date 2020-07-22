@@ -1,5 +1,7 @@
 # [205. 同构字符串](https://leetcode-cn.com/problems/isomorphic-strings)
 
+[English Version](/solution/0200-0299/0205.Isomorphic%20Strings/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定两个字符串&nbsp;<em><strong>s&nbsp;</strong></em>和&nbsp;<strong><em>t</em></strong>，判断它们是否是同构的。</p>

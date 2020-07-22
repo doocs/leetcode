@@ -1,5 +1,7 @@
 # [764. 最大加号标志](https://leetcode-cn.com/problems/largest-plus-sign)
 
+[English Version](/solution/0700-0799/0764.Largest%20Plus%20Sign/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在一个大小在 (0, 0) 到 (N-1, N-1) 的2D网格&nbsp;<code>grid</code>&nbsp;中，除了在&nbsp;<code>mines</code>&nbsp;中给出的单元为&nbsp;<code>0</code>，其他每个单元都是&nbsp;<code>1</code>。网格中包含&nbsp;<code>1</code>&nbsp;的最大的轴对齐加号标志是多少阶？返回加号标志的阶数。如果未找到加号标志，则返回 0。</p>

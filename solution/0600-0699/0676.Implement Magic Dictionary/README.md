@@ -1,5 +1,7 @@
 # [676. 实现一个魔法字典](https://leetcode-cn.com/problems/implement-magic-dictionary)
 
+[English Version](/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>实现一个带有<code>buildDict</code>, 以及&nbsp;<code>search</code>方法的魔法字典。</p>

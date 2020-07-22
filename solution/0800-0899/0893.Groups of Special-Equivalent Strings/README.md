@@ -1,5 +1,7 @@
 # [893. 特殊等价字符串组](https://leetcode-cn.com/problems/groups-of-special-equivalent-strings)
 
+[English Version](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你将得到一个字符串数组 <code>A</code>。</p>

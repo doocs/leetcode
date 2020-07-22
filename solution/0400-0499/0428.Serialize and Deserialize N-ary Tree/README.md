@@ -1,5 +1,7 @@
 # [428. 序列化和反序列化 N 叉树](https://leetcode-cn.com/problems/serialize-and-deserialize-n-ary-tree)
 
+[English Version](/solution/0400-0499/0428.Serialize%20and%20Deserialize%20N-ary%20Tree/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

@@ -1,5 +1,7 @@
 # [384. 打乱数组](https://leetcode-cn.com/problems/shuffle-an-array)
 
+[English Version](/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>打乱一个没有重复元素的数组。</p>

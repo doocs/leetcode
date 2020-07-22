@@ -1,5 +1,7 @@
 # [1208. 尽可能使字符串相等](https://leetcode-cn.com/problems/get-equal-substrings-within-budget)
 
+[English Version](/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你两个长度相同的字符串，<code>s</code> 和 <code>t</code>。</p>

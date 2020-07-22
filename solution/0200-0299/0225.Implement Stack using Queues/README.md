@@ -1,5 +1,7 @@
 # [225. 用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues)
 
+[English Version](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>使用队列实现栈的下列操作：</p>

@@ -1,5 +1,7 @@
 # [1313. 解压缩编码列表](https://leetcode-cn.com/problems/decompress-run-length-encoded-list)
 
+[English Version](/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个以行程长度编码压缩的整数列表&nbsp;<code>nums</code>&nbsp;。</p>

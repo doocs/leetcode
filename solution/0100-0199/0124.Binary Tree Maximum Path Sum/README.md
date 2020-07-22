@@ -1,5 +1,7 @@
 # [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum)
 
+[English Version](/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个<strong>非空</strong>二叉树，返回其最大路径和。</p>

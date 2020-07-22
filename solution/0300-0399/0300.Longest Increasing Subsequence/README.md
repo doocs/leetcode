@@ -1,5 +1,7 @@
 # [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)
 
+[English Version](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个无序的整数数组，找到其中最长上升子序列的长度。</p>

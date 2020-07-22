@@ -1,5 +1,7 @@
 # [115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences)
 
+[中文文档](/solution/0100-0199/0115.Distinct%20Subsequences/README.md)
+
 ## Description
 <p>Given a string <strong>S</strong> and a string <strong>T</strong>, count the number of distinct subsequences of <strong>S</strong> which equals <strong>T</strong>.</p>
 

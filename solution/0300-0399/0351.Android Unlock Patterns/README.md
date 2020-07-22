@@ -1,5 +1,7 @@
 # [351. 安卓系统手势解锁](https://leetcode-cn.com/problems/android-unlock-patterns)
 
+[English Version](/solution/0300-0399/0351.Android%20Unlock%20Patterns/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

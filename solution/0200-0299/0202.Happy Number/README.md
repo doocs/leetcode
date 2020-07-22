@@ -1,5 +1,7 @@
 # [202. 快乐数](https://leetcode-cn.com/problems/happy-number)
 
+[English Version](/solution/0200-0299/0202.Happy%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一个算法来判断一个数是不是&ldquo;快乐数&rdquo;。</p>

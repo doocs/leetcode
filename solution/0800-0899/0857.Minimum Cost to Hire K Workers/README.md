@@ -1,5 +1,7 @@
 # [857. 雇佣 K 名工人的最低成本](https://leetcode-cn.com/problems/minimum-cost-to-hire-k-workers)
 
+[English Version](/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>有 <code>N</code>&nbsp;名工人。&nbsp;第&nbsp;<code>i</code>&nbsp;名工人的工作质量为&nbsp;<code>quality[i]</code>&nbsp;，其最低期望工资为&nbsp;<code>wage[i]</code>&nbsp;。</p>

@@ -1,5 +1,7 @@
 # [840. 矩阵中的幻方](https://leetcode-cn.com/problems/magic-squares-in-grid)
 
+[English Version](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>3 x 3 的幻方是一个填充有<strong>从 1 到 9</strong> 的不同数字的 3 x 3 矩阵，其中每行，每列以及两条对角线上的各数之和都相等。</p>

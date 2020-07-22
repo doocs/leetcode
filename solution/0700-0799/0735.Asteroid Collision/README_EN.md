@@ -1,5 +1,7 @@
 # [735. Asteroid Collision](https://leetcode.com/problems/asteroid-collision)
 
+[中文文档](/solution/0700-0799/0735.Asteroid%20Collision/README.md)
+
 ## Description
 <p>
 

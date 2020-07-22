@@ -1,5 +1,7 @@
 # [338. 比特位计数](https://leetcode-cn.com/problems/counting-bits)
 
+[English Version](/solution/0300-0399/0338.Counting%20Bits/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个非负整数&nbsp;<strong>num</strong>。对于&nbsp;<strong>0 &le; i &le; num </strong>范围中的每个数字&nbsp;<strong>i&nbsp;</strong>，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>

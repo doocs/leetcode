@@ -1,5 +1,7 @@
 # [728. Self Dividing Numbers](https://leetcode.com/problems/self-dividing-numbers)
 
+[中文文档](/solution/0700-0799/0728.Self%20Dividing%20Numbers/README.md)
+
 ## Description
 <p>
 

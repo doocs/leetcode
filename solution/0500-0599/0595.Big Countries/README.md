@@ -1,5 +1,7 @@
 # [595. 大的国家](https://leetcode-cn.com/problems/big-countries)
 
+[English Version](/solution/0500-0599/0595.Big%20Countries/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>这里有张&nbsp;<code>World</code> 表</p>

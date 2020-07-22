@@ -1,5 +1,7 @@
 # [421. Maximum XOR of Two Numbers in an Array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array)
 
+[中文文档](/solution/0400-0499/0421.Maximum%20XOR%20of%20Two%20Numbers%20in%20an%20Array/README.md)
+
 ## Description
 <p>Given a <b>non-empty</b> array of numbers, a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>, &hellip; , a<sub>n-1</sub>, where 0 &le; a<sub>i</sub> &lt; 2<sup>31</sup>.</p>
 

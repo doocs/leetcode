@@ -1,5 +1,7 @@
 # [847. 访问所有节点的最短路径](https://leetcode-cn.com/problems/shortest-path-visiting-all-nodes)
 
+[English Version](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出&nbsp;<code>graph</code>&nbsp;为有 N 个节点（编号为&nbsp;<code>0, 1, 2, ..., N-1</code>）的无向连通图。&nbsp;</p>

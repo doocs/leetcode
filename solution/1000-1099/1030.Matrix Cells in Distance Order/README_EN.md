@@ -1,5 +1,7 @@
 # [1030. Matrix Cells in Distance Order](https://leetcode.com/problems/matrix-cells-in-distance-order)
 
+[中文文档](/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README.md)
+
 ## Description
 <p>We are given a matrix with <code>R</code> rows and <code>C</code> columns has cells with integer coordinates&nbsp;<code>(r, c)</code>, where <code>0 &lt;= r &lt; R</code> and <code>0 &lt;= c &lt; C</code>.</p>
 

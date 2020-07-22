@@ -1,5 +1,7 @@
 # [824. Goat Latin](https://leetcode.com/problems/goat-latin)
 
+[中文文档](/solution/0800-0899/0824.Goat%20Latin/README.md)
+
 ## Description
 <p>A sentence <code>S</code> is given, composed of words separated by spaces. Each word consists of lowercase and uppercase letters only.</p>
 

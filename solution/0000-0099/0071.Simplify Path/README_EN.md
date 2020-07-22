@@ -1,5 +1,7 @@
 # [71. Simplify Path](https://leetcode.com/problems/simplify-path)
 
+[中文文档](/solution/0000-0099/0071.Simplify%20Path/README.md)
+
 ## Description
 <p>Given an <strong>absolute path</strong> for a file (Unix-style), simplify it. Or in other words, convert it to the <strong>canonical path</strong>.</p>
 

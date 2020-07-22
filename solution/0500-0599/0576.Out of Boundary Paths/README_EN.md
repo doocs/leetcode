@@ -1,5 +1,7 @@
 # [576. Out of Boundary Paths](https://leetcode.com/problems/out-of-boundary-paths)
 
+[中文文档](/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/README.md)
+
 ## Description
 <p>There is an <b>m</b> by <b>n</b> grid with a ball. Given the start coordinate <b>(i,j)</b> of the ball, you can move the ball to <b>adjacent</b> cell or cross the grid boundary in four directions (up, down, left, right). However, you can <b>at most</b> move <b>N</b> times. Find out the number of paths to move the ball out of grid boundary. The answer may be very large, return it after mod 10<sup>9</sup> + 7.</p>
 

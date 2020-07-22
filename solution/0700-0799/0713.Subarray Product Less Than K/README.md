@@ -1,5 +1,7 @@
 # [713. 乘积小于K的子数组](https://leetcode-cn.com/problems/subarray-product-less-than-k)
 
+[English Version](/solution/0700-0799/0713.Subarray%20Product%20Less%20Than%20K/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个正整数数组&nbsp;<code>nums</code>。</p>

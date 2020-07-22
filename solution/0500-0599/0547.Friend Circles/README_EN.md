@@ -1,5 +1,7 @@
 # [547. Friend Circles](https://leetcode.com/problems/friend-circles)
 
+[中文文档](/solution/0500-0599/0547.Friend%20Circles/README.md)
+
 ## Description
 <p>
 

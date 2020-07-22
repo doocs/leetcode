@@ -1,5 +1,7 @@
 # [1043. 分隔数组以得到最大和](https://leetcode-cn.com/problems/partition-array-for-maximum-sum)
 
+[English Version](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给出整数数组&nbsp;<code>A</code>，将该数组分隔为长度最多为 K 的几个（连续）子数组。分隔完成后，每个子数组的中的值都会变为该子数组中的最大值。</p>

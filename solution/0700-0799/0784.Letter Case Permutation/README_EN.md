@@ -1,5 +1,7 @@
 # [784. Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation)
 
+[中文文档](/solution/0700-0799/0784.Letter%20Case%20Permutation/README.md)
+
 ## Description
 <p>Given a string S, we can transform every letter individually&nbsp;to be lowercase or uppercase to create another string.&nbsp; Return a list of all possible strings we could create.</p>
 

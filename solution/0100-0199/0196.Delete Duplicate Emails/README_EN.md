@@ -1,5 +1,7 @@
 # [196. Delete Duplicate Emails](https://leetcode.com/problems/delete-duplicate-emails)
 
+[中文文档](/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README.md)
+
 ## Description
 <p>Write a SQL query to <strong>delete</strong> all duplicate email entries in a table named <code>Person</code>, keeping only unique emails based on its <i>smallest</i> <b>Id</b>.</p>
 

@@ -1,5 +1,7 @@
 # [746. Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs)
 
+[中文文档](/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README.md)
+
 ## Description
 <p>
 

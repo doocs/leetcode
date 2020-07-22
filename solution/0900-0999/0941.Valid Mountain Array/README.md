@@ -1,5 +1,7 @@
 # [941. 有效的山脉数组](https://leetcode-cn.com/problems/valid-mountain-array)
 
+[English Version](/solution/0900-0999/0941.Valid%20Mountain%20Array/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组&nbsp;<code>A</code>，如果它是有效的山脉数组就返回&nbsp;<code>true</code>，否则返回 <code>false</code>。</p>

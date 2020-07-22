@@ -1,5 +1,7 @@
 # [1268. 搜索推荐系统](https://leetcode-cn.com/problems/search-suggestions-system)
 
+[English Version](/solution/1200-1299/1268.Search%20Suggestions%20System/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个产品数组&nbsp;<code>products</code>&nbsp;和一个字符串&nbsp;<code>searchWord</code>&nbsp;，<code>products</code>&nbsp; 数组中每个产品都是一个字符串。</p>

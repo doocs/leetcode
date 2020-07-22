@@ -1,5 +1,7 @@
 # [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking)
 
+[中文文档](/solution/0400-0499/0495.Teemo%20Attacking/README.md)
+
 ## Description
 <p>In LOL world, there is a hero called Teemo and his attacking can make his enemy Ashe be in poisoned condition. Now, given the Teemo&#39;s attacking <b>ascending</b> time series towards Ashe and the poisoning time duration per Teemo&#39;s attacking, you need to output the total time that Ashe is in poisoned condition.</p>
 

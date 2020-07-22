@@ -1,5 +1,7 @@
 # [914. 卡牌分组](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards)
 
+[English Version](/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一副牌，每张牌上都写着一个整数。</p>

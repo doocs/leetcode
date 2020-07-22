@@ -1,5 +1,7 @@
 # [859. Buddy Strings](https://leetcode.com/problems/buddy-strings)
 
+[中文文档](/solution/0800-0899/0859.Buddy%20Strings/README.md)
+
 ## Description
 <p>Given two strings <code>A</code> and <code>B</code>&nbsp;of lowercase letters, return <code>true</code> if and only if we&nbsp;can swap two letters in <code>A</code> so that the result equals <code>B</code>.</p>
 

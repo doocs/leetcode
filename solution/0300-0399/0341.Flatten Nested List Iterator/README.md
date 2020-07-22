@@ -1,5 +1,7 @@
 # [341. 扁平化嵌套列表迭代器](https://leetcode-cn.com/problems/flatten-nested-list-iterator)
 
+[English Version](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一个嵌套的整型列表。请你设计一个迭代器，使其能够遍历这个整型列表中的所有整数。</p>

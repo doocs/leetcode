@@ -1,5 +1,7 @@
 # [721. Accounts Merge](https://leetcode.com/problems/accounts-merge)
 
+[中文文档](/solution/0700-0799/0721.Accounts%20Merge/README.md)
+
 ## Description
 <p>Given a list <code>accounts</code>, each element <code>accounts[i]</code> is a list of strings, where the first element <code>accounts[i][0]</code> is a <i>name</i>, and the rest of the elements are <i>emails</i> representing emails of the account.</p>
 

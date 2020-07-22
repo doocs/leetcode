@@ -1,5 +1,7 @@
 # [887. 鸡蛋掉落](https://leetcode-cn.com/problems/super-egg-drop)
 
+[English Version](/solution/0800-0899/0887.Super%20Egg%20Drop/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你将获得&nbsp;<code>K</code>&nbsp;个鸡蛋，并可以使用一栋从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>N</code>&nbsp;&nbsp;共有 <code>N</code>&nbsp;层楼的建筑。</p>

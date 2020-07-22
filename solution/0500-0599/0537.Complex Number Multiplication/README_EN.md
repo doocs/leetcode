@@ -1,5 +1,7 @@
 # [537. Complex Number Multiplication](https://leetcode.com/problems/complex-number-multiplication)
 
+[中文文档](/solution/0500-0599/0537.Complex%20Number%20Multiplication/README.md)
+
 ## Description
 <p>
 

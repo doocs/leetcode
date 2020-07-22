@@ -1,5 +1,7 @@
 # [292. Nim 游戏](https://leetcode-cn.com/problems/nim-game)
 
+[English Version](/solution/0200-0299/0292.Nim%20Game/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你和你的朋友，两个人一起玩&nbsp;<a href="https://baike.baidu.com/item/Nim游戏/6737105" target="_blank">Nim 游戏</a>：桌子上有一堆石头，每次你们轮流拿掉&nbsp;1 - 3 块石头。 拿掉最后一块石头的人就是获胜者。你作为先手。</p>

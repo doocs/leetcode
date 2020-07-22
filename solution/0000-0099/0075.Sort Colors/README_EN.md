@@ -1,5 +1,7 @@
 # [75. Sort Colors](https://leetcode.com/problems/sort-colors)
 
+[中文文档](/solution/0000-0099/0075.Sort%20Colors/README.md)
+
 ## Description
 <p>Given an array with <em>n</em> objects colored red, white or blue, sort them <strong><a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a>&nbsp;</strong>so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
 

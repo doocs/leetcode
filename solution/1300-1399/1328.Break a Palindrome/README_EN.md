@@ -1,5 +1,7 @@
 # [1328. Break a Palindrome](https://leetcode.com/problems/break-a-palindrome)
 
+[中文文档](/solution/1300-1399/1328.Break%20a%20Palindrome/README.md)
+
 ## Description
 <p>Given a palindromic string <code>palindrome</code>, replace <strong>exactly one</strong> character by any lowercase English letter so that the string becomes the lexicographically smallest possible string that <strong>isn&#39;t</strong> a palindrome.</p>
 

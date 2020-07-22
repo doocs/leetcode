@@ -1,5 +1,7 @@
 # [313. 超级丑数](https://leetcode-cn.com/problems/super-ugly-number)
 
+[English Version](/solution/0300-0399/0313.Super%20Ugly%20Number/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>编写一段程序来查找第 <code><em>n</em></code> 个超级丑数。</p>

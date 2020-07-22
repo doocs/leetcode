@@ -1,5 +1,7 @@
 # [478. Generate Random Point in a Circle](https://leetcode.com/problems/generate-random-point-in-a-circle)
 
+[中文文档](/solution/0400-0499/0478.Generate%20Random%20Point%20in%20a%20Circle/README.md)
+
 ## Description
 <p>Given the radius and x-y positions of the center of a circle, write a function <code>randPoint</code>&nbsp;which&nbsp;generates a uniform random&nbsp;point in the circle.</p>
 

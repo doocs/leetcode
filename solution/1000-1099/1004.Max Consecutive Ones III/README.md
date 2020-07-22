@@ -1,5 +1,7 @@
 # [1004. 最大连续1的个数 III](https://leetcode-cn.com/problems/max-consecutive-ones-iii)
 
+[English Version](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个由若干 <code>0</code> 和 <code>1</code> 组成的数组&nbsp;<code>A</code>，我们最多可以将&nbsp;<code>K</code>&nbsp;个值从 0 变成 1 。</p>

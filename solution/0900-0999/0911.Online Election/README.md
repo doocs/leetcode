@@ -1,5 +1,7 @@
 # [911. 在线选举](https://leetcode-cn.com/problems/online-election)
 
+[English Version](/solution/0900-0999/0911.Online%20Election/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在选举中，第&nbsp;<code>i</code>&nbsp;张票是在时间为&nbsp;<code>times[i]</code>&nbsp;时投给&nbsp;<code>persons[i]</code>&nbsp;的。</p>

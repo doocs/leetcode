@@ -1,5 +1,7 @@
 # [467. 环绕字符串中唯一的子字符串](https://leetcode-cn.com/problems/unique-substrings-in-wraparound-string)
 
+[English Version](/solution/0400-0499/0467.Unique%20Substrings%20in%20Wraparound%20String/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>把字符串 <code>s</code> 看作是&ldquo;abcdefghijklmnopqrstuvwxyz&rdquo;的无限环绕字符串，所以&nbsp;<code>s</code> 看起来是这样的：&quot;...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....&quot;.&nbsp;</p>

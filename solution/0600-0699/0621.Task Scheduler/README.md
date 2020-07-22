@@ -1,5 +1,7 @@
 # [621. 任务调度器](https://leetcode-cn.com/problems/task-scheduler)
 
+[English Version](/solution/0600-0699/0621.Task%20Scheduler/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个用字符数组表示的 CPU 需要执行的任务列表。其中包含使用大写的 A - Z 字母表示的26 种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。CPU 在任何一个单位时间内都可以执行一个任务，或者在待命状态。</p>

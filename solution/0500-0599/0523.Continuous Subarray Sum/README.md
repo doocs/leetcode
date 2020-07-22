@@ -1,5 +1,7 @@
 # [523. 连续的子数组和](https://leetcode-cn.com/problems/continuous-subarray-sum)
 
+[English Version](/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个包含<strong>非负数</strong>的数组和一个目标<strong>整数</strong>&nbsp;k，编写一个函数来判断该数组是否含有连续的子数组，其大小至少为 2，总和为 <strong>k</strong> 的倍数，即总和为 n*k，其中 n 也是一个<strong>整数</strong>。</p>

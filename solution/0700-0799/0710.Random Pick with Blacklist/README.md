@@ -1,5 +1,7 @@
 # [710. 黑名单中的随机数](https://leetcode-cn.com/problems/random-pick-with-blacklist)
 
+[English Version](/solution/0700-0799/0710.Random%20Pick%20with%20Blacklist/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个包含 [0，n ) 中独特的整数的黑名单 B，写一个函数从 [ 0，n ) 中返回一个<strong>不在</strong> B 中的随机整数。</p>

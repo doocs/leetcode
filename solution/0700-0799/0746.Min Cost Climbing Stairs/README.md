@@ -1,5 +1,7 @@
 # [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs)
 
+[English Version](/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>数组的每个索引做为一个阶梯，第&nbsp;<code>i</code>个阶梯对应着一个非负数的体力花费值&nbsp;<code>cost[i]</code>(索引从0开始)。</p>

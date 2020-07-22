@@ -1,5 +1,7 @@
 # [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs)
 
+[中文文档](/solution/0000-0099/0070.Climbing%20Stairs/README.md)
+
 ## Description
 <p>You are climbing a stair case. It takes <em>n</em> steps to reach to the top.</p>
 

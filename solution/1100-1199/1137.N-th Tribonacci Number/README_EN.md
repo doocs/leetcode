@@ -1,5 +1,7 @@
 # [1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number)
 
+[中文文档](/solution/1100-1199/1137.N-th%20Tribonacci%20Number/README.md)
+
 ## Description
 <p>The Tribonacci sequence T<sub>n</sub> is defined as follows:&nbsp;</p>
 

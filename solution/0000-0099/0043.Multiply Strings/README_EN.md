@@ -1,5 +1,7 @@
 # [43. Multiply Strings](https://leetcode.com/problems/multiply-strings)
 
+[中文文档](/solution/0000-0099/0043.Multiply%20Strings/README.md)
+
 ## Description
 <p>Given two non-negative integers <code>num1</code> and <code>num2</code> represented as strings, return the product of <code>num1</code> and <code>num2</code>, also represented as a string.</p>
 

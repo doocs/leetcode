@@ -1,5 +1,7 @@
 # [822. 翻转卡片游戏](https://leetcode-cn.com/problems/card-flipping-game)
 
+[English Version](/solution/0800-0899/0822.Card%20Flipping%20Game/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>在桌子上有 <code>N</code> 张卡片，每张卡片的正面和背面都写着一个正数（正面与背面上的数有可能不一样）。</p>

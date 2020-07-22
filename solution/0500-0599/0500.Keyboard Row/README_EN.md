@@ -1,5 +1,7 @@
 # [500. Keyboard Row](https://leetcode.com/problems/keyboard-row)
 
+[中文文档](/solution/0500-0599/0500.Keyboard%20Row/README.md)
+
 ## Description
 <p>Given a List of words, return the words that can be typed using letters of <b>alphabet</b> on only one row&#39;s of American keyboard like the image below.</p>
 

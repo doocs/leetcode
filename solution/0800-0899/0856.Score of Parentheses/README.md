@@ -1,5 +1,7 @@
 # [856. 括号的分数](https://leetcode-cn.com/problems/score-of-parentheses)
 
+[English Version](/solution/0800-0899/0856.Score%20of%20Parentheses/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个平衡括号字符串&nbsp;<code>S</code>，按下述规则计算该字符串的分数：</p>

@@ -1,5 +1,7 @@
 # [792. Number of Matching Subsequences](https://leetcode.com/problems/number-of-matching-subsequences)
 
+[中文文档](/solution/0700-0799/0792.Number%20of%20Matching%20Subsequences/README.md)
+
 ## Description
 <p>Given string <code>S</code> and a&nbsp;dictionary of words <code>words</code>, find the number of <code>words[i]</code> that is a subsequence of <code>S</code>.</p>
 

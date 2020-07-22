@@ -1,5 +1,7 @@
 # [1302. 层数最深叶子节点的和](https://leetcode-cn.com/problems/deepest-leaves-sum)
 
+[English Version](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给你一棵二叉树，请你返回层数最深的叶子节点的和。</p>

@@ -1,5 +1,7 @@
 # [1251. 平均售价](https://leetcode-cn.com/problems/average-selling-price)
 
+[English Version](/solution/1200-1299/1251.Average%20Selling%20Price/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

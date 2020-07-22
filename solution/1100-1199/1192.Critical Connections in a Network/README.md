@@ -1,5 +1,7 @@
 # [1192. 查找集群内的「关键连接」](https://leetcode-cn.com/problems/critical-connections-in-a-network)
 
+[English Version](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>力扣数据中心有&nbsp;<code>n</code>&nbsp;台服务器，分别按从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n-1</code>&nbsp;的方式进行了编号。</p>

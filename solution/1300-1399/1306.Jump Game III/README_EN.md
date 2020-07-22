@@ -1,5 +1,7 @@
 # [1306. Jump Game III](https://leetcode.com/problems/jump-game-iii)
 
+[中文文档](/solution/1300-1399/1306.Jump%20Game%20III/README.md)
+
 ## Description
 <p>Given an array of non-negative integers <code>arr</code>, you are initially positioned at <code>start</code>&nbsp;index of the array. When you are at index <code>i</code>, you can jump&nbsp;to <code>i + arr[i]</code> or <code>i - arr[i]</code>, check if you can reach to <strong>any</strong> index with value 0.</p>
 

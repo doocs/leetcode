@@ -1,5 +1,7 @@
 # [1037. Valid Boomerang](https://leetcode.com/problems/valid-boomerang)
 
+[中文文档](/solution/1000-1099/1037.Valid%20Boomerang/README.md)
+
 ## Description
 <p>A <em>boomerang</em> is a set of 3 points that are all distinct and <strong>not</strong> in a straight line.</p>
 

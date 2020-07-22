@@ -1,5 +1,7 @@
 # [1314. Matrix Block Sum](https://leetcode.com/problems/matrix-block-sum)
 
+[中文文档](/solution/1300-1399/1314.Matrix%20Block%20Sum/README.md)
+
 ## Description
 Given a <code>m * n</code> matrix&nbsp;<code>mat</code>&nbsp;and an integer <code>K</code>, return a matrix <code>answer</code> where each <code>answer[i][j]</code>&nbsp;is the sum of all elements <code>mat[r][c]</code> for <code>i - K &lt;= r &lt;= i + K, j - K &lt;= c &lt;= j + K</code>, and <code>(r, c)</code> is a valid position in the matrix.
 

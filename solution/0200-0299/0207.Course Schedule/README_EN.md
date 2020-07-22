@@ -1,5 +1,7 @@
 # [207. Course Schedule](https://leetcode.com/problems/course-schedule)
 
+[中文文档](/solution/0200-0299/0207.Course%20Schedule/README.md)
+
 ## Description
 <p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses-1</code>.</p>
 

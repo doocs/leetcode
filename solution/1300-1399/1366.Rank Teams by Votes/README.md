@@ -1,5 +1,7 @@
 # [1366. 通过投票对团队排名](https://leetcode-cn.com/problems/rank-teams-by-votes)
 
+[English Version](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>现在有一个特殊的排名系统，依据参赛团队在投票人心中的次序进行排名，每个投票者都需要按从高到低的顺序对参与排名的所有团队进行排位。</p>

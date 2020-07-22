@@ -1,5 +1,7 @@
 # [1235. 规划兼职工作](https://leetcode-cn.com/problems/maximum-profit-in-job-scheduling)
 
+[English Version](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>你打算利用空闲时间来做兼职工作赚些零花钱。</p>

@@ -1,5 +1,7 @@
 # [189. Rotate Array](https://leetcode.com/problems/rotate-array)
 
+[中文文档](/solution/0100-0199/0189.Rotate%20Array/README.md)
+
 ## Description
 <p>Given an array, rotate the array to the right by <em>k</em> steps, where&nbsp;<em>k</em>&nbsp;is non-negative.</p>
 

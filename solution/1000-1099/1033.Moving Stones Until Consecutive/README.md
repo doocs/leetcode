@@ -1,5 +1,7 @@
 # [1033. 移动石子直到连续](https://leetcode-cn.com/problems/moving-stones-until-consecutive)
 
+[English Version](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>三枚石子放置在数轴上，位置分别为 <code>a</code>，<code>b</code>，<code>c</code>。</p>

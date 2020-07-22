@@ -1,5 +1,7 @@
 # [1114. Print in Order](https://leetcode.com/problems/print-in-order)
 
+[中文文档](/solution/1100-1199/1114.Print%20in%20Order/README.md)
+
 ## Description
 <p>Suppose we have a class:</p>
 

@@ -1,5 +1,7 @@
 # [998. 最大二叉树 II](https://leetcode-cn.com/problems/maximum-binary-tree-ii)
 
+[English Version](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>最大树定义：一个树，其中每个节点的值都大于其子树中的任何其他值。</p>

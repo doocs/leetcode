@@ -1,5 +1,7 @@
 # [707. 设计链表](https://leetcode-cn.com/problems/design-linked-list)
 
+[English Version](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>设计链表的实现。您可以选择使用单链表或双链表。单链表中的节点应该具有两个属性：<code>val</code>&nbsp;和&nbsp;<code>next</code>。<code>val</code>&nbsp;是当前节点的值，<code>next</code>&nbsp;是指向下一个节点的指针/引用。如果要使用双向链表，则还需要一个属性&nbsp;<code>prev</code>&nbsp;以指示链表中的上一个节点。假设链表中的所有节点都是 0-index 的。</p>

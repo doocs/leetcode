@@ -1,5 +1,7 @@
 # [27. Remove Element](https://leetcode.com/problems/remove-element)
 
+[中文文档](/solution/0000-0099/0027.Remove%20Element/README.md)
+
 ## Description
 <p>Given an array <em>nums</em> and a value <em>val</em>, remove all instances of that value <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a> and return the new length.</p>
 

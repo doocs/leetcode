@@ -1,5 +1,7 @@
 # [833. Find And Replace in String](https://leetcode.com/problems/find-and-replace-in-string)
 
+[中文文档](/solution/0800-0899/0833.Find%20And%20Replace%20in%20String/README.md)
+
 ## Description
 <p>To some string <code>S</code>, we will perform some&nbsp;replacement&nbsp;operations that replace groups of letters with new ones (not necessarily the same size).</p>
 

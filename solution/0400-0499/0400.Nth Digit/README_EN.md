@@ -1,5 +1,7 @@
 # [400. Nth Digit](https://leetcode.com/problems/nth-digit)
 
+[中文文档](/solution/0400-0499/0400.Nth%20Digit/README.md)
+
 ## Description
 <p>Find the <i>n</i><sup>th</sup> digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... </p>
 

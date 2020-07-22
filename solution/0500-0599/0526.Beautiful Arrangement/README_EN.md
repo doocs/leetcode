@@ -1,5 +1,7 @@
 # [526. Beautiful Arrangement](https://leetcode.com/problems/beautiful-arrangement)
 
+[中文文档](/solution/0500-0599/0526.Beautiful%20Arrangement/README.md)
+
 ## Description
 <p>Suppose you have <b>N</b> integers from 1 to N. We define a beautiful arrangement as an array that is constructed by these <b>N</b> numbers successfully if one of the following is true for the i<sub>th</sub> position (1 &lt;= i &lt;= N) in this array:</p>
 

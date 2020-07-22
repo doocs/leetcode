@@ -1,5 +1,7 @@
 # [1381. Design a Stack With Increment Operation](https://leetcode.com/problems/design-a-stack-with-increment-operation)
 
+[中文文档](/solution/1300-1399/1381.Design%20a%20Stack%20With%20Increment%20Operation/README.md)
+
 ## Description
 <p>Design a stack which supports the following operations.</p>
 

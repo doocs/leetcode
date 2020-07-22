@@ -1,5 +1,7 @@
 # [146. LRU Cache](https://leetcode.com/problems/lru-cache)
 
+[中文文档](/solution/0100-0199/0146.Lru%20Cache/README.md)
+
 ## Description
 <p>Design and implement a data structure for <a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU" target="_blank">Least Recently Used (LRU) cache</a>. It should support the following operations: <code>get</code> and <code>put</code>.</p>
 

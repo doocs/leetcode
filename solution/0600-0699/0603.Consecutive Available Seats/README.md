@@ -1,5 +1,7 @@
 # [603. 连续空余座位](https://leetcode-cn.com/problems/consecutive-available-seats)
 
+[English Version](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

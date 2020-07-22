@@ -1,5 +1,7 @@
 # [546. Remove Boxes](https://leetcode.com/problems/remove-boxes)
 
+[中文文档](/solution/0500-0599/0546.Remove%20Boxes/README.md)
+
 ## Description
 <p>Given several boxes with different colors represented by different positive numbers. <br />
 

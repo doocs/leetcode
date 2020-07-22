@@ -1,5 +1,7 @@
 # [193. Valid Phone Numbers](https://leetcode.com/problems/valid-phone-numbers)
 
+[中文文档](/solution/0100-0199/0193.Valid%20Phone%20Numbers/README.md)
+
 ## Description
 <p>Given a text file <code>file.txt</code> that contains list of phone numbers (one per line), write a one liner bash script to print all valid phone numbers.</p>
 

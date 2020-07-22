@@ -1,5 +1,7 @@
 # [368. Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset)
 
+[中文文档](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README.md)
+
 ## Description
 <p>Given a set of <b>distinct</b> positive integers, find the largest subset such that every pair (S<sub>i</sub>, S<sub>j</sub>) of elements in this subset satisfies:</p>
 

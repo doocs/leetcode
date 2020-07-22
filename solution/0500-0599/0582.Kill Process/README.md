@@ -1,5 +1,7 @@
 # [582. 杀死进程](https://leetcode-cn.com/problems/kill-process)
 
+[English Version](/solution/0500-0599/0582.Kill%20Process/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 None

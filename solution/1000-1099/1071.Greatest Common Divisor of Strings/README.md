@@ -1,5 +1,7 @@
 # [1071. 字符串的最大公因子](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings)
 
+[English Version](/solution/1000-1099/1071.Greatest%20Common%20Divisor%20of%20Strings/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>对于字符串&nbsp;<code>S</code> 和&nbsp;<code>T</code>，只有在 <code>S = T + ... + T</code>（<code>T</code>&nbsp;与自身连接 1 次或多次）时，我们才认定&nbsp;&ldquo;<code>T</code> 能除尽 <code>S</code>&rdquo;。</p>

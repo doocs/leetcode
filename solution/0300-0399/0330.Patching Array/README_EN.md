@@ -1,5 +1,7 @@
 # [330. Patching Array](https://leetcode.com/problems/patching-array)
 
+[中文文档](/solution/0300-0399/0330.Patching%20Array/README.md)
+
 ## Description
 <p>Given a sorted positive integer array <i>nums</i> and an integer <i>n</i>, add/patch elements to the array such that any number in range <code>[1, n]</code> inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required.</p>
 

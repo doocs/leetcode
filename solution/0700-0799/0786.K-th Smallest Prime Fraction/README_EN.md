@@ -1,5 +1,7 @@
 # [786. K-th Smallest Prime Fraction](https://leetcode.com/problems/k-th-smallest-prime-fraction)
 
+[中文文档](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README.md)
+
 ## Description
 <p>A sorted list <code>A</code> contains 1, plus some number of primes.&nbsp; Then, for every p &lt; q in the list, we consider the fraction p/q.</p>
 

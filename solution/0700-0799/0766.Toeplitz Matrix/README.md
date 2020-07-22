@@ -1,5 +1,7 @@
 # [766. 托普利茨矩阵](https://leetcode-cn.com/problems/toeplitz-matrix)
 
+[English Version](/solution/0700-0799/0766.Toeplitz%20Matrix/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>如果一个矩阵的每一方向由左上到右下的对角线上具有相同元素，那么这个矩阵是<em>托普利茨矩阵</em>。</p>

@@ -1,5 +1,7 @@
 # [867. 转置矩阵](https://leetcode-cn.com/problems/transpose-matrix)
 
+[English Version](/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>给定一个矩阵&nbsp;<code>A</code>，&nbsp;返回&nbsp;<code>A</code>&nbsp;的转置矩阵。</p>

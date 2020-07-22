@@ -1,5 +1,7 @@
 # [1357. Apply Discount Every n Orders](https://leetcode.com/problems/apply-discount-every-n-orders)
 
+[中文文档](/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README.md)
+
 ## Description
 <p>There is&nbsp;a sale in a supermarket, there will be a <code>discount</code> every <code>n</code> customer.<br />
 

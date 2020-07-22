@@ -1,5 +1,7 @@
 # [135. 分发糖果](https://leetcode-cn.com/problems/candy)
 
+[English Version](/solution/0100-0199/0135.Candy/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>老师想给孩子们分发糖果，有 <em>N</em>&nbsp;个孩子站成了一条直线，老师会根据每个孩子的表现，预先给他们评分。</p>

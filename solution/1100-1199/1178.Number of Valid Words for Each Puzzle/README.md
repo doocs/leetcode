@@ -1,5 +1,7 @@
 # [1178. 猜字谜](https://leetcode-cn.com/problems/number-of-valid-words-for-each-puzzle)
 
+[English Version](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>外国友人仿照中国字谜设计了一个英文版猜字谜小游戏，请你来猜猜看吧。</p>

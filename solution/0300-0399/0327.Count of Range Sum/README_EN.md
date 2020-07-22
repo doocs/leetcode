@@ -1,5 +1,7 @@
 # [327. Count of Range Sum](https://leetcode.com/problems/count-of-range-sum)
 
+[中文文档](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README.md)
+
 ## Description
 <p>Given an integer array <code>nums</code>, return the number of range sums that lie in <code>[lower, upper]</code> inclusive.<br />
 

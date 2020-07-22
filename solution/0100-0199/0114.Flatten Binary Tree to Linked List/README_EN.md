@@ -1,5 +1,7 @@
 # [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list)
 
+[中文文档](/solution/0100-0199/0114.Flatten%20Binary%20Tree%20to%20Linked%20List/README.md)
+
 ## Description
 <p>Given a binary tree, flatten it to a linked list in-place.</p>
 

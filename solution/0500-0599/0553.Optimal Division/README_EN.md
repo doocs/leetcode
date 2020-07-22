@@ -1,5 +1,7 @@
 # [553. Optimal Division](https://leetcode.com/problems/optimal-division)
 
+[中文文档](/solution/0500-0599/0553.Optimal%20Division/README.md)
+
 ## Description
 <p>Given a list of <b>positive integers</b>, the adjacent integers will perform the float division. For example, [2,3,4] -> 2 / 3 / 4.</p>
 

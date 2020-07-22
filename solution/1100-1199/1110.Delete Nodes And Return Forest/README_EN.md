@@ -1,5 +1,7 @@
 # [1110. Delete Nodes And Return Forest](https://leetcode.com/problems/delete-nodes-and-return-forest)
 
+[中文文档](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md)
+
 ## Description
 <p>Given the <code>root</code>&nbsp;of a binary tree, each node in the tree has a distinct value.</p>
 

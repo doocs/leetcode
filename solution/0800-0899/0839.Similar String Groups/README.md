@@ -1,5 +1,7 @@
 # [839. 相似字符串组](https://leetcode-cn.com/problems/similar-string-groups)
 
+[English Version](/solution/0800-0899/0839.Similar%20String%20Groups/README_EN.md)
+
 ## 题目描述
 <!-- 这里写题目描述 -->
 <p>如果我们交换字符串&nbsp;<code>X</code> 中的两个不同位置的字母，使得它和字符串&nbsp;<code>Y</code> 相等，那么称 <code>X</code> 和 <code>Y</code> 两个字符串相似。如果这两个字符串本身是相等的，那它们也是相似的。</p>
