@@ -17,7 +17,6 @@ public class QuickSort {
 
     private static int[] partition(int[] nums, int low, int high) {
         int less = low - 1, more = high;
-
         while (low < more) {
             if (nums[low] < nums[high]) {
                 swap(nums, ++less, low++);
