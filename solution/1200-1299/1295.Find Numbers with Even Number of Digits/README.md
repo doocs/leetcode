@@ -42,7 +42,7 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-
+首先将数组元素转换为字符串,判断字符串长度是否为偶数即可
 
 <!-- tabs:start -->
 
@@ -57,7 +57,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findNumbers(int[] nums) {
+        int res = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (((String.valueOf(nums[i]).length()) % 2) == 0) {
+                res++;
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
