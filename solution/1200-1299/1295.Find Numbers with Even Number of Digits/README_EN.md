@@ -46,13 +46,26 @@ Only 1771 contains an even number of digits.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        res = 0
+        for num in nums:
+            res += (len(str(num)) & 1) == 0
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findNumbers(int[] nums) {
+        int res = 0;
+        for (int num : nums) {
+            res += (String.valueOf(num).length() & 1) == 0 ? 1 : 0;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

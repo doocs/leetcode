@@ -42,7 +42,7 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-首先将数组元素转换为字符串,判断字符串长度是否为偶数即可
+首先将数组元素转换为字符串,判断字符串长度是否为偶数即可。
 
 <!-- tabs:start -->
 
@@ -50,7 +50,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        res = 0
+        for num in nums:
+            res += (len(str(num)) & 1) == 0
+        return res
 ```
 
 ### **Java**
@@ -60,10 +65,8 @@
 class Solution {
     public int findNumbers(int[] nums) {
         int res = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (((String.valueOf(nums[i]).length()) & 1) == 0) {
-                res++;
-            }
+        for (int num : nums) {
+            res += (String.valueOf(num).length() & 1) == 0 ? 1 : 0;
         }
         return res;
     }
