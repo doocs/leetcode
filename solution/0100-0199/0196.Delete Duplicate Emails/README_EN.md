@@ -65,19 +65,8 @@ Id is the primary key column for this table.
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
 ```
 
 ```
