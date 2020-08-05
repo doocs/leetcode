@@ -63,19 +63,8 @@ Special thanks to <a href="https://leetcode.com/discuss/user/cak1erlizhou">@cak1
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
 ```
 
 ```

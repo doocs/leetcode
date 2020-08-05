@@ -32,21 +32,8 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **sql**
 ```
 select (select distinct Salary from Employee order by Salary desc limit 1 offset 1) as 
 SecondHighestSalary;

@@ -53,19 +53,8 @@
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **sql**
 ```
 select (select distinct Salary from Employee order by Salary desc limit 1 offset 1) as 
 SecondHighestSalary;

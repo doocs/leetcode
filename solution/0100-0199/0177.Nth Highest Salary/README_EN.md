@@ -53,19 +53,8 @@
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **sql**
 ```
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN

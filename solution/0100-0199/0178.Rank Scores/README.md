@@ -40,26 +40,14 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **sql**
 ```
 select
     Score,
     (select count(*) from (select distinct Score s from Scores) tmp where s>=Score) Rank
 from Scores order by Rank;
+
 ```
 
 <!-- tabs:end -->
