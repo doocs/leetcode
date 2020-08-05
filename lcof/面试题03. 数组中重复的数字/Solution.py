@@ -5,3 +5,5 @@ class Solution:
                 if num == nums[num]:
                     return num
                 nums[i], nums[num] = nums[num], nums[i]
+                num = nums[i]
+        return -1
