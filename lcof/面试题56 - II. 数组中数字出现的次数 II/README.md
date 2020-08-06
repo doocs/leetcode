@@ -23,6 +23,10 @@
 - `1 <= nums[i] < 2^31`
 
 ## 解法
+
+统计所有数字每个位中 1 出现的次数，对于某个位，1 出现的次数一定是 3 的倍数 +1 或 0。对这个数 %3 得到的结果就是那个出现一次的数字在该位上的值。
+
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -34,11 +38,10 @@ class Solution:
             for i in range(32):
                 bits[i] += (num & 1)
                 num >>= 1
-        
         res = 0
         for i in range(32):
             if bits[i] % 3 == 1:
-                res += pow(2, i)
+                res += (1 << i)
         return res
 ```
 
@@ -56,7 +59,7 @@ class Solution {
         int res = 0;
         for (int i = 0; i < 32; ++i) {
             if (bits[i] % 3 == 1) {
-                res += (int) Math.pow(2, i);
+                res += (1 << i);
             }
         }
         return res;
