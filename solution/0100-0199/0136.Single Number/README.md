@@ -26,6 +26,9 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+异或运算求解。
+
+首先明确，两个相同的数异或之后的结果为 0。对该数组所有元素进行异或运算，结果就是那个只出现一次的数字。
 
 <!-- tabs:start -->
 
@@ -33,14 +36,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        res = 0
+        for num in nums:
+            res ^= num
+        return res
 ```
 
 ### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int singleNumber(int[] nums) {
+        int res = 0;
+        for (int num : nums) {
+            res ^= num;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
