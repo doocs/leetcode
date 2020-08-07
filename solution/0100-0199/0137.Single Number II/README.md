@@ -26,6 +26,7 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+统计所有数字每个位中 1 出现的次数，对于某个位，1 出现的次数一定是 3 的倍数 +1 或 0。对这个数 %3 得到的结果就是那个出现一次的数字在该位上的值。
 
 <!-- tabs:start -->
 
@@ -40,7 +41,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int singleNumber(int[] nums) {
+        int[] bits = new int[32];
+        for (int num : nums) {
+            for (int i = 0; i < 32; ++i) {
+                bits[i] += (num & 1);
+                num >>= 1;
+            }
+        }
 
+        int res = 0;
+        for (int i = 0; i < 32; ++i) {
+            if (bits[i] % 3 == 1) {
+                res += (1 << i);
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
