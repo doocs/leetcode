@@ -29,6 +29,11 @@
 - 若使用 C 或 C++ 语言，你不需要 `free` 或 `delete` 被删除的节点
 
 ## 解法
+
+定义一个虚拟头节点 `dummy` 指向 `head`，再定义指针 `pre` 和 `p` 分别指向 `dummy` 和 `head`。
+
+遍历链表，`pre`、`p` 往后移动。当指针 `p` 指向的节点的值等于 `val` 时，将 `pre.next` 指向 `p.next`，然后返回 `dummy.next`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -38,21 +43,17 @@
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
-
 class Solution:
     def deleteNode(self, head: ListNode, val: int) -> ListNode:
-        pre = ListNode(0)
-        pre.next = head
-        dummy = pre
-        p = head
+        dummy = ListNode(0)
+        dummy.next = head
+        pre, p = dummy, head
         while p:
             if p.val == val:
                 pre.next = p.next
                 break
-            else:
-                pre, p = p, p.next
+            pre, p = p, p.next
         return dummy.next
-
 ```
 
 ### **Java**
@@ -67,17 +68,16 @@ class Solution:
  */
 class Solution {
     public ListNode deleteNode(ListNode head, int val) {
-        ListNode pre = new ListNode(0);
-        pre.next = head;
-        ListNode dummy = pre, p = head;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy, p = head;
         while (p != null) {
             if (p.val == val) {
                 pre.next = p.next;
                 break;
-            } else {
-                pre = p;
-                p = p.next;
             }
+            pre = p;
+            p = p.next;
         }
         return dummy.next;
     }
