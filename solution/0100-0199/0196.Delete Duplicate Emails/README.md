@@ -46,7 +46,7 @@ Id 是这个表的主键。
 ### **SQL**
 
 ```
-
+delete from Person where Id not in (select min(Id) from (select * from Person) as p group by p.Email)
 ```
 
 <!-- tabs:end -->
