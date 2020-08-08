@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./img/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="./images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
@@ -47,7 +47,7 @@
 - 你也可以参考 [GitHub 帮助文档](https://help.github.com/cn) 了解更多细节。
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./img/how-to-contribute.png" alt="how-to-contribute"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
 </p>
 
 [Gitpod.io](https://www.gitpod.io) 是一个免费的在线开发环境，你也可以使用它参与本项目。
@@ -74,4 +74,4 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>
 
-<a rel="license" href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./img/cc-by-sa-88x31.png" /></a>
+<a rel="license" href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./images/cc-by-sa-88x31.png" /></a>
