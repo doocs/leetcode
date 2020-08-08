@@ -5,13 +5,13 @@
 
 如下面的两个链表：
 
-![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png)
+![](./images/160_statement.png)
 
 在节点 c1 开始相交。
 
 **示例 1：**
 
-![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_example_1.png)
+![](./images/160_example_1.png)
 
 ```
 输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
@@ -21,7 +21,7 @@
 
 **示例 2：**
 
-![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_example_2.png)
+![](./images/160_example_2.png)
 
 ```
 输入：intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
@@ -31,7 +31,7 @@
 
 **示例 3：**
 
-![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_example_3.png)
+![](./images/160_example_3.png)
 
 ```
 输入：intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
@@ -48,6 +48,11 @@
 - 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
 
 ## 解法
+
+先求出两个链表的长度差 `len1-len2`，之后遍历链表，长的链表先走 `len1-len2` 步。
+
+接着两个链表同时走，当出现相同的节点时，说明两个链表在此节点相交，返回此节点，否则返回 `null`。
+
 <!-- tabs:start -->
 
 ### **Python3**
