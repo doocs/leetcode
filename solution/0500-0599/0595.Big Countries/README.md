@@ -39,23 +39,15 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+select
+    name, population, area
+from
+    World
+where
+    area>3000000 or population>25000000
 ```
 
 <!-- tabs:end -->

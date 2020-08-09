@@ -13,23 +13,10 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+select a.player_id, a.event_date, sum(b.games_played) as games_played_so_far from Activity a, Activity b where a.player_id = b.player_id and a.event_date >= b.event_date group by a.player_id, a.event_date
 ```
 
 <!-- tabs:end -->

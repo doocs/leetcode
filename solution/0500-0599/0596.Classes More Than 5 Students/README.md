@@ -47,23 +47,17 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+select
+    c.class
+from
+    (select distinct courses.student, courses.class from courses) c
+group by
+    c.class
+having 
+    count(c.class)>=5
 ```
 
 <!-- tabs:end -->

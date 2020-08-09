@@ -13,23 +13,10 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+select player_id, device_id from Activity where (player_id, event_date) in ((select player_id, min(event_date) from Activity group by player_id))
 ```
 
 <!-- tabs:end -->

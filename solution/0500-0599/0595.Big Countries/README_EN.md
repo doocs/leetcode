@@ -71,21 +71,15 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-```
-
+select
+    name, population, area
+from
+    World
+where
+    area>3000000 or population>25000000
 ```
 
 <!-- tabs:end -->
