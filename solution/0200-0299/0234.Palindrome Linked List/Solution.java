@@ -8,37 +8,42 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) {
+        if (head == null) {
             return true;
         }
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast != null && fast.next != null) {
+        ListNode mid = findMidNode(head);
+        ListNode secondHalfList = reverseList(mid.next);
+        boolean result = true;
+        ListNode p = head, q = secondHalfList;
+        while (result && q != null) {
+            if (p.val != q.val) {
+                result = false;
+            } else {
+                p = p.next;
+                q = q.next;
+            }
+        }
+        mid.next = reverseList(secondHalfList);
+        return result;
+    }
+
+    private ListNode reverseList(ListNode head) {
+        ListNode pre = null, p = head;
+        while (p != null) {
+            ListNode q = p.next;
+            p.next = pre;
+            pre = p;
+            p = q;
+        }
+        return pre;
+    }
+
+    private ListNode findMidNode(ListNode head) {
+        ListNode slow = head, fast = head;
+        while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        if (fast != null) {
-            slow = slow.next;
-        }
-        
-        ListNode rightPre = new ListNode(-1);
-        while (slow != null) {
-            ListNode t = slow.next;
-            slow.next = rightPre.next;
-            rightPre.next = slow;
-            slow = t;
-        }
-        
-        ListNode p1 = rightPre.next;
-        ListNode p2 = head;
-        while (p1 != null) {
-            if (p1.val != p2.val) {
-                return false;
-            }
-            p1 = p1.next;
-            p2 = p2.next;
-        }
-        return true;
-        
+        return slow;
     }
 }
