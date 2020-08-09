@@ -5,10 +5,17 @@
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
+    def detectCycle(self, head: ListNode) -> ListNode:
         slow = fast = head
+        has_cycle = False
         while fast and fast.next:
             slow, fast = slow.next, fast.next.next
             if slow == fast:
-                return True
-        return False
+                has_cycle = True
+                break
+        if not has_cycle:
+            return None
+        p = head
+        while p != slow:
+            p, slow = p.next, slow.next
+        return p

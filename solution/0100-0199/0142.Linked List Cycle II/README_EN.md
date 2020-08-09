@@ -56,13 +56,66 @@ Can you solve it without using extra space?</p>
 ### **Python3**
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        slow = fast = head
+        has_cycle = False
+        while fast and fast.next:
+            slow, fast = slow.next, fast.next.next
+            if slow == fast:
+                has_cycle = True
+                break
+        if not has_cycle:
+            return None
+        p = head
+        while p != slow:
+            p, slow = p.next, slow.next
+        return p
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow = head, fast = head;
+        boolean hasCycle = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                hasCycle = true;
+                break;
+            }
+        }
+        if (!hasCycle) {
+            return null;
+        }
+        ListNode p = head;
+        while (p != slow) {
+            p = p.next;
+            slow = slow.next;
+        }
+        return p;
+    }
+}
 ```
 
 ### **...**

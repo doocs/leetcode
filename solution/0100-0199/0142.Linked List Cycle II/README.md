@@ -49,6 +49,19 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+先利用快慢指针判断链表是否有环，没有环则直接返回 `null`。
+
+若链表有环，我们分析快慢相遇时走过的距离。
+
+对于慢指针，走过的距离为 `S=X+Y` ①；快指针走过的距离为 `2S=X+Y+N(Y+Z)` ②。如下图所示，其中 `N` 表示快指针与慢指针相遇时在环中所走过的圈数，而我们要求的环入口，也即是 `X` 的距离：
+
+![](./images/linked-list-cycle-ii.png)
+
+我们根据式子①②，得出 `X+Y=N(Y+Z)` => `X=(N-1)(Y+Z)+Z`。
+
+当 `N=1`(快指针在环中走了一圈与慢指针相遇) 时，`X=(1-1)(Y+Z)+Z`，即 `X=Z`。此时只要定义一个 `p` 指针指向头节点，然后慢指针与 `p` 开始同时走，当慢指针与 `p` 相遇时，也就到达了环入口，直接返回 `p` 即可。
+
+当 `N>1`时，也是同样的，说明慢指针除了走 `Z` 步，还需要绕 `N-1` 圈才能与 `p` 相遇。
 
 <!-- tabs:start -->
 
@@ -56,14 +69,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def detectCycle(self, head: ListNode) -> ListNode:
+        slow = fast = head
+        has_cycle = False
+        while fast and fast.next:
+            slow, fast = slow.next, fast.next.next
+            if slow == fast:
+                has_cycle = True
+                break
+        if not has_cycle:
+            return None
+        p = head
+        while p != slow:
+            p, slow = p.next, slow.next
+        return p
 ```
 
 ### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow = head, fast = head;
+        boolean hasCycle = false;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                hasCycle = true;
+                break;
+            }
+        }
+        if (!hasCycle) {
+            return null;
+        }
+        ListNode p = head;
+        while (p != slow) {
+            p = p.next;
+            slow = slow.next;
+        }
+        return p;
+    }
+}
 ```
 
 ### **...**
