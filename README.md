@@ -58,7 +58,7 @@
 
 非常感谢以下所有朋友对本项目的贡献，你们是最可爱的人！
 
-<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=1200&button=false" /></a>
+<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
 
 ## 赞助人
 

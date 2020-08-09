@@ -56,7 +56,7 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 This project exists thanks to all the people who contribute. 
 
-<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=1200&button=false" /></a>
+<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
 
 ## Backers
 

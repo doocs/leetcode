@@ -19,7 +19,7 @@
 <strong>解释：</strong>链表中有一个环，其尾部连接到第二个节点。
 </pre>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist.png" style="height: 97px; width: 300px;"></p>
+![](./images/circularlinkedlist.png)
 
 <p><strong>示例&nbsp;2：</strong></p>
 
@@ -28,7 +28,7 @@
 <strong>解释：</strong>链表中有一个环，其尾部连接到第一个节点。
 </pre>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test2.png" style="height: 74px; width: 141px;"></p>
+![](./images/circularlinkedlist_test2.png)
 
 <p><strong>示例 3：</strong></p>
 
@@ -37,7 +37,7 @@
 <strong>解释：</strong>链表中没有环。
 </pre>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist_test3.png" style="height: 45px; width: 45px;"></p>
+![](./images/circularlinkedlist_test3.png)
 
 <p>&nbsp;</p>
 
