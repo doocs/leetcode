@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./img/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="./images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
@@ -45,7 +45,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 - See [CONTRIBUTING](https://github.com/doocs/.github/blob/master/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./img/how-to-contribute.png" alt="how-to-contribute"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
 </p>
 
 You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) using [Gitpod.io](https://www.gitpod.io), a free online dev environment with a single click.
@@ -76,4 +76,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
-<a rel="license" href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./img/cc-by-sa-88x31.png" /></a>
+<a rel="license" href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./images/cc-by-sa-88x31.png" /></a>
