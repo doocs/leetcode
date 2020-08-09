@@ -37,7 +37,7 @@
 
 <div>
 
-<p><span><img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" style="width: 300px; height: 97px; margin-top: 8px; margin-bottom: 8px;" /></span></p>
+![](./images/circularlinkedlist.png)
 
 
 
@@ -61,8 +61,7 @@
 
 <div>
 
-<p><span><img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png" style="width: 141px; height: 74px;" /></span></p>
-
+![](./images/circularlinkedlist_test2.png)
 
 
 <p><strong>Example 3:</strong></p>
@@ -83,8 +82,7 @@
 
 
 
-<p><span><img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png" style="width: 45px; height: 45px;" /></span></p>
-
+![](./images/circularlinkedlist_test3.png)
 
 
 <p>&nbsp;</p>
