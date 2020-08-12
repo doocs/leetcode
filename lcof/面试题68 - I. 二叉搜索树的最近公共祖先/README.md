@@ -8,7 +8,7 @@
 
 例如，给定如下二叉搜索树:  root = `[6,2,8,0,4,7,9,null,null,3,5]`
 
-![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/binarysearchtree_improved.png)
+![](./images/binarysearchtree_improved.png)
 
 **示例 1:**
 
