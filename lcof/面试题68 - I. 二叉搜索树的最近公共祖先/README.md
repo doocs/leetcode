@@ -33,12 +33,15 @@
 
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
-从上到下搜索，找到第一个值位于 `[p, q]` 之间的结点即可。
+
+从上到下搜索，找到第一个值位于 `[p, q]` 之间的结点即可。既可以用迭代实现，也可以用递归实现。
 
 <!-- tabs:start -->
 
 ### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+#### 迭代法
 
 ```python
 # Definition for a binary tree node.
@@ -59,6 +62,25 @@ class Solution:
                 root = root.left
             else:
                 return root
+```
+
+#### 递归法
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root.val < p.val and root.val < q.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        if root.val > p.val and root.val > q.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        return root
 ```
 
 ### **Java**
