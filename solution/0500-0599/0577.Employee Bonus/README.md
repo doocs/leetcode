@@ -13,23 +13,16 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT name,
+         bonus
+FROM Employee e
+LEFT JOIN Bonus b
+    ON e.empId = b.empId
+WHERE (b.bonus < 1000
+        OR b.bonus is null)
 ```
 
 <!-- tabs:end -->

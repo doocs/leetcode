@@ -13,23 +13,20 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT id,
+         count(*) num
+FROM ( 
+    (SELECT requester_id AS id
+    FROM request_accepted )
+    UNION
+    all 
+        (SELECT accepter_id AS id
+        FROM request_accepted) ) t
+    GROUP BY  id
+ORDER BY  num DESC limit 1
 ```
 
 <!-- tabs:end -->
