@@ -13,23 +13,18 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT name
+FROM salesperson
+WHERE sales_id NOT IN 
+    (SELECT sales_id
+    FROM orders
+    WHERE com_id = 
+        (SELECT com_id
+        FROM company
+        WHERE name = 'RED'))
 ```
 
 <!-- tabs:end -->

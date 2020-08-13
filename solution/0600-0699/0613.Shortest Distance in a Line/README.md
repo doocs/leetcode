@@ -13,23 +13,12 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT min(abs(p1.x-p2.x)) shortest
+FROM point p1, point p2
+WHERE p1.x != p2.x
 ```
 
 <!-- tabs:end -->

@@ -13,23 +13,16 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT x,
+         y,
+         z,
+         if(x + y > z
+        AND x + z > y
+        AND y + z > x, "Yes", "No") AS triangle
+FROM triangle
 ```
 
 <!-- tabs:end -->
