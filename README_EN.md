@@ -37,8 +37,6 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Linked List
 
-1. 
-
 ### Binary Tree
 
 ### Math
