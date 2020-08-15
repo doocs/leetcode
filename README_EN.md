@@ -35,11 +35,19 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Arrays
 
+1. [Rotate Array](./solution/0100-0199/0189.Rotate%20Array/README_EN.md)
+
 ### Linked List
+
+1. [Reverse Linked List](./solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
+1. [Linked List Cycle](./solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
+1. [Linked List Cycle II](./solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
 
 ### Binary Tree
 
 ### Math
+
+1. [Set Mismatch](./solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
 
 ### Stack & Queue
 
