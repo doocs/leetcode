@@ -17,26 +17,109 @@
 
 
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
+
+定义指针 `p`、`q` 分别指向头节点和下一个节点，`pre` 指向头节点的前一个节点。
+
+遍历链表，改变指针 `p` 指向的节点的指向，将其指向 `pre` 指针指向的节点，即 `p.next = pre`。然后 `pre` 指针指向 `p`，`p`、`q` 指针往前走。
+
+当遍历结束后，返回 `pre` 指针即可。
 
 
 <!-- tabs:start -->
 
 ### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        pre, p = None, head
+        while p:
+            q = p.next
+            p.next = pre
+            pre = p
+            p = q
+        return pre
 ```
 
 ### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode p = head;
+        while (p != null) {
+            ListNode q = p.next;
+            p.next = pre;
+            pre = p;
+            p = q;
+        }
+        return pre;
+    }
+}
 ```
 
+### **JavaScript**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+    let node = head
+    let pre = null
+    while(node) {
+        let cur = node
+        node = cur.next
+        cur.next = pre
+        pre = cur
+    }
+    return pre
+};
+```
+
+### **Go**
+
+```Go
+func reverseList(head *ListNode) *ListNode {
+    if head == nil ||head.Next == nil {
+        return head
+    }
+    dummyHead := &ListNode{}
+    cur := head
+    for cur != nil {
+        tmp := cur.Next
+        cur.Next = dummyHead.Next
+        dummyHead.Next = cur
+        cur = tmp
+    }
+    return dummyHead.Next
+}
+```
+
+
+
 ### **...**
+
 ```
 
 ```

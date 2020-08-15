@@ -31,6 +31,29 @@
 - [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
 - [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
 
+## 面试高频题
+
+### 数组
+
+### 链表
+
+1. [从尾到头打印链表](./lcof/面试题06.%20从尾到头打印链表/README.md)
+1. [删除链表的节点](./lcof/面试题18.%20删除链表的节点/README.md)
+1. [链表中倒数第 k 个节点](./lcof/面试题22.%20链表中倒数第k个节点/README.md)
+1. [反转链表](./solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
+1. [环形链表](./solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
+1. [环形链表 II](./solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
+
+### 二叉树
+
+### 数学
+
+### 栈和队列
+
+### 动态规划
+
+### 混合问题
+
 ## 维护者
 
 [Yang Libin](https://github.com/yanglbme): GitHub 技术社区 [@Doocs](https://github.com/doocs) 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。

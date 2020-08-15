@@ -31,6 +31,25 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [LCOF: *Coding Interviews, 2nd Edition*](/lcof/README_EN.md)
 - [LCCI: *Cracking the Coding Interview, 6th Edition*](/lcci/README_EN.md)
 
+## High frequency interview questions
+
+### Arrays
+
+### Linked List
+
+1. 
+
+### Binary Tree
+
+### Math
+
+### Stack & Queue
+
+### Dynamic Programming
+
+### Misc
+
+
 ## Maintainer
 
 [Yang Libin](https://github.com/yanglbme): Creator of [@Doocs](https://github.com/doocs) technical community; member of [@TheAlgorithms](https://github.com/TheAlgorithms) organization.

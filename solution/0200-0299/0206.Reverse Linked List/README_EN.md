@@ -36,18 +36,98 @@
 <!-- tabs:start -->
 
 ### **Python3**
-
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        pre, p = None, head
+        while p:
+            q = p.next
+            p.next = pre
+            pre = p
+            p = q
+        return pre
 ```
 
 ### **Java**
-
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode p = head;
+        while (p != null) {
+            ListNode q = p.next;
+            p.next = pre;
+            pre = p;
+            p = q;
+        }
+        return pre;
+    }
+}
 ```
 
+### **JavaScript**
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+    let node = head
+    let pre = null
+    while(node) {
+        let cur = node
+        node = cur.next
+        cur.next = pre
+        pre = cur
+    }
+    return pre
+};
+```
+
+### **Go**
+
+```Go
+func reverseList(head *ListNode) *ListNode {
+    if head == nil ||head.Next == nil {
+        return head
+    }
+    dummyHead := &ListNode{}
+    cur := head
+    for cur != nil {
+        tmp := cur.Next
+        cur.Next = dummyHead.Next
+        dummyHead.Next = cur
+        cur = tmp
+    }
+    return dummyHead.Next
+}
+```
+
+
+
 ### **...**
+
 ```
 
 ```
