@@ -31,11 +31,12 @@
 - [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
 - [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
 
-## 面试高频题
+## 面试高频考题
 
 ### 数组
 
 1. [数组中重复的数字](./lcof/面试题03.%20数组中重复的数字/README.md)
+1. [旋转数组](./solution/0100-0199/0189.Rotate%20Array/README.md)
 
 ### 链表
 
@@ -93,15 +94,16 @@
 
 <a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
 
-## 赞助人
+## 赞助者
+
+特别感谢以下个人、组织对本项目的赞助！
 
 <a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
 
-> You help the developer community practice for interviews, and there is nothing better we could ask for. -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
-
-## 赞助商
-
 <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
+
+
+> You help the developer community practice for interviews, and there is nothing better we could ask for. -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
 ## 许可证
 

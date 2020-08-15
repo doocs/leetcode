@@ -54,11 +54,8 @@ rotate 2 steps to the right: [3,99,-1,-100]
 
 
 <ul>
-
 	<li>Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.</li>
-
 	<li>Could you do it in-place with O(1) extra space?</li>
-
 </ul>
 
 
@@ -70,13 +67,49 @@ rotate 2 steps to the right: [3,99,-1,-100]
 ### **Python3**
 
 ```python
-
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        k %= n
+        if n < 2 or k == 0:
+            return
+        nums[:] = nums[::-1]
+        nums[:k] = nums[:k][::-1]
+        nums[k:] = nums[k:][::-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public void rotate(int[] nums, int k) {
+        if (nums == null) {
+            return;
+        }
+        int n = nums.length;
+        k %= n;
+        if (n < 2 || k == 0) {
+            return;
+        }
 
+        rotate(nums, 0, n - 1);
+        rotate(nums, 0, k - 1);
+        rotate(nums, k, n - 1);
+    }
+
+    private void rotate(int[] nums, int i, int j) {
+        while (i < j) {
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
+            ++i;
+            --j;
+        }
+    }
+}
 ```
 
 ### **...**

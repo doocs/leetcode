@@ -36,6 +36,19 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+若 `k=3`，`nums=[1,2,3,4,5,6,7]`。
+
+先将 `nums` 整体翻转：
+
+`[1,2,3,4,5,6,7]` -> `[7,6,5,4,3,2,1]`
+
+再翻转 `0~k-1` 范围内的元素：
+
+`[7,6,5,4,3,2,1]` -> `[5,6,7,4,3,2,1]`
+
+最后翻转 `k~n-1` 范围内的元素，即可得到最终结果：
+
+`[5,6,7,4,3,2,1]` -> `[5,6,7,1,2,3,4]`
 
 <!-- tabs:start -->
 
@@ -43,14 +56,50 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        k %= n
+        if n < 2 or k == 0:
+            return
+        nums[:] = nums[::-1]
+        nums[:k] = nums[:k][::-1]
+        nums[k:] = nums[k:][::-1]
 ```
 
 ### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public void rotate(int[] nums, int k) {
+        if (nums == null) {
+            return;
+        }
+        int n = nums.length;
+        k %= n;
+        if (n < 2 || k == 0) {
+            return;
+        }
 
+        rotate(nums, 0, n - 1);
+        rotate(nums, 0, k - 1);
+        rotate(nums, k, n - 1);
+    }
+
+    private void rotate(int[] nums, int i, int j) {
+        while (i < j) {
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
+            ++i;
+            --j;
+        }
+    }
+}
 ```
 
 ### **...**

@@ -75,19 +75,16 @@ This project exists thanks to all the people who contribute.
 
 <a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
 
-## Backers
+## Backers & Sponsors
 
-Thank you to all our backers!
+Thank you to all our backers and sponsors!
 
-<a href="https://opencollective.com/doocs-leetcode#backers" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
+<a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
+
+<a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
+
 
 > You help the developer community practice for interviews, and there is nothing better we could ask for. -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
-
-<a href="https://opencollective.com/doocs-leetcode#sponsors" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
 ## License
 
