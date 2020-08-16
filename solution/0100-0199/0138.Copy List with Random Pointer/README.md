@@ -19,7 +19,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e1.png" style="height: 138px; width: 680px;"></p>
+![](./images/e1.png)
 
 <pre><strong>输入：</strong>head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 <strong>输出：</strong>[[7,null],[13,0],[11,4],[10,2],[1,0]]
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e2.png" style="height: 111px; width: 680px;"></p>
+![](./images/e2.png)
 
 <pre><strong>输入：</strong>head = [[1,1],[2,1]]
 <strong>输出：</strong>[[1,1],[2,1]]
@@ -35,7 +35,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e3.png" style="height: 119px; width: 680px;"></strong></p>
+![](./images/e3.png)
 
 <pre><strong>输入：</strong>head = [[3,null],[3,0],[3,null]]
 <strong>输出：</strong>[[3,null],[3,0],[3,null]]

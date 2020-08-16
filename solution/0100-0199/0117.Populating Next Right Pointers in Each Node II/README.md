@@ -30,7 +30,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/15/117_sample.png" style="height: 218px; width: 640px;"></p>
+![](./images/117_sample.png)
 
 <pre><strong>输入</strong>：root = [1,2,3,4,5,null,7]
 <strong>输出：</strong>[1,#,2,3,#,4,5,7,#]

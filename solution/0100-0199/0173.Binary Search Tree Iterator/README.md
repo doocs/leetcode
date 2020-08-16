@@ -12,7 +12,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/25/bst-tree.png" style="height: 178px; width: 189px;"></strong></p>
+![](./images/bst-tree.png)
 
 <pre>BSTIterator iterator = new BSTIterator(root);
 iterator.next();    // 返回 3

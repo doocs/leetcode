@@ -8,7 +8,7 @@
 
 <p>每个矩形用左下角的点和右上角的点的坐标来表示。例如，&nbsp;一个单位正方形可以表示为 [1,1,2,2]。&nbsp;( 左下角的点的坐标为 (1, 1) 以及右上角的点的坐标为 (2, 2) )。</p>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_perfect.gif"></p>
+![](./images/rectangle_perfect.gif)
 
 <p><strong>示例 1:</strong></p>
 
@@ -25,7 +25,7 @@
 
 <p>&nbsp;</p>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_separated.gif"></p>
+![](./images/rectangle_separated.gif)
 
 <p><strong>示例&nbsp;2:</strong></p>
 
@@ -41,7 +41,7 @@
 
 <p>&nbsp;</p>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_hole.gif"></p>
+![](./images/rectangle_hole.gif)
 
 <p><strong>示例 3:</strong></p>
 
@@ -57,7 +57,7 @@
 
 <p>&nbsp;</p>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_intersect.gif"></p>
+![](./images/rectangle_intersect.gif)
 
 <p><strong>示例 4:</strong></p>
 

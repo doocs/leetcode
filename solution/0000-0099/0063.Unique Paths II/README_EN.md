@@ -13,11 +13,7 @@
 
 <p>Now consider if some obstacles are added to the grids. How many unique paths would there be?</p>
 
-
-
-<p><img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" style="width: 400px; height: 183px;" /></p>
-
-
+![](./images/robot_maze.png)
 
 <p>An obstacle and empty space is marked as <code>1</code> and <code>0</code> respectively in the grid.</p>
 

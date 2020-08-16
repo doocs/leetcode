@@ -25,7 +25,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2018/12/25/bst-tree.png" style="width: 189px; height: 178px;" /></strong></p>
+![](./images/bst-tree.png)
 
 
 
@@ -64,11 +64,8 @@ iterator.hasNext(); // return false
 
 
 <ul>
-
 	<li><code>next()</code> and <code>hasNext()</code> should run in average O(1) time and uses O(<i>h</i>) memory, where <i>h</i> is the height of the tree.</li>
-
 	<li>You may assume that&nbsp;<code>next()</code>&nbsp;call&nbsp;will always be valid, that is, there will be at least a next smallest number in the BST when <code>next()</code> is called.</li>
-
 </ul>
 
 

@@ -29,14 +29,13 @@
 
 <p>给出以下多级双向链表:</p>
 
-<pre><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/multilevellinkedlist.png" style="width: 640px;"></pre>
+![](./images/multilevellinkedlist.png)
 
 <p>&nbsp;</p>
 
 <p>我们应该返回如下所示的扁平双向链表:</p>
 
-<pre><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/multilevellinkedlistflattened.png" style="width: 1100px;"></pre>
-
+![](./images/multilevellinkedlistflattened.png)
 
 
 ## 解法

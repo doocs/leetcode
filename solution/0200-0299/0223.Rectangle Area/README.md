@@ -8,7 +8,7 @@
 
 <p>每个矩形由其左下顶点和右上顶点坐标表示，如图所示。</p>
 
-<p><img alt="Rectangle Area" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_area.png"></p>
+![](./images/rectangle_area.png)
 
 <p><strong>示例:</strong></p>
 

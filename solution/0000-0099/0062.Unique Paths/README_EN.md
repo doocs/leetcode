@@ -9,7 +9,8 @@
 
 <p>How many possible unique paths are there?</p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" style="width: 400px; height: 183px;" /><br />
+![](./images/robot_maze.png)
+
 <small>Above is a 7 x 3 grid. How many possible unique paths are there?</small></p>
 
 <p>&nbsp;</p>

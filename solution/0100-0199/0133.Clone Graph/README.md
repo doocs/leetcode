@@ -27,7 +27,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/01/133_clone_graph_question.png" style="height: 500px; width: 500px;"></p>
+![](./images/133_clone_graph_question.png)
 
 <pre><strong>输入：</strong>adjList = [[2,4],[1,3],[2,4],[1,3]]
 <strong>输出：</strong>[[2,4],[1,3],[2,4],[1,3]]
@@ -41,7 +41,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/01/graph.png" style="height: 148px; width: 163px;"></p>
+![](./images/graph.png)
 
 <pre><strong>输入：</strong>adjList = [[]]
 <strong>输出：</strong>[[]]
@@ -57,7 +57,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/01/graph-1.png" style="height: 133px; width: 272px;"></p>
+![](./images/graph-1.png)
 
 <pre><strong>输入：</strong>adjList = [[2],[1]]
 <strong>输出：</strong>[[2],[1]]</pre>

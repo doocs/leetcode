@@ -30,7 +30,7 @@ struct Node {
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/02/14/116_sample.png" style="width: 640px; height: 218px;" /></p>
+![](./images/116_sample.png)
 
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5,6,7]

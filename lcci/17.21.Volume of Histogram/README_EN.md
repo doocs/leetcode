@@ -7,7 +7,7 @@
 
 
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rainwatertrap.png" style="height: 161px; width: 412px;" /></p>
+![](./images/rainwatertrap.png)
 
 
 

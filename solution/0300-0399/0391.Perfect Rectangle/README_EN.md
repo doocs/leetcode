@@ -10,10 +10,7 @@
 <p>Each rectangle is represented as a bottom-left point and a top-right point. For example, a unit square is represented as [1,1,2,2]. (coordinate of bottom-left point is (1, 1) and top-right point is (2, 2)).</p>
 
 
-
-<div style="float:right"><img src="https://assets.leetcode.com/uploads/2018/10/22/rectangle_perfect.gif" style="width: 249px; height: 250px;" /></div>
-
-
+![](./images/rectangle_perfect.gif)
 
 <p><b>Example 1:</b></p>
 
@@ -49,11 +46,7 @@ Return true. All 5 rectangles together form an exact cover of a rectangular regi
 
 <div style="clear:both">&nbsp;</div>
 
-
-
-<div style="float:right"><img src="https://assets.leetcode.com/uploads/2018/10/22/rectangle_separated.gif" style="width: 249px; height: 250px;" /></div>
-
-
+![](./images/rectangle_separated.gif)
 
 <p><b>Example 2:</b></p>
 
@@ -89,9 +82,7 @@ Return false. Because there is a gap between the two rectangular regions.
 
 
 
-<div style="float:right"><img src="https://assets.leetcode.com/uploads/2018/10/22/rectangle_hole.gif" style="width: 249px; height: 250px;" /></div>
-
-
+![](./images/rectangle_hole.gif)
 
 <p><b>Example 3:</b></p>
 
@@ -126,9 +117,7 @@ Return false. Because there is a gap in the top center.
 <div style="clear:both">&nbsp;</div>
 
 
-
-<div style="float:right"><img src="https://assets.leetcode.com/uploads/2018/10/22/rectangle_intersect.gif" style="width: 249px; height: 250px;" /></div>
-
+![](./images/rectangle_intersect.gif)
 
 
 <p><b>Example 4:</b></p>

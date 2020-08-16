@@ -9,7 +9,7 @@
 
 <p>For example, the following two linked lists:</p>
 
-<a href="https://assets.leetcode.com/uploads/2018/12/13/160_statement.png" target="_blank"><img alt="" src="https://assets.leetcode.com/uploads/2018/12/13/160_statement.png" style="margin-top: 10px; margin-bottom: 10px; width: 400px; height: 130px;" /></a>
+![](./images/160_statement.png)
 
 
 
@@ -23,9 +23,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png" target="_blank"><img alt="" src="https://assets.leetcode.com/uploads/2018/12/13/160_example_1.png" style="margin-top: 10px; margin-bottom: 10px; width: 400px; height: 130px;" /></a>
-
-
+![](./images/160_example_1.png)
 
 <pre>
 
@@ -43,9 +41,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png" target="_blank"><img alt="" src="https://assets.leetcode.com/uploads/2018/12/13/160_example_2.png" style="margin-top: 10px; margin-bottom: 10px; width: 350px; height: 136px;" /></a>
-
-
+![](./images/160_example_2.png)
 
 <pre>
 
@@ -65,9 +61,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<a href="https://assets.leetcode.com/uploads/2018/12/13/160_example_3.png" target="_blank"><img alt="" src="https://assets.leetcode.com/uploads/2018/12/13/160_example_3.png" style="margin-top: 10px; margin-bottom: 10px; width: 200px; height: 126px;" /></a>
-
-
+![](./images/160_example_3.png)
 
 <pre>
 
@@ -92,15 +86,10 @@
 
 
 <ul>
-
 	<li>If the two linked lists have no intersection at all, return <code>null</code>.</li>
-
 	<li>The linked lists must retain their original structure after the function returns.</li>
-
 	<li>You may assume there are no cycles anywhere in the entire linked structure.</li>
-
 	<li>Your code should preferably run in O(n) time and use only O(1) memory.</li>
-
 </ul>
 
 

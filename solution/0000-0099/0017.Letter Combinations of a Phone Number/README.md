@@ -8,7 +8,7 @@
 
 <p>给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。</p>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/original_images/17_telephone_keypad.png" style="width: 200px;"></p>
+![](./images/17_telephone_keypad.png)
 
 <p><strong>示例:</strong></p>
 

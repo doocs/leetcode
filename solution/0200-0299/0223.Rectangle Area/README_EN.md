@@ -11,7 +11,7 @@
 
 
 
-<p><img alt="Rectangle Area" src="https://assets.leetcode.com/uploads/2018/10/22/rectangle_area.png" style="width: 542px; height: 304px;" /></p>
+![](./images/rectangle_area.png)
 
 
 
