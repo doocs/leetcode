@@ -48,8 +48,7 @@ class Solution:
         for _ in range(k):
             q = q.next
         while q:
-            q = q.next
-            p = p.next
+            p, q = p.next, q.next
         return p.val
 ```
 

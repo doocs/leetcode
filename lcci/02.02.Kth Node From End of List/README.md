@@ -21,6 +21,10 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+定义 `p`、`q` 指针指向 `head`。
+
+`p` 先向前走 `k` 步，接着 `p`、`q` 同时向前走，当 `p` 指向 `null` 时，`q` 指向的节点即为链表的倒数第 `k` 个节点。
+
 
 <!-- tabs:start -->
 
@@ -40,8 +44,7 @@ class Solution:
         for _ in range(k):
             q = q.next
         while q:
-            q = q.next
-            p = p.next
+            p, q = p.next, q.next
         return p.val
 ```
 

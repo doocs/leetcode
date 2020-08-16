@@ -60,15 +60,10 @@
 
 
 <ul>
-
 	<li>The linked list will have at least two elements.</li>
-
 	<li>All of the nodes&#39; values will be unique.</li>
-
 	<li>The given node&nbsp;will not be the tail and it will always be a valid node of the linked list.</li>
-
 	<li>Do not return anything from your function.</li>
-
 </ul>
 
 
@@ -82,18 +77,59 @@
 ### **Python3**
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        node.val = node.next.val
+        node.next = node.next.next
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
 ```
 
-### **...**
-```
+### **JavaScript**
 
+```javascript
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} node
+ * @return {void} Do not return anything, modify node in-place instead.
+ */
+var deleteNode = function(node) {
+    node.val = node.next.val
+    node.next = node.next.next
+};
 ```
 
 <!-- tabs:end -->

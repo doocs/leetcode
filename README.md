@@ -42,7 +42,7 @@
 
 1. [从尾到头打印链表](./lcof/面试题06.%20从尾到头打印链表/README.md)
 1. [删除链表的节点](./lcof/面试题18.%20删除链表的节点/README.md)
-1. [链表中倒数第 k 个节点](./lcof/面试题22.%20链表中倒数第k个节点/README.md)
+1. [链表中倒数第 k 个节点](./lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
 1. [反转链表](./solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
 1. [环形链表](./solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
 1. [环形链表 II](./solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
