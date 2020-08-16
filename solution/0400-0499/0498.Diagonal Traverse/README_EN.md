@@ -36,11 +36,9 @@
 
 
 <b>Explanation:</b>
-
-<img src="https://assets.leetcode.com/uploads/2018/10/12/diagonal_traverse.png" style="width: 220px;" />
-
 </pre>
 
+![](./images/diagonal_traverse.png)
 
 
 <p>&nbsp;</p>

@@ -41,9 +41,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/02/1219-01.png" style="width: 88px; height: 120px;" /></strong></p>
-
-
+![](./images/1219-01.png)
 
 <pre>
 
@@ -61,9 +59,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/02/1219-02.png" style="width: 127px; height: 120px;" /></strong></p>
-
-
+![](./images/1219-02.png)
 
 <pre>
 
@@ -80,8 +76,7 @@
 <p><strong>Example 3:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/02/1219-02.png" style="width: 127px; height: 120px;" /></strong></p>
+![](./images/1219-02.png)
 
 
 
@@ -104,9 +99,7 @@
 
 
 <ol>
-
 	<li><code>1 &lt;= N &lt;= 100</code></li>
-
 </ol>
 
 </div>

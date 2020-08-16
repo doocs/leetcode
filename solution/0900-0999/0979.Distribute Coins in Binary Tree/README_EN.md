@@ -24,9 +24,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/18/tree1.png" style="width: 150px; height: 142px;" /></strong></p>
-
+![](./images/tree1.png)
 
 
 <pre>
@@ -46,8 +44,7 @@
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/18/tree2.png" style="width: 150px; height: 142px;" /></strong></p>
+![](./images/tree2.png)
 
 
 
@@ -68,9 +65,7 @@
 <p><strong>Example 3:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/18/tree3.png" style="width: 150px; height: 142px;" /></strong></p>
-
+![](./images/tree3.png)
 
 
 <pre>
@@ -88,9 +83,7 @@
 <p><strong>Example 4:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/18/tree4.png" style="width: 155px; height: 156px;" /></strong></p>
-
+![](./images/tree4.png)
 
 
 <pre>
@@ -112,11 +105,8 @@
 
 
 <ol>
-
 	<li><code>1&lt;= N &lt;= 100</code></li>
-
 	<li><code>0 &lt;= node.val &lt;= N</code></li>
-
 </ol>
 
 </div>

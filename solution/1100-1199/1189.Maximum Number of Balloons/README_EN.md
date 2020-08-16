@@ -16,9 +16,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/09/05/1536_ex1_upd.JPG" style="width: 132px; height: 35px;" /></strong></p>
-
+![](./images/1536_ex1_upd.jpeg)
 
 
 <pre>
@@ -35,9 +33,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/09/05/1536_ex2_upd.JPG" style="width: 267px; height: 35px;" /></strong></p>
-
-
+![](./images/1536_ex2_upd.jpeg)
 
 <pre>
 
@@ -70,11 +66,8 @@
 
 
 <ul>
-
 	<li><code>1 &lt;= text.length &lt;= 10^4</code></li>
-
 	<li><code>text</code>&nbsp;consists of lower case English letters only.</li>
-
 </ul>
 
 

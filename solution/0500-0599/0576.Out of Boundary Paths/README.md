@@ -22,11 +22,9 @@
 
 <strong>解释:</strong>
 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/out_of_boundary_paths_1.png" style="width: 100%; max-width: 400px">
-
 </pre>
 
-
+![](./images/out_of_boundary_paths_1.png)
 
 <p><strong>示例 2：</strong></p>
 
@@ -38,11 +36,9 @@
 
 <strong>解释:</strong>
 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/out_of_boundary_paths_2.png" style="width: 100%; max-width: 400px">
-
 </pre>
 
-
+![](./images/out_of_boundary_paths_2.png)
 
 <p>&nbsp;</p>
 
@@ -53,13 +49,9 @@
 
 
 <ol>
-
 	<li>球一旦出界，就不能再被移动回网格内。</li>
-
 	<li>网格的长度和高度在 [1,50] 的范围内。</li>
-
 	<li>N 在 [0,50] 的范围内。</li>
-
 </ol>
 
 

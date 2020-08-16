@@ -94,11 +94,8 @@ If we chose D = {}, then a column [&quot;b&quot;,&quot;a&quot;,&quot;h&quot;] wo
 
 
 <ol>
-
 	<li><code>1 &lt;= A.length &lt;= 100</code></li>
-
 	<li><code>1 &lt;= A[i].length &lt;= 1000</code></li>
-
 </ol>
 
 </div>

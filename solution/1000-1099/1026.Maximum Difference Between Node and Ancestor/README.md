@@ -12,7 +12,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/04/12/2whqcep.jpg" style="height: 230px; width: 300px;"></p>
+![](./images/2whqcep.jpg)
 
 <pre><strong>输入：</strong>[8,3,10,1,6,null,14,null,null,4,7,13]
 <strong>输出：</strong>7

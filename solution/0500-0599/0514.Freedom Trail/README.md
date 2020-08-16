@@ -21,11 +21,8 @@
 
 
 <ol>
-
 	<li>您可以将&nbsp;<strong>ring&nbsp;</strong>顺时针或逆时针旋转<strong>一个位置</strong>，计为1步。旋转的最终目的是将字符串&nbsp;<strong>ring&nbsp;</strong>的一个字符与 12:00 方向对齐，并且这个字符必须等于字符&nbsp;<strong>key[i] 。</strong></li>
-
 	<li>如果字符&nbsp;<strong>key[i]&nbsp;</strong>已经对齐到12:00方向，您需要按下中心按钮进行拼写，这也将算作&nbsp;<strong>1 步</strong>。按完之后，您可以开始拼写&nbsp;<strong>key&nbsp;</strong>的下一个字符（下一阶段）, 直至完成所有拼写。</li>
-
 </ol>
 
 
@@ -38,7 +35,7 @@
 
 
 
-<center><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/ring.jpg" style="width: 26%;"></center>
+![](./images/ring.jpg)
 
 &nbsp;
 
@@ -67,13 +64,9 @@
 
 
 <ol>
-
 	<li><strong>ring</strong> 和&nbsp;<strong>key</strong>&nbsp;的字符串长度取值范围均为&nbsp;1 至&nbsp;100；</li>
-
 	<li>两个字符串中都只有小写字符，并且均可能存在重复字符；</li>
-
 	<li>字符串&nbsp;<strong>key</strong>&nbsp;一定可以由字符串 <strong>ring</strong>&nbsp;旋转拼出。</li>
-
 </ol>
 
 

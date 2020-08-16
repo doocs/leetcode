@@ -27,7 +27,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/08/domino.png" style="height: 161px; width: 200px;" /></p>
+![](./images/domino.png)
 
 
 
@@ -74,11 +74,8 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 
 
 <ol>
-
 	<li><code>1 &lt;= A[i], B[i] &lt;= 6</code></li>
-
 	<li><code>2 &lt;= A.length == B.length &lt;= 20000</code></li>
-
 </ol>
 
 

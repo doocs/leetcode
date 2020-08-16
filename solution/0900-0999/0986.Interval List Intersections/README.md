@@ -14,7 +14,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/02/interval1.png" style="height: 140px; width: 506px;"></strong></p>
+![](./images/interval1.png)
 
 <pre><strong>输入：</strong>A = [[0,2],[5,10],[13,23],[24,25]], B = [[1,5],[8,12],[15,24],[25,26]]
 <strong>输出：</strong>[[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]

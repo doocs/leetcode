@@ -12,7 +12,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50104-pm.png" style="height: 159px; width: 200px;"></p>
+![](./images/screen-shot-2018-12-25-at-50104-pm.png)
 
 <pre><strong>输入：</strong>[1,1,1,1,1,null,1]
 <strong>输出：</strong>true
@@ -20,7 +20,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/screen-shot-2018-12-25-at-50050-pm.png" style="height: 158px; width: 200px;"></p>
+![](./images/screen-shot-2018-12-25-at-50050-pm.png)
 
 <pre><strong>输入：</strong>[2,2,2,5,2]
 <strong>输出：</strong>false

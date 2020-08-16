@@ -21,23 +21,28 @@
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input: </strong><span id="example-input-1-1">[[0,1],[1,0]]
-<img alt="" src="https://assets.leetcode.com/uploads/2019/08/04/example1_1.png" style="width: 151px; height: 152px;" />
-</span>
-<strong>Output: </strong>2
-<img alt="" src="https://assets.leetcode.com/uploads/2019/08/04/example1_2.png" style="width: 151px; height: 152px;" />
-</pre>
+<strong>Input: </strong><span id="example-input-1-1">[[0,1],[1,0]]</pre></span>
+
+![](./images/example1_1.png)
+
+<pre><strong>Output: </strong>2</pre>
+
+![](./images/example1_2.png)
+
 
 <div>
 <p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input: </strong><span id="example-input-2-1">[[0,0,0],[1,1,0],[1,1,0]]
-<img alt="" src="https://assets.leetcode.com/uploads/2019/08/04/example2_1.png" style="width: 151px; height: 152px;" />
-</span>
-<strong>Output:</strong> 4
-<img alt="" src="https://assets.leetcode.com/uploads/2019/08/04/example2_2.png" style="width: 151px; height: 152px;" />
+</span></pre>
+
+![](./images/example2_1.png)
+
+<pre><strong>Output:</strong> 4
 </pre>
+
+![](./images/example2_2.png)
 
 <p>&nbsp;</p>
 </div>

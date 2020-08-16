@@ -23,11 +23,9 @@
 
 <b>Explanation:</b>
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/erect_the_fence_1.png" style="width: 100%; max-width: 320px" />
-
 </pre>
 
-
+![](./images/erect_the_fence_1.png)
 
 <p><b>Example 2:</b></p>
 
@@ -41,13 +39,11 @@
 
 <b>Explanation:</b>
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/erect_the_fence_2.png" style="width: 100%; max-width: 320px" />
-
 Even you only have trees in a line, you need to use rope to enclose them. 
 
 </pre>
 
-
+![](./images/erect_the_fence_2.png)
 
 <p>&nbsp;</p>
 
@@ -58,19 +54,12 @@ Even you only have trees in a line, you need to use rope to enclose them.
 
 
 <ol>
-
 	<li>All trees should be enclosed together. You cannot cut the rope to enclose trees that will separate them in more than one group.</li>
-
 	<li>All input integers will range from 0 to 100.</li>
-
 	<li>The garden has at least one tree.</li>
-
 	<li>All coordinates are distinct.</li>
-
 	<li>Input points have <b>NO</b> order. No order required for output.</li>
-
 	<li>input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.</li>
-
 </ol>
 
 

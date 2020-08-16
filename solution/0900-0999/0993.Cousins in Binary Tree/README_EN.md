@@ -25,7 +25,9 @@
 
 <p><strong>Example 1:<br />
 
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/12/q1248-01.png" style="width: 180px; height: 160px;" /></strong></p>
+![](./images/q1248-01.png)
+
+</strong></p>
 
 
 
@@ -43,7 +45,9 @@
 
 <p><strong>Example 2:<br />
 
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/12/q1248-02.png" style="width: 201px; height: 160px;" /></strong></p>
+![](./images/q1248-02.png)
+
+</strong></p>
 
 
 
@@ -62,8 +66,7 @@
 <p><strong>Example 3:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/02/13/q1248-03.png" style="width: 156px; height: 160px;" /></strong></p>
+![](./images/q1248-03.png)
 
 
 
@@ -88,11 +91,8 @@
 
 
 <ol>
-
 	<li>The number of nodes in the tree will be between <code>2</code> and <code>100</code>.</li>
-
 	<li>Each node has a unique integer value from <code>1</code> to <code>100</code>.</li>
-
 </ol>
 
 

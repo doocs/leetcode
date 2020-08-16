@@ -23,7 +23,7 @@
 
 
 
-<p><span id="example-output-1"><img alt="" src="https://assets.leetcode.com/uploads/2019/04/04/sum-of-root-to-leaf-binary-numbers.png" style="width: 304px; height: 200px;" /></span></p>
+![](./images/sum-of-root-to-leaf-binary-numbers.png)
 
 
 
@@ -48,13 +48,9 @@
 
 
 <ol>
-
 	<li>The number of nodes in the tree is between <code>1</code> and <code>1000</code>.</li>
-
 	<li>node.val is <code>0</code> or <code>1</code>.</li>
-
 	<li>The answer will not exceed <code>2^31 - 1</code>.</li>
-
 </ol>
 
 

@@ -16,9 +16,7 @@
 
 
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/narytreeexample.png" style="width: 100%; max-width: 300px;"></p>
-
-
+![](./images/narytreeexample.png)
 
 <p>&nbsp;</p>
 

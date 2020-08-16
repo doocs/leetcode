@@ -19,8 +19,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/05/03/capture.JPG" style="width: 200px; height: 175px;" /></strong></p>
-
+![](./images/capture.jpeg)
 
 
 <pre>
@@ -52,11 +51,8 @@ So we return the level with the maximum sum which is level 2.
 
 
 <ol>
-
 	<li>The number of nodes in the given tree is between <code>1</code> and <code>10^4</code>.</li>
-
 	<li><code>-10^5 &lt;= node.val &lt;= 10^5</code></li>
-
 </ol>
 
 

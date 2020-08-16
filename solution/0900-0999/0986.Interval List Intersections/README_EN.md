@@ -24,8 +24,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/30/interval1.png" style="width: 506px; height: 140px;" /></strong></p>
+![](./images/interval1.png)
 
 
 
@@ -50,13 +49,9 @@
 
 
 <ol>
-
 	<li><code>0 &lt;= A.length &lt; 1000</code></li>
-
 	<li><code>0 &lt;= B.length &lt; 1000</code></li>
-
 	<li><code>0 &lt;= A[i].start, A[i].end, B[i].start, B[i].end &lt; 10^9</code></li>
-
 </ol>
 
 

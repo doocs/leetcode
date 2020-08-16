@@ -48,11 +48,9 @@
 
 <strong>解释:</strong> 
 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/brick_wall.png" style="width: 100%; max-width: 350px">
-
 </pre>
 
-
+![](./images/brick_wall.png)
 
 <p>&nbsp;</p>
 
@@ -63,11 +61,8 @@
 
 
 <ol>
-
 	<li>每一行砖块的宽度之和应该相等，并且不能超过 INT_MAX。</li>
-
 	<li>每一行砖块的数量在&nbsp;[1,10,000] 范围内，&nbsp;墙的高度在&nbsp;[1,10,000] 范围内，&nbsp;总的砖块数量不超过 20,000。</li>
-
 </ol>
 
 

@@ -15,14 +15,20 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：<br>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-01.png" style="height: 160px; width: 180px;"></strong></p>
+
+![](./images/q1248-01.png)
+
+</strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,4], x = 4, y = 3
 <strong>输出：</strong>false
 </pre>
 
 <p><strong>示例 2：<br>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-02.png" style="height: 160px; width: 201px;"></strong></p>
+
+![](./images/q1248-02.png)
+
+</strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,null,4,null,5], x = 5, y = 4
 <strong>输出：</strong>true
@@ -30,7 +36,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/q1248-03.png" style="height: 160px; width: 156px;"></strong></p>
+![](./images/q1248-03.png)
 
 <pre><strong>输入：</strong>root = [1,2,3,null,4], x = 2, y = 3
 <strong>输出：</strong>false</pre>

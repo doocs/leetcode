@@ -71,10 +71,11 @@ Click : [3,0]
 
 
 <strong>解释:</strong>
-
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/minesweeper_example_1.png" style="width: 100%; max-width: 400px">
-
 </pre>
+
+![](./images/minesweeper_example_1.png)
+
+
 
 
 
@@ -116,9 +117,9 @@ Click : [1,2]
 
 <strong>解释:</strong>
 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/minesweeper_example_2.png" style="width: 100%; max-width: 400px">
-
 </pre>
+
+![](./images/minesweeper_example_2.png)
 
 
 
@@ -131,15 +132,10 @@ Click : [1,2]
 
 
 <ol>
-
 	<li>输入矩阵的宽和高的范围为 [1,50]。</li>
-
 	<li>点击的位置只能是未被挖出的方块 (&#39;M&#39; 或者 &#39;E&#39;)，这也意味着面板至少包含一个可点击的方块。</li>
-
 	<li>输入面板不会是游戏结束的状态（即有地雷已被挖出）。</li>
-
 	<li>简单起见，未提及的规则在这个问题中可被忽略。例如，当游戏结束时你不需要挖出所有地雷，考虑所有你可能赢得游戏或标记方块的情况。</li>
-
 </ol>
 
 

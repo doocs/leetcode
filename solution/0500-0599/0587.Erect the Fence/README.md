@@ -22,11 +22,9 @@
 
 <strong>解释:</strong>
 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/erect_the_fence_1.png" style="width: 100%; max-width: 320px">
-
 </pre>
 
-
+![](./images/erect_the_fence_1.png)
 
 <p><strong>示例 2:</strong></p>
 
@@ -38,13 +36,11 @@
 
 <strong>解释:</strong>
 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/erect_the_fence_2.png" style="width: 100%; max-width: 320px">
-
 即使树都在一条直线上，你也需要先用绳子包围它们。
 
 </pre>
 
-
+![](./images/erect_the_fence_2.png)
 
 <p>&nbsp;</p>
 
@@ -55,17 +51,11 @@
 
 
 <ol>
-
 	<li>所有的树应当被围在一起。你不能剪断绳子来包围树或者把树分成一组以上。</li>
-
 	<li>输入的整数在 0 到 100 之间。</li>
-
 	<li>花园至少有一棵树。</li>
-
 	<li>所有树的坐标都是不同的。</li>
-
 	<li>输入的点<strong>没有</strong>顺序。输出顺序也没有要求。</li>
-
 </ol>
 
 

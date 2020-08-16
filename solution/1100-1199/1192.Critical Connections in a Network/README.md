@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/original_images/critical-connections-in-a-network.png" style="width: 150px;"></strong></p>
+![](./images/critical-connections-in-a-network.png)
 
 <pre><strong>输入：</strong>n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]
 <strong>输出：</strong>[[1,3]]

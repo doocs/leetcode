@@ -21,19 +21,25 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>[[0,1],[1,0]]
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/16/example1_1.png" style="height: 151px; width: 150px;">
-<strong>输出：</strong>2
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/16/example1_2.png" style="height: 151px; width: 150px;">
-</pre>
+<pre><strong>输入：</strong>[[0,1],[1,0]]</pre>
+
+![](./images/example1_1.png)
+
+
+<pre><strong>输出：</strong>2</pre>
+
+![](./images/example1_2.png)
+
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>[[0,0,0],[1,1,0],[1,1,0]]
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/16/example2_1.png" style="height: 146px; width: 150px;">
-<strong>输出：</strong>4
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/16/example2_2.png" style="height: 151px; width: 150px;">
-</pre>
+<pre><strong>输入：</strong>[[0,0,0],[1,1,0],[1,1,0]]</pre>
+
+![](./images/example2_1.png)
+
+<pre><strong>输出：</strong>4</pre>
+
+![](./images/example2_2.png)
 
 <p>&nbsp;</p>
 

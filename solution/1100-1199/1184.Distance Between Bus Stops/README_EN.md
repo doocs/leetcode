@@ -20,9 +20,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/09/03/untitled-diagram-1.jpg" style="width: 388px; height: 240px;" /></p>
-
+![](./images/untitled-diagram-1.jpg)
 
 
 <pre>
@@ -42,10 +40,7 @@
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/09/03/untitled-diagram-1-1.jpg" style="width: 388px; height: 240px;" /></p>
-
-
+![](./images/untitled-diagram-1-1.jpg)
 
 <pre>
 
@@ -66,10 +61,7 @@
 <p><strong>Example 3:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/09/03/untitled-diagram-1-2.jpg" style="width: 388px; height: 240px;" /></p>
-
-
+![](./images/untitled-diagram-1-2.jpg)
 
 <pre>
 
@@ -90,15 +82,10 @@
 
 
 <ul>
-
 	<li><code>1 &lt;= n&nbsp;&lt;= 10^4</code></li>
-
 	<li><code>distance.length == n</code></li>
-
 	<li><code>0 &lt;= start, destination &lt; n</code></li>
-
 	<li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
-
 </ul>
 
 

@@ -19,9 +19,7 @@
 <p>&nbsp;</p>
 
 
-
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/narytreeexample.png" style="width: 100%; max-width: 300px;"></p>
-
+![](./images/narytreeexample.png)
 
 
 <p>&nbsp;</p>
@@ -37,11 +35,8 @@
 
 
 <ol>
-
 	<li>树的深度不会超过&nbsp;<code>1000</code>。</li>
-
 	<li>树的节点总不会超过&nbsp;<code>5000</code>。</li>
-
 </ol>
 
 

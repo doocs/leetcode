@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/04/12/recover-a-tree-from-preorder-traversal.png" style="height: 200px; width: 320px;"></strong></p>
+![](./images/recover-a-tree-from-preorder-traversal.png)
 
 <pre><strong>输入：</strong>&quot;1-2--3--4-5--6--7&quot;
 <strong>输出：</strong>[1,2,5,3,4,6,7]
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/04/12/screen-shot-2019-04-10-at-114101-pm.png" style="height: 250px; width: 256px;"></strong></p>
+![](./images/screen-shot-2019-04-10-at-114101-pm.png)
 
 <pre><strong>输入：</strong>&quot;1-2--3---4-5--6---7&quot;
 <strong>输出：</strong>[1,2,5,3,null,6,null,4,null,7]
@@ -32,7 +32,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/04/12/screen-shot-2019-04-10-at-114955-pm.png" style="height: 250px; width: 276px;"></p>
+![](./images/screen-shot-2019-04-10-at-114955-pm.png)
 
 <pre><strong>输入：</strong>&quot;1-401--349---90--88&quot;
 <strong>输出：</strong>[1,401,null,349,88,90]

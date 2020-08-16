@@ -13,7 +13,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/05/03/1336_ex1.JPG" style="width: 185px; height: 87px;" /></strong></p>
+![](./images/1336_ex1.jpeg)
 
 <pre>
 <strong>Input: </strong><span id="example-input-1-1">[[1,0,1],[0,0,0],[1,0,1]]</span>
@@ -24,7 +24,7 @@ The cell (1, 1) is as far as possible from all the land with distance 2.
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/05/03/1336_ex2.JPG" style="width: 184px; height: 87px;" /></strong></p>
+![](./images/1336_ex2.jpeg)
 
 <pre>
 <strong>Input: </strong><span id="example-input-2-1">[[1,0,0],[0,0,0],[0,0,0]]</span>

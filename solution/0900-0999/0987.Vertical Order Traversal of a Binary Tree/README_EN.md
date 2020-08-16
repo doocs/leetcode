@@ -30,10 +30,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/01/31/1236_example_1.PNG" style="width: 201px; height: 186px;" /></p>
-
-
+![](./images/1236_example_1.png)
 
 <div>
 
@@ -64,8 +61,7 @@ The node with value 7 occurs at position (2, -2).
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/31/tree2.png" style="width: 236px; height: 150px;" /></strong></p>
+![](./images/tree2.png)
 
 
 
@@ -96,11 +92,8 @@ However, in the report &quot;[1,5,6]&quot;, the node value of 5 comes first sinc
 
 
 <ol>
-
 	<li>The tree will have between <font face="monospace">1</font>&nbsp;and <code>1000</code> nodes.</li>
-
 	<li>Each node&#39;s value will be between <code>0</code> and <code>1000</code>.</li>
-
 </ol>
 
 </div>

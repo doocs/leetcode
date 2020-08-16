@@ -23,7 +23,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/02/20/1253_example_1_improved.PNG" style="width: 300px; height: 305px;" /></p>
+![](./images/1253_example_1_improved.png)
 
 
 
@@ -44,8 +44,7 @@ In this example the rook is able to capture all the pawns.
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/02/19/1253_example_2_improved.PNG" style="width: 300px; height: 306px;" /></p>
+![](./images/1253_example_2_improved.png)
 
 
 
@@ -67,7 +66,7 @@ Bishops are blocking the rook to capture any pawn.
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/02/20/1253_example_3_improved.PNG" style="width: 300px; height: 305px;" /></p>
+![](./images/1253_example_3_improved.png)
 
 
 

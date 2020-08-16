@@ -49,8 +49,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/05/01/minimum-score-triangulation-of-polygon-1.png" style="width: 253px; height: 150px;" /></p>
-
+![](./images/minimum-score-triangulation-of-polygon-1.png)
 
 
 <pre>
@@ -92,11 +91,8 @@
 
 
 <ol>
-
 	<li><code>3 &lt;= A.length &lt;= 50</code></li>
-
 	<li><code>1 &lt;= A[i] &lt;= 100</code></li>
-
 </ol>
 
 </div>

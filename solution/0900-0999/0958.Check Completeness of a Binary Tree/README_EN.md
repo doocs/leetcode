@@ -20,10 +20,7 @@ In a complete binary tree every level, except possibly the last, is completely f
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/complete-binary-tree-1.png" style="width: 180px; height: 145px;" /></strong></p>
-
-
+![](./images/complete-binary-tree-1.png)
 
 <pre>
 
@@ -43,7 +40,7 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/complete-binary-tree-2.png" style="width: 200px; height: 145px;" /></strong></p>
+![](./images/complete-binary-tree-2.png)
 
 
 
@@ -70,9 +67,7 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 
 <ol>
-
 	<li>The tree will have between 1 and 100 nodes.</li>
-
 </ol>
 
 

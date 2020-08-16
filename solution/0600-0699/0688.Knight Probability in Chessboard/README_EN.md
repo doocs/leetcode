@@ -14,10 +14,7 @@
 <p>&nbsp;</p>
 
 
-
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/knight.png" style="width: 200px; height: 200px;" /></p>
-
-
+![](./images/knight.png)
 
 <p>&nbsp;</p>
 
@@ -64,13 +61,9 @@ The total probability the knight stays on the board is 0.0625.
 
 
 <ul>
-
 	<li><code>N</code> will be between 1 and 25.</li>
-
 	<li><code>K</code> will be between 0 and 100.</li>
-
 	<li>The knight always initially starts on the board.</li>
-
 </ul>
 
 

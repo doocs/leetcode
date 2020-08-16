@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/05/03/minimum-score-triangulation-of-polygon-1.png" style="height: 150px; width: 253px;"></p>
+![](./images/minimum-score-triangulation-of-polygon-1.png)
 
 <pre><strong>输入：</strong>[3,7,4,5]
 <strong>输出：</strong>144

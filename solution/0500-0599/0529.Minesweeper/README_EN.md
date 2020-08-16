@@ -16,15 +16,10 @@
 
 
 <ol>
-
 	<li>If a mine (&#39;M&#39;) is revealed, then the game is over - change it to <b>&#39;X&#39;</b>.</li>
-
 	<li>If an empty square (&#39;E&#39;) with <b>no adjacent mines</b> is revealed, then change it to revealed blank (&#39;B&#39;) and all of its adjacent <b>unrevealed</b> squares should be revealed recursively.</li>
-
 	<li>If an empty square (&#39;E&#39;) with <b>at least one adjacent mine</b> is revealed, then change it to a digit (&#39;1&#39; to &#39;8&#39;) representing the number of adjacent mines.</li>
-
 	<li>Return the board when no more squares will be revealed.</li>
-
 </ol>
 
 
@@ -73,11 +68,11 @@ Click : [3,0]
 
 <b>Explanation:</b>
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/minesweeper_example_1.png" style="width: 100%; max-width: 400px" />
+
 
 </pre>
 
-
+![](./images/minesweeper_example_1.png)
 
 <p><b>Example 2:</b></p>
 
@@ -119,10 +114,9 @@ Click : [1,2]
 
 <b>Explanation:</b>
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/minesweeper_example_2.png" style="width: 100%; max-width: 400px" />
-
 </pre>
 
+![](./images/minesweeper_example_2.png)
 
 
 <p>&nbsp;</p>
@@ -134,15 +128,10 @@ Click : [1,2]
 
 
 <ol>
-
 	<li>The range of the input matrix&#39;s height and width is [1,50].</li>
-
 	<li>The click position will only be an unrevealed square (&#39;M&#39; or &#39;E&#39;), which also means the input board contains at least one clickable square.</li>
-
 	<li>The input board won&#39;t be a stage when game is over (some mines have been revealed).</li>
-
 	<li>For simplicity, not mentioned rules should be ignored in this problem. For example, you <b>don&#39;t</b> need to reveal all the unrevealed mines when the game is over, consider any cases that you will win the game or flag any squares.</li>
-
 </ol>
 
 

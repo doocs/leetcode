@@ -20,8 +20,10 @@
 <strong>输出:</strong>  [1,2,4,7,5,3,6,8,9]
 
 <strong>解释:</strong>
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/diagonal_traverse.png" style="width: 220px;">
+
 </pre>
+
+![](./images/diagonal_traverse.png)
 
 <p>&nbsp;</p>
 

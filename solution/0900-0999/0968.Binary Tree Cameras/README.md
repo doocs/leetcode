@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/bst_cameras_01.png" style="height: 163px; width: 138px;"></p>
+![](./images/bst_cameras_01.png)
 
 <pre><strong>输入：</strong>[0,0,null,0,0]
 <strong>输出：</strong>1
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/29/bst_cameras_02.png" style="height: 312px; width: 139px;"></p>
+![](./images/bst_cameras_02.png)
 
 <pre><strong>输入：</strong>[0,0,null,0,null,0,null,null,0]
 <strong>输出：</strong>2

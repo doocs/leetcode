@@ -23,11 +23,9 @@
 
 <b>Explanation:</b>
 
-<img src="https://assets.leetcode.com/uploads/2018/10/13/out_of_boundary_paths_1.png" style="width: 100%; max-width: 400px" />
-
 </pre>
 
-
+![](./images/out_of_boundary_paths_1.png)
 
 <p><b>Example 2:</b></p>
 
@@ -41,11 +39,9 @@
 
 <b>Explanation:</b>
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/out_of_boundary_paths_2.png" style="width: 100%; max-width: 400px" />
-
 </pre>
 
-
+![](./images/out_of_boundary_paths_2.png)
 
 <p>&nbsp;</p>
 
@@ -56,13 +52,9 @@
 
 
 <ol>
-
 	<li>Once you move the ball out of boundary, you cannot move it back.</li>
-
 	<li>The length and height of the grid is in range [1,50].</li>
-
 	<li>N is in range [0,50].</li>
-
 </ol>
 
 

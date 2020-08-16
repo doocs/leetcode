@@ -15,7 +15,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/08/01/1480-binary-tree-coloring-game.png" style="width: 300px; height: 186px;" />
+
+![](./images/1480-binary-tree-coloring-game.png)
+
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5,6,7,8,9,10,11], n = 11, x = 3
 <strong>Output:</strong> true

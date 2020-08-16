@@ -26,10 +26,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/04/08/recover-a-tree-from-preorder-traversal.png" style="width: 320px; height: 200px;" /></strong></p>
-
-
+![](./images/recover-a-tree-from-preorder-traversal.png)
 
 <pre>
 
@@ -47,8 +44,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/04/11/screen-shot-2019-04-10-at-114101-pm.png" style="width: 256px; height: 250px;" /></strong></p>
-
+![](./images/screen-shot-2019-04-10-at-114101-pm.png)
 
 
 <pre>
@@ -73,8 +69,7 @@
 
 
 
-<p><span><img alt="" src="https://assets.leetcode.com/uploads/2019/04/11/screen-shot-2019-04-10-at-114955-pm.png" style="width: 276px; height: 250px;" /></span></p>
-
+![](./images/screen-shot-2019-04-10-at-114955-pm.png)
 
 
 <pre>
@@ -98,11 +93,8 @@
 
 
 <ul>
-
 	<li>The number of nodes in the original tree is between <code>1</code> and <code>1000</code>.</li>
-
 	<li>Each node will have a value between <code>1</code> and <code>10^9</code>.</li>
-
 </ul>
 
 </div>

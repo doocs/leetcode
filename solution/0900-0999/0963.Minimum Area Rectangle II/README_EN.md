@@ -19,8 +19,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/21/1a.png" style="width: 150px; height: 151px;" /></p>
-
+![](./images/1a.png)
 
 
 <pre>
@@ -40,10 +39,7 @@
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/22/2.png" style="width: 150px; height: 94px;" /></p>
-
-
+![](./images/2.png)
 
 <pre>
 
@@ -62,8 +58,7 @@
 <p><strong>Example 3:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/22/3.png" style="width: 160px; height: 167px;" /></p>
+![](./images/3.png)
 
 
 
@@ -84,8 +79,7 @@
 <p><strong>Example 4:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/21/4c.png" style="width: 160px; height: 155px;" /></p>
+![](./images/4c.png)
 
 
 
@@ -116,17 +110,11 @@
 
 
 <ol>
-
 	<li><code>1 &lt;= points.length &lt;= 50</code></li>
-
 	<li><code>0 &lt;=&nbsp;points[i][0] &lt;=&nbsp;40000</code></li>
-
 	<li><code>0 &lt;=&nbsp;points[i][1] &lt;=&nbsp;40000</code></li>
-
 	<li>All points are distinct.</li>
-
 	<li>Answers within <code>10^-5</code> of the actual value will be accepted as correct.</li>
-
 </ol>
 
 

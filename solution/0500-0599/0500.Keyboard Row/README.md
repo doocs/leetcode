@@ -11,10 +11,7 @@
 <p>&nbsp;</p>
 
 
-
-<p><img alt="American keyboard" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/keyboard.png" style="width: 100%; max-width: 600px"></p>
-
-
+![](./images/keyboard.png)
 
 <p>&nbsp;</p>
 
@@ -41,11 +38,8 @@
 
 
 <ol>
-
 	<li>你可以重复使用键盘上同一字符。</li>
-
 	<li>你可以假设输入的字符串将只包含字母。</li>
-
 </ol>
 
 

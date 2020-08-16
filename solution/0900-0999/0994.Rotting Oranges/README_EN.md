@@ -8,13 +8,9 @@
 
 
 <ul>
-
 	<li>the value <code>0</code> representing an empty cell;</li>
-
 	<li>the value <code>1</code> representing a fresh orange;</li>
-
 	<li>the value <code>2</code> representing a rotten orange.</li>
-
 </ul>
 
 
@@ -36,8 +32,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/02/16/oranges.png" style="width: 712px; height: 150px;" /></strong></p>
+![](./images/oranges.png)
 
 
 
@@ -96,13 +91,9 @@
 
 
 <ol>
-
 	<li><code>1 &lt;= grid.length &lt;= 10</code></li>
-
 	<li><code>1 &lt;= grid[0].length &lt;= 10</code></li>
-
 	<li><code>grid[i][j]</code> is only <code>0</code>, <code>1</code>, or <code>2</code>.</li>
-
 </ol>
 
 </div>

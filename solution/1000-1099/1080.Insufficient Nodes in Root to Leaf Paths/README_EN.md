@@ -21,16 +21,19 @@
 
 <p><strong>Example 1:</strong></p>
 
-
+![](./images/insufficient-11.png)
 
 <pre>
 
-<strong><img alt="" src="https://assets.leetcode.com/uploads/2019/06/05/insufficient-11.png" style="width: 482px; height: 200px;" />
+<strong>
 
-Input: </strong>root = <span id="example-input-1-1">[1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14]</span>, limit = <span id="example-input-1-2">1</span>
+Input: </strong>root = <span id="example-input-1-1">[1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14]</span>, limit = <span id="example-input-1-2">1</span></pre>
 
-<strong><img alt="" src="https://assets.leetcode.com/uploads/2019/06/05/insufficient-2.png" style="width: 258px; height: 200px;" />
 
+![](./images/insufficient-2.png)
+
+<pre>
+<strong>
 Output: </strong><span id="example-output-1">[1,2,3,4,null,null,7,8,9,null,14]</span>
 
 </pre>
@@ -41,16 +44,15 @@ Output: </strong><span id="example-output-1">[1,2,3,4,null,null,7,8,9,null,14]</
 
 <p><strong>Example 2:</strong></p>
 
-
+![](./images/insufficient-3.png)
 
 <pre>
+Input: </strong>root = <span id="example-input-2-1">[5,4,8,11,null,17,4,7,1,null,null,5,3]</span>, limit = <span id="example-input-2-2">22</span></pre>
 
-<strong><img alt="" src="https://assets.leetcode.com/uploads/2019/06/05/insufficient-3.png" style="width: 292px; height: 200px;" />
+![](./images/insufficient-4.png)
 
-Input: </strong>root = <span id="example-input-2-1">[5,4,8,11,null,17,4,7,1,null,null,5,3]</span>, limit = <span id="example-input-2-2">22</span>
-
-<strong><img alt="" src="https://assets.leetcode.com/uploads/2019/06/05/insufficient-4.png" style="width: 264px; height: 200px;" />
-
+<pre>
+<strong>
 Output: </strong><span id="example-output-2">[5,4,8,11,null,17,4,7,null,null,null,5]</span></pre>
 
 
@@ -86,13 +88,9 @@ Output: </strong><span>[1,null,-3,4]</span></pre>
 
 
 <ol>
-
 	<li>The given tree will have between <code>1</code> and <code>5000</code> nodes.</li>
-
 	<li><code>-10^5&nbsp;&lt;= node.val &lt;= 10^5</code></li>
-
 	<li><code>-10^9 &lt;= limit&nbsp;&lt;= 10^9</code></li>
-
 </ol>
 
 

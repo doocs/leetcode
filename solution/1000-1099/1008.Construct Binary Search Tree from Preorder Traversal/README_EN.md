@@ -25,11 +25,9 @@
 
 <strong>Output: </strong><span id="example-output-1">[8,5,10,1,7,null,12]
 
-<img alt="" src="https://assets.leetcode.com/uploads/2019/03/06/1266.png" style="height: 200px; width: 306px;" /></span>
-
 </pre>
 
-
+![](./images/1266.png)
 
 <p>&nbsp;</p>
 
@@ -40,11 +38,8 @@
 
 
 <ol>
-
 	<li><code>1 &lt;= preorder.length &lt;= 100</code></li>
-
 	<li>The values of <code>preorder</code> are distinct.</li>
-
 </ol>
 
 

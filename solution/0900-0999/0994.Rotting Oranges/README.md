@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/oranges.png" style="height: 150px; width: 712px;"></strong></p>
+![](./images/oranges.png)
 
 <pre><strong>输入：</strong>[[2,1,1],[1,1,0],[0,1,1]]
 <strong>输出：</strong>4

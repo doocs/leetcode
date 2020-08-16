@@ -12,7 +12,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/22/1a.png" style="height: 151px; width: 150px;"></strong></p>
+![](./images/1a.png)
 
 <pre><strong>输入：</strong>[[1,2],[2,1],[1,0],[0,1]]
 <strong>输出：</strong>2.00000
@@ -20,7 +20,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/23/2.png" style="height: 94px; width: 150px;"></p>
+![](./images/2.png)
 
 <pre><strong>输入：</strong>[[0,1],[2,1],[1,1],[1,0],[2,0]]
 <strong>输出：</strong>1.00000
@@ -29,7 +29,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/23/3.png" style="height: 94px; width: 150px;"></p>
+![](./images/3.png)
 
 <pre><strong>输入：</strong>[[0,3],[1,2],[3,1],[1,3],[2,1]]
 <strong>输出：</strong>0
@@ -38,7 +38,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/21/4c.png" style="height: 155px; width: 160px;"></strong></p>
+![](./images/4c.png)
 
 <pre><strong>输入：</strong>[[3,1],[1,1],[0,1],[2,1],[3,3],[3,2],[0,2],[2,3]]
 <strong>输出：</strong>2.00000

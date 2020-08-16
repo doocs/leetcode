@@ -17,7 +17,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/05/02/tree.png" style="width: 280px; height: 191px;" /></strong></p>
+![](./images/tree.png)
 
 <pre>
 <strong>Input: </strong><span id="example-input-1-1">[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]</span>

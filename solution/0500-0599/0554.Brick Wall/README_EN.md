@@ -49,11 +49,10 @@
 
 <b>Explanation:</b> 
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/brick_wall.png" style="width: 100%; max-width: 350px" />
-
 </pre>
 
 
+![](./images/brick_wall.png)
 
 <p>&nbsp;</p>
 
@@ -64,11 +63,8 @@
 
 
 <ol>
-
 	<li>The width sum of bricks in different rows are the same and won&#39;t exceed INT_MAX.</li>
-
 	<li>The number of bricks in each row is in range [1,10,000]. The height of wall is in range [1,10,000]. Total number of bricks of the wall won&#39;t exceed 20,000.</li>
-
 </ol>
 
 

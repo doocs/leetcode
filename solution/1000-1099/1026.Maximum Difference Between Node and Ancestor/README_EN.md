@@ -11,7 +11,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/09/09/2whqcep.jpg" style="height: 230px; width: 300px;" /></p>
+![](./images/2whqcep.jpg)
 
 <pre>
 <strong>Input: </strong><span id="example-input-1-1">[8,3,10,1,6,null,14,null,null,4,7,13]</span>

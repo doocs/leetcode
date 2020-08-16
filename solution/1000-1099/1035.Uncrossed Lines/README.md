@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/04/28/142.png" style="height: 72px; width: 100px;"></strong></p>
+![](./images/142.png)
 
 <pre><strong>输入：</strong>A = [1,4,2], B = [1,2,4]
 <strong>输出：</strong>2

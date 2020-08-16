@@ -43,11 +43,9 @@
 
 <strong>Output: </strong><span id="example-output-1">4</span>
 
-<span><img alt="" src="https://assets.leetcode.com/uploads/2018/12/01/ex1.png" style="width: 257px; height: 50px;" /></span>
-
 </pre>
 
-
+![](./images/ex1.png)
 
 <div>
 
@@ -61,11 +59,9 @@
 
 <strong>Output: </strong><span id="example-output-2">2</span>
 
-<span><img alt="" src="https://assets.leetcode.com/uploads/2018/12/01/ex2.png" style="width: 293px; height: 50px;" /></span>
-
 </pre>
 
-
+![](./images/ex2.png)
 
 <div>
 
@@ -79,22 +75,17 @@
 
 <strong>Output: </strong><span id="example-output-3">8</span>
 
-<span><img alt="" src="https://assets.leetcode.com/uploads/2018/12/01/ex3.png" style="width: 346px; height: 180px;" /></span>
-
 </pre>
 
-
+![](./images/ex3.png)
 
 <p><strong>Note:</strong></p>
 
 
 
 <ol>
-
 	<li><code>1 &lt;= A.length &lt;= 20000</code></li>
-
 	<li><code>1 &lt;= A[i] &lt;= 100000</code></li>
-
 </ol>
 
 </div>

@@ -11,7 +11,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/10/12/keyboard.png" style="width: 100%; max-width: 600px" /></p>
+![](./images/keyboard.png)
 
 &nbsp;
 
@@ -40,11 +40,8 @@
 
 
 <ol>
-
 	<li>You may use one character in the keyboard more than once.</li>
-
 	<li>You may assume the input string will only contain letters of alphabet.</li>
-
 </ol>
 
 

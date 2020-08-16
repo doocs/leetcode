@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/01/05/1219-01.png" style="height: 120px; width: 88px;"></strong></p>
+![](./images/1219-01.png)
 
 <pre><strong>输入：</strong>root = [1,2], voyage = [2,1]
 <strong>输出：</strong>[-1]
@@ -30,7 +30,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/01/05/1219-02.png" style="height: 120px; width: 127px;"></strong></p>
+![](./images/1219-02.png)
 
 <pre><strong>输入：</strong>root = [1,2,3], voyage = [1,3,2]
 <strong>输出：</strong>[1]
@@ -38,7 +38,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/01/05/1219-02.png" style="height: 120px; width: 127px;"></strong></p>
+![](./images/1219-02.png)
 
 <pre><strong>输入：</strong>root = [1,2,3], voyage = [1,2,3]
 <strong>输出：</strong>[]

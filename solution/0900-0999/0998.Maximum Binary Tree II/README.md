@@ -28,7 +28,9 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/maximum-binary-tree-1-1.png" style="height: 160px; width: 159px;"><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/maximum-binary-tree-1-2.png" style="height: 160px; width: 169px;"></strong></p>
+![](./images/maximum-binary-tree-1-1.png)
+
+![](./images/maximum-binary-tree-1-2.png)
 
 <pre><strong>输入：</strong>root = [4,1,3,null,null,2], val = 5
 <strong>输出：</strong>[5,4,null,1,3,null,null,2]
@@ -36,7 +38,11 @@
 </pre>
 
 <p><strong>示例 2：<br>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/maximum-binary-tree-2-1.png" style="height: 160px; width: 180px;"><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/maximum-binary-tree-2-2.png" style="height: 160px; width: 214px;"></strong></p>
+
+![](./images/maximum-binary-tree-2-1.png)
+
+![](./images/maximum-binary-tree-2-2.png)
+
 
 <pre><strong>输入：</strong>root = [5,2,4,null,1], val = 3
 <strong>输出：</strong>[5,2,4,null,1,null,3]
@@ -44,7 +50,10 @@
 </pre>
 
 <p><strong>示例 3：<br>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/maximum-binary-tree-3-1.png" style="height: 160px; width: 180px;"><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/maximum-binary-tree-3-2.png" style="height: 160px; width: 201px;"></strong></p>
+
+![](./images/maximum-binary-tree-3-1.png)
+
+![](./images/maximum-binary-tree-3-2.png)
 
 <pre><strong>输入：</strong>root = [5,2,3,null,1], val = 4
 <strong>输出：</strong>[5,2,4,null,1,3]

@@ -21,7 +21,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/07/01/screen-shot-2019-07-01-at-53836-pm.png" style="width: 237px; height: 150px;" /></strong></p>
+![](./images/screen-shot-2019-07-01-at-53836-pm.png)
 
 
 
@@ -42,15 +42,10 @@
 
 
 <ul>
-
 	<li>The number of nodes in the given tree is at most <code>1000</code>.</li>
-
 	<li>Each node has a distinct value between <code>1</code> and <code>1000</code>.</li>
-
 	<li><code>to_delete.length &lt;= 1000</code></li>
-
 	<li><code>to_delete</code> contains distinct values between <code>1</code> and <code>1000</code>.</li>
-
 </ul>
 
 

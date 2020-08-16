@@ -67,11 +67,9 @@
 
 <strong>Explanation: </strong>The 2x2 grid is as follows:
 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/1.png" style="width: 82px; height: 82px;" />
-
 </pre>
 
-
+![](./images/1.png)
 
 <div>
 
@@ -95,11 +93,10 @@
 
 <strong>Explanation: </strong>The 2x2 grid is as follows:
 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/2.png" style="width: 82px; height: 82px;" />
 
 </pre>
 
-
+![](./images/2.png)
 
 <div>
 
@@ -125,10 +122,9 @@
 
 The 2x2 grid is as follows:
 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/3.png" style="width: 82px; height: 82px;" />
-
 </pre>
 
+![](./images/3.png)
 
 
 <div>
@@ -155,11 +151,9 @@ The 2x2 grid is as follows:
 
 The 2x2 grid is as follows:
 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/4.png" style="width: 82px; height: 82px;" />
-
 </pre>
 
-
+![](./images/4.png)
 
 <div>
 
@@ -183,11 +177,9 @@ The 2x2 grid is as follows:
 
 <strong>Explanation: </strong>The 2x2 grid is as follows:
 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/5.png" style="width: 82px; height: 82px;" />
-
 </pre>
 
-
+![](./images/5.png)
 
 <p>&nbsp;</p>
 
@@ -198,11 +190,8 @@ The 2x2 grid is as follows:
 
 
 <ol>
-
 	<li><code>1 &lt;= grid.length == grid[0].length &lt;= 30</code></li>
-
 	<li><code>grid[i][j]</code> is either <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or <code>&#39; &#39;</code>.</li>
-
 </ol>
 
 </div>

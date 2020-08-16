@@ -38,8 +38,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/30/tree1.png" style="width: 160px; height: 107px;" /></strong></p>
+![](./images/tree1.png)
 
 
 
@@ -58,9 +57,7 @@
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/01/30/tree2.png" style="width: 160px; height: 107px;" /></strong></p>
-
+![](./images/tree2.png)
 
 
 <pre>
@@ -77,10 +74,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/02/01/tree3.png" style="height: 170px; width: 172px;" /></strong></p>
-
+![](./images/tree3.png)
 
 
 <pre>
@@ -102,11 +96,8 @@
 
 
 <ol>
-
 	<li>The number of nodes in the given tree will be between <code>1</code> and <code>8500</code>.</li>
-
 	<li>Each node in the tree will have a value between <code>0</code> and <code>25</code>.</li>
-
 </ol>
 
 </div>

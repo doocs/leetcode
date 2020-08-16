@@ -20,11 +20,8 @@
 
 
 <ol>
-
 	<li>You can rotate the <b>ring</b> clockwise or anticlockwise <b>one place</b>, which counts as 1 step. The final purpose of the rotation is to align one of the string <b>ring&#39;s</b> characters at the 12:00 direction, where this character must equal to the character <b>key[i]</b>.</li>
-
 	<li>If the character <b>key[i]</b> has been aligned at the 12:00 direction, you need to press the center button to spell, which also counts as 1 step. After the pressing, you could begin to spell the next character in the key (next stage), otherwise, you&#39;ve finished all the spelling.</li>
-
 </ol>
 
 
@@ -32,8 +29,7 @@
 <p><b>Example:</b></p>
 
 
-
-<center><img src="https://assets.leetcode.com/uploads/2018/10/22/ring.jpg" style="width: 26%;" /></center>
+![](./images/ring.jpg)
 
 &nbsp;
 
@@ -64,13 +60,9 @@ So the final output is 4.
 
 
 <ol>
-
 	<li>Length of both ring and <b>key</b> will be in range 1 to 100.</li>
-
 	<li>There are only lowercase letters in both strings and might be some duplcate characters in both strings.</li>
-
 	<li>It&#39;s guaranteed that string <b>key</b> could always be spelled by rotating the string <b>ring</b>.</li>
-
 </ol>
 
 

@@ -21,7 +21,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/29/bst_cameras_01.png" style="width: 138px; height: 163px;" />
+![](./images/bst_cameras_01.png)
 
 <div>
 
@@ -41,7 +41,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/29/bst_cameras_02.png" style="width: 139px; height: 312px;" />
+![](./images/bst_cameras_02.png)
 
 <pre>
 
@@ -62,11 +62,8 @@
 
 
 <ol>
-
 	<li>The number of nodes in the given tree will be in the range&nbsp;<code>[1, 1000]</code>.</li>
-
 	<li><strong>Every</strong> node has value 0.</li>
-
 </ol>
 
 </div>

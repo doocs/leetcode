@@ -22,22 +22,25 @@
 
 <pre><strong>输入：</strong>[4,6,15,35]
 <strong>输出：</strong>4
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-uploads/uploads/2018/12/01/ex1.png" style="height: 37px; width: 255px;"><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/01/ex1.png" style="height: 50px; width: 257px;">
 </pre>
+
+![](./images/ex1.png)
 
 <p><strong>示例 2：</strong></p>
 
 <pre><strong>输入：</strong>[20,50,9,63]
 <strong>输出：</strong>2
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/01/ex2.png" style="height: 50px; width: 293px;">
 </pre>
+
+![](./images/ex2.png)
 
 <p><strong>示例 3：</strong></p>
 
 <pre><strong>输入：</strong>[2,3,6,7,4,12,21,39]
 <strong>输出：</strong>8
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/01/ex3.png" style="height: 180px; width: 346px;">
 </pre>
+
+![](./images/ex3.png)
 
 <p>&nbsp;</p>
 

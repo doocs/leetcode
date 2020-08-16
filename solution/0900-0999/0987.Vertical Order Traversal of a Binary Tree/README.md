@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/02/1236_example_1.PNG" style="height: 186px; width: 201px;"></p>
+![](./images/1236_example_1.png)
 
 <pre><strong>输入：</strong>[3,9,20,null,null,15,7]
 <strong>输出：</strong>[[9],[3,15],[20],[7]]
@@ -32,7 +32,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/23/tree2.png" style="height: 150px; width: 236px;"></strong></p>
+![](./images/tree2.png)
 
 <pre><strong>输入：</strong>[1,2,3,4,5,6,7]
 <strong>输出：</strong>[[4],[2],[1,5,6],[3],[7]]

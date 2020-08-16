@@ -7,9 +7,9 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/10/12/knight.png" style="width: 150px; height: 150px;" />&nbsp;.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt="" src="https://assets.leetcode.com/uploads/2018/10/30/keypad.png" style="width: 134px; height: 150px;" /></p>
+![](./images/knight.png) 
 
-
+![](./images/keypad.png)
 
 <p>&nbsp;</p>
 
@@ -98,9 +98,7 @@
 
 
 <ul>
-
 	<li><code>1 &lt;= N &lt;= 5000</code></li>
-
 </ul>
 
 </div>

@@ -12,11 +12,8 @@
 
 
 <ul>
-
 	<li><code>A[i] == B[j]</code>;</li>
-
 	<li>The line we draw does not intersect any other connecting (non-horizontal) line.</li>
-
 </ul>
 
 
@@ -35,8 +32,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2019/04/26/142.png" style="width: 100px; height: 72px;" />
-
+![](./images/142.png)
 <pre>
 
 <strong>Input: </strong>A = <span id="example-input-1-1">[1,4,2]</span>, B = <span id="example-input-1-2">[1,2,4]</span>
@@ -94,13 +90,9 @@ We cannot draw 3 uncrossed lines, because the line from A[1]=4 to B[2]=4 will in
 
 
 <ol>
-
 	<li><code>1 &lt;= A.length &lt;= 500</code></li>
-
 	<li><code>1 &lt;= B.length &lt;= 500</code></li>
-
 	<li><code><font face="monospace">1 &lt;= A[i], B[i] &lt;= 2000</font></code></li>
-
 </ol>
 
 

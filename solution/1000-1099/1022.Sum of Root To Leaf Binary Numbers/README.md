@@ -14,7 +14,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/04/05/sum-of-root-to-leaf-binary-numbers.png" style="height: 200px; width: 304px;"></p>
+![](./images/sum-of-root-to-leaf-binary-numbers.png)
 
 <pre><strong>输入：</strong>[1,0,1,0,1,0,1]
 <strong>输出：</strong>22

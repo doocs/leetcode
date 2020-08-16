@@ -6,35 +6,19 @@
 <p>On an N x N <code>board</code>, the numbers from <code>1</code> to <code>N*N</code> are written&nbsp;<em>boustrophedonically</em>&nbsp;<strong>starting from the bottom&nbsp;left of the board</strong>, and alternating direction each row.&nbsp; For example, for a 6 x 6 board, the numbers are written as follows:</p>
 
 
-
-<pre>
-
-<img alt="" src="https://assets.leetcode.com/uploads/2018/09/23/snakes.png" style="width: 254px; height: 200px;" />
-
-</pre>
-
+![](./images/snakes.png)
 
 
 <p>You start on square <code>1</code> of the board (which is always in the last row and&nbsp;first column).&nbsp; Each move, starting from square <code>x</code>, consists of the following:</p>
 
 
-
 <ul>
-
 	<li>You choose a destination square <code>S</code> with number&nbsp;<code>x+1</code>, <code>x+2</code>, <code>x+3</code>, <code>x+4</code>, <code>x+5</code>, or <code>x+6</code>, provided this&nbsp;number is&nbsp;<code>&lt;=&nbsp;N*N</code>.
-
-
-
 	<ul>
-
 		<li>(This choice simulates the result of a standard 6-sided die roll: ie., there are always <strong>at most 6 destinations, regardless of the size of the board</strong>.)</li>
-
 	</ul>
-
 	</li>
-
 	<li>If <code>S</code>&nbsp;has a snake or ladder, you move to the destination of that snake or ladder.&nbsp; Otherwise, you move to <code>S</code>.</li>
-
 </ul>
 
 
@@ -96,15 +80,10 @@ It can be shown that you need at least 4 moves to reach the N*N-th square, so th
 
 
 <ol>
-
 	<li><code>2 &lt;= board.length = board[0].length&nbsp;&lt;= 20</code></li>
-
 	<li><code>board[i][j]</code>&nbsp;is between <code>1</code> and <code>N*N</code> or is equal to <code>-1</code>.</li>
-
 	<li>The board&nbsp;square with number <code>1</code> has no snake or ladder.</li>
-
 	<li>The board square with number <code>N*N</code> has no snake or ladder.</li>
-
 </ol>
 
 
