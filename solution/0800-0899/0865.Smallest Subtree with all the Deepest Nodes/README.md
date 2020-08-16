@@ -16,10 +16,14 @@
 
 <p><strong>示例：</strong></p>
 
+
+![](./images/sketch1.png)
+
+
 <pre><strong>输入：</strong>[3,5,1,6,2,0,8,null,null,7,4]
 <strong>输出：</strong>[2,7,4]
 <strong>解释：</strong>
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/01/sketch1.png" style="height: 238px; width: 280px;">
+
 我们返回值为 2 的结点，在图中用黄色标记。
 在图中用蓝色标记的是树的最深的结点。
 输入 &quot;[3, 5, 1, 6, 2, 0, 8, null, null, 7, 4]&quot; 是对给定的树的序列化表述。

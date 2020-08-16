@@ -49,11 +49,9 @@
 
 The nodes that are reachable in the final graph after M = 6 moves are indicated below.
 
-<span><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/01/origfinal.png" style="width: 487px; height: 200px;" /></span>
-
 </pre>
 
-
+![](./images/origfinal.png)
 
 <div>
 
@@ -80,23 +78,14 @@ The nodes that are reachable in the final graph after M = 6 moves are indicated 
 
 
 <ol>
-
 	<li><code>0 &lt;= edges.length &lt;= 10000</code></li>
-
 	<li><code>0 &lt;= edges[i][0] &lt;&nbsp;edges[i][1] &lt; N</code></li>
-
 	<li>There does not exist any&nbsp;<code>i != j</code> for which <code>edges[i][0] == edges[j][0]</code> and <code>edges[i][1] == edges[j][1]</code>.</li>
-
 	<li>The original graph&nbsp;has no parallel edges.</li>
-
 	<li><code>0 &lt;= edges[i][2] &lt;= 10000</code></li>
-
 	<li><code>0 &lt;= M &lt;= 10^9</code></li>
-
 	<li><code><font face="monospace">1 &lt;= N &lt;= 3000</font></code></li>
-
 	<li>A reachable node is a node that can be travelled to&nbsp;using at most&nbsp;M moves starting from&nbsp;node 0.</li>
-
 </ol>
 
 

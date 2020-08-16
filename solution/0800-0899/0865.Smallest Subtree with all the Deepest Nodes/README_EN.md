@@ -25,7 +25,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-
+![](./images/sketch1.png)
 
 <pre>
 
@@ -36,8 +36,6 @@
 <strong>Explanation:
 
 </strong>
-
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/01/sketch1.png" style="width: 280px; height: 238px;" />
 
 
 
@@ -64,11 +62,8 @@ Both the input and output have TreeNode type.
 
 
 <ul>
-
 	<li>The number of nodes in the tree will be between 1 and 500.</li>
-
 	<li>The values of each node are unique.</li>
-
 </ul>
 
 

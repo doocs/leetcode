@@ -20,7 +20,7 @@
 
 </pre>
 
-<p><img alt="Illustration of graph" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/03/17/picture1.png" style="height:86px; width:300px" /></p>
+![](./images/picture1.png)
 
 <p><strong>提示：</strong></p>
 

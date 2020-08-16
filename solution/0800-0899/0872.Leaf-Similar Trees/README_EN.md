@@ -6,8 +6,7 @@
 <p>Consider all the leaves of a binary tree.&nbsp; From&nbsp;left to right order, the values of those&nbsp;leaves form a <em>leaf value sequence.</em></p>
 
 
-
-<p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/16/tree.png" style="width: 300px; height: 240px;" /></p>
+![](./images/tree.png)
 
 
 
@@ -32,9 +31,7 @@
 
 
 <ul>
-
 	<li>Both of the given trees will have between <code>1</code> and <code>100</code> nodes.</li>
-
 </ul>
 
 

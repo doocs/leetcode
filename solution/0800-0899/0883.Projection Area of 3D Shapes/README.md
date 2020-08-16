@@ -42,8 +42,9 @@
 <strong>输出：</strong>17
 <strong>解释：</strong>
 这里有该形体在三个轴对齐平面上的三个投影(&ldquo;阴影部分&rdquo;)。
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/02/shadow.png" style="height: 200px; width: 749px;">
 </pre>
+
+![](./images/shadow.png)
 
 <p><strong>示例 3：</strong></p>
 

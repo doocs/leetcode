@@ -31,13 +31,9 @@ Only the red nodes satisfy the property &quot;every subtree not containing a 1&q
 
 The diagram on the right represents the answer.
 
-
-
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/06/1028_2.png" style="width:450px" />
-
 </pre>
 
-
+![](./images/1028_2.png)
 
 <pre>
 
@@ -47,15 +43,9 @@ The diagram on the right represents the answer.
 
 <strong>Output: </strong>[1,null,1,null,1]
 
-
-
-
-
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/06/1028_1.png" style="width:450px" />
-
 </pre>
 
-
+![](./images/1028_1.png)
 
 <pre>
 
@@ -65,26 +55,17 @@ The diagram on the right represents the answer.
 
 <strong>Output: </strong>[1,1,0,1,1,null,1]
 
-
-
-
-
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/05/1028.png" style="width:450px" />
-
 </pre>
 
-
+![](./images/1028.png)
 
 <p><strong>Note: </strong></p>
 
 
 
 <ul>
-
 	<li>The binary tree&nbsp;will&nbsp;have&nbsp;at&nbsp;most <code>100 nodes</code>.</li>
-
 	<li>The value of each node will only be <code>0</code> or <code>1</code>.</li>
-
 </ul>
 
 

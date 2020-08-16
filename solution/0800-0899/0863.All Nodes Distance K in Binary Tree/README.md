@@ -23,11 +23,12 @@
 所求结点为与目标结点（值为 5）距离为 2 的结点，
 值分别为 7，4，以及 1
 
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/06/28/sketch0.png" style="height: 240px; width: 280px;">
 
 注意，输入的 &quot;root&quot; 和 &quot;target&quot; 实际上是树上的结点。
 上面的输入仅仅是对这些对象进行了序列化描述。
 </pre>
+
+![](./images/sketch0.png)
 
 <p>&nbsp;</p>
 

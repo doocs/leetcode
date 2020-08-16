@@ -18,9 +18,10 @@ src = 0, dst = 2, k = 1
 <strong>输出:</strong> 200
 <strong>解释:</strong> 
 城市航班图如下
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/02/16/995.png" style="height: 180px; width: 246px;">
 
 从城市 0 到城市 2 在 1 站中转以内的最便宜价格是 200，如图中红色所示。</pre>
+
+![](./images/995.png)
 
 <p><strong>示例 2：</strong></p>
 
@@ -30,9 +31,10 @@ src = 0, dst = 2, k = 0
 <strong>输出:</strong> 500
 <strong>解释:</strong> 
 城市航班图如下
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/02/16/995.png" style="height: 180px; width: 246px;">
 
 从城市 0 到城市 2 在 0 站中转以内的最便宜价格是 500，如图中蓝色所示。</pre>
+
+![](./images/995.png)
 
 <p>&nbsp;</p>
 

@@ -26,8 +26,9 @@
 <strong>输出：</strong>13
 <strong>解释：</strong>
 在 M = 6 次移动之后在最终图中可到达的结点如下所示。
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/01/origfinal.png" style="height: 200px; width: 487px;">
 </pre>
+
+![](./images/origfinal.png)
 
 <p><strong>示例 2：</strong></p>
 

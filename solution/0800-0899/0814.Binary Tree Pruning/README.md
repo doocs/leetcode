@@ -18,27 +18,27 @@
 <strong>解释:</strong> 
 只有红色节点满足条件&ldquo;所有不包含 1 的子树&rdquo;。
 右图为返回的答案。
-
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/06/1028_2.png" style="width:450px" />
 </pre>
+
+![](./images/1028_2.png)
 
 <pre>
 <strong>示例2:</strong>
 <strong>输入:</strong> [1,0,1,0,0,0,1]
 <strong>输出: </strong>[1,null,1,null,1]
 
-
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/06/1028_1.png" style="width:450px" />
 </pre>
+
+![](./images/1028_1.png)
 
 <pre>
 <strong>示例3:</strong>
 <strong>输入:</strong> [1,1,0,1,1,0,1,0]
 <strong>输出: </strong>[1,1,0,1,1,null,1]
 
-
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/05/1028.png" style="width:450px" />
 </pre>
+
+![](./images/1028.png)
 
 <p><strong>说明: </strong></p>
 

@@ -45,17 +45,13 @@ have values 7, 4, and 1.
 
 
 
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/06/28/sketch0.png" style="width: 280px; height: 240px;" />
-
-
-
 Note that the inputs &quot;root&quot; and &quot;target&quot; are actually TreeNodes.
 
 The descriptions of the inputs above are just serializations of these objects.
 
 </pre>
 
-
+![](./images/sketch0.png)
 
 <p>&nbsp;</p>
 
@@ -66,20 +62,13 @@ The descriptions of the inputs above are just serializations of these objects.
 
 
 <ol>
-
 	<li>The given tree is non-empty.</li>
-
 	<li>Each node in the tree has unique values&nbsp;<code>0 &lt;= node.val &lt;= 500</code>.</li>
-
 	<li>The <code>target</code>&nbsp;node is a node in the tree.</li>
-
 	<li><code>0 &lt;= K &lt;= 1000</code>.</li>
-
 </ol>
 
 </div>
-
-
 
 
 ## Solutions

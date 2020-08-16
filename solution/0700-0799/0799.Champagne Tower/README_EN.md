@@ -13,11 +13,7 @@
 
 <p>For example, after one cup of champagne is poured, the top most glass is full.&nbsp; After two cups of champagne are poured, the two glasses on the second row are half full.&nbsp; After three cups of champagne are poured, those two cups become full - there are 3 full glasses total now.&nbsp; After four cups of champagne are poured, the third row has the middle glass half full, and the two outside glasses are a quarter full, as pictured below.</p>
 
-
-
-<p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/03/09/tower.png" style="height:200px; width:290px" /></p>
-
-
+![](./images/tower.png)
 
 <p>Now after pouring some non-negative integer cups of champagne, return how full the j-th glass in the i-th row is (both i and j are 0 indexed.)</p>
 
@@ -60,11 +56,8 @@
 
 
 <ul>
-
 	<li><code>poured</code>&nbsp;will&nbsp;be&nbsp;in the range of <code>[0, 10 ^ 9]</code>.</li>
-
 	<li><code>query_glass</code> and <code>query_row</code> will be in the range of <code>[0, 99]</code>.</li>
-
 </ul>
 
 

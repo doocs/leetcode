@@ -21,10 +21,7 @@ The five points are show in the figure below. The red triangle is the largest.
 
 </pre>
 
-
-
-<p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/04/1027.png" style="height:328px; width:400px" /></p>
-
+![](./images/1027.png)
 
 
 <p><strong>Notes: </strong></p>
@@ -32,15 +29,10 @@ The five points are show in the figure below. The red triangle is the largest.
 
 
 <ul>
-
 	<li><code>3 &lt;= points.length &lt;= 50</code>.</li>
-
 	<li>No points will be duplicated.</li>
-
 	<li>&nbsp;<code>-50 &lt;= points[i][j] &lt;= 50</code>.</li>
-
 	<li>Answers within&nbsp;<code>10^-6</code>&nbsp;of the true value will be accepted as correct.</li>
-
 </ul>
 
 

@@ -147,10 +147,9 @@
 
 Here are the three projections (&quot;shadows&quot;) of the shape made with each axis-aligned plane.
 
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/02/shadow.png" style="width: 749px; height: 200px;" />
-
 </pre>
 
+![](./images/shadow.png)
 
 
 <div>
@@ -216,11 +215,8 @@ Here are the three projections (&quot;shadows&quot;) of the shape made with each
 
 
 <ul>
-
 	<li><code>1 &lt;= grid.length = grid[0].length&nbsp;&lt;= 50</code></li>
-
 	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
-
 </ul>
 
 </div>

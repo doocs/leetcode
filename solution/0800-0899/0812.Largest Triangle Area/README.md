@@ -14,7 +14,7 @@
 这五个点如下图所示。组成的橙色三角形是最大的，面积为2。
 </pre>
 
-<p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/04/1027.png" style="height:328px; width:400px" /></p>
+![](./images/1027.png)
 
 <p><strong>注意: </strong></p>
 

@@ -34,8 +34,7 @@ Here is a diagram of the above graph.
 </pre>
 
 
-
-<p><img alt="Illustration of graph" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/03/17/picture1.png" style="height:86px; width:300px" /></p>
+![](./images/picture1.png)
 
 
 
@@ -44,13 +43,9 @@ Here is a diagram of the above graph.
 
 
 <ul>
-
 	<li><code>graph</code> will have length at most <code>10000</code>.</li>
-
 	<li>The number of edges in the graph will not exceed <code>32000</code>.</li>
-
 	<li>Each <code>graph[i]</code> will be a sorted list of different integers, chosen within the range <code>[0, graph.length - 1]</code>.</li>
-
 </ul>
 
 
