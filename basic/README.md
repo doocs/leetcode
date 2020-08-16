@@ -2,10 +2,7 @@
 
 ## 常见的排序算法
 
-- 冒泡排序
-- 插入排序
-- 归并排序
-- 快速排序
-- 拓扑排序
-- 堆排序
-- 桶排序
+- [冒泡排序](./sorting/BubbleSort/README.md)
+- [插入排序](./sorting/InsertionSort/README.md)
+- [归并排序](./sorting/MergeSort/README.md)
+- [快速排序](./sorting/QuickSort/README.md)

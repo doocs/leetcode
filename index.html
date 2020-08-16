@@ -33,14 +33,15 @@
       name: 'leetcode',
       logo: '/images/doocs-leetcode.png',
       search: [
-        '/','/solution/','/lcof/','lcci/'
+        '/','/solution/','/lcof/','/lcci/', '/basic/'
       ],
       auto2top: true,
       loadSidebar: 'summary.md',
       alias: {
         '/lcci/.*/summary.md': '/lcci/summary.md',
         '/lcof/.*/summary.md': '/lcof/summary.md',
-        '/solution/.*/summary.md': '/solution/summary.md'
+        '/solution/.*/summary.md': '/solution/summary.md',
+        '/basic/.*/summary.md': '/basic/summary.md'
       },
       pagination: {
         previousText: '上一题',
@@ -54,11 +55,11 @@
         }
       },
       tabs: {
-        persist    : true,      // default
-        sync       : true,      // default
-        theme      : 'classic', // default
-        tabComments: true,      // default
-        tabHeadings: true       // default
+        persist: true,
+        sync: true,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
       },
       plugins: [
         function (hook, vm) {

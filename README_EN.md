@@ -27,33 +27,37 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ## Solutions
 
-- [LeetCode](/solution/README_EN.md)
-- [LCOF: *Coding Interviews, 2nd Edition*](/lcof/README_EN.md)
-- [LCCI: *Cracking the Coding Interview, 6th Edition*](/lcci/README_EN.md)
+1. [LeetCode](/solution/README_EN.md)
+1. [LCOF: *Coding Interviews, 2nd Edition*](/lcof/README_EN.md)
+1. [LCCI: *Cracking the Coding Interview, 6th Edition*](/lcci/README_EN.md)
 
-## High frequency interview questions
+## Basic Algorithms
+
+1. [Sorting](/basic/sort/README.md)
+
+## High Frequency Interview Questions
 
 ### Arrays
 
-1. [Rotate Array](./solution/0100-0199/0189.Rotate%20Array/README_EN.md)
+1. [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
 
 ### Linked List
 
-1. [Delete Node in a Linked List](./solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
-1. [Kth Node From End of List](./lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
-1. [Reverse Linked List](./solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
-1. [Linked List Cycle](./solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
-1. [Linked List Cycle II](./solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
+1. [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
+1. [Kth Node From End of List](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
+1. [Reverse Linked List](/solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
+1. [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
+1. [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
 
 ### Binary Tree
 
-1. [Lowest Common Ancestor of a Binary Tree](./solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)
-1. [Lowest Common Ancestor of a Binary Search Tree](./solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
+1. [Lowest Common Ancestor of a Binary Tree](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)
+1. [Lowest Common Ancestor of a Binary Search Tree](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
 
 
 ### Math
 
-1. [Set Mismatch](./solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
+1. [Set Mismatch](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
 
 ### Stack & Queue
 
@@ -70,10 +74,10 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
 
-- <kbd>Fork</kbd> [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then <kbd>clone</kbd> it to your local machine.
-- Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> the changes to your remote GitHub repository.
-- Submit a pull request with your changes!
-- See [CONTRIBUTING](https://github.com/doocs/.github/blob/master/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
+1. <kbd>Fork</kbd> [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then <kbd>clone</kbd> it to your local machine.
+1. Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> the changes to your remote GitHub repository.
+1. Submit a pull request with your changes!
+1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/master/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
@@ -98,7 +102,7 @@ Thank you to all our backers and sponsors!
 <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
 
-> You help the developer community practice for interviews, and there is nothing better we could ask for. -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
+> You help the developer community practice for interviews, and there is nothing better we could ask for. -1. [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
 ## License
 

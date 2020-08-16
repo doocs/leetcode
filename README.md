@@ -25,39 +25,48 @@
 - Gitee Pages: https://doocs.gitee.io/leetcode
 - GitHub Pages: https://doocs.github.io/leetcode
 
-## 题解
+## LeetCode 全解
 
-- [LeetCode](/solution/README.md)
-- [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
-- [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
+1. [LeetCode](/solution/README.md)
+1. [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
+1. [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
+
+## 基础算法通关
+
+### 常见的排序算法
+
+1. [冒泡排序](/basic/sorting/BubbleSort/README.md)
+1. [插入排序](/basic/sorting/InsertionSort/README.md)
+1. [归并排序](/basic/sorting/MergeSort/README.md)
+1. [快速排序](/basic/sorting/QuickSort/README.md)
 
 ## 面试高频考题
 
 ### 数组
 
-1. [数组中重复的数字](./lcof/面试题03.%20数组中重复的数字/README.md)
-1. [旋转数组](./solution/0100-0199/0189.Rotate%20Array/README.md)
+1. [数组中重复的数字](/lcof/面试题03.%20数组中重复的数字/README.md)
+1. [旋转数组](/solution/0100-0199/0189.Rotate%20Array/README.md)
 
 ### 链表
 
-1. [从尾到头打印链表](./lcof/面试题06.%20从尾到头打印链表/README.md)
-1. [删除链表的节点](./lcof/面试题18.%20删除链表的节点/README.md)
-1. [链表中倒数第 k 个节点](./lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
-1. [反转链表](./solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
-1. [环形链表](./solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
-1. [环形链表 II](./solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
+1. [从尾到头打印链表](/lcof/面试题06.%20从尾到头打印链表/README.md)
+1. [删除链表的节点](/lcof/面试题18.%20删除链表的节点/README.md)
+1. [链表中倒数第 k 个节点](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
+1. [反转链表](/solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
+1. [环形链表](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
+1. [环形链表 II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
 
 ### 二叉树
 
-1. [二叉树的最近公共祖先](./solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md)
-1. [二叉搜索树的最近公共祖先](./solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README.md)
+1. [二叉树的最近公共祖先](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md)
+1. [二叉搜索树的最近公共祖先](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README.md)
 
 ### 数学
 
-1. [数组中数字出现的次数](./lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md)
-1. [数组中数字出现的次数 II](./lcof/面试题56%20-%20II.%20数组中数字出现的次数%20II/README.md)
-1. [错误的集合](./solution/0600-0699/0645.Set%20Mismatch/README.md)
-1. [二进制中 1 的个数](./lcof/面试题15.%20二进制中1的个数/README.md)
+1. [数组中数字出现的次数](/lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md)
+1. [数组中数字出现的次数 II](/lcof/面试题56%20-%20II.%20数组中数字出现的次数%20II/README.md)
+1. [错误的集合](/solution/0600-0699/0645.Set%20Mismatch/README.md)
+1. [二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
 
 ### 栈和队列
 
@@ -75,10 +84,10 @@
 
 如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
-- 将[本项目](https://github.com/doocs/leetcode) <kbd>fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
-- 对项目做出一些变更，然后使用 git <kbd>add</kbd>、<kbd>commit</kbd>、<kbd>push</kbd> 等命令将你的变更提交到你的远程 GitHub 仓库；
-- 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
-- 你也可以参考 [GitHub 帮助文档](https://help.github.com/cn) 了解更多细节。
+1. 将[本项目](https://github.com/doocs/leetcode) <kbd>fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
+1. 对项目做出一些变更，然后使用 git <kbd>add</kbd>、<kbd>commit</kbd>、<kbd>push</kbd> 等命令将你的变更提交到你的远程 GitHub 仓库；
+1. 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
+1. 你也可以参考 [GitHub 帮助文档](https://help.github.com/cn) 了解更多细节。
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
@@ -103,7 +112,7 @@
 <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
 
-> You help the developer community practice for interviews, and there is nothing better we could ask for. -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
+> You help the developer community practice for interviews, and there is nothing better we could ask for. -1. [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
 ## 许可证
 
