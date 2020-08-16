@@ -111,8 +111,7 @@
 
 <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
-
-> You help the developer community practice for interviews, and there is nothing better we could ask for. -1. [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
+> "*You help the developer community practice for interviews, and there is nothing better we could ask for.*" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
 ## 许可证
 
