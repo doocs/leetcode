@@ -13,11 +13,7 @@
 
 <p>Given the following binary tree:&nbsp; root =&nbsp;[3,5,1,6,2,0,8,null,null,7,4]</p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" style="width: 200px; height: 190px;" />
-
-<p>&nbsp;</p>
-
-
+![](./images/binarytree.png)
 
 <p><strong>Example 1:</strong></p>
 
@@ -60,11 +56,8 @@
 
 
 <ul>
-
 	<li>All of the nodes&#39; values will be unique.</li>
-
 	<li>p and q are different and both values will&nbsp;exist in the binary tree.</li>
-
 </ul>
 
 
@@ -78,13 +71,44 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root is None or root == p or root == q:
+            return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        return right if left is None else (left if right is None else root)
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        return left == null ? right : (right == null ? left : root); 
+    }
+}
 ```
 
 ### **...**

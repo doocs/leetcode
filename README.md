@@ -49,8 +49,8 @@
 
 ### 二叉树
 
-1. [二叉树的最近公共祖先](./lcof/面试题68%20-%20II.%20二叉树的最近公共祖先/README.md)
-1. [二叉搜索树的最近公共祖先](./lcof/面试题68%20-%20I.%20二叉搜索树的最近公共祖先/README.md)
+1. [二叉树的最近公共祖先](./solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md)
+1. [二叉搜索树的最近公共祖先](./solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README.md)
 
 ### 数学
 

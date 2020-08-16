@@ -10,9 +10,7 @@
 
 <p>例如，给定如下二叉搜索树:&nbsp; root =&nbsp;[6,2,8,0,4,7,9,null,null,3,5]</p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/binarysearchtree_improved.png" style="height: 190px; width: 200px;"></p>
-
-<p>&nbsp;</p>
+![](./images/binarysearchtree_improved.png)
 
 <p><strong>示例 1:</strong></p>
 
@@ -41,6 +39,7 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
+从上到下搜索，找到第一个值位于 `[p, q]` 之间的结点即可。既可以用迭代实现，也可以用递归实现。
 
 <!-- tabs:start -->
 
@@ -48,14 +47,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if p == q:
+            return p
+        while root:
+            if root.val < p.val and root.val < q.val:
+                root = root.right
+            elif root.val > p.val and root.val > q.val:
+                root = root.left
+            else:
+                return root
 ```
 
 ### **Java**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (p == q) {
+            return p;
+        }
+        while (root != null) {
+            if (root.val < p.val && root.val < q.val) {
+                root = root.right;
+            } else if (root.val > p.val && root.val > q.val) {
+                root = root.left;
+            } else {
+                return root;
+            }
+        }
+        return null;
+    }
+}
 ```
 
 ### **...**
