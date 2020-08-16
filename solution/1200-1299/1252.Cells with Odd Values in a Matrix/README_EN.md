@@ -9,7 +9,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/10/30/e1.png" style="width: 600px; height: 118px;" />
+
+![](./images/e1.png)
+
 <pre>
 <strong>Input:</strong> n = 2, m = 3, indices = [[0,1],[1,1]]
 <strong>Output:</strong> 6
@@ -19,7 +21,9 @@ The final matrix will be [[1,3,1],[1,3,1]] which contains 6 odd numbers.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/10/30/e2.png" style="width: 600px; height: 150px;" />
+
+![](./images/e2.png)
+
 <pre>
 <strong>Input:</strong> n = 2, m = 2, indices = [[1,1],[0,0]]
 <strong>Output:</strong> 0

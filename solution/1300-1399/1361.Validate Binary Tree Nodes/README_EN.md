@@ -12,7 +12,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/08/23/1503_ex1.png" style="width: 195px; height: 287px;" /></strong></p>
+![](./images/1503_ex1.png)
 
 <pre>
 <strong>Input:</strong> n = 4, leftChild = [1,-1,3,-1], rightChild = [2,-1,-1,-1]
@@ -21,7 +21,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/08/23/1503_ex2.png" style="width: 183px; height: 272px;" /></strong></p>
+![](./images/1503_ex2.png)
 
 <pre>
 <strong>Input:</strong> n = 4, leftChild = [1,-1,3,-1], rightChild = [2,3,-1,-1]
@@ -30,7 +30,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/08/23/1503_ex3.png" style="width: 82px; height: 174px;" /></strong></p>
+![](./images/1503_ex3.png)
 
 <pre>
 <strong>Input:</strong> n = 2, leftChild = [1,0], rightChild = [-1,-1]
@@ -39,7 +39,7 @@
 
 <p><strong>Example 4:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/08/23/1503_ex4.png" style="width: 470px; height: 191px;" /></strong></p>
+![](./images/1503_ex4.png)
 
 <pre>
 <strong>Input:</strong> n = 6, leftChild = [1,-1,-1,4,-1,-1], rightChild = [2,-1,-1,5,-1,-1]

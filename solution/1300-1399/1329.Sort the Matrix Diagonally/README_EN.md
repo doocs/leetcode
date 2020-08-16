@@ -11,7 +11,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2020/01/21/1482_example_1_2.png" style="width: 500px; height: 198px;" />
+![](./images/1482_example_1_2.png)
 
 <pre>
 
@@ -30,15 +30,10 @@
 
 
 <ul>
-
 	<li><code>m ==&nbsp;mat.length</code></li>
-
 	<li><code>n ==&nbsp;mat[i].length</code></li>
-
 	<li><code>1 &lt;= m, n&nbsp;&lt;= 100</code></li>
-
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
-
 </ul>
 
 

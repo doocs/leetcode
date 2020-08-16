@@ -17,8 +17,9 @@
 <pre><strong>输入：</strong>root1 = [1,2,3,4,5,6,null,null,null,7,8], root2 = [1,3,2,null,6,4,5,null,null,null,null,8,7]
 <strong>输出：</strong>true
 <strong>解释：</strong>We flipped at nodes with values 1, 3, and 5.
-<img alt="Flipped Trees Diagram" src="https://assets.leetcode.com/uploads/2018/11/29/tree_ex.png" style="">
 </pre>
+
+![](./images/tree_ex.png)
 
 <p>&nbsp;</p>
 

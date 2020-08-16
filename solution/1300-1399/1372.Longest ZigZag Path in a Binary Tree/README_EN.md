@@ -8,15 +8,10 @@
 
 
 <ul>
-
 	<li>Choose <strong>any </strong>node in the binary tree and a direction (right or left).</li>
-
 	<li>If the current direction is right then move to the right child of the current node otherwise move to the left child.</li>
-
 	<li>Change the direction from right to left or right to left.</li>
-
 	<li>Repeat the second and third step until you can&#39;t move in the tree.</li>
-
 </ul>
 
 
@@ -34,8 +29,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/22/sample_1_1702.png" style="width: 151px; height: 283px;" /></strong></p>
+![](./images/sample_1_1702.png)
 
 
 
@@ -54,8 +48,7 @@
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/22/sample_2_1702.png" style="width: 120px; height: 253px;" /></strong></p>
+![](./images/sample_2_1702.png)
 
 
 
@@ -92,11 +85,8 @@
 
 
 <ul>
-
 	<li>Each tree has at most <code>50000</code> nodes..</li>
-
 	<li>Each node&#39;s value is between <code>[1, 100]</code>.</li>
-
 </ul>
 
 

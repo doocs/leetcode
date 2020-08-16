@@ -8,7 +8,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/12/26/sample_1_1673.png" style="width: 230px; height: 225px;" /></p>
+![](./images/sample_1_1673.png)
 
 <pre>
 <strong>Input:</strong> hour = 12, minutes = 30
@@ -17,7 +17,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/12/26/sample_2_1673.png" style="width: 230px; height: 225px;" /></p>
+![](./images/sample_2_1673.png)
 
 <pre>
 <strong>Input:</strong> hour = 3, minutes = 30
@@ -26,7 +26,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/12/26/sample_3_1673.png" style="width: 230px; height: 225px;" /></strong></p>
+![](./images/sample_3_1673.png)
 
 <pre>
 <strong>Input:</strong> hour = 3, minutes = 15

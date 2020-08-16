@@ -12,7 +12,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/10/sample1_1584.png" style="width: 380px; height: 154px;" /></strong></p>
+![](./images/sample1_1584.png)
 
 <pre>
 <strong>Input:</strong> startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]
@@ -23,7 +23,7 @@ Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/10/sample22_1584.png" style="width: 600px; height: 112px;" /> </strong></p>
+![](./images/sample22_1584.png)
 
 <pre>
 <strong>
@@ -35,7 +35,7 @@ Profit obtained 150 = 20 + 70 + 60.
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/10/sample3_1584.png" style="width: 400px; height: 112px;" /></strong></p>
+![](./images/sample3_1584.png)
 
 <pre>
 <strong>Input:</strong> startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]

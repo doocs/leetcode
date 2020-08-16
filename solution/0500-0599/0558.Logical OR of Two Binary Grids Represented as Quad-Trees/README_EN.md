@@ -35,7 +35,9 @@ class Node {
 	<li>If the current grid has different values, set <code>isLeaf</code> to False and&nbsp;set <code>val</code> to any value and divide the current grid into four sub-grids as shown in the photo.</li>
 	<li>Recurse for each of the children with the proper sub-grid.</li>
 </ol>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/new_top.png" style="width: 777px; height: 181px;" />
+
+![](./images/new_top.png)
+
 <p>If you want to know more about the Quad-Tree, you can refer to the&nbsp;<a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a>.</p>
 
 <p><strong>Quad-Tree&nbsp;format:</strong></p>
@@ -48,7 +50,11 @@ class Node {
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qt1.png" style="width: 550px; height: 196px;" /> <img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qt2.png" style="width: 550px; height: 278px;" />
+
+![](./images/qt1.png)
+
+![](./images/qt2.png)
+
 <pre>
 <strong>Input:</strong> quadTree1 = [[0,1],[1,1],[1,1],[1,0],[1,0]]
 , quadTree2 = [[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
@@ -56,8 +62,9 @@ class Node {
 <strong>Explanation:</strong> quadTree1 and quadTree2 are shown above. You can see the binary matrix which is represented by each Quad-Tree.
 If we apply logical bitwise OR on the two binary matrices we get the binary matrix below which is represented by the result Quad-Tree.
 Notice that the binary matrices shown are only for illustration, you don&#39;t have to construct the binary matrix to get the result tree.
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qtr.png" style="width: 777px; height: 222px;" />
 </pre>
+
+![](./images/qtr.png)
 
 <p><strong>Example 2:</strong></p>
 

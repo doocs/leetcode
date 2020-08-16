@@ -21,8 +21,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/02/12/sample_1_1720.png" style="width: 220px; height: 280px;" /></strong></p>
-
+![](./images/sample_1_1720.png)
 
 
 <pre>
@@ -41,8 +40,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/02/12/sample_2_1720.png" style="width: 220px; height: 280px;" /></strong></p>
-
+![](./images/sample_2_1720.png)
 
 
 <pre>
@@ -78,13 +76,9 @@
 
 
 <ul>
-
 	<li><code>1 &lt;= node.val&nbsp;&lt;= 100</code>&nbsp;for each node in the linked list and binary tree.</li>
-
 	<li>The given linked list will contain between&nbsp;<code>1</code>&nbsp;and <code>100</code>&nbsp;nodes.</li>
-
 	<li>The given binary tree will contain between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>2500</code>&nbsp;nodes.</li>
-
 </ul>
 
 

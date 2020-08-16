@@ -21,7 +21,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/frog_2.png" style="height: 236px; width: 350px;"></p>
+![](./images/frog_2.png)
 
 <pre><strong>输入：</strong>n = 7, edges = [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], t = 2, target = 4
 <strong>输出：</strong>0.16666666666666666 
@@ -30,7 +30,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/frog_3.png" style="height: 236px; width: 350px;"></strong></p>
+![](./images/frog_3.png)
 
 <pre><strong>输入：</strong>n = 7, edges = [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], t = 1, target = 7
 <strong>输出：</strong>0.3333333333333333

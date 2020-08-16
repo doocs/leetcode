@@ -19,7 +19,7 @@
 <strong>Explanation:</strong> There is a cycle in the linked list, where tail connects to the second node.
 </pre>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png" style="height: 97px; width: 300px;" /></p>
+![](./images/circularlinkedlist.png)
 
 <p><strong>Example 2:</strong></p>
 
@@ -29,7 +29,7 @@
 <strong>Explanation:</strong> There is a cycle in the linked list, where tail connects to the first node.
 </pre>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png" style="height: 74px; width: 141px;" /></p>
+![](./images/circularlinkedlist_test2.png)
 
 <p><strong>Example 3:</strong></p>
 
@@ -39,7 +39,7 @@
 <strong>Explanation:</strong> There is no cycle in the linked list.
 </pre>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png" style="height: 45px; width: 45px;" /></p>
+![](./images/circularlinkedlist_test3.png)
 
 <p>&nbsp;</p>
 

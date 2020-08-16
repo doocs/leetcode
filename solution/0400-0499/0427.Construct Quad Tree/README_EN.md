@@ -33,7 +33,9 @@ class Node {
 	<li>If the current grid has different values, set <code>isLeaf</code> to False and&nbsp;set <code>val</code> to any value and divide the current grid into four sub-grids as shown in the photo.</li>
 	<li>Recurse for each of the children with the proper sub-grid.</li>
 </ol>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/new_top.png" style="width: 777px; height: 181px;" />
+
+![](./images/new_top.png)
+
 <p>If you want to know more about the Quad-Tree, you can refer to the&nbsp;<a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a>.</p>
 
 <p><strong>Quad-Tree&nbsp;format:</strong></p>
@@ -46,18 +48,21 @@ class Node {
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/grid1.png" style="width: 777px; height: 99px;" />
+
+![](./images/grid1.png)
+
 <pre>
 <strong>Input:</strong> grid = [[0,1],[1,0]]
 <strong>Output:</strong> [[0,1],[1,0],[1,1],[1,1],[1,0]]
 <strong>Explanation:</strong> The explanation of this example is shown below:
 Notice that 0 represnts False and 1 represents True in the photo representing the Quad-Tree.
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/12/e1tree.png" style="width: 777px; height: 186px;" />
 </pre>
+
+![](./images/e1tree.png)
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/12/e2mat.png" style="width: 777px; height: 343px;" /></p>
+![](./images/e2mat.png)
 
 <pre>
 <strong>Input:</strong> grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
@@ -66,8 +71,9 @@ Notice that 0 represnts False and 1 represents True in the photo representing th
 The topLeft, bottomLeft and bottomRight each has the same value.
 The topRight have different values so we divide it into 4 sub-grids where each has the same value.
 Explanation is shown in the photo below:
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/12/e2tree.png" style="width: 777px; height: 328px;" />
 </pre>
+
+![](./images/e2tree.png)
 
 <p><strong>Example 3:</strong></p>
 

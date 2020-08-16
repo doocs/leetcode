@@ -10,10 +10,7 @@ Given a binary tree, return the sum of values of its deepest leaves.
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/07/31/1483_ex1.png" style="width: 273px; height: 265px;" /></strong></p>
-
-
+![](./images/1483_ex1.png)
 
 <pre>
 
@@ -32,11 +29,8 @@ Given a binary tree, return the sum of values of its deepest leaves.
 
 
 <ul>
-
 	<li>The number of nodes in the tree is between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>10^4</code>.</li>
-
 	<li>The value of nodes is between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>100</code>.</li>
-
 </ul>
 
 

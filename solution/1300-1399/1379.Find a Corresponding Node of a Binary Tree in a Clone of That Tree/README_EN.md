@@ -15,7 +15,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e1.png" style="width: 544px; height: 426px;" />
+
+![](./images/e1.png)
+
 <pre>
 <strong>Input:</strong> tree = [7,4,3,null,null,6,19], target = 3
 <strong>Output:</strong> 3
@@ -23,28 +25,36 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e2.png" style="width: 221px; height: 159px;" />
+
+![](./images/e2.png)
+
 <pre>
 <strong>Input:</strong> tree = [7], target =  7
 <strong>Output:</strong> 7
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e3.png" style="width: 459px; height: 486px;" />
+
+![](./images/e3.png)
+
 <pre>
 <strong>Input:</strong> tree = [8,null,6,null,5,null,4,null,3,null,2,null,1], target = 4
 <strong>Output:</strong> 4
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e4.png" style="width: 555px; height: 239px;" />
+
+![](./images/e4.png)
+
 <pre>
 <strong>Input:</strong> tree = [1,2,3,4,5,6,7,8,9,10], target = 5
 <strong>Output:</strong> 5
 </pre>
 
 <p><strong>Example 5:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e5.png" style="width: 427px; height: 345px;" />
+
+![](./images/e5.png)
+
 <pre>
 <strong>Input:</strong> tree = [1,2,null,3], target = 2
 <strong>Output:</strong> 2

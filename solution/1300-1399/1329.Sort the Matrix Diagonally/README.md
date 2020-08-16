@@ -10,7 +10,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/25/1482_example_1_2.png" style="height: 198px; width: 500px;"></p>
+![](./images/1482_example_1_2.png)
 
 <pre><strong>输入：</strong>mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
 <strong>输出：</strong>[[1,1,1,1],[1,2,2,2],[1,2,3,3]]

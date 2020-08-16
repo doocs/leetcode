@@ -10,7 +10,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/08/sample_1_1673.png" style="height: 225px; width: 230px;"></p>
+![](./images/sample_1_1673.png)
 
 <pre><strong>输入：</strong>hour = 12, minutes = 30
 <strong>输出：</strong>165
@@ -18,7 +18,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/08/sample_2_1673.png" style="height: 225px; width: 230px;"></p>
+![](./images/sample_2_1673.png)
 
 <pre><strong>输入：</strong>hour = 3, minutes = 30
 <strong>输出；</strong>75
@@ -26,7 +26,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/08/sample_3_1673.png" style="height: 231px; width: 230px;"></strong></p>
+![](./images/sample_3_1673.png)
 
 <pre><strong>输入：</strong>hour = 3, minutes = 15
 <strong>输出：</strong>7.5

@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/11/sample_3_1676.png" style="height: 87px; width: 260px;"></p>
+![](./images/sample_3_1676.png)
 
 <pre><strong>输入：</strong>a = 2, b = 6, c = 5
 <strong>输出：</strong>3

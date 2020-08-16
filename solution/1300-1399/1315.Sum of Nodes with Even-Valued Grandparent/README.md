@@ -16,7 +16,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/10/1473_ex1.png" style="height: 214px; width: 350px;"></strong></p>
+![](./images/1473_ex1.png)
 
 <pre><strong>输入：</strong>root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
 <strong>输出：</strong>18

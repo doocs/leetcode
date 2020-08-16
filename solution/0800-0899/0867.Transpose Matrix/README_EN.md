@@ -13,7 +13,7 @@
 
 <br>
 
-<img src="https://assets.leetcode.com/uploads/2019/10/20/hint_transpose.png" width="700"/>
+![](./images/hint_transpose.png)
 
 
 
@@ -62,11 +62,8 @@
 
 
 <ol>
-
 	<li><code><span>1 &lt;= A.length&nbsp;&lt;= 1000</span></code></li>
-
 	<li><code><span>1 &lt;= A[0].length&nbsp;&lt;= 1000</span></code></li>
-
 </ol>
 
 </div>

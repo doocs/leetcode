@@ -17,8 +17,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/09/sample_1_1684.png" style="width: 550px; height: 120px;" /></strong></p>
-
+![](./images/sample_1_1684.png)
 
 
 <pre>
@@ -38,9 +37,7 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/09/sample_2_1684.png" style="width: 300px; height: 120px;" /></strong></p>
-
+![](./images/sample_2_1684.png)
 
 
 <pre>
@@ -56,9 +53,7 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 <p><strong>Example 3:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/15/sample_3_1684.png" style="width: 420px; height: 150px;" /></strong></p>
-
+![](./images/sample_3_1684.png)
 
 
 <pre>
@@ -108,13 +103,9 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 
 <ul>
-
 	<li><code>1 &lt;= target&nbsp;&lt;= 1000</code></li>
-
 	<li>Each tree has at most <code>3000</code> nodes.</li>
-
 	<li>Each node&#39;s value is between <code>[1, 1000]</code>.</li>
-
 </ul>
 
 

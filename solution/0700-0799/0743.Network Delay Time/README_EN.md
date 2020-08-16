@@ -22,10 +22,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/05/23/931_example_1.png" style="width: 200px; height: 220px;" /></p>
-
-
+![](./images/931_example_1.png)
 
 <pre>
 
@@ -46,15 +43,10 @@
 
 
 <ol>
-
 	<li><code>N</code> will be in the range <code>[1, 100]</code>.</li>
-
 	<li><code>K</code> will be in the range <code>[1, N]</code>.</li>
-
 	<li>The length of <code>times</code> will be in the range <code>[1, 6000]</code>.</li>
-
 	<li>All edges <code>times[i] = (u, v, w)</code> will have <code>1 &lt;= u, v &lt;= N</code> and <code>0 &lt;= w &lt;= 100</code>.</li>
-
 </ol>
 
 

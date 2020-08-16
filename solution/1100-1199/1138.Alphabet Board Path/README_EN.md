@@ -10,25 +10,17 @@
 <p>Here, <code>board = [&quot;abcde&quot;, &quot;fghij&quot;, &quot;klmno&quot;, &quot;pqrst&quot;, &quot;uvwxy&quot;, &quot;z&quot;]</code>, as shown in the diagram below.</p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/07/28/azboard.png" style="width: 250px; height: 317px;" /></p>
-
-
+![](./images/azboard.png)
 
 <p>We may make the following moves:</p>
 
 
 
 <ul>
-
 	<li><code>&#39;U&#39;</code> moves our position up one row, if the position exists on the board;</li>
-
 	<li><code>&#39;D&#39;</code> moves our position down one row, if the position exists on the board;</li>
-
 	<li><code>&#39;L&#39;</code> moves our position left one column, if the position exists on the board;</li>
-
 	<li><code>&#39;R&#39;</code> moves our position right one column, if the position exists on the board;</li>
-
 	<li><code>&#39;!&#39;</code>&nbsp;adds the character <code>board[r][c]</code> at our current position <code>(r, c)</code>&nbsp;to the&nbsp;answer.</li>
 
 </ul>
@@ -66,9 +58,7 @@
 
 
 <ul>
-
 	<li><code>1 &lt;= target.length &lt;= 100</code></li>
-
 	<li><code>target</code> consists only of English lowercase letters.</li>
 
 </ul>

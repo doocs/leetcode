@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/11/sample_1_1677.png" style="height: 167px; width: 570px;"></strong></p>
+![](./images/sample_1_1677.png)
 
 <pre><strong>输入：</strong>n = 4, connections = [[0,1],[0,2],[1,2]]
 <strong>输出：</strong>1
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/11/sample_2_1677.png" style="height: 175px; width: 660px;"></strong></p>
+![](./images/sample_2_1677.png)
 
 <pre><strong>输入：</strong>n = 6, connections = [[0,1],[0,2],[0,3],[1,2],[1,3]]
 <strong>输出：</strong>2

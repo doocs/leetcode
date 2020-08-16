@@ -12,13 +12,9 @@
 
 
 <ul>
-
 	<li>The left subtree of a node contains only nodes with keys&nbsp;<strong>less than</strong>&nbsp;the node&#39;s key.</li>
-
 	<li>The right subtree of a node contains only nodes with keys&nbsp;<strong>greater than</strong>&nbsp;the node&#39;s key.</li>
-
 	<li>Both the left and right subtrees must also be binary search trees.</li>
-
 </ul>
 
 
@@ -28,9 +24,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/01/30/sample_1_1709.png" style="width: 320px; height: 250px;" /></p>
-
+![](./images/sample_1_1709.png)
 
 
 <pre>
@@ -48,10 +42,7 @@
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/01/30/sample_2_1709.png" style="width: 134px; height: 180px;" /></p>
-
-
+![](./images/sample_2_1709.png)
 
 <pre>
 
@@ -116,11 +107,8 @@
 
 
 <ul>
-
 	<li>Each tree has at most <code>40000</code> nodes..</li>
-
 	<li>Each node&#39;s value is between <code>[-4 * 10^4&nbsp;, 4 * 10^4]</code>.</li>
-
 </ul>
 
 

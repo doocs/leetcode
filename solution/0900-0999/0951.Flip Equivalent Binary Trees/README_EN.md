@@ -31,11 +31,9 @@
 
 <strong>Explanation: </strong>We flipped at nodes with values 1, 3, and 5.
 
-<img alt="Flipped Trees Diagram" src="https://assets.leetcode.com/uploads/2018/11/29/tree_ex.png" style="font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;; width: 455px; height: 200px;" />
-
 </pre>
 
-
+![](./images/tree_ex.png)
 
 <p>&nbsp;</p>
 
@@ -46,11 +44,8 @@
 
 
 <ol>
-
 	<li>Each tree will have at most <code>100</code> nodes.</li>
-
 	<li>Each value in each tree will be a unique&nbsp;integer in the range <code>[0, 99]</code>.</li>
-
 </ol>
 
 

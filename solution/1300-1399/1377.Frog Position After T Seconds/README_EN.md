@@ -21,9 +21,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/20/frog_2.png" style="width: 350px; height: 236px;" /></p>
-
-
+![](./images/frog_2.png)
 
 <pre>
 
@@ -40,10 +38,7 @@
 <p><strong>Example 2:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/02/20/frog_3.png" style="width: 350px; height: 236px;" /></strong></p>
-
-
+![](./images/frog_3.png)
 
 <pre>
 
@@ -78,21 +73,13 @@
 
 
 <ul>
-
 	<li><code>1 &lt;= n &lt;= 100</code></li>
-
 	<li><code>edges.length == n-1</code></li>
-
 	<li><code>edges[i].length == 2</code></li>
-
 	<li><code>1 &lt;= edges[i][0], edges[i][1] &lt;= n</code></li>
-
 	<li><code>1 &lt;= t&nbsp;&lt;= 50</code></li>
-
 	<li><code>1 &lt;= target&nbsp;&lt;= n</code></li>
-
 	<li>Answers within <code>10^-5</code> of the actual value will be accepted as correct.</li>
-
 </ul>
 
 

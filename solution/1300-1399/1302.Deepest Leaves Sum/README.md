@@ -10,7 +10,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/28/1483_ex1.png" style="height: 265px; width: 273px;"></strong></p>
+![](./images/1483_ex1.png)
 
 <pre><strong>输入：</strong>root = [1,2,3,4,5,null,6,7,null,null,null,null,8]
 <strong>输出：</strong>15

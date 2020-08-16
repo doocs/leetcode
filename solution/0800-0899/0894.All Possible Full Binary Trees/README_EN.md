@@ -34,12 +34,9 @@
 <strong>Output: </strong><span id="example-output-1">[[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]</span>
 
 <strong>Explanation:</strong>
-
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/22/fivetrees.png" style="width: 700px; height: 400px;" />
-
 </pre>
 
-
+![](./images/fivetrees.png)
 
 <p>&nbsp;</p>
 
@@ -50,9 +47,7 @@
 
 
 <ul>
-
 	<li><code>1 &lt;= N &lt;= 20</code></li>
-
 </ul>
 
 

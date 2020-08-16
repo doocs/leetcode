@@ -10,7 +10,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/01/untitled-diagram.jpg" style="width: 321px; height: 321px;" /></p>
+![](./images/untitled-diagram.jpg)
 
 <pre>
 <strong>Input:</strong> queens = [[0,1],[1,0],[4,0],[0,4],[3,3],[2,4]], king = [0,0]
@@ -26,7 +26,7 @@ The queen at [2,4] can&#39;t attack the king cause it&#39;s not in the same row/
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/01/untitled-diagram-1.jpg" style="width: 321px; height: 321px;" /></strong></p>
+![](./images/untitled-diagram-1.jpg)
 
 <pre>
 <strong>Input:</strong> queens = [[0,0],[1,1],[2,2],[3,4],[3,5],[4,4],[4,5]], king = [3,3]
@@ -35,7 +35,7 @@ The queen at [2,4] can&#39;t attack the king cause it&#39;s not in the same row/
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/01/untitled-diagram-2.jpg" style="width: 321px; height: 321px;" /></strong></p>
+![](./images/untitled-diagram-2.jpg)
 
 <pre>
 <strong>Input:</strong> queens = [[5,6],[7,7],[2,1],[0,7],[1,6],[5,1],[3,7],[0,3],[4,0],[1,2],[6,3],[5,0],[0,4],[2,2],[1,1],[6,4],[5,4],[0,0],[2,6],[4,5],[5,2],[1,4],[7,5],[2,3],[0,5],[4,2],[1,0],[2,7],[0,1],[4,6],[6,1],[0,6],[4,3],[1,7]], king = [3,4]

@@ -13,11 +13,7 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 
 <p><strong>Example 1:</strong></p>
 
-
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/01/06/sample_3_1676.png" style="width: 260px; height: 87px;" /></p>
-
-
+![](./images/sample_3_1676.png)
 
 <pre>
 
@@ -64,13 +60,9 @@ Flip operation&nbsp;consists of change&nbsp;<strong>any</strong>&nbsp;single bit
 
 
 <ul>
-
 	<li><code>1 &lt;= a &lt;= 10^9</code></li>
-
 	<li><code>1 &lt;= b&nbsp;&lt;= 10^9</code></li>
-
 	<li><code>1 &lt;= c&nbsp;&lt;= 10^9</code></li>
-
 </ul>
 
 

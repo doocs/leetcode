@@ -11,7 +11,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/05/e1.png" style="width: 660px; height: 440px;" />
+
+![](./images/e1.png)
+
 <pre>
 <strong>Input:</strong> events = [[1,2],[2,3],[3,4]]
 <strong>Output:</strong> 3

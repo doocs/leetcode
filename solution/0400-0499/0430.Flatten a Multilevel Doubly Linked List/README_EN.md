@@ -15,14 +15,16 @@
 <strong>Output:</strong> [1,2,3,7,8,11,12,9,10,4,5,6]
 <strong>Explanation:
 </strong>
-The multilevel linked list in the input is as follows:
+The multilevel linked list in the input is as follows:</pre>
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/multilevellinkedlist.png" style="width: 640px;" />
 
-After flattening the multilevel linked list it becomes:
+![](./images/multilevellinkedlist.png)
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/multilevellinkedlistflattened.png" style="width: 1100px;" />
-</pre>
+<pre>
+After flattening the multilevel linked list it becomes:</pre>
+
+![](./images/multilevellinkedlistflattened.png)
+
 
 <p><strong>Example 2:</strong></p>
 

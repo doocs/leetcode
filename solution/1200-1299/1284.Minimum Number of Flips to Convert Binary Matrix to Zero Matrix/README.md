@@ -18,7 +18,7 @@
 
 <p><strong>示例&nbsp;1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/13/matrix.png" style="height: 86px; width: 409px;"></p>
+![](./images/matrix.png)
 
 <pre><strong>输入：</strong>mat = [[0,0],[0,1]]
 <strong>输出：</strong>3

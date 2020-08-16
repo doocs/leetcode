@@ -20,9 +20,9 @@
 <p><strong>Example 1:</strong></p>
 
 
+![](./images/1515_ex1.png)
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/08/22/1515_ex1.png" style="width: 250px; height: 248px;" /><img alt="" src="https://assets.leetcode.com/uploads/2019/08/22/1515_ex1_out.png" style="width: 200px; height: 200px;" /></strong></p>
-
+![](./images/1515_ex1_out.png)
 
 
 <pre>
@@ -44,11 +44,8 @@
 
 
 <ul>
-
 	<li>The number of nodes in the tree is between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>10^4</code>.</li>
-
 	<li>The tree nodes will have distinct values between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>10^5</code>.</li>
-
 </ul>
 
 

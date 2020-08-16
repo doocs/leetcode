@@ -23,7 +23,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2020/01/16/1685_example_1.png" style="width: 525px; height: 255px;" />
+![](./images/1685_example_1.png)
 
 <pre>
 
@@ -114,13 +114,9 @@ Opening Only the second tap will water the whole garden [0,5]
 
 
 <ul>
-
 	<li><code>1 &lt;= n &lt;= 10^4</code></li>
-
 	<li><code>ranges.length == n + 1</code></li>
-
 	<li><code>0 &lt;= ranges[i] &lt;= 100</code></li>
-
 </ul>
 
 

@@ -25,7 +25,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/29/grid1.png" style="height: 528px; width: 542px;"></p>
+![](./images/grid1.png)
 
 <pre><strong>输入：</strong>grid = [[1,1,1,1],[2,2,2,2],[1,1,1,1],[2,2,2,2]]
 <strong>输出：</strong>3
@@ -36,7 +36,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/29/grid2.png" style="height: 408px; width: 419px;"></p>
+![](./images/grid2.png)
+
 
 <pre><strong>输入：</strong>grid = [[1,1,3],[3,2,2],[1,1,4]]
 <strong>输出：</strong>0
@@ -45,7 +46,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/29/grid3.png" style="height: 302px; width: 314px;"></p>
+![](./images/grid3.png)
 
 <pre><strong>输入：</strong>grid = [[1,2],[4,3]]
 <strong>输出：</strong>1

@@ -35,9 +35,7 @@
 
 
 
-<p><b><img alt="" src="https://assets.leetcode.com/uploads/2019/04/05/diag1b.png" style="width: 500px; height: 218px;" /></b></p>
-
-
+![](./images/diag1b.png)
 
 <pre>
 
@@ -72,13 +70,9 @@ So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spe
 
 
 <ol>
-
 	<li><code>1 &lt;= n &lt;= 100</code></li>
-
 	<li>Two functions won&#39;t start or end at the same time.</li>
-
 	<li>Functions will always log when they exit.</li>
-
 </ol>
 
 

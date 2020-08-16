@@ -17,8 +17,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/07/24/1473_ex1.png" style="width: 350px; height: 214px;" /></strong></p>
-
+![](./images/1473_ex1.png)
 
 
 <pre>
@@ -40,11 +39,8 @@
 
 
 <ul>
-
 	<li>The number of nodes in the tree is between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>10^4</code>.</li>
-
 	<li>The value of nodes is between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>100</code>.</li>
-
 </ul>
 
 

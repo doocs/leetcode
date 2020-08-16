@@ -17,7 +17,7 @@
 
 
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/21/sample_1_1699.png" style="width: 495px; height: 200px;" /></strong></p>
+![](./images/sample_1_1699.png)
 
 
 
@@ -37,8 +37,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/01/21/sample_2_1699.png" style="width: 495px; height: 200px;" /></p>
-
+![](./images/sample_2_1699.png)
 
 
 <pre>
@@ -88,11 +87,8 @@
 
 
 <ul>
-
 	<li>Each tree has at most <code>50000</code> nodes and at least <code>2</code> nodes.</li>
-
 	<li>Each node&#39;s value is between <code>[1, 10000]</code>.</li>
-
 </ul>
 
 

@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/19/1685_example_1.png" style="width: 530px;"></p>
+![](./images/1685_example_1.png)
 
 <pre><strong>输入：</strong>n = 5, ranges = [3,4,1,1,0,0]
 <strong>输出：</strong>1

@@ -21,7 +21,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/sample_2_1725.png" style="height: 254px; width: 575px;"></p>
+![](./images/sample_2_1725.png)
 
 <pre><strong>输入：</strong>light = [2,1,3,5,4]
 <strong>输出：</strong>3

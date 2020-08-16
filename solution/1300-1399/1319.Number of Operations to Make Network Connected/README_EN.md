@@ -16,9 +16,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/02/sample_1_1677.png" style="width: 570px; height: 167px;" /></strong></p>
-
+![](./images/sample_1_1677.png)
 
 
 <pre>
@@ -35,10 +33,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/02/sample_2_1677.png" style="width: 660px; height: 167px;" /></strong></p>
-
+![](./images/sample_2_1677.png)
 
 
 <pre>
@@ -88,21 +83,13 @@
 
 
 <ul>
-
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
-
 	<li><code>1 &lt;= connections.length &lt;= min(n*(n-1)/2, 10^5)</code></li>
-
 	<li><code>connections[i].length == 2</code></li>
-
 	<li><code>0 &lt;= connections[i][0], connections[i][1]&nbsp;&lt; n</code></li>
-
 	<li><code>connections[i][0] != connections[i][1]</code></li>
-
 	<li>There are no repeated connections.</li>
-
 	<li>No two computers are connected by more than one cable.</li>
-
 </ul>
 
 

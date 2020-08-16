@@ -13,10 +13,7 @@
 
 <p>&nbsp;</p>
 
-
-
-<p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg" style="width: 600px; height: 287px;" /></p>
-
+![](./images/question_11.jpg)
 
 
 <p><small>The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain&nbsp;is 49. </small></p>

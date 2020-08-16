@@ -33,7 +33,7 @@
 
 <br>
 
-<img src="https://assets.leetcode.com/uploads/2019/10/20/hint_valid_mountain_array.png" width="500" />
+![](./images/hint_valid_mountain_array.png)
 
 
 
@@ -98,11 +98,8 @@
 
 
 <ol>
-
 	<li><code>0 &lt;= A.length &lt;= 10000</code></li>
-
 	<li><code>0 &lt;= A[i] &lt;= 10000&nbsp;</code></li>
-
 </ol>
 
 

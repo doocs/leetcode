@@ -15,7 +15,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/09/27/1506_skiplist.gif" style="width: 960px; height: 332px;" /><br />
+![](./images/1506_skiplist.gif)
 
 <small>Artyom Kalinin [CC BY-SA 3.0], via <a href="https://commons.wikimedia.org/wiki/File:Skip_list_add_element-en.gif" target="_blank" title="Artyom Kalinin [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons">Wikimedia Commons</a></small></p>
 
@@ -30,13 +30,9 @@
 
 
 <ul>
-
 	<li><code>bool search(int target)</code> : Return whether&nbsp;the <code>target</code> exists in the Skiplist&nbsp;or not.</li>
-
 	<li><code>void add(int num)</code>:&nbsp;Insert a value into the SkipList.&nbsp;</li>
-
 	<li><code>bool erase(int num)</code>: Remove a value in&nbsp;the Skiplist.&nbsp;If <code>num</code>&nbsp;does not exist in the Skiplist, do nothing and return false. If there exists multiple <code>num</code> values, removing&nbsp;any one of them is fine.</li>
-
 </ul>
 
 
@@ -90,11 +86,8 @@ skiplist.search(1);   // return false, 1 has already been erased.</pre>
 
 
 <ul>
-
 	<li><code>0 &lt;= num, target&nbsp;&lt;= 20000</code></li>
-
 	<li>At most <code>50000</code>&nbsp;calls will be made to <code>search</code>, <code>add</code>, and <code>erase</code>.</li>
-
 </ul>
 
 

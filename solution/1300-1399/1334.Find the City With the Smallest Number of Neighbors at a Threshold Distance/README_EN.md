@@ -21,8 +21,7 @@
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/01/16/find_the_city_01.png" style="width: 300px; height: 225px;" /></p>
-
+![](./images/find_the_city_01.png)
 
 
 <pre>
@@ -51,11 +50,7 @@ Cities 0 and 3 have 2 neighboring cities at a distanceThreshold = 4, but we have
 
 <p><strong>Example 2:</strong></p>
 
-
-
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/16/find_the_city_02.png" style="width: 300px; height: 225px;" /></strong></p>
-
-
+![](./images/find_the_city_02.png)
 
 <pre>
 
@@ -90,19 +85,12 @@ The city 0 has 1 neighboring city at a distanceThreshold = 2.
 
 
 <ul>
-
 	<li><code>2 &lt;= n &lt;= 100</code></li>
-
 	<li><code>1 &lt;= edges.length &lt;= n * (n - 1) / 2</code></li>
-
 	<li><code>edges[i].length == 3</code></li>
-
 	<li><code>0 &lt;= from<sub>i</sub> &lt; to<sub>i</sub> &lt; n</code></li>
-
 	<li><code>1 &lt;= weight<sub>i</sub>,&nbsp;distanceThreshold &lt;= 10^4</code></li>
-
 	<li>All pairs <code>(from<sub>i</sub>, to<sub>i</sub>)</code> are distinct.</li>
-
 </ul>
 
 

@@ -16,10 +16,7 @@
 <p><strong>Example 1:</strong></p>
 
 
-
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/31/sample_3_1610.png" style="width: 240px; height: 120px;" /></p>
-
-
+![](./images/sample_3_1610.png)
 
 <pre>
 
@@ -37,7 +34,7 @@ Islands in gray are closed because they are completely surrounded by water (grou
 
 
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/31/sample_4_1610.png" style="width: 160px; height: 80px;" /></p>
+![](./images/sample_4_1610.png)
 
 
 
@@ -84,11 +81,8 @@ Islands in gray are closed because they are completely surrounded by water (grou
 
 
 <ul>
-
 	<li><code>1 &lt;= grid.length, grid[0].length &lt;= 100</code></li>
-
 	<li><code>0 &lt;= grid[i][j] &lt;=1</code></li>
-
 </ul>
 
 

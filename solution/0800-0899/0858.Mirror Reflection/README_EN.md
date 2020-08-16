@@ -33,11 +33,10 @@
 
 <strong>Explanation: </strong>The ray meets receptor 2 the first time it gets reflected back to the left wall.
 
-<p><img alt="" src="https://ibb.co/mYSFJT" /><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/06/18/reflection.png" style="width: 218px; height: 217px;" /></p>
-
 </pre>
 
 
+![](./images/reflection.png)
 
 
 
@@ -46,11 +45,8 @@
 
 
 <ol>
-
 	<li><code>1 &lt;= p &lt;= 1000</code></li>
-
 	<li><code>0 &lt;= q &lt;= p</code></li>
-
 </ol>
 
 </div>

@@ -12,7 +12,9 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/15/graph-1.png" style="height: 108px; width: 426px;"></p>
+
+![](./images/graph-1.png)
+
 
 <pre><strong>输入：</strong>head = [1,0,1]
 <strong>输出：</strong>5

@@ -8,11 +8,8 @@
 
 
 <ul>
-
 	<li><code>i + x</code> where:&nbsp;<code>i + x &lt; arr.length</code> and <code> 0 &lt;&nbsp;x &lt;= d</code>.</li>
-
 	<li><code>i - x</code> where:&nbsp;<code>i - x &gt;= 0</code> and <code> 0 &lt;&nbsp;x &lt;= d</code>.</li>
-
 </ul>
 
 
@@ -33,7 +30,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2020/01/23/meta-chart.jpeg" style="width: 633px; height: 419px;" />
+![](./images/meta-chart.jpeg)
 
 <pre>
 
@@ -118,13 +115,9 @@ Similarly You cannot jump from index 3 to index 2 or index 1.
 
 
 <ul>
-
 	<li><code>1 &lt;= arr.length &lt;= 1000</code></li>
-
 	<li><code>1 &lt;= arr[i] &lt;= 10^5</code></li>
-
 	<li><code>1 &lt;= d &lt;= arr.length</code></li>
-
 </ul>
 
 

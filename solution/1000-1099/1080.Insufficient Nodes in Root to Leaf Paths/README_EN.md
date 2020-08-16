@@ -63,15 +63,18 @@ Output: </strong><span id="example-output-2">[5,4,8,11,null,17,4,7,null,null,nul
 
 <p><strong>Example 3:</strong></p>
 
-
+![](./images/screen-shot-2019-06-11-at-83301-pm.png)
 
 <pre>
 
-<strong><img alt="" src="https://assets.leetcode.com/uploads/2019/06/11/screen-shot-2019-06-11-at-83301-pm.png" style="width: 188px; height: 150px;" />
+<strong>
 
-Input: </strong>root = <span>[1,2,-3,-5,null,4,null]</span>, limit = -1
+Input: </strong>root = <span>[1,2,-3,-5,null,4,null]</span>, limit = -1</pre>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2019/06/11/screen-shot-2019-06-11-at-83517-pm.png" style="width: 122px; height: 150px;" /><strong>
+![](./images/screen-shot-2019-06-11-at-83517-pm.png)
+
+<pre>
+<strong>
 
 Output: </strong><span>[1,null,-3,4]</span></pre>
 

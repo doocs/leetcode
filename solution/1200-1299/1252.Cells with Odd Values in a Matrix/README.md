@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/06/e1.png" style="height: 118px; width: 600px;"></p>
+![](./images/e1.png)
 
 <pre><strong>输入：</strong>n = 2, m = 3, indices = [[0,1],[1,1]]
 <strong>输出：</strong>6
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/06/e2.png" style="height: 150px; width: 600px;"></p>
+![](./images/e2.png)
 
 <pre><strong>输入：</strong>n = 2, m = 2, indices = [[1,1],[0,0]]
 <strong>输出：</strong>0

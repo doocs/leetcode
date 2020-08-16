@@ -3,8 +3,8 @@
 [中文文档](/solution/1300-1399/1320.Minimum%20Distance%20to%20Type%20a%20Word%20Using%20Two%20Fingers/README.md)
 
 ## Description
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/01/02/leetcode_keyboard.png" style="width: 417px; height: 250px;" /></p>
 
+![](./images/leetcode_keyboard.png)
 
 
 <p>You have a keyboard layout as shown above in the XY plane, where each English uppercase letter is located at some coordinate, for example, the letter <strong>A</strong> is located at coordinate <strong>(0,0)</strong>, the letter <strong>B</strong> is located at coordinate <strong>(0,1)</strong>, the letter <strong>P</strong> is located at coordinate <strong>(2,3)</strong> and the letter <strong>Z</strong> is located at coordinate <strong>(4,1)</strong>.</p>
@@ -114,11 +114,8 @@ Total distance = 6
 
 
 <ul>
-
 	<li><code>2 &lt;= word.length &lt;= 300</code></li>
-
 	<li>Each <code data-stringify-type="code">word[i]</code>&nbsp;is an English uppercase letter.</li>
-
 </ul>
 
 

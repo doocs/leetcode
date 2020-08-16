@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/07/sample_1_1709.png" style="height: 250px; width: 320px;"></p>
+![](./images/sample_1_1709.png)
 
 <pre><strong>输入：</strong>root = [1,4,3,2,4,2,5,null,null,null,null,null,null,4,6]
 <strong>输出：</strong>20
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/07/sample_2_1709.png" style="height: 180px; width: 134px;"></p>
+![](./images/sample_2_1709.png)
 
 <pre><strong>输入：</strong>root = [4,3,null,1,2]
 <strong>输出：</strong>2

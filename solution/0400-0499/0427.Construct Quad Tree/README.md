@@ -12,11 +12,11 @@
 
 <p>给定下面这个<code>8 x 8</code>&nbsp;网络，我们将这样建立一个对应的四叉树：</p>
 
-<p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/02/01/962_grid.png" style="height:27%; width:27%" /></p>
+![](./images/962_grid.png)
 
 <p>由上文的定义，它能被这样分割：</p>
 
-<p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/02/01/962_grid_divided.png" style="height:100%; width:100%" /></p>
+![](./images/962_grid_divided.png)
 
 <p>&nbsp;</p>
 
@@ -24,7 +24,7 @@
 
 <p>对于非叶子结点，<code>val</code>&nbsp;可以是任意的，所以使用&nbsp;<code>*</code>&nbsp;代替。</p>
 
-<p><img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/02/01/962_quad_tree.png" style="height:100%; width:100%" /></p>
+![](./images/962_quad_tree.png)
 
 <p><strong>提示：</strong></p>
 
