@@ -11,21 +11,16 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT project_id
+FROM Project
+GROUP BY  project_id
+HAVING count(*) >= all
+    (SELECT count(*)
+    FROM Project
+    GROUP BY  project_id )
 ```
 
 <!-- tabs:end -->

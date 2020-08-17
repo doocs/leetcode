@@ -13,23 +13,19 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT s.product_id,
+         s.year AS first_year,
+         s.quantity,
+         s.price
+FROM Sales s
+WHERE (product_id, year) IN 
+    (SELECT product_id,
+         min(year)
+    FROM Sales
+    GROUP BY  product_id)
 ```
 
 <!-- tabs:end -->

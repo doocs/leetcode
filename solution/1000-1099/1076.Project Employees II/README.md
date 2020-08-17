@@ -13,23 +13,16 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT project_id
+FROM Project
+GROUP BY  project_id
+HAVING count(*) >= all
+    (SELECT count(*)
+    FROM Project
+    GROUP BY  project_id )
 ```
 
 <!-- tabs:end -->

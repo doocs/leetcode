@@ -13,23 +13,13 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT product_id,
+         sum(quantity) AS total_quantity
+FROM Sales
+GROUP BY  product_id
 ```
 
 <!-- tabs:end -->
