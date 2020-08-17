@@ -11,21 +11,17 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT followee AS follower,
+        count(distinct(follower)) AS num
+FROM follow
+WHERE followee IN 
+    (SELECT follower
+    FROM follow)
+GROUP BY  followee
+ORDER BY  followee
 ```
 
 <!-- tabs:end -->

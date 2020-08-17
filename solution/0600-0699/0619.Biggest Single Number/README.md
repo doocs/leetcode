@@ -13,23 +13,17 @@ None
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT (
+		SELECT num
+		FROM my_numbers
+		GROUP BY num
+		HAVING COUNT(*) = 1
+		ORDER BY num DESC
+		LIMIT 1
+	) AS num
 ```
 
 <!-- tabs:end -->

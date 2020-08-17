@@ -71,21 +71,14 @@ For the example above, the output should be:
 
 <!-- tabs:start -->
 
-### **Python3**
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT *
+FROM cinema
+WHERE description NOT LIKE '%boring%'
+        AND mod(id,2)=1
+ORDER BY  rating desc;
 ```
 
 <!-- tabs:end -->

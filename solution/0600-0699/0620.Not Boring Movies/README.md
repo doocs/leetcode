@@ -45,23 +45,14 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
-```java
-
-```
-
-### **...**
-```
-
+SELECT *
+FROM cinema
+WHERE description NOT LIKE '%boring%'
+        AND mod(id,2)=1
+ORDER BY  rating desc;
 ```
 
 <!-- tabs:end -->

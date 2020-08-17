@@ -63,21 +63,15 @@ After running your <strong>update</strong> statement, the above salary table sho
 
 <!-- tabs:start -->
 
-### **Python3**
-
-```python
+### **SQL**
 
 ```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-```
-
+UPDATE salary
+SET
+    sex = CASE sex
+        WHEN 'm' THEN 'f'
+        ELSE 'm'
+    END;
 ```
 
 <!-- tabs:end -->
