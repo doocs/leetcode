@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/sample_3_1723.png" style="height: 240px; width: 475px;"></p>
+![](./images/sample_3_1723.png)
 
 <pre><strong>输入：</strong>slices = [1,2,3,4,5,6]
 <strong>输出：</strong>10
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/sample_4_1723.png" style="height: 250px; width: 475px;"></strong></p>
+![](./images/sample_4_1723.png)
 
 <pre><strong>输入：</strong>slices = [8,9,8,6,1,1]
 <strong>输出：</strong>16
