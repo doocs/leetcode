@@ -43,8 +43,24 @@
 ## 解法
 <!-- 这里可写通用的实现逻辑 -->
 
-
 <!-- tabs:start -->
+核心思路: **一个数字要么不选，要么全选**
+
+首先计算出每个数字的总和sums，并维护两个dp数组：select和nonSelect
+
+- sums[i]代表值为i的元素总和
+- select[i]代表如果选数字i，从0处理到i的最大和
+- nonSelect[i]代表如果不选数字i，从0处理到i的最大和
+
+那么我们有以下逻辑：
+
+- 如果选i，那么i-1肯定不能选；
+- 如果不选i，那么i-1选不选都可以，因此我们选择其中较大的选法
+
+``` java
+select[i] = nonSelect[i-1] + sums[i];
+nonSelect[i] = Math.max(select[i-1], nonSelect[i-1]);
+```
 
 ### **Python3**
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -57,10 +73,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int deleteAndEarn(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        int[] sums = new int[10010];
+        for (int x : nums) {
+            sums[x] += x;
+        }
+        int[] select = new int[10010];
+        int[] nonSelect = new int[10010];
+        for (int i = 1; i <= 10000; i++) {
+            select[i] = nonSelect[i - 1] + sums[i];
+            nonSelect[i] = Math.max(select[i - 1], nonSelect[i - 1]);
+        }
 
+        return Math.max(select[10000], nonSelect[10000]);
+    }
+}
 ```
 
 ### **...**
+
 ```
 
 ```
