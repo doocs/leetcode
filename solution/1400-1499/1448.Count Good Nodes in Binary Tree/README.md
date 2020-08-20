@@ -13,7 +13,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/test_sample_1.png" style="height: 156px; width: 263px;"></strong></p>
+![](./images/test_sample_1.png)
 
 <pre><strong>输入：</strong>root = [3,1,4,3,null,1,5]
 <strong>输出：</strong>4
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/test_sample_2.png" style="height: 161px; width: 157px;"></strong></p>
+![](./images/test_sample_2.png)
 
 <pre><strong>输入：</strong>root = [3,3,null,4,2]
 <strong>输出：</strong>3

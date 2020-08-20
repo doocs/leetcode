@@ -13,7 +13,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/23/palindromic_paths_1.png" style="height: 201px; width: 300px;"></p>
+![](./images/palindromic_paths_1.png)
 
 <pre><strong>输入：</strong>root = [2,3,1,3,1,null,1]
 <strong>输出：</strong>2 
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/23/palindromic_paths_2.png" style="height: 314px; width: 300px;"></strong></p>
+![](./images/palindromic_paths_2.png)
 
 <pre><strong>输入：</strong>root = [2,1,1,1,3,null,null,null,null,null,1]
 <strong>输出：</strong>1 

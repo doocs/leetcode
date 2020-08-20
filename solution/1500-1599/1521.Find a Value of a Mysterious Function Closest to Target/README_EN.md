@@ -4,7 +4,7 @@
 
 ## Description
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/09/change.png" style="width: 635px; height: 312px;" /></p>
+![](./images/change.png)
 
 <p>Winston was given the above mysterious function <code>func</code>. He has an integer array <code>arr</code> and an integer <code>target</code> and he wants to find the values&nbsp;<code>l</code> and <code>r</code>&nbsp;that make&nbsp;the value <code>|func(arr, l, r) - target|</code> minimum possible.</p>
 

@@ -9,7 +9,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/15/sample_1_1791.png" style="width: 214px; height: 90px;" /></strong></p>
+![](./images/sample_1_1791.png)
 
 <pre>
 <strong>Input:</strong> nums = [1,0,0,0,1,0,0,1], k = 2
@@ -19,7 +19,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/15/sample_2_1791.png" style="width: 160px; height: 86px;" /></strong></p>
+![](./images/sample_2_1791.png)
 
 <pre>
 <strong>Input:</strong> nums = [1,0,0,1,0,1], k = 2

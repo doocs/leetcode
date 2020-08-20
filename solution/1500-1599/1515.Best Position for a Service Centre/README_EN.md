@@ -9,12 +9,16 @@
 <p>Given an array <code>positions</code> where <code>positions[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> is the position of the <code>ith</code> customer on the map, return <em>the minimum sum of the euclidean distances</em> to all customers.</p>
 
 <p>In other words, you need to choose the position of the service centre <code>[x<sub>centre</sub>, y<sub>centre</sub>]</code> such that the following formula is minimized:</p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/06/25/q4_edited.jpg" />
+
+![](./images/q4_edited.jpg)
+
 <p>Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/06/25/q4_e1.jpg" style="width: 377px; height: 362px;" />
+
+![](./images/q4_e1.jpg)
+
 <pre>
 <strong>Input:</strong> positions = [[0,1],[1,0],[1,2],[2,1]]
 <strong>Output:</strong> 4.00000
@@ -22,7 +26,9 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/06/25/q4_e3.jpg" style="width: 419px; height: 419px;" />
+
+![](./images/q4_e3.jpg)
+
 <pre>
 <strong>Input:</strong> positions = [[1,1],[3,3]]
 <strong>Output:</strong> 2.82843

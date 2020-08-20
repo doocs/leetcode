@@ -14,14 +14,18 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/28/fw.jpg" style="width: 750px; height: 141px;" />
+
+![](./images/fw.jpg)
+
 <pre>
 <strong>Input:</strong> grid = [[0,0,1],[1,1,0],[1,0,0]]
 <strong>Output:</strong> 3
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/16/e2.jpg" style="width: 270px; height: 270px;" />
+
+![](./images/e2.jpg)
+
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[0,1,1,0],[0,1,1,0],[0,1,1,0]]
 <strong>Output:</strong> -1
@@ -29,7 +33,9 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/16/e3.jpg" style="width: 200px; height: 200px;" />
+
+![](./images/e3.jpg)
+
 <pre>
 <strong>Input:</strong> grid = [[1,0,0],[1,1,0],[1,1,1]]
 <strong>Output:</strong> 0

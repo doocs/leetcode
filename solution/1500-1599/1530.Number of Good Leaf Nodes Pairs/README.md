@@ -17,7 +17,7 @@
 
 <p>&nbsp;</p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/26/e1.jpg" style="height: 321px; width: 321px;"></p>
+![](./images/e1.jpg)
 
 <pre><strong>输入：</strong>root = [1,2,3,null,4], distance = 3
 <strong>输出：</strong>1
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/26/e2.jpg" style="height: 321px; width: 441px;"></p>
+![](./images/e2.jpg)
 
 <pre><strong>输入：</strong>root = [1,2,3,4,5,6,7], distance = 3
 <strong>输出：</strong>2

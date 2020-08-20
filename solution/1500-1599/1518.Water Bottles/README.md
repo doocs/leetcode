@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/19/sample_1_1875.png" style="height: 240px; width: 480px;"></strong></p>
+![](./images/sample_1_1875.png)
 
 <pre><strong>输入：</strong>numBottles = 9, numExchange = 3
 <strong>输出：</strong>13
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/19/sample_2_1875.png" style="height: 240px; width: 790px;"></p>
+![](./images/sample_2_1875.png)
 
 <pre><strong>输入：</strong>numBottles = 15, numExchange = 4
 <strong>输出：</strong>19
