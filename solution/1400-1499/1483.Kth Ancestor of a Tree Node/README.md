@@ -15,7 +15,8 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/14/1528_ex1.png" style="height: 262px; width: 396px;"></strong></p>
+
+![](./images/1528_ex1.png)
 
 <pre><strong>输入：</strong>
 [&quot;TreeAncestor&quot;,&quot;getKthAncestor&quot;,&quot;getKthAncestor&quot;,&quot;getKthAncestor&quot;]

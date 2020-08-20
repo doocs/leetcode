@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/28/screen-shot-2020-06-10-at-123929-pm.png" style="height: 224px; width: 250px;"></p>
+![](./images/screen-shot-2020-06-10-at-123929-pm.png)
 
 <pre><strong>输入：</strong>path = &quot;NES&quot;
 <strong>输出：</strong>false 
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/28/screen-shot-2020-06-10-at-123843-pm.png" style="height: 212px; width: 250px;"></p>
+![](./images/screen-shot-2020-06-10-at-123843-pm.png)
 
 <pre><strong>输入：</strong>path = &quot;NESWW&quot;
 <strong>输出：</strong>true

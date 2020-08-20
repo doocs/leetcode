@@ -14,7 +14,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/01/q3e1.jpg" style="width: 441px; height: 321px;" />
+
+![](./images/q3e1.jpg)
+
 <pre>
 <strong>Input:</strong> n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], labels = &quot;abaedcd&quot;
 <strong>Output:</strong> [2,1,1,1,1,1,1]
@@ -23,7 +25,9 @@ Node 1 has a label &#39;b&#39;. The sub-tree of node 1 contains nodes 1,4 and 5,
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/01/q3e2.jpg" style="width: 381px; height: 321px;" />
+
+![](./images/q3e2.jpg)
+
 <pre>
 <strong>Input:</strong> n = 4, edges = [[0,1],[1,2],[0,3]], labels = &quot;bbbb&quot;
 <strong>Output:</strong> [4,2,1,1]
@@ -34,7 +38,9 @@ The sub-tree of node 0 contains nodes 0, 1, 2 and 3, all with label &#39;b&#39;,
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/01/q3e3.jpg" style="width: 381px; height: 321px;" />
+
+![](./images/q3e3.jpg)
+
 <pre>
 <strong>Input:</strong> n = 5, edges = [[0,1],[0,2],[1,3],[0,4]], labels = &quot;aabab&quot;
 <strong>Output:</strong> [3,2,1,1,1]

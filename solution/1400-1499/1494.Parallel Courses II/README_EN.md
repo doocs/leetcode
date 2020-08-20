@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/05/22/leetcode_parallel_courses_1.png" style="width: 300px; height: 164px;" /></strong></p>
+![](./images/leetcode_parallel_courses_1.png)
 
 <pre>
 <strong>Input:</strong> n = 4, dependencies = [[2,1],[3,1],[1,4]], k = 2
@@ -23,7 +23,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/05/22/leetcode_parallel_courses_2.png" style="width: 300px; height: 234px;" /></strong></p>
+![](./images/leetcode_parallel_courses_2.png)
 
 <pre>
 <strong>Input:</strong> n = 5, dependencies = [[2,1],[3,1],[4,1],[1,5]], k = 2

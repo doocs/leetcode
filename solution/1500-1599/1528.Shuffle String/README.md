@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/26/q1.jpg" style="height: 243px; width: 321px;"></p>
+![](./images/q1.jpg)
 
 <pre><strong>输入：</strong>s = &quot;codeleet&quot;, <code>indices</code> = [4,5,6,7,0,2,1,3]
 <strong>输出：</strong>&quot;leetcode&quot;

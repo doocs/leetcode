@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/27/leetcode_parallel_courses_1.png" style="height: 164px; width: 300px;"></strong></p>
+![](./images/leetcode_parallel_courses_1.png)
 
 <pre><strong>输入：</strong>n = 4, dependencies = [[2,1],[3,1],[1,4]], k = 2
 <strong>输出：</strong>3 
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/27/leetcode_parallel_courses_2.png" style="height: 234px; width: 300px;"></strong></p>
+![](./images/leetcode_parallel_courses_2.png)
 
 <pre><strong>输入：</strong>n = 5, dependencies = [[2,1],[3,1],[4,1],[1,5]], k = 2
 <strong>输出：</strong>4 

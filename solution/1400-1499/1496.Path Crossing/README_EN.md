@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/10/screen-shot-2020-06-10-at-123929-pm.png" style="width: 250px; height: 224px;" /></p>
+![](./images/screen-shot-2020-06-10-at-123929-pm.png)
 
 <pre>
 <strong>Input:</strong> path = &quot;NES&quot;
@@ -21,7 +21,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/10/screen-shot-2020-06-10-at-123843-pm.png" style="width: 250px; height: 212px;" /></p>
+![](./images/screen-shot-2020-06-10-at-123843-pm.png)
 
 <pre>
 <strong>Input:</strong> path = &quot;NESWW&quot;

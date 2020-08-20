@@ -12,7 +12,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/11/q3v1.jpg" style="width: 562px; height: 195px;" />
+
+![](./images/q3v1.jpg)
+
 <pre>
 <strong>Input:</strong> position = [1,2,3,4,7], m = 3
 <strong>Output:</strong> 3

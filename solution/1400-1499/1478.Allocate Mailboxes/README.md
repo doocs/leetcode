@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/13/sample_11_1816.png" style="height: 154px; width: 454px;"></p>
+![](./images/sample_11_1816.png)
 
 <pre><strong>输入：</strong>houses = [1,4,8,10,20], k = 3
 <strong>输出：</strong>5
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/13/sample_2_1816.png" style="height: 154px; width: 433px;"></strong></p>
+![](./images/sample_2_1816.png)
 
 <pre><strong>输入：</strong>houses = [2,3,5,12,18], k = 2
 <strong>输出：</strong>9
