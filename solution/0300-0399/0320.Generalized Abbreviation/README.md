@@ -4,7 +4,19 @@
 
 ## 题目描述
 <!-- 这里写题目描述 -->
-None
+<p>请你写出一个能够举单词全部缩写的函数。</p>
+
+<p><strong>注意：</strong>输出的顺序并不重要。</p>
+
+<p><strong>示例：</strong></p>
+
+<pre><strong>输入:</strong> <code>"word"</code>
+<strong>输出:</strong>
+["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+</pre>
+
+<p> </p>
+
 
 
 ## 解法
