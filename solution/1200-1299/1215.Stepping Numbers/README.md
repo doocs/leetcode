@@ -4,7 +4,28 @@
 
 ## 题目描述
 <!-- 这里写题目描述 -->
-None
+<p>如果一个整数上的每一位数字与其相邻位上的数字的绝对差都是 <code>1</code>，那么这个数就是一个「步进数」。</p>
+
+<p>例如，<code>321</code> 是一个步进数，而 <code>421</code> 不是。</p>
+
+<p>给你两个整数，<code>low</code> 和 <code>high</code>，请你找出在 <code>[low, high]</code> 范围内的所有步进数，并返回 <strong>排序后</strong> 的结果。</p>
+
+<p> </p>
+
+<p><strong>示例：</strong></p>
+
+<pre><strong>输入：</strong>low = 0, high = 21
+<strong>输出：</strong>[0,1,2,3,4,5,6,7,8,9,10,12,21]
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>0 <= low <= high <= 2 * 10^9</code></li>
+</ul>
+
 
 
 ## 解法
