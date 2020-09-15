@@ -1,6 +1,6 @@
 # [1560. 圆形赛道上经过次数最多的扇区](https://leetcode-cn.com/problems/most-visited-sector-in-a-circular-track)
 
-[English Version](/solution/1500-1599/1560.Most Visited Sector in  a Circular Track/README_EN.md)
+[English Version](/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/README_EN.md)
 
 ## 题目描述
 
@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/22/3rd45e.jpg" style="height: 341px; width: 433px;"></p>
+![](./images/3rd45e.jpg)
 
 <pre><strong>输入：</strong>n = 4, rounds = [1,3,1,2]
 <strong>输出：</strong>[1,2]

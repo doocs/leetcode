@@ -10,7 +10,7 @@
 
 <p>每次移动，他都可以按图示八个方向之一前进。</p>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/21/knight.png" style="height: 200px; width: 200px;"></p>
+![](./images/knight.png)
 
 <p>现在，骑士需要前去征服坐标为 <code>[x, y]</code> 的部落，请你为他规划路线。</p>
 

@@ -12,7 +12,7 @@
 	<li><code>'0'</code>（数字 0）表示一个空位</li>
 </ul>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/images/361_Bomb_Enemy.gif" style="width: 200px;"></p>
+![](./images/361_Bomb_Enemy.gif)
 
 <p>请你计算一个炸弹最多能炸多少敌人。</p>
 

@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/27/1313_ex1.jpeg" style="height: 59px; width: 70px;"></strong></p>
+![](./images/1313_ex1.jpeg)
 
 <pre><strong>输入：</strong>[[5,4,5],[1,2,6],[7,4,6]]
 <strong>输出：</strong>4
@@ -26,14 +26,14 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/27/1313_ex2.jpeg" style="height: 39px; width: 134px;"></strong></p>
+![](./images/1313_ex2.jpeg)
 
 <pre><strong>输入：</strong>[[2,2,1,2,2,2],[1,2,2,2,1,2]]
 <strong>输出：</strong>2</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/27/1313_ex3.jpeg"></strong></p>
+![](./images/1313_ex3.jpeg)
 
 <pre><strong>输入：</strong>[[3,4,6,3,4],[0,2,1,1,7],[8,8,3,2,7],[3,2,4,9,8],[4,1,2,0,0],[4,6,5,4,3]]
 <strong>输出：</strong>3</pre>

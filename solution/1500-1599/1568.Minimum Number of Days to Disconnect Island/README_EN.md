@@ -1,6 +1,6 @@
 # [1568. Minimum Number of Days to Disconnect Island](https://leetcode.com/problems/minimum-number-of-days-to-disconnect-island)
 
-[中文文档](/solution/1500-1599/1568.Minimum Number of Days to Disconnect Island/README.md)
+[中文文档](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README.md)
 
 ## Description
 

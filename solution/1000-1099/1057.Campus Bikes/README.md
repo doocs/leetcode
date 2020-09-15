@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/16/1261_example_1_v2.png" style="height: 264px; width: 264px;"></p>
+![](./images/1261_example_1_v2.png)
 
 <pre><strong>输入：</strong>workers = [[0,0],[2,1]], bikes = [[1,2],[3,3]]
 <strong>输出：</strong>[1,0]
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/16/1261_example_2_v2.png" style="height: 264px; width: 264px;"></p>
+![](./images/1261_example_2_v2.png)
 
 <pre><strong>输入：</strong>workers = [[0,0],[1,1],[2,0]], bikes = [[1,0],[2,2],[2,1]]
 <strong>输出：</strong>[0,2,1]

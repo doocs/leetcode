@@ -1,6 +1,6 @@
 # [1562. 查找大小为 M 的最新分组](https://leetcode-cn.com/problems/find-latest-group-of-size-m)
 
-[English Version](/solution/1500-1599/1562.Find Latest Group of Size M/README_EN.md)
+[English Version](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1564. null](https://leetcode-cn.com/problems/put-boxes-into-the-warehouse-i)
 
-[English Version](/solution/1500-1599/1564.Put Boxes Into the Warehouse I/README_EN.md)
+[English Version](/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README_EN.md)
 
 ## 题目描述
 

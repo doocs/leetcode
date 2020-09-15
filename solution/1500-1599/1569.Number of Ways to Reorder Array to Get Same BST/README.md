@@ -1,6 +1,6 @@
 # [1569. 将子数组重新排序得到同一个二叉查找树的方案数](https://leetcode-cn.com/problems/number-of-ways-to-reorder-array-to-get-same-bst)
 
-[English Version](/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/README_EN.md)
+[English Version](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README_EN.md)
 
 ## 题目描述
 
@@ -17,7 +17,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/bb.png" style="height: 101px; width: 121px;"></p>
+![](./images/bb.png)
 
 <pre><strong>输入：</strong>nums = [2,1,3]
 <strong>输出：</strong>1
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/ex1.png" style="height: 161px; width: 241px;"></strong></p>
+![](./images/ex1.png)
 
 <pre><strong>输入：</strong>nums = [3,4,5,1,2]
 <strong>输出：</strong>5
@@ -40,7 +40,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/ex4.png" style="height: 161px; width: 121px;"></strong></p>
+![](./images/ex4.png)
 
 <pre><strong>输入：</strong>nums = [1,2,3]
 <strong>输出：</strong>0
@@ -49,7 +49,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/abc.png" style="height: 161px; width: 241px;"></strong></p>
+![](./images/abc.png)
 
 <pre><strong>输入：</strong>nums = [3,1,2,5,4,6]
 <strong>输出：</strong>19

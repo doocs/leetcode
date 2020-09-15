@@ -20,7 +20,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/30/1421_sample_1.png" style="height: 347px; width: 403px;"></p>
+![](./images/1421_sample_1.png)
 
 <pre><strong>输入：</strong>nodes = 7, parent = [-1,0,0,1,2,2,2], value = [1,-2,4,0,-2,-1,-1]
 <strong>输出：</strong>2

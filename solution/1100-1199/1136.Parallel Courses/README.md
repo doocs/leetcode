@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/07/27/1316_ex1.png" style="height: 101px; width: 126px;"></strong></p>
+![](./images/1316_ex1.png)
 
 <pre><strong>输入：</strong>N = 3, relations = [[1,3],[2,3]]
 <strong>输出：</strong>2
@@ -28,7 +28,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/07/27/1316_ex2.png" style="height: 101px; width: 126px;"></strong></p>
+![](./images/1316_ex2.png)
 
 <pre><strong>输入：</strong>N = 3, relations = [[1,2],[2,3],[3,1]]
 <strong>输出：</strong>-1

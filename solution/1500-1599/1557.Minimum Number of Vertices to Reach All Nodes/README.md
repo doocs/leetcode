@@ -1,6 +1,6 @@
 # [1557. 可以到达所有点的最少点数目](https://leetcode-cn.com/problems/minimum-number-of-vertices-to-reach-all-nodes)
 
-[English Version](/solution/1500-1599/1557.Minimum Number of Vertices to Reach All Nodes/README_EN.md)
+[English Version](/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/README_EN.md)
 
 ## 题目描述
 
@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/22/5480e1.png" style="height: 181px; width: 231px;"></p>
+![](./images/5480e1.png)
 
 <pre><strong>输入：</strong>n = 6, edges = [[0,1],[0,2],[2,5],[3,4],[4,2]]
 <strong>输出：</strong>[0,3]
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/22/5480e2.png" style="height: 201px; width: 201px;"></p>
+![](./images/5480e2.png)
 
 <pre><strong>输入：</strong>n = 5, edges = [[0,1],[2,1],[3,1],[1,4],[2,4]]
 <strong>输出：</strong>[0,2,3]

@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/10/31/1397_example_1.png" style="height: 233px; width: 226px;"></p>
+![](./images/1397_example_1.png)
 
 <pre><strong>输入：</strong>edges = [[0,1],[0,2]]
 <strong>输出：</strong>2
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/10/31/1397_example_2.png" style="height: 316px; width: 350px;"></p>
+![](./images/1397_example_2.png)
 
 <pre><strong>输入：</strong>edges = [[0,1],[1,2],[2,3],[1,4],[4,5]]
 <strong>输出：</strong>4

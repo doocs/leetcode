@@ -6,8 +6,10 @@
 <!-- 这里写题目描述 -->
 <p>给你一个 2D 矩阵 <em>matrix</em>，请计算出从左上角 <code>(row1, col1)</code> 到右下角 <code>(row2, col2)</code> 组成的矩形中所有元素的和。</p>
 
-<p><img alt="Range Sum Query 2D" src="https://assets.leetcode-cn.com/aliyun-lc-upload/original_images/308_range_sum_query_2d_mutable.png" style="width: 150px;"><br>
-<small>上述粉色矩形框内的，该矩形由左上角 (row1, col1) = <strong>(2, 1)</strong> 和右下角 (row2, col2) = <strong>(4, 3) </strong>确定。其中，所包括的元素总和 sum = <strong>8</strong>。</small></p>
+
+![](./images/308_range_sum_query_2d_mutable.png)
+
+<p><small>上述粉色矩形框内的，该矩形由左上角 (row1, col1) = <strong>(2, 1)</strong> 和右下角 (row2, col2) = <strong>(4, 3) </strong>确定。其中，所包括的元素总和 sum = <strong>8</strong>。</small></p>
 
 <p><strong>示例：</strong></p>
 

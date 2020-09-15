@@ -1,6 +1,6 @@
 # [1558. Minimum Numbers of Function Calls to Make Target Array](https://leetcode.com/problems/minimum-numbers-of-function-calls-to-make-target-array)
 
-[中文文档](/solution/1500-1599/1558.Minimum Numbers of Function Calls to Make Target Array/README.md)
+[中文文档](/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README.md)
 
 ## Description
 

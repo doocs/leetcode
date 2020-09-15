@@ -14,7 +14,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/07/12/1308_example_1.png" style="height: 123px; width: 132px;"></p>
+![](./images/1308_example_1.png)
 
 <pre><strong>输入：</strong>[5,6,1]
 <strong>输出：</strong>6.00000

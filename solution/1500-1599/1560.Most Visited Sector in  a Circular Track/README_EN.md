@@ -1,6 +1,6 @@
 # [1560. Most Visited Sector in  a Circular Track](https://leetcode.com/problems/most-visited-sector-in-a-circular-track)
 
-[中文文档](/solution/1500-1599/1560.Most Visited Sector in  a Circular Track/README.md)
+[中文文档](/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/README.md)
 
 ## Description
 

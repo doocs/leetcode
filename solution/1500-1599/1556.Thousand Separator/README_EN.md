@@ -1,6 +1,6 @@
 # [1556. Thousand Separator](https://leetcode.com/problems/thousand-separator)
 
-[中文文档](/solution/1500-1599/1556.Thousand Separator/README.md)
+[中文文档](/solution/1500-1599/1556.Thousand%20Separator/README.md)
 
 ## Description
 

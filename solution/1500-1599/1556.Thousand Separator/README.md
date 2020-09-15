@@ -1,6 +1,6 @@
 # [1556. 千位分隔数](https://leetcode-cn.com/problems/thousand-separator)
 
-[English Version](/solution/1500-1599/1556.Thousand Separator/README_EN.md)
+[English Version](/solution/1500-1599/1556.Thousand%20Separator/README_EN.md)
 
 ## 题目描述
 

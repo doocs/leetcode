@@ -1,6 +1,6 @@
 # [1563. 石子游戏 V](https://leetcode-cn.com/problems/stone-game-v)
 
-[English Version](/solution/1500-1599/1563.Stone Game V/README_EN.md)
+[English Version](/solution/1500-1599/1563.Stone%20Game%20V/README_EN.md)
 
 ## 题目描述
 
