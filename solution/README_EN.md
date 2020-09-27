@@ -4,6 +4,7 @@
 [中文文档](/solution/README.md)
 
 ## Solutions
+
 Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the Mac) to search anything you want.
 
 
@@ -68,7 +69,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0057](https://leetcode.com/problems/insert-interval)  |  [Insert Interval](/solution/0000-0099/0057.Insert%20Interval/README_EN.md)  |  `Sort`,`Array`  |  Hard  |    |
 |  [0058](https://leetcode.com/problems/length-of-last-word)  |  [Length of Last Word](/solution/0000-0099/0058.Length%20of%20Last%20Word/README_EN.md)  |  `String`  |  Easy  |    |
 |  [0059](https://leetcode.com/problems/spiral-matrix-ii)  |  [Spiral Matrix II](/solution/0000-0099/0059.Spiral%20Matrix%20II/README_EN.md)  |  `Array`  |  Medium  |    |
-|  [0060](https://leetcode.com/problems/permutation-sequence)  |  [Permutation Sequence](/solution/0000-0099/0060.Permutation%20Sequence/README_EN.md)  |  `Math`,`Backtracking`  |  Medium  |    |
+|  [0060](https://leetcode.com/problems/permutation-sequence)  |  [Permutation Sequence](/solution/0000-0099/0060.Permutation%20Sequence/README_EN.md)  |  `Math`,`Backtracking`  |  Hard  |    |
 |  [0061](https://leetcode.com/problems/rotate-list)  |  [Rotate List](/solution/0000-0099/0061.Rotate%20List/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Medium  |    |
 |  [0062](https://leetcode.com/problems/unique-paths)  |  [Unique Paths](/solution/0000-0099/0062.Unique%20Paths/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
 |  [0063](https://leetcode.com/problems/unique-paths-ii)  |  [Unique Paths II](/solution/0000-0099/0063.Unique%20Paths%20II/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
@@ -153,7 +154,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0142](https://leetcode.com/problems/linked-list-cycle-ii)  |  [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Medium  |    |
 |  [0143](https://leetcode.com/problems/reorder-list)  |  [Reorder List](/solution/0100-0199/0143.Reorder%20List/README_EN.md)  |  `Linked List`  |  Medium  |    |
 |  [0144](https://leetcode.com/problems/binary-tree-preorder-traversal)  |  [Binary Tree Preorder Traversal](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Medium  |    |
-|  [0145](https://leetcode.com/problems/binary-tree-postorder-traversal)  |  [Binary Tree Postorder Traversal](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Hard  |    |
+|  [0145](https://leetcode.com/problems/binary-tree-postorder-traversal)  |  [Binary Tree Postorder Traversal](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Medium  |    |
 |  [0146](https://leetcode.com/problems/lru-cache)  |  [LRU Cache](/solution/0100-0199/0146.LRU%20Cache/README_EN.md)  |  `Design`  |  Medium  |    |
 |  [0147](https://leetcode.com/problems/insertion-sort-list)  |  [Insertion Sort List](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)  |  `Sort`,`Linked List`  |  Medium  |    |
 |  [0148](https://leetcode.com/problems/sort-list)  |  [Sort List](/solution/0100-0199/0148.Sort%20List/README_EN.md)  |  `Sort`,`Linked List`  |  Medium  |    |
@@ -264,7 +265,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0253](https://leetcode.com/problems/meeting-rooms-ii)  |  [Meeting Rooms II](/solution/0200-0299/0253.Meeting%20Rooms%20II/README_EN.md)  |  `Heap`,`Greedy`,`Sort`  |  Medium  |  🔒  |
 |  [0254](https://leetcode.com/problems/factor-combinations)  |  [Factor Combinations](/solution/0200-0299/0254.Factor%20Combinations/README_EN.md)  |  `Backtracking`  |  Medium  |  🔒  |
 |  [0255](https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree)  |  [Verify Preorder Sequence in Binary Search Tree](/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README_EN.md)  |  `Stack`,`Tree`  |  Medium  |  🔒  |
-|  [0256](https://leetcode.com/problems/paint-house)  |  [Paint House](/solution/0200-0299/0256.Paint%20House/README_EN.md)  |  `Dynamic Programming`  |  Easy  |  🔒  |
+|  [0256](https://leetcode.com/problems/paint-house)  |  [Paint House](/solution/0200-0299/0256.Paint%20House/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  🔒  |
 |  [0257](https://leetcode.com/problems/binary-tree-paths)  |  [Binary Tree Paths](/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md)  |  `Tree`,`Depth-first Search`  |  Easy  |    |
 |  [0258](https://leetcode.com/problems/add-digits)  |  [Add Digits](/solution/0200-0299/0258.Add%20Digits/README_EN.md)  |  `Math`  |  Easy  |    |
 |  [0259](https://leetcode.com/problems/3sum-smaller)  |  [3Sum Smaller](/solution/0200-0299/0259.3Sum%20Smaller/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |  🔒  |
@@ -307,7 +308,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0296](https://leetcode.com/problems/best-meeting-point)  |  [Best Meeting Point](/solution/0200-0299/0296.Best%20Meeting%20Point/README_EN.md)  |  `Sort`,`Math`  |  Hard  |  🔒  |
 |  [0297](https://leetcode.com/problems/serialize-and-deserialize-binary-tree)  |  [Serialize and Deserialize Binary Tree](/solution/0200-0299/0297.Serialize%20and%20Deserialize%20Binary%20Tree/README_EN.md)  |  `Tree`,`Design`  |  Hard  |    |
 |  [0298](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence)  |  [Binary Tree Longest Consecutive Sequence](/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/README_EN.md)  |  `Tree`  |  Medium  |  🔒  |
-|  [0299](https://leetcode.com/problems/bulls-and-cows)  |  [Bulls and Cows](/solution/0200-0299/0299.Bulls%20and%20Cows/README_EN.md)  |  `Hash Table`  |  Easy  |    |
+|  [0299](https://leetcode.com/problems/bulls-and-cows)  |  [Bulls and Cows](/solution/0200-0299/0299.Bulls%20and%20Cows/README_EN.md)  |  `Hash Table`  |  Medium  |    |
 |  [0300](https://leetcode.com/problems/longest-increasing-subsequence)  |  [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)  |  `Binary Search`,`Dynamic Programming`  |  Medium  |    |
 |  [0301](https://leetcode.com/problems/remove-invalid-parentheses)  |  [Remove Invalid Parentheses](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README_EN.md)  |  `Depth-first Search`,`Breadth-first Search`  |  Hard  |    |
 |  [0302](https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels)  |  [Smallest Rectangle Enclosing Black Pixels](/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/README_EN.md)  |  `Binary Search`  |  Hard  |  🔒  |
@@ -451,7 +452,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0440](https://leetcode.com/problems/k-th-smallest-in-lexicographical-order)  |  [K-th Smallest in Lexicographical Order](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README_EN.md)  |    |  Hard  |    |
 |  [0441](https://leetcode.com/problems/arranging-coins)  |  [Arranging Coins](/solution/0400-0499/0441.Arranging%20Coins/README_EN.md)  |  `Math`,`Binary Search`  |  Easy  |    |
 |  [0442](https://leetcode.com/problems/find-all-duplicates-in-an-array)  |  [Find All Duplicates in an Array](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README_EN.md)  |  `Array`  |  Medium  |    |
-|  [0443](https://leetcode.com/problems/string-compression)  |  [String Compression](/solution/0400-0499/0443.String%20Compression/README_EN.md)  |  `String`  |  Easy  |    |
+|  [0443](https://leetcode.com/problems/string-compression)  |  [String Compression](/solution/0400-0499/0443.String%20Compression/README_EN.md)  |  `String`  |  Medium  |    |
 |  [0444](https://leetcode.com/problems/sequence-reconstruction)  |  [Sequence Reconstruction](/solution/0400-0499/0444.Sequence%20Reconstruction/README_EN.md)  |  `Graph`,`Topological Sort`  |  Medium  |  🔒  |
 |  [0445](https://leetcode.com/problems/add-two-numbers-ii)  |  [Add Two Numbers II](/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README_EN.md)  |  `Linked List`  |  Medium  |    |
 |  [0446](https://leetcode.com/problems/arithmetic-slices-ii-subsequence)  |  [Arithmetic Slices II - Subsequence](/solution/0400-0499/0446.Arithmetic%20Slices%20II%20-%20Subsequence/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
@@ -529,7 +530,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0518](https://leetcode.com/problems/coin-change-2)  |  [Coin Change 2](/solution/0500-0599/0518.Coin%20Change%202/README_EN.md)  |    |  Medium  |    |
 |  [0519](https://leetcode.com/problems/random-flip-matrix)  |  [Random Flip Matrix](/solution/0500-0599/0519.Random%20Flip%20Matrix/README_EN.md)  |  `Random`  |  Medium  |    |
 |  [0520](https://leetcode.com/problems/detect-capital)  |  [Detect Capital](/solution/0500-0599/0520.Detect%20Capital/README_EN.md)  |  `String`  |  Easy  |    |
-|  [0521](https://leetcode.com/problems/longest-uncommon-subsequence-i)  |  [Longest Uncommon Subsequence I ](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I%20/README_EN.md)  |  `String`  |  Easy  |    |
+|  [0521](https://leetcode.com/problems/longest-uncommon-subsequence-i)  |  [Longest Uncommon Subsequence I](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README_EN.md)  |  `Brainteaser`,`String`  |  Easy  |    |
 |  [0522](https://leetcode.com/problems/longest-uncommon-subsequence-ii)  |  [Longest Uncommon Subsequence II](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README_EN.md)  |  `String`  |  Medium  |    |
 |  [0523](https://leetcode.com/problems/continuous-subarray-sum)  |  [Continuous Subarray Sum](/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Medium  |    |
 |  [0524](https://leetcode.com/problems/longest-word-in-dictionary-through-deleting)  |  [Longest Word in Dictionary through Deleting](/solution/0500-0599/0524.Longest%20Word%20in%20Dictionary%20through%20Deleting/README_EN.md)  |  `Sort`,`Two Pointers`  |  Medium  |    |
@@ -546,7 +547,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0535](https://leetcode.com/problems/encode-and-decode-tinyurl)  |  [Encode and Decode TinyURL](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README_EN.md)  |  `Hash Table`,`Math`  |  Medium  |    |
 |  [0536](https://leetcode.com/problems/construct-binary-tree-from-string)  |  [Construct Binary Tree from String](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README_EN.md)  |  `Tree`,`String`  |  Medium  |  🔒  |
 |  [0537](https://leetcode.com/problems/complex-number-multiplication)  |  [Complex Number Multiplication](/solution/0500-0599/0537.Complex%20Number%20Multiplication/README_EN.md)  |  `Math`,`String`  |  Medium  |    |
-|  [0538](https://leetcode.com/problems/convert-bst-to-greater-tree)  |  [Convert BST to Greater Tree](/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README_EN.md)  |  `Tree`  |  Easy  |    |
+|  [0538](https://leetcode.com/problems/convert-bst-to-greater-tree)  |  [Convert BST to Greater Tree](/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README_EN.md)  |  `Tree`  |  Medium  |    |
 |  [0539](https://leetcode.com/problems/minimum-time-difference)  |  [Minimum Time Difference](/solution/0500-0599/0539.Minimum%20Time%20Difference/README_EN.md)  |  `String`  |  Medium  |    |
 |  [0540](https://leetcode.com/problems/single-element-in-a-sorted-array)  |  [Single Element in a Sorted Array](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README_EN.md)  |    |  Medium  |    |
 |  [0541](https://leetcode.com/problems/reverse-string-ii)  |  [Reverse String II](/solution/0500-0599/0541.Reverse%20String%20II/README_EN.md)  |  `String`  |  Easy  |    |
@@ -641,7 +642,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0630](https://leetcode.com/problems/course-schedule-iii)  |  [Course Schedule III](/solution/0600-0699/0630.Course%20Schedule%20III/README_EN.md)  |  `Greedy`  |  Hard  |    |
 |  [0631](https://leetcode.com/problems/design-excel-sum-formula)  |  [Design Excel Sum Formula](/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README_EN.md)  |  `Design`  |  Hard  |  🔒  |
 |  [0632](https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists)  |  [Smallest Range Covering Elements from K Lists](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README_EN.md)  |  `Hash Table`,`Two Pointers`,`String`  |  Hard  |    |
-|  [0633](https://leetcode.com/problems/sum-of-square-numbers)  |  [Sum of Square Numbers](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README_EN.md)  |  `Math`  |  Easy  |    |
+|  [0633](https://leetcode.com/problems/sum-of-square-numbers)  |  [Sum of Square Numbers](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README_EN.md)  |  `Math`  |  Medium  |    |
 |  [0634](https://leetcode.com/problems/find-the-derangement-of-an-array)  |  [Find the Derangement of An Array](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README_EN.md)  |  `Math`  |  Medium  |  🔒  |
 |  [0635](https://leetcode.com/problems/design-log-storage-system)  |  [Design Log Storage System](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README_EN.md)  |  `Design`,`String`  |  Medium  |  🔒  |
 |  [0636](https://leetcode.com/problems/exclusive-time-of-functions)  |  [Exclusive Time of Functions](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README_EN.md)  |  `Stack`  |  Medium  |    |
@@ -694,7 +695,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0683](https://leetcode.com/problems/k-empty-slots)  |  [K Empty Slots](/solution/0600-0699/0683.K%20Empty%20Slots/README_EN.md)  |  `Ordered Map`  |  Hard  |  🔒  |
 |  [0684](https://leetcode.com/problems/redundant-connection)  |  [Redundant Connection](/solution/0600-0699/0684.Redundant%20Connection/README_EN.md)  |  `Tree`,`Union Find`,`Graph`  |  Medium  |    |
 |  [0685](https://leetcode.com/problems/redundant-connection-ii)  |  [Redundant Connection II](/solution/0600-0699/0685.Redundant%20Connection%20II/README_EN.md)  |  `Tree`,`Depth-first Search`,`Union Find`,`Graph`  |  Hard  |    |
-|  [0686](https://leetcode.com/problems/repeated-string-match)  |  [Repeated String Match](/solution/0600-0699/0686.Repeated%20String%20Match/README_EN.md)  |  `String`  |  Easy  |    |
+|  [0686](https://leetcode.com/problems/repeated-string-match)  |  [Repeated String Match](/solution/0600-0699/0686.Repeated%20String%20Match/README_EN.md)  |  `String`  |  Medium  |    |
 |  [0687](https://leetcode.com/problems/longest-univalue-path)  |  [Longest Univalue Path](/solution/0600-0699/0687.Longest%20Univalue%20Path/README_EN.md)  |  `Tree`,`Recursion`  |  Easy  |    |
 |  [0688](https://leetcode.com/problems/knight-probability-in-chessboard)  |  [Knight Probability in Chessboard](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README_EN.md)  |  `Dynamic Programming`  |  Medium  |    |
 |  [0689](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays)  |  [Maximum Sum of 3 Non-Overlapping Subarrays](/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Hard  |    |
@@ -848,7 +849,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0837](https://leetcode.com/problems/new-21-game)  |  [New 21 Game](/solution/0800-0899/0837.New%2021%20Game/README_EN.md)  |  `Dynamic Programming`  |  Medium  |    |
 |  [0838](https://leetcode.com/problems/push-dominoes)  |  [Push Dominoes](/solution/0800-0899/0838.Push%20Dominoes/README_EN.md)  |  `Two Pointers`,`Dynamic Programming`  |  Medium  |    |
 |  [0839](https://leetcode.com/problems/similar-string-groups)  |  [Similar String Groups](/solution/0800-0899/0839.Similar%20String%20Groups/README_EN.md)  |  `Depth-first Search`,`Union Find`,`Graph`  |  Hard  |    |
-|  [0840](https://leetcode.com/problems/magic-squares-in-grid)  |  [Magic Squares In Grid](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [0840](https://leetcode.com/problems/magic-squares-in-grid)  |  [Magic Squares In Grid](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README_EN.md)  |  `Array`  |  Medium  |    |
 |  [0841](https://leetcode.com/problems/keys-and-rooms)  |  [Keys and Rooms](/solution/0800-0899/0841.Keys%20and%20Rooms/README_EN.md)  |  `Depth-first Search`,`Graph`  |  Medium  |    |
 |  [0842](https://leetcode.com/problems/split-array-into-fibonacci-sequence)  |  [Split Array into Fibonacci Sequence](/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README_EN.md)  |  `Greedy`,`String`,`Backtracking`  |  Medium  |    |
 |  [0843](https://leetcode.com/problems/guess-the-word)  |  [Guess the Word](/solution/0800-0899/0843.Guess%20the%20Word/README_EN.md)  |  `Minimax`  |  Hard  |    |
@@ -857,7 +858,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0846](https://leetcode.com/problems/hand-of-straights)  |  [Hand of Straights](/solution/0800-0899/0846.Hand%20of%20Straights/README_EN.md)  |  `Ordered Map`  |  Medium  |    |
 |  [0847](https://leetcode.com/problems/shortest-path-visiting-all-nodes)  |  [Shortest Path Visiting All Nodes](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README_EN.md)  |  `Breadth-first Search`,`Dynamic Programming`  |  Hard  |    |
 |  [0848](https://leetcode.com/problems/shifting-letters)  |  [Shifting Letters](/solution/0800-0899/0848.Shifting%20Letters/README_EN.md)  |  `String`  |  Medium  |    |
-|  [0849](https://leetcode.com/problems/maximize-distance-to-closest-person)  |  [Maximize Distance to Closest Person](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [0849](https://leetcode.com/problems/maximize-distance-to-closest-person)  |  [Maximize Distance to Closest Person](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README_EN.md)  |  `Array`  |  Medium  |    |
 |  [0850](https://leetcode.com/problems/rectangle-area-ii)  |  [Rectangle Area II](/solution/0800-0899/0850.Rectangle%20Area%20II/README_EN.md)  |  `Segment Tree`,`Line Sweep`  |  Hard  |    |
 |  [0851](https://leetcode.com/problems/loud-and-rich)  |  [Loud and Rich](/solution/0800-0899/0851.Loud%20and%20Rich/README_EN.md)  |  `Depth-first Search`  |  Medium  |    |
 |  [0852](https://leetcode.com/problems/peak-index-in-a-mountain-array)  |  [Peak Index in a Mountain Array](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README_EN.md)  |  `Binary Search`  |  Easy  |    |
@@ -957,7 +958,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0946](https://leetcode.com/problems/validate-stack-sequences)  |  [Validate Stack Sequences](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README_EN.md)  |  `Stack`  |  Medium  |    |
 |  [0947](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column)  |  [Most Stones Removed with Same Row or Column](/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README_EN.md)  |  `Depth-first Search`,`Union Find`  |  Medium  |    |
 |  [0948](https://leetcode.com/problems/bag-of-tokens)  |  [Bag of Tokens](/solution/0900-0999/0948.Bag%20of%20Tokens/README_EN.md)  |  `Greedy`  |  Medium  |    |
-|  [0949](https://leetcode.com/problems/largest-time-for-given-digits)  |  [Largest Time for Given Digits](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README_EN.md)  |  `Math`  |  Easy  |    |
+|  [0949](https://leetcode.com/problems/largest-time-for-given-digits)  |  [Largest Time for Given Digits](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README_EN.md)  |  `Math`  |  Medium  |    |
 |  [0950](https://leetcode.com/problems/reveal-cards-in-increasing-order)  |  [Reveal Cards In Increasing Order](/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README_EN.md)  |  `Array`  |  Medium  |    |
 |  [0951](https://leetcode.com/problems/flip-equivalent-binary-trees)  |  [Flip Equivalent Binary Trees](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README_EN.md)  |  `Tree`  |  Medium  |    |
 |  [0952](https://leetcode.com/problems/largest-component-size-by-common-factor)  |  [Largest Component Size by Common Factor](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README_EN.md)  |  `Union Find`,`Math`  |  Hard  |    |
@@ -975,7 +976,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0964](https://leetcode.com/problems/least-operators-to-express-number)  |  [Least Operators to Express Number](/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README_EN.md)  |  `Math`,`Dynamic Programming`  |  Hard  |    |
 |  [0965](https://leetcode.com/problems/univalued-binary-tree)  |  [Univalued Binary Tree](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README_EN.md)  |  `Tree`  |  Easy  |    |
 |  [0966](https://leetcode.com/problems/vowel-spellchecker)  |  [Vowel Spellchecker](/solution/0900-0999/0966.Vowel%20Spellchecker/README_EN.md)  |  `Hash Table`,`String`  |  Medium  |    |
-|  [0967](https://leetcode.com/problems/numbers-with-same-consecutive-differences)  |  [Numbers With Same Consecutive Differences](/solution/0900-0999/0967.Numbers%20With%20Same%20Consecutive%20Differences/README_EN.md)  |  `Dynamic Programming`  |  Medium  |    |
+|  [0967](https://leetcode.com/problems/numbers-with-same-consecutive-differences)  |  [Numbers With Same Consecutive Differences](/solution/0900-0999/0967.Numbers%20With%20Same%20Consecutive%20Differences/README_EN.md)  |  `Depth-first Search`,`Breadth-first Search`  |  Medium  |    |
 |  [0968](https://leetcode.com/problems/binary-tree-cameras)  |  [Binary Tree Cameras](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README_EN.md)  |  `Tree`,`Depth-first Search`,`Dynamic Programming`  |  Hard  |    |
 |  [0969](https://leetcode.com/problems/pancake-sorting)  |  [Pancake Sorting](/solution/0900-0999/0969.Pancake%20Sorting/README_EN.md)  |  `Sort`,`Array`  |  Medium  |    |
 |  [0970](https://leetcode.com/problems/powerful-integers)  |  [Powerful Integers](/solution/0900-0999/0970.Powerful%20Integers/README_EN.md)  |  `Hash Table`,`Math`  |  Easy  |    |
@@ -1037,7 +1038,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1026](https://leetcode.com/problems/maximum-difference-between-node-and-ancestor)  |  [Maximum Difference Between Node and Ancestor](/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README_EN.md)  |  `Tree`,`Depth-first Search`  |  Medium  |    |
 |  [1027](https://leetcode.com/problems/longest-arithmetic-subsequence)  |  [Longest Arithmetic Subsequence](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README_EN.md)  |  `Dynamic Programming`  |  Medium  |    |
 |  [1028](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal)  |  [Recover a Tree From Preorder Traversal](/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README_EN.md)  |  `Tree`,`Depth-first Search`  |  Hard  |    |
-|  [1029](https://leetcode.com/problems/two-city-scheduling)  |  [Two City Scheduling](/solution/1000-1099/1029.Two%20City%20Scheduling/README_EN.md)  |  `Greedy`  |  Easy  |    |
+|  [1029](https://leetcode.com/problems/two-city-scheduling)  |  [Two City Scheduling](/solution/1000-1099/1029.Two%20City%20Scheduling/README_EN.md)  |  `Greedy`  |  Medium  |    |
 |  [1030](https://leetcode.com/problems/matrix-cells-in-distance-order)  |  [Matrix Cells in Distance Order](/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README_EN.md)  |  `Sort`  |  Easy  |    |
 |  [1031](https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays)  |  [Maximum Sum of Two Non-Overlapping Subarrays](/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README_EN.md)  |  `Array`  |  Medium  |    |
 |  [1032](https://leetcode.com/problems/stream-of-characters)  |  [Stream of Characters](/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md)  |  `Trie`  |  Hard  |    |
@@ -1051,7 +1052,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1040](https://leetcode.com/problems/moving-stones-until-consecutive-ii)  |  [Moving Stones Until Consecutive II](/solution/1000-1099/1040.Moving%20Stones%20Until%20Consecutive%20II/README_EN.md)  |  `Array`,`Sliding Window`  |  Medium  |    |
 |  [1041](https://leetcode.com/problems/robot-bounded-in-circle)  |  [Robot Bounded In Circle](/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README_EN.md)  |  `Math`  |  Medium  |    |
 |  [1042](https://leetcode.com/problems/flower-planting-with-no-adjacent)  |  [Flower Planting With No Adjacent](/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README_EN.md)  |  `Graph`  |  Easy  |    |
-|  [1043](https://leetcode.com/problems/partition-array-for-maximum-sum)  |  [Partition Array for Maximum Sum](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README_EN.md)  |  `Graph`  |  Medium  |    |
+|  [1043](https://leetcode.com/problems/partition-array-for-maximum-sum)  |  [Partition Array for Maximum Sum](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README_EN.md)  |  `Dynamic Programming`  |  Medium  |    |
 |  [1044](https://leetcode.com/problems/longest-duplicate-substring)  |  [Longest Duplicate Substring](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README_EN.md)  |  `Hash Table`,`Binary Search`  |  Hard  |    |
 |  [1045](https://leetcode.com/problems/customers-who-bought-all-products)  |  [Customers Who Bought All Products](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README_EN.md)  |    |  Medium  |  🔒  |
 |  [1046](https://leetcode.com/problems/last-stone-weight)  |  [Last Stone Weight](/solution/1000-1099/1046.Last%20Stone%20Weight/README_EN.md)  |  `Heap`,`Greedy`  |  Easy  |    |
@@ -1508,7 +1509,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1497](https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k)  |  [Check If Array Pairs Are Divisible by k](/solution/1400-1499/1497.Check%20If%20Array%20Pairs%20Are%20Divisible%20by%20k/README_EN.md)  |  `Greedy`,`Array`,`Math`  |  Medium  |    |
 |  [1498](https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition)  |  [Number of Subsequences That Satisfy the Given Sum Condition](/solution/1400-1499/1498.Number%20of%20Subsequences%20That%20Satisfy%20the%20Given%20Sum%20Condition/README_EN.md)  |  `Sort`,`Sliding Window`  |  Medium  |    |
 |  [1499](https://leetcode.com/problems/max-value-of-equation)  |  [Max Value of Equation](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README_EN.md)  |  `Array`,`Sliding Window`  |  Hard  |    |
-|  [1500](https://leetcode.com/problems/design-a-file-sharing-system)  |  [Design a File Sharing System](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README_EN.md)  |  `Array`  |  Medium  |  🔒  |
+|  [1500](https://leetcode.com/problems/design-a-file-sharing-system)  |  [Design a File Sharing System](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README_EN.md)  |  `Design`,`Array`  |  Medium  |  🔒  |
 |  [1501](https://leetcode.com/problems/countries-you-can-safely-invest-in)  |  [Countries You Can Safely Invest In](/solution/1500-1599/1501.Countries%20You%20Can%20Safely%20Invest%20In/README_EN.md)  |    |  Medium  |  🔒  |
 |  [1502](https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence)  |  [Can Make Arithmetic Progression From Sequence](/solution/1500-1599/1502.Can%20Make%20Arithmetic%20Progression%20From%20Sequence/README_EN.md)  |  `Sort`,`Array`  |  Easy  |    |
 |  [1503](https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank)  |  [Last Moment Before All Ants Fall Out of a Plank](/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README_EN.md)  |  `Brainteaser`,`Array`  |  Medium  |    |
@@ -1528,7 +1529,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1517](https://leetcode.com/problems/find-users-with-valid-e-mails)  |  [Find Users With Valid E-Mails](/solution/1500-1599/1517.Find%20Users%20With%20Valid%20E-Mails/README_EN.md)  |    |  Easy  |  🔒  |
 |  [1518](https://leetcode.com/problems/water-bottles)  |  [Water Bottles](/solution/1500-1599/1518.Water%20Bottles/README_EN.md)  |  `Greedy`  |  Easy  |    |
 |  [1519](https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label)  |  [Number of Nodes in the Sub-Tree With the Same Label](/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/README_EN.md)  |  `Depth-first Search`,`Breadth-first Search`  |  Medium  |    |
-|  [1520](https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings)  |  [Maximum Number of Non-Overlapping Substrings](/solution/1500-1599/1520.Maximum%20Number%20of%20Non-Overlapping%20Substrings/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1520](https://leetcode.com/problems/maximum-number-of-non-overlapping-substrings)  |  [Maximum Number of Non-Overlapping Substrings](/solution/1500-1599/1520.Maximum%20Number%20of%20Non-Overlapping%20Substrings/README_EN.md)  |  `Greedy`  |  Hard  |    |
 |  [1521](https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target)  |  [Find a Value of a Mysterious Function Closest to Target](/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README_EN.md)  |  `Bit Manipulation`,`Segment Tree`,`Binary Search`  |  Hard  |    |
 |  [1522](https://leetcode.com/problems/diameter-of-n-ary-tree)  |  [Diameter of N-Ary Tree](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README_EN.md)  |    |  Medium  |  🔒  |
 |  [1523](https://leetcode.com/problems/count-odd-numbers-in-an-interval-range)  |  [Count Odd Numbers in an Interval Range](/solution/1500-1599/1523.Count%20Odd%20Numbers%20in%20an%20Interval%20Range/README_EN.md)  |  `Math`  |  Easy  |    |
@@ -1562,9 +1563,52 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1551](https://leetcode.com/problems/minimum-operations-to-make-array-equal)  |  [Minimum Operations to Make Array Equal](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README_EN.md)  |  `Math`  |  Medium  |    |
 |  [1552](https://leetcode.com/problems/magnetic-force-between-two-balls)  |  [Magnetic Force Between Two Balls](/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |    |
 |  [1553](https://leetcode.com/problems/minimum-number-of-days-to-eat-n-oranges)  |  [Minimum Number of Days to Eat N Oranges](/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
-
-
+|  [1554](https://leetcode.com/problems/strings-differ-by-one-character)  |  [Strings Differ by One Character](/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1555](https://leetcode.com/problems/bank-account-summary)  |  [Bank Account Summary](/solution/1500-1599/1555.Bank%20Account%20Summary/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1556](https://leetcode.com/problems/thousand-separator)  |  [Thousand Separator](/solution/1500-1599/1556.Thousand%20Separator/README_EN.md)  |  `String`  |  Easy  |    |
+|  [1557](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes)  |  [Minimum Number of Vertices to Reach All Nodes](/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/README_EN.md)  |  `Graph`  |  Medium  |    |
+|  [1558](https://leetcode.com/problems/minimum-numbers-of-function-calls-to-make-target-array)  |  [Minimum Numbers of Function Calls to Make Target Array](/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1559](https://leetcode.com/problems/detect-cycles-in-2d-grid)  |  [Detect Cycles in 2D Grid](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README_EN.md)  |  `Depth-first Search`  |  Hard  |    |
+|  [1560](https://leetcode.com/problems/most-visited-sector-in-a-circular-track)  |  [Most Visited Sector in  a Circular Track](/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [1561](https://leetcode.com/problems/maximum-number-of-coins-you-can-get)  |  [Maximum Number of Coins You Can Get](/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README_EN.md)  |  `Sort`  |  Medium  |    |
+|  [1562](https://leetcode.com/problems/find-latest-group-of-size-m)  |  [Find Latest Group of Size M](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README_EN.md)  |  `Binary Search`  |  Medium  |    |
+|  [1563](https://leetcode.com/problems/stone-game-v)  |  [Stone Game V](/solution/1500-1599/1563.Stone%20Game%20V/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
+|  [1564](https://leetcode.com/problems/put-boxes-into-the-warehouse-i)  |  [Put Boxes Into the Warehouse I](/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README_EN.md)  |  `Greedy`  |  Medium  |  🔒  |
+|  [1565](https://leetcode.com/problems/unique-orders-and-customers-per-month)  |  [Unique Orders and Customers Per Month](/solution/1500-1599/1565.Unique%20Orders%20and%20Customers%20Per%20Month/README_EN.md)  |    |  Easy  |  🔒  |
+|  [1566](https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times)  |  [Detect Pattern of Length M Repeated K or More Times](/solution/1500-1599/1566.Detect%20Pattern%20of%20Length%20M%20Repeated%20K%20or%20More%20Times/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [1567](https://leetcode.com/problems/maximum-length-of-subarray-with-positive-product)  |  [Maximum Length of Subarray With Positive Product](/solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1568](https://leetcode.com/problems/minimum-number-of-days-to-disconnect-island)  |  [Minimum Number of Days to Disconnect Island](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README_EN.md)  |  `Greedy`  |  Hard  |    |
+|  [1569](https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst)  |  [Number of Ways to Reorder Array to Get Same BST](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
+|  [1570](https://leetcode.com/problems/dot-product-of-two-sparse-vectors)  |  [Dot Product of Two Sparse Vectors](/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README_EN.md)  |  `Array`,`Hash Table`,`Two Pointers`  |  Medium  |  🔒  |
+|  [1571](https://leetcode.com/problems/warehouse-manager)  |  [Warehouse Manager](/solution/1500-1599/1571.Warehouse%20Manager/README_EN.md)  |    |  Easy  |  🔒  |
+|  [1572](https://leetcode.com/problems/matrix-diagonal-sum)  |  [Matrix Diagonal Sum](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [1573](https://leetcode.com/problems/number-of-ways-to-split-a-string)  |  [Number of Ways to Split a String](/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README_EN.md)  |  `String`  |  Medium  |    |
+|  [1574](https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted)  |  [Shortest Subarray to be Removed to Make Array Sorted](/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |    |
+|  [1575](https://leetcode.com/problems/count-all-possible-routes)  |  [Count All Possible Routes](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
+|  [1576](https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters)  |  [Replace All ?'s to Avoid Consecutive Repeating Characters](/solution/1500-1599/1576.Replace%20All%20%3F%27s%20to%20Avoid%20Consecutive%20Repeating%20Characters/README_EN.md)  |  `String`  |  Easy  |    |
+|  [1577](https://leetcode.com/problems/number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers)  |  [Number of Ways Where Square of Number Is Equal to Product of Two Numbers](/solution/1500-1599/1577.Number%20of%20Ways%20Where%20Square%20of%20Number%20Is%20Equal%20to%20Product%20of%20Two%20Numbers/README_EN.md)  |  `Hash Table`,`Math`  |  Medium  |    |
+|  [1578](https://leetcode.com/problems/minimum-deletion-cost-to-avoid-repeating-letters)  |  [Minimum Deletion Cost to Avoid Repeating Letters](/solution/1500-1599/1578.Minimum%20Deletion%20Cost%20to%20Avoid%20Repeating%20Letters/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1579](https://leetcode.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable)  |  [Remove Max Number of Edges to Keep Graph Fully Traversable](/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/README_EN.md)  |  `Union Find`  |  Hard  |    |
+|  [1580](https://leetcode.com/problems/put-boxes-into-the-warehouse-ii)  |  [Put Boxes Into the Warehouse II](/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/README_EN.md)  |  `Greedy`  |  Medium  |  🔒  |
+|  [1581](https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions)  |  [Customer Who Visited but Did Not Make Any Transactions](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README_EN.md)  |    |  Easy  |  🔒  |
+|  [1582](https://leetcode.com/problems/special-positions-in-a-binary-matrix)  |  [Special Positions in a Binary Matrix](/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [1583](https://leetcode.com/problems/count-unhappy-friends)  |  [Count Unhappy Friends](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README_EN.md)  |  `Array`  |  Medium  |    |
+|  [1584](https://leetcode.com/problems/min-cost-to-connect-all-points)  |  [Min Cost to Connect All Points](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README_EN.md)  |  `Union Find`  |  Medium  |    |
+|  [1585](https://leetcode.com/problems/check-if-string-is-transformable-with-substring-sort-operations)  |  [Check If String Is Transformable With Substring Sort Operations](/solution/1500-1599/1585.Check%20If%20String%20Is%20Transformable%20With%20Substring%20Sort%20Operations/README_EN.md)  |  `Greedy`,`String`  |  Hard  |    |
+|  [1586](https://leetcode.com/problems/binary-search-tree-iterator-ii)  |  [Binary Search Tree Iterator II](/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README_EN.md)  |  `Design`  |  Medium  |  🔒  |
+|  [1587](https://leetcode.com/problems/bank-account-summary-ii)  |  [Bank Account Summary II](/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README_EN.md)  |    |  Easy  |  🔒  |
+|  [1588](https://leetcode.com/problems/sum-of-all-odd-length-subarrays)  |  [Sum of All Odd Length Subarrays](/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [1589](https://leetcode.com/problems/maximum-sum-obtained-of-any-permutation)  |  [Maximum Sum Obtained of Any Permutation](/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1590](https://leetcode.com/problems/make-sum-divisible-by-p)  |  [Make Sum Divisible by P](/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README_EN.md)  |  `Array`,`Binary Search`  |  Medium  |    |
+|  [1591](https://leetcode.com/problems/strange-printer-ii)  |  [Strange Printer II](/solution/1500-1599/1591.Strange%20Printer%20II/README_EN.md)  |  `Greedy`  |  Hard  |    |
+|  [1592](https://leetcode.com/problems/rearrange-spaces-between-words)  |  [Rearrange Spaces Between Words](/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README_EN.md)  |  `String`  |  Easy  |    |
+|  [1593](https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings)  |  [Split a String Into the Max Number of Unique Substrings](/solution/1500-1599/1593.Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings/README_EN.md)  |  `Backtracking`  |  Medium  |    |
+|  [1594](https://leetcode.com/problems/maximum-non-negative-product-in-a-matrix)  |  [Maximum Non Negative Product in a Matrix](/solution/1500-1599/1594.Maximum%20Non%20Negative%20Product%20in%20a%20Matrix/README_EN.md)  |  `Greedy`,`Dynamic Programming`  |  Medium  |    |
+|  [1595](https://leetcode.com/problems/minimum-cost-to-connect-two-groups-of-points)  |  [Minimum Cost to Connect Two Groups of Points](/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README_EN.md)  |  `Graph`,`Dynamic Programming`  |  Hard  |    |
+|  [1596](https://leetcode.com/problems/the-most-frequently-ordered-products-for-each-customer)  |  [The Most Frequently Ordered Products for Each Customer](/solution/1500-1599/1596.The%20Most%20Frequently%20Ordered%20Products%20for%20Each%20Customer/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1597](https://leetcode.com/problems/build-binary-expression-tree-from-infix-expression)  |  [Build Binary Expression Tree From Infix Expression](/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/README_EN.md)  |  `Tree`,`String`  |  Medium  |  🔒  |
 
 
 ## Copyright
+
 [@Doocs](https://github.com/doocs)

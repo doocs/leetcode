@@ -179,7 +179,7 @@ class Spider:
                                                             quote(question_title_en))
             path_en = '/solution/{}/{}.{}/README_EN.md'.format(number_mapper.get(str(no)), frontend_question_id,
                                                                quote(question_title_en))
-
+            print(frontend_question_id)
             item = {
                 'question_id': question_id,
                 'frontend_question_id': frontend_question_id,
@@ -259,6 +259,7 @@ class Spider:
 
 
 if __name__ == '__main__':
+    # 生成readme
     # spider = Spider()
     # spider.run()
 
@@ -270,37 +271,37 @@ if __name__ == '__main__':
     with open('./result.json', 'r', encoding='utf-8') as f:
         result = f.read()
         result = json.loads(result)
-        # for item in result:
-        #     no = int(item['frontend_question_id']) // 100
-        #
-        #     path = f'./{number_mapper.get(str(no))}/{item["frontend_question_id"]}.{item["title_en"]}'
-        #     path = path.replace(":", " ")
-
-            # if os.path.isdir(path):
-            #     continue
-            # os.makedirs(path)
-            #
-            # with open(f'{path}/README.md', 'w', encoding='utf-8') as f1:
-            #     f1.write(readme_cn.format(int(item['frontend_question_id']),
-            #                              item["title_cn"],
-            #                              item['url_cn'],
-            #                              item['relative_path_en'],
-            #                              item['content_cn']))
-            #
-            # with open(f'{path}/README_EN.md', 'w', encoding='utf-8') as f2:
-            #     f2.write(readme_en.format(int(item['frontend_question_id']),
-            #                              item["title_en"],
-            #                              item['url_en'],
-            #                              item['relative_path_cn'],
-            #                              item['content_en']))
-
-            # print(path)
-
-        for item in sorted(result, key=lambda x: x["frontend_question_id"]):
+        for item in result:
             no = int(item['frontend_question_id']) // 100
 
             path = f'./{number_mapper.get(str(no))}/{item["frontend_question_id"]}.{item["title_en"]}'
             path = path.replace(":", " ")
-            print(f'- [{int(item["frontend_question_id"])}. {item["title_en"]}]({item["relative_path_en"]})')
+
+            if os.path.isdir(path):
+                continue
+            os.makedirs(path)
+
+            with open(f'{path}/README.md', 'w', encoding='utf-8') as f1:
+                f1.write(readme_cn.format(int(item['frontend_question_id']),
+                                         item["title_cn"],
+                                         item['url_cn'],
+                                         item['relative_path_en'],
+                                         item['content_cn']))
+
+            with open(f'{path}/README_EN.md', 'w', encoding='utf-8') as f2:
+                f2.write(readme_en.format(int(item['frontend_question_id']),
+                                         item["title_en"],
+                                         item['url_en'],
+                                         item['relative_path_cn'],
+                                         item['content_en']))
+
+            print(path)
+
+        # for item in sorted(result, key=lambda x: x["frontend_question_id"]):
+        #     no = int(item['frontend_question_id']) // 100
+        #
+        #     path = f'./{number_mapper.get(str(no))}/{item["frontend_question_id"]}.{item["title_en"]}'
+        #     path = path.replace(":", " ")
+        #     print(f'- [{int(item["frontend_question_id"])}. {item["title_en"]}]({item["relative_path_en"]})')
 
 

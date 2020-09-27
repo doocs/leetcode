@@ -3,6 +3,7 @@
 [English Version](/solution/README_EN.md)
 
 ## 题解
+
 以下所有题目均来源 [LeetCode 中国官网](https://leetcode-cn.com/problemset/all)，题解由 [doocs/leetcode 贡献者](https://github.com/doocs/leetcode/graphs/contributors) 提供，正在完善中，欢迎贡献你的题解！
 
 快速搜索题号、题解、标签等，请善用 <kbd>Control</kbd>+<kbd>F</kbd>（或者 <kbd>Command</kbd>+<kbd>F</kbd>）。
@@ -60,7 +61,7 @@
 |  [0048](https://leetcode-cn.com/problems/rotate-image)  |  [旋转图像](/solution/0000-0099/0048.Rotate%20Image/README.md)  |  `数组`  |  中等  |    |
 |  [0049](https://leetcode-cn.com/problems/group-anagrams)  |  [字母异位词分组](/solution/0000-0099/0049.Group%20Anagrams/README.md)  |  `哈希表`,`字符串`  |  中等  |    |
 |  [0050](https://leetcode-cn.com/problems/powx-n)  |  [Pow(x, n)](/solution/0000-0099/0050.Pow%28x%2C%20n%29/README.md)  |  `数学`,`二分查找`  |  中等  |    |
-|  [0051](https://leetcode-cn.com/problems/n-queens)  |  [N皇后](/solution/0000-0099/0051.N-Queens/README.md)  |  `回溯算法`  |  困难  |    |
+|  [0051](https://leetcode-cn.com/problems/n-queens)  |  [N 皇后](/solution/0000-0099/0051.N-Queens/README.md)  |  `回溯算法`  |  困难  |    |
 |  [0052](https://leetcode-cn.com/problems/n-queens-ii)  |  [N皇后 II](/solution/0000-0099/0052.N-Queens%20II/README.md)  |  `回溯算法`  |  困难  |    |
 |  [0053](https://leetcode-cn.com/problems/maximum-subarray)  |  [最大子序和](/solution/0000-0099/0053.Maximum%20Subarray/README.md)  |  `数组`,`分治算法`,`动态规划`  |  简单  |    |
 |  [0054](https://leetcode-cn.com/problems/spiral-matrix)  |  [螺旋矩阵](/solution/0000-0099/0054.Spiral%20Matrix/README.md)  |  `数组`  |  中等  |    |
@@ -69,7 +70,7 @@
 |  [0057](https://leetcode-cn.com/problems/insert-interval)  |  [插入区间](/solution/0000-0099/0057.Insert%20Interval/README.md)  |  `排序`,`数组`  |  困难  |    |
 |  [0058](https://leetcode-cn.com/problems/length-of-last-word)  |  [最后一个单词的长度](/solution/0000-0099/0058.Length%20of%20Last%20Word/README.md)  |  `字符串`  |  简单  |    |
 |  [0059](https://leetcode-cn.com/problems/spiral-matrix-ii)  |  [螺旋矩阵 II](/solution/0000-0099/0059.Spiral%20Matrix%20II/README.md)  |  `数组`  |  中等  |    |
-|  [0060](https://leetcode-cn.com/problems/permutation-sequence)  |  [第k个排列](/solution/0000-0099/0060.Permutation%20Sequence/README.md)  |  `数学`,`回溯算法`  |  中等  |    |
+|  [0060](https://leetcode-cn.com/problems/permutation-sequence)  |  [第k个排列](/solution/0000-0099/0060.Permutation%20Sequence/README.md)  |  `数学`,`回溯算法`  |  困难  |    |
 |  [0061](https://leetcode-cn.com/problems/rotate-list)  |  [旋转链表](/solution/0000-0099/0061.Rotate%20List/README.md)  |  `链表`,`双指针`  |  中等  |    |
 |  [0062](https://leetcode-cn.com/problems/unique-paths)  |  [不同路径](/solution/0000-0099/0062.Unique%20Paths/README.md)  |  `数组`,`动态规划`  |  中等  |    |
 |  [0063](https://leetcode-cn.com/problems/unique-paths-ii)  |  [不同路径 II](/solution/0000-0099/0063.Unique%20Paths%20II/README.md)  |  `数组`,`动态规划`  |  中等  |    |
@@ -154,7 +155,7 @@
 |  [0142](https://leetcode-cn.com/problems/linked-list-cycle-ii)  |  [环形链表 II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)  |  `链表`,`双指针`  |  中等  |    |
 |  [0143](https://leetcode-cn.com/problems/reorder-list)  |  [重排链表](/solution/0100-0199/0143.Reorder%20List/README.md)  |  `链表`  |  中等  |    |
 |  [0144](https://leetcode-cn.com/problems/binary-tree-preorder-traversal)  |  [二叉树的前序遍历](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README.md)  |  `栈`,`树`  |  中等  |    |
-|  [0145](https://leetcode-cn.com/problems/binary-tree-postorder-traversal)  |  [二叉树的后序遍历](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README.md)  |  `栈`,`树`  |  困难  |    |
+|  [0145](https://leetcode-cn.com/problems/binary-tree-postorder-traversal)  |  [二叉树的后序遍历](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README.md)  |  `栈`,`树`  |  中等  |    |
 |  [0146](https://leetcode-cn.com/problems/lru-cache)  |  [LRU缓存机制](/solution/0100-0199/0146.LRU%20Cache/README.md)  |  `设计`  |  中等  |    |
 |  [0147](https://leetcode-cn.com/problems/insertion-sort-list)  |  [对链表进行插入排序](/solution/0100-0199/0147.Insertion%20Sort%20List/README.md)  |  `排序`,`链表`  |  中等  |    |
 |  [0148](https://leetcode-cn.com/problems/sort-list)  |  [排序链表](/solution/0100-0199/0148.Sort%20List/README.md)  |  `排序`,`链表`  |  中等  |    |
@@ -265,7 +266,7 @@
 |  [0253](https://leetcode-cn.com/problems/meeting-rooms-ii)  |  [会议室 II](/solution/0200-0299/0253.Meeting%20Rooms%20II/README.md)  |  `堆`,`贪心算法`,`排序`  |  中等  |  🔒  |
 |  [0254](https://leetcode-cn.com/problems/factor-combinations)  |  [因子的组合](/solution/0200-0299/0254.Factor%20Combinations/README.md)  |  `回溯算法`  |  中等  |  🔒  |
 |  [0255](https://leetcode-cn.com/problems/verify-preorder-sequence-in-binary-search-tree)  |  [验证前序遍历序列二叉搜索树](/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README.md)  |  `栈`,`树`  |  中等  |  🔒  |
-|  [0256](https://leetcode-cn.com/problems/paint-house)  |  [粉刷房子](/solution/0200-0299/0256.Paint%20House/README.md)  |  `动态规划`  |  简单  |  🔒  |
+|  [0256](https://leetcode-cn.com/problems/paint-house)  |  [粉刷房子](/solution/0200-0299/0256.Paint%20House/README.md)  |  `动态规划`  |  中等  |  🔒  |
 |  [0257](https://leetcode-cn.com/problems/binary-tree-paths)  |  [二叉树的所有路径](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)  |  `树`,`深度优先搜索`  |  简单  |    |
 |  [0258](https://leetcode-cn.com/problems/add-digits)  |  [各位相加](/solution/0200-0299/0258.Add%20Digits/README.md)  |  `数学`  |  简单  |    |
 |  [0259](https://leetcode-cn.com/problems/3sum-smaller)  |  [较小的三数之和](/solution/0200-0299/0259.3Sum%20Smaller/README.md)  |  `数组`,`双指针`  |  中等  |  🔒  |
@@ -308,7 +309,7 @@
 |  [0296](https://leetcode-cn.com/problems/best-meeting-point)  |  [最佳的碰头地点](/solution/0200-0299/0296.Best%20Meeting%20Point/README.md)  |  `排序`,`数学`  |  困难  |  🔒  |
 |  [0297](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree)  |  [二叉树的序列化与反序列化](/solution/0200-0299/0297.Serialize%20and%20Deserialize%20Binary%20Tree/README.md)  |  `树`,`设计`  |  困难  |    |
 |  [0298](https://leetcode-cn.com/problems/binary-tree-longest-consecutive-sequence)  |  [二叉树最长连续序列](/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/README.md)  |  `树`  |  中等  |  🔒  |
-|  [0299](https://leetcode-cn.com/problems/bulls-and-cows)  |  [猜数字游戏](/solution/0200-0299/0299.Bulls%20and%20Cows/README.md)  |  `哈希表`  |  简单  |    |
+|  [0299](https://leetcode-cn.com/problems/bulls-and-cows)  |  [猜数字游戏](/solution/0200-0299/0299.Bulls%20and%20Cows/README.md)  |  `哈希表`  |  中等  |    |
 |  [0300](https://leetcode-cn.com/problems/longest-increasing-subsequence)  |  [最长上升子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)  |  `二分查找`,`动态规划`  |  中等  |    |
 |  [0301](https://leetcode-cn.com/problems/remove-invalid-parentheses)  |  [删除无效的括号](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md)  |  `深度优先搜索`,`广度优先搜索`  |  困难  |    |
 |  [0302](https://leetcode-cn.com/problems/smallest-rectangle-enclosing-black-pixels)  |  [包含全部黑色像素的最小矩形](/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/README.md)  |  `二分查找`  |  困难  |  🔒  |
@@ -452,7 +453,7 @@
 |  [0440](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order)  |  [字典序的第K小数字](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README.md)  |    |  困难  |    |
 |  [0441](https://leetcode-cn.com/problems/arranging-coins)  |  [排列硬币](/solution/0400-0499/0441.Arranging%20Coins/README.md)  |  `数学`,`二分查找`  |  简单  |    |
 |  [0442](https://leetcode-cn.com/problems/find-all-duplicates-in-an-array)  |  [数组中重复的数据](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README.md)  |  `数组`  |  中等  |    |
-|  [0443](https://leetcode-cn.com/problems/string-compression)  |  [压缩字符串](/solution/0400-0499/0443.String%20Compression/README.md)  |  `字符串`  |  简单  |    |
+|  [0443](https://leetcode-cn.com/problems/string-compression)  |  [压缩字符串](/solution/0400-0499/0443.String%20Compression/README.md)  |  `字符串`  |  中等  |    |
 |  [0444](https://leetcode-cn.com/problems/sequence-reconstruction)  |  [序列重建](/solution/0400-0499/0444.Sequence%20Reconstruction/README.md)  |  `图`,`拓扑排序`  |  中等  |  🔒  |
 |  [0445](https://leetcode-cn.com/problems/add-two-numbers-ii)  |  [两数相加 II](/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README.md)  |  `链表`  |  中等  |    |
 |  [0446](https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence)  |  [等差数列划分 II - 子序列](/solution/0400-0499/0446.Arithmetic%20Slices%20II%20-%20Subsequence/README.md)  |  `动态规划`  |  困难  |    |
@@ -530,7 +531,7 @@
 |  [0518](https://leetcode-cn.com/problems/coin-change-2)  |  [零钱兑换 II](/solution/0500-0599/0518.Coin%20Change%202/README.md)  |    |  中等  |    |
 |  [0519](https://leetcode-cn.com/problems/random-flip-matrix)  |  [随机翻转矩阵](/solution/0500-0599/0519.Random%20Flip%20Matrix/README.md)  |  `None`  |  中等  |    |
 |  [0520](https://leetcode-cn.com/problems/detect-capital)  |  [检测大写字母](/solution/0500-0599/0520.Detect%20Capital/README.md)  |  `字符串`  |  简单  |    |
-|  [0521](https://leetcode-cn.com/problems/longest-uncommon-subsequence-i)  |  [最长特殊序列 Ⅰ](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I%20/README.md)  |  `字符串`  |  简单  |    |
+|  [0521](https://leetcode-cn.com/problems/longest-uncommon-subsequence-i)  |  [最长特殊序列 Ⅰ](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)  |  `脑筋急转弯`,`字符串`  |  简单  |    |
 |  [0522](https://leetcode-cn.com/problems/longest-uncommon-subsequence-ii)  |  [最长特殊序列 II](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README.md)  |  `字符串`  |  中等  |    |
 |  [0523](https://leetcode-cn.com/problems/continuous-subarray-sum)  |  [连续的子数组和](/solution/0500-0599/0523.Continuous%20Subarray%20Sum/README.md)  |  `数学`,`动态规划`  |  中等  |    |
 |  [0524](https://leetcode-cn.com/problems/longest-word-in-dictionary-through-deleting)  |  [通过删除字母匹配到字典里最长单词](/solution/0500-0599/0524.Longest%20Word%20in%20Dictionary%20through%20Deleting/README.md)  |  `排序`,`双指针`  |  中等  |    |
@@ -547,7 +548,7 @@
 |  [0535](https://leetcode-cn.com/problems/encode-and-decode-tinyurl)  |  [TinyURL 的加密与解密](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README.md)  |  `哈希表`,`数学`  |  中等  |    |
 |  [0536](https://leetcode-cn.com/problems/construct-binary-tree-from-string)  |  [从字符串生成二叉树](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README.md)  |  `树`,`字符串`  |  中等  |  🔒  |
 |  [0537](https://leetcode-cn.com/problems/complex-number-multiplication)  |  [复数乘法](/solution/0500-0599/0537.Complex%20Number%20Multiplication/README.md)  |  `数学`,`字符串`  |  中等  |    |
-|  [0538](https://leetcode-cn.com/problems/convert-bst-to-greater-tree)  |  [把二叉搜索树转换为累加树](/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README.md)  |  `树`  |  简单  |    |
+|  [0538](https://leetcode-cn.com/problems/convert-bst-to-greater-tree)  |  [把二叉搜索树转换为累加树](/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/README.md)  |  `树`  |  中等  |    |
 |  [0539](https://leetcode-cn.com/problems/minimum-time-difference)  |  [最小时间差](/solution/0500-0599/0539.Minimum%20Time%20Difference/README.md)  |  `字符串`  |  中等  |    |
 |  [0540](https://leetcode-cn.com/problems/single-element-in-a-sorted-array)  |  [有序数组中的单一元素](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README.md)  |    |  中等  |    |
 |  [0541](https://leetcode-cn.com/problems/reverse-string-ii)  |  [反转字符串 II](/solution/0500-0599/0541.Reverse%20String%20II/README.md)  |  `字符串`  |  简单  |    |
@@ -642,7 +643,7 @@
 |  [0630](https://leetcode-cn.com/problems/course-schedule-iii)  |  [课程表 III](/solution/0600-0699/0630.Course%20Schedule%20III/README.md)  |  `贪心算法`  |  困难  |    |
 |  [0631](https://leetcode-cn.com/problems/design-excel-sum-formula)  |  [设计 Excel 求和公式](/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README.md)  |  `设计`  |  困难  |  🔒  |
 |  [0632](https://leetcode-cn.com/problems/smallest-range-covering-elements-from-k-lists)  |  [最小区间](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README.md)  |  `哈希表`,`双指针`,`字符串`  |  困难  |    |
-|  [0633](https://leetcode-cn.com/problems/sum-of-square-numbers)  |  [平方数之和](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README.md)  |  `数学`  |  简单  |    |
+|  [0633](https://leetcode-cn.com/problems/sum-of-square-numbers)  |  [平方数之和](/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/README.md)  |  `数学`  |  中等  |    |
 |  [0634](https://leetcode-cn.com/problems/find-the-derangement-of-an-array)  |  [寻找数组的错位排列](/solution/0600-0699/0634.Find%20the%20Derangement%20of%20An%20Array/README.md)  |  `数学`  |  中等  |  🔒  |
 |  [0635](https://leetcode-cn.com/problems/design-log-storage-system)  |  [设计日志存储系统](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README.md)  |  `设计`,`字符串`  |  中等  |  🔒  |
 |  [0636](https://leetcode-cn.com/problems/exclusive-time-of-functions)  |  [函数的独占时间](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README.md)  |  `栈`  |  中等  |    |
@@ -695,7 +696,7 @@
 |  [0683](https://leetcode-cn.com/problems/k-empty-slots)  |  [K 个空花盆](/solution/0600-0699/0683.K%20Empty%20Slots/README.md)  |  `None`  |  困难  |  🔒  |
 |  [0684](https://leetcode-cn.com/problems/redundant-connection)  |  [冗余连接](/solution/0600-0699/0684.Redundant%20Connection/README.md)  |  `树`,`并查集`,`图`  |  中等  |    |
 |  [0685](https://leetcode-cn.com/problems/redundant-connection-ii)  |  [冗余连接 II](/solution/0600-0699/0685.Redundant%20Connection%20II/README.md)  |  `树`,`深度优先搜索`,`并查集`,`图`  |  困难  |    |
-|  [0686](https://leetcode-cn.com/problems/repeated-string-match)  |  [重复叠加字符串匹配](/solution/0600-0699/0686.Repeated%20String%20Match/README.md)  |  `字符串`  |  简单  |    |
+|  [0686](https://leetcode-cn.com/problems/repeated-string-match)  |  [重复叠加字符串匹配](/solution/0600-0699/0686.Repeated%20String%20Match/README.md)  |  `字符串`  |  中等  |    |
 |  [0687](https://leetcode-cn.com/problems/longest-univalue-path)  |  [最长同值路径](/solution/0600-0699/0687.Longest%20Univalue%20Path/README.md)  |  `树`,`递归`  |  简单  |    |
 |  [0688](https://leetcode-cn.com/problems/knight-probability-in-chessboard)  |  [“马”在棋盘上的概率](/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/README.md)  |  `动态规划`  |  中等  |    |
 |  [0689](https://leetcode-cn.com/problems/maximum-sum-of-3-non-overlapping-subarrays)  |  [三个无重叠子数组的最大和](/solution/0600-0699/0689.Maximum%20Sum%20of%203%20Non-Overlapping%20Subarrays/README.md)  |  `数组`,`动态规划`  |  困难  |    |
@@ -849,7 +850,7 @@
 |  [0837](https://leetcode-cn.com/problems/new-21-game)  |  [新21点](/solution/0800-0899/0837.New%2021%20Game/README.md)  |  `动态规划`  |  中等  |    |
 |  [0838](https://leetcode-cn.com/problems/push-dominoes)  |  [推多米诺](/solution/0800-0899/0838.Push%20Dominoes/README.md)  |  `双指针`,`动态规划`  |  中等  |    |
 |  [0839](https://leetcode-cn.com/problems/similar-string-groups)  |  [相似字符串组](/solution/0800-0899/0839.Similar%20String%20Groups/README.md)  |  `深度优先搜索`,`并查集`,`图`  |  困难  |    |
-|  [0840](https://leetcode-cn.com/problems/magic-squares-in-grid)  |  [矩阵中的幻方](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)  |  `数组`  |  简单  |    |
+|  [0840](https://leetcode-cn.com/problems/magic-squares-in-grid)  |  [矩阵中的幻方](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)  |  `数组`  |  中等  |    |
 |  [0841](https://leetcode-cn.com/problems/keys-and-rooms)  |  [钥匙和房间](/solution/0800-0899/0841.Keys%20and%20Rooms/README.md)  |  `深度优先搜索`,`图`  |  中等  |    |
 |  [0842](https://leetcode-cn.com/problems/split-array-into-fibonacci-sequence)  |  [将数组拆分成斐波那契序列](/solution/0800-0899/0842.Split%20Array%20into%20Fibonacci%20Sequence/README.md)  |  `贪心算法`,`字符串`,`回溯算法`  |  中等  |    |
 |  [0843](https://leetcode-cn.com/problems/guess-the-word)  |  [猜猜这个单词](/solution/0800-0899/0843.Guess%20the%20Word/README.md)  |  `极小化极大`  |  困难  |    |
@@ -858,7 +859,7 @@
 |  [0846](https://leetcode-cn.com/problems/hand-of-straights)  |  [一手顺子](/solution/0800-0899/0846.Hand%20of%20Straights/README.md)  |  `None`  |  中等  |    |
 |  [0847](https://leetcode-cn.com/problems/shortest-path-visiting-all-nodes)  |  [访问所有节点的最短路径](/solution/0800-0899/0847.Shortest%20Path%20Visiting%20All%20Nodes/README.md)  |  `广度优先搜索`,`动态规划`  |  困难  |    |
 |  [0848](https://leetcode-cn.com/problems/shifting-letters)  |  [字母移位](/solution/0800-0899/0848.Shifting%20Letters/README.md)  |  `字符串`  |  中等  |    |
-|  [0849](https://leetcode-cn.com/problems/maximize-distance-to-closest-person)  |  [到最近的人的最大距离](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README.md)  |  `数组`  |  简单  |    |
+|  [0849](https://leetcode-cn.com/problems/maximize-distance-to-closest-person)  |  [到最近的人的最大距离](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README.md)  |  `数组`  |  中等  |    |
 |  [0850](https://leetcode-cn.com/problems/rectangle-area-ii)  |  [矩形面积 II](/solution/0800-0899/0850.Rectangle%20Area%20II/README.md)  |  `线段树`,`None`  |  困难  |    |
 |  [0851](https://leetcode-cn.com/problems/loud-and-rich)  |  [喧闹和富有](/solution/0800-0899/0851.Loud%20and%20Rich/README.md)  |  `深度优先搜索`  |  中等  |    |
 |  [0852](https://leetcode-cn.com/problems/peak-index-in-a-mountain-array)  |  [山脉数组的峰顶索引](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README.md)  |  `二分查找`  |  简单  |    |
@@ -958,7 +959,7 @@
 |  [0946](https://leetcode-cn.com/problems/validate-stack-sequences)  |  [验证栈序列](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README.md)  |  `栈`  |  中等  |    |
 |  [0947](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column)  |  [移除最多的同行或同列石头](/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README.md)  |  `深度优先搜索`,`并查集`  |  中等  |    |
 |  [0948](https://leetcode-cn.com/problems/bag-of-tokens)  |  [令牌放置](/solution/0900-0999/0948.Bag%20of%20Tokens/README.md)  |  `贪心算法`  |  中等  |    |
-|  [0949](https://leetcode-cn.com/problems/largest-time-for-given-digits)  |  [给定数字能组成的最大时间](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README.md)  |  `数学`  |  简单  |    |
+|  [0949](https://leetcode-cn.com/problems/largest-time-for-given-digits)  |  [给定数字能组成的最大时间](/solution/0900-0999/0949.Largest%20Time%20for%20Given%20Digits/README.md)  |  `数学`  |  中等  |    |
 |  [0950](https://leetcode-cn.com/problems/reveal-cards-in-increasing-order)  |  [按递增顺序显示卡牌](/solution/0900-0999/0950.Reveal%20Cards%20In%20Increasing%20Order/README.md)  |  `数组`  |  中等  |    |
 |  [0951](https://leetcode-cn.com/problems/flip-equivalent-binary-trees)  |  [翻转等价二叉树](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README.md)  |  `树`  |  中等  |    |
 |  [0952](https://leetcode-cn.com/problems/largest-component-size-by-common-factor)  |  [按公因数计算最大组件大小](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README.md)  |  `并查集`,`数学`  |  困难  |    |
@@ -976,7 +977,7 @@
 |  [0964](https://leetcode-cn.com/problems/least-operators-to-express-number)  |  [表示数字的最少运算符](/solution/0900-0999/0964.Least%20Operators%20to%20Express%20Number/README.md)  |  `数学`,`动态规划`  |  困难  |    |
 |  [0965](https://leetcode-cn.com/problems/univalued-binary-tree)  |  [单值二叉树](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md)  |  `树`  |  简单  |    |
 |  [0966](https://leetcode-cn.com/problems/vowel-spellchecker)  |  [元音拼写检查器](/solution/0900-0999/0966.Vowel%20Spellchecker/README.md)  |  `哈希表`,`字符串`  |  中等  |    |
-|  [0967](https://leetcode-cn.com/problems/numbers-with-same-consecutive-differences)  |  [连续差相同的数字](/solution/0900-0999/0967.Numbers%20With%20Same%20Consecutive%20Differences/README.md)  |  `动态规划`  |  中等  |    |
+|  [0967](https://leetcode-cn.com/problems/numbers-with-same-consecutive-differences)  |  [连续差相同的数字](/solution/0900-0999/0967.Numbers%20With%20Same%20Consecutive%20Differences/README.md)  |  `深度优先搜索`,`广度优先搜索`  |  中等  |    |
 |  [0968](https://leetcode-cn.com/problems/binary-tree-cameras)  |  [监控二叉树](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README.md)  |  `树`,`深度优先搜索`,`动态规划`  |  困难  |    |
 |  [0969](https://leetcode-cn.com/problems/pancake-sorting)  |  [煎饼排序](/solution/0900-0999/0969.Pancake%20Sorting/README.md)  |  `排序`,`数组`  |  中等  |    |
 |  [0970](https://leetcode-cn.com/problems/powerful-integers)  |  [强整数](/solution/0900-0999/0970.Powerful%20Integers/README.md)  |  `哈希表`,`数学`  |  简单  |    |
@@ -1038,7 +1039,7 @@
 |  [1026](https://leetcode-cn.com/problems/maximum-difference-between-node-and-ancestor)  |  [节点与其祖先之间的最大差值](/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/README.md)  |  `树`,`深度优先搜索`  |  中等  |    |
 |  [1027](https://leetcode-cn.com/problems/longest-arithmetic-subsequence)  |  [最长等差数列](/solution/1000-1099/1027.Longest%20Arithmetic%20Subsequence/README.md)  |  `动态规划`  |  中等  |    |
 |  [1028](https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal)  |  [从先序遍历还原二叉树](/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/README.md)  |  `树`,`深度优先搜索`  |  困难  |    |
-|  [1029](https://leetcode-cn.com/problems/two-city-scheduling)  |  [两地调度](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)  |  `贪心算法`  |  简单  |    |
+|  [1029](https://leetcode-cn.com/problems/two-city-scheduling)  |  [两地调度](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)  |  `贪心算法`  |  中等  |    |
 |  [1030](https://leetcode-cn.com/problems/matrix-cells-in-distance-order)  |  [距离顺序排列矩阵单元格](/solution/1000-1099/1030.Matrix%20Cells%20in%20Distance%20Order/README.md)  |  `排序`  |  简单  |    |
 |  [1031](https://leetcode-cn.com/problems/maximum-sum-of-two-non-overlapping-subarrays)  |  [两个非重叠子数组的最大和](/solution/1000-1099/1031.Maximum%20Sum%20of%20Two%20Non-Overlapping%20Subarrays/README.md)  |  `数组`  |  中等  |    |
 |  [1032](https://leetcode-cn.com/problems/stream-of-characters)  |  [字符流](/solution/1000-1099/1032.Stream%20of%20Characters/README.md)  |  `字典树`  |  困难  |    |
@@ -1052,7 +1053,7 @@
 |  [1040](https://leetcode-cn.com/problems/moving-stones-until-consecutive-ii)  |  [移动石子直到连续 II](/solution/1000-1099/1040.Moving%20Stones%20Until%20Consecutive%20II/README.md)  |  `数组`,`None`  |  中等  |    |
 |  [1041](https://leetcode-cn.com/problems/robot-bounded-in-circle)  |  [困于环中的机器人](/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README.md)  |  `数学`  |  中等  |    |
 |  [1042](https://leetcode-cn.com/problems/flower-planting-with-no-adjacent)  |  [不邻接植花](/solution/1000-1099/1042.Flower%20Planting%20With%20No%20Adjacent/README.md)  |  `图`  |  简单  |    |
-|  [1043](https://leetcode-cn.com/problems/partition-array-for-maximum-sum)  |  [分隔数组以得到最大和](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README.md)  |  `图`  |  中等  |    |
+|  [1043](https://leetcode-cn.com/problems/partition-array-for-maximum-sum)  |  [分隔数组以得到最大和](/solution/1000-1099/1043.Partition%20Array%20for%20Maximum%20Sum/README.md)  |  `动态规划`  |  中等  |    |
 |  [1044](https://leetcode-cn.com/problems/longest-duplicate-substring)  |  [最长重复子串](/solution/1000-1099/1044.Longest%20Duplicate%20Substring/README.md)  |  `哈希表`,`二分查找`  |  困难  |    |
 |  [1045](https://leetcode-cn.com/problems/customers-who-bought-all-products)  |  [买下所有产品的客户](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README.md)  |    |  中等  |  🔒  |
 |  [1046](https://leetcode-cn.com/problems/last-stone-weight)  |  [最后一块石头的重量](/solution/1000-1099/1046.Last%20Stone%20Weight/README.md)  |  `堆`,`贪心算法`  |  简单  |    |
@@ -1509,7 +1510,7 @@
 |  [1497](https://leetcode-cn.com/problems/check-if-array-pairs-are-divisible-by-k)  |  [检查数组对是否可以被 k 整除](/solution/1400-1499/1497.Check%20If%20Array%20Pairs%20Are%20Divisible%20by%20k/README.md)  |  `贪心算法`,`数组`,`数学`  |  中等  |    |
 |  [1498](https://leetcode-cn.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition)  |  [满足条件的子序列数目](/solution/1400-1499/1498.Number%20of%20Subsequences%20That%20Satisfy%20the%20Given%20Sum%20Condition/README.md)  |  `排序`,`None`  |  中等  |    |
 |  [1499](https://leetcode-cn.com/problems/max-value-of-equation)  |  [满足不等式的最大值](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md)  |  `数组`,`None`  |  困难  |    |
-|  [1500](https://leetcode-cn.com/problems/design-a-file-sharing-system)  |  [None](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README.md)  |  `数组`  |  中等  |  🔒  |
+|  [1500](https://leetcode-cn.com/problems/design-a-file-sharing-system)  |  [None](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README.md)  |  `设计`,`数组`  |  中等  |  🔒  |
 |  [1501](https://leetcode-cn.com/problems/countries-you-can-safely-invest-in)  |  [可以放心投资的国家](/solution/1500-1599/1501.Countries%20You%20Can%20Safely%20Invest%20In/README.md)  |    |  中等  |  🔒  |
 |  [1502](https://leetcode-cn.com/problems/can-make-arithmetic-progression-from-sequence)  |  [判断能否形成等差数列](/solution/1500-1599/1502.Can%20Make%20Arithmetic%20Progression%20From%20Sequence/README.md)  |  `排序`,`数组`  |  简单  |    |
 |  [1503](https://leetcode-cn.com/problems/last-moment-before-all-ants-fall-out-of-a-plank)  |  [所有蚂蚁掉下来前的最后一刻](/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/README.md)  |  `脑筋急转弯`,`数组`  |  中等  |    |
@@ -1529,19 +1530,19 @@
 |  [1517](https://leetcode-cn.com/problems/find-users-with-valid-e-mails)  |  [查找拥有有效邮箱的用户](/solution/1500-1599/1517.Find%20Users%20With%20Valid%20E-Mails/README.md)  |    |  简单  |  🔒  |
 |  [1518](https://leetcode-cn.com/problems/water-bottles)  |  [换酒问题](/solution/1500-1599/1518.Water%20Bottles/README.md)  |  `贪心算法`  |  简单  |    |
 |  [1519](https://leetcode-cn.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label)  |  [子树中标签相同的节点数](/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/README.md)  |  `深度优先搜索`,`广度优先搜索`  |  中等  |    |
-|  [1520](https://leetcode-cn.com/problems/maximum-number-of-non-overlapping-substrings)  |  [最多的不重叠子字符串](/solution/1500-1599/1520.Maximum%20Number%20of%20Non-Overlapping%20Substrings/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1520](https://leetcode-cn.com/problems/maximum-number-of-non-overlapping-substrings)  |  [最多的不重叠子字符串](/solution/1500-1599/1520.Maximum%20Number%20of%20Non-Overlapping%20Substrings/README.md)  |  `贪心算法`  |  困难  |    |
 |  [1521](https://leetcode-cn.com/problems/find-a-value-of-a-mysterious-function-closest-to-target)  |  [找到最接近目标值的函数值](/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/README.md)  |  `位运算`,`线段树`,`二分查找`  |  困难  |    |
-|  [1522](https://leetcode-cn.com/problems/diameter-of-n-ary-tree)  |  [None](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)  |    |  中等  |  🔒  |
+|  [1522](https://leetcode-cn.com/problems/diameter-of-n-ary-tree)  |  [N 叉树的直径](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)  |    |  中等  |  🔒  |
 |  [1523](https://leetcode-cn.com/problems/count-odd-numbers-in-an-interval-range)  |  [在区间范围内统计奇数数目](/solution/1500-1599/1523.Count%20Odd%20Numbers%20in%20an%20Interval%20Range/README.md)  |  `数学`  |  简单  |    |
 |  [1524](https://leetcode-cn.com/problems/number-of-sub-arrays-with-odd-sum)  |  [和为奇数的子数组数目](/solution/1500-1599/1524.Number%20of%20Sub-arrays%20With%20Odd%20Sum/README.md)  |  `数组`,`数学`  |  中等  |    |
 |  [1525](https://leetcode-cn.com/problems/number-of-good-ways-to-split-a-string)  |  [字符串的好分割数目](/solution/1500-1599/1525.Number%20of%20Good%20Ways%20to%20Split%20a%20String/README.md)  |  `位运算`,`字符串`  |  中等  |    |
 |  [1526](https://leetcode-cn.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array)  |  [形成目标数组的子数组最少增加次数](/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README.md)  |  `线段树`  |  困难  |    |
-|  [1527](https://leetcode-cn.com/problems/patients-with-a-condition)  |  [None](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README.md)  |    |  简单  |  🔒  |
+|  [1527](https://leetcode-cn.com/problems/patients-with-a-condition)  |  [患某种疾病的患者](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README.md)  |    |  简单  |  🔒  |
 |  [1528](https://leetcode-cn.com/problems/shuffle-string)  |  [重新排列字符串](/solution/1500-1599/1528.Shuffle%20String/README.md)  |  `排序`  |  简单  |    |
 |  [1529](https://leetcode-cn.com/problems/bulb-switcher-iv)  |  [灯泡开关 IV](/solution/1500-1599/1529.Bulb%20Switcher%20IV/README.md)  |  `字符串`  |  中等  |    |
 |  [1530](https://leetcode-cn.com/problems/number-of-good-leaf-nodes-pairs)  |  [好叶子节点对的数量](/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README.md)  |  `树`,`深度优先搜索`  |  中等  |    |
 |  [1531](https://leetcode-cn.com/problems/string-compression-ii)  |  [压缩字符串 II](/solution/1500-1599/1531.String%20Compression%20II/README.md)  |  `字符串`,`动态规划`  |  困难  |    |
-|  [1532](https://leetcode-cn.com/problems/the-most-recent-three-orders)  |  [None](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md)  |    |  中等  |  🔒  |
+|  [1532](https://leetcode-cn.com/problems/the-most-recent-three-orders)  |  [最近的三笔订单](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md)  |    |  中等  |  🔒  |
 |  [1533](https://leetcode-cn.com/problems/find-the-index-of-the-large-integer)  |  [None](/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README.md)  |  `二分查找`  |  中等  |  🔒  |
 |  [1534](https://leetcode-cn.com/problems/count-good-triplets)  |  [统计好三元组](/solution/1500-1599/1534.Count%20Good%20Triplets/README.md)  |  `数组`  |  简单  |    |
 |  [1535](https://leetcode-cn.com/problems/find-the-winner-of-an-array-game)  |  [找出数组游戏的赢家](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)  |  `数组`  |  中等  |    |
@@ -1563,7 +1564,53 @@
 |  [1551](https://leetcode-cn.com/problems/minimum-operations-to-make-array-equal)  |  [使数组中所有元素相等的最小操作数](/solution/1500-1599/1551.Minimum%20Operations%20to%20Make%20Array%20Equal/README.md)  |  `数学`  |  中等  |    |
 |  [1552](https://leetcode-cn.com/problems/magnetic-force-between-two-balls)  |  [两球之间的磁力](/solution/1500-1599/1552.Magnetic%20Force%20Between%20Two%20Balls/README.md)  |  `数组`,`二分查找`  |  中等  |    |
 |  [1553](https://leetcode-cn.com/problems/minimum-number-of-days-to-eat-n-oranges)  |  [吃掉 N 个橘子的最少天数](/solution/1500-1599/1553.Minimum%20Number%20of%20Days%20to%20Eat%20N%20Oranges/README.md)  |  `动态规划`  |  困难  |    |
+|  [1554](https://leetcode-cn.com/problems/strings-differ-by-one-character)  |  [只有一个不同字符的字符串](/solution/1500-1599/1554.Strings%20Differ%20by%20One%20Character/README.md)  |    |  中等  |  🔒  |
+|  [1555](https://leetcode-cn.com/problems/bank-account-summary)  |  [银行账户概要](/solution/1500-1599/1555.Bank%20Account%20Summary/README.md)  |    |  中等  |  🔒  |
+|  [1556](https://leetcode-cn.com/problems/thousand-separator)  |  [千位分隔数](/solution/1500-1599/1556.Thousand%20Separator/README.md)  |  `字符串`  |  简单  |    |
+|  [1557](https://leetcode-cn.com/problems/minimum-number-of-vertices-to-reach-all-nodes)  |  [可以到达所有点的最少点数目](/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/README.md)  |  `图`  |  中等  |    |
+|  [1558](https://leetcode-cn.com/problems/minimum-numbers-of-function-calls-to-make-target-array)  |  [得到目标数组的最少函数调用次数](/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1559](https://leetcode-cn.com/problems/detect-cycles-in-2d-grid)  |  [二维网格图中探测环](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README.md)  |  `深度优先搜索`  |  困难  |    |
+|  [1560](https://leetcode-cn.com/problems/most-visited-sector-in-a-circular-track)  |  [圆形赛道上经过次数最多的扇区](/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/README.md)  |  `数组`  |  简单  |    |
+|  [1561](https://leetcode-cn.com/problems/maximum-number-of-coins-you-can-get)  |  [你可以获得的最大硬币数目](/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README.md)  |  `排序`  |  中等  |    |
+|  [1562](https://leetcode-cn.com/problems/find-latest-group-of-size-m)  |  [查找大小为 M 的最新分组](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)  |  `二分查找`  |  中等  |    |
+|  [1563](https://leetcode-cn.com/problems/stone-game-v)  |  [石子游戏 V](/solution/1500-1599/1563.Stone%20Game%20V/README.md)  |  `动态规划`  |  困难  |    |
+|  [1564](https://leetcode-cn.com/problems/put-boxes-into-the-warehouse-i)  |  [None](/solution/1500-1599/1564.Put%20Boxes%20Into%20the%20Warehouse%20I/README.md)  |  `贪心算法`  |  中等  |  🔒  |
+|  [1565](https://leetcode-cn.com/problems/unique-orders-and-customers-per-month)  |  [None](/solution/1500-1599/1565.Unique%20Orders%20and%20Customers%20Per%20Month/README.md)  |    |  简单  |  🔒  |
+|  [1566](https://leetcode-cn.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times)  |  [重复至少 K 次且长度为 M 的模式](/solution/1500-1599/1566.Detect%20Pattern%20of%20Length%20M%20Repeated%20K%20or%20More%20Times/README.md)  |  `数组`  |  简单  |    |
+|  [1567](https://leetcode-cn.com/problems/maximum-length-of-subarray-with-positive-product)  |  [乘积为正数的最长子数组长度](/solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1568](https://leetcode-cn.com/problems/minimum-number-of-days-to-disconnect-island)  |  [使陆地分离的最少天数](/solution/1500-1599/1568.Minimum%20Number%20of%20Days%20to%20Disconnect%20Island/README.md)  |  `贪心算法`  |  困难  |    |
+|  [1569](https://leetcode-cn.com/problems/number-of-ways-to-reorder-array-to-get-same-bst)  |  [将子数组重新排序得到同一个二叉查找树的方案数](/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/README.md)  |  `动态规划`  |  困难  |    |
+|  [1570](https://leetcode-cn.com/problems/dot-product-of-two-sparse-vectors)  |  [None](/solution/1500-1599/1570.Dot%20Product%20of%20Two%20Sparse%20Vectors/README.md)  |  `数组`,`哈希表`,`双指针`  |  中等  |  🔒  |
+|  [1571](https://leetcode-cn.com/problems/warehouse-manager)  |  [None](/solution/1500-1599/1571.Warehouse%20Manager/README.md)  |    |  简单  |  🔒  |
+|  [1572](https://leetcode-cn.com/problems/matrix-diagonal-sum)  |  [矩阵对角线元素的和](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README.md)  |  `数组`  |  简单  |    |
+|  [1573](https://leetcode-cn.com/problems/number-of-ways-to-split-a-string)  |  [分割字符串的方案数](/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md)  |  `字符串`  |  中等  |    |
+|  [1574](https://leetcode-cn.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted)  |  [删除最短的子数组使剩余数组有序](/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README.md)  |  `数组`,`二分查找`  |  中等  |    |
+|  [1575](https://leetcode-cn.com/problems/count-all-possible-routes)  |  [统计所有可行路径](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md)  |  `动态规划`  |  困难  |    |
+|  [1576](https://leetcode-cn.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters)  |  [替换所有的问号](/solution/1500-1599/1576.Replace%20All%20%3F%27s%20to%20Avoid%20Consecutive%20Repeating%20Characters/README.md)  |  `字符串`  |  简单  |    |
+|  [1577](https://leetcode-cn.com/problems/number-of-ways-where-square-of-number-is-equal-to-product-of-two-numbers)  |  [数的平方等于两数乘积的方法数](/solution/1500-1599/1577.Number%20of%20Ways%20Where%20Square%20of%20Number%20Is%20Equal%20to%20Product%20of%20Two%20Numbers/README.md)  |  `哈希表`,`数学`  |  中等  |    |
+|  [1578](https://leetcode-cn.com/problems/minimum-deletion-cost-to-avoid-repeating-letters)  |  [避免重复字母的最小删除成本](/solution/1500-1599/1578.Minimum%20Deletion%20Cost%20to%20Avoid%20Repeating%20Letters/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1579](https://leetcode-cn.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable)  |  [保证图可完全遍历](/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/README.md)  |  `并查集`  |  困难  |    |
+|  [1580](https://leetcode-cn.com/problems/put-boxes-into-the-warehouse-ii)  |  [None](/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/README.md)  |  `贪心算法`  |  中等  |  🔒  |
+|  [1581](https://leetcode-cn.com/problems/customer-who-visited-but-did-not-make-any-transactions)  |  [None](/solution/1500-1599/1581.Customer%20Who%20Visited%20but%20Did%20Not%20Make%20Any%20Transactions/README.md)  |    |  简单  |  🔒  |
+|  [1582](https://leetcode-cn.com/problems/special-positions-in-a-binary-matrix)  |  [二进制矩阵中的特殊位置](/solution/1500-1599/1582.Special%20Positions%20in%20a%20Binary%20Matrix/README.md)  |  `数组`  |  简单  |    |
+|  [1583](https://leetcode-cn.com/problems/count-unhappy-friends)  |  [统计不开心的朋友](/solution/1500-1599/1583.Count%20Unhappy%20Friends/README.md)  |  `数组`  |  中等  |    |
+|  [1584](https://leetcode-cn.com/problems/min-cost-to-connect-all-points)  |  [连接所有点的最小费用](/solution/1500-1599/1584.Min%20Cost%20to%20Connect%20All%20Points/README.md)  |  `并查集`  |  中等  |    |
+|  [1585](https://leetcode-cn.com/problems/check-if-string-is-transformable-with-substring-sort-operations)  |  [检查字符串是否可以通过排序子字符串得到另一个字符串](/solution/1500-1599/1585.Check%20If%20String%20Is%20Transformable%20With%20Substring%20Sort%20Operations/README.md)  |  `贪心算法`,`字符串`  |  困难  |    |
+|  [1586](https://leetcode-cn.com/problems/binary-search-tree-iterator-ii)  |  [None](/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/README.md)  |  `设计`  |  中等  |  🔒  |
+|  [1587](https://leetcode-cn.com/problems/bank-account-summary-ii)  |  [None](/solution/1500-1599/1587.Bank%20Account%20Summary%20II/README.md)  |    |  简单  |  🔒  |
+|  [1588](https://leetcode-cn.com/problems/sum-of-all-odd-length-subarrays)  |  [所有奇数长度子数组的和](/solution/1500-1599/1588.Sum%20of%20All%20Odd%20Length%20Subarrays/README.md)  |  `数组`  |  简单  |    |
+|  [1589](https://leetcode-cn.com/problems/maximum-sum-obtained-of-any-permutation)  |  [所有排列中的最大和](/solution/1500-1599/1589.Maximum%20Sum%20Obtained%20of%20Any%20Permutation/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1590](https://leetcode-cn.com/problems/make-sum-divisible-by-p)  |  [使数组和能被 P 整除](/solution/1500-1599/1590.Make%20Sum%20Divisible%20by%20P/README.md)  |  `数组`,`二分查找`  |  中等  |    |
+|  [1591](https://leetcode-cn.com/problems/strange-printer-ii)  |  [奇怪的打印机 II](/solution/1500-1599/1591.Strange%20Printer%20II/README.md)  |  `贪心算法`  |  困难  |    |
+|  [1592](https://leetcode-cn.com/problems/rearrange-spaces-between-words)  |  [重新排列单词间的空格](/solution/1500-1599/1592.Rearrange%20Spaces%20Between%20Words/README.md)  |  `字符串`  |  简单  |    |
+|  [1593](https://leetcode-cn.com/problems/split-a-string-into-the-max-number-of-unique-substrings)  |  [拆分字符串使唯一子字符串的数目最大](/solution/1500-1599/1593.Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings/README.md)  |  `回溯算法`  |  中等  |    |
+|  [1594](https://leetcode-cn.com/problems/maximum-non-negative-product-in-a-matrix)  |  [矩阵的最大非负积](/solution/1500-1599/1594.Maximum%20Non%20Negative%20Product%20in%20a%20Matrix/README.md)  |  `贪心算法`,`动态规划`  |  中等  |    |
+|  [1595](https://leetcode-cn.com/problems/minimum-cost-to-connect-two-groups-of-points)  |  [连通两组点的最小成本](/solution/1500-1599/1595.Minimum%20Cost%20to%20Connect%20Two%20Groups%20of%20Points/README.md)  |  `图`,`动态规划`  |  困难  |    |
+|  [1596](https://leetcode-cn.com/problems/the-most-frequently-ordered-products-for-each-customer)  |  [None](/solution/1500-1599/1596.The%20Most%20Frequently%20Ordered%20Products%20for%20Each%20Customer/README.md)  |    |  中等  |  🔒  |
+|  [1597](https://leetcode-cn.com/problems/build-binary-expression-tree-from-infix-expression)  |  [None](/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/README.md)  |  `树`,`字符串`  |  中等  |    |
+
 
 
 ## 版权
+
 著作权归 [GitHub 开源社区 Doocs](https://github.com/doocs) 所有，商业转载请联系 [@yanglbme](mailto:contact@yanglibin.info) 授权，非商业转载请注明出处。
