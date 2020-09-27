@@ -1,6 +1,6 @@
 # [1573. Number of Ways to Split a String](https://leetcode.com/problems/number-of-ways-to-split-a-string)
 
-[中文文档](/solution/1500-1599/1573.Number of Ways to Split a String/README.md)
+[中文文档](/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md)
 
 ## Description
 

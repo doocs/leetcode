@@ -1,6 +1,6 @@
 # [1572. 矩阵对角线元素的和](https://leetcode-cn.com/problems/matrix-diagonal-sum)
 
-[English Version](/solution/1500-1599/1572.Matrix Diagonal Sum/README_EN.md)
+[English Version](/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/README_EN.md)
 
 ## 题目描述
 
