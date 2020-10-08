@@ -1,6 +1,6 @@
 # [1576. Replace All ?'s to Avoid Consecutive Repeating Characters](https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters)
 
-[中文文档](/solution/1500-1599/1576.Replace%20All%20?'s%20to%20Avoid%20Consecutive%20Repeating%20Characters/README.md)
+[中文文档](/solution/1500-1599/1576.Replace%20All%20%3F's%20to%20Avoid%20Consecutive%20Repeating%20Characters/README.md)
 
 ## Description
 
@@ -70,7 +70,26 @@
 
 
 ```java
+class Solution {
+public String modifyString(String s) {
+        char[] chars = s.toCharArray();
 
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == '?') {
+                // 前面的字符 
+                char ahead = i == 0 ? ' ' : chars[i - 1];
+                // 最后的字符
+                char behind  = i == chars.length - 1 ? ' ' : chars[i + 1];
+                char temp = 'a';
+                while (temp == ahead || temp == behind ) {
+                    temp++;
+                }
+                chars[i] = temp;
+            }
+        }
+        return new String(chars);
+    }
+}
 ```
 
 ### **...**

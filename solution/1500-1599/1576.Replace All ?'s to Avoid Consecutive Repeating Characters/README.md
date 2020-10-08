@@ -1,6 +1,6 @@
 # [1576. 替换所有的问号](https://leetcode-cn.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters)
 
-[English Version](/solution/1500-1599/1576.Replace%20All%20?'s%20to%20Avoid%20Consecutive%20Repeating%20Characters/README_EN.md)
+[English Version](/solution/1500-1599/1576.Replace%20All%20%3F's%20to%20Avoid%20Consecutive%20Repeating%20Characters/README_EN.md)
 
 ## 题目描述
 
@@ -75,7 +75,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+public String modifyString(String s) {
+        char[] chars = s.toCharArray();
 
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == '?') {
+                // 前面的字符 
+                char ahead = i == 0 ? ' ' : chars[i - 1];
+                // 最后的字符
+                char behind  = i == chars.length - 1 ? ' ' : chars[i + 1];
+                char temp = 'a';
+                while (temp == ahead || temp == behind ) {
+                    temp++;
+                }
+                chars[i] = temp;
+            }
+        }
+        return new String(chars);
+    }
+}
 ```
 
 ### **...**
