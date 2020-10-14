@@ -64,7 +64,56 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    // x、y方向向量
+    public static final int[] dx = {0, 0, 1, -1};
+    public static final int[] dy = {1, -1, 0, 0};
+    /**
+     * https://blog.csdn.net/fuxuemingzhu/article/details/82926674
+     * <p>
+     * 参考这篇文章的第二种解题方法做的
+     * <p>
+     * 通过优先级队列找寻局部最优解  最终的得到的结果就是全局最优解
+     *
+     * @param grid
+     * @return
+     */
+    // 以grid左上角为原点，横向为X轴，纵向为Y轴
+    public int swimInWater(int[][] grid) {
+        // 定义一个优先级队列  按照h从小到大排列
+        Queue<Pair<Integer, Pair<Integer, Integer>>> queue = new PriorityQueue<>(Comparator.comparing(Pair::getKey));
+        queue.add(new Pair<>(grid[0][0], new Pair<>(0, 0)));
+        // 已经遍历过的点
+        Set<Pair<Integer, Integer>> visitSet = new HashSet<>();
+        visitSet.add(new Pair<>(0, 0));
 
+        int res = 0;
+        int length = grid.length;
+
+        while (!queue.isEmpty()) {
+            Pair<Integer, Pair<Integer, Integer>> top = queue.poll();
+            Integer x = top.getValue().getKey();
+            Integer y = top.getValue().getValue();
+            res = Math.max(res, top.getKey());
+            // 2 <= N <= 50 这个范围内可以直接使用==进行Integer的比较
+            if (x == top.getValue().getValue() && y == length - 1) {
+                break;
+            }
+
+            for (int i = 0; i < 4; i++) {
+                int newY = y + dy[i];
+                int newX = x + dx[i];
+                if (newX < 0 || newY < 0 || newX >= length || newY >= length || visitSet.contains(new Pair<>(newX, newY))) {
+                    // 直接忽略
+                    continue;
+                }
+                queue.add(new Pair<>(grid[newX][newY], new Pair<>(newX, newY)));
+                visitSet.add(new Pair<>(newX, newY));
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
