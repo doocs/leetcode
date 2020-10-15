@@ -1627,7 +1627,7 @@
 	* [1573.Number of Ways to Split a String](/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README.md)
 	* [1574.Shortest Subarray to be Removed to Make Array Sorted](/solution/1500-1599/1574.Shortest%20Subarray%20to%20be%20Removed%20to%20Make%20Array%20Sorted/README.md)
 	* [1575.Count All Possible Routes](/solution/1500-1599/1575.Count%20All%20Possible%20Routes/README.md)
-	* [1576.Replace All #003F's to Avoid Consecutive Repeating Characters](/solution/1500-1599/1576.Replace%20All%20%23003F%27s%20to%20Avoid%20Consecutive%20Repeating%20Characters/README.md)
+	* [1576.Replace All #003F's to Avoid Consecutive Repeating Characters](/solution/1500-1599/1576.Replace%20All%20S%20to%20Avoid%20Consecutive%20Repeating%20Characters/README.md)
 	* [1577.Number of Ways Where Square of Number Is Equal to Product of Two Numbers](/solution/1500-1599/1577.Number%20of%20Ways%20Where%20Square%20of%20Number%20Is%20Equal%20to%20Product%20of%20Two%20Numbers/README.md)
 	* [1578.Minimum Deletion Cost to Avoid Repeating Letters](/solution/1500-1599/1578.Minimum%20Deletion%20Cost%20to%20Avoid%20Repeating%20Letters/README.md)
 	* [1579.Remove Max Number of Edges to Keep Graph Fully Traversable](/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/README.md)
