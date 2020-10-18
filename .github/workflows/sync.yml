@@ -7,6 +7,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    if: github.repository == 'doocs/leetcode'
     steps:
     - name: Sync to gitee.com
       uses: wearerequired/git-mirror-action@master
