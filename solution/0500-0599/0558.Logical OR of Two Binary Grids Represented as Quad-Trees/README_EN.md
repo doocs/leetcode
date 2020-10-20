@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README.md)
 
 ## Description
+
 <p>A Binary Matrix is a matrix in which all the elements are either <strong>0</strong> or <strong>1</strong>.</p>
 
 <p>Given <code>quadTree1</code> and <code>quadTree2</code>. <code>quadTree1</code> represents a <code>n * n</code> binary matrix and <code>quadTree2</code> represents another&nbsp;<code>n * n</code> binary matrix.&nbsp;</p>
@@ -108,10 +109,7 @@ The resulting matrix is of size 1*1 with also zero.
 	<li><code>n == 2^x</code> where <code>0 &lt;= x &lt;= 9</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -128,6 +126,7 @@ The resulting matrix is of size 1*1 with also zero.
 ```
 
 ### **...**
+
 ```
 
 ```

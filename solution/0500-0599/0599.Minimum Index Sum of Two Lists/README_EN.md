@@ -3,9 +3,10 @@
 [中文文档](/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README.md)
 
 ## Description
+
 <p>
 
-Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings. 
+Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
 
 </p>
 
@@ -14,10 +15,6 @@ Suppose Andy and Doris want to choose a restaurant for dinner, and they both hav
 You need to help them find out their <b>common interest</b> with the <b>least list index sum</b>. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
 
 </p>
-
-
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -37,8 +34,6 @@ You need to help them find out their <b>common interest</b> with the <b>least li
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -57,10 +52,6 @@ You need to help them find out their <b>common interest</b> with the <b>least li
 
 </p>
 
-
-
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -77,9 +68,7 @@ You need to help them find out their <b>common interest</b> with the <b>least li
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +85,7 @@ You need to help them find out their <b>common interest</b> with the <b>least li
 ```
 
 ### **...**
+
 ```
 
 ```

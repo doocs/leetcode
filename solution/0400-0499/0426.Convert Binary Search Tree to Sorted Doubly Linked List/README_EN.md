@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README.md)
 
 ## Description
+
 <p>Convert a <strong>Binary Search Tree</strong> to a sorted <strong>Circular Doubly-Linked List</strong> in place.</p>
 
 <p>You can think of the left and right pointers as synonymous to the predecessor and successor pointers in a doubly-linked list. For a circular doubly linked list, the predecessor of the first element is the last element, and the successor of the last element is the first element.</p>
@@ -56,10 +57,7 @@
 	<li><code>0 <= Number of Nodes <= 2000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +74,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

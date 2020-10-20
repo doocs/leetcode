@@ -3,17 +3,12 @@
 [中文文档](/solution/0400-0499/0482.License%20Key%20Formatting/README.md)
 
 ## Description
+
 <p>You are given a license key represented as a string S which consists only alphanumeric character and dashes. The string is separated into N+1 groups by N dashes.</p>
-
-
 
 <p>Given a number K, we would want to reformat the strings such that each group contains <i>exactly</i> K characters, except for the first group which could be shorter than K, but still must contain at least one character. Furthermore, there must be a dash inserted between two groups and all lowercase letters should be converted to uppercase.</p>
 
-
-
 <p>Given a non-empty string S and a number K, format the string according to the rules described above.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -35,10 +30,6 @@ Note that the two extra dashes are not needed and can be removed.
 
 </p>
 
-
-
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -57,8 +48,6 @@ Note that the two extra dashes are not needed and can be removed.
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -73,9 +62,7 @@ Note that the two extra dashes are not needed and can be removed.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +79,7 @@ Note that the two extra dashes are not needed and can be removed.
 ```
 
 ### **...**
+
 ```
 
 ```

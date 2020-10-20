@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1196.How%20Many%20Apples%20Can%20You%20Put%20into%20the%20Basket/README.md)
 
 ## Description
+
 <p>You have some apples, where <code>arr[i]</code> is the weight of the <code>i</code>-th apple.  You also have a basket that can carry up to <code>5000</code> units of weight.</p>
 
 <p>Return the maximum number of apples you can put in the basket.</p>
@@ -32,10 +33,7 @@
 	<li><code>1 <= arr[i] <= 10^3</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0489.Robot%20Room%20Cleaner/README.md)
 
 ## Description
+
 <p>Given a robot cleaner in a room modeled as a grid.</p>
 
 <p>Each cell in the grid can be empty or blocked.</p>
@@ -60,10 +61,7 @@ From the top left corner, its position is one row below and three columns right.
 	<li>Assume all four edges of the grid are all surrounded by wall.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +78,7 @@ From the top left corner, its position is one row below and three columns right.
 ```
 
 ### **...**
+
 ```
 
 ```

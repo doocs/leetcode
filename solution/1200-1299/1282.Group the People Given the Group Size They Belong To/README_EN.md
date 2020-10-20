@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1282.Group%20the%20People%20Given%20the%20Group%20Size%20They%20Belong%20To/README.md)
 
 ## Description
+
 <p>There are <code>n</code> people whose <strong>IDs</strong> go from <code>0</code> to <code>n - 1</code> and each person belongs <strong>exactly</strong> to one&nbsp;group. Given the array&nbsp;<code>groupSizes</code> of length <code>n</code> telling the group size each person belongs to, return the groups there are and the people&#39;s&nbsp;<strong>IDs</strong> each group includes.</p>
 
 <p>You can return any solution in any order and the same applies for IDs. Also, it is guaranteed that there exists at least one solution.&nbsp;</p>
@@ -33,10 +34,7 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 	<li><code>1 &lt;=&nbsp;groupSizes[i] &lt;= n</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +51,7 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 ```
 
 ### **...**
+
 ```
 
 ```

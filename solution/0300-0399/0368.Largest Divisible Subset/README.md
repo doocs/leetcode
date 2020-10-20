@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给出一个由<strong>无重复的</strong>正整数组成的集合，找出其中最大的整除子集，子集中任意一对 (S<sub>i，</sub>S<sub>j</sub>) 都要满足：S<sub>i</sub> % S<sub>j</sub> = 0 或 S<sub>j</sub> % S<sub>i</sub> = 0。</p>
 
@@ -22,15 +23,14 @@
 <strong>输出:</strong> [1,2,4,8]
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -38,6 +38,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -45,6 +46,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

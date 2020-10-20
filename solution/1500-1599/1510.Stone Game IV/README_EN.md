@@ -59,15 +59,11 @@ If Alice starts removing 1 stone, Bob will remove 4 stones then Alice only can r
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -75,12 +71,12 @@ If Alice starts removing 1 stone, Bob will remove 4 stones then Alice only can r
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

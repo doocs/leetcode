@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1214.Two%20Sum%20BSTs/README.md)
 
 ## Description
+
 <p>Given two binary search trees, return <code>True</code> if and only if there is a node in the first tree and a node in the second tree whose values sum up to a given integer <code>target</code>.</p>
 
 <p> </p>
@@ -33,10 +34,7 @@
 	<li><code>-10^9 <= target, node.val <= 10^9</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0680.Valid%20Palindrome%20II/README.md)
 
 ## Description
+
 <p>
 
-Given a non-empty string <code>s</code>, you may delete <b>at most</b> one character.  Judge whether you can make it a palindrome.
+Given a non-empty string <code>s</code>, you may delete <b>at most</b> one character. Judge whether you can make it a palindrome.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -22,8 +21,6 @@ Given a non-empty string <code>s</code>, you may delete <b>at most</b> one chara
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -39,8 +36,6 @@ Given a non-empty string <code>s</code>, you may delete <b>at most</b> one chara
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -53,9 +48,7 @@ The maximum length of the string is 50000.</li>
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +65,7 @@ The maximum length of the string is 50000.</li>
 ```
 
 ### **...**
+
 ```
 
 ```

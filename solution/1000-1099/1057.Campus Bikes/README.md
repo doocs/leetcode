@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1057.Campus%20Bikes/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在由 2D 网格表示的校园里有 <code>n</code> 位工人（<code>worker</code>）和 <code>m</code> 辆自行车（<code>bike</code>），<code>n <= m</code>。所有工人和自行车的位置都用网格上的 2D 坐标表示。</p>
 
@@ -44,15 +45,14 @@
 	<li><code>1 <= workers.length <= bikes.length <= 1000</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -60,6 +60,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -67,6 +68,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

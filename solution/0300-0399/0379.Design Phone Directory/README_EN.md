@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0379.Design%20Phone%20Directory/README.md)
 
 ## Description
+
 <p>Design a Phone Directory which supports the following operations:</p>
 
 <p> </p>
@@ -52,10 +53,7 @@ directory.check(2);
 	<li>The total number of call of the methods is between <code>[0 - 20000]</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +70,7 @@ directory.check(2);
 ```
 
 ### **...**
+
 ```
 
 ```

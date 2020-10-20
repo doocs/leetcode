@@ -3,23 +3,16 @@
 [中文文档](/solution/0900-0999/0939.Minimum%20Area%20Rectangle/README.md)
 
 ## Description
+
 <p>Given a set of points in the xy-plane, determine the minimum area of a rectangle formed from these points, with sides parallel to the x and y axes.</p>
-
-
 
 <p>If there isn&#39;t any rectangle, return 0.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -45,25 +34,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note</strong>:</p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= points.length &lt;= 500</code></li>
+    <li><code>1 &lt;= points.length &lt;= 500</code></li>
 
-	<li><code>0 &lt;=&nbsp;points[i][0] &lt;=&nbsp;40000</code></li>
+    <li><code>0 &lt;=&nbsp;points[i][0] &lt;=&nbsp;40000</code></li>
 
-	<li><code>0 &lt;=&nbsp;points[i][1] &lt;=&nbsp;40000</code></li>
+    <li><code>0 &lt;=&nbsp;points[i][1] &lt;=&nbsp;40000</code></li>
 
-	<li>All points are distinct.</li>
+    <li>All points are distinct.</li>
 
 </ol>
 
@@ -71,9 +54,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/lcci/04.10.Check%20SubTree/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>检查子树。你有两棵非常大的二叉树：T1，有几万个节点；T2，有几万个节点。设计一个算法，判断 T2 是否为 T1 的子树。</p>
 
@@ -26,14 +27,16 @@
 	<li>树的节点数目范围为[0, 20000]。</li>
 </ol>
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 先找 t1 中 t2 结点,找到后进行 DFS，确认子树和 t2 的子树完全相同，否则返回 FALSE。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,7 +47,7 @@ class Solution:
         if t2 == None:
             return True
         return self.dfs(t1,t2) or self.checkSubTree(t1.left,t2) or self.checkSubTree(t1.right,t2)
-    
+
     def dfs(self, t1: TreeNode, t2: TreeNode) -> bool:
         if not t1 and t2 :
             return False
@@ -57,6 +60,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -82,6 +86,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

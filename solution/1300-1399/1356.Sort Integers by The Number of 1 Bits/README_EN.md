@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1356.Sort%20Integers%20by%20The%20Number%20of%201%20Bits/README.md)
 
 ## Description
+
 <p>Given an integer array <code>arr</code>. You have to sort the integers in the array&nbsp;in ascending order by the number of <strong>1&#39;s</strong>&nbsp;in their binary representation and in case of two or more integers have the same number of <strong>1&#39;s</strong> you have to sort them in ascending order.</p>
 
 <p>Return <em>the sorted array</em>.</p>
@@ -57,10 +58,7 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 	<li><code>0 &lt;= arr[i] &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +75,7 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 ```
 
 ### **...**
+
 ```
 
 ```

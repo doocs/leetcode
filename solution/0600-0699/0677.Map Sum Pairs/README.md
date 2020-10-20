@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0677.Map%20Sum%20Pairs/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>实现一个 MapSum 类里的两个方法，<code>insert</code>&nbsp;和&nbsp;<code>sum</code>。</p>
 
@@ -18,15 +19,14 @@
 输入: sum(&quot;ap&quot;), 输出: 5
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -34,6 +34,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -41,6 +42,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

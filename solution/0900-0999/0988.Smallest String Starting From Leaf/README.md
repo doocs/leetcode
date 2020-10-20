@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一颗根结点为&nbsp;<code>root</code>&nbsp;的二叉树，树中的每一个结点都有一个从&nbsp;<code>0</code> 到&nbsp;<code>25</code>&nbsp;的值，分别代表字母&nbsp;<code>&#39;a&#39;</code> 到&nbsp;<code>&#39;z&#39;</code>：值&nbsp;<code>0</code> 代表&nbsp;<code>&#39;a&#39;</code>，值&nbsp;<code>1</code>&nbsp;代表&nbsp;<code>&#39;b&#39;</code>，依此类推。</p>
 
@@ -48,15 +49,14 @@
 	<li>树中的每个结点都有一个介于&nbsp;<code>0</code>&nbsp;和&nbsp;<code>25</code>&nbsp;之间的值。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -64,6 +64,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -71,6 +72,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

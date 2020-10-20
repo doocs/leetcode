@@ -1,45 +1,46 @@
-var getIntersectionNode2 = function(headA, headB) {
+var getIntersectionNode2 = function (headA, headB) {
   if (!headA || !headB) {
-    return null
+    return null;
   }
-  let q = headA, p = headB
-  let lengthA = 1
-  let lengthB = 1
-  while(q.next) {
-    q = q.next
-    lengthA++
+  let q = headA,
+    p = headB;
+  let lengthA = 1;
+  let lengthB = 1;
+  while (q.next) {
+    q = q.next;
+    lengthA++;
   }
   while (p.next) {
-    p = p.next
-    lengthB++
+    p = p.next;
+    lengthB++;
   }
   if (q !== p) {
-    return null 
+    return null;
   }
 
-  q = headA, p = headB
+  (q = headA), (p = headB);
   if (lengthA > lengthB) {
     for (let i = 0; i < lengthA - lengthB; i++) {
-      q = q.next
+      q = q.next;
     }
   } else {
     for (let i = 0; i < lengthB - lengthA; i++) {
-      p = p.next
+      p = p.next;
     }
   }
   while (q !== p && q !== null) {
-    q = q.next
-    p = p.next
+    q = q.next;
+    p = p.next;
   }
-  return q
+  return q;
 };
 
-var getIntersectionNode = function(headA, headB) {
+var getIntersectionNode = function (headA, headB) {
   let p1 = headA;
-	let p2 = headB;
-	while (p1 != p2) {
-		p1 = p1 ? p1.next : headB;
-		p2 = p2 ? p2.next : headA;
-	}
-	return p1;
-}
+  let p2 = headB;
+  while (p1 != p2) {
+    p1 = p1 ? p1.next : headB;
+    p2 = p2 ? p2.next : headA;
+  }
+  return p1;
+};

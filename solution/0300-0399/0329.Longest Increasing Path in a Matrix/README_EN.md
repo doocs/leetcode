@@ -3,17 +3,12 @@
 [中文文档](/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/README.md)
 
 ## Description
+
 <p>Given an integer matrix, find the length of the longest increasing path.</p>
-
-
 
 <p>From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed).</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -35,11 +30,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -61,11 +52,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

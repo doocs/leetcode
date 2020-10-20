@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0352.Data%20Stream%20as%20Disjoint%20Intervals/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个非负整数的数据流输入 a<sub>1</sub>，a<sub>2</sub>，&hellip;，a<sub>n，</sub>&hellip;，将到目前为止看到的数字总结为不相交的区间列表。</p>
 
@@ -23,15 +24,14 @@
 <p><strong>提示：</strong><br>
 特别感谢 <a href="https://discuss.leetcode.com/user/yunhong">@yunhong</a> 提供了本问题和其测试用例。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -39,6 +39,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -46,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

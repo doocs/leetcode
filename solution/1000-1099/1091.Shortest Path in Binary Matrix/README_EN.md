@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README.md)
 
 ## Description
+
 <p>In an N by N square grid, each cell is either empty (0) or blocked (1).</p>
 
 <p>A&nbsp;<em>clear&nbsp;path from top-left to bottom-right</em>&nbsp;has length <code>k</code> if and only if it is composed of cells <code>C_1, C_2, ..., C_k</code>&nbsp;such that:</p>
@@ -29,7 +30,6 @@
 
 ![](./images/example1_2.png)
 
-
 <div>
 <p><strong>Example 2:</strong></p>
 
@@ -54,10 +54,7 @@
 	<li><code>grid[r][c]</code> is <code>0</code> or <code>1</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

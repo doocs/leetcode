@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>环形公交路线上有&nbsp;<code>n</code>&nbsp;个站，按次序从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;进行编号。我们已知每一对相邻公交站之间的距离，<code>distance[i]</code>&nbsp;表示编号为&nbsp;<code>i</code>&nbsp;的车站和编号为&nbsp;<code>(i + 1) % n</code>&nbsp;的车站之间的距离。</p>
 
@@ -53,15 +54,14 @@
 	<li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -69,6 +69,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -76,6 +77,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

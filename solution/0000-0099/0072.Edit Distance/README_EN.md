@@ -3,29 +3,22 @@
 [中文文档](/solution/0000-0099/0072.Edit%20Distance/README.md)
 
 ## Description
+
 <p>Given two words <em>word1</em> and <em>word2</em>, find the minimum number of operations required to convert <em>word1</em> to <em>word2</em>.</p>
-
-
 
 <p>You have the following 3 operations permitted on a word:</p>
 
-
-
 <ol>
 
-	<li>Insert a character</li>
+    <li>Insert a character</li>
 
-	<li>Delete a character</li>
+    <li>Delete a character</li>
 
-	<li>Replace a character</li>
+    <li>Replace a character</li>
 
 </ol>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +36,7 @@ rose -&gt; ros (remove &#39;e&#39;)
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -69,11 +58,7 @@ exection -&gt; execution (insert &#39;u&#39;)
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +75,7 @@ exection -&gt; execution (insert &#39;u&#39;)
 ```
 
 ### **...**
+
 ```
 
 ```

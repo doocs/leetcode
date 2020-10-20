@@ -3,13 +3,10 @@
 [中文文档](/solution/0100-0199/0199.Binary%20Tree%20Right%20Side%20View/README.md)
 
 ## Description
+
 <p>Given a binary tree, imagine yourself standing on the <em>right</em> side of it, return the values of the nodes you can see ordered from top to bottom.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -33,9 +30,7 @@
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +65,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

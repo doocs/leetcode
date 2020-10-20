@@ -3,26 +3,18 @@
 [中文文档](/solution/1300-1399/1367.Linked%20List%20in%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary tree <code>root</code> and a&nbsp;linked list with&nbsp;<code>head</code>&nbsp;as the first node.&nbsp;</p>
-
-
 
 <p>Return True if all the elements in the linked list starting from the <code>head</code> correspond to some <em>downward path</em> connected in the binary tree&nbsp;otherwise return False.</p>
 
-
-
 <p>In this context downward path means a path that starts at some node and goes downwards.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-
-
 ![](./images/sample_1_1720.png)
-
 
 <pre>
 
@@ -34,14 +26,9 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
-
 ![](./images/sample_2_1720.png)
-
 
 <pre>
 
@@ -51,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,13 +50,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= node.val&nbsp;&lt;= 100</code>&nbsp;for each node in the linked list and binary tree.</li>
@@ -81,9 +60,7 @@
 	<li>The given binary tree will contain between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>2500</code>&nbsp;nodes.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +77,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0284.Peeking%20Iterator/README.md)
 
 ## Description
+
 <p>Given an Iterator class interface with methods: <code>next()</code> and <code>hasNext()</code>, design and implement a PeekingIterator that support the <code>peek()</code> operation -- it essentially peek() at the element that will be returned by the next call to next().</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -27,15 +24,9 @@ Calling <strong><code>hasNext()</code></strong> after that should return <strong
 
 </pre>
 
-
-
 <p><b>Follow up</b>: How would you extend your design to be generic and work with all types, not just integer?</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +43,7 @@ Calling <strong><code>hasNext()</code></strong> after that should return <strong
 ```
 
 ### **...**
+
 ```
 
 ```

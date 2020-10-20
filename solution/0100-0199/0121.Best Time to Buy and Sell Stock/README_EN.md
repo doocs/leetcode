@@ -3,21 +3,14 @@
 [中文文档](/solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README.md)
 
 ## Description
+
 <p>Say you have an array for which the <em>i</em><sup>th</sup> element is the price of a given stock on day <em>i</em>.</p>
-
-
 
 <p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
 
-
-
 <p>Note that you cannot sell a stock before you buy one.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -47,11 +36,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

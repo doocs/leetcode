@@ -1,6 +1,7 @@
-# [面试题56 - II. 数组中数字出现的次数 II](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/)
+# [面试题 56 - II. 数组中数字出现的次数 II](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/)
 
 ## 题目描述
+
 在一个数组 `nums` 中除一个数字只出现一次之外，其他数字都出现了三次。请找出那个只出现一次的数字。
 
 **示例 1：**
@@ -26,10 +27,10 @@
 
 统计所有数字每个位中 1 出现的次数，对于某个位，1 出现的次数一定是 3 的倍数 +1 或 0。对这个数 %3 得到的结果就是那个出现一次的数字在该位上的值。
 
-
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -46,6 +47,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public int singleNumber(int[] nums) {
@@ -68,23 +70,25 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var singleNumber = function(nums) {
-    let a = 0
-    let b = 0
-    for(let num of nums) {
-        a = (a ^ num) & ~b
-        b = (b ^ num) & ~a
-    }
-    return a
+var singleNumber = function (nums) {
+  let a = 0;
+  let b = 0;
+  for (let num of nums) {
+    a = (a ^ num) & ~b;
+    b = (b ^ num) & ~a;
+  }
+  return a;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

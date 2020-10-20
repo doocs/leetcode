@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README.md)
 
 ## Description
+
 <p>Given a grid where each entry is only 0 or 1, find the number of corner rectangles.</p>
 
 <p>A <em>corner rectangle</em> is 4 distinct 1s on the grid that form an axis-aligned rectangle. Note that only the corners need to have the value 1. Also, all four 1s used must be distinct.</p>
@@ -57,10 +58,7 @@
 
 <p> </p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +75,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

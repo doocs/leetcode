@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0346.Moving%20Average%20from%20Data%20Stream/README.md)
 
 ## Description
+
 <p>Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.</p>
 
 <p><strong>Example:</strong></p>
@@ -17,10 +18,7 @@ m.next(5) = (10 + 3 + 5) / 3
 
 <p> </p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -37,6 +35,7 @@ m.next(5) = (10 + 3 + 5) / 3
 ```
 
 ### **...**
+
 ```
 
 ```

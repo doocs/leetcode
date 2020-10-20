@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0790.Domino%20and%20Tromino%20Tiling/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有两种形状的瓷砖：一种是&nbsp;2x1 的多米诺形，另一种是形如&nbsp;&quot;L&quot; 的托米诺形。两种形状都可以旋转。</p>
 
@@ -34,15 +35,14 @@ XYZ YYZ XZZ XYY XXY</pre>
 
 <p>&nbsp;</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -50,6 +50,7 @@ XYZ YYZ XZZ XYY XXY</pre>
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -57,6 +58,7 @@ XYZ YYZ XZZ XYY XXY</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

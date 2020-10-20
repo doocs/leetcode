@@ -3,6 +3,7 @@
 [English Version](/solution/0500-0599/0509.Fibonacci%20Number/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p><strong>斐波那契数</strong>，通常用&nbsp;<code>F(n)</code> 表示，形成的序列称为<strong>斐波那契数列</strong>。该数列由&nbsp;<code>0</code> 和 <code>1</code> 开始，后面的每一项数字都是前面两项数字的和。也就是：</p>
 
@@ -43,15 +44,14 @@ F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1.
 	<li>0 &le; <code>N</code> &le; 30</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -59,6 +59,7 @@ F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1.
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -66,6 +67,7 @@ F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,19 +3,14 @@
 [中文文档](/solution/0900-0999/0977.Squares%20of%20a%20Sorted%20Array/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>A</code>&nbsp;sorted in non-decreasing order,&nbsp;return an array of the squares of each number,&nbsp;also in sorted non-decreasing order.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,23 +32,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong><span>Note:</span></strong></p>
 
-
-
 <ol>
 
-	<li><code><span>1 &lt;= A.length &lt;= 10000</span></code></li>
+    <li><code><span>1 &lt;= A.length &lt;= 10000</span></code></li>
 
-	<li><code>-10000 &lt;= A[i] &lt;= 10000</code></li>
+    <li><code>-10000 &lt;= A[i] &lt;= 10000</code></li>
 
-	<li><code>A</code>&nbsp;is sorted in non-decreasing order.</li>
+    <li><code>A</code>&nbsp;is sorted in non-decreasing order.</li>
 
 </ol>
 
@@ -65,9 +50,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

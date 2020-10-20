@@ -3,35 +3,24 @@
 [中文文档](/solution/0000-0099/0084.Largest%20Rectangle%20in%20Histogram/README.md)
 
 ## Description
+
 <p>Given <em>n</em> non-negative integers representing the histogram&#39;s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.</p>
 
-
 <p>&nbsp;</p>
-
 
 ![](./images/histogram.png)
 
 <small>Above is a histogram where width of each bar is 1, given height = <code>[2,1,5,6,2,3]</code>.</small></p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 ![](./images/histogram_area.png)
 
 <small>The largest rectangle is shown in the shaded area, which has area = <code>10</code> unit.</small></p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +30,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -1,6 +1,7 @@
-# [面试题53 - I. 在排序数组中查找数字 I](https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/)
+# [面试题 53 - I. 在排序数组中查找数字 I](https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/)
 
 ## 题目描述
+
 统计一个数字在排序数组中出现的次数。
 
 **示例 1:**
@@ -10,7 +11,7 @@
 输出: 2
 ```
 
-**示例 2:**
+**示例  2:**
 
 ```
 输入: nums = [5,7,7,8,8,10], target = 6
@@ -22,9 +23,11 @@
 - `0 <= 数组长度 <= 50000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
@@ -40,7 +43,7 @@ class Solution:
             else:
                 r = m - 1
         return 0
-    
+
     def _count(self, nums, l, r, m) -> int:
         cnt = 0
         for i in range(m, l - 1, -1):
@@ -48,7 +51,7 @@ class Solution:
                 cnt += 1
             elif nums[i] < nums[m]:
                 break
-        
+
         for i in range(m + 1, r + 1):
             if nums[i] == nums[m]:
                 cnt += 1
@@ -58,6 +61,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public int search(int[] nums, int target) {
@@ -101,42 +105,43 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target) {
-    if(!nums || !nums.length) return 0
-    let left = 0
-    let right = nums.length - 1
-    let res = 0
-    while(left < right) {
-        let mid = left + ~~((right-left)/2)
-        if(nums[mid] < target) {
-            left = mid + 1
-        } else if(nums[mid] > target) {
-            right = mid
-        } else {
-            left = mid
-            right = mid
-            break
-        }
+var search = function (nums, target) {
+  if (!nums || !nums.length) return 0;
+  let left = 0;
+  let right = nums.length - 1;
+  let res = 0;
+  while (left < right) {
+    let mid = left + ~~((right - left) / 2);
+    if (nums[mid] < target) {
+      left = mid + 1;
+    } else if (nums[mid] > target) {
+      right = mid;
+    } else {
+      left = mid;
+      right = mid;
+      break;
     }
-    while(nums[left] === target) {
-        res++
-        left--
-    }
-    while(nums[++right] === target) {
-        res++
-    }
-    return res
-
+  }
+  while (nums[left] === target) {
+    res++;
+    left--;
+  }
+  while (nums[++right] === target) {
+    res++;
+  }
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

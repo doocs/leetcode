@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1342.Number%20of%20Steps%20to%20Reduce%20a%20Number%20to%20Zero/README.md)
 
 ## Description
+
 <p>Given a non-negative integer <code>num</code>, return the number of steps to reduce it to zero. If the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.</p>
 
 <p>&nbsp;</p>
@@ -46,10 +47,7 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 	<li><code>0 &lt;= num &lt;= 10^6</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +64,7 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 ```
 
 ### **...**
+
 ```
 
 ```

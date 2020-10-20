@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0702.Search%20in%20a%20Sorted%20Array%20of%20Unknown%20Size/README.md)
 
 ## Description
+
 <p>Given an integer array sorted in ascending order, write a function to search <code>target</code> in <code>nums</code>.  If <code>target</code> exists, then return its index, otherwise return <code>-1</code>. <strong>However, the array size is unknown to you</strong>. You may only access the array using an <code>ArrayReader</code> interface, where <code>ArrayReader.get(k)</code> returns the element of the array at index <code>k</code> (0-indexed).</p>
 
 <p>You may assume all integers in the array are less than <code>10000</code>, and if you access the array out of bounds, <code>ArrayReader.get</code> will return <code>2147483647</code>.</p>
@@ -34,10 +35,7 @@
 	<li>The length of the array will be in the range <code>[1, 10^4]</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +52,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0772.Basic%20Calculator%20III/README.md)
 
 ## Description
+
 <p>Implement a basic calculator to evaluate a simple expression string.</p>
 
 <p>The expression string may contain open <code>(</code> and closing parentheses <code>)</code>, the plus <code>+</code> or minus sign <code>-</code>, <strong>non-negative</strong> integers and empty spaces <code> </code>.</p>
@@ -24,10 +25,7 @@
 
 <p><strong>Note:</strong> <strong>Do not</strong> use the <code>eval</code> built-in library function.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -44,6 +42,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一个&nbsp;XY 坐标系中有一些点，我们用数组&nbsp;<code>coordinates</code>&nbsp;来分别记录它们的坐标，其中&nbsp;<code>coordinates[i] = [x, y]</code>&nbsp;表示横坐标为 <code>x</code>、纵坐标为 <code>y</code>&nbsp;的点。</p>
 
@@ -37,15 +38,14 @@
 	<li><code>coordinates</code>&nbsp;中不含重复的点</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -53,6 +53,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

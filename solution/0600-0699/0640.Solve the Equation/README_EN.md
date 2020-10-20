@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0640.Solve%20the%20Equation/README.md)
 
 ## Description
+
 <p>
 
 Solve a given equation and return the value of <code>x</code> in the form of string "x=#value". The equation contains only '+', '-' operation, the variable <code>x</code> and its coefficient.
 
 </p>
-
-
 
 <p>
 
@@ -29,8 +28,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 
 </p>
 
-
-
 <p><b>Example 1:</b><br/>
 
 <pre>
@@ -42,8 +39,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br/>
 
@@ -57,8 +52,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 
 </p>
 
-
-
 <p><b>Example 3:</b><br/>
 
 <pre>
@@ -70,8 +63,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 </pre>
 
 </p>
-
-
 
 <p><b>Example 4:</b><br/>
 
@@ -85,8 +76,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 
 </p>
 
-
-
 <p><b>Example 5:</b><br/>
 
 <pre>
@@ -99,9 +88,7 @@ If there is exactly one solution for the equation, we ensure that the value of <
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -118,6 +105,7 @@ If there is exactly one solution for the equation, we ensure that the value of <
 ```
 
 ### **...**
+
 ```
 
 ```

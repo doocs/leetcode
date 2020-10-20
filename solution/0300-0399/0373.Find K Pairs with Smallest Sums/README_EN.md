@@ -3,21 +3,14 @@
 [中文文档](/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/README.md)
 
 ## Description
+
 <p>You are given two integer arrays <b>nums1</b> and <b>nums2</b> sorted in ascending order and an integer <b>k</b>.</p>
-
-
 
 <p>Define a pair <b>(u,v)</b> which consists of one element from the first array and one element from the second array.</p>
 
-
-
 <p>Find the k pairs <b>(u<sub>1</sub>,v<sub>1</sub>),(u<sub>2</sub>,v<sub>2</sub>) ...(u<sub>k</sub>,v<sub>k</sub>)</b> with the smallest sums.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,11 +22,7 @@
 
 &nbsp;            [1,2],[1,4],[1,6],[7,2],[7,4],[11,2],[7,6],[11,4],[11,6]</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +34,7 @@
 
 &nbsp;            [1,1],[1,1],[1,2],[2,1],[1,2],[2,2],[1,3],[1,3],[2,3]</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -61,11 +46,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

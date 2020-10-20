@@ -3,13 +3,10 @@
 [中文文档](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README.md)
 
 ## Description
+
 <p>A sorted list <code>A</code> contains 1, plus some number of primes.&nbsp; Then, for every p &lt; q in the list, we consider the fraction p/q.</p>
 
-
-
 <p>What is the <code>K</code>-th smallest fraction considered?&nbsp; Return your answer as an array of ints, where <code>answer[0] = p</code> and <code>answer[1] = q</code>.</p>
-
-
 
 <pre>
 
@@ -35,25 +32,19 @@ The third fraction is 2/5.
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 
-	<li><code>A</code> will have length between <code>2</code> and <code>2000</code>.</li>
+    <li><code>A</code> will have length between <code>2</code> and <code>2000</code>.</li>
 
-	<li>Each <code>A[i]</code> will be between <code>1</code> and <code>30000</code>.</li>
+    <li>Each <code>A[i]</code> will be between <code>1</code> and <code>30000</code>.</li>
 
-	<li><code>K</code> will be between <code>1</code> and <code>A.length * (A.length - 1) / 2</code>.</li>
+    <li><code>K</code> will be between <code>1</code> and <code>A.length * (A.length - 1) / 2</code>.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +61,7 @@ The third fraction is 2/5.
 ```
 
 ### **...**
+
 ```
 
 ```

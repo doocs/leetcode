@@ -1,6 +1,7 @@
-# [面试题10- I. 斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/)
+# [面试题 10- I. 斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/)
 
 ## 题目描述
+
 写一个函数，输入 `n` ，求斐波那契（Fibonacci）数列的第 `n` 项。斐波那契数列的定义如下：
 
 ```
@@ -31,11 +32,13 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 - `0 <= n <= 100`
 
 ## 解法
+
 递推求解。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def fib(self, n: int) -> int:
@@ -46,6 +49,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public int fib(int n) {
@@ -61,25 +65,24 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number} n
  * @return {number}
  */
-var fib = function(n) {
-    if(!n) return 0
-    let pre = 0
-    let cur = 1
-    for(let i=2;i<=n;i++) {
-        let c = (pre + cur)%(1e9+7)
-        pre = cur
-        cur = c
-    }
-    return cur
+var fib = function (n) {
+  if (!n) return 0;
+  let pre = 0;
+  let cur = 1;
+  for (let i = 2; i <= n; i++) {
+    let c = (pre + cur) % (1e9 + 7);
+    pre = cur;
+    cur = c;
+  }
+  return cur;
 };
 ```
-
-
 
 ### **Go**
 
@@ -97,10 +100,6 @@ func fib(n int) int {
     return a[n]
 }
 ```
-
-
-
-
 
 ### **...**
 

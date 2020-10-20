@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1236.Web%20Crawler/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个链接 <code>startUrl</code> 和一个接口 <code>HtmlParser</code> ，请你实现一个网络爬虫，以实现爬取同 <code>startUrl</code> 拥有相同 <strong>域名标签 </strong>的全部链接。该爬虫得到的全部链接可以 <strong>任何顺序 </strong>返回结果。</p>
 
@@ -82,15 +83,14 @@ startUrl = "http://news.google.com"
 	<li>你可以假定url库中不包含重复项。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -98,6 +98,7 @@ startUrl = "http://news.google.com"
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -105,6 +106,7 @@ startUrl = "http://news.google.com"
 ```
 
 ### **...**
+
 ```
 
 ```

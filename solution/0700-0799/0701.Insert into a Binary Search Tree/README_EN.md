@@ -3,17 +3,12 @@
 [中文文档](/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
 <p>Given the root node of a binary search tree (BST) and a value to be inserted into the tree,&nbsp;insert the value into the BST. Return the root node of the BST after the insertion. It is guaranteed that the new value does not exist in the original BST.</p>
-
-
 
 <p>Note that there may exist&nbsp;multiple valid ways for the&nbsp;insertion, as long as the tree remains a BST after insertion. You can return any of them.</p>
 
-
-
 <p>For example,&nbsp;</p>
-
-
 
 <pre>
 
@@ -33,11 +28,7 @@ And the value to insert: 5
 
 </pre>
 
-
-
 <p>You can return this binary search tree:</p>
-
-
 
 <pre>
 
@@ -53,11 +44,7 @@ And the value to insert: 5
 
 </pre>
 
-
-
 <p>This tree is also valid:</p>
-
-
 
 <pre>
 
@@ -77,11 +64,7 @@ And the value to insert: 5
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -98,6 +81,7 @@ And the value to insert: 5
 ```
 
 ### **...**
+
 ```
 
 ```

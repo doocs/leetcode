@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0161.One%20Edit%20Distance/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定两个字符串&nbsp;<strong><em>s </em></strong>和<strong><em> t</em></strong>，判断他们的编辑距离是否为 1。</p>
 
@@ -35,15 +36,14 @@
 <strong>输出: </strong>true
 <strong>解释: </strong>可以将字符串 <strong><em>s</em></strong>&nbsp;中的 &#39;0&#39; 替换为 &#39;1&#39; 来得到 <em><strong>t</strong></em>。</pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

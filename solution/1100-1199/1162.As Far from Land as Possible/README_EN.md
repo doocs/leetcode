@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README.md)
 
 ## Description
+
 <p>Given an N x N <code>grid</code>&nbsp;containing only values <code>0</code> and <code>1</code>, where&nbsp;<code>0</code> represents water&nbsp;and <code>1</code> represents land, find a water cell such that its distance to the nearest land cell is maximized and return the distance.</p>
 
 <p>The distance used in this problem is the <em>Manhattan distance</em>:&nbsp;the distance between two cells <code>(x0, y0)</code> and <code>(x1, y1)</code> is <code>|x0 - x1| + |y0 - y1|</code>.</p>
@@ -42,10 +43,7 @@ The cell (2, 2) is as far as possible from all the land with distance 4.
 	<li><span><code>grid[i][j]</code>&nbsp;is <code>0</code> or <code>1</code></span></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +60,7 @@ The cell (2, 2) is as far as possible from all the land with distance 4.
 ```
 
 ### **...**
+
 ```
 
 ```

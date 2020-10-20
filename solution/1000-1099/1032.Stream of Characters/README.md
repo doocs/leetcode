@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1032.Stream%20of%20Characters/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>按下述要求实现 <code>StreamChecker</code> 类：</p>
 
@@ -41,15 +42,14 @@ streamChecker.query(&#39;l&#39;);          // 返回 true，因为 &#39;kl&#39; 
 	<li>待查项最多 40000 个。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -57,6 +57,7 @@ streamChecker.query(&#39;l&#39;);          // 返回 true，因为 &#39;kl&#39; 
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -64,6 +65,7 @@ streamChecker.query(&#39;l&#39;);          // 返回 true，因为 &#39;kl&#39; 
 ```
 
 ### **...**
+
 ```
 
 ```

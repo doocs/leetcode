@@ -3,17 +3,12 @@
 [中文文档](/solution/0700-0799/0769.Max%20Chunks%20To%20Make%20Sorted/README.md)
 
 ## Description
+
 <p>Given an array <code>arr</code> that is a permutation of <code>[0, 1, ..., arr.length - 1]</code>, we split the array into some number of &quot;chunks&quot; (partitions), and individually sort each chunk.&nbsp; After concatenating them,&nbsp;the result equals the sorted array.</p>
-
-
 
 <p>What is the most number of chunks we could have made?</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,11 +24,7 @@ For example, splitting into [4, 3], [2, 1, 0] will result in [3, 4, 0, 1, 2], wh
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -49,29 +40,19 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 
-	<li><code>arr</code> will have length in range <code>[1, 10]</code>.</li>
+    <li><code>arr</code> will have length in range <code>[1, 10]</code>.</li>
 
-	<li><code>arr[i]</code> will be a permutation of <code>[0, 1, ..., arr.length - 1]</code>.</li>
+    <li><code>arr[i]</code> will be a permutation of <code>[0, 1, ..., arr.length - 1]</code>.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +69,7 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 ```
 
 ### **...**
+
 ```
 
 ```

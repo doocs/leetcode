@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0861.Score%20After%20Flipping%20Matrix/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有一个二维矩阵&nbsp;<code>A</code> 其中每个元素的值为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>&nbsp;。</p>
 
@@ -35,15 +36,14 @@
 	<li><code>A[i][j]</code>&nbsp;是&nbsp;<code>0</code> 或&nbsp;<code>1</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

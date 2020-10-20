@@ -3,6 +3,7 @@
 [English Version](/solution/0000-0099/0072.Edit%20Distance/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定两个单词&nbsp;<em>word1</em> 和&nbsp;<em>word2</em>，计算出将&nbsp;<em>word1</em>&nbsp;转换成&nbsp;<em>word2 </em>所使用的最少操作数&nbsp;。</p>
 
@@ -36,15 +37,14 @@ exention -&gt; exection (将 &#39;n&#39; 替换为 &#39;c&#39;)
 exection -&gt; execution (插入 &#39;u&#39;)
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -52,6 +52,7 @@ exection -&gt; execution (插入 &#39;u&#39;)
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -59,6 +60,7 @@ exection -&gt; execution (插入 &#39;u&#39;)
 ```
 
 ### **...**
+
 ```
 
 ```

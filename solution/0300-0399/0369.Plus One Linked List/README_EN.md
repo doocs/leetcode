@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0369.Plus%20One%20Linked%20List/README.md)
 
 ## Description
+
 <p>Given a non-negative integer represented as <b>non-empty</b> a singly linked list of digits, plus one to the integer.</p>
 
 <p>You may assume the integer do not contain any leading zero, except the number 0 itself.</p>
@@ -18,10 +19,7 @@
 </pre>
 </div>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -38,6 +36,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

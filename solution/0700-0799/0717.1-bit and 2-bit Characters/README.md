@@ -1,8 +1,9 @@
-# [717. 1比特与2比特字符](https://leetcode-cn.com/problems/1-bit-and-2-bit-characters)
+# [717. 1 比特与 2 比特字符](https://leetcode-cn.com/problems/1-bit-and-2-bit-characters)
 
 [English Version](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有两种特殊字符。第一种字符可以用一比特<code>0</code>来表示。第二种字符可以用两比特(<code>10</code>&nbsp;或&nbsp;<code>11</code>)来表示。</p>
 
@@ -35,15 +36,14 @@ bits = [1, 1, 1, 0]
 	<li><code>bits[i]</code> 总是<code>0</code> 或&nbsp;<code>1</code>.</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@ bits = [1, 1, 1, 0]
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@ bits = [1, 1, 1, 0]
 ```
 
 ### **...**
+
 ```
 
 ```

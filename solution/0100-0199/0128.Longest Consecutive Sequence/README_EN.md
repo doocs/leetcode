@@ -3,17 +3,12 @@
 [中文文档](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README.md)
 
 ## Description
+
 <p>Given an unsorted array of integers, find the length of the longest consecutive elements sequence.</p>
-
-
 
 <p>Your algorithm should run in O(<em>n</em>) complexity.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +37,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一个社交圈子当中，有 <code>N</code> 个人。每个人都有一个从 <code>0</code> 到 <code>N-1</code> 唯一的 id 编号。</p>
 
@@ -43,15 +44,14 @@
 	<li><code>logs[i][1] != logs[i][2]</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -59,6 +59,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -66,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

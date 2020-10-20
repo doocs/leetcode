@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0481.Magical%20String/README.md)
 
 ## Description
+
 <p>
 
 A magical string <b>S</b> consists of only '1' and '2' and obeys the following rules:
@@ -15,8 +16,6 @@ The string <b>S</b> is magical because concatenating the number of contiguous oc
 
 </p>
 
-
-
 <p>
 
 The first few elements of string <b>S</b> is the following:
@@ -24,8 +23,6 @@ The first few elements of string <b>S</b> is the following:
 <b>S</b> = "1221121221221121122……"
 
 </p>
-
-
 
 <p>
 
@@ -35,7 +32,7 @@ If we group the consecutive '1's and '2's in <b>S</b>, it will be:
 
 <p>
 
-1   22  11  2  1  22  1  22  11  2  11  22 ......
+1 22 11 2 1 22 1 22 11 2 11 22 ......
 
 </p>
 
@@ -47,19 +44,15 @@ and the occurrences of '1's or '2's in each group are:
 
 <p>
 
-1   2	   2    1   1    2     1    2     2    1    2    2 ......
+1 2 2 1 1 2 1 2 2 1 2 2 ......
 
 </p>
-
-
 
 <p>
 
-You can see that the occurrence sequence above is the <b>S</b> itself. 
+You can see that the occurrence sequence above is the <b>S</b> itself.
 
 </p>
-
-
 
 <p>
 
@@ -67,17 +60,11 @@ Given an integer N as input, return the number of '1's in the first N number in 
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 N will not exceed 100,000.
 
 </p>
-
-
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -93,9 +80,7 @@ N will not exceed 100,000.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -112,6 +97,7 @@ N will not exceed 100,000.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,7 +3,9 @@
 [中文文档](/solution/1200-1299/1295.Find%20Numbers%20with%20Even%20Number%20of%20Digits/README.md)
 
 ## Description
+
 Given an array <code>nums</code> of integers, return how many of them contain an <strong>even number</strong> of digits.
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -36,10 +38,7 @@ Only 1771 contains an even number of digits.
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -69,6 +68,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

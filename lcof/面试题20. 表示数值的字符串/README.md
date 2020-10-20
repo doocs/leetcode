@@ -1,13 +1,17 @@
-# [面试题20. 表示数值的字符串](https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/)
+# [面试题 20. 表示数值的字符串](https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串"+100"、"5e2"、"-123"、"3.1416"、"0123"及"-1E-16"都表示数值，但"12e"、"1a3.14"、"1.2.3"、"+-5"及"12e+5.4"都不是。
 
 注意：本题与主站 65 题相同：https://leetcode-cn.com/problems/valid-number/
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 遍历字符串：
 
 - 出现 `+`/`-` 时，位置必须是在第 0 位，或者 `e`/`E` 的后面一位
@@ -17,6 +21,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -47,6 +52,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -87,17 +93,19 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {string} s
  * @return {boolean}
  */
-var isNumber = function(s) {
-    return s !== ' ' && !isNaN(+s)
+var isNumber = function (s) {
+  return s !== " " && !isNaN(+s);
 };
 ```
 
 ### **...**
+
 ```
 
 ```

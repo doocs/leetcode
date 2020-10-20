@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1195.Fizz%20Buzz%20Multithreaded/README.md)
 
 ## Description
+
 <p>Write a program that outputs the string representation of numbers from 1 to&nbsp;<i>n</i>, however:</p>
 
 <ul>
@@ -33,10 +34,7 @@ class FizzBuzz {
 	<li>Thread D will call <code>number()</code> which should only output the numbers.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +51,7 @@ class FizzBuzz {
 ```
 
 ### **...**
+
 ```
 
 ```

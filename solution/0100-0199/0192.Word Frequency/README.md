@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0192.Word%20Frequency/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>写一个 bash 脚本以统计一个文本文件&nbsp;<code>words.txt</code>&nbsp;中每个单词出现的频率。</p>
 
@@ -37,15 +38,14 @@ day 1
 	<li>你可以使用一行&nbsp;<a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-4.html">Unix pipes</a>&nbsp;实现吗？</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -53,6 +53,7 @@ day 1
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,6 +61,7 @@ day 1
 ```
 
 ### **...**
+
 ```
 
 ```

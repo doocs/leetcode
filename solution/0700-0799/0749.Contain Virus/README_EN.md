@@ -3,13 +3,14 @@
 [中文文档](/solution/0700-0799/0749.Contain%20Virus/README.md)
 
 ## Description
+
 <p>
 
 A virus is spreading rapidly, and your task is to quarantine the infected area by installing walls.
 
 </p><p>
 
-The world is modeled as a 2-D array of cells, where <code>0</code> represents uninfected cells, and <code>1</code> represents cells contaminated with the virus.  A wall (and only one wall) can be installed <b>between any two 4-directionally adjacent cells</b>, on the shared boundary.
+The world is modeled as a 2-D array of cells, where <code>0</code> represents uninfected cells, and <code>1</code> represents cells contaminated with the virus. A wall (and only one wall) can be installed <b>between any two 4-directionally adjacent cells</b>, on the shared boundary.
 
 </p><p>
 
@@ -22,8 +23,6 @@ Resources are limited. Each day, you can install walls around only one region --
 Can you save the day? If so, what is the number of walls required? If not, and the world becomes fully infected, return the number of walls used.
 
 </p><p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -65,8 +64,6 @@ On the second day, add 5 walls to quarantine the viral region on the right. The 
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -89,8 +86,6 @@ Notice that walls are only built on the shared boundary of two different cells.
 
 </p>
 
-
-
 <p><b>Example 3:</b><br />
 
 <pre>
@@ -111,8 +106,6 @@ Notice that walls are only built on the shared boundary of two different cells.
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -127,9 +120,7 @@ Notice that walls are only built on the shared boundary of two different cells.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -146,6 +137,7 @@ Notice that walls are only built on the shared boundary of two different cells.
 ```
 
 ### **...**
+
 ```
 
 ```

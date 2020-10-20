@@ -3,21 +3,14 @@
 [中文文档](/solution/1000-1099/1078.Occurrences%20After%20Bigram/README.md)
 
 ## Description
+
 <p>Given words <code>first</code> and <code>second</code>, consider occurrences in some&nbsp;<code>text</code> of the form &quot;<code>first second third</code>&quot;, where <code>second</code> comes immediately after <code>first</code>, and <code>third</code> comes immediately after <code>second</code>.</p>
-
-
 
 <p>For each such occurrence, add &quot;<code>third</code>&quot; to the answer, and return the answer.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -43,35 +32,25 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= text.length &lt;= 1000</code></li>
+    <li><code>1 &lt;= text.length &lt;= 1000</code></li>
 
-	<li><code>text</code> consists of space separated words, where each word consists of lowercase English letters.</li>
+    <li><code>text</code> consists of space separated words, where each word consists of lowercase English letters.</li>
 
-	<li><code>1 &lt;= first.length, second.length &lt;= 10</code></li>
+    <li><code>1 &lt;= first.length, second.length &lt;= 10</code></li>
 
-	<li><code>first</code> and <code>second</code> consist of lowercase English letters.</li>
+    <li><code>first</code> and <code>second</code> consist of lowercase English letters.</li>
 
 </ol>
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

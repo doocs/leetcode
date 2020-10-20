@@ -1,7 +1,9 @@
-# [面试题67. 把字符串转换成整数](https://leetcode-cn.com/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/)
+# [面试题 67. 把字符串转换成整数](https://leetcode-cn.com/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 写一个函数 StrToInt，实现把字符串转换成整数这个功能。不能使用 atoi 或者其他类似的库函数。
 
 首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。
@@ -16,16 +18,16 @@
 
 说明：
 
-假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 `[−2^31,  2^31 − 1]`。如果数值超过这个范围，请返回  `INT_MAX (2^31 − 1)` 或 `INT_MIN (−2^31)` 。
+假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为  `[−2^31, 2^31 − 1]`。如果数值超过这个范围，请返回  `INT_MAX (2^31 − 1)` 或  `INT_MIN (−2^31)` 。
 
-**示例 1:**
+**示例  1:**
 
 ```
 输入: "42"
 输出: 42
 ```
 
-**示例 2:**
+**示例  2:**
 
 ```
 输入: "   -42"
@@ -34,7 +36,7 @@
      我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。
 ```
 
-**示例 3:**
+**示例  3:**
 
 ```
 输入: "4193 with words"
@@ -42,7 +44,7 @@
 解释: 转换截止于数字 '3' ，因为它的下一个字符不为数字。
 ```
 
-**示例 4:**
+**示例  4:**
 
 ```
 输入: "words and 987"
@@ -51,23 +53,25 @@
      因此无法执行有效的转换。
 ```
 
-**示例 5:**
+**示例  5:**
 
 ```
 输入: "-91283472332"
 输出: -2147483648
-解释: 数字 "-91283472332" 超过 32 位有符号整数范围。 
+解释: 数字 "-91283472332" 超过 32 位有符号整数范围。
      因此返回 INT_MIN (−2^31) 。
 ```
 
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
-遍历字符串，注意做溢出处理。
 
+<!-- 这里可写通用的实现逻辑 -->
+
+遍历字符串，注意做溢出处理。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -89,6 +93,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -122,35 +127,36 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {string} str
  * @return {number}
  */
-var strToInt = function(str) {
-    let res = ''
-    let l = 1
-    for(let i=0;i<str.length;i++) {
-        if(l && str[i] === ' ') continue
-        if(l && (str[i] === '+' || str[i] === '-')) {
-            l = 0
-            res += str[i]
-            continue
-        }
-        if(str[i].match(/[0-9]/)) {
-            l = 0
-            res += str[i]
-        }
-        else break
+var strToInt = function (str) {
+  let res = "";
+  let l = 1;
+  for (let i = 0; i < str.length; i++) {
+    if (l && str[i] === " ") continue;
+    if (l && (str[i] === "+" || str[i] === "-")) {
+      l = 0;
+      res += str[i];
+      continue;
     }
-    res = isNaN(+res) ? 0 : +res
-    if(res > 2147483647) return 2147483647
-    if(res < -2147483648) return -2147483648
-    return res
+    if (str[i].match(/[0-9]/)) {
+      l = 0;
+      res += str[i];
+    } else break;
+  }
+  res = isNaN(+res) ? 0 : +res;
+  if (res > 2147483647) return 2147483647;
+  if (res < -2147483648) return -2147483648;
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

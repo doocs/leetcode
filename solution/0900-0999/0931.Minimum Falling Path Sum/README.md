@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个<strong>方形</strong>整数数组&nbsp;<code>A</code>，我们想要得到通过 <code>A</code> 的<em>下降路径</em>的<strong>最小</strong>和。</p>
 
@@ -35,15 +36,14 @@
 	<li><code>-100 &lt;= A[i][j] &lt;= 100</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

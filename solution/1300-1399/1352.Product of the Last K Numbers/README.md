@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>请你实现一个「数字乘积类」<code>ProductOfNumbers</code>，要求支持下述两种方法：</p>
 
@@ -56,15 +57,14 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 	<li><code>1 &lt;= k &lt;= 40000</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -72,6 +72,7 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -79,6 +80,7 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 ```
 
 ### **...**
+
 ```
 
 ```

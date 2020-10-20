@@ -3,19 +3,14 @@
 [中文文档](/solution/1300-1399/1358.Number%20of%20Substrings%20Containing%20All%20Three%20Characters/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code>&nbsp;consisting only of characters <em>a</em>, <em>b</em> and <em>c</em>.</p>
 
-
-
 <p>Return the number of substrings containing <b>at least</b>&nbsp;one occurrence of all these characters <em>a</em>, <em>b</em> and <em>c</em>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -57,25 +44,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>3 &lt;= s.length &lt;= 5 x 10^4</code></li>
+    <li><code>3 &lt;= s.length &lt;= 5 x 10^4</code></li>
 
-	<li><code>s</code>&nbsp;only consists of&nbsp;<em>a</em>, <em>b</em> or <em>c&nbsp;</em>characters.</li>
+    <li><code>s</code>&nbsp;only consists of&nbsp;<em>a</em>, <em>b</em> or <em>c&nbsp;</em>characters.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +73,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

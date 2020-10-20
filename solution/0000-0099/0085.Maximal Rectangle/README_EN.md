@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0085.Maximal%20Rectangle/README.md)
 
 ## Description
+
 <p>Given a 2D binary matrix filled with 0&#39;s and 1&#39;s, find the largest rectangle containing only 1&#39;s and return its area.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +28,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

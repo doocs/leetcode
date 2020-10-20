@@ -3,11 +3,10 @@
 [中文文档](/solution/0600-0699/0664.Strange%20Printer/README.md)
 
 ## Description
+
 <p>
 
 There is a strange printer with the following two special requirements:
-
-
 
 <ol>
 
@@ -17,19 +16,13 @@ There is a strange printer with the following two special requirements:
 
 </ol>
 
-
-
 </p>
-
-
 
 <p>
 
 Given a string consists of lower English letters only, your job is to count the minimum number of turns the printer needed in order to print it.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -45,8 +38,6 @@ Given a string consists of lower English letters only, your job is to count the 
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -61,13 +52,9 @@ Given a string consists of lower English letters only, your job is to count the 
 
 </p>
 
-
-
 <p><b>Hint</b>: Length of the given string will not exceed 100.</p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +71,7 @@ Given a string consists of lower English letters only, your job is to count the 
 ```
 
 ### **...**
+
 ```
 
 ```

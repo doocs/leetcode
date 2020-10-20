@@ -3,39 +3,26 @@
 [中文文档](/solution/0400-0499/0474.Ones%20and%20Zeroes/README.md)
 
 ## Description
+
 <p>In the computer world, use restricted resource you have to generate maximum benefit is what we always want to pursue.</p>
-
-
 
 <p>For now, suppose you are a dominator of <b>m</b> <code>0s</code> and <b>n</b> <code>1s</code> respectively. On the other hand, there is an array with strings consisting of only <code>0s</code> and <code>1s</code>.</p>
 
-
-
 <p>Now your task is to find the maximum number of strings that you can form with given <b>m</b> <code>0s</code> and <b>n</b> <code>1s</code>. Each <code>0</code> and <code>1</code> can be used at most <b>once</b>.</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>The given numbers of <code>0s</code> and <code>1s</code> will both not exceed <code>100</code></li>
+    <li>The given numbers of <code>0s</code> and <code>1s</code> will both not exceed <code>100</code></li>
 
-	<li>The size of given string array won&#39;t exceed <code>600</code>.</li>
+    <li>The size of given string array won&#39;t exceed <code>600</code>.</li>
 
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -49,15 +36,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -71,15 +52,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

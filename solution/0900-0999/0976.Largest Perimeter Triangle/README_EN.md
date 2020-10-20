@@ -3,29 +3,20 @@
 [中文文档](/solution/0900-0999/0976.Largest%20Perimeter%20Triangle/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of positive lengths, return the largest perimeter of a triangle with <strong>non-zero area</strong>, formed from 3 of these lengths.</p>
-
-
 
 <p>If it is impossible to form any&nbsp;triangle of non-zero area, return <code>0</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,13 +38,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,13 +50,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -83,21 +62,15 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>3 &lt;= A.length &lt;= 10000</code></li>
+    <li><code>3 &lt;= A.length &lt;= 10000</code></li>
 
-	<li><code>1 &lt;= A[i] &lt;= 10^6</code></li>
+    <li><code>1 &lt;= A[i] &lt;= 10^6</code></li>
 
 </ol>
 
@@ -109,9 +82,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -128,6 +99,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

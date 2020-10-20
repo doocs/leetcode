@@ -52,15 +52,11 @@
 	</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 class Solution:
@@ -78,7 +74,6 @@ class Solution:
 ```
 
 ### **Java**
-
 
 ```java
 class Solution {
@@ -103,6 +98,7 @@ class Solution {
 ```
 
 ### **Go**
+
 ```go
 func modifyString(s string) string {
 	data := []byte(" " + s + " ")

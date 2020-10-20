@@ -3,13 +3,10 @@
 [中文文档](/solution/1200-1299/1299.Replace%20Elements%20with%20Greatest%20Element%20on%20Right%20Side/README.md)
 
 ## Description
+
 <p>Given an array <code>arr</code>,&nbsp;replace every element in that array with the greatest element among the elements to its&nbsp;right, and replace the last element with <code>-1</code>.</p>
 
-
-
 <p>After doing so, return the array.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -25,19 +22,15 @@
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= arr.length &lt;= 10^4</code></li>
+    <li><code>1 &lt;= arr.length &lt;= 10^4</code></li>
 
-	<li><code>1 &lt;= arr[i] &lt;= 10^5</code></li>
+    <li><code>1 &lt;= arr[i] &lt;= 10^5</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

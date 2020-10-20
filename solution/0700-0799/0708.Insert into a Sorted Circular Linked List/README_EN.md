@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/README.md)
 
 ## Description
+
 <p>Given a node from a <strong>Circular Linked List</strong> which is sorted in ascending order, write a function to insert a value <code>insertVal</code> into the list such that it remains a sorted circular list. The given node can be a reference to <em>any</em> single node in the list, and may not be necessarily the smallest value in the circular list.</p>
 
 <p>If there are multiple suitable places for insertion, you may choose any place to insert the new value. After the insertion, the circular list should remain sorted.</p>
@@ -46,10 +47,7 @@
 	<li><code>-10^6 <= insertVal <= 10^6</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +64,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

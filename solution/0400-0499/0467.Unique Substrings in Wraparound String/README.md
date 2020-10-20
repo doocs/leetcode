@@ -3,6 +3,7 @@
 [English Version](/solution/0400-0499/0467.Unique%20Substrings%20in%20Wraparound%20String/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>把字符串 <code>s</code> 看作是&ldquo;abcdefghijklmnopqrstuvwxyz&rdquo;的无限环绕字符串，所以&nbsp;<code>s</code> 看起来是这样的：&quot;...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....&quot;.&nbsp;</p>
 
@@ -42,15 +43,14 @@
 
 <p>&nbsp;</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

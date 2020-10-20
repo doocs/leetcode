@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0258.Add%20Digits/README.md)
 
 ## Description
+
 <p>Given a non-negative integer <code>num</code>, repeatedly add all its digits until the result has only one digit.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -23,15 +20,11 @@
 
 </pre>
 
-
-
 <p><b>Follow up:</b><br />
 
 Could you do it without any loop/recursion in O(1) runtime?</p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -48,6 +41,7 @@ Could you do it without any loop/recursion in O(1) runtime?</p>
 ```
 
 ### **...**
+
 ```
 
 ```

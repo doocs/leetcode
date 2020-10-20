@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1180.Count%20Substrings%20with%20Only%20One%20Distinct%20Letter/README.md)
 
 ## Description
+
 <p>Given a string <code>S</code>, return the number of substrings that have only <strong>one distinct</strong> letter.</p>
 
 <p> </p>
@@ -34,10 +35,7 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 	<li><code>S[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +52,7 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 ```
 
 ### **...**
+
 ```
 
 ```

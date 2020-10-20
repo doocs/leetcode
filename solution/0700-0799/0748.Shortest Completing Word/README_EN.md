@@ -3,25 +3,24 @@
 [中文文档](/solution/0700-0799/0748.Shortest%20Completing%20Word/README.md)
 
 ## Description
+
 <p>
 
-Find the minimum length word from a given dictionary <code>words</code>, which has all the letters from the string <code>licensePlate</code>.  Such a word is said to <i>complete</i> the given string <code>licensePlate</code>
+Find the minimum length word from a given dictionary <code>words</code>, which has all the letters from the string <code>licensePlate</code>. Such a word is said to <i>complete</i> the given string <code>licensePlate</code>
 
 </p><p>
 
-Here, for letters we ignore case.  For example, <code>"P"</code> on the <code>licensePlate</code> still matches <code>"p"</code> on the word.
+Here, for letters we ignore case. For example, <code>"P"</code> on the <code>licensePlate</code> still matches <code>"p"</code> on the word.
 
 </p><p>
 
-It is guaranteed an answer exists.  If there are multiple answers, return the one that occurs first in the array.
+It is guaranteed an answer exists. If there are multiple answers, return the one that occurs first in the array.
 
 </p><p>
 
-The license plate might have the same letter occurring multiple times.  For example, given a <code>licensePlate</code> of <code>"PP"</code>, the word <code>"pair"</code> does not complete the <code>licensePlate</code>, but the word <code>"supper"</code> does.
+The license plate might have the same letter occurring multiple times. For example, given a <code>licensePlate</code> of <code>"PP"</code>, the word <code>"pair"</code> does not complete the <code>licensePlate</code>, but the word <code>"supper"</code> does.
 
 </p><p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -41,8 +40,6 @@ Also note that we ignored case for the purposes of comparing whether a letter ex
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -58,8 +55,6 @@ We return the one that occurred first.
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 
@@ -77,9 +72,7 @@ We return the one that occurred first.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +89,7 @@ We return the one that occurred first.
 ```
 
 ### **...**
+
 ```
 
 ```

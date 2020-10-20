@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20Read4%20II%20-%20Call%20multiple%20times/README.md)
 
 ## Description
+
 <p>Given a file and assume that you can only read the file using a given method&nbsp;<code>read4</code>, implement a method <code>read</code> to read <em>n</em> characters. <strong>Your method <code>read</code> may be called multiple times.</strong></p>
 
 <p>&nbsp;</p>
@@ -87,10 +88,7 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 	<li>It is guaranteed that in a given test case the same buffer <code>buf</code> is called by <code>read</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -107,6 +105,7 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定正整数数组&nbsp;<code>A</code>，<code>A[i]</code>&nbsp;表示第 <code>i</code> 个观光景点的评分，并且两个景点&nbsp;<code>i</code> 和&nbsp;<code>j</code>&nbsp;之间的距离为&nbsp;<code>j - i</code>。</p>
 
@@ -28,15 +29,14 @@
 	<li><code>1 &lt;= A[i] &lt;= 1000</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +44,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -51,6 +52,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

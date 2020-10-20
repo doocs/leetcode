@@ -3,17 +3,12 @@
 [中文文档](/solution/0100-0199/0131.Palindrome%20Partitioning/README.md)
 
 ## Description
+
 <p>Given a string <em>s</em>, partition <em>s</em> such that every substring of the partition is a palindrome.</p>
-
-
 
 <p>Return all possible palindrome partitioning of <em>s</em>.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +26,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,27 +3,18 @@
 [中文文档](/solution/1300-1399/1366.Rank%20Teams%20by%20Votes/README.md)
 
 ## Description
+
 <p>In a special ranking system,&nbsp;each voter gives a rank from highest to lowest to all teams participated in the competition.</p>
-
-
 
 <p>The ordering of teams is decided by who received the most position-one votes. If two or more teams tie in the first position, we consider the second position to resolve the conflict, if they tie again, we continue this process until the ties are resolved. If two or more teams are still tied after considering all positions, we rank them alphabetically based on their team letter.</p>
 
-
-
 <p>Given an array of strings <code>votes</code> which is the votes of all voters in the ranking systems. Sort all teams according to the ranking system described above.</p>
 
-
-
 <p>Return <em>a string of all teams</em> <strong>sorted</strong> by the ranking system.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +32,7 @@ As most of the voters ranked C second, team C is the second team and team B is t
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -57,11 +44,7 @@ As most of the voters ranked C second, team C is the second team and team B is t
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -73,11 +56,7 @@ As most of the voters ranked C second, team C is the second team and team B is t
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -97,11 +76,7 @@ There is a tie and we rank teams ascending by their IDs.
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -113,33 +88,27 @@ There is a tie and we rank teams ascending by their IDs.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= votes.length &lt;= 1000</code></li>
+    <li><code>1 &lt;= votes.length &lt;= 1000</code></li>
 
-	<li><code>1 &lt;= votes[i].length &lt;= 26</code></li>
+    <li><code>1 &lt;= votes[i].length &lt;= 26</code></li>
 
-	<li><code>votes[i].length ==&nbsp;votes[j].length</code> for&nbsp;<code>0 &lt;= i, j &lt; votes.length</code>.</li>
+    <li><code>votes[i].length ==&nbsp;votes[j].length</code> for&nbsp;<code>0 &lt;= i, j &lt; votes.length</code>.</li>
 
-	<li><code>votes[i][j]</code> is an English <strong>upper-case</strong> letter.</li>
+    <li><code>votes[i][j]</code> is an English <strong>upper-case</strong> letter.</li>
 
-	<li>All characters of <code>votes[i]</code> are unique.</li>
+    <li>All characters of <code>votes[i]</code> are unique.</li>
 
-	<li>All the characters&nbsp;that occur&nbsp;in <code>votes[0]</code> <strong>also&nbsp;occur</strong>&nbsp;in <code>votes[j]</code> where <code>1 &lt;= j &lt; votes.length</code>.</li>
+    <li>All the characters&nbsp;that occur&nbsp;in <code>votes[0]</code> <strong>also&nbsp;occur</strong>&nbsp;in <code>votes[j]</code> where <code>1 &lt;= j &lt; votes.length</code>.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -156,6 +125,7 @@ There is a tie and we rank teams ascending by their IDs.
 ```
 
 ### **...**
+
 ```
 
 ```

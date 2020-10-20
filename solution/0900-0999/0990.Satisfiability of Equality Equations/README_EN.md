@@ -3,29 +3,20 @@
 [中文文档](/solution/0900-0999/0990.Satisfiability%20of%20Equality%20Equations/README.md)
 
 ## Description
+
 <p>Given an array <font face="monospace">equations</font>&nbsp;of strings that represent relationships between variables, each string <code>equations[i]</code>&nbsp;has length <code>4</code> and takes one of two different forms: <code>&quot;a==b&quot;</code> or <code>&quot;a!=b&quot;</code>.&nbsp; Here, <code>a</code> and <code>b</code> are lowercase letters (not necessarily different) that represent one-letter variable names.</p>
-
-
 
 <p>Return <code>true</code>&nbsp;if and only if it is possible to assign integers to variable names&nbsp;so as to satisfy all the given equations.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -37,13 +28,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,13 +42,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -71,13 +54,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -87,13 +66,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -103,27 +78,21 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= equations.length &lt;= 500</code></li>
+    <li><code>1 &lt;= equations.length &lt;= 500</code></li>
 
-	<li><code>equations[i].length == 4</code></li>
+    <li><code>equations[i].length == 4</code></li>
 
-	<li><code>equations[i][0]</code> and <code>equations[i][3]</code> are lowercase letters</li>
+    <li><code>equations[i][0]</code> and <code>equations[i][3]</code> are lowercase letters</li>
 
-	<li><code>equations[i][1]</code> is either <code>&#39;=&#39;</code> or <code>&#39;!&#39;</code></li>
+    <li><code>equations[i][1]</code> is either <code>&#39;=&#39;</code> or <code>&#39;!&#39;</code></li>
 
-	<li><code>equations[i][2]</code> is&nbsp;<code>&#39;=&#39;</code></li>
+    <li><code>equations[i][2]</code> is&nbsp;<code>&#39;=&#39;</code></li>
 
 </ol>
 
@@ -137,11 +106,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -158,6 +123,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

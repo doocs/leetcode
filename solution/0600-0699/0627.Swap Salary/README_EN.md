@@ -3,21 +3,14 @@
 [中文文档](/solution/0600-0699/0627.Swap%20Salary/README.md)
 
 ## Description
+
 <p>Given a table <code>salary</code>, such as the one below, that has m=male and f=female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a <strong>single update statement</strong> and no intermediate temp table.</p>
-
-
 
 <p>Note that you must write a single update statement, <strong>DO NOT</strong> write any select statement for this problem.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -37,8 +30,6 @@
 
 After running your <strong>update</strong> statement, the above salary table should have the following rows:
 
-
-
 <pre>
 
 | id | name | sex | salary |
@@ -55,11 +46,7 @@ After running your <strong>update</strong> statement, the above salary table sho
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

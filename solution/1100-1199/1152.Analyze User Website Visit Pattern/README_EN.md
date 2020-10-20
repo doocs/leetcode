@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1152.Analyze%20User%20Website%20Visit%20Pattern/README.md)
 
 ## Description
+
 <p>We are given some website visits: the user with name <code>username[i]</code> visited the website <code>website[i]</code> at time <code>timestamp[i]</code>.</p>
 
 <p>A <em>3-sequence</em> is a list of websites of length 3 sorted in ascending order by the time of their visits.  (The websites in a 3-sequence are not necessarily distinct.)</p>
@@ -49,10 +50,7 @@ The 3-sequence ("cart", "maps", "home") was visited at least once by 1 user.
 	<li>No user visits two websites at the same time.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -69,6 +67,7 @@ The 3-sequence ("cart", "maps", "home") was visited at least once by 1 user.
 ```
 
 ### **...**
+
 ```
 
 ```

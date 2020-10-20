@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0881.Boats%20to%20Save%20People/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>第&nbsp;<code>i</code>&nbsp;个人的体重为&nbsp;<code>people[i]</code>，每艘船可以承载的最大重量为&nbsp;<code>limit</code>。</p>
 
@@ -39,15 +40,14 @@
 	<li><code>1 &lt;= people[i] &lt;=&nbsp;limit &lt;= 30000</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -55,6 +55,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -62,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

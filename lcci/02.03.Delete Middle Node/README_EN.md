@@ -3,17 +3,12 @@
 [中文文档](/lcci/02.03.Delete%20Middle%20Node/README.md)
 
 ## Description
+
 <p>Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +61,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

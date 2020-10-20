@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1058.Minimize%20Rounding%20Error%20to%20Meet%20Target/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一系列价格 <code>[p<sub>1</sub>,p<sub>2</sub>...,p<sub>n</sub>]</code> 和一个目标 <code>target</code>，将每个价格 <code>p<sub>i</sub></code> 舍入为 <code>Round<sub>i</sub>(p<sub>i</sub>)</code> 以使得舍入数组 <code>[Round<sub>1</sub>(p<sub>1</sub>),Round<sub>2</sub>(p<sub>2</sub>)...,Round<sub>n</sub>(p<sub>n</sub>)]</code> 之和达到给定的目标值 <code>target</code>。每次舍入操作 <code>Round<sub>i</sub>(p<sub>i</sub>)</code> 可以是向下舍 <code>Floor(p<sub>i</sub>)</code> 也可以是向上入 <code>Ceil(p<sub>i</sub>)</code>。</p>
 
@@ -35,15 +36,14 @@
 	<li><code>target</code> 介于 0 和 1000000 之间。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

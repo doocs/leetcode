@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README.md)
 
 ## Description
+
 <p>Given a string <code>S</code>, remove the vowels <code>'a'</code>, <code>'e'</code>, <code>'i'</code>, <code>'o'</code>, and <code>'u'</code> from it, and return the new string.</p>
 
 <p> </p>
@@ -30,10 +31,7 @@
 	<li><code>1 <= S.length <= 1000</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +48,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

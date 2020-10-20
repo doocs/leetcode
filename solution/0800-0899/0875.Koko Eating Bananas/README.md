@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0875.Koko%20Eating%20Bananas/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>珂珂喜欢吃香蕉。这里有&nbsp;<code>N</code>&nbsp;堆香蕉，第 <code>i</code> 堆中有&nbsp;<code>piles[i]</code>&nbsp;根香蕉。警卫已经离开了，将在&nbsp;<code>H</code>&nbsp;小时后回来。</p>
 
@@ -45,15 +46,14 @@
 	<li><code>1 &lt;= piles[i] &lt;= 10^9</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -61,6 +61,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -68,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0521.Longest%20Uncommon%20Subsequence%20I/README.md)
 
 ## Description
+
 <p>
 
 Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings.
@@ -11,23 +12,17 @@ The longest uncommon subsequence is defined as the longest subsequence of one of
 
 </p>
 
-
-
 <p>
 
 A <b>subsequence</b> is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements. Trivially, any string is a subsequence of itself and an empty string is a subsequence of any string.
 
 </p>
 
-
-
 <p>
 
 The input will be two strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn't exist, return -1.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,8 +38,6 @@ The input will be two strings, and the output needs to be the length of the long
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <ol>
@@ -57,9 +50,7 @@ The input will be two strings, and the output needs to be the length of the long
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +67,7 @@ The input will be two strings, and the output needs to be the length of the long
 ```
 
 ### **...**
+
 ```
 
 ```

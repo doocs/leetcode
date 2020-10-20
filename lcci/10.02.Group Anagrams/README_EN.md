@@ -3,17 +3,12 @@
 [中文文档](/lcci/10.02.Group%20Anagrams/README.md)
 
 ## Description
+
 <p>Write a method to sort an array of strings so that all the anagrams are in the same group.</p>
-
-
 
 <p><b>Note:&nbsp;</b>This problem is slightly different from the original one the book.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -31,22 +26,14 @@
 
 ]</pre>
 
-
-
 <p><strong>Notes: </strong></p>
-
-
 
 <ul>
 	<li>All inputs will be in lowercase.</li>
 	<li>The order of your output does not&nbsp;matter.</li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -63,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

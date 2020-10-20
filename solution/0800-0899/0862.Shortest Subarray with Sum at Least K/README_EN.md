@@ -3,29 +3,20 @@
 [中文文档](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README.md)
 
 ## Description
+
 <p>Return the <strong>length</strong> of the shortest, non-empty, contiguous&nbsp;subarray of <code>A</code> with sum at least <code>K</code>.</p>
-
-
 
 <p>If there is no non-empty subarray with sum at least <code>K</code>, return <code>-1</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,13 +38,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,23 +50,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 50000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 50000</code></li>
 
-	<li><code>-10 ^ 5&nbsp;&lt;= A[i] &lt;= 10 ^ 5</code></li>
+    <li><code>-10 ^ 5&nbsp;&lt;= A[i] &lt;= 10 ^ 5</code></li>
 
-	<li><code>1 &lt;= K &lt;= 10 ^ 9</code></li>
+    <li><code>1 &lt;= K &lt;= 10 ^ 9</code></li>
 
 </ol>
 
@@ -93,11 +70,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -114,6 +87,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

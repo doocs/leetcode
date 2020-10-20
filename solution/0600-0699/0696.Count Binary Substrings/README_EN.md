@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0696.Count%20Binary%20Substrings/README.md)
 
 ## Description
-<p>Give a string <code>s</code>, count the number of non-empty (contiguous) substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively. 
+
+<p>Give a string <code>s</code>, count the number of non-empty (contiguous) substrings that have the same number of 0's and 1's, and all the 0's and all the 1's in these substrings are grouped consecutively.
 
 </p>
 
 <p>Substrings that occur multiple times are counted the number of times they occur.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -29,8 +28,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -45,8 +42,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li><code>s.length</code> will be between 1 and 50,000.</li>
@@ -55,9 +50,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

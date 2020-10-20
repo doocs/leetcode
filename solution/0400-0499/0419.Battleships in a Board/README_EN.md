@@ -3,9 +3,8 @@
 [中文文档](/solution/0400-0499/0419.Battleships%20in%20a%20Board/README.md)
 
 ## Description
+
 Given an 2D board, count how many battleships are in it. The battleships are represented with <code>'X'</code>s, empty slots are represented with <code>'.'</code>s. You may assume the following rules:
-
-
 
 <ul>
 
@@ -16,8 +15,6 @@ Given an 2D board, count how many battleships are in it. The battleships are rep
 <li>At least one horizontal or vertical cell separates between two battleships - there are no adjacent battleships.</li>
 
 </ul>
-
-
 
 <p><b>Example:</b><br />
 
@@ -30,8 +27,6 @@ Given an 2D board, count how many battleships are in it. The battleships are rep
 </pre>
 
 In the above board there are 2 battleships.
-
-
 
 <p><b>Invalid Example:</b><br />
 
@@ -49,9 +44,7 @@ This is an invalid board that you will not receive - as battleships will always 
 
 <p><b>Follow up:</b><br>Could you do it in <b>one-pass</b>, using only <b>O(1) extra memory</b> and <b>without modifying</b> the value of the board?</p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +61,7 @@ This is an invalid board that you will not receive - as battleships will always 
 ```
 
 ### **...**
+
 ```
 
 ```

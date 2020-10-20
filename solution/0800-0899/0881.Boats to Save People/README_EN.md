@@ -3,27 +3,18 @@
 [中文文档](/solution/0800-0899/0881.Boats%20to%20Save%20People/README.md)
 
 ## Description
+
 <p>The <code>i</code>-th person has weight <code>people[i]</code>, and each boat can carry a maximum weight of <code>limit</code>.</p>
-
-
 
 <p>Each boat carries at most 2 people at the same time, provided the sum of the&nbsp;weight of those people is at most <code>limit</code>.</p>
 
-
-
 <p>Return the minimum number of boats to carry every given person.&nbsp; (It is guaranteed each person can be carried by a boat.)</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -53,13 +40,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -69,17 +52,13 @@
 
 <strong>Explanation</strong>: 4 boats (3), (3), (4), (5)</pre>
 
-
-
 <p><strong>Note</strong>:</p>
-
-
 
 <ul>
 
-	<li><code>1 &lt;=&nbsp;people.length &lt;= 50000</code></li>
+    <li><code>1 &lt;=&nbsp;people.length &lt;= 50000</code></li>
 
-	<li><code>1 &lt;= people[i] &lt;=&nbsp;limit &lt;= 30000</code></li>
+    <li><code>1 &lt;= people[i] &lt;=&nbsp;limit &lt;= 30000</code></li>
 
 </ul>
 
@@ -89,11 +68,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -110,6 +85,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

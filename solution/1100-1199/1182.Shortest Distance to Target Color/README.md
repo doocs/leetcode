@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个数组 <code>colors</code>，里面有  <code>1</code>、<code>2</code>、 <code>3</code> 三种颜色。</p>
 
@@ -44,15 +45,14 @@
 	<li><code>1 <= queries[i][1] <= 3</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -60,6 +60,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -67,6 +68,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

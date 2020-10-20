@@ -3,27 +3,20 @@
 [中文文档](/solution/0100-0199/0139.Word%20Break/README.md)
 
 ## Description
+
 <p>Given a <strong>non-empty</strong> string <em>s</em> and a dictionary <em>wordDict</em> containing a list of <strong>non-empty</strong> words, determine if <em>s</em> can be segmented into a space-separated sequence of one or more dictionary words.</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li>The same word in the dictionary may be reused multiple times in the segmentation.</li>
+    <li>The same word in the dictionary may be reused multiple times in the segmentation.</li>
 
-	<li>You may assume the dictionary does not contain duplicate words.</li>
+    <li>You may assume the dictionary does not contain duplicate words.</li>
 
 </ul>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +28,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -53,11 +42,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,11 +52,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

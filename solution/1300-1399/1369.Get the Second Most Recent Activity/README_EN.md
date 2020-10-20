@@ -3,11 +3,10 @@
 [中文文档](/solution/1300-1399/1369.Get%20the%20Second%20Most%20Recent%20Activity/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -24,6 +23,7 @@ None
 ```
 
 ### **...**
+
 ```
 
 ```

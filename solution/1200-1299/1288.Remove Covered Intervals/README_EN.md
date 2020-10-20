@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1288.Remove%20Covered%20Intervals/README.md)
 
 ## Description
+
 <p>Given a list of intervals, remove all intervals that are covered by another interval in the list.&nbsp;Interval <code>[a,b)</code> is covered by&nbsp;interval <code>[c,d)</code> if and only if <code>c &lt;= a</code> and <code>b &lt;= d</code>.</p>
 
 <p>After doing so, return the number of remaining intervals.</p>
@@ -25,10 +26,7 @@
 	<li><code>intervals[i] != intervals[j]</code>&nbsp;for all&nbsp;<code>i != j</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -45,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

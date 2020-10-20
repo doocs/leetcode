@@ -1,8 +1,9 @@
-# [668. 乘法表中第k小的数](https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table)
+# [668. 乘法表中第 k 小的数](https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table)
 
 [English Version](/solution/0600-0699/0668.Kth%20Smallest%20Number%20in%20Multiplication%20Table/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>几乎每一个人都用&nbsp;<a href="https://baike.baidu.com/item/%E4%B9%98%E6%B3%95%E8%A1%A8">乘法表</a>。但是你能在乘法表中快速找到第<code>k</code>小的数字吗？</p>
 
@@ -42,15 +43,14 @@
 	<li><code>k</code> 的范围在 [1, m * n] 之间。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

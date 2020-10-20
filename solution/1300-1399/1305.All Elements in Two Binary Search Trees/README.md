@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1305.All%20Elements%20in%20Two%20Binary%20Search%20Trees/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你&nbsp;<code>root1</code> 和 <code>root2</code>&nbsp;这两棵二叉搜索树。</p>
 
@@ -53,15 +54,14 @@
 	<li>每个节点的值在&nbsp;<code>[-10^5, 10^5]</code>&nbsp;之间。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -69,6 +69,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -76,6 +77,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,12 @@
 [中文文档](/solution/0500-0599/0561.Array%20Partition%20I/README.md)
 
 ## Description
+
 <p>
 
 Given an array of <b>2n</b> integers, your task is to group these integers into <b>n</b> pairs of integer, say (a<sub>1</sub>, b<sub>1</sub>), (a<sub>2</sub>, b<sub>2</sub>), ..., (a<sub>n</sub>, b<sub>n</sub>) which makes sum of min(a<sub>i</sub>, b<sub>i</sub>) for all i from 1 to n as large as possible.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -27,8 +26,6 @@ Given an array of <b>2n</b> integers, your task is to group these integers into 
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -41,9 +38,7 @@ Given an array of <b>2n</b> integers, your task is to group these integers into 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +55,7 @@ Given an array of <b>2n</b> integers, your task is to group these integers into 
 ```
 
 ### **...**
+
 ```
 
 ```

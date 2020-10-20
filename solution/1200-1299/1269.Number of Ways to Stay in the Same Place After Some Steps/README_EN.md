@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1269.Number%20of%20Ways%20to%20Stay%20in%20the%20Same%20Place%20After%20Some%20Steps/README.md)
 
 ## Description
+
 <p>You have a pointer at index <code>0</code> in an array of size <code><font face="monospace">arrLen</font></code>. At each step, you can move 1 position to the left, 1 position to the right&nbsp;in the array or stay in the same place&nbsp; (The pointer should not be placed outside the array at any time).</p>
 
 <p>Given two integers&nbsp;<code>steps</code> and <code>arrLen</code>, return the number of&nbsp;ways such that your pointer still at index <code>0</code> after <strong>exactly </strong><code><font face="monospace">steps</font></code>&nbsp;steps.</p>
@@ -47,10 +48,7 @@ Stay, Stay
 	<li><code>1 &lt;= arrLen&nbsp;&lt;= 10^6</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@ Stay, Stay
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1061.Lexicographically%20Smallest%20Equivalent%20String/README.md)
 
 ## Description
+
 <p>Given strings <code>A</code> and <code>B</code> of the same length, we say A[i] and B[i] are equivalent characters. For example, if <code>A = "abc"</code> and <code>B = "cde"</code>, then we have <code>'a' == 'c', 'b' == 'd', 'c' == 'e'</code>.</p>
 
 <p>Equivalent characters follow the usual rules of any equivalence relation:</p>
@@ -53,9 +54,7 @@
 	<li>String <code>A</code> and <code>B</code> are of the same length.</li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

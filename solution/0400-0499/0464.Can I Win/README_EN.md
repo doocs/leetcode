@@ -3,27 +3,18 @@
 [中文文档](/solution/0400-0499/0464.Can%20I%20Win/README.md)
 
 ## Description
+
 <p>In the "100 game," two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins. </p>
-
-
 
 <p>What if we change the game so that players cannot re-use integers? </p>
 
-
-
 <p>For example, two players might take turns drawing from a common pool of numbers of 1..15 without replacement until they reach a total >= 100.</p>
 
-
-
 <p>Given an integer <code>maxChoosableInteger</code> and another integer <code>desiredTotal</code>, determine if the first player to move can force a win, assuming both players play optimally. </p>
-
-
 
 <p>You can always assume that <code>maxChoosableInteger</code> will not be larger than 20 and <code>desiredTotal</code> will not be larger than 300.
 
 </p>
-
-
 
 <p><b>Example</b>
 
@@ -59,9 +50,7 @@ Same with other integers chosen by the first player, the second player will alwa
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +67,7 @@ Same with other integers chosen by the first player, the second player will alwa
 ```
 
 ### **...**
+
 ```
 
 ```

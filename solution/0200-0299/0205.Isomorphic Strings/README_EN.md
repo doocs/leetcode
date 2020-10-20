@@ -3,21 +3,14 @@
 [中文文档](/solution/0200-0299/0205.Isomorphic%20Strings/README.md)
 
 ## Description
+
 <p>Given two strings <b><i>s</i></b> and <b><i>t</i></b>, determine if they are isomorphic.</p>
-
-
 
 <p>Two strings are isomorphic if the characters in <b><i>s</i></b> can be replaced to get <b><i>t</i></b>.</p>
 
-
-
 <p>All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +28,7 @@
 
 <strong>Output:</strong> false</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -51,17 +36,11 @@
 
 <strong>Output:</strong> true</pre>
 
-
-
 <p><b>Note:</b><br />
 
 You may assume both <b><i>s&nbsp;</i></b>and <b><i>t&nbsp;</i></b>have the same length.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +57,7 @@ You may assume both <b><i>s&nbsp;</i></b>and <b><i>t&nbsp;</i></b>have the same 
 ```
 
 ### **...**
+
 ```
 
 ```

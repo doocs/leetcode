@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
 
 ## Description
+
 <p>Write a function that takes a string as input and reverse only the vowels of a string.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,13 +16,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,21 +28,13 @@
 
 </div>
 
-
-
 <p><b>Note:</b><br />
 
 The vowels does not include the letter &quot;y&quot;.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +51,7 @@ The vowels does not include the letter &quot;y&quot;.</p>
 ```
 
 ### **...**
+
 ```
 
 ```

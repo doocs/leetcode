@@ -3,15 +3,12 @@
 [中文文档](/solution/1100-1199/1156.Swap%20For%20Longest%20Repeated%20Character%20Substring/README.md)
 
 ## Description
+
 <p>Given a string <code>text</code>, we are allowed to swap two of the characters in the string. Find the length of the longest substring with repeated characters.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -53,11 +42,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -69,11 +54,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -83,25 +64,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= text.length &lt;= 20000</code></li>
+    <li><code>1 &lt;= text.length &lt;= 20000</code></li>
 
-	<li><code>text</code> consist of lowercase English characters only.</li>
+    <li><code>text</code> consist of lowercase English characters only.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -118,6 +93,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0439.Ternary%20Expression%20Parser/README.md)
 
 ## Description
+
 <p>Given a string representing arbitrarily nested ternary expressions, calculate the result of the expression. You can always assume that the given expression is valid and only consists of digits <code>0-9</code>, <code>?</code>, <code>:</code>, <code>T</code> and <code>F</code> (<code>T</code> and <code>F</code> represent True and False respectively).
 
 <p><b>Note:</b>
@@ -23,6 +24,7 @@
 <b>Output:</b> "2"
 
 <b>Explanation:</b> If true, then result is 2; otherwise result is 3.
+
 </pre>
 </p>
 
@@ -38,6 +40,7 @@
              "(F ? 1 : (T ? 4 : 5))"                   "(F ? 1 : (T ? 4 : 5))"
           -> "(F ? 1 : 4)"                 or       -> "(T ? 4 : 5)"
           -> "4"                                    -> "4"
+
 </pre>
 </p>
 
@@ -53,12 +56,11 @@
              "(T ? (T ? F : 5) : 3)"                   "(T ? (T ? F : 5) : 3)"
           -> "(T ? F : 3)"                 or       -> "(T ? F : 5)"
           -> "F"                                    -> "F"
+
 </pre>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -75,6 +77,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0249.Group%20Shifted%20Strings/README.md)
 
 ## Description
+
 <p>Given a string, we can "shift" each of its letter to its successive letter, for example: <code>"abc" -> "bcd"</code>. We can keep "shifting" which forms the sequence:</p>
 
 <pre>
@@ -23,10 +24,7 @@
 ]
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -43,6 +41,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

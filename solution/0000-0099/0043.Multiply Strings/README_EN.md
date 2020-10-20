@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0043.Multiply%20Strings/README.md)
 
 ## Description
+
 <p>Given two non-negative integers <code>num1</code> and <code>num2</code> represented as strings, return the product of <code>num1</code> and <code>num2</code>, also represented as a string.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -17,11 +14,7 @@
 
 <strong>Output:</strong> &quot;6&quot;</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -31,29 +24,21 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li>The length of both <code>num1</code> and <code>num2</code> is &lt; 110.</li>
+    <li>The length of both <code>num1</code> and <code>num2</code> is &lt; 110.</li>
 
-	<li>Both <code>num1</code> and <code>num2</code> contain&nbsp;only digits <code>0-9</code>.</li>
+    <li>Both <code>num1</code> and <code>num2</code> contain&nbsp;only digits <code>0-9</code>.</li>
 
-	<li>Both <code>num1</code> and <code>num2</code>&nbsp;do not contain any leading zero, except the number 0 itself.</li>
+    <li>Both <code>num1</code> and <code>num2</code>&nbsp;do not contain any leading zero, except the number 0 itself.</li>
 
-	<li>You <strong>must not use any built-in BigInteger library</strong> or <strong>convert the inputs to integer</strong> directly.</li>
+    <li>You <strong>must not use any built-in BigInteger library</strong> or <strong>convert the inputs to integer</strong> directly.</li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1166.Design%20File%20System/README.md)
 
 ## Description
+
 <p>You are asked to design a file system which provides two functions:</p>
 
 <ul>
@@ -61,10 +62,7 @@ fileSystem.get("/c"); // return -1 because this path doesn't exist.
 
 <p><strong>NOTE:</strong> create method has been changed on August 29, 2019 to createPath. Please reset to default code definition to get new method signature.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -81,6 +79,7 @@ fileSystem.get("/c"); // return -1 because this path doesn't exist.
 ```
 
 ### **...**
+
 ```
 
 ```

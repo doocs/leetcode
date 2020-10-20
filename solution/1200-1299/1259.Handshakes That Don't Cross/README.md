@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1259.Handshakes%20That%20Don't%20Cross/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p><strong>偶数</strong> 个人站成一个圆，总人数为 <code>num_people</code> 。每个人与除自己外的一个人握手，所以总共会有 <code>num_people / 2</code> 次握手。</p>
 
@@ -50,15 +51,14 @@
 	<li><code>num_people % 2 == 0</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -66,6 +66,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -73,6 +74,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

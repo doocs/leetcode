@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定有向图的边 <code>edges</code>，以及该图的始点 <code>source</code> 和目标终点 <code>destination</code>，确定从始点 <code>source</code> 出发的所有路径是否最终结束于目标终点 <code>destination</code>，即：</p>
 
@@ -74,15 +75,14 @@
 	<li><code>0 <= destination <= n - 1</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -90,6 +90,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -97,6 +98,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0742.Closest%20Leaf%20in%20a%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary tree <b>where every node has a unique value</b>, and a target key <code>k</code>, find the value of the nearest leaf node to target <code>k</code> in the tree.
 </p><p>
 Here, <i>nearest</i> to a leaf means the least number of edges travelled on the binary tree to reach any leaf of the tree.  Also, a node is called a <i>leaf</i> if it has no children.
@@ -22,6 +23,7 @@ Diagram of binary tree:
 <b>Output:</b> 2 (or 3)
 
 <b>Explanation:</b> Either 2 or 3 is the nearest leaf node to the target of 1.
+
 </pre>
 </p><p>
 <b>Example 2:</b>
@@ -31,6 +33,7 @@ root = [1], k = 1
 <b>Output:</b> 1
 
 <b>Explanation:</b> The nearest leaf node is the root node itself.
+
 </pre>
 </p>
 
@@ -52,6 +55,7 @@ Diagram of binary tree:
 
 <b>Output:</b> 3
 <b>Explanation:</b> The leaf node with value 3 (and not the leaf node with value 6) is nearest to the node with value 2.
+
 </pre>
 </p>
 
@@ -63,9 +67,7 @@ Diagram of binary tree:
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +84,7 @@ Diagram of binary tree:
 ```
 
 ### **...**
+
 ```
 
 ```

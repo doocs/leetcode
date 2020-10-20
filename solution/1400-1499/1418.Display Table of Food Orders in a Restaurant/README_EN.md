@@ -53,15 +53,11 @@ For the table 12: James, Ratesh and Amadeus order &quot;Fried Chicken&quot;.
 	<li><code>tableNumber<sub>i</sub>&nbsp;</code>is a valid integer between <code>1</code> and <code>500</code>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -69,12 +65,12 @@ For the table 12: James, Ratesh and Amadeus order &quot;Fried Chicken&quot;.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

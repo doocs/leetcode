@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0231.Power%20of%20Two/README.md)
 
 ## Description
+
 <p>Given an integer, write a function to determine if it is a power of two.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -21,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +28,7 @@
 
 <strong>Explanation: </strong>2<sup>4</sup>&nbsp;= 16</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -47,11 +36,7 @@
 
 <strong>Output:</strong> false</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

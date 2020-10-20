@@ -3,21 +3,14 @@
 [中文文档](/solution/0100-0199/0113.Path%20Sum%20II/README.md)
 
 ## Description
+
 <p>Given a binary tree and a sum, find all root-to-leaf paths where each path&#39;s sum equals the given sum.</p>
-
-
 
 <p><strong>Note:</strong>&nbsp;A leaf is a node with no children.</p>
 
-
-
 <p><strong>Example:</strong></p>
 
-
-
 <p>Given the below binary tree and <code>sum = 22</code>,</p>
-
-
 
 <pre>
 
@@ -37,11 +30,7 @@
 
 </pre>
 
-
-
 <p>Return:</p>
-
-
 
 <pre>
 
@@ -55,11 +44,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

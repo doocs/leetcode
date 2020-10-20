@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0401.Binary%20Watch/README.md)
 
 ## Description
+
 <p>A binary watch has 4 LEDs on the top which represent the <b>hours</b> (<b>0-11</b>), and the 6 LEDs on the bottom represent the <b>minutes</b> (<b>0-59</b>).</p>
 
 <p>Each LED represents a zero or one, with the least significant bit on the right.</p>
@@ -11,19 +12,13 @@
 
 <p>For example, the above binary watch reads "3:25".</p>
 
-
-
 <p>Given a non-negative integer <i>n</i> which represents the number of LEDs that are currently on, return all possible times the watch could represent.</p>
-
-
 
 <p><b>Example:</b>
 
 <pre>Input: n = 1<br>Return: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]</pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br />
 
@@ -39,9 +34,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

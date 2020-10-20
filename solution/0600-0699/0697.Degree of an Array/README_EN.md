@@ -3,11 +3,10 @@
 [中文文档](/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md)
 
 ## Description
+
 <p>Given a non-empty array of non-negative integers <code>nums</code>, the <b>degree</b> of this array is defined as the maximum frequency of any one of its elements.</p>
 
 <p>Your task is to find the smallest possible length of a (contiguous) subarray of <code>nums</code>, that has the same degree as <code>nums</code>.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -31,10 +30,6 @@ The shortest length is 2. So return 2.
 
 </p>
 
-
-
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -47,8 +42,6 @@ The shortest length is 2. So return 2.
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li><code>nums.length</code> will be between 1 and 50,000.</li>
@@ -57,9 +50,7 @@ The shortest length is 2. So return 2.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +67,7 @@ The shortest length is 2. So return 2.
 ```
 
 ### **...**
+
 ```
 
 ```

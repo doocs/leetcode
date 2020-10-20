@@ -3,33 +3,24 @@
 [中文文档](/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary tree, determine if it is a valid binary search tree (BST).</p>
-
-
 
 <p>Assume a BST is defined as follows:</p>
 
-
-
 <ul>
 
-	<li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node&#39;s key.</li>
+    <li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node&#39;s key.</li>
 
-	<li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node&#39;s key.</li>
+    <li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node&#39;s key.</li>
 
-	<li>Both the left and right subtrees must also be binary search trees.</li>
+    <li>Both the left and right subtrees must also be binary search trees.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -47,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -75,11 +62,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

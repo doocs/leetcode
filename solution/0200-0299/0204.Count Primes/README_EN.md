@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0204.Count%20Primes/README.md)
 
 ## Description
+
 <p>Count the number of prime numbers less than a non-negative number, <b><i>n</i></b>.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -21,11 +18,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -42,6 +35,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

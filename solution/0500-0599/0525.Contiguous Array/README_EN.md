@@ -3,11 +3,8 @@
 [中文文档](/solution/0500-0599/0525.Contiguous%20Array/README.md)
 
 ## Description
+
 <p>Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1. </p>
-
-
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -23,8 +20,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -39,17 +34,13 @@
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 The length of the given binary array will not exceed 50,000.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +57,7 @@ The length of the given binary array will not exceed 50,000.
 ```
 
 ### **...**
+
 ```
 
 ```

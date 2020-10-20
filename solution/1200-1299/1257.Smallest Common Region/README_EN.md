@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1257.Smallest%20Common%20Region/README.md)
 
 ## Description
+
 <p>You are given some lists of <code>regions</code> where the first region of each list includes all other regions in that list.</p>
 
 <p>Naturally, if a region <code>X</code> contains another region <code>Y</code> then <code>X</code> is bigger than <code>Y</code>. Also by definition a region X contains itself.</p>
@@ -37,10 +38,7 @@ region2 = "New York"
 	<li>All strings consist of English letters and spaces with at most 20 letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@ region2 = "New York"
 ```
 
 ### **...**
+
 ```
 
 ```

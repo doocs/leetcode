@@ -3,23 +3,16 @@
 [中文文档](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
 
 ## Description
+
 <p>Given a linked list, determine if it has a cycle in it.</p>
-
-
 
 <p>To represent a cycle in the given linked list, we use an integer <code>pos</code> which represents the position (0-indexed)&nbsp;in the linked list where tail connects to. If <code>pos</code> is <code>-1</code>, then there is no cycle in the linked list.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,17 +26,11 @@
 
 </div>
 
-
-
 <div>
 
 ![](./images/circularlinkedlist.png)
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -57,16 +44,11 @@
 
 </div>
 
-
-
 <div>
 
 ![](./images/circularlinkedlist_test2.png)
 
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -80,26 +62,15 @@
 
 </div>
 
-
-
 ![](./images/circularlinkedlist_test3.png)
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Follow up:</strong></p>
-
-
 
 <p>Can you solve it using <em>O(1)</em> (i.e. constant) memory?</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -153,6 +124,7 @@ public class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

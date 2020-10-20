@@ -1,6 +1,7 @@
-# [面试题57. 和为s的两个数字](https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/)
+# [面试题 57. 和为 s 的两个数字](https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/)
 
 ## 题目描述
+
 输入一个递增排序的数组和一个数字 s，在数组中查找两个数，使得它们的和正好是 s。如果有多对数字的和等于 s，则输出任意一对即可。
 
 **示例 1：**
@@ -20,12 +21,14 @@
 **限制：**
 
 - `1 <= nums.length <= 10^5`
-- `1 <= nums[i] <= 10^6`
+- `1 <= nums[i] <= 10^6`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -34,14 +37,15 @@ class Solution:
             s = nums[p] + nums[q]
             if s == target:
                 return [nums[p], nums[q]]
-            if s < target: 
+            if s < target:
                 p += 1
-            else: 
+            else:
                 q -= 1
 
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
@@ -63,30 +67,31 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
-    let left = 0
-    let right = nums.length - 1
-    while(left < right) {
-        let sum = nums[left] + nums[right]
-        if(sum === target) {
-            return [nums[left],nums[right]]
-        } else if(sum > target) {
-            right--
-        } else {
-            left++
-        }
+var twoSum = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    let sum = nums[left] + nums[right];
+    if (sum === target) {
+      return [nums[left], nums[right]];
+    } else if (sum > target) {
+      right--;
+    } else {
+      left++;
     }
-    
+  }
 };
 ```
 
 ### **...**
+
 ```
 
 ```

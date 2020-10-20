@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1309.Decrypt%20String%20from%20Alphabet%20to%20Integer%20Mapping/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个字符串&nbsp;<code>s</code>，它由数字（<code>&#39;0&#39;</code> - <code>&#39;9&#39;</code>）和&nbsp;<code>&#39;#&#39;</code>&nbsp;组成。我们希望按下述规则将&nbsp;<code>s</code>&nbsp;映射为一些小写英文字符：</p>
 
@@ -52,15 +53,14 @@
 	<li><code>s</code>&nbsp;是映射始终存在的有效字符串。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -68,6 +68,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -75,6 +76,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,11 +3,10 @@
 [中文文档](/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

@@ -3,9 +3,8 @@
 [中文文档](/solution/0100-0199/0178.Rank%20Scores/README.md)
 
 ## Description
+
 <p>Write a SQL query to rank scores. If there is a tie between two scores, both should have the same ranking. Note that after a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no &quot;holes&quot; between ranks.</p>
-
-
 
 <pre>
 
@@ -31,11 +30,7 @@
 
 </pre>
 
-
-
 <p>For example, given the above <code>Scores</code> table, your query should generate the following report (order by highest score):</p>
-
-
 
 <pre>
 
@@ -61,11 +56,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

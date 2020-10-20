@@ -3,6 +3,7 @@
 [中文文档](/solution/0900-0999/0914.X%20of%20a%20Kind%20in%20a%20Deck%20of%20Cards/README.md)
 
 ## Description
+
 <p>In a deck of cards, each card has an integer written on it.</p>
 
 <p>Return <code>true</code> if and only if you can choose&nbsp;<code>X &gt;= 2</code> such that&nbsp;it is possible to split the entire deck&nbsp;into 1 or more groups of cards, where:</p>
@@ -61,10 +62,7 @@
 	<li><code>0 &lt;= deck[i] &lt;&nbsp;10^4</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -81,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

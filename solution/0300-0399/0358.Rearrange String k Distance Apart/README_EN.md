@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0358.Rearrange%20String%20k%20Distance%20Apart/README.md)
 
 ## Description
+
 <p>Given a non-empty string <b>s</b> and an integer <b>k</b>, rearrange the string such that the same characters are at least distance <b>k</b> from each other.</p>
 
 <p>All input strings are given in lowercase letters. If it is not possible to rearrange the string, return an empty string <code>""</code>.</p>
@@ -37,9 +38,7 @@
 </div>
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

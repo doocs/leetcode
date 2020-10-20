@@ -3,7 +3,9 @@
 [中文文档](/solution/1100-1199/1178.Number%20of%20Valid%20Words%20for%20Each%20Puzzle/README.md)
 
 ## Description
+
 With respect to a given <code>puzzle</code> string, a <code>word</code> is <em>valid</em>&nbsp;if both the following conditions are satisfied:
+
 <ul>
 	<li><code>word</code> contains the first letter of <code>puzzle</code>.</li>
 	<li>For each letter in <code>word</code>, that letter is in <code>puzzle</code>.<br />
@@ -39,10 +41,7 @@ There&#39;re&nbsp;no valid words for&nbsp;&quot;gaswxyz&quot; cause none of the 
 	<li>Each <code>puzzles[i] </code>doesn&#39;t contain repeated characters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -59,6 +58,7 @@ There&#39;re&nbsp;no valid words for&nbsp;&quot;gaswxyz&quot; cause none of the 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0862.Shortest%20Subarray%20with%20Sum%20at%20Least%20K/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>返回 <code>A</code> 的最短的非空连续子数组的<strong>长度</strong>，该子数组的和至少为 <code>K</code> 。</p>
 
@@ -41,15 +42,14 @@
 	<li><code>1 &lt;= K &lt;= 10 ^ 9</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -57,6 +57,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -64,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

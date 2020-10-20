@@ -52,11 +52,9 @@ browserHistory.back(7);                   // 你原本在浏览 &quot;google.com
 	<li>最多调用&nbsp;<code>5000</code>&nbsp;次&nbsp;<code>visit</code>，&nbsp;<code>back</code>&nbsp;和&nbsp;<code>forward</code>&nbsp;函数。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -77,6 +75,7 @@ browserHistory.back(7);                   // 你原本在浏览 &quot;google.com
 ```
 
 ### **...**
+
 ```
 
 ```

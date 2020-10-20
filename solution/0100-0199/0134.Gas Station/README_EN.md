@@ -3,37 +3,26 @@
 [中文文档](/solution/0100-0199/0134.Gas%20Station/README.md)
 
 ## Description
+
 <p>There are <em>N</em> gas stations along a circular route, where the amount of gas at station <em>i</em> is <code>gas[i]</code>.</p>
-
-
 
 <p>You have a car with an unlimited gas tank and it costs <code>cost[i]</code> of gas to travel from station <em>i</em> to its next station (<em>i</em>+1). You begin the journey with an empty tank at one of the gas stations.</p>
 
-
-
 <p>Return the starting gas station&#39;s index if you can travel around the circuit once in the clockwise direction, otherwise return -1.</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li>If there exists a&nbsp;solution, it is guaranteed to be unique.</li>
+    <li>If there exists a&nbsp;solution, it is guaranteed to be unique.</li>
 
-	<li>Both input arrays are non-empty and have the same length.</li>
+    <li>Both input arrays are non-empty and have the same length.</li>
 
-	<li>Each element in the input arrays is a non-negative integer.</li>
+    <li>Each element in the input arrays is a non-negative integer.</li>
 
 </ul>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -67,11 +56,7 @@ Therefore, return 3 as the starting index.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -103,11 +88,7 @@ Therefore, you can&#39;t travel around the circuit once no matter where you star
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -124,6 +105,7 @@ Therefore, you can&#39;t travel around the circuit once no matter where you star
 ```
 
 ### **...**
+
 ```
 
 ```

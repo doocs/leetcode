@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1298.Maximum%20Candies%20You%20Can%20Get%20from%20Boxes/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你&nbsp;<code>n</code>&nbsp;个盒子，每个盒子的格式为&nbsp;<code>[status, candies, keys, containedBoxes]</code>&nbsp;，其中：</p>
 
@@ -77,15 +78,14 @@
 	<li><code>0 &lt;= initialBoxes[i] &lt; status.length</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -93,6 +93,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -100,6 +101,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组&nbsp;<code>A</code>，以及一个整数&nbsp;<code>target</code>&nbsp;作为目标值，返回满足 <code>i &lt; j &lt; k</code> 且&nbsp;<code>A[i] + A[j] + A[k] == target</code>&nbsp;的元组&nbsp;<code>i, j, k</code>&nbsp;的数量。</p>
 
@@ -42,15 +43,14 @@ A[i] = 1，A[j] = A[k] = 2 出现 12 次：
 	<li><code>0 &lt;= target &lt;= 300</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@ A[i] = 1，A[j] = A[k] = 2 出现 12 次：
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@ A[i] = 1，A[j] = A[k] = 2 出现 12 次：
 ```
 
 ### **...**
+
 ```
 
 ```

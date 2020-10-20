@@ -3,9 +3,8 @@
 [中文文档](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README.md)
 
 ## Description
+
 <p>Given a list of strings <code>words</code> representing an English Dictionary, find the longest word in <code>words</code> that can be built one character at a time by other words in <code>words</code>.  If there is more than one possible answer, return the longest word with the smallest lexicographical order.</p>  If there is no answer, return the empty string.
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,8 +24,6 @@ The word "world" can be built one character at a time by "w", "wo", "wor", and "
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -45,8 +42,6 @@ Both "apply" and "apple" can be built from other words in the dictionary. Howeve
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li>All the strings in the input will only contain lowercase letters.</li>
@@ -57,9 +52,7 @@ Both "apply" and "apple" can be built from other words in the dictionary. Howeve
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +69,7 @@ Both "apply" and "apple" can be built from other words in the dictionary. Howeve
 ```
 
 ### **...**
+
 ```
 
 ```

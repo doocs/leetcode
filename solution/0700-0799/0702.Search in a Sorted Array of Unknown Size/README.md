@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0702.Search%20in%20a%20Sorted%20Array%20of%20Unknown%20Size/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个升序整数数组，写一个函数搜索 <code>nums</code> 中数字 <code>target</code>。如果 <code>target</code> 存在，返回它的下标，否则返回 <code>-1</code>。<strong>注意，这个数组的大小是未知的。</strong>你只可以通过 <code>ArrayReader</code> 接口访问这个数组，<code>ArrayReader.get(k)</code> 返回数组中第 <code>k</code> 个元素（下标从 0 开始）。</p>
 
@@ -32,15 +33,14 @@
 	<li>数组元素的值域是 <code>[-9999, 9999]</code>。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -48,6 +48,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -55,6 +56,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

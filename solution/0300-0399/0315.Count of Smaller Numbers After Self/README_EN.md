@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0315.Count%20of%20Smaller%20Numbers%20After%20Self/README.md)
 
 ## Description
+
 <p>You are given an integer array <i>nums</i> and you have to return a new <i>counts</i> array. The <i>counts</i> array has the property where <code>counts[i]</code> is the number of smaller elements to the right of <code>nums[i]</code>.</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -29,9 +26,7 @@ To the right of 1 there is <b>0</b> smaller element.
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -48,6 +43,7 @@ To the right of 1 there is <b>0</b> smaller element.
 ```
 
 ### **...**
+
 ```
 
 ```

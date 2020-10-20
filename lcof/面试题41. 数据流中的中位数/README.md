@@ -1,12 +1,14 @@
-# [面试题41. 数据流中的中位数](https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/)
+# [面试题 41. 数据流中的中位数](https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。
 
 例如，
 
-`[2,3,4]` 的中位数是 3
+`[2,3,4]`  的中位数是 3
 
 `[2,3]` 的中位数是 (2 + 3) / 2 = 2.5
 
@@ -35,19 +37,22 @@
 
 **限制：**
 
-- 最多会对 addNum、findMedia进行 50000 次调用。
+- 最多会对  addNum、findMedia 进行  50000  次调用。
 
 注意：本题与主站 295 题相同：https://leetcode-cn.com/problems/find-median-from-data-stream/
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 - 创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
-- 添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多1）；若不等，放入大根堆（使得大小根堆元素个数相等）
+- 添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多 1）；若不等，放入大根堆（使得大小根堆元素个数相等）
 - 取中位数时，若两堆元素个数相等，取两堆顶求平均值；若不等，取小根堆堆顶。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -78,6 +83,7 @@ class MedianFinder:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -90,7 +96,7 @@ class MedianFinder {
         minHeap = new PriorityQueue<>();
         maxHeap = new PriorityQueue<>((a, b) -> b - a);
     }
-    
+
     public void addNum(int num) {
         if (maxHeap.size() == minHeap.size()) {
             maxHeap.offer(num);
@@ -102,7 +108,7 @@ class MedianFinder {
             maxHeap.offer(minHeap.poll());
         }
     }
-    
+
     public double findMedian() {
         if (((maxHeap.size() + minHeap.size()) & 1) == 0) {
             // 偶数个，取两个堆顶平均值
@@ -121,44 +127,46 @@ class MedianFinder {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * initialize your data structure here.
  */
-var MedianFinder = function() {
-    this.val = []
+var MedianFinder = function () {
+  this.val = [];
 };
 
-/** 
+/**
  * @param {number} num
  * @return {void}
  */
-MedianFinder.prototype.addNum = function(num) {
-    let left = 0;
-    let right = this.val.length;
-    while (left < right) {
-        let mid = left + ~~((right - left) / 2);
-        if (num > this.val[mid]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
+MedianFinder.prototype.addNum = function (num) {
+  let left = 0;
+  let right = this.val.length;
+  while (left < right) {
+    let mid = left + ~~((right - left) / 2);
+    if (num > this.val[mid]) {
+      left = mid + 1;
+    } else {
+      right = mid;
     }
-    this.val.splice(left, 0, num);
+  }
+  this.val.splice(left, 0, num);
 };
 
 /**
  * @return {number}
  */
-MedianFinder.prototype.findMedian = function() {
-    let mid = ~~(this.val.length / 2);
-    return this.val.length % 2
-        ? this.val[mid]
-        : (this.val[mid - 1] + this.val[mid]) / 2;
+MedianFinder.prototype.findMedian = function () {
+  let mid = ~~(this.val.length / 2);
+  return this.val.length % 2
+    ? this.val[mid]
+    : (this.val[mid - 1] + this.val[mid]) / 2;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

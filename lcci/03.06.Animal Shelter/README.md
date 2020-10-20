@@ -3,6 +3,7 @@
 [English Version](/lcci/03.06.Animal%20Shelter/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>动物收容所。有家动物收容所只收容狗与猫，且严格遵守&ldquo;先进先出&rdquo;的原则。在收养该收容所的动物时，收养人只能收养所有动物中&ldquo;最老&rdquo;（由其进入收容所的时间长短而定）的动物，或者可以挑选猫或狗（同时必须收养此类动物中&ldquo;最老&rdquo;的）。换言之，收养人不能自由挑选想收养的对象。请创建适用于这个系统的数据结构，实现各种操作方法，比如<code>enqueue</code>、<code>dequeueAny</code>、<code>dequeueDog</code>和<code>dequeueCat</code>。允许使用Java内置的LinkedList数据结构。</p>
 
@@ -34,14 +35,16 @@
 	<li>收纳所的最大容量为20000</li>
 </ol>
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 双队列存储。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -78,6 +81,7 @@ class AnimalShelf:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -88,7 +92,7 @@ class AnimalShelf {
         cats = new LinkedList<>();
         dogs = new LinkedList<>();
     }
-    
+
     public void enqueue(int[] animal) {
         if (animal[1] == 0) {
             cats.offer(animal[0]);
@@ -96,15 +100,15 @@ class AnimalShelf {
             dogs.offer(animal[0]);
         }
     }
-    
+
     public int[] dequeueAny() {
         return dogs.isEmpty() ? dequeueCat() : (cats.isEmpty() ? dequeueDog() : (dogs.peek() < cats.peek() ? dequeueDog() : dequeueCat()));
     }
-    
+
     public int[] dequeueDog() {
         return dogs.isEmpty() ? new int[]{-1, -1} : new int[]{dogs.poll(), 1};
     }
-    
+
     public int[] dequeueCat() {
         return cats.isEmpty() ? new int[]{-1, -1} : new int[]{cats.poll(), 0};
     }
@@ -121,6 +125,7 @@ class AnimalShelf {
 ```
 
 ### **...**
+
 ```
 
 ```

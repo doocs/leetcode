@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0320.Generalized%20Abbreviation/README.md)
 
 ## Description
+
 <p>Write a function to generate the generalized abbreviations of a word. </p>
 
 <p><strong>Note: </strong>The order of the output does not matter.</p>
@@ -17,10 +18,7 @@
 
 <p> </p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -37,6 +35,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

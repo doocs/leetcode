@@ -3,21 +3,14 @@
 [中文文档](/solution/0200-0299/0212.Word%20Search%20II/README.md)
 
 ## Description
+
 <p>Given a 2D board and a list of words from the dictionary, find all words in the board.</p>
-
-
 
 <p>Each word must be constructed from letters of sequentially adjacent cell, where &quot;adjacent&quot; cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -43,29 +36,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>All inputs are consist of lowercase letters <code>a-z</code>.</li>
+    <li>All inputs are consist of lowercase letters <code>a-z</code>.</li>
 
-	<li>The values of&nbsp;<code>words</code> are distinct.</li>
+    <li>The values of&nbsp;<code>words</code> are distinct.</li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,15 +3,12 @@
 [中文文档](/solution/0700-0799/0704.Binary%20Search/README.md)
 
 ## Description
+
 <p>Given a <strong>sorted</strong> (in ascending order) integer array <code>nums</code> of <code>n</code> elements and a <code>target</code> value, write a function to search <code>target</code> in <code>nums</code>. If <code>target</code> exists, then return its index, otherwise return <code>-1</code>.</p>
-
-
 
 <p><br />
 
 <strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,31 +34,21 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li>You may assume that all elements in <code>nums</code> are unique.</li>
+    <li>You may assume that all elements in <code>nums</code> are unique.</li>
 
-	<li><code>n</code> will be in the range <code>[1, 10000]</code>.</li>
+    <li><code>n</code> will be in the range <code>[1, 10000]</code>.</li>
 
-	<li>The value of each element in <code>nums</code> will be in the range <code>[-9999, 9999]</code>.</li>
+    <li>The value of each element in <code>nums</code> will be in the range <code>[-9999, 9999]</code>.</li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

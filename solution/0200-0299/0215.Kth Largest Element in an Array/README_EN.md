@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0215.Kth%20Largest%20Element%20in%20an%20Array/README.md)
 
 ## Description
+
 <p>Find the <strong>k</strong>th largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -31,17 +24,11 @@
 
 <strong>Output:</strong> 4</pre>
 
-
-
 <p><strong>Note: </strong><br />
 
 You may assume k is always valid, 1 &le; k &le; array&#39;s length.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +45,7 @@ You may assume k is always valid, 1 &le; k &le; array&#39;s length.</p>
 ```
 
 ### **...**
+
 ```
 
 ```

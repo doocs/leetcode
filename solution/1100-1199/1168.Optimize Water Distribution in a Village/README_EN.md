@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1168.Optimize%20Water%20Distribution%20in%20a%20Village/README.md)
 
 ## Description
+
 <p>There are <code><font face="monospace">n</font></code> houses in a village. We want to supply water for all the houses by building wells and laying pipes.</p>
 
 <p>For each house <code>i</code>, we can either build a well inside it directly with cost <code>wells[i]</code>, or pipe in water from another well to it. The costs to lay pipes between houses are given by the array <code>pipes</code>, where each <code>pipes[i] = [house1, house2, cost]</code> represents the cost to connect <code>house1</code> and <code>house2</code> together using a pipe. Connections are bidirectional.</p>
@@ -35,10 +36,7 @@ The best strategy is to build a well in the first house with cost 1 and connect 
 	<li><code>pipes[i][0] != pipes[i][1]</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@ The best strategy is to build a well in the first house with cost 1 and connect 
 ```
 
 ### **...**
+
 ```
 
 ```

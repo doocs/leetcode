@@ -3,15 +3,12 @@
 [中文文档](/lcci/04.09.BST%20Sequences/README.md)
 
 ## Description
+
 <p>A binary search tree was created by traversing through an array from left to right and inserting each element. Given a binary search tree with distinct elements, print all possible arrays that could have led to this tree.</p>
-
-
 
 <p><strong>Example:</strong><br />
 
 Given the following tree:</p>
-
-
 
 <pre>
 
@@ -23,11 +20,7 @@ Given the following tree:</p>
 
 </pre>
 
-
-
 <p>Output:</p>
-
-
 
 <pre>
 
@@ -41,11 +34,7 @@ Given the following tree:</p>
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +51,7 @@ Given the following tree:</p>
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1029.Two%20City%20Scheduling/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>公司计划面试 <code>2N</code> 人。第 <code>i</code> 人飞往 <code>A</code> 市的费用为 <code>costs[i][0]</code>，飞往 <code>B</code> 市的费用为 <code>costs[i][1]</code>。</p>
 
@@ -33,15 +34,14 @@
 	<li><code>1 &lt;= costs[i][0], costs[i][1] &lt;= 1000</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -49,6 +49,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -56,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

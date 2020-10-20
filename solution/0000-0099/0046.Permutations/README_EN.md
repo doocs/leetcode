@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0046.Permutations/README.md)
 
 ## Description
+
 <p>Given a collection of <strong>distinct</strong> integers, return all possible permutations.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +32,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

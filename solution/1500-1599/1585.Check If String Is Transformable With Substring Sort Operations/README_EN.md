@@ -60,15 +60,11 @@
 	<li><code>s</code> and <code>t</code>&nbsp;only contain digits from <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -76,12 +72,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

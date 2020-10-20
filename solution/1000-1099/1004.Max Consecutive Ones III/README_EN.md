@@ -3,23 +3,16 @@
 [中文文档](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code>&nbsp;of 0s and 1s, we may change up to <code>K</code>&nbsp;values from 0 to 1.</p>
-
-
 
 <p>Return the length of the longest (contiguous) subarray that contains only 1s.&nbsp;</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,13 +26,9 @@
 
 Bolded numbers were flipped from 0 to 1.  The longest subarray is underlined.</pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,23 +44,17 @@ Bolded numbers were flipped from 0 to 1.  The longest subarray is underlined.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong><span>Note:</span></strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 20000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 20000</code></li>
 
-	<li><code>0 &lt;= K &lt;= A.length</code></li>
+    <li><code>0 &lt;= K &lt;= A.length</code></li>
 
-	<li><code>A[i]</code> is <code>0</code> or <code>1</code>&nbsp;</li>
+    <li><code>A[i]</code> is <code>0</code> or <code>1</code>&nbsp;</li>
 
 </ol>
 
@@ -79,9 +62,7 @@ Bolded numbers were flipped from 0 to 1.  The longest subarray is underlined.
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -98,6 +79,7 @@ Bolded numbers were flipped from 0 to 1.  The longest subarray is underlined.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个根为&nbsp;<code>root</code>&nbsp;的二叉树，每个结点的<em>深度</em>是它到根的最短距离。</p>
 
@@ -16,9 +17,7 @@
 
 <p><strong>示例：</strong></p>
 
-
 ![](./images/sketch1.png)
-
 
 <pre><strong>输入：</strong>[3,5,1,6,2,0,8,null,null,7,4]
 <strong>输出：</strong>[2,7,4]
@@ -40,15 +39,14 @@
 	<li>每个结点的值都是独一无二的。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -56,6 +54,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -63,6 +62,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

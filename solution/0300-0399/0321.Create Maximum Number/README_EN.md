@@ -3,17 +3,12 @@
 [中文文档](/solution/0300-0399/0321.Create%20Maximum%20Number/README.md)
 
 ## Description
+
 <p>Given two arrays of length <code>m</code> and <code>n</code> with digits <code>0-9</code> representing two numbers. Create the maximum number of length <code>k &lt;= m + n</code> from digits of the two. The relative order of the digits from the same array must be preserved. Return an array of the <code>k</code> digits.</p>
-
-
 
 <p><strong>Note: </strong>You should try to optimize your time and space complexity.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -29,11 +24,7 @@ k = <code>5</code>
 
 <code>[9, 8, 6, 5, 3]</code></pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -49,11 +40,7 @@ k = <code>5</code>
 
 <code>[6, 7, 6, 0, 4]</code></pre>
 
-
-
 <p><b>Example 3:</b></p>
-
-
 
 <pre>
 
@@ -71,9 +58,7 @@ k = <code>3</code>
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +75,7 @@ k = <code>3</code>
 ```
 
 ### **...**
+
 ```
 
 ```

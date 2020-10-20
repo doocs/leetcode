@@ -3,9 +3,8 @@
 [中文文档](/solution/0700-0799/0712.Minimum%20ASCII%20Delete%20Sum%20for%20Two%20Strings/README.md)
 
 ## Description
+
 <p>Given two strings <code>s1, s2</code>, find the lowest ASCII sum of deleted characters to make two strings equal.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -24,8 +23,6 @@ At the end, both strings are equal, and 115 + 116 = 231 is the minimum sum possi
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -47,19 +44,15 @@ If instead we turned both strings into "lee" or "eet", we would get answers of 4
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li><code>0 < s1.length, s2.length <= 1000</code>.</li>
 
-<li>All elements of each string will have an ASCII value in <code>[97, 122]</code>.</li> 
+<li>All elements of each string will have an ASCII value in <code>[97, 122]</code>.</li>
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +69,7 @@ If instead we turned both strings into "lee" or "eet", we would get answers of 4
 ```
 
 ### **...**
+
 ```
 
 ```

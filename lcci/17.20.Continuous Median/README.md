@@ -3,6 +3,7 @@
 [English Version](/lcci/17.20.Continuous%20Median/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>随机产生数字并传递给一个方法。你能否完成这个方法，在每次产生新值时，寻找当前所有值的中间值（中位数）并保存。</p>
 
@@ -30,16 +31,18 @@ addNum(3)
 findMedian() -&gt; 2
 </pre>
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 - 创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
-- 添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多1）；若不等，放入大根堆（使得大小根堆元素个数相等）
+- 添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多 1）；若不等，放入大根堆（使得大小根堆元素个数相等）
 - 取中位数时，若两堆元素个数相等，取两堆顶求平均值；若不等，取小根堆堆顶。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -70,6 +73,7 @@ class MedianFinder:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -82,7 +86,7 @@ class MedianFinder {
         minHeap = new PriorityQueue<>();
         maxHeap = new PriorityQueue<>((a, b) -> b - a);
     }
-    
+
     public void addNum(int num) {
         if (minHeap.size() == maxHeap.size()) {
             maxHeap.offer(num);
@@ -92,7 +96,7 @@ class MedianFinder {
             maxHeap.offer(minHeap.poll());
         }
     }
-    
+
     public double findMedian() {
         return minHeap.size() == maxHeap.size() ? (minHeap.peek() + maxHeap.peek()) / 2.0 : minHeap.peek();
     }
@@ -107,6 +111,7 @@ class MedianFinder {
 ```
 
 ### **...**
+
 ```
 
 ```

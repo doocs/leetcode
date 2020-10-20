@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md)
 
 ## Description
+
 <p>
 Given a binary array, find the maximum number of consecutive 1s in this array if you can flip at most one 0.
 </p>
@@ -27,9 +28,7 @@ Given a binary array, find the maximum number of consecutive 1s in this array if
 What if the input numbers come in one by one as an <b>infinite stream</b>? In other words, you can't store all numbers coming from the stream as it's too large to hold in memory. Could you solve it efficiently?
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +45,7 @@ What if the input numbers come in one by one as an <b>infinite stream</b>? In ot
 ```
 
 ### **...**
+
 ```
 
 ```

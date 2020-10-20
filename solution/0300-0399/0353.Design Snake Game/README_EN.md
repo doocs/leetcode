@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0353.Design%20Snake%20Game/README.md)
 
 ## Description
+
 <p>Design a <a href="https://en.wikipedia.org/wiki/Snake_(video_game)" target="_blank">Snake game</a> that is played on a device with screen size = <i>width</i> x <i>height</i>. <a href="http://patorjk.com/games/snake/" target="_blank">Play the game online</a> if you are not familiar with the game.</p>
 
 <p>The snake is initially positioned at the top left corner (0,0) with length = 1 unit.</p>
@@ -53,10 +54,7 @@ snake.move("L"); -> Returns 2 (Snake eats the second food)
 snake.move("U"); -> Returns -1 (Game over because snake collides with border)
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -73,6 +71,7 @@ snake.move("U"); -> Returns -1 (Game over because snake collides with border)
 ```
 
 ### **...**
+
 ```
 
 ```

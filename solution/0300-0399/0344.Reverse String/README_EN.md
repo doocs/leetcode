@@ -3,27 +3,18 @@
 [中文文档](/solution/0300-0399/0344.Reverse%20String/README.md)
 
 ## Description
+
 <p>Write a function that reverses a string. The input string is given as an array of characters <code>char[]</code>.</p>
-
-
 
 <p>Do not allocate extra space for another array, you must do this by <strong>modifying the input array&nbsp;<a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a></strong> with O(1) extra memory.</p>
 
-
-
 <p>You may assume all the characters consist of <a href="https://en.wikipedia.org/wiki/ASCII#Printable_characters" target="_blank">printable ascii characters</a>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,13 +24,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -53,11 +40,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

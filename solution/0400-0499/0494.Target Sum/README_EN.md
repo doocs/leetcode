@@ -3,19 +3,16 @@
 [中文文档](/solution/0400-0499/0494.Target%20Sum/README.md)
 
 ## Description
+
 <p>
 
 You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols <code>+</code> and <code>-</code>. For each integer, you should choose one from <code>+</code> and <code>-</code> as its new symbol.
 
-</p> 
-
-
-
-<p>Find out how many ways to assign symbols to make sum of integers equal to target S.  
-
 </p>
 
+<p>Find out how many ways to assign symbols to make sum of integers equal to target S.
 
+</p>
 
 <p><b>Example 1:</b><br />
 
@@ -47,8 +44,6 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -63,9 +58,7 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +75,7 @@ There are 5 ways to assign symbols to make the sum of nums be target 3.
 ```
 
 ### **...**
+
 ```
 
 ```

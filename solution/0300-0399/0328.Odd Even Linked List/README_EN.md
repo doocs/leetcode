@@ -3,17 +3,12 @@
 [中文文档](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md)
 
 ## Description
+
 <p>Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.</p>
-
-
 
 <p>You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -37,25 +28,17 @@
 
 </pre>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ul>
 
-	<li>The relative order inside both the even and odd groups should remain as it was in the input.</li>
+    <li>The relative order inside both the even and odd groups should remain as it was in the input.</li>
 
-	<li>The first node is considered odd, the second node even and so on ...</li>
+    <li>The first node is considered odd, the second node even and so on ...</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

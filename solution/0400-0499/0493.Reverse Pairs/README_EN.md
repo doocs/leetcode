@@ -3,13 +3,10 @@
 [中文文档](/solution/0400-0499/0493.Reverse%20Pairs/README.md)
 
 ## Description
+
 <p>Given an array <code>nums</code>, we call <code>(i, j)</code> an <b><i>important reverse pair</i></b> if <code>i &lt; j</code> and <code>nums[i] &gt; 2*nums[j]</code>.</p>
 
-
-
 <p>You need to return the number of important reverse pairs in the given array.</p>
-
-
 
 <p><b>Example1:</b>
 
@@ -21,8 +18,6 @@
 
 </pre></p>
 
-
-
 <p><b>Example2:</b>
 
 <pre>
@@ -32,8 +27,6 @@
 <b>Output</b>: 3
 
 </pre></p>
-
-
 
 <p><b>Note:</b><br>
 
@@ -47,9 +40,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

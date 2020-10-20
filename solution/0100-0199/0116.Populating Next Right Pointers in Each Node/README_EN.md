@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0116.Populating%20Next%20Right%20Pointers%20in%20Each%20Node/README.md)
 
 ## Description
+
 <p>You are given a <strong>perfect binary tree</strong>&nbsp;where&nbsp;all leaves are on the same level, and every parent has two children. The binary tree has the following definition:</p>
 
 <pre>
@@ -46,10 +47,7 @@ struct Node {
 	<li><code>-1000 &lt;= node.val &lt;= 1000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +64,7 @@ struct Node {
 ```
 
 ### **...**
+
 ```
 
 ```

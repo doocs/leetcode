@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0730.Count%20Different%20Palindromic%20Subsequences/README.md)
 
 ## Description
+
 <p>
 
 Given a string S, find the number of different non-empty palindromic subsequences in S, and <b>return that number modulo <code>10^9 + 7</code>.</b>
@@ -20,8 +21,6 @@ A sequence is palindromic if it is equal to the sequence reversed.
 Two sequences <code>A_1, A_2, ...</code> and <code>B_1, B_2, ...</code> are different if there is some <code>i</code> for which <code>A_i != B_i</code>.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,8 +42,6 @@ Note that 'bcb' is counted only once, even though it occurs twice.
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -63,8 +60,6 @@ There are 3104860382 different non-empty palindromic subsequences, which is 1048
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li>The length of <code>S</code> will be in the range <code>[1, 1000]</code>.</li>
@@ -73,9 +68,7 @@ There are 3104860382 different non-empty palindromic subsequences, which is 1048
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +85,7 @@ There are 3104860382 different non-empty palindromic subsequences, which is 1048
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0425.Word%20Squares/README.md)
 
 ## Description
+
 <p>Given a set of words <b>(without duplicates)</b>, find all <a href="https://en.wikipedia.org/wiki/Word_square" target="_blank">word squares</a> you can build from them.</p>
 
 <p>A sequence of words forms a valid word square if the <i>k</i><sup>th</sup> row and column read the exact same string, where 0 ≤ <i>k</i> < max(numRows, numColumns).</p>
@@ -32,20 +33,21 @@ l a d y
 
 <b>Output:</b>
 [
-  [ "wall",
-    "area",
-    "lead",
-    "lady"
-  ],
-  [ "ball",
-    "area",
-    "lead",
-    "lady"
-  ]
+[ "wall",
+"area",
+"lead",
+"lady"
+],
+[ "ball",
+"area",
+"lead",
+"lady"
+]
 ]
 
 <b>Explanation:</b>
 The output consists of two word squares. The order of output does not matter (just the order of words in each word square matters).
+
 </pre>
 </p>
 
@@ -56,26 +58,25 @@ The output consists of two word squares. The order of output does not matter (ju
 
 <b>Output:</b>
 [
-  [ "baba",
-    "abat",
-    "baba",
-    "atan"
-  ],
-  [ "baba",
-    "abat",
-    "baba",
-    "atal"
-  ]
+[ "baba",
+"abat",
+"baba",
+"atan"
+],
+[ "baba",
+"abat",
+"baba",
+"atal"
+]
 ]
 
 <b>Explanation:</b>
 The output consists of two word squares. The order of output does not matter (just the order of words in each word square matters).
+
 </pre>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +93,7 @@ The output consists of two word squares. The order of output does not matter (ju
 ```
 
 ### **...**
+
 ```
 
 ```

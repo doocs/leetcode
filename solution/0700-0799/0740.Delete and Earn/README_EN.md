@@ -3,21 +3,14 @@
 [中文文档](/solution/0700-0799/0740.Delete%20and%20Earn/README.md)
 
 ## Description
+
 <p>Given an array <code>nums</code> of integers, you can perform operations on the array.</p>
-
-
 
 <p>In each operation, you pick any <code>nums[i]</code> and delete it to earn <code>nums[i]</code> points. After, you must delete <b>every</b> element equal to <code>nums[i] - 1</code> or <code>nums[i] + 1</code>.</p>
 
-
-
 <p>You start with 0 points. Return the maximum number of points you can earn by applying such operations.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -33,15 +26,9 @@ Then, delete 2 to earn 2 points. 6 total points are earned.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -59,34 +46,24 @@ Then, delete 3 again to earn 3 points, and 3 again to earn 3 points.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ul>
 
-	<li>The length of <code>nums</code> is at most <code>20000</code>.</li>
+    <li>The length of <code>nums</code> is at most <code>20000</code>.</li>
 
-	<li>Each element <code>nums[i]</code> is an integer in the range <code>[1, 10000]</code>.</li>
+    <li>Each element <code>nums[i]</code> is an integer in the range <code>[1, 10000]</code>.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
-
-
-
 
 ## Solutions
 
 <!-- tabs:start -->
+
 Intuition: **If we take a number, we will take all of the copies of it**.
 
 First calculate the sum of each number as **sums**, and keep updating two dp arrays: **select** and **nonSelect**
@@ -140,6 +117,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

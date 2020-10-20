@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1277.Count%20Square%20Submatrices%20with%20All%20Ones/README.md)
 
 ## Description
+
 <p>Given a <code>m * n</code> matrix of ones and zeros, return how many <strong>square</strong> submatrices have all ones.</p>
 
 <p>&nbsp;</p>
@@ -48,10 +49,7 @@ Total number of squares = 6 + 1 = <b>7</b>.
 	<li><code>0 &lt;= arr[i][j] &lt;= 1</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +66,7 @@ Total number of squares = 6 + 1 = <b>7</b>.
 ```
 
 ### **...**
+
 ```
 
 ```

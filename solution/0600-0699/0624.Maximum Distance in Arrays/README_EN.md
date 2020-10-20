@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0624.Maximum%20Distance%20in%20Arrays/README.md)
 
 ## Description
+
 <p>
 Given <code>m</code> arrays, and each array is sorted in ascending order. Now you can pick up two integers from two different arrays (each array picks one) and calculate the distance. We define the distance between two integers <code>a</code> and <code>b</code> to be their absolute difference <code>|a-b|</code>. Your task is to find the maximum distance.
 </p>
@@ -27,9 +28,7 @@ One way to reach the maximum distance 4 is to pick 1 in the first or third array
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +45,7 @@ One way to reach the maximum distance 4 is to pick 1 in the first or third array
 ```
 
 ### **...**
+
 ```
 
 ```

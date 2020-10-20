@@ -3,13 +3,12 @@
 [中文文档](/solution/0500-0599/0583.Delete%20Operation%20for%20Two%20Strings/README.md)
 
 ## Description
+
 <p>
 
 Given two words <i>word1</i> and <i>word2</i>, find the minimum number of steps required to make <i>word1</i> and <i>word2</i> the same, where in each step you can delete one character in either string.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,8 +24,6 @@ Given two words <i>word1</i> and <i>word2</i>, find the minimum number of steps 
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -39,9 +36,7 @@ Given two words <i>word1</i> and <i>word2</i>, find the minimum number of steps 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +53,7 @@ Given two words <i>word1</i> and <i>word2</i>, find the minimum number of steps 
 ```
 
 ### **...**
+
 ```
 
 ```

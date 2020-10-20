@@ -3,31 +3,24 @@
 [中文文档](/solution/0600-0699/0646.Maximum%20Length%20of%20Pair%20Chain/README.md)
 
 ## Description
+
 <p>
 
 You are given <code>n</code> pairs of numbers. In every pair, the first number is always smaller than the second number.
 
 </p>
 
-
-
 <p>
 
-Now, we define a pair <code>(c, d)</code> can follow another pair <code>(a, b)</code> if and only if <code>b < c</code>. Chain of pairs can be formed in this fashion. 
+Now, we define a pair <code>(c, d)</code> can follow another pair <code>(a, b)</code> if and only if <code>b < c</code>. Chain of pairs can be formed in this fashion.
 
 </p>
-
-
 
 <p>
 
 Given a set of pairs, find the length longest chain which can be formed. You needn't use up all the given pairs. You can select pairs in any order.
 
 </p>
-
-
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,8 +36,6 @@ Given a set of pairs, find the length longest chain which can be formed. You nee
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -55,9 +46,7 @@ Given a set of pairs, find the length longest chain which can be formed. You nee
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +63,7 @@ Given a set of pairs, find the length longest chain which can be formed. You nee
 ```
 
 ### **...**
+
 ```
 
 ```

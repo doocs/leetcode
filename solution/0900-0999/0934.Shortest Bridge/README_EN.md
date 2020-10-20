@@ -3,25 +3,16 @@
 [中文文档](/solution/0900-0999/0934.Shortest%20Bridge/README.md)
 
 ## Description
+
 <p>In a given 2D binary array <code>A</code>, there are two islands.&nbsp; (An island is a 4-directionally connected group of&nbsp;<code>1</code>s not connected to any other 1s.)</p>
-
-
 
 <p>Now, we may change <code>0</code>s to <code>1</code>s so as to connect the two islands together to form 1 island.</p>
 
-
-
 <p>Return the smallest number of <code>0</code>s that must be flipped.&nbsp; (It is guaranteed that the answer is at least 1.)</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -31,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -47,13 +34,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -61,29 +44,21 @@
 
 <strong>Output: </strong><span id="example-output-3">1</span></pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1 &lt;= A.length =&nbsp;A[0].length &lt;= 100</code></li>
+    <li><code>1 &lt;= A.length =&nbsp;A[0].length &lt;= 100</code></li>
 
-	<li><code>A[i][j] == 0</code> or <code>A[i][j] == 1</code></li>
+    <li><code>A[i][j] == 0</code> or <code>A[i][j] == 1</code></li>
 
 </ol>
-
-
 
 <div>
 
@@ -95,9 +70,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -114,6 +87,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

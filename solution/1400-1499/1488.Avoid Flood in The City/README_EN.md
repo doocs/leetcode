@@ -85,15 +85,11 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 	<li><code>0 &lt;= rains[i] &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -101,12 +97,12 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

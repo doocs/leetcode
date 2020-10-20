@@ -3,27 +3,18 @@
 [中文文档](/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/README.md)
 
 ## Description
+
 <p>Given the <code>root</code>&nbsp;of a binary tree, each node in the tree has a distinct value.</p>
-
-
 
 <p>After deleting&nbsp;all nodes with a value in <code>to_delete</code>, we are left with a forest (a&nbsp;disjoint union of trees).</p>
 
-
-
 <p>Return the roots of the trees in the remaining forest.&nbsp; You may return the result in any order.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-
-
 ![](./images/screen-shot-2019-07-01-at-53836-pm.png)
-
-
 
 <pre>
 
@@ -33,13 +24,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>The number of nodes in the given tree is at most <code>1000</code>.</li>
@@ -48,9 +35,7 @@
 	<li><code>to_delete</code> contains distinct values between <code>1</code> and <code>1000</code>.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +52,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

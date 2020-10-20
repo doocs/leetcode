@@ -29,15 +29,11 @@ The answer is the sum of divisors of 21 only.
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -45,12 +41,12 @@ The answer is the sum of divisors of 21 only.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

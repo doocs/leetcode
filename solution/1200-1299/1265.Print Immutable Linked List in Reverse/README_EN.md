@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1265.Print%20Immutable%20Linked%20List%20in%20Reverse/README.md)
 
 ## Description
+
 <p>You are given an immutable linked list, print out all values of each node in reverse with the help of the following interface:</p>
 
 <ul>
@@ -62,10 +63,7 @@
 	<li>The value of each node in the linked list is between <code>[-1000, 1000]</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +80,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

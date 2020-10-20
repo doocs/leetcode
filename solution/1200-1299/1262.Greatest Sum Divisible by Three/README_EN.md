@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1262.Greatest%20Sum%20Divisible%20by%20Three/README.md)
 
 ## Description
+
 <p>Given an array&nbsp;<code>nums</code>&nbsp;of integers, we need to find the maximum possible sum of elements of the array such that it is divisible by three.</p>
 
 <ol>
@@ -40,10 +41,7 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +58,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

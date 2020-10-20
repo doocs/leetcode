@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/README.md)
 
 ## Description
+
 <p>Given a binary tree, find the length of the longest consecutive sequence path.</p>
 
 <p>The path refers to any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The longest consecutive path need to be from parent to child (cannot be the reverse).</p>
@@ -41,9 +42,7 @@
 
 Explanation: </strong>Longest consecutive sequence path is <code>2-3</code><span style="font-family: sans-serif, Arial, Verdana, "Trebuchet MS";">, not </span><code>3-2-1</code><span style="font-family: sans-serif, Arial, Verdana, "Trebuchet MS";">, so return </span><code>2</code><span style="font-family: sans-serif, Arial, Verdana, "Trebuchet MS";">.</span></pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +59,7 @@ Explanation: </strong>Longest consecutive sequence path is <code>2-3</code><span
 ```
 
 ### **...**
+
 ```
 
 ```

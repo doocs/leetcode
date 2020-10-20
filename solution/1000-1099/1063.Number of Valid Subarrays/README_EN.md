@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1063.Number%20of%20Valid%20Subarrays/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of integers, return the number of <strong>non-empty continuous subarrays</strong> that satisfy the following condition:</p>
 
 <p>The leftmost element of the subarray is not larger than other elements in the subarray.</p>
@@ -42,9 +43,7 @@
 	<li><code>0 <= A[i] <= 100000</code></li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,6 +60,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

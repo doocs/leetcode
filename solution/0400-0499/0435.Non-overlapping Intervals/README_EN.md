@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0435.Non-overlapping%20Intervals/README.md)
 
 ## Description
+
 <p>Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.</p>
 
 <ol>
@@ -43,10 +44,7 @@
 	<li>Intervals like [1,2] and [2,3] have borders &quot;touching&quot; but they don&#39;t overlap each other.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -63,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

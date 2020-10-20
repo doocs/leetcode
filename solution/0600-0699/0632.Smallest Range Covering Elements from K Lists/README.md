@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>你有&nbsp;<code>k</code>&nbsp;个升序排列的整数数组。找到一个<strong>最小</strong>区间，使得&nbsp;<code>k</code>&nbsp;个列表中的每个列表至少有一个数包含在其中。</p>
 
@@ -28,15 +29,14 @@
 	<li><strong>对于使用Java的用户，请注意传入类型已修改为List&lt;List&lt;Integer&gt;&gt;。重置代码模板后可以看到这项改动。</strong></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +44,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -51,6 +52,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

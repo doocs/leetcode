@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README.md)
 
 ## Description
+
 <p>You have an infinite number of stacks arranged in a row and numbered (left to right) from 0, each of the stacks has the same&nbsp;maximum <code>capacity</code>.</p>
 
 <p>Implement the <code>DinnerPlates</code> class:</p>
@@ -68,10 +69,7 @@ D.pop()            // Returns -1.  There are still no stacks.
 	<li>At most <code>200000</code>&nbsp;calls will be made to <code>push</code>, <code>pop</code>, and <code>popAtStack</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +86,7 @@ D.pop()            // Returns -1.  There are still no stacks.
 ```
 
 ### **...**
+
 ```
 
 ```

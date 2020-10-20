@@ -3,37 +3,26 @@
 [中文文档](/solution/1000-1099/1090.Largest%20Values%20From%20Labels/README.md)
 
 ## Description
+
 <p>We have a set of items: the <code>i</code>-th item has value <code>values[i]</code> and label <code>labels[i]</code>.</p>
-
-
 
 <p>Then, we choose&nbsp;a subset <code>S</code> of these items, such that:</p>
 
-
-
 <ul>
 
-	<li><code>|S| &lt;= num_wanted</code></li>
+    <li><code>|S| &lt;= num_wanted</code></li>
 
-	<li>For every label <code>L</code>, the number of items in <code>S</code> with&nbsp;label <code>L</code> is <code>&lt;= use_limit</code>.</li>
+    <li>For every label <code>L</code>, the number of items in <code>S</code> with&nbsp;label <code>L</code> is <code>&lt;= use_limit</code>.</li>
 
 </ul>
 
-
-
 <p>Return the largest possible sum of the subset <code>S</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,13 +34,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,13 +48,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -81,13 +62,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -99,23 +76,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= values.length == labels.length &lt;= 20000</code></li>
+    <li><code>1 &lt;= values.length == labels.length &lt;= 20000</code></li>
 
-	<li><code>0 &lt;= values[i], labels[i]&nbsp;&lt;= 20000</code></li>
+    <li><code>0 &lt;= values[i], labels[i]&nbsp;&lt;= 20000</code></li>
 
-	<li><code>1 &lt;= num_wanted, use_limit&nbsp;&lt;= values.length</code></li>
+    <li><code>1 &lt;= num_wanted, use_limit&nbsp;&lt;= values.length</code></li>
 
 </ol>
 
@@ -127,9 +98,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -146,6 +115,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

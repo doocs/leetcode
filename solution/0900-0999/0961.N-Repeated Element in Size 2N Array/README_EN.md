@@ -3,29 +3,20 @@
 [中文文档](/solution/0900-0999/0961.N-Repeated%20Element%20in%20Size%202N%20Array/README.md)
 
 ## Description
+
 <p>In a array <code>A</code> of size <code>2N</code>, there are <code>N+1</code> unique elements, and exactly one of these elements is repeated N times.</p>
-
-
 
 <p>Return the element repeated <code>N</code> times.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,13 +38,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,23 +50,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>4 &lt;= A.length &lt;= 10000</code></li>
+    <li><code>4 &lt;= A.length &lt;= 10000</code></li>
 
-	<li><code>0 &lt;= A[i] &lt; 10000</code></li>
+    <li><code>0 &lt;= A[i] &lt; 10000</code></li>
 
-	<li><code>A.length</code> is even</li>
+    <li><code>A.length</code> is even</li>
 
 </ol>
 
@@ -93,11 +70,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -114,6 +87,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

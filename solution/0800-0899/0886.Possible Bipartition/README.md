@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0886.Possible%20Bipartition/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一组&nbsp;<code>N</code>&nbsp;人（编号为&nbsp;<code>1, 2, ..., N</code>），&nbsp;我们想把每个人分进<strong>任意</strong>大小的两组。</p>
 
@@ -48,15 +49,14 @@
 	<li>对于&nbsp;<code>dislikes[i] == dislikes[j]</code>&nbsp;不存在&nbsp;<code>i != j</code>&nbsp;</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -64,6 +64,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -71,6 +72,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

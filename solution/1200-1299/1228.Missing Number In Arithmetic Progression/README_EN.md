@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1228.Missing%20Number%20In%20Arithmetic%20Progression/README.md)
 
 ## Description
+
 <p>In some array <code>arr</code>, the values were in arithmetic progression: the values <code>arr[i+1] - arr[i]</code> are all equal for every <code>0 <= i < arr.length - 1</code>.</p>
 
 <p>Then, a value from <code>arr</code> was removed that <strong>was not the first or last value in the array</strong>.</p>
@@ -33,10 +34,7 @@
 	<li><code>0 <= arr[i] <= 10^5</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,25 +3,16 @@
 [中文文档](/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/README.md)
 
 ## Description
+
 <p>For a binary tree T, we can define a flip operation as follows: choose any node, and swap the left and right child subtrees.</p>
-
-
 
 <p>A binary tree X&nbsp;is <em>flip equivalent</em> to a binary tree Y if and only if we can make X equal to Y after some number of flip operations.</p>
 
-
-
 <p>Write a function that determines whether two binary trees&nbsp;are <em>flip equivalent</em>.&nbsp; The trees are given by root nodes <code>root1</code> and <code>root2</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -37,18 +28,12 @@
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>Each tree will have at most <code>100</code> nodes.</li>
 	<li>Each value in each tree will be a unique&nbsp;integer in the range <code>[0, 99]</code>.</li>
 </ol>
-
-
 
 <div>
 
@@ -56,11 +41,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +58,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

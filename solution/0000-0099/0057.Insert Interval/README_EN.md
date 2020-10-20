@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0057.Insert%20Interval/README.md)
 
 ## Description
+
 <p>Given a set of <em>non-overlapping</em> intervals, insert a new interval into the intervals (merge if necessary).</p>
-
-
 
 <p>You may assume that the intervals were initially sorted according to their start times.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -37,15 +28,9 @@
 
 <strong>Explanation:</strong> Because the new interval <code>[4,8]</code> overlaps with <code>[3,5],[6,7],[8,10]</code>.</pre>
 
-
-
 <p><strong>NOTE:</strong>&nbsp;input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

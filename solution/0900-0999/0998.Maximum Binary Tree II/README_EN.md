@@ -3,13 +3,10 @@
 [中文文档](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README.md)
 
 ## Description
+
 <p>We are given the <code>root</code>&nbsp;node of a <em>maximum tree:</em> a tree where every node has a value greater than any other value in its subtree.</p>
 
-
-
 <p>Just as in the <a href="https://leetcode.com/problems/maximum-binary-tree/">previous problem</a>, the given tree&nbsp;was constructed from an list&nbsp;<code>A</code>&nbsp;(<code>root = Construct(A)</code>) recursively with the following&nbsp;<code>Construct(A)</code> routine:</p>
-
-
 
 <ul>
 	<li>If <code>A</code> is empty, return <code>null</code>.</li>
@@ -20,32 +17,19 @@
 
 </ul>
 
-
-
 <p>Note that we were not given A directly, only a root node <code>root = Construct(A)</code>.</p>
-
-
 
 <p>Suppose <code>B</code> is a copy of <code>A</code> with the value <code>val</code> appended to it.&nbsp; It is guaranteed that <code>B</code> has unique values.</p>
 
-
-
 <p>Return <code>Construct(B)</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
 
 ![](./images/maximum-binary-tree-1-1.png)
 
 ![](./images/maximum-binary-tree-1-2.png)
-
-
 
 <pre>
 
@@ -57,8 +41,6 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:<br />
@@ -66,7 +48,6 @@
 ![](./images/maximum-binary-tree-2-1.png)
 
 ![](./images/maximum-binary-tree-2-2.png)
-
 
 <pre>
 
@@ -78,8 +59,6 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:<br />
@@ -87,7 +66,6 @@
 ![](./images/maximum-binary-tree-3-1.png)
 
 ![](./images/maximum-binary-tree-3-2.png)
-
 
 <pre>
 
@@ -99,27 +77,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= B.length &lt;= 100</code></li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -136,6 +106,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,17 +3,12 @@
 [中文文档](/lcci/10.09.Sorted%20Matrix%20Search/README.md)
 
 ## Description
+
 <p>Given an M x N matrix in which each row and each column is sorted in ascending order, write a method to find an element.</p>
-
-
 
 <p><strong>Example:</strong></p>
 
-
-
 <p>Given matrix:</p>
-
-
 
 <pre>
 
@@ -33,19 +28,11 @@
 
 </pre>
 
-
-
 <p>Given target&nbsp;=&nbsp;5,&nbsp;return&nbsp;<code>true.</code></p>
-
-
 
 <p>Given target&nbsp;=&nbsp;20, return&nbsp;<code>false.</code></p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -95,6 +82,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

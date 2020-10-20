@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0591.Tag%20Validator/README.md)
 
 ## Description
+
 <p>Given a string representing a code snippet, you need to implement a tag validator to parse the code and return whether it is valid. A code snippet is valid if all the following rules hold:<p>
 
 <ol>
@@ -24,8 +25,6 @@
 <li><code>CDATA_CONTENT</code> may contain <b>any characters</b>. The function of cdata is to forbid the validator to parse <code>CDATA_CONTENT</code>, so even it has some characters that can be parsed as tag (no matter valid or invalid), you should treat it as <b>regular characters</b>. </li>
 
 </ol>
-
-
 
 <p><b>Valid Code Examples:</b><br />
 
@@ -77,8 +76,6 @@ The reason why cdata is NOT <b>"&lt;![CDATA[&lt;div>]>]]>]]>"</b> is because of 
 
 </p>
 
-
-
 <p><b>Invalid Code Examples:</b><br />
 
 <pre>
@@ -123,8 +120,6 @@ The reason why cdata is NOT <b>"&lt;![CDATA[&lt;div>]>]]>]]>"</b> is because of 
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -135,9 +130,7 @@ The reason why cdata is NOT <b>"&lt;![CDATA[&lt;div>]>]]>]]>"</b> is because of 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -154,6 +147,7 @@ The reason why cdata is NOT <b>"&lt;![CDATA[&lt;div>]>]]>]]>"</b> is because of 
 ```
 
 ### **...**
+
 ```
 
 ```

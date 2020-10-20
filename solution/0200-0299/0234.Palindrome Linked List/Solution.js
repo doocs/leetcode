@@ -1,35 +1,35 @@
 var isPalindrome2 = function (head) {
   if (!head || !head.next) {
-    return true
+    return true;
   }
-  let slow = head
-  let fast = head
+  let slow = head;
+  let fast = head;
   while (fast !== null && fast.next !== null) {
-    slow = slow.next
-    fast = fast.next.next
+    slow = slow.next;
+    fast = fast.next.next;
   }
   if (fast !== null) {
-    slow = slow.next
+    slow = slow.next;
   }
 
-  let p = new ListNode(0)
+  let p = new ListNode(0);
   while (slow !== null) {
-    let t = slow.next
-    slow.next = p.next
-    p.next = slow
-    slow = t
+    let t = slow.next;
+    slow.next = p.next;
+    p.next = slow;
+    slow = t;
   }
 
-  let left = head
-  let right = p.next
+  let left = head;
+  let right = p.next;
   while (right !== null) {
     if (left.val !== right.val) {
-      return false
+      return false;
     }
-    left = left.next
-    right = right.next
+    left = left.next;
+    right = right.next;
   }
-  return true
+  return true;
 };
 
 var isPalindrom3 = function (head) {
@@ -46,13 +46,13 @@ var isPalindrom3 = function (head) {
     }
   }
   return true;
-}
+};
 
 var isPalindrome = function (head) {
-  let arr = []
+  let arr = [];
   while (head) {
-    arr.push(head.val)
-    head = head.next
+    arr.push(head.val);
+    head = head.next;
   }
-  return arr.join('') === arr.reverse().join('')
-}
+  return arr.join("") === arr.reverse().join("");
+};

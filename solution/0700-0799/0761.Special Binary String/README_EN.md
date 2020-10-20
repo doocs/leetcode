@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0761.Special%20Binary%20String/README.md)
 
 ## Description
+
 <p>
 
 <i>Special</i> binary strings are binary strings with the following two properties:
@@ -15,15 +16,13 @@
 
 </p><p>
 
-Given a special string <code>S</code>, a <i>move</i> consists of choosing two consecutive, non-empty, special substrings of <code>S</code>, and swapping them.  <i>(Two strings are consecutive if the last character of the first string is exactly one index before the first character of the second string.)</i>
+Given a special string <code>S</code>, a <i>move</i> consists of choosing two consecutive, non-empty, special substrings of <code>S</code>, and swapping them. <i>(Two strings are consecutive if the last character of the first string is exactly one index before the first character of the second string.)</i>
 
 </p><p>
 
 At the end of any number of moves, what is the lexicographically largest resulting string possible?
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,8 +42,6 @@ This is the lexicographically largest string possible after some number of swaps
 
 </p>
 
-
-
 <p><b>Note:</b><ol>
 
 <li><code>S</code> has length at most <code>50</code>.</li>
@@ -53,9 +50,7 @@ This is the lexicographically largest string possible after some number of swaps
 
 </ol></p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +67,7 @@ This is the lexicographically largest string possible after some number of swaps
 ```
 
 ### **...**
+
 ```
 
 ```

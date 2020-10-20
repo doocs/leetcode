@@ -55,11 +55,9 @@
 	<li><code>tableNumber<sub>i</sub></code> 是 <code>1</code> 到 <code>500</code> 范围内的整数。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -80,6 +78,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

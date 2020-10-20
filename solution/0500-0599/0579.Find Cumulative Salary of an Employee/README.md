@@ -3,13 +3,14 @@
 [English Version](/solution/0500-0599/0579.Find%20Cumulative%20Salary%20of%20an%20Employee/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 None
 
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 

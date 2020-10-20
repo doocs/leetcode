@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1133.Largest%20Unique%20Number/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>A</code>, return the largest integer that only occurs once.</p>
 
 <p>If no integer occurs once, return -1.</p>
@@ -36,10 +37,7 @@ There is no number that occurs only once.
 	<li><code>0 <= A[i] <= 1000</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +54,7 @@ There is no number that occurs only once.
 ```
 
 ### **...**
+
 ```
 
 ```

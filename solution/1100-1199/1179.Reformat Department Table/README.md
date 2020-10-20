@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1179.Reformat%20Department%20Table/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>部门表&nbsp;<code>Department</code>：</p>
 
@@ -49,15 +50,14 @@ Department 表：
 注意，结果表有 13 列 (1个部门 id 列 + 12个月份的收入列)。
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -65,6 +65,7 @@ Department 表：
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -72,6 +73,7 @@ Department 表：
 ```
 
 ### **...**
+
 ```
 
 ```

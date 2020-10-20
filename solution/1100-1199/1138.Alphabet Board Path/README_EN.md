@@ -3,18 +3,14 @@
 [中文文档](/solution/1100-1199/1138.Alphabet%20Board%20Path/README.md)
 
 ## Description
+
 <p>On an alphabet board, we start at position <code>(0, 0)</code>, corresponding to character&nbsp;<code>board[0][0]</code>.</p>
 
-
-
 <p>Here, <code>board = [&quot;abcde&quot;, &quot;fghij&quot;, &quot;klmno&quot;, &quot;pqrst&quot;, &quot;uvwxy&quot;, &quot;z&quot;]</code>, as shown in the diagram below.</p>
-
 
 ![](./images/azboard.png)
 
 <p>We may make the following moves:</p>
-
-
 
 <ul>
 	<li><code>&#39;U&#39;</code> moves our position up one row, if the position exists on the board;</li>
@@ -25,15 +21,9 @@
 
 </ul>
 
-
-
 <p>(Here, the only positions that exist on the board are positions with letters on them.)</p>
 
-
-
 <p>Return a sequence of moves that makes our answer equal to <code>target</code>&nbsp;in the minimum number of moves.&nbsp; You may return any path that does so.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -55,17 +45,13 @@
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 	<li><code>1 &lt;= target.length &lt;= 100</code></li>
 	<li><code>target</code> consists only of English lowercase letters.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +68,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0200-0299/0267.Palindrome%20Permutation%20II/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个字符串 <code>s</code> ，返回其通过重新排列组合后所有可能的回文字符串，并去除重复的组合。</p>
 
@@ -18,15 +19,14 @@
 <pre><strong>输入: </strong><code>"abc"</code>
 <strong>输出: </strong><code>[]</code></pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -34,6 +34,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -41,6 +42,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,19 +3,14 @@
 [中文文档](/solution/1300-1399/1323.Maximum%2069%20Number/README.md)
 
 ## Description
+
 <p>Given a positive integer <code>num</code> consisting only of digits 6 and 9.</p>
 
-
-
 <p>Return the maximum number you can get by changing <strong>at most</strong> one digit (6 becomes 9, and 9 becomes 6).</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -37,11 +32,7 @@ The maximum number is 9969.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,11 +42,7 @@ The maximum number is 9969.
 
 <strong>Explanation:</strong> Changing the last digit 6 to 9 results in the maximum number.</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -65,25 +52,19 @@ The maximum number is 9969.
 
 <strong>Explanation:</strong> It is better not to apply any change.</pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= num &lt;= 10^4</code></li>
+    <li><code>1 &lt;= num &lt;= 10^4</code></li>
 
-	<li><code>num</code>&#39;s digits are 6 or 9.</li>
+    <li><code>num</code>&#39;s digits are 6 or 9.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +81,7 @@ The maximum number is 9969.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计并实现一个&nbsp;TwoSum 的类，使该类需要支持 <code>add</code>&nbsp;和&nbsp;<code>find</code>&nbsp;的操作。</p>
 
@@ -22,15 +23,14 @@ find(7) -&gt; false
 find(3) -&gt; true
 find(6) -&gt; false</pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -38,6 +38,7 @@ find(6) -&gt; false</pre>
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -45,6 +46,7 @@ find(6) -&gt; false</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

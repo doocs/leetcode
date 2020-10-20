@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0117.Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/README.md)
 
 ## Description
+
 <p>Given a binary tree</p>
 
 <pre>
@@ -46,10 +47,7 @@ struct Node {
 	<li><code>-100&nbsp;&lt;= node.val &lt;= 100</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +64,7 @@ struct Node {
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1218.Longest%20Arithmetic%20Subsequence%20of%20Given%20Difference/README.md)
 
 ## Description
+
 <p>Given an integer array <code>arr</code>&nbsp;and an integer <code><font face="monospace">difference</font></code>, return the length of the longest subsequence in <font face="monospace"><code>arr</code>&nbsp;</font>which is an arithmetic sequence such that the difference between adjacent elements in the subsequence equals&nbsp;<code>difference</code>.</p>
 
 <p>&nbsp;</p>
@@ -37,10 +38,7 @@
 	<li><code>-10^4 &lt;= arr[i], difference &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

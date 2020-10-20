@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary tree, return the values of its boundary in <b>anti-clockwise</b> direction starting from root. Boundary includes left boundary, leaves, and right boundary in order without duplicate <strong>nodes</strong>.  (The values of the nodes may still be duplicates.)</p>
 
 <p><b>Left boundary</b> is defined as the path from root to the <b>left-most</b> node. <b>Right boundary</b> is defined as the path from root to the <b>right-most</b> node. If the root doesn't have left subtree or right subtree, then the root itself is left boundary or right boundary. Note this definition only applies to the input binary tree, and not applies to any subtrees.</p>
@@ -57,10 +58,7 @@ So order them in anti-clockwise without duplicate nodes we have [1,2,4,7,8,9,10,
 
 <p> </p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +75,7 @@ So order them in anti-clockwise without duplicate nodes we have [1,2,4,7,8,9,10,
 ```
 
 ### **...**
+
 ```
 
 ```

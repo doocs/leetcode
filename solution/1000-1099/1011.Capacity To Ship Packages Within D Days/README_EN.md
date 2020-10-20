@@ -3,25 +3,16 @@
 [中文文档](/solution/1000-1099/1011.Capacity%20To%20Ship%20Packages%20Within%20D%20Days/README.md)
 
 ## Description
+
 <p>A conveyor belt has packages that must be shipped from one port to another within <code>D</code> days.</p>
-
-
 
 <p>The <code>i</code>-th package on the conveyor belt has a weight of <code>weights[i]</code>.&nbsp; Each day, we load the ship with packages on the conveyor belt (in the order given by <code>weights</code>). We may not load more weight than the maximum weight capacity of the ship.</p>
 
-
-
 <p>Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being shipped within <code>D</code> days.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -49,11 +40,7 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -73,11 +60,7 @@ A ship capacity of 6 is the minimum to ship all the packages in 3 days like this
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -97,27 +80,19 @@ A ship capacity of 6 is the minimum to ship all the packages in 3 days like this
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= D &lt;= weights.length &lt;= 50000</code></li>
+    <li><code>1 &lt;= D &lt;= weights.length &lt;= 50000</code></li>
 
-	<li><code>1 &lt;= weights[i] &lt;= 500</code></li>
+    <li><code>1 &lt;= weights[i] &lt;= 500</code></li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -134,6 +109,7 @@ A ship capacity of 6 is the minimum to ship all the packages in 3 days like this
 ```
 
 ### **...**
+
 ```
 
 ```

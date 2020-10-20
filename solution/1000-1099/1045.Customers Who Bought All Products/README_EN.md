@@ -3,11 +3,10 @@
 [中文文档](/solution/1000-1099/1045.Customers%20Who%20Bought%20All%20Products/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

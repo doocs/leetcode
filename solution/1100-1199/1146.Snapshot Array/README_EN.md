@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1146.Snapshot%20Array/README.md)
 
 ## Description
+
 <p>Implement a SnapshotArray that supports the following interface:</p>
 
 <ul>
@@ -37,10 +38,7 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 	<li><code>0 &lt;=&nbsp;val &lt;= 10^9</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@ snapshotArr.get(0,0);  // Get the value of array[0] with snap_id = 0, return 5</
 ```
 
 ### **...**
+
 ```
 
 ```

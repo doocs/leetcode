@@ -1,6 +1,7 @@
-# [面试题52. 两个链表的第一个公共节点](https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/)
+# [面试题 52. 两个链表的第一个公共节点](https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/)
 
 ## 题目描述
+
 输入两个链表，找出它们的第一个公共节点。
 
 如下面的两个链表：
@@ -19,7 +20,7 @@
 输入解释：相交节点的值为 8 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,0,1,8,4,5]。在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。
 ```
 
-**示例 2：**
+**示例  2：**
 
 ![](./images/160_example_2.png)
 
@@ -29,7 +30,7 @@
 输入解释：相交节点的值为 2 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [0,9,1,2,4]，链表 B 为 [3,2,4]。在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。
 ```
 
-**示例 3：**
+**示例  3：**
 
 ![](./images/160_example_3.png)
 
@@ -56,6 +57,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -85,10 +87,11 @@ class Solution:
                 return p
             p = p.next
             q = q.next
-        
+
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -140,6 +143,7 @@ public class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -154,18 +158,19 @@ public class Solution {
  * @param {ListNode} headB
  * @return {ListNode}
  */
-var getIntersectionNode = function(headA, headB) {
-    let h1 = headA
-    let h2 = headB
-    while(h1 !== h2) {
-        h1 = h1 === null ? headB : h1.next
-        h2 = h2 === null ? headA : h2.next
-    }
-    return h2
+var getIntersectionNode = function (headA, headB) {
+  let h1 = headA;
+  let h2 = headB;
+  while (h1 !== h2) {
+    h1 = h1 === null ? headB : h1.next;
+    h2 = h2 === null ? headA : h2.next;
+  }
+  return h2;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

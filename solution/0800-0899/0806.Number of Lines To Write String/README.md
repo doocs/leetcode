@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0806.Number%20of%20Lines%20To%20Write%20String/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>我们要把给定的字符串 <code>S</code>&nbsp;从左到右写到每一行上，每一行的最大宽度为100个单位，如果我们在写某个字母的时候会使这行超过了100 个单位，那么我们应该把这个字母写到下一行。我们给定了一个数组&nbsp;<code>widths</code>&nbsp;，这个数组&nbsp;widths[0] 代表 &#39;a&#39; 需要的单位，&nbsp;widths[1] 代表 &#39;b&#39; 需要的单位，...，&nbsp;widths[25] 代表 &#39;z&#39; 需要的单位。</p>
 
@@ -42,15 +43,14 @@ S = &quot;bbbcccdddaaa&quot;
 	<li><code>widths[i]</code>&nbsp;值的范围在&nbsp;<code>[2, 10]</code>。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@ S = &quot;bbbcccdddaaa&quot;
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@ S = &quot;bbbcccdddaaa&quot;
 ```
 
 ### **...**
+
 ```
 
 ```

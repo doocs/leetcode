@@ -3,17 +3,12 @@
 [中文文档](/solution/0900-0999/0965.Univalued%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>A binary tree is <em>univalued</em> if every node in the tree has the same value.</p>
-
-
 
 <p>Return <code>true</code>&nbsp;if and only if the given tree is univalued.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Example 1:</strong></p>
 
@@ -26,8 +21,6 @@
 <strong>Output: </strong><span id="example-output-1">true</span>
 
 </pre>
-
-
 
 <div>
 
@@ -45,26 +38,16 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The number of nodes in the given tree will be in the range <code>[1, 100]</code>.</li>
 	<li>Each node&#39;s value will be an integer in the range <code>[0, 99]</code>.</li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -81,6 +64,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,21 +3,14 @@
 [中文文档](/solution/0900-0999/0923.3Sum%20With%20Multiplicity/README.md)
 
 ## Description
+
 <p>Given an integer array <code>A</code>, and an integer <code>target</code>, return the number of&nbsp;tuples&nbsp;<code>i, j, k</code>&nbsp; such that <code>i &lt; j &lt; k</code> and&nbsp;<code>A[i] + A[j] + A[k] == target</code>.</p>
-
-
 
 <p><strong>As the answer can be very large, return it modulo&nbsp;<code>10^9 + 7</code></strong>.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,13 +32,9 @@ Enumerating by the values (A[i], A[j], A[k]):
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,31 +52,23 @@ and two 2s from [2,2,2,2] in 6 ways.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>3 &lt;= A.length &lt;= 3000</code></li>
+    <li><code>3 &lt;= A.length &lt;= 3000</code></li>
 
-	<li><code>0 &lt;= A[i] &lt;= 100</code></li>
+    <li><code>0 &lt;= A[i] &lt;= 100</code></li>
 
-	<li><code>0 &lt;= target &lt;= 300</code></li>
+    <li><code>0 &lt;= target &lt;= 300</code></li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -104,6 +85,7 @@ and two 2s from [2,2,2,2] in 6 ways.
 ```
 
 ### **...**
+
 ```
 
 ```

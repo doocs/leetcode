@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1119.Remove%20Vowels%20from%20a%20String/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个字符串 <code>S</code>，请你删去其中的所有元音字母（ <code>'a'</code>，<code>'e'</code>，<code>'i'</code>，<code>'o'</code>，<code>'u'</code>），并返回这个新字符串。</p>
 
@@ -29,15 +30,14 @@
 	<li><code>1 <= S.length <= 1000</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -45,6 +45,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -52,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

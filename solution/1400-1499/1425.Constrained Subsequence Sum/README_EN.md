@@ -41,15 +41,11 @@
 	<li><code>-10^4&nbsp;&lt;= nums[i] &lt;= 10^4</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -57,12 +53,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

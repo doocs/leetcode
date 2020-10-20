@@ -1,31 +1,22 @@
 # [470. Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7)
 
-[中文文档](/solution/0400-0499/0470.Implement%20Rand10()%20Using%20Rand7()/README.md)
+[中文文档](</solution/0400-0499/0470.Implement%20Rand10()%20Using%20Rand7()/README.md>)
 
 ## Description
+
 <p>Given a function <code>rand7</code> which generates a uniform random integer in the range 1 to 7, write a function <code>rand10</code>&nbsp;which generates a uniform random integer in the range 1 to 10.</p>
 
-
-
 <p>Do NOT use system&#39;s <code>Math.random()</code>.</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,13 +38,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,39 +50,27 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>rand7</code> is predefined.</li>
+    <li><code>rand7</code> is predefined.</li>
 
-	<li>Each testcase has one argument:&nbsp;<code>n</code>, the number of times that <code>rand10</code> is called.</li>
+    <li>Each testcase has one argument:&nbsp;<code>n</code>, the number of times that <code>rand10</code> is called.</li>
 
 </ol>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Follow up:</strong></p>
-
-
 
 <ol>
 
-	<li>What is the <a href="https://en.wikipedia.org/wiki/Expected_value" target="_blank">expected value</a>&nbsp;for the number of calls to&nbsp;<code>rand7()</code>&nbsp;function?</li>
+    <li>What is the <a href="https://en.wikipedia.org/wiki/Expected_value" target="_blank">expected value</a>&nbsp;for the number of calls to&nbsp;<code>rand7()</code>&nbsp;function?</li>
 
-	<li>Could you minimize the number of calls to <code>rand7()</code>?</li>
+    <li>Could you minimize the number of calls to <code>rand7()</code>?</li>
 
 </ol>
 
@@ -109,11 +80,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -130,6 +97,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

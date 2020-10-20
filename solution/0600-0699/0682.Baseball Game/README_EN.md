@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0682.Baseball%20Game/README.md)
 
 ## Description
+
 <p>
 
 You're now a baseball game point recorder.
 
 </p>
-
-
 
 <p>
 
@@ -29,23 +28,17 @@ Given a list of strings, each string can be one of the 4 following types:
 
 </p>
 
-
-
 <p>
 
 Each round's operation is permanent and could have an impact on the round before and the round after.
 
 </p>
 
-
-
 <p>
 
 You need to return the sum of the points you could get in all the rounds.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -70,8 +63,6 @@ Round 4: You could get 5 + 10 = 15 points. The sum is: 30.
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -103,8 +94,6 @@ Round 7: You could get 9 + 5 = 14 points. The sum is 27.
 
 </p>
 
-
-
 <p><b>Note:</b><br />
 
 <li>The size of the input list will be between 1 and 1000.</li>
@@ -113,9 +102,7 @@ Round 7: You could get 9 + 5 = 14 points. The sum is 27.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -132,6 +119,7 @@ Round 7: You could get 9 + 5 = 14 points. The sum is 27.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1001.Grid%20Illumination/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在&nbsp;<code>N x N</code>&nbsp;的网格上，每个单元格&nbsp;<code>(x, y)</code>&nbsp;上都有一盏灯，其中&nbsp;<code>0 &lt;= x &lt; N</code>&nbsp;且&nbsp;<code>0 &lt;= y &lt; N</code> 。</p>
 
@@ -48,15 +49,14 @@
 	<li><code>lamps[i].length == queries[i].length == 2</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -64,6 +64,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -71,6 +72,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

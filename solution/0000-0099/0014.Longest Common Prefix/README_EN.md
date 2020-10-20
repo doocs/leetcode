@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0014.Longest%20Common%20Prefix/README.md)
 
 ## Description
+
 <p>Write a function to find the longest common prefix string amongst an array of strings.</p>
-
-
 
 <p>If there is no common prefix, return an empty string <code>&quot;&quot;</code>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,19 +30,11 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <p>All given inputs are in lowercase letters <code>a-z</code>.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

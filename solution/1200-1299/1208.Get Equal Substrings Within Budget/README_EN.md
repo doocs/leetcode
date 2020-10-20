@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1208.Get%20Equal%20Substrings%20Within%20Budget/README.md)
 
 ## Description
+
 <p>You are given two strings <code>s</code> and <code>t</code> of the same length. You want to change <code>s</code> to <code>t</code>. Changing the <code>i</code>-th character of <code>s</code> to <code>i</code>-th character of <code>t</code> costs <code>|s[i] - t[i]|</code> that is, the absolute difference between the ASCII values of the characters.</p>
 
 <p>You are also given an integer <code>maxCost</code>.</p>
@@ -44,10 +45,7 @@
 	<li><code>s</code> and&nbsp;<code>t</code> only contain lower case English letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +62,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

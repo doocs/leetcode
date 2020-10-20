@@ -3,11 +3,10 @@
 [中文文档](/solution/0100-0199/0165.Compare%20Version%20Numbers/README.md)
 
 ## Description
+
 <p>Compare two version numbers <em>version1</em> and <em>version2</em>.<br />
 
 If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&nbsp;if <code><em>version1</em> &lt; <em>version2</em></code> return <code>-1;</code>otherwise return <code>0</code>.</p>
-
-
 
 <p>You may assume that the version strings are non-empty and contain only digits and the <code>.</code> character.</p>
 
@@ -17,11 +16,7 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 
 <p>You may assume the default revision number for each level of a version number to be <code>0</code>. For example, version number <code>3.4</code> has a revision number of <code>3</code> and <code>4</code> for its first and second level revision number. Its third and fourth level revision number are both <code>0</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Example 1:</strong></p>
 
@@ -31,8 +26,6 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 
 <strong>Output:</strong> -1</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
 <pre>
@@ -41,8 +34,6 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 
 <strong>Output:</strong> 1</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
 
 <pre>
@@ -50,8 +41,6 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 <strong>Input:</strong> <code><em>version1</em></code> = &quot;7.5.2.4&quot;, <code><em>version2</em></code> = &quot;7.5.3&quot;
 
 <strong>Output:</strong> -1</pre>
-
-
 
 <p><strong>Example 4:</strong></p>
 
@@ -63,8 +52,6 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 
 <strong>Explanation:</strong> Ignoring leading zeroes, both “01” and “001" represent the same number “1”</pre>
 
-
-
 <p><strong>Example 5:</strong></p>
 
 <pre>
@@ -75,11 +62,7 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 
 <strong>Explanation:</strong> The first version number does not have a third level revision number, which means its third level revision number is default to "0"</pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
@@ -91,9 +74,7 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -110,6 +91,7 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 ```
 
 ### **...**
+
 ```
 
 ```

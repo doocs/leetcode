@@ -1,10 +1,12 @@
-# [面试题44. 数字序列中某一位的数字](https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/)
+# [面试题 44. 数字序列中某一位的数字](https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/)
 
 ## 题目描述
-<!-- 这里写题目描述 -->
-数字以0123456789101112131415…的格式序列化到一个字符序列中。在这个序列中，第5位（从下标0开始计数）是5，第13位是1，第19位是4，等等。
 
-请写一个函数，求任意第n位对应的数字。
+<!-- 这里写题目描述 -->
+
+数字以 0123456789101112131415…的格式序列化到一个字符序列中。在这个序列中，第 5 位（从下标 0 开始计数）是 5，第 13 位是 1，第 19 位是 4，等等。
+
+请写一个函数，求任意第 n 位对应的数字。
 
 **示例 1：**
 
@@ -22,12 +24,14 @@
 
 **限制：**
 
-- `0 <= n < 2^31`
+- `0 <= n < 2^31`
 
 注意：本题与主站 400 题相同：https://leetcode-cn.com/problems/nth-digit/
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 - pow = 0：0~9 有 10 位
 - pow = 1: 10~99 有 `90*2=180` 位
 - pow = 2: 100~999 有 `900*3=2700` 位。
@@ -37,6 +41,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -61,6 +66,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -88,31 +94,33 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number} n
  * @return {number}
  */
-var findNthDigit = function(n) {
-    let i = 9
-    let a = 1
-    let remain = n
-    while(i * a < remain) {
-        remain -= i * a
-        i *= 10
-        a++
-    }
-    let b = remain % a
-    let res = 10**(a-1) + ~~(remain / a)
-    if(b === 0) {
-         b = a
-         res--
-    }
-    return res.toString()[b-1]
+var findNthDigit = function (n) {
+  let i = 9;
+  let a = 1;
+  let remain = n;
+  while (i * a < remain) {
+    remain -= i * a;
+    i *= 10;
+    a++;
+  }
+  let b = remain % a;
+  let res = 10 ** (a - 1) + ~~(remain / a);
+  if (b === 0) {
+    b = a;
+    res--;
+  }
+  return res.toString()[b - 1];
 };
 ```
 
 ### **...**
+
 ```
 
 ```

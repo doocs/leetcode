@@ -3,29 +3,18 @@
 [中文文档](/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README.md)
 
 ## Description
+
 <p>On an 8 x 8 chessboard, there is one white rook.&nbsp; There also may be empty squares, white bishops, and black pawns.&nbsp; These are given as characters &#39;R&#39;, &#39;.&#39;, &#39;B&#39;, and &#39;p&#39; respectively. Uppercase characters represent white pieces, and lowercase characters represent black pieces.</p>
-
-
 
 <p>The rook moves as in the rules of Chess: it chooses one of four cardinal directions (north, east, west, and south), then moves in that direction until it chooses to stop, reaches the edge of the board, or captures an opposite colored pawn by moving to the same square it occupies.&nbsp; Also, rooks cannot move into the same square as other friendly bishops.</p>
 
-
-
 <p>Return the number of pawns the rook can capture in one move.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
 
-
-
 ![](./images/1253_example_1_improved.png)
-
-
 
 <pre>
 
@@ -39,14 +28,9 @@ In this example the rook is able to capture all the pawns.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
 ![](./images/1253_example_2_improved.png)
-
-
 
 <pre>
 
@@ -60,15 +44,9 @@ Bishops are blocking the rook to capture any pawn.
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
 
-
-
 ![](./images/1253_example_3_improved.png)
-
-
 
 <pre>
 
@@ -82,11 +60,7 @@ The rook can capture the pawns at positions b5, d6 and f5.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
@@ -94,11 +68,7 @@ The rook can capture the pawns at positions b5, d6 and f5.
 2. `board[i][j]` is either `'R'`, `'.'`, `'B'` or `'p'`
 3. There is exactly one cell with `board[i][j] == 'R'`
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -158,7 +128,9 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```
+
 <!-- tabs:end -->

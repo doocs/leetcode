@@ -1,7 +1,9 @@
-# [面试题68 - I. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/)
+# [面试题 68 - I. 二叉搜索树的最近公共祖先](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。
 
 [百度百科](https://baike.baidu.com/item/%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/8918834?fr=aladdin)中最近公共祖先的定义为：“对于有根树 T 的两个结点 p、q，最近公共祖先表示为一个结点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（**一个节点也可以是它自己的祖先**）。”
@@ -14,7 +16,7 @@
 
 ```
 输入: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
-输出: 6 
+输出: 6
 解释: 节点 2 和节点 8 的最近公共祖先是 6。
 ```
 
@@ -32,6 +34,7 @@
 - p、q 为不同节点且均存在于给定的二叉搜索树中。
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
 
 从上到下搜索，找到第一个值位于 `[p, q]` 之间的结点即可。既可以用迭代实现，也可以用递归实现。
@@ -39,6 +42,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 #### 迭代法
@@ -84,6 +88,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -116,6 +121,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -130,19 +136,20 @@ class Solution {
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function(root, p, q) {
-    // 递归
-    if(!root) return null
-    if(root.val < p.val && root.val < q.val) {
-        return lowestCommonAncestor(root.right, p,q)
-    } else if(root.val > p.val && root.val > q.val) {
-        return lowestCommonAncestor(root.left, p,q)
-    }
-    return root
+var lowestCommonAncestor = function (root, p, q) {
+  // 递归
+  if (!root) return null;
+  if (root.val < p.val && root.val < q.val) {
+    return lowestCommonAncestor(root.right, p, q);
+  } else if (root.val > p.val && root.val > q.val) {
+    return lowestCommonAncestor(root.left, p, q);
+  }
+  return root;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

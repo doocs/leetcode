@@ -1,6 +1,7 @@
-# [面试题58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/)
+# [面试题 58 - I. 翻转单词顺序](https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/)
 
 ## 题目描述
+
 输入一个英文句子，翻转句子中单词的顺序，但单词内字符的顺序不变。为简单起见，标点符号和普通字母一样处理。例如输入字符串"I am a student. "，则输出"student. a am I"。
 
 **示例 1：**
@@ -37,11 +38,13 @@
 **注意：** 此题对比原题有改动
 
 ## 解法
+
 按空格分割字符串后逆序。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
@@ -51,6 +54,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public String reverseWords(String s) {
@@ -73,17 +77,23 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {string} s
  * @return {string}
  */
-var reverseWords = function(s) {
-    return s.split(' ').reduce((acc,cur)=>cur !== '' ? acc.concat(cur) : acc,[]).reverse().join(' ')
+var reverseWords = function (s) {
+  return s
+    .split(" ")
+    .reduce((acc, cur) => (cur !== "" ? acc.concat(cur) : acc), [])
+    .reverse()
+    .join(" ");
 };
 ```
 
 ### **...**
+
 ```
 
 ```

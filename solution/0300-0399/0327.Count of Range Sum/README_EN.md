@@ -3,21 +3,16 @@
 [中文文档](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README.md)
 
 ## Description
+
 <p>Given an integer array <code>nums</code>, return the number of range sums that lie in <code>[lower, upper]</code> inclusive.<br />
 
 Range sum <code>S(i, j)</code> is defined as the sum of the elements in <code>nums</code> between indices <code>i</code> and <code>j</code> (<code>i</code> &le; <code>j</code>), inclusive.</p>
-
-
 
 <p><b>Note:</b><br />
 
 A naive algorithm of <i>O</i>(<i>n</i><sup>2</sup>) is trivial. You MUST do better than that.</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -29,9 +24,7 @@ A naive algorithm of <i>O</i>(<i>n</i><sup>2</sup>) is trivial. You MUST do bett
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -48,6 +41,7 @@ A naive algorithm of <i>O</i>(<i>n</i><sup>2</sup>) is trivial. You MUST do bett
 ```
 
 ### **...**
+
 ```
 
 ```

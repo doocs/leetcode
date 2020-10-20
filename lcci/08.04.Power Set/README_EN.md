@@ -3,17 +3,12 @@
 [中文文档](/lcci/08.04.Power%20Set/README.md)
 
 ## Description
+
 <p>Write a method to return all subsets of a set. The elements in a set are&nbsp;pairwise distinct.</p>
-
-
 
 <p>Note: The result set should not contain duplicated subsets.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +38,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

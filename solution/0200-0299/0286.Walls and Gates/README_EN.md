@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0286.Walls%20and%20Gates/README.md)
 
 ## Description
+
 <p>You are given a <i>m x n</i> 2D grid initialized with these three possible values.</p>
 
 <ol>
@@ -33,10 +34,7 @@ INF  -1 INF  -1
   0  -1   3   4
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +51,7 @@ INF  -1 INF  -1
 ```
 
 ### **...**
+
 ```
 
 ```

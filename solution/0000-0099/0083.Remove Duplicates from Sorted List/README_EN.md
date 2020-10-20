@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README.md)
 
 ## Description
+
 <p>Given a sorted linked list, delete all duplicates such that each element appear only <em>once</em>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +26,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -23,7 +23,6 @@
 
 ![](./images/sample_1_1802.png)
 
-
 <pre>
 <strong>Input:</strong> grid = [[3,1,1],[2,5,1],[1,5,5],[2,1,1]]
 <strong>Output:</strong> 24
@@ -70,15 +69,11 @@ Total of cherries: 17 + 11 = 28.
 	<li><code>0 &lt;= grid[i][j] &lt;= 100&nbsp;</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -86,12 +81,12 @@ Total of cherries: 17 + 11 = 28.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

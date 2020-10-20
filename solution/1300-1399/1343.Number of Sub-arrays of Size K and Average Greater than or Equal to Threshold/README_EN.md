@@ -3,19 +3,14 @@
 [中文文档](/solution/1300-1399/1343.Number%20of%20Sub-arrays%20of%20Size%20K%20and%20Average%20Greater%20than%20or%20Equal%20to%20Threshold/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>arr</code> and two integers <code>k</code> and <code>threshold</code>.</p>
 
-
-
 <p>Return <em>the number of sub-arrays</em> of size <code>k</code> and average greater than or equal to <code>threshold</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -57,11 +44,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -71,11 +54,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -85,29 +64,23 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
+    <li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
 
-	<li><code>1 &lt;= arr[i] &lt;= 10^4</code></li>
+    <li><code>1 &lt;= arr[i] &lt;= 10^4</code></li>
 
-	<li><code>1 &lt;= k &lt;= arr.length</code></li>
+    <li><code>1 &lt;= k &lt;= arr.length</code></li>
 
-	<li><code>0 &lt;= threshold &lt;= 10^4</code></li>
+    <li><code>0 &lt;= threshold &lt;= 10^4</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -124,6 +97,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

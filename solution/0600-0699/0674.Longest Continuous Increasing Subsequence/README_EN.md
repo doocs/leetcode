@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0674.Longest%20Continuous%20Increasing%20Subsequence/README.md)
 
 ## Description
+
 <p>
 
 Given an unsorted array of integers, find the length of longest <code>continuous</code> increasing subsequence (subarray).
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -27,8 +26,6 @@ Even though [1,3,5,7] is also an increasing subsequence, it's not a continuous o
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -43,17 +40,13 @@ Even though [1,3,5,7] is also an increasing subsequence, it's not a continuous o
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 Length of the array will not exceed 10,000.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +63,7 @@ Length of the array will not exceed 10,000.
 ```
 
 ### **...**
+
 ```
 
 ```

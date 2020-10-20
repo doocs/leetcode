@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0250.Count%20Univalue%20Subtrees/README.md)
 
 ## Description
+
 <p>Given the <code>root</code> of a binary tree, return the number of <strong>uni-value</strong> subtrees.</p>
 
 <p>A <strong>uni-value subtree</strong> means all nodes of the subtree have the same value.</p>
@@ -37,10 +38,7 @@
 	<li><code>-1000 <= Node.val <= 1000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

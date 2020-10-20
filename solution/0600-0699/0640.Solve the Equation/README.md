@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0640.Solve%20the%20Equation/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>求解一个给定的方程，将<code>x</code>以字符串&quot;x=#value&quot;的形式返回。该方程仅包含&#39;+&#39;，&#39; - &#39;操作，变量&nbsp;<code>x</code>&nbsp;和其对应系数。</p>
 
@@ -42,15 +43,14 @@
 <strong>输出:</strong> &quot;No solution&quot;
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

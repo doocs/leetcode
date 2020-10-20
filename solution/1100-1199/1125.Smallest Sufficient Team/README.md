@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>作为项目经理，你规划了一份需求的技能清单&nbsp;<code>req_skills</code>，并打算从备选人员名单&nbsp;<code>people</code>&nbsp;中选出些人组成一个「必要团队」（ 编号为&nbsp;<code>i</code>&nbsp;的备选人员&nbsp;<code>people[i]</code>&nbsp;含有一份该备选人员掌握的技能列表）。</p>
 
@@ -39,15 +40,14 @@
 	<li>本题保证「必要团队」一定存在</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -55,6 +55,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -62,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

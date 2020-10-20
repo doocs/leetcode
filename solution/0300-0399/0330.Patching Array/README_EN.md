@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0330.Patching%20Array/README.md)
 
 ## Description
+
 <p>Given a sorted positive integer array <i>nums</i> and an integer <i>n</i>, add/patch elements to the array such that any number in range <code>[1, n]</code> inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -27,11 +24,7 @@ Possible sums are <code>1, 2, 3, 4, 5, 6</code>, which now covers the range <cod
 
 So we only need <code>1</code> patch.</pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -43,11 +36,7 @@ So we only need <code>1</code> patch.</pre>
 
 </pre>
 
-
-
 <p><b>Example 3:</b></p>
-
-
 
 <pre>
 
@@ -57,9 +46,7 @@ So we only need <code>1</code> patch.</pre>
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +63,7 @@ So we only need <code>1</code> patch.</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

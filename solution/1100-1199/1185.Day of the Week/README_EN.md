@@ -3,23 +3,16 @@
 [中文文档](/solution/1100-1199/1185.Day%20of%20the%20Week/README.md)
 
 ## Description
+
 <p>Given a date, return the corresponding day of the week for that date.</p>
-
-
 
 <p>The input is given as three integers representing the <code>day</code>, <code>month</code> and <code>year</code> respectively.</p>
 
-
-
 <p>Return the answer as one of the following values&nbsp;<code>{&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -57,23 +42,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li>The given dates are valid&nbsp;dates between the years <code>1971</code> and <code>2100</code>.</li>
+    <li>The given dates are valid&nbsp;dates between the years <code>1971</code> and <code>2100</code>.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

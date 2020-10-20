@@ -3,13 +3,10 @@
 [中文文档](/lcci/04.05.Legal%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
 <p>Implement a function to check if a binary tree is a binary search tree.</p>
 
-
-
 <p><strong>Example&nbsp;1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example&nbsp;2:</strong></p>
-
-
 
 <pre>
 
@@ -51,11 +44,7 @@
 
 &nbsp;    the value of root node is 5, but its right child has value 4.</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -124,6 +113,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -5,7 +5,7 @@ var searchInsert2 = function (nums, target) {
     }
   }
   return nums.length;
-}
+};
 
 var searchInsert = function (nums, target) {
   let left = 0;
@@ -39,4 +39,4 @@ var searchInsert = function (nums, target) {
   }
 
   return left;
-}
+};

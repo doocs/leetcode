@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0394.Decode%20String/README.md)
 
 ## Description
+
 <p>Given an encoded string, return its decoded string.</p>
 
 <p>The encoding rule is: <code>k[encoded_string]</code>, where the <i>encoded_string</i> inside the square brackets is being repeated exactly <i>k</i> times. Note that <i>k</i> is guaranteed to be a positive integer.</p>
@@ -21,10 +22,7 @@ s = &quot;2[abc]3[cd]ef&quot;, return &quot;abcabccdcdcdef&quot;.
 
 <p>&nbsp;</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -41,6 +39,7 @@ s = &quot;2[abc]3[cd]ef&quot;, return &quot;abcabccdcdcdef&quot;.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README.md)
 
 ## Description
+
 <p>There are <code>n</code> cities connected by&nbsp;<code>m</code> flights. Each flight starts from city&nbsp;<code>u </code>and arrives at&nbsp;<code>v</code> with a price <code>w</code>.</p>
 
 <p>Now given all the cities and flights, together with starting city <code>src</code> and the destination&nbsp;<code>dst</code>, your task is to find the cheapest price from <code>src</code> to <code>dst</code> with up to <code>k</code> stops. If there is no such route, output <code>-1</code>.</p>
@@ -44,10 +45,7 @@ The cheapest price from city <code>0</code> to city <code>2</code> with at most 
 	<li>There&nbsp;will&nbsp;not&nbsp;be&nbsp;any&nbsp;duplicated&nbsp;flights or&nbsp;self&nbsp;cycles.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +62,7 @@ The cheapest price from city <code>0</code> to city <code>2</code> with at most 
 ```
 
 ### **...**
+
 ```
 
 ```

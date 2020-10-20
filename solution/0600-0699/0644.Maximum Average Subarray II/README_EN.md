@@ -3,10 +3,10 @@
 [中文文档](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README.md)
 
 ## Description
+
 <p>
 Given an array consisting of <code>n</code> integers, find the contiguous subarray whose <b>length is greater than or equal to</b> <code>k</code> that has the maximum average value. And you need to output the maximum average value.
 </p>
-
 
 <p><b>Example 1:</b><br />
 <pre>
@@ -19,7 +19,6 @@ Thus return 12.75.
 </pre>
 </p>
 
-
 <p><b>Note:</b><br>
 <ol>
 <li>1 <= <code>k</code> <= <code>n</code> <= 10,000.</li>
@@ -28,9 +27,7 @@ Thus return 12.75.
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -47,6 +44,7 @@ Thus return 12.75.
 ```
 
 ### **...**
+
 ```
 
 ```

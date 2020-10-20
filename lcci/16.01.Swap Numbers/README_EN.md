@@ -3,13 +3,10 @@
 [中文文档](/lcci/16.01.Swap%20Numbers/README.md)
 
 ## Description
+
 <p>Write a function to swap a number in place (that is, without temporary vari&shy; ables).</p>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -19,21 +16,13 @@
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 	<li><code>numbers.length == 2</code></li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +49,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

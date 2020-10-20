@@ -3,21 +3,14 @@
 [中文文档](/solution/0100-0199/0136.Single%20Number/README.md)
 
 ## Description
+
 <p>Given a <strong>non-empty</strong>&nbsp;array of integers, every element appears <em>twice</em> except for one. Find that single one.</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +30,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -75,6 +60,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

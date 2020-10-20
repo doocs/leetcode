@@ -1,8 +1,9 @@
-# [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits)
+# [402. 移掉 K 位数字](https://leetcode-cn.com/problems/remove-k-digits)
 
 [English Version](/solution/0400-0499/0402.Remove%20K%20Digits/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个以字符串表示的非负整数&nbsp;<em>num</em>，移除这个数中的 <em>k </em>位数字，使得剩下的数字最小。</p>
 
@@ -37,15 +38,14 @@
 解释: 从原数字移除所有的数字，剩余为空就是0。
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -53,6 +53,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

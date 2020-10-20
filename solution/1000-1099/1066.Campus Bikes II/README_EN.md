@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1066.Campus%20Bikes%20II/README.md)
 
 ## Description
+
 <p>On a campus represented as a 2D grid, there are <code>N</code> workers and <code>M</code> bikes, with <code>N <= M</code>. Each worker and bike is a 2D coordinate on this grid.</p>
 
 <p>We assign one unique bike to each worker so that the sum of the Manhattan distances between each worker and their assigned bike is minimized.</p>
@@ -45,9 +46,7 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 	<li><code>1 <= workers.length <= bikes.length <= 10</code></li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +63,7 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 ```
 
 ### **...**
+
 ```
 
 ```

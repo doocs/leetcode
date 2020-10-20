@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1092.Shortest%20Common%20Supersequence/README.md)
 
 ## Description
+
 <p>Given two strings <code>str1</code> and <code>str2</code>,&nbsp;return the shortest string that has both <code>str1</code>&nbsp;and <code>str2</code>&nbsp;as subsequences.&nbsp;&nbsp;If multiple answers exist, you may return any of them.</p>
 
 <p><em>(A string S is a subsequence of string T if deleting some number of characters from T (possibly 0, and the characters are chosen <u>anywhere</u> from T) results in the string S.)</em></p>
@@ -29,10 +30,7 @@ The answer provided is the shortest such string that satisfies these properties.
 	<li><code>str1</code> and <code>str2</code> consist of lowercase English letters.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -49,6 +47,7 @@ The answer provided is the shortest such string that satisfies these properties.
 ```
 
 ### **...**
+
 ```
 
 ```

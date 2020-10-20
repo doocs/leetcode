@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>二叉树上有 <code>n</code>&nbsp;个节点，按从&nbsp;<code>0</code>&nbsp;到 <code>n - 1</code>&nbsp;编号，其中节点&nbsp;<code>i</code>&nbsp;的两个子节点分别是&nbsp;<code>leftChild[i]</code>&nbsp;和&nbsp;<code>rightChild[i]</code>。</p>
 
@@ -56,15 +57,14 @@
 	<li><code>-1 &lt;= leftChild[i], rightChild[i] &lt;= n - 1</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -72,6 +72,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -79,6 +80,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

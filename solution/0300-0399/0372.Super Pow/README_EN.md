@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0372.Super%20Pow/README.md)
 
 ## Description
+
 <p>Your task is to calculate <i>a</i><sup><i>b</i></sup> mod 1337 where <i>a</i> is a positive integer and <i>b</i> is an extremely large positive integer given in the form of an array.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <div>
 
@@ -21,13 +18,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,9 +34,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

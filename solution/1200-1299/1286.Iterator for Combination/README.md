@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1286.Iterator%20for%20Combination/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>请你设计一个迭代器类，包括以下内容：</p>
 
@@ -36,15 +37,14 @@ iterator.hasNext(); // 返回 false
 	<li>题目保证每次调用函数&nbsp;<code>next</code>&nbsp;时都存在下一个字母组合。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -52,6 +52,7 @@ iterator.hasNext(); // 返回 false
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -59,6 +60,7 @@ iterator.hasNext(); // 返回 false
 ```
 
 ### **...**
+
 ```
 
 ```

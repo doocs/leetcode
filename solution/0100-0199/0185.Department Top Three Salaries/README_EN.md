@@ -3,9 +3,8 @@
 [中文文档](/solution/0100-0199/0185.Department%20Top%20Three%20Salaries/README.md)
 
 ## Description
+
 <p>The <code>Employee</code> table holds all employees. Every employee has an Id, and there is also a column for the department Id.</p>
-
-
 
 <pre>
 
@@ -33,11 +32,7 @@
 
 </pre>
 
-
-
 <p>The <code>Department</code> table holds all departments of the company.</p>
-
-
 
 <pre>
 
@@ -55,11 +50,7 @@
 
 </pre>
 
-
-
 <p>Write a SQL query to find employees who earn the top three salaries in each of the department. For the above tables, your SQL query should return the following rows (order of rows does not matter).</p>
-
-
 
 <pre>
 
@@ -85,19 +76,11 @@
 
 </pre>
 
-
-
 <p><strong>Explanation:</strong></p>
-
-
 
 <p>In IT department, Max earns the highest salary, both Randy and Joe earn the second highest salary, and Will earns the third highest salary. There are only two employees in the Sales department, Henry earns the highest salary while Sam earns the second highest salary.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

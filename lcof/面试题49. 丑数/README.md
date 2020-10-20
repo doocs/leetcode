@@ -1,7 +1,9 @@
-# [面试题49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/)
+# [面试题 49. 丑数](https://leetcode-cn.com/problems/chou-shu-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 我们把只包含因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。
 
 **示例:**
@@ -14,17 +16,17 @@
 
 **说明:**
 
-1. `1` 是丑数。
-2. `n` 不超过 1690。
-
+1. `1`  是丑数。
+2. `n`  不超过 1690。
 
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -48,6 +50,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -73,39 +76,38 @@ class Solution {
             }
         }
         return dp[n - 1];
-        
+
     }
 }
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number} n
  * @return {number}
  */
-var nthUglyNumber = function(n) {
-    let res = [1];
-    //三指针
-    let a = 0;//2
-    let b = 0;//3
-    let c = 0;//5
-    let min = 0;
-    for(let i=1;i<n;i++){
-        min = Math.min(res[a] * 2,res[b] * 3,res[c] * 5);
-        if(min === res[a] * 2)
-            a++
-        if(min === res[b] * 3)
-            b++
-        if(min === res[c] * 5)
-            c++
-        res.push(min);
-    }
-    return res[n-1]
+var nthUglyNumber = function (n) {
+  let res = [1];
+  //三指针
+  let a = 0; //2
+  let b = 0; //3
+  let c = 0; //5
+  let min = 0;
+  for (let i = 1; i < n; i++) {
+    min = Math.min(res[a] * 2, res[b] * 3, res[c] * 5);
+    if (min === res[a] * 2) a++;
+    if (min === res[b] * 3) b++;
+    if (min === res[c] * 5) c++;
+    res.push(min);
+  }
+  return res[n - 1];
 };
 ```
 
 ### **...**
+
 ```
 
 ```

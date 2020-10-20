@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0063.Unique%20Paths%20II/README.md)
 
 ## Description
+
 <p>A robot is located at the top-left corner of a <em>m</em> x <em>n</em> grid (marked &#39;Start&#39; in the diagram below).</p>
 
-
-
 <p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked &#39;Finish&#39; in the diagram below).</p>
-
-
 
 <p>Now consider if some obstacles are added to the grids. How many unique paths would there be?</p>
 
@@ -17,15 +14,9 @@
 
 <p>An obstacle and empty space is marked as <code>1</code> and <code>0</code> respectively in the grid.</p>
 
-
-
 <p><strong>Note:</strong> <em>m</em> and <em>n</em> will be at most 100.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -55,12 +46,10 @@ There are two ways to reach the bottom-right corner:
 
 </pre>
 
-
-
-
 ## Solutions
 
 ### **Go**
+
 ```go
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
     m,n := len(obstacleGrid),len(obstacleGrid[0])
@@ -81,11 +70,12 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
                     dp[i][j] = dp[i][j-1]
                 }
             }
-        } 
+        }
     }
     return dp[m-1][n-1]
 }
 ```
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -101,6 +91,7 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 ```
 
 ### **...**
+
 ```
 
 ```

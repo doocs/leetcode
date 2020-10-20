@@ -3,17 +3,12 @@
 [中文文档](/solution/0100-0199/0198.House%20Robber/README.md)
 
 ## Description
+
 <p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and <b>it will automatically contact the police if two adjacent houses were broken into on the same night</b>.</p>
-
-
 
 <p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight <b>without alerting the police</b>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 &nbsp;            Total amount you can rob = 1 + 3 = 4.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +34,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

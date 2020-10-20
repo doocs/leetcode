@@ -3,9 +3,8 @@
 [中文文档](/solution/0100-0199/0180.Consecutive%20Numbers/README.md)
 
 ## Description
+
 <p>Write a SQL query to find all numbers that appear at least three times consecutively.</p>
-
-
 
 <pre>
 
@@ -33,11 +32,7 @@
 
 </pre>
 
-
-
 <p>For example, given the above <code>Logs</code> table, <code>1</code> is the only number that appears consecutively for at least three times.</p>
-
-
 
 <pre>
 
@@ -53,11 +48,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

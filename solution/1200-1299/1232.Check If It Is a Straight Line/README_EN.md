@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/README.md)
 
 ## Description
+
 <p>You are given an array&nbsp;<code>coordinates</code>, <code>coordinates[i] = [x, y]</code>, where <code>[x, y]</code> represents the coordinate of a point. Check if these points&nbsp;make a straight line in the XY plane.</p>
 
 <p>&nbsp;</p>
@@ -36,10 +37,7 @@
 	<li><code>coordinates</code>&nbsp;contains no duplicate point.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +54,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

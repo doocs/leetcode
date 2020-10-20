@@ -3,17 +3,12 @@
 [中文文档](/solution/0300-0399/0367.Valid%20Perfect%20Square/README.md)
 
 ## Description
+
 <p>Given a positive integer <i>num</i>, write a function which returns True if <i>num</i> is a perfect square else False.</p>
-
-
 
 <p><b>Note:</b> <b>Do not</b> use any built-in library function such as <code>sqrt</code>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <div>
 
@@ -25,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -45,9 +36,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

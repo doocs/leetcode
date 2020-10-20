@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0161.One%20Edit%20Distance/README.md)
 
 ## Description
+
 <p>Given two strings <b><i>s</i></b>&nbsp;and <b><i>t</i></b>, determine if they are both one edit distance apart.</p>
 
 <p><strong>Note:</strong>&nbsp;</p>
@@ -37,10 +38,7 @@
 <strong>Output:</strong> true
 <strong>Explanation:</strong> We can replace &#39;0&#39; with &#39;1&#39; to get&nbsp;<strong><em>t.</em></strong></pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README.md)
 
 ## Description
+
 <p>Given an array <code>nums</code>&nbsp;of positive integers, return the longest possible length of an array prefix of <code>nums</code>, such that it is possible to remove <strong>exactly one</strong> element from this prefix so that every number that has appeared in it will have the same number of occurrences.</p>
 
 <p>If after removing one element there are no remaining elements, it&#39;s still considered that every appeared number has the same number of ocurrences (0).</p>
@@ -45,10 +46,7 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

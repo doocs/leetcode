@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
 
 ## Description
+
 <p>Merge <em>k</em> sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -29,11 +26,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

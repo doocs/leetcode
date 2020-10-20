@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>一个坐标可以从 <code>-infinity</code> 延伸到 <code>+infinity</code> 的 <strong>无限大的</strong> 棋盘上，你的 <strong>骑士 </strong>驻扎在坐标为 <code>[0, 0]</code> 的方格里。</p>
 
@@ -40,15 +41,14 @@
 	<li><code>|x| + |y| <= 300</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -56,6 +56,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -63,6 +64,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,19 +3,14 @@
 [中文文档](/solution/0300-0399/0398.Random%20Pick%20Index/README.md)
 
 ## Description
+
 <p>Given an array of integers with possible duplicates, randomly output the index of a given target number. You can assume that the given target number must exist in the array.</p>
-
-
 
 <p><b>Note:</b><br />
 
 The array size can be very large. Solution that uses too much extra space will not pass the judge.</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -37,11 +32,7 @@ solution.pick(1);
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +49,7 @@ solution.pick(1);
 ```
 
 ### **...**
+
 ```
 
 ```

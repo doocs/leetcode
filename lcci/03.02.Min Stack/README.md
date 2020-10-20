@@ -3,17 +3,20 @@
 [English Version](/lcci/03.02.Min%20Stack/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>请设计一个栈，除了常规栈支持的pop与push函数以外，还支持min函数，该函数返回栈元素中的最小值。执行push、pop和min操作的时间复杂度必须为O(1)。</p><br><p><strong>示例：</strong><pre>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   --> 返回 -3.<br>minStack.pop();<br>minStack.top();      --> 返回 0.<br>minStack.getMin();   --> 返回 -2.</pre></p>
 
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
-利用辅助栈存放栈的最小元素。
 
+<!-- 这里可写通用的实现逻辑 -->
+
+利用辅助栈存放栈的最小元素。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +54,7 @@ class MinStack:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -63,21 +67,21 @@ class MinStack {
         s1 = new Stack<>();
         s2 = new Stack<>();
     }
-    
+
     public void push(int x) {
         s1.push(x);
         s2.push(s2.empty() || s2.peek() >= x ? x : s2.peek());
     }
-    
+
     public void pop() {
         s1.pop();
         s2.pop();
     }
-    
+
     public int top() {
         return s1.peek();
     }
-    
+
     public int getMin() {
         return s2.empty() ? -1 : s2.peek();
     }
@@ -94,6 +98,7 @@ class MinStack {
 ```
 
 ### **...**
+
 ```
 
 ```

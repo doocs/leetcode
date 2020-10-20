@@ -3,9 +3,8 @@
 [中文文档](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README.md)
 
 ## Description
+
 <p>Given an integer array <i>nums</i>, find the sum of the elements between indices <i>i</i> and <i>j</i> (<i>i</i> &le; <i>j</i>), inclusive.</p>
-
-
 
 <p><b>Example:</b><br>
 
@@ -25,8 +24,6 @@ sumRange(0, 5) -> -3
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -39,9 +36,7 @@ sumRange(0, 5) -> -3
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +53,7 @@ sumRange(0, 5) -> -3
 ```
 
 ### **...**
+
 ```
 
 ```

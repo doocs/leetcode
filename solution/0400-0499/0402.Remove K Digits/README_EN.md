@@ -3,11 +3,10 @@
 [中文文档](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)
 
 ## Description
+
 <p>Given a non-negative integer <i>num</i> represented as a string, remove <i>k</i> digits from the number so that the new number is the smallest possible.
 
 </p>
-
-
 
 <p><b>Note:</b><br />
 
@@ -23,8 +22,6 @@
 
 </p>
 
-
-
 <p><b>Example 1:</b>
 
 <pre>
@@ -38,8 +35,6 @@ Explanation: Remove the three digits 4, 3, and 2 to form the new number 1219 whi
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b>
 
@@ -55,8 +50,6 @@ Explanation: Remove the leading 1 and the number is 200. Note that the output mu
 
 </p>
 
-
-
 <p><b>Example 3:</b>
 
 <pre>
@@ -71,9 +64,7 @@ Explanation: Remove all the digits from the number and it is left with nothing w
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +81,7 @@ Explanation: Remove all the digits from the number and it is left with nothing w
 ```
 
 ### **...**
+
 ```
 
 ```

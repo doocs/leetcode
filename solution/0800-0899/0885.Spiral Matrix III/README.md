@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0885.Spiral%20Matrix%20III/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在&nbsp;<code>R</code>&nbsp;行&nbsp;<code>C</code>&nbsp;列的矩阵上，我们从&nbsp;<code>(r0, c0)</code>&nbsp;面朝东面开始</p>
 
@@ -48,15 +49,14 @@
 	<li><code>0 &lt;= c0 &lt; C</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -64,6 +64,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -71,6 +72,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

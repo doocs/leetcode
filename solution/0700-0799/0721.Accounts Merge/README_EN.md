@@ -3,17 +3,12 @@
 [中文文档](/solution/0700-0799/0721.Accounts%20Merge/README.md)
 
 ## Description
+
 <p>Given a list <code>accounts</code>, each element <code>accounts[i]</code> is a list of strings, where the first element <code>accounts[i][0]</code> is a <i>name</i>, and the rest of the elements are <i>emails</i> representing emails of the account.</p>
-
-
 
 <p>Now, we would like to merge these accounts.  Two accounts definitely belong to the same person if there is some email that is common to both accounts.  Note that even if two accounts have the same name, they may belong to different people as people could have the same name.  A person can have any number of accounts initially, but all of their accounts definitely have the same name.</p>
 
-
-
 <p>After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails <b>in sorted order</b>.  The accounts themselves can be returned in any order.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -39,8 +34,6 @@ We could return these lists in any order, for example the answer [['Mary', 'mary
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li>The length of <code>accounts</code> will be in the range <code>[1, 1000]</code>.</li>
@@ -51,9 +44,7 @@ We could return these lists in any order, for example the answer [['Mary', 'mary
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +61,7 @@ We could return these lists in any order, for example the answer [['Mary', 'mary
 ```
 
 ### **...**
+
 ```
 
 ```

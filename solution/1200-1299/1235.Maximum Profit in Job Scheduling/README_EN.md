@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/README.md)
 
 ## Description
+
 <p>We have <code>n</code> jobs, where every job&nbsp;is scheduled to be done from <code>startTime[i]</code> to <code>endTime[i]</code>, obtaining a profit&nbsp;of <code>profit[i]</code>.</p>
 
 <p>You&#39;re given the&nbsp;<code>startTime</code>&nbsp;,&nbsp;<code>endTime</code>&nbsp;and <code>profit</code>&nbsp;arrays,&nbsp;you need to output the maximum profit you can take such that there are no 2 jobs in the subset&nbsp;with overlapping time range.</p>
@@ -51,10 +52,7 @@ Profit obtained 150 = 20 + 70 + 60.
 	<li><code>1 &lt;=&nbsp;profit[i] &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -71,6 +69,7 @@ Profit obtained 150 = 20 + 70 + 60.
 ```
 
 ### **...**
+
 ```
 
 ```

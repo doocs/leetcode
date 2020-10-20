@@ -1,8 +1,8 @@
-const hammingWeight = function(n){
+const hammingWeight = function (n) {
   let result = 0;
-  while(n){
+  while (n) {
     result += n & 1;
     n = n >>> 1;
   }
   return result;
-}
+};

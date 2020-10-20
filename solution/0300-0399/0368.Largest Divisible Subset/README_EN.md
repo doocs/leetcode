@@ -3,21 +3,14 @@
 [中文文档](/solution/0300-0399/0368.Largest%20Divisible%20Subset/README.md)
 
 ## Description
+
 <p>Given a set of <b>distinct</b> positive integers, find the largest subset such that every pair (S<sub>i</sub>, S<sub>j</sub>) of elements in this subset satisfies:</p>
-
-
 
 <p>S<sub>i</sub> % S<sub>j</sub> = 0 or S<sub>j</sub> % S<sub>i</sub> = 0.</p>
 
-
-
 <p>If there are multiple solutions, return any subset is fine.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <div>
 
@@ -29,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -49,9 +38,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

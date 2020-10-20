@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1094.Car%20Pooling/README.md)
 
 ## Description
+
 <p>You are driving a vehicle that&nbsp;has <code>capacity</code> empty seats initially available for passengers.&nbsp; The vehicle <strong>only</strong> drives east (ie. it <strong>cannot</strong> turn around and drive west.)</p>
 
 <p>Given a list of <code>trips</code>, <code>trip[i] = [num_passengers, start_location, end_location]</code>&nbsp;contains information about the <code>i</code>-th trip: the number of passengers that must be picked up, and the locations to pick them up and drop them off.&nbsp; The locations are given as the number of kilometers&nbsp;due east from your vehicle&#39;s initial location.</p>
@@ -64,10 +65,7 @@
 	<li><code>1 &lt;=&nbsp;capacity &lt;= 100000</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +82,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

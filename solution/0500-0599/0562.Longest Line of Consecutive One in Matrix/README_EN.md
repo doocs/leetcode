@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README.md)
 
 ## Description
+
 Given a 01 matrix <b>M</b>, find the longest line of consecutive one in the matrix. The line could be horizontal, vertical, diagonal or anti-diagonal.
 
 <p><b>Example:</b><br />
@@ -20,9 +21,7 @@ Given a 01 matrix <b>M</b>, find the longest line of consecutive one in the matr
 The number of elements in the given matrix will not exceed 10,000.
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -39,6 +38,7 @@ The number of elements in the given matrix will not exceed 10,000.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,17 +3,12 @@
 [中文文档](/solution/0400-0499/0452.Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons/README.md)
 
 ## Description
+
 <p>There are a number of spherical balloons spread in two-dimensional space. For each balloon, provided input is the start and end coordinates of the horizontal diameter. Since it&#39;s horizontal, y-coordinates don&#39;t matter and hence the x-coordinates of start and end of the diameter suffice. Start is always smaller than end. There will be at most 10<sup>4</sup> balloons.</p>
-
-
 
 <p>An arrow can be shot up exactly vertically from different points along the x-axis. A balloon with x<sub>start</sub> and x<sub>end</sub> bursts by an arrow shot at x if x<sub>start</sub> &le; x &le; x<sub>end</sub>. There is no limit to the number of arrows that can be shot. An arrow once shot keeps travelling up infinitely. The problem is to find the minimum number of arrows that must be shot to burst all balloons.</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -35,15 +30,9 @@ One way is to shoot one arrow for example at x = 6 (bursting the balloons [2,8] 
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +49,7 @@ One way is to shoot one arrow for example at x = 6 (bursting the balloons [2,8] 
 ```
 
 ### **...**
+
 ```
 
 ```

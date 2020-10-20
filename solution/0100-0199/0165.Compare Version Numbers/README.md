@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0165.Compare%20Version%20Numbers/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>比较两个版本号 <em>version1&nbsp;</em>和 <em>version2</em>。<br>
 如果&nbsp;<code><em>version1&nbsp;</em>&gt;&nbsp;<em>version2</em></code>&nbsp;返回&nbsp;<code>1</code>，如果&nbsp;<code><em>version1&nbsp;</em>&lt;&nbsp;<em>version2</em></code> 返回 <code>-1</code>， 除此之外返回 <code>0</code>。</p>
@@ -52,15 +53,14 @@
 	<li>版本字符串不以点开始或结束，并且其中不会有两个连续的点。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -68,6 +68,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -75,6 +76,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

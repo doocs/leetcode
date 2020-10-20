@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README.md)
 
 ## Description
+
 <p>Given a string <code>S</code>, return the number of substrings of length <code>K</code> with no repeated characters.</p>
 
 <p> </p>
@@ -35,10 +36,7 @@ Notice K can be larger than the length of S. In this case is not possible to fin
 	<li><code>1 <= K <= 10^4</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@ Notice K can be larger than the length of S. In this case is not possible to fin
 ```
 
 ### **...**
+
 ```
 
 ```

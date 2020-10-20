@@ -3,23 +3,16 @@
 [中文文档](/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/README.md)
 
 ## Description
+
 <p>Given an undirected tree&nbsp;consisting of <code>n</code> vertices numbered from 1 to <code>n</code>. A frog starts jumping&nbsp;from the <strong>vertex 1</strong>. In one second, the frog&nbsp;jumps from its&nbsp;current&nbsp;vertex to another <strong>unvisited</strong> vertex if they are directly connected. The frog can not jump back to a visited vertex.&nbsp;In case the frog can jump to several vertices it jumps randomly to one of them with the same probability, otherwise, when the frog can not jump to any unvisited vertex it jumps forever on the same vertex.&nbsp;</p>
-
-
 
 <p>The edges of the undirected tree&nbsp;are given in the array <code>edges</code>, where <code>edges[i] = [from<sub>i</sub>, to<sub>i</sub>]</code> means that exists an edge connecting directly the vertices <code>from<sub>i</sub></code> and <code>to<sub>i</sub></code>.</p>
 
-
-
 <p><em>Return the probability that after <code>t</code> seconds the frog is on the vertex <code><font face="monospace">target</font></code>.</em></p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 ![](./images/frog_2.png)
 
@@ -33,10 +26,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
 
 ![](./images/frog_3.png)
 
@@ -50,11 +40,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -64,13 +50,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
@@ -82,9 +64,7 @@
 	<li>Answers within <code>10^-5</code> of the actual value will be accepted as correct.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -101,6 +81,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

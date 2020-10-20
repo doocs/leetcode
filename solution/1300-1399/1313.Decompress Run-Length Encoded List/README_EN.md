@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1313.Decompress%20Run-Length%20Encoded%20List/README.md)
 
 ## Description
+
 <p>We are given a list <code>nums</code> of integers representing a list compressed with run-length encoding.</p>
 
 <p>Consider each adjacent pair&nbsp;of elements <code>[freq, val] = [nums[2*i], nums[2*i+1]]</code>&nbsp;(with <code>i &gt;= 0</code>).&nbsp; For each such pair, there are <code>freq</code> elements with value <code>val</code> concatenated in a sublist. Concatenate all the sublists from left to right to generate the decompressed list.</p>
@@ -36,10 +37,7 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 	<li><code><font face="monospace">1 &lt;= nums[i] &lt;= 100</font></code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +54,7 @@ At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -62,11 +62,9 @@ nums       index     target
 	<li><code>0 &lt;= index[i] &lt;= i</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -87,6 +85,7 @@ nums       index     target
 ```
 
 ### **...**
+
 ```
 
 ```

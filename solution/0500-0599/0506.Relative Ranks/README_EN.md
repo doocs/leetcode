@@ -3,11 +3,10 @@
 [中文文档](/solution/0500-0599/0506.Relative%20Ranks/README.md)
 
 ## Description
+
 <p>
 
 Given scores of <b>N</b> athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: "Gold Medal", "Silver Medal" and "Bronze Medal".</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -23,8 +22,6 @@ Given scores of <b>N</b> athletes, find their relative ranks and the people with
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -37,11 +34,7 @@ Given scores of <b>N</b> athletes, find their relative ranks and the people with
 
 </p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +51,7 @@ Given scores of <b>N</b> athletes, find their relative ranks and the people with
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,11 +3,10 @@
 [中文文档](/solution/1100-1199/1141.User%20Activity%20for%20the%20Past%2030%20Days%20I/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -24,6 +23,7 @@ None
 ```
 
 ### **...**
+
 ```
 
 ```

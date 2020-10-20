@@ -3,25 +3,26 @@
 [English Version](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 None
 
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```
-SELECT MAX(CASE 
+SELECT MAX(CASE
 		WHEN continent = 'America' THEN name
-	END) AS America, MAX(CASE 
+	END) AS America, MAX(CASE
 		WHEN continent = 'Asia' THEN name
 	END) AS Asia
-	, MAX(CASE 
+	, MAX(CASE
 		WHEN continent = 'Europe' THEN name
 	END) AS Europe
 FROM (

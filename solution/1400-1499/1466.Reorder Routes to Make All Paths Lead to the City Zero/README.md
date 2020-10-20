@@ -19,7 +19,6 @@
 
 <p><strong>示例 1：</strong></p>
 
-
 ![](./images/sample_1_1819.png)
 
 <pre><strong>输入：</strong>n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
@@ -27,7 +26,6 @@
 <strong>解释：</strong>更改以红色显示的路线的方向，使每个城市都可以到达城市 0 。</pre>
 
 <p><strong>示例 2：</strong></p>
-
 
 ![](./images/sample_2_1819.png)
 
@@ -53,11 +51,9 @@
 	<li><code>connections[i][0] != connections[i][1]</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -78,6 +74,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -52,12 +52,9 @@ requests[1] -&gt; nums[0] + nums[1] = 3 + 5  = 8
 	<li><code>0 &lt;= start<sub>i</sub>&nbsp;&lt;= end<sub>i</sub>&nbsp;&lt;&nbsp;n</code></li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -78,6 +75,7 @@ requests[1] -&gt; nums[0] + nums[1] = 3 + 5  = 8
 ```
 
 ### **...**
+
 ```
 
 ```

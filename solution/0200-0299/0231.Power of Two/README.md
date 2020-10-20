@@ -1,8 +1,9 @@
-# [231. 2的幂](https://leetcode-cn.com/problems/power-of-two)
+# [231. 2 的幂](https://leetcode-cn.com/problems/power-of-two)
 
 [English Version](/solution/0200-0299/0231.Power%20of%20Two/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
 
@@ -23,15 +24,14 @@
 <pre><strong>输入:</strong> 218
 <strong>输出:</strong> false</pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -39,6 +39,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -46,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

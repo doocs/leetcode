@@ -3,29 +3,18 @@
 [中文文档](/solution/0900-0999/0955.Delete%20Columns%20to%20Make%20Sorted%20II/README.md)
 
 ## Description
+
 <p>We are given an array&nbsp;<code>A</code> of <code>N</code> lowercase letter strings, all of the same length.</p>
-
-
 
 <p>Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices.</p>
 
-
-
 <p>For example, if we have an array <code>A = [&quot;abcdef&quot;,&quot;uvwxyz&quot;]</code> and deletion indices <code>{0, 2, 3}</code>, then the final array after deletions is <code>[&quot;bef&quot;,&quot;vyz&quot;]</code>.</p>
-
-
 
 <p>Suppose we chose a set of deletion indices <code>D</code> such that after deletions, the final array has its elements in <strong>lexicographic</strong> order (<code>A[0] &lt;= A[1] &lt;= A[2] ... &lt;= A[A.length - 1]</code>).</p>
 
-
-
 <p>Return the minimum possible value of <code>D.length</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -39,13 +28,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -63,13 +48,9 @@ We require at least 1 deletion since initially A was not in lexicographic order,
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -87,13 +68,9 @@ ie. it is NOT necessarily true that (A[0][0] &lt;= A[0][1] &lt;= ...)
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -107,11 +84,7 @@ We have to delete every column.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -119,13 +92,11 @@ We have to delete every column.
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 100</code></li>
+    <li><code>1 &lt;= A.length &lt;= 100</code></li>
 
-	<li><code>1 &lt;= A[i].length &lt;= 100</code></li>
+    <li><code>1 &lt;= A[i].length &lt;= 100</code></li>
 
 </ol>
 
@@ -139,11 +110,7 @@ We have to delete every column.
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -160,6 +127,7 @@ We have to delete every column.
 ```
 
 ### **...**
+
 ```
 
 ```

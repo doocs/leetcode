@@ -3,17 +3,12 @@
 [中文文档](/lcci/17.04.Missing%20Number/README.md)
 
 ## Description
+
 <p>An array&nbsp;contains all the integers from 0 to n, except for one number which is missing.&nbsp; Write code to find the missing integer. Can you do it in O(n) time?</p>
-
-
 
 <p><strong>Note: </strong>This problem is slightly different from the original one the book.</p>
 
-
-
 <p><strong>Example 1: </strong></p>
-
-
 
 <pre>
 
@@ -21,15 +16,9 @@
 
 <strong>Output: </strong>2</pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 2: </strong></p>
-
-
 
 <pre>
 
@@ -39,11 +28,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +62,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

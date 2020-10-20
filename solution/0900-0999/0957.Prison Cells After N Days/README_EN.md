@@ -3,39 +3,26 @@
 [中文文档](/solution/0900-0999/0957.Prison%20Cells%20After%20N%20Days/README.md)
 
 ## Description
+
 <p>There are 8 prison cells in a row, and each cell is either occupied or vacant.</p>
-
-
 
 <p>Each day, whether the cell is occupied or vacant changes according to the following rules:</p>
 
-
-
 <ul>
 
-	<li>If a cell has two adjacent neighbors that are both occupied or both vacant,&nbsp;then the cell becomes occupied.</li>
+    <li>If a cell has two adjacent neighbors that are both occupied or both vacant,&nbsp;then the cell becomes occupied.</li>
 
-	<li>Otherwise, it becomes vacant.</li>
+    <li>Otherwise, it becomes vacant.</li>
 
 </ul>
 
-
-
 <p>(Note that because the prison is a row, the first and the last cells in the row can&#39;t have two adjacent neighbors.)</p>
-
-
 
 <p>We describe the current state of the prison&nbsp;in the following way:&nbsp;<code>cells[i] == 1</code> if the <code>i</code>-th cell is occupied, else <code>cells[i] == 0</code>.</p>
 
-
-
 <p>Given the initial state of the prison, return the state of the prison after <code>N</code> days (and <code>N</code> such changes described above.)</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -45,13 +32,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -83,13 +66,9 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]</span>
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -99,23 +78,17 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]</span>
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>cells.length == 8</code></li>
+    <li><code>cells.length == 8</code></li>
 
-	<li><code>cells[i]</code> is in <code>{0, 1}</code></li>
+    <li><code>cells[i]</code> is in <code>{0, 1}</code></li>
 
-	<li><code>1 &lt;= N &lt;= 10^9</code></li>
+    <li><code>1 &lt;= N &lt;= 10^9</code></li>
 
 </ol>
 
@@ -123,11 +96,7 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]</span>
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -144,6 +113,7 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]</span>
 ```
 
 ### **...**
+
 ```
 
 ```

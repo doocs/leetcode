@@ -3,25 +3,20 @@
 [中文文档](/solution/1200-1299/1297.Maximum%20Number%20of%20Occurrences%20of%20a%20Substring/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code>, return the maximum number of ocurrences of <strong>any</strong> substring&nbsp;under the following rules:</p>
-
-
 
 <ul>
 
-	<li>The number of unique characters in the substring must be less than or equal to <code>maxLetters</code>.</li>
+    <li>The number of unique characters in the substring must be less than or equal to <code>maxLetters</code>.</li>
 
-	<li>The substring size must be between <code>minSize</code> and <code>maxSize</code>&nbsp;inclusive.</li>
+    <li>The substring size must be between <code>minSize</code> and <code>maxSize</code>&nbsp;inclusive.</li>
 
 </ul>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +30,7 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,11 +42,7 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -65,11 +52,7 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -79,29 +62,23 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
+    <li><code>1 &lt;= s.length &lt;= 10^5</code></li>
 
-	<li><code>1 &lt;= maxLetters &lt;= 26</code></li>
+    <li><code>1 &lt;= maxLetters &lt;= 26</code></li>
 
-	<li><code>1 &lt;= minSize &lt;= maxSize &lt;= min(26, s.length)</code></li>
+    <li><code>1 &lt;= minSize &lt;= maxSize &lt;= min(26, s.length)</code></li>
 
-	<li><code>s</code> only contains lowercase English letters.</li>
+    <li><code>s</code> only contains lowercase English letters.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -118,6 +95,7 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 ```
 
 ### **...**
+
 ```
 
 ```

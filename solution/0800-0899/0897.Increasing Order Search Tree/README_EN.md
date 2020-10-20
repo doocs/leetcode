@@ -3,6 +3,7 @@
 [中文文档](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary search tree, rearrange the tree in <strong>in-order</strong> so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only 1 right child.</p>
 
 <pre>
@@ -44,10 +45,7 @@
 	<li>Each node will have a unique integer value from <code>0</code> to <code>1000</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +62,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

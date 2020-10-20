@@ -1,17 +1,19 @@
-# [面试题61. 扑克牌中的顺子](https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof/)
+# [面试题 61. 扑克牌中的顺子](https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof/)
 
 ## 题目描述
-<!-- 这里写题目描述 -->
-从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王为 0 ，可以看成任意数字。A 不能视为 14。
 
-**示例 1:**
+<!-- 这里写题目描述 -->
+
+从扑克牌中随机抽 5 张牌，判断是不是一个顺子，即这 5 张牌是不是连续的。2 ～ 10 为数字本身，A 为 1，J 为 11，Q 为 12，K 为 13，而大、小王为 0 ，可以看成任意数字。A 不能视为 14。
+
+**示例  1:**
 
 ```
 输入: [1,2,3,4,5]
 输出: True
 ```
 
-**示例 2:**
+**示例  2:**
 
 ```
 输入: [0,0,1,2,5]
@@ -20,10 +22,11 @@
 
 **限制：**
 
-- 数组长度为 5 
+- 数组长度为 5
 - 数组的数取值为 `[0, 13]`
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
 
 用数组 t 记录是否存在重复的数，存在则直接返回 false。
@@ -33,6 +36,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -54,6 +58,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -78,33 +83,35 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} nums
  * @return {boolean}
  */
-var isStraight = function(nums) {
-    let zeroCnt = 0
-    nums.sort((a,b)=>a-b)
-    for(let i=0;i<nums.length - 1;i++) {
-        if(nums[i] === 0) zeroCnt++
-        else {
-            if(nums[i] === nums[i+1]) return false
-            else if(nums[i] === nums[i+1] - 1) {
-                continue
-            } else if(nums[i] >= nums[i+1] - zeroCnt - 1) {
-                zeroCnt--
-            } else {
-                return false
-            }
-        }
-        if(zeroCnt < 0) return false
+var isStraight = function (nums) {
+  let zeroCnt = 0;
+  nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] === 0) zeroCnt++;
+    else {
+      if (nums[i] === nums[i + 1]) return false;
+      else if (nums[i] === nums[i + 1] - 1) {
+        continue;
+      } else if (nums[i] >= nums[i + 1] - zeroCnt - 1) {
+        zeroCnt--;
+      } else {
+        return false;
+      }
     }
-    return true
+    if (zeroCnt < 0) return false;
+  }
+  return true;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

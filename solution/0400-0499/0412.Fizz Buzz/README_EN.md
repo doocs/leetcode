@@ -3,13 +3,10 @@
 [中文文档](/solution/0400-0499/0412.Fizz%20Buzz/README.md)
 
 ## Description
+
 <p>Write a program that outputs the string representation of numbers from 1 to <i>n</i>.</p>
 
-
-
 <p>But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.</p>
-
-
 
 <p><b>Example:</b>
 
@@ -59,9 +56,7 @@ Return:
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +73,7 @@ Return:
 ```
 
 ### **...**
+
 ```
 
 ```

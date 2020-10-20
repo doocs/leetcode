@@ -3,19 +3,14 @@
 [中文文档](/solution/0600-0699/0620.Not%20Boring%20Movies/README.md)
 
 ## Description
+
 X city opened a new cinema, many people would like to go to this cinema. The cinema also gives out a poster indicating the movies&rsquo; ratings and descriptions.
 
 <p>Please write a SQL query to output movies with an odd numbered ID and a description that is not &#39;boring&#39;. Order the result by rating.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>For example, table <code>cinema</code>:</p>
-
-
 
 <pre>
 
@@ -41,8 +36,6 @@ X city opened a new cinema, many people would like to go to this cinema. The cin
 
 For the example above, the output should be:
 
-
-
 <pre>
 
 +---------+-----------+--------------+-----------+
@@ -59,15 +52,9 @@ For the example above, the output should be:
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

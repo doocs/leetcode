@@ -3,17 +3,12 @@
 [中文文档](/solution/0600-0699/0652.Find%20Duplicate%20Subtrees/README.md)
 
 ## Description
+
 <p>Given a binary tree, return all duplicate subtrees. For each kind of duplicate subtrees, you only need to return the root node of any <b>one</b> of them.</p>
-
-
 
 <p>Two trees are duplicate if they have the same structure with same node values.</p>
 
-
-
 <p><b>Example 1: </b></p>
-
-
 
 <pre>
 
@@ -33,11 +28,7 @@
 
 </pre>
 
-
-
 <p>The following are two duplicate subtrees:</p>
-
-
 
 <pre>
 
@@ -49,11 +40,7 @@
 
 </pre>
 
-
-
 <p>and</p>
-
-
 
 <pre>
 
@@ -63,9 +50,7 @@
 
 Therefore, you need to return above trees&#39; root in the form of a list.
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +67,7 @@ Therefore, you need to return above trees&#39; root in the form of a list.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -45,15 +45,11 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 	<li><code>1 &lt;=&nbsp;stoneValue[i] &lt;= 10^6</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -61,12 +57,12 @@ The last round Alice has only one choice to divide the row which is [2], [3]. Bo
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

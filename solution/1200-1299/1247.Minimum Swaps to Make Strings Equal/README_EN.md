@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1247.Minimum%20Swaps%20to%20Make%20Strings%20Equal/README.md)
 
 ## Description
+
 <p>You are given two strings&nbsp;<code>s1</code>&nbsp;and&nbsp;<code>s2</code>&nbsp;of equal length&nbsp;consisting of letters <code>&quot;x&quot;</code> and <code>&quot;y&quot;</code> <strong>only</strong>. Your task is to&nbsp;make these two strings equal to each other. You can swap any two characters that belong to <strong>different</strong> strings,&nbsp;which means: swap <code>s1[i]</code> and <code>s2[j]</code>.</p>
 
 <p>Return&nbsp;the minimum number of swaps required&nbsp;to make&nbsp;<code>s1</code>&nbsp;and <code>s2</code> equal, or return&nbsp;<code>-1</code>&nbsp;if it is&nbsp;impossible to do so.</p>
@@ -48,10 +49,7 @@ Note that you can&#39;t swap s1[0] and s1[1] to make s1 equal to &quot;yx&quot;,
 	<li><code>s1, s2</code>&nbsp;only contain <code>&#39;x&#39;</code> or <code>&#39;y&#39;</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +66,7 @@ Note that you can&#39;t swap s1[0] and s1[1] to make s1 equal to &quot;yx&quot;,
 ```
 
 ### **...**
+
 ```
 
 ```

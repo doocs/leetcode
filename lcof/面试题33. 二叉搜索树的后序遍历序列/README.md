@@ -1,8 +1,10 @@
-# [面试题33. 二叉搜索树的后序遍历序列](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/)
+# [面试题 33. 二叉搜索树的后序遍历序列](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
-输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 `true`，否则返回 `false`。假设输入的数组的任意两个数字都互不相同。
+
+输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回  `true`，否则返回  `false`。假设输入的数组的任意两个数字都互不相同。
 
 参考以下这棵二叉搜索树：
 
@@ -33,13 +35,15 @@
 - `数组长度 <= 1000`
 
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
-二叉搜索树的后序遍历序列是 `[左子树, 右子树, 根结点]`，且左子树结点值均小于根结点，右子树结点值均大于根结点，递归判断即可。
 
+<!-- 这里可写通用的实现逻辑 -->
+
+二叉搜索树的后序遍历序列是 `[左子树, 右子树, 根结点]`，且左子树结点值均小于根结点，右子树结点值均大于根结点，递归判断即可。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -55,10 +59,11 @@ class Solution:
             if postorder[j] < postorder[-1]:
                 return False
         return (i == 0 or self.verifyPostorder(postorder[:i])) and (i == n - 1 or self.verifyPostorder(postorder[i:-1]))
-        
+
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -93,22 +98,26 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} postorder
  * @return {boolean}
  */
-var verifyPostorder = function(postorder) {
-    if(!postorder || postorder.length < 2) return true
-    let mid = 0
-    let root = postorder[postorder.length-1]
-    for(let i=0;i<postorder.length-1 && postorder[i] < root;i++) {
-        mid++
-    }
-    for(let i=mid+1;i<postorder.length-1;i++) {
-        if(postorder[i] < root) return false
-    }
-    return verifyPostorder(postorder.slice(0,mid)) && verifyPostorder(postorder.slice(mid+1,postorder.length - 1))
+var verifyPostorder = function (postorder) {
+  if (!postorder || postorder.length < 2) return true;
+  let mid = 0;
+  let root = postorder[postorder.length - 1];
+  for (let i = 0; i < postorder.length - 1 && postorder[i] < root; i++) {
+    mid++;
+  }
+  for (let i = mid + 1; i < postorder.length - 1; i++) {
+    if (postorder[i] < root) return false;
+  }
+  return (
+    verifyPostorder(postorder.slice(0, mid)) &&
+    verifyPostorder(postorder.slice(mid + 1, postorder.length - 1))
+  );
 };
 ```
 
@@ -144,8 +153,6 @@ func helper(postorder []int , left,right int) bool {
     return l && r
 }
 ```
-
-
 
 ### **...**
 

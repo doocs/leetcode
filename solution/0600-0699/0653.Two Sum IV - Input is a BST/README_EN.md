@@ -3,13 +3,10 @@
 [中文文档](/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/README.md)
 
 ## Description
+
 <p>Given a Binary Search Tree and a target number, return true if there exist two elements in the BST such that their sum is equal to the given target.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -35,15 +32,9 @@ Target = 9
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -69,15 +60,9 @@ Target = 28
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -94,6 +79,7 @@ Target = 28
 ```
 
 ### **...**
+
 ```
 
 ```

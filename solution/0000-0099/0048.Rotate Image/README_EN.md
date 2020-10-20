@@ -3,25 +3,16 @@
 [中文文档](/solution/0000-0099/0048.Rotate%20Image/README.md)
 
 ## Description
+
 <p>You are given an <em>n</em> x <em>n</em> 2D matrix representing an image.</p>
-
-
 
 <p>Rotate the image by 90 degrees (clockwise).</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <p>You have to rotate the image <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a>, which means you have to modify the input 2D matrix directly. <strong>DO NOT</strong> allocate another 2D matrix and do the rotation.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -53,11 +44,7 @@ rotate the input matrix <strong>in-place</strong> such that it becomes:
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -93,11 +80,7 @@ rotate the input matrix <strong>in-place</strong> such that it becomes:
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -114,6 +97,7 @@ rotate the input matrix <strong>in-place</strong> such that it becomes:
 ```
 
 ### **...**
+
 ```
 
 ```

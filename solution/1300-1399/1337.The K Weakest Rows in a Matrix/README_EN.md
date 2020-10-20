@@ -3,19 +3,14 @@
 [中文文档](/solution/1300-1399/1337.The%20K%20Weakest%20Rows%20in%20a%20Matrix/README.md)
 
 ## Description
+
 <p>Given a <code>m&nbsp;* n</code>&nbsp;matrix <code>mat</code> of <em>ones</em>&nbsp;(representing soldiers) and <em>zeros</em>&nbsp;(representing civilians), return the indexes of the <code>k</code> weakest rows in the matrix ordered from the weakest to the strongest.</p>
 
-
-
 <p>A row <em><strong>i</strong></em> is weaker than row <em><strong>j</strong></em>, if the number of soldiers in row <em><strong>i</strong></em> is less than the number of soldiers in row <em><strong>j</strong></em>, or they have the same number of soldiers but <em><strong>i</strong></em> is less than <em><strong>j</strong></em>. Soldiers are <strong>always</strong> stand in the frontier of a row, that is, always <em>ones</em>&nbsp;may appear first and then <em>zeros</em>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -53,11 +48,7 @@ Rows ordered from the weakest to the strongest are [2,0,3,1,4]
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -91,31 +82,25 @@ Rows ordered from the weakest to the strongest are [0,2,3,1]
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>m == mat.length</code></li>
+    <li><code>m == mat.length</code></li>
 
-	<li><code>n == mat[i].length</code></li>
+    <li><code>n == mat[i].length</code></li>
 
-	<li><code><font face="monospace">2 &lt;= n, m &lt;= 100</font></code></li>
+    <li><code><font face="monospace">2 &lt;= n, m &lt;= 100</font></code></li>
 
-	<li><code>1 &lt;= k &lt;= m</code></li>
+    <li><code>1 &lt;= k &lt;= m</code></li>
 
-	<li><code>matrix[i][j]</code> is either 0 <strong>or</strong> 1.</li>
+    <li><code>matrix[i][j]</code> is either 0 <strong>or</strong> 1.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -132,6 +117,7 @@ Rows ordered from the weakest to the strongest are [0,2,3,1]
 ```
 
 ### **...**
+
 ```
 
 ```

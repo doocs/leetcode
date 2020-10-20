@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0827.Making%20A%20Large%20Island/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在二维地图上，&nbsp;<code>0</code>代表海洋，&nbsp;<code>1</code>代表陆地，我们最多只能将一格&nbsp;<code>0</code> 海洋变成&nbsp;<code>1</code>变成陆地。</p>
 
@@ -37,15 +38,14 @@
 	<li><code>0 &lt;= grid[i][j] &lt;= 1</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -53,6 +53,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

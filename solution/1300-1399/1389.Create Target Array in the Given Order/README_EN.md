@@ -62,15 +62,11 @@ nums       index     target
 	<li><code>0 &lt;= index[i] &lt;= i</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -78,12 +74,12 @@ nums       index     target
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

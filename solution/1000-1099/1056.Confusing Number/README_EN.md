@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1056.Confusing%20Number/README.md)
 
 ## Description
+
 <p>Given a number <code>N</code>, return <code>true</code> if and only if it is a <em>confusing number</em>, which satisfies the following condition:</p>
 
 <p>We can rotate digits by 180 degrees to form new digits. When 0, 1, 6, 8, 9 are rotated 180 degrees, they become 0, 1, 9, 8, 6 respectively. When 2, 3, 4, 5 and 7 are rotated 180 degrees, they become invalid. A <em>confusing number</em> is a number that when rotated 180 degrees becomes a <strong>different</strong> number with each digit valid.</p>
@@ -62,9 +63,7 @@ We get an invalid number after rotating <code>25</code>.
 	<li>After the rotation we can ignore leading zeros, for example if after rotation we have <code>0008</code> then this number is considered as just <code>8</code>.</li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -81,6 +80,7 @@ We get an invalid number after rotating <code>25</code>.
 ```
 
 ### **...**
+
 ```
 
 ```

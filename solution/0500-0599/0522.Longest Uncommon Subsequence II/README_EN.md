@@ -3,13 +3,12 @@
 [中文文档](/solution/0500-0599/0522.Longest%20Uncommon%20Subsequence%20II/README.md)
 
 ## Description
+
 <p>
 
 Given a list of strings, you need to find the longest uncommon subsequence among them. The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be <b>any</b> subsequence of the other strings.
 
 </p>
-
-
 
 <p>
 
@@ -17,15 +16,11 @@ A <b>subsequence</b> is a sequence that can be derived from one sequence by dele
 
 </p>
 
-
-
 <p>
 
 The input will be a list of strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn't exist, return -1.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -39,8 +34,6 @@ The input will be a list of strings, and the output needs to be the length of th
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <ol>
@@ -53,9 +46,7 @@ The input will be a list of strings, and the output needs to be the length of th
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +63,7 @@ The input will be a list of strings, and the output needs to be the length of th
 ```
 
 ### **...**
+
 ```
 
 ```

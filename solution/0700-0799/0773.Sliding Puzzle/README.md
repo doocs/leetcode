@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0773.Sliding%20Puzzle/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一个 2 x 3 的板上（<code>board</code>）有 5 块砖瓦，用数字 <code>1~5</code> 来表示, 以及一块空缺用&nbsp;<code>0</code>&nbsp;来表示.</p>
 
@@ -52,15 +53,14 @@
 	<li><code>board[i][j]</code>&nbsp;是一个&nbsp;<code>[0, 1, 2, 3, 4, 5]</code>&nbsp;的排列.</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -68,6 +68,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -75,6 +76,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

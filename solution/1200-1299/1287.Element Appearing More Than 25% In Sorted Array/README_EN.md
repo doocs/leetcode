@@ -3,13 +3,10 @@
 [中文文档](/solution/1200-1299/1287.Element%20Appearing%20More%20Than%2025%%20In%20Sorted%20Array/README.md)
 
 ## Description
+
 <p>Given an&nbsp;integer array&nbsp;<strong>sorted</strong> in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time.</p>
 
-
-
 <p>Return that integer.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -25,19 +22,15 @@
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= arr.length &lt;= 10^4</code></li>
+    <li><code>1 &lt;= arr.length &lt;= 10^4</code></li>
 
-	<li><code>0 &lt;= arr[i] &lt;= 10^5</code></li>
+    <li><code>0 &lt;= arr[i] &lt;= 10^5</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

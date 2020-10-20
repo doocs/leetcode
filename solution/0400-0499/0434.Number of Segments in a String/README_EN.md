@@ -3,13 +3,10 @@
 [中文文档](/solution/0400-0499/0434.Number%20of%20Segments%20in%20a%20String/README.md)
 
 ## Description
+
 <p>Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.</p>
 
-
-
 <p>Please note that the string does not contain any <b>non-printable</b> characters.</p>
-
-
 
 <p><b>Example:</b></p>
 
@@ -23,9 +20,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -42,6 +37,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

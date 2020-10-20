@@ -3,29 +3,20 @@
 [中文文档](/solution/0900-0999/0989.Add%20to%20Array-Form%20of%20Integer/README.md)
 
 ## Description
+
 <p>For a non-negative integer <code>X</code>, the&nbsp;<em>array-form of <code>X</code></em>&nbsp;is an array of its digits in left to right order.&nbsp; For example, if <code>X = 1231</code>, then the array form is&nbsp;<code>[1,2,3,1]</code>.</p>
-
-
 
 <p>Given the array-form <code>A</code> of a non-negative&nbsp;integer <code>X</code>, return the array-form of the integer <code>X+K</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -37,13 +28,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,13 +42,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -73,13 +56,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -91,25 +70,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note：</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 10000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 10000</code></li>
 
-	<li><code>0 &lt;= A[i] &lt;= 9</code></li>
+    <li><code>0 &lt;= A[i] &lt;= 9</code></li>
 
-	<li><code>0 &lt;= K &lt;= 10000</code></li>
+    <li><code>0 &lt;= K &lt;= 10000</code></li>
 
-	<li>If <code>A.length &gt; 1</code>, then <code>A[0] != 0</code></li>
+    <li>If <code>A.length &gt; 1</code>, then <code>A[0] != 0</code></li>
 
 </ol>
 
@@ -121,9 +94,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -140,6 +111,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

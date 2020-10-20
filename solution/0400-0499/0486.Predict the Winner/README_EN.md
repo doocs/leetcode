@@ -3,13 +3,10 @@
 [中文文档](/solution/0400-0499/0486.Predict%20the%20Winner/README.md)
 
 ## Description
+
 <p>Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins. </p>
 
-
-
 <p>Given an array of scores, predict whether player 1 is the winner. You can assume each player plays to maximize his score. </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,8 +22,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -40,8 +35,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 
@@ -57,9 +50,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

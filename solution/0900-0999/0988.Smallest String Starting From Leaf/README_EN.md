@@ -3,25 +3,18 @@
 [中文文档](/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/README.md)
 
 ## Description
+
 <p>Given the <code>root</code> of a binary tree, each node has a value from <code>0</code> to <code>25</code> representing the letters <code>&#39;a&#39;</code> to <code>&#39;z&#39;</code>: a value of <code>0</code> represents <code>&#39;a&#39;</code>, a value of <code>1</code> represents <code>&#39;b&#39;</code>, and so on.</p>
-
-
 
 <p>Find the lexicographically smallest string that starts at a leaf of this tree and ends at the root.</p>
 
-
-
 <p><em>(As a reminder, any shorter prefix of a string is lexicographically smaller: for example, <code>&quot;ab&quot;</code> is lexicographically smaller than <code>&quot;aba&quot;</code>.&nbsp; A leaf of a node is a node that has no children.)</em></p>
-
-
 
 <div>
 
 <div>
 
 <p>&nbsp;</p>
-
-
 
 <ol>
 
@@ -31,16 +24,11 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
 
-
 ![](./images/tree1.png)
-
-
 
 <pre>
 
@@ -50,15 +38,11 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
 
-
 ![](./images/tree2.png)
-
 
 <pre>
 
@@ -68,14 +52,11 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
 
 ![](./images/tree3.png)
-
 
 <pre>
 
@@ -85,15 +66,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The number of nodes in the given tree will be between <code>1</code> and <code>8500</code>.</li>
@@ -106,9 +81,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -125,6 +98,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

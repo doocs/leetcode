@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0411.Minimum%20Unique%20Word%20Abbreviation/README.md)
 
 ## Description
+
 <p>A string such as <code>"word"</code> contains the following abbreviations:</p>
 
 <pre>
@@ -29,10 +30,7 @@
 	<li>Assume length of target string = <b>m</b>, and dictionary size = <b>n</b>. You may assume that <b>m ≤ 21</b>, <b>n ≤ 1000</b>, and <b>log<sub>2</sub>(n) + m ≤ 20</b>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -49,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

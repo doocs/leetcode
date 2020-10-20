@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1229.Meeting%20Scheduler/README.md)
 
 ## Description
+
 <p>Given the availability time slots arrays <code>slots1</code> and <code>slots2</code> of two people and a meeting duration <code>duration</code>, return the <strong>earliest time slot</strong> that works for both of them and is of duration <code>duration</code>.</p>
 
 <p>If there is no common time slot that satisfies the requirements, return an <strong>empty array</strong>.</p>
@@ -38,10 +39,7 @@
 	<li><code>1 <= duration <= 10^6 </code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +56,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

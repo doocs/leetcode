@@ -3,9 +3,8 @@
 [中文文档](/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README.md)
 
 ## Description
+
 <p>Write a SQL query to <strong>delete</strong> all duplicate email entries in a table named <code>Person</code>, keeping only unique emails based on its <i>smallest</i> <b>Id</b>.</p>
-
-
 
 <pre>
 
@@ -27,11 +26,7 @@ Id is the primary key column for this table.
 
 </pre>
 
-
-
 <p>For example, after running your query, the above <code>Person</code> table should have the following rows:</p>
-
-
 
 <pre>
 
@@ -49,19 +44,11 @@ Id is the primary key column for this table.
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <p>Your output is the whole <code>Person</code>&nbsp;table after executing your sql. Use <code>delete</code> statement.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

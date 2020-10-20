@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1157.Online%20Majority%20Element%20In%20Subarray/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>实现一个&nbsp;<code>MajorityChecker</code>&nbsp;的类，它应该具有下述几个 API：</p>
 
@@ -40,15 +41,14 @@ majorityChecker.query(2,3,2); // 返回 2
 	<li>查询次数最多为 <code>10000</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -56,6 +56,7 @@ majorityChecker.query(2,3,2); // 返回 2
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -63,6 +64,7 @@ majorityChecker.query(2,3,2); // 返回 2
 ```
 
 ### **...**
+
 ```
 
 ```

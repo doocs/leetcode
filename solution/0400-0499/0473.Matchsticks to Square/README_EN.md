@@ -3,13 +3,10 @@
 [中文文档](/solution/0400-0499/0473.Matchsticks%20to%20Square/README.md)
 
 ## Description
+
 <p>Remember the story of Little Match Girl? By now, you know exactly what matchsticks the little match girl has, please find out a way you can make one square by using up all those matchsticks. You should not break any stick, but you can link them up, and each matchstick must be used <b>exactly</b> one time.</P>
 
-
-
 <p> Your input will be several matchsticks the girl has, represented with their stick length. Your output will either be true or false, to represent whether you could make one square using all the matchsticks the little match girl has.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -27,8 +24,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -45,8 +40,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -59,9 +52,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

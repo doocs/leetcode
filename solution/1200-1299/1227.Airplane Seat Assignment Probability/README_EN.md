@@ -3,29 +3,22 @@
 [中文文档](/solution/1200-1299/1227.Airplane%20Seat%20Assignment%20Probability/README.md)
 
 ## Description
+
 <p><code data-stringify-type="code">n</code>&nbsp;passengers board an airplane with exactly&nbsp;<code data-stringify-type="code">n</code>&nbsp;seats. The first passenger has lost the ticket and picks a seat randomly. But after that, the rest of passengers will:</p>
-
-
 
 <ul>
 
-	<li>Take their own seat if it is still available,&nbsp;</li>
+    <li>Take their own seat if it is still available,&nbsp;</li>
 
-	<li>Pick other seats randomly when they find their seat occupied&nbsp;</li>
+    <li>Pick other seats randomly when they find their seat occupied&nbsp;</li>
 
 </ul>
 
-
-
 <p>What is the probability that the n-th person can get his own seat?</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +28,7 @@
 
 <strong>Explanation: </strong>The first person can only get the first seat.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,23 +40,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= n &lt;= 10^5</code></li>
+    <li><code>1 &lt;= n &lt;= 10^5</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

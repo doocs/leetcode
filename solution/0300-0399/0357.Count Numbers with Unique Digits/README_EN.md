@@ -3,15 +3,12 @@
 [中文文档](/solution/0300-0399/0357.Count%20Numbers%20with%20Unique%20Digits/README.md)
 
 ## Description
+
 <p>Given a <b>non-negative</b> integer n, count all numbers with unique digits, x, where 0 &le; x &lt; 10<sup>n</sup>.</p>
-
-
 
 <div>
 
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -27,9 +24,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +41,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

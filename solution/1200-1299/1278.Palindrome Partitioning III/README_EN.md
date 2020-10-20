@@ -3,29 +3,22 @@
 [中文文档](/solution/1200-1299/1278.Palindrome%20Partitioning%20III/README.md)
 
 ## Description
+
 <p>You are given a string&nbsp;<code>s</code> containing lowercase letters and an integer <code>k</code>. You need to :</p>
-
-
 
 <ul>
 
-	<li>First, change some characters of <code>s</code>&nbsp;to other lowercase English letters.</li>
+    <li>First, change some characters of <code>s</code>&nbsp;to other lowercase English letters.</li>
 
-	<li>Then divide <code>s</code>&nbsp;into <code>k</code> non-empty disjoint substrings such that each substring is palindrome.</li>
+    <li>Then divide <code>s</code>&nbsp;into <code>k</code> non-empty disjoint substrings such that each substring is palindrome.</li>
 
 </ul>
 
-
-
 <p>Return the minimal number of characters that you need to change&nbsp;to divide the string.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -37,11 +30,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,11 +40,7 @@
 
 <strong>Explanation:</strong>&nbsp;You can split the string into &quot;aa&quot;, &quot;bb&quot; and &quot;c&quot;, all of them are palindrome.</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -65,25 +50,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= k &lt;= s.length &lt;= 100</code>.</li>
+    <li><code>1 &lt;= k &lt;= s.length &lt;= 100</code>.</li>
 
-	<li><code>s</code>&nbsp;only contains lowercase English letters.</li>
+    <li><code>s</code>&nbsp;only contains lowercase English letters.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README.md)
 
 ## Description
+
 <p>Given a <code>text</code> string and <code>words</code> (a list of strings), return all index pairs <code>[i, j]</code> so that the substring <code>text[i]...text[j]</code> is in the list of <code>words</code>.</p>
 
 <p> </p>
@@ -36,9 +37,7 @@ Notice that matches can overlap, see "aba" is found in [0,2] and [2,4].
 	<li>Return the pairs <code>[i,j]</code> in sorted order (i.e. sort them by their first coordinate in case of ties sort them by their second coordinate).</li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +54,7 @@ Notice that matches can overlap, see "aba" is found in [0,2] and [2,4].
 ```
 
 ### **...**
+
 ```
 
 ```

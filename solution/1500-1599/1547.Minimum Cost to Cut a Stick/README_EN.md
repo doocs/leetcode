@@ -10,19 +10,11 @@
 
 <p>Given an integer array <code>cuts</code>&nbsp;where <code>cuts[i]</code>&nbsp;denotes a position you should perform a cut at.</p>
 
-
-
 <p>You should perform the cuts in order, you can change the order of the cuts as you wish.</p>
-
-
 
 <p>The cost of one cut is the length of the stick to be cut, the total cost is the sum of costs of all cuts. When you cut a stick, it will be split into two smaller sticks (i.e. the sum of their lengths is the length of the stick before the cut). Please refer to the first example for a better explanation.</p>
 
-
-
 <p>Return <em>the minimum total cost</em> of the&nbsp;cuts.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -44,11 +36,7 @@ The first cut is done to a rod of length 7 so the cost is 7. The second cut is d
 
 Rearranging the cuts to be [3, 5, 1, 4] for example will lead to a scenario with total cost = 16 (as shown in the example photo 7 + 4 + 3 + 2 = 16).</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -62,34 +50,27 @@ There are much ordering with total cost &lt;= 25, for example, the order [4, 6, 
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>2 &lt;= n &lt;= 10^6</code></li>
+    <li><code>2 &lt;= n &lt;= 10^6</code></li>
 
-	<li><code>1 &lt;= cuts.length &lt;= min(n - 1, 100)</code></li>
+    <li><code>1 &lt;= cuts.length &lt;= min(n - 1, 100)</code></li>
 
-	<li><code>1 &lt;= cuts[i] &lt;= n - 1</code></li>
+    <li><code>1 &lt;= cuts[i] &lt;= n - 1</code></li>
 
-	<li>All the integers in <code>cuts</code>&nbsp;array are <strong>distinct</strong>.</li>
+    <li>All the integers in <code>cuts</code>&nbsp;array are <strong>distinct</strong>.</li>
 
 </ul>
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -97,12 +78,12 @@ There are much ordering with total cost &lt;= 25, for example, the order [4, 6, 
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

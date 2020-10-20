@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>arr</code>,&nbsp;write a function that returns <code>true</code> if and only if the number of occurrences of each value in the array is unique.</p>
 
 <p>&nbsp;</p>
@@ -35,10 +36,7 @@
 	<li><code>-1000 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

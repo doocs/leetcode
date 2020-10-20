@@ -3,35 +3,26 @@
 [中文文档](/solution/0000-0099/0036.Valid%20Sudoku/README.md)
 
 ## Description
+
 <p>Determine if a&nbsp;9x9 Sudoku board&nbsp;is valid.&nbsp;Only the filled cells need to be validated&nbsp;<strong>according to the following rules</strong>:</p>
-
-
 
 <ol>
 
-	<li>Each row&nbsp;must contain the&nbsp;digits&nbsp;<code>1-9</code> without repetition.</li>
+    <li>Each row&nbsp;must contain the&nbsp;digits&nbsp;<code>1-9</code> without repetition.</li>
 
-	<li>Each column must contain the digits&nbsp;<code>1-9</code>&nbsp;without repetition.</li>
+    <li>Each column must contain the digits&nbsp;<code>1-9</code>&nbsp;without repetition.</li>
 
-	<li>Each of the 9 <code>3x3</code> sub-boxes of the grid must contain the digits&nbsp;<code>1-9</code>&nbsp;without repetition.</li>
+    <li>Each of the 9 <code>3x3</code> sub-boxes of the grid must contain the digits&nbsp;<code>1-9</code>&nbsp;without repetition.</li>
 
 </ol>
-
-
 
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png" style="height:250px; width:250px" /><br />
 
 <small>A partially filled sudoku which is valid.</small></p>
 
-
-
 <p>The Sudoku board could be partially filled, where empty cells are filled with the character <code>&#39;.&#39;</code>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -63,11 +54,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -103,29 +90,21 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 
-	<li>A Sudoku board (partially filled) could be valid but is not necessarily solvable.</li>
+    <li>A Sudoku board (partially filled) could be valid but is not necessarily solvable.</li>
 
-	<li>Only the filled cells need to be validated according to the mentioned&nbsp;rules.</li>
+    <li>Only the filled cells need to be validated according to the mentioned&nbsp;rules.</li>
 
-	<li>The given board&nbsp;contain only digits <code>1-9</code> and the character <code>&#39;.&#39;</code>.</li>
+    <li>The given board&nbsp;contain only digits <code>1-9</code> and the character <code>&#39;.&#39;</code>.</li>
 
-	<li>The given board size is always <code>9x9</code>.</li>
+    <li>The given board size is always <code>9x9</code>.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -142,6 +121,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

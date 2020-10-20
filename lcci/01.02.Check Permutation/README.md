@@ -3,6 +3,7 @@
 [English Version](/lcci/01.02.Check%20Permutation/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定两个字符串 <code>s1</code> 和 <code>s2</code>，请编写一个程序，确定其中一个字符串的字符重新排列后，能否变成另一个字符串。</p>
 
@@ -25,14 +26,14 @@
 	<li><code>0 &lt;= len(s2) &lt;= 100 </code></li>
 </ul>
 
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -42,6 +43,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,6 +62,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

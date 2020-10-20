@@ -1,8 +1,9 @@
-# [692. 前K个高频单词](https://leetcode-cn.com/problems/top-k-frequent-words)
+# [692. 前 K 个高频单词](https://leetcode-cn.com/problems/top-k-frequent-words)
 
 [English Version](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给一非空的单词列表，返回前&nbsp;<em>k&nbsp;</em>个出现次数最多的单词。</p>
 
@@ -45,15 +46,14 @@
 	<li>尝试以&nbsp;<em>O</em>(<em>n</em> log <em>k</em>) 时间复杂度和&nbsp;<em>O</em>(<em>n</em>) 空间复杂度解决。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -61,6 +61,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -68,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

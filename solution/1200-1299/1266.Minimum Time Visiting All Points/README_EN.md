@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README.md)
 
 ## Description
+
 <p>On a plane there are <code>n</code> points with integer coordinates <code>points[i] = [xi, yi]</code>. Your task is to find the minimum time in seconds to visit all points.</p>
 
 <p>You can move according to the next rules:</p>
@@ -42,10 +43,7 @@ Total time = 7 seconds</pre>
 	<li><code>-1000&nbsp;&lt;= points[i][0], points[i][1]&nbsp;&lt;= 1000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +60,7 @@ Total time = 7 seconds</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

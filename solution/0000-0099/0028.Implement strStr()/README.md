@@ -1,8 +1,9 @@
 # [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr)
 
-[English Version](/solution/0000-0099/0028.Implement%20strStr()/README_EN.md)
+[English Version](</solution/0000-0099/0028.Implement%20strStr()/README_EN.md>)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>实现&nbsp;<a href="https://baike.baidu.com/item/strstr/811469" target="_blank">strStr()</a>&nbsp;函数。</p>
 
@@ -26,15 +27,14 @@
 
 <p>对于本题而言，当&nbsp;<code>needle</code>&nbsp;是空字符串时我们应当返回 0 。这与C语言的&nbsp;<a href="https://baike.baidu.com/item/strstr/811469" target="_blank">strstr()</a>&nbsp;以及 Java的&nbsp;<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf(java.lang.String)" target="_blank">indexOf()</a>&nbsp;定义相符。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -42,6 +42,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -49,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

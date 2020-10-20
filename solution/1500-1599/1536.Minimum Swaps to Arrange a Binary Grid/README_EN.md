@@ -51,15 +51,11 @@
 	<li><code>grid[i][j]</code> is <code>0</code> or <code>1</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -67,12 +63,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

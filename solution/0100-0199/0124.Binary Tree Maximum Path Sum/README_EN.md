@@ -3,17 +3,12 @@
 [中文文档](/solution/0100-0199/0124.Binary%20Tree%20Maximum%20Path%20Sum/README.md)
 
 ## Description
+
 <p>Given a <strong>non-empty</strong> binary tree, find the maximum path sum.</p>
-
-
 
 <p>For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain <strong>at least one node</strong> and does not need to go through the root.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +28,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,11 +52,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

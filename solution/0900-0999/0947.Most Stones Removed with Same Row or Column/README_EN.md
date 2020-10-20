@@ -3,27 +3,18 @@
 [中文文档](/solution/0900-0999/0947.Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column/README.md)
 
 ## Description
+
 <p>On a 2D plane, we place stones at some integer coordinate points.&nbsp; Each coordinate point may have at most one stone.</p>
-
-
 
 <p>Now, a <em>move</em> consists of removing a stone&nbsp;that shares a column or row with another stone on the grid.</p>
 
-
-
 <p>What is the largest possible number of moves we can make?</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,13 +24,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -49,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -65,21 +48,15 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong><span>Note:</span></strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= stones.length &lt;= 1000</code></li>
+    <li><code>1 &lt;= stones.length &lt;= 1000</code></li>
 
-	<li><code>0 &lt;= stones[i][j] &lt; 10000</code></li>
+    <li><code>0 &lt;= stones[i][j] &lt; 10000</code></li>
 
 </ol>
 
@@ -89,11 +66,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -110,6 +83,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

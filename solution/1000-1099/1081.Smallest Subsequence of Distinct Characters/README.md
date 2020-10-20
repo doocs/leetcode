@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>返回字符串 <code>text</code>&nbsp;中按字典序排列最小的子序列，该子序列包含&nbsp;<code>text</code>&nbsp;中所有不同字符一次。</p>
 
@@ -45,15 +46,14 @@
 
 <p><strong>注意：</strong>本题目与 316 <a href="https://leetcode-cn.com/problems/remove-duplicate-letters/">https://leetcode-cn.com/problems/remove-duplicate-letters/</a> 相同</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -61,6 +61,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -68,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

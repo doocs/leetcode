@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0228.Summary%20Ranges/README.md)
 
 ## Description
+
 <p>Given a sorted integer array without duplicates, return the summary of its ranges.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -21,11 +18,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -37,11 +30,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

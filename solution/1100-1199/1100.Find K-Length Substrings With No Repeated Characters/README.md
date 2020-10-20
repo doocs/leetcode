@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个字符串 <code>S</code>，找出所有长度为 <code>K</code> 且不含重复字符的子串，请你返回全部满足要求的子串的 <strong>数目</strong>。</p>
 
@@ -33,15 +34,14 @@
 	<li><code>1 <= K <= 10^4</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -49,6 +49,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -56,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

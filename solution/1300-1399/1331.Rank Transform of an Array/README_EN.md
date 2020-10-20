@@ -3,31 +3,24 @@
 [中文文档](/solution/1300-1399/1331.Rank%20Transform%20of%20an%20Array/README.md)
 
 ## Description
+
 <p>Given an array of integers&nbsp;<code>arr</code>, replace each element with its rank.</p>
-
-
 
 <p>The rank represents how large the element is. The rank has the following rules:</p>
 
-
-
 <ul>
 
-	<li>Rank is an integer starting from 1.</li>
+    <li>Rank is an integer starting from 1.</li>
 
-	<li>The larger the element, the larger the rank. If two elements are equal, their rank must be the same.</li>
+    <li>The larger the element, the larger the rank. If two elements are equal, their rank must be the same.</li>
 
-	<li>Rank should be as small as possible.</li>
+    <li>Rank should be as small as possible.</li>
 
 </ul>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -37,11 +30,7 @@
 
 <strong>Explanation</strong>: 40 is the largest element. 10 is the smallest. 20 is the second smallest. 30 is the third smallest.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -53,11 +42,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,25 +52,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>0 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
+    <li><code>0 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 
-	<li><code>-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
+    <li><code>-10<sup>9</sup>&nbsp;&lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -102,6 +81,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

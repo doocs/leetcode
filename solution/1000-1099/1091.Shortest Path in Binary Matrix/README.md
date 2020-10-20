@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一个&nbsp;N &times;&nbsp;N 的方形网格中，每个单元格有两种状态：空（0）或者阻塞（1）。</p>
 
@@ -25,11 +26,9 @@
 
 ![](./images/example1_1.png)
 
-
 <pre><strong>输出：</strong>2</pre>
 
 ![](./images/example1_2.png)
-
 
 <p><strong>示例 2：</strong></p>
 
@@ -50,15 +49,14 @@
 	<li><code>grid[i][j]</code> 为&nbsp;<code>0</code> 或&nbsp;<code>1</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -66,6 +64,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -73,6 +72,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

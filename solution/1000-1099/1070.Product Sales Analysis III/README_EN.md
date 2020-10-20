@@ -3,11 +3,10 @@
 [中文文档](/solution/1000-1099/1070.Product%20Sales%20Analysis%20III/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -19,7 +18,7 @@ SELECT s.product_id,
          s.quantity,
          s.price
 FROM Sales s
-WHERE (product_id, year) IN 
+WHERE (product_id, year) IN
     (SELECT product_id,
          min(year)
     FROM Sales

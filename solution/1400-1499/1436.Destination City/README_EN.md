@@ -48,15 +48,11 @@ Clearly the destination city is &quot;A&quot;.
 	<li>All strings&nbsp;consist of lowercase and uppercase English letters and the space character.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -64,12 +60,12 @@ Clearly the destination city is &quot;A&quot;.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

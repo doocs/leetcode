@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0860.Lemonade%20Change/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在柠檬水摊上，每一杯柠檬水的售价为&nbsp;<code>5</code>&nbsp;美元。</p>
 
@@ -57,15 +58,14 @@
 	<li><code>bills[i]</code>&nbsp;不是&nbsp;<code>5</code>&nbsp;就是&nbsp;<code>10</code>&nbsp;或是&nbsp;<code>20</code>&nbsp;</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -73,6 +73,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -80,6 +81,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

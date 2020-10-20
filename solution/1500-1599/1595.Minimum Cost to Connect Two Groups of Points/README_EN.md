@@ -54,15 +54,11 @@ Note that there are multiple points connected to point 2 in the first group and 
 	<li><code>0 &lt;= cost[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -70,12 +66,12 @@ Note that there are multiple points connected to point 2 in the first group and 
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

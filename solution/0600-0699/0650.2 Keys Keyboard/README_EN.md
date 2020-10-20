@@ -3,31 +3,22 @@
 [中文文档](/solution/0600-0699/0650.2%20Keys%20Keyboard/README.md)
 
 ## Description
+
 <p>Initially on a notepad only one character &#39;A&#39; is present. You can perform two operations on this notepad for each step:</p>
-
-
 
 <ol>
 
-	<li><code>Copy All</code>: You can copy all the characters present on the notepad (partial copy is not allowed).</li>
+    <li><code>Copy All</code>: You can copy all the characters present on the notepad (partial copy is not allowed).</li>
 
-	<li><code>Paste</code>: You can paste the characters which are copied <b>last time</b>.</li>
+    <li><code>Paste</code>: You can paste the characters which are copied <b>last time</b>.</li>
 
 </ol>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Given a number <code>n</code>. You have to get <b>exactly</b> <code>n</code> &#39;A&#39; on the notepad by performing the minimum number of steps permitted. Output the minimum number of steps to get <code>n</code> &#39;A&#39;.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -47,31 +38,19 @@ In step 3, we use <b>Paste</b> operation to get &#39;AAA&#39;.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>The <code>n</code> will be in the range [1, 1000].</li>
+    <li>The <code>n</code> will be in the range [1, 1000].</li>
 
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +67,7 @@ In step 3, we use <b>Paste</b> operation to get &#39;AAA&#39;.
 ```
 
 ### **...**
+
 ```
 
 ```

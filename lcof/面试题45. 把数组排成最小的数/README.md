@@ -1,7 +1,9 @@
-# [面试题45. 把数组排成最小的数](https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/)
+# [面试题 45. 把数组排成最小的数](https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
 
 **示例 1:**
@@ -11,7 +13,7 @@
 输出: "102"
 ```
 
-**示例 2:**
+**示例  2:**
 
 ```
 输入: [3,30,34,5,9]
@@ -28,12 +30,15 @@
 - 拼接起来的数字可能会有前导 0，最后结果不需要去掉前导 0。
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 自定义排序比较器。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -43,18 +48,19 @@ class Solution:
     def minNumber(self, nums: List[int]) -> str:
         if not nums:
             return ''
-        
+
         def compare(s1, s2):
             if s1 + s2 < s2 + s1:
                 return -1
             if s1 + s2 > s2 + s1:
                 return 1
             return 0
-        
+
         return ''.join(sorted([str(x) for x in nums], key=functools.cmp_to_key(compare)))
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -69,24 +75,26 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} nums
  * @return {string}
  */
-var minNumber = function(nums) {
-    nums.sort((a,b) => {
-        let s1 = a + '' + b
-        let s2 = b + '' + a
-        if(s1 < s2) {
-            return -1
-        } else return 1
-    })
-    return nums.join('')
+var minNumber = function (nums) {
+  nums.sort((a, b) => {
+    let s1 = a + "" + b;
+    let s2 = b + "" + a;
+    if (s1 < s2) {
+      return -1;
+    } else return 1;
+  });
+  return nums.join("");
 };
 ```
 
 ### **...**
+
 ```
 
 ```

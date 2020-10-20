@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个长度为偶数的整数数组&nbsp;<code>A</code>，只有对&nbsp;<code>A</code>&nbsp;进行重组后可以满足 &ldquo;对于每个 <code>0 &lt;=&nbsp;i &lt; len(A) / 2</code>，都有 <code>A[2 * i + 1] = 2 * A[2 * i]</code>&rdquo;&nbsp;时，返回 <code>true</code>；否则，返回 <code>false</code>。</p>
 
@@ -42,15 +43,14 @@
 	<li><code>-100000 &lt;= A[i] &lt;= 100000</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

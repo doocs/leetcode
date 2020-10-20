@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0968.Binary%20Tree%20Cameras/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个二叉树，我们在树的节点上安装摄像头。</p>
 
@@ -38,15 +39,14 @@
 	<li>每个节点的值都是 0。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -54,6 +54,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -61,6 +62,7 @@
 ```
 
 ### **Go**
+
 ```go
 /**
  * Definition for a binary tree node.
@@ -97,7 +99,7 @@ func dfs(root *TreeNode) int {
         return 2
     } else if l == 1 && r == 1 { //左右节点均为已覆盖，则当前节点为待覆盖
         return 0
-    } 
+    }
     //除上述情况外，左右子节点中至少有一个安装了监控，当前节点为已覆盖
     return 1
 }

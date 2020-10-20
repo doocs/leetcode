@@ -68,15 +68,11 @@ Friends 0 and 2 are happy.
 	<li>Each person is contained in <strong>exactly one</strong> pair.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -84,12 +80,12 @@ Friends 0 and 2 are happy.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

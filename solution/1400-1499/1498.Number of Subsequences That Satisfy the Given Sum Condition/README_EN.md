@@ -56,15 +56,11 @@ Number of valid subsequences (63 - 2 = 61).
 	<li><code>1 &lt;= target &lt;= 10^6</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -72,12 +68,12 @@ Number of valid subsequences (63 - 2 = 61).
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

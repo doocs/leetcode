@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1062.Longest%20Repeating%20Substring/README.md)
 
 ## Description
+
 <p>Given a string <code>S</code>, find out the length of the longest repeating substring(s). Return <code>0</code> if no repeating substring exists.</p>
 
 <p> </p>
@@ -46,10 +47,7 @@
 	<li><code>1 <= S.length <= 1500</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +64,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,17 +3,12 @@
 [中文文档](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
 
 ## Description
+
 <p>Implement an algorithm to find the kth to last element of a singly linked list.&nbsp;Return the value of the element.</p>
-
-
 
 <p><strong>Note: </strong>This problem is slightly different from the original one in the book.</p>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -21,15 +16,11 @@
 
 <strong>Output:  </strong>4</pre>
 
-
-
 <p><strong>Note: </strong></p>
 
 <p>k is always valid.</p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -79,6 +70,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

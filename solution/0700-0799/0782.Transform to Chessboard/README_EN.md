@@ -3,13 +3,10 @@
 [中文文档](/solution/0700-0799/0782.Transform%20to%20Chessboard/README.md)
 
 ## Description
+
 <p>An N x N <code>board</code> contains only <code>0</code>s and <code>1</code>s. In each move, you can swap any 2 rows with each other, or any 2 columns with each other.</p>
 
-
-
 <p>What is the minimum number of moves to transform the board into a &quot;chessboard&quot; - a board where no <code>0</code>s and no <code>1</code>s are 4-directionally adjacent? If the task is impossible, return -1.</p>
-
-
 
 <pre>
 
@@ -71,25 +68,17 @@ No matter what sequence of moves you make, you cannot end with a valid chessboar
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 
-	<li><code>board</code> will have the same number of rows and columns, a number in the range <code>[2, 30]</code>.</li>
+    <li><code>board</code> will have the same number of rows and columns, a number in the range <code>[2, 30]</code>.</li>
 
-	<li><code>board[i][j]</code> will be only <code>0</code>s or <code>1</code>s.</li>
+    <li><code>board[i][j]</code> will be only <code>0</code>s or <code>1</code>s.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -106,6 +95,7 @@ No matter what sequence of moves you make, you cannot end with a valid chessboar
 ```
 
 ### **...**
+
 ```
 
 ```

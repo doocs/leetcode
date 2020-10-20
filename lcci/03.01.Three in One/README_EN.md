@@ -3,21 +3,14 @@
 [中文文档](/lcci/03.01.Three%20in%20One/README.md)
 
 ## Description
+
 <p>Describe how you could use a single array to implement three stacks.</p>
-
-
 
 <p>Yout should implement&nbsp;<code>push(stackNum, value)</code>、<code>pop(stackNum)</code>、<code>isEmpty(stackNum)</code>、<code>peek(stackNum)</code>&nbsp;methods.&nbsp;<code>stackNum<font face="sans-serif, Arial, Verdana, Trebuchet MS">&nbsp;</font></code><font face="sans-serif, Arial, Verdana, Trebuchet MS">is the index of the stack.&nbsp;</font><code>value</code>&nbsp;is the value that pushed to the stack.</p>
 
-
-
 <p>The constructor requires a&nbsp;<code>stackSize</code>&nbsp;parameter, which represents the size of each stack.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +28,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +44,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -105,14 +90,14 @@ class TripleInOne {
         s = new int[stackSize * 3 + 3];
         capacity = stackSize;
     }
-    
+
     public void push(int stackNum, int value) {
         if (s[stackNum + 3 * capacity] < capacity) {
             s[s[stackNum + 3 * capacity] * 3 + stackNum] = value;
             ++s[stackNum + 3 * capacity];
         }
     }
-    
+
     public int pop(int stackNum) {
         if (isEmpty(stackNum)) {
             return -1;
@@ -120,11 +105,11 @@ class TripleInOne {
         --s[stackNum + 3 * capacity];
         return s[s[stackNum + 3 * capacity] * 3 + stackNum];
     }
-    
+
     public int peek(int stackNum) {
         return isEmpty(stackNum) ? -1 : s[(s[stackNum + 3 * capacity] - 1) * 3 + stackNum];
     }
-    
+
     public boolean isEmpty(int stackNum) {
         return s[stackNum + 3 * capacity] == 0;
     }
@@ -141,6 +126,7 @@ class TripleInOne {
 ```
 
 ### **...**
+
 ```
 
 ```

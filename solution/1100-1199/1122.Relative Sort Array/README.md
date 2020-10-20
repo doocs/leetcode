@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1122.Relative%20Sort%20Array/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你两个数组，<code>arr1</code> 和&nbsp;<code>arr2</code>，</p>
 
@@ -32,15 +33,14 @@
 	<li><code>arr2</code> 中的每个元素&nbsp;<code>arr2[i]</code>&nbsp;都出现在&nbsp;<code>arr1</code>&nbsp;中</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -48,6 +48,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -55,6 +56,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

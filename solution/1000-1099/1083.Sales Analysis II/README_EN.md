@@ -3,11 +3,10 @@
 [中文文档](/solution/1000-1099/1083.Sales%20Analysis%20II/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

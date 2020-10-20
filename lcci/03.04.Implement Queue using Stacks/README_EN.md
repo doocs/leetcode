@@ -3,15 +3,12 @@
 [中文文档](/lcci/03.04.Implement%20Queue%20using%20Stacks/README.md)
 
 ## Description
+
 <p>Implement a MyQueue class which implements a queue using two stacks.</p>
 
 &nbsp;
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -29,15 +26,9 @@ queue.pop();   // return 1
 
 queue.empty(); // return false</pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Notes:</b></p>
-
-
 
 <ul>
 	<li>You must use&nbsp;<i>only</i>&nbsp;standard operations of a stack -- which means only&nbsp;<code>push to top</code>,&nbsp;<code>peek/pop from top</code>,&nbsp;<code>size</code>, and&nbsp;<code>is empty</code>&nbsp;operations are valid.</li>
@@ -45,15 +36,9 @@ queue.empty(); // return false</pre>
 	<li>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -124,12 +109,12 @@ class MyQueue {
         s1 = new Stack<>();
         s2 = new Stack<>();
     }
-    
+
     /** Push element x to the back of queue. */
     public void push(int x) {
         s1.push(x);
     }
-    
+
     /** Removes the element from in front of queue and returns that element. */
     public int pop() {
         if (s2.empty()) {
@@ -139,7 +124,7 @@ class MyQueue {
         }
         return s2.pop();
     }
-    
+
     /** Get the front element. */
     public int peek() {
         if (s2.empty()) {
@@ -149,7 +134,7 @@ class MyQueue {
         }
         return s2.peek();
     }
-    
+
     /** Returns whether the queue is empty. */
     public boolean empty() {
         return s1.empty() && s2.empty();
@@ -167,6 +152,7 @@ class MyQueue {
 ```
 
 ### **...**
+
 ```
 
 ```

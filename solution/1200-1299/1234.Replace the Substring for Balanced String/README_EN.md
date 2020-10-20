@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1234.Replace%20the%20Substring%20for%20Balanced%20String/README.md)
 
 ## Description
+
 <p>You are given a string containing only 4&nbsp;kinds of characters <code>&#39;Q&#39;,</code> <code>&#39;W&#39;, &#39;E&#39;</code> and&nbsp;<code>&#39;R&#39;</code>.</p>
 
 <p>A string is said to be&nbsp;<strong>balanced</strong><em>&nbsp;</em>if each of its characters appears&nbsp;<code>n/4</code> times where <code>n</code> is the length of the string.</p>
@@ -52,10 +53,7 @@
 	<li><code>s&nbsp;</code>contains only <code>&#39;Q&#39;</code>, <code>&#39;W&#39;</code>, <code>&#39;E&#39;</code> and&nbsp;<code>&#39;R&#39;</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +70,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

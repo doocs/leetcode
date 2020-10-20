@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README.md)
 
 ## Description
+
 <p>Given an integer <em>n</em>, generate all structurally unique <strong>BST&#39;s</strong> (binary search trees) that store values 1 ...&nbsp;<em>n</em>.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -49,11 +46,7 @@ The above output corresponds to the 5 unique BST&#39;s shown below:
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +63,7 @@ The above output corresponds to the 5 unique BST&#39;s shown below:
 ```
 
 ### **...**
+
 ```
 
 ```

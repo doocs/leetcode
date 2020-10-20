@@ -3,19 +3,14 @@
 [中文文档](/solution/0900-0999/0946.Validate%20Stack%20Sequences/README.md)
 
 ## Description
+
 <p>Given two sequences <code>pushed</code> and <code>popped</code>&nbsp;<strong>with distinct values</strong>,&nbsp;return <code>true</code> if and only if this could have been the result of a sequence of push and pop operations on an initially empty stack.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -31,13 +26,9 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -49,25 +40,19 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>0 &lt;= pushed.length == popped.length &lt;= 1000</code></li>
+    <li><code>0 &lt;= pushed.length == popped.length &lt;= 1000</code></li>
 
-	<li><code>0 &lt;= pushed[i], popped[i] &lt; 1000</code></li>
+    <li><code>0 &lt;= pushed[i], popped[i] &lt; 1000</code></li>
 
-	<li><code>pushed</code> is a permutation of <code>popped</code>.</li>
+    <li><code>pushed</code> is a permutation of <code>popped</code>.</li>
 
-	<li><code>pushed</code> and <code>popped</code> have distinct values.</li>
+    <li><code>pushed</code> and <code>popped</code> have distinct values.</li>
 
 </ol>
 
@@ -75,9 +60,7 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -94,6 +77,7 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 ```
 
 ### **...**
+
 ```
 
 ```

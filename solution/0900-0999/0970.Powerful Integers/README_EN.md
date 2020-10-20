@@ -3,27 +3,18 @@
 [中文文档](/solution/0900-0999/0970.Powerful%20Integers/README.md)
 
 ## Description
+
 <p>Given two positive integers <code>x</code> and <code>y</code>, an integer is <em>powerful</em>&nbsp;if it is equal to <code>x^i + y^j</code>&nbsp;for&nbsp;some integers <code>i &gt;= 0</code> and <code>j &gt;= 0</code>.</p>
-
-
 
 <p>Return a list of all <em>powerful</em> integers that have value less than or equal to <code>bound</code>.</p>
 
-
-
 <p>You may return the answer in any order.&nbsp; In your answer, each value should occur at most once.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -49,13 +40,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -69,29 +56,21 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= x &lt;= 100</code></li>
+    <li><code>1 &lt;= x &lt;= 100</code></li>
 
-	<li><code>1 &lt;= y&nbsp;&lt;= 100</code></li>
+    <li><code>1 &lt;= y&nbsp;&lt;= 100</code></li>
 
-	<li><code>0 &lt;= bound&nbsp;&lt;= 10^6</code></li>
+    <li><code>0 &lt;= bound&nbsp;&lt;= 10^6</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -108,6 +87,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

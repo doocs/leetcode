@@ -3,13 +3,10 @@
 [中文文档](/lcci/16.09.Operations/README.md)
 
 ## Description
+
 <p>rite methods to implement the multiply, subtract, and divide operations for integers. The results of all of these are integers. Use only the add operator.</p>
 
-
-
 <p>You should implement following methods:</p>
-
-
 
 <ul>
 	<li><code>Operations()</code>&nbsp; constructor</li>
@@ -18,11 +15,7 @@
 	<li><code>divide(a, b)</code>&nbsp; Division, returns&nbsp;<code>a / b</code></li>
 </ul>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -36,25 +29,17 @@ operations.divide(5, -2); //returns -2
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 
-	<li>You can assume inputs are always valid, that is, e.g., denominator will not be 0 in division.</li>
+    <li>You can assume inputs are always valid, that is, e.g., denominator will not be 0 in division.</li>
 
-	<li>The number of calls will not exceed 1000.</li>
+    <li>The number of calls will not exceed 1000.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -71,6 +56,7 @@ operations.divide(5, -2); //returns -2
 ```
 
 ### **...**
+
 ```
 
 ```

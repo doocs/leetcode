@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0785.Is%20Graph%20Bipartite/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个无向图<code>graph</code>，当这个图为二分图时返回<code>true</code>。</p>
 
@@ -47,15 +48,14 @@
 	<li>图是无向的: 如果<code>j</code> 在 <code>graph[i]</code>里边, 那么 <code>i</code> 也会在 <code>graph[j]</code>里边。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -63,6 +63,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -70,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

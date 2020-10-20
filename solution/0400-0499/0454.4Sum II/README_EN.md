@@ -3,17 +3,12 @@
 [中文文档](/solution/0400-0499/0454.4Sum%20II/README.md)
 
 ## Description
+
 <p>Given four lists A, B, C, D of integer values, compute how many tuples <code>(i, j, k, l)</code> there are such that <code>A[i] + B[j] + C[k] + D[l]</code> is zero.</p>
-
-
 
 <p>To make problem a bit easier, all A, B, C, D have same length of N where 0 &le; N &le; 500. All integers are in the range of -2<sup>28</sup> to 2<sup>28</sup> - 1 and the result is guaranteed to be at most 2<sup>31</sup> - 1.</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -45,15 +40,9 @@ The two tuples are:
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +59,7 @@ The two tuples are:
 ```
 
 ### **...**
+
 ```
 
 ```

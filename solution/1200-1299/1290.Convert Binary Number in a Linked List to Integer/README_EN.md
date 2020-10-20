@@ -3,13 +3,10 @@
 [中文文档](/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/README.md)
 
 ## Description
+
 <p>Given <code>head</code> which is a reference node to&nbsp;a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.</p>
 
-
-
 <p>Return the <em>decimal value</em> of the number in the linked list.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -27,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +44,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -69,11 +54,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -83,13 +64,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>The Linked List is not empty.</li>
@@ -97,9 +74,7 @@
 	<li>Each node&#39;s value is either&nbsp;<code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -116,6 +91,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

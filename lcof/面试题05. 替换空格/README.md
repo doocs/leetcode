@@ -1,6 +1,7 @@
-# [面试题05. 替换空格](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
+# [面试题 05. 替换空格](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
 
 ## 题目描述
+
 请实现一个函数，把字符串 `s` 中的每个空格替换成"%20"。
 
 **示例 1：**
@@ -15,11 +16,13 @@
 - `0 <= s 的长度 <= 10000`
 
 ## 解法
+
 使用 replace 替换即可。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def replaceSpace(self, s: str) -> str:
@@ -27,6 +30,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public String replaceSpace(String s) {
@@ -36,17 +40,19 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {string} s
  * @return {string}
  */
-var replaceSpace = function(s) {
-    return s.split(' ').join('%20')
+var replaceSpace = function (s) {
+  return s.split(" ").join("%20");
 };
 ```
 
 ### **Go**
+
 ```go
 func replaceSpace(s string) string {
     return strings.Replace(s, " ", "%20", -1 )
@@ -54,6 +60,7 @@ func replaceSpace(s string) string {
 ```
 
 ### **...**
+
 ```
 
 ```

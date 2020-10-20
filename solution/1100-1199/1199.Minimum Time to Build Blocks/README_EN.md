@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md)
 
 ## Description
+
 <p>You are given a list of blocks, where <code>blocks[i] = t</code> means that the <code>i</code>-th block needs <code>t</code> units of time to be built. A block can only be built by exactly one worker.</p>
 
 <p>A worker can either split into two workers (number of workers increases by one) or build a block then go home. Both decisions cost some time.</p>
@@ -49,10 +50,7 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 	<li><code>1 <= split <= 100</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -69,6 +67,7 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 ```
 
 ### **...**
+
 ```
 
 ```

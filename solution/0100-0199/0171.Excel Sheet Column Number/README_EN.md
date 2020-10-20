@@ -3,13 +3,10 @@
 [中文文档](/solution/0100-0199/0171.Excel%20Sheet%20Column%20Number/README.md)
 
 ## Description
+
 <p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
 
-
-
 <p>For example:</p>
-
-
 
 <pre>
 
@@ -31,11 +28,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -59,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -73,9 +58,7 @@
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +75,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

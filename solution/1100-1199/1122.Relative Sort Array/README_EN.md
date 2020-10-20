@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1122.Relative%20Sort%20Array/README.md)
 
 ## Description
+
 <p>Given two arrays <code>arr1</code> and <code>arr2</code>, the elements of <code>arr2</code> are distinct, and all elements in <code>arr2</code> are also in <code>arr1</code>.</p>
 
 <p>Sort the elements of <code>arr1</code> such that the relative ordering of items in <code>arr1</code> are the same as in <code>arr2</code>.&nbsp; Elements that don&#39;t appear in <code>arr2</code> should be placed at the end of <code>arr1</code> in <strong>ascending</strong> order.</p>
@@ -22,10 +23,7 @@
 	<li>Each&nbsp;<code>arr2[i]</code> is in <code>arr1</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -42,6 +40,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

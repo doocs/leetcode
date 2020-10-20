@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0353.Design%20Snake%20Game/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>请你设计一个 <a href="https://baike.baidu.com/item/%E8%B4%AA%E5%90%83%E8%9B%87/9510203?fr=aladdin" target="_blank">贪吃蛇游戏</a>，该游戏将会在一个 <strong>屏幕尺寸 = 宽度 x 高度 </strong>的屏幕上运行。如果你不熟悉这个游戏，可以 <a href="http://patorjk.com/games/snake/">点击这里</a> 在线试玩。</p>
 
@@ -55,15 +56,14 @@ snake.move("L"); -> 函数返回 2 (蛇吃掉了第二个食物)
 snake.move("U"); -> 函数返回 -1 (蛇与边界相撞，游戏结束)
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -71,6 +71,7 @@ snake.move("U"); -> 函数返回 -1 (蛇与边界相撞，游戏结束)
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -78,6 +79,7 @@ snake.move("U"); -> 函数返回 -1 (蛇与边界相撞，游戏结束)
 ```
 
 ### **...**
+
 ```
 
 ```

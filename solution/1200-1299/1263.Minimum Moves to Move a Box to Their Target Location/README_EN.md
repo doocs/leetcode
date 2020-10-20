@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README.md)
 
 ## Description
+
 <p>Storekeeper is a&nbsp;game&nbsp;in which the player pushes boxes around in a warehouse&nbsp;trying to get them to target locations.</p>
 
 <p>The game is represented by a <code>grid</code> of size&nbsp;<code>m x n</code>, where each element is a wall, floor, or a box.</p>
@@ -81,10 +82,7 @@
 	<li>There is only one character&nbsp;<code>&#39;S&#39;</code>, <code>&#39;B&#39;</code>&nbsp;<font face="sans-serif, Arial, Verdana, Trebuchet MS">and&nbsp;</font><code>&#39;T&#39;</code>&nbsp;in the <code>grid</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -101,6 +99,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0281.Zigzag%20Iterator/README.md)
 
 ## Description
+
 <p>Given two 1d vectors, implement an iterator to return their elements alternately.</p>
 
 <p> </p>
@@ -34,10 +35,7 @@ The "Zigzag" order is not clearly defined and is ambiguous for <code>k > 2</code
 <strong>Output: </strong><code>[1,4,8,2,5,9,3,6,7]</code>.
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +52,7 @@ The "Zigzag" order is not clearly defined and is ambiguous for <code>k > 2</code
 ```
 
 ### **...**
+
 ```
 
 ```

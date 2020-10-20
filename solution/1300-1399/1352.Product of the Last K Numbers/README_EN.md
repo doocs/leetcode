@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1352.Product%20of%20the%20Last%20K%20Numbers/README.md)
 
 ## Description
+
 <p>Implement the class <code>ProductOfNumbers</code>&nbsp;that supports two methods:</p>
 
 <p>1.<code>&nbsp;add(int num)</code></p>
@@ -54,10 +55,7 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 	<li><code>1 &lt;= k &lt;= 40000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +72,7 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 ```
 
 ### **...**
+
 ```
 
 ```

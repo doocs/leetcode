@@ -3,13 +3,12 @@
 [中文文档](/solution/0300-0399/0396.Rotate%20Function/README.md)
 
 ## Description
+
 <p>
 
 Given an array of integers <code>A</code> and let <i>n</i> to be its length.
 
 </p>
-
-
 
 <p>
 
@@ -17,27 +16,19 @@ Assume <code>B<sub>k</sub></code> to be an array obtained by rotating the array 
 
 </p>
 
-
-
 <p>
 
-<code>F(k) = 0 * B<sub>k</sub>[0] + 1 * B<sub>k</sub>[1] + ... + (n-1) * B<sub>k</sub>[n-1]</code>.</p>
+<code>F(k) = 0 _ B<sub>k</sub>[0] + 1 _ B<sub>k</sub>[1] + ... + (n-1) \* B<sub>k</sub>[n-1]</code>.</p>
 
-
-
-<p>Calculate the maximum value of <code>F(0), F(1), ..., F(n-1)</code>. 
+<p>Calculate the maximum value of <code>F(0), F(1), ..., F(n-1)</code>.
 
 </p>
-
-
 
 <p><b>Note:</b><br />
 
 <i>n</i> is guaranteed to be less than 10<sup>5</sup>.
 
 </p>
-
-
 
 <p><b>Example:</b>
 
@@ -63,9 +54,7 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +71,7 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,21 +3,14 @@
 [中文文档](/solution/0000-0099/0070.Climbing%20Stairs/README.md)
 
 ## Description
+
 <p>You are climbing a stair case. It takes <em>n</em> steps to reach to the top.</p>
-
-
 
 <p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
 
-
-
 <p><strong>Note:</strong> Given <em>n</em> will be a positive integer.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +26,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +44,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

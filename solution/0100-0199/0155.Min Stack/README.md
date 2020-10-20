@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0155.Min%20Stack/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。</p>
 
@@ -25,15 +26,14 @@ minStack.top();      --&gt; 返回 0.
 minStack.getMin();   --&gt; 返回 -2.
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -41,6 +41,7 @@ minStack.getMin();   --&gt; 返回 -2.
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -48,6 +49,7 @@ minStack.getMin();   --&gt; 返回 -2.
 ```
 
 ### **...**
+
 ```
 
 ```

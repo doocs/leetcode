@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0648.Replace%20Words/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在英语中，我们有一个叫做&nbsp;<code>词根</code>(root)的概念，它可以跟着其他一些词组成另一个较长的单词&mdash;&mdash;我们称这个词为&nbsp;<code>继承词</code>(successor)。例如，词根<code>an</code>，跟随着单词&nbsp;<code>other</code>(其他)，可以形成新的单词&nbsp;<code>another</code>(另一个)。</p>
 
@@ -28,15 +29,14 @@ sentence(句子) = &quot;the cattle was rattled by the battery&quot;
 	<li>1 &lt;= 句中词语长度&nbsp;&lt;= 1000</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +44,7 @@ sentence(句子) = &quot;the cattle was rattled by the battery&quot;
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -51,6 +52,7 @@ sentence(句子) = &quot;the cattle was rattled by the battery&quot;
 ```
 
 ### **...**
+
 ```
 
 ```

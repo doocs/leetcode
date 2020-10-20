@@ -3,15 +3,12 @@
 [中文文档](/solution/0300-0399/0371.Sum%20of%20Two%20Integers/README.md)
 
 ## Description
+
 <p>Calculate the sum of two integers <i>a</i> and <i>b</i>, but you are <b>not allowed</b> to use the operator <code>+</code> and <code>-</code>.</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -21,13 +18,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +34,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

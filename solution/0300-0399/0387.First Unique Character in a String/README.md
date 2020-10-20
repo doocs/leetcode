@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0387.First%20Unique%20Character%20in%20a%20String/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。</p>
 
@@ -20,15 +21,14 @@ s = &quot;loveleetcode&quot;,
 
 <p><strong>注意事项：</strong>您可以假定该字符串只包含小写字母。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -36,6 +36,7 @@ s = &quot;loveleetcode&quot;,
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -43,6 +44,7 @@ s = &quot;loveleetcode&quot;,
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0656.Coin%20Path/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个数组 <code>A</code>（下标从 <code>1</code> 开始）包含 N 个整数：A<sub>1</sub>，A<sub>2</sub>，……，A<sub>N</sub> 和一个整数 <code>B</code>。你可以从数组 <code>A</code> 中的任何一个位置（下标为 <code>i</code>）跳到下标 <code>i+1</code>，<code>i+2</code>，……，<code>i+B</code> 的任意一个可以跳到的位置上。如果你在下标为 <code>i</code> 的位置上，你需要支付 A<sub>i</sub> 个金币。如果 A<sub>i</sub> 是 -1，意味着下标为 <code>i</code> 的位置是不可以跳到的。</p>
 
@@ -41,15 +42,14 @@
 
 <p> </p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -57,6 +57,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -64,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

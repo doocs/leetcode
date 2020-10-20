@@ -60,15 +60,11 @@
 	<li>All tuples&nbsp;<code>(type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>)</code>&nbsp;are distinct.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -76,12 +72,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

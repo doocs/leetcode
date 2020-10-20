@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>。</p>
 
@@ -48,15 +49,14 @@
 	<li><code>-10^4 &lt;= arr[i] &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -64,6 +64,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -71,6 +72,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

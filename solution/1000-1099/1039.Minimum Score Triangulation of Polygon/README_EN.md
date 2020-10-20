@@ -3,33 +3,22 @@
 [中文文档](/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/README.md)
 
 ## Description
+
 <p>Given <code>N</code>, consider a convex <code>N</code>-sided polygon with vertices labelled <code>A[0], A[i], ..., A[N-1]</code>&nbsp;in clockwise order.</p>
-
-
 
 <p>Suppose you triangulate the polygon into <code>N-2</code> triangles.&nbsp; For each triangle, the value of that triangle is the <strong>product</strong>&nbsp;of the labels of the vertices, and the <em>total score</em> of the triangulation is the sum of these values over all <code>N-2</code> triangles in the triangulation.</p>
 
-
-
 <p>Return the smallest possible total score that you can achieve with some triangulation of the polygon.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -41,16 +30,11 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
 
-
-
 ![](./images/minimum-score-triangulation-of-polygon-1.png)
-
 
 <pre>
 
@@ -62,13 +46,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -80,15 +60,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>3 &lt;= A.length &lt;= 50</code></li>
@@ -101,9 +75,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -120,6 +92,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

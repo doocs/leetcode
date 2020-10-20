@@ -3,9 +3,8 @@
 [中文文档](/solution/0900-0999/0994.Rotting%20Oranges/README.md)
 
 ## Description
+
 <p>In a given grid, each cell can have one of three&nbsp;values:</p>
-
-
 
 <ul>
 	<li>the value <code>0</code> representing an empty cell;</li>
@@ -13,28 +12,17 @@
 	<li>the value <code>2</code> representing a rotten orange.</li>
 </ul>
 
-
-
 <p>Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.</p>
-
-
 
 <p>Return the minimum number of minutes that must elapse until no cell has a fresh orange.&nbsp; If this is impossible, return <code>-1</code> instead.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
 
-
 ![](./images/oranges.png)
-
-
 
 <pre>
 
@@ -44,13 +32,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -62,13 +46,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -80,15 +60,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= grid.length &lt;= 10</code></li>
@@ -102,9 +76,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -121,6 +93,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

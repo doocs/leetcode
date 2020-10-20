@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README.md)
 
 ## Description
+
 <p>On an <strong>8x8</strong> chessboard, there can be multiple Black Queens and one White King.</p>
 
 <p>Given an array of integer coordinates <code>queens</code> that represents the positions of the Black Queens, and a pair of coordinates <code>king</code> that represent the position of the White King, return the coordinates of all the queens (in any order) that can attack the King.</p>
@@ -54,10 +55,7 @@ The queen at [2,4] can&#39;t attack the king cause it&#39;s not in the same row/
 	<li>At most one piece is allowed in a cell.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +72,7 @@ The queen at [2,4] can&#39;t attack the king cause it&#39;s not in the same row/
 ```
 
 ### **...**
+
 ```
 
 ```

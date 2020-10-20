@@ -3,9 +3,8 @@
 [中文文档](/solution/0000-0099/0006.ZigZag%20Conversion/README.md)
 
 ## Description
+
 <p>The string <code>&quot;PAYPALISHIRING&quot;</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
-
-
 
 <pre>
 
@@ -17,25 +16,15 @@ Y   I   R
 
 </pre>
 
-
-
 <p>And then read line by line: <code>&quot;PAHNAPLSIIGYIR&quot;</code></p>
 
-
-
 <p>Write the code that will take a string and make this conversion given a number of rows:</p>
-
-
 
 <pre>
 
 string convert(string s, int numRows);</pre>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +34,7 @@ string convert(string s, int numRows);</pre>
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -69,11 +54,7 @@ Y A   H R
 
 P     I</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +71,7 @@ P     I</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0639.Decode%20Ways%20II/README.md)
 
 ## Description
+
 <p>
 
 A message containing letters from <code>A-Z</code> is being encoded to numbers using the following mapping way:
 
 </p>
-
-
 
 <pre>
 
@@ -23,33 +22,23 @@ A message containing letters from <code>A-Z</code> is being encoded to numbers u
 
 </pre>
 
-
-
 <p>
 
-Beyond that, now the encoded string can also contain the character '*', which can be treated as one of the numbers from 1 to 9.
+Beyond that, now the encoded string can also contain the character '\*', which can be treated as one of the numbers from 1 to 9.
 
 </p>
 
-
-
-
-
 <p>
 
-Given the encoded message containing digits and the character '*', return the total number of ways to decode it.
+Given the encoded message containing digits and the character '\*', return the total number of ways to decode it.
 
 </p>
-
-
 
 <p>
 
 Also, since the answer may be very large, you should return the output mod 10<sup>9</sup> + 7.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -65,8 +54,6 @@ Also, since the answer may be very large, you should return the output mod 10<su
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -78,8 +65,6 @@ Also, since the answer may be very large, you should return the output mod 10<su
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 
@@ -93,9 +78,7 @@ Also, since the answer may be very large, you should return the output mod 10<su
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -112,6 +95,7 @@ Also, since the answer may be very large, you should return the output mod 10<su
 ```
 
 ### **...**
+
 ```
 
 ```

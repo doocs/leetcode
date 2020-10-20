@@ -3,13 +3,10 @@
 [中文文档](/lcci/08.01.Three%20Steps%20Problem/README.md)
 
 ## Description
+
 <p>A child is running up a staircase with n steps and can hop either 1 step, 2 steps, or 3 steps at a time. Implement a method to count how many possible ways the child can run up the stairs.&nbsp;The result may be large, so return it modulo 1000000007.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -33,14 +26,11 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
 
 1. `1 <= n <= 1000000`
 
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +68,7 @@ class Solution {
 ```
 
 ### **C++**
+
 ```cpp
 class Solution {
 public:

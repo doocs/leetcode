@@ -3,13 +3,10 @@
 [中文文档](/lcci/04.01.Route%20Between%20Nodes/README.md)
 
 ## Description
+
 <p>Given a directed graph, design an algorithm to find out whether there is a route between two nodes.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +26,7 @@
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ol>
 	<li><code>0 &lt;= n &lt;= 100000</code></li>
@@ -45,11 +34,7 @@
 	<li>There might be self cycles and duplicated edges.</li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

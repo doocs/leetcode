@@ -3,33 +3,24 @@
 [中文文档](/solution/1300-1399/1309.Decrypt%20String%20from%20Alphabet%20to%20Integer%20Mapping/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code> formed by digits (<code>&#39;0&#39;</code> - <code>&#39;9&#39;</code>)&nbsp;and <code>&#39;#&#39;</code>&nbsp;.&nbsp;We want to map <code>s</code> to English lowercase characters as follows:</p>
-
-
 
 <ul>
 
-	<li>Characters (<code>&#39;a&#39;</code> to <code>&#39;i&#39;)</code> are&nbsp;represented by&nbsp;(<code>&#39;1&#39;</code> to&nbsp;<code>&#39;9&#39;</code>)&nbsp;respectively.</li>
+    <li>Characters (<code>&#39;a&#39;</code> to <code>&#39;i&#39;)</code> are&nbsp;represented by&nbsp;(<code>&#39;1&#39;</code> to&nbsp;<code>&#39;9&#39;</code>)&nbsp;respectively.</li>
 
-	<li>Characters (<code>&#39;j&#39;</code> to <code>&#39;z&#39;)</code> are represented by (<code>&#39;10#&#39;</code>&nbsp;to&nbsp;<code>&#39;26#&#39;</code>)&nbsp;respectively.&nbsp;</li>
+    <li>Characters (<code>&#39;j&#39;</code> to <code>&#39;z&#39;)</code> are represented by (<code>&#39;10#&#39;</code>&nbsp;to&nbsp;<code>&#39;26#&#39;</code>)&nbsp;respectively.&nbsp;</li>
 
 </ul>
 
-
-
 <p>Return the string formed after mapping.</p>
 
-
-
 <p>It&#39;s guaranteed that a unique mapping will always exist.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +42,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -69,11 +52,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -83,27 +62,21 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+    <li><code>1 &lt;= s.length &lt;= 1000</code></li>
 
-	<li><code>s[i]</code> only contains digits letters (<code>&#39;0&#39;</code>-<code>&#39;9&#39;</code>) and <code>&#39;#&#39;</code>&nbsp;letter.</li>
+    <li><code>s[i]</code> only contains digits letters (<code>&#39;0&#39;</code>-<code>&#39;9&#39;</code>) and <code>&#39;#&#39;</code>&nbsp;letter.</li>
 
-	<li><code>s</code> will be valid string&nbsp;such that mapping is always possible.</li>
+    <li><code>s</code> will be valid string&nbsp;such that mapping is always possible.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -120,6 +93,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

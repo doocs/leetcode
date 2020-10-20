@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0325.Maximum%20Size%20Subarray%20Sum%20Equals%20k/README.md)
 
 ## Description
+
 <p>Given an array <i>nums</i> and a target value <i>k</i>, find the maximum length of a subarray that sums to <i>k</i>. If there isn't one, return 0 instead.</p>
 
 <p><b>Note:</b><br />
@@ -26,10 +27,7 @@ Explanation: </strong>The subarray <code>[-1, 2]</code> sums to 1 and is the lon
 <p><b>Follow Up:</b><br />
 Can you do it in O(<i>n</i>) time?</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +44,7 @@ Can you do it in O(<i>n</i>) time?</p>
 ```
 
 ### **...**
+
 ```
 
 ```

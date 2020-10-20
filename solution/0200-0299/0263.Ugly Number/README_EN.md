@@ -3,17 +3,12 @@
 [中文文档](/solution/0200-0299/0263.Ugly%20Number/README.md)
 
 ## Description
+
 <p>Write a program to check whether a given number is an ugly number.</p>
-
-
 
 <p>Ugly numbers are <strong>positive numbers</strong> whose prime factors only include <code>2, 3, 5</code>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 <strong>Explanation: </strong>6 = 2 &times;&nbsp;3</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +30,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -55,23 +42,17 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1</code> is typically treated as an ugly number.</li>
+    <li><code>1</code> is typically treated as an ugly number.</li>
 
-	<li>Input is within the 32-bit signed integer range:&nbsp;[&minus;2<sup>31</sup>,&nbsp; 2<sup>31&nbsp;</sup>&minus; 1].</li>
+    <li>Input is within the 32-bit signed integer range:&nbsp;[&minus;2<sup>31</sup>,&nbsp; 2<sup>31&nbsp;</sup>&minus; 1].</li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

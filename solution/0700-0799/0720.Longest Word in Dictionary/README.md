@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0720.Longest%20Word%20in%20Dictionary/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给出一个字符串数组<code>words</code>组成的一本英语词典。从中找出最长的一个单词，该单词是由<code>words</code>词典中其他单词逐步添加一个字母组成。若其中有多个可行的答案，则返回答案中字典序最小的单词。</p>
 
@@ -36,15 +37,14 @@ words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &
 	<li><code>words[i]</code>的长度范围为<code>[1,30]</code>。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -52,6 +52,7 @@ words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -59,6 +60,7 @@ words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &
 ```
 
 ### **...**
+
 ```
 
 ```

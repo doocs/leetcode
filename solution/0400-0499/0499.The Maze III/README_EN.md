@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0499.The%20Maze%20III/README.md)
 
 ## Description
+
 <p>There is a <b>ball</b> in a maze with empty spaces and walls. The ball can go through empty spaces by rolling <b>up</b> (u), <b>down</b> (d), <b>left</b> (l) or <b>right</b> (r), but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction. There is also a <b>hole</b> in this maze. The ball will drop into the hole if it rolls on to the hole.</p>
 
 <p>Given the <b>ball position</b>, the <b>hole position</b> and the <b>maze</b>, find out how the ball could drop into the hole by moving the <b>shortest distance</b>. The distance is defined by the number of <b>empty spaces</b> traveled by the ball from the start position (excluded) to the hole (included). Output the moving <b>directions</b> by using 'u', 'd', 'l' and 'r'. Since there could be several different shortest ways, you should output the <b>lexicographically smallest</b> way. If the ball cannot reach the hole, output "impossible".</p>
@@ -65,10 +66,7 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 	<li>The maze contains at least 2 empty spaces, and the width and the height of the maze won't exceed 30.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -85,6 +83,7 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 ```
 
 ### **...**
+
 ```
 
 ```

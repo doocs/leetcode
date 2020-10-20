@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个单链表的引用结点&nbsp;<code>head</code>。链表中每个结点的值不是 0 就是 1。已知此链表是一个整数数字的二进制表示形式。</p>
 
@@ -12,9 +13,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-
 ![](./images/graph-1.png)
-
 
 <pre><strong>输入：</strong>head = [1,0,1]
 <strong>输出：</strong>5
@@ -55,15 +54,14 @@
 	<li>每个结点的值不是&nbsp;<code>0</code> 就是 <code>1</code>。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -71,6 +69,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -78,6 +77,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

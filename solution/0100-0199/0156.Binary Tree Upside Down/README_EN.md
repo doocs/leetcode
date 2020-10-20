@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/README.md)
 
 ## Description
+
 <p>Given a binary tree where all the right nodes are either leaf nodes with a sibling (a left node that shares the same parent node) or empty, flip it upside down and turn it into a tree where the original right nodes turned into left leaf nodes. Return the new root.</p>
 
 <p><strong>Example:</strong></p>
@@ -45,10 +46,7 @@
 
 <p>The above binary tree is serialized as <code>[1,2,3,#,#,4,#,#,5]</code>.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

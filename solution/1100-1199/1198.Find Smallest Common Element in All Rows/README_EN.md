@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1198.Find%20Smallest%20Common%20Element%20in%20All%20Rows/README.md)
 
 ## Description
+
 <p>Given a matrix <code>mat</code> where every row is sorted in <strong>strictly</strong> <strong>increasing</strong> order, return the <strong>smallest common element</strong> in all rows.</p>
 
 <p>If there is no common element, return <code>-1</code>.</p>
@@ -21,10 +22,7 @@
 	<li><code>mat[i]</code> is sorted in strictly increasing order.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -41,6 +39,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,23 +3,16 @@
 [中文文档](/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/README.md)
 
 ## Description
+
 <p>You are given an integer array <code>nums</code>. The <em>value</em> of this array is defined as the sum of <code>|nums[i]-nums[i+1]|</code>&nbsp;for all&nbsp;<code>0 &lt;= i &lt; nums.length-1</code>.</p>
-
-
 
 <p>You are allowed to select any subarray of the given array and reverse it. You can perform this operation <strong>only once</strong>.</p>
 
-
-
 <p>Find maximum possible value of the final array.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -45,25 +34,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= nums.length &lt;= 3*10^4</code></li>
+    <li><code>1 &lt;= nums.length &lt;= 3*10^4</code></li>
 
-	<li><code>-10^5 &lt;= nums[i] &lt;= 10^5</code></li>
+    <li><code>-10^5 &lt;= nums[i] &lt;= 10^5</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

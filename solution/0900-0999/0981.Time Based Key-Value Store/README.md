@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>创建一个基于时间的键值存储类&nbsp;<code>TimeMap</code>，它支持下面两个操作：</p>
 
@@ -55,15 +56,14 @@ kv.get(&quot;foo&quot;, 5); // 输出 &quot;bar2&quot; &nbsp;
 	<li><code>TimeMap.set</code> 和&nbsp;<code>TimeMap.get</code>&nbsp;函数在每个测试用例中将（组合）调用总计&nbsp;<code>120000</code> 次。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -71,6 +71,7 @@ kv.get(&quot;foo&quot;, 5); // 输出 &quot;bar2&quot; &nbsp;
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -78,6 +79,7 @@ kv.get(&quot;foo&quot;, 5); // 输出 &quot;bar2&quot; &nbsp;
 ```
 
 ### **...**
+
 ```
 
 ```

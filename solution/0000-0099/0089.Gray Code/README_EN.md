@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0089.Gray%20Code/README.md)
 
 ## Description
+
 <p>The gray code is a binary numeral system where two successive values differ in only one bit.</p>
-
-
 
 <p>Given a non-negative integer <em>n</em> representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -49,11 +44,7 @@ For example, [0,2,3,1] is also a valid gray code sequence.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -69,11 +60,7 @@ For example, [0,2,3,1] is also a valid gray code sequence.
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +77,7 @@ For example, [0,2,3,1] is also a valid gray code sequence.
 ```
 
 ### **...**
+
 ```
 
 ```

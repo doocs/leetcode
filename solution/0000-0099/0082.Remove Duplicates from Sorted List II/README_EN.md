@@ -3,6 +3,7 @@
 [中文文档](/solution/0000-0099/0082.Remove%20Duplicates%20from%20Sorted%20List%20II/README.md)
 
 ## Description
+
 <p>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only <em>distinct</em> numbers from the original list.</p>
 
 <p>Return the linked list sorted as well.</p>
@@ -21,10 +22,7 @@
 <strong>Output:</strong> 2-&gt;3
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -41,6 +39,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

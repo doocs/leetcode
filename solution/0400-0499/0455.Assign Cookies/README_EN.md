@@ -3,13 +3,12 @@
 [中文文档](/solution/0400-0499/0455.Assign%20Cookies/README.md)
 
 ## Description
+
 <p>
 
 Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor g<sub>i</sub>, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s<sub>j</sub>. If s<sub>j</sub> >= g<sub>i</sub>, we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.
 
 </p>
-
-
 
 <p><b>Note:</b><br />
 
@@ -18,8 +17,6 @@ You may assume the greed factor is always positive. <br />
 You cannot assign more than one cookie to one child.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,8 +40,6 @@ You need to output 1.
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -67,9 +62,7 @@ You need to output 2.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -86,6 +79,7 @@ You need to output 2.
 ```
 
 ### **...**
+
 ```
 
 ```

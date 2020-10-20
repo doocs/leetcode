@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0056.Merge%20Intervals/README.md)
 
 ## Description
+
 <p>Given a collection of intervals, merge all overlapping intervals.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -21,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,15 +28,9 @@
 
 <strong>Explanation:</strong> Intervals [1,4] and [4,5] are considered overlapping.</pre>
 
-
-
 <p><strong>NOTE:</strong>&nbsp;input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

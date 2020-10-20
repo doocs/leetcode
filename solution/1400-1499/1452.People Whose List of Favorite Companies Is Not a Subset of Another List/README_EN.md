@@ -47,15 +47,11 @@ Other lists of favorite companies are not a subset of another list, therefore, t
 	<li>All strings consist of lowercase English letters only.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -63,12 +59,12 @@ Other lists of favorite companies are not a subset of another list, therefore, t
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

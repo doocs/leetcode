@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0683.K%20Empty%20Slots/README.md)
 
 ## Description
+
 <p>You have <code>N</code> bulbs in a row numbered from <code>1</code> to <code>N</code>. Initially, all the bulbs are turned off. We turn on exactly one bulb everyday until all bulbs are on after <code>N</code> days.</p>
 
 <p>You are given an array <code>bulbs</code> of length <code>N</code> where <code>bulbs[i] = x</code> means that on the <code>(i+1)th</code> day, we will turn on the bulb at position <code>x</code> where <code>i</code> is <code>0-indexed</code> and <code>x</code> is <code>1-indexed.</code></p>
@@ -47,10 +48,7 @@ K: 1
 	<li><code>0 <= K <= 20000</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@ K: 1
 ```
 
 ### **...**
+
 ```
 
 ```

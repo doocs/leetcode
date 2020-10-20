@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0370.Range%20Addition/README.md)
 
 ## Description
+
 <p>Assume you have an array of length <b><i>n</i></b> initialized with all <b>0</b>'s and are given <b><i>k</i></b> update operations.</p>
 
 <p>Each operation is represented as a triplet: <b>[startIndex, endIndex, inc]</b> which increments each element of subarray <b>A[startIndex ... endIndex]</b> (startIndex and endIndex inclusive) with <b>inc</b>.</p>
@@ -32,9 +33,7 @@ After applying operation [0,2,-2]:
 [-2,0,3,5,3]
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -51,6 +50,7 @@ After applying operation [0,2,-2]:
 ```
 
 ### **...**
+
 ```
 
 ```

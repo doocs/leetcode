@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0787.Cheapest%20Flights%20Within%20K%20Stops/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有 <code>n</code> 个城市通过 <code>m</code> 个航班连接。每个航班都从城市 <code>u</code> 开始，以价格 <code>w</code> 抵达 <code>v</code>。</p>
 
@@ -49,15 +50,14 @@ src = 0, dst = 2, k = 0
 	<li>航班没有重复，且不存在环路</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -65,6 +65,7 @@ src = 0, dst = 2, k = 0
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -72,6 +73,7 @@ src = 0, dst = 2, k = 0
 ```
 
 ### **...**
+
 ```
 
 ```

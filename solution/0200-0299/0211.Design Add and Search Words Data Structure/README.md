@@ -49,11 +49,9 @@ wordDictionary.search(&quot;b..&quot;); // return True
 	<li>最调用多 <code>50000</code> 次 <code>addWord</code> 和 <code>search</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -74,6 +72,7 @@ wordDictionary.search(&quot;b..&quot;); // return True
 ```
 
 ### **...**
+
 ```
 
 ```

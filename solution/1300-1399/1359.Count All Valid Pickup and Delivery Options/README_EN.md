@@ -3,23 +3,16 @@
 [中文文档](/solution/1300-1399/1359.Count%20All%20Valid%20Pickup%20and%20Delivery%20Options/README.md)
 
 ## Description
+
 <p>Given <code>n</code> orders, each order consist in pickup and delivery services.&nbsp;</p>
-
-
 
 <p>Count all valid pickup/delivery possible sequences such that delivery(i) is always after of&nbsp;pickup(i).&nbsp;</p>
 
-
-
 <p>Since the answer&nbsp;may be too large,&nbsp;return it modulo&nbsp;10^9 + 7.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,11 +40,7 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -65,23 +50,17 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= n &lt;= 500</code></li>
+    <li><code>1 &lt;= n &lt;= 500</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -98,6 +77,7 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 ```
 
 ### **...**
+
 ```
 
 ```

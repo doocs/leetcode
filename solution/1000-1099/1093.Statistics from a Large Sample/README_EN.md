@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1093.Statistics%20from%20a%20Large%20Sample/README.md)
 
 ## Description
+
 <p>We sampled integers between <code>0</code> and <code>255</code>, and stored the results in an array <code>count</code>:&nbsp; <code>count[k]</code> is the number of integers we sampled equal to <code>k</code>.</p>
 
 <p>Return the minimum, maximum, mean, median, and mode of the sample respectively, as an array of <strong>floating point numbers</strong>.&nbsp; The mode is guaranteed to be unique.</p>
@@ -32,10 +33,7 @@
 	<li>Answers within <code>10^-5</code> of the true value will be accepted as correct.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

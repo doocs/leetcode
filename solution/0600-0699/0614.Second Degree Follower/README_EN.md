@@ -3,11 +3,10 @@
 [中文文档](/solution/0600-0699/0614.Second%20Degree%20Follower/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -17,7 +16,7 @@ None
 SELECT followee AS follower,
         count(distinct(follower)) AS num
 FROM follow
-WHERE followee IN 
+WHERE followee IN
     (SELECT follower
     FROM follow)
 GROUP BY  followee

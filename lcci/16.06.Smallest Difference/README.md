@@ -3,6 +3,7 @@
 [English Version](/lcci/16.06.Smallest%20Difference/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定两个整数数组<code>a</code>和<code>b</code>，计算具有最小差绝对值的一对数值（每个数组中取一个值），并返回该对数值的差</p>
 <p><strong>示例：</strong></p>
@@ -16,14 +17,14 @@
 <li>正确结果在区间[-2147483648, 2147483647]内</li>
 </ul>
 
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -39,10 +40,11 @@ class Solution:
             if a[i] > b[j]: j += 1
             else: i += 1
         return res
-        
+
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +67,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

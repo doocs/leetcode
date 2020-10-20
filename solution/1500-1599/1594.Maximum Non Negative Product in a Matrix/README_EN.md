@@ -60,15 +60,11 @@
 	<li><code>-4 &lt;= grid[i][j] &lt;= 4</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -76,12 +72,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

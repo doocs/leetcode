@@ -1,8 +1,9 @@
-# [485. 最大连续1的个数](https://leetcode-cn.com/problems/max-consecutive-ones)
+# [485. 最大连续 1 的个数](https://leetcode-cn.com/problems/max-consecutive-ones)
 
 [English Version](/solution/0400-0499/0485.Max%20Consecutive%20Ones/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个二进制数组， 计算其中最大连续1的个数。</p>
 
@@ -21,15 +22,14 @@
 	<li>输入数组的长度是正整数，且不超过 10,000。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -37,6 +37,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -44,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

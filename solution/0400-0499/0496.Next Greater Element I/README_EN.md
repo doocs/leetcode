@@ -3,21 +3,18 @@
 [中文文档](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md)
 
 ## Description
+
 <p>
 
-You are given two arrays <b>(without duplicates)</b> <code>nums1</code> and <code>nums2</code> where <code>nums1</code>’s elements are subset of <code>nums2</code>. Find all the next greater numbers for <code>nums1</code>'s elements in the corresponding places of <code>nums2</code>. 
+You are given two arrays <b>(without duplicates)</b> <code>nums1</code> and <code>nums2</code> where <code>nums1</code>’s elements are subset of <code>nums2</code>. Find all the next greater numbers for <code>nums1</code>'s elements in the corresponding places of <code>nums2</code>.
 
 </p>
-
-
 
 <p>
 
 The Next Greater Number of a number <b>x</b> in <code>nums1</code> is the first greater number to its right in <code>nums2</code>. If it does not exist, output -1 for this number.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -39,8 +36,6 @@ The Next Greater Number of a number <b>x</b> in <code>nums1</code> is the first 
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -59,10 +54,6 @@ The Next Greater Number of a number <b>x</b> in <code>nums1</code> is the first 
 
 </p>
 
-
-
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -75,9 +66,7 @@ The Next Greater Number of a number <b>x</b> in <code>nums1</code> is the first 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -94,6 +83,7 @@ The Next Greater Number of a number <b>x</b> in <code>nums1</code> is the first 
 ```
 
 ### **...**
+
 ```
 
 ```

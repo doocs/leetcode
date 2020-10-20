@@ -6,21 +6,13 @@
 
 <p>Given the array <code>houses</code> and an integer <code>k</code>. where <code>houses[i]</code> is the location of the ith house along a street, your task is to allocate <code>k</code> mailboxes in&nbsp;the street.</p>
 
-
-
 <p>Return the <strong>minimum</strong> total distance between each house and its nearest mailbox.</p>
 
-
-
 <p>The answer is guaranteed to fit in a 32-bit signed integer.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 ![](./images/sample_11_1816.png)
 
@@ -36,14 +28,9 @@ Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + 
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
-
 ![](./images/sample_2_1816.png)
-
 
 <pre>
 
@@ -57,11 +44,7 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -71,11 +54,7 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -85,13 +64,9 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>n == houses.length</code></li>
@@ -103,12 +78,9 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -116,12 +88,12 @@ Minimum total distance from each houses to nearest mailboxes is |2-3| + |3-3| + 
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

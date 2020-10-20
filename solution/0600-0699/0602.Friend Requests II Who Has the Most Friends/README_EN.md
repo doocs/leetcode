@@ -3,8 +3,8 @@
 [中文文档](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README.md)
 
 ## Description
-None
 
+None
 
 ## Solutions
 
@@ -15,11 +15,11 @@ None
 ```
 SELECT id,
          count(*) num
-FROM ( 
+FROM (
     (SELECT requester_id AS id
     FROM request_accepted )
     UNION
-    all 
+    all
         (SELECT accepter_id AS id
         FROM request_accepted) ) t
     GROUP BY  id

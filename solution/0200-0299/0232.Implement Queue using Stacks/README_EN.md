@@ -3,27 +3,22 @@
 [中文文档](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
 
 ## Description
+
 <p>Implement the following operations of a queue using stacks.</p>
-
-
 
 <ul>
 
-	<li>push(x) -- Push element x to the back of queue.</li>
+    <li>push(x) -- Push element x to the back of queue.</li>
 
-	<li>pop() -- Removes the element from in front of queue.</li>
+    <li>pop() -- Removes the element from in front of queue.</li>
 
-	<li>peek() -- Get the front element.</li>
+    <li>peek() -- Get the front element.</li>
 
-	<li>empty() -- Return whether the queue is empty.</li>
+    <li>empty() -- Return whether the queue is empty.</li>
 
 </ul>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -41,27 +36,19 @@ queue.pop();   // returns 1
 
 queue.empty(); // returns false</pre>
 
-
-
 <p><b>Notes:</b></p>
-
-
 
 <ul>
 
-	<li>You must use <i>only</i> standard operations of a stack -- which means only <code>push to top</code>, <code>peek/pop from top</code>, <code>size</code>, and <code>is empty</code> operations are valid.</li>
+    <li>You must use <i>only</i> standard operations of a stack -- which means only <code>push to top</code>, <code>peek/pop from top</code>, <code>size</code>, and <code>is empty</code> operations are valid.</li>
 
-	<li>Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.</li>
+    <li>Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.</li>
 
-	<li>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</li>
+    <li>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +65,7 @@ queue.empty(); // returns false</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

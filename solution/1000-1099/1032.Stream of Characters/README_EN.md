@@ -3,27 +3,20 @@
 [中文文档](/solution/1000-1099/1032.Stream%20of%20Characters/README.md)
 
 ## Description
+
 <p>Implement the <code>StreamChecker</code> class as follows:</p>
-
-
 
 <ul>
 
-	<li><code>StreamChecker(words)</code>: Constructor, init the data structure with the given words.</li>
+    <li><code>StreamChecker(words)</code>: Constructor, init the data structure with the given words.</li>
 
-	<li><code>query(letter)</code>: returns true if and only if for some <code>k &gt;= 1</code>, the last <code>k</code>&nbsp;characters queried (in order from oldest to newest, including this letter just queried) spell one of the words in the given list.</li>
+    <li><code>query(letter)</code>: returns true if and only if for some <code>k &gt;= 1</code>, the last <code>k</code>&nbsp;characters queried (in order from oldest to newest, including this letter just queried) spell one of the words in the given list.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -55,35 +48,25 @@ streamChecker.query(&#39;l&#39;);          // return true, because &#39;kl&#39; 
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= words.length &lt;= 2000</code></li>
+    <li><code>1 &lt;= words.length &lt;= 2000</code></li>
 
-	<li><code>1 &lt;= words[i].length &lt;= 2000</code></li>
+    <li><code>1 &lt;= words[i].length &lt;= 2000</code></li>
 
-	<li>Words will only consist of lowercase English letters.</li>
+    <li>Words will only consist of lowercase English letters.</li>
 
-	<li>Queries will only consist of lowercase English letters.</li>
+    <li>Queries will only consist of lowercase English letters.</li>
 
-	<li>The number of queries is at most&nbsp;40000.</li>
+    <li>The number of queries is at most&nbsp;40000.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +83,7 @@ streamChecker.query(&#39;l&#39;);          // return true, because &#39;kl&#39; 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,10 @@
 [中文文档](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README.md)
 
 ## Description
+
 <p>Given a valid (IPv4) IP <code>address</code>, return a defanged version of that IP address.</p>
 
-
-
 <p>A <em>defanged&nbsp;IP address</em>&nbsp;replaces every period <code>&quot;.&quot;</code> with <code>&quot;[.]&quot;</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -31,17 +28,13 @@
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li>The given <code>address</code> is a valid IPv4 address.</li>
+    <li>The given <code>address</code> is a valid IPv4 address.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

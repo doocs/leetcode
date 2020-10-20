@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README.md)
 
 ## Description
+
 <p>
 
 Given a non-negative integer <code>N</code>, find the largest number that is less than or equal to <code>N</code> with monotone increasing digits.
@@ -12,8 +13,6 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 (Recall that an integer has <i>monotone increasing digits</i> if and only if each pair of adjacent digits <code>x</code> and <code>y</code> satisfy <code>x <= y</code>.)
 
 </p><p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -27,8 +26,6 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -40,8 +37,6 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -55,17 +50,13 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <code>N</code> is an integer in the range <code>[0, 10^9]</code>.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +73,7 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README.md)
 
 ## Description
+
 <p>
 
 On a staircase, the <code>i</code>-th step has some non-negative cost <code>cost[i]</code> assigned (0 indexed).
@@ -12,8 +13,6 @@ On a staircase, the <code>i</code>-th step has some non-negative cost <code>cost
 Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -29,8 +28,6 @@ Once you pay the cost, you can either climb one or two steps. You need to find m
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -45,8 +42,6 @@ Once you pay the cost, you can either climb one or two steps. You need to find m
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -59,9 +54,7 @@ Once you pay the cost, you can either climb one or two steps. You need to find m
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +71,7 @@ Once you pay the cost, you can either climb one or two steps. You need to find m
 ```
 
 ### **...**
+
 ```
 
 ```

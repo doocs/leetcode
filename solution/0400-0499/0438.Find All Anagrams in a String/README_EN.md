@@ -3,17 +3,12 @@
 [中文文档](/solution/0400-0499/0438.Find%20All%20Anagrams%20in%20a%20String/README.md)
 
 ## Description
+
 <p>Given a string <b>s</b> and a <b>non-empty</b> string <b>p</b>, find all the start indices of <b>p</b>'s anagrams in <b>s</b>.</p>
-
-
 
 <p>Strings consists of lowercase English letters only and the length of both strings <b>s</b> and <b>p</b> will not be larger than 20,100.</p>
 
-
-
 <p>The order of output does not matter.</p>
-
-
 
 <p><b>Example 1:</b>
 
@@ -40,8 +35,6 @@ The substring with start index = 6 is "bac", which is an anagram of "abc".
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b>
 
@@ -71,9 +64,7 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +81,7 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 ```
 
 ### **...**
+
 ```
 
 ```

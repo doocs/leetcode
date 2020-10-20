@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1269.Number%20of%20Ways%20to%20Stay%20in%20the%20Same%20Place%20After%20Some%20Steps/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有一个长度为&nbsp;<code>arrLen</code>&nbsp;的数组，开始有一个指针在索引&nbsp;<code>0</code> 处。</p>
 
@@ -49,15 +50,14 @@
 	<li><code>1 &lt;= arrLen&nbsp;&lt;= 10^6</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -65,6 +65,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -72,6 +73,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

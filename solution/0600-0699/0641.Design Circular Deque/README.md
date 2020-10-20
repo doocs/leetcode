@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0641.Design%20Circular%20Deque/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计实现双端队列。<br>
 你的实现需要支持以下操作：</p>
@@ -43,15 +44,14 @@ circularDeque.getFront();				// 返回 4
 	<li>请不要使用内置的双端队列库。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -59,6 +59,7 @@ circularDeque.getFront();				// 返回 4
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -66,6 +67,7 @@ circularDeque.getFront();				// 返回 4
 ```
 
 ### **...**
+
 ```
 
 ```

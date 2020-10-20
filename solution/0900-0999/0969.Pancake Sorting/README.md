@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0969.Pancake%20Sorting/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定数组&nbsp;<code>A</code>，我们可以对其进行<em>煎饼翻转</em>：我们选择一些正整数&nbsp;<code><strong>k</strong>&nbsp;&lt;= A.length</code>，然后反转 <code>A</code> 的前 <strong>k</strong>&nbsp;个元素的顺序。我们要执行零次或多次煎饼翻转（按顺序一次接一次地进行）以完成对数组 <code>A</code> 的排序。</p>
 
@@ -41,15 +42,14 @@
 	<li><code>A[i]</code> 是&nbsp;<code>[1, 2, ..., A.length]</code>&nbsp;的排列</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -57,6 +57,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -64,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

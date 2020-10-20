@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0384.Shuffle%20an%20Array/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>打乱一个没有重复元素的数组。</p>
 
@@ -23,15 +24,14 @@ solution.reset();
 solution.shuffle();
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -39,6 +39,7 @@ solution.shuffle();
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -46,6 +47,7 @@ solution.shuffle();
 ```
 
 ### **...**
+
 ```
 
 ```

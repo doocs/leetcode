@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md)
 
 ## Description
+
 <p>Given a singly linked list, determine if it is a palindrome.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -17,11 +14,7 @@
 
 <strong>Output:</strong> false</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -29,15 +22,11 @@
 
 <strong>Output:</strong> true</pre>
 
-
-
 <p><b>Follow up:</b><br />
 
 Could you do it in O(n) time and O(1) space?</p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,7 +54,7 @@ class Solution:
                 p, q = p.next, q.next
         mid.next = self.reverse_list(second_half_list)
         return result
-        
+
     def reverse_list(self, head):
         pre, p = None, head
         while p:
@@ -74,7 +63,7 @@ class Solution:
             pre = p
             p = q
         return pre
-    
+
     def find_mid_node(self, head):
         slow = fast = head
         while fast.next and fast.next.next:
@@ -138,6 +127,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

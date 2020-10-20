@@ -66,15 +66,11 @@
 	<li>The string may contain any possible characters out of all the 256&nbsp;ASCII characters.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -82,12 +78,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README.md)
 
 ## Description
+
 <p>
 Given two lists <code>A</code>and <code>B</code>, and <code>B</code> is an anagram of <code>A</code>. <code>B</code> is an anagram of <code>A</code> means <code>B</code> is made by randomizing the order of the elements in <code>A</code>.
 </p><p>
@@ -32,9 +33,7 @@ and so on.
 <li><code>A[i], B[i]</code> are integers in range <code>[0, 10^5]</code>.</li>
 </ol></p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -51,6 +50,7 @@ and so on.
 ```
 
 ### **...**
+
 ```
 
 ```

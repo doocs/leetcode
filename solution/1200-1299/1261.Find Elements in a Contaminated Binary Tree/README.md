@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给出一个满足下述规则的二叉树：</p>
 
@@ -81,15 +82,14 @@ findElements.find(5); // return True
 	<li><code>0 &lt;= target &lt;= 10^6</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -97,6 +97,7 @@ findElements.find(5); // return True
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -104,6 +105,7 @@ findElements.find(5); // return True
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -5,6 +5,7 @@
 ## Description
 
 Given a <em>m</em> x <em>n</em> <code>grid</code>. Each cell of the <code>grid</code> represents a street. The street of&nbsp;<code>grid[i][j]</code> can be:
+
 <ul>
 	<li><strong>1</strong> which means a street connecting the left cell and the right cell.</li>
 	<li><strong>2</strong> which means a street connecting the upper cell and the lower cell.</li>
@@ -75,15 +76,11 @@ Given a <em>m</em> x <em>n</em> <code>grid</code>. Each cell of the <code>grid</
 	<li><code>1 &lt;= grid[i][j] &lt;= 6</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -91,12 +88,12 @@ Given a <em>m</em> x <em>n</em> <code>grid</code>. Each cell of the <code>grid</
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

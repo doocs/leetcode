@@ -3,17 +3,12 @@
 [中文文档](/solution/0100-0199/0125.Valid%20Palindrome/README.md)
 
 ## Description
+
 <p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
-
-
 
 <p><strong>Note:</strong>&nbsp;For the purpose of this problem, we define empty string as valid palindrome.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -37,11 +28,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

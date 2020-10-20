@@ -3,15 +3,12 @@
 [中文文档](/solution/0100-0199/0147.Insertion%20Sort%20List/README.md)
 
 ## Description
+
 <p>Sort a linked list using insertion sort.</p>
-
-
 
 <ol>
 
 </ol>
-
-
 
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif" style="height:180px; width:300px" /><br />
 
@@ -21,35 +18,25 @@ With each iteration one element (red) is removed from the input data and inserte
 
 &nbsp;</p>
 
-
-
 <ol>
 
 </ol>
-
-
 
 <p><strong>Algorithm of Insertion Sort:</strong></p>
 
-
-
 <ol>
 
-	<li>Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list.</li>
+    <li>Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list.</li>
 
-	<li>At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there.</li>
+    <li>At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there.</li>
 
-	<li>It repeats until no input elements remain.</li>
+    <li>It repeats until no input elements remain.</li>
 
 </ol>
-
-
 
 <p><br />
 
 <strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -59,11 +46,7 @@ With each iteration one element (red) is removed from the input data and inserte
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -73,11 +56,7 @@ With each iteration one element (red) is removed from the input data and inserte
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -94,6 +73,7 @@ With each iteration one element (red) is removed from the input data and inserte
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1295.Find%20Numbers%20with%20Even%20Number%20of%20Digits/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个整数数组&nbsp;<code>nums</code>，请你返回其中位数为&nbsp;<strong>偶数</strong>&nbsp;的数字的个数。</p>
 
@@ -38,15 +39,16 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
 
-
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 首先将数组元素转换为字符串,判断字符串长度是否为偶数即可。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -59,6 +61,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -74,6 +77,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

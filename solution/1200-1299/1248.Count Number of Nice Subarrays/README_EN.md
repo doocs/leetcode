@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1248.Count%20Number%20of%20Nice%20Subarrays/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>nums</code> and an integer&nbsp;<code>k</code>. A<em>&nbsp;</em>subarray&nbsp;is called <strong>nice</strong>&nbsp;if there are&nbsp;<code>k</code> odd numbers on it.</p>
 
 <p>Return the number of <strong>nice</strong> sub-arrays.</p>
@@ -40,10 +41,7 @@
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +58,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,31 +3,22 @@
 [中文文档](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)
 
 ## Description
+
 <p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code>&nbsp;where the candidate numbers sums to <code>target</code>.</p>
-
-
 
 <p>Each number in <code>candidates</code>&nbsp;may only be used <strong>once</strong> in the combination.</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 
-	<li>All numbers (including <code>target</code>) will be positive integers.</li>
+    <li>All numbers (including <code>target</code>) will be positive integers.</li>
 
-	<li>The solution set must not contain duplicate combinations.</li>
+    <li>The solution set must not contain duplicate combinations.</li>
 
 </ul>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -49,11 +40,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -71,11 +58,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +75,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

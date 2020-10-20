@@ -3,21 +3,14 @@
 [中文文档](/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README.md)
 
 ## Description
+
 <p>On an N x N <code>grid</code>, each square <code>grid[i][j]</code> represents the elevation at that point <code>(i,j)</code>.</p>
-
-
 
 <p>Now rain starts to fall. At time <code>t</code>, the depth of the water everywhere is <code>t</code>. You can swim from a square to another 4-directionally adjacent square if and only if the elevation of both squares individually are&nbsp;at most&nbsp;<code>t</code>. You can swim infinite distance in zero time. Of course, you must stay within the boundaries of the grid during your swim.</p>
 
-
-
 <p>You start at the top left square <code>(0, 0)</code>. What is the least time until you can reach the bottom right square <code>(N-1, N-1)</code>?</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +32,7 @@ When the depth of water is <code>3</code>, we can swim anywhere inside the grid.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -71,25 +60,17 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>2 &lt;= N &lt;= 50</code>.</li>
+    <li><code>2 &lt;= N &lt;= 50</code>.</li>
 
-	<li>grid[i][j] is a permutation of [0, ..., N*N - 1].</li>
+    <li>grid[i][j] is a permutation of [0, ..., N*N - 1].</li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -155,6 +136,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1051.Height%20Checker/README.md)
 
 ## Description
+
 <p>Students are asked to stand in non-decreasing order of heights for an annual photo.</p>
 
 <p>Return the minimum number of students that must move in order for all students to be standing in non-decreasing order of height.</p>
@@ -45,10 +46,7 @@ On index 5 (0-based) we have 3 vs 4 so we have to move this student.
 	<li><code>1 &lt;= heights[i] &lt;= 100</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,6 +63,7 @@ On index 5 (0-based) we have 3 vs 4 so we have to move this student.
 ```
 
 ### **...**
+
 ```
 
 ```

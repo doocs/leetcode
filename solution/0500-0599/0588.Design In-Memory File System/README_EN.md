@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0588.Design%20In-Memory%20File%20System/README.md)
 
 ## Description
+
 <p>Design an in-memory file system to simulate the following functions:</p>
 
 <p><code>ls</code>: Given a path in string format. If it is a file path, return a list that only contains this file's name. If it is a directory path, return the list of file and directory names <b>in this directory</b>. Your output (file and directory names together) should in <b>lexicographic order</b>.</p>
@@ -39,10 +40,7 @@
 	<li>You can assume that all directory names and file names only contain lower-case letters, and same names won't exist in the same directory.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -59,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

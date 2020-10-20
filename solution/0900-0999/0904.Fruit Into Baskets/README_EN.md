@@ -3,43 +3,28 @@
 [中文文档](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README.md)
 
 ## Description
+
 <p>In a row of trees, the <code>i</code>-th tree&nbsp;produces&nbsp;fruit with type&nbsp;<code>tree[i]</code>.</p>
-
-
 
 <p>You <strong>start at any tree&nbsp;of your choice</strong>, then repeatedly perform the following steps:</p>
 
-
-
 <ol>
 
-	<li>Add one piece of fruit from this tree to your baskets.&nbsp; If you cannot, stop.</li>
+    <li>Add one piece of fruit from this tree to your baskets.&nbsp; If you cannot, stop.</li>
 
-	<li>Move to the next tree to the right of the current tree.&nbsp; If there is no tree to the right, stop.</li>
+    <li>Move to the next tree to the right of the current tree.&nbsp; If there is no tree to the right, stop.</li>
 
 </ol>
 
-
-
 <p>Note that you do not have any choice after the initial choice of starting tree:&nbsp;you must perform step 1, then step 2, then back to step 1, then step 2, and so on until you stop.</p>
-
-
 
 <p>You have two baskets, and each basket can carry any quantity of fruit, but you want each basket to only carry one type of fruit each.</p>
 
-
-
 <p>What is the total amount of fruit you can collect with this procedure?</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -51,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -71,13 +52,9 @@ If we started at the first tree, we would only collect [0, 1].</span>
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -91,13 +68,9 @@ If we started at the first tree, we would only collect [0, 1].</span>
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -111,8 +84,6 @@ If we started at the first tree, we would only collect [0, 1].</span>
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
@@ -121,25 +92,17 @@ If we started at the first tree, we would only collect [0, 1].</span>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1 &lt;= tree.length &lt;= 40000</code></li>
+    <li><code>1 &lt;= tree.length &lt;= 40000</code></li>
 
-	<li><code>0 &lt;= tree[i] &lt; tree.length</code></li>
+    <li><code>0 &lt;= tree[i] &lt; tree.length</code></li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -156,6 +119,7 @@ If we started at the first tree, we would only collect [0, 1].</span>
 ```
 
 ### **...**
+
 ```
 
 ```

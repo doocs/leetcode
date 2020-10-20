@@ -3,17 +3,12 @@
 [中文文档](/solution/0800-0899/0868.Binary%20Gap/README.md)
 
 ## Description
+
 <p>Given a positive&nbsp;integer <code>N</code>, find and return the longest distance between two consecutive 1&#39;s in the binary representation of <code>N</code>.</p>
-
-
 
 <p>If there aren&#39;t two consecutive 1&#39;s, return <font face="monospace">0</font>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -31,13 +26,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -59,13 +50,9 @@ The answer is the largest of these two distances, which is 2.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -79,13 +66,9 @@ The answer is the largest of these two distances, which is 2.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -99,13 +82,9 @@ The answer is the largest of these two distances, which is 2.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -121,11 +100,7 @@ There aren&#39;t any consecutive pairs of 1&#39;s in the binary representation o
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -135,11 +110,9 @@ There aren&#39;t any consecutive pairs of 1&#39;s in the binary representation o
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= N &lt;= 10^9</code></li>
+    <li><code>1 &lt;= N &lt;= 10^9</code></li>
 
 </ul>
 
@@ -157,11 +130,7 @@ There aren&#39;t any consecutive pairs of 1&#39;s in the binary representation o
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -178,6 +147,7 @@ There aren&#39;t any consecutive pairs of 1&#39;s in the binary representation o
 ```
 
 ### **...**
+
 ```
 
 ```

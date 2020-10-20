@@ -3,37 +3,26 @@
 [中文文档](/solution/0900-0999/0978.Longest%20Turbulent%20Subarray/README.md)
 
 ## Description
+
 <p>A subarray <code>A[i], A[i+1], ..., A[j]</code>&nbsp;of <code>A</code> is said to be <em>turbulent</em> if and only if:</p>
-
-
 
 <ul>
 
-	<li>For <code>i &lt;= k &lt; j</code>, <code>A[k] &gt; A[k+1]</code> when <code>k</code> is odd, and <code>A[k] &lt; A[k+1]</code> when <code>k</code> is even;</li>
+    <li>For <code>i &lt;= k &lt; j</code>, <code>A[k] &gt; A[k+1]</code> when <code>k</code> is odd, and <code>A[k] &lt; A[k+1]</code> when <code>k</code> is even;</li>
 
-	<li><strong>OR</strong>, for <code>i &lt;= k &lt; j</code>, <code>A[k] &gt; A[k+1]</code> when <code>k</code> is even, and <code>A[k] &lt; A[k+1]</code> when <code>k</code> is odd.</li>
+    <li><strong>OR</strong>, for <code>i &lt;= k &lt; j</code>, <code>A[k] &gt; A[k+1]</code> when <code>k</code> is even, and <code>A[k] &lt; A[k+1]</code> when <code>k</code> is odd.</li>
 
 </ul>
 
-
-
 <p>That is, the subarray is turbulent if the comparison sign flips between each adjacent pair of elements in the subarray.</p>
-
-
 
 <p>Return the <strong>length</strong> of a&nbsp;maximum size turbulent subarray of A.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,13 +34,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,13 +46,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -83,27 +64,19 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 40000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 40000</code></li>
 
-	<li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
+    <li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -120,6 +93,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

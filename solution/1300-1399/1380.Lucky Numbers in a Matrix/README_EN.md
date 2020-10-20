@@ -3,19 +3,14 @@
 [中文文档](/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README.md)
 
 ## Description
+
 <p>Given a <code>m * n</code> matrix of <strong>distinct </strong>numbers, return all lucky numbers in the&nbsp;matrix in <strong>any </strong>order.</p>
 
-
-
 <p>A lucky number is an element of the matrix such that it is the minimum element in its row and maximum in its column.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -57,31 +44,25 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>m == mat.length</code></li>
+    <li><code>m == mat.length</code></li>
 
-	<li><code>n == mat[i].length</code></li>
+    <li><code>n == mat[i].length</code></li>
 
-	<li><code>1 &lt;= n, m &lt;= 50</code></li>
+    <li><code>1 &lt;= n, m &lt;= 50</code></li>
 
-	<li><code>1 &lt;=&nbsp;matrix[i][j]&nbsp;&lt;= 10^5</code>.</li>
+    <li><code>1 &lt;=&nbsp;matrix[i][j]&nbsp;&lt;= 10^5</code>.</li>
 
-	<li>All elements in the matrix are distinct.</li>
+    <li>All elements in the matrix are distinct.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -127,6 +108,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

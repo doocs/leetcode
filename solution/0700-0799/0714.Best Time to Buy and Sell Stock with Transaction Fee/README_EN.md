@@ -3,13 +3,12 @@
 [中文文档](/solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README.md)
 
 ## Description
+
 <p>Your are given an array of integers <code>prices</code>, for which the <code>i</code>-th element is the price of a given stock on day <code>i</code>; and a non-negative integer <code>fee</code> representing a transaction fee.</p>
 
 <p>You may complete as many transactions as you like, but you need to pay the transaction fee for each transaction.  You may not buy more than 1 share of a stock at a time (ie. you must sell the stock share before you buy again.)</p>
 
 <p>Return the maximum profit you can make.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -27,8 +26,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li><code>0 < prices.length <= 50000</code>.</li>
@@ -39,9 +36,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

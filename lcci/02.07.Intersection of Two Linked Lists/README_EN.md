@@ -3,13 +3,10 @@
 [中文文档](/lcci/02.07.Intersection%20of%20Two%20Linked%20Lists/README.md)
 
 ## Description
+
 <p>Given two (singly) linked lists, determine if the two lists intersect. Return the inter&shy; secting node. Note that the intersection is defined based on reference, not value. That is, if the kth node of the first linked list is the exact same node (by reference) as the jth node of the second linked list, then they are intersecting.</p>
 
-
-
 <p><strong>Example 1: </strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 <strong>Input Explanation:</strong> The intersected node&#39;s value is 8 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,0,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.</pre>
 
-
-
 <p><strong>Example 2: </strong></p>
-
-
 
 <pre>
 
@@ -33,11 +26,7 @@
 
 <strong>Input Explanation:</strong>&nbsp;The intersected node&#39;s value is 2 (note that this must not be 0 if the two lists intersect). From the head of A, it reads as [0,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.</pre>
 
-
-
 <p><strong>Example 3: </strong></p>
-
-
 
 <pre>
 
@@ -49,7 +38,6 @@
 
 <strong>Explanation:</strong> The two lists do not intersect, so return null.</pre>
 
-
 <p><b>Notes:</b></p>
 
 - If the two linked lists have no intersection at all, return&nbsp;<code>null</code>.
@@ -58,7 +46,6 @@
 - Your code should preferably run in O(n) time and use only O(1) memory.
 
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -142,6 +129,7 @@ public class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

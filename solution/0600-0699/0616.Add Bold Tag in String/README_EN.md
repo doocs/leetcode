@@ -3,7 +3,9 @@
 [中文文档](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
 
 ## Description
+
 Given a string <b>s</b> and a list of strings <b>dict</b>, you need to add a closed pair of bold tag <code><b></code> and <code></b></code> to wrap the substrings in s that exist in dict. If two such substrings overlap, you need to wrap them together by only one pair of closed bold tag. Also, if two substrings wrapped by bold tags are consecutive, you need to combine them.
+
 <p><b>Example 1:</b></p>
 
 <pre>
@@ -37,10 +39,7 @@ dict = ["aaa","aab","bc"]
 
 <p><strong>Note:</strong> This question is the same as 758: <a href="https://leetcode.com/problems/bold-words-in-string/">https://leetcode.com/problems/bold-words-in-string/</a></p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +56,7 @@ dict = ["aaa","aab","bc"]
 ```
 
 ### **...**
+
 ```
 
 ```

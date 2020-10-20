@@ -3,22 +3,16 @@
 [中文文档](/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary tree, determine if it is a <em>complete binary tree</em>.</p>
-
-
 
 <p><u><b>Definition of a complete binary tree from <a href="http://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees" target="_blank">Wikipedia</a>:</b></u><br />
 
 In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2<sup>h</sup> nodes inclusive at the last level h.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
 
 ![](./images/complete-binary-tree-1.png)
 
@@ -32,17 +26,11 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
 
-
-
 ![](./images/complete-binary-tree-2.png)
-
-
 
 <pre>
 
@@ -54,27 +42,17 @@ In a complete binary tree every level, except possibly the last, is completely f
 
 </span></pre>
 
-
-
 <div>&nbsp;</div>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The tree will have between 1 and 100 nodes.</li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -91,6 +69,7 @@ In a complete binary tree every level, except possibly the last, is completely f
 ```
 
 ### **...**
+
 ```
 
 ```

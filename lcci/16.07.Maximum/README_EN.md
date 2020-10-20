@@ -3,13 +3,10 @@
 [中文文档](/lcci/16.07.Maximum/README.md)
 
 ## Description
+
 <p>Write a method that finds the maximum of two numbers. You should not use if-else or any other comparison operator.</p>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -40,6 +33,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

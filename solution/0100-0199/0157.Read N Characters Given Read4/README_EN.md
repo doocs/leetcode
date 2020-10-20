@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/README.md)
 
 ## Description
+
 <p>Given a file and assume that you can only read the file using a given method&nbsp;<code>read4</code>, implement a method to read <em>n</em> characters.</p>
 
 <p>&nbsp;</p>
@@ -97,10 +98,7 @@ Note: buf[] is destination not source, you will need to write the results to buf
 	<li>You may assume the destination buffer array,&nbsp;<code>buf</code>,&nbsp;is guaranteed to have enough&nbsp;space for storing&nbsp;<em>n</em>&nbsp;characters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -117,6 +115,7 @@ Note: buf[] is destination not source, you will need to write the results to buf
 ```
 
 ### **...**
+
 ```
 
 ```

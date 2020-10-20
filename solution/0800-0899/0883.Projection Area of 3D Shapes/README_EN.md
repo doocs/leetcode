@@ -3,34 +3,21 @@
 [中文文档](/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/README.md)
 
 ## Description
+
 <p>On a&nbsp;<code>N&nbsp;*&nbsp;N</code> grid, we place some&nbsp;<code>1 * 1 * 1&nbsp;</code>cubes that are axis-aligned with the x, y, and z axes.</p>
-
-
 
 <p>Each value&nbsp;<code>v = grid[i][j]</code>&nbsp;represents a tower of&nbsp;<code>v</code>&nbsp;cubes placed on top of grid cell <code>(i, j)</code>.</p>
 
-
-
 <p>Now we view the&nbsp;<em>projection</em>&nbsp;of these cubes&nbsp;onto the xy, yz, and zx planes.</p>
-
-
 
 <p>A projection is like a shadow, that&nbsp;maps our 3 dimensional figure to a 2 dimensional plane.&nbsp;</p>
 
-
-
 <p>Here, we are viewing the &quot;shadow&quot; when looking at the cubes from the top, the front, and the side.</p>
-
-
 
 <p>Return the total area of all three projections.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <div>
 
 <ul>
@@ -38,26 +25,6 @@
 </ul>
 
 </div>
-
-
-
-<div>
-
-<div>
-
-<ul>
-
-</ul>
-
-</div>
-
-</div>
-
-
-
-<div>
-
-<div>
 
 <div>
 
@@ -71,11 +38,25 @@
 
 </div>
 
+<div>
+
+<div>
+
+<div>
+
+<div>
+
+<ul>
+
+</ul>
+
+</div>
+
 </div>
 
 </div>
 
-
+</div>
 
 <div>
 
@@ -112,14 +93,10 @@
 </div>
 
 </div>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -129,13 +106,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -151,12 +124,9 @@ Here are the three projections (&quot;shadows&quot;) of the shape made with each
 
 ![](./images/shadow.png)
 
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -166,13 +136,9 @@ Here are the three projections (&quot;shadows&quot;) of the shape made with each
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -182,13 +148,9 @@ Here are the three projections (&quot;shadows&quot;) of the shape made with each
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -198,11 +160,7 @@ Here are the three projections (&quot;shadows&quot;) of the shape made with each
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -211,8 +169,6 @@ Here are the three projections (&quot;shadows&quot;) of the shape made with each
 <div>
 
 <p><span><strong>Note:</strong></span></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= grid.length = grid[0].length&nbsp;&lt;= 50</code></li>
@@ -235,11 +191,7 @@ Here are the three projections (&quot;shadows&quot;) of the shape made with each
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -256,6 +208,7 @@ Here are the three projections (&quot;shadows&quot;) of the shape made with each
 ```
 
 ### **...**
+
 ```
 
 ```

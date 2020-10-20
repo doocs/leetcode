@@ -3,6 +3,7 @@
 [English Version](/lcci/16.01.Swap%20Numbers/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>编写一个函数，不用临时变量，直接交换<code>numbers = [a, b]</code>中<code>a</code>与<code>b</code>的值。</p>
 <p><strong>示例：</strong></p>
@@ -14,14 +15,16 @@
 <li><code>numbers.length == 2</code></li>
 </ul>
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 异或运算。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -32,6 +35,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -46,6 +50,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

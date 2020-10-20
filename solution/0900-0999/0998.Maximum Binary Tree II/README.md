@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>最大树定义：一个树，其中每个节点的值都大于其子树中的任何其他值。</p>
 
@@ -43,7 +44,6 @@
 
 ![](./images/maximum-binary-tree-2-2.png)
 
-
 <pre><strong>输入：</strong>root = [5,2,4,null,1], val = 3
 <strong>输出：</strong>[5,2,4,null,1,null,3]
 <strong>解释：</strong>A = [2,1,5,4], B = [2,1,5,4,3]
@@ -72,15 +72,14 @@
 
 <p>&nbsp;</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -88,6 +87,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -95,6 +95,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

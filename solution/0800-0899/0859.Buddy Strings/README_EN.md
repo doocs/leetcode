@@ -3,17 +3,12 @@
 [中文文档](/solution/0800-0899/0859.Buddy%20Strings/README.md)
 
 ## Description
+
 <p>Given two strings <code>A</code> and <code>B</code>&nbsp;of lowercase letters, return <code>true</code> if and only if we&nbsp;can swap two letters in <code>A</code> so that the result equals <code>B</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <div>
 
@@ -25,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,13 +32,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -57,13 +44,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -73,13 +56,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -89,23 +68,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong><span>Note:</span></strong></p>
 
-
-
 <ol>
 
-	<li><code>0 &lt;= A.length &lt;= 20000</code></li>
+    <li><code>0 &lt;= A.length &lt;= 20000</code></li>
 
-	<li><code>0 &lt;= B.length &lt;= 20000</code></li>
+    <li><code>0 &lt;= B.length &lt;= 20000</code></li>
 
-	<li><code>A</code> and&nbsp;<code>B</code> consist only of lowercase letters.</li>
+    <li><code>A</code> and&nbsp;<code>B</code> consist only of lowercase letters.</li>
 
 </ol>
 
@@ -119,11 +92,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -140,6 +109,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

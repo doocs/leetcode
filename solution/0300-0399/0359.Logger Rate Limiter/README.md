@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0359.Logger%20Rate%20Limiter/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>请你设计一个日志系统，可以流式接收日志以及它的时间戳。</p>
 
@@ -35,15 +36,14 @@ logger.shouldPrintMessage(10,"foo"); returns false;
 logger.shouldPrintMessage(11,"foo"); returns true;
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@ logger.shouldPrintMessage(11,"foo"); returns true;
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@ logger.shouldPrintMessage(11,"foo"); returns true;
 ```
 
 ### **...**
+
 ```
 
 ```

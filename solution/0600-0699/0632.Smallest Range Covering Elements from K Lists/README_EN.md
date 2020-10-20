@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0632.Smallest%20Range%20Covering%20Elements%20from%20K%20Lists/README.md)
 
 ## Description
+
 <p>You have <code>k</code> lists of sorted integers in ascending order. Find the <b>smallest</b> range that includes at least one number from each of the <code>k</code> lists.</p>
 
 <p>We define the range [a,b] is smaller than range [c,d] if <code>b-a &lt; d-c</code> or <code>a &lt; c</code> if <code>b-a == d-c</code>.</p>
@@ -30,10 +31,7 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 	<li>-10<sup>5</sup> &lt;= <code>value of elements</code> &lt;= 10<sup>5</sup>.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +48,7 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1067.Digit%20Count%20in%20Range/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个在 <code>0</code> 到 <code>9</code> 之间的整数 <code>d</code>，和两个正整数 <code>low</code> 和 <code>high</code> 分别作为上下界。返回 <code>d</code> 在 <code>low</code> 和 <code>high</code> 之间的整数中出现的次数，包括边界 <code>low</code> 和 <code>high</code>。</p>
 
@@ -33,15 +34,14 @@
 	<li><code>1 <= low <= high <= 2×10^8</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -49,6 +49,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -56,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

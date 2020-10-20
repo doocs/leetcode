@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
 
 ## Description
+
 <p>Given two strings <code>text1</code> and <code>text2</code>, return the length of their longest common subsequence.</p>
 
 <p>A <em>subsequence</em> of a string is a new string generated from the original string with some characters(can be none) deleted without changing the relative order of the remaining characters. (eg, &quot;ace&quot; is a subsequence of &quot;abcde&quot; while &quot;aec&quot; is not).&nbsp;A <em>common subsequence</em>&nbsp;of two strings is a subsequence that is common to both strings.</p>
@@ -45,10 +46,7 @@
 	<li>The input strings consist of lowercase English characters only.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md)
 
 ## Description
+
 <p>Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -45,11 +42,7 @@ Therefore the output is <i><b>7</b></i>.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Follow up:</b><br />
 
@@ -59,17 +52,11 @@ How does it change the problem?<br />
 
 What limitation we need to add to the question to allow negative numbers?</p>
 
-
-
 <p><b>Credits:</b><br />
 
 Special thanks to <a href="https://leetcode.com/pbrother/">@pbrother</a> for adding this problem and creating all test cases.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -86,6 +73,7 @@ Special thanks to <a href="https://leetcode.com/pbrother/">@pbrother</a> for add
 ```
 
 ### **...**
+
 ```
 
 ```

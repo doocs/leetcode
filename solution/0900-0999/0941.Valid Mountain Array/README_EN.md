@@ -3,47 +3,36 @@
 [中文文档](/solution/0900-0999/0941.Valid%20Mountain%20Array/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of integers, return <code>true</code> if and only if it is a <em>valid mountain array</em>.</p>
-
-
 
 <p>Recall that A is a mountain array if and only if:</p>
 
-
-
 <ul>
 
-	<li><code>A.length &gt;= 3</code></li>
+    <li><code>A.length &gt;= 3</code></li>
 
-	<li>There exists some <code>i</code> with&nbsp;<code>0 &lt; i&nbsp;&lt; A.length - 1</code>&nbsp;such that:
+    <li>There exists some <code>i</code> with&nbsp;<code>0 &lt; i&nbsp;&lt; A.length - 1</code>&nbsp;such that:
 
-	<ul>
+    <ul>
 
-		<li><code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i] </code></li>
+    	<li><code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i] </code></li>
 
-		<li><code>A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code></li>
+    	<li><code>A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code></li>
 
-	</ul>
+    </ul>
 
-	</li>
+    </li>
 
 </ul>
-
-
 
 <br>
 
 ![](./images/hint_valid_mountain_array.png)
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -53,13 +42,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -69,13 +54,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -87,28 +68,18 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>0 &lt;= A.length &lt;= 10000</code></li>
 	<li><code>0 &lt;= A[i] &lt;= 10000&nbsp;</code></li>
 </ol>
 
-
-
 <div>
 
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -118,9 +89,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -137,6 +106,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

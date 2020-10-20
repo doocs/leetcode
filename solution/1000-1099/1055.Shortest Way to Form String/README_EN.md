@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1055.Shortest%20Way%20to%20Form%20String/README.md)
 
 ## Description
+
 <p>From any string, we can form a <i>subsequence</i> of that string by deleting some number of characters (possibly no deletions).</p>
 
 <p>Given two strings <code>source</code> and <code>target</code>, return the minimum number of subsequences of <code>source</code> such that their concatenation equals <code>target</code>. If the task is impossible, return <code>-1</code>.</p>
@@ -40,9 +41,7 @@
 	<li>The lengths of <code>source</code> and <code>target</code> string are between <code>1</code> and <code>1000</code>.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -59,6 +58,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

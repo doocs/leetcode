@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1116.Print%20Zero%20Even%20Odd/README.md)
 
 ## Description
+
 <p>Suppose you are given the following code:</p>
 
 <pre>
@@ -41,10 +42,7 @@ class ZeroEvenOdd {
 <b>Output:</b> &quot;0102030405&quot;
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,6 +59,7 @@ class ZeroEvenOdd {
 ```
 
 ### **...**
+
 ```
 
 ```

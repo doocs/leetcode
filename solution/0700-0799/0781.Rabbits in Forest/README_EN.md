@@ -3,13 +3,10 @@
 [中文文档](/solution/0700-0799/0781.Rabbits%20in%20Forest/README.md)
 
 ## Description
+
 <p>In a forest, each rabbit has some color. Some subset of rabbits (possibly all of them) tell you how many other rabbits have the same color as them. Those <code>answers</code> are placed in an array.</p>
 
-
-
 <p>Return the minimum number of rabbits that could be in the forest.</p>
-
-
 
 <pre>
 
@@ -45,25 +42,17 @@ The smallest possible number of rabbits in the forest is therefore 5: 3 that ans
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>answers</code> will have length at most <code>1000</code>.</li>
+    <li><code>answers</code> will have length at most <code>1000</code>.</li>
 
-	<li>Each <code>answers[i]</code> will be an integer in the range <code>[0, 999]</code>.</li>
+    <li>Each <code>answers[i]</code> will be an integer in the range <code>[0, 999]</code>.</li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +69,7 @@ The smallest possible number of rabbits in the forest is therefore 5: 3 that ans
 ```
 
 ### **...**
+
 ```
 
 ```

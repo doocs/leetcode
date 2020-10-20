@@ -6,34 +6,25 @@
 
 <p>There is a pizza with 3n slices of varying size, you and your friends will take slices of pizza as follows:</p>
 
-
-
 <ul>
 
-	<li>You will pick <strong>any</strong> pizza slice.</li>
+    <li>You will pick <strong>any</strong> pizza slice.</li>
 
-	<li>Your friend Alice&nbsp;will pick&nbsp;next slice in anti clockwise direction of your pick.&nbsp;</li>
+    <li>Your friend Alice&nbsp;will pick&nbsp;next slice in anti clockwise direction of your pick.&nbsp;</li>
 
-	<li>Your friend Bob&nbsp;will&nbsp;pick&nbsp;next slice in clockwise direction of your pick.</li>
+    <li>Your friend Bob&nbsp;will&nbsp;pick&nbsp;next slice in clockwise direction of your pick.</li>
 
-	<li>Repeat&nbsp;until&nbsp;there are no more slices of pizzas.</li>
+    <li>Repeat&nbsp;until&nbsp;there are no more slices of pizzas.</li>
 
 </ul>
 
-
-
 <p>Sizes of Pizza slices is represented by circular array <code>slices</code> in clockwise direction.</p>
 
-
-
 <p>Return the maximum possible sum of slice sizes which you can have.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
 
 ![](./images/sample_3_1723.png)
 
@@ -47,14 +38,9 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
 ![](./images/sample_4_1723.png)
-
-
 
 <pre>
 
@@ -66,11 +52,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -80,11 +62,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -94,13 +72,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= slices.length &lt;= 500</code></li>
@@ -110,12 +84,9 @@
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -123,12 +94,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -28,8 +28,8 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 ## Solutions
 
 1. [LeetCode](/solution/README_EN.md)
-1. [LCOF: *Coding Interviews, 2nd Edition*](/lcof/README_EN.md)
-1. [LCCI: *Cracking the Coding Interview, 6th Edition*](/lcci/README_EN.md)
+1. [LCOF: _Coding Interviews, 2nd Edition_](/lcof/README_EN.md)
+1. [LCCI: _Cracking the Coding Interview, 6th Edition_](/lcci/README_EN.md)
 
 ## Basic Algorithms
 
@@ -54,7 +54,6 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 1. [Lowest Common Ancestor of a Binary Tree](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)
 1. [Lowest Common Ancestor of a Binary Search Tree](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
 
-
 ### Math
 
 1. [Set Mismatch](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
@@ -64,7 +63,6 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 ### Dynamic Programming
 
 ### Misc
-
 
 ## Maintainer
 
@@ -89,7 +87,7 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 ## Contributors
 
-This project exists thanks to all the people who contribute. 
+This project exists thanks to all the people who contribute.
 
 <a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
 
@@ -101,8 +99,7 @@ Thank you to all our backers and sponsors!
 
 <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
-
-> "*You help the developer community practice for interviews, and there is nothing better we could ask for.*" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
+> "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
 ## License
 

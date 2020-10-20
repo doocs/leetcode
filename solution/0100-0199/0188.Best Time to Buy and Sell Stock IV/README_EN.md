@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0188.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20IV/README.md)
 
 ## Description
+
 <p>Say you have an array for which the <i>i<span style="font-size: 10.8333px;">-</span></i><span style="font-size: 10.8333px;">th</span>&nbsp;element is the price of a given stock on day <i>i</i>.</p>
 
 <p>Design an algorithm to find the maximum profit. You may complete at most <b>k</b> transactions.</p>
@@ -27,10 +28,7 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 &nbsp;            Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -47,6 +45,7 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 ```
 
 ### **...**
+
 ```
 
 ```

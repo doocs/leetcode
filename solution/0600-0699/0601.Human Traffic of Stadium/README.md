@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>X 市建了一个新的体育馆，每日人流量信息被记录在这三列信息中：<strong>序号</strong> (id)、<strong>日期</strong> (visit_date)、&nbsp;<strong>人流量</strong> (people)。</p>
 
@@ -41,15 +42,14 @@
 <p><strong>提示：</strong><br>
 每天只有一行记录，日期随着 id 的增加而增加。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -57,6 +57,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -64,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

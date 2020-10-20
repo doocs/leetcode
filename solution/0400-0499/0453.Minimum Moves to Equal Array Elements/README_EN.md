@@ -3,9 +3,8 @@
 [中文文档](/solution/0400-0499/0453.Minimum%20Moves%20to%20Equal%20Array%20Elements/README.md)
 
 ## Description
+
 <p>Given a <b>non-empty</b> integer array of size <i>n</i>, find the minimum number of moves required to make all array elements equal, where a move is incrementing <i>n</i> - 1 elements by 1.</p>
-
-
 
 <p><b>Example:</b>
 
@@ -35,9 +34,7 @@ Only three moves are needed (remember each move increments two elements):
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +51,7 @@ Only three moves are needed (remember each move increments two elements):
 ```
 
 ### **...**
+
 ```
 
 ```

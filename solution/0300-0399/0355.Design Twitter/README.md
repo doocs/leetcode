@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0355.Design%20Twitter/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：</p>
 
@@ -42,15 +43,14 @@ twitter.unfollow(1, 2);
 twitter.getNewsFeed(1);
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@ twitter.getNewsFeed(1);
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@ twitter.getNewsFeed(1);
 ```
 
 ### **...**
+
 ```
 
 ```

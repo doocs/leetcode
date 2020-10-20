@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1172.Dinner%20Plate%20Stacks/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>我们把无限数量 &infin; 的栈排成一行，按从左到右的次序从 0 开始编号。每个栈的的最大容量&nbsp;<code>capacity</code> 都相同。</p>
 
@@ -71,15 +72,14 @@ D.pop()            // 返回 -1。仍然没有栈。
 	<li>最多会对&nbsp;<code>push</code>，<code>pop</code>，和&nbsp;<code>popAtStack</code>&nbsp;进行 <code>200000</code> 次调用。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -87,6 +87,7 @@ D.pop()            // 返回 -1。仍然没有栈。
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -94,6 +95,7 @@ D.pop()            // 返回 -1。仍然没有栈。
 ```
 
 ### **...**
+
 ```
 
 ```

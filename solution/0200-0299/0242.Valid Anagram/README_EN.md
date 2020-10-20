@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0242.Valid%20Anagram/README.md)
 
 ## Description
+
 <p>Given two strings <em>s</em> and <em>t&nbsp;</em>, write a function to determine if <em>t</em> is an anagram of <em>s</em>.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -33,23 +26,15 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong><br />
 
 You may assume the string contains only lowercase alphabets.</p>
-
-
 
 <p><strong>Follow up:</strong><br />
 
 What if the inputs contain unicode characters? How would you adapt your solution to such case?</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +51,7 @@ What if the inputs contain unicode characters? How would you adapt your solution
 ```
 
 ### **...**
+
 ```
 
 ```

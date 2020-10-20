@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0491.Increasing%20Subsequences/README.md)
 
 ## Description
+
 <p>Given an integer array, your task is to find all the different possible increasing subsequences of the given array, and the length of an increasing subsequence should be at least 2.</p>
 
 <p>&nbsp;</p>
@@ -24,10 +25,7 @@
 	<li>The given array may contain duplicates, and two equal integers should also be considered as a special case of increasing sequence.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -44,6 +42,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

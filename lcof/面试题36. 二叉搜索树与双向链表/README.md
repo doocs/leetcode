@@ -1,7 +1,9 @@
-# [面试题36. 二叉搜索树与双向链表](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/)
+# [面试题 36. 二叉搜索树与双向链表](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。
 
 为了让您更好地理解问题，以下面的二叉搜索树为例：
@@ -21,7 +23,9 @@
 **注意**：此题对比原题有改动。
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 二叉搜索树中序遍历得到有序序列；根结点指向左子树最后一个结点，根结点也指向右子树第一个结点。
 
 利用虚拟头结点递归遍历求解。
@@ -29,6 +33,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -66,6 +71,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -120,6 +126,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * // Definition for a Node.
@@ -133,35 +140,36 @@ class Solution {
  * @param {Node} root
  * @return {Node}
  */
-var treeToDoublyList = function(root) {
-    if(!root) return null
-    function dfs(node) {
-        if(!node) return null
-        dfs(node.left)
-        arr.push(node)
-        dfs(node.right)
+var treeToDoublyList = function (root) {
+  if (!root) return null;
+  function dfs(node) {
+    if (!node) return null;
+    dfs(node.left);
+    arr.push(node);
+    dfs(node.right);
+  }
+  let arr = [];
+  dfs(root);
+  let len = arr.length;
+  let res = arr[0];
+  for (let i = 0; i < len; i++) {
+    if (i + 1 < len) {
+      arr[i].right = arr[i + 1];
+    } else {
+      arr[i].right = arr[0];
     }
-    let arr = []
-    dfs(root)
-    let len = arr.length
-    let res = arr[0]
-    for(let i=0;i<len;i++) {
-        if(i+1 < len) {
-            arr[i].right = arr[i+1]
-        } else {
-            arr[i].right = arr[0]
-        }
-        if(i-1 >= 0) {
-            arr[i].left = arr[i-1]
-        } else {
-            arr[i].left = arr[len-1]
-        }
+    if (i - 1 >= 0) {
+      arr[i].left = arr[i - 1];
+    } else {
+      arr[i].left = arr[len - 1];
     }
-    return res
+  }
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

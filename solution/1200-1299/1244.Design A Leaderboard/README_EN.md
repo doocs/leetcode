@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1244.Design%20A%20Leaderboard/README.md)
 
 ## Description
+
 <p>Design a Leaderboard class, which has 3 functions:</p>
 
 <ol>
@@ -47,10 +48,7 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 	<li>There will be at most <code>1000</code> function calls.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 ```
 
 ### **...**
+
 ```
 
 ```

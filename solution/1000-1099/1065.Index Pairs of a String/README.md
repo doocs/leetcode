@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1065.Index%20Pairs%20of%20a%20String/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给出 <strong>字符串 </strong><code>text</code> 和 <strong>字符串列表</strong> <code>words</code>, 返回所有的索引对 <code>[i, j]</code> 使得在索引对范围内的子字符串 <code>text[i]...text[j]</code>（包括 <code>i</code> 和 <code>j</code>）属于字符串列表 <code>words</code>。</p>
 
@@ -35,15 +36,14 @@
 	<li>按序返回索引对 <code>[i,j]</code>（即，按照索引对的第一个索引进行排序，当第一个索引对相同时按照第二个索引对排序）。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

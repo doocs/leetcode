@@ -3,6 +3,7 @@
 [English Version](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你两个有序整数数组&nbsp;<em>nums1 </em>和 <em>nums2</em>，请你将 <em>nums2 </em>合并到&nbsp;<em>nums1&nbsp;</em>中<em>，</em>使 <em>num1 </em>成为一个有序数组。</p>
 
@@ -25,15 +26,14 @@ nums2 = [2,5,6],       n = 3
 
 <strong>输出:</strong>&nbsp;[1,2,2,3,5,6]</pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -41,6 +41,7 @@ nums2 = [2,5,6],       n = 3
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -48,6 +49,7 @@ nums2 = [2,5,6],       n = 3
 ```
 
 ### **...**
+
 ```
 
 ```

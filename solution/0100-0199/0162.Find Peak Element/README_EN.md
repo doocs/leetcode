@@ -3,25 +3,16 @@
 [中文文档](/solution/0100-0199/0162.Find%20Peak%20Element/README.md)
 
 ## Description
+
 <p>A peak element is an element that is greater than its neighbors.</p>
-
-
 
 <p>Given an input array <code>nums</code>, where <code>nums[i] &ne; nums[i+1]</code>, find a peak element and return its index.</p>
 
-
-
 <p>The array may contain multiple peaks, in that case return the index to any one of the peaks is fine.</p>
-
-
 
 <p>You may imagine that <code>nums[-1] = nums[n] = -&infin;</code>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +22,7 @@
 
 <strong>Explanation:</strong> 3 is a peak element and your function should return the index number 2.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -49,19 +36,11 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <p>Your solution should be in logarithmic complexity.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

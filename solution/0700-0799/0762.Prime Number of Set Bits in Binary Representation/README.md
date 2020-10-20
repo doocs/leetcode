@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0762.Prime%20Number%20of%20Set%20Bits%20in%20Binary%20Representation/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定两个整数&nbsp;<code>L</code>&nbsp;和&nbsp;<code>R</code>&nbsp;，找到闭区间&nbsp;<code>[L, R]</code>&nbsp;范围内，计算置位位数为质数的整数个数。</p>
 
@@ -41,15 +42,14 @@
 	<li><code>R - L</code>&nbsp;的最大值为 10000。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -57,6 +57,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -64,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

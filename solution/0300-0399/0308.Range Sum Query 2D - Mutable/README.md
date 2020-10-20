@@ -3,9 +3,9 @@
 [English Version](/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个 2D 矩阵 <em>matrix</em>，请计算出从左上角 <code>(row1, col1)</code> 到右下角 <code>(row2, col2)</code> 组成的矩形中所有元素的和。</p>
-
 
 ![](./images/308_range_sum_query_2d_mutable.png)
 
@@ -38,15 +38,14 @@ sumRegion(2, 1, 4, 3) -> 10
 
 <p> </p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -54,6 +53,7 @@ sumRegion(2, 1, 4, 3) -> 10
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -61,6 +61,7 @@ sumRegion(2, 1, 4, 3) -> 10
 ```
 
 ### **...**
+
 ```
 
 ```

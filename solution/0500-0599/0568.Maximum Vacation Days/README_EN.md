@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0568.Maximum%20Vacation%20Days/README.md)
 
 ## Description
+
 <p>
 LeetCode wants to give one of its best employees the option to travel among <b>N</b> cities to collect algorithm problems. But all work and no play makes Jack a dull boy, you could take vacations in some particular cities and weeks. Your job is to schedule the traveling to maximize the number of vacation days you could take, but there are certain rules and restrictions you need to follow.
 </p>
@@ -51,7 +52,6 @@ One of the best strategies is:
 </pre>
 </p>
 
-
 <p><b>Note:</b><br>
 <ol>
 <li><b>N and K</b> are positive integers, which are in the range of [1, 100].</li>
@@ -63,9 +63,7 @@ One of the best strategies is:
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +80,7 @@ One of the best strategies is:
 ```
 
 ### **...**
+
 ```
 
 ```

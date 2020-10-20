@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1088.Confusing%20Number%20II/README.md)
 
 ## Description
+
 <p>We can rotate digits by 180 degrees to form new digits. When 0, 1, 6, 8, 9 are rotated 180 degrees, they become 0, 1, 9, 8, 6 respectively. When 2, 3, 4, 5 and 7 are rotated 180 degrees, they become invalid.</p>
 
 <p>A <em>confusing number</em> is a number that when rotated 180 degrees becomes a <strong>different</strong> number with each digit valid.(Note that the rotated number can be greater than the original number.)</p>
@@ -43,10 +44,7 @@ The confusing numbers are [6,9,10,16,18,19,60,61,66,68,80,81,86,89,90,91,98,99,1
 	<li><code>1 <= N <= 10^9</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -63,6 +61,7 @@ The confusing numbers are [6,9,10,16,18,19,60,61,66,68,80,81,86,89,90,91,98,99,1
 ```
 
 ### **...**
+
 ```
 
 ```

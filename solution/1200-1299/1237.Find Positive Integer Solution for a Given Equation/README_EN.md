@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1237.Find%20Positive%20Integer%20Solution%20for%20a%20Given%20Equation/README.md)
 
 ## Description
+
 <p>Given a&nbsp;function&nbsp; <code>f(x, y)</code>&nbsp;and a value <code>z</code>, return all positive integer&nbsp;pairs <code>x</code> and <code>y</code> where <code>f(x,y) == z</code>.</p>
 
 <p>The function is constantly increasing, i.e.:</p>
@@ -52,10 +53,7 @@ public:
 	<li>It&#39;s also guaranteed that <code>f(x, y)</code> will fit in 32 bit signed integer if <code>1 &lt;= x, y &lt;= 1000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +70,7 @@ public:
 ```
 
 ### **...**
+
 ```
 
 ```

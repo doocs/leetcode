@@ -3,15 +3,14 @@
 [中文文档](/solution/0600-0699/0658.Find%20K%20Closest%20Elements/README.md)
 
 ## Description
+
 <p>
 
-Given a sorted array, two integers <code>k</code> and <code>x</code>, find the <code>k</code> closest elements to <code>x</code> in the array.  The result should also be sorted in ascending order.
+Given a sorted array, two integers <code>k</code> and <code>x</code>, find the <code>k</code> closest elements to <code>x</code> in the array. The result should also be sorted in ascending order.
 
-If there is a tie,  the smaller elements are always preferred.
+If there is a tie, the smaller elements are always preferred.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,10 +24,6 @@ If there is a tie,  the smaller elements are always preferred.
 
 </p>
 
-
-
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -40,8 +35,6 @@ If there is a tie,  the smaller elements are always preferred.
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 
@@ -57,11 +50,7 @@ If there is a tie,  the smaller elements are always preferred.
 
 </p>
 
-
-
 <hr />
-
-
 
 <p>
 
@@ -71,9 +60,7 @@ The <i>arr</i> parameter had been changed to an <b>array of integers</b> (instea
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +77,7 @@ The <i>arr</i> parameter had been changed to an <b>array of integers</b> (instea
 ```
 
 ### **...**
+
 ```
 
 ```

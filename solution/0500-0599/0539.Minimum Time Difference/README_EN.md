@@ -3,9 +3,8 @@
 [中文文档](/solution/0500-0599/0539.Minimum%20Time%20Difference/README.md)
 
 ## Description
-Given a list of 24-hour clock time points in "Hour:Minutes" format, find the minimum <b>minutes</b> difference between any two time points in the list. 
 
-
+Given a list of 24-hour clock time points in "Hour:Minutes" format, find the minimum <b>minutes</b> difference between any two time points in the list.
 
 <p><b>Example 1:</b><br />
 
@@ -19,8 +18,6 @@ Given a list of 24-hour clock time points in "Hour:Minutes" format, find the min
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -33,9 +30,7 @@ Given a list of 24-hour clock time points in "Hour:Minutes" format, find the min
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +47,7 @@ Given a list of 24-hour clock time points in "Hour:Minutes" format, find the min
 ```
 
 ### **...**
+
 ```
 
 ```

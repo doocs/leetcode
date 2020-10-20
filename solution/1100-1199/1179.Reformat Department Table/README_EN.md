@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1179.Reformat%20Department%20Table/README.md)
 
 ## Description
+
 <p>Table: <code>Department</code></p>
 
 <pre>
@@ -48,10 +49,7 @@ Result table:
 Note that the result table has 13 columns (1 for the department id + 12 for the months).
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +66,7 @@ Note that the result table has 13 columns (1 for the department id + 12 for the 
 ```
 
 ### **...**
+
 ```
 
 ```

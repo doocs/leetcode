@@ -46,15 +46,11 @@ Notice that element mat[1][1] = 5 is counted only once.
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -62,12 +58,12 @@ Notice that element mat[1][1] = 5 is counted only once.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

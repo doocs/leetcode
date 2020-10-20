@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0742.Closest%20Leaf%20in%20a%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个 <strong>每个结点的值互不相同</strong> 的二叉树，和一个目标值 <code>k</code>，找出树中与目标值 <code>k</code> 最近的叶结点。 </p>
 
@@ -68,15 +69,14 @@ root = [1,2,3,4,null,null,null,5,null,6], k = 2
 
 <p> </p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -84,6 +84,7 @@ root = [1,2,3,4,null,null,null,5,null,6], k = 2
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -91,6 +92,7 @@ root = [1,2,3,4,null,null,null,5,null,6], k = 2
 ```
 
 ### **...**
+
 ```
 
 ```

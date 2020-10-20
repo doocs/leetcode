@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0246.Strobogrammatic%20Number/README.md)
 
 ## Description
+
 <p>A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).</p>
 
 <p>Write a function to determine if a number is strobogrammatic. The number is represented as a string.</p>
@@ -22,9 +23,7 @@
 <strong>Output:</strong> true
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -41,6 +40,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

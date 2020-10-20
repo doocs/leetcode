@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1307.Verbal%20Arithmetic%20Puzzle/README.md)
 
 ## Description
+
 <p>Given an equation, represented by <code>words</code> on left side and the <code>result</code> on right side.</p>
 
 <p>You need to check if the equation is solvable&nbsp;under the following rules:</p>
@@ -57,10 +58,7 @@ Such that: &quot;SIX&quot; + &quot;SEVEN&quot; + &quot;SEVEN&quot; = &quot;TWENT
 	<li>Number of different characters used on the expression is at most&nbsp;10.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +75,7 @@ Such that: &quot;SIX&quot; + &quot;SEVEN&quot; + &quot;SEVEN&quot; = &quot;TWENT
 ```
 
 ### **...**
+
 ```
 
 ```

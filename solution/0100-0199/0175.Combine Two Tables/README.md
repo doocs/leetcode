@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>表1: <code>Person</code></p>
 
@@ -38,11 +39,9 @@ AddressId 是上表主键
 <pre>FirstName, LastName, City, State
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 

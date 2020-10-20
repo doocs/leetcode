@@ -3,43 +3,26 @@
 [中文文档](/solution/0900-0999/0971.Flip%20Binary%20Tree%20To%20Match%20Preorder%20Traversal/README.md)
 
 ## Description
+
 <p>Given a binary tree with <code>N</code> nodes, each node has a different value from&nbsp;<code>{1, ..., N}</code>.</p>
-
-
 
 <p>A node in this binary tree can be <em>flipped</em>&nbsp;by swapping the left child and the right child of that node.</p>
 
-
-
 <p>Consider the sequence of&nbsp;<code>N</code> values reported by a preorder traversal starting from the root.&nbsp; Call such a sequence of <code>N</code> values the&nbsp;<em>voyage</em>&nbsp;of the tree.</p>
-
-
 
 <p>(Recall that a <em>preorder traversal</em>&nbsp;of a node means we report the current node&#39;s value, then preorder-traverse the left child, then preorder-traverse the right child.)</p>
 
-
-
 <p>Our goal is to flip the <strong>least number</strong> of nodes in the tree so that the voyage of the tree matches the <code>voyage</code> we are given.</p>
-
-
 
 <p>If we can do so, then return a&nbsp;list&nbsp;of the values of all nodes flipped.&nbsp; You may return the answer in any order.</p>
 
-
-
 <p>If we cannot do so, then return the list <code>[-1]</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 ![](./images/1219-01.png)
 
@@ -51,13 +34,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 ![](./images/1219-02.png)
 
@@ -69,16 +48,11 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
 
-
 ![](./images/1219-02.png)
-
-
 
 <pre>
 
@@ -88,15 +62,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong><span>Note:</span></strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= N &lt;= 100</code></li>
@@ -108,11 +76,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -129,6 +93,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

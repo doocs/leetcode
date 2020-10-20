@@ -1,6 +1,7 @@
-# [面试题32 - I. 从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/)
+# [面试题 32 - I. 从上到下打印二叉树](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof/)
 
 ## 题目描述
+
 从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
 
 **例如:**
@@ -26,9 +27,11 @@
 - `节点总数 <= 1000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -53,10 +56,11 @@ class Solution:
                 s.put(node.left)
             if node.right:
                 s.put(node.right)
-        return res            
+        return res
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -98,6 +102,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -110,17 +115,17 @@ class Solution {
  * @param {TreeNode} root
  * @return {number[]}
  */
-var levelOrder = function(root) {
-    if(!root) return []
-    let queue = [root]
-    let res = []
-    while(queue.length) {
-        let node = queue.shift()
-        if(!node) continue
-        res.push(node.val)
-        queue.push(node.left,node.right)
-    }
-    return res
+var levelOrder = function (root) {
+  if (!root) return [];
+  let queue = [root];
+  let res = [];
+  while (queue.length) {
+    let node = queue.shift();
+    if (!node) continue;
+    res.push(node.val);
+    queue.push(node.left, node.right);
+  }
+  return res;
 };
 ```
 
@@ -149,8 +154,6 @@ func levelOrder(root *TreeNode) []int {
     return res
 }
 ```
-
-
 
 ### **...**
 

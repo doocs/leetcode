@@ -3,13 +3,10 @@
 [中文文档](/solution/0600-0699/0605.Can%20Place%20Flowers/README.md)
 
 ## Description
+
 <p>Suppose you have a long flowerbed in which some of the plots are planted and some are not. However, flowers cannot be planted in adjacent plots - they would compete for water and both would die.</p>
 
-
-
 <p>Given a flowerbed (represented as an array containing 0 and 1, where 0 means empty and 1 means not empty), and a number <b>n</b>, return if <b>n</b> new flowers can be planted in it without violating the no-adjacent-flowers rule.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -23,8 +20,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -36,8 +31,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 
@@ -53,9 +46,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

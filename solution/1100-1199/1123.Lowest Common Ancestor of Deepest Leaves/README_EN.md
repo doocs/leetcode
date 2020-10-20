@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1123.Lowest%20Common%20Ancestor%20of%20Deepest%20Leaves/README.md)
 
 ## Description
+
 <p>Given a rooted binary tree, return the lowest common ancestor of its deepest leaves.</p>
 
 <p>Recall that:</p>
@@ -47,10 +48,7 @@ The answer returned is a TreeNode object (not an array) with serialization &quot
 	<li>Each node of the tree will have a distinct value between 1 and 1000.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@ The answer returned is a TreeNode object (not an array) with serialization &quot
 ```
 
 ### **...**
+
 ```
 
 ```

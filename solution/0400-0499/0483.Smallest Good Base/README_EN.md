@@ -3,17 +3,12 @@
 [中文文档](/solution/0400-0499/0483.Smallest%20Good%20Base/README.md)
 
 ## Description
+
 <p>For an integer n, we call k&gt;=2 a <i><b>good base</b></i> of n, if all digits of n base k are 1.</p>
-
-
 
 <p>Now given a string representing n, you should return the smallest good base of n in string format.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -25,15 +20,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -45,15 +34,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 3:</b></p>
-
-
 
 <pre>
 
@@ -65,33 +48,21 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>The range of n is [3, 10^18].</li>
+    <li>The range of n is [3, 10^18].</li>
 
-	<li>The string representing n is always valid and will not have leading zeros.</li>
+    <li>The string representing n is always valid and will not have leading zeros.</li>
 
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -108,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

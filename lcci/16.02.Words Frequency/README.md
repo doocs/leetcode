@@ -3,6 +3,7 @@
 [English Version](/lcci/16.02.Words%20Frequency/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计一个方法，找出任意指定单词在一本书中的出现频率。</p>
 <p>你的实现应该支持如下操作：</p>
@@ -26,14 +27,14 @@ wordsFrequency.get("pen"); //返回1
 <li><code>get</code>函数的调用次数不会超过100000</li>
 </ul>
 
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -41,6 +42,7 @@ wordsFrequency.get("pen"); //返回1
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -48,6 +50,7 @@ wordsFrequency.get("pen"); //返回1
 ```
 
 ### **...**
+
 ```
 
 ```

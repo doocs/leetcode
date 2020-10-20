@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1118.Number%20of%20Days%20in%20a%20Month/README.md)
 
 ## Description
+
 <p>Given a year <code>Y</code> and a month <code>M</code>, return how many days there are in that month.</p>
 
 <p> </p>
@@ -37,10 +38,7 @@
 	<li><code>1 <= M <= 12</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

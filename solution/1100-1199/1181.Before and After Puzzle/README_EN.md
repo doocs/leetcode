@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1181.Before%20and%20After%20Puzzle/README.md)
 
 ## Description
+
 <p>Given a list of <code>phrases</code>, generate a list of Before and After puzzles.</p>
 
 <p>A <em>phrase</em> is a string that consists of lowercase English letters and spaces only. No space appears in the start or the end of a phrase. There are no consecutive spaces in a phrase.</p>
@@ -55,10 +56,7 @@
 	<li><code>1 <= phrases[i].length <= 100</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -75,6 +73,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

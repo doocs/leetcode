@@ -1,10 +1,12 @@
-# [面试题43. 1～n整数中1出现的次数](https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/)
+# [面试题 43. 1 ～ n 整数中 1 出现的次数](https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/)
 
 ## 题目描述
-<!-- 这里写题目描述 -->
-输入一个整数 `n` ，求1～n这n个整数的十进制表示中1出现的次数。
 
-例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，1一共出现了5次。
+<!-- 这里写题目描述 -->
+
+输入一个整数 `n` ，求 1 ～ n 这 n 个整数的十进制表示中 1 出现的次数。
+
+例如，输入 12，1 ～ 12 这些整数中包含 1 的数字有 1、10、11 和 12，1 一共出现了 5 次。
 
 **示例 1：**
 
@@ -22,12 +24,14 @@
 
 **限制：**
 
-- `1 <= n < 2^31`
+- `1 <= n < 2^31`
 
 注意：本题与主站 233 题相同：https://leetcode-cn.com/problems/number-of-digit-one/
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 将 n 拆为两部分：最高位 high 和低位 lows。按 high 是否为 1 分别递归求解结果 f(n)。
 
 以 n=3356 举例说明。
@@ -46,6 +50,7 @@ high=3,lows=356,base=1000。此时 n 可拆分为 `0~999`,`1000~1999`,`2000~2999
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -64,6 +69,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -84,30 +90,37 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number} n
  * @return {number}
  */
-var countDigitOne = function(n) {
-    let res = 0
-    let i=1
-    while(i <= n) {
-        let high = ~~(n / i / 10)
-        let cur = ~~(n / i)  % 10
-        let low = n - ~~(n / i) * i
-        switch(cur) {
-            case 0: res += high * i;break
-            case 1: res += high * i + low + 1;break
-            default: res += (high + 1) * i
-        }
-        i *= 10
+var countDigitOne = function (n) {
+  let res = 0;
+  let i = 1;
+  while (i <= n) {
+    let high = ~~(n / i / 10);
+    let cur = ~~(n / i) % 10;
+    let low = n - ~~(n / i) * i;
+    switch (cur) {
+      case 0:
+        res += high * i;
+        break;
+      case 1:
+        res += high * i + low + 1;
+        break;
+      default:
+        res += (high + 1) * i;
     }
-    return res
+    i *= 10;
+  }
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

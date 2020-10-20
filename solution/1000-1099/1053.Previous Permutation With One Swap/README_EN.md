@@ -3,17 +3,12 @@
 [中文文档](/solution/1000-1099/1053.Previous%20Permutation%20With%20One%20Swap/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of positive integers (not necessarily distinct), return the lexicographically largest permutation that is smaller than <code>A</code>, that can be <strong>made with one swap</strong> (A <em>swap</em> exchanges the positions of two numbers <code>A[i]</code> and <code>A[j]</code>).&nbsp; If it cannot be done, then return the same array.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -57,11 +44,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -73,29 +56,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 10000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 10000</code></li>
 
-	<li><code>1 &lt;= A[i] &lt;= 10000</code></li>
+    <li><code>1 &lt;= A[i] &lt;= 10000</code></li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -112,6 +85,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

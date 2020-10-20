@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0306.Additive%20Number/README.md)
 
 ## Description
+
 <p>Additive number is a string whose digits can form additive sequence.</p>
 
 <p>A valid additive sequence should contain <b>at least</b> three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two.</p>
@@ -41,10 +42,7 @@
 <p><b>Follow up:</b><br />
 How would you handle overflow for very large input integers?</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,6 +59,7 @@ How would you handle overflow for very large input integers?</p>
 ```
 
 ### **...**
+
 ```
 
 ```

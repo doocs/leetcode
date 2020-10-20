@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1272.Remove%20Interval/README.md)
 
 ## Description
+
 <p>Given a <strong>sorted</strong> list of disjoint <code>intervals</code>, each interval <code>intervals[i] = [a, b]</code> represents the set of real numbers <code>x</code> such that <code>a <= x < b</code>.</p>
 
 <p>We remove the intersections between any interval in <code>intervals</code> and the interval <code>toBeRemoved</code>.</p>
@@ -25,10 +26,7 @@
 	<li><code>-10^9 <= intervals[i][0] < intervals[i][1] <= 10^9</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -45,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

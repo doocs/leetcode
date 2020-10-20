@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0778.Swim%20in%20Rising%20Water/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一个 N x N 的坐标方格&nbsp;<code>grid</code> 中，每一个方格的值 <code>grid[i][j]</code> 表示在位置 <code>(i,j)</code> 的平台高度。</p>
 
@@ -45,15 +46,14 @@
 	<li>grid[i][j] 位于区间 [0, ..., N*N - 1] 内。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -61,6 +61,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -117,6 +118,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

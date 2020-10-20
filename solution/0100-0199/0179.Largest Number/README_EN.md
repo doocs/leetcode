@@ -3,13 +3,10 @@
 [中文文档](/solution/0100-0199/0179.Largest%20Number/README.md)
 
 ## Description
+
 <p>Given a list of non negative integers, arrange them such that they form the largest number.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -17,11 +14,7 @@
 
 <strong>Output:</strong> &quot;<code>210&quot;</code></pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -31,15 +24,9 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong> The result may be very large, so you need to return a string instead of an integer.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

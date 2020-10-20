@@ -3,17 +3,12 @@
 [中文文档](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
 
 ## Description
+
 <p>Given a binary tree, return all root-to-leaf paths.</p>
-
-
 
 <p><strong>Note:</strong>&nbsp;A leaf is a node with no children.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -41,9 +36,7 @@
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>四叉树是一种树数据，其中每个结点恰好有四个子结点：<code>topLeft</code>、<code>topRight</code>、<code>bottomLeft</code>&nbsp;和&nbsp;<code>bottomRight</code>。四叉树通常被用来划分一个二维空间，递归地将其细分为四个象限或区域。</p>
 
@@ -72,15 +73,14 @@ bottomRight: F
 	<li>逻辑或的定义如下：如果&nbsp;<code>A 为 True</code> ，或者&nbsp;<code>B 为 True</code> ，或者&nbsp;<code>A 和 B 都为 True</code>，则 &quot;A 或 B&quot; 为 True。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -88,6 +88,7 @@ bottomRight: F
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -95,6 +96,7 @@ bottomRight: F
 ```
 
 ### **...**
+
 ```
 
 ```

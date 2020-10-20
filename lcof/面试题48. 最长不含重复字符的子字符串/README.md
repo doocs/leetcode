@@ -1,13 +1,14 @@
-# [面试题48. 最长不含重复字符的子字符串](https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/)
+# [面试题 48. 最长不含重复字符的子字符串](https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/)
 
 ## 题目描述
+
 请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。
 
-**示例 1:**
+**示例  1:**
 
 ```
 输入: "abcabcbb"
-输出: 3 
+输出: 3
 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
 ```
 
@@ -33,9 +34,11 @@
 - `s.length <= 40000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -59,6 +62,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
@@ -91,35 +95,37 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
-    let left = 0
-    let right = 0
-    let res = 0
-    let len = s.length
-    let rec = {}
-    while(right < len) {
-        let tmp = '*'
-        while(right < len) {
-            tmp = s[right]
-            if(!rec[tmp]) rec[tmp] = 0
-            rec[tmp]++
-            if(rec[tmp] > 1) break
-            right++
-        }
-        res = Math.max(res, right - left)
-        while(rec[tmp] > 1) rec[s[left++]]--
-        right++
+var lengthOfLongestSubstring = function (s) {
+  let left = 0;
+  let right = 0;
+  let res = 0;
+  let len = s.length;
+  let rec = {};
+  while (right < len) {
+    let tmp = "*";
+    while (right < len) {
+      tmp = s[right];
+      if (!rec[tmp]) rec[tmp] = 0;
+      rec[tmp]++;
+      if (rec[tmp] > 1) break;
+      right++;
     }
-    return res
+    res = Math.max(res, right - left);
+    while (rec[tmp] > 1) rec[s[left++]]--;
+    right++;
+  }
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

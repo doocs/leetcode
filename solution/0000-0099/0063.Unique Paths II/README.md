@@ -3,6 +3,7 @@
 [English Version](/solution/0000-0099/0063.Unique%20Paths%20II/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>一个机器人位于一个 <em>m x n </em>网格的左上角 （起始点在下图中标记为&ldquo;Start&rdquo; ）。</p>
 
@@ -32,13 +33,13 @@
 2. 向下 -&gt; 向下 -&gt; 向右 -&gt; 向右
 </pre>
 
-
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
 
 ### **Go**
-``` go
+
+````go
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
     m,n := len(obstacleGrid),len(obstacleGrid[0])
     dp := make([][]int,m)
@@ -58,7 +59,7 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
                     dp[i][j] = dp[i][j-1]
                 }
             }
-        } 
+        }
     }
     return dp[m-1][n-1]
 }
@@ -71,9 +72,10 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 
 ```python
 
-```
+````
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -81,6 +83,7 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 ```
 
 ### **...**
+
 ```
 
 ```

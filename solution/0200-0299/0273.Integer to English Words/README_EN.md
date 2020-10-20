@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0273.Integer%20to%20English%20Words/README.md)
 
 ## Description
+
 <p>Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 2<sup>31</sup> - 1.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -31,11 +24,7 @@
 
 <b>Output:</b> &quot;Twelve Thousand Three Hundred Forty Five&quot;</pre>
 
-
-
 <p><b>Example 3:</b></p>
-
-
 
 <pre>
 
@@ -45,11 +34,7 @@
 
 </pre>
 
-
-
 <p><b>Example 4:</b></p>
-
-
 
 <pre>
 
@@ -59,11 +44,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

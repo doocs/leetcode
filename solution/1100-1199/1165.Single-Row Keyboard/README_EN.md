@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1165.Single-Row%20Keyboard/README.md)
 
 ## Description
+
 <p>There is a special keyboard with <strong>all keys in a single row</strong>.</p>
 
 <p>Given a string <code>keyboard</code> of length 26 indicating the layout of the keyboard (indexed from 0 to 25), initially your finger is at index 0. To type a character, you have to move your finger to the index of the desired character. The time taken to move your finger from index <code>i</code> to index <code>j</code> is <code>|i - j|</code>.</p>
@@ -36,10 +37,7 @@ Total time = 2 + 1 + 1 = 4.
 	<li><code>word[i]</code> is an English lowercase letter.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +54,7 @@ Total time = 2 + 1 + 1 = 4.
 ```
 
 ### **...**
+
 ```
 
 ```

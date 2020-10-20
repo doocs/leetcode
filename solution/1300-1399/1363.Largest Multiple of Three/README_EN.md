@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1363.Largest%20Multiple%20of%20Three/README.md)
 
 ## Description
+
 <p>Given an integer array of <code>digits</code>,&nbsp;return the largest multiple of <strong>three</strong> that can be formed by concatenating some of the given digits in any order.</p>
 
 <p>Since the answer may not fit in an integer data type, return the answer as a string.</p>
@@ -47,10 +48,7 @@
 	<li>The returning answer must not contain unnecessary leading zeros.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0000-0099/0068.Text%20Justification/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个单词数组和一个长度&nbsp;<em>maxWidth</em>，重新排版单词，使其成为每行恰好有&nbsp;<em>maxWidth</em>&nbsp;个字符，且左右两端对齐的文本。</p>
 
@@ -66,15 +67,14 @@ maxWidth = 20
 ]
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -82,6 +82,7 @@ maxWidth = 20
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -89,6 +90,7 @@ maxWidth = 20
 ```
 
 ### **...**
+
 ```
 
 ```

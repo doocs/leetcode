@@ -3,12 +3,12 @@
 [中文文档](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md)
 
 ## Description
+
 Given a binary tree, return the sum of values of its deepest leaves.
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
 
 ![](./images/1483_ex1.png)
 
@@ -20,22 +20,16 @@ Given a binary tree, return the sum of values of its deepest leaves.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>The number of nodes in the tree is between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>10^4</code>.</li>
 	<li>The value of nodes is between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>100</code>.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +46,7 @@ Given a binary tree, return the sum of values of its deepest leaves.
 ```
 
 ### **...**
+
 ```
 
 ```

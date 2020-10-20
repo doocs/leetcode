@@ -3,43 +3,30 @@
 [中文文档](/solution/0400-0499/0475.Heaters/README.md)
 
 ## Description
+
 <p>Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.</p>
-
-
 
 <p>Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so that all houses could be covered by those heaters.</p>
 
-
-
 <p>So, your input will be the positions of houses and heaters seperately, and your expected output will be the minimum radius standard of heaters.</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>Numbers of houses and heaters you are given are non-negative and will not exceed 25000.</li>
+    <li>Numbers of houses and heaters you are given are non-negative and will not exceed 25000.</li>
 
-	<li>Positions of houses and heaters you are given are non-negative and will not exceed 10^9.</li>
+    <li>Positions of houses and heaters you are given are non-negative and will not exceed 10^9.</li>
 
-	<li>As long as a house is in the heaters&#39; warm radius range, it can be warmed.</li>
+    <li>As long as a house is in the heaters&#39; warm radius range, it can be warmed.</li>
 
-	<li>All the heaters follow your radius standard and the warm radius will the same.</li>
+    <li>All the heaters follow your radius standard and the warm radius will the same.</li>
 
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -51,15 +38,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -71,15 +52,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

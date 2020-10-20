@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1095.Find%20in%20Mountain%20Array/README.md)
 
 ## Description
+
 <p><em>(This problem is an&nbsp;<strong>interactive problem</strong>.)</em></p>
 
 <p>You may recall that an array&nbsp;<code>A</code> is a <em>mountain array</em> if and only if:</p>
@@ -56,10 +57,7 @@
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +74,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

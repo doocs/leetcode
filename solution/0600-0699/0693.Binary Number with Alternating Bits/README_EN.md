@@ -3,9 +3,8 @@
 [中文文档](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README.md)
 
 ## Description
+
 <p>Given a positive integer, check whether it has alternating bits: namely, if two adjacent bits will always have different values.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -23,8 +22,6 @@ The binary representation of 5 is: 101
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -40,8 +37,6 @@ The binary representation of 7 is: 111.
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -59,8 +54,6 @@ The binary representation of 11 is: 1011.
 
 </p>
 
-
-
 <p><b>Example 4:</b><br />
 
 <pre>
@@ -77,9 +70,7 @@ The binary representation of 10 is: 1010.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +87,7 @@ The binary representation of 10 is: 1010.
 ```
 
 ### **...**
+
 ```
 
 ```

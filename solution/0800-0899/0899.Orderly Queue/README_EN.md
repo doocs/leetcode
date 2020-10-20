@@ -3,27 +3,18 @@
 [中文文档](/solution/0800-0899/0899.Orderly%20Queue/README.md)
 
 ## Description
+
 <p>A string <code>S</code> of lowercase letters is given.&nbsp; Then, we may make any number of <em>moves</em>.</p>
-
-
 
 <p>In each move, we&nbsp;choose one&nbsp;of the first <code>K</code> letters (starting from the left), remove it,&nbsp;and place it at the end of the string.</p>
 
-
-
 <p>Return the lexicographically smallest string we could have after any number of moves.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,13 +30,9 @@ In the second move, we move the 1st character (&quot;b&quot;) to the end, obtain
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,21 +48,15 @@ In the second move, we move the 3rd character (&quot;c&quot;) to the end, obtain
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= K &lt;= S.length&nbsp;&lt;= 1000</code></li>
+    <li><code>1 &lt;= K &lt;= S.length&nbsp;&lt;= 1000</code></li>
 
-	<li><code>S</code>&nbsp;consists of lowercase letters only.</li>
+    <li><code>S</code>&nbsp;consists of lowercase letters only.</li>
 
 </ol>
 
@@ -83,11 +64,7 @@ In the second move, we move the 3rd character (&quot;c&quot;) to the end, obtain
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -104,6 +81,7 @@ In the second move, we move the 3rd character (&quot;c&quot;) to the end, obtain
 ```
 
 ### **...**
+
 ```
 
 ```

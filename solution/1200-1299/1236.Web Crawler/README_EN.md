@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1236.Web%20Crawler/README.md)
 
 ## Description
+
 <p>Given a url <code>startUrl</code> and an interface <code>HtmlParser</code>, implement a web crawler to crawl all links that are under the <strong>same hostname</strong> as <code>startUrl</code>. </p>
 
 <p>Return all urls obtained by your web crawler in <strong>any</strong> order.</p>
@@ -84,10 +85,7 @@ startUrl = "http://news.google.com"
 	<li>You may assume there're no duplicates in url library.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -104,6 +102,7 @@ startUrl = "http://news.google.com"
 ```
 
 ### **...**
+
 ```
 
 ```

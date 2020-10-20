@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1239.Maximum%20Length%20of%20a%20Concatenated%20String%20with%20Unique%20Characters/README.md)
 
 ## Description
+
 <p>Given an array of strings <code>arr</code>. String <code>s</code> is a concatenation of a sub-sequence of <code>arr</code> which have <strong>unique characters</strong>.</p>
 
 <p>Return <em>the maximum possible length</em> of <code>s</code>.</p>
@@ -41,10 +42,7 @@ Maximum length is 4.
 	<li><code>arr[i]</code> contains only lower case English letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,6 +59,7 @@ Maximum length is 4.
 ```
 
 ### **...**
+
 ```
 
 ```

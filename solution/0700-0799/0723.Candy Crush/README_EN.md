@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0723.Candy%20Crush/README.md)
 
 ## Description
+
 <p>This question is about implementing a basic elimination algorithm for Candy Crush.</p>
 
 <p>Given a 2D integer array <code>board</code> representing the grid of candy, different positive integers <code>board[i][j]</code> represent different types of candies. A value of <code>board[i][j] = 0</code> represents that the cell at position <code>(i, j)</code> is empty. The given board represents the state of the game following the player's move. Now, you need to restore the board to a <i>stable state</i> by crushing candies according to the following rules:</p>
@@ -42,10 +43,7 @@ board =
 	<li>Each <code>board[i][j]</code> will initially start as an integer in the range [1, 2000].</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +60,7 @@ board =
 ```
 
 ### **...**
+
 ```
 
 ```

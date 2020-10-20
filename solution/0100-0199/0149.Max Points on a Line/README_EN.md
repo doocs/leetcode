@@ -3,13 +3,10 @@
 [中文文档](/solution/0100-0199/0149.Max%20Points%20on%20a%20Line/README.md)
 
 ## Description
+
 <p>Given <em>n</em> points on a 2D plane, find the maximum number of points that lie on the same straight line.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -67,15 +60,9 @@
 
 </pre>
 
-
-
 <p><strong>NOTE:</strong>&nbsp;input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

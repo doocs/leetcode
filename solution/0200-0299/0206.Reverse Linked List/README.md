@@ -3,6 +3,7 @@
 [English Version](/solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>反转一个单链表。</p>
 
@@ -14,8 +15,6 @@
 <p><strong>进阶:</strong><br>
 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
 
-
-
 ## 解法
 
 定义指针 `p`、`q` 分别指向头节点和下一个节点，`pre` 指向头节点的前一个节点。
@@ -24,10 +23,10 @@
 
 当遍历结束后，返回 `pre` 指针即可。
 
-
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -47,6 +46,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -72,6 +72,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -84,16 +85,16 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-    let node = head
-    let pre = null
-    while(node) {
-        let cur = node
-        node = cur.next
-        cur.next = pre
-        pre = cur
-    }
-    return pre
+var reverseList = function (head) {
+  let node = head;
+  let pre = null;
+  while (node) {
+    let cur = node;
+    node = cur.next;
+    cur.next = pre;
+    pre = cur;
+  }
+  return pre;
 };
 ```
 
@@ -115,8 +116,6 @@ func reverseList(head *ListNode) *ListNode {
     return dummyHead.Next
 }
 ```
-
-
 
 ### **...**
 

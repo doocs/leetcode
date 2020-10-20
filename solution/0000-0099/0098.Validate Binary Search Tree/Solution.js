@@ -9,20 +9,20 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function(root) {
-  if (root == null) return true
-  let arr = []
-  inOrderTraverse(root, arr)
+var isValidBST = function (root) {
+  if (root == null) return true;
+  let arr = [];
+  inOrderTraverse(root, arr);
   for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] >= arr[i + 1]) return false
+    if (arr[i] >= arr[i + 1]) return false;
   }
-  return true
-}
+  return true;
+};
 
-var inOrderTraverse = function(node, arr) {
+var inOrderTraverse = function (node, arr) {
   if (node !== null) {
-    inOrderTraverse(node.left, arr)
-    arr.push(node.val)
-    inOrderTraverse(node.right, arr)
+    inOrderTraverse(node.left, arr);
+    arr.push(node.val);
+    inOrderTraverse(node.right, arr);
   }
-}
+};

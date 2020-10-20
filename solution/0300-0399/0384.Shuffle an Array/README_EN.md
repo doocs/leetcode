@@ -3,11 +3,10 @@
 [中文文档](/solution/0300-0399/0384.Shuffle%20an%20Array/README.md)
 
 ## Description
+
 <p>Shuffle a set of numbers without duplicates.
 
 </p>
-
-
 
 <p><b>Example:</b>
 
@@ -41,9 +40,7 @@ solution.shuffle();
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +57,7 @@ solution.shuffle();
 ```
 
 ### **...**
+
 ```
 
 ```

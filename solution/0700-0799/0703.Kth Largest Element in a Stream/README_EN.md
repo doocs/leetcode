@@ -3,17 +3,12 @@
 [中文文档](/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README.md)
 
 ## Description
+
 <p>Design a class to find&nbsp;the <strong>k</strong>th largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
-
-
 
 <p>Your&nbsp;<code>KthLargest</code>&nbsp;class will have a constructor which accepts an integer <code>k</code> and an integer array <code>nums</code>, which contains initial elements from&nbsp;the stream. For each call to the method <code>KthLargest.add</code>, return the element representing the kth largest element in the stream.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -35,17 +30,11 @@ kthLargest.add(4);&nbsp; &nbsp;// returns 8
 
 </pre>
 
-
-
 <p><strong>Note: </strong><br />
 
 You may assume that&nbsp;<code>nums</code>&#39; length&nbsp;&ge;&nbsp;<code>k-1</code>&nbsp;and <code>k</code> &ge;&nbsp;1.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +51,7 @@ You may assume that&nbsp;<code>nums</code>&#39; length&nbsp;&ge;&nbsp;<code>k-1<
 ```
 
 ### **...**
+
 ```
 
 ```

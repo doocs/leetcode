@@ -3,19 +3,14 @@
 [中文文档](/solution/0900-0999/0974.Subarray%20Sums%20Divisible%20by%20K/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of integers, return the number of (contiguous, non-empty) subarrays that have a sum divisible by <code>K</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,31 +24,23 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 30000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 30000</code></li>
 
-	<li><code>-10000 &lt;= A[i] &lt;= 10000</code></li>
+    <li><code>-10000 &lt;= A[i] &lt;= 10000</code></li>
 
-	<li><code>2 &lt;= K &lt;= 10000</code></li>
+    <li><code>2 &lt;= K &lt;= 10000</code></li>
 
 </ol>
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

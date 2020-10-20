@@ -3,15 +3,12 @@
 [中文文档](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md)
 
 ## Description
+
 <p>X city built a new stadium, each day many people visit it and the stats are saved as these columns: <b>id</b>, <strong>visit_</strong><b>date</b>, <b>people</b></p>
-
-
 
 <p>Please write a query to display the records which have 3 or more consecutive rows and the amount of people more than 100(inclusive).</p>
 
 For example, the table <code>stadium</code>:
-
-
 
 <pre>
 
@@ -41,11 +38,7 @@ For example, the table <code>stadium</code>:
 
 </pre>
 
-
-
 <p>For the sample data above, the output is:</p>
-
-
 
 <pre>
 
@@ -67,17 +60,11 @@ For example, the table <code>stadium</code>:
 
 </pre>
 
-
-
 <p><b>Note:</b><br />
 
 Each day only have one row record, and the dates are increasing with id increasing.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -94,6 +81,7 @@ Each day only have one row record, and the dates are increasing with id increasi
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1060.Missing%20Element%20in%20Sorted%20Array/README.md)
 
 ## Description
+
 <p>Given a sorted array <code>A</code> of <strong>unique</strong> numbers, find the <code><em>K</em>-th</code> missing number starting from the leftmost number of the array.</p>
 
 <p> </p>
@@ -44,9 +45,7 @@ The missing numbers are [3,5,6,7,...], hence the third missing number is 6.
 	<li><code>1 <= K <= 1e8</code></li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -63,6 +62,7 @@ The missing numbers are [3,5,6,7,...], hence the third missing number is 6.
 ```
 
 ### **...**
+
 ```
 
 ```

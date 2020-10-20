@@ -3,21 +3,14 @@
 [中文文档](/lcci/17.16.The%20Masseuse/README.md)
 
 ## Description
+
 <p>A popular masseuse receives a sequence of back-to-back appointment requests and is debating which ones to accept. She needs a break between appointments and therefore she cannot accept any adjacent requests. Given a sequence of back-to-back appoint&shy; ment requests, find the optimal (highest total booked minutes) set the masseuse can honor. Return the number of minutes.</p>
-
-
 
 <p><b>Note:&nbsp;</b>This problem is slightly different from the original one in the book.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1: </strong></p>
-
-
 
 <pre>
 
@@ -29,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2: </strong></p>
-
-
 
 <pre>
 
@@ -45,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3: </strong></p>
-
-
 
 <pre>
 
@@ -61,11 +46,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -112,6 +93,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

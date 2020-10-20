@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1245.Tree%20Diameter/README.md)
 
 ## Description
+
 <p>Given an undirected tree, return its diameter: the number of <strong>edges</strong> in a longest path in that tree.</p>
 
 <p>The tree is given as an array of <code>edges</code> where <code>edges[i] = [u, v]</code> is a bidirectional edge between nodes <code>u</code> and <code>v</code>.  Each node has labels in the set <code>{0, 1, ..., edges.length}</code>.</p>
@@ -40,10 +41,7 @@ A longest path of the tree is the path 3 - 2 - 1 - 4 - 5.
 	<li>The given edges form an undirected tree.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +58,7 @@ A longest path of the tree is the path 3 - 2 - 1 - 4 - 5.
 ```
 
 ### **...**
+
 ```
 
 ```

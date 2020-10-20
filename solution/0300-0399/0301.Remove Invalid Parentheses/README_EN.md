@@ -3,17 +3,12 @@
 [中文文档](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md)
 
 ## Description
+
 <p>Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.</p>
-
-
 
 <p><strong>Note:</strong>&nbsp;The input string may contain letters other than the parentheses <code>(</code> and <code>)</code>.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -37,11 +28,7 @@
 
 </pre>
 
-
-
 <p><b>Example 3:</b></p>
-
-
 
 <pre>
 
@@ -51,9 +38,7 @@
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

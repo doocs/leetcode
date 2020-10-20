@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0079.Word%20Search/README.md)
 
 ## Description
+
 <p>Given a 2D board and a word, find if the word exists in the grid.</p>
-
-
 
 <p>The word can be constructed from letters of sequentially adjacent cell, where &quot;adjacent&quot; cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -39,7 +34,6 @@ Given word = &quot;<strong>ABCB</strong>&quot;, return <strong>false</strong>.
 
 </pre>
 
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -50,10 +44,7 @@ Given word = &quot;<strong>ABCB</strong>&quot;, return <strong>false</strong>.
 	<li><code>1 &lt;= word.length &lt;= 10^3</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +61,7 @@ Given word = &quot;<strong>ABCB</strong>&quot;, return <strong>false</strong>.
 ```
 
 ### **...**
+
 ```
 
 ```

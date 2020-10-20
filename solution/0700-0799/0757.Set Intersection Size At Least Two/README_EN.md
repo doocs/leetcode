@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README.md)
 
 ## Description
+
 <p>
 
 An integer interval <code>[a, b]</code> (for integers <code>a < b</code>) is a set of all consecutive integers from <code>a</code> to <code>b</code>, including <code>a</code> and <code>b</code>.
@@ -12,8 +13,6 @@ An integer interval <code>[a, b]</code> (for integers <code>a < b</code>) is a s
 Find the minimum size of a set S such that for every integer interval A in <code>intervals</code>, the intersection of S with A has size at least 2.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -35,8 +34,6 @@ Thus, we output the size of this set, which is 3.
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -53,8 +50,6 @@ An example of a minimum sized set is {1, 2, 3, 4, 5}.
 
 </p>
 
-
-
 <p><b>Note:</b><br><ol>
 
 <li><code>intervals</code> will have length in range <code>[1, 3000]</code>.</li>
@@ -65,9 +60,7 @@ An example of a minimum sized set is {1, 2, 3, 4, 5}.
 
 </ol></p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +77,7 @@ An example of a minimum sized set is {1, 2, 3, 4, 5}.
 ```
 
 ### **...**
+
 ```
 
 ```

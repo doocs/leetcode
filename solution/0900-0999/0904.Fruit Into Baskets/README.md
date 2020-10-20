@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0904.Fruit%20Into%20Baskets/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一排树中，第 <code>i</code> 棵树产生&nbsp;<code>tree[i]</code> 型的水果。<br>
 你可以<strong>从你选择的任何树开始</strong>，然后重复执行以下步骤：</p>
@@ -59,15 +60,14 @@
 	<li><code>0 &lt;= tree[i] &lt; tree.length</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -75,6 +75,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -82,6 +83,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

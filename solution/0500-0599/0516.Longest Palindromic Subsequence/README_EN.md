@@ -3,17 +3,16 @@
 [中文文档](/solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README.md)
 
 ## Description
+
 <p>
 
 Given a string s, find the longest palindromic subsequence's length in s. You may assume that the maximum length of s is 1000.
 
 </p>
 
-
-
 <p><b>Example 1:</b><br>
 
-Input: 
+Input:
 
 <pre>
 
@@ -21,7 +20,7 @@ Input:
 
 </pre>
 
-Output: 
+Output:
 
 <pre>
 
@@ -32,8 +31,6 @@ Output:
 One possible longest palindromic subsequence is "bbbb".
 
 </p>
-
-
 
 <p><b>Example 2:</b><br>
 
@@ -57,9 +54,7 @@ One possible longest palindromic subsequence is "bb".
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +71,7 @@ One possible longest palindromic subsequence is "bb".
 ```
 
 ### **...**
+
 ```
 
 ```

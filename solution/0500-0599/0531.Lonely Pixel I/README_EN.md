@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0531.Lonely%20Pixel%20I/README.md)
 
 ## Description
+
 <p>Given a picture consisting of black and white pixels, find the number of <b>black</b> lonely pixels.</p>
 
 <p>The picture is represented by a 2D char array consisting of 'B' and 'W', which means black and white pixels respectively. </p>
@@ -18,6 +19,7 @@
 
 <b>Output:</b> 3
 <b>Explanation:</b> All the three 'B's are black lonely pixels.
+
 </pre>
 </p>
 
@@ -27,9 +29,7 @@
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +46,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

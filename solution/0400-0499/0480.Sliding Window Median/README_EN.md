@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0480.Sliding%20Window%20Median/README.md)
 
 ## Description
+
 <p>Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.</p>
 Examples:
 
@@ -32,10 +33,7 @@ Window position                Median
 You may assume <code>k</code> is always valid, ie: <code>k</code> is always smaller than input array&#39;s size for non-empty array.<br />
 Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted as correct.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +50,7 @@ Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted
 ```
 
 ### **...**
+
 ```
 
 ```

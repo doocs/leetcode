@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README.md)
 
 ## Description
+
 <p>Given an n-ary tree, return the <i>level order</i> traversal of its nodes&#39; values.</p>
 
 <p><em>Nary-Tree input serialization&nbsp;is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
@@ -34,10 +35,7 @@
 	<li>The total number of nodes is between <code>[0,&nbsp;10^4]</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +52,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

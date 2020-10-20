@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1230.Toss%20Strange%20Coins/README.md)
 
 ## Description
+
 <p>You have some coins.  The <code>i</code>-th coin has a probability <code>prob[i]</code> of facing heads when tossed.</p>
 
 <p>Return the probability that the number of coins facing heads equals <code>target</code> if you toss every coin exactly once.</p>
@@ -25,10 +26,7 @@
 	<li>Answers will be accepted as correct if they are within <code>10^-5</code> of the correct answer.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -45,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

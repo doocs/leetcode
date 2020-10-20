@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code>, return the last substring of <code>s</code> in lexicographical order.</p>
 
 <p>&nbsp;</p>
@@ -31,10 +32,7 @@
 	<li><font face="monospace">s</font> contains only lowercase English letters.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -51,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

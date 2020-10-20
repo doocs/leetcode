@@ -3,15 +3,12 @@
 [中文文档](/solution/0800-0899/0844.Backspace%20String%20Compare/README.md)
 
 ## Description
+
 <p>Given two&nbsp;strings&nbsp;<code>S</code>&nbsp;and <code>T</code>,&nbsp;return if they are equal when both are typed into empty text editors. <code>#</code> means a backspace character.</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,13 +34,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -59,13 +48,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -77,31 +62,23 @@
 
 </pre>
 
-
-
 <p><span><strong>Note</strong>:</span></p>
-
-
 
 <ol>
 
-	<li><code><span>1 &lt;= S.length &lt;= 200</span></code></li>
+    <li><code><span>1 &lt;= S.length &lt;= 200</span></code></li>
 
-	<li><code><span>1 &lt;= T.length &lt;= 200</span></code></li>
+    <li><code><span>1 &lt;= T.length &lt;= 200</span></code></li>
 
-	<li><span><code>S</code>&nbsp;and <code>T</code> only contain&nbsp;lowercase letters and <code>&#39;#&#39;</code> characters.</span></li>
+    <li><span><code>S</code>&nbsp;and <code>T</code> only contain&nbsp;lowercase letters and <code>&#39;#&#39;</code> characters.</span></li>
 
 </ol>
 
-
-
 <p><strong>Follow up:</strong></p>
-
-
 
 <ul>
 
-	<li>Can you solve it in <code>O(N)</code> time and <code>O(1)</code> space?</li>
+    <li>Can you solve it in <code>O(N)</code> time and <code>O(1)</code> space?</li>
 
 </ul>
 
@@ -113,11 +90,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -134,6 +107,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

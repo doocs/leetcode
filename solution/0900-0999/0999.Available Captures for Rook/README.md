@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一个 8 x 8 的棋盘上，有一个白色车（rook）。也可能有空方块，白色的象（bishop）和黑色的卒（pawn）。它们分别以字符 &ldquo;R&rdquo;，&ldquo;.&rdquo;，&ldquo;B&rdquo; 和 &ldquo;p&rdquo; 给出。大写字符表示白棋，小写字符表示黑棋。</p>
 
@@ -22,7 +23,6 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
 
 ![](./images/1253_example_2_improved.png)
 
@@ -52,15 +52,16 @@
 	<li>只有一个格子上存在&nbsp;<code>board[i][j] == &#39;R&#39;</code></li>
 </ol>
 
-
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 先找到 R 的位置，之后向“上、下、左、右”四个方向查找，累加结果。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -85,6 +86,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -118,6 +120,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

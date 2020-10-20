@@ -3,23 +3,16 @@
 [中文文档](/solution/0800-0899/0876.Middle%20of%20the%20Linked%20List/README.md)
 
 ## Description
+
 <p>Given a non-empty, singly&nbsp;linked list with head node <code>head</code>, return&nbsp;a&nbsp;middle node of linked list.</p>
-
-
 
 <p>If there are two middle nodes, return the second middle node.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +28,9 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = N
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -53,19 +42,13 @@ Since the list has two middle nodes with values 3 and 4, we return the second on
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li>The number of nodes in the given list will be between <code>1</code>&nbsp;and <code>100</code>.</li>
+    <li>The number of nodes in the given list will be between <code>1</code>&nbsp;and <code>100</code>.</li>
 
 </ul>
 
@@ -73,11 +56,7 @@ Since the list has two middle nodes with values 3 and 4, we return the second on
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -94,6 +73,7 @@ Since the list has two middle nodes with values 3 and 4, we return the second on
 ```
 
 ### **...**
+
 ```
 
 ```

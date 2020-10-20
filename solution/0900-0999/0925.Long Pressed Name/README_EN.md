@@ -3,21 +3,14 @@
 [中文文档](/solution/0900-0999/0925.Long%20Pressed%20Name/README.md)
 
 ## Description
+
 <p>Your friend is typing his <code>name</code>&nbsp;into a keyboard.&nbsp; Sometimes, when typing a character <code>c</code>, the key might get <em>long pressed</em>, and the character will be typed 1 or more times.</p>
-
-
 
 <p>You examine the <code>typed</code>&nbsp;characters of the keyboard.&nbsp; Return <code>True</code> if it is possible that it was your friends name, with some characters (possibly none) being long pressed.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -47,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -63,13 +48,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -81,8 +62,6 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
@@ -91,29 +70,21 @@
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>name.length &lt;= 1000</code></li>
+    <li><code>name.length &lt;= 1000</code></li>
 
-	<li><code>typed.length &lt;= 1000</code></li>
+    <li><code>typed.length &lt;= 1000</code></li>
 
-	<li>The characters of <code>name</code> and <code>typed</code> are lowercase letters.</li>
+    <li>The characters of <code>name</code> and <code>typed</code> are lowercase letters.</li>
 
 </ol>
-
-
 
 <div>
 
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -127,9 +98,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -146,6 +115,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

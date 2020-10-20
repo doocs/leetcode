@@ -3,23 +3,16 @@
 [中文文档](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
 
 ## Description
+
 <p>You have a number of envelopes with widths and heights given as a pair of integers <code>(w, h)</code>. One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope.</p>
 
-
-
 <p>What is the maximum number of envelopes can you Russian doll? (put one inside other)</p>
-
-
 
 <p><b>Note:</b><br />
 
 Rotation is not allowed.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <div>
 
@@ -35,11 +28,7 @@ Rotation is not allowed.</p>
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +45,7 @@ Rotation is not allowed.</p>
 ```
 
 ### **...**
+
 ```
 
 ```

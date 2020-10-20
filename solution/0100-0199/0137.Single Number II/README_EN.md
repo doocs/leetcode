@@ -3,21 +3,14 @@
 [中文文档](/solution/0100-0199/0137.Single%20Number%20II/README.md)
 
 ## Description
+
 <p>Given a <strong>non-empty</strong>&nbsp;array of integers, every element appears <em>three</em> times except for one, which appears exactly once. Find that single one.</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +28,7 @@
 
 <strong>Output:</strong> 99</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +63,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

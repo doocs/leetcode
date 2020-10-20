@@ -3,25 +3,16 @@
 [中文文档](/solution/1000-1099/1036.Escape%20a%20Large%20Maze/README.md)
 
 ## Description
+
 <p>In a 1 million by 1 million grid, the coordinates of each grid square are <code>(x, y)</code> with <code>0 &lt;= x, y &lt; 10^6</code>.</p>
-
-
 
 <p>We start at the <code>source</code> square and want to reach the <code>target</code> square.&nbsp; Each move, we can walk to a 4-directionally adjacent square in the grid that isn&#39;t in the given list of <code>blocked</code> squares.</p>
 
-
-
 <p>Return <code>true</code> if and only if it is possible to reach the target square through a sequence of moves.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +26,7 @@ The target square is inaccessible starting from the source square, because we ca
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -53,37 +40,27 @@ Because there are no blocked cells, it&#39;s possible to reach the target square
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>0 &lt;= blocked.length &lt;= 200</code></li>
+    <li><code>0 &lt;= blocked.length &lt;= 200</code></li>
 
-	<li><code>blocked[i].length == 2</code></li>
+    <li><code>blocked[i].length == 2</code></li>
 
-	<li><code>0 &lt;= blocked[i][j] &lt; 10^6</code></li>
+    <li><code>0 &lt;= blocked[i][j] &lt; 10^6</code></li>
 
-	<li><code>source.length == target.length == 2</code></li>
+    <li><code>source.length == target.length == 2</code></li>
 
-	<li><code>0 &lt;= source[i][j], target[i][j] &lt; 10^6</code></li>
+    <li><code>0 &lt;= source[i][j], target[i][j] &lt; 10^6</code></li>
 
-	<li><code>source != target</code></li>
+    <li><code>source != target</code></li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +77,7 @@ Because there are no blocked cells, it&#39;s possible to reach the target square
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,29 +3,20 @@
 [中文文档](/solution/0900-0999/0979.Distribute%20Coins%20in%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given the <code>root</code> of a binary tree with <code>N</code> nodes, each <code>node</code>&nbsp;in the tree has <code>node.val</code> coins, and there are <code>N</code> coins total.</p>
-
-
 
 <p>In one move, we may choose two adjacent nodes and move one coin from one node to another.&nbsp; (The move may be from parent to child, or from child to parent.)</p>
 
-
-
 <p>Return the number of moves required to make every node have exactly one coin.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
 
-
 ![](./images/tree1.png)
-
 
 <pre>
 
@@ -37,16 +28,11 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
 
-
 ![](./images/tree2.png)
-
-
 
 <pre>
 
@@ -58,15 +44,11 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
 
-
 ![](./images/tree3.png)
-
 
 <pre>
 
@@ -76,15 +58,11 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
 
-
 ![](./images/tree4.png)
-
 
 <pre>
 
@@ -94,15 +72,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong><span>Note:</span></strong></p>
-
-
 
 <ol>
 	<li><code>1&lt;= N &lt;= 100</code></li>
@@ -117,9 +89,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -136,6 +106,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

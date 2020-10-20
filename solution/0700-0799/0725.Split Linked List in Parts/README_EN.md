@@ -3,11 +3,12 @@
 [中文文档](/solution/0700-0799/0725.Split%20Linked%20List%20in%20Parts/README.md)
 
 ## Description
+
 <p>Given a (singly) linked list with head node <code>root</code>, write a function to split the linked list into <code>k</code> consecutive linked list "parts".
 
 </p><p>
 
-The length of each part should be as equal as possible: no two parts should have a size differing by more than 1.  This may lead to some parts being null.
+The length of each part should be as equal as possible: no two parts should have a size differing by more than 1. This may lead to some parts being null.
 
 </p><p>
 
@@ -19,13 +20,11 @@ Return a List of ListNode's representing the linked list parts that are formed.
 
 </p>
 
-
-
 Examples
 
 1->2->3->4, k = 5 // 5 equal parts
 
-[ [1], 
+[ [1],
 
 [2],
 
@@ -34,8 +33,6 @@ Examples
 [4],
 
 null ]
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -61,8 +58,6 @@ The last element output[4] is null, but it's string representation as a ListNode
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -81,8 +76,6 @@ The input has been split into consecutive parts with size difference at most 1, 
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li>The length of <code>root</code> will be in the range <code>[0, 1000]</code>.</li>
@@ -93,9 +86,7 @@ The input has been split into consecutive parts with size difference at most 1, 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -112,6 +103,7 @@ The input has been split into consecutive parts with size difference at most 1, 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,10 @@
 [中文文档](/lcci/08.14.Boolean%20Evaluation/README.md)
 
 ## Description
+
 <p>Given a boolean expression consisting of the symbols <code>0</code> (false), <code>1</code> (true), <code>&amp;</code> (AND), <code>|</code> (OR), and <code>^</code>&nbsp;(XOR), and a desired boolean result value result, implement a function to count the number of ways of parenthesizing the expression such that it evaluates to result.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,19 +34,13 @@
 
 <strong>Output: </strong>10</pre>
 
-
-
 <p><strong>Note: </strong></p>
 
 <ul>
 	<li>There are no more than&nbsp;19 operators in <code>s</code>.</li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

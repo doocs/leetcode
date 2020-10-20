@@ -3,27 +3,18 @@
 [中文文档](/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README.md)
 
 ## Description
+
 <p>We have an array <code>A</code> of non-negative integers.</p>
-
-
 
 <p>For every (contiguous) subarray <code>B =&nbsp;[A[i], A[i+1], ..., A[j]]</code> (with <code>i &lt;= j</code>), we take the bitwise OR of all the elements in <code>B</code>, obtaining a result <font face="monospace"><code>A[i] | A[i+1] | ... | A[j]</code>.</font></p>
 
-
-
 <p>Return the number of possible&nbsp;results.&nbsp; (Results that occur more than once are only counted once in the final answer.)</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -37,13 +28,9 @@ There is only one possible result: 0.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,13 +48,9 @@ There are 3 unique values, so the answer is 3.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -87,29 +70,19 @@ The possible results are 1, 2, 3, 4, 6, and 7.
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 50000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 50000</code></li>
 
-	<li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
+    <li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -126,6 +99,7 @@ The possible results are 1, 2, 3, 4, 6, and 7.
 ```
 
 ### **...**
+
 ```
 
 ```

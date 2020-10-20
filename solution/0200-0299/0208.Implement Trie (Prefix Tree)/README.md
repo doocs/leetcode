@@ -1,8 +1,9 @@
 # [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree)
 
-[English Version](/solution/0200-0299/0208.Implement%20Trie%20(Prefix%20Tree)/README_EN.md)
+[English Version](</solution/0200-0299/0208.Implement%20Trie%20(Prefix%20Tree)/README_EN.md>)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>实现一个 Trie (前缀树)，包含&nbsp;<code>insert</code>,&nbsp;<code>search</code>, 和&nbsp;<code>startsWith</code>&nbsp;这三个操作。</p>
 
@@ -24,15 +25,14 @@ trie.search(&quot;app&quot;);     // 返回 true</pre>
 	<li>保证所有输入均为非空字符串。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -40,6 +40,7 @@ trie.search(&quot;app&quot;);     // 返回 true</pre>
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -47,6 +48,7 @@ trie.search(&quot;app&quot;);     // 返回 true</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

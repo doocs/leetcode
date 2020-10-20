@@ -1,7 +1,9 @@
-# [面试题35. 复杂链表的复制](https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/)
+# [面试题 35. 复杂链表的复制](https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 请实现 `copyRandomList` 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 `next` 指针指向下一个节点，还有一个 `random` 指针指向链表中的任意节点或者 `null`。
 
 **示例 1：**
@@ -21,7 +23,6 @@
 输入：head = [[1,1],[2,1]]
 输出：[[1,1],[2,1]]
 ```
-
 
 **示例 3：**
 
@@ -43,16 +44,17 @@
 **提示：**
 
 - `-10000 <= Node.val <= 10000`
-- `Node.random` 为空（null）或指向链表中的节点。
+- `Node.random`  为空（null）或指向链表中的节点。
 - 节点数目不超过 1000 。
 
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -84,6 +86,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -129,6 +132,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * // Definition for a Node.
@@ -142,18 +146,18 @@ class Solution {
  * @param {Node} head
  * @return {Node}
  */
-var copyRandomList = function(head) {
-    function copy(node) {
-        if(!node) return null
-        if(isRead.get(node)) return isRead.get(node)
-        let newNode = new Node(node.val)
-        isRead.set(node, newNode)
-        newNode.random = copy(node.random)
-        newNode.next = copy(node.next)
-        return newNode
-    }
-    let isRead = new Map()
-    return copy(head)
+var copyRandomList = function (head) {
+  function copy(node) {
+    if (!node) return null;
+    if (isRead.get(node)) return isRead.get(node);
+    let newNode = new Node(node.val);
+    isRead.set(node, newNode);
+    newNode.random = copy(node.random);
+    newNode.next = copy(node.next);
+    return newNode;
+  }
+  let isRead = new Map();
+  return copy(head);
 };
 ```
 
@@ -204,8 +208,6 @@ func copyRandomList(head *Node) *Node {
     return res
 }
 ```
-
-
 
 ### **...**
 

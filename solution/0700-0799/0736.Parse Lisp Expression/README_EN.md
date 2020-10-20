@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0736.Parse%20Lisp%20Expression/README.md)
 
 ## Description
+
 <p>
 
 You are given a string <code>expression</code> representing a Lisp-like expression to return the integer value of.
@@ -40,8 +41,6 @@ The syntax for these expressions is given as follows.
 <li>Finally, there is the concept of scope.  When an expression of a variable name is evaluated, <b>within the context of that evaluation</b>, the innermost scope (in terms of parentheses) is checked first for the value of that variable, and then outer scopes are checked sequentially.  It is guaranteed that every expression is legal.  Please see the examples for more details on scope.</li>
 
 </p>
-
-
 
 <p><b>Evaluation Examples:</b><br />
 
@@ -115,8 +114,6 @@ of the final x in the add-expression.  That final x will equal 2.
 
 </pre>
 
-
-
 <p><b>Note:</b>
 
 <li>The given string <code>expression</code> is well formatted: There are no leading or trailing spaces, there is only a single space separating different components of the string, and no space between adjacent parentheses.  The expression is guaranteed to be legal and evaluate to an integer.</li>
@@ -127,9 +124,7 @@ of the final x in the add-expression.  That final x will equal 2.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -146,6 +141,7 @@ of the final x in the add-expression.  That final x will equal 2.
 ```
 
 ### **...**
+
 ```
 
 ```

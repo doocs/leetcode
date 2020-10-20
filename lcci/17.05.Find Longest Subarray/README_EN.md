@@ -3,17 +3,12 @@
 [中文文档](/lcci/17.05.Find%20Longest%20Subarray/README.md)
 
 ## Description
+
 <p>Given an array filled with letters and numbers, find the longest subarray with an equal number of letters and numbers.</p>
-
-
 
 <p>Return the subarray. If there are more than one answer, return the one which has the smallest&nbsp;index of its left endpoint. If there is no answer, return an empty arrary.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,21 +32,13 @@
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 	<li><code>array.length &lt;= 100000</code></li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

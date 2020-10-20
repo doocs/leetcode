@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README.md)
 
 ## Description
+
 <p>
 
 Implement a magic directory with <code>buildDict</code>, and <code>search</code> methods.
 
 </p>
-
-
 
 <p>
 
@@ -17,15 +16,11 @@ For the method <code>buildDict</code>, you'll be given a list of non-repetitive 
 
 </p>
 
-
-
 <p>
 
 For the method <code>search</code>, you'll be given a word, and judge whether if you modify <b>exactly</b> one character into <b>another</b> character in this word, the modified word is in the dictionary you just built.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -45,8 +40,6 @@ Input: search("leetcoded"), Output: False
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -61,9 +54,7 @@ Input: search("leetcoded"), Output: False
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +71,7 @@ Input: search("leetcoded"), Output: False
 ```
 
 ### **...**
+
 ```
 
 ```

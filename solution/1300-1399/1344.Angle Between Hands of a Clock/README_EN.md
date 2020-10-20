@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README.md)
 
 ## Description
+
 <p>Given two numbers, <code>hour</code> and <code>minutes</code>. Return the smaller angle (in sexagesimal units) formed between the <code>hour</code> and the <code>minute</code> hand.</p>
 
 <p>&nbsp;</p>
@@ -56,10 +57,7 @@
 	<li>Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted as correct.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +74,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

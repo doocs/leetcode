@@ -3,13 +3,10 @@
 [中文文档](/solution/0100-0199/0172.Factorial%20Trailing%20Zeroes/README.md)
 
 ## Description
+
 <p>Given an integer <i>n</i>, return the number of trailing zeroes in <i>n</i>!.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 <strong>Explanation:</strong>&nbsp;3! = 6, no trailing zero.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -33,15 +26,9 @@
 
 <strong>Explanation:</strong>&nbsp;5! = 120, one trailing zero.</pre>
 
-
-
 <p><b>Note: </b>Your solution should be in logarithmic time complexity.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

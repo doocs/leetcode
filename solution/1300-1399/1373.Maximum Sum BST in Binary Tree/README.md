@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一棵以&nbsp;<code>root</code>&nbsp;为根的&nbsp;<strong>二叉树</strong>&nbsp;，请你返回 <strong>任意</strong>&nbsp;二叉搜索子树的最大键值和。</p>
 
@@ -62,15 +63,14 @@
 	<li>每个节点的键值在&nbsp;<code>[-4 * 10^4&nbsp;, 4 * 10^4]</code> 之间。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -78,6 +78,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -85,6 +86,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1259.Handshakes%20That%20Don't%20Cross/README.md)
 
 ## Description
+
 <p>You are given an <strong>even</strong> number of people <code>num_people</code> that stand around a circle and each person shakes hands with someone else, so that there are <code>num_people / 2</code> handshakes total.</p>
 
 <p>Return the number of ways these handshakes could occur such that none of the handshakes cross.</p>
@@ -51,10 +52,7 @@
 	<li><code>num_people % 2 == 0</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -71,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

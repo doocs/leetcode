@@ -3,17 +3,12 @@
 [中文文档](/lcci/04.06.Successor/README.md)
 
 ## Description
+
 <p>Write an algorithm to find the &quot;next&quot; node (i.e., in-order successor) of a given node in a binary search tree.</p>
-
-
 
 <p>Return <code>null</code> if there&#39;s no &quot;next&quot; node for the given node.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +26,7 @@
 
 <strong>Output:</strong> 2</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,11 +52,7 @@
 
 <strong>Output:</strong> null</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -82,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

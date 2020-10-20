@@ -3,17 +3,16 @@
 [中文文档](/solution/0700-0799/0744.Find%20Smallest%20Letter%20Greater%20Than%20Target/README.md)
 
 ## Description
+
 <p>
 
 Given a list of sorted characters <code>letters</code> containing only lowercase letters, and given a target letter <code>target</code>, find the smallest element in the list that is larger than the given target.
 
 </p><p>
 
-Letters also wrap around.  For example, if the target is <code>target = 'z'</code> and <code>letters = ['a', 'b']</code>, the answer is <code>'a'</code>.
+Letters also wrap around. For example, if the target is <code>target = 'z'</code> and <code>letters = ['a', 'b']</code>, the answer is <code>'a'</code>.
 
 </p>
-
-
 
 <p><b>Examples:</b><br />
 
@@ -81,8 +80,6 @@ target = "k"
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -97,9 +94,7 @@ target = "k"
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -116,6 +111,7 @@ target = "k"
 ```
 
 ### **...**
+
 ```
 
 ```

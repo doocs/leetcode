@@ -1,9 +1,11 @@
-# [面试题24. 反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
+# [面试题 24. 反转链表](https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/)
 
 ## 题目描述
+
 定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
 
 **示例:**
+
 ```
 输入: 1->2->3->4->5->NULL
 输出: 5->4->3->2->1->NULL
@@ -21,10 +23,10 @@
 
 当遍历结束后，返回 `pre` 指针即可。
 
-
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -44,6 +46,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -69,6 +72,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -81,16 +85,16 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-    let node = head
-    let pre = null
-    while(node) {
-        let cur = node
-        node = cur.next
-        cur.next = pre
-        pre = cur
-    }
-    return pre
+var reverseList = function (head) {
+  let node = head;
+  let pre = null;
+  while (node) {
+    let cur = node;
+    node = cur.next;
+    cur.next = pre;
+    pre = cur;
+  }
+  return pre;
 };
 ```
 
@@ -112,8 +116,6 @@ func reverseList(head *ListNode) *ListNode {
     return dummyHead.Next
 }
 ```
-
-
 
 ### **...**
 

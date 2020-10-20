@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1153.String%20Transforms%20Into%20Another%20String/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给出两个长度相同的字符串，分别是 <code>str1</code> 和 <code>str2</code>。请你帮忙判断字符串 <code>str1</code> 能不能在 <strong>零次</strong> 或 <strong>多次</strong> 转化后变成字符串 <code>str2</code>。</p>
 
@@ -35,15 +36,14 @@
 	<li><code>str1</code> 和 <code>str2</code> 中都只会出现 <strong>小写英文字母</strong></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

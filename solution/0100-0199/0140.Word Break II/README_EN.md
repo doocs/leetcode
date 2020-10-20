@@ -3,27 +3,20 @@
 [中文文档](/solution/0100-0199/0140.Word%20Break%20II/README.md)
 
 ## Description
+
 <p>Given a <strong>non-empty</strong> string <em>s</em> and a dictionary <em>wordDict</em> containing a list of <strong>non-empty</strong> words, add spaces in <em>s</em> to construct a sentence where each word is a valid dictionary word.&nbsp;Return all such possible sentences.</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li>The same word in the dictionary may be reused multiple times in the segmentation.</li>
+    <li>The same word in the dictionary may be reused multiple times in the segmentation.</li>
 
-	<li>You may assume the dictionary does not contain duplicate words.</li>
+    <li>You may assume the dictionary does not contain duplicate words.</li>
 
 </ul>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +38,7 @@ wordDict = <code>[&quot;cat&quot;, &quot;cats&quot;, &quot;and&quot;, &quot;sand
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -75,11 +64,7 @@ wordDict = [&quot;apple&quot;, &quot;pen&quot;, &quot;applepen&quot;, &quot;pine
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -93,11 +78,7 @@ wordDict = [&quot;cats&quot;, &quot;dog&quot;, &quot;sand&quot;, &quot;and&quot;
 
 </strong>[]</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -114,6 +95,7 @@ wordDict = [&quot;cats&quot;, &quot;dog&quot;, &quot;sand&quot;, &quot;and&quot;
 ```
 
 ### **...**
+
 ```
 
 ```

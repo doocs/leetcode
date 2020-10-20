@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0604.Design%20Compressed%20String%20Iterator/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>对于一个压缩字符串，设计一个数据结构，它支持如下两种操作： <code>next</code> 和 <code>hasNext</code>。</p>
 
@@ -34,15 +35,14 @@ iterator.next(); // 返回 ' '
 
 <p> </p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -50,6 +50,7 @@ iterator.next(); // 返回 ' '
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -57,6 +58,7 @@ iterator.next(); // 返回 ' '
 ```
 
 ### **...**
+
 ```
 
 ```

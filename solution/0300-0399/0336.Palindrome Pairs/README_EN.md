@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0336.Palindrome%20Pairs/README.md)
 
 ## Description
+
 <p>Given a list of <b>unique</b> words, find all pairs of <b><i>distinct</i></b> indices <code>(i, j)</code> in the given list, so that the concatenation of the two words, i.e. <code>words[i] + words[j]</code> is a palindrome.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <div>
 
@@ -23,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +38,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

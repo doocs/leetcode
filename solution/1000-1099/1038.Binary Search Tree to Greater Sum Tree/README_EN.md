@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/README.md)
 
 ## Description
+
 <p>Given the root of a binary <strong>search</strong> tree with distinct values, modify it so that every <code>node</code>&nbsp;has a new value equal to the sum of the values of the original tree that are greater than or equal to <code>node.val</code>.</p>
 
 <p>As a reminder, a&nbsp;<em>binary search tree</em> is a tree that satisfies these constraints:</p>
@@ -42,10 +43,7 @@
 </div>
 </div>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +60,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

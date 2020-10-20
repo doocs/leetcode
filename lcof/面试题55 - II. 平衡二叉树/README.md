@@ -1,6 +1,7 @@
-# [面试题55 - II. 平衡二叉树](https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/)
+# [面试题 55 - II. 平衡二叉树](https://leetcode-cn.com/problems/ping-heng-er-cha-shu-lcof/)
 
 ## 题目描述
+
 输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过 1，那么它就是一棵平衡二叉树。
 
 **示例 1:**
@@ -31,16 +32,18 @@
  4   4
 ```
 
-返回 `false`。
+返回  `false`。
 
 **限制：**
 
 - `1 <= 树的结点个数 <= 10000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -62,6 +65,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -90,6 +94,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -102,20 +107,21 @@ class Solution {
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isBalanced = function(root) {
-    if(!root) return true
-    if(!isBalanced(root.left) || !isBalanced(root.right)) return false
-    if(Math.abs(getDepth(root.left)-getDepth(root.right)) > 1) return false
-    return true
+var isBalanced = function (root) {
+  if (!root) return true;
+  if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
+  if (Math.abs(getDepth(root.left) - getDepth(root.right)) > 1) return false;
+  return true;
 };
 
 function getDepth(node) {
-    if(!node) return 0
-    return Math.max(getDepth(node.left),getDepth(node.right)) + 1
+  if (!node) return 0;
+  return Math.max(getDepth(node.left), getDepth(node.right)) + 1;
 }
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,29 +3,22 @@
 [中文文档](/solution/0200-0299/0216.Combination%20Sum%20III/README.md)
 
 ## Description
+
 <div>
 
 <p>Find all possible combinations of <i><b>k</b></i> numbers that add up to a number <i><b>n</b></i>, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 
-	<li>All numbers will be positive integers.</li>
+    <li>All numbers will be positive integers.</li>
 
-	<li>The solution set must not contain duplicate combinations.</li>
+    <li>The solution set must not contain duplicate combinations.</li>
 
 </ul>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +28,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,9 +40,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

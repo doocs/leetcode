@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0727.Minimum%20Window%20Subsequence/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定字符串 <code>S</code> and <code>T</code>，找出 <code>S</code> 中最短的（连续）<strong>子串</strong> <code>W</code> ，使得 <code>T</code> 是 <code>W</code> 的 <strong>子序列</strong> 。</p>
 
@@ -29,15 +30,14 @@ S = "abcdebdde", T = "bde"
 
 <p> </p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -45,6 +45,7 @@ S = "abcdebdde", T = "bde"
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -52,6 +53,7 @@ S = "abcdebdde", T = "bde"
 ```
 
 ### **...**
+
 ```
 
 ```

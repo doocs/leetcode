@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0061.Rotate%20List/README.md)
 
 ## Description
+
 <p>Given a linked&nbsp;list, rotate the list to the right by <em>k</em> places, where <em>k</em> is non-negative.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +22,7 @@ rotate 2 steps to the right: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -47,11 +40,7 @@ rotate 3 steps to the right:&nbsp;<code>0-&gt;1-&gt;2-&gt;NULL</code>
 
 rotate 4 steps to the right:&nbsp;<code>2-&gt;0-&gt;1-&gt;NULL</code></pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +57,7 @@ rotate 4 steps to the right:&nbsp;<code>2-&gt;0-&gt;1-&gt;NULL</code></pre>
 ```
 
 ### **...**
+
 ```
 
 ```

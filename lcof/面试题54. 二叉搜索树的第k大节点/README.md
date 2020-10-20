@@ -1,7 +1,8 @@
-# [面试题54. 二叉搜索树的第k大节点](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/)
+# [面试题 54. 二叉搜索树的第 k 大节点](https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/)
 
 ## 题目描述
-给定一棵二叉搜索树，请找出其中第k大的节点。
+
+给定一棵二叉搜索树，请找出其中第 k 大的节点。
 
 **示例 1:**
 
@@ -34,12 +35,13 @@
 - `1 ≤ k ≤ 二叉搜索树元素个数`
 
 ## 解法
-先遍历右子树，访问根节点，再遍历左子树。遍历到第 k 个结点时，存储结果。
 
+先遍历右子树，访问根节点，再遍历左子树。遍历到第 k 个结点时，存储结果。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -66,6 +68,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -100,6 +103,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -113,21 +117,22 @@ class Solution {
  * @param {number} k
  * @return {number}
  */
-var kthLargest = function(root, k) {
-    let res
-    let t = 0
-    function traversal(node) {
-        if(!node) return
-        traversal(node.right)
-        if(++t === k) res = node.val
-        traversal(node.left)
-    }
-    traversal(root)
-    return res
+var kthLargest = function (root, k) {
+  let res;
+  let t = 0;
+  function traversal(node) {
+    if (!node) return;
+    traversal(node.right);
+    if (++t === k) res = node.val;
+    traversal(node.left);
+  }
+  traversal(root);
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

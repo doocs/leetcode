@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0221.Maximal%20Square/README.md)
 
 ## Description
+
 <p>Given a 2D binary matrix filled with 0&#39;s and 1&#39;s, find the largest square containing only 1&#39;s and return its area.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -31,9 +28,7 @@
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

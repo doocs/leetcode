@@ -3,37 +3,22 @@
 [中文文档](/solution/0600-0699/0636.Exclusive%20Time%20of%20Functions/README.md)
 
 ## Description
+
 <p>On a <strong>single threaded</strong> CPU, we execute some functions.&nbsp; Each function has a unique id between <code>0</code> and <code>N-1</code>.</p>
-
-
 
 <p>We store logs in timestamp order that describe when a function is entered or exited.</p>
 
-
-
 <p>Each log is a string with this format: <code>&quot;{function_id}:{&quot;start&quot; | &quot;end&quot;}:{timestamp}&quot;</code>.&nbsp; For example, <code>&quot;0:start:3&quot;</code>&nbsp;means the function with id <code>0</code> <strong>started at the beginning</strong> of timestamp <code>3</code>.&nbsp; <code>&quot;1:end:2&quot;</code> means the function with id <code>1</code> <strong>ended at the end</strong> of timestamp <code>2</code>.</p>
-
-
 
 <p>A function&#39;s <em>exclusive time</em>&nbsp;is the number of units of time spent in this function.&nbsp; Note that this does <strong>not</strong> include any recursive&nbsp;calls to child functions.</p>
 
-
-
 <p>The CPU is <strong>single threaded</strong> which means that only one function is being executed at a given time unit.</p>
-
-
 
 <p>Return the exclusive time of each function, sorted by their function id.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 ![](./images/diag1b.png)
 
@@ -59,15 +44,9 @@ So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spe
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
@@ -75,15 +54,9 @@ So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spe
 	<li>Functions will always log when they exit.</li>
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +73,7 @@ So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spe
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,11 +3,10 @@
 [中文文档](/solution/0400-0499/0472.Concatenated%20Words/README.md)
 
 ## Description
+
 Given a list of words (<b>without duplicates</b>), please write a program that returns all concatenated words in the given list of words.
 
 <p>A concatenated word is defined as a string that is comprised entirely of at least two shorter words in the given array.</p>
-
-
 
 <p><b>Example:</b><br />
 
@@ -27,8 +26,6 @@ Given a list of words (<b>without duplicates</b>), please write a program that r
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -45,9 +42,7 @@ Given a list of words (<b>without duplicates</b>), please write a program that r
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +59,7 @@ Given a list of words (<b>without duplicates</b>), please write a program that r
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,25 +3,16 @@
 [中文文档](/solution/0000-0099/0071.Simplify%20Path/README.md)
 
 ## Description
+
 <p>Given an <strong>absolute path</strong> for a file (Unix-style), simplify it. Or in other words, convert it to the <strong>canonical path</strong>.</p>
-
-
 
 <p>In a UNIX-style file system, a period <code>.</code>&nbsp;refers to the current directory. Furthermore, a double period <code>..</code>&nbsp;moves the directory up a level. For more information, see:&nbsp;<a href="https://www.linuxnix.com/abslute-path-vs-relative-path-in-linuxunix/" target="_blank">Absolute path&nbsp;vs&nbsp;relative&nbsp;path&nbsp;in&nbsp;Linux/Unix</a></p>
 
-
-
 <p>Note that the returned canonical path must always begin&nbsp;with a slash <code>/</code>, and there must be only a single slash <code>/</code>&nbsp;between two directory names.&nbsp;The last directory name (if it exists) <b>must not</b>&nbsp;end with a trailing <code>/</code>. Also, the canonical path must be the <strong>shortest</strong> string&nbsp;representing the absolute path.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -49,11 +36,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -65,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -79,11 +58,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -93,11 +68,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 6:</strong></p>
-
-
 
 <pre>
 
@@ -107,11 +78,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -128,6 +95,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

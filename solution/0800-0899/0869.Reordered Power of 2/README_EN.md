@@ -3,29 +3,20 @@
 [中文文档](/solution/0800-0899/0869.Reordered%20Power%20of%202/README.md)
 
 ## Description
+
 <p>Starting with a positive integer <code>N</code>, we reorder the digits in any order (including the original order) such that the leading digit is not zero.</p>
-
-
 
 <p>Return <code>true</code>&nbsp;if and only if we can do this in a way such that the resulting number is a power of 2.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,13 +38,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,13 +50,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -83,13 +62,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -99,19 +74,13 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= N &lt;= 10^9</code></li>
+    <li><code>1 &lt;= N &lt;= 10^9</code></li>
 
 </ol>
 
@@ -125,11 +94,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -146,6 +111,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

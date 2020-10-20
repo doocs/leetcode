@@ -1,8 +1,9 @@
-# [468. 验证IP地址](https://leetcode-cn.com/problems/validate-ip-address)
+# [468. 验证 IP 地址](https://leetcode-cn.com/problems/validate-ip-address)
 
 [English Version](/solution/0400-0499/0468.Validate%20IP%20Address/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>编写一个函数来验证输入的字符串是否是有效的 IPv4 或&nbsp;IPv6 地址。</p>
 
@@ -48,15 +49,14 @@
 <strong>解释:</strong> 这个地址既不是 IPv4 也不是 IPv6 地址。
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -64,6 +64,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -71,6 +72,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

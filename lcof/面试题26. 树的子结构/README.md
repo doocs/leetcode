@@ -1,7 +1,8 @@
-# [面试题26. 树的子结构](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/)
+# [面试题 26. 树的子结构](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/)
 
 ## 题目描述
-输入两棵二叉树 A 和 B，判断 B 是不是 A W的子结构。(约定空树不是任意一个树的子结构)
+
+输入两棵二叉树 A 和 B，判断 B 是不是 A W 的子结构。(约定空树不是任意一个树的子结构)
 
 B 是 A 的子结构， 即 A 中有出现和 B 相同的结构和节点值。
 
@@ -46,9 +47,11 @@ B 是 A 的子结构， 即 A 中有出现和 B 相同的结构和节点值。
 - `0 <= 节点个数 <= 10000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -79,6 +82,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -105,7 +109,7 @@ class Solution {
             return isSame(A, B) || sub(A.left, B) || sub(A.right, B);
         }
         return sub(A.left, B) || sub(A.right, B);
-        
+
     }
 
     private boolean isSame(TreeNode A, TreeNode B) {
@@ -121,6 +125,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -134,32 +139,32 @@ class Solution {
  * @param {TreeNode} B
  * @return {boolean}
  */
-var isSubStructure = function(A, B) {
-    if(!B || !A) return false
-    let res
-    function dfs(A,B,bool) {
-        if(!A || !B) {
-            if(B) {
-                return false
-            } else {
-                return true
-            }
-        }
-        if(A.val === B.val) {
-            let left = dfs(A.left,B.left,true)
-            let right = dfs(A.right,B.right,true)
-            if(left && right) return true
-            else return false
-        } else {
-            if(bool) return false
-            else {
-                let left = dfs(A.left,B,false)
-                let right = dfs(A.right,B,false)
-                return left || right
-            }
-        }
+var isSubStructure = function (A, B) {
+  if (!B || !A) return false;
+  let res;
+  function dfs(A, B, bool) {
+    if (!A || !B) {
+      if (B) {
+        return false;
+      } else {
+        return true;
+      }
     }
-    return dfs(A,B,false) || false
+    if (A.val === B.val) {
+      let left = dfs(A.left, B.left, true);
+      let right = dfs(A.right, B.right, true);
+      if (left && right) return true;
+      else return false;
+    } else {
+      if (bool) return false;
+      else {
+        let left = dfs(A.left, B, false);
+        let right = dfs(A.right, B, false);
+        return left || right;
+      }
+    }
+  }
+  return dfs(A, B, false) || false;
 };
 ```
 
@@ -171,7 +176,7 @@ func isSubStructure(A *TreeNode, B *TreeNode) bool {
     if A == nil || B == nil {
         return false
     }
-    return helper(A,B) || isSubStructure(A.Left,B) || isSubStructure(A.Right,B) 
+    return helper(A,B) || isSubStructure(A.Left,B) || isSubStructure(A.Right,B)
 }
 
 func helper(a *TreeNode, b *TreeNode) bool {
@@ -184,8 +189,6 @@ func helper(a *TreeNode, b *TreeNode) bool {
     return a.Val == b.Val && helper(a.Left, b.Left) && helper(a.Right, b.Right)
 }
 ```
-
-
 
 ### **...**
 

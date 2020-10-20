@@ -3,6 +3,7 @@
 [English Version](/solution/0200-0299/0251.Flatten%202D%20Vector/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>请设计并实现一个能够展开二维向量的迭代器。该迭代器需要支持 <code>next</code> 和 <code>hasNext</code> 两种操作。、</p>
 
@@ -34,15 +35,14 @@ iterator.hasNext(); // 返回 false
 
 <p>尝试在代码中仅使用 <a href="http://www.cplusplus.com/reference/iterator/iterator/">C++ 提供的迭代器</a> 或 <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html">Java 提供的迭代器</a>。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -50,6 +50,7 @@ iterator.hasNext(); // 返回 false
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -57,6 +58,7 @@ iterator.hasNext(); // 返回 false
 ```
 
 ### **...**
+
 ```
 
 ```

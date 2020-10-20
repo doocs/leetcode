@@ -3,19 +3,14 @@
 [中文文档](/solution/1300-1399/1351.Count%20Negative%20Numbers%20in%20a%20Sorted%20Matrix/README.md)
 
 ## Description
+
 <p>Given a <code>m&nbsp;* n</code>&nbsp;matrix <code>grid</code>&nbsp;which is sorted in non-increasing order both row-wise and column-wise.&nbsp;</p>
 
-
-
 <p>Return the number of <strong>negative</strong> numbers in&nbsp;<code>grid</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +42,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -69,29 +52,23 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>m == grid.length</code></li>
+    <li><code>m == grid.length</code></li>
 
-	<li><code>n == grid[i].length</code></li>
+    <li><code>n == grid[i].length</code></li>
 
-	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+    <li><code>1 &lt;= m, n &lt;= 100</code></li>
 
-	<li><code>-100 &lt;= grid[i][j] &lt;= 100</code></li>
+    <li><code>-100 &lt;= grid[i][j] &lt;= 100</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -108,6 +85,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

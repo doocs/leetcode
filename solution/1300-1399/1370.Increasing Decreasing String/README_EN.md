@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1370.Increasing%20Decreasing%20String/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code>. You should re-order the string using the following algorithm:</p>
 
 <ol>
@@ -69,10 +70,7 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 	<li><code>s</code> contains only lower-case English letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -89,6 +87,7 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 ```
 
 ### **...**
+
 ```
 
 ```

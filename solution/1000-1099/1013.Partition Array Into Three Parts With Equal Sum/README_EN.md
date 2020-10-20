@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1013.Partition%20Array%20Into%20Three%20Parts%20With%20Equal%20Sum/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of integers, return <code>true</code> if and only if we can partition the array into three <strong>non-empty</strong> parts with equal sums.</p>
 
 <p>Formally, we can partition the array if we can find indexes <code>i+1 &lt; j</code> with <code>(A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1])</code></p>
@@ -39,10 +40,7 @@
 	<li><code>-10^4&nbsp;&lt;= A[i] &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -59,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

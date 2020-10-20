@@ -1,6 +1,7 @@
-# [面试题40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)
+# [面试题 40. 最小的 k 个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)
 
 ## 题目描述
+
 输入整数数组 `arr`，找出其中最小的 `k` 个数。例如，输入 4、5、1、6、2、7、3、8 这 8 个数字，则最小的 4 个数字是 1、2、3、4。
 
 **示例 1：**
@@ -20,12 +21,14 @@
 **限制：**
 
 - `0 <= k <= arr.length <= 10000`
-- `0 <= arr[i] <= 10000`
+- `0 <= arr[i] <= 10000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 import heapq
 
@@ -40,6 +43,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public int[] getLeastNumbers(int[] arr, int k) {
@@ -67,48 +71,50 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} arr
  * @param {number} k
  * @return {number[]}
  */
-var getLeastNumbers = function(arr, k) {
-    // 排序
-    // return arr.sort((a,b)=>a-b).slice(0,k)
-    // ==========================================
-    // 快排思想
-    let left = 0
-    let right = arr.length-1
-    while(left < right) {
-        let i = partition(left, right)
-        if(i <= k) {
-            left = i+1
-        }
-        if(i >= k){
-            right = i-1
-        }
+var getLeastNumbers = function (arr, k) {
+  // 排序
+  // return arr.sort((a,b)=>a-b).slice(0,k)
+  // ==========================================
+  // 快排思想
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    let i = partition(left, right);
+    if (i <= k) {
+      left = i + 1;
     }
-    function partition(left, right) {
-        let pivot = arr[left]
-        while(left < right) {
-            while(left < right && arr[right] >= pivot) {
-                right--
-            }
-            arr[left] = arr[right]
-            while(left < right && arr[left] <= pivot) {
-                left++
-            }
-            arr[right] = arr[left]
-        }
-        arr[left] = pivot
-        return left
+    if (i >= k) {
+      right = i - 1;
     }
-    return arr.slice(0, k)
+  }
+  function partition(left, right) {
+    let pivot = arr[left];
+    while (left < right) {
+      while (left < right && arr[right] >= pivot) {
+        right--;
+      }
+      arr[left] = arr[right];
+      while (left < right && arr[left] <= pivot) {
+        left++;
+      }
+      arr[right] = arr[left];
+    }
+    arr[left] = pivot;
+    return left;
+  }
+  return arr.slice(0, k);
 };
 ```
 
 ### **...**
+
 ```
 
 ```

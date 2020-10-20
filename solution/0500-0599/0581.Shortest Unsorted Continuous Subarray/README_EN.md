@@ -3,13 +3,10 @@
 [中文文档](/solution/0500-0599/0581.Shortest%20Unsorted%20Continuous%20Subarray/README.md)
 
 ## Description
-<p>Given an integer array, you need to find one <b>continuous subarray</b> that if you only sort this subarray in ascending order, then the whole array will be sorted in ascending order, too. </p> 
 
-
+<p>Given an integer array, you need to find one <b>continuous subarray</b> that if you only sort this subarray in ascending order, then the whole array will be sorted in ascending order, too. </p>
 
 <p>You need to find the <b>shortest</b> such subarray and output its length.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,8 +22,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -39,9 +34,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

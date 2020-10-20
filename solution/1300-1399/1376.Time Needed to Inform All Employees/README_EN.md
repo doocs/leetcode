@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README.md)
 
 ## Description
+
 <p>A company has <code>n</code> employees with a unique ID for each employee from <code>0</code> to <code>n - 1</code>. The head of the company has is the one with <code>headID</code>.</p>
 
 <p>Each employee has one&nbsp;direct manager given in the <code>manager</code> array where <code>manager[i]</code> is the direct manager of the <code>i-th</code> employee,&nbsp;<code>manager[headID] = -1</code>. Also it&#39;s guaranteed that the subordination relationships have a tree structure.</p>
@@ -81,10 +82,7 @@ The third minute they will inform the rest of employees.
 	<li>It is <strong>guaranteed</strong> that all the employees can be informed.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -101,6 +99,7 @@ The third minute they will inform the rest of employees.
 ```
 
 ### **...**
+
 ```
 
 ```

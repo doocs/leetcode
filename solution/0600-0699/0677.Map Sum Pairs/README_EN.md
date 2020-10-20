@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0677.Map%20Sum%20Pairs/README.md)
 
 ## Description
+
 <p>
 
 Implement a MapSum class with <code>insert</code>, and <code>sum</code> methods.
 
 </p>
-
-
 
 <p>
 
@@ -17,15 +16,11 @@ For the method <code>insert</code>, you'll be given a pair of (string, integer).
 
 </p>
 
-
-
 <p>
 
 For the method <code>sum</code>, you'll be given a string representing the prefix, and you need to return the sum of all the pairs' value whose key starts with the prefix.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,11 +38,7 @@ Input: sum("ap"), Output: 5
 
 </p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +55,7 @@ Input: sum("ap"), Output: 5
 ```
 
 ### **...**
+
 ```
 
 ```

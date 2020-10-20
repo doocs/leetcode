@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1169.Invalid%20Transactions/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>如果出现下述两种情况，交易 <strong>可能无效</strong>：</p>
 
@@ -47,15 +48,14 @@
 	<li>每笔交易金额&nbsp;<code>{amount}</code>&nbsp;由一些数字组成，表示一个&nbsp;<code>0</code> 到&nbsp;<code>2000</code>&nbsp;之间的整数</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -63,6 +63,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -70,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

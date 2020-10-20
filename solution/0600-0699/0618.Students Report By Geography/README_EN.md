@@ -3,23 +3,22 @@
 [中文文档](/solution/0600-0699/0618.Students%20Report%20By%20Geography/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```
-SELECT MAX(CASE 
+SELECT MAX(CASE
 		WHEN continent = 'America' THEN name
-	END) AS America, MAX(CASE 
+	END) AS America, MAX(CASE
 		WHEN continent = 'Asia' THEN name
 	END) AS Asia
-	, MAX(CASE 
+	, MAX(CASE
 		WHEN continent = 'Europe' THEN name
 	END) AS Europe
 FROM (

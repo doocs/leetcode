@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0484.Find%20Permutation/README.md)
 
 ## Description
+
 <p>
 By now, you are given a <b>secret signature</b> consisting of character 'D' and 'I'. 'D' represents a decreasing relationship between two numbers, 'I' represents an increasing relationship between two numbers. And our <b>secret signature</b> was constructed by a special integer array, which contains uniquely all the different number from 1 to n (n is the length of the secret signature plus 1). For example, the secret signature "DI" can be constructed by array [2,1,3] or [3,1,2], but won't be constructed by array [3,2,4] or [2,1,3,4], which are both illegal constructing special string that can't represent the "DI" <b>secret signature</b>.
 </p>
@@ -32,9 +33,7 @@ On the other hand, now your job is to find the lexicographically smallest permut
 <li>The length of input string is a positive integer and will not exceed 10,000</li>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -51,6 +50,7 @@ On the other hand, now your job is to find the lexicographically smallest permut
 ```
 
 ### **...**
+
 ```
 
 ```

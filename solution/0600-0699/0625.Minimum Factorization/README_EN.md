@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0625.Minimum%20Factorization/README.md)
 
 ## Description
+
 <p>Given a positive integer <code>a</code>, find the smallest positive integer <code>b</code> whose multiplication of each digit equals to <code>a</code>. </p>
 
 <p>
@@ -22,12 +23,11 @@ Input:
 <pre>15</pre>
 
 Output:
+
 <pre>35</pre>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -44,6 +44,7 @@ Output:
 ```
 
 ### **...**
+
 ```
 
 ```

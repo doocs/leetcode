@@ -3,27 +3,20 @@
 [中文文档](/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/README.md)
 
 ## Description
+
 <p>Write an efficient algorithm that searches for a value in an <i>m</i> x <i>n</i> matrix. This matrix has the following properties:</p>
-
-
 
 <ul>
 
-	<li>Integers in each row are sorted in ascending from left to right.</li>
+    <li>Integers in each row are sorted in ascending from left to right.</li>
 
-	<li>Integers in each column are sorted in ascending from top to bottom.</li>
+    <li>Integers in each column are sorted in ascending from top to bottom.</li>
 
 </ul>
 
-
-
 <p><strong>Example:</strong></p>
 
-
-
 <p>Consider the following matrix:</p>
-
-
 
 <pre>
 
@@ -43,19 +36,11 @@
 
 </pre>
 
-
-
 <p>Given&nbsp;target&nbsp;=&nbsp;<code>5</code>, return&nbsp;<code>true</code>.</p>
-
-
 
 <p>Given&nbsp;target&nbsp;=&nbsp;<code>20</code>, return&nbsp;<code>false</code>.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

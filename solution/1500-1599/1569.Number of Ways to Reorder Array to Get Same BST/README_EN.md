@@ -74,15 +74,11 @@
 	<li>All integers in&nbsp;<code>nums</code>&nbsp;are&nbsp;<strong>distinct</strong>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -90,12 +86,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

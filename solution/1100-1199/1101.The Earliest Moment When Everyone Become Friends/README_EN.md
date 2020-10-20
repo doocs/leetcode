@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README.md)
 
 ## Description
+
 <p>In a social group, there are <code>N</code> people, with unique integer ids from <code>0</code> to <code>N-1</code>.</p>
 
 <p>We have a list of <code>logs</code>, where each <code>logs[i] = [timestamp, id_A, id_B]</code> contains a non-negative integer timestamp, and the ids of two different people.</p>
@@ -43,10 +44,7 @@ The sixth event occurs at timestamp = 20190301 and after 0 and 3 become friends 
 	<li><code>logs[i][1] != logs[i][2]</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -63,6 +61,7 @@ The sixth event occurs at timestamp = 20190301 and after 0 and 3 become friends 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,17 +3,14 @@
 [中文文档](/solution/0400-0499/0456.132%20Pattern/README.md)
 
 ## Description
+
 <p>
 
 Given a sequence of n integers a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>, a 132 pattern is a subsequence a<sub><b>i</b></sub>, a<sub><b>j</b></sub>, a<sub><b>k</b></sub> such
 
 that <b>i</b> < <b>j</b> < <b>k</b> and a<sub><b>i</b></sub> < a<sub><b>k</b></sub> < a<sub><b>j</b></sub>. Design an algorithm that takes a list of n numbers as input and checks whether there is a 132 pattern in the list.</p>
 
-
-
 <p><b>Note:</b> n will be less than 15,000.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -33,8 +30,6 @@ that <b>i</b> < <b>j</b> < <b>k</b> and a<sub><b>i</b></sub> < a<sub><b>k</b></s
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -52,8 +47,6 @@ that <b>i</b> < <b>j</b> < <b>k</b> and a<sub><b>i</b></sub> < a<sub><b>k</b></s
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -73,9 +66,7 @@ that <b>i</b> < <b>j</b> < <b>k</b> and a<sub><b>i</b></sub> < a<sub><b>k</b></s
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +83,7 @@ that <b>i</b> < <b>j</b> < <b>k</b> and a<sub><b>i</b></sub> < a<sub><b>k</b></s
 ```
 
 ### **...**
+
 ```
 
 ```

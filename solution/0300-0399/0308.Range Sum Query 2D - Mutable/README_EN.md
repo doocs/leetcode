@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/README.md)
 
 ## Description
+
 <p>Given a 2D matrix <i>matrix</i>, find the sum of the elements inside the rectangle defined by its upper left corner (<i>row</i>1, <i>col</i>1) and lower right corner (<i>row</i>2, <i>col</i>2).</p>
 
 <p>
@@ -23,6 +24,7 @@ Given matrix = [
 sumRegion(2, 1, 4, 3) -> 8
 update(3, 2, 2)
 sumRegion(2, 1, 4, 3) -> 10
+
 </pre>
 </p>
 
@@ -34,9 +36,7 @@ sumRegion(2, 1, 4, 3) -> 10
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +53,7 @@ sumRegion(2, 1, 4, 3) -> 10
 ```
 
 ### **...**
+
 ```
 
 ```

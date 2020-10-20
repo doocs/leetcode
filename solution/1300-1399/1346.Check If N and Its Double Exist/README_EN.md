@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README.md)
 
 ## Description
+
 <p>Given an array <code>arr</code> of integers, check if there exists two integers <code>N</code> and <code>M</code> such that <code>N</code> is the double of <code>M</code> ( i.e. <code>N = 2 * M</code>).</p>
 
 <p>More formally check if there exists&nbsp;two indices <code>i</code> and <code>j</code> such that :</p>
@@ -46,10 +47,7 @@
 	<li><code>-10^3 &lt;= arr[i] &lt;= 10^3</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +64,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

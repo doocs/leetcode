@@ -3,13 +3,12 @@
 [中文文档](/solution/1300-1399/1310.XOR%20Queries%20of%20a%20Subarray/README.md)
 
 ## Description
+
 Given the array <code>arr</code> of positive integers and the array <code>queries</code> where <code>queries[i] = [L<sub>i,&nbsp;</sub>R<sub>i</sub>]</code>,&nbsp;for each query <code>i</code> compute the <strong>XOR</strong> of elements from <code>L<sub>i</sub></code> to <code>Ri</code> (that is, <code>arr[L<sub>i</sub>] <strong>xor</strong> arr[L<sub>i+1</sub>] <strong>xor</strong> ... <strong>xor</strong> arr[R<sub>i</sub>]</code> ). Return an array containing the result for the given <code>queries</code>.
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +40,7 @@ The XOR values for queries are:
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,31 +50,25 @@ The XOR values for queries are:
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= arr.length &lt;= 3 *&nbsp;10^4</code></li>
+    <li><code>1 &lt;= arr.length &lt;= 3 *&nbsp;10^4</code></li>
 
-	<li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
+    <li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
 
-	<li><code>1 &lt;= queries.length &lt;= 3 * 10^4</code></li>
+    <li><code>1 &lt;= queries.length &lt;= 3 * 10^4</code></li>
 
-	<li><code>queries[i].length == 2</code></li>
+    <li><code>queries[i].length == 2</code></li>
 
-	<li><code>0 &lt;= queries[i][0] &lt;= queries[i][1] &lt; arr.length</code></li>
+    <li><code>0 &lt;= queries[i][0] &lt;= queries[i][1] &lt; arr.length</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +85,7 @@ The XOR values for queries are:
 ```
 
 ### **...**
+
 ```
 
 ```

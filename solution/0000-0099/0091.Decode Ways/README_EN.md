@@ -3,9 +3,8 @@
 [中文文档](/solution/0000-0099/0091.Decode%20Ways/README.md)
 
 ## Description
+
 <p>A message containing letters from <code>A-Z</code> is being encoded to numbers using the following mapping:</p>
-
-
 
 <pre>
 
@@ -19,15 +18,9 @@
 
 </pre>
 
-
-
 <p>Given a <strong>non-empty</strong> string containing only digits, determine the total number of ways to decode it.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -53,11 +42,7 @@
 
 <strong>Explanation:</strong>&nbsp;It could be decoded as &quot;BZ&quot; (2 26), &quot;VF&quot; (22 6), or &quot;BBF&quot; (2 2 6).</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

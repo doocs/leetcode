@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1190.Reverse%20Substrings%20Between%20Each%20Pair%20of%20Parentheses/README.md)
 
 ## Description
+
 <p>You are given a string <code>s</code> that consists of lower case English letters and brackets.&nbsp;</p>
 
 <p>Reverse the strings&nbsp;in each&nbsp;pair of matching parentheses, starting&nbsp;from the innermost one.</p>
@@ -49,10 +50,7 @@
 	<li>It&#39;s guaranteed that all parentheses are balanced.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -69,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

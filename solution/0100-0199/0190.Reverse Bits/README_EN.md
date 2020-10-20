@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0190.Reverse%20Bits/README.md)
 
 ## Description
+
 <p>Reverse bits of a given 32 bits unsigned integer.</p>
 
 <p>&nbsp;</p>
@@ -37,10 +38,7 @@
 
 <p>If this function is called many times, how would you optimize it?</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

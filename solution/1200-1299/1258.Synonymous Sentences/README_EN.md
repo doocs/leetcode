@@ -3,7 +3,9 @@
 [中文文档](/solution/1200-1299/1258.Synonymous%20Sentences/README.md)
 
 ## Description
+
 Given a list of pairs of equivalent words <code>synonyms</code> and a sentence <code>text</code>, Return all possible synonymous sentences <strong>sorted lexicographically</strong>.
+
 <p> </p>
 <p><strong>Example 1:</strong></p>
 
@@ -31,10 +33,7 @@ text = "I am happy today but was sad yesterday"
 	<li><code>text</code> is a single space separated sentence of at most <code>10</code> words.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -51,6 +50,7 @@ text = "I am happy today but was sad yesterday"
 ```
 
 ### **...**
+
 ```
 
 ```

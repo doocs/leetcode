@@ -3,7 +3,9 @@
 [中文文档](/solution/0500-0599/0573.Squirrel%20Simulation/README.md)
 
 ## Description
+
 There's a tree, a squirrel, and several nuts. Positions are represented by the cells in a 2D grid. Your goal is to find the <b>minimal</b> distance for the squirrel to collect all the nuts and put them under the tree one by one. The squirrel can only take at most <b>one nut</b> at one time and can move in four directions - up, down, left and right, to the adjacent cell. The distance is represented by the number of moves.
+
 <p><b>Example 1:</b></p>
 
 <pre>
@@ -28,10 +30,7 @@ Nuts : [[3,0], [2,5]]
 	<li>The given positions contain at least one nut, only one tree and one squirrel.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -48,6 +47,7 @@ Nuts : [[3,0], [2,5]]
 ```
 
 ### **...**
+
 ```
 
 ```

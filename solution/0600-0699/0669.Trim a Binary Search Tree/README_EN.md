@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
 <p>
 
 Given a binary search tree and the lowest and highest boundaries as <code>L</code> and <code>R</code>, trim the tree so that all its elements lies in <code>[L, R]</code> (R >= L). You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -42,8 +41,6 @@ Given a binary search tree and the lowest and highest boundaries as <code>L</cod
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -89,9 +86,7 @@ Given a binary search tree and the lowest and highest boundaries as <code>L</cod
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -108,6 +103,7 @@ Given a binary search tree and the lowest and highest boundaries as <code>L</cod
 ```
 
 ### **...**
+
 ```
 
 ```

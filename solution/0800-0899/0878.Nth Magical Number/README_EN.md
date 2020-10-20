@@ -3,29 +3,20 @@
 [中文文档](/solution/0800-0899/0878.Nth%20Magical%20Number/README.md)
 
 ## Description
+
 <p>A positive integer&nbsp;is <em>magical</em>&nbsp;if it is divisible by either <font face="monospace">A</font>&nbsp;or <font face="monospace">B</font>.</p>
-
-
 
 <p>Return the <font face="monospace">N</font>-th magical number.&nbsp; Since the answer may be very large, <strong>return it modulo </strong><code>10^9 + 7</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,13 +38,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -67,13 +50,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -83,23 +62,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= N&nbsp;&lt;= 10^9</code></li>
+    <li><code>1 &lt;= N&nbsp;&lt;= 10^9</code></li>
 
-	<li><code>2 &lt;= A&nbsp;&lt;= 40000</code></li>
+    <li><code>2 &lt;= A&nbsp;&lt;= 40000</code></li>
 
-	<li><code>2 &lt;= B&nbsp;&lt;= 40000</code></li>
+    <li><code>2 &lt;= B&nbsp;&lt;= 40000</code></li>
 
 </ol>
 
@@ -111,11 +84,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -132,6 +101,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0867.Transpose%20Matrix/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个矩阵&nbsp;<code>A</code>，&nbsp;返回&nbsp;<code>A</code>&nbsp;的转置矩阵。</p>
 
@@ -31,15 +32,14 @@
 	<li><code>1 &lt;= A[0].length&nbsp;&lt;= 1000</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -47,6 +47,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -54,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1286.Iterator%20for%20Combination/README.md)
 
 ## Description
+
 <p>Design an Iterator class, which has:</p>
 
 <ul>
@@ -35,10 +36,7 @@ iterator.hasNext(); // returns false
 	<li>It&#39;s guaranteed that all&nbsp;calls&nbsp;of the function <code>next</code>&nbsp;are valid.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@ iterator.hasNext(); // returns false
 ```
 
 ### **...**
+
 ```
 
 ```

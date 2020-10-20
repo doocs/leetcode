@@ -3,6 +3,7 @@
 [English Version](/lcci/17.19.Missing%20Two/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个数组，包含从 1 到 N 所有的整数，但其中缺了两个数字。你能在 O(N) 时间内只用 O(1) 的空间找到它们吗？</p>
 
@@ -24,14 +25,16 @@
 	<li><code>nums.length &lt;=&nbsp;30000</code></li>
 </ul>
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
-异或运算。与[面试题56 - I. 数组中数字出现的次数](/lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md) 类似。
+
+异或运算。与[面试题 56 - I. 数组中数字出现的次数](/lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md) 类似。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -47,7 +50,7 @@ class Solution:
         while (res & 1) == 0:
             pos += 1
             res >>= 1
-        
+
         a = b = 0
         for num in nums:
             t = num >> pos
@@ -55,7 +58,7 @@ class Solution:
                 a ^= num
             else:
                 b ^= num
-        
+
         for i in range(1, n + 3):
             t = i >> pos
             if (t & 1) == 0:
@@ -66,6 +69,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -108,6 +112,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

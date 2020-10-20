@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1362.Closest%20Divisors/README.md)
 
 ## Description
+
 <p>Given an integer <code>num</code>, find the closest two integers in absolute difference whose product equals&nbsp;<code>num + 1</code>&nbsp;or <code>num + 2</code>.</p>
 
 <p>Return the two integers in any order.</p>
@@ -37,10 +38,7 @@
 	<li><code>1 &lt;= num &lt;= 10^9</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

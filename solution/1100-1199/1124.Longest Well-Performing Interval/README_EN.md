@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1124.Longest%20Well-Performing%20Interval/README.md)
 
 ## Description
+
 <p>We are given <code>hours</code>, a list of the number of hours&nbsp;worked per day for a given employee.</p>
 
 <p>A day is considered to be a <em>tiring day</em> if and only if the number of hours worked is (strictly) greater than <code>8</code>.</p>
@@ -28,10 +29,7 @@
 	<li><code>0 &lt;= hours[i] &lt;= 16</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -48,6 +46,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

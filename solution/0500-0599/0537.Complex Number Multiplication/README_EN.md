@@ -3,19 +3,16 @@
 [中文文档](/solution/0500-0599/0537.Complex%20Number%20Multiplication/README.md)
 
 ## Description
+
 <p>
 
 Given two strings representing two <a href = "https://en.wikipedia.org/wiki/Complex_number">complex numbers</a>.</p>
-
-
 
 <p>
 
 You need to return a string representing their multiplication. Note i<sup>2</sup> = -1 according to the definition.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -31,8 +28,6 @@ You need to return a string representing their multiplication. Note i<sup>2</sup
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -47,8 +42,6 @@ You need to return a string representing their multiplication. Note i<sup>2</sup
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <ol>
@@ -61,9 +54,7 @@ You need to return a string representing their multiplication. Note i<sup>2</sup
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +71,7 @@ You need to return a string representing their multiplication. Note i<sup>2</sup
 ```
 
 ### **...**
+
 ```
 
 ```

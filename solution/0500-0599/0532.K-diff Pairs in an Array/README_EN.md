@@ -3,15 +3,12 @@
 [中文文档](/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README.md)
 
 ## Description
+
 <p>
 
 Given an array of integers and an integer <b>k</b>, you need to find the number of <b>unique</b> k-diff pairs in the array. Here a <b>k-diff</b> pair is defined as an integer pair (i, j), where <b>i</b> and <b>j</b> are both numbers in the array and their <a href = "https://en.wikipedia.org/wiki/Absolute_difference">absolute difference</a> is <b>k</b>.
 
 </p>
-
-
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -27,8 +24,6 @@ Given an array of integers and an integer <b>k</b>, you need to find the number 
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -42,8 +37,6 @@ Given an array of integers and an integer <b>k</b>, you need to find the number 
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -59,8 +52,6 @@ Given an array of integers and an integer <b>k</b>, you need to find the number 
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -75,9 +66,7 @@ Given an array of integers and an integer <b>k</b>, you need to find the number 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -94,6 +83,7 @@ Given an array of integers and an integer <b>k</b>, you need to find the number 
 ```
 
 ### **...**
+
 ```
 
 ```

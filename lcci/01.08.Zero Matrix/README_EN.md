@@ -3,17 +3,12 @@
 [中文文档](/lcci/01.08.Zero%20Matrix/README.md)
 
 ## Description
+
 <p>Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1: </strong></p>
-
-
 
 <pre>
 
@@ -43,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2: </strong></p>
-
-
 
 <pre>
 
@@ -77,11 +68,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,15 +87,15 @@ class Solution:
                 if matrix[i][j] == 0:
                     zero_rows.add(i)
                     zero_cols.add(j)
-        
+
         for i in zero_rows:
             for j in range(cols):
                 matrix[i][j] = 0
-        
+
         for j in zero_cols:
             for i in range(rows):
                 matrix[i][j] = 0
-        
+
         return matrix
 
 ```
@@ -146,6 +133,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

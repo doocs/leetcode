@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1314.Matrix%20Block%20Sum/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个&nbsp;<code>m * n</code>&nbsp;的矩阵&nbsp;<code>mat</code>&nbsp;和一个整数&nbsp;<code>K</code> ，请你返回一个矩阵&nbsp;<code>answer</code>&nbsp;，其中每个&nbsp;<code>answer[i][j]</code>&nbsp;是所有满足下述条件的元素&nbsp;<code>mat[r][c]</code> 的和：&nbsp;</p>
 
@@ -36,15 +37,14 @@
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -52,6 +52,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -59,6 +60,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

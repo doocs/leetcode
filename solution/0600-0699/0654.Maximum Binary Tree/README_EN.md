@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0654.Maximum%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>
 
 Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
@@ -13,21 +14,17 @@ Given an integer array with no duplicates. A maximum tree building on this array
 
 <li>The left subtree is the maximum tree constructed from left part subarray divided by the maximum number.</li>
 
-<li>The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.</li> 
+<li>The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.</li>
 
 </ol>
 
 </p>
-
-
 
 <p>
 
 Construct the maximum tree by the given array and output the root node of this tree.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -57,8 +54,6 @@ Construct the maximum tree by the given array and output the root node of this t
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -69,9 +64,7 @@ Construct the maximum tree by the given array and output the root node of this t
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +81,7 @@ Construct the maximum tree by the given array and output the root node of this t
 ```
 
 ### **...**
+
 ```
 
 ```

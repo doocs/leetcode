@@ -3,13 +3,10 @@
 [中文文档](/lcci/04.08.First%20Common%20Ancestor/README.md)
 
 ## Description
+
 <p>Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE: This is not necessarily a binary search tree.</p>
 
-
-
 <p>For example, Given the following tree: root = [3,5,1,6,2,0,8,null,null,7,4]</p>
-
-
 
 <pre>
 
@@ -29,11 +26,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +36,7 @@
 
 <strong>Explanation:</strong> The first common ancestor of node 5 and node 1 is node 3.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -57,8 +46,6 @@
 
 <strong>Explanation:</strong> The first common ancestor of node 5 and node 4 is node 5.</pre>
 
-
-
 <p><strong>Notes:</strong></p>
 
 <ul>
@@ -66,11 +53,7 @@
 	<li>p, q are different node and both can be found in the given tree.</li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -118,6 +101,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

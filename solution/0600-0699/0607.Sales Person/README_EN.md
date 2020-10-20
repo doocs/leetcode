@@ -3,11 +3,10 @@
 [中文文档](/solution/0600-0699/0607.Sales%20Person/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -16,10 +15,10 @@ None
 ```
 SELECT name
 FROM salesperson
-WHERE sales_id NOT IN 
+WHERE sales_id NOT IN
     (SELECT sales_id
     FROM orders
-    WHERE com_id = 
+    WHERE com_id =
         (SELECT com_id
         FROM company
         WHERE name = 'RED'))

@@ -1,6 +1,7 @@
-# [面试题29. 顺时针打印矩阵](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/)
+# [面试题 29. 顺时针打印矩阵](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/)
 
 ## 题目描述
+
 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
 
 **示例 1：**
@@ -20,12 +21,14 @@
 **限制：**
 
 - `0 <= matrix.length <= 100`
-- `0 <= matrix[i].length <= 100`
+- `0 <= matrix[i].length <= 100`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
@@ -52,6 +55,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     private int index;
@@ -100,44 +104,57 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[][]} matrix
  * @return {number[]}
  */
-var spiralOrder = function(matrix) {
-    if(!matrix || !matrix.length) return []
-    let row = matrix.length
-    let col = matrix[0].length
-    let res = []
-    let moves = {
-        'right': [0,1],
-        'down': [1,0],
-        'left': [0,-1],
-        'up': [-1,0]
+var spiralOrder = function (matrix) {
+  if (!matrix || !matrix.length) return [];
+  let row = matrix.length;
+  let col = matrix[0].length;
+  let res = [];
+  let moves = {
+    right: [0, 1],
+    down: [1, 0],
+    left: [0, -1],
+    up: [-1, 0],
+  };
+  let k = 0;
+  function dfs(i, j, dir) {
+    if (i < 0 || j < 0 || i >= row || j >= col || res.length === row * col) {
+      return;
     }
-    let k = 0
-    function dfs(i,j,dir) {
-        if(i < 0 || j < 0 || i >= row || j >= col || res.length === row * col) {
-            return
+    res.push(matrix[i][j]);
+    switch (dir) {
+      case "right":
+        if (j === col - 1 - k) dir = "down";
+        break;
+      case "down":
+        if (i === row - 1 - k) dir = "left";
+        break;
+      case "left":
+        if (j === k) {
+          dir = "up";
+          k++;
         }
-        res.push(matrix[i][j])
-        switch(dir) {
-            case 'right': if(j === col-1 - k) dir = 'down';break
-            case 'down': if(i === row-1 - k) dir = 'left';break
-            case 'left': if(j === k) { dir = 'up';k++; } break
-            case 'up': if(i === k) dir = 'right';break
-        }
-        let x = i+moves[dir][0]
-        let y = j+moves[dir][1]
-        dfs(x,y,dir)
+        break;
+      case "up":
+        if (i === k) dir = "right";
+        break;
     }
-    dfs(0,0,'right')
-    return res
+    let x = i + moves[dir][0];
+    let y = j + moves[dir][1];
+    dfs(x, y, dir);
+  }
+  dfs(0, 0, "right");
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

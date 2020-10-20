@@ -3,13 +3,12 @@
 [中文文档](/solution/0500-0599/0502.IPO/README.md)
 
 ## Description
+
 <p>
 
-Suppose LeetCode will start its IPO soon. In order to sell a good price of its shares to Venture Capital, LeetCode would like to work on some projects to increase its capital before the IPO. Since it has limited resources, it can only finish at most <b>k</b> distinct projects before the IPO. Help LeetCode design the best way to maximize its total capital after finishing at most <b>k</b> distinct projects. 
+Suppose LeetCode will start its IPO soon. In order to sell a good price of its shares to Venture Capital, LeetCode would like to work on some projects to increase its capital before the IPO. Since it has limited resources, it can only finish at most <b>k</b> distinct projects before the IPO. Help LeetCode design the best way to maximize its total capital after finishing at most <b>k</b> distinct projects.
 
 </p>
-
-
 
 <p>
 
@@ -17,15 +16,11 @@ You are given several projects. For each project <b>i</b>, it has a pure profit 
 
 </p>
 
-
-
 <p>
 
 To sum up, pick a list of at most <b>k</b> distinct projects from given projects to maximize your final capital, and output your final maximized capital.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -53,8 +48,6 @@ To sum up, pick a list of at most <b>k</b> distinct projects from given projects
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -69,9 +62,7 @@ To sum up, pick a list of at most <b>k</b> distinct projects from given projects
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +79,7 @@ To sum up, pick a list of at most <b>k</b> distinct projects from given projects
 ```
 
 ### **...**
+
 ```
 
 ```

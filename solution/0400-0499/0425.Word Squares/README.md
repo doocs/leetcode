@@ -3,6 +3,7 @@
 [English Version](/solution/0400-0499/0425.Word%20Squares/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个单词集合 <strong>（没有重复）</strong>，找出其中所有的 <a href="https://en.wikipedia.org/wiki/Word_square">单词方块</a><strong> </strong>。</p>
 
@@ -77,15 +78,14 @@ l a d y
 
 <p> </p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -93,6 +93,7 @@ l a d y
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -100,6 +101,7 @@ l a d y
 ```
 
 ### **...**
+
 ```
 
 ```

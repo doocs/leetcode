@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个数组，将数组中的元素向右移动&nbsp;<em>k&nbsp;</em>个位置，其中&nbsp;<em>k&nbsp;</em>是非负数。</p>
 
@@ -31,9 +32,8 @@
 	<li>要求使用空间复杂度为&nbsp;O(1) 的&nbsp;<strong>原地&nbsp;</strong>算法。</li>
 </ul>
 
-
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
 
 若 `k=3`，`nums=[1,2,3,4,5,6,7]`。
@@ -47,6 +47,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -65,6 +66,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -97,6 +99,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0196.Delete%20Duplicate%20Emails/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>编写一个 SQL 查询，来删除&nbsp;<code>Person</code>&nbsp;表中所有重复的电子邮箱，重复的邮箱里只保留&nbsp;<strong>Id&nbsp;</strong><em>最小&nbsp;</em>的那个。</p>
 
@@ -35,11 +36,9 @@ Id 是这个表的主键。
 	<li>使用 <code>delete</code> 语句。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 

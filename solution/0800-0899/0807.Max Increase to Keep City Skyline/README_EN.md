@@ -3,17 +3,12 @@
 [中文文档](/solution/0800-0899/0807.Max%20Increase%20to%20Keep%20City%20Skyline/README.md)
 
 ## Description
+
 <p>In a 2 dimensional array <code>grid</code>, each value <code>grid[i][j]</code> represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (the amounts&nbsp;can be different for different buildings). Height&nbsp;0 is considered to be a&nbsp;building&nbsp;as well.&nbsp;</p>
-
-
 
 <p>At the end, the &quot;skyline&quot; when viewed from all four directions&nbsp;of the grid, i.e.&nbsp;top, bottom, left, and right,&nbsp;must be the same as the&nbsp;skyline of the original grid. A city&#39;s skyline is the outer contour of the rectangles formed by all the buildings when viewed from a distance. See&nbsp;the following example.</p>
 
-
-
 <p>What is the maximum total sum that the height of the buildings can be increased?</p>
-
-
 
 <pre>
 
@@ -59,27 +54,19 @@ gridNew = [ [8, 4, 8, 7],
 
 </pre>
 
-
-
 <p><strong>Notes: </strong></p>
-
-
 
 <ul>
 
-	<li><code>1 &lt; grid.length = grid[0].length &lt;= 50</code>.</li>
+    <li><code>1 &lt; grid.length = grid[0].length &lt;= 50</code>.</li>
 
-	<li>All heights <code>grid[i][j]</code> are in the range <code>[0, 100]</code>.</li>
+    <li>All heights <code>grid[i][j]</code> are in the range <code>[0, 100]</code>.</li>
 
-	<li>All buildings in <code>grid[i][j]</code> occupy the entire grid cell: that is, they are a <code>1 x 1 x grid[i][j]</code> rectangular prism.</li>
+    <li>All buildings in <code>grid[i][j]</code> occupy the entire grid cell: that is, they are a <code>1 x 1 x grid[i][j]</code> rectangular prism.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +83,7 @@ gridNew = [ [8, 4, 8, 7],
 ```
 
 ### **...**
+
 ```
 
 ```

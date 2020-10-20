@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0276.Paint%20Fence/README.md)
 
 ## Description
+
 <p>There is a fence with n posts, each post can be painted with one of the k colors.</p>
 
 <p>You have to paint all the posts such that no more than two adjacent fence posts have the same color.</p>
@@ -29,10 +30,7 @@ n and k are non-negative integers.</p>
    6         c2     c2     c1
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -49,6 +47,7 @@ n and k are non-negative integers.</p>
 ```
 
 ### **...**
+
 ```
 
 ```

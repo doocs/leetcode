@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1361.Validate%20Binary%20Tree%20Nodes/README.md)
 
 ## Description
+
 <p>You have&nbsp;<code>n</code> binary tree nodes&nbsp;numbered from <code>0</code>&nbsp;to <code>n - 1</code> where node&nbsp;<code>i</code>&nbsp;has two children&nbsp;<code>leftChild[i]</code>&nbsp;and&nbsp;<code>rightChild[i]</code>, return&nbsp;<code>true</code>&nbsp;if and only if <strong>all</strong> the given nodes form <strong>exactly one</strong> valid binary tree.</p>
 
 <p>If node&nbsp;<code>i</code>&nbsp;has no left child then&nbsp;<code>leftChild[i]</code>&nbsp;will equal&nbsp;<code>-1</code>, similarly for the right child.</p>
@@ -55,10 +56,7 @@
 	<li><code>-1 &lt;= leftChild[i], rightChild[i] &lt;= n - 1</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -75,6 +73,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

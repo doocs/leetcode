@@ -73,15 +73,11 @@
 	<li><code><font face="monospace">1 &lt;= fuel &lt;= 200</font></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -89,12 +85,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

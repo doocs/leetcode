@@ -3,9 +3,8 @@
 [中文文档](/solution/1300-1399/1372.Longest%20ZigZag%20Path%20in%20a%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary tree <code>root</code>, a&nbsp;ZigZag path for a binary tree is defined as follow:</p>
-
-
 
 <ul>
 	<li>Choose <strong>any </strong>node in the binary tree and a direction (right or left).</li>
@@ -14,24 +13,15 @@
 	<li>Repeat the second and third step until you can&#39;t move in the tree.</li>
 </ul>
 
-
-
 <p>Zigzag length is defined as the number of nodes visited - 1. (A single node has a length of 0).</p>
 
-
-
 <p>Return&nbsp;the longest <strong>ZigZag</strong> path contained in that tree.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-
 ![](./images/sample_1_1702.png)
-
-
 
 <pre>
 
@@ -43,14 +33,9 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
 ![](./images/sample_2_1702.png)
-
-
 
 <pre>
 
@@ -62,11 +47,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -76,22 +57,16 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>Each tree has at most <code>50000</code> nodes..</li>
 	<li>Each node&#39;s value is between <code>[1, 100]</code>.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -108,6 +83,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

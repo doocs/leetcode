@@ -3,6 +3,7 @@
 [English Version](/lcci/03.05.Sort%20of%20Stacks/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>栈排序。 编写程序，对栈进行排序使最小元素位于栈顶。最多只能使用一个其他的临时栈存放数据，但不得将元素复制到别的数据结构（如数组）中。该栈支持如下操作：<code>push</code>、<code>pop</code>、<code>peek</code> 和 <code>isEmpty</code>。当栈为空时，<code>peek</code>&nbsp;返回 -1。</p>
 
@@ -30,14 +31,16 @@
 	<li>栈中的元素数目在[0, 5000]范围内。</li>
 </ol>
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 利用辅助栈实现 `push` 操作，其余操作不变。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -66,6 +69,7 @@ class SortedStack:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -74,7 +78,7 @@ class SortedStack {
     public SortedStack() {
         s = new Stack<>();
     }
-    
+
     public void push(int val) {
         Stack<Integer> t = new Stack<>();
         while (!isEmpty() && s.peek() < val) {
@@ -85,17 +89,17 @@ class SortedStack {
             s.push(t.pop());
         }
     }
-    
+
     public void pop() {
         if (!isEmpty()) {
             s.pop();
         }
     }
-    
+
     public int peek() {
         return isEmpty() ? -1 : s.peek();
     }
-    
+
     public boolean isEmpty() {
         return s.isEmpty();
     }
@@ -112,6 +116,7 @@ class SortedStack {
 ```
 
 ### **...**
+
 ```
 
 ```

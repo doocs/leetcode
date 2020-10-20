@@ -3,21 +3,14 @@
 [中文文档](/solution/0000-0099/0034.Find%20First%20and%20Last%20Position%20of%20Element%20in%20Sorted%20Array/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>nums</code> sorted in ascending order, find the starting and ending position of a given <code>target</code> value.</p>
-
-
 
 <p>Your algorithm&#39;s runtime complexity must be in the order of <em>O</em>(log <em>n</em>).</p>
 
-
-
 <p>If the target is not found in the array, return <code>[-1, -1]</code>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +18,7 @@
 
 <strong>Output:</strong> [3,4]</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -37,11 +26,7 @@
 
 <strong>Output:</strong> [-1,-1]</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

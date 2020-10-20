@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0622.Design%20Circular%20Queue/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计你的循环队列实现。 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。它也被称为&ldquo;环形缓冲器&rdquo;。</p>
 
@@ -55,15 +56,14 @@ circularQueue.Rear(); &nbsp;// 返回 4
 	<li>请不要使用内置的队列库。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -71,6 +71,7 @@ circularQueue.Rear(); &nbsp;// 返回 4
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -78,6 +79,7 @@ circularQueue.Rear(); &nbsp;// 返回 4
 ```
 
 ### **...**
+
 ```
 
 ```

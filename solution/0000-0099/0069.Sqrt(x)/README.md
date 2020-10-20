@@ -1,8 +1,9 @@
 # [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx)
 
-[English Version](/solution/0000-0099/0069.Sqrt(x)/README_EN.md)
+[English Version](</solution/0000-0099/0069.Sqrt(x)/README_EN.md>)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>实现&nbsp;<code>int sqrt(int x)</code>&nbsp;函数。</p>
 
@@ -24,15 +25,14 @@
 &nbsp;    由于返回类型是整数，小数部分将被舍去。
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -40,6 +40,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -47,6 +48,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

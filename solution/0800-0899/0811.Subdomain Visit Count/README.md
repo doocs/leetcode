@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>一个网站域名，如&quot;discuss.leetcode.com&quot;，包含了多个子域名。作为顶级域名，常用的有&quot;com&quot;，下一级则有&quot;leetcode.com&quot;，最低的一级为&quot;discuss.leetcode.com&quot;。当我们访问域名&quot;discuss.leetcode.com&quot;时，也同时访问了其父域名&quot;leetcode.com&quot;以及顶级域名&nbsp;&quot;com&quot;。</p>
 
@@ -40,15 +41,14 @@
 	<li>输入中任意一个域名的访问次数都小于<code>10000</code>。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -56,6 +56,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -63,6 +64,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

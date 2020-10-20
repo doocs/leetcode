@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0730.Count%20Different%20Palindromic%20Subsequences/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个字符串 S，找出 S 中不同的非空回文子序列个数，并<strong>返回该数字与 <code>10^9 + 7 </code>的模。</strong></p>
 
@@ -44,15 +45,14 @@ S = &#39;abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba&#39;
 
 <p>&nbsp;</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -60,6 +60,7 @@ S = &#39;abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba&#39;
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -67,6 +68,7 @@ S = &#39;abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba&#39;
 ```
 
 ### **...**
+
 ```
 
 ```

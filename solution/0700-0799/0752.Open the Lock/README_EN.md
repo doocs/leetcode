@@ -3,9 +3,10 @@
 [中文文档](/solution/0700-0799/0752.Open%20the%20Lock/README.md)
 
 ## Description
+
 <p>
 
-You have a lock in front of you with 4 circular wheels.  Each wheel has 10 slots: <code>'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'</code>.  The wheels can rotate freely and wrap around: for example we can turn <code>'9'</code> to be <code>'0'</code>, or <code>'0'</code> to be <code>'9'</code>.  Each move consists of turning one wheel one slot.
+You have a lock in front of you with 4 circular wheels. Each wheel has 10 slots: <code>'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'</code>. The wheels can rotate freely and wrap around: for example we can turn <code>'9'</code> to be <code>'0'</code>, or <code>'0'</code> to be <code>'9'</code>. Each move consists of turning one wheel one slot.
 
 </p><p>
 
@@ -20,8 +21,6 @@ You are given a list of <code>deadends</code> dead ends, meaning if the lock dis
 Given a <code>target</code> representing the value of the wheels that will unlock the lock, return the minimum total number of turns required to open the lock, or -1 if it is impossible.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,8 +42,6 @@ because the wheels of the lock become stuck after the display becomes the dead e
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -60,8 +57,6 @@ We can turn the last wheel in reverse to move from "0000" -> "0009".
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -79,8 +74,6 @@ We can't reach the target without getting stuck.
 
 </p>
 
-
-
 <p><b>Example 4:</b><br />
 
 <pre>
@@ -92,8 +85,6 @@ We can't reach the target without getting stuck.
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 
@@ -109,9 +100,7 @@ We can't reach the target without getting stuck.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -128,6 +117,7 @@ We can't reach the target without getting stuck.
 ```
 
 ### **...**
+
 ```
 
 ```

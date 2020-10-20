@@ -3,13 +3,10 @@
 [中文文档](/lcci/16.06.Smallest%20Difference/README.md)
 
 ## Description
+
 <p>Given two arrays of integers, compute the pair of values (one value in each array) with the smallest (non-negative) difference. Return the difference.</p>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= a.length, b.length &lt;= 100000</code></li>
@@ -31,11 +24,7 @@
 	<li>The result is in the range [-2147483648, 2147483647]</li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,7 +43,7 @@ class Solution:
             if a[i] > b[j]: j += 1
             else: i += 1
         return res
-        
+
 ```
 
 ### **Java**
@@ -79,6 +68,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

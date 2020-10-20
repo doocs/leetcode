@@ -3,18 +3,19 @@
 [中文文档](/solution/1000-1099/1096.Brace%20Expansion%20II/README.md)
 
 ## Description
-Under a grammar given below, strings can represent a set of lowercase words.  Let's use `R(expr)` to denote the set of words the expression represents.
+
+Under a grammar given below, strings can represent a set of lowercase words. Let's use `R(expr)` to denote the set of words the expression represents.
 
 Grammar can best be understood through simple examples:
 
 - Single letters represent a singleton **set** containing that word.
-    - `R("a") = {"a"}`
-    - `R("w") = {"w"}`
+  - `R("a") = {"a"}`
+  - `R("w") = {"w"}`
 - When we take a comma delimited list of 2 or more expressions, we take the union of possibilities.
-    - `R("{a,b,c}") = {"a","b","c"}`
+  - `R("{a,b,c}") = {"a","b","c"}`
 - When we concatenate two expressions, we take the set of possible concatenations between two words where the first word comes from the first expression and the second word comes from the second expression.
-    - `R("{a,b}{c,d}") = {"ac","ad","bc","bd"}`
-    - `R("a{b,c}{d,e}f{g,h}") = {"abdfg", "abdfh", "abefg", "abefh", "acdfg", "acdfh", "acefg", "acefh"}`
+  - `R("{a,b}{c,d}") = {"ac","ad","bc","bd"}`
+  - `R("a{b,c}{d,e}f{g,h}") = {"abdfg", "abdfh", "abefg", "abefh", "acdfg", "acdfh", "acefg", "acefh"}`
 
 Formally, the 3 rules for our grammar:
 
@@ -31,7 +32,6 @@ Input: "{a,b}{c,{d,e}}"
 Output: ["ac","ad","ae","bc","bd","be"]
 ```
 
-
 **Constraints:**
 
 1. `1 <= expression.length <= 60`
@@ -39,7 +39,6 @@ Output: ["ac","ad","ae","bc","bd","be"]
 3. The given `expression` represents a set of words based on the grammar given in the description.
 
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +55,7 @@ Output: ["ac","ad","ae","bc","bd","be"]
 ```
 
 ### **...**
+
 ```
 
 ```

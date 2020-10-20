@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0972.Equal%20Rational%20Numbers/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定两个字符串 <code>S</code> 和 <code>T</code>，每个字符串代表一个非负有理数，只有当它们表示相同的数字时才返回 <strong>true</strong>；否则，返回 <strong>false</strong>。字符串中可以使用括号来表示有理数的重复部分。</p>
 
@@ -55,15 +56,14 @@
 	<li><code>1 &lt;= &lt;RepeatingPart&gt;.length &lt;= 4 </code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -71,6 +71,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -78,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

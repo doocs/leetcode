@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1071.Greatest%20Common%20Divisor%20of%20Strings/README.md)
 
 ## Description
+
 <p>For strings <code>S</code> and <code>T</code>, we say &quot;<code>T</code> divides <code>S</code>&quot; if and only if <code>S = T + ... + T</code>&nbsp; (<code>T</code> concatenated with itself 1 or more times)</p>
 
 <p>Return the largest string <code>X</code> such that <code>X</code> divides <font face="monospace">str1</font>&nbsp;and <code>X</code> divides <font face="monospace">str2</font>.</p>
@@ -40,10 +41,7 @@
 	<li><code>str1[i]</code> and <code>str2[i]</code> are English uppercase letters.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +58,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1213.Intersection%20of%20Three%20Sorted%20Arrays/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给出三个均为 <strong>严格递增排列 </strong>的整数数组 <code>arr1</code>，<code>arr2</code> 和 <code>arr3</code>。</p>
 
@@ -26,15 +27,14 @@
 	<li><code>1 <= arr1[i], arr2[i], arr3[i] <= 2000</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -42,6 +42,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -49,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

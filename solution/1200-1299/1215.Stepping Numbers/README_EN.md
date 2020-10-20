@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1215.Stepping%20Numbers/README.md)
 
 ## Description
+
 <p>A <em>Stepping Number</em> is an integer such that all of its adjacent digits have an absolute difference of exactly <code>1</code>. For example, <code>321</code> is a Stepping Number while <code>421</code> is not.</p>
 
 <p>Given two integers <code>low</code> and <code>high</code>, find and return a <strong>sorted</strong> list of all the Stepping Numbers in the range <code>[low, high]</code> inclusive.</p>
@@ -19,10 +20,7 @@
 	<li><code>0 <= low <= high <= 2 * 10^9</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -39,6 +37,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

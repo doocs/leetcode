@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1033.Moving%20Stones%20Until%20Consecutive/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>三枚石子放置在数轴上，位置分别为 <code>a</code>，<code>b</code>，<code>c</code>。</p>
 
@@ -39,15 +40,14 @@
 	<li><code>a != b, b != c, c != a</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -55,6 +55,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -62,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

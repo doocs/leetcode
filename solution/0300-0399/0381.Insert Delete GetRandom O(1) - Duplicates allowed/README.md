@@ -1,8 +1,9 @@
 # [381. O(1) 时间插入、删除和获取随机元素 - 允许重复](https://leetcode-cn.com/problems/insert-delete-getrandom-o1-duplicates-allowed)
 
-[English Version](/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O(1)%20-%20Duplicates%20allowed/README_EN.md)
+[English Version](</solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O(1)%20-%20Duplicates%20allowed/README_EN.md>)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计一个支持在<em>平均&nbsp;</em>时间复杂度&nbsp;<strong>O(1)&nbsp;</strong>下<strong>，&nbsp;</strong>执行以下操作的数据结构。</p>
 
@@ -38,15 +39,14 @@ collection.remove(1);
 collection.getRandom();
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -54,6 +54,7 @@ collection.getRandom();
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -61,6 +62,7 @@ collection.getRandom();
 ```
 
 ### **...**
+
 ```
 
 ```

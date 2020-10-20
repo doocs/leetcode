@@ -3,9 +3,8 @@
 [中文文档](/solution/0500-0599/0595.Big%20Countries/README.md)
 
 ## Description
+
 <p>There is a table <code>World</code></p>
-
-
 
 <pre>
 
@@ -29,19 +28,11 @@
 
 </pre>
 
-
-
 <p>A country is big if it has an area of bigger than 3 million square km or a population of more than 25 million.</p>
-
-
 
 <p>Write a SQL solution to output big countries&#39; name, population and area.</p>
 
-
-
 <p>For example, according to the above table, we should output:</p>
-
-
 
 <pre>
 
@@ -59,15 +50,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

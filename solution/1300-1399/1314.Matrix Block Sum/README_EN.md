@@ -3,13 +3,12 @@
 [中文文档](/solution/1300-1399/1314.Matrix%20Block%20Sum/README.md)
 
 ## Description
-Given a <code>m * n</code> matrix&nbsp;<code>mat</code>&nbsp;and an integer <code>K</code>, return a matrix <code>answer</code> where each <code>answer[i][j]</code>&nbsp;is the sum of all elements <code>mat[r][c]</code> for <code>i - K &lt;= r &lt;= i + K, j - K &lt;= c &lt;= j + K</code>, and <code>(r, c)</code> is a valid position in the matrix.
+
+Given a <code>m \* n</code> matrix&nbsp;<code>mat</code>&nbsp;and an integer <code>K</code>, return a matrix <code>answer</code> where each <code>answer[i][j]</code>&nbsp;is the sum of all elements <code>mat[r][c]</code> for <code>i - K &lt;= r &lt;= i + K, j - K &lt;= c &lt;= j + K</code>, and <code>(r, c)</code> is a valid position in the matrix.
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +18,7 @@ Given a <code>m * n</code> matrix&nbsp;<code>mat</code>&nbsp;and an integer <cod
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -33,29 +28,23 @@ Given a <code>m * n</code> matrix&nbsp;<code>mat</code>&nbsp;and an integer <cod
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>m ==&nbsp;mat.length</code></li>
+    <li><code>m ==&nbsp;mat.length</code></li>
 
-	<li><code>n ==&nbsp;mat[i].length</code></li>
+    <li><code>n ==&nbsp;mat[i].length</code></li>
 
-	<li><code>1 &lt;= m, n, K &lt;= 100</code></li>
+    <li><code>1 &lt;= m, n, K &lt;= 100</code></li>
 
-	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
+    <li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +61,7 @@ Given a <code>m * n</code> matrix&nbsp;<code>mat</code>&nbsp;and an integer <cod
 ```
 
 ### **...**
+
 ```
 
 ```

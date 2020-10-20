@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0786.K-th%20Smallest%20Prime%20Fraction/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>一个已排序好的表&nbsp;<code>A</code>，其包含 1 和其他一些素数.&nbsp; 当列表中的每一个 p&lt;q 时，我们可以构造一个分数 p/q 。</p>
 
@@ -28,15 +29,14 @@
 	<li><code>K</code> 取值范围为 <code>1</code> &mdash;<code>A.length * (A.length - 1) / 2</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +44,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -51,6 +52,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

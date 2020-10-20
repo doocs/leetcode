@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0303.Range%20Sum%20Query%20-%20Immutable/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组 &nbsp;<em>nums</em>，求出数组从索引&nbsp;<em>i&nbsp;</em>到&nbsp;<em>j&nbsp;&nbsp;</em>(<em>i</em>&nbsp;&le;&nbsp;<em>j</em>) 范围内元素的总和，包含&nbsp;<em>i,&nbsp; j&nbsp;</em>两点。</p>
 
@@ -21,15 +22,14 @@ sumRange(0, 5) -&gt; -3</pre>
 	<li>会多次调用&nbsp;<em>sumRange</em>&nbsp;方法。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -37,6 +37,7 @@ sumRange(0, 5) -&gt; -3</pre>
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -44,6 +45,7 @@ sumRange(0, 5) -&gt; -3</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

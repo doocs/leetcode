@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>公司共有&nbsp;<code>n</code>&nbsp;个项目和 &nbsp;<code>m</code>&nbsp;个小组，每个项目要不没有归属，要不就由其中的一个小组负责。</p>
 
@@ -51,15 +52,14 @@
 	<li><code>i != beforeItems[i][j]</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -67,6 +67,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -74,6 +75,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

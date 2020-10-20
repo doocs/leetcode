@@ -3,33 +3,24 @@
 [中文文档](/solution/1300-1399/1317.Convert%20Integer%20to%20the%20Sum%20of%20Two%20No-Zero%20Integers/README.md)
 
 ## Description
+
 <p>Given an integer <code>n</code>. No-Zero integer is a positive integer which <strong>doesn&#39;t contain any 0</strong> in its decimal representation.</p>
-
-
 
 <p>Return <em>a list of two integers</em> <code>[A, B]</code> where:</p>
 
-
-
 <ul>
 
-	<li><code>A</code> and <code>B</code> are No-Zero integers.</li>
+    <li><code>A</code> and <code>B</code> are No-Zero integers.</li>
 
-	<li><code>A + B = n</code></li>
+    <li><code>A + B = n</code></li>
 
 </ul>
 
-
-
 <p>It&#39;s guarateed that there is at least one valid solution. If there are many valid solutions you can return any of them.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +42,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -69,11 +52,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -83,11 +62,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -97,23 +72,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>2 &lt;= n &lt;= 10^4</code></li>
+    <li><code>2 &lt;= n &lt;= 10^4</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -130,6 +99,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

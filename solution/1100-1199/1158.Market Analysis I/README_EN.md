@@ -3,11 +3,10 @@
 [中文文档](/solution/1100-1199/1158.Market%20Analysis%20I/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -24,6 +23,7 @@ None
 ```
 
 ### **...**
+
 ```
 
 ```

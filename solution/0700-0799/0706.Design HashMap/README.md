@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0706.Design%20HashMap/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>不使用任何内建的哈希表库设计一个哈希映射</p>
 
@@ -38,15 +39,14 @@ hashMap.get(2); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 返回 -1 (未找到
 	<li>不要使用内建的哈希库。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -54,6 +54,7 @@ hashMap.get(2); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 返回 -1 (未找到
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -61,6 +62,7 @@ hashMap.get(2); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 返回 -1 (未找到
 ```
 
 ### **...**
+
 ```
 
 ```

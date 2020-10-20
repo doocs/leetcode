@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0271.Encode%20and%20Decode%20Strings/README.md)
 
 ## Description
+
 <p>Design an algorithm to encode <b>a list of strings</b> to <b>a string</b>. The encoded string is then sent over the network and is decoded back to the original list of strings.</p>
 
 <p>Machine 1 (sender) has the function:</p>
@@ -12,6 +13,7 @@ string encode(vector<string> strs) {
   // ... your code
   return encoded_string;
 }</pre>
+
 Machine 2 (receiver) has the function:
 
 <pre>
@@ -47,10 +49,7 @@ vector<string> strs2 = decode(encoded_string);
 	<li>Do not rely on any library method such as <code>eval</code> or serialize methods. You should implement your own encode/decode algorithm.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +66,7 @@ vector<string> strs2 = decode(encoded_string);
 ```
 
 ### **...**
+
 ```
 
 ```

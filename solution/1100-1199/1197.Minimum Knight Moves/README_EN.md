@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1197.Minimum%20Knight%20Moves/README.md)
 
 ## Description
+
 <p>In an <strong>infinite</strong> chess board with coordinates from <code>-infinity</code> to <code>+infinity</code>, you have a <strong>knight</strong> at square <code>[0, 0]</code>.</p>
 
 <p>A knight has 8 possible moves it can make, as illustrated below. Each move is two squares in a cardinal direction, then one square in an orthogonal direction.</p>
@@ -35,10 +36,7 @@
 	<li><code>|x| + |y| <= 300</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

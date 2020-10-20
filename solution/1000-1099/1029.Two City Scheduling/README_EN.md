@@ -3,21 +3,14 @@
 [中文文档](/solution/1000-1099/1029.Two%20City%20Scheduling/README.md)
 
 ## Description
+
 <p>There are <code>2N</code> people a company is planning to interview. The cost of flying the <code>i</code>-th person to city <code>A</code> is <code>costs[i][0]</code>, and the cost of flying the <code>i</code>-th person to city <code>B</code> is <code>costs[i][1]</code>.</p>
-
-
 
 <p>Return the minimum cost to fly every person to a city such that exactly <code>N</code> people arrive in each city.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -41,29 +34,21 @@ The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interv
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= costs.length &lt;= 100</code></li>
+    <li><code>1 &lt;= costs.length &lt;= 100</code></li>
 
-	<li>It is guaranteed that <code>costs.length</code> is even.</li>
+    <li>It is guaranteed that <code>costs.length</code> is even.</li>
 
-	<li><code>1 &lt;= costs[i][0], costs[i][1] &lt;= 1000</code></li>
+    <li><code>1 &lt;= costs[i][0], costs[i][1] &lt;= 1000</code></li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +65,7 @@ The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interv
 ```
 
 ### **...**
+
 ```
 
 ```

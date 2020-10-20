@@ -3,11 +3,11 @@
 [中文文档](/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/README.md)
 
 ## Description
+
 <p>Given a rectangle of size&nbsp;<code>n</code>&nbsp;x <code><font face="monospace">m</font></code>, find the minimum number of integer-sided squares that tile the rectangle.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
 
 ![](./images/sample_11_1592.png)
 
@@ -20,7 +20,6 @@
 
 <p><strong>Example 2:</strong></p>
 
-
 ![](./images/sample_22_1592.png)
 
 <pre>
@@ -29,7 +28,6 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
 
 ![](./images/sample_33_1592.png)
 
@@ -46,10 +44,7 @@
 	<li><code>1 &lt;= m&nbsp;&lt;=&nbsp;13</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,9 +3,8 @@
 [中文文档](/solution/0400-0499/0423.Reconstruct%20Original%20Digits%20from%20English/README.md)
 
 ## Description
+
 <p>Given a <b>non-empty</b> string containing an out-of-order English representation of digits <code>0-9</code>, output the digits in ascending order.</p>
-
-
 
 <p><b>Note:</b><br />
 
@@ -21,8 +20,6 @@
 
 </p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -36,8 +33,6 @@ Output: "012"
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -53,9 +48,7 @@ Output: "45"
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +65,7 @@ Output: "45"
 ```
 
 ### **...**
+
 ```
 
 ```

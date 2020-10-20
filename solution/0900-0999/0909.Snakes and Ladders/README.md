@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0909.Snakes%20and%20Ladders/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一块 N x N 的棋盘&nbsp;<code>board</code>&nbsp;上，<strong>从棋盘的左下角开始</strong>，每一行交替方向，按从&nbsp;<code>1</code> 到 <code>N*N</code>&nbsp;的数字给方格编号。例如，对于一块 6 x 6 大小的棋盘，可以编号如下：</p>
 
@@ -55,15 +56,14 @@
 	<li>编号为&nbsp;<code>N*N</code>&nbsp;的方格上没有蛇或梯子。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -71,6 +71,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -78,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

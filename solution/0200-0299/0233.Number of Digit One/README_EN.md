@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)
 
 ## Description
+
 <p>Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -21,11 +18,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -42,6 +35,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有两位极客玩家参与了一场「二叉树着色」的游戏。游戏中，给出二叉树的根节点&nbsp;<code>root</code>，树上总共有 <code>n</code> 个节点，且 <code>n</code> 为奇数，其中每个节点上的值从&nbsp;<code>1</code> 到&nbsp;<code>n</code>&nbsp;各不相同。</p>
 
@@ -49,15 +50,14 @@
 	<li><code>1 &lt;= x &lt;= n&nbsp;&lt;= 100</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -65,6 +65,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -72,6 +73,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -6,25 +6,15 @@
 
 <p>You are given a tree with&nbsp;<code>n</code>&nbsp;nodes numbered from&nbsp;<code>0</code>&nbsp;to&nbsp;<code>n-1</code>&nbsp;in the form of a parent array where <code>parent[i]</code>&nbsp;is the parent of node <code>i</code>. The root of the tree is node <code>0</code>.</p>
 
-
-
 <p>Implement the function&nbsp;<code>getKthAncestor</code><code>(int node, int k)</code>&nbsp;to return the <code>k</code>-th ancestor of the given&nbsp;<code>node</code>. If there is no such ancestor, return&nbsp;<code>-1</code>.</p>
-
-
 
 <p>The&nbsp;<em>k-th&nbsp;</em><em>ancestor</em>&nbsp;of a tree node is the <code>k</code>-th node&nbsp;in the path&nbsp;from that node to the root.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Example:</strong></p>
 
-
 ![](./images/1528_ex1.png)
-
 
 <pre>
 
@@ -56,13 +46,9 @@ treeAncestor.getKthAncestor(6, 3);  // returns -1 because there is no such ances
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= k &lt;=&nbsp;n &lt;= 5*10^4</code></li>
@@ -74,12 +60,9 @@ treeAncestor.getKthAncestor(6, 3);  // returns -1 because there is no such ances
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -87,12 +70,12 @@ treeAncestor.getKthAncestor(6, 3);  // returns -1 because there is no such ances
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

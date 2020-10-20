@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0067.Add%20Binary/README.md)
 
 ## Description
+
 <p>Given two binary strings, return their sum (also a binary string).</p>
-
-
 
 <p>The input strings are both <strong>non-empty</strong> and contains only characters <code>1</code> or&nbsp;<code>0</code>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -21,11 +16,7 @@
 
 <strong>Output:</strong> &quot;100&quot;</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +24,7 @@
 
 <strong>Output:</strong> &quot;10101&quot;</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +41,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

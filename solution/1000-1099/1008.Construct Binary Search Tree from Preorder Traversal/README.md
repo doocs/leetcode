@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>返回与给定先序遍历&nbsp;<code>preorder</code> 相匹配的二叉搜索树（binary <strong>search</strong> tree）的根结点。</p>
 
@@ -27,15 +28,14 @@
 	<li>先序&nbsp;<code>preorder</code>&nbsp;中的值是不同的。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -43,6 +43,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -50,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

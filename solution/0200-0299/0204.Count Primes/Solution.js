@@ -1,12 +1,12 @@
 // 600ms多
-const countPrimes2 = function(n){
+const countPrimes2 = function (n) {
   let arr = [];
   let res = 0;
-  for(let i = 2; i < n; i++){
-    if(arr[i] === undefined){
+  for (let i = 2; i < n; i++) {
+    if (arr[i] === undefined) {
       arr[i] = 1;
       res++;
-      for(let j = 2; i * j < n; j++){
+      for (let j = 2; i * j < n; j++) {
         arr[i * j] = 0;
       }
     }
@@ -15,14 +15,14 @@ const countPrimes2 = function(n){
 };
 
 //200ms多
-const countPrimes = function(n){
+const countPrimes = function (n) {
   let arr = [];
   let res = 0;
-  for(let i = 2; i < n; i++){
-    if(arr[i] === undefined){
+  for (let i = 2; i < n; i++) {
+    if (arr[i] === undefined) {
       arr[i] = 1;
       res++;
-      for(let j = i; i * j < n; j++){
+      for (let j = i; i * j < n; j++) {
         arr[i * j] = 0;
       }
     }

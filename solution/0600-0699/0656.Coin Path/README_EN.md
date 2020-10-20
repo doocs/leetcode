@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0656.Coin%20Path/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> (index starts at <code>1</code>) consisting of N integers: A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>N</sub> and an integer <code>B</code>. The integer <code>B</code> denotes that from any place (suppose the index is <code>i</code>) in the array <code>A</code>, you can jump to any one of the place in the array <code>A</code> indexed <code>i+1</code>, <code>i+2</code>, …, <code>i+B</code> if this place can be jumped to. Also, if you step on the index <code>i</code>, you have to pay A<sub>i</sub> coins. If A<sub>i</sub> is -1, it means you can’t jump to the place indexed <code>i</code> in the array.</p>
 
 <p>Now, you start from the place indexed <code>1</code> in the array <code>A</code>, and your aim is to reach the place indexed <code>N</code> using the minimum coins. You need to return the path of indexes (starting from 1 to N) in the array you should take to get to the place indexed <code>N</code> using minimum coins.</p>
@@ -40,10 +41,7 @@
 
 <p> </p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +58,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

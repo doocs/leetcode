@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>某种外星语也使用英文小写字母，但可能顺序 <code>order</code> 不同。字母表的顺序（<code>order</code>）是一些小写字母的排列。</p>
 
@@ -40,15 +41,14 @@
 	<li>在&nbsp;<code>words[i]</code>&nbsp;和&nbsp;<code>order</code>&nbsp;中的所有字符都是英文小写字母。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -56,6 +56,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -63,6 +64,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

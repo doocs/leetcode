@@ -61,15 +61,11 @@ We need at least 3 flip operations to form target.</pre>
 	<li><code>target[i] == &#39;0&#39;</code>&nbsp;or <code>target[i] == &#39;1&#39;</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -77,12 +73,12 @@ We need at least 3 flip operations to form target.</pre>
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

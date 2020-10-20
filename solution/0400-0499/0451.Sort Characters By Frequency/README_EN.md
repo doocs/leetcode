@@ -3,9 +3,8 @@
 [中文文档](/solution/0400-0499/0451.Sort%20Characters%20By%20Frequency/README.md)
 
 ## Description
+
 <p>Given a string, sort it in decreasing order based on the frequency of characters.</p>
-
-
 
 <p><b>Example 1:</b>
 
@@ -33,8 +32,6 @@ So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid ans
 
 </p>
 
-
-
 <p><b>Example 2:</b>
 
 <pre>
@@ -60,8 +57,6 @@ Note that "cacaca" is incorrect, as the same characters must be together.
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b>
 
@@ -89,9 +84,7 @@ Note that 'A' and 'a' are treated as two different characters.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -108,6 +101,7 @@ Note that 'A' and 'a' are treated as two different characters.
 ```
 
 ### **...**
+
 ```
 
 ```

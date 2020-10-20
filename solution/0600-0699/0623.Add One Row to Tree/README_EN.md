@@ -3,13 +3,10 @@
 [中文文档](/solution/0600-0699/0623.Add%20One%20Row%20to%20Tree/README.md)
 
 ## Description
+
 <p>Given the root of a binary tree, then value <code>v</code> and depth <code>d</code>, you need to add a row of nodes with value <code>v</code> at the given depth <code>d</code>. The root node is at depth 1. </p>
 
-
-
 <p>The adding rule is: given a positive integer depth <code>d</code>, for each NOT null tree nodes <code>N</code> in depth <code>d-1</code>, create two tree nodes with value <code>v</code> as <code>N's</code> left subtree root and right subtree root. And <code>N's</code> <b>original left subtree</b> should be the left subtree of the new left subtree root, its <b>original right subtree</b> should be the right subtree of the new right subtree root. If depth <code>d</code> is 1 that means there is no depth d-1 at all, then create a tree node with value <b>v</b> as the new root of the whole original tree, and the original tree is the new root's left subtree.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -61,10 +58,6 @@ A binary tree as following:
 
 </p>
 
-
-
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -113,8 +106,6 @@ A binary tree as following:
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -127,9 +118,7 @@ A binary tree as following:
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -146,6 +135,7 @@ A binary tree as following:
 ```
 
 ### **...**
+
 ```
 
 ```

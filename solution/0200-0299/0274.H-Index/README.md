@@ -1,8 +1,9 @@
-# [274. H指数](https://leetcode-cn.com/problems/h-index)
+# [274. H 指数](https://leetcode-cn.com/problems/h-index)
 
 [English Version](/solution/0200-0299/0274.H-Index/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一位研究者论文被引用次数的数组（被引用次数是非负整数）。编写一个方法，计算出研究者的 <em>h&nbsp;</em>指数。</p>
 
@@ -21,15 +22,14 @@
 
 <p><strong>说明:&nbsp;</strong>如果 <em>h </em>有多种可能的值，<em>h</em> 指数是其中最大的那个。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -37,6 +37,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -44,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

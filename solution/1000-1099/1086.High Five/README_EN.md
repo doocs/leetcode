@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1086.High%20Five/README.md)
 
 ## Description
+
 <p>Given a list of scores of different students, return the average score of each student's <strong>top five scores</strong> in<strong> the order of each student's id</strong>.</p>
 
 <p>Each entry <code>items[i]</code> has <code>items[i][0]</code> the student's id, and <code>items[i][1]</code> the student's score.  The average score is calculated using integer division.</p>
@@ -31,9 +32,7 @@ The average of the student with id = 2 is 88.6. But with integer division their 
 	<li>For each student, there are at least 5 scores</li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +49,7 @@ The average of the student with id = 2 is 88.6. But with integer division their 
 ```
 
 ### **...**
+
 ```
 
 ```

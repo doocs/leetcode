@@ -67,11 +67,9 @@
 	<li><code>0 &lt;=&nbsp;positions[i][0],&nbsp;positions[i][1] &lt;= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -92,6 +90,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

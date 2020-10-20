@@ -3,13 +3,12 @@
 [中文文档](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README.md)
 
 ## Description
+
 <p>
 
 Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two’s complement</a> method is used.
 
 </p>
-
-
 
 <p><b>Note:</b>
 
@@ -26,8 +25,6 @@ Given an integer, write an algorithm to convert it to hexadecimal. For negative 
 </ol>
 
 </p>
-
-
 
 <p><b>Example 1:</b>
 
@@ -47,8 +44,6 @@ Output:
 
 </p>
 
-
-
 <p><b>Example 2:</b>
 
 <pre>
@@ -67,9 +62,7 @@ Output:
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -86,6 +79,7 @@ Output:
 ```
 
 ### **...**
+
 ```
 
 ```

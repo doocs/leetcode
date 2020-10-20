@@ -3,19 +3,16 @@
 [中文文档](/solution/1300-1399/1324.Print%20Words%20Vertically/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code>.&nbsp;Return&nbsp;all the words vertically in the same order in which they appear in <code>s</code>.<br />
 
 Words are returned as a list of strings, complete with&nbsp;spaces when is necessary. (Trailing spaces are not allowed).<br />
 
 Each word would be put on only one column and that in one column there will be only one word.</p>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +30,7 @@ Each word would be put on only one column and that in one column there will be o
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +48,7 @@ Each word would be put on only one column and that in one column there will be o
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -69,27 +58,21 @@ Each word would be put on only one column and that in one column there will be o
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= s.length &lt;= 200</code></li>
+    <li><code>1 &lt;= s.length &lt;= 200</code></li>
 
-	<li><code>s</code>&nbsp;contains only upper case English letters.</li>
+    <li><code>s</code>&nbsp;contains only upper case English letters.</li>
 
-	<li>It&#39;s guaranteed that there is only one&nbsp;space between 2 words.</li>
+    <li>It&#39;s guaranteed that there is only one&nbsp;space between 2 words.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -106,6 +89,7 @@ Each word would be put on only one column and that in one column there will be o
 ```
 
 ### **...**
+
 ```
 
 ```

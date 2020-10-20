@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0753.Cracking%20the%20Safe/README.md)
 
 ## Description
+
 <p>There is a box protected by a password. The password is a sequence of&nbsp;<code>n</code> digits&nbsp;where each digit can be one of the first <code>k</code> digits <code>0, 1, ..., k-1</code>.</p>
 
 <p>While entering a password,&nbsp;the last <code>n</code> digits entered will automatically be matched against the correct password.</p>
@@ -41,10 +42,7 @@
 
 <p>&nbsp;</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README.md)
 
 ## Description
+
 <p>Consider a matrix <code>M</code> with dimensions <code>width * height</code>, such that every cell has value <code>0</code> or <code>1</code>, and any <strong>square</strong> sub-matrix of <code>M</code> of size <code>sideLength * sideLength</code> has at most <code>maxOnes</code> ones.</p>
 
 <p>Return the maximum possible number of ones that the matrix <code>M</code> can have.</p>
@@ -41,10 +42,7 @@ The best solution that has 4 ones is:
 	<li><code>0 <= maxOnes <= sideLength * sideLength</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,6 +59,7 @@ The best solution that has 4 ones is:
 ```
 
 ### **...**
+
 ```
 
 ```

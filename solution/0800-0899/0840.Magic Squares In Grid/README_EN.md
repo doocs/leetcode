@@ -3,21 +3,14 @@
 [中文文档](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)
 
 ## Description
+
 <p>A 3 x 3 magic square is a 3 x 3 grid filled with distinct numbers <strong>from 1 to 9</strong> such that each row, column, and both diagonals all have the same sum.</p>
-
-
 
 <p>Given an <code>grid</code>&nbsp;of integers, how many 3 x 3 &quot;magic square&quot; subgrids are there?&nbsp; (Each subgrid is contiguous).</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -55,27 +48,19 @@ In total, there is only one magic square inside the given grid.
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1 &lt;= grid.length&nbsp;&lt;= 10</code></li>
+    <li><code>1 &lt;= grid.length&nbsp;&lt;= 10</code></li>
 
-	<li><code>1 &lt;= grid[0].length&nbsp;&lt;= 10</code></li>
+    <li><code>1 &lt;= grid[0].length&nbsp;&lt;= 10</code></li>
 
-	<li><code>0 &lt;= grid[i][j] &lt;= 15</code></li>
+    <li><code>0 &lt;= grid[i][j] &lt;= 15</code></li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +77,7 @@ In total, there is only one magic square inside the given grid.
 ```
 
 ### **...**
+
 ```
 
 ```

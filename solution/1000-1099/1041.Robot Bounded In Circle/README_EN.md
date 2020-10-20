@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1041.Robot%20Bounded%20In%20Circle/README.md)
 
 ## Description
+
 <p>On an infinite plane, a&nbsp;robot initially stands at <code>(0, 0)</code> and faces north.&nbsp;&nbsp;The robot can receive one of three instructions:</p>
 
 <ul>
@@ -54,10 +55,7 @@ The robot moves from (0, 0) -&gt; (0, 1) -&gt; (-1, 1) -&gt; (-1, 0) -&gt; (0, 0
 	<li><code>instructions[i]</code> is in <code>{&#39;G&#39;, &#39;L&#39;, &#39;R&#39;}</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +72,7 @@ The robot moves from (0, 0) -&gt; (0, 1) -&gt; (-1, 1) -&gt; (-1, 0) -&gt; (0, 0
 ```
 
 ### **...**
+
 ```
 
 ```

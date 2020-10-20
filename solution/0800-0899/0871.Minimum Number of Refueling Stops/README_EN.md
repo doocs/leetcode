@@ -3,39 +3,24 @@
 [中文文档](/solution/0800-0899/0871.Minimum%20Number%20of%20Refueling%20Stops/README.md)
 
 ## Description
+
 <p>A car travels from a starting position to a destination which is <code>target</code> miles east of the starting position.</p>
-
-
 
 <p>Along the way, there are gas stations.&nbsp; Each <code>station[i]</code>&nbsp;represents a gas station that is <code>station[i][0]</code> miles east of the starting position, and has <code>station[i][1]</code> liters of gas.</p>
 
-
-
 <p>The car starts with an infinite tank of gas, which initially has&nbsp;<code>startFuel</code>&nbsp;liters of fuel in it.&nbsp; It uses 1 liter of gas per 1 mile that it drives.</p>
-
-
 
 <p>When the car&nbsp;reaches a gas station, it may stop and refuel, transferring all the gas from the station into the car.</p>
 
-
-
 <p>What is the least number of refueling stops the car must make in order to reach its destination?&nbsp; If it cannot reach the destination, return <code>-1</code>.</p>
-
-
 
 <p>Note that if the car reaches a gas station with 0 fuel left, the car can still refuel there.&nbsp; If the car reaches the destination with 0 fuel left, it is still considered to have arrived.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -47,13 +32,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -65,13 +46,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -93,23 +70,17 @@ We made 2 refueling stops along the way, so we return 2.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= target, startFuel, stations[i][1] &lt;= 10^9</code></li>
+    <li><code>1 &lt;= target, startFuel, stations[i][1] &lt;= 10^9</code></li>
 
-	<li><code>0 &lt;= stations.length &lt;= 500</code></li>
+    <li><code>0 &lt;= stations.length &lt;= 500</code></li>
 
-	<li><code>0 &lt; stations[0][0] &lt; stations[1][0] &lt; ... &lt; stations[stations.length-1][0] &lt; target</code></li>
+    <li><code>0 &lt; stations[0][0] &lt; stations[1][0] &lt; ... &lt; stations[stations.length-1][0] &lt; target</code></li>
 
 </ol>
 
@@ -119,11 +90,7 @@ We made 2 refueling stops along the way, so we return 2.
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -140,6 +107,7 @@ We made 2 refueling stops along the way, so we return 2.
 ```
 
 ### **...**
+
 ```
 
 ```

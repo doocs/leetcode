@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1191.K-Concatenation%20Maximum%20Sum/README.md)
 
 ## Description
+
 <p>Given an integer array <code>arr</code>&nbsp;and an integer <code>k</code>, modify the array by repeating it <code>k</code> times.</p>
 
 <p>For example, if <code>arr&nbsp;= [1, 2]</code> and <code>k = 3 </code>then the modified array will be <code>[1, 2, 1, 2, 1, 2]</code>.</p>
@@ -42,10 +43,7 @@
 	<li><code>-10^4 &lt;= arr[i] &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +60,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

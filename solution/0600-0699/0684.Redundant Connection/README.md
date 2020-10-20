@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0684.Redundant%20Connection/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在本问题中, 树指的是一个连通且无环的<strong>无向</strong>图。</p>
 
@@ -42,15 +43,14 @@
 <p><strong>更新(2017-09-26):</strong><br>
 我们已经重新检查了问题描述及测试用例，明确图是<em><strong>无向&nbsp;</strong></em>图。对于有向图详见<strong><a href="https://leetcodechina.com/problems/redundant-connection-ii/description/">冗余连接II</a>。</strong>对于造成任何不便，我们深感歉意。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

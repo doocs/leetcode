@@ -3,21 +3,14 @@
 [中文文档](/solution/0900-0999/0906.Super%20Palindromes/README.md)
 
 ## Description
+
 <p>Let&#39;s say a positive integer is a&nbsp;<em>superpalindrome</em>&nbsp;if it is a palindrome, and it is also the square of a palindrome.</p>
-
-
 
 <p>Now, given two positive&nbsp;integers <code>L</code> and <code>R</code> (represented as strings), return the number of superpalindromes in the inclusive range <code>[L, R]</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,29 +22,21 @@
 
 Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrome.</pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= len(L) &lt;= 18</code></li>
+    <li><code>1 &lt;= len(L) &lt;= 18</code></li>
 
-	<li><code>1 &lt;= len(R) &lt;= 18</code></li>
+    <li><code>1 &lt;= len(R) &lt;= 18</code></li>
 
-	<li><code>L</code> and <code>R</code> are strings representing integers in the range <code>[1, 10^18)</code>.</li>
+    <li><code>L</code> and <code>R</code> are strings representing integers in the range <code>[1, 10^18)</code>.</li>
 
-	<li><code>int(L) &lt;= int(R)</code></li>
+    <li><code>int(L) &lt;= int(R)</code></li>
 
 </ol>
-
-
 
 <div>
 
@@ -59,11 +44,7 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +61,7 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
 ```
 
 ### **...**
+
 ```
 
 ```

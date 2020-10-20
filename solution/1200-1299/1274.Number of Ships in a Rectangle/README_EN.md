@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/README.md)
 
 ## Description
+
 <p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>
 
 <p>On the sea represented by a cartesian plane, each ship is located at an integer point, and each integer point may contain at most 1 ship.</p>
@@ -34,10 +35,7 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 	<li><code>0 <= bottomLeft[1] <= topRight[1] <= 1000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +52,7 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 ```
 
 ### **...**
+
 ```
 
 ```

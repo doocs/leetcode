@@ -1,15 +1,16 @@
-# [面试题50. 第一个只出现一次的字符](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)
+# [面试题 50. 第一个只出现一次的字符](https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/)
 
 ## 题目描述
+
 在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。
 
 **示例:**
 
-```
+````
 s = "abaccdeff"
 返回 "b"
 
-s = "" 
+s = ""
 返回 " "
 ``` 
 
@@ -37,9 +38,10 @@ class Solution:
             if v == 1:
                 return k
         return ' '
-```
+````
 
 ### **Java**
+
 ```java
 class Solution {
     public char firstUniqChar(String s) {
@@ -62,25 +64,27 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {string} s
  * @return {character}
  */
-var firstUniqChar = function(s) {
-    let t = new Array(26).fill(0)
-    let code = ('a').charCodeAt()
-    for(let i=0;i<s.length;i++) {
-        t[s[i].charCodeAt() - code]++
-    }
-    for(let i=0;i<s.length;i++) {
-        if(t[s[i].charCodeAt() - code] === 1) return s[i]
-    }
-    return ' '
+var firstUniqChar = function (s) {
+  let t = new Array(26).fill(0);
+  let code = "a".charCodeAt();
+  for (let i = 0; i < s.length; i++) {
+    t[s[i].charCodeAt() - code]++;
+  }
+  for (let i = 0; i < s.length; i++) {
+    if (t[s[i].charCodeAt() - code] === 1) return s[i];
+  }
+  return " ";
 };
 ```
 
 ### **...**
+
 ```
 
 ```

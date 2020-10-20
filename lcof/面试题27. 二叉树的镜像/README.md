@@ -1,6 +1,7 @@
-# [面试题27. 二叉树的镜像](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/)
+# [面试题 27. 二叉树的镜像](https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/)
 
 ## 题目描述
+
 请完成一个函数，输入一个二叉树，该函数输出它的镜像。
 
 例如输入：
@@ -35,9 +36,11 @@
 - `0 <= 节点个数 <= 1000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -50,7 +53,7 @@ class Solution:
     def mirrorTree(self, root: TreeNode) -> TreeNode:
         if root is None or (root.left is None and root.right is None):
             return root
-            
+
         self.mirrorTree(root.left)
         self.mirrorTree(root.right)
         root.left, root.right = root.right, root.left
@@ -58,6 +61,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -84,6 +88,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -96,16 +101,16 @@ class Solution {
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var mirrorTree = function(root) {
-    function dfs(node) {
-        if(!node) return null
-        let left = dfs(node.left)
-        let right = dfs(node.right)
-        node.left = right
-        node.right = left
-        return node
-    }
-    return dfs(root)
+var mirrorTree = function (root) {
+  function dfs(node) {
+    if (!node) return null;
+    let left = dfs(node.left);
+    let right = dfs(node.right);
+    node.left = right;
+    node.right = left;
+    return node;
+  }
+  return dfs(root);
 };
 ```
 
@@ -122,8 +127,6 @@ func mirrorTree(root *TreeNode) *TreeNode {
     return root
 }
 ```
-
-
 
 ### **...**
 

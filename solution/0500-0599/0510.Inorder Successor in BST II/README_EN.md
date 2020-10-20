@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0510.Inorder%20Successor%20in%20BST%20II/README.md)
 
 ## Description
+
 <p>Given a <code>node</code> in a binary search tree, find the in-order successor of that node in the BST.</p>
 
 <p>If that node has no in-order successor, return <code>null</code>.</p>
@@ -73,10 +74,7 @@ class Node {
 	<li>All Nodes will have unique values.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -93,6 +91,7 @@ class Node {
 ```
 
 ### **...**
+
 ```
 
 ```

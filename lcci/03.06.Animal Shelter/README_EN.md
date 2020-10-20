@@ -3,21 +3,14 @@
 [中文文档](/lcci/03.06.Animal%20Shelter/README.md)
 
 ## Description
+
 <p>An animal shelter, which holds only dogs and cats, operates on a strictly&quot;first in, first out&quot; basis. People must adopt either the&quot;oldest&quot; (based on arrival time) of all animals at the shelter, or they can select whether they would prefer a dog or a cat (and will receive the oldest animal of that type). They cannot select which specific animal they would like. Create the data structures to maintain this system and implement operations such as <code>enqueue</code>, <code>dequeueAny</code>, <code>dequeueDog</code>, and <code>dequeueCat</code>. You may use the built-in Linked list data structure.</p>
-
-
 
 <p><code>enqueue</code> method has a <code>animal</code> parameter, <code>animal[0]</code> represents the number of the animal, <code>animal[1]</code> represents the type of the animal, 0 for cat and 1 for dog.</p>
 
-
-
 <p><code>dequeue*</code> method returns <code>[animal number, animal type]</code>, if there&#39;s no animal that can be adopted, return <code>[-1, -1]</code>.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +26,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -53,21 +42,13 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The number of animals in the shelter will not exceed 20000.</li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -116,7 +97,7 @@ class AnimalShelf {
         cats = new LinkedList<>();
         dogs = new LinkedList<>();
     }
-    
+
     public void enqueue(int[] animal) {
         if (animal[1] == 0) {
             cats.offer(animal[0]);
@@ -124,15 +105,15 @@ class AnimalShelf {
             dogs.offer(animal[0]);
         }
     }
-    
+
     public int[] dequeueAny() {
         return dogs.isEmpty() ? dequeueCat() : (cats.isEmpty() ? dequeueDog() : (dogs.peek() < cats.peek() ? dequeueDog() : dequeueCat()));
     }
-    
+
     public int[] dequeueDog() {
         return dogs.isEmpty() ? new int[]{-1, -1} : new int[]{dogs.poll(), 1};
     }
-    
+
     public int[] dequeueCat() {
         return cats.isEmpty() ? new int[]{-1, -1} : new int[]{cats.poll(), 0};
     }
@@ -149,6 +130,7 @@ class AnimalShelf {
 ```
 
 ### **...**
+
 ```
 
 ```

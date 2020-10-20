@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0961.N-Repeated%20Element%20in%20Size%202N%20Array/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在大小为 <code>2N</code>&nbsp;的数组 <code>A</code>&nbsp;中有 <code>N+1</code> 个不同的元素，其中有一个元素重复了 <code>N</code> 次。</p>
 
@@ -41,15 +42,14 @@
 	<li><code>A.length</code>&nbsp;为偶数</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -57,6 +57,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -64,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

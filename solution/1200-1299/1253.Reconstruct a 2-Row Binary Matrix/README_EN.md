@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1253.Reconstruct%20a%202-Row%20Binary%20Matrix/README.md)
 
 ## Description
+
 <p>Given the following details of a matrix with <code>n</code> columns and <code>2</code> rows :</p>
 
 <ul>
@@ -52,10 +53,7 @@
 	<li><code>0 &lt;= colsum[i] &lt;= 2</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +70,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

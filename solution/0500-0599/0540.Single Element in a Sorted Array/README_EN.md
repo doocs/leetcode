@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0540.Single%20Element%20in%20a%20Sorted%20Array/README.md)
 
 ## Description
+
 <p>You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly&nbsp;once. Find this single element that appears only once.</p>
 
 <p>&nbsp;</p>
@@ -25,10 +26,7 @@
 
 <p><b>Note:</b> Your solution should run in O(log n) time and O(1) space.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -45,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

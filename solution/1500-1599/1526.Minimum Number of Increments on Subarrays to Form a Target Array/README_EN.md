@@ -57,15 +57,11 @@ The answer is guaranteed to fit within the range of a 32-bit signed integer.
 	<li><code>1 &lt;= target[i] &lt;= 10^5</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -73,12 +69,12 @@ The answer is guaranteed to fit within the range of a 32-bit signed integer.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

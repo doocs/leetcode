@@ -3,29 +3,22 @@
 [中文文档](/solution/0300-0399/0332.Reconstruct%20Itinerary/README.md)
 
 ## Description
+
 <p>Given a list of airline tickets represented by pairs of departure and arrival airports <code>[from, to]</code>, reconstruct the itinerary in order. All of the tickets belong to a man who departs from <code>JFK</code>. Thus, the itinerary must begin with <code>JFK</code>.</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string. For example, the itinerary <code>[&quot;JFK&quot;, &quot;LGA&quot;]</code> has a smaller lexical order than <code>[&quot;JFK&quot;, &quot;LGB&quot;]</code>.</li>
+    <li>If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string. For example, the itinerary <code>[&quot;JFK&quot;, &quot;LGA&quot;]</code> has a smaller lexical order than <code>[&quot;JFK&quot;, &quot;LGB&quot;]</code>.</li>
 
-	<li>All airports are represented by three capital letters (IATA code).</li>
+    <li>All airports are represented by three capital letters (IATA code).</li>
 
-	<li>You may assume all tickets form at least one valid itinerary.</li>
+    <li>You may assume all tickets form at least one valid itinerary.</li>
 
 </ol>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -35,11 +28,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -53,11 +42,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

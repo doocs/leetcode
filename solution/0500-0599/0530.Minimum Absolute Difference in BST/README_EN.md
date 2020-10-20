@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0530.Minimum%20Absolute%20Difference%20in%20BST/README.md)
 
 ## Description
+
 <p>Given a binary search tree with non-negative values, find the minimum <a href="https://en.wikipedia.org/wiki/Absolute_difference">absolute difference</a> between values of any two nodes.</p>
 
 <p><b>Example:</b></p>
@@ -32,10 +33,7 @@ The minimum absolute difference is 1, which is the difference between 2 and 1 (o
 	<li>This question is the same as 783:&nbsp;<a href="https://leetcode.com/problems/minimum-distance-between-bst-nodes/">https://leetcode.com/problems/minimum-distance-between-bst-nodes/</a></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +50,7 @@ The minimum absolute difference is 1, which is the difference between 2 and 1 (o
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,9 +3,8 @@
 [中文文档](/lcci/08.06.Hanota/README.md)
 
 ## Description
+
 <p>In the classic problem of the Towers of Hanoi, you have 3 towers and N disks of different sizes which can slide onto any tower. The puzzle starts with disks sorted in ascending order of size from top to bottom (i.e., each disk sits on top of an even larger one). You have the following constraints:</p>
-
-
 
 <p>(1) Only one disk can be moved at a time.<br />
 
@@ -13,15 +12,9 @@
 
 (3) A disk cannot be placed on top of a smaller disk.</p>
 
-
-
 <p>Write a program to move the disks from the first tower to the last using stacks.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -45,21 +34,13 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>A.length &lt;= 14</code></li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

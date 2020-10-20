@@ -3,13 +3,10 @@
 [中文文档](/lcci/05.07.Exchange/README.md)
 
 ## Description
+
 <p>Write a program to swap odd and even bits in an integer with as few instructions as possible (e.g., bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, and so on).</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -33,22 +26,14 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>0 &lt;= num &lt;=</code>&nbsp;2^30 - 1</li>
 	<li>The result integer fits into 32-bit integer.</li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -71,6 +56,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

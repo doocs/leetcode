@@ -3,21 +3,18 @@
 [中文文档](/solution/0600-0699/0668.Kth%20Smallest%20Number%20in%20Multiplication%20Table/README.md)
 
 ## Description
+
 <p>
 
 Nearly every one have used the <a href="https://en.wikipedia.org/wiki/Multiplication_table">Multiplication Table</a>. But could you find out the <code>k-th</code> smallest number quickly from the multiplication table?
 
 </p>
 
-
-
 <p>
 
-Given the height <code>m</code> and the length <code>n</code> of a <code>m * n</code> Multiplication Table, and a positive integer <code>k</code>, you need to return the <code>k-th</code> smallest number in this table.
+Given the height <code>m</code> and the length <code>n</code> of a <code>m \* n</code> Multiplication Table, and a positive integer <code>k</code>, you need to return the <code>k-th</code> smallest number in this table.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -45,10 +42,6 @@ The 5-th smallest number is 3 (1, 2, 2, 3, 3).
 
 </p>
 
-
-
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -73,10 +66,6 @@ The 6-th smallest number is 6 (1, 2, 2, 3, 4, 6).
 
 </p>
 
-
-
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -89,9 +78,7 @@ The 6-th smallest number is 6 (1, 2, 2, 3, 4, 6).
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -108,6 +95,7 @@ The 6-th smallest number is 6 (1, 2, 2, 3, 4, 6).
 ```
 
 ### **...**
+
 ```
 
 ```

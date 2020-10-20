@@ -3,17 +3,12 @@
 [中文文档](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README.md)
 
 ## Description
+
 <p>Given a binary tree, return the tilt of the <b>whole tree</b>.</p>
-
-
 
 <p>The tilt of a <b>tree node</b> is defined as the <b>absolute difference</b> between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.</p>
 
-
-
 <p>The tilt of the <b>whole tree</b> is defined as the sum of all nodes' tilt.</p>
-
-
 
 <p><b>Example:</b><br />
 
@@ -43,8 +38,6 @@ Tilt of binary tree : 0 + 0 + 1 = 1
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <ol>
@@ -57,9 +50,7 @@ Tilt of binary tree : 0 + 0 + 1 = 1
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +67,7 @@ Tilt of binary tree : 0 + 0 + 1 = 1
 ```
 
 ### **...**
+
 ```
 
 ```

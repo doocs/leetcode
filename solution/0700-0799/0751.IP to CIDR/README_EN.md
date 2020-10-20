@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0751.IP%20to%20CIDR/README.md)
 
 ## Description
+
 <p>
 Given a start IP address <code>ip</code> and a number of ips we need to cover <code>n</code>, return a representation of the range as a list (of smallest possible length) of CIDR blocks.
 </p><p>
@@ -41,8 +42,9 @@ There were other representations, such as:
 but our answer was the shortest possible.
 
 Also note that a representation beginning with say, "255.0.0.7/30" would be incorrect,
-because it includes addresses like 255.0.0.4 = 11111111 00000000 00000000 00000100 
+because it includes addresses like 255.0.0.4 = 11111111 00000000 00000000 00000100
 that are outside the specified range.
+
 </pre>
 </p>
 
@@ -54,9 +56,7 @@ that are outside the specified range.
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -73,6 +73,7 @@ that are outside the specified range.
 ```
 
 ### **...**
+
 ```
 
 ```

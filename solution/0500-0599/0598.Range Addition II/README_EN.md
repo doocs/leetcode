@@ -3,13 +3,12 @@
 [中文文档](/solution/0500-0599/0598.Range%20Addition%20II/README.md)
 
 ## Description
+
 <p>Given an m * n matrix <b>M</b> initialized with all <b>0</b>'s and several update operations.</p>
 
 <p>Operations are represented by a 2D array, and each operation is represented by an array with two <b>positive</b> integers <b>a</b> and <b>b</b>, which means <b>M[i][j]</b> should be <b>added by one</b> for all <b>0 <= i < a</b> and <b>0 <= j < b</b>. </p>
 
 <p>You need to count and return the number of maximum integers in the matrix after performing all the operations.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -61,8 +60,6 @@ So the maximum integer in M is 2, and there are four of it in M. So return 4.
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -77,9 +74,7 @@ So the maximum integer in M is 2, and there are four of it in M. So return 4.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +91,7 @@ So the maximum integer in M is 2, and there are four of it in M. So return 4.
 ```
 
 ### **...**
+
 ```
 
 ```

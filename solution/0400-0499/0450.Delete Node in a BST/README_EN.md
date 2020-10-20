@@ -3,9 +3,8 @@
 [中文文档](/solution/0400-0499/0450.Delete%20Node%20in%20a%20BST/README.md)
 
 ## Description
+
 <p>Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST.</p>
-
-
 
 <p>Basically, the deletion can be divided into two stages:
 
@@ -19,11 +18,7 @@
 
 </p>
 
-
-
 <p><b>Note:</b> Time complexity should be O(height of tree).</p>
-
-
 
 <p><b>Example:</b>
 
@@ -85,9 +80,7 @@ Another valid answer is [5,2,6,null,4,null,7].
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -104,6 +97,7 @@ Another valid answer is [5,2,6,null,4,null,7].
 ```
 
 ### **...**
+
 ```
 
 ```

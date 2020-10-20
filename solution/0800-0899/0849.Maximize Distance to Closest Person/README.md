@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>在一排座位（&nbsp;<code>seats</code>）中，<code>1</code>&nbsp;代表有人坐在座位上，<code>0</code>&nbsp;代表座位上是空的。</p>
 
@@ -38,15 +39,14 @@
 	<li><code>seats</code>&nbsp;中只含有 0 和 1，至少有一个 <code>0</code>，且至少有一个 <code>1</code>。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -54,6 +54,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -61,6 +62,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

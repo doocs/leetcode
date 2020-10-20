@@ -3,13 +3,10 @@
 [中文文档](/lcci/05.03.Reverse%20Bits/README.md)
 
 ## Description
+
 <p>You have an integer and you can flip exactly one bit from a 0 to a 1. Write code to find the length of the longest sequence of 1s you could create.</p>
 
-
-
 <p><strong>Example 1: </strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2: </strong></p>
-
-
 
 <pre>
 
@@ -33,11 +26,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

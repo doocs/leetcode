@@ -1,8 +1,9 @@
-# [460. LFU缓存](https://leetcode-cn.com/problems/lfu-cache)
+# [460. LFU 缓存](https://leetcode-cn.com/problems/lfu-cache)
 
 [English Version](/solution/0400-0499/0460.LFU%20Cache/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计并实现<a href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95">最不经常使用（LFU）</a>缓存的数据结构。它应该支持以下操作：<code>get</code>&nbsp;和&nbsp;<code>put</code>。</p>
 
@@ -28,15 +29,14 @@ cache.get(1);       // 返回 -1 (未找到 key 1)
 cache.get(3);       // 返回 3
 cache.get(4);       // 返回 4</pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +44,7 @@ cache.get(4);       // 返回 4</pre>
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -51,6 +52,7 @@ cache.get(4);       // 返回 4</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

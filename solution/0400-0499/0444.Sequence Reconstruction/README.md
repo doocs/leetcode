@@ -3,6 +3,7 @@
 [English Version](/solution/0400-0499/0444.Sequence%20Reconstruction/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>验证原始的序列 <code>org</code> 是否可以从序列集 <code>seqs</code> 中唯一地重建。序列 <code>org</code> 是 1 到 n 整数的排列，其中 1 ≤ n ≤ 10<sup>4</sup>。重建是指在序列集 <code>seqs</code> 中构建最短的公共超序列。（即使得所有  <code>seqs</code> 中的序列都是该最短序列的子序列）。确定是否只可以从 <code>seqs</code> 重建唯一的序列，且该序列就是 <code>org</code> 。</p>
 
@@ -57,15 +58,14 @@ org: [4,1,5,2,6,3], seqs: [[5,2,6,3],[4,1,5,2]]
 true
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -73,6 +73,7 @@ true
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -80,6 +81,7 @@ true
 ```
 
 ### **...**
+
 ```
 
 ```

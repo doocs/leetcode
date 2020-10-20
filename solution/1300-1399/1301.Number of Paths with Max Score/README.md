@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个正方形字符数组&nbsp;<code>board</code>&nbsp;，你从数组最右下方的字符&nbsp;<code>&#39;S&#39;</code>&nbsp;出发。</p>
 
@@ -45,15 +46,14 @@
 	<li><code>2 &lt;= board.length == board[i].length &lt;= 100</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -61,6 +61,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -68,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

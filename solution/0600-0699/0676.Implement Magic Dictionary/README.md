@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0676.Implement%20Magic%20Dictionary/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>实现一个带有<code>buildDict</code>, 以及&nbsp;<code>search</code>方法的魔法字典。</p>
 
@@ -28,15 +29,14 @@ Input: search(&quot;leetcoded&quot;), Output: False
 	<li>请记住<strong>重置</strong>MagicDictionary类中声明的类变量，因为静态/类变量会在多个测试用例中保留。 请参阅<a href="http://leetcode.com/faq/#different-output">这里</a>了解更多详情。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +44,7 @@ Input: search(&quot;leetcoded&quot;), Output: False
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -51,6 +52,7 @@ Input: search(&quot;leetcoded&quot;), Output: False
 ```
 
 ### **...**
+
 ```
 
 ```

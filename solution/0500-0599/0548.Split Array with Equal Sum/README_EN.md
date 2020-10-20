@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0548.Split%20Array%20with%20Equal%20Sum/README.md)
 
 ## Description
+
 <p>
 Given an array with n integers, you need to find if there are triplets  (i, j, k) which satisfies following conditions:
 <ol>
@@ -26,14 +27,13 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 </p>
 
 <b>Note:</b>
+
 <ol>
 <li> 1 <= n <= 2000. </li>
 <li> Elements in the given array will be in range [-1,000,000, 1,000,000]. </li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +50,7 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 ```
 
 ### **...**
+
 ```
 
 ```

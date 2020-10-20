@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0170.Two%20Sum%20III%20-%20Data%20structure%20design/README.md)
 
 ## Description
+
 <p>Design and implement a TwoSum class. It should support the following operations: <code>add</code> and <code>find</code>.</p>
 
 <p><code>add</code> - Add the number to an internal data structure.<br />
@@ -23,10 +24,7 @@ add(3); add(1); add(2);
 find(3) -&gt; true
 find(6) -&gt; false</pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -43,6 +41,7 @@ find(6) -&gt; false</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

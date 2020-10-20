@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README.md)
 
 ## Description
+
 <p>Given an&nbsp;array&nbsp;of <strong>distinct</strong>&nbsp;integers <code>arr</code>, find all pairs of elements with the minimum absolute difference of any two elements.&nbsp;</p>
 
 <p>Return a list of pairs in ascending order(with respect to pairs), each pair <code>[a, b]</code> follows</p>
@@ -43,10 +44,7 @@
 	<li><code>-10^6 &lt;= arr[i] &lt;= 10^6</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -63,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

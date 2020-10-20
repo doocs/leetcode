@@ -3,17 +3,12 @@
 [中文文档](/solution/0800-0899/0816.Ambiguous%20Coordinates/README.md)
 
 ## Description
+
 <p>We had some 2-dimensional coordinates, like <code>&quot;(1, 3)&quot;</code> or <code>&quot;(2, 0.5)&quot;</code>.&nbsp; Then, we removed&nbsp;all commas, decimal points, and spaces, and ended up with the string&nbsp;<code>S</code>.&nbsp; Return a list of strings representing&nbsp;all possibilities for what our original coordinates could have been.</p>
-
-
 
 <p>Our original representation never had extraneous zeroes, so we never started with numbers like &quot;00&quot;, &quot;0.0&quot;, &quot;0.00&quot;, &quot;1.0&quot;, &quot;001&quot;, &quot;00.01&quot;, or any other number that can be represented with&nbsp;less digits.&nbsp; Also, a decimal point within a number never occurs without at least one digit occuring before it, so we never started with numbers like &quot;.1&quot;.</p>
 
-
-
 <p>The final answer list can be returned in any order.&nbsp; Also note that all coordinates in the final answer&nbsp;have exactly one space between them (occurring after the comma.)</p>
-
-
 
 <pre>
 
@@ -24,8 +19,6 @@
 <strong>Output:</strong> [&quot;(1, 23)&quot;, &quot;(12, 3)&quot;, &quot;(1.2, 3)&quot;, &quot;(1, 2.3)&quot;]
 
 </pre>
-
-
 
 <pre>
 
@@ -41,8 +34,6 @@
 
 </pre>
 
-
-
 <pre>
 
 <strong>Example 3:</strong>
@@ -52,8 +43,6 @@
 <strong>Output:</strong> [&quot;(0, 123)&quot;, &quot;(0, 12.3)&quot;, &quot;(0, 1.23)&quot;, &quot;(0.1, 23)&quot;, &quot;(0.1, 2.3)&quot;, &quot;(0.12, 3)&quot;]
 
 </pre>
-
-
 
 <pre>
 
@@ -69,33 +58,21 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note: </strong></p>
 
-
-
 <ul>
 
-	<li><code>4 &lt;= S.length &lt;= 12</code>.</li>
+    <li><code>4 &lt;= S.length &lt;= 12</code>.</li>
 
-	<li><code>S[0]</code> = &quot;(&quot;, <code>S[S.length - 1]</code> = &quot;)&quot;, and the other elements in <code>S</code> are digits.</li>
+    <li><code>S[0]</code> = &quot;(&quot;, <code>S[S.length - 1]</code> = &quot;)&quot;, and the other elements in <code>S</code> are digits.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -112,6 +89,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

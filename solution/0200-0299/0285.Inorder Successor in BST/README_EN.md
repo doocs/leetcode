@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/README.md)
 
 ## Description
+
 <p>Given a binary search tree and a node in it, find the in-order successor of that node in the BST.</p>
 
 <p>The successor of a node <code>p</code> is the node with the smallest key greater than <code>p.val</code>.</p>
@@ -34,10 +35,7 @@
 	<li>It's guaranteed that the values of the tree are unique.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +52,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

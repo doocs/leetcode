@@ -3,21 +3,14 @@
 [中文文档](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md)
 
 ## Description
+
 <p>On a&nbsp;<code>N&nbsp;*&nbsp;N</code>&nbsp;grid, we place some&nbsp;<code>1 * 1 * 1&nbsp;</code>cubes.</p>
-
-
 
 <p>Each value&nbsp;<code>v = grid[i][j]</code>&nbsp;represents a tower of&nbsp;<code>v</code>&nbsp;cubes placed on top of grid cell&nbsp;<code>(i, j)</code>.</p>
 
-
-
 <p>Return the total surface area of the resulting shapes.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -35,13 +28,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -51,13 +40,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -67,13 +52,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -83,13 +64,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -99,13 +76,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -115,21 +88,15 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= N &lt;= 50</code></li>
+    <li><code>1 &lt;= N &lt;= 50</code></li>
 
-	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
+    <li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
 
 </ul>
 
@@ -143,11 +110,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -164,6 +127,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

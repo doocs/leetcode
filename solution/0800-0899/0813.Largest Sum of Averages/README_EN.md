@@ -3,13 +3,10 @@
 [中文文档](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README.md)
 
 ## Description
+
 <p>We partition a row of numbers <code>A</code>&nbsp;into at most <code>K</code> adjacent (non-empty) groups, then our score is the sum of the average of each group. What is the largest score we can achieve?</p>
 
-
-
 <p>Note that our partition must use every number in A, and that scores are not necessarily integers.</p>
-
-
 
 <pre>
 
@@ -33,33 +30,23 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note: </strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= A.length &lt;= 100</code>.</li>
+    <li><code>1 &lt;= A.length &lt;= 100</code>.</li>
 
-	<li><code>1 &lt;= A[i] &lt;= 10000</code>.</li>
+    <li><code>1 &lt;= A[i] &lt;= 10000</code>.</li>
 
-	<li><code>1 &lt;= K &lt;= A.length</code>.</li>
+    <li><code>1 &lt;= K &lt;= A.length</code>.</li>
 
-	<li>Answers within <code>10^-6</code> of the correct answer will be accepted as correct.</li>
+    <li>Answers within <code>10^-6</code> of the correct answer will be accepted as correct.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +63,7 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 ```
 
 ### **...**
+
 ```
 
 ```

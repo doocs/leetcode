@@ -3,17 +3,12 @@
 [中文文档](/lcci/02.06.Palindrome%20Linked%20List/README.md)
 
 ## Description
+
 <p>Implement a function to check if a linked list is a palindrome.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1: </strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2: </strong></p>
-
-
 
 <pre>
 
@@ -37,18 +28,13 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Follow up:</b><br />
 
 Could you do it in O(n) time and O(1) space?</p>
 
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -128,6 +114,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

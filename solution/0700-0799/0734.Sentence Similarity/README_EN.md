@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0734.Sentence%20Similarity/README.md)
 
 ## Description
+
 <p>Given two sentences <code>words1, words2</code> (each represented as an array of strings), and a list of similar word pairs <code>pairs</code>, determine if two sentences are similar.</p>
 
 <p>For example, "great acting skills" and "fine drama talent" are similar, if the similar word pairs are <code>pairs = [["great", "fine"], ["acting","drama"], ["skills","talent"]]</code>.</p>
@@ -26,10 +27,7 @@
 
 <p> </p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +44,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1182.Shortest%20Distance%20to%20Target%20Color/README.md)
 
 ## Description
+
 <p>You are given an array <code>colors</code>, in which there are three colors: <code>1</code>, <code>2</code> and <code>3</code>.</p>
 
 <p>You are also given some queries. Each query consists of two integers <code>i</code> and <code>c</code>, return the shortest distance between the given index <code>i</code> and the target color <code>c</code>. If there is no solution return <code>-1</code>.</p>
@@ -39,10 +40,7 @@ The nearest 1 from index 6 is at index 3 (3 steps away).
 	<li><code>1 <= queries[i][1] <= 3</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -59,6 +57,7 @@ The nearest 1 from index 6 is at index 3 (3 steps away).
 ```
 
 ### **...**
+
 ```
 
 ```

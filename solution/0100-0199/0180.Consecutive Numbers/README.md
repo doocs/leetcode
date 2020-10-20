@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0180.Consecutive%20Numbers/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>编写一个 SQL 查询，查找所有至少连续出现三次的数字。</p>
 
@@ -28,18 +29,16 @@
 +-----------------+
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```
-select distinct(Num) as ConsecutiveNums from Logs Curr where 
+select distinct(Num) as ConsecutiveNums from Logs Curr where
     Num = (select Num from Logs where id = Curr.id - 1) and
     Num = (select Num from Logs where id = Curr.id - 2)
 ```

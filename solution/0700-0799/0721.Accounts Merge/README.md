@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0721.Accounts%20Merge/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个列表 <code>accounts</code>，每个元素 <code>accounts[i]</code>&nbsp;是一个字符串列表，其中第一个元素 <code>accounts[i][0]</code>&nbsp;是&nbsp;<em>名称 (name)</em>，其余元素是 <em>emails </em>表示该帐户的邮箱地址。</p>
 
@@ -32,15 +33,14 @@ accounts = [[&quot;John&quot;, &quot;johnsmith@mail.com&quot;, &quot;john00@mail
 	<li><code>accounts[i][j]</code>的长度将在<code>[1，30]</code>的范围内。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -48,6 +48,7 @@ accounts = [[&quot;John&quot;, &quot;johnsmith@mail.com&quot;, &quot;john00@mail
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -55,6 +56,7 @@ accounts = [[&quot;John&quot;, &quot;johnsmith@mail.com&quot;, &quot;john00@mail
 ```
 
 ### **...**
+
 ```
 
 ```

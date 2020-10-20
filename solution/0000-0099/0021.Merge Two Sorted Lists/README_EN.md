@@ -3,9 +3,8 @@
 [中文文档](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
 
 ## Description
+
 <p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
-
-
 
 <p><b>Example:</b>
 
@@ -19,9 +18,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -38,6 +35,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

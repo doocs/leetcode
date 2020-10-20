@@ -3,17 +3,12 @@
 [中文文档](/solution/0200-0299/0227.Basic%20Calculator%20II/README.md)
 
 ## Description
+
 <p>Implement a basic calculator to evaluate a simple expression string.</p>
-
-
 
 <p>The expression string contains only <b>non-negative</b> integers, <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> operators and empty spaces <code> </code>. The integer division should truncate toward zero.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +26,7 @@
 
 <strong>Output:</strong> 1</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -49,25 +36,17 @@
 
 </pre>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ul>
 
-	<li>You may assume that the given expression is always valid.</li>
+    <li>You may assume that the given expression is always valid.</li>
 
-	<li><b>Do not</b> use the <code>eval</code> built-in library function.</li>
+    <li><b>Do not</b> use the <code>eval</code> built-in library function.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

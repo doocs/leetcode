@@ -3,13 +3,10 @@
 [中文文档](/lcci/08.07.Permutation%20I/README.md)
 
 ## Description
+
 <p>Write a method to compute all permutations of a string of unique characters.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -33,22 +26,14 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>All charaters are English letters.</li>
 	<li><code>1 &lt;= S.length &lt;= 9</code></li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

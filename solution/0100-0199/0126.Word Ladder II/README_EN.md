@@ -3,43 +3,34 @@
 [中文文档](/solution/0100-0199/0126.Word%20Ladder%20II/README.md)
 
 ## Description
+
 <p>Given two words (<em>beginWord</em> and <em>endWord</em>), and a dictionary&#39;s word list, find all shortest transformation sequence(s) from <em>beginWord</em> to <em>endWord</em>, such that:</p>
-
-
 
 <ol>
 
-	<li>Only one letter can be changed at a time</li>
+    <li>Only one letter can be changed at a time</li>
 
-	<li>Each transformed word must exist in the word list. Note that <em>beginWord</em> is <em>not</em> a transformed word.</li>
+    <li>Each transformed word must exist in the word list. Note that <em>beginWord</em> is <em>not</em> a transformed word.</li>
 
 </ol>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 
-	<li>Return an empty list if there is no such transformation sequence.</li>
+    <li>Return an empty list if there is no such transformation sequence.</li>
 
-	<li>All words have the same length.</li>
+    <li>All words have the same length.</li>
 
-	<li>All words contain only lowercase alphabetic characters.</li>
+    <li>All words contain only lowercase alphabetic characters.</li>
 
-	<li>You may assume no duplicates in the word list.</li>
+    <li>You may assume no duplicates in the word list.</li>
 
-	<li>You may assume <em>beginWord</em> and <em>endWord</em> are non-empty and are not the same.</li>
+    <li>You may assume <em>beginWord</em> and <em>endWord</em> are non-empty and are not the same.</li>
 
 </ul>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -65,11 +56,7 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -91,17 +78,11 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 
 </pre>
 
-
-
 <ul>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -118,6 +99,7 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 ```
 
 ### **...**
+
 ```
 
 ```

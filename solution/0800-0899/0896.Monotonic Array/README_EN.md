@@ -3,33 +3,22 @@
 [中文文档](/solution/0800-0899/0896.Monotonic%20Array/README.md)
 
 ## Description
+
 <p>An array is <em>monotonic</em> if it is either monotone increasing or monotone decreasing.</p>
-
-
 
 <p>An array <code>A</code> is monotone increasing if for all <code>i &lt;= j</code>, <code>A[i] &lt;= A[j]</code>.&nbsp; An array <code>A</code> is monotone decreasing if for all <code>i &lt;= j</code>, <code>A[i] &gt;= A[j]</code>.</p>
 
-
-
 <p>Return <code>true</code> if and only if the given array <code>A</code> is monotonic.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,13 +28,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,13 +40,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -71,13 +52,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -87,13 +64,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -103,21 +76,15 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 50000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 50000</code></li>
 
-	<li><code>-100000 &lt;= A[i] &lt;= 100000</code></li>
+    <li><code>-100000 &lt;= A[i] &lt;= 100000</code></li>
 
 </ol>
 
@@ -131,11 +98,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -152,6 +115,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

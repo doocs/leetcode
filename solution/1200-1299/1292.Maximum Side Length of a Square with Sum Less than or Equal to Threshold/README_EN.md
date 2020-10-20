@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1292.Maximum%20Side%20Length%20of%20a%20Square%20with%20Sum%20Less%20than%20or%20Equal%20to%20Threshold/README.md)
 
 ## Description
+
 <p>Given a <code>m x n</code>&nbsp;matrix <code>mat</code> and an integer <code>threshold</code>. Return the maximum side-length of a square with a sum less than or equal to <code>threshold</code> or return <strong>0</strong> if there is no such square.</p>
 
 <p>&nbsp;</p>
@@ -48,10 +49,7 @@
 	<li><code>0 &lt;= threshold&nbsp;&lt;= 10^5</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +66,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,21 +3,14 @@
 [中文文档](/solution/1000-1099/1037.Valid%20Boomerang/README.md)
 
 ## Description
+
 <p>A <em>boomerang</em> is a set of 3 points that are all distinct and <strong>not</strong> in a straight line.</p>
-
-
 
 <p>Given a list&nbsp;of three points in the plane, return whether these points are a boomerang.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -43,27 +32,19 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>points.length == 3</code></li>
+    <li><code>points.length == 3</code></li>
 
-	<li><code>points[i].length == 2</code></li>
+    <li><code>points[i].length == 2</code></li>
 
-	<li><code>0 &lt;= points[i][j] &lt;= 100</code></li>
+    <li><code>0 &lt;= points[i][j] &lt;= 100</code></li>
 
 </ol>
-
-
 
 <div>
 
@@ -71,9 +52,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -90,6 +69,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

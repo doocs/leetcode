@@ -84,15 +84,11 @@ The highest profit was $36 after rotating the wheel 9 times.
 	<li><code>1 &lt;= boardingCost, runningCost &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -100,12 +96,12 @@ The highest profit was $36 after rotating the wheel 9 times.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

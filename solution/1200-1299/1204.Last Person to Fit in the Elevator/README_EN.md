@@ -3,11 +3,10 @@
 [中文文档](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Elevator/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -24,6 +23,7 @@ None
 ```
 
 ### **...**
+
 ```
 
 ```

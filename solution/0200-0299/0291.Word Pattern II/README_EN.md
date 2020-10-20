@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0291.Word%20Pattern%20II/README.md)
 
 ## Description
+
 <p>Given a <code>pattern</code> and a string <code>str</code>, find if <code>str</code> follows the same pattern.</p>
 
 <p>Here <b>follow</b> means a full match, such that there is a bijection between a letter in <code>pattern</code> and a <b>non-empty</b> substring in <code>str</code>.</p>
@@ -25,10 +26,7 @@
 	<li>You may assume both <code>pattern</code> and <code>str</code> contains only lowercase letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -45,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

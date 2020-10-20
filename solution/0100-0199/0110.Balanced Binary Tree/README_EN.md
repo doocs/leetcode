@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0110.Balanced%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary tree, determine if it is height-balanced.</p>
 
 <p>For this problem, a height-balanced binary tree is defined as:</p>
@@ -42,10 +43,7 @@
 
 <p>Return false.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +60,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

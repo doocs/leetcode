@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0711.Number%20of%20Distinct%20Islands%20II/README.md)
 
 ## Description
+
 <p>Given a non-empty 2D array <code>grid</code> of 0's and 1's, an <b>island</b> is a group of <code>1</code>'s (representing land) connected 4-directionally (horizontal or vertical.)  You may assume all four edges of the grid are surrounded by water.</p>
 
 <p>Count the number of <b>distinct</b> islands.  An island is considered to be the same as another if they have the same shape, or have the same shape after <b>rotation</b> (90, 180, or 270 degrees only) or <b>reflection</b> (left/right direction or up/down direction).</p>
@@ -65,9 +66,7 @@ are considered <b>same</b> island shapes. Because if we flip the first array in 
 The length of each dimension in the given <code>grid</code> does not exceed 50.
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +83,7 @@ The length of each dimension in the given <code>grid</code> does not exceed 50.
 ```
 
 ### **...**
+
 ```
 
 ```

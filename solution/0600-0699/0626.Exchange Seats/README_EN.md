@@ -3,27 +3,20 @@
 [中文文档](/solution/0600-0699/0626.Exchange%20Seats/README.md)
 
 ## Description
+
 <p>Mary is a teacher in a middle school and she has a table <code>seat</code> storing students&#39; names and their corresponding seat ids.</p>
 
 The column <b>id</b> is continuous increment.
-
-
 
 <p>&nbsp;</p>
 
 Mary wants to change seats for the adjacent students.
 
-
-
 <p>&nbsp;</p>
 
 Can you write a SQL query to output the result for Mary?
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -49,11 +42,7 @@ Can you write a SQL query to output the result for Mary?
 
 For the sample input, the output is:
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -77,17 +66,11 @@ For the sample input, the output is:
 
 </pre>
 
-
-
 <p><b>Note:</b><br />
 
 If the number of students is odd, there is no need to change the last one&#39;s seat.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

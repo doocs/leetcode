@@ -3,6 +3,7 @@
 [English Version](/solution/0400-0499/0466.Count%20The%20Repetitions/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>定义由 n 个连接的字符串 s 组成字符串 S，即&nbsp;<code>S = [s,n]</code>。例如，<code>[&quot;abc&quot;, 3]</code>=&ldquo;abcabcabc&rdquo;。</p>
 
@@ -20,15 +21,14 @@ s2 =&quot;ab&quot;,n2 = 2
 2
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -36,6 +36,7 @@ s2 =&quot;ab&quot;,n2 = 2
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -43,6 +44,7 @@ s2 =&quot;ab&quot;,n2 = 2
 ```
 
 ### **...**
+
 ```
 
 ```

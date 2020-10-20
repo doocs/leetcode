@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1243.Array%20Transformation/README.md)
 
 ## Description
+
 <p>Given an initial array <code>arr</code>, every day you produce a new array using the array of the previous day.</p>
 
 <p>On the <code>i</code>-th day, you do the following operations on the array of day <code>i-1</code> to produce the array of day <code>i</code>:</p>
@@ -45,10 +46,7 @@ No more operations can be done to this array.
 	<li><code>1 <= arr[i] <= 100</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,6 +63,7 @@ No more operations can be done to this array.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0903.Valid%20Permutations%20for%20DI%20Sequence/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>我们给出 <code>S</code>，一个源于&nbsp;<code>{&#39;D&#39;, &#39;I&#39;}</code>&nbsp;的长度为 <code>n</code>&nbsp;的字符串 。（这些字母代表 &ldquo;减少&rdquo; 和 &ldquo;增加&rdquo;。）<br>
 <em>有效排列</em>&nbsp;是对整数 <code>{0, 1, ..., n}</code>&nbsp;的一个排列&nbsp;<code>P[0], P[1], ..., P[n]</code>，使得对所有的&nbsp;<code>i</code>：</p>
@@ -40,15 +41,14 @@
 
 <p>&nbsp;</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -56,6 +56,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -63,6 +64,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

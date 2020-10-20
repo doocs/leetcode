@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1114.Print%20in%20Order/README.md)
 
 ## Description
+
 <p>Suppose we have a class:</p>
 
 <pre>
@@ -38,10 +39,7 @@ public class Foo {
 
 <p>We do not know how the threads will be scheduled in the operating system, even though the numbers in the input seems to imply the ordering. The input format you see is mainly&nbsp;to ensure our tests&#39; comprehensiveness.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +56,7 @@ public class Foo {
 ```
 
 ### **...**
+
 ```
 
 ```

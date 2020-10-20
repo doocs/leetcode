@@ -3,29 +3,20 @@
 [中文文档](/solution/0800-0899/0867.Transpose%20Matrix/README.md)
 
 ## Description
+
 <p>Given a&nbsp;matrix <code>A</code>, return the transpose of <code>A</code>.</p>
 
-
-
 <p>The transpose of a matrix is the matrix flipped over it&#39;s main diagonal, switching the row and column indices of the matrix.</p>
-
-
 
 <br>
 
 ![](./images/hint_transpose.png)
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,15 +38,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><span><strong>Note:</strong></span></p>
-
-
 
 <ol>
 	<li><code><span>1 &lt;= A.length&nbsp;&lt;= 1000</span></code></li>
@@ -70,9 +51,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -89,6 +68,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

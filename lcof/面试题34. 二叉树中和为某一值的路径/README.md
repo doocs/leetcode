@@ -1,12 +1,14 @@
-# [面试题34. 二叉树中和为某一值的路径](https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/)
+# [面试题 34. 二叉树中和为某一值的路径](https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 输入一棵二叉树和一个整数，打印出二叉树中节点值的和为输入整数的所有路径。从树的根节点开始往下一直到叶节点所经过的节点形成一条路径。
 
 **示例:**
 
-给定如下二叉树，以及目标和 `sum = 22`，
+给定如下二叉树，以及目标和  `sum = 22`，
 
 ```
               5
@@ -32,12 +34,15 @@
 1. `节点总数 <= 10000`
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 先序遍历+路径记录。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -62,13 +67,14 @@ class Solution:
             dfs(root.left, target)
             dfs(root.right, target)
             path.pop()
-        
+
         dfs(root, sum)
         return res
 
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -110,6 +116,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -123,28 +130,28 @@ class Solution {
  * @param {number} sum
  * @return {number[][]}
  */
-var pathSum = function(root, sum) {
-    if(!root) return []
-    let res = []
-    function dfs(node,sum,arr) {
-        if(!node) return
-        arr = [...arr,node.val]
-        if(node.val === sum && !node.left && !node.right) {
-             res.push(arr)
-             return
-        }
-        dfs(node.left,sum - node.val,arr)
-        dfs(node.right,sum - node.val,arr)
+var pathSum = function (root, sum) {
+  if (!root) return [];
+  let res = [];
+  function dfs(node, sum, arr) {
+    if (!node) return;
+    arr = [...arr, node.val];
+    if (node.val === sum && !node.left && !node.right) {
+      res.push(arr);
+      return;
     }
-    dfs(root,sum,[])
-    return res
+    dfs(node.left, sum - node.val, arr);
+    dfs(node.right, sum - node.val, arr);
+  }
+  dfs(root, sum, []);
+  return res;
 };
 ```
 
 ### **Go**
 
 ```go
-var res [][]int 
+var res [][]int
 func pathSum(root *TreeNode, sum int) [][]int {
     res = [][]int{}
     if root == nil {
@@ -170,8 +177,6 @@ func helper(node *TreeNode, target int, ans []int) {
     }
 }
 ```
-
-
 
 ### **...**
 

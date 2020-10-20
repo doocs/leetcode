@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0780.Reaching%20Points/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>从点&nbsp;<code>(x, y)</code>&nbsp;可以<strong>转换</strong>到&nbsp;<code>(x, x+y)</code>&nbsp; 或者&nbsp;<code>(x+y, y)</code>。</p>
 
@@ -32,15 +33,14 @@
 	<li><code>sx, sy, tx, ty</code>&nbsp;是范围在&nbsp;<code>[1, 10^9]</code>&nbsp;的整数。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -48,6 +48,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -55,6 +56,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

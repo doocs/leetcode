@@ -50,15 +50,11 @@ Therefore, the size of the longest subarray is 2.
 	<li><code>0 &lt;= limit &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -66,12 +62,12 @@ Therefore, the size of the longest subarray is 2.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

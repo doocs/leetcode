@@ -3,13 +3,10 @@
 [中文文档](/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README.md)
 
 ## Description
+
 <p>Given an integer n, find the closest integer (not including itself), which is a palindrome. </p>
 
-
-
 <p>The 'closest' is defined as absolute difference minimized between two integers.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -23,8 +20,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -37,9 +32,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

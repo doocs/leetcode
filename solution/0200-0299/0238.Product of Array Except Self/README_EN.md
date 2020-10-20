@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README.md)
 
 ## Description
+
 <p>Given an array <code>nums</code> of <em>n</em> integers where <em>n</em> &gt; 1, &nbsp;return an array <code>output</code> such that <code>output[i]</code> is equal to the product of all the elements of <code>nums</code> except <code>nums[i]</code>.</p>
 
 <p><b>Example:</b></p>
@@ -19,10 +20,7 @@
 <p><strong>Follow up:</strong><br />
 Could you solve it with constant space complexity? (The output array <strong>does not</strong> count as extra space for the purpose of space complexity analysis.)</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -39,6 +37,7 @@ Could you solve it with constant space complexity? (The output array <strong>doe
 ```
 
 ### **...**
+
 ```
 
 ```

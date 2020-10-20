@@ -3,17 +3,12 @@
 [中文文档](/solution/0200-0299/0217.Contains%20Duplicate/README.md)
 
 ## Description
+
 <p>Given an array of integers, find if the array contains any duplicates.</p>
-
-
 
 <p>Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -21,11 +16,7 @@
 
 <strong>Output:</strong> true</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +24,7 @@
 
 <strong>Output:</strong> false</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +32,7 @@
 
 <strong>Output:</strong> true</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

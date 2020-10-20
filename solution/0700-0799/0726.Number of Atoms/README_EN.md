@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0726.Number%20of%20Atoms/README.md)
 
 ## Description
+
 <p>Given a chemical <code>formula</code> (given as a string), return the count of each atom.
 
 </p><p>
@@ -11,21 +12,19 @@ An atomic element always starts with an uppercase character, then zero or more l
 
 </p><p>
 
-1 or more digits representing the count of that element may follow if the count is greater than 1.  If the count is 1, no digits will follow.  For example, H2O and H2O2 are possible, but H1O2 is impossible.
+1 or more digits representing the count of that element may follow if the count is greater than 1. If the count is 1, no digits will follow. For example, H2O and H2O2 are possible, but H1O2 is impossible.
 
 </p><p>
 
-Two formulas concatenated together produce another formula.  For example, H2O2He3Mg4 is also a formula.  
+Two formulas concatenated together produce another formula. For example, H2O2He3Mg4 is also a formula.
 
 </p><p>
 
-A formula placed in parentheses, and a count (optionally added) is also a formula.  For example, (H2O2) and (H2O2)3 are formulas.
+A formula placed in parentheses, and a count (optionally added) is also a formula. For example, (H2O2) and (H2O2)3 are formulas.
 
 </p><p>
 
 Given a formula, output the count of all elements as a string in the following form: the first name (in sorted order), followed by its count (if that count is more than 1), followed by the second name (in sorted order), followed by its count (if that count is more than 1), and so on.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -45,8 +44,6 @@ The count of elements are {'H': 2, 'O': 1}.
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -64,8 +61,6 @@ The count of elements are {'H': 2, 'Mg': 1, 'O': 2}.
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -85,8 +80,6 @@ The count of elements are {'K': 4, 'N': 2, 'O': 14, 'S': 4}.
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li>All atom names consist of lowercase letters, except for the first character which is uppercase.</li>
@@ -97,9 +90,7 @@ The count of elements are {'K': 4, 'N': 2, 'O': 14, 'S': 4}.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -116,6 +107,7 @@ The count of elements are {'K': 4, 'N': 2, 'O': 14, 'S': 4}.
 ```
 
 ### **...**
+
 ```
 
 ```

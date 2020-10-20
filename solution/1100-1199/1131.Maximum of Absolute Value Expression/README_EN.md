@@ -3,16 +3,12 @@
 [中文文档](/solution/1100-1199/1131.Maximum%20of%20Absolute%20Value%20Expression/README.md)
 
 ## Description
+
 <p>Given two arrays of integers with equal lengths, return the maximum value of:</p>
-
-
 
 <p><code>|arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| + |i - j|</code></p>
 
-
-
 <p>where the maximum is taken over all <code>0 &lt;= i, j &lt; arr1.length</code>.</p>
-
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -37,10 +33,7 @@
 	<li><code>-10^6 &lt;= arr1[i], arr2[i] &lt;= 10^6</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

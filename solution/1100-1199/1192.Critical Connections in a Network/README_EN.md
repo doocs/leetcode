@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1192.Critical%20Connections%20in%20a%20Network/README.md)
 
 ## Description
+
 <p>There are&nbsp;<code>n</code> servers numbered from&nbsp;<code>0</code>&nbsp;to&nbsp;<code>n-1</code> connected by&nbsp;undirected server-to-server <code>connections</code> forming a network where <code>connections[i] = [a, b]</code>&nbsp;represents a connection between servers <code>a</code>&nbsp;and <code>b</code>. Any server can reach any other server directly or indirectly through the network.</p>
 
 <p>A <em>critical connection</em>&nbsp;is a connection that, if removed, will make some server unable to reach some other server.</p>
@@ -30,10 +31,7 @@
 	<li>There are no repeated connections.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +48,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

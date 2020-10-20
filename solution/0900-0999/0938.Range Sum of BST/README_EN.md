@@ -3,23 +3,16 @@
 [中文文档](/solution/0900-0999/0938.Range%20Sum%20of%20BST/README.md)
 
 ## Description
+
 <p>Given the <code>root</code> node of a binary search tree, return the sum of values of all nodes with value between <code>L</code> and <code>R</code> (inclusive).</p>
-
-
 
 <p>The binary search tree is guaranteed to have unique values.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -45,21 +34,15 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li>The number of nodes in the tree is at most <code>10000</code>.</li>
+    <li>The number of nodes in the tree is at most <code>10000</code>.</li>
 
-	<li>The final answer is guaranteed to be less than <code>2^31</code>.</li>
+    <li>The final answer is guaranteed to be less than <code>2^31</code>.</li>
 
 </ol>
 
@@ -67,9 +50,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -86,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

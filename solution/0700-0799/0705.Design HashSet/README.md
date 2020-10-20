@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>不使用任何内建的哈希表库设计一个哈希集合</p>
 
@@ -37,15 +38,14 @@ hashSet.contains(2); &nbsp;&nbsp;&nbsp;// 返回  false (已经被删除)
 	<li>不要使用内建的哈希集合库。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -53,6 +53,7 @@ hashSet.contains(2); &nbsp;&nbsp;&nbsp;// 返回  false (已经被删除)
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,6 +61,7 @@ hashSet.contains(2); &nbsp;&nbsp;&nbsp;// 返回  false (已经被删除)
 ```
 
 ### **...**
+
 ```
 
 ```

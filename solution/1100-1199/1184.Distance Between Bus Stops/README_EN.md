@@ -3,25 +3,18 @@
 [中文文档](/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/README.md)
 
 ## Description
+
 <p>A bus&nbsp;has <code>n</code> stops numbered from <code>0</code> to <code>n - 1</code> that form&nbsp;a circle. We know the distance between all pairs of neighboring stops where <code>distance[i]</code> is the distance between the stops number&nbsp;<code>i</code> and <code>(i + 1) % n</code>.</p>
-
-
 
 <p>The bus goes along both directions&nbsp;i.e. clockwise and counterclockwise.</p>
 
-
-
 <p>Return the shortest distance between the given&nbsp;<code>start</code>&nbsp;and <code>destination</code>&nbsp;stops.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-
 ![](./images/untitled-diagram-1.jpg)
-
 
 <pre>
 
@@ -31,14 +24,9 @@
 
 <strong>Explanation:</strong> Distance between 0 and 1 is 1 or 9, minimum is 1.</pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 2:</strong></p>
-
 
 ![](./images/untitled-diagram-1-1.jpg)
 
@@ -52,14 +40,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 3:</strong></p>
-
 
 ![](./images/untitled-diagram-1-2.jpg)
 
@@ -73,13 +56,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n&nbsp;&lt;= 10^4</code></li>
@@ -88,9 +67,7 @@
 	<li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -107,6 +84,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,10 @@
 [中文文档](/lcci/03.05.Sort%20of%20Stacks/README.md)
 
 ## Description
+
 <p>Write a program to sort a stack such that the smallest items are on the top. You can use an additional temporary stack, but you may not copy the elements into any other data structure (such as an array). The stack supports the following operations: <code>push</code>, <code>pop</code>, <code>peek</code>, and <code>isEmpty</code>. When the stack is empty, <code>peek</code> should return -1.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -45,21 +38,13 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The total number of elements in the stack is within the range [0, 5000].</li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -98,7 +83,7 @@ class SortedStack {
     public SortedStack() {
         s = new Stack<>();
     }
-    
+
     public void push(int val) {
         Stack<Integer> t = new Stack<>();
         while (!isEmpty() && s.peek() < val) {
@@ -109,17 +94,17 @@ class SortedStack {
             s.push(t.pop());
         }
     }
-    
+
     public void pop() {
         if (!isEmpty()) {
             s.pop();
         }
     }
-    
+
     public int peek() {
         return isEmpty() ? -1 : s.peek();
     }
-    
+
     public boolean isEmpty() {
         return s.isEmpty();
     }
@@ -136,6 +121,7 @@ class SortedStack {
 ```
 
 ### **...**
+
 ```
 
 ```

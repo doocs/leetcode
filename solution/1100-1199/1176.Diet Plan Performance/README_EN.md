@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1176.Diet%20Plan%20Performance/README.md)
 
 ## Description
+
 <p>A dieter consumes <code>calories[i]</code> calories on the <code>i</code>-th day. </p>
 
 <p>Given an integer <code>k</code>, for <strong>every</strong> consecutive sequence of <code>k</code> days (<code>calories[i], calories[i+1], ..., calories[i+k-1]</code> for all <code>0 <= i <= n-k</code>), they look at <em>T</em>, the total calories consumed during that sequence of <code>k</code> days (<code>calories[i] + calories[i+1] + ... + calories[i+k-1]</code>):</p>
@@ -57,10 +58,7 @@ calories[2] + calories[3] < lower so 1 point is lost.
 	<li><code>0 <= lower <= upper</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +75,7 @@ calories[2] + calories[3] < lower so 1 point is lost.
 ```
 
 ### **...**
+
 ```
 
 ```

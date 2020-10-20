@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0809.Expressive%20Words/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有时候人们会用重复写一些字母来表示额外的感受，比如 <code>&quot;hello&quot; -&gt; &quot;heeellooo&quot;</code>, <code>&quot;hi&quot; -&gt; &quot;hiii&quot;</code>。我们将相邻字母都相同的一串字符定义为相同字母组，例如：&quot;h&quot;, &quot;eee&quot;, &quot;ll&quot;, &quot;ooo&quot;。</p>
 
@@ -36,15 +37,14 @@ words = [&quot;hello&quot;, &quot;hi&quot;, &quot;helo&quot;]
 	<li><code>S</code>&nbsp;和所有在&nbsp;<code>words</code>&nbsp;中的单词都只由小写字母组成。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -52,6 +52,7 @@ words = [&quot;hello&quot;, &quot;hi&quot;, &quot;helo&quot;]
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -59,6 +60,7 @@ words = [&quot;hello&quot;, &quot;hi&quot;, &quot;helo&quot;]
 ```
 
 ### **...**
+
 ```
 
 ```

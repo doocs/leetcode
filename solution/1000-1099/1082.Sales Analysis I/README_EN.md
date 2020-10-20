@@ -3,11 +3,10 @@
 [中文文档](/solution/1000-1099/1082.Sales%20Analysis%20I/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -17,7 +16,7 @@ None
 SELECT seller_id
 FROM Sales
 GROUP BY  seller_id
-HAVING sum(price) = 
+HAVING sum(price) =
     (SELECT sum(price) AS s
     FROM Sales
     GROUP BY  seller_id

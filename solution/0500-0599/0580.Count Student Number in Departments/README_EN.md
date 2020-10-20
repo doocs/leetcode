@@ -3,11 +3,10 @@
 [中文文档](/solution/0500-0599/0580.Count%20Student%20Number%20in%20Departments/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -18,7 +17,7 @@ SELECT dept_name,
         ifnull(total,
         0) AS student_number
 FROM department
-LEFT JOIN 
+LEFT JOIN
     (SELECT dept_id,
          count(*) AS total
     FROM student

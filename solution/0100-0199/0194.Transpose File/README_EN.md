@@ -3,21 +3,14 @@
 [中文文档](/solution/0100-0199/0194.Transpose%20File/README.md)
 
 ## Description
+
 <p>Given a text file <code>file.txt</code>, transpose its content.</p>
-
-
 
 <p>You may assume that each row has the same number of columns and each field is separated by the <code>&#39; &#39;</code> character.</p>
 
-
-
 <p><strong>Example:</strong></p>
 
-
-
 <p>If <code>file.txt</code> has the following content:</p>
-
-
 
 <pre>
 
@@ -29,11 +22,7 @@ ryan 30
 
 </pre>
 
-
-
 <p>Output the following:</p>
-
-
 
 <pre>
 
@@ -43,15 +32,9 @@ age 21 30
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +51,7 @@ age 21 30
 ```
 
 ### **...**
+
 ```
 
 ```

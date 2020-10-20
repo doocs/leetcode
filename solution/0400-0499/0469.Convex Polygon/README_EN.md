@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0469.Convex%20Polygon/README.md)
 
 ## Description
+
 <p>Given a list of points that form a polygon when joined sequentially, find if this polygon is convex <a href="https://en.wikipedia.org/wiki/Convex_polygon" target="_blank">(Convex polygon definition)</a>.</p>
 
 <p> </p>
@@ -37,10 +38,7 @@ Answer: False
 Explanation:<img src="https://assets.leetcode.com/uploads/2018/10/13/polygon_not_convex.png" style="width: 100px; height: 100px;" />
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@ Explanation:<img src="https://assets.leetcode.com/uploads/2018/10/13/polygon_not
 ```
 
 ### **...**
+
 ```
 
 ```

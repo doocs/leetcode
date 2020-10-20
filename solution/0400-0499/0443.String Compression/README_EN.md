@@ -3,23 +3,16 @@
 [中文文档](/solution/0400-0499/0443.String%20Compression/README.md)
 
 ## Description
+
 <p>Given an array of characters, compress it <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><b>in-place</b></a>.</p>
-
-
 
 <p>The length after compression must always be smaller than or equal to the original array.</p>
 
-
-
 <p>Every element of the array should be a <b>character</b> (not int) of length 1.</p>
-
-
 
 <p>After you are done <b>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a></b>, return the new length of the array.</p>
 
 &nbsp;
-
-
 
 <p><b>Follow up:</b><br />
 
@@ -27,11 +20,7 @@ Could you solve it using only O(1) extra space?</p>
 
 &nbsp;
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -53,15 +42,9 @@ Return 6, and the first 6 characters of the input array should be: [&quot;a&quot
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -83,15 +66,9 @@ Nothing is replaced.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 3:</b></p>
-
-
 
 <pre>
 
@@ -115,29 +92,19 @@ Notice each digit has it&#39;s own entry in the array.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>All characters have an ASCII value in <code>[35, 126]</code>.</li>
+    <li>All characters have an ASCII value in <code>[35, 126]</code>.</li>
 
-	<li><code>1 &lt;= len(chars) &lt;= 1000</code>.</li>
+    <li><code>1 &lt;= len(chars) &lt;= 1000</code>.</li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -154,6 +121,7 @@ Notice each digit has it&#39;s own entry in the array.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,21 +3,14 @@
 [中文文档](/solution/0900-0999/0995.Minimum%20Number%20of%20K%20Consecutive%20Bit%20Flips/README.md)
 
 ## Description
+
 <p>In an array <code>A</code> containing only 0s and 1s, a <i><code>K</code>-bit flip&nbsp;</i>consists of choosing a (contiguous) subarray of length <code>K</code> and simultaneously changing every 0 in the subarray to 1, and every 1 in the subarray to 0.</p>
-
-
 
 <p>Return the minimum number of <code>K</code>-bit flips required so that there is no 0 in the array.&nbsp; If it is not possible, return <code>-1</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -47,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -71,31 +56,23 @@ Flip A[5],A[6],A[7]:&nbsp;A becomes [1,1,1,1,1,1,1,1]
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;=&nbsp;30000</code></li>
+    <li><code>1 &lt;= A.length &lt;=&nbsp;30000</code></li>
 
-	<li><code>1 &lt;= K &lt;= A.length</code></li>
+    <li><code>1 &lt;= K &lt;= A.length</code></li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -112,6 +89,7 @@ Flip A[5],A[6],A[7]:&nbsp;A becomes [1,1,1,1,1,1,1,1]
 ```
 
 ### **...**
+
 ```
 
 ```

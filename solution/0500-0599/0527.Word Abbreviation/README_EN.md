@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0527.Word%20Abbreviation/README.md)
 
 ## Description
+
 <p>Given an array of n distinct non-empty strings, you need to generate <b>minimal</b> possible abbreviations for every word following rules below.</p>
 
 <ol>
@@ -18,8 +19,8 @@
 </pre>
 </p>
 
+<b>Note:</b>
 
-<b>Note:</b> 
 <ol>
 <li> Both n and the length of each word will not exceed 400.</li>
 <li> The length of each word is greater than 1.</li>
@@ -27,9 +28,7 @@
 <li> The return answers should be <b>in the same order</b> as the original array.</li>
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

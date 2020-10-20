@@ -3,9 +3,8 @@
 [中文文档](/solution/0500-0599/0509.Fibonacci%20Number/README.md)
 
 ## Description
+
 <p>The&nbsp;<b>Fibonacci numbers</b>, commonly denoted&nbsp;<code>F(n)</code>&nbsp;form a sequence, called the&nbsp;<b>Fibonacci sequence</b>, such that each number is the sum of the two preceding ones, starting from <code>0</code> and <code>1</code>. That is,</p>
-
-
 
 <pre>
 
@@ -15,19 +14,11 @@ F(N) = F(N - 1) + F(N - 2), for N &gt; 1.
 
 </pre>
 
-
-
 <p>Given <code>N</code>, calculate <code>F(N)</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +30,7 @@ F(N) = F(N - 1) + F(N - 2), for N &gt; 1.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +42,7 @@ F(N) = F(N - 1) + F(N - 2), for N &gt; 1.
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -71,23 +54,13 @@ F(N) = F(N - 1) + F(N - 2), for N &gt; 1.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <p>0 &le; <code>N</code> &le; 30.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -104,6 +77,7 @@ F(N) = F(N - 1) + F(N - 2), for N &gt; 1.
 ```
 
 ### **...**
+
 ```
 
 ```

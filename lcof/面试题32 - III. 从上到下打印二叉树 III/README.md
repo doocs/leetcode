@@ -1,6 +1,7 @@
-# [面试题32 - III. 从上到下打印二叉树 III](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/)
+# [面试题 32 - III. 从上到下打印二叉树 III](https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/)
 
 ## 题目描述
+
 请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
 
 **例如:**
@@ -30,9 +31,11 @@
 - `节点总数 <= 1000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -73,6 +76,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -121,6 +125,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for a binary tree node.
@@ -133,29 +138,29 @@ class Solution {
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
-    if(!root) return []
-    let queue = [root]
-    let res = []
-    let depth = 0
-    let dir = true
-    while(queue.length) {
-        let len = queue.length
-        for(let i=0;i<len;i++) {
-            let node = queue.shift()
-            if(!node) continue
-            if(!res[depth]) res[depth] = []
-            if(dir) {
-                res[depth].push(node.val)
-            } else {
-                res[depth].unshift(node.val)
-            }
-            queue.push(node.left,node.right)
-        }
-        depth++
-        dir = !dir
+var levelOrder = function (root) {
+  if (!root) return [];
+  let queue = [root];
+  let res = [];
+  let depth = 0;
+  let dir = true;
+  while (queue.length) {
+    let len = queue.length;
+    for (let i = 0; i < len; i++) {
+      let node = queue.shift();
+      if (!node) continue;
+      if (!res[depth]) res[depth] = [];
+      if (dir) {
+        res[depth].push(node.val);
+      } else {
+        res[depth].unshift(node.val);
+      }
+      queue.push(node.left, node.right);
     }
-    return res
+    depth++;
+    dir = !dir;
+  }
+  return res;
 };
 ```
 
@@ -181,7 +186,7 @@ func levelOrder(root *TreeNode) [][]int {
             } else {
                 ans = append([]int{cur.Val},ans...)
             }
-            
+
             queue = queue[1:]
             size--
             if cur.Left != nil {
@@ -197,8 +202,6 @@ func levelOrder(root *TreeNode) [][]int {
     return res
 }
 ```
-
-
 
 ### **...**
 

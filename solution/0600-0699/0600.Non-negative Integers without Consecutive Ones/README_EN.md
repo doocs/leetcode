@@ -3,9 +3,8 @@
 [中文文档](/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README.md)
 
 ## Description
+
 <p>Given a positive integer n, find the number of <b>non-negative</b> integers less than or equal to n, whose binary representations do NOT contain <b>consecutive ones</b>.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -37,19 +36,13 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 1 <= n <= 10<sup>9</sup>
 
 </p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +59,7 @@ Among them, only integer 3 disobeys the rule (two consecutive ones) and the othe
 ```
 
 ### **...**
+
 ```
 
 ```

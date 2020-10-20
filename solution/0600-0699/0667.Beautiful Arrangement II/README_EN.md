@@ -3,25 +3,20 @@
 [中文文档](/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README.md)
 
 ## Description
+
 <p>
 
 Given two integers <code>n</code> and <code>k</code>, you need to construct a list which contains <code>n</code> different positive integers ranging from <code>1</code> to <code>n</code> and obeys the following requirement: <br/>
 
-
-
 Suppose this list is [a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, ... , a<sub>n</sub>], then the list [|a<sub>1</sub> - a<sub>2</sub>|, |a<sub>2</sub> - a<sub>3</sub>|, |a<sub>3</sub> - a<sub>4</sub>|, ... , |a<sub>n-1</sub> - a<sub>n</sub>|] has exactly <code>k</code> distinct integers.
 
 </p>
-
-
 
 <p>
 
 If there are multiple answers, print any of them.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br/>
 
@@ -37,8 +32,6 @@ If there are multiple answers, print any of them.
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -53,8 +46,6 @@ If there are multiple answers, print any of them.
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -65,9 +56,7 @@ If there are multiple answers, print any of them.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +73,7 @@ If there are multiple answers, print any of them.
 ```
 
 ### **...**
+
 ```
 
 ```

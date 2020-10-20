@@ -44,15 +44,11 @@ The longest arithmetic subsequence is [20,15,10,5].
 	<li><code>0 &lt;= A[i] &lt;= 500</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -60,12 +56,12 @@ The longest arithmetic subsequence is [20,15,10,5].
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

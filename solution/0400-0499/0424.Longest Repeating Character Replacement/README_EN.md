@@ -3,27 +3,18 @@
 [中文文档](/solution/0400-0499/0424.Longest%20Repeating%20Character%20Replacement/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code>&nbsp;that consists of only uppercase English letters, you can perform at most <code>k</code> operations on that string.</p>
-
-
 
 <p>In one operation, you can choose <strong>any</strong> character of the string and change it to any other uppercase English character.</p>
 
-
-
 <p>Find the length of the longest sub-string containing all repeating letters you can get after performing the above operations.</p>
-
-
 
 <p><b>Note:</b><br />
 
 Both the string&#39;s length and <i>k</i> will not exceed 10<sup>4</sup>.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -45,15 +36,9 @@ Replace the two &#39;A&#39;s with two &#39;B&#39;s or vice versa.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -77,15 +62,9 @@ The substring &quot;BBBB&quot; has the longest repeating letters, which is 4.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -102,6 +81,7 @@ The substring &quot;BBBB&quot; has the longest repeating letters, which is 4.
 ```
 
 ### **...**
+
 ```
 
 ```

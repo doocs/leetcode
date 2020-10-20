@@ -3,29 +3,20 @@
 [中文文档](/solution/0800-0899/0863.All%20Nodes%20Distance%20K%20in%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>We are given a binary tree (with root node&nbsp;<code>root</code>), a <code>target</code> node, and an integer value <code>K</code>.</p>
-
-
 
 <p>Return a list of the values of all&nbsp;nodes that have a distance <code>K</code> from the <code>target</code> node.&nbsp; The answer can be returned in any order.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +46,7 @@ The descriptions of the inputs above are just serializations of these objects.
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The given tree is non-empty.</li>
@@ -70,9 +57,7 @@ The descriptions of the inputs above are just serializations of these objects.
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -89,6 +74,7 @@ The descriptions of the inputs above are just serializations of these objects.
 ```
 
 ### **...**
+
 ```
 
 ```

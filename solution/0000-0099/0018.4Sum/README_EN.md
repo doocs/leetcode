@@ -3,21 +3,14 @@
 [中文文档](/solution/0000-0099/0018.4Sum/README.md)
 
 ## Description
+
 <p>Given an array <code>nums</code> of <em>n</em> integers and an integer <code>target</code>, are there elements <em>a</em>, <em>b</em>, <em>c</em>, and <em>d</em> in <code>nums</code> such that <em>a</em> + <em>b</em> + <em>c</em> + <em>d</em> = <code>target</code>? Find all unique quadruplets in the array which gives the sum of <code>target</code>.</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <p>The solution set must not contain duplicate quadruplets.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +32,7 @@ A solution set is:
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +49,7 @@ A solution set is:
 ```
 
 ### **...**
+
 ```
 
 ```

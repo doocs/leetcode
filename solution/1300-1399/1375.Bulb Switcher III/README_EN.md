@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1375.Bulb%20Switcher%20III/README.md)
 
 ## Description
+
 <p>There is a room with <code>n</code> bulbs, numbered from <code>1</code> to <code>n</code>, arranged in a row from left to right. Initially, all the bulbs are turned off.</p>
 
 <p>At moment <em>k</em> (for <em>k</em> from <code>0</code> to <code>n - 1</code>), we turn on the <code>light[k]</code> bulb. A bulb <strong>change&nbsp;color to blue</strong> only if it is on and all the previous bulbs (to the left)&nbsp;are turned on too.</p>
@@ -60,10 +61,7 @@ Bulb 4th changes to blue at the moment 3.
 	<li><code>light</code> is a permutation of&nbsp;&nbsp;<code>[1, 2, ..., n]</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +78,7 @@ Bulb 4th changes to blue at the moment 3.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1167.Minimum%20Cost%20to%20Connect%20Sticks/README.md)
 
 ## Description
+
 <p>You have some <code>sticks</code> with positive integer lengths.</p>
 
 <p>You can connect any two sticks of lengths <code>X</code> and <code>Y</code> into one stick by paying a cost of <code>X + Y</code>.  You perform this action until there is one stick remaining.</p>
@@ -25,10 +26,7 @@
 	<li><code><span>1 <= sticks[i] <= 10^4</span></code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -45,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

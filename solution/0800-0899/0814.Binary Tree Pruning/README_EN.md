@@ -3,17 +3,12 @@
 [中文文档](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README.md)
 
 ## Description
+
 <p>We are given the head node <code>root</code>&nbsp;of a binary tree, where additionally every node&#39;s value is either a 0 or a 1.</p>
-
-
 
 <p>Return the same tree where every subtree (of the given tree) not containing a 1 has been removed.</p>
 
-
-
 <p>(Recall that the subtree of a node X is X, plus every node that is a descendant of X.)</p>
-
-
 
 <pre>
 
@@ -61,18 +56,12 @@ The diagram on the right represents the answer.
 
 <p><strong>Note: </strong></p>
 
-
-
 <ul>
 	<li>The binary tree&nbsp;will&nbsp;have&nbsp;at&nbsp;most <code>100 nodes</code>.</li>
 	<li>The value of each node will only be <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -89,6 +78,7 @@ The diagram on the right represents the answer.
 ```
 
 ### **...**
+
 ```
 
 ```

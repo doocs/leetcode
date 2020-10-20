@@ -3,17 +3,12 @@
 [中文文档](/solution/0100-0199/0151.Reverse%20Words%20in%20a%20String/README.md)
 
 ## Description
+
 <p>Given an input string, reverse the string word by word.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +30,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -55,41 +42,27 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li>A word is defined as a sequence of non-space characters.</li>
+    <li>A word is defined as a sequence of non-space characters.</li>
 
-	<li>Input string may contain leading or trailing spaces. However, your reversed string should not contain leading or trailing spaces.</li>
+    <li>Input string may contain leading or trailing spaces. However, your reversed string should not contain leading or trailing spaces.</li>
 
-	<li>You need to reduce multiple spaces between two words to a single space in the reversed string.</li>
+    <li>You need to reduce multiple spaces between two words to a single space in the reversed string.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Follow up:</strong></p>
 
-
-
 <p>For C programmers, try to solve it <em>in-place</em> in <em>O</em>(1) extra space.</p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -106,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

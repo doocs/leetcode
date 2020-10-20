@@ -3,9 +3,10 @@
 [中文文档](/solution/0700-0799/0765.Couples%20Holding%20Hands/README.md)
 
 ## Description
+
 <p>
 
-N couples sit in 2N seats arranged in a row and want to hold hands.  We want to know the minimum number of swaps so that every couple is sitting side by side.  A <i>swap</i> consists of choosing <b>any</b> two people, then they stand up and switch seats. 
+N couples sit in 2N seats arranged in a row and want to hold hands. We want to know the minimum number of swaps so that every couple is sitting side by side. A <i>swap</i> consists of choosing <b>any</b> two people, then they stand up and switch seats.
 
 </p><p>
 
@@ -14,8 +15,6 @@ The people and seats are represented by an integer from <code>0</code> to <code>
 </p><p>
 
 The couples' initial seating is given by <code>row[i]</code> being the value of the person who is initially sitting in the i-th seat.
-
-
 
 <p><b>Example 1:</b><br /><pre>
 
@@ -27,8 +26,6 @@ The couples' initial seating is given by <code>row[i]</code> being the value of 
 
 </pre></p>
 
-
-
 <p><b>Example 2:</b><br /><pre>
 
 <b>Input:</b> row = [3, 2, 0, 1]
@@ -39,13 +36,11 @@ The couples' initial seating is given by <code>row[i]</code> being the value of 
 
 </pre></p>
 
-
-
 <p>
 
 <b>Note:</b>
 
-<ol> 
+<ol>
 
 <li> <code>len(row)</code> is even and in the range of <code>[4, 60]</code>.</li>
 
@@ -53,9 +48,7 @@ The couples' initial seating is given by <code>row[i]</code> being the value of 
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +65,7 @@ The couples' initial seating is given by <code>row[i]</code> being the value of 
 ```
 
 ### **...**
+
 ```
 
 ```

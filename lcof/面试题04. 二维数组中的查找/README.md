@@ -1,7 +1,8 @@
-# [面试题04. 二维数组中的查找](https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
+# [面试题 04. 二维数组中的查找](https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
 
 ## 题目描述
-在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+
+在一个 n \* m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
 
 **示例:**
 
@@ -17,9 +18,9 @@
 ]
 ```
 
-给定 target = 5，返回 `true`。
+给定 target = 5，返回  `true`。
 
-给定 target = 20，返回 `false`。
+给定  target = 20，返回  `false`。
 
 **限制：**
 
@@ -28,11 +29,13 @@
 - `0 <= m <= 1000`
 
 ## 解法
+
 从左下角（或右上角）开始查找即可。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
@@ -52,6 +55,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
@@ -76,31 +80,33 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[][]} matrix
  * @param {number} target
  * @return {boolean}
  */
-var findNumberIn2DArray = function(matrix, target) {
-    let row = matrix.length
-    let col = matrix[0].length
-    function dfs(i,j) {
-        if(i < 0 || j >= col) {
-            return false
-        }
-        if(matrix[i][j] === target) return true
-        else if(matrix[i][j] > target) {
-            return dfs(i-1,j)
-        } else {
-            return dfs(i,j+1)
-        }
+var findNumberIn2DArray = function (matrix, target) {
+  let row = matrix.length;
+  let col = matrix[0].length;
+  function dfs(i, j) {
+    if (i < 0 || j >= col) {
+      return false;
     }
-    return dfs(row-1,0)
+    if (matrix[i][j] === target) return true;
+    else if (matrix[i][j] > target) {
+      return dfs(i - 1, j);
+    } else {
+      return dfs(i, j + 1);
+    }
+  }
+  return dfs(row - 1, 0);
 };
 ```
 
 ### **Go**
+
 ```go
 func findNumberIn2DArray(matrix [][]int, target int) bool {
     if len(matrix) == 0 {
@@ -118,13 +124,14 @@ func findNumberIn2DArray(matrix [][]int, target int) bool {
             j++
         }
     }
-    return false 
+    return false
 }
 ```
 
-
 ### **...**
+
 ```
 
 ```
+
 <!-- tabs:end -->

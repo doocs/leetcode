@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0317.Shortest%20Distance%20from%20All%20Buildings/README.md)
 
 ## Description
+
 <p>You want to build a house on an <i>empty</i> land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values <b>0</b>, <b>1</b> or <b>2</b>, where:</p>
 
 <ul>
@@ -31,10 +32,7 @@
 <p><b>Note:</b><br />
 There will be at least one building. If it is not possible to build such house according to the above rules, return -1.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -51,6 +49,7 @@ There will be at least one building. If it is not possible to build such house a
 ```
 
 ### **...**
+
 ```
 
 ```

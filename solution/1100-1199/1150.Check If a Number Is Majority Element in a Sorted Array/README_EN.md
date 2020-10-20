@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1150.Check%20If%20a%20Number%20Is%20Majority%20Element%20in%20a%20Sorted%20Array/README.md)
 
 ## Description
+
 <p>Given an array <code>nums</code> sorted in <strong>non-decreasing</strong> order, and a number <code>target</code>, return <code>True</code> if and only if <code>target</code> is a majority element.</p>
 
 <p>A <em>majority element</em> is an element that appears <strong>more than <code>N/2</code></strong> times in an array of length <code>N</code>.</p>
@@ -38,10 +39,7 @@ Thus, 101 is not a majority element because 2 > 4/2 is false.
 	<li><code>1 <= target <= 10^9</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +56,7 @@ Thus, 101 is not a majority element because 2 > 4/2 is false.
 ```
 
 ### **...**
+
 ```
 
 ```

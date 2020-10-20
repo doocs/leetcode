@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1260.Shift%202D%20Grid/README.md)
 
 ## Description
+
 <p>Given a 2D <code>grid</code> of size <code>m x n</code>&nbsp;and an integer <code>k</code>. You need to shift the <code>grid</code>&nbsp;<code>k</code> times.</p>
 
 <p>In one shift operation:</p>
@@ -53,10 +54,7 @@
 	<li><code>0 &lt;= k &lt;= 100</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -73,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0394.Decode%20String/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
 
@@ -20,15 +21,14 @@ s = &quot;3[a2[c]]&quot;, 返回 &quot;accaccacc&quot;.
 s = &quot;2[abc]3[cd]ef&quot;, 返回 &quot;abcabccdcdcdef&quot;.
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -36,6 +36,7 @@ s = &quot;2[abc]3[cd]ef&quot;, 返回 &quot;abcabccdcdcdef&quot;.
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -43,6 +44,7 @@ s = &quot;2[abc]3[cd]ef&quot;, 返回 &quot;abcabccdcdcdef&quot;.
 ```
 
 ### **...**
+
 ```
 
 ```

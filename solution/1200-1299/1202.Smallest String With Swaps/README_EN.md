@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README.md)
 
 ## Description
+
 <p>You are given a string <code>s</code>, and an array of pairs of indices in the string&nbsp;<code>pairs</code>&nbsp;where&nbsp;<code>pairs[i] =&nbsp;[a, b]</code>&nbsp;indicates 2 indices(0-indexed) of the string.</p>
 
 <p>You can&nbsp;swap the characters at any pair of indices in the given&nbsp;<code>pairs</code>&nbsp;<strong>any number of times</strong>.</p>
@@ -51,10 +52,7 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 	<li><code>s</code>&nbsp;only contains lower case English letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -71,6 +69,7 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1021.Remove%20Outermost%20Parentheses/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有效括号字符串为空&nbsp;<code>(&quot;&quot;)</code>、<code>&quot;(&quot; + A + &quot;)&quot;</code>&nbsp;或&nbsp;<code>A + B</code>，其中&nbsp;<code>A</code> 和&nbsp;<code>B</code>&nbsp;都是有效的括号字符串，<code>+</code>&nbsp;代表字符串的连接。例如，<code>&quot;&quot;</code>，<code>&quot;()&quot;</code>，<code>&quot;(())()&quot;</code>&nbsp;和&nbsp;<code>&quot;(()(()))&quot;</code>&nbsp;都是有效的括号字符串。</p>
 
@@ -50,15 +51,14 @@
 	<li><code>S</code> 是一个有效括号字符串</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -66,6 +66,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -73,6 +74,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

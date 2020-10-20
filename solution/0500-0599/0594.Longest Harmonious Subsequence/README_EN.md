@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README.md)
 
 ## Description
+
 <p>We define a harmounious array as an array where the difference between its maximum value and its minimum value is <b>exactly</b> 1.</p>
 
 <p>Now, given an integer array, you need to find the length of its longest harmonious subsequence among all its possible <a href="https://en.wikipedia.org/wiki/Subsequence">subsequences</a>.</p>
@@ -19,10 +20,7 @@
 
 <p><b>Note:</b> The length of the input array will not exceed 20,000.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -39,6 +37,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

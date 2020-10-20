@@ -3,17 +3,12 @@
 [中文文档](/lcci/01.07.Rotate%20Matrix/README.md)
 
 ## Description
+
 <p>Given an image represented by an N x N matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +40,7 @@ Rotate the matrix <strong>in place. </strong>It becomes:
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -85,11 +76,7 @@ Rotate the matrix <strong>in place. </strong>It becomes:
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -132,6 +119,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

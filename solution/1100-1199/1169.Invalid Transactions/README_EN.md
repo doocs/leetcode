@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1169.Invalid%20Transactions/README.md)
 
 ## Description
+
 <p>A transaction is <em>possibly invalid</em> if:</p>
 
 <ul>
@@ -47,10 +48,7 @@
 	<li>Each <code>{amount}</code>&nbsp;consist of&nbsp;digits, and represent an integer between <code>0</code> and <code>2000</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

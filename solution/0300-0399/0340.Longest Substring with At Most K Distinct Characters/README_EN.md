@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0340.Longest%20Substring%20with%20At%20Most%20K%20Distinct%20Characters/README.md)
 
 ## Description
+
 <p>Given a string, find the length of the longest substring T that contains at most <i>k</i> distinct characters.</p>
 
 <p><strong>Example 1:</strong></p>
@@ -24,9 +25,7 @@
 </div>
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -43,6 +42,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

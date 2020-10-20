@@ -3,21 +3,22 @@
 [中文文档](/solution/0600-0699/0684.Redundant%20Connection/README.md)
 
 ## Description
+
 <p>
 
 In this problem, a tree is an <b>undirected</b> graph that is connected and has no cycles.
 
 </p><p>
 
-The given input is a graph that started as a tree with N nodes (with distinct values 1, 2, ..., N), with one additional edge added.  The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.
+The given input is a graph that started as a tree with N nodes (with distinct values 1, 2, ..., N), with one additional edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.
 
 </p><p>
 
-The resulting graph is given as a 2D-array of <code>edges</code>.  Each element of <code>edges</code> is a pair <code>[u, v]</code> with <code>u < v</code>, that represents an <b>undirected</b> edge connecting nodes <code>u</code> and <code>v</code>.
+The resulting graph is given as a 2D-array of <code>edges</code>. Each element of <code>edges</code> is a pair <code>[u, v]</code> with <code>u < v</code>, that represents an <b>undirected</b> edge connecting nodes <code>u</code> and <code>v</code>.
 
 </p><p>
 
-Return an edge that can be removed so that the resulting graph is a tree of N nodes.  If there are multiple answers, return the answer that occurs last in the given 2D-array.  The answer edge <code>[u, v]</code> should be in the same format, with <code>u < v</code>.
+Return an edge that can be removed so that the resulting graph is a tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array. The answer edge <code>[u, v]</code> should be in the same format, with <code>u < v</code>.
 
 </p><p><b>Example 1:</b><br />
 
@@ -67,11 +68,7 @@ Return an edge that can be removed so that the resulting graph is a tree of N no
 
 </p>
 
-
-
 <br />
-
-
 
 <p>
 
@@ -81,9 +78,7 @@ We have overhauled the problem description + test cases and specified clearly th
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +95,7 @@ We have overhauled the problem description + test cases and specified clearly th
 ```
 
 ### **...**
+
 ```
 
 ```

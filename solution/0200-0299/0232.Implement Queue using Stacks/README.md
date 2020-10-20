@@ -3,6 +3,7 @@
 [English Version](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>使用栈实现队列的下列操作：</p>
 
@@ -31,15 +32,14 @@ queue.empty(); // 返回 false</pre>
 	<li>假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -47,6 +47,7 @@ queue.empty(); // 返回 false</pre>
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -54,6 +55,7 @@ queue.empty(); // 返回 false</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

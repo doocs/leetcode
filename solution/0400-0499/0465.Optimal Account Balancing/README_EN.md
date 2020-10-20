@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0465.Optimal%20Account%20Balancing/README.md)
 
 ## Description
+
 <p>A group of friends went on holiday and sometimes lent each other money. For example, Alice paid for Bill's lunch for $10. Then later Chris gave Alice $5 for a taxi ride. We can model each transaction as a tuple (x, y, z) which means person x gave person y $z. Assuming Alice, Bill, and Chris are person 0, 1, and 2 respectively (0, 1, 2 are the person's ID), the transactions can be represented as <code>[[0, 1, 10], [2, 0, 5]]</code>.</p>
 
 <p>Given a list of transactions between a group of people, return the minimum number of transactions required to settle the debt.</p>
@@ -26,7 +27,8 @@
 Person #0 gave person #1 $10.
 Person #2 gave person #0 $5.
 
-Two transactions are needed. One way to settle the debt is person #1 pays person #0 and #2 $5 each.
+Two transactions are needed. One way to settle the debt is person #1 pays person #0 and #2 \$5 each.
+
 </pre>
 </p>
 
@@ -44,13 +46,12 @@ Person #1 gave person #0 $1.
 Person #1 gave person #2 $5.
 Person #2 gave person #0 $5.
 
-Therefore, person #1 only need to give person #0 $4, and all debt is settled.
+Therefore, person #1 only need to give person #0 \$4, and all debt is settled.
+
 </pre>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +68,7 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 ```
 
 ### **...**
+
 ```
 
 ```

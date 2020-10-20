@@ -1,7 +1,9 @@
-# [面试题38. 字符串的排列](https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/)
+# [面试题 38. 字符串的排列](https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 输入一个字符串，打印出该字符串中字符的所有排列。
 
 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
@@ -18,12 +20,13 @@
 - `1 <= s 的长度 <= 8`
 
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -47,6 +50,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -87,32 +91,34 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {string} s
  * @return {string[]}
  */
-var permutation = function(s) {
-    let len = s.length
-    let res = new Set()
-    function dfs(str, isRead) {
-        if(str.length === len) {
-             res.add(str)
-             return
-        }
-        for(let i=0;i<len;i++) {
-            if(isRead[i]) continue
-            isRead[i] = 1
-            dfs(str.concat(s[i]),isRead)
-            isRead[i] = 0
-        }
+var permutation = function (s) {
+  let len = s.length;
+  let res = new Set();
+  function dfs(str, isRead) {
+    if (str.length === len) {
+      res.add(str);
+      return;
     }
-    dfs('',{})
-    return [...res]
+    for (let i = 0; i < len; i++) {
+      if (isRead[i]) continue;
+      isRead[i] = 1;
+      dfs(str.concat(s[i]), isRead);
+      isRead[i] = 0;
+    }
+  }
+  dfs("", {});
+  return [...res];
 };
 ```
 
 ### **...**
+
 ```
 
 ```

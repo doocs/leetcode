@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0758.Bold%20Words%20in%20String/README.md)
 
 ## Description
+
 <p>Given a set of keywords <code>words</code> and a string <code>S</code>, make all appearances of all keywords in <code>S</code> bold. Any letters between <code><b></code> and <code></b></code> tags become bold.</p>
 
 <p>The returned string should use the least number of tags possible, and of course the tags should form a valid combination.</p>
@@ -20,10 +21,7 @@
 
 <p><strong>Note:</strong> This question is the same as 616: <a href="https://leetcode.com/problems/add-bold-tag-in-string/">https://leetcode.com/problems/add-bold-tag-in-string/</a></p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -40,6 +38,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

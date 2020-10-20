@@ -3,6 +3,7 @@
 [中文文档](/solution/0900-0999/0912.Sort%20an%20Array/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>nums</code>, sort the array in ascending order.</p>
 
 <p>&nbsp;</p>
@@ -21,10 +22,7 @@
 	<li><code>-50000 &lt;= nums[i] &lt;= 50000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -41,6 +39,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

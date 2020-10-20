@@ -3,11 +3,10 @@
 [中文文档](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README.md)
 
 ## Description
+
 <p>Given a non-empty list of words, return the <i>k</i> most frequent elements.</p>
 
 <p>Your answer should be sorted by frequency from highest to lowest. If two words have the same frequency, then the word with the lower alphabetical order comes first.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,8 +24,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -43,8 +40,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -57,8 +52,6 @@
 
 </p>
 
-
-
 <p><b>Follow up:</b><br />
 
 <ol>
@@ -69,9 +62,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -88,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

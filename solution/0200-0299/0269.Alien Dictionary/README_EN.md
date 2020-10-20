@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0269.Alien%20Dictionary/README.md)
 
 ## Description
+
 <p>There is a new alien language which uses the latin alphabet. However, the order among letters are unknown to you. You receive a list of <b>non-empty</b> words from the dictionary, where <b>words are sorted lexicographically by the rules of this new language</b>. Derive the order of letters in this language.</p>
 
 <p><b>Example 1:</b></p>
@@ -55,10 +56,7 @@
 	<li>There may be multiple valid order of letters, return any one of them is fine.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -75,6 +73,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

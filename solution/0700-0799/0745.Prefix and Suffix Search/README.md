@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0745.Prefix%20and%20Suffix%20Search/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定多个&nbsp;<code>words</code>，<code>words[i]</code>&nbsp;的权重为&nbsp;<code>i</code>&nbsp;。</p>
 
@@ -27,15 +28,14 @@ WordFilter.f(&quot;b&quot;, &quot;&quot;) // 返回 -1
 	<li><code>words[i]</code>和<code>prefix, suffix</code>只包含小写字母。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -43,6 +43,7 @@ WordFilter.f(&quot;b&quot;, &quot;&quot;) // 返回 -1
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -50,6 +51,7 @@ WordFilter.f(&quot;b&quot;, &quot;&quot;) // 返回 -1
 ```
 
 ### **...**
+
 ```
 
 ```

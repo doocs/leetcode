@@ -3,9 +3,8 @@
 [中文文档](/solution/0600-0699/0655.Print%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Print a binary tree in an m*n 2D string array following these rules: </p>
-
-
 
 <ol>
 
@@ -20,8 +19,6 @@
 <li>Print the subtrees following the same rules.</li>
 
 </ol>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -44,10 +41,6 @@
 </pre>
 
 </p>
-
-
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -76,8 +69,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -115,17 +106,13 @@
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 The height of binary tree is in the range of [1, 10].
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -142,6 +129,7 @@ The height of binary tree is in the range of [1, 10].
 ```
 
 ### **...**
+
 ```
 
 ```

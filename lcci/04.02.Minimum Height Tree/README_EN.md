@@ -3,13 +3,10 @@
 [中文文档](/lcci/04.02.Minimum%20Height%20Tree/README.md)
 
 ## Description
+
 <p>Given a sorted (increasing order) array with unique integer elements, write an algo&shy;rithm to create a binary search tree with minimal height.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +30,7 @@ One possible answer is: [0,-3,9,-10,null,5]，which represents the following tre
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +47,7 @@ One possible answer is: [0,-3,9,-10,null,5]，which represents the following tre
 ```
 
 ### **...**
+
 ```
 
 ```

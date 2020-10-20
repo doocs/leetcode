@@ -49,15 +49,11 @@ The edges 2, 3, 4, and 5 are only part of some MSTs, therefore they are consider
 	<li>All pairs <code>(from<sub>i</sub>, to<sub>i</sub>)</code> are distinct.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -65,12 +61,12 @@ The edges 2, 3, 4, and 5 are only part of some MSTs, therefore they are consider
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

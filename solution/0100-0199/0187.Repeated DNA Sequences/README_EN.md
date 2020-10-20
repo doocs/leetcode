@@ -3,17 +3,12 @@
 [中文文档](/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README.md)
 
 ## Description
+
 <p>All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: &quot;ACGAATTCCG&quot;. When studying DNA, it is sometimes useful to identify repeated sequences within the DNA.</p>
-
-
 
 <p>Write a function to find all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +37,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1380.Lucky%20Numbers%20in%20a%20Matrix/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个 <code>m * n</code> 的矩阵，矩阵中的数字 <strong>各不相同</strong> 。请你按 <strong>任意</strong> 顺序返回矩阵中的所有幸运数。</p>
 
@@ -47,9 +48,8 @@
 	<li>矩阵中的所有元素都是不同的</li>
 </ul>
 
-
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
 
 取行最小值与列最大值的交集即可。
@@ -57,6 +57,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -68,6 +69,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -100,6 +102,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

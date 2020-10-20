@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0321.Create%20Maximum%20Number/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定长度分别为&nbsp;<code>m</code>&nbsp;和&nbsp;<code>n</code>&nbsp;的两个数组，其元素由&nbsp;<code>0-9</code>&nbsp;构成，表示两个自然数各位上的数字。现在从这两个数组中选出 <code>k (k &lt;= m + n)</code>&nbsp;个数字拼接成一个新的数，要求从同一个数组中取出的数字保持其在原数组中的相对顺序。</p>
 
@@ -37,15 +38,14 @@ k = <code>3</code>
 <strong>输出:</strong>
 <code>[9, 8, 9]</code></pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -53,6 +53,7 @@ k = <code>3</code>
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,6 +61,7 @@ k = <code>3</code>
 ```
 
 ### **...**
+
 ```
 
 ```

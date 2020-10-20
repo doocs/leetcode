@@ -3,17 +3,12 @@
 [中文文档](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README.md)
 
 ## Description
+
 <p>Given a nested list of integers, implement an iterator to flatten it.</p>
-
-
 
 <p>Each element is either an integer, or a list -- whose elements may also be integers or other lists.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <div>
 
@@ -27,13 +22,9 @@
 
 &nbsp;            the order of elements returned by <i>next</i> should be: <code>[1,1,2,1,1]</code>.</pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -51,11 +42,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,17 +3,12 @@
 [中文文档](/solution/0500-0599/0587.Erect%20the%20Fence/README.md)
 
 ## Description
+
 <p>There are some trees, where each tree is represented by (x,y) coordinate in a two-dimensional garden. Your job is to fence the entire garden using the <b>minimum length</b> of rope as it is expensive. The garden is well fenced only if all the trees are enclosed. Your task is to help find the coordinates of trees which are exactly located on the fence perimeter.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -28,8 +23,6 @@
 ![](./images/erect_the_fence_1.png)
 
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -47,11 +40,7 @@ Even you only have trees in a line, you need to use rope to enclose them.
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>All trees should be enclosed together. You cannot cut the rope to enclose trees that will separate them in more than one group.</li>
@@ -62,11 +51,7 @@ Even you only have trees in a line, you need to use rope to enclose them.
 	<li>input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.</li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -83,6 +68,7 @@ Even you only have trees in a line, you need to use rope to enclose them.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,21 +3,14 @@
 [中文文档](/solution/0800-0899/0817.Linked%20List%20Components/README.md)
 
 ## Description
+
 <p>We are given&nbsp;<code>head</code>,&nbsp;the head node of a linked list containing&nbsp;<strong>unique integer values</strong>.</p>
-
-
 
 <p>We are also given the list&nbsp;<code>G</code>, a subset of the values in the linked list.</p>
 
-
-
 <p>Return the number of connected components in <code>G</code>, where two values are connected if they appear consecutively in the linked list.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +28,7 @@ G = [0, 1, 3]
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -57,29 +46,21 @@ G = [0, 3, 1, 4]
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 
-	<li>If&nbsp;<code>N</code>&nbsp;is the&nbsp;length of the linked list given by&nbsp;<code>head</code>,&nbsp;<code>1 &lt;= N &lt;= 10000</code>.</li>
+    <li>If&nbsp;<code>N</code>&nbsp;is the&nbsp;length of the linked list given by&nbsp;<code>head</code>,&nbsp;<code>1 &lt;= N &lt;= 10000</code>.</li>
 
-	<li>The value of each node in the linked list will be in the range<code> [0, N - 1]</code>.</li>
+    <li>The value of each node in the linked list will be in the range<code> [0, N - 1]</code>.</li>
 
-	<li><code>1 &lt;= G.length &lt;= 10000</code>.</li>
+    <li><code>1 &lt;= G.length &lt;= 10000</code>.</li>
 
-	<li><code>G</code> is a subset of all values in the linked list.</li>
+    <li><code>G</code> is a subset of all values in the linked list.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +77,7 @@ G = [0, 3, 1, 4]
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0800-0899/0800.Similar%20RGB%20Color/README.md)
 
 ## Description
+
 <p>In the following, every capital letter represents some hexadecimal digit from <code>0</code> to <code>f</code>.</p>
 
 <p>The red-green-blue color <code>"#AABBCC"</code> can be written as <code>"#ABC"</code> in shorthand.  For example, <code>"#15c"</code> is shorthand for the color <code>"#1155cc"</code>.</p>
@@ -29,10 +30,7 @@ This is the highest among any shorthand color.
 	<li>All inputs and outputs should use lowercase letters, and the output is 7 characters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -49,6 +47,7 @@ This is the highest among any shorthand color.
 ```
 
 ### **...**
+
 ```
 
 ```

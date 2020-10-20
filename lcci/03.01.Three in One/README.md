@@ -3,6 +3,7 @@
 [English Version](/lcci/03.01.Three%20in%20One/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>三合一。描述如何只用一个数组来实现三个栈。</p>
 
@@ -29,14 +30,16 @@
 [null, null, null, null, 2, 1, -1, -1]
 </pre>
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 二维数组解决；也可以使用一维数组，以下标 `0,3,6,..`、`1,4,7,..`、`2,5,8,..` 区分，一维数组最后三个元素记录每个栈的元素个数。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -69,6 +72,7 @@ class TripleInOne:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -80,14 +84,14 @@ class TripleInOne {
         s = new int[stackSize * 3 + 3];
         capacity = stackSize;
     }
-    
+
     public void push(int stackNum, int value) {
         if (s[stackNum + 3 * capacity] < capacity) {
             s[s[stackNum + 3 * capacity] * 3 + stackNum] = value;
             ++s[stackNum + 3 * capacity];
         }
     }
-    
+
     public int pop(int stackNum) {
         if (isEmpty(stackNum)) {
             return -1;
@@ -95,11 +99,11 @@ class TripleInOne {
         --s[stackNum + 3 * capacity];
         return s[s[stackNum + 3 * capacity] * 3 + stackNum];
     }
-    
+
     public int peek(int stackNum) {
         return isEmpty(stackNum) ? -1 : s[(s[stackNum + 3 * capacity] - 1) * 3 + stackNum];
     }
-    
+
     public boolean isEmpty(int stackNum) {
         return s[stackNum + 3 * capacity] == 0;
     }
@@ -116,6 +120,7 @@ class TripleInOne {
 ```
 
 ### **...**
+
 ```
 
 ```

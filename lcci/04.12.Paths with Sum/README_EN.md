@@ -3,15 +3,12 @@
 [中文文档](/lcci/04.12.Paths%20with%20Sum/README.md)
 
 ## Description
+
 <p>You are given a binary tree in which each node contains an integer value (which might be positive or negative). Design an algorithm to count the number of paths that sum to a given value. The path does not need to start or end at the root or a leaf, but it must go downwards (traveling only from parent nodes to child nodes).</p>
-
-
 
 <p><strong>Example:</strong><br />
 
 Given the following tree and &nbsp;<code>sum = 22,</code></p>
-
-
 
 <pre>
 
@@ -31,11 +28,7 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 
 </pre>
 
-
-
 <p>Output:</p>
-
-
 
 <pre>
 
@@ -43,26 +36,22 @@ Given the following tree and &nbsp;<code>sum = 22,</code></p>
 
 <strong>Explanation: </strong>Paths that have sum 22 are: [5,4,11,2], [5,8,4,5], [4,11,7]</pre>
 
-
-
 <p>Note:</p>
-
-
 
 <ul>
 	<li><code>node number &lt;= 10000</code></li>
 </ul>
 
-
-
-
 ## Solutions
+
 Depth-First-Search
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 Using the idea of recursion, at each recursion to a node.
+
 - If root.val-sum == 0, add 1 to the result
 - Consider two scenarios for inclusion or exclusion of this node from the pathway
 
@@ -82,7 +71,7 @@ class Solution:
                 dfs(root.right, sum, 0)
             dfs(root.left, sum-root.val, 1)
             dfs(root.right, sum-root.val, 1)
-        
+
         if not root:
             return 0
         ans = 0
@@ -91,6 +80,7 @@ class Solution:
 ```
 
 ### **Java**
+
 Use to 2 recursive processes.
 
 - BFS: (traverse) traverses each tree node.
@@ -127,6 +117,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

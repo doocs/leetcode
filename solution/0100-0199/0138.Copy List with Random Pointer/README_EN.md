@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0138.Copy%20List%20with%20Random%20Pointer/README.md)
 
 ## Description
+
 <p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
 
 <p>Return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> of the list.</p>
@@ -59,10 +60,7 @@
 	<li>Number of Nodes will not exceed 1000.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -79,6 +77,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

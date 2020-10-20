@@ -3,6 +3,7 @@
 [English Version](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>一个单词的缩写需要遵循 <起始字母><中间字母数><结尾字母> 这样的格式。</p>
 
@@ -58,15 +59,14 @@ validWordAbbr.isUnique("make"); // return True
 	<li>每个单词都只由小写字符组成</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -74,6 +74,7 @@ validWordAbbr.isUnique("make"); // return True
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -81,6 +82,7 @@ validWordAbbr.isUnique("make"); // return True
 ```
 
 ### **...**
+
 ```
 
 ```

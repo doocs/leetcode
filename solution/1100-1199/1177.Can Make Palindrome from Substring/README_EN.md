@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1177.Can%20Make%20Palindrome%20from%20Substring/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code>, we make queries on substrings of <code>s</code>.</p>
 
 <p>For each query <code>queries[i] = [left, right, k]</code>, we may <strong>rearrange</strong>&nbsp;the substring <code>s[left], ..., s[right]</code>, and then choose <strong>up to</strong> <code>k</code> of them to replace with any lowercase English letter.&nbsp;</p>
@@ -37,10 +38,7 @@ queries[4] :&nbsp;substring = &quot;abcda&quot;,&nbsp;could be changed to &quot;
 	<li><code>s</code> only contains lowercase English letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@ queries[4] :&nbsp;substring = &quot;abcda&quot;,&nbsp;could be changed to &quot;
 ```
 
 ### **...**
+
 ```
 
 ```

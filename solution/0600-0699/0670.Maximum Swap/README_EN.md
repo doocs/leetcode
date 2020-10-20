@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0670.Maximum%20Swap/README.md)
 
 ## Description
+
 <p>
 
 Given a non-negative integer, you could swap two digits <b>at most</b> once to get the maximum valued number. Return the maximum valued number you could get.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,8 +24,6 @@ Given a non-negative integer, you could swap two digits <b>at most</b> once to g
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -41,10 +38,6 @@ Given a non-negative integer, you could swap two digits <b>at most</b> once to g
 
 </p>
 
-
-
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -55,9 +48,7 @@ Given a non-negative integer, you could swap two digits <b>at most</b> once to g
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +65,7 @@ Given a non-negative integer, you could swap two digits <b>at most</b> once to g
 ```
 
 ### **...**
+
 ```
 
 ```

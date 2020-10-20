@@ -3,17 +3,12 @@
 [中文文档](/lcci/04.03.List%20of%20Depth/README.md)
 
 ## Description
+
 <p>Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth (e.g., if you have a tree with depth D, you&#39;ll have D linked lists). Return a array containing all the linked lists.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -41,11 +36,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

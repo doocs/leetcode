@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1357.Apply%20Discount%20Every%20n%20Orders/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>超市里正在举行打折活动，每隔&nbsp;<code>n</code>&nbsp;个顾客会得到 <code>discount</code>&nbsp;的折扣。</p>
 
@@ -59,15 +60,14 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 	<li>返回结果与标准答案误差在&nbsp;<code>10^-5</code>&nbsp;以内都视为正确结果。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -75,6 +75,7 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -82,6 +83,7 @@ cashier.getBill([2,3,5],[5,3,2]);                    // 返回 2500.0
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -68,15 +68,11 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 	<li><code>1 &lt;= boxes[i], warehouse[i] &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -84,12 +80,12 @@ Swapping the orange and green boxes is also valid, or swapping one of them with 
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

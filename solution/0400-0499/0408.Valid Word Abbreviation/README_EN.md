@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0408.Valid%20Word%20Abbreviation/README.md)
 
 ## Description
+
 <p>
 Given a <b>non-empty</b> string <code>s</code> and an abbreviation <code>abbr</code>, return whether the string matches with the given abbreviation.
 </p>
@@ -23,6 +24,7 @@ Assume <code>s</code> contains only lowercase letters and <code>abbr</code> cont
 Given <b>s</b> = "internationalization", <b>abbr</b> = "i12iz4n":
 
 Return true.
+
 </pre>
 </p>
 
@@ -31,12 +33,11 @@ Return true.
 Given <b>s</b> = "apple", <b>abbr</b> = "a2e":
 
 Return false.
+
 </pre>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +54,7 @@ Return false.
 ```
 
 ### **...**
+
 ```
 
 ```

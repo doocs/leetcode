@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1135.Connecting%20Cities%20With%20Minimum%20Cost/README.md)
 
 ## Description
+
 <p>There are <code>N</code> cities numbered from 1 to <code>N</code>.</p>
 
 <p>You are given <code>connections</code>, where each <code>connections[i] = [city1, city2, cost]</code> represents the cost to connect <code>city1</code> and <code>city2</code> together.  (A <em>connection</em> is bidirectional: connecting <code>city1</code> and <code>city2</code> is the same as connecting <code>city2</code> and <code>city1</code>.)</p>
@@ -45,10 +46,7 @@ There is no way to connect all cities even if all edges are used.
 	<li><code>connections[i][0] != connections[i][1]</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,6 +63,7 @@ There is no way to connect all cities even if all edges are used.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,11 +3,10 @@
 [中文文档](/solution/0400-0499/0410.Split%20Array%20Largest%20Sum/README.md)
 
 ## Description
+
 <p>Given an array which consists of non-negative integers and an integer <i>m</i>, you can split the array into <i>m</i> non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these <i>m</i> subarrays.
 
 </p>
-
-
 
 <p><b>Note:</b><br />
 
@@ -22,8 +21,6 @@ If <i>n</i> is the length of array, assume the following constraints are satisfi
 </ul>
 
 </p>
-
-
 
 <p><b>Examples: </b>
 
@@ -55,9 +52,7 @@ where the largest sum among the two subarrays is only 18.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +69,7 @@ where the largest sum among the two subarrays is only 18.
 ```
 
 ### **...**
+
 ```
 
 ```

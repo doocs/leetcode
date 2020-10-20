@@ -3,9 +3,8 @@
 [中文文档](/solution/0400-0499/0485.Max%20Consecutive%20Ones/README.md)
 
 ## Description
+
 <p>Given a binary array, find the maximum number of consecutive 1s in this array.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -23,8 +22,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <ul>
@@ -37,9 +34,7 @@
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

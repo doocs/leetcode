@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1360.Number%20of%20Days%20Between%20Two%20Dates/README.md)
 
 ## Description
+
 <p>Write a program to count the number of days between two dates.</p>
 
 <p>The two dates are given as strings, their format is <code>YYYY-MM-DD</code>&nbsp;as shown in the examples.</p>
@@ -22,10 +23,7 @@
 	<li>The given dates are valid&nbsp;dates between the years <code>1971</code> and <code>2100</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -42,6 +40,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

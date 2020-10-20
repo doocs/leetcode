@@ -3,23 +3,16 @@
 [中文文档](/solution/0400-0499/0437.Path%20Sum%20III/README.md)
 
 ## Description
+
 <p>You are given a binary tree in which each node contains an integer value.</p>
 
-
-
 <p>Find the number of paths that sum to a given value.</p>
-
-
 
 <p>The path does not need to start or end at the root or a leaf, but it must go downwards
 
 (traveling only from parent nodes to child nodes).</p>
 
-
-
 <p>The tree has no more than 1,000 nodes and the values are in the range -1,000,000 to 1,000,000.
-
-
 
 <p><b>Example:</b>
 
@@ -59,9 +52,7 @@ Return 3. The paths that sum to 8 are:
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +69,7 @@ Return 3. The paths that sum to 8 are:
 ```
 
 ### **...**
+
 ```
 
 ```

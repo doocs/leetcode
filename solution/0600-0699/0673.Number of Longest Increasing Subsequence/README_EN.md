@@ -3,13 +3,12 @@
 [中文文档](/solution/0600-0699/0673.Number%20of%20Longest%20Increasing%20Subsequence/README.md)
 
 ## Description
+
 <p>
 
 Given an unsorted array of integers, find the number of longest increasing subsequence.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,8 +24,6 @@ Given an unsorted array of integers, find the number of longest increasing subse
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -41,17 +38,13 @@ Given an unsorted array of integers, find the number of longest increasing subse
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 Length of the given array will be not exceed 2000 and the answer is guaranteed to be fit in 32-bit signed int.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +61,7 @@ Length of the given array will be not exceed 2000 and the answer is guaranteed t
 ```
 
 ### **...**
+
 ```
 
 ```

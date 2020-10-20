@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0916.Word%20Subsets/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>我们给出两个单词数组 <code>A</code>&nbsp;和&nbsp;<code>B</code>。每个单词都是一串小写字母。</p>
 
@@ -58,15 +59,14 @@
 	<li><code>A[i]</code>&nbsp;中所有的单词都是独一无二的，也就是说不存在&nbsp;<code>i != j</code>&nbsp;使得&nbsp;<code>A[i] == A[j]</code>。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -74,6 +74,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -81,6 +82,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

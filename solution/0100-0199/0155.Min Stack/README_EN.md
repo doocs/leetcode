@@ -3,31 +3,24 @@
 [中文文档](/solution/0100-0199/0155.Min%20Stack/README.md)
 
 ## Description
+
 <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-
-
 
 <ul>
 
-	<li>push(x) -- Push element x onto stack.</li>
+    <li>push(x) -- Push element x onto stack.</li>
 
-	<li>pop() -- Removes the element on top of the stack.</li>
+    <li>pop() -- Removes the element on top of the stack.</li>
 
-	<li>top() -- Get the top element.</li>
+    <li>top() -- Get the top element.</li>
 
-	<li>getMin() -- Retrieve the minimum element in the stack.</li>
+    <li>getMin() -- Retrieve the minimum element in the stack.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -49,15 +42,9 @@ minStack.getMin();   --&gt; Returns -2.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +61,7 @@ minStack.getMin();   --&gt; Returns -2.
 ```
 
 ### **...**
+
 ```
 
 ```

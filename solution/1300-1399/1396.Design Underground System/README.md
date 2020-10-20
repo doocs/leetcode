@@ -68,11 +68,9 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;);     
 	<li>与标准答案误差在&nbsp;<code>10^-5</code>&nbsp;以内的结果都视为正确结果。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -93,6 +91,7 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;);     
 ```
 
 ### **...**
+
 ```
 
 ```

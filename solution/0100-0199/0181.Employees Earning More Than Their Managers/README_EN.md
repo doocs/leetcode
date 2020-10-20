@@ -3,9 +3,8 @@
 [中文文档](/solution/0100-0199/0181.Employees%20Earning%20More%20Than%20Their%20Managers/README.md)
 
 ## Description
+
 <p>The <code>Employee</code> table holds all employees including their managers. Every employee has an Id, and there is also a column for the manager Id.</p>
-
-
 
 <pre>
 
@@ -27,11 +26,7 @@
 
 </pre>
 
-
-
 <p>Given the <code>Employee</code> table, write a SQL query that finds out employees who earn more than their managers. For the above table, Joe is the only employee who earns more than his manager.</p>
-
-
 
 <pre>
 
@@ -47,11 +42,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

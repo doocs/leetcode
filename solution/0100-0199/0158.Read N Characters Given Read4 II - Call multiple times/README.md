@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0158.Read%20N%20Characters%20Given%20Read4%20II%20-%20Call%20multiple%20times/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个文件，并且该文件只能通过给定的&nbsp;<code>read4</code>&nbsp;方法来读取，请实现一个方法使其能够读取 n 个字符。<strong>注意：你的</strong>&nbsp;<strong><code>read</code> 方法可能会被调用多次。</strong></p>
 
@@ -66,15 +67,14 @@ sol.read(buf, 1); // 由于已经到达了文件末尾，没有更多的字符�
 	<li>保证在一个给定测试用例中，<code>read</code> 函数使用的是同一个 <code>buf</code>。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -82,6 +82,7 @@ sol.read(buf, 1); // 由于已经到达了文件末尾，没有更多的字符�
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -89,6 +90,7 @@ sol.read(buf, 1); // 由于已经到达了文件末尾，没有更多的字符�
 ```
 
 ### **...**
+
 ```
 
 ```

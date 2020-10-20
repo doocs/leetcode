@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1255.Maximum%20Score%20Words%20Formed%20by%20Letters/README.md)
 
 ## Description
+
 <p>Given a list of <code>words</code>, list of&nbsp; single&nbsp;<code>letters</code> (might be repeating)&nbsp;and <code>score</code>&nbsp;of every character.</p>
 
 <p>Return the maximum score of <strong>any</strong> valid set of words formed by using the given letters (<code>words[i]</code> cannot be used two&nbsp;or more times).</p>
@@ -51,10 +52,7 @@ Letter &quot;e&quot; can only be used once.</pre>
 	<li><code>words[i]</code>, <code>letters[i]</code>&nbsp;contains only lower case English letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -71,6 +69,7 @@ Letter &quot;e&quot; can only be used once.</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

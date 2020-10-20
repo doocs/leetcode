@@ -3,47 +3,34 @@
 [中文文档](/solution/0900-0999/0981.Time%20Based%20Key-Value%20Store/README.md)
 
 ## Description
+
 <p>Create a timebased key-value store class&nbsp;<code>TimeMap</code>, that supports two operations.</p>
-
-
 
 <p>1. <code>set(string key, string value, int timestamp)</code></p>
 
-
-
 <ul>
 
-	<li>Stores the <code>key</code> and <code>value</code>, along with the given <code>timestamp</code>.</li>
+    <li>Stores the <code>key</code> and <code>value</code>, along with the given <code>timestamp</code>.</li>
 
 </ul>
-
-
 
 <p>2. <code>get(string key, int timestamp)</code></p>
 
-
-
 <ul>
 
-	<li>Returns a value such that <code>set(key, value, timestamp_prev)</code> was called previously, with <code>timestamp_prev &lt;= timestamp</code>.</li>
+    <li>Returns a value such that <code>set(key, value, timestamp_prev)</code> was called previously, with <code>timestamp_prev &lt;= timestamp</code>.</li>
 
-	<li>If there are multiple such values, it returns the one with the largest <code>timestamp_prev</code>.</li>
+    <li>If there are multiple such values, it returns the one with the largest <code>timestamp_prev</code>.</li>
 
-	<li>If there are no values, it returns the empty string (<code>&quot;&quot;</code>).</li>
+    <li>If there are no values, it returns the empty string (<code>&quot;&quot;</code>).</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -71,13 +58,9 @@ kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -91,35 +74,25 @@ kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li>All key/value strings are lowercase.</li>
+    <li>All key/value strings are lowercase.</li>
 
-	<li>All key/value strings have&nbsp;length in the range&nbsp;<code>[1, 100]</code></li>
+    <li>All key/value strings have&nbsp;length in the range&nbsp;<code>[1, 100]</code></li>
 
-	<li>The <code>timestamps</code> for all <code>TimeMap.set</code> operations are strictly increasing.</li>
+    <li>The <code>timestamps</code> for all <code>TimeMap.set</code> operations are strictly increasing.</li>
 
-	<li><code>1 &lt;= timestamp &lt;= 10^7</code></li>
+    <li><code>1 &lt;= timestamp &lt;= 10^7</code></li>
 
-	<li><code>TimeMap.set</code> and <code>TimeMap.get</code>&nbsp;functions will be called a total of <code>120000</code> times (combined) per test case.</li>
+    <li><code>TimeMap.set</code> and <code>TimeMap.get</code>&nbsp;functions will be called a total of <code>120000</code> times (combined) per test case.</li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -136,6 +109,7 @@ kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 ```
 
 ### **...**
+
 ```
 
 ```

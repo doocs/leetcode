@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0743.Network%20Delay%20Time/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有&nbsp;<code>N</code>&nbsp;个网络节点，标记为&nbsp;<code>1</code>&nbsp;到&nbsp;<code>N</code>。</p>
 
@@ -19,15 +20,14 @@
 	<li>所有的边&nbsp;<code>times[i] = (u, v, w)</code>&nbsp;都有&nbsp;<code>1 &lt;= u, v &lt;= N</code>&nbsp;且&nbsp;<code>0 &lt;= w &lt;= 100</code>。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -35,6 +35,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -42,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

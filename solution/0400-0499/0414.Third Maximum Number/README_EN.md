@@ -3,9 +3,8 @@
 [中文文档](/solution/0400-0499/0414.Third%20Maximum%20Number/README.md)
 
 ## Description
+
 <p>Given a <b>non-empty</b> array of integers, return the <b>third</b> maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -25,8 +24,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -44,8 +41,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -67,9 +62,7 @@ Both numbers with value 2 are both considered as second maximum.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -86,6 +79,7 @@ Both numbers with value 2 are both considered as second maximum.
 ```
 
 ### **...**
+
 ```
 
 ```

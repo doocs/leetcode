@@ -3,35 +3,22 @@
 [中文文档](/solution/0800-0899/0851.Loud%20and%20Rich/README.md)
 
 ## Description
+
 <p>In a group of N people (labelled <code>0, 1, 2, ..., N-1</code>), each person has different amounts of money, and different levels of quietness.</p>
-
-
 
 <p>For convenience, we&#39;ll call the person with label <code>x</code>, simply &quot;person <code>x</code>&quot;.</p>
 
-
-
 <p>We&#39;ll say that <code>richer[i] = [x, y]</code> if person <code>x</code>&nbsp;definitely has more money than person&nbsp;<code>y</code>.&nbsp; Note that <code>richer</code>&nbsp;may only be a subset of valid observations.</p>
-
-
 
 <p>Also, we&#39;ll say <code>quiet[x] = q</code> if person <font face="monospace">x</font>&nbsp;has quietness <code>q</code>.</p>
 
-
-
 <p>Now, return <code>answer</code>, where <code>answer[x] = y</code> if <code>y</code> is the least quiet person (that is, the person <code>y</code> with the smallest value of <code>quiet[y]</code>), among all people&nbsp;who definitely have&nbsp;equal to or more money than person <code>x</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -67,35 +54,27 @@ The other answers can be filled out with similar reasoning.
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1 &lt;= quiet.length = N &lt;= 500</code></li>
+    <li><code>1 &lt;= quiet.length = N &lt;= 500</code></li>
 
-	<li><code>0 &lt;= quiet[i] &lt; N</code>, all <code>quiet[i]</code> are different.</li>
+    <li><code>0 &lt;= quiet[i] &lt; N</code>, all <code>quiet[i]</code> are different.</li>
 
-	<li><code>0 &lt;= richer.length &lt;= N * (N-1) / 2</code></li>
+    <li><code>0 &lt;= richer.length &lt;= N * (N-1) / 2</code></li>
 
-	<li><code>0 &lt;= richer[i][j] &lt; N</code></li>
+    <li><code>0 &lt;= richer[i][j] &lt; N</code></li>
 
-	<li><code>richer[i][0] != richer[i][1]</code></li>
+    <li><code>richer[i][0] != richer[i][1]</code></li>
 
-	<li><code>richer[i]</code>&#39;s are all different.</li>
+    <li><code>richer[i]</code>&#39;s are all different.</li>
 
-	<li>The&nbsp;observations in <code>richer</code> are all logically consistent.</li>
+    <li>The&nbsp;observations in <code>richer</code> are all logically consistent.</li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -112,6 +91,7 @@ The other answers can be filled out with similar reasoning.
 ```
 
 ### **...**
+
 ```
 
 ```

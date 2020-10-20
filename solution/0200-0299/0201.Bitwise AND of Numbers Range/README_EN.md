@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0201.Bitwise%20AND%20of%20Numbers%20Range/README.md)
 
 ## Description
+
 <p>Given a range [m, n] where 0 &lt;= m &lt;= n &lt;= 2147483647, return the bitwise AND of all numbers in this range, inclusive.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -31,9 +24,7 @@
 
 <strong>Output:</strong> 0</pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +41,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

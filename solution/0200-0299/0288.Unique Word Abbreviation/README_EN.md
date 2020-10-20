@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0288.Unique%20Word%20Abbreviation/README.md)
 
 ## Description
+
 <p>An abbreviation of a word follows the form <first letter><number><last letter>. Below are some examples of word abbreviations:</p>
 
 <pre>
@@ -57,10 +58,7 @@ validWordAbbr.isUnique("make"); // return True
 	<li>Each word will only consist of lowercase English characters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +75,7 @@ validWordAbbr.isUnique("make"); // return True
 ```
 
 ### **...**
+
 ```
 
 ```

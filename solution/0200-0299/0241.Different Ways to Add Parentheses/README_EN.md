@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0241.Different%20Ways%20to%20Add%20Parentheses/README.md)
 
 ## Description
+
 <p>Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are <code>+</code>, <code>-</code> and <code>*</code>.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -23,11 +20,7 @@
 
 (2-(1-1)) = 2</pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -49,9 +42,7 @@
 
 </strong></pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

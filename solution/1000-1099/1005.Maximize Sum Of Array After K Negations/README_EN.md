@@ -3,21 +3,14 @@
 [中文文档](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of integers, we <strong>must</strong>&nbsp;modify the array in the following way: we choose an <code>i</code>&nbsp;and replace&nbsp;<code>A[i]</code> with <code>-A[i]</code>, and we repeat this process <code>K</code> times in total.&nbsp; (We may choose the same index <code>i</code> multiple times.)</p>
-
-
 
 <p>Return the largest possible sum of the array after modifying it in this way.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -47,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -69,31 +54,21 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 10000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 10000</code></li>
 
-	<li><code>1 &lt;= K &lt;= 10000</code></li>
+    <li><code>1 &lt;= K &lt;= 10000</code></li>
 
-	<li><code>-100 &lt;= A[i] &lt;= 100</code></li>
+    <li><code>-100 &lt;= A[i] &lt;= 100</code></li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -110,6 +85,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

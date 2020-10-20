@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/README.md)
 
 ## Description
+
 <p>Given the <code>edges</code> of a directed graph, and two nodes <code>source</code> and <code>destination</code> of this graph, determine whether or not all paths starting from <code>source</code> eventually end at <code>destination</code>, that is:</p>
 
 <ul>
@@ -78,10 +79,7 @@
 	<li><code>0 <= destination <= n - 1</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -98,6 +96,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

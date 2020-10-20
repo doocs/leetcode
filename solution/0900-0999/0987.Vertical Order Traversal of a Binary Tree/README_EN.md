@@ -3,32 +3,20 @@
 [中文文档](/solution/0900-0999/0987.Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given a binary tree, return the <em>vertical order</em> traversal of its nodes&nbsp;values.</p>
-
-
 
 <p>For each node at position <code>(X, Y)</code>, its left and right children respectively&nbsp;will be at positions <code>(X-1, Y-1)</code> and <code>(X+1, Y-1)</code>.</p>
 
-
-
 <p>Running a vertical line from <code>X = -infinity</code> to <code>X = +infinity</code>, whenever the vertical line touches some nodes, we report the values of the nodes in order from top to bottom (decreasing <code>Y</code> coordinates).</p>
-
-
 
 <p>If two nodes have the same position, then the value of the node that is reported first is the value that is smaller.</p>
 
-
-
 <p>Return an list&nbsp;of non-empty reports in order of <code>X</code> coordinate.&nbsp; Every report will have a list of values of nodes.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
 
 ![](./images/1236_example_1.png)
 
@@ -54,16 +42,11 @@ The node with value 7 occurs at position (2, -2).
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
 
-
 ![](./images/tree2.png)
-
-
 
 <pre>
 
@@ -79,17 +62,11 @@ However, in the report &quot;[1,5,6]&quot;, the node value of 5 comes first sinc
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The tree will have between <font face="monospace">1</font>&nbsp;and <code>1000</code> nodes.</li>
@@ -98,19 +75,13 @@ However, in the report &quot;[1,5,6]&quot;, the node value of 5 comes first sinc
 
 </div>
 
-
-
 <div>
 
 <div>&nbsp;</div>
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -127,6 +98,7 @@ However, in the report &quot;[1,5,6]&quot;, the node value of 5 comes first sinc
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,9 +3,8 @@
 [中文文档](/solution/0500-0599/0575.Distribute%20Candies/README.md)
 
 ## Description
-Given an integer array with <b>even</b> length, where different numbers in this array represent different <b>kinds</b> of candies. Each number means one candy of the corresponding kind. You need to distribute these candies <b>equally</b> in number to brother and sister. Return the maximum number of <b>kinds</b> of candies the sister could gain. 
 
-
+Given an integer array with <b>even</b> length, where different numbers in this array represent different <b>kinds</b> of candies. Each number means one candy of the corresponding kind. You need to distribute these candies <b>equally</b> in number to brother and sister. Return the maximum number of <b>kinds</b> of candies the sister could gain.
 
 <p><b>Example 1:</b><br />
 
@@ -27,8 +26,6 @@ The sister has three different kinds of candies.
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -45,8 +42,6 @@ The sister has two different kinds of candies, the brother has only one kind of 
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <ol>
@@ -59,9 +54,7 @@ The sister has two different kinds of candies, the brother has only one kind of 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +71,7 @@ The sister has two different kinds of candies, the brother has only one kind of 
 ```
 
 ### **...**
+
 ```
 
 ```

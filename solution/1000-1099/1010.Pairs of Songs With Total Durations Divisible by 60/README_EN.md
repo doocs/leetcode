@@ -3,21 +3,14 @@
 [中文文档](/solution/1000-1099/1010.Pairs%20of%20Songs%20With%20Total%20Durations%20Divisible%20by%2060/README.md)
 
 ## Description
+
 <p>In a list of songs, the <code>i</code>-th&nbsp;song has a duration of&nbsp;<code>time[i]</code> seconds.&nbsp;</p>
-
-
 
 <p>Return the number of pairs of songs for which their total&nbsp;duration in seconds is divisible by <code>60</code>.&nbsp; Formally, we want the number of&nbsp;indices <code>i &lt; j</code> with <code>(time[i] + time[j]) % 60 == 0</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +28,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -55,27 +44,19 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= time.length &lt;= 60000</code></li>
+    <li><code>1 &lt;= time.length &lt;= 60000</code></li>
 
-	<li><code>1 &lt;= time[i] &lt;= 500</code></li>
+    <li><code>1 &lt;= time[i] &lt;= 500</code></li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -92,6 +73,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

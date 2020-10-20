@@ -3,7 +3,9 @@
 [中文文档](/solution/1000-1099/1067.Digit%20Count%20in%20Range/README.md)
 
 ## Description
+
 Given an integer <code>d</code> between <code>0</code> and <code>9</code>, and two positive integers <code>low</code> and <code>high</code> as lower and upper bounds, respectively. Return the number of times that <code>d</code> occurs as a digit in all integers between <code>low</code> and <code>high</code>, including the bounds <code>low</code> and <code>high</code>.
+
 <p> </p>
 
 <p><strong>Example 1:</strong></p>
@@ -35,9 +37,7 @@ The digit <code>d=3</code> occurs <code>35</code> times in <code>103,113,123,130
 </ol>
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +54,7 @@ The digit <code>d=3</code> occurs <code>35</code> times in <code>103,113,123,130
 ```
 
 ### **...**
+
 ```
 
 ```

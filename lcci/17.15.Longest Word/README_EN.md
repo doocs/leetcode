@@ -3,13 +3,10 @@
 [中文文档](/lcci/17.15.Longest%20Word/README.md)
 
 ## Description
+
 <p>Given a list of words, write a program to find the longest word made of other words in the list. If there are more than one answer, return the one that has smallest lexicographic order. If no answer, return an empty string.</p>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -21,22 +18,14 @@
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 	<li><code>0 &lt;= len(words) &lt;= 100</code></li>
 	<li><code>1 &lt;= len(words[i]) &lt;= 100</code></li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +42,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

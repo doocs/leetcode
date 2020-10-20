@@ -3,6 +3,7 @@
 [English Version](/solution/0900-0999/0900.RLE%20Iterator/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>编写一个遍历游程编码序列的迭代器。</p>
 
@@ -45,15 +46,14 @@ RLEIterator 由 RLEIterator([3,8,0,9,2,5]) 初始化。
 	<li>每次调用&nbsp;<code>RLEIterator.next(int n)</code>&nbsp;都有&nbsp;<code>1 &lt;= n &lt;= 10^9</code>&nbsp;。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -61,6 +61,7 @@ RLEIterator 由 RLEIterator([3,8,0,9,2,5]) 初始化。
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -68,6 +69,7 @@ RLEIterator 由 RLEIterator([3,8,0,9,2,5]) 初始化。
 ```
 
 ### **...**
+
 ```
 
 ```

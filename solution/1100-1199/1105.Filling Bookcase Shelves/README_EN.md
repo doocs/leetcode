@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1105.Filling%20Bookcase%20Shelves/README.md)
 
 ## Description
+
 <p>We have a sequence of <code>books</code>: the <code>i</code>-th book has thickness <code>books[i][0]</code> and height <code>books[i][1]</code>.</p>
 
 <p>We want to place these books <strong>in order</strong>&nbsp;onto bookcase shelves that have total width <code>shelf_width</code>.</p>
@@ -35,10 +36,7 @@ Notice that book number 2 does not have to be on the first shelf.
 	<li><code>1 &lt;= books[i][1] &lt;= 1000</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@ Notice that book number 2 does not have to be on the first shelf.
 ```
 
 ### **...**
+
 ```
 
 ```

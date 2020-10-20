@@ -3,13 +3,12 @@
 [中文文档](/solution/0500-0599/0513.Find%20Bottom%20Left%20Tree%20Value/README.md)
 
 ## Description
+
 <p>
 
-Given a binary tree, find the leftmost value in the last row of the tree. 
+Given a binary tree, find the leftmost value in the last row of the tree.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -34,8 +33,6 @@ Output:
 </pre>
 
 </p>
-
-
 
 <p> <b> Example 2: </b><br>
 
@@ -69,17 +66,13 @@ Output:
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 You may assume the tree (i.e., the given root node) is not <b>NULL</b>.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +89,7 @@ You may assume the tree (i.e., the given root node) is not <b>NULL</b>.
 ```
 
 ### **...**
+
 ```
 
 ```

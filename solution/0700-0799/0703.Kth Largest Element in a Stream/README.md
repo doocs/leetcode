@@ -1,8 +1,9 @@
-# [703. 数据流中的第K大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream)
+# [703. 数据流中的第 K 大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream)
 
 [English Version](/solution/0700-0799/0703.Kth%20Largest%20Element%20in%20a%20Stream/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计一个找到数据流中第K大元素的类（class）。注意是排序后的第K大元素，不是第K个不同的元素。</p>
 
@@ -24,15 +25,14 @@ kthLargest.add(4);&nbsp; &nbsp;// returns 8
 <p><strong>说明: </strong><br />
 你可以假设&nbsp;<code>nums</code>&nbsp;的长度&ge;&nbsp;<code>k-1</code>&nbsp;且<code>k</code> &ge;&nbsp;1。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -40,6 +40,7 @@ kthLargest.add(4);&nbsp; &nbsp;// returns 8
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -47,6 +48,7 @@ kthLargest.add(4);&nbsp; &nbsp;// returns 8
 ```
 
 ### **...**
+
 ```
 
 ```

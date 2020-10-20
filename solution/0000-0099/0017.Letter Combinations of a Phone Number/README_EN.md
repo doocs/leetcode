@@ -3,18 +3,14 @@
 [中文文档](/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/README.md)
 
 ## Description
+
 <p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent.</p>
-
-
 
 <p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
 
 ![](./images/17_telephone_keypad.png)
 
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -24,19 +20,11 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <p>Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +41,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,9 +3,8 @@
 [中文文档](/solution/0600-0699/0637.Average%20of%20Levels%20in%20Binary%20Tree/README.md)
 
 ## Description
+
 Given a non-empty binary tree, return the average value of the nodes on each level in the form of an array.
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -33,8 +32,6 @@ The average value of nodes on level 0 is 3,  on level 1 is 14.5, and on level 2 
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -45,9 +42,7 @@ The average value of nodes on level 0 is 3,  on level 1 is 14.5, and on level 2 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +59,7 @@ The average value of nodes on level 0 is 3,  on level 1 is 14.5, and on level 2 
 ```
 
 ### **...**
+
 ```
 
 ```

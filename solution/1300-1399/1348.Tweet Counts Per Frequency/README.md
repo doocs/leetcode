@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>请你实现一个能够支持以下两种方法的推文计数类&nbsp;<code>TweetCounts</code>：</p>
 
@@ -52,15 +53,14 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 	<li><code>0 &lt;= endTime - startTime &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -68,6 +68,7 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -75,6 +76,7 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 ```
 
 ### **...**
+
 ```
 
 ```

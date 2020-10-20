@@ -3,22 +3,16 @@
 [中文文档](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README.md)
 
 ## Description
+
 <p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
 
-
-
 <p>Given linked list --&nbsp;head =&nbsp;[4,5,1,9], which looks like following:</p>
-
 
 ![](./images/237_example.png)
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -46,15 +36,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 	<li>The linked list will have at least two elements.</li>
@@ -63,11 +47,7 @@
 	<li>Do not return anything from your function.</li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -123,9 +103,9 @@ class Solution {
  * @param {ListNode} node
  * @return {void} Do not return anything, modify node in-place instead.
  */
-var deleteNode = function(node) {
-    node.val = node.next.val
-    node.next = node.next.next
+var deleteNode = function (node) {
+  node.val = node.next.val;
+  node.next = node.next.next;
 };
 ```
 

@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0476.Number%20Complement/README.md)
 
 ## Description
+
 <p>Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.</p>
 
 <p>&nbsp;</p>
@@ -35,10 +36,7 @@
 	<li>This question is the same as 1009:&nbsp;<a href="https://leetcode.com/problems/complement-of-base-10-integer/">https://leetcode.com/problems/complement-of-base-10-integer/</a></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

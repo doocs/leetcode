@@ -1,6 +1,7 @@
-# [面试题66. 构建乘积数组](https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/)
+# [面试题 66. 构建乘积数组](https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 
 给定一个数组 `A[0,1,…,n-1]`，请构建一个数组 `B[0,1,…,n-1]`，其中 B 中的元素 `B[i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]`。不能使用除法。
@@ -17,14 +18,16 @@
 - 所有元素乘积之和不会溢出 32 位整数
 - `a.length <= 100000`
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 `B[i] = (A[0] * A[1] * ... * A[i-1]) * (A[i+1] * ... * A[n-1])`
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +47,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -73,28 +77,30 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} a
  * @return {number[]}
  */
-var constructArr = function(a) {
-    let pre = new Array(a.length+1).fill(1)
-    pre[0] = 1
-    let res = new Array(a.length).fill(1)
-    for(let i = 1;i <= a.length;i++) {
-        pre[i] = a[i-1] * pre[i-1]
-    }
-    let cur = 1
-    for(let i = a.length - 1;i >= 0;i--) {
-        res[i] = pre[i] * cur
-        cur *= a[i]
-    }
-    return res
+var constructArr = function (a) {
+  let pre = new Array(a.length + 1).fill(1);
+  pre[0] = 1;
+  let res = new Array(a.length).fill(1);
+  for (let i = 1; i <= a.length; i++) {
+    pre[i] = a[i - 1] * pre[i - 1];
+  }
+  let cur = 1;
+  for (let i = a.length - 1; i >= 0; i--) {
+    res[i] = pre[i] * cur;
+    cur *= a[i];
+  }
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

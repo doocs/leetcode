@@ -3,13 +3,10 @@
 [中文文档](/solution/0100-0199/0183.Customers%20Who%20Never%20Order/README.md)
 
 ## Description
+
 <p>Suppose that a website contains two tables, the <code>Customers</code> table and the <code>Orders</code> table. Write a SQL query to find all customers who never order anything.</p>
 
-
-
 <p>Table: <code>Customers</code>.</p>
-
-
 
 <pre>
 
@@ -31,11 +28,7 @@
 
 </pre>
 
-
-
 <p>Table: <code>Orders</code>.</p>
-
-
 
 <pre>
 
@@ -53,11 +46,7 @@
 
 </pre>
 
-
-
 <p>Using the above tables as example, return the following:</p>
-
-
 
 <pre>
 
@@ -75,18 +64,14 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```
-select Name as Customers from Customers 
+select Name as Customers from Customers
     where id not in (select CustomerId from Orders)
 ```
 

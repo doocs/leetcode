@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README.md)
 
 ## Description
+
 <p>Given a matrix of integers <code>A</code> with <font face="monospace">R</font> rows and <font face="monospace">C</font> columns, find the <strong>maximum</strong> score of a path starting at <code>[0,0]</code> and ending at <code>[R-1,C-1]</code>.</p>
 
 <p>The <em>score</em> of a path is the <strong>minimum</strong> value in that path.  For example, the value of the path 8 →  4 →  5 →  9 is 4.</p>
@@ -47,10 +48,7 @@ The path with the maximum score is highlighted in yellow.
 	<li><code>0 <= A[i][j] <= 10^9</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@ The path with the maximum score is highlighted in yellow.
 ```
 
 ### **...**
+
 ```
 
 ```

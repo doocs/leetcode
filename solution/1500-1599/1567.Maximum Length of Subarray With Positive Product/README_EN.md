@@ -57,15 +57,11 @@ Notice that we cannot include 0 in the subarray since that&#39;ll make the produ
 	<li><code>-10^9 &lt;= nums[i]&nbsp;&lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -73,12 +69,12 @@ Notice that we cannot include 0 in the subarray since that&#39;ll make the produ
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

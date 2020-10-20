@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0073.Set%20Matrix%20Zeroes/README.md)
 
 ## Description
+
 <p>Given a <em>m</em> x <em>n</em> matrix, if an element is 0, set its entire row and column to 0. Do it <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +36,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -73,27 +66,19 @@
 
 </pre>
 
-
-
 <p><strong>Follow up:</strong></p>
-
-
 
 <ul>
 
-	<li>A straight forward solution using O(<em>m</em><em>n</em>) space is probably a bad idea.</li>
+    <li>A straight forward solution using O(<em>m</em><em>n</em>) space is probably a bad idea.</li>
 
-	<li>A simple improvement uses O(<em>m</em> + <em>n</em>) space, but still not the best solution.</li>
+    <li>A simple improvement uses O(<em>m</em> + <em>n</em>) space, but still not the best solution.</li>
 
-	<li>Could you devise a constant space solution?</li>
+    <li>Could you devise a constant space solution?</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -110,6 +95,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

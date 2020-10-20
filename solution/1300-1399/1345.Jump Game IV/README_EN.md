@@ -3,39 +3,28 @@
 [中文文档](/solution/1300-1399/1345.Jump%20Game%20IV/README.md)
 
 ## Description
+
 <p>Given an array of&nbsp;integers <code>arr</code>, you are initially positioned at the first index of the array.</p>
-
-
 
 <p>In one step you can jump from index <code>i</code> to index:</p>
 
-
-
 <ul>
 
-	<li><code>i + 1</code> where:&nbsp;<code>i + 1 &lt; arr.length</code>.</li>
+    <li><code>i + 1</code> where:&nbsp;<code>i + 1 &lt; arr.length</code>.</li>
 
-	<li><code>i - 1</code> where:&nbsp;<code>i - 1 &gt;= 0</code>.</li>
+    <li><code>i - 1</code> where:&nbsp;<code>i - 1 &gt;= 0</code>.</li>
 
-	<li><code>j</code> where: <code>arr[i] == arr[j]</code> and <code>i != j</code>.</li>
+    <li><code>j</code> where: <code>arr[i] == arr[j]</code> and <code>i != j</code>.</li>
 
 </ul>
 
-
-
 <p>Return <em>the minimum number of steps</em> to reach the <strong>last index</strong> of the array.</p>
 
-
-
 <p>Notice that you can not jump outside of the array at any time.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -47,11 +36,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -79,11 +60,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -93,11 +70,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -107,25 +80,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= arr.length &lt;= 5 * 10^4</code></li>
+    <li><code>1 &lt;= arr.length &lt;= 5 * 10^4</code></li>
 
-	<li><code>-10^8 &lt;= arr[i] &lt;= 10^8</code></li>
+    <li><code>-10^8 &lt;= arr[i] &lt;= 10^8</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -142,6 +109,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

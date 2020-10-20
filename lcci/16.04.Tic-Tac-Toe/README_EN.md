@@ -3,13 +3,10 @@
 [中文文档](/lcci/16.04.Tic-Tac-Toe/README.md)
 
 ## Description
+
 <p>Design an algorithm to figure out if someone has won a game of tic-tac-toe.&nbsp;Input is a string array&nbsp;of size N x N, including characters &quot; &quot;, &quot;X&quot; and &quot;O&quot;, where &quot; &quot; represents a empty grid.</p>
 
-
-
 <p>The rules of tic-tac-toe are as follows:</p>
-
-
 
 <ul>
 	<li>Players place characters into an empty grid(&quot; &quot;) in turn.</li>
@@ -20,15 +17,9 @@
 	<li>If the game ends, players cannot place any character further.</li>
 </ul>
 
-
-
 <p>If there is any winner, return the character that the winner used. If there&#39;s a draw, return &quot;Draw&quot;. If the game doesn&#39;t end and there is no winner, return &quot;Pending&quot;.</p>
 
-
-
 <p><strong>Example 1: </strong></p>
-
-
 
 <pre>
 
@@ -38,11 +29,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2: </strong></p>
-
-
 
 <pre>
 
@@ -54,11 +41,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3: </strong></p>
-
-
 
 <pre>
 
@@ -70,22 +53,14 @@
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= board.length == board[i].length &lt;= 100</code></li>
 	<li>Input follows the rules.</li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -102,6 +77,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

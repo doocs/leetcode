@@ -3,6 +3,7 @@
 [English Version](/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>一条基因序列由一个带有8个字符的字符串表示，其中每个字符都属于 <code>&quot;A&quot;</code>, <code>&quot;C&quot;</code>, <code>&quot;G&quot;</code>, <code>&quot;T&quot;</code>中的任意一个。</p>
 
@@ -52,15 +53,14 @@ bank: [&quot;AAAACCCC&quot;, &quot;AAACCCCC&quot;, &quot;AACCCCCC&quot;]
 返回值: 3
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -68,6 +68,7 @@ bank: [&quot;AAAACCCC&quot;, &quot;AAACCCCC&quot;, &quot;AACCCCCC&quot;]
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -75,6 +76,7 @@ bank: [&quot;AAAACCCC&quot;, &quot;AAACCCCC&quot;, &quot;AACCCCCC&quot;]
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1353.Maximum%20Number%20of%20Events%20That%20Can%20Be%20Attended/README.md)
 
 ## Description
+
 <p>Given an array of <code>events</code> where <code>events[i] = [startDay<sub>i</sub>, endDay<sub>i</sub>]</code>. Every event <code>i</code> starts at&nbsp;<code>startDay<sub>i</sub></code><sub>&nbsp;</sub>and ends at&nbsp;<code>endDay<sub>i</sub></code>.</p>
 
 <p>You can attend an event <code>i</code>&nbsp;at any day&nbsp;<code>d</code> where&nbsp;<code>startTime<sub>i</sub>&nbsp;&lt;= d &lt;= endTime<sub>i</sub></code>. Notice that you can only attend one event at any time <code>d</code>.</p>
@@ -61,10 +62,7 @@ Attend the third event on day 3.
 	<li><code>1 &lt;= events[i][0] &lt;= events[i][1] &lt;= 10^5</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -81,6 +79,7 @@ Attend the third event on day 3.
 ```
 
 ### **...**
+
 ```
 
 ```

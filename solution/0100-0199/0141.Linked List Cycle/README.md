@@ -3,6 +3,7 @@
 [English Version](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个链表，判断链表中是否有环。</p>
 
@@ -26,7 +27,6 @@
 <strong>解释：</strong>链表中有一个环，其尾部连接到第一个节点。
 </pre>
 
-
 ![](./images/circularlinkedlist_test2.png)
 
 <p><strong>示例 3：</strong></p>
@@ -44,19 +44,18 @@
 
 <p>你能用 <em>O(1)</em>（即，常量）内存解决此问题吗？</p>
 
-
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
 
 定义快慢指针 `slow`、`fast`，初始指向 `head`。
 
 快指针每次走两步，慢指针每次走一步，不断循环。当相遇时，说明链表存在环。如果循环结束依然没有相遇，说明链表不存在环。
 
-
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -77,6 +76,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -108,6 +108,7 @@ public class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,11 +3,10 @@
 [中文文档](/solution/0500-0599/0574.Winning%20Candidate/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -15,7 +14,7 @@ None
 
 ```
 SELECT Name
-FROM Candidate, 
+FROM Candidate,
     (SELECT CandidateId,
          count(*) AS total
     FROM Vote

@@ -3,9 +3,8 @@
 [中文文档](/solution/0500-0599/0504.Base%207/README.md)
 
 ## Description
+
 <p>Given an integer, return its base 7 string representation.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -19,8 +18,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -33,17 +30,13 @@
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 The input will be in range of [-1e7, 1e7].
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +53,7 @@ The input will be in range of [-1e7, 1e7].
 ```
 
 ### **...**
+
 ```
 
 ```

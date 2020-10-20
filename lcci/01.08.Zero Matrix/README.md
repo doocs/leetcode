@@ -3,6 +3,7 @@
 [English Version](/lcci/01.08.Zero%20Matrix/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>编写一种算法，若M × N矩阵中某个元素为0，则将其所在的行与列清零。</p>
 
@@ -40,8 +41,8 @@
 ]
 </pre>
 
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
 
 用 set 记录需要清零的行 `zero_rows` 跟列 `zero_cols`，之后分别将需要清零的行、列上的所有元素清零。
@@ -49,6 +50,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -64,22 +66,23 @@ class Solution:
                 if matrix[i][j] == 0:
                     zero_rows.add(i)
                     zero_cols.add(j)
-        
+
         # 行清零
         for i in zero_rows:
             for j in range(cols):
                 matrix[i][j] = 0
-        
+
         # 列清零
         for j in zero_cols:
             for i in range(rows):
                 matrix[i][j] = 0
-        
+
         return matrix
 
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -115,6 +118,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1263.Minimum%20Moves%20to%20Move%20a%20Box%20to%20Their%20Target%20Location/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>「推箱子」是一款风靡全球的益智小游戏，玩家需要将箱子推到仓库中的目标位置。</p>
 
@@ -78,15 +79,14 @@
 	<li><code>grid</code>&nbsp;中&nbsp;<code>&#39;S&#39;</code>, <code>&#39;B&#39;</code>&nbsp;和&nbsp;<code>&#39;T&#39;</code>&nbsp;各只能出现一个。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -94,6 +94,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -101,6 +102,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

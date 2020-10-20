@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0666.Path%20Sum%20IV/README.md)
 
 ## Description
+
 <p>If the depth of a tree is smaller than <code>5</code>, then this tree can be represented by a list of three-digits integers.</p>
 
 <p>For each integer in this list:</p>
@@ -47,10 +48,7 @@ The tree that the list represents is:
 The path sum is (3 + 1) = 4.
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@ The path sum is (3 + 1) = 4.
 ```
 
 ### **...**
+
 ```
 
 ```

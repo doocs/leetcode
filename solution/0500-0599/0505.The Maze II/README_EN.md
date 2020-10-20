@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0505.The%20Maze%20II/README.md)
 
 ## Description
+
 <p>There is a <b>ball</b> in a maze with empty spaces and walls. The ball can go through empty spaces by rolling <b>up</b>, <b>down</b>, <b>left</b> or <b>right</b>, but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction.</p>
 
 <p>Given the ball's <b>start position</b>, the <b>destination</b> and the <b>maze</b>, find the shortest distance for the ball to stop at the destination. The distance is defined by the number of <b>empty spaces</b> traveled by the ball from the start position (excluded) to the destination (included). If the ball cannot stop at the destination, return -1.</p>
@@ -63,10 +64,7 @@
 	<li>The maze contains at least 2 empty spaces, and both the width and height of the maze won't exceed 100.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -83,6 +81,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

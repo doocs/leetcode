@@ -1,7 +1,8 @@
-# [面试题09. 用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
+# [面试题 09. 用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
 
 ## 题目描述
-用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 `appendTail` 和 `deleteHead` ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，`deleteHead` 操作返回 -1 )
+
+用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 `appendTail` 和 `deleteHead` ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，`deleteHead`  操作返回 -1 )
 
 **示例 1：**
 
@@ -24,19 +25,21 @@
 **提示：**
 
 - `1 <= values <= 10000`
-- `最多会对 appendTail、deleteHead 进行 10000 次调用`
+- `最多会对 appendTail、deleteHead 进行 10000 次调用`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class CQueue:
 
     def __init__(self):
         self._s1 = []
         self._s2 = []
-    
+
     def _check(self):
         if not self._s2:
             while self._s1:
@@ -58,6 +61,7 @@ class CQueue:
 ```
 
 ### **Java**
+
 ```java
 class CQueue {
     private Stack<Integer> s1 = new Stack<>();
@@ -66,12 +70,12 @@ class CQueue {
     public CQueue() {
 
     }
-    
+
     public void appendTail(int value) {
         s1.push(value);
         check();
     }
-    
+
     public int deleteHead() {
         check();
         return s2.empty() ? -1 : s2.pop();
@@ -95,34 +99,35 @@ class CQueue {
 ```
 
 ### **JavaScript**
+
 ```js
-var CQueue = function() {
-    this.data = []
-    this.helper = []
+var CQueue = function () {
+  this.data = [];
+  this.helper = [];
 };
-/** 
+/**
  * @param {number} value
  * @return {void}
  */
-CQueue.prototype.appendTail = function(value) {
-    this.data.push(value)
+CQueue.prototype.appendTail = function (value) {
+  this.data.push(value);
 };
 /**
  * @return {number}
  */
-CQueue.prototype.deleteHead = function() {
-    if(this.data.length) {
-        while(this.data.length > 1) {
-            this.helper.push(this.data.pop())
-        }
-        let res = this.data.pop()
-        while(this.helper.length) {
-            this.data.push(this.helper.pop())
-        }
-        return res
-    } else {
-        return -1
+CQueue.prototype.deleteHead = function () {
+  if (this.data.length) {
+    while (this.data.length > 1) {
+      this.helper.push(this.data.pop());
     }
+    let res = this.data.pop();
+    while (this.helper.length) {
+      this.data.push(this.helper.pop());
+    }
+    return res;
+  } else {
+    return -1;
+  }
 };
 ```
 
@@ -163,8 +168,6 @@ func (this *CQueue) DeleteHead() int {
 	return res
 }
 ```
-
-
 
 ### **...**
 

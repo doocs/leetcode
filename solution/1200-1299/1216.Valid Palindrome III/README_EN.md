@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1216.Valid%20Palindrome%20III/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code> and an integer <code>k</code>, find out if the given string is a <em>K-Palindrome</em> or not.</p>
 
 <p>A string is K-Palindrome if it can be transformed into a palindrome by removing at most <code>k</code> characters from it.</p>
@@ -25,10 +26,7 @@
 	<li><code>1 <= k <= s.length</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -45,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README.md)
 
 ## Description
+
 <p>A die simulator generates a random number from 1 to 6 for each roll.&nbsp;You introduced a constraint to the generator such that it cannot roll the number <code>i</code> more than <code>rollMax[i]</code> (1-indexed) <strong>consecutive</strong> times.&nbsp;</p>
 
 <p>Given an array of integers&nbsp;<code>rollMax</code>&nbsp;and an integer&nbsp;<code>n</code>, return the number of distinct sequences that can be obtained with exact <code>n</code> rolls.</p>
@@ -41,10 +42,7 @@
 	<li><code>1 &lt;= rollMax[i] &lt;= 15</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1273.Delete%20Tree%20Nodes/README.md)
 
 ## Description
+
 <p>A tree rooted at node 0 is given as follows:</p>
 
 <ul>
@@ -35,10 +36,7 @@
 	<li><code>parent[0] == -1</code> which indicates that <code>0</code> is the root.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

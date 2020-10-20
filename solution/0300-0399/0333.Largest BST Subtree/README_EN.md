@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0333.Largest%20BST%20Subtree/README.md)
 
 ## Description
+
 <p>Given a binary tree, find the largest subtree which is a Binary Search Tree (BST), where largest means subtree with largest number of nodes in it.</p>
 
 <p><b>Note:</b><br />
@@ -27,10 +28,7 @@ A subtree must include all of its descendants.</p>
 <p><b>Follow up:</b><br />
 Can you figure out ways to solve it with O(n) time complexity?</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -47,6 +45,7 @@ Can you figure out ways to solve it with O(n) time complexity?</p>
 ```
 
 ### **...**
+
 ```
 
 ```

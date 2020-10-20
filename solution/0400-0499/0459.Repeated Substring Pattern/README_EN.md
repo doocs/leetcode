@@ -3,17 +3,12 @@
 [中文文档](/solution/0400-0499/0459.Repeated%20Substring%20Pattern/README.md)
 
 ## Description
+
 <p>Given a non-empty string check if it can be constructed by taking a substring of it and appending multiple copies of the substring together. You may assume the given string consists of lowercase English letters only and its length will not exceed 10000.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -39,11 +30,7 @@
 
 </pre>
 
-
-
 <p><b>Example 3:</b></p>
-
-
 
 <pre>
 
@@ -55,11 +42,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

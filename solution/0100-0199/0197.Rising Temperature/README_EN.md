@@ -3,9 +3,8 @@
 [中文文档](/solution/0100-0199/0197.Rising%20Temperature/README.md)
 
 ## Description
+
 <p>Given a <code>Weather</code> table, write a SQL query to find all dates&#39; Ids with higher temperature compared to its previous (yesterday&#39;s) dates.</p>
-
-
 
 <pre>
 
@@ -27,11 +26,7 @@
 
 </pre>
 
-
-
 <p>For example, return the following Ids for the above <code>Weather</code> table:</p>
-
-
 
 <pre>
 
@@ -49,11 +44,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,7 +52,7 @@
 
 ```
 select w1.Id
-from 
+from
     Weather w1,
     Weather w2
 where

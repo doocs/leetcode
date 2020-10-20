@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0041.First%20Missing%20Positive/README.md)
 
 ## Description
+
 <p>Given an unsorted integer array, find the smallest missing&nbsp;positive integer.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@ Output: 3
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -33,11 +26,7 @@ Output: 2
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -47,19 +36,11 @@ Output: 1
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <p>Your algorithm should run in <em>O</em>(<em>n</em>) time and uses constant extra space.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +57,7 @@ Output: 1
 ```
 
 ### **...**
+
 ```
 
 ```

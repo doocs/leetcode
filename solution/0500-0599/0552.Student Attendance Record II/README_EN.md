@@ -3,13 +3,10 @@
 [中文文档](/solution/0500-0599/0552.Student%20Attendance%20Record%20II/README.md)
 
 ## Description
+
 <p>Given a positive integer <b>n</b>, return the number of all possible attendance records with length n, which will be regarded as rewardable. The answer may be very large, return it after mod 10<sup>9</sup> + 7.</p>
 
-
-
 <p>A student attendance record is a string that only contains the following three characters:</p>
-
-
 
 <p>
 
@@ -25,13 +22,9 @@
 
 </p>
 
-
-
 <p>
 
 A record is regarded as rewardable if it doesn't contain <b>more than one 'A' (absent)</b> or <b>more than two continuous 'L' (late)</b>.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -53,23 +46,13 @@ Only "AA" won't be regarded as rewardable owing to more than one absent times.
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 The value of <b>n</b> won't exceed 100,000.
 
 </p>
 
-
-
-
-
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -86,6 +69,7 @@ The value of <b>n</b> won't exceed 100,000.
 ```
 
 ### **...**
+
 ```
 
 ```

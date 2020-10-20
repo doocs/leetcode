@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0387.First%20Unique%20Character%20in%20a%20String/README.md)
 
 ## Description
+
 <p>
 
 Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1.
@@ -27,17 +28,13 @@ return 2.
 
 </p>
 
-
-
 <p>
 
 <b>Note:</b> You may assume the string contain only lowercase letters.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +51,7 @@ return 2.
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>请判断一个链表是否为回文链表。</p>
 
@@ -20,15 +21,14 @@
 <p><strong>进阶：</strong><br>
 你能否用&nbsp;O(n) 时间复杂度和 O(1) 空间复杂度解决此题？</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -53,7 +53,7 @@ class Solution:
                 p, q = p.next, q.next
         mid.next = self.reverse_list(second_half_list)
         return result
-        
+
     def reverse_list(self, head):
         pre, p = None, head
         while p:
@@ -62,7 +62,7 @@ class Solution:
             pre = p
             p = q
         return pre
-    
+
     def find_mid_node(self, head):
         slow = fast = head
         while fast.next and fast.next.next:
@@ -72,6 +72,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -127,6 +128,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

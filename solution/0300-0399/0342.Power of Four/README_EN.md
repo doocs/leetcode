@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0342.Power%20of%20Four/README.md)
 
 ## Description
+
 <p>Given an integer (signed 32 bits), write a function to check whether it is a power of 4.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,13 +16,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,13 +28,9 @@
 
 </div>
 
-
-
 <p><b>Follow up</b>: Could you solve it without loops/recursion?</p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

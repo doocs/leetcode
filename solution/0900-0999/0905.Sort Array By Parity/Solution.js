@@ -40,7 +40,7 @@ var sortArrayByParity = function (A) {
   let i = 0,
     j = len - 1;
   while (i < j) {
-    if ((A[i] % 2 == 1) && (A[j] % 2 == 0)) {
+    if (A[i] % 2 == 1 && A[j] % 2 == 0) {
       let temp = A[j];
       A[j] = A[i];
       A[i] = temp;

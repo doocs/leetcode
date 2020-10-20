@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0363.Max%20Sum%20of%20Rectangle%20No%20Larger%20Than%20K/README.md)
 
 ## Description
+
 <p>Given a non-empty 2D matrix <i>matrix</i> and an integer <i>k</i>, find the max sum of a rectangle in the <i>matrix</i> such that its sum is no larger than <i>k</i>.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -21,23 +18,17 @@
 
 &nbsp;            and 2 is the max number no larger than k (k = 2).</pre>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ol>
 
-	<li>The rectangle inside the matrix must have an area &gt; 0.</li>
+    <li>The rectangle inside the matrix must have an area &gt; 0.</li>
 
-	<li>What if the number of rows is much larger than the number of columns?</li>
+    <li>What if the number of rows is much larger than the number of columns?</li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

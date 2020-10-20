@@ -3,22 +3,16 @@
 [中文文档](/solution/0000-0099/0051.N-Queens/README.md)
 
 ## Description
-<p>The <em>n</em>-queens puzzle is the problem of placing <em>n</em> queens on an <em>n</em>&times;<em>n</em> chessboard such that no two queens attack each other.</p>
 
+<p>The <em>n</em>-queens puzzle is the problem of placing <em>n</em> queens on an <em>n</em>&times;<em>n</em> chessboard such that no two queens attack each other.</p>
 
 ![](./images/8-queens.png)
 
 <p>Given an integer <em>n</em>, return all distinct solutions to the <em>n</em>-queens puzzle.</p>
 
-
-
 <p>Each solution contains a distinct board configuration of the <em>n</em>-queens&#39; placement, where <code>&#39;Q&#39;</code> and <code>&#39;.&#39;</code> both indicate a queen and an empty space respectively.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -50,11 +44,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -71,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

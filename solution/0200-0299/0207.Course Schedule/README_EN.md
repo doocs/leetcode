@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0207.Course%20Schedule/README.md)
 
 ## Description
+
 <p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses-1</code>.</p>
 
 <p>Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: <code>[0,1]</code></p>
@@ -38,10 +39,7 @@
 	<li><code>1 &lt;=&nbsp;numCourses &lt;= 10^5</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +56,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

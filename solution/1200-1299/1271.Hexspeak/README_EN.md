@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1271.Hexspeak/README.md)
 
 ## Description
+
 <p>A decimal number can be converted to its <em>Hexspeak representation</em> by first converting it to an uppercase hexadecimal string, then replacing all occurrences of the digit <code>0</code> with the letter <code>O</code>, and the digit <code>1</code> with the letter <code>I</code>.  Such a representation is <em>valid</em> if and only if it consists only of the letters in the set <code>{"A", "B", "C", "D", "E", "F", "I", "O"}</code>.</p>
 
 <p>Given a string <code>num</code> representing a decimal integer <code>N</code>, return the Hexspeak representation of <code>N</code> if it is valid, otherwise return <code>"ERROR"</code>.</p>
@@ -32,10 +33,7 @@
 	<li>All answers must be in uppercase letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

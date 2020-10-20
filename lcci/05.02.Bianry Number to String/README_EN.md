@@ -3,13 +3,10 @@
 [中文文档](/lcci/05.02.Bianry%20Number%20to%20String/README.md)
 
 ## Description
+
 <p>Given a real number between O and 1 (e.g., 0.72) that is passed in as a double, print the binary representation. If the number cannot be represented accurately in binary with at most 32 characters, print &quot;ERROR&quot;.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -35,21 +28,13 @@
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ol>
 	<li>This two charaters &quot;0.&quot; should be counted into 32 characters.</li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

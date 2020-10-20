@@ -3,13 +3,10 @@
 [中文文档](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md)
 
 ## Description
+
 <p>Given an integer array&nbsp;<code>nums</code>, find the contiguous subarray within an array (containing at least one number) which has the largest product.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -21,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +28,7 @@
 
 <strong>Explanation:</strong>&nbsp;The result cannot be 2, because [-2,-1] is not a subarray.</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

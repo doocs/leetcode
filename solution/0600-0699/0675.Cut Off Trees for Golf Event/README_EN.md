@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/README.md)
 
 ## Description
+
 <p>You are asked to cut off trees in a forest for a golf event. The forest is represented as a non-negative 2D map, in this map:</p>
 
 <ol>
@@ -69,10 +70,7 @@
 	<li><code>0 &lt;= forest[i][j]&nbsp;&lt;= 10^9</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -89,6 +87,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

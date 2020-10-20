@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1209.Remove%20All%20Adjacent%20Duplicates%20in%20String%20II/README.md)
 
 ## Description
+
 <p>Given a string&nbsp;<code>s</code>, a <em>k</em>&nbsp;<em>duplicate removal</em>&nbsp;consists of choosing <code>k</code>&nbsp;adjacent and equal letters from&nbsp;<code>s</code> and removing&nbsp;them causing the left and the right side of the deleted substring to concatenate together.</p>
 
 <p>We repeatedly make <code>k</code> duplicate removals on <code>s</code> until we no longer can.</p>
@@ -45,10 +46,7 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 	<li><code>s</code> only contains lower case English letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -65,6 +63,7 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 ```
 
 ### **...**
+
 ```
 
 ```

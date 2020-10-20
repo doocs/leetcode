@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
 <p>Two elements of a binary search tree (BST) are swapped by mistake.</p>
-
-
 
 <p>Recover the tree without changing its structure.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -49,11 +44,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -89,25 +80,17 @@
 
 </pre>
 
-
-
 <p><strong>Follow up:</strong></p>
-
-
 
 <ul>
 
-	<li>A solution using O(<em>n</em>) space is pretty straight forward.</li>
+    <li>A solution using O(<em>n</em>) space is pretty straight forward.</li>
 
-	<li>Could you devise a constant space solution?</li>
+    <li>Could you devise a constant space solution?</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -124,6 +107,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

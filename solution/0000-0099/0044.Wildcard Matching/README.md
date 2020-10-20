@@ -3,6 +3,7 @@
 [English Version](/solution/0000-0099/0044.Wildcard%20Matching/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个字符串&nbsp;(<code>s</code>) 和一个字符模式&nbsp;(<code>p</code>) ，实现一个支持&nbsp;<code>&#39;?&#39;</code>&nbsp;和&nbsp;<code>&#39;*&#39;</code>&nbsp;的通配符匹配。</p>
 
@@ -61,15 +62,14 @@ s = &quot;acdcb&quot;
 p = &quot;a*c?b&quot;
 <strong>输入:</strong> false</pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -77,6 +77,7 @@ p = &quot;a*c?b&quot;
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -84,6 +85,7 @@ p = &quot;a*c?b&quot;
 ```
 
 ### **...**
+
 ```
 
 ```

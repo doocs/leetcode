@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README.md)
 
 ## Description
+
 <p>Given <em>n</em>, how many structurally unique <strong>BST&#39;s</strong> (binary search trees) that store values 1 ...&nbsp;<em>n</em>?</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +32,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

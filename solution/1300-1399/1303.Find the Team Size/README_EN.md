@@ -3,11 +3,10 @@
 [中文文档](/solution/1300-1399/1303.Find%20the%20Team%20Size/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -24,6 +23,7 @@ None
 ```
 
 ### **...**
+
 ```
 
 ```

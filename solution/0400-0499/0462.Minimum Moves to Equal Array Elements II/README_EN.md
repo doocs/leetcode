@@ -3,13 +3,10 @@
 [中文文档](/solution/0400-0499/0462.Minimum%20Moves%20to%20Equal%20Array%20Elements%20II/README.md)
 
 ## Description
+
 <p><p>Given a <b>non-empty</b> integer array, find the minimum number of moves required to make all array elements equal, where a move is incrementing a selected element by 1 or decrementing a selected element by 1.</p>
 
-
-
 <p>You may assume the array's length is at most 10,000.</p>
-
-
 
 <p><b>Example:</b>
 
@@ -39,9 +36,7 @@ Only two moves are needed (remember each move increments or decrements one eleme
 
 </p></p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +53,7 @@ Only two moves are needed (remember each move increments or decrements one eleme
 ```
 
 ### **...**
+
 ```
 
 ```

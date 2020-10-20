@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>如果可以通过将 <code>A</code> 中的两个小写字母精确地交换位置 <code>K</code> 次得到与 <code>B</code> 相等的字符串，我们称字符串&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;的相似度为 <code>K</code>（<code>K</code>&nbsp;为非负整数）。</p>
 
@@ -42,15 +43,14 @@
 	<li><code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;只包含集合&nbsp;<code>{&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;}</code>&nbsp;中的小写字母。</li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

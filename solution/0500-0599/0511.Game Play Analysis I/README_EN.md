@@ -3,11 +3,10 @@
 [中文文档](/solution/0500-0599/0511.Game%20Play%20Analysis%20I/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

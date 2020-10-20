@@ -3,22 +3,16 @@
 [中文文档](/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/README.md)
 
 ## Description
+
 <p>Given a binary tree&nbsp;<code>root</code>&nbsp;and an integer&nbsp;<code>target</code>, delete all the&nbsp;<strong>leaf nodes</strong>&nbsp;with value <code>target</code>.</p>
 
-
-
 <p>Note&nbsp;that once you delete a leaf node with value <code>target</code><strong>,&nbsp;</strong>if it&#39;s parent node becomes a leaf node and has the value <code><font face="monospace">target</font></code>, it should also be deleted (you need to continue doing that until you can&#39;t).</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-
-
 ![](./images/sample_1_1684.png)
-
 
 <pre>
 
@@ -32,13 +26,9 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
 ![](./images/sample_2_1684.png)
-
 
 <pre>
 
@@ -48,13 +38,9 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
 
-
 ![](./images/sample_3_1684.png)
-
 
 <pre>
 
@@ -66,11 +52,7 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -80,11 +62,7 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -94,13 +72,9 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= target&nbsp;&lt;= 1000</code></li>
@@ -108,9 +82,7 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 	<li>Each node&#39;s value is between <code>[1, 1000]</code>.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -127,6 +99,7 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,10 @@
 [中文文档](/lcci/16.17.Contiguous%20Sequence/README.md)
 
 ## Description
+
 <p>You are given an array of integers (both positive and negative). Find the contiguous sequence with the largest sum. Return the sum.</p>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -21,19 +18,11 @@
 
 </pre>
 
-
-
 <p><strong>Follow Up: </strong></p>
-
-
 
 <p>If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +39,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

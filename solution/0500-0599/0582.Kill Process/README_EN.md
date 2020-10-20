@@ -3,7 +3,8 @@
 [中文文档](/solution/0500-0599/0582.Kill%20Process/README.md)
 
 ## Description
-<p>Given <b>n</b> processes, each process has a unique <b>PID (process id)</b> and its <b>PPID (parent process id)</b>. 
+
+<p>Given <b>n</b> processes, each process has a unique <b>PID (process id)</b> and its <b>PPID (parent process id)</b>.
 
 <p>Each process only has one parent process, but may have one or more children processes. This is just like a tree structure.  Only one process has PPID that is 0, which means this process has no parent process. All the PIDs will be distinct positive integers.</p>
 
@@ -35,9 +36,7 @@ Kill 5 will also kill 10.
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +53,7 @@ Kill 5 will also kill 10.
 ```
 
 ### **...**
+
 ```
 
 ```

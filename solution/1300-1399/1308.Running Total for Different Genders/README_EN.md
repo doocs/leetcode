@@ -3,11 +3,10 @@
 [中文文档](/solution/1300-1399/1308.Running%20Total%20for%20Different%20Genders/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -24,6 +23,7 @@ None
 ```
 
 ### **...**
+
 ```
 
 ```

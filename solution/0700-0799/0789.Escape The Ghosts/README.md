@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0789.Escape%20The%20Ghosts/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>你在进行一个简化版的吃豆人游戏。你从&nbsp;<code>(0, 0)</code>&nbsp;点开始出发，你的目的地是&nbsp;<code>(target[0], target[1])</code>&nbsp;。地图上有一些阻碍者，第 i 个阻碍者从&nbsp;<code>(ghosts[i][0], ghosts[i][1])</code>&nbsp;出发。</p>
 
@@ -46,15 +47,14 @@ target = [1, 0]
 	<li>阻碍者的数量不会超过&nbsp;<code>100</code>。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -62,6 +62,7 @@ target = [1, 0]
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -69,6 +70,7 @@ target = [1, 0]
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,23 +3,16 @@
 [中文文档](/lcci/16.25.LRU%20Cache/README.md)
 
 ## Description
+
 <p>Design and build a &quot;least recently used&quot; cache, which evicts the least recently used item. The cache should map from keys to values (allowing you to insert and retrieve a value associ&shy;ated with a particular key) and be initialized with a max size. When it is full, it should evict the least recently used item.</p>
 
-
-
 <p>You should implement following operations:&nbsp;&nbsp;<code>get</code>&nbsp;and <code>put</code>.</p>
-
-
 
 <p>Get a value by key:&nbsp;<code>get(key)</code> - If key is in the cache, return the value, otherwise return -1.<br />
 
 Write a key-value pair to the cache:&nbsp;<code>put(key, value)</code> - If the key is not in the cache, then write its value to the cache. Evict the least recently used item before writing if necessary.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -47,11 +40,7 @@ cache.get(4);       // returns 4
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +57,7 @@ cache.get(4);       // returns 4
 ```
 
 ### **...**
+
 ```
 
 ```

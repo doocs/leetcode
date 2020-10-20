@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0422.Valid%20Word%20Square/README.md)
 
 ## Description
+
 <p>Given a sequence of words, check whether it forms a valid word square.</p>
 
 <p>A sequence of words forms a valid word square if the <i>k</i><sup>th</sup> row and column read the exact same string, where 0 ≤ <i>k</i> < max(numRows, numColumns).</p>
@@ -35,6 +36,7 @@ The third row and third column both read "crmy".
 The fourth row and fourth column both read "dtye".
 
 Therefore, it is a valid word square.
+
 </pre>
 </p>
 
@@ -58,6 +60,7 @@ The third row and third column both read "crm".
 The fourth row and fourth column both read "dt".
 
 Therefore, it is a valid word square.
+
 </pre>
 </p>
 
@@ -78,12 +81,11 @@ false
 The third row reads "read" while the third column reads "lead".
 
 Therefore, it is <b>NOT</b> a valid word square.
+
 </pre>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +102,7 @@ Therefore, it is <b>NOT</b> a valid word square.
 ```
 
 ### **...**
+
 ```
 
 ```

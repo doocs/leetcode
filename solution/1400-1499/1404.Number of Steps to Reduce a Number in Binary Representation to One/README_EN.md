@@ -57,15 +57,11 @@ Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
 	<li><code>s[0] == &#39;1&#39;</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -73,12 +69,12 @@ Step 1) 2 is even, divide by 2 and obtain 1.&nbsp;
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

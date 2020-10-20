@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0327.Count%20of%20Range%20Sum/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组&nbsp;<code>nums</code>，返回区间和在&nbsp;<code>[lower, upper]</code>&nbsp;之间的个数，包含&nbsp;<code>lower</code>&nbsp;和&nbsp;<code>upper</code>。<br>
 区间和&nbsp;<code>S(i, j)</code>&nbsp;表示在&nbsp;<code>nums</code>&nbsp;中，位置从&nbsp;<code>i</code>&nbsp;到&nbsp;<code>j</code>&nbsp;的元素之和，包含&nbsp;<code>i</code>&nbsp;和&nbsp;<code>j</code>&nbsp;(<code>i</code> &le; <code>j</code>)。</p>
@@ -17,15 +18,14 @@
 <strong>解释: </strong>3个区间分别是: <code>[0,0]</code>, <code>[2,2]</code>, <code>[0,2]，</code>它们表示的和分别为: <code>-2, -1, 2。</code>
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -33,6 +33,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -40,6 +41,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

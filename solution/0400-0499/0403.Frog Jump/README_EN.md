@@ -3,19 +3,14 @@
 [中文文档](/solution/0400-0499/0403.Frog%20Jump/README.md)
 
 ## Description
+
 <p>A frog is crossing a river. The river is divided into x units and at each unit there may or may not exist a stone. The frog can jump on a stone, but it must not jump into the water.</p>
-
-
 
 <p>Given a list of stones' positions (in units) in sorted ascending order, determine if the frog is able to cross the river by landing on the last stone. Initially, the frog is on the first stone and assume the first jump must be 1 unit.
 
 </p>
 
-
-
 <p>If the frog's last jump was <i>k</i> units, then its next jump must be either <i>k</i> - 1, <i>k</i>, or <i>k</i> + 1 units. Note that the frog can only jump in the forward direction.</p>
-
-
 
 <p><b>Note:</b>
 
@@ -30,8 +25,6 @@
 </ul>
 
 </p>
-
-
 
 <p><b>Example 1:</b>
 
@@ -63,8 +56,6 @@ The last stone at the 17th unit.
 
 </p>
 
-
-
 <p><b>Example 2:</b>
 
 <pre>
@@ -81,9 +72,7 @@ the gap between the 5th and 6th stone is too large.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +89,7 @@ the gap between the 5th and 6th stone is too large.
 ```
 
 ### **...**
+
 ```
 
 ```

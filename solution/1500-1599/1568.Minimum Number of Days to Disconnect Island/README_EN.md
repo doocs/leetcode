@@ -67,15 +67,11 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 	<li><code>grid[i][j]</code>&nbsp;is <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -83,12 +79,12 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

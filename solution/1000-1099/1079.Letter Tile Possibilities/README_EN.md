@@ -3,17 +3,12 @@
 [中文文档](/solution/1000-1099/1079.Letter%20Tile%20Possibilities/README.md)
 
 ## Description
+
 <p>You have a set of <code>tiles</code>, where each tile has one letter <code>tiles[i]</code> printed on it.&nbsp; Return the number of possible non-empty sequences of letters you can make.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,29 +32,21 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1 &lt;= tiles.length &lt;= 7</code></li>
+    <li><code>1 &lt;= tiles.length &lt;= 7</code></li>
 
-	<li><code>tiles</code> consists of uppercase English letters.</li>
+    <li><code>tiles</code> consists of uppercase English letters.</li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +63,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

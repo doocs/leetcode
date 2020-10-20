@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README.md)
 
 ## Description
+
 <p>Given a Binary Search Tree (BST) with the root node <code>root</code>, return&nbsp;the minimum difference between the values of any two different nodes in the tree.</p>
 
 <p><strong>Example :</strong></p>
@@ -32,10 +33,7 @@ while the minimum difference in this tree is 1, it occurs between node 1 and nod
 	<li>This question is the same as 530:&nbsp;<a href="https://leetcode.com/problems/minimum-absolute-difference-in-bst/">https://leetcode.com/problems/minimum-absolute-difference-in-bst/</a></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +50,7 @@ while the minimum difference in this tree is 1, it occurs between node 1 and nod
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0642.Design%20Search%20Autocomplete%20System/README.md)
 
 ## Description
+
 <p>Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character <code>'#'</code>). For <b>each character</b> they type <b>except '#'</b>, you need to return the <b>top 3</b> historical hot sentences that have prefix the same as the part of sentence already typed. Here are the specific rules:</p>
 
 <ol>
@@ -64,10 +65,7 @@ The user finished the input, the sentence <code>"i a"</code> should be saved as 
 
 <p> </p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +82,7 @@ The user finished the input, the sentence <code>"i a"</code> should be saved as 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,17 +3,12 @@
 [中文文档](/lcci/16.21.Sum%20Swap/README.md)
 
 ## Description
+
 <p>Given two arrays of integers, find a pair of values (one value from each array) that you can swap to give the two arrays the same sum.</p>
-
-
 
 <p>Return an array, where the first element is the element in the first array that will be swapped, and the second element is another one in the second array. If there are more than one answers, return any one of them. If there is no answer, return an empty array.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -35,21 +26,13 @@
 
 <strong>Output: </strong>[]</pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= array1.length, array2.length &lt;= 100000</code></li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -97,6 +80,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

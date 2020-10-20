@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0728.Self%20Dividing%20Numbers/README.md)
 
 ## Description
+
 <p>
 
 A <i>self-dividing number</i> is a number that is divisible by every digit it contains.
@@ -35,17 +36,13 @@ left = 1, right = 22
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li>The boundaries of each input argument are <code>1 <= left <= right <= 10000</code>.</li>
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +59,7 @@ left = 1, right = 22
 ```
 
 ### **...**
+
 ```
 
 ```

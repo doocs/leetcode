@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1005.Maximize%20Sum%20Of%20Array%20After%20K%20Negations/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个整数数组 A，我们<strong>只能</strong>用以下方法修改该数组：我们选择某个个索引 <code>i</code>&nbsp;并将 <code>A[i]</code> 替换为 <code>-A[i]</code>，然后总共重复这个过程 <code>K</code> 次。（我们可以多次选择同一个索引 <code>i</code>。）</p>
 
@@ -41,15 +42,14 @@
 	<li><code>-100 &lt;= A[i] &lt;= 100</code></li>
 </ol>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -57,6 +57,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -64,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

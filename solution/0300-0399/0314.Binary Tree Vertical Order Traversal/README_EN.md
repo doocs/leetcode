@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/README.md)
 
 ## Description
+
 <p>Given a binary tree, return the <i>vertical order</i> traversal of its nodes' values. (ie, from top to bottom, column by column).</p>
 
 <p>If two nodes are in the same row and column, the order should be from <b>left to right</b>.</p>
@@ -81,9 +82,7 @@
 ]
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +99,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

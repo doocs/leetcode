@@ -3,13 +3,10 @@
 [中文文档](/solution/0700-0799/0718.Maximum%20Length%20of%20Repeated%20Subarray/README.md)
 
 ## Description
+
 <p>Given two integer arrays <code>A</code> and <code>B</code>, return the maximum length of an subarray that appears in both arrays.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -27,33 +24,21 @@ The repeated subarray with maximum length is [3, 2, 1].
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>1 &lt;= len(A), len(B) &lt;= 1000</li>
+    <li>1 &lt;= len(A), len(B) &lt;= 1000</li>
 
-	<li>0 &lt;= A[i], B[i] &lt; 100</li>
+    <li>0 &lt;= A[i], B[i] &lt; 100</li>
 
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +55,7 @@ The repeated subarray with maximum length is [3, 2, 1].
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0360.Sort%20Transformed%20Array/README.md)
 
 ## Description
+
 <p>Given a <b>sorted</b> array of integers <i>nums</i> and integer values <i>a</i>, <i>b</i> and <i>c</i>. Apply a quadratic function of the form f(<i>x</i>) = <i>ax</i><sup>2</sup> + <i>bx</i> + <i>c</i> to each element <i>x</i> in the array.</p>
 
 <p>The returned array must be in <b>sorted order</b>.</p>
@@ -27,9 +28,7 @@
 </div>
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -46,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

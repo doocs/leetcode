@@ -3,15 +3,14 @@
 [中文文档](/solution/0500-0599/0507.Perfect%20Number/README.md)
 
 ## Description
-<p>We define the Perfect Number is a <b>positive</b> integer that is equal to the sum of all its <b>positive</b> divisors except itself. 
+
+<p>We define the Perfect Number is a <b>positive</b> integer that is equal to the sum of all its <b>positive</b> divisors except itself.
 
 </p>
 
 Now, given an <b>integer</b> n, write a function that returns true when it is a perfect number and false when it is not.
 
 </p>
-
-
 
 <p><b>Example:</b><br />
 
@@ -27,17 +26,13 @@ Now, given an <b>integer</b> n, write a function that returns true when it is a 
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 The input number <b>n</b> will not exceed 100,000,000. (1e8)
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +49,7 @@ The input number <b>n</b> will not exceed 100,000,000. (1e8)
 ```
 
 ### **...**
+
 ```
 
 ```

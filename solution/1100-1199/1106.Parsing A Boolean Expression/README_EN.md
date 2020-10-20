@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1106.Parsing%20A%20Boolean%20Expression/README.md)
 
 ## Description
+
 <p>Return the result of evaluating a given boolean <code>expression</code>, represented as a string.</p>
 
 <p>An expression can either be:</p>
@@ -53,10 +54,7 @@
 	<li><code>expression</code> is a valid expression representing a boolean, as given in the description.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -73,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

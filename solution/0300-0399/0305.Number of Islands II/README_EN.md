@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0305.Number%20of%20Islands%20II/README.md)
 
 ## Description
+
 <p>A 2d grid map of <code>m</code> rows and <code>n</code> columns is initially filled with water. We may perform an <i>addLand</i> operation which turns the water at position (row, col) into a land. Given a list of positions to operate, <b>count the number of islands after each <i>addLand</i> operation</b>. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
 
 <p><b>Example:</b></p>
@@ -58,10 +59,7 @@
 
 <p>Can you do it in time complexity O(k log mn), where k is the length of the <code>positions</code>?</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +76,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

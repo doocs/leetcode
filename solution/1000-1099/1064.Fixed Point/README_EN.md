@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1064.Fixed%20Point/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of distinct integers sorted in ascending order, return the smallest index <code>i</code> that satisfies <code>A[i] == i</code>.  Return <code>-1</code> if no such <code>i</code> exists.</p>
 
 <p> </p>
@@ -43,10 +44,7 @@ There is no such <code>i</code> that <code>A[i] = i</code>, thus the output is -
 	<li><code>-10^9 <= A[i] <= 10^9</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -63,6 +61,7 @@ There is no such <code>i</code> that <code>A[i] = i</code>, thus the output is -
 ```
 
 ### **...**
+
 ```
 
 ```

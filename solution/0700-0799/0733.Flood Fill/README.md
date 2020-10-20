@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0733.Flood%20Fill/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有一幅以二维整数数组表示的图画，每一个整数表示该图画的像素值大小，数值在 0 到 65535 之间。</p>
 
@@ -34,15 +35,14 @@ sr = 1, sc = 1, newColor = 2
 	<li><code>image[i][j]</code> 和&nbsp;<code>newColor</code>&nbsp;表示的颜色值在范围&nbsp;<code>[0, 65535]</code>内。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -50,6 +50,7 @@ sr = 1, sc = 1, newColor = 2
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -57,6 +58,7 @@ sr = 1, sc = 1, newColor = 2
 ```
 
 ### **...**
+
 ```
 
 ```

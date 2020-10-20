@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0635.Design%20Log%20Storage%20System/README.md)
 
 ## Description
+
 <p>You are given several logs that each log contains a unique id and timestamp. Timestamp is a string that has the following format: <code>Year:Month:Day:Hour:Minute:Second</code>, for example, <code>2017:01:01:23:59:59</code>. All domains are zero-padded decimal numbers. </p>
 
 <p>Design a log storage system to implement the following functions:</p>
@@ -29,9 +30,7 @@ retrieve("2016:01:01:01:01:01","2017:01:01:23:00:00","Hour"); // return [1,2], b
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -48,6 +47,7 @@ retrieve("2016:01:01:01:01:01","2017:01:01:23:00:00","Hour"); // return [1,2], b
 ```
 
 ### **...**
+
 ```
 
 ```

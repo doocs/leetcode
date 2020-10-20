@@ -1,8 +1,9 @@
-# [面试题 16.25. LRU缓存](https://leetcode-cn.com/problems/lru-cache-lcci)
+# [面试题 16.25. LRU 缓存](https://leetcode-cn.com/problems/lru-cache-lcci)
 
 [English Version](/lcci/16.25.LRU%20Cache/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>设计和构建一个&ldquo;最近最少使用&rdquo;缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。</p>
 
@@ -26,14 +27,14 @@ cache.get(3);       // 返回  3
 cache.get(4);       // 返回  4
 </pre>
 
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -41,6 +42,7 @@ cache.get(4);       // 返回  4
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -48,6 +50,7 @@ cache.get(4);       // 返回  4
 ```
 
 ### **...**
+
 ```
 
 ```

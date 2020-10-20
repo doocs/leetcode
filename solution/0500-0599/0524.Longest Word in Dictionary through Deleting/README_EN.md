@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0524.Longest%20Word%20in%20Dictionary%20through%20Deleting/README.md)
 
 ## Description
+
 <p>
 
 Given a string and a string dictionary, find the longest string in the dictionary that can be formed by deleting some characters of the given string. If there are more than one possible results, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.
@@ -27,8 +28,6 @@ s = "abpcplea", d = ["ale","apple","monkey","plea"]
 
 </p>
 
-
-
 </p>
 
 <p><b>Example 2:</b><br>
@@ -49,8 +48,6 @@ s = "abpcplea", d = ["a","b","c"]
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -65,9 +62,7 @@ s = "abpcplea", d = ["a","b","c"]
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +79,7 @@ s = "abpcplea", d = ["a","b","c"]
 ```
 
 ### **...**
+
 ```
 
 ```

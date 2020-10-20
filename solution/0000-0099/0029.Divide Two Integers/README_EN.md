@@ -3,6 +3,7 @@
 [中文文档](/solution/0000-0099/0029.Divide%20Two%20Integers/README.md)
 
 ## Description
+
 <p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers without using multiplication, division and mod operator.</p>
 
 <p>Return the quotient after dividing <code>dividend</code> by <code>divisor</code>.</p>
@@ -33,10 +34,7 @@
 	<li>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [&minus;2<sup>31</sup>, &nbsp;2<sup>31</sup> &minus; 1]. For the purpose of this problem, assume that your function <strong>returns 2<sup>31</sup> &minus; 1 when the division result&nbsp;overflows</strong>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

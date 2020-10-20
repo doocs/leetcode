@@ -3,6 +3,7 @@
 [中文文档](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README.md)
 
 ## Description
+
 <p>Implement the class <code>TweetCounts</code> that supports two methods:</p>
 
 <p>1.<code> recordTweet(string tweetName, int time)</code></p>
@@ -50,10 +51,7 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 	<li><code>0 &lt;= endTime - startTime &lt;= 10^4</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +68,7 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 ```
 
 ### **...**
+
 ```
 
 ```

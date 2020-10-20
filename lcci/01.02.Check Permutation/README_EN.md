@@ -3,13 +3,10 @@
 [中文文档](/lcci/01.02.Check%20Permutation/README.md)
 
 ## Description
+
 <p>Given two strings,write a method to decide if one is a permutation of the other.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -33,19 +26,13 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
 <ol>
 	<li><code>0 &lt;= len(s1) &lt;= 100 </code></li>
 	<li><code>0 &lt;= len(s2) &lt;= 100</code></li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -75,6 +62,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

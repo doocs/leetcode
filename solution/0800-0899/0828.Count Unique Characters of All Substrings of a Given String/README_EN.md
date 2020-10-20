@@ -3,6 +3,7 @@
 [中文文档](/solution/0800-0899/0828.Count%20Unique%20Characters%20of%20All%20Substrings%20of%20a%20Given%20String/README.md)
 
 ## Description
+
 <p>Let&#39;s define a function <code>countUniqueChars(s)</code>&nbsp;that returns the number of unique characters on <code>s</code>, for example if <code>s = &quot;LEETCODE&quot;</code>&nbsp;then <code>&quot;L&quot;</code>, <code>&quot;T&quot;</code>,<code>&quot;C&quot;</code>,<code>&quot;O&quot;</code>,<code>&quot;D&quot;</code> are the unique characters since they appear only once in <code>s</code>, therefore&nbsp;<code>countUniqueChars(s) = 5</code>.<br />
 <br />
 On this problem given a string <code>s</code> we need to return the sum of&nbsp;<code>countUniqueChars(t)</code>&nbsp;where <code>t</code> is a substring of <code>s</code>. Notice that some substrings can be repeated so on this case you have to count the repeated ones too.</p>
@@ -43,10 +44,7 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 	<li><code>s</code>&nbsp;contain upper-case English letters only.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -63,6 +61,7 @@ Sum of lengths of all substring is 1 + 1 + 1 + 2 + 2 + 3 = 10
 ```
 
 ### **...**
+
 ```
 
 ```

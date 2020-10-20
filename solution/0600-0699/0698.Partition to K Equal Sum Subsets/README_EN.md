@@ -3,17 +3,12 @@
 [中文文档](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>nums</code> and a positive integer <code>k</code>, find whether it&#39;s possible to divide this array into <code>k</code> non-empty subsets whose sums are all equal.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -25,29 +20,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= k &lt;= len(nums) &lt;= 16</code>.</li>
+    <li><code>1 &lt;= k &lt;= len(nums) &lt;= 16</code>.</li>
 
-	<li><code>0 &lt; nums[i] &lt; 10000</code>.</li>
+    <li><code>0 &lt; nums[i] &lt; 10000</code>.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

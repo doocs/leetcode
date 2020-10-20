@@ -3,27 +3,18 @@
 [中文文档](/solution/0800-0899/0849.Maximize%20Distance%20to%20Closest%20Person/README.md)
 
 ## Description
+
 <p>In a row of <code>seats</code>, <code>1</code> represents a person sitting in that seat, and <code>0</code> represents that the seat is empty.&nbsp;</p>
-
-
 
 <p>There is at least one empty seat, and at least one person sitting.</p>
 
-
-
 <p>Alex wants to sit in the seat such that the distance between him and the closest person to him is maximized.&nbsp;</p>
 
-
-
 <p>Return that maximum distance to closest person.</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,13 +30,9 @@ If Alex sits in any other open seat, the closest person has distance 1.
 
 Thus, the maximum distance to the closest person is 2.</pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,17 +48,13 @@ This is the maximum distance possible, so the answer is 3.
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1 &lt;= seats.length &lt;= 20000</code></li>
+    <li><code>1 &lt;= seats.length &lt;= 20000</code></li>
 
-	<li><code>seats</code>&nbsp;contains only 0s or 1s, at least one <code>0</code>, and at least one <code>1</code>.</li>
+    <li><code>seats</code>&nbsp;contains only 0s or 1s, at least one <code>0</code>, and at least one <code>1</code>.</li>
 
 </ol>
 
@@ -79,11 +62,7 @@ This is the maximum distance possible, so the answer is 3.
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -100,6 +79,7 @@ This is the maximum distance possible, so the answer is 3.
 ```
 
 ### **...**
+
 ```
 
 ```

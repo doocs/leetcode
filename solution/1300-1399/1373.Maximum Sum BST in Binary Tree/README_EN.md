@@ -3,13 +3,10 @@
 [中文文档](/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Given a <strong>binary tree</strong> <code>root</code>, the task is to return the maximum sum of all keys of <strong>any</strong>&nbsp;sub-tree which is also a Binary Search Tree (BST).</p>
 
-
-
 <p>Assume a BST is defined as follows:</p>
-
-
 
 <ul>
 	<li>The left subtree of a node contains only nodes with keys&nbsp;<strong>less than</strong>&nbsp;the node&#39;s key.</li>
@@ -17,15 +14,11 @@
 	<li>Both the left and right subtrees must also be binary search trees.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-
 ![](./images/sample_1_1709.png)
-
 
 <pre>
 
@@ -37,10 +30,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
 
 ![](./images/sample_2_1709.png)
 
@@ -54,11 +44,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -70,11 +56,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -84,11 +66,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -98,22 +76,16 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>Each tree has at most <code>40000</code> nodes..</li>
 	<li>Each node&#39;s value is between <code>[-4 * 10^4&nbsp;, 4 * 10^4]</code>.</li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -130,6 +102,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

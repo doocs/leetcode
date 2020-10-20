@@ -6,17 +6,11 @@
 
 <p>You have a very large square wall and a circular dartboard placed on the wall.&nbsp;You have been challenged to throw darts into the board blindfolded.&nbsp;Darts thrown at the wall are represented as an array of&nbsp;<code>points</code> on a 2D plane.&nbsp;</p>
 
-
-
 <p>Return&nbsp;the maximum number of points that are within or&nbsp;lie&nbsp;on&nbsp;<strong>any</strong> circular dartboard of radius&nbsp;<code>r</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 ![](./images/sample_1_1806.png)
 
@@ -30,15 +24,9 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
-
 ![](./images/sample_2_1806.png)
-
-
 
 <pre>
 
@@ -50,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -64,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -78,13 +58,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= points.length &lt;= 100</code></li>
@@ -95,12 +71,9 @@
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -108,12 +81,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

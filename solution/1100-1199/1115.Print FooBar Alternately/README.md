@@ -1,8 +1,9 @@
-# [1115. 交替打印FooBar](https://leetcode-cn.com/problems/print-foobar-alternately)
+# [1115. 交替打印 FooBar](https://leetcode-cn.com/problems/print-foobar-alternately)
 
 [English Version](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>我们提供一个类：</p>
 
@@ -44,15 +45,14 @@ class FooBar {
 <strong>解释:</strong> &quot;foobar&quot; 将被输出两次。
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -60,6 +60,7 @@ class FooBar {
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -67,6 +68,7 @@ class FooBar {
 ```
 
 ### **...**
+
 ```
 
 ```

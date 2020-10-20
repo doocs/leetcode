@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0716.Max%20Stack/README.md)
 
 ## Description
+
 <p>Design a max stack that supports push, pop, top, peekMax and popMax.</p>
 
 <p>
@@ -38,9 +39,7 @@ stack.top(); -> 5
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +56,7 @@ stack.top(); -> 5
 ```
 
 ### **...**
+
 ```
 
 ```

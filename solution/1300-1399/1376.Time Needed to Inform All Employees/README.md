@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>公司里有 <code>n</code> 名员工，每个员工的 ID 都是独一无二的，编号从 <code>0</code> 到 <code>n - 1</code>。公司的总负责人通过 <code>headID</code> 进行标识。</p>
 
@@ -36,7 +37,6 @@
 <p><strong>示例 3：</strong></p>
 
 ![](./images/1730_example_3_5.png)
-
 
 <pre><strong>输入：</strong>n = 7, headID = 6, manager = [1,2,3,4,5,6,-1], informTime = [0,6,5,4,3,2,1]
 <strong>输出：</strong>21
@@ -80,15 +80,14 @@ id = 1 的员工将在 6 分钟内通知 id = 0 的员工。
 	<li>题目 <strong>保证</strong> 所有员工都可以收到通知。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -96,6 +95,7 @@ id = 1 的员工将在 6 分钟内通知 id = 0 的员工。
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -103,6 +103,7 @@ id = 1 的员工将在 6 分钟内通知 id = 0 的员工。
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1231.Divide%20Chocolate/README.md)
 
 ## Description
+
 <p>You have one chocolate bar that consists of some chunks. Each chunk has its own sweetness given by the array <code>sweetness</code>.</p>
 
 <p>You want to share the chocolate with your <code>K</code> friends so you start cutting the chocolate bar into <code>K+1</code> pieces using <code>K</code> cuts, each piece consists of some <strong>consecutive</strong> chunks.</p>
@@ -44,10 +45,7 @@
 	<li><code>1 <= sweetness[i] <= 10^5</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +62,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

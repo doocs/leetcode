@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0347.Top%20K%20Frequent%20Elements/README.md)
 
 ## Description
+
 <p>Given a non-empty array of integers, return the <b><i>k</i></b> most frequent elements.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,13 +16,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,25 +28,17 @@
 
 </div>
 
-
-
 <p><b>Note: </b></p>
-
-
 
 <ul>
 
-	<li>You may assume <i>k</i> is always valid, 1 &le; <i>k</i> &le; number of unique elements.</li>
+    <li>You may assume <i>k</i> is always valid, 1 &le; <i>k</i> &le; number of unique elements.</li>
 
-	<li>Your algorithm&#39;s time complexity <b>must be</b> better than O(<i>n</i> log <i>n</i>), where <i>n</i> is the array&#39;s size.</li>
+    <li>Your algorithm&#39;s time complexity <b>must be</b> better than O(<i>n</i> log <i>n</i>), where <i>n</i> is the array&#39;s size.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,10 @@
 [中文文档](/lcci/10.03.Search%20Rotate%20Array/README.md)
 
 ## Description
+
 <p>Given a sorted array of n integers that has been rotated an unknown number of times, write code to find an element in the array. You may assume that the array was originally sorted in increasing order. If there are more than one target elements in the array, return the smallest index.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -33,19 +26,13 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
 
 <ol>
 	<li><code>1 &lt;= arr.length &lt;= 1000000</code></li>
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,9 +3,8 @@
 [中文文档](/solution/0100-0199/0184.Department%20Highest%20Salary/README.md)
 
 ## Description
+
 <p>The <code>Employee</code> table holds all employees. Every employee has an Id, a salary, and there is also a column for the department Id.</p>
-
-
 
 <pre>
 
@@ -29,11 +28,7 @@
 
 </pre>
 
-
-
 <p>The <code>Department</code> table holds all departments of the company.</p>
-
-
 
 <pre>
 
@@ -51,11 +46,7 @@
 
 </pre>
 
-
-
 <p>Write a SQL query to find employees who have the highest salary in each of the departments.&nbsp;For the above tables, your SQL query should return the following rows (order of rows does not matter).</p>
-
-
 
 <pre>
 
@@ -75,19 +66,11 @@
 
 </pre>
 
-
-
 <p><strong>Explanation:</strong></p>
-
-
 
 <p>Max and Jim both have&nbsp;the highest salary in the IT department and Henry has the highest salary in the Sales department.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 

@@ -37,15 +37,11 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.</pre>
 	<li><code>x<sub>i</sub></code>&nbsp;form a strictly increasing sequence.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -53,12 +49,12 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.</pre>
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

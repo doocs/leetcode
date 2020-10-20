@@ -3,6 +3,7 @@
 [中文文档](/lcci/01.05.One%20Away/README.md)
 
 ## Description
+
 <p>There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away.</p>
 
 <p><strong>Example&nbsp;1:</strong></p>
@@ -21,8 +22,6 @@ second = &quot;ple&quot;
 
 <p><strong>Example&nbsp;2:</strong></p>
 
-
-
 <pre>
 
 <strong>Input:</strong> 
@@ -35,11 +34,7 @@ second = &quot;pal&quot;
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -89,6 +84,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

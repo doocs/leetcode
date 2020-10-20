@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1073.Adding%20Two%20Negabinary%20Numbers/README.md)
 
 ## Description
+
 <p>Given two numbers <code>arr1</code> and <code>arr2</code> in base <strong>-2</strong>, return the result of adding them together.</p>
 
 <p>Each number is given in <em>array format</em>:&nbsp; as an array of 0s and 1s, from most significant bit to least significant bit.&nbsp; For example, <code>arr = [1,1,0,1]</code> represents the number <code>(-2)^3&nbsp;+ (-2)^2 + (-2)^0 = -3</code>.&nbsp; A number <code>arr</code> in <em>array format</em> is also guaranteed to have no leading zeros: either&nbsp;<code>arr == [0]</code> or <code>arr[0] == 1</code>.</p>
@@ -31,10 +32,7 @@
 	<li><code>arr2[i]</code> is <code>0</code> or <code>1</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -51,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

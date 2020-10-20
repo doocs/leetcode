@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1151.Minimum%20Swaps%20to%20Group%20All%201's%20Together/README.md)
 
 ## Description
+
 <p>Given a binary array <code>data</code>, return the minimum number of swaps required to group all <code>1</code>’s present in the array together in <strong>any place</strong> in the array.</p>
 
 <p> </p>
@@ -47,10 +48,7 @@ One possible solution that uses 3 swaps is [0,0,0,0,0,1,1,1,1,1,1].
 	<li><code>0 <= data[i] <= 1</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@ One possible solution that uses 3 swaps is [0,0,0,0,0,1,1,1,1,1,1].
 ```
 
 ### **...**
+
 ```
 
 ```

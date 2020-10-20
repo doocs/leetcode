@@ -3,9 +3,8 @@
 [中文文档](/solution/0500-0599/0551.Student%20Attendance%20Record%20I/README.md)
 
 ## Description
+
 You are given a string representing an attendance record for a student. The record only contains the following three characters:
-
-
 
 <p>
 
@@ -21,17 +20,11 @@ You are given a string representing an attendance record for a student. The reco
 
 </p>
 
-
-
 <p>
 
-A student could be rewarded if his attendance record doesn't contain <b>more than one 'A' (absent)</b> or <b>more than two continuous 'L' (late)</b>.    </p>
-
-
+A student could be rewarded if his attendance record doesn't contain <b>more than one 'A' (absent)</b> or <b>more than two continuous 'L' (late)</b>. </p>
 
 <p>You need to return whether the student could be rewarded according to his attendance record.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -45,8 +38,6 @@ A student could be rewarded if his attendance record doesn't contain <b>more tha
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -59,15 +50,7 @@ A student could be rewarded if his attendance record doesn't contain <b>more tha
 
 </p>
 
-
-
-
-
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -84,6 +67,7 @@ A student could be rewarded if his attendance record doesn't contain <b>more tha
 ```
 
 ### **...**
+
 ```
 
 ```

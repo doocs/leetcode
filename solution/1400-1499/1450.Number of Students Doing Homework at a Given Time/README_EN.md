@@ -61,15 +61,11 @@ The third student started doing homework at time 3 and finished at time 7 and wa
 	<li><code>1 &lt;=&nbsp;queryTime &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -77,12 +73,12 @@ The third student started doing homework at time 3 and finished at time 7 and wa
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

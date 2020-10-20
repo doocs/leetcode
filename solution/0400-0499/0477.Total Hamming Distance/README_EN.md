@@ -3,15 +3,10 @@
 [中文文档](/solution/0400-0499/0477.Total%20Hamming%20Distance/README.md)
 
 ## Description
+
 <p>The <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank">Hamming distance</a> between two integers is the number of positions at which the corresponding bits are different.</p>
 
-
-
 <p>Now your job is to find the total Hamming distance between all pairs of the given numbers.</p>
-
-
-
-
 
 <p><b>Example:</b><br />
 
@@ -35,8 +30,6 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -49,9 +42,7 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -68,6 +59,7 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 ```
 
 ### **...**
+
 ```
 
 ```

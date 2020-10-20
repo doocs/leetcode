@@ -3,27 +3,18 @@
 [中文文档](/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/README.md)
 
 ## Description
+
 <p>We have a list of <code>points</code>&nbsp;on the plane.&nbsp; Find the <code>K</code> closest points to the origin <code>(0, 0)</code>.</p>
-
-
 
 <p>(Here, the distance between two points on a plane is the Euclidean distance.)</p>
 
-
-
 <p>You may return the answer in any order.&nbsp; The&nbsp;answer is guaranteed to be unique (except for the order that it is in.)</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -43,13 +34,9 @@ We only want the closest K = 1 points from the origin, so the answer is just [[-
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,23 +48,17 @@ We only want the closest K = 1 points from the origin, so the answer is just [[-
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= K &lt;= points.length &lt;= 10000</code></li>
+    <li><code>1 &lt;= K &lt;= points.length &lt;= 10000</code></li>
 
-	<li><code>-10000 &lt; points[i][0] &lt; 10000</code></li>
+    <li><code>-10000 &lt; points[i][0] &lt; 10000</code></li>
 
-	<li><code>-10000 &lt; points[i][1] &lt; 10000</code></li>
+    <li><code>-10000 &lt; points[i][1] &lt; 10000</code></li>
 
 </ol>
 
@@ -85,9 +66,7 @@ We only want the closest K = 1 points from the origin, so the answer is just [[-
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -104,6 +83,7 @@ We only want the closest K = 1 points from the origin, so the answer is just [[-
 ```
 
 ### **...**
+
 ```
 
 ```

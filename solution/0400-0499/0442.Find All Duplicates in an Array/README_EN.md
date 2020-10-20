@@ -3,13 +3,10 @@
 [中文文档](/solution/0400-0499/0442.Find%20All%20Duplicates%20in%20an%20Array/README.md)
 
 ## Description
+
 <p>Given an array of integers, 1 &le; a[i] &le; <i>n</i> (<i>n</i> = size of array), some elements appear <b>twice</b> and others appear <b>once</b>.</p>
 
-
-
 <p>Find all the elements that appear <b>twice</b> in this array.</p>
-
-
 
 <p>Could you do it without extra space and in O(<i>n</i>) runtime?</p>
 
@@ -31,9 +28,7 @@
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

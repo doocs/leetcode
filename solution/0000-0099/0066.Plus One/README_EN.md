@@ -3,21 +3,14 @@
 [中文文档](/solution/0000-0099/0066.Plus%20One/README.md)
 
 ## Description
+
 <p>Given a <strong>non-empty</strong> array of digits&nbsp;representing a non-negative integer, plus one to the integer.</p>
-
-
 
 <p>The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.</p>
 
-
-
 <p>You may assume the integer does not contain any leading zero, except the number 0 itself.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -29,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -45,9 +34,7 @@
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

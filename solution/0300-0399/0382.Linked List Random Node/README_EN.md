@@ -3,17 +3,14 @@
 [中文文档](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README.md)
 
 ## Description
+
 <p>Given a singly linked list, return a random node's value from the linked list. Each node must have the <b>same probability</b> of being chosen.</p>
-
-
 
 <p><b>Follow up:</b><br />
 
 What if the linked list is extremely large and its length is unknown to you? Could you solve this efficiently without using extra space?
 
 </p>
-
-
 
 <p><b>Example:</b>
 
@@ -39,9 +36,7 @@ solution.getRandom();
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +53,7 @@ solution.getRandom();
 ```
 
 ### **...**
+
 ```
 
 ```

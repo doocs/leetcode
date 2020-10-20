@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code> of integers and integer <code>K</code>, return the maximum <code>S</code> such that there exists <code>i < j</code> with <code>A[i] + A[j] = S</code> and <code>S < K</code>. If no <code>i, j</code> exist satisfying this equation, return -1.</p>
 
 <p> </p>
@@ -35,10 +36,7 @@ In this case it's not possible to get a pair sum less that 15.
 	<li><code>1 <= K <= 2000</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@ In this case it's not possible to get a pair sum less that 15.
 ```
 
 ### **...**
+
 ```
 
 ```

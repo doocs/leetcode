@@ -3,13 +3,10 @@
 [中文文档](/solution/0900-0999/0954.Array%20of%20Doubled%20Pairs/README.md)
 
 ## Description
+
 <p>Given an array of integers <code>A</code>&nbsp;with even length, return <code>true</code> if and only if it is possible to reorder it such that <code>A[2 * i + 1] = 2 * A[2 * i]</code> for every <code>0 &lt;=&nbsp;i &lt; len(A) / 2</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -27,13 +24,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -43,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -59,13 +48,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -77,13 +62,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -93,23 +74,17 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>0 &lt;= A.length &lt;= 30000</code></li>
+    <li><code>0 &lt;= A.length &lt;= 30000</code></li>
 
-	<li><code>A.length</code> is even</li>
+    <li><code>A.length</code> is even</li>
 
-	<li><code>-100000 &lt;= A[i] &lt;= 100000</code></li>
+    <li><code>-100000 &lt;= A[i] &lt;= 100000</code></li>
 
 </ol>
 
@@ -121,11 +96,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -142,6 +113,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

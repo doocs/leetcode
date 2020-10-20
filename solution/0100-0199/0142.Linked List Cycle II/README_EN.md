@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
 
 ## Description
+
 <p>Given a linked list, return the node where the cycle begins. If there is no cycle, return <code>null</code>.</p>
 
 <p>To represent a cycle in the given linked list, we use an integer <code>pos</code> which represents the position (0-indexed)&nbsp;in the linked list where tail connects to. If <code>pos</code> is <code>-1</code>, then there is no cycle in the linked list.</p>
@@ -46,10 +47,7 @@
 <p><b>Follow-up</b>:<br />
 Can you solve it without using extra space?</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -119,6 +117,7 @@ public class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

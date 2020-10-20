@@ -3,13 +3,10 @@
 [中文文档](/solution/0100-0199/0114.Flatten%20Binary%20Tree%20to%20Linked%20List/README.md)
 
 ## Description
+
 <p>Given a binary tree, flatten it to a linked list in-place.</p>
 
-
-
 <p>For example, given the following tree:</p>
-
-
 
 <pre>
 
@@ -25,11 +22,7 @@
 
 </pre>
 
-
-
 <p>The flattened tree should look like:</p>
-
-
 
 <pre>
 
@@ -57,11 +50,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

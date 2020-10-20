@@ -64,15 +64,11 @@ Total of operations: 2 + 1 = 3.
 	<li><code>0 &lt;= nums[i] &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -80,12 +76,12 @@ Total of operations: 2 + 1 = 3.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

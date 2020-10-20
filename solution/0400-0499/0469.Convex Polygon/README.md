@@ -3,6 +3,7 @@
 [English Version](/solution/0400-0499/0469.Convex%20Polygon/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个按顺序连接的多边形的顶点，判断该多边形是否为凸多边形。<a href="https://baike.baidu.com/item/凸多边形/">（凸多边形的定义）</a></p>
 
@@ -34,15 +35,14 @@
 解释：<img src="https://assets.leetcode.com/uploads/2018/10/13/polygon_not_convex.png" style="height: 100px; width: 100px;">
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -50,6 +50,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -57,6 +58,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

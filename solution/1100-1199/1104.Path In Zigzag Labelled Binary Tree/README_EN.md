@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>In an infinite binary tree where every node has two children, the nodes are labelled in row order.</p>
 
 <p>In the odd numbered rows (ie., the first, third, fifth,...), the labelling is left to right, while in the even numbered rows (second, fourth, sixth,...), the labelling is right to left.</p>
@@ -33,10 +34,7 @@
 	<li><code>1 &lt;= label &lt;= 10^6</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

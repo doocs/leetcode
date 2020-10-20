@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1256.Encode%20Number/README.md)
 
 ## Description
+
 <p>Given a non-negative integer <code>num</code>, Return its <em>encoding</em> string.</p>
 
 <p>The encoding is done by converting the integer to a string using a secret function that you should deduce from the following table:</p>
@@ -31,9 +32,7 @@
 	<li><code>0 <= num <= 10^9</code></li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +49,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

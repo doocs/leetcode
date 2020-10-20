@@ -1,7 +1,8 @@
-# [面试题14- II. 剪绳子 II](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
+# [面试题 14- II. 剪绳子 II](这里是题目链接，如：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)
 
 ## 题目描述
-给你一根长度为 `n` 的绳子，请把绳子剪成整数长度的 `m` 段（m、n 都是整数，n>1 并且 m>1），每段绳子的长度记为 `k[0],k[1]...k[m-1]` 。请问 `k[0]*k[1]*...*k[m-1]` 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为 2、3、3 的三段，此时得到的最大乘积是 18。
+
+给你一根长度为 `n` 的绳子，请把绳子剪成整数长度的 `m` 段（m、n 都是整数，n>1 并且 m>1），每段绳子的长度记为 `k[0],k[1]...k[m-1]` 。请问 `k[0]*k[1]*...*k[m-1]` 可能的最大乘积是多少？例如，当绳子的长度是 8 时，我们把它剪成长度分别为 2、3、3 的三段，此时得到的最大乘积是 18。
 
 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
 
@@ -13,7 +14,7 @@
 解释: 2 = 1 + 1, 1 × 1 = 1
 ```
 
-**示例 2:**
+**示例  2:**
 
 ```
 输入: 10
@@ -26,9 +27,11 @@
 - `2 <= n <= 1000`
 
 ## 解法
+
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 class Solution:
     def cuttingRope(self, n: int) -> int:
@@ -42,6 +45,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 class Solution {
     public int cuttingRope(int n) {
@@ -65,28 +69,29 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number} n
  * @return {number}
  */
-var cuttingRope = function(n) {
-    if(n <= 3) return n-1
-    let a = ~~(n / 3)
-    let b = n % 3
-    const MOD = 1e9 + 7
-    function myPow(x) {
-        let r = 1
-        for(let i=0;i<x;i++) {
-            r = (r*3) % MOD
-        }
-        return r
+var cuttingRope = function (n) {
+  if (n <= 3) return n - 1;
+  let a = ~~(n / 3);
+  let b = n % 3;
+  const MOD = 1e9 + 7;
+  function myPow(x) {
+    let r = 1;
+    for (let i = 0; i < x; i++) {
+      r = (r * 3) % MOD;
     }
-    if(b === 1) {
-        return myPow(a-1) * 4 % MOD
-    }
-    if(b === 0) return myPow(a) % MOD
-    return myPow(a) * 2 % MOD
+    return r;
+  }
+  if (b === 1) {
+    return (myPow(a - 1) * 4) % MOD;
+  }
+  if (b === 0) return myPow(a) % MOD;
+  return (myPow(a) * 2) % MOD;
 };
 ```
 
@@ -106,8 +111,6 @@ func cuttingRope(n int) int {
 	return sum * n % 1000000007
 }
 ```
-
-
 
 ### **...**
 

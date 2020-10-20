@@ -3,6 +3,7 @@
 [中文文档](/solution/0900-0999/0953.Verifying%20an%20Alien%20Dictionary/README.md)
 
 ## Description
+
 <p>In an alien language, surprisingly they also use english lowercase letters, but possibly&nbsp;in a different <code>order</code>. The&nbsp;<code>order</code> of the alphabet&nbsp;is some permutation&nbsp;of lowercase letters.</p>
 
 <p>Given a sequence of <code>words</code>&nbsp;written in the alien language,&nbsp;and the <code>order</code> of the alphabet,&nbsp;return <code>true</code> if and only if the given <code>words</code>&nbsp;are sorted lexicographicaly in this alien language.</p>
@@ -41,10 +42,7 @@
 	<li>All characters in <code>words[i]</code> and <code>order</code> are English lowercase letters.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -61,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

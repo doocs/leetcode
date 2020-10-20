@@ -3,6 +3,7 @@
 [中文文档](/solution/0100-0199/0186.Reverse%20Words%20in%20a%20String%20II/README.md)
 
 ## Description
+
 <p>Given an input string<strong><em>&nbsp;</em></strong>, reverse the string word by word.&nbsp;</p>
 
 <p><strong>Example:</strong></p>
@@ -21,10 +22,7 @@
 
 <p><strong>Follow up:&nbsp;</strong>Could you do it <i>in-place</i> without allocating extra space?</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -41,6 +39,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

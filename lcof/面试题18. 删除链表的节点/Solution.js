@@ -10,19 +10,19 @@
  * @param {number} val
  * @return {ListNode}
  */
-var deleteNode = function(head, val) {
-    let node = head
-    if(node.val === val) {
-        node = node.next
-        head = node
-    } else {
-        while(node.next) {
-            if(node.next.val === val) {
-                node.next = node.next.next
-                break
-            }
-            node = node.next
-        }
+var deleteNode = function (head, val) {
+  let node = head;
+  if (node.val === val) {
+    node = node.next;
+    head = node;
+  } else {
+    while (node.next) {
+      if (node.next.val === val) {
+        node.next = node.next.next;
+        break;
+      }
+      node = node.next;
     }
-    return head
+  }
+  return head;
 };

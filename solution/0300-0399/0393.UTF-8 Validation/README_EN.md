@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0393.UTF-8%20Validation/README.md)
 
 ## Description
+
 <p>A character in UTF8 can be from <b>1 to 4 bytes</b> long, subjected to the following rules:</p>
 
 <ol>
@@ -14,8 +15,6 @@
 </ol>
 
 <p>This is how the UTF-8 encoding would work:</p>
-
-
 
 <pre><code>   Char. number range  |        UTF-8 octet sequence
 
@@ -47,8 +46,6 @@ The input is an array of integers. Only the <b>least significant 8 bits</b> of e
 
 </p>
 
-
-
 <p>
 
 <b>Example 1:</b>
@@ -66,8 +63,6 @@ It is a valid utf-8 encoding for a 2-bytes character followed by a 1-byte charac
 </pre>
 
 </p>
-
-
 
 <p>
 
@@ -91,9 +86,7 @@ But the second continuation byte does not start with 10, so it is invalid.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -110,6 +103,7 @@ But the second continuation byte does not start with 10, so it is invalid.
 ```
 
 ### **...**
+
 ```
 
 ```

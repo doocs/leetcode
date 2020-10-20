@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0078.Subsets/README.md)
 
 ## Description
+
 <p>Given a set of <strong>distinct</strong> integers, <em>nums</em>, return all possible subsets (the power set).</p>
-
-
 
 <p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +36,7 @@
 
 ]</pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

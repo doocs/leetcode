@@ -3,41 +3,28 @@
 [中文文档](/solution/0900-0999/0975.Odd%20Even%20Jump/README.md)
 
 ## Description
+
 <p>You are given an integer array <code>A</code>.&nbsp; From&nbsp;some starting index, you can make a series of jumps.&nbsp; The (1st, 3rd, 5th, ...)&nbsp;jumps in the series are called <em>odd numbered jumps</em>, and the (2nd, 4th, 6th, ...) jumps in the series are called <em>even numbered jumps</em>.</p>
-
-
 
 <p>You may from index <code>i</code>&nbsp;jump forward to index <code><font face="monospace">j</font></code>&nbsp;(with <code>i&nbsp;&lt; j</code>) in the following way:</p>
 
-
-
 <ul>
 
-	<li>During odd numbered jumps (ie. jumps 1, 3, 5, ...), you jump to the index <font face="monospace">j</font>&nbsp;such that <code>A[i] &lt;= A[j]</code> and <code>A[j]</code> is the smallest possible value.&nbsp; If there are multiple such indexes <code><font face="monospace">j</font></code>, you can only jump to the <strong>smallest</strong> such index <code><font face="monospace">j</font></code>.</li>
+    <li>During odd numbered jumps (ie. jumps 1, 3, 5, ...), you jump to the index <font face="monospace">j</font>&nbsp;such that <code>A[i] &lt;= A[j]</code> and <code>A[j]</code> is the smallest possible value.&nbsp; If there are multiple such indexes <code><font face="monospace">j</font></code>, you can only jump to the <strong>smallest</strong> such index <code><font face="monospace">j</font></code>.</li>
 
-	<li>During even numbered jumps (ie. jumps 2, 4, 6, ...), you jump to the index <font face="monospace">j</font>&nbsp;such that <code>A[i] &gt;= A[j]</code> and <code>A[j]</code> is the largest&nbsp;possible value.&nbsp; If there are multiple such indexes <code><font face="monospace">j</font></code>, you can only jump to the <strong>smallest</strong> such index <code><font face="monospace">j</font></code>.</li>
+    <li>During even numbered jumps (ie. jumps 2, 4, 6, ...), you jump to the index <font face="monospace">j</font>&nbsp;such that <code>A[i] &gt;= A[j]</code> and <code>A[j]</code> is the largest&nbsp;possible value.&nbsp; If there are multiple such indexes <code><font face="monospace">j</font></code>, you can only jump to the <strong>smallest</strong> such index <code><font face="monospace">j</font></code>.</li>
 
-	<li>(It may be the case that for some index <code><font face="monospace">i</font>,</code> there are no legal jumps.)</li>
+    <li>(It may be the case that for some index <code><font face="monospace">i</font>,</code> there are no legal jumps.)</li>
 
 </ul>
 
-
-
 <p>A starting index is <em>good</em> if, starting from that index, you can reach the end of the array (index <code>A.length - 1</code>) by jumping some number of times (possibly 0 or more than once.)</p>
-
-
 
 <p>Return the number of good starting indexes.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -59,13 +46,9 @@ In total, there are 2 different starting indexes (i = 3, i = 4) where we can rea
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -109,13 +92,9 @@ In total, there are 3 different starting indexes (i = 1, i = 3, i = 4) where we 
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -133,27 +112,19 @@ We can reach the end from starting indexes 1, 2, and 4.
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= A.length &lt;= 20000</code></li>
+    <li><code>1 &lt;= A.length &lt;= 20000</code></li>
 
-	<li><code>0 &lt;= A[i] &lt; 100000</code></li>
+    <li><code>0 &lt;= A[i] &lt; 100000</code></li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -170,6 +141,7 @@ We can reach the end from starting indexes 1, 2, and 4.
 ```
 
 ### **...**
+
 ```
 
 ```

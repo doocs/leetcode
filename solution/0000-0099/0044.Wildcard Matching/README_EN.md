@@ -3,9 +3,8 @@
 [中文文档](/solution/0000-0099/0044.Wildcard%20Matching/README.md)
 
 ## Description
+
 <p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement wildcard pattern matching with support for <code>&#39;?&#39;</code> and <code>&#39;*&#39;</code>.</p>
-
-
 
 <pre>
 
@@ -15,29 +14,19 @@
 
 </pre>
 
-
-
 <p>The matching should cover the <strong>entire</strong> input string (not partial).</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ul>
 
-	<li><code>s</code>&nbsp;could be empty and contains only lowercase letters <code>a-z</code>.</li>
+    <li><code>s</code>&nbsp;could be empty and contains only lowercase letters <code>a-z</code>.</li>
 
-	<li><code>p</code> could be empty and contains only lowercase letters <code>a-z</code>, and characters like <code><font face="monospace">?</font></code>&nbsp;or&nbsp;<code>*</code>.</li>
+    <li><code>p</code> could be empty and contains only lowercase letters <code>a-z</code>, and characters like <code><font face="monospace">?</font></code>&nbsp;or&nbsp;<code>*</code>.</li>
 
 </ul>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -53,11 +42,7 @@ p = &quot;a&quot;
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -73,11 +58,7 @@ p = &quot;*&quot;
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -93,11 +74,7 @@ p = &quot;?a&quot;
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -113,11 +90,7 @@ p = &quot;*a*b&quot;
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -131,11 +104,7 @@ p = &quot;a*c?b&quot;
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -152,6 +121,7 @@ p = &quot;a*c?b&quot;
 ```
 
 ### **...**
+
 ```
 
 ```

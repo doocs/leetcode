@@ -3,17 +3,12 @@
 [中文文档](/solution/0200-0299/0224.Basic%20Calculator/README.md)
 
 ## Description
+
 <p>Implement a basic calculator to evaluate a simple expression string.</p>
-
-
 
 <p>The expression string may contain open <code>(</code> and closing parentheses <code>)</code>, the plus <code>+</code> or minus sign <code>-</code>, <b>non-negative</b> integers and empty spaces <code> </code>.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,11 +26,7 @@
 
 <strong>Output:</strong> 3</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -49,21 +36,15 @@
 
 <b>Note:</b>
 
-
-
 <ul>
 
-	<li>You may assume that the given expression is always valid.</li>
+    <li>You may assume that the given expression is always valid.</li>
 
-	<li><b>Do not</b> use the <code>eval</code> built-in library function.</li>
+    <li><b>Do not</b> use the <code>eval</code> built-in library function.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

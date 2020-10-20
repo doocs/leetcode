@@ -3,6 +3,7 @@
 [English Version](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个数组 <em>nums&nbsp;</em>和一个值 <em>val</em>，你需要 <strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong> 移除所有数值等于&nbsp;<em>val&nbsp;</em>的元素，并返回移除后数组的新长度。</p>
 
@@ -52,15 +53,14 @@ for (int i = 0; i &lt; len; i++) {
 }
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -68,6 +68,7 @@ for (int i = 0; i &lt; len; i++) {
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -75,6 +76,7 @@ for (int i = 0; i &lt; len; i++) {
 ```
 
 ### **...**
+
 ```
 
 ```

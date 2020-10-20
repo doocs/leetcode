@@ -1,8 +1,9 @@
-# [275. H指数 II](https://leetcode-cn.com/problems/h-index-ii)
+# [275. H 指数 II](https://leetcode-cn.com/problems/h-index-ii)
 
 [English Version](/solution/0200-0299/0275.H-Index%20II/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一位研究者论文被引用次数的数组（被引用次数是非负整数），数组已经按照<strong>升序排列</strong>。编写一个方法，计算出研究者的 <em>h</em> 指数。</p>
 
@@ -32,15 +33,14 @@
 	<li>你可以优化你的算法到对数时间复杂度吗？</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -48,6 +48,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -55,6 +56,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

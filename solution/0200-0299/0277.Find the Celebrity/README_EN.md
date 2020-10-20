@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0277.Find%20the%20Celebrity/README.md)
 
 ## Description
+
 <p>Suppose you are at a party with <code>n</code> people (labeled from <code>0</code> to <code>n - 1</code>) and among them, there may exist one celebrity. The definition of a celebrity is that all the other <code>n - 1</code> people know him/her but he/she does not know any of them.</p>
 
 <p>Now you want to find out who the celebrity is or verify that there is not one. The only thing you are allowed to do is to ask questions like: "Hi, A. Do you know B?" to get information of whether A knows B. You need to find out the celebrity (or verify there is not one) by asking as few questions as possible (in the asymptotic sense).</p>
@@ -44,10 +45,7 @@
 	<li>Remember that you won't have direct access to the adjacency matrix.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +62,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,24 +3,17 @@
 [中文文档](/lcci/16.02.Words%20Frequency/README.md)
 
 ## Description
+
 <p>Design a method to find the frequency of occurrences of any given word in a book. What if we were running this algorithm multiple times?</p>
 
-
-
 <p>You should implement following methods:</p>
-
-
 
 <ul>
 	<li><code>WordsFrequency(book)</code> constructor, parameter is a array of strings, representing the book.</li>
 	<li><code>get(word)</code>&nbsp;get the frequency of <code>word</code> in the book.&nbsp;</li>
 </ul>
 
-
-
 <p><strong>Example: </strong></p>
-
-
 
 <pre>
 
@@ -38,29 +31,21 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 
 </pre>
 
-
-
 <p><strong>Note: </strong></p>
-
-
 
 <ul>
 
-	<li><code>There are only lowercase letters in book[i].</code></li>
+    <li><code>There are only lowercase letters in book[i].</code></li>
 
-	<li><code>1 &lt;= book.length &lt;= 100000</code></li>
+    <li><code>1 &lt;= book.length &lt;= 100000</code></li>
 
-	<li><code>1 &lt;= book[i].length &lt;= 10</code></li>
+    <li><code>1 &lt;= book[i].length &lt;= 10</code></li>
 
-	<li><code>get</code>&nbsp;function will not be called more than&nbsp;100000 times.</li>
+    <li><code>get</code>&nbsp;function will not be called more than&nbsp;100000 times.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -77,6 +62,7 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 ```
 
 ### **...**
+
 ```
 
 ```

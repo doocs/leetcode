@@ -9,7 +9,8 @@ const mergeTwoLists2 = function (l1, l2) {
     return l2;
   }
   if (l1 !== null && l2 !== null) {
-    let t = null, h = null;
+    let t = null,
+      h = null;
     if (l1.val > l2.val) {
       t = l2;
       h = l2;
@@ -42,7 +43,7 @@ const mergeTwoLists2 = function (l1, l2) {
     }
     return h;
   }
-}
+};
 
 const mergeTwoLists = function (l1, l2) {
   if (l1 === null) return l2;
@@ -54,4 +55,4 @@ const mergeTwoLists = function (l1, l2) {
     l2.next = mergeTwoLists(l1, l2.next);
     return l2;
   }
-}
+};

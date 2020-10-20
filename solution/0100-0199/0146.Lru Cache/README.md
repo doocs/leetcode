@@ -1,8 +1,9 @@
-# [146. LRU缓存机制](https://leetcode-cn.com/problems/lru-cache)
+# [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache)
 
 [English Version](/solution/0100-0199/0146.Lru%20Cache/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>运用你所掌握的数据结构，设计和实现一个&nbsp; <a href="https://baike.baidu.com/item/LRU" target="_blank">LRU (最近最少使用) 缓存机制</a>。它应该支持以下操作： 获取数据 <code>get</code> 和 写入数据 <code>put</code> 。</p>
 
@@ -28,15 +29,14 @@ cache.get(3);       // 返回  3
 cache.get(4);       // 返回  4
 </pre>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +44,7 @@ cache.get(4);       // 返回  4
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -51,6 +52,7 @@ cache.get(4);       // 返回  4
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0351.Android%20Unlock%20Patterns/README.md)
 
 ## Description
+
 <p>Given an Android <b>3x3</b> key lock screen and two integers <b>m</b> and <b>n</b>, where 1 ≤ m ≤ n ≤ 9, count the total number of unlock patterns of the Android lock screen, which consist of minimum of <b>m</b> keys and maximum <b>n</b> keys.</p>
 
 <p> </p>
@@ -53,10 +54,7 @@ Line 1 - 9 is valid because it passes through key 5, which had been selected in 
 </pre>
 </div>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -73,6 +71,7 @@ Line 1 - 9 is valid because it passes through key 5, which had been selected in 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0492.Construct%20the%20Rectangle/README.md)
 
 ## Description
+
 <p>
 
 For a web developer, it is very important to know how to design a web page's size. So, given a specific rectangular web page’s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:<pre>
@@ -18,10 +19,6 @@ For a web developer, it is very important to know how to design a web page's siz
 You need to output the length L and the width W of the web page you designed in sequence.
 
 </p>
-
-
-
-
 
 <p><b>Example:</b><br />
 
@@ -39,8 +36,6 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -53,9 +48,7 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +65,7 @@ But according to requirement 2, [1,4] is illegal; according to requirement 3,  [
 ```
 
 ### **...**
+
 ```
 
 ```

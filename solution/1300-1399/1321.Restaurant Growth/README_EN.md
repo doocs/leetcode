@@ -3,11 +3,10 @@
 [中文文档](/solution/1300-1399/1321.Restaurant%20Growth/README.md)
 
 ## Description
+
 None
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -24,6 +23,7 @@ None
 ```
 
 ### **...**
+
 ```
 
 ```

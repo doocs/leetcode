@@ -3,17 +3,12 @@
 [中文文档](/solution/0100-0199/0164.Maximum%20Gap/README.md)
 
 ## Description
+
 <p>Given an unsorted array, find the maximum difference between the successive elements in its sorted form.</p>
-
-
 
 <p>Return 0 if the array contains less than 2 elements.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 &nbsp;            (3,6) or (6,9) has the maximum difference 3.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,25 +30,17 @@
 
 <strong>Explanation:</strong> The array contains less than 2 elements, therefore return 0.</pre>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ul>
 
-	<li>You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range.</li>
+    <li>You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range.</li>
 
-	<li>Try to solve it in linear time/space.</li>
+    <li>Try to solve it in linear time/space.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

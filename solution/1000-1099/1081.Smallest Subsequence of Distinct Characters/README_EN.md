@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1081.Smallest%20Subsequence%20of%20Distinct%20Characters/README.md)
 
 ## Description
+
 <p>Return the lexicographically smallest subsequence of <code>text</code> that contains all the distinct characters of <code>text</code> exactly once.</p>
 
 <p><strong>Example 1:</strong></p>
@@ -50,10 +51,7 @@
 </div>
 </div>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +68,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

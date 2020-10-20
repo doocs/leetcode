@@ -3,25 +3,16 @@
 [中文文档](/solution/0900-0999/0922.Sort%20Array%20By%20Parity%20II/README.md)
 
 ## Description
+
 <p>Given an array <code>A</code>&nbsp;of non-negative integers, half of the integers in A are odd, and half of the integers are even.</p>
-
-
 
 <p>Sort the array so that whenever <code>A[i]</code> is odd, <code>i</code> is odd; and whenever <code>A[i]</code> is even, <code>i</code> is even.</p>
 
-
-
 <p>You may return any answer array that satisfies this condition.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -33,27 +24,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>2 &lt;= A.length &lt;= 20000</code></li>
+    <li><code>2 &lt;= A.length &lt;= 20000</code></li>
 
-	<li><code>A.length % 2 == 0</code></li>
+    <li><code>A.length % 2 == 0</code></li>
 
-	<li><code>0 &lt;= A[i] &lt;= 1000</code></li>
+    <li><code>0 &lt;= A[i] &lt;= 1000</code></li>
 
 </ol>
-
-
 
 <div>
 
@@ -61,9 +44,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

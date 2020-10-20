@@ -3,13 +3,12 @@
 [中文文档](/solution/0400-0499/0468.Validate%20IP%20Address/README.md)
 
 ## Description
+
 <p>
 
 Write a function to check whether an input string is a valid IPv4 address or IPv6 address or neither.
 
 </p>
-
-
 
 <p>
 
@@ -17,15 +16,11 @@ Write a function to check whether an input string is a valid IPv4 address or IPv
 
 </p>
 
-
-
 <p>
 
 Besides, leading zeros in the IPv4 is invalid. For example, the address <code>172.16.254.01</code> is invalid.
 
 </p>
-
-
 
 <p>
 
@@ -33,17 +28,11 @@ Besides, leading zeros in the IPv4 is invalid. For example, the address <code>17
 
 </p>
 
-
-
-
-
 <p>
 
 However, we don't replace a consecutive group of zero value with a single empty group using two consecutive colons (::) to pursue simplicity. For example, <code>2001:0db8:85a3::8A2E:0370:7334</code> is an invalid IPv6 address.
 
 </p>
-
-
 
 <p>
 
@@ -51,17 +40,11 @@ Besides, extra leading zeros in the IPv6 is also invalid. For example, the addre
 
 </p>
 
-
-
-
-
 <p><b>Note:</b>
 
 You may assume there is no extra space or special characters in the input string.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -81,10 +64,6 @@ You may assume there is no extra space or special characters in the input string
 
 </p>
 
-
-
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -102,8 +81,6 @@ You may assume there is no extra space or special characters in the input string
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -123,9 +100,7 @@ You may assume there is no extra space or special characters in the input string
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -142,6 +117,7 @@ You may assume there is no extra space or special characters in the input string
 ```
 
 ### **...**
+
 ```
 
 ```

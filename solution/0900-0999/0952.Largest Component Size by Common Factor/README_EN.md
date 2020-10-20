@@ -3,39 +3,28 @@
 [中文文档](/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/README.md)
 
 ## Description
+
 <p>Given a non-empty&nbsp;array of unique positive integers <code>A</code>, consider the following graph:</p>
-
-
 
 <ul>
 
-	<li>There are <code>A.length</code> nodes, labelled <code>A[0]</code> to <code>A[A.length - 1];</code></li>
+    <li>There are <code>A.length</code> nodes, labelled <code>A[0]</code> to <code>A[A.length - 1];</code></li>
 
-	<li>There is an edge between <code>A[i]</code> and <code>A[j]</code>&nbsp;if and only if&nbsp;<code>A[i]</code> and <code>A[j]</code> share a common factor greater than 1.</li>
+    <li>There is an edge between <code>A[i]</code> and <code>A[j]</code>&nbsp;if and only if&nbsp;<code>A[i]</code> and <code>A[j]</code> share a common factor greater than 1.</li>
 
 </ul>
 
-
-
 <p>Return the size of the largest connected component in the graph.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -51,8 +40,6 @@
 
 <p><strong>Example 2:</strong></p>
 
-
-
 <pre>
 
 <strong>Input: </strong><span id="example-input-2-1">[20,50,9,63]</span>
@@ -67,8 +54,6 @@
 
 <p><strong>Example 3:</strong></p>
 
-
-
 <pre>
 
 <strong>Input: </strong><span id="example-input-3-1">[2,3,6,7,4,12,21,39]</span>
@@ -81,8 +66,6 @@
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 	<li><code>1 &lt;= A.length &lt;= 20000</code></li>
 	<li><code>1 &lt;= A[i] &lt;= 100000</code></li>
@@ -94,11 +77,7 @@
 
 </div>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -115,6 +94,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

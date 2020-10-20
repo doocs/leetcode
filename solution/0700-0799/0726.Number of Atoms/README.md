@@ -3,6 +3,7 @@
 [English Version](/solution/0700-0799/0726.Number%20of%20Atoms/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个化学式<code>formula</code>（作为字符串），返回每种原子的数量。</p>
 
@@ -54,15 +55,14 @@ formula = &quot;K4(ON(SO3)2)2&quot;
 	<li><code>formula</code>只包含字母、数字和圆括号，并且题目中给定的是合法的化学式。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -70,6 +70,7 @@ formula = &quot;K4(ON(SO3)2)2&quot;
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -77,6 +78,7 @@ formula = &quot;K4(ON(SO3)2)2&quot;
 ```
 
 ### **...**
+
 ```
 
 ```

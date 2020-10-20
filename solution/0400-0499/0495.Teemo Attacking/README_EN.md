@@ -3,17 +3,12 @@
 [中文文档](/solution/0400-0499/0495.Teemo%20Attacking/README.md)
 
 ## Description
+
 <p>In LOL world, there is a hero called Teemo and his attacking can make his enemy Ashe be in poisoned condition. Now, given the Teemo&#39;s attacking <b>ascending</b> time series towards Ashe and the poisoning time duration per Teemo&#39;s attacking, you need to output the total time that Ashe is in poisoned condition.</p>
-
-
 
 <p>You may assume that Teemo attacks at the very beginning of a specific time point, and makes Ashe be in poisoned condition immediately.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -31,15 +26,9 @@ So you finally need to output 4.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -59,33 +48,21 @@ So you finally need to output 3.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ol>
 
-	<li>You may assume the length of given time series array won&#39;t exceed 10000.</li>
+    <li>You may assume the length of given time series array won&#39;t exceed 10000.</li>
 
-	<li>You may assume the numbers in the Teemo&#39;s attacking time series and his poisoning time duration per attacking are non-negative integers, which won&#39;t exceed 10,000,000.</li>
+    <li>You may assume the numbers in the Teemo&#39;s attacking time series and his poisoning time duration per attacking are non-negative integers, which won&#39;t exceed 10,000,000.</li>
 
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -102,6 +79,7 @@ So you finally need to output 3.
 ```
 
 ### **...**
+
 ```
 
 ```

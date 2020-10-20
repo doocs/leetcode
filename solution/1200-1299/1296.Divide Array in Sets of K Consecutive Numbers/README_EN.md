@@ -3,17 +3,14 @@
 [中文文档](/solution/1200-1299/1296.Divide%20Array%20in%20Sets%20of%20K%20Consecutive%20Numbers/README.md)
 
 ## Description
+
 <p>Given an array of integers&nbsp;<code>nums</code>&nbsp;and a positive integer&nbsp;<code>k</code>, find whether it&#39;s possible to divide this array into&nbsp;sets of <code>k</code> consecutive numbers<br />
 
 Return&nbsp;<code>True</code>&nbsp;if its possible<strong>&nbsp;</strong>otherwise&nbsp;return&nbsp;<code>False</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +22,7 @@ Return&nbsp;<code>True</code>&nbsp;if its possible<strong>&nbsp;</strong>otherwi
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +34,7 @@ Return&nbsp;<code>True</code>&nbsp;if its possible<strong>&nbsp;</strong>otherwi
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -55,11 +44,7 @@ Return&nbsp;<code>True</code>&nbsp;if its possible<strong>&nbsp;</strong>otherwi
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -71,27 +56,21 @@ Return&nbsp;<code>True</code>&nbsp;if its possible<strong>&nbsp;</strong>otherwi
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
+    <li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
 
-	<li><code>1 &lt;= nums[i] &lt;= 10^9</code></li>
+    <li><code>1 &lt;= nums[i] &lt;= 10^9</code></li>
 
-	<li><code>1 &lt;= k &lt;= nums.length</code></li>
+    <li><code>1 &lt;= k &lt;= nums.length</code></li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -108,6 +87,7 @@ Return&nbsp;<code>True</code>&nbsp;if its possible<strong>&nbsp;</strong>otherwi
 ```
 
 ### **...**
+
 ```
 
 ```

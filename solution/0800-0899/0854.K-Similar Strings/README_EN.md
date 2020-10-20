@@ -3,17 +3,12 @@
 [中文文档](/solution/0800-0899/0854.K-Similar%20Strings/README.md)
 
 ## Description
+
 <p>Strings&nbsp;<code>A</code> and <code>B</code> are <code>K</code>-similar (for some non-negative integer <code>K</code>) if we can swap the positions of two letters in <code>A</code> exactly <code>K</code>&nbsp;times so that the resulting string equals <code>B</code>.</p>
-
-
 
 <p>Given two anagrams <code>A</code> and <code>B</code>, return the smallest <code>K</code>&nbsp;for which <code>A</code> and <code>B</code> are <code>K</code>-similar.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -23,13 +18,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,13 +30,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -55,13 +42,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -75,25 +58,17 @@
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 
-	<li><code>1 &lt;= A.length == B.length &lt;= 20</code></li>
+    <li><code>1 &lt;= A.length == B.length &lt;= 20</code></li>
 
-	<li><code>A</code> and <code>B</code> contain only lowercase letters from the set <code>{&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;}</code></li>
+    <li><code>A</code> and <code>B</code> contain only lowercase letters from the set <code>{&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;}</code></li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -110,6 +85,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

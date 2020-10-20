@@ -3,27 +3,20 @@
 [中文文档](/solution/0900-0999/0920.Number%20of%20Music%20Playlists/README.md)
 
 ## Description
+
 <p>Your music player contains <code>N</code>&nbsp;different songs and she wants to listen to <code>L</code><strong> </strong>(not necessarily different) songs during your trip. &nbsp;You&nbsp;create&nbsp;a playlist so&nbsp;that:</p>
-
-
 
 <ul>
 
-	<li>Every song is played at least once</li>
+    <li>Every song is played at least once</li>
 
-	<li>A song can only be played again only if&nbsp;<code>K</code>&nbsp;other songs have been played</li>
+    <li>A song can only be played again only if&nbsp;<code>K</code>&nbsp;other songs have been played</li>
 
 </ul>
 
-
-
 <p>Return the number of possible playlists.&nbsp; <strong>As the answer can be very large, return it modulo <code>10^9 + 7</code></strong>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -32,8 +25,6 @@
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,13 +50,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -85,19 +68,13 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>0 &lt;= K &lt; N &lt;= L &lt;= 100</code></li>
+    <li><code>0 &lt;= K &lt; N &lt;= L &lt;= 100</code></li>
 
 </ol>
 
@@ -107,9 +84,7 @@
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -126,6 +101,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

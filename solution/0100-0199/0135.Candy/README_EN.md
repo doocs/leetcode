@@ -3,31 +3,22 @@
 [中文文档](/solution/0100-0199/0135.Candy/README.md)
 
 ## Description
+
 <p>There are <em>N</em> children standing in a line. Each child is assigned a rating value.</p>
-
-
 
 <p>You are giving candies to these children subjected to the following requirements:</p>
 
-
-
 <ul>
 
-	<li>Each child must have at least one candy.</li>
+    <li>Each child must have at least one candy.</li>
 
-	<li>Children with a higher rating get more candies than their neighbors.</li>
+    <li>Children with a higher rating get more candies than their neighbors.</li>
 
 </ul>
 
-
-
 <p>What is the minimum candies you must give?</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +30,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -57,11 +44,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +61,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,17 +3,12 @@
 [中文文档](/lcci/05.08.Draw%20Line/README.md)
 
 ## Description
+
 <p>A monochrome screen is stored as a single array of int, allowing 32 consecutive pixels to be stored in one int. The screen has width <code>w</code>, where <code>w</code> is divisible by 32&nbsp;(that is, no byte will be split across rows). The height of the screen, of course, can be derived from the length of the array and the width. Implement a function that draws a horizontal line from <code>(x1, y)</code> to <code>(x2, y)</code>.</p>
-
-
 
 <p>Given the length of the array, the width of the array (in bit), start position <code>x1</code>&nbsp;(in bit) of the line, end position <code>x2</code> (in bit) of the line and the row number&nbsp;<code>y</code> of the line, return the array after drawing.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example2:</strong></p>
-
-
 
 <pre>
 
@@ -39,9 +30,7 @@
 
 </pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -58,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0254.Factor%20Combinations/README.md)
 
 ## Description
+
 <p>Numbers can be regarded as product of its factors. For example,</p>
 
 <pre>
@@ -58,10 +59,7 @@
 ]
 </pre>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -78,6 +76,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

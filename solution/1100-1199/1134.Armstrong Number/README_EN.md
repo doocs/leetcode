@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1134.Armstrong%20Number/README.md)
 
 ## Description
+
 <p>The k-digit number <code>N</code> is an Armstrong number if and only if the k-th power of each digit sums to N.</p>
 
 <p>Given a positive integer <code>N</code>, return true if and only if it is an Armstrong number.</p>
@@ -35,10 +36,7 @@
 	<li><code>1 <= N <= 10^8</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

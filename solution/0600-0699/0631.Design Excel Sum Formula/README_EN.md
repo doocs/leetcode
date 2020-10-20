@@ -3,9 +3,8 @@
 [中文文档](/solution/0600-0699/0631.Design%20Excel%20Sum%20Formula/README.md)
 
 ## Description
+
 <p>Your task is to design the basic function of Excel and implement the function of sum formula.  Specifically, you need to implement the following functions:</p>
-
-
 
 <p><code>Excel(int H, char W):</code> This is the constructor. The inputs represents the height and width of the Excel form. <b>H</b> is a positive integer, range from 1 to 26. It represents the height. <b>W</b> is a character range from 'A' to 'Z'. It represents that the width is the number of characters from 'A' to <b>W</b>. The Excel form content is represented by a height * width 2D integer array <code>C</code>, it should be initialized to zero. You should assume that the first row of <code>C</code> starts from 1, and the first column of <code>C</code> starts from 'A'.</p>
 
@@ -32,24 +31,25 @@ Excel(3,"C");
 
 Set(1, "A", 2);
 // set C(1,"A") to be 2.
-//   A B C
+// A B C
 // 1 2 0 0
 // 2 0 0 0
 // 3 0 0 0
 
 Sum(3, "C", ["A1", "A1:B2"]);
-// set C(3,"C") to be the sum of value at C(1,"A") and the values sum of the rectangle range whose top-left cell is C(1,"A") and bottom-right cell is C(2,"B"). Return 4. 
-//   A B C
+// set C(3,"C") to be the sum of value at C(1,"A") and the values sum of the rectangle range whose top-left cell is C(1,"A") and bottom-right cell is C(2,"B"). Return 4.
+// A B C
 // 1 2 0 0
 // 2 0 0 0
 // 3 0 0 4
 
 Set(2, "B", 2);
 // set C(2,"B") to be 2. Note C(3, "C") should also be changed.
-//   A B C
+// A B C
 // 1 2 0 0
 // 2 0 2 0
 // 3 0 0 6
+
 </pre>
 </p>
 
@@ -61,9 +61,7 @@ Set(2, "B", 2);
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -80,6 +78,7 @@ Set(2, "B", 2);
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1125.Smallest%20Sufficient%20Team/README.md)
 
 ## Description
+
 <p>In a project, you have a list of required skills <code>req_skills</code>,&nbsp;and a list of <code>people</code>.&nbsp; The i-th person <code>people[i]</code>&nbsp;contains a list of skills that person has.</p>
 
 <p>Consider a <em>sufficient team</em>: a set of people such that for every required skill in <code>req_skills</code>, there is at least one person in the team who has that skill.&nbsp; We can represent these teams by the index of each person: for example, <code>team = [0, 1, 3]</code> represents the people with skills <code>people[0]</code>, <code>people[1]</code>, and <code>people[3]</code>.</p>
@@ -32,10 +33,7 @@
 	<li>It is guaranteed a sufficient team exists.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1201.Ugly%20Number%20III/README.md)
 
 ## Description
+
 <p>Write a program to find the&nbsp;<code>n</code>-th ugly number.</p>
 
 <p>Ugly numbers are<strong>&nbsp;positive integers</strong>&nbsp;which are divisible by&nbsp;<code>a</code>&nbsp;<strong>or</strong>&nbsp;<code>b</code>&nbsp;<strong>or</strong> <code>c</code>.</p>
@@ -47,10 +48,7 @@
 	<li>It&#39;s guaranteed that the result will be in range&nbsp;<code>[1,&nbsp;2 * 10^9]</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -67,6 +65,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

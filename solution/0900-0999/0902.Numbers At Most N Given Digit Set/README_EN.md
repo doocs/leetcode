@@ -3,25 +3,16 @@
 [中文文档](/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
 
 ## Description
+
 <p>We have a <strong>sorted</strong> set of digits <code>D</code>, a non-empty subset of <code>{&#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;4&#39;,&#39;5&#39;,&#39;6&#39;,&#39;7&#39;,&#39;8&#39;,&#39;9&#39;}</code>.&nbsp; (Note that <code>&#39;0&#39;</code> is not included.)</p>
-
-
 
 <p>Now, we write numbers using these digits, using each digit as many times as we want.&nbsp; For example, if <code>D = {&#39;1&#39;,&#39;3&#39;,&#39;5&#39;}</code>, we may write numbers such as <code>&#39;13&#39;, &#39;551&#39;, &#39;1351315&#39;</code>.</p>
 
-
-
 <p>Return the number of positive integers that can be written (using the digits of <code>D</code>) that are less than or equal to <code>N</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -37,13 +28,9 @@ The 20 numbers that can be written are:
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,29 +50,19 @@ In total, this is 29523 integers that can be written using the digits of D.</pre
 
 </div>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>D</code> is a&nbsp;subset of digits <code>&#39;1&#39;-&#39;9&#39;</code> in sorted order.</li>
+    <li><code>D</code> is a&nbsp;subset of digits <code>&#39;1&#39;-&#39;9&#39;</code> in sorted order.</li>
 
-	<li><code>1 &lt;= N &lt;= 10^9</code></li>
+    <li><code>1 &lt;= N &lt;= 10^9</code></li>
 
 </ol>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -102,6 +79,7 @@ In total, this is 29523 integers that can be written using the digits of D.</pre
 ```
 
 ### **...**
+
 ```
 
 ```

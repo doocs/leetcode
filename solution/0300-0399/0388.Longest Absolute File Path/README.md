@@ -3,6 +3,7 @@
 [English Version](/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>假设我们以下述方式将我们的文件系统抽象成一个字符串:</p>
 
@@ -46,15 +47,14 @@ dir
 
 <p>请注意，如果存在路径&nbsp;<code>aaaaaaaaaaaaaaaaaaaaa/sth.png</code>&nbsp;的话，那么&nbsp;&nbsp;<code>a/aa/aaa/file1.txt</code>&nbsp;就不是一个最长的路径。</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -62,6 +62,7 @@ dir
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -69,6 +70,7 @@ dir
 ```
 
 ### **...**
+
 ```
 
 ```

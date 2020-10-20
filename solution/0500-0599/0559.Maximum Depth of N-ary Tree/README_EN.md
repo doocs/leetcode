@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README.md)
 
 ## Description
+
 <p>Given a n-ary tree, find its maximum depth.</p>
 
 <p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
@@ -36,10 +37,7 @@
 	<li>The total number of nodes is between <code>[0,&nbsp;10^4]</code>.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +54,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

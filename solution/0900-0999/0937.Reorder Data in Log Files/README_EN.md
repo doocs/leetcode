@@ -3,6 +3,7 @@
 [中文文档](/solution/0900-0999/0937.Reorder%20Data%20in%20Log%20Files/README.md)
 
 ## Description
+
 <p>You have an array of <code>logs</code>.&nbsp; Each log is a space delimited string of words.</p>
 
 <p>For each log, the first word in each log is an alphanumeric <em>identifier</em>.&nbsp; Then, either:</p>
@@ -32,10 +33,7 @@
 	<li><code>logs[i]</code> is guaranteed to have an identifier, and a word after the identifier.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -52,6 +50,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

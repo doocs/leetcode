@@ -3,17 +3,12 @@
 [中文文档](/solution/0800-0899/0827.Making%20A%20Large%20Island/README.md)
 
 ## Description
+
 <p>In a 2D grid of <code>0</code>s and <code>1</code>s, we change at most one <code>0</code> to a <code>1</code>.</p>
-
-
 
 <p>After, what is the size of the largest island?&nbsp;(An island is a 4-directionally connected group of <code>1</code>s).</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -25,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -39,11 +30,7 @@
 
 <strong>Explanation: </strong>Change the 0 to 1 and make the island bigger, only one island with area = 4.</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -53,33 +40,21 @@
 
 <strong>Explanation:</strong> Can&#39;t change any 0 to 1, only one island with area = 4.</pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Notes:</p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= grid.length = grid[0].length &lt;= 50</code>.</li>
+    <li><code>1 &lt;= grid.length = grid[0].length &lt;= 50</code>.</li>
 
-	<li><code>0 &lt;= grid[i][j] &lt;= 1</code>.</li>
+    <li><code>0 &lt;= grid[i][j] &lt;= 1</code>.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +71,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

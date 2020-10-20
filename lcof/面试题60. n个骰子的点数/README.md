@@ -1,8 +1,10 @@
-# [面试题60. n个骰子的点数](https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof/)
+# [面试题 60. n 个骰子的点数](https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
-把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。
+
+把 n 个骰子扔在地上，所有骰子朝上一面的点数之和为 s。输入 n，打印出 s 的所有可能的值出现的概率。
 
 你需要用一个浮点数数组返回答案，其中第 i 个元素代表这 n 个骰子所能掷出的点数集合中第 i 小的那个的概率。
 
@@ -13,7 +15,7 @@
 输出: [0.16667,0.16667,0.16667,0.16667,0.16667,0.16667]
 ```
 
-**示例 2:**
+**示例  2:**
 
 ```
 输入: 2
@@ -25,7 +27,9 @@
 - `1 <= n <= 11`
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 动态规划求解。
 
 扔 n 个骰子，点数之和的范围在 `[n, 6n]` 之间，总共有 `5n+1` 种，即为最后结果数组的长度。
@@ -51,6 +55,7 @@ for (int j = 1; j <= 6; ++j) {
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -72,6 +77,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -99,30 +105,32 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number} n
  * @return {number[]}
  */
-var twoSum = function(n) {
-    function backtrack(sum,time) {
-        if(time === n) {
-            res[sum]++
-            return
-        }
-        for(let i=1;i<=6;i++) {
-            backtrack(sum+i,time+1)
-        }
+var twoSum = function (n) {
+  function backtrack(sum, time) {
+    if (time === n) {
+      res[sum]++;
+      return;
     }
-    let len = n*6
-    let t = 6**n
-    let res = new Array(len+1).fill(0)
-    backtrack(0,0)
-    return res.slice(n).map(e=> e/t)
+    for (let i = 1; i <= 6; i++) {
+      backtrack(sum + i, time + 1);
+    }
+  }
+  let len = n * 6;
+  let t = 6 ** n;
+  let res = new Array(len + 1).fill(0);
+  backtrack(0, 0);
+  return res.slice(n).map((e) => e / t);
 };
 ```
 
 ### **...**
+
 ```
 
 ```

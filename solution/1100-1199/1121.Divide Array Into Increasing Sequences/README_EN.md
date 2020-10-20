@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1121.Divide%20Array%20Into%20Increasing%20Sequences/README.md)
 
 ## Description
+
 <p>Given a <strong>non-decreasing</strong> array of positive integers <code>nums</code> and an integer <code>K</code>, find out if this array can be divided into one or more <strong>disjoint increasing subsequences of length at least</strong> <code>K</code>.</p>
 
 <p> </p>
@@ -35,10 +36,7 @@ There is no way to divide the array using the conditions required.
 	<li><code>1 <= nums[i] <= 10^5</code></li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -55,6 +53,7 @@ There is no way to divide the array using the conditions required.
 ```
 
 ### **...**
+
 ```
 
 ```

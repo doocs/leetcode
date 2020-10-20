@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/README.md)
 
 ## Description
+
 <p>Given two <a href="https://en.wikipedia.org/wiki/Sparse_matrix" target="_blank">sparse matrices</a> <b>A</b> and <b>B</b>, return the result of <b>AB</b>.</p>
 
 <p>You may assume that <b>A</b>'s column number is equal to <b>B</b>'s row number.</p>
@@ -39,10 +40,7 @@
 	<li><code>-100 <= A[i][j], B[i][j] <= 100</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -59,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0255.Verify%20Preorder%20Sequence%20in%20Binary%20Search%20Tree/README.md)
 
 ## Description
+
 <p>Given an array of numbers, verify whether it is the correct preorder traversal sequence of a binary search tree.</p>
 
 <p>You may assume each number in the sequence is unique.</p>
@@ -31,10 +32,7 @@
 <p><b>Follow up:</b><br />
 Could you do it using only constant space complexity?</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -51,6 +49,7 @@ Could you do it using only constant space complexity?</p>
 ```
 
 ### **...**
+
 ```
 
 ```

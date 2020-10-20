@@ -3,9 +3,8 @@
 [中文文档](/solution/0400-0499/0432.All%20O`one%20Data%20Structure/README.md)
 
 ## Description
+
 <p>Implement a data structure supporting the following operations:</p>
-
-
 
 <p>
 
@@ -23,17 +22,13 @@
 
 </p>
 
-
-
 <p>
 
 Challenge: Perform all these in O(1) time complexity.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +45,7 @@ Challenge: Perform all these in O(1) time complexity.
 ```
 
 ### **...**
+
 ```
 
 ```

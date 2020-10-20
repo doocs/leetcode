@@ -3,6 +3,7 @@
 [English Version](/solution/0600-0699/0630.Course%20Schedule%20III/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>这里有 <code>n</code> 门不同的在线课程，他们按从 <code>1</code> 到 <code>n</code>&nbsp;编号。每一门课程有一定的持续上课时间（课程时间）<code>t</code> 以及关闭时间第 d<sub>&nbsp;</sub>天。一门课要持续学习 <code>t</code> 天直到第 d<span style="font-size:10.5px"> </span>天时要完成，你将会从第 1 天开始。</p>
 
@@ -33,15 +34,14 @@
 
 <p>&nbsp;</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -49,6 +49,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -56,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,23 +3,16 @@
 [中文文档](/solution/1300-1399/1312.Minimum%20Insertion%20Steps%20to%20Make%20a%20String%20Palindrome/README.md)
 
 ## Description
+
 <p>Given a string <code>s</code>. In one step you can insert any character at any index of the string.</p>
-
-
 
 <p>Return <em>the minimum number of steps</em> to make <code>s</code>&nbsp;palindrome.</p>
 
-
-
 <p>A&nbsp;<b>Palindrome String</b>&nbsp;is one that reads the same backward as well as forward.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -47,11 +36,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -63,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -77,11 +58,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -91,25 +68,19 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 
-	<li><code>1 &lt;= s.length &lt;= 500</code></li>
+    <li><code>1 &lt;= s.length &lt;= 500</code></li>
 
-	<li>All characters of <code>s</code>&nbsp;are lower case English letters.</li>
+    <li>All characters of <code>s</code>&nbsp;are lower case English letters.</li>
 
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -126,6 +97,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

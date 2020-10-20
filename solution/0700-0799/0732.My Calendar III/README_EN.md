@@ -3,27 +3,18 @@
 [中文文档](/solution/0700-0799/0732.My%20Calendar%20III/README.md)
 
 ## Description
+
 <p>Implement a <code>MyCalendarThree</code> class to store your events. A new event can <b>always</b> be added.</p>
-
-
 
 <p>Your class will have one method, <code>book(int start, int end)</code>. Formally, this represents a booking on the half open interval <code>[start, end)</code>, the range of real numbers <code>x</code> such that <code>start &lt;= x &lt; end</code>.</p>
 
-
-
 <p>A <i>K-booking</i> happens when <b>K</b> events have some non-empty intersection (ie., there is some time that is common to all K events.)</p>
-
-
 
 <p>For each call to the method <code>MyCalendar.book</code>, return an integer <code>K</code> representing the largest integer such that there exists a <code>K</code>-booking in the calendar.</p>
 
 Your class will be called like this: <code>MyCalendarThree cal = new MyCalendarThree();</code> <code>MyCalendarThree.book(start, end)</code>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -55,31 +46,21 @@ eg. [10, 20), [10, 40), and [5, 15) are still triple booked.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b></p>
 
-
-
 <ul>
 
-	<li>The number of calls to <code>MyCalendarThree.book</code> per test case will be at most <code>400</code>.</li>
+    <li>The number of calls to <code>MyCalendarThree.book</code> per test case will be at most <code>400</code>.</li>
 
-	<li>In calls to <code>MyCalendarThree.book(start, end)</code>, <code>start</code> and <code>end</code> are integers in the range <code>[0, 10^9]</code>.</li>
+    <li>In calls to <code>MyCalendarThree.book(start, end)</code>, <code>start</code> and <code>end</code> are integers in the range <code>[0, 10^9]</code>.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +77,7 @@ eg. [10, 20), [10, 40), and [5, 15) are still triple booked.
 ```
 
 ### **...**
+
 ```
 
 ```

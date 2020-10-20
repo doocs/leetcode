@@ -3,6 +3,7 @@
 [中文文档](/solution/1000-1099/1087.Brace%20Expansion/README.md)
 
 ## Description
+
 <p>A string <code>S</code> represents a list of words.</p>
 
 <p>Each letter in the word has 1 or more options.  If there is one option, the letter is represented as is.  If there is more than one option, then curly braces delimit the options.  For example, <code>"{a,b,c}"</code> represents options <code>["a", "b", "c"]</code>.</p>
@@ -37,10 +38,7 @@
 	<li>All characters inside a pair of consecutive opening and ending curly brackets are different.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

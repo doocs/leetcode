@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0049.Group%20Anagrams/README.md)
 
 ## Description
+
 <p>Given an array of strings, group anagrams together.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -27,25 +24,17 @@
 
 ]</pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 
-	<li>All inputs will be in lowercase.</li>
+    <li>All inputs will be in lowercase.</li>
 
-	<li>The order of your output does not&nbsp;matter.</li>
+    <li>The order of your output does not&nbsp;matter.</li>
 
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -62,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -1,8 +1,9 @@
-# [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits)
+# [191. 位 1 的个数](https://leetcode-cn.com/problems/number-of-1-bits)
 
 [English Version](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 &lsquo;1&rsquo;&nbsp;的个数（也被称为<a href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E9%87%8D%E9%87%8F" target="_blank">汉明重量</a>）。</p>
 
@@ -42,15 +43,14 @@
 <p><strong>进阶</strong>:<br>
 如果多次调用这个函数，你将如何优化你的算法？</p>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -58,6 +58,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -65,6 +66,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

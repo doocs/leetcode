@@ -3,25 +3,16 @@
 [中文文档](/solution/1000-1099/1047.Remove%20All%20Adjacent%20Duplicates%20In%20String/README.md)
 
 ## Description
+
 <p>Given a string <code>S</code> of lowercase letters, a <em>duplicate removal</em> consists of choosing two adjacent and equal letters, and removing&nbsp;them.</p>
-
-
 
 <p>We repeatedly make duplicate removals on S until we no longer can.</p>
 
-
-
 <p>Return the final string after all such duplicate removals have been made.&nbsp; It is guaranteed the answer is unique.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -35,27 +26,19 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
 
-
-
 <ol>
 
-	<li><code>1 &lt;= S.length &lt;= 20000</code></li>
+    <li><code>1 &lt;= S.length &lt;= 20000</code></li>
 
-	<li><code>S</code> consists only of English lowercase letters.</li>
+    <li><code>S</code> consists only of English lowercase letters.</li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -72,6 +55,7 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 ```
 
 ### **...**
+
 ```
 
 ```

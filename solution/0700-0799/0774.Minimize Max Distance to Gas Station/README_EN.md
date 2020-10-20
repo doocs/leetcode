@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0774.Minimize%20Max%20Distance%20to%20Gas%20Station/README.md)
 
 ## Description
+
 <p>On a horizontal number line, we have gas stations at positions <code>stations[0], stations[1], ..., stations[N-1]</code>, where <code>N = stations.length</code>.</p>
 
 <p>Now, we add <code>K</code> more gas stations so that <strong>D</strong>, the maximum distance between adjacent gas stations, is minimized.</p>
@@ -25,10 +26,7 @@
 	<li>Answers within <code>10^-6</code> of the true value will be accepted as correct.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -45,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

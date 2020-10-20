@@ -3,6 +3,7 @@
 [中文文档](/solution/0600-0699/0663.Equal%20Tree%20Partition/README.md)
 
 ## Description
+
 <p>
 Given a binary tree with <code>n</code> nodes, your task is to check if it's possible to partition the tree to two trees which have the equal sum of values after removing <b>exactly</b> one edge on the original tree.
 </p>
@@ -17,21 +18,21 @@ Given a binary tree with <code>n</code> nodes, your task is to check if it's pos
    2   3
 
 <b>Output:</b> True
-<b>Explanation:</b> 
-    5
-   / 
-  10
-      
-Sum: 15
-
-   10
-  /  \
- 2    3
+<b>Explanation:</b>
+5
+/
+10
 
 Sum: 15
+
+10
+/ \
+ 2 3
+
+Sum: 15
+
 </pre>
 </p>
-
 
 <p><b>Example 2:</b><br />
 <pre>
@@ -44,6 +45,7 @@ Sum: 15
 
 <b>Output:</b> False
 <b>Explanation:</b> You can't split the tree into two trees with equal sum after removing exactly one edge on the tree.
+
 </pre>
 </p>
 
@@ -54,9 +56,7 @@ Sum: 15
 </ol>
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -73,6 +73,7 @@ Sum: 15
 ```
 
 ### **...**
+
 ```
 
 ```

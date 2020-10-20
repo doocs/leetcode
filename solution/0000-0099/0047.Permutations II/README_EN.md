@@ -3,13 +3,10 @@
 [中文文档](/solution/0000-0099/0047.Permutations%20II/README.md)
 
 ## Description
+
 <p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -29,11 +26,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +43,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

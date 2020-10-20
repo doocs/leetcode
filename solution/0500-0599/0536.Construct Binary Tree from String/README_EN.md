@@ -3,6 +3,7 @@
 [中文文档](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README.md)
 
 ## Description
+
 <p>You need to construct a binary tree from a string consisting of parenthesis and integers. </p>
 
 <p>The whole input represents a binary tree. It contains an integer followed by zero, one or two pairs of parenthesis. The integer represents the root's value and a pair of parenthesis contains a child binary tree with the same structure. </p>
@@ -17,8 +18,10 @@
        4
      /   \
     2     6
-   / \   / 
-  3   1 5   
+
+/ \ /
+3 1 5
+
 </pre>
 </p>
 
@@ -31,9 +34,7 @@
 <p> </p>
 <p><strong>Constraints:</strong></p><ul><li> </li></ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -50,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

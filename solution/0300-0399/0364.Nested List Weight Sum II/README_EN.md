@@ -3,6 +3,7 @@
 [中文文档](/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/README.md)
 
 ## Description
+
 <p>Given a nested list of integers, return the sum of all integers in the list weighted by their depth.</p>
 
 <p>Each element is either an integer, or a list -- whose elements may also be integers or other lists.</p>
@@ -29,10 +30,7 @@
 </div>
 </div>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -49,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

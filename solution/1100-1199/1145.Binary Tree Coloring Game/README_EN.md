@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1145.Binary%20Tree%20Coloring%20Game/README.md)
 
 ## Description
+
 <p>Two players play a turn based game on a binary tree.&nbsp; We are given&nbsp;the <code>root</code> of this binary tree, and the number of nodes <code>n</code>&nbsp;in the tree.&nbsp; <code>n</code> is odd, and&nbsp;each node has a distinct value from <code>1</code> to <code>n</code>.</p>
 
 <p>Initially, the first player names a value <code>x</code> with <code>1 &lt;= x &lt;= n</code>, and the second player names a value <code>y</code> with <code>1 &lt;= y &lt;= n</code> and <code>y != x</code>.&nbsp; The first player colors the node with value <code>x</code> red, and the second player colors the node with value <code>y</code> blue.</p>
@@ -33,10 +34,7 @@
 	<li><code>1 &lt;= x &lt;= n&nbsp;&lt;= 100</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -53,6 +51,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

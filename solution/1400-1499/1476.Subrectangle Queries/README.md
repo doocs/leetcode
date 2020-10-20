@@ -87,11 +87,9 @@ subrectangleQueries.getValue(2, 2); // 返回 20
 	<li><code>0 &lt;= col &lt; cols</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -112,6 +110,7 @@ subrectangleQueries.getValue(2, 2); // 返回 20
 ```
 
 ### **...**
+
 ```
 
 ```

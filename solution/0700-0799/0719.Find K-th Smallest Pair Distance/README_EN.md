@@ -3,9 +3,8 @@
 [中文文档](/solution/0700-0799/0719.Find%20K-th%20Smallest%20Pair%20Distance/README.md)
 
 ## Description
+
 <p>Given an integer array, return the k-th smallest <b>distance</b> among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B. </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -35,8 +34,6 @@ Then the 1st smallest distance pair is (1,1), and its distance is 0.
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -51,9 +48,7 @@ Then the 1st smallest distance pair is (1,1), and its distance is 0.
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -70,6 +65,7 @@ Then the 1st smallest distance pair is (1,1), and its distance is 0.
 ```
 
 ### **...**
+
 ```
 
 ```

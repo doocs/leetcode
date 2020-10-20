@@ -3,9 +3,10 @@
 [中文文档](/solution/0600-0699/0678.Valid%20Parenthesis%20String/README.md)
 
 ## Description
+
 <p>
 
-Given a string containing only three types of characters: '(', ')' and '*', write a function to check whether this string is valid. We define the validity of a string by these rules:
+Given a string containing only three types of characters: '(', ')' and '\*', write a function to check whether this string is valid. We define the validity of a string by these rules:
 
 <ol>
 
@@ -23,8 +24,6 @@ Given a string containing only three types of characters: '(', ')' and '*', writ
 
 </p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -36,8 +35,6 @@ Given a string containing only three types of characters: '(', ')' and '*', writ
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -51,8 +48,6 @@ Given a string containing only three types of characters: '(', ')' and '*', writ
 
 </p>
 
-
-
 <p><b>Example 3:</b><br />
 
 <pre>
@@ -65,8 +60,6 @@ Given a string containing only three types of characters: '(', ')' and '*', writ
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -77,9 +70,7 @@ Given a string containing only three types of characters: '(', ')' and '*', writ
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -96,6 +87,7 @@ Given a string containing only three types of characters: '(', ')' and '*', writ
 ```
 
 ### **...**
+
 ```
 
 ```

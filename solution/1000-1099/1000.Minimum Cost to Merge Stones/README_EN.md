@@ -3,27 +3,18 @@
 [中文文档](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README.md)
 
 ## Description
+
 <p>There are <code>N</code> piles of stones arranged in a row.&nbsp; The <code>i</code>-th pile has <code>stones[i]</code> stones.</p>
-
-
 
 <p>A <em>move</em> consists of merging <strong>exactly&nbsp;<code>K</code>&nbsp;consecutive</strong> piles into one pile, and the cost of this move is equal to the total number of stones in these <code>K</code> piles.</p>
 
-
-
 <p>Find the minimum cost to merge all piles of stones into one pile.&nbsp; If it is impossible, return <code>-1</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,13 +36,9 @@ The total cost was 20, and this is the minimum possible.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,13 +50,9 @@ The total cost was 20, and this is the minimum possible.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -89,23 +72,17 @@ The total cost was 25, and this is the minimum possible.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong><span>Note:</span></strong></p>
 
-
-
 <ul>
 
-	<li><code><span>1 &lt;= stones.length &lt;= 30</span></code></li>
+    <li><code><span>1 &lt;= stones.length &lt;= 30</span></code></li>
 
-	<li><code><span>2 &lt;= K &lt;= 30</span></code></li>
+    <li><code><span>2 &lt;= K &lt;= 30</span></code></li>
 
-	<li><code><span>1 &lt;= stones[i] &lt;= 100</span></code></li>
+    <li><code><span>1 &lt;= stones[i] &lt;= 100</span></code></li>
 
 </ul>
 
@@ -115,9 +92,7 @@ The total cost was 25, and this is the minimum possible.
 
 </div>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -134,6 +109,7 @@ The total cost was 25, and this is the minimum possible.
 ```
 
 ### **...**
+
 ```
 
 ```

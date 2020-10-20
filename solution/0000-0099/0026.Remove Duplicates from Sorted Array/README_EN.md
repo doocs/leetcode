@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
 
 ## Description
+
 <p>Given a sorted array <em>nums</em>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a> such that each element appear only <em>once</em> and return the new length.</p>
-
-
 
 <p>Do not allocate extra space for another array, you must do this by <strong>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a></strong> with O(1) extra memory.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -27,11 +22,7 @@ Your function should return length = <strong><code>2</code></strong>, with the f
 
 It doesn&#39;t matter what you leave beyond the returned length.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -47,23 +38,13 @@ It doesn&#39;t matter what values are set beyond&nbsp;the returned length.
 
 </pre>
 
-
-
 <p><strong>Clarification:</strong></p>
-
-
 
 <p>Confused why the returned value is an integer but your answer is an array?</p>
 
-
-
 <p>Note that the input array is passed in by <strong>reference</strong>, which means modification to the input array will be known to the caller as well.</p>
 
-
-
 <p>Internally you can think of this:</p>
-
-
 
 <pre>
 
@@ -83,9 +64,7 @@ for (int i = 0; i &lt; len; i++) {
 
 }</pre>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -102,6 +81,7 @@ for (int i = 0; i &lt; len; i++) {
 ```
 
 ### **...**
+
 ```
 
 ```

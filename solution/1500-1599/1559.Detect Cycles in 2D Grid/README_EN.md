@@ -55,15 +55,11 @@
 	<li><code>grid</code>&nbsp;consists only of lowercase&nbsp;English letters.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -71,12 +67,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0427.Construct%20Quad%20Tree/README.md)
 
 ## Description
+
 <p>Given a <code>n * n</code> matrix <code>grid</code> of <code>0&#39;s</code> and <code>1&#39;s</code> only. We want to represent the <code>grid</code> with a Quad-Tree.</p>
 
 <p>Return <em>the root of the Quad-Tree</em> representing the <code>grid</code>.</p>
@@ -104,10 +105,7 @@ Explanation is shown in the photo below:
 	<li><code>n == 2^x</code> where <code>0 &lt;= x &lt;= 6</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -124,6 +122,7 @@ Explanation is shown in the photo below:
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,9 +3,8 @@
 [中文文档](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README.md)
 
 ## Description
+
 <p>Given an array of integers and an integer <b>k</b>, you need to find the total number of continuous subarrays whose sum equals to <b>k</b>.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -19,8 +18,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -33,11 +30,7 @@
 
 </p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -54,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

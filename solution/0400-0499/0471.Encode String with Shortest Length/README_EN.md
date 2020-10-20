@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0471.Encode%20String%20with%20Shortest%20Length/README.md)
 
 ## Description
+
 <p>Given a <b>non-empty</b> string, encode the string such that its encoded length is the shortest.</p>
 
 <p>The encoding rule is: <code>k[encoded_string]</code>, where the <i>encoded_string</i> inside the square brackets is being repeated exactly <i>k</i> times.</p>
@@ -67,10 +68,7 @@ Explanation: "abbbabbbc" occurs twice, but "abbbabbbc" can also be encoded to "2
 
 <p> </p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -87,6 +85,7 @@ Explanation: "abbbabbbc" occurs twice, but "abbbabbbc" can also be encoded to "2
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,21 +3,18 @@
 [中文文档](/solution/0600-0699/0665.Non-decreasing%20Array/README.md)
 
 ## Description
+
 <p>
 
 Given an array with <code>n</code> integers, your task is to check if it could become non-decreasing by modifying <b>at most</b> <code>1</code> element.
 
 </p>
 
-
-
 <p>
 
 We define an array is non-decreasing if <code>array[i] <= array[i + 1]</code> holds for every <code>i</code> (1 <= i < n).
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -33,8 +30,6 @@ We define an array is non-decreasing if <code>array[i] <= array[i + 1]</code> ho
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -49,17 +44,13 @@ We define an array is non-decreasing if <code>array[i] <= array[i + 1]</code> ho
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 The <code>n</code> belongs to [1, 10,000].
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +67,7 @@ The <code>n</code> belongs to [1, 10,000].
 ```
 
 ### **...**
+
 ```
 
 ```

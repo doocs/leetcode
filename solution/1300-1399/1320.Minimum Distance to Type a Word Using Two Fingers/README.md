@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1320.Minimum%20Distance%20to%20Type%20a%20Word%20Using%20Two%20Fingers/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 
 ![](./images/leetcode_keyboard.png)
@@ -63,15 +64,14 @@
 	<li>每个 <code>word[i]</code>&nbsp;都是一个大写英文字母。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -79,6 +79,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -86,6 +87,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

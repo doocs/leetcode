@@ -3,17 +3,12 @@
 [中文文档](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README.md)
 
 ## Description
+
 <p>Reverse a linked list from position <em>m</em> to <em>n</em>. Do it in one-pass.</p>
-
-
 
 <p><strong>Note:&nbsp;</strong>1 &le; <em>m</em> &le; <em>n</em> &le; length of list.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -23,11 +18,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -44,6 +35,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

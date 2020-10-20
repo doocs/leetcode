@@ -3,13 +3,12 @@
 [中文文档](/solution/0700-0799/0763.Partition%20Labels/README.md)
 
 ## Description
+
 <p>
 
-A string <code>S</code> of lowercase letters is given.  We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
+A string <code>S</code> of lowercase letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.
 
 </p><p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -31,8 +30,6 @@ A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits 
 
 </p>
 
-
-
 <p><b>Note:</b><br><ol>
 
 <li><code>S</code> will have length in range <code>[1, 500]</code>.</li>
@@ -41,9 +38,7 @@ A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits 
 
 </ol></p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -60,6 +55,7 @@ A partition like "ababcbacadefegde", "hijhklij" is incorrect, because it splits 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README.md)
 
 ## Description
+
 <p>Remove all elements from a linked list of integers that have value <b><i>val</i></b>.</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -19,11 +16,7 @@
 
 </pre>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -40,6 +33,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

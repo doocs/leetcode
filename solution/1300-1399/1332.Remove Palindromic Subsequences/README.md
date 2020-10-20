@@ -3,6 +3,7 @@
 [English Version](/solution/1300-1399/1332.Remove%20Palindromic%20Subsequences/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个字符串&nbsp;<code>s</code>，它仅由字母&nbsp;<code>&#39;a&#39;</code> 和 <code>&#39;b&#39;</code>&nbsp;组成。每一次删除操作都可以从 <code>s</code> 中删除一个回文 <strong>子序列</strong>。</p>
 
@@ -52,15 +53,14 @@
 	<li><code>s</code> 仅包含字母&nbsp;&#39;a&#39;&nbsp; 和 &#39;b&#39;</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -68,6 +68,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -75,6 +76,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0245.Shortest%20Word%20Distance%20III/README.md)
 
 ## Description
+
 <p>Given a list of words and two words <em>word1</em> and <em>word2</em>, return the shortest distance between these two words in the list.</p>
 
 <p><em>word1</em> and <em>word2</em> may be the same and they represent two individual words in the list.</p>
@@ -23,10 +24,7 @@ Assume that words = <code>["practice", "makes", "perfect", "coding", "makes"]</c
 <p><strong>Note:</strong><br />
 You may assume <em>word1</em> and <em>word2</em> are both in the list.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -43,6 +41,7 @@ You may assume <em>word1</em> and <em>word2</em> are both in the list.</p>
 ```
 
 ### **...**
+
 ```
 
 ```

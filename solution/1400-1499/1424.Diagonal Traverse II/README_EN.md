@@ -5,6 +5,7 @@
 ## Description
 
 Given a list of lists of integers,&nbsp;<code>nums</code>,&nbsp;return all elements of <code>nums</code> in diagonal order as shown in the below images.
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -48,15 +49,11 @@ Given a list of lists of integers,&nbsp;<code>nums</code>,&nbsp;return all eleme
 	<li>There at most <code>10^5</code> elements in <code>nums</code>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -64,12 +61,12 @@ Given a list of lists of integers,&nbsp;<code>nums</code>,&nbsp;return all eleme
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [中文文档](/solution/0200-0299/0251.Flatten%202D%20Vector/README.md)
 
 ## Description
+
 <p>Design and implement an iterator to flatten a 2d vector. It should support the following operations: <code>next</code> and <code>hasNext</code>.</p>
 
 <p> </p>
@@ -36,10 +37,7 @@ iterator.hasNext(); // return false
 
 <p>As an added challenge, try to code it using only <a href="http://www.cplusplus.com/reference/iterator/iterator/" target="_blank">iterators in C++</a> or <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html" target="_blank">iterators in Java</a>.</p>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +54,7 @@ iterator.hasNext(); // return false
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1183.Maximum%20Number%20of%20Ones/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>现在有一个尺寸为 <code>width * height</code> 的矩阵 <code>M</code>，矩阵中的每个单元格的值不是 <code>0</code> 就是 <code>1</code>。</p>
 
@@ -44,15 +45,14 @@
 	<li><code>0 <= maxOnes <= sideLength * sideLength</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -60,6 +60,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -67,6 +68,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

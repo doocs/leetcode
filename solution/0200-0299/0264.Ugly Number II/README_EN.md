@@ -3,17 +3,12 @@
 [中文文档](/solution/0200-0299/0264.Ugly%20Number%20II/README.md)
 
 ## Description
+
 <p>Write a program to find the <code>n</code>-th ugly number.</p>
-
-
 
 <p>Ugly numbers are<strong> positive numbers</strong> whose prime factors only include <code>2, 3, 5</code>.&nbsp;</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -23,23 +18,17 @@
 
 <strong>Explanation: </strong><code>1, 2, 3, 4, 5, 6, 8, 9, 10, 12</code> is the sequence of the first <code>10</code> ugly numbers.</pre>
 
-
-
 <p><strong>Note: </strong>&nbsp;</p>
-
-
 
 <ol>
 
-	<li><code>1</code> is typically treated as an ugly number.</li>
+    <li><code>1</code> is typically treated as an ugly number.</li>
 
-	<li><code>n</code> <b>does not exceed 1690</b>.</li>
+    <li><code>n</code> <b>does not exceed 1690</b>.</li>
 
 </ol>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -56,6 +45,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1258.Synonymous%20Sentences/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个近义词表 <code>synonyms</code> 和一个句子 <code>text</code> ， <code>synonyms</code> 表中是一些近义词对 ，你可以将句子 <code>text</code> 中每个单词用它的近义词来替换。</p>
 
@@ -37,15 +38,14 @@ text = "I am happy today but was sad yesterday"
 	<li><code>text</code> 最多包含 <code>10</code> 个单词，且单词间用单个空格分隔开。</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -53,6 +53,7 @@ text = "I am happy today but was sad yesterday"
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -60,6 +61,7 @@ text = "I am happy today but was sad yesterday"
 ```
 
 ### **...**
+
 ```
 
 ```

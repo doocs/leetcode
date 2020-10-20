@@ -3,6 +3,7 @@
 [中文文档](/solution/1100-1199/1136.Parallel%20Courses/README.md)
 
 ## Description
+
 <p>There are <code>N</code> courses, labelled from 1 to <code>N</code>.</p>
 
 <p>We are given <code>relations[i] = [X, Y]</code>, representing a prerequisite relationship between course <code>X</code> and course <code>Y</code>: course <code>X</code> has to be studied before course <code>Y</code>.</p>
@@ -46,10 +47,7 @@ No course can be studied because they depend on each other.
 	<li>There are no repeated relations in the input.</li>
 </ol>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -66,6 +64,7 @@ No course can be studied because they depend on each other.
 ```
 
 ### **...**
+
 ```
 
 ```

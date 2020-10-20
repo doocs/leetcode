@@ -1,7 +1,9 @@
-# [面试题51. 数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)
+# [面试题 51. 数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
+
 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
 
 **示例 1:**
@@ -16,12 +18,15 @@
 - `0 <= 数组长度 <= 50000`
 
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
+
 在归并中统计逆序对。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -65,6 +70,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -115,42 +121,44 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} nums
  * @return {number}
  */
-var reversePairs = function(nums) {
-    if(!nums || nums.length < 2) return 0
-    let res = 0
-    function mergeSort(arr) {
-        if(arr.length === 1) {
-            return arr
-        }
-        let mid = ~~(arr.length/2)
-        return merge(mergeSort(arr.slice(0,mid)),mergeSort(arr.slice(mid)))
+var reversePairs = function (nums) {
+  if (!nums || nums.length < 2) return 0;
+  let res = 0;
+  function mergeSort(arr) {
+    if (arr.length === 1) {
+      return arr;
     }
-    function merge(a,b) {
-        let r = []
-        let cnt = 0
-        while(a && b && a.length && b.length) {
-            if(a[0] <= b[0]) {
-                res += cnt
-                r.push(a.shift())
-            } else {
-                r.push(b.shift())
-                cnt++
-            }
-        }
-        res += a.length * cnt
-        return r.concat(a,b)
+    let mid = ~~(arr.length / 2);
+    return merge(mergeSort(arr.slice(0, mid)), mergeSort(arr.slice(mid)));
+  }
+  function merge(a, b) {
+    let r = [];
+    let cnt = 0;
+    while (a && b && a.length && b.length) {
+      if (a[0] <= b[0]) {
+        res += cnt;
+        r.push(a.shift());
+      } else {
+        r.push(b.shift());
+        cnt++;
+      }
     }
-    mergeSort(nums)
-    return res
+    res += a.length * cnt;
+    return r.concat(a, b);
+  }
+  mergeSort(nums);
+  return res;
 };
 ```
 
 ### **...**
+
 ```
 
 ```

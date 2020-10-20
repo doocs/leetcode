@@ -3,13 +3,10 @@
 [中文文档](/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README.md)
 
 ## Description
+
 <p>Given two arrays, write a function to compute their intersection.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -19,13 +16,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -35,29 +28,19 @@
 
 </div>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ul>
 
-	<li>Each element in the result must be unique.</li>
+    <li>Each element in the result must be unique.</li>
 
-	<li>The result can be in any order.</li>
+    <li>The result can be in any order.</li>
 
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -74,6 +57,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

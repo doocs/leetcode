@@ -5,12 +5,12 @@ const minFlipsMonoIncr = function (S) {
     f.push(0);
   }
   for (let i = 0; i < n; i++) {
-    f[i + 1] = f[i] + (S[i] === '1');
+    f[i + 1] = f[i] + (S[i] === "1");
   }
   let ans = n;
   for (let i = 0; i <= n; i++) {
     let a = f[i];
-    let b = (n - i) - (f[n] - f[i]);
+    let b = n - i - (f[n] - f[i]);
     ans = Math.min(ans, b + a);
   }
   return ans;

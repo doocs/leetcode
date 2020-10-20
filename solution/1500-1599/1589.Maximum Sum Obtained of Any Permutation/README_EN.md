@@ -52,15 +52,11 @@ Total sum: 11 + 8 = 19, which is the best that you can do.
 	<li><code>0 &lt;= start<sub>i</sub>&nbsp;&lt;= end<sub>i</sub>&nbsp;&lt;&nbsp;n</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -68,12 +64,12 @@ Total sum: 11 + 8 = 19, which is the best that you can do.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1272.Remove%20Interval/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个 <strong>有序的 </strong>不相交区间列表 <code>intervals</code> 和一个要删除的区间 <code>toBeRemoved</code>， <code>intervals</code> 中的每一个区间 <code>intervals[i] = [a, b]</code> 都表示满足 <code>a <= x < b</code> 的所有实数  <code>x</code> 的集合。</p>
 
@@ -35,15 +36,14 @@
 	<li><code>-10^9 <= intervals[i][0] < intervals[i][1] <= 10^9</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -51,6 +51,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -58,6 +59,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

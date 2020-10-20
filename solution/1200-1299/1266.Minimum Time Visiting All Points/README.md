@@ -3,6 +3,7 @@
 [English Version](/solution/1200-1299/1266.Minimum%20Time%20Visiting%20All%20Points/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>平面上有&nbsp;<code>n</code>&nbsp;个点，点的位置用整数坐标表示&nbsp;<code>points[i] = [xi, yi]</code>。请你计算访问所有这些点需要的最小时间（以秒为单位）。</p>
 
@@ -43,15 +44,14 @@
 	<li><code>-1000&nbsp;&lt;= points[i][0], points[i][1]&nbsp;&lt;= 1000</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -59,6 +59,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -66,6 +67,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

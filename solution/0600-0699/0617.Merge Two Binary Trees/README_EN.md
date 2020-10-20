@@ -3,17 +3,12 @@
 [中文文档](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README.md)
 
 ## Description
+
 <p>Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.</p>
-
-
 
 <p>You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -47,19 +42,11 @@ Merged tree:
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Note:</b> The merging process must start from the root nodes of both trees.</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -76,6 +63,7 @@ Merged tree:
 ```
 
 ### **...**
+
 ```
 
 ```

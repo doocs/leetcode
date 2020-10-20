@@ -11,7 +11,6 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-
 ![](./images/palindromic_paths_1.png)
 
 <pre>
@@ -45,15 +44,11 @@
 	<li>Node values are digits from <code>1</code> to <code>9</code>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -61,12 +56,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

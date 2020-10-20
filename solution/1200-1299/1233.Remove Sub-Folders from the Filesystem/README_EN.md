@@ -3,6 +3,7 @@
 [中文文档](/solution/1200-1299/1233.Remove%20Sub-Folders%20from%20the%20Filesystem/README.md)
 
 ## Description
+
 <p>Given a list of folders, remove all sub-folders in those folders and return in <strong>any order</strong> the folders after removing.</p>
 
 <p>If a <code>folder[i]</code> is located within&nbsp;another <code>folder[j]</code>, it is called a&nbsp;sub-folder&nbsp;of it.</p>
@@ -44,10 +45,7 @@
 	<li>Each folder name is unique.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -64,6 +62,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

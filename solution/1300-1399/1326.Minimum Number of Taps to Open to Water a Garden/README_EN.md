@@ -3,21 +3,14 @@
 [中文文档](/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README.md)
 
 ## Description
+
 <p>There is a one-dimensional garden on the x-axis. The garden starts at the point <code>0</code> and ends at the point <code>n</code>. (i.e The length of the garden is <code>n</code>).</p>
-
-
 
 <p>There are&nbsp;<code>n + 1</code> taps located&nbsp;at points <code>[0, 1, ..., n]</code> in the garden.</p>
 
-
-
 <p>Given an integer <code>n</code> and an integer array <code>ranges</code> of length <code>n + 1</code> where <code>ranges[i]</code> (0-indexed) means the <code>i-th</code> tap can water the area <code>[i - ranges[i], i + ranges[i]]</code> if it was open.</p>
 
-
-
 <p>Return <em>the minimum number of taps</em> that should be open to water the whole garden, If the garden cannot be watered return <strong>-1</strong>.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -47,11 +40,7 @@ Opening Only the second tap will water the whole garden [0,5]
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,11 +52,7 @@ Opening Only the second tap will water the whole garden [0,5]
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -77,11 +62,7 @@ Opening Only the second tap will water the whole garden [0,5]
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -91,11 +72,7 @@ Opening Only the second tap will water the whole garden [0,5]
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -105,13 +82,9 @@ Opening Only the second tap will water the whole garden [0,5]
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10^4</code></li>
@@ -119,9 +92,7 @@ Opening Only the second tap will water the whole garden [0,5]
 	<li><code>0 &lt;= ranges[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -138,6 +109,7 @@ Opening Only the second tap will water the whole garden [0,5]
 ```
 
 ### **...**
+
 ```
 
 ```

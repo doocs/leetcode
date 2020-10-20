@@ -3,6 +3,7 @@
 [English Version](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。</p>
 
@@ -35,9 +36,8 @@
 	<li>p、q 为不同节点且均存在于给定的二叉树中。</li>
 </ul>
 
-
-
 ## 解法
+
 <!-- 这里可写通用的实现逻辑 -->
 
 根据“**最近公共祖先**”的定义，若 root 是 p, q 的最近公共祖先 ，则只可能为以下情况之一：
@@ -56,6 +56,7 @@
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -76,6 +77,7 @@ class Solution:
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -95,12 +97,13 @@ class Solution {
         }
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-        return left == null ? right : (right == null ? left : root); 
+        return left == null ? right : (right == null ? left : root);
     }
 }
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -3,6 +3,7 @@
 [English Version](/solution/1100-1199/1108.Defanging%20an%20IP%20Address/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>给你一个有效的 <a href="https://baike.baidu.com/item/IPv4" target="_blank">IPv4</a> 地址&nbsp;<code>address</code>，返回这个 IP 地址的无效化版本。</p>
 
@@ -30,15 +31,14 @@
 	<li>给出的&nbsp;<code>address</code>&nbsp;是一个有效的 IPv4 地址</li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -46,6 +46,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -53,6 +54,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

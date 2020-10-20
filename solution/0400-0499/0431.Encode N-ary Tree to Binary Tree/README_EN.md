@@ -3,6 +3,7 @@
 [中文文档](/solution/0400-0499/0431.Encode%20N-ary%20Tree%20to%20Binary%20Tree/README.md)
 
 ## Description
+
 <p>Design an algorithm to encode an N-ary tree into a binary tree and decode the binary tree to get the original N-ary tree. An N-ary tree is a rooted tree in which each node has no more than N children. Similarly, a binary tree is a rooted tree in which each node has no more than 2 children. There is no restriction on how your encode/decode algorithm should work. You just need to ensure that an N-ary tree can be encoded to a binary tree and this binary tree can be decoded to the original N-nary tree structure.</p>
 
 <p><em>Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See following example).</em></p>
@@ -29,10 +30,7 @@
 	<li>Do not use class member/global/static variables to store states. Your encode and decode algorithms should be stateless.</li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -49,6 +47,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

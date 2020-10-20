@@ -3,13 +3,12 @@
 [中文文档](/solution/0300-0399/0397.Integer%20Replacement/README.md)
 
 ## Description
+
 <p>
 
 Given a positive integer <i>n</i> and you can do operations as follow:
 
 </p>
-
-
 
 <p>
 
@@ -23,19 +22,13 @@ Given a positive integer <i>n</i> and you can do operations as follow:
 
 </p>
 
-
-
 <p>
 
 What is the minimum number of replacements needed for <i>n</i> to become 1?
 
 </p>
 
-
-
 </p>
-
-
 
 <p><b>Example 1:</b>
 
@@ -60,8 +53,6 @@ What is the minimum number of replacements needed for <i>n</i> to become 1?
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b>
 
@@ -91,9 +82,7 @@ or
 
 </p>
 
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -110,6 +99,7 @@ or
 ```
 
 ### **...**
+
 ```
 
 ```

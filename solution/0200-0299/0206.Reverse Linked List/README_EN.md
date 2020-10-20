@@ -3,13 +3,10 @@
 [中文文档](/solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
 
 ## Description
+
 <p>Reverse a singly linked list.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -19,23 +16,16 @@
 
 </pre>
 
-
-
 <p><b>Follow up:</b></p>
-
-
 
 <p>A linked list can be reversed either iteratively or recursively. Could you implement both?</p>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -55,6 +45,7 @@ class Solution:
 ```
 
 ### **Java**
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -80,6 +71,7 @@ class Solution {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -92,16 +84,16 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-    let node = head
-    let pre = null
-    while(node) {
-        let cur = node
-        node = cur.next
-        cur.next = pre
-        pre = cur
-    }
-    return pre
+var reverseList = function (head) {
+  let node = head;
+  let pre = null;
+  while (node) {
+    let cur = node;
+    node = cur.next;
+    cur.next = pre;
+    pre = cur;
+  }
+  return pre;
 };
 ```
 
@@ -123,8 +115,6 @@ func reverseList(head *ListNode) *ListNode {
     return dummyHead.Next
 }
 ```
-
-
 
 ### **...**
 

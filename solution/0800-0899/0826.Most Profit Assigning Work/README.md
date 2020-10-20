@@ -3,6 +3,7 @@
 [English Version](/solution/0800-0899/0826.Most%20Profit%20Assigning%20Work/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>有一些工作：<code>difficulty[i]&nbsp;</code>表示第<code>i</code>个工作的难度，<code>profit[i]</code>表示第<code>i</code>个工作的收益。</p>
 
@@ -28,15 +29,14 @@
 	<li><code>difficulty[i], profit[i], worker[i]</code>&nbsp; 的范围是&nbsp;<code>[1, 10^5]</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -44,6 +44,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -51,6 +52,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

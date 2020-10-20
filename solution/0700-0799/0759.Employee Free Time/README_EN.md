@@ -3,6 +3,7 @@
 [中文文档](/solution/0700-0799/0759.Employee%20Free%20Time/README.md)
 
 ## Description
+
 <p>We are given a list <code>schedule</code> of employees, which represents the working time for each employee.</p>
 
 <p>Each employee has a list of non-overlapping <code>Intervals</code>, and these intervals are in sorted order.</p>
@@ -37,10 +38,7 @@ We discard any intervals that contain inf as they aren't finite.
 	<li><code>0 <= schedule[i].start < schedule[i].end <= 10^8</code></li>
 </ul>
 
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -57,6 +55,7 @@ We discard any intervals that contain inf as they aren't finite.
 ```
 
 ### **...**
+
 ```
 
 ```

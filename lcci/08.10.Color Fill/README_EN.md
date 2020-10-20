@@ -3,13 +3,10 @@
 [中文文档](/lcci/08.10.Color%20Fill/README.md)
 
 ## Description
+
 <p>Implement the &quot;paint fill&quot; function that one might see on many image editing programs. That is, given a screen (represented by a two-dimensional array of colors), a point, and a new color, fill in the surrounding area until the color changes from the original color.</p>
 
-
-
 <p><strong>Example1:</strong></p>
-
-
 
 <pre>
 
@@ -31,11 +28,7 @@ Note the bottom corner is not colored 2, because it is not 4-directionally conne
 
 to the starting pixel.</pre>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ul>
 	<li>The length of&nbsp;<code>image</code>&nbsp;and&nbsp;<code>image[0]</code>&nbsp;will be in the range&nbsp;<code>[1, 50]</code>.</li>
@@ -43,11 +36,7 @@ to the starting pixel.</pre>
 	<li>The value of each color in&nbsp;<code>image[i][j]</code>&nbsp;and&nbsp;<code>newColor</code>&nbsp;will be an integer in&nbsp;<code>[0, 65535]</code>.</li>
 </ul>
 
-
-
-
 ## Solutions
-
 
 <!-- tabs:start -->
 
@@ -86,6 +75,7 @@ class Solution {
 ```
 
 ### **...**
+
 ```
 
 ```

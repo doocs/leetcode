@@ -3,6 +3,7 @@
 [English Version](/solution/1000-1099/1052.Grumpy%20Bookstore%20Owner/README_EN.md)
 
 ## 题目描述
+
 <!-- 这里写题目描述 -->
 <p>今天，书店老板有一家店打算试营业&nbsp;<code>customers.length</code>&nbsp;分钟。每分钟都有一些顾客（<code>customers[i]</code>）会进入书店，所有这些顾客都会在那一分钟结束后离开。</p>
 
@@ -32,15 +33,14 @@
 	<li><code>0 &lt;=&nbsp;grumpy[i] &lt;= 1</code></li>
 </ul>
 
-
-
 ## 解法
-<!-- 这里可写通用的实现逻辑 -->
 
+<!-- 这里可写通用的实现逻辑 -->
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
@@ -48,6 +48,7 @@
 ```
 
 ### **Java**
+
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
@@ -55,6 +56,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```
