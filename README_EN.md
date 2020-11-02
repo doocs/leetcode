@@ -33,7 +33,10 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ## Basic Algorithms
 
-1. [Sorting](/basic/sort/README.md)
+1. [Bubble Sort](/basic/sorting/BubbleSort/README.md)
+1. [Insertion Sort](/basic/sorting/InsertionSort/README.md)
+1. [Merge Sort](/basic/sorting/MergeSort/README.md)
+1. [Quick Sort](/basic/sorting/QuickSort/README.md)
 
 ## High Frequency Interview Questions
 
