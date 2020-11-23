@@ -6,7 +6,7 @@
   <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,C++,Python,JavaScript,Go,.../green?list=1" alt="languages"></a>
   <a href="https://opencollective.com/doocs-leetcode#backers" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a>
-  <a href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
+  <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode" alt="forks"></a>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
@@ -78,7 +78,7 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 1. <kbd>Fork</kbd> [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then <kbd>clone</kbd> it to your local machine.
 1. Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> the changes to your remote GitHub repository.
 1. Submit a pull request with your changes!
-1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/master/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
+1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
@@ -108,4 +108,4 @@ Thank you to all our backers and sponsors!
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
-<a rel="license" href="https://github.com/doocs/leetcode/blob/master/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./images/cc-by-sa-88x31.png" /></a>
+<a rel="license" href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./images/cc-by-sa-88x31.png" /></a>
