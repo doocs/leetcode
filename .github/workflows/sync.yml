@@ -14,11 +14,11 @@ jobs:
       env:
           SSH_PRIVATE_KEY: ${{ secrets.RSA_PRIVATE_KEY }}
       with:
-          source-repo: "git@github.com:doocs/leetcode.git"
-          destination-repo: "git@gitee.com:Doocs/leetcode.git"
+          source-repo: git@github.com:doocs/leetcode.git
+          destination-repo: git@gitee.com:Doocs/leetcode.git
 
     - name: Build Gitee Pages
-      uses: yanglbme/gitee-pages-action@master
+      uses: yanglbme/gitee-pages-action@main
       with:
           gitee-username: yanglbme
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
