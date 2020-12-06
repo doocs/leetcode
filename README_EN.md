@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,C++,Python,JavaScript,Go,.../green?list=1" alt="languages"></a>
-  <a href="https://opencollective.com/doocs-leetcode#backers" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,Python,C++,JavaScript,Go,.../green?list=1" alt="languages"></a>
+  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
@@ -35,6 +35,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 1. [Bubble Sort](/basic/sorting/BubbleSort/README.md)
 1. [Insertion Sort](/basic/sorting/InsertionSort/README.md)
+1. [Selection Sort](/basic/sorting/SelectionSort/README.md)
 1. [Merge Sort](/basic/sorting/MergeSort/README.md)
 1. [Quick Sort](/basic/sorting/QuickSort/README.md)
 
@@ -108,4 +109,4 @@ Thank you to all our backers and sponsors!
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
-<a rel="license" href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./images/cc-by-sa-88x31.png" /></a>
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large)

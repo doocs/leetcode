@@ -6,8 +6,6 @@
 
 <!-- tabs:start -->
 
-### **Python3**
-
 ### **Java**
 
 ```java

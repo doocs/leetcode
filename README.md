@@ -37,6 +37,7 @@
 
 1. [冒泡排序](/basic/sorting/BubbleSort/README.md)
 1. [插入排序](/basic/sorting/InsertionSort/README.md)
+1. [选择排序](/basic/sorting/SelectionSort/README.md)
 1. [归并排序](/basic/sorting/MergeSort/README.md)
 1. [快速排序](/basic/sorting/QuickSort/README.md)
 
