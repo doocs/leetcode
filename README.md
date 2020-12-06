@@ -3,9 +3,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,C++,Python,JavaScript,Go,.../green?list=1" alt="languages"></a>
-  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=shield"/></a>
-
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/langs/Java,Python,C++,JavaScript,Go,.../green?list=1" alt="languages"></a>
+  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
@@ -13,9 +12,6 @@
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
 </p>
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large)
 
 ## 介绍
 
@@ -121,4 +117,4 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>
 
-<a rel="license" href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img alt="Creative Commons License" style="border-width:0" src="./images/cc-by-sa-88x31.png" /></a>
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large)
