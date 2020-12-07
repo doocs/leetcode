@@ -33,13 +33,52 @@ After removing the second node from the end, the linked list becomes <strong>1-&
 ### **Python3**
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        dummy = ListNode(0, head)
+        p = q = dummy
+        for i in range(n):
+            p = p.next
+        while p.next is not None:
+            p = p.next
+            q = q.next
+        q.next = q.next.next
+        return dummy.next
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode(0, head);
+        ListNode p = dummy, q = dummy;
+        while (n-- > 0) {
+            p = p.next;
+        }
+        while (p.next != null) {
+            p = p.next;
+            q = q.next;
+        }
+        q.next = q.next.next;
+        return dummy.next;
+    }
+}
 ```
 
 ### **...**
