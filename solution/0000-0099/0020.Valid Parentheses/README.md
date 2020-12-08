@@ -56,7 +56,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if not s:
+            return True
+        helper = []
+        for c in s:
+            if c in '([{':
+                helper.append(c)
+            else:
+                if len(helper) == 0 or (helper.pop() + c) not in ["()", "[]", "{}"]:
+                    return False
+        return len(helper) == 0
 ```
 
 ### **Java**
@@ -65,40 +76,30 @@
 
 ```java
 class Solution {
-
-  public boolean isValid(String s) {
-    if (s == null || s == "") {
-      return true;
-    }
-    char[] chars = s.toCharArray();
-    Stack<Character> helper = new Stack<>();
-    for (char c : chars) {
-      if (isLeft(c)) {
-        helper.push(c);
-      } else {
-        if (helper.isEmpty() || !match(helper.pop(), c)) {
-          return false;
+    public boolean isValid(String s) {
+        if (s == null || s == "") {
+            return true;
         }
-      }
+        char[] chars = s.toCharArray();
+        Stack<Character> helper = new Stack<>();
+        for (char c : chars) {
+            boolean isLeft = c == '(' || c == '[' || c == '{';
+            if (isLeft) {
+                helper.push(c);
+            } else {
+                if (helper.isEmpty() || !match(helper.pop(), c)) {
+                    return false;
+                }
+            }
+        }
+        return helper.isEmpty();
     }
-    return helper.isEmpty();
-  }
 
-  private boolean isLeft(char c) {
-    return c == '(' || c == '[' || c == '{';
-  }
-
-  private boolean isRight(char c) {
-    return c == ')' || c == ']' || c == '}';
-  }
-
-  private boolean match(char left, char right) {
-    return (
-      (left == '(' && right == ')') ||
-      (left == '[' && right == ']') ||
-      (left == '{' && right == '}')
-    );
-  }
+    private boolean match(char left, char right) {
+        return (left == '(' && right == ')')
+            || (left == '[' && right == ']')
+            || (left == '{' && right == '}');
+    }
 }
 ```
 
