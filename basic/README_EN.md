@@ -7,3 +7,7 @@
 - [Selection Sort](./sorting/SelectionSort/README.md)
 - [Merge Sort](./sorting/MergeSort/README.md)
 - [Quick Sort](./sorting/QuickSort/README.md)
+
+## Searching
+
+- [Binary Search](./searching/BinarySearch/README.md)
