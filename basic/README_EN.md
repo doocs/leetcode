@@ -11,3 +11,4 @@
 ## Searching
 
 - [Binary Search](./searching/BinarySearch/README.md)
+- [Binary Search II](./searching/BinarySearch-II/README.md)

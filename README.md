@@ -44,6 +44,7 @@
 ### 查找算法
 
 1. [二分查找](/basic/searching/BinarySearch/README.md)
+1. [二分查找 II](/basic/searching/BinarySearch-II/README.md)
 
 ## 面试高频考题
 

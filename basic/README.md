@@ -10,4 +10,5 @@
 
 ## 查找算法
 
-- [Binary Search](./searching/BinarySearch/README.md)
+- [二分查找](./searching/BinarySearch/README.md)
+- [二分查找 II](./searching/BinarySearch-II/README.md)

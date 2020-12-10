@@ -2,13 +2,15 @@
 
 二分查找是一种非常高效的查找算法，高效到什么程度呢？我们来分析一下它的时间复杂度。
 
-我们假设数据大小是 n，每次查找后数据都会缩小为原来的一半，也就是会除以 2。最坏情况下，直到查找区间被缩小为空，才停止。被查找区间的大小变化：
+假设数据大小是 n，每次查找后数据都会缩小为原来的一半，也就是会除以 2。最坏情况下，直到查找区间被缩小为空，才停止。
+
+被查找区间的大小变化为：
 
 ```
 n, n/2, n/4, n/8, ..., n/(2^k)
 ```
 
-可以看出来，这是一个等比数列。其中 n/(2^k)=1 时，k 的值就是总共缩小的次数。而每一次缩小操作只涉及两个数据的大小比较，所以，经过了 k 次区间缩小操作，时间复杂度就是 O(k)。通过 n/(2^k)=1，我们可以求得 k=log2n，所以时间复杂度就是 O(logn)。
+可以看出来，这是一个等比数列。其中 `n/(2^k)=1` 时，k 的值就是总共缩小的次数。而每一次缩小操作只涉及两个数据的大小比较，所以，经过了 k 次区间缩小操作，时间复杂度就是 O(k)。通过 `n/(2^k)=1`，我们可以求得 `k=log2n`，所以时间复杂度就是 O(logn)。
 
 ## 代码示例
 
@@ -58,10 +60,6 @@ public class BinarySearch {
         // 非递归查找
         int r1 = search(nums, 7);
         System.out.println(r1);
-
-        // 递归查找
-        int r2 = search(nums, 7);
-        System.out.println(r2);
     }
 }
 ```
@@ -99,12 +97,8 @@ public class BinarySearch {
     public static void main(String[] args) {
         int[] nums = {1, 2, 5, 7, 8, 9};
 
-        // 非递归查找
-        int r1 = search(nums, 7);
-        System.out.println(r1);
-
         // 递归查找
-        int r2 = search(nums, 7);
+        int r2 = searchRecursive(nums, 7);
         System.out.println(r2);
     }
 }

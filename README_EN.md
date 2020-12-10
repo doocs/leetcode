@@ -44,6 +44,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 ### Searching
 
 1. [Binary Search](/basic/searching/BinarySearch/README.md)
+1. [Binary Search II](/basic/searching/BinarySearch-II/README.md)
 
 ## High Frequency Interview Questions
 
