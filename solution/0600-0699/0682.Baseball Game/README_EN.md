@@ -109,13 +109,48 @@ Round 7: You could get 9 + 5 = 14 points. The sum is 27.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def calPoints(self, ops: List[str]) -> int:
+        stack = []
+        for op in ops:
+            if op == 'C':
+                stack.pop()
+            elif op == 'D':
+                stack.append(stack[-1] << 1)
+            elif op == '+':
+                stack.append(stack[-1] + stack[-2])
+            else:
+                stack.append(int(op))
+        return sum(stack)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int calPoints(String[] ops) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (String op : ops) {
+            if ("C".equals(op)) {
+                stack.pop();
+            } else if ("D".equals(op)) {
+                stack.push(stack.peek() << 1);
+            } else if ("+".equals(op)) {
+                Integer a = stack.pop();
+                Integer b = stack.peek();
+                stack.push(a);
+                stack.push(a + b);
+            } else {
+                stack.push(Integer.valueOf(op));
+            }
+        }
+        int res = 0;
+        for (Integer score : stack) {
+            res += score;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

@@ -53,6 +53,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+栈实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +62,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def calPoints(self, ops: List[str]) -> int:
+        stack = []
+        for op in ops:
+            if op == 'C':
+                stack.pop()
+            elif op == 'D':
+                stack.append(stack[-1] << 1)
+            elif op == '+':
+                stack.append(stack[-1] + stack[-2])
+            else:
+                stack.append(int(op))
+        return sum(stack)
 ```
 
 ### **Java**
@@ -68,7 +82,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int calPoints(String[] ops) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (String op : ops) {
+            if ("C".equals(op)) {
+                stack.pop();
+            } else if ("D".equals(op)) {
+                stack.push(stack.peek() << 1);
+            } else if ("+".equals(op)) {
+                Integer a = stack.pop();
+                Integer b = stack.peek();
+                stack.push(a);
+                stack.push(a + b);
+            } else {
+                stack.push(Integer.valueOf(op));
+            }
+        }
+        int res = 0;
+        for (Integer score : stack) {
+            res += score;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
