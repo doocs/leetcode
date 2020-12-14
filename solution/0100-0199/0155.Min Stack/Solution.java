@@ -1,30 +1,31 @@
 class MinStack {
-    
-    private Stack<Integer> stack;
-    private Stack<Integer> help;
+
+    private Deque<Integer> s;
+    private Deque<Integer> helper;
 
     /** initialize your data structure here. */
     public MinStack() {
-        stack = new Stack<>();
-        help = new Stack<>();
+        s = new ArrayDeque<>();
+        helper = new ArrayDeque<>();
     }
     
     public void push(int x) {
-        stack.push(x);
-        help.push(help.isEmpty() || help.peek() >= x ? x : help.peek());
+        s.push(x);
+        int element = helper.isEmpty() || x < helper.peek() ? x : helper.peek();
+        helper.push(element);
     }
     
     public void pop() {
-        stack.pop();
-        help.pop();
+        s.pop();
+        helper.pop();
     }
     
     public int top() {
-        return stack.peek();
+        return s.peek();
     }
     
     public int getMin() {
-        return help.peek();
+        return helper.peek();
     }
 }
 

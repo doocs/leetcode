@@ -72,6 +72,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 ### Stack & Queue
 
 1. [Valid Parentheses](/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md)
+1. [Min Stack](/solution/0100-0199/0155.Min%20Stack/README_EN.md)
 1. [Implement Queue using Stacks](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md)
 1. [Implement Stack using Queues](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
 
