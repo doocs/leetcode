@@ -76,6 +76,10 @@
 
 ### 栈和队列
 
+1. [有效的括号](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
+1. [用栈实现队列](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
+1. [用队列实现栈](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md)
+
 ### 动态规划
 
 ### 混合问题
