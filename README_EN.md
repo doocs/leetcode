@@ -78,6 +78,9 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Dynamic Programming
 
+1. [House Robber](/solution/0100-0199/0198.House%20Robber/README_EN.md)
+1. [House Robber II](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
+
 ### Misc
 
 ## Maintainer

@@ -42,12 +42,11 @@ class Solution:
         n = len(nums)
         if n == 1:
             return nums[0]
-        dp = [0 for _ in range(n)]
-        dp[0] = nums[0]
-        dp[1] = max(nums[0], nums[1])
+        pre, cur = nums[0], max(nums[0], nums[1])
         for i in range(2, n):
-            dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
-        return dp[n - 1]
+            t = max(pre + nums[i], cur)
+            pre, cur = cur, t
+        return cur
 ```
 
 ### **Java**
@@ -64,13 +63,14 @@ class Solution {
         if (n == 1) {
             return nums[0];
         }
-        int[] dp = new int[n];
-        dp[0] = nums[0];
-        dp[1] = Math.max(nums[0], nums[1]);
+        int pre = nums[0];
+        int cur = Math.max(nums[0], nums[1]);
         for (int i = 2; i < n; ++i) {
-            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+            int t = Math.max(pre + nums[i], cur);
+            pre = cur;
+            cur = t;
         }
-        return dp[n - 1];
+        return cur;
     }
 }
 ```

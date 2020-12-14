@@ -27,6 +27,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+环状排列意味着第一个房屋和最后一个房屋中最多只能选择一个偷窃，因此可以把此环状排列房间问题约化为两个单排排列房屋子问题。
+
+- 不偷第一个房屋（那么最后一个房屋能偷），即求：`_rob(nums[1:])`
+- 偷第一个房屋（那么最后一个房屋不能偷），即求：`_rob(nums[:-1])`
+
+即 `res = max(_rob(nums[1:]), _rob(nums[:-1]))`
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -34,7 +41,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        def _rob(nums):
+            n = len(nums)
+            if n == 0:
+                return 0
+            if n == 1:
+                return nums[0]
+            pre, cur = nums[0], max(nums[0], nums[1])
+            for i in range(2, n):
+                t = max(pre + nums[i], cur)
+                pre, cur = cur, t
+            return cur
 
+        n = len(nums)
+        if n == 1:
+            return nums[0]
+        return max(_rob(nums[1:]), _rob(nums[:-1]))
 ```
 
 ### **Java**
@@ -42,7 +66,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int rob(int[] nums) {
+        int n = nums.length;
+        if (n == 1) {
+            return nums[0];
+        }
+        int sub1 = robInternal(Arrays.copyOfRange(nums, 0, n - 1));
+        int sub2 = robInternal(Arrays.copyOfRange(nums, 1, n));
+        return Math.max(sub1, sub2);
+    }
 
+    private int robInternal(int[] nums) {
+        int n;
+        if ((n = nums.length) == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return nums[0];
+        }
+        int pre = nums[0];
+        int cur = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < n; ++i) {
+            int t = Math.max(pre + nums[i], cur);
+            pre = cur;
+            cur = t;
+        }
+        return cur;
+    }
+}
 ```
 
 ### **...**
