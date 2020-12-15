@@ -1,34 +1,40 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 class Solution {
     public ListNode sortList(ListNode head) {
-        if(head == null || head.next == null) return head;
-        int len = 0;
-        ListNode cur = head;
-        while(cur != null){
-            len++;
-            cur = cur.next;
+        if (head == null || head.next == null) {
+            return head;
         }
-        ListNode left = head,right = head;
-        for(int i = 0; i < len/2 - 1; i++) right = right.next;
-        ListNode leftTail = right;
-        right = right.next;
-        leftTail.next = null;
-        left = sortList(left);
-        right = sortList(right);
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode t = slow.next;
+        slow.next = null;
+        ListNode l1 = sortList(head);
+        ListNode l2 = sortList(t);
         ListNode dummy = new ListNode(0);
-        cur = dummy;
-        while(left != null && right != null){
-            if(left.val < right.val){
-                cur.next = left;
-                left = left.next;
-            }else{
-                cur.next = right;
-                right = right.next;
+        ListNode cur = dummy;
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                cur.next = l1;
+                l1 = l1.next;
+            } else {
+                cur.next = l2;
+                l2 = l2.next;
             }
             cur = cur.next;
         }
-        if(left != null) cur.next = left;
-        else if(right != null) cur.next = right;
-        else cur.next = null;
+        cur.next = l1 == null ? l2 : l1;
         return dummy.next;
     }
 }

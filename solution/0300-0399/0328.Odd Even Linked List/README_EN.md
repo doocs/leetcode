@@ -31,11 +31,8 @@
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>The relative order inside both the even and odd groups should remain as it was in the input.</li>
-
     <li>The first node is considered odd, the second node even and so on ...</li>
-
 </ul>
 
 ## Solutions
@@ -45,13 +42,33 @@
 ### **Python3**
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def oddEvenList(self, head: ListNode) -> ListNode:
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
 
+    }
+}
 ```
 
 ### **...**
