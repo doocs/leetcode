@@ -62,6 +62,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+定义两个指针，遍历时，当两个指针到达末尾的节点指向另一个链表的头部继续遍历，最后如果相遇则为交点(在第一轮移动中恰好抹除了长度差)。
+
+两个指针等于移动了相同的距离，有交点就返回，无交点就是各走了两条指针的长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +73,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        if headA is None or headB is None:
+            return None
+        pA, pB = headA, headB
+        while pA != pB:
+            pA = pA.next if pA else headB
+            pB = pB.next if pB else headA
+        return pA
 ```
 
 ### **Java**
@@ -77,7 +95,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode pA = headA, pB = headB;
+        while (pA != pB) {
+            pA = pA != null ? pA.next : headB;
+            pB = pB != null ? pB.next : headA;
+        }
+        return pA;
+    }
+}
 ```
 
 ### **...**

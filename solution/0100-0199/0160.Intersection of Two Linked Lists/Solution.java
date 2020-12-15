@@ -14,33 +14,11 @@ public class Solution {
         if (headA == null || headB == null) {
             return null;
         }
-        int lenA = 0, lenB = 0;
-        ListNode p = headA, q = headB;
-        while (p != null) {
-            p = p.next;
-            ++lenA;
+        ListNode pA = headA, pB = headB;
+        while (pA != pB) {
+            pA = pA != null ? pA.next : headB;
+            pB = pB != null ? pB.next : headA;
         }
-        while (q != null) {
-            q = q.next;
-            ++lenB;
-        }
-        
-        p = headA;
-        q = headB;
-        if (lenA > lenB) {
-            for (int i = 0; i < lenA - lenB; ++i) {
-                p = p.next;
-            }
-        } else {
-            for (int i = 0; i < lenB - lenA; ++i) {
-                q = q.next;
-            }
-        }
-        while (p != null && p != q) {
-            p = p.next;
-            q = q.next;
-        }
-        return p;
-        
+        return pA;
     }
 }
