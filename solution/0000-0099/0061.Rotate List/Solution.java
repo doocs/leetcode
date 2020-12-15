@@ -3,40 +3,37 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return head;
         }
-        int len = 1;
-        ListNode p = head;
-        ListNode q = head;
-        ListNode t = p.next;
-        
-        while (q.next != null) {
-            ++len;
-            q = q.next;
+        int n = 0;
+        ListNode cur = head;
+        while (cur != null) {
+            ++n;
+            cur = cur.next;
         }
-        if (len == 1 || k % len == 0) {
+        k %= n;
+        if (k == 0) {
             return head;
         }
-        
-        k %= len;
-        
-        // 右移 k 个位置，相当于左移 (len-k) 个位置
-        k = len - k;
-        
+        ListNode p = head, q = head;
         for (int i = 0; i < k; ++i) {
-            q.next = p;
-            p.next = null;
             q = q.next;
-            p = t;
-            t = p.next;
         }
-        
-        return p;
+        while (q.next != null) {
+            p = p.next;
+            q = q.next;
+        }
+        ListNode start = p.next;
+        p.next = null;
+        q.next = head;
+        return start;
     }
 }
