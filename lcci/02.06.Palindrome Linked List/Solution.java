@@ -11,26 +11,27 @@ class Solution {
         if (head == null || head.next == null) {
             return true;
         }
-        ListNode slow = head, fast = head.next;
+        ListNode slow = head;
+        ListNode fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         ListNode cur = slow.next;
         slow.next = null;
+        ListNode pre = null;
         while (cur != null) {
             ListNode t = cur.next;
-            cur.next = slow.next;
-            slow.next = cur;
+            cur.next = pre;
+            pre = cur;
             cur = t;
         }
-        ListNode t = slow.next;
-        while (t != null) {
-            if (head.val != t.val) {
+        while (pre != null) {
+            if (pre.val != head.val) {
                 return false;
             }
+            pre = pre.next;
             head = head.next;
-            t = t.next;
         }
         return true;
     }

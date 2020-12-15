@@ -57,6 +57,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 1. [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
 1. [Kth Node From End of List](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
 1. [Reverse Linked List](/solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
+1. [Palindrome Linked List](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
 1. [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
 1. [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
 

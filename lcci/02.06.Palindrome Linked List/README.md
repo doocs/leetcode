@@ -30,7 +30,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先利用快慢指针找到链表中点，之后将后半部分链表利用头插法逆序，再比对前后两段链表得出结果。
+先用快慢指针找到链表的中点，接着反转右半部分的链表。然后同时遍历前后两段链表，若前后两段链表节点对应的值不等，说明不是回文链表，否则说明是回文链表。
 
 <!-- tabs:start -->
 
@@ -44,28 +44,22 @@
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
-
 class Solution:
     def isPalindrome(self, head: ListNode) -> bool:
         if head is None or head.next is None:
             return True
         slow, fast = head, head.next
         while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
-        cur = slow.next
-        slow.next = None
+            slow, fast = slow.next, fast.next.next
+        pre, cur = None, slow.next
         while cur:
             t = cur.next
-            cur.next = slow.next
-            slow.next = cur
-            cur = t
-        t = slow.next
-        while t:
-            if head.val != t.val:
+            cur.next = pre
+            pre, cur = cur, t
+        while pre:
+            if pre.val != head.val:
                 return False
-            t = t.next
-            head = head.next
+            pre, head = pre.next, head.next
         return True
 ```
 
@@ -87,26 +81,27 @@ class Solution {
         if (head == null || head.next == null) {
             return true;
         }
-        ListNode slow = head, fast = head.next;
+        ListNode slow = head;
+        ListNode fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         ListNode cur = slow.next;
         slow.next = null;
+        ListNode pre = null;
         while (cur != null) {
             ListNode t = cur.next;
-            cur.next = slow.next;
-            slow.next = cur;
+            cur.next = pre;
+            pre = cur;
             cur = t;
         }
-        ListNode t = slow.next;
-        while (t != null) {
-            if (head.val != t.val) {
+        while (pre != null) {
+            if (pre.val != head.val) {
                 return false;
             }
+            pre = pre.next;
             head = head.next;
-            t = t.next;
         }
         return true;
     }
