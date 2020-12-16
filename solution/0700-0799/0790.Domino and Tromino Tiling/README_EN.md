@@ -41,9 +41,7 @@ XYZ YYZ XZZ XYY XXY</pre>
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>N&nbsp; will be in range <code>[1, 1000]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

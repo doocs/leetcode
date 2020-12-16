@@ -25,11 +25,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The length of <code>A</code> will be in the range&nbsp;[1, 30].</li>
-
     <li><code>A[i]</code> will be in the range of <code>[0, 10000]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

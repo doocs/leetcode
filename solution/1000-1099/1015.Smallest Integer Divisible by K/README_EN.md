@@ -45,9 +45,7 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= K &lt;= 10^5</code></li>
-
 </ul>
 
 ## Solutions

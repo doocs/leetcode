@@ -47,13 +47,9 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>A word is defined as a sequence of non-space characters.</li>
-
     <li>Input string may contain leading or trailing spaces. However, your reversed string should not contain leading or trailing spaces.</li>
-
     <li>You need to reduce multiple spaces between two words to a single space in the reversed string.</li>
-
 </ul>
 
 <p>&nbsp;</p>

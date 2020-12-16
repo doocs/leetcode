@@ -69,11 +69,8 @@ Number of water bottles you can&nbsp;drink: 15 + 3 + 1 = 19.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;=&nbsp;numBottles &lt;= 100</code></li>
-
     <li><code>2 &lt;=&nbsp;numExchange &lt;= 100</code></li>
-
 </ul>
 
 ## Solutions

@@ -11,11 +11,8 @@
 <p>Let&#39;s define <code>a</code> and <code>b</code> as follows:</p>
 
 <ul>
-
     <li><code>a = arr[i] ^ arr[i + 1] ^ ... ^ arr[j - 1]</code></li>
-
     <li><code>b = arr[j] ^ arr[j + 1] ^ ... ^ arr[k]</code></li>
-
 </ul>
 
 <p>Note that <strong>^</strong> denotes the <strong>bitwise-xor</strong> operation.</p>

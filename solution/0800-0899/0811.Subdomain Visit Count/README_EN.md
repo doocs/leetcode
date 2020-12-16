@@ -53,17 +53,11 @@ We will visit &quot;google.mail.com&quot; 900 times, &quot;yahoo.com&quot; 50 ti
 <p><strong>Notes: </strong></p>
 
 <ul>
-
     <li>The length of <code>cpdomains</code> will not exceed&nbsp;<code>100</code>.&nbsp;</li>
-
     <li>The length of each domain name will not exceed <code>100</code>.</li>
-
     <li>Each address will have either 1 or 2 &quot;.&quot; characters.</li>
-
     <li>The input count&nbsp;in any count-paired domain will not exceed <code>10000</code>.</li>
-
     <li>The answer output can be returned in any order.</li>
-
 </ul>
 
 ## Solutions

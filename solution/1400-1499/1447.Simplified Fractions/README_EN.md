@@ -53,9 +53,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 100</code></li>
-
 </ul>
 
 ## Solutions

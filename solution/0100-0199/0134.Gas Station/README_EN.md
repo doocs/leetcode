@@ -13,13 +13,9 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>If there exists a&nbsp;solution, it is guaranteed to be unique.</li>
-
     <li>Both input arrays are non-empty and have the same length.</li>
-
     <li>Each element in the input arrays is a non-negative integer.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

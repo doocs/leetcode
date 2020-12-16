@@ -11,11 +11,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>Your returned answers (both index1 and index2) are not zero-based.</li>
-
     <li>You may assume that each input would have <em>exactly</em> one solution and you may not use the <em>same</em> element twice.</li>
-
 </ul>
 
 <p><strong>Example:</strong></p>

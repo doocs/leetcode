@@ -11,19 +11,12 @@
 <p>Here are the rules of Tic-Tac-Toe:</p>
 
 <ul>
-
     <li>Players take turns placing characters into empty squares (&quot; &quot;).</li>
-
     <li>The first player always places &quot;X&quot; characters, while the second player always places &quot;O&quot; characters.</li>
-
     <li>&quot;X&quot; and &quot;O&quot; characters are always placed into empty squares, never filled ones.</li>
-
     <li>The game ends when there are 3 of the same (non-empty) character filling any row, column, or diagonal.</li>
-
     <li>The game also ends if all squares are non-empty.</li>
-
     <li>No more moves can be played if the game is over.</li>
-
 </ul>
 
 <pre>
@@ -67,11 +60,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>board</code> is a length-3 array of strings, where each string <code>board[i]</code> has length 3.</li>
-
     <li>Each <code>board[i][j]</code> is a character in the set <code>{&quot; &quot;, &quot;X&quot;, &quot;O&quot;}</code>.</li>
-
 </ul>
 
 ## Solutions

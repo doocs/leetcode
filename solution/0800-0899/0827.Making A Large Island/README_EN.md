@@ -45,11 +45,8 @@
 <p>Notes:</p>
 
 <ul>
-
     <li><code>1 &lt;= grid.length = grid[0].length &lt;= 50</code>.</li>
-
     <li><code>0 &lt;= grid[i][j] &lt;= 1</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -27,13 +27,9 @@
 <p><b>Follow up:</b></p>
 
 <ul>
-
     <li>It is very easy to come up with a solution with run time <b>O(n*sizeof(integer))</b>. But can you do it in linear time <b>O(n)</b> /possibly in a single pass?</li>
-
     <li>Space complexity should be <b>O(n)</b>.</li>
-
     <li>Can you do it like a boss? Do it without using any builtin function like <b>__builtin_popcount</b> in c++ or in any other language.</li>
-
 </ul>
 
 ## Solutions

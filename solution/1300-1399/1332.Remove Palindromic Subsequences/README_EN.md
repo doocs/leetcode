@@ -69,11 +69,8 @@ Remove palindromic subsequence &quot;baab&quot; then &quot;b&quot;.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>0 &lt;= s.length &lt;= 1000</code></li>
-
     <li><code>s</code> only consists of letters &#39;a&#39; and &#39;b&#39;</li>
-
 </ul>
 
 ## Solutions

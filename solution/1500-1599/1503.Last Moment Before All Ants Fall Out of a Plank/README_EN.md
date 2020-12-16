@@ -93,21 +93,13 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 10^4</code></li>
-
     <li><code>0 &lt;= left.length &lt;= n + 1</code></li>
-
     <li><code>0 &lt;= left[i] &lt;= n</code></li>
-
     <li><code>0 &lt;= right.length &lt;= n + 1</code></li>
-
     <li><code>0 &lt;= right[i] &lt;= n</code></li>
-
     <li><code>1 &lt;= left.length + right.length &lt;= n + 1</code></li>
-
     <li>All values of <code>left</code> and <code>right</code> are unique, and each value can appear <strong>only in one</strong> of the two arrays.</li>
-
 </ul>
 
 ## Solutions

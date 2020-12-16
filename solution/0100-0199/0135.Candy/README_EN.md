@@ -9,11 +9,8 @@
 <p>You are giving candies to these children subjected to the following requirements:</p>
 
 <ul>
-
     <li>Each child must have at least one candy.</li>
-
     <li>Children with a higher rating get more candies than their neighbors.</li>
-
 </ul>
 
 <p>What is the minimum candies you must give?</p>

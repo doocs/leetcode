@@ -7,11 +7,8 @@
 <p>Given a string <code>s</code>, return the maximum number of ocurrences of <strong>any</strong> substring&nbsp;under the following rules:</p>
 
 <ul>
-
     <li>The number of unique characters in the substring must be less than or equal to <code>maxLetters</code>.</li>
-
     <li>The substring size must be between <code>minSize</code> and <code>maxSize</code>&nbsp;inclusive.</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -67,15 +64,10 @@ It satisfies the conditions, 2 unique letters and size 3 (between minSize and ma
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= s.length &lt;= 10^5</code></li>
-
     <li><code>1 &lt;= maxLetters &lt;= 26</code></li>
-
     <li><code>1 &lt;= minSize &lt;= maxSize &lt;= min(26, s.length)</code></li>
-
     <li><code>s</code> only contains lowercase English letters.</li>
-
 </ul>
 
 ## Solutions

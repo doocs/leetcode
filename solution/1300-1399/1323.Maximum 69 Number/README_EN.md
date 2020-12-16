@@ -57,11 +57,8 @@ The maximum number is 9969.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= num &lt;= 10^4</code></li>
-
     <li><code>num</code>&#39;s digits are 6 or 9.</li>
-
 </ul>
 
 ## Solutions

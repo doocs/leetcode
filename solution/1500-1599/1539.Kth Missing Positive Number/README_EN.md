@@ -39,15 +39,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= arr.length &lt;= 1000</code></li>
-
     <li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
-
     <li><code>1 &lt;= k &lt;= 1000</code></li>
-
     <li><code>arr[i] &lt; arr[j]</code> for <code>1 &lt;= i &lt; j &lt;= arr.length</code></li>
-
 </ul>
 
 ## Solutions

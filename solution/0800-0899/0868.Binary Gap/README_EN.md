@@ -111,9 +111,7 @@ There aren&#39;t any consecutive pairs of 1&#39;s in the binary representation o
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= N &lt;= 10^9</code></li>
-
 </ul>
 
 </div>

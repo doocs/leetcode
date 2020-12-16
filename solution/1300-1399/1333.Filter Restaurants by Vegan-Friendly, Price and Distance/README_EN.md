@@ -65,19 +65,12 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;=&nbsp;restaurants.length &lt;= 10^4</code></li>
-
     <li><code>restaurants[i].length == 5</code></li>
-
     <li><code>1 &lt;=&nbsp;id<sub>i</sub>, rating<sub>i</sub>, price<sub>i</sub>, distance<sub>i </sub>&lt;= 10^5</code></li>
-
     <li><code>1 &lt;=&nbsp;maxPrice,&nbsp;maxDistance &lt;= 10^5</code></li>
-
     <li><code>veganFriendly<sub>i</sub></code> and&nbsp;<code>veganFriendly</code>&nbsp;are&nbsp;0 or 1.</li>
-
     <li>All <code>id<sub>i</sub></code> are distinct.</li>
-
 </ul>
 
 ## Solutions

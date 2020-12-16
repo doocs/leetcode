@@ -7,11 +7,8 @@
 <p>The power of an integer <code>x</code> is defined as the number of steps needed to transform&nbsp;<code>x</code> into <code>1</code> using the following steps:</p>
 
 <ul>
-
     <li>if <code>x</code> is even then <code>x = x / 2</code></li>
-
     <li>if <code>x</code> is odd then <code>x = 3 * x + 1</code></li>
-
 </ul>
 
 <p>For example, the power of x = 3 is 7 because 3 needs 7 steps to become 1 (3 --&gt; 10 --&gt; 5 --&gt; 16 --&gt; 8 --&gt; 4 --&gt; 2 --&gt; 1).</p>
@@ -97,11 +94,8 @@ The fourth number in the sorted array is 7.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= lo &lt;= hi &lt;= 1000</code></li>
-
     <li><code>1 &lt;= k &lt;= hi - lo + 1</code></li>
-
 </ul>
 
 ## Solutions

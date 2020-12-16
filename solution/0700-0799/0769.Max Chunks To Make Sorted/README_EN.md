@@ -43,11 +43,8 @@ However, splitting into [1, 0], [2], [3], [4] is the highest number of chunks po
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>arr</code> will have length in range <code>[1, 10]</code>.</li>
-
     <li><code>arr[i]</code> will be a permutation of <code>[0, 1, ..., arr.length - 1]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

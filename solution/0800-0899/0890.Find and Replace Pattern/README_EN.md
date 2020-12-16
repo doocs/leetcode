@@ -37,11 +37,8 @@ since a and b map to the same letter.</pre>
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= words.length &lt;= 50</code></li>
-
     <li><code>1 &lt;= pattern.length = words[i].length&nbsp;&lt;= 20</code></li>
-
 </ul>
 
 </div>

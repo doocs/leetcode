@@ -9,13 +9,9 @@
 <p>Train tickets are sold in 3 different ways:</p>
 
 <ul>
-
     <li>a 1-day pass is sold for <code>costs[0]</code> dollars;</li>
-
     <li>a 7-day pass is sold for <code>costs[1]</code> dollars;</li>
-
     <li>a 30-day pass is sold for <code>costs[2]</code> dollars.</li>
-
 </ul>
 
 <p>The passes allow that many days of consecutive travel.&nbsp; For example, if we get a 7-day pass on day 2, then we can travel for 7 days: day 2, 3, 4, 5, 6, 7, and 8.</p>

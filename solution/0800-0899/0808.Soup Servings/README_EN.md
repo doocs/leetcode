@@ -45,11 +45,8 @@ If we choose the first two operations, A will become empty first. For the third 
 <p><strong>Notes: </strong></p>
 
 <ul>
-
     <li><code>0 &lt;= N &lt;= 10^9</code>.&nbsp;</li>
-
     <li>Answers within&nbsp;<code>10^-6</code>&nbsp;of the true value will be accepted as correct.</li>
-
 </ul>
 
 ## Solutions

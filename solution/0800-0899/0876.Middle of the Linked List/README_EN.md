@@ -47,9 +47,7 @@ Since the list has two middle nodes with values 3 and 4, we return the second on
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The number of nodes in the given list will be between <code>1</code>&nbsp;and <code>100</code>.</li>
-
 </ul>
 
 </div>

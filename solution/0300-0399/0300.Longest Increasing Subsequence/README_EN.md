@@ -19,11 +19,8 @@
 <p><strong>Note: </strong></p>
 
 <ul>
-
     <li>There may be more than one LIS combination, it is only necessary for you to return the length.</li>
-
     <li>Your algorithm should run in O(<i>n<sup>2</sup></i>) complexity.</li>
-
 </ul>
 
 <p><b>Follow up:</b> Could you improve it to O(<i>n</i> log <i>n</i>) time complexity?</p>

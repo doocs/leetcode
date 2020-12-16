@@ -31,9 +31,7 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>S</code> will consist of lowercase letters and have length in range <code>[1, 500]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

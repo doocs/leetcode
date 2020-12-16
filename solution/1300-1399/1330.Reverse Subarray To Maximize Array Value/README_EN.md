@@ -39,11 +39,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 3*10^4</code></li>
-
     <li><code>-10^5 &lt;= nums[i] &lt;= 10^5</code></li>
-
 </ul>
 
 ## Solutions

@@ -11,13 +11,9 @@
 <p>Operations allowed:</p>
 
 <ul>
-
     <li>Fill any of the jugs completely with water.</li>
-
     <li>Empty any of the jugs.</li>
-
     <li>Pour water from one jug into another till the other jug is completely full or the first jug itself is empty.</li>
-
 </ul>
 
 <p><b>Example 1:</b> (From the famous <a href="https://www.youtube.com/watch?v=BVtQNK_ZUJg" target="_blank"><i>&quot;Die Hard&quot;</i> example</a>)</p>

@@ -33,13 +33,9 @@ The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= X &lt;=&nbsp;customers.length ==&nbsp;grumpy.length &lt;= 20000</code></li>
-
     <li><code>0 &lt;=&nbsp;customers[i] &lt;= 1000</code></li>
-
     <li><code>0 &lt;=&nbsp;grumpy[i] &lt;= 1</code></li>
-
 </ul>
 
 ## Solutions

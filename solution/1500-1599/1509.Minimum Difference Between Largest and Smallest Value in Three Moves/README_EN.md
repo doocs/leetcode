@@ -61,11 +61,8 @@ The difference between the maximum and minimum is 1-0 = 1.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
-
     <li><code>-10^9 &lt;= nums[i] &lt;= 10^9</code></li>
-
 </ul>
 
 ## Solutions

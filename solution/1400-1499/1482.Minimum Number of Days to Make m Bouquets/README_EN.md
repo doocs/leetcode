@@ -95,17 +95,11 @@ It is obvious that we can make two bouquets in different ways.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>bloomDay.length == n</code></li>
-
     <li><code>1 &lt;= n &lt;= 10^5</code></li>
-
     <li><code>1 &lt;= bloomDay[i] &lt;= 10^9</code></li>
-
     <li><code>1 &lt;= m &lt;= 10^6</code></li>
-
     <li><code>1 &lt;= k &lt;= n</code></li>
-
 </ul>
 
 ## Solutions

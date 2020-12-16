@@ -15,13 +15,9 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>A word is defined as a character sequence consisting&nbsp;of non-space characters only.</li>
-
     <li>Each word&#39;s length is&nbsp;guaranteed to be greater than 0 and not exceed <em>maxWidth</em>.</li>
-
     <li>The input array <code>words</code>&nbsp;contains at least one word.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

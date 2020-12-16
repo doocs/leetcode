@@ -51,13 +51,9 @@ If the divisor is 4 we can get a sum to 7 (1+1+2+3) and if the divisor is 5 the 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 5 * 10^4</code></li>
-
     <li><code>1 &lt;= nums[i] &lt;= 10^6</code></li>
-
     <li><code>nums.length &lt;=&nbsp;threshold &lt;= 10^6</code></li>
-
 </ul>
 
 ## Solutions

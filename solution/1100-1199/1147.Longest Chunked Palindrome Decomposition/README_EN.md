@@ -7,13 +7,9 @@
 <p>Return the largest possible <code>k</code>&nbsp;such that there exists&nbsp;<code>a_1, a_2, ..., a_k</code>&nbsp;such that:</p>
 
 <ul>
-
     <li>Each <code>a_i</code> is a non-empty string;</li>
-
     <li>Their concatenation <code>a_1 + a_2 + ... + a_k</code> is equal to <code>text</code>;</li>
-
     <li>For all <code>1 &lt;= i &lt;= k</code>,&nbsp;&nbsp;<code>a_i = a_{k+1 - i}</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -71,11 +67,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>text</code> consists only of lowercase English characters.</li>
-
     <li><code>1 &lt;= text.length &lt;= 1000</code></li>
-
 </ul>
 
 ## Solutions

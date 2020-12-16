@@ -93,19 +93,12 @@ There is a tie and we rank teams ascending by their IDs.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= votes.length &lt;= 1000</code></li>
-
     <li><code>1 &lt;= votes[i].length &lt;= 26</code></li>
-
     <li><code>votes[i].length ==&nbsp;votes[j].length</code> for&nbsp;<code>0 &lt;= i, j &lt; votes.length</code>.</li>
-
     <li><code>votes[i][j]</code> is an English <strong>upper-case</strong> letter.</li>
-
     <li>All characters of <code>votes[i]</code> are unique.</li>
-
     <li>All the characters&nbsp;that occur&nbsp;in <code>votes[0]</code> <strong>also&nbsp;occur</strong>&nbsp;in <code>votes[j]</code> where <code>1 &lt;= j &lt; votes.length</code>.</li>
-
 </ul>
 
 ## Solutions

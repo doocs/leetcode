@@ -55,13 +55,9 @@
 <p><b>Note:</b></p>
 
 <ul>
-
     <li><code>1 &lt;= positions.length &lt;= 1000</code>.</li>
-
     <li><code>1 &lt;= positions[i][0] &lt;= 10^8</code>.</li>
-
     <li><code>1 &lt;= positions[i][1] &lt;= 10^6</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -51,11 +51,8 @@ Then, delete 3 again to earn 3 points, and 3 again to earn 3 points.
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>The length of <code>nums</code> is at most <code>20000</code>.</li>
-
     <li>Each element <code>nums[i]</code> is an integer in the range <code>[1, 10000]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

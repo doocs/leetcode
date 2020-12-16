@@ -27,13 +27,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= bookings.length &lt;= 20000</code></li>
-
     <li><code>1 &lt;= bookings[i][0] &lt;= bookings[i][1] &lt;= n &lt;= 20000</code></li>
-
     <li><code>1 &lt;= bookings[i][2] &lt;= 10000</code></li>
-
 </ul>
 
 ## Solutions

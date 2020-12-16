@@ -9,17 +9,11 @@
 <p>Return the maximum amount of gold you&nbsp;can collect under the conditions:</p>
 
 <ul>
-
     <li>Every time you are located in a cell you will collect all the gold in that cell.</li>
-
     <li>From your position you can walk one step to the left, right, up or down.</li>
-
     <li>You can&#39;t visit the same cell more than once.</li>
-
     <li>Never visit a cell with&nbsp;<code>0</code> gold.</li>
-
     <li>You can start and stop collecting gold from&nbsp;<strong>any </strong>position in the grid that has some gold.</li>
-
 </ul>
 
 <p>&nbsp;</p>

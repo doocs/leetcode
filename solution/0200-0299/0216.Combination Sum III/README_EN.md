@@ -11,11 +11,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>All numbers will be positive integers.</li>
-
     <li>The solution set must not contain duplicate combinations.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

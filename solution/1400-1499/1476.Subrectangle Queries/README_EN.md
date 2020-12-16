@@ -9,17 +9,13 @@
 <p>1.<code>&nbsp;updateSubrectangle(int row1, int col1, int row2, int col2, int newValue)</code></p>
 
 <ul>
-
     <li>Updates all values with <code>newValue</code> in the subrectangle whose upper left coordinate is <code>(row1,col1)</code> and bottom right coordinate is <code>(row2,col2)</code>.</li>
-
 </ul>
 
 <p>2.<code>&nbsp;getValue(int row, int col)</code></p>
 
 <ul>
-
     <li>Returns the current value of the coordinate <code>(row,col)</code> from&nbsp;the rectangle.</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -125,25 +121,15 @@ subrectangleQueries.getValue(2, 2); // return 20
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li>There will be at most <code><font face="monospace">500</font></code>&nbsp;operations considering both methods:&nbsp;<code>updateSubrectangle</code> and <code>getValue</code>.</li>
-
     <li><code>1 &lt;= rows, cols &lt;= 100</code></li>
-
     <li><code>rows ==&nbsp;rectangle.length</code></li>
-
     <li><code>cols == rectangle[i].length</code></li>
-
     <li><code>0 &lt;= row1 &lt;= row2 &lt; rows</code></li>
-
     <li><code>0 &lt;= col1 &lt;= col2 &lt; cols</code></li>
-
     <li><code>1 &lt;= newValue, rectangle[i][j] &lt;= 10^9</code></li>
-
     <li><code>0 &lt;= row &lt; rows</code></li>
-
     <li><code>0 &lt;= col &lt; cols</code></li>
-
 </ul>
 
 ## Solutions

@@ -35,13 +35,9 @@ The third fraction is 2/5.
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>A</code> will have length between <code>2</code> and <code>2000</code>.</li>
-
     <li>Each <code>A[i]</code> will be between <code>1</code> and <code>30000</code>.</li>
-
     <li><code>K</code> will be between <code>1</code> and <code>A.length * (A.length - 1) / 2</code>.</li>
-
 </ul>
 
 ## Solutions

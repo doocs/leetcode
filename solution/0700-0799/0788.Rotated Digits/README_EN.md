@@ -29,9 +29,7 @@ Note that 1 and 10 are not good numbers, since they remain unchanged after rotat
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>N&nbsp; will be in range <code>[1, 10000]</code>.</li>
-
 </ul>
 
 ## Solutions

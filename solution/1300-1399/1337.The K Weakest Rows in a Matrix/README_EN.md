@@ -87,17 +87,11 @@ Rows ordered from the weakest to the strongest are [0,2,3,1]
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>m == mat.length</code></li>
-
     <li><code>n == mat[i].length</code></li>
-
     <li><code><font face="monospace">2 &lt;= n, m &lt;= 100</font></code></li>
-
     <li><code>1 &lt;= k &lt;= m</code></li>
-
     <li><code>matrix[i][j]</code> is either 0 <strong>or</strong> 1.</li>
-
 </ul>
 
 ## Solutions

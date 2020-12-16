@@ -33,9 +33,7 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>K</code> will be an integer in the range <code>[0, 10^9]</code>.</li>
-
 </ul>
 
 ## Solutions

@@ -49,17 +49,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>m == mat.length</code></li>
-
     <li><code>n == mat[i].length</code></li>
-
     <li><code>1 &lt;= n, m &lt;= 50</code></li>
-
     <li><code>1 &lt;=&nbsp;matrix[i][j]&nbsp;&lt;= 10^5</code>.</li>
-
     <li>All elements in the matrix are distinct.</li>
-
 </ul>
 
 ## Solutions

@@ -7,11 +7,8 @@
 <p>Given two integers <code>tomatoSlices</code>&nbsp;and <code>cheeseSlices</code>. The ingredients of different burgers are as follows:</p>
 
 <ul>
-
     <li><strong>Jumbo Burger:</strong> 4 tomato slices&nbsp;and 1 cheese slice.</li>
-
     <li><strong>Small Burger:</strong> 2 Tomato slices&nbsp;and 1 cheese slice.</li>
-
 </ul>
 
 <p>Return <code>[total_jumbo, total_small]</code> so that the number of remaining <code>tomatoSlices</code>&nbsp;equal to 0 and the number of remaining <code>cheeseSlices</code> equal to 0. If it is not possible to make the remaining <code>tomatoSlices</code>&nbsp;and <code>cheeseSlices</code> equal to 0 return <code>[]</code>.</p>
@@ -79,11 +76,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>0 &lt;= tomatoSlices &lt;= 10^7</code></li>
-
     <li><code>0 &lt;= cheeseSlices &lt;= 10^7</code></li>
-
 </ul>
 
 ## Solutions

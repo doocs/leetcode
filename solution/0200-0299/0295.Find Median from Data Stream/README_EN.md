@@ -15,11 +15,8 @@ For example,
 <p>Design a data structure that supports the following two operations:</p>
 
 <ul>
-
     <li>void addNum(int num) - Add a integer number from the data stream to the data structure.</li>
-
     <li>double findMedian() - Return the median of all elements so far.</li>
-
 </ul>
 
 <p>&nbsp;</p>

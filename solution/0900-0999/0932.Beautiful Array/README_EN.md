@@ -39,9 +39,7 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= N &lt;= 1000</code></li>
-
 </ul>
 
 <div>

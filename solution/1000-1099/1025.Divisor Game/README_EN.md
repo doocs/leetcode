@@ -9,11 +9,8 @@
 <p>Initially, there is a number <code>N</code>&nbsp;on the chalkboard.&nbsp; On each player&#39;s turn, that player makes a <em>move</em>&nbsp;consisting of:</p>
 
 <ul>
-
     <li>Choosing&nbsp;any <code>x</code> with <code>0 &lt; x &lt; N</code> and <code>N % x == 0</code>.</li>
-
     <li>Replacing&nbsp;the number&nbsp;<code>N</code>&nbsp;on the chalkboard with <code>N - x</code>.</li>
-
 </ul>
 
 <p>Also, if a player cannot make a move, they lose the game.</p>

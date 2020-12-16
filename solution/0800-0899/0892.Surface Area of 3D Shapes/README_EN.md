@@ -93,11 +93,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= N &lt;= 50</code></li>
-
     <li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
-
 </ul>
 
 </div>

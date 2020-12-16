@@ -31,11 +31,8 @@
 <p><b>Note: </b></p>
 
 <ul>
-
     <li>You may assume <i>k</i> is always valid, 1 &le; <i>k</i> &le; number of unique elements.</li>
-
     <li>Your algorithm&#39;s time complexity <b>must be</b> better than O(<i>n</i> log <i>n</i>), where <i>n</i> is the array&#39;s size.</li>
-
 </ul>
 
 ## Solutions

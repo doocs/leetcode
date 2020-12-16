@@ -89,11 +89,8 @@ Since not every customer received correct change, the answer is false.
 <p><strong><span>Note:</span></strong></p>
 
 <ul>
-
     <li><code>0 &lt;= bills.length &lt;= 10000</code></li>
-
     <li><code>bills[i]</code>&nbsp;will be either&nbsp;<code>5</code>, <code>10</code>, or <code>20</code>.</li>
-
 </ul>
 
 </div>

@@ -33,11 +33,8 @@ If Alice erases 2 first, now nums becomes [1, 1]. The bitwise XOR of all the ele
 <p><strong>Notes: </strong></p>
 
 <ul>
-
     <li><code>1 &lt;= N &lt;= 1000</code>.&nbsp;</li>
-
     <li><code>0 &lt;= nums[i] &lt;= 2^16</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

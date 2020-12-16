@@ -7,13 +7,9 @@
 <p>Given a balanced parentheses string <code>S</code>, compute the score of the string based on the following rule:</p>
 
 <ul>
-
     <li><code>()</code> has score 1</li>
-
     <li><code>AB</code> has score <code>A + B</code>, where A and B are balanced parentheses strings.</li>
-
     <li><code>(A)</code> has score <code>2 * A</code>, where A is a balanced parentheses string.</li>
-
 </ul>
 
 <p>&nbsp;</p>

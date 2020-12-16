@@ -29,13 +29,9 @@ We could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicograph
 <p><b>Note:</b></p>
 
 <ul>
-
     <li><code>nums.length</code> will be between 1 and 20000.</li>
-
     <li><code>nums[i]</code> will be between 1 and 65535.</li>
-
     <li><code>k</code> will be between 1 and floor(nums.length / 3).</li>
-
 </ul>
 
 <p>&nbsp;</p>

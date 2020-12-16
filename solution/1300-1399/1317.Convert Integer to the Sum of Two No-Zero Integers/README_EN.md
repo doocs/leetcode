@@ -9,11 +9,8 @@
 <p>Return <em>a list of two integers</em> <code>[A, B]</code> where:</p>
 
 <ul>
-
     <li><code>A</code> and <code>B</code> are No-Zero integers.</li>
-
     <li><code>A + B = n</code></li>
-
 </ul>
 
 <p>It&#39;s guarateed that there is at least one valid solution. If there are many valid solutions you can return any of them.</p>
@@ -77,9 +74,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>2 &lt;= n &lt;= 10^4</code></li>
-
 </ul>
 
 ## Solutions

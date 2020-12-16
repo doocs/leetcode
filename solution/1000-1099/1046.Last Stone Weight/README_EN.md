@@ -9,11 +9,8 @@
 <p>Each turn, we choose the two <strong>heaviest</strong>&nbsp;rocks&nbsp;and smash them together.&nbsp; Suppose the stones have weights <code>x</code> and <code>y</code> with <code>x &lt;= y</code>.&nbsp; The result of this smash is:</p>
 
 <ul>
-
     <li>If <code>x == y</code>, both stones are totally destroyed;</li>
-
     <li>If <code>x != y</code>, the stone of weight <code>x</code> is totally destroyed, and the stone of weight <code>y</code> has new weight <code>y-x</code>.</li>
-
 </ul>
 
 <p>At the end, there is at most 1 stone left.&nbsp; Return the weight of this stone (or 0 if there are no stones left.)</p>

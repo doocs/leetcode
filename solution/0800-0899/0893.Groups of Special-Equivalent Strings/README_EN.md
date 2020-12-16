@@ -73,15 +73,10 @@ The other two groups are [&quot;xyzz&quot;, &quot;zzxy&quot;] and [&quot;zzyx&qu
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= A.length &lt;= 1000</code></li>
-
     <li><code>1 &lt;= A[i].length &lt;= 20</code></li>
-
     <li>All <code>A[i]</code> have the same length.</li>
-
     <li>All <code>A[i]</code> consist of only lowercase letters.</li>
-
 </ul>
 
 </div>

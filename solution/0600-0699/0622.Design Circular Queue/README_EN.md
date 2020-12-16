@@ -11,21 +11,13 @@
 <p>Your implementation should support following operations:</p>
 
 <ul>
-
     <li><code>MyCircularQueue(k)</code>: Constructor, set the size of the queue to be k.</li>
-
     <li><code>Front</code>: Get the front item from the queue. If the queue is empty, return -1.</li>
-
     <li><code>Rear</code>: Get the last item from the queue. If the queue is empty, return -1.</li>
-
     <li><code>enQueue(value)</code>: Insert an element into the circular queue. Return true if the operation is successful.</li>
-
     <li><code>deQueue()</code>: Delete an element from the circular queue. Return true if the operation is successful.</li>
-
     <li><code>isEmpty()</code>: Checks whether the circular queue is empty or not.</li>
-
     <li><code>isFull()</code>: Checks whether the circular queue is full or not.</li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -9,11 +9,8 @@
 <p>Then, we choose&nbsp;a subset <code>S</code> of these items, such that:</p>
 
 <ul>
-
     <li><code>|S| &lt;= num_wanted</code></li>
-
     <li>For every label <code>L</code>, the number of items in <code>S</code> with&nbsp;label <code>L</code> is <code>&lt;= use_limit</code>.</li>
-
 </ul>
 
 <p>Return the largest possible sum of the subset <code>S</code>.</p>

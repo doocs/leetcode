@@ -69,11 +69,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= s.length &lt;= 500</code></li>
-
     <li><code>s</code> contains only lowercase English letters.</li>
-
 </ul>
 
 ## Solutions

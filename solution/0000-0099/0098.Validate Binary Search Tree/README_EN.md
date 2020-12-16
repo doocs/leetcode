@@ -9,13 +9,9 @@
 <p>Assume a BST is defined as follows:</p>
 
 <ul>
-
     <li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node&#39;s key.</li>
-
     <li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node&#39;s key.</li>
-
     <li>Both the left and right subtrees must also be binary search trees.</li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -17,13 +17,9 @@
 <p>Then, the game can end in 3 ways:</p>
 
 <ul>
-
     <li>If ever the Cat occupies the same node as the Mouse, the Cat wins.</li>
-
     <li>If ever the Mouse reaches the Hole, the Mouse wins.</li>
-
     <li>If ever a position is repeated (ie.&nbsp;the players are in the same position as a previous turn, and&nbsp;it is the same player&#39;s turn to move), the game is a draw.</li>
-
 </ul>
 
 <p>Given a <code>graph</code>, and assuming both players play optimally, return <code>1</code>&nbsp;if the game is won by Mouse, <code>2</code>&nbsp;if the game is won by Cat, and <code>0</code>&nbsp;if the game is a draw.</p>

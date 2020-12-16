@@ -93,15 +93,10 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>A Sudoku board (partially filled) could be valid but is not necessarily solvable.</li>
-
     <li>Only the filled cells need to be validated according to the mentioned&nbsp;rules.</li>
-
     <li>The given board&nbsp;contain only digits <code>1-9</code> and the character <code>&#39;.&#39;</code>.</li>
-
     <li>The given board size is always <code>9x9</code>.</li>
-
 </ul>
 
 ## Solutions

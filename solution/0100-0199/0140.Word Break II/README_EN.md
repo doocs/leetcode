@@ -9,11 +9,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The same word in the dictionary may be reused multiple times in the segmentation.</li>
-
     <li>You may assume the dictionary does not contain duplicate words.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

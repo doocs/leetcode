@@ -71,11 +71,8 @@ No matter what sequence of moves you make, you cannot end with a valid chessboar
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>board</code> will have the same number of rows and columns, a number in the range <code>[2, 30]</code>.</li>
-
     <li><code>board[i][j]</code> will be only <code>0</code>s or <code>1</code>s.</li>
-
 </ul>
 
 ## Solutions

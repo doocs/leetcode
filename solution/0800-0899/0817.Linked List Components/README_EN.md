@@ -49,15 +49,10 @@ G = [0, 3, 1, 4]
 <p><strong>Note: </strong></p>
 
 <ul>
-
     <li>If&nbsp;<code>N</code>&nbsp;is the&nbsp;length of the linked list given by&nbsp;<code>head</code>,&nbsp;<code>1 &lt;= N &lt;= 10000</code>.</li>
-
     <li>The value of each node in the linked list will be in the range<code> [0, N - 1]</code>.</li>
-
     <li><code>1 &lt;= G.length &lt;= 10000</code>.</li>
-
     <li><code>G</code> is a subset of all values in the linked list.</li>
-
 </ul>
 
 ## Solutions

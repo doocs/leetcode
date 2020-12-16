@@ -9,11 +9,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The number of elements initialized in <em>nums1</em> and <em>nums2</em> are <em>m</em> and <em>n</em> respectively.</li>
-
     <li>You may assume that <em>nums1</em> has enough space (size that is greater or equal to <em>m</em> + <em>n</em>) to hold additional elements from <em>nums2</em>.</li>
-
 </ul>
 
 <p><strong>Example:</strong></p>

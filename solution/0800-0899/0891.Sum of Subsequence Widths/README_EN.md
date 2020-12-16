@@ -39,11 +39,8 @@ The sum of these widths is 6.
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= A.length &lt;= 20000</code></li>
-
     <li><code>1 &lt;= A[i] &lt;= 20000</code></li>
-
 </ul>
 
 </div>

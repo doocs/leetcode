@@ -31,11 +31,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>This is a follow up problem to&nbsp;<a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/">Find Minimum in Rotated Sorted Array</a>.</li>
-
     <li>Would allow duplicates affect the run-time complexity? How and why?</li>
-
 </ul>
 
 ## Solutions

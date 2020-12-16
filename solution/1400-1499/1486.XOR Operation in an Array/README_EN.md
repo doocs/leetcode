@@ -61,13 +61,9 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 1000</code></li>
-
     <li><code>0 &lt;= start &lt;= 1000</code></li>
-
     <li><code>n == nums.length</code></li>
-
 </ul>
 
 ## Solutions

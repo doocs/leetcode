@@ -69,17 +69,11 @@ Number of Permutations of (1,2,3,4) = 24.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>n == hats.length</code></li>
-
     <li><code>1 &lt;= n &lt;= 10</code></li>
-
     <li><code>1 &lt;= hats[i].length &lt;= 40</code></li>
-
     <li><code>1 &lt;= hats[i][j] &lt;= 40</code></li>
-
     <li><code>hats[i]</code> contains a list of <strong>unique</strong> integers.</li>
-
 </ul>
 
 ## Solutions

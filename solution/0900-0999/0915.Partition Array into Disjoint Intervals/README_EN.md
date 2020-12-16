@@ -7,13 +7,9 @@
 <p>Given an array <code>A</code>, partition it&nbsp;into two (contiguous) subarrays&nbsp;<code>left</code>&nbsp;and <code>right</code>&nbsp;so that:</p>
 
 <ul>
-
     <li>Every element in <code>left</code>&nbsp;is less than or equal to every element in <code>right</code>.</li>
-
     <li><code>left</code> and <code>right</code> are non-empty.</li>
-
     <li><code>left</code>&nbsp;has the smallest possible size.</li>
-
 </ul>
 
 <p>Return the <strong>length</strong> of <code>left</code> after such a partitioning.&nbsp; It is guaranteed that such a partitioning exists.</p>

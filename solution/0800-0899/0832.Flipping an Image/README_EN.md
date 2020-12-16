@@ -41,11 +41,8 @@ Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 <p><strong>Notes:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= A.length = A[0].length &lt;= 20</code></li>
-
     <li><code>0 &lt;= A[i][j]<font face="sans-serif, Arial, Verdana, Trebuchet MS">&nbsp;&lt;=&nbsp;</font>1</code></li>
-
 </ul>
 
 ## Solutions

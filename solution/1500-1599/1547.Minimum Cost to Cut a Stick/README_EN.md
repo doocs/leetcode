@@ -55,15 +55,10 @@ There are much ordering with total cost &lt;= 25, for example, the order [4, 6, 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>2 &lt;= n &lt;= 10^6</code></li>
-
     <li><code>1 &lt;= cuts.length &lt;= min(n - 1, 100)</code></li>
-
     <li><code>1 &lt;= cuts[i] &lt;= n - 1</code></li>
-
     <li>All the integers in <code>cuts</code>&nbsp;array are <strong>distinct</strong>.</li>
-
 </ul>
 
 ## Solutions

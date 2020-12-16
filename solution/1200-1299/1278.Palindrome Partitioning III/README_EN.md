@@ -7,11 +7,8 @@
 <p>You are given a string&nbsp;<code>s</code> containing lowercase letters and an integer <code>k</code>. You need to :</p>
 
 <ul>
-
     <li>First, change some characters of <code>s</code>&nbsp;to other lowercase English letters.</li>
-
     <li>Then divide <code>s</code>&nbsp;into <code>k</code> non-empty disjoint substrings such that each substring is palindrome.</li>
-
 </ul>
 
 <p>Return the minimal number of characters that you need to change&nbsp;to divide the string.</p>
@@ -55,11 +52,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= k &lt;= s.length &lt;= 100</code>.</li>
-
     <li><code>s</code>&nbsp;only contains lowercase English letters.</li>
-
 </ul>
 
 ## Solutions

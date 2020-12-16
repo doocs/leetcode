@@ -19,11 +19,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>s</code>&nbsp;could be empty and contains only lowercase letters <code>a-z</code>.</li>
-
     <li><code>p</code> could be empty and contains only lowercase letters <code>a-z</code>, and characters like <code><font face="monospace">?</font></code>&nbsp;or&nbsp;<code>*</code>.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

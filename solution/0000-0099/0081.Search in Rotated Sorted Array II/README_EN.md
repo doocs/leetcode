@@ -31,11 +31,8 @@
 <p><strong>Follow up:</strong></p>
 
 <ul>
-
     <li>This is a follow up problem to&nbsp;<a href="/problems/search-in-rotated-sorted-array/description/">Search in Rotated Sorted Array</a>, where <code>nums</code> may contain duplicates.</li>
-
     <li>Would this affect the run-time complexity? How and why?</li>
-
 </ul>
 
 ## Solutions

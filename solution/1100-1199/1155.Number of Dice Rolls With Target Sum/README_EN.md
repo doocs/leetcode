@@ -87,11 +87,8 @@ The answer must be returned modulo 10^9 + 7.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= d, f &lt;= 30</code></li>
-
     <li><code>1 &lt;= target &lt;= 1000</code></li>
-
 </ul>
 
 ## Solutions

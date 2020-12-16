@@ -51,11 +51,8 @@ eg. [10, 20), [10, 40), and [5, 15) are still triple booked.
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>The number of calls to <code>MyCalendarThree.book</code> per test case will be at most <code>400</code>.</li>
-
     <li>In calls to <code>MyCalendarThree.book(start, end)</code>, <code>start</code> and <code>end</code> are integers in the range <code>[0, 10^9]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

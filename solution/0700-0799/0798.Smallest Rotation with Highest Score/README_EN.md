@@ -55,11 +55,8 @@ So we will choose the smallest K, which is 0.
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>A</code>&nbsp;will have&nbsp;length at most <code>20000</code>.</li>
-
     <li><code>A[i]</code> will be in the range <code>[0, A.length]</code>.</li>
-
 </ul>
 
 ## Solutions

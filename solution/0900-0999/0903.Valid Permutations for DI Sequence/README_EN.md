@@ -9,11 +9,8 @@
 <p>A&nbsp;<em>valid permutation</em>&nbsp;is a permutation <code>P[0], P[1], ..., P[n]</code> of integers&nbsp;<code>{0, 1, ..., n}</code>, such that for all <code>i</code>:</p>
 
 <ul>
-
     <li>If <code>S[i] == &#39;D&#39;</code>, then <code>P[i] &gt; P[i+1]</code>, and;</li>
-
     <li>If <code>S[i] == &#39;I&#39;</code>, then <code>P[i] &lt; P[i+1]</code>.</li>
-
 </ul>
 
 <p>How many valid permutations are there?&nbsp; Since the answer may be large, <strong>return your answer modulo <code>10^9 + 7</code></strong>.</p>

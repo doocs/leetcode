@@ -9,13 +9,9 @@
 <p>&nbsp;</p>
 
 <ul>
-
     <li>0 means the cell is empty, so you can pass through;</li>
-
     <li>1 means the cell contains a cherry, that you can pick up and pass through;</li>
-
     <li>-1 means the cell contains a thorn that blocks your way.</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -25,15 +21,10 @@
 <p>&nbsp;</p>
 
 <ul>
-
     <li>Starting at the position (0, 0) and reaching (N-1, N-1) by moving right or down through valid path cells (cells with value 0 or 1);</li>
-
     <li>After reaching (N-1, N-1), returning to (0, 0) by moving left or up through valid path cells;</li>
-
     <li>When passing through a path cell containing a cherry, you pick it up and the cell becomes an empty cell (0);</li>
-
     <li>If there is no valid path between (0, 0) and (N-1, N-1), then no cherries can be collected.</li>
-
 </ul>
 
 <p>&nbsp;</p>

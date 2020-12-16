@@ -7,11 +7,8 @@
 <p>Write an efficient algorithm that searches for a value in an <em>m</em> x <em>n</em> matrix. This matrix has the following properties:</p>
 
 <ul>
-
     <li>Integers in each row are sorted from left to right.</li>
-
     <li>The first integer of each row is greater than the last integer of the previous row.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

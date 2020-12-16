@@ -29,11 +29,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>Given <em>n</em> will be between 1 and 9 inclusive.</li>
-
     <li>Given&nbsp;<em>k</em>&nbsp;will be between 1 and <em>n</em>! inclusive.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

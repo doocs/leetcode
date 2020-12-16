@@ -63,15 +63,10 @@ We cannot find a way to divide the set of nodes into two independent subsets.
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>graph</code> will have length in range <code>[1, 100]</code>.</li>
-
     <li><code>graph[i]</code> will contain integers in range <code>[0, graph.length - 1]</code>.</li>
-
     <li><code>graph[i]</code> will not contain <code>i</code> or duplicate values.</li>
-
     <li>The graph is undirected: if any element <code>j</code> is in <code>graph[i]</code>, then <code>i</code> will be in <code>graph[j]</code>.</li>
-
 </ul>
 
 ## Solutions

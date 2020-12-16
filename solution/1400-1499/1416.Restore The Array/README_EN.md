@@ -77,13 +77,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= s.length &lt;= 10^5</code>.</li>
-
     <li><code>s</code> consists of only digits and doesn&#39;t contain leading zeros.</li>
-
     <li><code>1 &lt;= k &lt;= 10^9</code>.</li>
-
 </ul>
 
 ## Solutions

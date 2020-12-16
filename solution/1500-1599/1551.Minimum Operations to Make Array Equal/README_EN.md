@@ -43,9 +43,7 @@ In the second operation choose x = 2 and y = 0 again, thus arr = [3, 3, 3].
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 10^4</code></li>
-
 </ul>
 
 ## Solutions

@@ -45,13 +45,9 @@ There are 2 different transformations, &quot;--...-.&quot; and &quot;--...--.&qu
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The length of <code>words</code> will be at most <code>100</code>.</li>
-
     <li>Each <code>words[i]</code> will have length in range <code>[1, 12]</code>.</li>
-
     <li><code>words[i]</code> will only consist of lowercase letters.</li>
-
 </ul>
 
 ## Solutions

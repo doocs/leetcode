@@ -39,11 +39,8 @@ The third event can be booked, as the first event takes every time less than 20,
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>The number of calls to <code>MyCalendar.book</code> per test case will be at most <code>1000</code>.</li>
-
     <li>In calls to <code>MyCalendar.book(start, end)</code>, <code>start</code> and <code>end</code> are integers in the range <code>[0, 10^9]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

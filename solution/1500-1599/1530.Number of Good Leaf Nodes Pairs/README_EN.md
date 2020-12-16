@@ -75,13 +75,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li>The number of nodes in the&nbsp;<code>tree</code>&nbsp;is in the range&nbsp;<code>[1, 2^10].</code></li>
-
     <li>Each node&#39;s value is between&nbsp;<code>[1, 100]</code>.</li>
-
     <li><code>1 &lt;= distance &lt;= 10</code></li>
-
 </ul>
 
 ## Solutions

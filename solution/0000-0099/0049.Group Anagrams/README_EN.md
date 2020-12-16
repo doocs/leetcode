@@ -27,11 +27,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>All inputs will be in lowercase.</li>
-
     <li>The order of your output does not&nbsp;matter.</li>
-
 </ul>
 
 ## Solutions

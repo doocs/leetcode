@@ -17,11 +17,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>Only the space character <code>&#39; &#39;</code> is considered as whitespace character.</li>
-
     <li>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [&minus;2<sup>31</sup>,&nbsp; 2<sup>31&nbsp;</sup>&minus; 1]. If the numerical value is out of the range of representable values, INT_MAX (2<sup>31&nbsp;</sup>&minus; 1) or INT_MIN (&minus;2<sup>31</sup>) is returned.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

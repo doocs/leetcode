@@ -27,13 +27,9 @@
 <p><strong>Notes:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= difficulty.length = profit.length &lt;= 10000</code></li>
-
     <li><code>1 &lt;= worker.length &lt;= 10000</code></li>
-
     <li><code>difficulty[i], profit[i], worker[i]</code>&nbsp; are in range&nbsp;<code>[1, 10^5]</code></li>
-
 </ul>
 
 ## Solutions

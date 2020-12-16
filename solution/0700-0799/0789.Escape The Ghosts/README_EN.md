@@ -69,11 +69,8 @@ The ghost can reach the target at the same time as you.
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>All points have coordinates with absolute value &lt;= <code>10000</code>.</li>
-
     <li>The number of ghosts will not exceed <code>100</code>.</li>
-
 </ul>
 
 ## Solutions

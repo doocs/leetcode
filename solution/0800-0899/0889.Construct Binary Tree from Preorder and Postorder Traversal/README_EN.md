@@ -27,13 +27,9 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ul>
-
     <li><code>1 &lt;= pre.length == post.length &lt;= 30</code></li>
-
     <li><code>pre[]</code> and <code>post[]</code>&nbsp;are both permutations of <code>1, 2, ..., pre.length</code>.</li>
-
     <li>It is guaranteed an answer exists. If there exists multiple answers, you can return any of them.</li>
-
 </ul>
 
 </div>

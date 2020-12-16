@@ -31,13 +31,9 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The given board&nbsp;contain only digits <code>1-9</code> and the character <code>&#39;.&#39;</code>.</li>
-
     <li>You may assume that the given Sudoku puzzle will have a single unique solution.</li>
-
     <li>The given board size is always <code>9x9</code>.</li>
-
 </ul>
 
 ## Solutions

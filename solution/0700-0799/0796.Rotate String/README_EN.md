@@ -29,9 +29,7 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>A</code> and <code>B</code> will have length at most <code>100</code>.</li>
-
 </ul>
 
 ## Solutions

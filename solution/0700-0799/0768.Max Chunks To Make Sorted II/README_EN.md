@@ -47,11 +47,8 @@ However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks po
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>arr</code> will have length in range <code>[1, 2000]</code>.</li>
-
     <li><code>arr[i]</code> will be an integer in range <code>[0, 10**8]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -7,15 +7,10 @@
 <p>Implement the following operations of a queue using stacks.</p>
 
 <ul>
-
     <li>push(x) -- Push element x to the back of queue.</li>
-
     <li>pop() -- Removes the element from in front of queue.</li>
-
     <li>peek() -- Get the front element.</li>
-
     <li>empty() -- Return whether the queue is empty.</li>
-
 </ul>
 
 <p><b>Example:</b></p>

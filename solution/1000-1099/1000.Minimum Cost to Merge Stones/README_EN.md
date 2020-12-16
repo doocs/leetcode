@@ -77,13 +77,9 @@ The total cost was 25, and this is the minimum possible.
 <p><strong><span>Note:</span></strong></p>
 
 <ul>
-
     <li><code><span>1 &lt;= stones.length &lt;= 30</span></code></li>
-
     <li><code><span>2 &lt;= K &lt;= 30</span></code></li>
-
     <li><code><span>1 &lt;= stones[i] &lt;= 100</span></code></li>
-
 </ul>
 
 </div>

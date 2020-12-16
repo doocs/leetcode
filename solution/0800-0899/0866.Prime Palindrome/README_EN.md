@@ -61,11 +61,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= N &lt;= 10^8</code></li>
-
     <li>The answer is guaranteed to exist and be less than <code>2 * 10^8</code>.</li>
-
 </ul>
 
 ## Solutions

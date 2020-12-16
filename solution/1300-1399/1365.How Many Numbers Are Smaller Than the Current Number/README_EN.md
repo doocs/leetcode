@@ -57,11 +57,8 @@ For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>2 &lt;= nums.length &lt;= 500</code></li>
-
     <li><code>0 &lt;= nums[i] &lt;= 100</code></li>
-
 </ul>
 
 ## Solutions

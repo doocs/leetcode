@@ -31,11 +31,8 @@
 <p><strong>Follow up:</strong></p>
 
 <ul>
-
     <li>This is a follow up problem to&nbsp;<a href="/problems/h-index/description/">H-Index</a>, where <code>citations</code> is now guaranteed to be sorted in ascending order.</li>
-
     <li>Could you solve it in logarithmic time complexity?</li>
-
 </ul>
 
 ## Solutions

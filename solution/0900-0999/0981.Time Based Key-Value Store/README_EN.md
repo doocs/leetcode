@@ -9,21 +9,15 @@
 <p>1. <code>set(string key, string value, int timestamp)</code></p>
 
 <ul>
-
     <li>Stores the <code>key</code> and <code>value</code>, along with the given <code>timestamp</code>.</li>
-
 </ul>
 
 <p>2. <code>get(string key, int timestamp)</code></p>
 
 <ul>
-
     <li>Returns a value such that <code>set(key, value, timestamp_prev)</code> was called previously, with <code>timestamp_prev &lt;= timestamp</code>.</li>
-
     <li>If there are multiple such values, it returns the one with the largest <code>timestamp_prev</code>.</li>
-
     <li>If there are no values, it returns the empty string (<code>&quot;&quot;</code>).</li>
-
 </ul>
 
 <p>&nbsp;</p>

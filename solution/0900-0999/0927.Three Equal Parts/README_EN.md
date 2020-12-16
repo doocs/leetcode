@@ -9,15 +9,10 @@
 <p>If it is possible, return <strong>any</strong> <code>[i, j]</code>&nbsp;with <code>i+1 &lt; j</code>, such that:</p>
 
 <ul>
-
     <li><code>A[0], A[1], ..., A[i]</code> is the first part;</li>
-
     <li><code>A[i+1], A[i+2], ..., A[j-1]</code> is the second part, and</li>
-
     <li><code>A[j], A[j+1], ..., A[A.length - 1]</code> is the third part.</li>
-
     <li>All three parts have equal binary value.</li>
-
 </ul>
 
 <p>If it is not possible, return <code>[-1, -1]</code>.</p>

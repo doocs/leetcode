@@ -23,11 +23,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= dominoes.length &lt;= 40000</code></li>
-
     <li><code>1 &lt;= dominoes[i][j] &lt;= 9</code></li>
-
 </ul>
 
 ## Solutions

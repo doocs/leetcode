@@ -45,9 +45,7 @@ One series of moves that transforms the starting point to the target is:
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>sx, sy, tx, ty</code> will all be integers in the range <code>[1, 10^9]</code>.</li>
-
 </ul>
 
 ## Solutions

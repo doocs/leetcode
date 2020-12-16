@@ -7,15 +7,10 @@
 <p>On a 2-dimensional&nbsp;<code>grid</code>, there are 4 types of squares:</p>
 
 <ul>
-
     <li><code>1</code> represents the starting square.&nbsp; There is exactly one starting square.</li>
-
     <li><code>2</code> represents the ending square.&nbsp; There is exactly one ending square.</li>
-
     <li><code>0</code> represents empty squares we can walk over.</li>
-
     <li><code>-1</code> represents obstacles that we cannot walk over.</li>
-
 </ul>
 
 <p>Return the number of 4-directional walks&nbsp;from the starting square to the ending square, that <strong>walk over every non-obstacle square&nbsp;exactly once</strong>.</p>

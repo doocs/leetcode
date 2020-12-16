@@ -15,11 +15,8 @@ If <code>|arr[i] - m| == |arr[j] - m|</code>, then <code>arr[i]</code> is said t
 <p><strong>Median</strong> is the middle value in an ordered integer list. More formally, if the length of the list is n, the median is the element in position <code>((n - 1) / 2)</code> in the sorted list&nbsp;<strong>(0-indexed)</strong>.</p>
 
 <ul>
-
     <li>For <code>arr =&nbsp;[6, -3, 7, 2, 11]</code>,&nbsp;<code>n = 5</code> and the median is obtained by sorting the array&nbsp;<code>arr = [-3, 2, 6, 7, 11]</code> and the median is <code>arr[m]</code> where <code>m = ((5 - 1) / 2) = 2</code>. The median is <code>6</code>.</li>
-
     <li>For <code>arr =&nbsp;[-7, 22, 17,&thinsp;3]</code>,&nbsp;<code>n = 4</code> and the median is obtained by sorting the array&nbsp;<code>arr = [-7, 3, 17, 22]</code> and the median is <code>arr[m]</code> where <code>m = ((4 - 1) / 2) = 1</code>. The median is <code>3</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -89,13 +86,9 @@ Any permutation of [11,8,6,6,7] is <strong>accepted</strong>.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
-
     <li><code>-10^5 &lt;= arr[i] &lt;= 10^5</code></li>
-
     <li><code>1 &lt;= k &lt;= arr.length</code></li>
-
 </ul>
 
 ## Solutions

@@ -75,11 +75,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>2 &lt;= x &lt;= 100</code></li>
-
     <li><code>1 &lt;= target &lt;= 2 * 10^8</code></li>
-
 </ul>
 
 <div>

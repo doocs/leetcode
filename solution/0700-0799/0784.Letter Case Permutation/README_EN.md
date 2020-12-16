@@ -31,11 +31,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>S</code> will be a string with length between <code>1</code> and <code>12</code>.</li>
-
     <li><code>S</code> will consist only of letters or digits.</li>
-
 </ul>
 
 ## Solutions

@@ -61,13 +61,9 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= x &lt;= 100</code></li>
-
     <li><code>1 &lt;= y&nbsp;&lt;= 100</code></li>
-
     <li><code>0 &lt;= bound&nbsp;&lt;= 10^6</code></li>
-
 </ul>
 
 ## Solutions

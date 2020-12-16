@@ -51,11 +51,8 @@ the time [40, 50) will be single booked, and the time [50, 55) will be double bo
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>The number of calls to <code>MyCalendar.book</code> per test case will be at most <code>1000</code>.</li>
-
     <li>In calls to <code>MyCalendar.book(start, end)</code>, <code>start</code> and <code>end</code> are integers in the range <code>[0, 10^9]</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

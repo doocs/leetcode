@@ -39,15 +39,10 @@
 <p><strong>Note:</strong> It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one. However, here is a list of characters that can be in a valid decimal number:</p>
 
 <ul>
-
     <li>Numbers 0-9</li>
-
     <li>Exponent - &quot;e&quot;</li>
-
     <li>Positive/negative sign - &quot;+&quot;/&quot;-&quot;</li>
-
     <li>Decimal point - &quot;.&quot;</li>
-
 </ul>
 
 <p>Of course, the context of these characters also matters in the input.</p>

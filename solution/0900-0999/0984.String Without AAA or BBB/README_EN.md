@@ -7,13 +7,9 @@
 <p>Given two integers <code>A</code> and <code>B</code>, return <strong>any</strong> string <code>S</code> such that:</p>
 
 <ul>
-
     <li><code>S</code> has length <code>A + B</code> and contains exactly <code>A</code> <code>&#39;a&#39;</code> letters, and exactly <code>B</code> <code>&#39;b&#39;</code> letters;</li>
-
     <li>The substring&nbsp;<code>&#39;aaa&#39;</code>&nbsp;does not occur in <code>S</code>;</li>
-
     <li>The substring <code>&#39;bbb&#39;</code> does not occur in <code>S</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -9,11 +9,8 @@
 <p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:</p>
 
 <ul>
-
     <li>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</li>
-
     <li>After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)</li>
-
 </ul>
 
 <p><b>Example:</b></p>

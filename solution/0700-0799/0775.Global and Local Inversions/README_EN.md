@@ -39,13 +39,9 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>A</code> will be a permutation of <code>[0, 1, ..., A.length - 1]</code>.</li>
-
     <li><code>A</code> will have length in range <code>[1, 5000]</code>.</li>
-
     <li>The time limit for this problem has been reduced.</li>
-
 </ul>
 
 ## Solutions

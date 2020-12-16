@@ -11,11 +11,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>Division between two integers should truncate toward zero.</li>
-
     <li>The given RPN expression is always valid. That means the expression would always evaluate to a result and there won&#39;t&nbsp;be any&nbsp;divide&nbsp;by zero operation.</li>
-
 </ul>
 
 <p><strong>Example 1:</strong></p>

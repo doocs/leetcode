@@ -31,13 +31,9 @@ The best strategy is take the first bus to the bus stop 7, then take the second 
 <p><strong>Note: </strong></p>
 
 <ul>
-
     <li><code>1 &lt;= routes.length &lt;= 500</code>.</li>
-
     <li><code>1 &lt;= routes[i].length &lt;= 500</code>.</li>
-
     <li><code>0 &lt;= routes[i][j] &lt; 10 ^ 6</code>.</li>
-
 </ul>
 
 ## Solutions

@@ -49,17 +49,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 100</code></li>
-
     <li><code>red_edges.length &lt;= 400</code></li>
-
     <li><code>blue_edges.length &lt;= 400</code></li>
-
     <li><code>red_edges[i].length == blue_edges[i].length == 2</code></li>
-
     <li><code>0 &lt;= red_edges[i][j], blue_edges[i][j] &lt; n</code></li>
-
 </ul>
 
 ## Solutions

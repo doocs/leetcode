@@ -83,11 +83,8 @@
 <p><strong>Follow up:</strong></p>
 
 <ul>
-
     <li>A solution using O(<em>n</em>) space is pretty straight forward.</li>
-
     <li>Could you devise a constant space solution?</li>
-
 </ul>
 
 ## Solutions

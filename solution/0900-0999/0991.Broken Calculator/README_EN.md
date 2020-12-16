@@ -7,11 +7,8 @@
 <p>On a broken calculator that has a number showing on its display, we can perform two operations:</p>
 
 <ul>
-
     <li><strong>Double</strong>: Multiply the number on the display by 2, or;</li>
-
     <li><strong>Decrement</strong>: Subtract 1 from the number on the display.</li>
-
 </ul>
 
 <p>Initially, the calculator is displaying the number <code>X</code>.</p>

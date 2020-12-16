@@ -61,15 +61,10 @@ So the answer is 2 lines, plus 4 units in the second line.
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The length of <code>S</code> will be in the range&nbsp;[1, 1000].</li>
-
     <li><code>S</code> will only contain lowercase letters.</li>
-
     <li><code>widths</code> is&nbsp;an array of length <code>26</code>.</li>
-
     <li><code>widths[i]</code> will be in the range of <code>[2, 10]</code>.</li>
-
 </ul>
 
 ## Solutions

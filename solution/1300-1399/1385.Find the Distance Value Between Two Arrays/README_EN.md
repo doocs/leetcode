@@ -77,9 +77,7 @@ For arr1[2]=8 we have:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= arr1.length, arr2.length &lt;= 500</code></li>
-
     <li><code>-10^3 &lt;= arr1[i], arr2[j] &lt;= 10^3</code></li>
 
     <li><code>0 &lt;= d &lt;= 100</code></li>

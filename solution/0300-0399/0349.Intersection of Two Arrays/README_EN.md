@@ -31,11 +31,8 @@
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>Each element in the result must be unique.</li>
-
     <li>The result can be in any order.</li>
-
 </ul>
 
 <p>&nbsp;</p>

@@ -61,13 +61,9 @@ Return&nbsp;<code>True</code>&nbsp;if its possible<strong>&nbsp;</strong>otherwi
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
-
     <li><code>1 &lt;= nums[i] &lt;= 10^9</code></li>
-
     <li><code>1 &lt;= k &lt;= nums.length</code></li>
-
 </ul>
 
 ## Solutions

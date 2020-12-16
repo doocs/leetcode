@@ -65,11 +65,8 @@ The graph contains <code>n</code> nodes which are labeled from <code>0</code> to
 <p><b>Note</b>:</p>
 
 <ul>
-
     <li>According to the <a href="https://en.wikipedia.org/wiki/Tree_(graph_theory)" target="_blank">definition of tree on Wikipedia</a>: &ldquo;a tree is an undirected graph in which any two vertices are connected by <i>exactly</i> one path. In other words, any connected graph without simple cycles is a tree.&rdquo;</li>
-
     <li>The height of a rooted tree is the number of edges on the longest downward path between the root and a leaf.</li>
-
 </ul>
 
 ## Solutions

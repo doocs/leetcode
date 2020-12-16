@@ -25,11 +25,8 @@
 <p><b>Note:</b></p>
 
 <ul>
-
     <li><code>1 &lt;= k &lt;= len(nums) &lt;= 16</code>.</li>
-
     <li><code>0 &lt; nums[i] &lt; 10000</code>.</li>
-
 </ul>
 
 ## Solutions

@@ -9,13 +9,9 @@
 <p>For simplicity sake, you may assume:</p>
 
 <ul>
-
     <li><code>words.txt</code> contains only lowercase characters and space <code>&#39; &#39;</code> characters.</li>
-
     <li>Each word must consist of lowercase characters only.</li>
-
     <li>Words are separated by one or more whitespace characters.</li>
-
 </ul>
 
 <p><strong>Example:</strong></p>
@@ -47,9 +43,7 @@ day 1
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>Don&#39;t worry about handling ties, it is guaranteed that each word&#39;s frequency count is unique.</li>
-
     <li>Could you write it in one-line using <a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-4.html">Unix pipes</a>?</li>
 
 </ul>

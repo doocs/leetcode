@@ -35,15 +35,10 @@ That partition would lead to a score of 5 + 2 + 6 = 13, which is worse.
 <p><strong>Note: </strong></p>
 
 <ul>
-
     <li><code>1 &lt;= A.length &lt;= 100</code>.</li>
-
     <li><code>1 &lt;= A[i] &lt;= 10000</code>.</li>
-
     <li><code>1 &lt;= K &lt;= A.length</code>.</li>
-
     <li>Answers within <code>10^-6</code> of the correct answer will be accepted as correct.</li>
-
 </ul>
 
 ## Solutions

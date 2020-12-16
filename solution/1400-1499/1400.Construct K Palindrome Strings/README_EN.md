@@ -77,13 +77,9 @@ Some possible constructions &quot;anna&quot; + &quot;elble&quot;, &quot;anbna&qu
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= s.length &lt;= 10^5</code></li>
-
     <li>All characters in <code>s</code> are lower-case English letters.</li>
-
     <li><code>1 &lt;= k &lt;= 10^5</code></li>
-
 </ul>
 
 ## Solutions

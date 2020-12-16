@@ -9,11 +9,8 @@
 <p>Each token can be used at most once, has a value <code>token[i]</code>, and has potentially two ways to use it.</p>
 
 <ul>
-
     <li>If we have at least <code>token[i]</code> power, we may play the token face up, losing <code>token[i]</code> power, and gaining <code>1</code> point.</li>
-
     <li>If we have at least <code>1</code> point, we may play the token face down, gaining <code>token[i]</code> power, and losing <code>1</code> point.</li>
-
 </ul>
 
 <p>Return the largest number of points we can have after playing any number of tokens.</p>

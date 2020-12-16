@@ -49,11 +49,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= s.length &lt;= 5 x 10^5</code></li>
-
     <li><code>s</code>&nbsp;contains only lowercase English letters.</li>
-
 </ul>
 
 ## Solutions

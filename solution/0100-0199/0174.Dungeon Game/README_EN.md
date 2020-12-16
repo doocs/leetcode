@@ -81,11 +81,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The knight&#39;s health has no upper bound.</li>
-
     <li>Any room can contain threats or power-ups, even the first room the knight enters and the bottom-right room where the princess is imprisoned.</li>
-
 </ul>
 
 ## Solutions

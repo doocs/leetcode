@@ -63,15 +63,10 @@ Average salary excluding minimum and maximum salary is (2000)/1= 2000
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>3 &lt;= salary.length &lt;= 100</code></li>
-
     <li><code>10^3&nbsp;&lt;= salary[i] &lt;= 10^6</code></li>
-
     <li><code>salary[i]</code> is unique.</li>
-
     <li>Answers within <code>10^-5</code> of the actual value will be accepted as correct.</li>
-
 </ul>
 
 ## Solutions

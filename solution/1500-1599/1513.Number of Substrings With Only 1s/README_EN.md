@@ -67,11 +67,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>s[i] == &#39;0&#39;</code> or <code>s[i] == &#39;1&#39;</code></li>
-
     <li><code>1 &lt;= s.length &lt;= 10^5</code></li>
-
 </ul>
 
 ## Solutions

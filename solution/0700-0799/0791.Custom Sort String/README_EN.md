@@ -35,13 +35,9 @@ Since &quot;d&quot; does not appear in S, it can be at any position in T. &quot;
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>S</code> has length at most <code>26</code>, and no character is repeated in <code>S</code>.</li>
-
     <li><code>T</code> has length at most <code>200</code>.</li>
-
     <li><code>S</code> and <code>T</code> consist of lowercase letters only.</li>
-
 </ul>
 
 ## Solutions

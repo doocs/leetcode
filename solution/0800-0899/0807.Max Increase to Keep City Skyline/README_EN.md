@@ -57,13 +57,9 @@ gridNew = [ [8, 4, 8, 7],
 <p><strong>Notes: </strong></p>
 
 <ul>
-
     <li><code>1 &lt; grid.length = grid[0].length &lt;= 50</code>.</li>
-
     <li>All heights <code>grid[i][j]</code> are in the range <code>[0, 100]</code>.</li>
-
     <li>All buildings in <code>grid[i][j]</code> occupy the entire grid cell: that is, they are a <code>1 x 1 x grid[i][j]</code> rectangular prism.</li>
-
 </ul>
 
 ## Solutions

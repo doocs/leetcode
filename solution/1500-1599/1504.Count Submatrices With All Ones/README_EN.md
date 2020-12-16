@@ -93,13 +93,9 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24<strong>.</strong>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= rows&nbsp;&lt;= 150</code></li>
-
     <li><code>1 &lt;= columns&nbsp;&lt;= 150</code></li>
-
     <li><code>0 &lt;= mat[i][j] &lt;= 1</code></li>
-
 </ul>
 
 ## Solutions

@@ -7,13 +7,9 @@
 <p>A robot on an infinite grid starts at point (0, 0) and faces north.&nbsp; The robot can receive one of three possible types of commands:</p>
 
 <ul>
-
     <li><code>-2</code>: turn left 90 degrees</li>
-
     <li><code>-1</code>: turn right 90 degrees</li>
-
     <li><code>1 &lt;= x &lt;= 9</code>: move forward <code>x</code> units</li>
-
 </ul>
 
 <p>Some of the grid squares are obstacles.&nbsp;</p>

@@ -11,13 +11,9 @@
 <p>Formally, a <em>parentheses string</em> is valid if and only if:</p>
 
 <ul>
-
     <li>It is the empty string, contains only lowercase characters, or</li>
-
     <li>It can be written as&nbsp;<code>AB</code>&nbsp;(<code>A</code>&nbsp;concatenated with&nbsp;<code>B</code>), where&nbsp;<code>A</code>&nbsp;and&nbsp;<code>B</code>&nbsp;are valid strings, or</li>
-
     <li>It can be written as&nbsp;<code>(A)</code>, where&nbsp;<code>A</code>&nbsp;is a valid string.</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -71,11 +67,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= s.length &lt;= 10^5</code></li>
-
     <li><code>s[i]</code>&nbsp;is one&nbsp;of&nbsp;&nbsp;<code>&#39;(&#39;</code> , <code>&#39;)&#39;</code> and&nbsp;lowercase English letters<code>.</code></li>
-
 </ul>
 
 ## Solutions

@@ -7,15 +7,10 @@
 <p>There is a pizza with 3n slices of varying size, you and your friends will take slices of pizza as follows:</p>
 
 <ul>
-
     <li>You will pick <strong>any</strong> pizza slice.</li>
-
     <li>Your friend Alice&nbsp;will pick&nbsp;next slice in anti clockwise direction of your pick.&nbsp;</li>
-
     <li>Your friend Bob&nbsp;will&nbsp;pick&nbsp;next slice in clockwise direction of your pick.</li>
-
     <li>Repeat&nbsp;until&nbsp;there are no more slices of pizzas.</li>
-
 </ul>
 
 <p>Sizes of Pizza slices is represented by circular array <code>slices</code> in clockwise direction.</p>

@@ -9,13 +9,9 @@
 <p>Write a data structure&nbsp;<code>CBTInserter</code>&nbsp;that is initialized with a complete binary tree and supports the following operations:</p>
 
 <ul>
-
     <li><code>CBTInserter(TreeNode root)</code> initializes the data structure on a given tree&nbsp;with head node <code>root</code>;</li>
-
     <li><code>CBTInserter.insert(int v)</code> will insert a <code>TreeNode</code>&nbsp;into the tree with value <code>node.val =&nbsp;v</code>&nbsp;so that the tree remains complete, <strong>and returns the value of the parent of the inserted <code>TreeNode</code></strong>;</li>
-
     <li><code>CBTInserter.get_root()</code> will return the head node of the tree.</li>
-
 </ul>
 
 <ol>

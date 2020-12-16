@@ -71,19 +71,12 @@ k = 1
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>grid.length&nbsp;== m</code></li>
-
     <li><code>grid[0].length&nbsp;== n</code></li>
-
     <li><code>1 &lt;= m, n &lt;= 40</code></li>
-
     <li><code>1 &lt;= k &lt;= m*n</code></li>
-
     <li><code>grid[i][j] == 0 <strong>or</strong> 1</code></li>
-
     <li><code>grid[0][0] == grid[m-1][n-1] == 0</code></li>
-
 </ul>
 
 ## Solutions

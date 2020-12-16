@@ -65,11 +65,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 100</code></li>
-
     <li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
-
 </ul>
 
 ## Solutions

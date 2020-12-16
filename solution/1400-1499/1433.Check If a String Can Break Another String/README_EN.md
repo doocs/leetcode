@@ -49,15 +49,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>s1.length == n</code></li>
-
     <li><code>s2.length == n</code></li>
-
     <li><code>1 &lt;= n &lt;= 10^5</code></li>
-
     <li>All strings consist of lowercase English letters.</li>
-
 </ul>
 
 ## Solutions

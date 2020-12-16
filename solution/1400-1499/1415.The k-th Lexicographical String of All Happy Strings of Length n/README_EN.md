@@ -7,11 +7,8 @@
 <p>A <strong>happy string</strong> is a string that:</p>
 
 <ul>
-
     <li>consists only of letters of the set <code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code>.</li>
-
     <li><code>s[i] != s[i + 1]</code>&nbsp;for all values of <code>i</code> from <code>1</code> to <code>s.length - 1</code> (string is 1-indexed).</li>
-
 </ul>
 
 <p>For example, strings <strong>&quot;abc&quot;, &quot;ac&quot;, &quot;b&quot;</strong> and <strong>&quot;abcbabcbcb&quot;</strong> are all happy strings and strings <strong>&quot;aa&quot;, &quot;baa&quot;</strong> and&nbsp;<strong>&quot;ababbc&quot;</strong> are not happy strings.</p>
@@ -83,11 +80,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 10</code></li>
-
     <li><code>1 &lt;= k &lt;= 100</code></li>
-
 </ul>
 
 <div id="vidyowebrtcscreenshare_is_installed">&nbsp;</div>

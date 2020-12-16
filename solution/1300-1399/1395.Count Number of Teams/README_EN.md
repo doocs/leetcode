@@ -9,11 +9,8 @@
 <p>You have to form a team of 3 soldiers&nbsp;amongst them under the following rules:</p>
 
 <ul>
-
     <li>Choose 3 soldiers with index (<code>i</code>, <code>j</code>, <code>k</code>) with&nbsp;rating (<code>rating[i]</code>, <code>rating[j]</code>, <code>rating[k]</code>).</li>
-
     <li>A team is valid if:&nbsp; (<code>rating[i] &lt; rating[j] &lt; rating[k]</code>) or (<code>rating[i] &gt; rating[j] &gt; rating[k]</code>) where (<code>0&nbsp;&lt;= i &lt;&nbsp;j &lt;&nbsp;k &lt;&nbsp;n</code>).</li>
-
 </ul>
 
 <p>Return the number of teams you can form given the conditions. (soldiers can be part of multiple teams).</p>
@@ -59,13 +56,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>n == rating.length</code></li>
-
     <li><code>1 &lt;= n &lt;= 200</code></li>
-
     <li><code>1 &lt;= rating[i] &lt;= 10^5</code></li>
-
 </ul>
 
 ## Solutions

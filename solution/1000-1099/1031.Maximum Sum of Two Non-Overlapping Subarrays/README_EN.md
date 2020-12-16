@@ -9,11 +9,8 @@
 <p>Formally,&nbsp;return the largest <code>V</code> for which&nbsp;<code>V = (A[i] + A[i+1] + ... + A[i+L-1]) + (A[j] + A[j+1] + ... + A[j+M-1])</code> and either:</p>
 
 <ul>
-
     <li><code>0 &lt;= i &lt; i + L - 1 &lt; j &lt; j + M - 1 &lt; A.length</code>, <strong>or</strong></li>
-
     <li><code>0 &lt;= j &lt; j + M - 1 &lt; i &lt; i + L - 1 &lt; A.length</code>.</li>
-
 </ul>
 
 <p>&nbsp;</p>

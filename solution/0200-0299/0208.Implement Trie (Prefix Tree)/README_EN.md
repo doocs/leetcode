@@ -31,11 +31,8 @@ trie.search(&quot;app&quot;);     // returns true
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>You may assume that all inputs are consist of lowercase letters <code>a-z</code>.</li>
-
     <li>All inputs are guaranteed to be non-empty strings.</li>
-
 </ul>
 
 ## Solutions

@@ -51,15 +51,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= words.length &lt;= 100</code></li>
-
     <li><code>1 &lt;= words[i].length &lt;= 30</code></li>
-
     <li><code>words[i]</code> contains only lowercase English letters.</li>
-
     <li>It&#39;s <strong>guaranteed</strong>&nbsp;that <code>words[i]</code>&nbsp;will be unique.</li>
-
 </ul>
 
 ## Solutions

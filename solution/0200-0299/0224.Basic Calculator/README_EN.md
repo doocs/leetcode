@@ -37,11 +37,8 @@
 <b>Note:</b>
 
 <ul>
-
     <li>You may assume that the given expression is always valid.</li>
-
     <li><b>Do not</b> use the <code>eval</code> built-in library function.</li>
-
 </ul>
 
 ## Solutions

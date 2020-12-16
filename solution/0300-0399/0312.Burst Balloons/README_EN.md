@@ -11,11 +11,8 @@
 <p><b>Note:</b></p>
 
 <ul>
-
     <li>You may imagine <code>nums[-1] = nums[n] = 1</code>. They are not real therefore you can not burst them.</li>
-
     <li>0 &le; <code>n</code> &le; 500, 0 &le; <code>nums[i]</code> &le; 100</li>
-
 </ul>
 
 <p><b>Example:</b></p>

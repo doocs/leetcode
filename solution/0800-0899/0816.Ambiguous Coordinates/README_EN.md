@@ -63,11 +63,8 @@
 <p><strong>Note: </strong></p>
 
 <ul>
-
     <li><code>4 &lt;= S.length &lt;= 12</code>.</li>
-
     <li><code>S[0]</code> = &quot;(&quot;, <code>S[S.length - 1]</code> = &quot;)&quot;, and the other elements in <code>S</code> are digits.</li>
-
 </ul>
 
 <p>&nbsp;</p>

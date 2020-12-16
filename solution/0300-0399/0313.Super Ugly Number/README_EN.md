@@ -23,15 +23,10 @@
 <p><b>Note:</b></p>
 
 <ul>
-
     <li><code>1</code> is a super ugly number for any given <code>primes</code>.</li>
-
     <li>The given numbers in <code>primes</code> are in ascending order.</li>
-
     <li>0 &lt; <code>k</code> &le; 100, 0 &lt; <code>n</code> &le; 10<sup>6</sup>, 0 &lt; <code>primes[i]</code> &lt; 1000.</li>
-
     <li>The n<sup>th</sup> super ugly number is guaranteed to fit in a 32-bit signed integer.</li>
-
 </ul>
 
 ## Solutions

@@ -9,13 +9,9 @@
 <p>In one step you can jump from index <code>i</code> to index:</p>
 
 <ul>
-
     <li><code>i + 1</code> where:&nbsp;<code>i + 1 &lt; arr.length</code>.</li>
-
     <li><code>i - 1</code> where:&nbsp;<code>i - 1 &gt;= 0</code>.</li>
-
     <li><code>j</code> where: <code>arr[i] == arr[j]</code> and <code>i != j</code>.</li>
-
 </ul>
 
 <p>Return <em>the minimum number of steps</em> to reach the <strong>last index</strong> of the array.</p>
@@ -85,11 +81,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= arr.length &lt;= 5 * 10^4</code></li>
-
     <li><code>-10^8 &lt;= arr[i] &lt;= 10^8</code></li>
-
 </ul>
 
 ## Solutions

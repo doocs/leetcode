@@ -93,13 +93,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= names.length &lt;= 5 * 10^4</code></li>
-
     <li><code>1 &lt;= names[i].length &lt;= 20</code></li>
-
     <li><code>names[i]</code> consists of lower case English letters, digits and/or round brackets.</li>
-
 </ul>
 
 ## Solutions

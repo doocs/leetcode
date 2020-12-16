@@ -39,13 +39,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= arr.length&nbsp;&lt;= 10^5</code></li>
-
     <li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
-
     <li><code>0 &lt;= k&nbsp;&lt;= arr.length</code></li>
-
 </ul>
 
 ## Solutions

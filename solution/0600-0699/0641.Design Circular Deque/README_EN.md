@@ -9,25 +9,15 @@
 <p>Your implementation should support following operations:</p>
 
 <ul>
-
     <li><code>MyCircularDeque(k)</code>: Constructor, set the size of the deque to be k.</li>
-
     <li><code>insertFront()</code>: Adds an item at the front of Deque. Return true if the operation is successful.</li>
-
     <li><code>insertLast()</code>: Adds an item at the rear of Deque. Return true if the operation is successful.</li>
-
     <li><code>deleteFront()</code>: Deletes an item from the front of Deque. Return true if the operation is successful.</li>
-
     <li><code>deleteLast()</code>: Deletes an item from the rear of Deque. Return true if the operation is successful.</li>
-
     <li><code>getFront()</code>: Gets the front item from the Deque. If the deque is empty, return -1.</li>
-
     <li><code>getRear()</code>: Gets the last item from Deque. If the deque is empty, return -1.</li>
-
     <li><code>isEmpty()</code>: Checks whether Deque is empty or not.&nbsp;</li>
-
     <li><code>isFull()</code>: Checks whether Deque is full or not.</li>
-
 </ul>
 
 <p>&nbsp;</p>

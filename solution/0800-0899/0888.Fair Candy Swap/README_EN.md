@@ -67,19 +67,12 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ul>
-
     <li><span><code>1 &lt;= A.length &lt;= 10000</code></span></li>
-
     <li><span><code>1 &lt;= B.length &lt;= 10000</code></span></li>
-
     <li><code><span>1 &lt;= A[i] &lt;= 100000</span></code></li>
-
     <li><code><span>1 &lt;= B[i] &lt;= 100000</span></code></li>
-
     <li>It is guaranteed that Alice and Bob have different total amounts of&nbsp;candy.</li>
-
     <li>It is guaranteed there exists an&nbsp;answer.</li>
-
 </ul>
 
 </div>

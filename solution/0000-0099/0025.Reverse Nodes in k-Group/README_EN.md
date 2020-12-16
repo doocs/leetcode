@@ -23,11 +23,8 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>Only constant extra memory is allowed.</li>
-
     <li>You may not alter the values in the list&#39;s nodes, only nodes itself may be changed.</li>
-
 </ul>
 
 ## Solutions

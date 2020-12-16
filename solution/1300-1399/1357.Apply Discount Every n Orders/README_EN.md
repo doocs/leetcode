@@ -15,11 +15,8 @@ The customer orders a certain amount of each product where <code>product[i]</cod
 <p>Implement the <code>Cashier</code> class:</p>
 
 <ul>
-
     <li><code>Cashier(int n, int discount, int[] products, int[] prices)</code> Initializes the object with <code>n</code>, the <code>discount</code>, the <code>products</code>&nbsp;and their <code>prices</code>.</li>
-
     <li><code>double&nbsp;getBill(int[] product, int[] amount)</code>&nbsp;returns the value of the bill and apply the discount if needed. Answers within <code>10^-5</code> of the actual value will be accepted as correct.</li>
-
 </ul>
 
 <p>&nbsp;</p>
@@ -63,33 +60,19 @@ cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 10^4</code></li>
-
     <li><code>0 &lt;= discount &lt;= 100</code></li>
-
     <li><code>1 &lt;= products.length &lt;= 200</code></li>
-
     <li><code>1 &lt;= products[i] &lt;= 200</code></li>
-
     <li>There are <strong>not</strong> repeated elements in the array <code>products</code>.</li>
-
     <li><code>prices.length == products.length</code></li>
-
     <li><code>1 &lt;= prices[i] &lt;= 1000</code></li>
-
     <li><code>1 &lt;= product.length &lt;= products.length</code></li>
-
     <li><code>product[i]</code> exists in <code>products</code>.</li>
-
     <li><code>amount.length == product.length</code></li>
-
     <li><code>1 &lt;= amount[i] &lt;= 1000</code></li>
-
     <li>At most <code>1000</code> calls will be made to <code>getBill</code>.</li>
-
     <li>Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted as correct.</li>
-
 </ul>
 
 ## Solutions

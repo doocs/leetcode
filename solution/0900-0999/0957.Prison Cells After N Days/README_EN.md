@@ -9,11 +9,8 @@
 <p>Each day, whether the cell is occupied or vacant changes according to the following rules:</p>
 
 <ul>
-
     <li>If a cell has two adjacent neighbors that are both occupied or both vacant,&nbsp;then the cell becomes occupied.</li>
-
     <li>Otherwise, it becomes vacant.</li>
-
 </ul>
 
 <p>(Note that because the prison is a row, the first and the last cells in the row can&#39;t have two adjacent neighbors.)</p>

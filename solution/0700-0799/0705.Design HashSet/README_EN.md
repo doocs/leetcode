@@ -9,13 +9,9 @@
 <p>To be specific, your design should include these functions:</p>
 
 <ul>
-
     <li><code>add(value)</code>:&nbsp;Insert a value into the HashSet.&nbsp;</li>
-
     <li><code>contains(value)</code> : Return whether the value exists in the HashSet or not.</li>
-
     <li><code>remove(value)</code>: Remove a value in&nbsp;the HashSet. If the value does not exist in the HashSet, do nothing.</li>
-
 </ul>
 
 <p><br />

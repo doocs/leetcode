@@ -57,15 +57,10 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ul>
-
     <li><code><span>1 &lt;= N &lt;= 10000</span></code></li>
-
     <li><code><span>0 &lt;= paths.size &lt;= 20000</span></code></li>
-
     <li>No garden has 4 or more paths coming into or leaving it.</li>
-
     <li>It is guaranteed an answer exists.</li>
-
 </ul>
 
 </div>

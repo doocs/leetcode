@@ -21,13 +21,9 @@
 <p><strong>Follow up:</strong></p>
 
 <ul>
-
     <li>A rather straight forward solution is a two-pass algorithm using counting sort.<br />
-
     First, iterate the array counting number of 0&#39;s, 1&#39;s, and 2&#39;s, then overwrite array with total number of 0&#39;s, then 1&#39;s and followed by 2&#39;s.</li>
-
     <li>Could you come up with a&nbsp;one-pass algorithm using only constant space?</li>
-
 </ul>
 
 ## Solutions

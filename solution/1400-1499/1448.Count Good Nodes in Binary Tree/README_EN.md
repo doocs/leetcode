@@ -57,11 +57,8 @@ Node 3 -&gt; (3,1,3) is the maximum value in the path.</pre>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li>The number of nodes in the binary tree is in the range&nbsp;<code>[1, 10^5]</code>.</li>
-
     <li>Each node&#39;s value is between <code>[-10^4, 10^4]</code>.</li>
-
 </ul>
 
 ## Solutions

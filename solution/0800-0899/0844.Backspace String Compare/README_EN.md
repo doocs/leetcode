@@ -77,9 +77,7 @@
 <p><strong>Follow up:</strong></p>
 
 <ul>
-
     <li>Can you solve it in <code>O(N)</code> time and <code>O(1)</code> space?</li>
-
 </ul>
 
 </div>

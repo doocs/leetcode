@@ -55,17 +55,11 @@ The XOR values for queries are:
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= arr.length &lt;= 3 *&nbsp;10^4</code></li>
-
     <li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
-
     <li><code>1 &lt;= queries.length &lt;= 3 * 10^4</code></li>
-
     <li><code>queries[i].length == 2</code></li>
-
     <li><code>0 &lt;= queries[i][0] &lt;= queries[i][1] &lt; arr.length</code></li>
-
 </ul>
 
 ## Solutions

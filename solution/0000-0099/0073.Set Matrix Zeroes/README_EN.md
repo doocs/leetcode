@@ -69,13 +69,9 @@
 <p><strong>Follow up:</strong></p>
 
 <ul>
-
     <li>A straight forward solution using O(<em>m</em><em>n</em>) space is probably a bad idea.</li>
-
     <li>A simple improvement uses O(<em>m</em> + <em>n</em>) space, but still not the best solution.</li>
-
     <li>Could you devise a constant space solution?</li>
-
 </ul>
 
 ## Solutions

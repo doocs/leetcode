@@ -77,11 +77,8 @@ All sub-arrays have even sum and the answer is 0.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
-
     <li><code>1 &lt;= arr[i] &lt;= 100</code></li>
-
 </ul>
 
 ## Solutions

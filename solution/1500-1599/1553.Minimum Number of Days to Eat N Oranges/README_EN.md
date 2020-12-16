@@ -85,9 +85,7 @@ You need at least 3 days to eat the 6 oranges.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= n &lt;= 2*10^9</code></li>
-
 </ul>
 
 ## Solutions

@@ -47,15 +47,10 @@ When we erase the brick at (1, 0), the brick at (1, 1) has already disappeared d
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>The number of rows and columns in the grid will be in the range&nbsp;[1, 200].</li>
-
     <li>The number of erasures will not exceed the area of the grid.</li>
-
     <li>It is guaranteed that each erasure will be different from any other erasure, and located inside the grid.</li>
-
     <li>An erasure may refer to a location with no brick - if it does, no bricks drop.</li>
-
 </ul>
 
 ## Solutions

@@ -39,17 +39,11 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= emails[i].length&nbsp;&lt;= 100</code></li>
-
     <li><code>1 &lt;= emails.length &lt;= 100</code></li>
-
     <li>Each <code>emails[i]</code> contains exactly one <code>&#39;@&#39;</code> character.</li>
-
     <li>All local and domain names are non-empty.</li>
-
     <li>Local names do not start with a <code>&#39;+&#39;</code> character.</li>
-
 </ul>
 
 </div>

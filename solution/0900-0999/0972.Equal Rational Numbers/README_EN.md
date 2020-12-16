@@ -9,13 +9,9 @@
 <p>In general a rational number can be represented using up to&nbsp;three parts: an&nbsp;<em>integer part</em>, a&nbsp;<em>non-repeating part,</em> and a&nbsp;<em>repeating part</em>. The number will be represented&nbsp;in one of the following three ways:</p>
 
 <ul>
-
     <li><code>&lt;IntegerPart&gt;</code> (e.g. 0, 12, 123)</li>
-
     <li><code>&lt;IntegerPart&gt;&lt;.&gt;&lt;NonRepeatingPart&gt;</code> &nbsp;(e.g. 0.5, 1., 2.12, 2.0001)</li>
-
     <li><code>&lt;IntegerPart&gt;&lt;.&gt;&lt;NonRepeatingPart&gt;&lt;(&gt;&lt;RepeatingPart&gt;&lt;)&gt;</code> (e.g. 0.1(6), 0.9(9), 0.00(1212))</li>
-
 </ul>
 
 <p>The repeating portion of a decimal expansion is conventionally denoted within a pair of round brackets.&nbsp; For example:</p>

@@ -61,13 +61,9 @@ index 0 -&gt; index 4 -&gt; index 1 -&gt; index 3
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= arr.length &lt;= 5 * 10^4</code></li>
-
     <li><code>0 &lt;= arr[i] &lt;&nbsp;arr.length</code></li>
-
     <li><code>0 &lt;= start &lt; arr.length</code></li>
-
 </ul>
 
 ## Solutions

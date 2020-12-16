@@ -25,13 +25,9 @@ With each iteration one element (red) is removed from the input data and inserte
 <p><strong>Algorithm of Insertion Sort:</strong></p>
 
 <ol>
-
     <li>Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list.</li>
-
     <li>At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there.</li>
-
     <li>It repeats until no input elements remain.</li>
-
 </ol>
 
 <p><br />
