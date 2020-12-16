@@ -53,13 +53,9 @@ We only want the closest K = 1 points from the origin, so the answer is just [[-
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= K &lt;= points.length &lt;= 10000</code></li>
-
     <li><code>-10000 &lt; points[i][0] &lt; 10000</code></li>
-
     <li><code>-10000 &lt; points[i][1] &lt; 10000</code></li>
-
 </ol>
 
 </div>

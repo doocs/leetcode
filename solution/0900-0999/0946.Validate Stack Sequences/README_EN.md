@@ -45,15 +45,10 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= pushed.length == popped.length &lt;= 1000</code></li>
-
     <li><code>0 &lt;= pushed[i], popped[i] &lt; 1000</code></li>
-
     <li><code>pushed</code> is a permutation of <code>popped</code>.</li>
-
     <li><code>pushed</code> and <code>popped</code> have distinct values.</li>
-
 </ol>
 
 </div>

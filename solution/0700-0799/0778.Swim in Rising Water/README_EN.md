@@ -63,11 +63,8 @@ We need to wait until time 16 so that (0, 0) and (4, 4) are connected.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>2 &lt;= N &lt;= 50</code>.</li>
-
     <li>grid[i][j] is a permutation of [0, ..., N*N - 1].</li>
-
 </ol>
 
 ## Solutions

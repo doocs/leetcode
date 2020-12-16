@@ -83,15 +83,10 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length, B.length &lt;= 10000</code></li>
-
     <li><code>1 &lt;= A[i].length, B[i].length&nbsp;&lt;= 10</code></li>
-
     <li><code>A[i]</code> and <code>B[i]</code> consist only of lowercase letters.</li>
-
     <li>All words in <code>A[i]</code> are unique: there isn&#39;t <code>i != j</code> with <code>A[i] == A[j]</code>.</li>
-
 </ol>
 
 </div>

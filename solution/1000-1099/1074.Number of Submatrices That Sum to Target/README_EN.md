@@ -45,15 +45,10 @@
 <p><strong><strong>Note:</strong></strong></p>
 
 <ol>
-
     <li><code>1 &lt;= matrix.length &lt;= 300</code></li>
-
     <li><code>1 &lt;= matrix[0].length &lt;= 300</code></li>
-
     <li><code>-1000 &lt;= matrix[i] &lt;= 1000</code></li>
-
     <li><code>-10^8 &lt;= target &lt;= 10^8</code></li>
-
 </ol>
 
 ## Solutions

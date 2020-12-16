@@ -53,11 +53,8 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code>1 &lt;= stones.length &lt;= 1000</code></li>
-
     <li><code>0 &lt;= stones[i][j] &lt; 10000</code></li>
-
 </ol>
 
 </div>

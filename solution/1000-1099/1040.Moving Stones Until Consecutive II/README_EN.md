@@ -69,13 +69,9 @@ Notice we cannot move 10 -&gt; 2 to finish the game, because that would be an il
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>3 &lt;= stones.length &lt;= 10^4</code></li>
-
     <li><code>1 &lt;= stones[i] &lt;= 10^9</code></li>
-
     <li><code>stones[i]</code> have distinct values.</li>
-
 </ol>
 
 <div>

@@ -63,15 +63,10 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= a &lt;= 100</code></li>
-
     <li><code>1 &lt;= b &lt;= 100</code></li>
-
     <li><code>1 &lt;= c &lt;= 100</code></li>
-
     <li><code>a != b, b != c, c != a</code></li>
-
 </ol>
 
 <div>

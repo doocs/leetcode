@@ -71,17 +71,11 @@ In total you spent $17 and covered all the days of your travel.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= days.length &lt;= 365</code></li>
-
     <li><code>1 &lt;= days[i] &lt;= 365</code></li>
-
     <li><code>days</code> is in strictly increasing order.</li>
-
     <li><code>costs.length == 3</code></li>
-
     <li><code>1 &lt;= costs[i] &lt;= 1000</code></li>
-
 </ol>
 
 ## Solutions

@@ -61,15 +61,10 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= queries.length &lt;= 100</code></li>
-
     <li><code>1 &lt;= queries[i].length &lt;= 100</code></li>
-
     <li><code>1 &lt;= pattern.length &lt;= 100</code></li>
-
     <li>All strings consists only of lower and upper case English letters.</li>
-
 </ol>
 
 ## Solutions

@@ -113,11 +113,8 @@ We can reach the end from starting indexes 1, 2, and 4.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 20000</code></li>
-
     <li><code>0 &lt;= A[i] &lt; 100000</code></li>
-
 </ol>
 
 ## Solutions

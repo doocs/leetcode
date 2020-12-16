@@ -49,13 +49,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>2 &lt;= A.length&nbsp;&lt;= 30000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 10^6</code></li>
-
     <li>It is guaranteed there is at least one way to partition <code>A</code> as described.</li>
-
 </ol>
 
 <div>

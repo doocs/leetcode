@@ -45,11 +45,8 @@ It can be shown with 5 or less moves that it is impossible for the array to have
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= A.length &lt;= 40000</code></li>
-
     <li><code>0 &lt;= A[i] &lt; 40000</code></li>
-
 </ol>
 
 <div>

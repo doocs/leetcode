@@ -47,13 +47,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= A.length &lt;= 200</code></li>
-
     <li><code>0 &lt;= B.length &lt;= 200</code></li>
-
     <li><code>A</code> and <code>B</code> both contain only spaces and lowercase letters.</li>
-
 </ol>
 
 </div>

@@ -65,13 +65,9 @@
 <p><span><strong>Note</strong>:</span></p>
 
 <ol>
-
     <li><code><span>1 &lt;= S.length &lt;= 200</span></code></li>
-
     <li><code><span>1 &lt;= T.length &lt;= 200</span></code></li>
-
     <li><span><code>S</code>&nbsp;and <code>T</code> only contain&nbsp;lowercase letters and <code>&#39;#&#39;</code> characters.</span></li>
-
 </ol>
 
 <p><strong>Follow up:</strong></p>

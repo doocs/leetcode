@@ -67,11 +67,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>3 &lt;= A.length &lt;= 10000</code></li>
-
     <li><code>1 &lt;= A[i] &lt;= 10^6</code></li>
-
 </ol>
 
 </div>

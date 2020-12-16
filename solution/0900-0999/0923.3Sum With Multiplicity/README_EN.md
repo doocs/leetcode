@@ -59,13 +59,9 @@ and two 2s from [2,2,2,2] in 6 ways.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>3 &lt;= A.length &lt;= 3000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 100</code></li>
-
     <li><code>0 &lt;= target &lt;= 300</code></li>
-
 </ol>
 
 ## Solutions

@@ -59,13 +59,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>3 &lt;= graph.length &lt;= 50</code></li>
-
     <li>It is guaranteed that <code>graph[1]</code> is non-empty.</li>
-
     <li>It is guaranteed that <code>graph[2]</code> contains a non-zero element.&nbsp;</li>
-
 </ol>
 
 </div>

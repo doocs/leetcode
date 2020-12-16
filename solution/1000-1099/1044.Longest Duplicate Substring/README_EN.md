@@ -35,11 +35,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>2 &lt;= S.length &lt;= 10^5</code></li>
-
     <li><code>S</code> consists of lowercase English letters.</li>
-
 </ol>
 
 ## Solutions

@@ -31,13 +31,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= words.length &lt;= 1000</code></li>
-
     <li><code>1 &lt;= words[i].length &lt;= 16</code></li>
-
     <li><code>words[i]</code> only consists of English lowercase letters.</li>
-
 </ol>
 
 <div>

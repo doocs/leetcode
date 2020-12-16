@@ -82,9 +82,7 @@ Note that the starting and ending square can be anywhere in the grid.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= grid.length * grid[0].length &lt;= 20</code></li>
-
 </ol>
 
 ## Solutions

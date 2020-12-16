@@ -41,13 +41,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= hand.length &lt;= 10000</code></li>
-
     <li><code>0 &lt;= hand[i]&nbsp;&lt;= 10^9</code></li>
-
     <li><code>1 &lt;= W &lt;= hand.length</code></li>
-
 </ol>
 
 ## Solutions

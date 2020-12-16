@@ -47,17 +47,11 @@ Note that no other cars meet these fleets before the destination, so the answer 
 <strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= N &lt;= 10 ^ 4</code></li>
-
     <li><code>0 &lt; target&nbsp;&lt;= 10 ^ 6</code></li>
-
     <li><code>0 &lt;&nbsp;speed[i] &lt;= 10 ^ 6</code></li>
-
     <li><code>0 &lt;= position[i] &lt; target</code></li>
-
     <li>All initial positions are different.</li>
-
 </ol>
 
 ## Solutions

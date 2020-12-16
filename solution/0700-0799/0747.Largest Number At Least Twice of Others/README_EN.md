@@ -43,11 +43,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>nums</code> will have a length in the range <code>[1, 50]</code>.</li>
-
     <li>Every <code>nums[i]</code> will be an integer in the range <code>[0, 99]</code>.</li>
-
 </ol>
 
 <p>&nbsp;</p>

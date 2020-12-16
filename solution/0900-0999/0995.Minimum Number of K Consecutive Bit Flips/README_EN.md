@@ -65,11 +65,8 @@ Flip A[5],A[6],A[7]:&nbsp;A becomes [1,1,1,1,1,1,1,1]
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;=&nbsp;30000</code></li>
-
     <li><code>1 &lt;= K &lt;= A.length</code></li>
-
 </ol>
 
 ## Solutions

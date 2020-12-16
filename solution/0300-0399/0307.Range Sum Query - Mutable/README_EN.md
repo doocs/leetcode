@@ -27,11 +27,8 @@ sumRange(0, 2) -&gt; 8
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The array is only modifiable by the <i>update</i> function.</li>
-
     <li>You may assume the number of calls to <i>update</i> and <i>sumRange</i> function is distributed evenly.</li>
-
 </ol>
 
 ## Solutions

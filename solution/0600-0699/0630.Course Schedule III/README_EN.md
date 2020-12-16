@@ -35,11 +35,8 @@ The 4th course cannot be taken now, since you will finish it on the 3300th day, 
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The integer 1 &lt;= d, t, n &lt;= 10,000.</li>
-
     <li>You can&#39;t take two courses simultaneously.</li>
-
 </ol>
 
 <p>&nbsp;</p>

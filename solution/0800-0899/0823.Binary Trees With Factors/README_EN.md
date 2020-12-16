@@ -37,11 +37,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;=&nbsp;1000</code>.</li>
-
     <li><code>2 &lt;=&nbsp;A[i]&nbsp;&lt;=&nbsp;10 ^ 9</code>.</li>
-
 </ol>
 
 ## Solutions

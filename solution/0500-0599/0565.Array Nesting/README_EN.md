@@ -35,13 +35,9 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>N is an integer within the range [1, 20,000].</li>
-
     <li>The elements of A are all distinct.</li>
-
     <li>Each element of A is an integer within the range [0, N-1].</li>
-
 </ol>
 
 ## Solutions

@@ -49,11 +49,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= time.length &lt;= 60000</code></li>
-
     <li><code>1 &lt;= time[i] &lt;= 500</code></li>
-
 </ol>
 
 ## Solutions

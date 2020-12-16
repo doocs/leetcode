@@ -9,19 +9,12 @@
 <p>By listing and labeling all of the permutations in order, we get the following sequence for <em>n</em> = 3:</p>
 
 <ol>
-
     <li><code>&quot;123&quot;</code></li>
-
     <li><code>&quot;132&quot;</code></li>
-
     <li><code>&quot;213&quot;</code></li>
-
     <li><code>&quot;231&quot;</code></li>
-
     <li><code>&quot;312&quot;</code></li>
-
     <li><code>&quot;321&quot;</code></li>
-
 </ol>
 
 <p>Given <em>n</em> and <em>k</em>, return the <em>k</em><sup>th</sup> permutation sequence.</p>

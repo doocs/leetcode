@@ -57,21 +57,13 @@ The other answers can be filled out with similar reasoning.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= quiet.length = N &lt;= 500</code></li>
-
     <li><code>0 &lt;= quiet[i] &lt; N</code>, all <code>quiet[i]</code> are different.</li>
-
     <li><code>0 &lt;= richer.length &lt;= N * (N-1) / 2</code></li>
-
     <li><code>0 &lt;= richer[i][j] &lt; N</code></li>
-
     <li><code>richer[i][0] != richer[i][1]</code></li>
-
     <li><code>richer[i]</code>&#39;s are all different.</li>
-
     <li>The&nbsp;observations in <code>richer</code> are all logically consistent.</li>
-
 </ol>
 
 ## Solutions

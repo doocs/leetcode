@@ -45,13 +45,9 @@
 <p>Notes:</p>
 
 <ol>
-
     <li><code>0 &lt;=&nbsp;indexes.length =&nbsp;sources.length =&nbsp;targets.length &lt;= 100</code></li>
-
     <li><code>0&nbsp;&lt;&nbsp;indexes[i]&nbsp;&lt; S.length &lt;= 1000</code></li>
-
     <li>All characters in given inputs are lowercase letters.</li>
-
 </ol>
 
 <p>&nbsp;</p>

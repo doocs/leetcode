@@ -13,11 +13,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The given numbers of <code>0s</code> and <code>1s</code> will both not exceed <code>100</code></li>
-
     <li>The size of given string array won&#39;t exceed <code>600</code>.</li>
-
 </ol>
 
 <p>&nbsp;</p>

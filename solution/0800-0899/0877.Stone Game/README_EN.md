@@ -41,15 +41,10 @@ This demonstrated that taking the first 5 was a winning move for Alex, so we ret
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>2 &lt;= piles.length &lt;= 500</code></li>
-
     <li><code>piles.length</code> is even.</li>
-
     <li><code>1 &lt;= piles[i] &lt;= 500</code></li>
-
     <li><code>sum(piles)</code> is odd.</li>
-
 </ol>
 
 ## Solutions

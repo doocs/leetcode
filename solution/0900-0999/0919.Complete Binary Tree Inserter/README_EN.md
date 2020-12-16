@@ -51,13 +51,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li>The initial given tree is complete and contains between <code>1</code> and <code>1000</code> nodes.</li>
-
     <li><code>CBTInserter.insert</code> is called at most <code>10000</code> times per test case.</li>
-
     <li>Every value of a given or inserted node is between <code>0</code> and <code>5000</code>.</li>
-
 </ol>
 
 </div>

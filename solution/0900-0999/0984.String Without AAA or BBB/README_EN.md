@@ -43,13 +43,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= A &lt;= 100</code></li>
-
     <li><code>0 &lt;= B &lt;= 100</code></li>
-
     <li>It is guaranteed such an <code>S</code> exists for the given <code>A</code> and <code>B</code>.</li>
-
 </ol>
 
 ## Solutions

@@ -13,15 +13,10 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>Numbers of houses and heaters you are given are non-negative and will not exceed 25000.</li>
-
     <li>Positions of houses and heaters you are given are non-negative and will not exceed 10^9.</li>
-
     <li>As long as a house is in the heaters&#39; warm radius range, it can be warmed.</li>
-
     <li>All the heaters follow your radius standard and the warm radius will the same.</li>
-
 </ol>
 
 <p>&nbsp;</p>

@@ -27,17 +27,11 @@ sentence = &quot;the cattle was rattled by the battery&quot;
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The input will only have lower-case letters.</li>
-
     <li>1 &lt;= dict words number &lt;= 1000</li>
-
     <li>1 &lt;= sentence words number &lt;= 1000</li>
-
     <li>1 &lt;= root length &lt;= 100</li>
-
     <li>1 &lt;= sentence words length &lt;= 1000</li>
-
 </ol>
 
 <p>&nbsp;</p>

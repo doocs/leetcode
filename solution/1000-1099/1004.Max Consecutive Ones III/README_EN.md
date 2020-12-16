@@ -49,13 +49,9 @@ Bolded numbers were flipped from 0 to 1.  The longest subarray is underlined.
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 20000</code></li>
-
     <li><code>0 &lt;= K &lt;= A.length</code></li>
-
     <li><code>A[i]</code> is <code>0</code> or <code>1</code>&nbsp;</li>
-
 </ol>
 
 </div>

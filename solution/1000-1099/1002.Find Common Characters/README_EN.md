@@ -39,13 +39,9 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 100</code></li>
-
     <li><code>1 &lt;= A[i].length &lt;= 100</code></li>
-
     <li><code>A[i][j]</code> is a lowercase letter</li>
-
 </ol>
 
 </div>

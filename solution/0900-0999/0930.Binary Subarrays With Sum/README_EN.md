@@ -35,13 +35,9 @@ The 4 subarrays are bolded below:
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>A.length &lt;= 30000</code></li>
-
     <li><code>0 &lt;= S &lt;= A.length</code></li>
-
     <li><code>A[i]</code>&nbsp;is either <code>0</code>&nbsp;or <code>1</code>.</li>
-
 </ol>
 
 ## Solutions

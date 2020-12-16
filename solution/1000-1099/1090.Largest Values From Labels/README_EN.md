@@ -78,13 +78,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= values.length == labels.length &lt;= 20000</code></li>
-
     <li><code>0 &lt;= values[i], labels[i]&nbsp;&lt;= 20000</code></li>
-
     <li><code>1 &lt;= num_wanted, use_limit&nbsp;&lt;= values.length</code></li>
-
 </ol>
 
 </div>

@@ -53,11 +53,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length =&nbsp;A[0].length &lt;= 100</code></li>
-
     <li><code>A[i][j] == 0</code> or <code>A[i][j] == 1</code></li>
-
 </ol>
 
 <div>

@@ -39,11 +39,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 12</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 1e9</code></li>
-
 </ol>
 
 ## Solutions

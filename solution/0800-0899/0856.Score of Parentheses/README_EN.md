@@ -67,11 +67,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>S</code> is a balanced parentheses string, containing only <code>(</code> and <code>)</code>.</li>
-
     <li><code>2 &lt;= S.length &lt;= 50</code></li>
-
 </ol>
 
 </div>

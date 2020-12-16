@@ -33,13 +33,9 @@ We choose the second card, which has number 2 on the back, and it isn&#39;t on t
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= fronts.length == backs.length&nbsp;&lt;=&nbsp;1000</code>.</li>
-
     <li><code>1 &lt;=&nbsp;fronts[i]&nbsp;&lt;= 2000</code>.</li>
-
     <li><code>1 &lt;= backs[i]&nbsp;&lt;= 2000</code>.</li>
-
 </ol>
 
 ## Solutions

@@ -9,15 +9,10 @@
 <p>Suppose <code>n</code> lights are labeled as number [1, 2, 3 ..., n], function of these 4 buttons are given below:</p>
 
 <ol>
-
     <li>Flip all the lights.</li>
-
     <li>Flip lights with even numbers.</li>
-
     <li>Flip lights with odd numbers.</li>
-
     <li>Flip lights with (3k + 1) numbers, k = 0, 1, 2, ...</li>
-
 </ol>
 
 <p>&nbsp;</p>

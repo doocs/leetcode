@@ -79,13 +79,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= A.length &lt;= 30000</code></li>
-
     <li><code>A.length</code> is even</li>
-
     <li><code>-100000 &lt;= A[i] &lt;= 100000</code></li>
-
 </ol>
 
 </div>

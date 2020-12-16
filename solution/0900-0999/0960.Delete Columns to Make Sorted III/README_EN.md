@@ -75,11 +75,8 @@ Note that A[0] &gt; A[1] - the array A isn&#39;t necessarily in lexicographic or
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 100</code></li>
-
     <li><code>1 &lt;= A[i].length &lt;= 100</code></li>
-
 </ol>
 
 ## Solutions

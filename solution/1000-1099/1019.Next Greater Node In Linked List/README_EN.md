@@ -55,11 +55,8 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code><span>1 &lt;= node.val&nbsp;&lt;= 10^9</span></code><span>&nbsp;for each node in the linked list.</span></li>
-
     <li>The given list has length in the range <code>[0, 10000]</code>.</li>
-
 </ol>
 
 </div>

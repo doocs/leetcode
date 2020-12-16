@@ -39,11 +39,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= tiles.length &lt;= 7</code></li>
-
     <li><code>tiles</code> consists of uppercase English letters.</li>
-
 </ol>
 
 ## Solutions

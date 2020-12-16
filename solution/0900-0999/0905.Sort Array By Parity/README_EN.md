@@ -29,11 +29,8 @@ The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 5000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 5000</code></li>
-
 </ol>
 
 </div>

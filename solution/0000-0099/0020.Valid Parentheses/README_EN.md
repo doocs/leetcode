@@ -9,11 +9,8 @@
 <p>An input string is valid if:</p>
 
 <ol>
-
     <li>Open brackets must be closed by the same type of brackets.</li>
-
     <li>Open brackets must be closed in the correct order.</li>
-
 </ol>
 
 <p>Note that an empty string is&nbsp;also considered valid.</p>

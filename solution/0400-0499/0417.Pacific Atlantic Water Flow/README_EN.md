@@ -13,11 +13,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The order of returned grid coordinates does not matter.</li>
-
     <li>Both <i>m</i> and <i>n</i> are less than 150.</li>
-
 </ol>
 
 <p>&nbsp;</p>

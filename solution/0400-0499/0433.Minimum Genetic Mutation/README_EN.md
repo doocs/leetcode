@@ -17,13 +17,9 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>Starting point is assumed to be valid, so it might not be included in the bank.</li>
-
     <li>If multiple mutations are needed, all mutations during in the sequence must be valid.</li>
-
     <li>You may assume start and end string is not the same.</li>
-
 </ol>
 
 <p>&nbsp;</p>

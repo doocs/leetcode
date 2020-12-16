@@ -55,11 +55,8 @@ In total, this is 29523 integers that can be written using the digits of D.</pre
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>D</code> is a&nbsp;subset of digits <code>&#39;1&#39;-&#39;9&#39;</code> in sorted order.</li>
-
     <li><code>1 &lt;= N &lt;= 10^9</code></li>
-
 </ol>
 
 ## Solutions

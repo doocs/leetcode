@@ -63,13 +63,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 10000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 10000</code></li>
-
     <li><code>0 &lt;= K &lt;= 10000</code></li>
-
 </ol>
 
 </div>

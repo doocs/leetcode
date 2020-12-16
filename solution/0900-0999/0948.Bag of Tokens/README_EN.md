@@ -62,13 +62,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>tokens.length &lt;= 1000</code></li>
-
     <li><code>0 &lt;= tokens[i] &lt; 10000</code></li>
-
     <li><code>0 &lt;= P &lt; 10000</code></li>
-
 </ol>
 
 </div>

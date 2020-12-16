@@ -45,15 +45,10 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= grid.length&nbsp;&lt;= 30</code></li>
-
     <li><code>1 &lt;= grid[0].length&nbsp;&lt;= 30</code></li>
-
     <li><code>grid[i][j]</code> contains only<code> &#39;.&#39;</code>, <code>&#39;#&#39;</code>, <code>&#39;@&#39;</code>,&nbsp;<code>&#39;a&#39;-</code><code>&#39;f</code><code>&#39;</code> and <code>&#39;A&#39;-&#39;F&#39;</code></li>
-
     <li>The number of keys is in <code>[1, 6]</code>.&nbsp; Each key has a different letter and opens exactly one lock.</li>
-
 </ol>
 
 </div>

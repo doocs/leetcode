@@ -56,11 +56,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code><font face="monospace">1 &lt;= A.length &lt;= 1000</font></code></li>
-
     <li><code>0 &lt;= A[i] &lt; 2^16</code></li>
-
 </ol>
 
 ## Solutions

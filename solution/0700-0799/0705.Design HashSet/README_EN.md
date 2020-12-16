@@ -45,13 +45,9 @@ hashSet.contains(2); &nbsp;&nbsp;&nbsp;// returns false (already removed)
 <strong>Note:</strong></p>
 
 <ul>
-
     <li>All values will be in the range of <code>[0, 1000000]</code>.</li>
-
     <li>The number of operations will be in the range of&nbsp;<code>[1, 10000]</code>.</li>
-
     <li>Please do not use the built-in HashSet library.</li>
-
 </ul>
 
 ## Solutions

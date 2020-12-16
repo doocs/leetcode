@@ -80,13 +80,9 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]</span>
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>cells.length == 8</code></li>
-
     <li><code>cells[i]</code> is in <code>{0, 1}</code></li>
-
     <li><code>1 &lt;= N &lt;= 10^9</code></li>
-
 </ol>
 
 </div>

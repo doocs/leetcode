@@ -73,17 +73,11 @@ kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li>All key/value strings are lowercase.</li>
-
     <li>All key/value strings have&nbsp;length in the range&nbsp;<code>[1, 100]</code></li>
-
     <li>The <code>timestamps</code> for all <code>TimeMap.set</code> operations are strictly increasing.</li>
-
     <li><code>1 &lt;= timestamp &lt;= 10^7</code></li>
-
     <li><code>TimeMap.set</code> and <code>TimeMap.get</code>&nbsp;functions will be called a total of <code>120000</code> times (combined) per test case.</li>
-
 </ol>
 
 ## Solutions

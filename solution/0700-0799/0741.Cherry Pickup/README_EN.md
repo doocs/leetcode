@@ -62,19 +62,12 @@ The total number of cherries picked up is 5, and this is the maximum possible.
 <p><b>Note:</b></p>
 
 <ul>
-
     <li><code>grid</code> is an <code>N</code> by <code>N</code> 2D array, with <code>1 &lt;= N &lt;= 50</code>.</li>
-
     <li>Each <code>grid[i][j]</code> is an integer in the set <code>{-1, 0, 1}</code>.</li>
-
     <li>It is guaranteed that grid[0][0] and grid[N-1][N-1] are not -1.</li>
-
     <li>
-
     <p>&nbsp;</p>
-
     </li>
-
 </ul>
 
 ## Solutions

@@ -66,15 +66,10 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>L &gt;= 1</code></li>
-
     <li><code>M &gt;= 1</code></li>
-
     <li><code>L + M &lt;= A.length &lt;= 1000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 1000</code></li>
-
 </ol>
 
 </div>

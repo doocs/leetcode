@@ -53,11 +53,8 @@ So you finally need to output 3.
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>You may assume the length of given time series array won&#39;t exceed 10000.</li>
-
     <li>You may assume the numbers in the Teemo&#39;s attacking time series and his poisoning time duration per attacking are non-negative integers, which won&#39;t exceed 10,000,000.</li>
-
 </ol>
 
 <p>&nbsp;</p>

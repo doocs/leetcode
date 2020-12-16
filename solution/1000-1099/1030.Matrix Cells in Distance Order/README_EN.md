@@ -63,15 +63,10 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code>1 &lt;= R &lt;= 100</code></li>
-
     <li><code>1 &lt;= C &lt;= 100</code></li>
-
     <li><code>0 &lt;= r0 &lt; R</code></li>
-
     <li><code>0 &lt;= c0 &lt; C</code></li>
-
 </ol>
 
 </div>

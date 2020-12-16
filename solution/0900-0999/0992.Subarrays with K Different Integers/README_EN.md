@@ -41,13 +41,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 20000</code></li>
-
     <li><code>1 &lt;= A[i] &lt;= A.length</code></li>
-
     <li><code>1 &lt;= K &lt;= A.length</code></li>
-
 </ol>
 
 ## Solutions

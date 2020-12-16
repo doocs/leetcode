@@ -73,11 +73,8 @@ Hence, we needed 2 moves in the worst case to know what F is with certainty.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= K &lt;= 100</code></li>
-
     <li><code>1 &lt;= N &lt;= 10000</code></li>
-
 </ol>
 
 </div>

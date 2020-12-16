@@ -35,11 +35,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The input strings only contain lower case letters.</li>
-
     <li>The length of both given strings is in range [1, 10,000].</li>
-
 </ol>
 
 ## Solutions

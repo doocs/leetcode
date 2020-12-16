@@ -37,11 +37,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= barcodes.length &lt;= 10000</code></li>
-
     <li><code>1 &lt;= barcodes[i] &lt;= 10000</code></li>
-
 </ol>
 
 <div>

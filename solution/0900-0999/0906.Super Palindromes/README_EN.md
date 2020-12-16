@@ -27,15 +27,10 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= len(L) &lt;= 18</code></li>
-
     <li><code>1 &lt;= len(R) &lt;= 18</code></li>
-
     <li><code>L</code> and <code>R</code> are strings representing integers in the range <code>[1, 10^18)</code>.</li>
-
     <li><code>int(L) &lt;= int(R)</code></li>
-
 </ol>
 
 <div>

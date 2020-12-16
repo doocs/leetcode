@@ -41,11 +41,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= N &lt;= 9</code></li>
-
     <li><code>0 &lt;= K &lt;= 9</code></li>
-
 </ol>
 
 ## Solutions

@@ -39,11 +39,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li>The number of nodes in the tree is at most <code>10000</code>.</li>
-
     <li>The final answer is guaranteed to be less than <code>2^31</code>.</li>
-
 </ol>
 
 </div>

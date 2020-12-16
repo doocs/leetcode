@@ -39,13 +39,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length = B.length &lt;= 10000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
-
     <li><code>0 &lt;= B[i] &lt;= 10^9</code></li>
-
 </ol>
 
 </div>

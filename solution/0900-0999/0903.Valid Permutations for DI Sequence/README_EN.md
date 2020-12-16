@@ -46,11 +46,8 @@ The 5 valid permutations of (0, 1, 2, 3) are:
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= S.length &lt;= 200</code></li>
-
     <li><code>S</code> consists only of characters from the set <code>{&#39;D&#39;, &#39;I&#39;}</code>.</li>
-
 </ol>
 
 <div>

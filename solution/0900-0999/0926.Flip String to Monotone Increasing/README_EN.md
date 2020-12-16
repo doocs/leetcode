@@ -59,11 +59,8 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code>1 &lt;= S.length &lt;= 20000</code></li>
-
     <li><code>S</code> only consists of <code>&#39;0&#39;</code> and <code>&#39;1&#39;</code> characters.</li>
-
 </ol>
 
 </div>

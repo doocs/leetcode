@@ -61,11 +61,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>S</code> contains only lowercase letters.</li>
-
     <li><code>1 &lt;= S.length &lt;= 2000</code></li>
-
 </ol>
 
 <div>

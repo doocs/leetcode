@@ -29,11 +29,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>2 &lt;= A.length &lt;= 50000</code></li>
-
     <li><code>1 &lt;= A[i] &lt;= 1000</code></li>
-
 </ol>
 
 ## Solutions

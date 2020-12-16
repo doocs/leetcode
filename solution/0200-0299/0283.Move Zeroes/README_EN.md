@@ -17,11 +17,8 @@
 <p><b>Note</b>:</p>
 
 <ol>
-
     <li>You must do this <b>in-place</b> without making a copy of the array.</li>
-
     <li>Minimize the total number of operations.</li>
-
 </ol>
 
 ## Solutions

@@ -81,11 +81,8 @@ Then we can insert &quot;abc&quot; before the last letter, resulting in &quot;ab
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= S.length &lt;= 20000</code></li>
-
     <li><code>S[i]</code> is <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, or <code>&#39;c&#39;</code></li>
-
 </ol>
 
 <div>

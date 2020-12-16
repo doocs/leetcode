@@ -73,13 +73,9 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code>0 &lt;= A.length &lt;= 20000</code></li>
-
     <li><code>0 &lt;= B.length &lt;= 20000</code></li>
-
     <li><code>A</code> and&nbsp;<code>B</code> consist only of lowercase letters.</li>
-
 </ol>
 
 </div>

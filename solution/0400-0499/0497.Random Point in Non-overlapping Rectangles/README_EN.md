@@ -9,21 +9,13 @@
 <p>Note:</p>
 
 <ol>
-
     <li>An <strong>integer point</strong>&nbsp;is a point that has integer coordinates.&nbsp;</li>
-
     <li>A point&nbsp;on the perimeter&nbsp;of a rectangle is&nbsp;<strong>included</strong> in the space covered by the rectangles.&nbsp;</li>
-
     <li><code>i</code>th rectangle = <code>rects[i]</code> =&nbsp;<code>[x1,y1,x2,y2]</code>, where <code>[x1, y1]</code>&nbsp;are the integer coordinates of the bottom-left corner, and <code>[x2, y2]</code>&nbsp;are the integer coordinates of the top-right corner.</li>
-
     <li>length and width of each rectangle does not exceed <code>2000</code>.</li>
-
     <li><code>1 &lt;= rects.length&nbsp;&lt;= 100</code></li>
-
     <li><code>pick</code> return a point as an array of integer coordinates&nbsp;<code>[p_x, p_y]</code></li>
-
     <li><code>pick</code> is called at most <code>10000</code>&nbsp;times.</li>
-
 </ol>
 
 <div>

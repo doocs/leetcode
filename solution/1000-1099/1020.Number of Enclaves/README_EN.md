@@ -43,15 +43,10 @@ All 1s are either on the boundary or can reach the boundary.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 500</code></li>
-
     <li><code>1 &lt;= A[i].length &lt;= 500</code></li>
-
     <li><code>0 &lt;= A[i][j] &lt;= 1</code></li>
-
     <li>All rows have the same size.</li>
-
 </ol>
 
 ## Solutions

@@ -37,15 +37,10 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= text.length &lt;= 1000</code></li>
-
     <li><code>text</code> consists of space separated words, where each word consists of lowercase English letters.</li>
-
     <li><code>1 &lt;= first.length, second.length &lt;= 10</code></li>
-
     <li><code>first</code> and <code>second</code> consist of lowercase English letters.</li>
-
 </ol>
 
 </div>

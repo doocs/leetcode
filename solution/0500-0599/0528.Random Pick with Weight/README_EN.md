@@ -9,13 +9,9 @@
 <p>Note:</p>
 
 <ol>
-
     <li><code>1 &lt;= w.length &lt;= 10000</code></li>
-
     <li><code>1 &lt;= w[i] &lt;= 10^5</code></li>
-
     <li><code>pickIndex</code>&nbsp;will be called at most <code>10000</code> times.</li>
-
 </ol>
 
 <p><strong>Example 1:</strong></p>

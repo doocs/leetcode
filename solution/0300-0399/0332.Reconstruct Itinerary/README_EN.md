@@ -9,13 +9,9 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string. For example, the itinerary <code>[&quot;JFK&quot;, &quot;LGA&quot;]</code> has a smaller lexical order than <code>[&quot;JFK&quot;, &quot;LGB&quot;]</code>.</li>
-
     <li>All airports are represented by three capital letters (IATA code).</li>
-
     <li>You may assume all tickets form at least one valid itinerary.</li>
-
 </ol>
 
 <p><b>Example 1:</b></p>

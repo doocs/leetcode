@@ -29,13 +29,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= words.length&nbsp;&lt;= 2000</code>.</li>
-
     <li><code>1 &lt;=&nbsp;words[i].length&nbsp;&lt;= 7</code>.</li>
-
     <li>Each word&nbsp;has only&nbsp;lowercase letters.</li>
-
 </ol>
 
 ## Solutions

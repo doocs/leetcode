@@ -27,15 +27,10 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>You <b>must not</b> modify the array (assume the array is read only).</li>
-
     <li>You must use only constant, <i>O</i>(1) extra space.</li>
-
     <li>Your runtime complexity should be less than <em>O</em>(<em>n</em><sup>2</sup>).</li>
-
     <li>There is only one duplicate number in the array, but it could be repeated more than once.</li>
-
 </ol>
 
 ## Solutions

@@ -55,19 +55,12 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= grid.length &lt;= 50</code></li>
-
     <li><code>1 &lt;= grid[0].length &lt;= 50</code></li>
-
     <li><code>1 &lt;= grid[i][j] &lt;= 1000</code></li>
-
     <li><code>0 &lt;= r0 &lt; grid.length</code></li>
-
     <li><code>0 &lt;= c0 &lt; grid[0].length</code></li>
-
     <li><code>1 &lt;= color &lt;= 1000</code></li>
-
 </ol>
 
 ## Solutions

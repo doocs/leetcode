@@ -55,11 +55,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>rand7</code> is predefined.</li>
-
     <li>Each testcase has one argument:&nbsp;<code>n</code>, the number of times that <code>rand10</code> is called.</li>
-
 </ol>
 
 <p>&nbsp;</p>
@@ -67,11 +64,8 @@
 <p><strong>Follow up:</strong></p>
 
 <ol>
-
     <li>What is the <a href="https://en.wikipedia.org/wiki/Expected_value" target="_blank">expected value</a>&nbsp;for the number of calls to&nbsp;<code>rand7()</code>&nbsp;function?</li>
-
     <li>Could you minimize the number of calls to <code>rand7()</code>?</li>
-
 </ol>
 
 </div>

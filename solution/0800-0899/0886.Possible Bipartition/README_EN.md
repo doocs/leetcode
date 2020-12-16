@@ -69,17 +69,11 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= N &lt;= 2000</code></li>
-
     <li><code>0 &lt;= dislikes.length &lt;= 10000</code></li>
-
     <li><code>1 &lt;= dislikes[i][j] &lt;= N</code></li>
-
     <li><code>dislikes[i][0] &lt; dislikes[i][1]</code></li>
-
     <li>There does not exist <code>i != j</code> for which <code>dislikes[i] == dislikes[j]</code>.</li>
-
 </ol>
 
 </div>

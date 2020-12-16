@@ -61,11 +61,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length == B.length &lt;= 20</code></li>
-
     <li><code>A</code> and <code>B</code> contain only lowercase letters from the set <code>{&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;}</code></li>
-
 </ol>
 
 ## Solutions

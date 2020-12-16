@@ -57,11 +57,8 @@ Note that other answers, such as [3, 3], would also be accepted.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 100</code></li>
-
     <li><code>A[i]</code> is a permutation of <code>[1, 2, ..., A.length]</code></li>
-
 </ol>
 
 ## Solutions

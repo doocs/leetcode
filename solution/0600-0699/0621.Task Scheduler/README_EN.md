@@ -29,11 +29,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The number of tasks is in the range [1, 10000].</li>
-
     <li>The integer n is in the range [0, 100].</li>
-
 </ol>
 
 ## Solutions

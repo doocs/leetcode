@@ -79,13 +79,9 @@ Notice you can have extra video after the event ends.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= clips.length &lt;= 100</code></li>
-
     <li><code>0 &lt;= clips[i][0], clips[i][1] &lt;= 100</code></li>
-
     <li><code>0 &lt;= T &lt;= 100</code></li>
-
 </ol>
 
 ## Solutions

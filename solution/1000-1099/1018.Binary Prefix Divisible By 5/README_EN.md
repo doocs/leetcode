@@ -57,11 +57,8 @@ The input numbers in binary are 0, 01, 011; which are 0, 1, and 3 in base-10.  O
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 30000</code></li>
-
     <li><code>A[i]</code> is <code>0</code> or <code>1</code></li>
-
 </ol>
 
 ## Solutions

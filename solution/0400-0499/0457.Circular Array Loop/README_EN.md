@@ -49,13 +49,9 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>-1000 &le;&nbsp;nums[i] &le;&nbsp;1000</li>
-
     <li>nums[i] &ne;&nbsp;0</li>
-
     <li>1 &le;&nbsp;nums.length &le; 5000</li>
-
 </ol>
 
 <p>&nbsp;</p>

@@ -75,13 +75,9 @@ We made 2 refueling stops along the way, so we return 2.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= target, startFuel, stations[i][1] &lt;= 10^9</code></li>
-
     <li><code>0 &lt;= stations.length &lt;= 500</code></li>
-
     <li><code>0 &lt; stations[0][0] &lt; stations[1][0] &lt; ... &lt; stations[stations.length-1][0] &lt; target</code></li>
-
 </ol>
 
 </div>

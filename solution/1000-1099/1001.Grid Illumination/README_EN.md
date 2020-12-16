@@ -61,15 +61,10 @@ Before performing the second query we have only the lamp [4,4] on.  Now the quer
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= N &lt;= 10^9</code></li>
-
     <li><code>0 &lt;= lamps.length &lt;= 20000</code></li>
-
     <li><code>0 &lt;= queries.length &lt;= 20000</code></li>
-
     <li><code>lamps[i].length == queries[i].length == 2</code></li>
-
 </ol>
 
 ## Solutions

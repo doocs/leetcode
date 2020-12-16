@@ -9,13 +9,9 @@
 <p>If the&nbsp;town judge exists, then:</p>
 
 <ol>
-
     <li>The town judge trusts nobody.</li>
-
     <li>Everybody (except for the town judge) trusts the town judge.</li>
-
     <li>There is exactly one person that satisfies properties 1 and 2.</li>
-
 </ol>
 
 <p>You are given <code>trust</code>, an array of pairs <code>trust[i] = [a, b]</code> representing that the person labelled <code>a</code> trusts the person labelled <code>b</code>.</p>
@@ -93,17 +89,11 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= N &lt;= 1000</code></li>
-
     <li><code>trust.length &lt;= 10000</code></li>
-
     <li><code>trust[i]</code> are all different</li>
-
     <li><code>trust[i][0] != trust[i][1]</code></li>
-
     <li><code>1 &lt;= trust[i][0], trust[i][1] &lt;= N</code></li>
-
 </ol>
 
 ## Solutions

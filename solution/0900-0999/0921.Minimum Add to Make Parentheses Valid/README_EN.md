@@ -73,11 +73,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>S.length &lt;= 1000</code></li>
-
     <li><code>S</code> only consists of <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code> characters.</li>
-
 </ol>
 
 <div>

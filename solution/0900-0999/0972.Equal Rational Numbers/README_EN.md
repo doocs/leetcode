@@ -73,17 +73,11 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li>Each part consists only of digits.</li>
-
     <li>The <code>&lt;IntegerPart&gt;</code>&nbsp;will&nbsp;not begin with 2 or more zeros.&nbsp; (There is no other restriction on the digits of each part.)</li>
-
     <li><code>1 &lt;= &lt;IntegerPart&gt;.length &lt;= 4 </code></li>
-
     <li><code>0 &lt;= &lt;NonRepeatingPart&gt;.length &lt;= 4 </code></li>
-
     <li><code>1 &lt;= &lt;RepeatingPart&gt;.length &lt;= 4</code></li>
-
 </ol>
 
 ## Solutions

@@ -67,13 +67,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= N&nbsp;&lt;= 10^9</code></li>
-
     <li><code>2 &lt;= A&nbsp;&lt;= 40000</code></li>
-
     <li><code>2 &lt;= B&nbsp;&lt;= 40000</code></li>
-
 </ol>
 
 </div>

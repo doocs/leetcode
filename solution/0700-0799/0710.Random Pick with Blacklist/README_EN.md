@@ -11,13 +11,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= N &lt;= 1000000000</code></li>
-
     <li><code>0 &lt;= B.length &lt; min(100000, N)</code></li>
-
     <li><code>[0, N)</code>&nbsp;does NOT include N. See <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)" target="_blank">interval notation</a>.</li>
-
 </ol>
 
 <p><strong>Example 1:</strong></p>

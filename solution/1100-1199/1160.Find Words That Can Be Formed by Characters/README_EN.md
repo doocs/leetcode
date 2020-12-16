@@ -45,13 +45,9 @@ The strings that can be formed are &quot;hello&quot; and &quot;world&quot; so th
 <p><span><strong>Note:</strong></span></p>
 
 <ol>
-
     <li><code>1 &lt;= words.length &lt;= 1000</code></li>
-
     <li><code>1 &lt;= words[i].length, chars.length&nbsp;&lt;= 100</code></li>
-
     <li>All strings contain lowercase English letters only.</li>
-
 </ol>
 
 ## Solutions

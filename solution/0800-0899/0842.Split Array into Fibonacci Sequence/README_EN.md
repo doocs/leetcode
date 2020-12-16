@@ -77,11 +77,8 @@
 <p><strong>Note: </strong></p>
 
 <ol>
-
     <li><code>1 &lt;= S.length&nbsp;&lt;= 200</code></li>
-
     <li><code>S</code> contains only digits.</li>
-
 </ol>
 
 ## Solutions

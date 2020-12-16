@@ -33,11 +33,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= S.length &lt;= 1000</code></li>
-
     <li><code>1 &lt;= N &lt;= 10^9</code></li>
-
 </ol>
 
 ## Solutions

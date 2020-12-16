@@ -29,11 +29,8 @@ Employee 1 has importance value 5, and he has two direct subordinates: employee 
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>One employee has at most one <b>direct</b> leader and may have several subordinates.</li>
-
     <li>The maximum number of employees won&#39;t exceed 2000.</li>
-
 </ol>
 
 <p>&nbsp;</p>

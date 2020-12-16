@@ -11,11 +11,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>You may assume the interval&#39;s end point is always bigger than its start point.</li>
-
     <li>You may assume none of these intervals have the same start point.</li>
-
 </ol>
 
 <p>&nbsp;</p>

@@ -21,13 +21,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>S</code> string length is&nbsp;in&nbsp;<code>[1, 10000].</code></li>
-
     <li><code>C</code>&nbsp;is a single character, and guaranteed to be in string <code>S</code>.</li>
-
     <li>All letters in <code>S</code> and <code>C</code> are lowercase.</li>
-
 </ol>
 
 ## Solutions

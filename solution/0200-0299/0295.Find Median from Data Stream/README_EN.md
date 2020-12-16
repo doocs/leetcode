@@ -42,11 +42,8 @@ findMedian() -&gt; 2
 <p><strong>Follow up:</strong></p>
 
 <ol>
-
     <li>If all integer numbers from the stream are between 0&nbsp;and 100, how would you optimize it?</li>
-
     <li>If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it?</li>
-
 </ol>
 
 ## Solutions

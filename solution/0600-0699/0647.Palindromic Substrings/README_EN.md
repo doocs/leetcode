@@ -39,9 +39,7 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The input string length won&#39;t exceed 1000.</li>
-
 </ol>
 
 <p>&nbsp;</p>

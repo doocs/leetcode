@@ -70,17 +70,11 @@ The decoded string is &quot;a&quot; repeated 8301530446056247680 times.  The 1st
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>2 &lt;= S.length &lt;= 100</code></li>
-
     <li><code>S</code>&nbsp;will only contain lowercase letters and digits <code>2</code> through <code>9</code>.</li>
-
     <li><code>S</code>&nbsp;starts with a letter.</li>
-
     <li><code>1 &lt;= K &lt;= 10^9</code></li>
-
     <li>The decoded string is guaranteed to have less than <code>2^63</code> letters.</li>
-
 </ol>
 
 </div>

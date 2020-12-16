@@ -55,17 +55,11 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= commands.length &lt;= 10000</code></li>
-
     <li><code>0 &lt;= obstacles.length &lt;= 10000</code></li>
-
     <li><code>-30000 &lt;= obstacle[i][0] &lt;= 30000</code></li>
-
     <li><code>-30000 &lt;= obstacle[i][1] &lt;= 30000</code></li>
-
     <li>The answer is guaranteed to be less than <code>2 ^ 31</code>.</li>
-
 </ol>
 
 ## Solutions

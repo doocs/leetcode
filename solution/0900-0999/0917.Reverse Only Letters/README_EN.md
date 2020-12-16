@@ -67,13 +67,9 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code>S.length &lt;= 100</code></li>
-
     <li><code>33 &lt;= S[i].ASCIIcode &lt;= 122</code>&nbsp;</li>
-
     <li><code>S</code> doesn&#39;t contain <code>\</code> or <code>&quot;</code></li>
-
 </ol>
 
 </div>

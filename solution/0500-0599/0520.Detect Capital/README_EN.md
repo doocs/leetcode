@@ -9,13 +9,9 @@
 <p>We define the usage of capitals in a word to be right when one of the following cases holds:</p>
 
 <ol>
-
     <li>All letters in this word are capitals, like &quot;USA&quot;.</li>
-
     <li>All letters in this word are not capitals, like &quot;leetcode&quot;.</li>
-
     <li>Only the first letter in this word is capital, like &quot;Google&quot;.</li>
-
 </ol>
 
 Otherwise, we define that this word doesn&#39;t use capitals in a right way.

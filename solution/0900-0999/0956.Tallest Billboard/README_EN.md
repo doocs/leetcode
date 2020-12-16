@@ -61,13 +61,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= rods.length &lt;= 20</code></li>
-
     <li><code>1 &lt;= rods[i] &lt;= 1000</code></li>
-
     <li><code>The sum of rods is at most 5000.</code></li>
-
 </ol>
 
 ## Solutions

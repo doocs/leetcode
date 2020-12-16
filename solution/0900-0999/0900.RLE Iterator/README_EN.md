@@ -55,17 +55,11 @@ but the second term did not exist.  Since the last term exhausted does not exist
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= A.length &lt;= 1000</code></li>
-
     <li><code>A.length</code>&nbsp;is an even integer.</li>
-
     <li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
-
     <li>There are at most <code>1000</code> calls to <code>RLEIterator.next(int n)</code> per test case.</li>
-
     <li>Each call to&nbsp;<code>RLEIterator.next(int n)</code>&nbsp;will have <code>1 &lt;= n &lt;= 10^9</code>.</li>
-
 </ol>
 
 ## Solutions

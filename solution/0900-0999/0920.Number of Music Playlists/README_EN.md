@@ -70,9 +70,7 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= K &lt; N &lt;= L &lt;= 100</code></li>
-
 </ol>
 
 </div>

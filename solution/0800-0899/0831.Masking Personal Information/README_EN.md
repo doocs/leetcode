@@ -97,13 +97,9 @@
 <p><strong>Notes:</strong></p>
 
 <ol>
-
     <li><code>S.length&nbsp;&lt;=&nbsp;40</code>.</li>
-
     <li>Emails have length at least 8.</li>
-
     <li>Phone numbers have length at least 10.</li>
-
 </ol>
 
 ## Solutions

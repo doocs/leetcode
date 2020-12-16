@@ -69,7 +69,6 @@ If <code><em>version1</em> &gt; <em>version2</em></code> return <code>1;</code>&
 <ol>
 
 <li>Version strings are composed of numeric strings separated by dots <code>.</code> and this numeric strings <strong>may</strong> have leading zeroes. </li>
-
 <li>Version strings do not start or end with dots, and they will not be two consecutive dots.</li>
 
 </ol>

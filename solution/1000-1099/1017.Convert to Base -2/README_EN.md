@@ -57,9 +57,7 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><span><code>0 &lt;= N &lt;= 10^9</code></span></li>
-
 </ol>
 
 </div>

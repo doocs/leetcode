@@ -37,13 +37,9 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code><span>1 &lt;= A.length &lt;= 10000</span></code></li>
-
     <li><code>-10000 &lt;= A[i] &lt;= 10000</code></li>
-
     <li><code>A</code>&nbsp;is sorted in non-decreasing order.</li>
-
 </ol>
 
 </div>

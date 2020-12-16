@@ -51,13 +51,9 @@ In total, there is only one magic square inside the given grid.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= grid.length&nbsp;&lt;= 10</code></li>
-
     <li><code>1 &lt;= grid[0].length&nbsp;&lt;= 10</code></li>
-
     <li><code>0 &lt;= grid[i][j] &lt;= 15</code></li>
-
 </ol>
 
 ## Solutions

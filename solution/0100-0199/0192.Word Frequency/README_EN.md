@@ -45,7 +45,6 @@ day 1
 <ul>
     <li>Don&#39;t worry about handling ties, it is guaranteed that each word&#39;s frequency count is unique.</li>
     <li>Could you write it in one-line using <a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-4.html">Unix pipes</a>?</li>
-
 </ul>
 
 ## Solutions

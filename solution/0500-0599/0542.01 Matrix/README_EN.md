@@ -63,13 +63,9 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The number of elements of the given matrix will not exceed 10,000.</li>
-
     <li>There are at least one 0 in the given matrix.</li>
-
     <li>The cells are adjacent in only four directions: up, down, left and right.</li>
-
 </ol>
 
 ## Solutions

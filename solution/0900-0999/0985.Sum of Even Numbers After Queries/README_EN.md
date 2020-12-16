@@ -41,17 +41,11 @@ After adding 2 to A[3], the array is [-2,-1,3,6], and the sum of even values is 
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 10000</code></li>
-
     <li><code>-10000 &lt;= A[i] &lt;= 10000</code></li>
-
     <li><code>1 &lt;= queries.length &lt;= 10000</code></li>
-
     <li><code>-10000 &lt;= queries[i][0] &lt;= 10000</code></li>
-
     <li><code>0 &lt;= queries[i][1] &lt; A.length</code></li>
-
 </ol>
 
 ## Solutions

@@ -48,11 +48,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>3 &lt;= A.length &lt;= 30000</code></li>
-
     <li><code>A[i] == 0</code>&nbsp;or <code>A[i] == 1</code></li>
-
 </ol>
 
 <div>

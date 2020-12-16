@@ -42,11 +42,8 @@ we can combine 1 and 1 to get 0 so the array converts to [1] then that&#39;s the
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= stones.length &lt;= 30</code></li>
-
     <li><code>1 &lt;= stones[i] &lt;= 100</code></li>
-
 </ol>
 
 ## Solutions

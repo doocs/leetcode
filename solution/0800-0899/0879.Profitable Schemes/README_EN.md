@@ -57,17 +57,11 @@ There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= G &lt;= 100</code></li>
-
     <li><code>0 &lt;= P &lt;= 100</code></li>
-
     <li><code>1 &lt;= group[i] &lt;= 100</code></li>
-
     <li><code>0 &lt;= profit[i] &lt;= 100</code></li>
-
     <li><code>1 &lt;= group.length = profit.length &lt;= 100</code></li>
-
 </ol>
 
 <div>

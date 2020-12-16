@@ -73,13 +73,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>name.length &lt;= 1000</code></li>
-
     <li><code>typed.length &lt;= 1000</code></li>
-
     <li>The characters of <code>name</code> and <code>typed</code> are lowercase letters.</li>
-
 </ol>
 
 <div>

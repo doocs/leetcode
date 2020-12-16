@@ -83,17 +83,11 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= equations.length &lt;= 500</code></li>
-
     <li><code>equations[i].length == 4</code></li>
-
     <li><code>equations[i][0]</code> and <code>equations[i][3]</code> are lowercase letters</li>
-
     <li><code>equations[i][1]</code> is either <code>&#39;=&#39;</code> or <code>&#39;!&#39;</code></li>
-
     <li><code>equations[i][2]</code> is&nbsp;<code>&#39;=&#39;</code></li>
-
 </ol>
 
 </div>

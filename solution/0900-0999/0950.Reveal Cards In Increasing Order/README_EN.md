@@ -11,13 +11,9 @@
 <p>Now, you do the following steps repeatedly, until all cards are revealed:</p>
 
 <ol>
-
     <li>Take the top card of the deck, reveal it, and take it out of the deck.</li>
-
     <li>If there are still cards in the deck, put the next top card of the deck at&nbsp;the bottom of the deck.</li>
-
     <li>If there are still unrevealed cards, go back to step 1.&nbsp; Otherwise, stop.</li>
-
 </ol>
 
 <p>Return an ordering of the deck that would reveal the cards&nbsp;in <strong>increasing order.</strong></p>
@@ -67,13 +63,9 @@ Since all the cards revealed are in increasing order, the answer is correct.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 1000</code></li>
-
     <li><code>1 &lt;= A[i] &lt;= 10^6</code></li>
-
     <li><code>A[i] != A[j]</code>&nbsp;for all&nbsp;<code>i != j</code></li>
-
 </ol>
 
 </div>

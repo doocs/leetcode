@@ -27,11 +27,8 @@ Minimums are 3, 1, 2, 4, 1, 1, 2, 1, 1, 1.&nbsp; Sum is 17.</pre>
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 30000</code></li>
-
     <li><code>1 &lt;= A[i] &lt;= 30000</code></li>
-
 </ol>
 
 <div>

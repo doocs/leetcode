@@ -51,11 +51,8 @@ This is the maximum distance possible, so the answer is 3.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= seats.length &lt;= 20000</code></li>
-
     <li><code>seats</code>&nbsp;contains only 0s or 1s, at least one <code>0</code>, and at least one <code>1</code>.</li>
-
 </ol>
 
 </div>

@@ -75,15 +75,10 @@
 <p><strong>Note：</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 10000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 9</code></li>
-
     <li><code>0 &lt;= K &lt;= 10000</code></li>
-
     <li>If <code>A.length &gt; 1</code>, then <code>A[0] != 0</code></li>
-
 </ol>
 
 </div>

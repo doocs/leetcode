@@ -39,15 +39,10 @@
 <p><strong>Note</strong>:</p>
 
 <ol>
-
     <li><code>1 &lt;= points.length &lt;= 500</code></li>
-
     <li><code>0 &lt;=&nbsp;points[i][0] &lt;=&nbsp;40000</code></li>
-
     <li><code>0 &lt;=&nbsp;points[i][1] &lt;=&nbsp;40000</code></li>
-
     <li>All points are distinct.</li>
-
 </ol>
 
 </div>

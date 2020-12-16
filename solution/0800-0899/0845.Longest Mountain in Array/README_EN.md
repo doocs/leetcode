@@ -44,11 +44,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= A.length &lt;= 10000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 10000</code></li>
-
 </ol>
 
 <p><strong>Follow up:</strong></p>

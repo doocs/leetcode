@@ -27,17 +27,11 @@ WordFilter.f(&quot;b&quot;, &quot;&quot;) // returns -1
 <p><b>Note:</b></p>
 
 <ol>
-
     <li><code>words</code> has length in range <code>[1, 15000]</code>.</li>
-
     <li>For each test case, up to <code>words.length</code> queries <code>WordFilter.f</code> may be made.</li>
-
     <li><code>words[i]</code> has length in range <code>[1, 10]</code>.</li>
-
     <li><code>prefix, suffix</code> have lengths in range <code>[0, 10]</code>.</li>
-
     <li><code>words[i]</code> and <code>prefix, suffix</code> queries consist of lowercase letters only.</li>
-
 </ol>
 
 <p>&nbsp;</p>

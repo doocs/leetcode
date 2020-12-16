@@ -9,15 +9,10 @@
 <p>Note:</p>
 
 <ol>
-
     <li><code>1 &lt;= n_rows, n_cols&nbsp;&lt;= 10000</code></li>
-
     <li><code>0 &lt;= row.id &lt; n_rows</code> and <code>0 &lt;= col.id &lt; n_cols</code></li>
-
     <li><code>flip</code>&nbsp;will not be called when the matrix has no&nbsp;0 values left.</li>
-
     <li>the total number of calls to&nbsp;<code>flip</code>&nbsp;and <code>reset</code>&nbsp;will not exceed&nbsp;1000.</li>
-
 </ol>
 
 <p><strong>Example 1:</strong></p>

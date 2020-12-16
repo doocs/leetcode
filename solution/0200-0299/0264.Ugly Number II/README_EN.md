@@ -21,11 +21,8 @@
 <p><strong>Note: </strong>&nbsp;</p>
 
 <ol>
-
     <li><code>1</code> is typically treated as an ugly number.</li>
-
     <li><code>n</code> <b>does not exceed 1690</b>.</li>
-
 </ol>
 
 ## Solutions

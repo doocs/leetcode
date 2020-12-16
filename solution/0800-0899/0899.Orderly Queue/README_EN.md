@@ -53,11 +53,8 @@ In the second move, we move the 3rd character (&quot;c&quot;) to the end, obtain
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= K &lt;= S.length&nbsp;&lt;= 1000</code></li>
-
     <li><code>S</code>&nbsp;consists of lowercase letters only.</li>
-
 </ol>
 
 </div>

@@ -43,11 +43,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 12</code></li>
-
     <li><code>1 &lt;= A[i].length &lt;= 20</code></li>
-
 </ol>
 
 <div>

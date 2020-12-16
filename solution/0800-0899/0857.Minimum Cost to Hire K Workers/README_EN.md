@@ -9,11 +9,8 @@
 <p>Now we want to hire exactly <code>K</code>&nbsp;workers to form a <em>paid group</em>.&nbsp; When hiring a group of K workers, we must pay them according to the following rules:</p>
 
 <ol>
-
     <li>Every worker in the paid group should be paid in the ratio of their quality compared to other workers in the paid group.</li>
-
     <li>Every worker in the paid group must be paid at least their minimum wage expectation.</li>
-
 </ol>
 
 <p>Return the least amount of money needed to form a paid group satisfying the above conditions.</p>
@@ -57,15 +54,10 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= K &lt;= N &lt;= 10000</code>, where <code>N = quality.length = wage.length</code></li>
-
     <li><code>1 &lt;= quality[i] &lt;= 10000</code></li>
-
     <li><code>1 &lt;= wage[i] &lt;= 10000</code></li>
-
     <li>Answers within <code>10^-5</code> of the correct answer will be considered correct.</li>
-
 </ol>
 
 </div>

@@ -29,13 +29,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>2 &lt;= A.length &lt;= 20000</code></li>
-
     <li><code>A.length % 2 == 0</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 1000</code></li>
-
 </ol>
 
 <div>

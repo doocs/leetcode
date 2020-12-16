@@ -41,11 +41,8 @@
 <p><strong><span>Note:</span></strong></p>
 
 <ol>
-
     <li><code>A.length == 4</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 9</code></li>
-
 </ol>
 
 </div>

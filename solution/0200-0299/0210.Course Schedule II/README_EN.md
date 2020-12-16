@@ -41,11 +41,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li>The input prerequisites is a graph represented by <strong>a list of edges</strong>, not adjacency matrices. Read more about <a href="https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs" target="_blank">how a graph is represented</a>.</li>
-
     <li>You may assume that there are no duplicate edges in the input prerequisites.</li>
-
 </ol>
 
 ## Solutions

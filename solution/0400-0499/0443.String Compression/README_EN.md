@@ -97,11 +97,8 @@ Notice each digit has it&#39;s own entry in the array.
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>All characters have an ASCII value in <code>[35, 126]</code>.</li>
-
     <li><code>1 &lt;= len(chars) &lt;= 1000</code>.</li>
-
 </ol>
 
 ## Solutions

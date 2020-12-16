@@ -75,13 +75,9 @@ After removing outer parentheses of each part, this is &quot;&quot; + &quot;&quo
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>S.length &lt;= 10000</code></li>
-
     <li><code>S[i]</code> is <code>&quot;(&quot;</code> or <code>&quot;)&quot;</code></li>
-
     <li><code>S</code> is a valid parentheses string</li>
-
 </ol>
 
 <div>

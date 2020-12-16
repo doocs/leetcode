@@ -53,11 +53,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The range of n is [3, 10^18].</li>
-
     <li>The string representing n is always valid and will not have leading zeros.</li>
-
 </ol>
 
 <p>&nbsp;</p>

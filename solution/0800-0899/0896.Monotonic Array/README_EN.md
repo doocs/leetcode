@@ -81,11 +81,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 50000</code></li>
-
     <li><code>-100000 &lt;= A[i] &lt;= 100000</code></li>
-
 </ol>
 
 </div>

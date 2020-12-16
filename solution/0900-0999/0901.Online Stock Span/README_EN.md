@@ -53,15 +53,10 @@ Note that (for example) S.next(75) returned 4, because the last 4 prices
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li>Calls to <code>StockSpanner.next(int price)</code> will have <code>1 &lt;= price &lt;= 10^5</code>.</li>
-
     <li>There will be at most <code>10000</code> calls to <code>StockSpanner.next</code>&nbsp;per test case.</li>
-
     <li>There will be at most <code>150000</code> calls to <code>StockSpanner.next</code> across all test cases.</li>
-
     <li>The total&nbsp;time limit for this problem has been reduced by 75% for&nbsp;C++, and 50% for all other languages.</li>
-
 </ol>
 
 </div>

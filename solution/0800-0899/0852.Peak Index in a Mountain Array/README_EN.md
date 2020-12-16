@@ -38,13 +38,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>3 &lt;= A.length &lt;= 10000</code></li>
-
     <li><code><font face="monospace">0 &lt;= A[i] &lt;= 10^6</font></code></li>
-
     <li>A&nbsp;is a mountain, as defined above.</li>
-
 </ol>
 
 ## Solutions

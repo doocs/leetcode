@@ -61,15 +61,10 @@
 <p>You can assume that</p>
 
 <ul>
-
     <li>0 &lt;= amount &lt;= 5000</li>
-
     <li>1 &lt;= coin &lt;= 5000</li>
-
     <li>the number of coins is less than 500</li>
-
     <li>the answer is guaranteed to fit into signed 32-bit integer</li>
-
 </ul>
 
 ## Solutions

@@ -23,13 +23,9 @@
 <p>Note:</p>
 
 <ol>
-
     <li>All the input integers are in the range [-10000, 10000].</li>
-
     <li>A valid square has four equal sides with positive length and four equal angles (90-degree angles).</li>
-
     <li>Input points have no order.</li>
-
 </ol>
 
 <p>&nbsp;</p>

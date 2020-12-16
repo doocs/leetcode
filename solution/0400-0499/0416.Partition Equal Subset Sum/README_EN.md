@@ -9,11 +9,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>Each of the array element will not exceed 100.</li>
-
     <li>The array size will not exceed 200.</li>
-
 </ol>
 
 <p>&nbsp;</p>

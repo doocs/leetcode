@@ -51,11 +51,8 @@ row 4: 01101001
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>N</code> will be an integer in the range <code>[1, 30]</code>.</li>
-
     <li><code>K</code> will be an integer in the range <code>[1, 2^(N-1)]</code>.</li>
-
 </ol>
 
 ## Solutions

@@ -15,11 +15,8 @@
 <p>Now, a <em>group of special-equivalent strings from <code>A</code></em>&nbsp;is a non-empty subset of&nbsp;A such that:</p>
 
 <ol>
-
     <li>Every pair of strings in the group are special equivalent, and;</li>
-
     <li>The group is the largest size possible (ie., there isn&#39;t a string S not in the group such that S is special equivalent to every string in the group)</li>
-
 </ol>
 
 <p>Return the number of groups of special-equivalent strings from <code>A</code>.</p>

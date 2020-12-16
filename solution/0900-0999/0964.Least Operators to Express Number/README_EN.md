@@ -9,15 +9,10 @@
 <p>When writing such an expression, we adhere to the following conventions:</p>
 
 <ol>
-
     <li>The division operator (<code>/</code>) returns rational numbers.</li>
-
     <li>There are no parentheses placed anywhere.</li>
-
     <li>We use the usual order of operations: multiplication and division happens before addition and subtraction.</li>
-
     <li>It&#39;s not allowed to use the unary negation&nbsp;operator (<code>-</code>).&nbsp; For example, &quot;<code>x&nbsp;- x</code>&quot;&nbsp;is a valid expression as it only uses subtraction, but &quot;<code>-x +&nbsp;x</code>&quot; is not because it uses negation.</li>
-
 </ol>
 
 <p>We would like to write an expression with the least number of operators such that the expression equals the given <code>target</code>.&nbsp; Return the least number of operators used.</p>

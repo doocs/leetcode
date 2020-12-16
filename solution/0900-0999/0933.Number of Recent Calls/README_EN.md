@@ -29,13 +29,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li>Each test case will have at most <code>10000</code> calls to <code>ping</code>.</li>
-
     <li>Each test case will call&nbsp;<code>ping</code> with strictly increasing values of <code>t</code>.</li>
-
     <li>Each call to ping will have <code>1 &lt;= t &lt;= 10^9</code>.</li>
-
 </ol>
 
 <div>

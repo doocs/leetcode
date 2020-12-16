@@ -53,13 +53,9 @@ circularDeque.getFront();			// return 4
 <p><strong>Note:</strong></p>
 
 <ul>
-
     <li>All values will be in the range of [0, 1000].</li>
-
     <li>The number of operations will be in the range of&nbsp;[1, 1000].</li>
-
     <li>Please do not use the built-in Deque library.</li>
-
 </ul>
 
 ## Solutions

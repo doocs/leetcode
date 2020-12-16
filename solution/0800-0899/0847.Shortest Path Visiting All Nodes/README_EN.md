@@ -43,11 +43,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= graph.length &lt;= 12</code></li>
-
     <li><code>0 &lt;= graph[i].length &lt;&nbsp;graph.length</code></li>
-
 </ol>
 
 ## Solutions

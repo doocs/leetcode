@@ -17,11 +17,8 @@
 <p><b>Note</b>:</p>
 
 <ol>
-
     <li>The order of the result is not important. So in the above example, <code>[5, 3]</code> is also correct.</li>
-
     <li>Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?</li>
-
 </ol>
 
 ## Solutions

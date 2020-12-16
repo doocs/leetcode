@@ -43,13 +43,9 @@ seat() -&gt; 5, the student sits at the last seat number 5.</span>
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= N &lt;= 10^9</code></li>
-
     <li><code>ExamRoom.seat()</code> and <code>ExamRoom.leave()</code> will be called at most <code>10^4</code> times across all test cases.</li>
-
     <li>Calls to <code>ExamRoom.leave(p)</code> are guaranteed to have a student currently sitting in seat number <code>p</code>.</li>
-
 </ol>
 
 ## Solutions

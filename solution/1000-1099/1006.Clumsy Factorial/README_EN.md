@@ -45,11 +45,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= N &lt;= 10000</code></li>
-
     <li><code>-2^31 &lt;= answer &lt;= 2^31 - 1</code>&nbsp; (The answer is guaranteed to fit within a 32-bit integer.)</li>
-
 </ol>
 
 ## Solutions

@@ -29,13 +29,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 30000</code></li>
-
     <li><code>-10000 &lt;= A[i] &lt;= 10000</code></li>
-
     <li><code>2 &lt;= K &lt;= 10000</code></li>
-
 </ol>
 
 </div>

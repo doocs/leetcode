@@ -21,11 +21,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The rectangle inside the matrix must have an area &gt; 0.</li>
-
     <li>What if the number of rows is much larger than the number of columns?</li>
-
 </ol>
 
 ## Solutions

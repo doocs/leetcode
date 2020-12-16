@@ -39,13 +39,9 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li>You may assume that all elements in <code>nums</code> are unique.</li>
-
     <li><code>n</code> will be in the range <code>[1, 10000]</code>.</li>
-
     <li>The value of each element in <code>nums</code> will be in the range <code>[-9999, 9999]</code>.</li>
-
 </ol>
 
 ## Solutions

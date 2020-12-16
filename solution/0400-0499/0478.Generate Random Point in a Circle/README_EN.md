@@ -9,15 +9,10 @@
 <p>Note:</p>
 
 <ol>
-
     <li>input and output values are&nbsp;in&nbsp;<a href="https://www.webopedia.com/TERM/F/floating_point_number.html" target="_blank">floating-point</a>.</li>
-
     <li>radius and x-y position of the center of the circle is passed into the class constructor.</li>
-
     <li>a point on the circumference of the circle is considered to be&nbsp;in the circle.</li>
-
     <li><code>randPoint</code>&nbsp;returns&nbsp;a size 2 array containing x-position and y-position of the random point, in that order.</li>
-
 </ol>
 
 <div>

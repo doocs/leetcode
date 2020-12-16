@@ -70,11 +70,8 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= X &lt;= 10^9</code></li>
-
     <li><code>1 &lt;= Y &lt;= 10^9</code></li>
-
 </ol>
 
 ## Solutions

@@ -37,17 +37,11 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>No order is required for the final output.</li>
-
     <li>You may assume the directory name, file name and file content only has letters and digits, and the length of file content is in the range of [1,50].</li>
-
     <li>The number of files given is in the range of [1,20000].</li>
-
     <li>You may assume no files or directories share the same name in the same directory.</li>
-
     <li>You may assume each given directory info represents a unique directory. Directory path and file info are separated by a single blank space.</li>
-
 </ol>
 
 <p>&nbsp;</p>
@@ -55,17 +49,11 @@
 <b>Follow-up beyond contest:</b>
 
 <ol>
-
     <li>Imagine you are given a real file system, how will you search files? DFS or BFS?</li>
-
     <li>If the file content is very large (GB level), how will you modify your solution?</li>
-
     <li>If you can only read the file by 1kb each time, how will you modify your solution?</li>
-
     <li>What is the time complexity of your modified solution? What is the most time-consuming part and memory consuming part of it? How to optimize?</li>
-
     <li>How to make sure the duplicated files you find are not false positive?</li>
-
 </ol>
 
 ## Solutions

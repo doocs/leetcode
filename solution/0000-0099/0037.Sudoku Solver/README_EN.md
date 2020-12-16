@@ -9,13 +9,9 @@
 <p>A&nbsp;sudoku solution must satisfy <strong>all of&nbsp;the following rules</strong>:</p>
 
 <ol>
-
     <li>Each of the digits&nbsp;<code>1-9</code> must occur exactly&nbsp;once in each row.</li>
-
     <li>Each of the digits&nbsp;<code>1-9</code>&nbsp;must occur&nbsp;exactly once in each column.</li>
-
     <li>Each of the the digits&nbsp;<code>1-9</code> must occur exactly once in each of the 9 <code>3x3</code> sub-boxes of the grid.</li>
-
 </ol>
 
 <p>Empty cells are indicated by the character <code>&#39;.&#39;</code>.</p>

@@ -9,15 +9,10 @@
 <p>The Dota2 senate consists of senators coming from two parties. Now the senate wants to make a decision about a change in the Dota2 game. The voting for this change is a round-based procedure. In each round, each senator can exercise <code>one</code> of the two rights:</p>
 
 <ol>
-
     <li><code>Ban one senator&#39;s right</code>:<br />
-
     A senator can make another senator lose <b>all his rights</b> in this and all the following rounds.</li>
-
     <li><code>Announce the victory</code>:<br />
-
     If this senator found the senators who still have rights to vote are all from <b>the same party</b>, he can announce the victory and make the decision about the change in the game.</li>
-
 </ol>
 
 <p>&nbsp;</p>
@@ -71,9 +66,7 @@ And in the round 2, the third senator can just announce the victory since he is 
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>The length of the given string will in the range [1, 10,000].</li>
-
 </ol>
 
 <p>&nbsp;</p>

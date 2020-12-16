@@ -23,11 +23,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>1 &lt;= <code>k</code> &lt;= <code>n</code> &lt;= 30,000.</li>
-
     <li>Elements of the given array will be in the range [-10,000, 10,000].</li>
-
 </ol>
 
 <p>&nbsp;</p>

@@ -75,11 +75,8 @@ The possible results are 1, 2, 3, 4, 6, and 7.
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= A.length &lt;= 50000</code></li>
-
     <li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
-
 </ol>
 
 ## Solutions

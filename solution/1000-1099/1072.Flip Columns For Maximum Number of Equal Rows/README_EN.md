@@ -61,15 +61,10 @@
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= matrix.length &lt;= 300</code></li>
-
     <li><code>1 &lt;= matrix[i].length &lt;= 300</code></li>
-
     <li>All <code>matrix[i].length</code>&#39;s are equal</li>
-
     <li><code>matrix[i][j]</code> is&nbsp;<code>0</code> or <code>1</code></li>
-
 </ol>
 
 </div>

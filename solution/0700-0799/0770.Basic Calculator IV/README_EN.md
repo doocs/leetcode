@@ -71,11 +71,8 @@ evalvars = [], evalints = []
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>expression</code> will have length in range <code>[1, 250]</code>.</li>
-
     <li><code>evalvars, evalints</code> will have equal lengths in range <code>[0, 100]</code>.</li>
-
 </ol>
 
 ## Solutions

@@ -29,11 +29,8 @@ The repeated subarray with maximum length is [3, 2, 1].
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>1 &lt;= len(A), len(B) &lt;= 1000</li>
-
     <li>0 &lt;= A[i], B[i] &lt; 100</li>
-
 </ol>
 
 <p>&nbsp;</p>

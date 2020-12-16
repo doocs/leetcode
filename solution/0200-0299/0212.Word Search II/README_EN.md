@@ -41,11 +41,8 @@
 <p><b>Note:</b></p>
 
 <ol>
-
     <li>All inputs are consist of lowercase letters <code>a-z</code>.</li>
-
     <li>The values of&nbsp;<code>words</code> are distinct.</li>
-
 </ol>
 
 ## Solutions

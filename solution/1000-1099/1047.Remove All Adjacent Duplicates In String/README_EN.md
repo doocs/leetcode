@@ -31,11 +31,8 @@ For example, in &quot;abbaca&quot; we could remove &quot;bb&quot; since the lett
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>1 &lt;= S.length &lt;= 20000</code></li>
-
     <li><code>S</code> consists only of English lowercase letters.</li>
-
 </ol>
 
 ## Solutions

@@ -65,13 +65,9 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 <strong>Note:</strong></p>
 
 <ol>
-
     <li><code>matrix</code> will be a 2D array of integers.</li>
-
     <li><code>matrix</code> will have a number of rows and columns in range <code>[1, 20]</code>.</li>
-
     <li><code>matrix[i][j]</code> will be integers in range <code>[0, 99]</code>.</li>
-
 </ol>
 
 <p><br />
@@ -79,11 +75,8 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 <strong>Follow up:</strong></p>
 
 <ol>
-
     <li>What if the matrix is stored on disk, and the memory is limited such that you can only load at most one row of the matrix into the memory at once?</li>
-
     <li>What if the matrix is so large that you can only load up a partial row into the memory at once?</li>
-
 </ol>
 
 ## Solutions

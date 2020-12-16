@@ -45,19 +45,12 @@ Because there are no blocked cells, it&#39;s possible to reach the target square
 <p><strong>Note:</strong></p>
 
 <ol>
-
     <li><code>0 &lt;= blocked.length &lt;= 200</code></li>
-
     <li><code>blocked[i].length == 2</code></li>
-
     <li><code>0 &lt;= blocked[i][j] &lt; 10^6</code></li>
-
     <li><code>source.length == target.length == 2</code></li>
-
     <li><code>0 &lt;= source[i][j], target[i][j] &lt; 10^6</code></li>
-
     <li><code>source != target</code></li>
-
 </ol>
 
 ## Solutions
