@@ -64,6 +64,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 1. [Rotate List](/solution/0000-0099/0061.Rotate%20List/README_EN.md)
 1. [Palindrome Linked List](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
 1. [Intersection of Two Linked Lists](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README_EN.md)
+1. [Odd Even Linked List](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
 1. [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
 1. [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
 
