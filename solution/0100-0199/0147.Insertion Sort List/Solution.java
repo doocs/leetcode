@@ -8,38 +8,28 @@
  */
 class Solution {
     public ListNode insertionSortList(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        return insertionOneNode(head, head);
-    }
-
-    private ListNode insertionOneNode(ListNode head, ListNode node) {
-        if (head == null || node == null || node.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
-
-        ListNode perNode = node;
-        ListNode curNode = node.next;
-        ListNode nextNode = curNode.next;
-
-        if (node.val <= curNode.val) {
-            return insertionOneNode(head, curNode);
-        } else {
-            node.next = nextNode;
+        ListNode dummy = new ListNode(head.val);
+        dummy.next = head;
+        ListNode pre = dummy, cur = head;
+        while (cur != null) {
+            if (pre.val <= cur.val) {
+                pre = cur;
+                cur = cur.next;
+                continue;
+            }
+            ListNode p = dummy;
+            while (p.next.val <= cur.val) {
+                p = p.next;
+            }
+            ListNode t = cur.next;
+            cur.next = p.next;
+            p.next = cur;
+            pre.next = t;
+            cur = t;
         }
-
-        ListNode pNode = new ListNode(0);
-        pNode.next = head;
-        head = pNode;
-        while (pNode.next.val <= curNode.val) {
-            pNode = pNode.next;
-        }
-        ListNode nNode = pNode.next;
-        pNode.next = curNode;
-        curNode.next = nNode;
-
-        return insertionOneNode(head.next, perNode);
+        return dummy.next;
     }
 }
-

@@ -61,6 +61,7 @@
 1. [两两交换链表中的节点](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
 1. [合并两个有序链表](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
 1. [合并 K 个排序链表](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
+1. [对链表进行插入排序](/solution/0100-0199/0147.Insertion%20Sort%20List/README.md)
 1. [排序链表](/solution/0100-0199/0148.Sort%20List/README.md)
 1. [反转链表](/solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
 1. [反转链表 II](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README.md)

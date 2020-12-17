@@ -39,6 +39,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历链表，每次将遍历到的结点 cur 与前一个结点 pre 进行值比较：
+
+- 若结点 cur 的值比 pre 的大，说明当前 cur 已在正确的位置，直接往下遍历。
+- 否则，从链表第一个结点开始遍历，将结点 cur 插入到正确的位置。
+
+依次遍历，直至 cur 指向空，遍历结束。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,7 +53,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def insertionSortList(self, head: ListNode) -> ListNode:
+        if head is None or head.next is None:
+            return head
+        dummy = ListNode(head.val)
+        dummy.next = head
+        pre, cur = dummy, head
+        while cur:
+            if pre.val <= cur.val:
+                pre, cur = cur, cur.next
+                continue
+            p = dummy
+            while p.next.val <= cur.val:
+                p = p.next
+            t = cur.next
+            cur.next = p.next
+            p.next = cur
+            pre.next = t
+            cur = t
+        return dummy.next
 ```
 
 ### **Java**
@@ -54,7 +86,41 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode insertionSortList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode dummy = new ListNode(head.val);
+        dummy.next = head;
+        ListNode pre = dummy, cur = head;
+        while (cur != null) {
+            if (pre.val <= cur.val) {
+                pre = cur;
+                cur = cur.next;
+                continue;
+            }
+            ListNode p = dummy;
+            while (p.next.val <= cur.val) {
+                p = p.next;
+            }
+            ListNode t = cur.next;
+            cur.next = p.next;
+            p.next = cur;
+            pre.next = t;
+            cur = t;
+        }
+        return dummy.next;
+    }
+}
 ```
 
 ### **...**
