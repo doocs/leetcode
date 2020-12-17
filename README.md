@@ -72,6 +72,7 @@
 1. [奇偶链表](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md)
 1. [环形链表](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
 1. [环形链表 II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
+1. [设计链表](/solution/0700-0799/0707.Design%20Linked%20List/README.md)
 
 ### 二叉树
 

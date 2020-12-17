@@ -70,6 +70,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 1. [Odd Even Linked List](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
 1. [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
 1. [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
+1. [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
 
 ### Binary Tree
 
