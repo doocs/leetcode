@@ -32,6 +32,16 @@ Given <code>1-&gt;2-&gt;3-&gt;4</code>, you should return the list as <code>2-&g
 #         self.next = next
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
+        dummy = ListNode(next=head)
+        pre, cur = dummy, head
+        while cur and cur.next:
+            pre.next = cur.next
+            t = cur.next.next
+            cur.next.next = cur
+            cur.next = t
+            pre = cur
+            cur = cur.next
+        return dummy.next
 ```
 
 ### **Java**
@@ -49,7 +59,17 @@ class Solution:
  */
 class Solution {
     public ListNode swapPairs(ListNode head) {
-
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy, cur = head;
+        while (cur != null && cur.next != null) {
+            pre.next = cur.next;
+            ListNode t = cur.next.next;
+            cur.next.next = cur;
+            cur.next = t;
+            pre = cur;
+            cur = cur.next;
+        }
+        return dummy.next;
     }
 }
 ```

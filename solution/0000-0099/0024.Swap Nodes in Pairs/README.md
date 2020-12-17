@@ -34,9 +34,16 @@
 #         self.next = next
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
-        if head is None or head.next is None:
-            return head
-
+        dummy = ListNode(next=head)
+        pre, cur = dummy, head
+        while cur and cur.next:
+            pre.next = cur.next
+            t = cur.next.next
+            cur.next.next = cur
+            cur.next = t
+            pre = cur
+            cur = cur.next
+        return dummy.next
 ```
 
 ### **Java**
@@ -56,7 +63,17 @@ class Solution:
  */
 class Solution {
     public ListNode swapPairs(ListNode head) {
-
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy, cur = head;
+        while (cur != null && cur.next != null) {
+            pre.next = cur.next;
+            ListNode t = cur.next.next;
+            cur.next.next = cur;
+            cur.next = t;
+            pre = cur;
+            cur = cur.next;
+        }
+        return dummy.next;
     }
 }
 ```

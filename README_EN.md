@@ -56,6 +56,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 1. [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
 1. [Kth Node From End of List](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
+1. [Swap Nodes in Pairs](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
 1. [Merge Two Sorted Lists](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md)
 1. [Merge k Sorted Lists](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md)
 1. [Sort List](/solution/0100-0199/0148.Sort%20List/README_EN.md)
