@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-    	if (!root) return true;
-    	return isSymmetric(root->left, root->right);
+        if (!root) return true;
+        return isSymmetric(root->left, root->right);
     }
 
 private:
