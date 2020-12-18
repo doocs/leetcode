@@ -7,10 +7,10 @@ class Solution:
     def deleteNode(self, head: ListNode, val: int) -> ListNode:
         dummy = ListNode(0)
         dummy.next = head
-        pre, p = dummy, head
-        while p:
-            if p.val == val:
-                pre.next = p.next
+        pre, cur = dummy, head
+        while cur:
+            if cur.val == val:
+                pre.next = cur.next
                 break
-            pre, p = p, p.next
+            pre, cur = cur, cur.next
         return dummy.next

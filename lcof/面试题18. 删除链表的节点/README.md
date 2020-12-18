@@ -6,7 +6,7 @@
 
 返回删除后的链表的头节点。
 
-注意：此题对比原题有改动
+注意：此题对比[原题](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README.md)有改动。
 
 **示例 1:**
 
@@ -31,9 +31,9 @@
 
 ## 解法
 
-定义一个虚拟头节点 `dummy` 指向 `head`，再定义指针 `pre` 和 `p` 分别指向 `dummy` 和 `head`。
+定义一个虚拟头节点 `dummy` 指向 `head`，再定义指针 `pre` 和 `cur` 分别指向 `dummy` 和 `head`。
 
-遍历链表，`pre`、`p` 往后移动。当指针 `p` 指向的节点的值等于 `val` 时，将 `pre.next` 指向 `p.next`，然后返回 `dummy.next`。
+遍历链表，`pre`、`cur` 往后移动。当指针 `cur` 指向的节点的值等于 `val` 时，将 `pre.next` 指向 `cur.next`，然后返回 `dummy.next`。
 
 <!-- tabs:start -->
 
@@ -49,12 +49,12 @@ class Solution:
     def deleteNode(self, head: ListNode, val: int) -> ListNode:
         dummy = ListNode(0)
         dummy.next = head
-        pre, p = dummy, head
-        while p:
-            if p.val == val:
-                pre.next = p.next
+        pre, cur = dummy, head
+        while cur:
+            if cur.val == val:
+                pre.next = cur.next
                 break
-            pre, p = p, p.next
+            pre, cur = cur, cur.next
         return dummy.next
 ```
 
@@ -73,14 +73,14 @@ class Solution {
     public ListNode deleteNode(ListNode head, int val) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode pre = dummy, p = head;
-        while (p != null) {
-            if (p.val == val) {
-                pre.next = p.next;
+        ListNode pre = dummy, cur = head;
+        while (cur != null) {
+            if (cur.val == val) {
+                pre.next = cur.next;
                 break;
             }
-            pre = p;
-            p = p.next;
+            pre = cur;
+            cur = cur.next;
         }
         return dummy.next;
     }

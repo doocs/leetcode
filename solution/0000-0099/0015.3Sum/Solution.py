@@ -1,24 +1,27 @@
 class Solution:
-    def threeSum(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        dic = {}
-        for ele in nums:
-            dic[ele] = dic.get(ele,0) + 1
-        neg = sorted(filter(lambda x:x<0,dic))
-        pos = sorted(filter(lambda x:x>=0,dic))
-        if(0 in dic and dic[0]>2):
-            res = [[0,0,0]]
-        else:
-            res = []
-        for ele1 in neg:
-            for ele2 in pos:
-                tar = -(ele1 + ele2)
-                if(tar in dic):
-                    if(tar in (ele1,ele2) and dic[tar]>1):
-                        res.append([ele1,tar,ele2])
-                    elif(tar < ele1 or tar > ele2):
-                        res.append([ele1,tar,ele2])
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        if nums is None or len(nums) < 3:
+            return []
+        nums.sort()
+        n = len(nums)
+        res = []
+        for i in range(n - 2):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            p, q = i + 1, n - 1
+            while p < q:
+                if p > i + 1 and nums[p] == nums[p - 1]:
+                    p += 1
+                    continue
+                if q < n - 1 and nums[q] == nums[q + 1]:
+                    q -= 1
+                    continue
+                if nums[i] + nums[p] + nums[q] < 0:
+                    p += 1
+                elif nums[i] + nums[p] + nums[q] > 0:
+                    q -= 1
+                else:
+                    res.append([nums[i], nums[p], nums[q]])
+                    p += 1
+                    q -= 1
         return res
