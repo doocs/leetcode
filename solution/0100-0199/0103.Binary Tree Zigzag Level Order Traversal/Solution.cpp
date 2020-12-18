@@ -1,3 +1,12 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
@@ -9,7 +18,8 @@ public:
             int size = q.size();
             vector<int> oneLevel(size);
             for (int i = 0; i < size; ++i) {
-                TreeNode* t = q.front(); q.pop();
+                TreeNode* t = q.front();
+                q.pop();
                 int idx = leftToRight ? i : (size - 1 - i);
                 oneLevel[idx] = t->val;
                 if (t->left) q.push(t->left);
