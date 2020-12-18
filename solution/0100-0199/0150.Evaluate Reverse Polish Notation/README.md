@@ -47,6 +47,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+栈实现。
+
+遍历数组，遇到数字则压入栈中，遇到运算符号，则从栈中弹出右、左操作数，运算过后，将结果压入栈中。
+
+遍历结束后，返回栈中的唯一元素。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +60,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import operator
 
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        opt = {
+            "+": operator.add,
+            "-": operator.sub,
+            "*": operator.mul,
+            "/": operator.truediv
+        }
+        s = []
+        for token in tokens:
+            if token in opt:
+                s.append(int(opt[token](s.pop(-2), s.pop(-1))))
+            else:
+                s.append(int(token))
+        return s[0]
 ```
 
 ### **Java**
@@ -62,7 +84,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Deque<Integer> s = new ArrayDeque<>();
+        int left, right;
+        for (String token : tokens) {
+            switch(token) {
+            case "+":
+                right = s.pop();
+                left = s.pop();
+                s.push(left + right);
+                break;
+            case "-":
+                right = s.pop();
+                left = s.pop();
+                s.push(left - right);
+                break;
+            case "*":
+                right = s.pop();
+                left = s.pop();
+                s.push(left * right);
+                break;
+            case "/":
+                right = s.pop();
+                left = s.pop();
+                s.push(left / right);
+                break;
+            default:
+                s.push(Integer.valueOf(token));
+            }
+        }
+        return s.pop();
+    }
+}
 ```
 
 ### **...**

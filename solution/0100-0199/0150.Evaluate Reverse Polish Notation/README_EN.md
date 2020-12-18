@@ -72,13 +72,61 @@
 ### **Python3**
 
 ```python
+import operator
 
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        opt = {
+            "+": operator.add,
+            "-": operator.sub,
+            "*": operator.mul,
+            "/": operator.truediv
+        }
+        s = []
+        for token in tokens:
+            if token in opt:
+                s.append(int(opt[token](s.pop(-2), s.pop(-1))))
+            else:
+                s.append(int(token))
+        return s[0]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Deque<Integer> s = new ArrayDeque<>();
+        int left, right;
+        for (String token : tokens) {
+            switch(token) {
+            case "+":
+                right = s.pop();
+                left = s.pop();
+                s.push(left + right);
+                break;
+            case "-":
+                right = s.pop();
+                left = s.pop();
+                s.push(left - right);
+                break;
+            case "*":
+                right = s.pop();
+                left = s.pop();
+                s.push(left * right);
+                break;
+            case "/":
+                right = s.pop();
+                left = s.pop();
+                s.push(left / right);
+                break;
+            default:
+                s.push(Integer.valueOf(token));
+            }
+        }
+        return s.pop();
+    }
+}
 ```
 
 ### **...**

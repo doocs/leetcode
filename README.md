@@ -97,6 +97,7 @@
 1. [最小栈](/solution/0100-0199/0155.Min%20Stack/README.md)
 1. [用栈实现队列](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
 1. [用队列实现栈](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md)
+1. [逆波兰表达式求值](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README.md)
 
 ### 动态规划
 
