@@ -53,6 +53,10 @@
 1. [数组中重复的数字](/lcof/面试题03.%20数组中重复的数字/README.md)
 1. [旋转数组](/solution/0100-0199/0189.Rotate%20Array/README.md)
 
+### 字符串
+
+1. [反转字符串中的元音字母](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
+
 ### 链表
 
 1. [从尾到头打印链表](/lcof/面试题06.%20从尾到头打印链表/README.md)

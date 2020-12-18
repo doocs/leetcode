@@ -25,6 +25,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+将字符串转为字符数组（或列表），定义双指针 p、q，分别指向数组（列表）头部和尾部，当 p、q 指向的字符均为元音字母时，进行交换。
+
+依次遍历，当 `p >= q` 时，遍历结束。将字符数组（列表）转为字符串返回即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -32,7 +36,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        if s is None:
+            return s
+        chars = list(s)
+        p, q = 0, len(chars) - 1
+        while p < q:
+            if chars[p] not in 'aeiouAEIOU':
+                p += 1
+                continue
+            if chars[q] not in 'aeiouAEIOU':
+                q -= 1
+                continue
+            chars[p], chars[q] = chars[q], chars[p]
+            p += 1
+            q -= 1
+        return ''.join(chars)
 ```
 
 ### **Java**
@@ -40,7 +60,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String reverseVowels(String s) {
+        if (s == null) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        int p = 0, q = chars.length - 1;
+        while (p < q) {
+            if (!isVowel(chars[p])) {
+                ++p;
+                continue;
+            }
+            if (!isVowel(chars[q])) {
+                --q;
+                continue;
+            }
+            swap(chars, p++, q--);
+        }
+        return String.valueOf(chars);
+    }
 
+    private void swap(char[] chars, int i, int j) {
+        char t = chars[i];
+        chars[i] = chars[j];
+        chars[j] = t;
+    }
+
+    private boolean isVowel(char c) {
+        switch(c) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+        case 'A':
+        case 'E':
+        case 'I':
+        case 'O':
+        case 'U':
+            return true;
+        default:
+            return false;
+        }
+    }
+}
 ```
 
 ### **...**

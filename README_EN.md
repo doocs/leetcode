@@ -52,6 +52,10 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 1. [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
 
+### Strings
+
+1. [Reverse Vowels of a String](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md)
+
 ### Linked List
 
 1. [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)

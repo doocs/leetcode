@@ -41,13 +41,73 @@ The vowels does not include the letter &quot;y&quot;.</p>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        if s is None:
+            return s
+        chars = list(s)
+        p, q = 0, len(chars) - 1
+        while p < q:
+            if chars[p] not in 'aeiouAEIOU':
+                p += 1
+                continue
+            if chars[q] not in 'aeiouAEIOU':
+                q -= 1
+                continue
+            chars[p], chars[q] = chars[q], chars[p]
+            p += 1
+            q -= 1
+        return ''.join(chars)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String reverseVowels(String s) {
+        if (s == null) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        int p = 0, q = chars.length - 1;
+        while (p < q) {
+            if (!isVowel(chars[p])) {
+                ++p;
+                continue;
+            }
+            if (!isVowel(chars[q])) {
+                --q;
+                continue;
+            }
+            swap(chars, p++, q--);
+        }
+        return String.valueOf(chars);
+    }
 
+    private void swap(char[] chars, int i, int j) {
+        char t = chars[i];
+        chars[i] = chars[j];
+        chars[j] = t;
+    }
+
+    private boolean isVowel(char c) {
+        switch(c) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+        case 'A':
+        case 'E':
+        case 'I':
+        case 'O':
+        case 'U':
+            return true;
+        default:
+            return false;
+        }
+    }
+}
 ```
 
 ### **...**
