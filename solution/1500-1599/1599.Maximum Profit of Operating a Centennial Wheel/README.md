@@ -17,7 +17,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/wheeldiagram12.png" style="height: 291px; width: 906px;"></p>
+![](./images/wheeldiagram12.png)
 
 <pre><strong>输入：</strong>customers = [8,3], boardingCost = 5, runningCost = 6
 <strong>输出：</strong>3
