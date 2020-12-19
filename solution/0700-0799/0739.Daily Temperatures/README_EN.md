@@ -29,13 +29,37 @@ Each temperature will be an integer in the range <code>[30, 100]</code>.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def dailyTemperatures(self, T: List[int]) -> List[int]:
+        n = len(T)
+        res = [0 for _ in range(n)]
+        s = []
+        for i in range(n):
+            while s and T[s[-1]] < T[i]:
+                j = s.pop()
+                res[j] = i - j
+            s.append(i)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] dailyTemperatures(int[] T) {
+        int n = T.length;
+        int[] res = new int[n];
+        Deque<Integer> s = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            while (!s.isEmpty() && T[s.peek()] < T[i]) {
+                int j = s.pop();
+                res[j] = i - j;
+            }
+            s.push(i);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

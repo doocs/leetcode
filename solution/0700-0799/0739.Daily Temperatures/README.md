@@ -15,6 +15,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+栈实现，栈存放 T 中元素的的下标 i，结果用数组 res 存储。
+
+遍历 T，遍历到 `T[i]` 时：
+
+- 若栈不为空，并且栈顶元素小于 `T[i]` 时，弹出栈顶元素 j，并且 `res[j]` 赋值为 `i - j`。
+- 然后将 i 压入栈中。
+
+最后返回结果数组 res 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -22,7 +31,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def dailyTemperatures(self, T: List[int]) -> List[int]:
+        n = len(T)
+        res = [0 for _ in range(n)]
+        s = []
+        for i in range(n):
+            while s and T[s[-1]] < T[i]:
+                j = s.pop()
+                res[j] = i - j
+            s.append(i)
+        return res
 ```
 
 ### **Java**
@@ -30,7 +49,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] dailyTemperatures(int[] T) {
+        int n = T.length;
+        int[] res = new int[n];
+        Deque<Integer> s = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            while (!s.isEmpty() && T[s.peek()] < T[i]) {
+                int j = s.pop();
+                res[j] = i - j;
+            }
+            s.push(i);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
