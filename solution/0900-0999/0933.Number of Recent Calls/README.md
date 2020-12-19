@@ -40,12 +40,31 @@
 
 <!-- tabs:start -->
 
+在第 1、100、3001、3002 这四个时间点分别进行了 ping 请求， 在 3001 秒的时候， 它前面的 3000 秒指的是区间 `[1,3001]`， 所以一共是有 `1、100、3001` 三个请求， t = 3002 的前 3000 秒指的是区间 `[2,3002]`, 所以有 `100、3001、3002` 三次请求。
+
+可以用队列实现。每次将 t 进入队尾，同时从队头开始依次移除小于 `t-3000` 的元素。然后返回队列的大小 `q.size()` 即可。
+
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class RecentCounter:
 
+    def __init__(self):
+        self.q = []
+
+
+    def ping(self, t: int) -> int:
+        self.q.append(t)
+        while self.q[0] < t - 3000:
+            self.q.pop(0)
+        return len(self.q)
+
+
+# Your RecentCounter object will be instantiated and called as such:
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
 ```
 
 ### **Java**
@@ -53,7 +72,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class RecentCounter {
 
+    private Deque<Integer> q;
+
+    public RecentCounter() {
+        q = new ArrayDeque<>();
+    }
+
+    public int ping(int t) {
+        q.offerLast(t);
+        while (q.peekFirst() < t - 3000) {
+            q.pollFirst();
+        }
+        return q.size();
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.ping(t);
+ */
 ```
 
 ### **...**

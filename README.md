@@ -98,6 +98,7 @@
 1. [用栈实现队列](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
 1. [用队列实现栈](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md)
 1. [逆波兰表达式求值](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README.md)
+1. [最近的请求次数](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
 
 ### 动态规划
 

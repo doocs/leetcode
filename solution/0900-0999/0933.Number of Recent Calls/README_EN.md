@@ -47,13 +47,49 @@
 ### **Python3**
 
 ```python
+class RecentCounter:
 
+    def __init__(self):
+        self.q = []
+
+
+    def ping(self, t: int) -> int:
+        self.q.append(t)
+        while self.q[0] < t - 3000:
+            self.q.pop(0)
+        return len(self.q)
+
+
+# Your RecentCounter object will be instantiated and called as such:
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
 ```
 
 ### **Java**
 
 ```java
+class RecentCounter {
 
+    private Deque<Integer> q;
+
+    public RecentCounter() {
+        q = new ArrayDeque<>();
+    }
+
+    public int ping(int t) {
+        q.offerLast(t);
+        while (q.peekFirst() < t - 3000) {
+            q.pollFirst();
+        }
+        return q.size();
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.ping(t);
+ */
 ```
 
 ### **...**
