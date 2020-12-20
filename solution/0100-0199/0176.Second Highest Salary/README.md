@@ -33,9 +33,29 @@
 
 ### **SQL**
 
+解法 1：使用 LIMIT 语句和子查询。
+
+```sql
+# Write your MySQL query statement below
+SELECT
+(
+    SELECT DISTINCT Salary
+    FROM Employee
+    ORDER BY Salary DESC
+    LIMIT 1 OFFSET 1
+) AS SecondHighestSalary;
 ```
-select (select distinct Salary from Employee order by Salary desc limit 1 offset 1) as
-SecondHighestSalary;
+
+解法 2：使用 `MAX()` 函数，从小于 `MAX()` 的 Salary 中挑选最大值 `MAX()` 即可。
+
+```sql
+# Write your MySQL query statement below
+SELECT MAX(Salary) AS SecondHighestSalary
+FROM Employee
+WHERE Salary < (
+    SELECT MAX(Salary)
+    FROM Employee
+);
 ```
 
 <!-- tabs:end -->

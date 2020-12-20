@@ -30,11 +30,7 @@ PersonId 是上表主键
 AddressId 是上表主键
 </pre>
 
-<p>&nbsp;</p>
-
 <p>编写一个 SQL 查询，满足条件：无论 person 是否有地址信息，都需要基于上述两表提供&nbsp;person 的以下信息：</p>
-
-<p>&nbsp;</p>
 
 <pre>FirstName, LastName, City, State
 </pre>
@@ -43,12 +39,18 @@ AddressId 是上表主键
 
 <!-- 这里可写通用的实现逻辑 -->
 
+左连接。
+
 <!-- tabs:start -->
 
 ### **SQL**
 
-```
-select p.FirstName, p.LastName, a.City, a.State from Person p left join Address a on p.PersonId = a.PersonId;
+```sql
+# Write your MySQL query statement below
+SELECT p.FirstName, p.LastName, a.City, a.State
+FROM Person p
+LEFT JOIN Address a
+ON p.PersonId = a.PersonId;
 ```
 
 <!-- tabs:end -->
