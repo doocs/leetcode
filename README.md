@@ -54,6 +54,7 @@
 1. [旋转数组](/solution/0100-0199/0189.Rotate%20Array/README.md)
 1. [三数之和](/solution/0000-0099/0015.3Sum/README.md)
 1. [四数之和](/solution/0000-0099/0018.4Sum/README.md)
+1. [合并两个有序数组](/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md)
 
 ### 字符串
 
