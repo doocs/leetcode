@@ -111,6 +111,13 @@
 
 ### 混合问题
 
+### 数据库
+
+1. [组合两个表](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
+1. [第二高的薪水](/solution/0100-0199/0176.Second%20Highest%20Salary/README.md)
+1. [第 N 高的薪水](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)
+1. [分数排名](/solution/0100-0199/0178.Rank%20Scores/README.md)
+
 ## 维护者
 
 [Yang Libin](https://github.com/yanglbme): GitHub 技术社区 [@Doocs](https://github.com/doocs) 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。

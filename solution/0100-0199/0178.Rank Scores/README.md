@@ -41,12 +41,28 @@
 
 ### **SQL**
 
-```
-select
-    Score,
-    (select count(*) from (select distinct Score s from Scores) tmp where s>=Score) Rank
-from Scores order by Rank;
+使用 `DENSE_RANK()` 函数，语法如下：
 
+```sql
+DENSE_RANK() OVER (
+    PARTITION BY <expression>[{,<expression>...}]
+    ORDER BY <expression> [ASC|DESC], [{,<expression>...}]
+)
+```
+
+在这个语法中：
+
+- 首先，`PARTITION BY` 子句将 `FROM` 子句生成的结果集划分为分区。`DENSE_RANK()`函数应用于每个分区。
+- 其次，`ORDER BY` 子句指定 `DENSE_RANK()` 函数操作的每个分区中的行顺序。
+
+与 `RANK()` 函数不同，`DENSE_RANK()` 函数始终返回连续的排名值。
+
+题解如下：
+
+```sql
+# Write your MySQL query statement below
+SELECT Score, DENSE_RANK() OVER (ORDER BY Score DESC) 'Rank'
+FROM Scores;
 ```
 
 <!-- tabs:end -->

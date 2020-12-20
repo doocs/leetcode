@@ -62,12 +62,21 @@
 
 ### **SQL**
 
-```
-select
-    Score,
-    (select count(*) from (select distinct Score s from Scores) tmp where s>=Score) Rank
-from Scores order by Rank;
+Use `DENSE_RANK()` to solve this problem.
 
+```sql
+DENSE_RANK() OVER (
+    PARTITION BY <expression>[{,<expression>...}]
+    ORDER BY <expression> [ASC|DESC], [{,<expression>...}]
+)
+```
+
+Solution:
+
+```sql
+# Write your MySQL query statement below
+SELECT Score, DENSE_RANK() OVER (ORDER BY Score DESC) 'Rank'
+FROM Scores;
 ```
 
 <!-- tabs:end -->

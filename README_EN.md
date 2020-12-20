@@ -106,6 +106,11 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Misc
 
+1. [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
+1. [Second Highest Salary](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
+1. [Nth Highest Salary](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
+1. [Rank Scores](/solution/0100-0199/0178.Rank%20Scores/README_EN.md)
+
 ## Maintainer
 
 [Yang Libin](https://github.com/yanglbme): Creator of [@Doocs](https://github.com/doocs) technical community; member of [@TheAlgorithms](https://github.com/TheAlgorithms) organization.
