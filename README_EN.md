@@ -84,6 +84,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 1. [Symmetric Tree](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
 1. [Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)
 1. [Maximum Depth of Binary Tree](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)
+1. [Construct Binary Tree from Preorder and Inorder Traversal](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md)
 1. [Lowest Common Ancestor of a Binary Tree](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)
 1. [Lowest Common Ancestor of a Binary Search Tree](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
 

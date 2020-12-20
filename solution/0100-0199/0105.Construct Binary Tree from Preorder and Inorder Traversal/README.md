@@ -27,6 +27,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+先遍历前序节点，对于前序的根节点，在中序节点 `[i1, i2]` 中找到根节点的位置 pos，就可以将中序节点分成：左子树 `[i1, pos - 1]`、右子树 `[pos + 1, i2]`。
+
+通过左右子树的区间，可以计算出左、右子树节点的个数，假设为 m、n。然后在前序节点中，从根节点往后的 m 个节点为左子树，再往后的 n 个节点为右子树。
+
+递归求解即可。
+
+> 前序遍历：先遍历根节点，再遍历左右子树；中序遍历：先遍历左子树，再遍历根节点，最后遍历右子树。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -34,7 +42,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        def build(preorder, inorder, p1, p2, i1, i2) -> TreeNode:
+            if p1 > p2 or i1 > i2:
+                return None
+            root_val = preorder[p1]
+            pos = -1
+            for i in range(i1, i2 + 1):
+                if inorder[i] == root_val:
+                    pos = i
+                    break
+            root = TreeNode(root_val)
+            # pos==i1，说明只有右子树，左子树为空
+            root.left = None if pos == i1 else build(preorder, inorder, p1 + 1, p1 - i1 + pos, i1, pos - 1)
+            # pos==i2，说明只有左子树，右子树为空
+            root.right = None if pos == i2 else build(preorder, inorder, p1 - i1 + pos + 1, p2, pos + 1, i2)
+            return root
+        return build(preorder, inorder, 0, len(preorder) - 1, 0, len(inorder) - 1)
 ```
 
 ### **Java**
@@ -42,7 +74,41 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        return buildTree(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
+    }
 
+    private TreeNode buildTree(int[] preorder, int[] inorder, int p1, int p2, int i1, int i2) {
+        if (p1 > p2 || i1 > i2) {
+            return null;
+        }
+        int rootVal = preorder[p1];
+        int pos = find(inorder, rootVal, i1, i2);
+        TreeNode root = new TreeNode(rootVal);
+        // pos==i1，说明只有右子树，左子树为空
+        root.left = pos == i1 ? null : buildTree(preorder, inorder, p1 + 1, p1 - i1 + pos, i1, pos - 1);
+        // pos==i2，说明只有左子树，右子树为空
+        root.right = pos == i2 ? null : buildTree(preorder, inorder, p1 - i1 + pos + 1, p2, pos + 1, i2);
+        return root;
+    }
+
+    private int find(int[] order, int val, int p, int q) {
+        for (int i = p; i <= q; ++i) {
+            if (order[i] == val) return i;
+        }
+        return 0;
+    }
+}
 ```
 
 ### **...**

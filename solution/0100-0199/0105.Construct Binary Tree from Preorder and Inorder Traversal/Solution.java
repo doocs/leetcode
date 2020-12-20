@@ -1,6 +1,6 @@
 /**
  * Definition for a binary tree node.
- * class TreeNode {
+ * public class TreeNode {
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
@@ -9,29 +9,25 @@
  */
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder == null || inorder == null || preorder.length != inorder.length) {
+        return buildTree(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
+    }
+
+    private TreeNode buildTree(int[] preorder, int[] inorder, int p1, int p2, int i1, int i2) {
+        if (p1 > p2 || i1 > i2) {
             return null;
         }
-        int n = preorder.length;
-        return n > 0 ? buildTree(preorder, 0, n - 1, inorder, 0, n - 1) : null;
+        int rootVal = preorder[p1];
+        int pos = find(inorder, rootVal, i1, i2);
+        TreeNode root = new TreeNode(rootVal);
+        root.left = pos == i1 ? null : buildTree(preorder, inorder, p1 + 1, p1 - i1 + pos, i1, pos - 1);
+        root.right = pos == i2 ? null : buildTree(preorder, inorder, p1 - i1 + pos + 1, p2, pos + 1, i2);
+        return root;
     }
-    
-    private TreeNode buildTree(int[] preorder, int s1, int e1, int[] inorder,  int s2, int e2) {
-        TreeNode node = new TreeNode(preorder[s1]);                           
-        if (s1 == e1 && s2 == e2) {
-            return node;
-        }
 
-        int p = s2;
-        while (inorder[p] != preorder[s1]) {
-            ++p;
-            if (p > e2) {
-                throw new IllegalArgumentException("Invalid input!");
-            }
+    private int find(int[] order, int val, int p, int q) {
+        for (int i = p; i <= q; ++i) {
+            if (order[i] == val) return i;
         }
-        
-        node.left = p > s2 ? buildTree(preorder, s1 + 1, s1 - s2 + p, inorder, s2, p - 1) : null;
-        node.right = p < e2 ? buildTree(preorder, s1 - s2 + p + 1, e1, inorder, p + 1, e2) : null;
-        return node;
+        return 0;
     }
 }
