@@ -6,33 +6,21 @@
 #         self.right = None
 
 class Solution:
-    def level(self, nodes):
-        """
-        :type nodes: List[TreeNode]
-        :rtype: List[List[int]]
-        """
-        Ret = [[]]
-        Next_Level = []
-        
-        for each in nodes:
-            Ret[0].append(each.val)
-            
-            if(each.left != None):
-                Next_Level.append(each.left)
-            if(each.right != None):
-                Next_Level.append(each.right)
-                
-        if Next_Level :
-            Ret.extend(self.level(Next_Level))
-        return Ret
-    
-    def levelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
-        
-        if(root != None):
-            return self.level([root])
-        else:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        if root is None:
             return []
+        res = []
+        q = []
+        q.append(root)
+        while q:
+            size = len(q)
+            t = []
+            for _ in range(size):
+                node = q.pop(0)
+                if node.left is not None:
+                    q.append(node.left)
+                if node.right is not None:
+                    q.append(node.right)
+                t.append(node.val)
+            res.append(t)
+        return res
