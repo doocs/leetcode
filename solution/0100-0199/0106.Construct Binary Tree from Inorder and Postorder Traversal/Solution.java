@@ -9,30 +9,23 @@
  */
 class Solution {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        if (inorder == null || postorder == null || inorder.length != postorder.length) {
-            return null;
-        }
-        int n = inorder.length;
-        return n > 0 ? buildTree(inorder, 0, n - 1, postorder, 0, n - 1) : null;
+        return build(inorder, postorder, 0, inorder.length - 1, 0, postorder.length - 1);
     }
-    
-    private TreeNode buildTree(int[] inorder, int s1, int e1, int[] postorder, int s2, int e2) {
-        TreeNode node = new TreeNode(postorder[e2]);
-        if (s2 == e2 && s1 == e1) {
-            return node;
+
+    private TreeNode build(int[] inorder, int[] postorder, int i1, int i2, int p1, int p2) {
+        if (i1 > i2 || p1 > p2) return null;
+        int rootVal = postorder[p2];
+        int pos = find(inorder, rootVal, i1, i2);
+        TreeNode root = new TreeNode(rootVal);
+        root.left = pos == i1 ? null : build(inorder, postorder, i1, pos - 1, p1, p1 - i1 + pos - 1);
+        root.right = pos == i2 ? null : build(inorder, postorder, pos + 1, i2, p1 - i1 + pos, p2 - 1);
+        return root;
+    }
+
+    private int find(int[] order, int val, int p, int q) {
+        for (int i = p; i <= q; ++i) {
+            if (order[i] == val) return i;
         }
-        
-        int p = s1;
-        while (inorder[p] != postorder[e2]) {
-            ++p;
-            if (p > e1) {
-                throw new IllegalArgumentException("Invalid input!");
-            }
-        }
-        
-        node.left = p > s1 ? buildTree(inorder, s1, p - 1, postorder, s2, p - 1 + s2 - s1) : null;
-        node.right = p < e1 ? buildTree(inorder, p + 1, e1, postorder, p + s2 - s1, e2 - 1) : null;
-        return node;
-        
+        return -1;
     }
 }

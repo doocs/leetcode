@@ -82,9 +82,7 @@ class Solution {
     }
 
     private TreeNode buildTree(int[] preorder, int[] inorder, int p1, int p2, int i1, int i2) {
-        if (p1 > p2 || i1 > i2) {
-            return null;
-        }
+        if (p1 > p2 || i1 > i2) return null;
         int rootVal = preorder[p1];
         int pos = find(inorder, rootVal, i1, i2);
         TreeNode root = new TreeNode(rootVal);
@@ -97,7 +95,7 @@ class Solution {
         for (int i = p; i <= q; ++i) {
             if (order[i] == val) return i;
         }
-        return 0;
+        return -1;
     }
 }
 ```
