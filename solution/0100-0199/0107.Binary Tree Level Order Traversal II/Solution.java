@@ -1,23 +1,30 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 class Solution {
-    List<List<Integer>> lists;
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        lists = new ArrayList<>();
-        levelOrderBottom(root,0);
-        List<List<Integer>> result = new ArrayList<>();
-        for (int i = lists.size() - 1; i >= 0; i--) result.add(lists.get(i));
-        return result;
-    }
-    private void levelOrderBottom(TreeNode root, int i) {
-        if (root==null) return;
-        List<Integer> list;
-        if (i==lists.size()){
-            list = new ArrayList<>();
-            lists.add(list);
-        }else {
-            list = lists.get(i);
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        List<List<Integer>> res = new ArrayList<>();
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> t = new ArrayList<>();
+            while (size-- > 0) {
+                TreeNode node = q.poll();
+                t.add(node.val);
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
+            }
+            res.add(t);
         }
-        list.add(root.val);
-        levelOrderBottom(root.left,i+1);
-        levelOrderBottom(root.right,i+1);
+        Collections.reverse(res);
+        return res;
     }
 }

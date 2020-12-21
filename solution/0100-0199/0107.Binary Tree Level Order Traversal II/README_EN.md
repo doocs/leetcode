@@ -55,13 +55,66 @@ return its bottom-up level order traversal as:<br />
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+        if root is None:
+            return []
+        q = [root]
+        res = []
+        while q:
+            size = len(q)
+            t = []
+            for _ in range(size):
+                node = q.pop(0)
+                t.append(node.val)
+                if node.left is not None:
+                    q.append(node.left)
+                if node.right is not None:
+                    q.append(node.right)
+            res.append(t)
+        return res[::-1]
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        List<List<Integer>> res = new ArrayList<>();
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> t = new ArrayList<>();
+            while (size-- > 0) {
+                TreeNode node = q.poll();
+                t.add(node.val);
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
+            }
+            res.add(t);
+        }
+        Collections.reverse(res);
+        return res;
+    }
+}
 ```
 
 ### **...**

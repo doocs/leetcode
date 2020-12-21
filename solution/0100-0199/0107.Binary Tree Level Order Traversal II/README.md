@@ -30,6 +30,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+同 [102](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README.md)，最后反转一下结果即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -37,7 +39,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+        if root is None:
+            return []
+        q = [root]
+        res = []
+        while q:
+            size = len(q)
+            t = []
+            for _ in range(size):
+                node = q.pop(0)
+                t.append(node.val)
+                if node.left is not None:
+                    q.append(node.left)
+                if node.right is not None:
+                    q.append(node.right)
+            res.append(t)
+        return res[::-1]
 ```
 
 ### **Java**
@@ -45,7 +71,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        List<List<Integer>> res = new ArrayList<>();
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> t = new ArrayList<>();
+            while (size-- > 0) {
+                TreeNode node = q.poll();
+                t.add(node.val);
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
+            }
+            res.add(t);
+        }
+        Collections.reverse(res);
+        return res;
+    }
+}
 ```
 
 ### **...**
