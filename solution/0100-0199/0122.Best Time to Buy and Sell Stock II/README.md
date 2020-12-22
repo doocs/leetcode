@@ -38,6 +38,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+所有上涨交易日都做买卖，所有下跌交易日都不做买卖，这样便能实现利润最大化。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,7 +47,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices:
+            return 0
+        res = 0
+        for i in range(1, len(prices)):
+            t = prices[i] - prices[i - 1]
+            res += max(t, 0)
+        return res
 ```
 
 ### **Java**
@@ -53,7 +63,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices == null) return 0;
+        int res = 0;
+        for (int i = 1, n = prices.length; i < n; ++i) {
+            // 策略是所有上涨交易日都做买卖，所以下跌交易日都不做买卖
+            int t = prices[i] - prices[i - 1];
+            res += Math.max(t, 0);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int res = 0, n;
+        if ((n = prices.size()) == 0) return 0;
+        for (int i = 1; i < n; ++i)
+        {
+            int t = prices[i] - prices[i - 1];
+            res += max(0, t);
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**

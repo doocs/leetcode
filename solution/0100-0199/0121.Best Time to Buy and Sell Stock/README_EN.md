@@ -43,13 +43,33 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        if not prices:
+            return 0
+        res = 0
+        min_price = prices[0]
+        for price in prices:
+            min_price = min(min_price, price)
+            res = max(res, price - min_price)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maxProfit(int[] prices) {
+        if (prices == null) return 0;
+        int res = 0;
+        int min = Integer.MAX_VALUE;
+        for (int price : prices) {
+            min = Math.min(min, price);
+            res = Math.max(res, price - min);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
