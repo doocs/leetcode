@@ -1,17 +1,21 @@
 class Solution {
     public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> re = new ArrayList<>();
-        if (numRows == 0) return re;
-        re.add(Collections.singletonList(1));
-        for (int i = 1; i < numRows; i++) {
-            List<Integer> list = new ArrayList<>();
-            re.add(list);
-            for (int j = 0; j < i + 1; j++) {
-                int l = j - 1 < 0 ? 0 : re.get(i - 1).get(j - 1);
-                int r = j > i - 1 ? 0 : re.get(i - 1).get(j);
-                list.add(l + r);
+        List<List<Integer>> res = new ArrayList<>();
+        if (numRows == 0) return res;
+        for (int i = 0; i < numRows; ++i) {
+            // 每一行
+            List<Integer> t = new ArrayList<>();
+            for (int j = 0; j < i + 1; ++j) {
+                boolean firstOrLast = j == 0 || j == i;
+                // 设置每一行首尾元素为1，其它元素为0
+                t.add(firstOrLast ? 1 : 0);
             }
+            for (int j = 1; j < i; ++j) {
+                int val = res.get(i - 1).get(j - 1) + res.get(i - 1).get(j);
+                t.set(j, val);
+            }
+            res.add(t);
         }
-        return re;
+        return res;
     }
 }
