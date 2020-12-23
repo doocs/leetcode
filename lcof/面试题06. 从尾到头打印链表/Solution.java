@@ -8,15 +8,19 @@
  */
 class Solution {
     public int[] reversePrint(ListNode head) {
-        Stack<Integer> s = new Stack<>();
-        while (head != null) {
-            s.push(head.val);
-            head = head.next;
+        if (head == null) return new int[]{};
+        // 计算链表长度n
+        int n = 0;
+        ListNode cur = head;
+        while (cur != null) {
+            ++n;
+            cur = cur.next;
         }
-        int[] res = new int[s.size()];
-        int i = 0;
-        while (!s.isEmpty()) {
-            res[i++] = s.pop();
+        int[] res = new int[n];
+        cur = head;
+        while (cur != null) {
+            res[--n] = cur.val;
+            cur = cur.next;
         }
         return res;
     }

@@ -31,10 +31,27 @@ class Solution:
 
 ### **Java**
 
+- 使用 replace：
+
 ```java
 class Solution {
     public String replaceSpace(String s) {
         return s.replaceAll(" ", "%20");
+    }
+}
+```
+
+- 使用 StringBuilder：
+
+```java
+class Solution {
+    public String replaceSpace(String s) {
+        StringBuilder sb = new StringBuilder();
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            sb.append(c == ' ' ? "%20" : c);
+        }
+        return sb.toString();
     }
 }
 ```

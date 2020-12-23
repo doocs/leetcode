@@ -17,7 +17,7 @@
 
 ## 解法
 
-栈实现。
+栈实现。或者其它方式，见题解。
 
 <!-- tabs:start -->
 
@@ -41,6 +41,8 @@ class Solution:
 
 ### **Java**
 
+- 栈实现：
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -61,6 +63,38 @@ class Solution {
         int i = 0;
         while (!s.isEmpty()) {
             res[i++] = s.pop();
+        }
+        return res;
+    }
+}
+```
+
+- 先计算链表长度 n，然后创建一个长度为 n 的结果数组。最后遍历链表，依次将节点值存放在数组上（从后往前）。
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int[] reversePrint(ListNode head) {
+        if (head == null) return new int[]{};
+        // 计算链表长度n
+        int n = 0;
+        ListNode cur = head;
+        while (cur != null) {
+            ++n;
+            cur = cur.next;
+        }
+        int[] res = new int[n];
+        cur = head;
+        while (cur != null) {
+            res[--n] = cur.val;
+            cur = cur.next;
         }
         return res;
     }
