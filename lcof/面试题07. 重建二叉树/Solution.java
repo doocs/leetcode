@@ -9,30 +9,20 @@
  */
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder == null || preorder == null || preorder.length == 0 || preorder.length == 0 || preorder.length != inorder.length) {
-            return null;
-        }
-
-        return buildTree(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
+        return build(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
     }
 
-    public TreeNode buildTree(int[] preorder, int s1, int e1, int[] inorder, int s2, int e2) {
-        if (s1 > e1 || s2 > e2) {
-            return null;
+    private TreeNode build(int[] preorder, int[] inorder, int p1, int p2, int i1, int i2) {
+        if (p1 > p2 || i1 > i2) return null;
+        int rootVal = preorder[p1];
+        int pos = i1;
+        while (pos <= i2) {
+            if (inorder[pos] == rootVal) break;
+            ++pos;
         }
-        int index = findIndex(inorder, s2, e2, preorder[s1]);
-        TreeNode tree = new TreeNode(preorder[s1]);
-        tree.left = buildTree(preorder, s1 + 1, index + s1 - s2, inorder, s2, index - 1);
-        tree.right = buildTree(preorder, index + s1 - s2 + 1, e1, inorder, index + 1, e2);
-        return tree;
-    }
-
-    public int findIndex(int[] order, int s, int e, int val) {
-        for (int i = s; i <= e; ++i) {
-            if (order[i] == val) {
-                return i;
-            }
-        }
-        return -1;
+        TreeNode node = new TreeNode(rootVal);
+        node.left = pos == i1 ? null : build(preorder, inorder, p1 + 1, pos - i1 + p1, i1, pos - 1);
+        node.right = pos == i2 ? null : build(preorder, inorder, pos - i1 + p1 + 1, p2, pos + 1, i2);
+        return node;
     }
 }

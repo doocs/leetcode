@@ -41,24 +41,20 @@
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        if preorder is None or inorder is None or len(preorder) != len(inorder):
-            return None
-        return self._build_tree(preorder, 0, len(preorder) - 1, inorder, 0, len(inorder) - 1)
-
-    def _build_tree(self, preorder, s1, e1, inorder, s2, e2):
-        if s1 > e1 or s2 > e2:
-            return None
-        index = self._find_index(inorder, s2, e2, preorder[s1])
-        tree = TreeNode(preorder[s1])
-        tree.left = self._build_tree(preorder, s1 + 1, index + s1 - s2, inorder, s2, index - 1)
-        tree.right = self._build_tree(preorder, index + s1 - s2 + 1, e1, inorder, index + 1, e2)
-        return tree
-
-    def _find_index(self, order, s, e, val):
-        for i in range(s, e + 1):
-            if order[i] == val:
-                return i
-        return -1
+        def build(preorder, inorder, p1, p2, i1, i2):
+            if p1 > p2 or i1 > i2:
+                return None
+            root_val = preorder[p1]
+            pos = i1
+            while pos <= i2:
+                if inorder[pos] == root_val:
+                    break
+                pos += 1
+            node = TreeNode(root_val)
+            node.left = None if pos == i1 else build(preorder, inorder, p1 + 1, pos - i1 + p1, i1, pos - 1)
+            node.right = None if pos == i2 else build(preorder, inorder, pos - i1 + p1 + 1, p2, pos + 1, i2)
+            return node
+        return build(preorder, inorder, 0, len(preorder) - 1, 0, len(inorder) - 1)
 ```
 
 ### **Java**
@@ -75,31 +71,21 @@ class Solution:
  */
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder == null || preorder == null || preorder.length == 0 || preorder.length == 0 || preorder.length != inorder.length) {
-            return null;
-        }
-
-        return buildTree(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
+        return build(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
     }
 
-    public TreeNode buildTree(int[] preorder, int s1, int e1, int[] inorder, int s2, int e2) {
-        if (s1 > e1 || s2 > e2) {
-            return null;
+    private TreeNode build(int[] preorder, int[] inorder, int p1, int p2, int i1, int i2) {
+        if (p1 > p2 || i1 > i2) return null;
+        int rootVal = preorder[p1];
+        int pos = i1;
+        while (pos <= i2) {
+            if (inorder[pos] == rootVal) break;
+            ++pos;
         }
-        int index = findIndex(inorder, s2, e2, preorder[s1]);
-        TreeNode tree = new TreeNode(preorder[s1]);
-        tree.left = buildTree(preorder, s1 + 1, index + s1 - s2, inorder, s2, index - 1);
-        tree.right = buildTree(preorder, index + s1 - s2 + 1, e1, inorder, index + 1, e2);
-        return tree;
-    }
-
-    public int findIndex(int[] order, int s, int e, int val) {
-        for (int i = s; i <= e; ++i) {
-            if (order[i] == val) {
-                return i;
-            }
-        }
-        return -1;
+        TreeNode node = new TreeNode(rootVal);
+        node.left = pos == i1 ? null : build(preorder, inorder, p1 + 1, pos - i1 + p1, i1, pos - 1);
+        node.right = pos == i2 ? null : build(preorder, inorder, pos - i1 + p1 + 1, p2, pos + 1, i2);
+        return node;
     }
 }
 ```
