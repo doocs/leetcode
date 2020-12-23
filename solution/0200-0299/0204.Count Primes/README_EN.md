@@ -25,13 +25,42 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        if n < 2:
+            return 0
+        res = 0
+        primes = [True for _ in range(n)]
+        for i in range(2, n):
+            if primes[i]:
+                res += 1
+                for j in range(i * i, n, i):
+                    primes[j] = False
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int countPrimes(int n) {
+        if (n < 2) return 0;
+        boolean[] primes = new boolean[n];
+        Arrays.fill(primes, true);
+        int res = 0;
+        for (int i = 2; i < n; ++i) {
+            if (primes[i]) {
+                ++res;
+                if ((long) i * i < n) {
+                    for (int j = i * i; j < n; j += i) {
+                        primes[j] = false;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

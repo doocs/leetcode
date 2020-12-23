@@ -95,6 +95,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 ### Math
 
 1. [Set Mismatch](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
+1. [Count Primes](/solution/0200-0299/0204.Count%20Primes/README_EN.md)
 
 ### Stack & Queue
 
