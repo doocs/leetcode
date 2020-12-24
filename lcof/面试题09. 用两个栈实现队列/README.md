@@ -73,14 +73,14 @@ class CQueue {
         s1 = new ArrayDeque<>();
         s2 = new ArrayDeque<>();
     }
-    
+
     public void appendTail(int value) {
         s1.push(value);
         if (s2.isEmpty()) {
             move();
         }
     }
-    
+
     public int deleteHead() {
         if (s2.isEmpty()) {
             move();
