@@ -1,26 +1,29 @@
 class CQueue {
-    private Stack<Integer> s1 = new Stack<>();
-    private Stack<Integer> s2 = new Stack<>();
 
+    private Deque<Integer> s1;
+    private Deque<Integer> s2;
     public CQueue() {
-
+        s1 = new ArrayDeque<>();
+        s2 = new ArrayDeque<>();
     }
     
     public void appendTail(int value) {
         s1.push(value);
-        check();
+        if (s2.isEmpty()) {
+            move();
+        }
     }
     
     public int deleteHead() {
-        check();
-        return s2.empty() ? -1 : s2.pop();
+        if (s2.isEmpty()) {
+            move();
+        }
+        return s2.isEmpty() ? -1 : s2.pop();
     }
 
-    private void check() {
-        if (s2.empty()) {
-            while (!s1.empty()) {
-                s2.push(s1.pop());
-            }
+    private void move() {
+        while (!s1.isEmpty()) {
+            s2.push(s1.pop());
         }
     }
 }

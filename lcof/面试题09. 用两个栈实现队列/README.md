@@ -37,21 +37,23 @@
 class CQueue:
 
     def __init__(self):
-        self._s1 = []
-        self._s2 = []
-
-    def _check(self):
-        if not self._s2:
-            while self._s1:
-                self._s2.append(self._s1.pop())
+        self.s1 = []
+        self.s2 = []
 
     def appendTail(self, value: int) -> None:
-        self._s1.append(value)
-        self._check()
+        self.s1.append(value)
+        if not self.s2:
+            self._move()
 
     def deleteHead(self) -> int:
-        self._check()
-        return -1 if not self._s2 else self._s2.pop()
+        if not self.s2:
+            self._move()
+        return -1 if not self.s2 else self.s2.pop()
+
+    def _move(self):
+        while self.s1:
+            self.s2.append(self.s1.pop())
+
 
 
 # Your CQueue object will be instantiated and called as such:
@@ -64,28 +66,31 @@ class CQueue:
 
 ```java
 class CQueue {
-    private Stack<Integer> s1 = new Stack<>();
-    private Stack<Integer> s2 = new Stack<>();
 
+    private Deque<Integer> s1;
+    private Deque<Integer> s2;
     public CQueue() {
-
+        s1 = new ArrayDeque<>();
+        s2 = new ArrayDeque<>();
     }
-
+    
     public void appendTail(int value) {
         s1.push(value);
-        check();
+        if (s2.isEmpty()) {
+            move();
+        }
     }
-
+    
     public int deleteHead() {
-        check();
-        return s2.empty() ? -1 : s2.pop();
+        if (s2.isEmpty()) {
+            move();
+        }
+        return s2.isEmpty() ? -1 : s2.pop();
     }
 
-    private void check() {
-        if (s2.empty()) {
-            while (!s1.empty()) {
-                s2.push(s1.pop());
-            }
+    private void move() {
+        while (!s1.isEmpty()) {
+            s2.push(s1.pop());
         }
     }
 }
