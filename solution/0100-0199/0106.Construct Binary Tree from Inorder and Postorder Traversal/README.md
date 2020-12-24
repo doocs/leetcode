@@ -45,21 +45,21 @@
 #         self.right = None
 
 class Solution:
+    indexes = {}
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
         def build(inorder, postorder, i1, i2, p1, p2):
             if i1 > i2 or p1 > p2:
                 return None
             root_val = postorder[p2]
-            pos = -1
-            for i in range(i1, i2 + 1):
-                if inorder[i] == root_val:
-                    pos = i
-                    break
+            pos = self.indexes[root_val]
             root = TreeNode(root_val)
             root.left = None if pos == i1 else build(inorder, postorder, i1, pos - 1, p1, p1 - i1 + pos - 1)
             root.right = None if pos == i2 else build(inorder, postorder, pos + 1, i2, p1 - i1 + pos, p2 - 1)
             return root
-        return build(inorder, postorder, 0, len(inorder) - 1, 0, len(postorder) - 1)
+        n = len(inorder)
+        for i in range(n):
+            self.indexes[inorder[i]] = i
+        return build(inorder, postorder, 0, n - 1, 0, n - 1)
 ```
 
 ### **Java**
@@ -77,25 +77,24 @@ class Solution:
  * }
  */
 class Solution {
+    private Map<Integer, Integer> indexes = new HashMap<>();
+
     public TreeNode buildTree(int[] inorder, int[] postorder) {
+        int n = inorder.length;
+        for (int i = 0; i < n; ++i) {
+            indexes.put(inorder[i], i);
+        }
         return build(inorder, postorder, 0, inorder.length - 1, 0, postorder.length - 1);
     }
 
     private TreeNode build(int[] inorder, int[] postorder, int i1, int i2, int p1, int p2) {
         if (i1 > i2 || p1 > p2) return null;
         int rootVal = postorder[p2];
-        int pos = find(inorder, rootVal, i1, i2);
+        int pos = indexes.get(rootVal);
         TreeNode root = new TreeNode(rootVal);
         root.left = pos == i1 ? null : build(inorder, postorder, i1, pos - 1, p1, p1 - i1 + pos - 1);
         root.right = pos == i2 ? null : build(inorder, postorder, pos + 1, i2, p1 - i1 + pos, p2 - 1);
         return root;
-    }
-
-    private int find(int[] order, int val, int p, int q) {
-        for (int i = p; i <= q; ++i) {
-            if (order[i] == val) return i;
-        }
-        return -1;
     }
 }
 ```
