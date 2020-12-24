@@ -41,7 +41,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l, r = 0, len(nums) - 1
+        while l < r:
+            m = l + ((r - l) >> 1)
+            if nums[m] > nums[r]:
+                l = m + 1
+            elif nums[m] < nums[r]:
+                r = m
+            else:
+                r -= 1
+        return nums[l]
 ```
 
 ### **Java**
@@ -49,7 +60,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findMin(int[] nums) {
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int m = l + ((r - l) >> 1);
+            if (nums[m] > nums[r]) {
+                l = m + 1;
+            } else if (nums[m] < nums[r]) {
+                r = m;
+            } else {
+                --r;
+            }
+        }
+        return nums[l];
+    }
+}
 ```
 
 ### **...**

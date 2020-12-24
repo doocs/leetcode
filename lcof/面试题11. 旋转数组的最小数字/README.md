@@ -27,18 +27,16 @@
 ```python
 class Solution:
     def minArray(self, numbers: List[int]) -> int:
-        if len(numbers) == 1 or numbers[0] < numbers[-1]:
-            return numbers[0]
-        left, right = 0, len(numbers) - 1
-        while (right - left > 1):
-            mid = left + ((right - left) >> 1)
-            if numbers[mid] == numbers[left] == numbers[right]:
-                return min(numbers[left: right + 1])
-            if numbers[mid] >= numbers[left]:
-                left = mid
-            elif numbers[mid] <= numbers[right]:
-                right = mid
-        return numbers[right]
+        l, r = 0, len(numbers) - 1
+        while l < r:
+            m = l + ((r - l) >> 1)
+            if numbers[m] > numbers[r]:
+                l = m + 1
+            elif numbers[m] < numbers[r]:
+                r = m
+            else:
+                r -= 1
+        return numbers[l]
 ```
 
 ### **Java**
@@ -46,34 +44,18 @@ class Solution:
 ```java
 class Solution {
     public int minArray(int[] numbers) {
-        int len = numbers.length;
-        if (len == 1 || numbers[0] < numbers[len - 1]) {
-            return numbers[0];
-        }
-
-        int left = 0, right = len - 1;
-        while (right - left > 1) {
-            int mid = left + ((right - left) >> 1);
-            if (numbers[left] == numbers[mid] && numbers[mid] == numbers[right]) {
-                return findMin(numbers, left, right);
-            }
-            if (numbers[mid] >= numbers[left]) {
-                left = mid;
-            } else if (numbers[mid] <= numbers[right]) {
-                right = mid;
+        int l = 0, r = numbers.length - 1;
+        while (l < r) {
+            int m = l + ((r - l) >> 1);
+            if (numbers[m] > numbers[r]) {
+                l = m + 1;
+            } else if (numbers[m] < numbers[r]) {
+                r = m;
+            } else {
+                --r;
             }
         }
-        return numbers[right];
-    }
-
-    private int findMin(int[] numbers, int left, int right) {
-        int min = numbers[left];
-        for (int i = left + 1; i < right; ++i) {
-            if (min > numbers[i]) {
-                min = numbers[i];
-            }
-        }
-        return min;
+        return numbers[l];
     }
 }
 ```

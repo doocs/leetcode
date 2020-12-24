@@ -54,6 +54,8 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 1. [3Sum](/solution/0000-0099/0015.3Sum/README_EN.md)
 1. [4Sum](/solution/0000-0099/0018.4Sum/README_EN.md)
 1. [Merge Sorted Array](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
+1. [Find Minimum in Rotated Sorted Array](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README_EN.md)
+1. [Find Minimum in Rotated Sorted Array II](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README_EN.md)
 
 ### Strings
 
