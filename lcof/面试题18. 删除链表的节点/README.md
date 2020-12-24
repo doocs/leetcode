@@ -31,9 +31,9 @@
 
 ## 解法
 
-定义一个虚拟头节点 `dummy` 指向 `head`，再定义指针 `pre` 和 `cur` 分别指向 `dummy` 和 `head`。
+定义一个虚拟头节点 `dummy` 指向 `head`，`pre` 指针初始指向 `dummy`。
 
-遍历链表，`pre`、`cur` 往后移动。当指针 `cur` 指向的节点的值等于 `val` 时，将 `pre.next` 指向 `cur.next`，然后返回 `dummy.next`。
+循环遍历链表，`pre` 往后移动。当指针 `pre.next` 指向的节点的值等于 `val` 时退出循环，将 `pre.next` 指向 `pre.next.next`，然后返回 `dummy.next`。
 
 <!-- tabs:start -->
 
@@ -49,12 +49,10 @@ class Solution:
     def deleteNode(self, head: ListNode, val: int) -> ListNode:
         dummy = ListNode(0)
         dummy.next = head
-        pre, cur = dummy, head
-        while cur:
-            if cur.val == val:
-                pre.next = cur.next
-                break
-            pre, cur = cur, cur.next
+        pre = dummy
+        while pre.next and pre.next.val != val:
+            pre = pre.next
+        pre.next = None if not pre.next else pre.next.next
         return dummy.next
 ```
 
@@ -73,15 +71,11 @@ class Solution {
     public ListNode deleteNode(ListNode head, int val) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode pre = dummy, cur = head;
-        while (cur != null) {
-            if (cur.val == val) {
-                pre.next = cur.next;
-                break;
-            }
-            pre = cur;
-            cur = cur.next;
+        ListNode pre = dummy;
+        while (pre.next != null && pre.next.val != val) {
+            pre = pre.next;
         }
+        pre.next = pre.next == null ? null : pre.next.next;
         return dummy.next;
     }
 }
@@ -103,20 +97,14 @@ class Solution {
  * @return {ListNode}
  */
 var deleteNode = function (head, val) {
-  let node = head;
-  if (node.val === val) {
-    node = node.next;
-    head = node;
-  } else {
-    while (node.next) {
-      if (node.next.val === val) {
-        node.next = node.next.next;
-        break;
-      }
-      node = node.next;
-    }
+  const dummy = new ListNode(0);
+  dummy.next = head;
+  let pre = dummy;
+  while (pre.next && pre.next.val != val) {
+    pre = pre.next;
   }
-  return head;
+  pre.next = pre.next ? pre.next.next : null;
+  return dummy.next;
 };
 ```
 

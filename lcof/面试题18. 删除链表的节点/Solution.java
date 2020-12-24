@@ -10,15 +10,11 @@ class Solution {
     public ListNode deleteNode(ListNode head, int val) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-        ListNode pre = dummy, cur = head;
-        while (cur != null) {
-            if (cur.val == val) {
-                pre.next = cur.next;
-                break;
-            }
-            pre = cur;
-            cur = cur.next;
+        ListNode pre = dummy;
+        while (pre.next != null && pre.next.val != val) {
+            pre = pre.next;
         }
+        pre.next = pre.next == null ? null : pre.next.next;
         return dummy.next;
     }
 }
