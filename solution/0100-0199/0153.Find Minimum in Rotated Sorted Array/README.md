@@ -27,6 +27,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找。
+
+若 `nums[m] > nums[r]`，说明最小值在 m 的右边，否则说明最小值在 m 的左边（包括 m）。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -34,7 +38,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l, r = 0, len(nums) - 1
+        while l < r:
+            m = l + ((r - l) >> 1)
+            if nums[m] > nums[r]:
+                l = m + 1
+            else:
+                r = m
+        return nums[l]
 ```
 
 ### **Java**
@@ -42,7 +55,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findMin(int[] nums) {
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
+            int m = l + ((r - l) >> 1);
+            if (nums[m] > nums[r]) {
+                l = m + 1;
+            } else {
+                r = m;
+            }
+        }
+        return nums[l];
+    }
+}
 ```
 
 ### **...**
