@@ -17,9 +17,9 @@
 
 ## 解法
 
-定义指针 `p`、`q` 分别指向头节点和下一个节点，`pre` 指向头节点的前一个节点。
+定义指针 `pre`，`cur` 分别指向 null 和头节点。
 
-遍历链表，改变指针 `p` 指向的节点的指向，将其指向 `pre` 指针指向的节点，即 `p.next = pre`。然后 `pre` 指针指向 `p`，`p`、`q` 指针往前走。
+遍历链表，将 `cur.next` 临时保存到 `t` 中，然后改变指针 `cur` 指向的节点的指向，将其指向 `pre` 指针指向的节点，即 `cur.next = pre`。然后 `pre` 指针指向 `cur`，`cur` 指针往前走。
 
 当遍历结束后，返回 `pre` 指针即可。
 
@@ -36,12 +36,12 @@
 
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        pre, p = None, head
-        while p:
-            q = p.next
-            p.next = pre
-            pre = p
-            p = q
+        pre, cur = None, head
+        while cur:
+            t = cur.next
+            cur.next = pre
+            pre = cur
+            cur = t
         return pre
 ```
 
@@ -58,13 +58,12 @@ class Solution:
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode pre = null;
-        ListNode p = head;
-        while (p != null) {
-            ListNode q = p.next;
-            p.next = pre;
-            pre = p;
-            p = q;
+        ListNode pre = null, cur = head;
+        while (cur != null) {
+            ListNode t = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = t;
         }
         return pre;
     }

@@ -19,6 +19,8 @@
 
 ## 解法
 
+双指针。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -26,16 +28,16 @@
 ```python
 class Solution:
     def exchange(self, nums: List[int]) -> List[int]:
-        res = [0 for _ in range(len(nums))]
         p, q = 0, len(nums) - 1
-        for e in nums:
-            if (e & 1) == 0:
-                res[q] = e
-                q -= 1
-            else:
-                res[p] = e
+        while p < q:
+            if nums[p] & 1 == 1:
                 p += 1
-        return res
+                continue
+            if nums[q] & 1 == 0:
+                q -= 1
+                continue
+            nums[p], nums[q] = nums[q], nums[p]
+        return nums
 ```
 
 ### **Java**
@@ -43,17 +45,25 @@ class Solution:
 ```java
 class Solution {
     public int[] exchange(int[] nums) {
-        int len = nums.length;
-        int[] res = new int[len];
-        int p = 0, q = len - 1;
-        for (int e : nums) {
-            if ((e & 1) == 0) {
-                res[q--] = e;
-            } else {
-                res[p++] = e;
+        int p = 0, q = nums.length - 1;
+        while (p < q) {
+            if ((nums[p] & 1) == 1) {
+                ++p;
+                continue;
             }
+            if ((nums[q] & 1) == 0) {
+                --q;
+                continue;
+            }
+            swap(nums, p, q);
         }
-        return res;
+        return nums;
+    }
+
+    private void swap(int[] nums, int p, int q) {
+        int t = nums[p];
+        nums[p] = nums[q];
+        nums[q] = t;
     }
 }
 ```

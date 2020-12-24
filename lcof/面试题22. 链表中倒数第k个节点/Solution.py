@@ -6,13 +6,10 @@
 
 class Solution:
     def getKthFromEnd(self, head: ListNode, k: int) -> ListNode:
-        if not (head or head.next):
-            return head
-        
-        p = q = head
+        slow = fast = head
         for _ in range(k):
-            p = p.next
-        while p:
-            p = p.next
-            q = q.next
-        return q
+            fast = fast.next
+        while fast:
+            slow = slow.next
+            fast = fast.next
+        return slow

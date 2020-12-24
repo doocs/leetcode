@@ -12,9 +12,9 @@
 
 ## 解法
 
-定义 `p`、`q` 指针指向 `head`。
+定义快慢指针 `slow`、`fast`，初始指向 `head`。
 
-`p` 先向前走 `k` 步，接着 `p`、`q` 同时向前走，当 `p` 指向 `null` 时，`q` 指向的节点即为链表的倒数第 `k` 个节点。
+`fast` 先向前走 `k` 步，接着 `slow`、`fast` 同时向前走，当 `fast` 指向 `null` 时，`slow` 指向的节点即为链表的倒数第 `k` 个节点。
 
 <!-- tabs:start -->
 
@@ -29,17 +29,13 @@
 
 class Solution:
     def getKthFromEnd(self, head: ListNode, k: int) -> ListNode:
-        if not (head or head.next):
-            return head
-
-        p = q = head
+        slow = fast = head
         for _ in range(k):
-            p = p.next
-        while p:
-            p = p.next
-            q = q.next
-        return q
-
+            fast = fast.next
+        while fast:
+            slow = slow.next
+            fast = fast.next
+        return slow
 ```
 
 ### **Java**
@@ -55,18 +51,15 @@ class Solution:
  */
 class Solution {
     public ListNode getKthFromEnd(ListNode head, int k) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode p = head, q = head;
+        ListNode slow = head, fast = head;
         while (k-- > 0) {
-            p = p.next;
+            fast = fast.next;
         }
-        while (p != null) {
-            p = p.next;
-            q = q.next;
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        return q;
+        return slow;
     }
 }
 ```
