@@ -2,7 +2,7 @@ func exist(board [][]byte, word string) bool {
 	if len(board) == 0 {
 		return false
 	}
-	//标记数组
+	// 标记数组
 	isVisited := make([][]bool, len(board))
 	for i := 0; i < len(board); i++ {
 		isVisited[i] = make([]bool, len(board[0]))
