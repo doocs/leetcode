@@ -1,24 +1,19 @@
 class Solution:
-
-    def __init__(self):
-        self._cnt = 0
-
+    cnt = 0
     def movingCount(self, m: int, n: int, k: int) -> int:
-        self._cnt = 0
-        visited = [[False for j in range(n)] for i in range(m)]
-        self.visit(0, 0, m, n, k, visited)
-        return self._cnt
-    
-    def visit(self, i, j, m, n, k, visited):
-        if i < 0 or i >= m or j < 0 or j >= n or visited[i][j] or self.cal(i, j) > k:
-            return
-        visited[i][j] = True
-        self._cnt += 1
-        self.visit(i - 1, j, m, n, k, visited)
-        self.visit(i + 1, j, m, n, k, visited)
-        self.visit(i, j - 1, m, n, k, visited)
-        self.visit(i, j + 1, m, n, k, visited)
-
-    def cal(self, m, n) -> int:
-        s = str(m) + str(n)
-        return sum([int(i) for i in s])
+        def cal(m, n):
+            s = str(m) + str(n)
+            return sum([int(i) for i in s])
+        def dfs(i, j):
+            if i < 0 or i >= m or j < 0 or j >= n or cal(i, j) > k or visited[i][j]:
+                return
+            self.cnt += 1
+            visited[i][j] = True
+            dfs(i + 1, j)
+            dfs(i - 1, j)
+            dfs(i, j + 1)
+            dfs(i, j - 1)
+        self.cnt = 0
+        visited = [[False for _ in range(n)] for _ in range(m)]
+        dfs(0, 0)
+        return self.cnt

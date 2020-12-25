@@ -25,74 +25,72 @@
 
 ## 解法
 
+深度优先搜索 DFS 实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
 class Solution:
-
-    def __init__(self):
-        self._cnt = 0
-
+    cnt = 0
     def movingCount(self, m: int, n: int, k: int) -> int:
-        self._cnt = 0
-        visited = [[False for j in range(n)] for i in range(m)]
-        self.visit(0, 0, m, n, k, visited)
-        return self._cnt
-
-    def visit(self, i, j, m, n, k, visited):
-        if i < 0 or i >= m or j < 0 or j >= n or visited[i][j] or self.cal(i, j) > k:
-            return
-        visited[i][j] = True
-        self._cnt += 1
-        self.visit(i - 1, j, m, n, k, visited)
-        self.visit(i + 1, j, m, n, k, visited)
-        self.visit(i, j - 1, m, n, k, visited)
-        self.visit(i, j + 1, m, n, k, visited)
-
-    def cal(self, m, n) -> int:
-        s = str(m) + str(n)
-        return sum([int(i) for i in s])
+        def cal(m, n):
+            s = str(m) + str(n)
+            return sum([int(i) for i in s])
+        def dfs(i, j):
+            if i < 0 or i >= m or j < 0 or j >= n or cal(i, j) > k or visited[i][j]:
+                return
+            self.cnt += 1
+            visited[i][j] = True
+            dfs(i + 1, j)
+            dfs(i - 1, j)
+            dfs(i, j + 1)
+            dfs(i, j - 1)
+        self.cnt = 0
+        visited = [[False for _ in range(n)] for _ in range(m)]
+        dfs(0, 0)
+        return self.cnt
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private int m;
+    private int n;
+    private boolean[][] visited;
     private int cnt;
-
     public int movingCount(int m, int n, int k) {
+        visited = new boolean[m][n];
+        this.m = m;
+        this.n = n;
         cnt = 0;
-        boolean[][] visited = new boolean[m][n];
-        visit(0, 0, m, n, k, visited);
+        dfs(0, 0, k);
         return cnt;
     }
 
-    private void visit(int i, int j, int m, int n, int k, boolean[][] visited) {
-        if (i < 0 || i >= m || j < 0 || j >= n || visited[i][j] || cal(i, j) > k) {
-            return;
-        }
-        visited[i][j] = true;
+    private void dfs(int i, int j, int k) {
+        if (i < 0 || i >= m || j < 0 || j >= n || visited[i][j] || cal(i, j) > k) return;
         ++cnt;
-        visit(i - 1, j, m, n, k, visited);
-        visit(i + 1, j, m, n, k, visited);
-        visit(i, j - 1, m, n, k, visited);
-        visit(i, j + 1, m, n, k, visited);
+        visited[i][j] = true;
+        dfs(i + 1, j, k);
+        dfs(i - 1, j, k);
+        dfs(i, j + 1, k);
+        dfs(i, j - 1, k);
     }
-
 
     private int cal(int i, int j) {
-        return cal(i) + cal(j);
-    }
-
-    private int cal(int val) {
-        int s = 0;
-        while (val != 0) {
-            s += (val % 10);
-            val /= 10;
+        int res = 0;
+        while (i != 0) {
+            res += (i % 10);
+            i /= 10;
         }
-        return s;
+        while (j != 0) {
+            res += (j % 10);
+            j /= 10;
+        }
+        return res;
     }
 }
 ```
