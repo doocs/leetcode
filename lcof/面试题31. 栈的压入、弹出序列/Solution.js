@@ -3,23 +3,15 @@
  * @param {number[]} popped
  * @return {boolean}
  */
-var validateStackSequences = function (pushed, popped) {
-  let stack = [];
-  while (pushed.length && popped.length) {
-    if (pushed[0] === popped[0]) {
-      pushed.shift();
-      popped.shift();
-    } else if (popped[0] === stack[0]) {
-      stack.shift();
-      popped.shift();
-    } else {
-      stack.unshift(pushed.shift());
-    }
+var validateStackSequences = function(pushed, popped) {
+  let s = [];
+  let q = 0;
+  for (let num of pushed) {
+      s.push(num);
+      while (s.length > 0 && s[s.length - 1] == popped[q]) {
+          ++q;
+          s.pop();
+      }
   }
-  while (stack.length) {
-    if (stack[0] !== popped[0]) return false;
-    stack.shift();
-    popped.shift();
-  }
-  return true;
+  return s.length == 0;
 };

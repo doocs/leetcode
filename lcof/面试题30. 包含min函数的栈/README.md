@@ -34,22 +34,22 @@ class MinStack:
         """
         initialize your data structure here.
         """
-        self._s1 = []
-        self._s2 = []
+        self.s1 = []
+        self.s2 = []
 
     def push(self, x: int) -> None:
-        self._s1.append(x)
-        self._s2.append(x if len(self._s2) == 0 or self._s2[-1] > x else self._s2[-1])
+        self.s1.append(x)
+        self.s2.append(x if not self.s2 or self.s2[-1] >= x else self.s2[-1])
 
     def pop(self) -> None:
-        self._s1.pop()
-        self._s2.pop()
+        self.s1.pop()
+        self.s2.pop()
 
     def top(self) -> int:
-        return self._s1[-1]
+        return self.s1[-1]
 
     def min(self) -> int:
-        return self._s2[-1]
+        return self.s2[-1]
 
 
 # Your MinStack object will be instantiated and called as such:
@@ -64,29 +64,29 @@ class MinStack:
 
 ```java
 class MinStack {
-    private Stack<Integer> s1;
-    private Stack<Integer> s2;
+    private Deque<Integer> s1;
+    private Deque<Integer> s2;
 
     /** initialize your data structure here. */
     public MinStack() {
-        s1 = new Stack<>();
-        s2 = new Stack<>();
+        s1 = new ArrayDeque<>();
+        s2 = new ArrayDeque<>();
     }
-
+    
     public void push(int x) {
         s1.push(x);
-        s2.push((s2.empty() || s2.peek() > x) ? x : s2.peek());
+        s2.push(s2.isEmpty() || s2.peek() >= x ? x : s2.peek());
     }
-
+    
     public void pop() {
         s1.pop();
         s2.pop();
     }
-
+    
     public int top() {
         return s1.peek();
     }
-
+    
     public int min() {
         return s2.peek();
     }

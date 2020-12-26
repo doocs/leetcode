@@ -1,16 +1,16 @@
 class MinStack {
-    private Stack<Integer> s1;
-    private Stack<Integer> s2;
-    
+    private Deque<Integer> s1;
+    private Deque<Integer> s2;
+
     /** initialize your data structure here. */
     public MinStack() {
-        s1 = new Stack<>();
-        s2 = new Stack<>();
+        s1 = new ArrayDeque<>();
+        s2 = new ArrayDeque<>();
     }
     
     public void push(int x) {
         s1.push(x);
-        s2.push((s2.empty() || s2.peek() > x) ? x : s2.peek());
+        s2.push(s2.isEmpty() || s2.peek() >= x ? x : s2.peek());
     }
     
     public void pop() {

@@ -45,16 +45,14 @@ push(5), pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
 ```python
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
-        t = []
-        for num in popped:
-            while len(t) == 0 or t[-1] != num:
-                if len(pushed) == 0:
-                    return False
-                t.append(pushed[0])
-                pushed = pushed[1:]
-            t.pop()
-        return True
-
+        s = []
+        q = 0
+        for num in pushed:
+            s.append(num)
+            while s and s[-1] == popped[q]:
+                s.pop()
+                q += 1
+        return not s
 ```
 
 ### **Java**
@@ -64,18 +62,16 @@ class Solution:
 ```java
 class Solution {
     public boolean validateStackSequences(int[] pushed, int[] popped) {
-        Stack<Integer> t = new Stack<>();
-        int i = 0, n = pushed.length;
-        for (int num : popped) {
-            while (t.empty() || t.peek() != num) {
-                if (i == n) {
-                    return false;
-                }
-                t.push(pushed[i++]);
+        Deque<Integer> s = new ArrayDeque<>();
+        int q = 0;
+        for (int num : pushed) {
+            s.push(num);
+            while (!s.isEmpty() && s.peek() == popped[q]) {
+                s.pop();
+                ++q;
             }
-            t.pop();
         }
-        return true;
+        return s.isEmpty();
     }
 }
 ```
@@ -88,25 +84,17 @@ class Solution {
  * @param {number[]} popped
  * @return {boolean}
  */
-var validateStackSequences = function (pushed, popped) {
-  let stack = [];
-  while (pushed.length && popped.length) {
-    if (pushed[0] === popped[0]) {
-      pushed.shift();
-      popped.shift();
-    } else if (popped[0] === stack[0]) {
-      stack.shift();
-      popped.shift();
-    } else {
-      stack.unshift(pushed.shift());
+var validateStackSequences = function(pushed, popped) {
+    let s = [];
+    let q = 0;
+    for (let num of pushed) {
+        s.push(num);
+        while (s.length > 0 && s[s.length - 1] == popped[q]) {
+            ++q;
+            s.pop();
+        }
     }
-  }
-  while (stack.length) {
-    if (stack[0] !== popped[0]) return false;
-    stack.shift();
-    popped.shift();
-  }
-  return true;
+    return s.length == 0;
 };
 ```
 

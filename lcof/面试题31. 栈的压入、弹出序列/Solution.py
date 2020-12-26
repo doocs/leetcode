@@ -1,12 +1,10 @@
 class Solution:
-    def validateStackSequences(self, pushed: List[int],
-                               popped: List[int]) -> bool:
-        t = []
-        for num in popped:
-            while len(t) == 0 or t[-1] != num:
-                if len(pushed) == 0:
-                    return False
-                t.append(pushed[0])
-                pushed = pushed[1:]
-            t.pop()
-        return True
+    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
+        s = []
+        q = 0
+        for num in pushed:
+            s.append(num)
+            while s and s[-1] == popped[q]:
+                s.pop()
+                q += 1
+        return not s
