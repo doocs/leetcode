@@ -44,30 +44,24 @@
 #         self.left = None
 #         self.right = None
 
-from queue import Queue
-
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
             return []
-        q = Queue()
-        q.put(root)
-        cnt = 1
+        q = deque()
         res = []
-        while not q.empty():
+        q.append(root)
+        while q:
+            size = len(q)
             t = []
-            num = 0
-            for _ in range(cnt):
-                node = q.get()
+            for _ in range(size):
+                node = q.popleft()
                 t.append(node.val)
-                if node.left:
-                    q.put(node.left)
-                    num += 1
-                if node.right:
-                    q.put(node.right)
-                    num += 1
+                if node.left is not None:
+                    q.append(node.left)
+                if node.right is not None:
+                    q.append(node.right)
             res.append(t)
-            cnt = num
         return res
 ```
 
@@ -85,30 +79,20 @@ class Solution:
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        Queue<TreeNode> q = new LinkedList<>();
-        int cnt = 1;
-        q.offer(root);
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
         List<List<Integer>> res = new ArrayList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
+            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            int num = 0;
-            while (cnt-- > 0) {
+            while (size-- > 0) {
                 TreeNode node = q.poll();
                 t.add(node.val);
-                if (node.left != null) {
-                    q.offer(node.left);
-                    ++num;
-                }
-                if (node.right != null) {
-                    q.offer(node.right);
-                    ++num;
-                }
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
             }
             res.add(t);
-            cnt = num;
         }
         return res;
     }

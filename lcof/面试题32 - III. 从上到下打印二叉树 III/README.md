@@ -44,34 +44,24 @@
 #         self.left = None
 #         self.right = None
 
-from queue import Queue
-
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
             return []
-        q = Queue()
-        q.put(root)
-        cnt = 1
+        q = deque()
         res = []
-        level = 0
-        while not q.empty():
-            level += 1
+        q.append(root)
+        while q:
+            size = len(q)
             t = []
-            num = 0
-            for _ in range(cnt):
-                node = q.get()
+            for _ in range(size):
+                node = q.popleft()
                 t.append(node.val)
-                if node.left:
-                    q.put(node.left)
-                    num += 1
-                if node.right:
-                    q.put(node.right)
-                    num += 1
-            if (level & 1) == 0:
-                t.reverse()
-            res.append(t)
-            cnt = num
+                if node.left is not None:
+                    q.append(node.left)
+                if node.right is not None:
+                    q.append(node.right)
+            res.append(t if len(res) & 1 == 0 else t[::-1])
         return res
 ```
 
@@ -89,35 +79,21 @@ class Solution:
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(root);
-        int cnt = 1;
-        int level = 0;
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
         List<List<Integer>> res = new ArrayList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
-            ++level;
-            int num = 0;
+            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            while (cnt-- > 0) {
+            while (size-- > 0) {
                 TreeNode node = q.poll();
                 t.add(node.val);
-                if (node.left != null) {
-                    q.offer(node.left);
-                    ++num;
-                }
-                if (node.right != null) {
-                    q.offer(node.right);
-                    ++num;
-                }
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
             }
-            if ((level & 1) == 0) {
-                Collections.reverse(t);
-            }
+            if ((res.size() & 1) == 1) Collections.reverse(t);
             res.add(t);
-            cnt = num;
         }
         return res;
     }

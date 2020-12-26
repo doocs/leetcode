@@ -5,28 +5,22 @@
 #         self.left = None
 #         self.right = None
 
-from queue import Queue
-
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
             return []
-        q = Queue()
-        q.put(root)
-        cnt = 1
+        q = deque()
         res = []
-        while not q.empty():
+        q.append(root)
+        while q:
+            size = len(q)
             t = []
-            num = 0
-            for _ in range(cnt):
-                node = q.get()
+            for _ in range(size):
+                node = q.popleft()
                 t.append(node.val)
-                if node.left:
-                    q.put(node.left)
-                    num += 1
-                if node.right:
-                    q.put(node.right)
-                    num += 1
+                if node.left is not None:
+                    q.append(node.left)
+                if node.right is not None:
+                    q.append(node.right)
             res.append(t)
-            cnt = num
         return res

@@ -9,30 +9,20 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        Queue<TreeNode> q = new LinkedList<>();
-        int cnt = 1;
-        q.offer(root);
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
         List<List<Integer>> res = new ArrayList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
+            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            int num = 0;
-            while (cnt-- > 0) {
+            while (size-- > 0) {
                 TreeNode node = q.poll();
                 t.add(node.val);
-                if (node.left != null) {
-                    q.offer(node.left);
-                    ++num;
-                }
-                if (node.right != null) {
-                    q.offer(node.right);
-                    ++num;
-                }
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
             }
             res.add(t);
-            cnt = num;
         }
         return res;
     }

@@ -9,35 +9,21 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        Queue<TreeNode> q = new LinkedList<>();
-        q.offer(root);
-        int cnt = 1;
-        int level = 0;
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
         List<List<Integer>> res = new ArrayList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
-            ++level;
-            int num = 0;
+            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            while (cnt-- > 0) {
+            while (size-- > 0) {
                 TreeNode node = q.poll();
                 t.add(node.val);
-                if (node.left != null) {
-                    q.offer(node.left);
-                    ++num;
-                }
-                if (node.right != null) {
-                    q.offer(node.right);
-                    ++num;
-                }
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
             }
-            if ((level & 1) == 0) {
-                Collections.reverse(t);
-            }
+            if ((res.size() & 1) == 1) Collections.reverse(t);
             res.add(t);
-            cnt = num;
         }
         return res;
     }

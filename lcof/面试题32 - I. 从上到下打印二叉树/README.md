@@ -40,22 +40,22 @@
 #         self.left = None
 #         self.right = None
 
-from queue import Queue
-
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[int]:
         if root is None:
             return []
-        s = Queue()
+        q = deque()
+        q.append(root)
         res = []
-        s.put(root)
-        while not s.empty():
-            node = s.get()
-            res.append(node.val)
-            if node.left:
-                s.put(node.left)
-            if node.right:
-                s.put(node.right)
+        while q:
+            size = len(q)
+            for _ in range(size):
+                node = q.popleft()
+                res.append(node.val)
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
         return res
 ```
 
@@ -73,30 +73,25 @@ class Solution:
  */
 class Solution {
     public int[] levelOrder(TreeNode root) {
-        if (root == null) {
-            return new int[0];
-        }
-        Queue<TreeNode> q = new LinkedList<>();
-        Queue<Integer> s = new LinkedList<>();
+        if (root == null) return new int[]{};
+        Deque<TreeNode> q = new ArrayDeque<>();
+        List<Integer> t = new ArrayList<>();
         q.offer(root);
-
         while (!q.isEmpty()) {
-            TreeNode node = q.poll();
-            s.offer(node.val);
-            if (node.left != null) {
-                q.offer(node.left);
-            }
-            if (node.right != null) {
-                q.offer(node.right);
+            int size = q.size();
+            while (size-- > 0) {
+                TreeNode node = q.poll();
+                t.add(node.val);
+                if (node.left != null) q.offer(node.left);
+                if (node.right != null) q.offer(node.right);
             }
         }
-        int[] res = new int[s.size()];
-
-        for (int i = 0, len = s.size(); i < len; ++i) {
-            res[i] = s.poll();
+        int i = 0, n = t.size();
+        int[] res = new int[n];
+        for (Integer e : t) {
+            res[i++] = e;
         }
         return res;
-
     }
 }
 ```
