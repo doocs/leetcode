@@ -72,21 +72,21 @@ class MinStack {
         s1 = new ArrayDeque<>();
         s2 = new ArrayDeque<>();
     }
-    
+
     public void push(int x) {
         s1.push(x);
         s2.push(s2.isEmpty() || s2.peek() >= x ? x : s2.peek());
     }
-    
+
     public void pop() {
         s1.pop();
         s2.pop();
     }
-    
+
     public int top() {
         return s1.peek();
     }
-    
+
     public int min() {
         return s2.peek();
     }
