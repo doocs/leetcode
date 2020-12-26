@@ -25,7 +25,7 @@
 ```python
 class Solution:
     def printNumbers(self, n: int) -> List[int]:
-        return [i for i in range(1, pow(10, n))]
+        return [i for i in range(1, 10 ** n)]
 ```
 
 ### **Java**
@@ -33,9 +33,9 @@ class Solution:
 ```java
 class Solution {
     public int[] printNumbers(int n) {
-        int nums = (int) Math.pow(10, n);
-        int[] res = new int[nums - 1];
-        for (int i = 0; i < nums - 1; ++i) {
+        n = (int) Math.pow(10, n) - 1;
+        int[] res = new int[n];
+        for (int i = 0; i < n; ++i) {
             res[i] = i + 1;
         }
         return res;
@@ -52,7 +52,7 @@ class Solution {
  */
 var printNumbers = function (n) {
   let res = [];
-  for (let i = 1; i < 10 ** n; i++) {
+  for (let i = 1; i < 10 ** n; ++i) {
     res.push(i);
   }
   return res;
@@ -64,12 +64,12 @@ var printNumbers = function (n) {
 ```go
 func printNumbers(n int) []int {
     d := 10
-    for i :=1; i < n ; i++ {
+    for i := 1; i < n; i++ {
         d *= 10
     }
-    res := make([]int,d-1)
-    for i:=1;i < d; i ++ {
-        res[i-1] = i
+    res := make([]int, d - 1)
+    for i := 1; i < d; i++ {
+        res[i - 1] = i
     }
     return res
 }

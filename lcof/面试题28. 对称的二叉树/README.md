@@ -58,16 +58,16 @@
 
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
+        def is_symmetric(left, right):
+            if left is None and right is None:
+                return True
+            if left is None or right is None or left.val != right.val:
+                return False
+            return is_symmetric(left.left, right.right) and is_symmetric(left.right, right.left)
         if root is None:
             return True
-        return self.symmetric(root.left, root.right)
+        return is_symmetric(root.left, root.right)
 
-    def symmetric(self, node1, node2) -> bool:
-        if node1 is None and node2 is None:
-            return True
-        if node1 is None or node2 is None or node1.val != node2.val:
-            return False
-        return self.symmetric(node1.left, node2.right) and self.symmetric(node1.right, node2.left)
 ```
 
 ### **Java**
@@ -84,20 +84,14 @@ class Solution:
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
+        if (root == null) return true;
         return isSymmetric(root.left, root.right);
     }
 
-    private boolean isSymmetric(TreeNode node1, TreeNode node2) {
-        if (node1 == null && node2 == null) {
-            return true;
-        }
-        if (node1 == null || node2 == null || node1.val != node2.val) {
-            return false;
-        }
-        return isSymmetric(node1.left, node2.right) && isSymmetric(node1.right, node2.left);
+    private boolean isSymmetric(TreeNode left, TreeNode right) {
+        if (left == null && right == null) return true;
+        if (left == null || right == null || left.val != right.val) return false;
+        return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
     }
 }
 ```
@@ -117,10 +111,10 @@ class Solution {
  * @return {boolean}
  */
 var isSymmetric = function (root) {
-  function dfs(a, b) {
-    if (!a && !b) return true;
-    if (!a || !b) return false;
-    return a.val === b.val && dfs(a.left, b.right) && dfs(a.right, b.left);
+  function dfs(left, right) {
+    if (!left && !right) return true;
+    if (!left || !right || left.val != right.val) return false;
+    return dfs(left.left, right.right) && dfs(left.right, right.left);
   }
   if (!root) return true;
   return dfs(root.left, root.right);
@@ -130,6 +124,14 @@ var isSymmetric = function (root) {
 ### **Go**
 
 ```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func isSymmetric(root *TreeNode) bool {
     if root == nil {
         return true
@@ -137,17 +139,14 @@ func isSymmetric(root *TreeNode) bool {
     return isSymme(root.Left, root.Right)
 }
 
-func isSymme(a *TreeNode, b *TreeNode) bool {
-    if a == nil && b == nil {
+func isSymme(left *TreeNode, right *TreeNode) bool {
+    if left == nil && right == nil {
         return true
     }
-    if a == nil || b ==nil {
+    if left == nil || right == nil || left.Val != right.Val {
         return false
     }
-    if a.Val != b.Val {
-        return false
-    }
-    return isSymme(a.Left,b.Right) && isSymme(a.Right, b.Left)
+    return isSymme(left.Left, right.Right) && isSymme(left.Right, right.Left)
 }
 ```
 

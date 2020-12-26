@@ -1,19 +1,24 @@
-func isSymmetric(root *TreeNode) bool {
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+ func isSymmetric(root *TreeNode) bool {
     if root == nil {
         return true
     }
     return isSymme(root.Left, root.Right)
 }
 
-func isSymme(a *TreeNode, b *TreeNode) bool {
-    if a == nil && b == nil {
+func isSymme(left *TreeNode, right *TreeNode) bool {
+    if left == nil && right == nil {
         return true
     }
-    if a == nil || b ==nil {
+    if left == nil || right == nil || left.Val != right.Val {
         return false
     }
-    if a.Val != b.Val {
-        return false
-    }
-    return isSymme(a.Left,b.Right) && isSymme(a.Right, b.Left)
+    return isSymme(left.Left, right.Right) && isSymme(left.Right, right.Left)
 }
