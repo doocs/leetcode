@@ -27,6 +27,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+深度优先搜索。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -34,7 +36,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def leafSimilar(self, root1: TreeNode, root2: TreeNode) -> bool:
+        def dfs(root, leaves):
+            if root is None:
+                return
+            if root.left is None and root.right is None:
+                leaves.append(root.val)
+                return
+            dfs(root.left, leaves)
+            dfs(root.right, leaves)
+        l1, l2 = [], []
+        dfs(root1, l1)
+        dfs(root2, l2)
+        return l1 == l2
 ```
 
 ### **Java**
@@ -42,7 +63,40 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        List<Integer> l1 = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        dfs(root1, l1);
+        dfs(root2, l2);
+        return l1.equals(l2);
+    }
 
+    private void dfs(TreeNode root, List<Integer> leaves) {
+        if (root == null) return;
+        if (root.left == null && root.right == null) {
+            leaves.add(root.val);
+            return;
+        }
+        dfs(root.left, leaves);
+        dfs(root.right, leaves);
+    }
+}
 ```
 
 ### **...**
