@@ -35,13 +35,62 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def convertBiNode(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return None
+        left = self.convertBiNode(root.left)
+        right = self.convertBiNode(root.right)
+        if left is None:
+            root.right = right
+            return root
+        res = left
+        while left and left.right:
+            left = left.right
+        left.right = root
+        root.right = right
+        root.left = None
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode convertBiNode(TreeNode root) {
+        if (root == null) return null;
+        TreeNode left = convertBiNode(root.left);
+        TreeNode right = convertBiNode(root.right);
+        if (left == null) {
+            root.right = right;
+            return root;
+        }
+        TreeNode res = left;
+        while (left != null && left.right != null) {
+            left = left.right;
+        }
+        left.right = root;
+        root.right = right;
+        root.left = null;
+        return res;
+    }
+}
 ```
 
 ### **...**

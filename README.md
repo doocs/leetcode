@@ -100,6 +100,7 @@
 1. [二叉搜索树的后序遍历序列](/lcof/面试题33.%20二叉搜索树的后序遍历序列/README.md)
 1. [二叉树的最近公共祖先](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md)
 1. [二叉搜索树的最近公共祖先](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README.md)
+1. [将二叉搜索树转换为单链表](/lcci/17.12.BiNode/README.md)
 
 ### 数学
 
