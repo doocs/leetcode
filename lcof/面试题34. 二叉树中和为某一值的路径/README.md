@@ -55,22 +55,21 @@
 
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
-        res, path = [], []
-
         def dfs(root, sum):
-            if not root:
+            if root is None:
                 return
             path.append(root.val)
-            target = sum - root.val
-            if target == 0 and not (root.left or root.right):
-                res.append(list(path))
-            dfs(root.left, target)
-            dfs(root.right, target)
+            if root.val == sum and root.left is None and root.right is None:
+                res.append(path.copy())
+            dfs(root.left, sum - root.val)
+            dfs(root.right, sum - root.val)
             path.pop()
-
+        if not root:
+            return []
+        res = []
+        path = []
         dfs(root, sum)
         return res
-
 ```
 
 ### **Java**
@@ -90,12 +89,13 @@ class Solution:
 class Solution {
     private List<List<Integer>> res;
     private List<Integer> path;
+
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        if (root == null) return Collections.emptyList();
         res = new ArrayList<>();
         path = new ArrayList<>();
         dfs(root, sum);
         return res;
-
     }
 
     private void dfs(TreeNode root, int sum) {
@@ -103,13 +103,11 @@ class Solution {
             return;
         }
         path.add(root.val);
-        int target = sum - root.val;
-        if (target == 0 && root.left == null && root.right == null) {
-            List<Integer> t = new ArrayList<>(path);
-            res.add(t);
+        if (root.val == sum && root.left == null && root.right == null) {
+            res.add(new ArrayList<>(path));
         }
-        dfs(root.left, target);
-        dfs(root.right, target);
+        dfs(root.left, sum - root.val);
+        dfs(root.right, sum - root.val);
         path.remove(path.size() - 1);
     }
 }

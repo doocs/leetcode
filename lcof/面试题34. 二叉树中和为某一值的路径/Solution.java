@@ -10,12 +10,13 @@
 class Solution {
     private List<List<Integer>> res;
     private List<Integer> path;
+
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        if (root == null) return Collections.emptyList();
         res = new ArrayList<>();
         path = new ArrayList<>();
         dfs(root, sum);
         return res;
-
     }
 
     private void dfs(TreeNode root, int sum) {
@@ -23,13 +24,11 @@ class Solution {
             return;
         }
         path.add(root.val);
-        int target = sum - root.val;
-        if (target == 0 && root.left == null && root.right == null) {
-            List<Integer> t = new ArrayList<>(path);
-            res.add(t);
+        if (root.val == sum && root.left == null && root.right == null) {
+            res.add(new ArrayList<>(path));
         }
-        dfs(root.left, target);
-        dfs(root.right, target);
+        dfs(root.left, sum - root.val);
+        dfs(root.right, sum - root.val);
         path.remove(path.size() - 1);
     }
 }
