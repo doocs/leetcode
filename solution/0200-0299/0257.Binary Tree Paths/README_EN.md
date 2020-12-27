@@ -43,13 +43,65 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def binaryTreePaths(self, root: TreeNode) -> List[str]:
+        def dfs(root):
+            if root is None:
+                return
+            path.append(str(root.val))
+            if root.left is None and root.right is None:
+                res.append("->".join(path))
+            dfs(root.left)
+            dfs(root.right)
+            path.pop()
+        res = []
+        path = []
+        dfs(root)
+        return res
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private List<String> res;
+    private List<String> path;
 
+    public List<String> binaryTreePaths(TreeNode root) {
+        if (root == null) return Collections.emptyList();
+        res = new ArrayList<>();
+        path = new ArrayList<>();
+        dfs(root);
+        return res;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) return;
+        path.add(String.valueOf(root.val));
+        if (root.left == null && root.right == null) {
+            res.add(String.join("->", path));
+        }
+        dfs(root.left);
+        dfs(root.right);
+        path.remove(path.size() - 1);
+    }
+}
 ```
 
 ### **...**

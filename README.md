@@ -92,6 +92,7 @@
 1. [二叉树的层次遍历 II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README.md)
 1. [二叉树的最大深度](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README.md)
 1. [二叉树的最小深度](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README.md)
+1. [二叉树的所有路径](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
 1. [路径总和](/solution/0100-0199/0112.Path%20Sum/README.md)
 1. [路径总和 II](/solution/0100-0199/0113.Path%20Sum%20II/README.md)
 1. [从前序与中序遍历序列构造二叉树](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md)
