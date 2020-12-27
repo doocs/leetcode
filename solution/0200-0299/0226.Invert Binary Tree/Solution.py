@@ -6,10 +6,10 @@
 #         self.right = None
 
 class Solution:
-    def mirrorTree(self, root: TreeNode) -> TreeNode:
+    def invertTree(self, root: TreeNode) -> TreeNode:
         if root is None:
             return None
         root.left, root.right = root.right, root.left
-        self.mirrorTree(root.left)
-        self.mirrorTree(root.right)
+        self.invertTree(root.left)
+        self.invertTree(root.right)
         return root

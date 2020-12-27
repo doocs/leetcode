@@ -41,7 +41,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return None
+        root.left, root.right = root.right, root.left
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+        return root
 ```
 
 ### **Java**
@@ -49,7 +63,71 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) return null;
+        TreeNode t = root.left;
+        root.left = root.right;
+        root.right = t;
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var invertTree = function (root) {
+  if (!root) return null;
+  [root.left, root.right] = [root.right, root.left];
+  invertTree(root.left);
+  invertTree(root.right);
+  return root;
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func invertTree(root *TreeNode) *TreeNode {
+    if (root == nil) {
+        return nil
+    }
+    root.Left, root.Right = root.Right, root.Left
+    invertTree(root.Left)
+    invertTree(root.Right)
+    return root
+}
 ```
 
 ### **...**

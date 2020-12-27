@@ -62,23 +62,18 @@ B 是 A 的子结构， 即 A 中有出现和 B 相同的结构和节点值。
 
 class Solution:
     def isSubStructure(self, A: TreeNode, B: TreeNode) -> bool:
-        return self.sub(A, B) if B else False
-
-    def sub(self, A: TreeNode, B: TreeNode) -> bool:
-        if B is None:
-            return True
-        if A is None:
+        def sub(A, B):
+            """判断从当前A节点开始，是否包含B"""
+            if B is None:
+                return True
+            if A is None:
+                return False
+            return A.val == B.val and sub(A.left, B.left) and sub(A.right, B.right)
+        if B is None or A is None:
             return False
-        if A.val == B.val:
-            return self.same(A, B) or self.sub(A.left, B) or self.sub(A.right, B)
-        return self.sub(A.left, B) or self.sub(A.right, B)
-
-    def same(self, A: TreeNode, B: TreeNode) -> bool:
-        if B is None:
-            return True
-        if A is None or A.val != B.val:
-            return False
-        return self.same(A.left, B.left) and self.same(A.right, B.right)
+        if A.val != B.val:
+            return self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
+        return sub(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
 ```
 
 ### **Java**
@@ -95,31 +90,16 @@ class Solution:
  */
 class Solution {
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-        return B == null ? false : sub(A, B);
+        if (B == null || A == null) return false;
+        if (A.val != B.val) return isSubStructure(A.left, B) || isSubStructure(A.right, B);
+        return sub(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
     }
 
     private boolean sub(TreeNode A, TreeNode B) {
-        if (B == null) {
-            return true;
-        }
-        if (A == null) {
-            return false;
-        }
-        if (A.val == B.val) {
-            return isSame(A, B) || sub(A.left, B) || sub(A.right, B);
-        }
-        return sub(A.left, B) || sub(A.right, B);
-
-    }
-
-    private boolean isSame(TreeNode A, TreeNode B) {
-        if (B == null) {
-            return true;
-        }
-        if (A == null || A.val != B.val) {
-            return false;
-        }
-        return isSame(A.left, B.left) && isSame(A.right, B.right);
+        // 判断从当前A节点开始，是否包含B
+        if (B == null) return true;
+        if (A == null) return false;
+        return A.val == B.val && sub(A.left, B.left) && sub(A.right, B.right);
     }
 }
 ```
@@ -140,39 +120,31 @@ class Solution {
  * @return {boolean}
  */
 var isSubStructure = function (A, B) {
-  if (!B || !A) return false;
-  let res;
-  function dfs(A, B, bool) {
-    if (!A || !B) {
-      if (B) {
-        return false;
-      } else {
-        return true;
-      }
-    }
-    if (A.val === B.val) {
-      let left = dfs(A.left, B.left, true);
-      let right = dfs(A.right, B.right, true);
-      if (left && right) return true;
-      else return false;
-    } else {
-      if (bool) return false;
-      else {
-        let left = dfs(A.left, B, false);
-        let right = dfs(A.right, B, false);
-        return left || right;
-      }
-    }
+  function sub(A, B) {
+    if (!B) return true;
+    if (!A) return false;
+    return A.val == B.val && sub(A.left, B.left) && sub(A.right, B.right);
   }
-  return dfs(A, B, false) || false;
+  if (!B || !A) return false;
+  if (A.val != B.val)
+    return isSubStructure(A.left, B) || isSubStructure(A.right, B);
+  return sub(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
 };
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func isSubStructure(A *TreeNode, B *TreeNode) bool {
-    //约定空树不是任意一个树的子结构
+    // 约定空树不是任意一个树的子结构
     if A == nil || B == nil {
         return false
     }

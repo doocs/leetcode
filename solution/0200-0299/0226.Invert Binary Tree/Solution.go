@@ -6,12 +6,12 @@
  *     Right *TreeNode
  * }
  */
- func mirrorTree(root *TreeNode) *TreeNode {
-    if root == nil {
-        return root
+ func invertTree(root *TreeNode) *TreeNode {
+    if (root == nil) {
+        return nil
     }
     root.Left, root.Right = root.Right, root.Left
-    mirrorTree(root.Left)
-    mirrorTree(root.Right)
+    invertTree(root.Left)
+    invertTree(root.Right)
     return root
 }

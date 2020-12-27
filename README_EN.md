@@ -84,6 +84,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 ### Binary Tree
 
 1. [Symmetric Tree](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
+1. [Invert Binary Tree](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
 1. [Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)
 1. [Binary Tree Level Order Traversal II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md)
 1. [Maximum Depth of Binary Tree](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)

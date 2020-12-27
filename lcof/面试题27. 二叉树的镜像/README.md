@@ -51,12 +51,11 @@
 
 class Solution:
     def mirrorTree(self, root: TreeNode) -> TreeNode:
-        if root is None or (root.left is None and root.right is None):
-            return root
-
+        if root is None:
+            return None
+        root.left, root.right = root.right, root.left
         self.mirrorTree(root.left)
         self.mirrorTree(root.right)
-        root.left, root.right = root.right, root.left
         return root
 ```
 
@@ -74,14 +73,12 @@ class Solution:
  */
 class Solution {
     public TreeNode mirrorTree(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null)) {
-            return root;
-        }
-        mirrorTree(root.left);
-        mirrorTree(root.right);
+        if (root == null) return null;
         TreeNode t = root.left;
         root.left = root.right;
         root.right = t;
+        mirrorTree(root.left);
+        mirrorTree(root.right);
         return root;
     }
 }
@@ -102,28 +99,32 @@ class Solution {
  * @return {TreeNode}
  */
 var mirrorTree = function (root) {
-  function dfs(node) {
-    if (!node) return null;
-    let left = dfs(node.left);
-    let right = dfs(node.right);
-    node.left = right;
-    node.right = left;
-    return node;
-  }
-  return dfs(root);
+  if (!root) return null;
+  [root.left, root.right] = [root.right, root.left];
+  mirrorTree(root.left);
+  mirrorTree(root.right);
+  return root;
 };
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func mirrorTree(root *TreeNode) *TreeNode {
     if root == nil {
         return root
     }
     root.Left, root.Right = root.Right, root.Left
-    root.Left = mirrorTree(root.Left)
-    root.Right = mirrorTree(root.Right)
+    mirrorTree(root.Left)
+    mirrorTree(root.Right)
     return root
 }
 ```

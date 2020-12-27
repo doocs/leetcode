@@ -9,10 +9,10 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var mirrorTree = function (root) {
+var invertTree = function (root) {
   if (!root) return null;
   [root.left, root.right] = [root.right, root.left];
-  mirrorTree(root.left);
-  mirrorTree(root.right);
+  invertTree(root.left);
+  invertTree(root.right);
   return root;
 };

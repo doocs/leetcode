@@ -9,14 +9,12 @@
  */
 class Solution {
     public TreeNode mirrorTree(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null)) {
-            return root;
-        }
-        mirrorTree(root.left);
-        mirrorTree(root.right);
+        if (root == null) return null;
         TreeNode t = root.left;
         root.left = root.right;
         root.right = t;
+        mirrorTree(root.left);
+        mirrorTree(root.right);
         return root;
     }
 }

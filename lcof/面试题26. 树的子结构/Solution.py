@@ -7,20 +7,14 @@
 
 class Solution:
     def isSubStructure(self, A: TreeNode, B: TreeNode) -> bool:
-        return self.sub(A, B) if B else False
-
-    def sub(self, A: TreeNode, B: TreeNode) -> bool:
-        if B is None:
-            return True
-        if A is None:
+        def sub(A, B):
+            if B is None:
+                return True
+            if A is None:
+                return False
+            return A.val == B.val and sub(A.left, B.left) and sub(A.right, B.right)
+        if B is None or A is None:
             return False
-        if A.val == B.val:
-            return self.same(A, B) or self.sub(A.left, B) or self.sub(A.right, B)
-        return self.sub(A.left, B) or self.sub(A.right, B)
-
-    def same(self, A: TreeNode, B: TreeNode) -> bool:
-        if B is None:
-            return True
-        if A is None or A.val != B.val:
-            return False
-        return self.same(A.left, B.left) and self.same(A.right, B.right)
+        if A.val != B.val:
+            return self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
+        return sub(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)

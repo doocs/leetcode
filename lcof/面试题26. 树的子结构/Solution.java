@@ -9,30 +9,14 @@
  */
 class Solution {
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-        return B == null ? false : sub(A, B);
+        if (B == null || A == null) return false;
+        if (A.val != B.val) return isSubStructure(A.left, B) || isSubStructure(A.right, B);
+        return sub(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
     }
 
     private boolean sub(TreeNode A, TreeNode B) {
-        if (B == null) {
-            return true;
-        }
-        if (A == null) {
-            return false;
-        }
-        if (A.val == B.val) {
-            return isSame(A, B) || sub(A.left, B) || sub(A.right, B);
-        }
-        return sub(A.left, B) || sub(A.right, B);
-        
-    }
-
-    private boolean isSame(TreeNode A, TreeNode B) {
-        if (B == null) {
-            return true;
-        }
-        if (A == null || A.val != B.val) {
-            return false;
-        }
-        return isSame(A.left, B.left) && isSame(A.right, B.right);
+        if (B == null) return true;
+        if (A == null) return false;
+        return A.val == B.val && sub(A.left, B.left) && sub(A.right, B.right);
     }
 }
