@@ -98,8 +98,8 @@ class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         if (root == null) return Collections.emptyList();
         Deque<TreeNode> q = new ArrayDeque<>();
-        q.offer(root);
         List<List<Integer>> res = new ArrayList<>();
+        q.offer(root);
         while (!q.isEmpty()) {
             int size = q.size();
             List<Integer> t = new ArrayList<>();
@@ -109,9 +109,8 @@ class Solution {
                 if (node.left != null) q.offer(node.left);
                 if (node.right != null) q.offer(node.right);
             }
-            res.add(t);
+            res.add(0, t);
         }
-        Collections.reverse(res);
         return res;
     }
 }
