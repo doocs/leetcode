@@ -49,17 +49,21 @@
 ```python
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
-        n = len(postorder)
-        if n < 2:
+        def verify(p1, p2):
+            if p1 > p2:
+                return True
+            pos = p1
+            while pos < p2 and postorder[pos] < postorder[p2]:
+                pos += 1
+            p = pos
+            while pos < p2:
+                if postorder[pos] < postorder[p2]:
+                    return False
+                pos += 1
+            return verify(p1, p - 1) and verify(p, p2 - 1)
+        if not postorder:
             return True
-        for i in range(n):
-            if postorder[i] > postorder[-1]:
-                break
-        for j in range(i + 1, n - 1):
-            if postorder[j] < postorder[-1]:
-                return False
-        return (i == 0 or self.verifyPostorder(postorder[:i])) and (i == n - 1 or self.verifyPostorder(postorder[i:-1]))
-
+        return verify(0, len(postorder) - 1)
 ```
 
 ### **Java**
@@ -69,30 +73,21 @@ class Solution:
 ```java
 class Solution {
     public boolean verifyPostorder(int[] postorder) {
-        if (postorder.length == 0) {
-            return true;
-        }
-        return verifyPostorder(postorder, 0, postorder.length - 1);
+        int n;
+        if (postorder == null || (n = postorder.length) == 0) return true;
+        return verify(postorder, 0, n - 1);
     }
 
-    private boolean verifyPostorder(int[] postorder, int from, int to) {
-        if (from == to) {
-            return true;
+    private boolean  verify(int[] postorder, int p1, int p2) {
+        if (p1 >= p2) return true;
+        int pos = p1;
+        while (pos < p2 && postorder[pos] < postorder[p2]) ++pos;
+        int p = pos;
+        while (pos < p2) {
+            if (postorder[pos] < postorder[p2]) return false;
+            ++pos;
         }
-        int i = from, j = from;
-        for (; i < to; ++i) {
-            if (postorder[i] > postorder[to]) {
-                break;
-            }
-        }
-        for (j = i + 1; j < to; ++j) {
-            if (postorder[j] < postorder[to]) {
-                return false;
-            }
-        }
-        return (i == from || verifyPostorder(postorder, from, i - 1)) && (i == to || verifyPostorder(postorder, i, to - 1));
-
-
+        return verify(postorder, p1, p - 1) && verify(postorder, p, p2 - 1);
     }
 }
 ```
@@ -130,26 +125,26 @@ func verifyPostorder(postorder []int) bool {
     }
     return helper(postorder, 0, len(postorder)-1)
 }
-//递归
+// 递归
 func helper(postorder []int , left,right int) bool {
     if left >= right {
         return true
     }
-    //最后一位即根
+    // 最后一位即根
     rootValue := postorder[right]
-    //从左开始往右遍历，直到大于根停止,小于部分是左子树
+    // 从左开始往右遍历，直到大于根停止,小于部分是左子树
     i := left
     for i < right && postorder[i] < rootValue {
         i++
     }
-    //剩下部分是右子树，检查是否都大于根值
+    // 剩下部分是右子树，检查是否都大于根值
     for j := i; j < right; j++ {
         if postorder[j] < rootValue {
             return false
         }
     }
-    l := helper(postorder,left,i-1) //检查左子树，左子树i要减一
-    r := helper(postorder,i,right-1)//检查右子树，剔除最后一位是根
+    l := helper(postorder,left,i-1) // 检查左子树，左子树i要减一
+    r := helper(postorder,i,right-1)// 检查右子树，剔除最后一位是根
     return l && r
 }
 ```

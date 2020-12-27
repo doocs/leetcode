@@ -1,12 +1,17 @@
 class Solution:
     def verifyPostorder(self, postorder: List[int]) -> bool:
-        n = len(postorder)
-        if n < 2:
+        def verify(p1, p2):
+            if p1 > p2:
+                return True
+            pos = p1
+            while pos < p2 and postorder[pos] < postorder[p2]:
+                pos += 1
+            p = pos
+            while pos < p2:
+                if postorder[pos] < postorder[p2]:
+                    return False
+                pos += 1
+            return verify(p1, p - 1) and verify(p, p2 - 1)
+        if not postorder:
             return True
-        for i in range(n):
-            if postorder[i] > postorder[-1]:
-                break
-        for j in range(i + 1, n - 1):
-            if postorder[j] < postorder[-1]:
-                return False
-        return (i == 0 or self.verifyPostorder(postorder[:i])) and (i == n - 1 or self.verifyPostorder(postorder[i:-1]))
+        return verify(0, len(postorder) - 1)

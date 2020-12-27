@@ -6,7 +6,7 @@
  *     Right *TreeNode
  * }
  */
- func isSubStructure(A *TreeNode, B *TreeNode) bool {
+func isSubStructure(A *TreeNode, B *TreeNode) bool {
     // 约定空树不是任意一个树的子结构
     if A == nil || B == nil {
         return false
