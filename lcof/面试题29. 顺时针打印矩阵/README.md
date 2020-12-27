@@ -25,6 +25,8 @@
 
 ## 解法
 
+从外往里一圈一圈遍历并存储矩阵元素即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -32,72 +34,68 @@
 ```python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        if len(matrix) == 0:
+        def add(i1, j1, i2, j2):
+            if i1 == i2:
+                return [matrix[i1][j] for j in range(j1, j2 + 1)]
+            if j1 == j2:
+                return [matrix[i][j1] for i in range(i1, i2 + 1)]
+            return [matrix[i1][j] for j in range(j1, j2)] + [matrix[i][j2] for i in range(i1, i2)] + [matrix[i2][j] for j in range(j2, j1, -1)] + [matrix[i][j1] for i in range(i2, i1, -1)]
+        if not matrix or not matrix[0]:
             return []
-
-        s1, e1, s2, e2 = 0, 0, len(matrix) - 1, len(matrix[0]) - 1
+        m, n = len(matrix), len(matrix[0])
+        i1, j1, i2, j2 = 0, 0, m - 1, n - 1
         res = []
-        while s1 <= s2 and e1 <= e2:
-            res += self._spiral_add(matrix, s1, e1, s2, e2)
-            s1, e1, s2, e2 = s1 + 1, e1 + 1, s2 - 1, e2 - 1
+        while i1 <= i2 and j1 <= j2:
+            res += add(i1, j1, i2, j2)
+            i1, j1, i2, j2 = i1 + 1, j1 + 1, i2 - 1, j2 - 1
         return res
-
-    def _spiral_add(self, matrix, s1, e1, s2, e2) -> List[int]:
-        if s1 == s2:
-            return [matrix[s1][j] for j in range(e1, e2 + 1)]
-        if e1 == e2:
-            return [matrix[i][e1] for i in range(s1, s2 + 1)]
-        return [matrix[s1][j] for j in range(e1, e2)] + \
-               [matrix[i][e2] for i in range(s1, s2)] + \
-               [matrix[s2][j] for j in range(e2, e1, -1)] + \
-               [matrix[i][e1] for i in range(s2, s1, -1)]
-
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private int[] res;
     private int index;
+
     public int[] spiralOrder(int[][] matrix) {
-        if (matrix.length == 0) {
-            return new int[0];
-        }
+        int m, n;
+        if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0)
+            return new int[]{};
+        res = new int[m * n];
         index = 0;
-        int m = matrix.length, n = matrix[0].length;
-        int s1 = 0, e1 = 0, s2 = m - 1, e2 = n - 1;
-        int[] res = new int[m * n];
-        while (s1 <= s2 && e1 <= e2) {
-            spiralAdd(matrix, s1++, e1++, s2--, e2--, res);
+        int i1 = 0, i2 = m - 1;
+        int j1 = 0, j2 = n - 1;
+        while (i1 <= i2 && j1 <= j2) {
+            add(matrix, i1++, j1++, i2--, j2--);
         }
         return res;
     }
 
-    public void spiralAdd(int[][] matrix, int s1, int e1, int s2, int e2, int[] res) {
-        if (s1 == s2) {
-            for (int j = e1; j <= e2; ++j) {
-                res[index++] = matrix[s1][j];
+    private void add(int[][] matrix, int i1, int j1, int i2, int j2) {
+        if (i1 == i2) {
+            for (int j = j1; j <= j2; ++j) {
+                res[index++] = matrix[i1][j];
             }
             return;
         }
-        if (e1 == e2) {
-            for (int i = s1; i <= s2; ++i) {
-                res[index++] = matrix[i][e1];
+        if (j1 == j2) {
+            for (int i = i1; i <= i2; ++i) {
+                res[index++] = matrix[i][j1];
             }
             return;
         }
-
-        for (int j = e1; j < e2; ++j) {
-            res[index++] = matrix[s1][j];
+        for (int j = j1; j < j2; ++j) {
+            res[index++] = matrix[i1][j];
         }
-        for (int i = s1; i < s2; ++i) {
-            res[index++] = matrix[i][e2];
+        for (int i = i1; i < i2; ++i) {
+            res[index++] = matrix[i][j2];
         }
-        for (int j = e2; j > e1; --j) {
-            res[index++] = matrix[s2][j];
+        for (int j = j2; j > j1; --j) {
+            res[index++] = matrix[i2][j];
         }
-        for (int i = s2; i > s1; --i) {
-            res[index++] = matrix[i][e1];
+        for (int i = i2; i > i1; --i) {
+            res[index++] = matrix[i][j1];
         }
     }
 }

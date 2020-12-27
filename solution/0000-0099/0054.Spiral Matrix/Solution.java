@@ -1,49 +1,43 @@
 class Solution {
+    private List<Integer> res;
+
     public List<Integer> spiralOrder(int[][] matrix) {
-        if (matrix == null || matrix.length == 0) {
-            return new ArrayList<Integer>();
+        int m, n;
+        if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0)
+            return Collections.emptyList();
+        res = new ArrayList<>();
+        int i1 = 0, i2 = m - 1;
+        int j1 = 0, j2 = n - 1;
+        while (i1 <= i2 && j1 <= j2) {
+            add(matrix, i1++, j1++, i2--, j2--);
         }
-        int m = matrix.length;
-        int n = matrix[0].length;
-        
-        int m1 = 0;
-        int n1 = 0;
-        int m2 = m - 1;
-        int n2 = n - 1;
-        List<Integer> res = new ArrayList<>();
-        
-        while (m1 <= m2 && n1 <= n2) {
-            goCircle(res, matrix, m1++, n1++, m2--, n2--);
-        }
-        
         return res;
     }
-    
-    private void goCircle(List<Integer> res, int[][] matrix, int m1, int n1, int m2, int n2) {
-        
-        if (m1 == m2) {
-            for (int j = n1; j <= n2; ++j) {
-                res.add(matrix[m1][j]);
+
+    private void add(int[][] matrix, int i1, int j1, int i2, int j2) {
+        if (i1 == i2) {
+            for (int j = j1; j <= j2; ++j) {
+                res.add(matrix[i1][j]);
             }
-        } else if (n1 == n2) {
-            for (int i = m1; i <= m2; ++i) {
-                res.add(matrix[i][n1]);
-            }
-        } else {
-            for (int j = n1; j < n2; ++j) {
-                res.add(matrix[m1][j]);
-            }
-            for (int i = m1; i < m2; ++i) {
-                res.add(matrix[i][n2]);
-            }
-            for (int j = n2; j > n1; --j) {
-                res.add(matrix[m2][j]);
-            }
-            for (int i = m2; i > m1; --i) {
-                res.add(matrix[i][n1]);
-            }
+            return;
         }
-        
-        
+        if (j1 == j2) {
+            for (int i = i1; i <= i2; ++i) {
+                res.add(matrix[i][j1]);
+            }
+            return;
+        }
+        for (int j = j1; j < j2; ++j) {
+            res.add(matrix[i1][j]);
+        }
+        for (int i = i1; i < i2; ++i) {
+            res.add(matrix[i][j2]);
+        }
+        for (int j = j2; j > j1; --j) {
+            res.add(matrix[i2][j]);
+        }
+        for (int i = i2; i > i1; --i) {
+            res.add(matrix[i][j1]);
+        }
     }
 }
