@@ -47,18 +47,72 @@
 
 ## Solutions
 
+See [17.12. BiNode](/lcci/17.12.BiNode/README_EN.md).
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def increasingBST(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return None
+        left = self.increasingBST(root.left)
+        right = self.increasingBST(root.right)
+        if left is None:
+            root.right = right
+            return root
+        res = left
+        while left and left.right:
+            left = left.right
+        left.right = root
+        root.right = right
+        root.left = None
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode increasingBST(TreeNode root) {
+        if (root == null) return null;
+        TreeNode left = increasingBST(root.left);
+        TreeNode right = increasingBST(root.right);
+        if (left == null) {
+            root.right = right;
+            return root;
+        }
+        TreeNode res = left;
+        while (left != null && left.right != null) left = left.right;
+        left.right = root;
+        root.right = right;
+        root.left = null;
+        return res;
+    }
+}
 ```
 
 ### **...**

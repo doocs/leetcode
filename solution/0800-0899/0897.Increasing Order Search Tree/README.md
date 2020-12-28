@@ -54,6 +54,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+递归将左子树、右子树转换为左、右链表 left 和 right。然后将左链表 left 的最后一个结点的 right 指针指向 root，root 的 right 指针指向右链表 right，并将 root 的 left 指针值为空。
+
+同[面试题 17.12. BiNode](/lcci/17.12.BiNode/README.md)。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +65,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def increasingBST(self, root: TreeNode) -> TreeNode:
+        if root is None:
+            return None
+        left = self.increasingBST(root.left)
+        right = self.increasingBST(root.right)
+        if left is None:
+            root.right = right
+            return root
+        res = left
+        while left and left.right:
+            left = left.right
+        left.right = root
+        root.right = right
+        root.left = None
+        return res
 ```
 
 ### **Java**
@@ -69,7 +94,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode increasingBST(TreeNode root) {
+        if (root == null) return null;
+        TreeNode left = increasingBST(root.left);
+        TreeNode right = increasingBST(root.right);
+        if (left == null) {
+            root.right = right;
+            return root;
+        }
+        TreeNode res = left;
+        while (left != null && left.right != null) left = left.right;
+        left.right = root;
+        root.right = right;
+        root.left = null;
+        return res;
+    }
+}
 ```
 
 ### **...**

@@ -31,6 +31,8 @@
 
 递归将左子树、右子树转换为左、右链表 left 和 right。然后将左链表 left 的最后一个结点的 right 指针指向 root，root 的 right 指针指向右链表 right，并将 root 的 left 指针值为空。
 
+同 [897. 递增顺序查找树](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)。
+
 <!-- tabs:start -->
 
 ### **Python3**
