@@ -1,26 +1,16 @@
 class Solution {
     public boolean isValid(String s) {
-        if (s == null || s == "") {
-            return true;
-        }
         char[] chars = s.toCharArray();
-        Stack<Character> helper = new Stack<>();
-        for (char c : chars) {
-            boolean isLeft = c == '(' || c == '[' || c == '{';
-            if (isLeft) {
-                helper.push(c);
-            } else {
-                if (helper.isEmpty() || !match(helper.pop(), c)) {
-                    return false;
-                }
-            }
+        Deque<Character> q = new ArrayDeque<>();
+        for (char ch : chars) {
+            boolean left = ch == '(' || ch == '[' || ch == '{';
+            if (left) q.push(ch);
+            else if (q.isEmpty() || !match(q.pop(), ch)) return false;
         }
-        return helper.isEmpty();
+        return q.isEmpty();
     }
 
-    private boolean match(char left, char right) {
-        return (left == '(' && right == ')') 
-            || (left == '[' && right == ']')
-            || (left == '{' && right == '}');
+    private boolean match(char l, char r) {
+        return (l == '(' && r == ')') || (l == '{' && r == '}') || (l == '[' && r == ']');
     }
 }

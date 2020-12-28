@@ -49,6 +49,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+栈实现。
+
+遍历括号字符串，遇到左括号时，将左括号压入栈中；遇到右括号时，弹出栈顶元素（栈若为空，直接返回 false），判断是否是相同类型的括号。若不匹配，直接返回 false。
+
+遍历结束，栈若为空，说明括号字符串有效。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,16 +64,14 @@
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
-        if not s:
-            return True
-        helper = []
-        for c in s:
-            if c in '([{':
-                helper.append(c)
-            else:
-                if len(helper) == 0 or (helper.pop() + c) not in ["()", "[]", "{}"]:
-                    return False
-        return len(helper) == 0
+        q = []
+        parentheses = {'()', '[]', '{}'}
+        for ch in s:
+            if ch in '([{':
+                q.append(ch)
+            elif not q or q.pop() + ch not in parentheses:
+                return False
+        return not q
 ```
 
 ### **Java**
@@ -77,28 +81,18 @@ class Solution:
 ```java
 class Solution {
     public boolean isValid(String s) {
-        if (s == null || s == "") {
-            return true;
-        }
         char[] chars = s.toCharArray();
-        Stack<Character> helper = new Stack<>();
-        for (char c : chars) {
-            boolean isLeft = c == '(' || c == '[' || c == '{';
-            if (isLeft) {
-                helper.push(c);
-            } else {
-                if (helper.isEmpty() || !match(helper.pop(), c)) {
-                    return false;
-                }
-            }
+        Deque<Character> q = new ArrayDeque<>();
+        for (char ch : chars) {
+            boolean left = ch == '(' || ch == '[' || ch == '{';
+            if (left) q.push(ch);
+            else if (q.isEmpty() || !match(q.pop(), ch)) return false;
         }
-        return helper.isEmpty();
+        return q.isEmpty();
     }
 
-    private boolean match(char left, char right) {
-        return (left == '(' && right == ')')
-            || (left == '[' && right == ']')
-            || (left == '{' && right == '}');
+    private boolean match(char l, char r) {
+        return (l == '(' && r == ')') || (l == '{' && r == '}') || (l == '[' && r == ']');
     }
 }
 ```
