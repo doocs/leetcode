@@ -47,6 +47,8 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+迭代：
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -68,9 +70,32 @@ class Solution:
                 return root
 ```
 
+递归：
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root is None:
+            return None
+        if root.val < p.val and root.val < q.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        if root.val > p.val and root.val > q.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        return root
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+迭代：
 
 ```java
 /**
@@ -98,6 +123,29 @@ class Solution {
             }
         }
         return null;
+    }
+}
+```
+
+递归：
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return null;
+        if (root.val < p.val && root.val < q.val) return lowestCommonAncestor(root.right, p, q);
+        if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
+        return root;
     }
 }
 ```

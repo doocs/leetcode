@@ -73,7 +73,11 @@ class Solution:
             return root
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
-        return right if left is None else (left if right is None else root)
+        if left is None:
+            return right
+        if right is None:
+            return left
+        return root
 ```
 
 ### **Java**
@@ -92,14 +96,40 @@ class Solution:
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null || root == p || root == q) {
-            return root;
-        }
+        if (root == null || root == p || root == q) return root;
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-        return left == null ? right : (right == null ? left : root);
+        if (left == null) return right;
+        if (right == null) return left;
+        return root;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {TreeNode}
+ */
+var lowestCommonAncestor = function (root, p, q) {
+  if (!root || root == p || root == q) return root;
+  const left = lowestCommonAncestor(root.left, p, q);
+  const right = lowestCommonAncestor(root.right, p, q);
+  if (!left) return right;
+  if (!right) return left;
+  return root;
+};
 ```
 
 ### **...**
