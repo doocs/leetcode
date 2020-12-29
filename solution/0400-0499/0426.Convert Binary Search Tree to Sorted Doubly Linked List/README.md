@@ -57,6 +57,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+- 排序链表：二叉搜索树中序遍历得到有序序列
+- 循环链表：头节点指向链表尾节点，尾节点指向链表头节点
+- 双向链表：`pre.right = cur`、`cur.left = pre`、`pre = cur`
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +68,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+"""
+class Solution:
+    def treeToDoublyList(self, root: 'Node') -> 'Node':
+        def dfs(cur):
+            if cur is None:
+                return
+            dfs(cur.left)
+            if self.pre is None:
+                self.head = cur
+            else:
+                self.pre.right = cur
+            cur.left = self.pre
+            self.pre = cur
+            dfs(cur.right)
+        if root is None:
+            return None
+        self.head = self.pre = None
+        dfs(root)
+        self.head.left = self.pre
+        self.pre.right = self.head
+        return self.head
 ```
 
 ### **Java**
@@ -72,7 +103,83 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
 
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val,Node _left,Node _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+*/
+
+class Solution {
+    private Node head;
+    private Node pre;
+
+    public Node treeToDoublyList(Node root) {
+        if (root == null) return null;
+        dfs(root);
+        head.left = pre;
+        pre.right = head;
+        return head;
+    }
+
+    private void dfs(Node cur) {
+        if (cur == null) return;
+        dfs(cur.left);
+        if (pre == null) head = cur;
+        else pre.right = cur;
+        cur.left = pre;
+        pre = cur;
+        dfs(cur.right);
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * // Definition for a Node.
+ * function Node(val,left,right) {
+ *    this.val = val;
+ *    this.left = left;
+ *    this.right = right;
+ * };
+ */
+/**
+ * @param {Node} root
+ * @return {Node}
+ */
+var treeToDoublyList = function (root) {
+  function dfs(cur) {
+    if (!cur) return;
+    dfs(cur.left);
+    if (!pre) head = cur;
+    else pre.right = cur;
+    cur.left = pre;
+    pre = cur;
+    dfs(cur.right);
+  }
+  if (!root) return null;
+  let head, pre;
+  dfs(root);
+  head.left = pre;
+  pre.right = head;
+  return head;
+};
 ```
 
 ### **...**

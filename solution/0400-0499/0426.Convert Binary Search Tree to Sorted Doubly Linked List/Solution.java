@@ -18,9 +18,11 @@ class Node {
     }
 };
 */
+
 class Solution {
-    Node head;
-    Node pre;
+    private Node head;
+    private Node pre;
+    
     public Node treeToDoublyList(Node root) {
         if (root == null) return null;
         dfs(root);

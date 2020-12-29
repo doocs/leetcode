@@ -26,9 +26,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二叉搜索树中序遍历得到有序序列；根结点指向左子树最后一个结点，根结点也指向右子树第一个结点。
-
-利用虚拟头结点递归遍历求解。
+- 排序链表：二叉搜索树中序遍历得到有序序列
+- 循环链表：头节点指向链表尾节点，尾节点指向链表头节点
+- 双向链表：`pre.right = cur`、`cur.left = pre`、`pre = cur`
 
 <!-- tabs:start -->
 
@@ -45,29 +45,26 @@ class Node:
         self.left = left
         self.right = right
 """
-
-
 class Solution:
     def treeToDoublyList(self, root: 'Node') -> 'Node':
         def dfs(cur):
-            if not cur:
+            if cur is None:
                 return
             dfs(cur.left)
-            cur.left = self.lastNode
-            if self.lastNode:
-                self.lastNode.right = cur
-            self.lastNode = cur
+            if self.pre is None:
+                self.head = cur
+            else:
+                self.pre.right = cur
+            cur.left = self.pre
+            self.pre = cur
             dfs(cur.right)
-
-        if not root:
-            return root
-        self.lastNode = head = Node(-1)
+        if root is None:
+            return None
+        self.head = self.pre = None
         dfs(root)
-        head = head.right
-        head.left = self.lastNode
-        self.lastNode.right = head
-        return head
-
+        self.head.left = self.pre
+        self.pre.right = self.head
+        return self.head
 ```
 
 ### **Java**
@@ -96,30 +93,23 @@ class Node {
 };
 */
 class Solution {
-    private Node lastNode;
+    Node head;
+    Node pre;
     public Node treeToDoublyList(Node root) {
-        if (root == null) {
-            return root;
-        }
-        lastNode = new Node(-1);
-        Node head = lastNode;
+        if (root == null) return null;
         dfs(root);
-        head = head.right;
-        head.left = lastNode;
-        lastNode.right = head;
+        head.left = pre;
+        pre.right = head;
         return head;
     }
 
     private void dfs(Node cur) {
-        if (cur == null) {
-            return;
-        }
+        if (cur == null) return;
         dfs(cur.left);
-        cur.left = lastNode;
-        if (lastNode != null) {
-            lastNode.right = cur;
-        }
-        lastNode = cur;
+        if (pre == null) head = cur;
+        else pre.right = cur;
+        cur.left = pre;
+        pre = cur;
         dfs(cur.right);
     }
 }
@@ -130,41 +120,32 @@ class Solution {
 ```js
 /**
  * // Definition for a Node.
- * function Node(val, left, right) {
- *      this.val = val;
- *      this.left = left;
- *      this.right = right;
- *  };
+ * function Node(val,left,right) {
+ *    this.val = val;
+ *    this.left = left;
+ *    this.right = right;
+ * };
  */
 /**
  * @param {Node} root
  * @return {Node}
  */
 var treeToDoublyList = function (root) {
+  function dfs(cur) {
+    if (!cur) return;
+    dfs(cur.left);
+    if (!pre) head = cur;
+    else pre.right = cur;
+    cur.left = pre;
+    pre = cur;
+    dfs(cur.right);
+  }
   if (!root) return null;
-  function dfs(node) {
-    if (!node) return null;
-    dfs(node.left);
-    arr.push(node);
-    dfs(node.right);
-  }
-  let arr = [];
+  let head, pre;
   dfs(root);
-  let len = arr.length;
-  let res = arr[0];
-  for (let i = 0; i < len; i++) {
-    if (i + 1 < len) {
-      arr[i].right = arr[i + 1];
-    } else {
-      arr[i].right = arr[0];
-    }
-    if (i - 1 >= 0) {
-      arr[i].left = arr[i - 1];
-    } else {
-      arr[i].left = arr[len - 1];
-    }
-  }
-  return res;
+  head.left = pre;
+  pre.right = head;
+  return head;
 };
 ```
 
