@@ -63,8 +63,8 @@ Iterative:
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        if p == q:
-            return p
+        if root is None:
+            return None
         while root:
             if root.val < p.val and root.val < q.val:
                 root = root.right
@@ -112,19 +112,12 @@ Iterative:
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (p == q) {
-            return p;
-        }
         while (root != null) {
-            if (root.val < p.val && root.val < q.val) {
-                root = root.right;
-            } else if (root.val > p.val && root.val > q.val) {
-                root = root.left;
-            } else {
-                return root;
-            }
+            if (root.val < p.val && root.val < q.val) root = root.right;
+            else if (root.val > p.val && root.val > q.val) root = root.left;
+            else return root;
         }
-        return null;
+        return root;
     }
 }
 ```
