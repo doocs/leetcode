@@ -63,8 +63,6 @@ Iterative:
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        if root is None:
-            return None
         while root:
             if root.val < p.val and root.val < q.val:
                 root = root.right
@@ -142,6 +140,60 @@ class Solution {
         if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
         return root;
     }
+}
+```
+
+### **Go**
+
+Iterative:
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val   int
+ *     Left  *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	for root != nil {
+		if root.Val > p.Val && root.Val > q.Val {
+			root = root.Left
+		} else if root.Val < p.Val && root.Val < q.Val {
+			root = root.Right
+		} else {
+			return root
+		}
+	}
+	return nil
+}
+```
+
+Recursive:
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val   int
+ *     Left  *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+    if root == nil {
+        return root
+    }
+    if root.Val < p.Val && root.Val < q.Val {
+        return lowestCommonAncestor(root.Right, p, q)
+    }
+    if root.Val > p.Val && root.Val > q.Val {
+        return lowestCommonAncestor(root.Left, p, q)
+    }
+    return root
 }
 ```
 

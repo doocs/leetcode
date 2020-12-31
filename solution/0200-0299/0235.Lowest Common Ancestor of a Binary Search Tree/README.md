@@ -59,8 +59,6 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        if p == q:
-            return p
         while root:
             if root.val < p.val and root.val < q.val:
                 root = root.right
@@ -145,33 +143,58 @@ class Solution {
 
 ### **Go**
 
+迭代：
+
 ```go
 /**
- * Definition for TreeNode.
+ * Definition for a binary tree node.
  * type TreeNode struct {
- *     Val int
- *     Left *ListNode
- *     Right *ListNode
+ *     Val   int
+ *     Left  *TreeNode
+ *     Right *TreeNode
  * }
  */
- func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
-    if root == nil {
-        return nil
-    }
 
-    for root != nil {
-        //如果p、q的值都小于root，说明p q 肯定在root的左子树中；
-        //如果p q都大于root，说明肯定在root的右子树中
-        //如果一个在左一个在右 则说明此时的root记为对应的最近公共祖先
-        if root.Val > p.Val && root.Val > q.Val {
-            root = root.Left
-        } else if root.Val < p.Val && root.Val < q.Val {
-            root = root.Right
-        } else {
-            return root
-        }
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+	for root != nil {
+		// 如果 p、q 的值都小于 root，说明 p、q 肯定在 root 的左子树中；
+		// 如果 p、q 都大于 root，说明肯定在 root 的右子树中；
+		// 如果一个在左一个在右，则说明此时的 root 记为对应的最近公共祖先。
+		if root.Val > p.Val && root.Val > q.Val {
+			root = root.Left
+		} else if root.Val < p.Val && root.Val < q.Val {
+			root = root.Right
+		} else {
+			return root
+		}
+	}
+	return nil
+}
+```
+
+递归：
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val   int
+ *     Left  *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+    if root == nil {
+        return root
     }
-    return nil
+    if root.Val < p.Val && root.Val < q.Val {
+        return lowestCommonAncestor(root.Right, p, q)
+    }
+    if root.Val > p.Val && root.Val > q.Val {
+        return lowestCommonAncestor(root.Left, p, q)
+    }
+    return root
 }
 ```
 
