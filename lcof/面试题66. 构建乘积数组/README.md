@@ -33,17 +33,16 @@
 ```python
 class Solution:
     def constructArr(self, a: List[int]) -> List[int]:
-        if not a:
-            return []
-        dp1 = [1 for i in a]
-        dp2 = [1 for i in a]
         n = len(a)
-        dp1[0], dp2[n - 1] = a[0], a[n - 1]
-        for i in range(1, n):
-            dp1[i] = dp1[i - 1] * a[i]
-        for i in range(n - 2, -1, -1):
-            dp2[i] = dp2[i + 1] * a[i]
-        return [(1 if i - 1 < 0 else dp1[i - 1]) * (1 if i + 1 >= n else dp2[i + 1]) for i in range(0, n)]
+        output = [1 for _ in a]
+        left = right = 1
+        for i in range(n):
+            output[i] = left
+            left *= a[i]
+        for i in range(n - 1, -1, -1):
+            output[i] *= right
+            right *= a[i]
+        return output
 ```
 
 ### **Java**
@@ -53,25 +52,17 @@ class Solution:
 ```java
 class Solution {
     public int[] constructArr(int[] a) {
-        if (a == null || a.length == 0) {
-            return new int[0];
-        }
         int n = a.length;
-        int[] dp1 = new int[n];
-        int[] dp2 = new int[n];
-        dp1[0] = a[0];
-        dp2[n - 1] = a[n - 1];
-        for (int i = 1; i < n; ++i) {
-            dp1[i] = dp1[i - 1] * a[i];
+        int[] output = new int[n];
+        for (int i = 0, left = 1; i < n; ++i) {
+            output[i] = left;
+            left *= a[i];
         }
-        for (int i = n - 2; i >= 0; --i) {
-            dp2[i] = dp2[i + 1] * a[i];
+        for (int i = n - 1, right = 1; i >= 0; --i) {
+            output[i] *= right;
+            right *= a[i];
         }
-        int[] res = new int[n];
-        for (int i = 0; i < n; ++i) {
-            res[i] = (i - 1 < 0 ? 1 : dp1[i - 1]) * (i + 1 >= n ? 1 : dp2[i + 1]);
-        }
-        return res;
+        return output;
     }
 }
 ```
@@ -84,18 +75,17 @@ class Solution {
  * @return {number[]}
  */
 var constructArr = function (a) {
-  let pre = new Array(a.length + 1).fill(1);
-  pre[0] = 1;
-  let res = new Array(a.length).fill(1);
-  for (let i = 1; i <= a.length; i++) {
-    pre[i] = a[i - 1] * pre[i - 1];
+  const n = a.length;
+  let output = new Array(n);
+  for (let i = 0, left = 1; i < n; ++i) {
+    output[i] = left;
+    left *= a[i];
   }
-  let cur = 1;
-  for (let i = a.length - 1; i >= 0; i--) {
-    res[i] = pre[i] * cur;
-    cur *= a[i];
+  for (let i = n - 1, right = 1; i >= 0; --i) {
+    output[i] *= right;
+    right *= a[i];
   }
-  return res;
+  return output;
 };
 ```
 

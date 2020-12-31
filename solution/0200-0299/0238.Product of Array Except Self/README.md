@@ -34,7 +34,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        output = [1 for _ in nums]
+        left = right = 1
+        for i in range(n):
+            output[i] = left
+            left *= nums[i]
+        for i in range(n - 1, -1, -1):
+            output[i] *= right
+            right *= nums[i]
+        return output
 ```
 
 ### **Java**
@@ -42,7 +53,43 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] output = new int[n];
+        for (int i = 0, left = 1; i < n; ++i) {
+            output[i] = left;
+            left *= nums[i];
+        }
+        for (int i = n - 1, right = 1; i >= 0; --i) {
+            output[i] *= right;
+            right *= nums[i];
+        }
+        return output;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function (nums) {
+  const n = nums.length;
+  let output = new Array(n);
+  for (let i = 0, left = 1; i < n; ++i) {
+    output[i] = left;
+    left *= nums[i];
+  }
+  for (let i = n - 1, right = 1; i >= 0; --i) {
+    output[i] *= right;
+    right *= nums[i];
+  }
+  return output;
+};
 ```
 
 ### **...**
