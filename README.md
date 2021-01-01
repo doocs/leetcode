@@ -7,8 +7,10 @@
   <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
-  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
-  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode" alt="forks"></a>
+  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode?color=cyan" alt="stars"></a>
+  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode?color=cyan" alt="forks"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/⭐/GitHub/cyan" alt="github"></a>
+  <a href="https://gitee.com/doocs/leetcode"><img src="https://badgen.net/badge/⭐/Gitee/cyan" alt="github"></a>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
 </p>
@@ -27,118 +29,118 @@
 
 ## LeetCode 全解
 
-1. [LeetCode](/solution/README.md)
-1. [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
-1. [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
+- [LeetCode](/solution/README.md)
+- [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
+- [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
 
 ## 基础算法通关
 
 ### 排序算法
 
-1. [冒泡排序](/basic/sorting/BubbleSort/README.md)
-1. [插入排序](/basic/sorting/InsertionSort/README.md)
-1. [选择排序](/basic/sorting/SelectionSort/README.md)
-1. [归并排序](/basic/sorting/MergeSort/README.md)
-1. [快速排序](/basic/sorting/QuickSort/README.md)
+- [冒泡排序](/basic/sorting/BubbleSort/README.md)
+- [插入排序](/basic/sorting/InsertionSort/README.md)
+- [选择排序](/basic/sorting/SelectionSort/README.md)
+- [归并排序](/basic/sorting/MergeSort/README.md)
+- [快速排序](/basic/sorting/QuickSort/README.md)
 
 ### 查找算法
 
-1. [二分查找](/basic/searching/BinarySearch/README.md)
-1. [二分查找 II](/basic/searching/BinarySearch-II/README.md)
+- [二分查找](/basic/searching/BinarySearch/README.md)
+- [二分查找 II](/basic/searching/BinarySearch-II/README.md)
 
 ## 面试高频考题
 
 ### 数组
 
-1. [数组中重复的数字](/lcof/面试题03.%20数组中重复的数字/README.md)
-1. [旋转数组](/solution/0100-0199/0189.Rotate%20Array/README.md)
-1. [螺旋矩阵](/solution/0000-0099/0054.Spiral%20Matrix/README.md)
-1. [三数之和](/solution/0000-0099/0015.3Sum/README.md)
-1. [四数之和](/solution/0000-0099/0018.4Sum/README.md)
-1. [合并两个有序数组](/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md)
-1. [寻找旋转排序数组中的最小值](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README.md)
-1. [寻找旋转排序数组中的最小值 II](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README.md)
-1. [除自身以外数组的乘积](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README.md)
+- [数组中重复的数字](/lcof/面试题03.%20数组中重复的数字/README.md)
+- [旋转数组](/solution/0100-0199/0189.Rotate%20Array/README.md)
+- [螺旋矩阵](/solution/0000-0099/0054.Spiral%20Matrix/README.md)
+- [三数之和](/solution/0000-0099/0015.3Sum/README.md)
+- [四数之和](/solution/0000-0099/0018.4Sum/README.md)
+- [合并两个有序数组](/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md)
+- [寻找旋转排序数组中的最小值](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README.md)
+- [寻找旋转排序数组中的最小值 II](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README.md)
+- [除自身以外数组的乘积](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README.md)
 
 ### 字符串
 
-1. [反转字符串中的元音字母](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
-1. [字符串转换整数 (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)
+- [反转字符串中的元音字母](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
+- [字符串转换整数 (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)
 
 ### 链表
 
-1. [从尾到头打印链表](/lcof/面试题06.%20从尾到头打印链表/README.md)
-1. [删除链表的节点](/lcof/面试题18.%20删除链表的节点/README.md)
-1. [链表中倒数第 k 个节点](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
-1. [两两交换链表中的节点](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
-1. [合并两个有序链表](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
-1. [合并 K 个排序链表](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
-1. [对链表进行插入排序](/solution/0100-0199/0147.Insertion%20Sort%20List/README.md)
-1. [排序链表](/solution/0100-0199/0148.Sort%20List/README.md)
-1. [反转链表](/solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
-1. [反转链表 II](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README.md)
-1. [重排链表](/solution/0100-0199/0143.Reorder%20List/README.md)
-1. [旋转链表](/solution/0000-0099/0061.Rotate%20List/README.md)
-1. [回文链表](/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md)
-1. [相交链表](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README.md)
-1. [奇偶链表](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md)
-1. [环形链表](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
-1. [环形链表 II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
-1. [设计链表](/solution/0700-0799/0707.Design%20Linked%20List/README.md)
+- [从尾到头打印链表](/lcof/面试题06.%20从尾到头打印链表/README.md)
+- [删除链表的节点](/lcof/面试题18.%20删除链表的节点/README.md)
+- [链表中倒数第 k 个节点](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
+- [两两交换链表中的节点](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
+- [合并两个有序链表](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README.md)
+- [合并 K 个排序链表](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README.md)
+- [对链表进行插入排序](/solution/0100-0199/0147.Insertion%20Sort%20List/README.md)
+- [排序链表](/solution/0100-0199/0148.Sort%20List/README.md)
+- [反转链表](/solution/0200-0299/0206.Reverse%20Linked%20List/README.md)
+- [反转链表 II](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README.md)
+- [重排链表](/solution/0100-0199/0143.Reorder%20List/README.md)
+- [旋转链表](/solution/0000-0099/0061.Rotate%20List/README.md)
+- [回文链表](/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md)
+- [相交链表](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README.md)
+- [奇偶链表](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README.md)
+- [环形链表](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)
+- [环形链表 II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)
+- [设计链表](/solution/0700-0799/0707.Design%20Linked%20List/README.md)
 
 ### 二叉树
 
-1. [对称二叉树](/solution/0100-0199/0101.Symmetric%20Tree/README.md)
-1. [树的子结构](/lcof/面试题26.%20树的子结构/README.md)
-1. [翻转二叉树](/solution/0200-0299/0226.Invert%20Binary%20Tree/README.md)
-1. [二叉树的层次遍历](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README.md)
-1. [二叉树的层次遍历 II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README.md)
-1. [二叉树的最大深度](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README.md)
-1. [二叉树的最小深度](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README.md)
-1. [二叉树的所有路径](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
-1. [路径总和](/solution/0100-0199/0112.Path%20Sum/README.md)
-1. [路径总和 II](/solution/0100-0199/0113.Path%20Sum%20II/README.md)
-1. [从前序与中序遍历序列构造二叉树](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md)
-1. [从中序与后序遍历序列构造二叉树](/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README.md)
-1. [二叉搜索树的后序遍历序列](/lcof/面试题33.%20二叉搜索树的后序遍历序列/README.md)
-1. [二叉树的最近公共祖先](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md)
-1. [二叉搜索树的最近公共祖先](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README.md)
-1. [将二叉搜索树转换为单链表](/lcci/17.12.BiNode/README.md)
-1. [将二叉搜索树转化为排序的双向链表](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README.md)
+- [对称二叉树](/solution/0100-0199/0101.Symmetric%20Tree/README.md)
+- [树的子结构](/lcof/面试题26.%20树的子结构/README.md)
+- [翻转二叉树](/solution/0200-0299/0226.Invert%20Binary%20Tree/README.md)
+- [二叉树的层次遍历](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README.md)
+- [二叉树的层次遍历 II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README.md)
+- [二叉树的最大深度](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README.md)
+- [二叉树的最小深度](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README.md)
+- [二叉树的所有路径](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
+- [路径总和](/solution/0100-0199/0112.Path%20Sum/README.md)
+- [路径总和 II](/solution/0100-0199/0113.Path%20Sum%20II/README.md)
+- [从前序与中序遍历序列构造二叉树](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README.md)
+- [从中序与后序遍历序列构造二叉树](/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README.md)
+- [二叉搜索树的后序遍历序列](/lcof/面试题33.%20二叉搜索树的后序遍历序列/README.md)
+- [二叉树的最近公共祖先](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README.md)
+- [二叉搜索树的最近公共祖先](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README.md)
+- [将二叉搜索树转换为单链表](/lcci/17.12.BiNode/README.md)
+- [将二叉搜索树转化为排序的双向链表](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README.md)
 
 ### 数学
 
-1. [数组中数字出现的次数](/lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md)
-1. [数组中数字出现的次数 II](/lcof/面试题56%20-%20II.%20数组中数字出现的次数%20II/README.md)
-1. [错误的集合](/solution/0600-0699/0645.Set%20Mismatch/README.md)
-1. [二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
-1. [计数质数](/solution/0200-0299/0204.Count%20Primes/README.md)
-1. [不用加减乘除做加法](/lcof/面试题65.%20不用加减乘除做加法/README.md)
+- [数组中数字出现的次数](/lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md)
+- [数组中数字出现的次数 II](/lcof/面试题56%20-%20II.%20数组中数字出现的次数%20II/README.md)
+- [错误的集合](/solution/0600-0699/0645.Set%20Mismatch/README.md)
+- [二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
+- [计数质数](/solution/0200-0299/0204.Count%20Primes/README.md)
+- [不用加减乘除做加法](/lcof/面试题65.%20不用加减乘除做加法/README.md)
 
 ### 栈和队列
 
-1. [有效的括号](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
-1. [最小栈](/solution/0100-0199/0155.Min%20Stack/README.md)
-1. [队列的最大值](/lcof/面试题59%20-%20II.%20队列的最大值/README.md)
-1. [用栈实现队列](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
-1. [用队列实现栈](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md)
-1. [逆波兰表达式求值](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README.md)
-1. [最近的请求次数](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
-1. [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md)
+- [有效的括号](/solution/0000-0099/0020.Valid%20Parentheses/README.md)
+- [最小栈](/solution/0100-0199/0155.Min%20Stack/README.md)
+- [队列的最大值](/lcof/面试题59%20-%20II.%20队列的最大值/README.md)
+- [用栈实现队列](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)
+- [用队列实现栈](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README.md)
+- [逆波兰表达式求值](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README.md)
+- [最近的请求次数](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
+- [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md)
 
 ### 动态规划
 
-1. [打家劫舍](/solution/0100-0199/0198.House%20Robber/README.md)
-1. [打家劫舍 II](/solution/0200-0299/0213.House%20Robber%20II/README.md)
+- [打家劫舍](/solution/0100-0199/0198.House%20Robber/README.md)
+- [打家劫舍 II](/solution/0200-0299/0213.House%20Robber%20II/README.md)
 
 ### 混合问题
 
 ### 数据库
 
-1. [组合两个表](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
-1. [第二高的薪水](/solution/0100-0199/0176.Second%20Highest%20Salary/README.md)
-1. [第 N 高的薪水](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)
-1. [分数排名](/solution/0100-0199/0178.Rank%20Scores/README.md)
+- [组合两个表](/solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
+- [第二高的薪水](/solution/0100-0199/0176.Second%20Highest%20Salary/README.md)
+- [第 N 高的薪水](/solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)
+- [分数排名](/solution/0100-0199/0178.Rank%20Scores/README.md)
 
 ## 维护者
 

@@ -27,107 +27,107 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ## Solutions
 
-1. [LeetCode](/solution/README_EN.md)
-1. [LCOF: _Coding Interviews, 2nd Edition_](/lcof/README_EN.md)
-1. [LCCI: _Cracking the Coding Interview, 6th Edition_](/lcci/README_EN.md)
+- [LeetCode](/solution/README_EN.md)
+- [LCOF: _Coding Interviews, 2nd Edition_](/lcof/README_EN.md)
+- [LCCI: _Cracking the Coding Interview, 6th Edition_](/lcci/README_EN.md)
 
 ## Basic Algorithms
 
 ### Sorting
 
-1. [Bubble Sort](/basic/sorting/BubbleSort/README.md)
-1. [Insertion Sort](/basic/sorting/InsertionSort/README.md)
-1. [Selection Sort](/basic/sorting/SelectionSort/README.md)
-1. [Merge Sort](/basic/sorting/MergeSort/README.md)
-1. [Quick Sort](/basic/sorting/QuickSort/README.md)
+- [Bubble Sort](/basic/sorting/BubbleSort/README.md)
+- [Insertion Sort](/basic/sorting/InsertionSort/README.md)
+- [Selection Sort](/basic/sorting/SelectionSort/README.md)
+- [Merge Sort](/basic/sorting/MergeSort/README.md)
+- [Quick Sort](/basic/sorting/QuickSort/README.md)
 
 ### Searching
 
-1. [Binary Search](/basic/searching/BinarySearch/README.md)
-1. [Binary Search II](/basic/searching/BinarySearch-II/README.md)
+- [Binary Search](/basic/searching/BinarySearch/README.md)
+- [Binary Search II](/basic/searching/BinarySearch-II/README.md)
 
 ## High Frequency Interview Questions
 
 ### Arrays
 
-1. [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
-1. [Spiral Matrix](/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md)
-1. [3Sum](/solution/0000-0099/0015.3Sum/README_EN.md)
-1. [4Sum](/solution/0000-0099/0018.4Sum/README_EN.md)
-1. [Merge Sorted Array](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
-1. [Find Minimum in Rotated Sorted Array](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README_EN.md)
-1. [Find Minimum in Rotated Sorted Array II](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README_EN.md)
-1. [Product of Array Except Self](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README_EN.md)
+- [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
+- [Spiral Matrix](/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md)
+- [3Sum](/solution/0000-0099/0015.3Sum/README_EN.md)
+- [4Sum](/solution/0000-0099/0018.4Sum/README_EN.md)
+- [Merge Sorted Array](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
+- [Find Minimum in Rotated Sorted Array](/solution/0100-0199/0153.Find%20Minimum%20in%20Rotated%20Sorted%20Array/README_EN.md)
+- [Find Minimum in Rotated Sorted Array II](/solution/0100-0199/0154.Find%20Minimum%20in%20Rotated%20Sorted%20Array%20II/README_EN.md)
+- [Product of Array Except Self](/solution/0200-0299/0238.Product%20of%20Array%20Except%20Self/README_EN.md)
 
 ### Strings
 
-1. [Reverse Vowels of a String](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md)
-1. [String to Integer (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
+- [Reverse Vowels of a String](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md)
+- [String to Integer (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
 
 ### Linked List
 
-1. [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
-1. [Kth Node From End of List](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
-1. [Swap Nodes in Pairs](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
-1. [Merge Two Sorted Lists](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md)
-1. [Merge k Sorted Lists](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md)
-1. [Insertion Sort List](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)
-1. [Sort List](/solution/0100-0199/0148.Sort%20List/README_EN.md)
-1. [Reverse Linked List](/solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
-1. [Reverse Linked List II](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README_EN.md)
-1. [Reorder List](/solution/0100-0199/0143.Reorder%20List/README_EN.md)
-1. [Rotate List](/solution/0000-0099/0061.Rotate%20List/README_EN.md)
-1. [Palindrome Linked List](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
-1. [Intersection of Two Linked Lists](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README_EN.md)
-1. [Odd Even Linked List](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
-1. [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
-1. [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
-1. [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
+- [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
+- [Kth Node From End of List](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)
+- [Swap Nodes in Pairs](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README_EN.md)
+- [Merge Two Sorted Lists](/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/README_EN.md)
+- [Merge k Sorted Lists](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md)
+- [Insertion Sort List](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)
+- [Sort List](/solution/0100-0199/0148.Sort%20List/README_EN.md)
+- [Reverse Linked List](/solution/0200-0299/0206.Reverse%20Linked%20List/README_EN.md)
+- [Reverse Linked List II](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README_EN.md)
+- [Reorder List](/solution/0100-0199/0143.Reorder%20List/README_EN.md)
+- [Rotate List](/solution/0000-0099/0061.Rotate%20List/README_EN.md)
+- [Palindrome Linked List](/solution/0200-0299/0234.Palindrome%20Linked%20List/README_EN.md)
+- [Intersection of Two Linked Lists](/solution/0100-0199/0160.Intersection%20of%20Two%20Linked%20Lists/README_EN.md)
+- [Odd Even Linked List](/solution/0300-0399/0328.Odd%20Even%20Linked%20List/README_EN.md)
+- [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)
+- [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)
+- [Design Linked List](/solution/0700-0799/0707.Design%20Linked%20List/README_EN.md)
 
 ### Binary Tree
 
-1. [Symmetric Tree](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
-1. [Invert Binary Tree](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
-1. [Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)
-1. [Binary Tree Level Order Traversal II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md)
-1. [Maximum Depth of Binary Tree](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)
-1. [Minimum Depth of Binary Tree](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README_EN.md)
-1. [Binary Tree Paths](/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md)
-1. [Path Sum](/solution/0100-0199/0112.Path%20Sum/README_EN.md)
-1. [Path Sum II](/solution/0100-0199/0113.Path%20Sum%20II/README_EN.md)
-1. [Construct Binary Tree from Preorder and Inorder Traversal](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md)
-1. [Construct Binary Tree from Inorder and Postorder Traversal](/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README_EN.md)
-1. [Lowest Common Ancestor of a Binary Tree](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)
-1. [Lowest Common Ancestor of a Binary Search Tree](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
-1. [BiNode](/lcci/17.12.BiNode/README_EN.md)
-1. [Convert Binary Search Tree to Sorted Doubly Linked List](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README_EN.md)
+- [Symmetric Tree](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
+- [Invert Binary Tree](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
+- [Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)
+- [Binary Tree Level Order Traversal II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md)
+- [Maximum Depth of Binary Tree](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)
+- [Minimum Depth of Binary Tree](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README_EN.md)
+- [Binary Tree Paths](/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md)
+- [Path Sum](/solution/0100-0199/0112.Path%20Sum/README_EN.md)
+- [Path Sum II](/solution/0100-0199/0113.Path%20Sum%20II/README_EN.md)
+- [Construct Binary Tree from Preorder and Inorder Traversal](/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/README_EN.md)
+- [Construct Binary Tree from Inorder and Postorder Traversal](/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/README_EN.md)
+- [Lowest Common Ancestor of a Binary Tree](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README_EN.md)
+- [Lowest Common Ancestor of a Binary Search Tree](/solution/0200-0299/0235.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Search%20Tree/README_EN.md)
+- [BiNode](/lcci/17.12.BiNode/README_EN.md)
+- [Convert Binary Search Tree to Sorted Doubly Linked List](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README_EN.md)
 
 ### Math
 
-1. [Set Mismatch](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
-1. [Count Primes](/solution/0200-0299/0204.Count%20Primes/README_EN.md)
+- [Set Mismatch](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
+- [Count Primes](/solution/0200-0299/0204.Count%20Primes/README_EN.md)
 
 ### Stack & Queue
 
-1. [Valid Parentheses](/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md)
-1. [Min Stack](/solution/0100-0199/0155.Min%20Stack/README_EN.md)
-1. [Implement Queue using Stacks](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md)
-1. [Implement Stack using Queues](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
-1. [Evaluate Reverse Polish Notation](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README_EN.md)
-1. [Number of Recent Calls](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md)
-1. [Daily Temperatures](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md)
+- [Valid Parentheses](/solution/0000-0099/0020.Valid%20Parentheses/README_EN.md)
+- [Min Stack](/solution/0100-0199/0155.Min%20Stack/README_EN.md)
+- [Implement Queue using Stacks](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README_EN.md)
+- [Implement Stack using Queues](/solution/0200-0299/0225.Implement%20Stack%20using%20Queues/README_EN.md)
+- [Evaluate Reverse Polish Notation](/solution/0100-0199/0150.Evaluate%20Reverse%20Polish%20Notation/README_EN.md)
+- [Number of Recent Calls](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md)
+- [Daily Temperatures](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md)
 
 ### Dynamic Programming
 
-1. [House Robber](/solution/0100-0199/0198.House%20Robber/README_EN.md)
-1. [House Robber II](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
+- [House Robber](/solution/0100-0199/0198.House%20Robber/README_EN.md)
+- [House Robber II](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
 
 ### Misc
 
-1. [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
-1. [Second Highest Salary](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
-1. [Nth Highest Salary](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
-1. [Rank Scores](/solution/0100-0199/0178.Rank%20Scores/README_EN.md)
+- [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
+- [Second Highest Salary](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
+- [Nth Highest Salary](/solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
+- [Rank Scores](/solution/0100-0199/0178.Rank%20Scores/README_EN.md)
 
 ## Maintainer
 
