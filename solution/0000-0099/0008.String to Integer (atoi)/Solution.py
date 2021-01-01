@@ -1,25 +1,25 @@
 class Solution:
-    def myAtoi(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        
-        try:
-            s = list(s.split()[0])
-            Sign = {'+':1, '-':-1}[s[0]]
-            s.pop(0)
-        except IndexError : return 0
-        except KeyError: Sign = 1
-
-        Num = 0
-        for i in s:
-            try: Num = int(i) + (Num*10)
-            except ValueError: break   
-                
-        Num = Sign*Num
-        if Num > 2147483647:
-            return 2147483647
-        elif Num < -2147483648:
-            return -2147483648
-        return Num
+    def myAtoi(self, s: str) -> int:
+        if not s:
+            return 0
+        n = len(s)
+        if n == 0:
+            return 0
+        i = 0
+        while s[i] == ' ':
+            i += 1
+            if i == n:
+                return 0
+        sign = -1 if s[i] == '-' else 1
+        if s[i] in ['-', '+']:
+            i += 1
+        res, flag = 0, (2 ** 31 - 1) // 10
+        while i < n:
+            if not s[i].isdigit():
+                break
+            c = int(s[i])
+            if res > flag or (res == flag and c > 7):
+                return 2 ** 31 - 1 if sign > 0 else -2 ** 31
+            res = res * 10 + c
+            i += 1
+        return sign * res

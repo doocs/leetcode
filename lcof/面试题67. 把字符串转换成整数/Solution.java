@@ -1,27 +1,21 @@
 class Solution {
     public int strToInt(String str) {
-        if (str == null || "".equals(str.trim())) {
-            return 0;
-        }
-        str = str.trim();
-        int res = 0, i = 0, flag = 1;
+        if (str == null) return 0;
         int n = str.length();
-        if (str.charAt(i) == '-') {
-            flag = -1;
+        if (n == 0) return 0;
+        int i = 0;
+        while (str.charAt(i) == ' ') {
+            if (++i == n) return 0;
         }
-        if (str.charAt(i) == '-' || str.charAt(i) == '+') {
-            ++i;
+        int sign = 1;
+        if (str.charAt(i) == '-') sign = -1;
+        if (str.charAt(i) == '-' || str.charAt(i) == '+') ++i;
+        int res = 0, flag = Integer.MAX_VALUE / 10;
+        for (; i < n; ++i) {
+            if (str.charAt(i) < '0' || str.charAt(i) > '9') break;
+            if (res > flag || (res == flag) && str.charAt(i) > '7') return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            res = res * 10 + (str.charAt(i) - '0');
         }
-        while (i < n && Character.isDigit(str.charAt(i))) {
-            int r = str.charAt(i) - '0';
-            // 溢出处理
-            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10) && r > 7) {
-                return flag > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }
-            res = res * 10 + r;
-            ++i;
-        }
-
-        return flag > 0 ? res : -res;
+        return sign * res;
     }
 }

@@ -1,15 +1,25 @@
 class Solution:
     def strToInt(self, str: str) -> int:
-        if str is None or len(str.strip()) == 0:
+        if not str:
             return 0
-        str = str.strip()
-        i = res = 0
-        negative = str[0] == '-'
-        i += 1 if str[0] == '-' or str[0] == '+' else 0
-        while i < len(str) and str[i].isdigit():
-            r = int(str[i])
-            if res > (2**31 // 10) or (res == (2**31 // 10) and r > 7):
-                return 2**31 - 1 if not negative else -2**31
-            res = res * 10 + r
+        n = len(str)
+        if n == 0:
+            return 0
+        i = 0
+        while str[i] == ' ':
             i += 1
-        return -res if negative else res
+            if i == n:
+                return 0
+        sign = -1 if str[i] == '-' else 1
+        if str[i] in ['-', '+']:
+            i += 1
+        res, flag = 0, (2 ** 31 - 1) // 10
+        while i < n:
+            if not str[i].isdigit():
+                break
+            c = int(str[i])
+            if res > flag or (res == flag and c > 7):
+                return 2 ** 31 - 1 if sign > 0 else -2 ** 31
+            res = res * 10 + c
+            i += 1
+        return sign * res

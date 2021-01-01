@@ -77,19 +77,29 @@
 ```python
 class Solution:
     def strToInt(self, str: str) -> int:
-        if str is None or len(str.strip()) == 0:
+        if not str:
             return 0
-        str = str.strip()
-        i = res = 0
-        negative = str[0] == '-'
-        i += 1 if str[0] == '-' or str[0] == '+' else 0
-        while i < len(str) and str[i].isdigit():
-            r = int(str[i])
-            if res > (2**31 // 10) or (res == (2**31 // 10) and r > 7):
-                return 2**31 - 1 if not negative else -2**31
-            res = res * 10 + r
+        n = len(str)
+        if n == 0:
+            return 0
+        i = 0
+        while str[i] == ' ':
             i += 1
-        return -res if negative else res
+            if i == n:
+                return 0
+        sign = -1 if str[i] == '-' else 1
+        if str[i] in ['-', '+']:
+            i += 1
+        res, flag = 0, (2 ** 31 - 1) // 10
+        while i < n:
+            if not str[i].isdigit():
+                break
+            c = int(str[i])
+            if res > flag or (res == flag and c > 7):
+                return 2 ** 31 - 1 if sign > 0 else -2 ** 31
+            res = res * 10 + c
+            i += 1
+        return sign * res
 ```
 
 ### **Java**
@@ -99,29 +109,26 @@ class Solution:
 ```java
 class Solution {
     public int strToInt(String str) {
-        if (str == null || "".equals(str.trim())) {
-            return 0;
-        }
-        str = str.trim();
-        int res = 0, i = 0, flag = 1;
+        if (str == null) return 0;
         int n = str.length();
-        if (str.charAt(i) == '-') {
-            flag = -1;
+        if (n == 0) return 0;
+        int i = 0;
+        while (str.charAt(i) == ' ') {
+            // 仅包含空格
+            if (++i == n) return 0;
         }
-        if (str.charAt(i) == '-' || str.charAt(i) == '+') {
-            ++i;
+        int sign = 1;
+        if (str.charAt(i) == '-') sign = -1;
+        if (str.charAt(i) == '-' || str.charAt(i) == '+') ++i;
+        int res = 0, flag = Integer.MAX_VALUE / 10;
+        for (; i < n; ++i) {
+            // 非数字
+            if (str.charAt(i) < '0' || str.charAt(i) > '9') break;
+            // 溢出判断
+            if (res > flag || (res == flag) && str.charAt(i) > '7') return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            res = res * 10 + (str.charAt(i) - '0');
         }
-        while (i < n && Character.isDigit(str.charAt(i))) {
-            int r = str.charAt(i) - '0';
-            // 溢出处理
-            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10) && r > 7) {
-                return flag > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }
-            res = res * 10 + r;
-            ++i;
-        }
-
-        return flag > 0 ? res : -res;
+        return sign * res;
     }
 }
 ```
