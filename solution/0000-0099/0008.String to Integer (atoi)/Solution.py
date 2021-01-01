@@ -8,6 +8,7 @@ class Solution:
         i = 0
         while s[i] == ' ':
             i += 1
+            # only contains blank space
             if i == n:
                 return 0
         sign = -1 if s[i] == '-' else 1
@@ -15,9 +16,11 @@ class Solution:
             i += 1
         res, flag = 0, (2 ** 31 - 1) // 10
         while i < n:
+            # not a number, exit the loop
             if not s[i].isdigit():
                 break
             c = int(s[i])
+            # if overflows
             if res > flag or (res == flag and c > 7):
                 return 2 ** 31 - 1 if sign > 0 else -2 ** 31
             res = res * 10 + c

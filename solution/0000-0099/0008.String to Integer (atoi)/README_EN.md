@@ -98,6 +98,7 @@ class Solution:
         i = 0
         while s[i] == ' ':
             i += 1
+            # only contains blank space
             if i == n:
                 return 0
         sign = -1 if s[i] == '-' else 1
@@ -105,9 +106,11 @@ class Solution:
             i += 1
         res, flag = 0, (2 ** 31 - 1) // 10
         while i < n:
+            # not a number, exit the loop
             if not s[i].isdigit():
                 break
             c = int(s[i])
+            # if overflows
             if res > flag or (res == flag and c > 7):
                 return 2 ** 31 - 1 if sign > 0 else -2 ** 31
             res = res * 10 + c
@@ -133,7 +136,7 @@ class Solution {
         if (s.charAt(i) == '-' || s.charAt(i) == '+') ++i;
         int res = 0, flag = Integer.MAX_VALUE / 10;
         for (; i < n; ++i) {
-            // not number
+            // not a number, exit the loop
             if (s.charAt(i) < '0' || s.charAt(i) > '9') break;
             // if overflows
             if (res > flag || (res == flag && s.charAt(i) > '7')) return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;

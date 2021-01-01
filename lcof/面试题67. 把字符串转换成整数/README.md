@@ -68,6 +68,8 @@
 
 遍历字符串，注意做溢出处理。
 
+同[字符串转换整数 (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -85,6 +87,7 @@ class Solution:
         i = 0
         while str[i] == ' ':
             i += 1
+            # 仅包含空格
             if i == n:
                 return 0
         sign = -1 if str[i] == '-' else 1
@@ -92,9 +95,11 @@ class Solution:
             i += 1
         res, flag = 0, (2 ** 31 - 1) // 10
         while i < n:
+            # 非数字，跳出循环体
             if not str[i].isdigit():
                 break
             c = int(str[i])
+            # 溢出判断
             if res > flag or (res == flag and c > 7):
                 return 2 ** 31 - 1 if sign > 0 else -2 ** 31
             res = res * 10 + c
@@ -122,7 +127,7 @@ class Solution {
         if (str.charAt(i) == '-' || str.charAt(i) == '+') ++i;
         int res = 0, flag = Integer.MAX_VALUE / 10;
         for (; i < n; ++i) {
-            // 非数字
+            // 非数字，跳出循环体
             if (str.charAt(i) < '0' || str.charAt(i) > '9') break;
             // 溢出判断
             if (res > flag || (res == flag) && str.charAt(i) > '7') return sign > 0 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
