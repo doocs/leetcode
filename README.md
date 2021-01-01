@@ -113,6 +113,7 @@
 1. [错误的集合](/solution/0600-0699/0645.Set%20Mismatch/README.md)
 1. [二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
 1. [计数质数](/solution/0200-0299/0204.Count%20Primes/README.md)
+1. [不用加减乘除做加法](/lcof/面试题65.%20不用加减乘除做加法/README.md)
 
 ### 栈和队列
 
