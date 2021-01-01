@@ -23,6 +23,8 @@ canConstruct(&quot;aa&quot;, &quot;aab&quot;) -&gt; true
 
 <!-- 这里可写通用的实现逻辑 -->
 
+用一个数组或字典 chars 存放 magazine 中每个字母出现的次数。遍历 ransomNote 中每个字母，判断 chars 是否包含即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -30,7 +32,16 @@ canConstruct(&quot;aa&quot;, &quot;aab&quot;) -&gt; true
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        chars = {}
+        for i in magazine:
+            chars[i] = chars.get(i, 0) + 1
+        for i in ransomNote:
+            if not chars.get(i):
+                return False
+            chars[i] -= 1
+        return True
 ```
 
 ### **Java**
@@ -38,7 +49,21 @@ canConstruct(&quot;aa&quot;, &quot;aab&quot;) -&gt; true
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] chars = new int[26];
+        for (int i = 0, n = magazine.length(); i < n; ++i) {
+            int idx = magazine.charAt(i) - 'a';
+            ++chars[idx];
+        }
+        for (int i = 0, n = ransomNote.length(); i < n; ++i) {
+            int idx = ransomNote.charAt(i) - 'a';
+            if (chars[idx] == 0) return false;
+            --chars[idx];
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

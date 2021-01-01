@@ -63,6 +63,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 - [Reverse Vowels of a String](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README_EN.md)
 - [String to Integer (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README_EN.md)
+- [Ransom Note](/solution/0300-0399/0383.Ransom%20Note/README_EN.md)
 
 ### Linked List
 

@@ -41,13 +41,36 @@ canConstruct("aa", "aab") -> true
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        chars = {}
+        for i in magazine:
+            chars[i] = chars.get(i, 0) + 1
+        for i in ransomNote:
+            if not chars.get(i):
+                return False
+            chars[i] -= 1
+        return True
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] chars = new int[26];
+        for (int i = 0, n = magazine.length(); i < n; ++i) {
+            int idx = magazine.charAt(i) - 'a';
+            ++chars[idx];
+        }
+        for (int i = 0, n = ransomNote.length(); i < n; ++i) {
+            int idx = ransomNote.charAt(i) - 'a';
+            if (chars[idx] == 0) return false;
+            --chars[idx];
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

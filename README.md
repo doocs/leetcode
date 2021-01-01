@@ -66,6 +66,7 @@
 
 - [反转字符串中的元音字母](/solution/0300-0399/0345.Reverse%20Vowels%20of%20a%20String/README.md)
 - [字符串转换整数 (atoi)](/solution/0000-0099/0008.String%20to%20Integer%20%28atoi%29/README.md)
+- [赎金信](/solution/0300-0399/0383.Ransom%20Note/README.md)
 
 ### 链表
 
