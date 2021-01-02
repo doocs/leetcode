@@ -133,6 +133,7 @@
 
 - [打家劫舍](/solution/0100-0199/0198.House%20Robber/README.md)
 - [打家劫舍 II](/solution/0200-0299/0213.House%20Robber%20II/README.md)
+- [最长上升子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
 
 ### 混合问题
 
