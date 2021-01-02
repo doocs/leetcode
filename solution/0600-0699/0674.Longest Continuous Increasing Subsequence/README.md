@@ -30,6 +30,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+设 f(i) 表示将数组第 i 项作为最长连续递增子序列的最后一项时，子序列的长度。
+
+那么，当 `nums[i - 1] < nums[i]`，即 `f(i) = f(i - 1)` + 1，否则 `f(i) = 1`。问题转换为求 f(i) (`i ∈ [0 ,n - 1]`) 的最大值。
+
+由于 f(i) 只与前一项 f(i - 1) 有关联，故不需要用一个数组存储。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -37,7 +43,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 2:
+            return n
+        res = f = 1
+        for i in range(1, n):
+            f = 1 + (f if nums[i - 1] < nums[i] else 0)
+            res = max(res, f)
+        return res
 ```
 
 ### **Java**
@@ -45,7 +60,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findLengthOfLCIS(int[] nums) {
+        int n;
+        if ((n = nums.length) < 2) return n;
+        int res = 1, f = 1;
+        for (int i = 1; i < n; ++i) {
+            f = 1 + (nums[i - 1] < nums[i] ? f : 0);
+            res = Math.max(res, f);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

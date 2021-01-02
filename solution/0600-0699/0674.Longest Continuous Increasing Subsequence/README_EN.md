@@ -53,13 +53,33 @@ Length of the array will not exceed 10,000.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 2:
+            return n
+        res = f = 1
+        for i in range(1, n):
+            f = 1 + (f if nums[i - 1] < nums[i] else 0)
+            res = max(res, f)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findLengthOfLCIS(int[] nums) {
+        int n;
+        if ((n = nums.length) < 2) return n;
+        int res = 1, f = 1;
+        for (int i = 1; i < n; ++i) {
+            f = 1 + (nums[i - 1] < nums[i] ? f : 0);
+            res = Math.max(res, f);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
