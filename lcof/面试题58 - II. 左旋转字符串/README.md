@@ -31,7 +31,6 @@
 ```python
 class Solution:
     def reverseLeftWords(self, s: str, n: int) -> str:
-        n %= len(s)
         return s[n:] + s[:n]
 ```
 
@@ -40,9 +39,7 @@ class Solution:
 ```java
 class Solution {
     public String reverseLeftWords(String s, int n) {
-        int len = s.length();
-        n %= len;
-        return s.substring(n, len) + s.substring(0, n);
+        return s.substring(n, s.length()) + s.substring(0, n);
     }
 }
 ```
