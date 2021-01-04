@@ -22,6 +22,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+设 dp[i] 表示 `[0..i]` 中，以 nums[i] 结尾的最大子数组和，状态转移方程 `dp[i] = nums[i] + max(dp[i - 1], 0)`。
+
+由于 `dp[i]` 只与子问题 `dp[i-1]` 有关，故可以用一个变量 f 来表示。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -29,7 +33,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        res = f = nums[0]
+        for i in range(1, n):
+            f = nums[i] + max(f, 0)
+            res = max(res, f)
+        return res
 ```
 
 ### **Java**
@@ -37,7 +48,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int f = nums[0], res = nums[0];
+        for (int i = 1, n = nums.length; i < n; ++i) {
+            f = nums[i] + Math.max(f, 0);
+            res = Math.max(res, f);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

@@ -29,13 +29,29 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        n = len(nums)
+        res = f = nums[0]
+        for i in range(1, n):
+            f = nums[i] + max(f, 0)
+            res = max(res, f)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int f = nums[0], res = nums[0];
+        for (int i = 1, n = nums.length; i < n; ++i) {
+            f = nums[i] + Math.max(f, 0);
+            res = Math.max(res, f);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
