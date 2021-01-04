@@ -124,6 +124,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [House Robber](/solution/0100-0199/0198.House%20Robber/README_EN.md)
 - [House Robber II](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
 - [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
+- [Russian Doll Envelopes](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
 
 ### Misc
 

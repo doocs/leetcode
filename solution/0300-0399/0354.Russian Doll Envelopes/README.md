@@ -23,6 +23,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+排序 + [最长递增子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)。
+
+按 w 进行升序排序，若 w 相同则按 h 降序排序。然后问题转换为求 h 数组的最长递增子序列长度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -30,7 +34,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
+        if not envelopes:
+            return 0
+        envelopes.sort(key=lambda x: (x[0], -x[1]))
+        nums = [x[1] for x in envelopes]
+        n = len(nums)
+        dp = [1] * n
+        res = 1
+        for i in range(1, n):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+            res = max(res, dp[i])
+        return res
 ```
 
 ### **Java**
@@ -38,7 +56,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxEnvelopes(int[][] envelopes) {
+        int n;
+        if (envelopes == null || (n = envelopes.length) == 0) return 0;
+        Arrays.sort(envelopes, (a, b) -> {
+            return a[0] == b[0] ? b[1] - a[1] : a[0] - b[0];
+        });
+        int[] dp = new int[n];
+        Arrays.fill(dp, 1);
+        int res = 1;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (envelopes[j][1] < envelopes[i][1]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            res = Math.max(res, dp[i]);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
