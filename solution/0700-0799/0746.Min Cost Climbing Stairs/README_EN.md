@@ -61,13 +61,30 @@ Once you pay the cost, you can either climb one or two steps. You need to find m
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        pre = cur = 0
+        n = len(cost)
+        for i in range(1, n):
+            t = min(cost[i] + cur, cost[i - 1] + pre)
+            pre, cur = cur, t
+        return cur
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int pre = 0, cur = 0;
+        for (int i = 1, n = cost.length; i < n; ++i) {
+            int t = Math.min(cost[i] + cur, cost[i - 1] + pre);
+            pre = cur;
+            cur = t;
+        }
+        return cur;
+    }
+}
 ```
 
 ### **...**
