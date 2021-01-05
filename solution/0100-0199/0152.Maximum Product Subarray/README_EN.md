@@ -35,13 +35,34 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        maxf = minf = nums[0]
+        res, n = nums[0], len(nums)
+        for i in range(1, n):
+            p, q = maxf, minf
+            maxf = max(nums[i], p * nums[i], q * nums[i])
+            minf = min(nums[i], p * nums[i], q * nums[i])
+            res = max(res, maxf)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maxProduct(int[] nums) {
+        int maxf = nums[0], minf = nums[0];
+        int res = nums[0], n = nums.length;
+        for (int i = 1; i < n; ++i) {
+            int p = maxf, q = minf;
+            maxf = Math.max(nums[i], Math.max(p * nums[i], q * nums[i]));
+            minf = Math.min(nums[i], Math.min(p * nums[i], q * nums[i]));
+            res = Math.max(res, maxf);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

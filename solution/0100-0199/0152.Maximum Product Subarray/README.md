@@ -24,6 +24,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+考虑当前位置 i：
+
+- 如果是一个负数的话，那么我们希望以它前一个位置结尾的某个段的积也是个负数，这样可以负负得正，并且我们希望这个积尽可能「负得更多」，即尽可能小。
+- 如果是一个正数的话，我们更希望以它前一个位置结尾的某个段的积也是个正数，并且希望它尽可能地大。
+
+因此，分别维护 fmax 和 fmin。
+
+- `fmax(i) = max(nums[i], fmax(i - 1) * nums[i], fmin(i - 1) * nums[i])`
+- `fmin(i) = min(nums[i], fmax(i - 1) * nums[i], fmin(i - 1) * nums[i])`
+- `res = max(fmax(i)), i∈[0, n)`
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -31,7 +42,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        maxf = minf = nums[0]
+        res, n = nums[0], len(nums)
+        for i in range(1, n):
+            p, q = maxf, minf
+            maxf = max(nums[i], p * nums[i], q * nums[i])
+            minf = min(nums[i], p * nums[i], q * nums[i])
+            res = max(res, maxf)
+        return res
 ```
 
 ### **Java**
@@ -39,7 +59,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxProduct(int[] nums) {
+        int maxf = nums[0], minf = nums[0];
+        int res = nums[0], n = nums.length;
+        for (int i = 1; i < n; ++i) {
+            int p = maxf, q = minf;
+            maxf = Math.max(nums[i], Math.max(p * nums[i], q * nums[i]));
+            minf = Math.min(nums[i], Math.min(p * nums[i], q * nums[i]));
+            res = Math.max(res, maxf);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
