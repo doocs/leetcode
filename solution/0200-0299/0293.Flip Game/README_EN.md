@@ -29,13 +29,36 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def generatePossibleNextMoves(self, s: str) -> List[str]:
+        if not s or len(s) < 2:
+            return []
+        n = len(s)
+        res = []
+        for i in range(n - 1):
+            if s[i] == '+' and s[i + 1] == '+':
+                res.append(s[:i] + "--" + s[i + 2:])
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<String> generatePossibleNextMoves(String s) {
+        int n;
+        if (s == null || (n = s.length()) < 2) return Collections.emptyList();
+        List<String> res = new ArrayList<>();
+        for (int i = 0; i < n - 1; ++i) {
+            if (s.charAt(i) == '+' && s.charAt(i + 1) == '+') {
+                StringBuilder sb = new StringBuilder(s);
+                sb.replace(i, i + 2, "--");
+                res.add(sb.toString());
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
