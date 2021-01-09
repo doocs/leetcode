@@ -47,13 +47,31 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        s[:] = s[::-1]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public void reverseString(char[] s) {
+        int n;
+        if (s == null || (n = s.length) < 2) return;
+        int i = 0, j = n - 1;
+        while (i < j) {
+            char t = s[i];
+            s[i] = s[j];
+            s[j] = t;
+            ++i;
+            --j;
+        }
+    }
+}
 ```
 
 ### **...**

@@ -1,19 +1,14 @@
 class Solution {
-    public String reverseString(String s) {
-        if (s == null || s.length() < 2) {
-            return s;
+    public void reverseString(char[] s) {
+        int n;
+        if (s == null || (n = s.length) < 2) return;
+        int i = 0, j = n - 1;
+        while (i < j) {
+            char t = s[i];
+            s[i] = s[j];
+            s[j] = t;
+            ++i;
+            --j;
         }
-        char[] chars = s.toCharArray();
-        int p = 0;
-        int q = chars.length - 1;
-        while (p < q) {
-            char tmp = chars[p];
-            chars[p] = chars[q];
-            chars[q] = tmp;
-            ++p;
-            --q;
-        }
-        return String.valueOf(chars);
     }
-
 }

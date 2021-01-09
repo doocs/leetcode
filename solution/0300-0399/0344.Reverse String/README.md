@@ -35,7 +35,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        s[:] = s[::-1]
 ```
 
 ### **Java**
@@ -43,7 +48,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public void reverseString(char[] s) {
+        int n;
+        if (s == null || (n = s.length) < 2) return;
+        int i = 0, j = n - 1;
+        while (i < j) {
+            char t = s[i];
+            s[i] = s[j];
+            s[j] = t;
+            ++i;
+            --j;
+        }
+    }
+}
 ```
 
 ### **...**

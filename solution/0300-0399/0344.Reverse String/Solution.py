@@ -1,15 +1,6 @@
 class Solution:
-    def reverseString(self, s):
+    def reverseString(self, s: List[str]) -> None:
         """
-        :type s: str
-        :rtype: str
+        Do not return anything, modify s in-place instead.
         """
-        length=len(s)
-        if length < 2:
-            return s
-        ns=''
-        p=length-1
-        while p >= 0:
-            ns += s[p]
-            p-=1
-        return ns
+        s[:] = s[::-1]
