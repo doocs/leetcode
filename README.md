@@ -117,6 +117,7 @@
 - [二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
 - [计数质数](/solution/0200-0299/0204.Count%20Primes/README.md)
 - [不用加减乘除做加法](/lcof/面试题65.%20不用加减乘除做加法/README.md)
+- [丢失的数字](/solution/0200-0299/0268.Missing%20Number/README.md)
 
 ### 栈和队列
 

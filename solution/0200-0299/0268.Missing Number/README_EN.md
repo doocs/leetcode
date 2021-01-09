@@ -37,13 +37,42 @@ Your algorithm should run in linear runtime complexity. Could you implement it u
 ### **Python3**
 
 ```python
-
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        res = len(nums)
+        for i, v in enumerate(nums):
+            res ^= (i ^ v)
+        return res
 ```
 
 ### **Java**
 
-```java
+- XOR
 
+```java
+class Solution {
+    public int missingNumber(int[] nums) {
+        int res = nums.length;
+        for (int i = 0, n = res; i < n; ++i) {
+            res ^= (i ^ nums[i]);
+        }
+        return res;
+    }
+}
+```
+
+- Math
+
+```java
+class Solution {
+    public int missingNumber(int[] nums) {
+        int res = nums.length;
+        for (int i = 0, n = res; i < n; ++i) {
+            res += (i - nums[i]);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
