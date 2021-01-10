@@ -112,8 +112,8 @@
 ### 数学
 
 - [只出现一次的数字](/solution/0100-0199/0136.Single%20Number/README.md)
-- [数组中数字出现的次数](/lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md)
-- [数组中数字出现的次数 II](/lcof/面试题56%20-%20II.%20数组中数字出现的次数%20II/README.md)
+- [只出现一次的数字 II](/solution/0100-0199/0137.Single%20Number%20II/README.md)
+- [只出现一次的数字 III](/solution/0200-0299/0260.Single%20Number%20III/README.md)
 - [错误的集合](/solution/0600-0699/0645.Set%20Mismatch/README.md)
 - [二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
 - [计数质数](/solution/0200-0299/0204.Count%20Primes/README.md)

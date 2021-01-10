@@ -1,18 +1,15 @@
 class Solution {
     public int[] singleNumber(int[] nums) {
-        int t = 0;
+        int xor = 0;
         for (int num : nums) {
-            t ^= num;
+            xor ^= num;
         }
-        int lastBit = t & -t;
-        int t1 = 0, t2 = 0;
+        int diff = xor & (-xor);
+        int a = 0, b = 0;
         for (int num : nums) {
-            if ((num & lastBit) != 0) {
-                t1 ^= num;
-            } else {
-                t2 ^= num;
-            }
+            if ((num & diff) == 0) a ^= num;
+            else b ^= num;
         }
-        return new int[]{t1, t2};
+        return new int[]{a, b};
     }
 }

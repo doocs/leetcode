@@ -35,7 +35,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        bits = [0] * 32
+        for num in nums:
+            for i in range(32):
+                bits[i] += (num & 1)
+                num >>= 1
+        res = 0
+        for i in range(32):
+            if bits[i] % 3 != 0:
+                res += (1 << i)
+        # 如果为负数，先将 0-32 位取反（即 res ^ 0xffffffff ），再将所有位取反（即 ~ ）
+        return res if bits[31] % 3 == 0 else ~(res ^ 0xffffffff)
 ```
 
 ### **Java**
