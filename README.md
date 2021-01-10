@@ -111,6 +111,7 @@
 
 ### 数学
 
+- [只出现一次的数字](/solution/0100-0199/0136.Single%20Number/README.md)
 - [数组中数字出现的次数](/lcof/面试题56%20-%20I.%20数组中数字出现的次数/README.md)
 - [数组中数字出现的次数 II](/lcof/面试题56%20-%20II.%20数组中数字出现的次数%20II/README.md)
 - [错误的集合](/solution/0600-0699/0645.Set%20Mismatch/README.md)
