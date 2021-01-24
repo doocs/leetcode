@@ -173,6 +173,8 @@ func dfs(x, y, m, n, k int, visited [][]bool) int {
 }
 ```
 
+### **C++**
+
 ```cpp
 class Solution {
 public:
