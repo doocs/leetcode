@@ -196,7 +196,7 @@ public:
 
     int moving(int row, int col, vector<vector<int>>& arr, int i, int j, int target) {
         int count = 0;
-        if (checksum(i, j, target) 
+        if (checksum(i, j, target)
             && i>=0 && i < row && j>=0 && j < col
             && arr[i][j] == 0) {
             arr[i][j] = 1;
