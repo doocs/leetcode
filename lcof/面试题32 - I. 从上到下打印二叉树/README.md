@@ -150,6 +150,38 @@ func levelOrder(root *TreeNode) []int {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> levelOrder(TreeNode* root) {
+        vector<int> ret;
+        if (!root) {
+            return ret;
+        }
+
+        queue<TreeNode *> q;
+        q.push(root);
+
+        while (!q.empty()) {
+            auto head = q.front();
+            q.pop();
+            ret.push_back(head->val);
+            if (head->left) {
+                q.push(head->left);
+            }
+
+            if (head->right) {
+                q.push(head->right);
+            }
+        }
+
+        return ret;
+    }
+};
+```
+
 ### **...**
 
 ```
