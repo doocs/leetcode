@@ -161,7 +161,7 @@ public:
         if (nullptr == l1 || nullptr == l2) {
             return l1 == nullptr ? l2 : l1;    // 有且仅有一个为空，则返回非空节点
         }
-    
+
         ListNode* node = nullptr;
         if (l1->val > l2->val) {
             node = l2;
