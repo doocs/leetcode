@@ -148,6 +148,34 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if (nullptr == l1 && nullptr == l2) {
+            return nullptr;    // 两个都为空，则直接返回
+        }
+
+        if (nullptr == l1 || nullptr == l2) {
+            return l1 == nullptr ? l2 : l1;    // 有且仅有一个为空，则返回非空节点
+        }
+    
+        ListNode* node = nullptr;
+        if (l1->val > l2->val) {
+            node = l2;
+            node->next = mergeTwoLists(l1, l2->next);
+        } else {
+            node = l1;
+            node->next = mergeTwoLists(l1->next, l2);
+        }
+
+        return node;
+    }
+};
+```
+
 ### **...**
 
 ```
