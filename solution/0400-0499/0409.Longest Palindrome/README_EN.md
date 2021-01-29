@@ -45,13 +45,34 @@ One longest palindrome that can be built is "dccaccd", whose length is 7.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        res = [0] * 128
+        for ch in s:
+            res[ord(ch)] += 1
+        odd_cnt, n = 0, len(s)
+        for e in res:
+            odd_cnt += (e % 2)
+        return n if odd_cnt == 0 else n - odd_cnt + 1
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int longestPalindrome(String s) {
+        int[] res = new int[128];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            res[s.charAt(i)]++;
+        }
+        int oddCnt = 0;
+        for (int e : res) {
+            oddCnt += (e % 2);
+        }
+        return oddCnt == 0 ? n : n - oddCnt + 1;
+    }
+}
 ```
 
 ### **...**
