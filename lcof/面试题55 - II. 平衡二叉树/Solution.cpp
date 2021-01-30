@@ -31,7 +31,7 @@ public:
             }
         }
 
-        return false;    // 如果
+        return false;    // 如果有一处已经确定不是平衡二叉树了，则直接返回false
     }
 
     bool isBalanced(TreeNode* root) {
