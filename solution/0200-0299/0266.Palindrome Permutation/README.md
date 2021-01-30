@@ -26,6 +26,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+利用 HashMap（字典表）统计每个字符出现的频率，至多有一个字符出现奇数次数即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -33,7 +35,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canPermutePalindrome(self, s: str) -> bool:
+        mapper = {}
+        for ch in s:
+            mapper[ch] = mapper.get(ch, 0) + 1
+        cnt = 0
+        for _, v in mapper.items():
+            if v % 2 != 0:
+                cnt += 1
+        return cnt <= 1
 ```
 
 ### **Java**
@@ -41,7 +52,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean canPermutePalindrome(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0, n = s.length(); i < n; ++i) {
+            char ch = s.charAt(i);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        int cnt = 0;
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() % 2 != 0) {
+                ++cnt;
+            }
+        }
+        return cnt <= 1;
+    }
+}
 ```
 
 ### **...**
