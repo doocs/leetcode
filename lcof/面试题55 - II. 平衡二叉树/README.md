@@ -120,6 +120,47 @@ function getDepth(node) {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isBalanced(TreeNode* root, int* depth) {
+        if (root == nullptr) {
+            *depth = 0;
+            return true;
+        }
+
+        int left = 0; 
+        int right = 0;
+        if (isBalanced(root->left, &left) && isBalanced(root->right, &right)) {
+            // 这样做的优势是，不用每次都计算单个子树的深度
+            int diff = left - right;
+            if (diff > 1 || diff < -1) {
+                // 如果有一处不符合 -1 < diff < 1，则直接返回false
+                return false;
+            } else {
+                // 如果符合，则记录当前深度，然后返回上一层继续计算
+                *depth = max(left, right) + 1;
+                return true;
+            }
+        }
+
+        return false;    // 如果
+    }
+
+    bool isBalanced(TreeNode* root) {
+        if (!root) {
+            return true;
+        }
+
+        int depth = 0;
+        return isBalanced(root, &depth);
+    }
+};
+```
+
+
 ### **...**
 
 ```

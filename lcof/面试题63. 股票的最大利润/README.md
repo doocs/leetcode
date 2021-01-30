@@ -82,6 +82,37 @@ var maxProfit = function (prices) {
 };
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        if (prices.size() < 2) {
+            return 0;    // 如果小于两个，直接返回0值
+        }
+
+        int curMin = prices[0];
+        int maxDiff = prices[1] - prices[0];
+
+        // 贪心循环，记录当前最小值，和最大diff值
+        for (int i = 2; i < prices.size(); i++) {
+            if (curMin > prices[i-1]) {
+                curMin = prices[i-1];
+            }
+
+            int diff = prices[i] - curMin;
+            if (maxDiff < diff) {
+                maxDiff = diff;
+            }
+        }
+
+        // 根据题意，如果是负数的话，则返回0值
+        return maxDiff > 0 ? maxDiff : 0;
+    }
+};
+```
+
 ### **...**
 
 ```
