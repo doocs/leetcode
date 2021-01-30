@@ -146,7 +146,7 @@ public:
             }
         }
 
-        return false;    // 如果
+        return false;    // 如果其中有一颗树不是，则直接返回false
     }
 
     bool isBalanced(TreeNode* root) {
