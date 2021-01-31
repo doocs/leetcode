@@ -117,6 +117,40 @@ var permutation = function (s) {
 };
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:    
+    void func(string str, int index, set<string>& mySet) {
+        if (index == str.size()) {
+            // 当轮训到最后一个字符的时候，直接放入set中。加入set结构，是为了避免插入的值重复
+            mySet.insert(str);
+        } else {
+            for (int i = index; i < str.size(); i++) {
+                // 从传入位置(index)开始算，固定第一个字符，然后后面的字符依次跟index位置交换
+                swap(str[i], str[index]);
+                int temp = index + 1;
+                func(str, temp, mySet);
+                swap(str[i], str[index]);
+            } 
+        }
+    }
+
+    vector<string> permutation(string s) {
+        set<string> mySet;
+        func(s, 0, mySet);
+        vector<string> ret;
+        for (auto& x : mySet) {
+            /* 这一题加入mySet是为了进行结果的去重。
+               但由于在最后加入了将set转vector的过程，所以时间复杂度稍高 */ 
+            ret.push_back(x);
+        }
+        return ret;
+    }
+};
+```
+
 ### **...**
 
 ```
