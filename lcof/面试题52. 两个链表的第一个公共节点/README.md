@@ -169,6 +169,36 @@ var getIntersectionNode = function (headA, headB) {
 };
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+ 
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode* a = headA;
+        ListNode* b = headB;
+        while (a != b) {
+            /* 这个循环的思路是，a先从listA往后走，如果到最后，就接着从listB走；b正好相反。
+               如果有交集的话，a和b会在分别进入listB和listA之后的循环中项目
+               如果没有交集的话，则a和b会同时遍历完listA和listB后，值同时为nullptr */
+            a = (a == nullptr) ? headB : a->next;
+            b = (b == nullptr) ? headA : b->next;
+        }
+
+        return a;
+    }
+};
+```
+
 ### **...**
 
 ```
