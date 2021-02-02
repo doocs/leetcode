@@ -7,11 +7,9 @@ class Solution {
         for (int e : arr) {
             if (bigRoot.size() < k) {
                 bigRoot.offer(e);
-            } else {
-                if (e < bigRoot.peek()) {
-                    bigRoot.poll();
-                    bigRoot.offer(e);
-                }
+            } else if (e < bigRoot.peek()) {
+                bigRoot.poll();
+                bigRoot.offer(e);
             }
         }
         int[] res = new int[k];
