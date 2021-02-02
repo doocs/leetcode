@@ -59,13 +59,33 @@ If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you wan
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        m, n = len(s), len(t)
+        i = j = 0
+        while i < m and j < n:
+            if s[i] == t[j]:
+                i += 1
+            j += 1
+        return i == m
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int m = s.length(), n = t.length();
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (s.charAt(i) == t.charAt(j)) {
+                ++i;
+            }
+            ++j;
+        }
+        return i == m;
+    }
+}
 ```
 
 ### **...**

@@ -33,6 +33,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+双指针遍历即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -40,7 +42,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        m, n = len(s), len(t)
+        i = j = 0
+        while i < m and j < n:
+            if s[i] == t[j]:
+                i += 1
+            j += 1
+        return i == m
 ```
 
 ### **Java**
@@ -48,7 +58,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int m = s.length(), n = t.length();
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (s.charAt(i) == t.charAt(j)) {
+                ++i;
+            }
+            ++j;
+        }
+        return i == m;
+    }
+}
 ```
 
 ### **...**
