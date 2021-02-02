@@ -42,6 +42,12 @@ n = 8
 
 <!-- 这里可写通用的实现逻辑 -->
 
+`(1 + x) * x / 2 <= n`，求解 x。
+
+`(x + 1/2)² <= 2n + 1/4`，即 `x <= sqrt(2n + 1/4) - 1/2`。
+
+由于 2n 可能溢出，故转换为 `x <= sqrt(2) * sqrt(n + 1/8) - 1/2`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,7 +55,9 @@ n = 8
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
 
 ### **Java**
@@ -57,7 +65,11 @@ n = 8
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int arrangeCoins(int n) {
+        return (int) (Math.sqrt(2) * Math.sqrt(n + 0.125) - 0.5);
+    }
+}
 ```
 
 ### **...**

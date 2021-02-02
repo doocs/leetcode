@@ -67,13 +67,19 @@ Because the 4th row is incomplete, we return 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int arrangeCoins(int n) {
+        return (int) (Math.sqrt(2) * Math.sqrt(n + 0.125) - 0.5);
+    }
+}
 ```
 
 ### **...**
