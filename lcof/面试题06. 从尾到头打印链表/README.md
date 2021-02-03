@@ -122,6 +122,39 @@ func reversePrint(head *ListNode) []int {
 }
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> ret;
+
+    void getVal(ListNode* head) {
+        // 这里可以看成是一个节点的树
+        if (head) {
+            if (head->next) {
+                getVal(head->next);
+            }
+            ret.push_back(head->val);
+        }
+    }
+
+    vector<int> reversePrint(ListNode* head) {
+        getVal(head);
+        // 返回的是全局的ret信息。在getVal函数中被赋值
+        return ret;
+    }
+};
+```
+
 ### **...**
 
 ```
