@@ -120,7 +120,7 @@ func findRepeatNumber(nums []int) int {
 }
 ```
 
-### **Go**
+### **C++**
 
 ```cpp
 class Solution {
