@@ -31,7 +31,21 @@ death = {1948, 1951, 2000}
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxAliveYear(self, birth: List[int], death: List[int]) -> int:
+        years = [0] * 101
+        for i in range(len(birth)):
+            start = birth[i] - 1900
+            end = death[i] - 1900
+            for j in range(start, end + 1):
+                years[j] += 1
+        max_v = years[0]
+        res = 0
+        for i in range(1, 101):
+            if years[i] > max_v:
+                max_v = years[i]
+                res = i
+        return 1900 + res
 ```
 
 ### **Java**
@@ -39,7 +53,28 @@ death = {1948, 1951, 2000}
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxAliveYear(int[] birth, int[] death) {
+        int[] years = new int[101];
+        int n = birth.length;
+        for (int i = 0; i < n; ++i) {
+            int start = birth[i] - 1900;
+            int end = death[i] - 1900;
+            for (int j = start; j <= end; ++j) {
+                ++years[j];
+            }
+        }
+        int max = years[0];
+        int res = 0;
+        for (int i = 1; i < 101; ++i) {
+            if (years[i] > max) {
+                max = years[i];
+                res = i;
+            }
+        }
+        return 1900 + res;
+    }
+}
 ```
 
 ### **...**
