@@ -32,11 +32,8 @@ operations.divide(5, -2); //returns -2
 <p><strong>Note: </strong></p>
 
 <ul>
-
     <li>You can assume inputs are always valid, that is, e.g., denominator will not be 0 in division.</li>
-
     <li>The number of calls will not exceed 1000.</li>
-
 </ul>
 
 ## Solutions

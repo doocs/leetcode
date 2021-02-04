@@ -7,8 +7,10 @@
   <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://opencollective.com/doocs-leetcode/backers/badge.svg" /></a> 
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" /></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://badgen.net/github/license/doocs/leetcode?color=green" alt="LICENSE"></a><br>
-  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode" alt="stars"></a>
-  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode" alt="forks"></a>
+  <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://badgen.net/github/stars/doocs/leetcode?color=cyan" alt="stars"></a>
+  <a href="https://github.com/doocs/leetcode/network/members"><img src="https://badgen.net/github/forks/doocs/leetcode?color=cyan" alt="forks"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://badgen.net/badge/⭐/GitHub/cyan" alt="github"></a>
+  <a href="https://gitee.com/doocs/leetcode"><img src="https://badgen.net/badge/⭐/Gitee/cyan" alt="github"></a>
   <a href="http://makeapullrequest.com"><img src="https://badgen.net/badge/PRs/welcome/cyan" alt="PRs Welcome"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://badgen.net/badge/organization/join%20us/cyan" alt="open-source-organization"></a>
 </p>
