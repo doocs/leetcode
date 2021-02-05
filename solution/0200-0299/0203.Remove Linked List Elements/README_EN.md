@@ -23,13 +23,47 @@
 ### **Python3**
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeElements(self, head: ListNode, val: int) -> ListNode:
+        dummy = ListNode(-1, head)
+        pre = dummy
+        while pre and pre.next:
+            if pre.next.val != val:
+                pre = pre.next
+            else:
+                pre.next = pre.next.next
+        return dummy.next
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode dummy = new ListNode(-1, head);
+        ListNode pre = dummy;
+        while (pre != null && pre.next != null) {
+            if (pre.next.val != val) pre = pre.next;
+            else pre.next = pre.next.next;
+        }
+        return dummy.next;
+    }
+}
 ```
 
 ### **...**
