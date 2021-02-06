@@ -35,7 +35,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(nums) != len(set(nums))
 ```
 
 ### **Java**
@@ -43,7 +45,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int e : nums) {
+            if (set.contains(e)) return true;
+            set.add(e);
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**

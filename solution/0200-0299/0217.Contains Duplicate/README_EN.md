@@ -39,13 +39,24 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(nums) != len(set(nums))
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int e : nums) {
+            if (set.contains(e)) return true;
+            set.add(e);
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**
