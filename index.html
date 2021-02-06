@@ -83,7 +83,7 @@
           hook.afterEach(function (html) {
             const en = vm.route.file.indexOf('README_EN') != -1
             const copyright = en ? '. All Rights Reserved' : ' 版权所有'
-            const footer = `<footer><span>Copyright © 2018-2020 <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
+            const footer = `<footer><span>Copyright © 2018-2021 <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
             return html + footer
           })
         },

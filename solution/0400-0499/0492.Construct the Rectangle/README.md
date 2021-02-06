@@ -44,7 +44,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def constructRectangle(self, area: int) -> List[int]:
+        sr = int(math.sqrt(area))
+        l = w = sr
+        while l <= area and w >= 1:
+            s = l * w
+            if s == area:
+                break
+            if s > area:
+                w -= 1
+            else:
+                l += 1
+        return [l, w]
 ```
 
 ### **Java**
@@ -52,7 +64,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] constructRectangle(int area) {
+        int sr = (int) Math.sqrt(area);
+        int l = sr, w = sr;
+        while (l <= area && w >= 1) {
+            int s = l * w;
+            if (s == area) break;
+            if (s > area) --w;
+            else ++l;
+        }
+        return new int[]{l, w};
+    }
+}
 ```
 
 ### **...**
