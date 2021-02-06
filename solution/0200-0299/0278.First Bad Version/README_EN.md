@@ -37,13 +37,82 @@ Then 4 is the first bad version.&nbsp;</code>
 ### **Python3**
 
 ```python
+# The isBadVersion API is already defined for you.
+# @param version, an integer
+# @return an integer
+# def isBadVersion(version):
 
+class Solution:
+    def firstBadVersion(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        low, high = 1, n
+        while low < high:
+            mid = low + ((high - low) >> 1)
+            if isBadVersion(mid):
+                high = mid
+            else:
+                low = mid + 1
+        return low
 ```
 
 ### **Java**
 
 ```java
+/* The isBadVersion API is defined in the parent class VersionControl.
+      boolean isBadVersion(int version); */
 
+public class Solution extends VersionControl {
+    public int firstBadVersion(int n) {
+        int low = 1, high = n;
+        while (low < high) {
+            int mid = low + ((high - low) >> 1);
+            if (isBadVersion(mid)) high = mid;
+            else low = mid + 1;
+        }
+        return low;
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for isBadVersion()
+ *
+ * @param {integer} version number
+ * @return {boolean} whether the version is bad
+ * isBadVersion = function(version) {
+ *     ...
+ * };
+ */
+
+/**
+ * @param {function} isBadVersion()
+ * @return {function}
+ */
+var solution = function (isBadVersion) {
+  /**
+   * @param {integer} n Total versions
+   * @return {integer} The first bad version
+   */
+  return function (n) {
+    let low = 1,
+      high = n;
+    while (low < high) {
+      const mid = low + ((high - low) >> 1);
+      if (isBadVersion(mid)) {
+        high = mid;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return low;
+  };
+};
 ```
 
 ### **...**
