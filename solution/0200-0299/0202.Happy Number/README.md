@@ -31,7 +31,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def get_next(n):
+            s = 0
+            while n > 0:
+                n, digit = divmod(n, 10)
+                s += digit ** 2
+            return s
 
+        visited = set()
+        while n != 1 and n not in visited:
+            visited.add(n)
+            n = get_next(n)
+        return n == 1
 ```
 
 ### **Java**
@@ -39,7 +52,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isHappy(int n) {
+        Set<Integer> visited = new HashSet<>();
+        while (n != 1 && !visited.contains(n)) {
+            visited.add(n);
+            n = getNext(n);
+        }
+        return n == 1;
+    }
 
+    private int getNext(int n) {
+        int s = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            s += digit * digit;
+            n /= 10;
+        }
+        return s;
+    }
+}
 ```
 
 ### **...**
