@@ -1,26 +1,24 @@
 class Solution {
     public boolean isStrobogrammatic(String num) {
-        if (num == null || num.length() == 0) {
-            return false;
-        }
-        Map<Character, Character> map = new HashMap<>();
-        map.put('0', '0');
-        map.put('1', '1');
-        map.put('6', '9');
-        map.put('9', '6');
-        map.put('8', '8');
-        if (num.length() == 1) {
-            return "1".equals(num) || "8".equals(num) || "0".equals(num);
-        }
-        char[] chars = num.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            if (!map.containsKey(chars[i])) {
-                return false;
-            }
-            if (chars[chars.length - 1 - i] != map.get(chars[i])) {
-                return false;
-            }
+        int n = num.length();
+        for (int i = 0, j = n - 1; i <= j; ++i, --j) {
+            if (!match(num.charAt(i), num.charAt(j))) return false;
         }
         return true;
+    }
+
+    private boolean match(char a, char b) {
+        switch (a) {
+            case '0':
+            case '1':
+            case '8':
+                return a == b;
+            case '6':
+                return b == '9';
+            case '9':
+                return b == '6';
+            default:
+                return false;
+        }
     }
 }

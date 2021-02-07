@@ -30,13 +30,53 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isStrobogrammatic(self, num: str) -> bool:
+        def match(a, b):
+            if a in {'0', '1', '8'}:
+                return a == b
+            if a == '6':
+                return b == '9'
+            if a == '9':
+                return b == '6'
+            return False
+        n = len(num)
+        i, j = 0, n - 1
+        while i <= j:
+            if not match(num[i], num[j]):
+                return False
+            i += 1
+            j -= 1
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isStrobogrammatic(String num) {
+        int n = num.length();
+        for (int i = 0, j = n - 1; i <= j; ++i, --j) {
+            if (!match(num.charAt(i), num.charAt(j))) return false;
+        }
+        return true;
+    }
 
+    private boolean match(char a, char b) {
+        switch (a) {
+            case '0':
+            case '1':
+            case '8':
+                return a == b;
+            case '6':
+                return b == '9';
+            case '9':
+                return b == '6';
+            default:
+                return false;
+        }
+    }
+}
 ```
 
 ### **...**
