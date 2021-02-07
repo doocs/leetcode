@@ -55,13 +55,34 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        helper = {}
+        for i, v in enumerate(nums):
+            if v in helper and i - helper[v] <= k:
+                return True
+            helper[v] = i
+        return False
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map<Integer, Integer> helper = new HashMap<>();
+        for (int i = 0, n = nums.length; i < n; ++i) {
+            if (helper.containsKey(nums[i])) {
+                int j = helper.get(nums[i]);
+                if (i - j <= k) {
+                    return true;
+                }
+            }
+            helper.put(nums[i], i);
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**
