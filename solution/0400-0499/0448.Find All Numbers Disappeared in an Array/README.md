@@ -25,6 +25,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+- 遍历输入数组的每个元素一次。
+- 把 `|nums[i]|-1` 索引位置的元素标记为负数。即 `nums[|nums[i]|-1]` \* -1。
+- 然后遍历数组，若当前数组元素 `nums[i]` 为负数，说明我们在数组中存在数字 `i+1`。否则，说明数组不存在数字 `i+1`，添加到结果列表中。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -32,7 +36,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        for num in nums:
+            index = abs(num) - 1
+            if nums[index] > 0:
+                nums[index] *= -1
+        res = []
+        for i, v in enumerate(nums):
+            if v > 0:
+                res.append(i + 1)
+        return res
 ```
 
 ### **Java**
@@ -40,7 +54,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            int index = Math.abs(nums[i]) - 1;
+            if (nums[index] > 0) {
+                nums[index] *= -1;
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] > 0) {
+                res.add(i + 1);
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

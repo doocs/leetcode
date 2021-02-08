@@ -35,13 +35,40 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        for num in nums:
+            index = abs(num) - 1
+            if nums[index] > 0:
+                nums[index] *= -1
+        res = []
+        for i, v in enumerate(nums):
+            if v > 0:
+                res.append(i + 1)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            int index = Math.abs(nums[i]) - 1;
+            if (nums[index] > 0) {
+                nums[index] *= -1;
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] > 0) {
+                res.add(i + 1);
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
