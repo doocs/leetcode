@@ -225,7 +225,7 @@ public:
         int y = board[0].size();
         if (0 == x || 0 == y) {
             return false;
-        } 
+        }
 
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
