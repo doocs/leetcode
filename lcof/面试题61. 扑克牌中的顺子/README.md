@@ -135,7 +135,7 @@ public:
                 return false;
             }
         }
-        
+
         return nums[4] - nums[zeroNum] <= 4;
     }
 };
