@@ -30,7 +30,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        if not nums:
+            return
+        n = len(nums)
+        zero_count = 0
+        for i in range(n):
+            if nums[i] == 0:
+                zero_count += 1
+            else:
+                nums[i - zero_count] = nums[i]
+        while zero_count > 0:
+            nums[n - zero_count] = 0
+            zero_count -= 1
 ```
 
 ### **Java**
@@ -38,7 +54,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int n;
+        if (nums == null || (n = nums.length) < 1) {
+            return;
+        }
+        int zeroCount = 0;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] == 0) {
+                ++zeroCount;
+            } else {
+                nums[i - zeroCount] = nums[i];
+            }
+        }
+        while (zeroCount > 0) {
+            nums[n - zeroCount--] = 0;
+        }
+    }
+}
 ```
 
 ### **...**
