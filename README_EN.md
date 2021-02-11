@@ -52,6 +52,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Arrays
 
+- [Remove Duplicates from Sorted Array](/solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README_EN.md)
 - [Remove Element](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
 - [Move Zeroes](/solution/0200-0299/0283.Move%20Zeroes/README_EN.md)
 - [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
