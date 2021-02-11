@@ -52,6 +52,8 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Arrays
 
+- [Remove Element](/solution/0000-0099/0027.Remove%20Element/README_EN.md)
+- [Move Zeroes](/solution/0200-0299/0283.Move%20Zeroes/README_EN.md)
 - [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
 - [Spiral Matrix](/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md)
 - [3Sum](/solution/0000-0099/0015.3Sum/README_EN.md)

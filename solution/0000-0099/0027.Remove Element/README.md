@@ -64,7 +64,15 @@ for (int i = 0; i &lt; len; i++) {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        cnt, n = 0, len(nums)
+        for i in range(n):
+            if nums[i] == val:
+                cnt += 1
+            else:
+                nums[i - cnt] = nums[i]
+        return n - cnt
 ```
 
 ### **Java**
@@ -72,7 +80,38 @@ for (int i = 0; i &lt; len; i++) {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int cnt = 0, n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] == val) {
+                ++cnt;
+            } else {
+                nums[i - cnt] = nums[i];
+            }
+        }
+        return n - cnt;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int cnt = 0, n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] == val) {
+                ++cnt;
+            } else {
+                nums[i - cnt] = nums[i];
+            }
+        }
+        return n - cnt;
+    }
+};
 ```
 
 ### **...**

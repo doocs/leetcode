@@ -52,6 +52,8 @@
 
 ### 数组
 
+- [移除元素](/solution/0000-0099/0027.Remove%20Element/README.md)
+- [移动零](/solution/0200-0299/0283.Move%20Zeroes/README.md)
 - [数组中重复的数字](/lcof/面试题03.%20数组中重复的数字/README.md)
 - [旋转数组](/solution/0100-0199/0189.Rotate%20Array/README.md)
 - [螺旋矩阵](/solution/0000-0099/0054.Spiral%20Matrix/README.md)
