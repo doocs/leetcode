@@ -31,13 +31,30 @@ Could you do it without any loop/recursion in O(1) runtime?</p>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def addDigits(self, num: int) -> int:
+        return 0 if num == 0 else (num - 1) % 9 + 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int addDigits(int num) {
+        return (num - 1) % 9 + 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int addDigits(int num) {
+        return (num - 1) % 9 + 1;
+    }
+};
 ```
 
 ### **...**
