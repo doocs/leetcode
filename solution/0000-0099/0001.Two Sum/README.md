@@ -21,6 +21,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+用哈希表（字典）存放数组值以及对应的下标。
+
+遍历数组，当发现 `target - nums[i]` 在哈希表中，说明找到了目标值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -28,7 +32,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        helper = {}
+        for i, v in enumerate(nums):
+            num = target - v
+            if num in helper:
+                return [helper[num], i]
+            helper[v] = i
 ```
 
 ### **Java**
@@ -36,7 +47,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0, n = nums.length; i < n; ++i) {
+            int num = target - nums[i];
+            if (map.containsKey(num)) {
+                return new int[]{map.get(num), i};
+            }
+            map.put(nums[i], i);
+        }
+        return null;
+    }
+}
 ```
 
 ### **...**
