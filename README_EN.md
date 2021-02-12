@@ -57,6 +57,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [Move Zeroes](/solution/0200-0299/0283.Move%20Zeroes/README_EN.md)
 - [Rotate Array](/solution/0100-0199/0189.Rotate%20Array/README_EN.md)
 - [Spiral Matrix](/solution/0000-0099/0054.Spiral%20Matrix/README_EN.md)
+- [Two Sum](/solution/0000-0099/0001.Two%20Sum/README_EN.md)
 - [3Sum](/solution/0000-0099/0015.3Sum/README_EN.md)
 - [4Sum](/solution/0000-0099/0018.4Sum/README_EN.md)
 - [Merge Sorted Array](/solution/0000-0099/0088.Merge%20Sorted%20Array/README_EN.md)
@@ -72,6 +73,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Linked List
 
+- [Add Two Numbers](/solution/0000-0099/0002.Add%20Two%20Numbers/README_EN.md)
 - [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
 - [Remove Linked List Elements](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README_EN.md)
 - [Kth Node From End of List](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README_EN.md)

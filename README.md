@@ -58,6 +58,7 @@
 - [数组中重复的数字](/lcof/面试题03.%20数组中重复的数字/README.md)
 - [旋转数组](/solution/0100-0199/0189.Rotate%20Array/README.md)
 - [螺旋矩阵](/solution/0000-0099/0054.Spiral%20Matrix/README.md)
+- [两数之和](/solution/0000-0099/0001.Two%20Sum/README.md)
 - [三数之和](/solution/0000-0099/0015.3Sum/README.md)
 - [四数之和](/solution/0000-0099/0018.4Sum/README.md)
 - [合并两个有序数组](/solution/0000-0099/0088.Merge%20Sorted%20Array/README.md)
@@ -73,6 +74,7 @@
 
 ### 链表
 
+- [两数相加](/solution/0000-0099/0002.Add%20Two%20Numbers/README.md)
 - [从尾到头打印链表](/lcof/面试题06.%20从尾到头打印链表/README.md)
 - [删除链表的节点](/lcof/面试题18.%20删除链表的节点/README.md)
 - [移除链表元素](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README.md)
