@@ -1,10 +1,9 @@
 class Solution:
-    def isPalindrome(self, num):
-        """
-        :type num: int
-        :rtype: bool
-        """
-        if num < 0:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
             return False
-        
-        return str(num) == str(num)[::-1]
+        y, t = 0, x
+        while t:
+            y = y * 10 + t % 10
+            t //= 10
+        return x == y
