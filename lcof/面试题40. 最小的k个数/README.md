@@ -121,10 +121,11 @@ public:
         int r = end;
         int povit = arr[begin];
 
-        while (l<r) {
-            while (l<r && arr[r]>=povit) {r--;}
-            while (l<r && arr[l]<=povit) {l++;}
-            if (l<r) {swap(arr[l], arr[r]);}
+        while (l < r) {
+            // 从右边开始，找到第一个小于povit的数字（用于交换）
+            while (l < r && arr[r] >= povit) { r--; }
+            while (l < r && arr[l] <= povit) { l++; }
+            if (l < r) { swap(arr[l], arr[r]); }
         }
 
         swap(arr[begin], arr[l]);
@@ -140,20 +141,19 @@ public:
         // C++中，stl提供partial_sort()方法，就是这种实现方式
         int mid = partition(arr, begin, end);
         if (mid == target) {
-            // 如果正好排到target这一位，则表示已经前target已经是最小了
             return;
         } else if (target < mid) {
-            partSort(arr, begin, mid-1, target);
+            partSort(arr, begin, mid - 1, target);
         } else {
-            partSort(arr, mid+1, end, target);
+            partSort(arr, mid + 1, end, target);
         }
-        
+
         return;
     }
 
     vector<int> getLeastNumbers(vector<int>& arr, int k) {
-        partSort(arr, 0, arr.size()-1, k-1);
-        vector<int> ret(arr.begin(), arr.begin()+k);
+        partSort(arr, 0, arr.size() - 1, k - 1);
+        vector<int> ret(arr.begin(), arr.begin() + k);
         return ret;
     }
 };

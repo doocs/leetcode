@@ -153,7 +153,7 @@ public:
             // 第一个就匹配的情况
             return head->next;
         }
-    
+
         while (cur && cur->next) {
             if (cur->next->val == val) {
                 // 如果找到了，直接指向下一个
