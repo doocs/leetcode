@@ -37,12 +37,12 @@ class Solution:
         dummy = ListNode(next=head)
         pre, cur = dummy, head
         while cur and cur.next:
-            pre.next = cur.next
-            t = cur.next.next
-            cur.next.next = cur
-            cur.next = t
+            t = cur.next
+            cur.next = t.next
+            t.next = cur
+            pre.next = t
             pre = cur
-            cur = cur.next
+            cur = pre.next
         return dummy.next
 ```
 
@@ -66,16 +66,49 @@ class Solution {
         ListNode dummy = new ListNode(0, head);
         ListNode pre = dummy, cur = head;
         while (cur != null && cur.next != null) {
-            pre.next = cur.next;
-            ListNode t = cur.next.next;
-            cur.next.next = cur;
-            cur.next = t;
+            ListNode t = cur.next;
+            cur.next = t.next;
+            t.next = cur;
+            pre.next = t;
             pre = cur;
-            cur = cur.next;
+            cur = pre.next;
+
         }
         return dummy.next;
     }
 }
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* pre = dummy;
+        ListNode* cur = head;
+        while (cur != nullptr && cur->next != nullptr) {
+            ListNode* t = cur->next;
+            cur->next = t->next;
+            t->next = cur;
+            pre->next = t;
+            pre = cur;
+            cur = pre->next;
+        }
+        return dummy->next;
+    }
+};
 ```
 
 ### **...**
