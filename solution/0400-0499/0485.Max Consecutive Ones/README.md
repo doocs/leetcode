@@ -33,7 +33,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        res = t = 0
+        for num in nums:
+            if num == 1:
+                t += 1
+            else:
+                res = max(res, t)
+                t = 0
+        return max(res, t)
 ```
 
 ### **Java**
@@ -41,7 +50,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int res = 0, t = 0;
+        for (int num : nums) {
+            if (num == 1) {
+                ++t;
+            } else {
+                res = Math.max(res, t);
+                t = 0;
+            }
+        }
+        return Math.max(res, t);
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMaxConsecutiveOnes = function (nums) {
+  let res = 0,
+    t = 0;
+  for (let num of nums) {
+    if (num == 1) {
+      ++t;
+    } else {
+      res = Math.max(res, t);
+      t = 0;
+    }
+  }
+  return Math.max(res, t);
+};
 ```
 
 ### **...**
