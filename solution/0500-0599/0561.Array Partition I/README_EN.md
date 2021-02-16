@@ -45,13 +45,41 @@ Given an array of <b>2n</b> integers, your task is to group these integers into 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        return sum(sorted(nums)[::2])
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int arrayPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int res = 0;
+        for (int i = 0, n = nums.length; i < n; i += 2) {
+            res += nums[i];
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arrayPairSum = function (nums) {
+  nums.sort((a, b) => a - b);
+  let res = 0;
+  for (let i = 0, n = nums.length; i < n; i += 2) {
+    res += nums[i];
+  }
+  return res;
+};
 ```
 
 ### **...**

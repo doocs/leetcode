@@ -27,6 +27,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+先排序，然后求相邻的两个元素的最小值，得到的总和即为结果。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -34,7 +36,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        return sum(sorted(nums)[::2])
 ```
 
 ### **Java**
@@ -42,7 +46,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int arrayPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int res = 0;
+        for (int i = 0, n = nums.length; i < n; i += 2) {
+            res += nums[i];
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arrayPairSum = function (nums) {
+  nums.sort((a, b) => a - b);
+  let res = 0;
+  for (let i = 0, n = nums.length; i < n; i += 2) {
+    res += nums[i];
+  }
+  return res;
+};
 ```
 
 ### **...**
