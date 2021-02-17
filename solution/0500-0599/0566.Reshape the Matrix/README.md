@@ -60,7 +60,15 @@ r = 2, c = 4
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def matrixReshape(self, nums: List[List[int]], r: int, c: int) -> List[List[int]]:
+        m, n = len(nums), len(nums[0])
+        if m * n != r * c:
+            return nums
+        res = [[0] * c for _ in range(r)]
+        for x in range(m * n):
+            res[x // c][x % c] = nums[x // n][x % n]
+        return res
 ```
 
 ### **Java**
@@ -68,7 +76,17 @@ r = 2, c = 4
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        int m = nums.length, n = nums[0].length;
+        if (m * n != r * c) return nums;
+        int[][] res = new int[r][c];
+        for (int i = 0; i < m * n; ++i) {
+            res[i / c][i % c] = nums[i / n][i % n];
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
