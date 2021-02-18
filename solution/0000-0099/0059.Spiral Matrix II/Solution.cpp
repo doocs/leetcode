@@ -1,65 +1,28 @@
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
-        if (0 == n)
-            return vector<vector<int>>() ;
-        vector<vector<int>> res(n, vector<int>(n, 0)) ;
-        
-        int i = 0, j = 0 ;
-        
-        int dir = 0 ;
-        
-        int n2 = n*n ;
-        
-        for (int d = 1; d <= n2; ++d)
-        {
-            res[i][j] = d ;
-            //cout << d << endl ;
-            switch (dir)
-            {
-                case 0:
-                    ++j ;
-                    if (j >= n || res[i][j])
-                    {
-                        dir++ ;
-                        --j ;
-                        ++i ;
-                    }
-                    break ;
-                case 1:
-                    ++i ;
-                    if (i >= n || res[i][j])
-                    {
-                        dir++ ;
-                        --i ;
-                        --j ;
-                    }
-                    break ;
-                case 2:
-                    --j ;
-                    if (j < 0 || res[i][j])
-                    {
-                        dir++ ;
-                        ++j ;
-                        --i ;
-                    }
-                    break ;
-                case 3:
-                    --i ;
-                    if (i < 0 || res[i][j])
-                    {
-                        dir = 0 ;
-                        ++i ;
-                        ++j ;
-                    }
-                    
-                    break ;
-                default:
-                    break ;
+        vector<vector<int>> res(n, vector<int>(n, 0));
+        int num = 1;
+        int m1 = 0, m2 = n - 1;
+        while (m1 < m2) {
+            for (int j = m1; j < m2; ++j) {
+                res[m1][j] = num++;
             }
-            
+            for (int i = m1; i < m2; ++i) {
+                res[i][m2] = num++;
+            }
+            for (int j = m2; j > m1; --j) {
+                res[m2][j] = num++;
+            }
+            for (int i = m2; i > m1; --i) {
+                res[i][m1] = num++;
+            }
+            ++m1;
+            --m2;
         }
-        
-        return res ;
+        if (m1 == m2) {
+            res[m1][m1] = num;
+        }
+        return res;
     }
 };
