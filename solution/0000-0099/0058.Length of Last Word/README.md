@@ -30,7 +30,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        last_word_length = 0
+        meet_word = False
+        for i in range(len(s) - 1, -1, -1):
+            ch = ord(s[i])
+            if ch >= 65 and ch <= 122:
+                meet_word = True
+                last_word_length += 1
+            elif meet_word:
+                break
+        return last_word_length
 ```
 
 ### **Java**
@@ -38,7 +49,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int n = s.length();
+        int lastWordLength = 0;
+        boolean meetWord = false;
+        for (int i = n - 1; i >= 0; --i) {
+            char ch = s.charAt(i);
+            if (ch >= 'A' && ch <= 'z') {
+                meetWord = true;
+                ++lastWordLength;
+            } else if (meetWord) {
+                break;
+            }
+        }
+        return lastWordLength;
+    }
+}
 ```
 
 ### **...**
