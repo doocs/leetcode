@@ -29,6 +29,13 @@
 <strong>输出:</strong> [1,2,3,4,8,12,11,10,9,5,6,7]
 </pre>
 
+**提示**：
+
+- m == matrix.length
+- n == matrix[i].length
+- 1 <= m, n <= 10
+- -100 <= matrix[i][j] <= 100
+
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -50,8 +57,6 @@ class Solution:
             if j1 == j2:
                 return [matrix[i][j1] for i in range(i1, i2 + 1)]
             return [matrix[i1][j] for j in range(j1, j2)] + [matrix[i][j2] for i in range(i1, i2)] + [matrix[i2][j] for j in range(j2, j1, -1)] + [matrix[i][j1] for i in range(i2, i1, -1)]
-        if not matrix or not matrix[0]:
-            return []
         m, n = len(matrix), len(matrix[0])
         i1, j1, i2, j2 = 0, 0, m - 1, n - 1
         res = []
@@ -70,9 +75,7 @@ class Solution {
     private List<Integer> res;
 
     public List<Integer> spiralOrder(int[][] matrix) {
-        int m, n;
-        if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0)
-            return Collections.emptyList();
+        int m = matrix.length, n = matrix[0].length;
         res = new ArrayList<>();
         int i1 = 0, i2 = m - 1;
         int j1 = 0, j2 = n - 1;

@@ -2,9 +2,7 @@ class Solution {
     private List<Integer> res;
 
     public List<Integer> spiralOrder(int[][] matrix) {
-        int m, n;
-        if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0)
-            return Collections.emptyList();
+        int m = matrix.length, n = matrix[0].length;
         res = new ArrayList<>();
         int i1 = 0, i2 = m - 1;
         int j1 = 0, j2 = n - 1;
