@@ -38,15 +38,11 @@
 	<li><code>1 &lt;= list2.length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -54,12 +50,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

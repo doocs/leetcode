@@ -71,12 +71,9 @@ The total cost is 0 + 0 + 0 + 0 + 1 + 0 + 1 + 0 + 2 = 4.
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -84,12 +81,12 @@ The total cost is 0 + 0 + 0 + 0 + 1 + 0 + 1 + 0 + 2 = 4.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

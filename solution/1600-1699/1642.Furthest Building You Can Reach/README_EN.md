@@ -55,15 +55,11 @@ It is impossible to go beyond building 4 because you do not have any more bricks
 	<li><code>0 &lt;= ladders &lt;= heights.length</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -71,12 +67,12 @@ It is impossible to go beyond building 4 because you do not have any more bricks
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

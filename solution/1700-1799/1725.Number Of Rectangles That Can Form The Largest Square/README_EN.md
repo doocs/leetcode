@@ -41,12 +41,9 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -54,12 +51,12 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

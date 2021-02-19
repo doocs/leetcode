@@ -77,12 +77,9 @@ There is no way to obtain a string that is lexicographically smaller then &quot;
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -90,12 +87,12 @@ There is no way to obtain a string that is lexicographically smaller then &quot;
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

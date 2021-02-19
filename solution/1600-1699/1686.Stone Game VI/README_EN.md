@@ -62,15 +62,11 @@ Bob wins.
 	<li><code>1 &lt;= aliceValues[i], bobValues[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -78,12 +74,12 @@ Bob wins.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

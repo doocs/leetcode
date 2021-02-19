@@ -59,12 +59,9 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 	<li>最多调用 <code>1000</code> 次 <code>pushFront</code>， <code>pushMiddle</code>， <code>pushBack</code>， <code>popFront</code>， <code>popMiddle</code> 和 <code>popBack</code> 。</li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -85,6 +82,7 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 ```
 
 ### **...**
+
 ```
 
 ```

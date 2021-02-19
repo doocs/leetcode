@@ -27,6 +27,7 @@
 (&quot;a<u>b</u>a&quot;, &quot;bab<u>a</u>&quot;)
 The underlined portions are the substrings that are chosen from s and t.
 </pre>
+
 ​​<strong>Example 2:</strong>
 
 <pre>
@@ -38,6 +39,7 @@ The underlined portions are the substrings that are chosen from s and t.
 (&quot;<u>ab</u>&quot;, &quot;<u>bb</u>&quot;)
 ​​​​The underlined portions are the substrings that are chosen from s and t.
 </pre>
+
 <strong>Example 3:</strong>
 
 <pre>
@@ -60,15 +62,11 @@ The underlined portions are the substrings that are chosen from s and t.
 	<li><code>s</code> and <code>t</code> consist of lowercase English letters only.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -76,12 +74,12 @@ The underlined portions are the substrings that are chosen from s and t.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

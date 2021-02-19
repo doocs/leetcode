@@ -36,15 +36,11 @@
 	<li><code>n &lt;= k &lt;= 26 * n</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -52,12 +48,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

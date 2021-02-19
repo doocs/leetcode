@@ -37,15 +37,11 @@ The maximum working time is 11.</pre>
 	<li><code>1 &lt;= jobs[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -53,12 +49,12 @@ The maximum working time is 11.</pre>
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -64,15 +64,11 @@ No other coordinate has higher quality.</pre>
 	<li><code>1 &lt;= radius &lt;= 50</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -80,12 +76,12 @@ No other coordinate has higher quality.</pre>
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

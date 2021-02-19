@@ -53,15 +53,11 @@
 	<li>Each&nbsp;pair of cities has <strong>at most one</strong> road connecting them.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -69,12 +65,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

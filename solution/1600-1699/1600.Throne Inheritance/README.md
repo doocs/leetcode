@@ -74,12 +74,9 @@ t.getInheritanceOrder(); // 返回 [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 	<li>最多调用&nbsp;<code>10</code>&nbsp;次&nbsp;<code>getInheritanceOrder</code>&nbsp;。</li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -100,6 +97,7 @@ t.getInheritanceOrder(); // 返回 [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 ```
 
 ### **...**
+
 ```
 
 ```

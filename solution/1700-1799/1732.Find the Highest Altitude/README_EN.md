@@ -34,15 +34,11 @@
 	<li><code>-100 &lt;= gain[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -50,12 +46,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

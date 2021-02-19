@@ -48,15 +48,11 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 	<li><code>languages[i]</code> contains only unique values</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -64,12 +60,12 @@ Note that friendships are not transitive, meaning if <code>x</code> is a friend 
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

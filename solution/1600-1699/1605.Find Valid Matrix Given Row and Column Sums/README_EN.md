@@ -68,15 +68,11 @@ Another possible matrix is: [[1,2],
 	<li><code>sum(rows) == sum(columns)</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -84,12 +80,12 @@ Another possible matrix is: [[1,2],
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -41,15 +41,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -57,12 +53,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

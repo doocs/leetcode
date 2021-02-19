@@ -67,15 +67,11 @@
 	<li>There are at most <code>50</code> unique values in <code>nums</code>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -83,12 +79,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

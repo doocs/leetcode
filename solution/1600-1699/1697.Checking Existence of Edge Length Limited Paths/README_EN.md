@@ -44,15 +44,11 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 	<li>There may be <strong>multiple</strong> edges between two nodes.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -60,12 +56,12 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

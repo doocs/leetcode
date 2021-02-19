@@ -75,15 +75,11 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 	<li><code>arrival</code> is <strong>strictly increasing</strong>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -91,12 +87,12 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

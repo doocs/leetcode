@@ -48,15 +48,11 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -64,12 +60,12 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

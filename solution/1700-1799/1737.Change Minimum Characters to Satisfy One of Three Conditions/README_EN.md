@@ -45,15 +45,11 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 	<li><code>a</code> and <code>b</code> consist only of lowercase letters.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -61,12 +57,12 @@ The best way was done in 2 operations (either condition 1 or condition 3).
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

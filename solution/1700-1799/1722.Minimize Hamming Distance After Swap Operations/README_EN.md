@@ -51,15 +51,11 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -67,12 +63,12 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

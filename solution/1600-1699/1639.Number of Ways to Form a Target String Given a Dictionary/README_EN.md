@@ -71,15 +71,11 @@
 	<li><code>words[i]</code> and <code>target</code> contain only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -87,12 +83,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

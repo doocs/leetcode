@@ -39,15 +39,11 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -55,12 +51,12 @@ There are no more pairs that sum up to 6, hence a total of 1 operation.</pre>
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

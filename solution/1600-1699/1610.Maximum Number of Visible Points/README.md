@@ -56,12 +56,9 @@
 	<li><code>0 <= pos<sub>x</sub>, pos<sub>y</sub>, x<sub>i</sub>, y<sub>i</sub> <= 100</code></li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -82,6 +79,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

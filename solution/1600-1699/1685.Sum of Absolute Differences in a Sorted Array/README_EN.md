@@ -37,15 +37,11 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 	<li><code>1 &lt;= nums[i] &lt;= nums[i + 1] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -53,12 +49,12 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

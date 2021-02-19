@@ -39,12 +39,9 @@
 	<li><code>0 &lt;= nums[j], x<sub>i</sub>, m<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -65,6 +62,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

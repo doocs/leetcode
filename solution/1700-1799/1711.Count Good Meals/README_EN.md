@@ -37,15 +37,11 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 	<li><code>0 &lt;= deliciousness[i] &lt;= 2<sup>20</sup></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -53,12 +49,12 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

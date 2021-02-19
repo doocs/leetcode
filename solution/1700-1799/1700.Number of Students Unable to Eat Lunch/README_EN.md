@@ -52,15 +52,11 @@ Hence all students are able to eat.
 	<li><code>students[i]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -68,12 +64,12 @@ Hence all students are able to eat.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

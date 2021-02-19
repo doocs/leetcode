@@ -55,12 +55,9 @@ No subtree has two nodes where the max distance between them is 3.
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -68,12 +65,12 @@ No subtree has two nodes where the max distance between them is 3.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -64,12 +64,9 @@
 	<li><code>1 <= k <= nCr(row + column, row)</code>，其中 <code>nCr(a, b)</code> 表示组合数，即从 <code>a</code> 个物品中选 <code>b</code> 个物品的不同方案数。</li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -90,6 +87,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

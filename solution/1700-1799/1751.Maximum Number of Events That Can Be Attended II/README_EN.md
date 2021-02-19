@@ -49,15 +49,11 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 	<li><code>1 &lt;= value<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -65,12 +61,12 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -76,15 +76,11 @@ Node values in the level 2 must be in strictly increasing order, so the tree is 
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -92,12 +88,12 @@ Node values in the level 2 must be in strictly increasing order, so the tree is 
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

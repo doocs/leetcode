@@ -64,15 +64,11 @@
 	<li>It is guaranteed that parentheses expression <code>s</code> is a <strong>VPS</strong>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -80,12 +76,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

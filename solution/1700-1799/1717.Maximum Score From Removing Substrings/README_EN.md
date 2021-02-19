@@ -9,15 +9,16 @@
 <ul>
 	<li>Remove substring <code>&quot;ab&quot;</code> and gain <code>x</code> points.
 
-	<ul>
-		<li>For example, when removing <code>&quot;ab&quot;</code> from <code>&quot;c<u>ab</u>xbae&quot;</code> it becomes <code>&quot;cxbae&quot;</code>.</li>
-	</ul>
-	</li>
-	<li>Remove substring <code>&quot;ba&quot;</code> and gain <code>y</code> points.
-	<ul>
-		<li>For example, when removing <code>&quot;ba&quot;</code> from <code>&quot;cabx<u>ba</u>e&quot;</code> it becomes <code>&quot;cabxe&quot;</code>.</li>
-	</ul>
-	</li>
+    <ul>
+    	<li>For example, when removing <code>&quot;ab&quot;</code> from <code>&quot;c<u>ab</u>xbae&quot;</code> it becomes <code>&quot;cxbae&quot;</code>.</li>
+    </ul>
+    </li>
+    <li>Remove substring <code>&quot;ba&quot;</code> and gain <code>y</code> points.
+    <ul>
+    	<li>For example, when removing <code>&quot;ba&quot;</code> from <code>&quot;cabx<u>ba</u>e&quot;</code> it becomes <code>&quot;cabxe&quot;</code>.</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>Return <em>the maximum points you can gain after applying the above operations on</em> <code>s</code>.</p>
@@ -51,15 +52,11 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -67,12 +64,12 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

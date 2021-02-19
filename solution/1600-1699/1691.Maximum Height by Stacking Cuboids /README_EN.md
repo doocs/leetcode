@@ -55,15 +55,11 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 	<li><code>1 &lt;= width<sub>i</sub>, length<sub>i</sub>, height<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -71,12 +67,12 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

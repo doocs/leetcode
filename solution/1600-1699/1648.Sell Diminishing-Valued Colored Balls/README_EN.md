@@ -55,15 +55,11 @@ The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
 	<li><code>1 &lt;= orders &lt;= min(sum(inventory[i]), 10<sup>9</sup>)</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -71,12 +67,12 @@ The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

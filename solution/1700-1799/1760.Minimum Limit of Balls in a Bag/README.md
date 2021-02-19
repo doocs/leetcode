@@ -12,10 +12,11 @@
 <ul>
 	<li>选择任意一个袋子，并将袋子里的球分到 2 个新的袋子中，每个袋子里都有 <strong>正整数</strong> 个球。
 
-	<ul>
-		<li>比方说，一个袋子里有 <code>5</code> 个球，你可以把它们分到两个新袋子里，分别有 <code>1</code> 个和 <code>4</code> 个球，或者分别有 <code>2</code> 个和 <code>3</code> 个球。</li>
-	</ul>
-	</li>
+    <ul>
+    	<li>比方说，一个袋子里有 <code>5</code> 个球，你可以把它们分到两个新袋子里，分别有 <code>1</code> 个和 <code>4</code> 个球，或者分别有 <code>2</code> 个和 <code>3</code> 个球。</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>你的开销是单个袋子里球数目的 <strong>最大值</strong> ，你想要 <strong>最小化</strong> 开销。</p>
@@ -64,12 +65,9 @@
 	<li><code>1 <= maxOperations, nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -90,6 +88,7 @@
 ```
 
 ### **...**
+
 ```
 
 ```

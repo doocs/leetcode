@@ -66,15 +66,11 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -82,12 +78,12 @@ Please notice that there can be multiple queries for the same pair of nodes [x, 
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

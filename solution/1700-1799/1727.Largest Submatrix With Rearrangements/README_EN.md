@@ -57,12 +57,9 @@ The largest submatrix of 1s, in bold, has an area of 3.
 
 ## Solutions
 
-
-
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -70,12 +67,12 @@ The largest submatrix of 1s, in bold, has an area of 3.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

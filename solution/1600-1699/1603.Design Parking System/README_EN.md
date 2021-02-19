@@ -40,15 +40,11 @@ parkingSystem.addCar(1); // return false because there is no available slot for 
 	<li>At most <code>1000</code> calls will be made to <code>addCar</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -56,12 +52,12 @@ parkingSystem.addCar(1); // return false because there is no available slot for 
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

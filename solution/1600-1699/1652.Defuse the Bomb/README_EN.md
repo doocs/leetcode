@@ -53,15 +53,11 @@
 	<li><code>-(n - 1) &lt;= k &lt;= n - 1</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -69,12 +65,12 @@
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

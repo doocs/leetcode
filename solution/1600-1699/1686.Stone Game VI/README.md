@@ -65,12 +65,9 @@ Bob 会获胜。
 	<li><code>1 <= aliceValues[i], bobValues[i] <= 100</code></li>
 </ul>
 
-
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
-
 
 <!-- tabs:start -->
 
@@ -91,6 +88,7 @@ Bob 会获胜。
 ```
 
 ### **...**
+
 ```
 
 ```

@@ -58,15 +58,11 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 	<li><code>grid[i][j]</code> is <code>1</code> or <code>-1</code>.</li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -74,12 +70,12 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

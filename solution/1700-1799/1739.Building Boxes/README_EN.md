@@ -53,15 +53,11 @@ These boxes are placed in the corner of the room, where the corner is on the bac
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -69,12 +65,12 @@ These boxes are placed in the corner of the room, where the corner is on the bac
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```

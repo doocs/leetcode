@@ -87,15 +87,11 @@ So the total number of trips is 2 + 2 + 2 + 2 + 3 + 3 = 14.
 	<li><code>1 &lt;= weights<sub>i</sub> &lt;= maxWeight</code></li>
 </ul>
 
-
 ## Solutions
-
-
 
 <!-- tabs:start -->
 
 ### **Python3**
-
 
 ```python
 
@@ -103,12 +99,12 @@ So the total number of trips is 2 + 2 + 2 + 2 + 3 + 3 = 14.
 
 ### **Java**
 
-
 ```java
 
 ```
 
 ### **...**
+
 ```
 
 ```
