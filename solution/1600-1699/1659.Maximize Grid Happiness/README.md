@@ -1,6 +1,6 @@
 # [1659. 最大化网格幸福感](https://leetcode-cn.com/problems/maximize-grid-happiness)
 
-[English Version](/solution/1500-1599/1659.Maximize%20Grid%20Happiness/README_EN.md)
+[English Version](/solution/1600-1699/1659.Maximize%20Grid%20Happiness/README_EN.md)
 
 ## 题目描述
 

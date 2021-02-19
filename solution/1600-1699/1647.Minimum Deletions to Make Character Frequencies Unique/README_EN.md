@@ -1,6 +1,6 @@
 # [1647. Minimum Deletions to Make Character Frequencies Unique](https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique)
 
-[中文文档](/solution/1500-1599/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README.md)
+[中文文档](/solution/1600-1699/1647.Minimum%20Deletions%20to%20Make%20Character%20Frequencies%20Unique/README.md)
 
 ## Description
 

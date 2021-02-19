@@ -1,6 +1,6 @@
 # [1614. 括号的最大嵌套深度](https://leetcode-cn.com/problems/maximum-nesting-depth-of-the-parentheses)
 
-[English Version](/solution/1500-1599/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README_EN.md)
+[English Version](/solution/1600-1699/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README_EN.md)
 
 ## 题目描述
 

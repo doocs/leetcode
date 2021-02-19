@@ -1,6 +1,6 @@
 # [1600. Throne Inheritance](https://leetcode.com/problems/throne-inheritance)
 
-[中文文档](/solution/1500-1599/1600.Throne%20Inheritance/README.md)
+[中文文档](/solution/1600-1699/1600.Throne%20Inheritance/README.md)
 
 ## Description
 

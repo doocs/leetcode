@@ -1,6 +1,6 @@
 # [1678. Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation)
 
-[中文文档](/solution/1500-1599/1678.Goal%20Parser%20Interpretation/README.md)
+[中文文档](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README.md)
 
 ## Description
 

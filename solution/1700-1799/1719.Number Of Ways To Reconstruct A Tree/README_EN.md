@@ -1,6 +1,6 @@
 # [1719. Number Of Ways To Reconstruct A Tree](https://leetcode.com/problems/number-of-ways-to-reconstruct-a-tree)
 
-[中文文档](/solution/1500-1599/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README.md)
+[中文文档](/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README.md)
 
 ## Description
 

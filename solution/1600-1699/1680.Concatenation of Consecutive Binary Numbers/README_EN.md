@@ -1,6 +1,6 @@
 # [1680. Concatenation of Consecutive Binary Numbers](https://leetcode.com/problems/concatenation-of-consecutive-binary-numbers)
 
-[中文文档](/solution/1500-1599/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README.md)
+[中文文档](/solution/1600-1699/1680.Concatenation%20of%20Consecutive%20Binary%20Numbers/README.md)
 
 ## Description
 

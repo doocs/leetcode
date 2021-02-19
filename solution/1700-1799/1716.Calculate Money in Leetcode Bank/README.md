@@ -1,6 +1,6 @@
 # [1716. 计算力扣银行的钱](https://leetcode-cn.com/problems/calculate-money-in-leetcode-bank)
 
-[English Version](/solution/1500-1599/1716.Calculate%20Money%20in%20Leetcode%20Bank/README_EN.md)
+[English Version](/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1734. 解码异或后的排列](https://leetcode-cn.com/problems/decode-xored-permutation)
 
-[English Version](/solution/1500-1599/1734.Decode%20XORed%20Permutation/README_EN.md)
+[English Version](/solution/1700-1799/1734.Decode%20XORed%20Permutation/README_EN.md)
 
 ## 题目描述
 

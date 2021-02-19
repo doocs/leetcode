@@ -1,6 +1,6 @@
 # [1749. 任意子数组和的绝对值的最大值](https://leetcode-cn.com/problems/maximum-absolute-sum-of-any-subarray)
 
-[English Version](/solution/1500-1599/1749.Maximum%20Absolute%20Sum%20of%20Any%20Subarray/README_EN.md)
+[English Version](/solution/1700-1799/1749.Maximum%20Absolute%20Sum%20of%20Any%20Subarray/README_EN.md)
 
 ## 题目描述
 

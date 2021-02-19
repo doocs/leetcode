@@ -1,6 +1,6 @@
 # [1653. Minimum Deletions to Make String Balanced](https://leetcode.com/problems/minimum-deletions-to-make-string-balanced)
 
-[中文文档](/solution/1500-1599/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md)
+[中文文档](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md)
 
 ## Description
 

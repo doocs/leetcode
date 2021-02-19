@@ -1,6 +1,6 @@
 # [1622. 奇妙序列](https://leetcode-cn.com/problems/fancy-sequence)
 
-[English Version](/solution/1500-1599/1622.Fancy%20Sequence/README_EN.md)
+[English Version](/solution/1600-1699/1622.Fancy%20Sequence/README_EN.md)
 
 ## 题目描述
 

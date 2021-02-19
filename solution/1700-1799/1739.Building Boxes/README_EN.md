@@ -1,6 +1,6 @@
 # [1739. Building Boxes](https://leetcode.com/problems/building-boxes)
 
-[中文文档](/solution/1500-1599/1739.Building%20Boxes/README.md)
+[中文文档](/solution/1700-1799/1739.Building%20Boxes/README.md)
 
 ## Description
 

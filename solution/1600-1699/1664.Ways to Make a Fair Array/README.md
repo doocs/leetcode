@@ -1,6 +1,6 @@
 # [1664. 生成平衡数组的方案数](https://leetcode-cn.com/problems/ways-to-make-a-fair-array)
 
-[English Version](/solution/1500-1599/1664.Ways%20to%20Make%20a%20Fair%20Array/README_EN.md)
+[English Version](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README_EN.md)
 
 ## 题目描述
 

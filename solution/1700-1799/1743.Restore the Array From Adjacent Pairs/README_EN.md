@@ -1,6 +1,6 @@
 # [1743. Restore the Array From Adjacent Pairs](https://leetcode.com/problems/restore-the-array-from-adjacent-pairs)
 
-[中文文档](/solution/1500-1599/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md)
+[中文文档](/solution/1700-1799/1743.Restore%20the%20Array%20From%20Adjacent%20Pairs/README.md)
 
 ## Description
 

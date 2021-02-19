@@ -1,6 +1,6 @@
 # [1638. Count Substrings That Differ by One Character](https://leetcode.com/problems/count-substrings-that-differ-by-one-character)
 
-[中文文档](/solution/1500-1599/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README.md)
+[中文文档](/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README.md)
 
 ## Description
 

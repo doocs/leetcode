@@ -1,6 +1,6 @@
 # [1664. Ways to Make a Fair Array](https://leetcode.com/problems/ways-to-make-a-fair-array)
 
-[中文文档](/solution/1500-1599/1664.Ways%20to%20Make%20a%20Fair%20Array/README.md)
+[中文文档](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README.md)
 
 ## Description
 

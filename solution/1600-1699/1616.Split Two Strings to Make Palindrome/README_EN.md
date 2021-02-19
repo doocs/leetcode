@@ -1,6 +1,6 @@
 # [1616. Split Two Strings to Make Palindrome](https://leetcode.com/problems/split-two-strings-to-make-palindrome)
 
-[中文文档](/solution/1500-1599/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README.md)
+[中文文档](/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README.md)
 
 ## Description
 

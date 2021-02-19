@@ -1,6 +1,6 @@
 # [1723. Find Minimum Time to Finish All Jobs](https://leetcode.com/problems/find-minimum-time-to-finish-all-jobs)
 
-[中文文档](/solution/1500-1599/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README.md)
+[中文文档](/solution/1700-1799/1723.Find%20Minimum%20Time%20to%20Finish%20All%20Jobs/README.md)
 
 ## Description
 

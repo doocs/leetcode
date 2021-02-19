@@ -1,6 +1,6 @@
 # [1734. Decode XORed Permutation](https://leetcode.com/problems/decode-xored-permutation)
 
-[中文文档](/solution/1500-1599/1734.Decode%20XORed%20Permutation/README.md)
+[中文文档](/solution/1700-1799/1734.Decode%20XORed%20Permutation/README.md)
 
 ## Description
 

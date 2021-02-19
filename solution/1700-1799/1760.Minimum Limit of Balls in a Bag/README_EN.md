@@ -1,6 +1,6 @@
 # [1760. Minimum Limit of Balls in a Bag](https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag)
 
-[中文文档](/solution/1500-1599/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README.md)
+[中文文档](/solution/1700-1799/1760.Minimum%20Limit%20of%20Balls%20in%20a%20Bag/README.md)
 
 ## Description
 

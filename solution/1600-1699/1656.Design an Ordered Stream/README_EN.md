@@ -1,6 +1,6 @@
 # [1656. Design an Ordered Stream](https://leetcode.com/problems/design-an-ordered-stream)
 
-[中文文档](/solution/1500-1599/1656.Design%20an%20Ordered%20Stream/README.md)
+[中文文档](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README.md)
 
 ## Description
 

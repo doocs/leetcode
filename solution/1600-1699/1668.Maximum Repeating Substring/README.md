@@ -1,6 +1,6 @@
 # [1668. 最大重复子字符串](https://leetcode-cn.com/problems/maximum-repeating-substring)
 
-[English Version](/solution/1500-1599/1668.Maximum%20Repeating%20Substring/README_EN.md)
+[English Version](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README_EN.md)
 
 ## 题目描述
 

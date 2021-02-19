@@ -1,6 +1,6 @@
 # [1704. 判断字符串的两半是否相似](https://leetcode-cn.com/problems/determine-if-string-halves-are-alike)
 
-[English Version](/solution/1500-1599/1704.Determine%20if%20String%20Halves%20Are%20Alike/README_EN.md)
+[English Version](/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1720. 解码异或后的数组](https://leetcode-cn.com/problems/decode-xored-array)
 
-[English Version](/solution/1500-1599/1720.Decode%20XORed%20Array/README_EN.md)
+[English Version](/solution/1700-1799/1720.Decode%20XORed%20Array/README_EN.md)
 
 ## 题目描述
 

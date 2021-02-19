@@ -1,6 +1,6 @@
 # [1755. 最接近目标值的子序列和](https://leetcode-cn.com/problems/closest-subsequence-sum)
 
-[English Version](/solution/1500-1599/1755.Closest%20Subsequence%20Sum/README_EN.md)
+[English Version](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README_EN.md)
 
 ## 题目描述
 

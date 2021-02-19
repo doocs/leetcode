@@ -1,6 +1,6 @@
 # [1727. Largest Submatrix With Rearrangements](https://leetcode.com/problems/largest-submatrix-with-rearrangements)
 
-[中文文档](/solution/1500-1599/1727.Largest%20Submatrix%20With%20Rearrangements/README.md)
+[中文文档](/solution/1700-1799/1727.Largest%20Submatrix%20With%20Rearrangements/README.md)
 
 ## Description
 

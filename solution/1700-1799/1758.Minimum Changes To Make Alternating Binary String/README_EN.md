@@ -1,6 +1,6 @@
 # [1758. Minimum Changes To Make Alternating Binary String](https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string)
 
-[中文文档](/solution/1500-1599/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README.md)
+[中文文档](/solution/1700-1799/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README.md)
 
 ## Description
 

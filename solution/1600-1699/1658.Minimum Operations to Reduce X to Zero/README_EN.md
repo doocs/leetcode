@@ -1,6 +1,6 @@
 # [1658. Minimum Operations to Reduce X to Zero](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero)
 
-[中文文档](/solution/1500-1599/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README.md)
+[中文文档](/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README.md)
 
 ## Description
 

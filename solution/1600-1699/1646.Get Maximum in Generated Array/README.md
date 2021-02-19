@@ -1,6 +1,6 @@
 # [1646. 获取生成数组中的最大值](https://leetcode-cn.com/problems/get-maximum-in-generated-array)
 
-[English Version](/solution/1500-1599/1646.Get%20Maximum%20in%20Generated%20Array/README_EN.md)
+[English Version](/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1752. Check if Array Is Sorted and Rotated](https://leetcode.com/problems/check-if-array-is-sorted-and-rotated)
 
-[中文文档](/solution/1500-1599/1752.Check%20if%20Array%20Is%20Sorted%20and%20Rotated/README.md)
+[中文文档](/solution/1700-1799/1752.Check%20if%20Array%20Is%20Sorted%20and%20Rotated/README.md)
 
 ## Description
 

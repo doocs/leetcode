@@ -1,6 +1,6 @@
 # [1643. Kth Smallest Instructions](https://leetcode.com/problems/kth-smallest-instructions)
 
-[中文文档](/solution/1500-1599/1643.Kth%20Smallest%20Instructions/README.md)
+[中文文档](/solution/1600-1699/1643.Kth%20Smallest%20Instructions/README.md)
 
 ## Description
 

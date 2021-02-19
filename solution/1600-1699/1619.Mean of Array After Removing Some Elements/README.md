@@ -1,6 +1,6 @@
 # [1619. 删除某些元素后的数组均值](https://leetcode-cn.com/problems/mean-of-array-after-removing-some-elements)
 
-[English Version](/solution/1500-1599/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README_EN.md)
+[English Version](/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1641. 统计字典序元音字符串的数目](https://leetcode-cn.com/problems/count-sorted-vowel-strings)
 
-[English Version](/solution/1500-1599/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md)
+[English Version](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README_EN.md)
 
 ## 题目描述
 

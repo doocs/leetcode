@@ -1,6 +1,6 @@
 # [1696. 跳跃游戏 VI](https://leetcode-cn.com/problems/jump-game-vi)
 
-[English Version](/solution/1500-1599/1696.Jump%20Game%20VI/README_EN.md)
+[English Version](/solution/1600-1699/1696.Jump%20Game%20VI/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1629. Slowest Key](https://leetcode.com/problems/slowest-key)
 
-[中文文档](/solution/1500-1599/1629.Slowest%20Key/README.md)
+[中文文档](/solution/1600-1699/1629.Slowest%20Key/README.md)
 
 ## Description
 

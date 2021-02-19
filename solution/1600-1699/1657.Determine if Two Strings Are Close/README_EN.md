@@ -1,6 +1,6 @@
 # [1657. Determine if Two Strings Are Close](https://leetcode.com/problems/determine-if-two-strings-are-close)
 
-[中文文档](/solution/1500-1599/1657.Determine%20if%20Two%20Strings%20Are%20Close/README.md)
+[中文文档](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README.md)
 
 ## Description
 

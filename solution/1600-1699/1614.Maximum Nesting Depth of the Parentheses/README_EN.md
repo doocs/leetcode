@@ -1,6 +1,6 @@
 # [1614. Maximum Nesting Depth of the Parentheses](https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses)
 
-[中文文档](/solution/1500-1599/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README.md)
+[中文文档](/solution/1600-1699/1614.Maximum%20Nesting%20Depth%20of%20the%20Parentheses/README.md)
 
 ## Description
 

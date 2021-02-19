@@ -1,6 +1,6 @@
 # [1717. Maximum Score From Removing Substrings](https://leetcode.com/problems/maximum-score-from-removing-substrings)
 
-[中文文档](/solution/1500-1599/1717.Maximum%20Score%20From%20Removing%20Substrings/README.md)
+[中文文档](/solution/1700-1799/1717.Maximum%20Score%20From%20Removing%20Substrings/README.md)
 
 ## Description
 

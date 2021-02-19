@@ -1,6 +1,6 @@
 # [1718. 构建字典序最大的可行序列](https://leetcode-cn.com/problems/construct-the-lexicographically-largest-valid-sequence)
 
-[English Version](/solution/1500-1599/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README_EN.md)
+[English Version](/solution/1700-1799/1718.Construct%20the%20Lexicographically%20Largest%20Valid%20Sequence/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1681. Minimum Incompatibility](https://leetcode.com/problems/minimum-incompatibility)
 
-[中文文档](/solution/1500-1599/1681.Minimum%20Incompatibility/README.md)
+[中文文档](/solution/1600-1699/1681.Minimum%20Incompatibility/README.md)
 
 ## Description
 

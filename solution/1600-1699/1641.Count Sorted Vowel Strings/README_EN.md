@@ -1,6 +1,6 @@
 # [1641. Count Sorted Vowel Strings](https://leetcode.com/problems/count-sorted-vowel-strings)
 
-[中文文档](/solution/1500-1599/1641.Count%20Sorted%20Vowel%20Strings/README.md)
+[中文文档](/solution/1600-1699/1641.Count%20Sorted%20Vowel%20Strings/README.md)
 
 ## Description
 

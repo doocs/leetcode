@@ -1,6 +1,6 @@
 # [1669. 合并两个链表](https://leetcode-cn.com/problems/merge-in-between-linked-lists)
 
-[English Version](/solution/1500-1599/1669.Merge%20In%20Between%20Linked%20Lists/README_EN.md)
+[English Version](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README_EN.md)
 
 ## 题目描述
 

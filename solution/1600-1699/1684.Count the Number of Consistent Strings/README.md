@@ -1,6 +1,6 @@
 # [1684. 统计一致字符串的数目](https://leetcode-cn.com/problems/count-the-number-of-consistent-strings)
 
-[English Version](/solution/1500-1599/1684.Count%20the%20Number%20of%20Consistent%20Strings/README_EN.md)
+[English Version](/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README_EN.md)
 
 ## 题目描述
 

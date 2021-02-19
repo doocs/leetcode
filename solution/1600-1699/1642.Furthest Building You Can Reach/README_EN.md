@@ -1,6 +1,6 @@
 # [1642. Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach)
 
-[中文文档](/solution/1500-1599/1642.Furthest%20Building%20You%20Can%20Reach/README.md)
+[中文文档](/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/README.md)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # [1603. Design Parking System](https://leetcode.com/problems/design-parking-system)
 
-[中文文档](/solution/1500-1599/1603.Design%20Parking%20System/README.md)
+[中文文档](/solution/1600-1699/1603.Design%20Parking%20System/README.md)
 
 ## Description
 

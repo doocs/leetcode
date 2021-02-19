@@ -1,6 +1,6 @@
 # [1652. 拆炸弹](https://leetcode-cn.com/problems/defuse-the-bomb)
 
-[English Version](/solution/1500-1599/1652.Defuse%20the%20Bomb/README_EN.md)
+[English Version](/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md)
 
 ## 题目描述
 

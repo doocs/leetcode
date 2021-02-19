@@ -1,6 +1,6 @@
 # [1716. Calculate Money in Leetcode Bank](https://leetcode.com/problems/calculate-money-in-leetcode-bank)
 
-[中文文档](/solution/1500-1599/1716.Calculate%20Money%20in%20Leetcode%20Bank/README.md)
+[中文文档](/solution/1700-1799/1716.Calculate%20Money%20in%20Leetcode%20Bank/README.md)
 
 ## Description
 

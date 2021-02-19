@@ -1,6 +1,6 @@
 # [1600. 皇位继承顺序](https://leetcode-cn.com/problems/throne-inheritance)
 
-[English Version](/solution/1500-1599/1600.Throne%20Inheritance/README_EN.md)
+[English Version](/solution/1600-1699/1600.Throne%20Inheritance/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1753. Maximum Score From Removing Stones](https://leetcode.com/problems/maximum-score-from-removing-stones)
 
-[中文文档](/solution/1500-1599/1753.Maximum%20Score%20From%20Removing%20Stones/README.md)
+[中文文档](/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README.md)
 
 ## Description
 

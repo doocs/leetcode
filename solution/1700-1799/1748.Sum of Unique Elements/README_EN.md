@@ -1,6 +1,6 @@
 # [1748. Sum of Unique Elements](https://leetcode.com/problems/sum-of-unique-elements)
 
-[中文文档](/solution/1500-1599/1748.Sum%20of%20Unique%20Elements/README.md)
+[中文文档](/solution/1700-1799/1748.Sum%20of%20Unique%20Elements/README.md)
 
 ## Description
 

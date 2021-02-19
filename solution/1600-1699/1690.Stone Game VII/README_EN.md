@@ -1,6 +1,6 @@
 # [1690. Stone Game VII](https://leetcode.com/problems/stone-game-vii)
 
-[中文文档](/solution/1500-1599/1690.Stone%20Game%20VII/README.md)
+[中文文档](/solution/1600-1699/1690.Stone%20Game%20VII/README.md)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # [1672. Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth)
 
-[中文文档](/solution/1500-1599/1672.Richest%20Customer%20Wealth/README.md)
+[中文文档](/solution/1600-1699/1672.Richest%20Customer%20Wealth/README.md)
 
 ## Description
 

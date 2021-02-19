@@ -1,6 +1,6 @@
 # [1669. Merge In Between Linked Lists](https://leetcode.com/problems/merge-in-between-linked-lists)
 
-[中文文档](/solution/1500-1599/1669.Merge%20In%20Between%20Linked%20Lists/README.md)
+[中文文档](/solution/1600-1699/1669.Merge%20In%20Between%20Linked%20Lists/README.md)
 
 ## Description
 

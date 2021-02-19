@@ -1,6 +1,6 @@
 # [1732. Find the Highest Altitude](https://leetcode.com/problems/find-the-highest-altitude)
 
-[中文文档](/solution/1500-1599/1732.Find%20the%20Highest%20Altitude/README.md)
+[中文文档](/solution/1700-1799/1732.Find%20the%20Highest%20Altitude/README.md)
 
 ## Description
 

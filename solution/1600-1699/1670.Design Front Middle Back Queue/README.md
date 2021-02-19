@@ -1,6 +1,6 @@
 # [1670. 设计前中后队列](https://leetcode-cn.com/problems/design-front-middle-back-queue)
 
-[English Version](/solution/1500-1599/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md)
+[English Version](/solution/1600-1699/1670.Design%20Front%20Middle%20Back%20Queue/README_EN.md)
 
 ## 题目描述
 

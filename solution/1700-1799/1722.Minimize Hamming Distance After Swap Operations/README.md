@@ -1,6 +1,6 @@
 # [1722. 执行交换操作后的最小汉明距离](https://leetcode-cn.com/problems/minimize-hamming-distance-after-swap-operations)
 
-[English Version](/solution/1500-1599/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md)
+[English Version](/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README_EN.md)
 
 ## 题目描述
 

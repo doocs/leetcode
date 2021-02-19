@@ -1,6 +1,6 @@
 # [1735. 生成乘积数组的方案数](https://leetcode-cn.com/problems/count-ways-to-make-array-with-product)
 
-[English Version](/solution/1500-1599/1735.Count%20Ways%20to%20Make%20Array%20With%20Product/README_EN.md)
+[English Version](/solution/1700-1799/1735.Count%20Ways%20to%20Make%20Array%20With%20Product/README_EN.md)
 
 ## 题目描述
 

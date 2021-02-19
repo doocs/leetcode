@@ -1,6 +1,6 @@
 # [1624. 两个相同字符之间的最长子字符串](https://leetcode-cn.com/problems/largest-substring-between-two-equal-characters)
 
-[English Version](/solution/1500-1599/1624.Largest%20Substring%20Between%20Two%20Equal%20Characters/README_EN.md)
+[English Version](/solution/1600-1699/1624.Largest%20Substring%20Between%20Two%20Equal%20Characters/README_EN.md)
 
 ## 题目描述
 

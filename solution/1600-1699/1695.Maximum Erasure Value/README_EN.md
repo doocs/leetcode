@@ -1,6 +1,6 @@
 # [1695. Maximum Erasure Value](https://leetcode.com/problems/maximum-erasure-value)
 
-[中文文档](/solution/1500-1599/1695.Maximum%20Erasure%20Value/README.md)
+[中文文档](/solution/1600-1699/1695.Maximum%20Erasure%20Value/README.md)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # [1712. Ways to Split Array Into Three Subarrays](https://leetcode.com/problems/ways-to-split-array-into-three-subarrays)
 
-[中文文档](/solution/1500-1599/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README.md)
+[中文文档](/solution/1700-1799/1712.Ways%20to%20Split%20Array%20Into%20Three%20Subarrays/README.md)
 
 ## Description
 

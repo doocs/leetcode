@@ -1,6 +1,6 @@
 # [1675. 数组的最小偏移量](https://leetcode-cn.com/problems/minimize-deviation-in-array)
 
-[English Version](/solution/1500-1599/1675.Minimize%20Deviation%20in%20Array/README_EN.md)
+[English Version](/solution/1600-1699/1675.Minimize%20Deviation%20in%20Array/README_EN.md)
 
 ## 题目描述
 

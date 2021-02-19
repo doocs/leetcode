@@ -1,6 +1,6 @@
 # [1662. 检查两个字符串数组是否相等](https://leetcode-cn.com/problems/check-if-two-string-arrays-are-equivalent)
 
-[English Version](/solution/1500-1599/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README_EN.md)
+[English Version](/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README_EN.md)
 
 ## 题目描述
 

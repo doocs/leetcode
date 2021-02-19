@@ -1,6 +1,6 @@
 # [1759. Count Number of Homogenous Substrings](https://leetcode.com/problems/count-number-of-homogenous-substrings)
 
-[中文文档](/solution/1500-1599/1759.Count%20Number%20of%20Homogenous%20Substrings/README.md)
+[中文文档](/solution/1700-1799/1759.Count%20Number%20of%20Homogenous%20Substrings/README.md)
 
 ## Description
 

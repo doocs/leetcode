@@ -1,6 +1,6 @@
 # [1630. 等差子数组](https://leetcode-cn.com/problems/arithmetic-subarrays)
 
-[English Version](/solution/1500-1599/1630.Arithmetic%20Subarrays/README_EN.md)
+[English Version](/solution/1600-1699/1630.Arithmetic%20Subarrays/README_EN.md)
 
 ## 题目描述
 

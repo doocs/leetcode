@@ -1,6 +1,6 @@
 # [1678. 设计 Goal 解析器](https://leetcode-cn.com/problems/goal-parser-interpretation)
 
-[English Version](/solution/1500-1599/1678.Goal%20Parser%20Interpretation/README_EN.md)
+[English Version](/solution/1600-1699/1678.Goal%20Parser%20Interpretation/README_EN.md)
 
 ## 题目描述
 

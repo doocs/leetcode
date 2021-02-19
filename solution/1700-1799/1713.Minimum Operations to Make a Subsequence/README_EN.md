@@ -1,6 +1,6 @@
 # [1713. Minimum Operations to Make a Subsequence](https://leetcode.com/problems/minimum-operations-to-make-a-subsequence)
 
-[中文文档](/solution/1500-1599/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README.md)
+[中文文档](/solution/1700-1799/1713.Minimum%20Operations%20to%20Make%20a%20Subsequence/README.md)
 
 ## Description
 

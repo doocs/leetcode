@@ -1,6 +1,6 @@
 # [1625. 执行操作后字典序最小的字符串](https://leetcode-cn.com/problems/lexicographically-smallest-string-after-applying-operations)
 
-[English Version](/solution/1500-1599/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md)
+[English Version](/solution/1600-1699/1625.Lexicographically%20Smallest%20String%20After%20Applying%20Operations/README_EN.md)
 
 ## 题目描述
 

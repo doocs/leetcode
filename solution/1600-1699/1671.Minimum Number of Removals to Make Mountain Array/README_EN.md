@@ -1,6 +1,6 @@
 # [1671. Minimum Number of Removals to Make Mountain Array](https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array)
 
-[中文文档](/solution/1500-1599/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README.md)
+[中文文档](/solution/1600-1699/1671.Minimum%20Number%20of%20Removals%20to%20Make%20Mountain%20Array/README.md)
 
 ## Description
 

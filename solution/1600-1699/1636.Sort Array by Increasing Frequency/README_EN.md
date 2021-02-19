@@ -1,6 +1,6 @@
 # [1636. Sort Array by Increasing Frequency](https://leetcode.com/problems/sort-array-by-increasing-frequency)
 
-[中文文档](/solution/1500-1599/1636.Sort%20Array%20by%20Increasing%20Frequency/README.md)
+[中文文档](/solution/1600-1699/1636.Sort%20Array%20by%20Increasing%20Frequency/README.md)
 
 ## Description
 

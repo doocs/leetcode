@@ -1,6 +1,6 @@
 # [1701. Average Waiting Time](https://leetcode.com/problems/average-waiting-time)
 
-[中文文档](/solution/1500-1599/1701.Average%20Waiting%20Time/README.md)
+[中文文档](/solution/1700-1799/1701.Average%20Waiting%20Time/README.md)
 
 ## Description
 

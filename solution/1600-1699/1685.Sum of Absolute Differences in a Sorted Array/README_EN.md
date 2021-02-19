@@ -1,6 +1,6 @@
 # [1685. Sum of Absolute Differences in a Sorted Array](https://leetcode.com/problems/sum-of-absolute-differences-in-a-sorted-array)
 
-[中文文档](/solution/1500-1599/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README.md)
+[中文文档](/solution/1600-1699/1685.Sum%20of%20Absolute%20Differences%20in%20a%20Sorted%20Array/README.md)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # [1707. 与数组中元素的最大异或值](https://leetcode-cn.com/problems/maximum-xor-with-an-element-from-array)
 
-[English Version](/solution/1500-1599/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README_EN.md)
+[English Version](/solution/1700-1799/1707.Maximum%20XOR%20With%20an%20Element%20From%20Array/README_EN.md)
 
 ## 题目描述
 

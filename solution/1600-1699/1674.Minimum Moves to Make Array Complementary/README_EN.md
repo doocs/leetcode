@@ -1,6 +1,6 @@
 # [1674. Minimum Moves to Make Array Complementary](https://leetcode.com/problems/minimum-moves-to-make-array-complementary)
 
-[中文文档](/solution/1500-1599/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md)
+[中文文档](/solution/1600-1699/1674.Minimum%20Moves%20to%20Make%20Array%20Complementary/README.md)
 
 ## Description
 

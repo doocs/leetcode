@@ -1,6 +1,6 @@
 # [1605. Find Valid Matrix Given Row and Column Sums](https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums)
 
-[中文文档](/solution/1500-1599/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README.md)
+[中文文档](/solution/1600-1699/1605.Find%20Valid%20Matrix%20Given%20Row%20and%20Column%20Sums/README.md)
 
 ## Description
 

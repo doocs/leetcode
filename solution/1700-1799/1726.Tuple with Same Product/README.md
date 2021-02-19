@@ -1,6 +1,6 @@
 # [1726. 同积元组](https://leetcode-cn.com/problems/tuple-with-same-product)
 
-[English Version](/solution/1500-1599/1726.Tuple%20with%20Same%20Product/README_EN.md)
+[English Version](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README_EN.md)
 
 ## 题目描述
 

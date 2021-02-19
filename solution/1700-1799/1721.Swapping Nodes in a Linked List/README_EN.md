@@ -1,6 +1,6 @@
 # [1721. Swapping Nodes in a Linked List](https://leetcode.com/problems/swapping-nodes-in-a-linked-list)
 
-[中文文档](/solution/1500-1599/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README.md)
+[中文文档](/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README.md)
 
 ## Description
 

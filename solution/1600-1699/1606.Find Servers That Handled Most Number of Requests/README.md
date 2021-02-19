@@ -1,6 +1,6 @@
 # [1606. 找到处理最多请求的服务器](https://leetcode-cn.com/problems/find-servers-that-handled-most-number-of-requests)
 
-[English Version](/solution/1500-1599/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README_EN.md)
+[English Version](/solution/1600-1699/1606.Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests/README_EN.md)
 
 ## 题目描述
 

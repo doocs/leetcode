@@ -1,6 +1,6 @@
 # [1630. Arithmetic Subarrays](https://leetcode.com/problems/arithmetic-subarrays)
 
-[中文文档](/solution/1500-1599/1630.Arithmetic%20Subarrays/README.md)
+[中文文档](/solution/1600-1699/1630.Arithmetic%20Subarrays/README.md)
 
 ## Description
 

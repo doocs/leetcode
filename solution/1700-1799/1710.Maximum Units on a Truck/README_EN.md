@@ -1,6 +1,6 @@
 # [1710. Maximum Units on a Truck](https://leetcode.com/problems/maximum-units-on-a-truck)
 
-[中文文档](/solution/1500-1599/1710.Maximum%20Units%20on%20a%20Truck/README.md)
+[中文文档](/solution/1700-1799/1710.Maximum%20Units%20on%20a%20Truck/README.md)
 
 ## Description
 

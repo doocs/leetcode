@@ -1,6 +1,6 @@
 # [1684. Count the Number of Consistent Strings](https://leetcode.com/problems/count-the-number-of-consistent-strings)
 
-[中文文档](/solution/1500-1599/1684.Count%20the%20Number%20of%20Consistent%20Strings/README.md)
+[中文文档](/solution/1600-1699/1684.Count%20the%20Number%20of%20Consistent%20Strings/README.md)
 
 ## Description
 

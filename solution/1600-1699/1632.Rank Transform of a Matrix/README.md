@@ -1,6 +1,6 @@
 # [1632. 矩阵转换后的秩](https://leetcode-cn.com/problems/rank-transform-of-a-matrix)
 
-[English Version](/solution/1500-1599/1632.Rank%20Transform%20of%20a%20Matrix/README_EN.md)
+[English Version](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README_EN.md)
 
 ## 题目描述
 

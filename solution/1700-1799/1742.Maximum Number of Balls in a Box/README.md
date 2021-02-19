@@ -1,6 +1,6 @@
 # [1742. 盒子中小球的最大数量](https://leetcode-cn.com/problems/maximum-number-of-balls-in-a-box)
 
-[English Version](/solution/1500-1599/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README_EN.md)
+[English Version](/solution/1700-1799/1742.Maximum%20Number%20of%20Balls%20in%20a%20Box/README_EN.md)
 
 ## 题目描述
 

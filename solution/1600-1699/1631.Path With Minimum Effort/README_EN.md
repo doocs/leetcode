@@ -1,6 +1,6 @@
 # [1631. Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort)
 
-[中文文档](/solution/1500-1599/1631.Path%20With%20Minimum%20Effort/README.md)
+[中文文档](/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README.md)
 
 ## Description
 

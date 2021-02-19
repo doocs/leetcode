@@ -1,6 +1,6 @@
 # [1652. Defuse the Bomb](https://leetcode.com/problems/defuse-the-bomb)
 
-[中文文档](/solution/1500-1599/1652.Defuse%20the%20Bomb/README.md)
+[中文文档](/solution/1600-1699/1652.Defuse%20the%20Bomb/README.md)
 
 ## Description
 

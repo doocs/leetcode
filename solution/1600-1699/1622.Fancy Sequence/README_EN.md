@@ -1,6 +1,6 @@
 # [1622. Fancy Sequence](https://leetcode.com/problems/fancy-sequence)
 
-[中文文档](/solution/1500-1599/1622.Fancy%20Sequence/README.md)
+[中文文档](/solution/1600-1699/1622.Fancy%20Sequence/README.md)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # [1629. 按键持续时间最长的键](https://leetcode-cn.com/problems/slowest-key)
 
-[English Version](/solution/1500-1599/1629.Slowest%20Key/README_EN.md)
+[English Version](/solution/1600-1699/1629.Slowest%20Key/README_EN.md)
 
 ## 题目描述
 

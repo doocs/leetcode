@@ -1,6 +1,6 @@
 # [1611. Minimum One Bit Operations to Make Integers Zero](https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero)
 
-[中文文档](/solution/1500-1599/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README.md)
+[中文文档](/solution/1600-1699/1611.Minimum%20One%20Bit%20Operations%20to%20Make%20Integers%20Zero/README.md)
 
 ## Description
 

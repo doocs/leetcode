@@ -1,6 +1,6 @@
 # [1755. Closest Subsequence Sum](https://leetcode.com/problems/closest-subsequence-sum)
 
-[中文文档](/solution/1500-1599/1755.Closest%20Subsequence%20Sum/README.md)
+[中文文档](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)
 
 ## Description
 

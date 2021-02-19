@@ -1,6 +1,6 @@
 # [1728. Cat and Mouse II](https://leetcode.com/problems/cat-and-mouse-ii)
 
-[中文文档](/solution/1500-1599/1728.Cat%20and%20Mouse%20II/README.md)
+[中文文档](/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README.md)
 
 ## Description
 

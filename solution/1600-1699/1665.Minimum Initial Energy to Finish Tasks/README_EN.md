@@ -1,6 +1,6 @@
 # [1665. Minimum Initial Energy to Finish Tasks](https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks)
 
-[中文文档](/solution/1500-1599/1665.Minimum%20Initial%20Energy%20to%20Finish%20Tasks/README.md)
+[中文文档](/solution/1600-1699/1665.Minimum%20Initial%20Energy%20to%20Finish%20Tasks/README.md)
 
 ## Description
 

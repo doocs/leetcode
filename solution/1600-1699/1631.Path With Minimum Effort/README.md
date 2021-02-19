@@ -1,6 +1,6 @@
 # [1631. 最小体力消耗路径](https://leetcode-cn.com/problems/path-with-minimum-effort)
 
-[English Version](/solution/1500-1599/1631.Path%20With%20Minimum%20Effort/README_EN.md)
+[English Version](/solution/1600-1699/1631.Path%20With%20Minimum%20Effort/README_EN.md)
 
 ## 题目描述
 

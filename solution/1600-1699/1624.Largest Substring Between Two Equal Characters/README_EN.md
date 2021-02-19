@@ -1,6 +1,6 @@
 # [1624. Largest Substring Between Two Equal Characters](https://leetcode.com/problems/largest-substring-between-two-equal-characters)
 
-[中文文档](/solution/1500-1599/1624.Largest%20Substring%20Between%20Two%20Equal%20Characters/README.md)
+[中文文档](/solution/1600-1699/1624.Largest%20Substring%20Between%20Two%20Equal%20Characters/README.md)
 
 ## Description
 

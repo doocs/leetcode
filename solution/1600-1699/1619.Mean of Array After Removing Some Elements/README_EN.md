@@ -1,6 +1,6 @@
 # [1619. Mean of Array After Removing Some Elements](https://leetcode.com/problems/mean-of-array-after-removing-some-elements)
 
-[中文文档](/solution/1500-1599/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README.md)
+[中文文档](/solution/1600-1699/1619.Mean%20of%20Array%20After%20Removing%20Some%20Elements/README.md)
 
 ## Description
 

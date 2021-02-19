@@ -1,6 +1,6 @@
 # [1617. Count Subtrees With Max Distance Between Cities](https://leetcode.com/problems/count-subtrees-with-max-distance-between-cities)
 
-[中文文档](/solution/1500-1599/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/README.md)
+[中文文档](/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/README.md)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # [1733. Minimum Number of People to Teach](https://leetcode.com/problems/minimum-number-of-people-to-teach)
 
-[中文文档](/solution/1500-1599/1733.Minimum%20Number%20of%20People%20to%20Teach/README.md)
+[中文文档](/solution/1700-1799/1733.Minimum%20Number%20of%20People%20to%20Teach/README.md)
 
 ## Description
 

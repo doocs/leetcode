@@ -1,6 +1,6 @@
 # [1653. 使字符串平衡的最少删除次数](https://leetcode-cn.com/problems/minimum-deletions-to-make-string-balanced)
 
-[English Version](/solution/1500-1599/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README_EN.md)
+[English Version](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README_EN.md)
 
 ## 题目描述
 

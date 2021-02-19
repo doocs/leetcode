@@ -1,6 +1,6 @@
 # [1663. 具有给定数值的最小字符串](https://leetcode-cn.com/problems/smallest-string-with-a-given-numeric-value)
 
-[English Version](/solution/1500-1599/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README_EN.md)
+[English Version](/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README_EN.md)
 
 ## 题目描述
 

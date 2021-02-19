@@ -1,6 +1,6 @@
 # [1691. 堆叠长方体的最大高度](https://leetcode-cn.com/problems/maximum-height-by-stacking-cuboids)
 
-[English Version](/solution/1500-1599/1691.Maximum%20Height%20by%20Stacking%20Cuboids%20/README_EN.md)
+[English Version](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1654. 到家的最少跳跃次数](https://leetcode-cn.com/problems/minimum-jumps-to-reach-home)
 
-[English Version](/solution/1500-1599/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md)
+[English Version](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md)
 
 ## 题目描述
 

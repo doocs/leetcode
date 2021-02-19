@@ -1,6 +1,6 @@
 # [1610. 可见点的最大数目](https://leetcode-cn.com/problems/maximum-number-of-visible-points)
 
-[English Version](/solution/1500-1599/1610.Maximum%20Number%20of%20Visible%20Points/README_EN.md)
+[English Version](/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1636. 按照频率将数组升序排序](https://leetcode-cn.com/problems/sort-array-by-increasing-frequency)
 
-[English Version](/solution/1500-1599/1636.Sort%20Array%20by%20Increasing%20Frequency/README_EN.md)
+[English Version](/solution/1600-1699/1636.Sort%20Array%20by%20Increasing%20Frequency/README_EN.md)
 
 ## 题目描述
 

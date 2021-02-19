@@ -1,6 +1,6 @@
 # [1687. Delivering Boxes from Storage to Ports](https://leetcode.com/problems/delivering-boxes-from-storage-to-ports)
 
-[中文文档](/solution/1500-1599/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README.md)
+[中文文档](/solution/1600-1699/1687.Delivering%20Boxes%20from%20Storage%20to%20Ports/README.md)
 
 ## Description
 

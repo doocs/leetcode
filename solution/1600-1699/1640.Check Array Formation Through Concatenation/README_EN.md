@@ -1,6 +1,6 @@
 # [1640. Check Array Formation Through Concatenation](https://leetcode.com/problems/check-array-formation-through-concatenation)
 
-[中文文档](/solution/1500-1599/1640.Check%20Array%20Formation%20Through%20Concatenation/README.md)
+[中文文档](/solution/1600-1699/1640.Check%20Array%20Formation%20Through%20Concatenation/README.md)
 
 ## Description
 

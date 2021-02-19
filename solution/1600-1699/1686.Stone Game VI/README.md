@@ -1,6 +1,6 @@
 # [1686. 石子游戏 VI](https://leetcode-cn.com/problems/stone-game-vi)
 
-[English Version](/solution/1500-1599/1686.Stone%20Game%20VI/README_EN.md)
+[English Version](/solution/1600-1699/1686.Stone%20Game%20VI/README_EN.md)
 
 ## 题目描述
 

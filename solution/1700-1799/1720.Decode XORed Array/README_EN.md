@@ -1,6 +1,6 @@
 # [1720. Decode XORed Array](https://leetcode.com/problems/decode-xored-array)
 
-[中文文档](/solution/1500-1599/1720.Decode%20XORed%20Array/README.md)
+[中文文档](/solution/1700-1799/1720.Decode%20XORed%20Array/README.md)
 
 ## Description
 

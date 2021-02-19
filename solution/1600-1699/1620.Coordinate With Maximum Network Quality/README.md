@@ -1,6 +1,6 @@
 # [1620. 网络信号最好的坐标](https://leetcode-cn.com/problems/coordinate-with-maximum-network-quality)
 
-[English Version](/solution/1500-1599/1620.Coordinate%20With%20Maximum%20Network%20Quality/README_EN.md)
+[English Version](/solution/1600-1699/1620.Coordinate%20With%20Maximum%20Network%20Quality/README_EN.md)
 
 ## 题目描述
 

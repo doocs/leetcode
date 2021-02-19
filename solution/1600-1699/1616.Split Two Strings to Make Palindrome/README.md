@@ -1,6 +1,6 @@
 # [1616. 分割两个字符串得到回文串](https://leetcode-cn.com/problems/split-two-strings-to-make-palindrome)
 
-[English Version](/solution/1500-1599/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README_EN.md)
+[English Version](/solution/1600-1699/1616.Split%20Two%20Strings%20to%20Make%20Palindrome/README_EN.md)
 
 ## 题目描述
 

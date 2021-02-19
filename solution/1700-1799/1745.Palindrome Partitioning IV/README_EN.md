@@ -1,6 +1,6 @@
 # [1745. Palindrome Partitioning IV](https://leetcode.com/problems/palindrome-partitioning-iv)
 
-[中文文档](/solution/1500-1599/1745.Palindrome%20Partitioning%20IV/README.md)
+[中文文档](/solution/1700-1799/1745.Palindrome%20Partitioning%20IV/README.md)
 
 ## Description
 

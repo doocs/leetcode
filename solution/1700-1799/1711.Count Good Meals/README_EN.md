@@ -1,6 +1,6 @@
 # [1711. Count Good Meals](https://leetcode.com/problems/count-good-meals)
 
-[中文文档](/solution/1500-1599/1711.Count%20Good%20Meals/README.md)
+[中文文档](/solution/1700-1799/1711.Count%20Good%20Meals/README.md)
 
 ## Description
 

@@ -1,6 +1,6 @@
 # [1738. 找出第 K 大的异或坐标值](https://leetcode-cn.com/problems/find-kth-largest-xor-coordinate-value)
 
-[English Version](/solution/1500-1599/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README_EN.md)
+[English Version](/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README_EN.md)
 
 ## 题目描述
 

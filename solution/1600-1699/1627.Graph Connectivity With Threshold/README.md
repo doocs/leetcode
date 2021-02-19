@@ -1,6 +1,6 @@
 # [1627. 带阈值的图连通性](https://leetcode-cn.com/problems/graph-connectivity-with-threshold)
 
-[English Version](/solution/1500-1599/1627.Graph%20Connectivity%20With%20Threshold/README_EN.md)
+[English Version](/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README_EN.md)
 
 ## 题目描述
 

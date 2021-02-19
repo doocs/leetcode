@@ -1,6 +1,6 @@
 # [1632. Rank Transform of a Matrix](https://leetcode.com/problems/rank-transform-of-a-matrix)
 
-[中文文档](/solution/1500-1599/1632.Rank%20Transform%20of%20a%20Matrix/README.md)
+[中文文档](/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/README.md)
 
 ## Description
 

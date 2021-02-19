@@ -1,6 +1,6 @@
 # [1672. 最富有客户的资产总量](https://leetcode-cn.com/problems/richest-customer-wealth)
 
-[English Version](/solution/1500-1599/1672.Richest%20Customer%20Wealth/README_EN.md)
+[English Version](/solution/1600-1699/1672.Richest%20Customer%20Wealth/README_EN.md)
 
 ## 题目描述
 

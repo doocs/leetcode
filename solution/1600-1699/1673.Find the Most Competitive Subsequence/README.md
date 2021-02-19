@@ -1,6 +1,6 @@
 # [1673. 找出最具竞争力的子序列](https://leetcode-cn.com/problems/find-the-most-competitive-subsequence)
 
-[English Version](/solution/1500-1599/1673.Find%20the%20Most%20Competitive%20Subsequence/README_EN.md)
+[English Version](/solution/1600-1699/1673.Find%20the%20Most%20Competitive%20Subsequence/README_EN.md)
 
 ## 题目描述
 

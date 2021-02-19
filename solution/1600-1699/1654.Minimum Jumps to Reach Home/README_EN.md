@@ -1,6 +1,6 @@
 # [1654. Minimum Jumps to Reach Home](https://leetcode.com/problems/minimum-jumps-to-reach-home)
 
-[中文文档](/solution/1500-1599/1654.Minimum%20Jumps%20to%20Reach%20Home/README.md)
+[中文文档](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README.md)
 
 ## Description
 

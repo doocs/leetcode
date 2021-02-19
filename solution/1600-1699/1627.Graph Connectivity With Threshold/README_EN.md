@@ -1,6 +1,6 @@
 # [1627. Graph Connectivity With Threshold](https://leetcode.com/problems/graph-connectivity-with-threshold)
 
-[中文文档](/solution/1500-1599/1627.Graph%20Connectivity%20With%20Threshold/README.md)
+[中文文档](/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/README.md)
 
 ## Description
 

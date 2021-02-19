@@ -1,6 +1,6 @@
 # [1638. 统计只差一个字符的子串数目](https://leetcode-cn.com/problems/count-substrings-that-differ-by-one-character)
 
-[English Version](/solution/1500-1599/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README_EN.md)
+[English Version](/solution/1600-1699/1638.Count%20Substrings%20That%20Differ%20by%20One%20Character/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1663. Smallest String With A Given Numeric Value](https://leetcode.com/problems/smallest-string-with-a-given-numeric-value)
 
-[中文文档](/solution/1500-1599/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README.md)
+[中文文档](/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README.md)
 
 ## Description
 

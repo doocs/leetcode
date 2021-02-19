@@ -1,6 +1,6 @@
 # [1668. Maximum Repeating Substring](https://leetcode.com/problems/maximum-repeating-substring)
 
-[中文文档](/solution/1500-1599/1668.Maximum%20Repeating%20Substring/README.md)
+[中文文档](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README.md)
 
 ## Description
 

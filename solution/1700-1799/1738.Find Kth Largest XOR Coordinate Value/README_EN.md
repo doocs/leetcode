@@ -1,6 +1,6 @@
 # [1738. Find Kth Largest XOR Coordinate Value](https://leetcode.com/problems/find-kth-largest-xor-coordinate-value)
 
-[中文文档](/solution/1500-1599/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README.md)
+[中文文档](/solution/1700-1799/1738.Find%20Kth%20Largest%20XOR%20Coordinate%20Value/README.md)
 
 ## Description
 

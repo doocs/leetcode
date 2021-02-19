@@ -1,6 +1,6 @@
 # [1726. Tuple with Same Product](https://leetcode.com/problems/tuple-with-same-product)
 
-[中文文档](/solution/1500-1599/1726.Tuple%20with%20Same%20Product/README.md)
+[中文文档](/solution/1700-1799/1726.Tuple%20with%20Same%20Product/README.md)
 
 ## Description
 

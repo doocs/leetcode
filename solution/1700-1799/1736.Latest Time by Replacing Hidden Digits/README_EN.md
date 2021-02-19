@@ -1,6 +1,6 @@
 # [1736. Latest Time by Replacing Hidden Digits](https://leetcode.com/problems/latest-time-by-replacing-hidden-digits)
 
-[中文文档](/solution/1500-1599/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README.md)
+[中文文档](/solution/1700-1799/1736.Latest%20Time%20by%20Replacing%20Hidden%20Digits/README.md)
 
 ## Description
 

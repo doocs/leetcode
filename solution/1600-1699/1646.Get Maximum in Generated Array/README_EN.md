@@ -1,6 +1,6 @@
 # [1646. Get Maximum in Generated Array](https://leetcode.com/problems/get-maximum-in-generated-array)
 
-[中文文档](/solution/1500-1599/1646.Get%20Maximum%20in%20Generated%20Array/README.md)
+[中文文档](/solution/1600-1699/1646.Get%20Maximum%20in%20Generated%20Array/README.md)
 
 ## Description
 

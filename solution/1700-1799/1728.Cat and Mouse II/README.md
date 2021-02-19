@@ -1,6 +1,6 @@
 # [1728. 猫和老鼠 II](https://leetcode-cn.com/problems/cat-and-mouse-ii)
 
-[English Version](/solution/1500-1599/1728.Cat%20and%20Mouse%20II/README_EN.md)
+[English Version](/solution/1700-1799/1728.Cat%20and%20Mouse%20II/README_EN.md)
 
 ## 题目描述
 

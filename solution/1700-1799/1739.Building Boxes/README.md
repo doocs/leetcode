@@ -1,6 +1,6 @@
 # [1739. 放置盒子](https://leetcode-cn.com/problems/building-boxes)
 
-[English Version](/solution/1500-1599/1739.Building%20Boxes/README_EN.md)
+[English Version](/solution/1700-1799/1739.Building%20Boxes/README_EN.md)
 
 ## 题目描述
 

@@ -1,6 +1,6 @@
 # [1601. Maximum Number of Achievable Transfer Requests](https://leetcode.com/problems/maximum-number-of-achievable-transfer-requests)
 
-[中文文档](/solution/1500-1599/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md)
+[中文文档](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md)
 
 ## Description
 

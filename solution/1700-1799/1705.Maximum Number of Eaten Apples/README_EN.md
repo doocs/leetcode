@@ -1,6 +1,6 @@
 # [1705. Maximum Number of Eaten Apples](https://leetcode.com/problems/maximum-number-of-eaten-apples)
 
-[中文文档](/solution/1500-1599/1705.Maximum%20Number%20of%20Eaten%20Apples/README.md)
+[中文文档](/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README.md)
 
 ## Description
 

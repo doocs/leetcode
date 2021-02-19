@@ -1,6 +1,6 @@
 # [1711. 大餐计数](https://leetcode-cn.com/problems/count-good-meals)
 
-[English Version](/solution/1500-1599/1711.Count%20Good%20Meals/README_EN.md)
+[English Version](/solution/1700-1799/1711.Count%20Good%20Meals/README_EN.md)
 
 ## 题目描述
 

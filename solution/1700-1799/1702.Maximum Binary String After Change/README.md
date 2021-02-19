@@ -1,6 +1,6 @@
 # [1702. 修改后的最大二进制字符串](https://leetcode-cn.com/problems/maximum-binary-string-after-change)
 
-[English Version](/solution/1500-1599/1702.Maximum%20Binary%20String%20After%20Change/README_EN.md)
+[English Version](/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README_EN.md)
 
 ## 题目描述
 

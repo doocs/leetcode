@@ -1,6 +1,6 @@
 # [1721. 交换链表中的节点](https://leetcode-cn.com/problems/swapping-nodes-in-a-linked-list)
 
-[English Version](/solution/1500-1599/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README_EN.md)
+[English Version](/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/README_EN.md)
 
 ## 题目描述
 

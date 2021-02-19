@@ -1,6 +1,6 @@
 # [1679. K 和数对的最大数目](https://leetcode-cn.com/problems/max-number-of-k-sum-pairs)
 
-[English Version](/solution/1500-1599/1679.Max%20Number%20of%20K-Sum%20Pairs/README_EN.md)
+[English Version](/solution/1600-1699/1679.Max%20Number%20of%20K-Sum%20Pairs/README_EN.md)
 
 ## 题目描述
 

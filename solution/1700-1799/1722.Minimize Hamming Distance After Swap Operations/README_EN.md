@@ -1,6 +1,6 @@
 # [1722. Minimize Hamming Distance After Swap Operations](https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations)
 
-[中文文档](/solution/1500-1599/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README.md)
+[中文文档](/solution/1700-1799/1722.Minimize%20Hamming%20Distance%20After%20Swap%20Operations/README.md)
 
 ## Description
 

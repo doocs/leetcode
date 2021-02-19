@@ -1,6 +1,6 @@
 # [1688. Count of Matches in Tournament](https://leetcode.com/problems/count-of-matches-in-tournament)
 
-[中文文档](/solution/1500-1599/1688.Count%20of%20Matches%20in%20Tournament/README.md)
+[中文文档](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README.md)
 
 ## Description
 

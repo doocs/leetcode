@@ -1,6 +1,6 @@
 # [1719. 重构一棵树的方案数](https://leetcode-cn.com/problems/number-of-ways-to-reconstruct-a-tree)
 
-[English Version](/solution/1500-1599/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README_EN.md)
+[English Version](/solution/1700-1799/1719.Number%20Of%20Ways%20To%20Reconstruct%20A%20Tree/README_EN.md)
 
 ## 题目描述
 

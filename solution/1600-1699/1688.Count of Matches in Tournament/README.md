@@ -1,6 +1,6 @@
 # [1688. 比赛中的配对次数](https://leetcode-cn.com/problems/count-of-matches-in-tournament)
 
-[English Version](/solution/1500-1599/1688.Count%20of%20Matches%20in%20Tournament/README_EN.md)
+[English Version](/solution/1600-1699/1688.Count%20of%20Matches%20in%20Tournament/README_EN.md)
 
 ## 题目描述
 

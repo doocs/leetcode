@@ -1,6 +1,6 @@
 # [1758. 生成交替二进制字符串的最少操作数](https://leetcode-cn.com/problems/minimum-changes-to-make-alternating-binary-string)
 
-[English Version](/solution/1500-1599/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README_EN.md)
+[English Version](/solution/1700-1799/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README_EN.md)
 
 ## 题目描述
 

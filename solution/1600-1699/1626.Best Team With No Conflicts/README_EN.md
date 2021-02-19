@@ -1,6 +1,6 @@
 # [1626. Best Team With No Conflicts](https://leetcode.com/problems/best-team-with-no-conflicts)
 
-[中文文档](/solution/1500-1599/1626.Best%20Team%20With%20No%20Conflicts/README.md)
+[中文文档](/solution/1600-1699/1626.Best%20Team%20With%20No%20Conflicts/README.md)
 
 ## Description
 

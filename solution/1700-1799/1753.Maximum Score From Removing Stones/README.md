@@ -1,6 +1,6 @@
 # [1753. 移除石子的最大得分](https://leetcode-cn.com/problems/maximum-score-from-removing-stones)
 
-[English Version](/solution/1500-1599/1753.Maximum%20Score%20From%20Removing%20Stones/README_EN.md)
+[English Version](/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README_EN.md)
 
 ## 题目描述
 
