@@ -15,8 +15,6 @@
 
 ![](./images/example_1_before_65p.jpg)
 
-
-
 <pre>
 <strong>Input:</strong> head = [3,4,1], insertVal = 2
 <strong>Output:</strong> [3,4,1,2]

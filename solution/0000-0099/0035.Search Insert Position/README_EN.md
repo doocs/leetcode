@@ -55,13 +55,94 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        l, h = 0, len(nums) - 1
+        while l <= h:
+            m = l + ((h - l) >> 1)
+            if nums[m] == target:
+                return m
+            if nums[m] < target:
+                l = m + 1
+            else:
+                h = m - 1
+        return l
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int l = 0, h = nums.length - 1;
+        while (l <= h) {
+            int m = l + ((h - l) >> 1);
+            if (nums[m] == target) return m;
+            if (nums[m] < target) l = m + 1;
+            else h = m - 1;
+        }
+        return l;
+    }
+}
+```
 
+### **Go**
+
+```go
+func searchInsert(nums []int, target int) int {
+    l, h := 0, len(nums) - 1
+    for l <= h {
+        m := l + ((h - l) >> 1)
+        if nums[m] == target {
+            return m
+        }
+        if nums[m] < target {
+            l = m + 1
+        } else {
+            h = m - 1
+        }
+    }
+    return l
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int l = 0, h = nums.size() - 1;
+        while (l <= h) {
+            int m = l + ((h - l) >> 1);
+            if (nums[m] == target) return m;
+            if (nums[m] < target) l = m + 1;
+            else h = m - 1;
+        }
+        return l;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function (nums, target) {
+  let l = 0,
+    h = nums.length;
+  while (l <= h) {
+    const m = l + ((h - l) >> 1);
+    if (nums[m] == target) return m;
+    if (nums[m] < target) l = m + 1;
+    else h = m - 1;
+  }
+  return l;
+};
 ```
 
 ### **...**
