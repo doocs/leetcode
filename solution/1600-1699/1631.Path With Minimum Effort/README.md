@@ -27,6 +27,7 @@
 <p><strong>示例 2：</strong></p>
 
 ![](./images/ex2.png)
+
 <pre>
 <b>输入：</b>heights = [[1,2,3],[3,8,4],[5,3,5]]
 <b>输出：</b>1

@@ -15,6 +15,7 @@
 
 ![](./images/points3.png)
 ​
+
 <pre>
 <strong>Input:</strong> points = [[8,7],[9,9],[7,4],[9,7]]
 <strong>Output:</strong> 1
