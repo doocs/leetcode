@@ -41,7 +41,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        a2b, b2a = {}, {}
+        n = len(s)
+        for i in range(n):
+            a, b = s[i], t[i]
+            if (a in a2b and a2b[a] != b) or (b in b2a and b2a[b] != a):
+                return False
+            a2b[a] = b
+            b2a[b] = a
+        return True
 ```
 
 ### **Java**
@@ -49,7 +59,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        int n = s.length();
+        Map<Character, Character> a2b = new HashMap<>();
+        Map<Character, Character> b2a = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            char a = s.charAt(i), b = t.charAt(i);
+            if ((a2b.containsKey(a) && a2b.get(a) != b) || (b2a.containsKey(b) && b2a.get(b) != a)) return false;
+            a2b.put(a, b);
+            b2a.put(b, a);
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
