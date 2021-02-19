@@ -18,7 +18,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/16/485_example_1.png" style="width: 200px; height: 208px;" /></p>
+![](./images/485_example_1.png)
 
 <pre>
 <strong>Input: </strong>n = 3, edges = <span id="example-input-1-2">[[0,1],[0,2]]</span>, source = <span id="example-input-1-3">0</span>, destination = 2
@@ -28,7 +28,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/16/485_example_2.png" style="width: 200px; height: 230px;" /></p>
+![](./images/485_example_2.png)
 
 <pre>
 <strong>Input: </strong>n = <span id="example-input-2-1">4</span>, edges = <span id="example-input-2-2">[[0,1],[0,3],[1,2],[2,1]]</span>, source = <span id="example-input-2-3">0</span>, destination = <span id="example-input-2-4">3</span>
@@ -38,7 +38,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/16/485_example_3.png" style="width: 200px; height: 183px;" /></p>
+![](./images/485_example_3.png)
 
 <pre>
 <strong>Input: </strong>n = <span id="example-input-3-1">4</span>, edges = <span id="example-input-3-2">[[0,1],[0,2],[1,3],[2,3]]</span>, source = <span id="example-input-3-3">0</span>, destination = <span id="example-input-3-4">3</span>
@@ -47,7 +47,7 @@
 
 <p><strong>Example 4:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/16/485_example_4.png" style="width: 200px; height: 183px;" /></p>
+![](./images/485_example_4.png)
 
 <pre>
 <strong>Input: </strong>n = <span id="example-input-4-1">3</span>, edges = <span id="example-input-4-2">[[0,1],[1,1],[1,2]]</span>, source = <span id="example-input-4-3">0</span>, destination = <span id="example-input-4-4">2</span>
@@ -57,7 +57,7 @@
 
 <p><strong>Example 5:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/16/485_example_5.png" style="width: 150px; height: 131px;" /></p>
+![](./images/485_example_5.png)
 
 <pre>
 <strong>Input: </strong>n = <span id="example-input-5-1">2</span>, edges = <span id="example-input-5-2">[[0,1],[1,1]]</span>, source = <span id="example-input-5-3">0</span>, destination = <span id="example-input-5-4">1</span>

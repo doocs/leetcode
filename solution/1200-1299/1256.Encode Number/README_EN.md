@@ -8,7 +8,7 @@
 
 <p>The encoding is done by converting the integer to a string using a secret function that you should deduce from the following table:</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/06/21/encode_number.png" style="width: 164px; height: 360px;" /></p>
+![](./images/encode_number.png)
 
 <p> </p>
 <p><strong>Example 1:</strong></p>

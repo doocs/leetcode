@@ -12,7 +12,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/03/ex1.jpg" style="width: 322px; height: 243px;" />
+
+![](./images/ex1.jpg)
+
 <pre>
 <strong>Input:</strong> cost = [[15, 96], [36, 2]]
 <strong>Output:</strong> 17
@@ -23,7 +25,9 @@ This results in a total cost of 17.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/03/ex2.jpg" style="width: 322px; height: 403px;" />
+
+![](./images/ex2.jpg)
+
 <pre>
 <strong>Input:</strong> cost = [[1, 3, 5], [4, 1, 1], [1, 5, 3]]
 <strong>Output:</strong> 4

@@ -18,7 +18,7 @@
 <p>&nbsp;</p>
 <p><strong>Example:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/11/10/q1.gif" style="width: 682px; height: 240px;" /></strong></p>
+![](./images/q1.gif)
 
 <pre>
 <strong>Input</strong>

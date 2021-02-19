@@ -19,7 +19,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/04/sample_1_1966.png" style="height: 229px; width: 362px;" /></strong></p>
+![](./images/sample_1_1966.png)
 
 <pre>
 <strong>输入：</strong>root = [1,10,4,3,null,7,9,12,8,6,null,null,2]
@@ -34,7 +34,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/04/sample_2_1966.png" style="height: 167px; width: 363px;" /></strong></p>
+![](./images/sample_2_1966.png)
 
 <pre>
 <strong>输入：</strong>root = [5,4,2,3,3,7]
@@ -48,7 +48,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/04/sample_1_333_1966.png" style="height: 167px; width: 363px;" /></p>
+![](./images/sample_1_333_1966.png)
 
 <pre>
 <strong>输入：</strong>root = [5,9,1,3,5,7]

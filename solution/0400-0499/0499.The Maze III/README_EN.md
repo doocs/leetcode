@@ -32,8 +32,9 @@
 The first way is left -> up -> left, represented by "lul".
 The second way is up -> left, represented by 'ul'.
 Both ways have shortest distance 6, but the first way is lexicographically smaller because 'l' < 'u'. So the output is "lul".
-<img src="https://assets.leetcode.com/uploads/2018/10/13/maze_2_example_1.png" style="width: 100%; max-width: 350px" />
 </pre>
+
+![](./images/maze_2_example_1.png)
 
 <p><b>Example 2:</b></p>
 
@@ -52,8 +53,9 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 <b>Output:</b> "impossible"
 
 <b>Explanation:</b> The ball cannot reach the hole.
-<img src="https://assets.leetcode.com/uploads/2018/10/13/maze_2_example_2.png" style="width: 100%; max-width: 350px" />
 </pre>
+
+![](./images/maze_2_example_2.png)
 
 <p> </p>
 

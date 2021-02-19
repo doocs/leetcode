@@ -32,8 +32,9 @@
 第一条路径是 左 -> 上 -> 左, 记为 "lul".
 第二条路径是 上 -> 左, 记为 'ul'.
 两条路径都具有最短距离6, 但'l' < 'u'，故第一条路径字典序更小。因此输出"lul"。
-<img src="https://assets.leetcode.com/uploads/2018/10/13/maze_2_example_1.png" style="width: 100%;">
 </pre>
+
+![](./images/maze_2_example_1.png)
 
 <p><strong>示例 2:</strong></p>
 
@@ -51,8 +52,9 @@
 <strong>输出:</strong> "impossible"
 
 <strong>示例:</strong> 球无法到达洞。
-<img src="https://assets.leetcode.com/uploads/2018/10/13/maze_2_example_2.png" style="width: 100%;">
 </pre>
+
+![](./images/maze_2_example_2.png)
 
 <p> </p>
 

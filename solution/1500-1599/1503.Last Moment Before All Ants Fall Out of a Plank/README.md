@@ -19,7 +19,7 @@
 
 <p>&nbsp;</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants.jpg" style="height: 610px; width: 450px;"></p>
+![](./images/ants.jpg)
 
 <pre><strong>输入：</strong>n = 4, left = [4,3], right = [0,1]
 <strong>输出：</strong>4
@@ -32,7 +32,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants2.jpg" style="height: 101px; width: 639px;"></p>
+![](./images/ants2.jpg)
 
 <pre><strong>输入：</strong>n = 7, left = [], right = [0,1,2,3,4,5,6,7]
 <strong>输出：</strong>7
@@ -41,7 +41,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants3.jpg" style="height: 100px; width: 639px;"></p>
+![](./images/ants3.jpg)
 
 <pre><strong>输入：</strong>n = 7, left = [0,1,2,3,4,5,6,7], right = []
 <strong>输出：</strong>7

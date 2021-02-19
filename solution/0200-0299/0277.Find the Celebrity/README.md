@@ -17,7 +17,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/02/02/277_example_1_bold.PNG" style="height: 181px; width: 186px;"></p>
+![](./images/277_example_1_bold.png)
 
 <pre><strong>输入: </strong>graph = [
   [1,1,0],
@@ -30,7 +30,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/02/02/277_example_2.PNG" style="height: 192px; width: 193px;"></p>
+![](./images/277_example_2.png)
 
 <pre><strong>输入: </strong>graph = [
   [1,0,1],

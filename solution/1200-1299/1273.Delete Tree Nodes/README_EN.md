@@ -19,7 +19,7 @@
 <p> </p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/07/02/1421_sample_1.PNG" style="width: 403px; height: 347px;" /></p>
+![](./images/1421_sample_1.png)
 
 <pre>
 <strong>Input:</strong> nodes = 7, parent = [-1,0,0,1,2,2,2], value = [1,-2,4,0,-2,-1,-1]

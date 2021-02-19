@@ -27,7 +27,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/15/q1.gif" style="width: 682px; height: 240px;" /></strong></p>
+![](./images/q1.gif)
 
 <pre>
 <strong>输入</strong>

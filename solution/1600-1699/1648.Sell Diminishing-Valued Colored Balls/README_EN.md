@@ -14,7 +14,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/jj.gif" style="width: 480px; height: 270px;" />
+
+![](./images/jj.gif)
+
 <pre>
 <strong>Input:</strong> inventory = [2,5], orders = 4
 <strong>Output:</strong> 14

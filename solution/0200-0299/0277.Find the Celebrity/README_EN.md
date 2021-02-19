@@ -13,7 +13,9 @@
 <p> </p>
 
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/02/277_example_1_bold.PNG" style="width: 186px; height: 181px;" />
+
+![](./images/277_example_1_bold.png)
+
 <pre>
 <strong>Input: </strong>graph = <span id="example-input-1-1">[
   [1,1,0],
@@ -25,7 +27,9 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/02/277_example_2.PNG" style="width: 193px; height: 192px;" />
+
+![](./images/277_example_2.png)
+
 <pre>
 <strong>Input: </strong>graph = <span id="example-input-2-1">[
   [1,0,1],

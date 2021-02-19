@@ -16,7 +16,7 @@
 	<li>只输出 <strong>域名 </strong>与<strong> </strong><code>startUrl</code> <strong>相同 </strong>的链接集合</li>
 </ul>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/08/13/urlhostname.png" style="height: 164px; width: 600px;"></p>
+![](./images/urlhostname.png)
 
 <p>如上所示的一个链接，其域名为 <code>example.org</code>。简单起见，你可以假设所有的链接都采用 <strong>http协议 </strong>并没有指定 <strong>端口</strong>。例如，链接 <code>http://leetcode.com/problems</code> 和 <code>http://leetcode.com/contest</code> 是同一个域名下的，而链接<code>http://example.org/test</code> 和 <code>http://example.com/abc</code> 是不在同一域名下的。</p>
 
@@ -33,7 +33,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/23/sample_2_1497.png" style="height: 300px; width: 610px;"></p>
+![](./images/sample_2_1497.png)
 
 <pre><strong>输入：
 </strong>urls = [
@@ -55,7 +55,7 @@ startUrl = "http://news.yahoo.com/news/topics/"
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/23/sample_3_1497.png" style="height: 270px; width: 540px;"></strong></p>
+![](./images/sample_3_1497.png)
 
 <pre><strong>输入：</strong>
 urls = [

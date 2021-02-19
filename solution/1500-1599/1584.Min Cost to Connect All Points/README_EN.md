@@ -13,16 +13,18 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/d.png" style="width: 214px; height: 268px;" /></p>
+![](./images/d.png)
 
 <pre>
 <strong>Input:</strong> points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
 <strong>Output:</strong> 20
 <strong>Explanation:
-</strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/c.png" style="width: 214px; height: 268px;" />
+</strong>
 We can connect the points as shown above to get the minimum cost of 20.
 Notice that there is a unique path between every pair of points.
 </pre>
+
+![](./images/c.png)
 
 <p><strong>Example 2:</strong></p>
 

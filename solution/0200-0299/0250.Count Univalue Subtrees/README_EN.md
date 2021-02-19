@@ -10,7 +10,9 @@
 
 <p> </p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/21/unival_e1.jpg" style="width: 450px; height: 258px;" />
+
+![](./images/unival_e1.jpg)
+
 <pre>
 <strong>Input:</strong> root = [5,1,5,5,5,null,5]
 <strong>Output:</strong> 4

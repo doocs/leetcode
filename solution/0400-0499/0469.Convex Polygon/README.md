@@ -23,8 +23,9 @@
 
 输出： True
 
-解释：<img src="https://assets.leetcode.com/uploads/2018/10/13/polygon_convex.png" style="height: 100px; width: 100px;">
-</pre>
+解释：</pre>
+
+![](./images/polygon_convex.png)
 
 <p><strong>示例 2：</strong></p>
 
@@ -32,8 +33,9 @@
 
 输出： False
 
-解释：<img src="https://assets.leetcode.com/uploads/2018/10/13/polygon_not_convex.png" style="height: 100px; width: 100px;">
-</pre>
+解释：</pre>
+
+![](./images/polygon_not_convex.png)
 
 ## 解法
 

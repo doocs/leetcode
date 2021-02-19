@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/13/1926_island.png" style="width: 498px; height: 139px;" /></strong></p>
+![](./images/1926_island.png)
 
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]]

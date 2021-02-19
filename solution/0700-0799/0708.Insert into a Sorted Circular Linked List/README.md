@@ -15,14 +15,14 @@
 
 <p> </p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/01/19/example_1_before_65p.jpg" style="height: 149px; width: 250px;"><br>
+![](./images/example_1_before_65p.jpg)
+
 <br>
 <small>在上图中，有一个包含三个元素的循环有序列表，你获得值为 3 的节点的指针，我们需要向表中插入元素 2。</small></p>
 
 <p> </p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/01/19/example_1_after_65p.jpg" style="height: 149px; width: 250px;"><br>
- </p>
+![](./images/example_1_after_65p.jpg)
 
 <p><small>新插入的节点应该在 1 和 3 之间，插入之后，整个列表如上图所示，最后返回节点 3。</small></p>
 

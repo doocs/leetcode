@@ -19,7 +19,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/11/p1.png" style="width: 161px; height: 181px;" /></strong></p>
+![](./images/p1.png)
 
 <pre>
 <b>输入：</b>n = 4, edges = [[1,2],[2,3],[2,4]]

@@ -5,7 +5,8 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/10/sample_2_1887.png" style="height:294px; width:573px" /></p>
+
+![](./images/sample_2_1887.png)
 
 <p>给你一个与 <code>nums</code>&nbsp;大小相同且初始值全为 0 的数组 <code>arr</code> ，请你调用以上函数得到整数数组 <code>nums</code>&nbsp;。</p>
 

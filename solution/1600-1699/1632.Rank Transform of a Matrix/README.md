@@ -26,7 +26,9 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/rank1.jpg" style="width: 442px; height: 162px;" />
+
+![](./images/rank1.jpg)
+
 <pre>
 <b>输入：</b>matrix = [[1,2],[3,4]]
 <b>输出：</b>[[1,2],[2,3]]
@@ -38,21 +40,27 @@ matrix[1][1] 的秩为 3 ，因为 matrix[1][1] > matrix[0][1]， matrix[1][1] >
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/rank2.jpg" style="width: 442px; height: 162px;" />
+
+![](./images/rank2.jpg)
+
 <pre>
 <b>输入：</b>matrix = [[7,7],[7,7]]
 <b>输出：</b>[[1,1],[1,1]]
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/rank3.jpg" style="width: 601px; height: 322px;" />
+
+![](./images/rank3.jpg)
+
 <pre>
 <b>输入：</b>matrix = [[20,-21,14],[-19,4,19],[22,-47,24],[-19,4,19]]
 <b>输出：</b>[[4,2,3],[1,3,4],[5,1,6],[1,3,4]]
 </pre>
 
 <p><strong>示例 4：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/rank4.jpg" style="width: 601px; height: 242px;" />
+
+![](./images/rank4.jpg)
+
 <pre>
 <b>输入：</b>matrix = [[7,3,6],[1,4,5],[9,8,2]]
 <b>输出：</b>[[5,1,4],[1,2,3],[6,3,1]]

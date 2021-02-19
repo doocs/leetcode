@@ -23,7 +23,9 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/15/grid_happiness.png" style="width: 261px; height: 121px;" />
+
+![](./images/grid_happiness.png)
+
 <pre>
 <strong>输入：</strong>m = 2, n = 3, introvertsCount = 1, extrovertsCount = 2
 <strong>输出：</strong>240

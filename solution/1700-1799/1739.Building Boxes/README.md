@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/24/3-boxes.png" style="width: 135px; height: 143px;" /></p>
+![](./images/3-boxes.png)
 
 <pre>
 <strong>输入：</strong>n = 3
@@ -29,7 +29,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/24/4-boxes.png" style="width: 135px; height: 179px;" /></p>
+![](./images/4-boxes.png)
 
 <pre>
 <strong>输入：</strong>n = 4
@@ -40,7 +40,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/24/10-boxes.png" style="width: 271px; height: 257px;" /></p>
+![](./images/10-boxes.png)
 
 <pre>
 <strong>输入：</strong>n = 10

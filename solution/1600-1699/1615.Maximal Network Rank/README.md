@@ -17,7 +17,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/11/ex1.png" style="width: 292px; height: 172px;" /></strong></p>
+![](./images/ex1.png)
 
 <pre>
 <strong>输入：</strong>n = 4, roads = [[0,1],[0,3],[1,2],[1,3]]
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/11/ex2.png" style="width: 292px; height: 172px;" /></strong></p>
+![](./images/ex2.png)
 
 <pre>
 <strong>输入：</strong>n = 5, roads = [[0,1],[0,3],[1,2],[1,3],[2,3],[2,4]]

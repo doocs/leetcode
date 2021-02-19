@@ -12,7 +12,9 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/17/ex1.png" style="width: 179px; height: 222px;" />
+
+![](./images/ex1.png)
+
 <pre>
 <b>输入：</b>n = 4, k = 2
 <b>输出：</b>5

@@ -12,7 +12,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/02/test_sample_1.png" style="width: 263px; height: 156px;" /></strong></p>
+![](./images/test_sample_1.png)
 
 <pre>
 
@@ -32,7 +32,7 @@ Node 3 -&gt; (3,1,3) is the maximum value in the path.</pre>
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/02/test_sample_2.png" style="width: 157px; height: 161px;" /></strong></p>
+![](./images/test_sample_2.png)
 
 <pre>
 

@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/q4_1.jpg" style="height:40px; width:500px" /></p>
+![](./images/q4_1.jpg)
 
 <pre>
 <strong>输入：</strong>num = &quot;4321&quot;, k = 4

@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/02/06/screenshot-2021-01-11-at-60048-pm.png" style="width: 400px; height: 103px;" /></p>
+![](./images/screenshot-2021-01-11-at-60048-pm.png)
 
 <pre>
 <b>输入：</b>events = [[1,2,4],[3,4,3],[2,3,1]], k = 2
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/02/06/screenshot-2021-01-11-at-60150-pm.png" style="width: 400px; height: 103px;" /></p>
+![](./images/screenshot-2021-01-11-at-60150-pm.png)
 
 <pre>
 <b>输入：</b>events = [[1,2,4],[3,4,3],[2,3,10]], k = 2
@@ -34,7 +34,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/02/06/screenshot-2021-01-11-at-60703-pm.png" style="width: 400px; height: 126px;" /></strong></p>
+![](./images/screenshot-2021-01-11-at-60703-pm.png)
 
 <pre>
 <b>输入：</b>events = [[1,1,1],[2,2,2],[3,3,3],[4,4,4]], k = 3

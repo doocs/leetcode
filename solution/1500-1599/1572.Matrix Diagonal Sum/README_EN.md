@@ -10,7 +10,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/14/sample_1911.png" style="width: 336px; height: 174px;" />
+
+![](./images/sample_1911.png)
+
 <pre>
 <strong>Input:</strong> mat = [[<strong>1</strong>,2,<strong>3</strong>],
 &nbsp;             [4,<strong>5</strong>,6],

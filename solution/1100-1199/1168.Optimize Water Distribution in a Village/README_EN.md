@@ -13,7 +13,7 @@
 <p> </p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/05/22/1359_ex1.png" style="width: 189px; height: 196px;" /></strong></p>
+![](./images/1359_ex1.png)
 
 <pre>
 <strong>Input:</strong> n = 3, wells = [1,2,2], pipes = [[1,2,1],[2,3,1]]

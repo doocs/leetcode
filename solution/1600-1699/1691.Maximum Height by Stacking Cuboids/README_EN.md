@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/21/image.jpg" style="width: 420px; height: 299px;" /></strong></p>
+![](./images/image.jpg)
 
 <pre>
 <strong>Input:</strong> cuboids = [[50,45,20],[95,37,53],[45,23,12]]

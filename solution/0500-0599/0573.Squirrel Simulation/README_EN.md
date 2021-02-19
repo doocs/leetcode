@@ -16,9 +16,10 @@ Tree position : [2,2]
 Squirrel : [4,4]
 Nuts : [[3,0], [2,5]]
 <b>Output:</b> 12
-<b>Explanation:</b>
-<img src="https://assets.leetcode.com/uploads/2018/10/22/squirrel_simulation.png" style="width: 40%;" />​​​​​
+<b>Explanation:</b>​​​​​
 </pre>
+
+![](./images/squirrel_simulation.png)
 
 <p><b>Note:</b></p>
 

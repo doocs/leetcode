@@ -25,8 +25,10 @@
 
 Answer: True
 
-Explanation:<img src="https://assets.leetcode.com/uploads/2018/10/13/polygon_convex.png" style="width: 100px; height: 100px;" />
+Explanation:
 </pre>
+
+![](./images/polygon_convex.png)
 
 <p><b>Example 2:</b></p>
 
@@ -35,8 +37,9 @@ Explanation:<img src="https://assets.leetcode.com/uploads/2018/10/13/polygon_con
 
 Answer: False
 
-Explanation:<img src="https://assets.leetcode.com/uploads/2018/10/13/polygon_not_convex.png" style="width: 100px; height: 100px;" />
-</pre>
+Explanation:</pre>
+
+![](./images/polygon_not_convex.png)
 
 ## Solutions
 

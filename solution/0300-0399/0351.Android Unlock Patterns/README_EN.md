@@ -19,8 +19,7 @@
 
 <p> </p>
 
-<pre>
-<img src="https://assets.leetcode.com/uploads/2018/10/12/android-unlock.png" style="width: 418px; height: 128px;" /></pre>
+![](./images/android-unlock.png)
 
 <p> </p>
 

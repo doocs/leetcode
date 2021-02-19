@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-60048-pm.png" style="width: 400px; height: 103px;" /></p>
+![](./images/screenshot-2021-01-11-at-60048-pm.png)
 
 <pre>
 <strong>Input:</strong> events = [[1,2,4],[3,4,3],[2,3,1]], k = 2
@@ -22,7 +22,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-60150-pm.png" style="width: 400px; height: 103px;" /></p>
+![](./images/screenshot-2021-01-11-at-60150-pm.png)
 
 <pre>
 <strong>Input:</strong> events = [[1,2,4],[3,4,3],[2,3,10]], k = 2
@@ -32,7 +32,7 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-60703-pm.png" style="width: 400px; height: 126px;" /></strong></p>
+![](./images/screenshot-2021-01-11-at-60703-pm.png)
 
 <pre>
 <strong>Input:</strong> events = [[1,1,1],[2,2,2],[3,3,3],[4,4,4]], k = 3

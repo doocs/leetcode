@@ -15,13 +15,17 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>root = [4,2,5,1,3] 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturndll.png" style="width: 400px;">
+<pre><strong>输入：</strong>root = [4,2,5,1,3] </pre>
+
+![](./images/bstdllreturndll.png)
+
+<pre>
 <strong>输出：</strong>[1,2,3,4,5]
 
 <strong>解释：</strong>下图显示了转化后的二叉搜索树，实线表示后继关系，虚线表示前驱关系。
-<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturnbst.png" style="width: 400px;">
 </pre>
+
+![](./images/bstdllreturnbst.png)
 
 <p><strong>示例 2：</strong></p>
 

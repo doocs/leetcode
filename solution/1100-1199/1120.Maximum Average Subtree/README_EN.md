@@ -12,7 +12,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/04/09/1308_example_1.png" style="width: 132px; height: 123px;" /></p>
+![](./images/1308_example_1.png)
 
 <pre>
 <strong>Input: </strong><span id="example-input-1-1">[5,6,1]</span>

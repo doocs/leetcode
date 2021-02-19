@@ -12,7 +12,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/23/1268_1.png" style="width: 180px; height: 90px;" /></p>
+![](./images/1268_1.png)
 
 <pre>
 <strong>Input: </strong><span id="example-input-1-1">6</span>
@@ -23,7 +23,7 @@ We get <code>9</code> after rotating <code>6</code>, <code>9</code> is a valid n
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/23/1268_2.png" style="width: 180px; height: 90px;" /></p>
+![](./images/1268_2.png)
 
 <pre>
 <strong>Input: </strong><span id="example-input-2-1">89</span>
@@ -34,7 +34,7 @@ We get <code>68</code> after rotating <code>89</code>, <code>86</code> is a vali
 
 <p><strong>Example 3:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/26/1268_3.png" style="width: 301px; height: 121px;" /></p>
+![](./images/1268_3.png)
 
 <pre>
 <strong>Input: </strong><span id="example-input-3-1">11</span>
@@ -45,7 +45,7 @@ We get <code>11</code> after rotating <code>11</code>, <code>11</code> is a vali
 
 <p><strong>Example 4:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/23/1268_4.png" style="width: 180px; height: 90px;" /></p>
+![](./images/1268_4.png)
 
 <pre>
 <strong>Input: </strong><span id="example-input-4-1">25</span>

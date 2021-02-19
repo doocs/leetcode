@@ -20,7 +20,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/30/89a07e9b-00ab-4967-976a-c723b2aa8656.png" style="width: 400px; height: 300px;" />
+
+![](./images/89a07e9b-00ab-4967-976a-c723b2aa8656.png)
+
 <pre>
 <strong>Input:</strong> points = [[2,1],[2,2],[3,3]], angle = 90, location = [1,1]
 <strong>Output:</strong> 3
@@ -36,7 +38,9 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/30/5010bfd3-86e6-465f-ac64-e9df941d2e49.png" style="width: 690px; height: 348px;" />
+
+![](./images/5010bfd3-86e6-465f-ac64-e9df941d2e49.png)
+
 <pre>
 <strong>Input:</strong> points = [[1,0],[2,1]], angle = 13, location = [1,1]
 <strong>Output:</strong> 1

@@ -13,17 +13,22 @@
 <p> </p>
 <p><strong>Example 1:</strong></p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/bstdlloriginalbst.png" style="width: 100%; max-width: 300px;" /></p>
+![](./images/bstdlloriginalbst.png)
 
 <pre>
 <strong>Input:</strong> root = [4,2,5,1,3]
+</pre>
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturndll.png" style="width: 100%; max-width: 450px;" />
+![](./images/bstdllreturndll.png)
+
+<pre>
 <strong>Output:</strong> [1,2,3,4,5]
 
 <strong>Explanation:</strong> The figure below shows the transformed BST. The solid line indicates the successor relationship, while the dashed line means the predecessor relationship.
-<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturnbst.png" style="width: 100%; max-width: 450px;" />
+
 </pre>
+
+![](./images/bstdllreturnbst.png)
 
 <p><strong>Example 2:</strong></p>
 

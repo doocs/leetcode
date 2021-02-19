@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/21/p1.png" style="width: 161px; height: 181px;" /></strong></p>
+![](./images/p1.png)
 
 <pre>
 <strong>Input:</strong> n = 4, edges = [[1,2],[2,3],[2,4]]

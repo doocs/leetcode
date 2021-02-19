@@ -11,7 +11,9 @@
 <p> </p>
 
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" style="width: 122px; height: 117px;" />
+
+![](./images/285_example_1.png)
+
 <pre>
 <strong>Input: </strong>root = <span id="example-input-1-1">[2,1,3]</span>, p = <span id="example-input-1-2">1</span>
 <strong>Output: </strong><span id="example-output-1">2</span>
@@ -19,7 +21,9 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" style="width: 246px; height: 229px;" />
+
+![](./images/285_example_2.png)
+
 <pre>
 <strong>Input: </strong>root = <span id="example-input-2-1">[5,3,6,2,4,null,null,1]</span>, p = <span id="example-input-2-2">6</span>
 <strong>Output: </strong><span id="example-output-2">null</span>

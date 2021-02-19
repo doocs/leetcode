@@ -10,7 +10,7 @@
 
 <p>For example, you may encode the following <code>3-ary</code> tree to a binary tree in this way:</p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreebinarytreeexample.png" style="width: 100%; max-width: 640px" /></p>
+![](./images/narytreebinarytreeexample.png)
 
 <pre>
 <strong>Input:</strong> root = [1,null,3,2,4,null,5,6]

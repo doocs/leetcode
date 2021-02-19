@@ -17,7 +17,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/15/chips_e1.jpg" style="width: 750px; height: 217px;" />
+
+![](./images/chips_e1.jpg)
+
 <pre>
 <strong>Input:</strong> position = [1,2,3]
 <strong>Output:</strong> 1
@@ -27,7 +29,9 @@ Total cost is 1.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/15/chip_e2.jpg" style="width: 750px; height: 306px;" />
+
+![](./images/chip_e2.jpg)
+
 <pre>
 <strong>Input:</strong> position = [2,2,2,3,3]
 <strong>Output:</strong> 2

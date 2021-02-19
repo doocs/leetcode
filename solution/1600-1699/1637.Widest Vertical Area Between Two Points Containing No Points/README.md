@@ -14,7 +14,9 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/31/points3.png" style="width: 276px; height: 371px;" />​
+
+![](./images/points3.png)
+​
 <pre>
 <b>输入：</b>points = [[8,7],[9,9],[7,4],[9,7]]
 <b>输出：</b>1

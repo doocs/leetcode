@@ -17,7 +17,7 @@
 	<li>Explore only the links that are under the <strong>same hostname</strong> as <code>startUrl</code>.</li>
 </ul>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/08/13/urlhostname.png" style="width: 600px; height: 164px;" /></p>
+![](./images/urlhostname.png)
 
 <p>As shown in the example url above, the hostname is <code>example.org</code>. For simplicity sake, you may assume all urls use <strong>http protocol</strong> without any <strong>port</strong> specified. For example, the urls <code>http://leetcode.com/problems</code> and <code>http://leetcode.com/contest</code> are under the same hostname, while urls <code>http://example.org/test</code> and <code>http://example.com/abc</code> are not under the same hostname.</p>
 
@@ -34,7 +34,7 @@ interface HtmlParser {
 <p> </p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/23/sample_2_1497.png" style="width: 610px; height: 300px;" /></p>
+![](./images/sample_2_1497.png)
 
 <pre>
 <strong>Input:
@@ -57,7 +57,7 @@ startUrl = "http://news.yahoo.com/news/topics/"
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/23/sample_3_1497.png" style="width: 540px; height: 270px;" /></strong></p>
+![](./images/sample_3_1497.png)
 
 <pre>
 <strong>Input:</strong> 

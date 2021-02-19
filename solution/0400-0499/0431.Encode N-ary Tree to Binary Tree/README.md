@@ -11,7 +11,7 @@
 
 <p> </p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreebinarytreeexample.png" style="width: 500px;"></p>
+![](./images/narytreebinarytreeexample.png)
 
 <p> </p>
 

@@ -15,7 +15,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/ex1.png" style="width: 300px; height: 300px;" /></p>
+![](./images/ex1.png)
 
 <pre>
 <b>输入：</b>heights = [[1,2,2],[3,8,2],[5,3,5]]
@@ -26,8 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/ex2.png" style="width: 300px; height: 300px;" /></p>
-
+![](./images/ex2.png)
 <pre>
 <b>输入：</b>heights = [[1,2,3],[3,8,4],[5,3,5]]
 <b>输出：</b>1
@@ -35,7 +34,9 @@
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/ex3.png" style="width: 300px; height: 300px;" />
+
+![](./images/ex3.png)
+
 <pre>
 <b>输入：</b>heights = [[1,2,1,1,1],[1,2,1,2,1],[1,2,1,2,1],[1,2,1,2,1],[1,1,1,2,1]]
 <b>输出：</b>0

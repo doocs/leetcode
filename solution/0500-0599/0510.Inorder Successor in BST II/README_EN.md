@@ -29,31 +29,39 @@ class Node {
 
 <p> </p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" style="width: 122px; height: 117px;" />
 <pre>
+
+![](./images/285_example_1.png)
+
 <strong>Input:</strong> tree = [2,1,3], node = 1
 <strong>Output:</strong> 2
 <strong>Explanation: </strong>1's in-order successor node is 2. Note that both the node and the return value is of Node type.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" style="width: 246px; height: 229px;" />
 <pre>
+
+![](./images/285_example_2.png)
+
 <strong>Input:</strong> tree = [5,3,6,2,4,null,null,1], node = 6
 <strong>Output:</strong> null
 <strong>Explanation: </strong>There is no in-order successor of the current node, so the answer is null.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/02/285_example_34.PNG" style="width: 438px; height: 335px;" />
 <pre>
+
+![](./images/285_example_34.png)
+
 <strong>Input:</strong> tree = [15,6,18,3,7,17,20,2,4,null,13,null,null,null,null,null,null,null,null,9], node = 15
 <strong>Output:</strong> 17
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/02/285_example_34.PNG" style="width: 438px; height: 335px;" />
 <pre>
+
+![](./images/285_example_34.png)
+
 <strong>Input:</strong> tree = [15,6,18,3,7,17,20,2,4,null,13,null,null,null,null,null,null,null,null,9], node = 13
 <strong>Output:</strong> 15
 </pre>

@@ -10,13 +10,13 @@
 
 <p>For example, you may serialize the following <code>3-ary</code> tree</p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" style="width: 100%; max-width: 300px;" /></p>
+![](./images/narytreeexample.png)
 
 <p>as <code>[1 [3[5 6] 2 4]]</code>. Note that this is just an example, you do not necessarily need to follow this format.</p>
 
 <p>Or you can follow LeetCode's level order traversal serialization format, where each group of children is separated by the null value.</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
+![](./images/sample_4_964.png)
 
 <p>For example, the above tree may be serialized as <code>[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]</code>.</p>
 

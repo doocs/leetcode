@@ -14,7 +14,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/04/23/1313_ex1.JPG" style="width: 70px; height: 59px;" /></strong></p>
+![](./images/1313_ex1.jpeg)
 
 <pre>
 <strong>Input: </strong><span id="example-input-1-1">[[5,4,5],[1,2,6],[7,4,6]]</span>
@@ -25,7 +25,7 @@ The path with the maximum score is highlighted in yellow.
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/04/23/1313_ex2.JPG" style="width: 134px; height: 39px;" /></strong></p>
+![](./images/1313_ex2.jpeg)
 
 <pre>
 <strong>Input: </strong><span>[[2,2,1,2,2,2],[1,2,2,2,1,2]]</span>
@@ -33,7 +33,7 @@ The path with the maximum score is highlighted in yellow.
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/04/23/1313_ex3.JPG" /></strong></p>
+![](./images/1313_ex3.jpeg)
 
 <pre>
 <strong>Input: </strong><span>[[3,4,6,3,4],[0,2,1,1,7],[8,8,3,2,7],[3,2,4,9,8],[4,1,2,0,0],[4,6,5,4,3]]</span>

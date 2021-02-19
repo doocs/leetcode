@@ -13,7 +13,7 @@
 
 <p><strong>示例&nbsp; 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/14/sample_1911.png" style="height:174px; width:336px" /></p>
+![](./images/sample_1911.png)
 
 <pre>
 <strong>输入：</strong>mat = [[<strong>1</strong>,2,<strong>3</strong>],

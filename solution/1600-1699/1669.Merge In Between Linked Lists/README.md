@@ -10,14 +10,16 @@
 <p>请你将 <code>list1</code> 中第 <code>a</code> 个节点到第 <code>b</code> 个节点删除，并将<code>list2</code> 接在被删除节点的位置。</p>
 
 <p>下图中蓝色边和节点展示了操作后的结果：</p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/28/fig1.png" style="height: 130px; width: 504px;" />
+
+![](./images/fig1.png)
+
 <p>请你返回结果链表的头指针。</p>
 
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/28/merge_linked_list_ex1.png" style="width: 406px; height: 140px;" /></p>
+![](./images/merge_linked_list_ex1.png)
 
 <pre>
 <b>输入：</b>list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
@@ -26,7 +28,9 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/28/merge_linked_list_ex2.png" style="width: 463px; height: 140px;" />
+
+![](./images/merge_linked_list_ex2.png)
+
 <pre>
 <b>输入：</b>list1 = [0,1,2,3,4,5,6], a = 2, b = 5, list2 = [1000000,1000001,1000002,1000003,1000004]
 <b>输出：</b>[0,1,1000000,1000001,1000002,1000003,1000004,6]

@@ -16,7 +16,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants.jpg" style="width: 450px; height: 610px;" />
+![](./images/ants.jpg)
 
 <pre>
 
@@ -40,7 +40,7 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 
 <p><strong>Example 2:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants2.jpg" style="width: 639px; height: 101px;" />
+![](./images/ants2.jpg)
 
 <pre>
 
@@ -54,7 +54,7 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 
 <p><strong>Example 3:</strong></p>
 
-<img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants3.jpg" style="width: 639px; height: 100px;" />
+![](./images/ants3.jpg)
 
 <pre>
 

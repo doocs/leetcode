@@ -20,7 +20,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/07/11/5125_example_2.png" style="width: 651px; height: 311px;" /></p>
+![](./images/5125_example_2.png)
 
 <pre>
 <strong>Input:</strong> num_people = 4
@@ -30,7 +30,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/07/11/5125_example_3.png" style="width: 664px; height: 992px;" /></p>
+![](./images/5125_example_3.png)
 
 <pre>
 <strong>Input:</strong> num_people = 6

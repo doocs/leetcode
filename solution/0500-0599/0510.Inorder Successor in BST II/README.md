@@ -30,7 +30,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/01/23/285_example_1.PNG" style="height: 117px; width: 122px;"></p>
+![](./images/285_example_1.png)
 
 <pre><strong>输入: </strong>tree = [2,1,3], node = 1
 <strong>输出: </strong>2
@@ -39,7 +39,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG" style="height: 229px; width: 246px;"></p>
+![](./images/285_example_2.png)
 
 <pre><strong>输入: </strong>tree = [5,3,6,2,4,null,null,1], node = 6
 <strong>输出: </strong>null
@@ -48,7 +48,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/02/02/285_example_34.PNG" style="height: 335px; width: 438px;"></p>
+![](./images/285_example_34.png)
 
 <pre><strong>输入: </strong>tree = [15,6,18,3,7,17,20,2,4,null,13,null,null,null,null,null,null,null,null,9], node = 15
 <strong>输出: </strong>17
@@ -56,7 +56,7 @@
 
 <p><strong>示例 4:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/02/02/285_example_34.PNG" style="height: 335px; width: 438px;"></p>
+![](./images/285_example_34.png)
 
 <pre><strong>输入: </strong>tree = [15,6,18,3,7,17,20,2,4,null,13,null,null,null,null,null,null,null,null,9], node = 13
 <strong>输出: </strong>15

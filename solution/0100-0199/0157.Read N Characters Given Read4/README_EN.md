@@ -27,7 +27,7 @@ Note: buf4[] is destination not source, the results from read4 will be copied to
 
 <p>Below is a high level example of how <code>read4</code> works:</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/01/157_example.png" style="width: 600px; height: 403px;" /></p>
+![](./images/157_example.png)
 
 <pre>
 <code>File file(&quot;</code>abcde<code>&quot;); // File is &quot;</code>abcde<code>&quot;, initially file pointer (fp) points to &#39;a&#39;

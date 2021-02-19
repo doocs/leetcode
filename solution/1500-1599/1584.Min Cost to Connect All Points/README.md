@@ -15,16 +15,18 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/d.png" style="height:268px; width:214px" /></p>
+![](./images/d.png)
 
 <pre>
 <strong>输入：</strong>points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
 <strong>输出：</strong>20
 <strong>解释：
-</strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/c.png" style="height:268px; width:214px" />
+</strong>
 我们可以按照上图所示连接所有点得到最小总费用，总费用为 20 。
 注意到任意两个点之间只有唯一一条路径互相到达。
 </pre>
+
+![](./images/c.png)
 
 <p><strong>示例 2：</strong></p>
 

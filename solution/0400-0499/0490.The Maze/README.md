@@ -29,8 +29,9 @@
 <strong>输出:</strong> true
 
 <strong>解析:</strong> 一个可能的路径是 : 左 -> 下 -> 左 -> 下 -> 右 -> 下 -> 右。
-<img src="https://assets.leetcode.com/uploads/2018/10/12/maze_1_example_1.png" style="width: 100%;">
 </pre>
+
+![](./images/maze_1_example_1.png)
 
 <p><strong>示例 2:</strong></p>
 
@@ -48,8 +49,9 @@
 <strong>输出:</strong> false
 
 <strong>解析:</strong> 没有能够使球停在目的地的路径。
-<img src="https://assets.leetcode.com/uploads/2018/10/13/maze_1_example_2.png" style="width: 100%;">
 </pre>
+
+![](./images/maze_1_example_2.png)
 
 <p> </p>
 

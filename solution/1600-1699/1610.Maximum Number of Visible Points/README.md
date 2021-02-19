@@ -21,7 +21,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/04/89a07e9b-00ab-4967-976a-c723b2aa8656.png" style="height: 300px; width: 400px;" /></p>
+![](./images/89a07e9b-00ab-4967-976a-c723b2aa8656.png)
 
 <pre>
 <strong>输入：</strong>points = [[2,1],[2,2],[3,3]], angle = 90, location = [1,1]
@@ -37,7 +37,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/04/5010bfd3-86e6-465f-ac64-e9df941d2e49.png" style="height: 348px; width: 690px;" /></p>
+![](./images/5010bfd3-86e6-465f-ac64-e9df941d2e49.png)
 
 <pre>
 <strong>输入：</strong>points = [[1,0],[2,1]], angle = 13, location = [1,1]

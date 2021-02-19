@@ -30,8 +30,9 @@ board =
 [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[110,0,0,0,114],[210,0,0,0,214],[310,0,0,113,314],[410,0,0,213,414],[610,211,112,313,614],[710,311,412,613,714],[810,411,512,713,1014]]
 
 <b>Explanation:</b> 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/candy_crush_example_2.png" style="width: 777px; height: 532px;" />
 </pre>
+
+![](./images/candy_crush_example_2.png)
 
 <p> </p>
 

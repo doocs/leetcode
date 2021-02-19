@@ -13,7 +13,7 @@
 
 <p> </p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" style="width: 250px;"></p>
+![](./images/narytreeexample.png)
 
 <p> </p>
 

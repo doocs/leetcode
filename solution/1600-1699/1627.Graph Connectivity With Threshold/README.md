@@ -21,7 +21,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/18/ex1.jpg" style="width: 382px; height: 181px;" /></p>
+![](./images/ex1.jpg)
 
 <p> </p>
 
@@ -43,7 +43,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/18/tmp.jpg" style="width: 532px; height: 302px;" /></p>
+![](./images/tmp.jpg)
 
 <p> </p>
 
@@ -55,7 +55,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/16/ex3.jpg" style="width: 282px; height: 282px;" /></p>
+![](./images/ex3.jpg)
 
 <p> </p>
 

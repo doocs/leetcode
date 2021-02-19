@@ -25,7 +25,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/10/12/ex1.png" style="width: 300px; height: 229px;" /></p>
+![](./images/ex1.png)
 
 <pre>
 <strong>Input:</strong> destination = [2,3], k = 1
@@ -36,7 +36,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/12/ex2.png" style="width: 300px; height: 229px;" /></strong></p>
+![](./images/ex2.png)
 
 <pre>
 <strong>Input:</strong> destination = [2,3], k = 2
@@ -45,7 +45,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/12/ex3.png" style="width: 300px; height: 229px;" /></strong></p>
+![](./images/ex3.png)
 
 <pre>
 <strong>Input:</strong> destination = [2,3], k = 3

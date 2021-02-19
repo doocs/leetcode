@@ -14,7 +14,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/07/01/sample_1_1875.png" style="width: 480px; height: 240px;" /></strong></p>
+![](./images/sample_1_1875.png)
 
 <pre>
 
@@ -30,7 +30,7 @@ Number of water bottles you can&nbsp;drink: 9 + 3 + 1 = 13.
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/01/sample_2_1875.png" style="width: 790px; height: 290px;" /></p>
+![](./images/sample_2_1875.png)
 
 <pre>
 

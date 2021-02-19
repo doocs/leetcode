@@ -19,7 +19,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/27/q4.gif" style="width: 562px; height: 561px;" />
+
+![](./images/q4.gif)
+
 <pre>
 <strong>Input:</strong> heights = [4,2,7,6,9,14,12], bricks = 5, ladders = 1
 <strong>Output:</strong> 4

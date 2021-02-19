@@ -10,7 +10,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/07/ex1.png" style="width: 179px; height: 222px;" />
+
+![](./images/ex1.png)
+
 <pre>
 <strong>Input:</strong> n = 4, k = 2
 <strong>Output:</strong> 5

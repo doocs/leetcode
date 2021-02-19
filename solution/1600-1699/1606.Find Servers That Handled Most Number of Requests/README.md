@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/03/load-1.png" style="height: 221px; width: 389px;" /></p>
+![](./images/load-1.png)
 
 <pre>
 <strong>输入：</strong>k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 

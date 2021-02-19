@@ -30,8 +30,9 @@
 
 <b>Explanation:</b> One shortest way is : left -> down -> left -> down -> right -> down -> right.
              The total distance is 1 + 1 + 3 + 1 + 2 + 2 + 2 = 12.
-<img src="https://assets.leetcode.com/uploads/2018/10/12/maze_1_example_1.png" style="width: 100%; max-width:350px;" />
 </pre>
+
+![](./images/maze_1_example_1.png)
 
 <p><b>Example 2:</b></p>
 
@@ -50,8 +51,9 @@
 <b>Output:</b> -1
 
 <b>Explanation:</b> There is no way for the ball to stop at the destination.
-<img src="https://assets.leetcode.com/uploads/2018/10/13/maze_1_example_2.png" style="width: 100%; max-width:350px;" />
 </pre>
+
+![](./images/maze_1_example_2.png)
 
 <p> </p>
 

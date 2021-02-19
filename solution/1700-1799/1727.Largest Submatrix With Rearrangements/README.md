@@ -13,7 +13,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/17/screenshot-2020-12-30-at-40536-pm.png" style="width: 300px; height: 144px;" /></strong></p>
+![](./images/screenshot-2020-12-30-at-40536-pm.png)
 
 <pre>
 <b>输入：</b>matrix = [[0,0,1],[1,1,1],[1,0,1]]
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/17/screenshot-2020-12-30-at-40852-pm.png" style="width: 500px; height: 62px;" /></p>
+![](./images/screenshot-2020-12-30-at-40852-pm.png)
 
 <pre>
 <b>输入：</b>matrix = [[1,0,1,0,1]]

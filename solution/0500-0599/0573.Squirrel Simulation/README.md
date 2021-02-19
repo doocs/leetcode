@@ -16,9 +16,10 @@
 松鼠 : [4,4]
 坚果 : [[3,0], [2,5]]
 <strong>输出:</strong> 12
-<strong>解释:</strong>
-<img src="https://assets.leetcode.com/uploads/2018/10/22/squirrel_simulation.png" style="width: 40%;">​​​​​
+<strong>解释:</strong>​​​​​
 </pre>
+
+![](./images/squirrel_simulation.png)
 
 <p><strong>注意:</strong></p>
 

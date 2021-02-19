@@ -10,7 +10,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/21/linked1.jpg" style="width: 722px; height: 202px;" />
+
+![](./images/linked1.jpg)
+
 <pre>
 <strong>Input:</strong> head = [1,2,3,4,5], k = 2
 <strong>Output:</strong> [1,4,3,2,5]

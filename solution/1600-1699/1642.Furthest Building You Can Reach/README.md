@@ -20,7 +20,9 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/31/q4.gif" style="width: 562px; height: 561px;" />
+
+![](./images/q4.gif)
+
 <pre>
 <strong>输入：</strong>heights = [4,2,7,6,9,14,12], bricks = 5, ladders = 1
 <strong>输出：</strong>4

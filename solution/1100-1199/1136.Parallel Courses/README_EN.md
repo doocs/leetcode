@@ -16,7 +16,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/04/20/1316_ex1.png" style="width: 126px; height: 101px;" /></strong></p>
+![](./images/1316_ex1.png)
 
 <pre>
 <strong>Input: </strong>N = <span id="example-input-1-1">3</span>, relations = <span id="example-input-1-2">[[1,3],[2,3]]</span>
@@ -27,7 +27,7 @@ In the first semester, courses 1 and 2 are studied. In the second semester, cour
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/04/20/1316_ex2.png" style="width: 126px; height: 101px;" /></strong></p>
+![](./images/1316_ex2.png)
 
 <pre>
 <strong>Input: </strong>N = <span id="example-input-2-1">3</span>, relations = <span id="example-input-2-2">[[1,2],[2,3],[3,1]]</span>

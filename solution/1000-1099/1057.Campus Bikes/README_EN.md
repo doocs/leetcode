@@ -16,7 +16,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/06/1261_example_1_v2.png" style="width: 264px; height: 264px;" /></p>
+![](./images/1261_example_1_v2.png)
 
 <pre>
 <strong>Input: </strong>workers = <span id="example-input-1-1">[[0,0],[2,1]]</span>, bikes = <span id="example-input-1-2">[[1,2],[3,3]]</span>
@@ -27,7 +27,7 @@ Worker 1 grabs Bike 0 as they are closest (without ties), and Worker 0 is assign
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/03/06/1261_example_2_v2.png" style="width: 264px; height: 264px;" /></p>
+![](./images/1261_example_2_v2.png)
 
 <pre>
 <strong>Input: </strong>workers = <span id="example-input-2-1">[[0,0],[1,1],[2,0]]</span>, bikes = <span id="example-input-2-2">[[1,0],[2,2],[2,1]]</span>

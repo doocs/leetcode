@@ -12,16 +12,17 @@
 
 <p> </p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/19/example_1_before_65p.jpg" style="width: 250px; height: 149px;" /><br />
+
+![](./images/example_1_before_65p.jpg)
  
 <pre>
 <strong>Input:</strong> head = [3,4,1], insertVal = 2
 <strong>Output:</strong> [3,4,1,2]
 <strong>Explanation:</strong> In the figure above, there is a sorted circular list of three elements. You are given a reference to the node with value 3, and we need to insert 2 into the list. The new node should be inserted between node 1 and node 3. After the insertion, the list should look like this, and we should still return node 3.
 
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/19/example_1_after_65p.jpg" style="width: 250px; height: 149px;" />
-
 </pre>
+
+![](./images/example_1_after_65p.jpg)
 
 <p><strong>Example 2:</strong></p>
 

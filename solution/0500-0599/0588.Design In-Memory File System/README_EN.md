@@ -27,8 +27,9 @@
 [null,[],null,null,["a"],"hello"]
 
 <b>Explanation:</b>
-<img alt="filesystem" src="https://assets.leetcode.com/uploads/2018/10/12/filesystem.png" style="width: 640px;" />
 </pre>
+
+![](./images/filesystem.png)
 
 <p> </p>
 

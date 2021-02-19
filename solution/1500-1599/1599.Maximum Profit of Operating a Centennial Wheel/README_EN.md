@@ -14,7 +14,9 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/wheeldiagram12.png" style="width: 906px; height: 291px;" />
+
+![](./images/wheeldiagram12.png)
+
 <pre>
 <strong>Input:</strong> customers = [8,3], boardingCost = 5, runningCost = 6
 <strong>Output:</strong> 3
