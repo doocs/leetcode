@@ -39,6 +39,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历数组，用哈希表记录数组每个元素出现的次数，以及首次、末次出现的位置。然后遍历哈希表，获取元素出现次数最多（可能有多个）且首末位置差最小的数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,7 +48,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findShortestSubArray(self, nums: List[int]) -> int:
+        mapper = {}
+        for i, v in enumerate(nums):
+            if v in mapper:
+                arr = mapper[v]
+                arr[0] += 1
+                arr[2] = i
+            else:
+                arr = [1, i, i]
+                mapper[v] = arr
+        max_degree = min_len = 0
+        for arr in mapper.values():
+            if max_degree < arr[0]:
+                max_degree = arr[0]
+                min_len = arr[2] - arr[1] + 1
+            elif max_degree == arr[0]:
+                min_len = min(min_len, arr[2] - arr[1] + 1)
+        return min_len
 ```
 
 ### **Java**
@@ -54,7 +74,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findShortestSubArray(int[] nums) {
+        Map<Integer, int[]> mapper = new HashMap<>();
+        for (int i = 0, n = nums.length; i < n; ++i) {
+            if (mapper.containsKey(nums[i])) {
+                int[] arr = mapper.get(nums[i]);
+                ++arr[0];
+                arr[2] = i;
+            } else {
+                int[] arr = new int[]{1, i, i};
+                mapper.put(nums[i], arr);
+            }
+        }
 
+        int maxDegree = 0, minLen = 0;
+        for (Map.Entry<Integer, int[]> entry : mapper.entrySet()) {
+            int[] arr = entry.getValue();
+            if (maxDegree < arr[0]) {
+                maxDegree = arr[0];
+                minLen = arr[2] - arr[1] + 1;
+            } else if (maxDegree == arr[0]) {
+                minLen = Math.min(minLen, arr[2] - arr[1] + 1);
+            }
+        }
+        return minLen;
+    }
+}
 ```
 
 ### **...**
