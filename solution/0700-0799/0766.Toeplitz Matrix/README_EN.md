@@ -86,13 +86,32 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        m, n = len(matrix), len(matrix[0])
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][j] != matrix[i - 1][j - 1]:
+                    return False
+        return True
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (matrix[i][j] != matrix[i - 1][j - 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

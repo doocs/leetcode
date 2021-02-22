@@ -55,6 +55,8 @@ matrix = [
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历矩阵，若出现元素与其左上角的元素不等的情况，返回 `false`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +64,14 @@ matrix = [
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+        m, n = len(matrix), len(matrix[0])
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][j] != matrix[i - 1][j - 1]:
+                    return False
+        return True
 ```
 
 ### **Java**
@@ -70,7 +79,19 @@ matrix = [
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (matrix[i][j] != matrix[i - 1][j - 1]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
