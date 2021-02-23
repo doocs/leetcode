@@ -45,13 +45,41 @@ The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSatisfied(self, customers: List[int], grumpy: List[int], X: int) -> int:
+        s = t = 0
+        win, n = 0, len(customers)
+        for i in range(n):
+            if grumpy[i] == 0:
+                s += customers[i]
+            else:
+                win += customers[i]
+            if i >= X and grumpy[i - X] == 1:
+                win -= customers[i - X]
+            t = max(t, win)
+        return s + t
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int maxSatisfied(int[] customers, int[] grumpy, int X) {
+        int s = 0, t = 0;
+        for (int i = 0, win = 0, n = customers.length; i < n; ++i) {
+            if (grumpy[i] == 0) {
+                s += customers[i];
+            } else {
+                win += customers[i];
+            }
+            if (i >= X && grumpy[i - X] == 1) {
+                win -= customers[i - X];
+            }
+            t = Math.max(t, win);
+        }
+        return s + t;
+    }
+}
 ```
 
 ### **...**

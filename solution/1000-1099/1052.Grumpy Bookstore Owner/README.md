@@ -37,6 +37,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+- 用 `s` 累计不使用秘密技巧时，满意的顾客数；
+- 用 `t` 计算大小为 `X` 的滑动窗口最多增加的满意的顾客数；
+- 结果即为 `s+t`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -44,7 +48,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxSatisfied(self, customers: List[int], grumpy: List[int], X: int) -> int:
+        # 用s累计不使用秘密技巧时，满意的顾客数
+        # 用t计算大小为X的滑动窗口最多增加的满意的顾客数
+        # 结果即为s+t
+        s = t = 0
+        win, n = 0, len(customers)
+        for i in range(n):
+            if grumpy[i] == 0:
+                s += customers[i]
+            else:
+                win += customers[i]
+            if i >= X and grumpy[i - X] == 1:
+                win -= customers[i - X]
+            # 求滑动窗口的最大值
+            t = max(t, win)
+        return s + t
 ```
 
 ### **Java**
@@ -52,7 +72,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxSatisfied(int[] customers, int[] grumpy, int X) {
+        // 用s累计不使用秘密技巧时，满意的顾客数
+        // 用t计算大小为X的滑动窗口最多增加的满意的顾客数
+        // 结果即为s+t
+        int s = 0, t = 0;
+        for (int i = 0, win = 0, n = customers.length; i < n; ++i) {
+            if (grumpy[i] == 0) {
+                s += customers[i];
+            } else {
+                win += customers[i];
+            }
+            if (i >= X && grumpy[i - X] == 1) {
+                win -= customers[i - X];
+            }
+            // 求滑动窗口的最大值
+            t = Math.max(t, win);
+        }
+        return s + t;
+    }
+}
 ```
 
 ### **...**
