@@ -40,6 +40,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历矩阵每一行，利用双指针 p, q 进行水平交换翻转，顺便反转图像（1 变 0，0 变 1：`1 ^ 1` = 0，`0 ^ 1` = 1）。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,7 +49,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def flipAndInvertImage(self, A: List[List[int]]) -> List[List[int]]:
+        m, n = len(A), len(A[0])
+        for i in range(m):
+            p, q = 0, n - 1
+            while p < q:
+                t = A[i][p] ^ 1
+                A[i][p] = A[i][q] ^ 1
+                A[i][q] = t
+                p += 1
+                q -= 1
+            if p == q:
+                A[i][p] ^= 1
+        return A
 ```
 
 ### **Java**
@@ -55,7 +70,50 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[][] flipAndInvertImage(int[][] A) {
+        int m = A.length, n = A[0].length;
+        for (int i = 0; i < m; ++i) {
+            int p = 0, q = n - 1;
+            while (p < q) {
+                int t = A[i][p] ^ 1;
+                A[i][p] = A[i][q] ^ 1;
+                A[i][q] = t;
+                ++p;
+                --q;
+            }
+            if (p == q) {
+                A[i][p] ^= 1;
+            }
+        }
+        return A;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A) {
+        int m = A.size(), n = A[0].size();
+        for (int i = 0; i < m; ++i) {
+            int p = 0, q = n - 1;
+            while (p < q) {
+                int t = A[i][p] ^ 1;
+                A[i][p] = A[i][q] ^ 1;
+                A[i][q] = t;
+                ++p;
+                --q;
+            }
+            if (p == q) {
+                A[i][p] ^= 1;
+            }
+        }
+        return A;
+    }
+};
 ```
 
 ### **...**
