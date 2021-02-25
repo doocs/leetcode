@@ -58,13 +58,52 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+        m, n = len(matrix), len(matrix[0])
+        res = [[0] * m for _ in range(n)]
+        for i in range(n):
+            for j in range(m):
+                res[i][j] = matrix[j][i]
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[][] transpose(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        int[][] res = new int[n][m];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < m; ++j) {
+                res[i][j] = matrix[j][i];
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} matrix
+ * @return {number[][]}
+ */
+var transpose = function (matrix) {
+  const m = matrix.length,
+    n = matrix[0].length;
+  let res = [];
+  for (let i = 0; i < n; ++i) {
+    res[i] = [];
+    for (let j = 0; j < m; ++j) {
+      res[i][j] = matrix[j][i];
+    }
+  }
+  return res;
+};
 ```
 
 ### **...**
