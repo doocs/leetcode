@@ -102,13 +102,33 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isMonotonic(self, A: List[int]) -> bool:
+        increase = decrease = True
+        for i in range(1, len(A)):
+            if not increase and not decrease:
+                return False
+            if A[i] < A[i - 1]:
+                increase = False
+            elif A[i] > A[i - 1]:
+                decrease = False
+        return increase or decrease
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean isMonotonic(int[] A) {
+        boolean increase = true, decrease = true;
+        for (int i = 1, n = A.length; i < n; ++i) {
+            if (!increase && !decrease) return false;
+            if (A[i] < A[i - 1]) decrease = false;
+            else if (A[i] > A[i - 1]) increase = false;
+        }
+        return increase || decrease;
+    }
+}
 ```
 
 ### **...**

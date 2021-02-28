@@ -59,6 +59,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历数组：
+
+- 出现递减，将 `increase` 置为 `false`；
+- 出现递增，将 `decrease` 置为 `false`；
+- 既非递增也非递减，提前返回 `false`；
+- 遍历结束，若出现递增或递减，返回 `true`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +73,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isMonotonic(self, A: List[int]) -> bool:
+        increase = decrease = True
+        for i in range(1, len(A)):
+            if not increase and not decrease:
+                return False
+            if A[i] < A[i - 1]:
+                increase = False
+            elif A[i] > A[i - 1]:
+                decrease = False
+        return increase or decrease
 ```
 
 ### **Java**
@@ -74,7 +91,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean isMonotonic(int[] A) {
+        boolean increase = true, decrease = true;
+        for (int i = 1, n = A.length; i < n; ++i) {
+            if (!increase && !decrease) return false;
+            if (A[i] < A[i - 1]) decrease = false;
+            else if (A[i] > A[i - 1]) increase = false;
+        }
+        return increase || decrease;
+    }
+}
 ```
 
 ### **...**
