@@ -43,13 +43,49 @@ sumRange(0, 5) -> -3
 ### **Python3**
 
 ```python
+class NumArray:
 
+    def __init__(self, nums: List[int]):
+        n = len(nums)
+        self.sums = [0] * (n + 1)
+        for i in range(n):
+            self.sums[i + 1] = nums[i] + self.sums[i]
+
+
+    def sumRange(self, i: int, j: int) -> int:
+        return self.sums[j + 1] - self.sums[i]
+
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# param_1 = obj.sumRange(i,j)
 ```
 
 ### **Java**
 
 ```java
+class NumArray {
 
+    private int[] sums;
+
+    public NumArray(int[] nums) {
+        int n = nums.length;
+        sums = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            sums[i + 1] = nums[i] + sums[i];
+        }
+    }
+
+    public int sumRange(int i, int j) {
+        return sums[j + 1] - sums[i];
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * int param_1 = obj.sumRange(i,j);
+ */
 ```
 
 ### **...**

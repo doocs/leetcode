@@ -1,22 +1,18 @@
 class NumArray {
 
-	private int[] nums;
-	private int[] sums;
+    private int[] sums;
 
-	public NumArray(int[] tmp) {
-		this.nums = Arrays.copyOf(tmp, tmp.length);
-		sums = new int[nums.length + 1];
-		for (int i = 0; i < nums.length; i++) {
-			sums[i + 1] += nums[i] + sums[i];
-		}
-	}
-
-	public int sumRange(int i, int j) {
-		if (i < 0 || j > nums.length || i > j) {
-			return 0;
-		}
-		return sums[j + 1] - sums[i];
-	}
+    public NumArray(int[] nums) {
+        int n = nums.length;
+        sums = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            sums[i + 1] = nums[i] + sums[i];
+        }
+    }
+    
+    public int sumRange(int i, int j) {
+        return sums[j + 1] - sums[i];
+    }
 }
 
 /**
