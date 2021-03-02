@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>LeetCode、剑指Offer、程序员面试金典题解</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="keywords" content="doc,docs,doocs,documentation,github,gitee,coding,pages,leetcode,coding-interview,cracking-the-coding-interview,yanglbme">
+  <meta name="keywords"
+    content="doc,docs,doocs,documentation,github,gitee,coding,pages,leetcode,coding-interview,cracking-the-coding-interview,yanglbme">
   <meta name="description" content="LeetCode、剑指Offer、程序员面试金典题解">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-mode@0.6.1/dist/style.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -33,7 +36,7 @@
       name: 'leetcode',
       logo: '/images/doocs-leetcode.png',
       search: [
-        '/','/solution/','/lcof/','/lcci/', '/basic/'
+        '/', '/solution/', '/lcof/', '/lcci/', '/basic/'
       ],
       loadSidebar: 'summary.md',
       auto2top: true,
@@ -66,13 +69,10 @@
         function (hook, vm) {
           hook.beforeEach(function (html) {
             const en = vm.route.file.indexOf('README_EN') > -1
-            if (/githubusercontent\.com/.test(vm.route.file)) {
-              url = vm.route.file
-                .replace('raw.githubusercontent.com', 'github.com')
-                .replace(/\/main/, '/blob/main')
-            } else {
-              url = 'https://github.com/doocs/leetcode/blob/main/' + vm.route.file
-            }
+            const userContent = /githubusercontent\.com/.test(vm.route.file)
+            const url = userContent ? vm.route.file
+              .replace('raw.githubusercontent.com', 'github.com')
+              .replace(/\/main/, '/blob/main') : 'https://github.com/doocs/leetcode/blob/main/' + vm.route.file
 
             const github = `[GitHub](${url})`
             const gitee = `[Gitee](${url.replace("github", "gitee")})`
@@ -110,4 +110,5 @@
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 </body>
+
 </html>
