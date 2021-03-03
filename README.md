@@ -4,7 +4,6 @@
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Java%20%7C%20Python%20%7C%20C%2B%2B%20%7C%20JavaScript%20%7C%20Go%20%7C%20...-red?style=flat-square&color=42b883" alt="languages"></a>
-  <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/prs-welcome-42b883?style=flat-square" alt="PRs Welcome"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://img.shields.io/badge/organization-join%20us-42b883?style=flat-square" alt="open-source-organization"></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doocs/leetcode?color=42b883&style=flat-square" alt="LICENSE"></a><br>
   <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a> 
