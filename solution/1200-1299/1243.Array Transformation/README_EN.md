@@ -53,13 +53,51 @@ No more operations can be done to this array.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def transformArray(self, arr: List[int]) -> List[int]:
+        copy = [e for e in arr]
+        has_change, n = True, len(arr)
+        while has_change:
+            has_change = False
+            for i in range(1, n - 1):
+                if arr[i] < copy[i - 1] and arr[i] < copy[i + 1]:
+                    arr[i] += 1
+                    has_change = True
+                elif arr[i] > copy[i - 1] and arr[i] > copy[i + 1]:
+                    arr[i] -= 1
+                    has_change = True
+            copy = [e for e in arr]
+        return arr
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<Integer> transformArray(int[] arr) {
+        int n = arr.length;
+        int[] copy = Arrays.copyOf(arr, n);
+        boolean hasChange = true;
+        while (hasChange) {
+            hasChange = false;
+            for (int i = 1; i < n - 1; ++i) {
+                if (arr[i] < copy[i - 1] && arr[i] < copy[i + 1]) {
+                    ++arr[i];
+                    hasChange = true;
+                } else if (arr[i] > copy[i - 1] && arr[i] > copy[i + 1]) {
+                    --arr[i];
+                    hasChange = true;
+                }
+            }
+            System.arraycopy(arr, 0, copy, 0, n);
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int e : arr) {
+            res.add(e);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
