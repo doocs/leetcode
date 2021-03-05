@@ -107,13 +107,12 @@ class MyQueue:
 ```java
 class MyQueue {
 
-    private Deque<Integer> s1;
-    private Deque<Integer> s2;
+    private Deque<Integer> s1 = new ArrayDeque<>();
+    private Deque<Integer> s2 = new ArrayDeque<>();
 
     /** Initialize your data structure here. */
     public MyQueue() {
-        s1 = new ArrayDeque<>();
-        s2 = new ArrayDeque<>();
+
     }
 
     /** Push element x to the back of queue. */
