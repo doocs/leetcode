@@ -14,7 +14,7 @@
 
 ## 介绍
 
-本项目包含 [LeetCode](https://leetcode-cn.com/problemset/all/)、[《剑指 Offer（第 2 版）》](https://leetcode-cn.com/problemset/lcof/)、[《程序员面试金典（第 6 版）》](https://leetcode-cn.com/problemset/lcci/)等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。欢迎 [Star](https://github.com/doocs/leetcode) 关注本项目，获取项目最新动态。
+本项目包含 [LeetCode](https://leetcode-cn.com/problemset/all/)、[《剑指 Offer（第 2 版）》](https://leetcode-cn.com/problemset/lcof/)、[《程序员面试金典（第 6 版）》](https://leetcode-cn.com/problemset/lcci/)等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。欢迎 Star 关注本项目「[GitHub](https://github.com/doocs/leetcode) / [Gitee](https://gitee.com/doocs/leetcode)」，获取项目最新动态。
 
 [English Version](/README_EN.md)
 
@@ -154,7 +154,7 @@
 
 ## 维护者
 
-[Yang Libin](https://github.com/yanglbme): GitHub 技术社区 [@Doocs](https://github.com/doocs) 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。
+[Yang Libin](https://github.com/yanglbme): GitHub / Gitee 技术社区 @Doocs 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。
 
 ## 加入我们
 
@@ -162,10 +162,10 @@
 
 如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
-1. 将[本项目](https://github.com/doocs/leetcode) <kbd>fork</kbd> 到你的个人 GitHub 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
-1. 对项目做出一些变更，然后使用 git <kbd>add</kbd>、<kbd>commit</kbd>、<kbd>push</kbd> 等命令将你的变更提交到你的远程 GitHub 仓库；
+1. 将本项目 <kbd>fork</kbd> 到你的个人 GitHub / Gitee 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
+1. 对项目做出一些变更，然后使用 git <kbd>add</kbd>、<kbd>commit</kbd>、<kbd>push</kbd> 等命令将你的变更提交到你的远程 GitHub / Gitee 仓库；
 1. 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
-1. 你也可以参考 [GitHub 帮助文档](https://help.github.com/cn) 了解更多细节。
+1. 你也可以参考帮助文档「[GitHub](https://help.github.com/cn) / [Gitee](https://gitee.com/help)」了解更多细节。
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
