@@ -40,6 +40,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+先对将 nums2 中的每一个元素，求出其下一个更大的元素。随后对于将这些答案放入哈希映射（HashMap）中，再遍历数组 nums1，并直接找出答案。对于 nums2，可以使用单调栈来解决这个问题。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,7 +49,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        mapper = dict()
+        stack = []
+        for num in nums2:
+            while stack and stack[-1] < num:
+                mapper[stack.pop()] = num
+            stack.append(num)
+        res = []
+        for num in nums1:
+            res.append(mapper.get(num, -1))
+        return res
 ```
 
 ### **Java**
@@ -55,7 +68,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums2) {
+            while (!stack.isEmpty() && stack.peek() < num) {
+                map.put(stack.pop(), num);
+            }
+            stack.push(num);
+        }
+        int n = nums1.length;
+        int[] res = new int[n];
+        for (int i = 0; i < n; ++i) {
+            res[i] = map.getOrDefault(nums1[i], -1);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
