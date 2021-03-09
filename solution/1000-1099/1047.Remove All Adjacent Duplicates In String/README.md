@@ -34,6 +34,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+栈实现。
+
+遍历字符串 S 中的每个字符 s，若栈为空或者栈顶值不等于字符 s，s 入栈，否则栈顶元素出栈。
+
+最后返回栈中元素所组成的字符串。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -41,7 +47,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def removeDuplicates(self, S: str) -> str:
+        res = []
+        for s in S:
+            if not res or res[-1] != s:
+                res.append(s)
+            else:
+                res.pop()
+        return ''.join(res)
 ```
 
 ### **Java**
@@ -49,7 +63,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String removeDuplicates(String S) {
+        StringBuilder sb = new StringBuilder();
+        int top = -1;
+        for (int i = 0, n = S.length(); i < n; ++i) {
+            char s = S.charAt(i);
+            if (top == -1 || sb.charAt(top) != s) {
+                sb.append(s);
+                ++top;
+            } else {
+                sb.deleteCharAt(top);
+                --top;
+            }
+        }
+        return sb.toString();
+    }
+}
 ```
 
 ### **...**
