@@ -26,6 +26,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+双指针解决。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -33,7 +35,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        low, high = 0, len(numbers) - 1
+        while low <= high:
+            if numbers[low] + numbers[high] == target:
+                return [low + 1, high + 1]
+            if numbers[low] + numbers[high] < target:
+                low += 1
+            else:
+                high -= 1
+        return [-1, -1]
 ```
 
 ### **Java**
@@ -41,7 +53,44 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int low = 0, high = numbers.length - 1;
+        while (low <= high) {
+            if (numbers[low] + numbers[high] == target) {
+                return new int[]{low + 1, high + 1};
+            }
+            if (numbers[low] + numbers[high] < target) {
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        return new int[]{-1, -1};
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int low = 0, high = numbers.size() - 1;
+        while (low <= high) {
+            if (numbers[low] + numbers[high] == target) {
+                return {low + 1, high + 1};
+            }
+            if (numbers[low] + numbers[high] < target) {
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        return {-1, -1};
+    }
+};
 ```
 
 ### **...**

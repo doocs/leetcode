@@ -32,13 +32,60 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        low, high = 0, len(numbers) - 1
+        while low <= high:
+            if numbers[low] + numbers[high] == target:
+                return [low + 1, high + 1]
+            if numbers[low] + numbers[high] < target:
+                low += 1
+            else:
+                high -= 1
+        return [-1, -1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int low = 0, high = numbers.length - 1;
+        while (low <= high) {
+            if (numbers[low] + numbers[high] == target) {
+                return new int[]{low + 1, high + 1};
+            }
+            if (numbers[low] + numbers[high] < target) {
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        return new int[]{-1, -1};
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int low = 0, high = numbers.size() - 1;
+        while (low <= high) {
+            if (numbers[low] + numbers[high] == target) {
+                return {low + 1, high + 1};
+            }
+            if (numbers[low] + numbers[high] < target) {
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        return {-1, -1};
+    }
+};
 ```
 
 ### **...**
