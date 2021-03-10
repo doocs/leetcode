@@ -22,6 +22,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+双指针解决。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -29,7 +31,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def threeSumSmaller(self, nums: List[int], target: int) -> int:
+        def threeSumSmaller(nums, start, end, target):
+            count = 0
+            while start < end:
+                if nums[start] + nums[end] < target:
+                    count += (end - start)
+                    start += 1
+                else:
+                    end -= 1
+            return count
 
+        nums.sort()
+        n, count = len(nums), 0
+        for i in range(n - 2):
+            count += threeSumSmaller(nums, i + 1, n - 1, target - nums[i])
+        return count
 ```
 
 ### **Java**
@@ -37,7 +55,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int threeSumSmaller(int[] nums, int target) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        int count = 0;
+        for (int i = 0; i < n - 2; ++i) {
+            count += threeSumSmaller(nums, i + 1, n - 1, target - nums[i]);
+        }
+        return count;
+    }
 
+    private int threeSumSmaller(int[] nums, int start, int end, int target) {
+        int count = 0;
+        while (start < end) {
+            if (nums[start] + nums[end] < target) {
+                count += (end - start);
+                ++start;
+            } else {
+                --end;
+            }
+        }
+        return count;
+    }
+}
 ```
 
 ### **...**
