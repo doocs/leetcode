@@ -40,6 +40,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+先进行排序，再用双指针 `low` 、`high` 分别指向排序数组的首尾，遍历获取满足条件的和 `nums[low] + nums[high]` 并求最大和。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,7 +49,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        low, high = 0, len(nums) - 1
+        res = -1
+        while low < high:
+            val = nums[low] + nums[high]
+            if val < k:
+                res = max(res, val)
+                low += 1
+            else:
+                high -= 1
+        return res
 ```
 
 ### **Java**
@@ -55,7 +69,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int twoSumLessThanK(int[] nums, int k) {
+        Arrays.sort(nums);
+        int low = 0, high = nums.length - 1;
+        int res = -1;
+        while (low < high) {
+            int val = nums[low] + nums[high];
+            if (val < k) {
+                res = Math.max(res, val);
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int twoSumLessThanK(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int low = 0, high = nums.size() - 1;
+        int res = -1;
+        while (low < high) {
+            int val = nums[low] + nums[high];
+            if (val < k) {
+                res = max(res, val);
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**

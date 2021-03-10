@@ -43,13 +43,64 @@ In this case it's not possible to get a pair sum less that 15.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        low, high = 0, len(nums) - 1
+        res = -1
+        while low < high:
+            val = nums[low] + nums[high]
+            if val < k:
+                res = max(res, val)
+                low += 1
+            else:
+                high -= 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int twoSumLessThanK(int[] nums, int k) {
+        Arrays.sort(nums);
+        int low = 0, high = nums.length - 1;
+        int res = -1;
+        while (low < high) {
+            int val = nums[low] + nums[high];
+            if (val < k) {
+                res = Math.max(res, val);
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int twoSumLessThanK(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        int low = 0, high = nums.size() - 1;
+        int res = -1;
+        while (low < high) {
+            int val = nums[low] + nums[high];
+            if (val < k) {
+                res = max(res, val);
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**
