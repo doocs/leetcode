@@ -37,6 +37,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历字符串 s，并用变量 `preSign` 记录每个数字之前的运算符，对于第一个数字，其之前的运算符视为加号。每次遍历到数字末尾时，根据 `preSign` 来决定计算方式：
+
+- 加号：将数字压入栈；
+- 减号：将数字的相反数压入栈；
+- 乘除号：计算数字与栈顶元素，并将栈顶元素替换为计算结果。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -44,7 +50,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def calculate(self, s: str) -> int:
+        num, n = 0, len(s)
+        pre_sign = '+'
+        stack = []
+        for i in range(n):
+            if s[i].isdigit():
+                num = num * 10 + int(s[i])
+            if i == n - 1 or (not s[i].isdigit() and s[i] != ' '):
+                if pre_sign == '+':
+                    stack.append(num)
+                elif pre_sign == '-':
+                    stack.append(-num)
+                elif pre_sign == '*':
+                    stack.append(stack.pop() * num)
+                else:
+                    stack.append(int(stack.pop() / num))
+                pre_sign = s[i]
+                num = 0
+        res = 0
+        while stack:
+            res += stack.pop()
+        return res
 ```
 
 ### **Java**
@@ -52,7 +80,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int calculate(String s) {
+        int num = 0;
+        char preSign = '+';
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0, n = s.length(); i < n; ++i) {
+            if (Character.isDigit(s.charAt(i))) {
+                num = num * 10 + (s.charAt(i) - '0');
+            }
+            if (i == n - 1 || (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ')) {
+                switch (preSign) {
+                    case '+':
+                        stack.push(num);
+                        break;
+                    case '-':
+                        stack.push(-num);
+                        break;
+                    case '*':
+                        stack.push(stack.pop() * num);
+                        break;
+                    case '/':
+                        stack.push(stack.pop() / num);
+                        break;
+                }
+                preSign = s.charAt(i);
+                num = 0;
+            }
+        }
 
+        int res = 0;
+        while (!stack.isEmpty()) {
+            res += stack.pop();
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
