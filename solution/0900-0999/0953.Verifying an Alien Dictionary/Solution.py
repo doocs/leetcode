@@ -1,24 +1,17 @@
 class Solution:
-    def isAlienSorted(self, words, order):
-        """
-        :type words: List[str]
-        :type order: str
-        :rtype: bool
-        """
-
-        order = {a: d for d, a in enumerate(order)}
-
-        for i in range(1, len(words)):
-            j = 0
-            while len(words[i - 1]) > j < len(words[i]):
-
-                value = order[words[i - 1][j]] - order[words[i][j]]
-
-                if value < 0:
-                    break
-                elif value > 0 or (j + 1) == len(words[i]):
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        index = {v: k for k, v in enumerate(order)}
+        for i in range(len(words) - 1):
+            word1, word2 = words[i], words[i + 1]
+            len1, len2 = len(word1), len(word2)
+            flag = True
+            for j in range(min(len1, len2)):
+                diff = index[word1[j]] - index[word2[j]]
+                if diff > 0:
                     return False
-
-                j += 1
-
+                if diff < 0:
+                    flag = False
+                    break
+            if flag and len1 > len2:
+                return False
         return True

@@ -52,7 +52,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        index = {v: k for k, v in enumerate(order)}
+        for i in range(len(words) - 1):
+            word1, word2 = words[i], words[i + 1]
+            len1, len2 = len(word1), len(word2)
+            flag = True
+            for j in range(min(len1, len2)):
+                diff = index[word1[j]] - index[word2[j]]
+                if diff > 0:
+                    # 说明不是按字典序排序，直接返回False
+                    return False
+                if diff < 0:
+                    # 说明当前两单词是按字典序排序，无需再往下进行循环比较
+                    flag = False
+                    break
+            if flag and len1 > len2:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -60,7 +78,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean isAlienSorted(String[] words, String order) {
+        int[] index = new int[26];
+        for (int i = 0; i < 26; ++i) {
+            index[order.charAt(i) - 'a'] = i;
+        }
+        for (int i = 0, m = words.length; i < m - 1; ++i) {
+            String word1 = words[i];
+            String word2 = words[i + 1];
+            int len1 = word1.length();
+            int len2 = word2.length();
+            boolean flag = true;
+            for (int j = 0, n = Math.min(len1, len2); j < n && flag; ++j) {
+                int diff = index[word1.charAt(j) - 'a'] - index[word2.charAt(j) - 'a'];
+                // 说明不是按字典序排序，直接返回False
+                if (diff > 0) return false;
+                // 说明当前两单词是按字典序排序，无需再往下进行循环比较
+                if (diff < 0) flag = false;
+            }
+            if (flag && len1 > len2) return false;
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
