@@ -84,6 +84,8 @@ class MyHashSet:
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+- 可以一次性开辟一个大的数组，存放所有元素。
+
 ```java
 class MyHashSet {
 
@@ -105,6 +107,64 @@ class MyHashSet {
     /** Returns true if this set contains the specified element */
     public boolean contains(int key) {
         return data[key];
+    }
+}
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * MyHashSet obj = new MyHashSet();
+ * obj.add(key);
+ * obj.remove(key);
+ * boolean param_3 = obj.contains(key);
+ */
+```
+
+- 也可以开辟一个大小为 `SIZE` 的数组，数组的每个位置是一个链表。
+
+```java
+class MyHashSet {
+
+    private static final int SIZE = 1000;
+    private LinkedList[] data;
+
+    /** Initialize your data structure here. */
+    public MyHashSet() {
+        data = new LinkedList[SIZE];
+        Arrays.fill(data, new LinkedList<Integer>());
+    }
+
+    public void add(int key) {
+        int index = hash(key);
+        Iterator<Integer> iterator = data[index].iterator();
+        while (iterator.hasNext()) {
+            Integer e = iterator.next();
+            if (e == key) return;
+        }
+        data[index].addFirst(key);
+    }
+
+    public void remove(int key) {
+        int index = hash(key);
+        ListIterator<Integer> iterator = data[index].listIterator();
+        while (iterator.hasNext()) {
+            Integer e = iterator.next();
+            if (e == key) iterator.remove();
+        }
+    }
+
+    /** Returns true if this set contains the specified element */
+    public boolean contains(int key) {
+        int index = hash(key);
+        Iterator<Integer> iterator = data[index].iterator();
+        while (iterator.hasNext()) {
+            Integer e = iterator.next();
+            if (e == key) return true;
+        }
+        return false;
+    }
+
+    private int hash(int key) {
+        return key % SIZE;
     }
 }
 
