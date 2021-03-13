@@ -42,6 +42,8 @@ hashSet.contains(2); &nbsp;&nbsp;&nbsp;// 返回  false (已经被删除)
 
 <!-- 这里可写通用的实现逻辑 -->
 
+数组实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -49,7 +51,33 @@ hashSet.contains(2); &nbsp;&nbsp;&nbsp;// 返回  false (已经被删除)
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class MyHashSet:
 
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.data = [False] * 1000001
+
+    def add(self, key: int) -> None:
+        self.data[key] = True
+
+    def remove(self, key: int) -> None:
+        self.data[key] = False
+
+    def contains(self, key: int) -> bool:
+        """
+        Returns true if this set contains the specified element
+        """
+        return self.data[key]
+
+
+
+# Your MyHashSet object will be instantiated and called as such:
+# obj = MyHashSet()
+# obj.add(key)
+# obj.remove(key)
+# param_3 = obj.contains(key)
 ```
 
 ### **Java**
@@ -57,7 +85,36 @@ hashSet.contains(2); &nbsp;&nbsp;&nbsp;// 返回  false (已经被删除)
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class MyHashSet {
 
+    private boolean[] data;
+
+    /** Initialize your data structure here. */
+    public MyHashSet() {
+        data = new boolean[1000001];
+    }
+
+    public void add(int key) {
+        data[key] = true;
+    }
+
+    public void remove(int key) {
+        data[key] = false;
+    }
+
+    /** Returns true if this set contains the specified element */
+    public boolean contains(int key) {
+        return data[key];
+    }
+}
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * MyHashSet obj = new MyHashSet();
+ * obj.add(key);
+ * obj.remove(key);
+ * boolean param_3 = obj.contains(key);
+ */
 ```
 
 ### **...**
