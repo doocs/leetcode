@@ -44,6 +44,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+找出数组中最大的两个元素的下标 i、j，然后计算 `(nums[i]-1)*(nums[j]-1)` 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +53,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        i = 0 if nums[0] > nums[1] else 1
+        j = 1 - i
+        for k in range(2, len(nums)):
+            if nums[k] > nums[i]:
+                j = k
+                i, j = j, i
+            elif nums[k] > nums[j]:
+                j = k
+        return (nums[i] - 1) * (nums[j] - 1)
 ```
 
 ### **Java**
@@ -59,7 +71,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxProduct(int[] nums) {
+        int i = nums[0] > nums[1] ? 0 : 1;
+        int j = 1 - i;
+        for (int k = 2; k < nums.length; ++k) {
+            if (nums[k] > nums[i]) {
+                j = k;
+                int t = i;
+                i = j;
+                j = t;
+            } else if (nums[k] > nums[j]) {
+                j = k;
+            }
+        }
+        return (nums[i] - 1) * (nums[j] - 1);
+    }
+}
 ```
 
 ### **...**
