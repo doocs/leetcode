@@ -44,8 +44,6 @@
 <strong>输出：</strong>false
 </pre>
 
-<p>&nbsp;</p>
-
 <p><strong>提示：</strong></p>
 
 <ul>
@@ -58,6 +56,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历字符串 s，用一个 set 存储所有长度为 k 的不同子串。只需要判断子串数能否达到 2<sup>k</sup> 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +65,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def hasAllCodes(self, s: str, k: int) -> bool:
+        counter = 1 << k
+        exists = set()
+        for i in range(k, len(s) + 1):
+            if s[i - k: i] not in exists:
+                exists.add(s[i - k: i])
+                counter -= 1
+            if counter == 0:
+                return True
+        return False
 ```
 
 ### **Java**
@@ -73,7 +83,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean hasAllCodes(String s, int k) {
+        int counter = 1 << k;
+        Set<String> exists = new HashSet<>();
+        for (int i = k; i <= s.length(); ++i) {
+            String t = s.substring(i - k, i);
+            if (!exists.contains(t)) {
+                exists.add(t);
+                --counter;
+            }
+            if (counter == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**
