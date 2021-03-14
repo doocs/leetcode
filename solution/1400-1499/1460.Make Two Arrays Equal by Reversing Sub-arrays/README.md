@@ -65,6 +65,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+只要两数组元素均相同，那么就能通过翻转使得两个数组相等。
+
+因此，对两数组进行排序，然后判断两数组是否相同即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +76,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+        return sorted(target) == sorted(arr)
 ```
 
 ### **Java**
@@ -80,7 +86,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        Arrays.sort(target);
+        Arrays.sort(arr);
+        return Arrays.equals(target, arr);
+    }
+}
 ```
 
 ### **...**

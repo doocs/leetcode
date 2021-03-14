@@ -70,13 +70,21 @@ There are multiple ways to convert arr to target, this is not the only way to do
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+        return sorted(target) == sorted(arr)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        Arrays.sort(target);
+        Arrays.sort(arr);
+        return Arrays.equals(target, arr);
+    }
+}
 ```
 
 ### **...**
