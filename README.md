@@ -157,7 +157,7 @@
 
 ## 维护者
 
-[Yang Libin](https://github.com/yanglbme): GitHub / Gitee 技术社区 @Doocs 创建者；[@TheAlgorithms](https://github.com/TheAlgorithms) 组织成员。
+[Yang Libin](https://github.com/yanglbme): GitHub / Gitee 技术社区 @Doocs 创建者；开源组织 [@TheAlgorithms](https://github.com/TheAlgorithms) 核心成员之一。
 
 ## 加入我们
 
@@ -165,8 +165,8 @@
 
 如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
-1. 将本项目 <kbd>fork</kbd> 到你的个人 GitHub / Gitee 帐户，然后 <kbd>clone</kbd> 到你的本地机器；
-1. 对项目做出一些变更，然后使用 git <kbd>add</kbd>、<kbd>commit</kbd>、<kbd>push</kbd> 等命令将你的变更提交到你的远程 GitHub / Gitee 仓库；
+1. 将本项目 fork 到你的个人 GitHub / Gitee 帐户，然后 clone 到你的本地机器；
+1. 对项目做出一些变更，然后使用 git add、commit、push 等命令将你的变更提交到你的远程 GitHub / Gitee 仓库；
 1. 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
 1. 你也可以参考帮助文档「[GitHub](https://help.github.com/cn) / [Gitee](https://gitee.com/help)」了解更多细节。
 

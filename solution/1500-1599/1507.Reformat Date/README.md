@@ -53,6 +53,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+切分 `date` 字符串，获取对应的 `year`, `month`, `day`，然后拼接起来即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +62,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reformatDate(self, date: str) -> str:
+        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        mapper = {v: str(k + 1) for k, v in enumerate(months)}
+        split = date.split(' ')
+        year = split[2]
+        month = mapper.get(split[1])
+        day = split[0][:len(split[0]) - 2]
+        return year + '-' + month.zfill(2) + '-' + day.zfill(2)
 ```
 
 ### **Java**
@@ -68,7 +78,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String reformatDate(String date) {
+        Map<String, Integer> mapper = new HashMap<>();
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        for (int i = 0; i < months.length; ++i) {
+            mapper.put(months[i], i + 1);
+        }
+        String[] split = date.split(" ");
+        int year = Integer.parseInt(split[2]);
+        int month = mapper.get(split[1]);
+        int day = Integer.parseInt(split[0].substring(0, split[0].length() -2));
+        return String.format("%d-%02d-%02d", year, month, day);
+    }
+}
 ```
 
 ### **...**
