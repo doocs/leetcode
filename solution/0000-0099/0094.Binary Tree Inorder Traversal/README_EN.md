@@ -35,13 +35,60 @@
 ### **Python3**
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        def inorder(root):
+            if root:
+                inorder(root.left)
+                res.append(root.val)
+                inorder(root.right)
+        res = []
+        inorder(root)
+        return res
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    private List<Integer> res;
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        res = new ArrayList<>();
+        inorder(root);
+        return res;
+    }
+
+    private void inorder(TreeNode root) {
+        if (root != null) {
+            inorder(root.left);
+            res.add(root.val);
+            inorder(root.right);
+        }
+    }
+}
 ```
 
 ### **...**

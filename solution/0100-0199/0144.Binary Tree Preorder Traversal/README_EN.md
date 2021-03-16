@@ -37,13 +37,60 @@
 ### **Python3**
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        def preorder(root):
+            if root:
+                res.append(root.val)
+                preorder(root.left)
+                preorder(root.right)
+        res = []
+        preorder(root)
+        return res
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    private List<Integer> res;
+
+    public List<Integer> preorderTraversal(TreeNode root) {
+        res = new ArrayList<>();
+        preorder(root);
+        return res;
+    }
+
+    private void preorder(TreeNode root) {
+        if (root != null) {
+            res.add(root.val);
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+}
 ```
 
 ### **...**
