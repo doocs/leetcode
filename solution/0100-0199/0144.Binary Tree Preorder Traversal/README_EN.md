@@ -36,6 +36,8 @@
 
 ### **Python3**
 
+Recursive:
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
@@ -55,7 +57,33 @@ class Solution:
         return res
 ```
 
+Non-recursive:
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+        if root:
+            s = [root]
+            while s:
+                node = s.pop()
+                res.append(node.val)
+                if node.right:
+                    s.append(node.right)
+                if node.left:
+                    s.append(node.left)
+        return res
+```
+
 ### **Java**
+
+Recursive:
 
 ```java
 /**
@@ -89,6 +117,47 @@ class Solution {
             preorder(root.left);
             preorder(root.right);
         }
+    }
+}
+```
+
+Non-recursive:
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        List<Integer> res = new ArrayList<>();
+        Deque<TreeNode> s = new ArrayDeque<>();
+        s.push(root);
+        while (!s.isEmpty()) {
+            TreeNode node = s.pop();
+            res.add(node.val);
+            if (node.right != null) {
+                s.push(node.right);
+            }
+            if (node.left != null) {
+                s.push(node.left);
+            }
+        }
+        return res;
     }
 }
 ```
