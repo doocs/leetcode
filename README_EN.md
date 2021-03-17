@@ -94,6 +94,9 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Binary Tree
 
+- [Binary Tree Preorder Traversal](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README_EN.md)
+- [Binary Tree Postorder Traversal](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)
+- [Binary Tree Inorder Traversal](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README_EN.md)
 - [Symmetric Tree](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)
 - [Invert Binary Tree](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
 - [Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)

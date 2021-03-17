@@ -96,6 +96,9 @@
 
 ### 二叉树
 
+- [二叉树的前序遍历](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README.md)
+- [二叉树的后序遍历](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README.md)
+- [二叉树的中序遍历](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README.md)
 - [对称二叉树](/solution/0100-0199/0101.Symmetric%20Tree/README.md)
 - [树的子结构](/lcof/面试题26.%20树的子结构/README.md)
 - [翻转二叉树](/solution/0200-0299/0226.Invert%20Binary%20Tree/README.md)
