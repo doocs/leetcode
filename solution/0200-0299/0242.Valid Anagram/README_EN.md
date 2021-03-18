@@ -41,13 +41,43 @@ What if the inputs contain unicode characters? How would you adapt your solution
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        n = len(s)
+        chars = [0] * 26
+        for i in range(n):
+            chars[ord(s[i]) - ord('a')] += 1
+            chars[ord(t[i]) - ord('a')] -= 1
+        for i in range(26):
+            if chars[i] != 0:
+                return False
+        return True
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int n;
+        if ((n = s.length()) != t.length()) {
+            return false;
+        }
+        int[] chars = new int[26];
+        for (int i = 0; i < n; ++i) {
+            ++chars[s.charAt(i) - 'a'];
+            --chars[t.charAt(i) - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if (chars[i] != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
