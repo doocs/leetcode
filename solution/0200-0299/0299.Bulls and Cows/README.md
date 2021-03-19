@@ -40,7 +40,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getHint(self, secret: str, guess: str) -> str:
+        a_cnt = b_cnt = 0
+        nums1 = dict()
+        nums2 = dict()
+        for i in range(len(secret)):
+            if secret[i] == guess[i]:
+                a_cnt += 1
+            else:
+                nums1[secret[i]] = nums1.get(secret[i], 0) + 1
+                nums2[guess[i]] = nums2.get(guess[i], 0) + 1
+        for i, v in nums1.items():
+            if i in nums2:
+                b_cnt += min(v, nums2[i])
+        return f'{a_cnt}A{b_cnt}B'
 ```
 
 ### **Java**
@@ -48,7 +62,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String getHint(String secret, String guess) {
+        int aCnt = 0, bCnt = 0;
+        Map<Character, Integer> nums1 = new HashMap<>();
+        Map<Character, Integer> nums2 = new HashMap<>();
+        for (int i = 0; i < secret.length(); ++i) {
+            if (secret.charAt(i) == guess.charAt(i)) {
+                ++aCnt;
+            } else {
+                nums1.put(secret.charAt(i), nums1.getOrDefault(secret.charAt(i), 0) + 1);
+                nums2.put(guess.charAt(i), nums2.getOrDefault(guess.charAt(i), 0) + 1);
+            }
+        }
 
+        for (Map.Entry<Character, Integer> entry : nums1.entrySet()) {
+            if (nums2.containsKey(entry.getKey())) {
+                bCnt += Math.min(entry.getValue(), nums2.get(entry.getKey()));
+            }
+        }
+        return String.format("%dA%dB", aCnt, bCnt);
+    }
+}
 ```
 
 ### **...**
