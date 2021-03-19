@@ -47,6 +47,8 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 
 <!-- 这里可写通用的实现逻辑 -->
 
+为每种车维护一个计数器，初始值为车位的数目。此后，每来一辆车，就将对应类型的计数器减 1。当计数器为 0 时，说明车位已满。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +56,22 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class ParkingSystem:
 
+    def __init__(self, big: int, medium: int, small: int):
+        self.spaces = [big, medium, small]
+
+
+    def addCar(self, carType: int) -> bool:
+        if self.spaces[carType - 1] <= 0:
+            return False
+        self.spaces[carType - 1] -= 1
+        return True
+
+
+# Your ParkingSystem object will be instantiated and called as such:
+# obj = ParkingSystem(big, medium, small)
+# param_1 = obj.addCar(carType)
 ```
 
 ### **Java**
@@ -62,7 +79,30 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class ParkingSystem {
 
+    private int[] spaces = new int[3];
+
+    public ParkingSystem(int big, int medium, int small) {
+        spaces[0] = big;
+        spaces[1] = medium;
+        spaces[2] = small;
+    }
+
+    public boolean addCar(int carType) {
+        if (spaces[carType - 1] <= 0) {
+            return false;
+        }
+        --spaces[carType - 1];
+        return true;
+    }
+}
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * ParkingSystem obj = new ParkingSystem(big, medium, small);
+ * boolean param_1 = obj.addCar(carType);
+ */
 ```
 
 ### **...**
