@@ -68,13 +68,38 @@ For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
 ### **Python3**
 
 ```python
-
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        cnt = [0] * 101
+        for num in nums:
+            cnt[num] += 1
+        for i in range(1, 101):
+            cnt[i] += cnt[i - 1]
+        res = []
+        for num in nums:
+            res.append(0 if num == 0 else cnt[num - 1])
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] cnt = new int[101];
+        for (int e : nums) {
+            ++cnt[e];
+        }
+        for (int i = 1; i < 101; ++i) {
+            cnt[i] += cnt[i - 1];
+        }
+        int[] res = new int[nums.length];
+        for (int i = 0; i < nums.length; ++i) {
+            res[i] = nums[i] == 0 ? 0 : cnt[nums[i] - 1];
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
