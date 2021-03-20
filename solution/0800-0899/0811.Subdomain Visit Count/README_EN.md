@@ -67,13 +67,42 @@ We will visit &quot;google.mail.com&quot; 900 times, &quot;yahoo.com&quot; 50 ti
 ### **Python3**
 
 ```python
-
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+        domains = collections.Counter()
+        for item in cpdomains:
+            count, domain = item.split()
+            count = int(count)
+            subs = domain.split('.')
+            for i in range(len(subs)):
+                key = '.'.join(subs[i:])
+                domains[key] += count
+        return [f'{cnt} {domain}' for domain, cnt in domains.items()]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<String> subdomainVisits(String[] cpdomains) {
+        Map<String, Integer> domains = new HashMap<>();
+        for (String domain : cpdomains) {
+            String[] t = domain.split(" ");
+            int count = Integer.parseInt(t[0]);
+            String[] subs = t[1].split("\\.");
+            String cur = "";
+            for (int i = subs.length - 1; i >= 0; --i) {
+                cur = subs[i] + (i == subs.length - 1 ? "" : ".") + cur;
+                domains.put(cur, domains.getOrDefault(cur, 0) + count);
+            }
+        }
+        List<String> res = new ArrayList<>();
+        domains.forEach((domain, count) -> {
+            res.add(count + " " + domain);
+        });
+        return res;
+    }
+}
 ```
 
 ### **...**
