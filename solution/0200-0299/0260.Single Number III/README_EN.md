@@ -30,18 +30,16 @@
 ```python
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
-        xor = 0
+        eor = 0
         for num in nums:
-            xor ^= num
-        diff = xor & (-xor)
-        a = b = 0
+            eor ^= num
+        diff = eor & (~eor + 1)
+        a = 0
         for num in nums:
             if (num & diff) == 0:
                 a ^= num
-            else:
-                b ^= num
+        b = eor ^ a
         return [a, b]
-
 ```
 
 ### **Java**
@@ -49,16 +47,18 @@ class Solution:
 ```java
 class Solution {
     public int[] singleNumber(int[] nums) {
-        int xor = 0;
+        int eor = 0;
         for (int num : nums) {
-            xor ^= num;
+            eor ^= num;
         }
-        int diff = xor & (-xor);
-        int a = 0, b = 0;
+        int diff = eor & (~eor + 1);
+        int a = 0;
         for (int num : nums) {
-            if ((num & diff) == 0) a ^= num;
-            else b ^= num;
+            if ((num & diff) == 0) {
+                a ^= num;
+            }
         }
+        int b = eor ^ a;
         return new int[]{a, b};
     }
 }

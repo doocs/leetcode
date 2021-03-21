@@ -1,13 +1,13 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> List[int]:
-        xor = 0
+        eor = 0
         for num in nums:
-            xor ^= num
-        diff = xor & (-xor)
-        a = b = 0
+            eor ^= num
+        # 提取最右边的 1
+        diff = eor & (~eor + 1)
+        a = 0
         for num in nums:
             if (num & diff) == 0:
                 a ^= num
-            else:
-                b ^= num
+        b = eor ^ a
         return [a, b]
