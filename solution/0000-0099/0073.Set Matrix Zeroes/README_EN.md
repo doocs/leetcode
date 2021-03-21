@@ -80,14 +80,158 @@
 
 ### **Python3**
 
-```python
+Solution 1:
 
+```python
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        m, n = len(matrix), len(matrix[0])
+        zero_rows = [False] * m
+        zero_cols = [False] * n
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j] == 0:
+                    zero_rows[i] = zero_cols[j] = True
+        for i in range(m):
+            for j in range(n):
+                if zero_rows[i] or zero_cols[j]:
+                    matrix[i][j] = 0
+```
+
+Solution 2:
+
+```python
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        m, n = len(matrix), len(matrix[0])
+        first_row_has_zero = any(matrix[0][j] == 0 for j in range(n))
+        first_col_has_zero = any(matrix[i][0] == 0 for i in range(m))
+
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][j] == 0:
+                    matrix[i][0] = matrix[0][j] = 0
+
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][0] == 0 or matrix[0][j] == 0:
+                    matrix[i][j] = 0
+
+        if first_row_has_zero:
+            for j in range(n):
+                matrix[0][j] = 0
+
+        if first_col_has_zero:
+            for i in range(m):
+                matrix[i][0] = 0
 ```
 
 ### **Java**
 
-```java
+Solution 1:
 
+```java
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        boolean[] zeroRows = new boolean[m];
+        boolean[] zeroCols = new boolean[n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (matrix[i][j] == 0) {
+                    zeroRows[i] = zeroCols[j] = true;
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (zeroRows[i] || zeroCols[j]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+}
+```
+
+Solution 2:
+
+```java
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int m = matrix.length, n = matrix[0].length;
+        boolean firstRowHasZero = false;
+        boolean firstColHasZero = false;
+        for (int j = 0; j < n; ++j) {
+            if (matrix[0][j] == 0) {
+                firstRowHasZero = true;
+                break;
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            if (matrix[i][0] == 0) {
+                firstColHasZero = true;
+                break;
+            }
+        }
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = matrix[0][j] = 0;
+                }
+            }
+        }
+        for (int i = 1; i < m; ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        if (firstRowHasZero) {
+            for (int j = 0; j < n; ++j) {
+                matrix[0][j] = 0;
+            }
+        }
+        if (firstColHasZero) {
+            for (int i = 0; i < m; ++i) {
+                matrix[i][0] = 0;
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        vector<bool> zeroRows(m), zeroCols(n);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    zeroRows[i] = zeroCols[j] = true;
+                }
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (zeroRows[i] || zeroCols[j]) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+};
 ```
 
 ### **...**
