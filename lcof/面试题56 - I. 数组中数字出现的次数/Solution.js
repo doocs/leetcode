@@ -3,22 +3,17 @@
  * @return {number[]}
  */
 var singleNumbers = function (nums) {
-  let xor = 0;
-  let bit = 1;
-  let res = [0, 0];
+  let eor = 0;
   for (let num of nums) {
-    xor ^= num;
+    eor ^= num;
   }
-  while ((xor & 1) === 0) {
-    xor >>= 1;
-    bit <<= 1;
-  }
+  const diff = eor & (~eor + 1);
+  let a = 0;
   for (let num of nums) {
-    if ((num & bit) === 0) {
-      res[0] ^= num;
-    } else {
-      res[1] ^= num;
+    if ((num & diff) == 0) {
+      a ^= num;
     }
   }
-  return res;
+  let b = eor ^ a;
+  return [a, b];
 };

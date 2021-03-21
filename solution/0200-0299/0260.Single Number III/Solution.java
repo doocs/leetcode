@@ -1,15 +1,18 @@
 class Solution {
     public int[] singleNumber(int[] nums) {
-        int xor = 0;
+        int eor = 0;
         for (int num : nums) {
-            xor ^= num;
+            eor ^= num;
         }
-        int diff = xor & (-xor);
-        int a = 0, b = 0;
+        // 提取最右的 1
+        int diff = eor & (~eor + 1);
+        int a = 0;
         for (int num : nums) {
-            if ((num & diff) == 0) a ^= num;
-            else b ^= num;
+            if ((num & diff) == 0) {
+                a ^= num;
+            }
         }
+        int b = eor ^ a;
         return new int[]{a, b};
     }
 }
