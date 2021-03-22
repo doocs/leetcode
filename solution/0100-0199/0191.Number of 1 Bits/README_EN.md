@@ -64,13 +64,46 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        res = 0
+        while n:
+            n &= (n - 1)
+            res += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int res = 0;
+        while (n != 0) {
+            n &= (n - 1);
+            ++res;
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ */
+var hammingWeight = function (n) {
+  let res = 0;
+  while (n) {
+    n &= n - 1;
+    ++res;
+  }
+  return res;
+};
 ```
 
 ### **...**

@@ -1,8 +1,7 @@
-class Solution(object):
-    def hammingWeight(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        
-        return bin(n).count("1")
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        res = 0
+        while n:
+            n &= (n - 1)
+            res += 1
+        return res

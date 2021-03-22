@@ -1,8 +1,12 @@
-const hammingWeight = function (n) {
-  let result = 0;
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ */
+var hammingWeight = function (n) {
+  let res = 0;
   while (n) {
-    result += n & 1;
-    n = n >>> 1;
+    n &= n - 1;
+    ++res;
   }
-  return result;
+  return res;
 };

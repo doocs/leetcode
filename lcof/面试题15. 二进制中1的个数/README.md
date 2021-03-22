@@ -32,6 +32,8 @@
 
 `n & (n - 1)` 会消除 n 中最后一位中的 1。
 
+同 [LeetCode 191. 位 1 的个数](/solution/0100-0199/0191.Number%20of%201%20Bits/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**

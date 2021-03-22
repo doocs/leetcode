@@ -47,6 +47,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+`n & (n - 1)` 会消除 n 中最后一位中的 1。
+
+同 [剑指 Offer 15. 二进制中 1 的个数](/lcof/面试题15.%20二进制中1的个数/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +58,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        res = 0
+        while n:
+            n &= (n - 1)
+            res += 1
+        return res
 ```
 
 ### **Java**
@@ -62,7 +72,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int res = 0;
+        while (n != 0) {
+            n &= (n - 1);
+            ++res;
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n - a positive integer
+ * @return {number}
+ */
+var hammingWeight = function (n) {
+  let res = 0;
+  while (n) {
+    n &= n - 1;
+    ++res;
+  }
+  return res;
+};
 ```
 
 ### **...**
