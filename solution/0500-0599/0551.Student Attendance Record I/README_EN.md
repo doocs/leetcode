@@ -57,13 +57,20 @@ A student could be rewarded if his attendance record doesn't contain <b>more tha
 ### **Python3**
 
 ```python
-
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        return s.count('A') <= 1 and 'LLL' not in s
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean checkRecord(String s) {
+        int i = s.indexOf("A");
+        return (i == -1 || s.lastIndexOf("A") == i) && !s.contains("LLL");
+    }
+}
 ```
 
 ### **...**

@@ -119,6 +119,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [Single Number II](/solution/0100-0199/0137.Single%20Number%20II/README_EN.md)
 - [Single Number III](/solution/0200-0299/0260.Single%20Number%20III/README_EN.md)
 - [Set Mismatch](/solution/0600-0699/0645.Set%20Mismatch/README_EN.md)
+- [Number of 1 Bits](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md)
 - [Count Primes](/solution/0200-0299/0204.Count%20Primes/README_EN.md)
 - [Missing Number](/solution/0200-0299/0268.Missing%20Number/README_EN.md)
 
