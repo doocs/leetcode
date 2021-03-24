@@ -43,6 +43,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+单调栈实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,7 +52,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def find132pattern(self, nums: List[int]) -> bool:
+        ak = float('-inf')
+        stack = []
+        for num in nums[::-1]:
+            if num < ak:
+                return True
+            while stack and num > stack[-1]:
+                ak = stack.pop()
+            stack.append(num)
+        return False
 ```
 
 ### **Java**
@@ -58,7 +70,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean find132pattern(int[] nums) {
+        int ak = Integer.MIN_VALUE;
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = nums.length - 1; i >= 0; --i) {
+            if (nums[i] < ak) {
+                return true;
+            }
+            while (!stack.isEmpty() && nums[i] > stack.peek()) {
+                ak = stack.pop();
+            }
+            stack.push(nums[i]);
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**

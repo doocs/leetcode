@@ -73,13 +73,38 @@ that <b>i</b> < <b>j</b> < <b>k</b> and a<sub><b>i</b></sub> < a<sub><b>k</b></s
 ### **Python3**
 
 ```python
-
+class Solution:
+    def find132pattern(self, nums: List[int]) -> bool:
+        ak = float('-inf')
+        stack = []
+        for num in nums[::-1]:
+            if num < ak:
+                return True
+            while stack and num > stack[-1]:
+                ak = stack.pop()
+            stack.append(num)
+        return False
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean find132pattern(int[] nums) {
+        int ak = Integer.MIN_VALUE;
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = nums.length - 1; i >= 0; --i) {
+            if (nums[i] < ak) {
+                return true;
+            }
+            while (!stack.isEmpty() && nums[i] > stack.peek()) {
+                ak = stack.pop();
+            }
+            stack.push(nums[i]);
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**
