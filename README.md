@@ -76,6 +76,8 @@
 - [两数相加](/solution/0000-0099/0002.Add%20Two%20Numbers/README.md)
 - [从尾到头打印链表](/lcof/面试题06.%20从尾到头打印链表/README.md)
 - [删除链表的节点](/lcof/面试题18.%20删除链表的节点/README.md)
+- [删除排序链表中的重复元素](/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README.md)
+- [删除排序链表中的重复元素 II](/solution/0000-0099/0082.Remove%20Duplicates%20from%20Sorted%20List%20II/README.md)
 - [移除链表元素](/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/README.md)
 - [链表中倒数第 k 个节点](/lcci/02.02.Kth%20Node%20From%20End%20of%20List/README.md)
 - [两两交换链表中的节点](/solution/0000-0099/0024.Swap%20Nodes%20in%20Pairs/README.md)
