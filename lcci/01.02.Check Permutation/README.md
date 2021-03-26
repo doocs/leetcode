@@ -30,6 +30,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+用一个哈希表作为字符计数器，`O(n)` 时间内解决。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -39,7 +41,17 @@
 ```python
 class Solution:
     def CheckPermutation(self, s1: str, s2: str) -> bool:
-        return sorted(s1) == sorted(s2)
+        n1, n2 = len(s1), len(s2)
+        if n1 != n2:
+            return False
+        counter = collections.Counter()
+        for i in range(n1):
+            counter[s1[i]] += 1
+            counter[s2[i]] -= 1
+        for val in counter.values():
+            if val != 0:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -48,15 +60,23 @@ class Solution:
 
 ```java
 class Solution {
-    public boolean checkPermutation(String s1, String s2) {
-        if (s1 == null || s2 == null || s1.length() != s2.length()) {
+    public boolean CheckPermutation(String s1, String s2) {
+        int n1 = s1.length(), n2 = s2.length();
+        if (n1 != n2) {
             return false;
         }
-        char[] c1 = s1.toCharArray();
-        char[] c2 = s2.toCharArray();
-        Arrays.sort(c1);
-        Arrays.sort(c2);
-        return Arrays.equals(c1, c2);
+        Map<Character, Integer> counter = new HashMap<>();
+        for (int i = 0; i < n1; ++i) {
+            char c1 = s1.charAt(i), c2 = s2.charAt(i);
+            counter.put(c1, counter.getOrDefault(c1, 0) + 1);
+            counter.put(c2, counter.getOrDefault(c2, 0) - 1);
+        }
+        for (int val : counter.values()) {
+            if (val != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 ```

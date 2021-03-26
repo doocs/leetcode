@@ -41,8 +41,13 @@
 ```python
 class Solution:
     def isUnique(self, astr: str) -> bool:
-        sets = set(astr)
-        return len(sets) == len(astr)
+        bitmap = 0
+        for c in astr:
+            pos = ord(c) - ord('a')
+            if (bitmap & (1 << pos)) != 0:
+                return False
+            bitmap |= (1 << pos)
+        return True
 ```
 
 ### **Java**
@@ -50,14 +55,13 @@ class Solution:
 ```java
 class Solution {
     public boolean isUnique(String astr) {
-        char[] chars = astr.toCharArray();
-        int len = chars.length;
-        for (int i = 0; i < len - 1; ++i) {
-            for (int j = i + 1; j < len; ++j) {
-                if (chars[i] == chars[j]) {
-                    return false;
-                }
+        int bitmap = 0;
+        for (int i = 0, n = astr.length(); i < n; ++i) {
+            int pos = astr.charAt(i) - 'a';
+            if ((bitmap & (1 << pos)) != 0) {
+                return false;
             }
+            bitmap |= (1 << pos);
         }
         return true;
     }

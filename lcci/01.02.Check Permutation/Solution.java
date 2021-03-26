@@ -1,12 +1,20 @@
 class Solution {
     public boolean CheckPermutation(String s1, String s2) {
-        if (s1 == null || s2 == null || s1.length() != s2.length()) {
+        int n1 = s1.length(), n2 = s2.length();
+        if (n1 != n2) {
             return false;
         }
-        char[] c1 = s1.toCharArray();
-        char[] c2 = s2.toCharArray();
-        Arrays.sort(c1);
-        Arrays.sort(c2);
-        return Arrays.equals(c1, c2);
+        Map<Character, Integer> counter = new HashMap<>();
+        for (int i = 0; i < n1; ++i) {
+            char c1 = s1.charAt(i), c2 = s2.charAt(i);
+            counter.put(c1, counter.getOrDefault(c1, 0) + 1);
+            counter.put(c2, counter.getOrDefault(c2, 0) - 1);
+        }
+        for (int val : counter.values()) {
+            if (val != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
