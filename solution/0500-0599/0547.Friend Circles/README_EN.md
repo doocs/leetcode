@@ -77,13 +77,50 @@ Given a <b>N\*N</b> matrix <b>M</b> representing the friend relationship between
 ### **Python3**
 
 ```python
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        def dfs(i):
+            for j in range(n):
+                if not visited[j] and isConnected[i][j] == 1:
+                    visited[j] = True
+                    dfs(j)
 
+        n = len(isConnected)
+        visited = [False] * n
+        num = 0
+        for i in range(n):
+            if not visited[i]:
+                dfs(i)
+                num += 1
+        return num
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        boolean[] visited = new boolean[n];
+        int num = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!visited[i]) {
+                dfs(isConnected, visited, i, n);
+                ++num;
+            }
+        }
+        return num;
+    }
 
+    private void dfs(int[][] isConnected, boolean[] visited, int i, int n) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[j] && isConnected[i][j] == 1) {
+                visited[j] = true;
+                dfs(isConnected, visited, j, n);
+            }
+        }
+    }
+}
 ```
 
 ### **...**

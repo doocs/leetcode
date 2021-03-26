@@ -44,6 +44,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+深度优先搜索。判断学生与学生之间是否属于同一个连通分量，最后连通分量的总数即为结果。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +53,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        def dfs(i):
+            for j in range(n):
+                if not visited[j] and isConnected[i][j] == 1:
+                    visited[j] = True
+                    dfs(j)
 
+        n = len(isConnected)
+        visited = [False] * n
+        num = 0
+        for i in range(n):
+            if not visited[i]:
+                dfs(i)
+                num += 1
+        return num
 ```
 
 ### **Java**
@@ -59,7 +76,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        boolean[] visited = new boolean[n];
+        int num = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!visited[i]) {
+                dfs(isConnected, visited, i, n);
+                ++num;
+            }
+        }
+        return num;
+    }
 
+    private void dfs(int[][] isConnected, boolean[] visited, int i, int n) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[j] && isConnected[i][j] == 1) {
+                visited[j] = true;
+                dfs(isConnected, visited, j, n);
+            }
+        }
+    }
+}
 ```
 
 ### **...**
