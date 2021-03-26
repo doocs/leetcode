@@ -39,7 +39,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumProduct(self, nums: List[int]) -> int:
+        n = len(nums)
+        nums.sort()
+        # 全负 0 1 n-1
+        # 全正 n-1 n-2 n-3
+        # 有正有负 max([0 1 n-1], [n-1 n-2 n-3])
+        return max(nums[0] * nums[1] * nums[n - 1], nums[n - 1] * nums[n - 2] * nums[n - 3])
 ```
 
 ### **Java**
@@ -47,7 +54,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maximumProduct(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        // 全负 0 1 n-1
+        // 全正 n-1 n-2 n-3
+        // 有正有负 max([0 1 n-1], [n-1 n-2 n-3])
+        return Math.max(nums[0] * nums[1] * nums[n - 1], nums[n - 1] * nums[n - 2] * nums[n - 3]);
+    }
+}
 ```
 
 ### **...**
