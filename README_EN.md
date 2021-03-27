@@ -156,7 +156,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ## Maintainer
 
-[Yang Libin](https://github.com/yanglbme): Creator of [@Doocs](https://github.com/doocs) technical community; member of [@TheAlgorithms](https://github.com/TheAlgorithms) organization.
+[Yang Libin](https://github.com/yanglbme): Creator of [@Doocs](https://github.com/doocs) organization; member of [@TheAlgorithms](https://github.com/TheAlgorithms) organization.
 
 ## Contributions
 
