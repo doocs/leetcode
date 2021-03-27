@@ -1,12 +1,11 @@
 class Solution:
-    def lengthOfLongestSubstring(self, s: str):
-        max = 0
-        length = len(s)
-        substr = ""
-        for i in range(0, length):
-            index = substr.find(s[i])
-            if index > -1:
-                substr = substr[index + 1:]
-            substr += s[i]
-            max = (max if (max > len(substr)) else len(substr))
-        return max
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        res, chars = 0, dict()
+        i = j = 0
+        while j < len(s):
+            if s[j] in chars:
+                i = max(i, chars[s[j]] + 1)
+            res = max(res, j - i + 1)
+            chars[s[j]] = j
+            j += 1
+        return res
