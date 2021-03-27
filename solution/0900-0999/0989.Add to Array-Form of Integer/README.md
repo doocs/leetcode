@@ -57,6 +57,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+数组从尾到头遍历，分别与 `K` 中的每一位相加，进位保存在 `carry` 中，不进位和则添加到结果列表中。最后逆序结果列表即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +66,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def addToArrayForm(self, A: List[int], K: int) -> List[int]:
+        n = len(A) - 1
+        carry, res = 0, []
+        while n >= 0 or K != 0 or carry != 0:
+            carry += (0 if n < 0 else A[n]) + (K % 10)
+            res.append(carry % 10)
+            K //= 10
+            carry //= 10
+            n -= 1
+        return res[::-1]
 ```
 
 ### **Java**
@@ -72,7 +84,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<Integer> addToArrayForm(int[] A, int K) {
+        int n = A.length - 1;
+        List<Integer> res = new ArrayList<>();
+        int carry = 0;
+        while (n >= 0 || K != 0 || carry != 0) {
+            carry += (n < 0 ? 0 : A[n]) + (K % 10);
+            res.add(carry % 10);
+            K /= 10;
+            carry /= 10;
+            --n;
+        }
+        Collections.reverse(res);
+        return res;
+    }
+}
 ```
 
 ### **...**
