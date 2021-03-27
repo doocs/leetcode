@@ -27,7 +27,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        n1, n2 = len(num1) - 1, len(num2) - 1
+        carry = 0
+        res = []
+        while n1 >= 0 or n2 >= 0 or carry > 0:
+            carry += (0 if n1 < 0 else int(num1[n1])) + (0 if n2 < 0 else int(num2[n2]))
+            res.append(str(carry % 10))
+            carry //= 10
+            n1, n2 = n1 - 1, n2 - 1
+        return ''.join(res[::-1])
 ```
 
 ### **Java**
@@ -35,7 +45,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String addStrings(String num1, String num2) {
+        int n1 = num1.length() - 1, n2 = num2.length() - 1;
+        int carry = 0;
+        StringBuilder sb = new StringBuilder();
+        while (n1 >= 0 || n2 >= 0 || carry > 0) {
+            carry += (n1 < 0 ? 0 : num1.charAt(n1--) - '0') + (n2 < 0 ? 0 : num2.charAt(n2--) - '0');
+            sb.append(carry % 10);
+            carry /= 10;
+        }
+        return sb.reverse().toString();
+    }
+}
 ```
 
 ### **...**
