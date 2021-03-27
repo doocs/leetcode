@@ -5,13 +5,11 @@
 #         self.next = next
 class Solution:
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
-        if head is None or head.next is None or k == 0:
+        if k == 0 or head is None or head.next is None:
             return head
-        n = 0
-        cur = head
+        n, cur = 0, head
         while cur:
-            n += 1
-            cur = cur.next
+            n, cur = n + 1, cur.next
         k %= n
         if k == 0:
             return head

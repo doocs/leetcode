@@ -54,13 +54,11 @@ rotate 4 steps to the right:&nbsp;<code>2-&gt;0-&gt;1-&gt;NULL</code></pre>
 #         self.next = next
 class Solution:
     def rotateRight(self, head: ListNode, k: int) -> ListNode:
-        if head is None or head.next is None or k == 0:
+        if k == 0 or head is None or head.next is None:
             return head
-        n = 0
-        cur = head
+        n, cur = 0, head
         while cur:
-            n += 1
-            cur = cur.next
+            n, cur = n + 1, cur.next
         k %= n
         if k == 0:
             return head
@@ -90,21 +88,21 @@ class Solution:
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null) {
+        if (k == 0 || head == null || head.next == null) {
             return head;
         }
-        int n = 0;
         ListNode cur = head;
+        int n = 0;
         while (cur != null) {
-            ++n;
             cur = cur.next;
+            ++n;
         }
         k %= n;
         if (k == 0) {
             return head;
         }
         ListNode p = head, q = head;
-        for (int i = 0; i < k; ++i) {
+        while (k-- > 0) {
             q = q.next;
         }
         while (q.next != null) {
@@ -115,6 +113,57 @@ class Solution {
         p.next = null;
         q.next = head;
         return start;
+    }
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode RotateRight(ListNode head, int k) {
+        if (k == 0 || head == null || head.next == null)
+        {
+            return head;
+        }
+        ListNode cur = head;
+        var n = 0;
+        while (cur != null)
+        {
+            cur = cur.next;
+            ++n;
+        }
+        k %= n;
+        if (k == 0)
+        {
+            return head;
+        }
+        ListNode p = head, q = head;
+        while (k-- > 0)
+        {
+            q = q.next;
+        }
+        while (q.next != null)
+        {
+            p = p.next;
+            q = q.next;
+        }
+        ListNode start = p.next;
+        p.next = null;
+        q.next = head;
+        return start;
+
     }
 }
 ```
