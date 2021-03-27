@@ -74,6 +74,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 ### Linked List
 
 - [Add Two Numbers](/solution/0000-0099/0002.Add%20Two%20Numbers/README_EN.md)
+- [Add Two Numbers II](/solution/0400-0499/0445.Add%20Two%20Numbers%20II/README_EN.md)
 - [Delete Node in a Linked List](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README_EN.md)
 - [Remove Duplicates from Sorted List](/solution/0000-0099/0083.Remove%20Duplicates%20from%20Sorted%20List/README_EN.md)
 - [Remove Duplicates from Sorted List II](/solution/0000-0099/0082.Remove%20Duplicates%20from%20Sorted%20List%20II/README_EN.md)
