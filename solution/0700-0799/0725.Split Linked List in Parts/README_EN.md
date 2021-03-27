@@ -93,13 +93,71 @@ The input has been split into consecutive parts with size difference at most 1, 
 ### **Python3**
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def splitListToParts(self, root: ListNode, k: int) -> List[ListNode]:
+        n, cur = 0, root
+        while cur:
+            n += 1
+            cur = cur.next
+        cur = root
+        width, remainder = divmod(n, k)
+        res = [None for _ in range(k)]
+        for i in range(k):
+            head = cur
+            for j in range(width + (i < remainder) - 1):
+                if cur:
+                    cur = cur.next
+            if cur:
+                cur.next, cur = None, cur.next
+            res[i] = head
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode[] splitListToParts(ListNode root, int k) {
+        int n = 0;
+        ListNode cur = root;
+        while (cur != null) {
+            ++n;
+            cur = cur.next;
+        }
+        int width = n / k, remainder = n % k;
+        ListNode[] res = new ListNode[k];
+        cur = root;
+        for (int i = 0; i < k; ++i) {
+            ListNode head = cur;
+            for (int j = 0; j < width + ((i < remainder) ? 1 : 0) - 1; ++j) {
+                if (cur != null) {
+                    cur = cur.next;
+                }
+            }
+            if (cur != null) {
+                ListNode t = cur.next;
+                cur.next = null;
+                cur = t;
+            }
+            res[i] = head;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
