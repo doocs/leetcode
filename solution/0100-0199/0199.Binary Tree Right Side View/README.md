@@ -24,6 +24,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+队列实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -31,7 +33,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
+        q = [root]
+        res = []
+        while q:
+            size = len(q)
+            res.append(q[0].val)
+            for _ in range(size):
+                node = q.pop(0)
+                if node.right:
+                    q.append(node.right)
+                if node.left:
+                    q.append(node.left)
+        return res
 ```
 
 ### **Java**
@@ -39,23 +62,37 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> ans = new ArrayList<>();
-        robot(root, ans, 0);
-        return ans;
-    }
-
-    private void robot(TreeNode root, List<Integer> ans, int level) {
-        if (root == null) {
-            return;
+        if (root == null) return Collections.emptyList();
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        List<Integer> res = new ArrayList<>();
+        while (!q.isEmpty()) {
+            int size = q.size();
+            res.add(q.peek().val);
+            while (size-- > 0) {
+                TreeNode node = q.poll();
+                if (node.right != null) q.offer(node.right);
+                if (node.left != null) q.offer(node.left);
+            }
         }
-        if (ans.size() <= level) {
-            ans.add(root.val);
-        }
-        ans.set(level, root.val);
-        robot(root.left, ans, level + 1);
-        robot(root.right, ans, level + 1);
+        return res;
     }
 }
 ```

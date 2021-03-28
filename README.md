@@ -108,6 +108,7 @@
 - [翻转二叉树](/solution/0200-0299/0226.Invert%20Binary%20Tree/README.md)
 - [二叉树的层次遍历](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README.md)
 - [二叉树的层次遍历 II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README.md)
+- [二叉树的右视图](/solution/0100-0199/0199.Binary%20Tree%20Right%20Side%20View/README.md)
 - [二叉树的最大深度](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README.md)
 - [二叉树的最小深度](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README.md)
 - [二叉树的所有路径](/solution/0200-0299/0257.Binary%20Tree%20Paths/README.md)
@@ -190,7 +191,9 @@
 
 非常感谢以下所有朋友对本项目的贡献，你们是最可爱的人！
 
-<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
+<!-- https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false -->
+
+<a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="./images/contributors.svg" /></a>
 
 ## 赞助者
 

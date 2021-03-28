@@ -1,0 +1,22 @@
+name: Contributors
+
+on:
+  schedule:
+    - cron: "0/10 * * * *"
+  push:
+    branches:
+      - main
+
+jobs:
+  contributors:
+    runs-on: ubuntu-latest
+    if: github.repository == 'doocs/leetcode'
+    steps:
+      - uses: bubkoo/contributors-list@v1
+        name: contributors-doocs-leetcode
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          svgPath: images/contributors.svg
+          svgWidth: 890
+          round: true
+          includeBots: true

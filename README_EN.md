@@ -105,6 +105,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [Invert Binary Tree](/solution/0200-0299/0226.Invert%20Binary%20Tree/README_EN.md)
 - [Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)
 - [Binary Tree Level Order Traversal II](/solution/0100-0199/0107.Binary%20Tree%20Level%20Order%20Traversal%20II/README_EN.md)
+- [Binary Tree Right Side View](/solution/0100-0199/0199.Binary%20Tree%20Right%20Side%20View/README_EN.md)
 - [Maximum Depth of Binary Tree](/solution/0100-0199/0104.Maximum%20Depth%20of%20Binary%20Tree/README_EN.md)
 - [Minimum Depth of Binary Tree](/solution/0100-0199/0111.Minimum%20Depth%20of%20Binary%20Tree/README_EN.md)
 - [Binary Tree Paths](/solution/0200-0299/0257.Binary%20Tree%20Paths/README_EN.md)
@@ -180,7 +181,9 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 This project exists thanks to all the people who contribute.
 
-<a href="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=true" target="_blank"><img src="https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false" /></a>
+<!-- https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false -->
+
+<a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="./images/contributors.svg" /></a>
 
 ## Backers & Sponsors
 
