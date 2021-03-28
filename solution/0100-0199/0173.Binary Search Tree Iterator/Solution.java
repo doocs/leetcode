@@ -4,43 +4,41 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class BSTIterator {
 
-    Stack<TreeNode> vector = new Stack<>();
-    TreeNode current;
+    private List<Integer> vals;
+    private int next;
 
     public BSTIterator(TreeNode root) {
-        current = root;
-        // 一直放入左儿子（左）
-        while (current != null) {
-            vector.push(current);
-            current = current.left;
-        }
+        next = 0;
+        vals = new ArrayList<>();
+        inorder(root);
     }
-
-    /** @return whether we have a next smallest number */
-    public boolean hasNext() {
-        return !vector.isEmpty() || current != null;
-    }
-
-    /** @return the next smallest number */
+    
     public int next() {
-        // 一直放入左儿子（左）
-        while (current != null) {
-            vector.push(current);
-            current = current.left;
+        return vals.get(next++);
+    }
+    
+    public boolean hasNext() {
+        return next < vals.size();
+    }
+
+    private void inorder(TreeNode root) {
+        if (root == null) {
+            return;
         }
-        int ans = 0;
-        // 访问当前元素（中），把右儿子入栈（右）
-        if (!vector.isEmpty()) {
-            current = vector.pop();
-            ans = current.val;
-            current = current.right;
-        }
-        return ans;
+        inorder(root.left);
+        vals.add(root.val);
+        inorder(root.right);
     }
 }
 
