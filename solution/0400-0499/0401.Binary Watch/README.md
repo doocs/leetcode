@@ -35,6 +35,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+题目可转换为求 i(`i∈[0,12)`) 和 j(`j∈[0,60)`) 所有可能的组合。
+
+合法组合需要满足的条件是：i 的二进制形式中 1 的个数加上 j 的二进制形式中 1 的个数，结果等于 num。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -42,7 +46,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def readBinaryWatch(self, num: int) -> List[str]:
+        return ['{:d}:{:02d}'.format(i, j) for i in range(12) for j in range(60) if (bin(i) + bin(j)).count('1') == num]
 ```
 
 ### **Java**
@@ -50,7 +56,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<String> readBinaryWatch(int num) {
+        List<String> res = new ArrayList<>();
+        for (int i = 0; i < 12; ++i) {
+            for (int j = 0; j < 60; ++j) {
+                if (Integer.bitCount(i) + Integer.bitCount(j) == num) {
+                    res.add(String.format("%d:%02d", i, j));
+                }
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
