@@ -39,8 +39,14 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
+转字符串，进行翻转。
 
+```python
+class Solution:
+    def reverse(self, x: int) -> int:
+        y = int(str(abs(x))[::-1])
+        res = -y if x < 0 else y
+        return 0 if res < -2**31 or res > 2**31 -1 else res
 ```
 
 ### **Java**
@@ -48,7 +54,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int reverse(int x) {
+        long res = 0;
+        // 考虑负数情况，所以这里条件为: x != 0
+        while (x != 0) {
+            res = res * 10 + (x % 10);
+            x /= 10;
+        }
+        return res < Integer.MIN_VALUE || res > Integer.MAX_VALUE ? 0 : (int) res;
+    }
+}
 ```
 
 ### **...**
