@@ -1,7 +1,7 @@
 class Solution:
-    # @param n, an integer
-    # @return an integer
-    def reverseBits(self, n):
-        B = bin(n)
-        B = (B[2:].rjust(32, "0"))[::-1]
-        return int(B, 2)
+    def reverseBits(self, n: int) -> int:
+        res = 0
+        for i in range(32):
+            res |= ((n & 1) << (31 - i))
+            n >>= 1
+        return res
