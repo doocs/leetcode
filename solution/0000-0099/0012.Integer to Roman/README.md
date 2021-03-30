@@ -60,6 +60,8 @@ M             1000</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+贪心算法实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +69,15 @@ M             1000</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        nums = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'), (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'), (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]
+        res = []
+        for k, v in nums:
+            while num >= k:
+                num -= k
+                res.append(v)
+        return ''.join(res)
 ```
 
 ### **Java**
@@ -75,7 +85,20 @@ M             1000</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String intToRoman(int num) {
+        int[] nums = new int[]{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] romans = new String[]{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < nums.length; ++i) {
+            while (num >= nums[i]) {
+                num -= nums[i];
+                sb.append(romans[i]);
+            }
+        }
+        return sb.toString();
+    }
+}
 ```
 
 ### **...**

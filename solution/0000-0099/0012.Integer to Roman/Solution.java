@@ -1,10 +1,14 @@
 class Solution {
-    private final String[] M = {"", "M", "MM", "MMM"};
-    private final String[] C = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
-    private final String[] X = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
-    private final String[] I = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
     public String intToRoman(int num) {
-        return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10];
+        int[] nums = new int[]{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] romans = new String[]{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < nums.length; ++i) {
+            while (num >= nums[i]) {
+                num -= nums[i];
+                sb.append(romans[i]);
+            }
+        }
+        return sb.toString();
     }
 }
-
