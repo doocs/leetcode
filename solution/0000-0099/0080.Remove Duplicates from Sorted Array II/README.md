@@ -47,6 +47,14 @@ for (int i = 0; i &lt; len; i++) {
 
 <!-- 这里可写通用的实现逻辑 -->
 
+从数组下标 1 开始遍历数组。
+
+用计数器 `cnt` 记录当前数字重复出现的次数，`cnt` 的最小计数为 0；用 `cur` 记录新数组下个待覆盖的元素位置。
+
+遍历时，若当前元素 `nums[i]` 与上个元素 `nums[i-1]` 相同，则计数器 +1，否则计数器重置为 0。如果计数器小于 2，说明当前元素 `nums[i]` 可以添加到新数组中，即：`nums[cur] = nums[i]`，同时 `cur++`。
+
+遍历结果，返回 `cur` 值即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +62,19 @@ for (int i = 0; i &lt; len; i++) {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        n = len(nums)
+        cnt, cur = 0, 1
+        for i in range(1, n):
+            if nums[i] == nums[i - 1]:
+                cnt += 1
+            else:
+                cnt = 0
+            if cnt < 2:
+                nums[cur] = nums[i]
+                cur += 1
+        return cur
 ```
 
 ### **Java**
@@ -62,7 +82,52 @@ for (int i = 0; i &lt; len; i++) {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int cnt = 0, cur = 1;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] == nums[i - 1]) ++cnt;
+            else cnt = 0;
+            if (cnt < 2) nums[cur++] = nums[i];
+        }
+        return cur;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n = nums.size();
+        int cnt = 0, cur = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] == nums[i - 1]) ++cnt;
+            else cnt = 0;
+            if (cnt < 2) nums[cur++] = nums[i];
+        }
+        return cur;
+    }
+};
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int RemoveDuplicates(int[] nums) {
+        int cnt = 0, cur = 1;
+        for (int i = 1; i < nums.Length; ++i)
+        {
+            if (nums[i] == nums[i - 1]) ++cnt;
+            else cnt = 0;
+            if (cnt < 2) nums[cur++] = nums[i];
+        }
+        return cur;
+    }
+}
 ```
 
 ### **...**

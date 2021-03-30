@@ -73,14 +73,70 @@ for (int i = 0; i &lt; len; i++) {
 ### **Python3**
 
 ```python
-
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        n = len(nums)
+        cnt, cur = 0, 1
+        for i in range(1, n):
+            if nums[i] == nums[i - 1]:
+                cnt += 1
+            else:
+                cnt = 0
+            if cnt < 2:
+                nums[cur] = nums[i]
+                cur += 1
+        return cur
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int cnt = 0, cur = 1;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] == nums[i - 1]) ++cnt;
+            else cnt = 0;
+            if (cnt < 2) nums[cur++] = nums[i];
+        }
+        return cur;
+    }
+}
 ```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n = nums.size();
+        int cnt = 0, cur = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] == nums[i - 1]) ++cnt;
+            else cnt = 0;
+            if (cnt < 2) nums[cur++] = nums[i];
+        }
+        return cur;
+    }
+};
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int RemoveDuplicates(int[] nums) {
+        int cnt = 0, cur = 1;
+        for (int i = 1; i < nums.Length; ++i)
+        {
+            if (nums[i] == nums[i - 1]) ++cnt;
+            else cnt = 0;
+            if (cnt < 2) nums[cur++] = nums[i];
+        }
+        return cur;
+    }
+}
 
 ### **...**
 
@@ -89,3 +145,4 @@ for (int i = 0; i &lt; len; i++) {
 ```
 
 <!-- tabs:end -->
+```
