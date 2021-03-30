@@ -41,6 +41,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+中序遍历，若是一个有效的二叉搜索树，那么遍历到的序列应该是单调递增的。所以只要比较判断遍历到的当前数是否 `>=` 上一个数即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,7 +50,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    pre = None
+    def isValidBST(self, root: TreeNode) -> bool:
+        if not root:
+            return True
+        if not self.isValidBST(root.left):
+            return False
+        if self.pre is not None and self.pre >= root.val:
+            return False
+        self.pre = root.val
+        if not self.isValidBST(root.right):
+            return False
+        return True
 ```
 
 ### **Java**
@@ -56,7 +76,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private Integer pre = null;
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) return true;
+        if (!isValidBST(root.left)) return false;
+        if (pre != null && pre >= root.val) return false;
+        pre = root.val;
+        if (!isValidBST(root.right)) return false;
+        return true;
+    }
+}
 ```
 
 ### **...**
