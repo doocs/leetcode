@@ -4,7 +4,7 @@ class Solution:
             return 0
         l, r = 0, len(nums) - 1
         while l <= r:
-            m = l + ((r - l) >> 1)
+            m = (l + r) >> 1
             if nums[m] == target:
                 return self._count(nums, l, r, m)
             if nums[m] < target:

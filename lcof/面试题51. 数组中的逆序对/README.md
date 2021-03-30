@@ -89,7 +89,7 @@ class Solution {
         if (s == e) {
             return;
         }
-        int mid = s + ((e - s) >> 1);
+        int mid = (s + e) >>> 1;
         mergeSort(nums, s, mid);
         mergeSort(nums, mid + 1, e);
         merge(nums, s, mid, e);

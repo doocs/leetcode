@@ -11,7 +11,7 @@ class Solution:
         """
         low, high = 1, n
         while low < high:
-            mid = low + ((high - low) >> 1)
+            mid = (low + high) >> 1
             if isBadVersion(mid):
                 high = mid
             else:

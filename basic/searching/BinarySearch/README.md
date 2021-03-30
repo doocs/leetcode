@@ -17,7 +17,7 @@ n, n/2, n/4, n/8, ..., n/(2^k)
 注意容易出错的 3 个地方。
 
 1. 循环退出条件是 `low <= high`，而不是 `low < high`；
-1. mid 的取值，可以是 `mid = (low + high) / 2`，但是如果 low 和 high 比较大的话，`low + high` 可能会溢出，所以这里写为 `mid = low + ((high - low) >> 1)`；
+1. mid 的取值，可以是 `mid = (low + high) / 2`，但是如果 low 和 high 比较大的话，`low + high` 可能会溢出，所以这里写为 `mid = (low + high) >>> 1`；
 1. low 和 high 的更新分别为 `low = mid + 1`、`high = mid - 1`。
 
 <!-- tabs:start -->
@@ -31,7 +31,7 @@ public class BinarySearch {
 
     private static int search(int[] nums, int low, int high, int val) {
         while (low <= high) {
-            int mid = low + ((high -low) >> 1);
+            int mid = (low + high) >>> 1;
             if (nums[mid] == val) {
                 return mid;
             } else if (nums[mid] < val) {
@@ -71,7 +71,7 @@ public class BinarySearch {
 
     private static int searchRecursive(int[] nums, int low, int high, int val) {
         while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+            int mid = (low + high) >>> 1;
             if (nums[mid] == val) {
                 return mid;
             } else if (nums[mid] < val) {

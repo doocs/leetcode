@@ -21,7 +21,7 @@ var solution = function (isBadVersion) {
     let low = 1,
       high = n;
     while (low < high) {
-      const mid = low + ((high - low) >> 1);
+      const mid = (low + high) >>> 1;
       if (isBadVersion(mid)) {
         high = mid;
       } else {

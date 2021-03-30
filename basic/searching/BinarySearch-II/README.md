@@ -20,7 +20,7 @@ public static int search(int[] nums, int val) {
     int n = nums.length;
     int low = 0, high = n - 1;
     while (low <= high) {
-        int mid = low + ((high - low) >> 1);
+        int mid = (low + high) >>> 1;
         if (nums[mid] < val) {
             low = mid + 1;
         } else if (nums[mid] > val) {
@@ -51,7 +51,7 @@ public static int search(int[] nums, int val) {
     int n = nums.length;
     int low = 0, high = n - 1;
     while (low <= high) {
-        int mid = low + ((high - low) >> 1);
+        int mid = (low + high) >>> 1;
         if (nums[mid] < val) {
             low = mid + 1;
         } else if (nums[mid] > val) {
@@ -81,7 +81,7 @@ public static int search(int[] nums, int val) {
 public static int search(int[] nums, int val) {
     int low = 0, high = nums.length - 1;
     while (low <= high) {
-        int mid = low + ((high - low) >> 1);
+        int mid = (low + high) >>> 1;
         if (nums[mid] < val) {
             low = mid + 1;
         } else {
@@ -110,7 +110,7 @@ public static int search(int[] nums, int val) {
     int n = nums.length;
     int low = 0, high = n - 1;
     while (low <= high) {
-        int mid = low + ((high - low) >> 1);
+        int mid = (low + high) >>> 1;
         if (nums[mid] > val) {
             high = mid - 1;
         } else {

@@ -43,7 +43,7 @@ class Solution:
     def findMin(self, nums: List[int]) -> int:
         l, r = 0, len(nums) - 1
         while l < r:
-            m = l + ((r - l) >> 1)
+            m = (l + r) >> 1
             if nums[m] > nums[r]:
                 l = m + 1
             else:
@@ -58,7 +58,7 @@ class Solution {
     public int findMin(int[] nums) {
         int l = 0, r = nums.length - 1;
         while (l < r) {
-            int m = l + ((r - l) >> 1);
+            int m = (l + r) >>> 1;
             if (nums[m] > nums[r]) {
                 l = m + 1;
             } else {

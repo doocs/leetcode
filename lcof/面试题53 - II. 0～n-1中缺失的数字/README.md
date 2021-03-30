@@ -39,7 +39,7 @@ class Solution:
         if nums[r] == r:
             return r + 1
         while r - l > 1:
-            m = l + ((r - l) >> 1)
+            m = (l + r) >> 1
             if nums[m] == m:
                 l = m
             else:
@@ -60,7 +60,7 @@ class Solution {
             return r + 1;
         }
         while (r - l > 1) {
-            int m = l + ((r - l) >> 1);
+            int m = (l + r) >>> 1;
             if (nums[m] == m) {
                 l = m;
             } else {

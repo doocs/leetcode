@@ -5,7 +5,7 @@ func minArray(nums []int) int {
 		if nums[mid] > nums[r] {
 			l = mid + 1
 		} else if nums[mid] < nums[r] {
-			r = mid //r 本身不需要被排除
+			r = mid // r 本身不需要被排除
 		} else {
 			r--
 		}

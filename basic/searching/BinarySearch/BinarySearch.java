@@ -2,7 +2,7 @@ public class BinarySearch {
     
     private static int search(int[] nums, int low, int high, int val) {
         while (low <= high) {
-            int mid = low + ((high -low) >> 1);
+            int mid = (low + high) >>> 1;
             if (nums[mid] == val) {
                 return mid;
             } else if (nums[mid] < val) {
@@ -16,7 +16,7 @@ public class BinarySearch {
 
     private static int searchRecursive(int[] nums, int low, int high, int val) {
         while (low <= high) {
-            int mid = low + ((high - low) >> 1);
+            int mid = (low + high) >>> 1;
             if (nums[mid] == val) {
                 return mid;
             } else if (nums[mid] < val) {

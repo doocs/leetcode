@@ -29,7 +29,7 @@ class Solution:
     def minArray(self, numbers: List[int]) -> int:
         l, r = 0, len(numbers) - 1
         while l < r:
-            m = l + ((r - l) >> 1)
+            m = (l + r) >> 1
             if numbers[m] > numbers[r]:
                 l = m + 1
             elif numbers[m] < numbers[r]:
@@ -46,7 +46,7 @@ class Solution {
     public int minArray(int[] numbers) {
         int l = 0, r = numbers.length - 1;
         while (l < r) {
-            int m = l + ((r - l) >> 1);
+            int m = (l + r) >>> 1;
             if (numbers[m] > numbers[r]) {
                 l = m + 1;
             } else if (numbers[m] < numbers[r]) {
@@ -68,20 +68,19 @@ class Solution {
  * @return {number}
  */
 var minArray = function (numbers) {
-  // return Math.min(...numbers)
-  let left = 0;
-  let right = numbers.length - 1;
-  while (left < right) {
-    let mid = left + ~~((right - left) / 2);
-    if (numbers[mid] > numbers[right]) {
-      left = mid + 1;
-    } else if (numbers[mid] === numbers[right]) {
-      right--;
+  let l = 0,
+    r = numbers.length - 1;
+  while (l < r) {
+    let m = (l + r) >>> 1;
+    if (numbers[m] > numbers[r]) {
+      l = m + 1;
+    } else if (numbers[m] < numbers[r]) {
+      r = m;
     } else {
-      right = mid;
+      --r;
     }
   }
-  return numbers[left];
+  return numbers[l];
 };
 ```
 
@@ -95,7 +94,7 @@ func minArray(nums []int) int {
 		if nums[mid] > nums[r] {
 			l = mid + 1
 		} else if nums[mid] < nums[r] {
-			r = mid //r 本身不需要被排除
+			r = mid // r 本身不需要被排除
 		} else {
 			r--
 		}

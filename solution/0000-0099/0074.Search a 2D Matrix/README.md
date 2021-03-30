@@ -53,7 +53,7 @@ class Solution:
         m, n = len(matrix), len(matrix[0])
         l, h = 0, m * n - 1
         while l <= h:
-            mid = l + ((h - l) >> 1)
+            mid = (l + h) >> 1
             x, y = divmod(mid, n)
             if matrix[x][y] == target:
                 return True

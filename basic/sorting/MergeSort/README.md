@@ -36,7 +36,7 @@ public class MergeSort {
         if (low >= high) {
             return;
         }
-        int mid = low + ((high - low) >> 1);
+        int mid = (low + high) >>> 1;
         mergeSort(nums, low, mid, temp);
         mergeSort(nums, mid + 1, high, temp);
         merge(nums, low, mid, high, temp);
