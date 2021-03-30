@@ -1,27 +1,14 @@
 class Solution:
-    def searchMatrix(self, matrix, target):
-        """
-        :type matrix: List[List[int]]
-        :type target: int
-        :rtype: bool
-        """
-
-        if not matrix or not matrix[0]:
-            return False
-
-        for row in matrix:
-            if row[0] <= target <= row[-1]:
-                s = 0
-                e = len(row)-1
-                while s <= e:
-                    mid = (s+e)//2
-                    if row[mid] == target:
-                        return True
-                    elif row[mid] > target:
-                        e = mid-1
-                    else:
-                        s = mid+1
-
-                return False
-
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m, n = len(matrix), len(matrix[0])
+        l, h = 0, m * n - 1
+        while l <= h:
+            mid = l + ((h - l) >> 1)
+            x, y = divmod(mid, n)
+            if matrix[x][y] == target:
+                return True
+            if matrix[x][y] < target:
+                l = mid + 1
+            else:
+                h = mid - 1
         return False

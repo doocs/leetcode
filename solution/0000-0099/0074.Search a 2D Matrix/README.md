@@ -39,6 +39,8 @@ target = 13
 
 <!-- 这里可写通用的实现逻辑 -->
 
+将二维矩阵逻辑展开，然后二分查找即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,7 +48,20 @@ target = 13
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m, n = len(matrix), len(matrix[0])
+        l, h = 0, m * n - 1
+        while l <= h:
+            mid = l + ((h - l) >> 1)
+            x, y = divmod(mid, n)
+            if matrix[x][y] == target:
+                return True
+            if matrix[x][y] < target:
+                l = mid + 1
+            else:
+                h = mid - 1
+        return False
 ```
 
 ### **Java**
@@ -54,7 +69,40 @@ target = 13
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length, n = matrix[0].length;
+        int l = 0, h = m * n - 1;
+        while (l <= h) {
+            int mid = l + ((h - l) >> 1);
+            int x = mid / n, y = mid % n;
+            if (matrix[x][y] == target) return true;
+            if (matrix[x][y] < target) l = mid + 1;
+            else h = mid - 1;
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int l = 0, h = m * n - 1;
+        while (l <= h) {
+            int mid = l + ((h - l) >> 1);
+            int x = mid / n, y = mid % n;
+            if (matrix[x][y] == target) return true;
+            if (matrix[x][y] < target) l = mid + 1;
+            else h = mid - 1;
+        }
+        return false;
+    }
+};
 ```
 
 ### **...**
