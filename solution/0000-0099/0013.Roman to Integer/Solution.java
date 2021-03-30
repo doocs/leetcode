@@ -1,22 +1,29 @@
 class Solution {
     public int romanToInt(String s) {
-        if (s == null || s.isEmpty()) {
-            return 0;
-        }
-        String str = "IVXLCDM";
-        int[] num = {1, 5, 10, 50, 100, 500, 1000};
-        int ans = 0;
-        int i = 0;
-        int pre = 999, cur = 0;
-        while (i < s.length()) {
-            cur = str.indexOf(s.charAt(i++));
-            if (pre < cur) {
-                ans = ans + num[cur] - 2 * num[pre];
+        Map<String, Integer> nums = new HashMap<>();
+        nums.put("M", 1000);
+        nums.put("CM", 900);
+        nums.put("D", 500);
+        nums.put("CD", 400);
+        nums.put("C", 100);
+        nums.put("XC", 90);
+        nums.put("L", 50);
+        nums.put("XL", 40);
+        nums.put("X", 10);
+        nums.put("IX", 9);
+        nums.put("V", 5);
+        nums.put("IV", 4);
+        nums.put("I", 1);
+        int res = 0;
+        for (int i = 0; i < s.length();) {
+            if (i + 1 < s.length() && nums.get(s.substring(i, i + 2)) != null) {
+                res += nums.get(s.substring(i, i + 2));
+                i += 2;
             } else {
-                ans += num[cur];
+                res += nums.get(s.substring(i, i + 1));
+                i += 1;
             }
-            pre = cur;
         }
-        return ans;
+        return res;
     }
 }

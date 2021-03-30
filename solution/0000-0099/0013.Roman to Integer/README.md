@@ -67,7 +67,32 @@ M             1000</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        nums = {
+            'M': 1000,
+            'CM': 900,
+            'D': 500,
+            'CD': 400,
+            'C': 100,
+            'XC': 90,
+            'L': 50,
+            'XL': 40,
+            'X': 10,
+            'IX': 9,
+            'V': 5,
+            'IV': 4,
+            'I': 1
+        }
+        i = res = 0
+        while i < len(s):
+            if i + 1 < len(s) and s[i:i + 2] in nums:
+                res += nums[s[i: i + 2]]
+                i += 2
+            else:
+                res += nums[s[i: i + 1]]
+                i += 1
+        return res
 ```
 
 ### **Java**
@@ -75,7 +100,35 @@ M             1000</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int romanToInt(String s) {
+        Map<String, Integer> nums = new HashMap<>();
+        nums.put("M", 1000);
+        nums.put("CM", 900);
+        nums.put("D", 500);
+        nums.put("CD", 400);
+        nums.put("C", 100);
+        nums.put("XC", 90);
+        nums.put("L", 50);
+        nums.put("XL", 40);
+        nums.put("X", 10);
+        nums.put("IX", 9);
+        nums.put("V", 5);
+        nums.put("IV", 4);
+        nums.put("I", 1);
+        int res = 0;
+        for (int i = 0; i < s.length();) {
+            if (i + 1 < s.length() && nums.get(s.substring(i, i + 2)) != null) {
+                res += nums.get(s.substring(i, i + 2));
+                i += 2;
+            } else {
+                res += nums.get(s.substring(i, i + 1));
+                i += 1;
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
