@@ -158,6 +158,11 @@
 - [最长上升子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
 - [俄罗斯套娃信封问题](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
 
+### 回溯算法
+
+- [子集](/solution/0000-0099/0078.Subsets/README.md)
+- [子集 II](/solution/0000-0099/0090.Subsets%20II/README.md)
+
 ### 混合问题
 
 ### 数据库

@@ -152,6 +152,11 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 - [Russian Doll Envelopes](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
 
+### Backtracking
+
+- [Subsets](/solution/0000-0099/0078.Subsets/README_EN.md)
+- [Subsets II](/solution/0000-0099/0090.Subsets%20II/README_EN.md)
+
 ### Misc
 
 - [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
