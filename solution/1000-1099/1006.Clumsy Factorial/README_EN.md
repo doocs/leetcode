@@ -56,13 +56,50 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def clumsy(self, N: int) -> int:
+        op = 0
+        s = [N]
+        for i in range(N - 1, 0, -1):
+            if op == 0:
+                s.append(s.pop() * i)
+            elif op == 1:
+                s.append(int(s.pop() / i))
+            elif op == 2:
+                s.append(i)
+            else:
+                s.append(-i)
+            op = (op + 1) % 4
+        return sum(s)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int clumsy(int N) {
+        Deque<Integer> s = new ArrayDeque<>();
+        s.offerLast(N);
+        int op = 0;
+        for (int i = N - 1; i > 0; --i) {
+            if (op == 0) {
+                s.offerLast(s.pollLast() * i);
+            } else if (op == 1) {
+                s.offerLast(s.pollLast() / i);
+            } else if (op == 2) {
+                s.offerLast(i);
+            } else {
+                s.offerLast(-i);
+            }
+            op = (op + 1) % 4;
+        }
+        int res = 0;
+        while (!s.isEmpty()) {
+            res += s.pollLast();
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
