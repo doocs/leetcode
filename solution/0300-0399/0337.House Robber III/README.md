@@ -55,6 +55,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    //这里f（o）表示选择o节点的最大权重和
+    //这里g（o）表示不选择o节点最大权重和
+
+    //f(o) = g(o.left) + g(o.right) 因为选择了o节点，他的两个子节点就不可以选择
+    //g(0) = Math.max(f(o.left),g(o.left)) + Math.max(f(o.right),g(o.right)) 不选择o节点，他的子节点可选择，也可不选择
+    Map<TreeNode, Integer> f = new HashMap<>();
+    Map<TreeNode, Integer> g = new HashMap<>();
+
+    public int rob(TreeNode root) {
+        dfs(root);
+        return Math.max(f.getOrDefault(root, 0), g.getOrDefault(root, 0));
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        dfs(root.left);
+        dfs(root.right);
+        
+        //选择了root，所以求和的时候要把root.val算进去
+        f.put(root, root.val + g.getOrDefault(root.left, 0) + g.getOrDefault(root.right, 0));
+        g.put(root, Math.max(f.getOrDefault(root.left, 0), g.getOrDefault(root.left, 0)) + Math.max(f.getOrDefault(root.right, 0), g.getOrDefault(root.right, 0)));
+    }
+}
 
 ```
 
