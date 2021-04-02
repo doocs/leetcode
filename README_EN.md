@@ -145,6 +145,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Dynamic Programming
 
+- [Trapping Rain Water](/solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
 - [Maximum Subarray](/solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
 - [Maximum Product Subarray](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
 - [House Robber](/solution/0100-0199/0198.House%20Robber/README_EN.md)
