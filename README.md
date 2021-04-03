@@ -158,6 +158,7 @@
 - [打家劫舍 II](/solution/0200-0299/0213.House%20Robber%20II/README.md)
 - [最长上升子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
 - [俄罗斯套娃信封问题](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
+- [最长公共子序列](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
 
 ### 回溯算法
 

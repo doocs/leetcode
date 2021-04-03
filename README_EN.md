@@ -152,6 +152,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [House Robber II](/solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
 - [Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 - [Russian Doll Envelopes](/solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
+- [Longest Common Subsequence](/solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md)
 
 ### Backtracking
 
