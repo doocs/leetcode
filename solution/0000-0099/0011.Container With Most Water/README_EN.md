@@ -31,13 +31,109 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        i, j = 0, len(height) - 1
+        res = 0
+        while i < j:
+            t = (j - i) * min(height[i], height[j])
+            res = max(res, t)
+            if height[i] < height[j]:
+                i += 1
+            else:
+                j -= 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxArea(int[] height) {
+        int i = 0, j = height.length - 1;
+        int res = 0;
+        while (i < j) {
+            int t = (j - i) * Math.min(height[i], height[j]);
+            res = Math.max(res, t);
+            if (height[i] < height[j]) ++i;
+            else --j;
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int i = 0, j = height.size() - 1;
+        int res = 0;
+        while (i < j) {
+            int t = (j - i) * min(height[i], height[j]);
+            res = max(res, t);
+            if (height[i] < height[j]) ++i;
+            else --j;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxArea(height []int) int {
+    i, j := 0, len(height) - 1
+    res := 0
+    for i != j {
+        t := (j - i) * min(height[i], height[j])
+        res = max(res, t)
+        if height[i] < height[j] {
+            i++
+        } else {
+            j--
+        }
+    }
+    return res
+}
+
+func min(a, b int) int {
+    if a > b {
+        return b
+    }
+    return a
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function (height) {
+  let i = 0,
+    j = height.length - 1;
+  let res = 0;
+  while (i < j) {
+    const t = (j - i) * Math.min(height[i], height[j]);
+    res = Math.max(res, t);
+    if (height[i] < height[j]) ++i;
+    else --j;
+  }
+  return res;
+};
 ```
 
 ### **...**

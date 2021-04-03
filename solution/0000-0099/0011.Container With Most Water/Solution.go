@@ -1,30 +1,28 @@
 func maxArea(height []int) int {
-	maxArea := 0
-	i := 0
-	j := len(height) - 1
-	for i != j {
-		hi := height[i]
-		hj := height[j]
-		maxArea = maxInt(maxArea, (j-i) * minInt(hi, hj))
-		if hi >= hj {
-			j--
-		} else {
-			i++
-		}
-	}
-	return maxArea
+    i, j := 0, len(height) - 1
+    res := 0
+    for i != j {
+        t := (j - i) * min(height[i], height[j])
+        res = max(res, t)
+        if height[i] < height[j] {
+            i++
+        } else {
+            j--
+        }
+    }
+    return res
 }
 
-func minInt(a, b int) int {
-	if a >= b {
-		return b
-	}
-	return a
+func min(a, b int) int {
+    if a > b {
+        return b
+    }
+    return a
 }
 
-func maxInt(a, b int) int {
-	if a >= b {
-		return a
-	}
-	return b
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
 }
