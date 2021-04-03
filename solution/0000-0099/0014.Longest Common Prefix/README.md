@@ -37,7 +37,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        n = len(strs)
+        if n == 0:
+            return ''
+        for i in range(len(strs[0])):
+            for j in range(1, n):
+                if len(strs[j]) <= i or strs[j][i] != strs[0][i]:
+                    return strs[0][:i]
+        return strs[0]
 ```
 
 ### **Java**
@@ -45,7 +54,40 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        int n;
+        if ((n = strs.length) == 0) return "";
+        for (int i = 0; i < strs[0].length(); ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (strs[j].length() <= i || strs[j].charAt(i) != strs[0].charAt(i)) {
+                    return strs[0].substring(0, i);
+                }
+            }
+        }
+        return strs[0];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        int n;
+        if ((n = strs.size()) == 0) return "";
+        for (int i = 0; i < strs[0].size(); ++i) {
+            for (int j = 1; j < n; ++j) {
+                if (strs[j].size() <= i || strs[j][i] != strs[0][i]) {
+                    return strs[0].substr(0, i);
+                }
+            }
+        }
+        return strs[0];
+    }
+};
 ```
 
 ### **...**
