@@ -38,6 +38,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+两只相同颜色的兔子看到的其他同色兔子数一定相同，若两只兔子看到的其它同色兔子数不同，那么这两只兔子颜色也不同。
+
+因此，将 `answers` 中值相同的元素分为一组，对于每一组，计算出兔子的最少数量，然后将所有组的计算结果累加，就是最终的答案。
+
+如果有 x 只兔子都回答 y，则至少有 `⌈x / (y + 1)⌉` 种不同的颜色，且每种颜色有 `y + 1` 只兔子。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,7 +51,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numRabbits(self, answers: List[int]) -> int:
+        counter = collections.Counter()
+        for e in answers:
+            counter[e] += 1
+        return sum([math.ceil(v / (k + 1)) * (k + 1) for k, v in counter.items()])
 ```
 
 ### **Java**
@@ -53,7 +64,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int numRabbits(int[] answers) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int e : answers) {
+            counter.put(e, counter.getOrDefault(e, 0) + 1);
+        }
+        int res = 0;
+        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
+            int answer = entry.getKey(), count = entry.getValue();
+            res += (int) Math.ceil(count / ((answer + 1) * 1.0)) * (answer + 1);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

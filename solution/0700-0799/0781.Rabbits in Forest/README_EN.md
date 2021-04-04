@@ -56,13 +56,31 @@ The smallest possible number of rabbits in the forest is therefore 5: 3 that ans
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numRabbits(self, answers: List[int]) -> int:
+        counter = collections.Counter()
+        for e in answers:
+            counter[e] += 1
+        return sum([math.ceil(v / (k + 1)) * (k + 1) for k, v in counter.items()])
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int numRabbits(int[] answers) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int e : answers) {
+            counter.put(e, counter.getOrDefault(e, 0) + 1);
+        }
+        int res = 0;
+        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
+            int answer = entry.getKey(), count = entry.getValue();
+            res += (int) Math.ceil(count / ((answer + 1) * 1.0)) * (answer + 1);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
