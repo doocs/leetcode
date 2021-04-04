@@ -1,15 +1,10 @@
 class Solution:
-    def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        if len(nums) <= 1: 
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        if len(nums) <= 1:
             return [nums]
-        ans = []
+        res = []
         for i, num in enumerate(nums):
-            n = nums[:i] + nums[i+1:]
-            for y in self.permute(n):
-                ans.append([num] + y)
-        return ans
-        
+            n = nums[:i] + nums[i + 1:]
+            for item in self.permute(n):
+                res.append([num] + item)
+        return res
