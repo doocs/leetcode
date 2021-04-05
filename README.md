@@ -216,6 +216,12 @@
 
 > "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
 
+## 推荐者
+
+知名互联网科技博主 [@爱可可-爱生活](https://weibo.com/fly51fly) 微博推荐。
+
+[![fly51fly](./images/recommender-fly51fly.png)](https://weibo.com/fly51fly)
+
 ## 许可证
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>

@@ -79,6 +79,109 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        ListNode* dummy = new ListNode(0);
+        ListNode* cur = dummy;
+        while (l1 && l2) {
+            if (l1->val <= l2->val) {
+                cur->next = l1;
+                l1 = l1->next;
+            } else {
+                cur->next = l2;
+                l2 = l2->next;
+            }
+            cur = cur->next;
+        }
+        if (l1) {
+            cur->next = l1;
+        } else if (l2) {
+            cur->next = l2;
+        }
+        return dummy->next;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function (l1, l2) {
+  const dummy = new ListNode(0);
+  let cur = dummy;
+  while (l1 && l2) {
+    if (l1.val <= l2.val) {
+      cur.next = l1;
+      l1 = l1.next;
+    } else {
+      cur.next = l2;
+      l2 = l2.next;
+    }
+    cur = cur.next;
+  }
+  cur.next = l1 || l2;
+  return dummy.next;
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+    dummy := &ListNode{}
+    cur := dummy
+    for l1 != nil && l2 != nil {
+        if l1.Val <= l2.Val {
+            cur.Next = l1
+            l1 = l1.Next
+        } else {
+            cur.Next = l2
+            l2 = l2.Next
+        }
+        cur = cur.Next
+    }
+    if l1 != nil {
+        cur.Next = l1
+    } else if l2 != nil {
+        cur.Next = l2
+    }
+    return dummy.Next
+}
+```
+
 ### **...**
 
 ```
