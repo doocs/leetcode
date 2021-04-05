@@ -177,16 +177,16 @@
 
 ## 维护者
 
-[Yang Libin](https://github.com/yanglbme): GitHub / Gitee 技术社区 @Doocs 创建者；开源组织 [@TheAlgorithms](https://github.com/TheAlgorithms) 核心成员之一。
+[Yang Libin](https://github.com/yanglbme): 开源社区 @Doocs 创建者「[GitHub](https://github.com/doocs) / [Gitee](https://gitee.com/doocs)」；GitHub 开源组织 [@TheAlgorithms](https://github.com/TheAlgorithms) 成员。
 
 ## 加入我们
 
 刷编程题的最大好处就是可以锻炼解决问题的思维能力。相信我，「如何去思考」​ 本身也是一项需要不断学习和练习的技能。非常感谢前微软工程师、现蚂蚁金服技术专家 [@kfstorm](https://github.com/kfstorm) 贡献了本项目的所有 [C# 题解](https://github.com/doocs/leetcode/pull/245)。
 
-如果你对本项目感兴趣，并且希望加入我们刷题大军，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
+如果你对本项目感兴趣，并且希望加入我们刷题小分队，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
 1. 将本项目 fork 到你的个人 GitHub / Gitee 帐户，然后 clone 到你的本地机器；
-1. 对项目做出一些变更，然后使用 git add、commit、push 等命令将你的变更提交到你的远程 GitHub / Gitee 仓库；
+1. 对项目做出一些变更，然后使用 git add、commit、push 等命令将你的本地变更提交到你的远程 GitHub / Gitee 仓库；
 1. 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
 1. 你也可以参考帮助文档「[GitHub](https://help.github.com/cn) / [Gitee](https://gitee.com/help)」了解更多细节。
 
