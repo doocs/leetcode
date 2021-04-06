@@ -32,6 +32,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分法。
+
+如果值范围在 `[1, mid]` 的数小于等于 mid，说明此范围内没有重复的数，否则说明有重复数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -39,7 +43,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        l, r = 0, len(nums) - 1
+        while l < r:
+            mid = (l + r) >> 1
+            cnt = 0
+            for e in nums:
+                if e <= mid:
+                    cnt += 1
+            if cnt <= mid:
+                l = mid + 1
+            else:
+                r = mid
+        return l
 ```
 
 ### **Java**
@@ -47,7 +64,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int l = 1, r = nums.length - 1;
+        while (l < r) {
+            int mid = (l + r) >>> 1;
+            int cnt = 0;
+            for (int e : nums) {
+                if (e <= mid) ++cnt;
+            }
+            if (cnt <= mid) l = mid + 1;
+            else r = mid;
+        }
+        return l;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int mid = l + ((r - l) >> 1);
+            int cnt = 0;
+            for (auto e : nums) {
+                if (e <= mid) ++cnt;
+            }
+            if (cnt <= mid) l = mid + 1;
+            else r = mid;
+        }
+        return l;
+    }
+};
 ```
 
 ### **...**
