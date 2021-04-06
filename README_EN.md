@@ -154,8 +154,8 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 I'm looking for long-term contributors/partners to this repo! Send me [PRs](https://github.com/doocs/leetcode/pulls) if you're interested! See the following:
 
-1. Fork [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then clone it to your local machine.
-1. Make some changes to your leetcode repository, then push the changes to your remote GitHub repository.
+1. <kbd>Fork</kbd> [this repository](https://github.com/doocs/leetcode) to your own GitHub account and then <kbd>clone</kbd> it to your local machine.
+1. Make some changes to your leetcode repository, then <kbd>add</kbd>, <kbd>commit</kbd> and <kbd>push</kbd> the changes to your remote GitHub repository.
 1. Create a pull request with your changes!
 1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
