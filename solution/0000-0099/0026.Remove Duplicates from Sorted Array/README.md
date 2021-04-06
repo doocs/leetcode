@@ -13,9 +13,9 @@
 
 <p><strong>示例&nbsp;1:</strong></p>
 
-<pre>给定数组 <em>nums</em> = <strong>[1,1,2]</strong>, 
+<pre>给定数组 <em>nums</em> = <strong>[1,1,2]</strong>,
 
-函数应该返回新的长度 <strong>2</strong>, 并且原数组 <em>nums </em>的前两个元素被修改为 <strong><code>1</code></strong>, <strong><code>2</code></strong>。 
+函数应该返回新的长度 <strong>2</strong>, 并且原数组 <em>nums </em>的前两个元素被修改为 <strong><code>1</code></strong>, <strong><code>2</code></strong>。
 
 你不需要考虑数组中超出新长度后面的元素。</pre>
 
@@ -120,6 +120,28 @@ func removeDuplicates(nums []int) int {
     }
     return n - cnt
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n = nums.size();
+        if(n < 2) {
+            return n;
+        }
+
+        int idx = 0;
+        for(int n : nums) {
+            if(idx < 1 || nums[idx-1] < n) {
+                nums[idx++] = n;
+            }
+        }
+        return idx;
+    }
+};
 ```
 
 ### **...**
