@@ -1,16 +1,16 @@
 class Solution {
     public boolean search(int[] nums, int target) {
-        int start = 0, end = nums.length - 1, mid;
-        while(start <= end) {
-            mid = (start + end) / 2;
+        int l = 0, r = nums.length - 1;
+        while (l <= r) {
+            int mid = (l + r) >>> 1;
             if (nums[mid] == target) return true;
-            if (nums[mid] < nums[end] || nums[mid] < nums[start]) {
-                if (target > nums[mid] && target <= nums[end]) start = mid + 1;
-                else end = mid - 1;
-            } else if (nums[mid] > nums[start] || nums[mid] > nums[end]) {
-                if (target < nums[mid] && target >= nums[start]) end = mid - 1;
-                else start = mid + 1;
-            } else end--;
+            if (nums[mid] < nums[r] || nums[mid] < nums[l]) {
+                if (target > nums[mid] && target <= nums[r]) l = mid + 1;
+                else r = mid - 1;
+            } else if (nums[mid] > nums[l] || nums[mid] > nums[r]) {
+                if (target < nums[mid] && target >= nums[l]) r = mid - 1;
+                else l = mid + 1;
+            } else r--;
         }
         return false;
     }
