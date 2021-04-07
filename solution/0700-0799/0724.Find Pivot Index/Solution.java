@@ -1,12 +1,16 @@
 class Solution {
     public int pivotIndex(int[] nums) {
-        int sum = Arrays.stream(nums).sum();
-        int s = 0;
+        int sums = 0;
+        for (int e : nums) {
+            sums += e;
+        }
+        int preSum = 0;
         for (int i = 0; i < nums.length; ++i) {
-            if (s << 1 == sum - nums[i]) {
+            // preSum == sums - nums[i] - preSum
+            if (preSum << 1 == sums - nums[i]) {
                 return i;
             }
-            s += nums[i];
+            preSum += nums[i];
         }
         return -1;
     }

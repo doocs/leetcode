@@ -49,7 +49,15 @@ nums = [1, 2, 3]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def pivotIndex(self, nums: List[int]) -> int:
+        sums = sum(nums)
+        pre_sum = 0
+        for i, v in enumerate(nums):
+            if (pre_sum << 1) == sums - v:
+                return i
+            pre_sum += v
+        return -1
 ```
 
 ### **Java**
@@ -57,7 +65,23 @@ nums = [1, 2, 3]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int sums = 0;
+        for (int e : nums) {
+            sums += e;
+        }
+        int preSum = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            // preSum == sums - nums[i] - preSum
+            if (preSum << 1 == sums - nums[i]) {
+                return i;
+            }
+            preSum += nums[i];
+        }
+        return -1;
+    }
+}
 ```
 
 ### **...**
