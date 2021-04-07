@@ -8,7 +8,7 @@ public:
         while(left <= right) {
             mid = (left + right) / 2;
             if(nums[mid] == target)return mid;
-            
+
             if(nums[mid] < nums[right]) {
                 if(nums[right] >= target && nums[mid] < target)left = mid + 1;
                 else right = mid - 1;
@@ -18,7 +18,7 @@ public:
                 else left = mid + 1;
             }
         }
-        return -1;    
+        return -1;
     }
 };
 
@@ -30,7 +30,7 @@ public:
         for(int i = 0;i<len;i++) {
             if(target == nums[i])return i;
         }
-        
+
         return -1;
     }
 };
