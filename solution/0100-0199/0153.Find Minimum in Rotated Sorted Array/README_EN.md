@@ -42,6 +42,8 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         l, r = 0, len(nums) - 1
+        if nums[l] < nums[r]:
+            return nums[0]
         while l < r:
             m = (l + r) >> 1
             if nums[m] > nums[r]:
@@ -57,17 +59,73 @@ class Solution:
 class Solution {
     public int findMin(int[] nums) {
         int l = 0, r = nums.length - 1;
+        if (nums[l] < nums[r]) return nums[0];
         while (l < r) {
             int m = (l + r) >>> 1;
-            if (nums[m] > nums[r]) {
-                l = m + 1;
-            } else {
-                r = m;
-            }
+            if (nums[m] > nums[r]) l = m + 1;
+            else r = m;
         }
         return nums[l];
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int l = 0, r = nums.size() - 1;
+        if (nums[l] < nums[r]) return nums[0];
+        while (l < r) {
+            int m = (l + r) >> 1;
+            if (nums[m] > nums[r]) l = m + 1;
+            else r = m;
+        }
+        return nums[l];
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMin(nums []int) int {
+    l, r := 0, len(nums) - 1
+    if nums[l] < nums[r] {
+        return nums[0]
+    }
+    for l < r {
+        m := (l + r) >> 1
+        if nums[m] > nums[r] {
+            l = m + 1
+        } else {
+            r = m
+        }
+    }
+    return nums[l]
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function (nums) {
+  let l = 0,
+    r = nums.length - 1;
+  if (nums[l] < nums[r]) return nums[0];
+  while (l < r) {
+    const m = (l + r) >> 1;
+    if (nums[m] > nums[r]) l = m + 1;
+    else r = m;
+  }
+  return nums[l];
+};
 ```
 
 ### **...**
