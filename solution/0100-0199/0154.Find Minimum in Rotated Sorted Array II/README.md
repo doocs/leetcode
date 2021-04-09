@@ -34,6 +34,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分法。
+
+若 `nums[m] > nums[r]`，说明最小值在 m 的右边；若 `nums[m] < nums[r]`，说明最小值在 m 的左边（包括 m）；若相等，无法判断，直接将 r 减 1。循环比较。
+
+最后返回 `nums[l]` 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,17 +71,51 @@ class Solution {
         int l = 0, r = nums.length - 1;
         while (l < r) {
             int m = (l + r) >>> 1;
-            if (nums[m] > nums[r]) {
-                l = m + 1;
-            } else if (nums[m] < nums[r]) {
-                r = m;
-            } else {
-                --r;
-            }
+            if (nums[m] > nums[r]) l = m + 1;
+            else if (nums[m] < nums[r]) r = m;
+            else --r;
         }
         return nums[l];
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int l = 0, r = nums.size() - 1;
+        while (l < r) {
+            int m = (l + r) >> 1;
+            if (nums[m] > nums[r]) l = m + 1;
+            else if (nums[m] < nums[r]) r = m;
+            else --r;
+        }
+        return nums[l];
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function (nums) {
+  let l = 0,
+    r = nums.length - 1;
+  while (l < r) {
+    const m = (l + r) >> 1;
+    if (nums[m] > nums[r]) l = m + 1;
+    else if (nums[m] < nums[r]) r = m;
+    else --r;
+  }
+  return nums[l];
+};
 ```
 
 ### **...**
