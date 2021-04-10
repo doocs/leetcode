@@ -32,6 +32,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历字符串，遇到大写的字符，转小写。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -39,7 +41,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def toLowerCase(self, str: str) -> str:
+        if not str:
+            return str
+        n = len(str)
+        res = []
+        for i in range(n):
+            c = ord(str[i])
+            if c >= 65 and c <= 90:
+               c += 32
+            res.append(chr(c))
+        return ''.join(res)
 ```
 
 ### **Java**
@@ -47,7 +60,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String toLowerCase(String str) {
+        int n;
+        if (str == null || (n = str.length()) == 0) return str;
+        char[] chars = str.toCharArray();
+        for (int i = 0; i < chars.length; ++i) {
+            boolean isUpper = chars[i] >= 'A' && chars[i] <= 'Z';
+            if (isUpper) chars[i] += 32;
+        }
+        return new String(chars);
+    }
+}
 ```
 
 ### **...**
