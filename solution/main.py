@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from urllib.parse import quote
 
 import requests
@@ -160,7 +161,7 @@ class Spider:
                           'Chrome/77.0.3865.120 Safari/537.36',
             'x-requested-with': 'XMLHttpRequest'
         }
-        resp = self.session.get(url='https://leetcode.com/api/problems/all/', headers=headers)
+        resp = self.session.get(url='https://leetcode.com/api/problems/all/', headers=headers, allow_redirects=False)
         questions = resp.json()['stat_status_pairs']
 
         for question in questions:
@@ -170,6 +171,7 @@ class Spider:
             paid_only = question['paid_only']
 
             question_title_en = question['stat']['question__title']
+            question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
             question_title_slug = question['stat']['question__title_slug']
 
             url_cn = 'https://leetcode-cn.com/problems/' + question_title_slug
@@ -204,8 +206,8 @@ class Spider:
             question_detail = self.get_question_detail(question_title_slug)
             if question_detail is not None:
                 topic_tags = question_detail.get('topicTags')
-                tags_cn = [e['translatedName'] for e in topic_tags]
-                tags_en = [e['name'] for e in topic_tags]
+                tags_cn = [e['translatedName'] for e in topic_tags if e['translatedName']]
+                tags_en = [e['name'] for e in topic_tags if e['name']]
                 item['title_cn'] = question_detail.get('translatedTitle')
                 item['content_en'] = question_detail.get('content')
                 item['content_cn'] = question_detail.get('translatedContent')
@@ -215,6 +217,8 @@ class Spider:
                 item['difficulty_cn'] = difficulty_mapper.get(question_detail.get('difficulty'))
                 item['code_snippets'] = question_detail.get('codeSnippets')
                 item['paid_only_cn'] = question_detail.get('isPaidOnly')
+                if not item['content_en'] or not item['content_cn']:
+                    continue
             self.result.append(item)
             col1_cn = f'[{frontend_question_id}]({url_cn})'
             col2_cn = f'[{item["title_cn"]}]({path_cn})'
@@ -222,7 +226,6 @@ class Spider:
             col3_cn = '' if (col3_cn == 'None' or not col3_cn) else col3_cn
             col4_cn = item['difficulty_cn']
             col5_cn = '🔒' if item['paid_only_cn'] else ''
-
             col1_en = f'[{frontend_question_id}]({url_en})'
             col2_en = f'[{item["title_en"]}]({path_en})'
             col3_en = ','.join([f'`{tag}`' for tag in item['tags_en']])
@@ -283,25 +286,23 @@ if __name__ == '__main__':
 
             with open(f'{path}/README.md', 'w', encoding='utf-8') as f1:
                 f1.write(readme_cn.format(int(item['frontend_question_id']),
-                                         item["title_cn"],
-                                         item['url_cn'],
-                                         item['relative_path_en'],
-                                         item['content_cn']))
+                                          item["title_cn"],
+                                          item['url_cn'],
+                                          item['relative_path_en'],
+                                          item['content_cn']))
 
             with open(f'{path}/README_EN.md', 'w', encoding='utf-8') as f2:
                 f2.write(readme_en.format(int(item['frontend_question_id']),
-                                         item["title_en"],
-                                         item['url_en'],
-                                         item['relative_path_cn'],
-                                         item['content_en']))
+                                          item["title_en"],
+                                          item['url_en'],
+                                          item['relative_path_cn'],
+                                          item['content_en']))
 
             print(path)
 
-        # for item in sorted(result, key=lambda x: x["frontend_question_id"]):
-        #     no = int(item['frontend_question_id']) // 100
-        #
-        #     path = f'./{number_mapper.get(str(no))}/{item["frontend_question_id"]}.{item["title_en"]}'
-        #     path = path.replace(":", " ")
-        #     print(f'- [{int(item["frontend_question_id"])}. {item["title_en"]}]({item["relative_path_en"]})')
+        for item in sorted(result, key=lambda x: x["frontend_question_id"]):
+            no = int(item['frontend_question_id']) // 100
 
-
+            path = f'./{number_mapper.get(str(no))}/{item["frontend_question_id"]}.{item["title_en"]}'
+            path = path.replace(":", " ")
+            print(f'- [{int(item["frontend_question_id"])}. {item["title_en"]}]({item["relative_path_en"]})')
