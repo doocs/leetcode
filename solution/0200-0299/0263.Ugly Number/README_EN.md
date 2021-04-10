@@ -56,13 +56,80 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isUgly(self, n: int) -> bool:
+        if n < 1:
+            return False
+        while n % 2 == 0:
+            n //= 2
+        while n % 3 == 0:
+            n //= 3
+        while n % 5 == 0:
+            n //= 5
+        return n == 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isUgly(int n) {
+        if (n < 1) return false;
+        while (n % 2 == 0) {
+            n /= 2;
+        }
+        while (n % 3 == 0) {
+            n /= 3;
+        }
+        while (n % 5 == 0) {
+            n /= 5;
+        }
+        return n == 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isUgly(int n) {
+        if (n < 1) return false;
+        while (n % 2 == 0) {
+            n /= 2;
+        }
+        while (n % 3 == 0) {
+            n /= 3;
+        }
+        while (n % 5 == 0) {
+            n /= 5;
+        }
+        return n == 1;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isUgly = function (n) {
+  if (n < 1) return false;
+  while (n % 2 == 0) {
+    n /= 2;
+  }
+  while (n % 3 == 0) {
+    n /= 3;
+  }
+  while (n % 5 == 0) {
+    n /= 5;
+  }
+  return n == 1;
+};
 ```
 
 ### **...**

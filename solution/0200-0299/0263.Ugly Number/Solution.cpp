@@ -1,5 +1,6 @@
 class Solution {
-    public boolean isUgly(int n) {
+public:
+    bool isUgly(int n) {
         if (n < 1) return false;
         while (n % 2 == 0) {
             n /= 2;
@@ -12,4 +13,4 @@ class Solution {
         }
         return n == 1;
     }
-}
+};
