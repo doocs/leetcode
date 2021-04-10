@@ -43,7 +43,6 @@ The strings are the same, so return true.</pre>
 	<li><code>word1[i]</code> and <code>word2[i]</code> consist of lowercase letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -74,7 +74,6 @@ Notice that the &quot;a&quot;s not in a bracket pair are not evaluated.
 	<li>Each <code>key<sub>i</sub></code> in <code>knowledge</code> is unique.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

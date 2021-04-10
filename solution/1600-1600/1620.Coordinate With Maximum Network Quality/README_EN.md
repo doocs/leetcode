@@ -66,7 +66,6 @@ No other coordinate has higher quality.</pre>
 	<li><code>1 &lt;= radius &lt;= 50</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

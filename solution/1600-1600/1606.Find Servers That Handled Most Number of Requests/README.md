@@ -81,7 +81,6 @@
 	<li><code>arrival</code> 保证 <strong>严格递增</strong> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

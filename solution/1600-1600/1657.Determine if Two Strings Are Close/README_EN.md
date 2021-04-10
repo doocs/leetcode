@@ -69,7 +69,6 @@ Apply Operation 2: &quot;<u>baa</u>ccc&quot; -&gt; &quot;<u>abb</u>ccc&quot;
 	<li><code>word1</code> and <code>word2</code> contain&nbsp;only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

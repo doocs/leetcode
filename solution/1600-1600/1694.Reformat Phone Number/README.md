@@ -83,7 +83,6 @@
 	<li><code>number</code> 中至少含 <strong>2</strong> 个数字。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

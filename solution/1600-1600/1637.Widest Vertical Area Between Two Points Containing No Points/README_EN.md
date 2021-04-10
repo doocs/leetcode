@@ -15,6 +15,7 @@
 
 ![](./images/points3.png)
 ​
+
 <pre>
 <strong>Input:</strong> points = [[8,7],[9,9],[7,4],[9,7]]
 <strong>Output:</strong> 1
@@ -37,7 +38,6 @@
 	<li><code>points[i].length == 2</code></li>
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
-
 
 ## Solutions
 

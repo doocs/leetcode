@@ -54,7 +54,6 @@
 	<li><code><font face="monospace">0 &lt;= arr[i] &lt;= 10<sup>5</sup></font></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

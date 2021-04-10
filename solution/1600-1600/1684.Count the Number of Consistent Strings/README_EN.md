@@ -44,7 +44,6 @@
 	<li><code>words[i]</code> and <code>allowed</code> contain only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

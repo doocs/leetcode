@@ -45,7 +45,6 @@
 	<li><code>&#39;1&#39; &lt;= coordinates[1] &lt;= &#39;8&#39;</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

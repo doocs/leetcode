@@ -48,7 +48,6 @@ Hence, answer[1] = 1, answer[2] = 1, and the remaining values are 0.
 	<li><code>k</code> is in the range <code>[The maximum <strong>UAM</strong> for a user, 10<sup>5</sup>]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -53,7 +53,6 @@
 	<li><code>u<sub>j</sub> != v<sub>j</sub></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

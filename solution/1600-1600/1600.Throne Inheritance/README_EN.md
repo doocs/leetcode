@@ -73,7 +73,6 @@ t.getInheritanceOrder(); // return [&quot;king&quot;, &quot;andy&quot;, &quot;ma
 	<li>At most <code>10</code> calls will be made to <code>getInheritanceOrder</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

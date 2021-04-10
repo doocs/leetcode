@@ -53,7 +53,6 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 	<li>At most <code>2000</code> calls will be made to all functions combined.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

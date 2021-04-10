@@ -39,7 +39,6 @@
 	<li><code>isConnected[i][j] == isConnected[j][i]</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

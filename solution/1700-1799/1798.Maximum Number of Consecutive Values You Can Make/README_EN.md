@@ -52,7 +52,6 @@ You can make 8 consecutive integer values starting from 0.</pre>
 	<li><code>1 &lt;= coins[i] &lt;= 4 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

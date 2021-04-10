@@ -68,7 +68,6 @@ Another possible matrix is: [[1,2],
 	<li><code>sum(rows) == sum(columns)</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

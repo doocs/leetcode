@@ -30,6 +30,7 @@
 ("a<strong>b</strong>a", "bab<strong>a</strong>")
 加粗部分分别表示 s 和 t 串选出来的子字符串。
 </pre>
+
 <strong>示例 2：</strong>
 
 <pre>
@@ -41,6 +42,7 @@
 ("<strong>ab</strong>", "<strong>bb</strong>")
 加粗部分分别表示 s 和 t 串选出来的子字符串。
 </pre>
+
 <strong>示例 3：</strong>
 
 <pre>
@@ -63,7 +65,6 @@
 	<li><code>1 <= s.length, t.length <= 100</code></li>
 	<li><code>s</code> 和 <code>t</code> 都只包含小写英文字母。</li>
 </ul>
-
 
 ## 解法
 

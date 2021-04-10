@@ -87,7 +87,6 @@
 	<li><code>1 &lt;= weights<sub>i</sub> &lt;= maxWeight</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

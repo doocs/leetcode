@@ -42,7 +42,6 @@ The score difference is 18 - 12 = 6.
 	<li><code>1 &lt;= stones[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

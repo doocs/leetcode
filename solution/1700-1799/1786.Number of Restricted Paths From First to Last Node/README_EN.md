@@ -50,7 +50,6 @@
 	<li>There is at least one path between any two nodes.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

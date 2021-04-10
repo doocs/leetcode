@@ -49,7 +49,6 @@
 	<li><code>word1</code> 和 <code>word2</code> 由小写英文字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

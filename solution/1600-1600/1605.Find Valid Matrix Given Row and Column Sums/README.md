@@ -72,7 +72,6 @@
 	<li><code>sum(rows) == sum(columns)</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -71,7 +71,6 @@
 	<li><code>word1</code> 和 <code>word2</code> 仅包含小写英文字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

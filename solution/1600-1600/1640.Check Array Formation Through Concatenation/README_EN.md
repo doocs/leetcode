@@ -58,7 +58,6 @@
 	<li>The integers in&nbsp;<code>pieces</code> are <strong>distinct</strong>&nbsp;(i.e., If we flatten pieces in a 1D array, all the integers in this array are distinct).</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

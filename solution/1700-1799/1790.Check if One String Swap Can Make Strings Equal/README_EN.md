@@ -49,7 +49,6 @@
 	<li><code>s1</code> and <code>s2</code> consist of only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -52,7 +52,6 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 	<li><code>1 &lt;= heights[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

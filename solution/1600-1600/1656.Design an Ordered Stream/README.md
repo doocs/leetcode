@@ -59,7 +59,6 @@ os.insert(4, "ddddd"); // 插入 (4, "ddddd")，返回 ["ddddd", "eeeee"]
 	<li>恰好调用 <code>n</code> 次 <code>insert</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

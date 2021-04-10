@@ -58,7 +58,6 @@
 	<li>It is guaranteed that you can make a mountain array out of <code>nums</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

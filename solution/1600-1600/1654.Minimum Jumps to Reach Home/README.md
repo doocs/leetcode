@@ -58,7 +58,6 @@
 	<li>位置 <code>x</code> 不在 <code>forbidden</code> 中。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

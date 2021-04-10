@@ -45,7 +45,6 @@
 	<li><code>1 &lt;= ages[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

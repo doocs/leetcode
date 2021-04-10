@@ -38,7 +38,6 @@
 	<li><code>0 &lt;= k &lt; nums.length</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

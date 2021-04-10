@@ -47,7 +47,6 @@ word2 表示的字符串为 "a" + "bc" -> "abc"
 	<li><code>word1[i]</code> 和 <code>word2[i]</code> 由小写字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

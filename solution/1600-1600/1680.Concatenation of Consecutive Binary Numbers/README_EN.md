@@ -41,7 +41,6 @@ After modulo 10<sup>9</sup> + 7, the result is 505379714.
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

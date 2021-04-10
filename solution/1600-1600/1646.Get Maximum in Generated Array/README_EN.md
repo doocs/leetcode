@@ -56,7 +56,6 @@ Hence, nums = [0,1,1,2,1,3,2,3], and the maximum is 3.
 	<li><code>0 &lt;= n &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

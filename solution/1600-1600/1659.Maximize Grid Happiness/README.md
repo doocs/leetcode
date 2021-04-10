@@ -67,7 +67,6 @@
 	<li><code>0 <= introvertsCount, extrovertsCount <= min(m * n, 6)</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

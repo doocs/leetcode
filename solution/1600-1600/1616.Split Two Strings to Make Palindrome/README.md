@@ -61,7 +61,6 @@ b<sub>prefix</sub> = "jiz", b<sub>suffix</sub> = "alu"
 	<li><code>a</code> 和 <code>b</code> 都只包含小写英文字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
