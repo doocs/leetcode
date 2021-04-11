@@ -14,8 +14,8 @@ class LCSpider:
     def __init__(self):
         self.session = requests.session()
 
-        # mapper
-        self.number_mapper = [str(i * 100).zfill(4) + '-' + str(i * 100 + 99).zfill(4) for i in range(100)]
+        # ['0000-0099', '0100-0199', ..., '9900-9999']
+        self.sub_folders = [str(i * 100).zfill(4) + '-' + str(i * 100 + 99).zfill(4) for i in range(100)]
         self.difficulty_mapper = dict(Easy='简单', Medium='中等', Hard='困难')
 
         # result
@@ -24,7 +24,7 @@ class LCSpider:
         self.md_table_en = []
 
     def get_question_detail(self, question_title_slug):
-        """fetch question detail by leetcode's api"""
+        """fetch question detail by lc's api"""
         form_data = {
             'operationName': 'globalData',
             'query': 'query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    '
@@ -48,7 +48,10 @@ class LCSpider:
             'Content-Type': 'application/json',
             'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug
         }
-        self.session.post(LCSpider.graph_url, data=json.dumps(form_data), headers=headers, timeout=10)
+        self.session.post(url=LCSpider.graph_url,
+                          data=json.dumps(form_data),
+                          headers=headers,
+                          timeout=10)
 
         form_data = {
             'operationName': 'questionData',
@@ -71,13 +74,15 @@ class LCSpider:
         }
 
         # get question detail
-        resp = self.session.post(url=LCSpider.graph_url, data=json.dumps(form_data).encode('utf-8'), headers=headers,
+        resp = self.session.post(url=LCSpider.graph_url,
+                                 data=json.dumps(form_data).encode('utf-8'),
+                                 headers=headers,
                                  timeout=10)
         res = resp.json()
         return res['data']['question']
 
     def get_all_questions(self):
-        """fetch all question by leetcode's api"""
+        """fetch all question by lc's api"""
         headers = {
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'content-type': 'application/json',
@@ -85,7 +90,10 @@ class LCSpider:
                           'Chrome/77.0.3865.120 Safari/537.36',
             'x-requested-with': 'XMLHttpRequest'
         }
-        resp = self.session.get(url='https://leetcode.com/api/problems/all/', headers=headers, allow_redirects=False)
+        resp = self.session.get(url='https://leetcode.com/api/problems/all/',
+                                headers=headers,
+                                allow_redirects=False,
+                                timeout=10)
         questions = resp.json()['stat_status_pairs']
 
         for question in questions:
@@ -96,16 +104,17 @@ class LCSpider:
 
             question_title_en = question['stat']['question__title']
             question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
+            
             question_title_slug = question['stat']['question__title_slug']
 
-            url_cn = 'https://leetcode-cn.com/problems/' + question_title_slug
-            url_en = 'https://leetcode.com/problems/' + question_title_slug
+            url_cn = f'https://leetcode-cn.com/problems/{question_title_slug}'
+            url_en = f'https://leetcode.com/problems/{question_title_slug}'
 
-            path_cn = '/solution/{}/{}.{}/README.md'.format(self.number_mapper[no], frontend_question_id,
-                                                            quote(question_title_en))
-            path_en = '/solution/{}/{}.{}/README_EN.md'.format(self.number_mapper[no], frontend_question_id,
-                                                               quote(question_title_en))
+            path_cn = f'/solution/{self.sub_folders[no]}/{frontend_question_id}.{quote(question_title_en)}/README.md'
+            path_en = f'/solution/{self.sub_folders[no]}/{frontend_question_id}.{quote(question_title_en)}/README_EN.md'
+
             print(frontend_question_id)
+
             item = {
                 'question_id': question_id,
                 'frontend_question_id': frontend_question_id,
@@ -164,7 +173,8 @@ class LCSpider:
             f.write(json.dumps(self.result))
 
     def generate_readme(self):
-        """generate README.md and README_EN.md files"""
+        """generate readme files"""
+        # generate README.md
         items = []
         table_cn = "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |"
         for item in sorted(self.md_table_cn, key=lambda x: x[0]):
@@ -176,6 +186,7 @@ class LCSpider:
         with open('./README.md', 'w', encoding='utf-8') as f:
             f.write(readme_cn.format(table_cn))
 
+        # generate README_EN.md
         items = []
         table_en = "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |"
         for item in sorted(self.md_table_en, key=lambda x: x[0]):
@@ -197,14 +208,14 @@ class LCSpider:
             result = json.loads(result)
             for item in result:
                 no = int(item['frontend_question_id']) // 100
-                path = f'./{self.number_mapper[no]}/{item["frontend_question_id"]}.{item["title_en"]}'
+                path = f'./{self.sub_folders[no]}/{item["frontend_question_id"]}.{item["title_en"]}'
                 path = path.replace(":", " ")
 
                 if os.path.isdir(path):
                     continue
                 os.makedirs(path)
 
-                # generate readme cn
+                # generate lc problem readme cn
                 with open(f'{path}/README.md', 'w', encoding='utf-8') as f1:
                     f1.write(readme_cn.format(int(item['frontend_question_id']),
                                               item["title_cn"],
@@ -212,7 +223,7 @@ class LCSpider:
                                               item['relative_path_en'],
                                               item['content_cn']))
 
-                # generate readme en
+                # generate lc problem readme en
                 with open(f'{path}/README_EN.md', 'w', encoding='utf-8') as f2:
                     f2.write(readme_en.format(int(item['frontend_question_id']),
                                               item["title_en"],
@@ -222,6 +233,7 @@ class LCSpider:
 
     @staticmethod
     def generate_summary():
+        """generate summary files"""
         summary_cn = ""
         summary_en = ""
         for file in os.listdir("./"):
@@ -233,8 +245,11 @@ class LCSpider:
                     summary_cn += f'\t- [{sub}](/solution/{file}/{enc}/README.md)\n'
                     summary_en += f'\t- [{sub}](/solution/{file}/{enc}/README_EN.md)\n'
 
+        # generate summary.md
         with open('./summary.md', 'w', encoding='utf-8') as f:
             f.write(summary_cn)
+
+        # generate summary_en.md
         with open('./summary_en.md', 'w', encoding='utf-8') as f:
             f.write(summary_en)
 
