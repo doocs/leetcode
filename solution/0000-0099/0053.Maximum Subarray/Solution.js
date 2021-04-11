@@ -1,10 +1,13 @@
-const maxSubArray = function (nums) {
-  if (nums.length === 0) return 0;
-  let ans = nums[0],
-    tmp = nums[0];
-  for (let i = 1; i < nums.length; i++) {
-    tmp = Math.max(tmp + nums[i], nums[i]);
-    ans = Math.max(ans, tmp);
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function (nums) {
+  let f = nums[0],
+    res = nums[0];
+  for (let i = 1; i < nums.length; ++i) {
+    f = nums[i] + Math.max(f, 0);
+    res = Math.max(res, f);
   }
-  return ans;
+  return res;
 };

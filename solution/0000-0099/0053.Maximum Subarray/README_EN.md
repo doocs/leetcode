@@ -54,6 +54,59 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int f = nums[0], res = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            f = nums[i] + max(f, 0);
+            res = max(res, f);
+        }
+        return res;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function (nums) {
+  let f = nums[0],
+    res = nums[0];
+  for (let i = 1; i < nums.length; ++i) {
+    f = nums[i] + Math.max(f, 0);
+    res = Math.max(res, f);
+  }
+  return res;
+};
+```
+
+### **Go**
+
+```go
+func maxSubArray(nums []int) int {
+    f, res := nums[0], nums[0]
+    for i := 1; i < len(nums); i++ {
+        if f > 0 {
+            f += nums[i]
+        } else {
+            f = nums[i]
+        }
+        if f > res {
+            res = f
+        }
+    }
+    return res
+}
+```
+
 ### **...**
 
 ```

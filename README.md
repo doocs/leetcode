@@ -152,6 +152,7 @@
 
 ### 动态规划
 
+- [爬楼梯](/solution/0000-0099/0070.Climbing%20Stairs/README.md)
 - [接雨水](/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 - [最大子序和](/solution/0000-0099/0053.Maximum%20Subarray/README.md)
 - [乘积最大子序列](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md)

@@ -18,11 +18,13 @@
 
 <p>如果你已经实现复杂度为 O(<em>n</em>) 的解法，尝试使用更为精妙的分治法求解。</p>
 
+同[剑指 Offer 42. 连续子数组的最大和](/lcof/面试题42.%20连续子数组的最大和/README.md)。
+
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-设 dp[i] 表示 `[0..i]` 中，以 `nums[i]` 结尾的最大子数组和，状态转移方程 `dp[i] = nums[i] + max(dp[i - 1], 0)`。
+设 `dp[i]` 表示 `[0..i]` 中，以 `nums[i]` 结尾的最大子数组和，状态转移方程 `dp[i] = nums[i] + max(dp[i - 1], 0)`。
 
 由于 `dp[i]` 只与子问题 `dp[i-1]` 有关，故可以用一个变量 f 来表示。
 
@@ -57,6 +59,59 @@ class Solution {
         }
         return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int f = nums[0], res = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            f = nums[i] + max(f, 0);
+            res = max(res, f);
+        }
+        return res;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function (nums) {
+  let f = nums[0],
+    res = nums[0];
+  for (let i = 1; i < nums.length; ++i) {
+    f = nums[i] + Math.max(f, 0);
+    res = Math.max(res, f);
+  }
+  return res;
+};
+```
+
+### **Go**
+
+```go
+func maxSubArray(nums []int) int {
+    f, res := nums[0], nums[0]
+    for i := 1; i < len(nums); i++ {
+        if f > 0 {
+            f += nums[i]
+        } else {
+            f = nums[i]
+        }
+        if f > res {
+            res = f
+        }
+    }
+    return res
 }
 ```
 
