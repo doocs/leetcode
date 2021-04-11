@@ -48,13 +48,30 @@ class Solution {
     public int numWays(int n) {
         int a = 0, b = 1;
         for (int i = 0; i < n; ++i) {
-            int s = (a + b) % 1000000007;
+            int c = (a + b) % 1000000007;
             a = b;
-            b = s;
+            b = c;
         }
         return b;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numWays(int n) {
+        int a = 0, b = 1;
+        for (int i = 0; i < n; ++i) {
+            int c = (a + b) % 1000000007;
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+};
 ```
 
 ### **JavaScript**
@@ -65,15 +82,14 @@ class Solution {
  * @return {number}
  */
 var numWays = function (n) {
-  if (!n) return 1;
-  let pre = 1;
-  let cur = 1;
-  for (let i = 2; i <= n; i++) {
-    let c = (pre + cur) % (1e9 + 7);
-    pre = cur;
-    cur = c;
+  let a = 0,
+    b = 1;
+  for (let i = 0; i < n; ++i) {
+    const c = (a + b) % (1e9 + 7);
+    a = b;
+    b = c;
   }
-  return cur;
+  return b;
 };
 ```
 
@@ -81,19 +97,11 @@ var numWays = function (n) {
 
 ```go
 func numWays(n int) int {
-	if n == 0 {
-		return 1
-	}
-	if n <= 2 {
-		return n
-	}
-	a := make([]int, n)
-	a[0] = 1
-	a[1] = 2
-	for i := 2; i < n; i++ {
-		a[i] = (a[i-1] + a[i-2]) % 1000000007
-	}
-	return a[n-1]
+    a, b := 0, 1
+    for i := 0; i < n; i++ {
+        a, b = b, (a + b) % 1000000007
+    }
+    return b
 }
 ```
 

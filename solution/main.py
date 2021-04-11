@@ -24,7 +24,7 @@ class LCSpider:
         self.md_table_en = []
 
     def get_question_detail(self, question_title_slug):
-        """fetch question detail by lc's api"""
+        """fetch question detail from lc's api"""
         form_data = {
             'operationName': 'globalData',
             'query': 'query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    '
@@ -82,7 +82,7 @@ class LCSpider:
         return res['data']['question']
 
     def get_all_questions(self):
-        """fetch all question by lc's api"""
+        """fetch all question from lc's api"""
         headers = {
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'content-type': 'application/json',

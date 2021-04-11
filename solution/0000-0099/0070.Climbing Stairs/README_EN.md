@@ -51,13 +51,76 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        a, b = 0, 1
+        for i in range(n):
+            a, b = b, a + b
+        return b
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int climbStairs(int n) {
+        int a = 0, b = 1;
+        for (int i = 0; i < n; ++i) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int climbStairs(int n) {
+        int a = 0, b = 1;
+        for (int i = 0; i < n; ++i) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function (n) {
+  let a = 0,
+    b = 1;
+  for (let i = 0; i < n; ++i) {
+    const c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+};
+```
+
+### **Go**
+
+```go
+func climbStairs(n int) int {
+    a, b := 0, 1
+    for i := 0; i < n; i++ {
+        a, b = b, a + b
+    }
+    return b
+}
 ```
 
 ### **...**

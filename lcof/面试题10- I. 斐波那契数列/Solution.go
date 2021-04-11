@@ -1,12 +1,7 @@
 func fib(n int) int {
-    if n < 2 {
-        return n
+    a, b := 0, 1
+    for i := 0; i < n; i++ {
+        a, b = b, (a + b) % 1000000007
     }
-    a := make([]int,n+1)
-    a[0]=0
-    a[1]=1
-    for i := 2; i < n+1; i++ {
-        a[i] = (a[i-1]+ a[i-2])%1000000007
-    }
-    return a[n]
+    return a
 }

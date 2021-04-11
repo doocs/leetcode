@@ -64,6 +64,23 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int fib(int n) {
+        int a = 0, b = 1;
+        for (int i = 0; i < n; ++i) {
+            int c = (a + b) % 1000000007;
+            a = b;
+            b = c;
+        }
+        return a;
+    }
+};
+```
+
 ### **JavaScript**
 
 ```js
@@ -72,15 +89,14 @@ class Solution {
  * @return {number}
  */
 var fib = function (n) {
-  if (!n) return 0;
-  let pre = 0;
-  let cur = 1;
-  for (let i = 2; i <= n; i++) {
-    let c = (pre + cur) % (1e9 + 7);
-    pre = cur;
-    cur = c;
+  let a = 0,
+    b = 1;
+  for (let i = 0; i < n; ++i) {
+    const c = (a + b) % (1e9 + 7);
+    a = b;
+    b = c;
   }
-  return cur;
+  return a;
 };
 ```
 
@@ -88,16 +104,11 @@ var fib = function (n) {
 
 ```go
 func fib(n int) int {
-    if n < 2 {
-        return n
+    a, b := 0, 1
+    for i := 0; i < n; i++ {
+        a, b = b, (a + b) % 1000000007
     }
-    a := make([]int,n+1)
-    a[0]=0
-    a[1]=1
-    for i := 2; i < n+1; i++ {
-        a[i] = (a[i-1]+ a[i-2])%1000000007
-    }
-    return a[n]
+    return a
 }
 ```
 
