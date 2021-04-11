@@ -6,41 +6,6 @@ from urllib.parse import quote
 import requests
 
 
-def generate_number_mapper() -> dict:
-    numbers = [i for i in range(100)]
-    number_mapper = dict()
-    for number in numbers:
-        start = number * 100
-        end = start + 99
-        subdir = str(start).zfill(4) + '-' + str(end).zfill(4)
-        number_mapper[str(number)] = subdir
-    return number_mapper
-
-
-def generate_difficulty_mapper() -> dict:
-    return {
-        'Easy': '简单',
-        'Medium': '中等',
-        'Hard': '困难'
-    }
-
-
-def generate_difficulty_level_mapper() -> dict:
-    return {
-        '1': '简单',
-        '2': '中等',
-        '3': '困难'
-    }
-
-
-def generate_difficulty_level_mapper_en() -> dict:
-    return {
-        '1': 'Easy',
-        '2': 'Medium',
-        '3': 'Hard'
-    }
-
-
 class LCSpider:
     graph_url = 'https://leetcode-cn.com/graphql'
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) ' \
@@ -50,10 +15,8 @@ class LCSpider:
         self.session = requests.session()
 
         # mapper
-        self.number_mapper = generate_number_mapper()
-        self.difficulty_mapper = generate_difficulty_mapper()
-        self.difficulty_level_mapper = generate_difficulty_level_mapper()
-        self.difficulty_level_mapper_en = generate_difficulty_level_mapper_en()
+        self.number_mapper = [str(i * 100).zfill(4) + '-' + str(i * 100 + 99).zfill(4) for i in range(100)]
+        self.difficulty_mapper = dict(Easy='简单', Medium='中等', Hard='困难')
 
         # result
         self.result = []
@@ -61,7 +24,7 @@ class LCSpider:
         self.md_table_en = []
 
     def get_question_detail(self, question_title_slug):
-        """获取题目详情"""
+        """fetch question detail by leetcode's api"""
         form_data = {
             'operationName': 'globalData',
             'query': 'query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    '
@@ -83,7 +46,8 @@ class LCSpider:
             'User-Agent': LCSpider.user_agent,
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
-            'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug}
+            'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug
+        }
         self.session.post(LCSpider.graph_url, data=json.dumps(form_data), headers=headers, timeout=10)
 
         form_data = {
@@ -106,14 +70,14 @@ class LCSpider:
             __typename\n  }\n}\n"""
         }
 
-        # 获取题目详情
+        # get question detail
         resp = self.session.post(url=LCSpider.graph_url, data=json.dumps(form_data).encode('utf-8'), headers=headers,
                                  timeout=10)
         res = resp.json()
         return res['data']['question']
 
     def get_all_questions(self):
-        """获取所有题目"""
+        """fetch all question by leetcode's api"""
         headers = {
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'content-type': 'application/json',
@@ -137,9 +101,9 @@ class LCSpider:
             url_cn = 'https://leetcode-cn.com/problems/' + question_title_slug
             url_en = 'https://leetcode.com/problems/' + question_title_slug
 
-            path_cn = '/solution/{}/{}.{}/README.md'.format(self.number_mapper.get(str(no)), frontend_question_id,
+            path_cn = '/solution/{}/{}.{}/README.md'.format(self.number_mapper[no], frontend_question_id,
                                                             quote(question_title_en))
-            path_en = '/solution/{}/{}.{}/README_EN.md'.format(self.number_mapper.get(str(no)), frontend_question_id,
+            path_en = '/solution/{}/{}.{}/README_EN.md'.format(self.number_mapper[no], frontend_question_id,
                                                                quote(question_title_en))
             print(frontend_question_id)
             item = {
@@ -199,28 +163,33 @@ class LCSpider:
         with open('result.json', 'a', encoding='utf-8') as f:
             f.write(json.dumps(self.result))
 
-    def generate_md_table(self):
-        """生成md题目列表"""
-        print("""
-|  题号  |  题解  |  标签  |  难度  | 备注 |
-| --- | --- | --- | --- | --- |""")
+    def generate_readme(self):
+        """generate README.md and README_EN.md files"""
+        items = []
+        table_cn = "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |"
         for item in sorted(self.md_table_cn, key=lambda x: x[0]):
-            print("|  {}  |  {}  |  {}  |  {}  |  {}  |".format(item[0], item[1], item[2], item[3], item[4]))
+            items.append("\n|  {}  |  {}  |  {}  |  {}  |  {}  |".format(item[0], item[1], item[2], item[3], item[4]))
+        table_cn += "".join(items)
 
-        print('-------------------------')
+        with open('./readme_template.md', 'r', encoding='utf-8') as f:
+            readme_cn = f.read()
+        with open('./README.md', 'w', encoding='utf-8') as f:
+            f.write(readme_cn.format(table_cn))
 
-        print("""
-|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |
-| --- | --- | --- | --- | --- |""")
+        items = []
+        table_en = "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |"
         for item in sorted(self.md_table_en, key=lambda x: x[0]):
-            print("|  {}  |  {}  |  {}  |  {}  |  {}  |".format(item[0], item[1], item[2], item[3], item[4]))
-
-        print('-------------------------')
+            items.append("\n|  {}  |  {}  |  {}  |  {}  |  {}  |".format(item[0], item[1], item[2], item[3], item[4]))
+        table_en += "".join(items)
+        with open('./readme_template_en.md', 'r', encoding='utf-8') as f:
+            readme_en = f.read()
+        with open('./README_EN.md', 'w', encoding='utf-8') as f:
+            f.write(readme_en.format(table_en))
 
     def generate_question_readme(self):
-        with open('./README_TEMPLATE.md', 'r', encoding='utf-8') as f:
+        with open('./problem_readme_template.md', 'r', encoding='utf-8') as f:
             readme_cn = f.read()
-        with open('./README_TEMPLATE_EN.md', 'r', encoding='utf-8') as f:
+        with open('./problem_readme_template_en.md', 'r', encoding='utf-8') as f:
             readme_en = f.read()
 
         with open('./result.json', 'r', encoding='utf-8') as f:
@@ -228,8 +197,7 @@ class LCSpider:
             result = json.loads(result)
             for item in result:
                 no = int(item['frontend_question_id']) // 100
-
-                path = f'./{self.number_mapper.get(str(no))}/{item["frontend_question_id"]}.{item["title_en"]}'
+                path = f'./{self.number_mapper[no]}/{item["frontend_question_id"]}.{item["title_en"]}'
                 path = path.replace(":", " ")
 
                 if os.path.isdir(path):
@@ -254,12 +222,21 @@ class LCSpider:
 
     @staticmethod
     def generate_summary():
+        summary_cn = ""
+        summary_en = ""
         for file in os.listdir("./"):
             if os.path.isdir("./" + file) and file != '__pycache__':
-                print("\n- " + file + "\n")
+                summary_cn += ("\n- " + file + "\n")
+                summary_en += ("\n- " + file + "\n")
                 for sub in os.listdir("./" + file):
                     enc = quote(sub)
-                    print(f'\t- [{sub}](/solution/{file}/{enc}/README.md)')
+                    summary_cn += f'\t- [{sub}](/solution/{file}/{enc}/README.md)\n'
+                    summary_en += f'\t- [{sub}](/solution/{file}/{enc}/README_EN.md)\n'
+
+        with open('./summary.md', 'w', encoding='utf-8') as f:
+            f.write(summary_cn)
+        with open('./summary_en.md', 'w', encoding='utf-8') as f:
+            f.write(summary_en)
 
 
 if __name__ == '__main__':
@@ -268,6 +245,6 @@ if __name__ == '__main__':
     spider.get_all_questions()
     spider.save_result()
 
-    spider.generate_md_table()
+    spider.generate_readme()
     spider.generate_question_readme()
     spider.generate_summary()
