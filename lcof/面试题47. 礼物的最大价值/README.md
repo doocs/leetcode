@@ -24,6 +24,10 @@
 
 ## 解法
 
+动态规划法。
+
+我们假设 `dp[i][j]` 表示走到格子 `(i, j)` 的礼物最大累计价值，则 `dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1]`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -31,18 +35,12 @@
 ```python
 class Solution:
     def maxValue(self, grid: List[List[int]]) -> int:
-        rows, cols = len(grid), len(grid[0])
-        vals = [[0 for _ in range(cols)] for _ in range(rows)]
-        vals[0][0] = grid[0][0]
-        for i in range(1, rows):
-            vals[i][0] = vals[i - 1][0] + grid[i][0]
-        for j in range(1, cols):
-            vals[0][j] = vals[0][j - 1] + grid[0][j]
-        for i in range(1, rows):
-            for j in range(1, cols):
-                vals[i][j] = grid[i][j] + max(vals[i - 1][j], vals[i][j - 1])
-        return vals[rows - 1][cols - 1]
-
+        m, n = len(grid), len(grid[0])
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1]
+        return dp[m][n]
 ```
 
 ### **Java**
@@ -50,23 +48,34 @@ class Solution:
 ```java
 class Solution {
     public int maxValue(int[][] grid) {
-        int rows = grid.length, cols = grid[0].length;
-        int[][] vals = new int[rows][cols];
-        vals[0][0] = grid[0][0];
-        for (int i = 1; i < rows; ++i) {
-            vals[i][0] = vals[i - 1][0] + grid[i][0];
-        }
-        for (int j = 1; j < cols; ++j) {
-            vals[0][j] = vals[0][j - 1] + grid[0][j];
-        }
-        for (int i = 1; i < rows; ++i) {
-            for (int j = 1; j < cols; ++j) {
-                vals[i][j] = grid[i][j] + Math.max(vals[i - 1][j], vals[i][j - 1]);
+        int m = grid.length, n = grid[0].length;
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1];
             }
         }
-        return vals[rows - 1][cols - 1];
+        return dp[m][n];
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxValue(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<int> > dp(m + 1, vector<int>(n + 1, 0));
+        for (int i = 1; i < m + 1; ++i) {
+            for (int j = 1; j < n + 1; ++j) {
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1];
+            }
+        }
+        return dp[m][n];
+    }
+};
 ```
 
 ### **JavaScript**
@@ -77,16 +86,44 @@ class Solution {
  * @return {number}
  */
 var maxValue = function (grid) {
-  let row = grid.length;
-  let col = grid[0].length;
-  let dp = [...new Array(row + 1)].map(() => Array(col + 1).fill(0));
-  for (let i = 1; i <= row; i++) {
-    for (let j = 1; j <= col; j++) {
+  const m = grid.length;
+  const n = grid[0].length;
+  let dp = new Array(m + 1);
+  for (let i = 0; i < m + 1; ++i) {
+    dp[i] = new Array(n + 1).fill(0);
+  }
+  for (let i = 1; i < m + 1; ++i) {
+    for (let j = 1; j < n + 1; ++j) {
       dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1];
     }
   }
-  return dp[row][col];
+  return dp[m][n];
 };
+```
+
+### **Go**
+
+```go
+func maxValue(grid [][]int) int {
+    m, n := len(grid), len(grid[0])
+    dp := make([][]int, m + 1)
+    for i := 0; i < m + 1; i++ {
+        dp[i] = make([]int, n + 1)
+    }
+    for i := 1; i < m + 1; i++ {
+        for j := 1; j < n + 1; j++ {
+            dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1]
+        }
+    }
+    return dp[m][n]
+}
+
+func max(a, b int) int {
+    if (a > b) {
+        return a
+    }
+    return b
+}
 ```
 
 ### **...**
