@@ -246,12 +246,26 @@ class LCSpider:
         with open('./summary_en.md', 'w', encoding='utf-8') as f:
             f.write(summary_en)
 
+    @staticmethod
+    def remove_empty_folders():
+        """remove empty sub folders"""
+        sub_folders = [str(i * 100).zfill(4) + '-' + str(i * 100 + 99).zfill(4) for i in range(100)]
+
+        for item in sub_folders:
+            if not os.path.isdir(f'./{item}'):
+                continue
+            files = os.listdir(f'./{item}')
+            for f in files:
+                if os.path.isdir(f'./{item}/{f}'):
+                    if not os.listdir(f'./{item}/{f}'):
+                        os.rmdir(f'./{item}/{f}')
+
 
 if __name__ == '__main__':
     spider = LCSpider()
 
-    spider.get_all_questions()
-    spider.save_result()
+    # spider.get_all_questions()
+    # spider.save_result()
 
     spider.generate_readme()
     spider.generate_question_readme()
