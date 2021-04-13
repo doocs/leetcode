@@ -1,4 +1,4 @@
-name: Compress And Sync
+name: Compress
 
 on:
   push:
