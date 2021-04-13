@@ -100,9 +100,7 @@ class LCSpider:
                 continue
 
             frontend_question_id = str(question['stat']['frontend_question_id']).zfill(4)
-            question_id = str(question['stat']['question_id']).zfill(4)
             no = int(frontend_question_id) // 100
-            paid_only = question['paid_only']
 
             question_title_en = question['stat']['question__title']
             question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
@@ -114,41 +112,27 @@ class LCSpider:
             path_en = f'/solution/{self.sub_folders[no]}/{frontend_question_id}.{quote(question_title_en)}/README_EN.md'
 
             print(frontend_question_id)
-
+            topic_tags = question_detail.get('topicTags')
             item = {
-                'question_id': question_id,
+                'question_id': str(question['stat']['question_id']).zfill(4),
                 'frontend_question_id': frontend_question_id,
-                'paid_only': paid_only,
-                'paid_only_cn': '',
+                'paid_only': question['paid_only'],
+                'paid_only_cn': question_detail.get('isPaidOnly'),
                 'url_cn': url_cn,
                 'url_en': url_en,
                 'relative_path_cn': path_cn,
                 'relative_path_en': path_en,
-                'title_cn': '',
-                'title_en': question_title_en,
+                'title_cn': question_detail.get('translatedTitle') or '',
+                'title_en': question_title_en or '',
                 'question_title_slug': question_title_slug,
-                'content_en': '',
-                'content_cn': '',
-                'tags_en': [],
-                'tags_cn': [],
-                'difficulty_en': '',
-                'difficulty_cn': '',
-                'code_snippets': [],
-
+                'content_en': question_detail.get('content'),
+                'content_cn': question_detail.get('translatedContent'),
+                'tags_en': [e['name'] for e in topic_tags if e['name']] or [],
+                'tags_cn': [e['translatedName'] for e in topic_tags if e['translatedName']] or [],
+                'difficulty_en': question_detail.get('difficulty'),
+                'difficulty_cn': self.difficulty_mapper.get(question_detail.get('difficulty')),
+                'code_snippets': question_detail.get('codeSnippets') or [],
             }
-
-            topic_tags = question_detail.get('topicTags')
-            tags_cn = [e['translatedName'] for e in topic_tags if e['translatedName']]
-            tags_en = [e['name'] for e in topic_tags if e['name']]
-            item['title_cn'] = question_detail.get('translatedTitle')
-            item['tags_en'] = tags_en
-            item['tags_cn'] = tags_cn
-            item['content_en'] = question_detail.get('content')
-            item['content_cn'] = question_detail.get('translatedContent')
-            item['difficulty_en'] = question_detail.get('difficulty')
-            item['difficulty_cn'] = self.difficulty_mapper.get(question_detail.get('difficulty'))
-            item['code_snippets'] = question_detail.get('codeSnippets')
-            item['paid_only_cn'] = question_detail.get('isPaidOnly')
 
             col1_cn = f'[{frontend_question_id}]({url_cn})'
             col2_cn = f'[{item["title_cn"]}]({path_cn})'
@@ -161,7 +145,7 @@ class LCSpider:
             col3_en = ','.join([f'`{tag}`' for tag in item['tags_en']])
             col3_en = '' if (col3_en == 'None' or not col3_en) else col3_en
             col4_en = item['difficulty_en']
-            col5_en = '🔒' if paid_only else ''
+            col5_en = '🔒' if item['paid_only'] else ''
             item['md_table_row_cn'] = [col1_cn, col2_cn, col3_cn, col4_cn, col5_cn]
             item['md_table_row_en'] = [col1_en, col2_en, col3_en, col4_en, col5_en]
 

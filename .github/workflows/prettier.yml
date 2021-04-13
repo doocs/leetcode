@@ -3,6 +3,8 @@ name: Prettier
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'solution/*.md'
 
 jobs:
   prettier:

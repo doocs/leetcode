@@ -1,5 +1,5 @@
-- 0000-0099
 
+- 0000-0099
   - [0001.Two Sum](/solution/0000-0099/0001.Two%20Sum/README.md)
   - [0002.Add Two Numbers](/solution/0000-0099/0002.Add%20Two%20Numbers/README.md)
   - [0003.Longest Substring Without Repeating Characters](/solution/0000-0099/0003.Longest%20Substring%20Without%20Repeating%20Characters/README.md)
@@ -101,7 +101,6 @@
   - [0099.Recover Binary Search Tree](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README.md)
 
 - 0100-0199
-
   - [0100.Same Tree](/solution/0100-0199/0100.Same%20Tree/README.md)
   - [0101.Symmetric Tree](/solution/0100-0199/0101.Symmetric%20Tree/README.md)
   - [0102.Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README.md)
@@ -204,7 +203,6 @@
   - [0199.Binary Tree Right Side View](/solution/0100-0199/0199.Binary%20Tree%20Right%20Side%20View/README.md)
 
 - 0200-0299
-
   - [0200.Number of Islands](/solution/0200-0299/0200.Number%20of%20Islands/README.md)
   - [0201.Bitwise AND of Numbers Range](/solution/0200-0299/0201.Bitwise%20AND%20of%20Numbers%20Range/README.md)
   - [0202.Happy Number](/solution/0200-0299/0202.Happy%20Number/README.md)
@@ -307,7 +305,6 @@
   - [0299.Bulls and Cows](/solution/0200-0299/0299.Bulls%20and%20Cows/README.md)
 
 - 0300-0399
-
   - [0300.Longest Increasing Subsequence](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
   - [0301.Remove Invalid Parentheses](/solution/0300-0399/0301.Remove%20Invalid%20Parentheses/README.md)
   - [0302.Smallest Rectangle Enclosing Black Pixels](/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/README.md)
@@ -410,7 +407,6 @@
   - [0399.Evaluate Division](/solution/0300-0399/0399.Evaluate%20Division/README.md)
 
 - 0400-0499
-
   - [0400.Nth Digit](/solution/0400-0499/0400.Nth%20Digit/README.md)
   - [0401.Binary Watch](/solution/0400-0499/0401.Binary%20Watch/README.md)
   - [0402.Remove K Digits](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)
@@ -513,7 +509,6 @@
   - [0499.The Maze III](/solution/0400-0499/0499.The%20Maze%20III/README.md)
 
 - 0500-0599
-
   - [0500.Keyboard Row](/solution/0500-0599/0500.Keyboard%20Row/README.md)
   - [0501.Find Mode in Binary Search Tree](/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/README.md)
   - [0502.IPO](/solution/0500-0599/0502.IPO/README.md)
@@ -611,16 +606,15 @@
   - [0594.Longest Harmonious Subsequence](/solution/0500-0599/0594.Longest%20Harmonious%20Subsequence/README.md)
   - [0595.Big Countries](/solution/0500-0599/0595.Big%20Countries/README.md)
   - [0596.Classes More Than 5 Students](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README.md)
-  - [0597.Friend Requests I Overall Acceptance Rate](/solution/0500-0599/0597.Friend%20Requests%20I%20%20Overall%20Acceptance%20Rate/README.md)
+  - [0597.Friend Requests I  Overall Acceptance Rate](/solution/0500-0599/0597.Friend%20Requests%20I%20%20Overall%20Acceptance%20Rate/README.md)
   - [0597.Friend Requests I Overall Acceptance Rate](/solution/0500-0599/0597.Friend%20Requests%20I%20Overall%20Acceptance%20Rate/README.md)
   - [0598.Range Addition II](/solution/0500-0599/0598.Range%20Addition%20II/README.md)
   - [0599.Minimum Index Sum of Two Lists](/solution/0500-0599/0599.Minimum%20Index%20Sum%20of%20Two%20Lists/README.md)
 
 - 0600-0699
-
   - [0600.Non-negative Integers without Consecutive Ones](/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README.md)
   - [0601.Human Traffic of Stadium](/solution/0600-0699/0601.Human%20Traffic%20of%20Stadium/README.md)
-  - [0602.Friend Requests II Who Has the Most Friends](/solution/0600-0699/0602.Friend%20Requests%20II%20%20Who%20Has%20the%20Most%20Friends/README.md)
+  - [0602.Friend Requests II  Who Has the Most Friends](/solution/0600-0699/0602.Friend%20Requests%20II%20%20Who%20Has%20the%20Most%20Friends/README.md)
   - [0602.Friend Requests II Who Has the Most Friends](/solution/0600-0699/0602.Friend%20Requests%20II%20Who%20Has%20the%20Most%20Friends/README.md)
   - [0603.Consecutive Available Seats](/solution/0600-0699/0603.Consecutive%20Available%20Seats/README.md)
   - [0604.Design Compressed String Iterator](/solution/0600-0699/0604.Design%20Compressed%20String%20Iterator/README.md)
@@ -634,7 +628,7 @@
   - [0612.Shortest Distance in a Plane](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README.md)
   - [0613.Shortest Distance in a Line](/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README.md)
   - [0614.Second Degree Follower](/solution/0600-0699/0614.Second%20Degree%20Follower/README.md)
-  - [0615.Average Salary Departments VS Company](/solution/0600-0699/0615.Average%20Salary%20%20Departments%20VS%20Company/README.md)
+  - [0615.Average Salary  Departments VS Company](/solution/0600-0699/0615.Average%20Salary%20%20Departments%20VS%20Company/README.md)
   - [0615.Average Salary Departments VS Company](/solution/0600-0699/0615.Average%20Salary%20Departments%20VS%20Company/README.md)
   - [0616.Add Bold Tag in String](/solution/0600-0699/0616.Add%20Bold%20Tag%20in%20String/README.md)
   - [0617.Merge Two Binary Trees](/solution/0600-0699/0617.Merge%20Two%20Binary%20Trees/README.md)
@@ -722,7 +716,6 @@
   - [0699.Falling Squares](/solution/0600-0699/0699.Falling%20Squares/README.md)
 
 - 0700-0799
-
   - [0700.Search in a Binary Search Tree](/solution/0700-0799/0700.Search%20in%20a%20Binary%20Search%20Tree/README.md)
   - [0701.Insert into a Binary Search Tree](/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/README.md)
   - [0702.Search in a Sorted Array of Unknown Size](/solution/0700-0799/0702.Search%20in%20a%20Sorted%20Array%20of%20Unknown%20Size/README.md)
@@ -825,7 +818,6 @@
   - [0799.Champagne Tower](/solution/0700-0799/0799.Champagne%20Tower/README.md)
 
 - 0800-0899
-
   - [0800.Similar RGB Color](/solution/0800-0899/0800.Similar%20RGB%20Color/README.md)
   - [0801.Minimum Swaps To Make Sequences Increasing](/solution/0800-0899/0801.Minimum%20Swaps%20To%20Make%20Sequences%20Increasing/README.md)
   - [0802.Find Eventual Safe States](/solution/0800-0899/0802.Find%20Eventual%20Safe%20States/README.md)
@@ -928,7 +920,6 @@
   - [0899.Orderly Queue](/solution/0800-0899/0899.Orderly%20Queue/README.md)
 
 - 0900-0999
-
   - [0900.RLE Iterator](/solution/0900-0999/0900.RLE%20Iterator/README.md)
   - [0901.Online Stock Span](/solution/0900-0999/0901.Online%20Stock%20Span/README.md)
   - [0902.Numbers At Most N Given Digit Set](/solution/0900-0999/0902.Numbers%20At%20Most%20N%20Given%20Digit%20Set/README.md)
@@ -1031,7 +1022,6 @@
   - [0999.Available Captures for Rook](/solution/0900-0999/0999.Available%20Captures%20for%20Rook/README.md)
 
 - 1000-1099
-
   - [1000.Minimum Cost to Merge Stones](/solution/1000-1099/1000.Minimum%20Cost%20to%20Merge%20Stones/README.md)
   - [1001.Grid Illumination](/solution/1000-1099/1001.Grid%20Illumination/README.md)
   - [1002.Find Common Characters](/solution/1000-1099/1002.Find%20Common%20Characters/README.md)
@@ -1142,7 +1132,6 @@
   - [1099.Two Sum Less Than K](/solution/1000-1099/1099.Two%20Sum%20Less%20Than%20K/README.md)
 
 - 1100-1199
-
   - [1100.Find K-Length Substrings With No Repeated Characters](/solution/1100-1199/1100.Find%20K-Length%20Substrings%20With%20No%20Repeated%20Characters/README.md)
   - [1101.The Earliest Moment When Everyone Become Friends](/solution/1100-1199/1101.The%20Earliest%20Moment%20When%20Everyone%20Become%20Friends/README.md)
   - [1102.Path With Maximum Minimum Value](/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/README.md)
@@ -1245,7 +1234,6 @@
   - [1199.Minimum Time to Build Blocks](/solution/1100-1199/1199.Minimum%20Time%20to%20Build%20Blocks/README.md)
 
 - 1200-1299
-
   - [1200.Minimum Absolute Difference](/solution/1200-1299/1200.Minimum%20Absolute%20Difference/README.md)
   - [1201.Ugly Number III](/solution/1200-1299/1201.Ugly%20Number%20III/README.md)
   - [1202.Smallest String With Swaps](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README.md)
@@ -1348,7 +1336,6 @@
   - [1299.Replace Elements with Greatest Element on Right Side](/solution/1200-1299/1299.Replace%20Elements%20with%20Greatest%20Element%20on%20Right%20Side/README.md)
 
 - 1300-1399
-
   - [1300.Sum of Mutated Array Closest to Target](/solution/1300-1399/1300.Sum%20of%20Mutated%20Array%20Closest%20to%20Target/README.md)
   - [1301.Number of Paths with Max Score](/solution/1300-1399/1301.Number%20of%20Paths%20with%20Max%20Score/README.md)
   - [1302.Deepest Leaves Sum](/solution/1300-1399/1302.Deepest%20Leaves%20Sum/README.md)
@@ -1452,7 +1439,6 @@
   - [1399.Count Largest Group](/solution/1300-1399/1399.Count%20Largest%20Group/README.md)
 
 - 1400-1499
-
   - [1400.Construct K Palindrome Strings](/solution/1400-1499/1400.Construct%20K%20Palindrome%20Strings/README.md)
   - [1401.Circle and Rectangle Overlapping](/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/README.md)
   - [1402.Reducing Dishes](/solution/1400-1499/1402.Reducing%20Dishes/README.md)
@@ -1555,7 +1541,6 @@
   - [1499.Max Value of Equation](/solution/1400-1499/1499.Max%20Value%20of%20Equation/README.md)
 
 - 1500-1599
-
   - [1500.Design a File Sharing System](/solution/1500-1599/1500.Design%20a%20File%20Sharing%20System/README.md)
   - [1501.Countries You Can Safely Invest In](/solution/1500-1599/1501.Countries%20You%20Can%20Safely%20Invest%20In/README.md)
   - [1502.Can Make Arithmetic Progression From Sequence](/solution/1500-1599/1502.Can%20Make%20Arithmetic%20Progression%20From%20Sequence/README.md)
@@ -1616,7 +1601,7 @@
   - [1557.Minimum Number of Vertices to Reach All Nodes](/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/README.md)
   - [1558.Minimum Numbers of Function Calls to Make Target Array](/solution/1500-1599/1558.Minimum%20Numbers%20of%20Function%20Calls%20to%20Make%20Target%20Array/README.md)
   - [1559.Detect Cycles in 2D Grid](/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/README.md)
-  - [1560.Most Visited Sector in a Circular Track](/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/README.md)
+  - [1560.Most Visited Sector in  a Circular Track](/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/README.md)
   - [1561.Maximum Number of Coins You Can Get](/solution/1500-1599/1561.Maximum%20Number%20of%20Coins%20You%20Can%20Get/README.md)
   - [1562.Find Latest Group of Size M](/solution/1500-1599/1562.Find%20Latest%20Group%20of%20Size%20M/README.md)
   - [1563.Stone Game V](/solution/1500-1599/1563.Stone%20Game%20V/README.md)
@@ -1658,7 +1643,6 @@
   - [1599.Maximum Profit of Operating a Centennial Wheel](/solution/1500-1599/1599.Maximum%20Profit%20of%20Operating%20a%20Centennial%20Wheel/README.md)
 
 - 1600-1600
-
   - [1600.Throne Inheritance](/solution/1600-1600/1600.Throne%20Inheritance/README.md)
   - [1601.Maximum Number of Achievable Transfer Requests](/solution/1600-1600/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md)
   - [1603.Design Parking System](/solution/1600-1600/1603.Design%20Parking%20System/README.md)
@@ -1735,7 +1719,6 @@
   - [1697.Checking Existence of Edge Length Limited Paths](/solution/1600-1600/1697.Checking%20Existence%20of%20Edge%20Length%20Limited%20Paths/README.md)
 
 - 1600-1699
-
   - [1600.Throne Inheritance](/solution/1600-1699/1600.Throne%20Inheritance/README.md)
   - [1601.Maximum Number of Achievable Transfer Requests](/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/README.md)
   - [1602.Find Nearest Right Node in Binary Tree](/solution/1600-1699/1602.Find%20Nearest%20Right%20Node%20in%20Binary%20Tree/README.md)
@@ -1838,7 +1821,6 @@
   - [1699.Number of Calls Between Two Persons](/solution/1600-1699/1699.Number%20of%20Calls%20Between%20Two%20Persons/README.md)
 
 - 1700-1799
-
   - [1700.Number of Students Unable to Eat Lunch](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README.md)
   - [1701.Average Waiting Time](/solution/1700-1799/1701.Average%20Waiting%20Time/README.md)
   - [1702.Maximum Binary String After Change](/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README.md)
