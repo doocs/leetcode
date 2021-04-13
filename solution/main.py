@@ -18,10 +18,7 @@ class LCSpider:
         self.sub_folders = [str(i * 100).zfill(4) + '-' + str(i * 100 + 99).zfill(4) for i in range(100)]
         self.difficulty_mapper = dict(Easy='简单', Medium='中等', Hard='困难')
 
-        # result
         self.result = []
-        self.md_table_cn = []
-        self.md_table_en = []
 
     def get_question_detail(self, question_title_slug):
         """fetch question detail from lc's api"""
@@ -97,6 +94,11 @@ class LCSpider:
         questions = resp.json()['stat_status_pairs']
 
         for question in questions:
+            question_title_slug = question['stat']['question__title_slug']
+            question_detail = self.get_question_detail(question_title_slug)
+            if not question_detail:
+                continue
+
             frontend_question_id = str(question['stat']['frontend_question_id']).zfill(4)
             question_id = str(question['stat']['question_id']).zfill(4)
             no = int(frontend_question_id) // 100
@@ -104,8 +106,6 @@ class LCSpider:
 
             question_title_en = question['stat']['question__title']
             question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
-            
-            question_title_slug = question['stat']['question__title_slug']
 
             url_cn = f'https://leetcode-cn.com/problems/{question_title_slug}'
             url_en = f'https://leetcode.com/problems/{question_title_slug}'
@@ -133,26 +133,23 @@ class LCSpider:
                 'tags_cn': [],
                 'difficulty_en': '',
                 'difficulty_cn': '',
-                'code_snippets': []
+                'code_snippets': [],
+
             }
 
-            question_detail = self.get_question_detail(question_title_slug)
-            if question_detail is not None:
-                topic_tags = question_detail.get('topicTags')
-                tags_cn = [e['translatedName'] for e in topic_tags if e['translatedName']]
-                tags_en = [e['name'] for e in topic_tags if e['name']]
-                item['title_cn'] = question_detail.get('translatedTitle')
-                item['content_en'] = question_detail.get('content')
-                item['content_cn'] = question_detail.get('translatedContent')
-                item['tags_en'] = tags_en
-                item['tags_cn'] = tags_cn
-                item['difficulty_en'] = question_detail.get('difficulty')
-                item['difficulty_cn'] = self.difficulty_mapper.get(question_detail.get('difficulty'))
-                item['code_snippets'] = question_detail.get('codeSnippets')
-                item['paid_only_cn'] = question_detail.get('isPaidOnly')
-                if not item['content_en'] or not item['content_cn']:
-                    continue
-            self.result.append(item)
+            topic_tags = question_detail.get('topicTags')
+            tags_cn = [e['translatedName'] for e in topic_tags if e['translatedName']]
+            tags_en = [e['name'] for e in topic_tags if e['name']]
+            item['title_cn'] = question_detail.get('translatedTitle')
+            item['tags_en'] = tags_en
+            item['tags_cn'] = tags_cn
+            item['content_en'] = question_detail.get('content')
+            item['content_cn'] = question_detail.get('translatedContent')
+            item['difficulty_en'] = question_detail.get('difficulty')
+            item['difficulty_cn'] = self.difficulty_mapper.get(question_detail.get('difficulty'))
+            item['code_snippets'] = question_detail.get('codeSnippets')
+            item['paid_only_cn'] = question_detail.get('isPaidOnly')
+
             col1_cn = f'[{frontend_question_id}]({url_cn})'
             col2_cn = f'[{item["title_cn"]}]({path_cn})'
             col3_cn = ','.join([f'`{tag}`' for tag in item['tags_cn']])
@@ -165,19 +162,29 @@ class LCSpider:
             col3_en = '' if (col3_en == 'None' or not col3_en) else col3_en
             col4_en = item['difficulty_en']
             col5_en = '🔒' if paid_only else ''
-            self.md_table_cn.append((col1_cn, col2_cn, col3_cn, col4_cn, col5_cn))
-            self.md_table_en.append((col1_en, col2_en, col3_en, col4_en, col5_en))
+            item['md_table_row_cn'] = [col1_cn, col2_cn, col3_cn, col4_cn, col5_cn]
+            item['md_table_row_en'] = [col1_en, col2_en, col3_en, col4_en, col5_en]
+
+            self.result.append(item)
 
     def save_result(self):
-        with open('result.json', 'a', encoding='utf-8') as f:
+        with open('result.json', 'w', encoding='utf-8') as f:
             f.write(json.dumps(self.result))
 
-    def generate_readme(self):
+    @staticmethod
+    def generate_readme():
         """generate readme files"""
+        with open('./result.json', 'r', encoding='utf-8') as f:
+            result = f.read()
+            result = json.loads(result)
+
+        md_table_cn = [item['md_table_row_cn'] for item in result]
+        md_table_en = [item['md_table_row_en'] for item in result]
+
         # generate README.md
         items = []
         table_cn = "\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |"
-        for item in sorted(self.md_table_cn, key=lambda x: x[0]):
+        for item in sorted(md_table_cn, key=lambda x: x[0]):
             items.append("\n|  {}  |  {}  |  {}  |  {}  |  {}  |".format(item[0], item[1], item[2], item[3], item[4]))
         table_cn += "".join(items)
 
@@ -189,8 +196,9 @@ class LCSpider:
         # generate README_EN.md
         items = []
         table_en = "\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |"
-        for item in sorted(self.md_table_en, key=lambda x: x[0]):
-            items.append("\n|  {}  |  {}  |  {}  |  {}  |  {}  |".format(item[0], item[1], item[2], item[3], item[4]))
+        for item in sorted(md_table_en, key=lambda x: x[0]):
+            items.append(
+                "\n|  {}  |  {}  |  {}  |  {}  |  {}  |".format(item[0], item[1], item[2], item[3], item[4]))
         table_en += "".join(items)
         with open('./readme_template_en.md', 'r', encoding='utf-8') as f:
             readme_en = f.read()
@@ -207,10 +215,11 @@ class LCSpider:
             result = f.read()
             result = json.loads(result)
             for item in result:
+                if not item['content_cn'] and not item['content_en']:
+                    continue
                 no = int(item['frontend_question_id']) // 100
                 path = f'./{self.sub_folders[no]}/{item["frontend_question_id"]}.{item["title_en"]}'
                 path = path.replace(":", " ")
-
                 if os.path.isdir(path):
                     continue
                 os.makedirs(path)
@@ -242,8 +251,8 @@ class LCSpider:
                 summary_en += ("\n- " + file + "\n")
                 for sub in os.listdir("./" + file):
                     enc = quote(sub)
-                    summary_cn += f'\t- [{sub}](/solution/{file}/{enc}/README.md)\n'
-                    summary_en += f'\t- [{sub}](/solution/{file}/{enc}/README_EN.md)\n'
+                    summary_cn += f'  - [{sub}](/solution/{file}/{enc}/README.md)\n'
+                    summary_en += f'  - [{sub}](/solution/{file}/{enc}/README_EN.md)\n'
 
         # generate summary.md
         with open('./summary.md', 'w', encoding='utf-8') as f:
