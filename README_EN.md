@@ -161,7 +161,13 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [Subsets](/solution/0000-0099/0078.Subsets/README_EN.md)
 - [Subsets II](/solution/0000-0099/0090.Subsets%20II/README_EN.md)
 
-### Misc
+### Design
+
+- [Implement Trie (Prefix Tree)](<solution/0200-0299/0208.Implement%20Trie%20(Prefix%20Tree)/README_EN.md>)
+- [Design HashSet](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
+- [Design HashMap](/solution/0700-0799/0706.Design%20HashMap/README_EN.md)
+
+### Database
 
 - [Combine Two Tables](/solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
 - [Second Highest Salary](/solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
@@ -192,8 +198,6 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 ## Contributors
 
 This project exists thanks to all the people who contribute.
-
-<!-- https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false -->
 
 <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="./images/contributors.svg" /></a>
 

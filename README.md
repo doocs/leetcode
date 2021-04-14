@@ -168,7 +168,11 @@
 - [子集](/solution/0000-0099/0078.Subsets/README.md)
 - [子集 II](/solution/0000-0099/0090.Subsets%20II/README.md)
 
-### 混合问题
+### 设计
+
+- [实现 Trie (前缀树)](/solution/0200-0299/0208.Implement%20Trie%20%28Prefix%20Tree%29/README.md)
+- [设计哈希集合](/solution/0700-0799/0705.Design%20HashSet/README.md)
+- [设计哈希映射](/solution/0700-0799/0706.Design%20HashMap/README.md)
 
 ### 数据库
 
@@ -203,8 +207,6 @@
 ## 贡献者
 
 非常感谢以下所有朋友对本项目的贡献，你们是最可爱的人！
-
-<!-- https://opencollective.com/doocs-leetcode/contributors.svg?width=890&button=false -->
 
 <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="./images/contributors.svg" /></a>
 
