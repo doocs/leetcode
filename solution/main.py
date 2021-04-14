@@ -83,8 +83,7 @@ class LCSpider:
         headers = {
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'content-type': 'application/json',
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                          'Chrome/77.0.3865.120 Safari/537.36',
+            'user-agent': LCSpider.user_agent,
             'x-requested-with': 'XMLHttpRequest'
         }
         resp = self.session.get(url='https://leetcode.com/api/problems/all/',
@@ -264,8 +263,8 @@ class LCSpider:
 if __name__ == '__main__':
     spider = LCSpider()
 
-    # spider.get_all_questions()
-    # spider.save_result()
+    spider.get_all_questions()
+    spider.save_result()
 
     spider.generate_readme()
     spider.generate_question_readme()

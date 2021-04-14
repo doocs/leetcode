@@ -81,20 +81,22 @@ class Solution {
  * @return {boolean}
  */
 var findNumberIn2DArray = function (matrix, target) {
-  let row = matrix.length;
-  let col = matrix[0].length;
-  function dfs(i, j) {
-    if (i < 0 || j >= col) {
-      return false;
-    }
-    if (matrix[i][j] === target) return true;
-    else if (matrix[i][j] > target) {
-      return dfs(i - 1, j);
-    } else {
-      return dfs(i, j + 1);
-    }
+  let m, n;
+  if (
+    matrix == null ||
+    (m = matrix.length) == 0 ||
+    matrix[0] == null ||
+    (n = matrix[0].length) == 0
+  )
+    return false;
+  let i = 0,
+    j = n - 1;
+  while (i < m && j >= 0) {
+    if (matrix[i][j] == target) return true;
+    if (matrix[i][j] > target) --j;
+    else ++i;
   }
-  return dfs(row - 1, 0);
+  return false;
 };
 ```
 
