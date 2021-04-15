@@ -1,12 +1,12 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        def robRange(nums, start, end):
+            if end - start == 0:
+                return nums[start]
+            pre, cur = 0, nums[start]
+            for i in range(start + 1, end + 1):
+                pre, cur = cur, max(pre + nums[i], cur)
+            return cur
         if not nums:
             return 0
-        n = len(nums)
-        if n == 1:
-            return nums[0]
-        pre, cur = nums[0], max(nums[0], nums[1])
-        for i in range(2, n):
-            t = max(pre + nums[i], cur)
-            pre, cur = cur, t
-        return cur
+        return robRange(nums, 0, len(nums) - 1)

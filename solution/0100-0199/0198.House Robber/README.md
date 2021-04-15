@@ -28,6 +28,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+动态规划法。状态转移方程：`f(n) = Math.max(f(n - 2) + nums[n], nums[n - 1])`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -37,16 +39,16 @@
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
+        def robRange(nums, start, end):
+            if end - start == 0:
+                return nums[start]
+            pre, cur = 0, nums[start]
+            for i in range(start + 1, end + 1):
+                pre, cur = cur, max(pre + nums[i], cur)
+            return cur
         if not nums:
             return 0
-        n = len(nums)
-        if n == 1:
-            return nums[0]
-        pre, cur = nums[0], max(nums[0], nums[1])
-        for i in range(2, n):
-            t = max(pre + nums[i], cur)
-            pre, cur = cur, t
-        return cur
+        return robRange(nums, 0, len(nums) - 1)
 ```
 
 ### **Java**
@@ -57,21 +59,77 @@ class Solution:
 class Solution {
     public int rob(int[] nums) {
         int n;
-        if (nums == null || (n = nums.length) == 0) {
-            return 0;
-        }
-        if (n == 1) {
-            return nums[0];
-        }
-        int pre = nums[0];
-        int cur = Math.max(nums[0], nums[1]);
-        for (int i = 2; i < n; ++i) {
+        if ((n = nums.length) == 0) return 0;
+        return robRange(nums, 0, n - 1);
+    }
+
+    private int robRange(int[] nums, int start, int end) {
+        if (end - start == 0) return nums[start];
+        int pre = 0;
+        int cur = nums[start];
+        for (int i = start + 1; i < end + 1; ++i) {
             int t = Math.max(pre + nums[i], cur);
             pre = cur;
             cur = t;
         }
         return cur;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n;
+        if ((n = nums.size()) == 0) return 0;
+        return robRange(nums, 0, n - 1);
+    }
+
+private:
+    int robRange(vector<int>& nums, int start, int end) {
+        if (end - start == 0) return nums[start];
+        int pre = 0;
+        int cur = nums[start];
+        for (int i = start + 1; i < end + 1; ++i) {
+            int t = max(pre + nums[i], cur);
+            pre = cur;
+            cur = t;
+        }
+        return cur;
+    }
+};
+```
+
+### **Go**
+
+```go
+func rob(nums []int) int {
+    n := len(nums)
+    if n == 0 {
+        return 0
+    }
+    return robRange(nums, 0, n - 1)
+}
+
+func robRange(nums[]int, start int, end int) int {
+    if end - start == 0 {
+        return nums[start]
+    }
+    pre, cur := 0, nums[start]
+    for i := start + 1; i < end + 1; i++ {
+        pre, cur = cur, max(pre + nums[i], cur)
+    }
+    return cur
+}
+
+func max(a, b int) int {
+    if (a > b) {
+        return a
+    }
+    return b
 }
 ```
 

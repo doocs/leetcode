@@ -1,5 +1,7 @@
 # [《剑指 Offer（第 2 版）》系列](https://leetcode-cn.com/problemset/lcof/)
 
+![](./lcof.png)
+
 本书精选谷歌、微软等知名 IT 企业的典型面试题，系统地总结了如何在面试时写出高质量代码，如何优化代码效率，以及分析、解决难题的常用方法。
 
 [English Version](/lcof/README_EN.md)

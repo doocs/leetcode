@@ -1,20 +1,21 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        if (nums.size() == 0)
-            return 0 ;
-        if (nums.size() == 1)
-            return nums[0] ;
-        vector<int> dp(nums.size(), -1) ;
-        dp[0] = nums[0] ;
-        dp[1] = max(nums[0], nums[1]) ;
-        for (int i = 2; i < nums.size(); ++i)
-        {
-            dp[i] = max(
-                dp[i-2] + nums[i],
-                dp[i-1]
-            ) ;
+        int n;
+        if ((n = nums.size()) == 0) return 0;
+        return robRange(nums, 0, n - 1);
+    }
+
+private:
+    int robRange(vector<int>& nums, int start, int end) {
+        if (end - start == 0) return nums[start];
+        int pre = 0;
+        int cur = nums[start];
+        for (int i = start + 1; i < end + 1; ++i) {
+            int t = max(pre + nums[i], cur);
+            pre = cur;
+            cur = t;
         }
-        return dp[dp.size()-1] ;
+        return cur;
     }
 };

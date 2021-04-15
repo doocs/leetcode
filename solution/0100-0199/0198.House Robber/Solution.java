@@ -1,15 +1,15 @@
 class Solution {
     public int rob(int[] nums) {
         int n;
-        if (nums == null || (n = nums.length) == 0) {
-            return 0;
-        }
-        if (n == 1) {
-            return nums[0];
-        }
-        int pre = nums[0];
-        int cur = Math.max(nums[0], nums[1]);
-        for (int i = 2; i < n; ++i) {
+        if ((n = nums.length) == 0) return 0;
+        return robRange(nums, 0, n - 1);
+    }
+
+    private int robRange(int[] nums, int start, int end) {
+        if (end - start == 0) return nums[start];
+        int pre = 0;
+        int cur = nums[start];
+        for (int i = start + 1; i < end + 1; ++i) {
             int t = Math.max(pre + nums[i], cur);
             pre = cur;
             cur = t;

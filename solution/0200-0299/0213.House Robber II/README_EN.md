@@ -43,22 +43,18 @@
 ```python
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        def _rob(nums):
-            n = len(nums)
-            if n == 0:
-                return 0
-            if n == 1:
-                return nums[0]
-            pre, cur = nums[0], max(nums[0], nums[1])
-            for i in range(2, n):
-                t = max(pre + nums[i], cur)
-                pre, cur = cur, t
+        def robRange(nums, start, end):
+            if end - start == 0:
+                return nums[start]
+            pre, cur = 0, nums[start]
+            for i in range(start + 1, end + 1):
+                pre, cur = cur, max(pre + nums[i], cur)
             return cur
-
         n = len(nums)
         if n == 1:
             return nums[0]
-        return max(_rob(nums[1:]), _rob(nums[:-1]))
+        s1, s2 = robRange(nums, 0, n - 2), robRange(nums, 1, n - 1)
+        return max(s1, s2)
 ```
 
 ### **Java**
@@ -66,32 +62,82 @@ class Solution:
 ```java
 class Solution {
     public int rob(int[] nums) {
-        int n = nums.length;
-        if (n == 1) {
-            return nums[0];
-        }
-        int sub1 = robInternal(Arrays.copyOfRange(nums, 0, n - 1));
-        int sub2 = robInternal(Arrays.copyOfRange(nums, 1, n));
-        return Math.max(sub1, sub2);
+        int n;
+        if ((n = nums.length) == 1) return nums[0];
+        int s1 = robRange(nums, 0, n - 2);
+        int s2 = robRange(nums, 1, n - 1);
+        return Math.max(s1, s2);
     }
 
-    private int robInternal(int[] nums) {
-        int n;
-        if ((n = nums.length) == 0) {
-            return 0;
-        }
-        if (n == 1) {
-            return nums[0];
-        }
-        int pre = nums[0];
-        int cur = Math.max(nums[0], nums[1]);
-        for (int i = 2; i < n; ++i) {
+    private int robRange(int[] nums, int start, int end) {
+        if (end - start == 0) return nums[start];
+        int pre = 0;
+        int cur = nums[start];
+        for (int i = start + 1; i < end + 1; ++i) {
             int t = Math.max(pre + nums[i], cur);
             pre = cur;
             cur = t;
         }
         return cur;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        if (n == 1) return nums[0];
+        int s1 = robRange(nums, 0, n - 2);
+        int s2 = robRange(nums, 1, n - 1);
+        return max(s1, s2);
+    }
+private:
+    int robRange(vector<int>& nums, int start, int end) {
+        if (end - start == 0) return nums[start];
+        int pre = 0;
+        int cur = nums[start];
+        for (int i = start + 1; i < end + 1; ++i) {
+            int t = max(pre + nums[i], cur);
+            pre = cur;
+            cur = t;
+        }
+        return cur;
+    }
+};
+```
+
+### **Go**
+
+```go
+func rob(nums []int) int {
+    n := len(nums)
+    if n == 1 {
+        return nums[0]
+    }
+    s1, s2 := robRange(nums, 0, n - 2), robRange(nums, 1, n - 1)
+    return max(s1, s2)
+}
+
+func robRange(nums[]int, start int, end int) int {
+    if end - start == 0 {
+        return nums[start]
+    }
+    pre, cur := 0, nums[start]
+    for i := start + 1; i < end + 1; i++ {
+        pre, cur = cur, max(pre + nums[i], cur)
+    }
+    return cur
+}
+
+func max(a, b int) int {
+    if (a > b) {
+        return a
+    }
+    return b
 }
 ```
 

@@ -1,15 +1,25 @@
-/*
-198.House Robber
-动态规划的思路，找到状态转移方程 `f(n) = max(f(n-2)+nums[n], f(n-1))` ，初始值为 `f(0)=0, f(1)=nums[1]`
-*/
-
 func rob(nums []int) int {
-	x, y := 0, 0
-	for _, n := range nums {
-		x, y = y, x+n
-		if x > y {
-			y = x
-		}
-	}
-	return y
+    n := len(nums)
+    if n == 0 {
+        return 0
+    }
+    return robRange(nums, 0, n - 1)
+}
+
+func robRange(nums[]int, start int, end int) int {
+    if end - start == 0 {
+        return nums[start]
+    }
+    pre, cur := 0, nums[start]
+    for i := start + 1; i < end + 1; i++ {
+        pre, cur = cur, max(pre + nums[i], cur)
+    }
+    return cur
+}
+
+func max(a, b int) int {
+    if (a > b) {
+        return a
+    }
+    return b
 }
