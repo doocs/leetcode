@@ -63,6 +63,16 @@ r   g  ta  e
 
 <!-- 这里可写通用的实现逻辑 -->
 
+动态规划法。
+
+假设 `dp[i][j][len]` 表示从字符串 S 中 i 开始长度为 len 的字符串是否能变换为从字符串 T 中 j 开始长度为 len 的字符串。题目可转变为求 `dp[0][0][n]`。
+
+在 `len` 为 1 的情况下，只需要判断 `S[i]` 是否等于 `T[j]`。所以可以对 dp 进行初始化：`dp[i][j][1] = S[i] == T[j]`，其中，`i,j ∈ [0, n)`。
+
+在 `len` 大于 1 的情况下，枚举 S 的长度 `i ∈ [1, len-1]`，`dp[i1][i2][i]` 表示 S1 能变成 T1，`dp[i1 + i][i2 + i][len - i]` 表示 S2 能变成 T2；或者 S1 能变成 T2，S2 能变成 T1。
+
+![](./images/demo.png)
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -70,7 +80,28 @@ r   g  ta  e
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isScramble(self, s1: str, s2: str) -> bool:
+        n = len(s1)
+        dp = [[[False] * (n + 1) for _ in range(n)] for _ in range(n)]
+        for i in range(n):
+            for j in range(n):
+                dp[i][j][1] = s1[i] == s2[j]
+        # 枚举长度区间[2, n]
+        for l in range(2, n + 1):
+            # 枚举s1的起始位置
+            for i1 in range(n - l + 1):
+                # 枚举s2的起始位置
+                for i2 in range(n - l + 1):
+                    # 枚举分割的位置
+                    for i in range(1, l):
+                        if dp[i1][i2][i] and dp[i1 + i][i2 + i][l - i]:
+                            dp[i1][i2][l] = True
+                            break
+                        if dp[i1][i2 + l - i][i] and dp[i1 + i][i2][l - i]:
+                            dp[i1][i2][l] = True
+                            break
+        return dp[0][0][n]
 ```
 
 ### **Java**
@@ -89,9 +120,13 @@ class Solution {
                 dp[i][j][1] = s1.charAt(i) == s2.charAt(j);
             }
         }
+        // 枚举长度区间[2, n]
         for (int len = 2; len <= n; ++len) {
+            // 枚举s1的起始位置
             for (int i1 = 0; i1 <= n - len; ++i1) {
+                // 枚举s2的起始位置
                 for (int i2 = 0; i2 <= n - len; ++i2) {
+                    // 枚举分割的位置
                     for (int i = 1; i < len; ++i) {
                         if (dp[i1][i2][i] && dp[i1 + i][i2 + i][len - i]) {
                             dp[i1][i2][len] = true;
