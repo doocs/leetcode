@@ -1,21 +1,28 @@
 class Solution {
     public boolean isScramble(String s1, String s2) {
-        if(s1.equals(s2)) return true;
-        if(s1.length()!=s2.length()) return false;
-        int len = s1.length();
-        int[] count = new int[26];
-        for(int i = 0; i < len; i++){
-            count[s1.charAt(i) - 'a']++;
-            count[s2.charAt(i) - 'a']--;
+        int n = s1.length();
+        boolean[][][] dp = new boolean[n][n][n + 1];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                dp[i][j][1] = s1.charAt(i) == s2.charAt(j);
+            }
         }
-        for(int item : count) if (item != 0) return false;
-        for(int i = 1; i <= len - 1; i++){
-            if(isScramble(s1.substring(0, i), s2.substring(0, i)) && isScramble(s1.substring(i), s2.substring(i)))
-                return true;
-            if (isScramble(s1.substring(0, i), s2.substring(len - i)) &&
-                    isScramble(s1.substring(i), s2.substring(0, len - i)))
-                return true;
+        for (int len = 2; len <= n; ++len) {
+            for (int i1 = 0; i1 <= n - len; ++i1) {
+                for (int i2 = 0; i2 <= n - len; ++i2) {
+                    for (int i = 1; i < len; ++i) {
+                        if (dp[i1][i2][i] && dp[i1 + i][i2 + i][len - i]) {
+                            dp[i1][i2][len] = true;
+                            break;
+                        }
+                        if (dp[i1][i2 + len - i][i] && dp[i1 + i][i2][len - i]) {
+                            dp[i1][i2][len] = true;
+                            break;
+                        }
+                    }
+                }
+            }
         }
-        return false;
+        return dp[0][0][n];
     }
 }
