@@ -1,0 +1,89 @@
+# [1597. Build Binary Expression Tree From Infix Expression](https://leetcode.com/problems/build-binary-expression-tree-from-infix-expression)
+
+[中文文档](/solution/1500-1599/1597.Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression/README.md)
+
+## Description
+
+<p>A <strong><a href="https://en.wikipedia.org/wiki/Binary_expression_tree" target="_blank">binary expression tree</a></strong> is a kind of binary tree used to represent arithmetic expressions. Each node of a binary expression tree has either zero or two children. Leaf nodes (nodes with 0 children) correspond to operands (numbers), and internal nodes (nodes with 2 children) correspond to the operators <code>&#39;+&#39;</code> (addition), <code>&#39;-&#39;</code> (subtraction), <code>&#39;*&#39;</code> (multiplication), and <code>&#39;/&#39;</code> (division).</p>
+
+<p>For each internal node with operator <code>o</code>, the <a href="https://en.wikipedia.org/wiki/Infix_notation" target="_blank"><strong>infix expression</strong></a> that it represents is <code>(A o B)</code>, where <code>A</code> is the expression the left subtree represents and <code>B</code> is the expression the right subtree represents.</p>
+
+<p>You are given a string <code>s</code>, an <strong>infix expression</strong> containing operands, the operators described above, and parentheses <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>.</p>
+
+<p>Return <em>any valid&nbsp;<strong>binary expression tree</strong>,&nbsp;which its <strong><a href="https://en.wikipedia.org/wiki/Tree_traversal#In-order_(LNR)" target="_blank">in-order traversal</a></strong>&nbsp;reproduces&nbsp;</em><code>s</code>&nbsp;after omitting&nbsp;the parenthesis from it (see examples below)<em>.</em></p>
+
+<p><strong>Please note that order of operations applies in </strong><code>s</code><strong>.</strong> That is, expressions in parentheses are evaluated first, and multiplication and division happen before addition and subtraction.</p>
+
+<p>Operands must also appear in the <strong>same order</strong> in both <code>s</code>&nbsp;and the in-order traversal of the tree.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+![](./images/ex1-4.png)
+
+<pre>
+<strong>Input:</strong> s = &quot;3*4-2*5&quot;
+<strong>Output:</strong> [-,*,*,3,4,2,5]
+<strong>Explanation:</strong> The tree above is the only valid tree whose inorder traversal produces s.
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+![](./images/ex1-2.png)
+
+<pre>
+<strong>Input:</strong> s = &quot;2-3/(5*2)+1&quot;
+<strong>Output:</strong> [+,-,1,2,/,null,null,null,null,3,*,null,null,5,2]
+<strong>Explanation:</strong> The inorder traversal of the tree above is 2-3/5*2+1 which is the same as s without the parenthesis. The tree also produces the correct result and its operands are in the same order as they appear in s.
+The tree below is also a valid binary expression tree with the same inorder traversal as s, but it not a valid answer because it does not evaluate to the same value.
+
+![](./images/ex1-1.png)
+
+The third tree below is also not valid. Although it produces the same result and is equivalent to the above trees, its inorder traversal does not produce s and its operands are not in the same order as s.
+
+![](./images/ex1-3.png)
+
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;1+2+3+4+5&quot;
+<strong>Output:</strong> [+,+,5,+,4,null,null,+,3,null,null,1,2]
+<strong>Explanation:</strong> The tree [+,+,5,+,+,null,null,1,2,3,4] is also one of many other valid trees.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s</code> consists of digits and the characters <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, <code>&#39;*&#39;</code>, and <code>&#39;/&#39;</code>.</li>
+	<li>Operands in <code>s</code> are <strong>exactly</strong> 1 digit.</li>
+	<li>It is guaranteed that <code>s</code> is a valid expression.</li>
+</ul>
+
+
+## Solutions
+
+<!-- tabs:start -->
+
+### **Python3**
+
+```python
+
+```
+
+### **Java**
+
+```java
+
+```
+
+### **...**
+
+```
+
+```
+
+<!-- tabs:end -->

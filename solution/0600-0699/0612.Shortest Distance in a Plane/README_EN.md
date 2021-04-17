@@ -4,7 +4,65 @@
 
 ## Description
 
-None
+Table <code>point_2d</code> holds the coordinates (x,y) of some unique points (more than two) in a plane.
+
+<p>&nbsp;</p>
+
+Write a query to find the shortest distance between these points rounded to 2 decimals.
+
+
+
+<p>&nbsp;</p>
+
+
+
+<pre>
+
+| x  | y  |
+
+|----|----|
+
+| -1 | -1 |
+
+| 0  | 0  |
+
+| -1 | -2 |
+
+</pre>
+
+
+
+<p>&nbsp;</p>
+
+The shortest distance is 1.00 from point (-1,-1) to (-1,2). So the output should be:
+
+
+
+<p>&nbsp;</p>
+
+
+
+<pre>
+
+| shortest |
+
+|----------|
+
+| 1.00     |
+
+</pre>
+
+
+
+<p>&nbsp;</p>
+
+<b>Note:</b> The longest distance among all the points are less than 10000.
+
+
+
+<p>&nbsp;</p>
+
+
 
 ## Solutions
 
@@ -12,13 +70,8 @@ None
 
 ### **SQL**
 
-```
-SELECT round(min(sqrt(power(p1.x-p2.x,
-        2) + power(p1.y-p2.y,
-        2))),
-        2) shortest
-FROM point_2d p1, point_2d p2
-WHERE (p1.x, p1.y) <> (p2.x,p2.y)
+```sql
+
 ```
 
 <!-- tabs:end -->

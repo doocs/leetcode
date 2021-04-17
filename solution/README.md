@@ -1831,7 +1831,7 @@
 |  [1818](https://leetcode-cn.com/problems/minimum-absolute-sum-difference)  |  [绝对差值和](/solution/1800-1899/1818.Minimum%20Absolute%20Sum%20Difference/README.md)  |  `贪心算法`,`二分查找`  |  中等  |    |
 |  [1819](https://leetcode-cn.com/problems/number-of-different-subsequences-gcds)  |  [序列中不同最大公约数的数目](/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/README.md)  |  `数学`  |  困难  |    |
 |  [1820](https://leetcode-cn.com/problems/maximum-number-of-accepted-invitations)  |  [](/solution/1800-1899/1820.Maximum%20Number%20of%20Accepted%20Invitations/README.md)  |  `图`  |  中等  |  🔒  |
-|  [1821](https://leetcode-cn.com/problems/find-customers-with-positive-revenue-this-year)  |  [](/solution/1800-1899/1821.Find%20Customers%20With%20Positive%20Revenue%20this%20Year/README.md)  |    |  简单  |    |
+|  [1821](https://leetcode-cn.com/problems/find-customers-with-positive-revenue-this-year)  |  [](/solution/1800-1899/1821.Find%20Customers%20With%20Positive%20Revenue%20this%20Year/README.md)  |    |  简单  |  🔒  |
 |  [1822](https://leetcode-cn.com/problems/sign-of-the-product-of-an-array)  |  [数组元素积的符号](/solution/1800-1899/1822.Sign%20of%20the%20Product%20of%20an%20Array/README.md)  |  `数学`  |  简单  |    |
 |  [1823](https://leetcode-cn.com/problems/find-the-winner-of-the-circular-game)  |  [找出游戏的获胜者](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README.md)  |  `数组`  |  中等  |    |
 |  [1824](https://leetcode-cn.com/problems/minimum-sideway-jumps)  |  [最少侧跳次数](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README.md)  |  `广度优先搜索`,`动态规划`  |  中等  |    |

@@ -43,7 +43,9 @@ class LCSpider:
             'User-Agent': LCSpider.user_agent,
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
-            'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug
+            'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug,
+            # cookie here
+            # 'cookie': ''
         }
         self.session.post(url=LCSpider.graph_url,
                           data=json.dumps(form_data),
@@ -110,7 +112,7 @@ class LCSpider:
             path_cn = f'/solution/{self.sub_folders[no]}/{frontend_question_id}.{quote(question_title_en)}/README.md'
             path_en = f'/solution/{self.sub_folders[no]}/{frontend_question_id}.{quote(question_title_en)}/README_EN.md'
 
-            print(frontend_question_id)
+            print(f'{frontend_question_id}. {question_title_en}')
             topic_tags = question_detail.get('topicTags')
             item = {
                 'question_id': str(question['stat']['question_id']).zfill(4),

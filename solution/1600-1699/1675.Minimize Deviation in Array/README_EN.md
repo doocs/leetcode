@@ -10,7 +10,6 @@
 
 <ul>
 	<li>If the element is <strong>even</strong>, <strong>divide</strong> it by <code>2</code>.
-
     <ul>
     	<li>For example, if the array is <code>[1,2,3,4]</code>, then you can do this operation on the last element, and the array will be <code>[1,2,3,<u>2</u>].</code></li>
     </ul>

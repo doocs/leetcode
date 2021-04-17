@@ -4,7 +4,85 @@
 
 ## Description
 
-None
+<p>Select all employee&#39;s name and bonus whose bonus is &lt; 1000.</p>
+
+
+
+<p>Table:<code>Employee </code></p>
+
+
+
+<pre>
+
++-------+--------+-----------+--------+
+
+| empId |  name  | supervisor| salary |
+
++-------+--------+-----------+--------+
+
+|   1   | John   |  3        | 1000   |
+
+|   2   | Dan    |  3        | 2000   |
+
+|   3   | Brad   |  null     | 4000   |
+
+|   4   | Thomas |  3        | 4000   |
+
++-------+--------+-----------+--------+
+
+empId is the primary key column for this table.
+
+</pre>
+
+
+
+<p>Table: <code>Bonus</code></p>
+
+
+
+<pre>
+
++-------+-------+
+
+| empId | bonus |
+
++-------+-------+
+
+| 2     | 500   |
+
+| 4     | 2000  |
+
++-------+-------+
+
+empId is the primary key column for this table.
+
+</pre>
+
+
+
+<p>Example ouput:</p>
+
+
+
+<pre>
+
++-------+-------+
+
+| name  | bonus |
+
++-------+-------+
+
+| John  | null  |
+
+| Dan   | 500   |
+
+| Brad  | null  |
+
++-------+-------+
+
+</pre>
+
+
 
 ## Solutions
 
@@ -12,14 +90,8 @@ None
 
 ### **SQL**
 
-```
-SELECT name,
-         bonus
-FROM Employee e
-LEFT JOIN Bonus b
-    ON e.empId = b.empId
-WHERE (b.bonus < 1000
-        OR b.bonus is null)
+```sql
+
 ```
 
 <!-- tabs:end -->
