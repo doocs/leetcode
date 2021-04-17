@@ -54,11 +54,8 @@
 <p><b>Follow up</b>:</p>
 
 <ol>
-
     <li>Could you solve it in-place? Remember that the board needs to be updated at the same time: You cannot update some cells first and then use their updated values to update other cells.</li>
-
     <li>In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches the border of the array. How would you address these problems?</li>
-
 </ol>
 
 ## Solutions

@@ -102,17 +102,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= moves.length &lt;= 9</code></li>
-
     <li><code>moves[i].length == 2</code></li>
-
     <li><code>0 &lt;= moves[i][j] &lt;= 2</code></li>
-
     <li>There are no repeated elements on <code>moves</code>.</li>
-
     <li><code>moves</code> follow the rules of tic tac toe.</li>
-
 </ul>
 
 ## Solutions

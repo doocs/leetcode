@@ -53,13 +53,9 @@ We then go to room 3.  Since we were able to go to every room, we return true.
 <p><b>Note:</b></p>
 
 <ol>
-
     <li><code>1 &lt;= rooms.length &lt;=&nbsp;1000</code></li>
-
     <li><code>0 &lt;= rooms[i].length &lt;= 1000</code></li>
-
     <li>The number of keys in all rooms combined is at most&nbsp;<code>3000</code>.</li>
-
 </ol>
 
 ## Solutions

@@ -9,13 +9,9 @@
 <p>Person A will NOT friend request person B (B != A) if any of the following conditions are true:</p>
 
 <ul>
-
     <li><code>age[B]&nbsp;&lt;= 0.5 * age[A]&nbsp;+ 7</code></li>
-
     <li><code>age[B]&nbsp;&gt; age[A]</code></li>
-
     <li><code>age[B]&nbsp;&gt; 100 &amp;&amp;&nbsp;age[A]&nbsp;&lt; 100</code></li>
-
 </ul>
 
 <p>Otherwise, A will friend request B.</p>
@@ -63,11 +59,8 @@
 <p>Notes:</p>
 
 <ul>
-
     <li><code>1 &lt;= ages.length&nbsp;&lt;= 20000</code>.</li>
-
     <li><code>1 &lt;= ages[i] &lt;= 120</code>.</li>
-
 </ul>
 
 ## Solutions

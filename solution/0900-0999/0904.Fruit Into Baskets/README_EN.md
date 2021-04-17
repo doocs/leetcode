@@ -9,11 +9,8 @@
 <p>You <strong>start at any tree&nbsp;of your choice</strong>, then repeatedly perform the following steps:</p>
 
 <ol>
-
     <li>Add one piece of fruit from this tree to your baskets.&nbsp; If you cannot, stop.</li>
-
     <li>Move to the next tree to the right of the current tree.&nbsp; If there is no tree to the right, stop.</li>
-
 </ol>
 
 <p>Note that you do not have any choice after the initial choice of starting tree:&nbsp;you must perform step 1, then step 2, then back to step 1, then step 2, and so on until you stop.</p>
