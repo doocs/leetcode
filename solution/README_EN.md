@@ -1834,6 +1834,11 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1823](https://leetcode.com/problems/find-the-winner-of-the-circular-game)  |  [Find the Winner of the Circular Game](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README_EN.md)  |  `Array`  |  Medium  |    |
 |  [1824](https://leetcode.com/problems/minimum-sideway-jumps)  |  [Minimum Sideway Jumps](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README_EN.md)  |  `Breadth-first Search`,`Dynamic Programming`  |  Medium  |    |
 |  [1825](https://leetcode.com/problems/finding-mk-average)  |  [Finding MK Average](/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md)  |  `Heap`,`Design`,`Queue`  |  Hard  |    |
+|  [1826](https://leetcode.com/problems/faulty-sensor)  |  [Faulty Sensor](/solution/1800-1899/1826.Faulty%20Sensor/README_EN.md)  |  `Array`  |  Easy  |  🔒  |
+|  [1827](https://leetcode.com/problems/minimum-operations-to-make-the-array-increasing)  |  [Minimum Operations to Make the Array Increasing](/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README_EN.md)  |  `Greedy`,`Array`  |  Easy  |    |
+|  [1828](https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle)  |  [Queries on Number of Points Inside a Circle](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README_EN.md)  |  `Math`  |  Medium  |    |
+|  [1829](https://leetcode.com/problems/maximum-xor-for-each-query)  |  [Maximum XOR for Each Query](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md)  |  `Bit Manipulation`  |  Medium  |    |
+|  [1830](https://leetcode.com/problems/minimum-number-of-operations-to-make-string-sorted)  |  [Minimum Number of Operations to Make String Sorted](/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README_EN.md)  |  `Math`,`String`  |  Hard  |    |
 
 ## Copyright
 

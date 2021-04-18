@@ -64,7 +64,14 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        for i, c in enumerate(s):
+            if c == ' ':
+                k -= 1
+            if k == 0:
+                return s[:i]
+        return s
 ```
 
 ### **Java**
@@ -72,7 +79,50 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String truncateSentence(String s, int k) {
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == ' ' && (--k) == 0) {
+                return s.substring(0, i);
+            }
+        }
+        return s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string truncateSentence(string s, int k) {
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == ' ' && (--k) == 0) {
+                return s.substr(0, i);
+            }
+        }
+        return s;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
+ */
+var truncateSentence = function (s, k) {
+  for (let i = 0; i < s.length; ++i) {
+    if (s[i] == " " && --k == 0) {
+      return s.substring(0, i);
+    }
+  }
+  return s;
+};
 ```
 
 ### **...**

@@ -1861,3 +1861,7 @@
   - [1823.Find the Winner of the Circular Game](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README_EN.md)
   - [1824.Minimum Sideway Jumps](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README_EN.md)
   - [1825.Finding MK Average](/solution/1800-1899/1825.Finding%20MK%20Average/README_EN.md)
+  - [1827.Minimum Operations to Make the Array Increasing](/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README_EN.md)
+  - [1828.Queries on Number of Points Inside a Circle](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README_EN.md)
+  - [1829.Maximum XOR for Each Query](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md)
+  - [1830.Minimum Number of Operations to Make String Sorted](/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README_EN.md)

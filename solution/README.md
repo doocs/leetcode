@@ -907,7 +907,7 @@
 |  [0894](https://leetcode-cn.com/problems/all-possible-full-binary-trees)  |  [所有可能的满二叉树](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md)  |  `树`,`递归`  |  中等  |    |
 |  [0895](https://leetcode-cn.com/problems/maximum-frequency-stack)  |  [最大频率栈](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README.md)  |  `栈`,`哈希表`  |  困难  |    |
 |  [0896](https://leetcode-cn.com/problems/monotonic-array)  |  [单调数列](/solution/0800-0899/0896.Monotonic%20Array/README.md)  |  `数组`  |  简单  |    |
-|  [0897](https://leetcode-cn.com/problems/increasing-order-search-tree)  |  [递增顺序查找树](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)  |  `树`,`深度优先搜索`,`递归`  |  简单  |    |
+|  [0897](https://leetcode-cn.com/problems/increasing-order-search-tree)  |  [递增顺序搜索树](/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/README.md)  |  `树`,`深度优先搜索`,`递归`  |  简单  |    |
 |  [0898](https://leetcode-cn.com/problems/bitwise-ors-of-subarrays)  |  [子数组按位或操作](/solution/0800-0899/0898.Bitwise%20ORs%20of%20Subarrays/README.md)  |  `位运算`,`动态规划`  |  中等  |    |
 |  [0899](https://leetcode-cn.com/problems/orderly-queue)  |  [有序队列](/solution/0800-0899/0899.Orderly%20Queue/README.md)  |  `数学`,`字符串`  |  困难  |    |
 |  [0900](https://leetcode-cn.com/problems/rle-iterator)  |  [RLE 迭代器](/solution/0900-0999/0900.RLE%20Iterator/README.md)  |  `数组`  |  中等  |    |
@@ -1836,6 +1836,11 @@
 |  [1823](https://leetcode-cn.com/problems/find-the-winner-of-the-circular-game)  |  [找出游戏的获胜者](/solution/1800-1899/1823.Find%20the%20Winner%20of%20the%20Circular%20Game/README.md)  |  `数组`  |  中等  |    |
 |  [1824](https://leetcode-cn.com/problems/minimum-sideway-jumps)  |  [最少侧跳次数](/solution/1800-1899/1824.Minimum%20Sideway%20Jumps/README.md)  |  `广度优先搜索`,`动态规划`  |  中等  |    |
 |  [1825](https://leetcode-cn.com/problems/finding-mk-average)  |  [求出 MK 平均值](/solution/1800-1899/1825.Finding%20MK%20Average/README.md)  |  `堆`,`设计`,`队列`  |  困难  |    |
+|  [1826](https://leetcode-cn.com/problems/faulty-sensor)  |  [](/solution/1800-1899/1826.Faulty%20Sensor/README.md)  |  `数组`  |  简单  |  🔒  |
+|  [1827](https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-increasing)  |  [最少操作使数组递增](/solution/1800-1899/1827.Minimum%20Operations%20to%20Make%20the%20Array%20Increasing/README.md)  |  `贪心算法`,`数组`  |  简单  |    |
+|  [1828](https://leetcode-cn.com/problems/queries-on-number-of-points-inside-a-circle)  |  [统计一个圆中点的数目](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README.md)  |  `数学`  |  中等  |    |
+|  [1829](https://leetcode-cn.com/problems/maximum-xor-for-each-query)  |  [每个查询的最大异或值](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md)  |  `位运算`  |  中等  |    |
+|  [1830](https://leetcode-cn.com/problems/minimum-number-of-operations-to-make-string-sorted)  |  [使字符串有序的最少操作次数](/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README.md)  |  `数学`,`字符串`  |  困难  |    |
 
 ## 版权
 
