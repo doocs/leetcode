@@ -95,11 +95,8 @@ class Solution {
     public int removeElement(int[] nums, int val) {
         int cnt = 0, n = nums.length;
         for (int i = 0; i < n; ++i) {
-            if (nums[i] == val) {
-                ++cnt;
-            } else {
-                nums[i - cnt] = nums[i];
-            }
+            if (nums[i] == val) ++cnt;
+            else nums[i - cnt] = nums[i];
         }
         return n - cnt;
     }
@@ -114,15 +111,47 @@ public:
     int removeElement(vector<int>& nums, int val) {
         int cnt = 0, n = nums.size();
         for (int i = 0; i < n; ++i) {
-            if (nums[i] == val) {
-                ++cnt;
-            } else {
-                nums[i - cnt] = nums[i];
-            }
+            if (nums[i] == val) ++cnt;
+            else nums[i - cnt] = nums[i];
         }
         return n - cnt;
     }
 };
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} val
+ * @return {number}
+ */
+var removeElement = function (nums, val) {
+  let cnt = 0;
+  const n = nums.length;
+  for (let i = 0; i < n; ++i) {
+    if (nums[i] == val) ++cnt;
+    else nums[i - cnt] = nums[i];
+  }
+  return n - cnt;
+};
+```
+
+### **Go**
+
+```go
+func removeElement(nums []int, val int) int {
+    cnt, n := 0, len(nums)
+    for i := 0; i < n; i++ {
+        if (nums[i] == val) {
+            cnt++
+        } else {
+            nums[i - cnt] = nums[i]
+        }
+    }
+    return n - cnt
+}
 ```
 
 ### **...**
