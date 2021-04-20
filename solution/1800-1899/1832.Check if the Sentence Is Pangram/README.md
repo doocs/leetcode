@@ -38,10 +38,11 @@
 	<li><code>sentence</code> 由小写英语字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+转为 Set，判断 Set 长度是否等于 26。若是，说明是全字母句。也可以使用位运算。
 
 <!-- tabs:start -->
 
@@ -49,16 +50,61 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
+集合去重并计数：
 
+```python
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        return len(set(sentence)) == 26
+```
+
+位运算：
+
+```python
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        res = 0
+        for c in sentence:
+            diff = ord(c) - ord('a')
+            res |= (1 << diff)
+            if res == 0x3ffffff:
+                return True
+        return False
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```java
+集合去重并计数：
 
+```java
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        Set<Character> s = new HashSet<>();
+        for (int i = 0; i < sentence.length(); ++i) {
+            s.add(sentence.charAt(i));
+            if (s.size() == 26) return true;
+        }
+        return false;
+    }
+}
+```
+
+位运算：
+
+```java
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        int res = 0;
+        for (int i = 0; i < sentence.length(); ++i) {
+            int diff = sentence.charAt(i) - 'a';
+            res |= (1 << diff);
+            if (res == 0x3ffffff) return true;
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**

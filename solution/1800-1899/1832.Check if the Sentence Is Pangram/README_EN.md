@@ -32,21 +32,65 @@
 	<li><code>sentence</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
 
 ### **Python3**
 
-```python
+Set:
 
+```python
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        return len(set(sentence)) == 26
+```
+
+Bit Manipulation:
+
+```python
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        res = 0
+        for c in sentence:
+            diff = ord(c) - ord('a')
+            res |= (1 << diff)
+            if res == 0x3ffffff:
+                return True
+        return False
 ```
 
 ### **Java**
 
-```java
+HashSet:
 
+```java
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        Set<Character> s = new HashSet<>();
+        for (int i = 0; i < sentence.length(); ++i) {
+            s.add(sentence.charAt(i));
+            if (s.size() == 26) return true;
+        }
+        return false;
+    }
+}
+```
+
+Bit Manipulation:
+
+```java
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        int res = 0;
+        for (int i = 0; i < sentence.length(); ++i) {
+            int diff = sentence.charAt(i) - 'a';
+            res |= (1 << diff);
+            if (res == 0x3ffffff) return true;
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**
