@@ -1839,6 +1839,11 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1828](https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle)  |  [Queries on Number of Points Inside a Circle](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README_EN.md)  |  `Math`  |  Medium  |    |
 |  [1829](https://leetcode.com/problems/maximum-xor-for-each-query)  |  [Maximum XOR for Each Query](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README_EN.md)  |  `Bit Manipulation`  |  Medium  |    |
 |  [1830](https://leetcode.com/problems/minimum-number-of-operations-to-make-string-sorted)  |  [Minimum Number of Operations to Make String Sorted](/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README_EN.md)  |  `Math`,`String`  |  Hard  |    |
+|  [1831](https://leetcode.com/problems/maximum-transaction-each-day)  |  [Maximum Transaction Each Day](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1832](https://leetcode.com/problems/check-if-the-sentence-is-pangram)  |  [Check if the Sentence Is Pangram](/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README_EN.md)  |  `String`  |  Easy  |    |
+|  [1833](https://leetcode.com/problems/maximum-ice-cream-bars)  |  [Maximum Ice Cream Bars](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README_EN.md)  |  `Sort`,`Array`  |  Medium  |    |
+|  [1834](https://leetcode.com/problems/single-threaded-cpu)  |  [Single-Threaded CPU](/solution/1800-1899/1834.Single-Threaded%20CPU/README_EN.md)  |  `Heap`  |  Medium  |    |
+|  [1835](https://leetcode.com/problems/find-xor-sum-of-all-pairs-bitwise-and)  |  [Find XOR Sum of All Pairs Bitwise AND](/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README_EN.md)  |  `Math`  |  Hard  |    |
 
 ## Copyright
 

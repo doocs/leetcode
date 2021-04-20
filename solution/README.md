@@ -1841,6 +1841,11 @@
 |  [1828](https://leetcode-cn.com/problems/queries-on-number-of-points-inside-a-circle)  |  [统计一个圆中点的数目](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README.md)  |  `数学`  |  中等  |    |
 |  [1829](https://leetcode-cn.com/problems/maximum-xor-for-each-query)  |  [每个查询的最大异或值](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md)  |  `位运算`  |  中等  |    |
 |  [1830](https://leetcode-cn.com/problems/minimum-number-of-operations-to-make-string-sorted)  |  [使字符串有序的最少操作次数](/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README.md)  |  `数学`,`字符串`  |  困难  |    |
+|  [1831](https://leetcode-cn.com/problems/maximum-transaction-each-day)  |  [](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README.md)  |    |  中等  |    |
+|  [1832](https://leetcode-cn.com/problems/check-if-the-sentence-is-pangram)  |  [判断句子是否为全字母句](/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README.md)  |  `字符串`  |  简单  |    |
+|  [1833](https://leetcode-cn.com/problems/maximum-ice-cream-bars)  |  [雪糕的最大数量](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README.md)  |  `排序`,`数组`  |  中等  |    |
+|  [1834](https://leetcode-cn.com/problems/single-threaded-cpu)  |  [单线程 CPU](/solution/1800-1899/1834.Single-Threaded%20CPU/README.md)  |  `堆`  |  中等  |    |
+|  [1835](https://leetcode-cn.com/problems/find-xor-sum-of-all-pairs-bitwise-and)  |  [所有数对按位与结果的异或和](/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README.md)  |  `数学`  |  困难  |    |
 
 ## 版权
 
