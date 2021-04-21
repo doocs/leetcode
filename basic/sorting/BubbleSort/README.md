@@ -41,6 +41,7 @@ public class BubbleSort {
     }
 }
 ```
+### **JavaScript**
 
 ```javascript
 let bubbleSort = function (inputArr) {
