@@ -156,6 +156,7 @@
 - [接雨水](/solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 - [最大子序和](/solution/0000-0099/0053.Maximum%20Subarray/README.md)
 - [礼物的最大价值](/lcof/面试题47.%20礼物的最大价值/README.md)
+- [解码方法](/solution/0000-0099/0091.Decode%20Ways/README.md)
 - [乘积最大子序列](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md)
 - [打家劫舍](/solution/0100-0199/0198.House%20Robber/README.md)
 - [打家劫舍 II](/solution/0200-0299/0213.House%20Robber%20II/README.md)
