@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们要把给定的字符串 <code>S</code>&nbsp;从左到右写到每一行上，每一行的最大宽度为100个单位，如果我们在写某个字母的时候会使这行超过了100 个单位，那么我们应该把这个字母写到下一行。我们给定了一个数组&nbsp;<code>widths</code>&nbsp;，这个数组&nbsp;widths[0] 代表 &#39;a&#39; 需要的单位，&nbsp;widths[1] 代表 &#39;b&#39; 需要的单位，...，&nbsp;widths[25] 代表 &#39;z&#39; 需要的单位。</p>
 
 <p>现在回答两个问题：至少多少行能放下<code>S</code>，以及最后一行使用的宽度是多少个单位？将你的答案作为长度为2的整数列表返回。</p>
@@ -42,6 +43,7 @@ S = &quot;bbbcccdddaaa&quot;
 	<li><code>widths</code> 是长度为&nbsp;<code>26</code>的数组。</li>
 	<li><code>widths[i]</code>&nbsp;值的范围在&nbsp;<code>[2, 10]</code>。</li>
 </ul>
+
 
 ## 解法
 

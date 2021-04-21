@@ -26,7 +26,7 @@ action 列是一个枚举类型 (&#39;Clicked&#39;, &#39;Viewed&#39;, &#39;Ignor
 
 <p>广告效果用点击通过率（Click-Through Rate：CTR）来衡量，公式如下:</p>
 
-![](./images/sql1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/06/sql1.png" style="height: 75px; width: 600px;"></p>
 
 <p>写一条SQL语句来查询每一条广告的&nbsp;<code>ctr</code>&nbsp;，</p>
 

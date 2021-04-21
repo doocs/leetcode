@@ -4,52 +4,46 @@
 
 ## Description
 
-<p>A group of friends went on holiday and sometimes lent each other money. For example, Alice paid for Bill's lunch for $10. Then later Chris gave Alice $5 for a taxi ride. We can model each transaction as a tuple (x, y, z) which means person x gave person y $z. Assuming Alice, Bill, and Chris are person 0, 1, and 2 respectively (0, 1, 2 are the person's ID), the transactions can be represented as <code>[[0, 1, 10], [2, 0, 5]]</code>.</p>
+<p>You are given an array of transactions <code>transactions</code> where <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> indicates that the person with <code>ID = from<sub>i</sub></code> gave <code>amount<sub>i</sub> $</code> to the person with <code>ID = to<sub>i</sub></code>.</p>
 
-<p>Given a list of transactions between a group of people, return the minimum number of transactions required to settle the debt.</p>
+<p>Return <em>the minimum number of transactions required to settle the debt</em>.</p>
 
-<p><b>Note:</b>
-<ol>
-<li>A transaction will be given as a tuple (x, y, z). Note that <code>x ≠ y</code> and <code>z > 0</code>.</li>
-<li>Person's IDs may not be linear, e.g. we could have the persons 0, 1, 2 or we could also have the persons 0, 2, 6.</li>
-</ol>
-</p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
-<p><b>Example 1:</b>
 <pre>
-<b>Input:</b>
-[[0,1,10], [2,0,5]]
-
-<b>Output:</b>
-2
-
-<b>Explanation:</b>
+<strong>Input:</strong> transactions = [[0,1,10],[2,0,5]]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong>
 Person #0 gave person #1 $10.
 Person #2 gave person #0 $5.
-
-Two transactions are needed. One way to settle the debt is person #1 pays person #0 and #2 \$5 each.
-
+Two transactions are needed. One way to settle the debt is person #1 pays person #0 and #2 $5 each.
 </pre>
-</p>
 
-<p><b>Example 2:</b>
+<p><strong>Example 2:</strong></p>
+
 <pre>
-<b>Input:</b>
-[[0,1,10], [1,0,1], [1,2,5], [2,0,5]]
-
-<b>Output:</b>
-1
-
-<b>Explanation:</b>
+<strong>Input:</strong> transactions = [[0,1,10],[1,0,1],[1,2,5],[2,0,5]]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong>
 Person #0 gave person #1 $10.
 Person #1 gave person #0 $1.
 Person #1 gave person #2 $5.
 Person #2 gave person #0 $5.
-
-Therefore, person #1 only need to give person #0 \$4, and all debt is settled.
-
+Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 </pre>
-</p>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= transactions.length &lt;= 8</code></li>
+	<li><code>transactions[i].length == 3</code></li>
+	<li><code>0 &lt;= from<sub>i</sub>, to<sub>i</sub> &lt;= 20</code></li>
+	<li><code>from<sub>i</sub> != to<sub>i</sub></code></li>
+	<li><code>1 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
+</ul>
+
 
 ## Solutions
 

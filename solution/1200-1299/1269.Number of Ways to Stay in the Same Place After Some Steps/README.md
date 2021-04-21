@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有一个长度为&nbsp;<code>arrLen</code>&nbsp;的数组，开始有一个指针在索引&nbsp;<code>0</code> 处。</p>
 
 <p>每一步操作中，你可以将指针向左或向右移动 1 步，或者停在原地（指针不能被移动到数组范围外）。</p>
@@ -49,6 +50,7 @@
 	<li><code>1 &lt;= steps &lt;= 500</code></li>
 	<li><code>1 &lt;= arrLen&nbsp;&lt;= 10^6</code></li>
 </ul>
+
 
 ## 解法
 

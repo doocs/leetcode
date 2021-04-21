@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>一个厨师收集了他&nbsp;<code>n</code>&nbsp;道菜的满意程度&nbsp;<code>satisfaction</code>&nbsp;，这个厨师做出每道菜的时间都是 1 单位时间。</p>
 
 <p>一道菜的 「喜爱时间」系数定义为烹饪这道菜以及之前每道菜所花费的时间乘以这道菜的满意程度，也就是&nbsp;<code>time[i]</code>*<code>satisfaction[i]</code>&nbsp;。</p>
@@ -50,6 +51,7 @@
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 	<li><code>-10^3 &lt;=&nbsp;satisfaction[i] &lt;= 10^3</code></li>
 </ul>
+
 
 ## 解法
 

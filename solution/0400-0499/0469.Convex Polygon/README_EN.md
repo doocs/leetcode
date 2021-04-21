@@ -4,42 +4,37 @@
 
 ## Description
 
-<p>Given a list of points that form a polygon when joined sequentially, find if this polygon is convex <a href="https://en.wikipedia.org/wiki/Convex_polygon" target="_blank">(Convex polygon definition)</a>.</p>
+<p>You are given an array of points on the <strong>X-Y</strong> plane <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>. The points form a polygon when joined sequentially.</p>
 
-<p> </p>
+<p>Return <code>true</code> if this polygon is <a href="http://en.wikipedia.org/wiki/Convex_polygon" target="_blank">convex</a> and <code>false</code> otherwise.</p>
 
-<p><b>Note:</b></p>
+<p>You may assume the polygon formed by given points is always a <a href="http://en.wikipedia.org/wiki/Simple_polygon" target="_blank">simple polygon</a>. In other words, we ensure that exactly two edges intersect at each vertex and that edges otherwise don&#39;t intersect each other.</p>
 
-<ol>
-	<li>There are at least 3 and at most 10,000 points.</li>
-	<li>Coordinates are in the range -10,000 to 10,000.</li>
-	<li>You may assume the polygon formed by given points is always a simple polygon<a href="https://en.wikipedia.org/wiki/Simple_polygon" target="_blank"> (Simple polygon definition)</a>. In other words, we ensure that exactly two edges intersect at each vertex, and that edges otherwise <b>don't intersect each other</b>.</li>
-</ol>
-
-<p> </p>
-
-<p><b>Example 1:</b></p>
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/covpoly1-plane.jpg" style="width: 300px; height: 294px;" />
 <pre>
-[[0,0],[0,1],[1,1],[1,0]]
-
-Answer: True
-
-Explanation:
+<strong>Input:</strong> points = [[0,0],[0,5],[5,5],[5,0]]
+<strong>Output:</strong> true
 </pre>
 
-![](./images/polygon_convex.png)
-
-<p><b>Example 2:</b></p>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/covpoly2-plane.jpg" style="width: 300px; height: 303px;" />
 <pre>
-[[0,0],[0,10],[10,10],[10,0],[5,5]]
+<strong>Input:</strong> points = [[0,0],[0,10],[10,10],[10,0],[5,5]]
+<strong>Output:</strong> false
+</pre>
 
-Answer: False
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Explanation:</pre>
+<ul>
+	<li><code>3 &lt;= points.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>points[i].length == 2</code></li>
+	<li><code>-10<sup>4</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
+	<li>All the given points are <strong>unique</strong>.</li>
+</ul>
 
-![](./images/polygon_not_convex.png)
 
 ## Solutions
 

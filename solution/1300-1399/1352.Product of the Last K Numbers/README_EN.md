@@ -55,6 +55,7 @@ productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers 
 	<li><code>1 &lt;= k &lt;= 40000</code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

@@ -11,33 +11,26 @@
 <p><b>Example 1:</b></p>
 
 <pre>
-
 <b>Input: </b>s1 = &quot;ab&quot; s2 = &quot;eidbaooo&quot;
-
 <b>Output: </b>True
-
 <b>Explanation:</b> s2 contains one permutation of s1 (&quot;ba&quot;).
-
 </pre>
 
 <p><b>Example 2:</b></p>
 
 <pre>
-
 <b>Input:</b>s1= &quot;ab&quot; s2 = &quot;eidboaoo&quot;
-
 <b>Output:</b> False
-
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li>The input strings only contain lower case letters.</li>
+	<li>The length of both given strings is in range [1, 10,000].</li>
+</ul>
 
-<ol>
-    <li>The input strings only contain lower case letters.</li>
-    <li>The length of both given strings is in range [1, 10,000].</li>
-</ol>
 
 ## Solutions
 

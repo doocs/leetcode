@@ -4,19 +4,30 @@
 
 ## Description
 
-<p>Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.</p>
+<p>Given an integer <code>n</code>, count <em>the total number of digit </em><code>1</code><em> appearing in all non-negative integers less than or equal to</em> <code>n</code>.</p>
 
-<p><strong>Example:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> 13
-
-<strong>Output:</strong> 6 
-
-<strong>Explanation: </strong>Digit 1 occurred in the following numbers: 1, 10, 11, 12, 13.
-
+<strong>Input:</strong> n = 13
+<strong>Output:</strong> 6
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 0
+<strong>Output:</strong> 0
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>0 &lt;= n &lt;= 2 * 10<sup>9</sup></code></li>
+</ul>
+
 
 ## Solutions
 

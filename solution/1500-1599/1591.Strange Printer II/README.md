@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个奇怪的打印机，它有如下两个特殊的打印规则：</p>
 
 <ul>
@@ -20,7 +21,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_1_1929.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/19/sample_1_1929.png" style="height: 138px; width: 483px;"></p>
 
 <pre><strong>输入：</strong>targetGrid = [[1,1,1,1],[1,2,2,1],[1,2,2,1],[1,1,1,1]]
 <strong>输出：</strong>true
@@ -28,7 +29,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1929.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/19/sample_2_1929.png" style="height: 290px; width: 483px;"></p>
 
 <pre><strong>输入：</strong>targetGrid = [[1,1,1,1],[1,1,3,3],[1,1,3,4],[5,5,1,4]]
 <strong>输出：</strong>true
@@ -56,6 +57,7 @@
 	<li><code>1 &lt;= m, n &lt;= 60</code></li>
 	<li><code>1 &lt;= targetGrid[row][col] &lt;= 60</code></li>
 </ul>
+
 
 ## 解法
 

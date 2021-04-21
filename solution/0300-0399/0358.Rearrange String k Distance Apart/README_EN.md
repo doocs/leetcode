@@ -4,39 +4,42 @@
 
 ## Description
 
-<p>Given a non-empty string <b>s</b> and an integer <b>k</b>, rearrange the string such that the same characters are at least distance <b>k</b> from each other.</p>
+<p>Given a string <code>s</code> and an integer <code>k</code>, rearrange <code>s</code> such that the same characters are <strong>at least</strong> distance <code>k</code> from each other. If it is not possible to rearrange the string, return an empty string <code>&quot;&quot;</code>.</p>
 
-<p>All input strings are given in lowercase letters. If it is not possible to rearrange the string, return an empty string <code>""</code>.</p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<div>
 <pre>
-<strong>Input: </strong>s = <span id="example-input-1-1">"aabbcc"</span>, k = <span id="example-input-1-2">3</span>
-<strong>Output: </strong><span id="example-output-1">"abcabc" 
-<strong>Explanation: </strong></span>The same letters are at least distance 3 from each other.
+<strong>Input:</strong> s = &quot;aabbcc&quot;, k = 3
+<strong>Output:</strong> &quot;abcabc&quot;
+<strong>Explanation:</strong> The same letters are at least a distance of 3 from each other.
 </pre>
 
-<div>
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input: </strong>s = <span id="example-input-2-1">"aaabc"</span>, k = <span id="example-input-2-2">3</span>
-<strong>Output: </strong><span id="example-output-2">"" 
-<strong>Explanation:</strong> </span>It is not possible to rearrange the string.
+<strong>Input:</strong> s = &quot;aaabc&quot;, k = 3
+<strong>Output:</strong> &quot;&quot;
+<strong>Explanation:</strong> It is not possible to rearrange the string.
 </pre>
 
-<div>
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input: </strong>s = <span id="example-input-3-1">"aaadbbcc"</span>, k = <span id="example-input-3-2">2</span>
-<strong>Output: </strong><span id="example-output-3">"abacabcd"
-</span><span id="example-output-2"><strong>Explanation:</strong> </span>The same letters are at least distance 2 from each other.
+<strong>Input:</strong> s = &quot;aaadbbcc&quot;, k = 2
+<strong>Output:</strong> &quot;abacabcd&quot;
+<strong>Explanation:</strong> The same letters are at least a distance of 2 from each other.
 </pre>
-</div>
-</div>
-</div>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code></li>
+	<li><code>s</code> consists of only lowercase English letters.</li>
+	<li><code>0 &lt;= k &lt;= s.length</code></li>
+</ul>
+
 
 ## Solutions
 

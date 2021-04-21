@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们给出 <code>S</code>，一个源于&nbsp;<code>{&#39;D&#39;, &#39;I&#39;}</code>&nbsp;的长度为 <code>n</code>&nbsp;的字符串 。（这些字母代表 &ldquo;减少&rdquo; 和 &ldquo;增加&rdquo;。）<br>
 <em>有效排列</em>&nbsp;是对整数 <code>{0, 1, ..., n}</code>&nbsp;的一个排列&nbsp;<code>P[0], P[1], ..., P[n]</code>，使得对所有的&nbsp;<code>i</code>：</p>
 
@@ -40,6 +41,7 @@
 </ol>
 
 <p>&nbsp;</p>
+
 
 ## 解法
 

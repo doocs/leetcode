@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定数组&nbsp;<code>nums</code>&nbsp;由正整数组成，找到三个互不重叠的子数组的最大和。</p>
 
 <p>每个子数组的长度为<code>k</code>，我们要使这<code>3*k</code>个项的和最大化。</p>
@@ -27,6 +28,7 @@
 	<li><code>nums[i]</code>的范围在<code>[1, 65535]</code>之间。</li>
 	<li><code>k</code>的范围在<code>[1, floor(nums.length / 3)]</code>之间。</li>
 </ul>
+
 
 ## 解法
 

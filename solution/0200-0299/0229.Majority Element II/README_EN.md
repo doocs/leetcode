@@ -4,25 +4,40 @@
 
 ## Description
 
-<p>Given an integer array of size <i>n</i>, find all elements that appear more than <code>&lfloor; n/3 &rfloor;</code> times.</p>
+<p>Given an integer array of size <code>n</code>, find all elements that appear more than <code>&lfloor; n/3 &rfloor;</code> times.</p>
 
-<p><strong>Note: </strong>The algorithm should run in linear time and in O(1) space.</p>
+<p><strong>Follow-up: </strong>Could you solve the problem&nbsp;in linear time and in O(1) space?</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> [3,2,3]
-
-<strong>Output:</strong> [3]</pre>
+<strong>Input:</strong> nums = [3,2,3]
+<strong>Output:</strong> [3]
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> nums = [1]
+<strong>Output:</strong> [1]
+</pre>
 
-<strong>Input:</strong> [1,1,1,3,3,2,2,2]
+<p><strong>Example 3:</strong></p>
 
-<strong>Output:</strong> [1,2]</pre>
+<pre>
+<strong>Input:</strong> nums = [1,2]
+<strong>Output:</strong> [1,2]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+</ul>
+
 
 ## Solutions
 

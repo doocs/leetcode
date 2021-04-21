@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个待查数组 <code>queries</code> ，数组中的元素为 <code>1</code> 到 <code>m</code> 之间的正整数。 请你根据以下规则处理所有待查项 <code>queries[i]</code>（从 <code>i=0</code> 到 <code>i=queries.length-1</code>）：</p>
 
 <ul>
@@ -49,6 +50,7 @@
 	<li><code>1 &lt;= queries.length &lt;= m</code></li>
 	<li><code>1 &lt;= queries[i] &lt;= m</code></li>
 </ul>
+
 
 ## 解法
 

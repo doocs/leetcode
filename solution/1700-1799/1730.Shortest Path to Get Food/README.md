@@ -22,26 +22,20 @@
 <p> </p>
 
 <p><b>示例 1:</b></p>
-
-![](./images/img1.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/21/img1.jpg" style="width: 300px; height: 201px;">
 <pre><b>输入：</b> grid = [["X","X","X","X","X","X"],["X","*","O","O","O","X"],["X","O","O","#","O","X"],["X","X","X","X","X","X"]]
 <b>输出：</b> 3
 <b>解释： </b>要拿到食物，你需要走 3 步。</pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/img2.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/21/img2.jpg" style="width: 300px; height: 241px;">
 <pre><b>输入：</b> grid = [["X","X","X","X","X"],["X","*","X","O","X"],["X","O","X","#","X"],["X","X","X","X","X"]]
 <b>输出：</b> -1
 <b>解释：</b> 你不可能拿到食物。
 </pre>
 
 <p><strong>示例 3:</strong></p>
-
-![](./images/img3.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/21/img3.jpg" style="width: 300px; height: 188px;">
 <pre><strong>输入:</strong> grid = [["X","X","X","X","X","X","X","X"],["X","*","O","X","O","#","O","X"],["X","O","O","X","O","O","X","X"],["X","O","O","O","O","#","O","X"],["X","X","X","X","X","X","X","X"]]
 <strong>输出:</strong> 6
 <strong>解释:</strong> 这里有多个食物。拿到下边的食物仅需走 6 步。</pre>

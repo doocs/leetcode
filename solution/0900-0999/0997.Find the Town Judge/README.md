@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在一个小镇里，按从 <code>1</code> 到 <code>N</code> 标记了&nbsp;<code>N</code> 个人。传言称，这些人中有一个是小镇上的秘密法官。</p>
 
 <p>如果小镇的法官真的存在，那么：</p>
@@ -61,6 +62,7 @@
 	<li><code>trust[i][0] != trust[i][1]</code></li>
 	<li><code>1 &lt;= trust[i][0], trust[i][1] &lt;= N</code></li>
 </ol>
+
 
 ## 解法
 

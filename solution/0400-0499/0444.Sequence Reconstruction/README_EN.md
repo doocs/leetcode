@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Check whether the original sequence <code>org</code> can be uniquely reconstructed from the sequences in <code>seqs</code>. The <code>org</code> sequence is a permutation of the integers from 1 to n, with 1 ≤ n ≤ 10<sup>4</sup>. Reconstruction means building a shortest common supersequence of the sequences in <code>seqs</code> (i.e., a shortest sequence so that all sequences in <code>seqs</code> are subsequences of it). Determine whether there is only one sequence that can be reconstructed from <code>seqs</code> and it is the <code>org</code> sequence.</p>
+<p>Check whether the original sequence <code>org</code> can be uniquely reconstructed from the sequences in <code>seqs</code>. The <code>org</code> sequence is a permutation of the integers from 1 to n, with 1 &le; n &le; 10<sup>4</sup>. Reconstruction means building a shortest common supersequence of the sequences in <code>seqs</code> (i.e., a shortest sequence so that all sequences in <code>seqs</code> are subsequences of it). Determine whether there is only one sequence that can be reconstructed from <code>seqs</code> and it is the <code>org</code> sequence.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -38,20 +38,21 @@
 <strong>Output:</strong> true
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= n <= 10^4</code></li>
+	<li><code>1 &lt;= n &lt;= 10^4</code></li>
 	<li><code>org</code> is a permutation of {1,2,...,n}.</li>
-	<li><code>1 <= segs[i].length <= 10^5</code></li>
-	<li><code>seqs[i][j]</code> fits in a 32-bit signed integer.</li>
+	<li><code>1 &lt;= segs[i].length &lt;= 10^5</code></li>
+	<li><code>seqs[i][j]</code>&nbsp;fits in a 32-bit signed integer.</li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><b><font color="red">UPDATE (2017/1/8):</font></b><br />
 The <i>seqs</i> parameter had been changed to a list of list of strings (instead of a 2d array of strings). Please reload the code definition to get the latest changes.</p>
+
 
 ## Solutions
 

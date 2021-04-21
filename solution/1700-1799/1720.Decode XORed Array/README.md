@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p><strong>未知</strong> 整数数组 <code>arr</code> 由 <code>n</code> 个非负整数组成。</p>
 
 <p>经编码后变为长度为 <code>n - 1</code> 的另一个整数数组 <code>encoded</code> ，其中 <code>encoded[i] = arr[i] XOR arr[i + 1]</code> 。例如，<code>arr = [1,0,2,1]</code> 经编码后得到 <code>encoded = [1,2,3]</code> 。</p>
@@ -40,6 +41,7 @@
 	<li><code>0 <= encoded[i] <= 10<sup>5</sup></code></li>
 	<li><code>0 <= first <= 10<sup>5</sup></code></li>
 </ul>
+
 
 ## 解法
 

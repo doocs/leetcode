@@ -4,75 +4,44 @@
 
 ## Description
 
-<p>Given an m * n matrix <b>M</b> initialized with all <b>0</b>'s and several update operations.</p>
+<p>You are given an <code>m x n</code> matrix <code>M</code> initialized with all <code>0</code>&#39;s and an array of operations <code>ops</code>, where <code>ops[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> means <code>M[x][y]</code> should be incremented by one for all <code>0 &lt;= x &lt; a<sub>i</sub></code> and <code>0 &lt;= y &lt; b<sub>i</sub></code>.</p>
 
-<p>Operations are represented by a 2D array, and each operation is represented by an array with two <b>positive</b> integers <b>a</b> and <b>b</b>, which means <b>M[i][j]</b> should be <b>added by one</b> for all <b>0 <= i < a</b> and <b>0 <= j < b</b>. </p>
+<p>Count and return <em>the number of maximum integers in the matrix after performing all the operations</em>.</p>
 
-<p>You need to count and return the number of maximum integers in the matrix after performing all the operations.</p>
-
-<p><b>Example 1:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1.jpg" style="width: 750px; height: 176px;" />
 <pre>
-
-<b>Input:</b> 
-
-m = 3, n = 3
-
-operations = [[2,2],[3,3]]
-
-<b>Output:</b> 4
-
-<b>Explanation:</b> 
-
-Initially, M = 
-
-[[0, 0, 0],
-
- [0, 0, 0],
-
- [0, 0, 0]]
-
-
-
-After performing [2,2], M = 
-
-[[1, 1, 0],
-
- [1, 1, 0],
-
- [0, 0, 0]]
-
-
-
-After performing [3,3], M = 
-
-[[2, 2, 1],
-
- [2, 2, 1],
-
- [1, 1, 1]]
-
-
-
-So the maximum integer in M is 2, and there are four of it in M. So return 4.
-
+<strong>Input:</strong> m = 3, n = 3, ops = [[2,2],[3,3]]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> The maximum integer in M is 2, and there are four of it in M. So return 4.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b><br>
+<pre>
+<strong>Input:</strong> m = 3, n = 3, ops = [[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3]]
+<strong>Output:</strong> 4
+</pre>
 
-<ol>
+<p><strong>Example 3:</strong></p>
 
-<li>The range of m and n is [1,40000].</li>
+<pre>
+<strong>Input:</strong> m = 3, n = 3, ops = []
+<strong>Output:</strong> 9
+</pre>
 
-<li>The range of a is [1,m], and the range of b is [1,n].</li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>The range of operations size won't exceed 10,000.</li>
+<ul>
+	<li><code>1 &lt;= m, n &lt;= 4 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= ops.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>ops[i].length == 2</code></li>
+	<li><code>1 &lt;= a<sub>i</sub> &lt;= m</code></li>
+	<li><code>1 &lt;= b<sub>i</sub> &lt;= n</code></li>
+</ul>
 
-</ol>
-
-</p>
 
 ## Solutions
 

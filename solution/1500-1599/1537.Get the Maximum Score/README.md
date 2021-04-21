@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>你有两个 <strong>有序</strong>&nbsp;且数组内元素互不相同的数组&nbsp;<code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;。</p>
 
 <p>一条&nbsp;<strong>合法路径</strong>&nbsp;定义如下：</p>
@@ -25,7 +26,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_1_1893.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/02/sample_1_1893.png" style="height: 163px; width: 538px;"></strong></p>
 
 <pre><strong>输入：</strong>nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]
 <strong>输出：</strong>30
@@ -66,6 +67,7 @@
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10^7</code></li>
 	<li><code>nums1</code> 和&nbsp;<code>nums2</code>&nbsp;都是严格递增的数组。</li>
 </ul>
+
 
 ## 解法
 

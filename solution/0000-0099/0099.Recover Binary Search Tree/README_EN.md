@@ -4,88 +4,35 @@
 
 ## Description
 
-<p>Two elements of a binary search tree (BST) are swapped by mistake.</p>
+<p>You are given the <code>root</code> of a binary search tree (BST), where exactly two nodes of the tree were swapped by mistake. <em>Recover the tree without changing its structure</em>.</p>
 
-<p>Recover the tree without changing its structure.</p>
+<p><strong>Follow up:</strong> A solution using <code>O(n)</code> space is pretty straight forward. Could you devise a constant space solution?</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/28/recover1.jpg" style="width: 422px; height: 302px;" />
 <pre>
-
-<strong>Input:</strong> [1,3,null,null,2]
-
-
-
-&nbsp;  1
-
-&nbsp; /
-
-&nbsp;3
-
-&nbsp; \
-
-&nbsp;  2
-
-
-
+<strong>Input:</strong> root = [1,3,null,null,2]
 <strong>Output:</strong> [3,1,null,null,2]
-
-
-
-&nbsp;  3
-
-&nbsp; /
-
-&nbsp;1
-
-&nbsp; \
-
-&nbsp;  2
-
+<strong>Explanation:</strong> 3 cannot be a left child of 1 because 3 &gt; 1. Swapping 1 and 3 makes the BST valid.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/28/recover2.jpg" style="width: 581px; height: 302px;" />
 <pre>
-
-<strong>Input:</strong> [3,1,4,null,null,2]
-
-
-
-  3
-
- / \
-
-1   4
-
-&nbsp;  /
-
-&nbsp; 2
-
-
-
+<strong>Input:</strong> root = [3,1,4,null,null,2]
 <strong>Output:</strong> [2,1,4,null,null,3]
-
-
-
-  2
-
- / \
-
-1   4
-
-&nbsp;  /
-
- &nbsp;3
-
+<strong>Explanation:</strong> 2 cannot be in the right subtree of 3 because 2 &lt; 3. Swapping 2 and 3 makes the BST valid.
 </pre>
 
-<p><strong>Follow up:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>A solution using O(<em>n</em>) space is pretty straight forward.</li>
-    <li>Could you devise a constant space solution?</li>
+	<li>The number of nodes in the tree is in the range <code>[2, 1000]</code>.</li>
+	<li><code>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
 
 ## Solutions
 

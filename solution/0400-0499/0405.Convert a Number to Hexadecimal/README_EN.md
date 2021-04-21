@@ -4,63 +4,28 @@
 
 ## Description
 
-<p>
+<p>Given an integer <code>num</code>, return <em>a string representing its hexadecimal representation</em>. For negative integers, <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two&rsquo;s complement</a> method is used.</p>
 
-Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two’s complement</a> method is used.
+<p>All the letters in the answer string should be lowercase characters, and there should not be any leading zeros in the answer except for the zero itself.</p>
 
-</p>
-
-<p><b>Note:</b>
-
-<ol>
-
-<li>All letters in hexadecimal (<code>a-f</code>) must be in lowercase.</li>
-
-<li>The hexadecimal string must not contain extra leading <code>0</code>s. If the number is zero, it is represented by a single zero character <code>'0'</code>; otherwise, the first character in the hexadecimal string will not be the zero character.</li>
-
-<li>The given number is guaranteed to fit within the range of a 32-bit signed integer.</li>
-
-<li>You <b>must not use <i>any</i> method provided by the library</b> which converts/formats the number to hex directly.</li>
-
-</ol>
-
-</p>
-
-<p><b>Example 1:</b>
-
-<pre>
-
-Input:
-
-26
-
-
-
-Output:
-
-"1a"
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> num = 26
+<strong>Output:</strong> "1a"
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> num = -1
+<strong>Output:</strong> "ffffffff"
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
+<ul>
+	<li><code>-2<sup>31</sup> &lt;= num &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 
-<p><b>Example 2:</b>
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Could you solve it without using any built-in library method?</p>
 
-<pre>
-
-Input:
-
--1
-
-
-
-Output:
-
-"ffffffff"
-
-</pre>
-
-</p>
 
 ## Solutions
 

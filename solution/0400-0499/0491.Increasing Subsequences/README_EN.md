@@ -4,26 +4,33 @@
 
 ## Description
 
-<p>Given an integer array, your task is to find all the different possible increasing subsequences of the given array, and the length of an increasing subsequence should be at least 2.</p>
+<p>Given an integer array <code>nums</code>, return all the different possible increasing subsequences of the given array with <strong>at least two elements</strong>. You may return the answer in <strong>any order</strong>.</p>
+
+<p>The given array may contain duplicates, and two equal integers should also be considered a special case of increasing sequence.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<b>Input:</b> [4, 6, 7, 7]
-<b>Output:</b> [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]
+<strong>Input:</strong> nums = [4,6,7,7]
+<strong>Output:</strong> [[4,6],[4,6,7],[4,6,7,7],[4,7],[4,7,7],[6,7],[6,7,7],[7,7]]
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [4,4,3,2,1]
+<strong>Output:</strong> [[4,4]]
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 15</code></li>
+	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
+</ul>
 
-<ol>
-	<li>The length of the given array will not exceed 15.</li>
-	<li>The range of integer in the given array is [-100,100].</li>
-	<li>The given array may contain duplicates, and two equal integers should also be considered as a special case of increasing sequence.</li>
-</ol>
 
 ## Solutions
 

@@ -4,63 +4,33 @@
 
 ## Description
 
-<p>
+<p>Given a string <code>s</code> and a string array <code>dictionary</code>, return <em>the longest string in the dictionary that can be formed by deleting some of the given string characters</em>. If there is more than one possible result, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.</p>
 
-Given a string and a string dictionary, find the longest string in the dictionary that can be formed by deleting some characters of the given string. If there are more than one possible results, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.
-
-</p>
-
-<p><b>Example 1:</b><br>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b>
-
-s = "abpcplea", d = ["ale","apple","monkey","plea"]
-
-
-
-<b>Output:</b> 
-
-"apple"
-
+<strong>Input:</strong> s = &quot;abpcplea&quot;, dictionary = [&quot;ale&quot;,&quot;apple&quot;,&quot;monkey&quot;,&quot;plea&quot;]
+<strong>Output:</strong> &quot;apple&quot;
 </pre>
 
-</p>
-
-</p>
-
-<p><b>Example 2:</b><br>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b>
-
-s = "abpcplea", d = ["a","b","c"]
-
-
-
-<b>Output:</b> 
-
-"a"
-
+<strong>Input:</strong> s = &quot;abpcplea&quot;, dictionary = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+<strong>Output:</strong> &quot;a&quot;
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b><br>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= dictionary.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= dictionary[i].length &lt;= 1000</code></li>
+	<li><code>s</code> and <code>dictionary[i]</code> consist of lowercase English letters.</li>
+</ul>
 
-<ol>
-
-<li>All the strings in the input will only contain lower-case letters.</li>
-
-<li>The size of the dictionary won't exceed 1,000.</li>
-
-<li>The length of all the strings in the input won't exceed 1,000.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

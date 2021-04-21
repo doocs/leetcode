@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个由若干 <code>0</code> 和 <code>1</code> 组成的二维网格 <code>grid</code> ，其中 <code>0</code> 表示水，而 <code>1</code> 表示陆地。岛屿由水平方向或竖直方向上相邻的 <code>1</code> （陆地）连接形成。</p>
 
 <p>如果 <strong>恰好只有一座岛屿 </strong>，则认为陆地是 <strong>连通的</strong> ；否则，陆地就是 <strong>分离的</strong> 。</p>
@@ -17,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/1926_island.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/1926_island.png" style="height: 139px; width: 498px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]]
 <strong>输出：</strong>2
@@ -64,6 +65,7 @@
 	<li><code>1 &lt;= grid.length, grid[i].length &lt;= 30</code></li>
 	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
+
 
 ## 解法
 

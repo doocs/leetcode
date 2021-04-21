@@ -23,7 +23,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_11_1957.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/sample_11_1957.png" style="width: 775px; height: 151px;" /></p>
 
 <pre>
 <strong>Input:</strong> logs = [&quot;d1/&quot;,&quot;d2/&quot;,&quot;../&quot;,&quot;d21/&quot;,&quot;./&quot;]
@@ -33,7 +33,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_22_1957.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/sample_22_1957.png" style="width: 600px; height: 270px;" /></p>
 
 <pre>
 <strong>Input:</strong> logs = [&quot;d1/&quot;,&quot;d2/&quot;,&quot;./&quot;,&quot;d3/&quot;,&quot;../&quot;,&quot;d31/&quot;]
@@ -57,6 +57,7 @@
 	<li><code>logs[i]</code> follows the format described in the statement.</li>
 	<li>Folder names consist of lowercase English letters and digits.</li>
 </ul>
+
 
 ## Solutions
 

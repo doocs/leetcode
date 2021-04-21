@@ -4,36 +4,42 @@
 
 ## Description
 
-<p>Given an array of citations <strong>sorted&nbsp;in ascending order </strong>(each citation is a non-negative integer) of a researcher, write a function to compute the researcher&#39;s h-index.</p>
+<p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper and <code>citations</code>&nbsp;is sorted in an <strong>ascending order</strong>, return compute the researcher&#39;s <code>h</code><strong>-index</strong>.</p>
 
-<p>According to the&nbsp;<a href="https://en.wikipedia.org/wiki/H-index" target="_blank">definition of h-index on Wikipedia</a>: &quot;A scientist has index&nbsp;<i>h</i>&nbsp;if&nbsp;<i>h</i>&nbsp;of his/her&nbsp;<i>N</i>&nbsp;papers have&nbsp;<b>at least</b>&nbsp;<i>h</i>&nbsp;citations each, and the other&nbsp;<i>N &minus; h</i>&nbsp;papers have&nbsp;<b>no more than</b>&nbsp;<i>h&nbsp;</i>citations each.&quot;</p>
+<p>According to the <a href="https://en.wikipedia.org/wiki/H-index" target="_blank">definition of h-index on Wikipedia</a>: A scientist has an index <code>h</code> if <code>h</code> of their <code>n</code> papers have at least <code>h</code> citations each, and the other <code>n &minus; h</code> papers have no more than <code>h</code> citations each.</p>
 
-<p><b>Example:</b></p>
+<p>If there are several possible values for <code>h</code>, the maximum one is taken as the <code>h</code><strong>-index</strong>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> citations = [0,1,3,5,6]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> [0,1,3,5,6] means the researcher has 5 papers in total and each of them had received 0, 1, 3, 5, 6 citations respectively.
+Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, their h-index is 3.
+</pre>
 
-<b>Input:</b> <code>citations = [0,1,3,5,6]</code>
+<p><strong>Example 2:</strong></p>
 
-<b>Output:</b> 3 
+<pre>
+<strong>Input:</strong> citations = [1,2,100]
+<strong>Output:</strong> 2
+</pre>
 
-<strong>Explanation: </strong><code>[0,1,3,5,6] </code>means the researcher has <code>5</code> papers in total and each of them had 
-
-             received 0<code>, 1, 3, 5, 6</code> citations respectively. 
-
-&nbsp;            Since the researcher has <code>3</code> papers with <b>at least</b> <code>3</code> citations each and the remaining 
-
-&nbsp;            two with <b>no more than</b> <code>3</code> citations each, her h-index is <code>3</code>.</pre>
-
-<p><strong>Note:</strong></p>
-
-<p>If there are several possible values for&nbsp;<em>h</em>, the maximum one is taken as the h-index.</p>
-
-<p><strong>Follow up:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>This is a follow up problem to&nbsp;<a href="/problems/h-index/description/">H-Index</a>, where <code>citations</code> is now guaranteed to be sorted in ascending order.</li>
-    <li>Could you solve it in logarithmic time complexity?</li>
+	<li><code>n == citations.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
+	<li><code>citations</code> is sorted in <strong>ascending order</strong>.</li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Could you solve it in logarithmic time complexity?</p>
+
 
 ## Solutions
 

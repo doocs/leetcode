@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>Given a set of keywords <code>words</code> and a string <code>S</code>, make all appearances of all keywords in <code>S</code> bold. Any letters between <code><b></code> and <code></b></code> tags become bold.</p>
+<p>Given a set of keywords <code>words</code> and a string <code>S</code>, make all appearances of all keywords in <code>S</code> bold. Any letters between <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code> tags become bold.</p>
 
 <p>The returned string should use the least number of tags possible, and of course the tags should form a valid combination.</p>
 
-<p>For example, given that <code>words = ["ab", "bc"]</code> and <code>S = "aabcd"</code>, we should return <code>"a<b>abc</b>d"</code>. Note that returning <code>"a<b>a<b>b</b>c</b>d"</code> would use more tags, so it is incorrect.</p>
+<p>For example, given that <code>words = [&quot;ab&quot;, &quot;bc&quot;]</code> and <code>S = &quot;aabcd&quot;</code>, we should return <code>&quot;a&lt;b&gt;abc&lt;/b&gt;d&quot;</code>. Note that returning <code>&quot;a&lt;b&gt;a&lt;b&gt;b&lt;/b&gt;c&lt;/b&gt;d&quot;</code> would use more tags, so it is incorrect.</p>
 
 <p><b>Constraints:</b></p>
 
@@ -19,7 +19,8 @@
 	<li>All characters in <code>words[i]</code> and <code>S</code> are lowercase letters.</li>
 </ul>
 
-<p><strong>Note:</strong> This question is the same as 616: <a href="https://leetcode.com/problems/add-bold-tag-in-string/">https://leetcode.com/problems/add-bold-tag-in-string/</a></p>
+<p><strong>Note:</strong> This question is the same as 616:&nbsp;<a href="https://leetcode.com/problems/add-bold-tag-in-string/">https://leetcode.com/problems/add-bold-tag-in-string/</a></p>
+
 
 ## Solutions
 

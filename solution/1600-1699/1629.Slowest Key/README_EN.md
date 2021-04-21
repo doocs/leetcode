@@ -54,6 +54,7 @@ The longest of these was the keypress for &#39;a&#39; with duration 16.</pre>
 	<li><code>keysPressed</code> contains only lowercase English letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

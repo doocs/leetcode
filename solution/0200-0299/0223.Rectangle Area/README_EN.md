@@ -4,23 +4,34 @@
 
 ## Description
 
-<p>Find the total area covered by two <strong>rectilinear</strong> rectangles in a <strong>2D</strong> plane.</p>
+<p>Given the coordinates of two <strong>rectilinear</strong> rectangles in a 2D plane, return <em>the total area covered by the two rectangles</em>.</p>
 
-<p>Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.</p>
+<p>The first rectangle is defined by its <strong>bottom-left</strong> corner <code>(A, B)</code> and its <strong>top-right</strong> corner <code>(C, D)</code>.</p>
 
-![](./images/rectangle_area.png)
+<p>The second rectangle is defined by its <strong>bottom-left</strong> corner <code>(E, F)</code> and its <strong>top-right</strong> corner <code>(G, H)</code>.</p>
 
-<p><strong>Example:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="Rectangle Area" src="https://assets.leetcode.com/uploads/2021/03/16/rectangle-plane.jpg" style="width: 600px; height: 325px;" />
+<pre>
+<strong>Input:</strong> A = -3, B = 0, C = 3, D = 4, E = 0, F = -1, G = 9, H = 2
+<strong>Output:</strong> 45
+</pre>
+
+<p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> A = -2, B = -2, C = 2, D = 2, E = -2, F = -2, G = 2, H = 2
+<strong>Output:</strong> 16
+</pre>
 
-<strong>Input: </strong>A = <span id="example-input-1-1">-3</span>, B = <span id="example-input-1-2">0</span>, C = <span id="example-input-1-3">3</span>, D = <span id="example-input-1-4">4</span>, E = <span id="example-input-1-5">0</span>, F = <span id="example-input-1-6">-1</span>, G = <span id="example-input-1-7">9</span>, H = <span id="example-input-1-8">2</span>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output: </strong><span id="example-output-1">45</span></pre>
+<ul>
+	<li><code>-10<sup>4</sup> &lt;= A, B, C, D, E, F, G, H &lt;= 10<sup>4</sup></code></li>
+</ul>
 
-<p><strong>Note:</strong></p>
-
-<p>Assume that the total area is never beyond the maximum possible value of <strong>int</strong>.</p>
 
 ## Solutions
 

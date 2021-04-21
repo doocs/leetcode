@@ -5,13 +5,14 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个由若干 <code>0</code> 和 <code>1</code> 组成的数组 <code>nums</code> 以及整数 <code>k</code>。如果所有 <code>1</code> 都至少相隔 <code>k</code> 个元素，则返回 <code>True</code> ；否则，返回 <code>False</code> 。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_1_1791.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/03/sample_1_1791.png" style="width: 214px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [1,0,0,0,1,0,0,1], k = 2
 <strong>输出：</strong>true
@@ -19,7 +20,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1791.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/03/sample_2_1791.png" style="height: 86px; width: 160px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [1,0,0,1,0,1], k = 2
 <strong>输出：</strong>false
@@ -46,6 +47,7 @@
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 	<li><code>nums[i]</code> 的值为 <code>0</code> 或 <code>1</code></li>
 </ul>
+
 
 ## 解法
 

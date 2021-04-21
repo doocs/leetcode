@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定字符串 <code>S</code> 和单词字典 <code>words</code>, 求&nbsp;<code>words[i]</code>&nbsp;中是&nbsp;<code>S</code>&nbsp;的子序列的单词个数。</p>
 
 <pre>
@@ -24,6 +25,7 @@ words = [&quot;a&quot;, &quot;bb&quot;, &quot;acd&quot;, &quot;ace&quot;]
 	<li><code>words</code>&nbsp;的长度在&nbsp;<code>[1, 5000]</code>。</li>
 	<li><code>words[i]</code>的长度在<code>[1, 50]</code>。</li>
 </ul>
+
 
 ## 解法
 

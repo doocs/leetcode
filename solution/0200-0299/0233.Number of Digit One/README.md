@@ -5,13 +5,33 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个整数 n，计算所有小于等于 n 的非负整数中数字 1 出现的个数。</p>
 
-<p><strong>示例:</strong></p>
+<p>给定一个整数 <code>n</code>，计算所有小于等于 <code>n</code> 的非负整数中数字 <code>1</code> 出现的个数。</p>
 
-<pre><strong>输入:</strong> 13
-<strong>输出:</strong> 6 
-<strong>解释: </strong>数字 1 出现在以下数字中: 1, 10, 11, 12, 13 。</pre>
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 13
+<strong>输出：</strong>6
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 0
+<strong>输出：</strong>0
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>0 <= n <= 2 * 10<sup>9</sup></code></li>
+</ul>
+
 
 ## 解法
 

@@ -4,16 +4,16 @@
 
 ## Description
 
-<p>Given the integer <code>n</code> representing the number of courses at some university labeled from <code>1</code> to <code>n</code>, and the array <code>dependencies</code> where <code>dependencies[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> &nbsp;represents a prerequisite relationship, that is, the course <code>x<sub>i</sub></code>&nbsp;must be taken before the course <code>y<sub>i</sub></code>. &nbsp;Also, you are given the&nbsp;integer <code>k</code>.</p>
+<p>Given the integer <code>n</code> representing the number of courses at some university labeled from <code>1</code> to <code>n</code>, and the array <code>dependencies</code> where <code>dependencies[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a prerequisite relationship, that is, the course <code>x<sub>i</sub></code> must be taken before the course <code>y<sub>i</sub></code>. Also, you are given the integer <code>k</code>.</p>
 
 <p>In one semester you can take <strong>at most</strong> <code>k</code> courses as long as you have taken all the prerequisites for the courses you are taking.</p>
 
-<p><em>Return the minimum number of semesters to take all courses</em>.&nbsp;It is guaranteed that you can take all courses in some way.</p>
+<p><em>Return the minimum number of semesters to take all courses</em>. It is guaranteed that you can take all courses in some way.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/leetcode_parallel_courses_1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/05/22/leetcode_parallel_courses_1.png" style="width: 300px; height: 164px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, dependencies = [[2,1],[3,1],[1,4]], k = 2
@@ -23,7 +23,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/leetcode_parallel_courses_2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/05/22/leetcode_parallel_courses_2.png" style="width: 300px; height: 234px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 5, dependencies = [[2,1],[3,1],[4,1],[1,5]], k = 2
@@ -44,13 +44,14 @@
 <ul>
 	<li><code>1 &lt;= n &lt;= 15</code></li>
 	<li><code>1 &lt;= k &lt;= n</code></li>
-	<li><code>0 &lt;=&nbsp;dependencies.length &lt;= n * (n-1) / 2</code></li>
+	<li><code>0 &lt;= dependencies.length &lt;= n * (n-1) / 2</code></li>
 	<li><code>dependencies[i].length == 2</code></li>
-	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= n</code></li>
+	<li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= n</code></li>
 	<li><code>x<sub>i</sub> != y<sub>i</sub></code></li>
 	<li>All prerequisite relationships are distinct, that is, <code>dependencies[i] != dependencies[j]</code>.</li>
 	<li>The given graph is a directed acyclic graph.</li>
 </ul>
+
 
 ## Solutions
 

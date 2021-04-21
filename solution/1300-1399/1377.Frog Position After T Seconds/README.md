@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一棵由 n 个顶点组成的无向树，顶点编号从 1 到 <code>n</code>。青蛙从 <strong>顶点 1</strong> 开始起跳。规则如下：</p>
 
 <ul>
@@ -22,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/frog_2.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/frog_2.png" style="height: 236px; width: 350px;"></p>
 
 <pre><strong>输入：</strong>n = 7, edges = [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], t = 2, target = 4
 <strong>输出：</strong>0.16666666666666666 
@@ -31,7 +32,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/frog_3.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/frog_3.png" style="height: 236px; width: 350px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 7, edges = [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], t = 1, target = 7
 <strong>输出：</strong>0.3333333333333333
@@ -57,6 +58,7 @@
 	<li><code>1 &lt;= target&nbsp;&lt;= n</code></li>
 	<li>与准确值误差在 <code>10^-5</code> 之内的结果将被判定为正确。</li>
 </ul>
+
 
 ## 解法
 

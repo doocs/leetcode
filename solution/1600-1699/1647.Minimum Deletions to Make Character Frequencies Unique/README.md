@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>如果字符串 <code>s</code> 中 <strong>不存在</strong> 两个不同字符 <strong>频次</strong> 相同的情况，就称 <code>s</code> 是 <strong>优质字符串</strong> 。</p>
 
 <p>给你一个字符串 <code>s</code>，返回使 <code>s</code> 成为 <strong>优质字符串</strong> 需要删除的 <strong>最小</strong> 字符数。</p>
@@ -46,6 +47,7 @@
 	<li><code>1 <= s.length <= 10<sup>5</sup></code></li>
 	<li><code>s</code> 仅含小写英文字母</li>
 </ul>
+
 
 ## 解法
 

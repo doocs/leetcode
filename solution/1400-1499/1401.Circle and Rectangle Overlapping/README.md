@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个以 (<code>radius</code>, <code>x_center</code>, <code>y_center</code>) 表示的圆和一个与坐标轴平行的矩形 (<code>x1</code>, <code>y1</code>, <code>x2</code>, <code>y2</code>)，其中&nbsp;(<code>x1</code>, <code>y1</code>) 是矩形左下角的坐标，(<code>x2</code>, <code>y2</code>) 是右上角的坐标。</p>
 
 <p>如果圆和矩形有重叠的部分，请你返回 True ，否则返回 False&nbsp;。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_4_1728.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/04/sample_4_1728.png" style="height: 167px; width: 258px;"></p>
 
 <pre><strong>输入：</strong>radius = 1, x_center = 0, y_center = 0, x1 = 1, y1 = -1, x2 = 3, y2 = 1
 <strong>输出：</strong>true
@@ -24,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1728.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/04/sample_2_1728.png" style="height: 135px; width: 150px;"></strong></p>
 
 <pre><strong>输入：</strong>radius = 1, x_center = 0, y_center = 0, x1 = -1, y1 = 0, x2 = 0, y2 = 1
 <strong>输出：</strong>true
@@ -32,7 +33,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/sample_6_1728.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/04/sample_6_1728.png" style="height: 165px; width: 175px;"></strong></p>
 
 <pre><strong>输入：</strong>radius = 1, x_center = 1, y_center = 1, x1 = -3, y1 = -3, x2 = 3, y2 = 3
 <strong>输出：</strong>true
@@ -54,6 +55,7 @@
 	<li><code>x1 &lt; x2</code></li>
 	<li><code>y1 &lt; y2</code></li>
 </ul>
+
 
 ## 解法
 

@@ -4,28 +4,37 @@
 
 ## Description
 
-<p>Given an array <i>nums</i> and a target value <i>k</i>, find the maximum length of a subarray that sums to <i>k</i>. If there isn't one, return 0 instead.</p>
+<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the maximum length of a subarray that sums to</em> <code>k</code>. If there isn&#39;t one, return <code>0</code> instead.</p>
 
-<p><b>Note:</b><br />
-The sum of the entire <i>nums</i> array is guaranteed to fit within the 32-bit signed integer range.</p>
-
-<p><b>Example 1:</b></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input: </strong><i>nums</i> = <code>[1, -1, 5, -2, 3]</code>, <i>k</i> = <code>3</code>
-<strong>Output: </strong>4 
-<strong>Explanation: </strong>The subarray <code>[1, -1, 5, -2]</code> sums to 3 and is the longest.
+<strong>Input:</strong> nums = [1,-1,5,-2,3], k = 3
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> The subarray [1, -1, 5, -2] sums to 3 and is the longest.
 </pre>
 
-<p><b>Example 2:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input: </strong><i>nums</i> = <code>[-2, -1, 2, 1]</code>, <i>k</i> = <code>1</code>
-<strong>Output: </strong>2 <strong>
-Explanation: </strong>The subarray <code>[-1, 2]</code> sums to 1 and is the longest.</pre>
+<strong>Input:</strong> nums = [-2,-1,2,1], k = 1
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The subarray [-1, 2] sums to 1 and is the longest.
+</pre>
 
-<p><b>Follow Up:</b><br />
-Can you do it in O(<i>n</i>) time?</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>5</sup> &lt;= k &lt;= 10<sup>5</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow Up:</strong> Can you do it in <code>O(n)</code> time?</p>
+
 
 ## Solutions
 

@@ -4,51 +4,36 @@
 
 ## Description
 
-<p>
+<p>Given an array <code>nums</code> with <code>n</code> integers, your task is to check if it could become non-decreasing by modifying <strong>at most one element</strong>.</p>
 
-Given an array with <code>n</code> integers, your task is to check if it could become non-decreasing by modifying <b>at most</b> <code>1</code> element.
+<p>We define an array is non-decreasing if <code>nums[i] &lt;= nums[i + 1]</code> holds for every <code>i</code> (<strong>0-based</strong>) such that (<code>0 &lt;= i &lt;= n - 2</code>).</p>
 
-</p>
-
-<p>
-
-We define an array is non-decreasing if <code>array[i] <= array[i + 1]</code> holds for every <code>i</code> (1 <= i < n).
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> [4,2,3]
-
-<b>Output:</b> True
-
-<b>Explanation:</b> You could modify the first <code>4</code> to <code>1</code> to get a non-decreasing array.
-
+<strong>Input:</strong> nums = [4,2,3]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> You could modify the first <code>4</code> to <code>1</code> to get a non-decreasing array.
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> [4,2,1]
-
-<b>Output:</b> False
-
-<b>Explanation:</b> You can't get a non-decreasing array by modify at most one element.
-
+<strong>Input:</strong> nums = [4,2,1]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> You can&#39;t get a non-decreasing array by modify at most one element.
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b>
+<ul>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
+</ul>
 
-The <code>n</code> belongs to [1, 10,000].
-
-</p>
 
 ## Solutions
 

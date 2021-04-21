@@ -9,7 +9,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_1_1791.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/15/sample_1_1791.png" style="width: 214px; height: 90px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,0,0,0,1,0,0,1], k = 2
@@ -19,7 +19,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_2_1791.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/15/sample_2_1791.png" style="width: 160px; height: 86px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,0,0,1,0,1], k = 2
@@ -44,10 +44,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
-	<li><code>nums[i]</code>&nbsp;is&nbsp;<code>0</code>&nbsp;or&nbsp;<code>1</code></li>
+	<li><code>nums[i]</code> is <code>0</code> or <code>1</code></li>
 </ul>
+
 
 ## Solutions
 

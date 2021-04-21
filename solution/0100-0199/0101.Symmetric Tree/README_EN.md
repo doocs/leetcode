@@ -4,47 +4,33 @@
 
 ## Description
 
-<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
+<p>Given the <code>root</code> of a binary tree, <em>check whether it is a mirror of itself</em> (i.e., symmetric around its center).</p>
 
-<p>For example, this binary tree <code>[1,2,2,3,4,4,3]</code> is symmetric:</p>
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/symtree1.jpg" style="width: 354px; height: 291px;" />
 <pre>
+<strong>Input:</strong> root = [1,2,2,3,4,4,3]
+<strong>Output:</strong> true
+</pre>
 
-    1
-
-   / \
-
-  2   2
-
- / \ / \
-
-3  4 4  3
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/symtree2.jpg" style="width: 308px; height: 258px;" />
+<pre>
+<strong>Input:</strong> root = [1,2,2,null,3,null,3]
+<strong>Output:</strong> false
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p>But the following <code>[1,2,2,null,3,null,3]</code> is not:</p>
-
-<pre>
-
-    1
-
-   / \
-
-  2   2
-
-   \   \
-
-   3    3
-
-</pre>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
+	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+</ul>
 
 <p>&nbsp;</p>
-
-<p><b>Note:</b><br />
-
-Bonus points if you could solve it both recursively and iteratively.</p>
+<strong>Follow up:</strong> Could you solve it both recursively and iteratively?
 
 ## Solutions
 

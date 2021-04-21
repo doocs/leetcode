@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个 <strong>非递减 </strong>有序整数数组 <code>nums</code> 。</p>
 
 <p>请你建立并返回一个整数数组<em> </em><code>result</code>，它跟<em> </em><code>nums</code> 长度相同，且<code>result[i]</code> 等于<em> </em><code>nums[i]</code> 与数组中所有其他元素差的绝对值之和。</p>
@@ -39,6 +40,7 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 	<li><code>2 <= nums.length <= 10<sup>5</sup></code></li>
 	<li><code>1 <= nums[i] <= nums[i + 1] <= 10<sup>4</sup></code></li>
 </ul>
+
 
 ## 解法
 

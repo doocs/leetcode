@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串&nbsp;<code>text</code>，你需要使用 <code>text</code> 中的字母来拼凑尽可能多的单词&nbsp;<strong>&quot;balloon&quot;（气球）</strong>。</p>
 
 <p>字符串&nbsp;<code>text</code> 中的每个字母最多只能被使用一次。请你返回最多可以拼凑出多少个单词&nbsp;<strong>&quot;balloon&quot;</strong>。</p>
@@ -13,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/1536_ex1_upd.jpeg)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/14/1536_ex1_upd.jpeg" style="height: 35px; width: 154px;"></strong></p>
 
 <pre><strong>输入：</strong>text = &quot;nlaebolko&quot;
 <strong>输出：</strong>1
@@ -21,7 +22,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/1536_ex2_upd.jpeg)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/14/1536_ex2_upd.jpeg" style="height: 35px; width: 233px;"></strong></p>
 
 <pre><strong>输入：</strong>text = &quot;loonbalxballpoon&quot;
 <strong>输出：</strong>2
@@ -41,6 +42,7 @@
 	<li><code>1 &lt;= text.length &lt;= 10^4</code></li>
 	<li><code>text</code>&nbsp;全部由小写英文字母组成</li>
 </ul>
+
 
 ## 解法
 

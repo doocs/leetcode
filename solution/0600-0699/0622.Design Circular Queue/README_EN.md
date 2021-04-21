@@ -8,55 +8,52 @@
 
 <p>One of the benefits of the circular queue is that we can make use of the spaces in front of the queue. In a normal queue, once the queue becomes full, we cannot insert the next element even if there is a space in front of the queue. But using the circular queue, we can use the space to store new values.</p>
 
-<p>Your implementation should support following operations:</p>
+<p>Implementation the <code>MyCircularQueue</code> class:</p>
 
 <ul>
-    <li><code>MyCircularQueue(k)</code>: Constructor, set the size of the queue to be k.</li>
-    <li><code>Front</code>: Get the front item from the queue. If the queue is empty, return -1.</li>
-    <li><code>Rear</code>: Get the last item from the queue. If the queue is empty, return -1.</li>
-    <li><code>enQueue(value)</code>: Insert an element into the circular queue. Return true if the operation is successful.</li>
-    <li><code>deQueue()</code>: Delete an element from the circular queue. Return true if the operation is successful.</li>
-    <li><code>isEmpty()</code>: Checks whether the circular queue is empty or not.</li>
-    <li><code>isFull()</code>: Checks whether the circular queue is full or not.</li>
+	<li><code>MyCircularQueue(k)</code> Initializes the object with the size of the queue to be <code>k</code>.</li>
+	<li><code>int Front()</code> Gets the front item from the queue. If the queue is empty, return <code>-1</code>.</li>
+	<li><code>int Rear()</code> Gets the last item from the queue. If the queue is empty, return <code>-1</code>.</li>
+	<li><code>boolean enQueue(int value)</code> Inserts an element into the circular queue. Return <code>true</code> if the operation is successful.</li>
+	<li><code>boolean deQueue()</code> Deletes an element from the circular queue. Return <code>true</code> if the operation is successful.</li>
+	<li><code>boolean isEmpty()</code> Checks whether the circular queue is empty or not.</li>
+	<li><code>boolean isFull()</code> Checks whether the circular queue is full or not.</li>
 </ul>
 
 <p>&nbsp;</p>
-
-<p><strong>Example:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input</strong>
+[&quot;MyCircularQueue&quot;, &quot;enQueue&quot;, &quot;enQueue&quot;, &quot;enQueue&quot;, &quot;enQueue&quot;, &quot;Rear&quot;, &quot;isFull&quot;, &quot;deQueue&quot;, &quot;enQueue&quot;, &quot;Rear&quot;]
+[[3], [1], [2], [3], [4], [], [], [], [4], []]
+<strong>Output</strong>
+[null, true, true, true, false, 3, true, true, true, 4]
 
-MyCircularQueue circularQueue = new MyCircularQueue(3); // set the size to be 3
-
-circularQueue.enQueue(1); &nbsp;// return true
-
-circularQueue.enQueue(2); &nbsp;// return true
-
-circularQueue.enQueue(3); &nbsp;// return true
-
-circularQueue.enQueue(4); &nbsp;// return false, the queue is full
-
-circularQueue.Rear(); &nbsp;// return 3
-
-circularQueue.isFull(); &nbsp;// return true
-
-circularQueue.deQueue(); &nbsp;// return true
-
-circularQueue.enQueue(4); &nbsp;// return true
-
-circularQueue.Rear(); &nbsp;// return 4
-
+<strong>Explanation</strong>
+MyCircularQueue myCircularQueue = new MyCircularQueue(3);
+myCircularQueue.enQueue(1); // return True
+myCircularQueue.enQueue(2); // return True
+myCircularQueue.enQueue(3); // return True
+myCircularQueue.enQueue(4); // return False
+myCircularQueue.Rear();     // return 3
+myCircularQueue.isFull();   // return True
+myCircularQueue.deQueue();  // return True
+myCircularQueue.enQueue(4); // return True
+myCircularQueue.Rear();     // return 4
 </pre>
 
-&nbsp;
-
-<p><strong>Note:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>All values will be in the range of [0, 1000].</li>
-    <li>The number of operations will be in the range of&nbsp;[1, 1000].</li>
-    <li>Please do not use the built-in Queue library.</li>
+	<li><code>1 &lt;= k &lt;= 1000</code></li>
+	<li><code>0 &lt;= value &lt;= 1000</code></li>
+	<li>At most <code>3000</code> calls will be made to&nbsp;<code>enQueue</code>, <code>deQueue</code>,&nbsp;<code>Front</code>,&nbsp;<code>Rear</code>,&nbsp;<code>isEmpty</code>, and&nbsp;<code>isFull</code>.</li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong>&nbsp;Could you solve the problem without using the built-in queue?&nbsp;
 
 ## Solutions
 

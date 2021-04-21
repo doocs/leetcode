@@ -4,43 +4,35 @@
 
 ## Description
 
-<p>Given a binary tree, find the length of the longest consecutive sequence path.</p>
+<p>Given the <code>root</code> of a binary tree, return <em>the length of the longest consecutive sequence path</em>.</p>
 
-<p>The path refers to any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The longest consecutive path need to be from parent to child (cannot be the reverse).</p>
+<p>The path refers to any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The longest consecutive path needs to be from parent to child (cannot be the reverse).</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec1-1-tree.jpg" style="width: 322px; height: 421px;" />
 <pre>
-<strong>Input:</strong>
-
-   1
-    \
-     3
-    / \
-   2   4
-        \
-         5
-
-<strong>Output:</strong> <code>3</code>
-
-<strong>Explanation: </strong>Longest consecutive sequence path is <code>3-4-5</code><span style="font-family: sans-serif, Arial, Verdana, "Trebuchet MS";">, so return </span><code>3</code><span style="font-family: sans-serif, Arial, Verdana, "Trebuchet MS";">.</span></pre>
+<strong>Input:</strong> root = [1,null,3,2,4,null,null,null,5]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> Longest consecutive sequence path is 3-4-5, so return 3.
+</pre>
 
 <p><strong>Example 2:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec1-2-tree.jpg" style="width: 262px; height: 421px;" />
 <pre>
-<strong>Input:
+<strong>Input:</strong> root = [2,null,3,2,null,1]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> Longest consecutive sequence path is 2-3, not 3-2-1, so return 2.
+</pre>
 
-</strong>   2
-    \
-     3
-    / 
-   2    
-  / 
- 1
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output: 2 
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 3 * 10<sup>4</sup>]</code>.</li>
+	<li><code>-3 * 10<sup>4</sup> &lt;= Node.val &lt;= 3 * 10<sup>4</sup></code></li>
+</ul>
 
-Explanation: </strong>Longest consecutive sequence path is <code>2-3</code><span style="font-family: sans-serif, Arial, Verdana, "Trebuchet MS";">, not </span><code>3-2-1</code><span style="font-family: sans-serif, Arial, Verdana, "Trebuchet MS";">, so return </span><code>2</code><span style="font-family: sans-serif, Arial, Verdana, "Trebuchet MS";">.</span></pre>
 
 ## Solutions
 

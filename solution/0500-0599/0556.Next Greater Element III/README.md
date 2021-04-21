@@ -5,21 +5,35 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个<strong>32位</strong>正整数&nbsp;<strong>n</strong>，你需要找到最小的<strong>32位</strong>整数，其与&nbsp;<strong>n&nbsp;</strong>中存在的位数完全相同，并且其值大于n。如果不存在这样的<strong>32位</strong>整数，则返回-1。</p>
 
-<p><strong>示例 1:</strong></p>
+<p>给你一个正整数 <code>n</code> ，请你找出符合条件的最小整数，其由重新排列 <code>n</code><strong> </strong>中存在的每位数字组成，并且其值大于 <code>n</code> 。如果不存在这样的正整数，则返回 <code>-1</code> 。</p>
 
-<pre>
-<strong>输入:</strong> 12
-<strong>输出:</strong> 21
-</pre>
+<p><strong>注意</strong> ，返回的整数应当是一个 <strong>32 位整数</strong> ，如果存在满足题意的答案，但不是 <strong>32 位整数</strong> ，同样返回 <code>-1</code> 。</p>
 
-<p><strong>示例 2:</strong></p>
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> 21
-<strong>输出:</strong> -1
+<strong>输入：</strong>n = 12
+<strong>输出：</strong>21
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 21
+<strong>输出：</strong>-1
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= n <= 2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## 解法
 

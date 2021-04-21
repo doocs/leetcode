@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个二进制字符串&nbsp;<code>s</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
 <p>如果所有长度为 <code>k</code>&nbsp;的二进制字符串都是 <code>s</code>&nbsp;的子串，请返回 True ，否则请返回 False 。</p>
@@ -44,6 +45,8 @@
 <strong>输出：</strong>false
 </pre>
 
+<p>&nbsp;</p>
+
 <p><strong>提示：</strong></p>
 
 <ul>
@@ -51,6 +54,7 @@
 	<li><code>s</code> 中只含 0 和 1 。</li>
 	<li><code>1 &lt;= k &lt;= 20</code></li>
 </ul>
+
 
 ## 解法
 

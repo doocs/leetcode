@@ -5,11 +5,10 @@
 ## Description
 
 Given a list of lists of integers,&nbsp;<code>nums</code>,&nbsp;return all elements of <code>nums</code> in diagonal order as shown in the below images.
-
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_1_1784.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/08/sample_1_1784.png" style="width: 158px; height: 143px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [[1,2,3],[4,5,6],[7,8,9]]
@@ -18,7 +17,7 @@ Given a list of lists of integers,&nbsp;<code>nums</code>,&nbsp;return all eleme
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_2_1784.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/08/sample_2_1784.png" style="width: 230px; height: 177px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [[1,2,3,4,5],[6,7],[8],[9,10,11],[12,13,14,15,16]]
@@ -48,6 +47,7 @@ Given a list of lists of integers,&nbsp;<code>nums</code>,&nbsp;return all eleme
 	<li><code>1 &lt;= nums[i][j] &lt;= 10^9</code></li>
 	<li>There at most <code>10^5</code> elements in <code>nums</code>.</li>
 </ul>
+
 
 ## Solutions
 

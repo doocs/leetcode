@@ -5,7 +5,8 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>你被给定一个 <em>m × n</em> 的二维网格，网格中有以下三种可能的初始化值：</p>
+
+<p>你被给定一个 <code>m × n</code> 的二维网格 <code>rooms</code> ，网格中有以下三种可能的初始化值：</p>
 
 <ol>
 	<li><code>-1</code> 表示墙或是障碍物</li>
@@ -13,25 +14,49 @@
 	<li><code>INF</code> 无限表示一个空的房间。然后，我们用 <code>2<sup>31</sup> - 1 = 2147483647</code> 代表 <code>INF</code>。你可以认为通往门的距离总是小于 <code>2147483647</code> 的。</li>
 </ol>
 
-<p>你要给每个空房间位上填上该房间到 <em>最近 </em>门的距离，如果无法到达门，则填 <code>INF</code> 即可。</p>
+<p>你要给每个空房间位上填上该房间到 <strong>最近门的距离</strong> ，如果无法到达门，则填 <code>INF</code> 即可。</p>
 
-<p><strong>示例：</strong></p>
+<p> </p>
 
-<p>给定二维网格：</p>
-
-<pre>INF  -1  0  INF
-INF INF INF  -1
-INF  -1 INF  -1
-  0  -1 INF INF
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/03/grid.jpg" style="width: 500px; height: 223px;" />
+<pre>
+<strong>输入：</strong>rooms = [[2147483647,-1,0,2147483647],[2147483647,2147483647,2147483647,-1],[2147483647,-1,2147483647,-1],[0,-1,2147483647,2147483647]]
+<strong>输出：</strong>[[3,-1,0,1],[2,2,1,-1],[1,-1,2,-1],[0,-1,3,4]]
 </pre>
 
-<p>运行完你的函数后，该网格应该变成：</p>
+<p><strong>示例 2：</strong></p>
 
-<pre>  3  -1   0   1
-  2   2   1  -1
-  1  -1   2  -1
-  0  -1   3   4
+<pre>
+<strong>输入：</strong>rooms = [[-1]]
+<strong>输出：</strong>[[-1]]
 </pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>rooms = [[2147483647]]
+<strong>输出：</strong>[[2147483647]]
+</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre>
+<strong>输入：</strong>rooms = [[0]]
+<strong>输出：</strong>[[0]]
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>m == rooms.length</code></li>
+	<li><code>n == rooms[i].length</code></li>
+	<li><code>1 <= m, n <= 250</code></li>
+	<li><code>rooms[i][j]</code> 是 <code>-1</code>、<code>0</code> 或 <code>2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## 解法
 

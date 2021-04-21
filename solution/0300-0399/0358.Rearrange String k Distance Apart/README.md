@@ -5,30 +5,32 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给你一个非空的字符串 <strong>s</strong> 和一个整数 <strong>k</strong>，你要将这个字符串中的字母进行重新排列，使得重排后的字符串中相同字母的位置间隔距离至少为 <strong>k</strong>。</p>
 
-<p>所有输入的字符串都由小写字母组成，如果找不到距离至少为 <strong>k</strong> 的重排结果，请返回一个空字符串 <code>""</code>。</p>
+<p>给你一个非空的字符串&nbsp;<strong>s</strong>&nbsp;和一个整数&nbsp;<strong>k</strong>，你要将这个字符串中的字母进行重新排列，使得重排后的字符串中相同字母的位置间隔距离至少为&nbsp;<strong>k</strong>。</p>
+
+<p>所有输入的字符串都由小写字母组成，如果找不到距离至少为&nbsp;<strong>k</strong>&nbsp;的重排结果，请返回一个空字符串&nbsp;<code>&quot;&quot;</code>。</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入: </strong>s = "aabbcc", k = 3
-<strong>输出: </strong>"abcabc" 
+<pre><strong>输入: </strong>s = &quot;aabbcc&quot;, k = 3
+<strong>输出: </strong>&quot;abcabc&quot; 
 <strong>解释: </strong>相同的字母在新的字符串中间隔至少 3 个单位距离。
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入: </strong>s = "aaabc", k = 3
-<strong>输出: </strong>"" 
+<pre><strong>输入: </strong>s = &quot;aaabc&quot;, k = 3
+<strong>输出: </strong>&quot;&quot; 
 <strong>解释:</strong> 没有办法找到可能的重排结果。
 </pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong>示例&nbsp;3:</strong></p>
 
-<pre><strong>输入: </strong>s = "aaadbbcc", k = 2
-<strong>输出: </strong>"abacabcd"
+<pre><strong>输入: </strong>s = &quot;aaadbbcc&quot;, k = 2
+<strong>输出: </strong>&quot;abacabcd&quot;
 <strong>解释:</strong> 相同的字母在新的字符串中间隔至少 2 个单位距离。
 </pre>
+
 
 ## 解法
 

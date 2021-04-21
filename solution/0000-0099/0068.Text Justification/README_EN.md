@@ -15,96 +15,61 @@
 <p><strong>Note:</strong></p>
 
 <ul>
-    <li>A word is defined as a character sequence consisting&nbsp;of non-space characters only.</li>
-    <li>Each word&#39;s length is&nbsp;guaranteed to be greater than 0 and not exceed <em>maxWidth</em>.</li>
-    <li>The input array <code>words</code>&nbsp;contains at least one word.</li>
+	<li>A word is defined as a character sequence consisting&nbsp;of non-space characters only.</li>
+	<li>Each word&#39;s length is&nbsp;guaranteed to be greater than 0 and not exceed <em>maxWidth</em>.</li>
+	<li>The input array <code>words</code>&nbsp;contains at least one word.</li>
 </ul>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong>
-
-words = [&quot;This&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;, &quot;of&quot;, &quot;text&quot;, &quot;justification.&quot;]
-
-maxWidth = 16
-
+<strong>Input:</strong> words = [&quot;This&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;, &quot;of&quot;, &quot;text&quot;, &quot;justification.&quot;], maxWidth = 16
 <strong>Output:</strong>
-
 [
-
 &nbsp; &nbsp;&quot;This &nbsp; &nbsp;is &nbsp; &nbsp;an&quot;,
-
 &nbsp; &nbsp;&quot;example &nbsp;of text&quot;,
-
 &nbsp; &nbsp;&quot;justification. &nbsp;&quot;
-
-]
-
-</pre>
+]</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input:</strong>
-
-words = [&quot;What&quot;,&quot;must&quot;,&quot;be&quot;,&quot;acknowledgment&quot;,&quot;shall&quot;,&quot;be&quot;]
-
-maxWidth = 16
-
+<strong>Input:</strong> words = [&quot;What&quot;,&quot;must&quot;,&quot;be&quot;,&quot;acknowledgment&quot;,&quot;shall&quot;,&quot;be&quot;], maxWidth = 16
 <strong>Output:</strong>
-
 [
-
 &nbsp; &quot;What &nbsp; must &nbsp; be&quot;,
-
 &nbsp; &quot;acknowledgment &nbsp;&quot;,
-
 &nbsp; &quot;shall be &nbsp; &nbsp; &nbsp; &nbsp;&quot;
-
 ]
-
-<strong>Explanation:</strong> Note that the last line is &quot;shall be    &quot; instead of &quot;shall     be&quot;,
-
-&nbsp;            because the last line must be left-justified instead of fully-justified.
-
-             Note that the second line is also left-justified becase it contains only one word.
-
-</pre>
+<strong>Explanation:</strong> Note that the last line is &quot;shall be    &quot; instead of &quot;shall     be&quot;, because the last line must be left-justified instead of fully-justified.
+Note that the second line is also left-justified becase it contains only one word.</pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
-<strong>Input:</strong>
-
-words = [&quot;Science&quot;,&quot;is&quot;,&quot;what&quot;,&quot;we&quot;,&quot;understand&quot;,&quot;well&quot;,&quot;enough&quot;,&quot;to&quot;,&quot;explain&quot;,
-
-&nbsp;        &quot;to&quot;,&quot;a&quot;,&quot;computer.&quot;,&quot;Art&quot;,&quot;is&quot;,&quot;everything&quot;,&quot;else&quot;,&quot;we&quot;,&quot;do&quot;]
-
-maxWidth = 20
-
+<strong>Input:</strong> words = [&quot;Science&quot;,&quot;is&quot;,&quot;what&quot;,&quot;we&quot;,&quot;understand&quot;,&quot;well&quot;,&quot;enough&quot;,&quot;to&quot;,&quot;explain&quot;,&quot;to&quot;,&quot;a&quot;,&quot;computer.&quot;,&quot;Art&quot;,&quot;is&quot;,&quot;everything&quot;,&quot;else&quot;,&quot;we&quot;,&quot;do&quot;], maxWidth = 20
 <strong>Output:</strong>
-
 [
-
 &nbsp; &quot;Science &nbsp;is &nbsp;what we&quot;,
-
   &quot;understand &nbsp; &nbsp; &nbsp;well&quot;,
-
 &nbsp; &quot;enough to explain to&quot;,
-
 &nbsp; &quot;a &nbsp;computer. &nbsp;Art is&quot;,
-
 &nbsp; &quot;everything &nbsp;else &nbsp;we&quot;,
-
 &nbsp; &quot;do &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;
+]</pre>
 
-]
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</pre>
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 300</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 20</code></li>
+	<li><code>words[i]</code> consists of only English letters and symbols.</li>
+	<li><code>1 &lt;= maxWidth &lt;= 100</code></li>
+	<li><code>words[i].length &lt;= maxWidth</code></li>
+</ul>
+
 
 ## Solutions
 

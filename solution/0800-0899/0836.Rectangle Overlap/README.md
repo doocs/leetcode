@@ -5,30 +5,48 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>矩形以列表 <code>[x1, y1, x2, y2]</code> 的形式表示，其中 <code>(x1, y1)</code> 为左下角的坐标，<code>(x2, y2)</code> 是右上角的坐标。</p>
 
-<p>如果相交的面积为正，则称两矩形重叠。需要明确的是，只在角或边接触的两个矩形不构成重叠。</p>
+<p>矩形以列表 <code>[x1, y1, x2, y2]</code> 的形式表示，其中 <code>(x1, y1)</code> 为左下角的坐标，<code>(x2, y2)</code> 是右上角的坐标。矩形的上下边平行于 x 轴，左右边平行于 y 轴。</p>
 
-<p>给出两个矩形，判断它们是否重叠并返回结果。</p>
+<p>如果相交的面积为 <strong>正</strong> ，则称两矩形重叠。需要明确的是，只在角或边接触的两个矩形不构成重叠。</p>
+
+<p>给出两个矩形 <code>rec1</code> 和 <code>rec2</code> 。如果它们重叠，返回 <code>true</code>；否则，返回 <code>false</code> 。</p>
+
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>rec1 = [0,0,2,2], rec2 = [1,1,3,3]
+<pre>
+<strong>输入：</strong>rec1 = [0,0,2,2], rec2 = [1,1,3,3]
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>rec1 = [0,0,1,1], rec2 = [1,0,2,1]
+<pre>
+<strong>输入：</strong>rec1 = [0,0,1,1], rec2 = [1,0,2,1]
 <strong>输出：</strong>false
 </pre>
 
-<p><strong>说明：</strong></p>
+<p><strong>示例 3：</strong></p>
 
-<ol>
-	<li>两个矩形 <code>rec1</code> 和 <code>rec2</code> 都以含有四个整数的列表的形式给出。</li>
-	<li>矩形中的所有坐标都处于 <code>-10^9</code> 和 <code>10^9</code> 之间。</li>
-</ol>
+<pre>
+<strong>输入：</strong>rec1 = [0,0,1,1], rec2 = [2,2,3,3]
+<strong>输出：</strong>false
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>rect1.length == 4</code></li>
+	<li><code>rect2.length == 4</code></li>
+	<li><code>-10<sup>9</sup> <= rec1[i], rec2[i] <= 10<sup>9</sup></code></li>
+	<li><code>rec1[0] <= rec1[2]</code> 且 <code>rec1[1] <= rec1[3]</code></li>
+	<li><code>rec2[0] <= rec2[2]</code> 且 <code>rec2[1] <= rec2[3]</code></li>
+</ul>
+
 
 ## 解法
 

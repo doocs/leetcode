@@ -4,19 +4,26 @@
 
 ## Description
 
-<p>Given a string <code>s</code>, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form.</p>
+<p>Given a string s, return <em>all the palindromic permutations (without duplicates) of it</em>.</p>
 
+<p>You may return the answer in <strong>any order</strong>. If <code>s</code> has no palindromic permutation, return an empty list.</p>
+
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "aabb"
+<strong>Output:</strong> ["abba","baab"]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "abc"
+<strong>Output:</strong> []
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<pre>
-<strong>Input:</strong> <code>"aabb"</code>
-<strong>Output:</strong> <code>["abba", "baab"]</code></pre>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 16</code></li>
+	<li><code>s</code> consists of only lowercase English letters.</li>
+</ul>
 
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> <code>"abc"</code>
-<strong>Output:</strong> <code>[]</code></pre>
 
 ## Solutions
 

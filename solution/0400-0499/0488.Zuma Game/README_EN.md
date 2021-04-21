@@ -48,10 +48,11 @@
 
 <ul>
 	<li>You may assume that the initial row of balls on the table won&rsquo;t have any 3 or more consecutive balls with the same color.</li>
-	<li>The number of balls on the table won&#39;t exceed 16, and the string represents these balls is called &quot;board&quot; in the input.</li>
-	<li>The number of balls in your hand won&#39;t exceed 5, and the string represents these balls is called &quot;hand&quot; in the input.</li>
+	<li><code>1 &lt;= board.length &lt;= 16</code></li>
+	<li><code>1 &lt;= hand.length &lt;= 5</code></li>
 	<li>Both input strings will be non-empty and only contain characters &#39;R&#39;,&#39;Y&#39;,&#39;B&#39;,&#39;G&#39;,&#39;W&#39;.</li>
 </ul>
+
 
 ## Solutions
 

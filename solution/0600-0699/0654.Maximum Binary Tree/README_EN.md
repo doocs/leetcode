@@ -4,65 +4,50 @@
 
 ## Description
 
-<p>
-
-Given an integer array with no duplicates. A maximum tree building on this array is defined as follow:
+<p>You are given an integer array <code>nums</code> with no duplicates. A <strong>maximum binary tree</strong> can be built recursively from <code>nums</code> using the following algorithm:</p>
 
 <ol>
-
-<li>The root is the maximum number in the array. </li>
-
-<li>The left subtree is the maximum tree constructed from left part subarray divided by the maximum number.</li>
-
-<li>The right subtree is the maximum tree constructed from right part subarray divided by the maximum number.</li>
-
+	<li>Create a root node whose value is the maximum value in <code>nums</code>.</li>
+	<li>Recursively build the left subtree on the <strong>subarray prefix</strong> to the <strong>left</strong> of the maximum value.</li>
+	<li>Recursively build the right subtree on the <strong>subarray suffix</strong> to the <strong>right</strong> of the maximum value.</li>
 </ol>
 
-</p>
+<p>Return <em>the <strong>maximum binary tree</strong> built from </em><code>nums</code>.</p>
 
-<p>
-
-Construct the maximum tree by the given array and output the root node of this tree.
-
-</p>
-
-<p><b>Example 1:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/tree1.jpg" style="width: 302px; height: 421px;" />
 <pre>
-
-<b>Input:</b> [3,2,1,6,0,5]
-
-<b>Output:</b> return the tree root node representing the following tree:
-
-
-
-      6
-
-    /   \
-
-   3     5
-
-    \    / 
-
-     2  0   
-
-       \
-
-        1
-
+<strong>Input:</strong> nums = [3,2,1,6,0,5]
+<strong>Output:</strong> [6,3,5,null,2,0,null,null,1]
+<strong>Explanation:</strong> The recursive calls are as follow:
+- The largest value in [3,2,1,6,0,5] is 6. Left prefix is [3,2,1] and right suffix is [0,5].
+    - The largest value in [3,2,1] is 3. Left prefix is [] and right suffix is [2,1].
+        - Empty array, so no child.
+        - The largest value in [2,1] is 2. Left prefix is [] and right suffix is [1].
+            - Empty array, so no child.
+            - Only one element, so child is a node with value 1.
+    - The largest value in [0,5] is 5. Left prefix is [0] and right suffix is [].
+        - Only one element, so child is a node with value 0.
+        - Empty array, so no child.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/tree2.jpg" style="width: 182px; height: 301px;" />
+<pre>
+<strong>Input:</strong> nums = [3,2,1]
+<strong>Output:</strong> [3,null,2,null,1]
+</pre>
 
-<p><b>Note:</b><br>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<ol>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
+	<li>All integers in <code>nums</code> are <strong>unique</strong>.</li>
+</ul>
 
-<li>The size of the given array will be in the range [1,1000].</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

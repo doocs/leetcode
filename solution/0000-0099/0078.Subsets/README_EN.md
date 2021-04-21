@@ -4,37 +4,34 @@
 
 ## Description
 
-<p>Given a set of <strong>distinct</strong> integers, <em>nums</em>, return all possible subsets (the power set).</p>
+<p>Given an integer array <code>nums</code> of <strong>unique</strong> elements, return <em>all possible subsets (the power set)</em>.</p>
 
-<p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
+<p>The solution set <strong>must not</strong> contain duplicate subsets. Return the solution in <strong>any order</strong>.</p>
 
-<p><strong>Example:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> nums = [1,2,3]
+<strong>Output:</strong> [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+</pre>
 
-<strong>Output:</strong>
+<p><strong>Example 2:</strong></p>
 
-[
+<pre>
+<strong>Input:</strong> nums = [0]
+<strong>Output:</strong> [[],[0]]
+</pre>
 
-  [3],
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-&nbsp; [1],
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10</code></li>
+	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
+	<li>All the numbers of&nbsp;<code>nums</code> are <strong>unique</strong>.</li>
+</ul>
 
-&nbsp; [2],
-
-&nbsp; [1,2,3],
-
-&nbsp; [1,3],
-
-&nbsp; [2,3],
-
-&nbsp; [1,2],
-
-&nbsp; []
-
-]</pre>
 
 ## Solutions
 

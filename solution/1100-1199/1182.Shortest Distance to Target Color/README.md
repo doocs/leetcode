@@ -5,15 +5,16 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给你一个数组 <code>colors</code>，里面有  <code>1</code>、<code>2</code>、 <code>3</code> 三种颜色。</p>
 
-<p>我们需要在 <code>colors</code> 上进行一些查询操作 <code>queries</code>，其中每个待查项都由两个整数 <code>i</code> 和 <code>c</code> 组成。</p>
+<p>给你一个数组&nbsp;<code>colors</code>，里面有&nbsp;&nbsp;<code>1</code>、<code>2</code>、&nbsp;<code>3</code> 三种颜色。</p>
 
-<p>现在请你帮忙设计一个算法，查找从索引 <code>i</code> 到具有目标颜色 <code>c</code> 的元素之间的最短距离。</p>
+<p>我们需要在&nbsp;<code>colors</code> 上进行一些查询操作 <code>queries</code>，其中每个待查项都由两个整数 <code>i</code> 和 <code>c</code> 组成。</p>
 
-<p>如果不存在解决方案，请返回 <code>-1</code>。</p>
+<p>现在请你帮忙设计一个算法，查找从索引&nbsp;<code>i</code>&nbsp;到具有目标颜色&nbsp;<code>c</code>&nbsp;的元素之间的最短距离。</p>
 
-<p> </p>
+<p>如果不存在解决方案，请返回&nbsp;<code>-1</code>。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -32,18 +33,19 @@
 <strong>解释：</strong>colors 中没有颜色 3。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= colors.length <= 5*10^4</code></li>
-	<li><code>1 <= colors[i] <= 3</code></li>
-	<li><code>1 <= queries.length <= 5*10^4</code></li>
+	<li><code>1 &lt;= colors.length &lt;= 5*10^4</code></li>
+	<li><code>1 &lt;= colors[i] &lt;= 3</code></li>
+	<li><code>1&nbsp;&lt;= queries.length &lt;= 5*10^4</code></li>
 	<li><code>queries[i].length == 2</code></li>
-	<li><code>0 <= queries[i][0] < colors.length</code></li>
-	<li><code>1 <= queries[i][1] <= 3</code></li>
+	<li><code>0 &lt;= queries[i][0] &lt;&nbsp;colors.length</code></li>
+	<li><code>1 &lt;= queries[i][1] &lt;= 3</code></li>
 </ul>
+
 
 ## 解法
 

@@ -5,49 +5,52 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>在一个&nbsp;N &times;&nbsp;N 的方形网格中，每个单元格有两种状态：空（0）或者阻塞（1）。</p>
 
-<p>一条从左上角到右下角、长度为 <code>k</code> 的畅通路径，由满足下述条件的单元格&nbsp;<code>C_1, C_2, ..., C_k</code>&nbsp;组成：</p>
+<p>给你一个 <code>n x n</code> 的二进制矩阵 <code>grid</code> 中，返回矩阵中最短 <strong>畅通路径</strong> 的长度。如果不存在这样的路径，返回 <code>-1</code> 。</p>
+
+<p>二进制矩阵中的 畅通路径 是一条从 <strong>左上角</strong> 单元格（即，<code>(0, 0)</code>）到 右下角 单元格（即，<code>(n - 1, n - 1)</code>）的路径，该路径同时满足下述要求：</p>
 
 <ul>
-	<li>相邻单元格&nbsp;<code>C_i</code> 和&nbsp;<code>C_{i+1}</code>&nbsp;在八个方向之一上连通（此时，<code>C_i</code> 和&nbsp;<code>C_{i+1}</code>&nbsp;不同且共享边或角）</li>
-	<li><code>C_1</code> 位于&nbsp;<code>(0, 0)</code>（即，值为&nbsp;<code>grid[0][0]</code>）</li>
-	<li><code>C_k</code>&nbsp;位于&nbsp;<code>(N-1, N-1)</code>（即，值为&nbsp;<code>grid[N-1][N-1]</code>）</li>
-	<li>如果 <code>C_i</code> 位于&nbsp;<code>(r, c)</code>，则 <code>grid[r][c]</code>&nbsp;为空（即，<code>grid[r][c] ==&nbsp;0</code>）</li>
+	<li>路径途经的所有单元格都的值都是 <code>0</code> 。</li>
+	<li>路径中所有相邻的单元格应当在 <strong>8 个方向之一</strong> 上连通（即，相邻两单元之间彼此不同且共享一条边或者一个角）。</li>
 </ul>
 
-<p>返回这条从左上角到右下角的最短畅通路径的长度。如果不存在这样的路径，返回 -1 。</p>
+<p><strong>畅通路径的长度</strong> 是该路径途经的单元格总数。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-<pre><strong>输入：</strong>[[0,1],[1,0]]</pre>
-
-![](./images/example1_1.png)
-
-<pre><strong>输出：</strong>2</pre>
-
-![](./images/example1_2.png)
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/example1_1.png" style="width: 500px; height: 234px;" />
+<pre>
+<strong>输入：</strong>grid = [[0,1],[1,0]]
+<strong>输出：</strong>2
+</pre>
 
 <p><strong>示例 2：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/example2_1.png" style="height: 216px; width: 500px;" />
+<pre>
+<strong>输入：</strong>grid = [[0,0,0],[1,1,0],[1,1,0]]
+<strong>输出：</strong>4
+</pre>
 
-<pre><strong>输入：</strong>[[0,0,0],[1,1,0],[1,1,0]]</pre>
+<p><strong>示例 3：</strong></p>
 
-![](./images/example2_1.png)
+<pre>
+<strong>输入：</strong>grid = [[1,0,0],[1,1,0],[1,1,0]]
+<strong>输出：</strong>-1
+</pre>
 
-<pre><strong>输出：</strong>4</pre>
-
-![](./images/example2_2.png)
-
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= grid.length == grid[0].length &lt;= 100</code></li>
-	<li><code>grid[i][j]</code> 为&nbsp;<code>0</code> 或&nbsp;<code>1</code></li>
-</ol>
+<ul>
+	<li><code>n == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 <= n <= 100</code></li>
+	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
+</ul>
+
 
 ## 解法
 

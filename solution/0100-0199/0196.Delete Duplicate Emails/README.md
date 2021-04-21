@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>编写一个 SQL 查询，来删除&nbsp;<code>Person</code>&nbsp;表中所有重复的电子邮箱，重复的邮箱里只保留&nbsp;<strong>Id&nbsp;</strong><em>最小&nbsp;</em>的那个。</p>
 
 <pre>+----+------------------+
@@ -35,6 +36,7 @@ Id 是这个表的主键。
 	<li>执行 SQL 之后，输出是整个 <code>Person</code>&nbsp;表。</li>
 	<li>使用 <code>delete</code> 语句。</li>
 </ul>
+
 
 ## 解法
 

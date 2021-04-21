@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>附近的家居城促销，你买回了一直心仪的可调节书架，打算把自己的书都整理到新的书架上。</p>
 
 <p>你把要摆放的书 <code>books</code>&nbsp;都整理好，叠成一摞：从上往下，第 <code>i</code>&nbsp;本书的厚度为 <code>books[i][0]</code>，高度为 <code>books[i][1]</code>。</p>
@@ -23,7 +24,7 @@
 
 <p><strong>示例：</strong></p>
 
-![](./images/shelves.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/28/shelves.png" style="width: 150px;"></p>
 
 <pre><strong>输入：</strong>books = [[1,1],[2,3],[2,3],[1,1],[1,1],[1,1],[1,2]], shelf_width = 4
 <strong>输出：</strong>6
@@ -41,6 +42,7 @@
 	<li><code>1 &lt;= books[i][0] &lt;= shelf_width &lt;= 1000</code></li>
 	<li><code>1 &lt;= books[i][1] &lt;= 1000</code></li>
 </ul>
+
 
 ## 解法
 

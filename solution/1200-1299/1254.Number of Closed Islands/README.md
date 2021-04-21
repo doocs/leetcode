@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有一个二维矩阵 <code>grid</code>&nbsp;，每个位置要么是陆地（记号为&nbsp;<code>0</code> ）要么是水域（记号为&nbsp;<code>1</code> ）。</p>
 
 <p>我们从一块陆地出发，每次可以往上下左右&nbsp;4 个方向相邻区域走，能走到的所有陆地区域，我们将其称为一座「<strong>岛屿</strong>」。</p>
@@ -17,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_3_1610.png)
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/07/sample_3_1610.png"></p>
 
 <pre><strong>输入：</strong>grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]
 <strong>输出：</strong>2
@@ -26,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_4_1610.png)
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/07/sample_4_1610.png"></p>
 
 <pre><strong>输入：</strong>grid = [[0,0,1,0,0],[0,1,0,1,0],[0,1,1,1,0]]
 <strong>输出：</strong>1
@@ -52,6 +53,7 @@
 	<li><code>1 &lt;= grid.length, grid[0].length &lt;= 100</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;=1</code></li>
 </ul>
+
 
 ## 解法
 

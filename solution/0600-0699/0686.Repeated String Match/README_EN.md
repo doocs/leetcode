@@ -4,15 +4,49 @@
 
 ## Description
 
-<p>Given two strings A and B, find the minimum number of times A has to be repeated such that B is a substring of it. If no such solution, return -1.</p>
+<p>Given two strings&nbsp;<code>a</code> and <code>b</code>, return the minimum number of times you should repeat string&nbsp;<code>a</code>&nbsp;so that string&nbsp;<code>b</code>&nbsp;is a substring of it. If it is&nbsp;impossible for&nbsp;<code>b</code>​​​​​​ to be a substring of&nbsp;<code>a</code> after repeating it, return&nbsp;<code>-1</code>.</p>
 
-<p>For example, with A = &quot;abcd&quot; and B = &quot;cdabcdab&quot;.</p>
+<p><strong>Notice:</strong>&nbsp;string&nbsp;<code>&quot;abc&quot;</code>&nbsp;repeated 0 times is&nbsp;<code>&quot;&quot;</code>,&nbsp; repeated 1 time is&nbsp;<code>&quot;abc&quot;</code>&nbsp;and repeated 2 times is&nbsp;<code>&quot;abcabc&quot;</code>.</p>
 
-<p>Return 3, because by repeating A three times (&ldquo;abcdabcdabcd&rdquo;), B is a substring of it; and B is not a substring of A repeated two times (&quot;abcdabcd&quot;).</p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
-<p><b>Note:</b><br />
+<pre>
+<strong>Input:</strong> a = &quot;abcd&quot;, b = &quot;cdabcdab&quot;
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> We return 3 because by repeating a three times &quot;ab<strong>cdabcdab</strong>cd&quot;, b is a substring of it.
+</pre>
 
-The length of <code>A</code> and <code>B</code> will be between 1 and 10000.</p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> a = &quot;a&quot;, b = &quot;aa&quot;
+<strong>Output:</strong> 2
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> a = &quot;a&quot;, b = &quot;a&quot;
+<strong>Output:</strong> 1
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> a = &quot;abc&quot;, b = &quot;wxyz&quot;
+<strong>Output:</strong> -1
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= a.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= b.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>a</code>&nbsp;and&nbsp;<code>b</code>&nbsp;consist of lower-case English letters.</li>
+</ul>
+
 
 ## Solutions
 

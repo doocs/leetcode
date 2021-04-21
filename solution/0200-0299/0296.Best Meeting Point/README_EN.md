@@ -4,24 +4,41 @@
 
 ## Description
 
-<p>A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using <a href="http://en.wikipedia.org/wiki/Taxicab_geometry" target="_blank">Manhattan Distance</a>, where distance(p1, p2) = <code>|p2.x - p1.x| + |p2.y - p1.y|</code>.</p>
+<p>Given an <code>m x n</code> binary grid <code>grid</code> where each <code>1</code> marks the home of one friend, return <em>the minimal <strong>total travel distance</strong></em>.</p>
 
-<p><strong>Example:</strong></p>
+<p>The <strong>total travel distance</strong> is the sum of the distances between the houses of the friends and the meeting point.</p>
+
+<p>The distance is calculated using <a href="http://en.wikipedia.org/wiki/Taxicab_geometry" target="_blank">Manhattan Distance</a>, where <code>distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/meetingpoint-grid.jpg" style="width: 413px; height: 253px;" />
+<pre>
+<strong>Input:</strong> grid = [[1,0,0,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> Given three friends living at (0,0), (0,4), and (2,2).
+The point (0,2) is an ideal meeting point, as the total travel distance of 2 + 2 + 2 = 6 is minimal.
+So return 6.
+</pre>
+
+<p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
+<strong>Input:</strong> grid = [[1,1]]
+<strong>Output:</strong> 1
+</pre>
 
-1 - 0 - 0 - 0 - 1
-|   |   |   |   |
-0 - 0 - 0 - 0 - 0
-|   |   |   |   |
-0 - 0 - 1 - 0 - 0
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output: 6 
+<ul>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 200</code></li>
+	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+	<li>There will be <strong>at least two</strong> friends in the <code>grid</code>.</li>
+</ul>
 
-Explanation: </strong>Given three people living at <code>(0,0)</code>, <code>(0,4)</code>, and <code>(2,2)</code>:
-             The point <code>(0,2)</code> is an ideal meeting point, as the total travel distance 
-             of 2+2+2=6 is minimal. So return 6.</pre>
 
 ## Solutions
 

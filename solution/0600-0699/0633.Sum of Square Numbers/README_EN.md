@@ -4,33 +4,52 @@
 
 ## Description
 
-<p>Given a non-negative integer <code>c</code>, your task is to decide whether there&#39;re two integers <code>a</code> and <code>b</code> such that a<sup>2</sup> + b<sup>2</sup> = c.</p>
+<p>Given a non-negative integer <code>c</code>, decide whether there&#39;re two integers <code>a</code> and <code>b</code> such that <code>a<sup>2</sup> + b<sup>2</sup> = c</code>.</p>
 
-<p><b>Example 1:</b></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> c = 5
+<strong>Output:</strong> true
+<strong>Explanation:</strong> 1 * 1 + 2 * 2 = 5
+</pre>
 
-<b>Input:</b> 5
+<p><strong>Example 2:</strong></p>
 
-<b>Output:</b> True
+<pre>
+<strong>Input:</strong> c = 3
+<strong>Output:</strong> false
+</pre>
 
-<b>Explanation:</b> 1 * 1 + 2 * 2 = 5
+<p><strong>Example 3:</strong></p>
 
+<pre>
+<strong>Input:</strong> c = 4
+<strong>Output:</strong> true
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> c = 2
+<strong>Output:</strong> true
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> c = 1
+<strong>Output:</strong> true
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li><code>0 &lt;= c &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 
-<pre>
-
-<b>Input:</b> 3
-
-<b>Output:</b> False
-
-</pre>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

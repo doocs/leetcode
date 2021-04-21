@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Two images <code>A</code> and <code>B</code> are given, represented as&nbsp;binary, square matrices of the same size.&nbsp; (A binary matrix has only 0s and 1s as values.)</p>
+<p>You are given two images <code>img1</code> and <code>img2</code>&nbsp;both of size <code>n x n</code>, represented as&nbsp;binary, square matrices of the same size. (A binary matrix has only 0s and 1s as values.)</p>
 
 <p>We translate one image however we choose (sliding it left, right, up, or down any number of units), and place it on top of the other image.&nbsp; After, the <em>overlap</em> of this translation is the number of positions that have a 1 in both images.</p>
 
@@ -12,32 +12,45 @@
 
 <p>What is the largest possible overlap?</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/overlap1.jpg" style="width: 450px; height: 231px;" />
+<pre>
+<strong>Input:</strong> img1 = [[1,1,0],[0,1,0],[0,1,0]], img2 = [[0,0,0],[0,1,1],[0,0,1]]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> We slide img1 to right by 1 unit and down by 1 unit.
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/overlap_step1.jpg" style="width: 450px; height: 105px;" />
+The number of positions that have a 1 in both images is 3. (Shown in red)
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/overlap_step2.jpg" style="width: 450px; height: 231px;" />
+</pre>
+
+<p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> img1 = [[1]], img2 = [[1]]
+<strong>Output:</strong> 1
+</pre>
 
-<strong>Input: </strong>A = [[1,1,0],
+<p><strong>Example 3:</strong></p>
 
-            [0,1,0],
+<pre>
+<strong>Input:</strong> img1 = [[0]], img2 = [[0]]
+<strong>Output:</strong> 0
+</pre>
 
-&nbsp;           [0,1,0]]
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-&nbsp;      B = [[0,0,0],
+<ul>
+	<li><code>n == img1.length</code></li>
+	<li><code>n == img1[i].length</code></li>
+	<li><code>n == img2.length </code></li>
+	<li><code>n == img2[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 30</code></li>
+	<li><code>img1[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+	<li><code>img2[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+</ul>
 
-&nbsp;           [0,1,1],
-
-&nbsp;           [0,0,1]]
-
-<strong>Output: </strong>3
-
-<strong>Explanation:</strong> We slide A to right by 1 unit and down by 1 unit.</pre>
-
-<p><strong>Notes:</strong>&nbsp;</p>
-
-<ol>
-    <li><code>1 &lt;= A.length = A[0].length = B.length = B[0].length &lt;= 30</code></li>
-    <li><code>0 &lt;=&nbsp;A[i][j], B[i][j] &lt;= 1</code></li>
-</ol>
 
 ## Solutions
 

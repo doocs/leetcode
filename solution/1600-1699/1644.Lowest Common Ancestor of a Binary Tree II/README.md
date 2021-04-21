@@ -13,16 +13,14 @@
 <p> </p>
 
 <p><strong>示例 1:</strong></p>
-
-![](./images/binarytree.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png">
 <pre><b>输入：</b> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
 <b>输出：</b> 3
 <b>解释：</b> 节点 5 和 1 的共同祖先节点是 3。</pre>
 
 <p><strong>示例 2:</strong></p>
 
-![](./images/binarytree.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
 
 <pre><b>输入：</b> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
 <b>输出：</b> 5
@@ -30,7 +28,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-![](./images/binarytree.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png"></p>
 
 <pre><strong>输入：</strong> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 10
 <b>输出：</b> null

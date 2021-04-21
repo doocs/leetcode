@@ -47,6 +47,7 @@
 	<li><code>s</code> consists only of digits.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

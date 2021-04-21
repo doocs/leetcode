@@ -4,51 +4,42 @@
 
 ## Description
 
-<p>Given a paragraph&nbsp;and a list of banned words, return the most frequent word that is not in the list of banned words.&nbsp; It is guaranteed there is at least one word that isn&#39;t banned, and that the answer is unique.</p>
+<p>Given a string <code>paragraph</code> and a string array of the banned words <code>banned</code>, return <em>the most frequent word that is not banned</em>. It is <strong>guaranteed</strong> there is <strong>at least one word</strong> that is not banned, and that the answer is <strong>unique</strong>.</p>
 
-<p>Words in the list of banned words are given in lowercase, and free of punctuation.&nbsp; Words in the paragraph are not case sensitive.&nbsp; The answer is in lowercase.</p>
+<p>The words in <code>paragraph</code> are <strong>case-insensitive</strong> and the answer should be returned in <strong>lowercase</strong>.</p>
 
 <p>&nbsp;</p>
-
-<p><strong>Example:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> 
-
-paragraph = &quot;Bob hit a ball, the hit BALL flew far after it was hit.&quot;
-
-banned = [&quot;hit&quot;]
-
+<strong>Input:</strong> paragraph = &quot;Bob hit a ball, the hit BALL flew far after it was hit.&quot;, banned = [&quot;hit&quot;]
 <strong>Output:</strong> &quot;ball&quot;
-
 <strong>Explanation:</strong> 
-
 &quot;hit&quot; occurs 3 times, but it is a banned word.
-
 &quot;ball&quot; occurs twice (and no other word does), so it is the most frequent non-banned word in the paragraph. 
-
 Note that words in the paragraph are not case sensitive,
-
 that punctuation is ignored (even if adjacent to words, such as &quot;ball,&quot;), 
-
 and that &quot;hit&quot; isn&#39;t the answer even though it occurs more because it is banned.
+</pre>
 
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> paragraph = &quot;a.&quot;, banned = []
+<strong>Output:</strong> &quot;a&quot;
 </pre>
 
 <p>&nbsp;</p>
-
-<p><strong>Note: </strong></p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li><code>1 &lt;= paragraph.length &lt;= 1000</code>.</li>
-    <li><code>0 &lt;= banned.length &lt;= 100</code>.</li>
-    <li><code>1 &lt;= banned[i].length &lt;= 10</code>.</li>
-    <li>The answer is unique, and written in lowercase (even if its occurrences in <code>paragraph</code>&nbsp;may have&nbsp;uppercase symbols, and even if it is a proper noun.)</li>
-    <li><code>paragraph</code> only consists of letters, spaces, or the punctuation symbols <code>!?&#39;,;.</code></li>
-    <li>There are no hyphens or hyphenated words.</li>
-    <li>Words only consist of letters, never apostrophes or other punctuation symbols.</li>
+	<li><code>1 &lt;= paragraph.length &lt;= 1000</code></li>
+	<li>paragraph consists of English letters, space <code>&#39; &#39;</code>, or one of the symbols: <code>&quot;!?&#39;,;.&quot;</code>.</li>
+	<li><code>0 &lt;= banned.length &lt;= 100</code></li>
+	<li><code>1 &lt;= banned[i].length &lt;= 10</code></li>
+	<li><code>banned[i]</code> consists of only lowercase English letters.</li>
 </ul>
+
 
 ## Solutions
 

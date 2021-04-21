@@ -4,37 +4,34 @@
 
 ## Description
 
-<p>Given a positive integer <i>n</i>, break it into the sum of <b>at least</b> two positive integers and maximize the product of those integers. Return the maximum product you can get.</p>
+<p>Given an integer <code>n</code>, break it into the sum of <code>k</code> <strong>positive integers</strong>, where <code>k &gt;= 2</code>, and maximize the product of those integers.</p>
 
+<p>Return <em>the maximum product you can get</em>.</p>
+
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<div>
-
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">2</span>
-
-<strong>Output: </strong><span id="example-output-1">1</span>
-
-<strong>Explanation: </strong>2 = 1 + 1, 1 &times; 1 = 1.</pre>
-
-<div>
+<strong>Input:</strong> n = 2
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> 2 = 1 + 1, 1 &times; 1 = 1.
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> n = 10
+<strong>Output:</strong> 36
+<strong>Explanation:</strong> 10 = 3 + 3 + 4, 3 &times; 3 &times; 4 = 36.
+</pre>
 
-<strong>Input: </strong><span id="example-input-2-1">10</span>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output: </strong><span id="example-output-2">36</span>
+<ul>
+	<li><code>2 &lt;= n &lt;= 58</code></li>
+</ul>
 
-<strong>Explanation: </strong>10 = 3 + 3 + 4, 3 &times;&nbsp;3 &times;&nbsp;4 = 36.</pre>
-
-<p><b>Note</b>: You may assume that <i>n</i> is not less than 2 and not larger than 58.</p>
-
-</div>
-
-</div>
 
 ## Solutions
 

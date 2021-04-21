@@ -4,37 +4,41 @@
 
 ## Description
 
-<p>Given a binary tree, you need to find the length of Longest Consecutive Path in Binary Tree.</p>
+<p>Given the <code>root</code> of a binary tree, return <em>the length of the longest consecutive path in the tree</em>.</p>
 
-<p>Especially, this path can be either increasing or decreasing. For example, [1,2,3,4] and [4,3,2,1] are both considered valid, but the path [1,2,4,3] is not valid. On the other hand, the path can be in the child-Parent-child order, where not necessarily be parent-child order.</p>
+<p>This path can be either increasing or decreasing.</p>
 
-<p><b>Example 1:</b></p>
+<ul>
+	<li>For example, <code>[1,2,3,4]</code> and <code>[4,3,2,1]</code> are both considered valid, but the path <code>[1,2,4,3]</code> is not valid.</li>
+</ul>
 
+<p>On the other hand, the path can be in the child-Parent-child order, where not necessarily be parent-child order.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec2-1-tree.jpg" style="width: 207px; height: 183px;" />
 <pre>
-<b>Input:</b>
-        1
-       / \
-      2   3
-<b>Output:</b> 2
-<b>Explanation:</b> The longest consecutive path is [1, 2] or [2, 1].
+<strong>Input:</strong> root = [1,2,3]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The longest consecutive path is [1, 2] or [2, 1].
 </pre>
 
-<p> </p>
-
-<p><b>Example 2:</b></p>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec2-2-tree.jpg" style="width: 207px; height: 183px;" />
 <pre>
-<b>Input:</b>
-        2
-       / \
-      1   3
-<b>Output:</b> 3
-<b>Explanation:</b> The longest consecutive path is [1, 2, 3] or [3, 2, 1].
+<strong>Input:</strong> root = [2,1,3]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> The longest consecutive path is [1, 2, 3] or [3, 2, 1].
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b> All the values of tree nodes are in the range of [-1e7, 1e7].</p>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 3 * 10<sup>4</sup>]</code>.</li>
+	<li><code>-3 * 10<sup>4</sup> &lt;= Node.val &lt;= 3 * 10<sup>4</sup></code></li>
+</ul>
+
 
 ## Solutions
 

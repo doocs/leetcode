@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/ex1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/21/ex1.png" style="width: 292px; height: 172px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, roads = [[0,1],[0,3],[1,2],[1,3]]
@@ -25,7 +25,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/ex2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/21/ex2.png" style="width: 292px; height: 172px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 5, roads = [[0,1],[0,3],[1,2],[1,3],[2,3],[2,4]]
@@ -52,6 +52,7 @@
 	<li><code>a<sub>i</sub>&nbsp;!=&nbsp;b<sub>i</sub></code></li>
 	<li>Each&nbsp;pair of cities has <strong>at most one</strong> road connecting them.</li>
 </ul>
+
 
 ## Solutions
 

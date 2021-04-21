@@ -4,51 +4,50 @@
 
 ## Description
 
-<p>Design a HashMap&nbsp;without using any built-in hash table libraries.</p>
+<p>Design a HashMap without using any built-in hash table libraries.</p>
 
-<p>To be specific, your design should include these functions:</p>
+<p>Implement the <code>MyHashMap</code> class:</p>
 
 <ul>
-    <li><code>put(key, value)</code> :&nbsp;Insert a (key, value) pair into the HashMap. If the value already exists in the HashMap, update the value.</li>
-    <li><code>get(key)</code>: Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key.</li>
-    <li><code>remove(key)</code> :&nbsp;Remove the mapping for the value key if this map contains the mapping for the key.</li>
+	<li><code>MyHashMap()</code> initializes the object with an empty map.</li>
+	<li><code>void put(int key, int value)</code> inserts a <code>(key, value)</code> pair into the HashMap. If the <code>key</code> already exists in the map, update the corresponding <code>value</code>.</li>
+	<li><code>int get(int key)</code> returns the <code>value</code> to which the specified <code>key</code> is mapped, or <code>-1</code> if this map contains no mapping for the <code>key</code>.</li>
+	<li><code>void remove(key)</code> removes the <code>key</code> and its corresponding <code>value</code> if the map contains the mapping for the <code>key</code>.</li>
 </ul>
 
-<p><br />
-
-<strong>Example:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input</strong>
+[&quot;MyHashMap&quot;, &quot;put&quot;, &quot;put&quot;, &quot;get&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;remove&quot;, &quot;get&quot;]
+[[], [1, 1], [2, 2], [1], [3], [2, 1], [2], [2], [2]]
+<strong>Output</strong>
+[null, null, null, 1, -1, null, 1, null, -1]
 
-MyHashMap hashMap = new MyHashMap();
-
-hashMap.put(1, 1); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-hashMap.put(2, 2); &nbsp; &nbsp; &nbsp; &nbsp; 
-
-hashMap.get(1); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// returns 1
-
-hashMap.get(3); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// returns -1 (not found)
-
-hashMap.put(2, 1); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// update the existing value
-
-hashMap.get(2); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// returns 1 
-
-hashMap.remove(2); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// remove the mapping for 2
-
-hashMap.get(2); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// returns -1 (not found) 
-
+<strong>Explanation</strong>
+MyHashMap myHashMap = new MyHashMap();
+myHashMap.put(1, 1); // The map is now [[1,1]]
+myHashMap.put(2, 2); // The map is now [[1,1], [2,2]]
+myHashMap.get(1);    // return 1, The map is now [[1,1], [2,2]]
+myHashMap.get(3);    // return -1 (i.e., not found), The map is now [[1,1], [2,2]]
+myHashMap.put(2, 1); // The map is now [[1,1], [2,1]] (i.e., update the existing value)
+myHashMap.get(2);    // return 1, The map is now [[1,1], [2,1]]
+myHashMap.remove(2); // remove the mapping for 2, The map is now [[1,1]]
+myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 </pre>
 
-<p><br />
-
-<strong>Note:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>All keys and values will be in the range of <code>[0, 1000000]</code>.</li>
-    <li>The number of operations will be in the range of&nbsp;<code>[1, 10000]</code>.</li>
-    <li>Please do not use the built-in HashMap library.</li>
+	<li><code>0 &lt;= key, value &lt;= 10<sup>6</sup></code></li>
+	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>put</code>, <code>get</code>, and <code>remove</code>.</li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Please do not use the built-in HashMap library.</p>
+
 
 ## Solutions
 

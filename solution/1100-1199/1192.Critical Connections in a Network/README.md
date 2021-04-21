@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>力扣数据中心有&nbsp;<code>n</code>&nbsp;台服务器，分别按从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n-1</code>&nbsp;的方式进行了编号。</p>
 
 <p>它们之间以「服务器到服务器」点对点的形式相互连接组成了一个内部集群，其中连接&nbsp;<code>connections</code> 是无向的。</p>
@@ -19,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/critical-connections-in-a-network.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/original_images/critical-connections-in-a-network.png" style="width: 150px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]
 <strong>输出：</strong>[[1,3]]
@@ -35,6 +36,7 @@
 	<li><code>connections[i][0] != connections[i][1]</code></li>
 	<li>不存在重复的连接</li>
 </ul>
+
 
 ## 解法
 

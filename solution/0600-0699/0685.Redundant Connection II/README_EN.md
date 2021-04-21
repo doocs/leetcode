@@ -4,73 +4,39 @@
 
 ## Description
 
-<p>
+<p>In this problem, a rooted tree is a <b>directed</b> graph such that, there is exactly one node (the root) for which all other nodes are descendants of this node, plus every node has exactly one parent, except for the root node which has no parents.</p>
 
-In this problem, a rooted tree is a <b>directed</b> graph such that, there is exactly one node (the root) for which all other nodes are descendants of this node, plus every node has exactly one parent, except for the root node which has no parents.
+<p>The given input is a directed graph that started as a rooted tree with <code>n</code> nodes (with distinct values from <code>1</code> to <code>n</code>), with one additional directed edge added. The added edge has two different vertices chosen from <code>1</code> to <code>n</code>, and was not an edge that already existed.</p>
 
-</p><p>
+<p>The resulting graph is given as a 2D-array of <code>edges</code>. Each element of <code>edges</code> is a pair <code>[u<sub>i</sub>, v<sub>i</sub>]</code> that represents a <b>directed</b> edge connecting nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code>, where <code>u<sub>i</sub></code> is a parent of child <code>v<sub>i</sub></code>.</p>
 
-The given input is a directed graph that started as a rooted tree with N nodes (with distinct values 1, 2, ..., N), with one additional directed edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.
+<p>Return <em>an edge that can be removed so that the resulting graph is a rooted tree of</em> <code>n</code> <em>nodes</em>. If there are multiple answers, return the answer that occurs last in the given 2D-array.</p>
 
-</p><p>
-
-The resulting graph is given as a 2D-array of <code>edges</code>. Each element of <code>edges</code> is a pair <code>[u, v]</code> that represents a <b>directed</b> edge connecting nodes <code>u</code> and <code>v</code>, where <code>u</code> is a parent of child <code>v</code>.
-
-</p><p>
-
-Return an edge that can be removed so that the resulting graph is a rooted tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array.
-
-</p><p><b>Example 1:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/20/graph1.jpg" style="width: 222px; height: 222px;" />
 <pre>
-
-<b>Input:</b> [[1,2], [1,3], [2,3]]
-
-<b>Output:</b> [2,3]
-
-<b>Explanation:</b> The given directed graph will be like this:
-
-  1
-
- / \
-
-v   v
-
-2-->3
-
+<strong>Input:</strong> edges = [[1,2],[1,3],[2,3]]
+<strong>Output:</strong> [2,3]
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/20/graph2.jpg" style="width: 222px; height: 382px;" />
 <pre>
-
-<b>Input:</b> [[1,2], [2,3], [3,4], [4,1], [1,5]]
-
-<b>Output:</b> [4,1]
-
-<b>Explanation:</b> The given directed graph will be like this:
-
-5 <- 1 -> 2
-
-     ^    |
-
-     |    v
-
-     4 <- 3
-
+<strong>Input:</strong> edges = [[1,2],[2,3],[3,4],[4,1],[1,5]]
+<strong>Output:</strong> [4,1]
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b><br />
+<ul>
+	<li><code>n == edges.length</code></li>
+	<li><code>3 &lt;= n &lt;= 1000</code></li>
+	<li><code>edges[i].length == 2</code></li>
+	<li><code>1 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n</code></li>
+</ul>
 
-<li>The size of the input 2D-array will be between 3 and 1000.</li>
-
-<li>Every integer represented in the 2D-array will be between 1 and N, where N is the size of the input array.</li>
-
-</p>
 
 ## Solutions
 

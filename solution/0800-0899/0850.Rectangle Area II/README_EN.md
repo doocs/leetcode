@@ -4,44 +4,37 @@
 
 ## Description
 
-<p>We are given a list of (axis-aligned)&nbsp;<code>rectangles</code>.&nbsp; Each&nbsp;<code>rectangle[i] = [x1, y1, x2, y2]&nbsp;</code>, where (x1, y1) are the coordinates of the bottom-left corner, and (x2, y2) are the coordinates of the top-right corner of the <code>i</code>th rectangle.</p>
+<p>We are given a list of (axis-aligned) <code>rectangles</code>. Each <code>rectangle[i] = [x<sub>i1</sub>, y<sub>i1</sub>, x<sub>i2</sub>, y<sub>i2</sub>] </code>, where <code>(x<sub>i1</sub>, y<sub>i1</sub>)</code> are the coordinates of the bottom-left corner, and <code>(x<sub>i2</sub>, y<sub>i2</sub>)</code> are the coordinates of the top-right corner of the <code>i<sup>th</sup></code> rectangle.</p>
 
-<p>Find the total area covered by all <code>rectangles</code> in the plane.&nbsp; Since the answer&nbsp;may be too large, <strong>return it modulo 10^9 + 7</strong>.</p>
+<p>Find the total area covered by all <code>rectangles</code> in the plane. Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
-![](./images/rectangle_area_ii_pic.png)
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/06/06/rectangle_area_ii_pic.png" style="width: 600px; height: 450px;" />
 <pre>
-
-<strong>Input: </strong>[[0,0,2,2],[1,0,2,3],[1,0,3,1]]
-
-<strong>Output: </strong>6
-
+<strong>Input:</strong> rectangles = [[0,0,2,2],[1,0,2,3],[1,0,3,1]]
+<strong>Output:</strong> 6
 <strong>Explanation: </strong>As illustrated in the picture.
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>[[0,0,1000000000,1000000000]]
-
-<strong>Output: </strong>49
-
-<strong>Explanation: </strong>The answer is 10^18 modulo (10^9 + 7), which is (10^9)^2 = (-7)^2 = 49.
-
+<strong>Input:</strong> rectangles = [[0,0,1000000000,1000000000]]
+<strong>Output:</strong> 49
+<strong>Explanation: </strong>The answer is 10<sup>18</sup> modulo (10<sup>9</sup> + 7), which is (10<sup>9</sup>)<sup>2</sup> = (-7)<sup>2</sup> = 49.
 </pre>
 
-<p><strong>Note:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= rectangles.length &lt;= 200</code></li>
 	<li><code><font face="monospace">rectanges[i].length = 4</font></code></li>
-	<li><code>0 &lt;= rectangles[i][j] &lt;= 10^9</code></li>
-	<li>The total area covered by all rectangles will never exceed&nbsp;<code>2^63 - 1</code>&nbsp;and thus will fit in a 64-bit signed integer.</li>
+	<li><code>0 &lt;= rectangles[i][j] &lt;= 10<sup>9</sup></code></li>
+	<li>The total area covered by all rectangles will never exceed <code>2<sup>63</sup> - 1</code> and thus will fit in a <strong>64-bit</strong> signed integer.</li>
 </ul>
+
 
 ## Solutions
 

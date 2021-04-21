@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个&nbsp;<code>n&nbsp;x n</code>&nbsp;的二进制网格&nbsp;<code>grid</code>，每一次操作中，你可以选择网格的&nbsp;<strong>相邻两行</strong>&nbsp;进行交换。</p>
 
 <p>一个符合要求的网格需要满足主对角线以上的格子全部都是 <strong>0</strong>&nbsp;。</p>
@@ -17,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/fw.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/02/fw.jpg" style="height: 141px; width: 750px;"></p>
 
 <pre><strong>输入：</strong>grid = [[0,0,1],[1,1,0],[1,0,0]]
 <strong>输出：</strong>3
@@ -25,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/e2.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/02/e2.jpg" style="height: 270px; width: 270px;"></p>
 
 <pre><strong>输入：</strong>grid = [[0,1,1,0],[0,1,1,0],[0,1,1,0],[0,1,1,0]]
 <strong>输出：</strong>-1
@@ -34,7 +35,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/e3.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/02/e3.jpg" style="height: 210px; width: 210px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,0,0],[1,1,0],[1,1,1]]
 <strong>输出：</strong>0
@@ -50,6 +51,7 @@
 	<li><code>1 &lt;= n&nbsp;&lt;= 200</code></li>
 	<li><code>grid[i][j]</code>&nbsp;要么是&nbsp;<code>0</code>&nbsp;要么是&nbsp;<code>1</code>&nbsp;。</li>
 </ul>
+
 
 ## 解法
 

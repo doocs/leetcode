@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>对于某些固定的&nbsp;<code>N</code>，如果数组&nbsp;<code>A</code>&nbsp;是整数&nbsp;<code>1, 2, ..., N</code>&nbsp;组成的排列，使得：</p>
 
 <p>对于每个&nbsp;<code>i &lt; j</code>，都<strong>不存在</strong>&nbsp;<code>k</code> 满足&nbsp;<code>i &lt; k &lt; j</code>&nbsp;使得&nbsp;<code>A[k] * 2 = A[i] + A[j]</code>。</p>
@@ -37,6 +38,7 @@
 </ul>
 
 <p>&nbsp;</p>
+
 
 ## 解法
 

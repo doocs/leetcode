@@ -7,19 +7,19 @@
 <p>Design a Leaderboard class, which has 3 functions:</p>
 
 <ol>
-	<li><code>addScore(playerId, score)</code>: Update the leaderboard by adding <code>score</code> to the given player's score. If there is no player with such id in the leaderboard, add him to the leaderboard with the given <code>score</code>.</li>
+	<li><code>addScore(playerId, score)</code>: Update the leaderboard by adding <code>score</code> to the given player&#39;s score. If there is no player with such id in the leaderboard, add him to the leaderboard with the given <code>score</code>.</li>
 	<li><code>top(K)</code>: Return the score sum of the top <code>K</code> players.</li>
-	<li><code>reset(playerId)</code>: Reset the score of the player with the given id to 0 (in other words erase it from the leaderboard). It is guaranteed that the player was added to the leaderboard before calling this function.</li>
+	<li><code>reset(playerId)</code>: Reset the score of the player with the given id&nbsp;to 0 (in other words erase it from the leaderboard). It is guaranteed that the player was added to the leaderboard before calling this function.</li>
 </ol>
 
 <p>Initially, the leaderboard is empty.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
 <b>Input: </b>
-["Leaderboard","addScore","addScore","addScore","addScore","addScore","top","reset","reset","addScore","top"]
+[&quot;Leaderboard&quot;,&quot;addScore&quot;,&quot;addScore&quot;,&quot;addScore&quot;,&quot;addScore&quot;,&quot;addScore&quot;,&quot;top&quot;,&quot;reset&quot;,&quot;reset&quot;,&quot;addScore&quot;,&quot;top&quot;]
 [[],[1,73],[2,56],[3,39],[4,51],[5,4],[1],[1],[2],[2,51],[3]]
 <b>Output: </b>
 [null,null,null,null,null,null,73,null,null,null,141]
@@ -38,15 +38,16 @@ leaderboard.addScore(2,51);   // leaderboard = [[2,51],[3,39],[4,51],[5,4]];
 leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= playerId, K <= 10000</code></li>
-	<li>It's guaranteed that <code>K</code> is less than or equal to the current number of players.</li>
-	<li><code>1 <= score <= 100</code></li>
-	<li>There will be at most <code>1000</code> function calls.</li>
+	<li><code>1 &lt;= playerId, K &lt;= 10000</code></li>
+	<li>It&#39;s guaranteed that <code>K</code> is less than or equal to the current number of players.</li>
+	<li><code>1 &lt;= score&nbsp;&lt;= 100</code></li>
+	<li>There will be at most <code>1000</code>&nbsp;function calls.</li>
 </ul>
+
 
 ## Solutions
 

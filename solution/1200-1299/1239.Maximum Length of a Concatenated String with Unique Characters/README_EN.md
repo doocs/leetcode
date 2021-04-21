@@ -42,6 +42,7 @@ Maximum length is 4.
 	<li><code>arr[i]</code> contains only lower case English letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

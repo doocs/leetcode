@@ -4,37 +4,48 @@
 
 ## Description
 
-<p>You are given two jugs with capacities <i>x</i> and <i>y</i> litres. There is an infinite amount of water supply available. You need to determine whether it is possible to measure exactly <i>z</i> litres using these two jugs.</p>
+<p>You are given two jugs with capacities <code>jug1Capacity</code> and <code>jug2Capacity</code> liters. There is an infinite amount of water supply available. Determine whether it is possible to measure exactly <code>targetCapacity</code> liters using these two jugs.</p>
 
-<p>If <i>z</i> liters of water is measurable, you must have <i>z</i> liters of water contained within <b>one or both buckets</b> by the end.</p>
+<p>If <code>targetCapacity</code> liters of water are measurable, you must have <code>targetCapacity</code> liters of water contained <strong>within one or both buckets</strong> by the end.</p>
 
 <p>Operations allowed:</p>
 
 <ul>
-    <li>Fill any of the jugs completely with water.</li>
-    <li>Empty any of the jugs.</li>
-    <li>Pour water from one jug into another till the other jug is completely full or the first jug itself is empty.</li>
+	<li>Fill any of the jugs with water.</li>
+	<li>Empty any of the jugs.</li>
+	<li>Pour water from one jug into another till the other jug is completely full, or the first jug itself is empty.</li>
 </ul>
 
-<p><b>Example 1:</b> (From the famous <a href="https://www.youtube.com/watch?v=BVtQNK_ZUJg" target="_blank"><i>&quot;Die Hard&quot;</i> example</a>)</p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-Input: x = 3, y = 5, z = 4
-
-Output: True
-
+<strong>Input:</strong> jug1Capacity = 3, jug2Capacity = 5, targetCapacity = 4
+<strong>Output:</strong> true
+<strong>Explanation:</strong> The famous <a href="https://www.youtube.com/watch?v=BVtQNK_ZUJg&amp;ab_channel=notnek01" target="_blank">Die Hard</a> example 
 </pre>
 
-<p><b>Example 2:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-Input: x = 2, y = 6, z = 5
-
-Output: False
-
+<strong>Input:</strong> jug1Capacity = 2, jug2Capacity = 6, targetCapacity = 5
+<strong>Output:</strong> false
 </pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> jug1Capacity = 1, jug2Capacity = 2, targetCapacity = 3
+<strong>Output:</strong> true
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= jug1Capacity, jug2Capacity, targetCapacity &lt;= 10<sup>6</sup></code></li>
+</ul>
+
 
 ## Solutions
 

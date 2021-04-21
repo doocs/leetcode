@@ -5,47 +5,55 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定两个单词（<em>beginWord</em> 和 <em>endWord</em>）和一个字典 <em>wordList</em>，找出所有从 <em>beginWord </em>到 <em>endWord </em>的最短转换序列。转换需遵循如下规则：</p>
 
-<ol>
-	<li>每次转换只能改变一个字母。</li>
-	<li>转换过程中的中间单词必须是字典中的单词。</li>
-</ol>
+<p>按字典 <code>wordList</code> 完成从单词 <code>beginWord</code> 到单词 <code>endWord</code> 转化，一个表示此过程的 <strong>转换序列</strong> 是形式上像 <code>beginWord -> s<sub>1</sub> -> s<sub>2</sub> -> ... -> s<sub>k</sub></code> 这样的单词序列，并满足：</p>
 
-<p><strong>说明:</strong></p>
-
+<div class="original__bRMd">
+<div>
 <ul>
-	<li>如果不存在这样的转换序列，返回一个空列表。</li>
-	<li>所有单词具有相同的长度。</li>
-	<li>所有单词只由小写字母组成。</li>
-	<li>字典中不存在重复的单词。</li>
-	<li>你可以假设 <em>beginWord</em> 和 <em>endWord </em>是非空的，且二者不相同。</li>
+	<li>每对相邻的单词之间仅有单个字母不同。</li>
+	<li>转换过程中的每个单词 <code>s<sub>i</sub></code>（<code>1 <= i <= k</code>）必须是字典 <code>wordList</code> 中的单词。注意，<code>beginWord</code> 不必是字典 <code>wordList</code> 中的单词。</li>
+	<li><code>s<sub>k</sub> == endWord</code></li>
 </ul>
 
-<p><strong>示例 1:</strong></p>
+<p>给你两个单词 <code>beginWord</code> 和 <code>endWord</code> ，以及一个字典 <code>wordList</code> 。请你找出并返回所有从 <code>beginWord</code> 到 <code>endWord</code> 的 <strong>最短转换序列</strong> ，如果不存在这样的转换序列，返回一个空列表。每个序列都应该以单词列表<em> </em><code>[beginWord, s<sub>1</sub>, s<sub>2</sub>, ..., s<sub>k</sub>]</code> 的形式返回。</p>
 
-<pre><strong>输入:</strong>
-beginWord = &quot;hit&quot;,
-endWord = &quot;cog&quot;,
-wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]
+<p> </p>
 
-<strong>输出:</strong>
-[
-  [&quot;hit&quot;,&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;cog&quot;],
-&nbsp; [&quot;hit&quot;,&quot;hot&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]
-]
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+<strong>输出：</strong>[["hit","hot","dot","dog","cog"],["hit","hot","lot","log","cog"]]
+<strong>解释：</strong>存在 2 种最短的转换序列：
+"hit" -> "hot" -> "dot" -> "dog" -> "cog"
+"hit" -> "hot" -> "lot" -> "log" -> "cog"
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong>
-beginWord = &quot;hit&quot;
-endWord = &quot;cog&quot;
-wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]
+<pre>
+<strong>输入：</strong>beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
+<strong>输出：</strong>[]
+<strong>解释：</strong>endWord "cog" 不在字典 wordList 中，所以不存在符合要求的转换序列。
+</pre>
 
-<strong>输出: </strong>[]
+<p> </p>
 
-<strong>解释:</strong>&nbsp;<em>endWord</em> &quot;cog&quot; 不在字典中，所以不存在符合要求的转换序列。</pre>
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= beginWord.length <= 7</code></li>
+	<li><code>endWord.length == beginWord.length</code></li>
+	<li><code>1 <= wordList.length <= 5000</code></li>
+	<li><code>wordList[i].length == beginWord.length</code></li>
+	<li><code>beginWord</code>、<code>endWord</code> 和 <code>wordList[i]</code> 由小写英文字母组成</li>
+	<li><code>beginWord != endWord</code></li>
+	<li><code>wordList</code> 中的所有单词 <strong>互不相同</strong></li>
+</ul>
+</div>
+</div>
+
 
 ## 解法
 

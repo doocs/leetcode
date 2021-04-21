@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过&nbsp;<code>*</code>，<code>/</code>，<code>+</code>，<code>-</code>，<code>(</code>，<code>)</code>&nbsp;的运算得到 24。</p>
 
 <p><strong>示例 1:</strong></p>
@@ -27,6 +28,7 @@
 	<li>每个运算符对两个数进行运算。特别是我们不能用&nbsp;<code>-</code>&nbsp;作为一元运算符。例如，<code>[1, 1, 1, 1]</code>&nbsp;作为输入时，表达式&nbsp;<code>-1 - 1 - 1 - 1</code>&nbsp;是不允许的。</li>
 	<li>你不能将数字连接在一起。例如，输入为&nbsp;<code>[1, 2, 1, 2]</code>&nbsp;时，不能写成 12 + 12 。</li>
 </ol>
+
 
 ## 解法
 

@@ -4,32 +4,38 @@
 
 ## Description
 
-<p>In a given integer array A, we must move every element of A to either list B or list C. (B and C initially start empty.)</p>
+<p>You are given an integer array <code>nums</code>.</p>
 
-<p>Return true if and only if after such a move, it is possible that the average value of B is equal to the average value of C, and B and C are both non-empty.</p>
+<p>You should move each element of <code>nums</code> into one of the two arrays <code>A</code> and <code>B</code> such that <code>A</code> and <code>B</code> are non-empty, and <code>average(A) == average(B)</code>.</p>
 
-<pre>
+<p>Return <code>true</code> if it is possible to achieve that and <code>false</code> otherwise.</p>
 
-<strong>Example :</strong>
-
-<strong>Input:</strong> 
-
-[1,2,3,4,5,6,7,8]
-
-<strong>Output:</strong> true
-
-<strong>Explanation: </strong>We can split the array into [1,4,5,8] and [2,3,6,7], and both of them have the average of 4.5.
-
-</pre>
-
-<p><strong>Note:</strong></p>
-
-<ul>
-    <li>The length of <code>A</code> will be in the range&nbsp;[1, 30].</li>
-    <li><code>A[i]</code> will be in the range of <code>[0, 10000]</code>.</li>
-</ul>
+<p><strong>Note</strong> that for an array <code>arr</code>, <code>average(arr)</code> is the sum of all the elements of <code>arr</code> over the length of <code>arr</code>.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1,2,3,4,5,6,7,8]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> We can split the array into [1,4,5,8] and [2,3,6,7], and both of them have an average of 4.5.
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [3,1]
+<strong>Output:</strong> false
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 30</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
+
 
 ## Solutions
 

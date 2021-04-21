@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>编写一个遍历游程编码序列的迭代器。</p>
 
 <p>迭代器由 <code>RLEIterator(int[] A)</code> 初始化，其中&nbsp;<code>A</code>&nbsp;是某个序列的游程编码。更具体地，对于所有偶数 <code>i</code>，<code>A[i]</code> 告诉我们在序列中重复非负整数值 <code>A[i + 1]</code> 的次数。</p>
@@ -45,6 +46,7 @@ RLEIterator 由 RLEIterator([3,8,0,9,2,5]) 初始化。
 	<li>每个测试用例最多调用&nbsp;<code>1000</code>&nbsp;次&nbsp;<code>RLEIterator.next(int n)</code>。</li>
 	<li>每次调用&nbsp;<code>RLEIterator.next(int n)</code>&nbsp;都有&nbsp;<code>1 &lt;= n &lt;= 10^9</code>&nbsp;。</li>
 </ol>
+
 
 ## 解法
 

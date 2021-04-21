@@ -1,17 +1,18 @@
 # [1259. 不相交的握手](https://leetcode-cn.com/problems/handshakes-that-dont-cross)
 
-[English Version](/solution/1200-1299/1259.Handshakes%20That%20Don't%20Cross/README_EN.md)
+[English Version](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p><strong>偶数</strong> 个人站成一个圆，总人数为 <code>num_people</code> 。每个人与除自己外的一个人握手，所以总共会有 <code>num_people / 2</code> 次握手。</p>
+
+<p><strong>偶数</strong>&nbsp;个人站成一个圆，总人数为&nbsp;<code>num_people</code>&nbsp;。每个人与除自己外的一个人握手，所以总共会有&nbsp;<code>num_people / 2</code>&nbsp;次握手。</p>
 
 <p>将握手的人之间连线，请你返回连线不会相交的握手方案数。</p>
 
-<p>由于结果可能会很大，请你返回答案 <strong>模</strong> <strong><code>10^9+7</code></strong> 后的结果。</p>
+<p>由于结果可能会很大，请你返回答案 <strong>模</strong>&nbsp;<strong><code>10^9+7</code></strong>&nbsp;后的结果。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -21,7 +22,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/5125_example_2.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/5125_example_2.png" style="height: 311px; width: 651px;"></p>
 
 <pre><strong>输入：</strong>num_people = 4
 <strong>输出：</strong>2
@@ -30,7 +31,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/5125_example_3.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/5125_example_3.png" style="height: 992px; width: 664px;"></p>
 
 <pre><strong>输入：</strong>num_people = 6
 <strong>输出：</strong>5
@@ -42,14 +43,15 @@
 <strong>输出：</strong>14
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>2 <= num_people <= 1000</code></li>
+	<li><code>2 &lt;= num_people &lt;= 1000</code></li>
 	<li><code>num_people % 2 == 0</code></li>
 </ul>
+
 
 ## 解法
 

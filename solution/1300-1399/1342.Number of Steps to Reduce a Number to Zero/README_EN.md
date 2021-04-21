@@ -47,6 +47,7 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 	<li><code>0 &lt;= num &lt;= 10^6</code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

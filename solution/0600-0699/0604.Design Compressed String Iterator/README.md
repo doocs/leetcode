@@ -5,7 +5,8 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>对于一个压缩字符串，设计一个数据结构，它支持如下两种操作： <code>next</code> 和 <code>hasNext</code>。</p>
+
+<p>对于一个压缩字符串，设计一个数据结构，它支持如下两种操作：&nbsp;<code>next</code>&nbsp;和&nbsp;<code>hasNext</code>。</p>
 
 <p>给定的压缩字符串格式为：每个字母后面紧跟一个正整数，这个整数表示该字母在解压后的字符串里连续出现的次数。</p>
 
@@ -14,26 +15,27 @@
 
 <p><strong>注意：</strong></p>
 
-<p>请记得将你的类在 StringIterator 中 <strong>初始化</strong> ，因为静态变量或类变量在多组测试数据中不会被自动清空。更多细节请访问 <a href="http://leetcode.com/faq/#different-output">这里</a> 。</p>
+<p>请记得将你的类在 StringIterator 中&nbsp;<strong>初始化</strong>&nbsp;，因为静态变量或类变量在多组测试数据中不会被自动清空。更多细节请访问 <a href="http://leetcode.com/faq/#different-output">这里</a>&nbsp;。</p>
 
 <p><strong>示例：</strong></p>
 
-<pre>StringIterator iterator = new StringIterator("L1e2t1C1o1d1e1");
+<pre>StringIterator iterator = new StringIterator(&quot;L1e2t1C1o1d1e1&quot;);
 
-iterator.next(); // 返回 'L'
-iterator.next(); // 返回 'e'
-iterator.next(); // 返回 'e'
-iterator.next(); // 返回 't'
-iterator.next(); // 返回 'C'
-iterator.next(); // 返回 'o'
-iterator.next(); // 返回 'd'
+iterator.next(); // 返回 &#39;L&#39;
+iterator.next(); // 返回 &#39;e&#39;
+iterator.next(); // 返回 &#39;e&#39;
+iterator.next(); // 返回 &#39;t&#39;
+iterator.next(); // 返回 &#39;C&#39;
+iterator.next(); // 返回 &#39;o&#39;
+iterator.next(); // 返回 &#39;d&#39;
 iterator.hasNext(); // 返回 true
-iterator.next(); // 返回 'e'
+iterator.next(); // 返回 &#39;e&#39;
 iterator.hasNext(); // 返回 false
-iterator.next(); // 返回 ' '
+iterator.next(); // 返回 &#39; &#39;
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
+
 
 ## 解法
 

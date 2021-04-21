@@ -4,68 +4,56 @@
 
 ## Description
 
-<p>On a <code>N x N</code> grid of cells, each cell <code>(x, y)</code> with <code>0 &lt;= x &lt; N</code> and <code>0 &lt;= y &lt; N</code> has a lamp.</p>
+<p>There is a 2D <code>grid</code> of size <code>N x N</code> where each cell of this grid has a lamp that is initially <strong>turned off</strong>.</p>
 
-<p>Initially, some number of lamps are on.&nbsp; <code>lamps[i]</code> tells us the location of the <code>i</code>-th lamp that is on.&nbsp; Each lamp that is on illuminates every square on its x-axis, y-axis, and both diagonals (similar to a Queen in chess).</p>
+<p>You are given a 2D array of lamp positions <code>lamps</code>, where <code>lamps[i] = [row<sub>i</sub>, col<sub>i</sub>]</code> indicates that the lamp at <code>grid[row<sub>i</sub>][col<sub>i</sub>]</code> is <strong>turned on</strong>. Even if the same lamp is listed more than once, it is turned on.</p>
 
-<p>For the i-th query&nbsp;<code>queries[i] = (x, y)</code>, the answer to the query is 1 if the cell (x, y) is illuminated, else 0.</p>
+<p>When a lamp is turned on, it <strong>illuminates its cell</strong> and <strong>all other cells</strong> in the same <strong>row, column, or diagonal</strong>.</p>
 
-<p>After each query <code>(x, y)</code> [in the order given by <code>queries</code>], we turn off any&nbsp;lamps that are at cell <code>(x, y)</code>&nbsp;or are adjacent 8-directionally (ie., share a corner or edge with cell <code>(x, y)</code>.)</p>
+<p>You are also given another 2D array <code>queries</code>, where <code>queries[j] = [row<sub>j</sub>, col<sub>j</sub>]</code>. For the <code>j<sup>th</sup></code> query, determine whether <code>grid[row<sub>j</sub>][col<sub>j</sub>]</code> is illuminated or not. After answering the <code>j<sup>th</sup></code> query, <strong>turn off</strong> the lamp at <code>grid[row<sub>j</sub>][col<sub>j</sub>]</code> and its <strong>8 adjacent lamps</strong> if they exist. A lamp is adjacent if its cell shares either a side or corner with <code>grid[row<sub>j</sub>][col<sub>j</sub>]</code>.</p>
 
-<p>Return an array of answers.&nbsp; Each&nbsp;value <code>answer[i]</code> should be equal to the answer of the <code>i</code>-th query <code>queries[i]</code>.</p>
+<p>Return <em>an array of integers </em><code>ans</code><em>,</em><em> where </em><code>ans[j]</code><em> should be </em><code>1</code><em> if the cell in the </em><code>j<sup>th</sup></code><em> query was illuminated, or </em><code>0</code><em> if the lamp was not.</em></p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/19/illu_1.jpg" style="width: 750px; height: 209px;" />
+<pre>
+<strong>Input:</strong> N = 5, lamps = [[0,0],[4,4]], queries = [[1,1],[1,0]]
+<strong>Output:</strong> [1,0]
+<strong>Explanation:</strong> We have the initial grid with all lamps turned off. In the above picture we see the grid after turning on the lamp at grid[0][0] then turning on the lamp at grid[4][4].
+The 0<sup>th</sup>&nbsp;query asks if the lamp at grid[1][1] is illuminated or not (the blue square). It is illuminated, so set ans[0] = 1. Then, we turn off all lamps in the red square.
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/19/illu_step1.jpg" style="width: 500px; height: 218px;" />
+The 1<sup>st</sup>&nbsp;query asks if the lamp at grid[1][0] is illuminated or not (the blue square). It is not illuminated, so set ans[1] = 0. Then, we turn off all lamps in the red rectangle.
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/19/illu_step2.jpg" style="width: 500px; height: 219px;" />
+</pre>
+
+<p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> N = 5, lamps = [[0,0],[4,4]], queries = [[1,1],[1,1]]
+<strong>Output:</strong> [1,1]
+</pre>
 
-<strong>Input: </strong>N = <span id="example-input-1-1">5</span>, lamps = <span id="example-input-1-2">[[0,0],[4,4]]</span>, queries = <span id="example-input-1-3">[[1,1],[1,0]]</span>
+<p><strong>Example 3:</strong></p>
 
-<strong>Output: </strong><span id="example-output-1">[1,0]</span>
-
-<strong>Explanation: </strong>
-
-Before performing the first query we have both lamps [0,0] and [4,4] on.
-
-The grid representing which cells are lit looks like this, where [0,0] is the top left corner, and [4,4] is the bottom right corner:
-
-1 1 1 1 1
-
-1 1 0 0 1
-
-1 0 1 0 1
-
-1 0 0 1 1
-
-1 1 1 1 1
-
-Then the query at [1, 1] returns 1 because the cell is lit.  After this query, the lamp at [0, 0] turns off, and the grid now looks like this:
-
-1 0 0 0 1
-
-0 1 0 0 1
-
-0 0 1 0 1
-
-0 0 0 1 1
-
-1 1 1 1 1
-
-Before performing the second query we have only the lamp [4,4] on.  Now the query at [1,0] returns 0, because the cell is no longer lit.
-
+<pre>
+<strong>Input:</strong> N = 5, lamps = [[0,0],[0,4]], queries = [[0,4],[0,1],[1,4]]
+<strong>Output:</strong> [1,1,0]
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>1 &lt;= N &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= lamps.length &lt;= 20000</code></li>
+	<li><code>0 &lt;= queries.length &lt;= 20000</code></li>
+	<li><code>lamps[i].length == 2</code></li>
+	<li><code>0 &lt;= row<sub>i</sub>, col<sub>i</sub> &lt; N</code></li>
+	<li><code>queries[j].length == 2</code></li>
+	<li><code>0 &lt;= row<sub>j</sub>, col<sub>j</sub> &lt; N</code></li>
+</ul>
 
-<ol>
-    <li><code>1 &lt;= N &lt;= 10^9</code></li>
-    <li><code>0 &lt;= lamps.length &lt;= 20000</code></li>
-    <li><code>0 &lt;= queries.length &lt;= 20000</code></li>
-    <li><code>lamps[i].length == queries[i].length == 2</code></li>
-</ol>
 
 ## Solutions
 

@@ -4,52 +4,74 @@
 
 ## Description
 
-<p>Validate if a given string can be interpreted as&nbsp;a decimal number.</p>
+<p>A <strong>valid number</strong> can be split up into these components (in order):</p>
 
-<p>Some examples:<br />
+<ol>
+	<li>A <strong>decimal number</strong> or an <strong>integer</strong>.</li>
+	<li>(Optional) An <code>&#39;e&#39;</code> or <code>&#39;E&#39;</code>, followed by an <strong>integer</strong>.</li>
+</ol>
 
-<code>&quot;0&quot;</code> =&gt; <code>true</code><br />
+<p>A <strong>decimal number</strong> can be split up into these components (in order):</p>
 
-<code>&quot; 0.1 &quot;</code> =&gt; <code>true</code><br />
+<ol>
+	<li>(Optional) A sign character (either <code>&#39;+&#39;</code> or <code>&#39;-&#39;</code>).</li>
+	<li>One of the following formats:
+	<ol>
+		<li>At least one digit, followed by a dot <code>&#39;.&#39;</code>.</li>
+		<li>At least one digit, followed by a dot <code>&#39;.&#39;</code>, followed by at least one digit.</li>
+		<li>A dot <code>&#39;.&#39;</code>, followed by at least one digit.</li>
+	</ol>
+	</li>
+</ol>
 
-<code>&quot;abc&quot;</code> =&gt; <code>false</code><br />
+<p>An <strong>integer</strong> can be split up into these components (in order):</p>
 
-<code>&quot;1 a&quot;</code> =&gt; <code>false</code><br />
+<ol>
+	<li>(Optional) A sign character (either <code>&#39;+&#39;</code> or <code>&#39;-&#39;</code>).</li>
+	<li>At least one digit.</li>
+</ol>
 
-<code>&quot;2e10&quot;</code> =&gt; <code>true</code><br />
+<p>For example, all the following are valid numbers: <code>[&quot;2&quot;, &quot;0089&quot;, &quot;-0.1&quot;, &quot;+3.14&quot;, &quot;4.&quot;, &quot;-.9&quot;, &quot;2e10&quot;, &quot;-90E3&quot;, &quot;3e+7&quot;, &quot;+6e-1&quot;, &quot;53.5e93&quot;, &quot;-123.456e789&quot;]</code>, while the following are not valid numbers: <code>[&quot;abc&quot;, &quot;1a&quot;, &quot;1e&quot;, &quot;e3&quot;, &quot;99e2.5&quot;, &quot;--6&quot;, &quot;-+3&quot;, &quot;95a54e53&quot;]</code>.</p>
 
-<code>&quot; -90e3&nbsp; &nbsp;&quot;</code> =&gt; <code>true</code><br />
+<p>Given a string <code>s</code>, return <code>true</code><em> if </em><code>s</code><em> is a <strong>valid number</strong></em>.</p>
 
-<code>&quot; 1e&quot;</code> =&gt; <code>false</code><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
-<code>&quot;e3&quot;</code> =&gt; <code>false</code><br />
+<pre>
+<strong>Input:</strong> s = &quot;0&quot;
+<strong>Output:</strong> true
+</pre>
 
-<code>&quot; 6e-1&quot;</code> =&gt; <code>true</code><br />
+<p><strong>Example 2:</strong></p>
 
-<code>&quot; 99e2.5&nbsp;&quot;</code> =&gt; <code>false</code><br />
+<pre>
+<strong>Input:</strong> s = &quot;e&quot;
+<strong>Output:</strong> false
+</pre>
 
-<code>&quot;53.5e93&quot;</code> =&gt; <code>true</code><br />
+<p><strong>Example 3:</strong></p>
 
-<code>&quot; --6 &quot;</code> =&gt; <code>false</code><br />
+<pre>
+<strong>Input:</strong> s = &quot;.&quot;
+<strong>Output:</strong> false
+</pre>
 
-<code>&quot;-+3&quot;</code> =&gt; <code>false</code><br />
+<p><strong>Example 4:</strong></p>
 
-<code>&quot;95a54e53&quot;</code> =&gt; <code>false</code></p>
+<pre>
+<strong>Input:</strong> s = &quot;.1&quot;
+<strong>Output:</strong> true
+</pre>
 
-<p><strong>Note:</strong> It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one. However, here is a list of characters that can be in a valid decimal number:</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>Numbers 0-9</li>
-    <li>Exponent - &quot;e&quot;</li>
-    <li>Positive/negative sign - &quot;+&quot;/&quot;-&quot;</li>
-    <li>Decimal point - &quot;.&quot;</li>
+	<li><code>1 &lt;= s.length &lt;= 20</code></li>
+	<li><code>s</code> consists of only English letters (both uppercase and lowercase), digits (<code>0-9</code>), plus <code>&#39;+&#39;</code>, minus <code>&#39;-&#39;</code>, or dot <code>&#39;.&#39;</code>.</li>
 </ul>
 
-<p>Of course, the context of these characters also matters in the input.</p>
-
-<p><strong>Update (2015-02-10):</strong><br />
-
-The signature of the <code>C++</code> function had been updated. If you still see your function signature accepts a <code>const char \*</code> argument, please click the reload button to reset your code definition.</p>
 
 ## Solutions
 

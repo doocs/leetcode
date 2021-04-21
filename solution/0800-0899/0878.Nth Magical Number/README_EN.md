@@ -4,81 +4,32 @@
 
 ## Description
 
-<p>A positive integer&nbsp;is <em>magical</em>&nbsp;if it is divisible by either <font face="monospace">A</font>&nbsp;or <font face="monospace">B</font>.</p>
+<p>A positive integer is <em>magical</em> if it is divisible by either <code>a</code> or <code>b</code>.</p>
 
-<p>Return the <font face="monospace">N</font>-th magical number.&nbsp; Since the answer may be very large, <strong>return it modulo </strong><code>10^9 + 7</code>.</p>
+<p>Given the three integers <code>n</code>, <code>a</code>, and <code>b</code>, return the <code>n<sup>th</sup></code> magical number. Since the answer may be very large, <strong>return it modulo </strong><code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
-
-<ol>
-
-</ol>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>N = <span id="example-input-1-1">1</span>, A = <span id="example-input-1-2">2</span>, B = <span id="example-input-1-3">3</span>
-
-<strong>Output: </strong><span id="example-output-1">2</span>
-
+<pre><strong>Input:</strong> n = 1, a = 2, b = 3
+<strong>Output:</strong> 2
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> n = 4, a = 2, b = 3
+<strong>Output:</strong> 6
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> n = 5, a = 2, b = 4
+<strong>Output:</strong> 10
+</pre><p><strong>Example 4:</strong></p>
+<pre><strong>Input:</strong> n = 3, a = 6, b = 4
+<strong>Output:</strong> 8
 </pre>
-
-<div>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>N = <span id="example-input-2-1">4</span>, A = <span id="example-input-2-2">2</span>, B = <span id="example-input-2-3">3</span>
-
-<strong>Output: </strong><span id="example-output-2">6</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>N = <span id="example-input-3-1">5</span>, A = <span id="example-input-3-2">2</span>, B = <span id="example-input-3-3">4</span>
-
-<strong>Output: </strong><span id="example-output-3">10</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>N = <span id="example-input-4-1">3</span>, A = <span id="example-input-4-2">6</span>, B = <span id="example-input-4-3">4</span>
-
-<strong>Output: </strong><span id="example-output-4">8</span>
-
-</pre>
-
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
+	<li><code>2 &lt;= a, b &lt;= 4 * 10<sup>4</sup></code></li>
+</ul>
 
-<ol>
-    <li><code>1 &lt;= N&nbsp;&lt;= 10^9</code></li>
-    <li><code>2 &lt;= A&nbsp;&lt;= 40000</code></li>
-    <li><code>2 &lt;= B&nbsp;&lt;= 40000</code></li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 ## Solutions
 

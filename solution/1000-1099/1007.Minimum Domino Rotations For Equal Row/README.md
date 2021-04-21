@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在一排多米诺骨牌中，<code>A[i]</code> 和 <code>B[i]</code>&nbsp;分别代表第 i 个多米诺骨牌的上半部分和下半部分。（一个多米诺是两个从 1 到 6 的数字同列平铺形成的&nbsp;&mdash;&mdash; 该平铺的每一半上都有一个数字。）</p>
 
 <p>我们可以旋转第&nbsp;<code>i</code>&nbsp;张多米诺，使得&nbsp;<code>A[i]</code> 和&nbsp;<code>B[i]</code>&nbsp;的值交换。</p>
@@ -17,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/domino.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/08/domino.png" style="height: 161px; width: 200px;"></p>
 
 <pre><strong>输入：</strong>A = [2,1,2,4,2,2], B = [5,2,6,2,3,2]
 <strong>输出：</strong>2
@@ -42,6 +43,7 @@
 	<li><code>1 &lt;= A[i], B[i] &lt;= 6</code></li>
 	<li><code>2 &lt;= A.length == B.length &lt;= 20000</code></li>
 </ol>
+
 
 ## 解法
 

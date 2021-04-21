@@ -4,60 +4,43 @@
 
 ## Description
 
-<p>For an integer n, we call k&gt;=2 a <i><b>good base</b></i> of n, if all digits of n base k are 1.</p>
+<p>Given an integer <code>n</code> represented as a string, return <em>the smallest <strong>good base</strong> of</em> <code>n</code>.</p>
 
-<p>Now given a string representing n, you should return the smallest good base of n in string format.</p>
+<p>We call <code>k &gt;= 2</code> a <strong>good base</strong> of <code>n</code>, if all digits of <code>n</code> base <code>k</code> are <code>1</code>&#39;s.</p>
 
-<p><b>Example 1:</b></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> n = &quot;13&quot;
+<strong>Output:</strong> &quot;3&quot;
+<strong>Explanation:</strong> 13 base 3 is 111.
+</pre>
 
-<b>Input:</b> &quot;13&quot;
+<p><strong>Example 2:</strong></p>
 
-<b>Output:</b> &quot;3&quot;
+<pre>
+<strong>Input:</strong> n = &quot;4681&quot;
+<strong>Output:</strong> &quot;8&quot;
+<strong>Explanation:</strong> 4681 base 8 is 11111.
+</pre>
 
-<b>Explanation:</b> 13 base 3 is 111.
+<p><strong>Example 3:</strong></p>
 
+<pre>
+<strong>Input:</strong> n = &quot;1000000000000000000&quot;
+<strong>Output:</strong> &quot;999999999999999999&quot;
+<strong>Explanation:</strong> 1000000000000000000 base 999999999999999999 is 11.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li><code>n</code> is an integer in the range <code>[3, 10<sup>18</sup>]</code>.</li>
+	<li><code>n</code> does not contain any leading zeros.</li>
+</ul>
 
-<pre>
-
-<b>Input:</b> &quot;4681&quot;
-
-<b>Output:</b> &quot;8&quot;
-
-<b>Explanation:</b> 4681 base 8 is 11111.
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><b>Example 3:</b></p>
-
-<pre>
-
-<b>Input:</b> &quot;1000000000000000000&quot;
-
-<b>Output:</b> &quot;999999999999999999&quot;
-
-<b>Explanation:</b> 1000000000000000000 base 999999999999999999 is 11.
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><b>Note:</b></p>
-
-<ol>
-    <li>The range of n is [3, 10^18].</li>
-    <li>The string representing n is always valid and will not have leading zeros.</li>
-</ol>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

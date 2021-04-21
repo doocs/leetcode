@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定两个整数&nbsp;<code>L</code>&nbsp;和&nbsp;<code>R</code>&nbsp;，找到闭区间&nbsp;<code>[L, R]</code>&nbsp;范围内，计算置位位数为质数的整数个数。</p>
 
 <p>（注意，计算置位代表二进制表示中1的个数。例如&nbsp;<code>21</code>&nbsp;的二进制表示&nbsp;<code>10101</code>&nbsp;有 3 个计算置位。还有，1 不是质数。）</p>
@@ -41,6 +42,7 @@
 	<li><code>L, R</code>&nbsp;是&nbsp;<code>L &lt;= R</code>&nbsp;且在&nbsp;<code>[1, 10^6]</code>&nbsp;中的整数。</li>
 	<li><code>R - L</code>&nbsp;的最大值为 10000。</li>
 </ol>
+
 
 ## 解法
 

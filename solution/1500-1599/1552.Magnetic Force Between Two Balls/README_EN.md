@@ -12,9 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/q3v1.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/11/q3v1.jpg" style="width: 562px; height: 195px;" />
 <pre>
 <strong>Input:</strong> position = [1,2,3,4,7], m = 3
 <strong>Output:</strong> 3
@@ -39,6 +37,7 @@
 	<li>All integers in <code>position</code> are <strong>distinct</strong>.</li>
 	<li><code>2 &lt;= m &lt;= position.length</code></li>
 </ul>
+
 
 ## Solutions
 

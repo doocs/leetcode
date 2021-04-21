@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串 <code>s</code> 以及两个整数 <code>a</code> 和 <code>b</code> 。其中，字符串 <code>s</code> 的长度为偶数，且仅由数字 <code>0</code> 到 <code>9</code> 组成。</p>
 
 <p>你可以在 <code>s</code> 上按任意顺序多次执行下面两个操作之一：</p>
@@ -77,6 +78,7 @@
 	<li><code>1 <= a <= 9</code></li>
 	<li><code>1 <= b <= s.length - 1</code></li>
 </ul>
+
 
 ## 解法
 

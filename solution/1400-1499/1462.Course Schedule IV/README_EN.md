@@ -18,9 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/graph.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/04/17/graph.png" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> n = 2, prerequisites = [[1,0]], queries = [[0,1],[1,0]]
 <strong>Output:</strong> [false,true]
@@ -36,9 +34,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/graph-1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/04/17/graph-1.png" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> n = 3, prerequisites = [[1,2],[1,0],[2,0]], queries = [[1,0],[1,2]]
 <strong>Output:</strong> [true,true]
@@ -71,6 +67,7 @@
 	<li><code>1 &lt;= queries.length &lt;= 10^4</code></li>
 	<li><code>queries[i][0] != queries[i][1]</code></li>
 </ul>
+
 
 ## Solutions
 

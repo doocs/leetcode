@@ -4,46 +4,39 @@
 
 ## Description
 
-<p>Given a 2D board and a list of words from the dictionary, find all words in the board.</p>
+<p>Given an <code>m x n</code> <code>board</code>&nbsp;of characters and a list of strings <code>words</code>, return <em>all words on the board</em>.</p>
 
-<p>Each word must be constructed from letters of sequentially adjacent cell, where &quot;adjacent&quot; cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.</p>
+<p>Each word must be constructed from letters of sequentially adjacent cells, where <strong>adjacent cells</strong> are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.</p>
 
 <p>&nbsp;</p>
-
-<p><strong>Example:</strong></p>
-
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/07/search1.jpg" style="width: 322px; height: 322px;" />
 <pre>
+<strong>Input:</strong> board = [[&quot;o&quot;,&quot;a&quot;,&quot;a&quot;,&quot;n&quot;],[&quot;e&quot;,&quot;t&quot;,&quot;a&quot;,&quot;e&quot;],[&quot;i&quot;,&quot;h&quot;,&quot;k&quot;,&quot;r&quot;],[&quot;i&quot;,&quot;f&quot;,&quot;l&quot;,&quot;v&quot;]], words = [&quot;oath&quot;,&quot;pea&quot;,&quot;eat&quot;,&quot;rain&quot;]
+<strong>Output:</strong> [&quot;eat&quot;,&quot;oath&quot;]
+</pre>
 
-<strong>Input:</strong> 
-
-<b>board </b>= [
-
-  [&#39;<span style="color:#d70">o</span>&#39;,&#39;<span style="color:#d70">a</span>&#39;,&#39;a&#39;,&#39;n&#39;],
-
-  [&#39;e&#39;,&#39;<span style="color:#d30">t</span>&#39;,&#39;<span style="color:#d00">a</span>&#39;,&#39;<span style="color:#d00">e</span>&#39;],
-
-  [&#39;i&#39;,&#39;<span style="color:#d70">h</span>&#39;,&#39;k&#39;,&#39;r&#39;],
-
-  [&#39;i&#39;,&#39;f&#39;,&#39;l&#39;,&#39;v&#39;]
-
-]
-
-<b>words</b> = <code>[&quot;oath&quot;,&quot;pea&quot;,&quot;eat&quot;,&quot;rain&quot;]</code>
-
-
-
-<strong>Output:&nbsp;</strong><code>[&quot;eat&quot;,&quot;oath&quot;]</code>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/07/search2.jpg" style="width: 162px; height: 162px;" />
+<pre>
+<strong>Input:</strong> board = [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]], words = [&quot;abcb&quot;]
+<strong>Output:</strong> []
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li><code>m == board.length</code></li>
+	<li><code>n == board[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 12</code></li>
+	<li><code>board[i][j]</code> is a lowercase English letter.</li>
+	<li><code>1 &lt;= words.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 10</code></li>
+	<li><code>words[i]</code> consists of lowercase English letters.</li>
+	<li>All the strings of <code>words</code> are unique.</li>
+</ul>
 
-<ol>
-    <li>All inputs are consist of lowercase letters <code>a-z</code>.</li>
-    <li>The values of&nbsp;<code>words</code> are distinct.</li>
-</ol>
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你两组点，其中第一组中有 <code>size<sub>1</sub></code> 个点，第二组中有 <code>size<sub>2</sub></code> 个点，且 <code>size<sub>1</sub> &gt;= size<sub>2</sub></code> 。</p>
 
 <p>任意两点间的连接成本 <code>cost</code> 由大小为 <code>size<sub>1</sub> x size<sub>2</sub></code> 矩阵给出，其中 <code>cost[i][j]</code> 是第一组中的点 <code>i</code> 和第二组中的点 <code>j</code> 的连接成本。<strong>如果两个组中的每个点都与另一组中的一个或多个点连接，则称这两组点是连通的。</strong>换言之，第一组中的每个点必须至少与第二组中的一个点连接，且第二组中的每个点必须至少与第一组中的一个点连接。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/ex1.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/20/ex1.jpg" style="height: 243px; width: 322px;"></p>
 
 <pre><strong>输入：</strong>cost = [[15, 96], [36, 2]]
 <strong>输出：</strong>17
@@ -27,7 +28,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/ex2.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/20/ex2.jpg" style="height: 403px; width: 322px;"></p>
 
 <pre><strong>输入：</strong>cost = [[1, 3, 5], [4, 1, 1], [1, 5, 3]]
 <strong>输出：</strong>4
@@ -56,6 +57,7 @@
 	<li><code>size<sub>1</sub> &gt;=&nbsp;size<sub>2</sub></code></li>
 	<li><code>0 &lt;= cost[i][j] &lt;= 100</code></li>
 </ul>
+
 
 ## 解法
 

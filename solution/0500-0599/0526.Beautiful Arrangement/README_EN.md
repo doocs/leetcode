@@ -4,62 +4,44 @@
 
 ## Description
 
-<p>Suppose you have <b>N</b> integers from 1 to N. We define a beautiful arrangement as an array that is constructed by these <b>N</b> numbers successfully if one of the following is true for the i<sub>th</sub> position (1 &lt;= i &lt;= N) in this array:</p>
+<p>Suppose you have <code>n</code> integers labeled <code>1</code> through <code>n</code>. A permutation of those <code>n</code> integers <code>perm</code> (<strong>1-indexed</strong>) is considered a <strong>beautiful arrangement</strong> if for every <code>i</code> (<code>1 &lt;= i &lt;= n</code>), <strong>either</strong> of the following is true:</p>
 
-<ol>
-    <li>The number at the i<sub>th</sub> position is divisible by <b>i</b>.</li>
-    <li><b>i</b> is divisible by the number at the i<sub>th</sub> position.</li>
-</ol>
+<ul>
+	<li><code>perm[i]</code> is divisible by <code>i</code>.</li>
+	<li><code>i</code> is divisible by <code>perm[i]</code>.</li>
+</ul>
+
+<p>Given an integer <code>n</code>, return <em>the <strong>number</strong> of the <strong>beautiful arrangements</strong> that you can construct</em>.</p>
 
 <p>&nbsp;</p>
-
-<p>Now given N, how many beautiful arrangements can you construct?</p>
-
-<p><b>Example 1:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> 2
-
-<b>Output:</b> 2
-
+<strong>Input:</strong> n = 2
+<strong>Output:</strong> 2
 <b>Explanation:</b> 
+The first beautiful arrangement is [1,2]:
+    - perm[1] = 1 is divisible by i = 1
+    - perm[2] = 2 is divisible by i = 2
+The second beautiful arrangement is [2,1]:
+    - perm[1] = 2 is divisible by i = 1
+    - i = 2 is divisible by perm[2] = 1
+</pre>
 
+<p><strong>Example 2:</strong></p>
 
-
-The first beautiful arrangement is [1, 2]:
-
-
-
-Number at the 1st position (i=1) is 1, and 1 is divisible by i (i=1).
-
-
-
-Number at the 2nd position (i=2) is 2, and 2 is divisible by i (i=2).
-
-
-
-The second beautiful arrangement is [2, 1]:
-
-
-
-Number at the 1st position (i=1) is 2, and 2 is divisible by i (i=1).
-
-
-
-Number at the 2nd position (i=2) is 1, and i (i=2) is divisible by 1.
-
+<pre>
+<strong>Input:</strong> n = 1
+<strong>Output:</strong> 1
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li><code>1 &lt;= n &lt;= 15</code></li>
+</ul>
 
-<ol>
-    <li><b>N</b> is a positive integer and will not exceed 15.</li>
-</ol>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

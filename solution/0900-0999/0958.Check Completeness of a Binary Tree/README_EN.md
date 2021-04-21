@@ -4,53 +4,35 @@
 
 ## Description
 
-<p>Given a binary tree, determine if it is a <em>complete binary tree</em>.</p>
+<p>Given the <code>root</code> of a binary tree, determine if it is a <em>complete binary tree</em>.</p>
 
-<p><u><b>Definition of a complete binary tree from <a href="http://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees" target="_blank">Wikipedia</a>:</b></u><br />
-
-In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2<sup>h</sup> nodes inclusive at the last level h.</p>
+<p>In a <strong><a href="http://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees" target="_blank">complete binary tree</a></strong>, every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between <code>1</code> and <code>2<sup>h</sup></code> nodes inclusive at the last level <code>h</code>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
-![](./images/complete-binary-tree-1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/complete-binary-tree-1.png" style="width: 180px; height: 145px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[1,2,3,4,5,6]</span>
-
-<strong>Output: </strong><span id="example-output-1">true</span>
-
-<span><strong>Explanation: </strong></span>Every level before the last is full (ie. levels with node-values {1} and {2, 3}), and all nodes in the last level ({4, 5, 6}) are as far left as possible.
-
+<strong>Input:</strong> root = [1,2,3,4,5,6]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> Every level before the last is full (ie. levels with node-values {1} and {2, 3}), and all nodes in the last level ({4, 5, 6}) are as far left as possible.
 </pre>
 
-<div>
-
 <p><strong>Example 2:</strong></p>
-
-![](./images/complete-binary-tree-2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/15/complete-binary-tree-2.png" style="width: 200px; height: 145px;" />
 <pre>
+<strong>Input:</strong> root = [1,2,3,4,5,null,7]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> The node with value 7 isn&#39;t as far left as possible.
+</pre>
 
-<strong>Input: </strong><span id="example-input-2-1">[1,2,3,4,5,null,7]</span>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output: </strong><span id="example-output-2">false</span>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 100]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
 
-<strong>Explanation: </strong>The node with value 7 isn&#39;t as far left as possible.<span>
-
-</span></pre>
-
-<div>&nbsp;</div>
-
-</div>
-
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li>The tree will have between 1 and 100 nodes.</li>
-</ol>
 
 ## Solutions
 

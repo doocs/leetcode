@@ -4,31 +4,25 @@
 
 ## Description
 
-<p>Given an array of integers and an integer <b>k</b>, you need to find the total number of continuous subarrays whose sum equals to <b>k</b>.</p>
+<p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the total number of continuous subarrays whose sum equals to <code>k</code></em>.</p>
 
-<p><b>Example 1:</b><br />
-
-<pre>
-
-<b>Input:</b>nums = [1,1,1], k = 2
-
-<b>Output:</b> 2
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [1,1,1], k = 2
+<strong>Output:</strong> 2
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [1,2,3], k = 3
+<strong>Output:</strong> 2
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+	<li><code>-10<sup>7</sup> &lt;= k &lt;= 10<sup>7</sup></code></li>
+</ul>
 
-<p><b>Note:</b><br>
-
-<ol>
-
-<li>The length of the array is in range [1, 20,000].</li>
-
-<li>The range of numbers in the array is [-1000, 1000] and the range of the integer <b>k</b> is [-1e7, 1e7].</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

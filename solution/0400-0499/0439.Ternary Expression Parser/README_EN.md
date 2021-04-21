@@ -4,61 +4,50 @@
 
 ## Description
 
-<p>Given a string representing arbitrarily nested ternary expressions, calculate the result of the expression. You can always assume that the given expression is valid and only consists of digits <code>0-9</code>, <code>?</code>, <code>:</code>, <code>T</code> and <code>F</code> (<code>T</code> and <code>F</code> represent True and False respectively).
+<p>Given a string <code>expression</code> representing arbitrarily nested ternary expressions, evaluate the expression, and return <em>the result of it</em>.</p>
 
-<p><b>Note:</b>
-<ol>
-<li>The length of the given string is ≤ 10000.</li>
-<li>Each number will contain only one digit.</li>
-<li>The conditional expressions group right-to-left (as usual in most languages).</li>
-<li>The condition will always be either <code>T</code> or <code>F</code>. That is, the condition will never be a digit.</li>
-<li>The result of the expression will always evaluate to either a digit <code>0-9</code>, <code>T</code> or <code>F</code>.</li>
-</ol>
-</p>
+<p>You can always assume that the given expression is valid and only contains digits, <code>&#39;?&#39;</code>, <code>&#39;:&#39;</code>, <code>&#39;T&#39;</code>, and <code>&#39;F&#39;</code> where <code>&#39;T&#39;</code> is true and <code>&#39;F&#39;</code> is false. All the numbers in the expression are <strong>one-digit</strong> numbers (i.e., in the range <code>[0, 9]</code>).</p>
 
-<p>
-<b>Example 1:</b>
+<p>The conditional expressions group right-to-left (as usual in most languages), and the result of the expression will always evaluate to either a digit, <code>&#39;T&#39;</code> or <code>&#39;F&#39;</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
 <pre>
-<b>Input:</b> "T?2:3"
-
-<b>Output:</b> "2"
-
-<b>Explanation:</b> If true, then result is 2; otherwise result is 3.
-
+<strong>Input:</strong> expression = &quot;T?2:3&quot;
+<strong>Output:</strong> &quot;2&quot;
+<strong>Explanation:</strong> If true, then result is 2; otherwise result is 3.
 </pre>
-</p>
 
-<p>
-<b>Example 2:</b>
+<p><strong>Example 2:</strong></p>
+
 <pre>
-<b>Input:</b> "F?1:T?4:5"
-
-<b>Output:</b> "4"
-
-<b>Explanation:</b> The conditional expressions group right-to-left. Using parenthesis, it is read/evaluated as:
-
-             "(F ? 1 : (T ? 4 : 5))"                   "(F ? 1 : (T ? 4 : 5))"
-          -> "(F ? 1 : 4)"                 or       -> "(T ? 4 : 5)"
-          -> "4"                                    -> "4"
-
+<strong>Input:</strong> expression = &quot;F?1:T?4:5&quot;
+<strong>Output:</strong> &quot;4&quot;
+<strong>Explanation:</strong> The conditional expressions group right-to-left. Using parenthesis, it is read/evaluated as:
+&quot;(F ? 1 : (T ? 4 : 5))&quot; --&gt; &quot;(F ? 1 : 4)&quot; --&gt; &quot;4&quot;
+or &quot;(F ? 1 : (T ? 4 : 5))&quot; --&gt; &quot;(T ? 4 : 5)&quot; --&gt; &quot;4&quot;
 </pre>
-</p>
 
-<p>
-<b>Example 3:</b>
+<p><strong>Example 3:</strong></p>
+
 <pre>
-<b>Input:</b> "T?T?F:5:3"
-
-<b>Output:</b> "F"
-
-<b>Explanation:</b> The conditional expressions group right-to-left. Using parenthesis, it is read/evaluated as:
-
-             "(T ? (T ? F : 5) : 3)"                   "(T ? (T ? F : 5) : 3)"
-          -> "(T ? F : 3)"                 or       -> "(T ? F : 5)"
-          -> "F"                                    -> "F"
-
+<strong>Input:</strong> expression = &quot;T?T?F:5:3&quot;
+<strong>Output:</strong> &quot;F&quot;
+<strong>Explanation:</strong> The conditional expressions group right-to-left. Using parenthesis, it is read/evaluated as:
+&quot;(T ? (T ? F : 5) : 3)&quot; --&gt; &quot;(T ? F : 3)&quot; --&gt; &quot;F&quot;
+&quot;(T ? (T ? F : 5) : 3)&quot; --&gt; &quot;(T ? F : 5)&quot; --&gt; &quot;F&quot;
 </pre>
-</p>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>5 &lt;= expression.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>expression</code> consists of digits, <code>&#39;T&#39;</code>, <code>&#39;F&#39;</code>, <code>&#39;?&#39;</code>, and <code>&#39;:&#39;</code>.</li>
+	<li>It is <strong>guaranteed</strong> that <code>expression</code> is a valid ternary expression and that each number is a <strong>one-digit number</strong>.</li>
+</ul>
+
 
 ## Solutions
 

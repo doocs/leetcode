@@ -4,40 +4,27 @@
 
 ## Description
 
-<p>Given an integer array, find three numbers whose product is maximum and output the maximum product.</p>
+<p>Given an integer array <code>nums</code>, <em>find three numbers whose product is maximum and return the maximum product</em>.</p>
 
-<p><b>Example 1:</b></p>
-
-<pre>
-
-<b>Input:</b> [1,2,3]
-
-<b>Output:</b> 6
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [1,2,3]
+<strong>Output:</strong> 6
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [1,2,3,4]
+<strong>Output:</strong> 24
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> nums = [-1,-2,-3]
+<strong>Output:</strong> -6
 </pre>
-
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li><code>3 &lt;= nums.length &lt;=&nbsp;10<sup>4</sup></code></li>
+	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+</ul>
 
-<pre>
-
-<b>Input:</b> [1,2,3,4]
-
-<b>Output:</b> 24
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><b>Note:</b></p>
-
-<ol>
-    <li>The length of the given array will be in range [3,10<sup>4</sup>] and all elements are in the range [-1000, 1000].</li>
-    <li>Multiplication of any three numbers in the input won&#39;t exceed the range of 32-bit signed integer.</li>
-</ol>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

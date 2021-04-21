@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个二进制数组&nbsp;<code>nums</code>&nbsp;，你需要从中删掉一个元素。</p>
 
 <p>请你在删掉元素的结果数组中，返回最长的且只包含 1 的非空子数组的长度。</p>
@@ -51,6 +52,7 @@
 	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
 	<li><code>nums[i]</code>&nbsp;要么是&nbsp;<code>0</code>&nbsp;要么是&nbsp;<code>1</code> 。</li>
 </ul>
+
 
 ## 解法
 

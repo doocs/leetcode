@@ -10,9 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/e1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/06/03/e1.png" style="width: 203px; height: 202px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,null,4]
 <strong>Output:</strong> [4]
@@ -22,9 +20,7 @@ Nodes 2 and 3 have the same parent and are not lonely.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/e2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/06/03/e2.png" style="width: 442px; height: 282px;" />
 <pre>
 <strong>Input:</strong> root = [7,1,4,6,null,5,3,null,null,null,null,null,2]
 <strong>Output:</strong> [6,2]
@@ -33,8 +29,7 @@ Please remember that order doesn&#39;t matter, [2,6] is also an acceptable answe
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/tree.png)
+<strong><img alt="" src="https://assets.leetcode.com/uploads/2020/06/03/tree.png" style="width: 363px; height: 202px;" /> </strong>
 
 <pre>
 <strong>

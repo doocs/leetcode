@@ -4,80 +4,30 @@
 
 ## Description
 
-<p>Given an array <code>A</code> of positive lengths, return the largest perimeter of a triangle with <strong>non-zero area</strong>, formed from 3 of these lengths.</p>
-
-<p>If it is impossible to form any&nbsp;triangle of non-zero area, return <code>0</code>.</p>
+<p>Given an integer array <code>nums</code>, return <em>the largest perimeter of a triangle with a non-zero area, formed from three of these lengths</em>. If it is impossible to form any triangle of a non-zero area, return <code>0</code>.</p>
 
 <p>&nbsp;</p>
-
-<ol>
-
-</ol>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[2,1,2]</span>
-
-<strong>Output: </strong><span id="example-output-1">5</span>
-
+<pre><strong>Input:</strong> nums = [2,1,2]
+<strong>Output:</strong> 5
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [1,2,1]
+<strong>Output:</strong> 0
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> nums = [3,2,3,4]
+<strong>Output:</strong> 10
+</pre><p><strong>Example 4:</strong></p>
+<pre><strong>Input:</strong> nums = [3,6,2,3]
+<strong>Output:</strong> 8
 </pre>
-
-<div>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[1,2,1]</span>
-
-<strong>Output: </strong><span id="example-output-2">0</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-3-1">[3,2,3,4]</span>
-
-<strong>Output: </strong><span id="example-output-3">10</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-4-1">[3,6,2,3]</span>
-
-<strong>Output: </strong><span id="example-output-4">8</span>
-
-</pre>
-
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>3 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
+</ul>
 
-<ol>
-    <li><code>3 &lt;= A.length &lt;= 10000</code></li>
-    <li><code>1 &lt;= A[i] &lt;= 10^6</code></li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
 
 ## Solutions
 

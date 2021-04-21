@@ -4,29 +4,28 @@
 
 ## Description
 
-<p>Given a <b>sorted</b> array of integers <i>nums</i> and integer values <i>a</i>, <i>b</i> and <i>c</i>. Apply a quadratic function of the form f(<i>x</i>) = <i>ax</i><sup>2</sup> + <i>bx</i> + <i>c</i> to each element <i>x</i> in the array.</p>
+<p>Given a <strong>sorted</strong> integer array <code>nums</code> and three integers <code>a</code>, <code>b</code> and <code>c</code>, apply a quadratic function of the form <code>f(x) = ax<sup>2</sup> + bx + c</code> to each element <code>nums[i]</code> in the array, and return <em>the array in a sorted order</em>.</p>
 
-<p>The returned array must be in <b>sorted order</b>.</p>
-
-<p>Expected time complexity: <b>O(<i>n</i>)</b></p>
-
-<div>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-<pre>
-<strong>Input: </strong>nums = <span id="example-input-1-1">[-4,-2,2,4]</span>, a = <span id="example-input-1-2">1</span>, b = <span id="example-input-1-3">3</span>, c = <span id="example-input-1-4">5</span>
-<strong>Output: </strong><span id="example-output-1">[3,9,15,33]</span>
+<pre><strong>Input:</strong> nums = [-4,-2,2,4], a = 1, b = 3, c = 5
+<strong>Output:</strong> [3,9,15,33]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [-4,-2,2,4], a = -1, b = 3, c = 5
+<strong>Output:</strong> [-23,-5,1,7]
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<div>
-<p><strong>Example 2:</strong></p>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 200</code></li>
+	<li><code>-100 &lt;= nums[i], a, b, c &lt;= 100</code></li>
+	<li><code>nums</code> is sorted in <strong>ascending</strong> order.</li>
+</ul>
 
-<pre>
-<strong>Input: </strong>nums = <span id="example-input-2-1">[-4,-2,2,4]</span>, a = <span id="example-input-2-2">-1</span>, b = <span id="example-input-2-3">3</span>, c = <span id="example-input-2-4">5</span>
-<strong>Output: </strong><span id="example-output-2">[-23,-5,1,7]</span>
-</pre>
-</div>
-</div>
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Could you solve it in <code>O(n)</code> time?</p>
+
 
 ## Solutions
 

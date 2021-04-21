@@ -4,63 +4,44 @@
 
 ## Description
 
-<p>Given a <b>non-empty</b> array of integers, return the <b>third</b> maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).</p>
+<p>Given integer array <code>nums</code>, return <em>the third maximum number in this array</em>. If the third maximum does not exist, return the maximum number.</p>
 
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> [3, 2, 1]
-
-
-
-<b>Output:</b> 1
-
-
-
-<b>Explanation:</b> The third maximum is 1.
-
+<strong>Input:</strong> nums = [3,2,1]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> The third maximum is 1.
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> [1, 2]
-
-
-
-<b>Output:</b> 2
-
-
-
-<b>Explanation:</b> The third maximum does not exist, so the maximum (2) is returned instead.
-
+<strong>Input:</strong> nums = [1,2]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The third maximum does not exist, so the maximum (2) is returned instead.
 </pre>
 
-</p>
-
-<p><b>Example 3:</b><br />
+<p><strong>Example 3:</strong></p>
 
 <pre>
-
-<b>Input:</b> [2, 2, 3, 1]
-
-
-
-<b>Output:</b> 1
-
-
-
-<b>Explanation:</b> Note that the third maximum here means the third maximum distinct number.
-
+<strong>Input:</strong> nums = [2,2,3,1]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> Note that the third maximum here means the third maximum distinct number.
 Both numbers with value 2 are both considered as second maximum.
-
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Can you find an <code>O(n)</code> solution?
 
 ## Solutions
 

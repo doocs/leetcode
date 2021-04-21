@@ -13,39 +13,29 @@
 <p>Assuming Alex and Lee play optimally, return <code>True</code>&nbsp;if and only if Alex wins the game.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[5,3,4,5]</span>
-
-<strong>Output: </strong><span id="example-output-1">true</span>
-
+<strong>Input:</strong> piles = [5,3,4,5]
+<strong>Output:</strong> true
 <strong>Explanation: </strong>
-
 Alex starts first, and can only take the first 5 or the last 5.
-
 Say he takes the first 5, so that the row becomes [3, 4, 5].
-
 If Lee takes 3, then the board is [4, 5], and Alex takes 5 to win with 10 points.
-
 If Lee takes the last 5, then the board is [3, 4], and Alex takes 4 to win with 9 points.
-
 This demonstrated that taking the first 5 was a winning move for Alex, so we return true.
-
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>2 &lt;= piles.length &lt;= 500</code></li>
+	<li><code>piles.length</code> is even.</li>
+	<li><code>1 &lt;= piles[i] &lt;= 500</code></li>
+	<li><code>sum(piles)</code> is odd.</li>
+</ul>
 
-<ol>
-    <li><code>2 &lt;= piles.length &lt;= 500</code></li>
-    <li><code>piles.length</code> is even.</li>
-    <li><code>1 &lt;= piles[i] &lt;= 500</code></li>
-    <li><code>sum(piles)</code> is odd.</li>
-</ol>
 
 ## Solutions
 

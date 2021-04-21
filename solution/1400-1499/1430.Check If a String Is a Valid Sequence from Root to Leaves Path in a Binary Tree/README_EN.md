@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/leetcode_testcase_1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/12/18/leetcode_testcase_1.png" style="width: 333px; height: 250px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,0,1]
@@ -25,7 +25,7 @@ Other valid sequences are:
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/leetcode_testcase_2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/12/18/leetcode_testcase_2.png" style="width: 333px; height: 250px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,0,1]
@@ -35,7 +35,7 @@ Other valid sequences are:
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/leetcode_testcase_3.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/12/18/leetcode_testcase_3.png" style="width: 333px; height: 250px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,1]

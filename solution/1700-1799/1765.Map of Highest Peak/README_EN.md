@@ -26,7 +26,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/screenshot-2021-01-11-at-82045-am.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-82045-am.png" style="width: 220px; height: 219px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> isWater = [[0,1],[0,0]]
@@ -37,7 +37,7 @@ The blue cell is the water cell, and the green cells are the land cells.
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/screenshot-2021-01-11-at-82050-am.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-82050-am.png" style="width: 300px; height: 296px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> isWater = [[0,0,1],[1,0,0],[0,0,0]]
@@ -56,6 +56,7 @@ Any height assignment that has a maximum height of 2 while still meeting the rul
 	<li><code>isWater[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 	<li>There is at least <strong>one</strong> water cell.</li>
 </ul>
+
 
 ## Solutions
 

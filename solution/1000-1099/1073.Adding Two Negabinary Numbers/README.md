@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给出基数为 <strong>-2</strong>&nbsp;的两个数&nbsp;<code>arr1</code> 和&nbsp;<code>arr2</code>，返回两数相加的结果。</p>
 
 <p>数字以&nbsp;<strong>数组形式&nbsp;</strong>给出：数组由若干 0 和 1 组成，按最高有效位到最低有效位的顺序排列。例如，<code>arr&nbsp;= [1,1,0,1]</code>&nbsp;表示数字&nbsp;<code>(-2)^3&nbsp;+ (-2)^2 + (-2)^0 = -3</code>。<strong>数组形式&nbsp;</strong>的数字也同样不含前导零：以 <code>arr</code> 为例，这意味着要么&nbsp;<code>arr == [0]</code>，要么&nbsp;<code>arr[0] == 1</code>。</p>
@@ -31,6 +32,7 @@
 	<li><code>arr1[i]</code> 为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code></li>
 	<li><code>arr2[i]</code>&nbsp;为&nbsp;<code>0</code> 或&nbsp;<code>1</code></li>
 </ol>
+
 
 ## 解法
 

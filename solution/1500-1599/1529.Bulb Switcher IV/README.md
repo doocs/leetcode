@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>房间中有 <code>n</code> 个灯泡，编号从 <code>0</code> 到 <code>n-1</code> ，自左向右排成一行。最开始的时候，所有的灯泡都是 <strong>关</strong> 着的。</p>
 
 <p>请你设法使得灯泡的开关状态和 <code>target</code> 描述的状态一致，其中 <code>target[i]</code> 等于 <code>1</code> 第 <code>i</code> 个灯泡是开着的，等于 <code>0</code> 意味着第 <code>i</code> 个灯是关着的。</p>
@@ -59,6 +60,7 @@
 	<li><code>1 &lt;= target.length &lt;= 10^5</code></li>
 	<li><code>target[i] == &#39;0&#39;</code> 或者 <code>target[i] == &#39;1&#39;</code></li>
 </ul>
+
 
 ## 解法
 

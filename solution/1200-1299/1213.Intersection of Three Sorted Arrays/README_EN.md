@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given three integer arrays <code>arr1</code>, <code>arr2</code> and <code>arr3</code> <strong>sorted</strong> in <strong>strictly increasing</strong> order, return a sorted array of <strong>only</strong> the integers that appeared in <strong>all</strong> three arrays.</p>
+<p>Given three integer arrays <code>arr1</code>, <code>arr2</code> and <code>arr3</code>&nbsp;<strong>sorted</strong> in <strong>strictly increasing</strong> order, return a sorted array of <strong>only</strong>&nbsp;the&nbsp;integers that appeared in <strong>all</strong> three arrays.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -15,13 +15,21 @@
 <strong>Explanation: </strong>Only 1 and 5 appeared in the three arrays.
 </pre>
 
-<p> </p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr1 = [197,418,523,876,1356], arr2 = [501,880,1593,1710,1870], arr3 = [521,682,1337,1395,1764]
+<strong>Output:</strong> []
+</pre>
+
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= arr1.length, arr2.length, arr3.length <= 1000</code></li>
-	<li><code>1 <= arr1[i], arr2[i], arr3[i] <= 2000</code></li>
+	<li><code>1 &lt;= arr1.length, arr2.length, arr3.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= arr1[i], arr2[i], arr3[i] &lt;= 2000</code></li>
 </ul>
+
 
 ## Solutions
 

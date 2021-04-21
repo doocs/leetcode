@@ -5,39 +5,51 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个整数序列：a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>，一个132模式的子序列&nbsp;a<sub><strong>i</strong></sub>, a<sub><strong>j</strong></sub>, a<sub><strong>k</strong></sub>&nbsp;被定义为：当 <strong>i</strong> &lt; <strong>j</strong> &lt; <strong>k</strong> 时，a<sub><strong>i</strong></sub> &lt; a<sub><strong>k</strong></sub> &lt; a<sub><strong>j</strong></sub>。设计一个算法，当给定有&nbsp;n 个数字的序列时，验证这个序列中是否含有132模式的子序列。</p>
 
-<p><strong>注意：</strong>n 的值小于15000。</p>
+<p>给你一个整数数组 <code>nums</code> ，数组中共有 <code>n</code> 个整数。<strong>132 模式的子序列</strong> 由三个整数 <code>nums[i]</code>、<code>nums[j]</code> 和 <code>nums[k]</code> 组成，并同时满足：<code>i < j < k</code> 和 <code>nums[i] < nums[k] < nums[j]</code> 。</p>
 
-<p><strong>示例1:</strong></p>
+<p>如果 <code>nums</code> 中存在 <strong>132 模式的子序列</strong> ，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
-<pre>
-<strong>输入:</strong> [1, 2, 3, 4]
+<p> </p>
 
-<strong>输出:</strong> False
+<p><strong>进阶：</strong>很容易想到时间复杂度为 <code>O(n^2)</code> 的解决方案，你可以设计一个时间复杂度为 <code>O(n logn)</code> 或 <code>O(n)</code> 的解决方案吗？</p>
 
-<strong>解释:</strong> 序列中不存在132模式的子序列。
-</pre>
+<p> </p>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> [3, 1, 4, 2]
-
-<strong>输出:</strong> True
-
-<strong>解释:</strong> 序列中有 1 个132模式的子序列： [1, 4, 2].
+<strong>输入：</strong>nums = [1,2,3,4]
+<strong>输出：</strong>false
+<strong>解释：</strong>序列中不存在 132 模式的子序列。
 </pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入:</strong> [-1, 3, 2, 0]
-
-<strong>输出:</strong> True
-
-<strong>解释:</strong> 序列中有 3 个132模式的的子序列: [-1, 3, 2], [-1, 3, 0] 和 [-1, 2, 0].
+<strong>输入：</strong>nums = [3,1,4,2]
+<strong>输出：</strong>true
+<strong>解释：</strong>序列中有 1 个 132 模式的子序列： [1, 4, 2] 。
 </pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [-1,3,2,0]
+<strong>输出：</strong>true
+<strong>解释：</strong>序列中有 3 个 132 模式的的子序列：[-1, 3, 2]、[-1, 3, 0] 和 [-1, 2, 0] 。
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 <= n <= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
+</ul>
+
 
 ## 解法
 

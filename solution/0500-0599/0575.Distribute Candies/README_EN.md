@@ -4,55 +4,47 @@
 
 ## Description
 
-Given an integer array with <b>even</b> length, where different numbers in this array represent different <b>kinds</b> of candies. Each number means one candy of the corresponding kind. You need to distribute these candies <b>equally</b> in number to brother and sister. Return the maximum number of <b>kinds</b> of candies the sister could gain.
+<p>Alice has <code>n</code> candies, where the <code>i<sup>th</sup></code> candy is of type <code>candyType[i]</code>. Alice noticed that she started to gain weight, so she visited a doctor.</p>
 
-<p><b>Example 1:</b><br />
+<p>The doctor advised Alice to only eat <code>n / 2</code> of the candies she has (<code>n</code> is always even). Alice likes her candies very much, and she wants to eat the maximum number of different types of candies while still following the doctor&#39;s advice.</p>
 
-<pre>
+<p>Given the integer array <code>candyType</code> of length <code>n</code>, return <em>the <strong>maximum</strong> number of different types of candies she can eat if she only eats </em><code>n / 2</code><em> of them</em>.</p>
 
-<b>Input:</b> candies = [1,1,2,2,3,3]
-
-<b>Output:</b> 3
-
-<b>Explanation:</b>
-
-There are three different kinds of candies (1, 2 and 3), and two candies for each kind.
-
-Optimal distribution: The sister has candies [1,2,3] and the brother has candies [1,2,3], too. 
-
-The sister has three different kinds of candies. 
-
-</pre>
-
-</p>
-
-<p><b>Example 2:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> candies = [1,1,2,3]
-
-<b>Output:</b> 2
-
-<b>Explanation:</b> For example, the sister has candies [2,3] and the brother has candies [1,1]. 
-
-The sister has two different kinds of candies, the brother has only one kind of candies. 
-
+<strong>Input:</strong> candyType = [1,1,2,2,3,3]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> Alice can only eat 6 / 2 = 3 candies. Since there are only 3 types, she can eat one of each type.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b>
+<pre>
+<strong>Input:</strong> candyType = [1,1,2,3]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> Alice can only eat 4 / 2 = 2 candies. Whether she eats types [1,2], [1,3], or [2,3], she still can only eat 2 different types.
+</pre>
 
-<ol>
+<p><strong>Example 3:</strong></p>
 
-<li>The length of the given array is in range [2, 10,000], and will be even.</li>
+<pre>
+<strong>Input:</strong> candyType = [6,6,6,6]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> Alice can only eat 4 / 2 = 2 candies. Even though she can eat 2 candies, she only has 1 type.
+</pre>
 
-<li>The number in given array is in range [-100,000, 100,000].</li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<ol>
+<ul>
+	<li><code>n == candyType.length</code></li>
+	<li><code>2 &lt;= n &lt;= 10<sup>4</sup></code></li>
+	<li><code>n</code>&nbsp;is even.</li>
+	<li><code>-10<sup>5</sup> &lt;= candyType[i] &lt;= 10<sup>5</sup></code></li>
+</ul>
 
-</p>
 
 ## Solutions
 

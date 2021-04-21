@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在给定的网格中，每个单元格可以有以下三个值之一：</p>
 
 <ul>
@@ -21,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/oranges.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/02/16/oranges.png" style="height: 150px; width: 712px;"></strong></p>
 
 <pre><strong>输入：</strong>[[2,1,1],[1,1,0],[0,1,1]]
 <strong>输出：</strong>4
@@ -50,6 +51,7 @@
 	<li><code>1 &lt;= grid[0].length &lt;= 10</code></li>
 	<li><code>grid[i][j]</code> 仅为&nbsp;<code>0</code>、<code>1</code>&nbsp;或&nbsp;<code>2</code></li>
 </ol>
+
 
 ## 解法
 

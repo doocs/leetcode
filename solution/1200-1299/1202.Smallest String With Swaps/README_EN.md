@@ -52,6 +52,7 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 	<li><code>s</code>&nbsp;only contains lower case English letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

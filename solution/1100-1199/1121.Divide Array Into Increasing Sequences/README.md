@@ -5,9 +5,10 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给你一个 <strong>非递减</strong> 的正整数数组 <code>nums</code> 和整数 <code>K</code>，判断该数组是否可以被分成一个或几个 <strong>长度至少 为 </strong><code>K</code><strong> 的 不相交的递增子序列</strong>。</p>
 
-<p> </p>
+<p>给你一个 <strong>非递减</strong> 的正整数数组&nbsp;<code>nums</code>&nbsp;和整数&nbsp;<code>K</code>，判断该数组是否可以被分成一个或几个&nbsp;<strong>长度至少&nbsp;为 </strong><code>K</code><strong> 的 不相交的递增子序列</strong>。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -25,15 +26,16 @@
 没有办法根据条件来划分数组。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>1 <= nums.length <= 10^5</code></li>
-	<li><code>1 <= K <= nums.length</code></li>
-	<li><code>1 <= nums[i] <= 10^5</code></li>
+	<li><code>1 &lt;= nums.length&nbsp;&lt;= 10^5</code></li>
+	<li><code>1 &lt;= K &lt;= nums.length</code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ol>
+
 
 ## 解法
 

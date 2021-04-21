@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_2_1725.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/29/sample_2_1725.png" style="width: 575px; height: 300px;" /></p>
 
 <pre>
 <strong>Input:</strong> light = [2,1,3,5,4]
@@ -60,6 +60,7 @@ Bulb 4th changes to blue at the moment 3.
 	<li><code>1 &lt;= n &lt;= 5 * 10^4</code></li>
 	<li><code>light</code> is a permutation of&nbsp;&nbsp;<code>[1, 2, ..., n]</code></li>
 </ul>
+
 
 ## Solutions
 

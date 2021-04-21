@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串&nbsp;<code>s</code>，它仅由字母&nbsp;<code>&#39;a&#39;</code> 和 <code>&#39;b&#39;</code>&nbsp;组成。每一次删除操作都可以从 <code>s</code> 中删除一个回文 <strong>子序列</strong>。</p>
 
 <p>返回删除给定字符串中所有字符（字符串为空）的最小删除次数。</p>
@@ -52,6 +53,7 @@
 	<li><code>0 &lt;= s.length &lt;= 1000</code></li>
 	<li><code>s</code> 仅包含字母&nbsp;&#39;a&#39;&nbsp; 和 &#39;b&#39;</li>
 </ul>
+
 
 ## 解法
 

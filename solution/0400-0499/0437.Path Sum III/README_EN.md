@@ -4,53 +4,35 @@
 
 ## Description
 
-<p>You are given a binary tree in which each node contains an integer value.</p>
+<p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return <em>the number of paths where the sum of the values&nbsp;along the path equals</em>&nbsp;<code>targetSum</code>.</p>
 
-<p>Find the number of paths that sum to a given value.</p>
+<p>The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).</p>
 
-<p>The path does not need to start or end at the root or a leaf, but it must go downwards
-
-(traveling only from parent nodes to child nodes).</p>
-
-<p>The tree has no more than 1,000 nodes and the values are in the range -1,000,000 to 1,000,000.
-
-<p><b>Example:</b>
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/pathsum3-1-tree.jpg" style="width: 450px; height: 386px;" />
 <pre>
-
-root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
-
-
-
-      10
-
-     /  \
-
-    <b>5</b>   <b>-3</b>
-
-   <b>/</b> <b>\</b>    <b>\</b>
-
-  <b>3</b>   <b>2</b>   <b>11</b>
-
- / \   <b>\</b>
-
-3  -2   <b>1</b>
-
-
-
-Return 3. The paths that sum to 8 are:
-
-
-
-1.  5 -> 3
-
-2.  5 -> 2 -> 1
-
-3. -3 -> 11
-
+<strong>Input:</strong> root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> The paths that sum to 8 are shown.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+<strong>Output:</strong> 3
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[0, 1000]</code>.</li>
+	<li><code>-10<sup>9</sup> &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
+	<li><code>-1000 &lt;= targetSum &lt;= 1000</code></li>
+</ul>
+
 
 ## Solutions
 

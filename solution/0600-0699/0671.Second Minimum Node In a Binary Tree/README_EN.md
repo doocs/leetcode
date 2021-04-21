@@ -10,53 +10,34 @@
 
 <p>If no such second minimum value exists, output -1 instead.</p>
 
-<p><b>Example 1:</b></p>
+<p>&nbsp;</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/15/smbt1.jpg" style="width: 431px; height: 302px;" />
 <pre>
+<strong>Input:</strong> root = [2,2,5,null,null,5,7]
+<strong>Output:</strong> 5
+<strong>Explanation:</strong> The smallest value is 2, the second smallest value is 5.
+</pre>
 
-<b>Input:</b> 
-
-    2
-
-   / \
-
-  2   5
-
-     / \
-
-    5   7
-
-
-
-<b>Output:</b> 5
-
-<b>Explanation:</b> The smallest value is 2, the second smallest value is 5.
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/15/smbt2.jpg" style="width: 321px; height: 182px;" />
+<pre>
+<strong>Input:</strong> root = [2,2,2]
+<strong>Output:</strong> -1
+<strong>Explanation:</strong> The smallest value is 2, but there isn&#39;t any second smallest value.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 25]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>root.val == min(root.left.val, root.right.val)</code>&nbsp;for each internal node of the tree.</li>
+</ul>
 
-<pre>
-
-<b>Input:</b> 
-
-    2
-
-   / \
-
-  2   2
-
-
-
-<b>Output:</b> -1
-
-<b>Explanation:</b> The smallest value is 2, but there isn&#39;t any second smallest value.
-
-</pre>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

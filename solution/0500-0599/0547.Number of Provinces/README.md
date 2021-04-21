@@ -19,18 +19,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/graph1.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/graph1.jpg" style="width: 222px; height: 142px;" />
 <pre>
 <strong>输入：</strong>isConnected = [[1,1,0],[1,1,0],[0,0,1]]
 <strong>输出：</strong>2
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
-![](./images/graph2.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/graph2.jpg" style="width: 222px; height: 142px;" />
 <pre>
 <strong>输入：</strong>isConnected = [[1,0,0],[0,1,0],[0,0,1]]
 <strong>输出：</strong>3
@@ -50,6 +46,7 @@
 </ul>
 </div>
 </div>
+
 
 ## 解法
 

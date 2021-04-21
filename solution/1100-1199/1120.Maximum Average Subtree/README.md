@@ -5,17 +5,18 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给你一棵二叉树的根节点 <code>root</code>，找出这棵树的 <strong>每一棵</strong> 子树的 <strong>平均值</strong> 中的 <strong>最大</strong> 值。</p>
+
+<p>给你一棵二叉树的根节点&nbsp;<code>root</code>，找出这棵树的 <strong>每一棵</strong> 子树的 <strong>平均值</strong> 中的 <strong>最大</strong> 值。</p>
 
 <p>子树是树中的任意节点和它的所有后代构成的集合。</p>
 
 <p>树的平均值是树中节点值的总和除以节点数。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例：</strong></p>
 
-![](./images/1308_example_1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/07/12/1308_example_1.png" style="height: 123px; width: 132px;"></p>
 
 <pre><strong>输入：</strong>[5,6,1]
 <strong>输出：</strong>6.00000
@@ -26,15 +27,16 @@
 所以答案取最大值 6。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li>树中的节点数介于 <code>1</code> 到 <code>5000</code>之间。</li>
-	<li>每个节点的值介于 <code>0</code> 到 <code>100000</code> 之间。</li>
-	<li>如果结果与标准答案的误差不超过 <code>10^-5</code>，那么该结果将被视为正确答案。</li>
+	<li>树中的节点数介于&nbsp;<code>1</code> 到&nbsp;<code>5000</code>之间。</li>
+	<li>每个节点的值介于&nbsp;<code>0</code> 到&nbsp;<code>100000</code>&nbsp;之间。</li>
+	<li>如果结果与标准答案的误差不超过&nbsp;<code>10^-5</code>，那么该结果将被视为正确答案。</li>
 </ol>
+
 
 ## 解法
 

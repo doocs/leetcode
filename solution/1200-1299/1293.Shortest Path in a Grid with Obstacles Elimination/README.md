@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个&nbsp;<code>m * n</code>&nbsp;的网格，其中每个单元格不是&nbsp;<code>0</code>（空）就是&nbsp;<code>1</code>（障碍物）。每一步，您都可以在空白单元格中上、下、左、右移动。</p>
 
 <p>如果您 <strong>最多</strong> 可以消除 <code>k</code> 个障碍物，请找出从左上角 <code>(0, 0)</code> 到右下角 <code>(m-1, n-1)</code> 的最短路径，并返回通过该路径所需的步数。如果找不到这样的路径，则返回 -1。</p>
@@ -54,6 +55,7 @@ k = 1
 	<li><code>grid[i][j] == 0 <strong>or</strong> 1</code></li>
 	<li><code>grid[0][0] == grid[m-1][n-1] == 0</code></li>
 </ul>
+
 
 ## 解法
 

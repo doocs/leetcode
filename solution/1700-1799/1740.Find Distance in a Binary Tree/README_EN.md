@@ -10,27 +10,21 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/binarytree.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 0
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> There are 3 edges between 5 and 0: 5-3-1-0.</pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/binarytree.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 7
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> There are 2 edges between 5 and 7: 5-2-7.</pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/binarytree.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 5
 <strong>Output:</strong> 0

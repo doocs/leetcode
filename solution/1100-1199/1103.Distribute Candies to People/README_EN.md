@@ -47,6 +47,7 @@ On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
 	<li>1 &lt;= num_people &lt;= 1000</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

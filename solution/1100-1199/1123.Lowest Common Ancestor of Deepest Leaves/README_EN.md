@@ -4,49 +4,53 @@
 
 ## Description
 
-<p>Given a rooted binary tree, return the lowest common ancestor of its deepest leaves.</p>
+<p>Given the <code>root</code> of a&nbsp;binary tree, return <em>the lowest common ancestor of its deepest leaves</em>.</p>
 
 <p>Recall that:</p>
 
 <ul>
-	<li>The node of a binary tree is a <em>leaf</em> if and only if it has no children</li>
-	<li>The <em>depth</em> of the root of the tree is 0, and if the depth of a node is <code>d</code>, the depth of each of its children&nbsp;is&nbsp;<code>d+1</code>.</li>
-	<li>The <em>lowest common ancestor</em> of a set <code>S</code> of nodes is the node <code>A</code> with the largest depth such that every node in S is in the subtree with root <code>A</code>.</li>
+	<li>The node of a binary tree is a leaf if and only if it has no children</li>
+	<li>The depth of the root of the tree is <code>0</code>. if the depth of a node is <code>d</code>, the depth of each of its children&nbsp;is&nbsp;<code>d + 1</code>.</li>
+	<li>The lowest common ancestor of a set <code>S</code> of nodes, is the node <code>A</code> with the largest depth such that every node in <code>S</code> is in the subtree with root <code>A</code>.</li>
 </ul>
+
+<p><strong>Note:</strong> This question is the same as 865: <a href="https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/" target="_blank">https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/</a></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/01/sketch1.png" style="width: 600px; height: 510px;" />
 <pre>
-<strong>Input:</strong> root = [1,2,3]
-<strong>Output:</strong> [1,2,3]
-<strong>Explanation:</strong> 
-The deepest leaves are the nodes with values 2 and 3.
-The lowest common ancestor of these leaves is the node with value 1.
-The answer returned is a TreeNode object (not an array) with serialization &quot;[1,2,3]&quot;.
-</pre>
+<strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4]
+<strong>Output:</strong> [2,7,4]
+<strong>Explanation:</strong> We return the node with value 2, colored in yellow in the diagram.
+The nodes coloured in blue are the deepest leaf-nodes of the tree.
+Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but the depth of nodes 7 and 4 is 3.</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> root = [1,2,3,4]
-<strong>Output:</strong> [4]
+<strong>Input:</strong> root = [1]
+<strong>Output:</strong> [1]
+<strong>Explanation:</strong> The root is the deepest node in the tree, and it&#39;s the lca of itself.
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> root = [1,2,3,4,5]
-<strong>Output:</strong> [2,4,5]
+<strong>Input:</strong> root = [0,1,3,null,2]
+<strong>Output:</strong> [2]
+<strong>Explanation:</strong> The deepest leaf node in the tree is 2, the lca of one node is itself.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The given tree will have between 1 and 1000 nodes.</li>
-	<li>Each node of the tree will have a distinct value between 1 and 1000.</li>
+	<li>The number of nodes in the tree will be in the range <code>[1, 1000]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
+	<li>The values of the nodes in the tree&nbsp;are <strong>unique</strong>.</li>
 </ul>
+
 
 ## Solutions
 

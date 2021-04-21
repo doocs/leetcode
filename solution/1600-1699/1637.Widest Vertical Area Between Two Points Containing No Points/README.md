@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你 <code>n</code> 个二维平面上的点 <code>points</code> ，其中 <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> ，请你返回两点之间内部不包含任何点的 <strong>最宽垂直面积</strong> 的宽度。</p>
 
 <p><strong>垂直面积</strong> 的定义是固定宽度，而 y 轴上无限延伸的一块区域（也就是高度为无穷大）。 <strong>最宽垂直面积</strong> 为宽度最大的一个垂直面积。</p>
@@ -14,10 +15,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/points3.png)
-​
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/31/points3.png" style="width: 276px; height: 371px;" />​
 <pre>
 <b>输入：</b>points = [[8,7],[9,9],[7,4],[9,7]]
 <b>输出：</b>1
@@ -41,6 +39,7 @@
 	<li><code>points[i].length == 2</code></li>
 	<li><code>0 <= x<sub>i</sub>, y<sub>i</sub> <= 10<sup>9</sup></code></li>
 </ul>
+
 
 ## 解法
 

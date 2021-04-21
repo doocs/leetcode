@@ -8,7 +8,7 @@
 
 <p>给你一个坐标 <code>coordinates</code> ，它是一个字符串，表示国际象棋棋盘中一个格子的坐标。下图是国际象棋棋盘示意图。</p>
 
-![](./images/screenshot-2021-02-20-at-22159-pm.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/03/chessboard.png" style="width: 400px; height: 396px;" /></p>
 
 <p>如果所给格子的颜色是白色，请你返回 <code>true</code>，如果是黑色，请返回 <code>false</code> 。</p>
 
@@ -48,6 +48,7 @@
 	<li><code>'a' <= coordinates[0] <= 'h'</code></li>
 	<li><code>'1' <= coordinates[1] <= '8'</code></li>
 </ul>
+
 
 ## 解法
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个正方形矩阵 <code>mat</code>，请你返回矩阵对角线元素的和。</p>
 
 <p>请你返回在矩阵主对角线上的元素和副对角线上且不在主对角线上元素的和。</p>
@@ -13,7 +14,7 @@
 
 <p><strong>示例&nbsp; 1：</strong></p>
 
-![](./images/sample_1911.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/14/sample_1911.png" style="height:174px; width:336px" /></p>
 
 <pre>
 <strong>输入：</strong>mat = [[<strong>1</strong>,2,<strong>3</strong>],
@@ -50,6 +51,7 @@
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
+
 
 ## 解法
 

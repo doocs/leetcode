@@ -45,6 +45,7 @@ The total number of units will be = (1 * 3) + (2 * 2) + (1 * 1) = 8.
 	<li><code>1 &lt;= truckSize &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

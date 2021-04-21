@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个字符串&nbsp;<code>S</code>，返回&nbsp;&ldquo;反转后的&rdquo;&nbsp;字符串，其中不是字母的字符都保留在原地，而所有字母的位置发生反转。</p>
 
 <p>&nbsp;</p>
@@ -39,6 +40,7 @@
 	<li><code>33 &lt;= S[i].ASCIIcode &lt;= 122</code>&nbsp;</li>
 	<li><code>S</code> 中不包含&nbsp;<code>\</code> or <code>&quot;</code></li>
 </ol>
+
 
 ## 解法
 

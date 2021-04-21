@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串列表 <code>words</code> 和一个目标字符串 <code>target</code> 。<code>words</code> 中所有字符串都 <strong>长度相同</strong>  。</p>
 
 <p>你的目标是使用给定的 <code>words</code> 字符串列表按照下述规则构造 <code>target</code> ：</p>
@@ -75,6 +76,7 @@
 	<li><code>1 <= target.length <= 1000</code></li>
 	<li><code>words[i]</code> 和 <code>target</code> 都仅包含小写英文字母。</li>
 </ul>
+
 
 ## 解法
 

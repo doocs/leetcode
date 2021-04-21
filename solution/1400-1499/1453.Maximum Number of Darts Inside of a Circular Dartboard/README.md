@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>墙壁上挂着一个圆形的飞镖靶。现在请你蒙着眼睛向靶上投掷飞镖。</p>
 
 <p>投掷到墙上的飞镖用二维平面上的点坐标数组表示。飞镖靶的半径为 <code>r</code> 。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_1_1806.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/sample_1_1806.png" style="height: 159px; width: 186px;"></p>
 
 <pre><strong>输入：</strong>points = [[-2,0],[2,0],[0,2],[0,-2]], r = 2
 <strong>输出：</strong>4
@@ -24,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1806.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/sample_2_1806.png" style="height: 183px; width: 224px;"></strong></p>
 
 <pre><strong>输入：</strong>points = [[-3,0],[3,0],[2,6],[5,4],[0,9],[7,8]], r = 5
 <strong>输出：</strong>5
@@ -52,6 +53,7 @@
 	<li><code>-10^4 &lt;= points[i][0], points[i][1] &lt;= 10^4</code></li>
 	<li><code>1 &lt;= r &lt;= 5000</code></li>
 </ul>
+
 
 ## 解法
 

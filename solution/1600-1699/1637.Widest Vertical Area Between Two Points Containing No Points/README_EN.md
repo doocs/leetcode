@@ -12,10 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/points3.png)
-​
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/19/points3.png" style="width: 276px; height: 371px;" />​
 <pre>
 <strong>Input:</strong> points = [[8,7],[9,9],[7,4],[9,7]]
 <strong>Output:</strong> 1
@@ -38,6 +35,7 @@
 	<li><code>points[i].length == 2</code></li>
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub>&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
+
 
 ## Solutions
 

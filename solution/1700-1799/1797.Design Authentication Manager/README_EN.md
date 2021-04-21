@@ -19,9 +19,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/copy-of-pc68_q2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/25/copy-of-pc68_q2.png" style="width: 500px; height: 287px;" />
 <pre>
 <strong>Input</strong>
 [&quot;AuthenticationManager&quot;, &quot;<code>renew</code>&quot;, &quot;generate&quot;, &quot;<code>countUnexpiredTokens</code>&quot;, &quot;generate&quot;, &quot;<code>renew</code>&quot;, &quot;<code>renew</code>&quot;, &quot;<code>countUnexpiredTokens</code>&quot;]
@@ -52,6 +50,7 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 	<li>The values of <code>currentTime</code> across all the function calls will be <strong>strictly increasing</strong>.</li>
 	<li>At most <code>2000</code> calls will be made to all functions combined.</li>
 </ul>
+
 
 ## Solutions
 

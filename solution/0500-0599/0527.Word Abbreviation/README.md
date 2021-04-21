@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个由n个不重复非空字符串组成的数组，你需要按照以下规则为每个单词生成<strong>最小的</strong>缩写<strong>。</strong></p>
 
 <ol>
@@ -15,11 +16,11 @@
 
 <p><strong>示例:</strong></p>
 
-<pre><strong>输入:</strong> ["like", "god", "internal", "me", "internet", "interval", "intension", "face", "intrusion"]
-<strong>输出:</strong> ["l2e","god","internal","me","i6t","interval","inte4n","f2e","intr4n"]
+<pre><strong>输入:</strong> [&quot;like&quot;, &quot;god&quot;, &quot;internal&quot;, &quot;me&quot;, &quot;internet&quot;, &quot;interval&quot;, &quot;intension&quot;, &quot;face&quot;, &quot;intrusion&quot;]
+<strong>输出:</strong> [&quot;l2e&quot;,&quot;god&quot;,&quot;internal&quot;,&quot;me&quot;,&quot;i6t&quot;,&quot;interval&quot;,&quot;inte4n&quot;,&quot;f2e&quot;,&quot;intr4n&quot;]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>注意:</strong></p>
 
@@ -29,6 +30,7 @@
 	<li>单词只由英文小写字母组成。</li>
 	<li>返回的答案需要和原数组保持<strong>同一顺序。</strong></li>
 </ol>
+
 
 ## 解法
 

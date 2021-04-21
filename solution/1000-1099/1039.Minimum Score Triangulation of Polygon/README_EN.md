@@ -4,76 +4,47 @@
 
 ## Description
 
-<p>Given <code>N</code>, consider a convex <code>N</code>-sided polygon with vertices labelled <code>A[0], A[i], ..., A[N-1]</code>&nbsp;in clockwise order.</p>
+<p>You have a convex <code>n</code>-sided polygon where each vertex has an integer value. You are given an integer array <code>values</code> where <code>values[i]</code> is the value of the <code>i<sup>th</sup></code> vertex (i.e., <strong>clockwise order</strong>).</p>
 
-<p>Suppose you triangulate the polygon into <code>N-2</code> triangles.&nbsp; For each triangle, the value of that triangle is the <strong>product</strong>&nbsp;of the labels of the vertices, and the <em>total score</em> of the triangulation is the sum of these values over all <code>N-2</code> triangles in the triangulation.</p>
+<p>You will <strong>triangulate</strong> the polygon into <code>n - 2</code> triangles. For each triangle, the value of that triangle is the product of the values of its vertices, and the total score of the triangulation is the sum of these values over all <code>n - 2</code> triangles in the triangulation.</p>
 
-<p>Return the smallest possible total score that you can achieve with some triangulation of the polygon.</p>
+<p>Return <em>the smallest possible total score that you can achieve with some triangulation of the polygon</em>.</p>
 
 <p>&nbsp;</p>
-
-<ol>
-
-</ol>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/25/shape1.jpg" style="width: 201px; height: 133px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[1,2,3]</span>
-
-<strong>Output: </strong><span id="example-output-1">6</span>
-
-<strong>Explanation: </strong>The polygon is already triangulated, and the score of the only triangle is 6.
-
+<strong>Input:</strong> values = [1,2,3]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> The polygon is already triangulated, and the score of the only triangle is 6.
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/minimum-score-triangulation-of-polygon-1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/25/shape2.jpg" style="width: 446px; height: 163px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[3,7,4,5]</span>
-
-<strong>Output: </strong><span id="example-output-2">144</span>
-
-<strong>Explanation: </strong>There are two triangulations, with possible scores: 3*7*5 + 4*5*7 = 245, or 3*4*5 + 3*4*7 = 144.  The minimum score is 144.
-
+<strong>Input:</strong> values = [3,7,4,5]
+<strong>Output:</strong> 144
+<strong>Explanation:</strong> There are two triangulations, with possible scores: 3*7*5 + 4*5*7 = 245, or 3*4*5 + 3*4*7 = 144.
+The minimum score is 144.
 </pre>
 
-<div>
-
 <p><strong>Example 3:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/25/shape3.jpg" style="width: 207px; height: 163px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-3-1">[1,3,1,4,1,5]</span>
-
-<strong>Output: </strong><span id="example-output-3">13</span>
-
-<strong>Explanation: </strong>The minimum score triangulation has score 1*1*3 + 1*1*4 + 1*1*5 + 1*1*1 = 13.
-
+<strong>Input:</strong> values = [1,3,1,4,1,5]
+<strong>Output:</strong> 13
+<strong>Explanation:</strong> The minimum score triangulation has score 1*1*3 + 1*1*4 + 1*1*5 + 1*1*1 = 13.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>n == values.length</code></li>
+	<li><code>3 &lt;= n &lt;= 50</code></li>
+	<li><code>1 &lt;= values[i] &lt;= 100</code></li>
+</ul>
 
-<ol>
-	<li><code>3 &lt;= A.length &lt;= 50</code></li>
-	<li><code>1 &lt;= A[i] &lt;= 100</code></li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
 
 ## Solutions
 

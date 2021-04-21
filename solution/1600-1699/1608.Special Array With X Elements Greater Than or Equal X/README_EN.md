@@ -54,6 +54,7 @@ x cannot be greater since there are only 2 numbers in nums.
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

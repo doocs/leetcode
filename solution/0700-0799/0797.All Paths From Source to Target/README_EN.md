@@ -4,38 +4,58 @@
 
 ## Description
 
-<p>Given a directed, acyclic graph of <code>N</code> nodes.&nbsp; Find all possible paths from node <code>0</code> to node <code>N-1</code>, and return them in any order.</p>
+<p>Given a directed&nbsp;acyclic graph (<strong>DAG</strong>) of <code>n</code> nodes labeled from 0 to n - 1,&nbsp;find all possible paths from node <code>0</code> to node <code>n - 1</code>, and return them in any order.</p>
 
-<p>The graph is given as follows:&nbsp; the nodes are 0, 1, ..., graph.length - 1.&nbsp; graph[i] is a list of all nodes j for which the edge (i, j) exists.</p>
+<p>The graph is given as follows:&nbsp;<code>graph[i]</code> is a list of all nodes you can visit from node <code>i</code>&nbsp;(i.e., there is a directed edge from node <code>i</code> to node <code>graph[i][j]</code>).</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg" style="width: 242px; height: 242px;" />
 <pre>
-
-<strong>Example:</strong>
-
-<strong>Input:</strong> [[1,2], [3], [3], []] 
-
-<strong>Output:</strong> [[0,1,3],[0,2,3]] 
-
-<strong>Explanation:</strong> The graph looks like this:
-
-0---&gt;1
-
-|    |
-
-v    v
-
-2---&gt;3
-
-There are two paths: 0 -&gt; 1 -&gt; 3 and 0 -&gt; 2 -&gt; 3.
-
+<strong>Input:</strong> graph = [[1,2],[3],[3],[]]
+<strong>Output:</strong> [[0,1,3],[0,2,3]]
+<strong>Explanation:</strong> There are two paths: 0 -&gt; 1 -&gt; 3 and 0 -&gt; 2 -&gt; 3.
 </pre>
 
-<p><strong>Note:</strong></p>
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/28/all_2.jpg" style="width: 423px; height: 301px;" />
+<pre>
+<strong>Input:</strong> graph = [[4,3,1],[3,2,4],[3],[4],[]]
+<strong>Output:</strong> [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> graph = [[1],[]]
+<strong>Output:</strong> [[0,1]]
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> graph = [[1,2,3],[2],[3],[]]
+<strong>Output:</strong> [[0,1,2,3],[0,2,3],[0,3]]
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> graph = [[1,3],[2],[3],[]]
+<strong>Output:</strong> [[0,1,2,3],[0,3]]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>The number of nodes in the graph will be in the range <code>[2, 15]</code>.</li>
-    <li>You can print different paths in any order, but you should keep the order of nodes inside one path.</li>
+	<li><code>n == graph.length</code></li>
+	<li><code>2 &lt;= n &lt;= 15</code></li>
+	<li><code>0 &lt;= graph[i][j] &lt; n</code></li>
+	<li><code>graph[i][j] != i</code> (i.e., there will be no self-loops).</li>
+	<li>The input graph is <strong>guaranteed</strong> to be a <strong>DAG</strong>.</li>
 </ul>
+
 
 ## Solutions
 

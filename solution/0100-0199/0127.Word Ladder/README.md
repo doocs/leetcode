@@ -5,46 +5,48 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定两个单词（<em>beginWord&nbsp;</em>和 <em>endWord</em>）和一个字典，找到从&nbsp;<em>beginWord</em> 到&nbsp;<em>endWord</em> 的最短转换序列的长度。转换需遵循如下规则：</p>
 
-<ol>
-	<li>每次转换只能改变一个字母。</li>
-	<li>转换过程中的中间单词必须是字典中的单词。</li>
-</ol>
-
-<p><strong>说明:</strong></p>
+<p>字典 <code>wordList</code> 中从单词 <code>beginWord</code><em> </em>和 <code>endWord</code> 的 <strong>转换序列 </strong>是一个按下述规格形成的序列：</p>
 
 <ul>
-	<li>如果不存在这样的转换序列，返回 0。</li>
-	<li>所有单词具有相同的长度。</li>
-	<li>所有单词只由小写字母组成。</li>
-	<li>字典中不存在重复的单词。</li>
-	<li>你可以假设 <em>beginWord</em> 和 <em>endWord </em>是非空的，且二者不相同。</li>
+	<li>序列中第一个单词是 <code>beginWord</code> 。</li>
+	<li>序列中最后一个单词是 <code>endWord</code> 。</li>
+	<li>每次转换只能改变一个字母。</li>
+	<li>转换过程中的中间单词必须是字典 <code>wordList</code> 中的单词。</li>
 </ul>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p>给你两个单词<em> </em><code>beginWord</code><em> </em>和 <code>endWord</code> 和一个字典 <code>wordList</code> ，找到从 <code>beginWord</code> 到 <code>endWord</code> 的 <strong>最短转换序列</strong> 中的 <strong>单词数目</strong> 。如果不存在这样的转换序列，返回 0。</p>
+ 
 
-<pre><strong>输入:</strong>
-beginWord = &quot;hit&quot;,
-endWord = &quot;cog&quot;,
-wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]
+<p><strong>示例 1：</strong></p>
 
-<strong>输出: </strong>5
-
-<strong>解释: </strong>一个最短转换序列是 &quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;,
-     返回它的长度 5。
+<pre>
+<strong>输入：</strong>beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+<strong>输出：</strong>5
+<strong>解释：</strong>一个最短转换序列是 "hit" -> "hot" -> "dot" -> "dog" -> "cog", 返回它的长度 5。
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong>
-beginWord = &quot;hit&quot;
-endWord = &quot;cog&quot;
-wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]
+<pre>
+<strong>输入：</strong>beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]
+<strong>输出：</strong>0
+<strong>解释：</strong>endWord "cog" 不在字典中，所以无法进行转换。</pre>
 
-<strong>输出:</strong>&nbsp;0
+<p> </p>
 
-<strong>解释:</strong>&nbsp;<em>endWord</em> &quot;cog&quot; 不在字典中，所以无法进行转换。</pre>
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= beginWord.length <= 10</code></li>
+	<li><code>endWord.length == beginWord.length</code></li>
+	<li><code>1 <= wordList.length <= 5000</code></li>
+	<li><code>wordList[i].length == beginWord.length</code></li>
+	<li><code>beginWord</code>、<code>endWord</code> 和 <code>wordList[i]</code> 由小写英文字母组成</li>
+	<li><code>beginWord != endWord</code></li>
+	<li><code>wordList</code> 中的所有字符串 <strong>互不相同</strong></li>
+</ul>
+
 
 ## 解法
 

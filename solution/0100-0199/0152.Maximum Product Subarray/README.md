@@ -1,11 +1,14 @@
-# [152. 乘积最大子序列](https://leetcode-cn.com/problems/maximum-product-subarray)
+# [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray)
 
 [English Version](/solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个整数数组 <code>nums</code>&nbsp;，找出一个序列中乘积最大的连续子序列（该序列至少包含一个数）。</p>
+
+<p>给你一个整数数组 <code>nums</code>&nbsp;，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
@@ -19,6 +22,7 @@
 <pre><strong>输入:</strong> [-2,0,-1]
 <strong>输出:</strong> 0
 <strong>解释:</strong>&nbsp;结果不能为 2, 因为 [-2,-1] 不是子数组。</pre>
+
 
 ## 解法
 

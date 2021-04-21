@@ -4,39 +4,41 @@
 
 ## Description
 
-<p>Given a list of <b>unique</b> words, find all pairs of <b><i>distinct</i></b> indices <code>(i, j)</code> in the given list, so that the concatenation of the two words, i.e. <code>words[i] + words[j]</code> is a palindrome.</p>
+<p>Given a list of <b>unique</b> words, return all the pairs of the&nbsp;<b><i>distinct</i></b> indices <code>(i, j)</code> in the given list, so that the concatenation of the two words&nbsp;<code>words[i] + words[j]</code> is a palindrome.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<div>
-
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[&quot;abcd&quot;,&quot;dcba&quot;,&quot;lls&quot;,&quot;s&quot;,&quot;sssll&quot;]</span>
-
-<strong>Output: </strong><span id="example-output-1">[[0,1],[1,0],[3,2],[2,4]] 
-
-<strong>E</strong></span><strong>xplanation<span>: </span></strong>The palindromes are <code>[&quot;dcbaabcd&quot;,&quot;abcddcba&quot;,&quot;slls&quot;,&quot;llssssll&quot;]</code>
-
+<strong>Input:</strong> words = [&quot;abcd&quot;,&quot;dcba&quot;,&quot;lls&quot;,&quot;s&quot;,&quot;sssll&quot;]
+<strong>Output:</strong> [[0,1],[1,0],[3,2],[2,4]]
+<strong>Explanation:</strong> The palindromes are [&quot;dcbaabcd&quot;,&quot;abcddcba&quot;,&quot;slls&quot;,&quot;llssssll&quot;]
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[&quot;bat&quot;,&quot;tab&quot;,&quot;cat&quot;]</span>
-
-<strong>Output: </strong><span id="example-output-2">[[0,1],[1,0]] 
-
-</span><span id="example-output-1"><strong>E</strong></span><strong>xplanation<span>: </span></strong>The palindromes are <code>[&quot;battab&quot;,&quot;tabbat&quot;]</code>
-
+<strong>Input:</strong> words = [&quot;bat&quot;,&quot;tab&quot;,&quot;cat&quot;]
+<strong>Output:</strong> [[0,1],[1,0]]
+<strong>Explanation:</strong> The palindromes are [&quot;battab&quot;,&quot;tabbat&quot;]
 </pre>
 
-</div>
+<p><strong>Example 3:</strong></p>
 
-</div>
+<pre>
+<strong>Input:</strong> words = [&quot;a&quot;,&quot;&quot;]
+<strong>Output:</strong> [[0,1],[1,0]]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 5000</code></li>
+	<li><code>0 &lt;= words[i].length &lt;= 300</code></li>
+	<li><code>words[i]</code> consists of lower-case English letters.</li>
+</ul>
+
 
 ## Solutions
 

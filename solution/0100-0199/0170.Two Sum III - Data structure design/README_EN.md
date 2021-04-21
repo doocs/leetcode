@@ -4,25 +4,44 @@
 
 ## Description
 
-<p>Design and implement a TwoSum class. It should support the following operations: <code>add</code> and <code>find</code>.</p>
+<p>Design a data structure that accepts a stream of integers and checks if it has a pair of integers that sum up to a particular value.</p>
 
-<p><code>add</code> - Add the number to an internal data structure.<br />
-<code>find</code> - Find if there exists any pair of numbers which sum is equal to the value.</p>
+<p>Implement the <code>TwoSum</code> class:</p>
 
+<ul>
+	<li><code>TwoSum()</code> Initializes the <code>TwoSum</code> object, with an empty array initially.</li>
+	<li><code>void add(int number)</code> Adds <code>number</code> to the data structure.</li>
+	<li><code>boolean find(int value)</code> Returns <code>true</code> if there exists any pair of numbers whose sum is equal to <code>value</code>, otherwise, it returns <code>false</code>.</li>
+</ul>
+
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-add(1); add(3); add(5);
-find(4) -&gt; true
-find(7) -&gt; false
+<strong>Input</strong>
+[&quot;TwoSum&quot;, &quot;add&quot;, &quot;add&quot;, &quot;add&quot;, &quot;find&quot;, &quot;find&quot;]
+[[], [1], [3], [5], [4], [7]]
+<strong>Output</strong>
+[null, null, null, null, true, false]
+
+<strong>Explanation</strong>
+TwoSum twoSum = new TwoSum();
+twoSum.add(1);   // [] --&gt; [1]
+twoSum.add(3);   // [1] --&gt; [1,3]
+twoSum.add(5);   // [1,3] --&gt; [1,3,5]
+twoSum.find(4);  // 1 + 3 = 4, return true
+twoSum.find(7);  // No two integers sum up to 7, return false
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<pre>
-add(3); add(1); add(2);
-find(3) -&gt; true
-find(6) -&gt; false</pre>
+<ul>
+	<li><code>-10<sup>5</sup> &lt;= number &lt;= 10<sup>5</sup></code></li>
+	<li><code>-2<sup>31</sup> &lt;= value &lt;= 2<sup>31</sup> - 1</code></li>
+	<li>At most <code>5 * 10<sup>4</sup></code> calls will be made to <code>add</code> and <code>find</code>.</li>
+</ul>
+
 
 ## Solutions
 

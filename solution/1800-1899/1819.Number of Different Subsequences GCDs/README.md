@@ -25,9 +25,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/image-1.png)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/03/image-1.png" />
 <pre>
 <strong>输入：</strong>nums = [6,10,3]
 <strong>输出：</strong>5
@@ -50,6 +48,7 @@
 	<li><code>1 <= nums.length <= 10<sup>5</sup></code></li>
 	<li><code>1 <= nums[i] <= 2 * 10<sup>5</sup></code></li>
 </ul>
+
 
 ## 解法
 

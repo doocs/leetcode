@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>「快乐前缀」是在原字符串中既是&nbsp;<strong>非空</strong> 前缀也是后缀（不包括原字符串自身）的字符串。</p>
 
 <p>给你一个字符串 <code>s</code>，请你返回它的 <strong>最长快乐前缀</strong>。</p>
@@ -47,6 +48,7 @@
 	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
 	<li><code>s</code> 只含有小写英文字母</li>
 </ul>
+
 
 ## 解法
 

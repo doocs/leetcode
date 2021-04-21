@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>请你给一个停车场设计一个停车系统。停车场总共有三种不同大小的车位：大，中和小，每种尺寸分别有固定数目的车位。</p>
 
 <p>请你实现 <code>ParkingSystem</code> 类：</p>
@@ -42,6 +43,7 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 	<li><code>carType</code> 取值为 <code>1</code>， <code>2</code> 或 <code>3</code></li>
 	<li>最多会调用 <code>addCar</code> 函数 <code>1000</code> 次</li>
 </ul>
+
 
 ## 解法
 

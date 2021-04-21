@@ -5,29 +5,44 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>一个已排序好的表&nbsp;<code>A</code>，其包含 1 和其他一些素数.&nbsp; 当列表中的每一个 p&lt;q 时，我们可以构造一个分数 p/q 。</p>
 
-<p>那么第&nbsp;<code>k</code>&nbsp;个最小的分数是多少呢?&nbsp; 以整数数组的形式返回你的答案, 这里&nbsp;<code>answer[0] = p</code>&nbsp;且&nbsp;<code>answer[1] = q</code>.</p>
+<p>给你一个按递增顺序排序的数组 <code>arr</code> 和一个整数 <code>k</code> 。数组 <code>arr</code> 由 <code>1</code> 和若干 <strong>素数</strong>  组成，且其中所有整数互不相同。</p>
 
-<pre><strong>示例:</strong>
-<strong>输入:</strong> A = [1, 2, 3, 5], K = 3
-<strong>输出:</strong> [2, 5]
-<strong>解释:</strong>
-已构造好的分数,排序后如下所示:
-1/5, 1/3, 2/5, 1/2, 3/5, 2/3.
-很明显第三个最小的分数是 2/5.
+<p>对于每对满足 <code>0 < i < j < arr.length</code> 的 <code>i</code> 和 <code>j</code> ，可以得到分数 <code>arr[i] / arr[j]</code> 。</p>
 
-<strong>输入:</strong> A = [1, 7], K = 1
-<strong>输出:</strong> [1, 7]
+<p>那么第 <code>k</code> 个最小的分数是多少呢?  以长度为 2 的整数数组返回你的答案, 这里 <code>answer[0] == arr[i]</code> 且 <code>answer[1] == arr[j]</code> 。</p>
+ 
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>arr = [1,2,3,5], k = 3
+<strong>输出：</strong>[2,5]
+<strong>解释：</strong>已构造好的分数,排序后如下所示: 
+1/5, 1/3, 2/5, 1/2, 3/5, 2/3
+很明显第三个最小的分数是 2/5
 </pre>
 
-<p><strong>注意:</strong></p>
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>arr = [1,7], k = 1
+<strong>输出：</strong>[1,7]
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>A</code> 长度的取值范围在 <code>2</code> &mdash; <code>2000</code>.</li>
-	<li>每个&nbsp;<code>A[i]</code> 的值在 <code>1</code> &mdash;<code>30000</code>.</li>
-	<li><code>K</code> 取值范围为 <code>1</code> &mdash;<code>A.length * (A.length - 1) / 2</code></li>
+	<li><code>2 <= arr.length <= 1000</code></li>
+	<li><code>1 <= arr[i] <= 3 * 10<sup>4</sup></code></li>
+	<li><code>arr[0] == 1</code></li>
+	<li><code>arr[i]</code> 是一个 <strong>素数</strong> ，<code>i > 0</code></li>
+	<li><code>arr</code> 中的所有数字 <strong>互不相同</strong> ，且按 <strong>严格递增</strong> 排序</li>
+	<li><code>1 <= k <= arr.length * (arr.length - 1) / 2</code></li>
 </ul>
+
 
 ## 解法
 

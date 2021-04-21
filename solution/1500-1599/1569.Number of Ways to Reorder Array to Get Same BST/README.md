@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个数组 <code>nums</code>&nbsp;表示 <code>1</code>&nbsp;到 <code>n</code>&nbsp;的一个排列。我们按照元素在 <code>nums</code>&nbsp;中的顺序依次插入一个初始为空的二叉查找树（BST）。请你统计将 <code>nums</code>&nbsp;重新排序后，统计满足如下条件的方案数：重排后得到的二叉查找树与 <code>nums</code>&nbsp;原本数字顺序得到的二叉查找树相同。</p>
 
 <p>比方说，给你&nbsp;<code>nums = [2,1,3]</code>，我们得到一棵 2 为根，1 为左孩子，3 为右孩子的树。数组&nbsp;<code>[2,3,1]</code>&nbsp;也能得到相同的 BST，但&nbsp;<code>[3,2,1]</code>&nbsp;会得到一棵不同的&nbsp;BST 。</p>
@@ -17,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/bb.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/bb.png" style="height: 101px; width: 121px;"></p>
 
 <pre><strong>输入：</strong>nums = [2,1,3]
 <strong>输出：</strong>1
@@ -26,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/ex1.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/ex1.png" style="height: 161px; width: 241px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [3,4,5,1,2]
 <strong>输出：</strong>5
@@ -40,7 +41,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/ex4.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/ex4.png" style="height: 161px; width: 121px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [1,2,3]
 <strong>输出：</strong>0
@@ -49,7 +50,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-![](./images/abc.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/abc.png" style="height: 161px; width: 241px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [3,1,2,5,4,6]
 <strong>输出：</strong>19
@@ -71,6 +72,7 @@
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 	<li><code>nums</code>&nbsp;中所有数 <strong>互不相同</strong>&nbsp;。</li>
 </ul>
+
 
 ## 解法
 

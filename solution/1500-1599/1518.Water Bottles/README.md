@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>小区便利店正在促销，用 <code>numExchange</code> 个空酒瓶可以兑换一瓶新酒。你购入了 <code>numBottles</code> 瓶酒。</p>
 
 <p>如果喝掉了酒瓶中的酒，那么酒瓶就会变成空的。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_1_1875.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/19/sample_1_1875.png" style="height: 240px; width: 480px;"></strong></p>
 
 <pre><strong>输入：</strong>numBottles = 9, numExchange = 3
 <strong>输出：</strong>13
@@ -25,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1875.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/19/sample_2_1875.png" style="height: 240px; width: 790px;"></p>
 
 <pre><strong>输入：</strong>numBottles = 15, numExchange = 4
 <strong>输出：</strong>19
@@ -53,6 +54,7 @@
 	<li><code>1 &lt;=&nbsp;numBottles &lt;= 100</code></li>
 	<li><code>2 &lt;=&nbsp;numExchange &lt;= 100</code></li>
 </ul>
+
 
 ## 解法
 

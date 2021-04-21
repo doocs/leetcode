@@ -51,6 +51,7 @@
 	<li>The words in <code>sentence1</code> and <code>sentence2</code> are separated by a single space.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

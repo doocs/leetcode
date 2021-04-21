@@ -5,55 +5,68 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>在&nbsp;<code>N&nbsp;*&nbsp;N</code>&nbsp;的网格上，我们放置一些&nbsp;<code>1 * 1 * 1&nbsp;</code>&nbsp;的立方体。</p>
 
-<p>每个值&nbsp;<code>v = grid[i][j]</code>&nbsp;表示&nbsp;<code>v</code>&nbsp;个正方体叠放在对应单元格&nbsp;<code>(i, j)</code>&nbsp;上。</p>
+<p>给你一个 <code>n * n</code> 的网格 <code>grid</code> ，上面放置着一些 <code>1 x 1 x 1</code> 的正方体。</p>
 
-<p>请你返回最终形体的表面积。</p>
+<p>每个值 <code>v = grid[i][j]</code> 表示 <code>v</code> 个正方体叠放在对应单元格 <code>(i, j)</code> 上。</p>
 
-<p>&nbsp;</p>
+<p>放置好正方体后，任何直接相邻的正方体都会互相粘在一起，形成一些不规则的三维形体。</p>
+
+<p>请你返回最终这些形体的总表面积。</p>
+
+<p><strong>注意：</strong>每个形体的底面也需要计入表面积中。</p>
+
+<p> </p>
 
 <ul>
 </ul>
 
 <p><strong>示例 1：</strong></p>
-
-<pre><strong>输入：</strong>[[2]]
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/08/tmp-grid1.jpg" style="width: 82px; height: 82px;" />
+<pre>
+<strong>输入：</strong>grid = [[2]]
 <strong>输出：</strong>10
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
-<pre><strong>输入：</strong>[[1,2],[3,4]]
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/08/tmp-grid2.jpg" style="width: 162px; height: 162px;" />
+<pre>
+<strong>输入：</strong>grid = [[1,2],[3,4]]
 <strong>输出：</strong>34
 </pre>
 
 <p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>[[1,0],[0,2]]
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/08/tmp-grid3.jpg" style="width: 162px; height: 162px;" />
+<pre>
+<strong>输入：</strong>grid = [[1,0],[0,2]]
 <strong>输出：</strong>16
 </pre>
 
 <p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>[[1,1,1],[1,0,1],[1,1,1]]
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/08/tmp-grid4.jpg" style="width: 242px; height: 242px;" />
+<pre>
+<strong>输入：</strong>grid = [[1,1,1],[1,0,1],[1,1,1]]
 <strong>输出：</strong>32
 </pre>
 
-<p><strong>示例&nbsp;5：</strong></p>
-
-<pre><strong>输入：</strong>[[2,2,2],[2,1,2],[2,2,2]]
+<p><strong>示例 5：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/08/tmp-grid5.jpg" style="width: 242px; height: 242px;" />
+<pre>
+<strong>输入：</strong>grid = [[2,2,2],[2,1,2],[2,2,2]]
 <strong>输出：</strong>46
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= N &lt;= 50</code></li>
-	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
+	<li><code>n == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 <= n <= 50</code></li>
+	<li><code>0 <= grid[i][j] <= 50</code></li>
 </ul>
+
 
 ## 解法
 

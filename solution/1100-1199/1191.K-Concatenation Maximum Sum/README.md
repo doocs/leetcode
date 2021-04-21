@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>。</p>
 
 <p>首先，我们要对该数组进行修改，即把原数组 <code>arr</code> 重复&nbsp;<code>k</code>&nbsp;次。</p>
@@ -48,6 +49,7 @@
 	<li><code>1 &lt;= k &lt;= 10^5</code></li>
 	<li><code>-10^4 &lt;= arr[i] &lt;= 10^4</code></li>
 </ul>
+
 
 ## 解法
 

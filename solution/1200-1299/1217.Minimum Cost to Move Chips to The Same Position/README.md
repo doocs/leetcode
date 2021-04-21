@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>数轴上放置了一些筹码，每个筹码的位置存在数组&nbsp;<code>chips</code>&nbsp;当中。</p>
 
 <p>你可以对 <strong>任何筹码</strong> 执行下面两种操作之一（<strong>不限操作次数</strong>，0 次也可以）：</p>
@@ -42,6 +43,7 @@
 	<li><code>1 &lt;= chips.length &lt;= 100</code></li>
 	<li><code>1 &lt;= chips[i] &lt;= 10^9</code></li>
 </ul>
+
 
 ## 解法
 

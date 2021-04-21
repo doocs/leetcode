@@ -4,100 +4,60 @@
 
 ## Description
 
-<p>We are given that the string <code>&quot;abc&quot;</code> is valid.</p>
+<p>Given a string <code>s</code>, determine if it is <strong>valid</strong>.</p>
 
-<p>From any valid string <code>V</code>, we may split&nbsp;<code>V</code> into two pieces <code>X</code> and <code>Y</code> such that <code>X + Y</code> (<code>X</code> concatenated with <code>Y</code>) is equal to <code>V</code>.&nbsp; (<code>X</code> or <code>Y</code> may be empty.)&nbsp; Then, <code>X + &quot;abc&quot; + Y</code> is also valid.</p>
+<p>A string <code>s</code> is <strong>valid</strong> if, starting with an empty string <code>t = &quot;&quot;</code>, you can <strong>transform </strong><code>t</code><strong> into </strong><code>s</code> after performing the following operation <strong>any number of times</strong>:</p>
 
-<p>If for example <code>S = &quot;abc&quot;</code>, then examples of valid strings are: <code>&quot;abc&quot;, &quot;aabcbc&quot;, &quot;abcabc&quot;, &quot;abcabcababcc&quot;</code>.&nbsp; Examples of <strong>invalid</strong>&nbsp;strings are: <code>&quot;abccba&quot;</code>, <code>&quot;ab&quot;</code>, <code>&quot;cababc&quot;</code>, <code>&quot;bac&quot;</code>.</p>
+<ul>
+	<li>Insert string <code>&quot;abc&quot;</code> into any position in <code>t</code>. More formally, <code>t</code> becomes <code>t<sub>left</sub> + &quot;abc&quot; + t<sub>right</sub></code>, where <code>t == t<sub>left</sub> + t<sub>right</sub></code>. Note that <code>t<sub>left</sub></code> and <code>t<sub>right</sub></code> may be <strong>empty</strong>.</li>
+</ul>
 
-<p>Return <code>true</code> if and only if the given string&nbsp;<code>S</code>&nbsp;is valid.</p>
+<p>Return <code>true</code> <em>if </em><code>s</code><em> is a <strong>valid</strong> string, otherwise, return</em> <code>false</code>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">&quot;aabcbc&quot;</span>
-
-<strong>Output: </strong><span id="example-output-1">true</span>
-
-<strong>Explanation: </strong>
-
-We start with the valid string &quot;abc&quot;.
-
-Then we can insert another &quot;abc&quot; between &quot;a&quot; and &quot;bc&quot;, resulting in &quot;a&quot; + &quot;abc&quot; + &quot;bc&quot; which is &quot;aabcbc&quot;.
-
-</pre>
-
-<div>
+<strong>Input:</strong> s = &quot;aabcbc&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong>
+&quot;&quot; -&gt; &quot;<u>abc</u>&quot; -&gt; &quot;a<u>abc</u>bc&quot;
+Thus, &quot;aabcbc&quot; is valid.</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">&quot;abcabcababcc&quot;</span>
-
-<strong>Output: </strong><span id="example-output-2">true</span>
-
-<strong>Explanation: </strong>
-
-&quot;abcabcabc&quot; is valid after consecutive insertings of &quot;abc&quot;.
-
-Then we can insert &quot;abc&quot; before the last letter, resulting in &quot;abcabcab&quot; + &quot;abc&quot; + &quot;c&quot; which is &quot;abcabcababcc&quot;.
-
+<strong>Input:</strong> s = &quot;abcabcababcc&quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong>
+&quot;&quot; -&gt; &quot;<u>abc</u>&quot; -&gt; &quot;abc<u>abc</u>&quot; -&gt; &quot;abcabc<u>abc</u>&quot; -&gt; &quot;abcabcab<u>abc</u>c&quot;
+Thus, &quot;abcabcababcc&quot; is valid.
 </pre>
-
-<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-3-1">&quot;abccba&quot;</span>
-
-<strong>Output: </strong><span id="example-output-3">false</span>
-
+<strong>Input:</strong> s = &quot;abccba&quot;
+<strong>Output:</strong> false
+<strong>Explanation:</strong> It is impossible to get &quot;abccba&quot; using the operation.
 </pre>
-
-<div>
 
 <p><strong>Example 4:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-4-1">&quot;cababc&quot;</span>
-
-<strong>Output: </strong><span id="example-output-4">false</span></pre>
+<strong>Input:</strong> s = &quot;cababc&quot;
+<strong>Output:</strong> false
+<strong>Explanation:</strong> It is impossible to get &quot;cababc&quot; using the operation.
+</pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</div>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>s</code> consists of letters <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, and <code>&#39;c&#39;</code></li>
+</ul>
 
-</div>
-
-</div>
-
-<p><strong>Note:</strong></p>
-
-<ol>
-    <li><code>1 &lt;= S.length &lt;= 20000</code></li>
-    <li><code>S[i]</code> is <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, or <code>&#39;c&#39;</code></li>
-</ol>
-
-<div>
-
-<div>
-
-<div>
-
-<div>&nbsp;</div>
-
-</div>
-
-</div>
-
-</div>
 
 ## Solutions
 

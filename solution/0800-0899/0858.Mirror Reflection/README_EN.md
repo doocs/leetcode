@@ -13,20 +13,14 @@
 <p>&nbsp;</p>
 
 <div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input: </strong>p = <span id="example-input-1-1">2</span>, q = <span id="example-input-1-2">1</span>
-
 <strong>Output: </strong><span id="example-output-1">2</span>
-
 <strong>Explanation: </strong>The ray meets receptor 2 the first time it gets reflected back to the left wall.
-
+<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/06/18/reflection.png" style="width: 218px; height: 217px;" />
 </pre>
-
-![](./images/reflection.png)
 
 <p><strong>Note:</strong></p>
 
@@ -34,8 +28,8 @@
 	<li><code>1 &lt;= p &lt;= 1000</code></li>
 	<li><code>0 &lt;= q &lt;= p</code></li>
 </ol>
-
 </div>
+
 
 ## Solutions
 

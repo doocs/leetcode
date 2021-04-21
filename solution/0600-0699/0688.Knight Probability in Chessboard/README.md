@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>已知一个&nbsp;<code>N</code>x<code>N</code>&nbsp;的国际象棋棋盘，棋盘的行号和列号都是从 0 开始。即最左上角的格子记为&nbsp;<code>(0, 0)</code>，最右下角的记为&nbsp;<code>(N-1, N-1)</code>。&nbsp;</p>
 
 <p>现有一个 &ldquo;马&rdquo;（也译作 &ldquo;骑士&rdquo;）位于&nbsp;<code>(r, c)</code>&nbsp;，并打算进行&nbsp;<code>K</code> 次移动。&nbsp;</p>
@@ -13,7 +14,7 @@
 
 <p>&nbsp;</p>
 
-![](./images/knight.png)
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/knight.png" style="height: 200px; width: 200px;"></p>
 
 <p>&nbsp;</p>
 
@@ -42,6 +43,7 @@
 	<li><code>K</code>&nbsp;的取值范围为 [0, 100]</li>
 	<li>开始时，&ldquo;马&rdquo; 总是位于棋盘上</li>
 </ul>
+
 
 ## 解法
 

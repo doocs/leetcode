@@ -4,85 +4,44 @@
 
 ## Description
 
-<p>Given a string, sort it in decreasing order based on the frequency of characters.</p>
+<p>Given a string <code>s</code>, sort it in decreasing order based on the frequency of characters, and return <em>the sorted string</em>.</p>
 
-<p><b>Example 1:</b>
-
-<pre>
-
-<b>Input:</b>
-
-"tree"
-
-
-
-<b>Output:</b>
-
-"eert"
-
-
-
-<b>Explanation:</b>
-
-'e' appears twice while 'r' and 't' both appear once.
-
-So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
-
-</pre>
-
-</p>
-
-<p><b>Example 2:</b>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b>
-
-"cccaaa"
-
-
-
-<b>Output:</b>
-
-"cccaaa"
-
-
-
-<b>Explanation:</b>
-
-Both 'c' and 'a' appear three times, so "aaaccc" is also a valid answer.
-
-Note that "cacaca" is incorrect, as the same characters must be together.
-
+<strong>Input:</strong> s = &quot;tree&quot;
+<strong>Output:</strong> &quot;eert&quot;
+<strong>Explanation:</strong> &#39;e&#39; appears twice while &#39;r&#39; and &#39;t&#39; both appear once.
+So &#39;e&#39; must appear before both &#39;r&#39; and &#39;t&#39;. Therefore &quot;eetr&quot; is also a valid answer.
 </pre>
 
-</p>
-
-<p><b>Example 3:</b>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b>
-
-"Aabb"
-
-
-
-<b>Output:</b>
-
-"bbAa"
-
-
-
-<b>Explanation:</b>
-
-"bbaA" is also a valid answer, but "Aabb" is incorrect.
-
-Note that 'A' and 'a' are treated as two different characters.
-
+<strong>Input:</strong> s = &quot;cccaaa&quot;
+<strong>Output:</strong> &quot;aaaccc&quot;
+<strong>Explanation:</strong> Both &#39;c&#39; and &#39;a&#39; appear three times, so &quot;aaaccc&quot; is also a valid answer.
+Note that &quot;cacaca&quot; is incorrect, as the same characters must be together.
 </pre>
 
-</p>
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;Aabb&quot;
+<strong>Output:</strong> &quot;bbAa&quot;
+<strong>Explanation:</strong> &quot;bbaA&quot; is also a valid answer, but &quot;Aabb&quot; is incorrect.
+Note that &#39;A&#39; and &#39;a&#39; are treated as two different characters.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 5 * 10<sup>5</sup></code></li>
+	<li><code>s</code> consists of English letters and digits.</li>
+</ul>
+
 
 ## Solutions
 

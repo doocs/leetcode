@@ -46,6 +46,7 @@ left = &quot;01110&quot; and right = &quot;1&quot;, score = 2 + 1 = 3
 	<li>The string <code>s</code> consists of characters &#39;0&#39; and &#39;1&#39; only.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

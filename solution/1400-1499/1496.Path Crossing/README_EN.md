@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/screen-shot-2020-06-10-at-123929-pm.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/10/screen-shot-2020-06-10-at-123929-pm.png" style="width: 250px; height: 224px;" /></p>
 
 <pre>
 <strong>Input:</strong> path = &quot;NES&quot;
@@ -21,7 +21,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/screen-shot-2020-06-10-at-123843-pm.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/10/screen-shot-2020-06-10-at-123843-pm.png" style="width: 250px; height: 212px;" /></p>
 
 <pre>
 <strong>Input:</strong> path = &quot;NESWW&quot;
@@ -35,6 +35,7 @@
 	<li><code>1 &lt;= path.length &lt;= 10^4</code></li>
 	<li><code>path</code> will only consist of characters in&nbsp;<code>{&#39;N&#39;, &#39;S&#39;, &#39;E&#39;, &#39;W}</code></li>
 </ul>
+
 
 ## Solutions
 

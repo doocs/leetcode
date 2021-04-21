@@ -5,73 +5,111 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>四叉树是一种树数据，其中每个结点恰好有四个子结点：<code>topLeft</code>、<code>topRight</code>、<code>bottomLeft</code>&nbsp;和&nbsp;<code>bottomRight</code>。四叉树通常被用来划分一个二维空间，递归地将其细分为四个象限或区域。</p>
 
-<p>我们希望在四叉树中存储 True/False 信息。四叉树用来表示 <code>N * N</code> 的布尔网格。对于每个结点, 它将被等分成四个孩子结点<strong>直到这个区域内的值都是相同的</strong>。每个节点都有另外两个布尔属性：<code>isLeaf</code>&nbsp;和&nbsp;<code>val</code>。当这个节点是一个叶子结点时&nbsp;<code>isLeaf</code>&nbsp;为真。<code>val</code>&nbsp;变量储存叶子结点所代表的区域的值。</p>
+<p>二进制矩阵中的所有元素不是 <strong>0</strong> 就是 <strong>1 </strong>。</p>
 
-<p>例如，下面是两个四叉树 A 和 B：</p>
+<p>给你两个四叉树，<code>quadTree1</code> 和 <code>quadTree2</code>。其中 <code>quadTree1</code> 表示一个 <code>n * n</code> 二进制矩阵，而 <code>quadTree2</code> 表示另一个 <code>n * n</code> 二进制矩阵。</p>
 
-<pre>A:
-+-------+-------+   T: true
-|       |       |   F: false
-|   T   |   T   |
-|       |       |
-+-------+-------+
-|       |       |
-|   F   |   F   |
-|       |       |
-+-------+-------+
-topLeft: T
-topRight: T
-bottomLeft: F
-bottomRight: F
+<p>请你返回一个表示 <code>n * n</code> 二进制矩阵的四叉树，它是 <code>quadTree1</code> 和 <code>quadTree2</code> 所表示的两个二进制矩阵进行 <strong>按位逻辑或运算</strong> 的结果。</p>
 
-B:               
-+-------+---+---+
-|       | F | F |
-|   T   +---+---+
-|       | T | T |
-+-------+---+---+
-|       |       |
-|   T   |   F   |
-|       |       |
-+-------+-------+
-topLeft: T
-topRight:
-     topLeft: F
-     topRight: F
-     bottomLeft: T
-     bottomRight: T
-bottomLeft: T
-bottomRight: F
+<p>注意，当 <code>isLeaf</code> 为 <strong>False </strong>时，你可以把 <strong>True</strong> 或者 <strong>False</strong> 赋值给节点，两种值都会被判题机制 <strong>接受</strong> 。</p>
+
+<p>四叉树数据结构中，每个内部节点只有四个子节点。此外，每个节点都有两个属性：</p>
+
+<ul>
+	<li><code>val</code>：储存叶子结点所代表的区域的值。1 对应 <strong>True</strong>，0 对应 <strong>False</strong>；</li>
+	<li><code>isLeaf</code>: 当这个节点是一个叶子结点时为 <strong>True</strong>，如果它有 4 个子节点则为 <strong>False</strong> 。</li>
+</ul>
+
+<pre>
+class Node {
+    public boolean val;
+    public boolean isLeaf;
+    public Node topLeft;
+    public Node topRight;
+    public Node bottomLeft;
+    public Node bottomRight;
+}</pre>
+
+<p>我们可以按以下步骤为二维区域构建四叉树：</p>
+
+<ol>
+	<li>如果当前网格的值相同（即，全为 <code>0</code> 或者全为 <code>1</code>），将 <code>isLeaf</code> 设为 True ，将 <code>val</code> 设为网格相应的值，并将四个子节点都设为 Null 然后停止。</li>
+	<li>如果当前网格的值不同，将 <code>isLeaf</code> 设为 False， 将 <code>val</code> 设为任意值，然后如下图所示，将当前网格划分为四个子网格。</li>
+	<li>使用适当的子网格递归每个子节点。</li>
+</ol>
+
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/new_top.png" style="height: 181px; width: 777px;" /></p>
+
+<p>如果你想了解更多关于四叉树的内容，可以参考 <a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a> 。</p>
+
+<p><strong>四叉树格式：</strong></p>
+
+<p>输出为使用层序遍历后四叉树的序列化形式，其中 <code>null</code> 表示路径终止符，其下面不存在节点。</p>
+
+<p>它与二叉树的序列化非常相似。唯一的区别是节点以列表形式表示 <code>[isLeaf, val]</code> 。</p>
+
+<p>如果 <code>isLeaf</code> 或者 <code>val</code> 的值为 True ，则表示它在列表 <code>[isLeaf, val]</code> 中的值为 <strong>1</strong> ；如果 <code>isLeaf</code> 或者 <code>val</code> 的值为 False ，则表示值为 <strong>0 </strong>。</p>
+
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qt1.png" style="height: 196px; width: 550px;" /> <img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qt2.png" style="height: 278px; width: 550px;" /></p>
+
+<pre>
+<strong>输入：</strong>quadTree1 = [[0,1],[1,1],[1,1],[1,0],[1,0]]
+, quadTree2 = [[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
+<strong>输出：</strong>[[0,0],[1,1],[1,1],[1,1],[1,0]]
+<strong>解释：</strong>quadTree1 和 quadTree2 如上所示。由四叉树所表示的二进制矩阵也已经给出。
+如果我们对这两个矩阵进行按位逻辑或运算，则可以得到下面的二进制矩阵，由一个作为结果的四叉树表示。
+注意，我们展示的二进制矩阵仅仅是为了更好地说明题意，你无需构造二进制矩阵来获得结果四叉树。
+<img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qtr.png" style="height: 222px; width: 777px;" />
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 2：</strong></p>
 
-<p>你的任务是实现一个函数，该函数根据两个四叉树返回表示这两个四叉树的逻辑或(或并)的四叉树。</p>
-
-<pre>A:                 B:                 C (A or B):
-+-------+-------+  +-------+---+---+  +-------+-------+
-|       |       |  |       | F | F |  |       |       |
-|   T   |   T   |  |   T   +---+---+  |   T   |   T   |
-|       |       |  |       | T | T |  |       |       |
-+-------+-------+  +-------+---+---+  +-------+-------+
-|       |       |  |       |       |  |       |       |
-|   F   |   F   |  |   T   |   F   |  |   T   |   F   |
-|       |       |  |       |       |  |       |       |
-+-------+-------+  +-------+-------+  +-------+-------+
+<pre>
+<strong>输入：</strong>quadTree1 = [[1,0]]
+, quadTree2 = [[1,0]]
+<strong>输出：</strong>[[1,0]]
+<strong>解释：</strong>两个数所表示的矩阵大小都为 1*1，值全为 0 
+结果矩阵大小为 1*1，值全为 0 。
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>quadTree1 = [[0,0],[1,0],[1,0],[1,1],[1,1]]
+, quadTree2 = [[0,0],[1,1],[1,1],[1,0],[1,1]]
+<strong>输出：</strong>[[1,1]]
+</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre>
+<strong>输入：</strong>quadTree1 = [[0,0],[1,1],[1,0],[1,1],[1,1]]
+, quadTree2 = [[0,0],[1,1],[0,1],[1,1],[1,1],null,null,null,null,[1,1],[1,0],[1,0],[1,1]]
+<strong>输出：</strong>[[0,0],[1,1],[0,1],[1,1],[1,1],null,null,null,null,[1,1],[1,0],[1,0],[1,1]]
+</pre>
+
+<p><strong>示例 5：</strong></p>
+
+<pre>
+<strong>输入：</strong>quadTree1 = [[0,1],[1,0],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
+, quadTree2 = [[0,1],[0,1],[1,0],[1,1],[1,0],[1,0],[1,0],[1,1],[1,1]]
+<strong>输出：</strong>[[0,0],[0,1],[0,1],[1,1],[1,0],[1,0],[1,0],[1,1],[1,1],[1,0],[1,0],[1,1],[1,1]]
+</pre>
+
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;都表示大小为&nbsp;<code>N * N</code>&nbsp;的网格。</li>
-	<li><code>N</code>&nbsp;将确保是 2 的整次幂。</li>
-	<li>如果你想了解更多关于四叉树的知识，你可以参考这个&nbsp;<a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a>&nbsp;页面。</li>
-	<li>逻辑或的定义如下：如果&nbsp;<code>A 为 True</code> ，或者&nbsp;<code>B 为 True</code> ，或者&nbsp;<code>A 和 B 都为 True</code>，则 &quot;A 或 B&quot; 为 True。</li>
-</ol>
+<ul>
+	<li><code>quadTree1</code> 和 <code>quadTree2</code> 都是符合题目要求的四叉树，每个都代表一个 <code>n * n</code> 的矩阵。</li>
+	<li><code>n == 2^x</code> ，其中 <code>0 <= x <= 9</code>.</li>
+</ul>
+
 
 ## 解法
 

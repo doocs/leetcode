@@ -4,35 +4,45 @@
 
 ## Description
 
-<p>Given a list of words, we may encode it by writing a reference string <code>S</code> and a list of indexes <code>A</code>.</p>
+<p>A <strong>valid encoding</strong> of an array of <code>words</code> is any reference string <code>s</code> and array of indices <code>indices</code> such that:</p>
 
-<p>For example, if the list of words is <code>[&quot;time&quot;, &quot;me&quot;, &quot;bell&quot;]</code>, we can write it as <code>S = &quot;time#bell#&quot;</code>&nbsp;and <code>indexes = [0, 2, 5]</code>.</p>
+<ul>
+	<li><code>words.length == indices.length</code></li>
+	<li>The reference string <code>s</code> ends with the <code>&#39;#&#39;</code> character.</li>
+	<li>For each index <code>indices[i]</code>, the <strong>substring</strong> of <code>s</code> starting from <code>indices[i]</code> and up to (but not including) the next <code>&#39;#&#39;</code> character is equal to <code>words[i]</code>.</li>
+</ul>
 
-<p>Then for each index, we will recover the word by reading from the reference string from that index until we reach a <code>&quot;#&quot;</code> character.</p>
+<p>Given an array of <code>words</code>, return <em>the <strong>length of the shortest reference string</strong> </em><code>s</code><em> possible of any <strong>valid encoding</strong> of </em><code>words</code><em>.</em></p>
 
-<p>What is the length of the shortest reference string S possible that encodes the given words?</p>
-
-<p><strong>Example:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> words = <code>[&quot;time&quot;, &quot;me&quot;, &quot;bell&quot;]</code>
-
+<strong>Input:</strong> words = [&quot;time&quot;, &quot;me&quot;, &quot;bell&quot;]
 <strong>Output:</strong> 10
+<strong>Explanation:</strong> A valid encoding would be s = <code>&quot;time#bell#&quot; and indices = [0, 2, 5</code>].
+words[0] = &quot;time&quot;, the substring of s starting from indices[0] = 0 to the next &#39;#&#39; is underlined in &quot;<u>time</u>#bell#&quot;
+words[1] = &quot;me&quot;, the substring of s starting from indices[1] = 2 to the next &#39;#&#39; is underlined in &quot;ti<u>me</u>#bell#&quot;
+words[2] = &quot;bell&quot;, the substring of s starting from indices[2] = 5 to the next &#39;#&#39; is underlined in &quot;time#<u>bell</u>#&quot;
+</pre>
 
-<strong>Explanation:</strong> S = <code>&quot;time#bell#&quot; and indexes = [0, 2, 5</code>].
+<p><strong>Example 2:</strong></p>
 
+<pre>
+<strong>Input:</strong> words = [&quot;t&quot;]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> A valid encoding would be s = &quot;t#&quot; and indices = [0].
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 2000</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 7</code></li>
+	<li><code>words[i]</code> consists of only lowercase letters.</li>
+</ul>
 
-<ol>
-    <li><code>1 &lt;= words.length&nbsp;&lt;= 2000</code>.</li>
-    <li><code>1 &lt;=&nbsp;words[i].length&nbsp;&lt;= 7</code>.</li>
-    <li>Each word&nbsp;has only&nbsp;lowercase letters.</li>
-</ol>
 
 ## Solutions
 

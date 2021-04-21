@@ -4,26 +4,32 @@
 
 ## Description
 
-<p>Given a string, find the length of the longest substring T that contains at most <i>k</i> distinct characters.</p>
+<p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the length of the longest substring of</em> <code>s</code> <em>that contains at most</em> <code>k</code> <em><strong>distinct</strong> characters</em>.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<div>
 <pre>
-<strong>Input: </strong>s = <span id="example-input-1-1">"eceba"</span>, k = <span id="example-input-1-2">2</span>
-<strong>Output: </strong><span id="example-output-1">3</span>
-<strong>Explanation: </strong>T is "ece" which its length is 3.</pre>
+<strong>Input:</strong> s = &quot;eceba&quot;, k = 2
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> The substring is &quot;ece&quot; with length 3.</pre>
 
-<div>
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input: </strong>s = <span id="example-input-2-1">"aa"</span>, k = <span id="example-input-2-2">1</span>
-<strong>Output: </strong>2
-<strong>Explanation: </strong>T is "aa" which its length is 2.
+<strong>Input:</strong> s = &quot;aa&quot;, k = 1
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> The substring is &quot;aa&quot; with length 2.
 </pre>
-</div>
-</div>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= k &lt;= 50</code></li>
+</ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个由一些多米诺骨牌组成的列表&nbsp;<code>dominoes</code>。</p>
 
 <p>如果其中某一张多米诺骨牌可以通过旋转 <code>0</code>&nbsp;度或 <code>180</code> 度得到另一张多米诺骨牌，我们就认为这两张牌是等价的。</p>
@@ -29,6 +30,7 @@
 	<li><code>1 &lt;= dominoes.length &lt;= 40000</code></li>
 	<li><code>1 &lt;= dominoes[i][j] &lt;= 9</code></li>
 </ul>
+
 
 ## 解法
 

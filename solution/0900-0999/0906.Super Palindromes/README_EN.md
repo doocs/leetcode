@@ -4,40 +4,38 @@
 
 ## Description
 
-<p>Let&#39;s say a positive integer is a&nbsp;<em>superpalindrome</em>&nbsp;if it is a palindrome, and it is also the square of a palindrome.</p>
+<p>Let&#39;s say a positive integer is a <strong>super-palindrome</strong> if it is a palindrome, and it is also the square of a palindrome.</p>
 
-<p>Now, given two positive&nbsp;integers <code>L</code> and <code>R</code> (represented as strings), return the number of superpalindromes in the inclusive range <code>[L, R]</code>.</p>
+<p>Given two positive integers <code>left</code> and <code>right</code> represented as strings, return <em>the number of <strong>super-palindromes</strong> integers in the inclusive range</em> <code>[left, right]</code>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> left = &quot;4&quot;, right = &quot;1000&quot;
+<strong>Output:</strong> 4
+<strong>Explanation</strong>: 4, 9, 121, and 484 are superpalindromes.
+Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrome.
+</pre>
 
-<strong>Input: </strong>L = <span id="example-input-1-1">&quot;4&quot;</span>, R = <span id="example-input-1-2">&quot;1000&quot;</span>
+<p><strong>Example 2:</strong></p>
 
-<strong>Output: </strong>4
-
-<span><strong>Explanation</strong>: </span>4, 9, 121, and 484 are superpalindromes.
-
-Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrome.</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>Note:</strong></p>
-
-<ol>
-    <li><code>1 &lt;= len(L) &lt;= 18</code></li>
-    <li><code>1 &lt;= len(R) &lt;= 18</code></li>
-    <li><code>L</code> and <code>R</code> are strings representing integers in the range <code>[1, 10^18)</code>.</li>
-    <li><code>int(L) &lt;= int(R)</code></li>
-</ol>
-
-<div>
+<pre>
+<strong>Input:</strong> left = &quot;1&quot;, right = &quot;2&quot;
+<strong>Output:</strong> 1
+</pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</div>
+<ul>
+	<li><code>1 &lt;= left.length, right.length &lt;= 18</code></li>
+	<li><code>left</code> and <code>right</code> consist of only digits.</li>
+	<li><code>left</code> and <code>right</code> cannot have leading zeros.</li>
+	<li><code>left</code> and <code>right</code> represent integers in the range <code>[1, 10<sup>18</sup>]</code>.</li>
+	<li><code>left</code> is less than or equal to <code>right</code>.</li>
+</ul>
+
 
 ## Solutions
 

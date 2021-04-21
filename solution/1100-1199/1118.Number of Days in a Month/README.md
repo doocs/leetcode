@@ -5,9 +5,10 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>指定年份 <code>Y</code> 和月份 <code>M</code>，请你帮忙计算出该月一共有多少天。</p>
 
-<p> </p>
+<p>指定年份&nbsp;<code>Y</code> 和月份&nbsp;<code>M</code>，请你帮忙计算出该月一共有多少天。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -27,14 +28,15 @@
 <strong>输出：</strong>28
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>1583 <= Y <= 2100</code></li>
-	<li><code>1 <= M <= 12</code></li>
+	<li><code>1583 &lt;= Y &lt;= 2100</code></li>
+	<li><code>1 &lt;= M &lt;= 12</code></li>
 </ol>
+
 
 ## 解法
 

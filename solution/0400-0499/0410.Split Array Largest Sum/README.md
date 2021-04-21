@@ -5,31 +5,46 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个非负整数数组和一个整数&nbsp;<em>m</em>，你需要将这个数组分成&nbsp;<em>m&nbsp;</em>个非空的连续子数组。设计一个算法使得这&nbsp;<em>m&nbsp;</em>个子数组各自和的最大值最小。</p>
 
-<p><strong>注意:</strong><br />
-数组长度&nbsp;<em>n&nbsp;</em>满足以下条件:</p>
+<p>给定一个非负整数数组 <code>nums</code> 和一个整数 <code>m</code> ，你需要将这个数组分成 <code>m</code><em> </em>个非空的连续子数组。</p>
 
-<ul>
-	<li>1 &le; <em>n</em> &le; 1000</li>
-	<li>1 &le; <em>m</em> &le; min(50, <em>n</em>)</li>
-</ul>
+<p>设计一个算法使得这 <code>m</code><em> </em>个子数组各自和的最大值最小。</p>
 
-<p><strong>示例: </strong></p>
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-输入:
-<strong>nums</strong> = [7,2,5,10,8]
-<strong>m</strong> = 2
+<strong>输入：</strong>nums = [7,2,5,10,8], m = 2
+<strong>输出：</strong>18
+<strong>解释：</strong>
+一共有四种方法将 nums 分割为 2 个子数组。 其中最好的方式是将其分为 [7,2,5] 和 [10,8] 。
+因为此时这两个子数组各自的和的最大值为18，在所有情况中最小。</pre>
 
-输出:
-18
+<p><strong>示例 2：</strong></p>
 
-解释:
-一共有四种方法将<strong>nums</strong>分割为2个子数组。
-其中最好的方式是将其分为<strong>[7,2,5]</strong> 和 <strong>[10,8]</strong>，
-因为此时这两个子数组各自的和的最大值为18，在所有情况中最小。
+<pre>
+<strong>输入：</strong>nums = [1,2,3,4,5], m = 2
+<strong>输出：</strong>9
 </pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [1,4,4], m = 3
+<strong>输出：</strong>4
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= nums.length <= 1000</code></li>
+	<li><code>0 <= nums[i] <= 10<sup>6</sup></code></li>
+	<li><code>1 <= m <= min(50, nums.length)</code></li>
+</ul>
+
 
 ## 解法
 

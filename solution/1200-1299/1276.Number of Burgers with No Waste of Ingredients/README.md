@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>圣诞活动预热开始啦，汉堡店推出了全新的汉堡套餐。为了避免浪费原料，请你帮他们制定合适的制作计划。</p>
 
 <p>给你两个整数&nbsp;<code>tomatoSlices</code>&nbsp;和&nbsp;<code>cheeseSlices</code>，分别表示番茄片和奶酪片的数目。不同汉堡的原料搭配如下：</p>
@@ -61,6 +62,7 @@
 	<li><code>0 &lt;= tomatoSlices &lt;= 10^7</code></li>
 	<li><code>0 &lt;= cheeseSlices &lt;= 10^7</code></li>
 </ul>
+
 
 ## 解法
 

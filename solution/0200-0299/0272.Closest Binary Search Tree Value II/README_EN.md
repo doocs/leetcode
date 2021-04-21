@@ -4,31 +4,38 @@
 
 ## Description
 
-<p>Given a non-empty binary search tree and a target value, find <i>k</i> values in the BST that are closest to the target.</p>
+<p>Given the <code>root</code> of a binary search tree, a <code>target</code> value, and an integer <code>k</code>, return <em>the </em><code>k</code><em> values in the BST that are closest to the</em> <code>target</code>. You may return the answer in <strong>any order</strong>.</p>
 
-<p><b>Note:</b></p>
+<p>You are <strong>guaranteed</strong> to have only one unique set of <code>k</code> values in the BST that are closest to the <code>target</code>.</p>
 
-<ul>
-	<li>Given target value is a floating point.</li>
-	<li>You may assume <i>k</i> is always valid, that is: <i>k</i> ≤ total nodes.</li>
-	<li>You are guaranteed to have only one unique set of <i>k</i> values in the BST that are closest to the target.</li>
-</ul>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/12/closest1-1-tree.jpg" style="width: 292px; height: 302px;" />
+<pre>
+<strong>Input:</strong> root = [4,2,5,1,3], target = 3.714286, k = 2
+<strong>Output:</strong> [4,3]
+</pre>
 
-<p><strong>Example:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> root = [4,2,5,1,3], target = 3.714286, and <em>k</em> = 2
+<strong>Input:</strong> root = [1], target = 0.000000, k = 1
+<strong>Output:</strong> [1]
+</pre>
 
-    4
-   / \
-  2   5
- / \
-1   3
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output:</strong> [4,3]</pre>
+<ul>
+	<li>The number of nodes in the tree is <code>n</code>.</li>
+	<li><code>1 &lt;= k &lt;= n &lt;= 10<sup>4</sup></code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 10<sup>9</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
+</ul>
 
-<p><b>Follow up:</b><br />
-Assume that the BST is balanced, could you solve it in less than <i>O</i>(<i>n</i>) runtime (where <i>n</i> = total nodes)?</p>
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Assume that the BST is balanced. Could you solve it in less than <code>O(n)</code> runtime (where <code>n = total nodes</code>)?</p>
+
 
 ## Solutions
 

@@ -4,83 +4,47 @@
 
 ## Description
 
-<p>
-
-Given a positive integer <i>n</i> and you can do operations as follow:
-
-</p>
-
-<p>
+<p>Given a positive integer <code>n</code>,&nbsp;you can apply one of the following&nbsp;operations:</p>
 
 <ol>
-
-<li>If <i>n</i> is even, replace <i>n</i> with <code><i>n</i>/2</code>.</li>
-
-<li>If <i>n</i> is odd, you can replace <i>n</i> with either <code><i>n</i> + 1</code> or <code><i>n</i> - 1</code>.</li>
-
+	<li>If <code>n</code> is even, replace <code>n</code> with <code>n / 2</code>.</li>
+	<li>If <code>n</code> is odd, replace <code>n</code> with either <code>n + 1</code> or <code>n - 1</code>.</li>
 </ol>
 
-</p>
+<p>Return <em>the minimum number of operations needed for <code>n</code> to become <code>1</code></em>.</p>
 
-<p>
-
-What is the minimum number of replacements needed for <i>n</i> to become 1?
-
-</p>
-
-</p>
-
-<p><b>Example 1:</b>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b>
-
-8
-
-
-
-<b>Output:</b>
-
-3
-
-
-
-<b>Explanation:</b>
-
-8 -> 4 -> 2 -> 1
-
+<strong>Input:</strong> n = 8
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> 8 -&gt; 4 -&gt; 2 -&gt; 1
 </pre>
 
-</p>
-
-<p><b>Example 2:</b>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b>
-
-7
-
-
-
-<b>Output:</b>
-
-4
-
-
-
-<b>Explanation:</b>
-
-7 -> 8 -> 4 -> 2 -> 1
-
-or
-
-7 -> 6 -> 3 -> 2 -> 1
-
+<strong>Input:</strong> n = 7
+<strong>Output:</strong> 4
+<strong>Explanation: </strong>7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
+or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 </pre>
 
-</p>
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 4
+<strong>Output:</strong> 2
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## Solutions
 

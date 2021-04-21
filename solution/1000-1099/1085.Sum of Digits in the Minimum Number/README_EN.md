@@ -8,7 +8,7 @@
 
 <p>Return 0 if <code>S</code> is odd, otherwise return 1.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
@@ -28,13 +28,14 @@ The minimal element is 1, and the sum of those digits is S = 1 which is odd, so 
 The minimal element is 33, and the sum of those digits is S = 3 + 3 = 6 which is even, so the answer is 1.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= A.length <= 100</code></li>
-	<li><code>1 <= A[i] <= 100</code></li>
+	<li><code>1 &lt;= A.length &lt;= 100</code></li>
+	<li><code>1 &lt;= A[i] &lt;= 100</code></li>
 </ul>
+
 
 ## Solutions
 

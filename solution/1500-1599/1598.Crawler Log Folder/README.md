@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>每当用户执行变更文件夹操作时，LeetCode 文件系统都会保存一条日志记录。</p>
 
 <p>下面给出对变更操作的说明：</p>
@@ -25,7 +26,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_11_1957.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/sample_11_1957.png" style="height: 151px; width: 775px;"></p>
 
 <pre><strong>输入：</strong>logs = [&quot;d1/&quot;,&quot;d2/&quot;,&quot;../&quot;,&quot;d21/&quot;,&quot;./&quot;]
 <strong>输出：</strong>2
@@ -34,7 +35,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_22_1957.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/26/sample_22_1957.png" style="height: 270px; width: 600px;"></p>
 
 <pre><strong>输入：</strong>logs = [&quot;d1/&quot;,&quot;d2/&quot;,&quot;./&quot;,&quot;d3/&quot;,&quot;../&quot;,&quot;d31/&quot;]
 <strong>输出：</strong>3
@@ -57,6 +58,7 @@
 	<li><code>logs[i]</code> 符合语句中描述的格式</li>
 	<li>文件夹名称由小写英文字母和数字组成</li>
 </ul>
+
 
 ## 解法
 

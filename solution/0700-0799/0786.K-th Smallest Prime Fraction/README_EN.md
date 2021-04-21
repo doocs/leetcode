@@ -4,41 +4,42 @@
 
 ## Description
 
-<p>A sorted list <code>A</code> contains 1, plus some number of primes.&nbsp; Then, for every p &lt; q in the list, we consider the fraction p/q.</p>
+<p>You are given a sorted integer array <code>arr</code> containing <code>1</code> and <strong>prime</strong> numbers, where all the integers of <code>arr</code> are unique. You are also given an integer <code>k</code>.</p>
 
-<p>What is the <code>K</code>-th smallest fraction considered?&nbsp; Return your answer as an array of ints, where <code>answer[0] = p</code> and <code>answer[1] = q</code>.</p>
+<p>For every <code>i</code> and <code>j</code> where <code>0 &lt;= i &lt; j &lt; arr.length</code>, we consider the fraction <code>arr[i] / arr[j]</code>.</p>
+
+<p>Return <em>the</em> <code>k<sup>th</sup></code> <em>smallest fraction considered</em>. Return your answer as an array of integers of size <code>2</code>, where <code>answer[0] == arr[i]</code> and <code>answer[1] == arr[j]</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Examples:</strong>
-
-<strong>Input:</strong> A = [1, 2, 3, 5], K = 3
-
-<strong>Output:</strong> [2, 5]
-
-<strong>Explanation:</strong>
-
-The fractions to be considered in sorted order are:
-
-1/5, 1/3, 2/5, 1/2, 3/5, 2/3.
-
+<strong>Input:</strong> arr = [1,2,3,5], k = 3
+<strong>Output:</strong> [2,5]
+<strong>Explanation:</strong> The fractions to be considered in sorted order are:
+1/5, 1/3, 2/5, 1/2, 3/5, and 2/3.
 The third fraction is 2/5.
-
-
-
-<strong>Input:</strong> A = [1, 7], K = 1
-
-<strong>Output:</strong> [1, 7]
-
 </pre>
 
-<p><strong>Note:</strong></p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> arr = [1,7], k = 1
+<strong>Output:</strong> [1,7]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li><code>A</code> will have length between <code>2</code> and <code>2000</code>.</li>
-    <li>Each <code>A[i]</code> will be between <code>1</code> and <code>30000</code>.</li>
-    <li><code>K</code> will be between <code>1</code> and <code>A.length * (A.length - 1) / 2</code>.</li>
+	<li><code>2 &lt;= arr.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= arr[i] &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>arr[0] == 1</code></li>
+	<li><code>arr[i]</code> is a <strong>prime</strong> number for <code>i &gt; 0</code>.</li>
+	<li>All the numbers of <code>arr</code> are <strong>unique</strong> and sorted in <strong>strictly increasing</strong> order.</li>
+	<li><code>1 &lt;= k &lt;= arr.length * (arr.length - 1) / 2</code></li>
 </ul>
+
 
 ## Solutions
 

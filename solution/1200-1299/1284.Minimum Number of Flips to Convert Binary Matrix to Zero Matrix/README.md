@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个&nbsp;<code>m x n</code>&nbsp;的二进制矩阵&nbsp;<code>mat</code>。</p>
 
 <p>每一步，你可以选择一个单元格并将它反转（反转表示 0 变 1 ，1 变 0 ）。如果存在和它相邻的单元格，那么这些相邻的单元格也会被反转。（注：相邻的两个单元格共享同一条边。）</p>
@@ -19,7 +20,7 @@
 
 <p><strong>示例&nbsp;1：</strong></p>
 
-![](./images/matrix.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/13/matrix.png" style="height: 86px; width: 409px;"></p>
 
 <pre><strong>输入：</strong>mat = [[0,0],[0,1]]
 <strong>输出：</strong>3
@@ -57,6 +58,7 @@
 	<li><code>1 &lt;= n&nbsp;&lt;= 3</code></li>
 	<li><code>mat[i][j]</code>&nbsp;是 0 或 1 。</li>
 </ul>
+
 
 ## 解法
 

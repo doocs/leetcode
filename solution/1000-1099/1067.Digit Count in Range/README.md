@@ -5,9 +5,10 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个在 <code>0</code> 到 <code>9</code> 之间的整数 <code>d</code>，和两个正整数 <code>low</code> 和 <code>high</code> 分别作为上下界。返回 <code>d</code> 在 <code>low</code> 和 <code>high</code> 之间的整数中出现的次数，包括边界 <code>low</code> 和 <code>high</code>。</p>
 
-<p> </p>
+<p>给定一个在 <code>0</code>&nbsp;到&nbsp;<code>9</code> 之间的整数&nbsp;<code>d</code>，和两个正整数&nbsp;<code>low</code>&nbsp;和&nbsp;<code>high</code>&nbsp;分别作为上下界。返回&nbsp;<code>d</code> 在&nbsp;<code>low</code>&nbsp;和&nbsp;<code>high</code>&nbsp;之间的整数中出现的次数，包括边界&nbsp;<code>low</code> 和&nbsp;<code>high</code>。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -25,14 +26,15 @@
 数字 <code>d=3</code> 在 <code>103,113,123,130,131,...,238,239,243 出现 35 次。</code>
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>0 <= d <= 9</code></li>
-	<li><code>1 <= low <= high <= 2×10^8</code></li>
+	<li><code>0 &lt;= d &lt;= 9</code></li>
+	<li><code>1 &lt;= low &lt;= high &lt;= 2&times;10^8</code></li>
 </ol>
+
 
 ## 解法
 

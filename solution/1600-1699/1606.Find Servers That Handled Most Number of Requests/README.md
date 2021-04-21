@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>你有 <code>k</code> 个服务器，编号为 <code>0</code> 到 <code>k-1</code> ，它们可以同时处理多个请求组。每个服务器有无穷的计算能力但是 <strong>不能同时处理超过一个请求</strong> 。请求分配到服务器的规则如下：</p>
 
 <ul>
@@ -22,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/load-1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/03/load-1.png" style="height: 221px; width: 389px;" /></p>
 
 <pre>
 <strong>输入：</strong>k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 
@@ -79,6 +80,7 @@
 	<li><code>1 <= arrival[i], load[i] <= 10<sup>9</sup></code></li>
 	<li><code>arrival</code> 保证 <strong>严格递增</strong> 。</li>
 </ul>
+
 
 ## 解法
 

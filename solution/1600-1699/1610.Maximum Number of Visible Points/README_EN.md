@@ -20,9 +20,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/89a07e9b-00ab-4967-976a-c723b2aa8656.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/30/89a07e9b-00ab-4967-976a-c723b2aa8656.png" style="width: 400px; height: 300px;" />
 <pre>
 <strong>Input:</strong> points = [[2,1],[2,2],[3,3]], angle = 90, location = [1,1]
 <strong>Output:</strong> 3
@@ -38,9 +36,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/5010bfd3-86e6-465f-ac64-e9df941d2e49.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/30/5010bfd3-86e6-465f-ac64-e9df941d2e49.png" style="width: 690px; height: 348px;" />
 <pre>
 <strong>Input:</strong> points = [[1,0],[2,1]], angle = 13, location = [1,1]
 <strong>Output:</strong> 1
@@ -57,6 +53,7 @@
 	<li><code>0 &lt;= angle &lt; 360</code></li>
 	<li><code>0 &lt;= pos<sub>x</sub>, pos<sub>y</sub>, x<sub>i</sub>, y<sub>i</sub> &lt;= 100</code></li>
 </ul>
+
 
 ## Solutions
 

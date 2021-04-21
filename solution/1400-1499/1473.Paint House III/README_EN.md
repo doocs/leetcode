@@ -4,18 +4,22 @@
 
 ## Description
 
-<p>There is&nbsp;a row of&nbsp;<code>m</code>&nbsp;houses in a small city, each house must be painted with one of the&nbsp;<code>n</code>&nbsp;colors (labeled from 1 to <code>n</code>), some houses that has been painted last summer should not be painted again.</p>
+<p>There is a row of <code>m</code> houses in a small city, each house must be painted with one of the <code>n</code> colors (labeled from <code>1</code> to <code>n</code>), some houses that have been painted last summer should not be painted again.</p>
 
-<p>A neighborhood is a maximal group of continuous houses that are painted with the same color. (For example: houses = [1,2,2,3,3,2,1,1] contains 5 neighborhoods&nbsp; [{1}, {2,2}, {3,3}, {2}, {1,1}]).</p>
-
-<p>Given an array <code>houses</code>, an&nbsp;<code>m * n</code>&nbsp;matrix <code>cost</code> and&nbsp;an integer <code><font face="monospace">target</font></code>&nbsp;where:</p>
+<p>A neighborhood is a maximal group of continuous houses that are painted with the same color.</p>
 
 <ul>
-	<li><code>houses[i]</code>:&nbsp;is the color of the house <code>i</code>, <strong>0</strong> if the house is not painted yet.</li>
-	<li><code>cost[i][j]</code>: is the cost of paint the house <code>i</code> with the color <code>j+1</code>.</li>
+	<li>For example: <code>houses = [1,2,2,3,3,2,1,1]</code> contains <code>5</code> neighborhoods <code>[{1}, {2,2}, {3,3}, {2}, {1,1}]</code>.</li>
 </ul>
 
-<p>Return the minimum cost of painting all the&nbsp;remaining houses in such a way that there are exactly <code>target</code> neighborhoods, if&nbsp;not possible return <strong>-1</strong>.</p>
+<p>Given an array <code>houses</code>, an <code>m x n</code> matrix <code>cost</code> and an integer <code><font face="monospace">target</font></code> where:</p>
+
+<ul>
+	<li><code>houses[i]</code>: is the color of the house <code>i</code>, and <code>0</code> if the house is not painted yet.</li>
+	<li><code>cost[i][j]</code>: is the cost of paint the house <code>i</code> with the color <code>j + 1</code>.</li>
+</ul>
+
+<p>Return <em>the minimum cost of painting all the remaining houses in such a way that there are exactly</em> <code>target</code> <em>neighborhoods</em>. If it is not possible, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -61,10 +65,11 @@ Cost of paint the first and last house (10 + 1) = 11.
 	<li><code>n == cost[i].length</code></li>
 	<li><code>1 &lt;= m &lt;= 100</code></li>
 	<li><code>1 &lt;= n &lt;= 20</code></li>
-	<li><code>1 &lt;= target&nbsp;&lt;= m</code></li>
-	<li><code>0 &lt;= houses[i]&nbsp;&lt;= n</code></li>
+	<li><code>1 &lt;= target &lt;= m</code></li>
+	<li><code>0 &lt;= houses[i] &lt;= n</code></li>
 	<li><code>1 &lt;= cost[i][j] &lt;= 10^4</code></li>
 </ul>
+
 
 ## Solutions
 

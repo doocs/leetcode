@@ -4,39 +4,56 @@
 
 ## Description
 
-<p>Given two strings <b><i>s</i></b>&nbsp;and <b><i>t</i></b>, determine if they are both one edit distance apart.</p>
+<p>Given two strings <code>s</code>&nbsp;and <code>t</code>, return <code>true</code> if they are both one edit distance apart, otherwise return <code>false</code>.</p>
 
-<p><strong>Note:</strong>&nbsp;</p>
+<p>A string <code>s</code> is said to be one distance apart from a string <code>t</code> if you can:</p>
 
-<p>There are 3 possiblities to satisify one edit distance apart:</p>
+<ul>
+	<li>Insert <strong>exactly one</strong> character into <code>s</code>&nbsp;to get&nbsp;<code>t</code>.</li>
+	<li>Delete <strong>exactly one</strong> character from&nbsp;<code>s</code>&nbsp;to get&nbsp;<code>t</code>.</li>
+	<li>Replace <strong>exactly one</strong> character of&nbsp;<code>s</code>&nbsp;with <strong>a different character</strong> to get&nbsp;<code>t</code>.</li>
+</ul>
 
-<ol>
-	<li>Insert a&nbsp;character into <strong><em>s</em></strong>&nbsp;to get&nbsp;<strong><em>t</em></strong></li>
-	<li>Delete a&nbsp;character from&nbsp;<strong><em>s</em></strong>&nbsp;to get&nbsp;<strong><em>t</em></strong></li>
-	<li>Replace a character of&nbsp;<strong><em>s</em></strong>&nbsp;to get&nbsp;<strong><em>t</em></strong></li>
-</ol>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> <strong><em>s</em></strong> = &quot;ab&quot;, <strong><em>t</em></strong> = &quot;acb&quot;
+<strong>Input:</strong> s = &quot;ab&quot;, t = &quot;acb&quot;
 <strong>Output:</strong> true
-<strong>Explanation:</strong> We can insert &#39;c&#39; into <strong><em>s</em></strong>&nbsp;to get&nbsp;<strong><em>t.</em></strong>
+<strong>Explanation:</strong> We can insert &#39;c&#39; into s&nbsp;to get&nbsp;t.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> <strong><em>s</em></strong> = &quot;cab&quot;, <strong><em>t</em></strong> = &quot;ad&quot;
+<strong>Input:</strong> s = &quot;&quot;, t = &quot;&quot;
 <strong>Output:</strong> false
-<strong>Explanation:</strong> We cannot get <strong><em>t </em></strong>from <strong><em>s </em></strong>by only one step.</pre>
+<strong>Explanation:</strong> We cannot get t from s by only one step.
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> <strong><em>s</em></strong> = &quot;1203&quot;, <strong><em>t</em></strong> = &quot;1213&quot;
+<strong>Input:</strong> s = &quot;a&quot;, t = &quot;&quot;
 <strong>Output:</strong> true
-<strong>Explanation:</strong> We can replace &#39;0&#39; with &#39;1&#39; to get&nbsp;<strong><em>t.</em></strong></pre>
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;&quot;, t = &quot;A&quot;
+<strong>Output:</strong> true
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>0 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= t.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s</code> and <code>t</code> consist of lower-case letters, upper-case letters <strong>and/or</strong> digits.</li>
+</ul>
+
 
 ## Solutions
 

@@ -29,7 +29,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/screenshot-2021-01-11-at-82045-am.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-82045-am.png" style="width: 220px; height: 219px;" /></strong></p>
 
 <pre>
 <b>输入：</b>isWater = [[0,1],[0,0]]
@@ -40,7 +40,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/screenshot-2021-01-11-at-82050-am.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-82050-am.png" style="width: 300px; height: 296px;" /></strong></p>
 
 <pre>
 <b>输入：</b>isWater = [[0,0,1],[1,0,0],[0,0,0]]
@@ -60,6 +60,7 @@
 	<li><code>isWater[i][j]</code> 要么是 <code>0</code> ，要么是 <code>1</code> 。</li>
 	<li>至少有 <strong>1</strong> 个水域格子。</li>
 </ul>
+
 
 ## 解法
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，一个分割被称为 「好分割」&nbsp;当它满足：将&nbsp;<code>s</code>&nbsp;分割成 2 个字符串&nbsp;<code>p</code> 和&nbsp;<code>q</code>&nbsp;，它们连接起来等于&nbsp;<code>s</code>&nbsp;且 <code>p</code>&nbsp;和 <code>q</code>&nbsp;中不同字符的数目相同。</p>
 
 <p>请你返回 <code>s</code>&nbsp;中好分割的数目。</p>
@@ -50,6 +51,7 @@
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
 </ul>
+
 
 ## 解法
 

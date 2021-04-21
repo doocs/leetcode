@@ -4,12 +4,12 @@
 
 ## Description
 
-<p>Given two numbers, <code>hour</code> and <code>minutes</code>. Return the smaller angle (in sexagesimal units) formed between the <code>hour</code> and the <code>minute</code> hand.</p>
+<p>Given two numbers, <code>hour</code> and <code>minutes</code>. Return the smaller angle (in degrees) formed between the <code>hour</code> and the <code>minute</code> hand.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_1_1673.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/12/26/sample_1_1673.png" style="width: 230px; height: 225px;" /></p>
 
 <pre>
 <strong>Input:</strong> hour = 12, minutes = 30
@@ -18,7 +18,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_2_1673.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/12/26/sample_2_1673.png" style="width: 230px; height: 225px;" /></p>
 
 <pre>
 <strong>Input:</strong> hour = 3, minutes = 30
@@ -27,7 +27,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/sample_3_1673.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/12/26/sample_3_1673.png" style="width: 230px; height: 225px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> hour = 3, minutes = 15
@@ -56,6 +56,7 @@
 	<li><code>0 &lt;= minutes &lt;= 59</code></li>
 	<li>Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted as correct.</li>
 </ul>
+
 
 ## Solutions
 

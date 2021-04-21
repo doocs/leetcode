@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-![](./images/cinema_seats_1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/cinema_seats_1.png" style="height: 149px; width: 400px;"></p>
 
 <p>如上图所示，电影院的观影厅中有 <code>n</code>&nbsp;行座位，行编号从 1&nbsp;到 <code>n</code>&nbsp;，且每一行内总共有 10 个座位，列编号从 1 到 10 。</p>
 
@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/cinema_seats_3.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/cinema_seats_3.png" style="height: 96px; width: 400px;"></p>
 
 <pre><strong>输入：</strong>n = 3, reservedSeats = [[1,2],[1,3],[1,8],[2,6],[3,1],[3,10]]
 <strong>输出：</strong>4
@@ -49,6 +49,7 @@
 	<li><code>1 &lt;=&nbsp;reservedSeats[i][1] &lt;= 10</code></li>
 	<li>所有&nbsp;<code>reservedSeats[i]</code> 都是互不相同的。</li>
 </ul>
+
 
 ## 解法
 

@@ -4,15 +4,15 @@
 
 ## Description
 
-<p>You have one chocolate bar that consists of some chunks. Each chunk has its own sweetness given by the array <code>sweetness</code>.</p>
+<p>You have one chocolate bar that consists of some chunks. Each chunk has its own sweetness given by the array&nbsp;<code>sweetness</code>.</p>
 
-<p>You want to share the chocolate with your <code>K</code> friends so you start cutting the chocolate bar into <code>K+1</code> pieces using <code>K</code> cuts, each piece consists of some <strong>consecutive</strong> chunks.</p>
+<p>You want to share the chocolate with your <code>K</code>&nbsp;friends so you start cutting the chocolate bar into <code>K+1</code>&nbsp;pieces using&nbsp;<code>K</code>&nbsp;cuts, each piece consists of some <strong>consecutive</strong> chunks.</p>
 
 <p>Being generous, you will eat the piece with the <strong>minimum total sweetness</strong> and give the other pieces to your friends.</p>
 
-<p>Find the <strong>maximum total sweetness</strong> of the piece you can get by cutting the chocolate bar optimally.</p>
+<p>Find the <strong>maximum total sweetness</strong> of the&nbsp;piece you can get by cutting the chocolate bar optimally.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -37,13 +37,14 @@
 <b>Explanation: </b>You can divide the chocolate to [1,2,2], [1,2,2], [1,2,2]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 <= K < sweetness.length <= 10^4</code></li>
-	<li><code>1 <= sweetness[i] <= 10^5</code></li>
+	<li><code>0 &lt;= K &lt;&nbsp;sweetness.length &lt;= 10^4</code></li>
+	<li><code>1 &lt;= sweetness[i] &lt;= 10^5</code></li>
 </ul>
+
 
 ## Solutions
 

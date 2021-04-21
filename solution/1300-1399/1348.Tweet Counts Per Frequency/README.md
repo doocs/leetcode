@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>请你实现一个能够支持以下两种方法的推文计数类&nbsp;<code>TweetCounts</code>：</p>
 
 <p>1.<code> recordTweet(string tweetName, int time)</code></p>
@@ -52,6 +53,7 @@ tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 
 	<li><code>0 &lt;= time, startTime, endTime &lt;=&nbsp;10^9</code></li>
 	<li><code>0 &lt;= endTime - startTime &lt;= 10^4</code></li>
 </ul>
+
 
 ## 解法
 

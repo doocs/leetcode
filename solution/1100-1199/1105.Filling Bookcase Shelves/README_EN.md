@@ -16,9 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/shelves.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2019/06/24/shelves.png" style="width: 250px; height: 370px;" />
 <pre>
 <strong>Input:</strong> books = [[1,1],[2,3],[2,3],[1,1],[1,1],[1,1],[1,2]], shelf_width = 4
 <strong>Output:</strong> 6
@@ -35,6 +33,7 @@ Notice that book number 2 does not have to be on the first shelf.
 	<li><code>1 &lt;= books[i][0] &lt;= shelf_width &lt;= 1000</code></li>
 	<li><code>1 &lt;= books[i][1] &lt;= 1000</code></li>
 </ul>
+
 
 ## Solutions
 

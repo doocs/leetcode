@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>Consider a matrix <code>M</code> with dimensions <code>width * height</code>, such that every cell has value <code>0</code> or <code>1</code>, and any <strong>square</strong> sub-matrix of <code>M</code> of size <code>sideLength * sideLength</code> has at most <code>maxOnes</code> ones.</p>
+<p>Consider a matrix <code>M</code> with dimensions <code>width * height</code>, such that every cell has value <code>0</code>&nbsp;or <code>1</code>, and any <strong>square</strong>&nbsp;sub-matrix of <code>M</code> of size <code>sideLength * sideLength</code>&nbsp;has at most <code>maxOnes</code>&nbsp;ones.</p>
 
 <p>Return the maximum possible number of ones that the matrix <code>M</code> can have.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -33,14 +33,15 @@ The best solution that has 4 ones is:
 [1,0,1]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= width, height <= 100</code></li>
-	<li><code>1 <= sideLength <= width, height</code></li>
-	<li><code>0 <= maxOnes <= sideLength * sideLength</code></li>
+	<li><code>1 &lt;= width, height &lt;= 100</code></li>
+	<li><code>1 &lt;= sideLength &lt;= width, height</code></li>
+	<li><code>0 &lt;= maxOnes &lt;= sideLength * sideLength</code></li>
 </ul>
+
 
 ## Solutions
 

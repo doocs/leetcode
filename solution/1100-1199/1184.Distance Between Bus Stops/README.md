@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>环形公交路线上有&nbsp;<code>n</code>&nbsp;个站，按次序从&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n - 1</code>&nbsp;进行编号。我们已知每一对相邻公交站之间的距离，<code>distance[i]</code>&nbsp;表示编号为&nbsp;<code>i</code>&nbsp;的车站和编号为&nbsp;<code>(i + 1) % n</code>&nbsp;的车站之间的距离。</p>
 
 <p>环线上的公交车都可以按顺时针和逆时针的方向行驶。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/untitled-diagram-1.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1.jpg" style="height: 240px; width: 388px;"></p>
 
 <pre><strong>输入：</strong>distance = [1,2,3,4], start = 0, destination = 1
 <strong>输出：</strong>1
@@ -25,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/untitled-diagram-1-1.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1-1.jpg" style="height: 240px; width: 388px;"></p>
 
 <pre><strong>输入：</strong>distance = [1,2,3,4], start = 0, destination = 2
 <strong>输出：</strong>3
@@ -36,7 +37,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/untitled-diagram-1-2.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1-2.jpg" style="height: 240px; width: 388px;"></p>
 
 <pre><strong>输入：</strong>distance = [1,2,3,4], start = 0, destination = 3
 <strong>输出：</strong>4
@@ -53,6 +54,7 @@
 	<li><code>0 &lt;= start, destination &lt; n</code></li>
 	<li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
 </ul>
+
 
 ## 解法
 

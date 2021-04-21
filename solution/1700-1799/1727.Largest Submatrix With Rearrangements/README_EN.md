@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/screenshot-2020-12-30-at-40536-pm.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/12/29/screenshot-2020-12-30-at-40536-pm.png" style="width: 300px; height: 144px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[0,0,1],[1,1,1],[1,0,1]]
@@ -22,7 +22,7 @@ The largest submatrix of 1s, in bold, has an area of 4.
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/screenshot-2020-12-30-at-40852-pm.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/12/29/screenshot-2020-12-30-at-40852-pm.png" style="width: 500px; height: 62px;" /></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[1,0,1,0,1]]
@@ -54,6 +54,7 @@ The largest submatrix of 1s, in bold, has an area of 3.
 	<li><code>1 &lt;= m * n &lt;= 10<sup>5</sup></code></li>
 	<li><code>matrix[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有一块木板，长度为 <code>n</code> 个 <strong>单位</strong> 。一些蚂蚁在木板上移动，每只蚂蚁都以 <strong>每秒一个单位</strong> 的速度移动。其中，一部分蚂蚁向 <strong>左</strong> 移动，其他蚂蚁向 <strong>右</strong> 移动。</p>
 
 <p>当两只向 <strong>不同</strong> 方向移动的蚂蚁在某个点相遇时，它们会同时改变移动方向并继续移动。假设更改方向不会花费任何额外时间。</p>
@@ -19,7 +20,7 @@
 
 <p>&nbsp;</p>
 
-![](./images/ants.jpg)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants.jpg" style="height: 610px; width: 450px;"></p>
 
 <pre><strong>输入：</strong>n = 4, left = [4,3], right = [0,1]
 <strong>输出：</strong>4
@@ -32,7 +33,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/ants2.jpg)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants2.jpg" style="height: 101px; width: 639px;"></p>
 
 <pre><strong>输入：</strong>n = 7, left = [], right = [0,1,2,3,4,5,6,7]
 <strong>输出：</strong>7
@@ -41,7 +42,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/ants3.jpg)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/ants3.jpg" style="height: 100px; width: 639px;"></p>
 
 <pre><strong>输入：</strong>n = 7, left = [0,1,2,3,4,5,6,7], right = []
 <strong>输出：</strong>7
@@ -74,6 +75,7 @@
 	<li><code>1 &lt;= left.length + right.length &lt;= n + 1</code></li>
 	<li><code>left</code> 和 <code>right</code> 中的所有值都是唯一的，并且每个值 <strong>只能出现在二者之一</strong> 中。</li>
 </ul>
+
 
 ## 解法
 

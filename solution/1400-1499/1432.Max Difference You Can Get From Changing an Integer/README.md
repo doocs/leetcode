@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数&nbsp;<code>num</code>&nbsp;。你可以对它进行如下步骤恰好 <strong>两次</strong>&nbsp;：</p>
 
 <ul>
@@ -63,6 +64,7 @@
 <ul>
 	<li><code>1 &lt;= num &lt;= 10^8</code></li>
 </ul>
+
 
 ## 解法
 

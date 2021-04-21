@@ -4,29 +4,32 @@
 
 ## Description
 
-<p>Find the sum of all left leaves in a given binary tree.</p>
+<p>Given the <code>root</code> of a binary tree, return the sum of all left leaves.</p>
 
-<p><b>Example:</b>
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg" style="width: 277px; height: 302px;" />
 <pre>
-
-    3
-
-   / \
-
-  9  20
-
-    /  \
-
-   15   7
-
-
-
-There are two left leaves in the binary tree, with values <b>9</b> and <b>15</b> respectively. Return <b>24</b>.
-
+<strong>Input:</strong> root = [3,9,20,null,null,15,7]
+<strong>Output:</strong> 24
+<strong>Explanation:</strong> There are two left leaves in the binary tree, with values 9 and 15 respectively.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> root = [1]
+<strong>Output:</strong> 0
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
+	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
+
 
 ## Solutions
 

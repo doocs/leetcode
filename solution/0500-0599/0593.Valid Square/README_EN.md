@@ -4,31 +4,42 @@
 
 ## Description
 
-<p>Given the coordinates of four points in 2D space, return whether the four points could construct a square.</p>
+<p>Given the coordinates of four points in 2D space <code>p1</code>, <code>p2</code>, <code>p3</code> and <code>p4</code>, return <code>true</code> <em>if&nbsp;the four points construct a square</em>.</p>
 
-<p>The coordinate (x,y) of a point is represented by an integer array with two integers.</p>
+<p>The coordinate of a point <code>p<sub>i</sub></code> is represented as <code>[x<sub>i</sub>, y<sub>i</sub>]</code>. The input is <strong>not</strong> given in any order.</p>
 
-<p><b>Example:</b></p>
+<p>A <strong>valid square</strong> has four equal sides with positive length and four equal angles (90-degree angles).</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1]
+<strong>Output:</strong> true
+</pre>
 
-<b>Input:</b> p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1]
+<p><strong>Example 2:</strong></p>
 
-<b>Output:</b> True
+<pre>
+<strong>Input:</strong> p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,12]
+<strong>Output:</strong> false
+</pre>
 
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> p1 = [1,0], p2 = [-1,0], p3 = [0,1], p4 = [0,-1]
+<strong>Output:</strong> true
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p>Note:</p>
+<ul>
+	<li><code>p1.length == p2.length == p3.length == p4.length == 2</code></li>
+	<li><code>-10<sup>4</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
+</ul>
 
-<ol>
-    <li>All the input integers are in the range [-10000, 10000].</li>
-    <li>A valid square has four equal sides with positive length and four equal angles (90-degree angles).</li>
-    <li>Input points have no order.</li>
-</ol>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

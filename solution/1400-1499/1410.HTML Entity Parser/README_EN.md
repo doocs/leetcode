@@ -66,6 +66,7 @@
 	<li>The string may contain any possible characters out of all the 256&nbsp;ASCII characters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

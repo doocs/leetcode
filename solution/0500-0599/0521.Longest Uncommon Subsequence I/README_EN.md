@@ -4,51 +4,48 @@
 
 ## Description
 
-<p>
+<p>Given two strings <code>a</code>&nbsp;and <code>b</code>, find the length of the&nbsp;<strong>longest uncommon subsequence</strong>&nbsp;between them.</p>
 
-Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings.
+<p>A&nbsp;<b>subsequence</b>&nbsp;of&nbsp;a string&nbsp;<code>s</code>&nbsp;is a string that can be obtained after deleting any number of characters from <code>s</code>. For example, <code>&quot;abc&quot;</code>&nbsp;is a subsequence of <code>&quot;aebdc&quot;</code>&nbsp;because you can delete the underlined characters in&nbsp;<code>&quot;a<u>e</u>b<u>d</u>c&quot;</code>&nbsp;to get <code>&quot;abc&quot;</code>. Other subsequences of&nbsp;<code>&quot;aebdc&quot;</code>&nbsp;include&nbsp;<code>&quot;aebdc&quot;</code>,&nbsp;<code>&quot;aeb&quot;</code>,&nbsp;and&nbsp;<code>&quot;&quot;</code>&nbsp;(empty string).</p>
 
-The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be <b>any</b> subsequence of the other strings.
+<p>An&nbsp;<strong>uncommon subsequence</strong>&nbsp;between two strings&nbsp;is a string that is a <strong>subsequence of one&nbsp;but not the other</strong>.</p>
 
-</p>
+<p>Return <em>the length of the <strong>longest uncommon subsequence</strong>&nbsp;between <code>a</code>&nbsp;and <code>b</code></em>. If the longest uncommon subsequence doesn&#39;t exist, return <code>-1</code>.</p>
 
-<p>
-
-A <b>subsequence</b> is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements. Trivially, any string is a subsequence of itself and an empty string is a subsequence of any string.
-
-</p>
-
-<p>
-
-The input will be two strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn't exist, return -1.
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> "aba", "cdc"
-
-<b>Output:</b> 3
-
-<b>Explanation:</b> The longest uncommon subsequence is "aba" (or "cdc"), <br/>because "aba" is a subsequence of "aba", <br/>but not a subsequence of any other strings in the group of two strings. 
-
+<strong>Input:</strong> a = &quot;aba&quot;, b = &quot;cdc&quot;
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> One longest uncommon subsequence is &quot;aba&quot; because &quot;aba&quot; is a subsequence of &quot;aba&quot; but not &quot;cdc&quot;.
+Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b>
+<pre>
+<strong>Input:</strong> a = &quot;aaa&quot;, b = &quot;bbb&quot;
+<strong>Output:</strong> 3
+<strong>Explanation:</strong>&nbsp;The longest uncommon subsequences are &quot;aaa&quot; and &quot;bbb&quot;.
+</pre>
 
-<ol>
+<p><strong>Example 3:</strong></p>
 
-<li>Both strings' lengths will not exceed 100.</li>
+<pre>
+<strong>Input:</strong> a = &quot;aaa&quot;, b = &quot;aaa&quot;
+<strong>Output:</strong> -1
+<strong>Explanation:</strong>&nbsp;Every subsequence of string a is also a subsequence of string b. Similarly, every subsequence of string b is also a subsequence of string a.
+</pre>
 
-<li>Only letters from a ~ z will appear in input strings. </li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</ol>
+<ul>
+	<li><code>1 &lt;= a.length, b.length &lt;= 100</code></li>
+	<li><code>a</code> and <code>b</code> consist of lower-case English letters.</li>
+</ul>
 
-</p>
 
 ## Solutions
 

@@ -9,57 +9,41 @@
 <p>Given an initial computer network <code>connections</code>. You can extract certain cables between two directly connected computers, and place them between any pair of disconnected computers to make them directly connected. Return the <em>minimum number of times</em> you need to do this in order to make all the computers connected. If it&#39;s not possible, return -1.&nbsp;</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_1_1677.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/02/sample_1_1677.png" style="width: 570px; height: 167px;" /></strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 4, connections = [[0,1],[0,2],[1,2]]
-
 <strong>Output:</strong> 1
-
 <strong>Explanation:</strong> Remove cable between computer 1 and 2 and place between computers 1 and 3.
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_2_1677.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/01/02/sample_2_1677.png" style="width: 660px; height: 167px;" /></strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 6, connections = [[0,1],[0,2],[0,3],[1,2],[1,3]]
-
 <strong>Output:</strong> 2
-
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 6, connections = [[0,1],[0,2],[0,3],[1,2]]
-
 <strong>Output:</strong> -1
-
 <strong>Explanation:</strong> There are not enough cables.
-
 </pre>
 
 <p><strong>Example 4:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 5, connections = [[0,1],[0,2],[3,4],[2,3]]
-
 <strong>Output:</strong> 0
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
@@ -71,6 +55,7 @@
 	<li>There are no repeated connections.</li>
 	<li>No two computers are connected by more than one cable.</li>
 </ul>
+
 
 ## Solutions
 

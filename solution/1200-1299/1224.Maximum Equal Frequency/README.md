@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给出一个正整数数组&nbsp;<code>nums</code>，请你帮忙从该数组中找出能满足下面要求的 <strong>最长</strong> 前缀，并返回其长度：</p>
 
 <ul>
@@ -48,6 +49,7 @@
 	<li><code>2 &lt;= nums.length &lt;= 10^5</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
+
 
 ## 解法
 

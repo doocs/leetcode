@@ -27,9 +27,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/ic234-q3-ex1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/ic234-q3-ex1.png" style="width: 500px; height: 244px;" />
 <pre>
 <b>输入：</b>obstacles = [0,1,2,3,0]
 <b>输出：</b>2 
@@ -38,9 +36,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
-![](./images/ic234-q3-ex2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/ic234-q3-ex2.png" style="width: 500px; height: 196px;" />
 <pre>
 <b>输入：</b>obstacles = [0,1,1,3,3,0]
 <b>输出：</b>0
@@ -48,9 +44,7 @@
 </pre>
 
 <p><strong>示例 3：</strong></p>
-
-![](./images/ic234-q3-ex3.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/ic234-q3-ex3.png" style="width: 500px; height: 196px;" />
 <pre>
 <b>输入：</b>obstacles = [0,2,1,0,3,0]
 <b>输出：</b>2
@@ -67,6 +61,7 @@
 	<li><code>0 <= obstacles[i] <= 3</code></li>
 	<li><code>obstacles[0] == obstacles[n] == 0</code></li>
 </ul>
+
 
 ## 解法
 

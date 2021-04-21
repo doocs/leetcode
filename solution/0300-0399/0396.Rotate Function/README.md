@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个长度为 <em>n</em> 的整数数组&nbsp;<code>A</code>&nbsp;。</p>
 
 <p>假设&nbsp;<code>B<sub>k</sub></code>&nbsp;是数组&nbsp;<code>A</code>&nbsp;顺时针旋转 <em>k</em> 个位置后的数组，我们定义&nbsp;<code>A</code>&nbsp;的&ldquo;旋转函数&rdquo;&nbsp;<code>F</code>&nbsp;为：</p>
@@ -28,6 +29,7 @@ F(3) = (0 * 3) + (1 * 2) + (2 * 6) + (3 * 4) = 0 + 2 + 12 + 12 = 26
 
 所以 F(0), F(1), F(2), F(3) 中的最大值是 F(3) = 26 。
 </pre>
+
 
 ## 解法
 

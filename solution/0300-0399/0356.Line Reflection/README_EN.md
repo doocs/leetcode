@@ -11,11 +11,9 @@
 <p><b>Follow up:</b><br />
 Could you do better than O(<i>n</i><sup>2</sup>) ?</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/356_example_1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/04/23/356_example_1.PNG" style="width: 389px; height: 340px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[-1,1]]
 <strong>Output:</strong> true
@@ -23,23 +21,22 @@ Could you do better than O(<i>n</i><sup>2</sup>) ?</p>
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/356_example_2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/04/23/356_example_2.PNG" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[-1,-1]]
 <strong>Output:</strong> false
-<strong>Explanation:</strong> We can't choose a line.
+<strong>Explanation:</strong> We can&#39;t choose a line.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>n == points.length</code></li>
-	<li><code>1 <= n <= 10^4</code></li>
-	<li><code>-10^8 <= points[i][j] <= 10^8</code></li>
+	<li><code>1 &lt;= n &lt;= 10^4</code></li>
+	<li><code>-10^8&nbsp;&lt;= points[i][j] &lt;=&nbsp;10^8</code></li>
 </ul>
+
 
 ## Solutions
 

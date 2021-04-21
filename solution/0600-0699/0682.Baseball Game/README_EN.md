@@ -4,103 +4,68 @@
 
 ## Description
 
-<p>
+<p>You are keeping score for a baseball game with strange rules. The game consists of several rounds, where the scores of past rounds may affect future rounds&#39; scores.</p>
 
-You're now a baseball game point recorder.
-
-</p>
-
-<p>
-
-Given a list of strings, each string can be one of the 4 following types:
+<p>At the beginning of the game, you start with an empty record. You are given a list of strings <code>ops</code>, where <code>ops[i]</code> is the <code>i<sup>th</sup></code> operation you must apply to the record and is one of the following:</p>
 
 <ol>
-
-<li><code>Integer</code> (one round's score): Directly represents the number of points you get in this round.</li>
-
-<li><code>"+"</code> (one round's score): Represents that the points you get in this round are the sum of the last two <code>valid</code> round's points.</li>
-
-<li><code>"D"</code> (one round's score): Represents that the points you get in this round are the doubled data of the last <code>valid</code> round's points.</li>
-
-<li><code>"C"</code> (an operation, which isn't a round's score): Represents the last <code>valid</code> round's points you get were invalid and should be removed.</li>
-
+	<li>An integer <code>x</code> - Record a new score of <code>x</code>.</li>
+	<li><code>&quot;+&quot;</code> - Record a new score that is the sum of the previous two scores. It is guaranteed there will always be two previous scores.</li>
+	<li><code>&quot;D&quot;</code> - Record a new score that is double the previous score. It is guaranteed there will always be a previous score.</li>
+	<li><code>&quot;C&quot;</code> - Invalidate the previous score, removing it from the record. It is guaranteed there will always be a previous score.</li>
 </ol>
 
-</p>
+<p>Return <em>the sum of all the scores on the record</em>.</p>
 
-<p>
-
-Each round's operation is permanent and could have an impact on the round before and the round after.
-
-</p>
-
-<p>
-
-You need to return the sum of the points you could get in all the rounds.
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> ["5","2","C","D","+"]
-
-<b>Output:</b> 30
-
-<b>Explanation:</b> 
-
-Round 1: You could get 5 points. The sum is: 5.
-
-Round 2: You could get 2 points. The sum is: 7.
-
-Operation 1: The round 2's data was invalid. The sum is: 5.  
-
-Round 3: You could get 10 points (the round 2's data has been removed). The sum is: 15.
-
-Round 4: You could get 5 + 10 = 15 points. The sum is: 30.
-
+<strong>Input:</strong> ops = [&quot;5&quot;,&quot;2&quot;,&quot;C&quot;,&quot;D&quot;,&quot;+&quot;]
+<strong>Output:</strong> 30
+<strong>Explanation:</strong>
+&quot;5&quot; - Add 5 to the record, record is now [5].
+&quot;2&quot; - Add 2 to the record, record is now [5, 2].
+&quot;C&quot; - Invalidate and remove the previous score, record is now [5].
+&quot;D&quot; - Add 2 * 5 = 10 to the record, record is now [5, 10].
+&quot;+&quot; - Add 5 + 10 = 15 to the record, record is now [5, 10, 15].
+The total sum is 5 + 10 + 15 = 30.
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> ["5","-2","4","C","D","9","+","+"]
-
-<b>Output:</b> 27
-
-<b>Explanation:</b> 
-
-Round 1: You could get 5 points. The sum is: 5.
-
-Round 2: You could get -2 points. The sum is: 3.
-
-Round 3: You could get 4 points. The sum is: 7.
-
-Operation 1: The round 3's data is invalid. The sum is: 3.  
-
-Round 4: You could get -4 points (the round 3's data has been removed). The sum is: -1.
-
-Round 5: You could get 9 points. The sum is: 8.
-
-Round 6: You could get -4 + 9 = 5 points. The sum is 13.
-
-Round 7: You could get 9 + 5 = 14 points. The sum is 27.
-
+<strong>Input:</strong> ops = [&quot;5&quot;,&quot;-2&quot;,&quot;4&quot;,&quot;C&quot;,&quot;D&quot;,&quot;9&quot;,&quot;+&quot;,&quot;+&quot;]
+<strong>Output:</strong> 27
+<strong>Explanation:</strong>
+&quot;5&quot; - Add 5 to the record, record is now [5].
+&quot;-2&quot; - Add -2 to the record, record is now [5, -2].
+&quot;4&quot; - Add 4 to the record, record is now [5, -2, 4].
+&quot;C&quot; - Invalidate and remove the previous score, record is now [5, -2].
+&quot;D&quot; - Add 2 * -2 = -4 to the record, record is now [5, -2, -4].
+&quot;9&quot; - Add 9 to the record, record is now [5, -2, -4, 9].
+&quot;+&quot; - Add -4 + 9 = 5 to the record, record is now [5, -2, -4, 9, 5].
+&quot;+&quot; - Add 9 + 5 = 14 to the record, record is now [5, -2, -4, 9, 5, 14].
+The total sum is 5 + -2 + -4 + 9 + 5 + 14 = 27.
 </pre>
 
-</p>
+<p><strong>Example 3:</strong></p>
 
-<p><b>Note:</b><br />
+<pre>
+<strong>Input:</strong> ops = [&quot;1&quot;]
+<strong>Output:</strong> 1
+</pre>
 
-<li>The size of the input list will be between 1 and 1000.</li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>Every integer represented in the list will be between -30000 and 30000.</li>
+<ul>
+	<li><code>1 &lt;= ops.length &lt;= 1000</code></li>
+	<li><code>ops[i]</code> is <code>&quot;C&quot;</code>, <code>&quot;D&quot;</code>, <code>&quot;+&quot;</code>, or a string representing an integer in the range <code>[-3 * 10<sup>4</sup>, 3 * 10<sup>4</sup>]</code>.</li>
+	<li>For operation <code>&quot;+&quot;</code>, there will always be at least two previous scores on the record.</li>
+	<li>For operations <code>&quot;C&quot;</code> and <code>&quot;D&quot;</code>, there will always be at least one previous score on the record.</li>
+</ul>
 
-</p>
 
 ## Solutions
 

@@ -5,34 +5,47 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>写一个&nbsp;<code>RecentCounter</code>&nbsp;类来计算最近的请求。</p>
 
-<p>它只有一个方法：<code>ping(int t)</code>，其中&nbsp;<code>t</code>&nbsp;代表以毫秒为单位的某个时间。</p>
+<p>写一个 <code>RecentCounter</code> 类来计算特定时间范围内最近的请求。</p>
 
-<p>返回从 3000 毫秒前到现在的&nbsp;<code>ping</code>&nbsp;数。</p>
+<p>请你实现 <code>RecentCounter</code> 类：</p>
 
-<p>任何处于&nbsp;<code>[t - 3000, t]</code>&nbsp;时间范围之内的 <code>ping</code>&nbsp;都将会被计算在内，包括当前（指 <code>t</code>&nbsp;时刻）的 <code>ping</code>。</p>
+<ul>
+	<li><code>RecentCounter()</code> 初始化计数器，请求数为 0 。</li>
+	<li><code>int ping(int t)</code> 在时间 <code>t</code> 添加一个新请求，其中 <code>t</code> 表示以毫秒为单位的某个时间，并返回过去 <code>3000</code> 毫秒内发生的所有请求数（包括新请求）。确切地说，返回在 <code>[t-3000, t]</code> 内发生的请求数。</li>
+</ul>
 
-<p>保证每次对 <code>ping</code> 的调用都使用比之前更大的 <code>t</code> 值。</p>
+<p><strong>保证</strong> 每次对 <code>ping</code> 的调用都使用比之前更大的 <code>t</code> 值。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>示例：</strong></p>
 
-<pre><strong>输入：</strong>inputs = [&quot;RecentCounter&quot;,&quot;ping&quot;,&quot;ping&quot;,&quot;ping&quot;,&quot;ping&quot;], inputs = [[],[1],[100],[3001],[3002]]
-<strong>输出：</strong>[null,1,2,3,3]</pre>
+<pre>
+<strong>输入：</strong>
+["RecentCounter", "ping", "ping", "ping", "ping"]
+[[], [1], [100], [3001], [3002]]
+<strong>输出：</strong>
+[null, 1, 2, 3, 3]
 
-<p>&nbsp;</p>
+<strong>解释：</strong>
+RecentCounter recentCounter = new RecentCounter();
+recentCounter.ping(1);     // requests = [<strong>1</strong>]，范围是 [-2999,1]，返回 1
+recentCounter.ping(100);   // requests = [<strong>1</strong>, <strong>100</strong>]，范围是 [-2900,100]，返回 2
+recentCounter.ping(3001);  // requests = [<strong>1</strong>, <strong>100</strong>, <strong>3001</strong>]，范围是 [1,3001]，返回 3
+recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001</strong>, <strong>3002</strong>]，范围是 [2,3002]，返回 3
+</pre>
+
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>每个测试用例最多调用&nbsp;<code>10000</code>&nbsp;次&nbsp;<code>ping</code>。</li>
-	<li>每个测试用例会使用严格递增的 <code>t</code> 值来调用&nbsp;<code>ping</code>。</li>
-	<li>每次调用 <code>ping</code>&nbsp;都有&nbsp;<code>1 &lt;= t &lt;= 10^9</code>。</li>
-</ol>
+<ul>
+	<li><code>1 <= t <= 10<sup>9</sup></code></li>
+	<li>保证每次对 <code>ping</code> 调用所使用的 <code>t</code> 值都 <strong>严格递增</strong></li>
+	<li>至多调用 <code>ping</code> 方法 <code>10<sup>4</sup></code> 次</li>
+</ul>
 
-<p>&nbsp;</p>
 
 ## 解法
 

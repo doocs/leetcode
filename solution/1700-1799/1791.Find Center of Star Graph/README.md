@@ -13,9 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/star_graph.png)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/03/14/star_graph.png" style="width: 331px; height: 321px;" />
 <pre>
 <strong>输入：</strong>edges = [[1,2],[2,3],[4,2]]
 <strong>输出：</strong>2
@@ -41,6 +39,7 @@
 	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
 	<li>题目数据给出的 <code>edges</code> 表示一个有效的星型图</li>
 </ul>
+
 
 ## 解法
 

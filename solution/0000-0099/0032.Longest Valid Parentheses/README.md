@@ -5,21 +5,47 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个只包含 <code>&#39;(&#39;</code>&nbsp;和 <code>&#39;)&#39;</code>&nbsp;的字符串，找出最长的包含有效括号的子串的长度。</p>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p>给你一个只包含 <code>'('</code> 和 <code>')'</code> 的字符串，找出最长有效（格式正确且连续）括号子串的长度。</p>
 
-<pre><strong>输入:</strong> &quot;(()&quot;
-<strong>输出:</strong> 2
-<strong>解释:</strong> 最长有效括号子串为 <code>&quot;()&quot;</code>
+<p> </p>
+
+<div class="original__bRMd">
+<div>
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "(()"
+<strong>输出：</strong>2
+<strong>解释：</strong>最长有效括号子串是 "()"
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> &quot;<code>)()())</code>&quot;
-<strong>输出:</strong> 4
-<strong>解释:</strong> 最长有效括号子串为 <code>&quot;()()&quot;</code>
+<pre>
+<strong>输入：</strong>s = ")()())"
+<strong>输出：</strong>4
+<strong>解释：</strong>最长有效括号子串是 "()()"
 </pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = ""
+<strong>输出：</strong>0
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>0 <= s.length <= 3 * 10<sup>4</sup></code></li>
+	<li><code>s[i]</code> 为 <code>'('</code> 或 <code>')'</code></li>
+</ul>
+</div>
+</div>
+
 
 ## 解法
 

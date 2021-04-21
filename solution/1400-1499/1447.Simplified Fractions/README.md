@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于&nbsp;&nbsp;<code>n</code>&nbsp;的 <strong>最简&nbsp;</strong>分数&nbsp;。分数可以以 <strong>任意&nbsp;</strong>顺序返回。</p>
 
 <p>&nbsp;</p>
@@ -40,6 +41,7 @@
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
+
 
 ## 解法
 

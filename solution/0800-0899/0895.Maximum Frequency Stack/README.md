@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>实现 <code>FreqStack</code>，模拟类似栈的数据结构的操作的一个类。</p>
 
 <p><code>FreqStack</code>&nbsp;有两个函数：</p>
@@ -55,6 +56,7 @@ pop() -&gt; 返回 4 。
 </ul>
 
 <p>&nbsp;</p>
+
 
 ## 解法
 

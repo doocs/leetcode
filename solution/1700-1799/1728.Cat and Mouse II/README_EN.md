@@ -40,7 +40,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_111_1955.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/12/sample_111_1955.png" style="width: 580px; height: 239px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [&quot;####F&quot;,&quot;#C...&quot;,&quot;M....&quot;], catJump = 1, mouseJump = 2
@@ -50,7 +50,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_2_1955.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/09/12/sample_2_1955.png" style="width: 580px; height: 175px;" /></p>
 
 <pre>
 <strong>Input:</strong> grid = [&quot;M.C...F&quot;], catJump = 1, mouseJump = 4
@@ -89,6 +89,7 @@
 	<li>There is only one of each character <code>&#39;C&#39;</code>, <code>&#39;M&#39;</code>, and <code>&#39;F&#39;</code> in <code>grid</code>.</li>
 	<li><code>1 &lt;= catJump, mouseJump &lt;= 8</code></li>
 </ul>
+
 
 ## Solutions
 

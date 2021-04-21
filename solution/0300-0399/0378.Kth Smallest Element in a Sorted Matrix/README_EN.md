@@ -4,41 +4,38 @@
 
 ## Description
 
-<p>Given a <i>n</i> x <i>n</i> matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix.</p>
+<p>Given an <code>n x n</code> <code>matrix</code> where each of the rows and columns are sorted in ascending order, return <em>the</em> <code>k<sup>th</sup></code> <em>smallest element in the matrix</em>.</p>
 
-<p>
+<p>Note that it is the <code>k<sup>th</sup></code> smallest element <strong>in the sorted order</strong>, not the <code>k<sup>th</sup></code> <strong>distinct</strong> element.</p>
 
-Note that it is the kth smallest element in the sorted order, not the kth distinct element.
-
-</p>
-
-<p><b>Example:</b>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-matrix = [
-
-   [ 1,  5,  9],
-
-   [10, 11, 13],
-
-   [12, 13, 15]
-
-],
-
-k = 8,
-
-
-
-return 13.
-
+<strong>Input:</strong> matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8
+<strong>Output:</strong> 13
+<strong>Explanation:</strong> The elements in the matrix are [1,5,9,10,11,12,13,<u><strong>13</strong></u>,15], and the 8<sup>th</sup> smallest number is 13
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note: </b><br>
+<pre>
+<strong>Input:</strong> matrix = [[-5]], k = 1
+<strong>Output:</strong> -5
+</pre>
 
-You may assume k is always valid, 1 &le; k &le; n<sup>2</sup>.</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>n == matrix.length</code></li>
+	<li><code>n == matrix[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 300</code></li>
+	<li><code>-10<sup>9</sup> &lt;= matrix[i][j] &lt;= 10<sup>9</sup></code></li>
+	<li>All the rows and columns of <code>matrix</code> are <strong>guaranteed</strong> to be sorted in <strong>non-decreasing order</strong>.</li>
+	<li><code>1 &lt;= k &lt;= n<sup>2</sup></code></li>
+</ul>
+
 
 ## Solutions
 

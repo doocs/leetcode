@@ -50,6 +50,7 @@ So the average waiting time = (2 + 6 + 4 + 1) / 4 = 3.25.
 	<li><code>arrival<sub>i&nbsp;</sub>&lt;= arrival<sub>i+1</sub></code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

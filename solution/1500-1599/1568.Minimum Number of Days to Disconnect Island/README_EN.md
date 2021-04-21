@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/1926_island.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/13/1926_island.png" style="width: 498px; height: 139px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]]
@@ -66,6 +66,7 @@ Change land grid[1][1] and grid[0][2] to water and get 2 disconnected island.
 	<li><code>1 &lt;= grid.length, grid[i].length &lt;= 30</code></li>
 	<li><code>grid[i][j]</code>&nbsp;is <code>0</code> or <code>1</code>.</li>
 </ul>
+
 
 ## Solutions
 

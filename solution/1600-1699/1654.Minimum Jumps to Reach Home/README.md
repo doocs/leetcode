@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有一只跳蚤的家在数轴上的位置 <code>x</code> 处。请你帮助它从位置 <code>0</code> 出发，到达它的家。</p>
 
 <p>跳蚤跳跃的规则如下：</p>
@@ -56,6 +57,7 @@
 	<li><code>forbidden</code> 中所有位置互不相同。</li>
 	<li>位置 <code>x</code> 不在 <code>forbidden</code> 中。</li>
 </ul>
+
 
 ## 解法
 

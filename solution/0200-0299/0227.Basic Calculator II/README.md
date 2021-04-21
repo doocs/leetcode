@@ -5,33 +5,50 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>实现一个基本的计算器来计算一个简单的字符串表达式的值。</p>
 
-<p>字符串表达式仅包含非负整数，<code>+</code>， <code>-</code> ，<code>*</code>，<code>/</code> 四种运算符和空格&nbsp;<code>&nbsp;</code>。 整数除法仅保留整数部分。</p>
+<p>给你一个字符串表达式 <code>s</code> ，请你实现一个基本计算器来计算并返回它的值。</p>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p>整数除法仅保留整数部分。</p>
 
-<pre><strong>输入: </strong>&quot;3+2*2&quot;
-<strong>输出:</strong> 7
+<div class="original__bRMd">
+<div>
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "3+2*2"
+<strong>输出：</strong>7
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> &quot; 3/2 &quot;
-<strong>输出:</strong> 1</pre>
-
-<p><strong>示例 3:</strong></p>
-
-<pre><strong>输入:</strong> &quot; 3+5 / 2 &quot;
-<strong>输出:</strong> 5
+<pre>
+<strong>输入：</strong>s = " 3/2 "
+<strong>输出：</strong>1
 </pre>
 
-<p><strong>说明：</strong></p>
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = " 3+5 / 2 "
+<strong>输出：</strong>5
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>你可以假设所给定的表达式都是有效的。</li>
-	<li>请<strong>不要</strong>使用内置的库函数 <code>eval</code>。</li>
+	<li><code>1 <= s.length <= 3 * 10<sup>5</sup></code></li>
+	<li><code>s</code> 由整数和算符 <code>('+', '-', '*', '/')</code> 组成，中间由一些空格隔开</li>
+	<li><code>s</code> 表示一个 <strong>有效表达式</strong></li>
+	<li>表达式中的所有整数都是非负整数，且在范围 <code>[0, 2<sup>31</sup> - 1]</code> 内</li>
+	<li>题目数据保证答案是一个 <strong>32-bit 整数</strong></li>
 </ul>
+</div>
+</div>
+
 
 ## 解法
 

@@ -4,53 +4,36 @@
 
 ## Description
 
-<p>Given a list of strings <code>words</code> representing an English Dictionary, find the longest word in <code>words</code> that can be built one character at a time by other words in <code>words</code>.  If there is more than one possible answer, return the longest word with the smallest lexicographical order.</p>  If there is no answer, return the empty string.
+<p>Given an array of strings <code>words</code> representing an English Dictionary, return <em>the longest word in</em> <code>words</code> <em>that can be built one character at a time by other words in</em> <code>words</code>.</p>
 
-<p><b>Example 1:</b><br />
+<p>If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string.</p>
 
-<pre>
-
-<b>Input:</b> 
-
-words = ["w","wo","wor","worl", "world"]
-
-<b>Output:</b> "world"
-
-<b>Explanation:</b> 
-
-The word "world" can be built one character at a time by "w", "wo", "wor", and "worl".
-
-</pre>
-
-</p>
-
-<p><b>Example 2:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> 
-
-words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
-
-<b>Output:</b> "apple"
-
-<b>Explanation:</b> 
-
-Both "apply" and "apple" can be built from other words in the dictionary. However, "apple" is lexicographically smaller than "apply".
-
+<strong>Input:</strong> words = [&quot;w&quot;,&quot;wo&quot;,&quot;wor&quot;,&quot;worl&quot;,&quot;world&quot;]
+<strong>Output:</strong> &quot;world&quot;
+<strong>Explanation:</strong> The word &quot;world&quot; can be built one character at a time by &quot;w&quot;, &quot;wo&quot;, &quot;wor&quot;, and &quot;worl&quot;.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b>
+<pre>
+<strong>Input:</strong> words = [&quot;a&quot;,&quot;banana&quot;,&quot;app&quot;,&quot;appl&quot;,&quot;ap&quot;,&quot;apply&quot;,&quot;apple&quot;]
+<strong>Output:</strong> &quot;apple&quot;
+<strong>Explanation:</strong> Both &quot;apply&quot; and &quot;apple&quot; can be built from other words in the dictionary. However, &quot;apple&quot; is lexicographically smaller than &quot;apply&quot;.
+</pre>
 
-<li>All the strings in the input will only contain lowercase letters.</li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>The length of <code>words</code> will be in the range <code>[1, 1000]</code>.</li>
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
+	<li><code>words[i]</code> consists of lowercase English letters.</li>
+</ul>
 
-<li>The length of <code>words[i]</code> will be in the range <code>[1, 30]</code>.</li>
-
-</p>
 
 ## Solutions
 

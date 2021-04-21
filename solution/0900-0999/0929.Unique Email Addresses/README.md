@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>每封电子邮件都由一个本地名称和一个域名组成，以 @ 符号分隔。</p>
 
 <p>例如，在&nbsp;<code>alice@leetcode.com</code>中，&nbsp;<code>alice</code>&nbsp;是本地名称，而&nbsp;<code>leetcode.com</code>&nbsp;是域名。</p>
@@ -37,6 +38,7 @@
 	<li><code>1 &lt;= emails.length &lt;= 100</code></li>
 	<li>每封 <code>emails[i]</code> 都包含有且仅有一个 <code>&#39;@&#39;</code> 字符。</li>
 </ul>
+
 
 ## 解法
 

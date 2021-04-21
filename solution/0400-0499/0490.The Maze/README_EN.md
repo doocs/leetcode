@@ -4,66 +4,52 @@
 
 ## Description
 
-<p>There is a <b>ball</b> in a maze with empty spaces and walls. The ball can go through empty spaces by rolling <b>up</b>, <b>down</b>, <b>left</b> or <b>right</b>, but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction.</p>
+<p>There is a ball in a <code>maze</code> with empty spaces (represented as <code>0</code>) and walls (represented as <code>1</code>). The ball can go through the empty spaces by rolling <strong>up, down, left or right</strong>, but it won&#39;t stop rolling until hitting a wall. When the ball stops, it could choose the next direction.</p>
 
-<p>Given the ball's <b>start position</b>, the <b>destination</b> and the <b>maze</b>, determine whether the ball could stop at the destination.</p>
+<p>Given the <code>m x n</code> <code>maze</code>, the ball&#39;s <code>start</code> position and the <code>destination</code>, where <code>start = [start<sub>row</sub>, start<sub>col</sub>]</code> and <code>destination = [destination<sub>row</sub>, destination<sub>col</sub>]</code>, return <code>true</code> if the ball can stop at the destination, otherwise return <code>false</code>.</p>
 
-<p>The maze is represented by a binary 2D array. 1 means the wall and 0 means the empty space. You may assume that the borders of the maze are all walls. The start and destination coordinates are represented by row and column indexes.</p>
+<p>You may assume that <strong>the borders of the maze are all walls</strong> (see examples).</p>
 
-<p> </p>
-
-<p><b>Example 1:</b></p>
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/31/maze1-1-grid.jpg" style="width: 573px; height: 573px;" />
 <pre>
-<b>Input 1:</b> a maze represented by a 2D array
-
-0 0 1 0 0
-0 0 0 0 0
-0 0 0 1 0
-1 1 0 1 1
-0 0 0 0 0
-
-<b>Input 2:</b> start coordinate (rowStart, colStart) = (0, 4)
-<b>Input 3:</b> destination coordinate (rowDest, colDest) = (4, 4)
-
-<b>Output:</b> true
-
-<b>Explanation:</b> One possible way is : left -> down -> left -> down -> right -> down -> right.
+<strong>Input:</strong> maze = [[0,0,1,0,0],[0,0,0,0,0],[0,0,0,1,0],[1,1,0,1,1],[0,0,0,0,0]], start = [0,4], destination = [4,4]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> One possible way is : left -&gt; down -&gt; left -&gt; down -&gt; right -&gt; down -&gt; right.
 </pre>
 
-![](./images/maze_1_example_1.png)
-
-<p><b>Example 2:</b></p>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/31/maze1-2-grid.jpg" style="width: 573px; height: 573px;" />
 <pre>
-<b>Input 1:</b> a maze represented by a 2D array
-
-0 0 1 0 0
-0 0 0 0 0
-0 0 0 1 0
-1 1 0 1 1
-0 0 0 0 0
-
-<b>Input 2:</b> start coordinate (rowStart, colStart) = (0, 4)
-<b>Input 3:</b> destination coordinate (rowDest, colDest) = (3, 2)
-
-<b>Output:</b> false
-
-<b>Explanation:</b> There is no way for the ball to stop at the destination.
+<strong>Input:</strong> maze = [[0,0,1,0,0],[0,0,0,0,0],[0,0,0,1,0],[1,1,0,1,1],[0,0,0,0,0]], start = [0,4], destination = [3,2]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> There is no way for the ball to stop at the destination. Notice that you can pass through the destination but you cannot stop there.
 </pre>
 
-![](./images/maze_1_example_2.png)
+<p><strong>Example 3:</strong></p>
 
-<p> </p>
+<pre>
+<strong>Input:</strong> maze = [[0,0,0,0,0],[1,1,0,0,1],[0,0,0,0,0],[0,1,0,0,1],[0,1,0,0,0]], start = [4,3], destination = [0,1]
+<strong>Output:</strong> false
+</pre>
 
-<p><b>Note:</b></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<ol>
-	<li>There is only one ball and one destination in the maze.</li>
-	<li>Both the ball and the destination exist on an empty space, and they will not be at the same position initially.</li>
-	<li>The given maze does not contain border (like the red rectangle in the example pictures), but you could assume the border of the maze are all walls.</li>
-	<li>The maze contains at least 2 empty spaces, and both the width and height of the maze won't exceed 100.</li>
-</ol>
+<ul>
+	<li><code>m == maze.length</code></li>
+	<li><code>n == maze[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>maze[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+	<li><code>start.length == 2</code></li>
+	<li><code>destination.length == 2</code></li>
+	<li><code>0 &lt;= start<sub>row</sub>, destination<sub>row</sub> &lt;= m</code></li>
+	<li><code>0 &lt;= start<sub>col</sub>, destination<sub>col</sub> &lt;= n</code></li>
+	<li>Both the ball and the destination exist in an empty space, and they will not be in the same position initially.</li>
+	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
+</ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>Alice 和 Bob 轮流玩一个游戏，Alice 先手。</p>
 
 <p>一堆石子里总共有 <code>n</code> 个石子，轮到某个玩家时，他可以 <strong>移出</strong> 一个石子并得到这个石子的价值。Alice 和 Bob 对石子价值有 <strong>不一样的的评判标准</strong> 。双方都知道对方的评判标准。</p>
@@ -64,6 +65,7 @@ Bob 会获胜。
 	<li><code>1 <= n <= 10<sup>5</sup></code></li>
 	<li><code>1 <= aliceValues[i], bobValues[i] <= 100</code></li>
 </ul>
+
 
 ## 解法
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组&nbsp;<code>arr</code> 和一个整数值&nbsp;<code>target</code>&nbsp;。</p>
 
 <p>请你在 <code>arr</code>&nbsp;中找 <strong>两个互不重叠的子数组</strong>&nbsp;且它们的和都等于&nbsp;<code>target</code>&nbsp;。可能会有多种方案，请你返回满足要求的两个子数组长度和的 <strong>最小值</strong> 。</p>
@@ -57,6 +58,7 @@
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
 	<li><code>1 &lt;= target &lt;= 10^8</code></li>
 </ul>
+
 
 ## 解法
 

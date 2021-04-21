@@ -1,18 +1,18 @@
-# [596. 超过 5 名学生的课](https://leetcode-cn.com/problems/classes-more-than-5-students)
+# [596. 超过5名学生的课](https://leetcode-cn.com/problems/classes-more-than-5-students)
 
 [English Version](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有一个<code>courses</code> 表 ，有: <strong>student&nbsp;(学生) </strong>和 <strong>class (课程)</strong>。</p>
 
 <p>请列出所有超过或等于5名学生的课。</p>
 
-<p>例如,表:</p>
+<p>例如，表：</p>
 
-<pre>
-+---------+------------+
+<pre>+---------+------------+
 | student | class      |
 +---------+------------+
 | A       | Math       |
@@ -29,16 +29,21 @@
 
 <p>应该输出:</p>
 
-<pre>
-+---------+
+<pre>+---------+
 | class   |
 +---------+
 | Math    |
 +---------+
 </pre>
 
-<p><strong>Note:</strong><br />
-学生在每个课中不应被重复计算。</p>
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>学生在每个课中不应被重复计算。</li>
+</ul>
+
 
 ## 解法
 

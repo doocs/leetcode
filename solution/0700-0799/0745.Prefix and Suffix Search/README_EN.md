@@ -4,37 +4,41 @@
 
 ## Description
 
-<p>Given many <code>words</code>, <code>words[i]</code> has weight <code>i</code>.</p>
+<p>Design a special dictionary which has some words and allows you to search the words in it by a prefix and a suffix.</p>
 
-<p>Design a class <code>WordFilter</code> that supports one function, <code>WordFilter.f(String prefix, String suffix)</code>. It will return the word with given <code>prefix</code> and <code>suffix</code> with maximum weight. If no word exists, return -1.</p>
+<p>Implement the <code>WordFilter</code> class:</p>
 
-<p><b>Examples:</b></p>
+<ul>
+	<li><code>WordFilter(string[] words)</code> Initializes the object with the <code>words</code> in the dictionary.</li>
+	<li><code>f(string prefix, string suffix)</code> Returns <em>the index of the word in the dictionary</em> which has the prefix <code>prefix</code> and the suffix <code>suffix</code>. If there is&nbsp;more than one valid index, return <strong>the largest</strong> of them. If there is no such word in the dictionary, return <code>-1</code>.</li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input</strong>
+[&quot;WordFilter&quot;, &quot;f&quot;]
+[[[&quot;apple&quot;]], [&quot;a&quot;, &quot;e&quot;]]
+<strong>Output</strong>
+[null, 0]
 
-<b>Input:</b>
-
-WordFilter([&quot;apple&quot;])
-
-WordFilter.f(&quot;a&quot;, &quot;e&quot;) // returns 0
-
-WordFilter.f(&quot;b&quot;, &quot;&quot;) // returns -1
-
+<strong>Explanation</strong>
+WordFilter wordFilter = new WordFilter([&quot;apple&quot;]);
+wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at index 0 has prefix = &quot;a&quot; and suffix = &#39;e&quot;.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 15000</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 10</code></li>
+	<li><code>1 &lt;= prefix.length, suffix.length&nbsp;&lt;= 10</code></li>
+	<li><code>words[i]</code>, <code>prefix</code> and <code>suffix</code> consist of lower-case English letters only.</li>
+	<li>At most <code>15000</code> calls will be made to the function <code>f</code>.</li>
+</ul>
 
-<ol>
-    <li><code>words</code> has length in range <code>[1, 15000]</code>.</li>
-    <li>For each test case, up to <code>words.length</code> queries <code>WordFilter.f</code> may be made.</li>
-    <li><code>words[i]</code> has length in range <code>[1, 10]</code>.</li>
-    <li><code>prefix, suffix</code> have lengths in range <code>[0, 10]</code>.</li>
-    <li><code>words[i]</code> and <code>prefix, suffix</code> queries consist of lowercase letters only.</li>
-</ol>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

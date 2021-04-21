@@ -16,7 +16,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/messed.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/05/messed.png" style="width: 300px; height: 298px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>

@@ -4,80 +4,53 @@
 
 ## Description
 
-<p>Implement <code>FreqStack</code>, a class which simulates the operation of a stack-like data structure.</p>
+<p>Design a stack-like data structure to push elements to the stack and pop the most frequent element from the stack.</p>
 
-<p><code>FreqStack</code>&nbsp;has two functions:</p>
+<p>Implement the <code>FreqStack</code> class:</p>
 
 <ul>
-    <li><code>push(int x)</code>, which pushes an integer <code>x</code> onto the stack.</li>
-    <li><code>pop()</code>, which <strong>removes</strong> and returns the most frequent element in the stack.
-    <ul>
-    	<li>If there is a tie for most frequent element, the element closest to the top of the stack is removed and returned.</li>
-    </ul>
-    </li>
+	<li><code>FreqStack()</code> constructs an empty frequency stack.</li>
+	<li><code>void push(int val)</code> pushes an integer <code>val</code> onto the top of the stack.</li>
+	<li><code>int pop()</code> removes and returns the most frequent element in the stack.
+	<ul>
+		<li>If there is a tie for the most frequent element, the element closest to the stack&#39;s top is removed and returned.</li>
+	</ul>
+	</li>
 </ul>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input</strong>
+[&quot;FreqStack&quot;, &quot;push&quot;, &quot;push&quot;, &quot;push&quot;, &quot;push&quot;, &quot;push&quot;, &quot;push&quot;, &quot;pop&quot;, &quot;pop&quot;, &quot;pop&quot;, &quot;pop&quot;]
+[[], [5], [7], [5], [7], [4], [5], [], [], [], []]
+<strong>Output</strong>
+[null, null, null, null, null, null, null, 5, 7, 5, 4]
 
-<strong>Input: </strong>
-
-<span id="example-input-1-1">[&quot;FreqStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;pop&quot;,&quot;pop&quot;,&quot;pop&quot;,&quot;pop&quot;]</span>,
-
-<span id="example-input-1-2">[[],[5],[7],[5],[7],[4],[5],[],[],[],[]]</span>
-
-<strong>Output: </strong><span id="example-output-1">[null,null,null,null,null,null,null,5,7,5,4]</span>
-
-<strong>Explanation</strong>:
-
-After making six .push operations, the stack is [5,7,5,7,4,5] from bottom to top.  Then:
-
-
-
-pop() -&gt; returns 5, as 5 is the most frequent.
-
-The stack becomes [5,7,5,7,4].
-
-
-
-pop() -&gt; returns 7, as 5 and 7 is the most frequent, but 7 is closest to the top.
-
-The stack becomes [5,7,5,4].
-
-
-
-pop() -&gt; returns 5.
-
-The stack becomes [5,7,4].
-
-
-
-pop() -&gt; returns 4.
-
-The stack becomes [5,7].
-
+<strong>Explanation</strong>
+FreqStack freqStack = new FreqStack();
+freqStack.push(5); // The stack is [5]
+freqStack.push(7); // The stack is [5,7]
+freqStack.push(5); // The stack is [5,7,5]
+freqStack.push(7); // The stack is [5,7,5,7]
+freqStack.push(4); // The stack is [5,7,5,7,4]
+freqStack.push(5); // The stack is [5,7,5,7,4,5]
+freqStack.pop();   // return 5, as 5 is the most frequent. The stack becomes [5,7,5,7,4].
+freqStack.pop();   // return 7, as 5 and 7 is the most frequent, but 7 is closest to the top. The stack becomes [5,7,5,4].
+freqStack.pop();   // return 5, as 5 is the most frequent. The stack becomes [5,7,4].
+freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is closest to the top. The stack becomes [5,7].
 </pre>
 
 <p>&nbsp;</p>
-
-<p><strong>Note:</strong></p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>Calls to <code>FreqStack.push(int x)</code>&nbsp;will be such that <code>0 &lt;= x &lt;= 10^9</code>.</li>
-    <li>It is guaranteed that <code>FreqStack.pop()</code> won&#39;t be called if the stack has zero elements.</li>
-    <li>The total number of <code>FreqStack.push</code> calls will not exceed <code>10000</code> in a single test case.</li>
-    <li>The total number of <code>FreqStack.pop</code>&nbsp;calls will not exceed <code>10000</code> in a single test case.</li>
-    <li>The total number of <code>FreqStack.push</code> and <code>FreqStack.pop</code> calls will not exceed <code>150000</code> across all test cases.</li>
+	<li><code>0 &lt;= val &lt;= 10<sup>9</sup></code></li>
+	<li>At most <code>2 * 10<sup>4</sup></code> calls will be made to <code>push</code> and <code>pop</code>.</li>
+	<li>It is guaranteed that there will be at least one element in the stack before calling <code>pop</code>.</li>
 </ul>
 
-<div>
-
-<p>&nbsp;</p>
-
-</div>
 
 ## Solutions
 

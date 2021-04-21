@@ -4,53 +4,35 @@
 
 ## Description
 
-<p>Remember the story of Little Match Girl? By now, you know exactly what matchsticks the little match girl has, please find out a way you can make one square by using up all those matchsticks. You should not break any stick, but you can link them up, and each matchstick must be used <b>exactly</b> one time.</P>
+<p>You are given an integer array <code>matchsticks</code> where <code>matchsticks[i]</code> is the length of the <code>i<sup>th</sup></code> matchstick. You want to use <strong>all the matchsticks</strong> to make one square. You <strong>should not break</strong> any stick, but you can link them up, and each matchstick must be used <strong>exactly one time</strong>.</p>
 
-<p> Your input will be several matchsticks the girl has, represented with their stick length. Your output will either be true or false, to represent whether you could make one square using all the matchsticks the little match girl has.</p>
+<p>Return <code>true</code> if you can make this square and <code>false</code> otherwise.</p>
 
-<p><b>Example 1:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/matchsticks1-grid.jpg" style="width: 253px; height: 253px;" />
 <pre>
-
-<b>Input:</b> [1,1,2,2,2]
-
-<b>Output:</b> true
-
-
-
-<b>Explanation:</b> You can form a square with length 2, one side of the square came two sticks with length 1.
-
+<strong>Input:</strong> matchsticks = [1,1,2,2,2]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> You can form a square with length 2, one side of the square came two sticks with length 1.
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> [3,3,3,3,4]
-
-<b>Output:</b> false
-
-
-
-<b>Explanation:</b> You cannot find a way to form a square with all the matchsticks.
-
+<strong>Input:</strong> matchsticks = [3,3,3,3,4]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> You cannot find a way to form a square with all the matchsticks.
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b><br>
+<ul>
+	<li><code>1 &lt;= matchsticks.length &lt;= 15</code></li>
+	<li><code>0 &lt;= matchsticks[i] &lt;= 10<sup>9</sup></code></li>
+</ul>
 
-<ol>
-
-<li>The length sum of the given matchsticks is in the range of <code>0</code> to <code>10^9</code>.
-
-<li>The length of the given matchstick array will not exceed <code>15</code>.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

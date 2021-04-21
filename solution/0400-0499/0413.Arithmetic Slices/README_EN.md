@@ -4,41 +4,40 @@
 
 ## Description
 
-<p>A sequence of number is called arithmetic if it consists of at least three elements and if the difference between any two consecutive elements is the same.</p>
+<p>An integer array is called arithmetic if it consists of <strong>at least three elements</strong> and if the difference between any two consecutive elements is the same.</p>
 
-<p>For example, these are arithmetic sequence:</p>
+<ul>
+	<li>For example, <code>[1,3,5,7,9]</code>, <code>[7,7,7,7]</code>, and <code>[3,-1,-5,-9]</code> are arithmetic sequences.</li>
+</ul>
 
-<pre>1, 3, 5, 7, 9
+<p>Given an integer array <code>nums</code>, return <em>the number of arithmetic <strong>subarrays</strong> of</em> <code>nums</code>.</p>
 
-7, 7, 7, 7
+<p>A <strong>subarray</strong> is a contiguous subsequence of the array.</p>
 
-3, -1, -5, -9</pre>
-
-<p>The following sequence is not arithmetic.</p> <pre>1, 1, 2, 5, 7</pre>
-
-<br/>
-
-<p>A zero-indexed array A consisting of N numbers is given. A slice of that array is any pair of integers (P, Q) such that 0 <= P < Q < N.</p>
-
-<p>A slice (P, Q) of array A is called arithmetic if the sequence:<br/>
-
-    A[P], A[p + 1], ..., A[Q - 1], A[Q] is arithmetic. In particular, this means that P + 1 < Q.</p>
-
-<p>The function should return the number of arithmetic slices in the array A. </p>
-
-<br/>
-
-<p><b>Example:</b>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-A = [1, 2, 3, 4]
-
-
-
-return: 3, for 3 arithmetic slices in A: [1, 2, 3], [2, 3, 4] and [1, 2, 3, 4] itself.
-
+<strong>Input:</strong> nums = [1,2,3,4]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> We have 3 arithmetic slices in nums: [1, 2, 3], [2, 3, 4] and [1,2,3,4] itself.
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [1]
+<strong>Output:</strong> 0
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
+	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+</ul>
+
 
 ## Solutions
 

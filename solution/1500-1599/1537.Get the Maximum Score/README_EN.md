@@ -23,7 +23,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_1_1893.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/07/16/sample_1_1893.png" style="width: 538px; height: 163px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]
@@ -67,6 +67,7 @@ Maximum sum is obtained with the path [6,7,8,9,10].
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10^7</code></li>
 	<li><code>nums1</code> and <code>nums2</code> are strictly increasing.</li>
 </ul>
+
 
 ## Solutions
 

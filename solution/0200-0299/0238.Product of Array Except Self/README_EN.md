@@ -4,21 +4,35 @@
 
 ## Description
 
-<p>Given an array <code>nums</code> of <em>n</em> integers where <em>n</em> &gt; 1, &nbsp;return an array <code>output</code> such that <code>output[i]</code> is equal to the product of all the elements of <code>nums</code> except <code>nums[i]</code>.</p>
+<p>Given an integer array <code>nums</code>, return <em>an array</em> <code>answer</code> <em>such that</em> <code>answer[i]</code> <em>is equal to the product of all the elements of</em> <code>nums</code> <em>except</em> <code>nums[i]</code>.</p>
 
-<p><b>Example:</b></p>
+<p>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</p>
 
-<pre>
-<b>Input:</b>  <code>[1,2,3,4]</code>
-<b>Output:</b> <code>[24,12,8,6]</code>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [1,2,3,4]
+<strong>Output:</strong> [24,12,8,6]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [-1,1,0,-3,3]
+<strong>Output:</strong> [0,0,9,0,0]
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Constraint:</strong>&nbsp;It&#39;s guaranteed that the product of the elements of any prefix or suffix of the array (including the whole array) fits in a 32 bit integer.</p>
+<ul>
+	<li><code>2 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-30 &lt;= nums[i] &lt;= 30</code></li>
+	<li>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
+</ul>
 
-<p><strong>Note: </strong>Please solve it <strong>without division</strong> and in O(<em>n</em>).</p>
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong></p>
 
-<p><strong>Follow up:</strong><br />
-Could you solve it with constant space complexity? (The output array <strong>does not</strong> count as extra space for the purpose of space complexity analysis.)</p>
+<ul>
+	<li>Could you solve it in <code>O(n)</code> time complexity and without using division?</li>
+	<li>Could you solve it with <code>O(1)</code> constant space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</li>
+</ul>
+
 
 ## Solutions
 

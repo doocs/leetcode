@@ -5,7 +5,8 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个编码字符串 <code>S</code>。为了找出<em>解码</em>字符串并将其写入磁带，从编码字符串中<code>每次读取一个字符</code>，并采取以下步骤：</p>
+
+<p>给定一个编码字符串 <code>S</code>。请你找出<em> </em><strong>解码字符串</strong> 并将其写入磁带。解码时，从编码字符串中<strong> 每次读取一个字符 </strong>，并采取以下步骤：</p>
 
 <ul>
 	<li>如果所读的字符是字母，则将该字母写在磁带上。</li>
@@ -45,13 +46,15 @@
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>2 &lt;= S.length &lt;= 100</code></li>
 	<li><code>S</code>&nbsp;只包含小写字母与数字 <code>2</code> 到 <code>9</code> 。</li>
 	<li><code>S</code>&nbsp;以字母开头。</li>
 	<li><code>1 &lt;= K &lt;= 10^9</code></li>
+	<li>题目保证 <code>K</code> 小于或等于解码字符串的长度。</li>
 	<li>解码后的字符串保证少于&nbsp;<code>2^63</code>&nbsp;个字母。</li>
-</ol>
+</ul>
+
 
 ## 解法
 

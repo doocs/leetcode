@@ -19,7 +19,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/ex1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/19/ex1.png" style="width: 179px; height: 191px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, edges = [[3,1,2],[3,2,3],[1,1,3],[1,2,4],[1,1,2],[2,3,4]]
@@ -29,7 +29,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/ex2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/19/ex2.png" style="width: 178px; height: 190px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, edges = [[3,1,2],[3,2,3],[1,1,4],[2,1,4]]
@@ -39,7 +39,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/ex3.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/19/ex3.png" style="width: 178px; height: 190px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, edges = [[3,2,3],[1,1,2],[2,3,4]]
@@ -59,6 +59,7 @@
 	<li><code>1 &lt;= edges[i][1] &lt; edges[i][2] &lt;= n</code></li>
 	<li>All tuples&nbsp;<code>(type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>)</code>&nbsp;are distinct.</li>
 </ul>
+
 
 ## Solutions
 

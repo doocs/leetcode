@@ -4,13 +4,13 @@
 
 ## Description
 
-![](./images/change.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/09/change.png" style="width: 635px; height: 312px;" /></p>
 
-<p>Winston was given the above mysterious function <code>func</code>. He has an integer array <code>arr</code> and an integer <code>target</code> and he wants to find the values&nbsp;<code>l</code> and <code>r</code>&nbsp;that make&nbsp;the value <code>|func(arr, l, r) - target|</code> minimum possible.</p>
+<p>Winston was given the above mysterious function <code>func</code>. He has an integer array <code>arr</code> and an integer <code>target</code> and he wants to find the values <code>l</code> and <code>r</code> that make the value <code>|func(arr, l, r) - target|</code> minimum possible.</p>
 
 <p>Return <em>the minimum possible value</em> of <code>|func(arr, l, r) - target|</code>.</p>
 
-<p>Notice that <code>func</code> should be called with the values&nbsp;<code>l</code> and <code>r</code> where <code>0 &lt;= l, r &lt; arr.length</code>.</p>
+<p>Notice that <code>func</code> should be called with the values <code>l</code> and <code>r</code> where <code>0 &lt;= l, r &lt; arr.length</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -40,10 +40,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
-	<li><code>1 &lt;= arr[i] &lt;= 10^6</code></li>
-	<li><code>0 &lt;= target &lt;= 10^7</code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= arr[i] &lt;= 10<sup>6</sup></code></li>
+	<li><code>0 &lt;= target &lt;= 10<sup>7</sup></code></li>
 </ul>
+
 
 ## Solutions
 

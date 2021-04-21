@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个&nbsp;<code>2</code>&nbsp;行 <code>n</code> 列的二进制数组：</p>
 
 <ul>
@@ -50,6 +51,7 @@
 	<li><code>0 &lt;= upper, lower &lt;= colsum.length</code></li>
 	<li><code>0 &lt;= colsum[i] &lt;= 2</code></li>
 </ul>
+
 
 ## 解法
 

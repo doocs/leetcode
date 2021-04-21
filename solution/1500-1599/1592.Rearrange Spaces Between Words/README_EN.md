@@ -57,6 +57,7 @@
 	<li><code>text</code>&nbsp;contains at least one word.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

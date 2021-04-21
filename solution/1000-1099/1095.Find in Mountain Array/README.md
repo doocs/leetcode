@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>（这是一个 <strong>交互式问题&nbsp;</strong>）</p>
 
 <p>给你一个 <strong>山脉数组</strong>&nbsp;<code>mountainArr</code>，请你返回能够使得&nbsp;<code>mountainArr.get(index)</code>&nbsp;<strong>等于</strong>&nbsp;<code>target</code>&nbsp;<strong>最小</strong>&nbsp;的下标 <code>index</code>&nbsp;值。</p>
@@ -13,7 +14,7 @@
 
 <p>&nbsp;</p>
 
-<p>所谓山脉数组，即数组&nbsp;<code>A</code>&nbsp;假如是一个山脉数组的话，需要满足如下条件：</p>
+<p>何为山脉数组？如果数组&nbsp;<code>A</code> 是一个山脉数组的话，那它满足如下条件：</p>
 
 <p><strong>首先</strong>，<code>A.length &gt;= 3</code></p>
 
@@ -63,11 +64,12 @@
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>3 &lt;= mountain_arr.length() &lt;= 10000</code></li>
 	<li><code>0 &lt;= target &lt;= 10^9</code></li>
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
-</ol>
+</ul>
+
 
 ## 解法
 

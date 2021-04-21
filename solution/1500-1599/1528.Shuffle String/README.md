@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串 <code>s</code> 和一个 <strong>长度相同</strong> 的整数数组 <code>indices</code> 。</p>
 
 <p>请你重新排列字符串 <code>s</code> ，其中第 <code>i</code> 个字符需要移动到 <code>indices[i]</code> 指示的位置。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/q1.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/26/q1.jpg" style="height: 243px; width: 321px;"></p>
 
 <pre><strong>输入：</strong>s = &quot;codeleet&quot;, <code>indices</code> = [4,5,6,7,0,2,1,3]
 <strong>输出：</strong>&quot;leetcode&quot;
@@ -58,6 +59,7 @@
 	<li><code>0 &lt;= indices[i] &lt;&nbsp;n</code></li>
 	<li><code>indices</code> 的所有的值都是唯一的（也就是说，<code>indices</code> 是整数 <code>0</code> 到 <code>n - 1</code> 形成的一组排列）。</li>
 </ul>
+
 
 ## 解法
 

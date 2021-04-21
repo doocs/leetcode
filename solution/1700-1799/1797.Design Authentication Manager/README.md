@@ -22,9 +22,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/copy-of-pc68_q2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/25/copy-of-pc68_q2.png" style="width: 500px; height: 287px;" />
 <pre>
 <strong>输入：</strong>
 ["AuthenticationManager", "<code>renew</code>", "generate", "<code>countUnexpiredTokens</code>", "generate", "<code>renew</code>", "<code>renew</code>", "<code>countUnexpiredTokens</code>"]
@@ -56,6 +54,7 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 	<li>所有函数调用中，<code>currentTime</code> 的值 <strong>严格递增</strong> 。</li>
 	<li>所有函数的调用次数总共不超过 <code>2000</code> 次。</li>
 </ul>
+
 
 ## 解法
 

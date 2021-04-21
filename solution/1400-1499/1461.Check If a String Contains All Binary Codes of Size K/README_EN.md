@@ -6,7 +6,7 @@
 
 <p>Given a binary string <code>s</code> and an integer <code>k</code>.</p>
 
-<p>Return <em>True</em> if every&nbsp;binary code&nbsp;of length <code>k</code> is a substring of <code>s</code>. Otherwise, return <em>False</em>.</p>
+<p>Return <code>true</code> <em>if every binary code of length</em> <code>k</code> <em>is a substring of</em> <code>s</code>. Otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -51,10 +51,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 5 * 10^5</code></li>
-	<li><code>s</code> consists of 0&#39;s and 1&#39;s only.</li>
+	<li><code>1 &lt;= s.length &lt;= 5 * 10<sup>5</sup></code></li>
+	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 	<li><code>1 &lt;= k &lt;= 20</code></li>
 </ul>
+
 
 ## Solutions
 

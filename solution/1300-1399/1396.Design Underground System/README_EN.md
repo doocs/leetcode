@@ -4,30 +4,34 @@
 
 ## Description
 
-<p>Implement the class <code>UndergroundSystem</code> that supports three methods:</p>
+<p>An underground railway system is keeping track of customer travel times between different stations. They are using this data to calculate the average time it takes to travel from one station to another.</p>
 
-<p>1.<code>&nbsp;checkIn(int id, string stationName, int t)</code></p>
-
-<ul>
-	<li>A customer with id card equal to <code>id</code>, gets in the station <code>stationName</code> at time <code>t</code>.</li>
-	<li>A customer&nbsp;can only be checked into one place at a time.</li>
-</ul>
-
-<p>2.<code>&nbsp;checkOut(int id, string stationName, int t)</code></p>
+<p>Implement the <code>UndergroundSystem</code> class:</p>
 
 <ul>
-	<li>A customer with id card equal to <code>id</code>, gets out from the station <code>stationName</code> at time <code>t</code>.</li>
+	<li><code>void checkIn(int id, string stationName, int t)</code>
+
+	<ul>
+		<li>A customer with a card ID equal to <code>id</code>, checks in at the station <code>stationName</code> at time <code>t</code>.</li>
+		<li>A customer can only be checked into one place at a time.</li>
+	</ul>
+	</li>
+	<li><code>void checkOut(int id, string stationName, int t)</code>
+	<ul>
+		<li>A customer with a card ID equal to <code>id</code>, checks out from the station <code>stationName</code> at time <code>t</code>.</li>
+	</ul>
+	</li>
+	<li><code>double getAverageTime(string startStation, string endStation)</code>
+	<ul>
+		<li>Returns the average time it takes to travel from <code>startStation</code> to <code>endStation</code>.</li>
+		<li>The average time is computed from all the previous traveling times from <code>startStation</code> to <code>endStation</code> that happened <strong>directly</strong>, meaning a check in at <code>startStation</code> followed by a check out from <code>endStation</code>.</li>
+		<li>The time it takes to travel from <code>startStation</code> to <code>endStation</code> <strong>may be different</strong> from the time it takes to travel from <code>endStation</code> to <code>startStation</code>.</li>
+		<li>There will be at least one customer that has traveled from <code>startStation</code> to <code>endStation</code> before <code>getAverageTime</code> is called.</li>
+	</ul>
+	</li>
 </ul>
 
-<p>3.&nbsp;<code>getAverageTime(string startStation, string endStation)</code>&nbsp;</p>
-
-<ul>
-	<li>Returns the average time to travel between the <code>startStation</code> and the <code>endStation</code>.</li>
-	<li>The average time is computed from all the previous traveling from <code>startStation</code> to <code>endStation</code> that happened <strong>directly</strong>.</li>
-	<li>Call to <code>getAverageTime</code> is always valid.</li>
-</ul>
-
-<p>You can assume all calls to <code>checkIn</code> and <code>checkOut</code> methods are consistent. That is, if a customer gets in at time <strong>t<sub>1</sub></strong> at some station, then it gets out at time <strong>t<sub>2</sub></strong> with <strong>t<sub>2</sub> &gt; t<sub>1</sub></strong>.&nbsp;All events happen in chronological order.</p>
+<p>You may assume all calls to the <code>checkIn</code> and <code>checkOut</code> methods are consistent. If a customer checks in at time <code>t<sub>1</sub></code> then checks out at time <code>t<sub>2</sub></code>, then <code>t<sub>1</sub> &lt; t<sub>2</sub></code>. All events happen in chronological order.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -45,15 +49,15 @@ UndergroundSystem undergroundSystem = new UndergroundSystem();
 undergroundSystem.checkIn(45, &quot;Leyton&quot;, 3);
 undergroundSystem.checkIn(32, &quot;Paradise&quot;, 8);
 undergroundSystem.checkIn(27, &quot;Leyton&quot;, 10);
-undergroundSystem.checkOut(45, &quot;Waterloo&quot;, 15);
-undergroundSystem.checkOut(27, &quot;Waterloo&quot;, 20);
-undergroundSystem.checkOut(32, &quot;Cambridge&quot;, 22);
-undergroundSystem.getAverageTime(&quot;Paradise&quot;, &quot;Cambridge&quot;); &nbsp; &nbsp; &nbsp; // return 14.00000. There was only one travel from &quot;Paradise&quot; (at time 8) to &quot;Cambridge&quot; (at time 22)
-undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// return 11.00000. There were two travels from &quot;Leyton&quot; to &quot;Waterloo&quot;, a customer with id=45 from time=3 to time=15 and a customer with id=27 from time=10 to time=20. So the average time is ( (15-3) + (20-10) ) / 2 = 11.00000
+undergroundSystem.checkOut(45, &quot;Waterloo&quot;, 15);  // Customer 45 &quot;Leyton&quot; -&gt; &quot;Waterloo&quot; in 15-3 = 12
+undergroundSystem.checkOut(27, &quot;Waterloo&quot;, 20);  // Customer 27 &quot;Leyton&quot; -&gt; &quot;Waterloo&quot; in 20-10 = 10
+undergroundSystem.checkOut(32, &quot;Cambridge&quot;, 22); // Customer 32 &quot;Paradise&quot; -&gt; &quot;Cambridge&quot; in 22-8 = 14
+undergroundSystem.getAverageTime(&quot;Paradise&quot;, &quot;Cambridge&quot;); // return 14.00000. One trip &quot;Paradise&quot; -&gt; &quot;Cambridge&quot;, (14) / 1 = 14
+undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;);    // return 11.00000. Two trips &quot;Leyton&quot; -&gt; &quot;Waterloo&quot;, (10 + 12) / 2 = 11
 undergroundSystem.checkIn(10, &quot;Leyton&quot;, 24);
-undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// return 11.00000
-undergroundSystem.checkOut(10, &quot;Waterloo&quot;, 38);
-undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// return 12.00000
+undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;);    // return 11.00000
+undergroundSystem.checkOut(10, &quot;Waterloo&quot;, 38);  // Customer 10 &quot;Leyton&quot; -&gt; &quot;Waterloo&quot; in 38-24 = 14
+undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;);    // return 12.00000. Three trips &quot;Leyton&quot; -&gt; &quot;Waterloo&quot;, (10 + 12 + 14) / 3 = 12
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -69,26 +73,27 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;); &nbs
 <strong>Explanation</strong>
 UndergroundSystem undergroundSystem = new UndergroundSystem();
 undergroundSystem.checkIn(10, &quot;Leyton&quot;, 3);
-undergroundSystem.checkOut(10, &quot;Paradise&quot;, 8);
-undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // return 5.00000
+undergroundSystem.checkOut(10, &quot;Paradise&quot;, 8); // Customer 10 &quot;Leyton&quot; -&gt; &quot;Paradise&quot; in 8-3 = 5
+undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // return 5.00000, (5) / 1 = 5
 undergroundSystem.checkIn(5, &quot;Leyton&quot;, 10);
-undergroundSystem.checkOut(5, &quot;Paradise&quot;, 16);
-undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // return 5.50000
+undergroundSystem.checkOut(5, &quot;Paradise&quot;, 16); // Customer 5 &quot;Leyton&quot; -&gt; &quot;Paradise&quot; in 16-10 = 6
+undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // return 5.50000, (5 + 6) / 2 = 5.5
 undergroundSystem.checkIn(2, &quot;Leyton&quot;, 21);
-undergroundSystem.checkOut(2, &quot;Paradise&quot;, 30);
-undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // return 6.66667
+undergroundSystem.checkOut(2, &quot;Paradise&quot;, 30); // Customer 2 &quot;Leyton&quot; -&gt; &quot;Paradise&quot; in 30-21 = 9
+undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // return 6.66667, (5 + 6 + 9) / 3 = 6.66667
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>There will be at most <code><font face="monospace">20000</font></code>&nbsp;operations.</li>
-	<li><code>1 &lt;= id, t &lt;= 10^6</code></li>
-	<li>All strings consist of uppercase, lowercase English letters and digits.</li>
-	<li><code>1 &lt;=&nbsp;stationName.length &lt;= 10</code></li>
-	<li>Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted as correct.</li>
+	<li><code>1 &lt;= id, t &lt;= 10<sup>6</sup></code></li>
+	<li><code>1 &lt;= stationName.length, startStation.length, endStation.length &lt;= 10</code></li>
+	<li>All strings consist of uppercase and lowercase English letters and digits.</li>
+	<li>There will be at most <code>2 * 10<sup>4</sup></code> calls <strong>in total</strong> to <code>checkIn</code>, <code>checkOut</code>, and <code>getAverageTime</code>.</li>
+	<li>Answers within <code>10<sup>-5</sup></code> of the actual value will be accepted.</li>
 </ul>
+
 
 ## Solutions
 

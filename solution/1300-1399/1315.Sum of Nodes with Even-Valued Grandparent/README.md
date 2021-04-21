@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一棵二叉树，请你返回满足以下条件的所有节点的值之和：</p>
 
 <ul>
@@ -17,7 +18,7 @@
 
 <p><strong>示例：</strong></p>
 
-![](./images/1473_ex1.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/10/1473_ex1.png" style="height: 214px; width: 350px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
 <strong>输出：</strong>18
@@ -32,6 +33,7 @@
 	<li>树中节点的数目在&nbsp;<code>1</code> 到&nbsp;<code>10^4</code>&nbsp;之间。</li>
 	<li>每个节点的值在&nbsp;<code>1</code> 到&nbsp;<code>100</code> 之间。</li>
 </ul>
+
 
 ## 解法
 

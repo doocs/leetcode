@@ -10,17 +10,18 @@
 
 <p>Given a positive integer <code>n</code>, you need to return the n-th integer after removing. Note that 1 will be the first integer.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <pre><strong>Input:</strong> n = 9
 <strong>Output:</strong> 10
 </pre>
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= n <= 8 x 10^8</code></li>
+	<li><code>1 &lt;= n &lt;=&nbsp;8&nbsp;x 10^8</code></li>
 </ul>
+
 
 ## Solutions
 

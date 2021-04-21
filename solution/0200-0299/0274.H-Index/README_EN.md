@@ -4,27 +4,38 @@
 
 ## Description
 
-<p>Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher&#39;s h-index.</p>
+<p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper, return compute the researcher&#39;s <code>h</code><strong>-index</strong>.</p>
 
-<p>According to the <a href="https://en.wikipedia.org/wiki/H-index" target="_blank">definition of h-index on Wikipedia</a>: &quot;A scientist has index <i>h</i> if <i>h</i> of his/her <i>N</i> papers have <b>at least</b> <i>h</i> citations each, and the other <i>N &minus; h</i> papers have <b>no more than</b> <i>h</i> citations each.&quot;</p>
+<p>According to the <a href="https://en.wikipedia.org/wiki/H-index" target="_blank">definition of h-index on Wikipedia</a>: A scientist has an index <code>h</code> if <code>h</code> of their <code>n</code> papers have at least <code>h</code> citations each, and the other <code>n &minus; h</code> papers have no more than <code>h</code> citations each.</p>
 
-<p><b>Example:</b></p>
+<p>If there are several possible values for <code>h</code>, the maximum one is taken as the <code>h</code><strong>-index</strong>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> citations = [3,0,6,1,5]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> [3,0,6,1,5] means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively.
+Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, their h-index is 3.
+</pre>
 
-<b>Input:</b> <code>citations = [3,0,6,1,5]</code>
+<p><strong>Example 2:</strong></p>
 
-<b>Output:</b> 3 
+<pre>
+<strong>Input:</strong> citations = [1,3,1]
+<strong>Output:</strong> 1
+</pre>
 
-<strong>Explanation: </strong><code>[3,0,6,1,5] </code>means the researcher has <code>5</code> papers in total and each of them had 
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-             received <code>3, 0, 6, 1, 5</code> citations respectively. 
+<ul>
+	<li><code>n == citations.length</code></li>
+	<li><code>1 &lt;= n &lt;= 5000</code></li>
+	<li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
+</ul>
 
-&nbsp;            Since the researcher has <code>3</code> papers with <b>at least</b> <code>3</code> citations each and the remaining 
-
-&nbsp;            two with <b>no more than</b> <code>3</code> citations each, her h-index is <code>3</code>.</pre>
-
-<p><strong>Note:&nbsp;</strong>If there are several possible values for <em>h</em>, the maximum one is taken as the h-index.</p>
 
 ## Solutions
 

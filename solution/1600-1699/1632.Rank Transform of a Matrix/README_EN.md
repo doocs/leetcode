@@ -24,9 +24,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/rank1.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/18/rank1.jpg" style="width: 442px; height: 162px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,2],[3,4]]
 <strong>Output:</strong> [[1,2],[2,3]]
@@ -38,27 +36,21 @@ The rank of matrix[1][1] is 3 because matrix[1][1] &gt; matrix[0][1], matrix[1][
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/rank2.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/18/rank2.jpg" style="width: 442px; height: 162px;" />
 <pre>
 <strong>Input:</strong> matrix = [[7,7],[7,7]]
 <strong>Output:</strong> [[1,1],[1,1]]
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/rank3.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/18/rank3.jpg" style="width: 601px; height: 322px;" />
 <pre>
 <strong>Input:</strong> matrix = [[20,-21,14],[-19,4,19],[22,-47,24],[-19,4,19]]
 <strong>Output:</strong> [[4,2,3],[1,3,4],[5,1,6],[1,3,4]]
 </pre>
 
 <p><strong>Example 4:</strong></p>
-
-![](./images/rank4.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/18/rank4.jpg" style="width: 601px; height: 242px;" />
 <pre>
 <strong>Input:</strong> matrix = [[7,3,6],[1,4,5],[9,8,2]]
 <strong>Output:</strong> [[5,1,4],[1,2,3],[6,3,1]]
@@ -73,6 +65,7 @@ The rank of matrix[1][1] is 3 because matrix[1][1] &gt; matrix[0][1], matrix[1][
 	<li><code>1 &lt;= m, n &lt;= 500</code></li>
 	<li><code>-10<sup>9</sup> &lt;= matrix[row][col] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
 
 ## Solutions
 

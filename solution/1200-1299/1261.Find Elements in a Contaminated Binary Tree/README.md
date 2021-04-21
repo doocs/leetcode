@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给出一个满足下述规则的二叉树：</p>
 
 <ol>
@@ -26,7 +27,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/untitled-diagram-4-1.jpg)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/untitled-diagram-4-1.jpg" style="height: 119px; width: 320px;"></strong></p>
 
 <pre><strong>输入：</strong>
 [&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;]
@@ -40,7 +41,7 @@ findElements.find(2); // return True </pre>
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/untitled-diagram-4.jpg)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/untitled-diagram-4.jpg" style="height: 198px; width: 400px;"></strong></p>
 
 <pre><strong>输入：</strong>
 [&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;]
@@ -55,7 +56,7 @@ findElements.find(5); // return False</pre>
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/untitled-diagram-4-1-1.jpg)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/untitled-diagram-4-1-1.jpg" style="height: 274px; width: 306px;"></strong></p>
 
 <pre><strong>输入：</strong>
 [&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;]
@@ -81,6 +82,7 @@ findElements.find(5); // return True
 	<li>调用&nbsp;<code>find()</code>&nbsp;的总次数在&nbsp;<code>[1,&nbsp;10^4]</code>&nbsp;之间</li>
 	<li><code>0 &lt;= target &lt;= 10^6</code></li>
 </ul>
+
 
 ## 解法
 

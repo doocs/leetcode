@@ -5,11 +5,10 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个整数数组 <code>A</code>，对于每个整数 <code>A[i]</code>，我们可以选择任意&nbsp;<code>x</code> 满足&nbsp;<code>-K &lt;= x &lt;= K</code>，并将&nbsp;<code>x</code>&nbsp;加到&nbsp;<code>A[i]</code>&nbsp;中。</p>
 
-<p>在此过程之后，我们得到一些数组&nbsp;<code>B</code>。</p>
+<p>给你一个整数数组 <code>A</code>，请你给数组中的每个元素 <code>A[i]</code> 都加上一个任意数字 <code>x</code> （<code>-K &lt;= x &lt;= K</code>），从而得到一个新数组 <code>B</code> 。</p>
 
-<p>返回 <code>B</code>&nbsp;的最大值和 <code>B</code>&nbsp;的最小值之间可能存在的最小差值。</p>
+<p>返回数组 <code>B</code> 的最大值和最小值之间可能存在的最小差值。</p>
 
 <p>&nbsp;</p>
 
@@ -46,6 +45,7 @@
 	<li><code>0 &lt;= A[i] &lt;= 10000</code></li>
 	<li><code>0 &lt;= K &lt;= 10000</code></li>
 </ol>
+
 
 ## 解法
 

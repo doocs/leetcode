@@ -5,38 +5,87 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>验证给定的字符串是否可以解释为十进制数字。</p>
 
-<p>例如:</p>
+<p><strong>有效数字</strong>（按顺序）可以分成以下几个部分：</p>
 
-<p><code>&quot;0&quot;</code>&nbsp;=&gt;&nbsp;<code>true</code><br>
-<code>&quot; 0.1 &quot;</code>&nbsp;=&gt;&nbsp;<code>true</code><br>
-<code>&quot;abc&quot;</code>&nbsp;=&gt;&nbsp;<code>false</code><br>
-<code>&quot;1 a&quot;</code>&nbsp;=&gt;&nbsp;<code>false</code><br>
-<code>&quot;2e10&quot;</code>&nbsp;=&gt;&nbsp;<code>true</code><br>
-<code>&quot; -90e3&nbsp; &nbsp;&quot;</code>&nbsp;=&gt;&nbsp;<code>true</code><br>
-<code>&quot; 1e&quot;</code>&nbsp;=&gt;&nbsp;<code>false</code><br>
-<code>&quot;e3&quot;</code>&nbsp;=&gt;&nbsp;<code>false</code><br>
-<code>&quot; 6e-1&quot;</code>&nbsp;=&gt;&nbsp;<code>true</code><br>
-<code>&quot; 99e2.5&nbsp;&quot;</code>&nbsp;=&gt;&nbsp;<code>false</code><br>
-<code>&quot;53.5e93&quot;</code>&nbsp;=&gt;&nbsp;<code>true</code><br>
-<code>&quot; --6 &quot;</code>&nbsp;=&gt;&nbsp;<code>false</code><br>
-<code>&quot;-+3&quot;</code>&nbsp;=&gt;&nbsp;<code>false</code><br>
-<code>&quot;95a54e53&quot;</code>&nbsp;=&gt;&nbsp;<code>false</code></p>
+<ol>
+	<li>一个 <strong>小数</strong> 或者 <strong>整数</strong></li>
+	<li>（可选）一个 <code>'e'</code> 或 <code>'E'</code> ，后面跟着一个 <strong>整数</strong></li>
+</ol>
 
-<p><strong>说明:</strong>&nbsp;我们有意将问题陈述地比较模糊。在实现代码之前，你应当事先思考所有可能的情况。这里给出一份可能存在于有效十进制数字中的字符列表：</p>
+<p><strong>小数</strong>（按顺序）可以分成以下几个部分：</p>
+
+<ol>
+	<li>（可选）一个符号字符（<code>'+'</code> 或 <code>'-'</code>）</li>
+	<li>下述格式之一：
+	<ol>
+		<li>至少一位数字，后面跟着一个点 <code>'.'</code></li>
+		<li>至少一位数字，后面跟着一个点 <code>'.'</code> ，后面再跟着至少一位数字</li>
+		<li>一个点 <code>'.'</code> ，后面跟着至少一位数字</li>
+	</ol>
+	</li>
+</ol>
+
+<p><strong>整数</strong>（按顺序）可以分成以下几个部分：</p>
+
+<ol>
+	<li>（可选）一个符号字符（<code>'+'</code> 或 <code>'-'</code>）</li>
+	<li>至少一位数字</li>
+</ol>
+
+<p>部分有效数字列举如下：</p>
 
 <ul>
-	<li>数字 0-9</li>
-	<li>指数 - &quot;e&quot;</li>
-	<li>正/负号 - &quot;+&quot;/&quot;-&quot;</li>
-	<li>小数点 - &quot;.&quot;</li>
+	<li><code>["2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"]</code></li>
 </ul>
 
-<p>当然，在输入中，这些字符的上下文也很重要。</p>
+<p>部分无效数字列举如下：</p>
 
-<p><strong>更新于 2015-02-10:</strong><br>
-<code>C++</code>函数的形式已经更新了。如果你仍然看见你的函数接收&nbsp;<code>const char *</code> 类型的参数，请点击重载按钮重置你的代码。</p>
+<ul>
+	<li><code>["abc", "1a", "1e", "e3", "99e2.5", "--6", "-+3", "95a54e53"]</code></li>
+</ul>
+
+<p>给你一个字符串 <code>s</code> ，如果 <code>s</code> 是一个 <strong>有效数字</strong> ，请返回 <code>true</code> 。</p>
+
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "0"
+<strong>输出：</strong>true
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "e"
+<strong>输出：</strong>false
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "."
+<strong>输出：</strong>false
+</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = ".1"
+<strong>输出：</strong>true
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= s.length <= 20</code></li>
+	<li><code>s</code> 仅含英文字母（大写和小写），数字（<code>0-9</code>），加号 <code>'+'</code> ，减号 <code>'-'</code> ，或者点 <code>'.'</code> 。</li>
+</ul>
+
 
 ## 解法
 

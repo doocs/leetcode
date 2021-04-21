@@ -4,78 +4,50 @@
 
 ## Description
 
-<p>Given a set of intervals, for each of the interval i, check if there exists an interval j whose start point is bigger than or equal to the end point of the interval i, which can be called that j is on the &quot;right&quot; of i.</p>
+<p>You are given an array of&nbsp;<code>intervals</code>, where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>&nbsp;and each <code>start<sub>i</sub></code>&nbsp;is <strong>unique</strong>.</p>
 
-<p>For any interval i, you need to store the minimum interval j&#39;s index, which means that the interval j has the minimum start point to build the &quot;right&quot; relationship for interval i. If the interval j doesn&#39;t exist, store -1 for the interval i. Finally, you need output the stored value of each interval as an array.</p>
+<p>The <strong>r</strong><strong>ight</strong><strong>&nbsp;interval</strong>&nbsp;for an interval <code>i</code> is an interval&nbsp;<code>j</code>&nbsp;such that <code>start<sub>j</sub></code><code>&nbsp;&gt;= end<sub>i</sub></code>&nbsp;and&nbsp;<code>start<sub>j</sub></code>&nbsp;is&nbsp;<strong>minimized</strong>.</p>
 
-<p><b>Note:</b></p>
-
-<ol>
-    <li>You may assume the interval&#39;s end point is always bigger than its start point.</li>
-    <li>You may assume none of these intervals have the same start point.</li>
-</ol>
+<p>Return&nbsp;<em>an array of&nbsp;<strong>right interval</strong>&nbsp;indices for each interval&nbsp;<code>i</code></em>. If no&nbsp;<strong>right interval</strong>&nbsp;exists for interval&nbsp;<code>i</code>, then put&nbsp;<code>-1</code>&nbsp;at index <code>i</code>.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 1:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> intervals = [[1,2]]
+<strong>Output:</strong> [-1]
+<strong>Explanation:</strong> There is only one interval in the collection, so it outputs -1.
+</pre>
 
-<b>Input:</b> [ [1,2] ]
+<p><strong>Example 2:</strong></p>
 
+<pre>
+<strong>Input:</strong> intervals = [[3,4],[2,3],[1,2]]
+<strong>Output:</strong> [-1,0,1]
+<strong>Explanation:</strong> There is no right interval for [3,4].
+The right interval for [2,3] is [3,4] since start<sub>0</sub>&nbsp;= 3 is the smallest start that is &gt;= end<sub>1</sub>&nbsp;= 3.
+The right interval for [1,2] is [2,3] since start<sub>1</sub>&nbsp;= 2 is the smallest start that is &gt;= end<sub>2</sub>&nbsp;= 2.
+</pre>
 
+<p><strong>Example 3:</strong></p>
 
-<b>Output:</b> [-1]
-
-
-
-<b>Explanation:</b> There is only one interval in the collection, so it outputs -1.
-
+<pre>
+<strong>Input:</strong> intervals = [[1,4],[2,3],[3,4]]
+<strong>Output:</strong> [-1,2,-1]
+<strong>Explanation:</strong> There is no right interval for [1,4] and [3,4].
+The right interval for [2,3] is [3,4] since start<sub>2</sub> = 3 is the smallest start that is &gt;= end<sub>1</sub>&nbsp;= 3.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li><code>1 &lt;=&nbsp;intervals.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>intervals[i].length == 2</code></li>
+	<li><code>-10<sup>6</sup> &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
+	<li>The start point&nbsp;of each interval is <strong>unique</strong>.</li>
+</ul>
 
-<pre>
-
-<b>Input:</b> [ [3,4], [2,3], [1,2] ]
-
-
-
-<b>Output:</b> [-1, 0, 1]
-
-
-
-<b>Explanation:</b> There is no satisfied &quot;right&quot; interval for [3,4].
-
-For [2,3], the interval [3,4] has minimum-&quot;right&quot; start point;
-
-For [1,2], the interval [2,3] has minimum-&quot;right&quot; start point.
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><b>Example 3:</b></p>
-
-<pre>
-
-<b>Input:</b> [ [1,4], [2,3], [3,4] ]
-
-
-
-<b>Output:</b> [-1, 2, -1]
-
-
-
-<b>Explanation:</b> There is no satisfied &quot;right&quot; interval for [1,4] and [3,4].
-
-For [2,3], the interval [3,4] has minimum-&quot;right&quot; start point.
-
-</pre>
-
-<p><strong>NOTE:</strong>&nbsp;input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.</p>
 
 ## Solutions
 

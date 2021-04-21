@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们在两条独立的水平线上按给定的顺序写下&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;中的整数。</p>
 
 <p>现在，我们可以绘制一些连接两个数字&nbsp;<code>A[i]</code>&nbsp;和&nbsp;<code>B[j]</code>&nbsp;的直线，只要&nbsp;<code>A[i] == B[j]</code>，且我们绘制的直线不与任何其他连线（非水平线）相交。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/142.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/04/28/142.png" style="height: 72px; width: 100px;"></strong></p>
 
 <pre><strong>输入：</strong>A = [1,4,2], B = [1,2,4]
 <strong>输出：</strong>2
@@ -45,6 +46,7 @@
 </ol>
 
 <p>&nbsp;</p>
+
 
 ## 解法
 

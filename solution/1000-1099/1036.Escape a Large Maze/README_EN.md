@@ -4,54 +4,46 @@
 
 ## Description
 
-<p>In a 1 million by 1 million grid, the coordinates of each grid square are <code>(x, y)</code> with <code>0 &lt;= x, y &lt; 10^6</code>.</p>
+<p>There is a 1 million by 1 million grid on an XY-plane, and the coordinates of each grid square are <code>(x, y)</code>.</p>
 
-<p>We start at the <code>source</code> square and want to reach the <code>target</code> square.&nbsp; Each move, we can walk to a 4-directionally adjacent square in the grid that isn&#39;t in the given list of <code>blocked</code> squares.</p>
+<p>We start at the <code>source = [s<sub>x</sub>, s<sub>y</sub>]</code> square and want to reach the <code>target = [t<sub>x</sub>, t<sub>y</sub>]</code> square. There is also an array of <code>blocked</code> squares, where each <code>blocked[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents a blocked square with coordinates <code>(x<sub>i</sub>, y<sub>i</sub>)</code>.</p>
 
-<p>Return <code>true</code> if and only if it is possible to reach the target square through a sequence of moves.</p>
+<p>Each move, we can walk one square north, east, south, or west if the square is <strong>not</strong> in the array of <code>blocked</code> squares. We are also not allowed to walk outside of the grid.</p>
+
+<p>Return <code>true</code><em> if and only if it is possible to reach the </em><code>target</code><em> square from the </em><code>source</code><em> square through a sequence of valid moves</em>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>blocked = <span id="example-input-1-1">[[0,1],[1,0]]</span>, source = <span id="example-input-1-2">[0,0]</span>, target = <span id="example-input-1-3">[0,2]</span>
-
-<strong>Output: </strong><span id="example-output-1">false</span>
-
-<strong>Explanation: </strong>
-
-The target square is inaccessible starting from the source square, because we can&#39;t walk outside the grid.
-
+<strong>Input:</strong> blocked = [[0,1],[1,0]], source = [0,0], target = [0,2]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> The target square is inaccessible starting from the source square because we cannot move.
+We cannot move north or east because those squares are blocked.
+We cannot move south or west because we cannot go outside of the grid.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>blocked = <span id="example-input-2-1">[]</span>, source = <span id="example-input-2-2">[0,0]</span>, target = <span id="example-input-2-3">[999999,999999]</span>
-
-<strong>Output: </strong><span id="example-output-2">true</span>
-
-<strong>Explanation: </strong>
-
-Because there are no blocked cells, it&#39;s possible to reach the target square.
-
+<strong>Input:</strong> blocked = [], source = [0,0], target = [999999,999999]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> Because there are no blocked cells, it is possible to reach the target square.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>0 &lt;= blocked.length &lt;= 200</code></li>
+	<li><code>blocked[i].length == 2</code></li>
+	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt; 10<sup>6</sup></code></li>
+	<li><code>source.length == target.length == 2</code></li>
+	<li><code>0 &lt;= s<sub>x</sub>, s<sub>y</sub>, t<sub>x</sub>, t<sub>y</sub> &lt; 10<sup>6</sup></code></li>
+	<li><code>source != target</code></li>
+	<li>It is guaranteed that <code>source</code> and <code>target</code> are not blocked.</li>
+</ul>
 
-<ol>
-    <li><code>0 &lt;= blocked.length &lt;= 200</code></li>
-    <li><code>blocked[i].length == 2</code></li>
-    <li><code>0 &lt;= blocked[i][j] &lt; 10^6</code></li>
-    <li><code>source.length == target.length == 2</code></li>
-    <li><code>0 &lt;= source[i][j], target[i][j] &lt; 10^6</code></li>
-    <li><code>source != target</code></li>
-</ol>
 
 ## Solutions
 

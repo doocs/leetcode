@@ -20,7 +20,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/ball.jpg)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/09/26/ball.jpg" style="width: 500px; height: 385px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,1,1,-1,-1],[1,1,1,-1,-1],[-1,-1,-1,1,1],[1,1,1,1,-1],[-1,-1,-1,-1,-1]]
@@ -57,6 +57,7 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 	<li><code>grid[i][j]</code> is <code>1</code> or <code>-1</code>.</li>
 </ul>
+
 
 ## Solutions
 

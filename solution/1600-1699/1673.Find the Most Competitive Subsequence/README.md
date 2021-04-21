@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组 <code>nums</code> 和一个正整数 <code>k</code> ，返回长度为 <code>k</code> 且最具 <strong>竞争力</strong> 的<em> </em><code>nums</code> 子序列。</p>
 
 <p>数组的子序列是从数组中删除一些元素（可能不删除元素）得到的序列。</p>
@@ -37,6 +38,7 @@
 	<li><code>0 <= nums[i] <= 10<sup>9</sup></code></li>
 	<li><code>1 <= k <= nums.length</code></li>
 </ul>
+
 
 ## 解法
 

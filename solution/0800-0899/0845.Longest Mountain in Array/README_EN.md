@@ -4,56 +4,53 @@
 
 ## Description
 
-<p>Let&#39;s call any (contiguous) subarray B (of A)&nbsp;a <em>mountain</em> if the following properties hold:</p>
+<p>You may recall that an array <code>arr</code> is a <strong>mountain array</strong> if and only if:</p>
 
 <ul>
-    <li><code>B.length &gt;= 3</code></li>
-    <li>There exists some <code>0 &lt; i&nbsp;&lt; B.length - 1</code> such that <code>B[0] &lt; B[1] &lt; ... B[i-1] &lt; B[i] &gt; B[i+1] &gt; ... &gt; B[B.length - 1]</code></li>
+	<li><code>arr.length &gt;= 3</code></li>
+	<li>There exists some index <code>i</code> (<strong>0-indexed</strong>) with <code>0 &lt; i &lt; arr.length - 1</code> such that:
+	<ul>
+		<li><code>arr[0] &lt; arr[1] &lt; ... &lt; arr[i - 1] &lt; arr[i]</code></li>
+		<li><code>arr[i] &gt; arr[i + 1] &gt; ... &gt; arr[arr.length - 1]</code></li>
+	</ul>
+	</li>
 </ul>
 
-<p>(Note that B could be any subarray of A, including the entire array A.)</p>
+<p>Given an integer array <code>arr</code>,&nbsp;return <em>the length of the longest subarray, which is a mountain</em>.&nbsp;Return <code>0</code> if there is no mountain subarray.</p>
 
-<p>Given an array <code>A</code>&nbsp;of integers,&nbsp;return the length of the longest&nbsp;<em>mountain</em>.&nbsp;</p>
-
-<p>Return <code>0</code> if there is no mountain.</p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>[2,1,4,7,3,2,5]
-
-<strong>Output: </strong>5
-
-<strong>Explanation: </strong>The largest mountain is [1,4,7,3,2] which has length 5.
-
+<strong>Input:</strong> arr = [2,1,4,7,3,2,5]
+<strong>Output:</strong> 5
+<strong>Explanation:</strong> The largest mountain is [1,4,7,3,2] which has length 5.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>[2,2,2]
-
-<strong>Output: </strong>0
-
-<strong>Explanation: </strong>There is no mountain.
-
+<strong>Input:</strong> arr = [2,2,2]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> There is no mountain.
 </pre>
 
-<p><strong>Note:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<ol>
-    <li><code>0 &lt;= A.length &lt;= 10000</code></li>
-    <li><code>0 &lt;= A[i] &lt;= 10000</code></li>
-</ol>
+<ul>
+	<li><code>1&nbsp;&lt;= arr.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
 
+<p>&nbsp;</p>
 <p><strong>Follow up:</strong></p>
 
 <ul>
-    <li>Can you solve it using only one pass?</li>
-    <li>Can you solve it in <code>O(1)</code> space?</li>
+	<li>Can you solve it using only one pass?</li>
+	<li>Can you solve it in <code>O(1)</code> space?</li>
 </ul>
+
 
 ## Solutions
 

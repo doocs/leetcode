@@ -5,7 +5,8 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>你的面前有一堵方形的、由多行砖块组成的砖墙。&nbsp;这些砖块高度相同但是宽度不同。你现在要画一条<strong>自顶向下</strong>的、穿过<strong>最少</strong>砖块的垂线。</p>
+
+<p>你的面前有一堵矩形的、由多行砖块组成的砖墙。&nbsp;这些砖块高度相同但是宽度不同。你现在要画一条<strong>自顶向下</strong>的、穿过<strong>最少</strong>砖块的垂线。</p>
 
 <p>砖墙由行的列表表示。 每一行都是一个代表从左至右每块砖的宽度的整数列表。</p>
 
@@ -18,28 +19,17 @@
 <p><strong>示例：</strong></p>
 
 <pre><strong>输入:</strong> [[1,2,2,1],
-
       [3,1,2],
-
       [1,3,2],
-
       [2,4],
-
       [3,1,2],
-
       [1,3,1,1]]
-
-
 
 <strong>输出:</strong> 2
 
-
-
 <strong>解释:</strong> 
-
+<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/brick_wall.png" style="width: 100%;">
 </pre>
-
-![](./images/brick_wall.png)
 
 <p>&nbsp;</p>
 
@@ -49,6 +39,7 @@
 	<li>每一行砖块的宽度之和应该相等，并且不能超过 INT_MAX。</li>
 	<li>每一行砖块的数量在&nbsp;[1,10,000] 范围内，&nbsp;墙的高度在&nbsp;[1,10,000] 范围内，&nbsp;总的砖块数量不超过 20,000。</li>
 </ol>
+
 
 ## 解法
 

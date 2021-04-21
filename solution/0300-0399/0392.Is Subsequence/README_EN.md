@@ -4,53 +4,29 @@
 
 ## Description
 
-<p>
+<p>Given two strings <code>s</code> and <code>t</code>, check if <code>s</code> is a <strong>subsequence</strong> of <code>t</code>.</p>
 
-Given a string <b>s</b> and a string <b>t</b>, check if <b>s</b> is subsequence of <b>t</b>.
+<p>A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code>&quot;ace&quot;</code> is a subsequence of <code>&quot;abcde&quot;</code> while <code>&quot;aec&quot;</code> is not).</p>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "abc", t = "ahbgdc"
+<strong>Output:</strong> true
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "axc", t = "ahbgdc"
+<strong>Output:</strong> false
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p>
+<ul>
+	<li><code>0 &lt;= s.length &lt;= 100</code></li>
+	<li><code>0 &lt;= t.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s</code> and <code>t</code>&nbsp;consist&nbsp;only of lowercase English letters.</li>
+</ul>
 
-You may assume that there is only lower case English letters in both <b>s</b> and <b>t</b>. <b>t</b> is potentially a very long (length ~= 500,000) string, and <b>s</b> is a short string (<=100).
-
-</p>
-
-<p>
-
-A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>"ace"</code> is a subsequence of <code>"abcde"</code> while <code>"aec"</code> is not).
-
-</p>
-
-<p><b>Example 1:</b><br />
-
-<b>s</b> = <code>"abc"</code>, <b>t</b> = <code>"ahbgdc"</code>
-
-</p>
-
-<p>
-
-Return <code>true</code>.
-
-</p>
-
-<p><b>Example 2:</b><br />
-
-<b>s</b> = <code>"axc"</code>, <b>t</b> = <code>"ahbgdc"</code>
-
-</p>
-
-<p>
-
-Return <code>false</code>.
-
-</p>
-
-<p><b>Follow up:</b><br />
-
-If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you want to check one by one to see if T has its subsequence. In this scenario, how would you change your code?</p>
-
-<p><b>Credits:</b><br />Special thanks to <a href="https://leetcode.com/pbrother/">@pbrother</a> for adding this problem and creating all test cases.</p>
+<p>&nbsp;</p>
+<strong>Follow up:</strong> If there are lots of incoming <code>s</code>, say <code>s<sub>1</sub>, s<sub>2</sub>, ..., s<sub>k</sub></code> where <code>k &gt;= 10<sup>9</sup></code>, and you want to check one by one to see if <code>t</code> has its subsequence. In this scenario, how would you change your code?
 
 ## Solutions
 

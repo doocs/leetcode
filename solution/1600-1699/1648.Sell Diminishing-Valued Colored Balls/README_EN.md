@@ -14,9 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/jj.gif)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/jj.gif" style="width: 480px; height: 270px;" />
 <pre>
 <strong>Input:</strong> inventory = [2,5], orders = 4
 <strong>Output:</strong> 14
@@ -56,6 +54,7 @@ The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
 	<li><code>1 &lt;= inventory[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= orders &lt;= min(sum(inventory[i]), 10<sup>9</sup>)</code></li>
 </ul>
+
 
 ## Solutions
 

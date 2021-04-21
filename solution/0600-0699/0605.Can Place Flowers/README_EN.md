@@ -4,47 +4,28 @@
 
 ## Description
 
-<p>Suppose you have a long flowerbed in which some of the plots are planted and some are not. However, flowers cannot be planted in adjacent plots - they would compete for water and both would die.</p>
+<p>You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in <strong>adjacent</strong> plots.</p>
 
-<p>Given a flowerbed (represented as an array containing 0 and 1, where 0 means empty and 1 means not empty), and a number <b>n</b>, return if <b>n</b> new flowers can be planted in it without violating the no-adjacent-flowers rule.</p>
+<p>Given an integer array <code>flowerbed</code> containing <code>0</code>&#39;s and <code>1</code>&#39;s, where <code>0</code> means empty and <code>1</code> means not empty, and an integer <code>n</code>, return <em>if</em> <code>n</code> new flowers can be planted in the <code>flowerbed</code> without violating the no-adjacent-flowers rule.</p>
 
-<p><b>Example 1:</b><br />
-
-<pre>
-
-<b>Input:</b> flowerbed = [1,0,0,0,1], n = 1
-
-<b>Output:</b> True
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> flowerbed = [1,0,0,0,1], n = 1
+<strong>Output:</strong> true
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> flowerbed = [1,0,0,0,1], n = 2
+<strong>Output:</strong> false
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
+<ul>
+	<li><code>1 &lt;= flowerbed.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>flowerbed[i]</code> is <code>0</code> or <code>1</code>.</li>
+	<li>There are no two adjacent flowers in <code>flowerbed</code>.</li>
+	<li><code>0 &lt;= n &lt;= flowerbed.length</code></li>
+</ul>
 
-<p><b>Example 2:</b><br />
-
-<pre>
-
-<b>Input:</b> flowerbed = [1,0,0,0,1], n = 2
-
-<b>Output:</b> False
-
-</pre>
-
-</p>
-
-<p><b>Note:</b><br>
-
-<ol>
-
-<li>The input array won't violate no-adjacent-flowers rule.</li>
-
-<li>The input array size is in the range of [1, 20000].</li>
-
-<li><b>n</b> is a non-negative integer which won't exceed the input array size.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

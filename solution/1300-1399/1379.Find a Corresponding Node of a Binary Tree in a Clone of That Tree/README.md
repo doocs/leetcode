@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你两棵二叉树，原始树 <code>original</code> 和克隆树 <code>cloned</code>，以及一个位于原始树 <code>original</code>&nbsp;中的目标节点&nbsp;<code>target</code>。</p>
 
 <p>其中，克隆树 <code>cloned</code>&nbsp;是原始树 <code>original</code>&nbsp;的一个<strong> 副本 </strong>。</p>
@@ -32,7 +33,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-![](./images/e1.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e1.png" style="height: 426px; width: 544px;"></p>
 
 <pre><strong>输入:</strong> tree = [7,4,3,null,null,6,19], target = 3
 <strong>输出:</strong> 3
@@ -40,7 +41,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-![](./images/e2.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e2.png" style="height: 159px; width: 221px;"></p>
 
 <pre><strong>输入:</strong> tree = [7], target =  7
 <strong>输出:</strong> 7
@@ -48,7 +49,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-![](./images/e3.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e3.png" style="height: 486px; width: 459px;"></p>
 
 <pre><strong>输入:</strong> tree = [8,null,6,null,5,null,4,null,3,null,2,null,1], target = 4
 <strong>输出:</strong> 4
@@ -56,7 +57,7 @@
 
 <p><strong>示例 4:</strong></p>
 
-![](./images/e4.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e4.png" style="height: 239px; width: 555px;"></p>
 
 <pre><strong>输入:</strong> tree = [1,2,3,4,5,6,7,8,9,10], target = 5
 <strong>输出:</strong> 5
@@ -64,7 +65,7 @@
 
 <p><strong>示例 5:</strong></p>
 
-![](./images/e5.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e5.png" style="height: 345px; width: 427px;"></p>
 
 <pre><strong>输入:</strong> tree = [1,2,null,3], target = 2
 <strong>输出:</strong> 2</pre>
@@ -78,6 +79,7 @@
 	<li>同一棵树中，没有值相同的节点。</li>
 	<li><code>target</code>&nbsp;节点是树&nbsp;<code>original</code>&nbsp;中的一个节点，并且不会是&nbsp;<code>null</code>&nbsp;。</li>
 </ul>
+
 
 ## 解法
 

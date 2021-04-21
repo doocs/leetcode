@@ -5,47 +5,77 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>假设我们以下述方式将我们的文件系统抽象成一个字符串:</p>
 
-<p>字符串&nbsp;<code>&quot;dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext&quot;</code> 表示:</p>
+<p>假设文件系统如下图所示：</p>
 
-<pre>
-dir
-    subdir1
-    subdir2
-        file.ext
-</pre>
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/mdir.jpg" style="width: 681px; height: 322px;" /></p>
 
-<p>目录&nbsp;<code>dir</code> 包含一个空的子目录&nbsp;<code>subdir1</code> 和一个包含一个文件&nbsp;<code>file.ext</code>&nbsp;的子目录&nbsp;<code>subdir2</code> 。</p>
+<p>这里将 <code>dir</code> 作为根目录中的唯一目录。<code>dir</code> 包含两个子目录 <code>subdir1</code> 和 <code>subdir2</code> 。<code>subdir1</code> 包含文件 <code>file1.ext</code> 和子目录 <code>subsubdir1</code>；<code>subdir2</code> 包含子目录 <code>subsubdir2</code>，该子目录下包含文件 <code>file2.ext</code> 。</p>
 
-<p>字符串&nbsp;<code>&quot;dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext&quot;</code> 表示:</p>
+<p>在文本格式中，如下所示(⟶表示制表符)：</p>
 
 <pre>
 dir
-    subdir1
-        file1.ext
-        subsubdir1
-    subdir2
-        subsubdir2
-            file2.ext
+⟶ subdir1
+⟶ ⟶ file1.ext
+⟶ ⟶ subsubdir1
+⟶ subdir2
+⟶ ⟶ subsubdir2
+⟶ ⟶ ⟶ file2.ext
 </pre>
 
-<p>目录&nbsp;<code>dir</code> 包含两个子目录 <code>subdir1</code> 和&nbsp;<code>subdir2</code>。&nbsp;<code>subdir1</code> 包含一个文件&nbsp;<code>file1.ext</code> 和一个空的二级子目录 <code>subsubdir1</code>。<code>subdir2</code> 包含一个二级子目录&nbsp;<code>subsubdir2</code> ，其中包含一个文件&nbsp;<code>file2.ext</code>。</p>
+<p>如果是代码表示，上面的文件系统可以写为 <code>"dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"</code> 。<code>'\n'</code> 和 <code>'\t'</code> 分别是换行符和制表符。</p>
 
-<p>我们致力于寻找我们文件系统中文件的最长 (按字符的数量统计) 绝对路径。例如，在上述的第二个例子中，最长路径为&nbsp;<code>&quot;dir/subdir2/subsubdir2/file2.ext&quot;</code>，其长度为&nbsp;<code>32</code> (不包含双引号)。</p>
+<p>文件系统中的每个文件和文件夹都有一个唯一的 <strong>绝对路径</strong> ，即必须打开才能到达文件/目录所在位置的目录顺序，所有路径用 <code>'/'</code> 连接。上面例子中，指向 <code>file2.ext</code> 的绝对路径是 <code>"dir/subdir2/subsubdir2/file2.ext"</code> 。每个目录名由字母、数字和/或空格组成，每个文件名遵循 <code>name.extension</code> 的格式，其中名称和扩展名由字母、数字和/或空格组成。</p>
 
-<p>给定一个以上述格式表示文件系统的字符串，返回文件系统中文件的最长绝对路径的长度。 如果系统中没有文件，返回&nbsp;<code>0</code>。</p>
+<p>给定一个以上述格式表示文件系统的字符串 <code>input</code> ，返回文件系统中 <strong>指向文件的最长绝对路径</strong> 的长度。 如果系统中没有文件，返回 <code>0</code>。</p>
 
-<p><strong>说明:</strong></p>
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/dir1.jpg" style="width: 401px; height: 202px;" />
+<pre>
+<strong>输入：</strong>input = "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"
+<strong>输出：</strong>20
+<strong>解释：</strong>只有一个文件，绝对路径为 "dir/subdir2/file.ext" ，路径长度 20
+路径 "dir/subdir1" 不含任何文件
+</pre>
+
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/dir2.jpg" style="width: 641px; height: 322px;" />
+<pre>
+<strong>输入：</strong>input = "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"
+<strong>输出：</strong>32
+<strong>解释：</strong>存在两个文件：
+"dir/subdir1/file1.ext" ，路径长度 21
+"dir/subdir2/subsubdir2/file2.ext" ，路径长度 32
+返回 32 ，因为这是最长的路径</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>input = "a"
+<strong>输出：</strong>0
+<strong>解释：</strong>不存在任何文件</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre>
+<strong>输入：</strong>input = "file1.txt\nfile2.txt\nlongfile.txt"
+<strong>输出：</strong>12
+<strong>解释：</strong>根目录下有 3 个文件。
+因为根目录中任何东西的绝对路径只是名称本身，所以答案是 "longfile.txt" ，路径长度为 12
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>文件名至少存在一个&nbsp;<code>.</code> 和一个扩展名。</li>
-	<li>目录或者子目录的名字不能包含&nbsp;<code>.</code>。</li>
+	<li><code>1 <= input.length <= 10<sup>4</sup></code></li>
+	<li><code>input</code> 可能包含小写或大写的英文字母，一个换行符 <code>'\n'</code>，一个指表符 <code>'\t'</code>，一个点 <code>'.'</code>，一个空格 <code>' '</code>，和数字。</li>
 </ul>
 
-<p>要求时间复杂度为&nbsp;<code>O(n)</code>&nbsp;，其中&nbsp;<code>n</code> 是输入字符串的大小。</p>
-
-<p>请注意，如果存在路径&nbsp;<code>aaaaaaaaaaaaaaaaaaaaa/sth.png</code>&nbsp;的话，那么&nbsp;&nbsp;<code>a/aa/aaa/file1.txt</code>&nbsp;就不是一个最长的路径。</p>
 
 ## 解法
 

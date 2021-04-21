@@ -1,10 +1,11 @@
 # [119. 杨辉三角 II](https://leetcode-cn.com/problems/pascals-triangle-ii)
 
-[English Version](/solution/0100-0199/0119.Pascal's%20Triangle%20II/README_EN.md)
+[English Version](/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个非负索引&nbsp;<em>k</em>，其中 <em>k</em>&nbsp;&le;&nbsp;33，返回杨辉三角的第 <em>k </em>行。</p>
 
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif"></p>
@@ -20,6 +21,7 @@
 <p><strong>进阶：</strong></p>
 
 <p>你可以优化你的算法到 <em>O</em>(<em>k</em>) 空间复杂度吗？</p>
+
 
 ## 解法
 

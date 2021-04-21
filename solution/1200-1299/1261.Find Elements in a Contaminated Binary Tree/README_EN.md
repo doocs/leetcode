@@ -24,7 +24,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/untitled-diagram-4-1.jpg)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/11/06/untitled-diagram-4-1.jpg" style="width: 320px; height: 119px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>
@@ -39,7 +39,7 @@ findElements.find(2); // return True </pre>
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/untitled-diagram-4.jpg)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/11/06/untitled-diagram-4.jpg" style="width: 400px; height: 198px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>
@@ -55,7 +55,7 @@ findElements.find(5); // return False</pre>
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/untitled-diagram-4-1-1.jpg)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/11/07/untitled-diagram-4-1-1.jpg" style="width: 306px; height: 274px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>
@@ -81,6 +81,7 @@ findElements.find(5); // return True
 	<li>Total calls of <code>find()</code> is between <code>[1,&nbsp;10^4]</code></li>
 	<li><code>0 &lt;= target &lt;= 10^6</code></li>
 </ul>
+
 
 ## Solutions
 

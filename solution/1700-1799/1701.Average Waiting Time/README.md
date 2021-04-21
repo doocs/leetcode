@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有一个餐厅，只有一位厨师。你有一个顾客数组 <code>customers</code> ，其中 <code>customers[i] = [arrival<sub>i</sub>, time<sub>i</sub>]</code> ：</p>
 
 <ul>
@@ -52,6 +53,7 @@
 	<li><code>1 <= arrival<sub>i</sub>, time<sub>i</sub> <= 10<sup>4</sup></code></li>
 	<li><code>arrival<sub>i </sub><= arrival<sub>i+1</sub></code></li>
 </ul>
+
 
 ## 解法
 

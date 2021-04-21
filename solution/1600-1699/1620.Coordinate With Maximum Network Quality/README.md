@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个数组 <code>towers</code> 和一个整数 <code>radius</code> ，数组中包含一些网络信号塔，其中 <code>towers[i] = [x<sub>i</sub>, y<sub>i</sub>, q<sub>i</sub>]</code> 表示第 <code>i</code> 个网络信号塔的坐标是 <code>(x<sub>i</sub>, y<sub>i</sub>)</code> 且信号强度参数为 <code>q<sub>i</sub></code><sub> </sub>。所有坐标都是在  X-Y 坐标系内的 <strong>整数</strong> 坐标。两个坐标之间的距离用 <strong>欧几里得距离</strong> 计算。</p>
 
 <p>整数 <code>radius</code> 表示一个塔 <strong>能到达 </strong>的 <strong>最远距离</strong> 。如果一个坐标跟塔的距离在 <code>radius</code> 以内，那么该塔的信号可以到达该坐标。在这个范围以外信号会很微弱，所以 <code>radius</code> 以外的距离该塔是 <strong>不能到达的</strong> 。</p>
@@ -23,9 +24,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/untitled-diagram.png)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/17/untitled-diagram.png" style="width: 176px; height: 176px;" />
 <pre>
 <b>输入：</b>towers = [[1,2,5],[2,1,7],[3,1,9]], radius = 2
 <b>输出：</b>[2,1]
@@ -68,6 +67,7 @@
 	<li><code>0 <= x<sub>i</sub>, y<sub>i</sub>, q<sub>i</sub> <= 50</code></li>
 	<li><code>1 <= radius <= 50</code></li>
 </ul>
+
 
 ## 解法
 

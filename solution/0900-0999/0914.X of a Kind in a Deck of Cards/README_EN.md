@@ -6,7 +6,7 @@
 
 <p>In a deck of cards, each card has an integer written on it.</p>
 
-<p>Return <code>true</code> if and only if you can choose&nbsp;<code>X &gt;= 2</code> such that&nbsp;it is possible to split the entire deck&nbsp;into 1 or more groups of cards, where:</p>
+<p>Return <code>true</code> if and only if you can choose <code>X &gt;= 2</code> such that it is possible to split the entire deck into 1 or more groups of cards, where:</p>
 
 <ul>
 	<li>Each group has exactly <code>X</code> cards.</li>
@@ -26,7 +26,7 @@
 
 <pre>
 <strong>Input:</strong> deck = [1,1,1,2,2,2,3,3]
-<strong>Output:</strong> false&acute;
+<strong>Output:</strong> false
 <strong>Explanation</strong>: No possible partition.
 </pre>
 
@@ -58,9 +58,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= deck.length &lt;= 10^4</code></li>
-	<li><code>0 &lt;= deck[i] &lt;&nbsp;10^4</code></li>
+	<li><code>1 &lt;= deck.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= deck[i] &lt; 10<sup>4</sup></code></li>
 </ul>
+
 
 ## Solutions
 

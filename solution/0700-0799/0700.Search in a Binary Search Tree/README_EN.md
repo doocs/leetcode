@@ -4,45 +4,35 @@
 
 ## Description
 
-<p>Given the root node of a binary search tree (BST) and a value. You need to find the node in the BST that the node&#39;s value equals the given value. Return the subtree rooted with that node. If such node doesn&#39;t exist, you should return NULL.</p>
+<p>You are given the <code>root</code> of a binary search tree (BST) and an integer <code>val</code>.</p>
 
-<p>For example,&nbsp;</p>
+<p>Find the node in the BST that the node&#39;s value equals <code>val</code> and return the subtree rooted with that node. If such a node does not exist, return <code>null</code>.</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/12/tree1.jpg" style="width: 422px; height: 302px;" />
 <pre>
-
-Given the tree:
-
-        4
-
-       / \
-
-      2   7
-
-     / \
-
-    1   3
-
-
-
-And the value to search: 2
-
+<strong>Input:</strong> root = [4,2,7,1,3], val = 2
+<strong>Output:</strong> [2,1,3]
 </pre>
 
-<p>You should return this subtree:</p>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/12/tree2.jpg" style="width: 422px; height: 302px;" />
 <pre>
-
-      2     
-
-     / \   
-
-    1   3
-
+<strong>Input:</strong> root = [4,2,7,1,3], val = 5
+<strong>Output:</strong> []
 </pre>
 
-<p>In the example above, if we want to search the value <code>5</code>, since there is no node with value <code>5</code>, we should return <code>NULL</code>.</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p>Note that an empty tree is represented by <code>NULL</code>, therefore you would see the expected output (serialized tree format) as&nbsp;<code>[]</code>, not <code>null</code>.</p>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 5000]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 10<sup>7</sup></code></li>
+	<li><code>root</code> is a binary search tree.</li>
+	<li><code>1 &lt;= val &lt;= 10<sup>7</sup></code></li>
+</ul>
+
 
 ## Solutions
 

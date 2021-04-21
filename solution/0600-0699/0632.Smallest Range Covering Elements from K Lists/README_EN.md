@@ -4,32 +4,61 @@
 
 ## Description
 
-<p>You have <code>k</code> lists of sorted integers in ascending order. Find the <b>smallest</b> range that includes at least one number from each of the <code>k</code> lists.</p>
+<p>You have <code>k</code> lists of sorted integers in <strong>non-decreasing&nbsp;order</strong>. Find the <b>smallest</b> range that includes at least one number from each of the <code>k</code> lists.</p>
 
-<p>We define the range [a,b] is smaller than range [c,d] if <code>b-a &lt; d-c</code> or <code>a &lt; c</code> if <code>b-a == d-c</code>.</p>
+<p>We define the range <code>[a, b]</code> is smaller than range <code>[c, d]</code> if <code>b - a &lt; d - c</code> <strong>or</strong> <code>a &lt; c</code> if <code>b - a == d - c</code>.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 1:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<b>Input: </b>[[4,10,15,24,26], [0,9,12,20], [5,18,22,30]]
-<b>Output:</b> [20,24]
-<b>Explanation:</b> 
+<strong>Input:</strong> nums = [[4,10,15,24,26],[0,9,12,20],[5,18,22,30]]
+<strong>Output:</strong> [20,24]
+<strong>Explanation: </strong>
 List 1: [4, 10, 15, 24,26], 24 is in range [20,24].
 List 2: [0, 9, 12, 20], 20 is in range [20,24].
 List 3: [5, 18, 22, 30], 22 is in range [20,24].
 </pre>
 
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [[1,2,3],[1,2,3],[1,2,3]]
+<strong>Output:</strong> [1,1]
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [[10,10],[11,11]]
+<strong>Output:</strong> [10,11]
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [[10],[11]]
+<strong>Output:</strong> [10,11]
+</pre>
+
+<p><strong>Example 5:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [[1],[2],[3],[4],[5],[6],[7]]
+<strong>Output:</strong> [1,7]
+</pre>
+
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li><code>nums.length == k</code></li>
+	<li><code>1 &lt;= k &lt;= 3500</code></li>
+	<li><code>1 &lt;= nums[i].length &lt;= 50</code></li>
+	<li><code>-10<sup>5</sup> &lt;= nums[i][j] &lt;= 10<sup>5</sup></code></li>
+	<li><code>nums[i]</code>&nbsp;is sorted in <strong>non-decreasing</strong> order.</li>
+</ul>
 
-<ol>
-	<li>The given list may contain duplicates, so ascending order means &gt;= here.</li>
-	<li>1 &lt;= <code>k</code> &lt;= 3500</li>
-	<li>-10<sup>5</sup> &lt;= <code>value of elements</code> &lt;= 10<sup>5</sup>.</li>
-</ol>
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组 <code>arr</code>&nbsp;，请你删除一个子数组（可以为空），使得 <code>arr</code>&nbsp;中剩下的元素是 <strong>非递减</strong> 的。</p>
 
 <p>一个子数组指的是原数组中连续的一个子序列。</p>
@@ -52,6 +53,7 @@
 	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
 	<li><code>0 &lt;= arr[i] &lt;= 10^9</code></li>
 </ul>
+
 
 ## 解法
 

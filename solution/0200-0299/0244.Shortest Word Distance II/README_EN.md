@@ -4,22 +4,43 @@
 
 ## Description
 
-<p>Design a class which receives a list of words in the constructor, and implements a method that takes two words <em>word1</em> and <em>word2</em> and return the shortest distance between these two words in the list. Your method will be called <em>repeatedly</em> many times with different parameters. </p>
+<p>Design a data structure that will be initialized with a string array, and then it should answer queries of the shortest distance between two different strings from the array.</p>
 
-<p><strong>Example:</strong><br />
-Assume that words = <code>["practice", "makes", "perfect", "coding", "makes"]</code>.</p>
+<p>Implement the <code>WordDistance</code> class:</p>
+
+<ul>
+	<li><code>WordDistance(String[] wordsDict)</code> initializes the object with the strings array <code>wordsDict</code>.</li>
+	<li><code>int shortest(String word1, String word2)</code> returns the shortest distance between <code>word1</code> and <code>word2</code> in the array <code>wordsDict</code>.</li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<b>Input:</b> <em>word1</em> = <code>“coding”</code>, <em>word2</em> = <code>“practice”</code>
-<b>Output:</b> 3
+<strong>Input</strong>
+[&quot;WordDistance&quot;, &quot;shortest&quot;, &quot;shortest&quot;]
+[[[&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]], [&quot;coding&quot;, &quot;practice&quot;], [&quot;makes&quot;, &quot;coding&quot;]]
+<strong>Output</strong>
+[null, 3, 1]
+
+<strong>Explanation</strong>
+WordDistance wordDistance = new WordDistance([&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]);
+wordDistance.shortest(&quot;coding&quot;, &quot;practice&quot;); // return 3
+wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 </pre>
 
-<pre>
-<b>Input:</b> <em>word1</em> = <code>"makes"</code>, <em>word2</em> = <code>"coding"</code>
-<b>Output:</b> 1</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong><br />
-You may assume that <em>word1</em> <strong>does not equal to</strong> <em>word2</em>, and <em>word1</em> and <em>word2</em> are both in the list.</p>
+<ul>
+	<li><code>1 &lt;= wordsDict.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= wordsDict[i].length &lt;= 10</code></li>
+	<li><code>wordsDict[i]</code> consists of lowercase English letters.</li>
+	<li><code>word1</code> and <code>word2</code> are in <code>wordsDict</code>.</li>
+	<li><code>word1 != word2</code></li>
+	<li>At most <code>5000</code> calls will be made to <code>shortest</code>.</li>
+</ul>
+
 
 ## Solutions
 

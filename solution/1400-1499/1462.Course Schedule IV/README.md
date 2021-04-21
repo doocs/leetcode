@@ -1,10 +1,11 @@
-# [1462. 课程安排 IV](https://leetcode-cn.com/problems/course-schedule-iv)
+# [1462. 课程表 IV](https://leetcode-cn.com/problems/course-schedule-iv)
 
 [English Version](/solution/1400-1499/1462.Course%20Schedule%20IV/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>你总共需要上 <code>n</code>&nbsp;门课，课程编号依次为 <code>0</code>&nbsp;到 <code>n-1</code>&nbsp;。</p>
 
 <p>有的课会有直接的先修课程，比如如果想上课程&nbsp;0 ，你必须先上课程 1 ，那么会以 <code>[1,0]</code>&nbsp;数对的形式给出先修课程数对。</p>
@@ -21,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/graph.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/30/graph.png" style="height: 300px; width: 300px;"></p>
 
 <pre><strong>输入：</strong>n = 2, prerequisites = [[1,0]], queries = [[0,1],[1,0]]
 <strong>输出：</strong>[false,true]
@@ -37,7 +38,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/graph-1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/30/graph-1.png" style="height: 300px; width: 300px;"></p>
 
 <pre><strong>输入：</strong>n = 3, prerequisites = [[1,2],[1,0],[2,0]], queries = [[1,0],[1,2]]
 <strong>输出：</strong>[true,true]
@@ -69,6 +70,7 @@
 	<li><code>1 &lt;= queries.length &lt;= 10^4</code></li>
 	<li><code>queries[i][0] != queries[i][1]</code></li>
 </ul>
+
 
 ## 解法
 

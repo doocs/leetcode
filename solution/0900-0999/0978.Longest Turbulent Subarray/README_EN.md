@@ -4,71 +4,59 @@
 
 ## Description
 
-<p>A subarray <code>A[i], A[i+1], ..., A[j]</code>&nbsp;of <code>A</code> is said to be <em>turbulent</em> if and only if:</p>
+<p>Given an integer array <code>arr</code>, return <em>the length of a maximum size turbulent subarray of</em> <code>arr</code>.</p>
+
+<p>A subarray is <strong>turbulent</strong> if the comparison sign flips between each adjacent pair of elements in the subarray.</p>
+
+<p>More formally, a subarray <code>[arr[i], arr[i + 1], ..., arr[j]]</code> of <code>arr</code> is said to be turbulent if and only if:</p>
 
 <ul>
-    <li>For <code>i &lt;= k &lt; j</code>, <code>A[k] &gt; A[k+1]</code> when <code>k</code> is odd, and <code>A[k] &lt; A[k+1]</code> when <code>k</code> is even;</li>
-    <li><strong>OR</strong>, for <code>i &lt;= k &lt; j</code>, <code>A[k] &gt; A[k+1]</code> when <code>k</code> is even, and <code>A[k] &lt; A[k+1]</code> when <code>k</code> is odd.</li>
+	<li>For <code>i &lt;= k &lt; j</code>:
+
+	<ul>
+		<li><code>arr[k] &gt; arr[k + 1]</code> when <code>k</code> is odd, and</li>
+		<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is even.</li>
+	</ul>
+	</li>
+	<li>Or, for <code>i &lt;= k &lt; j</code>:
+	<ul>
+		<li><code>arr[k] &gt; arr[k + 1]</code> when <code>k</code> is even, and</li>
+		<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is odd.</li>
+	</ul>
+	</li>
 </ul>
 
-<p>That is, the subarray is turbulent if the comparison sign flips between each adjacent pair of elements in the subarray.</p>
-
-<p>Return the <strong>length</strong> of a&nbsp;maximum size turbulent subarray of A.</p>
-
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[9,4,2,10,7,8,8,1,9]</span>
-
-<strong>Output: </strong><span id="example-output-1">5</span>
-
-<strong>Explanation: </strong>(A[1] &gt; A[2] &lt; A[3] &gt; A[4] &lt; A[5])
-
+<strong>Input:</strong> arr = [9,4,2,10,7,8,8,1,9]
+<strong>Output:</strong> 5
+<strong>Explanation:</strong> arr[1] &gt; arr[2] &lt; arr[3] &gt; arr[4] &lt; arr[5]
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[4,8,12,16]</span>
-
-<strong>Output: </strong><span id="example-output-2">2</span>
-
+<strong>Input:</strong> arr = [4,8,12,16]
+<strong>Output:</strong> 2
 </pre>
-
-<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-3-1">[100]</span>
-
-<strong>Output: </strong><span id="example-output-3">1</span>
-
+<strong>Input:</strong> arr = [100]
+<strong>Output:</strong> 1
 </pre>
 
-</div>
-
-</div>
-
-</div>
-
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>1 &lt;= arr.length &lt;= 4 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
+</ul>
 
-<ol>
-    <li><code>1 &lt;= A.length &lt;= 40000</code></li>
-    <li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
-</ol>
 
 ## Solutions
 

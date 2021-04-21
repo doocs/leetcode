@@ -4,33 +4,22 @@
 
 ## Description
 
-<p>You are given an immutable linked list, print out all values of each node in reverse with the help of the following interface:</p>
+<p>You are given an immutable linked list, print out all values of each node in reverse with the help of the following&nbsp;interface:</p>
 
 <ul>
-	<li><code>ImmutableListNode</code>: An interface of immutable linked list, you are given the head of the list.</li>
+	<li><code>ImmutableListNode</code>:&nbsp;An interface of immutable linked list, you are given the head of the list.</li>
 </ul>
 
-<p>You need to use the following functions to access the linked list (you <strong>can't</strong> access the <code>ImmutableListNode</code> directly):</p>
+<p>You need to use the following functions to access the linked list (you <strong>can&#39;t</strong> access the <code>ImmutableListNode</code> directly):</p>
 
 <ul>
 	<li><code>ImmutableListNode.printValue()</code>: Print value of the current node.</li>
 	<li><code>ImmutableListNode.getNext()</code>: Return the next node.</li>
 </ul>
 
-<p>The input is only given to initialize the linked list internally. You must solve this problem without modifying the linked list. In other words, you must operate the linked list using only the mentioned APIs.</p>
+<p>The input is only given to initialize the linked list internally.&nbsp;You must solve this problem without modifying the linked list. In other words, you must operate&nbsp;the linked list using only the mentioned&nbsp;APIs.</p>
 
-<p> </p>
-
-<p><strong>Follow up:</strong></p>
-
-<p>Could you solve this problem in:</p>
-
-<ul>
-	<li>Constant space complexity?</li>
-	<li>Linear time complexity and less than linear space complexity?</li>
-</ul>
-
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -55,13 +44,25 @@
 <ul>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The length of the linked list is between <code>[1, 1000]</code>.</li>
-	<li>The value of each node in the linked list is between <code>[-1000, 1000]</code>.</li>
+	<li>The length of the linked list&nbsp;is between <code>[1, 1000]</code>.</li>
+	<li>The value of each&nbsp;node in the linked list&nbsp;is between <code>[-1000, 1000]</code>.</li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>Follow up:</strong></p>
+
+<p>Could you solve this problem in:</p>
+
+<ul>
+	<li>Constant space complexity?</li>
+	<li>Linear time complexity and less than linear space complexity?</li>
+</ul>
+
 
 ## Solutions
 

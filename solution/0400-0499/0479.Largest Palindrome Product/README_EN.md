@@ -4,25 +4,31 @@
 
 ## Description
 
-<p>Find the largest palindrome made from the product of two n-digit numbers.</p>
-
-<p>Since the result could be very large, you should return the largest palindrome mod 1337.</p>
+<p>Given an integer n, return <em>the <strong>largest palindromic integer</strong> that can be represented as the product of two <code>n</code>-digits integers</em>. Since the answer can be very large, return it <strong>modulo</strong> <code>1337</code>.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
-<p><b>Example:</b></p>
+<pre>
+<strong>Input:</strong> n = 2
+<strong>Output:</strong> 987
+Explanation: 99 x 91 = 9009, 9009 % 1337 = 987
+</pre>
 
-<p>Input: 2</p>
+<p><strong>Example 2:</strong></p>
 
-<p>Output: 987</p>
-
-<p>Explanation: 99 x 91 = 9009, 9009 % 1337 = 987</p>
+<pre>
+<strong>Input:</strong> n = 1
+<strong>Output:</strong> 9
+</pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li><code>1 &lt;= n &lt;= 8</code></li>
+</ul>
 
-<p>The range of n is [1,8].</p>
 
 ## Solutions
 

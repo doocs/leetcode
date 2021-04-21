@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在&nbsp;<code>N&nbsp;*&nbsp;N</code>&nbsp;的网格中，我们放置了一些与 x，y，z 三轴对齐的&nbsp;<code>1 * 1 * 1</code>&nbsp;立方体。</p>
 
 <p>每个值&nbsp;<code>v = grid[i][j]</code>&nbsp;表示 <code>v</code>&nbsp;个正方体叠放在单元格&nbsp;<code>(i, j)</code>&nbsp;上。</p>
@@ -43,9 +44,8 @@
 <strong>输出：</strong>17
 <strong>解释：</strong>
 这里有该形体在三个轴对齐平面上的三个投影(&ldquo;阴影部分&rdquo;)。
+<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/02/shadow.png" style="height: 200px; width: 749px;">
 </pre>
-
-![](./images/shadow.png)
 
 <p><strong>示例 3：</strong></p>
 
@@ -73,6 +73,7 @@
 	<li><code>1 &lt;= grid.length = grid[0].length&nbsp;&lt;= 50</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
 </ul>
+
 
 ## 解法
 

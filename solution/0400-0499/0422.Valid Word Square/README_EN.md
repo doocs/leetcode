@@ -4,86 +4,56 @@
 
 ## Description
 
-<p>Given a sequence of words, check whether it forms a valid word square.</p>
+<p>Given an array of strings <code>words</code>, return <code>true</code> <em>if it forms a valid <strong>word square</strong></em>.</p>
 
-<p>A sequence of words forms a valid word square if the <i>k</i><sup>th</sup> row and column read the exact same string, where 0 ≤ <i>k</i> < max(numRows, numColumns).</p>
+<p>A sequence of strings forms a valid <strong>word square</strong> if the <code>k<sup>th</sup></code> row and column read the same string, where <code>0 &lt;= k &lt; max(numRows, numColumns)</code>.</p>
 
-<p><b>Note:</b><br />
-<ol>
-<li>The number of words given is at least 1 and does not exceed 500.</li>
-<li>Word length will be at least 1 and does not exceed 500.</li>
-<li>Each word contains only lowercase English alphabet <code>a-z</code>.</li>
-</ol>
-</p>
-
-<p><b>Example 1:</b>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/validsq1-grid.jpg" style="width: 333px; height: 333px;" />
 <pre>
-<b>Input:</b>
-[
-  "abcd",
-  "bnrt",
-  "crmy",
-  "dtye"
-]
-
-<b>Output:</b>
-true
-
-<b>Explanation:</b>
-The first row and first column both read "abcd".
-The second row and second column both read "bnrt".
-The third row and third column both read "crmy".
-The fourth row and fourth column both read "dtye".
-
+<strong>Input:</strong> words = [&quot;abcd&quot;,&quot;bnrt&quot;,&quot;crmy&quot;,&quot;dtye&quot;]
+<strong>Output:</strong> true
+<strong>Explanation:</strong>
+The 1<sup>st</sup> row and 1<sup>st</sup> column both read &quot;abcd&quot;.
+The 2<sup>nd</sup> row and 2<sup>nd</sup> column both read &quot;bnrt&quot;.
+The 3<sup>rd</sup> row and 3<sup>rd</sup> column both read &quot;crmy&quot;.
+The 4<sup>th</sup> row and 4<sup>th</sup> column both read &quot;dtye&quot;.
 Therefore, it is a valid word square.
-
 </pre>
-</p>
 
-<p><b>Example 2:</b>
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/validsq2-grid.jpg" style="width: 333px; height: 333px;" />
 <pre>
-<b>Input:</b>
-[
-  "abcd",
-  "bnrt",
-  "crm",
-  "dt"
-]
-
-<b>Output:</b>
-true
-
-<b>Explanation:</b>
-The first row and first column both read "abcd".
-The second row and second column both read "bnrt".
-The third row and third column both read "crm".
-The fourth row and fourth column both read "dt".
-
+<strong>Input:</strong> words = [&quot;abcd&quot;,&quot;bnrt&quot;,&quot;crm&quot;,&quot;dt&quot;]
+<strong>Output:</strong> true
+<strong>Explanation:</strong>
+The 1<sup>st</sup> row and 1<sup>st</sup> column both read &quot;abcd&quot;.
+The 2<sup>nd</sup> row and 2<sup>nd</sup> column both read &quot;bnrt&quot;.
+The 3<sup>rd</sup> row and 3<sup>rd</sup> column both read &quot;crm&quot;.
+The 4<sup>th</sup> row and 4<sup>th</sup> column both read &quot;dt&quot;.
 Therefore, it is a valid word square.
-
 </pre>
-</p>
 
-<p><b>Example 3:</b>
+<p><strong>Example 3:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/validsq3-grid.jpg" style="width: 333px; height: 333px;" />
 <pre>
-<b>Input:</b>
-[
-  "ball",
-  "area",
-  "read",
-  "lady"
-]
-
-<b>Output:</b>
-false
-
-<b>Explanation:</b>
-The third row reads "read" while the third column reads "lead".
-
-Therefore, it is <b>NOT</b> a valid word square.
-
+<strong>Input:</strong> words = [&quot;ball&quot;,&quot;area&quot;,&quot;read&quot;,&quot;lady&quot;]
+<strong>Output:</strong> false
+<strong>Explanation:</strong>
+The 3<sup>rd</sup> row reads &quot;read&quot; while the 3<sup>rd</sup> column reads &quot;lead&quot;.
+Therefore, it is NOT a valid word square.
 </pre>
-</p>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 500</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 500</code></li>
+	<li><code>words[i]</code> consists of only lowercase English letters.</li>
+</ul>
+
 
 ## Solutions
 

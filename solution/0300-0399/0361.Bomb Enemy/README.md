@@ -5,15 +5,16 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>想象一下炸弹人游戏，在你面前有一个二维的网格来表示地图，网格中的格子分别被以下三种符号占据：</p>
 
 <ul>
-	<li><code>'W'</code> 表示一堵墙</li>
-	<li><code>'E'</code> 表示一个敌人</li>
-	<li><code>'0'</code>（数字 0）表示一个空位</li>
+	<li><code>&#39;W&#39;</code>&nbsp;表示一堵墙</li>
+	<li><code>&#39;E&#39;</code>&nbsp;表示一个敌人</li>
+	<li><code>&#39;0&#39;</code>（数字 0）表示一个空位</li>
 </ul>
 
-![](./images/361_Bomb_Enemy.gif)
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/images/361_Bomb_Enemy.gif" style="width: 200px;"></p>
 
 <p>请你计算一个炸弹最多能炸多少敌人。</p>
 
@@ -23,7 +24,7 @@
 
 <p><strong>示例:</strong></p>
 
-<pre><strong>输入: </strong>[["0","E","0","0"],["E","0","W","E"],["0","E","0","0"]]
+<pre><strong>输入: </strong>[[&quot;0&quot;,&quot;E&quot;,&quot;0&quot;,&quot;0&quot;],[&quot;E&quot;,&quot;0&quot;,&quot;W&quot;,&quot;E&quot;],[&quot;0&quot;,&quot;E&quot;,&quot;0&quot;,&quot;0&quot;]]
 <strong>输出: </strong>3 
 <strong>解释: </strong>对于如下网格
 
@@ -33,6 +34,7 @@ E 0 W E
 
 假如在位置 (1,1) 放置炸弹的话，可以炸到 3 个敌人
 </pre>
+
 
 ## 解法
 

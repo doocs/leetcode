@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串 <code>s</code> 。请返回 <code>s</code> 中最长的 <strong>超赞子字符串</strong> 的长度。</p>
 
 <p>「超赞子字符串」需满足满足下述两个条件：</p>
@@ -50,6 +51,7 @@
 	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
 	<li><code>s</code> 仅由数字组成</li>
 </ul>
+
 
 ## 解法
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>target</code>&nbsp;。</p>
 
 <p>请你返回&nbsp;<strong>非空不重叠</strong>&nbsp;子数组的最大数目，且每个子数组中数字和都为 <code>target</code>&nbsp;。</p>
@@ -46,6 +47,7 @@
 	<li><code>-10^4 &lt;= nums[i] &lt;=&nbsp;10^4</code></li>
 	<li><code>0 &lt;= target &lt;= 10^6</code></li>
 </ul>
+
 
 ## 解法
 

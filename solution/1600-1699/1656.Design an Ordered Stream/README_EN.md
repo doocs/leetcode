@@ -18,7 +18,7 @@
 <p>&nbsp;</p>
 <p><strong>Example:</strong></p>
 
-![](./images/q1.gif)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/11/10/q1.gif" style="width: 682px; height: 240px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>
@@ -51,6 +51,7 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 	<li>Each call to <code>insert</code>&nbsp;will have a unique <code>id.</code></li>
 	<li>Exactly <code>n</code> calls will be made to <code>insert</code>.</li>
 </ul>
+
 
 ## Solutions
 

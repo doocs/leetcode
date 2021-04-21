@@ -39,7 +39,7 @@ define editDistance(targetPath, myPath) {
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/e1.jpg)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/08/e1.jpg" style="height: 532px; width: 378px;" /></p>
 
 <pre>
 <strong>输入：</strong>n = 5, roads = [[0,2],[0,3],[1,2],[1,3],[1,4],[2,4]], names = ["ATL","PEK","LAX","DXB","HND"], targetPath = ["ATL","DXB","HND","LAX"]
@@ -52,7 +52,7 @@ define editDistance(targetPath, myPath) {
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/e2.jpg)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/08/e2.jpg" style="height: 361px; width: 361px;" /></p>
 
 <pre>
 <strong>输入：</strong>n = 4, roads = [[1,0],[2,0],[3,0],[2,1],[3,1],[3,2]], names = ["ATL","PEK","LAX","DXB"], targetPath = ["ABC","DEF","GHI","JKL","MNO","PQR","STU","VWX"]
@@ -62,7 +62,7 @@ define editDistance(targetPath, myPath) {
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/e3.jpg)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/09/e3.jpg" style="height: 141px; width: 800px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>n = 6, roads = [[0,1],[1,2],[2,3],[3,4],[4,5]], names = ["ATL","PEK","LAX","ATL","DXB","HND"], targetPath = ["ATL","DXB","HND","DXB","ATL","LAX","PEK"]

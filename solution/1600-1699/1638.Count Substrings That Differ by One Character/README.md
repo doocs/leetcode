@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你两个字符串 <code>s</code> 和 <code>t</code> ，请你找出 <code>s</code> 中的非空子串的数目，这些子串满足替换 <strong>一个不同字符</strong> 以后，是 <code>t</code> 串的子串。换言之，请你找到 <code>s</code> 和 <code>t</code> 串中 <strong>恰好</strong> 只有一个字符不同的子字符串对的数目。</p>
 
 <p>比方说， <code>"<strong>compute</strong>r"</code> 和 <code>"<strong>computa</strong>tion"</code> 加粗部分只有一个字符不同： <code>'e'</code>/<code>'a'</code> ，所以这一对子字符串会给答案加 1 。</p>
@@ -29,7 +30,6 @@
 ("a<strong>b</strong>a", "bab<strong>a</strong>")
 加粗部分分别表示 s 和 t 串选出来的子字符串。
 </pre>
-
 <strong>示例 2：</strong>
 
 <pre>
@@ -41,7 +41,6 @@
 ("<strong>ab</strong>", "<strong>bb</strong>")
 加粗部分分别表示 s 和 t 串选出来的子字符串。
 </pre>
-
 <strong>示例 3：</strong>
 
 <pre>
@@ -64,6 +63,7 @@
 	<li><code>1 <= s.length, t.length <= 100</code></li>
 	<li><code>s</code> 和 <code>t</code> 都只包含小写英文字母。</li>
 </ul>
+
 
 ## 解法
 

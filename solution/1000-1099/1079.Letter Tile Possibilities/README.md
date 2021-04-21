@@ -5,7 +5,10 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>你有一套活字字模&nbsp;<code>tiles</code>，其中每个字模上都刻有一个字母&nbsp;<code>tiles[i]</code>。返回你可以印出的非空字母序列的数目。</p>
+
+<p><strong>注意：</strong>本题中，每个活字字模只能使用一次。</p>
 
 <p>&nbsp;</p>
 
@@ -30,6 +33,7 @@
 	<li><code>1 &lt;= tiles.length &lt;= 7</code></li>
 	<li><code>tiles</code> 由大写英文字母组成</li>
 </ol>
+
 
 ## 解法
 

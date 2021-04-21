@@ -4,36 +4,37 @@
 
 ## Description
 
-<p>Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.</p>
+<p>Given the <code>head</code> of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return <em>the reordered list</em>.</p>
 
-<p>You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.</p>
+<p>The <strong>first</strong> node is considered <strong>odd</strong>, and the <strong>second</strong> node is <strong>even</strong>, and so on.</p>
 
-<p><b>Example 1:</b></p>
+<p>Note that the relative order inside both the even and odd groups should remain as it was in the input.</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/oddeven-linked-list.jpg" style="width: 300px; height: 123px;" />
 <pre>
-
-<strong>Input: </strong><code>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</code>
-
-<strong>Output: </strong><code>1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL</code>
-
+<strong>Input:</strong> head = [1,2,3,4,5]
+<strong>Output:</strong> [1,3,5,2,4]
 </pre>
 
-<p><b>Example 2:</b></p>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/oddeven2-linked-list.jpg" style="width: 500px; height: 142px;" />
 <pre>
-
-<strong>Input: </strong>2<code>-&gt;1-&gt;3-&gt;5-&gt;6-&gt;4-&gt;7-&gt;NULL</code>
-
-<strong>Output: </strong><code>2-&gt;3-&gt;6-&gt;7-&gt;1-&gt;5-&gt;4-&gt;NULL</code>
-
+<strong>Input:</strong> head = [2,1,3,5,6,4,7]
+<strong>Output:</strong> [2,3,6,7,1,5,4]
 </pre>
 
-<p><b>Note:</b></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>The relative order inside both the even and odd groups should remain as it was in the input.</li>
-    <li>The first node is considered odd, the second node even and so on ...</li>
+	<li>The number of nodes in the linked list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+	<li><code>-10<sup>6</sup> &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you solve it in <code>O(1)</code> space complexity and <code>O(nodes)</code> time complexity?
 
 ## Solutions
 

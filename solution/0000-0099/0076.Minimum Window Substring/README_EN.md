@@ -4,24 +4,28 @@
 
 ## Description
 
-<p>Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).</p>
+<p>Given two strings <code>s</code> and <code>t</code>, return <em>the minimum window in <code>s</code> which will contain all the characters in <code>t</code></em>. If there is no such window in <code>s</code> that covers all characters in <code>t</code>, return <em>the empty string <code>&quot;&quot;</code></em>.</p>
 
-<p><strong>Example:</strong></p>
+<p><strong>Note</strong> that If there is such a window, it is&nbsp;guaranteed that there will always be only one unique minimum window in <code>s</code>.</p>
 
-<pre>
-
-<strong>Input: S</strong> = &quot;ADOBECODEBANC&quot;, <strong>T</strong> = &quot;ABC&quot;
-
-<strong>Output:</strong> &quot;BANC&quot;
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "ADOBECODEBANC", t = "ABC"
+<strong>Output:</strong> "BANC"
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "a", t = "a"
+<strong>Output:</strong> "a"
 </pre>
-
-<p><strong>Note:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>If there is no such window in S that covers all characters in T, return the empty string <code>&quot;&quot;</code>.</li>
-    <li>If there is such window, you are guaranteed that there will always be only one unique minimum window in S.</li>
+	<li><code>1 &lt;= s.length, t.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s</code> and <code>t</code> consist of English letters.</li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(n)</code> time?
 
 ## Solutions
 

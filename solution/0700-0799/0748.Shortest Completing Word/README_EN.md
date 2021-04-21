@@ -4,73 +4,68 @@
 
 ## Description
 
-<p>
+<p>Given a string <code>licensePlate</code> and an array of strings <code>words</code>, find the <strong>shortest completing</strong> word in <code>words</code>.</p>
 
-Find the minimum length word from a given dictionary <code>words</code>, which has all the letters from the string <code>licensePlate</code>. Such a word is said to <i>complete</i> the given string <code>licensePlate</code>
+<p>A <strong>completing</strong> word is a word that <strong>contains all the letters</strong> in <code>licensePlate</code>. <strong>Ignore numbers and spaces</strong> in <code>licensePlate</code>, and treat letters as <strong>case insensitive</strong>. If a letter appears more than once in <code>licensePlate</code>, then it must appear in the word the same number of times or more.</p>
 
-</p><p>
+<p>For example, if <code>licensePlate</code><code> = &quot;aBc 12c&quot;</code>, then it contains letters <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code> (ignoring case), and <code>&#39;c&#39;</code> twice. Possible <strong>completing</strong> words are <code>&quot;abccdef&quot;</code>, <code>&quot;caaacab&quot;</code>, and <code>&quot;cbca&quot;</code>.</p>
 
-Here, for letters we ignore case. For example, <code>"P"</code> on the <code>licensePlate</code> still matches <code>"p"</code> on the word.
+<p>Return <em>the shortest <strong>completing</strong> word in </em><code>words</code><em>.</em> It is guaranteed an answer exists. If there are multiple shortest <strong>completing</strong> words, return the <strong>first</strong> one that occurs in <code>words</code>.</p>
 
-</p><p>
-
-It is guaranteed an answer exists. If there are multiple answers, return the one that occurs first in the array.
-
-</p><p>
-
-The license plate might have the same letter occurring multiple times. For example, given a <code>licensePlate</code> of <code>"PP"</code>, the word <code>"pair"</code> does not complete the <code>licensePlate</code>, but the word <code>"supper"</code> does.
-
-</p><p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> licensePlate = "1s3 PSt", words = ["step", "steps", "stripe", "stepple"]
-
-<b>Output:</b> "steps"
-
-<b>Explanation:</b> The smallest length word that contains the letters "S", "P", "S", and "T".
-
-Note that the answer is not "step", because the letter "s" must occur in the word twice.
-
-Also note that we ignored case for the purposes of comparing whether a letter exists in the word.
-
+<strong>Input:</strong> licensePlate = &quot;1s3 PSt&quot;, words = [&quot;step&quot;,&quot;steps&quot;,&quot;stripe&quot;,&quot;stepple&quot;]
+<strong>Output:</strong> &quot;steps&quot;
+<strong>Explanation:</strong> licensePlate contains letters &#39;s&#39;, &#39;p&#39;, &#39;s&#39; (ignoring case), and &#39;t&#39;.
+&quot;step&quot; contains &#39;t&#39; and &#39;p&#39;, but only contains 1 &#39;s&#39;.
+&quot;steps&quot; contains &#39;t&#39;, &#39;p&#39;, and both &#39;s&#39; characters.
+&quot;stripe&quot; is missing an &#39;s&#39;.
+&quot;stepple&quot; is missing an &#39;s&#39;.
+Since &quot;steps&quot; is the only word containing all the letters, that is the answer.
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> licensePlate = "1s3 456", words = ["looks", "pest", "stew", "show"]
-
-<b>Output:</b> "pest"
-
-<b>Explanation:</b> There are 3 smallest length words that contains the letters "s".
-
-We return the one that occurred first.
-
+<strong>Input:</strong> licensePlate = &quot;1s3 456&quot;, words = [&quot;looks&quot;,&quot;pest&quot;,&quot;stew&quot;,&quot;show&quot;]
+<strong>Output:</strong> &quot;pest&quot;
+<strong>Explanation:</strong> licensePlate only contains the letter &#39;s&#39;. All the words contain &#39;s&#39;, but among these &quot;pest&quot;, &quot;stew&quot;, and &quot;show&quot; are shortest. The answer is &quot;pest&quot; because it is the word that appears earliest of the 3.
 </pre>
 
-</p>
+<p><strong>Example 3:</strong></p>
 
-<p><b>Note:</b><br>
+<pre>
+<strong>Input:</strong> licensePlate = &quot;Ah71752&quot;, words = [&quot;suggest&quot;,&quot;letter&quot;,&quot;of&quot;,&quot;husband&quot;,&quot;easy&quot;,&quot;education&quot;,&quot;drug&quot;,&quot;prevent&quot;,&quot;writer&quot;,&quot;old&quot;]
+<strong>Output:</strong> &quot;husband&quot;
+</pre>
 
-<ol>
+<p><strong>Example 4:</strong></p>
 
-<li><code>licensePlate</code> will be a string with length in range <code>[1, 7]</code>.</li>
+<pre>
+<strong>Input:</strong> licensePlate = &quot;OgEu755&quot;, words = [&quot;enough&quot;,&quot;these&quot;,&quot;play&quot;,&quot;wide&quot;,&quot;wonder&quot;,&quot;box&quot;,&quot;arrive&quot;,&quot;money&quot;,&quot;tax&quot;,&quot;thus&quot;]
+<strong>Output:</strong> &quot;enough&quot;
+</pre>
 
-<li><code>licensePlate</code> will contain digits, spaces, or letters (uppercase or lowercase).</li>
+<p><strong>Example 5:</strong></p>
 
-<li><code>words</code> will have a length in the range <code>[10, 1000]</code>.</li>
+<pre>
+<strong>Input:</strong> licensePlate = &quot;iMSlpe4&quot;, words = [&quot;claim&quot;,&quot;consumer&quot;,&quot;student&quot;,&quot;camera&quot;,&quot;public&quot;,&quot;never&quot;,&quot;wonder&quot;,&quot;simple&quot;,&quot;thought&quot;,&quot;use&quot;]
+<strong>Output:</strong> &quot;simple&quot;
+</pre>
 
-<li>Every <code>words[i]</code> will consist of lowercase letters, and have length in range <code>[1, 15]</code>.</li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</ol>
+<ul>
+	<li><code>1 &lt;= licensePlate.length &lt;= 7</code></li>
+	<li><code>licensePlate</code> contains digits, letters (uppercase or lowercase), or space <code>&#39; &#39;</code>.</li>
+	<li><code>1 &lt;= words.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 15</code></li>
+	<li><code>words[i]</code> consists of lower case English letters.</li>
+</ul>
 
-</p>
 
 ## Solutions
 

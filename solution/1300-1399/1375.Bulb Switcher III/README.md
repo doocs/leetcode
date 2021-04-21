@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>房间中有 <code>n</code> 枚灯泡，编号从 <code>1</code> 到 <code>n</code>，自左向右排成一排。最初，所有的灯都是关着的。</p>
 
 <p>在 <em>k</em>&nbsp; 时刻（ <em>k</em> 的取值范围是 <code>0</code> 到 <code>n - 1</code>），我们打开 <code>light[k]</code> 这个灯。</p>
@@ -22,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_2_1725.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/sample_2_1725.png" style="height: 254px; width: 575px;"></p>
 
 <pre><strong>输入：</strong>light = [2,1,3,5,4]
 <strong>输出：</strong>3
@@ -65,6 +66,7 @@
 	<li><code>1 &lt;= n &lt;= 5 * 10^4</code></li>
 	<li><code>light</code> 是 <code>[1, 2, ..., n]</code> 的一个排列。</li>
 </ul>
+
 
 ## 解法
 

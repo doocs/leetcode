@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有两位极客玩家参与了一场「二叉树着色」的游戏。游戏中，给出二叉树的根节点&nbsp;<code>root</code>，树上总共有 <code>n</code> 个节点，且 <code>n</code> 为奇数，其中每个节点上的值从&nbsp;<code>1</code> 到&nbsp;<code>n</code>&nbsp;各不相同。</p>
 
 <p>&nbsp;</p>
@@ -33,7 +34,7 @@
 
 <p><strong>示例：</strong></p>
 
-![](./images/1480-binary-tree-coloring-game.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/08/04/1480-binary-tree-coloring-game.png" style="height: 186px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,4,5,6,7,8,9,10,11], n = 11, x = 3
 <strong>输出：</strong>True
@@ -49,6 +50,7 @@
 	<li><code>n</code> 为奇数。</li>
 	<li><code>1 &lt;= x &lt;= n&nbsp;&lt;= 100</code></li>
 </ul>
+
 
 ## 解法
 

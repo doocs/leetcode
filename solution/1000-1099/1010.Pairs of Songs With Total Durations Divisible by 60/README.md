@@ -5,9 +5,10 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在歌曲列表中，第 <code>i</code> 首歌曲的持续时间为 <code>time[i]</code> 秒。</p>
 
-<p>返回其总持续时间（以秒为单位）可被 <code>60</code> 整除的歌曲对的数量。形式上，我们希望索引的数字&nbsp;&nbsp;<code>i &lt; j</code> 且有&nbsp;<code>(time[i] + time[j]) % 60 == 0</code>。</p>
+<p>返回其总持续时间（以秒为单位）可被 <code>60</code> 整除的歌曲对的数量。形式上，我们希望索引的数字 <code>i</code> 和 <code>j</code> 满足&nbsp; <code>i &lt; j</code> 且有&nbsp;<code>(time[i] + time[j]) % 60 == 0</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -36,6 +37,7 @@
 	<li><code>1 &lt;= time.length &lt;= 60000</code></li>
 	<li><code>1 &lt;= time[i] &lt;= 500</code></li>
 </ol>
+
 
 ## 解法
 

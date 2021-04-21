@@ -1,4 +1,4 @@
-# [1691. Maximum Height by Stacking Cuboids ](https://leetcode.com/problems/maximum-height-by-stacking-cuboids)
+# [1691. Maximum Height by Stacking Cuboids](https://leetcode.com/problems/maximum-height-by-stacking-cuboids)
 
 [中文文档](/solution/1600-1699/1691.Maximum%20Height%20by%20Stacking%20Cuboids/README.md)
 
@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/image.jpg)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/21/image.jpg" style="width: 420px; height: 299px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> cuboids = [[50,45,20],[95,37,53],[45,23,12]]
@@ -54,6 +54,7 @@ The maximum height of stacked cuboids is 6 * 17 = 102.
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>1 &lt;= width<sub>i</sub>, length<sub>i</sub>, height<sub>i</sub> &lt;= 100</code></li>
 </ul>
+
 
 ## Solutions
 

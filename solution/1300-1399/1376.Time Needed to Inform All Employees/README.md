@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>公司里有 <code>n</code> 名员工，每个员工的 ID 都是独一无二的，编号从 <code>0</code> 到 <code>n - 1</code>。公司的总负责人通过 <code>headID</code> 进行标识。</p>
 
 <p>在 <code>manager</code> 数组中，每个员工都有一个直属负责人，其中 <code>manager[i]</code> 是第 <code>i</code> 名员工的直属负责人。对于总负责人，<code>manager[headID] = -1</code>。题目保证从属关系可以用树结构显示。</p>
@@ -26,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/graph.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/graph.png" style="height: 174px; width: 404px;"></p>
 
 <pre><strong>输入：</strong>n = 6, headID = 2, manager = [2,2,-1,2,2,2], informTime = [0,0,1,0,0,0]
 <strong>输出：</strong>1
@@ -36,7 +37,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/1730_example_3_5.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/1730_example_3_5.PNG" style="height: 432px; width: 568px;"></p>
 
 <pre><strong>输入：</strong>n = 7, headID = 6, manager = [1,2,3,4,5,6,-1], informTime = [0,6,5,4,3,2,1]
 <strong>输出：</strong>21
@@ -79,6 +80,7 @@ id = 1 的员工将在 6 分钟内通知 id = 0 的员工。
 	<li>如果员工 <code>i</code> 没有下属，<code>informTime[i] == 0</code> 。</li>
 	<li>题目 <strong>保证</strong> 所有员工都可以收到通知。</li>
 </ul>
+
 
 ## 解法
 

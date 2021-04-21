@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/candies-1.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/12/16/candies-1.png" style="height: 248px; width: 600px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 3, k = 2

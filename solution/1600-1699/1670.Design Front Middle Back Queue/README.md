@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>请你设计一个队列，支持在前，中，后三个位置的 <code>push</code> 和 <code>pop</code> 操作。</p>
 
 <p>请你完成 <code>FrontMiddleBack</code> 类：</p>
@@ -58,6 +59,7 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 	<li><code>1 <= val <= 10<sup>9</sup></code></li>
 	<li>最多调用 <code>1000</code> 次 <code>pushFront</code>， <code>pushMiddle</code>， <code>pushBack</code>， <code>popFront</code>， <code>popMiddle</code> 和 <code>popBack</code> 。</li>
 </ul>
+
 
 ## 解法
 

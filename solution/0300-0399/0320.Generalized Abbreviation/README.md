@@ -5,18 +5,20 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>请你写出一个能够举单词全部缩写的函数。</p>
 
 <p><strong>注意：</strong>输出的顺序并不重要。</p>
 
 <p><strong>示例：</strong></p>
 
-<pre><strong>输入:</strong> <code>"word"</code>
+<pre><strong>输入:</strong> <code>&quot;word&quot;</code>
 <strong>输出:</strong>
-["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+[&quot;word&quot;, &quot;1ord&quot;, &quot;w1rd&quot;, &quot;wo1d&quot;, &quot;wor1&quot;, &quot;2rd&quot;, &quot;w2d&quot;, &quot;wo2&quot;, &quot;1o1d&quot;, &quot;1or1&quot;, &quot;w1r1&quot;, &quot;1o2&quot;, &quot;2r1&quot;, &quot;3d&quot;, &quot;w3&quot;, &quot;4&quot;]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
+
 
 ## 解法
 

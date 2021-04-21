@@ -5,39 +5,50 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个正整数&nbsp;<em>n</em>，你可以做如下操作：</p>
 
-<p>1. 如果&nbsp;<em>n&nbsp;</em>是偶数，则用&nbsp;<code>n / 2</code>替换&nbsp;<em>n</em>。<br />
-2. 如果&nbsp;<em>n&nbsp;</em>是奇数，则可以用&nbsp;<code>n + 1</code>或<code>n - 1</code>替换&nbsp;<em>n</em>。<br />
-<em>n&nbsp;</em>变为 1 所需的最小替换次数是多少？</p>
+<p>给定一个正整数 <code>n</code> ，你可以做如下操作：</p>
 
-<p><strong>示例 1:</strong></p>
+<ol>
+	<li>如果 <code>n</code><em> </em>是偶数，则用 <code>n / 2</code>替换 <code>n</code><em> </em>。</li>
+	<li>如果 <code>n</code><em> </em>是奇数，则可以用 <code>n + 1</code>或<code>n - 1</code>替换 <code>n</code> 。</li>
+</ol>
 
-<pre>
-<strong>输入:</strong>
-8
+<p><code>n</code><em> </em>变为 <code>1</code> 所需的最小替换次数是多少？</p>
 
-<strong>输出:</strong>
-3
+<p> </p>
 
-<strong>解释:</strong>
-8 -&gt; 4 -&gt; 2 -&gt; 1
-</pre>
-
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong>
-7
-
-<strong>输出:</strong>
-4
-
-<strong>解释:</strong>
-7 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
-或
-7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
+<strong>输入：</strong>n = 8
+<strong>输出：</strong>3
+<strong>解释：</strong>8 -> 4 -> 2 -> 1
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 7
+<strong>输出：</strong>4
+<strong>解释：</strong>7 -> 8 -> 4 -> 2 -> 1
+或 7 -> 6 -> 3 -> 2 -> 1
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 4
+<strong>输出：</strong>2
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= n <= 2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## 解法
 

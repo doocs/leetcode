@@ -4,23 +4,35 @@
 
 ## Description
 
-<p>You are playing the following Flip Game with your friend: Given a string that contains only these two characters: <code>+</code> and <code>-</code>, you and your friend take turns to flip two <b>consecutive</b> <code>"++"</code> into <code>"--"</code>. The game ends when a person can no longer make a move and therefore the other person will be the winner.</p>
+<p>You are playing a Flip Game with your friend.</p>
 
-<p>Write a function to compute all possible states of the string after one valid move.</p>
+<p>You are given a string <code>currentState</code> that contains only <code>&#39;+&#39;</code> and <code>&#39;-&#39;</code>. You and your friend take turns to flip <strong>two consecutive</strong> <code>&quot;++&quot;</code> into <code>&quot;--&quot;</code>. The game ends when a person can no longer make a move, and therefore the other person will be the winner.</p>
 
-<p><strong>Example:</strong></p>
+<p>Return all possible states of the string <code>currentState</code> after <strong>one valid move</strong>. You may return the answer in <strong>any order</strong>. If there is no valid move, return an empty list <code>[]</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> <code>s = "++++"</code>
-<strong>Output:</strong> 
-[
-  "--++",
-  "+--+",
-  "++--"
-]
+<strong>Input:</strong> currentState = &quot;++++&quot;
+<strong>Output:</strong> [&quot;--++&quot;,&quot;+--+&quot;,&quot;++--&quot;]
 </pre>
 
-<p><strong>Note: </strong>If there is no valid move, return an empty list <code>[]</code>.</p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> currentState = &quot;+&quot;
+<strong>Output:</strong> []
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= currentState.length &lt;= 500</code></li>
+	<li><code>currentState[i]</code> is either <code>&#39;+&#39;</code> or <code>&#39;-&#39;</code>.</li>
+</ul>
+
 
 ## Solutions
 

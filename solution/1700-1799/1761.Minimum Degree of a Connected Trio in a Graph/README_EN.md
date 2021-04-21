@@ -14,9 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/trios1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/26/trios1.png" style="width: 388px; height: 164px;" />
 <pre>
 <strong>Input:</strong> n = 6, edges = [[1,2],[1,3],[3,2],[4,1],[5,2],[3,6]]
 <strong>Output:</strong> 3
@@ -24,9 +22,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/trios2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/26/trios2.png" style="width: 388px; height: 164px;" />
 <pre>
 <strong>Input:</strong> n = 7, edges = [[1,3],[4,1],[4,3],[2,5],[5,6],[6,7],[7,5],[2,6]]
 <strong>Output:</strong> 0
@@ -47,6 +43,7 @@
 	<li><code>u<sub>i </sub>!= v<sub>i</sub></code></li>
 	<li>There are no repeated edges.</li>
 </ul>
+
 
 ## Solutions
 

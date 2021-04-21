@@ -100,9 +100,9 @@
 * 对于 transactions_count &gt;= 4, 没有客户访问银行进行了超过3次交易，所以我们停止在 transactions_count = 3 。
 
 如下是这个例子的图表：
+<img alt="" src="https://assets.leetcode.com/uploads/2020/01/31/chart.png" style="height:359px; width:600px" />
 </pre>
 
-![](./images/chart.png)
 
 ## 解法
 

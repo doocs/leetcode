@@ -4,40 +4,40 @@
 
 ## Description
 
-Given a string <b>s</b> and a list of strings <b>dict</b>, you need to add a closed pair of bold tag <code><b></code> and <code></b></code> to wrap the substrings in s that exist in dict. If two such substrings overlap, you need to wrap them together by only one pair of closed bold tag. Also, if two substrings wrapped by bold tags are consecutive, you need to combine them.
-
+Given a string <b>s</b> and a list of strings <b>dict</b>, you need to add a closed pair of bold tag <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code> to wrap the substrings in s that exist in dict. If two such substrings overlap, you need to wrap them together by only one pair of closed bold tag. Also, if two substrings wrapped by bold tags are consecutive, you need to combine them.
 <p><b>Example 1:</b></p>
 
 <pre>
 <b>Input:</b> 
-s = "abcxyz123"
-dict = ["abc","123"]
+s = &quot;abcxyz123&quot;
+dict = [&quot;abc&quot;,&quot;123&quot;]
 <b>Output:</b>
-"<b>abc</b>xyz<b>123</b>"
+&quot;&lt;b&gt;abc&lt;/b&gt;xyz&lt;b&gt;123&lt;/b&gt;&quot;
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><b>Example 2:</b></p>
 
 <pre>
 <b>Input:</b> 
-s = "aaabbcc"
-dict = ["aaa","aab","bc"]
+s = &quot;aaabbcc&quot;
+dict = [&quot;aaa&quot;,&quot;aab&quot;,&quot;bc&quot;]
 <b>Output:</b>
-"<b>aaabbc</b>c"
+&quot;&lt;b&gt;aaabbc&lt;/b&gt;c&quot;
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><b>Constraints:</b></p>
 
 <ul>
-	<li>The given dict won't contain duplicates, and its length won't exceed 100.</li>
+	<li>The given dict won&#39;t contain duplicates, and its length won&#39;t exceed 100.</li>
 	<li>All the strings in input have length in range [1, 1000].</li>
 </ul>
 
-<p><strong>Note:</strong> This question is the same as 758: <a href="https://leetcode.com/problems/bold-words-in-string/">https://leetcode.com/problems/bold-words-in-string/</a></p>
+<p><strong>Note:</strong> This question is the same as 758:&nbsp;<a href="https://leetcode.com/problems/bold-words-in-string/">https://leetcode.com/problems/bold-words-in-string/</a></p>
+
 
 ## Solutions
 

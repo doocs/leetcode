@@ -23,7 +23,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-![](./images/sample_1_1848.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/06/06/sample_1_1848.png" style="height: 95px; width: 620px;" /></strong></p>
 
 <pre>
 <strong>输入:</strong> head = [1,2,3,4,5,6,7,8,9,10,11,12,13], m = 2, n = 3
@@ -35,7 +35,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-![](./images/sample_2_1848.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/06/06/sample_2_1848.png" style="height: 123px; width: 620px;" /></strong></p>
 
 <pre>
 <strong>输入:</strong> head = [1,2,3,4,5,6,7,8,9,10,11], m = 1, n = 3

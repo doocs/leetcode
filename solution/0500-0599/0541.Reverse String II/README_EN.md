@@ -4,33 +4,27 @@
 
 ## Description
 
-</p>
+<p>Given a string <code>s</code> and an integer <code>k</code>, reverse the first <code>k</code> characters for every <code>2k</code> characters counting from the start of the string.</p>
 
-Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and left the other as original.
+<p>If there are fewer than <code>k</code> characters left, reverse all of them. If there are less than <code>2k</code> but greater than or equal to <code>k</code> characters, then reverse the first <code>k</code> characters and left the other as original.</p>
 
-</p>
-
-<p><b>Example:</b><br />
-
-<pre>
-
-<b>Input:</b> s = "abcdefg", k = 2
-
-<b>Output:</b> "bacdfeg"
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "abcdefg", k = 2
+<strong>Output:</strong> "bacdfeg"
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "abcd", k = 2
+<strong>Output:</strong> "bacd"
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>s</code> consists of only lowercase English letters.</li>
+	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
+</ul>
 
-<b>Restrictions:</b> </b>
-
-<ol>
-
-<li> The string consists of lower English letters only.</li>
-
-<li> Length of the given string and k will in the range [1, 10000]</li>
-
-</ol>
 
 ## Solutions
 

@@ -5,7 +5,8 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>现在有两种线程，氢 <code>oxygen</code> 和氧 <code>hydrogen</code>，你的目标是组织这两种线程来产生水分子。</p>
+
+<p>现在有两种线程，氧 <code>oxygen</code> 和氢 <code>hydrogen</code>，你的目标是组织这两种线程来产生水分子。</p>
 
 <p>存在一个屏障（barrier）使得每个线程必须等候直到一个完整水分子能够被产生出来。</p>
 
@@ -28,29 +29,28 @@
 
 <p><strong>示例 1:</strong></p>
 
-<pre>
-<strong>输入: </strong>&quot;HOH&quot;
+<pre><strong>输入: </strong>&quot;HOH&quot;
 <strong>输出: </strong>&quot;HHO&quot;
 <strong>解释:</strong> &quot;HOH&quot; 和 &quot;OHH&quot; 依然都是有效解。
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre>
-<strong>输入: </strong>&quot;OOHHHH&quot;
+<pre><strong>输入: </strong>&quot;OOHHHH&quot;
 <strong>输出: </strong>&quot;HHOHHO&quot;
 <strong>解释:</strong> &quot;HOHHHO&quot;, &quot;OHHHHO&quot;, &quot;HHOHOH&quot;, &quot;HOHHOH&quot;, &quot;OHHHOH&quot;, &quot;HHOOHH&quot;, &quot;HOHOHH&quot; 和 &quot;OHHOHH&quot; 依然都是有效解。
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>限制条件:</strong></p>
+<p><strong>提示：</strong></p>
 
 <ul>
 	<li>输入字符串的总长将会是 3<em>n</em>, 1 &le;&nbsp;<em>n</em>&nbsp;&le; 50；</li>
-	<li>输入字符串中的 &ldquo;H&rdquo; 总数将会是 2n；</li>
-	<li>输入字符串中的 &ldquo;O&rdquo; 总数将会是 n。</li>
+	<li>输入字符串中的 &ldquo;H&rdquo; 总数将会是 2n 。</li>
+	<li>输入字符串中的 &ldquo;O&rdquo; 总数将会是 n 。</li>
 </ul>
+
 
 ## 解法
 

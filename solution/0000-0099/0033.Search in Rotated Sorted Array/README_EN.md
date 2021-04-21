@@ -4,33 +4,36 @@
 
 ## Description
 
-<p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p>
+<p>There is an integer array <code>nums</code> sorted in ascending order (with <strong>distinct</strong> values).</p>
 
-<p>(i.e., <code>[0,1,2,4,5,6,7]</code> might become <code>[4,5,6,7,0,1,2]</code>).</p>
+<p>Prior to being passed to your function, <code>nums</code> is <strong>rotated</strong> at an unknown pivot index <code>k</code> (<code>0 &lt;= k &lt; nums.length</code>) such that the resulting array is <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code> (<strong>0-indexed</strong>). For example, <code>[0,1,2,4,5,6,7]</code> might be rotated at pivot index <code>3</code> and become <code>[4,5,6,7,0,1,2]</code>.</p>
 
-<p>You are given a target value to search. If found in the array return its index, otherwise return <code>-1</code>.</p>
+<p>Given the array <code>nums</code> <strong>after</strong> the rotation and an integer <code>target</code>, return <em>the index of </em><code>target</code><em> if it is in </em><code>nums</code><em>, or </em><code>-1</code><em> if it is not in </em><code>nums</code>.</p>
 
-<p>You may assume no duplicate exists in the array.</p>
-
-<p>Your algorithm&#39;s runtime complexity must be in the order of&nbsp;<em>O</em>(log&nbsp;<em>n</em>).</p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input:</strong> nums = [<code>4,5,6,7,0,1,2]</code>, target = 0
-
+<pre><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0
 <strong>Output:</strong> 4
-
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 3
+<strong>Output:</strong> -1
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> nums = [1], target = 0
+<strong>Output:</strong> -1
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Example 2:</strong></p>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li>All values of <code>nums</code> are <strong>unique</strong>.</li>
+	<li><code>nums</code> is guaranteed to be rotated at some pivot.</li>
+	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
+</ul>
 
-<pre>
-
-<strong>Input:</strong> nums = [<code>4,5,6,7,0,1,2]</code>, target = 3
-
-<strong>Output:</strong> -1</pre>
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Can you achieve this in <code>O(log n)</code> time complexity?
 
 ## Solutions
 

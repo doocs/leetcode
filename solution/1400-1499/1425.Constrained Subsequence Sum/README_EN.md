@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an integer array&nbsp;<code>nums</code>&nbsp;and an integer <code>k</code>, return the maximum sum of a <strong>non-empty</strong> subsequence&nbsp;of that array such that for every&nbsp;two <strong>consecutive</strong> integers in the subsequence,&nbsp;<code>nums[i]</code>&nbsp;and&nbsp;<code>nums[j]</code>, where&nbsp;<code>i &lt; j</code>, the condition&nbsp;<code>j - i &lt;= k</code>&nbsp;is satisfied.</p>
+<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return the maximum sum of a <strong>non-empty</strong> subsequence of that array such that for every two <strong>consecutive</strong> integers in the subsequence, <code>nums[i]</code> and <code>nums[j]</code>, where <code>i &lt; j</code>, the condition <code>j - i &lt;= k</code> is satisfied.</p>
 
-<p>A&nbsp;<em>subsequence</em>&nbsp;of an array is&nbsp;obtained by deleting some number of elements (can be&nbsp;zero) from the array, leaving the remaining elements in their original order.</p>
+<p>A <em>subsequence</em> of an array is obtained by deleting some number of elements (can be zero) from the array, leaving the remaining elements in their original order.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -37,9 +37,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= k &lt;= nums.length &lt;= 10^5</code></li>
-	<li><code>-10^4&nbsp;&lt;= nums[i] &lt;= 10^4</code></li>
+	<li><code>1 &lt;= k &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
+
 
 ## Solutions
 

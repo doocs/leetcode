@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你两个非负整数数组 <code>rowSum</code> 和 <code>colSum</code> ，其中 <code>rowSum[i]</code> 是二维矩阵中第 <code>i</code> 行元素的和， <code>colSum[j]</code> 是第 <code>j</code> 列元素的和。换言之你不知道矩阵里的每个元素，但是你知道每一行和每一列的和。</p>
 
 <p>请找到大小为 <code>rowSum.length x colSum.length</code> 的任意 <strong>非负整数</strong> 矩阵，且该矩阵满足 <code>rowSum</code> 和 <code>colSum</code> 的要求。</p>
@@ -70,6 +71,7 @@
 	<li><code>0 <= rowSum[i], colSum[i] <= 10<sup>8</sup></code></li>
 	<li><code>sum(rows) == sum(columns)</code></li>
 </ul>
+
 
 ## 解法
 

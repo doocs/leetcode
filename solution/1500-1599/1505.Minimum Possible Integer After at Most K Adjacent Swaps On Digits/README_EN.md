@@ -12,9 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/q4_1.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/q4_1.jpg" style="width: 500px; height: 40px;" />
 <pre>
 <strong>Input:</strong> num = &quot;4321&quot;, k = 4
 <strong>Output:</strong> &quot;1342&quot;
@@ -59,6 +57,7 @@
 	<li><code>num</code> contains <strong>digits</strong> only and doesn&#39;t have <strong>leading zeros</strong>.</li>
 	<li><code>1 &lt;= k &lt;= 10^9</code></li>
 </ul>
+
 
 ## Solutions
 

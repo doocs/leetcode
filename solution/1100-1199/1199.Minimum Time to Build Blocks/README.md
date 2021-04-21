@@ -5,19 +5,20 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>你是个城市规划工作者，手里负责管辖一系列的街区。在这个街区列表中 <code>blocks[i] = t</code> 意味着第  <code>i</code> 个街区需要 <code>t</code> 个单位的时间来建造。</p>
+
+<p>你是个城市规划工作者，手里负责管辖一系列的街区。在这个街区列表中&nbsp;<code>blocks[i] = t</code>&nbsp;意味着第 &nbsp;<code>i</code>&nbsp;个街区需要&nbsp;<code>t</code>&nbsp;个单位的时间来建造。</p>
 
 <p>由于一个街区只能由一个工人来完成建造。</p>
 
 <p>所以，一个工人要么需要再召唤一个工人（工人数增加 1）；要么建造完一个街区后回家。这两个决定都需要花费一定的时间。</p>
 
-<p>一个工人再召唤一个工人所花费的时间由整数 <code>split</code> 给出。</p>
+<p>一个工人再召唤一个工人所花费的时间由整数&nbsp;<code>split</code>&nbsp;给出。</p>
 
-<p>注意：如果两个工人同时召唤别的工人，那么他们的行为是并行的，所以时间花费仍然是 <code>split</code>。</p>
+<p>注意：如果两个工人同时召唤别的工人，那么他们的行为是并行的，所以时间花费仍然是&nbsp;<code>split</code>。</p>
 
-<p>最开始的时候只有 <strong>一个 </strong>工人，请你最后输出建造完所有街区所需要的最少时间。</p>
+<p>最开始的时候只有&nbsp;<strong>一个&nbsp;</strong>工人，请你最后输出建造完所有街区所需要的最少时间。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -26,7 +27,7 @@
 <strong>解释：</strong>我们使用 1 个工人在 1 个时间单位内来建完 1 个街区。
 </pre>
 
-<p><strong>示例 2：</strong></p>
+<p><strong>示例&nbsp;2：</strong></p>
 
 <pre><strong>输入：</strong>blocks = [1,2], split = 5
 <strong>输出：</strong>7
@@ -43,15 +44,16 @@
 时间花费为 1 + max(3, 1 + max(1, 2)) = 4
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>1 <= blocks.length <= 1000</code></li>
-	<li><code>1 <= blocks[i] <= 10^5</code></li>
-	<li><code>1 <= split <= 100</code></li>
+	<li><code>1 &lt;= blocks.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= blocks[i] &lt;= 10^5</code></li>
+	<li><code>1 &lt;= split &lt;= 100</code></li>
 </ol>
+
 
 ## 解法
 

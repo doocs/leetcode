@@ -4,81 +4,39 @@
 
 ## Description
 
-<p>
+<p>A magical string <code>s</code> consists of only <code>&#39;1&#39;</code> and <code>&#39;2&#39;</code> and obeys the following rules:</p>
 
-A magical string <b>S</b> consists of only '1' and '2' and obeys the following rules:
+<ul>
+	<li>The string s is magical because concatenating the number of contiguous occurrences of characters <code>&#39;1&#39;</code> and <code>&#39;2&#39;</code> generates the string <code>s</code> itself.</li>
+</ul>
 
-</p>
+<p>The first few elements of <code>s</code> is <code>s = &quot;1221121221221121122&hellip;&hellip;&quot;</code>. If we group the consecutive <code>1</code>&#39;s and <code>2</code>&#39;s in s, it will be <code>&quot;1 22 11 2 1 22 1 22 11 2 11 22 ......&quot;</code>&nbsp;and the occurrences of <code>1</code>&#39;s or <code>2</code>&#39;s in each group are <code>&quot;1 2 2 1 1 2 1 2 2 1 2 2 ......&quot;</code>. You can see that the occurrence sequence is <code>s</code> itself.</p>
 
-<p>
+<p>Given an integer <code>n</code>, return the number of <code>1</code>&#39;s in the first <code>n</code> number in the magical string <code>s</code>.</p>
 
-The string <b>S</b> is magical because concatenating the number of contiguous occurrences of characters '1' and '2' generates the string <b>S</b> itself.
-
-</p>
-
-<p>
-
-The first few elements of string <b>S</b> is the following:
-
-<b>S</b> = "1221121221221121122……"
-
-</p>
-
-<p>
-
-If we group the consecutive '1's and '2's in <b>S</b>, it will be:
-
-</p>
-
-<p>
-
-1 22 11 2 1 22 1 22 11 2 11 22 ......
-
-</p>
-
-<p>
-
-and the occurrences of '1's or '2's in each group are:
-
-</p>
-
-<p>
-
-1 2 2 1 1 2 1 2 2 1 2 2 ......
-
-</p>
-
-<p>
-
-You can see that the occurrence sequence above is the <b>S</b> itself.
-
-</p>
-
-<p>
-
-Given an integer N as input, return the number of '1's in the first N number in the magical string <b>S</b>.
-
-</p>
-
-<p><b>Note:</b>
-
-N will not exceed 100,000.
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> 6
-
-<b>Output:</b> 3
-
-<b>Explanation:</b> The first 6 elements of magical string S is "12211" and it contains three 1's, so return 3.
-
+<strong>Input:</strong> n = 6
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> The first 6 elements of magical string s is &quot;12211&quot; and it contains three 1&#39;s, so return 3.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 1
+<strong>Output:</strong> 1
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+</ul>
+
 
 ## Solutions
 

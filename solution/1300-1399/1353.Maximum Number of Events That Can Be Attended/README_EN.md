@@ -12,9 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/e1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/02/05/e1.png" style="width: 660px; height: 440px;" />
 <pre>
 <strong>Input:</strong> events = [[1,2],[2,3],[3,4]]
 <strong>Output:</strong> 3
@@ -57,10 +55,11 @@ Attend the third event on day 3.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= events.length &lt;= 10^5</code></li>
+	<li><code>1 &lt;= events.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>events[i].length == 2</code></li>
-	<li><code>1 &lt;= events[i][0] &lt;= events[i][1] &lt;= 10^5</code></li>
+	<li><code>1 &lt;= startDay<sub>i</sub> &lt;= endDay<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
+
 
 ## Solutions
 

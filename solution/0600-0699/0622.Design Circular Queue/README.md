@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>设计你的循环队列实现。 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。它也被称为&ldquo;环形缓冲器&rdquo;。</p>
 
 <p>循环队列的一个好处是我们可以利用这个队列之前用过的空间。在一个普通队列里，一旦一个队列满了，我们就不能插入下一个元素，即使在队列前面仍有空间。但是使用循环队列，我们能使用这些空间去存储新的值。</p>
@@ -25,26 +26,16 @@
 
 <p><strong>示例：</strong></p>
 
-<pre>MyCircularQueue circularQueue = new MycircularQueue(3); // 设置长度为 3
-
+<pre>MyCircularQueue circularQueue = new MyCircularQueue(3); // 设置长度为 3
 circularQueue.enQueue(1); &nbsp;// 返回 true
-
 circularQueue.enQueue(2); &nbsp;// 返回 true
-
 circularQueue.enQueue(3); &nbsp;// 返回 true
-
 circularQueue.enQueue(4); &nbsp;// 返回 false，队列已满
-
 circularQueue.Rear(); &nbsp;// 返回 3
-
 circularQueue.isFull(); &nbsp;// 返回 true
-
 circularQueue.deQueue(); &nbsp;// 返回 true
-
 circularQueue.enQueue(4); &nbsp;// 返回 true
-
-circularQueue.Rear(); &nbsp;// 返回 4
-&nbsp;</pre>
+circularQueue.Rear(); &nbsp;// 返回 4</pre>
 
 <p>&nbsp;</p>
 
@@ -55,6 +46,7 @@ circularQueue.Rear(); &nbsp;// 返回 4
 	<li>操作数将在 1 至 1000 的范围内；</li>
 	<li>请不要使用内置的队列库。</li>
 </ul>
+
 
 ## 解法
 

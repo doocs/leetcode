@@ -19,9 +19,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/screenshot-from-2021-02-11-23-07-35.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/11/screenshot-from-2021-02-11-23-07-35.png" style="width: 310px; height: 278px;" />
 <pre>
 <strong>Input:</strong> n = 4, edges = [[1,2],[2,4],[1,3],[2,3],[2,1]], queries = [2,3]
 <strong>Output:</strong> [6,5]
@@ -46,6 +44,7 @@
 	<li><code>1 &lt;= queries.length &lt;= 20</code></li>
 	<li><code>0 &lt;= queries[j] &lt; edges.length</code></li>
 </ul>
+
 
 ## Solutions
 

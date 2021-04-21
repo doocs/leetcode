@@ -4,47 +4,51 @@
 
 ## Description
 
-<p>Given a binary tree where all the right nodes are either leaf nodes with a sibling (a left node that shares the same parent node) or empty, flip it upside down and turn it into a tree where the original right nodes turned into left leaf nodes. Return the new root.</p>
+<p>Given the <code>root</code> of a binary tree, turn the tree upside down and return <em>the new root</em>.</p>
 
-<p><strong>Example:</strong></p>
+<p>You can turn a binary tree upside down with the following steps:</p>
 
+<ol>
+	<li>The original left child becomes the new root.</li>
+	<li>The original root becomes the new right child.</li>
+	<li>The original right child&nbsp;becomes the new left child.</li>
+</ol>
+
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/29/main.jpg" style="width: 100%; height: 100%;" /></p>
+
+<p>The mentioned steps are done level by level, it is <strong>guaranteed</strong> that every node in the given tree has either <strong>0 or 2 children</strong>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/29/updown.jpg" style="width: 800px; height: 161px;" />
 <pre>
-<strong>Input: </strong>[1,2,3,4,5]
-
-    1
-   / \
-  2   3
- / \
-4   5
-
-<strong>Output:</strong> return the root of the binary tree [4,5,2,#,#,3,1]
-
-   4
-  / \
- 5   2
-    / \
-   3   1  
+<strong>Input:</strong> root = [1,2,3,4,5]
+<strong>Output:</strong> [4,5,2,null,null,3,1]
 </pre>
 
-<p><strong>Clarification:</strong></p>
-
-<p>Confused what <code>[4,5,2,#,#,3,1<font face="monospace">]</font></code>&nbsp;means? Read more below on how binary tree is serialized on OJ.</p>
-
-<p>The serialization of a binary tree follows a level order traversal, where &#39;#&#39; signifies a path terminator where no node exists below.</p>
-
-<p>Here&#39;s an example:</p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-   1
-  / \
- 2   3
-    /
-   4
-    \
-     5
+<strong>Input:</strong> root = []
+<strong>Output:</strong> []
 </pre>
 
-<p>The above binary tree is serialized as <code>[1,2,3,#,#,4,#,#,5]</code>.</p>
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> root = [1]
+<strong>Output:</strong> [1]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the tree will be in the range <code>[0, 10]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 10</code></li>
+	<li><code>Every node has either 0 or 2 children.</code></li>
+</ul>
+
 
 ## Solutions
 

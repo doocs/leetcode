@@ -5,64 +5,60 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>由空地和墙组成的迷宫中有一个<strong>球</strong>。球可以向<strong>上下左右</strong>四个方向滚动，但在遇到墙壁前不会停止滚动。当球停下时，可以选择下一个方向。</p>
 
-<p>给定球的<strong>起始位置，目的地</strong>和<strong>迷宫</strong>，判断球能否在目的地停下。</p>
+由空地（用 <code>0</code> 表示）和墙（用 <code>1</code> 表示）组成的迷宫 <code>maze</code> 中有一个球。球可以途经空地向<strong> 上、下、左、右 </strong>四个方向滚动，且在遇到墙壁前不会停止滚动。当球停下时，可以选择向下一个方向滚动。
+<div class="top-view__1vxA">
+<div class="original__bRMd">
+<div>
+<p>给你一个大小为 <code>m x n</code> 的迷宫 <code>maze</code> ，以及球的初始位置 <code>start</code> 和目的地 <code>destination</code> ，其中 <code>start = [start<sub>row</sub>, start<sub>col</sub>]</code> 且 <code>destination = [destination<sub>row</sub>, destination<sub>col</sub>]</code> 。请你判断球能否在目的地停下：如果可以，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
-<p>迷宫由一个0和1的二维数组表示。 1表示墙壁，0表示空地。你可以假定迷宫的边缘都是墙壁。起始位置和目的地的坐标通过行号和列号给出。</p>
-
-<p> </p>
-
-<p><strong>示例 1:</strong></p>
-
-<pre><strong>输入 1:</strong> 迷宫由以下二维数组表示
-
-0 0 1 0 0
-0 0 0 0 0
-0 0 0 1 0
-1 1 0 1 1
-0 0 0 0 0
-
-<strong>输入 2:</strong> 起始位置坐标 (rowStart, colStart) = (0, 4)
-<strong>输入 3:</strong> 目的地坐标 (rowDest, colDest) = (4, 4)
-
-<strong>输出:</strong> true
-
-<strong>解析:</strong> 一个可能的路径是 : 左 -> 下 -> 左 -> 下 -> 右 -> 下 -> 右。
-</pre>
-
-![](./images/maze_1_example_1.png)
-
-<p><strong>示例 2:</strong></p>
-
-<pre><strong>输入 1:</strong> 迷宫由以下二维数组表示
-
-0 0 1 0 0
-0 0 0 0 0
-0 0 0 1 0
-1 1 0 1 1
-0 0 0 0 0
-
-<strong>输入 2:</strong> 起始位置坐标 (rowStart, colStart) = (0, 4)
-<strong>输入 3:</strong> 目的地坐标 (rowDest, colDest) = (3, 2)
-
-<strong>输出:</strong> false
-
-<strong>解析:</strong> 没有能够使球停在目的地的路径。
-</pre>
-
-![](./images/maze_1_example_2.png)
+<p>你可以 <strong>假定迷宫的边缘都是墙壁</strong>（参考示例）。</p>
 
 <p> </p>
 
-<p><strong>注意:</strong></p>
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/31/maze1-1-grid.jpg" style="width: 573px; height: 573px;" />
+<pre>
+<strong>输入：</strong>maze = [[0,0,1,0,0],[0,0,0,0,0],[0,0,0,1,0],[1,1,0,1,1],[0,0,0,0,0]], start = [0,4], destination = [4,4]
+<strong>输出：</strong>true
+<strong>解释：</strong>一种可能的路径是 : 左 -> 下 -> 左 -> 下 -> 右 -> 下 -> 右。
+</pre>
 
-<ol>
-	<li>迷宫中只有一个球和一个目的地。</li>
-	<li>球和目的地都在空地上，且初始时它们不在同一位置。</li>
-	<li>给定的迷宫不包括边界 (如图中的红色矩形), 但你可以假设迷宫的边缘都是墙壁。</li>
-	<li>迷宫至少包括2块空地，行数和列数均不超过100。</li>
-</ol>
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/31/maze1-2-grid.jpg" style="width: 573px; height: 573px;" />
+<pre>
+<strong>输入：</strong>maze = [[0,0,1,0,0],[0,0,0,0,0],[0,0,0,1,0],[1,1,0,1,1],[0,0,0,0,0]], start = [0,4], destination = [3,2]
+<strong>输出：</strong>false
+<strong>解释：</strong>不存在能够使球停在目的地的路径。注意，球可以经过目的地，但无法在那里停驻。
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>maze = [[0,0,0,0,0],[1,1,0,0,1],[0,0,0,0,0],[0,1,0,0,1],[0,1,0,0,0]], start = [4,3], destination = [0,1]
+<strong>输出：</strong>false
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>m == maze.length</code></li>
+	<li><code>n == maze[i].length</code></li>
+	<li><code>1 <= m, n <= 100</code></li>
+	<li><code>maze[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+	<li><code>start.length == 2</code></li>
+	<li><code>destination.length == 2</code></li>
+	<li><code>0 <= start<sub>row</sub>, destination<sub>row</sub> <= m</code></li>
+	<li><code>0 <= start<sub>col</sub>, destination<sub>col</sub> <= n</code></li>
+	<li>球和目的地都在空地上，且初始时它们不在同一位置</li>
+	<li>迷宫 <strong>至少包括 2 块空地</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
 
 ## 解法
 

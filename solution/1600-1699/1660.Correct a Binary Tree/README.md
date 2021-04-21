@@ -26,7 +26,7 @@
 
 <p><b>示例 1:</b></p>
 
-![](./images/ex1v2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/22/ex1v2.png" style="width: 250px; height: 177px;" /></strong></p>
 
 <pre>
 <strong>输入:</strong> root = [1,2,3], fromNode = 2, toNode = 3
@@ -36,7 +36,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-![](./images/ex2v3.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/22/ex2v3.png" style="width: 350px; height: 255px;" /></strong></p>
 
 <pre>
 <strong>输入:</strong> root = [8,3,1,7,null,9,4,2,null,null,null,5,6], fromNode = 7, toNode = 4

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串形式的电话号码 <code>number</code> 。<code>number</code> 由数字、空格 <code>' '</code>、和破折号 <code>'-'</code> 组成。</p>
 
 <p>请你按下述方式重新格式化电话号码。</p>
@@ -81,6 +82,7 @@
 	<li><code>number</code> 由数字和字符 <code>'-'</code> 及 <code>' '</code> 组成。</li>
 	<li><code>number</code> 中至少含 <strong>2</strong> 个数字。</li>
 </ul>
+
 
 ## 解法
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们称一个分割整数数组的方案是 <strong>好的</strong> ，当它满足：</p>
 
 <ul>
@@ -49,6 +50,7 @@
 	<li><code>3 <= nums.length <= 10<sup>5</sup></code></li>
 	<li><code>0 <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
+
 
 ## 解法
 

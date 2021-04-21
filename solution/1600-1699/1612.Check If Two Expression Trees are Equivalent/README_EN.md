@@ -22,7 +22,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/tree1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/tree1.png" style="width: 211px; height: 131px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root1 = [+,a,+,null,null,b,c], root2 = [+,+,a,b,c]
@@ -31,7 +31,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/tree2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/tree2.png" style="width: 211px; height: 131px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root1 = [+,a,+,null,null,b,c], root2 = [+,+,a,b,d]

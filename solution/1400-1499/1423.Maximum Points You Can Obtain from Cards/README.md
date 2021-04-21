@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>几张卡牌<strong> 排成一行</strong>，每张卡牌都有一个对应的点数。点数由整数数组 <code>cardPoints</code> 给出。</p>
 
 <p>每次行动，你可以从行的开头或者末尾拿一张卡牌，最终你必须正好拿 <code>k</code> 张卡牌。</p>
@@ -58,6 +59,7 @@
 	<li><code>1 &lt;= cardPoints[i] &lt;= 10^4</code></li>
 	<li><code>1 &lt;= k &lt;= cardPoints.length</code></li>
 </ul>
+
 
 ## 解法
 

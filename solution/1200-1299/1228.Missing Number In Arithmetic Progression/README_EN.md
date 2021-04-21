@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>In some array <code>arr</code>, the values were in arithmetic progression: the values <code>arr[i+1] - arr[i]</code> are all equal for every <code>0 <= i < arr.length - 1</code>.</p>
+<p>In some array <code>arr</code>, the values were in arithmetic progression: the values&nbsp;<code>arr[i+1] - arr[i]</code>&nbsp;are all&nbsp;equal for every&nbsp;<code>0 &lt;= i &lt; arr.length - 1</code>.</p>
 
-<p>Then, a value from <code>arr</code> was removed that <strong>was not the first or last value in the array</strong>.</p>
+<p>Then, a value from <code>arr</code>&nbsp;was removed that <strong>was&nbsp;not the first or last value in the array</strong>.</p>
 
 <p>Return the removed value.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -26,13 +26,14 @@
 <strong>Output:</strong> 14
 <strong>Explanation: </strong>The previous array was [15,<strong>14</strong>,13,12].</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>3 <= arr.length <= 1000</code></li>
-	<li><code>0 <= arr[i] <= 10^5</code></li>
+	<li><code>3 &lt;= arr.length &lt;= 1000</code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 10^5</code></li>
 </ul>
+
 
 ## Solutions
 

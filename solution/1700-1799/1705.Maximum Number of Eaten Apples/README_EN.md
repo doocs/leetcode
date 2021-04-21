@@ -45,6 +45,7 @@
 	<li><code>days[i] = 0</code> if and only if <code>apples[i] = 0</code>.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

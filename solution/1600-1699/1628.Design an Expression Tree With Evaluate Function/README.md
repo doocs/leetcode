@@ -22,7 +22,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-![](./images/untitled-diagram.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/15/untitled-diagram.png" style="width: 242px; height: 241px;"></strong></p>
 
 <pre><b>输入：</b> s = ["3","4","+","2","*","7","/"]
 <b>输出：</b> 2
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-![](./images/untitled-diagram2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/15/untitled-diagram2.png" style="width: 222px; height: 232px;"></strong></p>
 
 <pre><strong>输入:</strong> s = ["4","5","7","2","+","-","*"]
 <strong>输出:</strong> -16

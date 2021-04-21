@@ -4,61 +4,75 @@
 
 ## Description
 
-<p>Suppose we abstract our file system by a string in the following manner:</p>
+<p>Suppose we have a file system that stores both files and directories. An example of one system is represented in the following picture:</p>
 
-<p>The string <code>"dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"</code> represents:</p>
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/mdir.jpg" style="width: 681px; height: 322px;" /></p>
 
-<pre>dir
+<p>Here, we have <code>dir</code> as the only directory in the root. <code>dir</code> contains two subdirectories, <code>subdir1</code> and <code>subdir2</code>. <code>subdir1</code> contains a file <code>file1.ext</code> and subdirectory <code>subsubdir1</code>. <code>subdir2</code> contains a subdirectory <code>subsubdir2</code>, which contains a file <code>file2.ext</code>.</p>
 
-    subdir1
+<p>In text form, it looks like this (with ⟶ representing the tab character):</p>
 
-    subdir2
-
-        file.ext
-
+<pre>
+dir
+⟶ subdir1
+⟶ ⟶ file1.ext
+⟶ ⟶ subsubdir1
+⟶ subdir2
+⟶ ⟶ subsubdir2
+⟶ ⟶ ⟶ file2.ext
 </pre>
 
-<p>The directory <code>dir</code> contains an empty sub-directory <code>subdir1</code> and a sub-directory <code>subdir2</code> containing a file <code>file.ext</code>.</p>
+<p>If we were to write this representation in code, it will look like this: <code>&quot;dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext&quot;</code>. Note that the <code>&#39;\n&#39;</code> and <code>&#39;\t&#39;</code> are the new-line and tab characters.</p>
 
-<p>The string <code>"dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"</code> represents:</p>
+<p>Every file and directory has a unique <strong>absolute path</strong> in the file system, which is the order of directories that must be opened to reach the file/directory itself, all concatenated by <code>&#39;/&#39;s</code>. Using the above example, the <strong>absolute path</strong> to <code>file2.ext</code> is <code>&quot;dir/subdir2/subsubdir2/file2.ext&quot;</code>. Each directory name consists of letters, digits, and/or spaces. Each file name is of the form <code>name.extension</code>, where <code>name</code> and <code>extension</code> consist of letters, digits, and/or spaces.</p>
 
-<pre>dir
+<p>Given a string <code>input</code> representing the file system in the explained format, return <em>the length of the <strong>longest absolute path</strong> to a <strong>file</strong> in the abstracted file system</em>. If there is no file in the system, return <code>0</code>.</p>
 
-    subdir1
-
-        file1.ext
-
-        subsubdir1
-
-    subdir2
-
-        subsubdir2
-
-            file2.ext
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/dir1.jpg" style="width: 401px; height: 202px;" />
+<pre>
+<strong>Input:</strong> input = &quot;dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext&quot;
+<strong>Output:</strong> 20
+<strong>Explanation:</strong> We have only one file, and the absolute path is &quot;dir/subdir2/file.ext&quot; of length 20.
 </pre>
 
-<p>The directory <code>dir</code> contains two sub-directories <code>subdir1</code> and <code>subdir2</code>. <code>subdir1</code> contains a file <code>file1.ext</code> and an empty second-level sub-directory <code>subsubdir1</code>. <code>subdir2</code> contains a second-level sub-directory <code>subsubdir2</code> containing a file <code>file2.ext</code>.</p>
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/dir2.jpg" style="width: 641px; height: 322px;" />
+<pre>
+<strong>Input:</strong> input = &quot;dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext&quot;
+<strong>Output:</strong> 32
+<strong>Explanation:</strong> We have two files:
+&quot;dir/subdir1/file1.ext&quot; of length 21
+&quot;dir/subdir2/subsubdir2/file2.ext&quot; of length 32.
+We return 32 since it is the longest absolute path to a file.
+</pre>
 
-<p>We are interested in finding the longest (number of characters) absolute path to a file within our file system. For example, in the second example above, the longest absolute path is <code>"dir/subdir2/subsubdir2/file2.ext"</code>, and its length is <code>32</code> (not including the double quotes).</p>
+<p><strong>Example 3:</strong></p>
 
-<p>Given a string representing the file system in the above format, return the length of the longest absolute path to file in the abstracted file system. If there is no file in the system, return <code>0</code>.</p>
+<pre>
+<strong>Input:</strong> input = &quot;a&quot;
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> We do not have any files, just a single directory named &quot;a&quot;.
+</pre>
 
-<p><b>Note:</b><br />
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> input = &quot;file1.txt\nfile2.txt\nlongfile.txt&quot;
+<strong>Output:</strong> 12
+<strong>Explanation:</strong> There are 3 files at the root directory.
+Since the absolute path for anything at the root directory is just the name itself, the answer is &quot;longfile.txt&quot; with length 12.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-
-<li>The name of a file contains at least a <code>.</code> and an extension.</li>
-
-<li>The name of a directory or sub-directory will not contain a <code>.</code>.</li>
-
+	<li><code>1 &lt;= input.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>input</code> may contain lowercase or uppercase English letters, a new line character <code>&#39;\n&#39;</code>, a tab character <code>&#39;\t&#39;</code>, a dot <code>&#39;.&#39;</code>, a space <code>&#39; &#39;</code>, and digits.</li>
 </ul>
 
-</p>
-
-<p>Time complexity required: <code>O(n)</code> where <code>n</code> is the size of the input string.</p>
-
-<p>Notice that <code>a/aa/aaa/file1.txt</code> is not the longest file path, if there is another path <code>aaaaaaaaaaaaaaaaaaaaa/sth.png</code>.</p>
 
 ## Solutions
 

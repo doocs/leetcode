@@ -4,55 +4,49 @@
 
 ## Description
 
-<p>In an N by N square grid, each cell is either empty (0) or blocked (1).</p>
+<p>Given an <code>n x n</code> binary matrix <code>grid</code>, return <em>the length of the shortest <strong>clear path</strong> in the matrix</em>. If there is no clear path, return <code>-1</code>.</p>
 
-<p>A&nbsp;<em>clear&nbsp;path from top-left to bottom-right</em>&nbsp;has length <code>k</code> if and only if it is composed of cells <code>C_1, C_2, ..., C_k</code>&nbsp;such that:</p>
+<p>A <strong>clear path</strong> in a binary matrix is a path from the <strong>top-left</strong> cell (i.e., <code>(0, 0)</code>) to the <strong>bottom-right</strong> cell (i.e., <code>(n - 1, n - 1)</code>) such that:</p>
 
 <ul>
-	<li>Adjacent cells <code>C_i</code> and <code>C_{i+1}</code> are connected 8-directionally (ie., they are different and&nbsp;share an edge or corner)</li>
-	<li><code>C_1</code> is at location <code>(0, 0)</code> (ie. has value <code>grid[0][0]</code>)</li>
-	<li><code>C_k</code>&nbsp;is at location <code>(N-1, N-1)</code> (ie. has value <code>grid[N-1][N-1]</code>)</li>
-	<li>If <code>C_i</code> is located at&nbsp;<code>(r, c)</code>, then <code>grid[r][c]</code> is empty (ie.&nbsp;<code>grid[r][c] ==&nbsp;0</code>).</li>
+	<li>All the visited cells of the path are <code>0</code>.</li>
+	<li>All the adjacent cells of the path are <strong>8-directionally</strong> connected (i.e., they are different and they share an edge or a corner).</li>
 </ul>
 
-<p>Return the length of the shortest such clear path from top-left to bottom-right.&nbsp; If such a path does not exist, return -1.</p>
+<p>The <strong>length of a clear path</strong> is the number of visited cells of this path.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/example1_1.png" style="width: 500px; height: 234px;" />
 <pre>
-<strong>Input: </strong><span id="example-input-1-1">[[0,1],[1,0]]</pre></span>
-
-![](./images/example1_1.png)
-
-<pre><strong>Output: </strong>2</pre>
-
-![](./images/example1_2.png)
-
-<div>
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input: </strong><span id="example-input-2-1">[[0,0,0],[1,1,0],[1,1,0]]
-</span></pre>
-
-![](./images/example2_1.png)
-
-<pre><strong>Output:</strong> 4
+<strong>Input:</strong> grid = [[0,1],[1,0]]
+<strong>Output:</strong> 2
 </pre>
 
-![](./images/example2_2.png)
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/example2_1.png" style="height: 216px; width: 500px;" />
+<pre>
+<strong>Input:</strong> grid = [[0,0,0],[1,1,0],[1,1,0]]
+<strong>Output:</strong> 4
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> grid = [[1,0,0],[1,1,0],[1,1,0]]
+<strong>Output:</strong> -1
+</pre>
 
 <p>&nbsp;</p>
-</div>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>n == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 100</code></li>
+	<li><code>grid[i][j] is 0 or 1</code></li>
+</ul>
 
-<ol>
-	<li><code>1 &lt;= grid.length == grid[0].length &lt;= 100</code></li>
-	<li><code>grid[r][c]</code> is <code>0</code> or <code>1</code></li>
-</ol>
 
 ## Solutions
 

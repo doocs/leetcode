@@ -6,6 +6,8 @@
 
 <!-- 这里写题目描述 -->
 
+<p><strong>描述</strong></p>
+
 <p>给定 3 个表：&nbsp;<code>salesperson</code>，&nbsp;<code>company</code>，&nbsp;<code>orders</code>。<br>
 输出所有表&nbsp;<code>salesperson</code>&nbsp;中，没有向公司 &#39;RED&#39; 销售任何东西的销售员。</p>
 
@@ -71,6 +73,7 @@
 <p>根据表&nbsp;<code>orders</code>&nbsp;中的订单 &#39;3&#39; 和 &#39;4&#39; ，容易看出只有 &#39;John&#39; 和 &#39;Pam&#39; 两个销售员曾经向公司 &#39;RED&#39; 销售过。</p>
 
 <p>所以我们需要输出表&nbsp;<code>salesperson</code>&nbsp;中所有其他人的名字。</p>
+
 
 ## 解法
 

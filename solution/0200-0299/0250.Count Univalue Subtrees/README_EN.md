@@ -8,11 +8,9 @@
 
 <p>A <strong>uni-value subtree</strong> means all nodes of the subtree have the same value.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/unival_e1.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/21/unival_e1.jpg" style="width: 450px; height: 258px;" />
 <pre>
 <strong>Input:</strong> root = [5,1,5,5,5,null,5]
 <strong>Output:</strong> 4
@@ -32,13 +30,14 @@
 <strong>Output:</strong> 6
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li>The numbrt of the node in the tree will be in the range <code>[0, 1000]</code>.</li>
-	<li><code>-1000 <= Node.val <= 1000</code></li>
+	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
+
 
 ## Solutions
 

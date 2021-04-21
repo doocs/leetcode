@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有 <code>n</code> 个 <code>(id, value)</code> 对，其中 <code>id</code> 是 <code>1</code> 到 <code>n</code> 之间的一个整数，<code>value</code> 是一个字符串。不存在 <code>id</code> 相同的两个 <code>(id, value)</code> 对。</p>
 
 <p>设计一个流，以 <strong>任意</strong> 顺序获取 <code>n</code> 个 <code>(id, value)</code> 对，并在多次调用时 <strong>按 <code>id</code> 递增的顺序</strong> 返回一些值。</p>
@@ -27,7 +28,7 @@
 
 <p><strong>示例：</strong></p>
 
-![](./images/q1.gif)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/15/q1.gif" style="width: 682px; height: 240px;" /></strong></p>
 
 <pre>
 <strong>输入</strong>
@@ -57,6 +58,7 @@ os.insert(4, "ddddd"); // 插入 (4, "ddddd")，返回 ["ddddd", "eeeee"]
 	<li>每次调用 <code>insert</code> 都会使用一个唯一的 <code>id</code></li>
 	<li>恰好调用 <code>n</code> 次 <code>insert</code></li>
 </ul>
+
 
 ## 解法
 

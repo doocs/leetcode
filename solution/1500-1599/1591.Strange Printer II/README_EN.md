@@ -18,7 +18,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_1_1929.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/15/sample_1_1929.png" style="width: 483px; height: 138px;" /></p>
 
 <pre>
 <strong>Input:</strong> targetGrid = [[1,1,1,1],[1,2,2,1],[1,2,2,1],[1,1,1,1]]
@@ -27,7 +27,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_2_1929.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/15/sample_2_1929.png" style="width: 483px; height: 290px;" /></p>
 
 <pre>
 <strong>Input:</strong> targetGrid = [[1,1,1,1],[1,1,3,3],[1,1,3,4],[5,5,1,4]]
@@ -57,6 +57,7 @@
 	<li><code>1 &lt;= m, n &lt;= 60</code></li>
 	<li><code>1 &lt;= targetGrid[row][col] &lt;= 60</code></li>
 </ul>
+
 
 ## Solutions
 

@@ -4,69 +4,59 @@
 
 ## Description
 
-<p>There is a <b>ball</b> in a maze with empty spaces and walls. The ball can go through empty spaces by rolling <b>up</b> (u), <b>down</b> (d), <b>left</b> (l) or <b>right</b> (r), but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction. There is also a <b>hole</b> in this maze. The ball will drop into the hole if it rolls on to the hole.</p>
+<p>There is a ball in a <code>maze</code> with empty spaces (represented as <code>0</code>) and walls (represented as <code>1</code>). The ball can go through the empty spaces by rolling <strong>up, down, left or right</strong>, but it won&#39;t stop rolling until hitting a wall. When the ball stops, it could choose the next direction. There is also a hole in this maze. The ball will drop into the hole if it rolls onto the hole.</p>
 
-<p>Given the <b>ball position</b>, the <b>hole position</b> and the <b>maze</b>, find out how the ball could drop into the hole by moving the <b>shortest distance</b>. The distance is defined by the number of <b>empty spaces</b> traveled by the ball from the start position (excluded) to the hole (included). Output the moving <b>directions</b> by using 'u', 'd', 'l' and 'r'. Since there could be several different shortest ways, you should output the <b>lexicographically smallest</b> way. If the ball cannot reach the hole, output "impossible".</p>
+<p>Given the <code>m x n</code> <code>maze</code>, the ball&#39;s position <code>ball</code> and the hole&#39;s position <code>hole</code>, where <code>ball = [ball<sub>row</sub>, ball<sub>col</sub>]</code> and <code>hole = [hole<sub>row</sub>, hole<sub>col</sub>]</code>, return <em>a string </em><code>instructions</code><em> of all the instructions that the ball should follow to drop in the hole with the <strong>shortest distance</strong> possible</em>. If there are multiple valid instructions, return the <strong>lexicographically minimum</strong> one. If the ball can&#39;t drop in the hole, return <code>&quot;impossible&quot;</code>.</p>
 
-<p>The maze is represented by a binary 2D array. 1 means the wall and 0 means the empty space. You may assume that the borders of the maze are all walls. The ball and the hole coordinates are represented by row and column indexes.</p>
+<p>If there is a way for the ball to drop in the hole, the answer <code>instructions</code> should contain the characters <code>&#39;u&#39;</code> (i.e., up), <code>&#39;d&#39;</code> (i.e., down), <code>&#39;l&#39;</code> (i.e., left), and <code>&#39;r&#39;</code> (i.e., right).</p>
 
-<p> </p>
+<p>The <strong>distance</strong> is the number of <strong>empty spaces</strong> traveled by the ball from the start position (excluded) to the destination (included).</p>
 
-<p><b>Example 1:</b></p>
+<p>You may assume that <strong>the borders of the maze are all walls</strong> (see examples).</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/31/maze3-1-grid.jpg" style="width: 573px; height: 573px;" />
 <pre>
-<b>Input 1:</b> a maze represented by a 2D array
-
-0 0 0 0 0
-1 1 0 0 1
-0 0 0 0 0
-0 1 0 0 1
-0 1 0 0 0
-
-<b>Input 2:</b> ball coordinate (rowBall, colBall) = (4, 3)
-<b>Input 3:</b> hole coordinate (rowHole, colHole) = (0, 1)
-
-<b>Output:</b> "lul"
-
-<b>Explanation:</b> There are two shortest ways for the ball to drop into the hole.
-The first way is left -> up -> left, represented by "lul".
-The second way is up -> left, represented by 'ul'.
-Both ways have shortest distance 6, but the first way is lexicographically smaller because 'l' < 'u'. So the output is "lul".
+<strong>Input:</strong> maze = [[0,0,0,0,0],[1,1,0,0,1],[0,0,0,0,0],[0,1,0,0,1],[0,1,0,0,0]], ball = [4,3], hole = [0,1]
+<strong>Output:</strong> &quot;lul&quot;
+<strong>Explanation:</strong> There are two shortest ways for the ball to drop into the hole.
+The first way is left -&gt; up -&gt; left, represented by &quot;lul&quot;.
+The second way is up -&gt; left, represented by &#39;ul&#39;.
+Both ways have shortest distance 6, but the first way is lexicographically smaller because &#39;l&#39; &lt; &#39;u&#39;. So the output is &quot;lul&quot;.
 </pre>
 
-![](./images/maze_2_example_1.png)
-
-<p><b>Example 2:</b></p>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/31/maze3-2-grid.jpg" style="width: 573px; height: 573px;" />
 <pre>
-<b>Input 1:</b> a maze represented by a 2D array
-
-0 0 0 0 0
-1 1 0 0 1
-0 0 0 0 0
-0 1 0 0 1
-0 1 0 0 0
-
-<b>Input 2:</b> ball coordinate (rowBall, colBall) = (4, 3)
-<b>Input 3:</b> hole coordinate (rowHole, colHole) = (3, 0)
-
-<b>Output:</b> "impossible"
-
-<b>Explanation:</b> The ball cannot reach the hole.
+<strong>Input:</strong> maze = [[0,0,0,0,0],[1,1,0,0,1],[0,0,0,0,0],[0,1,0,0,1],[0,1,0,0,0]], ball = [4,3], hole = [3,0]
+<strong>Output:</strong> &quot;impossible&quot;
+<strong>Explanation:</strong> The ball cannot reach the hole.
 </pre>
 
-![](./images/maze_2_example_2.png)
+<p><strong>Example 3:</strong></p>
 
-<p> </p>
+<pre>
+<strong>Input:</strong> maze = [[0,0,0,0,0,0,0],[0,0,1,0,0,1,0],[0,0,0,0,1,0,0],[0,0,0,0,0,0,1]], ball = [0,4], hole = [3,5]
+<strong>Output:</strong> &quot;dldr&quot;
+</pre>
 
-<p><b>Note:</b></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<ol>
-	<li>There is only one ball and one hole in the maze.</li>
-	<li>Both the ball and hole exist on an empty space, and they will not be at the same position initially.</li>
-	<li>The given maze does not contain border (like the red rectangle in the example pictures), but you could assume the border of the maze are all walls.</li>
-	<li>The maze contains at least 2 empty spaces, and the width and the height of the maze won't exceed 30.</li>
-</ol>
+<ul>
+	<li><code>m == maze.length</code></li>
+	<li><code>n == maze[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>maze[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+	<li><code>ball.length == 2</code></li>
+	<li><code>hole.length == 2</code></li>
+	<li><code>0 &lt;= ball<sub>row</sub>, hole<sub>row</sub> &lt;= m</code></li>
+	<li><code>0 &lt;= ball<sub>col</sub>, hole<sub>col</sub> &lt;= n</code></li>
+	<li>Both the ball and the hole exist in an empty space, and they will not be in the same position initially.</li>
+	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
+</ul>
+
 
 ## Solutions
 

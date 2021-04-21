@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定两个字符串&nbsp;<strong><em>s </em></strong>和<strong><em> t</em></strong>，判断他们的编辑距离是否为 1。</p>
 
 <p><strong>注意：</strong></p>
@@ -35,6 +36,7 @@
 <pre><strong>输入: <em>s</em></strong> = &quot;1203&quot;, <strong><em>t</em></strong> = &quot;1213&quot;
 <strong>输出: </strong>true
 <strong>解释: </strong>可以将字符串 <strong><em>s</em></strong>&nbsp;中的 &#39;0&#39; 替换为 &#39;1&#39; 来得到 <em><strong>t</strong></em>。</pre>
+
 
 ## 解法
 

@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/leetcode_testcase_1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/12/18/leetcode_testcase_1.png" style="height:250px; width:333px" /></strong></p>
 
 <pre>
 <strong>输入：</strong>root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,0,1]
@@ -28,7 +28,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/leetcode_testcase_2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/12/18/leetcode_testcase_2.png" style="height:250px; width:333px" /></strong></p>
 
 <pre>
 <strong>输入：</strong>root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,0,1]
@@ -38,7 +38,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/leetcode_testcase_3.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/12/18/leetcode_testcase_3.png" style="height:250px; width:333px" /></strong></p>
 
 <pre>
 <strong>输入：</strong>root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,1]

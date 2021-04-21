@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定由&nbsp;<code>N</code>&nbsp;个小写字母字符串组成的数组&nbsp;<code>A</code>，其中每个字符串长度相等。</p>
 
 <p>选取一个删除索引序列，对于&nbsp;<code>A</code>&nbsp;中的每个字符串，删除对应每个索引处的字符。</p>
@@ -51,6 +52,7 @@
 	<li><code>1 &lt;= A.length &lt;= 100</code></li>
 	<li><code>1 &lt;= A[i].length &lt;= 100</code></li>
 </ol>
+
 
 ## 解法
 

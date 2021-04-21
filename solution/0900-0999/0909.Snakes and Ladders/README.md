@@ -5,22 +5,31 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>在一块 N x N 的棋盘&nbsp;<code>board</code>&nbsp;上，<strong>从棋盘的左下角开始</strong>，每一行交替方向，按从&nbsp;<code>1</code> 到 <code>N*N</code>&nbsp;的数字给方格编号。例如，对于一块 6 x 6 大小的棋盘，可以编号如下：</p>
 
-![](./images/snakes.png)
+<p>N x N 的棋盘&nbsp;<code>board</code> 上，按从&nbsp;<code>1</code> 到 <code>N*N</code>&nbsp;的数字给方格编号，编号<strong> 从左下角开始</strong>，每一行交替方向。</p>
+
+<p>例如，一块 6 x 6 大小的棋盘，编号如下：</p>
+
+<pre><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/01/31/snakes.png" style="height: 200px; width: 254px;">
+</pre>
+
+<p><code>r</code> 行 <code>c</code> 列的棋盘，按前述方法编号，棋盘格中可能存在 &ldquo;蛇&rdquo; 或 &ldquo;梯子&rdquo;；如果 <code>board[r][c] != -1</code>，那个蛇或梯子的目的地将会是 <code>board[r][c]</code>。</p>
 
 <p>玩家从棋盘上的方格&nbsp;<code>1</code> （总是在最后一行、第一列）开始出发。</p>
 
-<p>每一次从方格&nbsp;<code>x</code>&nbsp;起始的移动都由以下部分组成：</p>
+<p>每一回合，玩家需要从当前方格 <code>x</code> 开始出发，按下述要求前进：</p>
 
 <ul>
-	<li>你选择一个目标方块 <code>S</code>，它的编号是 <code>x+1</code>，<code>x+2</code>，<code>x+3</code>，<code>x+4</code>，<code>x+5</code>，或者 <code>x+6</code>，只要这个数字&nbsp;<code>&lt;= N*N</code>。</li>
-	<li>如果 <code>S</code> 有一个蛇或梯子，你就移动到那个蛇或梯子的目的地。否则，你会移动到 <code>S</code>。&nbsp;</li>
+	<li>选定目标方格：选择从编号 <code>x+1</code>，<code>x+2</code>，<code>x+3</code>，<code>x+4</code>，<code>x+5</code>，或者 <code>x+6</code> 的方格中选出一个目标方格 <code>s</code> ，目标方格的编号 <code>&lt;= N*N</code>。
+
+	<ul>
+		<li>该选择模拟了掷骰子的情景，无论棋盘大小如何，你的目的地范围也只能处于区间 <code>[x+1, x+6]</code> 之间。</li>
+	</ul>
+	</li>
+	<li>传送玩家：如果目标方格 <code>S</code> 处存在蛇或梯子，那么玩家会传送到蛇或梯子的目的地。否则，玩家传送到目标方格 <code>S</code>。&nbsp;</li>
 </ul>
 
-<p>在 <code>r</code> 行 <code>c</code> 列上的方格里有 &ldquo;蛇&rdquo; 或 &ldquo;梯子&rdquo;；如果 <code>board[r][c] != -1</code>，那个蛇或梯子的目的地将会是 <code>board[r][c]</code>。</p>
-
-<p>注意，你每次移动最多只能爬过蛇或梯子一次：就算目的地是另一条蛇或梯子的起点，你也不会继续移动。</p>
+<p>注意，玩家在每回合的前进过程中最多只能爬过蛇或梯子一次：就算目的地是另一条蛇或梯子的起点，你也不会继续移动。</p>
 
 <p>返回达到方格 N*N 所需的最少移动次数，如果不可能，则返回 <code>-1</code>。</p>
 
@@ -49,12 +58,13 @@
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>2 &lt;= board.length = board[0].length&nbsp;&lt;= 20</code></li>
 	<li><code>board[i][j]</code>&nbsp;介于&nbsp;<code>1</code>&nbsp;和&nbsp;<code>N*N</code>&nbsp;之间或者等于&nbsp;<code>-1</code>。</li>
 	<li>编号为&nbsp;<code>1</code>&nbsp;的方格上没有蛇或梯子。</li>
 	<li>编号为&nbsp;<code>N*N</code>&nbsp;的方格上没有蛇或梯子。</li>
-</ol>
+</ul>
+
 
 ## 解法
 

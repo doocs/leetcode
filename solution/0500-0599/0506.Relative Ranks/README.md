@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给出&nbsp;<strong>N</strong> 名运动员的成绩，找出他们的相对名次并授予前三名对应的奖牌。前三名运动员将会被分别授予 &ldquo;金牌&rdquo;，&ldquo;银牌&rdquo; 和&ldquo; 铜牌&rdquo;（&quot;Gold Medal&quot;, &quot;Silver Medal&quot;, &quot;Bronze Medal&quot;）。</p>
 
 <p>(注：分数越高的选手，排名越靠前。)</p>
@@ -23,6 +24,7 @@
 	<li>N 是一个正整数并且不会超过&nbsp;10000。</li>
 	<li>所有运动员的成绩都不相同。</li>
 </ol>
+
 
 ## 解法
 

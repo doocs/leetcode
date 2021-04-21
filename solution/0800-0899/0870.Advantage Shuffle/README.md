@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定两个大小相等的数组&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>，A 相对于 B 的<em>优势</em>可以用满足&nbsp;<code>A[i] &gt; B[i]</code>&nbsp;的索引 <code>i</code>&nbsp;的数目来描述。</p>
 
 <p>返回&nbsp;<code>A</code>&nbsp;的<strong>任意</strong>排列，使其相对于 <code>B</code>&nbsp;的优势最大化。</p>
@@ -32,6 +33,7 @@
 	<li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
 	<li><code>0 &lt;= B[i] &lt;= 10^9</code></li>
 </ol>
+
 
 ## 解法
 

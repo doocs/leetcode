@@ -5,46 +5,35 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>返回字符串 <code>text</code>&nbsp;中按字典序排列最小的子序列，该子序列包含&nbsp;<code>text</code>&nbsp;中所有不同字符一次。</p>
 
-<p>&nbsp;</p>
+<p>返回 <code>s</code> 字典序最小的子序列，该子序列包含 <code>s</code> 的所有不同字符，且只包含一次。</p>
+
+<p><strong>注意：</strong>该题与 316 <a href="https://leetcode.com/problems/remove-duplicate-letters/">https://leetcode.com/problems/remove-duplicate-letters/</a> 相同</p>
+
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>&quot;cdadabcc&quot;
-<strong>输出：</strong>&quot;adbc&quot;
+<pre>
+<strong>输入：</strong><code>s = "bcabc"</code>
+<strong>输出<code>：</code></strong><code>"abc"</code>
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>&quot;abcd&quot;
-<strong>输出：</strong>&quot;abcd&quot;
-</pre>
+<pre>
+<strong>输入：</strong><code>s = "cbacdcbc"</code>
+<strong>输出：</strong><code>"acdb"</code></pre>
 
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>&quot;ecbacba&quot;
-<strong>输出：</strong>&quot;eacb&quot;
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>&quot;leetcode&quot;
-<strong>输出：</strong>&quot;letcod&quot;
-</pre>
-
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= text.length &lt;= 1000</code></li>
-	<li><code>text</code>&nbsp;由小写英文字母组成</li>
-</ol>
+<ul>
+	<li><code>1 <= s.length <= 1000</code></li>
+	<li><code>s</code> 由小写英文字母组成</li>
+</ul>
 
-<p>&nbsp;</p>
-
-<p><strong>注意：</strong>本题目与 316 <a href="https://leetcode-cn.com/problems/remove-duplicate-letters/">https://leetcode-cn.com/problems/remove-duplicate-letters/</a> 相同</p>
 
 ## 解法
 

@@ -5,6 +5,28 @@ from urllib.parse import quote
 
 import requests
 
+new_content = """# [{}. {}]({})
+
+[English Version]({})
+
+## 题目描述
+
+<!-- 这里写题目描述 -->
+
+{}
+
+"""
+
+new_content_en = """# [{}. {}]({})
+
+[中文文档]({})
+
+## Description
+
+{}
+
+"""
+
 
 class LCSpider:
     graph_url = 'https://leetcode-cn.com/graphql'
@@ -261,6 +283,43 @@ class LCSpider:
                     if not os.listdir(f'./{item}/{f}'):
                         os.rmdir(f'./{item}/{f}')
 
+    @staticmethod
+    def replace_content():
+        with open('./result.json', 'r', encoding='utf-8') as f:
+            result = f.read()
+            result = json.loads(result)
+            mapper = {item['frontend_question_id']: item for item in result}
+        sub_folders = [str(i * 100).zfill(4) + '-' + str(i * 100 + 99).zfill(4) for i in range(100)]
+        for item in sub_folders:
+            if not os.path.isdir(f'./{item}'):
+                continue
+            files = os.listdir(f'./{item}')
+            for f in files:
+                if os.path.isdir(f'./{item}/{f}'):
+                    with open(f'./{item}/{f}/README.md', 'r', encoding='utf-8') as f1:
+                        readme = f1.read()
+                    with open(f'./{item}/{f}/README_EN.md', 'r', encoding='utf-8') as f2:
+                        readme_en = f2.read()
+                    question = mapper[f[:4]]
+                    b = new_content.format(int(question['frontend_question_id']),
+                                           question["title_cn"],
+                                           question['url_cn'],
+                                           question['relative_path_en'],
+                                           question['content_cn'])
+                    index_cn = readme.index("## 解法")
+                    a = b + readme[index_cn:]
+                    with open(f'./{item}/{f}/README.md', 'w', encoding='utf-8') as f1:
+                        f1.write(a)
+                    index_en = readme_en.index("## Solutions")
+                    b = new_content_en.format(int(question['frontend_question_id']),
+                                              question["title_en"],
+                                              question['url_en'],
+                                              question['relative_path_cn'],
+                                              question['content_en'])
+                    a = b + readme_en[index_en:]
+                    with open(f'./{item}/{f}/README_EN.md', 'w', encoding='utf-8') as f2:
+                        f2.write(a)
+
 
 if __name__ == '__main__':
     spider = LCSpider()
@@ -271,3 +330,4 @@ if __name__ == '__main__':
     spider.generate_readme()
     spider.generate_question_readme()
     spider.generate_summary()
+    spider.replace_content()

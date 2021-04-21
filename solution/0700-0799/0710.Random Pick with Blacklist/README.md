@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个包含 [0，n ) 中独特的整数的黑名单 B，写一个函数从 [ 0，n ) 中返回一个<strong>不在</strong> B 中的随机整数。</p>
 
 <p>对它进行优化使其尽量少调用系统方法 <code>Math.random()</code> 。</p>
@@ -56,6 +57,7 @@
 <p><strong>输入语法说明：</strong></p>
 
 <p>输入是两个列表：调用成员函数名和调用的参数。<code>Solution</code>的构造函数有两个参数，<code>N</code>&nbsp;和黑名单&nbsp;<code>B</code>。<code>pick</code>&nbsp;没有参数，输入参数是一个列表，即使参数为空，也会输入一个 [] 空列表。</p>
+
 
 ## 解法
 

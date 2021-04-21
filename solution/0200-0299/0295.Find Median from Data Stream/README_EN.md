@@ -4,47 +4,57 @@
 
 ## Description
 
-<p>Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.</p>
-
-For example,
-
-<p><code>[2,3,4]</code>, the median is <code>3</code></p>
-
-<p><code>[2,3]</code>, the median is <code>(2 + 3) / 2 = 2.5</code></p>
-
-<p>Design a data structure that supports the following two operations:</p>
+<p>The <strong>median</strong> is the middle value in an ordered integer list. If the size of the list is even, there is no middle value and the median is the mean of the two middle values.</p>
 
 <ul>
-    <li>void addNum(int num) - Add a integer number from the data stream to the data structure.</li>
-    <li>double findMedian() - Return the median of all elements so far.</li>
+	<li>For example, for <code>arr = [2,3,4]</code>, the median is <code>3</code>.</li>
+	<li>For example, for <code>arr = [2,3]</code>, the median is <code>(2 + 3) / 2 = 2.5</code>.</li>
+</ul>
+
+<p>Implement the MedianFinder class:</p>
+
+<ul>
+	<li><code>MedianFinder()</code> initializes the <code>MedianFinder</code> object.</li>
+	<li><code>void addNum(int num)</code> adds the integer <code>num</code> from the data stream to the data structure.</li>
+	<li><code>double findMedian()</code> returns the median of all elements so far. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</li>
 </ul>
 
 <p>&nbsp;</p>
-
-<p><strong>Example:</strong></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input</strong>
+[&quot;MedianFinder&quot;, &quot;addNum&quot;, &quot;addNum&quot;, &quot;findMedian&quot;, &quot;addNum&quot;, &quot;findMedian&quot;]
+[[], [1], [2], [], [3], []]
+<strong>Output</strong>
+[null, null, null, 1.5, null, 2.0]
 
-addNum(1)
-
-addNum(2)
-
-findMedian() -&gt; 1.5
-
-addNum(3) 
-
-findMedian() -&gt; 2
-
+<strong>Explanation</strong>
+MedianFinder medianFinder = new MedianFinder();
+medianFinder.addNum(1);    // arr = [1]
+medianFinder.addNum(2);    // arr = [1, 2]
+medianFinder.findMedian(); // return 1.5 (i.e., (1 + 2) / 2)
+medianFinder.addNum(3);    // arr[1, 2, 3]
+medianFinder.findMedian(); // return 2.0
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
+<ul>
+	<li><code>-10<sup>5</sup> &lt;= num &lt;= 10<sup>5</sup></code></li>
+	<li>There will be at least one element in the data structure before calling <code>findMedian</code>.</li>
+	<li>At most <code>5 * 10<sup>4</sup></code> calls will be made to <code>addNum</code> and <code>findMedian</code>.</li>
+</ul>
+
+<p>&nbsp;</p>
 <p><strong>Follow up:</strong></p>
 
-<ol>
-    <li>If all integer numbers from the stream are between 0&nbsp;and 100, how would you optimize it?</li>
-    <li>If 99% of all integer numbers from the stream are between 0 and 100, how would you optimize it?</li>
-</ol>
+<ul>
+	<li>If all integer numbers from the stream are in the range <code>[0, 100]</code>, how would you optimize your solution?</li>
+	<li>If <code>99%</code> of all integer numbers from the stream are in the range <code>[0, 100]</code>, how would you optimize your solution?</li>
+</ul>
+
 
 ## Solutions
 

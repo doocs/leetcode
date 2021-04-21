@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>You are given a doubly linked list which in addition to the next and previous pointers, it could have a child pointer, which may or may not point to a separate doubly linked list. These child lists may have one or more children of their own, and so on, to produce a multilevel data structure, as shown in the example below.</p>
-
-<p>Flatten the list so that all the nodes appear in a single-level, doubly linked list. You are given the head of the first level of the list.</p>
+<p>You are given a doubly linked list which in addition to the next and previous pointers, it could have a child pointer, which may or may not point to a separate doubly linked list. These child lists may have one or more children of their own, and so on, to produce a multilevel data structure, as shown in the example below.</p>
+
+<p>Flatten the list so that all the nodes appear in a single-level, doubly linked list. You are given the head of the first level of the list.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -16,14 +16,14 @@
 <strong>Output:</strong> [1,2,3,7,8,11,12,9,10,4,5,6]
 <strong>Explanation:
 </strong>
-The multilevel linked list in the input is as follows:</pre>
+The multilevel linked list in the input is as follows:
 
-![](./images/multilevellinkedlist.png)
+<img src="https://assets.leetcode.com/uploads/2018/10/12/multilevellinkedlist.png" style="width: 640px;" />
 
-<pre>
-After flattening the multilevel linked list it becomes:</pre>
+After flattening the multilevel linked list it becomes:
 
-![](./images/multilevellinkedlistflattened.png)
+<img src="https://assets.leetcode.com/uploads/2018/10/12/multilevellinkedlistflattened.png" style="width: 1100px;" />
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
@@ -84,9 +84,10 @@ After flattening the multilevel linked list it becomes:</pre>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>Number of Nodes will not exceed 1000.</li>
-	<li><code>1 &lt;= Node.val &lt;= 10^5</code></li>
+	<li>The number of Nodes will not exceed <code>1000</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
+
 
 ## Solutions
 

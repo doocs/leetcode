@@ -5,27 +5,53 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>有 1000 只水桶，其中有且只有一桶装的含有毒药，其余装的都是水。它们从外观看起来都一样。如果小猪喝了毒药，它会在 15 分钟内死去。</p>
 
-<p>问题来了，如果需要你在一小时内，弄清楚哪只水桶含有毒药，你最少需要多少只猪？</p>
+<p>有<code> buckets</code> 桶液体，其中 <strong>正好</strong> 有一桶含有毒药，其余装的都是水。它们从外观看起来都一样。为了弄清楚哪只水桶含有毒药，你可以喂一些猪喝，通过观察猪是否会死进行判断。不幸的是，你只有 <code>minutesToTest</code> 分钟时间来确定哪桶液体是有毒的。</p>
 
-<p>回答这个问题，并为下列的进阶问题编写一个通用算法。</p>
+<p>喂猪的规则如下：</p>
 
-<p>&nbsp;</p>
+<ol>
+	<li>选择若干活猪进行喂养</li>
+	<li>可以允许小猪同时饮用任意数量的桶中的水，并且该过程不需要时间。</li>
+	<li>小猪喝完水后，必须有 <code>minutesToDie</code> 分钟的冷却时间。在这段时间里，你只能观察，而不允许继续喂猪。</li>
+	<li>过了 <code>minutesToDie</code> 分钟后，所有喝到毒药的猪都会死去，其他所有猪都会活下来。</li>
+	<li>重复这一过程，直到时间用完。</li>
+</ol>
 
-<p><strong>进阶: </strong></p>
+<p>给你桶的数目 <code>buckets</code> ，<code>minutesToDie</code> 和 <code>minutesToTest</code> ，返回在规定时间内判断哪个桶有毒所需的 <strong>最小</strong> 猪数。</p>
 
-<p>假设有 <code>n</code> 只水桶，猪饮水中毒后会在 <code>m</code> 分钟内死亡，你需要多少猪（<code>x</code>）就能在 <code>p</code> 分钟内找出 &ldquo;<strong>有毒</strong>&rdquo; 水桶？这&nbsp;<code>n</code> 只水桶里有且仅有一只有毒的桶。</p>
+<p> </p>
 
-<p>&nbsp;</p>
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>buckets = 1000, minutesToDie = 15, minutesToTest = 60
+<strong>输出：</strong>5
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>buckets = 4, minutesToDie = 15, minutesToTest = 15
+<strong>输出：</strong>2
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>buckets = 4, minutesToDie = 15, minutesToTest = 30
+<strong>输出：</strong>2
+</pre>
+
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>可以允许小猪同时饮用任意数量的桶中的水，并且该过程不需要时间。</li>
-	<li>小猪喝完水后，必须有 <em>m</em> 分钟的<strong>冷却时间</strong>。在这段时间里，只允许观察，而不允许继续饮水。</li>
-	<li>任何给定的桶都可以无限次采样（无限数量的猪）。</li>
-</ol>
+<ul>
+	<li><code>1 <= buckets <= 1000</code></li>
+	<li><code>1 <= minutesToDie <= minutesToTest <= 100</code></li>
+</ul>
+
 
 ## 解法
 

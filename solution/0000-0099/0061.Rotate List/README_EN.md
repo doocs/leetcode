@@ -4,41 +4,32 @@
 
 ## Description
 
-<p>Given a linked&nbsp;list, rotate the list to the right by <em>k</em> places, where <em>k</em> is non-negative.</p>
+<p>Given the <code>head</code> of a linked&nbsp;list, rotate the list to the right by <code>k</code> places.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/rotate1.jpg" style="width: 600px; height: 254px;" />
 <pre>
-
-<strong>Input:</strong> 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2
-
-<strong>Output:</strong> 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL
-
-<strong>Explanation:</strong>
-
-rotate 1 steps to the right: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL
-
-rotate 2 steps to the right: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL
-
+<strong>Input:</strong> head = [1,2,3,4,5], k = 2
+<strong>Output:</strong> [4,5,1,2,3]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/roate2.jpg" style="width: 472px; height: 542px;" />
 <pre>
+<strong>Input:</strong> head = [0,1,2], k = 4
+<strong>Output:</strong> [2,0,1]
+</pre>
 
-<strong>Input:</strong> 0-&gt;1-&gt;2-&gt;NULL, k = 4
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output:</strong> <code>2-&gt;0-&gt;1-&gt;NULL</code>
+<ul>
+	<li>The number of nodes in the list is in the range <code>[0, 500]</code>.</li>
+	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
+	<li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
+</ul>
 
-<strong>Explanation:</strong>
-
-rotate 1 steps to the right: 2-&gt;0-&gt;1-&gt;NULL
-
-rotate 2 steps to the right: 1-&gt;2-&gt;0-&gt;NULL
-
-rotate 3 steps to the right:&nbsp;<code>0-&gt;1-&gt;2-&gt;NULL</code>
-
-rotate 4 steps to the right:&nbsp;<code>2-&gt;0-&gt;1-&gt;NULL</code></pre>
 
 ## Solutions
 

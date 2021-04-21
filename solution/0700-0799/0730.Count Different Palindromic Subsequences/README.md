@@ -1,13 +1,14 @@
-# [730. 统计不同回文子字符串](https://leetcode-cn.com/problems/count-different-palindromic-subsequences)
+# [730. 统计不同回文子序列](https://leetcode-cn.com/problems/count-different-palindromic-subsequences)
 
 [English Version](/solution/0700-0799/0730.Count%20Different%20Palindromic%20Subsequences/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个字符串 S，找出 S 中不同的非空回文子序列个数，并<strong>返回该数字与 <code>10^9 + 7 </code>的模。</strong></p>
 
-<p>通过从 S 中删除 0 个或多个字符来获得子字符序列。</p>
+<p>通过从 S 中删除 0 个或多个字符来获得子序列。</p>
 
 <p>如果一个字符序列与它反转后的字符序列一致，那么它是回文字符序列。</p>
 
@@ -31,7 +32,7 @@ S = &#39;bccb&#39;
 S = &#39;abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba&#39;
 <strong>输出：</strong>104860361
 <strong>解释：</strong>
-共有 3104860382 个不同的非空回文子字符序列，对 10^9 + 7 取模为 104860361。
+共有 3104860382 个不同的非空回文子序列，对 10^9 + 7 取模为 104860361。
 </pre>
 
 <p>&nbsp;</p>
@@ -44,6 +45,7 @@ S = &#39;abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba&#39;
 </ul>
 
 <p>&nbsp;</p>
+
 
 ## 解法
 

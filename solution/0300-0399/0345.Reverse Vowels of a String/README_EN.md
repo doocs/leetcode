@@ -4,35 +4,26 @@
 
 ## Description
 
-<p>Write a function that takes a string as input and reverse only the vowels of a string.</p>
+<p>Given a string <code>s</code>, reverse only all the vowels in the string and return it.</p>
 
-<p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-1-1">&quot;hello&quot;</span>
-
-<strong>Output: </strong><span id="example-output-1">&quot;holle&quot;</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-2-1">&quot;leetcode&quot;</span>
-
-<strong>Output: </strong><span id="example-output-2">&quot;leotcede&quot;</span></pre>
-
-</div>
-
-<p><b>Note:</b><br />
-
-The vowels does not include the letter &quot;y&quot;.</p>
+<p>The vowels are <code>&#39;a&#39;</code>, <code>&#39;e&#39;</code>, <code>&#39;i&#39;</code>, <code>&#39;o&#39;</code>, and <code>&#39;u&#39;</code>, and they can appear in both cases.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "hello"
+<strong>Output:</strong> "holle"
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "leetcode"
+<strong>Output:</strong> "leotcede"
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code></li>
+	<li><code>s</code> consist of <strong>printable ASCII</strong> characters.</li>
+</ul>
+
 
 ## Solutions
 

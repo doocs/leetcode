@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个<code>points</code>&nbsp;数组，表示 2D 平面上的一些点，其中&nbsp;<code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;。</p>
 
 <p>连接点&nbsp;<code>[x<sub>i</sub>, y<sub>i</sub>]</code> 和点&nbsp;<code>[x<sub>j</sub>, y<sub>j</sub>]</code>&nbsp;的费用为它们之间的 <strong>曼哈顿距离</strong>&nbsp;：<code>|x<sub>i</sub> - x<sub>j</sub>| + |y<sub>i</sub> - y<sub>j</sub>|</code>&nbsp;，其中&nbsp;<code>|val|</code>&nbsp;表示&nbsp;<code>val</code>&nbsp;的绝对值。</p>
@@ -15,18 +16,16 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/d.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/d.png" style="height:268px; width:214px" /></p>
 
 <pre>
 <strong>输入：</strong>points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
 <strong>输出：</strong>20
 <strong>解释：
-</strong>
+</strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/c.png" style="height:268px; width:214px" />
 我们可以按照上图所示连接所有点得到最小总费用，总费用为 20 。
 注意到任意两个点之间只有唯一一条路径互相到达。
 </pre>
-
-![](./images/c.png)
 
 <p><strong>示例 2：</strong></p>
 
@@ -65,6 +64,7 @@
 	<li><code>-10<sup>6</sup>&nbsp;&lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 	<li>所有点&nbsp;<code>(x<sub>i</sub>, y<sub>i</sub>)</code>&nbsp;两两不同。</li>
 </ul>
+
 
 ## 解法
 

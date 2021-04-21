@@ -4,20 +4,30 @@
 
 ## Description
 
-<p>Implement the class <code>TweetCounts</code> that supports two methods:</p>
+<p>A social media company is trying to monitor activity on their site by analyzing the number of tweets that occur in select periods of time. These periods can be partitioned into smaller <strong>time chunks</strong> based on a certain frequency (every <strong>minute</strong>, <strong>hour</strong>, or <strong>day</strong>).</p>
 
-<p>1.<code> recordTweet(string tweetName, int time)</code></p>
+<p>For example, the period <code>[10, 10000]</code> (in <strong>seconds</strong>) would be partitioned into the following <strong>time chunks</strong> with these frequencies:</p>
 
 <ul>
-	<li>Stores the <code>tweetName</code> at the recorded <code>time</code> (in <strong>seconds</strong>).</li>
+	<li>Every <strong>minute</strong> (60-second chunks): <code>[10,69]</code>, <code>[70,129]</code>, <code>[130,189]</code>, <code>...</code>, <code>[9970,10000]</code></li>
+	<li>Every <strong>hour</strong> (3600-second chunks): <code>[10,3609]</code>, <code>[3610,7209]</code>, <code>[7210,10000]</code></li>
+	<li>Every <strong>day</strong> (86400-second chunks): <code>[10,10000]</code></li>
 </ul>
 
-<p>2.<code> getTweetCountsPerFrequency(string freq, string tweetName, int startTime, int endTime)</code></p>
+<p>Notice that the last chunk may be shorter than the specified frequency&#39;s chunk size and will always end with the end time of the period (<code>10000</code> in the above example).</p>
+
+<p>Design and implement an API to help the company with their analysis.</p>
+
+<p>Implement the <code>TweetCounts</code> class:</p>
 
 <ul>
-	<li>Returns the total number of occurrences for the given <code>tweetName</code> per <strong>minute</strong>, <strong>hour</strong>, or <strong>day</strong> (depending on <code>freq</code>) starting from the <code>startTime</code> (in <strong>seconds</strong>) and ending at the <code>endTime</code> (in <strong>seconds</strong>).</li>
-	<li><code>freq</code> is always <strong>minute</strong><em>, </em><strong>hour</strong><em>&nbsp;or <strong>day</strong></em>, representing the time interval to get the total number of occurrences for the given&nbsp;<code>tweetName</code>.</li>
-	<li>The first time interval always starts from the <code>startTime</code>, so the time intervals are <code>[startTime, startTime + delta*1&gt;, &nbsp;[startTime + delta*1, startTime + delta*2&gt;, [startTime + delta*2, startTime + delta*3&gt;, ... , [startTime + delta*i, <strong>min</strong>(startTime + delta*(i+1), endTime + 1)&gt;</code> for some non-negative number <code>i</code> and <code>delta</code> (which depends on <code>freq</code>).&nbsp;&nbsp;</li>
+	<li><code>TweetCounts()</code> Initializes the <code>TweetCounts</code> object.</li>
+	<li><code>void recordTweet(String tweetName, int time)</code> Stores the <code>tweetName</code> at the recorded <code>time</code> (in <strong>seconds</strong>).</li>
+	<li><code>List&lt;Integer&gt; getTweetCountsPerFrequency(String freq, String tweetName, int startTime, int endTime)</code> Returns a list of integers representing the number of tweets with <code>tweetName</code> in each <strong>time chunk</strong> for the given period of time <code>[startTime, endTime]</code> (in <strong>seconds</strong>) and frequency <code>freq</code>.
+	<ul>
+		<li><code>freq</code> is one of <code>&quot;minute&quot;</code>, <code>&quot;hour&quot;</code>, or <code>&quot;day&quot;</code> representing a frequency of every <strong>minute</strong>, <strong>hour</strong>, or <strong>day</strong> respectively.</li>
+	</ul>
+	</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -33,23 +43,24 @@
 
 <strong>Explanation</strong>
 TweetCounts tweetCounts = new TweetCounts();
-tweetCounts.recordTweet(&quot;tweet3&quot;, 0);
-tweetCounts.recordTweet(&quot;tweet3&quot;, 60);
-tweetCounts.recordTweet(&quot;tweet3&quot;, 10);                             // All tweets correspond to &quot;tweet3&quot; with recorded times at 0, 10 and 60.
-tweetCounts.getTweetCountsPerFrequency(&quot;minute&quot;, &quot;tweet3&quot;, 0, 59); // return [2]. The frequency is per minute (60 seconds), so there is one interval of time: 1) [0, 60&gt; - &gt; 2 tweets.
-tweetCounts.getTweetCountsPerFrequency(&quot;minute&quot;, &quot;tweet3&quot;, 0, 60); // return [2, 1]. The frequency is per minute (60 seconds), so there are two intervals of time: 1) [0, 60&gt; - &gt; 2 tweets, and 2) [60,61&gt; - &gt; 1 tweet.
-tweetCounts.recordTweet(&quot;tweet3&quot;, 120);                            // All tweets correspond to &quot;tweet3&quot; with recorded times at 0, 10, 60 and 120.
-tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 210);  // return [4]. The frequency is per hour (3600 seconds), so there is one interval of time: 1) [0, 211&gt; - &gt; 4 tweets.
+tweetCounts.recordTweet(&quot;tweet3&quot;, 0);                              // New tweet &quot;tweet3&quot; at time 0
+tweetCounts.recordTweet(&quot;tweet3&quot;, 60);                             // New tweet &quot;tweet3&quot; at time 60
+tweetCounts.recordTweet(&quot;tweet3&quot;, 10);                             // New tweet &quot;tweet3&quot; at time 10
+tweetCounts.getTweetCountsPerFrequency(&quot;minute&quot;, &quot;tweet3&quot;, 0, 59); // return [2]; chunk [0,59] had 2 tweets
+tweetCounts.getTweetCountsPerFrequency(&quot;minute&quot;, &quot;tweet3&quot;, 0, 60); // return [2,1]; chunk [0,59] had 2 tweets, chunk [60,60] had 1 tweet
+tweetCounts.recordTweet(&quot;tweet3&quot;, 120);                            // New tweet &quot;tweet3&quot; at time 120
+tweetCounts.getTweetCountsPerFrequency(&quot;hour&quot;, &quot;tweet3&quot;, 0, 210);  // return [4]; chunk [0,210] had 4 tweets
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>There will be at most <code>10000</code>&nbsp;operations considering both <code>recordTweet</code> and <code>getTweetCountsPerFrequency</code>.</li>
-	<li><code>0 &lt;= time, startTime, endTime &lt;=&nbsp;10^9</code></li>
-	<li><code>0 &lt;= endTime - startTime &lt;= 10^4</code></li>
+	<li><code>0 &lt;= time, startTime, endTime &lt;= 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= endTime - startTime &lt;= 10<sup>4</sup></code></li>
+	<li>There will be at most <code>10<sup>4</sup></code> calls <strong>in total</strong> to <code>recordTweet</code> and <code>getTweetCountsPerFrequency</code>.</li>
 </ul>
+
 
 ## Solutions
 

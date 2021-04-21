@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个二进制矩阵 <code>matrix</code> ，它的大小为 <code>m x n</code> ，你可以将 <code>matrix</code> 中的 <strong>列</strong> 按任意顺序重新排列。</p>
 
 <p>请你返回最优方案下将 <code>matrix</code> 重新排列后，全是 <code>1</code> 的子矩阵面积。</p>
@@ -13,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/screenshot-2020-12-30-at-40536-pm.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/17/screenshot-2020-12-30-at-40536-pm.png" style="width: 300px; height: 144px;" /></strong></p>
 
 <pre>
 <b>输入：</b>matrix = [[0,0,1],[1,1,1],[1,0,1]]
@@ -24,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/screenshot-2020-12-30-at-40852-pm.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/17/screenshot-2020-12-30-at-40852-pm.png" style="width: 500px; height: 62px;" /></p>
 
 <pre>
 <b>输入：</b>matrix = [[1,0,1,0,1]]
@@ -57,6 +58,7 @@
 	<li><code>1 <= m * n <= 10<sup>5</sup></code></li>
 	<li><code>matrix[i][j]</code> 要么是 <code>0</code> ，要么是 <code>1</code> 。</li>
 </ul>
+
 
 ## 解法
 

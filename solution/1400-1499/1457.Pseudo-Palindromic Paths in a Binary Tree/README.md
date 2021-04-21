@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一棵二叉树，每个节点的值为 1 到 9 。我们称二叉树中的一条路径是 「<strong>伪回文</strong>」的，当它满足：路径经过的所有节点值的排列中，存在一个回文序列。</p>
 
 <p>请你返回从根到叶子节点的所有路径中&nbsp;<strong>伪回文&nbsp;</strong>路径的数目。</p>
@@ -13,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/palindromic_paths_1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/23/palindromic_paths_1.png" style="height: 201px; width: 300px;"></p>
 
 <pre><strong>输入：</strong>root = [2,3,1,3,1,null,1]
 <strong>输出：</strong>2 
@@ -23,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/palindromic_paths_2.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/23/palindromic_paths_2.png" style="height: 314px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [2,1,1,1,3,null,null,null,null,null,1]
 <strong>输出：</strong>1 
@@ -45,6 +46,7 @@
 	<li>给定二叉树的节点数目在&nbsp;<code>1</code>&nbsp;到&nbsp;<code>10^5</code>&nbsp;之间。</li>
 	<li>节点值在&nbsp;<code>1</code> 到&nbsp;<code>9</code>&nbsp;之间。</li>
 </ul>
+
 
 ## 解法
 

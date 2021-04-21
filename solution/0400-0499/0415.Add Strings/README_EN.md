@@ -4,23 +4,42 @@
 
 ## Description
 
-<p>Given two non-negative integers <code>num1</code> and <code>num2</code> represented as string, return the sum of <code>num1</code> and <code>num2</code>.</p>
+<p>Given two non-negative integers, <code>num1</code> and <code>num2</code> represented as string, return <em>the sum of</em> <code>num1</code> <em>and</em> <code>num2</code> <em>as a string</em>.</p>
 
-<p><b>Note:</b>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
-<ol>
+<pre>
+<strong>Input:</strong> num1 = &quot;11&quot;, num2 = &quot;123&quot;
+<strong>Output:</strong> &quot;134&quot;
+</pre>
 
-<li>The length of both <code>num1</code> and <code>num2</code> is < 5100.</li>
+<p><strong>Example 2:</strong></p>
 
-<li>Both <code>num1</code> and <code>num2</code> contains only digits <code>0-9</code>.</li>
+<pre>
+<strong>Input:</strong> num1 = &quot;456&quot;, num2 = &quot;77&quot;
+<strong>Output:</strong> &quot;533&quot;
+</pre>
 
-<li>Both <code>num1</code> and <code>num2</code> does not contain any leading zero.</li>
+<p><strong>Example 3:</strong></p>
 
-<li>You <b>must not use any built-in BigInteger library</b> or <b>convert the inputs to integer</b> directly.</li>
+<pre>
+<strong>Input:</strong> num1 = &quot;0&quot;, num2 = &quot;0&quot;
+<strong>Output:</strong> &quot;0&quot;
+</pre>
 
-</ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
+<ul>
+	<li><code>1 &lt;= num1.length, num2.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>num1</code> and <code>num2</code> consist of only digits.</li>
+	<li><code>num1</code> and <code>num2</code> don&#39;t have any leading zeros except for the zero itself.</li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Could you solve it without using any built-in <code>BigInteger</code> library or converting the inputs to integer directly?</p>
+
 
 ## Solutions
 

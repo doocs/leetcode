@@ -17,9 +17,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/restricted_paths_ex1.png)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/03/07/restricted_paths_ex1.png" style="width: 351px; height: 341px;" />
 <pre>
 <strong>输入：</strong>n = 5, edges = [[1,2,3],[1,3,3],[2,3,1],[1,4,2],[5,2,2],[3,5,1],[5,4,10]]
 <strong>输出：</strong>3
@@ -30,9 +28,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
-![](./images/restricted_paths_ex22.png)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/03/07/restricted_paths_ex22.png" style="width: 356px; height: 401px;" />
 <pre>
 <strong>输入：</strong>n = 7, edges = [[1,3,1],[4,1,2],[7,3,4],[2,5,3],[5,6,1],[6,7,2],[7,5,3],[2,6,4]]
 <strong>输出：</strong>1
@@ -52,6 +48,7 @@
 	<li>任意两个节点之间至多存在一条边</li>
 	<li>任意两个节点之间至少存在一条路径</li>
 </ul>
+
 
 ## 解法
 

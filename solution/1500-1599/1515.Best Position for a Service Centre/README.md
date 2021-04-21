@@ -5,13 +5,14 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>一家快递公司希望在新城市建立新的服务中心。公司统计了该城市所有客户在二维地图上的坐标，并希望能够以此为依据为新的服务中心选址：使服务中心 <strong>到所有客户的欧几里得距离的总和最小</strong> 。</p>
 
 <p>给你一个数组 <code>positions</code> ，其中 <code>positions[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示第 <code>i</code> 个客户在二维地图上的位置，返回到所有客户的 <strong>欧几里得距离的最小总和 。</strong></p>
 
 <p>换句话说，请你为服务中心选址，该位置的坐标 <code>[x<sub>centre</sub>, y<sub>centre</sub>]</code> 需要使下面的公式取到最小值：</p>
 
-![](./images/q4_edited.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/12/q4_edited.jpg"></p>
 
 <p>与真实值误差在 <code>10^-5</code> 之内的答案将被视作正确答案。</p>
 
@@ -19,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/q4_e1.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/12/q4_e1.jpg" style="height: 362px; width: 377px;"></p>
 
 <pre><strong>输入：</strong>positions = [[0,1],[1,0],[1,2],[2,1]]
 <strong>输出：</strong>4.00000
@@ -28,7 +29,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/q4_e3.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/12/q4_e3.jpg" style="height: 419px; width: 419px;"></p>
 
 <pre><strong>输入：</strong>positions = [[1,1],[3,3]]
 <strong>输出：</strong>2.82843
@@ -66,6 +67,7 @@
 	<li><code>positions[i].length == 2</code></li>
 	<li><code>0 &lt;=&nbsp;positions[i][0],&nbsp;positions[i][1] &lt;= 100</code></li>
 </ul>
+
 
 ## 解法
 

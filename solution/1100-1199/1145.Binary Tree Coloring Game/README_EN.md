@@ -16,9 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/1480-binary-tree-coloring-game.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2019/08/01/1480-binary-tree-coloring-game.png" style="width: 300px; height: 186px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5,6,7,8,9,10,11], n = 11, x = 3
 <strong>Output:</strong> true
@@ -33,6 +31,7 @@
 	<li><code>n</code> is odd.</li>
 	<li><code>1 &lt;= x &lt;= n&nbsp;&lt;= 100</code></li>
 </ul>
+
 
 ## Solutions
 

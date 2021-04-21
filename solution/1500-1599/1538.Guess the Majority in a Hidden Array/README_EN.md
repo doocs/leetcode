@@ -8,6 +8,7 @@
 
 <ul>
 	<li><code>int query(int a, int b, int c, int d)</code>: where <code>0 &lt;= a &lt; b &lt; c &lt; d&nbsp;&lt;&nbsp;ArrayReader.length()</code>.&nbsp;The function returns the distribution of the value of the 4 elements and returns:
+
 	<ul>
 		<li><strong>4 </strong>: if the values of the 4 elements are the same (0 or 1).</li>
 		<li><strong>2</strong>&nbsp;: if three&nbsp;elements have a value&nbsp;equal to 0&nbsp;and one&nbsp;element has value equal to 1&nbsp;or vice versa.</li>

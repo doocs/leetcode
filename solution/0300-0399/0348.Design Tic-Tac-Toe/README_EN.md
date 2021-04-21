@@ -4,64 +4,84 @@
 
 ## Description
 
-<p>Design a Tic-tac-toe game that is played between two players on a <i>n</i> x <i>n</i> grid.
-</p>
+<p>Assume the following rules are for the tic-tac-toe game on an <code>n x n</code> board between two players:</p>
 
-<p>You may assume the following rules:
 <ol>
-<li>A move is guaranteed to be valid and is placed on an empty block.</li>
-<li>Once a winning condition is reached, no more moves is allowed.</li>
-<li>A player who succeeds in placing <i>n</i> of their marks in a horizontal, vertical, or diagonal row wins the game.</li>
+	<li>A move is guaranteed to be valid and is placed on an empty block.</li>
+	<li>Once a winning condition is reached, no more moves are allowed.</li>
+	<li>A player who succeeds in placing <code>n</code> of their marks in a horizontal, vertical, or diagonal row wins the game.</li>
 </ol>
-</p>
 
-<p><b>Example:</b><br />
-<pre>
-Given <i>n</i> = 3, assume that player 1 is "X" and player 2 is "O" in the board.
+<p>Implement the&nbsp;<code>TicTacToe</code> class:</p>
 
-TicTacToe toe = new TicTacToe(3);
-
-toe.move(0, 0, 1); -> Returns 0 (no one wins)
-|X| | |
-| | | | // Player 1 makes a move at (0, 0).
-| | | |
-
-toe.move(0, 2, 2); -> Returns 0 (no one wins)
-|X| |O|
-| | | | // Player 2 makes a move at (0, 2).
-| | | |
-
-toe.move(2, 2, 1); -> Returns 0 (no one wins)
-|X| |O|
-| | | | // Player 1 makes a move at (2, 2).
-| | |X|
-
-toe.move(1, 1, 2); -> Returns 0 (no one wins)
-|X| |O|
-| |O| | // Player 2 makes a move at (1, 1).
-| | |X|
-
-toe.move(2, 0, 1); -> Returns 0 (no one wins)
-|X| |O|
-| |O| | // Player 1 makes a move at (2, 0).
-|X| |X|
-
-toe.move(1, 0, 2); -> Returns 0 (no one wins)
-|X| |O|
-|O|O| | // Player 2 makes a move at (1, 0).
-|X| |X|
-
-toe.move(2, 1, 1); -> Returns 1 (player 1 wins)
-|X| |O|
-|O|O| | // Player 1 makes a move at (2, 1).
-|X|X|X|
-
-</pre>
-</p>
+<ul>
+	<li><code>TicTacToe(int n)</code> Initializes the object the size of the board <code>n</code>.</li>
+	<li><code>int move(int row, int col, int player)</code> Indicates that player with id <code>player</code> plays at the cell <code>(row, col)</code> of the board. The move is guaranteed to be a valid move.</li>
+</ul>
 
 <p><b>Follow up:</b><br />
-Could you do better than O(<i>n</i><sup>2</sup>) per <code>move()</code> operation?
-</p>
+Could you do better than <code>O(<i>n</i><sup>2</sup>)</code> per <code>move()</code> operation?</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input</strong>
+[&quot;TicTacToe&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;]
+[[3], [0, 0, 1], [0, 2, 2], [2, 2, 1], [1, 1, 2], [2, 0, 1], [1, 0, 2], [2, 1, 1]]
+<strong>Output</strong>
+[null, 0, 0, 0, 0, 0, 0, 1]
+
+<strong>Explanation</strong>
+TicTacToe ticTacToe = new TicTacToe(3);
+Assume that player 1 is &quot;X&quot; and player 2 is &quot;O&quot; in the board.
+ticTacToe.move(0, 0, 1); // return 0 (no one wins)
+|X| | |
+| | | |    // Player 1 makes a move at (0, 0).
+| | | |
+
+ticTacToe.move(0, 2, 2); // return 0 (no one wins)
+|X| |O|
+| | | |    // Player 2 makes a move at (0, 2).
+| | | |
+
+ticTacToe.move(2, 2, 1); // return 0 (no one wins)
+|X| |O|
+| | | |    // Player 1 makes a move at (2, 2).
+| | |X|
+
+ticTacToe.move(1, 1, 2); // return 0 (no one wins)
+|X| |O|
+| |O| |    // Player 2 makes a move at (1, 1).
+| | |X|
+
+ticTacToe.move(2, 0, 1); // return 0 (no one wins)
+|X| |O|
+| |O| |    // Player 1 makes a move at (2, 0).
+|X| |X|
+
+ticTacToe.move(1, 0, 2); // return 0 (no one wins)
+|X| |O|
+|O|O| |    // Player 2 makes a move at (1, 0).
+|X| |X|
+
+ticTacToe.move(2, 1, 1); // return 1&nbsp;(player 1 wins)
+|X| |O|
+|O|O| |    // Player 1 makes a move at (2, 1).
+|X|X|X|
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>2 &lt;= n &lt;= 100</code></li>
+	<li>player is <code>1</code> or <code>2</code>.</li>
+	<li><code>1 &lt;= row, col &lt;= n</code></li>
+	<li><code>(row, col)</code>&nbsp;are <strong>unique</strong> for each different call to <code>move</code>.</li>
+	<li>At most <code>n<sup>2</sup></code> calls will be made to <code>move</code>.</li>
+</ul>
+
 
 ## Solutions
 

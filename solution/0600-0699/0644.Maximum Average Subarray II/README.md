@@ -1,33 +1,47 @@
-# [644. 最大平均子段和 II](https://leetcode-cn.com/problems/maximum-average-subarray-ii)
+# [644. 子数组最大平均数 II](https://leetcode-cn.com/problems/maximum-average-subarray-ii)
 
 [English Version](/solution/0600-0699/0644.Maximum%20Average%20Subarray%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个包含 <code>n</code> 个整数的数组，找到最大平均值的连续子序列，且<strong>长度大于等于</strong> <code>k</code>。并输出这个最大平均值。</p>
 
-<p><strong>样例 1:</strong></p>
+<p>给你一个包含 <code>n</code> 个整数的数组 <code>nums</code> ，和一个整数 <code>k</code> 。</p>
 
-<pre><strong>输入:</strong> [1,12,-5,-6,50,3], k = 4
-<strong>输出:</strong> 12.75
-<strong>解释:</strong>
-当长度为 5 的时候，最大平均值是 10.8，
-当长度为 6 的时候，最大平均值是 9.16667。
-所以返回值是 12.75。
+<p>请你找出<strong> 长度大于等于</strong> <code>k</code> 且含最大平均值的连续子数组。并输出这个最大平均值。任何计算误差小于 <code>10<sup>-5</sup></code> 的结果都将被视为正确答案。</p>
+
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [1,12,-5,-6,50,3], k = 4
+<strong>输出：</strong>12.75000
+<strong>解释：
+</strong>- 当长度为 4 的时候，连续子数组平均值分别为 [0.5, 12.75, 10.5] ，其中最大平均值是 12.75 。
+- 当长度为 5 的时候，连续子数组平均值分别为 [10.4, 10.8] ，其中最大平均值是 10.8 。
+- 当长度为 6 的时候，连续子数组平均值分别为 [9.16667] ，其中最大平均值是 9.16667 。
+当取长度为 4 的子数组（即，子数组 [12, -5, -6, 50]）的时候，可以得到最大的连续子数组平均值 12.75 ，所以返回 12.75 。
+根据题目要求，无需考虑长度小于 4 的子数组。
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [5], k = 1
+<strong>输出：</strong>5.00000
 </pre>
 
 <p> </p>
 
-<p><strong>注释 :</strong></p>
+<p><strong>提示：</strong></p>
 
-<ol>
-	<li>1 <= <code>k</code> <= <code>n</code> <= 10,000。</li>
-	<li>数组中的元素范围是 [-10,000, 10,000]。</li>
-	<li>答案的计算误差小于 10<sup>-5</sup> 。</li>
-</ol>
+<ul>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 <= k <= n <= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup></code></li>
+</ul>
 
-<p> </p>
 
 ## 解法
 

@@ -1,15 +1,18 @@
-# [837. 新 21 点](https://leetcode-cn.com/problems/new-21-game)
+# [837. 新21点](https://leetcode-cn.com/problems/new-21-game)
 
 [English Version](/solution/0800-0899/0837.New%2021%20Game/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>爱丽丝参与一个大致基于纸牌游戏 &ldquo;21点&rdquo; 规则的游戏，描述如下：</p>
 
 <p>爱丽丝以 <code>0</code> 分开始，并在她的得分少于 <code>K</code> 分时抽取数字。 抽取时，她从 <code>[1, W]</code> 的范围中随机获得一个整数作为分数进行累计，其中 <code>W</code> 是整数。 每次抽取都是独立的，其结果具有相同的概率。</p>
 
 <p>当爱丽丝获得不少于 <code>K</code> 分时，她就停止抽取数字。 爱丽丝的分数不超过 <code>N</code> 的概率是多少？</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例</strong><strong> 1</strong><strong>：</strong></p>
 
@@ -29,6 +32,8 @@
 <pre><strong>输入：</strong>N = 21, K = 17, W = 10
 <strong>输出：</strong>0.73278</pre>
 
+<p>&nbsp;</p>
+
 <p><strong>提示：</strong></p>
 
 <ol>
@@ -37,6 +42,7 @@
 	<li>如果答案与正确答案的误差不超过 <code>10^-5</code>，则该答案将被视为正确答案通过。</li>
 	<li>此问题的判断限制时间已经减少。</li>
 </ol>
+
 
 ## 解法
 

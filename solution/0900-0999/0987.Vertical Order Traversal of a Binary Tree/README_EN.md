@@ -4,82 +4,59 @@
 
 ## Description
 
-<p>Given a binary tree, return the <em>vertical order</em> traversal of its nodes&nbsp;values.</p>
+<p>Given the <code>root</code> of a binary tree, calculate the <strong>vertical order traversal</strong> of the binary tree.</p>
 
-<p>For each node at position <code>(X, Y)</code>, its left and right children respectively&nbsp;will be at positions <code>(X-1, Y-1)</code> and <code>(X+1, Y-1)</code>.</p>
+<p>For each node at position <code>(row, col)</code>, its left and right children will be at positions <code>(row + 1, col - 1)</code> and <code>(row + 1, col + 1)</code> respectively. The root of the tree is at <code>(0, 0)</code>.</p>
 
-<p>Running a vertical line from <code>X = -infinity</code> to <code>X = +infinity</code>, whenever the vertical line touches some nodes, we report the values of the nodes in order from top to bottom (decreasing <code>Y</code> coordinates).</p>
+<p>The <strong>vertical order traversal</strong> of a binary tree is a list of top-to-bottom orderings for each column index starting from the leftmost column and ending on the rightmost column. There may be multiple nodes in the same row and same column. In such a case, sort these nodes by their values.</p>
 
-<p>If two nodes have the same position, then the value of the node that is reported first is the value that is smaller.</p>
-
-<p>Return an list&nbsp;of non-empty reports in order of <code>X</code> coordinate.&nbsp; Every report will have a list of values of nodes.</p>
+<p>Return <em>the <strong>vertical order traversal</strong> of the binary tree</em>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
-![](./images/1236_example_1.png)
-
-<div>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/29/vtree1.jpg" style="width: 431px; height: 304px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[3,9,20,null,null,15,7]</span>
-
-<strong>Output: </strong><span id="example-output-1">[[9],[3,15],[20],[7]]</span>
-
-<strong>Explanation: </strong>
-
-Without loss of generality, we can assume the root node is at position (0, 0):
-
-Then, the node with value 9 occurs at position (-1, -1);
-
-The nodes with values 3 and 15 occur at positions (0, 0) and (0, -2);
-
-The node with value 20 occurs at position (1, -1);
-
-The node with value 7 occurs at position (2, -2).
-
-</pre>
-
-<div>
+<strong>Input:</strong> root = [3,9,20,null,null,15,7]
+<strong>Output:</strong> [[9],[3,15],[20],[7]]
+<strong>Explanation:</strong>
+Column -1: Only node 9 is in this column.
+Column 0: Nodes 3 and 15 are in this column in that order from top to bottom.
+Column 1: Only node 20 is in this column.
+Column 2: Only node 7 is in this column.</pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/tree2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/29/vtree2.jpg" style="width: 512px; height: 304px;" />
 <pre>
+<strong>Input:</strong> root = [1,2,3,4,5,6,7]
+<strong>Output:</strong> [[4],[2],[1,5,6],[3],[7]]
+<strong>Explanation:</strong>
+Column -2: Only node 4 is in this column.
+Column -1: Only node 2 is in this column.
+Column 0: Nodes 1, 5, and 6 are in this column.
+          1 is at the top, so it comes first.
+          5 and 6 are at the same position (2, 0), so we order them by their value, 5 before 6.
+Column 1: Only node 3 is in this column.
+Column 2: Only node 7 is in this column.
+</pre>
 
-<strong>Input: </strong><span id="example-input-2-1">[1,2,3,4,5,6,7]</span>
-
-<strong>Output: </strong><span id="example-output-2">[[4],[2],[1,5,6],[3],[7]]</span>
-
-<strong>Explanation: </strong>
-
-The node with value 5 and the node with value 6 have the same position according to the given scheme.
-
-However, in the report &quot;[1,5,6]&quot;, the node value of 5 comes first since 5 is smaller than 6.
-
+<p><strong>Example 3:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/01/29/vtree3.jpg" style="width: 512px; height: 304px;" />
+<pre>
+<strong>Input:</strong> root = [1,2,3,4,6,5,7]
+<strong>Output:</strong> [[4],[2],[1,5,6],[3],[7]]
+<strong>Explanation:</strong>
+This case is the exact same as example 2, but with nodes 5 and 6 swapped.
+Note that the solution remains the same since 5 and 6 are in the same location and should be ordered by their values.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</div>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li>The tree will have between <font face="monospace">1</font>&nbsp;and <code>1000</code> nodes.</li>
-	<li>Each node&#39;s value will be between <code>0</code> and <code>1000</code>.</li>
-</ol>
-
-</div>
-
-<div>
-
-<div>&nbsp;</div>
-
-</div>
 
 ## Solutions
 

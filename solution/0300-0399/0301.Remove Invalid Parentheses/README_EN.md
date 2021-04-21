@@ -4,39 +4,41 @@
 
 ## Description
 
-<p>Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.</p>
+<p>Given a string <code>s</code> that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input string valid.</p>
 
-<p><strong>Note:</strong>&nbsp;The input string may contain letters other than the parentheses <code>(</code> and <code>)</code>.</p>
+<p>Return <em>all the possible results</em>. You may return the answer in <strong>any order</strong>.</p>
 
-<p><b>Example 1:</b></p>
-
-<pre>
-
-<b>Input:</b> &quot;()())()&quot;
-
-<b>Output:</b> [&quot;()()()&quot;, &quot;(())()&quot;]
-
-</pre>
-
-<p><b>Example 2:</b></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> &quot;(a)())()&quot;
-
-<b>Output:</b> [&quot;(a)()()&quot;, &quot;(a())()&quot;]
-
+<strong>Input:</strong> s = &quot;()())()&quot;
+<strong>Output:</strong> [&quot;(())()&quot;,&quot;()()()&quot;]
 </pre>
 
-<p><b>Example 3:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> &quot;)(&quot;
-
-<b>Output: </b>[&quot;&quot;]
-
+<strong>Input:</strong> s = &quot;(a)())()&quot;
+<strong>Output:</strong> [&quot;(a())()&quot;,&quot;(a)()()&quot;]
 </pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;)(&quot;
+<strong>Output:</strong> [&quot;&quot;]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 25</code></li>
+	<li><code>s</code> consists of lowercase English letters and parentheses <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>.</li>
+	<li>There will be at most <code>20</code> parentheses in <code>s</code>.</li>
+</ul>
+
 
 ## Solutions
 

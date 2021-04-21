@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个数组&nbsp;<code>candidates</code>&nbsp;和一个目标数&nbsp;<code>target</code>&nbsp;，找出&nbsp;<code>candidates</code>&nbsp;中所有可以使数字和为&nbsp;<code>target</code>&nbsp;的组合。</p>
 
 <p><code>candidates</code>&nbsp;中的每个数字在每个组合中只能使用一次。</p>
@@ -36,6 +37,7 @@
 &nbsp; [1,2,2],
 &nbsp; [5]
 ]</pre>
+
 
 ## 解法
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定两个字符串 <code>S</code> 和 <code>T</code>，每个字符串代表一个非负有理数，只有当它们表示相同的数字时才返回 <strong>true</strong>；否则，返回 <strong>false</strong>。字符串中可以使用括号来表示有理数的重复部分。</p>
 
 <p>通常，有理数最多可以用三个部分来表示：<em>整数部分</em>&nbsp;<code>&lt;IntegerPart&gt;</code>、<em>小数非重复部分</em>&nbsp;<code>&lt;NonRepeatingPart&gt;</code>&nbsp;和<em>小数重复部分</em>&nbsp;<code>&lt;(&gt;&lt;RepeatingPart&gt;&lt;)&gt;</code>。数字可以用以下三种方法之一来表示：</p>
@@ -55,6 +56,7 @@
 	<li><code>0 &lt;= &lt;NonRepeatingPart&gt;.length &lt;= 4 </code></li>
 	<li><code>1 &lt;= &lt;RepeatingPart&gt;.length &lt;= 4 </code></li>
 </ol>
+
 
 ## 解法
 

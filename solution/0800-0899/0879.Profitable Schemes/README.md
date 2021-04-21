@@ -5,47 +5,50 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>帮派里有 G 名成员，他们可能犯下各种各样的罪行。</p>
 
-<p>第&nbsp;<code>i</code>&nbsp;种犯罪会产生&nbsp;<code>profit[i]</code>&nbsp;的利润，它要求&nbsp;<code>group[i]</code>&nbsp;名成员共同参与。</p>
+<p>集团里有 <code>n</code> 名员工，他们可以完成各种各样的工作创造利润。</p>
 
-<p>让我们把这些犯罪的任何子集称为盈利计划，该计划至少产生&nbsp;<code>P</code> 的利润。</p>
+<p>第 <code>i</code> 种工作会产生 <code>profit[i]</code> 的利润，它要求 <code>group[i]</code> 名成员共同参与。如果成员参与了其中一项工作，就不能参与另一项工作。</p>
 
-<p>有多少种方案可以选择？因为答案很大，所以<strong>返回它模&nbsp;</strong><code>10^9 + 7</code><strong>&nbsp;的值</strong>。</p>
+<p>工作的任何至少产生 <code>minProfit</code> 利润的子集称为盈利计划。并且工作的成员总数最多为 <code>n</code> 。</p>
 
-<p>&nbsp;</p>
+<p>有多少种计划可以选择？因为答案很大，所以<strong> 返回结果模 </strong><code>10^9 + 7</code><strong> 的值</strong>。</p>
 
-<p><strong>示例&nbsp;1：</strong></p>
+<div class="original__bRMd">
+<div>
+<p> </p>
 
-<pre><strong>输入：</strong>G = 5, P = 3, group = [2,2], profit = [2,3]
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 5, minProfit = 3, group = [2,2], profit = [2,3]
 <strong>输出：</strong>2
-<strong>解释： </strong>
-至少产生 3 的利润，该帮派可以犯下罪 0 和罪 1 ，或仅犯下罪 1 。
-总的来说，有两种方案。
-</pre>
+<strong>解释：</strong>至少产生 3 的利润，该集团可以完成工作 0 和工作 1 ，或仅完成工作 1 。
+总的来说，有两种计划。</pre>
 
-<p><strong>示例&nbsp;2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>G = 10, P = 5, group = [2,3,5], profit = [6,7,8]
+<pre>
+<strong>输入：</strong>n = 10, minProfit = 5, group = [2,3,5], profit = [6,7,8]
 <strong>输出：</strong>7
-<strong>解释：</strong>
-至少产生 5 的利润，只要他们犯其中一种罪就行，所以该帮派可以犯下任何罪行 。
-有 7 种可能的计划：(0)，(1)，(2)，(0,1)，(0,2)，(1,2)，以及 (0,1,2) 。
-</pre>
+<strong>解释：</strong>至少产生 5 的利润，只要完成其中一种工作就行，所以该集团可以完成任何工作。
+有 7 种可能的计划：(0)，(1)，(2)，(0,1)，(0,2)，(1,2)，以及 (0,1,2) 。</pre>
+</div>
+</div>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= G &lt;= 100</code></li>
-	<li><code>0 &lt;= P &lt;= 100</code></li>
-	<li><code>1 &lt;= group[i] &lt;= 100</code></li>
-	<li><code>0 &lt;= profit[i] &lt;= 100</code></li>
-	<li><code>1 &lt;= group.length = profit.length &lt;= 100</code></li>
-</ol>
+<ul>
+	<li><code>1 <= n <= 100</code></li>
+	<li><code>0 <= minProfit <= 100</code></li>
+	<li><code>1 <= group.length <= 100</code></li>
+	<li><code>1 <= group[i] <= 100</code></li>
+	<li><code>profit.length == group.length</code></li>
+	<li><code>0 <= profit[i] <= 100</code></li>
+</ul>
 
-<p>&nbsp;</p>
 
 ## 解法
 

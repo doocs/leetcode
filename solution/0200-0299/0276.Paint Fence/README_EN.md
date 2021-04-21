@@ -4,31 +4,48 @@
 
 ## Description
 
-<p>There is a fence with n posts, each post can be painted with one of the k colors.</p>
+<p>You are painting a fence of <code>n</code> posts with <code>k</code> different colors. You must paint the posts following these rules:</p>
 
-<p>You have to paint all the posts such that no more than two adjacent fence posts have the same color.</p>
+<ul>
+	<li>Every post must be painted <strong>exactly one</strong> color.</li>
+	<li><strong>At most one pair</strong> of adjacent fence posts can have the same color.</li>
+</ul>
 
-<p>Return the total number of ways you can paint the fence.</p>
+<p>Given the two integers <code>n</code> and <code>k</code>, return <em>the <strong>number of ways</strong> you can paint the fence</em>.</p>
 
-<p><b>Note:</b><br />
-n and k are non-negative integers.</p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/28/paintfenceex1.png" style="width: 507px; height: 313px;" />
+<pre>
+<strong>Input:</strong> n = 3, k = 2
+<strong>Output:</strong> 6
+<strong>Explanation: </strong>All the possibilities are shown.
+Note that painting all the posts red or all the posts green is invalid because there can only be at most one pair of adjacent posts that are the same color.
+</pre>
 
-<p><b>Example:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-<b>Input:</b> n = 3, k = 2
-<b>Output:</b> 6
-<strong>Explanation: </strong>Take c1 as color 1, c2 as color 2. All possible ways are:
-
-            post1  post2  post3      
- -----      -----  -----  -----       
-   1         c1     c1     c2 
-   2         c1     c2     c1 
-   3         c1     c2     c2 
-   4         c2     c1     c1  
-   5         c2     c1     c2
-   6         c2     c2     c1
+<strong>Input:</strong> n = 1, k = 1
+<strong>Output:</strong> 1
 </pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 7, k = 2
+<strong>Output:</strong> 42
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 50</code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
+	<li>The answer is guaranteed to be in the range <code>[0, 2<sup>31</sup> - 1]</code> for the given <code>n</code> and <code>k</code>.</li>
+</ul>
+
 
 ## Solutions
 

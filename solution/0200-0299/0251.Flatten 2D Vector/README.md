@@ -5,11 +5,15 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>请设计并实现一个能够展开二维向量的迭代器。该迭代器需要支持 <code>next</code> 和 <code>hasNext</code> 两种操作。、</p>
+
+<p>请设计并实现一个能够展开二维向量的迭代器。该迭代器需要支持 <code>next</code> 和 <code>hasNext</code> 两种操作。</p>
+
+<p> </p>
 
 <p><strong>示例：</strong></p>
 
-<pre>Vector2D iterator = new Vector2D([[1,2],[3],[4]]);
+<pre>
+Vector2D iterator = new Vector2D([[1,2],[3],[4]]);
 
 iterator.next(); // 返回 1
 iterator.next(); // 返回 2
@@ -31,9 +35,8 @@ iterator.hasNext(); // 返回 false
 
 <p> </p>
 
-<p><strong>进阶：</strong></p>
+<p><strong>进阶：</strong>尝试在代码中仅使用 <a href="http://www.cplusplus.com/reference/iterator/iterator/">C++ 提供的迭代器</a> 或 <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html">Java 提供的迭代器</a>。</p>
 
-<p>尝试在代码中仅使用 <a href="http://www.cplusplus.com/reference/iterator/iterator/">C++ 提供的迭代器</a> 或 <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html">Java 提供的迭代器</a>。</p>
 
 ## 解法
 

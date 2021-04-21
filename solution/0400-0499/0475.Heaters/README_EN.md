@@ -4,50 +4,46 @@
 
 ## Description
 
-<p>Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.</p>
+<p>Winter is coming! During the contest, your first job is to design a standard heater with a fixed warm radius to warm all the houses.</p>
 
-<p>Now, you are given positions of houses and heaters on a horizontal line, find out minimum radius of heaters so that all houses could be covered by those heaters.</p>
+<p>Every house can be warmed, as long as the house is within the heater&#39;s warm radius range.&nbsp;</p>
 
-<p>So, your input will be the positions of houses and heaters seperately, and your expected output will be the minimum radius standard of heaters.</p>
+<p>Given the positions of <code>houses</code> and <code>heaters</code> on a horizontal line, return <em>the minimum radius standard of heaters&nbsp;so that those heaters could cover all houses.</em></p>
 
-<p><b>Note:</b></p>
-
-<ol>
-    <li>Numbers of houses and heaters you are given are non-negative and will not exceed 25000.</li>
-    <li>Positions of houses and heaters you are given are non-negative and will not exceed 10^9.</li>
-    <li>As long as a house is in the heaters&#39; warm radius range, it can be warmed.</li>
-    <li>All the heaters follow your radius standard and the warm radius will the same.</li>
-</ol>
+<p><strong>Notice</strong> that&nbsp;all the <code>heaters</code> follow your radius standard, and the warm radius will the same.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 1:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> houses = [1,2,3], heaters = [2]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.
+</pre>
 
-<b>Input:</b> [1,2,3],[2]
+<p><strong>Example 2:</strong></p>
 
-<b>Output:</b> 1
+<pre>
+<strong>Input:</strong> houses = [1,2,3,4], heaters = [1,4]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.
+</pre>
 
-<b>Explanation:</b> The only heater was placed in the position 2, and if we use the radius 1 standard, then all the houses can be warmed.
+<p><strong>Example 3:</strong></p>
 
+<pre>
+<strong>Input:</strong> houses = [1,5], heaters = [2]
+<strong>Output:</strong> 3
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li><code>1 &lt;= houses.length, heaters.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= houses[i], heaters[i] &lt;= 10<sup>9</sup></code></li>
+</ul>
 
-<pre>
-
-<b>Input:</b> [1,2,3,4],[1,4]
-
-<b>Output:</b> 1
-
-<b>Explanation:</b> The two heater was placed in the position 1 and 4. We need to use radius 1 standard, then all the houses can be warmed.
-
-</pre>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

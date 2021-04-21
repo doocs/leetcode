@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>一只猫和一只老鼠在玩一个叫做猫和老鼠的游戏。</p>
 
 <p>它们所处的环境设定是一个 <code>rows x cols</code> 的方格 <code>grid</code> ，其中每个格子可能是一堵墙、一块地板、一位玩家（猫或者老鼠）或者食物。</p>
@@ -42,7 +43,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_111_1955.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/17/sample_111_1955.png" style="width: 580px; height: 239px;" /></strong></p>
 
 <pre>
 <b>输入：</b>grid = ["####F","#C...","M...."], catJump = 1, mouseJump = 2
@@ -52,7 +53,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1955.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/17/sample_2_1955.png" style="width: 580px; height: 175px;" /></p>
 
 <pre>
 <b>输入：</b>grid = ["M.C...F"], catJump = 1, mouseJump = 4
@@ -92,6 +93,7 @@
 	<li><code>grid</code> 中只包含一个 <code>'C'</code> ，<code>'M'</code> 和 <code>'F'</code> 。</li>
 	<li><code>1 <= catJump, mouseJump <= 8</code></li>
 </ul>
+
 
 ## 解法
 

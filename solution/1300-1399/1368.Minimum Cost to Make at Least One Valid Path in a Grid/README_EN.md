@@ -5,7 +5,6 @@
 ## Description
 
 Given a <em>m</em> x <em>n</em> <code>grid</code>. Each cell of the <code>grid</code> has a sign pointing to the next cell you should visit if you are currently in this cell. The sign of <code>grid[i][j]</code> can be:
-
 <ul>
 	<li><strong>1</strong> which means go to the cell to the right. (i.e go from <code>grid[i][j]</code> to <code>grid[i][j + 1]</code>)</li>
 	<li><strong>2</strong> which means go to the cell to the left. (i.e go from <code>grid[i][j]</code> to <code>grid[i][j - 1]</code>)</li>
@@ -23,9 +22,7 @@ Given a <em>m</em> x <em>n</em> <code>grid</code>. Each cell of the <code>grid</
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/grid1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/02/13/grid1.png" style="width: 542px; height: 528px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,1,1],[2,2,2,2],[1,1,1,1],[2,2,2,2]]
 <strong>Output:</strong> 3
@@ -35,9 +32,7 @@ The total cost = 3.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/grid2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/02/13/grid2.png" style="width: 419px; height: 408px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,3],[3,2,2],[1,1,4]]
 <strong>Output:</strong> 0
@@ -45,9 +40,7 @@ The total cost = 3.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/grid3.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/02/13/grid3.png" style="width: 314px; height: 302px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,2],[4,3]]
 <strong>Output:</strong> 1
@@ -75,6 +68,7 @@ The total cost = 3.
 	<li><code>n == grid[i].length</code></li>
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 </ul>
+
 
 ## Solutions
 

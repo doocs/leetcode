@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定在 xy 平面上的一组点，确定由这些点组成的任何矩形的最小面积，其中矩形的边<strong>不一定平行于</strong> x 轴和 y 轴。</p>
 
 <p>如果没有任何矩形，就返回 0。</p>
@@ -13,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/1a.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/22/1a.png" style="height: 151px; width: 150px;"></strong></p>
 
 <pre><strong>输入：</strong>[[1,2],[2,1],[1,0],[0,1]]
 <strong>输出：</strong>2.00000
@@ -21,7 +22,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/2.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/23/2.png" style="height: 94px; width: 150px;"></p>
 
 <pre><strong>输入：</strong>[[0,1],[2,1],[1,1],[1,0],[2,0]]
 <strong>输出：</strong>1.00000
@@ -30,7 +31,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/3.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/23/3.png" style="height: 94px; width: 150px;"></p>
 
 <pre><strong>输入：</strong>[[0,3],[1,2],[3,1],[1,3],[2,1]]
 <strong>输出：</strong>0
@@ -39,7 +40,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-![](./images/4c.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/21/4c.png" style="height: 155px; width: 160px;"></strong></p>
 
 <pre><strong>输入：</strong>[[3,1],[1,1],[0,1],[2,1],[3,3],[3,2],[0,2],[2,3]]
 <strong>输出：</strong>2.00000
@@ -57,6 +58,7 @@
 	<li>所有的点都是不同的。</li>
 	<li>与真实值误差不超过 <code>10^-5</code>&nbsp;的答案将视为正确结果。</li>
 </ol>
+
 
 ## 解法
 

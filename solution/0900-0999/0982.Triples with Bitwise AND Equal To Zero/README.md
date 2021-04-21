@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个整数数组&nbsp;<code>A</code>，找出索引为 (i, j, k) 的三元组，使得：</p>
 
 <ul>
@@ -43,6 +44,7 @@
 	<li><code>1 &lt;= A.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= A[i] &lt; 2^16</code></li>
 </ol>
+
 
 ## 解法
 

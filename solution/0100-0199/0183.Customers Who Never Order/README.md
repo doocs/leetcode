@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>某网站包含两个表，<code>Customers</code> 表和 <code>Orders</code> 表。编写一个 SQL 查询，找出所有从不订购任何东西的客户。</p>
 
 <p><code>Customers</code> 表：</p>
@@ -38,6 +39,7 @@
 | Max       |
 +-----------+
 </pre>
+
 
 ## 解法
 

@@ -4,21 +4,41 @@
 
 ## Description
 
-<p>An image is represented by a binary matrix with <code>0</code> as a white pixel and <code>1</code> as a black pixel. The black pixels are connected, i.e., there is only one black region. Pixels are connected horizontally and vertically. Given the location <code>(x, y)</code> of one of the black pixels, return the area of the smallest (axis-aligned) rectangle that encloses all black pixels.</p>
+<p>You are given an <code>image</code> that is represented by a binary matrix with <code>0</code> as a white pixel and <code>1</code> as a black pixel.</p>
 
-<p><strong>Example:</strong></p>
+<p>The black pixels are connected (i.e., there is only one black region). Pixels are connected horizontally and vertically.</p>
 
+<p>Given two integers <code>x</code> and <code>y</code> that represent the location of one of the black pixels, return <em>the area of the smallest (axis-aligned) rectangle that encloses all black pixels</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/pixel-grid.jpg" style="width: 333px; height: 253px;" />
 <pre>
-<strong>Input:</strong>
-[
-  "0010",
-  "0110",
-  "0100"
-]
-and <code>x = 0<font face="sans-serif, Arial, Verdana, Trebuchet MS">, </font></code><code>y = 2</code>
-
+<strong>Input:</strong> image = [[&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;],[&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;],[&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;]], x = 0, y = 2
 <strong>Output:</strong> 6
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> image = [[&quot;1&quot;]], x = 0, y = 0
+<strong>Output:</strong> 1
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>m == image.length</code></li>
+	<li><code>n == image[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>image[i][j]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
+	<li><code>1 &lt;= x &lt; m</code></li>
+	<li><code>1 &lt;= y &lt; n</code></li>
+	<li><code>image[x][y] == &#39;1&#39;.</code></li>
+	<li>The black pixels in the <code>image</code> only form <strong>one component</strong>.</li>
+</ul>
+
 
 ## Solutions
 

@@ -10,7 +10,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-![](./images/p3.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/09/24/p3.png" style="width: 241px; height: 161px;"></p>
 
 <pre><strong>输入:</strong> root = [1,2,3,null,4,5,6], u = 4
 <strong>输出:</strong> 5
@@ -19,7 +19,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-![](./images/p2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/23/p2.png" style="width: 101px; height: 161px;"></strong></p>
 
 <pre><strong>输入:</strong> root = [3,null,4,2], u = 2
 <strong>输出:</strong> null

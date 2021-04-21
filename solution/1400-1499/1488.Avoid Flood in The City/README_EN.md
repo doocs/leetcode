@@ -81,9 +81,10 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= rains.length &lt;= 10^5</code></li>
-	<li><code>0 &lt;= rains[i] &lt;= 10^9</code></li>
+	<li><code>1 &lt;= rains.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= rains[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
 
 ## Solutions
 

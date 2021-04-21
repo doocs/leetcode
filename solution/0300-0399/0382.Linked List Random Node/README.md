@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个单链表，随机选择链表的一个节点，并返回相应的节点值。保证每个节点<strong>被选的概率一样</strong>。</p>
 
 <p><strong>进阶:</strong><br />
@@ -22,6 +23,7 @@ Solution solution = new Solution(head);
 // getRandom()方法应随机返回1,2,3中的一个，保证每个元素被返回的概率相等。
 solution.getRandom();
 </pre>
+
 
 ## 解法
 

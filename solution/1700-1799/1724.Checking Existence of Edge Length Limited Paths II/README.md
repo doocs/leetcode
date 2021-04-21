@@ -19,7 +19,7 @@
 
 <p><b>示例 1:</b></p>
 
-![](./images/messed.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/05/messed.png" style="width: 300px; height: 298px;"></strong></p>
 
 <pre><b>输入：</b>
 ["DistanceLimitedPathsExist", "query", "query", "query", "query"]

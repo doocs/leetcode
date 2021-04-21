@@ -4,50 +4,47 @@
 
 ## Description
 
-<p>Given an array <code>nums</code>&nbsp;sorted in ascending order, return <code>true</code> if and only if you can split it into 1 or more subsequences such that each subsequence consists of consecutive integers&nbsp;and has length at least 3.</p>
+<p>Given an integer array <code>nums</code> that is <strong>sorted in ascending order</strong>, return <code>true</code> if and only if you can split it into <strong>one or more</strong> subsequences such that each subsequence consists of consecutive integers and has a length of at least <code>3</code>.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 1:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<b>Input:</b> [1,2,3,3,4,5]
-<b>Output:</b> True
+<strong>Input:</strong> nums = [1,2,3,3,4,5]
+<strong>Output:</strong> true
 <b>Explanation:</b>
 You can split them into two consecutive subsequences : 
 1, 2, 3
 3, 4, 5
-
 </pre>
 
-<p><b>Example 2:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-<b>Input:</b> [1,2,3,3,4,4,5,5]
-<b>Output:</b> True
+<strong>Input:</strong> nums = [1,2,3,3,4,4,5,5]
+<strong>Output:</strong> true
 <b>Explanation:</b>
 You can split them into two consecutive subsequences : 
 1, 2, 3, 4, 5
 3, 4, 5
-
 </pre>
 
-<p><b>Example 3:</b></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
-<b>Input:</b> [1,2,3,4,4,5]
-<b>Output:</b> False
+<strong>Input:</strong> nums = [1,2,3,4,4,5]
+<strong>Output:</strong> false
 </pre>
 
 <p>&nbsp;</p>
-
-<p><b>Constraints:</b></p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10000</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
+	<li><code>nums</code> is sorted in an <strong>ascending</strong> order.</li>
 </ul>
 
-<p>&nbsp;</p>
 
 ## Solutions
 

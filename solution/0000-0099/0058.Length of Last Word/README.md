@@ -5,19 +5,36 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个仅包含大小写字母和空格&nbsp;<code>&#39; &#39;</code>&nbsp;的字符串 <code>s</code>，返回其最后一个单词的长度。如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。</p>
 
-<p>如果不存在最后一个单词，请返回 0&nbsp;。</p>
+<p>给你一个字符串 <code>s</code>，由若干单词组成，单词之间用空格隔开。返回字符串中最后一个单词的长度。如果不存在最后一个单词，请返回 0 。</p>
 
-<p><strong>说明：</strong>一个单词是指仅由字母组成、不包含任何空格字符的 <strong>最大子字符串</strong>。</p>
+<p><strong>单词</strong> 是指仅由字母组成、不包含任何空格字符的最大子字符串。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><strong>示例:</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> &quot;Hello World&quot;
-<strong>输出:</strong> 5
+<pre>
+<strong>输入：</strong>s = "Hello World"
+<strong>输出：</strong>5
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = " "
+<strong>输出：</strong>0
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= s.length <= 10<sup>4</sup></code></li>
+	<li><code>s</code> 仅有英文字母和空格 <code>' '</code> 组成</li>
+</ul>
+
 
 ## 解法
 

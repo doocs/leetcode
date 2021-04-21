@@ -1,10 +1,11 @@
-# [692. 前 K 个高频单词](https://leetcode-cn.com/problems/top-k-frequent-words)
+# [692. 前K个高频单词](https://leetcode-cn.com/problems/top-k-frequent-words)
 
 [English Version](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给一非空的单词列表，返回前&nbsp;<em>k&nbsp;</em>个出现次数最多的单词。</p>
 
 <p>返回的答案应该按单词出现频率由高到低排序。如果不同的单词有相同出现频率，按字母顺序排序。</p>
@@ -45,6 +46,7 @@
 <ol>
 	<li>尝试以&nbsp;<em>O</em>(<em>n</em> log <em>k</em>) 时间复杂度和&nbsp;<em>O</em>(<em>n</em>) 空间复杂度解决。</li>
 </ol>
+
 
 ## 解法
 

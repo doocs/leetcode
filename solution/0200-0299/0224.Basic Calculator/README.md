@@ -5,32 +5,42 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>实现一个基本的计算器来计算一个简单的字符串表达式的值。</p>
 
-<p>字符串表达式可以包含左括号&nbsp;<code>(</code>&nbsp;，右括号&nbsp;<code>)</code>，加号&nbsp;<code>+</code>&nbsp;，减号&nbsp;<code>-</code>，<strong>非负</strong>整数和空格&nbsp;<code>&nbsp;</code>。</p>
+<p>给你一个字符串表达式 <code>s</code> ，请你实现一个基本计算器来计算并返回它的值。</p>
 
-<p><strong>示例 1:</strong></p>
+<p> </p>
 
-<pre><strong>输入:</strong> &quot;1 + 1&quot;
-<strong>输出:</strong> 2
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "1 + 1"
+<strong>输出：</strong>2
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> &quot; 2-1 + 2 &quot;
-<strong>输出:</strong> 3</pre>
+<pre>
+<strong>输入：</strong>s = " 2-1 + 2 "
+<strong>输出：</strong>3
+</pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong>示例 3：</strong></p>
 
-<pre><strong>输入:</strong> &quot;(1+(4+5+2)-3)+(6+8)&quot;
-<strong>输出:</strong> 23</pre>
+<pre>
+<strong>输入：</strong>s = "(1+(4+5+2)-3)+(6+8)"
+<strong>输出：</strong>23
+</pre>
 
-<p><strong>说明：</strong></p>
+<p> </p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>你可以假设所给定的表达式都是有效的。</li>
-	<li>请<strong>不要</strong>使用内置的库函数 <code>eval</code>。</li>
+	<li><code>1 <= s.length <= 3 * 10<sup>5</sup></code></li>
+	<li><code>s</code> 由数字、<code>'+'</code>、<code>'-'</code>、<code>'('</code>、<code>')'</code>、和 <code>' '</code> 组成</li>
+	<li><code>s</code> 表示一个有效的表达式</li>
 </ul>
+
 
 ## 解法
 

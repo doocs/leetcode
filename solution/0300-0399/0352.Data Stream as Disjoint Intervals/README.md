@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个非负整数的数据流输入 a<sub>1</sub>，a<sub>2</sub>，&hellip;，a<sub>n，</sub>&hellip;，将到目前为止看到的数字总结为不相交的区间列表。</p>
 
 <p>例如，假设数据流中的整数为 1，3，7，2，6，&hellip;，每次的总结为：</p>
@@ -23,6 +24,7 @@
 
 <p><strong>提示：</strong><br>
 特别感谢 <a href="https://discuss.leetcode.com/user/yunhong">@yunhong</a> 提供了本问题和其测试用例。</p>
+
 
 ## 解法
 

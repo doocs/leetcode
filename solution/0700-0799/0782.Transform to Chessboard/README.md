@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>一个 N&nbsp;x N的 <code>board</code>&nbsp;仅由&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;组成&nbsp;。每次移动，你能任意交换两列或是两行的位置。</p>
 
 <p>输出将这个矩阵变为 &ldquo;棋盘&rdquo; 所需的最小移动次数。&ldquo;棋盘&rdquo; 是指任意一格的上下左右四个方向的值均与本身不同的矩阵。如果不存在可行的变换，输出 -1。</p>
@@ -48,6 +49,7 @@
 	<li><code>board</code>&nbsp;是方阵，且行列数的范围是<code>[2, 30]</code>。</li>
 	<li><code>board[i][j]</code>&nbsp;将只包含&nbsp;<code>0</code>或&nbsp;<code>1</code>。</li>
 </ul>
+
 
 ## 解法
 

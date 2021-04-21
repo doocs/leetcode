@@ -5,28 +5,47 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>将非负整数转换为其对应的英文表示。可以保证给定输入小于&nbsp;2<sup>31</sup> - 1 。</p>
 
-<p><strong>示例 1:</strong></p>
+<p>将非负整数 <code>num</code> 转换为其对应的英文表示。</p>
 
-<pre><strong>输入:</strong> 123
-<strong>输出:</strong> &quot;One Hundred Twenty Three&quot;
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>num = 123
+<strong>输出：</strong>"One Hundred Twenty Three"
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> 12345
-<strong>输出:</strong> &quot;Twelve Thousand Three Hundred Forty Five&quot;</pre>
+<pre>
+<strong>输入：</strong>num = 12345
+<strong>输出：</strong>"Twelve Thousand Three Hundred Forty Five"
+</pre>
 
-<p><strong>示例 3:</strong></p>
+<p><strong>示例 3：</strong></p>
 
-<pre><strong>输入:</strong> 1234567
-<strong>输出:</strong> &quot;One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven&quot;</pre>
+<pre>
+<strong>输入：</strong>num = 1234567
+<strong>输出：</strong>"One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven"
+</pre>
 
-<p><strong>示例 4:</strong></p>
+<p><strong>示例 4：</strong></p>
 
-<pre><strong>输入:</strong> 1234567891
-<strong>输出:</strong> &quot;One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One&quot;</pre>
+<pre>
+<strong>输入：</strong>num = 1234567891
+<strong>输出：</strong>"One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One"
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>0 <= num <= 2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## 解法
 

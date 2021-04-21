@@ -1,43 +1,62 @@
-# [865. 具有所有最深结点的最小子树](https://leetcode-cn.com/problems/smallest-subtree-with-all-the-deepest-nodes)
+# [865. 具有所有最深节点的最小子树](https://leetcode-cn.com/problems/smallest-subtree-with-all-the-deepest-nodes)
 
 [English Version](/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个根为&nbsp;<code>root</code>&nbsp;的二叉树，每个结点的<em>深度</em>是它到根的最短距离。</p>
 
-<p>如果一个结点在<strong>整个树</strong>的任意结点之间具有最大的深度，则该结点是<em>最深的</em>。</p>
+<p>给定一个根为 <code>root</code> 的二叉树，每个节点的深度是 <strong>该节点到根的最短距离</strong> 。</p>
 
-<p>一个结点的子树是该结点加上它的所有后代的集合。</p>
+<p>如果一个节点在 <strong>整个树 </strong>的任意节点之间具有最大的深度，则该节点是 <strong>最深的</strong> 。</p>
 
-<p>返回能满足&ldquo;以该结点为根的子树中包含所有最深的结点&rdquo;这一条件的具有最大深度的结点。</p>
+<p>一个节点的 <strong>子树</strong> 是该节点加上它的所有后代的集合。</p>
 
-<p>&nbsp;</p>
+<p>返回能满足 <strong>以该节点为根的子树中包含所有最深的节点</strong> 这一条件的具有最大深度的节点。</p>
 
-<p><strong>示例：</strong></p>
+<p> </p>
 
-![](./images/sketch1.png)
+<p><strong>注意：</strong>本题与力扣 1123 重复：<a href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-deepest-leaves/" target="_blank">https://leetcode-cn.com/problems/lowest-common-ancestor-of-deepest-leaves/</a></p>
 
-<pre><strong>输入：</strong>[3,5,1,6,2,0,8,null,null,7,4]
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<p><img alt="" height="475" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/01/sketch1.png" width="560" /></p>
+
+<pre>
+<strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4]
 <strong>输出：</strong>[2,7,4]
 <strong>解释：</strong>
-
-我们返回值为 2 的结点，在图中用黄色标记。
-在图中用蓝色标记的是树的最深的结点。
-输入 &quot;[3, 5, 1, 6, 2, 0, 8, null, null, 7, 4]&quot; 是对给定的树的序列化表述。
-输出 &quot;[2, 7, 4]&quot; 是对根结点的值为 2 的子树的序列化表述。
-输入和输出都具有 TreeNode 类型。
+我们返回值为 2 的节点，在图中用黄色标记。
+在图中用蓝色标记的是树的最深的节点。
+注意，节点 5、3 和 2 包含树中最深的节点，但节点 2 的子树最小，因此我们返回它。
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>root = [1]
+<strong>输出：</strong>[1]
+<strong>解释：</strong>根节点是树中最深的节点。</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>root = [0,1,3,null,2]
+<strong>输出：</strong>[2]
+<strong>解释：</strong>树中最深的节点为 2 ，有效子树为节点 2、1 和 0 的子树，但节点 2 的子树最小。</pre>
+
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>树中结点的数量介于&nbsp;1 和&nbsp;500 之间。</li>
-	<li>每个结点的值都是独一无二的。</li>
+	<li>树中节点的数量介于 1 和 500 之间。</li>
+	<li><code>0 <= Node.val <= 500</code></li>
+	<li>每个节点的值都是独一无二的。</li>
 </ul>
+
 
 ## 解法
 

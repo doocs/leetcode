@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>两个玩家分别扮演猫（Cat）和老鼠（Mouse）在<strong>无向</strong>图上进行游戏，他们轮流行动。</p>
 
 <p>该图按下述规则给出：<code>graph[a]</code>&nbsp;是所有结点 <code>b</code> 的列表，使得 <code>ab</code> 是图的一条边。</p>
@@ -51,6 +52,7 @@
 	<li>保证 <code>graph[1]</code>&nbsp;非空。</li>
 	<li>保证&nbsp;<code>graph[2]</code>&nbsp;包含非零元素。</li>
 </ol>
+
 
 ## 解法
 

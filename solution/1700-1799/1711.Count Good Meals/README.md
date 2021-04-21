@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p><strong>大餐</strong> 是指 <strong>恰好包含两道不同餐品</strong> 的一餐，其美味程度之和等于 2 的幂。</p>
 
 <p>你可以搭配 <strong>任意</strong> 两道餐品做一顿大餐。</p>
@@ -39,6 +40,7 @@
 	<li><code>1 <= deliciousness.length <= 10<sup>5</sup></code></li>
 	<li><code>0 <= deliciousness[i] <= 2<sup>20</sup></code></li>
 </ul>
+
 
 ## 解法
 

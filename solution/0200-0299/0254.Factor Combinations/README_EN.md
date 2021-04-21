@@ -4,60 +4,37 @@
 
 ## Description
 
-<p>Numbers can be regarded as product of its factors. For example,</p>
+<p>Numbers can be regarded as the product of their factors.</p>
 
-<pre>
-8 = 2 x 2 x 2;
-  = 2 x 4.
-</pre>
+<ul>
+	<li>For example, <code>8 = 2 x 2 x 2 = 2 x 4</code>.</li>
+</ul>
 
-<p>Write a function that takes an integer <i>n</i> and return all possible combinations of its factors.</p>
+<p>Given an integer <code>n</code>, return <em>all possible combinations of its factors</em>. You may return the answer in <strong>any order</strong>.</p>
 
-<p><b>Note:</b></p>
+<p><strong>Note</strong> that the factors should be in the range <code>[2, n - 1]</code>.</p>
 
-<ol>
-	<li>You may assume that <i>n</i> is always positive.</li>
-	<li>Factors should be greater than 1 and less than <i>n</i>.</li>
-</ol>
-
-<p><b>Example 1: </b></p>
-
-<pre>
-<strong>Input:</strong> <code>1</code>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> n = 1
 <strong>Output:</strong> []
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> n = 12
+<strong>Output:</strong> [[2,6],[3,4],[2,2,3]]
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> n = 37
+<strong>Output:</strong> []
+</pre><p><strong>Example 4:</strong></p>
+<pre><strong>Input:</strong> n = 32
+<strong>Output:</strong> [[2,16],[4,8],[2,2,8],[2,4,4],[2,2,2,4],[2,2,2,2,2]]
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2: </b></p>
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
+</ul>
 
-<pre>
-<strong>Input:</strong> <code>37</code>
-<strong>Output:</strong>[]</pre>
-
-<p><b>Example 3: </b></p>
-
-<pre>
-<strong>Input:</strong> <code>12</code>
-<strong>Output:</strong>
-[
-  [2, 6],
-  [2, 2, 3],
-  [3, 4]
-]</pre>
-
-<p><b>Example 4: </b></p>
-
-<pre>
-<strong>Input:</strong> <code>32</code>
-<strong>Output:</strong>
-[
-  [2, 16],
-  [2, 2, 8],
-  [2, 2, 2, 4],
-  [2, 2, 2, 2, 2],
-  [2, 4, 4],
-  [4, 8]
-]
-</pre>
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串 <code>s</code> ，如果可以将它分割成三个 <strong>非空</strong> 回文子字符串，那么返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
 
 <p>当一个字符串正着读和反着读是一模一样的，就称其为 <strong>回文字符串</strong> 。</p>
@@ -35,6 +36,7 @@
 	<li><code>3 <= s.length <= 2000</code></li>
 	<li><code>s</code>​​​​​​ 只包含小写英文字母。</li>
 </ul>
+
 
 ## 解法
 

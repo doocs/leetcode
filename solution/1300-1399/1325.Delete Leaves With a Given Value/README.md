@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一棵以&nbsp;<code>root</code>&nbsp;为根的二叉树和一个整数&nbsp;<code>target</code>&nbsp;，请你删除所有值为&nbsp;<code>target</code> 的&nbsp;<strong>叶子节点</strong> 。</p>
 
 <p>注意，一旦删除值为&nbsp;<code>target</code>&nbsp;的叶子节点，它的父节点就可能变成叶子节点；如果新叶子节点的值恰好也是&nbsp;<code>target</code> ，那么这个节点也应该被删除。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_1_1684.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/16/sample_1_1684.png" style="height: 120px; width: 550px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,2,null,2,4], target = 2
 <strong>输出：</strong>[1,null,3,null,4]
@@ -26,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_2_1684.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/16/sample_2_1684.png" style="height: 120px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,3,3,3,2], target = 3
 <strong>输出：</strong>[1,3,null,null,2]
@@ -34,7 +35,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/sample_3_1684.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/16/sample_3_1684.png" style="width: 450px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,null,2,null,2], target = 2
 <strong>输出：</strong>[1]
@@ -61,6 +62,7 @@
 	<li>每一棵树最多有 <code>3000</code> 个节点。</li>
 	<li>每一个节点值的范围是&nbsp;<code>[1, 1000]</code>&nbsp;。</li>
 </ul>
+
 
 ## 解法
 

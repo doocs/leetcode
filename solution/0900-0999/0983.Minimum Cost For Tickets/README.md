@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在一个火车旅行很受欢迎的国度，你提前一年计划了一些火车旅行。在接下来的一年里，你要旅行的日子将以一个名为&nbsp;<code>days</code>&nbsp;的数组给出。每一项是一个从&nbsp;<code>1</code>&nbsp;到&nbsp;<code>365</code>&nbsp;的整数。</p>
 
 <p>火车票有三种不同的销售方式：</p>
@@ -55,6 +56,7 @@
 	<li><code>costs.length == 3</code></li>
 	<li><code>1 &lt;= costs[i] &lt;= 1000</code></li>
 </ol>
+
 
 ## 解法
 

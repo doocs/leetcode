@@ -52,6 +52,7 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 	<li>There are no leading or trailing spaces.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

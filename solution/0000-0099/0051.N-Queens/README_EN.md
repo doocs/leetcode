@@ -4,45 +4,35 @@
 
 ## Description
 
-<p>The <em>n</em>-queens puzzle is the problem of placing <em>n</em> queens on an <em>n</em>&times;<em>n</em> chessboard such that no two queens attack each other.</p>
+<p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.</p>
 
-![](./images/8-queens.png)
+<p>Given an integer <code>n</code>, return <em>all distinct solutions to the <strong>n-queens puzzle</strong></em>.</p>
 
-<p>Given an integer <em>n</em>, return all distinct solutions to the <em>n</em>-queens puzzle.</p>
+<p>Each solution contains a distinct board configuration of the n-queens&#39; placement, where <code>&#39;Q&#39;</code> and <code>&#39;.&#39;</code> both indicate a queen and an empty space, respectively.</p>
 
-<p>Each solution contains a distinct board configuration of the <em>n</em>-queens&#39; placement, where <code>&#39;Q&#39;</code> and <code>&#39;.&#39;</code> both indicate a queen and an empty space respectively.</p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg" style="width: 600px; height: 268px;" />
+<pre>
+<strong>Input:</strong> n = 4
+<strong>Output:</strong> [[&quot;.Q..&quot;,&quot;...Q&quot;,&quot;Q...&quot;,&quot;..Q.&quot;],[&quot;..Q.&quot;,&quot;Q...&quot;,&quot;...Q&quot;,&quot;.Q..&quot;]]
+<strong>Explanation:</strong> There exist two distinct solutions to the 4-queens puzzle as shown above
+</pre>
 
-<p><strong>Example:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> 4
-
-<strong>Output:</strong> [
-
- [&quot;.Q..&quot;,  // Solution 1
-
-  &quot;...Q&quot;,
-
-  &quot;Q...&quot;,
-
-  &quot;..Q.&quot;],
-
-
-
- [&quot;..Q.&quot;,  // Solution 2
-
-  &quot;Q...&quot;,
-
-  &quot;...Q&quot;,
-
-  &quot;.Q..&quot;]
-
-]
-
-<strong>Explanation:</strong> There exist two distinct solutions to the 4-queens puzzle as shown above.
-
+<strong>Input:</strong> n = 1
+<strong>Output:</strong> [[&quot;Q&quot;]]
 </pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 9</code></li>
+</ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有 <code>N</code> 堆石头排成一排，第 <code>i</code> 堆中有&nbsp;<code>stones[i]</code>&nbsp;块石头。</p>
 
 <p>每次<em>移动（move）</em>需要将<strong>连续的</strong>&nbsp;<code>K</code>&nbsp;堆石头合并为一堆，而这个移动的成本为这&nbsp;<code>K</code>&nbsp;堆石头的总数。</p>
@@ -52,6 +53,7 @@
 	<li><code>2 &lt;= K &lt;= 30</code></li>
 	<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
 </ul>
+
 
 ## 解法
 

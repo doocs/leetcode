@@ -4,27 +4,42 @@
 
 ## Description
 
-<p>Given a <strong>sorted</strong> list of disjoint <code>intervals</code>, each interval <code>intervals[i] = [a, b]</code> represents the set of real numbers <code>x</code> such that <code>a <= x < b</code>.</p>
+<p>A set of real numbers can be represented as the union of several disjoint intervals, where each interval is in the form <code>[a, b)</code>. A real number <code>x</code> is in the set if one of its intervals <code>[a, b)</code> contains <code>x</code> (i.e. <code>a &lt;= x &lt; b</code>).</p>
 
-<p>We remove the intersections between any interval in <code>intervals</code> and the interval <code>toBeRemoved</code>.</p>
+<p>You are given a <strong>sorted</strong> list of disjoint intervals <code>intervals</code> representing a set of real numbers as described above, where <code>intervals[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> represents the interval <code>[a<sub>i</sub>, b<sub>i</sub>)</code>. You are also given another interval <code>toBeRemoved</code>.</p>
 
-<p>Return a <strong>sorted</strong> list of <code>intervals</code> after all such removals.</p>
+<p>Return <em>the set of real numbers with the interval </em><code>toBeRemoved</code><em> <strong>removed</strong> from</em><em> </em><code>intervals</code><em>. In other words, return the set of real numbers such that every </em><code>x</code><em> in the set is in </em><code>intervals</code><em> but <strong>not</strong> in </em><code>toBeRemoved</code><em>. Your answer should be a <strong>sorted</strong> list of disjoint intervals as described above.</em></p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> intervals = [[0,2],[3,4],[5,7]], toBeRemoved = [1,6]
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/removeintervalex1.png" style="width: 510px; height: 319px;" />
+<pre>
+<strong>Input:</strong> intervals = [[0,2],[3,4],[5,7]], toBeRemoved = [1,6]
 <strong>Output:</strong> [[0,1],[6,7]]
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> intervals = [[0,5]], toBeRemoved = [2,3]
+</pre>
+
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/removeintervalex2.png" style="width: 410px; height: 318px;" />
+<pre>
+<strong>Input:</strong> intervals = [[0,5]], toBeRemoved = [2,3]
 <strong>Output:</strong> [[0,2],[3,5]]
 </pre>
-<p> </p>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> intervals = [[-5,-4],[-3,-2],[1,2],[3,5],[8,9]], toBeRemoved = [-1,4]
+<strong>Output:</strong> [[-5,-4],[-3,-2],[4,5],[8,9]]
+</pre>
+
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= intervals.length <= 10^4</code></li>
-	<li><code>-10^9 <= intervals[i][0] < intervals[i][1] <= 10^9</code></li>
+	<li><code>1 &lt;= intervals.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= a<sub>i</sub> &lt; b<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
+
 
 ## Solutions
 

@@ -44,6 +44,7 @@ For items 3 and 4 you will not receive any discount at all.
 	<li><code>1 &lt;= prices[i] &lt;= 10^3</code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

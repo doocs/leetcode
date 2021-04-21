@@ -6,17 +6,17 @@
 
 <p>Given an initial array <code>arr</code>, every day you produce a new array using the array of the previous day.</p>
 
-<p>On the <code>i</code>-th day, you do the following operations on the array of day <code>i-1</code> to produce the array of day <code>i</code>:</p>
+<p>On the <code>i</code>-th day, you do the following operations on the array of day&nbsp;<code>i-1</code>&nbsp;to produce the array of day <code>i</code>:</p>
 
 <ol>
 	<li>If an element is smaller than both its left neighbor and its right neighbor, then this element is incremented.</li>
 	<li>If an element is bigger than both its left neighbor and its right neighbor, then this element is decremented.</li>
-	<li>The first and last elements never change.</li>
+	<li>The first&nbsp;and last elements never change.</li>
 </ol>
 
 <p>After some days, the array does not change. Return that final array.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -38,13 +38,14 @@ On the second day, the array is changed from [1,5,4,3,4,5] to [1,4,4,4,4,5].
 No more operations can be done to this array.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= arr.length <= 100</code></li>
-	<li><code>1 <= arr[i] <= 100</code></li>
+	<li><code>3 &lt;= arr.length &lt;= 100</code></li>
+	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
+
 
 ## Solutions
 

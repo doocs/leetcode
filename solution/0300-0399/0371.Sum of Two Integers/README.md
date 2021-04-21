@@ -5,7 +5,8 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p><strong>不使用</strong>运算符&nbsp;<code>+</code> 和&nbsp;<code>-</code>&nbsp;，计算两整数&nbsp;<code>a</code>&nbsp;、<code>b</code>&nbsp;之和。</p>
+
+<p><strong>不使用</strong>运算符&nbsp;<code>+</code> 和&nbsp;<code>-</code>&nbsp;​​​​​​​，计算两整数&nbsp;​​​​​​​<code>a</code>&nbsp;、<code>b</code>&nbsp;​​​​​​​之和。</p>
 
 <p><strong>示例 1:</strong></p>
 
@@ -17,6 +18,7 @@
 
 <pre><strong>输入: </strong>a = -2, b = 3
 <strong>输出: </strong>1</pre>
+
 
 ## 解法
 

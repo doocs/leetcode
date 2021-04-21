@@ -6,9 +6,7 @@
 
 <p>Given an array of integers <code>nums</code> and an integer <code>target</code>.</p>
 
-<p>Return the number of <strong>non-empty</strong> subsequences of <code>nums</code> such that the sum of the minimum and maximum element on it is less or equal than <code>target</code>.</p>
-
-<p>Since the answer&nbsp;may be too large,&nbsp;return it modulo&nbsp;10^9 + 7.</p>
+<p>Return the number of <strong>non-empty</strong> subsequences of <code>nums</code> such that the sum of the minimum and maximum element on it is less or equal to&nbsp;<code>target</code>. Since the answer&nbsp;may be too large,&nbsp;return it modulo&nbsp;<code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -51,10 +49,11 @@ Number of valid subsequences (63 - 2 = 61).
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
-	<li><code>1 &lt;= nums[i] &lt;= 10^6</code></li>
-	<li><code>1 &lt;= target &lt;= 10^6</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
+	<li><code>1 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;表示某所大学里课程的数目，编号为&nbsp;<code>1</code>&nbsp;到&nbsp;<code>n</code>&nbsp;，数组&nbsp;<code>dependencies</code>&nbsp;中，&nbsp;<code>dependencies[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp; 表示一个先修课的关系，也就是课程&nbsp;<code>x<sub>i</sub></code>&nbsp;必须在课程&nbsp;<code>y<sub>i</sub></code><sub>&nbsp;</sub>之前上。同时你还有一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
 <p>在一个学期中，你 <strong>最多</strong>&nbsp;可以同时上 <code>k</code>&nbsp;门课，前提是这些课的先修课在之前的学期里已经上过了。</p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/leetcode_parallel_courses_1.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/27/leetcode_parallel_courses_1.png" style="height: 164px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, dependencies = [[2,1],[3,1],[1,4]], k = 2
 <strong>输出：</strong>3 
@@ -24,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/leetcode_parallel_courses_2.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/27/leetcode_parallel_courses_2.png" style="height: 234px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 5, dependencies = [[2,1],[3,1],[4,1],[1,5]], k = 2
 <strong>输出：</strong>4 
@@ -51,6 +52,7 @@
 	<li>所有先修关系都是不同的，也就是说&nbsp;<code>dependencies[i] != dependencies[j]</code>&nbsp;。</li>
 	<li>题目输入的图是个有向无环图。</li>
 </ul>
+
 
 ## 解法
 

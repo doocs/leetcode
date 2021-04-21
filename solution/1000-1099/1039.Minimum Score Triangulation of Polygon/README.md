@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定&nbsp;<code>N</code>，想象一个凸&nbsp;<code>N</code>&nbsp;边多边形，其顶点按顺时针顺序依次标记为&nbsp;<code>A[0], A[i], ..., A[N-1]</code>。</p>
 
 <p>假设您将多边形剖分为 <code>N-2</code> 个三角形。对于每个三角形，该三角形的值是顶点标记的<strong>乘积</strong>，三角剖分的分数是进行三角剖分后所有 <code>N-2</code> 个三角形的值之和。</p>
@@ -24,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/minimum-score-triangulation-of-polygon-1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/05/03/minimum-score-triangulation-of-polygon-1.png" style="height: 150px; width: 253px;"></p>
 
 <pre><strong>输入：</strong>[3,7,4,5]
 <strong>输出：</strong>144
@@ -46,6 +47,7 @@
 	<li><code>3 &lt;= A.length &lt;= 50</code></li>
 	<li><code>1 &lt;= A[i] &lt;= 100</code></li>
 </ol>
+
 
 ## 解法
 

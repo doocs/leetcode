@@ -4,33 +4,44 @@
 
 ## Description
 
-<p>There are a number of spherical balloons spread in two-dimensional space. For each balloon, provided input is the start and end coordinates of the horizontal diameter. Since it&#39;s horizontal, y-coordinates don&#39;t matter and hence the x-coordinates of start and end of the diameter suffice. Start is always smaller than end. There will be at most 10<sup>4</sup> balloons.</p>
+<p>There are some spherical balloons spread in two-dimensional space. For each balloon, provided input is the start and end coordinates of the horizontal diameter. Since it&#39;s horizontal, y-coordinates don&#39;t matter, and hence the x-coordinates of start and end of the diameter suffice. The start is always smaller than the end.</p>
 
-<p>An arrow can be shot up exactly vertically from different points along the x-axis. A balloon with x<sub>start</sub> and x<sub>end</sub> bursts by an arrow shot at x if x<sub>start</sub> &le; x &le; x<sub>end</sub>. There is no limit to the number of arrows that can be shot. An arrow once shot keeps travelling up infinitely. The problem is to find the minimum number of arrows that must be shot to burst all balloons.</p>
+<p>An arrow can be shot up exactly vertically from different points along the x-axis. A balloon with <code>x<sub>start</sub></code> and <code>x<sub>end</sub></code> bursts by an arrow shot at <code>x</code> if <code>x<sub>start</sub> &le; x &le; x<sub>end</sub></code>. There is no limit to the number of arrows that can be shot. An arrow once shot keeps traveling up infinitely.</p>
 
-<p><b>Example:</b></p>
+<p>Given an array <code>points</code> where <code>points[i] = [x<sub>start</sub>, x<sub>end</sub>]</code>, return <em>the minimum number of arrows that must be shot to burst all balloons</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> points = [[10,16],[2,8],[1,6],[7,12]]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> One way is to shoot one arrow for example at x = 6 (bursting the balloons [2,8] and [1,6]) and another arrow at x = 11 (bursting the other two balloons).
+</pre>
 
-<b>Input:</b>
+<p><strong>Example 2:</strong></p>
 
-[[10,16], [2,8], [1,6], [7,12]]
+<pre>
+<strong>Input:</strong> points = [[1,2],[3,4],[5,6],[7,8]]
+<strong>Output:</strong> 4
+</pre>
 
+<p><strong>Example 3:</strong></p>
 
-
-<b>Output:</b>
-
-2
-
-
-
-<b>Explanation:</b>
-
-One way is to shoot one arrow for example at x = 6 (bursting the balloons [2,8] and [1,6]) and another arrow at x = 11 (bursting the other two balloons).
-
+<pre>
+<strong>Input:</strong> points = [[1,2],[2,3],[3,4],[4,5]]
+<strong>Output:</strong> 2
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>0 &lt;= points.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>points[i].length == 2</code></li>
+	<li><code>-2<sup>31</sup> &lt;= x<sub>start</sub> &lt; x<sub>end</sub> &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## Solutions
 

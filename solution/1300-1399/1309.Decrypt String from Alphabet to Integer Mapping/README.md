@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串&nbsp;<code>s</code>，它由数字（<code>&#39;0&#39;</code> - <code>&#39;9&#39;</code>）和&nbsp;<code>&#39;#&#39;</code>&nbsp;组成。我们希望按下述规则将&nbsp;<code>s</code>&nbsp;映射为一些小写英文字符：</p>
 
 <ul>
@@ -52,6 +53,7 @@
 	<li><code>s[i]</code> 只包含数字（<code>&#39;0&#39;</code>-<code>&#39;9&#39;</code>）和&nbsp;<code>&#39;#&#39;</code>&nbsp;字符。</li>
 	<li><code>s</code>&nbsp;是映射始终存在的有效字符串。</li>
 </ul>
+
 
 ## 解法
 

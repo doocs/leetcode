@@ -5,25 +5,52 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个整数数组 &nbsp;<em>nums</em>，求出数组从索引&nbsp;<em>i&nbsp;</em>到&nbsp;<em>j&nbsp;&nbsp;</em>(<em>i</em>&nbsp;&le;&nbsp;<em>j</em>) 范围内元素的总和，包含&nbsp;<em>i,&nbsp; j&nbsp;</em>两点。</p>
 
-<p><em>update(i, val)</em> 函数可以通过将下标为&nbsp;<em>i&nbsp;</em>的数值更新为&nbsp;<em>val</em>，从而对数列进行修改。</p>
+<p>给你一个数组 <code>nums</code> ，请你完成两类查询，其中一类查询要求更新数组下标对应的值，另一类查询要求返回数组中某个范围内元素的总和。</p>
 
-<p><strong>示例:</strong></p>
+<p>实现 <code>NumArray</code> 类：</p>
 
-<pre>Given nums = [1, 3, 5]
+<div class="original__bRMd">
+<div>
+<ul>
+	<li><code>NumArray(int[] nums)</code> 用整数数组 <code>nums</code> 初始化对象</li>
+	<li><code>void update(int index, int val)</code> 将 <code>nums[index]</code> 的值更新为 <code>val</code></li>
+	<li><code>int sumRange(int left, int right)</code> 返回子数组 <code>nums[left, right]</code> 的总和（即，<code>nums[left] + nums[left + 1], ..., nums[right]</code>）</li>
+</ul>
 
-sumRange(0, 2) -&gt; 9
-update(1, 2)
-sumRange(0, 2) -&gt; 8
+<p> </p>
+
+<p><strong>示例：</strong></p>
+
+<pre>
+<strong>输入</strong>：
+["NumArray", "sumRange", "update", "sumRange"]
+[[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
+<strong>输出</strong>：
+[null, 9, null, 8]
+
+<strong>解释</strong>：
+NumArray numArray = new NumArray([1, 3, 5]);
+numArray.sumRange(0, 2); // 返回 9 ，sum([1,3,5]) = 9
+numArray.update(1, 2);   // nums = [1,2,5]
+numArray.sumRange(0, 2); // 返回 8 ，sum([1,2,5]) = 8
 </pre>
 
-<p><strong>说明:</strong></p>
+<p> </p>
 
-<ol>
-	<li>数组仅可以在&nbsp;<em>update&nbsp;</em>函数下进行修改。</li>
-	<li>你可以假设 <em>update</em> 函数与 <em>sumRange</em> 函数的调用次数是均匀分布的。</li>
-</ol>
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= nums.length <= 3 * 10<sup>4</sup></code></li>
+	<li><code>-100 <= nums[i] <= 100</code></li>
+	<li><code>0 <= index < nums.length</code></li>
+	<li><code>-100 <= val <= 100</code></li>
+	<li><code>0 <= left <= right < nums.length</code></li>
+	<li>最多调用 <code>3 * 10<sup>4</sup></code> 次 <code>update</code> 和 <code>sumRange</code> 方法</li>
+</ul>
+</div>
+</div>
+
 
 ## 解法
 

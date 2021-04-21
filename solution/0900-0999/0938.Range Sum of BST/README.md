@@ -5,32 +5,36 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定二叉搜索树的根结点&nbsp;<code>root</code>，返回 <code>L</code> 和 <code>R</code>（含）之间的所有结点的值的和。</p>
 
-<p>二叉搜索树保证具有唯一的值。</p>
+<p>给定二叉搜索树的根结点 <code>root</code>，返回值位于范围 <em><code>[low, high]</code></em> 之间的所有结点的值的和。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-<pre><strong>输入：</strong>root = [10,5,15,3,7,null,18], L = 7, R = 15
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/bst1.jpg" style="width: 400px; height: 222px;" />
+<pre>
+<strong>输入：</strong>root = [10,5,15,3,7,null,18], low = 7, high = 15
 <strong>输出：</strong>32
 </pre>
 
-<p><strong>示例&nbsp;2：</strong></p>
-
-<pre><strong>输入：</strong>root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/bst2.jpg" style="width: 400px; height: 335px;" />
+<pre>
+<strong>输入：</strong>root = [10,5,15,3,7,13,18,1,null,6], low = 6, high = 10
 <strong>输出：</strong>23
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>树中的结点数量最多为&nbsp;<code>10000</code>&nbsp;个。</li>
-	<li>最终的答案保证小于&nbsp;<code>2^31</code>。</li>
-</ol>
+<ul>
+	<li>树中节点数目在范围 <code>[1, 2 * 10<sup>4</sup>]</code> 内</li>
+	<li><code>1 <= Node.val <= 10<sup>5</sup></code></li>
+	<li><code>1 <= low <= high <= 10<sup>5</sup></code></li>
+	<li>所有 <code>Node.val</code> <strong>互不相同</strong></li>
+</ul>
+
 
 ## 解法
 

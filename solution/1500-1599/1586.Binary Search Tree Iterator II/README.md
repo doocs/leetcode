@@ -26,7 +26,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-![](./images/untitled-diagram-1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/14/untitled-diagram-1.png" style="height: 201px; width: 201px;"></strong></p>
 
 <pre><strong>输入</strong>
 [&quot;BSTIterator&quot;, &quot;next&quot;, &quot;next&quot;, &quot;prev&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;next&quot;, &quot;next&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;hasPrev&quot;, &quot;prev&quot;, &quot;prev&quot;]

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们有一个项的集合，其中第&nbsp;<code>i</code>&nbsp;项的值为&nbsp;<code>values[i]</code>，标签为&nbsp;<code>labels[i]</code>。</p>
 
 <p>我们从这些项中选出一个子集&nbsp;<code>S</code>，这样一来：</p>
@@ -55,6 +56,7 @@
 	<li><code>0 &lt;= values[i], labels[i]&nbsp;&lt;= 20000</code></li>
 	<li><code>1 &lt;= num_wanted, use_limit&nbsp;&lt;= values.length</code></li>
 </ol>
+
 
 ## 解法
 

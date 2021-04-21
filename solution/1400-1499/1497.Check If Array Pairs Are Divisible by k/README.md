@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组 <code>arr</code> 和一个整数 <code>k</code> ，其中数组长度是偶数，值为 <code>n</code> 。</p>
 
 <p>现在需要把数组恰好分成 <code>n /&nbsp;2</code> 对，以使每对数字的和都能够被 <code>k</code> 整除。</p>
@@ -57,6 +58,7 @@
 	<li><code>-10^9 &lt;= arr[i] &lt;= 10^9</code></li>
 	<li><code>1 &lt;= k &lt;= 10^5</code></li>
 </ul>
+
 
 ## 解法
 

@@ -1,10 +1,11 @@
-# [639. 解码方法 2](https://leetcode-cn.com/problems/decode-ways-ii)
+# [639. 解码方法 II](https://leetcode-cn.com/problems/decode-ways-ii)
 
 [English Version](/solution/0600-0699/0639.Decode%20Ways%20II/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>一条包含字母&nbsp;<code>A-Z</code> 的消息通过以下的方式进行了编码：</p>
 
 <pre>&#39;A&#39; -&gt; 1
@@ -38,6 +39,7 @@
 	<li>输入的字符串长度范围是 [1, 10<sup>5</sup>]。</li>
 	<li>输入的字符串只会包含字符 &#39;*&#39; 和 数字&#39;0&#39; - &#39;9&#39;。</li>
 </ol>
+
 
 ## 解法
 

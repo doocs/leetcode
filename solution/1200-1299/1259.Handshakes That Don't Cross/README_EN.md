@@ -1,16 +1,16 @@
 # [1259. Handshakes That Don't Cross](https://leetcode.com/problems/handshakes-that-dont-cross)
 
-[中文文档](/solution/1200-1299/1259.Handshakes%20That%20Don't%20Cross/README.md)
+[中文文档](/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/README.md)
 
 ## Description
 
-<p>You are given an <strong>even</strong> number of people <code>num_people</code> that stand around a circle and each person shakes hands with someone else, so that there are <code>num_people / 2</code> handshakes total.</p>
+<p>You are given an&nbsp;<strong>even</strong> number of people <code>num_people</code>&nbsp;that stand around a circle and each person shakes hands&nbsp;with someone else, so that there are <code>num_people / 2</code> handshakes total.</p>
 
 <p>Return the number of ways these handshakes could occur such that none of the handshakes cross.</p>
 
-<p>Since this number could be very big, return the answer <strong>mod <code>10^9 + 7</code></strong></p>
+<p>Since this number could be very big, return the answer <strong>mod&nbsp;<code>10^9 + 7</code></strong></p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -20,7 +20,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/5125_example_2.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/07/11/5125_example_2.png" style="width: 651px; height: 311px;" /></p>
 
 <pre>
 <strong>Input:</strong> num_people = 4
@@ -30,7 +30,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/5125_example_3.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/07/11/5125_example_3.png" style="width: 664px; height: 992px;" /></p>
 
 <pre>
 <strong>Input:</strong> num_people = 6
@@ -44,13 +44,14 @@
 <strong>Output:</strong> 14
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 <= num_people <= 1000</code></li>
+	<li><code>2 &lt;= num_people &lt;= 1000</code></li>
 	<li><code>num_people % 2 == 0</code></li>
 </ul>
+
 
 ## Solutions
 

@@ -6,17 +6,38 @@
 
 <p>Given a&nbsp;linked list, swap every two adjacent nodes and return its head.</p>
 
-<p>You may <strong>not</strong> modify the values in the list&#39;s nodes, only nodes itself may be changed.</p>
-
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/03/swap_ex1.jpg" style="width: 422px; height: 222px;" />
+<pre>
+<strong>Input:</strong> head = [1,2,3,4]
+<strong>Output:</strong> [2,1,4,3]
+</pre>
 
-<p><strong>Example:</strong></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-Given <code>1-&gt;2-&gt;3-&gt;4</code>, you should return the list as <code>2-&gt;1-&gt;4-&gt;3</code>.
-
+<strong>Input:</strong> head = []
+<strong>Output:</strong> []
 </pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> head = [1]
+<strong>Output:</strong> [1]
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the&nbsp;list&nbsp;is in the range <code>[0, 100]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 100</code></li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Can you solve the problem without&nbsp;modifying the values in the list&#39;s nodes? (i.e., Only nodes themselves may be changed.)
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串 <code>s</code> 和一个整数数组 <code>cost</code> ，其中 <code>cost[i]</code> 是从 <code>s</code> 中删除字符 <code>i</code> 的代价。</p>
 
 <p>返回使字符串任意相邻两个字母不相同的最小删除成本。</p>
@@ -47,6 +48,7 @@
 	<li><code>1 &lt;= cost[i] &lt;=&nbsp;10^4</code></li>
 	<li><code>s</code> 中只含有小写英文字母</li>
 </ul>
+
 
 ## 解法
 

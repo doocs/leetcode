@@ -4,71 +4,58 @@
 
 ## Description
 
-<p>You are asked to cut off trees in a forest for a golf event. The forest is represented as a non-negative 2D map, in this map:</p>
+<p>You are asked to cut off all the trees in a forest for a golf event. The forest is represented as an <code>m x n</code> matrix. In this matrix:</p>
 
-<ol>
-	<li><code>0</code> represents the <code>obstacle</code> can&#39;t be reached.</li>
-	<li><code>1</code> represents the <code>ground</code> can be walked through.</li>
-	<li><code>The place with number bigger than 1</code> represents a <code>tree</code> can be walked through, and this positive number represents the tree&#39;s height.</li>
-</ol>
+<ul>
+	<li><code>0</code> means the cell cannot be walked through.</li>
+	<li><code>1</code> represents an empty cell that can be walked through.</li>
+	<li>A number greater than <code>1</code> represents a tree in a cell that can be walked through, and this number is the tree&#39;s height.</li>
+</ul>
 
-<p>In one step you can walk in any of the four directions <code>top</code>, <code>bottom</code>, <code>left</code> and <code>right</code>&nbsp;also when standing in a point which is a tree you can decide whether or not to cut off the tree.</p>
+<p>In one step, you can walk in any of the four directions: north, east, south, and west. If you are standing in a cell with a tree, you can choose whether to cut it off.</p>
 
-<p>You are asked to cut off <b>all</b> the trees in this forest in the order of tree&#39;s height - always cut off the tree with lowest height first. And after cutting, the original place has the tree will become a grass (value 1).</p>
+<p>You must cut off the trees in order from shortest to tallest. When you cut off a tree, the value at its cell becomes <code>1</code> (an empty cell).</p>
 
-<p>You will start from the point (0, 0) and you should output the minimum steps <b>you need to walk</b> to cut off all the trees. If you can&#39;t cut off all the trees, output -1 in that situation.</p>
+<p>Starting from the point <code>(0, 0)</code>, return <em>the minimum steps you need to walk to cut off all the trees</em>. If you cannot cut off all the trees, return <code>-1</code>.</p>
 
-<p>You are guaranteed that no two <code>trees</code> have the same height and there is at least one tree needs to be cut off.</p>
-
-<p><b>Example 1:</b></p>
-
-<pre>
-<b>Input:</b> 
-[
- [1,2,3],
- [0,0,4],
- [7,6,5]
-]
-<b>Output:</b> 6
-</pre>
+<p>You are guaranteed that no two trees have the same height, and there is at least one tree needs to be cut off.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 2:</b></p>
-
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/26/trees1.jpg" style="width: 242px; height: 242px;" />
 <pre>
-<b>Input:</b> 
-[
- [1,2,3],
- [0,0,0],
- [7,6,5]
-]
-<b>Output:</b> -1
+<strong>Input:</strong> forest = [[1,2,3],[0,0,4],[7,6,5]]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> Following the path above allows you to cut off the trees from shortest to tallest in 6 steps.
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/26/trees2.jpg" style="width: 242px; height: 242px;" />
+<pre>
+<strong>Input:</strong> forest = [[1,2,3],[0,0,0],[7,6,5]]
+<strong>Output:</strong> -1
+<strong>Explanation:</strong> The trees in the bottom row cannot be accessed as the middle row is blocked.
+</pre>
 
-<p><b>Example 3:</b></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
-<b>Input:</b> 
-[
- [2,3,4],
- [0,0,5],
- [8,7,6]
-]
-<b>Output:</b> 6
-<b>Explanation:</b> You started from the point (0,0) and you can cut off the tree in (0,0) directly without walking.
+<strong>Input:</strong> forest = [[2,3,4],[0,0,5],[8,7,6]]
+<strong>Output:</strong> 6
+<b>Explanation:</b> You can follow the same path as Example 1 to cut off all the trees.
+Note that you can cut off the first tree at (0, 0) before making any steps.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= forest.length &lt;= 50</code></li>
-	<li><code>1 &lt;= forest[i].length &lt;= 50</code></li>
-	<li><code>0 &lt;= forest[i][j]&nbsp;&lt;= 10^9</code></li>
+	<li><code>m == forest.length</code></li>
+	<li><code>n == forest[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 50</code></li>
+	<li><code>0 &lt;= forest[i][j] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组&nbsp;<code>target</code> 。一开始，你有一个数组&nbsp;<code>A</code> ，它的所有元素均为 1 ，你可以执行以下操作：</p>
 
 <ul>
@@ -50,6 +51,7 @@
 	<li><code>1 &lt;= target.length&nbsp;&lt;= 5 * 10^4</code></li>
 	<li><code>1 &lt;= target[i] &lt;= 10^9</code></li>
 </ul>
+
 
 ## 解法
 

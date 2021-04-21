@@ -22,7 +22,7 @@ class Node {
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/narytreeexample.png)
+<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" style="width: 100%; max-width: 300px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [1,null,3,2,4,null,5,6]
@@ -31,7 +31,7 @@ class Node {
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_4_964.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]

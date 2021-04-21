@@ -19,9 +19,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/e1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/06/13/e1.png" style="width: 750px; height: 410px;" />
 <pre>
 <strong>Input:</strong> root = [[1,null],null,[4,3],[7,0]]
 <strong>Output:</strong> [[1,null],null,[4,3],[7,0]]
@@ -32,9 +30,7 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/e3.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/06/13/e3.png" style="width: 750px; height: 400px;" />
 <pre>
 <strong>Input:</strong> root = [[1,4],null,[1,0],null,[1,5],[1,5]]
 <strong>Output:</strong> [[1,4],null,[1,0],null,[1,5],[1,5]]
@@ -42,9 +38,7 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/e2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/06/13/e2.png" style="height: 640px; width: 750px;" />
 <pre>
 <strong>Input:</strong> root = [[1,6],[2,5],[3,4],[4,3],[5,2],[6,1],[7,0]]
 <strong>Output:</strong> [[1,6],[2,5],[3,4],[4,3],[5,2],[6,1],[7,0]]

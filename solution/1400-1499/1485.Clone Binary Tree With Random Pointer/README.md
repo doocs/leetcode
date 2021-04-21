@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/e1.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/13/e1.png" style="height: 410px; width: 750px;"></p>
 
 <pre><strong>输入：</strong>root = [[1,null],null,[4,3],[7,0]]
 <strong>输出：</strong>[[1,null],null,[4,3],[7,0]]
@@ -35,7 +35,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/e3.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/13/e3.png" style="height: 400px; width: 750px;"></p>
 
 <pre><strong>输入：</strong>root = [[1,4],null,[1,0],null,[1,5],[1,5]]
 <strong>输出：</strong>[[1,4],null,[1,0],null,[1,5],[1,5]]
@@ -44,7 +44,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/e2.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/13/e2.png" style="height: 640px; width: 750px;"></p>
 
 <pre><strong>输入：</strong>root = [[1,6],[2,5],[3,4],[4,3],[5,2],[6,1],[7,0]]
 <strong>输出：</strong>[[1,6],[2,5],[3,4],[4,3],[5,2],[6,1],[7,0]]

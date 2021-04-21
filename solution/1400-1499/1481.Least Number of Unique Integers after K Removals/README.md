@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组 <code>arr</code> 和一个整数 <code>k</code> 。现需要从数组中恰好移除 <code>k</code> 个元素，请找出移除后数组中不同整数的最少数目。</p>
 
 <ol>
@@ -34,6 +35,7 @@
 	<li><code>1 &lt;= arr[i] &lt;= 10^9</code></li>
 	<li><code>0 &lt;= k&nbsp;&lt;= arr.length</code></li>
 </ul>
+
 
 ## 解法
 

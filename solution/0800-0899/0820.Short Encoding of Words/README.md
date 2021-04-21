@@ -5,32 +5,48 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个单词列表，我们将这个列表编码成一个索引字符串&nbsp;<code>S</code>&nbsp;与一个索引列表 <code>A</code>。</p>
 
-<p>例如，如果这个列表是 <code>[&quot;time&quot;, &quot;me&quot;, &quot;bell&quot;]</code>，我们就可以将其表示为 <code>S = &quot;time#bell#&quot;</code> 和 <code>indexes = [0, 2, 5]</code>。</p>
+<p>单词数组 <code>words</code> 的 <strong>有效编码</strong> 由任意助记字符串 <code>s</code> 和下标数组 <code>indices</code> 组成，且满足：</p>
 
-<p>对于每一个索引，我们可以通过从字符串 <code>S</code>&nbsp;中索引的位置开始读取字符串，直到 &quot;#&quot; 结束，来恢复我们之前的单词列表。</p>
+<ul>
+	<li><code>words.length == indices.length</code></li>
+	<li>助记字符串 <code>s</code> 以 <code>'#'</code> 字符结尾</li>
+	<li>对于每个下标 <code>indices[i]</code> ，<code>s</code> 的一个从 <code>indices[i]</code> 开始、到下一个 <code>'#'</code> 字符结束（但不包括 <code>'#'</code>）的 <strong>子字符串</strong> 恰好与 <code>words[i]</code> 相等</li>
+</ul>
 
-<p>那么成功对给定单词列表进行编码的最小字符串长度是多少呢？</p>
+<p>给你一个单词数组 <code>words</code> ，返回成功对 <code>words</code> 进行编码的最小助记字符串 <code>s</code> 的长度 。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> words = <code>[&quot;time&quot;, &quot;me&quot;, &quot;bell&quot;]</code>
-<strong>输出:</strong> 10
-<strong>说明:</strong> S = <code>&quot;time#bell#&quot; ， indexes = [0, 2, 5</code>] 。
+<pre>
+<strong>输入：</strong>words = ["time", "me", "bell"]
+<strong>输出：</strong>10
+<strong>解释：</strong>一组有效编码为 s = <code>"time#bell#" 和 indices = [0, 2, 5</code>] 。
+words[0] = "time" ，s 开始于 indices[0] = 0 到下一个 '#' 结束的子字符串，如加粗部分所示 "<strong>time</strong>#bell#"
+words[1] = "me" ，s 开始于 indices[1] = 2 到下一个 '#' 结束的子字符串，如加粗部分所示 "ti<strong>me</strong>#bell#"
+words[2] = "bell" ，s 开始于 indices[2] = 5 到下一个 '#' 结束的子字符串，如加粗部分所示 "time#<strong>bell</strong>#"
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>words = ["t"]
+<strong>输出：</strong>2
+<strong>解释：</strong>一组有效编码为 s = "t#" 和 indices = [0] 。
+</pre>
+
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= words.length&nbsp;&lt;= 2000</code></li>
-	<li><code>1 &lt;=&nbsp;words[i].length&nbsp;&lt;= 7</code></li>
-	<li>每个单词都是小写字母 。</li>
-</ol>
+<ul>
+	<li><code>1 <= words.length <= 2000</code></li>
+	<li><code>1 <= words[i].length <= 7</code></li>
+	<li><code>words[i]</code> 仅由小写字母组成</li>
+</ul>
+
 
 ## 解法
 

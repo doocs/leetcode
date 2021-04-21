@@ -1,40 +1,45 @@
-# [783. 二叉搜索树结点最小距离](https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes)
+# [783. 二叉搜索树节点最小距离](https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes)
 
 [English Version](/solution/0700-0799/0783.Minimum%20Distance%20Between%20BST%20Nodes/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个二叉搜索树的根结点&nbsp;<code>root</code>，返回树中任意两节点的差的最小值。</p>
 
-<p>&nbsp;</p>
+<p>给你一个二叉搜索树的根节点 <code>root</code> ，返回 <strong>树中任意两不同节点值之间的最小差值</strong> 。</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>注意：</strong>本题与 530：<a href="https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/">https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/</a> 相同</p>
 
-<pre><strong>输入:</strong> root = [4,2,6,1,3,null,null]
-<strong>输出:</strong> 1
-<strong>解释:</strong>
-注意，root是树结点对象(TreeNode object)，而不是数组。
+<p> </p>
 
-给定的树 [4,2,6,1,3,null,null] 可表示为下图:
+<div class="original__bRMd">
+<div>
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/05/bst1.jpg" style="width: 292px; height: 301px;" />
+<pre>
+<strong>输入：</strong>root = [4,2,6,1,3]
+<strong>输出：</strong>1
+</pre>
 
-          4
-        /   \
-      2      6
-     / \    
-    1   3  
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/05/bst2.jpg" style="width: 282px; height: 301px;" />
+<pre>
+<strong>输入：</strong>root = [1,0,48,null,null,12,49]
+<strong>输出：</strong>1
+</pre>
 
-最小的差值是 1, 它是节点1和节点2的差值, 也是节点3和节点2的差值。</pre>
+<p> </p>
 
-<p>&nbsp;</p>
+<p><strong>提示：</strong></p>
 
-<p><strong>注意：</strong></p>
+<ul>
+	<li>树中节点数目在范围 <code>[2, 100]</code> 内</li>
+	<li><code>0 <= Node.val <= 10<sup>5</sup></code></li>
+	<li>差值是一个正数，其数值等于两值之差的绝对值</li>
+</ul>
+</div>
+</div>
 
-<ol>
-	<li>二叉树的大小范围在 <code>2</code> 到&nbsp;<code>100</code>。</li>
-	<li>二叉树总是有效的，每个节点的值都是整数，且不重复。</li>
-	<li>本题与 530：<a href="https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/">https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/</a> 相同</li>
-</ol>
 
 ## 解法
 

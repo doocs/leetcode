@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>假设有 <strong>n&nbsp;</strong>台超级洗衣机放在同一排上。开始的时候，每台洗衣机内可能有一定量的衣服，也可能是空的。</p>
 
 <p>在<strong>每一步操作</strong>中，你可以选择<strong>任意 m&nbsp;</strong>（1 &le; m &le; n）&nbsp;台洗衣机，与此<strong>同时</strong>将每台洗衣机的<strong>一件衣服</strong>送到相邻的一台洗衣机。</p>
@@ -56,6 +57,7 @@
 </ol>
 
 <p>&nbsp;</p>
+
 
 ## 解法
 

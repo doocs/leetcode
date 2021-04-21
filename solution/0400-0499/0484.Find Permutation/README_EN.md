@@ -4,34 +4,40 @@
 
 ## Description
 
-<p>
-By now, you are given a <b>secret signature</b> consisting of character 'D' and 'I'. 'D' represents a decreasing relationship between two numbers, 'I' represents an increasing relationship between two numbers. And our <b>secret signature</b> was constructed by a special integer array, which contains uniquely all the different number from 1 to n (n is the length of the secret signature plus 1). For example, the secret signature "DI" can be constructed by array [2,1,3] or [3,1,2], but won't be constructed by array [3,2,4] or [2,1,3,4], which are both illegal constructing special string that can't represent the "DI" <b>secret signature</b>.
-</p>
+<p>A permutation <code>perm</code> of <code>n</code>&nbsp;integers of all the integers in the range <code>[1, n]</code> can be represented as a string <code>s</code> of length <code>n - 1</code> where:</p>
 
-<p>
-On the other hand, now your job is to find the lexicographically smallest permutation of [1, 2, ... n] could refer to the given <b>secret signature</b> in the input.
-</p>
+<ul>
+	<li><code>s[i] == &#39;I&#39;</code> if <code>perm[i] &lt; perm[i + 1]</code>, and</li>
+	<li><code>s[i] == &#39;D&#39;</code> if <code>perm[i] &gt; perm[i + 1]</code>.</li>
+</ul>
 
-<p><b>Example 1:</b><br />
+<p>Given a string <code>s</code>, reconstruct the lexicographically smallest permutation <code>perm</code> and return it.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
 <pre>
-<b>Input:</b> "I"
-<b>Output:</b> [1,2]
-<b>Explanation:</b> [1,2] is the only legal initial spectial string can construct secret signature "I", where the number 1 and 2 construct an increasing relationship.
+<strong>Input:</strong> s = &quot;I&quot;
+<strong>Output:</strong> [1,2]
+<strong>Explanation:</strong> [1,2] is the only legal permutation that can represented by s, where the number 1 and 2 construct an increasing relationship.
 </pre>
-</p>
 
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
+
 <pre>
-<b>Input:</b> "DI"
-<b>Output:</b> [2,1,3]
-<b>Explanation:</b> Both [2,1,3] and [3,1,2] can construct the secret signature "DI", </br>but since we want to find the one with the smallest lexicographical permutation, you need to output [2,1,3]
+<strong>Input:</strong> s = &quot;DI&quot;
+<strong>Output:</strong> [2,1,3]
+<strong>Explanation:</strong> Both [2,1,3] and [3,1,2] can be represented as &quot;DI&quot;, but since we want to find the smallest lexicographical permutation, you should return [2,1,3]
 </pre>
-</p>
 
-<p><b>Note:</b>
-<li>The input string will only contain the character 'D' and 'I'.</li>
-<li>The length of input string is a positive integer and will not exceed 10,000</li>
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s[i]</code> is either <code>&#39;I&#39;</code> or <code>&#39;D&#39;</code>.</li>
+</ul>
+
 
 ## Solutions
 

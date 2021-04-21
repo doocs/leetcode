@@ -4,79 +4,53 @@
 
 ## Description
 
-<p>A gene string can be represented by an 8-character long string, with choices from <code>&quot;A&quot;</code>, <code>&quot;C&quot;</code>, <code>&quot;G&quot;</code>, <code>&quot;T&quot;</code>.</p>
+<p>A gene string can be represented by an 8-character long string, with choices from <code>&#39;A&#39;</code>, <code>&#39;C&#39;</code>, <code>&#39;G&#39;</code>, and <code>&#39;T&#39;</code>.</p>
 
-<p>Suppose we need to investigate about a mutation (mutation from &quot;start&quot; to &quot;end&quot;), where ONE mutation is defined as ONE single character changed in the gene string.</p>
+<p>Suppose we need to investigate a mutation from a gene string <code>start</code> to a gene string <code>end</code> where one mutation is defined as one single character changed in the gene string.</p>
 
-<p>For example, <code>&quot;AACCGGTT&quot;</code> -&gt; <code>&quot;AACCGGTA&quot;</code> is 1 mutation.</p>
+<ul>
+	<li>For example, <code>&quot;AACCGGTT&quot; --&gt; &quot;AACCGGTA&quot;</code> is one mutation.</li>
+</ul>
 
-<p>Also, there is a given gene &quot;bank&quot;, which records all the valid gene mutations. A gene must be in the bank to make it a valid gene string.</p>
+<p>There is also a gene bank <code>bank</code> that records all the valid gene mutations. A gene must be in <code>bank</code> to make it a valid gene string.</p>
 
-<p>Now, given 3 things - start, end, bank, your task is to determine what is the minimum number of mutations needed to mutate from &quot;start&quot; to &quot;end&quot;. If there is no such a mutation, return -1.</p>
+<p>Given the two gene strings <code>start</code> and <code>end</code> and the gene bank <code>bank</code>, return <em>the minimum number of mutations needed to mutate from </em><code>start</code><em> to </em><code>end</code>. If there is no such a mutation, return <code>-1</code>.</p>
 
-<p><b>Note:</b></p>
-
-<ol>
-    <li>Starting point is assumed to be valid, so it might not be included in the bank.</li>
-    <li>If multiple mutations are needed, all mutations during in the sequence must be valid.</li>
-    <li>You may assume start and end string is not the same.</li>
-</ol>
+<p>Note that the starting point is assumed to be valid, so it might not be included in the bank.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 1:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> start = &quot;AACCGGTT&quot;, end = &quot;AACCGGTA&quot;, bank = [&quot;AACCGGTA&quot;]
+<strong>Output:</strong> 1
+</pre>
 
-start: &quot;AACCGGTT&quot;
+<p><strong>Example 2:</strong></p>
 
-end:   &quot;AACCGGTA&quot;
+<pre>
+<strong>Input:</strong> start = &quot;AACCGGTT&quot;, end = &quot;AAACGGTA&quot;, bank = [&quot;AACCGGTA&quot;,&quot;AACCGCTA&quot;,&quot;AAACGGTA&quot;]
+<strong>Output:</strong> 2
+</pre>
 
-bank: [&quot;AACCGGTA&quot;]
+<p><strong>Example 3:</strong></p>
 
-
-
-return: 1
-
+<pre>
+<strong>Input:</strong> start = &quot;AAAAACCC&quot;, end = &quot;AACCCCCC&quot;, bank = [&quot;AAAACCCC&quot;,&quot;AAACCCCC&quot;,&quot;AACCCCCC&quot;]
+<strong>Output:</strong> 3
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li><code>start.length == 8</code></li>
+	<li><code>end.length == 8</code></li>
+	<li><code>0 &lt;= bank.length &lt;= 10</code></li>
+	<li><code>bank[i].length == 8</code></li>
+	<li><code>start</code>, <code>end</code>, and <code>bank[i]</code> consist of only the characters <code>[&#39;A&#39;, &#39;C&#39;, &#39;G&#39;, &#39;T&#39;]</code>.</li>
+</ul>
 
-<pre>
-
-start: &quot;AACCGGTT&quot;
-
-end:   &quot;AAACGGTA&quot;
-
-bank: [&quot;AACCGGTA&quot;, &quot;AACCGCTA&quot;, &quot;AAACGGTA&quot;]
-
-
-
-return: 2
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><b>Example 3:</b></p>
-
-<pre>
-
-start: &quot;AAAAACCC&quot;
-
-end:   &quot;AACCCCCC&quot;
-
-bank: [&quot;AAAACCCC&quot;, &quot;AAACCCCC&quot;, &quot;AACCCCCC&quot;]
-
-
-
-return: 3
-
-</pre>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

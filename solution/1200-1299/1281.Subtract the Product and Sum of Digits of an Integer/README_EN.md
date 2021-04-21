@@ -5,7 +5,6 @@
 ## Description
 
 Given an integer number <code>n</code>, return the difference between the product of its digits and the sum of its digits.
-
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -35,6 +34,7 @@ Result = 32 - 11 = 21
 <ul>
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 </ul>
+
 
 ## Solutions
 

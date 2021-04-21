@@ -6,7 +6,7 @@
 
 <p>There is an intersection of two roads. First road is road A where cars travel&nbsp;from North to South in direction 1 and from South to North in direction 2. Second road is road B where cars travel from West to East in direction 3 and from East to West in direction 4.</p>
 
-![](./images/exp.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/11/11/exp.png" style="width: 600px; height: 417px;" /></p>
 
 <p>There is a traffic light&nbsp;located on each road before the intersection. A traffic light&nbsp;can&nbsp;either be green or red.</p>
 

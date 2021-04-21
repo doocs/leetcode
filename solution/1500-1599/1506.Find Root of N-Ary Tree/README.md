@@ -16,7 +16,7 @@
 
 <p><em>N 叉树的输入序列为其层序遍历序列，每组子节点用 null 分隔（见示例）。</em></p>
 
-![](./images/sample_4_964.png)
+<p><em><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/21/sample_4_964.png" style="width:300px" /></em></p>
 
 <p>上图中的 N 叉树的序列化描述为 <code>[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]</code> 。</p>
 
@@ -33,7 +33,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/narytreeexample.png)
+<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" style="width:250px" /></p>
 
 <pre>
 <strong>输入：</strong>tree = [1,null,3,2,4,null,5,6]
@@ -46,7 +46,7 @@ findRoot 函数应该返回根 Node(1) ，驱动程序代码将序列化它并�
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_4_964.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" style="height:241px; width:296px" /></p>
 
 <pre>
 <strong>输入：</strong>tree = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]

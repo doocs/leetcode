@@ -8,7 +8,7 @@
 
 <p>A <em>majority element</em> is an element that appears <strong>more than <code>N/2</code></strong> times in an array of length <code>N</code>.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
@@ -17,7 +17,7 @@
 <strong>Output: </strong><span id="example-output-1">true</span>
 <strong>Explanation: </strong>
 The value 5 appears 5 times and the length of the array is 9.
-Thus, 5 is a majority element because 5 > 9/2 is true.
+Thus, 5 is a majority element because 5 &gt; 9/2 is true.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -27,17 +27,18 @@ Thus, 5 is a majority element because 5 > 9/2 is true.
 <strong>Output: </strong><span id="example-output-2">false</span>
 <strong>Explanation: </strong>
 The value 101 appears 2 times and the length of the array is 4.
-Thus, 101 is not a majority element because 2 > 4/2 is false.
+Thus, 101 is not a majority element because 2 &gt; 4/2 is false.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 1000</code></li>
-	<li><code>1 <= nums[i] <= 10^9</code></li>
-	<li><code>1 <= target <= 10^9</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10^9</code></li>
+	<li><code>1 &lt;= target &lt;= 10^9</code></li>
 </ul>
+
 
 ## Solutions
 

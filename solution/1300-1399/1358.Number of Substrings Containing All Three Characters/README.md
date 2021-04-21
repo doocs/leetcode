@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串 <code>s</code>&nbsp;，它只包含三种字符 a, b 和 c 。</p>
 
 <p>请你返回 a，b 和 c 都&nbsp;<strong>至少&nbsp;</strong>出现过一次的子字符串数目。</p>
@@ -39,6 +40,7 @@
 	<li><code>3 &lt;= s.length &lt;= 5 x 10^4</code></li>
 	<li><code>s</code>&nbsp;只包含字符 a，b 和 c 。</li>
 </ul>
+
 
 ## 解法
 

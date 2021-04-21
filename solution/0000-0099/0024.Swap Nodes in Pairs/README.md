@@ -5,16 +5,47 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。</p>
 
 <p><strong>你不能只是单纯的改变节点内部的值</strong>，而是需要实际的进行节点交换。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><strong>示例:</strong></p>
-
-<pre>给定 <code>1-&gt;2-&gt;3-&gt;4</code>, 你应该返回 <code>2-&gt;1-&gt;4-&gt;3</code>.
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/03/swap_ex1.jpg" style="width: 422px; height: 222px;" />
+<pre>
+<strong>输入：</strong>head = [1,2,3,4]
+<strong>输出：</strong>[2,1,4,3]
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>head = []
+<strong>输出：</strong>[]
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>head = [1]
+<strong>输出：</strong>[1]
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>链表中节点的数目在范围 <code>[0, 100]</code> 内</li>
+	<li><code>0 <= Node.val <= 100</code></li>
+</ul>
+
+<p> </p>
+
+<p><strong>进阶：</strong>你能在不修改链表节点值的情况下解决这个问题吗?（也就是说，仅修改节点本身。）</p>
+
 
 ## 解法
 

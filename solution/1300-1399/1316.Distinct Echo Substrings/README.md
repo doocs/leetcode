@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串&nbsp;<code>text</code> ，请你返回满足下述条件的&nbsp;<strong>不同</strong> 非空子字符串的数目：</p>
 
 <ul>
@@ -37,6 +38,7 @@
 	<li><code>1 &lt;= text.length &lt;= 2000</code></li>
 	<li><code>text</code>&nbsp;只包含小写英文字母。</li>
 </ul>
+
 
 ## 解法
 

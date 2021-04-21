@@ -22,9 +22,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/image-1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/17/image-1.png" style="width: 149px; height: 309px;" />
 <pre>
 <strong>Input:</strong> nums = [6,10,3]
 <strong>Output:</strong> 5
@@ -46,6 +44,7 @@ The different GCDs are 6, 10, 3, 2, and 1.
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 2 * 10<sup>5</sup></code></li>
 </ul>
+
 
 ## Solutions
 

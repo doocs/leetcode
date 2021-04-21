@@ -5,26 +5,35 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个链表，旋转链表，将链表每个节点向右移动&nbsp;<em>k&nbsp;</em>个位置，其中&nbsp;<em>k&nbsp;</em>是非负数。</p>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p>给你一个链表的头节点 <code>head</code> ，旋转链表，将链表每个节点向右移动 <code>k</code><em> </em>个位置。</p>
 
-<pre><strong>输入:</strong> 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2
-<strong>输出:</strong> 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL
-<strong>解释:</strong>
-向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL
-向右旋转 2 步: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/rotate1.jpg" style="width: 600px; height: 254px;" />
+<pre>
+<strong>输入：</strong>head = [1,2,3,4,5], k = 2
+<strong>输出：</strong>[4,5,1,2,3]
 </pre>
 
-<p><strong>示例&nbsp;2:</strong></p>
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/roate2.jpg" style="width: 472px; height: 542px;" />
+<pre>
+<strong>输入：</strong>head = [0,1,2], k = 4
+<strong>输出：</strong>[2,0,1]
+</pre>
 
-<pre><strong>输入:</strong> 0-&gt;1-&gt;2-&gt;NULL, k = 4
-<strong>输出:</strong> <code>2-&gt;0-&gt;1-&gt;NULL</code>
-<strong>解释:</strong>
-向右旋转 1 步: 2-&gt;0-&gt;1-&gt;NULL
-向右旋转 2 步: 1-&gt;2-&gt;0-&gt;NULL
-向右旋转 3 步:&nbsp;<code>0-&gt;1-&gt;2-&gt;NULL</code>
-向右旋转 4 步:&nbsp;<code>2-&gt;0-&gt;1-&gt;NULL</code></pre>
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>链表中节点的数目在范围 <code>[0, 500]</code> 内</li>
+	<li><code>-100 <= Node.val <= 100</code></li>
+	<li><code>0 <= k <= 2 * 10<sup>9</sup></code></li>
+</ul>
+
 
 ## 解法
 

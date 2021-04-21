@@ -5,11 +5,12 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>一行中有 <code>N</code> 张多米诺骨牌，我们将每张多米诺骨牌垂直竖立。</p>
 
 <p>在开始时，我们同时把一些多米诺骨牌向左或向右推。</p>
 
-![](./images/domino.png)
+<p><img alt="" src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/05/19/domino.png" style="height: 160px; width: 418px;"></p>
 
 <p>每过一秒，倒向左边的多米诺骨牌会推动其左侧相邻的多米诺骨牌。</p>
 
@@ -40,6 +41,7 @@
 	<li><code>0 &lt;= N &lt;= 10^5</code></li>
 	<li>表示多米诺骨牌状态的字符串只含有 <code>&#39;L&#39;</code>，<code>&#39;R&#39;</code>; 以及 <code>&#39;.&#39;</code>;</li>
 </ol>
+
 
 ## 解法
 

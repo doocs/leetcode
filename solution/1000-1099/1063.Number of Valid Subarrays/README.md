@@ -5,11 +5,12 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个整数数组 <code>A</code>，返回满足下面条件的 <strong>非空</strong>、<strong>连续 </strong>子数组的数目：</p>
+
+<p>给定一个整数数组&nbsp;<code>A</code>，返回满足下面条件的&nbsp;<strong>非空</strong>、<strong>连续&nbsp;</strong>子数组的数目：</p>
 
 <p>子数组中，最左侧的元素不大于其他元素。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -32,14 +33,15 @@
 <strong>解释：</strong>有 6 个有效子数组，分别为是：[2],[2],[2],[2,2],[2,2],[2,2,2] 。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>1 <= A.length <= 50000</code></li>
-	<li><code>0 <= A[i] <= 100000</code></li>
+	<li><code>1 &lt;= A.length &lt;= 50000</code></li>
+	<li><code>0 &lt;= A[i] &lt;= 100000</code></li>
 </ol>
+
 
 ## 解法
 

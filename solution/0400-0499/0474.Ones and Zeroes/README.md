@@ -5,36 +5,45 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>在计算机界中，我们总是追求用有限的资源获取最大的收益。</p>
 
-<p>现在，假设你分别支配着 <strong>m</strong> 个&nbsp;<code>0</code>&nbsp;和 <strong>n</strong> 个&nbsp;<code>1</code>。另外，还有一个仅包含&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;字符串的数组。</p>
+<p>给你一个二进制字符串数组 <code>strs</code> 和两个整数 <code>m</code> 和 <code>n</code> 。</p>
 
-<p>你的任务是使用给定的&nbsp;<strong>m</strong> 个&nbsp;<code>0</code>&nbsp;和 <strong>n</strong> 个&nbsp;<code>1</code>&nbsp;，找到能拼出存在于数组中的字符串的最大数量。每个&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;至多被使用<strong>一次</strong>。</p>
+<div class="MachineTrans-Lines">
+<p class="MachineTrans-lang-zh-CN">请你找出并返回 <code>strs</code> 的最大子集的大小，该子集中 <strong>最多</strong> 有 <code>m</code> 个 <code>0</code> 和 <code>n</code> 个 <code>1</code> 。</p>
 
-<p><strong>注意:</strong></p>
+<p class="MachineTrans-lang-zh-CN">如果 <code>x</code> 的所有元素也是 <code>y</code> 的元素，集合 <code>x</code> 是集合 <code>y</code> 的 <strong>子集</strong> 。</p>
+</div>
 
-<ol>
-	<li>给定&nbsp;<code>0</code>&nbsp;和&nbsp;<code>1</code>&nbsp;的数量都不会超过&nbsp;<code>100</code>。</li>
-	<li>给定字符串数组的长度不会超过&nbsp;<code>600</code>。</li>
-</ol>
+<p> </p>
 
-<p><strong>示例 1:</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> Array = {&quot;10&quot;, &quot;0001&quot;, &quot;111001&quot;, &quot;1&quot;, &quot;0&quot;}, m = 5, n = 3
-<strong>输出:</strong> 4
-
-<strong>解释:</strong> 总共 4 个字符串可以通过 5 个 0 和 3 个 1 拼出，即 &quot;10&quot;,&quot;0001&quot;,&quot;1&quot;,&quot;0&quot; 。
+<strong>输入：</strong>strs = ["10", "0001", "111001", "1", "0"], m = 5, n = 3
+<strong>输出：</strong>4
+<strong>解释：</strong>最多有 5 个 0 和 3 个 1 的最大子集是 {"10","0001","1","0"} ，因此答案是 4 。
+其他满足题意但较小的子集包括 {"0001","1"} 和 {"10","1","0"} 。{"111001"} 不满足题意，因为它含 4 个 1 ，大于 n 的值 3 。
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入:</strong> Array = {&quot;10&quot;, &quot;0&quot;, &quot;1&quot;}, m = 1, n = 1
-<strong>输出:</strong> 2
-
-<strong>解释:</strong> 你可以拼出 &quot;10&quot;，但之后就没有剩余数字了。更好的选择是拼出 &quot;0&quot; 和 &quot;1&quot; 。
+<strong>输入：</strong>strs = ["10", "0", "1"], m = 1, n = 1
+<strong>输出：</strong>2
+<strong>解释：</strong>最大的子集是 {"0", "1"} ，所以答案是 2 。
 </pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= strs.length <= 600</code></li>
+	<li><code>1 <= strs[i].length <= 100</code></li>
+	<li><code>strs[i]</code> 仅由 <code>'0'</code> 和 <code>'1'</code> 组成</li>
+	<li><code>1 <= m, n <= 100</code></li>
+</ul>
+
 
 ## 解法
 

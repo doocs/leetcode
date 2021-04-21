@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个 <em>m</em> x <em>n</em> 的网格 <code>grid</code>。网格里的每个单元都代表一条街道。<code>grid[i][j]</code> 的街道可以是：</p>
 
 <ul>
@@ -16,7 +17,7 @@
 	<li><strong>6</strong> 表示连接右单元格和上单元格的街道。</li>
 </ul>
 
-![](./images/main.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/main.png" style="height: 708px; width: 450px;"></p>
 
 <p>你最开始从左上角的单元格 <code>(0,0)</code> 开始出发，网格中的「有效路径」是指从左上方的单元格 <code>(0,0)</code> 开始、一直到右下方的 <code>(m-1,n-1)</code> 结束的路径。<strong>该路径必须只沿着街道走</strong>。</p>
 
@@ -28,7 +29,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/e1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/e1.png" style="height: 311px; width: 455px;"></p>
 
 <pre><strong>输入：</strong>grid = [[2,4,3],[6,5,2]]
 <strong>输出：</strong>true
@@ -37,7 +38,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/e2.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/e2.png" style="height: 293px; width: 455px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,2,1],[1,2,1]]
 <strong>输出：</strong>false
@@ -73,6 +74,7 @@
 	<li><code>1 &lt;= m, n &lt;= 300</code></li>
 	<li><code>1 &lt;= grid[i][j] &lt;= 6</code></li>
 </ul>
+
 
 ## 解法
 

@@ -4,19 +4,26 @@
 
 ## Description
 
-<p>Write a function to generate the generalized abbreviations of a word. </p>
+<p>A word&#39;s&nbsp;<strong>generalized abbreviation</strong>&nbsp;can be constructed by taking any number of non-overlapping substrings and replacing them with their respective lengths. For example, <code>&quot;abcde&quot;</code> can be abbreviated into <code>&quot;a3e&quot;</code> (<code>&quot;bcd&quot;</code> turned into <code>&quot;3&quot;</code>), <code>&quot;1bcd1&quot;</code> (<code>&quot;a&quot;</code> and <code>&quot;e&quot;</code> both turned into <code>&quot;1&quot;</code>), and <code>&quot;23&quot;</code> (<code>&quot;ab&quot;</code> turned into <code>&quot;2&quot;</code> and <code>&quot;cde&quot;</code> turned into <code>&quot;3&quot;</code>).</p>
 
-<p><strong>Note: </strong>The order of the output does not matter.</p>
+<p>Given a string <code>word</code>, return <em>a list of all the possible <strong>generalized abbreviations</strong> of</em> <code>word</code>. Return the answer in <strong>any order</strong>.</p>
 
-<p><b>Example:</b></p>
-
-<pre>
-<strong>Input:</strong> <code>"word"</code>
-<strong>Output:</strong>
-["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> word = "word"
+<strong>Output:</strong> ["4","3d","2r1","2rd","1o2","1o1d","1or1","1ord","w3","w2d","w1r1","w1rd","wo2","wo1d","wor1","word"]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> word = "a"
+<strong>Output:</strong> ["1","a"]
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p> </p>
+<ul>
+	<li><code>1 &lt;= word.length &lt;= 15</code></li>
+	<li><code>word</code> consists of only lowercase English letters.</li>
+</ul>
+
 
 ## Solutions
 

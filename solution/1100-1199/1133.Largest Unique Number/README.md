@@ -5,11 +5,12 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给你一个整数数组 <code>A</code>，请找出并返回在该数组中仅出现一次的最大整数。</p>
+
+<p>给你一个整数数组&nbsp;<code>A</code>，请找出并返回在该数组中仅出现一次的最大整数。</p>
 
 <p>如果不存在这个只出现一次的整数，则返回 -1。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -27,14 +28,15 @@
 数组中不存在仅出现一次的整数。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>1 <= A.length <= 2000</code></li>
-	<li><code>0 <= A[i] <= 1000</code></li>
+	<li><code>1 &lt;= A.length &lt;= 2000</code></li>
+	<li><code>0 &lt;= A[i] &lt;= 1000</code></li>
 </ol>
+
 
 ## 解法
 

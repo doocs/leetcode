@@ -5,40 +5,56 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>你将获得多条日志，每条日志都有唯一的 id 和 timestamp，timestamp 是形如 <code>Year:Month:Day:Hour:Minute:Second</code> 的字符串，例如 <code>2017:01:01:23:59:59</code>，所有值域都是零填充的十进制数。</p>
 
-<p>设计一个日志存储系统实现如下功能：</p>
+<p>你将获得多条日志，每条日志都有唯一的 <code>id</code> 和 <code>timestamp</code> ，<code>timestamp</code> 是形如 <code>Year:Month:Day:Hour:Minute:Second</code> 的字符串，<code>2017:01:01:23:59:59</code> ，所有值域都是零填充的十进制数。</p>
 
-<p><code>void Put(int id, string timestamp)</code>：给定日志的 id 和 timestamp，将这个日志存入你的存储系统中。</p>
+<p>实现 <code>LogSystem</code> 类：</p>
 
-<p> </p>
+<ul>
+	<li><code>LogSystem()</code> 初始化 <code>LogSystem</code><b> </b>对象</li>
+	<li><code>void put(int id, string timestamp)</code> 给定日志的 <code>id</code> 和 <code>timestamp</code> ，将这个日志存入你的存储系统中。</li>
+	<li><code>int[] retrieve(string start, string end, string granularity)</code> 返回在给定时间区间 <code>[start, end]</code> （包含两端）内的所有日志的 <code>id</code> 。<code>start</code> 、<code>end</code> 和 <code>timestamp</code> 的格式相同，<code>granularity</code> 表示考虑的时间粒度（例如，精确到 <code>Day</code>、<code>Minute</code> 等）。例如 <code>start = "2017:01:01:23:59:59"</code>、<code>end = "2017:01:02:23:59:59"</code> 且 <code>granularity = "Day"</code> 意味着需要查找从 <strong>Jan. 1st 2017</strong> 到 <strong>Jan. 2nd 2017 </strong>范围内的日志，可以忽略日志的 <code>Hour</code>、<code>Minute</code> 和 <code>Second</code> 。</li>
+</ul>
+ 
 
-<p><code>int[] Retrieve(String start, String end, String granularity)</code>：返回在给定时间区间内的所有日志的 id。start 、 end 和 timestamp 的格式相同，granularity 表示考虑的时间级。比如，start = "2017:01:01:23:59:59", end = "2017:01:02:23:59:59", granularity = "Day" 代表区间 2017 年 1 月 1 日到 2017 年 1 月 2 日。</p>
+<p><strong>示例：</strong></p>
 
-<p> </p>
+<pre>
+<strong>输入：</strong>
+["LogSystem", "put", "put", "put", "retrieve", "retrieve"]
+[[], [1, "2017:01:01:23:59:59"], [2, "2017:01:01:22:59:59"], [3, "2016:01:01:00:00:00"], ["2016:01:01:01:01:01", "2017:01:01:23:00:00", "Year"], ["2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour"]]
+<strong>输出：</strong>
+[null, null, null, null, [3, 2, 1], [2, 1]]
 
-<p> </p>
+<strong>解释：</strong>
+LogSystem logSystem = new LogSystem();
+logSystem.put(1, "2017:01:01:23:59:59");
+logSystem.put(2, "2017:01:01:22:59:59");
+logSystem.put(3, "2016:01:01:00:00:00");
 
-<p><strong>样例 1 ：</strong></p>
+// 返回 [3,2,1]，返回从 2016 年到 2017 年所有的日志。
+logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Year");
 
-<pre>put(1, "2017:01:01:23:59:59");
-put(2, "2017:01:01:22:59:59");
-put(3, "2016:01:01:00:00:00");
-retrieve("2016:01:01:01:01:01","2017:01:01:23:00:00","Year"); // 返回值 [1,2,3]，返回从 2016 年到 2017 年所有的日志。
-retrieve("2016:01:01:01:01:01","2017:01:01:23:00:00","Hour"); // 返回值 [1,2], 返回从 2016:01:01:01 到 2017:01:01:23 区间内的日志，日志 3 不在区间内。
+// 返回 [2,1]，返回从 Jan. 1, 2016 01:XX:XX 到 Jan. 1, 2017 23:XX:XX 之间的所有日志
+// 不返回日志 3 因为记录时间 Jan. 1, 2016 00:00:00 超过范围的起始时间
+logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
 </pre>
 
 <p> </p>
 
-<p><strong>注释 ：</strong></p>
+<p><strong>提示：</strong></p>
 
-<ol>
-	<li>Put 和 Retrieve 的指令总数不超过 300。</li>
-	<li>年份的区间是 [2000,2017]，小时的区间是 [00,23]。</li>
-	<li>Retrieve 的输出顺序不作要求。</li>
-</ol>
+<ul>
+	<li><code>1 <= id <= 500</code></li>
+	<li><code>2000 <= Year <= 2017</code></li>
+	<li><code>1 <= Month <= 12</code></li>
+	<li><code>1 <= Day <= 31</code></li>
+	<li><code>0 <= Hour <= 23</code></li>
+	<li><code>0 <= Minute, Second <= 59</code></li>
+	<li><code>granularity</code> 是这些值 <code>["Year", "Month", "Day", "Hour", "Minute", "Second"]</code> 之一</li>
+	<li>最多调用 <code>500</code> 次 <code>put</code> 和 <code>retrieve</code></li>
+</ul>
 
-<p> </p>
 
 ## 解法
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>请你实现一个「数字乘积类」<code>ProductOfNumbers</code>，要求支持下述两种方法：</p>
 
 <p>1.<code>&nbsp;add(int num)</code></p>
@@ -56,6 +57,7 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 	<li><code>0 &lt;= num&nbsp;&lt;=&nbsp;100</code></li>
 	<li><code>1 &lt;= k &lt;= 40000</code></li>
 </ul>
+
 
 ## 解法
 

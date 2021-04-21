@@ -5,11 +5,12 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在一个有向图中，节点分别标记为&nbsp;<code>0, 1, ..., n-1</code>。这个图中的每条边不是红色就是蓝色，且存在自环或平行边。</p>
 
 <p><code>red_edges</code>&nbsp;中的每一个&nbsp;<code>[i, j]</code>&nbsp;对表示从节点 <code>i</code> 到节点 <code>j</code> 的红色有向边。类似地，<code>blue_edges</code>&nbsp;中的每一个&nbsp;<code>[i, j]</code>&nbsp;对表示从节点 <code>i</code> 到节点 <code>j</code> 的蓝色有向边。</p>
 
-<p>返回长度为 <code>n</code> 的数组&nbsp;<code>answer</code>，其中&nbsp;<code>answer[X]</code>&nbsp;是从节点&nbsp;<code>0</code>&nbsp;到节点&nbsp;<code>X</code>&nbsp;的最短路径的长度，且路径上红色边和蓝色边交替出现。如果不存在这样的路径，那么 <code>answer[x] = -1</code>。</p>
+<p>返回长度为 <code>n</code> 的数组&nbsp;<code>answer</code>，其中&nbsp;<code>answer[X]</code>&nbsp;是从节点&nbsp;<code>0</code>&nbsp;到节点&nbsp;<code>X</code>&nbsp;的红色边和蓝色边交替出现的最短路径的长度。如果不存在这样的路径，那么 <code>answer[x] = -1</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -54,6 +55,7 @@
 	<li><code>red_edges[i].length == blue_edges[i].length == 2</code></li>
 	<li><code>0 &lt;= red_edges[i][j], blue_edges[i][j] &lt; n</code></li>
 </ul>
+
 
 ## 解法
 

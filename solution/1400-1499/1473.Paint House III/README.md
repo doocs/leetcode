@@ -1,10 +1,11 @@
-# [1473. 给房子涂色 III](https://leetcode-cn.com/problems/paint-house-iii)
+# [1473. 粉刷房子 III](https://leetcode-cn.com/problems/paint-house-iii)
 
 [English Version](/solution/1400-1499/1473.Paint%20House%20III/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在一个小城市里，有&nbsp;<code>m</code>&nbsp;个房子排成一排，你需要给每个房子涂上 <code>n</code>&nbsp;种颜色之一（颜色编号为 <code>1</code> 到 <code>n</code>&nbsp;）。有的房子去年夏天已经涂过颜色了，所以这些房子不需要被重新涂色。</p>
 
 <p>我们将连续相同颜色尽可能多的房子称为一个街区。（比方说 <code>houses = [1,2,2,3,3,2,1,1]</code> ，它包含 5 个街区&nbsp;<code> [{1}, {2,2}, {3,3}, {2}, {1,1}]</code> 。）</p>
@@ -64,6 +65,7 @@
 	<li><code>0 &lt;= houses[i]&nbsp;&lt;= n</code></li>
 	<li><code>1 &lt;= cost[i][j] &lt;= 10^4</code></li>
 </ul>
+
 
 ## 解法
 

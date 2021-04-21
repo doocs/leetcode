@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个整数数组&nbsp;<code>A</code>，以及一个整数&nbsp;<code>target</code>&nbsp;作为目标值，返回满足 <code>i &lt; j &lt; k</code> 且&nbsp;<code>A[i] + A[j] + A[k] == target</code>&nbsp;的元组&nbsp;<code>i, j, k</code>&nbsp;的数量。</p>
 
 <p>由于结果会非常大，请返回 <code>结果除以 10^9 + 7 的余数</code>。</p>
@@ -42,6 +43,7 @@ A[i] = 1，A[j] = A[k] = 2 出现 12 次：
 	<li><code>0 &lt;= A[i] &lt;= 100</code></li>
 	<li><code>0 &lt;= target &lt;= 300</code></li>
 </ol>
+
 
 ## 解法
 

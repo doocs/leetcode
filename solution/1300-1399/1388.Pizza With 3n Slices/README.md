@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个披萨，它由 3n 块不同大小的部分组成，现在你和你的朋友们需要按照如下规则来分披萨：</p>
 
 <ul>
@@ -22,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/sample_3_1723.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/sample_3_1723.png" style="height: 240px; width: 475px;"></p>
 
 <pre><strong>输入：</strong>slices = [1,2,3,4,5,6]
 <strong>输出：</strong>10
@@ -31,7 +32,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/sample_4_1723.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/21/sample_4_1723.png" style="height: 250px; width: 475px;"></strong></p>
 
 <pre><strong>输入：</strong>slices = [8,9,8,6,1,1]
 <strong>输出：</strong>16
@@ -59,6 +60,7 @@
 	<li><code>slices.length % 3 == 0</code></li>
 	<li><code>1 &lt;= slices[i] &lt;= 1000</code></li>
 </ul>
+
 
 ## 解法
 

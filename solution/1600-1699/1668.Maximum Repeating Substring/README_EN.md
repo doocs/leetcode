@@ -42,6 +42,7 @@
 	<li><code>sequence</code> and <code>word</code>&nbsp;contains only lowercase English letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

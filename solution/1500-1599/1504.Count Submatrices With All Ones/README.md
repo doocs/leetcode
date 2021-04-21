@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个只包含 0 和 1 的&nbsp;<code>rows * columns</code>&nbsp;矩阵&nbsp;<code>mat</code>&nbsp;，请你返回有多少个&nbsp;<strong>子矩形</strong>&nbsp;的元素全部都是 1 。</p>
 
 <p>&nbsp;</p>
@@ -66,6 +67,7 @@
 	<li><code>1 &lt;= columns&nbsp;&lt;= 150</code></li>
 	<li><code>0 &lt;= mat[i][j] &lt;= 1</code></li>
 </ul>
+
 
 ## 解法
 

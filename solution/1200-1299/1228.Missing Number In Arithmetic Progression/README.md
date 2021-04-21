@@ -5,17 +5,18 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有一个数组，其中的值符合等差数列的数值规律，也就是说：</p>
 
 <ul>
-	<li>在 <code>0 <= i < arr.length - 1</code> 的前提下，<code>arr[i+1] - arr[i]</code> 的值都相等。</li>
+	<li>在&nbsp;<code>0 &lt;= i &lt; arr.length - 1</code>&nbsp;的前提下，<code>arr[i+1] - arr[i]</code>&nbsp;的值都相等。</li>
 </ul>
 
-<p>我们会从该数组中删除一个 <strong>既不是第一个 </strong>也<strong> 不是最后一个的值</strong>，得到一个新的数组  <code>arr</code>。</p>
+<p>我们会从该数组中删除一个 <strong>既不是第一个 </strong>也<strong>&nbsp;不是最后一个的值</strong>，得到一个新的数组&nbsp;&nbsp;<code>arr</code>。</p>
 
-<p>给你这个缺值的数组 <code>arr</code>，请你帮忙找出被删除的那个数。</p>
+<p>给你这个缺值的数组&nbsp;<code>arr</code>，请你帮忙找出被删除的那个数。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -30,14 +31,15 @@
 <strong>输出：</strong>14
 <strong>解释：</strong>原来的数组是 [15,<strong>14</strong>,13,12]。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>3 <= arr.length <= 1000</code></li>
-	<li><code>0 <= arr[i] <= 10^5</code></li>
+	<li><code>3 &lt;= arr.length &lt;= 1000</code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 10^5</code></li>
 </ul>
+
 
 ## 解法
 

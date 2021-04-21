@@ -4,34 +4,55 @@
 
 ## Description
 
-<p>Given a char array representing tasks CPU need to do. It contains capital letters A to Z where different letters represent different tasks. Tasks could be done without original order. Each task could be done in one interval. For each interval, CPU could finish one task or just be idle.</p>
+<p>Given a characters array <code>tasks</code>, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.</p>
 
-<p>However, there is a non-negative cooling interval <b>n</b> that means between two <b>same tasks</b>, there must be at least n intervals that CPU are doing different tasks or just be idle.</p>
+<p>However, there is a non-negative integer&nbsp;<code>n</code> that represents the cooldown period between&nbsp;two <b>same tasks</b>&nbsp;(the same letter in the array), that is that there must be at least <code>n</code> units of time between any two same tasks.</p>
 
-<p>You need to return the <b>least</b> number of intervals the CPU will take to finish all the given tasks.</p>
+<p>Return <em>the least number of units of times that the CPU will take to finish all the given tasks</em>.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;], n = 2
+<strong>Output:</strong> 8
+<strong>Explanation:</strong> 
+A -&gt; B -&gt; idle -&gt; A -&gt; B -&gt; idle -&gt; A -&gt; B
+There is at least 2 units of time between any two same tasks.
+</pre>
 
-<b>Input:</b> tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;], n = 2
+<p><strong>Example 2:</strong></p>
 
-<b>Output:</b> 8
+<pre>
+<strong>Input:</strong> tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;], n = 0
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> On this case any permutation of size 6 would work since n = 0.
+[&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;]
+[&quot;A&quot;,&quot;B&quot;,&quot;A&quot;,&quot;B&quot;,&quot;A&quot;,&quot;B&quot;]
+[&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;]
+...
+And so on.
+</pre>
 
-<b>Explanation:</b> A -&gt; B -&gt; idle -&gt; A -&gt; B -&gt; idle -&gt; A -&gt; B.
+<p><strong>Example 3:</strong></p>
 
+<pre>
+<strong>Input:</strong> tasks = [&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;,&quot;F&quot;,&quot;G&quot;], n = 2
+<strong>Output:</strong> 16
+<strong>Explanation:</strong> 
+One possible solution is
+A -&gt; B -&gt; C -&gt; A -&gt; D -&gt; E -&gt; A -&gt; F -&gt; G -&gt; A -&gt; idle -&gt; idle -&gt; A -&gt; idle -&gt; idle -&gt; A
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li><code>1 &lt;= task.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>tasks[i]</code> is upper-case English letter.</li>
+	<li>The integer <code>n</code> is in the range <code>[0, 100]</code>.</li>
+</ul>
 
-<ol>
-    <li>The number of tasks is in the range [1, 10000].</li>
-    <li>The integer n is in the range [0, 100].</li>
-</ol>
 
 ## Solutions
 

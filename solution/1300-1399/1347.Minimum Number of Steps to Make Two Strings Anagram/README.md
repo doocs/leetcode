@@ -5,11 +5,12 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你两个长度相等的字符串&nbsp;<code>s</code> 和 <code>t</code>。每一个步骤中，你可以选择将&nbsp;<code>t</code>&nbsp;中的 <strong>任一字符</strong> 替换为 <strong>另一个字符</strong>。</p>
 
 <p>返回使&nbsp;<code>t</code>&nbsp;成为&nbsp;<code>s</code>&nbsp;的字母异位词的最小步骤数。</p>
 
-<p><strong>字母异位词</strong> 指字母相同，但排列不同的字符串。</p>
+<p><strong>字母异位词</strong> 指字母相同，但排列不同（也可能相同）的字符串。</p>
 
 <p>&nbsp;</p>
 
@@ -55,6 +56,7 @@
 	<li><code>s.length == t.length</code></li>
 	<li><code>s</code> 和 <code>t</code>&nbsp;只包含小写英文字母</li>
 </ul>
+
 
 ## 解法
 

@@ -56,6 +56,7 @@ Type 2: (3,0,1).  nums2[3]^2 = nums1[0] * nums1[1].
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10^5</code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

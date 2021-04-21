@@ -4,38 +4,37 @@
 
 ## Description
 
-<p>
-Given a <b>non-empty</b> string <code>s</code> and an abbreviation <code>abbr</code>, return whether the string matches with the given abbreviation.
-</p>
+<p>A string can be <strong>abbreviated</strong> by replacing any number of <strong>non-adjacent</strong> substrings with their lengths. For example, a string such as <code>&quot;substitution&quot;</code> could be abbreviated as (but not limited to):</p>
 
-<p>A string such as <code>"word"</code> contains only the following valid abbreviations:</p>
+<ul>
+	<li><code>&quot;s10n&quot;</code> (<code>&quot;s <u>ubstitutio</u> n&quot;</code>)</li>
+	<li><code>&quot;sub4u4&quot;</code> (<code>&quot;sub <u>stit</u> u <u>tion</u>&quot;</code>)</li>
+	<li><code>&quot;12&quot;</code> (<code>&quot;<u>substitution</u>&quot;</code>)</li>
+	<li><code>&quot;su3i1u2on&quot;</code> (<code>&quot;su <u>bst</u> i <u>t</u> u <u>ti</u> on&quot;</code>)</li>
+	<li><code>&quot;substitution&quot;</code> (no substrings replaced)</li>
+</ul>
 
-<pre>["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]
+<p>Note that <code>&quot;s55n&quot;</code> (<code>&quot;s <u>ubsti</u> <u>tutio</u> n&quot;</code>) is not a valid abbreviation of <code>&quot;substitution&quot;</code> because the replaced substrings are adjacent.</p>
+
+<p>Given a string <code>s</code> and an abbreviation <code>abbr</code>, return <em>whether the string matches with the given abbreviation</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> word = "internationalization", abbr = "i12iz4n"
+<strong>Output:</strong> true
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> word = "apple", abbr = "a2e"
+<strong>Output:</strong> false
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p>Notice that only the above abbreviations are valid abbreviations of the string <code>"word"</code>. Any other string is not a valid abbreviation of <code>"word"</code>.</p>
+<ul>
+	<li><code>1 &lt;= word.length, abbr.length &lt;= 20</code></li>
+	<li><code>word</code> consists of only lowercase English letters.</li>
+	<li><code>abbr</code> consists of lowercase English letters and digits.</li>
+</ul>
 
-<p><b>Note:</b><br />
-Assume <code>s</code> contains only lowercase letters and <code>abbr</code> contains only lowercase letters and digits.
-</p>
-
-<p><b>Example 1:</b><br />
-<pre>
-Given <b>s</b> = "internationalization", <b>abbr</b> = "i12iz4n":
-
-Return true.
-
-</pre>
-</p>
-
-<p><b>Example 2:</b><br />
-<pre>
-Given <b>s</b> = "apple", <b>abbr</b> = "a2e":
-
-Return false.
-
-</pre>
-</p>
 
 ## Solutions
 

@@ -24,9 +24,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/ic234-q3-ex1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/ic234-q3-ex1.png" style="width: 500px; height: 244px;" />
 <pre>
 <strong>Input:</strong> obstacles = [0,1,2,3,0]
 <strong>Output:</strong> 2 
@@ -35,9 +33,7 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/ic234-q3-ex2.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/ic234-q3-ex2.png" style="width: 500px; height: 196px;" />
 <pre>
 <strong>Input:</strong> obstacles = [0,1,1,3,3,0]
 <strong>Output:</strong> 0
@@ -45,9 +41,7 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/ic234-q3-ex3.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/ic234-q3-ex3.png" style="width: 500px; height: 196px;" />
 <pre>
 <strong>Input:</strong> obstacles = [0,2,1,0,3,0]
 <strong>Output:</strong> 2
@@ -63,6 +57,7 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 	<li><code>0 &lt;= obstacles[i] &lt;= 3</code></li>
 	<li><code>obstacles[0] == obstacles[n] == 0</code></li>
 </ul>
+
 
 ## Solutions
 

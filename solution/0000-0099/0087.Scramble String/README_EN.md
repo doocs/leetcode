@@ -4,93 +4,61 @@
 
 ## Description
 
-<p>Given a string <em>s1</em>, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.</p>
+<p>We can scramble a string s to get a string t using the following algorithm:</p>
 
-<p>Below is one possible representation of <em>s1</em> = <code>&quot;great&quot;</code>:</p>
+<ol>
+	<li>If the length of the string is 1, stop.</li>
+	<li>If the length of the string is &gt; 1, do the following:
+	<ul>
+		<li>Split the string into two non-empty substrings at a random index, i.e., if the string is <code>s</code>, divide it to <code>x</code> and <code>y</code> where <code>s = x + y</code>.</li>
+		<li><strong>Randomly</strong>&nbsp;decide to swap the two substrings or to keep them in the same order. i.e., after this step, <code>s</code> may become <code>s = x + y</code> or <code>s = y + x</code>.</li>
+		<li>Apply step 1 recursively on each of the two substrings <code>x</code> and <code>y</code>.</li>
+	</ul>
+	</li>
+</ol>
 
-<pre>
+<p>Given two strings <code>s1</code> and <code>s2</code> of <strong>the same length</strong>, return <code>true</code> if <code>s2</code> is a scrambled string of <code>s1</code>, otherwise, return <code>false</code>.</p>
 
-    great
-
-   /    \
-
-  gr    eat
-
- / \    /  \
-
-g   r  e   at
-
-           / \
-
-          a   t
-
-</pre>
-
-<p>To scramble the string, we may choose any non-leaf node and swap its two children.</p>
-
-<p>For example, if we choose the node <code>&quot;gr&quot;</code> and swap its two children, it produces a scrambled string <code>&quot;rgeat&quot;</code>.</p>
-
-<pre>
-
-    rgeat
-
-   /    \
-
-  rg    eat
-
- / \    /  \
-
-r   g  e   at
-
-           / \
-
-          a   t
-
-</pre>
-
-<p>We say that <code>&quot;rgeat&quot;</code> is a scrambled string of <code>&quot;great&quot;</code>.</p>
-
-<p>Similarly, if we continue to swap the children of nodes <code>&quot;eat&quot;</code> and <code>&quot;at&quot;</code>, it produces a scrambled string <code>&quot;rgtae&quot;</code>.</p>
-
-<pre>
-
-    rgtae
-
-   /    \
-
-  rg    tae
-
- / \    /  \
-
-r   g  ta  e
-
-       / \
-
-      t   a
-
-</pre>
-
-<p>We say that <code>&quot;rgtae&quot;</code> is a scrambled string of <code>&quot;great&quot;</code>.</p>
-
-<p>Given two strings <em>s1</em> and <em>s2</em> of the same length, determine if <em>s2</em> is a scrambled string of <em>s1</em>.</p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> s1 = &quot;great&quot;, s2 = &quot;rgeat&quot;
-
 <strong>Output:</strong> true
-
+<strong>Explanation:</strong> One possible scenario applied on s1 is:
+&quot;great&quot; --&gt; &quot;gr/eat&quot; // divide at random index.
+&quot;gr/eat&quot; --&gt; &quot;gr/eat&quot; // random decision is not to swap the two substrings and keep them in order.
+&quot;gr/eat&quot; --&gt; &quot;g/r / e/at&quot; // apply the same algorithm recursively on both substrings. divide at ranom index each of them.
+&quot;g/r / e/at&quot; --&gt; &quot;r/g / e/at&quot; // random decision was to swap the first substring and to keep the second substring in the same order.
+&quot;r/g / e/at&quot; --&gt; &quot;r/g / e/ a/t&quot; // again apply the algorithm recursively, divide &quot;at&quot; to &quot;a/t&quot;.
+&quot;r/g / e/ a/t&quot; --&gt; &quot;r/g / e/ a/t&quot; // random decision is to keep both substrings in the same order.
+The algorithm stops now and the result string is &quot;rgeat&quot; which is s2.
+As there is one possible scenario that led s1 to be scrambled to s2, we return true.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> s1 = &quot;abcde&quot;, s2 = &quot;caebd&quot;
+<strong>Output:</strong> false
+</pre>
 
-<strong>Output:</strong> false</pre>
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s1 = &quot;a&quot;, s2 = &quot;a&quot;
+<strong>Output:</strong> true
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>s1.length == s2.length</code></li>
+	<li><code>1 &lt;= s1.length &lt;= 30</code></li>
+	<li><code>s1</code> and <code>s2</code> consist of lower-case English letters.</li>
+</ul>
+
 
 ## Solutions
 

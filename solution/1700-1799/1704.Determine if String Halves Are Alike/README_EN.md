@@ -51,6 +51,7 @@ Notice that the vowel o is counted twice.
 	<li><code>s</code> consists of <strong>uppercase and lowercase</strong> letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

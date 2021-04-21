@@ -4,77 +4,44 @@
 
 ## Description
 
-<p>Given a set of words <b>(without duplicates)</b>, find all <a href="https://en.wikipedia.org/wiki/Word_square" target="_blank">word squares</a> you can build from them.</p>
+<p>Given an array of <strong>unique</strong> strings <code>words</code>, return <em>all the</em> <a href="https://en.wikipedia.org/wiki/Word_square" target="_blank">word squares</a> <em>you can build from</em> <code>words</code>. You can return the answer in <strong>any order</strong>.</p>
 
-<p>A sequence of words forms a valid word square if the <i>k</i><sup>th</sup> row and column read the exact same string, where 0 ≤ <i>k</i> < max(numRows, numColumns).</p>
+<p>A sequence of strings forms a valid <strong>word square</strong> if the <code>k<sup>th</sup></code> row and column read the same string, where <code>0 &lt;= k &lt; max(numRows, numColumns)</code>.</p>
 
-<p>For example, the word sequence <code>["ball","area","lead","lady"]</code> forms a word square because each word reads the same both horizontally and vertically.</p>
+<ul>
+	<li>For example, the word sequence <code>[&quot;ball&quot;,&quot;area&quot;,&quot;lead&quot;,&quot;lady&quot;]</code> forms a word square because each word reads the same both horizontally and vertically.</li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-b a l l
-a r e a
-l e a d
-l a d y
-</pre>
-
-<p><b>Note:</b><br />
-<ol>
-<li>There are at least 1 and at most 1000 words.</li>
-<li>All words will have the exact same length.</li>
-<li>Word length is at least 1 and at most 5.</li>
-<li>Each word contains only lowercase English alphabet <code>a-z</code>.</li>
-</ol>
-</p>
-
-<p><b>Example 1:</b>
-<pre>
-<b>Input:</b>
-["area","lead","wall","lady","ball"]
-
-<b>Output:</b>
-[
-[ "wall",
-"area",
-"lead",
-"lady"
-],
-[ "ball",
-"area",
-"lead",
-"lady"
-]
-]
-
-<b>Explanation:</b>
+<strong>Input:</strong> words = [&quot;area&quot;,&quot;lead&quot;,&quot;wall&quot;,&quot;lady&quot;,&quot;ball&quot;]
+<strong>Output:</strong> [[&quot;ball&quot;,&quot;area&quot;,&quot;lead&quot;,&quot;lady&quot;],[&quot;wall&quot;,&quot;area&quot;,&quot;lead&quot;,&quot;lady&quot;]]
+<strong>Explanation:</strong>
 The output consists of two word squares. The order of output does not matter (just the order of words in each word square matters).
-
 </pre>
-</p>
 
-<p><b>Example 2:</b>
+<p><strong>Example 2:</strong></p>
+
 <pre>
-<b>Input:</b>
-["abat","baba","atan","atal"]
-
-<b>Output:</b>
-[
-[ "baba",
-"abat",
-"baba",
-"atan"
-],
-[ "baba",
-"abat",
-"baba",
-"atal"
-]
-]
-
-<b>Explanation:</b>
+<strong>Input:</strong> words = [&quot;abat&quot;,&quot;baba&quot;,&quot;atan&quot;,&quot;atal&quot;]
+<strong>Output:</strong> [[&quot;baba&quot;,&quot;abat&quot;,&quot;baba&quot;,&quot;atal&quot;],[&quot;baba&quot;,&quot;abat&quot;,&quot;baba&quot;,&quot;atan&quot;]]
+<strong>Explanation:</strong>
 The output consists of two word squares. The order of output does not matter (just the order of words in each word square matters).
-
 </pre>
-</p>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= words.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 5</code></li>
+	<li>All <code>words[i]</code> have the same length.</li>
+	<li><code>words[i]</code> consists of only lowercase English letters.</li>
+	<li>All <code>words[i]</code> are <strong>unique</strong>.</li>
+</ul>
+
 
 ## Solutions
 

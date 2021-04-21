@@ -4,51 +4,53 @@
 
 ## Description
 
-<p>Given a binary tree, return the tilt of the <b>whole tree</b>.</p>
+<p>Given the <code>root</code> of a binary tree, return <em>the sum of every tree node&#39;s <strong>tilt</strong>.</em></p>
 
-<p>The tilt of a <b>tree node</b> is defined as the <b>absolute difference</b> between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.</p>
+<p>The <strong>tilt</strong> of a tree node is the <b>absolute difference</b> between the sum of all left subtree node <strong>values</strong> and all right subtree node <strong>values</strong>. If a node does not have a left child, then the sum of the left subtree node <strong>values</strong> is treated as <code>0</code>. The rule is similar if there the node does not have a right child.</p>
 
-<p>The tilt of the <b>whole tree</b> is defined as the sum of all nodes' tilt.</p>
-
-<p><b>Example:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/20/tilt1.jpg" style="width: 712px; height: 182px;" />
 <pre>
-
-<b>Input:</b> 
-
-         1
-
-       /   \
-
-      2     3
-
-<b>Output:</b> 1
-
-<b>Explanation:</b> 
-
-Tilt of node 2 : 0
-
-Tilt of node 3 : 0
-
-Tilt of node 1 : |2-3| = 1
-
-Tilt of binary tree : 0 + 0 + 1 = 1
-
+<strong>Input:</strong> root = [1,2,3]
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> 
+Tilt of node 2 : |0-0| = 0 (no children)
+Tilt of node 3 : |0-0| = 0 (no children)
+Tilt of node 1 : |2-3| = 1 (left subtree is just left child, so sum is 2; right subtree is just right child, so sum is 3)
+Sum of every tilt : 0 + 0 + 1 = 1
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/20/tilt2.jpg" style="width: 800px; height: 203px;" />
+<pre>
+<strong>Input:</strong> root = [4,2,9,3,5,null,7]
+<strong>Output:</strong> 15
+<strong>Explanation:</strong> 
+Tilt of node 3 : |0-0| = 0 (no children)
+Tilt of node 5 : |0-0| = 0 (no children)
+Tilt of node 7 : |0-0| = 0 (no children)
+Tilt of node 2 : |3-5| = 2 (left subtree is just left child, so sum is 3; right subtree is just right child, so sum is 5)
+Tilt of node 9 : |0-7| = 7 (no left child, so sum is 0; right subtree is just right child, so sum is 7)
+Tilt of node 4 : |(3+5+2)-(9+7)| = |10-16| = 6 (left subtree values are 3, 5, and 2, which sums to 10; right subtree values are 9 and 7, which sums to 16)
+Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
+</pre>
 
-<p><b>Note:</b>
+<p><strong>Example 3:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/20/tilt3.jpg" style="width: 800px; height: 293px;" />
+<pre>
+<strong>Input:</strong> root = [21,7,14,1,1,2,2,3,3]
+<strong>Output:</strong> 9
+</pre>
 
-<ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>The sum of node values in any subtree won't exceed the range of 32-bit integer. </li>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
+	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
 
-<li>All the tilt values won't exceed the range of 32-bit integer.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

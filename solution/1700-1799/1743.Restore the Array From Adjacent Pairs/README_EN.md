@@ -50,6 +50,7 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 	<li>There exists some <code>nums</code> that has <code>adjacentPairs</code> as its pairs.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

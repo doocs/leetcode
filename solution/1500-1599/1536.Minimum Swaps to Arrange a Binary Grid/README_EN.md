@@ -14,18 +14,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/fw.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/07/28/fw.jpg" style="width: 750px; height: 141px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,0,1],[1,1,0],[1,0,0]]
 <strong>Output:</strong> 3
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/e2.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/07/16/e2.jpg" style="width: 270px; height: 270px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[0,1,1,0],[0,1,1,0],[0,1,1,0]]
 <strong>Output:</strong> -1
@@ -33,9 +29,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/e3.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/07/16/e3.jpg" style="width: 200px; height: 200px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,0,0],[1,1,0],[1,1,1]]
 <strong>Output:</strong> 0
@@ -50,6 +44,7 @@
 	<li><code>1 &lt;= n&nbsp;&lt;= 200</code></li>
 	<li><code>grid[i][j]</code> is <code>0</code> or <code>1</code></li>
 </ul>
+
 
 ## Solutions
 

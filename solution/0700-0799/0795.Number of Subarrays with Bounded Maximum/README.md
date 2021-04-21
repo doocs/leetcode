@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个元素都是正整数的数组<code>A</code>&nbsp;，正整数 <code>L</code>&nbsp;以及&nbsp;<code>R</code>&nbsp;(<code>L &lt;= R</code>)。</p>
 
 <p>求连续、非空且其中最大元素满足大于等于<code>L</code>&nbsp;小于等于<code>R</code>的子数组个数。</p>
@@ -24,6 +25,7 @@ R = 3
 	<li>L, R&nbsp; 和&nbsp;<code>A[i]</code> 都是整数，范围在&nbsp;<code>[0, 10^9]</code>。</li>
 	<li>数组&nbsp;<code>A</code>&nbsp;的长度范围在<code>[1, 50000]</code>。</li>
 </ul>
+
 
 ## 解法
 

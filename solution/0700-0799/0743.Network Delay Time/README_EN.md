@@ -4,36 +4,45 @@
 
 ## Description
 
-<p>There are <code>N</code> network nodes, labelled <code>1</code> to <code>N</code>.</p>
+<p>You are given a network of <code>n</code> nodes, labeled from <code>1</code> to <code>n</code>. You are also given <code>times</code>, a list of travel times as directed edges <code>times[i] = (u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>)</code>, where <code>u<sub>i</sub></code> is the source node, <code>v<sub>i</sub></code> is the target node, and <code>w<sub>i</sub></code> is the time it takes for a signal to travel from source to target.</p>
 
-<p>Given <code>times</code>, a list of travel times as <b>directed</b> edges <code>times[i] = (u, v, w)</code>, where <code>u</code> is the source node, <code>v</code> is the target node, and <code>w</code> is the time it takes for a signal to travel from source to target.</p>
-
-<p>Now, we send a signal from a certain node <code>K</code>. How long will it take for all nodes to receive the signal? If it is impossible, return <code>-1</code>.</p>
+<p>We will send a signal from a given node <code>k</code>. Return the time it takes for all the <code>n</code> nodes to receive the signal. If it is impossible for all the <code>n</code> nodes to receive the signal, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2019/05/23/931_example_1.png" style="width: 217px; height: 239px;" />
+<pre>
+<strong>Input:</strong> times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
+<strong>Output:</strong> 2
+</pre>
 
-![](./images/931_example_1.png)
+<p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> times = [[1,2,1]], n = 2, k = 1
+<strong>Output:</strong> 1
+</pre>
 
-<strong>Input: </strong>times = <span id="example-input-1-1">[[2,1,1],[2,3,1],[3,4,1]]</span>, N = <span id="example-input-1-2">4</span>, K = <span id="example-input-1-3">2</span>
+<p><strong>Example 3:</strong></p>
 
-<strong>Output: </strong><span id="example-output-1">2</span>
-
+<pre>
+<strong>Input:</strong> times = [[1,2,1]], n = 2, k = 2
+<strong>Output:</strong> -1
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
+<ul>
+	<li><code>1 &lt;= k &lt;= n &lt;= 100</code></li>
+	<li><code>1 &lt;= times.length &lt;= 6000</code></li>
+	<li><code>times[i].length == 3</code></li>
+	<li><code>1 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n</code></li>
+	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
+	<li><code>0 &lt;= w<sub>i</sub> &lt;= 100</code></li>
+	<li>All the pairs <code>(u<sub>i</sub>, v<sub>i</sub>)</code> are <strong>unique</strong>. (i.e., no multiple edges.)</li>
+</ul>
 
-<ol>
-	<li><code>N</code> will be in the range <code>[1, 100]</code>.</li>
-	<li><code>K</code> will be in the range <code>[1, N]</code>.</li>
-	<li>The length of <code>times</code> will be in the range <code>[1, 6000]</code>.</li>
-	<li>All edges <code>times[i] = (u, v, w)</code> will have <code>1 &lt;= u, v &lt;= N</code> and <code>0 &lt;= w &lt;= 100</code>.</li>
-</ol>
 
 ## Solutions
 

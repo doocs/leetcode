@@ -5,19 +5,20 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>首先，给你一个初始数组 <code>arr</code>。然后，每天你都要根据前一天的数组生成一个新的数组。</p>
 
-<p>第 <code>i</code> 天所生成的数组，是由你对第 <code>i-1</code> 天的数组进行如下操作所得的：</p>
+<p>第&nbsp;<code>i</code>&nbsp;天所生成的数组，是由你对第&nbsp;<code>i-1</code>&nbsp;天的数组进行如下操作所得的：</p>
 
 <ol>
 	<li>假如一个元素小于它的左右邻居，那么该元素自增 <code>1</code>。</li>
 	<li>假如一个元素大于它的左右邻居，那么该元素自减 <code>1</code>。</li>
-	<li>首、尾元素 <strong>永不</strong> 改变。</li>
+	<li>首、尾元素 <strong>永不</strong>&nbsp;改变。</li>
 </ol>
 
 <p>过些时日，你会发现数组将会不再发生变化，请返回最终所得到的数组。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -38,14 +39,15 @@
 无法再对该数组进行更多操作。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ol>
-	<li><code>1 <= arr.length <= 100</code></li>
-	<li><code>1 <= arr[i] <= 100</code></li>
+	<li><code>1 &lt;= arr.length &lt;= 100</code></li>
+	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ol>
+
 
 ## 解法
 

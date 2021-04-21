@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一棵根为&nbsp;<code>root</code>&nbsp;的二叉树，请你返回二叉树中好节点的数目。</p>
 
 <p>「好节点」X 定义为：从根到该节点 X 所经过的节点中，没有任何节点的值大于 X 的值。</p>
@@ -13,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/test_sample_1.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/test_sample_1.png" style="height: 156px; width: 263px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [3,1,4,3,null,1,5]
 <strong>输出：</strong>4
@@ -25,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/test_sample_2.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/test_sample_2.png" style="height: 161px; width: 157px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [3,3,null,4,2]
 <strong>输出：</strong>3
@@ -45,6 +46,7 @@
 	<li>二叉树中节点数目范围是&nbsp;<code>[1, 10^5]</code>&nbsp;。</li>
 	<li>每个节点权值的范围是&nbsp;<code>[-10^4, 10^4]</code>&nbsp;。</li>
 </ul>
+
 
 ## 解法
 

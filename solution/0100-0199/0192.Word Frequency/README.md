@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>写一个 bash 脚本以统计一个文本文件&nbsp;<code>words.txt</code>&nbsp;中每个单词出现的频率。</p>
 
 <p>为了简单起见，你可以假设：</p>
@@ -37,6 +38,7 @@ day 1
 	<li>不要担心词频相同的单词的排序问题，每个单词出现的频率都是唯一的。</li>
 	<li>你可以使用一行&nbsp;<a href="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-4.html">Unix pipes</a>&nbsp;实现吗？</li>
 </ul>
+
 
 ## 解法
 

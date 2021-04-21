@@ -15,69 +15,42 @@
 <p>&nbsp;</p>
 
 <p><strong>Example 1:<br />
-
-![](./images/q1248-01.png)
-
-</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2019/02/12/q1248-01.png" style="width: 180px; height: 160px;" /></strong></p>
 
 <pre>
-
 <strong>Input: </strong>root = <span id="example-input-1-1">[1,2,3,4]</span>, x = <span id="example-input-1-2">4</span>, y = <span id="example-input-1-3">3</span>
-
 <strong>Output: </strong><span id="example-output-1">false</span>
-
 </pre>
 
 <div>
-
 <p><strong>Example 2:<br />
-
-![](./images/q1248-02.png)
-
-</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2019/02/12/q1248-02.png" style="width: 201px; height: 160px;" /></strong></p>
 
 <pre>
-
 <strong>Input: </strong>root = <span id="example-input-2-1">[1,2,3,null,4,null,5]</span>, x = <span id="example-input-2-2">5</span>, y = <span id="example-input-2-3">4</span>
-
 <strong>Output: </strong><span id="example-output-2">true</span>
-
 </pre>
 
 <div>
-
 <p><strong>Example 3:</strong></p>
 
-![](./images/q1248-03.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/02/13/q1248-03.png" style="width: 156px; height: 160px;" /></strong></p>
 
 <pre>
-
 <strong>Input: </strong>root = <span id="example-input-3-1">[1,2,3,null,4]</span>, x = 2, y = 3
-
-<strong>Output: </strong><span id="example-output-3">false</span></pre>
+<strong>Output: </strong><span id="example-output-3">false</span>
+</pre>
+</div>
+</div>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</div>
-
-</div>
-
-<p><strong>Note:</strong></p>
-
-<ol>
+<ul>
 	<li>The number of nodes in the tree will be between <code>2</code> and <code>100</code>.</li>
 	<li>Each node has a unique integer value from <code>1</code> to <code>100</code>.</li>
-</ol>
+</ul>
 
-<div>
-
-<div>
-
-<div>&nbsp;</div>
-
-</div>
-
-</div>
 
 ## Solutions
 

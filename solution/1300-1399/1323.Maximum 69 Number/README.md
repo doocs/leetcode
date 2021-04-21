@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个仅由数字 6 和 9 组成的正整数&nbsp;<code>num</code>。</p>
 
 <p>你最多只能翻转一位数字，将 6 变成&nbsp;9，或者把&nbsp;9 变成&nbsp;6 。</p>
@@ -45,6 +46,7 @@
 	<li><code>1 &lt;= num &lt;= 10^4</code></li>
 	<li><code>num</code>&nbsp;每一位上的数字都是 6 或者&nbsp;9 。</li>
 </ul>
+
 
 ## 解法
 

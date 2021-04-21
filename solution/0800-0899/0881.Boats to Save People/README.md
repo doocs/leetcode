@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>第&nbsp;<code>i</code>&nbsp;个人的体重为&nbsp;<code>people[i]</code>，每艘船可以承载的最大重量为&nbsp;<code>limit</code>。</p>
 
 <p>每艘船最多可同时载两人，但条件是这些人的重量之和最多为&nbsp;<code>limit</code>。</p>
@@ -39,6 +40,7 @@
 	<li><code>1 &lt;=&nbsp;people.length &lt;= 50000</code></li>
 	<li><code>1 &lt;= people[i] &lt;=&nbsp;limit &lt;= 30000</code></li>
 </ul>
+
 
 ## 解法
 

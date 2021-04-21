@@ -5,21 +5,48 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个按照升序排列的整数数组 <code>nums</code>，和一个目标值 <code>target</code>。找出给定目标值在数组中的开始位置和结束位置。</p>
 
-<p>你的算法时间复杂度必须是&nbsp;<em>O</em>(log <em>n</em>) 级别。</p>
+<p>如果数组中不存在目标值 <code>target</code>，返回 <code>[-1, -1]</code>。</p>
 
-<p>如果数组中不存在目标值，返回&nbsp;<code>[-1, -1]</code>。</p>
+<p><strong>进阶：</strong></p>
 
-<p><strong>示例 1:</strong></p>
+<ul>
+	<li>你可以设计并实现时间复杂度为 <code>O(log n)</code> 的算法解决此问题吗？</li>
+</ul>
 
-<pre><strong>输入:</strong> nums = [<code>5,7,7,8,8,10]</code>, target = 8
-<strong>输出:</strong> [3,4]</pre>
+<p> </p>
 
-<p><strong>示例&nbsp;2:</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> nums = [<code>5,7,7,8,8,10]</code>, target = 6
-<strong>输出:</strong> [-1,-1]</pre>
+<pre>
+<strong>输入：</strong>nums = [<code>5,7,7,8,8,10]</code>, target = 8
+<strong>输出：</strong>[3,4]</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [<code>5,7,7,8,8,10]</code>, target = 6
+<strong>输出：</strong>[-1,-1]</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [], target = 0
+<strong>输出：</strong>[-1,-1]</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>0 <= nums.length <= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
+	<li><code>nums</code> 是一个非递减数组</li>
+	<li><code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code></li>
+</ul>
+
 
 ## 解法
 

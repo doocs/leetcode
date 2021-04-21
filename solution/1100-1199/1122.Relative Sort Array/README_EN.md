@@ -17,11 +17,12 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>arr1.length, arr2.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= arr1.length, arr2.length &lt;= 1000</code></li>
 	<li><code>0 &lt;= arr1[i], arr2[i] &lt;= 1000</code></li>
-	<li>Each&nbsp;<code>arr2[i]</code>&nbsp;is&nbsp;distinct.</li>
+	<li>All the elements of <code>arr2</code> are <strong>distinct</strong>.</li>
 	<li>Each&nbsp;<code>arr2[i]</code> is in <code>arr1</code>.</li>
 </ul>
+
 
 ## Solutions
 

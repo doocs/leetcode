@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个方程，左边用&nbsp;<code>words</code>&nbsp;表示，右边用&nbsp;<code>result</code> 表示。</p>
 
 <p>你需要根据以下规则检查方程是否可解：</p>
@@ -56,6 +57,7 @@
 	<li><code>words[i], result</code>&nbsp;只含有大写英文字母</li>
 	<li>表达式中使用的不同字符数最大为&nbsp;10</li>
 </ul>
+
 
 ## 解法
 

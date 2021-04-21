@@ -4,55 +4,37 @@
 
 ## Description
 
-<p>
+<p>You are given an integer array <code>cost</code> where <code>cost[i]</code> is the cost of <code>i<sup>th</sup></code> step on a staircase. Once you pay the cost, you can either climb one or two steps.</p>
 
-On a staircase, the <code>i</code>-th step has some non-negative cost <code>cost[i]</code> assigned (0 indexed).
+<p>You can either start from the step with index <code>0</code>, or the step with index <code>1</code>.</p>
 
-</p><p>
+<p>Return <em>the minimum cost to reach the top of the floor</em>.</p>
 
-Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> cost = [10, 15, 20]
-
-<b>Output:</b> 15
-
-<b>Explanation:</b> Cheapest is start on cost[1], pay that cost and go to the top.
-
+<strong>Input:</strong> cost = [10,15,20]
+<strong>Output:</strong> 15
+<strong>Explanation:</strong> Cheapest is: start on cost[1], pay that cost, and go to the top.
 </pre>
 
-</p>
-
-<p><b>Example 2:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
-
-<b>Output:</b> 6
-
-<b>Explanation:</b> Cheapest is start on cost[0], and only step on 1s, skipping cost[3].
-
+<strong>Input:</strong> cost = [1,100,1,1,1,100,1,1,100,1]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> Cheapest is: start on cost[0], and only step on 1s, skipping cost[3].
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b><br>
+<ul>
+	<li><code>2 &lt;= cost.length &lt;= 1000</code></li>
+	<li><code>0 &lt;= cost[i] &lt;= 999</code></li>
+</ul>
 
-<ol>
-
-<li><code>cost</code> will have a length in the range <code>[2, 1000]</code>.</li>
-
-<li>Every <code>cost[i]</code> will be an integer in the range <code>[0, 999]</code>.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

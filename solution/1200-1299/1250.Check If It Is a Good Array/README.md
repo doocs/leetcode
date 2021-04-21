@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个正整数数组 <code>nums</code>，你需要从中任选一些子集，然后将子集中每一个数乘以一个 <strong>任意整数</strong>，并求出他们的和。</p>
 
 <p>假如该和结果为&nbsp;<code>1</code>，那么原数组就是一个「<strong>好数组</strong>」，则返回 <code>True</code>；否则请返回 <code>False</code>。</p>
@@ -41,6 +42,7 @@
 	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10^9</code></li>
 </ul>
+
 
 ## 解法
 

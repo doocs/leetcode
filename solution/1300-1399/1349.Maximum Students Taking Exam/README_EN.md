@@ -12,9 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/image.png)
-
+<img height="200" src="https://assets.leetcode.com/uploads/2020/01/29/image.png" width="339" />
 <pre>
 <strong>Input:</strong> seats = [[&quot;#&quot;,&quot;.&quot;,&quot;#&quot;,&quot;#&quot;,&quot;.&quot;,&quot;#&quot;],
 &nbsp;               [&quot;.&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;.&quot;],
@@ -58,6 +56,7 @@
 	<li><code>1 &lt;= m &lt;= 8</code></li>
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
+
 
 ## Solutions
 

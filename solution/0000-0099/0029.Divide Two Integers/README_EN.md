@@ -4,12 +4,15 @@
 
 ## Description
 
-<p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers without using multiplication, division and mod operator.</p>
+<p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers without using multiplication, division, and mod operator.</p>
 
 <p>Return the quotient after dividing <code>dividend</code> by <code>divisor</code>.</p>
 
 <p>The integer division should truncate toward zero, which means losing its fractional part. For example, <code>truncate(8.345) = 8</code> and <code>truncate(-2.7335) = -2</code>.</p>
 
+<p><strong>Note: </strong>Assume we are dealing with an environment that could only store integers within the <strong>32-bit</strong> signed integer range: <code>[&minus;2<sup>31</sup>, 2<sup>31</sup> &minus; 1]</code>. For this problem, assume that your function <strong>returns </strong><code>2<sup>31</sup> &minus; 1</code><strong> when the division result overflows</strong>.</p>
+
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -26,13 +29,28 @@
 <strong>Explanation:</strong> 7/-3 = truncate(-2.33333..) = -2.
 </pre>
 
-<p><strong>Note:</strong></p>
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> dividend = 0, divisor = 1
+<strong>Output:</strong> 0
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> dividend = 1, divisor = 1
+<strong>Output:</strong> 1
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>Both dividend and divisor&nbsp;will be&nbsp;32-bit&nbsp;signed integers.</li>
-	<li>The divisor will never be 0.</li>
-	<li>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [&minus;2<sup>31</sup>, &nbsp;2<sup>31</sup> &minus; 1]. For the purpose of this problem, assume that your function <strong>returns 2<sup>31</sup> &minus; 1 when the division result&nbsp;overflows</strong>.</li>
+	<li><code>-2<sup>31</sup> &lt;= dividend, divisor &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>divisor != 0</code></li>
 </ul>
+
 
 ## Solutions
 

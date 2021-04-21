@@ -5,31 +5,38 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>假设你有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花卉不能种植在相邻的地块上，它们会争夺水源，两者都会死去。</p>
 
-<p>给定一个花坛（表示为一个数组包含0和1，其中0表示没种植花，1表示种植了花），和一个数&nbsp;<strong>n&nbsp;</strong>。能否在不打破种植规则的情况下种入&nbsp;<strong>n&nbsp;</strong>朵花？能则返回True，不能则返回False。</p>
+<p>假设有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花不能种植在相邻的地块上，它们会争夺水源，两者都会死去。</p>
 
-<p><strong>示例 1:</strong></p>
+<p>给你一个整数数组  <code>flowerbed</code> 表示花坛，由若干 <code>0</code> 和 <code>1</code> 组成，其中 <code>0</code> 表示没种植花，<code>1</code> 表示种植了花。另有一个数 <code>n</code><strong> </strong>，能否在不打破种植规则的情况下种入 <code>n</code><strong> </strong>朵花？能则返回 <code>true</code> ，不能则返回 <code>false</code>。</p>
 
-<pre>
-<strong>输入:</strong> flowerbed = [1,0,0,0,1], n = 1
-<strong>输出:</strong> True
-</pre>
+<p> </p>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> flowerbed = [1,0,0,0,1], n = 2
-<strong>输出:</strong> False
+<strong>输入：</strong>flowerbed = [1,0,0,0,1], n = 1
+<strong>输出：</strong>true
 </pre>
 
-<p><strong>注意:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<ol>
-	<li>数组内已种好的花不会违反种植规则。</li>
-	<li>输入的数组长度范围为 [1, 20000]。</li>
-	<li><strong>n</strong> 是非负整数，且不会超过输入数组的大小。</li>
-</ol>
+<pre>
+<strong>输入：</strong>flowerbed = [1,0,0,0,1], n = 2
+<strong>输出：</strong>false
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= flowerbed.length <= 2 * 10<sup>4</sup></code></li>
+	<li><code>flowerbed[i]</code> 为 <code>0</code> 或 <code>1</code></li>
+	<li><code>flowerbed</code> 中不存在相邻的两朵花</li>
+	<li><code>0 <= n <= flowerbed.length</code></li>
+</ul>
+
 
 ## 解法
 

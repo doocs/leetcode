@@ -70,6 +70,7 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 	<li><code>s</code> contains only lower-case English letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个字符串列表&nbsp;<code>dict</code> ，其中所有字符串的长度都相同。</p>
 
 <p>当存在两个字符串在相同索引处只有一个字符不同时，返回 <code>True</code> ，否则返回 <code>False</code> 。</p>
@@ -45,6 +46,7 @@
 	<li><code>dict[i]</code>&nbsp;是互不相同的。</li>
 	<li><code>dict[i]</code>&nbsp;只包含小写英文字母。</li>
 </ul>
+
 
 ## 解法
 

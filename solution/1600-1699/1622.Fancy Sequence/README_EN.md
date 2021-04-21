@@ -50,6 +50,7 @@ fancy.getIndex(2); // return 20
 	<li>At most <code>10<sup>5</sup></code> calls total will be made to <code>append</code>, <code>addAll</code>, <code>multAll</code>, and <code>getIndex</code>.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

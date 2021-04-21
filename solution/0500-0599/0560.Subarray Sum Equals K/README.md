@@ -1,10 +1,11 @@
-# [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k)
+# [560. 和为K的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k)
 
 [English Version](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个整数数组和一个整数&nbsp;<strong>k，</strong>你需要找到该数组中和为&nbsp;<strong>k&nbsp;</strong>的连续的子数组的个数。</p>
 
 <p><strong>示例 1 :</strong></p>
@@ -20,6 +21,7 @@
 	<li>数组的长度为 [1, 20,000]。</li>
 	<li>数组中元素的范围是 [-1000, 1000] ，且整数&nbsp;<strong>k&nbsp;</strong>的范围是&nbsp;[-1e7, 1e7]。</li>
 </ol>
+
 
 ## 解法
 

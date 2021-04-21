@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们把无限数量 &infin; 的栈排成一行，按从左到右的次序从 0 开始编号。每个栈的的最大容量&nbsp;<code>capacity</code> 都相同。</p>
 
 <p>实现一个叫「餐盘」的类&nbsp;<code>DinnerPlates</code>：</p>
@@ -34,29 +35,29 @@ D.push(3);
 D.push(4);
 D.push(5);         // 栈的现状为：    2 &nbsp;4
 &nbsp;                                   1 &nbsp;3 &nbsp;5
-                                      
+                                    ﹈ ﹈ ﹈
 D.popAtStack(0);   // 返回 2。栈的现状为：     &nbsp;4
             &nbsp;                             1 &nbsp;3 &nbsp;5
-                                            
+                                          ﹈ ﹈ ﹈
 D.push(20);        // 栈的现状为：  20  4
 &nbsp;                                  1 &nbsp;3 &nbsp;5
-                                     
+                                   ﹈ ﹈ ﹈
 D.push(21);        // 栈的现状为：  20  4 21
 &nbsp;                                  1 &nbsp;3 &nbsp;5
-                                     
+                                   ﹈ ﹈ ﹈
 D.popAtStack(0);   // 返回 20。栈的现状为：       4 21
              &nbsp;                              1 &nbsp;3 &nbsp;5
-                                              
+                                            ﹈ ﹈ ﹈
 D.popAtStack(2);   // 返回 21。栈的现状为：       4
              &nbsp;                              1 &nbsp;3 &nbsp;5
-                                               
+                                            ﹈ ﹈ ﹈ 
 D.pop()            // 返回 5。栈的现状为：        4
              &nbsp;                              1 &nbsp;3 
-                                               
+                                            ﹈ ﹈  
 D.pop()            // 返回 4。栈的现状为：    1  3 
-                                               
+                                           ﹈ ﹈   
 D.pop()            // 返回 3。栈的现状为：    1 
-                                              
+                                           ﹈   
 D.pop()            // 返回 1。现在没有栈。
 D.pop()            // 返回 -1。仍然没有栈。
 </pre>
@@ -71,6 +72,7 @@ D.pop()            // 返回 -1。仍然没有栈。
 	<li><code>0 &lt;= index&nbsp;&lt;= 100000</code></li>
 	<li>最多会对&nbsp;<code>push</code>，<code>pop</code>，和&nbsp;<code>popAtStack</code>&nbsp;进行 <code>200000</code> 次调用。</li>
 </ul>
+
 
 ## 解法
 

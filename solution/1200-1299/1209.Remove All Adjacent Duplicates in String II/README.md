@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串&nbsp;<code>s</code>，「<code>k</code> 倍重复项删除操作」将会从 <code>s</code>&nbsp;中选择&nbsp;<code>k</code>&nbsp;个相邻且相等的字母，并删除它们，使被删去的字符串的左侧和右侧连在一起。</p>
 
 <p>你需要对&nbsp;<code>s</code>&nbsp;重复进行无限次这样的删除操作，直到无法继续为止。</p>
@@ -45,6 +46,7 @@
 	<li><code>2 &lt;= k &lt;= 10^4</code></li>
 	<li><code>s</code>&nbsp;中只含有小写英文字母。</li>
 </ul>
+
 
 ## 解法
 

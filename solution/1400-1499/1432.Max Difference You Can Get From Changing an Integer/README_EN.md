@@ -66,6 +66,7 @@ We have now a = 9 and b = 1 and max difference = 8
 	<li><code>1 &lt;= num &lt;= 10^8</code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

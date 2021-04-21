@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>在一个给定的数组<code>nums</code>中，总是存在一个最大元素 。</p>
 
 <p>查找数组中的最大元素是否至少是数组中每个其他数字的两倍。</p>
@@ -36,6 +37,7 @@
 	<li><code>nums</code>&nbsp;的长度范围在<code>[1, 50]</code>.</li>
 	<li>每个&nbsp;<code>nums[i]</code>&nbsp;的整数范围在&nbsp;<code>[0, 100]</code>.</li>
 </ol>
+
 
 ## 解法
 

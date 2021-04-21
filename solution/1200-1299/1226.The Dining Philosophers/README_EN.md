@@ -12,7 +12,7 @@
 
 <p>Design a discipline of behaviour (a concurrent algorithm) such that no philosopher will starve;&nbsp;<i>i.e.</i>, each can forever continue to alternate between eating and thinking, assuming that no philosopher can know when others may want to eat or think.</p>
 
-![](./images/an_illustration_of_the_dining_philosophers_problem.png)
+<p style="text-align: center"><img alt="" src="https://assets.leetcode.com/uploads/2019/09/24/an_illustration_of_the_dining_philosophers_problem.png" style="width: 400px; height: 415px;" /></p>
 
 <p style="text-align: center"><em>The problem statement and the image above are taken from <a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem" target="_blank">wikipedia.org</a></em></p>
 
@@ -50,6 +50,7 @@ output[i] = [a, b, c] (three integers)
 <ul>
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
+
 
 ## Solutions
 

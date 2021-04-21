@@ -5,34 +5,36 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给一个 <strong>非空</strong> 字符串 <code>s</code> 和一个单词缩写 <code>abbr</code> ，判断这个缩写是否可以是给定单词的缩写。</p>
 
-<p>字符串 <code>"word"</code> 的所有有效缩写为：</p>
+<p>给一个&nbsp;<strong>非空</strong>&nbsp;字符串&nbsp;<code>s</code>&nbsp;和一个单词缩写&nbsp;<code>abbr</code>&nbsp;，判断这个缩写是否可以是给定单词的缩写。</p>
 
-<pre>["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]</pre>
+<p>字符串&nbsp;<code>&quot;word&quot;</code>&nbsp;的所有有效缩写为：</p>
 
-<p>注意单词 <code>"word"</code> 的所有有效缩写仅包含以上这些。任何其他的字符串都不是 <code>"word"</code> 的有效缩写。</p>
+<pre>[&quot;word&quot;, &quot;1ord&quot;, &quot;w1rd&quot;, &quot;wo1d&quot;, &quot;wor1&quot;, &quot;2rd&quot;, &quot;w2d&quot;, &quot;wo2&quot;, &quot;1o1d&quot;, &quot;1or1&quot;, &quot;w1r1&quot;, &quot;1o2&quot;, &quot;2r1&quot;, &quot;3d&quot;, &quot;w3&quot;, &quot;4&quot;]</pre>
+
+<p>注意单词&nbsp;<code>&quot;word&quot;</code>&nbsp;的所有有效缩写仅包含以上这些。任何其他的字符串都不是&nbsp;<code>&quot;word&quot;</code>&nbsp;的有效缩写。</p>
 
 <p><strong>注意:</strong><br>
-假设字符串 <code>s</code> 仅包含小写字母且 <code>abbr</code> 只包含小写字母和数字。</p>
+假设字符串&nbsp;<code>s</code>&nbsp;仅包含小写字母且&nbsp;<code>abbr</code> 只包含小写字母和数字。</p>
 
 <p><strong>示例 1:</strong></p>
 
-<pre>给定 <strong>s</strong> = "internationalization", <strong>abbr</strong> = "i12iz4n":
+<pre>给定 <strong>s</strong> = &quot;internationalization&quot;, <strong>abbr</strong> = &quot;i12iz4n&quot;:
 
 函数返回 true.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 2:</strong></p>
 
-<pre>给定 <strong>s</strong> = "apple", <strong>abbr</strong> = "a2e":
+<pre>给定 <strong>s</strong> = &quot;apple&quot;, <strong>abbr</strong> = &quot;a2e&quot;:
 
 函数返回 false.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
+
 
 ## 解法
 

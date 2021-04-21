@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个字符串列表，你可以将这些字符串连接成一个循环字符串，对于每个字符串，你可以选择是否翻转它。在所有可能的循环字符串中，你需要分割循环字符串（这将使循环字符串变成一个常规的字符串），然后找到字典序最大的字符串。</p>
 
 <p>具体来说，要找到字典序最大的字符串，你需要经历两个阶段：</p>
@@ -18,15 +19,15 @@
 
 <p><strong>示例:</strong></p>
 
-<pre><strong>输入:</strong> "abc", "xyz"
-<strong>输出:</strong> "zyxcba"
-<strong>解释:</strong> 你可以得到循环字符串 "-abcxyz-", "-abczyx-", "-cbaxyz-", "-cbazyx-"，
-其中 '-' 代表循环状态。 
+<pre><strong>输入:</strong> &quot;abc&quot;, &quot;xyz&quot;
+<strong>输出:</strong> &quot;zyxcba&quot;
+<strong>解释:</strong> 你可以得到循环字符串 &quot;-abcxyz-&quot;, &quot;-abczyx-&quot;, &quot;-cbaxyz-&quot;, &quot;-cbazyx-&quot;，
+其中 &#39;-&#39; 代表循环状态。 
 答案字符串来自第四个循环字符串， 
-你可以从中间字符 'a' 分割开然后得到 "zyxcba"。
+你可以从中间字符 &#39;a&#39; 分割开然后得到 &quot;zyxcba&quot;。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>注意:</strong></p>
 
@@ -35,7 +36,8 @@
 	<li>所有字符串的总长度不会超过 1,000。</li>
 </ol>
 
-<p> </p>
+<p>&nbsp;</p>
+
 
 ## 解法
 

@@ -4,37 +4,34 @@
 
 ## Description
 
-<p>
+<p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of <strong>steps</strong> required to make</em> <code>word1</code> <em>and</em> <code>word2</code> <em>the same</em>.</p>
 
-Given two words <i>word1</i> and <i>word2</i>, find the minimum number of steps required to make <i>word1</i> and <i>word2</i> the same, where in each step you can delete one character in either string.
+<p>In one <strong>step</strong>, you can delete exactly one character in either string.</p>
 
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> "sea", "eat"
-
-<b>Output:</b> 2
-
-<b>Explanation:</b> You need one step to make "sea" to "ea" and another step to make "eat" to "ea".
-
+<strong>Input:</strong> word1 = &quot;sea&quot;, word2 = &quot;eat&quot;
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> You need one step to make &quot;sea&quot; to &quot;ea&quot; and another step to make &quot;eat&quot; to &quot;ea&quot;.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b><br>
+<pre>
+<strong>Input:</strong> word1 = &quot;leetcode&quot;, word2 = &quot;etco&quot;
+<strong>Output:</strong> 4
+</pre>
 
-<ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>The length of given words won't exceed 500.</li>
+<ul>
+	<li><code>1 &lt;= word1.length, word2.length &lt;= 500</code></li>
+	<li><code>word1</code> and <code>word2</code> consist of only lowercase English letters.</li>
+</ul>
 
-<li>Characters in given words can only be lower-case letters.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有一个立方体房间，其长度、宽度和高度都等于 <code>n</code> 个单位。请你在房间里放置 <code>n</code> 个盒子，每个盒子都是一个单位边长的立方体。放置规则如下：</p>
 
 <ul>
@@ -18,7 +19,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/3-boxes.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/24/3-boxes.png" style="width: 135px; height: 143px;" /></p>
 
 <pre>
 <strong>输入：</strong>n = 3
@@ -29,7 +30,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/4-boxes.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/24/4-boxes.png" style="width: 135px; height: 179px;" /></p>
 
 <pre>
 <strong>输入：</strong>n = 4
@@ -40,7 +41,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/10-boxes.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/24/10-boxes.png" style="width: 271px; height: 257px;" /></p>
 
 <pre>
 <strong>输入：</strong>n = 10
@@ -55,6 +56,7 @@
 <ul>
 	<li><code>1 <= n <= 10<sup>9</sup></code></li>
 </ul>
+
 
 ## 解法
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有 <code>n</code> 座城市，编号从 <code>1</code> 到 <code>n</code> 。编号为 <code>x</code> 和 <code>y</code> 的两座城市直接连通的前提是： <code>x</code> 和 <code>y</code> 的公因数中，至少有一个 <strong>严格大于</strong> 某个阈值 <code>threshold</code> 。更正式地说，如果存在整数 <code>z</code> ，且满足以下所有条件，则编号 <code>x</code> 和 <code>y</code> 的城市之间有一条道路：</p>
 
 <ul>
@@ -21,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/ex1.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/18/ex1.jpg" style="width: 382px; height: 181px;" /></p>
 
 <p> </p>
 
@@ -43,7 +44,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/tmp.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/18/tmp.jpg" style="width: 532px; height: 302px;" /></p>
 
 <p> </p>
 
@@ -55,7 +56,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/ex3.jpg)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/16/ex3.jpg" style="width: 282px; height: 282px;" /></p>
 
 <p> </p>
 
@@ -78,6 +79,7 @@
 	<li><code>1 <= a<sub>i</sub>, b<sub>i</sub> <= cities</code></li>
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
+
 
 ## 解法
 

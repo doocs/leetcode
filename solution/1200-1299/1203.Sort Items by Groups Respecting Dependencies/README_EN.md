@@ -18,7 +18,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/1359_ex1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/09/11/1359_ex1.png" style="width: 191px; height: 181px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 8, m = 2, group = [-1,-1,1,0,0,1,0,-1], beforeItems = [[],[6],[5],[6],[3,6],[],[],[]]
@@ -37,14 +37,15 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= m &lt;= n &lt;= 3*10^4</code></li>
+	<li><code>1 &lt;= m &lt;= n &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>group.length == beforeItems.length == n</code></li>
-	<li><code>-1 &lt;= group[i] &lt;= m-1</code></li>
-	<li><code>0 &lt;= beforeItems[i].length &lt;= n-1</code></li>
-	<li><code>0 &lt;= beforeItems[i][j] &lt;= n-1</code></li>
+	<li><code>-1 &lt;= group[i] &lt;= m - 1</code></li>
+	<li><code>0 &lt;= beforeItems[i].length &lt;= n - 1</code></li>
+	<li><code>0 &lt;= beforeItems[i][j] &lt;= n - 1</code></li>
 	<li><code>i != beforeItems[i][j]</code></li>
 	<li><code>beforeItems[i]&nbsp;</code>does not contain&nbsp;duplicates elements.</li>
 </ul>
+
 
 ## Solutions
 

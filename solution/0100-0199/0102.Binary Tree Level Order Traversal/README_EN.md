@@ -4,49 +4,38 @@
 
 ## Description
 
-<p>Given a binary tree, return the <i>level order</i> traversal of its nodes' values. (ie, from left to right, level by level).</p>
+<p>Given the <code>root</code> of a binary tree, return <em>the level order traversal of its nodes&#39; values</em>. (i.e., from left to right, level by level).</p>
 
-<p>
-
-For example:<br />
-
-Given binary tree <code>[3,9,20,null,null,15,7]</code>,<br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/tree1.jpg" style="width: 277px; height: 302px;" />
 <pre>
-
-    3
-
-   / \
-
-  9  20
-
-    /  \
-
-   15   7
-
+<strong>Input:</strong> root = [3,9,20,null,null,15,7]
+<strong>Output:</strong> [[3],[9,20],[15,7]]
 </pre>
 
-</p>
-
-<p>
-
-return its level order traversal as:<br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-[
-
-  [3],
-
-  [9,20],
-
-  [15,7]
-
-]
-
+<strong>Input:</strong> root = [1]
+<strong>Output:</strong> [[1]]
 </pre>
 
-</p>
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> root = []
+<strong>Output:</strong> []
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
+	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个由 <strong>不同</strong> 正整数组成的数组 <code>nums</code> ，请你返回满足 <code>a * b = c * d</code> 的元组<em> </em><code>(a, b, c, d)</code><em> </em>的数量。其中 <code>a</code>、<code>b</code>、<code>c</code> 和 <code>d</code> 都是 <code>nums</code> 中的元素，且 <code>a != b != c != d</code> 。</p>
 
 <p> </p>
@@ -54,6 +55,7 @@
 	<li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
 	<li><code>nums</code> 中的所有元素 <strong>互不相同</strong></li>
 </ul>
+
 
 ## 解法
 

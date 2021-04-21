@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>You have some apples, where <code>arr[i]</code> is the weight of the <code>i</code>-th apple.  You also have a basket that can carry up to <code>5000</code> units of weight.</p>
+<p>You have some apples, where <code>arr[i]</code> is the weight of the <code>i</code>-th apple.&nbsp; You also have a basket that can carry up to <code>5000</code> units of weight.</p>
 
 <p>Return the maximum number of apples you can put in the basket.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
@@ -25,13 +25,14 @@
 <strong>Explanation: </strong>The sum of weights of the 6 apples exceeds 5000 so we choose any 5 of them.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 <= arr.length <= 10^3</code></li>
-	<li><code>1 <= arr[i] <= 10^3</code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10^3</code></li>
+	<li><code>1 &lt;= arr[i] &lt;= 10^3</code></li>
 </ul>
+
 
 ## Solutions
 

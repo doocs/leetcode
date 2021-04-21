@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组&nbsp;<code>arr</code>&nbsp;。请你返回和为 <strong>奇数</strong>&nbsp;的子数组数目。</p>
 
 <p>由于答案可能会很大，请你将结果对&nbsp;<code>10^9 + 7</code>&nbsp;取余后返回。</p>
@@ -55,6 +56,7 @@
 	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
+
 
 ## 解法
 

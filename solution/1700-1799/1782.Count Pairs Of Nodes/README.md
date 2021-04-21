@@ -22,9 +22,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/screenshot-from-2021-02-11-23-07-35.png)
-
+<img alt="" src="https://pic.leetcode-cn.com/1614828447-GMnLVg-image.png" style="width: 310px; height: 278px;" />
 <pre>
 <b>输入：</b>n = 4, edges = [[1,2],[2,4],[1,3],[2,3],[2,1]], queries = [2,3]
 <b>输出：</b>[6,5]
@@ -50,6 +48,7 @@
 	<li><code>1 <= queries.length <= 20</code></li>
 	<li><code>0 <= queries[j] < edges.length</code></li>
 </ul>
+
 
 ## 解法
 

@@ -4,50 +4,51 @@
 
 ## Description
 
-<p>Given an array of 4 digits, return the largest 24 hour time that can be made.</p>
+<p>Given an array&nbsp;<code>arr</code> of 4 digits, find the latest 24-hour time that can be made using each digit <strong>exactly once</strong>.</p>
 
-<p>The smallest 24 hour time is 00:00, and the largest is 23:59.&nbsp; Starting from 00:00, a time is larger if more time has elapsed since midnight.</p>
+<p>24-hour times are formatted as <code>&quot;HH:MM&quot;</code>, where <code>HH</code>&nbsp;is between&nbsp;<code>00</code>&nbsp;and&nbsp;<code>23</code>, and&nbsp;<code>MM</code>&nbsp;is between&nbsp;<code>00</code>&nbsp;and&nbsp;<code>59</code>. The earliest 24-hour time is <code>00:00</code>, and the latest is <code>23:59</code>.</p>
 
-<p>Return the answer as a string of length 5.&nbsp; If no valid time can be made, return an empty string.</p>
+<p>Return <em>the latest 24-hour time&nbsp;in&nbsp;<code>&quot;HH:MM&quot;</code> format</em>.&nbsp; If no valid time can be made, return an empty string.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[1,2,3,4]</span>
-
-<strong>Output: </strong><span id="example-output-1">&quot;23:41&quot;</span>
-
+<strong>Input:</strong> A = [1,2,3,4]
+<strong>Output:</strong> &quot;23:41&quot;
+<strong>Explanation:</strong>&nbsp;The valid 24-hour times are &quot;12:34&quot;, &quot;12:43&quot;, &quot;13:24&quot;, &quot;13:42&quot;, &quot;14:23&quot;, &quot;14:32&quot;, &quot;21:34&quot;, &quot;21:43&quot;, &quot;23:14&quot;, and &quot;23:41&quot;. Of these times, &quot;23:41&quot; is the latest.
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> A = [5,5,5,5]
+<strong>Output:</strong> &quot;&quot;
+<strong>Explanation:</strong>&nbsp;There are no valid 24-hour times as &quot;55:55&quot; is not valid.
+</pre>
 
-<strong>Input: </strong><span id="example-input-2-1">[5,5,5,5]</span>
+<p><strong>Example 3:</strong></p>
 
-<strong>Output: </strong><span id="example-output-2">&quot;&quot;</span>
+<pre>
+<strong>Input:</strong> A = [0,0,0,0]
+<strong>Output:</strong> &quot;00:00&quot;
+</pre>
 
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> A = [0,0,1,0]
+<strong>Output:</strong> &quot;10:00&quot;
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong><span>Note:</span></strong></p>
+<ul>
+	<li><code>arr.length == 4</code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 9</code></li>
+</ul>
 
-<ol>
-    <li><code>A.length == 4</code></li>
-    <li><code>0 &lt;= A[i] &lt;= 9</code></li>
-</ol>
-
-</div>
-
-</div>
 
 ## Solutions
 

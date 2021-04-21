@@ -4,29 +4,54 @@
 
 ## Description
 
-<p>
-Given <code>m</code> arrays, and each array is sorted in ascending order. Now you can pick up two integers from two different arrays (each array picks one) and calculate the distance. We define the distance between two integers <code>a</code> and <code>b</code> to be their absolute difference <code>|a-b|</code>. Your task is to find the maximum distance.
-</p>
+<p>You are given <code>m</code> <code>arrays</code>, where each array is sorted in <strong>ascending order</strong>.</p>
 
-<p><b>Example 1:</b><br />
+<p>You can pick up two integers from two different arrays (each array picks one) and calculate the distance. We define the distance between two integers <code>a</code> and <code>b</code> to be their absolute difference <code>|a - b|</code>.</p>
+
+<p>Return <em>the maximum distance</em>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
 <pre>
-<b>Input:</b> 
-[[1,2,3],
- [4,5],
- [1,2,3]]
-<b>Output:</b> 4
-<b>Explanation:</b> 
-One way to reach the maximum distance 4 is to pick 1 in the first or third array and pick 5 in the second array.
+<strong>Input:</strong> arrays = [[1,2,3],[4,5],[1,2,3]]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> One way to reach the maximum distance 4 is to pick 1 in the first or third array and pick 5 in the second array.
 </pre>
-</p>
-	
-<p><b>Note:</b><br>
-<ol>
-<li>Each given array will have at least 1 number. There will be at least two non-empty arrays.</li>
-<li>The total number of the integers in <b>all</b> the <code>m</code> arrays will be in the range of [2, 10000].</li>
-<li>The integers in the <code>m</code> arrays will be in the range of [-10000, 10000].</li>
-</ol>
-</p>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> arrays = [[1],[1]]
+<strong>Output:</strong> 0
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> arrays = [[1],[2]]
+<strong>Output:</strong> 1
+</pre>
+
+<p><strong>Example 4:</strong></p>
+
+<pre>
+<strong>Input:</strong> arrays = [[1,4],[0,5]]
+<strong>Output:</strong> 4
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>m == arrays.length</code></li>
+	<li><code>2&nbsp;&lt;= m &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= arrays[i].length &lt;= 500</code></li>
+	<li><code>-10<sup>4</sup> &lt;= arrays[i][j] &lt;= 10<sup>4</sup></code></li>
+	<li><code>arrays[i]</code> is sorted in <strong>ascending order</strong>.</li>
+	<li>There will be at most <code>10<sup>5</sup></code> integers in all the arrays.</li>
+</ul>
+
 
 ## Solutions
 

@@ -4,35 +4,43 @@
 
 ## Description
 
-<p>A binary watch has 4 LEDs on the top which represent the <b>hours</b> (<b>0-11</b>), and the 6 LEDs on the bottom represent the <b>minutes</b> (<b>0-59</b>).</p>
-
-<p>Each LED represents a zero or one, with the least significant bit on the right.</p>
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Binary_clock_samui_moon.jpg" height="300" />
-
-<p>For example, the above binary watch reads "3:25".</p>
-
-<p>Given a non-negative integer <i>n</i> which represents the number of LEDs that are currently on, return all possible times the watch could represent.</p>
-
-<p><b>Example:</b>
-
-<pre>Input: n = 1<br>Return: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]</pre>
-
-</p>
-
-<p><b>Note:</b><br />
+<p>A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right.</p>
 
 <ul>
-
-<li>The order of output does not matter.</li>
-
-<li>The hour must not contain a leading zero, for example "01:00" is not valid, it should be "1:00".</li>
-
-<li>The minute must be consist of two digits and may contain a leading zero, for example "10:2" is not valid, it should be "10:02".</li>
-
+	<li>For example, the below binary watch reads <code>&quot;4:51&quot;</code>.</li>
 </ul>
 
-</p>
+<p><img alt="" src="https://assets.leetcode.com/uploads/2021/04/08/binarywatch.jpg" style="width: 500px; height: 500px;" /></p>
+
+<p>Given an integer <code>turnedOn</code> which represents the number of LEDs that are currently on, return <em>all possible times the watch could represent</em>. You may return the answer in <strong>any order</strong>.</p>
+
+<p>The hour must not contain a leading zero.</p>
+
+<ul>
+	<li>For example, <code>&quot;01:00&quot;</code> is not valid. It should be <code>&quot;1:00&quot;</code>.</li>
+</ul>
+
+<p>The minute must be consist of two digits and may contain a leading zero.</p>
+
+<ul>
+	<li>For example, <code>&quot;10:2&quot;</code> is not valid. It should be <code>&quot;10:02&quot;</code>.</li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> turnedOn = 1
+<strong>Output:</strong> ["0:01","0:02","0:04","0:08","0:16","0:32","1:00","2:00","4:00","8:00"]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> turnedOn = 9
+<strong>Output:</strong> []
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>0 &lt;= turnedOn &lt;= 10</code></li>
+</ul>
+
 
 ## Solutions
 

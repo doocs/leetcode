@@ -4,26 +4,34 @@
 
 ## Description
 
-<p>Write a program to find the <code>n</code>-th ugly number.</p>
+<p>An <strong>ugly number</strong> is a positive integer whose prime factors are limited to <code>2</code>, <code>3</code>, and <code>5</code>.</p>
 
-<p>Ugly numbers are<strong> positive numbers</strong> whose prime factors only include <code>2, 3, 5</code>.&nbsp;</p>
+<p>Given an integer <code>n</code>, return <em>the</em> <code>n<sup>th</sup></code> <em><strong>ugly number</strong></em>.</p>
 
-<p><strong>Example:</strong></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> n = 10
-
 <strong>Output:</strong> 12
+<strong>Explanation:</strong> [1, 2, 3, 4, 5, 6, 8, 9, 10, 12] is the sequence of the first 10 ugly numbers.
+</pre>
 
-<strong>Explanation: </strong><code>1, 2, 3, 4, 5, 6, 8, 9, 10, 12</code> is the sequence of the first <code>10</code> ugly numbers.</pre>
+<p><strong>Example 2:</strong></p>
 
-<p><strong>Note: </strong>&nbsp;</p>
+<pre>
+<strong>Input:</strong> n = 1
+<strong>Output:</strong> 1
+<strong>Explanation:</strong> 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
+</pre>
 
-<ol>
-    <li><code>1</code> is typically treated as an ugly number.</li>
-    <li><code>n</code> <b>does not exceed 1690</b>.</li>
-</ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 1690</code></li>
+</ul>
+
 
 ## Solutions
 

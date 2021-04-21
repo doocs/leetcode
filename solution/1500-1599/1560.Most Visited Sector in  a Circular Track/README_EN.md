@@ -1,4 +1,4 @@
-# [1560. Most Visited Sector in a Circular Track](https://leetcode.com/problems/most-visited-sector-in-a-circular-track)
+# [1560. Most Visited Sector in  a Circular Track](https://leetcode.com/problems/most-visited-sector-in-a-circular-track)
 
 [中文文档](/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/README.md)
 
@@ -12,9 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/tmp.jpg)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/08/14/tmp.jpg" style="width: 433px; height: 341px;" />
 <pre>
 <strong>Input:</strong> n = 4, rounds = [1,3,1,2]
 <strong>Output:</strong> [1,2]
@@ -46,6 +44,7 @@ We can see that both sectors 1 and 2 are visited twice and they are the most vis
 	<li><code>1 &lt;= rounds[i] &lt;= n</code></li>
 	<li><code>rounds[i] != rounds[i + 1]</code> for <code>0 &lt;= i &lt; m</code></li>
 </ul>
+
 
 ## Solutions
 

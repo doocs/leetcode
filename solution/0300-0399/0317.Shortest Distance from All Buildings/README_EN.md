@@ -4,33 +4,58 @@
 
 ## Description
 
-<p>You want to build a house on an <i>empty</i> land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values <b>0</b>, <b>1</b> or <b>2</b>, where:</p>
+<p>You are given an <code>m x n</code> grid <code>grid</code> of values <code>0</code>, <code>1</code>, or <code>2</code>, where:</p>
 
 <ul>
-	<li>Each <b>0</b> marks an empty land which you can pass by freely.</li>
-	<li>Each <b>1</b> marks a building which you cannot pass through.</li>
-	<li>Each <b>2</b> marks an obstacle which you cannot pass through.</li>
+	<li>each <code>0</code> marks <strong>an empty land</strong> that you can pass by freely,</li>
+	<li>each <code>1</code> marks <strong>a building</strong> that you cannot pass through, and</li>
+	<li>each <code>2</code> marks <strong>an obstacle</strong> that you cannot pass through.</li>
 </ul>
 
-<p><strong>Example:</strong></p>
+<p>You want to build a house on an empty land that reaches all buildings in the <strong>shortest total travel</strong> distance. You can only move up, down, left, and right.</p>
+
+<p>Return <em>the <strong>shortest travel distance</strong> for such a house</em>. If it is not possible to build such a house according to the above rules, return <code>-1</code>.</p>
+
+<p>The <strong>total travel distance</strong> is the sum of the distances between the houses of the friends and the meeting point.</p>
+
+<p>The distance is calculated using <a href="http://en.wikipedia.org/wiki/Taxicab_geometry" target="_blank">Manhattan Distance</a>, where <code>distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/buildings-grid.jpg" style="width: 413px; height: 253px;" />
+<pre>
+<strong>Input:</strong> grid = [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+<strong>Output:</strong> 7
+<strong>Explanation:</strong> Given three buildings at (0,0), (0,4), (2,2), and an obstacle at (0,2).
+The point (1,2) is an ideal empty land to build a house, as the total travel distance of 3+3+1=7 is minimal.
+So return 7.
+</pre>
+
+<p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+<strong>Input:</strong> grid = [[1,0]]
+<strong>Output:</strong> 1
+</pre>
 
-1 - 0 - 2 - 0 - 1
-|   |   |   |   |
-0 - 0 - 0 - 0 - 0
-|   |   |   |   |
-0 - 0 - 1 - 0 - 0
+<p><strong>Example 3:</strong></p>
 
-<strong>Output:</strong> 7 
+<pre>
+<strong>Input:</strong> grid = [[1]]
+<strong>Output:</strong> -1
+</pre>
 
-<strong>Explanation:</strong> Given three buildings at <code>(0,0)</code>, <code>(0,4)</code>, <code>(2,2)</code>, and an obstacle at <code>(0,2),
-             t</code>he point <code>(1,2)</code> is an ideal empty land to build a house, as the total 
-             travel distance of 3+3+1=7 is minimal. So return 7.</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b><br />
-There will be at least one building. If it is not possible to build such house according to the above rules, return -1.</p>
+<ul>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>grid[i][j]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>.</li>
+	<li>There will be <strong>at least one</strong> building in the <code>grid</code>.</li>
+</ul>
+
 
 ## Solutions
 

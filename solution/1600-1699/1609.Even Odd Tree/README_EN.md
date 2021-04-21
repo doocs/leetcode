@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_1_1966.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/15/sample_1_1966.png" style="width: 362px; height: 229px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [1,10,4,3,null,7,9,12,8,6,null,null,2]
@@ -32,7 +32,7 @@ Since levels 0 and 2 are all odd and increasing, and levels 1 and 3 are all even
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_2_1966.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/15/sample_2_1966.png" style="width: 363px; height: 167px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [5,4,2,3,3,7]
@@ -46,7 +46,7 @@ Node values in the level 2 must be in strictly increasing order, so the tree is 
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/sample_1_333_1966.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/09/22/sample_1_333_1966.png" style="width: 363px; height: 167px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [5,9,1,3,5,7]
@@ -75,6 +75,7 @@ Node values in the level 2 must be in strictly increasing order, so the tree is 
 	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
+
 
 ## Solutions
 

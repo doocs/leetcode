@@ -4,27 +4,26 @@
 
 ## Description
 
-<p>Given a string <em>s</em>, partition <em>s</em> such that every substring of the partition is a palindrome.</p>
+<p>Given a string <code>s</code>, partition <code>s</code> such that every substring of the partition is a <strong>palindrome</strong>. Return all possible palindrome partitioning of <code>s</code>.</p>
 
-<p>Return all possible palindrome partitioning of <em>s</em>.</p>
+<p>A <strong>palindrome</strong> string is a string that reads the same backward as forward.</p>
 
-<p><strong>Example:</strong></p>
-
-<pre>
-
-<strong>Input:</strong>&nbsp;&quot;aab&quot;
-
-<strong>Output:</strong>
-
-[
-
-  [&quot;aa&quot;,&quot;b&quot;],
-
-  [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;]
-
-]
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> s = "aab"
+<strong>Output:</strong> [["a","a","b"],["aa","b"]]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "a"
+<strong>Output:</strong> [["a"]]
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 16</code></li>
+	<li><code>s</code> contains only lowercase English letters.</li>
+</ul>
+
 
 ## Solutions
 

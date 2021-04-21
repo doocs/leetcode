@@ -4,67 +4,46 @@
 
 ## Description
 
-<p>
+<p>Given an array&nbsp;of <code>n</code> integers <code>nums</code>, a <strong>132 pattern</strong> is a subsequence of three integers <code>nums[i]</code>, <code>nums[j]</code> and <code>nums[k]</code> such that <code>i &lt; j &lt; k</code> and <code>nums[i] &lt; nums[k] &lt; nums[j]</code>.</p>
 
-Given a sequence of n integers a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n</sub>, a 132 pattern is a subsequence a<sub><b>i</b></sub>, a<sub><b>j</b></sub>, a<sub><b>k</b></sub> such
+<p>Return <em><code>true</code> if there is a <strong>132 pattern</strong> in <code>nums</code>, otherwise, return <code>false</code>.</em></p>
 
-that <b>i</b> < <b>j</b> < <b>k</b> and a<sub><b>i</b></sub> < a<sub><b>k</b></sub> < a<sub><b>j</b></sub>. Design an algorithm that takes a list of n numbers as input and checks whether there is a 132 pattern in the list.</p>
+<p><strong>Follow up: </strong>The <code>O(n^2)</code> is trivial, could you come up with the <code>O(n logn)</code> or the <code>O(n)</code> solution?</p>
 
-<p><b>Note:</b> n will be less than 15,000.</p>
-
-<p><b>Example 1:</b><br />
-
-<pre>
-
-<b>Input:</b> [1, 2, 3, 4]
-
-
-
-<b>Output:</b> False
-
-
-
-<b>Explanation:</b> There is no 132 pattern in the sequence.
-
-</pre>
-
-</p>
-
-<p><b>Example 2:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> [3, 1, 4, 2]
-
-
-
-<b>Output:</b> True
-
-
-
-<b>Explanation:</b> There is a 132 pattern in the sequence: [1, 4, 2].
-
+<strong>Input:</strong> nums = [1,2,3,4]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> There is no 132 pattern in the sequence.
 </pre>
 
-</p>
-
-<p><b>Example 3:</b><br />
+<p><strong>Example 2:</strong></p>
 
 <pre>
-
-<b>Input:</b> [-1, 3, 2, 0]
-
-
-
-<b>Output:</b> True
-
-
-
-<b>Explanation:</b> There are three 132 patterns in the sequence: [-1, 3, 2], [-1, 3, 0] and [-1, 2, 0].
-
+<strong>Input:</strong> nums = [3,1,4,2]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> There is a 132 pattern in the sequence: [1, 4, 2].
 </pre>
 
-</p>
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [-1,3,2,0]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> There are three 132 patterns in the sequence: [-1, 3, 2], [-1, 3, 0] and [-1, 2, 0].
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
+</ul>
+
 
 ## Solutions
 

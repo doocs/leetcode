@@ -5,24 +5,30 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个文件&nbsp;<code>file.txt</code>，转置它的内容。</p>
 
-<p>你可以假设每行列数相同，并且每个字段由&nbsp;<code>&#39; &#39;</code> 分隔.</p>
+<p>给定一个文件 <code>file.txt</code>，转置它的内容。</p>
 
-<p><strong>示例:</strong></p>
+<p>你可以假设每行列数相同，并且每个字段由 <code>' '</code> 分隔。</p>
 
-<p>假设&nbsp;<code>file.txt</code>&nbsp;文件内容如下：</p>
+<p> </p>
 
-<pre>name age
+<p><strong>示例：</strong></p>
+
+<p>假设 <code>file.txt</code> 文件内容如下：</p>
+
+<pre>
+name age
 alice 21
 ryan 30
 </pre>
 
 <p>应当输出：</p>
 
-<pre>name alice ryan
+<pre>
+name alice ryan
 age 21 30
 </pre>
+
 
 ## 解法
 

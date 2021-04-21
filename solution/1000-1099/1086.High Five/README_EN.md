@@ -4,33 +4,41 @@
 
 ## Description
 
-<p>Given a list of scores of different students, return the average score of each student's <strong>top five scores</strong> in<strong> the order of each student's id</strong>.</p>
+<p>Given a list of the scores of different students, <code>items</code>, where <code>items[i] = [ID<sub>i</sub>, score<sub>i</sub>]</code> represents one score from a student with <code>ID<sub>i</sub></code>, calculate each student&#39;s <strong>top five average</strong>.</p>
 
-<p>Each entry <code>items[i]</code> has <code>items[i][0]</code> the student's id, and <code>items[i][1]</code> the student's score.  The average score is calculated using integer division.</p>
+<p>Return <em>the answer as an array of pairs </em><code>result</code><em>, where </em><code>result[j] = [ID<sub>j</sub>, topFiveAverage<sub>j</sub>]</code><em> represents the student with </em><code>ID<sub>j</sub></code><em> and their <strong>top five average</strong>. Sort </em><code>result</code><em> by </em><code>ID<sub>j</sub></code><em> in <strong>increasing order</strong>.</em></p>
 
-<p> </p>
+<p>A student&#39;s <strong>top five average</strong> is calculated by taking the sum of their top five scores and dividing it by <code>5</code> using <strong>integer division</strong>.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input: </strong><span id="example-input-1-1">[[1,91],[1,92],[2,93],[2,97],[1,60],[2,77],[1,65],[1,87],[1,100],[2,100],[2,76]]</span>
-<strong>Output: </strong><span id="example-output-1">[[1,87],[2,88]]</span>
+<strong>Input:</strong> items = [[1,91],[1,92],[2,93],[2,97],[1,60],[2,77],[1,65],[1,87],[1,100],[2,100],[2,76]]
+<strong>Output:</strong> [[1,87],[2,88]]
 <strong>Explanation: </strong>
-The average of the student with id = 1 is 87.
-The average of the student with id = 2 is 88.6. But with integer division their average converts to 88.
+The student with ID = 1 got scores 91, 92, 60, 65, 87, and 100. Their top five average is (100 + 92 + 91 + 87 + 65) / 5 = 87.
+The student with ID = 2 got scores 93, 97, 77, 100, and 76. Their top five average is (100 + 97 + 93 + 77 + 76) / 5 = 88.6, but with integer division their average converts to 88.
 </pre>
 
-<p> </p>
+<p><strong>Example 2:</strong></p>
 
-<p><strong>Note:</strong></p>
+<pre>
+<strong>Input:</strong> items = [[1,100],[7,100],[1,100],[7,100],[1,100],[7,100],[1,100],[7,100],[1,100],[7,100]]
+<strong>Output:</strong> [[1,100],[7,100]]
+</pre>
 
-<ol>
-	<li><code>1 <= items.length <= 1000</code></li>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= items.length &lt;= 1000</code></li>
 	<li><code>items[i].length == 2</code></li>
-	<li>The IDs of the students is between <code>1</code> to <code>1000</code></li>
-	<li>The score of the students is between <code>1</code> to <code>100</code></li>
-	<li>For each student, there are at least 5 scores</li>
-</ol>
+	<li><code>1 &lt;= ID<sub>i</sub> &lt;= 1000</code></li>
+	<li><code>0 &lt;= score<sub>i</sub> &lt;= 100</code></li>
+	<li>For each <code>ID<sub>i</sub></code>, there will be <strong>at least</strong> five scores.</li>
+</ul>
+
 
 ## Solutions
 

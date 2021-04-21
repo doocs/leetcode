@@ -15,75 +15,56 @@
 </ul>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_1_1709.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/01/30/sample_1_1709.png" style="width: 320px; height: 250px;" /></p>
 
 <pre>
-
 <strong>Input:</strong> root = [1,4,3,2,4,2,5,null,null,null,null,null,null,4,6]
-
 <strong>Output:</strong> 20
-
 <strong>Explanation:</strong> Maximum sum in a valid Binary search tree is obtained in root node with key equal to 3.
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_2_1709.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/01/30/sample_2_1709.png" style="width: 134px; height: 180px;" /></p>
 
 <pre>
-
 <strong>Input:</strong> root = [4,3,null,1,2]
-
 <strong>Output:</strong> 2
-
 <strong>Explanation:</strong> Maximum sum in a valid Binary search tree is obtained in a single root node with key equal to 2.
-
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> root = [-4,-2,-5]
-
 <strong>Output:</strong> 0
-
 <strong>Explanation:</strong> All values are negatives. Return an empty BST.
-
 </pre>
 
 <p><strong>Example 4:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> root = [2,1,3]
-
 <strong>Output:</strong> 6
-
 </pre>
 
 <p><strong>Example 5:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> root = [5,4,8,3,null,6,3]
-
 <strong>Output:</strong> 7
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>Each tree has at most <code>40000</code> nodes..</li>
+	<li>The&nbsp;given binary tree will have between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>40000</code>&nbsp;nodes.</li>
 	<li>Each node&#39;s value is between <code>[-4 * 10^4&nbsp;, 4 * 10^4]</code>.</li>
 </ul>
+
 
 ## Solutions
 

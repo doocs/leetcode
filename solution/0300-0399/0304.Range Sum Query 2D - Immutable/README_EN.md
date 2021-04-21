@@ -4,59 +4,45 @@
 
 ## Description
 
-<p>Given a 2D matrix <i>matrix</i>, find the sum of the elements inside the rectangle defined by its upper left corner (<i>row</i>1, <i>col</i>1) and lower right corner (<i>row</i>2, <i>col</i>2).</p>
+<p>Given a 2D matrix <code>matrix</code>, find the sum of the elements inside the rectangle defined by its upper left corner <code>(row1, col1)</code> and lower right corner <code>(row2, col2)</code>.</p>
 
-<p>
+<p>Implement the NumMatrix class:</p>
 
-![](./images/304.png)
+<ul>
+	<li><code>NumMatrix(int[][] matrix)</code> initializes the object with the integer matrix <code>matrix</code>.</li>
+	<li><code>int sumRegion(int row1, int col1, int row2, int col2)</code> returns the sum of the elements of the <code>matrix</code> array inside the rectangle defined by its upper left corner <code>(row1, col1)</code> and lower right corner <code>(row2, col2)</code>.</li>
+</ul>
 
-<small>The above rectangle (with the red border) is defined by (row1, col1) = <b>(2, 1)</b> and (row2, col2) = <b>(4, 3)</b>, which contains sum = <b>8</b>.</small>
-
-</p>
-
-<p><b>Example:</b><br>
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/sum-grid.jpg" style="width: 415px; height: 415px;" />
 <pre>
+<strong>Input</strong>
+[&quot;NumMatrix&quot;, &quot;sumRegion&quot;, &quot;sumRegion&quot;, &quot;sumRegion&quot;]
+[[[[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]], [2, 1, 4, 3], [1, 1, 2, 2], [1, 2, 2, 4]]
+<strong>Output</strong>
+[null, 8, 11, 12]
 
-Given matrix = [
-
-  [3, 0, 1, 4, 2],
-
-  [5, 6, 3, 2, 1],
-
-  [1, 2, 0, 1, 5],
-
-  [4, 1, 0, 1, 7],
-
-  [1, 0, 3, 0, 5]
-
-]
-
-
-
-sumRegion(2, 1, 4, 3) -> 8
-
-sumRegion(1, 1, 2, 2) -> 11
-
-sumRegion(1, 2, 2, 4) -> 12
-
+<strong>Explanation</strong>
+NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]);
+numMatrix.sumRegion(2, 1, 4, 3); // return 8 (i.e sum of the red rectangele).
+numMatrix.sumRegion(1, 1, 2, 2); // return 11 (i.e sum of the green rectangele).
+numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangele).
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b><br>
+<ul>
+	<li><code>m == matrix.length</code></li>
+	<li><code>n == matrix[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 200</code></li>
+	<li><code>-10<sup>5</sup> &lt;= matrix[i][j] &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= row1 &lt;= row2 &lt; m</code></li>
+	<li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
+	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>sumRegion</code>.</li>
+</ul>
 
-<ol>
-
-<li>You may assume that the matrix does not change.</li>
-
-<li>There are many calls to <i>sumRegion</i> function.</li>
-
-<li>You may assume that <i>row</i>1 &le; <i>row</i>2 and <i>col</i>1 &le; <i>col</i>2.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

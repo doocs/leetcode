@@ -4,68 +4,49 @@
 
 ## Description
 
-<p>We are to write the letters of a given string <code>S</code>, from left to right into lines. Each line has maximum width 100 units, and if writing a letter would cause the width of the line to exceed 100 units, it is written on the next line. We are given an array&nbsp;<code>widths</code>, an array where widths[0] is the width of &#39;a&#39;, widths[1] is the width of &#39;b&#39;, ..., and widths[25] is the width of &#39;z&#39;.</p>
+<p>You are given a string <code>s</code> of lowercase English letters and an array <code>widths</code> denoting <strong>how many pixels wide</strong> each lowercase English letter is. Specifically, <code>widths[0]</code> is the width of <code>&#39;a&#39;</code>, <code>widths[1]</code> is the width of <code>&#39;b&#39;</code>, and so on.</p>
 
-<p>Now answer two questions: how many lines have at least one character from <code>S</code>, and what is the width used by the last such line? Return your answer as an integer list of length 2.</p>
+<p>You are trying to write <code>s</code> across several lines, where <strong>each line is no longer than </strong><code>100</code><strong> pixels</strong>. Starting at the beginning of <code>s</code>, write as many letters on the first line such that the total width does not exceed <code>100</code> pixels. Then, from where you stopped in <code>s</code>, continue writing as many letters as you can on the second line. Continue this process until you have written all of <code>s</code>.</p>
 
-<p>&nbsp;</p>
-
-<pre>
-
-<strong>Example :</strong>
-
-<strong>Input:</strong> 
-
-widths = [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]
-
-S = &quot;abcdefghijklmnopqrstuvwxyz&quot;
-
-<strong>Output:</strong> [3, 60]
-
-<strong>Explanation: </strong>
-
-All letters have the same length of 10. To write all 26 letters,
-
-we need two full lines and one line with 60 units.
-
-</pre>
-
-<pre>
-
-<strong>Example :</strong>
-
-<strong>Input:</strong> 
-
-widths = [4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10]
-
-S = &quot;bbbcccdddaaa&quot;
-
-<strong>Output:</strong> [2, 4]
-
-<strong>Explanation: </strong>
-
-All letters except &#39;a&#39; have the same length of 10, and 
-
-&quot;bbbcccdddaa&quot; will cover 9 * 10 + 2 * 4 = 98 units.
-
-For the last &#39;a&#39;, it is written on the second line because
-
-there is only 2 units left in the first line.
-
-So the answer is 2 lines, plus 4 units in the second line.
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>Note:</strong></p>
+<p>Return <em>an array </em><code>result</code><em> of length 2 where:</em></p>
 
 <ul>
-    <li>The length of <code>S</code> will be in the range&nbsp;[1, 1000].</li>
-    <li><code>S</code> will only contain lowercase letters.</li>
-    <li><code>widths</code> is&nbsp;an array of length <code>26</code>.</li>
-    <li><code>widths[i]</code> will be in the range of <code>[2, 10]</code>.</li>
+	<li><code>result[0]</code><em> is the total number of lines.</em></li>
+	<li><code>result[1]</code><em> is the width of the last line in pixels.</em></li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> widths = [10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10], s = &quot;abcdefghijklmnopqrstuvwxyz&quot;
+<strong>Output:</strong> [3,60]
+<strong>Explanation:</strong> You can write s as follows:
+abcdefghij  // 100 pixels wide
+klmnopqrst  // 100 pixels wide
+uvwxyz      // 60 pixels wide
+There are a total of 3 lines, and the last line is 60 pixels wide.</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> widths = [4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10], s = &quot;bbbcccdddaaa&quot;
+<strong>Output:</strong> [2,4]
+<strong>Explanation:</strong> You can write s as follows:
+bbbcccdddaa  // 98 pixels wide
+a            // 4 pixels wide
+There are a total of 2 lines, and the last line is 4 pixels wide.</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>widths.length == 26</code></li>
+	<li><code>2 &lt;= widths[i] &lt;= 10</code></li>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s</code> contains only lowercase English letters.</li>
+</ul>
+
 
 ## Solutions
 

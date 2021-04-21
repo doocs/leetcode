@@ -19,9 +19,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/q4.gif)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/27/q4.gif" style="width: 562px; height: 561px;" />
 <pre>
 <strong>Input:</strong> heights = [4,2,7,6,9,14,12], bricks = 5, ladders = 1
 <strong>Output:</strong> 4
@@ -56,6 +54,7 @@ It is impossible to go beyond building 4 because you do not have any more bricks
 	<li><code>0 &lt;= bricks &lt;= 10<sup>9</sup></code></li>
 	<li><code>0 &lt;= ladders &lt;= heights.length</code></li>
 </ul>
+
 
 ## Solutions
 

@@ -15,37 +15,26 @@
 <p>&nbsp;</p>
 
 <pre>
-
 <strong>Example:</strong>
-
 <strong>Input:</strong> 
-
 S = &quot;heeellooo&quot;
-
 words = [&quot;hello&quot;, &quot;hi&quot;, &quot;helo&quot;]
-
 <strong>Output:</strong> 1
-
 <strong>Explanation:</strong> 
-
 We can extend &quot;e&quot; and &quot;o&quot; in the word &quot;hello&quot; to get &quot;heeellooo&quot;.
-
 We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the group &quot;ll&quot; is not size 3 or more.
-
 </pre>
 
 <p>&nbsp;</p>
-
-<p><strong>Notes: </strong></p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li><code>0 &lt;= len(S) &lt;= 100</code>.</li>
-    <li><code>0 &lt;= len(words) &lt;= 100</code>.</li>
-    <li><code>0 &lt;= len(words[i]) &lt;= 100</code>.</li>
-    <li><code>S</code> and all words in <code>words</code>&nbsp;consist only of&nbsp;lowercase letters</li>
+	<li><code>0 &lt;= len(S) &lt;= 100</code>.</li>
+	<li><code>0 &lt;= len(words) &lt;= 100</code>.</li>
+	<li><code>0 &lt;= len(words[i]) &lt;= 100</code>.</li>
+	<li><code>S</code> and all words in <code>words</code>&nbsp;consist only of&nbsp;lowercase letters</li>
 </ul>
 
-<p>&nbsp;</p>
 
 ## Solutions
 

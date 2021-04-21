@@ -4,53 +4,34 @@
 
 ## Description
 
-<p>Given a string that contains only digits <code>0-9</code> and a target value, return all possibilities to add <b>binary</b> operators (not unary) <code>+</code>, <code>-</code>, or <code>*</code> between the digits so they evaluate to the target value.</p>
+<p>Given a string <code>num</code> that contains only digits and an integer <code>target</code>, return <em>all possibilities to add the binary operators</em> <code>&#39;+&#39;</code>, <code>&#39;-&#39;</code>, <em>or</em> <code>&#39;*&#39;</code> <em>between the digits of</em> <code>num</code> <em>so that the resultant expression evaluates to the</em> <code>target</code> <em>value</em>.</p>
 
-<p><b>Example 1:</b></p>
-
-<pre>
-
-<b>Input:</b> <code><em>num</em> = </code>&quot;123&quot;, <em>target</em> = 6
-
-<b>Output: </b>[&quot;1+2+3&quot;, &quot;1*2*3&quot;] 
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> num = "123", target = 6
+<strong>Output:</strong> ["1*2*3","1+2+3"]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> num = "232", target = 8
+<strong>Output:</strong> ["2*3+2","2+3*2"]
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> num = "105", target = 5
+<strong>Output:</strong> ["1*0+5","10-5"]
+</pre><p><strong>Example 4:</strong></p>
+<pre><strong>Input:</strong> num = "00", target = 0
+<strong>Output:</strong> ["0*0","0+0","0-0"]
+</pre><p><strong>Example 5:</strong></p>
+<pre><strong>Input:</strong> num = "3456237490", target = 9191
+<strong>Output:</strong> []
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li><code>1 &lt;= num.length &lt;= 10</code></li>
+	<li><code>num</code> consists of only digits.</li>
+	<li><code>-2<sup>31</sup> &lt;= target &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 
-<pre>
-
-<b>Input:</b> <code><em>num</em> = </code>&quot;232&quot;, <em>target</em> = 8
-
-<b>Output: </b>[&quot;2*3+2&quot;, &quot;2+3*2&quot;]</pre>
-
-<p><b>Example 3:</b></p>
-
-<pre>
-
-<b>Input:</b> <code><em>num</em> = </code>&quot;105&quot;, <em>target</em> = 5
-
-<b>Output: </b>[&quot;1*0+5&quot;,&quot;10-5&quot;]</pre>
-
-<p><b>Example 4:</b></p>
-
-<pre>
-
-<b>Input:</b> <code><em>num</em> = </code>&quot;00&quot;, <em>target</em> = 0
-
-<b>Output: </b>[&quot;0+0&quot;, &quot;0-0&quot;, &quot;0*0&quot;]
-
-</pre>
-
-<p><b>Example 5:</b></p>
-
-<pre>
-
-<b>Input:</b> <code><em>num</em> = </code>&quot;3456237490&quot;, <em>target</em> = 9191
-
-<b>Output: </b>[]
-
-</pre>
 
 ## Solutions
 

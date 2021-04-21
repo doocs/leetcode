@@ -8,11 +8,11 @@
 
 <p>(A subtree of a tree is any node of that tree plus all its descendants. The average value of a tree is the sum of its values, divided by the number of nodes.)</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-![](./images/1308_example_1.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/04/09/1308_example_1.png" style="width: 132px; height: 123px;" /></p>
 
 <pre>
 <strong>Input: </strong><span id="example-input-1-1">[5,6,1]</span>
@@ -24,7 +24,7 @@ For the node with value = 1 we have an average of 1 / 1 = 1.
 So the answer is 6 which is the maximum.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>Note:</strong></p>
 
@@ -33,6 +33,7 @@ So the answer is 6 which is the maximum.
 	<li>Each node will have a value between <code>0</code> and <code>100000</code>.</li>
 	<li>Answers will be accepted as correct if they are within <code>10^-5</code> of the correct answer.</li>
 </ol>
+
 
 ## Solutions
 

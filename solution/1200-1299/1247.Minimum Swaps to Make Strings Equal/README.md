@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>有两个长度相同的字符串&nbsp;<code>s1</code> 和&nbsp;<code>s2</code>，且它们其中&nbsp;<strong>只含有</strong>&nbsp;字符&nbsp;<code>&quot;x&quot;</code> 和&nbsp;<code>&quot;y&quot;</code>，你需要通过「交换字符」的方式使这两个字符串相同。</p>
 
 <p>每次「交换字符」的时候，你都可以在两个字符串中各选一个字符进行交换。</p>
@@ -51,6 +52,7 @@
 	<li><code>1 &lt;= s1.length, s2.length &lt;= 1000</code></li>
 	<li><code>s1, s2</code>&nbsp;只包含&nbsp;<code>&#39;x&#39;</code>&nbsp;或&nbsp;<code>&#39;y&#39;</code>。</li>
 </ul>
+
 
 ## 解法
 

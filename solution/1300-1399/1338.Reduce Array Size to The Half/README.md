@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组&nbsp;<code>arr</code>。你可以从中选出一个整数集合，并删除这些整数在数组中的每次出现。</p>
 
 <p>返回&nbsp;<strong>至少</strong>&nbsp;能删除数组中的一半整数的整数集合的最小大小。</p>
@@ -54,6 +55,7 @@
 	<li><code>arr.length</code>&nbsp;为偶数</li>
 	<li><code>1 &lt;= arr[i] &lt;= 10^5</code></li>
 </ul>
+
 
 ## 解法
 

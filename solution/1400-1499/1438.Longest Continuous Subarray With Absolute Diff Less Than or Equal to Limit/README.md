@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组 <code>nums</code> ，和一个表示限制的整数 <code>limit</code>，请你返回最长连续子数组的长度，该子数组中的任意两个元素之间的绝对差必须小于或者等于 <code>limit</code><em> 。</em></p>
 
 <p>如果不存在满足条件的子数组，则返回 <code>0</code> 。</p>
@@ -51,6 +52,7 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10^9</code></li>
 	<li><code>0 &lt;= limit &lt;= 10^9</code></li>
 </ul>
+
 
 ## 解法
 

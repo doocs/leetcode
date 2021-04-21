@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>实现一个&nbsp;<code>MajorityChecker</code>&nbsp;的类，它应该具有下述几个 API：</p>
 
 <ul>
@@ -40,6 +41,7 @@ majorityChecker.query(2,3,2); // 返回 2
 	<li>对于每次查询，<code>2 * threshold &gt; right - left + 1</code></li>
 	<li>查询次数最多为 <code>10000</code></li>
 </ul>
+
 
 ## 解法
 

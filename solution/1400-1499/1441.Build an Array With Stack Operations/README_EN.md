@@ -14,11 +14,7 @@
 	<li>If the target array is already&nbsp;built, stop reading more elements.</li>
 </ul>
 
-<p>You are guaranteed that the target array is strictly&nbsp;increasing, only containing&nbsp;numbers between 1 to <code>n</code>&nbsp;inclusive.</p>
-
-<p>Return the operations to build the target array.</p>
-
-<p>You are guaranteed that the answer is unique.</p>
+<p>Return the operations to build the target array. You are guaranteed that the answer is unique.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -59,10 +55,11 @@ Read number 3 and automatically push in the array -&gt; [1,3]
 
 <ul>
 	<li><code>1 &lt;= target.length &lt;= 100</code></li>
-	<li><code>1 &lt;= target[i]&nbsp;&lt;= 100</code></li>
+	<li><code>1 &lt;= target[i]&nbsp;&lt;= n</code></li>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>target</code> is strictly&nbsp;increasing.</li>
 </ul>
+
 
 ## Solutions
 

@@ -4,49 +4,63 @@
 
 ## Description
 
-<p>Given an array <code>w</code> of positive integers, where <code>w[i]</code> describes the weight of index <code>i</code>,&nbsp;write a function <code>pickIndex</code>&nbsp;which randomly&nbsp;picks an index&nbsp;in proportion&nbsp;to its weight.</p>
+<p>You are given an array of positive integers <code>w</code> where <code>w[i]</code> describes the weight of <code>i</code><sup><code>th</code>&nbsp;</sup>index (0-indexed).</p>
 
-<p>Note:</p>
+<p>We need to call the function&nbsp;<code>pickIndex()</code> which <strong>randomly</strong> returns an integer in the range <code>[0, w.length - 1]</code>.&nbsp;<code>pickIndex()</code>&nbsp;should return the integer&nbsp;proportional to its weight in the <code>w</code> array. For example, for <code>w = [1, 3]</code>, the probability of picking the index <code>0</code> is <code>1 / (1 + 3)&nbsp;= 0.25</code> (i.e 25%)&nbsp;while the probability of picking the index <code>1</code> is <code>3 / (1 + 3)&nbsp;= 0.75</code> (i.e 75%).</p>
 
-<ol>
-    <li><code>1 &lt;= w.length &lt;= 10000</code></li>
-    <li><code>1 &lt;= w[i] &lt;= 10^5</code></li>
-    <li><code>pickIndex</code>&nbsp;will be called at most <code>10000</code> times.</li>
-</ol>
+<p>More formally, the probability of picking index <code>i</code> is <code>w[i] / sum(w)</code>.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input</strong>
+[&quot;Solution&quot;,&quot;pickIndex&quot;]
+[[[1]],[]]
+<strong>Output</strong>
+[null,0]
 
-<strong>Input: 
-
-</strong><span id="example-input-1-1">[&quot;Solution&quot;,&quot;pickIndex&quot;]
-
-</span><span id="example-input-1-2">[[[1]],[]]</span>
-
-<strong>Output: </strong><span id="example-output-1">[null,0]</span>
-
+<strong>Explanation</strong>
+Solution solution = new Solution([1]);
+solution.pickIndex(); // return 0. Since there is only one single element on the array the only option is to return the first element.
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input</strong>
+[&quot;Solution&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;]
+[[[1,3]],[],[],[],[],[]]
+<strong>Output</strong>
+[null,1,1,1,1,0]
 
-<strong>Input: 
+<strong>Explanation</strong>
+Solution solution = new Solution([1, 3]);
+solution.pickIndex(); // return 1. It&#39;s returning the second element (index = 1) that has probability of 3/4.
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 1
+solution.pickIndex(); // return 0. It&#39;s returning the first element (index = 0) that has probability of 1/4.
 
-</strong><span id="example-input-2-1">[&quot;Solution&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;,&quot;pickIndex&quot;]
+Since this is a randomization problem, multiple answers are allowed so the following outputs can be considered correct :
+[null,1,1,1,1,0]
+[null,1,1,1,1,1]
+[null,1,1,1,0,0]
+[null,1,1,1,0,1]
+[null,1,0,1,0,0]
+......
+and so on.
+</pre>
 
-</span><span id="example-input-2-2">[[[1,3]],[],[],[],[],[]]</span>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<strong>Output: </strong><span id="example-output-2">[null,0,1,1,1,0]</span></pre>
+<ul>
+	<li><code>1 &lt;= w.length &lt;= 10000</code></li>
+	<li><code>1 &lt;= w[i] &lt;= 10^5</code></li>
+	<li><code>pickIndex</code>&nbsp;will be called at most <code>10000</code> times.</li>
+</ul>
 
-</div>
-
-<p><strong>Explanation of Input Syntax:</strong></p>
-
-<p>The input is two lists:&nbsp;the subroutines called&nbsp;and their&nbsp;arguments.&nbsp;<code>Solution</code>&#39;s&nbsp;constructor has one argument, the&nbsp;array <code>w</code>. <code>pickIndex</code> has no arguments.&nbsp;Arguments&nbsp;are&nbsp;always wrapped with a list, even if there aren&#39;t any.</p>
 
 ## Solutions
 

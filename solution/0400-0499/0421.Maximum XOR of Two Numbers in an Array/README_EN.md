@@ -4,29 +4,54 @@
 
 ## Description
 
-<p>Given a <b>non-empty</b> array of numbers, a<sub>0</sub>, a<sub>1</sub>, a<sub>2</sub>, &hellip; , a<sub>n-1</sub>, where 0 &le; a<sub>i</sub> &lt; 2<sup>31</sup>.</p>
+<p>Given an integer array <code>nums</code>, return <em>the maximum result of <code>nums[i] XOR nums[j]</code></em>, where <code>0 &le; i &le; j &lt; n</code>.</p>
 
-<p>Find the maximum result of a<sub>i</sub> XOR a<sub>j</sub>, where 0 &le; <i>i</i>, <i>j</i> &lt; <i>n</i>.</p>
+<p><strong>Follow up:</strong> Could you do this in <code>O(n)</code> runtime?</p>
 
-<p>Could you do this in O(<i>n</i>) runtime?</p>
-
-<p><b>Example:</b></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> nums = [3,10,5,25,2,8]
+<strong>Output:</strong> 28
+<strong>Explanation:</strong> The maximum result is 5 XOR 25 = 28.</pre>
 
-<b>Input:</b> [3, 10, 5, 25, 2, 8]
+<p><strong>Example 2:</strong></p>
 
+<pre>
+<strong>Input:</strong> nums = [0]
+<strong>Output:</strong> 0
+</pre>
 
+<p><strong>Example 3:</strong></p>
 
-<b>Output:</b> 28
+<pre>
+<strong>Input:</strong> nums = [2,4]
+<strong>Output:</strong> 6
+</pre>
 
+<p><strong>Example 4:</strong></p>
 
+<pre>
+<strong>Input:</strong> nums = [8,10,2]
+<strong>Output:</strong> 10
+</pre>
 
-<b>Explanation:</b> The maximum result is <b>5</b> ^ <b>25</b> = 28.
+<p><strong>Example 5:</strong></p>
 
+<pre>
+<strong>Input:</strong> nums = [14,70,53,83,49,91,36,80,92,51,66,70]
+<strong>Output:</strong> 127
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个二叉树，根节点为第1层，深度为 1。在其第&nbsp;<code>d</code>&nbsp;层追加一行值为&nbsp;<code>v</code>&nbsp;的节点。</p>
 
 <p>添加规则：给定一个深度值 <code>d</code> （正整数），针对深度为 <code>d-1</code> 层的每一<strong>非空</strong>节点 <code>N</code>，为 <code>N</code> 创建两个值为&nbsp;<code>v</code>&nbsp;的左子树和右子树。</p>
@@ -70,6 +71,7 @@
 	<li>输入的深度值 d 的范围是：[1，二叉树最大深度 + 1]。</li>
 	<li>输入的二叉树至少有一个节点。</li>
 </ol>
+
 
 ## 解法
 

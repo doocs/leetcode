@@ -54,11 +54,12 @@
 
 <ul>
 	<li><code>arr.length == n</code></li>
-	<li><code>1 &lt;= n &lt;= 10^5</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>n</code> is even.</li>
-	<li><code>-10^9 &lt;= arr[i] &lt;= 10^9</code></li>
-	<li><code>1 &lt;= k &lt;= 10^5</code></li>
+	<li><code>-10<sup>9</sup> &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
+
 
 ## Solutions
 

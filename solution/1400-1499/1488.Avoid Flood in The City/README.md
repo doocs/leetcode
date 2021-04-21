@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>你的国家有无数个湖泊，所有湖泊一开始都是空的。当第 <code>n</code>&nbsp;个湖泊下雨的时候，如果第 <code>n</code>&nbsp;个湖泊是空的，那么它就会装满水，否则这个湖泊会发生洪水。你的目标是避免任意一个湖泊发生洪水。</p>
 
 <p>给你一个整数数组&nbsp;<code>rains</code>&nbsp;，其中：</p>
@@ -82,6 +83,7 @@
 	<li><code>1 &lt;= rains.length &lt;= 10^5</code></li>
 	<li><code>0 &lt;= rains[i] &lt;= 10^9</code></li>
 </ul>
+
 
 ## 解法
 

@@ -5,9 +5,10 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你三个整数 <code>n</code>、<code>m</code> 和 <code>k</code> 。下图描述的算法用于找出正整数数组中最大的元素。</p>
 
-![](./images/e.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/19/e.png" style="height: 372px; width: 424px;"></p>
 
 <p>请你生成一个具有下述属性的数组 <code>arr</code> ：</p>
 
@@ -64,6 +65,7 @@
 	<li><code>1 &lt;= m &lt;= 100</code></li>
 	<li><code>0 &lt;= k &lt;= n</code></li>
 </ul>
+
 
 ## 解法
 

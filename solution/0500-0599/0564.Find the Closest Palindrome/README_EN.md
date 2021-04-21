@@ -4,33 +4,36 @@
 
 ## Description
 
-<p>Given an integer n, find the closest integer (not including itself), which is a palindrome. </p>
+<p>Given a string <code>n</code> representing an integer, return <em>the closest integer (not including itself), which is a palindrome</em>. If there is a tie, return <em><strong>the smaller one</strong></em>.</p>
 
-<p>The 'closest' is defined as absolute difference minimized between two integers.</p>
+<p>The closest is defined as the absolute difference minimized between two integers.</p>
 
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> "123"
-
-<b>Output:</b> "121"
-
+<strong>Input:</strong> n = &quot;123&quot;
+<strong>Output:</strong> &quot;121&quot;
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b><br>
+<pre>
+<strong>Input:</strong> n = &quot;1&quot;
+<strong>Output:</strong> &quot;0&quot;
+<strong>Explanation:</strong> 0 and 2 are the closest palindromes but we return the smallest which is 0.
+</pre>
 
-<ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>The input <b>n</b> is a positive integer represented by string, whose length will not exceed 18.</li>
+<ul>
+	<li><code>1 &lt;= n.length &lt;= 18</code></li>
+	<li><code>n</code> consists of only digits.</li>
+	<li><code>n</code> does not have leading zeros.</li>
+	<li><code>n</code> is representing an integer in the range <code>[1, 10<sup>18</sup> - 1]</code>.</li>
+</ul>
 
-<li>If there is a tie, return the smaller one as answer.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

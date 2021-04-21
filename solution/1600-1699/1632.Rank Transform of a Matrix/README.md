@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个 <code>m x n</code> 的矩阵 <code>matrix</code> ，请你返回一个新的矩阵<em> </em><code>answer</code> ，其中<em> </em><code>answer[row][col]</code> 是 <code>matrix[row][col]</code> 的秩。</p>
 
 <p>每个元素的 <b>秩</b> 是一个整数，表示这个元素相对于其他元素的大小关系，它按照如下规则计算：</p>
@@ -26,9 +27,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/rank1.jpg)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/rank1.jpg" style="width: 442px; height: 162px;" />
 <pre>
 <b>输入：</b>matrix = [[1,2],[3,4]]
 <b>输出：</b>[[1,2],[2,3]]
@@ -40,27 +39,21 @@ matrix[1][1] 的秩为 3 ，因为 matrix[1][1] > matrix[0][1]， matrix[1][1] >
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
-![](./images/rank2.jpg)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/rank2.jpg" style="width: 442px; height: 162px;" />
 <pre>
 <b>输入：</b>matrix = [[7,7],[7,7]]
 <b>输出：</b>[[1,1],[1,1]]
 </pre>
 
 <p><strong>示例 3：</strong></p>
-
-![](./images/rank3.jpg)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/rank3.jpg" style="width: 601px; height: 322px;" />
 <pre>
 <b>输入：</b>matrix = [[20,-21,14],[-19,4,19],[22,-47,24],[-19,4,19]]
 <b>输出：</b>[[4,2,3],[1,3,4],[5,1,6],[1,3,4]]
 </pre>
 
 <p><strong>示例 4：</strong></p>
-
-![](./images/rank4.jpg)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/25/rank4.jpg" style="width: 601px; height: 242px;" />
 <pre>
 <b>输入：</b>matrix = [[7,3,6],[1,4,5],[9,8,2]]
 <b>输出：</b>[[5,1,4],[1,2,3],[6,3,1]]
@@ -76,6 +69,7 @@ matrix[1][1] 的秩为 3 ，因为 matrix[1][1] > matrix[0][1]， matrix[1][1] >
 	<li><code>1 <= m, n <= 500</code></li>
 	<li><code>-10<sup>9</sup> <= matrix[row][col] <= 10<sup>9</sup></code></li>
 </ul>
+
 
 ## 解法
 

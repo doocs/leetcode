@@ -4,38 +4,37 @@
 
 ## Description
 
-<p>Given two strings <code>str1</code> and <code>str2</code> of the same length, determine whether you can transform <code>str1</code> into <code>str2</code> by doing <strong>zero or more</strong> <em>conversions</em>.</p>
+<p>Given two strings <code>str1</code> and <code>str2</code> of the same length, determine whether you can transform <code>str1</code> into <code>str2</code> by doing <strong>zero or more</strong> <em>conversions</em>.</p>
 
-<p>In one conversion you can convert <strong>all</strong> occurrences of one character in <code>str1</code> to <strong>any</strong> other lowercase English character.</p>
+<p>In one conversion you can convert <strong>all</strong> occurrences of one character in <code>str1</code> to <strong>any</strong> other lowercase English character.</p>
 
-<p>Return <code>true</code> if and only if you can transform <code>str1</code> into <code>str2</code>.</p>
+<p>Return <code>true</code> if and only if you can transform <code>str1</code> into <code>str2</code>.</p>
 
-<p> </p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input: </strong>str1 = <span id="example-input-1-1">"aabcc"</span>, str2 = <span id="example-input-1-2">"ccdee"</span>
-<strong>Output: </strong><span id="example-output-1">true</span>
-<strong>Explanation: </strong>Convert 'c' to 'e' then 'b' to 'd' then 'a' to 'c'. Note that the order of conversions matter.
+<strong>Input:</strong> str1 = &quot;aabcc&quot;, str2 = &quot;ccdee&quot;
+<strong>Output:</strong> true
+<strong>Explanation: </strong>Convert &#39;c&#39; to &#39;e&#39; then &#39;b&#39; to &#39;d&#39; then &#39;a&#39; to &#39;c&#39;. Note that the order of conversions matter.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input: </strong>str1 = <span id="example-input-2-1">"leetcode"</span>, str2 = <span id="example-input-2-2">"codeleet"</span>
-<strong>Output: </strong><span id="example-output-2">false</span>
+<strong>Input:</strong> str1 = &quot;leetcode&quot;, str2 = &quot;codeleet&quot;
+<strong>Output:</strong> false
 <strong>Explanation: </strong>There is no way to transform str1 to str2.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>1 &lt;= str1.length == str2.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>str1</code> and <code>str2</code> contain only lowercase English letters.</li>
+</ul>
 
-<ol>
-	<li><code>1 <= str1.length == str2.length <= 10^4</code></li>
-	<li>Both <code>str1</code> and <code>str2</code> contain only lowercase English letters.</li>
-</ol>
 
 ## Solutions
 

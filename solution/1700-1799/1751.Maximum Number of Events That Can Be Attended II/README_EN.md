@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/screenshot-2021-01-11-at-60048-pm.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-60048-pm.png" style="width: 400px; height: 103px;" /></p>
 
 <pre>
 <strong>Input:</strong> events = [[1,2,4],[3,4,3],[2,3,1]], k = 2
@@ -22,7 +22,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/screenshot-2021-01-11-at-60150-pm.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-60150-pm.png" style="width: 400px; height: 103px;" /></p>
 
 <pre>
 <strong>Input:</strong> events = [[1,2,4],[3,4,3],[2,3,10]], k = 2
@@ -32,7 +32,7 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/screenshot-2021-01-11-at-60703-pm.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/10/screenshot-2021-01-11-at-60703-pm.png" style="width: 400px; height: 126px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> events = [[1,1,1],[2,2,2],[3,3,3],[4,4,4]], k = 3
@@ -48,6 +48,7 @@ Notice that you cannot attend any other event as they overlap, and that you do <
 	<li><code>1 &lt;= startDay<sub>i</sub> &lt;= endDay<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 	<li><code>1 &lt;= value<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
+
 
 ## Solutions
 

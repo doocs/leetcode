@@ -4,34 +4,44 @@
 
 ## Description
 
-<p>Given an array <i>nums</i> containing <i>n</i> + 1 integers where each integer is between 1 and <i>n</i> (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.</p>
+<p>Given an array of integers <code>nums</code> containing&nbsp;<code>n + 1</code> integers where each integer is in the range <code>[1, n]</code> inclusive.</p>
 
-<p><b>Example 1:</b></p>
+<p>There is only <strong>one repeated number</strong> in <code>nums</code>, return <em>this&nbsp;repeated&nbsp;number</em>.</p>
 
-<pre>
-
-<b>Input:</b> <code>[1,3,4,2,2]</code>
-
-<b>Output:</b> 2
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [1,3,4,2,2]
+<strong>Output:</strong> 2
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [3,1,3,4,2]
+<strong>Output:</strong> 3
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> nums = [1,1]
+<strong>Output:</strong> 1
+</pre><p><strong>Example 4:</strong></p>
+<pre><strong>Input:</strong> nums = [1,1,2]
+<strong>Output:</strong> 1
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
+<ul>
+	<li><code>2 &lt;= n &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>nums.length == n + 1</code></li>
+	<li><code>1 &lt;= nums[i] &lt;= n</code></li>
+	<li>All the integers in <code>nums</code> appear only <strong>once</strong> except for <strong>precisely one integer</strong> which appears <strong>two or more</strong> times.</li>
+</ul>
 
-<pre>
+<p>&nbsp;</p>
+<p><b>Follow up:</b></p>
 
-<b>Input:</b> [3,1,3,4,2]
+<ul>
+	<li>How can we prove that at least one duplicate number must exist in <code>nums</code>?</li>
+	<li>Can you solve the problem <strong>without</strong> modifying the array <code>nums</code>?</li>
+	<li>Can you solve the problem using only constant, <code>O(1)</code> extra space?</li>
+	<li>Can you solve the problem with runtime complexity less than <code>O(n<sup>2</sup>)</code>?</li>
+</ul>
 
-<b>Output:</b> 3</pre>
-
-<p><b>Note:</b></p>
-
-<ol>
-    <li>You <b>must not</b> modify the array (assume the array is read only).</li>
-    <li>You must use only constant, <i>O</i>(1) extra space.</li>
-    <li>Your runtime complexity should be less than <em>O</em>(<em>n</em><sup>2</sup>).</li>
-    <li>There is only one duplicate number in the array, but it could be repeated more than once.</li>
-</ol>
 
 ## Solutions
 

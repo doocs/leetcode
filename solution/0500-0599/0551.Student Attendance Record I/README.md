@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个字符串来代表一个学生的出勤记录，这个记录仅包含以下三个字符：</p>
 
 <ol>
@@ -28,6 +29,7 @@
 <pre><strong>输入:</strong> &quot;PPALLL&quot;
 <strong>输出:</strong> False
 </pre>
+
 
 ## 解法
 

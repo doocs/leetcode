@@ -5,25 +5,26 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给你一条个人信息 string <code>S</code>，它可能是一个邮箱地址，也可能是一个电话号码。</p>
+
+<p>给你一条个人信息字符串 <code>S</code>，它可能是一个 <strong>邮箱地址</strong> ，也可能是一串 <strong>电话号码</strong> 。</p>
 
 <p>我们将隐藏它的隐私信息，通过如下规则:</p>
 
 <p>&nbsp;</p>
 
-<p>&lt;u&gt;<strong>1. 电子邮箱</strong>&lt;/u&gt;</p>
+<p><strong>1. 电子邮箱</strong></p>
 
-<p>定义名称 &lt;name&gt; 是长度大于等于 2 （<code>length &ge; 2</code>），并且只包含小写字母 <code>a-z</code> 和大写字母 <code>A-Z</code> 的字符串。</p>
+<p>定义名称 <strong>name</strong> 是长度大于等于 2 （<code>length &ge; 2</code>），并且只包含小写字母 <code>a-z</code> 和大写字母 <code>A-Z</code> 的字符串。</p>
 
-<p>电子邮箱地址由名称 &lt;name&gt; 开头，紧接着是符号 &lt;font face="Menlo, Monaco, Consolas, Courier New, monospace"&gt;<span style="">&#39;@&#39;</span>&lt;/font&gt;，后面接着一个名称 &lt;name&gt;，再接着一个点号 <code>&#39;.&#39;</code>，然后是一个名称 &lt;name&gt;。</p>
+<p>电子邮箱地址由名称 <strong>name</strong> 开头，紧接着是符号 <code>&#39;@&#39;</code>，后面接着一个名称 <strong>name</strong>，再接着一个点号 <code>&#39;.&#39;</code>，然后是一个名称 <strong>name</strong>。</p>
 
 <p>电子邮箱地址确定为有效的，并且格式是 <code>&quot;name1@name2.name3&quot;</code>。</p>
 
-<p>为了隐藏电子邮箱，所有的名称 &lt;name&gt; 必须被转换成小写的，并且第一个名称 &lt;name&gt; 的第一个字母和最后一个字母的中间的所有字母由 5 个 <code>&#39;*&#39;</code> 代替。</p>
+<p>为了隐藏电子邮箱，所有的名称 <strong>name</strong> 必须被转换成小写的，并且第一个名称&nbsp;<strong>name</strong> 的第一个字母和最后一个字母的中间的所有字母由 5 个 <code>&#39;*&#39;</code> 代替。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>&lt;u&gt;2. 电话号码&lt;/u&gt;</strong></p>
+<p><strong>2. 电话号码</strong></p>
 
 <p>电话号码是一串包括数字&nbsp;<code>0-9</code>，以及 <code>{&#39;+&#39;, &#39;-&#39;, &#39;(&#39;, &#39;)&#39;, &#39;&nbsp;&#39;}</code> 这几个字符的字符串。你可以假设电话号码包含 10 到 13 个数字。</p>
 
@@ -84,6 +85,7 @@
 	<li>邮箱的长度至少是 8。</li>
 	<li>电话号码的长度至少是 10。</li>
 </ol>
+
 
 ## 解法
 

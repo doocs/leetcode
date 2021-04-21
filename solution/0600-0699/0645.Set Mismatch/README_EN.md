@@ -4,41 +4,28 @@
 
 ## Description
 
-<p>
+<p>You have a set of integers <code>s</code>, which originally contains all the numbers from <code>1</code> to <code>n</code>. Unfortunately, due to some error, one of the numbers in <code>s</code> got duplicated to another number in the set, which results in <strong>repetition of one</strong> number and <strong>loss of another</strong> number.</p>
 
-The set <code>S</code> originally contains numbers from 1 to <code>n</code>. But unfortunately, due to the data error, one of the numbers in the set got duplicated to <b>another</b> number in the set, which results in repetition of one number and loss of another number.
+<p>You are given an integer array <code>nums</code> representing the data status of this set after the error.</p>
 
-</p>
+<p>Find the number that occurs twice and the number that is missing and return <em>them in the form of an array</em>.</p>
 
-<p>
-
-Given an array <code>nums</code> representing the data status of this set after the error. Your task is to firstly find the number occurs twice and then find the number that is missing. Return them in the form of an array.
-
-</p>
-
-<p><b>Example 1:</b><br />
-
-<pre>
-
-<b>Input:</b> nums = [1,2,2,4]
-
-<b>Output:</b> [2,3]
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> nums = [1,2,2,4]
+<strong>Output:</strong> [2,3]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> nums = [1,1]
+<strong>Output:</strong> [1,2]
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
+<ul>
+	<li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+</ul>
 
-<p><b>Note:</b><br>
-
-<ol>
-
-<li>The given array size will in the range [2, 10000].</li>
-
-<li>The given array's numbers won't have any order.</li>
-
-</ol>
-
-</p>
 
 ## Solutions
 

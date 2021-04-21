@@ -5,36 +5,52 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个<strong>方形</strong>整数数组&nbsp;<code>A</code>，我们想要得到通过 <code>A</code> 的<em>下降路径</em>的<strong>最小</strong>和。</p>
 
-<p>下降路径可以从第一行中的任何元素开始，并从每一行中选择一个元素。在下一行选择的元素和当前行所选元素最多相隔一列。</p>
+<p>给你一个 <code>n x n</code> 的<strong> 方形 </strong>整数数组 <code>matrix</code> ，请你找出并返回通过 <code>matrix</code> 的<strong>下降路径</strong><em> </em>的<strong> </strong><strong>最小和</strong> 。</p>
 
-<p>&nbsp;</p>
+<p><strong>下降路径</strong> 可以从第一行中的任何元素开始，并从每一行中选择一个元素。在下一行选择的元素和当前行所选元素最多相隔一列（即位于正下方或者沿对角线向左或者向右的第一个元素）。具体来说，位置 <code>(row, col)</code> 的下一个元素应当是 <code>(row + 1, col - 1)</code>、<code>(row + 1, col)</code> 或者 <code>(row + 1, col + 1)</code> 。</p>
 
-<p><strong>示例：</strong></p>
+<p> </p>
 
-<pre><strong>输入：</strong>[[1,2,3],[4,5,6],[7,8,9]]
-<strong>输出：</strong>12
-<strong>解释：</strong>
-可能的下降路径有：
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>matrix = [[2,1,3],[6,5,4],[7,8,9]]
+<strong>输出：</strong>13
+<strong>解释：</strong>下面是两条和最小的下降路径，用加粗标注：
+[[2,<strong>1</strong>,3],      [[2,<strong>1</strong>,3],
+ [6,<strong>5</strong>,4],       [6,5,<strong>4</strong>],
+ [<strong>7</strong>,8,9]]       [7,<strong>8</strong>,9]]
 </pre>
 
-<ul>
-	<li><code>[1,4,7], [1,4,8], [1,5,7], [1,5,8], [1,5,9]</code></li>
-	<li><code>[2,4,7], [2,4,8], [2,5,7], [2,5,8], [2,5,9], [2,6,8], [2,6,9]</code></li>
-	<li><code>[3,5,7], [3,5,8], [3,5,9], [3,6,8], [3,6,9]</code></li>
-</ul>
+<p><strong>示例 2：</strong></p>
 
-<p>和最小的下降路径是&nbsp;<code>[1,4,7]</code>，所以答案是&nbsp;<code>12</code>。</p>
+<pre>
+<strong>输入：</strong>matrix = [[-19,57],[-40,-5]]
+<strong>输出：</strong>-59
+<strong>解释：</strong>下面是一条和最小的下降路径，用加粗标注：
+[[<strong>-19</strong>,57],
+ [<strong>-40</strong>,-5]]
+</pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>matrix = [[-48]]
+<strong>输出：</strong>-48
+</pre>
+
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= A.length == A[0].length &lt;= 100</code></li>
-	<li><code>-100 &lt;= A[i][j] &lt;= 100</code></li>
-</ol>
+<ul>
+	<li><code>n == matrix.length</code></li>
+	<li><code>n == matrix[i].length</code></li>
+	<li><code>1 <= n <= 100</code></li>
+	<li><code>-100 <= matrix[i][j] <= 100</code></li>
+</ul>
+
 
 ## 解法
 

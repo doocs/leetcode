@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/bb.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/12/bb.png" style="width: 121px; height: 101px;" /></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,1,3]
@@ -25,7 +25,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/ex1.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/12/ex1.png" style="width: 241px; height: 161px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,4,5,1,2]
@@ -40,7 +40,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/ex4.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/12/ex4.png" style="width: 121px; height: 161px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3]
@@ -50,7 +50,7 @@
 
 <p><strong>Example 4:</strong></p>
 
-![](./images/abc.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/12/abc.png" style="width: 241px; height: 161px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,2,5,4,6]
@@ -73,6 +73,7 @@
 	<li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 	<li>All integers in&nbsp;<code>nums</code>&nbsp;are&nbsp;<strong>distinct</strong>.</li>
 </ul>
+
 
 ## Solutions
 

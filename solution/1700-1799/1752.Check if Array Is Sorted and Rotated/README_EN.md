@@ -63,6 +63,7 @@ You can rotate the array by x = 5 positions to begin on the element of value 2: 
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

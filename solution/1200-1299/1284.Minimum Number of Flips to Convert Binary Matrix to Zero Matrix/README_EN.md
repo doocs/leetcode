@@ -14,9 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/matrix.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2019/11/28/matrix.png" style="width: 409px; height: 86px;" />
 <pre>
 <strong>Input:</strong> mat = [[0,0],[0,1]]
 <strong>Output:</strong> 3
@@ -56,6 +54,7 @@
 	<li><code>1 &lt;= n&nbsp;&lt;= 3</code></li>
 	<li><code>mat[i][j]</code> is 0 or 1.</li>
 </ul>
+
 
 ## Solutions
 

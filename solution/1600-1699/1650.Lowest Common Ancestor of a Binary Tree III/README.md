@@ -23,18 +23,14 @@
 <p> </p>
 
 <p><strong>示例 1:</strong></p>
-
-![](./images/binarytree.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" style="width: 200px; height: 190px;">
 <pre><strong>输入:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
 <strong>输出:</strong> 3
 <strong>解释:</strong> 节点 5 和 1 的最近公共祖先是 3。
 </pre>
 
 <p><strong>示例 2:</strong></p>
-
-![](./images/binarytree.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" style="width: 200px; height: 190px;">
 <pre><strong>输入:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
 <strong>输出:</strong> 5
 <strong>解释:</strong> 节点 5 和 4 的最近公共祖先是 5，根据定义，一个节点可以是自身的最近公共祖先。

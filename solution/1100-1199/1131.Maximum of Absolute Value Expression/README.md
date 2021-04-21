@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你两个长度相等的整数数组，返回下面表达式的最大值：</p>
 
 <p><code>|arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| + |i - j|</code></p>
@@ -32,6 +33,7 @@
 	<li><code>2 &lt;= arr1.length == arr2.length &lt;= 40000</code></li>
 	<li><code>-10^6 &lt;= arr1[i], arr2[i] &lt;= 10^6</code></li>
 </ul>
+
 
 ## 解法
 

@@ -29,9 +29,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/ex1.png)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/03/21/ex1.png" style="width: 450px; height: 479px;" />
 <pre>
 <strong>输入：</strong>orders = [[10,5,0],[15,2,1],[25,1,1],[30,4,0]]
 <strong>输出：</strong>6
@@ -44,9 +42,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
-![](./images/ex2.png)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/03/21/ex2.png" style="width: 450px; height: 584px;" />
 <pre>
 <strong>输入：</strong>orders = [[7,1000000000,1],[15,3,0],[5,999999995,0],[5,1,1]]
 <strong>输出：</strong>999999984
@@ -67,6 +63,7 @@
 	<li><code>1 <= price<sub>i</sub>, amount<sub>i</sub> <= 10<sup>9</sup></code></li>
 	<li><code>orderType<sub>i</sub></code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
+
 
 ## 解法
 

@@ -6,9 +6,9 @@
 
 <p>Given an array of integers <code>arr</code> and an integer <code>target</code>.</p>
 
-<p>You have to find <strong>two non-overlapping sub-arrays</strong> of <code>arr</code> each with sum equal <code>target</code>. There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is <strong>minimum</strong>.</p>
+<p>You have to find <strong>two non-overlapping sub-arrays</strong> of <code>arr</code> each with a sum equal <code>target</code>. There can be multiple answers so you have to find an answer where the sum of the lengths of the two sub-arrays is <strong>minimum</strong>.</p>
 
-<p>Return <em>the minimum sum of the lengths</em> of the two required sub-arrays, or return <em><strong>-1</strong></em> if you cannot&nbsp;find such two sub-arrays.</p>
+<p>Return <em>the minimum sum of the lengths</em> of the two required sub-arrays, or return <code>-1</code> if you cannot find such two sub-arrays.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -55,10 +55,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
-	<li><code>1 &lt;= target &lt;= 10^8</code></li>
+	<li><code>1 &lt;= target &lt;= 10<sup>8</sup></code></li>
 </ul>
+
 
 ## Solutions
 

@@ -1,26 +1,56 @@
-# [300. 最长上升子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)
+# [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence)
 
 [English Version](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个无序的整数数组，找到其中最长上升子序列的长度。</p>
 
-<p><strong>示例:</strong></p>
+<p>给你一个整数数组 <code>nums</code> ，找到其中最长严格递增子序列的长度。</p>
 
-<pre><strong>输入:</strong> <code>[10,9,2,5,3,7,101,18]
-</code><strong>输出: </strong>4 
-<strong>解释: </strong>最长的上升子序列是&nbsp;<code>[2,3,7,101]，</code>它的长度是 <code>4</code>。</pre>
+<p>子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，<code>[3,6,2,7]</code> 是数组 <code>[0,3,1,6,2,2,7]</code> 的子序列。</p>
+ 
 
-<p><strong>说明:</strong></p>
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [10,9,2,5,3,7,101,18]
+<strong>输出：</strong>4
+<strong>解释：</strong>最长递增子序列是 [2,3,7,101]，因此长度为 4 。
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [0,1,0,3,2,3]
+<strong>输出：</strong>4
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [7,7,7,7,7,7,7]
+<strong>输出：</strong>1
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>可能会有多种最长上升子序列的组合，你只需要输出对应的长度即可。</li>
-	<li>你算法的时间复杂度应该为&nbsp;O(<em>n<sup>2</sup></em>) 。</li>
+	<li><code>1 <= nums.length <= 2500</code></li>
+	<li><code>-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
-<p><strong>进阶:</strong> 你能将算法的时间复杂度降低到&nbsp;O(<em>n</em> log <em>n</em>) 吗?</p>
+<p> </p>
+
+<p><b>进阶：</b></p>
+
+<ul>
+	<li>你可以设计时间复杂度为 <code>O(n<sup>2</sup>)</code> 的解决方案吗？</li>
+	<li>你能将算法的时间复杂度降低到 <code>O(n log(n))</code> 吗?</li>
+</ul>
+
 
 ## 解法
 

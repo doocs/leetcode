@@ -9,7 +9,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/sample_11_1592.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/17/sample_11_1592.png" style="width: 154px; height: 106px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 2, m = 3
@@ -20,7 +20,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/sample_22_1592.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/17/sample_22_1592.png" style="width: 224px; height: 126px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 5, m = 8
@@ -29,7 +29,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-![](./images/sample_33_1592.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/17/sample_33_1592.png" style="width: 224px; height: 189px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 11, m = 13
@@ -43,6 +43,7 @@
 	<li><code>1 &lt;= n &lt;= 13</code></li>
 	<li><code>1 &lt;= m&nbsp;&lt;=&nbsp;13</code></li>
 </ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p><em>A</em> 和&nbsp;<em>B</em>&nbsp;在一个&nbsp;<em>3</em>&nbsp;x&nbsp;<em>3</em>&nbsp;的网格上玩井字棋。</p>
 
 <p>井字棋游戏的规则如下：</p>
@@ -77,6 +78,7 @@
 	<li><code>moves</code>&nbsp;里没有重复的元素。</li>
 	<li><code>moves</code> 遵循井字棋的规则。</li>
 </ul>
+
 
 ## 解法
 

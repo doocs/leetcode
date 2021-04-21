@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/ex1.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/ex1.png" style="width: 300px; height: 300px;" /></p>
 
 <pre>
 <strong>Input:</strong> heights = [[1,2,2],[3,8,2],[5,3,5]]
@@ -24,7 +24,7 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/ex2.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/ex2.png" style="width: 300px; height: 300px;" /></p>
 
 <pre>
 <strong>Input:</strong> heights = [[1,2,3],[3,8,4],[5,3,5]]
@@ -33,9 +33,7 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-![](./images/ex3.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/ex3.png" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> heights = [[1,2,1,1,1],[1,2,1,2,1],[1,2,1,2,1],[1,2,1,2,1],[1,1,1,2,1]]
 <strong>Output:</strong> 0
@@ -51,6 +49,7 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 	<li><code>1 &lt;= rows, columns &lt;= 100</code></li>
 	<li><code>1 &lt;= heights[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
+
 
 ## Solutions
 

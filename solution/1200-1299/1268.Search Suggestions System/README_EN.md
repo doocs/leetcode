@@ -58,6 +58,7 @@ After typing mou, mous and mouse the system suggests [&quot;mouse&quot;,&quot;mo
 	<li>All characters of <code>searchWord</code>&nbsp;are lower-case English letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

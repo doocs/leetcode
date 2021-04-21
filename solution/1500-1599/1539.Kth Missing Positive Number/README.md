@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个 <strong>严格升序排列</strong>&nbsp;的正整数数组 <code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
 <p>请你找到这个数组里第&nbsp;<code>k</code>&nbsp;个缺失的正整数。</p>
@@ -35,6 +36,7 @@
 	<li><code>1 &lt;= k &lt;= 1000</code></li>
 	<li>对于所有&nbsp;<code>1 &lt;= i &lt; j &lt;= arr.length</code>&nbsp;的 <code>i</code>&nbsp;和 <code>j</code> 满足&nbsp;<code>arr[i] &lt; arr[j]</code>&nbsp;</li>
 </ul>
+
 
 ## 解法
 

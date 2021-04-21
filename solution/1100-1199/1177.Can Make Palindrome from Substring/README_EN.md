@@ -38,6 +38,7 @@ queries[4] :&nbsp;substring = &quot;abcda&quot;,&nbsp;could be changed to &quot;
 	<li><code>s</code> only contains lowercase English letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

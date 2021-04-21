@@ -4,73 +4,31 @@
 
 ## Description
 
-<p>
+<p>Given the <code>root</code> of a binary tree, return the leftmost value in the last row of the tree.</p>
 
-Given a binary tree, find the leftmost value in the last row of the tree.
-
-</p>
-
-<p><b>Example 1:</b><br />
-
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/14/tree1.jpg" style="width: 302px; height: 182px;" />
 <pre>
-
-Input:
-
-
-
-    2
-
-   / \
-
-  1   3
-
-
-
-Output:
-
-1
-
+<strong>Input:</strong> root = [2,1,3]
+<strong>Output:</strong> 1
 </pre>
 
-</p>
-
-<p> <b> Example 2: </b><br>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/14/tree2.jpg" style="width: 432px; height: 421px;" />
 <pre>
-
-Input:
-
-
-
-        1
-
-       / \
-
-      2   3
-
-     /   / \
-
-    4   5   6
-
-       /
-
-      7
-
-
-
-Output:
-
-7
-
+<strong>Input:</strong> root = [1,2,3,4,null,5,6,null,null,7]
+<strong>Output:</strong> 7
 </pre>
 
-</p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b>
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.</li>
+	<li><code>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 
-You may assume the tree (i.e., the given root node) is not <b>NULL</b>.
-
-</p>
 
 ## Solutions
 

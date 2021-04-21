@@ -4,43 +4,43 @@
 
 ## Description
 
-<p>Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.</p>
+<p>Given an integer array <code>nums</code>, return <code>true</code><em> if there exists a triple of indices </em><code>(i, j, k)</code><em> such that </em><code>i &lt; j &lt; k</code><em> and </em><code>nums[i] &lt; nums[j] &lt; nums[k]</code>. If no such indices exists, return <code>false</code>.</p>
 
-<p>Formally the function should:</p>
-
-<blockquote>Return true if there exists <i>i, j, k </i><br />
-
-such that <i>arr[i]</i> &lt; <i>arr[j]</i> &lt; <i>arr[k]</i> given 0 &le; <i>i</i> &lt; <i>j</i> &lt; <i>k</i> &le; <i>n</i>-1 else return false.</blockquote>
-
-<p><strong>Note: </strong>Your algorithm should run in O(<i>n</i>) time complexity and O(<i>1</i>) space complexity.</p>
-
-<div>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[1,2,3,4,5]</span>
-
-<strong>Output: </strong><span id="example-output-1">true</span>
-
+<strong>Input:</strong> nums = [1,2,3,4,5]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> Any triplet where i &lt; j &lt; k is valid.
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[5,4,3,2,1]</span>
-
-<strong>Output: </strong><span id="example-output-2">false</span>
-
+<strong>Input:</strong> nums = [5,4,3,2,1]
+<strong>Output:</strong> false
+<strong>Explanation:</strong> No triplet exists.
 </pre>
 
-</div>
+<p><strong>Example 3:</strong></p>
 
-</div>
+<pre>
+<strong>Input:</strong> nums = [2,1,5,0,4,6]
+<strong>Output:</strong> true
+<strong>Explanation:</strong> The triplet (3, 4, 5) is valid because nums[3] == 0 &lt; nums[4] == 4 &lt; nums[5] == 6.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you implement a solution that runs in <code>O(n)</code> time complexity and <code>O(1)</code> space complexity?
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们有两个长度相等且不为空的整型数组&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;。</p>
 
 <p>我们可以交换&nbsp;<code>A[i]</code>&nbsp;和&nbsp;<code>B[i]</code>&nbsp;的元素。注意这两个元素在各自的序列中应该处于相同的位置。</p>
@@ -28,6 +29,7 @@ A = [1, 3, 5, 7] ， B = [1, 2, 3, 4]
 	<li><code>A, B</code>&nbsp;两个数组的长度总是相等的，且长度的范围为&nbsp;<code>[1, 1000]</code>。</li>
 	<li><code>A[i], B[i]</code>&nbsp;均为&nbsp;<code>[0, 2000]</code>区间内的整数。</li>
 </ul>
+
 
 ## 解法
 

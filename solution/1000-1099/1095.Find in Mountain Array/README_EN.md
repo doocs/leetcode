@@ -51,11 +51,12 @@
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
-<ol>
+<ul>
 	<li><code>3 &lt;= mountain_arr.length() &lt;= 10000</code></li>
 	<li><code>0 &lt;= target &lt;= 10^9</code></li>
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
-</ol>
+</ul>
+
 
 ## Solutions
 

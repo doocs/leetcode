@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串 <code>time</code> ，格式为 <code> hh:mm</code>（小时：分钟），其中某几位数字被隐藏（用 <code>?</code> 表示）。</p>
 
 <p>有效的时间为 <code>00:00</code> 到 <code>23:59</code> 之间的所有时间，包括 <code>00:00</code> 和 <code>23:59</code> 。</p>
@@ -43,6 +44,7 @@
 	<li><code>time</code> 的格式为 <code>hh:mm</code></li>
 	<li>题目数据保证你可以由输入的字符串生成有效的时间</li>
 </ul>
+
 
 ## 解法
 

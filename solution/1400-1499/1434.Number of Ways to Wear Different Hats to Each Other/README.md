@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>总共有 <code>n</code>&nbsp;个人和 <code>40</code> 种不同的帽子，帽子编号从 <code>1</code> 到 <code>40</code> 。</p>
 
 <p>给你一个整数列表的列表&nbsp;<code>hats</code>&nbsp;，其中&nbsp;<code>hats[i]</code>&nbsp;是第 <code>i</code>&nbsp;个人所有喜欢帽子的列表。</p>
@@ -59,6 +60,7 @@
 	<li><code>1 &lt;= hats[i][j] &lt;= 40</code></li>
 	<li><code>hats[i]</code>&nbsp;包含一个数字互不相同的整数列表。</li>
 </ul>
+
 
 ## 解法
 

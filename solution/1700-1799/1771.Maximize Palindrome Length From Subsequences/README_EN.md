@@ -48,6 +48,7 @@
 	<li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</li>
 </ul>
 
+
 ## Solutions
 
 <!-- tabs:start -->

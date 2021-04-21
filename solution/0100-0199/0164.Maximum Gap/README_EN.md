@@ -4,38 +4,35 @@
 
 ## Description
 
-<p>Given an unsorted array, find the maximum difference between the successive elements in its sorted form.</p>
+<p>Given an integer array <code>nums</code>, return <em>the maximum difference between two successive elements in its sorted form</em>. If the array contains less than two elements, return <code>0</code>.</p>
 
-<p>Return 0 if the array contains less than 2 elements.</p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> [3,6,9,1]
-
+<strong>Input:</strong> nums = [3,6,9,1]
 <strong>Output:</strong> 3
-
-<strong>Explanation:</strong> The sorted form of the array is [1,3,6,9], either
-
-&nbsp;            (3,6) or (6,9) has the maximum difference 3.</pre>
+<strong>Explanation:</strong> The sorted form of the array is [1,3,6,9], either (3,6) or (6,9) has the maximum difference 3.
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> [10]
-
+<strong>Input:</strong> nums = [10]
 <strong>Output:</strong> 0
+<strong>Explanation:</strong> The array contains less than 2 elements, therefore return 0.
+</pre>
 
-<strong>Explanation:</strong> The array contains less than 2 elements, therefore return 0.</pre>
-
-<p><b>Note:</b></p>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-    <li>You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range.</li>
-    <li>Try to solve it in linear time/space.</li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you solve it in linear time/space?
 
 ## Solutions
 

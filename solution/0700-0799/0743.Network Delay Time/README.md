@@ -5,20 +5,52 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>有&nbsp;<code>N</code>&nbsp;个网络节点，标记为&nbsp;<code>1</code>&nbsp;到&nbsp;<code>N</code>。</p>
 
-<p>给定一个列表&nbsp;<code>times</code>，表示信号经过<strong>有向</strong>边的传递时间。&nbsp;<code>times[i] = (u, v, w)</code>，其中&nbsp;<code>u</code>&nbsp;是源节点，<code>v</code>&nbsp;是目标节点， <code>w</code>&nbsp;是一个信号从源节点传递到目标节点的时间。</p>
+<p>有 <code>n</code> 个网络节点，标记为 <code>1</code> 到 <code>n</code>。</p>
 
-<p>现在，我们向当前的节点&nbsp;<code>K</code>&nbsp;发送了一个信号。需要多久才能使所有节点都收到信号？如果不能使所有节点收到信号，返回&nbsp;<code>-1</code>。</p>
+<p>给你一个列表 <code>times</code>，表示信号经过 <strong>有向</strong> 边的传递时间。 <code>times[i] = (u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>)</code>，其中 <code>u<sub>i</sub></code> 是源节点，<code>v<sub>i</sub></code> 是目标节点， <code>w<sub>i</sub></code> 是一个信号从源节点传递到目标节点的时间。</p>
 
-<p><strong>注意:</strong></p>
+<p>现在，从某个节点 <code>K</code> 发出一个信号。需要多久才能使所有节点都收到信号？如果不能使所有节点收到信号，返回 <code>-1</code> 。</p>
 
-<ol>
-	<li><code>N</code>&nbsp;的范围在&nbsp;<code>[1, 100]</code>&nbsp;之间。</li>
-	<li><code>K</code>&nbsp;的范围在&nbsp;<code>[1, N]</code>&nbsp;之间。</li>
-	<li><code>times</code>&nbsp;的长度在&nbsp;<code>[1, 6000]</code>&nbsp;之间。</li>
-	<li>所有的边&nbsp;<code>times[i] = (u, v, w)</code>&nbsp;都有&nbsp;<code>1 &lt;= u, v &lt;= N</code>&nbsp;且&nbsp;<code>0 &lt;= w &lt;= 100</code>。</li>
-</ol>
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<p><img alt="" src="https://assets.leetcode.com/uploads/2019/05/23/931_example_1.png" style="height: 220px; width: 200px;" /></p>
+
+<pre>
+<strong>输入：</strong>times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
+<strong>输出：</strong>2
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>times = [[1,2,1]], n = 2, k = 1
+<strong>输出：</strong>1
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>times = [[1,2,1]], n = 2, k = 2
+<strong>输出：</strong>-1
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= k <= n <= 100</code></li>
+	<li><code>1 <= times.length <= 6000</code></li>
+	<li><code>times[i].length == 3</code></li>
+	<li><code>1 <= u<sub>i</sub>, v<sub>i</sub> <= n</code></li>
+	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
+	<li><code>0 <= w<sub>i</sub> <= 100</code></li>
+	<li>所有 <code>(u<sub>i</sub>, v<sub>i</sub>)</code> 对都 <strong>互不相同</strong>（即，不含重复边）</li>
+</ul>
+
 
 ## 解法
 

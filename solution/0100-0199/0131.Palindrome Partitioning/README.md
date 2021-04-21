@@ -5,18 +5,36 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
-<p>给定一个字符串 <em>s</em>，将<em> s </em>分割成一些子串，使每个子串都是回文串。</p>
 
-<p>返回 <em>s</em> 所有可能的分割方案。</p>
+<p>给你一个字符串 <code>s</code>，请你将<em> </em><code>s</code><em> </em>分割成一些子串，使每个子串都是 <strong>回文串</strong> 。返回 <code>s</code> 所有可能的分割方案。</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>回文串</strong> 是正着读和反着读都一样的字符串。</p>
 
-<pre><strong>输入:</strong>&nbsp;&quot;aab&quot;
-<strong>输出:</strong>
-[
-  [&quot;aa&quot;,&quot;b&quot;],
-  [&quot;a&quot;,&quot;a&quot;,&quot;b&quot;]
-]</pre>
+<p> </p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "aab"
+<strong>输出：</strong>[["a","a","b"],["aa","b"]]
+</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "a"
+<strong>输出：</strong>[["a"]]
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= s.length <= 16</code></li>
+	<li><code>s</code> 仅由小写英文字母组成</li>
+</ul>
+
 
 ## 解法
 

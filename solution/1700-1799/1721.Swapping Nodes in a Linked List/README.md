@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你链表的头节点 <code>head</code> 和一个整数 <code>k</code> 。</p>
 
 <p><strong>交换</strong> 链表正数第 <code>k</code> 个节点和倒数第 <code>k</code> 个节点的值后，返回链表的头节点（链表 <strong>从 1 开始索引</strong>）。</p>
@@ -12,9 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/linked1.jpg)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/10/linked1.jpg" style="width: 722px; height: 202px;" />
 <pre>
 <strong>输入：</strong>head = [1,2,3,4,5], k = 2
 <strong>输出：</strong>[1,4,3,2,5]
@@ -57,6 +56,7 @@
 	<li><code>1 <= k <= n <= 10<sup>5</sup></code></li>
 	<li><code>0 <= Node.val <= 100</code></li>
 </ul>
+
 
 ## 解法
 

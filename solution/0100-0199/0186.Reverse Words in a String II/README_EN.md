@@ -4,23 +4,31 @@
 
 ## Description
 
-<p>Given an input string<strong><em>&nbsp;</em></strong>, reverse the string word by word.&nbsp;</p>
+<p>Given a character array <code>s</code>, reverse the order of the <strong>words</strong>.</p>
 
-<p><strong>Example:</strong></p>
+<p>A <strong>word</strong> is defined as a sequence of non-space characters. The <strong>words</strong> in <code>s</code> will be separated by a single space.</p>
 
-<pre>
-<strong>Input:  </strong>[&quot;t&quot;,&quot;h&quot;,&quot;e&quot;,&quot; &quot;,&quot;s&quot;,&quot;k&quot;,&quot;y&quot;,&quot; &quot;,&quot;i&quot;,&quot;s&quot;,&quot; &quot;,&quot;b&quot;,&quot;l&quot;,&quot;u&quot;,&quot;e&quot;]
-<strong>Output: </strong>[&quot;b&quot;,&quot;l&quot;,&quot;u&quot;,&quot;e&quot;,&quot; &quot;,&quot;i&quot;,&quot;s&quot;,&quot; &quot;,&quot;s&quot;,&quot;k&quot;,&quot;y&quot;,&quot; &quot;,&quot;t&quot;,&quot;h&quot;,&quot;e&quot;]</pre>
-
-<p><strong>Note:&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> s = ["t","h","e"," ","s","k","y"," ","i","s"," ","b","l","u","e"]
+<strong>Output:</strong> ["b","l","u","e"," ","i","s"," ","s","k","y"," ","t","h","e"]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = ["a"]
+<strong>Output:</strong> ["a"]
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>A word is defined as a sequence of non-space characters.</li>
-	<li>The input string does not contain leading or trailing spaces.</li>
-	<li>The words are always separated by a single space.</li>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>s[i]</code> is an English letter (uppercase or lowercase), digit, or space <code>&#39; &#39;</code>.</li>
+	<li>There is <strong>at least one</strong> word in <code>s</code>.</li>
+	<li><code>s</code> does not contain leading or trailing spaces.</li>
+	<li>All the words in <code>s</code> are guaranteed to be separated by a single space.</li>
 </ul>
 
-<p><strong>Follow up:&nbsp;</strong>Could you do it <i>in-place</i> without allocating extra space?</p>
+<p>&nbsp;</p>
+<strong>Follow up:</strong> Could you do it <strong>in-place</strong> without allocating extra space?
 
 ## Solutions
 

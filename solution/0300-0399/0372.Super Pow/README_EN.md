@@ -4,35 +4,32 @@
 
 ## Description
 
-<p>Your task is to calculate <i>a</i><sup><i>b</i></sup> mod 1337 where <i>a</i> is a positive integer and <i>b</i> is an extremely large positive integer given in the form of an array.</p>
+<p>Your task is to calculate <code>a<sup>b</sup></code> mod <code>1337</code> where <code>a</code> is a positive integer and <code>b</code> is an extremely large positive integer given in the form of an array.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-<div>
-
-<pre>
-
-<strong>Input: </strong>a = <span id="example-input-1-1">2</span>, b = <span id="example-input-1-2">[3]</span>
-
-<strong>Output: </strong><span id="example-output-1">8</span>
-
+<pre><strong>Input:</strong> a = 2, b = [3]
+<strong>Output:</strong> 8
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> a = 2, b = [1,0]
+<strong>Output:</strong> 1024
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> a = 1, b = [4,3,3,8,5,2]
+<strong>Output:</strong> 1
+</pre><p><strong>Example 4:</strong></p>
+<pre><strong>Input:</strong> a = 2147483647, b = [2,0,0]
+<strong>Output:</strong> 1198
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<div>
+<ul>
+	<li><code>1 &lt;= a &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>1 &lt;= b.length &lt;= 2000</code></li>
+	<li><code>0 &lt;= b[i] &lt;= 9</code></li>
+	<li><code>b</code> doesn&#39;t contain leading zeros.</li>
+</ul>
 
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>a = <span id="example-input-2-1">2</span>, b = <span id="example-input-2-2">[1,0]</span>
-
-<strong>Output: </strong><span id="example-output-2">1024</span>
-
-</pre>
-
-</div>
-
-</div>
 
 ## Solutions
 

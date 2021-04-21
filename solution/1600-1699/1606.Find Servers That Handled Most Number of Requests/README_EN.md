@@ -19,9 +19,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/load-1.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/08/load-1.png" style="width: 389px; height: 221px;" />
 <pre>
 <strong>Input:</strong> k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 
 <strong>Output:</strong> [1] 
@@ -76,6 +74,7 @@ Server 0 handled two requests, while servers 1 and 2 handled one request each. H
 	<li><code>1 &lt;= arrival[i], load[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>arrival</code> is <strong>strictly increasing</strong>.</li>
 </ul>
+
 
 ## Solutions
 

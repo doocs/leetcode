@@ -4,20 +4,27 @@
 
 ## Description
 
-<p>Given a non-negative integer represented as <b>non-empty</b> a singly linked list of digits, plus one to the integer.</p>
+<p>Given a non-negative integer represented as a linked list of digits, <em>plus one to the integer</em>.</p>
 
-<p>You may assume the integer do not contain any leading zero, except the number 0 itself.</p>
+<p>The digits are stored such that the most significant digit is at the <code>head</code> of the list.</p>
 
-<p>The digits are stored such that the most significant digit is at the head of the list.</p>
-
-<div>
-<p><strong>Example :</strong></p>
-
-<pre>
-<strong>Input: </strong><span id="example-input-1-1">[1,2,3]</span>
-<strong>Output: </strong><span id="example-output-1">[1,2,4]</span>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> head = [1,2,3]
+<strong>Output:</strong> [1,2,4]
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> head = [0]
+<strong>Output:</strong> [1]
 </pre>
-</div>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the linked list is in the range <code>[1, 100]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 9</code></li>
+	<li>The number represented by the linked list does not contain leading zeros except for the zero itself.&nbsp;</li>
+</ul>
+
 
 ## Solutions
 

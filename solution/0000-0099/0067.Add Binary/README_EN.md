@@ -4,25 +4,25 @@
 
 ## Description
 
-<p>Given two binary strings, return their sum (also a binary string).</p>
+<p>Given two binary strings <code>a</code> and <code>b</code>, return <em>their sum as a binary string</em>.</p>
 
-<p>The input strings are both <strong>non-empty</strong> and contains only characters <code>1</code> or&nbsp;<code>0</code>.</p>
-
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
+<pre><strong>Input:</strong> a = "11", b = "1"
+<strong>Output:</strong> "100"
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> a = "1010", b = "1011"
+<strong>Output:</strong> "10101"
+</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<pre>
+<ul>
+	<li><code>1 &lt;= a.length, b.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>a</code> and <code>b</code> consist&nbsp;only of <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code> characters.</li>
+	<li>Each string does not contain leading zeros except for the zero itself.</li>
+</ul>
 
-<strong>Input:</strong> a = &quot;11&quot;, b = &quot;1&quot;
-
-<strong>Output:</strong> &quot;100&quot;</pre>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input:</strong> a = &quot;1010&quot;, b = &quot;1011&quot;
-
-<strong>Output:</strong> &quot;10101&quot;</pre>
 
 ## Solutions
 

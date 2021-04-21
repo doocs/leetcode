@@ -5,11 +5,12 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们有 N 个与坐标轴对齐的矩形, 其中 N &gt; 0, 判断它们是否能精确地覆盖一个矩形区域。</p>
 
 <p>每个矩形用左下角的点和右上角的点的坐标来表示。例如，&nbsp;一个单位正方形可以表示为 [1,1,2,2]。&nbsp;( 左下角的点的坐标为 (1, 1) 以及右上角的点的坐标为 (2, 2) )。</p>
 
-![](./images/rectangle_perfect.gif)
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_perfect.gif"></p>
 
 <p><strong>示例 1:</strong></p>
 
@@ -26,7 +27,7 @@
 
 <p>&nbsp;</p>
 
-![](./images/rectangle_separated.gif)
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_separated.gif"></p>
 
 <p><strong>示例&nbsp;2:</strong></p>
 
@@ -42,7 +43,7 @@
 
 <p>&nbsp;</p>
 
-![](./images/rectangle_hole.gif)
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_hole.gif"></p>
 
 <p><strong>示例 3:</strong></p>
 
@@ -58,7 +59,7 @@
 
 <p>&nbsp;</p>
 
-![](./images/rectangle_intersect.gif)
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rectangle_intersect.gif"></p>
 
 <p><strong>示例 4:</strong></p>
 
@@ -71,6 +72,7 @@
 
 返回 false。因为中间有相交区域，虽然形成了矩形，但不是精确覆盖。
 </pre>
+
 
 ## 解法
 

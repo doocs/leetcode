@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，请你根据下面的算法重新构造字符串：</p>
 
 <ol>
@@ -67,6 +68,7 @@
 	<li><code>1 &lt;= s.length &lt;= 500</code></li>
 	<li><code>s</code>&nbsp;只包含小写英文字母。</li>
 </ul>
+
 
 ## 解法
 

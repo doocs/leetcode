@@ -4,50 +4,49 @@
 
 ## Description
 
-<p>Write a program to check whether a given number is an ugly number.</p>
+<p>An <strong>ugly number</strong> is a positive integer whose prime factors are limited to <code>2</code>, <code>3</code>, and <code>5</code>.</p>
 
-<p>Ugly numbers are <strong>positive numbers</strong> whose prime factors only include <code>2, 3, 5</code>.</p>
+<p>Given an integer <code>n</code>, return <code>true</code> <em>if</em> <code>n</code> <em>is an <strong>ugly number</strong></em>.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> 6
-
+<strong>Input:</strong> n = 6
 <strong>Output:</strong> true
-
-<strong>Explanation: </strong>6 = 2 &times;&nbsp;3</pre>
+<strong>Explanation:</strong> 6 = 2 &times; 3</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> 8
-
+<strong>Input:</strong> n = 8
 <strong>Output:</strong> true
-
-<strong>Explanation: </strong>8 = 2 &times; 2 &times;&nbsp;2
-
+<strong>Explanation:</strong> 8 = 2 &times; 2 &times; 2
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
-<strong>Input:</strong> 14
-
-<strong>Output:</strong> false 
-
-<strong>Explanation: </strong><code>14</code> is not ugly since it includes another prime factor <code>7</code>.
-
+<strong>Input:</strong> n = 14
+<strong>Output:</strong> false
+<strong>Explanation:</strong> 14 is not ugly since it includes the prime factor 7.
 </pre>
 
-<p><strong>Note:</strong></p>
+<p><strong>Example 4:</strong></p>
 
-<ol>
-    <li><code>1</code> is typically treated as an ugly number.</li>
-    <li>Input is within the 32-bit signed integer range:&nbsp;[&minus;2<sup>31</sup>,&nbsp; 2<sup>31&nbsp;</sup>&minus; 1].</li>
-</ol>
+<pre>
+<strong>Input:</strong> n = 1
+<strong>Output:</strong> true
+<strong>Explanation:</strong> 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>-2<sup>31</sup> &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## Solutions
 

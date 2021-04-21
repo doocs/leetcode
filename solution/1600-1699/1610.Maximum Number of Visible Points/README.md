@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个点数组 <code>points</code> 和一个表示角度的整数 <code>angle</code> ，你的位置是 <code>location</code> ，其中 <code>location = [pos<sub>x</sub>, pos<sub>y</sub>]</code> 且 <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 都表示 X-Y 平面上的整数坐标。</p>
 
 <p>最开始，你面向东方进行观测。你 <strong>不能</strong> 进行移动改变位置，但可以通过 <strong>自转</strong> 调整观测角度。换句话说，<code>pos<sub>x</sub></code> 和 <code>pos<sub>y</sub></code> 不能改变。你的视野范围的角度用 <code>angle</code> 表示， 这决定了你观测任意方向时可以多宽。设 <code>d</code> 为你逆时针自转旋转的度数，那么你的视野就是角度范围 <code>[d - angle/2, d + angle/2]</code> 所指示的那片区域。</p>
@@ -21,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/89a07e9b-00ab-4967-976a-c723b2aa8656.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/04/89a07e9b-00ab-4967-976a-c723b2aa8656.png" style="height: 300px; width: 400px;" /></p>
 
 <pre>
 <strong>输入：</strong>points = [[2,1],[2,2],[3,3]], angle = 90, location = [1,1]
@@ -37,7 +38,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-![](./images/5010bfd3-86e6-465f-ac64-e9df941d2e49.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/04/5010bfd3-86e6-465f-ac64-e9df941d2e49.png" style="height: 348px; width: 690px;" /></p>
 
 <pre>
 <strong>输入：</strong>points = [[1,0],[2,1]], angle = 13, location = [1,1]
@@ -55,6 +56,7 @@
 	<li><code>0 <= angle < 360</code></li>
 	<li><code>0 <= pos<sub>x</sub>, pos<sub>y</sub>, x<sub>i</sub>, y<sub>i</sub> <= 100</code></li>
 </ul>
+
 
 ## 解法
 

@@ -4,57 +4,84 @@
 
 ## Description
 
-<p>On a <strong>single threaded</strong> CPU, we execute some functions.&nbsp; Each function has a unique id between <code>0</code> and <code>N-1</code>.</p>
+<p>On a <strong>single-threaded</strong> CPU, we execute a program containing <code>n</code> functions. Each function has a unique ID between <code>0</code> and <code>n-1</code>.</p>
 
-<p>We store logs in timestamp order that describe when a function is entered or exited.</p>
+<p>Function calls are <strong>stored in a <a href="https://en.wikipedia.org/wiki/Call_stack">call stack</a></strong>: when a function call starts, its ID is pushed onto the stack, and when a function call ends, its ID is popped off the stack. The function whose ID is at the top of the stack is <strong>the current function being executed</strong>. Each time a function starts or ends, we write a log with the ID, whether it started or ended, and the timestamp.</p>
 
-<p>Each log is a string with this format: <code>&quot;{function_id}:{&quot;start&quot; | &quot;end&quot;}:{timestamp}&quot;</code>.&nbsp; For example, <code>&quot;0:start:3&quot;</code>&nbsp;means the function with id <code>0</code> <strong>started at the beginning</strong> of timestamp <code>3</code>.&nbsp; <code>&quot;1:end:2&quot;</code> means the function with id <code>1</code> <strong>ended at the end</strong> of timestamp <code>2</code>.</p>
+<p>You are given a list <code>logs</code>, where <code>logs[i]</code> represents the <code>i<sup>th</sup></code> log message formatted as a string <code>&quot;{function_id}:{&quot;start&quot; | &quot;end&quot;}:{timestamp}&quot;</code>. For example, <code>&quot;0:start:3&quot;</code> means a function call with function ID <code>0</code> <strong>started at the beginning</strong> of timestamp <code>3</code>, and <code>&quot;1:end:2&quot;</code> means a function call with function ID <code>1</code> <strong>ended at the end</strong> of timestamp <code>2</code>. Note that a function can be called <b>multiple times, possibly recursively</b>.</p>
 
-<p>A function&#39;s <em>exclusive time</em>&nbsp;is the number of units of time spent in this function.&nbsp; Note that this does <strong>not</strong> include any recursive&nbsp;calls to child functions.</p>
+<p>A function&#39;s <strong>exclusive time</strong> is the sum of execution times for all function calls in the program. For example, if a function is called twice, one call executing for <code>2</code> time units and another call executing for <code>1</code> time unit, the <strong>exclusive time</strong> is <code>2 + 1 = 3</code>.</p>
 
-<p>The CPU is <strong>single threaded</strong> which means that only one function is being executed at a given time unit.</p>
-
-<p>Return the exclusive time of each function, sorted by their function id.</p>
+<p>Return <em>the <strong>exclusive time</strong> of each function in an array, where the value at the </em><code>i<sup>th</sup></code><em> index represents the exclusive time for the function with ID </em><code>i</code>.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2019/04/05/diag1b.png" style="width: 550px; height: 239px;" />
+<pre>
+<strong>Input:</strong> n = 2, logs = [&quot;0:start:0&quot;,&quot;1:start:2&quot;,&quot;1:end:5&quot;,&quot;0:end:6&quot;]
+<strong>Output:</strong> [3,4]
+<strong>Explanation:</strong>
+Function 0 starts at the beginning of time 0, then it executes 2 for units of time and reaches the end of time 1.
+Function 1 starts at the beginning of time 2, executes for 4 units of time, and ends at the end of time 5.
+Function 0 resumes execution at the beginning of time 6 and executes for 1 unit of time.
+So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spends 4 units of total time executing.
+</pre>
 
-<p><b>Example 1:</b></p>
-
-![](./images/diag1b.png)
+<p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> n = 1, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;0:start:6&quot;,&quot;0:end:6&quot;,&quot;0:end:7&quot;]
+<strong>Output:</strong> [8]
+<strong>Explanation:</strong>
+Function 0 starts at the beginning of time 0, executes for 2 units of time, and recursively calls itself.
+Function 0 (recursive call) starts at the beginning of time 2 and executes for 4 units of time.
+Function 0 (initial call) resumes execution then immediately calls itself again.
+Function 0 (2nd recursive call) starts at the beginning of time 6 and executes for 1 unit of time.
+Function 0 (initial call) resumes execution at the beginning of time 7 and executes for 1 unit of time.
+So function 0 spends 2 + 4 + 1 + 1 = 8 units of total time executing.
+</pre>
 
-<b>Input:</b>
+<p><strong>Example 3:</strong></p>
 
-n = 2
+<pre>
+<strong>Input:</strong> n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:6&quot;,&quot;1:end:6&quot;,&quot;0:end:7&quot;]
+<strong>Output:</strong> [7,1]
+<strong>Explanation:</strong>
+Function 0 starts at the beginning of time 0, executes for 2 units of time, and recursively calls itself.
+Function 0 (recursive call) starts at the beginning of time 2 and executes for 4 units of time.
+Function 0 (initial call) resumes execution then immediately calls function 1.
+Function 1 starts at the beginning of time 6, executes 1 units of time, and ends at the end of time 6.
+Function 0 resumes execution at the beginning of time 6 and executes for 2 units of time.
+So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1 spends 1 unit of total time executing.
+</pre>
 
-logs = [&quot;0:start:0&quot;,&quot;1:start:2&quot;,&quot;1:end:5&quot;,&quot;0:end:6&quot;]
+<p><strong>Example 4:</strong></p>
 
-<b>Output: </b>[3, 4]
+<pre>
+<strong>Input:</strong> n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:7&quot;,&quot;1:end:7&quot;,&quot;0:end:8&quot;]
+<strong>Output:</strong> [8,1]
+</pre>
 
-<b>Explanation:</b>
+<p><strong>Example 5:</strong></p>
 
-Function 0 starts at the beginning of time 0, then it executes 2 units of time and reaches the end of time 1.
-
-Now function 1 starts at the beginning of time 2, executes 4 units of time and ends at time 5.
-
-Function 0 is running again at the beginning of time 6, and also ends at the end of time 6, thus executing for 1 unit of time. 
-
-So function 0 spends 2 + 1 = 3 units of total time executing, and function 1 spends 4 units of total time executing.
-
+<pre>
+<strong>Input:</strong> n = 1, logs = [&quot;0:start:0&quot;,&quot;0:end:0&quot;]
+<strong>Output:</strong> [1]
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Note:</b></p>
-
-<ol>
+<ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
-	<li>Two functions won&#39;t start or end at the same time.</li>
-	<li>Functions will always log when they exit.</li>
-</ol>
+	<li><code>1 &lt;= logs.length &lt;= 500</code></li>
+	<li><code>0 &lt;= function_id &lt; n</code></li>
+	<li><code>0 &lt;= timestamp &lt;= 10<sup>9</sup></code></li>
+	<li>No two start events will happen at the same timestamp.</li>
+	<li>No two end events will happen at the same timestamp.</li>
+	<li>Each function has an <code>&quot;end&quot;</code> log for each <code>&quot;start&quot;</code> log.</li>
+</ul>
 
-<p>&nbsp;</p>
 
 ## Solutions
 

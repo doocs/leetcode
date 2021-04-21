@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>请你实现一个类&nbsp;<code>UndergroundSystem</code>&nbsp;，它支持以下 3 种方法：</p>
 
 <p>1.<code>&nbsp;checkIn(int id, string stationName, int t)</code></p>
@@ -67,6 +68,7 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Waterloo&quot;);     
 	<li><code>1 &lt;=&nbsp;stationName.length &lt;= 10</code></li>
 	<li>与标准答案误差在&nbsp;<code>10^-5</code>&nbsp;以内的结果都视为正确结果。</li>
 </ul>
+
 
 ## 解法
 

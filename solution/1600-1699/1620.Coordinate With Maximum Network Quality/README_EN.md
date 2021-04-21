@@ -21,9 +21,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/untitled-diagram.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/09/22/untitled-diagram.png" style="width: 176px; height: 176px;" />
 <pre>
 <strong>Input:</strong> towers = [[1,2,5],[2,1,7],[3,1,9]], radius = 2
 <strong>Output:</strong> [2,1]
@@ -65,6 +63,7 @@ No other coordinate has higher quality.</pre>
 	<li><code>0 &lt;= x<sub>i</sub>, y<sub>i</sub>, q<sub>i</sub> &lt;= 50</code></li>
 	<li><code>1 &lt;= radius &lt;= 50</code></li>
 </ul>
+
 
 ## Solutions
 

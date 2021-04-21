@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个整数数组&nbsp;<code>nums</code> 和一个整数 <code>k</code>。</p>
 
 <p>如果某个 <strong>连续</strong> 子数组中恰好有 <code>k</code> 个奇数数字，我们就认为这个子数组是「<strong>优美子数组</strong>」。</p>
@@ -42,6 +43,7 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
+
 
 ## 解法
 

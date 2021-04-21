@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定两个正整数 <code>x</code> 和 <code>y</code>，如果某一整数等于 <code>x^i + y^j</code>，其中整数&nbsp;<code>i &gt;= 0</code> 且&nbsp;<code>j &gt;= 0</code>，那么我们认为该整数是一个<em>强整数</em>。</p>
 
 <p>返回值小于或等于&nbsp;<code>bound</code>&nbsp;的所有<em>强整数</em>组成的列表。</p>
@@ -42,6 +43,7 @@
 	<li><code>1 &lt;= y&nbsp;&lt;= 100</code></li>
 	<li><code>0 &lt;= bound&nbsp;&lt;= 10^6</code></li>
 </ul>
+
 
 ## 解法
 

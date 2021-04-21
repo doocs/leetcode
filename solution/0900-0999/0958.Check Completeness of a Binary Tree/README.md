@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定一个二叉树，确定它是否是一个<em>完全二叉树</em>。</p>
 
 <p><strong><a href="https://baike.baidu.com/item/完全二叉树/7773232?fr=aladdin" target="_blank">百度百科</a>中对完全二叉树的定义如下：</strong></p>
@@ -15,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/complete-binary-tree-1.png)
+<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/complete-binary-tree-1.png" style="height: 145px; width: 180px;"></p>
 
 <pre><strong>输入：</strong>[1,2,3,4,5,6]
 <strong>输出：</strong>true
@@ -24,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-![](./images/complete-binary-tree-2.png)
+<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/complete-binary-tree-2.png"></strong></p>
 
 <pre><strong>输入：</strong>[1,2,3,4,5,null,7]
 <strong>输出：</strong>false
@@ -38,6 +39,7 @@
 <ol>
 	<li>树中将会有 1 到 100 个结点。</li>
 </ol>
+
 
 ## 解法
 

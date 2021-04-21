@@ -5,9 +5,10 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定员工的 <code>schedule</code> 列表，表示每个员工的工作时间。</p>
 
-<p>每个员工都有一个非重叠的时间段  <code>Intervals</code> 列表，这些时间段已经排好序。</p>
+<p>每个员工都有一个非重叠的时间段&nbsp; <code>Intervals</code> 列表，这些时间段已经排好序。</p>
 
 <p>返回表示 <em>所有 </em>员工的 <strong>共同，正数长度的空闲时间 </strong>的有限时间段的列表，同样需要排好序。</p>
 
@@ -21,7 +22,7 @@
 我们去除所有包含 inf 的时间段，因为它们不是有限的时间段。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 2：</strong></p>
 
@@ -29,24 +30,25 @@
 <strong>输出：</strong>[[5,6],[7,9]]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>（尽管我们用 <code>[x, y]</code> 的形式表示 <code>Intervals</code> ，内部的对象是 <code>Intervals</code> 而不是列表或数组。例如，<code>schedule[0][0].start = 1, schedule[0][0].end = 2</code>，并且 <code>schedule[0][0][0]</code> 是未定义的）</p>
+<p>（尽管我们用 <code>[x, y]</code> 的形式表示 <code>Intervals</code> ，内部的对象是 <code>Intervals</code> 而不是列表或数组。例如，<code>schedule[0][0].start = 1, schedule[0][0].end = 2</code>，并且 <code>schedule[0][0][0]</code>&nbsp;是未定义的）</p>
 
 <p>而且，答案中不包含 [5, 5] ，因为长度为 0。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>注：</strong></p>
 
 <ol>
-	<li><code>schedule</code> 和 <code>schedule[i]</code> 为长度范围在 <code>[1, 50]</code>的列表。</li>
-	<li><code>0 <= schedule[i].start < schedule[i].end <= 10^8</code>。</li>
+	<li><code>schedule</code> 和&nbsp;<code>schedule[i]</code>&nbsp;为长度范围在&nbsp;<code>[1, 50]</code>的列表。</li>
+	<li><code>0 &lt;= schedule[i].start &lt; schedule[i].end &lt;= 10^8</code>。</li>
 </ol>
 
-<p><strong>注：</strong>输入类型于 2019 年 4 月 15 日 改变。请重置为默认代码的定义以获取新方法。</p>
+<p><strong>注：</strong>输入类型于&nbsp;2019 年&nbsp;4 月 15 日 改变。请重置为默认代码的定义以获取新方法。</p>
 
-<p> </p>
+<p>&nbsp;</p>
+
 
 ## 解法
 

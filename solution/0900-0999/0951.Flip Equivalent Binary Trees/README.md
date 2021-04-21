@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>我们可以为二叉树 T 定义一个翻转操作，如下所示：选择任意节点，然后交换它的左子树和右子树。</p>
 
 <p>只要经过一定次数的翻转操作后，能使 X 等于 Y，我们就称二叉树 X <em>翻转等价</em>于二叉树 Y。</p>
@@ -17,10 +18,9 @@
 
 <pre><strong>输入：</strong>root1 = [1,2,3,4,5,6,null,null,null,7,8], root2 = [1,3,2,null,6,4,5,null,null,null,null,8,7]
 <strong>输出：</strong>true
-<strong>解释：</strong>We flipped at nodes with values 1, 3, and 5.
+<strong>解释：</strong>我们翻转值为 1，3 以及 5 的三个节点。
+<img alt="Flipped Trees Diagram" src="https://assets.leetcode.com/uploads/2018/11/29/tree_ex.png" style="height: 220px; width: 500px;">
 </pre>
-
-![](./images/tree_ex.png)
 
 <p>&nbsp;</p>
 
@@ -32,6 +32,7 @@
 </ol>
 
 <p>&nbsp;</p>
+
 
 ## 解法
 

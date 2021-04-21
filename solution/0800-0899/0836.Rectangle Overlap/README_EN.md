@@ -4,38 +4,34 @@
 
 ## Description
 
-<p>A rectangle is&nbsp;represented as a&nbsp;list <code>[x1, y1, x2, y2]</code>, where&nbsp;<code>(x1, y1)</code>&nbsp;are the coordinates of its bottom-left corner, and <code>(x2,&nbsp;y2)</code>&nbsp;are the coordinates of its top-right corner.</p>
+<p>An axis-aligned rectangle is represented as a list <code>[x1, y1, x2, y2]</code>, where <code>(x1, y1)</code> is the coordinate of its bottom-left corner, and <code>(x2, y2)</code> is the coordinate of its top-right corner. Its top and bottom edges are parallel to the X-axis, and its left and right edges are parallel to the Y-axis.</p>
 
-<p>Two rectangles overlap if the area of their intersection is positive.&nbsp; To be clear, two rectangles that only touch at the corner or edges do not overlap.</p>
+<p>Two rectangles overlap if the area of their intersection is <strong>positive</strong>. To be clear, two rectangles that only touch at the corner or edges do not overlap.</p>
 
-<p>Given two (axis-aligned) rectangles, return whether&nbsp;they overlap.</p>
+<p>Given two axis-aligned rectangles <code>rec1</code> and <code>rec2</code>, return <code>true</code><em> if they overlap, otherwise return </em><code>false</code>.</p>
 
+<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>rec1 = [0,0,2,2], rec2 = [1,1,3,3]
-
-<strong>Output: </strong>true
-
+<pre><strong>Input:</strong> rec1 = [0,0,2,2], rec2 = [1,1,3,3]
+<strong>Output:</strong> true
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> rec1 = [0,0,1,1], rec2 = [1,0,2,1]
+<strong>Output:</strong> false
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> rec1 = [0,0,1,1], rec2 = [2,2,3,3]
+<strong>Output:</strong> false
 </pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Example 2:</strong></p>
+<ul>
+	<li><code>rect1.length == 4</code></li>
+	<li><code>rect2.length == 4</code></li>
+	<li><code>-10<sup>9</sup> &lt;= rec1[i], rec2[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>rec1[0] &lt;= rec1[2]</code> and <code>rec1[1] &lt;= rec1[3]</code></li>
+	<li><code>rec2[0] &lt;= rec2[2]</code> and <code>rec2[1] &lt;= rec2[3]</code></li>
+</ul>
 
-<pre>
-
-<strong>Input: </strong>rec1 = [0,0,1,1], rec2 = [1,0,2,1]
-
-<strong>Output: </strong>false
-
-</pre>
-
-<p><strong>Notes:</strong></p>
-
-<ol>
-    <li>Both rectangles <code>rec1</code> and <code>rec2</code> are lists of 4 integers.</li>
-    <li>All coordinates in rectangles will be between&nbsp;<code>-10^9 </code>and<code> 10^9</code>.</li>
-</ol>
 
 ## Solutions
 

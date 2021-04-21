@@ -4,11 +4,11 @@
 
 ## Description
 
-<p><i data-stringify-type="italic">Balanced</i>&nbsp;strings are those who have equal quantity of &#39;L&#39; and &#39;R&#39; characters.</p>
+<p><strong>Balanced</strong> strings are those that have an equal quantity of <code>&#39;L&#39;</code> and <code>&#39;R&#39;</code> characters.</p>
 
-<p>Given a balanced string&nbsp;<code data-stringify-type="code">s</code>&nbsp;split it in the maximum amount of balanced strings.</p>
+<p>Given a <strong>balanced</strong> string <code>s</code>, split it in the maximum amount of balanced strings.</p>
 
-<p>Return the maximum amount of splitted balanced strings.</p>
+<p>Return <em>the maximum amount of split <strong>balanced</strong> strings</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -48,8 +48,10 @@
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-	<li><code>s[i] = &#39;L&#39; or &#39;R&#39;</code></li>
+	<li><code>s[i]</code> is either <code>&#39;L&#39;</code> or <code>&#39;R&#39;</code>.</li>
+	<li><code>s</code> is a <strong>balanced</strong> string.</li>
 </ul>
+
 
 ## Solutions
 

@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>Alice 和 Bob 用几堆石子在做游戏。几堆石子排成一行，每堆石子都对应一个得分，由数组 <code>stoneValue</code> 给出。</p>
 
 <p>Alice 和 Bob 轮流取石子，<strong>Alice</strong> 总是先开始。在每个玩家的回合中，该玩家可以拿走剩下石子中的的前 <strong>1、2 或 3 堆石子</strong> 。比赛一直持续到所有石头都被拿走。</p>
@@ -58,6 +59,7 @@
 	<li><code>1 &lt;= values.length &lt;= 50000</code></li>
 	<li><code>-1000&nbsp;&lt;= values[i] &lt;= 1000</code></li>
 </ul>
+
 
 ## 解法
 

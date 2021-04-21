@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个数组 <code>pairs</code> ，其中 <code>pairs[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> ，并且满足：</p>
 
 <ul>
@@ -37,9 +38,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-
-![](./images/trees2.png)
-
+<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/09/trees2.png" style="width: 208px; height: 221px;" />
 <pre>
 <b>输入：</b>pairs = [[1,2],[2,3]]
 <b>输出：</b>1
@@ -47,9 +46,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-
-![](./images/tree.png)
-
+<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/09/tree.png" style="width: 234px; height: 241px;" />
 <pre>
 <b>输入：</b>pairs = [[1,2],[2,3],[1,3]]
 <b>输出：</b>2
@@ -72,6 +69,7 @@
 	<li><code>1 <= x<sub>i </sub>< y<sub>i</sub> <= 500</code></li>
 	<li><code>pairs</code> 中的元素互不相同。</li>
 </ul>
+
 
 ## 解法
 

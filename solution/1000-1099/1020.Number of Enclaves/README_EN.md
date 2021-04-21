@@ -4,50 +4,39 @@
 
 ## Description
 
-<p>Given a 2D array <code>A</code>, each cell is 0 (representing sea) or 1 (representing land)</p>
+<p>You are given an <code>m x n</code> binary matrix <code>grid</code>, where <code>0</code> represents a sea cell and <code>1</code> represents a land cell.</p>
 
-<p>A move consists of walking from one land square 4-directionally to another land square, or off the boundary of the grid.</p>
+<p>A <strong>move</strong> consists of walking from one land cell to another adjacent (<strong>4-directionally</strong>) land cell or walking off the boundary of the <code>grid</code>.</p>
 
-<p>Return the number of land squares in the grid for which we <strong>cannot</strong> walk off the boundary of the grid in any number of moves.</p>
+<p>Return <em>the number of land cells in</em> <code>grid</code> <em>for which we cannot walk off the boundary of the grid in any number of <strong>moves</strong></em>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/enclaves1.jpg" style="width: 333px; height: 333px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">[[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]</span>
-
-<strong>Output: </strong><span id="example-output-1">3</span>
-
-<strong>Explanation: </strong>
-
-There are three 1s that are enclosed by 0s, and one 1 that isn&#39;t enclosed because its on the boundary.</pre>
+<strong>Input:</strong> grid = [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> There are three 1s that are enclosed by 0s, and one 1 that is not enclosed because its on the boundary.
+</pre>
 
 <p><strong>Example 2:</strong></p>
-
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/enclaves2.jpg" style="width: 333px; height: 333px;" />
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">[[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]</span>
-
-<strong>Output: </strong><span id="example-output-2">0</span>
-
-<strong>Explanation: </strong>
-
-All 1s are either on the boundary or can reach the boundary.
-
+<strong>Input:</strong> grid = [[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
+<strong>Output:</strong> 0
+<strong>Explanation:</strong> All 1s are either on the boundary or can reach the boundary.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
+<ul>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 500</code></li>
+	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+</ul>
 
-<ol>
-    <li><code>1 &lt;= A.length &lt;= 500</code></li>
-    <li><code>1 &lt;= A[i].length &lt;= 500</code></li>
-    <li><code>0 &lt;= A[i][j] &lt;= 1</code></li>
-    <li>All rows have the same size.</li>
-</ol>
 
 ## Solutions
 

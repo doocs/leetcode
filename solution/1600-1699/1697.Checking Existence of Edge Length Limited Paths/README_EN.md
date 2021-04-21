@@ -12,9 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/h.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/08/h.png" style="width: 267px; height: 262px;" />
 <pre>
 <strong>Input:</strong> n = 3, edgeList = [[0,1,2],[1,2,4],[2,0,8],[1,0,16]], queries = [[0,1,2],[0,2,5]]
 <strong>Output:</strong> [false,true]
@@ -24,9 +22,7 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-![](./images/q.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/12/08/q.png" style="width: 390px; height: 358px;" />
 <pre>
 <strong>Input:</strong> n = 5, edgeList = [[0,1,10],[1,2,5],[2,3,9],[3,4,13]], queries = [[0,4,14],[1,4,13]]
 <strong>Output:</strong> [true,false]
@@ -47,6 +43,7 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 	<li><code>1 &lt;= dis<sub>i</sub>, limit<sub>j</sub> &lt;= 10<sup>9</sup></code></li>
 	<li>There may be <strong>multiple</strong> edges between two nodes.</li>
 </ul>
+
 
 ## Solutions
 

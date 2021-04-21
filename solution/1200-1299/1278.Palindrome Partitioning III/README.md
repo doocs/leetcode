@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给你一个由小写字母组成的字符串&nbsp;<code>s</code>，和一个整数&nbsp;<code>k</code>。</p>
 
 <p>请你按下面的要求分割字符串：</p>
@@ -45,6 +46,7 @@
 	<li><code>1 &lt;= k &lt;= s.length &lt;= 100</code></li>
 	<li><code>s</code>&nbsp;中只含有小写英文字母。</li>
 </ul>
+
 
 ## 解法
 

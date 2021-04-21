@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-![](./images/palindromic_paths_1.png)
+<p><img alt="" src="https://assets.leetcode.com/uploads/2020/05/06/palindromic_paths_1.png" style="width: 300px; height: 201px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [2,3,1,3,1,null,1]
@@ -21,7 +21,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-![](./images/palindromic_paths_2.png)
+<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/05/07/palindromic_paths_2.png" style="width: 300px; height: 314px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [2,1,1,1,3,null,null,null,null,null,1]
@@ -40,9 +40,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The&nbsp;given binary tree will have between <code>1</code> and <code>10^5</code> nodes.</li>
-	<li>Node values are digits from <code>1</code> to <code>9</code>.</li>
+	<li>The number of nodes in the tree is in the range <code>[1, 10<sup>5</sup>]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 9</code></li>
 </ul>
+
 
 ## Solutions
 

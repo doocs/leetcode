@@ -21,9 +21,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-![](./images/grid_happiness.png)
-
+<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/grid_happiness.png" style="width: 261px; height: 121px;" />
 <pre>
 <strong>Input:</strong> m = 2, n = 3, introvertsCount = 1, extrovertsCount = 2
 <strong>Output:</strong> 240
@@ -62,6 +60,7 @@ The grid happiness is 90 + 80 + 90 = 260.
 	<li><code>1 &lt;= m, n &lt;= 5</code></li>
 	<li><code>0 &lt;= introvertsCount, extrovertsCount &lt;= min(m * n, 6)</code></li>
 </ul>
+
 
 ## Solutions
 

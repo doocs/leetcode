@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>给定正整数&nbsp;<code>K</code>，你需要找出可以被 K 整除的、仅包含数字 <strong>1</strong> 的最小正整数 N。</p>
 
 <p>返回&nbsp;<code>N</code>&nbsp;的长度。如果不存在这样的&nbsp;<code>N</code>，就返回 <code>-1</code>。</p>
@@ -36,6 +37,7 @@
 <ul>
 	<li><code>1 &lt;= K &lt;= 10^5</code></li>
 </ul>
+
 
 ## 解法
 

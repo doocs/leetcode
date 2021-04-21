@@ -4,23 +4,51 @@
 
 ## Description
 
-<p>You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.</p>
+<p>You are playing the following Nim Game with your friend:</p>
 
-<p>Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</p>
+<ul>
+	<li>Initially, there is a heap of stones on the table.</li>
+	<li>You and your friend will alternate taking turns, and <strong>you go first</strong>.</li>
+	<li>On each turn, the person whose turn it is will remove 1 to 3 stones from the heap.</li>
+	<li>The one who removes the last stone is the winner.</li>
+</ul>
 
-<p><strong>Example:</strong></p>
+<p>Given <code>n</code>, the number of stones in the heap, return <code>true</code><em> if you can win the game assuming both you and your friend play optimally, otherwise return </em><code>false</code>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> n = 4
+<strong>Output:</strong> false
+<strong>Explanation:</strong> These are the possible outcomes:
+1. You remove 1 stone. Your friend removes 3 stones, including the last stone. Your friend wins.
+2. You remove 2 stones. Your friend removes 2 stones, including the last stone. Your friend wins.
+3. You remove 3 stones. Your friend removes the last stone. Your friend wins.
+In all outcomes, your friend wins.
+</pre>
 
-<strong>Input:</strong> <code>4</code>
+<p><strong>Example 2:</strong></p>
 
-<strong>Output:</strong> false 
+<pre>
+<strong>Input:</strong> n = 1
+<strong>Output:</strong> true
+</pre>
 
-<strong>Explanation: </strong>If there are 4 stones in the heap, then you will never win the game;
+<p><strong>Example 3:</strong></p>
 
-&nbsp;            No matter 1, 2, or 3 stones you remove, the last stone will always be 
+<pre>
+<strong>Input:</strong> n = 2
+<strong>Output:</strong> true
+</pre>
 
-&nbsp;            removed by your friend.</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
+
 
 ## Solutions
 

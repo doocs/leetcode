@@ -5,6 +5,7 @@
 ## 题目描述
 
 <!-- 这里写题目描述 -->
+
 <p>将一个 <strong>二叉搜索树</strong> 就地转化为一个 <strong>已排序的双向循环链表</strong> 。</p>
 
 <p>对于双向循环列表，你可以将左右孩子指针作为双向循环链表的前驱和后继指针，第一个节点的前驱是最后一个节点，最后一个节点的后继是第一个节点。</p>
@@ -15,34 +16,35 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>root = [4,2,5,1,3] </pre>
-
-![](./images/bstdllreturndll.png)
-
 <pre>
+<strong>输入：</strong>root = [4,2,5,1,3] 
+
+<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturndll.png" style="width: 400px;" />
 <strong>输出：</strong>[1,2,3,4,5]
 
 <strong>解释：</strong>下图显示了转化后的二叉搜索树，实线表示后继关系，虚线表示前驱关系。
+<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturnbst.png" style="width: 400px;" />
 </pre>
-
-![](./images/bstdllreturnbst.png)
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>root = [2,1,3]
+<pre>
+<strong>输入：</strong>root = [2,1,3]
 <strong>输出：</strong>[1,2,3]
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>root = []
+<pre>
+<strong>输入：</strong>root = []
 <strong>输出：</strong>[]
 <strong>解释：</strong>输入是空树，所以输出也是空链表。
 </pre>
 
 <p><strong>示例 4：</strong></p>
 
-<pre><strong>输入：</strong>root = [1]
+<pre>
+<strong>输入：</strong>root = [1]
 <strong>输出：</strong>[1]
 </pre>
 
@@ -56,6 +58,7 @@
 	<li><code>Node.val</code> 的所有值都是独一无二的</li>
 	<li><code>0 <= Number of Nodes <= 2000</code></li>
 </ul>
+
 
 ## 解法
 

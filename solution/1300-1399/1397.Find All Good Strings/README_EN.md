@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given the strings <code>s1</code> and <code>s2</code> of size <code>n</code>, and the string <code>evil</code>. <em>Return the number of <strong>good</strong> strings</em>.</p>
+<p>Given the strings <code>s1</code> and <code>s2</code> of size <code>n</code> and the string <code>evil</code>, return <em>the number of <strong>good</strong> strings</em>.</p>
 
-<p>A <strong>good</strong> string has size <code>n</code>, it is alphabetically greater than or equal to <code>s1</code>, it is alphabetically smaller than or equal to <code>s2</code>, and it does not contain the string <code>evil</code> as a substring. Since the answer can be a huge number, return this modulo 10^9 + 7.</p>
+<p>A <strong>good</strong> string has size <code>n</code>, it is alphabetically greater than or equal to <code>s1</code>, it is alphabetically smaller than or equal to <code>s2</code>, and it does not contain the string <code>evil</code> as a substring. Since the answer can be a huge number, return this <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -43,6 +43,7 @@
 	<li><code>1 &lt;= evil.length &lt;= 50</code></li>
 	<li>All strings consist of lowercase English letters.</li>
 </ul>
+
 
 ## Solutions
 
