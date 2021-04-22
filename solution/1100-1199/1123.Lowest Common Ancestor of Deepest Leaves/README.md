@@ -23,7 +23,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/01/sketch1.png" style="width: 600px; height: 510px;" />
+<img alt="" src="/solution/1100-1199/1123.Lowest Common Ancestor of Deepest Leaves/images/sketch1.png" style="width: 600px; height: 510px;" />
 <pre>
 <strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4]
 <strong>输出：</strong>[2,7,4]

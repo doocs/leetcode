@@ -13,7 +13,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/14/flaten.jpg" style="width: 500px; height: 226px;" />
+<img alt="" src="/solution/0100-0199/0114.Flatten Binary Tree to Linked List/images/flaten.jpg" style="width: 500px; height: 226px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,5,3,4,null,6]
 <strong>Output:</strong> [1,null,2,null,3,null,4,null,5,null,6]

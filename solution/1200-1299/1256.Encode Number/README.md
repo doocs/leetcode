@@ -10,7 +10,7 @@
 
 <p>加密的过程是把一个整数用某个未知函数进行转化，你需要从下表推测出该转化函数：</p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/encode_number.png" style="height: 360px; width: 164px;"></p>
+<p><img alt="" src="/solution/1200-1299/1256.Encode Number/images/encode_number.png" style="height: 360px; width: 164px;"></p>
 
 <p>&nbsp;</p>
 

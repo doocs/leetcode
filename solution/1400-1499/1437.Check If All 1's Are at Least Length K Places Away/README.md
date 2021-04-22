@@ -12,7 +12,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/03/sample_1_1791.png" style="width: 214px;"></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1437.Check If All 1's Are at Least Length K Places Away/images/sample_1_1791.png" style="width: 214px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [1,0,0,0,1,0,0,1], k = 2
 <strong>输出：</strong>true
@@ -20,7 +20,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/03/sample_2_1791.png" style="height: 86px; width: 160px;"></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1437.Check If All 1's Are at Least Length K Places Away/images/sample_2_1791.png" style="height: 86px; width: 160px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [1,0,0,1,0,1], k = 2
 <strong>输出：</strong>false

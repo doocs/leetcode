@@ -22,13 +22,13 @@
 返回 4 。
 </pre>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/rainwater_empty.png" style="width: 500px;"></p>
+<p><img src="/solution/0400-0499/0407.Trapping Rain Water II/images/rainwater_empty.png" style="width: 500px;"></p>
 
 <p>如上图所示，这是下雨前的高度图<code>[[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]</code> 的状态。</p>
 
 <p>&nbsp;</p>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/rainwater_fill.png" style="width: 500px;"></p>
+<p><img src="/solution/0400-0499/0407.Trapping Rain Water II/images/rainwater_fill.png" style="width: 500px;"></p>
 
 <p>下雨后，雨水将会被存储在这些方块中。总的接雨水量是4。</p>
 

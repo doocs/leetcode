@@ -14,14 +14,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/overlap1.jpg" style="width: 450px; height: 231px;" />
+<img alt="" src="/solution/0800-0899/0835.Image Overlap/images/overlap1.jpg" style="width: 450px; height: 231px;" />
 <pre>
 <strong>Input:</strong> img1 = [[1,1,0],[0,1,0],[0,1,0]], img2 = [[0,0,0],[0,1,1],[0,0,1]]
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> We slide img1 to right by 1 unit and down by 1 unit.
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/overlap_step1.jpg" style="width: 450px; height: 105px;" />
+<img alt="" src="/solution/0800-0899/0835.Image Overlap/images/overlap_step1.jpg" style="width: 450px; height: 105px;" />
 The number of positions that have a 1 in both images is 3. (Shown in red)
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/overlap_step2.jpg" style="width: 450px; height: 231px;" />
+<img alt="" src="/solution/0800-0899/0835.Image Overlap/images/overlap_step2.jpg" style="width: 450px; height: 231px;" />
 </pre>
 
 <p><strong>Example 2:</strong></p>

@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/30/1926_island.png" style="height: 139px; width: 498px;"></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1568.Minimum Number of Days to Disconnect Island/images/1926_island.png" style="height: 139px; width: 498px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]]
 <strong>输出：</strong>2

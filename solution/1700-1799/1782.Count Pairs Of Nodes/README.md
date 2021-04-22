@@ -22,7 +22,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://pic.leetcode-cn.com/1614828447-GMnLVg-image.png" style="width: 310px; height: 278px;" />
+<img alt="" src="/solution/1700-1799/1782.Count Pairs Of Nodes/images/1614828447-GMnLVg-image.png" style="width: 310px; height: 278px;" />
 <pre>
 <b>输入：</b>n = 4, edges = [[1,2],[2,4],[1,3],[2,3],[2,1]], queries = [2,3]
 <b>输出：</b>[6,5]

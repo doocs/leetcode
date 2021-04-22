@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/10/13/untitled-diagram.jpg" style="width: 250px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1222.Queens That Can Attack the King/images/untitled-diagram.jpg" style="width: 250px;" /></p>
 
 <pre>
 <strong>输入：</strong>queens = [[0,1],[1,0],[4,0],[0,4],[3,3],[2,4]], king = [0,0]
@@ -34,7 +34,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/10/13/untitled-diagram-1.jpg" style="height: 321px; width: 321px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1222.Queens That Can Attack the King/images/untitled-diagram-1.jpg" style="height: 321px; width: 321px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>queens = [[0,0],[1,1],[2,2],[3,4],[3,5],[4,4],[4,5]], king = [3,3]
@@ -43,7 +43,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/10/13/untitled-diagram-2.jpg" style="height: 321px; width: 321px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1222.Queens That Can Attack the King/images/untitled-diagram-2.jpg" style="height: 321px; width: 321px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>queens = [[5,6],[7,7],[2,1],[0,7],[1,6],[5,1],[3,7],[0,3],[4,0],[1,2],[6,3],[5,0],[0,4],[2,2],[1,1],[6,4],[5,4],[0,0],[2,6],[4,5],[5,2],[1,4],[7,5],[2,3],[0,5],[4,2],[1,0],[2,7],[0,1],[4,6],[6,1],[0,6],[4,3],[1,7]], king = [3,4]

@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/26/find_the_city_01.png" style="height: 225px; width: 300px;" /></p>
+<p><img alt="" src="/solution/1300-1399/1334.Find the City With the Smallest Number of Neighbors at a Threshold Distance/images/find_the_city_01.png" style="height: 225px; width: 300px;" /></p>
 
 <pre>
 <strong>输入：</strong>n = 4, edges = [[0,1,3],[1,2,1],[1,3,4],[2,3,1]], distanceThreshold = 4
@@ -32,7 +32,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/26/find_the_city_02.png" style="height: 225px; width: 300px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1300-1399/1334.Find the City With the Smallest Number of Neighbors at a Threshold Distance/images/find_the_city_02.png" style="height: 225px; width: 300px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>n = 5, edges = [[0,1,2],[0,4,8],[1,2,3],[1,4,2],[2,3,1],[3,4,1]], distanceThreshold = 2

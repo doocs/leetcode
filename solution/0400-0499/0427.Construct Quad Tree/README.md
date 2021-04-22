@@ -36,7 +36,7 @@
 	<li>使用适当的子网格递归每个子节点。</li>
 </ol>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/new_top.png" style="height: 181px; width: 777px;"></p>
+<p><img alt="" src="/solution/0400-0499/0427.Construct Quad Tree/images/new_top.png" style="height: 181px; width: 777px;"></p>
 
 <p>如果你想了解更多关于四叉树的内容，可以参考 <a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a> 。</p>
 
@@ -52,18 +52,18 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/grid1.png" style="height: 99px; width: 777px;"></p>
+<p><img alt="" src="/solution/0400-0499/0427.Construct Quad Tree/images/grid1.png" style="height: 99px; width: 777px;"></p>
 
 <pre><strong>输入：</strong>grid = [[0,1],[1,0]]
 <strong>输出：</strong>[[0,1],[1,0],[1,1],[1,1],[1,0]]
 <strong>解释：</strong>此示例的解释如下：
 请注意，在下面四叉树的图示中，0 表示 false，1 表示 True 。
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/12/e1tree.png" style="height: 186px; width: 777px;">
+<img alt="" src="/solution/0400-0499/0427.Construct Quad Tree/images/e1tree.png" style="height: 186px; width: 777px;">
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/12/e2mat.png" style="height: 343px; width: 777px;"></p>
+<p><img alt="" src="/solution/0400-0499/0427.Construct Quad Tree/images/e2mat.png" style="height: 343px; width: 777px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
 <strong>输出：</strong>[[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
@@ -71,7 +71,7 @@
 topLeft，bottomLeft 和 bottomRight 均具有相同的值。
 topRight 具有不同的值，因此我们将其再分为 4 个子网格，这样每个子网格都具有相同的值。
 解释如下图所示：
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/12/e2tree.png" style="height: 328px; width: 777px;">
+<img alt="" src="/solution/0400-0499/0427.Construct Quad Tree/images/e2tree.png" style="height: 328px; width: 777px;">
 </pre>
 
 <p><strong>示例 3：</strong></p>

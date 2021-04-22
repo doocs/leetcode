@@ -13,7 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/minpath.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="/solution/0000-0099/0064.Minimum Path Sum/images/minpath.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>输入：</strong>grid = [[1,3,1],[1,5,1],[4,2,1]]
 <strong>输出：</strong>7

@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/chrome_2021-03-25_22-34-16.png" style="width: 500px; height: 418px;" />
+<img alt="" src="/solution/1800-1899/1828.Queries on Number of Points Inside a Circle/images/chrome_2021-03-25_22-34-16.png" style="width: 500px; height: 418px;" />
 <pre>
 <strong>Input:</strong> points = [[1,3],[3,3],[5,3],[2,2]], queries = [[2,3,1],[4,3,1],[1,1,2]]
 <strong>Output:</strong> [3,2,2]
@@ -23,7 +23,7 @@ queries[0] is the green circle, queries[1] is the red circle, and queries[2] is 
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/chrome_2021-03-25_22-42-07.png" style="width: 500px; height: 390px;" />
+<img alt="" src="/solution/1800-1899/1828.Queries on Number of Points Inside a Circle/images/chrome_2021-03-25_22-42-07.png" style="width: 500px; height: 390px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[2,2],[3,3],[4,4],[5,5]], queries = [[1,2,2],[2,2,2],[4,3,2],[4,3,3]]
 <strong>Output:</strong> [2,3,2,4]

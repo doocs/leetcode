@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img height="200" src="https://assets.leetcode.com/uploads/2020/01/29/image.png" width="339" />
+<img height="200" src="/solution/1300-1399/1349.Maximum Students Taking Exam/images/image.png" width="339" />
 <pre>
 <strong>Input:</strong> seats = [[&quot;#&quot;,&quot;.&quot;,&quot;#&quot;,&quot;#&quot;,&quot;.&quot;,&quot;#&quot;],
 &nbsp;               [&quot;.&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;.&quot;],

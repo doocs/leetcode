@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/sample_1_1806.png" style="height: 159px; width: 186px;"></p>
+<p><img alt="" src="/solution/1400-1499/1453.Maximum Number of Darts Inside of a Circular Dartboard/images/sample_1_1806.png" style="height: 159px; width: 186px;"></p>
 
 <pre><strong>输入：</strong>points = [[-2,0],[2,0],[0,2],[0,-2]], r = 2
 <strong>输出：</strong>4
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/16/sample_2_1806.png" style="height: 183px; width: 224px;"></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1453.Maximum Number of Darts Inside of a Circular Dartboard/images/sample_2_1806.png" style="height: 183px; width: 224px;"></strong></p>
 
 <pre><strong>输入：</strong>points = [[-3,0],[3,0],[2,6],[5,4],[0,9],[7,8]], r = 5
 <strong>输出：</strong>5

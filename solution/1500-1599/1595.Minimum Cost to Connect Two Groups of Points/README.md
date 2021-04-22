@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/20/ex1.jpg" style="height: 243px; width: 322px;"></p>
+<p><img alt="" src="/solution/1500-1599/1595.Minimum Cost to Connect Two Groups of Points/images/ex1.jpg" style="height: 243px; width: 322px;"></p>
 
 <pre><strong>输入：</strong>cost = [[15, 96], [36, 2]]
 <strong>输出：</strong>17
@@ -28,7 +28,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/20/ex2.jpg" style="height: 403px; width: 322px;"></p>
+<p><img alt="" src="/solution/1500-1599/1595.Minimum Cost to Connect Two Groups of Points/images/ex2.jpg" style="height: 403px; width: 322px;"></p>
 
 <pre><strong>输入：</strong>cost = [[1, 3, 5], [4, 1, 1], [1, 5, 3]]
 <strong>输出：</strong>4

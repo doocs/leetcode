@@ -19,7 +19,7 @@
 <strong>Input: </strong>p = <span id="example-input-1-1">2</span>, q = <span id="example-input-1-2">1</span>
 <strong>Output: </strong><span id="example-output-1">2</span>
 <strong>Explanation: </strong>The ray meets receptor 2 the first time it gets reflected back to the left wall.
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/06/18/reflection.png" style="width: 218px; height: 217px;" />
+<img alt="" src="/solution/0800-0899/0858.Mirror Reflection/images/reflection.png" style="width: 218px; height: 217px;" />
 </pre>
 
 <p><strong>Note:</strong></p>

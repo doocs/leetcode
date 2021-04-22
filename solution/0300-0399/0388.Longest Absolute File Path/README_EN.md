@@ -6,7 +6,7 @@
 
 <p>Suppose we have a file system that stores both files and directories. An example of one system is represented in the following picture:</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/mdir.jpg" style="width: 681px; height: 322px;" /></p>
+<p><img alt="" src="/solution/0300-0399/0388.Longest Absolute File Path/images/mdir.jpg" style="width: 681px; height: 322px;" /></p>
 
 <p>Here, we have <code>dir</code> as the only directory in the root. <code>dir</code> contains two subdirectories, <code>subdir1</code> and <code>subdir2</code>. <code>subdir1</code> contains a file <code>file1.ext</code> and subdirectory <code>subsubdir1</code>. <code>subdir2</code> contains a subdirectory <code>subsubdir2</code>, which contains a file <code>file2.ext</code>.</p>
 
@@ -30,7 +30,7 @@ dir
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/dir1.jpg" style="width: 401px; height: 202px;" />
+<img alt="" src="/solution/0300-0399/0388.Longest Absolute File Path/images/dir1.jpg" style="width: 401px; height: 202px;" />
 <pre>
 <strong>Input:</strong> input = &quot;dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext&quot;
 <strong>Output:</strong> 20
@@ -38,7 +38,7 @@ dir
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/28/dir2.jpg" style="width: 641px; height: 322px;" />
+<img alt="" src="/solution/0300-0399/0388.Longest Absolute File Path/images/dir2.jpg" style="width: 641px; height: 322px;" />
 <pre>
 <strong>Input:</strong> input = &quot;dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext&quot;
 <strong>Output:</strong> 32

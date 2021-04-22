@@ -10,15 +10,15 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/11/magic_main.jpg" style="width: 322px; height: 242px;" />
+<img alt="" src="/solution/0800-0899/0840.Magic Squares In Grid/images/magic_main.jpg" style="width: 322px; height: 242px;" />
 <pre>
 <strong>Input:</strong> grid = [[4,3,8,4],[9,5,1,9],[2,7,6,2]]
 <strong>Output:</strong> 1
 <strong>Explanation: </strong>
 The following subgrid is a 3 x 3 magic square:
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/11/magic_valid.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="/solution/0800-0899/0840.Magic Squares In Grid/images/magic_valid.jpg" style="width: 242px; height: 242px;" />
 while this one is not:
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/11/magic_invalid.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="/solution/0800-0899/0840.Magic Squares In Grid/images/magic_invalid.jpg" style="width: 242px; height: 242px;" />
 In total, there is only one magic square inside the given grid.
 </pre>
 

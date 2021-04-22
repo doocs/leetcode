@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/graph.png" style="height: 174px; width: 404px;"></p>
+<p><img alt="" src="/solution/1300-1399/1376.Time Needed to Inform All Employees/images/graph.png" style="height: 174px; width: 404px;"></p>
 
 <pre><strong>输入：</strong>n = 6, headID = 2, manager = [2,2,-1,2,2,2], informTime = [0,0,1,0,0,0]
 <strong>输出：</strong>1
@@ -37,7 +37,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/03/08/1730_example_3_5.PNG" style="height: 432px; width: 568px;"></p>
+<p><img alt="" src="/solution/1300-1399/1376.Time Needed to Inform All Employees/images/1730_example_3_5.PNG" style="height: 432px; width: 568px;"></p>
 
 <pre><strong>输入：</strong>n = 7, headID = 6, manager = [1,2,3,4,5,6,-1], informTime = [0,6,5,4,3,2,1]
 <strong>输出：</strong>21

@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/21/485_example_1.png" style="height: 208px; width: 200px;"></p>
+<p><img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_1.png" style="height: 208px; width: 200px;"></p>
 
 <pre><strong>输入：</strong>n = 3, edges = [[0,1],[0,2]], source = 0, destination = 2
 <strong>输出：</strong>false
@@ -29,7 +29,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/21/485_example_2.png" style="height: 230px; width: 200px;"></p>
+<p><img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_2.png" style="height: 230px; width: 200px;"></p>
 
 <pre><strong>输入：</strong>n = 4, edges = [[0,1],[0,3],[1,2],[2,1]], source = 0, destination = 3
 <strong>输出：</strong>false
@@ -38,7 +38,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/21/485_example_3.png" style="height: 183px; width: 200px;"></p>
+<p><img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_3.png" style="height: 183px; width: 200px;"></p>
 
 <pre><strong>输入：</strong>n = 4, edges = [[0,1],[0,2],[1,3],[2,3]], source = 0, destination = 3
 <strong>输出：</strong>true
@@ -46,7 +46,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/21/485_example_4.png" style="height: 183px; width: 200px;"></p>
+<p><img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_4.png" style="height: 183px; width: 200px;"></p>
 
 <pre><strong>输入：</strong>n = 3, edges = [[0,1],[1,1],[1,2]], source = 0, destination = 2
 <strong>输出：</strong>false
@@ -55,7 +55,7 @@
 
 <p><strong>示例 5：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/03/21/485_example_5.png" style="height: 131px; width: 150px;"></p>
+<p><img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_5.png" style="height: 131px; width: 150px;"></p>
 
 <pre><strong>输入：</strong>n = 2, edges = [[0,1],[1,1]], source = 0, destination = 1
 <strong>输出：</strong>false

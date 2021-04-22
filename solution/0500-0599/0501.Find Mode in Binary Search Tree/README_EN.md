@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/11/mode-tree.jpg" style="width: 142px; height: 222px;" />
+<img alt="" src="/solution/0500-0599/0501.Find Mode in Binary Search Tree/images/mode-tree.jpg" style="width: 142px; height: 222px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,2]
 <strong>Output:</strong> [2]

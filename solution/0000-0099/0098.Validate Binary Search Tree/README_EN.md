@@ -16,14 +16,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/01/tree1.jpg" style="width: 302px; height: 182px;" />
+<img alt="" src="/solution/0000-0099/0098.Validate Binary Search Tree/images/tree1.jpg" style="width: 302px; height: 182px;" />
 <pre>
 <strong>Input:</strong> root = [2,1,3]
 <strong>Output:</strong> true
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/01/tree2.jpg" style="width: 422px; height: 292px;" />
+<img alt="" src="/solution/0000-0099/0098.Validate Binary Search Tree/images/tree2.jpg" style="width: 422px; height: 292px;" />
 <pre>
 <strong>Input:</strong> root = [5,1,4,null,null,3,6]
 <strong>Output:</strong> false

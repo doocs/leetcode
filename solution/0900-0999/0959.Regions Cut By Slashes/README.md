@@ -26,7 +26,7 @@
 ]
 <strong>输出：</strong>2
 <strong>解释：</strong>2x2 网格如下：
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/1.png"></pre>
+<img alt="" src="/solution/0900-0999/0959.Regions Cut By Slashes/images/1.png"></pre>
 
 <p><strong>示例 2：</strong></p>
 
@@ -37,7 +37,7 @@
 ]
 <strong>输出：</strong>1
 <strong>解释：</strong>2x2 网格如下：
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/2.png"></pre>
+<img alt="" src="/solution/0900-0999/0959.Regions Cut By Slashes/images/2.png"></pre>
 
 <p><strong>示例 3：</strong></p>
 
@@ -49,7 +49,7 @@
 <strong>输出：</strong>4
 <strong>解释：</strong>（回想一下，因为 \ 字符是转义的，所以 &quot;\\/&quot; 表示 \/，而 &quot;/\\&quot; 表示 /\。）
 2x2 网格如下：
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/3.png"></pre>
+<img alt="" src="/solution/0900-0999/0959.Regions Cut By Slashes/images/3.png"></pre>
 
 <p><strong>示例 4：</strong></p>
 
@@ -61,7 +61,7 @@
 <strong>输出：</strong>5
 <strong>解释：</strong>（回想一下，因为 \ 字符是转义的，所以 &quot;/\\&quot; 表示 /\，而 &quot;\\/&quot; 表示 \/。）
 2x2 网格如下：
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/4.png"></pre>
+<img alt="" src="/solution/0900-0999/0959.Regions Cut By Slashes/images/4.png"></pre>
 
 <p><strong>示例 5：</strong></p>
 
@@ -72,7 +72,7 @@
 ]
 <strong>输出：</strong>3
 <strong>解释：</strong>2x2 网格如下：
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/5.png">
+<img alt="" src="/solution/0900-0999/0959.Regions Cut By Slashes/images/5.png">
 </pre>
 
 <p>&nbsp;</p>

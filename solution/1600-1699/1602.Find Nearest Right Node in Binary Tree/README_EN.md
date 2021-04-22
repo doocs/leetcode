@@ -9,7 +9,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/09/24/p3.png" style="width: 241px; height: 161px;" /></p>
+<p><img alt="" src="/solution/1600-1699/1602.Find Nearest Right Node in Binary Tree/images/p3.png" style="width: 241px; height: 161px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [1,2,3,null,4,5,6], u = 4
@@ -19,7 +19,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/23/p2.png" style="width: 101px; height: 161px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1600-1699/1602.Find Nearest Right Node in Binary Tree/images/p2.png" style="width: 101px; height: 161px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [3,null,4,2], u = 2

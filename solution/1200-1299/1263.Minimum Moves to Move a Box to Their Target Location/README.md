@@ -27,7 +27,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/sample_1_1620.png" style="height: 349px; width: 520px;"></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1263.Minimum Moves to Move a Box to Their Target Location/images/sample_1_1620.png" style="height: 349px; width: 520px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;],
              [&quot;#&quot;,&quot;T&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;],

@@ -38,7 +38,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/09/trees2.png" style="width: 208px; height: 221px;" />
+<img src="/solution/1700-1799/1719.Number Of Ways To Reconstruct A Tree/images/trees2.png" style="width: 208px; height: 221px;" />
 <pre>
 <b>输入：</b>pairs = [[1,2],[2,3]]
 <b>输出：</b>1
@@ -46,7 +46,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/09/tree.png" style="width: 234px; height: 241px;" />
+<img alt="" src="/solution/1700-1799/1719.Number Of Ways To Reconstruct A Tree/images/tree.png" style="width: 234px; height: 241px;" />
 <pre>
 <b>输入：</b>pairs = [[1,2],[2,3],[1,3]]
 <b>输出：</b>2

@@ -23,7 +23,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/14/grid.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="/solution/0700-0799/0741.Cherry Pickup/images/grid.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1,-1],[1,0,-1],[1,1,1]]
 <strong>Output:</strong> 5

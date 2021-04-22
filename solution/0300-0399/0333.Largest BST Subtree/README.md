@@ -35,7 +35,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/17/tmp.jpg" style="width: 571px; height: 302px;" /></strong></p>
+<p><strong><img alt="" src="/solution/0300-0399/0333.Largest BST Subtree/images/tmp.jpg" style="width: 571px; height: 302px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>root = [10,5,15,1,8,null,7]

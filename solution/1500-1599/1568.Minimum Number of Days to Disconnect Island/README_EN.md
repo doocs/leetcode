@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/13/1926_island.png" style="width: 498px; height: 139px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1568.Minimum Number of Days to Disconnect Island/images/1926_island.png" style="width: 498px; height: 139px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[0,1,1,0],[0,0,0,0]]

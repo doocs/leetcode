@@ -10,12 +10,12 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/05/insertbst.jpg" style="width: 752px; height: 221px;" />
+<img alt="" src="/solution/0700-0799/0701.Insert into a Binary Search Tree/images/insertbst.jpg" style="width: 752px; height: 221px;" />
 <pre>
 <strong>Input:</strong> root = [4,2,7,1,3], val = 5
 <strong>Output:</strong> [4,2,7,1,3,5]
 <strong>Explanation:</strong> Another accepted tree is:
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/05/bst.jpg" style="width: 352px; height: 301px;" />
+<img alt="" src="/solution/0700-0799/0701.Insert into a Binary Search Tree/images/bst.jpg" style="width: 352px; height: 301px;" />
 </pre>
 
 <p><strong>Example 2:</strong></p>

@@ -13,21 +13,21 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/28/vtree1.jpg" style="width: 282px; height: 301px;" />
+<img alt="" src="/solution/0300-0399/0314.Binary Tree Vertical Order Traversal/images/vtree1.jpg" style="width: 282px; height: 301px;" />
 <pre>
 <strong>输入：</strong>root = [3,9,20,null,null,15,7]
 <strong>输出：</strong>[[9],[3,15],[20],[7]]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/28/vtree2-1.jpg" style="width: 462px; height: 222px;" />
+<img alt="" src="/solution/0300-0399/0314.Binary Tree Vertical Order Traversal/images/vtree2-1.jpg" style="width: 462px; height: 222px;" />
 <pre>
 <strong>输入：</strong>root = [3,9,8,4,0,1,7]
 <strong>输出：</strong>[[4],[9],[3,0,1],[8],[7]]
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/28/vtree2.jpg" style="width: 462px; height: 302px;" />
+<img alt="" src="/solution/0300-0399/0314.Binary Tree Vertical Order Traversal/images/vtree2.jpg" style="width: 462px; height: 302px;" />
 <pre>
 <strong>输入：</strong>root = [3,9,8,4,0,1,7,null,null,null,2,5]
 <strong>输出：</strong>[[4],[9,5],[3,0,1],[8,2],[7]]

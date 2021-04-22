@@ -39,7 +39,7 @@ class Node {
 	<li>使用适当的子网格递归每个子节点。</li>
 </ol>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/new_top.png" style="height: 181px; width: 777px;" /></p>
+<p><img alt="" src="/solution/0500-0599/0558.Logical OR of Two Binary Grids Represented as Quad-Trees/images/new_top.png" style="height: 181px; width: 777px;" /></p>
 
 <p>如果你想了解更多关于四叉树的内容，可以参考 <a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a> 。</p>
 
@@ -55,7 +55,7 @@ class Node {
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qt1.png" style="height: 196px; width: 550px;" /> <img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qt2.png" style="height: 278px; width: 550px;" /></p>
+<p><img alt="" src="/solution/0500-0599/0558.Logical OR of Two Binary Grids Represented as Quad-Trees/images/qt1.png" style="height: 196px; width: 550px;" /> <img alt="" src="/solution/0500-0599/0558.Logical OR of Two Binary Grids Represented as Quad-Trees/images/qt2.png" style="height: 278px; width: 550px;" /></p>
 
 <pre>
 <strong>输入：</strong>quadTree1 = [[0,1],[1,1],[1,1],[1,0],[1,0]]
@@ -64,7 +64,7 @@ class Node {
 <strong>解释：</strong>quadTree1 和 quadTree2 如上所示。由四叉树所表示的二进制矩阵也已经给出。
 如果我们对这两个矩阵进行按位逻辑或运算，则可以得到下面的二进制矩阵，由一个作为结果的四叉树表示。
 注意，我们展示的二进制矩阵仅仅是为了更好地说明题意，你无需构造二进制矩阵来获得结果四叉树。
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/11/qtr.png" style="height: 222px; width: 777px;" />
+<img alt="" src="/solution/0500-0599/0558.Logical OR of Two Binary Grids Represented as Quad-Trees/images/qtr.png" style="height: 222px; width: 777px;" />
 </pre>
 
 <p><strong>示例 2：</strong></p>

@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" height="475" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/01/sketch1.png" width="560" /></p>
+<p><img alt="" height="475" src="/solution/0800-0899/0865.Smallest Subtree with all the Deepest Nodes/images/sketch1.png" width="560" /></p>
 
 <pre>
 <strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4]

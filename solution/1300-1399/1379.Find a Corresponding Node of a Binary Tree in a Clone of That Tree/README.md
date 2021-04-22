@@ -33,7 +33,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e1.png" style="height: 426px; width: 544px;"></p>
+<p><img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e1.png" style="height: 426px; width: 544px;"></p>
 
 <pre><strong>输入:</strong> tree = [7,4,3,null,null,6,19], target = 3
 <strong>输出:</strong> 3
@@ -41,7 +41,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e2.png" style="height: 159px; width: 221px;"></p>
+<p><img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e2.png" style="height: 159px; width: 221px;"></p>
 
 <pre><strong>输入:</strong> tree = [7], target =  7
 <strong>输出:</strong> 7
@@ -49,7 +49,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e3.png" style="height: 486px; width: 459px;"></p>
+<p><img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e3.png" style="height: 486px; width: 459px;"></p>
 
 <pre><strong>输入:</strong> tree = [8,null,6,null,5,null,4,null,3,null,2,null,1], target = 4
 <strong>输出:</strong> 4
@@ -57,7 +57,7 @@
 
 <p><strong>示例 4:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e4.png" style="height: 239px; width: 555px;"></p>
+<p><img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e4.png" style="height: 239px; width: 555px;"></p>
 
 <pre><strong>输入:</strong> tree = [1,2,3,4,5,6,7,8,9,10], target = 5
 <strong>输出:</strong> 5
@@ -65,7 +65,7 @@
 
 <p><strong>示例 5:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/21/e5.png" style="height: 345px; width: 427px;"></p>
+<p><img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e5.png" style="height: 345px; width: 427px;"></p>
 
 <pre><strong>输入:</strong> tree = [1,2,null,3], target = 2
 <strong>输出:</strong> 2</pre>

@@ -17,7 +17,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/02/14/trios1.png" style="width: 388px; height: 164px;" />
+<img alt="" src="/solution/1700-1799/1761.Minimum Degree of a Connected Trio in a Graph/images/trios1.png" style="width: 388px; height: 164px;" />
 <pre>
 <b>输入：</b>n = 6, edges = [[1,2],[1,3],[3,2],[4,1],[5,2],[3,6]]
 <b>输出：</b>3
@@ -25,7 +25,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/02/14/trios2.png" style="width: 388px; height: 164px;" />
+<img alt="" src="/solution/1700-1799/1761.Minimum Degree of a Connected Trio in a Graph/images/trios2.png" style="width: 388px; height: 164px;" />
 <pre>
 <b>输入：</b>n = 7, edges = [[1,3],[4,1],[4,3],[2,5],[5,6],[6,7],[7,5],[2,6]]
 <b>输出：</b>0

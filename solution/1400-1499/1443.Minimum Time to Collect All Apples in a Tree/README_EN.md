@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/23/min_time_collect_apple_1.png" style="width: 300px; height: 212px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1443.Minimum Time to Collect All Apples in a Tree/images/min_time_collect_apple_1.png" style="width: 300px; height: 212px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], hasApple = [false,false,true,false,true,true,false]
@@ -21,7 +21,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/23/min_time_collect_apple_2.png" style="width: 300px; height: 212px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1443.Minimum Time to Collect All Apples in a Tree/images/min_time_collect_apple_2.png" style="width: 300px; height: 212px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], hasApple = [false,false,true,false,false,true,false]

@@ -24,7 +24,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/17/untitled-diagram.png" style="width: 176px; height: 176px;" />
+<img alt="" src="/solution/1600-1699/1620.Coordinate With Maximum Network Quality/images/untitled-diagram.png" style="width: 176px; height: 176px;" />
 <pre>
 <b>输入：</b>towers = [[1,2,5],[2,1,7],[3,1,9]], radius = 2
 <b>输出：</b>[2,1]

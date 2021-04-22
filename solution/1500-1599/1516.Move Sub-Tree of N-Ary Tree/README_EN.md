@@ -26,13 +26,13 @@
 
 <p><em>Nary-Tree input serialization&nbsp;is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
+<p><img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
 
 <p>For example, the above tree is serialized as [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14].</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e1.jpg" style="width: 450px; height: 188px;" />
+<img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e1.jpg" style="width: 450px; height: 188px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 4, q = 1
 <strong>Output:</strong> [1,null,2,3,4,null,5,null,6,null,7,8]
@@ -40,7 +40,7 @@
 Notice that node 4 is the last child of node 1.</pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e2.jpg" style="width: 281px; height: 281px;" />
+<img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e2.jpg" style="width: 281px; height: 281px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 7, q = 4
 <strong>Output:</strong> [1,null,2,3,null,4,5,null,6,null,7,8]
@@ -48,7 +48,7 @@ Notice that node 4 is the last child of node 1.</pre>
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e3.jpg" style="width: 450px; height: 331px;" />
+<img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e3.jpg" style="width: 450px; height: 331px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 3, q = 8
 <strong>Output:</strong> [1,null,2,null,4,5,null,7,8,null,null,null,3,null,6]
@@ -56,7 +56,7 @@ Notice that node 4 is the last child of node 1.</pre>
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e4.jpg" style="width: 700px; height: 254px;" />
+<img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e4.jpg" style="width: 700px; height: 254px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 2, q = 7
 <strong>Output:</strong> [1,null,7,3,null,2,null,6,null,4,5,null,null,8]
@@ -66,7 +66,7 @@ Then we will see that the tree is disconnected, you need to reconnect node q to 
 </pre>
 
 <p><strong>Example 5:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e5.jpg" style="width: 700px; height: 182px;" />
+<img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e5.jpg" style="width: 700px; height: 182px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 1, q = 2
 <strong>Output:</strong> [2,null,4,5,1,null,7,8,null,null,3,null,null,null,6]

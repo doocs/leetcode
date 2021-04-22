@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/08/02/shadow.png" style="width: 800px; height: 214px;" />
+<img alt="" src="/solution/0800-0899/0883.Projection Area of 3D Shapes/images/shadow.png" style="width: 800px; height: 214px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,2],[3,4]]
 <strong>Output:</strong> 17

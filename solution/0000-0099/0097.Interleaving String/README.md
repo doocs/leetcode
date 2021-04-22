@@ -22,7 +22,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/02/interleave.jpg" style="width: 561px; height: 203px;" />
+<img alt="" src="/solution/0000-0099/0097.Interleaving String/images/interleave.jpg" style="width: 561px; height: 203px;" />
 <pre>
 <strong>输入：</strong>s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
 <strong>输出：</strong>true

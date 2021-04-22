@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/12/preorder-tree.jpg" style="width: 292px; height: 302px;" />
+<img alt="" src="/solution/0200-0299/0255.Verify Preorder Sequence in Binary Search Tree/images/preorder-tree.jpg" style="width: 292px; height: 302px;" />
 <pre>
 <strong>Input:</strong> preorder = [5,2,1,3,6]
 <strong>Output:</strong> true

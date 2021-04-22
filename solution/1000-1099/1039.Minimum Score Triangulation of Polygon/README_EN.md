@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/25/shape1.jpg" style="width: 201px; height: 133px;" />
+<img alt="" src="/solution/1000-1099/1039.Minimum Score Triangulation of Polygon/images/shape1.jpg" style="width: 201px; height: 133px;" />
 <pre>
 <strong>Input:</strong> values = [1,2,3]
 <strong>Output:</strong> 6
@@ -20,7 +20,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/25/shape2.jpg" style="width: 446px; height: 163px;" />
+<img alt="" src="/solution/1000-1099/1039.Minimum Score Triangulation of Polygon/images/shape2.jpg" style="width: 446px; height: 163px;" />
 <pre>
 <strong>Input:</strong> values = [3,7,4,5]
 <strong>Output:</strong> 144
@@ -29,7 +29,7 @@ The minimum score is 144.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/25/shape3.jpg" style="width: 207px; height: 163px;" />
+<img alt="" src="/solution/1000-1099/1039.Minimum Score Triangulation of Polygon/images/shape3.jpg" style="width: 207px; height: 163px;" />
 <pre>
 <strong>Input:</strong> values = [1,3,1,4,1,5]
 <strong>Output:</strong> 13

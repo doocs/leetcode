@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/19/q3e1.jpg" style="height: 321px; width: 441px;"></p>
+<p><img alt="" src="/solution/1500-1599/1519.Number of Nodes in the Sub-Tree With the Same Label/images/q3e1.jpg" style="height: 321px; width: 441px;"></p>
 
 <pre><strong>输入：</strong>n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], labels = &quot;abaedcd&quot;
 <strong>输出：</strong>[2,1,1,1,1,1,1]
@@ -28,7 +28,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/19/q3e2.jpg" style="height: 321px; width: 381px;"></p>
+<p><img alt="" src="/solution/1500-1599/1519.Number of Nodes in the Sub-Tree With the Same Label/images/q3e2.jpg" style="height: 321px; width: 381px;"></p>
 
 <pre><strong>输入：</strong>n = 4, edges = [[0,1],[1,2],[0,3]], labels = &quot;bbbb&quot;
 <strong>输出：</strong>[4,2,1,1]
@@ -40,7 +40,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/19/q3e3.jpg" style="height: 321px; width: 381px;"></p>
+<p><img alt="" src="/solution/1500-1599/1519.Number of Nodes in the Sub-Tree With the Same Label/images/q3e3.jpg" style="height: 321px; width: 381px;"></p>
 
 <pre><strong>输入：</strong>n = 5, edges = [[0,1],[0,2],[1,3],[0,4]], labels = &quot;aabab&quot;
 <strong>输出：</strong>[3,2,1,1,1]

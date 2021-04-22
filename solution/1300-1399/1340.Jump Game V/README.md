@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/02/meta-chart.jpeg" style="height: 419px; width: 633px;"></p>
+<p><img alt="" src="/solution/1300-1399/1340.Jump Game V/images/meta-chart.jpeg" style="height: 419px; width: 633px;"></p>
 
 <pre><strong>输入：</strong>arr = [6,4,14,6,8,13,9,7,10,6,12], d = 2
 <strong>输出：</strong>4

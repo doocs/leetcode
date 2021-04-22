@@ -11,14 +11,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/bst1.jpg" style="width: 400px; height: 222px;" />
+<img alt="" src="/solution/0900-0999/0938.Range Sum of BST/images/bst1.jpg" style="width: 400px; height: 222px;" />
 <pre>
 <strong>输入：</strong>root = [10,5,15,3,7,null,18], low = 7, high = 15
 <strong>输出：</strong>32
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/bst2.jpg" style="width: 400px; height: 335px;" />
+<img alt="" src="/solution/0900-0999/0938.Range Sum of BST/images/bst2.jpg" style="width: 400px; height: 335px;" />
 <pre>
 <strong>输入：</strong>root = [10,5,15,3,7,13,18,1,null,6], low = 6, high = 10
 <strong>输出：</strong>23

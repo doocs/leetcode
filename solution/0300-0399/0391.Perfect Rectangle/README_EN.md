@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/27/perectrec1-plane.jpg" style="width: 300px; height: 294px;" />
+<img alt="" src="/solution/0300-0399/0391.Perfect Rectangle/images/perectrec1-plane.jpg" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> rectangles = [[1,1,3,3],[3,1,4,2],[3,2,4,4],[1,3,2,4],[2,3,3,4]]
 <strong>Output:</strong> true
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/27/perfectrec2-plane.jpg" style="width: 300px; height: 294px;" />
+<img alt="" src="/solution/0300-0399/0391.Perfect Rectangle/images/perfectrec2-plane.jpg" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> rectangles = [[1,1,2,3],[1,3,2,4],[3,1,4,2],[3,2,4,4]]
 <strong>Output:</strong> false
@@ -26,7 +26,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/27/perfectrec3-plane.jpg" style="width: 300px; height: 294px;" />
+<img alt="" src="/solution/0300-0399/0391.Perfect Rectangle/images/perfectrec3-plane.jpg" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> rectangles = [[1,1,3,3],[3,1,4,2],[1,3,2,4],[3,2,4,4]]
 <strong>Output:</strong> false
@@ -34,7 +34,7 @@
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/27/perfecrrec4-plane.jpg" style="width: 300px; height: 294px;" />
+<img alt="" src="/solution/0300-0399/0391.Perfect Rectangle/images/perfecrrec4-plane.jpg" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> rectangles = [[1,1,3,3],[3,1,4,2],[1,3,2,4],[2,2,4,4]]
 <strong>Output:</strong> false

@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/05/merge.jpg" style="width: 600px; height: 163px;" />
+<img alt="" src="/solution/0600-0699/0617.Merge Two Binary Trees/images/merge.jpg" style="width: 600px; height: 163px;" />
 <pre>
 <strong>Input:</strong> root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
 <strong>Output:</strong> [3,4,5,5,4,null,7]

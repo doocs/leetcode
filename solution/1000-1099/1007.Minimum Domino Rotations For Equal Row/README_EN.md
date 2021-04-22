@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/03/08/domino.png" style="height: 161px; width: 200px;" />
+<img alt="" src="/solution/1000-1099/1007.Minimum Domino Rotations For Equal Row/images/domino.png" style="height: 161px; width: 200px;" />
 <pre>
 <strong>Input:</strong> A = [2,1,2,4,2,2], B = [5,2,6,2,3,2]
 <strong>Output:</strong> 2

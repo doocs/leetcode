@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="/solution/0700-0799/0797.All Paths From Source to Target/images/all_1.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> graph = [[1,2],[3],[3],[]]
 <strong>Output:</strong> [[0,1,3],[0,2,3]]
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/28/all_2.jpg" style="width: 423px; height: 301px;" />
+<img alt="" src="/solution/0700-0799/0797.All Paths From Source to Target/images/all_2.jpg" style="width: 423px; height: 301px;" />
 <pre>
 <strong>Input:</strong> graph = [[4,3,1],[3,2,4],[3],[4],[]]
 <strong>Output:</strong> [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]

@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/17/linked.jpg" style="width: 600px; height: 466px;" />
+<img alt="" src="/solution/0100-0199/0109.Convert Sorted List to Binary Search Tree/images/linked.jpg" style="width: 600px; height: 466px;" />
 <pre>
 <strong>Input:</strong> head = [-10,-3,0,5,9]
 <strong>Output:</strong> [0,-3,9,-10,null,5]

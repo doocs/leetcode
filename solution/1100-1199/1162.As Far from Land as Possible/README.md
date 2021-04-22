@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/08/17/1336_ex1.jpeg" style="height: 87px; width: 185px;"></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1162.As Far from Land as Possible/images/1336_ex1.jpeg" style="height: 87px; width: 185px;"></strong></p>
 
 <pre><strong>输入：</strong>[[1,0,1],[0,0,0],[1,0,1]]
 <strong>输出：</strong>2
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/08/17/1336_ex2.jpeg" style="height: 87px; width: 184px;"></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1162.As Far from Land as Possible/images/1336_ex2.jpeg" style="height: 87px; width: 184px;"></strong></p>
 
 <pre><strong>输入：</strong>[[1,0,0],[0,0,0],[0,0,0]]
 <strong>输出：</strong>4

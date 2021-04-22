@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/30/sample_1_1819.png" style="height: 150px; width: 240px;"></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1466.Reorder Routes to Make All Paths Lead to the City Zero/images/sample_1_1819.png" style="height: 150px; width: 240px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
 <strong>输出：</strong>3
@@ -28,7 +28,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/30/sample_2_1819.png" style="height: 60px; width: 380px;"></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1466.Reorder Routes to Make All Paths Lead to the City Zero/images/sample_2_1819.png" style="height: 60px; width: 380px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 5, connections = [[1,0],[1,2],[3,2],[3,4]]
 <strong>输出：</strong>2

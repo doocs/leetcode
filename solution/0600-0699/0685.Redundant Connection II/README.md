@@ -17,14 +17,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/20/graph1.jpg" style="width: 222px; height: 222px;" />
+<img alt="" src="/solution/0600-0699/0685.Redundant Connection II/images/graph1.jpg" style="width: 222px; height: 222px;" />
 <pre>
 <strong>输入：</strong>edges = [[1,2],[1,3],[2,3]]
 <strong>输出：</strong>[2,3]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/20/graph2.jpg" style="width: 222px; height: 382px;" />
+<img alt="" src="/solution/0600-0699/0685.Redundant Connection II/images/graph2.jpg" style="width: 222px; height: 382px;" />
 <pre>
 <strong>输入：</strong>edges = [[1,2],[2,3],[3,4],[4,1],[1,5]]
 <strong>输出：</strong>[4,1]

@@ -23,25 +23,25 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/11.png" style="height: 242px; width: 400px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1564.Put Boxes Into the Warehouse I/images/11.png" style="height: 242px; width: 400px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>boxes = [4,3,4,1], warehouse = [5,3,3,4,1]
 <strong>输出：</strong>3
 <strong>解释：
-</strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/12.png" style="height: 242px; width: 280px;" />
+</strong><img alt="" src="/solution/1500-1599/1564.Put Boxes Into the Warehouse I/images/12.png" style="height: 242px; width: 280px;" />
 我们可以先把高度为 1 的箱子放入 4 号房间，然后再把高度为 3 的箱子放入 1 号、 2 号或 3 号房间，最后再把高度为 4 的箱子放入 0 号房间。
 我们不可能把所有 4 个箱子全部放进仓库里。</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/21.png" style="height: 202px; width: 400px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1564.Put Boxes Into the Warehouse I/images/21.png" style="height: 202px; width: 400px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>boxes = [1,2,2,3,4], warehouse = [3,4,1,2]
 <strong>输出：</strong>3
 <strong>解释：
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/22.png" style="height: 202px; width: 280px;" />
+<img alt="" src="/solution/1500-1599/1564.Put Boxes Into the Warehouse I/images/22.png" style="height: 202px; width: 280px;" />
 </strong>我们注意到，不可能把高度为 4 的箱子放入仓库中，因为它不能通过高度为 3 的房间。
 而且，对于最后两个房间 2 号和 3 号来说，只有高度为 1 的箱子可以放进去。
 我们最多可以放进 3 个箱子，如上图所示。黄色的箱子也可以放入 2 号房间。

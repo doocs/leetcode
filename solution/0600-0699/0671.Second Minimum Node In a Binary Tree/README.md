@@ -15,7 +15,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/15/smbt1.jpg" style="width: 431px; height: 302px;" />
+<img alt="" src="/solution/0600-0699/0671.Second Minimum Node In a Binary Tree/images/smbt1.jpg" style="width: 431px; height: 302px;" />
 <pre>
 <strong>输入：</strong>root = [2,2,5,null,null,5,7]
 <strong>输出：</strong>5
@@ -23,7 +23,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/15/smbt2.jpg" style="width: 321px; height: 182px;" />
+<img alt="" src="/solution/0600-0699/0671.Second Minimum Node In a Binary Tree/images/smbt2.jpg" style="width: 321px; height: 182px;" />
 <pre>
 <strong>输入：</strong>root = [2,2,2]
 <strong>输出：</strong>-1

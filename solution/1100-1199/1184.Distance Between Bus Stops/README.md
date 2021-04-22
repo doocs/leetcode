@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1.jpg" style="height: 240px; width: 388px;"></p>
+<p><img alt="" src="/solution/1100-1199/1184.Distance Between Bus Stops/images/untitled-diagram-1.jpg" style="height: 240px; width: 388px;"></p>
 
 <pre><strong>输入：</strong>distance = [1,2,3,4], start = 0, destination = 1
 <strong>输出：</strong>1
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1-1.jpg" style="height: 240px; width: 388px;"></p>
+<p><img alt="" src="/solution/1100-1199/1184.Distance Between Bus Stops/images/untitled-diagram-1-1.jpg" style="height: 240px; width: 388px;"></p>
 
 <pre><strong>输入：</strong>distance = [1,2,3,4], start = 0, destination = 2
 <strong>输出：</strong>3
@@ -37,7 +37,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/08/untitled-diagram-1-2.jpg" style="height: 240px; width: 388px;"></p>
+<p><img alt="" src="/solution/1100-1199/1184.Distance Between Bus Stops/images/untitled-diagram-1-2.jpg" style="height: 240px; width: 388px;"></p>
 
 <pre><strong>输入：</strong>distance = [1,2,3,4], start = 0, destination = 3
 <strong>输出：</strong>4

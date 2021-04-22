@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/05/23/931_example_1.png" style="width: 217px; height: 239px;" />
+<img alt="" src="/solution/0700-0799/0743.Network Delay Time/images/931_example_1.png" style="width: 217px; height: 239px;" />
 <pre>
 <strong>Input:</strong> times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
 <strong>Output:</strong> 2

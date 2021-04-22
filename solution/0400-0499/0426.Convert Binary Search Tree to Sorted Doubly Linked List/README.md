@@ -19,11 +19,11 @@
 <pre>
 <strong>输入：</strong>root = [4,2,5,1,3] 
 
-<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturndll.png" style="width: 400px;" />
+<img src="/solution/0400-0499/0426.Convert Binary Search Tree to Sorted Doubly Linked List/images/bstdllreturndll.png" style="width: 400px;" />
 <strong>输出：</strong>[1,2,3,4,5]
 
 <strong>解释：</strong>下图显示了转化后的二叉搜索树，实线表示后继关系，虚线表示前驱关系。
-<img src="https://assets.leetcode.com/uploads/2018/10/12/bstdllreturnbst.png" style="width: 400px;" />
+<img src="/solution/0400-0499/0426.Convert Binary Search Tree to Sorted Doubly Linked List/images/bstdllreturnbst.png" style="width: 400px;" />
 </pre>
 
 <p><strong>示例 2：</strong></p>

@@ -24,7 +24,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/18/rank1.jpg" style="width: 442px; height: 162px;" />
+<img alt="" src="/solution/1600-1699/1632.Rank Transform of a Matrix/images/rank1.jpg" style="width: 442px; height: 162px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,2],[3,4]]
 <strong>Output:</strong> [[1,2],[2,3]]
@@ -36,21 +36,21 @@ The rank of matrix[1][1] is 3 because matrix[1][1] &gt; matrix[0][1], matrix[1][
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/18/rank2.jpg" style="width: 442px; height: 162px;" />
+<img alt="" src="/solution/1600-1699/1632.Rank Transform of a Matrix/images/rank2.jpg" style="width: 442px; height: 162px;" />
 <pre>
 <strong>Input:</strong> matrix = [[7,7],[7,7]]
 <strong>Output:</strong> [[1,1],[1,1]]
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/18/rank3.jpg" style="width: 601px; height: 322px;" />
+<img alt="" src="/solution/1600-1699/1632.Rank Transform of a Matrix/images/rank3.jpg" style="width: 601px; height: 322px;" />
 <pre>
 <strong>Input:</strong> matrix = [[20,-21,14],[-19,4,19],[22,-47,24],[-19,4,19]]
 <strong>Output:</strong> [[4,2,3],[1,3,4],[5,1,6],[1,3,4]]
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/18/rank4.jpg" style="width: 601px; height: 242px;" />
+<img alt="" src="/solution/1600-1699/1632.Rank Transform of a Matrix/images/rank4.jpg" style="width: 601px; height: 242px;" />
 <pre>
 <strong>Input:</strong> matrix = [[7,3,6],[1,4,5],[9,8,2]]
 <strong>Output:</strong> [[5,1,4],[1,2,3],[6,3,1]]

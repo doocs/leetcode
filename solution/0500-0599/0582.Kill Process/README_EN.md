@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/24/ptree.jpg" style="width: 207px; height: 302px;" />
+<img alt="" src="/solution/0500-0599/0582.Kill Process/images/ptree.jpg" style="width: 207px; height: 302px;" />
 <pre>
 <strong>Input:</strong> pid = [1,3,10,5], ppid = [3,0,5,3], kill = 5
 <strong>Output:</strong> [5,10]

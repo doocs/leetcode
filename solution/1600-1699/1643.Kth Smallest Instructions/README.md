@@ -28,7 +28,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/01/ex1.png" style="width: 300px;" /></p>
+<p><img alt="" src="/solution/1600-1699/1643.Kth Smallest Instructions/images/ex1.png" style="width: 300px;" /></p>
 
 <pre>
 <strong>输入：</strong>destination = [2,3], k = 1
@@ -39,7 +39,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/01/ex2.png" style="width: 300px; height: 229px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1600-1699/1643.Kth Smallest Instructions/images/ex2.png" style="width: 300px; height: 229px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>destination = [2,3], k = 2
@@ -48,7 +48,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/01/ex3.png" style="width: 300px; height: 229px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1600-1699/1643.Kth Smallest Instructions/images/ex3.png" style="width: 300px; height: 229px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>destination = [2,3], k = 3

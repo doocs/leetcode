@@ -24,7 +24,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/11/06/untitled-diagram-4-1.jpg" style="width: 320px; height: 119px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1261.Find Elements in a Contaminated Binary Tree/images/untitled-diagram-4-1.jpg" style="width: 320px; height: 119px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>
@@ -39,7 +39,7 @@ findElements.find(2); // return True </pre>
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/11/06/untitled-diagram-4.jpg" style="width: 400px; height: 198px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1261.Find Elements in a Contaminated Binary Tree/images/untitled-diagram-4.jpg" style="width: 400px; height: 198px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>
@@ -55,7 +55,7 @@ findElements.find(5); // return False</pre>
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/11/07/untitled-diagram-4-1-1.jpg" style="width: 306px; height: 274px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1261.Find Elements in a Contaminated Binary Tree/images/untitled-diagram-4-1-1.jpg" style="width: 306px; height: 274px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>

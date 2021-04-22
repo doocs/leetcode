@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/01/node1.jpg" style="width: 450px; height: 322px;" />
+<img alt="" src="/solution/0200-0299/0237.Delete Node in a Linked List/images/node1.jpg" style="width: 450px; height: 322px;" />
 <pre>
 <strong>Input:</strong> head = [4,5,1,9], node = 5
 <strong>Output:</strong> [4,1,9]
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/01/node2.jpg" style="width: 450px; height: 354px;" />
+<img alt="" src="/solution/0200-0299/0237.Delete Node in a Linked List/images/node2.jpg" style="width: 450px; height: 354px;" />
 <pre>
 <strong>Input:</strong> head = [4,5,1,9], node = 1
 <strong>Output:</strong> [4,5,9]

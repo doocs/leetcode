@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/rob1-tree.jpg" style="width: 277px; height: 293px;" />
+<img alt="" src="/solution/0300-0399/0337.House Robber III/images/rob1-tree.jpg" style="width: 277px; height: 293px;" />
 <pre>
 <strong>Input:</strong> root = [3,2,3,null,3,null,1]
 <strong>Output:</strong> 7
@@ -20,7 +20,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/rob2-tree.jpg" style="width: 357px; height: 293px;" />
+<img alt="" src="/solution/0300-0399/0337.House Robber III/images/rob2-tree.jpg" style="width: 357px; height: 293px;" />
 <pre>
 <strong>Input:</strong> root = [3,4,5,1,3,null,1]
 <strong>Output:</strong> 9

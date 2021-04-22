@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/06/5510ex1.png" style="height: 191px; width: 179px;"></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1579.Remove Max Number of Edges to Keep Graph Fully Traversable/images/5510ex1.png" style="height: 191px; width: 179px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, edges = [[3,1,2],[3,2,3],[1,1,3],[1,2,4],[1,1,2],[2,3,4]]
 <strong>输出：</strong>2
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/06/5510ex2.png" style="height: 190px; width: 178px;"></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1579.Remove Max Number of Edges to Keep Graph Fully Traversable/images/5510ex2.png" style="height: 190px; width: 178px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, edges = [[3,1,2],[3,2,3],[1,1,4],[2,1,4]]
 <strong>输出：</strong>0
@@ -40,7 +40,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/09/06/5510ex3.png" style="height: 190px; width: 178px;"></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1579.Remove Max Number of Edges to Keep Graph Fully Traversable/images/5510ex3.png" style="height: 190px; width: 178px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, edges = [[3,2,3],[1,1,2],[2,3,4]]
 <strong>输出：</strong>-1

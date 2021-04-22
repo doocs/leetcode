@@ -7,9 +7,9 @@
 <p>The chess knight has a <strong>unique movement</strong>,&nbsp;it may move two squares vertically and one square horizontally, or two squares horizontally and one square vertically (with both forming the shape of an <strong>L</strong>). The possible movements of chess knight are shown in this diagaram:</p>
 
 <p>A chess knight can move as indicated in the chess diagram below:</p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/18/chess.jpg" style="width: 402px; height: 402px;" />
+<img alt="" src="/solution/0900-0999/0935.Knight Dialer/images/chess.jpg" style="width: 402px; height: 402px;" />
 <p>We have a chess knight and a phone pad as shown below, the knight <strong>can only stand on a numeric cell</strong>&nbsp;(i.e. blue cell).</p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/18/phone.jpg" style="width: 242px; height: 322px;" />
+<img alt="" src="/solution/0900-0999/0935.Knight Dialer/images/phone.jpg" style="width: 242px; height: 322px;" />
 <p>Given an integer <code>n</code>, return how many distinct phone numbers of length <code>n</code> we can dial.</p>
 
 <p>You are allowed to place the knight <strong>on any numeric cell</strong> initially and then you should perform <code>n - 1</code> jumps to dial a number of length <code>n</code>. All jumps should be <strong>valid</strong> knight jumps.</p>

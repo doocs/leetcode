@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/12/mult-grid.jpg" style="width: 500px; height: 142px;" />
+<img alt="" src="/solution/0300-0399/0311.Sparse Matrix Multiplication/images/mult-grid.jpg" style="width: 500px; height: 142px;" />
 <pre>
 <strong>Input:</strong> mat1 = [[1,0,0],[-1,0,3]], mat2 = [[7,0,0],[0,0,0],[0,0,1]]
 <strong>Output:</strong> [[7,0,0],[-7,0,3]]

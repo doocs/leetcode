@@ -20,7 +20,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/30/1445_example_1.png" style="height: 404px; width: 400px;"></p>
+<p><img alt="" src="/solution/1200-1299/1274.Number of Ships in a Rectangle/images/1445_example_1.png" style="height: 404px; width: 400px;"></p>
 
 <pre><strong>输入：</strong>
 ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]

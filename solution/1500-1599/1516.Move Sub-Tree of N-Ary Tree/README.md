@@ -28,7 +28,7 @@
 
 <p><em>N 叉树的输入序列以层序遍历的形式给出，每组子节点用 null 分隔（见示例）。</em></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" style="height: 241px; width: 296px;"></p>
+<p><img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/sample_4_964.png" style="height: 241px; width: 296px;"></p>
 
 <p>例如，上面的树会被序列化为&nbsp;[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]。</p>
 
@@ -36,7 +36,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e1.jpg" style="height: 188px; width: 450px;"></p>
+<p><img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e1.jpg" style="height: 188px; width: 450px;"></p>
 
 <pre><strong>输入:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 4, q = 1
 <strong>输出:</strong> [1,null,2,3,4,null,5,null,6,null,7,8]
@@ -45,7 +45,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e2.jpg" style="height: 281px; width: 281px;"></p>
+<p><img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e2.jpg" style="height: 281px; width: 281px;"></p>
 
 <pre><strong>输入:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 7, q = 4
 <strong>输出:</strong> [1,null,2,3,null,4,5,null,6,null,7,8]
@@ -54,7 +54,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e3.jpg" style="height: 331px; width: 450px;"></p>
+<p><img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e3.jpg" style="height: 331px; width: 450px;"></p>
 
 <pre><strong>输入:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 3, q = 8
 <strong>输出:</strong> [1,null,2,null,4,5,null,7,8,null,null,null,3,null,6]
@@ -63,7 +63,7 @@
 
 <p><strong>示例 4:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e4.jpg" style="height: 254px; width: 700px;"></p>
+<p><img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e4.jpg" style="height: 254px; width: 700px;"></p>
 
 <pre><strong>输入:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 2, q = 7
 <strong>输出:</strong> [1,null,7,3,null,2,null,6,null,4,5,null,null,8]
@@ -74,7 +74,7 @@
 
 <p><strong>示例 5:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/13/move_e5.jpg" style="height: 182px; width: 700px;"></p>
+<p><img alt="" src="/solution/1500-1599/1516.Move Sub-Tree of N-Ary Tree/images/move_e5.jpg" style="height: 182px; width: 700px;"></p>
 
 <pre><strong>输入:</strong> root = [1,null,2,3,null,4,5,null,6,null,7,8], p = 1, q = 2
 <strong>输出:</strong> [2,null,4,5,1,null,7,8,null,null,3,null,null,null,6]

@@ -8,14 +8,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/14/tree1.jpg" style="width: 302px; height: 182px;" />
+<img alt="" src="/solution/0500-0599/0513.Find Bottom Left Tree Value/images/tree1.jpg" style="width: 302px; height: 182px;" />
 <pre>
 <strong>Input:</strong> root = [2,1,3]
 <strong>Output:</strong> 1
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/14/tree2.jpg" style="width: 432px; height: 421px;" />
+<img alt="" src="/solution/0500-0599/0513.Find Bottom Left Tree Value/images/tree2.jpg" style="width: 432px; height: 421px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,null,5,6,null,null,7]
 <strong>Output:</strong> 7

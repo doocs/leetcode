@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/10/tmp-grid.jpg" style="width: 500px; height: 294px;" />
+<img alt="" src="/solution/0300-0399/0305.Number of Islands II/images/tmp-grid.jpg" style="width: 500px; height: 294px;" />
 <pre>
 <strong>Input:</strong> m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
 <strong>Output:</strong> [1,1,2,3]

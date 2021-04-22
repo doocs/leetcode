@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/12/12/image.jpg" style="width: 420px; height: 299px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1600-1699/1691.Maximum Height by Stacking Cuboids/images/image.jpg" style="width: 420px; height: 299px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>cuboids = [[50,45,20],[95,37,53],[45,23,12]]

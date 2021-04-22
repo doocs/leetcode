@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/e1-1.png" style="height: 158px; width: 400px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1260.Shift 2D Grid/images/e1-1.png" style="height: 158px; width: 400px;" /></p>
 
 <pre>
 <code><strong>输入：</strong>grid</code> = [[1,2,3],[4,5,6],[7,8,9]], k = 1
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/16/e2-1.png" style="height: 166px; width: 400px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1260.Shift 2D Grid/images/e2-1.png" style="height: 166px; width: 400px;" /></p>
 
 <pre>
 <code><strong>输入：</strong>grid</code> = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]], k = 4

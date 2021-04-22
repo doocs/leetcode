@@ -4,9 +4,12 @@
 
 ## Description
 
-<p>Given the <code>head</code> of a linked list, we repeatedly delete consecutive sequences of nodes that sum to <code>0</code> until there are no such sequences.</p>
-
-<p>After doing so, return the head of the final linked list.&nbsp; You may return any such answer.</p>
+<p>Given the <code>head</code> of a linked list, we repeatedly delete consecutive sequences of nodes that sum to <code>0</code> until there are no such sequences.</p>
+
+
+
+<p>After doing so, return the head of the final linked list.&nbsp; You may return any such answer.</p>
+
 
 <p>&nbsp;</p>
 <p>(Note that in the examples below, all sequences are serializations of <code>ListNode</code> objects.)</p>

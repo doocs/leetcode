@@ -8,7 +8,7 @@
 
 <p>给你三个整数 <code>n</code>、<code>m</code> 和 <code>k</code> 。下图描述的算法用于找出正整数数组中最大的元素。</p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/19/e.png" style="height: 372px; width: 424px;"></p>
+<p><img alt="" src="/solution/1400-1499/1420.Build Array Where You Can Find The Maximum Exactly K Comparisons/images/e.png" style="height: 372px; width: 424px;"></p>
 
 <p>请你生成一个具有下述属性的数组 <code>arr</code> ：</p>
 

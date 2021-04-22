@@ -13,14 +13,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/07/search1.jpg" style="width: 322px; height: 322px;" />
+<img alt="" src="/solution/0200-0299/0212.Word Search II/images/search1.jpg" style="width: 322px; height: 322px;" />
 <pre>
 <strong>输入：</strong>board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
 <strong>输出：</strong>["eat","oath"]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/07/search2.jpg" style="width: 162px; height: 162px;" />
+<img alt="" src="/solution/0200-0299/0212.Word Search II/images/search2.jpg" style="width: 162px; height: 162px;" />
 <pre>
 <strong>输入：</strong>board = [["a","b"],["c","d"]], words = ["abcb"]
 <strong>输出：</strong>[]

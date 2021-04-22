@@ -25,7 +25,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/13/snake.jpg" style="width: 800px; height: 302px;" />
+<img alt="" src="/solution/0300-0399/0353.Design Snake Game/images/snake.jpg" style="width: 800px; height: 302px;" />
 <pre>
 <strong>Input</strong>
 [&quot;SnakeGame&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;, &quot;move&quot;]

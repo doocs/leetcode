@@ -9,7 +9,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/17/sample_11_1592.png" style="width: 154px; height: 106px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_11_1592.png" style="width: 154px; height: 106px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 2, m = 3
@@ -20,7 +20,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/17/sample_22_1592.png" style="width: 224px; height: 126px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_22_1592.png" style="width: 224px; height: 126px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 5, m = 8
@@ -29,7 +29,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/10/17/sample_33_1592.png" style="width: 224px; height: 189px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_33_1592.png" style="width: 224px; height: 189px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 11, m = 13

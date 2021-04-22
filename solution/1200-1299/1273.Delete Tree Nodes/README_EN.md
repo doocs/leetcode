@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/07/02/1421_sample_1.PNG" style="width: 403px; height: 347px;" />
+<img alt="" src="/solution/1200-1299/1273.Delete Tree Nodes/images/1421_sample_1.PNG" style="width: 403px; height: 347px;" />
 <pre>
 <strong>Input:</strong> nodes = 7, parent = [-1,0,0,1,2,2,2], value = [1,-2,4,0,-2,-1,-1]
 <strong>Output:</strong> 2

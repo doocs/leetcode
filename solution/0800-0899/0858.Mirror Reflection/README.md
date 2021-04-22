@@ -20,7 +20,7 @@
 <strong>输入： </strong>p = 2, q = 1
 <strong>输出： </strong>2
 <strong>解释： </strong>这条光线在第一次被反射回左边的墙时就遇到了接收器 2 。
-<img alt="" src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/06/22/reflection.png" style="height: 217px; width: 218px;" /></pre>
+<img alt="" src="/solution/0800-0899/0858.Mirror Reflection/images/reflection.png" style="height: 217px; width: 218px;" /></pre>
 
 <p> </p>
 

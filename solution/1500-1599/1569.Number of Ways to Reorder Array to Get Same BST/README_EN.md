@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/12/bb.png" style="width: 121px; height: 101px;" /></p>
+<p><img alt="" src="/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/images/bb.png" style="width: 121px; height: 101px;" /></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,1,3]
@@ -25,7 +25,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/12/ex1.png" style="width: 241px; height: 161px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/images/ex1.png" style="width: 241px; height: 161px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,4,5,1,2]
@@ -40,7 +40,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/12/ex4.png" style="width: 121px; height: 161px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/images/ex4.png" style="width: 121px; height: 161px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [1,2,3]
@@ -50,7 +50,7 @@
 
 <p><strong>Example 4:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/12/abc.png" style="width: 241px; height: 161px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/images/abc.png" style="width: 241px; height: 161px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [3,1,2,5,4,6]

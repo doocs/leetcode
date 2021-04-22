@@ -26,7 +26,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/1626_example_1.png" style="height: 428px; width: 500px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1266.Minimum Time Visiting All Points/images/1626_example_1.png" style="height: 428px; width: 500px;" /></p>
 
 <pre>
 <strong>输入：</strong>points = [[1,1],[3,4],[-1,0]]

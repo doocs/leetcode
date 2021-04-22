@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/untitled-diagram-6.jpg" style="height: 203px; width: 202px;"></p>
+<p><img alt="" src="/solution/1200-1299/1267.Count Servers that Communicate/images/untitled-diagram-6.jpg" style="height: 203px; width: 202px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,0],[0,1]]
 <strong>输出：</strong>0
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/untitled-diagram-4-1.jpg" style="height: 203px; width: 203px;"></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1267.Count Servers that Communicate/images/untitled-diagram-4-1.jpg" style="height: 203px; width: 203px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[1,0],[1,1]]
 <strong>输出：</strong>3
@@ -33,7 +33,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/24/untitled-diagram-1-3.jpg" style="height: 443px; width: 443px;"></p>
+<p><img alt="" src="/solution/1200-1299/1267.Count Servers that Communicate/images/untitled-diagram-1-3.jpg" style="height: 443px; width: 443px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1]]
 <strong>输出：</strong>4

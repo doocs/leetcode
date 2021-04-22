@@ -10,7 +10,7 @@
 
 <p>例如，一块 6 x 6 大小的棋盘，编号如下：</p>
 
-<pre><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/01/31/snakes.png" style="height: 200px; width: 254px;">
+<pre><img alt="" src="/solution/0900-0999/0909.Snakes and Ladders/images/snakes.png" style="height: 200px; width: 254px;">
 </pre>
 
 <p><code>r</code> 行 <code>c</code> 列的棋盘，按前述方法编号，棋盘格中可能存在 &ldquo;蛇&rdquo; 或 &ldquo;梯子&rdquo;；如果 <code>board[r][c] != -1</code>，那个蛇或梯子的目的地将会是 <code>board[r][c]</code>。</p>

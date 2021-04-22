@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/16/q3v1.jpg" style="height: 195px; width: 562px;"></p>
+<p><img alt="" src="/solution/1500-1599/1552.Magnetic Force Between Two Balls/images/q3v1.jpg" style="height: 195px; width: 562px;"></p>
 
 <pre><strong>输入：</strong>position = [1,2,3,4,7], m = 3
 <strong>输出：</strong>3

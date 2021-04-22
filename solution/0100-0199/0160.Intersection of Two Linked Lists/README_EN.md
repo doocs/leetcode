@@ -7,14 +7,14 @@
 <p>Given the heads of two singly linked-lists <code>headA</code> and <code>headB</code>, return <em>the node at which the two lists intersect</em>. If the two linked lists have no intersection at all, return <code>null</code>.</p>
 
 <p>For example, the following two linked lists begin to intersect at node <code>c1</code>:</p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_statement.png" style="width: 500px; height: 162px;" />
+<img alt="" src="/solution/0100-0199/0160.Intersection of Two Linked Lists/images/160_statement.png" style="width: 500px; height: 162px;" />
 <p>It is <strong>guaranteed</strong> that there are no cycles anywhere in the entire linked structure.</p>
 
 <p><strong>Note</strong> that the linked lists must <strong>retain their original structure</strong> after the function returns.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_1_1.png" style="width: 742px; height: 241px;" />
+<img alt="" src="/solution/0100-0199/0160.Intersection of Two Linked Lists/images/160_example_1_1.png" style="width: 742px; height: 241px;" />
 <pre>
 <strong>Input:</strong> intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
 <strong>Output:</strong> Intersected at &#39;8&#39;
@@ -23,7 +23,7 @@ From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_2.png" style="width: 622px; height: 241px;" />
+<img alt="" src="/solution/0100-0199/0160.Intersection of Two Linked Lists/images/160_example_2.png" style="width: 622px; height: 241px;" />
 <pre>
 <strong>Input:</strong> intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
 <strong>Output:</strong> Intersected at &#39;2&#39;
@@ -32,7 +32,7 @@ From the head of A, it reads as [1,9,1,2,4]. From the head of B, it reads as [3,
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/05/160_example_3.png" style="width: 382px; height: 241px;" />
+<img alt="" src="/solution/0100-0199/0160.Intersection of Two Linked Lists/images/160_example_3.png" style="width: 382px; height: 241px;" />
 <pre>
 <strong>Input:</strong> intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
 <strong>Output:</strong> No intersection

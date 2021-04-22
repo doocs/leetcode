@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg" style="width: 662px; height: 302px;" />
+<img alt="" src="/solution/0000-0099/0021.Merge Two Sorted Lists/images/merge_ex1.jpg" style="width: 662px; height: 302px;" />
 <pre>
 <strong>Input:</strong> l1 = [1,2,4], l2 = [1,3,4]
 <strong>Output:</strong> [1,1,2,3,4,4]

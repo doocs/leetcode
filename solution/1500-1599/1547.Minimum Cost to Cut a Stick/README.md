@@ -8,7 +8,7 @@
 
 <p>有一根长度为 <code>n</code> 个单位的木棍，棍上从 <code>0</code> 到 <code>n</code> 标记了若干位置。例如，长度为 <strong>6</strong> 的棍子可以标记如下：</p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/09/statement.jpg" style="height: 111px; width: 521px;" /></p>
+<p><img alt="" src="/solution/1500-1599/1547.Minimum Cost to Cut a Stick/images/statement.jpg" style="height: 111px; width: 521px;" /></p>
 
 <p>给你一个整数数组 <code>cuts</code> ，其中 <code>cuts[i]</code> 表示你需要将棍子切开的位置。</p>
 
@@ -22,13 +22,13 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/09/e1.jpg" style="height: 284px; width: 350px;" /></p>
+<p><img alt="" src="/solution/1500-1599/1547.Minimum Cost to Cut a Stick/images/e1.jpg" style="height: 284px; width: 350px;" /></p>
 
 <pre>
 <strong>输入：</strong>n = 7, cuts = [1,3,4,5]
 <strong>输出：</strong>16
 <strong>解释：</strong>按 [1, 3, 4, 5] 的顺序切割的情况如下所示：
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/08/09/e11.jpg" style="height: 284px; width: 350px;" />
+<img alt="" src="/solution/1500-1599/1547.Minimum Cost to Cut a Stick/images/e11.jpg" style="height: 284px; width: 350px;" />
 第一次切割长度为 7 的棍子，成本为 7 。第二次切割长度为 6 的棍子（即第一次切割得到的第二根棍子），第三次切割为长度 4 的棍子，最后切割长度为 3 的棍子。总成本为 7 + 6 + 4 + 3 = 20 。
 而将切割顺序重新排列为 [3, 5, 1, 4] 后，总成本 = 16（如示例图中 7 + 4 + 3 + 2 = 16）。
 </pre>

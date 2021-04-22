@@ -4,7 +4,7 @@
 
 ## Description
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/10/sample_2_1887.png" style="width: 573px; height: 294px;" /></p>
+<p><img alt="" src="/solution/1500-1599/1558.Minimum Numbers of Function Calls to Make Target Array/images/sample_2_1887.png" style="width: 573px; height: 294px;" /></p>
 
 <p>Your task is to form&nbsp;an integer array <code>nums</code> from an initial array of zeros&nbsp;<code>arr</code> that is the&nbsp;same size&nbsp;as <code>nums</code>.</p>
 

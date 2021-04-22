@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/12/26/ball.jpg" style="width: 500px; height: 385px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1700-1799/1706.Where Will the Ball Fall/images/ball.jpg" style="width: 500px; height: 385px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>grid = [[1,1,1,-1,-1],[1,1,1,-1,-1],[-1,-1,-1,1,1],[1,1,1,1,-1],[-1,-1,-1,-1,-1]]

@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" />
+<img alt="" src="/solution/1600-1699/1676.Lowest Common Ancestor of a Binary Tree IV/images/binarytree.png" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], nodes = [4,7]
 <strong>Output:</strong> 2
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" />
+<img alt="" src="/solution/1600-1699/1676.Lowest Common Ancestor of a Binary Tree IV/images/binarytree.png" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], nodes = [1]
 <strong>Output:</strong> 1
@@ -27,7 +27,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" />
+<img alt="" src="/solution/1600-1699/1676.Lowest Common Ancestor of a Binary Tree IV/images/binarytree.png" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], nodes = [7,6,2,4]
 <strong>Output:</strong> 5
@@ -35,7 +35,7 @@
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" />
+<img alt="" src="/solution/1600-1699/1676.Lowest Common Ancestor of a Binary Tree IV/images/binarytree.png" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], nodes = [0,1,2,3,4,5,6,7,8]
 <strong>Output:</strong> 3

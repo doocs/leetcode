@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/20/frog_2.png" style="width: 350px; height: 236px;" /></p>
+<p><img alt="" src="/solution/1300-1399/1377.Frog Position After T Seconds/images/frog_2.png" style="width: 350px; height: 236px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 7, edges = [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], t = 2, target = 4
@@ -23,7 +23,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/02/20/frog_3.png" style="width: 350px; height: 236px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1300-1399/1377.Frog Position After T Seconds/images/frog_3.png" style="width: 350px; height: 236px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 7, edges = [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], t = 1, target = 7

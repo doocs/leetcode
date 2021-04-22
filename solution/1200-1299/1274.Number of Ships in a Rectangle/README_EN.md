@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 <p><strong>Example :</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/07/26/1445_example_1.PNG" style="width: 400px; height: 404px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1274.Number of Ships in a Rectangle/images/1445_example_1.PNG" style="width: 400px; height: 404px;" /></p>
 
 <pre>
 <strong>Input:</strong> 

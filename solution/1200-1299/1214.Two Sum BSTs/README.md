@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/21/1368_1_a2.png" style="height: 140px; width: 150px;"><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/21/1368_1_b.png" style="height: 136px; width: 150px;"></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1214.Two Sum BSTs/images/1368_1_a2.png" style="height: 140px; width: 150px;"><img alt="" src="/solution/1200-1299/1214.Two Sum BSTs/images/1368_1_b.png" style="height: 136px; width: 150px;"></strong></p>
 
 <pre><strong>输入：</strong>root1 = [2,1,4], root2 = [1,0,3], target = 5
 <strong>输出：</strong>true
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/21/1368_2_a.png" style="height: 137px; width: 150px;"><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/21/1368_2_b.png" style="height: 168px; width: 150px;"></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1214.Two Sum BSTs/images/1368_2_a.png" style="height: 137px; width: 150px;"><img alt="" src="/solution/1200-1299/1214.Two Sum BSTs/images/1368_2_b.png" style="height: 168px; width: 150px;"></strong></p>
 
 <pre><strong>输入：</strong>root1 = [0,-10,10], root2 = [5,1,7,0,2], target = 18
 <strong>输出：</strong>false</pre>

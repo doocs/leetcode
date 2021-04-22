@@ -11,14 +11,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/spiral1.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="/solution/0000-0099/0054.Spiral Matrix/images/spiral1.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>输入：</strong>matrix = [[1,2,3],[4,5,6],[7,8,9]]
 <strong>输出：</strong>[1,2,3,6,9,8,7,4,5]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/spiral.jpg" style="width: 322px; height: 242px;" />
+<img alt="" src="/solution/0000-0099/0054.Spiral Matrix/images/spiral.jpg" style="width: 322px; height: 242px;" />
 <pre>
 <strong>输入：</strong>matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 <strong>输出：</strong>[1,2,3,4,8,12,11,10,9,5,6,7]

@@ -17,14 +17,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/06/balance_1.jpg" style="width: 342px; height: 221px;" />
+<img alt="" src="/solution/0100-0199/0110.Balanced Binary Tree/images/balance_1.jpg" style="width: 342px; height: 221px;" />
 <pre>
 <strong>输入：</strong>root = [3,9,20,null,null,15,7]
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/06/balance_2.jpg" style="width: 452px; height: 301px;" />
+<img alt="" src="/solution/0100-0199/0110.Balanced Binary Tree/images/balance_2.jpg" style="width: 452px; height: 301px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,2,3,3,null,null,4,4]
 <strong>输出：</strong>false

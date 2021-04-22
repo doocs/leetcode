@@ -4,7 +4,7 @@
 
 ## Description
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/07/09/change.png" style="width: 635px; height: 312px;" /></p>
+<p><img alt="" src="/solution/1500-1599/1521.Find a Value of a Mysterious Function Closest to Target/images/change.png" style="width: 635px; height: 312px;" /></p>
 
 <p>Winston was given the above mysterious function <code>func</code>. He has an integer array <code>arr</code> and an integer <code>target</code> and he wants to find the values <code>l</code> and <code>r</code> that make the value <code>|func(arr, l, r) - target|</code> minimum possible.</p>
 

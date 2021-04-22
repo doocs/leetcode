@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/ex1.png" style="width: 300px; height: 300px;" /></p>
+<p><img alt="" src="/solution/1600-1699/1631.Path With Minimum Effort/images/ex1.png" style="width: 300px; height: 300px;" /></p>
 
 <pre>
 <strong>Input:</strong> heights = [[1,2,2],[3,8,2],[5,3,5]]
@@ -24,7 +24,7 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/ex2.png" style="width: 300px; height: 300px;" /></p>
+<p><img alt="" src="/solution/1600-1699/1631.Path With Minimum Effort/images/ex2.png" style="width: 300px; height: 300px;" /></p>
 
 <pre>
 <strong>Input:</strong> heights = [[1,2,3],[3,8,4],[5,3,5]]
@@ -33,7 +33,7 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/ex3.png" style="width: 300px; height: 300px;" />
+<img alt="" src="/solution/1600-1699/1631.Path With Minimum Effort/images/ex3.png" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> heights = [[1,2,1,1,1],[1,2,1,2,1],[1,2,1,2,1],[1,2,1,2,1],[1,1,1,2,1]]
 <strong>Output:</strong> 0

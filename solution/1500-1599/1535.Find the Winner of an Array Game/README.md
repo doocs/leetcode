@@ -21,7 +21,7 @@
 <pre><strong>输入：</strong>arr = [2,1,3,5,4,6,7], k = 2
 <strong>输出：</strong>5
 <strong>解释：</strong>一起看一下本场游戏每回合的情况：
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/07/30/q-example.png" style="height: 90px; width: 400px;">
+<img alt="" src="/solution/1500-1599/1535.Find the Winner of an Array Game/images/q-example.png" style="height: 90px; width: 400px;">
 因此将进行 4 回合比赛，其中 5 是赢家，因为它连胜 2 回合。
 </pre>
 

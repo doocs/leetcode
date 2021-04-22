@@ -10,7 +10,7 @@
 
 <p>在本题里，字母板为<code>board = [&quot;abcde&quot;, &quot;fghij&quot;, &quot;klmno&quot;, &quot;pqrst&quot;, &quot;uvwxy&quot;, &quot;z&quot;]</code>，如下所示。</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/07/28/azboard.png" style="width: 300px;"></p>
+<p><img alt="" src="/solution/1100-1199/1138.Alphabet Board Path/images/azboard.png" style="width: 300px;"></p>
 
 <p>我们可以按下面的指令规则行动：</p>
 

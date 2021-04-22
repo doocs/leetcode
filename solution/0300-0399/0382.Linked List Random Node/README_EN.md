@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/16/getrand-linked-list.jpg" style="width: 302px; height: 62px;" />
+<img alt="" src="/solution/0300-0399/0382.Linked List Random Node/images/getrand-linked-list.jpg" style="width: 302px; height: 62px;" />
 <pre>
 <strong>Input</strong>
 [&quot;Solution&quot;, &quot;getRandom&quot;, &quot;getRandom&quot;, &quot;getRandom&quot;, &quot;getRandom&quot;, &quot;getRandom&quot;]

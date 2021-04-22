@@ -24,7 +24,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/28/shelves.png" style="width: 150px;"></p>
+<p><img alt="" src="/solution/1100-1199/1105.Filling Bookcase Shelves/images/shelves.png" style="width: 150px;"></p>
 
 <pre><strong>输入：</strong>books = [[1,1],[2,3],[2,3],[1,1],[1,1],[1,1],[1,2]], shelf_width = 4
 <strong>输出：</strong>6

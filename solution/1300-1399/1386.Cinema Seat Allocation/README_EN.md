@@ -4,7 +4,7 @@
 
 ## Description
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/14/cinema_seats_1.png" style="width: 400px; height: 149px;" /></p>
+<p><img alt="" src="/solution/1300-1399/1386.Cinema Seat Allocation/images/cinema_seats_1.png" style="width: 400px; height: 149px;" /></p>
 
 <p>A cinema&nbsp;has <code>n</code>&nbsp;rows of seats, numbered from 1 to <code>n</code>&nbsp;and there are ten&nbsp;seats in each row, labelled from 1&nbsp;to 10&nbsp;as shown in the figure above.</p>
 
@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/02/14/cinema_seats_3.png" style="width: 400px; height: 96px;" /></p>
+<p><img alt="" src="/solution/1300-1399/1386.Cinema Seat Allocation/images/cinema_seats_3.png" style="width: 400px; height: 96px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 3, reservedSeats = [[1,2],[1,3],[1,8],[2,6],[3,1],[3,10]]

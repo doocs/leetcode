@@ -22,7 +22,7 @@
 <p> </p>
 
 <p><strong>示例 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/24/fliptree.png" style="width: 400px; height: 298px;">
+<img alt="" src="/solution/1600-1699/1666.Change the Root of a Binary Tree/images/fliptree.png" style="width: 400px; height: 298px;">
 <pre><strong>输入:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], leaf = 7
 <strong>输出:</strong> [7,2,null,5,4,3,6,null,null,null,1,null,null,0,8]
 </pre>

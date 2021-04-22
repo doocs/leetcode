@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/12/16/candies-1.png" style="height: 248px; width: 600px;" /></p>
+<p><img alt="" src="/solution/1600-1699/1692.Count Ways to Distribute Candies/images/candies-1.png" style="height: 248px; width: 600px;" /></p>
 
 <pre>
 <strong>输入：</strong>n = 3, k = 2

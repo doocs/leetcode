@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/02/butree.jpg" style="width: 382px; height: 322px;" />
+<img alt="" src="/solution/0500-0599/0536.Construct Binary Tree from String/images/butree.jpg" style="width: 382px; height: 322px;" />
 <pre>
 <strong>Input:</strong> s = &quot;4(2(3)(1))(6(5))&quot;
 <strong>Output:</strong> [4,2,6,3,1,5]

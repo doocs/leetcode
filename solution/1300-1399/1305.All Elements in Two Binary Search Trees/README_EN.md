@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/12/18/q2-e1.png" style="width: 457px; height: 207px;" />
+<img alt="" src="/solution/1300-1399/1305.All Elements in Two Binary Search Trees/images/q2-e1.png" style="width: 457px; height: 207px;" />
 <pre>
 <strong>Input:</strong> root1 = [2,1,4], root2 = [1,0,3]
 <strong>Output:</strong> [0,1,1,2,3,4]
@@ -38,7 +38,7 @@
 </pre>
 
 <p><strong>Example 5:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/12/18/q2-e5-.png" style="width: 352px; height: 197px;" />
+<img alt="" src="/solution/1300-1399/1305.All Elements in Two Binary Search Trees/images/q2-e5-.png" style="width: 352px; height: 197px;" />
 <pre>
 <strong>Input:</strong> root1 = [1,null,8], root2 = [8,1]
 <strong>Output:</strong> [1,1,8,8]

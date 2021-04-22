@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/pathsum3-1-tree.jpg" style="width: 450px; height: 386px;" />
+<img alt="" src="/solution/0400-0499/0437.Path Sum III/images/pathsum3-1-tree.jpg" style="width: 450px; height: 386px;" />
 <pre>
 <strong>Input:</strong> root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
 <strong>Output:</strong> 3

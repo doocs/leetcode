@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/05/10/ways_to_cut_apple_1.png" style="height: 378px; width: 500px;"></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1444.Number of Ways of Cutting a Pizza/images/ways_to_cut_apple_1.png" style="height: 378px; width: 500px;"></strong></p>
 
 <pre><strong>输入：</strong>pizza = [&quot;A..&quot;,&quot;AAA&quot;,&quot;...&quot;], k = 3
 <strong>输出：</strong>3 

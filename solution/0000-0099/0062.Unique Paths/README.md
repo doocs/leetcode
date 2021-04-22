@@ -15,7 +15,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" />
+<img src="/solution/0000-0099/0062.Unique Paths/images/robot_maze.png" />
 <pre>
 <strong>输入：</strong>m = 3, n = 7
 <strong>输出：</strong>28</pre>

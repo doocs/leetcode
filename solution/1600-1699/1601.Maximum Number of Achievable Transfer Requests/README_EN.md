@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/10/move1.jpg" style="width: 600px; height: 406px;" />
+<img alt="" src="/solution/1600-1699/1601.Maximum Number of Achievable Transfer Requests/images/move1.jpg" style="width: 600px; height: 406px;" />
 <pre>
 <strong>Input:</strong> n = 5, requests = [[0,1],[1,0],[0,1],[1,2],[2,0],[3,4]]
 <strong>Output:</strong> 5
@@ -29,7 +29,7 @@ We can achieve the requests of users y, a and z by swapping the places in the 3 
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/10/move2.jpg" style="width: 450px; height: 327px;" />
+<img alt="" src="/solution/1600-1699/1601.Maximum Number of Achievable Transfer Requests/images/move2.jpg" style="width: 450px; height: 327px;" />
 <pre>
 <strong>Input:</strong> n = 3, requests = [[0,0],[1,2],[2,1]]
 <strong>Output:</strong> 3

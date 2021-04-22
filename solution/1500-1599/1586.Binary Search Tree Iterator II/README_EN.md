@@ -21,7 +21,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/09/14/untitled-diagram-1.png" style="width: 201px; height: 201px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1586.Binary Search Tree Iterator II/images/untitled-diagram-1.png" style="width: 201px; height: 201px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>

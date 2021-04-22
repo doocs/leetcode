@@ -13,7 +13,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/12/15/e1.png" style="height: 186px; width: 335px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1292.Maximum Side Length of a Square with Sum Less than or Equal to Threshold/images/e1.png" style="height: 186px; width: 335px;" /></p>
 
 <pre>
 <strong>输入：</strong>mat = [[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]], threshold = 4

@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/complete-binary-tree-1.png" style="height: 145px; width: 180px;"></p>
+<p><img alt="" src="/solution/0900-0999/0958.Check Completeness of a Binary Tree/images/complete-binary-tree-1.png" style="height: 145px; width: 180px;"></p>
 
 <pre><strong>输入：</strong>[1,2,3,4,5,6]
 <strong>输出：</strong>true
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/15/complete-binary-tree-2.png"></strong></p>
+<p><strong><img alt="" src="/solution/0900-0999/0958.Check Completeness of a Binary Tree/images/complete-binary-tree-2.png"></strong></p>
 
 <pre><strong>输入：</strong>[1,2,3,4,5,null,7]
 <strong>输出：</strong>false

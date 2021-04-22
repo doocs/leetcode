@@ -21,7 +21,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1-4.png" style="width: 250px; height: 161px;" />
+<img alt="" src="/solution/1500-1599/1597.Build Binary Expression Tree From Infix Expression/images/ex1-4.png" style="width: 250px; height: 161px;" />
 <pre>
 <strong>输入：</strong>s = "3*4-2*5"
 <strong>输出：</strong>[-,*,*,3,4,2,5]
@@ -29,15 +29,15 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1-2.png" style="width: 150px; height: 210px;" />
+<img alt="" src="/solution/1500-1599/1597.Build Binary Expression Tree From Infix Expression/images/ex1-2.png" style="width: 150px; height: 210px;" />
 <pre>
 <strong>输入：</strong>s = "2-3/(5*2)+1"
 <strong>输出：</strong>[+,-,1,2,/,null,null,null,null,3,*,null,null,5,2]
 <strong>解释：</strong>上面的树的中序遍历为 2-3/5*2+1 ，与 s 消除括号后相同。该树还会生成正确的结果，其操作数的顺序与 s 中出现的顺序相同。
 下面的树也是一个有效的二叉表达式树，具有与 s 相同的中序遍历，但它不是一个有效的答案，因为它的求值结果不同。
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1-1.png" style="width: 201px; height: 281px;" />
+<img alt="" src="/solution/1500-1599/1597.Build Binary Expression Tree From Infix Expression/images/ex1-1.png" style="width: 201px; height: 281px;" />
 下面的树也是无效的。尽管它的计算结果相等并与上述树等效，但其中序遍历不会产生 s ，并且其操作数与 s 中的顺序也不相同。
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1-3.png" style="width: 281px; height: 281px;" />
+<img alt="" src="/solution/1500-1599/1597.Build Binary Expression Tree From Infix Expression/images/ex1-3.png" style="width: 281px; height: 281px;" />
 </pre>
 
 <p><strong>示例 3：</strong></p>

@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/16/remleaves-tree.jpg" style="width: 500px; height: 215px;" />
+<img alt="" src="/solution/0300-0399/0366.Find Leaves of Binary Tree/images/remleaves-tree.jpg" style="width: 500px; height: 215px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5]
 <strong>Output:</strong> [[4,5,3],[2],[1]]

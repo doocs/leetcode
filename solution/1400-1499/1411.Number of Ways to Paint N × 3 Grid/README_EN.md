@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/03/26/e1.png" style="width: 400px; height: 257px;" />
+<img alt="" src="/solution/1400-1499/1411.Number of Ways to Paint N × 3 Grid/images/e1.png" style="width: 400px; height: 257px;" />
 <pre>
 <strong>Input:</strong> n = 1
 <strong>Output:</strong> 12

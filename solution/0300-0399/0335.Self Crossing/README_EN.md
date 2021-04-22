@@ -12,21 +12,21 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/selfcross1-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="/solution/0300-0399/0335.Self Crossing/images/selfcross1-plane.jpg" style="width: 400px; height: 435px;" />
 <pre>
 <strong>Input:</strong> distance = [2,1,1,2]
 <strong>Output:</strong> true
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/selfcross2-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="/solution/0300-0399/0335.Self Crossing/images/selfcross2-plane.jpg" style="width: 400px; height: 435px;" />
 <pre>
 <strong>Input:</strong> distance = [1,2,3,4]
 <strong>Output:</strong> false
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/selfcross3-plane.jpg" style="width: 400px; height: 435px;" />
+<img alt="" src="/solution/0300-0399/0335.Self Crossing/images/selfcross3-plane.jpg" style="width: 400px; height: 435px;" />
 <pre>
 <strong>Input:</strong> distance = [1,1,1,1]
 <strong>Output:</strong> true

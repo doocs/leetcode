@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" style="width: 200px; height: 190px;" />
+<img alt="" src="/solution/0200-0299/0235.Lowest Common Ancestor of a Binary Search Tree/images/binarysearchtree_improved.png" style="width: 200px; height: 190px;" />
 <pre>
 <strong>Input:</strong> root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
 <strong>Output:</strong> 6
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarysearchtree_improved.png" style="width: 200px; height: 190px;" />
+<img alt="" src="/solution/0200-0299/0235.Lowest Common Ancestor of a Binary Search Tree/images/binarysearchtree_improved.png" style="width: 200px; height: 190px;" />
 <pre>
 <strong>Input:</strong> root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
 <strong>Output:</strong> 2

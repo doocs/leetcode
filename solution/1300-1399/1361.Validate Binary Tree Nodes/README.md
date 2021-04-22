@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/23/1503_ex1.png" style="height: 287px; width: 195px;"></strong></p>
+<p><strong><img alt="" src="/solution/1300-1399/1361.Validate Binary Tree Nodes/images/1503_ex1.png" style="height: 287px; width: 195px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, leftChild = [1,-1,3,-1], rightChild = [2,-1,-1,-1]
 <strong>输出：</strong>true
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/23/1503_ex2.png" style="height: 272px; width: 183px;"></strong></p>
+<p><strong><img alt="" src="/solution/1300-1399/1361.Validate Binary Tree Nodes/images/1503_ex2.png" style="height: 272px; width: 183px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, leftChild = [1,-1,3,-1], rightChild = [2,3,-1,-1]
 <strong>输出：</strong>false
@@ -34,7 +34,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/23/1503_ex3.png" style="height: 174px; width: 82px;"></strong></p>
+<p><strong><img alt="" src="/solution/1300-1399/1361.Validate Binary Tree Nodes/images/1503_ex3.png" style="height: 174px; width: 82px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 2, leftChild = [1,0], rightChild = [-1,-1]
 <strong>输出：</strong>false
@@ -42,7 +42,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/23/1503_ex4.png" style="height: 191px; width: 470px;"></strong></p>
+<p><strong><img alt="" src="/solution/1300-1399/1361.Validate Binary Tree Nodes/images/1503_ex4.png" style="height: 191px; width: 470px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 6, leftChild = [1,-1,-1,4,-1,-1], rightChild = [2,-1,-1,5,-1,-1]
 <strong>输出：</strong>false

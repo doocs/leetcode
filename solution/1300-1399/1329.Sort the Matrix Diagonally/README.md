@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/25/1482_example_1_2.png" style="height: 198px; width: 500px;" /></p>
+<p><img alt="" src="/solution/1300-1399/1329.Sort the Matrix Diagonally/images/1482_example_1_2.png" style="height: 198px; width: 500px;" /></p>
 
 <pre>
 <strong>输入：</strong>mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]

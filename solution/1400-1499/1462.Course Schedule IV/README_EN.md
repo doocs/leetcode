@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/04/17/graph.png" style="width: 300px; height: 300px;" />
+<img alt="" src="/solution/1400-1499/1462.Course Schedule IV/images/graph.png" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> n = 2, prerequisites = [[1,0]], queries = [[0,1],[1,0]]
 <strong>Output:</strong> [false,true]
@@ -34,7 +34,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/04/17/graph-1.png" style="width: 300px; height: 300px;" />
+<img alt="" src="/solution/1400-1499/1462.Course Schedule IV/images/graph-1.png" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> n = 3, prerequisites = [[1,2],[1,0],[2,0]], queries = [[1,0],[1,2]]
 <strong>Output:</strong> [true,true]

@@ -28,7 +28,7 @@
 <strong>输出:</strong> 2
 
 <strong>解释:</strong> 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/brick_wall.png" style="width: 100%;">
+<img src="/solution/0500-0599/0554.Brick Wall/images/brick_wall.png" style="width: 100%;">
 </pre>
 
 <p>&nbsp;</p>

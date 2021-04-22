@@ -19,22 +19,22 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/11.png" style="width: 400px; height: 242px;" />
+<img alt="" src="/solution/1500-1599/1564.Put Boxes Into the Warehouse I/images/11.png" style="width: 400px; height: 242px;" />
 <pre>
 <strong>Input:</strong> boxes = [4,3,4,1], warehouse = [5,3,3,4,1]
 <strong>Output:</strong> 3
 <strong>Explanation:&nbsp;
-</strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/12.png" style="width: 280px; height: 242px;" />
+</strong><img alt="" src="/solution/1500-1599/1564.Put Boxes Into the Warehouse I/images/12.png" style="width: 280px; height: 242px;" />
 We can first put the box of height 1 in room 4. Then we can put the box of height 3 in either of the 3 rooms 1, 2, or 3. Lastly, we can put one box of height 4 in room 0.
 There is no way we can fit all 4 boxes in the warehouse.</pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/21.png" style="width: 400px; height: 202px;" />
+<img alt="" src="/solution/1500-1599/1564.Put Boxes Into the Warehouse I/images/21.png" style="width: 400px; height: 202px;" />
 <pre>
 <strong>Input:</strong> boxes = [1,2,2,3,4], warehouse = [3,4,1,2]
 <strong>Output:</strong> 3
 <strong>Explanation: 
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/26/22.png" style="width: 280px; height: 202px;" />
+<img alt="" src="/solution/1500-1599/1564.Put Boxes Into the Warehouse I/images/22.png" style="width: 280px; height: 202px;" />
 </strong>Notice that it&#39;s not possible to put the box of height 4 into the warehouse since it cannot pass the first room of height 3.
 Also, for the last two rooms, 2 and 3, only boxes of height 1 can fit.
 We can fit 3 boxes maximum as shown above. The yellow box can also be put in room 2 instead.

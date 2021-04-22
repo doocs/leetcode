@@ -31,7 +31,7 @@
 
 <strong>解析:</strong> 一条最短路径 : left -&gt; down -&gt; left -&gt; down -&gt; right -&gt; down -&gt; right。
              总距离为 1 + 1 + 3 + 1 + 2 + 2 + 2 = 12。
-<img src="https://assets.leetcode.com/uploads/2018/10/12/maze_1_example_1.png" style="width: 100%;">
+<img src="/solution/0500-0599/0505.The Maze II/images/maze_1_example_1.png" style="width: 100%;">
 </pre>
 
 <p><strong>示例&nbsp;2:</strong></p>
@@ -50,7 +50,7 @@
 <strong>输出:</strong> -1
 
 <strong>解析:</strong> 没有能够使球停在目的地的路径。
-<img src="https://assets.leetcode.com/uploads/2018/10/13/maze_1_example_2.png" style="width: 100%;">
+<img src="/solution/0500-0599/0505.The Maze II/images/maze_1_example_2.png" style="width: 100%;">
 </pre>
 
 <p>&nbsp;</p>

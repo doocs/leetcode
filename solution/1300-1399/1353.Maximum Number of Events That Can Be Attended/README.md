@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/02/16/e1.png" style="height: 400px; width: 600px;"></p>
+<p><img alt="" src="/solution/1300-1399/1353.Maximum Number of Events That Can Be Attended/images/e1.png" style="height: 400px; width: 600px;"></p>
 
 <pre><strong>输入：</strong>events = [[1,2],[2,3],[3,4]]
 <strong>输出：</strong>3

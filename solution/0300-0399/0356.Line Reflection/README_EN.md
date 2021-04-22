@@ -13,7 +13,7 @@ Could you do better than O(<i>n</i><sup>2</sup>) ?</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/04/23/356_example_1.PNG" style="width: 389px; height: 340px;" />
+<img alt="" src="/solution/0300-0399/0356.Line Reflection/images/356_example_1.PNG" style="width: 389px; height: 340px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[-1,1]]
 <strong>Output:</strong> true
@@ -21,7 +21,7 @@ Could you do better than O(<i>n</i><sup>2</sup>) ?</p>
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/04/23/356_example_2.PNG" style="width: 300px; height: 294px;" />
+<img alt="" src="/solution/0300-0399/0356.Line Reflection/images/356_example_2.PNG" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> points = [[1,1],[-1,-1]]
 <strong>Output:</strong> false

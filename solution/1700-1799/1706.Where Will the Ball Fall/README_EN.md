@@ -20,7 +20,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/09/26/ball.jpg" style="width: 500px; height: 385px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1700-1799/1706.Where Will the Ball Fall/images/ball.jpg" style="width: 500px; height: 385px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,1,1,-1,-1],[1,1,1,-1,-1],[-1,-1,-1,1,1],[1,1,1,1,-1],[-1,-1,-1,-1,-1]]

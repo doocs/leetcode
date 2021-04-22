@@ -24,7 +24,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/11/06/sample_1_1620.png" style="width: 520px; height: 386px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1200-1299/1263.Minimum Moves to Move a Box to Their Target Location/images/sample_1_1620.png" style="width: 520px; height: 386px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;,&quot;#&quot;],

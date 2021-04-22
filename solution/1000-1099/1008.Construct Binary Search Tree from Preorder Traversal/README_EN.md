@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/03/06/1266.png" style="height: 386px; width: 590px;" />
+<img alt="" src="/solution/1000-1099/1008.Construct Binary Search Tree from Preorder Traversal/images/1266.png" style="height: 386px; width: 590px;" />
 <pre>
 <strong>Input:</strong> preorder = [8,5,1,7,10,12]
 <strong>Output:</strong> [8,5,10,1,7,null,12]

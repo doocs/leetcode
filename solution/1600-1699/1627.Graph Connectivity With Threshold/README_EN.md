@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/09/ex1.jpg" style="width: 382px; height: 181px;" />
+<img alt="" src="/solution/1600-1699/1627.Graph Connectivity With Threshold/images/ex1.jpg" style="width: 382px; height: 181px;" />
 <pre>
 <strong>Input:</strong> n = 6, threshold = 2, queries = [[1,4],[2,5],[3,6]]
 <strong>Output:</strong> [false,false,true]
@@ -37,7 +37,7 @@ only ones directly connected. The result of each query:
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/10/tmp.jpg" style="width: 532px; height: 302px;" />
+<img alt="" src="/solution/1600-1699/1627.Graph Connectivity With Threshold/images/tmp.jpg" style="width: 532px; height: 302px;" />
 <pre>
 <strong>Input:</strong> n = 6, threshold = 0, queries = [[4,5],[3,4],[3,2],[2,6],[1,3]]
 <strong>Output:</strong> [true,true,true,true,true]
@@ -46,7 +46,7 @@ all divisors can be used. Since all numbers share 1 as a divisor, all cities are
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/17/ex3.jpg" style="width: 282px; height: 282px;" />
+<img alt="" src="/solution/1600-1699/1627.Graph Connectivity With Threshold/images/ex3.jpg" style="width: 282px; height: 282px;" />
 <pre>
 <strong>Input:</strong> n = 5, threshold = 1, queries = [[4,5],[4,5],[3,2],[2,3],[3,4]]
 <strong>Output:</strong> [false,false,false,false,false]

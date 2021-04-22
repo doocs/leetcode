@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/10/25/sample_11_1592.png" style="height: 106px; width: 154px;"></p>
+<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_11_1592.png" style="height: 106px; width: 154px;"></p>
 
 <pre><strong>输入：</strong>n = 2, m = 3
 <strong>输出：</strong>3
@@ -28,7 +28,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/10/25/sample_22_1592.png" style="height: 126px; width: 224px;"></p>
+<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_22_1592.png" style="height: 126px; width: 224px;"></p>
 
 <pre><strong>输入：</strong>n = 5, m = 8
 <strong>输出：</strong>5
@@ -36,7 +36,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/10/25/sample_33_1592.png" style="height: 189px; width: 224px;"></p>
+<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_33_1592.png" style="height: 189px; width: 224px;"></p>
 
 <pre><strong>输入：</strong>n = 11, m = 13
 <strong>输出：</strong>6

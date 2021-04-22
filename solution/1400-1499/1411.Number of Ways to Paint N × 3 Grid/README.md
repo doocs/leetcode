@@ -19,7 +19,7 @@
 <pre><strong>输入：</strong>n = 1
 <strong>输出：</strong>12
 <strong>解释：</strong>总共有 12 种可行的方法：
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/12/e1.png" style="height: 289px; width: 450px;">
+<img alt="" src="/solution/1400-1499/1411.Number of Ways to Paint N × 3 Grid/images/e1.png" style="height: 289px; width: 450px;">
 </pre>
 
 <p><strong>示例 2：</strong></p>

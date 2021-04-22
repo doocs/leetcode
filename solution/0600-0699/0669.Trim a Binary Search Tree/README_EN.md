@@ -10,14 +10,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/trim1.jpg" style="width: 450px; height: 126px;" />
+<img alt="" src="/solution/0600-0699/0669.Trim a Binary Search Tree/images/trim1.jpg" style="width: 450px; height: 126px;" />
 <pre>
 <strong>Input:</strong> root = [1,0,2], low = 1, high = 2
 <strong>Output:</strong> [1,null,2]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/09/trim2.jpg" style="width: 450px; height: 277px;" />
+<img alt="" src="/solution/0600-0699/0669.Trim a Binary Search Tree/images/trim2.jpg" style="width: 450px; height: 277px;" />
 <pre>
 <strong>Input:</strong> root = [3,0,4,null,2,null,null,1], low = 1, high = 3
 <strong>Output:</strong> [3,2,null,1]

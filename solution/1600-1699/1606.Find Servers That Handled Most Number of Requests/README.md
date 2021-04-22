@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/10/03/load-1.png" style="height: 221px; width: 389px;" /></p>
+<p><img alt="" src="/solution/1600-1699/1606.Find Servers That Handled Most Number of Requests/images/load-1.png" style="height: 221px; width: 389px;" /></p>
 
 <pre>
 <strong>输入：</strong>k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 

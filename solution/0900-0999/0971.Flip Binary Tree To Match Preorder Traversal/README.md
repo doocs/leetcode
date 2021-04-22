@@ -11,7 +11,7 @@
 <p>另给你一个由 <code>n</code> 个值组成的行程序列 <code>voyage</code> ，表示 <strong>预期</strong> 的二叉树 <a href="https://baike.baidu.com/item/%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86/6442839?fr=aladdin" target="_blank"><strong>先序遍历</strong></a> 结果。</p>
 
 <p>通过交换节点的左右子树，可以 <strong>翻转</strong> 该二叉树中的任意节点。例，翻转节点 1 的效果如下：</p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/15/fliptree.jpg" style="width: 400px; height: 187px;" />
+<img alt="" src="/solution/0900-0999/0971.Flip Binary Tree To Match Preorder Traversal/images/fliptree.jpg" style="width: 400px; height: 187px;" />
 <p>请翻转 <strong>最少 </strong>的树中节点，使二叉树的 <strong>先序遍历</strong> 与预期的遍历行程 <code>voyage</code> <strong>相匹配</strong> 。 </p>
 
 <p>如果可以，则返回 <strong>翻转的</strong> 所有节点的值的列表。你可以按任何顺序返回答案。如果不能，则返回列表 <code>[-1]</code>。</p>
@@ -19,7 +19,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/02/1219-01.png" style="width: 150px; height: 205px;" />
+<img alt="" src="/solution/0900-0999/0971.Flip Binary Tree To Match Preorder Traversal/images/1219-01.png" style="width: 150px; height: 205px;" />
 <pre>
 <strong>输入：</strong>root = [1,2], voyage = [2,1]
 <strong>输出：</strong>[-1]
@@ -27,14 +27,14 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/02/1219-02.png" style="width: 150px; height: 142px;" />
+<img alt="" src="/solution/0900-0999/0971.Flip Binary Tree To Match Preorder Traversal/images/1219-02.png" style="width: 150px; height: 142px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,3], voyage = [1,3,2]
 <strong>输出：</strong>[1]
 <strong>解释：</strong>交换节点 2 和 3 来翻转节点 1 ，先序遍历可以匹配预期行程。</pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/02/1219-02.png" style="width: 150px; height: 142px;" />
+<img alt="" src="/solution/0900-0999/0971.Flip Binary Tree To Match Preorder Traversal/images/1219-02.png" style="width: 150px; height: 142px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,3], voyage = [1,2,3]
 <strong>输出：</strong>[]

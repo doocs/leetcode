@@ -10,7 +10,7 @@
 	<li>For example, the below binary watch reads <code>&quot;4:51&quot;</code>.</li>
 </ul>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2021/04/08/binarywatch.jpg" style="width: 500px; height: 500px;" /></p>
+<p><img alt="" src="/solution/0400-0499/0401.Binary Watch/images/binarywatch.jpg" style="width: 500px; height: 500px;" /></p>
 
 <p>Given an integer <code>turnedOn</code> which represents the number of LEDs that are currently on, return <em>all possible times the watch could represent</em>. You may return the answer in <strong>any order</strong>.</p>
 

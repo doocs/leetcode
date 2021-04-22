@@ -335,36 +335,30 @@ class LCSpider:
                         readme_en = f2.read()
 
                     res_cn = re.findall(r'src="(.*?)"', readme, re.S) or []
+                    for url in res_cn:
+                        file_name = os.path.basename(url)
+                        new_url = f'/solution/{item}/{f}/images/' + file_name
+                        readme = readme.replace(url, new_url)
+                    with open(f'./{item}/{f}/README.md', 'w', encoding='utf-8') as f1:
+                        f1.write(readme)
+
                     res_en = re.findall(r'src="(.*?)"', readme_en, re.S) or []
-                    res = res_cn + res_en
-                    file_set = set()
-                    if res:
-                        if not os.path.isdir(f'./{item}/{f}/images'):
-                            os.mkdir(f'./{item}/{f}/images')
-                        if os.listdir(f'./{item}/{f}/images'):
-                            continue
-                        for url in res:
-                            file_name = os.path.basename(url)
-                            if file_name in file_set:
-                                continue
-                            file_set.add(file_name)
-                            print(url)
-                            try:
-                                resp = requests.get(url, timeout=6)
-                                with open(f'./{item}/{f}/images/{file_name}', 'wb') as image:
-                                    image.write(resp.content)
-                            except Exception as e:
-                                print(e)
+                    for url in res_en:
+                        file_name = os.path.basename(url)
+                        new_url = f'/solution/{item}/{f}/images/' + file_name
+                        readme_en = readme_en.replace(url, new_url)
+                    with open(f'./{item}/{f}/README_EN.md', 'w', encoding='utf-8') as f1:
+                        f1.write(readme_en)
 
 
 if __name__ == '__main__':
     spider = LCSpider()
 
-    # spider.get_all_questions()
-    # spider.save_result()
-    #
-    # spider.generate_readme()
-    # spider.generate_question_readme()
-    # spider.generate_summary()
+    spider.get_all_questions()
+    spider.save_result()
+    
+    spider.generate_readme()
+    spider.generate_question_readme()
+    spider.generate_summary()
     # spider.replace_content()
-    spider.download_image()
+    # spider.download_image()

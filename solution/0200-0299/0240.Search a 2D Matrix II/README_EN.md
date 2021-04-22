@@ -13,14 +13,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/24/searchgrid2.jpg" style="width: 300px; height: 300px;" />
+<img alt="" src="/solution/0200-0299/0240.Search a 2D Matrix II/images/searchgrid2.jpg" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
 <strong>Output:</strong> true
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/24/searchgrid.jpg" style="width: 300px; height: 300px;" />
+<img alt="" src="/solution/0200-0299/0240.Search a 2D Matrix II/images/searchgrid.jpg" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20
 <strong>Output:</strong> false

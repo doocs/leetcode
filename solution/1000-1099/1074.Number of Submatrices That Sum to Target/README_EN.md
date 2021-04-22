@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/02/mate1.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="/solution/1000-1099/1074.Number of Submatrices That Sum to Target/images/mate1.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> matrix = [[0,1,0],[1,1,1],[0,1,0]], target = 0
 <strong>Output:</strong> 4

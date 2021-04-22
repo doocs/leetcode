@@ -16,22 +16,22 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/08/insufficient-1.png" style="height: 200px; width: 482px;">
+<pre><strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-1.png" style="height: 200px; width: 482px;">
 输入：</strong>root = [1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14], limit = 1
-<strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/08/insufficient-2.png" style="height: 200px; width: 258px;">
+<strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-2.png" style="height: 200px; width: 258px;">
 输出：</strong>[1,2,3,4,null,null,7,8,9,null,14]
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/08/insufficient-3.png" style="height: 200px; width: 292px;">
+<pre><strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-3.png" style="height: 200px; width: 292px;">
 输入：</strong>root = [5,4,8,11,null,17,4,7,1,null,null,5,3], limit = 22
-<strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/08/insufficient-4.png" style="height: 200px; width: 264px;">
+<strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-4.png" style="height: 200px; width: 264px;">
 输出：</strong>[5,4,8,11,null,17,4,7,null,null,null,5]</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/06/08/insufficient-5.png" style="height: 100px; width: 140px;">
+<pre><strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-5.png" style="height: 100px; width: 140px;">
 输入：</strong>root = [5,-6,-6], limit = 0<strong>
 输出：</strong>[]</pre>
 

@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/tree1.jpg" style="width: 302px; height: 421px;" />
+<img alt="" src="/solution/0600-0699/0654.Maximum Binary Tree/images/tree1.jpg" style="width: 302px; height: 421px;" />
 <pre>
 <strong>Input:</strong> nums = [3,2,1,6,0,5]
 <strong>Output:</strong> [6,3,5,null,2,0,null,null,1]
@@ -33,7 +33,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/tree2.jpg" style="width: 182px; height: 301px;" />
+<img alt="" src="/solution/0600-0699/0654.Maximum Binary Tree/images/tree2.jpg" style="width: 182px; height: 301px;" />
 <pre>
 <strong>Input:</strong> nums = [3,2,1]
 <strong>Output:</strong> [3,null,2,null,1]

@@ -19,14 +19,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/15/addrow-tree.jpg" style="width: 500px; height: 231px;" />
+<img alt="" src="/solution/0600-0699/0623.Add One Row to Tree/images/addrow-tree.jpg" style="width: 500px; height: 231px;" />
 <pre>
 <strong>Input:</strong> root = [4,2,6,3,1,5], val = 1, depth = 2
 <strong>Output:</strong> [4,1,1,2,null,null,6,3,1,5]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/11/add2-tree.jpg" style="width: 500px; height: 277px;" />
+<img alt="" src="/solution/0600-0699/0623.Add One Row to Tree/images/add2-tree.jpg" style="width: 500px; height: 277px;" />
 <pre>
 <strong>Input:</strong> root = [4,2,null,3,1], val = 1, depth = 3
 <strong>Output:</strong> [4,2,null,1,1,3,null,null,1]

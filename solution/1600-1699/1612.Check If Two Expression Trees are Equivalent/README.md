@@ -25,7 +25,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/tree1.png" style="width: 211px; height: 131px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1600-1699/1612.Check If Two Expression Trees are Equivalent/images/tree1.png" style="width: 211px; height: 131px;" /></strong></p>
 
 <pre>
 <b>输入：</b>root1 = [+,a,+,null,null,b,c], root2 = [+,+,a,b,c]
@@ -34,7 +34,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/10/04/tree2.png" style="width: 211px; height: 131px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1600-1699/1612.Check If Two Expression Trees are Equivalent/images/tree2.png" style="width: 211px; height: 131px;" /></strong></p>
 
 <pre>
 <b>输入：</b> root1 = [+,a,+,null,null,b,c], root2 = [+,+,a,b,d]

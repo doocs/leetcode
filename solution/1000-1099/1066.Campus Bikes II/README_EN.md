@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/03/06/1261_example_1_v2.png" style="width: 376px; height: 366px;" />
+<img alt="" src="/solution/1000-1099/1066.Campus Bikes II/images/1261_example_1_v2.png" style="width: 376px; height: 366px;" />
 <pre>
 <strong>Input:</strong> workers = [[0,0],[2,1]], bikes = [[1,2],[3,3]]
 <strong>Output:</strong> 6
@@ -23,7 +23,7 @@ We assign bike 0 to worker 0, bike 1 to worker 1. The Manhattan distance of both
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/03/06/1261_example_2_v2.png" style="width: 376px; height: 366px;" />
+<img alt="" src="/solution/1000-1099/1066.Campus Bikes II/images/1261_example_2_v2.png" style="width: 376px; height: 366px;" />
 <pre>
 <strong>Input:</strong> workers = [[0,0],[1,1],[2,0]], bikes = [[1,0],[2,2],[2,1]]
 <strong>Output:</strong> 4

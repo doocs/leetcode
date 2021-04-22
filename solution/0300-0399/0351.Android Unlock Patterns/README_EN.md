@@ -13,7 +13,7 @@
 
 <p>Here are some example valid and invalid unlock patterns:</p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/android-unlock.png" style="width: 418px; height: 128px;" /></p>
+<p><img src="/solution/0300-0399/0351.Android Unlock Patterns/images/android-unlock.png" style="width: 418px; height: 128px;" /></p>
 
 <ul>
 	<li>The 1st pattern <code>[4,1,3,6]</code> is invalid because the line connecting dots <code>1</code> and <code>3</code> pass through dot <code>2</code>, but dot <code>2</code> did not previously appear in the sequence.</li>

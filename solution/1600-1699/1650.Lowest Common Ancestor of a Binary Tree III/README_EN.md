@@ -21,7 +21,7 @@ class Node {
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" style="width: 200px; height: 190px;" />
+<img alt="" src="/solution/1600-1699/1650.Lowest Common Ancestor of a Binary Tree III/images/binarytree.png" style="width: 200px; height: 190px;" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
 <strong>Output:</strong> 3
@@ -29,7 +29,7 @@ class Node {
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2018/12/14/binarytree.png" style="width: 200px; height: 190px;" />
+<img alt="" src="/solution/1600-1699/1650.Lowest Common Ancestor of a Binary Tree III/images/binarytree.png" style="width: 200px; height: 190px;" />
 <pre>
 <strong>Input:</strong> root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
 <strong>Output:</strong> 5

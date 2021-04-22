@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/09/03/1537_ex1_2.png" style="width: 198px; height: 248px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1192.Critical Connections in a Network/images/1537_ex1_2.png" style="width: 198px; height: 248px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]

@@ -22,7 +22,7 @@ Given a <em>m</em> x <em>n</em> <code>grid</code>. Each cell of the <code>grid</
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/13/grid1.png" style="width: 542px; height: 528px;" />
+<img alt="" src="/solution/1300-1399/1368.Minimum Cost to Make at Least One Valid Path in a Grid/images/grid1.png" style="width: 542px; height: 528px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,1,1],[2,2,2,2],[1,1,1,1],[2,2,2,2]]
 <strong>Output:</strong> 3
@@ -32,7 +32,7 @@ The total cost = 3.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/13/grid2.png" style="width: 419px; height: 408px;" />
+<img alt="" src="/solution/1300-1399/1368.Minimum Cost to Make at Least One Valid Path in a Grid/images/grid2.png" style="width: 419px; height: 408px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,3],[3,2,2],[1,1,4]]
 <strong>Output:</strong> 0
@@ -40,7 +40,7 @@ The total cost = 3.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/02/13/grid3.png" style="width: 314px; height: 302px;" />
+<img alt="" src="/solution/1300-1399/1368.Minimum Cost to Make at Least One Valid Path in a Grid/images/grid3.png" style="width: 314px; height: 302px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,2],[4,3]]
 <strong>Output:</strong> 1

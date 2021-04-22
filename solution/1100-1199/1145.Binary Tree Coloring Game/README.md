@@ -34,7 +34,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/08/04/1480-binary-tree-coloring-game.png" style="height: 186px; width: 300px;"></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1145.Binary Tree Coloring Game/images/1480-binary-tree-coloring-game.png" style="height: 186px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,4,5,6,7,8,9,10,11], n = 11, x = 3
 <strong>输出：</strong>True

@@ -17,7 +17,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/11/08/jj.gif" style="width: 480px; height: 270px;" />
+<img alt="" src="/solution/1600-1699/1648.Sell Diminishing-Valued Colored Balls/images/jj.gif" style="width: 480px; height: 270px;" />
 <pre>
 <b>输入：</b>inventory = [2,5], orders = 4
 <b>输出：</b>14

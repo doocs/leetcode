@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img src="https://assets.leetcode.com/uploads/2018/10/22/rainwatertrap.png" style="width: 412px; height: 161px;" />
+<img src="/solution/0000-0099/0042.Trapping Rain Water/images/rainwatertrap.png" style="width: 412px; height: 161px;" />
 <pre>
 <strong>Input:</strong> height = [0,1,0,2,1,0,1,3,2,1,2,1]
 <strong>Output:</strong> 6

@@ -40,7 +40,7 @@ Click : [3,0]
  [&#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;]]
 
 <strong>解释:</strong>
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/minesweeper_example_1.png" style="width: 100%;">
+<img src="/solution/0500-0599/0529.Minesweeper/images/minesweeper_example_1.png" style="width: 100%;">
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -62,7 +62,7 @@ Click : [1,2]
  [&#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;]]
 
 <strong>解释:</strong>
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/minesweeper_example_2.png" style="width: 100%;">
+<img src="/solution/0500-0599/0529.Minesweeper/images/minesweeper_example_2.png" style="width: 100%;">
 </pre>
 
 <p>&nbsp;</p>

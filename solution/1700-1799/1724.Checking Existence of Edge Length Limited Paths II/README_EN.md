@@ -16,7 +16,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2021/01/05/messed.png" style="width: 300px; height: 298px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1700-1799/1724.Checking Existence of Edge Length Limited Paths II/images/messed.png" style="width: 300px; height: 298px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>

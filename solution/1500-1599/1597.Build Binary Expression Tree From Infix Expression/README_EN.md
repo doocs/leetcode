@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1-4.png" style="width: 250px; height: 161px;" />
+<img alt="" src="/solution/1500-1599/1597.Build Binary Expression Tree From Infix Expression/images/ex1-4.png" style="width: 250px; height: 161px;" />
 <pre>
 <strong>Input:</strong> s = &quot;3*4-2*5&quot;
 <strong>Output:</strong> [-,*,*,3,4,2,5]
@@ -26,15 +26,15 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1-2.png" style="width: 150px; height: 210px;" />
+<img alt="" src="/solution/1500-1599/1597.Build Binary Expression Tree From Infix Expression/images/ex1-2.png" style="width: 150px; height: 210px;" />
 <pre>
 <strong>Input:</strong> s = &quot;2-3/(5*2)+1&quot;
 <strong>Output:</strong> [+,-,1,2,/,null,null,null,null,3,*,null,null,5,2]
 <strong>Explanation:</strong> The inorder traversal of the tree above is 2-3/5*2+1 which is the same as s without the parenthesis. The tree also produces the correct result and its operands are in the same order as they appear in s.
 The tree below is also a valid binary expression tree with the same inorder traversal as s, but it not a valid answer because it does not evaluate to the same value.
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1-1.png" style="width: 201px; height: 281px;" />
+<img alt="" src="/solution/1500-1599/1597.Build Binary Expression Tree From Infix Expression/images/ex1-1.png" style="width: 201px; height: 281px;" />
 The third tree below is also not valid. Although it produces the same result and is equivalent to the above trees, its inorder traversal does not produce s and its operands are not in the same order as s.
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1-3.png" style="width: 281px; height: 281px;" />
+<img alt="" src="/solution/1500-1599/1597.Build Binary Expression Tree From Infix Expression/images/ex1-3.png" style="width: 281px; height: 281px;" />
 </pre>
 
 <p><strong>Example 3:</strong></p>

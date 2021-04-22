@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/13/exx1.jpg" style="width: 322px; height: 182px;" />
+<img alt="" src="/solution/0100-0199/0124.Binary Tree Maximum Path Sum/images/exx1.jpg" style="width: 322px; height: 182px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3]
 <strong>Output:</strong> 6
@@ -20,7 +20,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/13/exx2.jpg" />
+<img alt="" src="/solution/0100-0199/0124.Binary Tree Maximum Path Sum/images/exx2.jpg" />
 <pre>
 <strong>Input:</strong> root = [-10,9,20,null,null,15,7]
 <strong>Output:</strong> 42

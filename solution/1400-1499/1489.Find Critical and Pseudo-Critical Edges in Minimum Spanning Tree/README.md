@@ -16,20 +16,20 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/21/ex1.png" style="height: 262px; width: 259px;"></p>
+<p><img alt="" src="/solution/1400-1499/1489.Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree/images/ex1.png" style="height: 262px; width: 259px;"></p>
 
 <pre><strong>输入：</strong>n = 5, edges = [[0,1,1],[1,2,1],[2,3,2],[0,3,2],[0,4,3],[3,4,3],[1,4,6]]
 <strong>输出：</strong>[[0,1],[2,3,4,5]]
 <strong>解释：</strong>上图描述了给定图。
 下图是所有的最小生成树。
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/21/msts.png" style="height: 553px; width: 540px;">
+<img alt="" src="/solution/1400-1499/1489.Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree/images/msts.png" style="height: 553px; width: 540px;">
 注意到第 0 条边和第 1 条边出现在了所有最小生成树中，所以它们是关键边，我们将这两个下标作为输出的第一个列表。
 边 2，3，4 和 5 是所有 MST 的剩余边，所以它们是伪关键边。我们将它们作为输出的第二个列表。
 </pre>
 
 <p><strong>示例 2 ：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/06/21/ex2.png" style="height: 253px; width: 247px;"></p>
+<p><img alt="" src="/solution/1400-1499/1489.Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree/images/ex2.png" style="height: 253px; width: 247px;"></p>
 
 <pre><strong>输入：</strong>n = 4, edges = [[0,1,1],[1,2,1],[2,3,1],[0,3,1]]
 <strong>输出：</strong>[[],[0,1,2,3]]

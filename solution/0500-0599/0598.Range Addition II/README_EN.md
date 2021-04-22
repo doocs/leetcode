@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/02/ex1.jpg" style="width: 750px; height: 176px;" />
+<img alt="" src="/solution/0500-0599/0598.Range Addition II/images/ex1.jpg" style="width: 750px; height: 176px;" />
 <pre>
 <strong>Input:</strong> m = 3, n = 3, ops = [[2,2],[3,3]]
 <strong>Output:</strong> 4

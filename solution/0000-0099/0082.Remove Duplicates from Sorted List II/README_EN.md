@@ -8,14 +8,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist1.jpg" style="width: 500px; height: 142px;" />
+<img alt="" src="/solution/0000-0099/0082.Remove Duplicates from Sorted List II/images/linkedlist1.jpg" style="width: 500px; height: 142px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,3,3,4,4,5]
 <strong>Output:</strong> [1,2,5]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/01/04/linkedlist2.jpg" style="width: 500px; height: 205px;" />
+<img alt="" src="/solution/0000-0099/0082.Remove Duplicates from Sorted List II/images/linkedlist2.jpg" style="width: 500px; height: 205px;" />
 <pre>
 <strong>Input:</strong> head = [1,1,1,2,3]
 <strong>Output:</strong> [2,3]

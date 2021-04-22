@@ -23,7 +23,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/25/ic234-q2-ex11.png" style="width: 500px; height: 345px;" />
+<img alt="" src="/solution/1800-1899/1823.Find the Winner of the Circular Game/images/ic234-q2-ex11.png" style="width: 500px; height: 345px;" />
 <pre>
 <strong>输入：</strong>n = 5, k = 2
 <strong>输出：</strong>3

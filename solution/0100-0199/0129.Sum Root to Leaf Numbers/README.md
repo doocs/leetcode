@@ -22,7 +22,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/num1tree.jpg" style="width: 212px; height: 182px;" />
+<img alt="" src="/solution/0100-0199/0129.Sum Root to Leaf Numbers/images/num1tree.jpg" style="width: 212px; height: 182px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,3]
 <strong>输出：</strong>25
@@ -32,7 +32,7 @@
 因此，数字总和 = 12 + 13 = <code>25</code></pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/num2tree.jpg" style="width: 292px; height: 302px;" />
+<img alt="" src="/solution/0100-0199/0129.Sum Root to Leaf Numbers/images/num2tree.jpg" style="width: 292px; height: 302px;" />
 <pre>
 <strong>输入：</strong>root = [4,9,0,5,1]
 <strong>输出：</strong>1026

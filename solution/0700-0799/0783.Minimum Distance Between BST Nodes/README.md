@@ -15,14 +15,14 @@
 <div class="original__bRMd">
 <div>
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/05/bst1.jpg" style="width: 292px; height: 301px;" />
+<img alt="" src="/solution/0700-0799/0783.Minimum Distance Between BST Nodes/images/bst1.jpg" style="width: 292px; height: 301px;" />
 <pre>
 <strong>输入：</strong>root = [4,2,6,1,3]
 <strong>输出：</strong>1
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/05/bst2.jpg" style="width: 282px; height: 301px;" />
+<img alt="" src="/solution/0700-0799/0783.Minimum Distance Between BST Nodes/images/bst2.jpg" style="width: 282px; height: 301px;" />
 <pre>
 <strong>输入：</strong>root = [1,0,48,null,null,12,49]
 <strong>输出：</strong>1

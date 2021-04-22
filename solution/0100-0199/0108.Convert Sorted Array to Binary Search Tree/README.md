@@ -13,16 +13,16 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/btree1.jpg" style="width: 302px; height: 222px;" />
+<img alt="" src="/solution/0100-0199/0108.Convert Sorted Array to Binary Search Tree/images/btree1.jpg" style="width: 302px; height: 222px;" />
 <pre>
 <strong>输入：</strong>nums = [-10,-3,0,5,9]
 <strong>输出：</strong>[0,-3,9,-10,null,5]
 <strong>解释：</strong>[0,-10,5,null,-3,null,9] 也将被视为正确答案：
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/btree2.jpg" style="width: 302px; height: 222px;" />
+<img alt="" src="/solution/0100-0199/0108.Convert Sorted Array to Binary Search Tree/images/btree2.jpg" style="width: 302px; height: 222px;" />
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/18/btree.jpg" style="width: 342px; height: 142px;" />
+<img alt="" src="/solution/0100-0199/0108.Convert Sorted Array to Binary Search Tree/images/btree.jpg" style="width: 342px; height: 142px;" />
 <pre>
 <strong>输入：</strong>nums = [1,3]
 <strong>输出：</strong>[3,1]

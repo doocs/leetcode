@@ -10,7 +10,7 @@
 
 <p>在开始时，我们同时把一些多米诺骨牌向左或向右推。</p>
 
-<p><img alt="" src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/05/19/domino.png" style="height: 160px; width: 418px;"></p>
+<p><img alt="" src="/solution/0800-0899/0838.Push Dominoes/images/domino.png" style="height: 160px; width: 418px;"></p>
 
 <p>每过一秒，倒向左边的多米诺骨牌会推动其左侧相邻的多米诺骨牌。</p>
 

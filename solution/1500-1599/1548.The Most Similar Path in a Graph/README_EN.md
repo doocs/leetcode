@@ -12,13 +12,13 @@
 
 <p>The <strong>edit distance</strong> is defined as follows:</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/08/edit.jpg" style="width: 403px; height: 273px;" /></p>
+<p><img alt="" src="/solution/1500-1599/1548.The Most Similar Path in a Graph/images/edit.jpg" style="width: 403px; height: 273px;" /></p>
 
 <p><strong>Follow-up:</strong> If each node can be visited only once in the path, What should you change in your solution?</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/08/e1.jpg" style="width: 378px; height: 532px;" />
+<img alt="" src="/solution/1500-1599/1548.The Most Similar Path in a Graph/images/e1.jpg" style="width: 378px; height: 532px;" />
 <pre>
 <strong>Input:</strong> n = 5, roads = [[0,2],[0,3],[1,2],[1,3],[1,4],[2,4]], names = [&quot;ATL&quot;,&quot;PEK&quot;,&quot;LAX&quot;,&quot;DXB&quot;,&quot;HND&quot;], targetPath = [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;LAX&quot;]
 <strong>Output:</strong> [0,2,4,2]
@@ -29,7 +29,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/08/e2.jpg" style="width: 361px; height: 361px;" />
+<img alt="" src="/solution/1500-1599/1548.The Most Similar Path in a Graph/images/e2.jpg" style="width: 361px; height: 361px;" />
 <pre>
 <strong>Input:</strong> n = 4, roads = [[1,0],[2,0],[3,0],[2,1],[3,1],[3,2]], names = [&quot;ATL&quot;,&quot;PEK&quot;,&quot;LAX&quot;,&quot;DXB&quot;], targetPath = [&quot;ABC&quot;,&quot;DEF&quot;,&quot;GHI&quot;,&quot;JKL&quot;,&quot;MNO&quot;,&quot;PQR&quot;,&quot;STU&quot;,&quot;VWX&quot;]
 <strong>Output:</strong> [0,1,0,1,0,1,0,1]
@@ -38,7 +38,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/08/09/e3.jpg" style="width: 800px; height: 141px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1500-1599/1548.The Most Similar Path in a Graph/images/e3.jpg" style="width: 800px; height: 141px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 6, roads = [[0,1],[1,2],[2,3],[3,4],[4,5]], names = [&quot;ATL&quot;,&quot;PEK&quot;,&quot;LAX&quot;,&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;], targetPath = [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DXB&quot;,&quot;ATL&quot;,&quot;LAX&quot;,&quot;PEK&quot;]

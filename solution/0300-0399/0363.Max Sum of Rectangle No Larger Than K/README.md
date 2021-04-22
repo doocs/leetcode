@@ -13,7 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/18/sum-grid.jpg" style="width: 255px; height: 176px;" />
+<img alt="" src="/solution/0300-0399/0363.Max Sum of Rectangle No Larger Than K/images/sum-grid.jpg" style="width: 255px; height: 176px;" />
 <pre>
 <strong>输入：</strong>matrix = [[1,0,1],[0,-2,3]], k = 2
 <strong>输出：</strong>2

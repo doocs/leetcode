@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/04/05/diag1b.png" style="width: 550px; height: 239px;" />
+<img alt="" src="/solution/0600-0699/0636.Exclusive Time of Functions/images/diag1b.png" style="width: 550px; height: 239px;" />
 <pre>
 <strong>Input:</strong> n = 2, logs = [&quot;0:start:0&quot;,&quot;1:start:2&quot;,&quot;1:end:5&quot;,&quot;0:end:6&quot;]
 <strong>Output:</strong> [3,4]

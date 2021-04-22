@@ -15,7 +15,7 @@
 <div class="original__bRMd">
 <div>
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg" style="width: 600px; height: 268px;" />
+<img alt="" src="/solution/0000-0099/0052.N-Queens II/images/queens.jpg" style="width: 600px; height: 268px;" />
 <pre>
 <strong>输入：</strong>n = 4
 <strong>输出：</strong>2

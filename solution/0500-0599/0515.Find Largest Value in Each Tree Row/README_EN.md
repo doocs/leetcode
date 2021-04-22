@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/21/largest_e1.jpg" style="width: 450px; height: 258px;" />
+<img alt="" src="/solution/0500-0599/0515.Find Largest Value in Each Tree Row/images/largest_e1.jpg" style="width: 450px; height: 258px;" />
 <pre>
 <strong>Input:</strong> root = [1,3,2,5,3,null,9]
 <strong>Output:</strong> [1,3,9]

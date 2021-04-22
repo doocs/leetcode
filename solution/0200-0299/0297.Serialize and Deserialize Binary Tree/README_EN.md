@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/15/serdeser.jpg" style="width: 442px; height: 324px;" />
+<img alt="" src="/solution/0200-0299/0297.Serialize and Deserialize Binary Tree/images/serdeser.jpg" style="width: 442px; height: 324px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,null,null,4,5]
 <strong>Output:</strong> [1,2,3,null,null,4,5]

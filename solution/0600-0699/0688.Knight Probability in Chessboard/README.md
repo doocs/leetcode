@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/knight.png" style="height: 200px; width: 200px;"></p>
+<p><img src="/solution/0600-0699/0688.Knight Probability in Chessboard/images/knight.png" style="height: 200px; width: 200px;"></p>
 
 <p>&nbsp;</p>
 

@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/06/e1.png" style="height: 118px; width: 600px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1252.Cells with Odd Values in a Matrix/images/e1.png" style="height: 118px; width: 600px;" /></p>
 
 <pre>
 <strong>输入：</strong>m = 2, n = 3, indices = [[0,1],[1,1]]
@@ -35,7 +35,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/11/06/e2.png" style="height: 150px; width: 600px;" /></p>
+<p><img alt="" src="/solution/1200-1299/1252.Cells with Odd Values in a Matrix/images/e2.png" style="height: 150px; width: 600px;" /></p>
 
 <pre>
 <strong>输入：</strong>m = 2, n = 2, indices = [[1,1],[0,0]]

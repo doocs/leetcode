@@ -10,21 +10,21 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/20/ex1.jpg" style="width: 622px; height: 182px;" />
+<img alt="" src="/solution/0100-0199/0100.Same Tree/images/ex1.jpg" style="width: 622px; height: 182px;" />
 <pre>
 <strong>Input:</strong> p = [1,2,3], q = [1,2,3]
 <strong>Output:</strong> true
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/20/ex2.jpg" style="width: 382px; height: 182px;" />
+<img alt="" src="/solution/0100-0199/0100.Same Tree/images/ex2.jpg" style="width: 382px; height: 182px;" />
 <pre>
 <strong>Input:</strong> p = [1,2], q = [1,null,2]
 <strong>Output:</strong> false
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/20/ex3.jpg" style="width: 622px; height: 182px;" />
+<img alt="" src="/solution/0100-0199/0100.Same Tree/images/ex3.jpg" style="width: 622px; height: 182px;" />
 <pre>
 <strong>Input:</strong> p = [1,2,1], q = [1,1,2]
 <strong>Output:</strong> false

@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/27/rangeadd-grid.jpg" style="width: 413px; height: 573px;" />
+<img alt="" src="/solution/0300-0399/0370.Range Addition/images/rangeadd-grid.jpg" style="width: 413px; height: 573px;" />
 <pre>
 <strong>Input:</strong> length = 5, updates = [[1,3,2],[2,4,3],[0,2,-2]]
 <strong>Output:</strong> [-2,0,3,5,3]

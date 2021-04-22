@@ -14,14 +14,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/graph1.jpg" style="width: 222px; height: 142px;" />
+<img alt="" src="/solution/0500-0599/0547.Number of Provinces/images/graph1.jpg" style="width: 222px; height: 142px;" />
 <pre>
 <strong>Input:</strong> isConnected = [[1,1,0],[1,1,0],[0,0,1]]
 <strong>Output:</strong> 2
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/24/graph2.jpg" style="width: 222px; height: 142px;" />
+<img alt="" src="/solution/0500-0599/0547.Number of Provinces/images/graph2.jpg" style="width: 222px; height: 142px;" />
 <pre>
 <strong>Input:</strong> isConnected = [[1,0,0],[0,1,0],[0,0,1]]
 <strong>Output:</strong> 3

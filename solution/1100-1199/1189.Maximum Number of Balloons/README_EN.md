@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/09/05/1536_ex1_upd.JPG" style="width: 132px; height: 35px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1189.Maximum Number of Balloons/images/1536_ex1_upd.JPG" style="width: 132px; height: 35px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;nlaebolko&quot;
@@ -20,7 +20,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/09/05/1536_ex2_upd.JPG" style="width: 267px; height: 35px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1189.Maximum Number of Balloons/images/1536_ex2_upd.JPG" style="width: 267px; height: 35px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> text = &quot;loonbalxballpoon&quot;

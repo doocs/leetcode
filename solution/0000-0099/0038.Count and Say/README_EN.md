@@ -14,7 +14,7 @@
 <p>To determine how you &quot;say&quot; a digit string, split it into the <strong>minimal</strong> number of groups so that each group is a contiguous section all of the <strong>same character.</strong> Then for each group, say the number of characters, then say the character. To convert the saying into a digit string, replace the counts with a number and concatenate every saying.</p>
 
 <p>For example, the saying and conversion for digit string <code>&quot;3322251&quot;</code>:</p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/23/countandsay.jpg" style="width: 581px; height: 172px;" />
+<img alt="" src="/solution/0000-0099/0038.Count and Say/images/countandsay.jpg" style="width: 581px; height: 172px;" />
 <p>Given a positive integer <code>n</code>, return <em>the </em><code>n<sup>th</sup></code><em> term of the <strong>count-and-say</strong> sequence</em>.</p>
 
 <p>&nbsp;</p>

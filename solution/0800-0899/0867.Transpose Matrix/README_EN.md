@@ -8,7 +8,7 @@
 
 <p>The <strong>transpose</strong> of a matrix is the matrix flipped over its main diagonal, switching the matrix&#39;s row and column indices.</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2021/02/10/hint_transpose.png" style="width: 600px; height: 197px;" /></p>
+<p><img alt="" src="/solution/0800-0899/0867.Transpose Matrix/images/hint_transpose.png" style="width: 600px; height: 197px;" /></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

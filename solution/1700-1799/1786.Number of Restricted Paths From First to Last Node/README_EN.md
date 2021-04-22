@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/17/restricted_paths_ex1.png" style="width: 351px; height: 341px;" />
+<img alt="" src="/solution/1700-1799/1786.Number of Restricted Paths From First to Last Node/images/restricted_paths_ex1.png" style="width: 351px; height: 341px;" />
 <pre>
 <strong>Input:</strong> n = 5, edges = [[1,2,3],[1,3,3],[2,3,1],[1,4,2],[5,2,2],[3,5,1],[5,4,10]]
 <strong>Output:</strong> 3
@@ -25,7 +25,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/17/restricted_paths_ex22.png" style="width: 356px; height: 401px;" />
+<img alt="" src="/solution/1700-1799/1786.Number of Restricted Paths From First to Last Node/images/restricted_paths_ex22.png" style="width: 356px; height: 401px;" />
 <pre>
 <strong>Input:</strong> n = 7, edges = [[1,3,1],[4,1,2],[7,3,4],[2,5,3],[5,6,1],[6,7,2],[7,5,3],[2,6,4]]
 <strong>Output:</strong> 1

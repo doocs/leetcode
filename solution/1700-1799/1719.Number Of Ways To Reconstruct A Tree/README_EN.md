@@ -35,7 +35,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img src="https://assets.leetcode.com/uploads/2020/12/03/trees2.png" style="width: 208px; height: 221px;" />
+<img src="/solution/1700-1799/1719.Number Of Ways To Reconstruct A Tree/images/trees2.png" style="width: 208px; height: 221px;" />
 <pre>
 <strong>Input:</strong> pairs = [[1,2],[2,3]]
 <strong>Output:</strong> 1
@@ -43,7 +43,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/12/03/tree.png" style="width: 234px; height: 241px;" />
+<img alt="" src="/solution/1700-1799/1719.Number Of Ways To Reconstruct A Tree/images/tree.png" style="width: 234px; height: 241px;" />
 <pre>
 <strong>Input:</strong> pairs = [[1,2],[2,3],[1,3]]
 <strong>Output:</strong> 2

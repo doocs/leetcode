@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec1-1-tree.jpg" style="width: 322px; height: 421px;" />
+<img alt="" src="/solution/0200-0299/0298.Binary Tree Longest Consecutive Sequence/images/consec1-1-tree.jpg" style="width: 322px; height: 421px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,3,2,4,null,null,null,5]
 <strong>Output:</strong> 3
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/consec1-2-tree.jpg" style="width: 262px; height: 421px;" />
+<img alt="" src="/solution/0200-0299/0298.Binary Tree Longest Consecutive Sequence/images/consec1-2-tree.jpg" style="width: 262px; height: 421px;" />
 <pre>
 <strong>Input:</strong> root = [2,null,3,2,null,1]
 <strong>Output:</strong> 2

@@ -19,7 +19,7 @@
 <div class="original__bRMd">
 <div>
 <p><strong>示例 1：</strong></p>
-<img alt="Illustration of graph" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/03/17/picture1.png" style="height: 171px; width: 600px;" />
+<img alt="Illustration of graph" src="/solution/0800-0899/0802.Find Eventual Safe States/images/picture1.png" style="height: 171px; width: 600px;" />
 <pre>
 <strong>输入：</strong>graph = [[1,2],[2,3],[5],[0],[5],[],[]]
 <strong>输出：</strong>[2,4,5,6]

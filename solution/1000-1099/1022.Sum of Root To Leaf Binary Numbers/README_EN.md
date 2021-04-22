@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/04/04/sum-of-root-to-leaf-binary-numbers.png" style="width: 450px; height: 296px;" />
+<img alt="" src="/solution/1000-1099/1022.Sum of Root To Leaf Binary Numbers/images/sum-of-root-to-leaf-binary-numbers.png" style="width: 450px; height: 296px;" />
 <pre>
 <strong>Input:</strong> root = [1,0,1,0,1,0,1]
 <strong>Output:</strong> 22

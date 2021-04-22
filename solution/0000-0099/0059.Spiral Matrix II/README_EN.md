@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/13/spiraln.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="/solution/0000-0099/0059.Spiral Matrix II/images/spiraln.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> n = 3
 <strong>Output:</strong> [[1,2,3],[8,9,4],[7,6,5]]

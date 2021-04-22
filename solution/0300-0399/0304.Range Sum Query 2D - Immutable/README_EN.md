@@ -15,7 +15,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/14/sum-grid.jpg" style="width: 415px; height: 415px;" />
+<img alt="" src="/solution/0300-0399/0304.Range Sum Query 2D - Immutable/images/sum-grid.jpg" style="width: 415px; height: 415px;" />
 <pre>
 <strong>Input</strong>
 [&quot;NumMatrix&quot;, &quot;sumRegion&quot;, &quot;sumRegion&quot;, &quot;sumRegion&quot;]

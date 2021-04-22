@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/18/tree1.png" style="width: 150px; height: 142px;" />
+<img alt="" src="/solution/0900-0999/0979.Distribute Coins in Binary Tree/images/tree1.png" style="width: 150px; height: 142px;" />
 <pre>
 <strong>Input:</strong> root = [3,0,0]
 <strong>Output:</strong> 2
@@ -20,7 +20,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/18/tree2.png" style="width: 150px; height: 142px;" />
+<img alt="" src="/solution/0900-0999/0979.Distribute Coins in Binary Tree/images/tree2.png" style="width: 150px; height: 142px;" />
 <pre>
 <strong>Input:</strong> root = [0,3,0]
 <strong>Output:</strong> 3
@@ -28,14 +28,14 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/18/tree3.png" style="width: 150px; height: 142px;" />
+<img alt="" src="/solution/0900-0999/0979.Distribute Coins in Binary Tree/images/tree3.png" style="width: 150px; height: 142px;" />
 <pre>
 <strong>Input:</strong> root = [1,0,2]
 <strong>Output:</strong> 2
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/01/18/tree4.png" style="width: 155px; height: 156px;" />
+<img alt="" src="/solution/0900-0999/0979.Distribute Coins in Binary Tree/images/tree4.png" style="width: 155px; height: 156px;" />
 <pre>
 <strong>Input:</strong> root = [1,0,0,null,3]
 <strong>Output:</strong> 4

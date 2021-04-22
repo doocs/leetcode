@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/06/17/q4_1.jpg" style="width: 500px; height: 40px;" />
+<img alt="" src="/solution/1500-1599/1505.Minimum Possible Integer After at Most K Adjacent Swaps On Digits/images/q4_1.jpg" style="width: 500px; height: 40px;" />
 <pre>
 <strong>Input:</strong> num = &quot;4321&quot;, k = 4
 <strong>Output:</strong> &quot;1342&quot;

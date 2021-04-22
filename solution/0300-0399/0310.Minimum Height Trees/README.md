@@ -18,14 +18,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/01/e1.jpg" style="width: 800px; height: 213px;" />
+<img alt="" src="/solution/0300-0399/0310.Minimum Height Trees/images/e1.jpg" style="width: 800px; height: 213px;" />
 <pre>
 <strong>输入：</strong>n = 4, edges = [[1,0],[1,2],[1,3]]
 <strong>输出：</strong>[1]
 <strong>解释：</strong>如图所示，当根是标签为 1 的节点时，树的高度是 1 ，这是唯一的最小高度树。</pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/01/e2.jpg" style="width: 800px; height: 321px;" />
+<img alt="" src="/solution/0300-0399/0310.Minimum Height Trees/images/e2.jpg" style="width: 800px; height: 321px;" />
 <pre>
 <strong>输入：</strong>n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
 <strong>输出：</strong>[3,4]

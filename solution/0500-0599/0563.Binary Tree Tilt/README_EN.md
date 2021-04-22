@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/20/tilt1.jpg" style="width: 712px; height: 182px;" />
+<img alt="" src="/solution/0500-0599/0563.Binary Tree Tilt/images/tilt1.jpg" style="width: 712px; height: 182px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3]
 <strong>Output:</strong> 1
@@ -22,7 +22,7 @@ Sum of every tilt : 0 + 0 + 1 = 1
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/20/tilt2.jpg" style="width: 800px; height: 203px;" />
+<img alt="" src="/solution/0500-0599/0563.Binary Tree Tilt/images/tilt2.jpg" style="width: 800px; height: 203px;" />
 <pre>
 <strong>Input:</strong> root = [4,2,9,3,5,null,7]
 <strong>Output:</strong> 15
@@ -37,7 +37,7 @@ Sum of every tilt : 0 + 0 + 0 + 2 + 7 + 6 = 15
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/20/tilt3.jpg" style="width: 800px; height: 293px;" />
+<img alt="" src="/solution/0500-0599/0563.Binary Tree Tilt/images/tilt3.jpg" style="width: 800px; height: 293px;" />
 <pre>
 <strong>Input:</strong> root = [21,7,14,1,1,2,2,3,3]
 <strong>Output:</strong> 9

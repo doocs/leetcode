@@ -11,14 +11,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/26/max1grid.jpg" style="width: 400px; height: 319px;" />
+<img alt="" src="/solution/0200-0299/0221.Maximal Square/images/max1grid.jpg" style="width: 400px; height: 319px;" />
 <pre>
 <strong>输入：</strong>matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
 <strong>输出：</strong>4
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/26/max2grid.jpg" style="width: 165px; height: 165px;" />
+<img alt="" src="/solution/0200-0299/0221.Maximal Square/images/max2grid.jpg" style="width: 165px; height: 165px;" />
 <pre>
 <strong>输入：</strong>matrix = [["0","1"],["1","0"]]
 <strong>输出：</strong>1

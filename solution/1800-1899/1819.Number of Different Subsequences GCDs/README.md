@@ -25,7 +25,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/04/03/image-1.png" />
+<img alt="" src="/solution/1800-1899/1819.Number of Different Subsequences GCDs/images/image-1.png" />
 <pre>
 <strong>输入：</strong>nums = [6,10,3]
 <strong>输出：</strong>5

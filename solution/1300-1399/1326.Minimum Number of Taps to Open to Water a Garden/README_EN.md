@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/01/16/1685_example_1.png" style="width: 525px; height: 255px;" />
+<img alt="" src="/solution/1300-1399/1326.Minimum Number of Taps to Open to Water a Garden/images/1685_example_1.png" style="width: 525px; height: 255px;" />
 <pre>
 <strong>Input:</strong> n = 5, ranges = [3,4,1,1,0,0]
 <strong>Output:</strong> 1

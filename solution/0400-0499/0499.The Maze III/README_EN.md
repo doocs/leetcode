@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/31/maze3-1-grid.jpg" style="width: 573px; height: 573px;" />
+<img alt="" src="/solution/0400-0499/0499.The Maze III/images/maze3-1-grid.jpg" style="width: 573px; height: 573px;" />
 <pre>
 <strong>Input:</strong> maze = [[0,0,0,0,0],[1,1,0,0,1],[0,0,0,0,0],[0,1,0,0,1],[0,1,0,0,0]], ball = [4,3], hole = [0,1]
 <strong>Output:</strong> &quot;lul&quot;
@@ -27,7 +27,7 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/03/31/maze3-2-grid.jpg" style="width: 573px; height: 573px;" />
+<img alt="" src="/solution/0400-0499/0499.The Maze III/images/maze3-2-grid.jpg" style="width: 573px; height: 573px;" />
 <pre>
 <strong>Input:</strong> maze = [[0,0,0,0,0],[1,1,0,0,1],[0,0,0,0,0],[0,1,0,0,1],[0,1,0,0,0]], ball = [4,3], hole = [3,0]
 <strong>Output:</strong> &quot;impossible&quot;

@@ -27,7 +27,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e1.png" style="height: 138px; width: 680px;" /></p>
+<p><img alt="" src="/solution/0100-0199/0138.Copy List with Random Pointer/images/e1.png" style="height: 138px; width: 680px;" /></p>
 
 <pre>
 <strong>输入：</strong>head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
@@ -36,7 +36,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e2.png" style="height: 111px; width: 680px;" /></p>
+<p><img alt="" src="/solution/0100-0199/0138.Copy List with Random Pointer/images/e2.png" style="height: 111px; width: 680px;" /></p>
 
 <pre>
 <strong>输入：</strong>head = [[1,1],[2,1]]
@@ -45,7 +45,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/01/09/e3.png" style="height: 119px; width: 680px;" /></strong></p>
+<p><strong><img alt="" src="/solution/0100-0199/0138.Copy List with Random Pointer/images/e3.png" style="height: 119px; width: 680px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>head = [[3,null],[3,0],[3,null]]

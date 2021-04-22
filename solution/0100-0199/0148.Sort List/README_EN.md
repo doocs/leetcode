@@ -10,14 +10,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/14/sort_list_1.jpg" style="width: 450px; height: 194px;" />
+<img alt="" src="/solution/0100-0199/0148.Sort List/images/sort_list_1.jpg" style="width: 450px; height: 194px;" />
 <pre>
 <strong>Input:</strong> head = [4,2,1,3]
 <strong>Output:</strong> [1,2,3,4]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/14/sort_list_2.jpg" style="width: 550px; height: 184px;" />
+<img alt="" src="/solution/0100-0199/0148.Sort List/images/sort_list_2.jpg" style="width: 550px; height: 184px;" />
 <pre>
 <strong>Input:</strong> head = [-1,5,3,4,0]
 <strong>Output:</strong> [-1,0,3,4,5]

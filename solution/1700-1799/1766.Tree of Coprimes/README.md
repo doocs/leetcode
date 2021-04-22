@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/02/20/untitled-diagram.png" style="width: 191px; height: 281px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1700-1799/1766.Tree of Coprimes/images/untitled-diagram.png" style="width: 191px; height: 281px;" /></strong></p>
 
 <pre>
 <b>输入：</b>nums = [2,3,3,2], edges = [[0,1],[1,2],[1,3]]
@@ -34,7 +34,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/02/20/untitled-diagram1.png" style="width: 441px; height: 291px;" /></p>
+<p><img alt="" src="/solution/1700-1799/1766.Tree of Coprimes/images/untitled-diagram1.png" style="width: 441px; height: 291px;" /></p>
 
 <pre>
 <strong>输入：</strong>nums = [5,6,10,2,3,6,15], edges = [[0,1],[0,2],[1,3],[1,4],[2,5],[2,6]]

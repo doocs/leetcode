@@ -27,7 +27,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/25/untitled-diagram-5.jpg" style="height:81px; width:81px" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1428.Leftmost Column with at Least a One/images/untitled-diagram-5.jpg" style="height:81px; width:81px" /></strong></p>
 
 <pre>
 <strong>输入:</strong> mat = [[0,0],[1,1]]
@@ -36,7 +36,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/25/untitled-diagram-4.jpg" style="height:81px; width:81px" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1428.Leftmost Column with at Least a One/images/untitled-diagram-4.jpg" style="height:81px; width:81px" /></strong></p>
 
 <pre>
 <strong>输入:</strong> mat = [[0,0],[0,1]]
@@ -45,7 +45,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/25/untitled-diagram-3.jpg" style="height:81px; width:81px" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1428.Leftmost Column with at Least a One/images/untitled-diagram-3.jpg" style="height:81px; width:81px" /></strong></p>
 
 <pre>
 <strong>输入:</strong> mat = [[0,0],[0,0]]
@@ -53,7 +53,7 @@
 
 <p><strong>示例 4:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/10/25/untitled-diagram-6.jpg" style="height:121px; width:161px" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1428.Leftmost Column with at Least a One/images/untitled-diagram-6.jpg" style="height:121px; width:161px" /></strong></p>
 
 <pre>
 <strong>输入:</strong> mat = [[0,0,0,1],[0,0,1,1],[0,1,1,1]]

@@ -14,13 +14,13 @@
 	<li>The original right child&nbsp;becomes the new left child.</li>
 </ol>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/08/29/main.jpg" style="width: 100%; height: 100%;" /></p>
+<p><img alt="" src="/solution/0100-0199/0156.Binary Tree Upside Down/images/main.jpg" style="width: 100%; height: 100%;" /></p>
 
 <p>The mentioned steps are done level by level, it is <strong>guaranteed</strong> that every node in the given tree has either <strong>0 or 2 children</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/08/29/updown.jpg" style="width: 800px; height: 161px;" />
+<img alt="" src="/solution/0100-0199/0156.Binary Tree Upside Down/images/updown.jpg" style="width: 800px; height: 161px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5]
 <strong>Output:</strong> [4,5,2,null,null,3,1]

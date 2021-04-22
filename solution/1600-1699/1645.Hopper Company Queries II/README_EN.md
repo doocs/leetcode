@@ -55,7 +55,7 @@ It is guaranteed that each accepted ride exists in the Rides table.
 <p>&nbsp;</p>
 
 <p>Write an SQL query to report the <strong>percentage</strong> of working drivers (<code>working_percentage</code>) for each month of <strong>2020</strong> where:</p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/31/codecogseqn.png" style="width: 970px; height: 44px;" />
+<img alt="" src="/solution/1600-1699/1645.Hopper Company Queries II/images/codecogseqn.png" style="width: 970px; height: 44px;" />
 <p><strong>Note</strong> that if the number of available drivers during a month is zero, we consider the <code>working_percentage</code> to be <code>0</code>.</p>
 
 <p>Return the result table ordered by <code>month</code> in <strong>ascending</strong> order, where <code>month</code> is the month&#39;s number (January is <code>1</code>, February is <code>2</code>, etc.). Round <code>working_percentage</code> to the nearest <strong>2 decimal places</strong>.</p>

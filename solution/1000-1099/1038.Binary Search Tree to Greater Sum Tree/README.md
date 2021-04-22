@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/05/03/tree.png" style="height: 364px; width: 534px;"></strong></p>
+<p><strong><img alt="" src="/solution/1000-1099/1038.Binary Search Tree to Greater Sum Tree/images/tree.png" style="height: 364px; width: 534px;"></strong></p>
 
 <pre><strong>输入：</strong>[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
 <strong>输出：</strong>[30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]

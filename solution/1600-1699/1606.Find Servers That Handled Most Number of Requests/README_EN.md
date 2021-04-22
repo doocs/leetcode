@@ -19,7 +19,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/08/load-1.png" style="width: 389px; height: 221px;" />
+<img alt="" src="/solution/1600-1699/1606.Find Servers That Handled Most Number of Requests/images/load-1.png" style="width: 389px; height: 221px;" />
 <pre>
 <strong>Input:</strong> k = 3, arrival = [1,2,3,4,5], load = [5,2,3,3,3] 
 <strong>Output:</strong> [1] 

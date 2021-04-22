@@ -20,11 +20,11 @@
 </strong>
 输入的多级列表如下图所示：
 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/multilevellinkedlist.png" style="height: 363px; width: 640px;">
+<img src="/solution/0400-0499/0430.Flatten a Multilevel Doubly Linked List/images/multilevellinkedlist.png" style="height: 363px; width: 640px;">
 
 扁平化后的链表如下图：
 
-<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/multilevellinkedlistflattened.png" style="height: 80px; width: 1100px;">
+<img src="/solution/0400-0499/0430.Flatten a Multilevel Doubly Linked List/images/multilevellinkedlistflattened.png" style="height: 80px; width: 1100px;">
 </pre>
 
 <p><strong>示例 2：</strong></p>

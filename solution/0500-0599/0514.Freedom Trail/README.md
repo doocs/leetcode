@@ -23,7 +23,7 @@
 
 <p> </p>
 
-<center><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/ring.jpg" style="width: 26%;" /></center>
+<center><img src="/solution/0500-0599/0514.Freedom Trail/images/ring.jpg" style="width: 26%;" /></center>
  
 
 <pre>

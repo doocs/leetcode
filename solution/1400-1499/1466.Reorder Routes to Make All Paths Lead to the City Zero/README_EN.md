@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/05/13/sample_1_1819.png" style="width: 240px; height: 150px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1466.Reorder Routes to Make All Paths Lead to the City Zero/images/sample_1_1819.png" style="width: 240px; height: 150px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]
@@ -26,7 +26,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/05/13/sample_2_1819.png" style="width: 380px; height: 60px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1466.Reorder Routes to Make All Paths Lead to the City Zero/images/sample_2_1819.png" style="width: 380px; height: 60px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 5, connections = [[1,0],[1,2],[3,2],[3,4]]

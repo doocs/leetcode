@@ -35,7 +35,7 @@
 <p>要 <strong>描述</strong> 一个数字字符串，首先要将字符串分割为 <strong>最小</strong> 数量的组，每个组都由连续的最多 <strong>相同字符</strong> 组成。然后对于每个组，先描述字符的数量，然后描述字符，形成一个描述组。要将描述转换为数字字符串，先将每组中的字符数量用数字替换，再将所有描述组连接起来。</p>
 
 <p>例如，数字字符串 <code>"3322251"</code> 的描述如下图：</p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/23/countandsay.jpg" style="width: 581px; height: 172px;" />
+<img alt="" src="/solution/0000-0099/0038.Count and Say/images/countandsay.jpg" style="width: 581px; height: 172px;" />
 <ul>
 </ul>
 

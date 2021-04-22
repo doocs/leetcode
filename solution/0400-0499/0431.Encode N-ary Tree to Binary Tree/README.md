@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreebinarytreeexample.png" style="width: 500px;"></p>
+<p><img src="/solution/0400-0499/0431.Encode N-ary Tree to Binary Tree/images/narytreebinarytreeexample.png" style="width: 500px;"></p>
 
 <p>&nbsp;</p>
 

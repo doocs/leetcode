@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/original_images/critical-connections-in-a-network.png" style="width: 150px;"></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1192.Critical Connections in a Network/images/critical-connections-in-a-network.png" style="width: 150px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]
 <strong>输出：</strong>[[1,3]]

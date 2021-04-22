@@ -16,7 +16,7 @@
 	<li>第三行由字符 <code>"zxcvbnm"</code> 组成。</li>
 </ul>
 
-<p><img alt="American keyboard" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/keyboard.png" style="width: 100%; max-width: 600px" /></p>
+<p><img alt="American keyboard" src="/solution/0500-0599/0500.Keyboard Row/images/keyboard.png" style="width: 100%; max-width: 600px" /></p>
 
 <p> </p>
 

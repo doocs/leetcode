@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/03/e1.png" style="height:202px; width:203px" /></p>
+<p><img alt="" src="/solution/1400-1499/1469.Find All The Lonely Nodes/images/e1.png" style="height:202px; width:203px" /></p>
 
 <pre>
 <strong>输入：</strong>root = [1,2,3,null,4]
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2020/06/03/e2.png" style="height:282px; width:442px" /></p>
+<p><img alt="" src="/solution/1400-1499/1469.Find All The Lonely Nodes/images/e2.png" style="height:282px; width:442px" /></p>
 
 <pre>
 <strong>输入：</strong>root = [7,1,4,6,null,5,3,null,null,null,null,null,2]
@@ -37,7 +37,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/06/03/tree.png" style="height:202px; width:363px" /> </strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1469.Find All The Lonely Nodes/images/tree.png" style="height:202px; width:363px" /> </strong></p>
 
 <pre>
 <strong>输入：</strong>root = [11,99,88,77,null,null,66,55,null,null,44,33,null,null,22]

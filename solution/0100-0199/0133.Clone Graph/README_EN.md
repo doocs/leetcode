@@ -4,32 +4,54 @@
 
 ## Description
 
-<p>Given a reference of a node in a&nbsp;<strong><a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_graph" target="_blank">connected</a></strong>&nbsp;undirected graph.</p>
-
-<p>Return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> (clone) of the graph.</p>
-
-<p>Each node in the graph contains a val (<code>int</code>) and a list (<code>List[Node]</code>) of its neighbors.</p>
-
-<pre>
-class Node {
-    public int val;
-    public List&lt;Node&gt; neighbors;
-}
-</pre>
-
-<p>&nbsp;</p>
-
-<p><strong>Test case format:</strong></p>
-
-<p>For simplicity sake, each&nbsp;node&#39;s value is the same as the node&#39;s index (1-indexed). For example, the first node with&nbsp;<code>val = 1</code>, the second node with <code>val = 2</code>, and so on.&nbsp;The graph is represented in the test case using an adjacency list.</p>
-
-<p><b>Adjacency list</b>&nbsp;is a collection of unordered&nbsp;<b>lists</b>&nbsp;used to represent a finite graph. Each&nbsp;list&nbsp;describes the set of neighbors of a node in the graph.</p>
-
-<p>The given node will&nbsp;always be the first node&nbsp;with&nbsp;<code>val = 1</code>. You must return the <strong>copy of the given node</strong> as a reference to the cloned graph.</p>
+<p>Given a reference of a node in a&nbsp;<strong><a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)#Connected_graph" target="_blank">connected</a></strong>&nbsp;undirected graph.</p>
+
+
+
+<p>Return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> (clone) of the graph.</p>
+
+
+
+<p>Each node in the graph contains a val (<code>int</code>) and a list (<code>List[Node]</code>) of its neighbors.</p>
+
+
+
+<pre>
+
+class Node {
+
+    public int val;
+
+    public List&lt;Node&gt; neighbors;
+
+}
+
+</pre>
+
+
+
+<p>&nbsp;</p>
+
+
+
+<p><strong>Test case format:</strong></p>
+
+
+
+<p>For simplicity sake, each&nbsp;node&#39;s value is the same as the node&#39;s index (1-indexed). For example, the first node with&nbsp;<code>val = 1</code>, the second node with <code>val = 2</code>, and so on.&nbsp;The graph is represented in the test case using an adjacency list.</p>
+
+
+
+<p><b>Adjacency list</b>&nbsp;is a collection of unordered&nbsp;<b>lists</b>&nbsp;used to represent a finite graph. Each&nbsp;list&nbsp;describes the set of neighbors of a node in the graph.</p>
+
+
+
+<p>The given node will&nbsp;always be the first node&nbsp;with&nbsp;<code>val = 1</code>. You must return the <strong>copy of the given node</strong> as a reference to the cloned graph.</p>
+
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2019/11/04/133_clone_graph_question.png" style="width: 500px; height: 550px;" />
+<img alt="" src="/solution/0100-0199/0133.Clone Graph/images/133_clone_graph_question.png" style="width: 500px; height: 550px;" />
 <pre>
 <strong>Input:</strong> adjList = [[2,4],[1,3],[2,4],[1,3]]
 <strong>Output:</strong> [[2,4],[1,3],[2,4],[1,3]]
@@ -41,7 +63,7 @@ class Node {
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/01/07/graph.png" style="width: 163px; height: 148px;" />
+<img alt="" src="/solution/0100-0199/0133.Clone Graph/images/graph.png" style="width: 163px; height: 148px;" />
 <pre>
 <strong>Input:</strong> adjList = [[]]
 <strong>Output:</strong> [[]]
@@ -57,7 +79,7 @@ class Node {
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/01/07/graph-1.png" style="width: 272px; height: 133px;" />
+<img alt="" src="/solution/0100-0199/0133.Clone Graph/images/graph-1.png" style="width: 272px; height: 133px;" />
 <pre>
 <strong>Input:</strong> adjList = [[2],[1]]
 <strong>Output:</strong> [[2],[1]]

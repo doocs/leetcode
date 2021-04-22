@@ -43,7 +43,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/17/sample_111_1955.png" style="width: 580px; height: 239px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1700-1799/1728.Cat and Mouse II/images/sample_111_1955.png" style="width: 580px; height: 239px;" /></strong></p>
 
 <pre>
 <b>输入：</b>grid = ["####F","#C...","M...."], catJump = 1, mouseJump = 2
@@ -53,7 +53,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/17/sample_2_1955.png" style="width: 580px; height: 175px;" /></p>
+<p><img alt="" src="/solution/1700-1799/1728.Cat and Mouse II/images/sample_2_1955.png" style="width: 580px; height: 175px;" /></p>
 
 <pre>
 <b>输入：</b>grid = ["M.C...F"], catJump = 1, mouseJump = 4

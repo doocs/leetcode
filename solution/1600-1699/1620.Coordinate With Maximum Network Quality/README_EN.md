@@ -21,7 +21,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/22/untitled-diagram.png" style="width: 176px; height: 176px;" />
+<img alt="" src="/solution/1600-1699/1620.Coordinate With Maximum Network Quality/images/untitled-diagram.png" style="width: 176px; height: 176px;" />
 <pre>
 <strong>Input:</strong> towers = [[1,2,5],[2,1,7],[3,1,9]], radius = 2
 <strong>Output:</strong> [2,1]

@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/04/09/matchsticks1-grid.jpg" style="width: 253px; height: 253px;" />
+<img alt="" src="/solution/0400-0499/0473.Matchsticks to Square/images/matchsticks1-grid.jpg" style="width: 253px; height: 253px;" />
 <pre>
 <strong>Input:</strong> matchsticks = [1,1,2,2,2]
 <strong>Output:</strong> true

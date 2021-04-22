@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 
 <p><strong>Example 1:<br />
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/12/q1248-01.png" style="width: 180px; height: 160px;" /></strong></p>
+<img alt="" src="/solution/0900-0999/0993.Cousins in Binary Tree/images/q1248-01.png" style="width: 180px; height: 160px;" /></strong></p>
 
 <pre>
 <strong>Input: </strong>root = <span id="example-input-1-1">[1,2,3,4]</span>, x = <span id="example-input-1-2">4</span>, y = <span id="example-input-1-3">3</span>
@@ -24,7 +24,7 @@
 
 <div>
 <p><strong>Example 2:<br />
-<img alt="" src="https://assets.leetcode.com/uploads/2019/02/12/q1248-02.png" style="width: 201px; height: 160px;" /></strong></p>
+<img alt="" src="/solution/0900-0999/0993.Cousins in Binary Tree/images/q1248-02.png" style="width: 201px; height: 160px;" /></strong></p>
 
 <pre>
 <strong>Input: </strong>root = <span id="example-input-2-1">[1,2,3,null,4,null,5]</span>, x = <span id="example-input-2-2">5</span>, y = <span id="example-input-2-3">4</span>
@@ -34,7 +34,7 @@
 <div>
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2019/02/13/q1248-03.png" style="width: 156px; height: 160px;" /></strong></p>
+<p><strong><img alt="" src="/solution/0900-0999/0993.Cousins in Binary Tree/images/q1248-03.png" style="width: 156px; height: 160px;" /></strong></p>
 
 <pre>
 <strong>Input: </strong>root = <span id="example-input-3-1">[1,2,3,null,4]</span>, x = 2, y = 3

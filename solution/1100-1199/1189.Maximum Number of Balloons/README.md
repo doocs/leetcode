@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/14/1536_ex1_upd.jpeg" style="height: 35px; width: 154px;"></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1189.Maximum Number of Balloons/images/1536_ex1_upd.jpeg" style="height: 35px; width: 154px;"></strong></p>
 
 <pre><strong>输入：</strong>text = &quot;nlaebolko&quot;
 <strong>输出：</strong>1
@@ -22,7 +22,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2019/09/14/1536_ex2_upd.jpeg" style="height: 35px; width: 233px;"></strong></p>
+<p><strong><img alt="" src="/solution/1100-1199/1189.Maximum Number of Balloons/images/1536_ex2_upd.jpeg" style="height: 35px; width: 233px;"></strong></p>
 
 <pre><strong>输入：</strong>text = &quot;loonbalxballpoon&quot;
 <strong>输出：</strong>2

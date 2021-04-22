@@ -14,7 +14,7 @@
 
 <p> </p>
 
-<p><img src="https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png" style="width: 250px;" /></p>
+<p><img src="/solution/0400-0499/0428.Serialize and Deserialize N-ary Tree/images/narytreeexample.png" style="width: 250px;" /></p>
 
 <p> </p>
 
@@ -22,7 +22,7 @@
 
 <p>或者，您可以遵循 LeetCode 的层序遍历序列化格式，其中每组孩子节点由空值分隔。</p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
+<p><img alt="" src="/solution/0400-0499/0428.Serialize and Deserialize N-ary Tree/images/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
 
 <p>例如，上面的树可以序列化为 <code>[1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]</code></p>
 

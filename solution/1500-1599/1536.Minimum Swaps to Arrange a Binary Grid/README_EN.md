@@ -14,14 +14,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/28/fw.jpg" style="width: 750px; height: 141px;" />
+<img alt="" src="/solution/1500-1599/1536.Minimum Swaps to Arrange a Binary Grid/images/fw.jpg" style="width: 750px; height: 141px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,0,1],[1,1,0],[1,0,0]]
 <strong>Output:</strong> 3
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/16/e2.jpg" style="width: 270px; height: 270px;" />
+<img alt="" src="/solution/1500-1599/1536.Minimum Swaps to Arrange a Binary Grid/images/e2.jpg" style="width: 270px; height: 270px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[0,1,1,0],[0,1,1,0],[0,1,1,0]]
 <strong>Output:</strong> -1
@@ -29,7 +29,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/07/16/e3.jpg" style="width: 200px; height: 200px;" />
+<img alt="" src="/solution/1500-1599/1536.Minimum Swaps to Arrange a Binary Grid/images/e3.jpg" style="width: 200px; height: 200px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,0,0],[1,1,0],[1,1,1]]
 <strong>Output:</strong> 0

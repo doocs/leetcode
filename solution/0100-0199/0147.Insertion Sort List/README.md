@@ -8,7 +8,7 @@
 
 <p>对链表进行插入排序。</p>
 
-<p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif"><br>
+<p><img alt="" src="/solution/0100-0199/0147.Insertion Sort List/images/Insertion-sort-example-300px.gif"><br>
 <small>插入排序的动画演示如上。从第一个元素开始，该链表可以被认为已经部分排序（用黑色表示）。<br>
 每次迭代时，从输入数据中移除一个元素（用红色表示），并原地将其插入到已排好序的链表中。</small></p>
 

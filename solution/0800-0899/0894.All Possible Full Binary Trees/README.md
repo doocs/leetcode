@@ -21,7 +21,7 @@
 <pre><strong>输入：</strong>7
 <strong>输出：</strong>[[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]
 <strong>解释：</strong>
-<img alt="" src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/08/24/fivetrees.png" style="height: 400px; width: 700px;">
+<img alt="" src="/solution/0800-0899/0894.All Possible Full Binary Trees/images/fivetrees.png" style="height: 400px; width: 700px;">
 </pre>
 
 <p>&nbsp;</p>

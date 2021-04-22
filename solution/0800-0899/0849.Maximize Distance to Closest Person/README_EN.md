@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/09/10/distance.jpg" style="width: 650px; height: 257px;" />
+<img alt="" src="/solution/0800-0899/0849.Maximize Distance to Closest Person/images/distance.jpg" style="width: 650px; height: 257px;" />
 <pre>
 <strong>Input:</strong> seats = [1,0,0,0,1,0,1]
 <strong>Output:</strong> 2

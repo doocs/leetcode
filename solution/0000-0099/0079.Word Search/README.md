@@ -13,21 +13,21 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/04/word2.jpg" style="width: 322px; height: 242px;" />
+<img alt="" src="/solution/0000-0099/0079.Word Search/images/word2.jpg" style="width: 322px; height: 242px;" />
 <pre>
 <strong>输入：</strong>board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/04/word-1.jpg" style="width: 322px; height: 242px;" />
+<img alt="" src="/solution/0000-0099/0079.Word Search/images/word-1.jpg" style="width: 322px; height: 242px;" />
 <pre>
 <strong>输入：</strong>board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
 <strong>输出：</strong>true
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/10/15/word3.jpg" style="width: 322px; height: 242px;" />
+<img alt="" src="/solution/0000-0099/0079.Word Search/images/word3.jpg" style="width: 322px; height: 242px;" />
 <pre>
 <strong>输入：</strong>board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
 <strong>输出：</strong>false

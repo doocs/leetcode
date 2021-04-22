@@ -8,7 +8,7 @@
 
 <p>国际象棋中的骑士可以按下图所示进行移动：</p>
 
-<p><img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/11/03/knight.png" style="height: 150px; width: 150px;">&nbsp;.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt="" src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/11/03/keypad.png" style="height: 150px; width: 134px;"></p>
+<p><img alt="" src="/solution/0900-0999/0935.Knight Dialer/images/knight.png" style="height: 150px; width: 150px;">&nbsp;.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img alt="" src="/solution/0900-0999/0935.Knight Dialer/images/keypad.png" style="height: 150px; width: 134px;"></p>
 
 <p><br>
 这一次，我们将&nbsp;&ldquo;骑士&rdquo; 放在电话拨号盘的任意数字键（如上图所示）上，接下来，骑士将会跳&nbsp;N-1 步。每一步必须是从一个数字键跳到另一个数字键。</p>

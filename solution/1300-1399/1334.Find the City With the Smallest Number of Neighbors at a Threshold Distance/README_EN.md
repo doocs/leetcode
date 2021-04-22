@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/01/16/find_the_city_01.png" style="width: 300px; height: 225px;" />
+<img alt="" src="/solution/1300-1399/1334.Find the City With the Smallest Number of Neighbors at a Threshold Distance/images/find_the_city_01.png" style="width: 300px; height: 225px;" />
 <pre>
 <strong>Input:</strong> n = 4, edges = [[0,1,3],[1,2,1],[1,3,4],[2,3,1]], distanceThreshold = 4
 <strong>Output:</strong> 3
@@ -26,7 +26,7 @@ Cities 0 and 3 have 2 neighboring cities at a distanceThreshold = 4, but we have
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/01/16/find_the_city_02.png" style="width: 300px; height: 225px;" />
+<img alt="" src="/solution/1300-1399/1334.Find the City With the Smallest Number of Neighbors at a Threshold Distance/images/find_the_city_02.png" style="width: 300px; height: 225px;" />
 <pre>
 <strong>Input:</strong> n = 5, edges = [[0,1,2],[0,4,8],[1,2,3],[1,4,2],[2,3,1],[3,4,1]], distanceThreshold = 2
 <strong>Output:</strong> 0

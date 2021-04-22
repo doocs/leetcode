@@ -21,7 +21,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/05/grid_happiness.png" style="width: 261px; height: 121px;" />
+<img alt="" src="/solution/1600-1699/1659.Maximize Grid Happiness/images/grid_happiness.png" style="width: 261px; height: 121px;" />
 <pre>
 <strong>Input:</strong> m = 2, n = 3, introvertsCount = 1, extrovertsCount = 2
 <strong>Output:</strong> 240

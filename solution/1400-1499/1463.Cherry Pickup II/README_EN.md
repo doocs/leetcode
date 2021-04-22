@@ -21,7 +21,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/29/sample_1_1802.png" style="width: 139px; height: 182px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1463.Cherry Pickup II/images/sample_1_1802.png" style="width: 139px; height: 182px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[3,1,1],[2,5,1],[1,5,5],[2,1,1]]
@@ -34,7 +34,7 @@ Total of cherries: 12 + 12 = 24.
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="https://assets.leetcode.com/uploads/2020/04/23/sample_2_1802.png" style="width: 284px; height: 257px;" /></strong></p>
+<p><strong><img alt="" src="/solution/1400-1499/1463.Cherry Pickup II/images/sample_2_1802.png" style="width: 284px; height: 257px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,0,0,0,0,0,1],[2,0,0,0,0,3,0],[2,0,9,0,0,0,0],[0,3,0,5,4,0,0],[1,0,2,3,0,0,6]]

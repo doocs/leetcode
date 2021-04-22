@@ -13,7 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/04/ex1.jpg" style="width: 322px; height: 242px;" />
+<img alt="" src="/solution/0700-0799/0766.Toeplitz Matrix/images/ex1.jpg" style="width: 322px; height: 242px;" />
 <pre>
 <strong>输入：</strong>matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
 <strong>输出：</strong>true
@@ -24,7 +24,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2020/11/04/ex2.jpg" style="width: 162px; height: 162px;" />
+<img alt="" src="/solution/0700-0799/0766.Toeplitz Matrix/images/ex2.jpg" style="width: 162px; height: 162px;" />
 <pre>
 <strong>输入：</strong>matrix = [[1,2],[2,2]]
 <strong>输出：</strong>false
