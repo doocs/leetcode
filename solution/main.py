@@ -354,11 +354,11 @@ class LCSpider:
 if __name__ == '__main__':
     spider = LCSpider()
 
-    # spider.get_all_questions()
-    # spider.save_result()
-    #
-    # spider.generate_readme()
-    # spider.generate_question_readme()
-    # spider.generate_summary()
+    spider.get_all_questions()
+    spider.save_result()
+    
+    spider.generate_readme()
+    spider.generate_question_readme()
+    spider.generate_summary()
     # spider.replace_content()
-    spider.download_image()
+    # spider.download_image()
