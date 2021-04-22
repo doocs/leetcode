@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0300-0399/0363.Max Sum of Rectangle No Larger Than K/images/sum-grid.jpg" style="width: 255px; height: 176px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0363.Max%20Sum%20of%20Rectangle%20No%20Larger%20Than%20K/images/sum-grid.jpg" style="width: 255px; height: 176px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,0,1],[0,-2,3]], k = 2
 <strong>Output:</strong> 2

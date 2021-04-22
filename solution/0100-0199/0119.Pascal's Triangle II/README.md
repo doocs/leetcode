@@ -8,7 +8,7 @@
 
 <p>给定一个非负索引&nbsp;<em>k</em>，其中 <em>k</em>&nbsp;&le;&nbsp;33，返回杨辉三角的第 <em>k </em>行。</p>
 
-<p><img alt="" src="/solution/0100-0199/0119.Pascal's Triangle II/images/PascalTriangleAnimated2.gif"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0119.Pascal%27s%20Triangle%20II/images/PascalTriangleAnimated2.gif"></p>
 
 <p><small>在杨辉三角中，每个数是它左上方和右上方的数的和。</small></p>
 

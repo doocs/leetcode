@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1000-1099/1035.Uncrossed Lines/images/142.png" style="height: 72px; width: 100px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1035.Uncrossed%20Lines/images/142.png" style="height: 72px; width: 100px;"></strong></p>
 
 <pre><strong>输入：</strong>A = [1,4,2], B = [1,2,4]
 <strong>输出：</strong>2

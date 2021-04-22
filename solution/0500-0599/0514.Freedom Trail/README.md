@@ -23,7 +23,7 @@
 
 <p> </p>
 
-<center><img src="/solution/0500-0599/0514.Freedom Trail/images/ring.jpg" style="width: 26%;" /></center>
+<center><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0514.Freedom%20Trail/images/ring.jpg" style="width: 26%;" /></center>
  
 
 <pre>

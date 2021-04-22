@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1443.Minimum Time to Collect All Apples in a Tree/images/min_time_collect_apple_1.png" style="height: 212px; width: 300px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1443.Minimum%20Time%20to%20Collect%20All%20Apples%20in%20a%20Tree/images/min_time_collect_apple_1.png" style="height: 212px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], hasApple = [false,false,true,false,true,true,false]
 <strong>输出：</strong>8 
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1443.Minimum Time to Collect All Apples in a Tree/images/min_time_collect_apple_2.png" style="height: 212px; width: 300px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1443.Minimum%20Time%20to%20Collect%20All%20Apples%20in%20a%20Tree/images/min_time_collect_apple_2.png" style="height: 212px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 7, edges = [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]], hasApple = [false,false,true,false,false,true,false]
 <strong>输出：</strong>6

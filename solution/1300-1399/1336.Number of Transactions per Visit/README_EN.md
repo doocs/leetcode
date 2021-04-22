@@ -98,7 +98,7 @@ Result table:
 * For transactions_count &gt;= 4, No customers visited the bank and did more than three transactions so we will stop at&nbsp;transactions_count = 3
 
 The chart drawn for this example is as follows:
-<img alt="" src="/solution/1300-1399/1336.Number of Transactions per Visit/images/chart.png" style="width: 600px; height: 359px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/images/chart.png" style="width: 600px; height: 359px;" />
 </pre>
 
 

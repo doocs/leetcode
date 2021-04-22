@@ -8,14 +8,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0600-0699/0653.Two Sum IV - Input is a BST/images/sum_tree_1.jpg" style="width: 562px; height: 322px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/images/sum_tree_1.jpg" style="width: 562px; height: 322px;" />
 <pre>
 <strong>Input:</strong> root = [5,3,6,2,4,null,7], k = 9
 <strong>Output:</strong> true
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0600-0699/0653.Two Sum IV - Input is a BST/images/sum_tree_2.jpg" style="width: 562px; height: 322px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/images/sum_tree_2.jpg" style="width: 562px; height: 322px;" />
 <pre>
 <strong>Input:</strong> root = [5,3,6,2,4,null,7], k = 28
 <strong>Output:</strong> false

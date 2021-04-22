@@ -6,7 +6,7 @@
 
 <p>Given a wooden stick of length <code>n</code> units. The stick is labelled from <code>0</code> to <code>n</code>. For example, a stick of length <strong>6</strong> is labelled as follows:</p>
 
-<img alt="" src="/solution/1500-1599/1547.Minimum Cost to Cut a Stick/images/statement.jpg" style="width: 521px; height: 111px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/images/statement.jpg" style="width: 521px; height: 111px;" />
 
 <p>Given an integer array <code>cuts</code>&nbsp;where <code>cuts[i]</code>&nbsp;denotes a position you should perform a cut at.</p>
 
@@ -28,7 +28,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1500-1599/1547.Minimum Cost to Cut a Stick/images/e1.jpg" style="width: 350px; height: 284px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/images/e1.jpg" style="width: 350px; height: 284px;" />
 
 <pre>
 
@@ -38,7 +38,7 @@
 
 <strong>Explanation:</strong> Using cuts order = [1, 3, 4, 5] as in the input leads to the following scenario:
 
-<img alt="" src="/solution/1500-1599/1547.Minimum Cost to Cut a Stick/images/e11.jpg" style="width: 350px; height: 284px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1547.Minimum%20Cost%20to%20Cut%20a%20Stick/images/e11.jpg" style="width: 350px; height: 284px;" />
 
 The first cut is done to a rod of length 7 so the cost is 7. The second cut is done to a rod of length 6 (i.e. the second part of the first cut), the third is done to a rod of length 4 and the last cut is to a rod of length 3. The total cost is 7 + 6 + 4 + 3 = 20.
 

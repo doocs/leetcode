@@ -22,7 +22,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1500-1599/1518.Water Bottles/images/sample_1_1875.png" style="width: 480px; height: 240px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1518.Water%20Bottles/images/sample_1_1875.png" style="width: 480px; height: 240px;" /></strong></p>
 
 
 
@@ -44,7 +44,7 @@ Number of water bottles you can&nbsp;drink: 9 + 3 + 1 = 13.
 
 
 
-<p><img alt="" src="/solution/1500-1599/1518.Water Bottles/images/sample_2_1875.png" style="width: 790px; height: 290px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1518.Water%20Bottles/images/sample_2_1875.png" style="width: 790px; height: 290px;" /></p>
 
 
 

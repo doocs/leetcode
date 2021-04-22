@@ -22,7 +22,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/1700-1799/1797.Design Authentication Manager/images/copy-of-pc68_q2.png" style="width: 500px; height: 287px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1797.Design%20Authentication%20Manager/images/copy-of-pc68_q2.png" style="width: 500px; height: 287px;" />
 <pre>
 <strong>输入：</strong>
 ["AuthenticationManager", "<code>renew</code>", "generate", "<code>countUnexpiredTokens</code>", "generate", "<code>renew</code>", "<code>renew</code>", "<code>countUnexpiredTokens</code>"]

@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0100-0199/0106.Construct Binary Tree from Inorder and Postorder Traversal/images/tree.jpg" style="width: 277px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0106.Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal/images/tree.jpg" style="width: 277px; height: 302px;" />
 <pre>
 <strong>Input:</strong> inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
 <strong>Output:</strong> [3,9,20,null,null,15,7]

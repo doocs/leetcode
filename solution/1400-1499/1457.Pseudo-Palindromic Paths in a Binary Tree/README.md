@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1400-1499/1457.Pseudo-Palindromic Paths in a Binary Tree/images/palindromic_paths_1.png" style="height: 201px; width: 300px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/images/palindromic_paths_1.png" style="height: 201px; width: 300px;"></p>
 
 <pre><strong>输入：</strong>root = [2,3,1,3,1,null,1]
 <strong>输出：</strong>2 
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1457.Pseudo-Palindromic Paths in a Binary Tree/images/palindromic_paths_2.png" style="height: 314px; width: 300px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/images/palindromic_paths_2.png" style="height: 314px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [2,1,1,1,3,null,null,null,null,null,1]
 <strong>输出：</strong>1 

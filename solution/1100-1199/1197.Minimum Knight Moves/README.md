@@ -12,7 +12,7 @@
 
 <p>每次移动，他都可以按图示八个方向之一前进。</p>
 
-<p><img src="/solution/1100-1199/1197.Minimum Knight Moves/images/knight.png" style="height: 200px; width: 200px;"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1197.Minimum%20Knight%20Moves/images/knight.png" style="height: 200px; width: 200px;"></p>
 
 <p>现在，骑士需要前去征服坐标为&nbsp;<code>[x, y]</code>&nbsp;的部落，请你为他规划路线。</p>
 

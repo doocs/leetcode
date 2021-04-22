@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1000-1099/1026.Maximum Difference Between Node and Ancestor/images/tmp-tree.jpg" style="width: 400px; height: 390px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/images/tmp-tree.jpg" style="width: 400px; height: 390px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [8,3,10,1,6,null,14,null,null,4,7,13]
@@ -29,7 +29,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/1000-1099/1026.Maximum Difference Between Node and Ancestor/images/tmp-tree-1.jpg" style="width: 250px; height: 349px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1026.Maximum%20Difference%20Between%20Node%20and%20Ancestor/images/tmp-tree-1.jpg" style="width: 250px; height: 349px;" />
 <pre>
 <strong>输入：</strong>root = [1,null,2,null,0,3]
 <strong>输出：</strong>3

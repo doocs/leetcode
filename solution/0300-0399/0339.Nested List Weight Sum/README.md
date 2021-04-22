@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/0300-0399/0339.Nested List Weight Sum/images/nestedlistweightsumex1.png" style="width: 405px; height: 99px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/images/nestedlistweightsumex1.png" style="width: 405px; height: 99px;" /></p>
 
 <pre>
 <strong>输入：</strong>nestedList = [[1,1],2,[1,1]]
@@ -24,7 +24,7 @@
 <strong>解释：</strong>因为列表中有四个深度为 2 的 1 ，和一个深度为 1 的 2。</pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0300-0399/0339.Nested List Weight Sum/images/nestedlistweightsumex2.png" style="width: 315px; height: 106px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/images/nestedlistweightsumex2.png" style="width: 315px; height: 106px;" />
 <pre>
 <strong>输入：</strong>nestedList = [1,[4,[6]]]
 <strong>输出：</strong>27 

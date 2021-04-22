@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0000-0099/0096.Unique Binary Search Trees/images/uniquebstn3.jpg" style="width: 600px; height: 148px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/images/uniquebstn3.jpg" style="width: 600px; height: 148px;" />
 <pre>
 <strong>Input:</strong> n = 3
 <strong>Output:</strong> 5

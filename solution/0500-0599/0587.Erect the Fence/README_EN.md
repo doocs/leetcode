@@ -24,7 +24,7 @@
 
 <b>Explanation:</b>
 
-<img src="/solution/0500-0599/0587.Erect the Fence/images/erect_the_fence_1.png" style="width: 100%; max-width: 320px" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect_the_fence_1.png" style="width: 100%; max-width: 320px" />
 
 </pre>
 
@@ -42,7 +42,7 @@
 
 <b>Explanation:</b>
 
-<img src="/solution/0500-0599/0587.Erect the Fence/images/erect_the_fence_2.png" style="width: 100%; max-width: 320px" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0587.Erect%20the%20Fence/images/erect_the_fence_2.png" style="width: 100%; max-width: 320px" />
 
 Even you only have trees in a line, you need to use rope to enclose them. 
 

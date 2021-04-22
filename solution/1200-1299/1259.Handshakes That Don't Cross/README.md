@@ -22,7 +22,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1259.Handshakes That Don't Cross/images/5125_example_2.png" style="height: 311px; width: 651px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/images/5125_example_2.png" style="height: 311px; width: 651px;"></p>
 
 <pre><strong>输入：</strong>num_people = 4
 <strong>输出：</strong>2
@@ -31,7 +31,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1259.Handshakes That Don't Cross/images/5125_example_3.png" style="height: 992px; width: 664px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/images/5125_example_3.png" style="height: 992px; width: 664px;"></p>
 
 <pre><strong>输入：</strong>num_people = 6
 <strong>输出：</strong>5

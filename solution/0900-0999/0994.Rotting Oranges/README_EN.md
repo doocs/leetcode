@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0900-0999/0994.Rotting Oranges/images/oranges.png" style="width: 650px; height: 137px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0994.Rotting%20Oranges/images/oranges.png" style="width: 650px; height: 137px;" />
 <pre>
 <strong>Input:</strong> grid = [[2,1,1],[1,1,0],[0,1,1]]
 <strong>Output:</strong> 4

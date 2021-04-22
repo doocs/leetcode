@@ -13,7 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/1700-1799/1721.Swapping Nodes in a Linked List/images/linked1.jpg" style="width: 722px; height: 202px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1721.Swapping%20Nodes%20in%20a%20Linked%20List/images/linked1.jpg" style="width: 722px; height: 202px;" />
 <pre>
 <strong>输入：</strong>head = [1,2,3,4,5], k = 2
 <strong>输出：</strong>[1,4,3,2,5]

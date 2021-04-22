@@ -10,7 +10,7 @@
 
 <p>每个 LED 代表一个 0 或 1，最低位在右侧。</p>
 
-<p><img src="/solution/0400-0499/0401.Binary Watch/images/binary_clock_samui_moon.jpg" style="height: 300px; width" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0401.Binary%20Watch/images/binary_clock_samui_moon.jpg" style="height: 300px; width" /></p>
 
 <p><small><em>（图源：<a href="https://commons.m.wikimedia.org/wiki/File:Binary_clock_samui_moon.jpg">WikiMedia - Binary clock samui moon.jpg</a> ，许可协议：<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)</a> ）</em></small></p>
 

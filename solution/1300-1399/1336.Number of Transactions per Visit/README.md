@@ -100,7 +100,7 @@
 * 对于 transactions_count &gt;= 4, 没有客户访问银行进行了超过3次交易，所以我们停止在 transactions_count = 3 。
 
 如下是这个例子的图表：
-<img alt="" src="/solution/1300-1399/1336.Number of Transactions per Visit/images/chart.png" style="height:359px; width:600px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/images/chart.png" style="height:359px; width:600px" />
 </pre>
 
 

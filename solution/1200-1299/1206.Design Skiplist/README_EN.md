@@ -16,7 +16,7 @@
 
 
 
-<p><img alt="" src="/solution/1200-1299/1206.Design Skiplist/images/1506_skiplist.gif" style="width: 960px; height: 332px;" /><br />
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1206.Design%20Skiplist/images/1506_skiplist.gif" style="width: 960px; height: 332px;" /><br />
 
 <small>Artyom Kalinin [CC BY-SA 3.0], via <a href="https://commons.wikimedia.org/wiki/File:Skip_list_add_element-en.gif" target="_blank" title="Artyom Kalinin [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons">Wikimedia Commons</a></small></p>
 

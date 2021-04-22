@@ -27,7 +27,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1200-1299/1261.Find Elements in a Contaminated Binary Tree/images/untitled-diagram-4-1.jpg" style="height: 119px; width: 320px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4-1.jpg" style="height: 119px; width: 320px;"></strong></p>
 
 <pre><strong>输入：</strong>
 [&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;]
@@ -41,7 +41,7 @@ findElements.find(2); // return True </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1200-1299/1261.Find Elements in a Contaminated Binary Tree/images/untitled-diagram-4.jpg" style="height: 198px; width: 400px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4.jpg" style="height: 198px; width: 400px;"></strong></p>
 
 <pre><strong>输入：</strong>
 [&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;]
@@ -56,7 +56,7 @@ findElements.find(5); // return False</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="/solution/1200-1299/1261.Find Elements in a Contaminated Binary Tree/images/untitled-diagram-4-1-1.jpg" style="height: 274px; width: 306px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1261.Find%20Elements%20in%20a%20Contaminated%20Binary%20Tree/images/untitled-diagram-4-1-1.jpg" style="height: 274px; width: 306px;"></strong></p>
 
 <pre><strong>输入：</strong>
 [&quot;FindElements&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;,&quot;find&quot;]

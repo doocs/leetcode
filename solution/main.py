@@ -337,7 +337,7 @@ class LCSpider:
                     res_cn = re.findall(r'src="(.*?)"', readme, re.S) or []
                     for url in res_cn:
                         file_name = os.path.basename(url)
-                        new_url = f'/solution/{item}/{f}/images/' + file_name
+                        new_url = f'https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/{item}/{quote(f)}/images/{file_name}'
                         readme = readme.replace(url, new_url)
                     with open(f'./{item}/{f}/README.md', 'w', encoding='utf-8') as f1:
                         f1.write(readme)
@@ -345,7 +345,7 @@ class LCSpider:
                     res_en = re.findall(r'src="(.*?)"', readme_en, re.S) or []
                     for url in res_en:
                         file_name = os.path.basename(url)
-                        new_url = f'/solution/{item}/{f}/images/' + file_name
+                        new_url = f'https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/{item}/{quote(f)}/images/{file_name}'
                         readme_en = readme_en.replace(url, new_url)
                     with open(f'./{item}/{f}/README_EN.md', 'w', encoding='utf-8') as f1:
                         f1.write(readme_en)
@@ -354,11 +354,11 @@ class LCSpider:
 if __name__ == '__main__':
     spider = LCSpider()
 
-    spider.get_all_questions()
-    spider.save_result()
-    
-    spider.generate_readme()
-    spider.generate_question_readme()
-    spider.generate_summary()
+    # spider.get_all_questions()
+    # spider.save_result()
+    #
+    # spider.generate_readme()
+    # spider.generate_question_readme()
+    # spider.generate_summary()
     # spider.replace_content()
-    # spider.download_image()
+    spider.download_image()

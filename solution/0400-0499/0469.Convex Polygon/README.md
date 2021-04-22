@@ -24,7 +24,7 @@
 
 输出： True
 
-解释：<img src="/solution/0400-0499/0469.Convex Polygon/images/polygon_convex.png" style="height: 100px; width: 100px;">
+解释：<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0469.Convex%20Polygon/images/polygon_convex.png" style="height: 100px; width: 100px;">
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -33,7 +33,7 @@
 
 输出： False
 
-解释：<img src="/solution/0400-0499/0469.Convex Polygon/images/polygon_not_convex.png" style="height: 100px; width: 100px;">
+解释：<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0469.Convex%20Polygon/images/polygon_not_convex.png" style="height: 100px; width: 100px;">
 </pre>
 
 

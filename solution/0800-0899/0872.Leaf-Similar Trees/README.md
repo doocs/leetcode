@@ -8,7 +8,7 @@
 
 <p>请考虑一棵二叉树上所有的叶子，这些叶子的值按从左到右的顺序排列形成一个&nbsp;<em>叶值序列</em> 。</p>
 
-<p><img alt="" src="/solution/0800-0899/0872.Leaf-Similar Trees/images/tree.png" style="height: 240px; width: 300px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0872.Leaf-Similar%20Trees/images/tree.png" style="height: 240px; width: 300px;"></p>
 
 <p>举个例子，如上图所示，给定一棵叶值序列为&nbsp;<code>(6, 7, 4, 9, 8)</code>&nbsp;的树。</p>
 
@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/0800-0899/0872.Leaf-Similar Trees/images/leaf-similar-1.jpg" style="height: 297px; width: 750px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0872.Leaf-Similar%20Trees/images/leaf-similar-1.jpg" style="height: 297px; width: 750px;"></p>
 
 <pre><strong>输入：</strong>root1 = [3,5,1,6,2,9,8,null,null,7,4], root2 = [3,5,1,6,7,4,2,null,null,null,null,null,null,9,8]
 <strong>输出：</strong>true
@@ -46,7 +46,7 @@
 
 <p><strong>示例 5：</strong></p>
 
-<p><img alt="" src="/solution/0800-0899/0872.Leaf-Similar Trees/images/leaf-similar-2.jpg" style="height: 165px; width: 450px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0872.Leaf-Similar%20Trees/images/leaf-similar-2.jpg" style="height: 165px; width: 450px;"></p>
 
 <pre><strong>输入：</strong>root1 = [1,2,3], root2 = [1,3,2]
 <strong>输出：</strong>false

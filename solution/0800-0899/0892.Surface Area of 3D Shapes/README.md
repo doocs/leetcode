@@ -22,35 +22,35 @@
 </ul>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0800-0899/0892.Surface Area of 3D Shapes/images/tmp-grid1.jpg" style="width: 82px; height: 82px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid1.jpg" style="width: 82px; height: 82px;" />
 <pre>
 <strong>输入：</strong>grid = [[2]]
 <strong>输出：</strong>10
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0800-0899/0892.Surface Area of 3D Shapes/images/tmp-grid2.jpg" style="width: 162px; height: 162px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid2.jpg" style="width: 162px; height: 162px;" />
 <pre>
 <strong>输入：</strong>grid = [[1,2],[3,4]]
 <strong>输出：</strong>34
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="/solution/0800-0899/0892.Surface Area of 3D Shapes/images/tmp-grid3.jpg" style="width: 162px; height: 162px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid3.jpg" style="width: 162px; height: 162px;" />
 <pre>
 <strong>输入：</strong>grid = [[1,0],[0,2]]
 <strong>输出：</strong>16
 </pre>
 
 <p><strong>示例 4：</strong></p>
-<img alt="" src="/solution/0800-0899/0892.Surface Area of 3D Shapes/images/tmp-grid4.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid4.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>输入：</strong>grid = [[1,1,1],[1,0,1],[1,1,1]]
 <strong>输出：</strong>32
 </pre>
 
 <p><strong>示例 5：</strong></p>
-<img alt="" src="/solution/0800-0899/0892.Surface Area of 3D Shapes/images/tmp-grid5.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid5.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>输入：</strong>grid = [[2,2,2],[2,1,2],[2,2,2]]
 <strong>输出：</strong>46

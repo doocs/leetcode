@@ -31,7 +31,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1400-1499/1474.Delete N Nodes After M Nodes of a Linked List/images/sample_1_1848.png" style="width: 620px; height: 95px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/images/sample_1_1848.png" style="width: 620px; height: 95px;" /></strong></p>
 
 
 
@@ -55,7 +55,7 @@ Head of linked list after removing nodes is returned.</pre>
 
 
 
-<p><strong><img alt="" src="/solution/1400-1499/1474.Delete N Nodes After M Nodes of a Linked List/images/sample_2_1848.png" style="width: 620px; height: 123px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/images/sample_2_1848.png" style="width: 620px; height: 123px;" /></strong></p>
 
 
 

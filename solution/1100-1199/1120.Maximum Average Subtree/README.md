@@ -16,7 +16,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="/solution/1100-1199/1120.Maximum Average Subtree/images/1308_example_1.png" style="height: 123px; width: 132px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1120.Maximum%20Average%20Subtree/images/1308_example_1.png" style="height: 123px; width: 132px;"></p>
 
 <pre><strong>输入：</strong>[5,6,1]
 <strong>输出：</strong>6.00000

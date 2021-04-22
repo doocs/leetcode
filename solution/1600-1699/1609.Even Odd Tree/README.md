@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1609.Even Odd Tree/images/sample_1_1966.png" style="height: 229px; width: 362px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_1_1966.png" style="height: 229px; width: 362px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>root = [1,10,4,3,null,7,9,12,8,6,null,null,2]
@@ -35,7 +35,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1609.Even Odd Tree/images/sample_2_1966.png" style="height: 167px; width: 363px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_2_1966.png" style="height: 167px; width: 363px;" /></strong></p>
 
 <pre>
 <strong>输入：</strong>root = [5,4,2,3,3,7]
@@ -49,7 +49,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="/solution/1600-1699/1609.Even Odd Tree/images/sample_1_333_1966.png" style="height: 167px; width: 363px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_1_333_1966.png" style="height: 167px; width: 363px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [5,9,1,3,5,7]

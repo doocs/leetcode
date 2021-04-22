@@ -25,7 +25,7 @@ The action column is an ENUM type of (&#39;Clicked&#39;, &#39;Viewed&#39;, &#39;
 
 <p>Performance of the Ad is measured using&nbsp;Click-Through Rate (CTR) where:</p>
 
-<p><img alt="" src="/solution/1300-1399/1322.Ads Performance/images/sql1.png" style="width: 600px; height: 75px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1322.Ads%20Performance/images/sql1.png" style="width: 600px; height: 75px;" /></p>
 
 <p>Write an SQL query to find the <code>ctr</code> of each Ad.</p>
 

@@ -12,7 +12,7 @@
 
 <p>有效括号字符串类型与对应的嵌套深度计算方法如下图所示：</p>
 
-<p><img alt="" src="/solution/1100-1199/1111.Maximum Nesting Depth of Two Valid Parentheses Strings/images/1111.png" style="height: 152px; width: 600px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1111.Maximum%20Nesting%20Depth%20of%20Two%20Valid%20Parentheses%20Strings/images/1111.png" style="height: 152px; width: 600px;"></p>
 
 <p>&nbsp;</p>
 

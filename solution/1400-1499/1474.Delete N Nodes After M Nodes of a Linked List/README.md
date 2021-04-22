@@ -23,7 +23,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1474.Delete N Nodes After M Nodes of a Linked List/images/sample_1_1848.png" style="height: 95px; width: 620px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/images/sample_1_1848.png" style="height: 95px; width: 620px;" /></strong></p>
 
 <pre>
 <strong>输入:</strong> head = [1,2,3,4,5,6,7,8,9,10,11,12,13], m = 2, n = 3
@@ -35,7 +35,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1474.Delete N Nodes After M Nodes of a Linked List/images/sample_2_1848.png" style="height: 123px; width: 620px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1474.Delete%20N%20Nodes%20After%20M%20Nodes%20of%20a%20Linked%20List/images/sample_2_1848.png" style="height: 123px; width: 620px;" /></strong></p>
 
 <pre>
 <strong>输入:</strong> head = [1,2,3,4,5,6,7,8,9,10,11], m = 1, n = 3

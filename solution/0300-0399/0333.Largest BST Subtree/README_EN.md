@@ -20,7 +20,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/0300-0399/0333.Largest BST Subtree/images/tmp.jpg" style="width: 571px; height: 302px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0333.Largest%20BST%20Subtree/images/tmp.jpg" style="width: 571px; height: 302px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [10,5,15,1,8,null,7]

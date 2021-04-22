@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1100-1199/1161.Maximum Level Sum of a Binary Tree/images/capture.jpeg" style="height: 175px; width: 200px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1161.Maximum%20Level%20Sum%20of%20a%20Binary%20Tree/images/capture.jpeg" style="height: 175px; width: 200px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,7,0,7,-8,null,null]
 <strong>输出：</strong>2

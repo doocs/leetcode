@@ -8,7 +8,7 @@
 
 <p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
 
-<p><img src="/solution/0000-0099/0017.Letter Combinations of a Phone Number/images/200px-Telephone-keypad2.svg.png" style="width: 200px; height: 162px;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0017.Letter%20Combinations%20of%20a%20Phone%20Number/images/200px-Telephone-keypad2.svg.png" style="width: 200px; height: 162px;" /></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

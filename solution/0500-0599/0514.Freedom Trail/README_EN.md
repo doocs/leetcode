@@ -19,7 +19,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img src="/solution/0500-0599/0514.Freedom Trail/images/ring.jpg" style="width: 450px; height: 450px;" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0514.Freedom%20Trail/images/ring.jpg" style="width: 450px; height: 450px;" />
 <pre>
 <strong>Input:</strong> ring = &quot;godding&quot;, key = &quot;gd&quot;
 <strong>Output:</strong> 4

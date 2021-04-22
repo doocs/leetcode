@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1400-1499/1465.Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts/images/leetcode_max_area_2.png" style="height: 320px; width: 300px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1465.Maximum%20Area%20of%20a%20Piece%20of%20Cake%20After%20Horizontal%20and%20Vertical%20Cuts/images/leetcode_max_area_2.png" style="height: 320px; width: 300px;"></p>
 
 <pre><strong>输入：</strong>h = 5, w = 4, horizontalCuts = [1,2,4], verticalCuts = [1,3]
 <strong>输出：</strong>4 
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1465.Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts/images/leetcode_max_area_3.png" style="height: 320px; width: 300px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1465.Maximum%20Area%20of%20a%20Piece%20of%20Cake%20After%20Horizontal%20and%20Vertical%20Cuts/images/leetcode_max_area_3.png" style="height: 320px; width: 300px;"></strong></p>
 
 <pre><strong>输入：</strong>h = 5, w = 4, horizontalCuts = [3,1], verticalCuts = [1]
 <strong>输出：</strong>6

@@ -12,7 +12,7 @@
 
 
 
-<p><img alt="" src="/solution/1100-1199/1138.Alphabet Board Path/images/azboard.png" style="width: 250px; height: 317px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1138.Alphabet%20Board%20Path/images/azboard.png" style="width: 250px; height: 317px;" /></p>
 
 
 

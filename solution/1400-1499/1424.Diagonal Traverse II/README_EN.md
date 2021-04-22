@@ -8,7 +8,7 @@ Given a list of lists of integers,&nbsp;<code>nums</code>,&nbsp;return all eleme
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1424.Diagonal Traverse II/images/sample_1_1784.png" style="width: 158px; height: 143px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1424.Diagonal%20Traverse%20II/images/sample_1_1784.png" style="width: 158px; height: 143px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [[1,2,3],[4,5,6],[7,8,9]]
@@ -17,7 +17,7 @@ Given a list of lists of integers,&nbsp;<code>nums</code>,&nbsp;return all eleme
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1424.Diagonal Traverse II/images/sample_2_1784.png" style="width: 230px; height: 177px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1424.Diagonal%20Traverse%20II/images/sample_2_1784.png" style="width: 230px; height: 177px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [[1,2,3,4,5],[6,7],[8],[9,10,11],[12,13,14,15,16]]

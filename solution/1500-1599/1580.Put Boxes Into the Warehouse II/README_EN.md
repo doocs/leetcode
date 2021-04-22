@@ -29,7 +29,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1500-1599/1580.Put Boxes Into the Warehouse II/images/22.png" style="width: 401px; height: 202px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22.png" style="width: 401px; height: 202px;" />
 
 <pre>
 
@@ -39,7 +39,7 @@
 
 <strong>Explanation:
 
-<img alt="" src="/solution/1500-1599/1580.Put Boxes Into the Warehouse II/images/22-1.png" style="width: 240px; height: 202px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22-1.png" style="width: 240px; height: 202px;" />
 
 </strong>We can store the boxes in the following order:
 
@@ -59,7 +59,7 @@ Notice that there are other valid ways to put 4 boxes such as swapping the red a
 
 <p><strong>Example 2:</strong></p>
 
-<img alt="" src="/solution/1500-1599/1580.Put Boxes Into the Warehouse II/images/22-2.png" style="width: 401px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22-2.png" style="width: 401px; height: 242px;" />
 
 <pre>
 
@@ -69,7 +69,7 @@ Notice that there are other valid ways to put 4 boxes such as swapping the red a
 
 <strong>Explanation:
 
-<img alt="" src="/solution/1500-1599/1580.Put Boxes Into the Warehouse II/images/22-3.png" style="width: 280px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22-3.png" style="width: 280px; height: 242px;" />
 
 </strong>It&#39;s not possible to put the two boxes of height 5 in the warehouse since there&#39;s only 1 room of height &gt;= 5.
 

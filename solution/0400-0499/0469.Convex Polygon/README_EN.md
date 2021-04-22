@@ -12,14 +12,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0400-0499/0469.Convex Polygon/images/covpoly1-plane.jpg" style="width: 300px; height: 294px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0469.Convex%20Polygon/images/covpoly1-plane.jpg" style="width: 300px; height: 294px;" />
 <pre>
 <strong>Input:</strong> points = [[0,0],[0,5],[5,5],[5,0]]
 <strong>Output:</strong> true
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0400-0499/0469.Convex Polygon/images/covpoly2-plane.jpg" style="width: 300px; height: 303px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0469.Convex%20Polygon/images/covpoly2-plane.jpg" style="width: 300px; height: 303px;" />
 <pre>
 <strong>Input:</strong> points = [[0,0],[0,10],[10,10],[10,0],[5,5]]
 <strong>Output:</strong> false

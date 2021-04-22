@@ -14,7 +14,7 @@
 	<li><code>&#39;0&#39;</code>（数字 0）表示一个空位</li>
 </ul>
 
-<p><img src="/solution/0300-0399/0361.Bomb Enemy/images/361_Bomb_Enemy.gif" style="width: 200px;"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0361.Bomb%20Enemy/images/361_Bomb_Enemy.gif" style="width: 200px;"></p>
 
 <p>请你计算一个炸弹最多能炸多少敌人。</p>
 

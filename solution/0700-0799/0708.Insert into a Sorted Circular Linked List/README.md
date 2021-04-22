@@ -17,14 +17,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0700-0799/0708.Insert into a Sorted Circular Linked List/images/example_1_before_65p.jpg" style="height: 149px; width: 250px;" /><br />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/images/example_1_before_65p.jpg" style="height: 149px; width: 250px;" /><br />
  
 <pre>
 <strong>输入：</strong>head = [3,4,1], insertVal = 2
 <strong>输出：</strong>[3,4,1,2]
 <strong>解释：</strong>在上图中，有一个包含三个元素的循环有序列表，你获得值为 3 的节点的指针，我们需要向表中插入元素 2 。新插入的节点应该在 1 和 3 之间，插入之后，整个列表如上图所示，最后返回节点 3 。
 
-<img alt="" src="/solution/0700-0799/0708.Insert into a Sorted Circular Linked List/images/example_1_after_65p.jpg" style="height: 149px; width: 250px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/images/example_1_after_65p.jpg" style="height: 149px; width: 250px;" />
 </pre>
 
 <p><strong>示例 2：</strong></p>

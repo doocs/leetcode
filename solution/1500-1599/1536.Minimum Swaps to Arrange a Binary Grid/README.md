@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1536.Minimum Swaps to Arrange a Binary Grid/images/fw.jpg" style="height: 141px; width: 750px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/images/fw.jpg" style="height: 141px; width: 750px;"></p>
 
 <pre><strong>输入：</strong>grid = [[0,0,1],[1,1,0],[1,0,0]]
 <strong>输出：</strong>3
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1536.Minimum Swaps to Arrange a Binary Grid/images/e2.jpg" style="height: 270px; width: 270px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/images/e2.jpg" style="height: 270px; width: 270px;"></p>
 
 <pre><strong>输入：</strong>grid = [[0,1,1,0],[0,1,1,0],[0,1,1,0],[0,1,1,0]]
 <strong>输出：</strong>-1
@@ -35,7 +35,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1536.Minimum Swaps to Arrange a Binary Grid/images/e3.jpg" style="height: 210px; width: 210px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/images/e3.jpg" style="height: 210px; width: 210px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,0,0],[1,1,0],[1,1,1]]
 <strong>输出：</strong>0

@@ -24,7 +24,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/1300-1399/1376.Time Needed to Inform All Employees/images/graph.png" style="width: 404px; height: 174px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/graph.png" style="width: 404px; height: 174px;" />
 <pre>
 <strong>Input:</strong> n = 6, headID = 2, manager = [2,2,-1,2,2,2], informTime = [0,0,1,0,0,0]
 <strong>Output:</strong> 1
@@ -33,7 +33,7 @@ The tree structure of the employees in the company is shown.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="/solution/1300-1399/1376.Time Needed to Inform All Employees/images/1730_example_3_5.PNG" style="width: 568px; height: 432px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/1730_example_3_5.PNG" style="width: 568px; height: 432px;" />
 <pre>
 <strong>Input:</strong> n = 7, headID = 6, manager = [1,2,3,4,5,6,-1], informTime = [0,6,5,4,3,2,1]
 <strong>Output:</strong> 21

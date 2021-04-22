@@ -18,7 +18,7 @@
 
 
 
-<p><img alt="" src="/solution/1400-1499/1453.Maximum Number of Darts Inside of a Circular Dartboard/images/sample_1_1806.png" style="width: 186px; height: 159px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1453.Maximum%20Number%20of%20Darts%20Inside%20of%20a%20Circular%20Dartboard/images/sample_1_1806.png" style="width: 186px; height: 159px;" /></p>
 
 
 
@@ -38,7 +38,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1400-1499/1453.Maximum Number of Darts Inside of a Circular Dartboard/images/sample_2_1806.png" style="width: 224px; height: 183px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1453.Maximum%20Number%20of%20Darts%20Inside%20of%20a%20Circular%20Dartboard/images/sample_2_1806.png" style="width: 224px; height: 183px;" /></strong></p>
 
 
 

@@ -28,7 +28,7 @@
 <strong>输出:</strong> 2
 
 <strong>解释:</strong> 
-<img src="/solution/0500-0599/0554.Brick Wall/images/brick_wall.png" style="width: 100%;">
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0554.Brick%20Wall/images/brick_wall.png" style="width: 100%;">
 </pre>
 
 <p>&nbsp;</p>

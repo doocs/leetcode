@@ -16,14 +16,14 @@
 <p> </p>
 
 <p><b>示例 1：</b></p>
-<img alt="" src="/solution/0200-0299/0240.Search a 2D Matrix II/images/searchgrid2.jpg" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/images/searchgrid2.jpg" />
 <pre>
 <b>输入：</b>matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
 <b>输出：</b>true
 </pre>
 
 <p><b>示例 2：</b></p>
-<img alt="" src="/solution/0200-0299/0240.Search a 2D Matrix II/images/searchgrid.jpg" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/images/searchgrid.jpg" />
 <pre>
 <b>输入：</b>matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20
 <b>输出：</b>false

@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0400-0499/0498.Diagonal Traverse/images/diag1-grid.jpg" style="width: 334px; height: 334px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0498.Diagonal%20Traverse/images/diag1-grid.jpg" style="width: 334px; height: 334px;" />
 <pre>
 <strong>Input:</strong> mat = [[1,2,3],[4,5,6],[7,8,9]]
 <strong>Output:</strong> [1,2,4,7,5,3,6,8,9]

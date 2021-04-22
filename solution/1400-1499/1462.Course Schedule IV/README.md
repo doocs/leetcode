@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1400-1499/1462.Course Schedule IV/images/graph.png" style="height: 300px; width: 300px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1462.Course%20Schedule%20IV/images/graph.png" style="height: 300px; width: 300px;"></p>
 
 <pre><strong>输入：</strong>n = 2, prerequisites = [[1,0]], queries = [[0,1],[1,0]]
 <strong>输出：</strong>[false,true]
@@ -38,7 +38,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="/solution/1400-1499/1462.Course Schedule IV/images/graph-1.png" style="height: 300px; width: 300px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1462.Course%20Schedule%20IV/images/graph-1.png" style="height: 300px; width: 300px;"></p>
 
 <pre><strong>输入：</strong>n = 3, prerequisites = [[1,2],[1,0],[2,0]], queries = [[1,0],[1,2]]
 <strong>输出：</strong>[true,true]

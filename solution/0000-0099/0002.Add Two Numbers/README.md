@@ -15,7 +15,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0000-0099/0002.Add Two Numbers/images/addtwonumber1.jpg" style="width: 483px; height: 342px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0002.Add%20Two%20Numbers/images/addtwonumber1.jpg" style="width: 483px; height: 342px;" />
 <pre>
 <strong>输入：</strong>l1 = [2,4,3], l2 = [5,6,4]
 <strong>输出：</strong>[7,0,8]

@@ -24,7 +24,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1500-1599/1519.Number of Nodes in the Sub-Tree With the Same Label/images/q3e1.jpg" style="width: 441px; height: 321px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e1.jpg" style="width: 441px; height: 321px;" />
 
 <pre>
 
@@ -42,7 +42,7 @@ Node 1 has a label &#39;b&#39;. The sub-tree of node 1 contains nodes 1,4 and 5,
 
 <p><strong>Example 2:</strong></p>
 
-<img alt="" src="/solution/1500-1599/1519.Number of Nodes in the Sub-Tree With the Same Label/images/q3e2.jpg" style="width: 381px; height: 321px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e2.jpg" style="width: 381px; height: 321px;" />
 
 <pre>
 
@@ -64,7 +64,7 @@ The sub-tree of node 0 contains nodes 0, 1, 2 and 3, all with label &#39;b&#39;,
 
 <p><strong>Example 3:</strong></p>
 
-<img alt="" src="/solution/1500-1599/1519.Number of Nodes in the Sub-Tree With the Same Label/images/q3e3.jpg" style="width: 381px; height: 321px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1519.Number%20of%20Nodes%20in%20the%20Sub-Tree%20With%20the%20Same%20Label/images/q3e3.jpg" style="width: 381px; height: 321px;" />
 
 <pre>
 

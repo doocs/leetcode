@@ -8,14 +8,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0200-0299/0230.Kth Smallest Element in a BST/images/kthtree1.jpg" style="width: 212px; height: 301px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0230.Kth%20Smallest%20Element%20in%20a%20BST/images/kthtree1.jpg" style="width: 212px; height: 301px;" />
 <pre>
 <strong>Input:</strong> root = [3,1,4,null,2], k = 1
 <strong>Output:</strong> 1
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0200-0299/0230.Kth Smallest Element in a BST/images/kthtree2.jpg" style="width: 382px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0230.Kth%20Smallest%20Element%20in%20a%20BST/images/kthtree2.jpg" style="width: 382px; height: 302px;" />
 <pre>
 <strong>Input:</strong> root = [5,3,6,2,4,null,null,1], k = 3
 <strong>Output:</strong> 3

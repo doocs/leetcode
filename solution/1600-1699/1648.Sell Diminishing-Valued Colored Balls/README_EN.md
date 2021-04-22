@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1600-1699/1648.Sell Diminishing-Valued Colored Balls/images/jj.gif" style="width: 480px; height: 270px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1648.Sell%20Diminishing-Valued%20Colored%20Balls/images/jj.gif" style="width: 480px; height: 270px;" />
 <pre>
 <strong>Input:</strong> inventory = [2,5], orders = 4
 <strong>Output:</strong> 14

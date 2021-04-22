@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1319.Number of Operations to Make Network Connected/images/sample_1_1677.png" style="height: 167px; width: 570px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/images/sample_1_1677.png" style="height: 167px; width: 570px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 4, connections = [[0,1],[0,2],[1,2]]
 <strong>输出：</strong>1
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1319.Number of Operations to Make Network Connected/images/sample_2_1677.png" style="height: 175px; width: 660px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/images/sample_2_1677.png" style="height: 175px; width: 660px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 6, connections = [[0,1],[0,2],[0,3],[1,2],[1,3]]
 <strong>输出：</strong>2

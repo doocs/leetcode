@@ -10,7 +10,7 @@
 
 <p>矩阵的 <strong>转置</strong> 是指将矩阵的主对角线翻转，交换矩阵的行索引与列索引。</p>
 
-<p><img alt="" src="/solution/0800-0899/0867.Transpose Matrix/images/hint_transpose.png" style="width: 600px; height: 197px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0867.Transpose%20Matrix/images/hint_transpose.png" style="width: 600px; height: 197px;" /></p>
 
 <p> </p>
 

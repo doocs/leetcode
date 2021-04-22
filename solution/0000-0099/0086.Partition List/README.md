@@ -13,7 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0000-0099/0086.Partition List/images/partition.jpg" style="width: 662px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0086.Partition%20List/images/partition.jpg" style="width: 662px; height: 222px;" />
 <pre>
 <strong>输入：</strong>head = [1,4,3,2,5,2], x = 3
 <strong>输出</strong>：[1,2,2,4,3,5]

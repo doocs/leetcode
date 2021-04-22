@@ -16,7 +16,7 @@
 
 
 
-<p><img src="/solution/0400-0499/0428.Serialize and Deserialize N-ary Tree/images/narytreeexample.png" style="width: 100%; max-width: 300px;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0428.Serialize%20and%20Deserialize%20N-ary%20Tree/images/narytreeexample.png" style="width: 100%; max-width: 300px;" /></p>
 
 
 
@@ -28,7 +28,7 @@
 
 
 
-<p><img alt="" src="/solution/0400-0499/0428.Serialize and Deserialize N-ary Tree/images/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0428.Serialize%20and%20Deserialize%20N-ary%20Tree/images/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
 
 
 

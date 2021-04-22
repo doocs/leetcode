@@ -21,7 +21,7 @@
 只有红色节点满足条件&ldquo;所有不包含 1 的子树&rdquo;。
 右图为返回的答案。
 
-<img alt="" src="/solution/0800-0899/0814.Binary Tree Pruning/images/1028_2.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028_2.png" style="width:450px" />
 </pre>
 
 <pre>
@@ -30,7 +30,7 @@
 <strong>输出: </strong>[1,null,1,null,1]
 
 
-<img alt="" src="/solution/0800-0899/0814.Binary Tree Pruning/images/1028_1.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028_1.png" style="width:450px" />
 </pre>
 
 <pre>
@@ -39,7 +39,7 @@
 <strong>输出: </strong>[1,1,0,1,1,null,1]
 
 
-<img alt="" src="/solution/0800-0899/0814.Binary Tree Pruning/images/1028.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028.png" style="width:450px" />
 </pre>
 
 <p><strong>说明: </strong></p>

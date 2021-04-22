@@ -22,7 +22,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0600-0699/0675.Cut Off Trees for Golf Event/images/trees1.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/images/trees1.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> forest = [[1,2,3],[0,0,4],[7,6,5]]
 <strong>Output:</strong> 6
@@ -30,7 +30,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0600-0699/0675.Cut Off Trees for Golf Event/images/trees2.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/images/trees2.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> forest = [[1,2,3],[0,0,0],[7,6,5]]
 <strong>Output:</strong> -1

@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1500-1599/1560.Most Visited Sector in  a Circular Track/images/tmp.jpg" style="width: 433px; height: 341px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1560.Most%20Visited%20Sector%20in%20%20a%20Circular%20Track/images/tmp.jpg" style="width: 433px; height: 341px;" />
 <pre>
 <strong>Input:</strong> n = 4, rounds = [1,3,1,2]
 <strong>Output:</strong> [1,2]

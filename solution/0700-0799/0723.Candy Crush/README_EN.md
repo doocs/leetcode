@@ -51,7 +51,7 @@ board =
 
 <b>Explanation:</b> 
 
-<img src="/solution/0700-0799/0723.Candy Crush/images/candy_crush_example_2.png" style="width: 777px; height: 532px;" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0723.Candy%20Crush/images/candy_crush_example_2.png" style="width: 777px; height: 532px;" />
 
 </pre>
 

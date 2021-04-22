@@ -9,7 +9,7 @@
 <p>Initially, you are facing directly east from your position. You <strong>cannot move</strong> from your position, but you can <strong>rotate</strong>. In other words, <code>pos<sub>x</sub></code> and <code>pos<sub>y</sub></code> cannot be changed. Your field of view in <strong>degrees</strong> is represented by <code>angle</code>, determining how wide you can see from any given view direction. Let <code>d</code> be the amount in degrees that you rotate counterclockwise. Then, your field of view is the <strong>inclusive</strong> range of angles <code>[d - angle/2, d + angle/2]</code>.</p>
 
 <p>
-<video autoplay="" controls="" height="360" muted="" style="max-width:100%;height:auto;" width="480"><source src="/solution/1600-1699/1610.Maximum Number of Visible Points/images/angle.mp4" type="video/mp4" />Your browser does not support the video tag or this video format.</video>
+<video autoplay="" controls="" height="360" muted="" style="max-width:100%;height:auto;" width="480"><source src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/images/angle.mp4" type="video/mp4" />Your browser does not support the video tag or this video format.</video>
 </p>
 
 <p>You can <strong>see</strong> some set of points if, for each point, the <strong>angle</strong> formed by the point, your position, and the immediate east direction from your position is <strong>in your field of view</strong>.</p>
@@ -20,7 +20,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1600-1699/1610.Maximum Number of Visible Points/images/89a07e9b-00ab-4967-976a-c723b2aa8656.png" style="width: 400px; height: 300px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/images/89a07e9b-00ab-4967-976a-c723b2aa8656.png" style="width: 400px; height: 300px;" />
 <pre>
 <strong>Input:</strong> points = [[2,1],[2,2],[3,3]], angle = 90, location = [1,1]
 <strong>Output:</strong> 3
@@ -36,7 +36,7 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="/solution/1600-1699/1610.Maximum Number of Visible Points/images/5010bfd3-86e6-465f-ac64-e9df941d2e49.png" style="width: 690px; height: 348px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1610.Maximum%20Number%20of%20Visible%20Points/images/5010bfd3-86e6-465f-ac64-e9df941d2e49.png" style="width: 690px; height: 348px;" />
 <pre>
 <strong>Input:</strong> points = [[1,0],[2,1]], angle = 13, location = [1,1]
 <strong>Output:</strong> 1

@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1000-1099/1028.Recover a Tree From Preorder Traversal/images/recover-a-tree-from-preorder-traversal.png" style="height: 200px; width: 320px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/images/recover-a-tree-from-preorder-traversal.png" style="height: 200px; width: 320px;"></strong></p>
 
 <pre><strong>输入：</strong>&quot;1-2--3--4-5--6--7&quot;
 <strong>输出：</strong>[1,2,5,3,4,6,7]
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1000-1099/1028.Recover a Tree From Preorder Traversal/images/screen-shot-2019-04-10-at-114101-pm.png" style="height: 250px; width: 256px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/images/screen-shot-2019-04-10-at-114101-pm.png" style="height: 250px; width: 256px;"></strong></p>
 
 <pre><strong>输入：</strong>&quot;1-2--3---4-5--6---7&quot;
 <strong>输出：</strong>[1,2,5,3,null,6,null,4,null,7]
@@ -34,7 +34,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="/solution/1000-1099/1028.Recover a Tree From Preorder Traversal/images/screen-shot-2019-04-10-at-114955-pm.png" style="height: 250px; width: 276px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1028.Recover%20a%20Tree%20From%20Preorder%20Traversal/images/screen-shot-2019-04-10-at-114955-pm.png" style="height: 250px; width: 276px;"></p>
 
 <pre><strong>输入：</strong>&quot;1-401--349---90--88&quot;
 <strong>输出：</strong>[1,401,null,349,88,90]

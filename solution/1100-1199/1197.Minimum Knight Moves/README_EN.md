@@ -8,7 +8,7 @@
 
 <p>A&nbsp;knight has 8 possible moves it can make, as illustrated below. Each move is two squares in a cardinal direction, then one square in an orthogonal direction.</p>
 
-<p><img src="/solution/1100-1199/1197.Minimum Knight Moves/images/knight.png" style="height: 200px; width: 200px;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1197.Minimum%20Knight%20Moves/images/knight.png" style="height: 200px; width: 200px;" /></p>
 
 <p>Return the&nbsp;minimum number of steps needed to move the knight to the square <code>[x, y]</code>.&nbsp; It is guaranteed the answer exists.</p>
 

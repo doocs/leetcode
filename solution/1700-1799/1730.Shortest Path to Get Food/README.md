@@ -22,20 +22,20 @@
 <p> </p>
 
 <p><b>示例 1:</b></p>
-<img alt="" src="/solution/1700-1799/1730.Shortest Path to Get Food/images/img1.jpg" style="width: 300px; height: 201px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/images/img1.jpg" style="width: 300px; height: 201px;">
 <pre><b>输入：</b> grid = [["X","X","X","X","X","X"],["X","*","O","O","O","X"],["X","O","O","#","O","X"],["X","X","X","X","X","X"]]
 <b>输出：</b> 3
 <b>解释： </b>要拿到食物，你需要走 3 步。</pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/1700-1799/1730.Shortest Path to Get Food/images/img2.jpg" style="width: 300px; height: 241px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/images/img2.jpg" style="width: 300px; height: 241px;">
 <pre><b>输入：</b> grid = [["X","X","X","X","X"],["X","*","X","O","X"],["X","O","X","#","X"],["X","X","X","X","X"]]
 <b>输出：</b> -1
 <b>解释：</b> 你不可能拿到食物。
 </pre>
 
 <p><strong>示例 3:</strong></p>
-<img alt="" src="/solution/1700-1799/1730.Shortest Path to Get Food/images/img3.jpg" style="width: 300px; height: 188px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1730.Shortest%20Path%20to%20Get%20Food/images/img3.jpg" style="width: 300px; height: 188px;">
 <pre><strong>输入:</strong> grid = [["X","X","X","X","X","X","X","X"],["X","*","O","X","O","#","O","X"],["X","O","O","X","O","O","X","X"],["X","O","O","O","O","#","O","X"],["X","X","X","X","X","X","X","X"]]
 <strong>输出:</strong> 6
 <strong>解释:</strong> 这里有多个食物。拿到下边的食物仅需走 6 步。</pre>

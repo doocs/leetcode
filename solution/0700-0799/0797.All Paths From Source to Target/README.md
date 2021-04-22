@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/0700-0799/0797.All Paths From Source to Target/images/all_1.jpg" style="height: 242px; width: 242px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/images/all_1.jpg" style="height: 242px; width: 242px;"></p>
 
 <pre><strong>输入：</strong>graph = [[1,2],[3],[3],[]]
 <strong>输出：</strong>[[0,1,3],[0,2,3]]
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/0700-0799/0797.All Paths From Source to Target/images/all_2.jpg" style="height: 301px; width: 423px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0797.All%20Paths%20From%20Source%20to%20Target/images/all_2.jpg" style="height: 301px; width: 423px;"></p>
 
 <pre><strong>输入：</strong>graph = [[4,3,1],[3,2,4],[3],[4],[]]
 <strong>输出：</strong>[[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]

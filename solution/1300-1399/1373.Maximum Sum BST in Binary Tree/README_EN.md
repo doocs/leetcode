@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1373.Maximum Sum BST in Binary Tree/images/sample_1_1709.png" style="width: 320px; height: 250px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/images/sample_1_1709.png" style="width: 320px; height: 250px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [1,4,3,2,4,2,5,null,null,null,null,null,null,4,6]
@@ -27,7 +27,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1373.Maximum Sum BST in Binary Tree/images/sample_2_1709.png" style="width: 134px; height: 180px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/images/sample_2_1709.png" style="width: 134px; height: 180px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [4,3,null,1,2]

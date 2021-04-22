@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1615.Maximal Network Rank/images/ex1.png" style="width: 292px; height: 172px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1615.Maximal%20Network%20Rank/images/ex1.png" style="width: 292px; height: 172px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, roads = [[0,1],[0,3],[1,2],[1,3]]
@@ -25,7 +25,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1615.Maximal Network Rank/images/ex2.png" style="width: 292px; height: 172px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1615.Maximal%20Network%20Rank/images/ex2.png" style="width: 292px; height: 172px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 5, roads = [[0,1],[0,3],[1,2],[1,3],[2,3],[2,4]]

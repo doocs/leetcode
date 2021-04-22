@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1311.Get Watched Videos by Your Friends/images/leetcode_friends_1.png" style="height: 179px; width: 129px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/images/leetcode_friends_1.png" style="height: 179px; width: 129px;"></strong></p>
 
 <pre><strong>输入：</strong>watchedVideos = [[&quot;A&quot;,&quot;B&quot;],[&quot;C&quot;],[&quot;B&quot;,&quot;C&quot;],[&quot;D&quot;]], friends = [[1,2],[0,3],[0,3],[1,2]], id = 0, level = 1
 <strong>输出：</strong>[&quot;B&quot;,&quot;C&quot;] 
@@ -33,7 +33,7 @@ C -&gt; 2
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1311.Get Watched Videos by Your Friends/images/leetcode_friends_2.png" style="height: 179px; width: 129px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1311.Get%20Watched%20Videos%20by%20Your%20Friends/images/leetcode_friends_2.png" style="height: 179px; width: 129px;"></strong></p>
 
 <pre><strong>输入：</strong>watchedVideos = [[&quot;A&quot;,&quot;B&quot;],[&quot;C&quot;],[&quot;B&quot;,&quot;C&quot;],[&quot;D&quot;]], friends = [[1,2],[0,3],[0,3],[1,2]], id = 0, level = 2
 <strong>输出：</strong>[&quot;D&quot;]

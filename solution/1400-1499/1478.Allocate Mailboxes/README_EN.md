@@ -22,7 +22,7 @@
 
 
 
-<p><img alt="" src="/solution/1400-1499/1478.Allocate Mailboxes/images/sample_11_1816.png" style="width: 454px; height: 154px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1478.Allocate%20Mailboxes/images/sample_11_1816.png" style="width: 454px; height: 154px;" /></p>
 
 
 
@@ -44,7 +44,7 @@ Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + 
 
 
 
-<p><strong><img alt="" src="/solution/1400-1499/1478.Allocate Mailboxes/images/sample_2_1816.png" style="width: 433px; height: 154px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1478.Allocate%20Mailboxes/images/sample_2_1816.png" style="width: 433px; height: 154px;" /></strong></p>
 
 
 

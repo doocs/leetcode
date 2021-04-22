@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0900-0999/0973.K Closest Points to Origin/images/closestplane1.jpg" style="width: 400px; height: 400px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0973.K%20Closest%20Points%20to%20Origin/images/closestplane1.jpg" style="width: 400px; height: 400px;" />
 <pre>
 <strong>Input:</strong> points = [[1,3],[-2,2]], k = 1
 <strong>Output:</strong> [[-2,2]]

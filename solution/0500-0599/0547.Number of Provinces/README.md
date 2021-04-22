@@ -19,14 +19,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0500-0599/0547.Number of Provinces/images/graph1.jpg" style="width: 222px; height: 142px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0547.Number%20of%20Provinces/images/graph1.jpg" style="width: 222px; height: 142px;" />
 <pre>
 <strong>输入：</strong>isConnected = [[1,1,0],[1,1,0],[0,0,1]]
 <strong>输出：</strong>2
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0500-0599/0547.Number of Provinces/images/graph2.jpg" style="width: 222px; height: 142px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0547.Number%20of%20Provinces/images/graph2.jpg" style="width: 222px; height: 142px;" />
 <pre>
 <strong>输入：</strong>isConnected = [[1,0,0],[0,1,0],[0,0,1]]
 <strong>输出：</strong>3

@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0100-0199/0144.Binary Tree Preorder Traversal/images/inorder_1.jpg" style="width: 202px; height: 324px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/images/inorder_1.jpg" style="width: 202px; height: 324px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2,3]
 <strong>Output:</strong> [1,2,3]
@@ -29,14 +29,14 @@
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="/solution/0100-0199/0144.Binary Tree Preorder Traversal/images/inorder_5.jpg" style="width: 202px; height: 202px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/images/inorder_5.jpg" style="width: 202px; height: 202px;" />
 <pre>
 <strong>Input:</strong> root = [1,2]
 <strong>Output:</strong> [1,2]
 </pre>
 
 <p><strong>Example 5:</strong></p>
-<img alt="" src="/solution/0100-0199/0144.Binary Tree Preorder Traversal/images/inorder_4.jpg" style="width: 202px; height: 202px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/images/inorder_4.jpg" style="width: 202px; height: 202px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,2]
 <strong>Output:</strong> [1,2]

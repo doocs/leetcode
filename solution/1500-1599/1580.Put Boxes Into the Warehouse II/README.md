@@ -22,12 +22,12 @@
 <p> </p>
 
 <p><strong>示例 1:</strong></p>
-<img alt="" src="/solution/1500-1599/1580.Put Boxes Into the Warehouse II/images/22.png" style="width: 401px; height: 202px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22.png" style="width: 401px; height: 202px;" />
 <pre>
 <strong>输入:</strong> boxes = [1,2,2,3,4], warehouse = [3,4,1,2]
 <strong>输出:</strong> 4
 <strong>解释:
-<img alt="" src="/solution/1500-1599/1580.Put Boxes Into the Warehouse II/images/22-1.png" style="width: 240px; height: 202px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22-1.png" style="width: 240px; height: 202px;" />
 </strong>我们可以按如下顺序推入箱子:
 1- 从左边或右边把黄色箱子推入2号房间；
 2- 从右边把橙色箱子推入3号房间；
@@ -37,12 +37,12 @@
 </pre>
 
 <p><strong>示例 2:</strong></p>
-<img alt="" src="/solution/1500-1599/1580.Put Boxes Into the Warehouse II/images/22-2.png" style="width: 401px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22-2.png" style="width: 401px; height: 242px;" />
 <pre>
 <strong>输入:</strong> boxes = [3,5,5,2], warehouse = [2,1,3,4,5]
 <strong>输出:</strong> 3
 <strong>解释:
-<img alt="" src="/solution/1500-1599/1580.Put Boxes Into the Warehouse II/images/22-3.png" style="width: 280px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22-3.png" style="width: 280px; height: 242px;" />
 </strong>因为只有一个高度大于等于5的房间，所以无法将两个高度为5的箱子都推入仓库。
 还有其他方式推入箱子，比如将绿色箱子推入2号房间，或者在绿色及红色箱子之前将橙色箱子推入2号房间。
 </pre>

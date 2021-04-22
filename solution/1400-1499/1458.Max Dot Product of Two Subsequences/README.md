@@ -54,7 +54,7 @@
 <pre>
 定义 <code><strong>a</strong>&nbsp;= [<em>a</em><sub>1</sub>,&nbsp;<em>a</em><sub>2</sub>,&hellip;,&nbsp;<em>a</em><sub><em>n</em></sub>]</code> 和<strong> <code>b</code></strong><code>&nbsp;= [<em>b</em><sub>1</sub>,&nbsp;<em>b</em><sub>2</sub>,&hellip;,&nbsp;<em>b</em><sub><em>n</em></sub>]</code> 的点积为：
 
-<img alt="\mathbf{a}\cdot \mathbf{b} = \sum_{i=1}^n a_ib_i = a_1b_1 + a_2b_2 + \cdots + a_nb_n " class="tex" src="/solution/1400-1499/1458.Max Dot Product of Two Subsequences/images/c329bf86e747d74f55ed2e17c36fd83f.png" />
+<img alt="\mathbf{a}\cdot \mathbf{b} = \sum_{i=1}^n a_ib_i = a_1b_1 + a_2b_2 + \cdots + a_nb_n " class="tex" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1458.Max%20Dot%20Product%20of%20Two%20Subsequences/images/c329bf86e747d74f55ed2e17c36fd83f.png" />
 
 这里的 <strong>&Sigma;</strong> 指示总和符号。
 </pre>

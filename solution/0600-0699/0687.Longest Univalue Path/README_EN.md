@@ -10,14 +10,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0600-0699/0687.Longest Univalue Path/images/ex1.jpg" style="width: 571px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0687.Longest%20Univalue%20Path/images/ex1.jpg" style="width: 571px; height: 302px;" />
 <pre>
 <strong>Input:</strong> root = [5,4,5,1,1,5]
 <strong>Output:</strong> 2
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0600-0699/0687.Longest Univalue Path/images/ex2.jpg" style="width: 571px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0687.Longest%20Univalue%20Path/images/ex2.jpg" style="width: 571px; height: 302px;" />
 <pre>
 <strong>Input:</strong> root = [1,4,5,4,4,5]
 <strong>Output:</strong> 2

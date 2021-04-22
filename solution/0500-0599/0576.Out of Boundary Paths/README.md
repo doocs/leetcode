@@ -24,7 +24,7 @@
 
 <strong>解释:</strong>
 
-<img src="/solution/0500-0599/0576.Out of Boundary Paths/images/out_of_boundary_paths_1.png" style="width: 100%; max-width: 400px">
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/images/out_of_boundary_paths_1.png" style="width: 100%; max-width: 400px">
 
 </pre>
 
@@ -40,7 +40,7 @@
 
 <strong>解释:</strong>
 
-<img src="/solution/0500-0599/0576.Out of Boundary Paths/images/out_of_boundary_paths_2.png" style="width: 100%; max-width: 400px">
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0576.Out%20of%20Boundary%20Paths/images/out_of_boundary_paths_2.png" style="width: 100%; max-width: 400px">
 
 </pre>
 

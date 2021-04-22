@@ -25,14 +25,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0600-0699/0675.Cut Off Trees for Golf Event/images/trees1.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/images/trees1.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>输入：</strong>forest = [[1,2,3],[0,0,4],[7,6,5]]
 <strong>输出：</strong>6
 <strong>解释：</strong>沿着上面的路径，你可以用 6 步，按从最矮到最高的顺序砍掉这些树。</pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0600-0699/0675.Cut Off Trees for Golf Event/images/trees2.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0675.Cut%20Off%20Trees%20for%20Golf%20Event/images/trees2.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>输入：</strong>forest = [[1,2,3],[0,0,0],[7,6,5]]
 <strong>输出：</strong>-1

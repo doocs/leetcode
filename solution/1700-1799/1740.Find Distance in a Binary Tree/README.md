@@ -13,21 +13,21 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/1700-1799/1740.Find Distance in a Binary Tree/images/binarytree.png" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1740.Find%20Distance%20in%20a%20Binary%20Tree/images/binarytree.png" />
 <pre>
 <strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 0
 <strong>输出：</strong>3
 <strong>解释：</strong>在 5 和 0 之间有 3 条边：5-3-1-0</pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/1700-1799/1740.Find Distance in a Binary Tree/images/binarytree.png" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1740.Find%20Distance%20in%20a%20Binary%20Tree/images/binarytree.png" />
 <pre>
 <strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 7
 <strong>输出：</strong>2
 <strong>解释：</strong>在 5 和 7 之间有 2 条边：5-2-7</pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="/solution/1700-1799/1740.Find Distance in a Binary Tree/images/binarytree.png" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1740.Find%20Distance%20in%20a%20Binary%20Tree/images/binarytree.png" />
 <pre>
 <strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 5
 <strong>输出：</strong>0

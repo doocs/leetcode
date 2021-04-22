@@ -16,7 +16,7 @@
 
 
 
-<p><img alt="" src="/solution/0700-0799/0799.Champagne Tower/images/tower.png" style="height: 241px; width: 350px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0799.Champagne%20Tower/images/tower.png" style="height: 241px; width: 350px;" /></p>
 
 
 

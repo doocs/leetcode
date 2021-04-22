@@ -41,7 +41,7 @@
 
 <strong>Output: </strong><span id="example-output-1">4</span>
 
-<span><img alt="" src="/solution/0900-0999/0952.Largest Component Size by Common Factor/images/ex1.png" style="width: 257px; height: 50px;" /></span>
+<span><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/images/ex1.png" style="width: 257px; height: 50px;" /></span>
 
 </pre>
 
@@ -59,7 +59,7 @@
 
 <strong>Output: </strong><span id="example-output-2">2</span>
 
-<span><img alt="" src="/solution/0900-0999/0952.Largest Component Size by Common Factor/images/ex2.png" style="width: 293px; height: 50px;" /></span>
+<span><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/images/ex2.png" style="width: 293px; height: 50px;" /></span>
 
 </pre>
 
@@ -77,7 +77,7 @@
 
 <strong>Output: </strong><span id="example-output-3">8</span>
 
-<span><img alt="" src="/solution/0900-0999/0952.Largest Component Size by Common Factor/images/ex3.png" style="width: 346px; height: 180px;" /></span>
+<span><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0952.Largest%20Component%20Size%20by%20Common%20Factor/images/ex3.png" style="width: 346px; height: 180px;" /></span>
 
 </pre>
 

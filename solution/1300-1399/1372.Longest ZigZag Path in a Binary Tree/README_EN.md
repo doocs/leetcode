@@ -21,7 +21,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1300-1399/1372.Longest ZigZag Path in a Binary Tree/images/sample_1_1702.png" style="width: 221px; height: 383px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1372.Longest%20ZigZag%20Path%20in%20a%20Binary%20Tree/images/sample_1_1702.png" style="width: 221px; height: 383px;" />
 <pre>
 <strong>Input:</strong> root = [1,null,1,1,1,null,null,1,1,null,1,null,null,null,1,null,1]
 <strong>Output:</strong> 3
@@ -29,7 +29,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/1300-1399/1372.Longest ZigZag Path in a Binary Tree/images/sample_2_1702.png" style="width: 157px; height: 329px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1372.Longest%20ZigZag%20Path%20in%20a%20Binary%20Tree/images/sample_2_1702.png" style="width: 157px; height: 329px;" />
 <pre>
 <strong>Input:</strong> root = [1,1,1,null,1,null,null,1,1,null,1]
 <strong>Output:</strong> 4

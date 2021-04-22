@@ -38,7 +38,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1600-1699/1660.Correct a Binary Tree/images/ex1v2.png" style="width: 250px; height: 177px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/images/ex1v2.png" style="width: 250px; height: 177px;" /></strong></p>
 
 
 
@@ -58,7 +58,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1600-1699/1660.Correct a Binary Tree/images/ex2v3.png" style="width: 350px; height: 255px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1660.Correct%20a%20Binary%20Tree/images/ex2v3.png" style="width: 350px; height: 255px;" /></strong></p>
 
 
 

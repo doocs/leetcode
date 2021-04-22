@@ -26,7 +26,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1586.Binary Search Tree Iterator II/images/untitled-diagram-1.png" style="height: 201px; width: 201px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1586.Binary%20Search%20Tree%20Iterator%20II/images/untitled-diagram-1.png" style="height: 201px; width: 201px;"></strong></p>
 
 <pre><strong>输入</strong>
 [&quot;BSTIterator&quot;, &quot;next&quot;, &quot;next&quot;, &quot;prev&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;next&quot;, &quot;next&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;hasPrev&quot;, &quot;prev&quot;, &quot;prev&quot;]

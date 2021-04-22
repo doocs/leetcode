@@ -25,7 +25,7 @@
 
 <p>下列是一些使用 <code>read4</code> 的例子：</p>
 
-<p><img alt="" src="/solution/0100-0199/0158.Read N Characters Given Read4 II - Call multiple times/images/157_example.png" style="width: 600px; height: 403px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0158.Read%20N%20Characters%20Given%20Read4%20II%20-%20Call%20multiple%20times/images/157_example.png" style="width: 600px; height: 403px;" /></p>
 
 <pre>
 <code>File file("abcde"); // 文件名为 "abcde"， 初始文件指针 (fp) 指向 'a' 

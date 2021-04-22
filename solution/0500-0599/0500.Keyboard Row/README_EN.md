@@ -13,7 +13,7 @@
 	<li>the second row consists of the characters <code>&quot;asdfghjkl&quot;</code>, and</li>
 	<li>the third row consists of the characters <code>&quot;zxcvbnm&quot;</code>.</li>
 </ul>
-<img alt="" src="/solution/0500-0599/0500.Keyboard Row/images/keyboard.png" style="width: 800px; max-width: 600px; height: 267px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0500.Keyboard%20Row/images/keyboard.png" style="width: 800px; max-width: 600px; height: 267px;" />
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 

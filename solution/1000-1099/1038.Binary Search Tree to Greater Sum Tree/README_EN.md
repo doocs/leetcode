@@ -28,7 +28,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1000-1099/1038.Binary Search Tree to Greater Sum Tree/images/tree.png" style="width: 550px; height: 375px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1038.Binary%20Search%20Tree%20to%20Greater%20Sum%20Tree/images/tree.png" style="width: 550px; height: 375px;" />
 
 <pre>
 

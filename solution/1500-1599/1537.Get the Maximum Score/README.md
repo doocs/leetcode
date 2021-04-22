@@ -26,7 +26,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1537.Get the Maximum Score/images/sample_1_1893.png" style="height: 163px; width: 538px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1537.Get%20the%20Maximum%20Score/images/sample_1_1893.png" style="height: 163px; width: 538px;"></strong></p>
 
 <pre><strong>输入：</strong>nums1 = [2,4,5,8,10], nums2 = [4,6,8,9]
 <strong>输出：</strong>30

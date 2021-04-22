@@ -19,7 +19,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1579.Remove Max Number of Edges to Keep Graph Fully Traversable/images/ex1.png" style="width: 179px; height: 191px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/images/ex1.png" style="width: 179px; height: 191px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, edges = [[3,1,2],[3,2,3],[1,1,3],[1,2,4],[1,1,2],[2,3,4]]
@@ -29,7 +29,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1579.Remove Max Number of Edges to Keep Graph Fully Traversable/images/ex2.png" style="width: 178px; height: 190px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/images/ex2.png" style="width: 178px; height: 190px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, edges = [[3,1,2],[3,2,3],[1,1,4],[2,1,4]]
@@ -39,7 +39,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1579.Remove Max Number of Edges to Keep Graph Fully Traversable/images/ex3.png" style="width: 178px; height: 190px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1579.Remove%20Max%20Number%20of%20Edges%20to%20Keep%20Graph%20Fully%20Traversable/images/ex3.png" style="width: 178px; height: 190px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> n = 4, edges = [[3,2,3],[1,1,2],[2,3,4]]

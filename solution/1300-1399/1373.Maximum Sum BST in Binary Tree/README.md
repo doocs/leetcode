@@ -20,7 +20,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1373.Maximum Sum BST in Binary Tree/images/sample_1_1709.png" style="height: 250px; width: 320px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/images/sample_1_1709.png" style="height: 250px; width: 320px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [1,4,3,2,4,2,5,null,null,null,null,null,null,4,6]
@@ -30,7 +30,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1373.Maximum Sum BST in Binary Tree/images/sample_2_1709.png" style="height: 180px; width: 134px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1373.Maximum%20Sum%20BST%20in%20Binary%20Tree/images/sample_2_1709.png" style="height: 180px; width: 134px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [4,3,null,1,2]

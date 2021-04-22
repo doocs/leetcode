@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/0900-0999/0968.Binary Tree Cameras/images/bst_cameras_01.png" style="height: 163px; width: 138px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0968.Binary%20Tree%20Cameras/images/bst_cameras_01.png" style="height: 163px; width: 138px;"></p>
 
 <pre><strong>输入：</strong>[0,0,null,0,0]
 <strong>输出：</strong>1
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/0900-0999/0968.Binary Tree Cameras/images/bst_cameras_02.png" style="height: 312px; width: 139px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0968.Binary%20Tree%20Cameras/images/bst_cameras_02.png" style="height: 312px; width: 139px;"></p>
 
 <pre><strong>输入：</strong>[0,0,null,0,null,0,null,null,0]
 <strong>输出：</strong>2

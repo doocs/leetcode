@@ -17,7 +17,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1200-1299/1252.Cells with Odd Values in a Matrix/images/e1.png" style="width: 600px; height: 118px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/images/e1.png" style="width: 600px; height: 118px;" />
 <pre>
 <strong>Input:</strong> m = 2, n = 3, indices = [[0,1],[1,1]]
 <strong>Output:</strong> 6
@@ -27,7 +27,7 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/1200-1299/1252.Cells with Odd Values in a Matrix/images/e2.png" style="width: 600px; height: 150px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1252.Cells%20with%20Odd%20Values%20in%20a%20Matrix/images/e2.png" style="width: 600px; height: 150px;" />
 <pre>
 <strong>Input:</strong> m = 2, n = 2, indices = [[1,1],[0,0]]
 <strong>Output:</strong> 0

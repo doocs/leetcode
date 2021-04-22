@@ -22,7 +22,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1500-1599/1514.Path with Maximum Probability/images/1558_ex1.png" style="width: 187px; height: 186px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/images/1558_ex1.png" style="width: 187px; height: 186px;" /></strong></p>
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1500-1599/1514.Path with Maximum Probability/images/1558_ex2.png" style="width: 189px; height: 186px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/images/1558_ex2.png" style="width: 189px; height: 186px;" /></strong></p>
 
 
 
@@ -60,7 +60,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1500-1599/1514.Path with Maximum Probability/images/1558_ex3.png" style="width: 215px; height: 191px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1514.Path%20with%20Maximum%20Probability/images/1558_ex3.png" style="width: 215px; height: 191px;" /></strong></p>
 
 
 

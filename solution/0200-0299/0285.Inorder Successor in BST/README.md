@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/0200-0299/0285.Inorder Successor in BST/images/285_example_1.PNG" style="height: 117px; width: 122px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/images/285_example_1.PNG" style="height: 117px; width: 122px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [2,1,3], p = 1
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/0200-0299/0285.Inorder Successor in BST/images/285_example_2.PNG" style="height: 229px; width: 246px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0285.Inorder%20Successor%20in%20BST/images/285_example_2.PNG" style="height: 229px; width: 246px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [5,3,6,2,4,null,null,1], p = 6

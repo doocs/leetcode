@@ -20,14 +20,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/1000-1099/1091.Shortest Path in Binary Matrix/images/example1_1.png" style="width: 500px; height: 234px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/images/example1_1.png" style="width: 500px; height: 234px;" />
 <pre>
 <strong>输入：</strong>grid = [[0,1],[1,0]]
 <strong>输出：</strong>2
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/1000-1099/1091.Shortest Path in Binary Matrix/images/example2_1.png" style="height: 216px; width: 500px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1091.Shortest%20Path%20in%20Binary%20Matrix/images/example2_1.png" style="height: 216px; width: 500px;" />
 <pre>
 <strong>输入：</strong>grid = [[0,0,0],[1,1,0],[1,1,0]]
 <strong>输出：</strong>4

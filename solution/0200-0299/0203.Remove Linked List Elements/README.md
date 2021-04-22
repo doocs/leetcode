@@ -10,7 +10,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0200-0299/0203.Remove Linked List Elements/images/removelinked-list.jpg" style="width: 500px; height: 142px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0203.Remove%20Linked%20List%20Elements/images/removelinked-list.jpg" style="width: 500px; height: 142px;" />
 <pre>
 <strong>输入：</strong>head = [1,2,6,3,4,5,6], val = 6
 <strong>输出：</strong>[1,2,3,4,5]

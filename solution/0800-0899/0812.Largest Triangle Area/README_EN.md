@@ -24,7 +24,7 @@ The five points are show in the figure below. The red triangle is the largest.
 
 
 
-<p><img alt="" src="/solution/0800-0899/0812.Largest Triangle Area/images/1027.png" style="height:328px; width:400px" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0812.Largest%20Triangle%20Area/images/1027.png" style="height:328px; width:400px" /></p>
 
 
 

@@ -44,7 +44,7 @@
 <strong>输出：</strong>17
 <strong>解释：</strong>
 这里有该形体在三个轴对齐平面上的三个投影(&ldquo;阴影部分&rdquo;)。
-<img alt="" src="/solution/0800-0899/0883.Projection Area of 3D Shapes/images/shadow.png" style="height: 200px; width: 749px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0883.Projection%20Area%20of%203D%20Shapes/images/shadow.png" style="height: 200px; width: 749px;">
 </pre>
 
 <p><strong>示例 3：</strong></p>

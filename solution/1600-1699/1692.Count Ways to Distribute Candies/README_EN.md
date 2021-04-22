@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/1600-1699/1692.Count Ways to Distribute Candies/images/candies-1.png" style="height: 248px; width: 600px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1692.Count%20Ways%20to%20Distribute%20Candies/images/candies-1.png" style="height: 248px; width: 600px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 3, k = 2

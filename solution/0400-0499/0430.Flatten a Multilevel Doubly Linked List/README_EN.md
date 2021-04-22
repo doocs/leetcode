@@ -21,11 +21,11 @@
 </strong>
 The multilevel linked list in the input is as follows:
 
-<img src="/solution/0400-0499/0430.Flatten a Multilevel Doubly Linked List/images/multilevellinkedlist.png" style="width: 640px;" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/multilevellinkedlist.png" style="width: 640px;" />
 
 After flattening the multilevel linked list it becomes:
 
-<img src="/solution/0400-0499/0430.Flatten a Multilevel Doubly Linked List/images/multilevellinkedlistflattened.png" style="width: 1100px;" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/images/multilevellinkedlistflattened.png" style="width: 1100px;" />
 </pre>
 
 <p><strong>Example 2:</strong></p>

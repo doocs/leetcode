@@ -13,14 +13,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0600-0699/0669.Trim a Binary Search Tree/images/trim1.jpg" style="width: 450px; height: 126px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/images/trim1.jpg" style="width: 450px; height: 126px;" />
 <pre>
 <strong>输入：</strong>root = [1,0,2], low = 1, high = 2
 <strong>输出：</strong>[1,null,2]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0600-0699/0669.Trim a Binary Search Tree/images/trim2.jpg" style="width: 450px; height: 277px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0669.Trim%20a%20Binary%20Search%20Tree/images/trim2.jpg" style="width: 450px; height: 277px;" />
 <pre>
 <strong>输入：</strong>root = [3,0,4,null,2,null,null,1], low = 1, high = 3
 <strong>输出：</strong>[3,2,null,1]

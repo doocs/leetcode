@@ -10,16 +10,16 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0100-0199/0108.Convert Sorted Array to Binary Search Tree/images/btree1.jpg" style="width: 302px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/images/btree1.jpg" style="width: 302px; height: 222px;" />
 <pre>
 <strong>Input:</strong> nums = [-10,-3,0,5,9]
 <strong>Output:</strong> [0,-3,9,-10,null,5]
 <strong>Explanation:</strong> [0,-10,5,null,-3,null,9] is also accepted:
-<img alt="" src="/solution/0100-0199/0108.Convert Sorted Array to Binary Search Tree/images/btree2.jpg" style="width: 302px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/images/btree2.jpg" style="width: 302px; height: 222px;" />
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0100-0199/0108.Convert Sorted Array to Binary Search Tree/images/btree.jpg" style="width: 342px; height: 142px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/images/btree.jpg" style="width: 342px; height: 142px;" />
 <pre>
 <strong>Input:</strong> nums = [1,3]
 <strong>Output:</strong> [3,1]

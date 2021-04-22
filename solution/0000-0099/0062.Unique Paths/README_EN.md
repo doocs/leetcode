@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img src="/solution/0000-0099/0062.Unique Paths/images/robot_maze.png" style="width: 400px; height: 183px;" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0062.Unique%20Paths/images/robot_maze.png" style="width: 400px; height: 183px;" />
 <pre>
 <strong>Input:</strong> m = 3, n = 7
 <strong>Output:</strong> 28

@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1232.Check If It Is a Straight Line/images/untitled-diagram-2.jpg" style="height: 336px; width: 336px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/images/untitled-diagram-2.jpg" style="height: 336px; width: 336px;"></p>
 
 <pre><strong>输入：</strong>coordinates = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
 <strong>输出：</strong>true
@@ -22,7 +22,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1200-1299/1232.Check If It Is a Straight Line/images/untitled-diagram-1.jpg" style="height: 336px; width: 348px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/images/untitled-diagram-1.jpg" style="height: 336px; width: 348px;"></strong></p>
 
 <pre><strong>输入：</strong>coordinates = [[1,1],[2,2],[3,4],[4,5],[5,6],[7,7]]
 <strong>输出：</strong>false

@@ -16,7 +16,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1483.Kth Ancestor of a Tree Node/images/1528_ex1.png" style="height: 262px; width: 396px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1483.Kth%20Ancestor%20of%20a%20Tree%20Node/images/1528_ex1.png" style="height: 262px; width: 396px;"></strong></p>
 
 <pre><strong>输入：</strong>
 [&quot;TreeAncestor&quot;,&quot;getKthAncestor&quot;,&quot;getKthAncestor&quot;,&quot;getKthAncestor&quot;]

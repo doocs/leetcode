@@ -15,7 +15,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0200-0299/0297.Serialize and Deserialize Binary Tree/images/serdeser.jpg" style="width: 442px; height: 324px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0297.Serialize%20and%20Deserialize%20Binary%20Tree/images/serdeser.jpg" style="width: 442px; height: 324px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,3,null,null,4,5]
 <strong>输出：</strong>[1,2,3,null,null,4,5]

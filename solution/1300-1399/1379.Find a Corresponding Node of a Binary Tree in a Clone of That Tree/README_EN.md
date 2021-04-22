@@ -28,7 +28,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e1.png" style="width: 544px; height: 426px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1379.Find%20a%20Corresponding%20Node%20of%20a%20Binary%20Tree%20in%20a%20Clone%20of%20That%20Tree/images/e1.png" style="width: 544px; height: 426px;" />
 
 <pre>
 
@@ -44,7 +44,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e2.png" style="width: 221px; height: 159px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1379.Find%20a%20Corresponding%20Node%20of%20a%20Binary%20Tree%20in%20a%20Clone%20of%20That%20Tree/images/e2.png" style="width: 221px; height: 159px;" />
 
 <pre>
 
@@ -58,7 +58,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e3.png" style="width: 459px; height: 486px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1379.Find%20a%20Corresponding%20Node%20of%20a%20Binary%20Tree%20in%20a%20Clone%20of%20That%20Tree/images/e3.png" style="width: 459px; height: 486px;" />
 
 <pre>
 
@@ -72,7 +72,7 @@
 
 <p><strong>Example 4:</strong></p>
 
-<img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e4.png" style="width: 555px; height: 239px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1379.Find%20a%20Corresponding%20Node%20of%20a%20Binary%20Tree%20in%20a%20Clone%20of%20That%20Tree/images/e4.png" style="width: 555px; height: 239px;" />
 
 <pre>
 
@@ -86,7 +86,7 @@
 
 <p><strong>Example 5:</strong></p>
 
-<img alt="" src="/solution/1300-1399/1379.Find a Corresponding Node of a Binary Tree in a Clone of That Tree/images/e5.png" style="width: 427px; height: 345px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1379.Find%20a%20Corresponding%20Node%20of%20a%20Binary%20Tree%20in%20a%20Clone%20of%20That%20Tree/images/e5.png" style="width: 427px; height: 345px;" />
 
 <pre>
 

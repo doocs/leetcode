@@ -18,7 +18,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0200-0299/0276.Paint Fence/images/paintfenceex1.png" style="width: 507px; height: 313px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0276.Paint%20Fence/images/paintfenceex1.png" style="width: 507px; height: 313px;" />
 <pre>
 <strong>输入：</strong>n = 3, k = 2
 <strong>输出：</strong>6

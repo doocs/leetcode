@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1318.Minimum Flips to Make a OR b Equal to c/images/sample_3_1676.png" style="height: 87px; width: 260px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1318.Minimum%20Flips%20to%20Make%20a%20OR%20b%20Equal%20to%20c/images/sample_3_1676.png" style="height: 87px; width: 260px;"></p>
 
 <pre><strong>输入：</strong>a = 2, b = 6, c = 5
 <strong>输出：</strong>3

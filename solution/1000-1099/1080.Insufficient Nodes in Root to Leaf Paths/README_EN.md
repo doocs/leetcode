@@ -26,11 +26,11 @@
 
 <pre>
 
-<strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-11.png" style="width: 482px; height: 200px;" />
+<strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-11.png" style="width: 482px; height: 200px;" />
 
 Input: </strong>root = <span id="example-input-1-1">[1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14]</span>, limit = <span id="example-input-1-2">1</span>
 
-<strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-2.png" style="width: 258px; height: 200px;" />
+<strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-2.png" style="width: 258px; height: 200px;" />
 
 Output: </strong><span id="example-output-1">[1,2,3,4,null,null,7,8,9,null,14]</span>
 
@@ -46,11 +46,11 @@ Output: </strong><span id="example-output-1">[1,2,3,4,null,null,7,8,9,null,14]</
 
 <pre>
 
-<strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-3.png" style="width: 292px; height: 200px;" />
+<strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-3.png" style="width: 292px; height: 200px;" />
 
 Input: </strong>root = <span id="example-input-2-1">[5,4,8,11,null,17,4,7,1,null,null,5,3]</span>, limit = <span id="example-input-2-2">22</span>
 
-<strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/insufficient-4.png" style="width: 264px; height: 200px;" />
+<strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/insufficient-4.png" style="width: 264px; height: 200px;" />
 
 Output: </strong><span id="example-output-2">[5,4,8,11,null,17,4,7,null,null,null,5]</span></pre>
 
@@ -66,11 +66,11 @@ Output: </strong><span id="example-output-2">[5,4,8,11,null,17,4,7,null,null,nul
 
 <pre>
 
-<strong><img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/screen-shot-2019-06-11-at-83301-pm.png" style="width: 188px; height: 150px;" />
+<strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/screen-shot-2019-06-11-at-83301-pm.png" style="width: 188px; height: 150px;" />
 
 Input: </strong>root = <span>[1,2,-3,-5,null,4,null]</span>, limit = -1
 
-<img alt="" src="/solution/1000-1099/1080.Insufficient Nodes in Root to Leaf Paths/images/screen-shot-2019-06-11-at-83517-pm.png" style="width: 122px; height: 150px;" /><strong>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1080.Insufficient%20Nodes%20in%20Root%20to%20Leaf%20Paths/images/screen-shot-2019-06-11-at-83517-pm.png" style="width: 122px; height: 150px;" /><strong>
 
 Output: </strong><span>[1,null,-3,4]</span></pre>
 

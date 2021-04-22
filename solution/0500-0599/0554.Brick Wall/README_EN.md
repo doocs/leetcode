@@ -50,7 +50,7 @@
 
 <b>Explanation:</b> 
 
-<img src="/solution/0500-0599/0554.Brick Wall/images/brick_wall.png" style="width: 100%; max-width: 350px" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0554.Brick%20Wall/images/brick_wall.png" style="width: 100%; max-width: 350px" />
 
 </pre>
 

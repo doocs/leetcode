@@ -22,7 +22,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1612.Check If Two Expression Trees are Equivalent/images/tree1.png" style="width: 211px; height: 131px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1612.Check%20If%20Two%20Expression%20Trees%20are%20Equivalent/images/tree1.png" style="width: 211px; height: 131px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root1 = [+,a,+,null,null,b,c], root2 = [+,+,a,b,c]
@@ -31,7 +31,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1612.Check If Two Expression Trees are Equivalent/images/tree2.png" style="width: 211px; height: 131px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1612.Check%20If%20Two%20Expression%20Trees%20are%20Equivalent/images/tree2.png" style="width: 211px; height: 131px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root1 = [+,a,+,null,null,b,c], root2 = [+,+,a,b,d]

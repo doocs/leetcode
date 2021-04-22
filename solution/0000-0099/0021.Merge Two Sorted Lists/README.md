@@ -11,7 +11,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0000-0099/0021.Merge Two Sorted Lists/images/merge_ex1.jpg" style="width: 662px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0021.Merge%20Two%20Sorted%20Lists/images/merge_ex1.jpg" style="width: 662px; height: 302px;" />
 <pre>
 <strong>输入：</strong>l1 = [1,2,4], l2 = [1,3,4]
 <strong>输出：</strong>[1,1,2,3,4,4]

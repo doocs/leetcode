@@ -24,7 +24,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1300-1399/1335.Minimum Difficulty of a Job Schedule/images/untitled.png" style="width: 365px; height: 230px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1335.Minimum%20Difficulty%20of%20a%20Job%20Schedule/images/untitled.png" style="width: 365px; height: 230px;" />
 
 <pre>
 

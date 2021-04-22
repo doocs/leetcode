@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="Flipped Trees Diagram" src="/solution/0900-0999/0951.Flip Equivalent Binary Trees/images/tree_ex.png" style="width: 500px; height: 220px;" />
+<img alt="Flipped Trees Diagram" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0951.Flip%20Equivalent%20Binary%20Trees/images/tree_ex.png" style="width: 500px; height: 220px;" />
 <pre>
 <strong>Input:</strong> root1 = [1,2,3,4,5,6,null,null,null,7,8], root2 = [1,3,2,null,6,4,5,null,null,null,null,8,7]
 <strong>Output:</strong> true

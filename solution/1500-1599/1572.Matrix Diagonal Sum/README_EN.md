@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1500-1599/1572.Matrix Diagonal Sum/images/sample_1911.png" style="width: 336px; height: 174px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/images/sample_1911.png" style="width: 336px; height: 174px;" />
 <pre>
 <strong>Input:</strong> mat = [[<strong>1</strong>,2,<strong>3</strong>],
 &nbsp;             [4,<strong>5</strong>,6],

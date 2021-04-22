@@ -12,7 +12,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1344.Angle Between Hands of a Clock/images/sample_1_1673.png" style="height: 225px; width: 230px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/images/sample_1_1673.png" style="height: 225px; width: 230px;"></p>
 
 <pre><strong>输入：</strong>hour = 12, minutes = 30
 <strong>输出：</strong>165
@@ -20,7 +20,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1344.Angle Between Hands of a Clock/images/sample_2_1673.png" style="height: 225px; width: 230px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/images/sample_2_1673.png" style="height: 225px; width: 230px;"></p>
 
 <pre><strong>输入：</strong>hour = 3, minutes = 30
 <strong>输出；</strong>75
@@ -28,7 +28,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1344.Angle Between Hands of a Clock/images/sample_3_1673.png" style="height: 231px; width: 230px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/images/sample_3_1673.png" style="height: 231px; width: 230px;"></strong></p>
 
 <pre><strong>输入：</strong>hour = 3, minutes = 15
 <strong>输出：</strong>7.5

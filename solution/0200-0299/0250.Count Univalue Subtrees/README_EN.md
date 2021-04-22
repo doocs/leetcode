@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0200-0299/0250.Count Univalue Subtrees/images/unival_e1.jpg" style="width: 450px; height: 258px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0250.Count%20Univalue%20Subtrees/images/unival_e1.jpg" style="width: 450px; height: 258px;" />
 <pre>
 <strong>Input:</strong> root = [5,1,5,5,5,null,5]
 <strong>Output:</strong> 4

@@ -22,14 +22,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0000-0099/0025.Reverse Nodes in k-Group/images/reverse_ex1.jpg" style="width: 542px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/images/reverse_ex1.jpg" style="width: 542px; height: 222px;" />
 <pre>
 <strong>输入：</strong>head = [1,2,3,4,5], k = 2
 <strong>输出：</strong>[2,1,4,3,5]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0000-0099/0025.Reverse Nodes in k-Group/images/reverse_ex2.jpg" style="width: 542px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0025.Reverse%20Nodes%20in%20k-Group/images/reverse_ex2.jpg" style="width: 542px; height: 222px;" />
 <pre>
 <strong>输入：</strong>head = [1,2,3,4,5], k = 3
 <strong>输出：</strong>[3,2,1,4,5]

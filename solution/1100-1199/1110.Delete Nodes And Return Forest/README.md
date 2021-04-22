@@ -16,7 +16,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="/solution/1100-1199/1110.Delete Nodes And Return Forest/images/screen-shot-2019-07-01-at-53836-pm.png" style="height: 150px; width: 237px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1110.Delete%20Nodes%20And%20Return%20Forest/images/screen-shot-2019-07-01-at-53836-pm.png" style="height: 150px; width: 237px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,4,5,6,7], to_delete = [3,5]
 <strong>输出：</strong>[[1,2,null,4],[6],[7]]

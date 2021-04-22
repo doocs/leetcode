@@ -69,7 +69,7 @@ Click : [3,0]
 
 <b>Explanation:</b>
 
-<img src="/solution/0500-0599/0529.Minesweeper/images/minesweeper_example_1.png" style="width: 100%; max-width: 400px" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0529.Minesweeper/images/minesweeper_example_1.png" style="width: 100%; max-width: 400px" />
 
 </pre>
 
@@ -115,7 +115,7 @@ Click : [1,2]
 
 <b>Explanation:</b>
 
-<img src="/solution/0500-0599/0529.Minesweeper/images/minesweeper_example_2.png" style="width: 100%; max-width: 400px" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0529.Minesweeper/images/minesweeper_example_2.png" style="width: 100%; max-width: 400px" />
 
 </pre>
 

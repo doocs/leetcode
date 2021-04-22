@@ -44,7 +44,7 @@
 
 
 
-<img alt="" src="/solution/0800-0899/0885.Spiral Matrix III/images/example_1.png" style="width: 174px; height: 99px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0885.Spiral%20Matrix%20III/images/example_1.png" style="width: 174px; height: 99px;" />
 
 </pre>
 
@@ -66,7 +66,7 @@
 
 
 
-<img alt="" src="/solution/0800-0899/0885.Spiral Matrix III/images/example_2.png" style="width: 202px; height: 142px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0885.Spiral%20Matrix%20III/images/example_2.png" style="width: 202px; height: 142px;" />
 
 </pre>
 

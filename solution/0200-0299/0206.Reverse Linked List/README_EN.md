@@ -8,14 +8,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0200-0299/0206.Reverse Linked List/images/rev1ex1.jpg" style="width: 542px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0206.Reverse%20Linked%20List/images/rev1ex1.jpg" style="width: 542px; height: 222px;" />
 <pre>
 <strong>Input:</strong> head = [1,2,3,4,5]
 <strong>Output:</strong> [5,4,3,2,1]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0200-0299/0206.Reverse Linked List/images/rev1ex2.jpg" style="width: 182px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0206.Reverse%20Linked%20List/images/rev1ex2.jpg" style="width: 182px; height: 222px;" />
 <pre>
 <strong>Input:</strong> head = [1,2]
 <strong>Output:</strong> [2,1]

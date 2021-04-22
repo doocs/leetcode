@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0300-0399/0339.Nested List Weight Sum/images/nestedlistweightsumex1.png" style="width: 405px; height: 99px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/images/nestedlistweightsumex1.png" style="width: 405px; height: 99px;" />
 <pre>
 <strong>Input:</strong> nestedList = [[1,1],2,[1,1]]
 <strong>Output:</strong> 10
@@ -20,7 +20,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0300-0399/0339.Nested List Weight Sum/images/nestedlistweightsumex2.png" style="width: 315px; height: 106px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/images/nestedlistweightsumex2.png" style="width: 315px; height: 106px;" />
 <pre>
 <strong>Input:</strong> nestedList = [1,[4,[6]]]
 <strong>Output:</strong> 27

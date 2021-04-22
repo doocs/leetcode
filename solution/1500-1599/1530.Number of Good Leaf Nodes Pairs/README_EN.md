@@ -16,7 +16,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1500-1599/1530.Number of Good Leaf Nodes Pairs/images/e1.jpg" style="width: 321px; height: 321px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/images/e1.jpg" style="width: 321px; height: 321px;" />
 
 <pre>
 
@@ -32,7 +32,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<img alt="" src="/solution/1500-1599/1530.Number of Good Leaf Nodes Pairs/images/e2.jpg" style="width: 441px; height: 321px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/images/e2.jpg" style="width: 441px; height: 321px;" />
 
 <pre>
 

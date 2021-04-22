@@ -15,29 +15,29 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/1.png" style="width: 231px; height: 152px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/1.png" style="width: 231px; height: 152px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[&quot;a&quot;,&quot;a&quot;,&quot;a&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;b&quot;,&quot;b&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;b&quot;,&quot;b&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;a&quot;,&quot;a&quot;,&quot;a&quot;]]
 <strong>Output:</strong> true
 <strong>Explanation: </strong>There are two valid cycles shown in different colors in the image below:
-<img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/11.png" style="width: 225px; height: 163px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/11.png" style="width: 225px; height: 163px;" />
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/22.png" style="width: 236px; height: 154px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/22.png" style="width: 236px; height: 154px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[&quot;c&quot;,&quot;c&quot;,&quot;c&quot;,&quot;a&quot;],[&quot;c&quot;,&quot;d&quot;,&quot;c&quot;,&quot;c&quot;],[&quot;c&quot;,&quot;c&quot;,&quot;e&quot;,&quot;c&quot;],[&quot;f&quot;,&quot;c&quot;,&quot;c&quot;,&quot;c&quot;]]
 <strong>Output:</strong> true
 <strong>Explanation: </strong>There is only one valid cycle highlighted in the image below:
-<img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/2.png" style="width: 229px; height: 157px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/2.png" style="width: 229px; height: 157px;" />
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/3.png" style="width: 183px; height: 120px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/3.png" style="width: 183px; height: 120px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> grid = [[&quot;a&quot;,&quot;b&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;z&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;b&quot;,&quot;a&quot;]]

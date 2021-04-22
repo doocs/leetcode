@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0500-0599/0543.Diameter of Binary Tree/images/diamtree.jpg" style="width: 292px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0543.Diameter%20of%20Binary%20Tree/images/diamtree.jpg" style="width: 292px; height: 302px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5]
 <strong>Output:</strong> 3

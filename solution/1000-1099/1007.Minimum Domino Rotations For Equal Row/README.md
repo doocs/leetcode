@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1000-1099/1007.Minimum Domino Rotations For Equal Row/images/domino.png" style="height: 161px; width: 200px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1007.Minimum%20Domino%20Rotations%20For%20Equal%20Row/images/domino.png" style="height: 161px; width: 200px;"></p>
 
 <pre><strong>输入：</strong>A = [2,1,2,4,2,2], B = [5,2,6,2,3,2]
 <strong>输出：</strong>2

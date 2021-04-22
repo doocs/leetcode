@@ -23,7 +23,7 @@
 所求结点为与目标结点（值为 5）距离为 2 的结点，
 值分别为 7，4，以及 1
 
-<img alt="" src="/solution/0800-0899/0863.All Nodes Distance K in Binary Tree/images/sketch0.png" style="height: 240px; width: 280px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0863.All%20Nodes%20Distance%20K%20in%20Binary%20Tree/images/sketch0.png" style="height: 240px; width: 280px;">
 
 注意，输入的 &quot;root&quot; 和 &quot;target&quot; 实际上是树上的结点。
 上面的输入仅仅是对这些对象进行了序列化描述。

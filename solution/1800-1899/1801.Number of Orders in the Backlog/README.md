@@ -29,7 +29,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/1800-1899/1801.Number of Orders in the Backlog/images/ex1.png" style="width: 450px; height: 479px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/images/ex1.png" style="width: 450px; height: 479px;" />
 <pre>
 <strong>输入：</strong>orders = [[10,5,0],[15,2,1],[25,1,1],[30,4,0]]
 <strong>输出：</strong>6
@@ -42,7 +42,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/1800-1899/1801.Number of Orders in the Backlog/images/ex2.png" style="width: 450px; height: 584px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/images/ex2.png" style="width: 450px; height: 584px;" />
 <pre>
 <strong>输入：</strong>orders = [[7,1000000000,1],[15,3,0],[5,999999995,0],[5,1,1]]
 <strong>输出：</strong>999999984

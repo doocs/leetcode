@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1375.Bulb Switcher III/images/sample_2_1725.png" style="width: 575px; height: 300px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1375.Bulb%20Switcher%20III/images/sample_2_1725.png" style="width: 575px; height: 300px;" /></p>
 
 <pre>
 <strong>Input:</strong> light = [2,1,3,5,4]

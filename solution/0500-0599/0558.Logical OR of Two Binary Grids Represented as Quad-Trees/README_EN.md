@@ -61,7 +61,7 @@ class Node {
 	<li>Recurse for each of the children with the proper sub-grid.</li>
 </ol>
 
-<img alt="" src="/solution/0500-0599/0558.Logical OR of Two Binary Grids Represented as Quad-Trees/images/new_top.png" style="width: 777px; height: 181px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/images/new_top.png" style="width: 777px; height: 181px;" />
 
 <p>If you want to know more about the Quad-Tree, you can refer to the&nbsp;<a href="https://en.wikipedia.org/wiki/Quadtree">wiki</a>.</p>
 
@@ -84,7 +84,7 @@ class Node {
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0500-0599/0558.Logical OR of Two Binary Grids Represented as Quad-Trees/images/qt1.png" style="width: 550px; height: 196px;" /> <img alt="" src="/solution/0500-0599/0558.Logical OR of Two Binary Grids Represented as Quad-Trees/images/qt2.png" style="width: 550px; height: 278px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/images/qt1.png" style="width: 550px; height: 196px;" /> <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/images/qt2.png" style="width: 550px; height: 278px;" />
 <pre>
 <strong>Input:</strong> quadTree1 = [[0,1],[1,1],[1,1],[1,0],[1,0]]
 , quadTree2 = [[0,1],[1,1],[0,1],[1,1],[1,0],null,null,null,null,[1,0],[1,0],[1,1],[1,1]]
@@ -92,7 +92,7 @@ class Node {
 <strong>Explanation:</strong> quadTree1 and quadTree2 are shown above. You can see the binary matrix which is represented by each Quad-Tree.
 If we apply logical bitwise OR on the two binary matrices we get the binary matrix below which is represented by the result Quad-Tree.
 Notice that the binary matrices shown are only for illustration, you don&#39;t have to construct the binary matrix to get the result tree.
-<img alt="" src="/solution/0500-0599/0558.Logical OR of Two Binary Grids Represented as Quad-Trees/images/qtr.png" style="width: 777px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0558.Logical%20OR%20of%20Two%20Binary%20Grids%20Represented%20as%20Quad-Trees/images/qtr.png" style="width: 777px; height: 222px;" />
 </pre>
 
 <p><strong>Example 2:</strong></p>

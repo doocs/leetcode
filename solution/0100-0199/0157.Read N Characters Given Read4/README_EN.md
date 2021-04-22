@@ -24,7 +24,7 @@ buf4[] is a destination, not a source. The results from read4 will be copied to 
 </pre>
 
 <p>Below is a high-level example of how <code>read4</code> works:</p>
-<img alt="" src="/solution/0100-0199/0157.Read N Characters Given Read4/images/157_example.png" style="width: 600px; height: 403px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0157.Read%20N%20Characters%20Given%20Read4/images/157_example.png" style="width: 600px; height: 403px;" />
 <pre>
 File file(&quot;abcde<code>&quot;); // File is &quot;</code>abcde<code>&quot;, initially file pointer (fp) points to &#39;a&#39;
 char[] buf4 = new char[4]; // Create buffer with enough space to store characters

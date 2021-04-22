@@ -16,7 +16,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/1700-1799/1739.Building Boxes/images/3-boxes.png" style="width: 135px; height: 143px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1739.Building%20Boxes/images/3-boxes.png" style="width: 135px; height: 143px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 3
@@ -27,7 +27,7 @@ These boxes are placed in the corner of the room, where the corner is on the lef
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="/solution/1700-1799/1739.Building Boxes/images/4-boxes.png" style="width: 135px; height: 179px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1739.Building%20Boxes/images/4-boxes.png" style="width: 135px; height: 179px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 4
@@ -38,7 +38,7 @@ These boxes are placed in the corner of the room, where the corner is on the lef
 
 <p><strong>Example 3:</strong></p>
 
-<p><img alt="" src="/solution/1700-1799/1739.Building Boxes/images/10-boxes.png" style="width: 271px; height: 257px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1739.Building%20Boxes/images/10-boxes.png" style="width: 271px; height: 257px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 10

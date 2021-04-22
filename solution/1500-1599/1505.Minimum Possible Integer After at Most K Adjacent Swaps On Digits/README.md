@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1505.Minimum Possible Integer After at Most K Adjacent Swaps On Digits/images/q4_1.jpg" style="height:40px; width:500px" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1505.Minimum%20Possible%20Integer%20After%20at%20Most%20K%20Adjacent%20Swaps%20On%20Digits/images/q4_1.jpg" style="height:40px; width:500px" /></p>
 
 <pre>
 <strong>输入：</strong>num = &quot;4321&quot;, k = 4

@@ -15,7 +15,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0200-0299/0276.Paint Fence/images/paintfenceex1.png" style="width: 507px; height: 313px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0276.Paint%20Fence/images/paintfenceex1.png" style="width: 507px; height: 313px;" />
 <pre>
 <strong>Input:</strong> n = 3, k = 2
 <strong>Output:</strong> 6

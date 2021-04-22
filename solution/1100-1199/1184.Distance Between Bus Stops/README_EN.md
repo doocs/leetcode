@@ -22,7 +22,7 @@
 
 
 
-<p><img alt="" src="/solution/1100-1199/1184.Distance Between Bus Stops/images/untitled-diagram-1.jpg" style="width: 388px; height: 240px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/images/untitled-diagram-1.jpg" style="width: 388px; height: 240px;" /></p>
 
 
 
@@ -44,7 +44,7 @@
 
 
 
-<p><img alt="" src="/solution/1100-1199/1184.Distance Between Bus Stops/images/untitled-diagram-1-1.jpg" style="width: 388px; height: 240px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/images/untitled-diagram-1-1.jpg" style="width: 388px; height: 240px;" /></p>
 
 
 
@@ -68,7 +68,7 @@
 
 
 
-<p><img alt="" src="/solution/1100-1199/1184.Distance Between Bus Stops/images/untitled-diagram-1-2.jpg" style="width: 388px; height: 240px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1184.Distance%20Between%20Bus%20Stops/images/untitled-diagram-1-2.jpg" style="width: 388px; height: 240px;" /></p>
 
 
 

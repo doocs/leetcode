@@ -18,7 +18,7 @@
 
 <p>例如，多项式 <code>5x<sup>3</sup> + 4x - 7</code> 可以表示成如下图所示的多项式链表：</p>
 
-<p><img alt="" src="/solution/1600-1699/1634.Add Two Polynomials Represented as Linked Lists/images/polynomial2.png" style="width: 500px; height: 91px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/images/polynomial2.png" style="width: 500px; height: 91px;" /></p>
 
 <p>多项式链表必须是标准形式的，即多项式必须<strong> 严格 </strong>按指数 <code>power</code> 的递减顺序排列（即降幂排列）。另外，系数 <code>coefficient</code> 为 <code>0</code> 的项需要省略。</p>
 
@@ -32,7 +32,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1600-1699/1634.Add Two Polynomials Represented as Linked Lists/images/ex1.png" style="width: 600px; height: 322px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/images/ex1.png" style="width: 600px; height: 322px;" /></p>
 
 <pre>
 <strong>输入：</strong>poly1 = [[1,1]], poly2 = [[1,0]]

@@ -40,7 +40,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/0900-0999/0988.Smallest String Starting From Leaf/images/tree1.png" style="width: 160px; height: 107px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree1.png" style="width: 160px; height: 107px;" /></strong></p>
 
 
 
@@ -60,7 +60,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/0900-0999/0988.Smallest String Starting From Leaf/images/tree2.png" style="width: 160px; height: 107px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree2.png" style="width: 160px; height: 107px;" /></strong></p>
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/0900-0999/0988.Smallest String Starting From Leaf/images/tree3.png" style="height: 170px; width: 172px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree3.png" style="height: 170px; width: 172px;" /></strong></p>
 
 
 

@@ -12,14 +12,14 @@
 
 <p>现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？</p>
 
-<p><img src="/solution/0000-0099/0063.Unique Paths II/images/robot_maze.png" style="height: 183px; width: 400px;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0063.Unique%20Paths%20II/images/robot_maze.png" style="height: 183px; width: 400px;" /></p>
 
 <p>网格中的障碍物和空位置分别用 <code>1</code> 和 <code>0</code> 来表示。</p>
 
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0000-0099/0063.Unique Paths II/images/robot1.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0063.Unique%20Paths%20II/images/robot1.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>输入：</strong>obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
 <strong>输出：</strong>2
@@ -31,7 +31,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0000-0099/0063.Unique Paths II/images/robot2.jpg" style="width: 162px; height: 162px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0063.Unique%20Paths%20II/images/robot2.jpg" style="width: 162px; height: 162px;" />
 <pre>
 <strong>输入：</strong>obstacleGrid = [[0,1],[0,0]]
 <strong>输出：</strong>1

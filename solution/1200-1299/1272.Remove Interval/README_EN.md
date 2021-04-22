@@ -12,14 +12,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1200-1299/1272.Remove Interval/images/removeintervalex1.png" style="width: 510px; height: 319px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1272.Remove%20Interval/images/removeintervalex1.png" style="width: 510px; height: 319px;" />
 <pre>
 <strong>Input:</strong> intervals = [[0,2],[3,4],[5,7]], toBeRemoved = [1,6]
 <strong>Output:</strong> [[0,1],[6,7]]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/1200-1299/1272.Remove Interval/images/removeintervalex2.png" style="width: 410px; height: 318px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1272.Remove%20Interval/images/removeintervalex2.png" style="width: 410px; height: 318px;" />
 <pre>
 <strong>Input:</strong> intervals = [[0,5]], toBeRemoved = [2,3]
 <strong>Output:</strong> [[0,2],[3,5]]

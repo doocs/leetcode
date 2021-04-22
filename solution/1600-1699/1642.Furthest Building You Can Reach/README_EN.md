@@ -19,7 +19,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1600-1699/1642.Furthest Building You Can Reach/images/q4.gif" style="width: 562px; height: 561px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1642.Furthest%20Building%20You%20Can%20Reach/images/q4.gif" style="width: 562px; height: 561px;" />
 <pre>
 <strong>Input:</strong> heights = [4,2,7,6,9,14,12], bricks = 5, ladders = 1
 <strong>Output:</strong> 4

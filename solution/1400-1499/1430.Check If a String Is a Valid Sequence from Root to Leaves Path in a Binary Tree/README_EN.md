@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1430.Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree/images/leetcode_testcase_1.png" style="width: 333px; height: 250px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1430.Check%20If%20a%20String%20Is%20a%20Valid%20Sequence%20from%20Root%20to%20Leaves%20Path%20in%20a%20Binary%20Tree/images/leetcode_testcase_1.png" style="width: 333px; height: 250px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,0,1]
@@ -25,7 +25,7 @@ Other valid sequences are:
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1430.Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree/images/leetcode_testcase_2.png" style="width: 333px; height: 250px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1430.Check%20If%20a%20String%20Is%20a%20Valid%20Sequence%20from%20Root%20to%20Leaves%20Path%20in%20a%20Binary%20Tree/images/leetcode_testcase_2.png" style="width: 333px; height: 250px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,0,1]
@@ -35,7 +35,7 @@ Other valid sequences are:
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1430.Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree/images/leetcode_testcase_3.png" style="width: 333px; height: 250px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1430.Check%20If%20a%20String%20Is%20a%20Valid%20Sequence%20from%20Root%20to%20Leaves%20Path%20in%20a%20Binary%20Tree/images/leetcode_testcase_3.png" style="width: 333px; height: 250px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> root = [0,1,0,0,1,0,null,null,1,0,0], arr = [0,1,1]

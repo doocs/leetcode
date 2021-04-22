@@ -21,7 +21,7 @@
 <pre><strong>输入：</strong>7
 <strong>输出：</strong>[[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]]
 <strong>解释：</strong>
-<img alt="" src="/solution/0800-0899/0894.All Possible Full Binary Trees/images/fivetrees.png" style="height: 400px; width: 700px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/images/fivetrees.png" style="height: 400px; width: 700px;">
 </pre>
 
 <p>&nbsp;</p>

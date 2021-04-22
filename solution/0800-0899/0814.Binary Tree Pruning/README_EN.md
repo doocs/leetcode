@@ -19,7 +19,7 @@
 Only the red nodes satisfy the property &quot;every subtree not containing a 1&quot;.
 The diagram on the right represents the answer.
 
-<img alt="" src="/solution/0800-0899/0814.Binary Tree Pruning/images/1028_2.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028_2.png" style="width:450px" />
 </pre>
 
 <pre>
@@ -28,7 +28,7 @@ The diagram on the right represents the answer.
 <strong>Output: </strong>[1,null,1,null,1]
 
 
-<img alt="" src="/solution/0800-0899/0814.Binary Tree Pruning/images/1028_1.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028_1.png" style="width:450px" />
 </pre>
 
 <pre>
@@ -37,7 +37,7 @@ The diagram on the right represents the answer.
 <strong>Output: </strong>[1,1,0,1,1,null,1]
 
 
-<img alt="" src="/solution/0800-0899/0814.Binary Tree Pruning/images/1028.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028.png" style="width:450px" />
 </pre>
 
 <p><strong>Note: </strong></p>

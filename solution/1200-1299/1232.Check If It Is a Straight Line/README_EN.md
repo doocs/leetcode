@@ -18,7 +18,7 @@
 
 
 
-<p><img alt="" src="/solution/1200-1299/1232.Check If It Is a Straight Line/images/untitled-diagram-2.jpg" style="width: 336px; height: 336px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/images/untitled-diagram-2.jpg" style="width: 336px; height: 336px;" /></p>
 
 
 
@@ -36,7 +36,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1200-1299/1232.Check If It Is a Straight Line/images/untitled-diagram-1.jpg" style="width: 348px; height: 336px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/images/untitled-diagram-1.jpg" style="width: 348px; height: 336px;" /></strong></p>
 
 
 

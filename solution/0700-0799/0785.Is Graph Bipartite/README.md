@@ -21,14 +21,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0700-0799/0785.Is Graph Bipartite/images/bi2.jpg" style="width: 222px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0785.Is%20Graph%20Bipartite/images/bi2.jpg" style="width: 222px; height: 222px;" />
 <pre>
 <strong>输入：</strong>graph = [[1,2,3],[0,2],[0,1,3],[0,2]]
 <strong>输出：</strong>false
 <strong>解释：</strong><code>不能将节点分割成两个独立的子集，</code>以使每条边都连通一个子集中的一个节点与另一个子集中的一个节点。</pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0700-0799/0785.Is Graph Bipartite/images/bi1.jpg" style="width: 222px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0785.Is%20Graph%20Bipartite/images/bi1.jpg" style="width: 222px; height: 222px;" />
 <pre>
 <strong>输入：</strong>graph = [[1,3],[0,2],[1,3],[0,2]]
 <strong>输出：</strong>true

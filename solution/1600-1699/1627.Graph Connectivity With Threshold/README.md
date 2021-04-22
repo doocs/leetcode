@@ -22,7 +22,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1600-1699/1627.Graph Connectivity With Threshold/images/ex1.jpg" style="width: 382px; height: 181px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/images/ex1.jpg" style="width: 382px; height: 181px;" /></p>
 
 <p> </p>
 
@@ -44,7 +44,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1600-1699/1627.Graph Connectivity With Threshold/images/tmp.jpg" style="width: 532px; height: 302px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/images/tmp.jpg" style="width: 532px; height: 302px;" /></p>
 
 <p> </p>
 
@@ -56,7 +56,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="/solution/1600-1699/1627.Graph Connectivity With Threshold/images/ex3.jpg" style="width: 282px; height: 282px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1627.Graph%20Connectivity%20With%20Threshold/images/ex3.jpg" style="width: 282px; height: 282px;" /></p>
 
 <p> </p>
 

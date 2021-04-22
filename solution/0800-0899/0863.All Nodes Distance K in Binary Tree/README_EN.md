@@ -46,7 +46,7 @@ have values 7, 4, and 1.
 
 
 
-<img alt="" src="/solution/0800-0899/0863.All Nodes Distance K in Binary Tree/images/sketch0.png" style="width: 280px; height: 240px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0863.All%20Nodes%20Distance%20K%20in%20Binary%20Tree/images/sketch0.png" style="width: 280px; height: 240px;" />
 
 
 

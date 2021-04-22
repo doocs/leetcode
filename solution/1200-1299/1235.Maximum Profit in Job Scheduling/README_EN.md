@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1200-1299/1235.Maximum Profit in Job Scheduling/images/sample1_1584.png" style="width: 380px; height: 154px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample1_1584.png" style="width: 380px; height: 154px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]
@@ -24,7 +24,7 @@ Time range [1-3]+[3-6] , we get profit of 120 = 50 + 70.
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1200-1299/1235.Maximum Profit in Job Scheduling/images/sample22_1584.png" style="width: 600px; height: 112px;" /> </strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample22_1584.png" style="width: 600px; height: 112px;" /> </strong></p>
 
 <pre>
 <strong>Input:</strong> startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]
@@ -35,7 +35,7 @@ Profit obtained 150 = 20 + 70 + 60.
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="/solution/1200-1299/1235.Maximum Profit in Job Scheduling/images/sample3_1584.png" style="width: 400px; height: 112px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1235.Maximum%20Profit%20in%20Job%20Scheduling/images/sample3_1584.png" style="width: 400px; height: 112px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]

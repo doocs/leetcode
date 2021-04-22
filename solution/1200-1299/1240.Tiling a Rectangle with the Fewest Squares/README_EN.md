@@ -9,7 +9,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_11_1592.png" style="width: 154px; height: 106px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_11_1592.png" style="width: 154px; height: 106px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 2, m = 3
@@ -20,7 +20,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_22_1592.png" style="width: 224px; height: 126px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_22_1592.png" style="width: 224px; height: 126px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 5, m = 8
@@ -29,7 +29,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1240.Tiling a Rectangle with the Fewest Squares/images/sample_33_1592.png" style="width: 224px; height: 189px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1240.Tiling%20a%20Rectangle%20with%20the%20Fewest%20Squares/images/sample_33_1592.png" style="width: 224px; height: 189px;" /></p>
 
 <pre>
 <strong>Input:</strong> n = 11, m = 13

@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1305.All Elements in Two Binary Search Trees/images/q2-e1.png"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1305.All%20Elements%20in%20Two%20Binary%20Search%20Trees/images/q2-e1.png"></p>
 
 <pre><strong>输入：</strong>root1 = [2,1,4], root2 = [1,0,3]
 <strong>输出：</strong>[0,1,1,2,3,4]
@@ -40,7 +40,7 @@
 
 <p><strong>示例 5：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1305.All Elements in Two Binary Search Trees/images/q2-e5-.png"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1305.All%20Elements%20in%20Two%20Binary%20Search%20Trees/images/q2-e5-.png"></p>
 
 <pre><strong>输入：</strong>root1 = [1,null,8], root2 = [8,1]
 <strong>输出：</strong>[1,1,8,8]

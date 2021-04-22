@@ -27,7 +27,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1368.Minimum Cost to Make at Least One Valid Path in a Grid/images/grid1.png" style="height: 528px; width: 542px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/images/grid1.png" style="height: 528px; width: 542px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,1,1,1],[2,2,2,2],[1,1,1,1],[2,2,2,2]]
 <strong>输出：</strong>3
@@ -38,7 +38,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1368.Minimum Cost to Make at Least One Valid Path in a Grid/images/grid2.png" style="height: 408px; width: 419px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/images/grid2.png" style="height: 408px; width: 419px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,1,3],[3,2,2],[1,1,4]]
 <strong>输出：</strong>0
@@ -47,7 +47,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1368.Minimum Cost to Make at Least One Valid Path in a Grid/images/grid3.png" style="height: 302px; width: 314px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1368.Minimum%20Cost%20to%20Make%20at%20Least%20One%20Valid%20Path%20in%20a%20Grid/images/grid3.png" style="height: 302px; width: 314px;"></p>
 
 <pre><strong>输入：</strong>grid = [[1,2],[4,3]]
 <strong>输出：</strong>1

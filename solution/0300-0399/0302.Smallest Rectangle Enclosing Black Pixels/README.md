@@ -14,7 +14,7 @@
 
 <p>那么，给出某一个黑色像素点&nbsp;<code>(x, y)</code>&nbsp;的位置，你是否可以找出包含全部黑色像素的最小矩形（与坐标轴对齐）的面积呢？</p>
 
-<p><img src="/solution/0300-0399/0302.Smallest Rectangle Enclosing Black Pixels/images/302_smallest_rectangle_enclosing_black_pixels.png" style="width: 100px;"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0302.Smallest%20Rectangle%20Enclosing%20Black%20Pixels/images/302_smallest_rectangle_enclosing_black_pixels.png" style="width: 100px;"></p>
 
 <p><strong>示例:</strong></p>
 

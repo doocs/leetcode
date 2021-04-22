@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1339.Maximum Product of Splitted Binary Tree/images/sample_1_1699.png" style="height: 200px; width: 495px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/images/sample_1_1699.png" style="height: 200px; width: 495px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,2,3,4,5,6]
 <strong>输出：</strong>110
@@ -23,7 +23,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1339.Maximum Product of Splitted Binary Tree/images/sample_2_1699.png" style="height: 200px; width: 495px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/images/sample_2_1699.png" style="height: 200px; width: 495px;"></p>
 
 <pre><strong>输入：</strong>root = [1,null,2,3,4,null,null,5,6]
 <strong>输出：</strong>90

@@ -25,7 +25,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/0900-0999/0998.Maximum Binary Tree II/images/maximum-binary-tree-1-1.png" style="width: 159px; height: 160px;" /><img alt="" src="/solution/0900-0999/0998.Maximum Binary Tree II/images/maximum-binary-tree-1-2.png" style="width: 169px; height: 160px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-1-1.png" style="width: 159px; height: 160px;" /><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-1-2.png" style="width: 169px; height: 160px;" /></strong></p>
 
 <pre>
 <strong>Input: </strong>root = <span id="example-input-1-1">[4,1,3,null,null,2]</span>, val = <span id="example-input-1-2">5</span>
@@ -35,7 +35,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/0900-0999/0998.Maximum Binary Tree II/images/maximum-binary-tree-2-1.png" style="width: 180px; height: 160px;" /><img alt="" src="/solution/0900-0999/0998.Maximum Binary Tree II/images/maximum-binary-tree-2-2.png" style="width: 214px; height: 160px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-2-1.png" style="width: 180px; height: 160px;" /><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-2-2.png" style="width: 214px; height: 160px;" /></strong></p>
 
 <pre>
 <strong>Input: </strong>root = <span id="example-input-2-1">[5,2,4,null,1]</span>, val = <span id="example-input-2-2">3</span>
@@ -45,7 +45,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="/solution/0900-0999/0998.Maximum Binary Tree II/images/maximum-binary-tree-3-1.png" style="width: 180px; height: 160px;" /><img alt="" src="/solution/0900-0999/0998.Maximum Binary Tree II/images/maximum-binary-tree-3-2.png" style="width: 201px; height: 160px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-3-1.png" style="width: 180px; height: 160px;" /><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-3-2.png" style="width: 201px; height: 160px;" /></strong></p>
 
 <pre>
 <strong>Input: </strong>root = <span id="example-input-3-1">[5,2,3,null,1]</span>, val = <span id="example-input-3-2">4</span>

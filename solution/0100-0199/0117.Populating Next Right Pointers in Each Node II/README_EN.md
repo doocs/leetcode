@@ -51,7 +51,7 @@ struct Node {
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/0100-0199/0117.Populating Next Right Pointers in Each Node II/images/117_sample.png" style="width: 640px; height: 218px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0117.Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/images/117_sample.png" style="width: 640px; height: 218px;" /></p>
 
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5,null,7]

@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1400-1499/1496.Path Crossing/images/screen-shot-2020-06-10-at-123929-pm.png" style="height: 224px; width: 250px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1496.Path%20Crossing/images/screen-shot-2020-06-10-at-123929-pm.png" style="height: 224px; width: 250px;"></p>
 
 <pre><strong>输入：</strong>path = &quot;NES&quot;
 <strong>输出：</strong>false 
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1400-1499/1496.Path Crossing/images/screen-shot-2020-06-10-at-123843-pm.png" style="height: 212px; width: 250px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1496.Path%20Crossing/images/screen-shot-2020-06-10-at-123843-pm.png" style="height: 212px; width: 250px;"></p>
 
 <pre><strong>输入：</strong>path = &quot;NESWW&quot;
 <strong>输出：</strong>true

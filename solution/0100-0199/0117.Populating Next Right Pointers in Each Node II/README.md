@@ -33,7 +33,7 @@ struct Node {
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="/solution/0100-0199/0117.Populating Next Right Pointers in Each Node II/images/117_sample.png" style="height: 218px; width: 640px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0117.Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/images/117_sample.png" style="height: 218px; width: 640px;" /></p>
 
 <pre>
 <strong>输入</strong>：root = [1,2,3,4,5,null,7]

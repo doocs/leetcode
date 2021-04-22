@@ -16,7 +16,7 @@
 这五个点如下图所示。组成的橙色三角形是最大的，面积为2。
 </pre>
 
-<p><img alt="" src="/solution/0800-0899/0812.Largest Triangle Area/images/1027.png" style="height:328px; width:400px" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0812.Largest%20Triangle%20Area/images/1027.png" style="height:328px; width:400px" /></p>
 
 <p><strong>注意: </strong></p>
 

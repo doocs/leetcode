@@ -19,14 +19,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0200-0299/0289.Game of Life/images/grid1.jpg" style="width: 562px; height: 322px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0289.Game%20of%20Life/images/grid1.jpg" style="width: 562px; height: 322px;" />
 <pre>
 <strong>Input:</strong> board = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
 <strong>Output:</strong> [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0200-0299/0289.Game of Life/images/grid2.jpg" style="width: 402px; height: 162px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0289.Game%20of%20Life/images/grid2.jpg" style="width: 402px; height: 162px;" />
 <pre>
 <strong>Input:</strong> board = [[1,1],[1,0]]
 <strong>Output:</strong> [[1,1],[1,1]]

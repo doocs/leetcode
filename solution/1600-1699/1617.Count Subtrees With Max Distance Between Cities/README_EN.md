@@ -30,7 +30,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1600-1699/1617.Count Subtrees With Max Distance Between Cities/images/p1.png" style="width: 161px; height: 181px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1617.Count%20Subtrees%20With%20Max%20Distance%20Between%20Cities/images/p1.png" style="width: 161px; height: 181px;" /></strong></p>
 
 
 

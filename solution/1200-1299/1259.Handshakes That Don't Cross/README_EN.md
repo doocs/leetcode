@@ -20,7 +20,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1259.Handshakes That Don't Cross/images/5125_example_2.png" style="width: 651px; height: 311px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/images/5125_example_2.png" style="width: 651px; height: 311px;" /></p>
 
 <pre>
 <strong>Input:</strong> num_people = 4
@@ -30,7 +30,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1259.Handshakes That Don't Cross/images/5125_example_3.png" style="width: 664px; height: 992px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1259.Handshakes%20That%20Don%27t%20Cross/images/5125_example_3.png" style="width: 664px; height: 992px;" /></p>
 
 <pre>
 <strong>Input:</strong> num_people = 6

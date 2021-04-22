@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/0000-0099/0011.Container With Most Water/images/question_11.jpg" style="height: 287px; width: 600px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0011.Container%20With%20Most%20Water/images/question_11.jpg" style="height: 287px; width: 600px;" /></p>
 
 <pre>
 <strong>输入：</strong>[1,8,6,2,5,4,8,3,7]

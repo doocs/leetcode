@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1245.Tree Diameter/images/1397_example_1.png" style="height: 233px; width: 226px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/1397_example_1.png" style="height: 233px; width: 226px;"></p>
 
 <pre><strong>输入：</strong>edges = [[0,1],[0,2]]
 <strong>输出：</strong>2
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1245.Tree Diameter/images/1397_example_2.png" style="height: 316px; width: 350px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/1397_example_2.png" style="height: 316px; width: 350px;"></p>
 
 <pre><strong>输入：</strong>edges = [[0,1],[1,2],[2,3],[1,4],[4,5]]
 <strong>输出：</strong>4

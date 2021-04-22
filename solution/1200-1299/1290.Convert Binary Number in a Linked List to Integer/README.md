@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1290.Convert Binary Number in a Linked List to Integer/images/graph-1.png" style="height: 108px; width: 426px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/images/graph-1.png" style="height: 108px; width: 426px;"></p>
 
 <pre><strong>输入：</strong>head = [1,0,1]
 <strong>输出：</strong>5

@@ -13,7 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0200-0299/0222.Count Complete Tree Nodes/images/complete.jpg" style="width: 372px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/images/complete.jpg" style="width: 372px; height: 302px;" />
 <pre>
 <strong>输入：</strong>root = [1,2,3,4,5,6]
 <strong>输出：</strong>6

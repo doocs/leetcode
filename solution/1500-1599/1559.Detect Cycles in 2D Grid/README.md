@@ -18,27 +18,27 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/5482e1.png" style="height: 152px; width: 231px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/5482e1.png" style="height: 152px; width: 231px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[&quot;a&quot;,&quot;a&quot;,&quot;a&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;b&quot;,&quot;b&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;b&quot;,&quot;b&quot;,&quot;a&quot;],[&quot;a&quot;,&quot;a&quot;,&quot;a&quot;,&quot;a&quot;]]
 <strong>输出：</strong>true
 <strong>解释：</strong>如下图所示，有 2 个用不同颜色标出来的环：
-<img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/5482e11.png" style="height: 163px; width: 225px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/5482e11.png" style="height: 163px; width: 225px;">
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/5482e2.png" style="height: 154px; width: 236px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/5482e2.png" style="height: 154px; width: 236px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[&quot;c&quot;,&quot;c&quot;,&quot;c&quot;,&quot;a&quot;],[&quot;c&quot;,&quot;d&quot;,&quot;c&quot;,&quot;c&quot;],[&quot;c&quot;,&quot;c&quot;,&quot;e&quot;,&quot;c&quot;],[&quot;f&quot;,&quot;c&quot;,&quot;c&quot;,&quot;c&quot;]]
 <strong>输出：</strong>true
 <strong>解释：</strong>如下图所示，只有高亮所示的一个合法环：
-<img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/5482e22.png" style="height: 157px; width: 229px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/5482e22.png" style="height: 157px; width: 229px;">
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1559.Detect Cycles in 2D Grid/images/5482e3.png" style="height: 120px; width: 183px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1559.Detect%20Cycles%20in%202D%20Grid/images/5482e3.png" style="height: 120px; width: 183px;"></strong></p>
 
 <pre><strong>输入：</strong>grid = [[&quot;a&quot;,&quot;b&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;z&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;b&quot;,&quot;a&quot;]]
 <strong>输出：</strong>false

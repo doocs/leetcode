@@ -22,7 +22,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1628.Design an Expression Tree With Evaluate Function/images/untitled-diagram.png" style="width: 242px; height: 241px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1628.Design%20an%20Expression%20Tree%20With%20Evaluate%20Function/images/untitled-diagram.png" style="width: 242px; height: 241px;"></strong></p>
 
 <pre><b>输入：</b> s = ["3","4","+","2","*","7","/"]
 <b>输出：</b> 2
@@ -31,7 +31,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1628.Design an Expression Tree With Evaluate Function/images/untitled-diagram2.png" style="width: 222px; height: 232px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1628.Design%20an%20Expression%20Tree%20With%20Evaluate%20Function/images/untitled-diagram2.png" style="width: 222px; height: 232px;"></strong></p>
 
 <pre><strong>输入:</strong> s = ["4","5","7","2","+","-","*"]
 <strong>输出:</strong> -16

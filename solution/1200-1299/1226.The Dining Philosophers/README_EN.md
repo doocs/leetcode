@@ -12,7 +12,7 @@
 
 <p>Design a discipline of behaviour (a concurrent algorithm) such that no philosopher will starve;&nbsp;<i>i.e.</i>, each can forever continue to alternate between eating and thinking, assuming that no philosopher can know when others may want to eat or think.</p>
 
-<p style="text-align: center"><img alt="" src="/solution/1200-1299/1226.The Dining Philosophers/images/an_illustration_of_the_dining_philosophers_problem.png" style="width: 400px; height: 415px;" /></p>
+<p style="text-align: center"><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1226.The%20Dining%20Philosophers/images/an_illustration_of_the_dining_philosophers_problem.png" style="width: 400px; height: 415px;" /></p>
 
 <p style="text-align: center"><em>The problem statement and the image above are taken from <a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem" target="_blank">wikipedia.org</a></em></p>
 

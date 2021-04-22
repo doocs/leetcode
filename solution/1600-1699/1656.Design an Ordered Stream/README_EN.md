@@ -18,7 +18,7 @@
 <p>&nbsp;</p>
 <p><strong>Example:</strong></p>
 
-<p><strong><img alt="" src="/solution/1600-1699/1656.Design an Ordered Stream/images/q1.gif" style="width: 682px; height: 240px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/images/q1.gif" style="width: 682px; height: 240px;" /></strong></p>
 
 <pre>
 <strong>Input</strong>

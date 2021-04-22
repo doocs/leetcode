@@ -38,7 +38,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1800-1899/1801.Number of Orders in the Backlog/images/ex1.png" style="width: 450px; height: 479px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/images/ex1.png" style="width: 450px; height: 479px;" />
 
 <pre>
 
@@ -64,7 +64,7 @@ Finally, the backlog has 5 buy orders with price 10, and 1 buy order with price 
 
 <p><strong>Example 2:</strong></p>
 
-<img alt="" src="/solution/1800-1899/1801.Number of Orders in the Backlog/images/ex2.png" style="width: 450px; height: 584px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/images/ex2.png" style="width: 450px; height: 584px;" />
 
 <pre>
 

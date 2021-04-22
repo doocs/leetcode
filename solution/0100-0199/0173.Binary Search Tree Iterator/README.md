@@ -24,7 +24,7 @@
 <p> </p>
 
 <p><strong>示例：</strong></p>
-<img alt="" src="/solution/0100-0199/0173.Binary Search Tree Iterator/images/bst-tree.png" style="width: 189px; height: 178px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/images/bst-tree.png" style="width: 189px; height: 178px;" />
 <pre>
 <strong>输入</strong>
 ["BSTIterator", "next", "next", "hasNext", "next", "hasNext", "next", "hasNext", "next", "hasNext"]

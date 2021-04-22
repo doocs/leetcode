@@ -22,7 +22,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/0900-0999/0968.Binary Tree Cameras/images/bst_cameras_01.png" style="width: 138px; height: 163px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0968.Binary%20Tree%20Cameras/images/bst_cameras_01.png" style="width: 138px; height: 163px;" />
 
 <div>
 
@@ -42,7 +42,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<img alt="" src="/solution/0900-0999/0968.Binary Tree Cameras/images/bst_cameras_02.png" style="width: 139px; height: 312px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0968.Binary%20Tree%20Cameras/images/bst_cameras_02.png" style="width: 139px; height: 312px;" />
 
 <pre>
 

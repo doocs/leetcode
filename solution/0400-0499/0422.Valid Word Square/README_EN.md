@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0400-0499/0422.Valid Word Square/images/validsq1-grid.jpg" style="width: 333px; height: 333px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0422.Valid%20Word%20Square/images/validsq1-grid.jpg" style="width: 333px; height: 333px;" />
 <pre>
 <strong>Input:</strong> words = [&quot;abcd&quot;,&quot;bnrt&quot;,&quot;crmy&quot;,&quot;dtye&quot;]
 <strong>Output:</strong> true
@@ -23,7 +23,7 @@ Therefore, it is a valid word square.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0400-0499/0422.Valid Word Square/images/validsq2-grid.jpg" style="width: 333px; height: 333px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0422.Valid%20Word%20Square/images/validsq2-grid.jpg" style="width: 333px; height: 333px;" />
 <pre>
 <strong>Input:</strong> words = [&quot;abcd&quot;,&quot;bnrt&quot;,&quot;crm&quot;,&quot;dt&quot;]
 <strong>Output:</strong> true
@@ -36,7 +36,7 @@ Therefore, it is a valid word square.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="/solution/0400-0499/0422.Valid Word Square/images/validsq3-grid.jpg" style="width: 333px; height: 333px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0422.Valid%20Word%20Square/images/validsq3-grid.jpg" style="width: 333px; height: 333px;" />
 <pre>
 <strong>Input:</strong> words = [&quot;ball&quot;,&quot;area&quot;,&quot;read&quot;,&quot;lady&quot;]
 <strong>Output:</strong> false

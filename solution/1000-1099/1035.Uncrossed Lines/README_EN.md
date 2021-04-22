@@ -33,7 +33,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1000-1099/1035.Uncrossed Lines/images/142.png" style="width: 100px; height: 72px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1035.Uncrossed%20Lines/images/142.png" style="width: 100px; height: 72px;" />
 
 <pre>
 

@@ -16,7 +16,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1382.Balance a Binary Search Tree/images/1515_ex1.png" style="height: 248px; width: 250px;"><img alt="" src="/solution/1300-1399/1382.Balance a Binary Search Tree/images/1515_ex1_out.png" style="height: 200px; width: 200px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/images/1515_ex1.png" style="height: 248px; width: 250px;"><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1382.Balance%20a%20Binary%20Search%20Tree/images/1515_ex1_out.png" style="height: 200px; width: 200px;"></strong></p>
 
 <pre><strong>输入：</strong>root = [1,null,2,null,3,null,4,null,null]
 <strong>输出：</strong>[2,1,3,null,null,null,4]

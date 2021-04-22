@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1557.Minimum Number of Vertices to Reach All Nodes/images/5480e1.png" style="height: 181px; width: 231px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/images/5480e1.png" style="height: 181px; width: 231px;"></p>
 
 <pre><strong>输入：</strong>n = 6, edges = [[0,1],[0,2],[2,5],[3,4],[4,2]]
 <strong>输出：</strong>[0,3]
@@ -24,7 +24,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1557.Minimum Number of Vertices to Reach All Nodes/images/5480e2.png" style="height: 201px; width: 201px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1557.Minimum%20Number%20of%20Vertices%20to%20Reach%20All%20Nodes/images/5480e2.png" style="height: 201px; width: 201px;"></p>
 
 <pre><strong>输入：</strong>n = 5, edges = [[0,1],[2,1],[3,1],[1,4],[2,4]]
 <strong>输出：</strong>[0,2,3]

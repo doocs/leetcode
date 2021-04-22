@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/0900-0999/0965.Univalued Binary Tree/images/screen-shot-2018-12-25-at-50104-pm.png" style="height: 159px; width: 200px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0965.Univalued%20Binary%20Tree/images/screen-shot-2018-12-25-at-50104-pm.png" style="height: 159px; width: 200px;"></p>
 
 <pre><strong>输入：</strong>[1,1,1,1,1,null,1]
 <strong>输出：</strong>true
@@ -22,7 +22,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/0900-0999/0965.Univalued Binary Tree/images/screen-shot-2018-12-25-at-50050-pm.png" style="height: 158px; width: 200px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0965.Univalued%20Binary%20Tree/images/screen-shot-2018-12-25-at-50050-pm.png" style="height: 158px; width: 200px;"></p>
 
 <pre><strong>输入：</strong>[2,2,2,5,2]
 <strong>输出：</strong>false

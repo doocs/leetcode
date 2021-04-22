@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0300-0399/0319.Bulb Switcher/images/bulb.jpg" style="width: 421px; height: 321px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0319.Bulb%20Switcher/images/bulb.jpg" style="width: 421px; height: 321px;" />
 <pre>
 <strong>Input:</strong> n = 3
 <strong>Output:</strong> 1

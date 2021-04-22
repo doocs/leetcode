@@ -13,7 +13,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0000-0099/0099.Recover Binary Search Tree/images/recover1.jpg" style="width: 422px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/images/recover1.jpg" style="width: 422px; height: 302px;" />
 <pre>
 <strong>输入：</strong>root = [1,3,null,null,2]
 <strong>输出：</strong>[3,1,null,null,2]
@@ -21,7 +21,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0000-0099/0099.Recover Binary Search Tree/images/recover2.jpg" style="width: 581px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/images/recover2.jpg" style="width: 581px; height: 302px;" />
 <pre>
 <strong>输入：</strong>root = [3,1,4,null,null,2]
 <strong>输出：</strong>[2,1,4,null,null,3]

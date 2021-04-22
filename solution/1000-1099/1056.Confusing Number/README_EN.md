@@ -20,7 +20,7 @@
 
 
 
-<p><img alt="" src="/solution/1000-1099/1056.Confusing Number/images/1268_1.png" style="width: 180px; height: 90px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1056.Confusing%20Number/images/1268_1.png" style="width: 180px; height: 90px;" /></p>
 
 
 
@@ -42,7 +42,7 @@ We get <code>9</code> after rotating <code>6</code>, <code>9</code> is a valid n
 
 
 
-<p><img alt="" src="/solution/1000-1099/1056.Confusing Number/images/1268_2.png" style="width: 180px; height: 90px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1056.Confusing%20Number/images/1268_2.png" style="width: 180px; height: 90px;" /></p>
 
 
 
@@ -64,7 +64,7 @@ We get <code>68</code> after rotating <code>89</code>, <code>86</code> is a vali
 
 
 
-<p><img alt="" src="/solution/1000-1099/1056.Confusing Number/images/1268_3.png" style="width: 301px; height: 121px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1056.Confusing%20Number/images/1268_3.png" style="width: 301px; height: 121px;" /></p>
 
 
 
@@ -86,7 +86,7 @@ We get <code>11</code> after rotating <code>11</code>, <code>11</code> is a vali
 
 
 
-<p><img alt="" src="/solution/1000-1099/1056.Confusing Number/images/1268_4.png" style="width: 180px; height: 90px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1056.Confusing%20Number/images/1268_4.png" style="width: 180px; height: 90px;" /></p>
 
 
 

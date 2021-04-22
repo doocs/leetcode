@@ -13,7 +13,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/1400-1499/1401.Circle and Rectangle Overlapping/images/sample_4_1728.png" style="width: 258px; height: 167px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/images/sample_4_1728.png" style="width: 258px; height: 167px;" /></p>
 
 <pre>
 <strong>Input:</strong> radius = 1, x_center = 0, y_center = 0, x1 = 1, y1 = -1, x2 = 3, y2 = 1
@@ -23,7 +23,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1401.Circle and Rectangle Overlapping/images/sample_2_1728.png" style="width: 150px; height: 135px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/images/sample_2_1728.png" style="width: 150px; height: 135px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> radius = 1, x_center = 0, y_center = 0, x1 = -1, y1 = 0, x2 = 0, y2 = 1
@@ -32,7 +32,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1401.Circle and Rectangle Overlapping/images/sample_6_1728.png" style="width: 175px; height: 165px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1401.Circle%20and%20Rectangle%20Overlapping/images/sample_6_1728.png" style="width: 175px; height: 165px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> radius = 1, x_center = 1, y_center = 1, x1 = -3, y1 = -3, x2 = 3, y2 = 3

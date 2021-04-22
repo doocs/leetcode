@@ -16,14 +16,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0000-0099/0073.Set Matrix Zeroes/images/mat1.jpg" style="width: 450px; height: 169px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0073.Set%20Matrix%20Zeroes/images/mat1.jpg" style="width: 450px; height: 169px;" />
 <pre>
 <strong>Input:</strong> matrix = [[1,1,1],[1,0,1],[1,1,1]]
 <strong>Output:</strong> [[1,0,1],[0,0,0],[1,0,1]]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0000-0099/0073.Set Matrix Zeroes/images/mat2.jpg" style="width: 450px; height: 137px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0073.Set%20Matrix%20Zeroes/images/mat2.jpg" style="width: 450px; height: 137px;" />
 <pre>
 <strong>Input:</strong> matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
 <strong>Output:</strong> [[0,0,0,0],[0,4,5,0],[0,3,1,0]]

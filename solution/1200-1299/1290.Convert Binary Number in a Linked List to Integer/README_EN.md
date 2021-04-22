@@ -16,7 +16,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/1200-1299/1290.Convert Binary Number in a Linked List to Integer/images/graph-1.png" style="width: 426px; height: 108px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1290.Convert%20Binary%20Number%20in%20a%20Linked%20List%20to%20Integer/images/graph-1.png" style="width: 426px; height: 108px;" />
 
 <pre>
 

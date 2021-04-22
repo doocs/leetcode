@@ -10,21 +10,21 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0300-0399/0314.Binary Tree Vertical Order Traversal/images/vtree1.jpg" style="width: 282px; height: 301px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/vtree1.jpg" style="width: 282px; height: 301px;" />
 <pre>
 <strong>Input:</strong> root = [3,9,20,null,null,15,7]
 <strong>Output:</strong> [[9],[3,15],[20],[7]]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0300-0399/0314.Binary Tree Vertical Order Traversal/images/vtree2-1.jpg" style="width: 462px; height: 222px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/vtree2-1.jpg" style="width: 462px; height: 222px;" />
 <pre>
 <strong>Input:</strong> root = [3,9,8,4,0,1,7]
 <strong>Output:</strong> [[4],[9],[3,0,1],[8],[7]]
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="/solution/0300-0399/0314.Binary Tree Vertical Order Traversal/images/vtree2.jpg" style="width: 462px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0314.Binary%20Tree%20Vertical%20Order%20Traversal/images/vtree2.jpg" style="width: 462px; height: 302px;" />
 <pre>
 <strong>Input:</strong> root = [3,9,8,4,0,1,7,null,null,null,2,5]
 <strong>Output:</strong> [[4],[9,5],[3,0,1],[8,2],[7]]

@@ -12,7 +12,7 @@
 
 
 
-<p><img alt="" src="/solution/1200-1299/1256.Encode Number/images/encode_number.png" style="width: 164px; height: 360px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1256.Encode%20Number/images/encode_number.png" style="width: 164px; height: 360px;" /></p>
 
 
 

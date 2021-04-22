@@ -26,7 +26,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img src="/solution/0000-0099/0036.Valid Sudoku/images/250px-sudoku-by-l2g-20050714svg.png" style="height:250px; width:250px" />
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0036.Valid%20Sudoku/images/250px-sudoku-by-l2g-20050714svg.png" style="height:250px; width:250px" />
 <pre>
 <strong>输入：</strong>board = 
 [["5","3",".",".","7",".",".",".","."]

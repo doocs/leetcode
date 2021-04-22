@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1326.Minimum Number of Taps to Open to Water a Garden/images/1685_example_1.png" style="width: 530px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/images/1685_example_1.png" style="width: 530px;"></p>
 
 <pre><strong>输入：</strong>n = 5, ranges = [3,4,1,1,0,0]
 <strong>输出：</strong>1

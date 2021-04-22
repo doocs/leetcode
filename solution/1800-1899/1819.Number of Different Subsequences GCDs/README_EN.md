@@ -22,7 +22,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1800-1899/1819.Number of Different Subsequences GCDs/images/image-1.png" style="width: 149px; height: 309px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1819.Number%20of%20Different%20Subsequences%20GCDs/images/image-1.png" style="width: 149px; height: 309px;" />
 <pre>
 <strong>Input:</strong> nums = [6,10,3]
 <strong>Output:</strong> 5

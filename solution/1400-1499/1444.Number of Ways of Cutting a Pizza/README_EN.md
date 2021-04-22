@@ -22,7 +22,7 @@
 
 
 
-<p><strong><img alt="" src="/solution/1400-1499/1444.Number of Ways of Cutting a Pizza/images/ways_to_cut_apple_1.png" style="width: 500px; height: 378px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1444.Number%20of%20Ways%20of%20Cutting%20a%20Pizza/images/ways_to_cut_apple_1.png" style="width: 500px; height: 378px;" /></strong></p>
 
 
 

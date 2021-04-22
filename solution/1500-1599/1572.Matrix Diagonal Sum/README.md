@@ -14,7 +14,7 @@
 
 <p><strong>示例&nbsp; 1：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1572.Matrix Diagonal Sum/images/sample_1911.png" style="height:174px; width:336px" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1572.Matrix%20Diagonal%20Sum/images/sample_1911.png" style="height:174px; width:336px" /></p>
 
 <pre>
 <strong>输入：</strong>mat = [[<strong>1</strong>,2,<strong>3</strong>],

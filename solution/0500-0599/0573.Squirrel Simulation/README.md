@@ -18,7 +18,7 @@
 坚果 : [[3,0], [2,5]]
 <strong>输出:</strong> 12
 <strong>解释:</strong>
-<img src="/solution/0500-0599/0573.Squirrel Simulation/images/squirrel_simulation.png" style="width: 40%;">​​​​​
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0573.Squirrel%20Simulation/images/squirrel_simulation.png" style="width: 40%;">​​​​​
 </pre>
 
 <p><strong>注意:</strong></p>

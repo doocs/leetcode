@@ -25,7 +25,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1000-1099/1039.Minimum Score Triangulation of Polygon/images/minimum-score-triangulation-of-polygon-1.png" style="height: 150px; width: 253px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1039.Minimum%20Score%20Triangulation%20of%20Polygon/images/minimum-score-triangulation-of-polygon-1.png" style="height: 150px; width: 253px;"></p>
 
 <pre><strong>输入：</strong>[3,7,4,5]
 <strong>输出：</strong>144

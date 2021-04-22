@@ -24,7 +24,7 @@
 
 
 
-<p><img alt="" src="/solution/1600-1699/1634.Add Two Polynomials Represented as Linked Lists/images/polynomial2.png" style="width: 500px; height: 91px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/images/polynomial2.png" style="width: 500px; height: 91px;" /></p>
 
 
 
@@ -50,7 +50,7 @@
 
 
 
-<p><img alt="" src="/solution/1600-1699/1634.Add Two Polynomials Represented as Linked Lists/images/ex1.png" style="width: 600px; height: 322px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1634.Add%20Two%20Polynomials%20Represented%20as%20Linked%20Lists/images/ex1.png" style="width: 600px; height: 322px;" /></p>
 
 
 

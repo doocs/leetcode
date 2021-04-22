@@ -10,7 +10,7 @@
 
 <p>找出平面中所有矩形叠加覆盖后的总面积。 由于答案可能太大，<strong>请返回它对 10 ^ 9 + 7 取模的结果</strong>。</p>
 
-<p><img alt="" src="/solution/0800-0899/0850.Rectangle Area II/images/rectangle_area_ii_pic.png" style="height: 360px; width: 480px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0850.Rectangle%20Area%20II/images/rectangle_area_ii_pic.png" style="height: 360px; width: 480px;"></p>
 
 <p><strong>示例 1：</strong></p>
 

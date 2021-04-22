@@ -22,7 +22,7 @@
 
 <p> </p>
 
-<p><img alt="" src="/solution/0900-0999/0941.Valid Mountain Array/images/hint_valid_mountain_array.png" style="height: 316px; width: 500px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0941.Valid%20Mountain%20Array/images/hint_valid_mountain_array.png" style="height: 316px; width: 500px;" /></p>
 
 <p> </p>
 

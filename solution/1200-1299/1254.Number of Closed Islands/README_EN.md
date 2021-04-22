@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1254.Number of Closed Islands/images/sample_3_1610.png" style="width: 240px; height: 120px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/images/sample_3_1610.png" style="width: 240px; height: 120px;" /></p>
 
 <pre>
 <strong>Input:</strong> grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]
@@ -21,7 +21,7 @@ Islands in gray are closed because they are completely surrounded by water (grou
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="/solution/1200-1299/1254.Number of Closed Islands/images/sample_4_1610.png" style="width: 160px; height: 80px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1254.Number%20of%20Closed%20Islands/images/sample_4_1610.png" style="width: 160px; height: 80px;" /></p>
 
 <pre>
 <strong>Input:</strong> grid = [[0,0,1,0,0],[0,1,0,1,0],[0,1,1,1,0]]

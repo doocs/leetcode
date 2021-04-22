@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1375.Bulb Switcher III/images/sample_2_1725.png" style="height: 254px; width: 575px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1375.Bulb%20Switcher%20III/images/sample_2_1725.png" style="height: 254px; width: 575px;"></p>
 
 <pre><strong>输入：</strong>light = [2,1,3,5,4]
 <strong>输出：</strong>3

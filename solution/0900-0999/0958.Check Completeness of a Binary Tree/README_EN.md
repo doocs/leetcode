@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0900-0999/0958.Check Completeness of a Binary Tree/images/complete-binary-tree-1.png" style="width: 180px; height: 145px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/images/complete-binary-tree-1.png" style="width: 180px; height: 145px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5,6]
 <strong>Output:</strong> true
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0900-0999/0958.Check Completeness of a Binary Tree/images/complete-binary-tree-2.png" style="width: 200px; height: 145px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0958.Check%20Completeness%20of%20a%20Binary%20Tree/images/complete-binary-tree-2.png" style="width: 200px; height: 145px;" />
 <pre>
 <strong>Input:</strong> root = [1,2,3,4,5,null,7]
 <strong>Output:</strong> false

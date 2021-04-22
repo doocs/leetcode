@@ -18,7 +18,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0100-0199/0174.Dungeon Game/images/dungeon-grid-1.jpg" style="width: 253px; height: 253px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0174.Dungeon%20Game/images/dungeon-grid-1.jpg" style="width: 253px; height: 253px;" />
 <pre>
 <strong>Input:</strong> dungeon = [[-2,-3,3],[-5,-10,1],[10,30,-5]]
 <strong>Output:</strong> 7

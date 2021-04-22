@@ -27,7 +27,7 @@
  
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0300-0399/0353.Design Snake Game/images/snake.jpg" style="width: 800px; height: 302px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0353.Design%20Snake%20Game/images/snake.jpg" style="width: 800px; height: 302px;" />
 <pre>
 <strong>输入：</strong>
 ["SnakeGame", "move", "move", "move", "move", "move", "move"]

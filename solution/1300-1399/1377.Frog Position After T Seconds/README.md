@@ -23,7 +23,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1377.Frog Position After T Seconds/images/frog_2.png" style="height: 236px; width: 350px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/images/frog_2.png" style="height: 236px; width: 350px;"></p>
 
 <pre><strong>输入：</strong>n = 7, edges = [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], t = 2, target = 4
 <strong>输出：</strong>0.16666666666666666 
@@ -32,7 +32,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1377.Frog Position After T Seconds/images/frog_3.png" style="height: 236px; width: 350px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1377.Frog%20Position%20After%20T%20Seconds/images/frog_3.png" style="height: 236px; width: 350px;"></strong></p>
 
 <pre><strong>输入：</strong>n = 7, edges = [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], t = 1, target = 7
 <strong>输出：</strong>0.3333333333333333

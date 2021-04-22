@@ -12,7 +12,7 @@
 
 <p>而偶数行（即，第二行、第四行、第六行&hellip;&hellip;）中，按从右到左的顺序进行标记。</p>
 
-<p><img alt="" src="/solution/1100-1199/1104.Path In Zigzag Labelled Binary Tree/images/tree.png" style="height: 138px; width: 300px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1104.Path%20In%20Zigzag%20Labelled%20Binary%20Tree/images/tree.png" style="height: 138px; width: 300px;"></p>
 
 <p>给你树上某一个节点的标号 <code>label</code>，请你返回从根节点到该标号为 <code>label</code> 节点的路径，该路径是由途经的节点标号所组成的。</p>
 

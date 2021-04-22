@@ -16,7 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_1.png" style="width: 200px; height: 208px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/images/485_example_1.png" style="width: 200px; height: 208px;" />
 <pre>
 <strong>Input:</strong> n = 3, edges = [[0,1],[0,2]], source = 0, destination = 2
 <strong>Output:</strong> false
@@ -24,7 +24,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_2.png" style="width: 200px; height: 230px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/images/485_example_2.png" style="width: 200px; height: 230px;" />
 <pre>
 <strong>Input:</strong> n = 4, edges = [[0,1],[0,3],[1,2],[2,1]], source = 0, destination = 3
 <strong>Output:</strong> false
@@ -32,14 +32,14 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_3.png" style="width: 200px; height: 183px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/images/485_example_3.png" style="width: 200px; height: 183px;" />
 <pre>
 <strong>Input:</strong> n = 4, edges = [[0,1],[0,2],[1,3],[2,3]], source = 0, destination = 3
 <strong>Output:</strong> true
 </pre>
 
 <p><strong>Example 4:</strong></p>
-<img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_4.png" style="width: 200px; height: 183px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/images/485_example_4.png" style="width: 200px; height: 183px;" />
 <pre>
 <strong>Input:</strong> n = 3, edges = [[0,1],[1,1],[1,2]], source = 0, destination = 2
 <strong>Output:</strong> false
@@ -47,7 +47,7 @@
 </pre>
 
 <p><strong>Example 5:</strong></p>
-<img alt="" src="/solution/1000-1099/1059.All Paths from Source Lead to Destination/images/485_example_5.png" style="width: 150px; height: 131px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1059.All%20Paths%20from%20Source%20Lead%20to%20Destination/images/485_example_5.png" style="width: 150px; height: 131px;" />
 <pre>
 <strong>Input:</strong> n = 2, edges = [[0,1],[1,1]], source = 0, destination = 1
 <strong>Output:</strong> false

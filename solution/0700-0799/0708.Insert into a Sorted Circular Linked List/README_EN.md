@@ -17,14 +17,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0700-0799/0708.Insert into a Sorted Circular Linked List/images/example_1_before_65p.jpg" style="width: 250px; height: 149px;" /><br />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/images/example_1_before_65p.jpg" style="width: 250px; height: 149px;" /><br />
 &nbsp;
 <pre>
 <strong>Input:</strong> head = [3,4,1], insertVal = 2
 <strong>Output:</strong> [3,4,1,2]
 <strong>Explanation:</strong> In the figure above, there is a sorted circular list of three elements. You are given a reference to the node with value 3, and we need to insert 2 into the list. The new node should be inserted between node 1 and node 3. After the insertion, the list should look like this, and we should still return node 3.
 
-<img alt="" src="/solution/0700-0799/0708.Insert into a Sorted Circular Linked List/images/example_1_after_65p.jpg" style="width: 250px; height: 149px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/images/example_1_after_65p.jpg" style="width: 250px; height: 149px;" />
 
 </pre>
 

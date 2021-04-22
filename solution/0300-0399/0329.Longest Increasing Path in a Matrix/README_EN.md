@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0300-0399/0329.Longest Increasing Path in a Matrix/images/grid1.jpg" style="width: 242px; height: 242px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/images/grid1.jpg" style="width: 242px; height: 242px;" />
 <pre>
 <strong>Input:</strong> matrix = [[9,9,4],[6,6,8],[2,1,1]]
 <strong>Output:</strong> 4
@@ -18,7 +18,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0300-0399/0329.Longest Increasing Path in a Matrix/images/tmp-grid.jpg" style="width: 253px; height: 253px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0329.Longest%20Increasing%20Path%20in%20a%20Matrix/images/tmp-grid.jpg" style="width: 253px; height: 253px;" />
 <pre>
 <strong>Input:</strong> matrix = [[3,4,5],[3,2,6],[2,2,1]]
 <strong>Output:</strong> 4

@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1518.Water Bottles/images/sample_1_1875.png" style="height: 240px; width: 480px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1518.Water%20Bottles/images/sample_1_1875.png" style="height: 240px; width: 480px;"></strong></p>
 
 <pre><strong>输入：</strong>numBottles = 9, numExchange = 3
 <strong>输出：</strong>13
@@ -26,7 +26,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1518.Water Bottles/images/sample_2_1875.png" style="height: 240px; width: 790px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1518.Water%20Bottles/images/sample_2_1875.png" style="height: 240px; width: 790px;"></p>
 
 <pre><strong>输入：</strong>numBottles = 15, numExchange = 4
 <strong>输出：</strong>19

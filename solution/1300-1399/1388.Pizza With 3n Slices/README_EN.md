@@ -20,7 +20,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="/solution/1300-1399/1388.Pizza With 3n Slices/images/sample_3_1723.png" style="width: 475px; height: 240px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1388.Pizza%20With%203n%20Slices/images/sample_3_1723.png" style="width: 475px; height: 240px;" /></p>
 
 <pre>
 <strong>Input:</strong> slices = [1,2,3,4,5,6]
@@ -30,7 +30,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1300-1399/1388.Pizza With 3n Slices/images/sample_4_1723.png" style="width: 475px; height: 250px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1388.Pizza%20With%203n%20Slices/images/sample_4_1723.png" style="width: 475px; height: 250px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> slices = [8,9,8,6,1,1]

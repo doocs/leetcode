@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/images/bb.png" style="height: 101px; width: 121px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/images/bb.png" style="height: 101px; width: 121px;"></p>
 
 <pre><strong>输入：</strong>nums = [2,1,3]
 <strong>输出：</strong>1
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/images/ex1.png" style="height: 161px; width: 241px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/images/ex1.png" style="height: 161px; width: 241px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [3,4,5,1,2]
 <strong>输出：</strong>5
@@ -41,7 +41,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/images/ex4.png" style="height: 161px; width: 121px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/images/ex4.png" style="height: 161px; width: 121px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [1,2,3]
 <strong>输出：</strong>0
@@ -50,7 +50,7 @@
 
 <p><strong>示例 4：</strong></p>
 
-<p><strong><img alt="" src="/solution/1500-1599/1569.Number of Ways to Reorder Array to Get Same BST/images/abc.png" style="height: 161px; width: 241px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1569.Number%20of%20Ways%20to%20Reorder%20Array%20to%20Get%20Same%20BST/images/abc.png" style="height: 161px; width: 241px;"></strong></p>
 
 <pre><strong>输入：</strong>nums = [3,1,2,5,4,6]
 <strong>输出：</strong>19

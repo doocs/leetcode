@@ -28,7 +28,7 @@
 [null,[],null,null,[&quot;a&quot;],&quot;hello&quot;]
 
 <strong>解释:</strong>
-<img alt="filesystem" src="/solution/0500-0599/0588.Design In-Memory File System/images/filesystem.png" style="width: 640px;">
+<img alt="filesystem" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0588.Design%20In-Memory%20File%20System/images/filesystem.png" style="width: 640px;">
 </pre>
 
 <p>&nbsp;</p>

@@ -19,7 +19,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="/solution/0900-0999/0988.Smallest String Starting From Leaf/images/tree1.png" style="height: 107px; width: 160px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree1.png" style="height: 107px; width: 160px;"></strong></p>
 
 <pre><strong>输入：</strong>[0,1,2,3,4,3,4]
 <strong>输出：</strong>&quot;dba&quot;
@@ -27,7 +27,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="/solution/0900-0999/0988.Smallest String Starting From Leaf/images/tree2.png" style="height: 107px; width: 160px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree2.png" style="height: 107px; width: 160px;"></strong></p>
 
 <pre><strong>输入：</strong>[25,1,3,1,3,0,2]
 <strong>输出：</strong>&quot;adz&quot;
@@ -35,7 +35,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="/solution/0900-0999/0988.Smallest String Starting From Leaf/images/tree3.png" style="height: 180px; width: 172px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree3.png" style="height: 180px; width: 172px;"></strong></p>
 
 <pre><strong>输入：</strong>[2,2,1,null,1,0,null,0]
 <strong>输出：</strong>&quot;abc&quot;

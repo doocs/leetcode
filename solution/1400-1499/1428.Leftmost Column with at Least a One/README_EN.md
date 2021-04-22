@@ -24,7 +24,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1428.Leftmost Column with at Least a One/images/untitled-diagram-5.jpg" style="width: 81px; height: 81px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/images/untitled-diagram-5.jpg" style="width: 81px; height: 81px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[0,0],[1,1]]
@@ -33,7 +33,7 @@
 
 <p><strong>Example 2:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1428.Leftmost Column with at Least a One/images/untitled-diagram-4.jpg" style="width: 81px; height: 81px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/images/untitled-diagram-4.jpg" style="width: 81px; height: 81px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[0,0],[0,1]]
@@ -42,7 +42,7 @@
 
 <p><strong>Example 3:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1428.Leftmost Column with at Least a One/images/untitled-diagram-3.jpg" style="width: 81px; height: 81px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/images/untitled-diagram-3.jpg" style="width: 81px; height: 81px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[0,0],[0,0]]
@@ -50,7 +50,7 @@
 
 <p><strong>Example 4:</strong></p>
 
-<p><strong><img alt="" src="/solution/1400-1499/1428.Leftmost Column with at Least a One/images/untitled-diagram-6.jpg" style="width: 161px; height: 121px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1428.Leftmost%20Column%20with%20at%20Least%20a%20One/images/untitled-diagram-6.jpg" style="width: 161px; height: 121px;" /></strong></p>
 
 <pre>
 <strong>Input:</strong> mat = [[0,0,0,1],[0,0,1,1],[0,1,1,1]]

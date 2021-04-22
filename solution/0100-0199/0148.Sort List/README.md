@@ -17,14 +17,14 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0100-0199/0148.Sort List/images/sort_list_1.jpg" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0148.Sort%20List/images/sort_list_1.jpg" />
 <pre>
 <b>输入：</b>head = [4,2,1,3]
 <b>输出：</b>[1,2,3,4]
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0100-0199/0148.Sort List/images/sort_list_2.jpg" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0148.Sort%20List/images/sort_list_2.jpg" />
 <pre>
 <b>输入：</b>head = [-1,5,3,4,0]
 <b>输出：</b>[-1,0,3,4,5]

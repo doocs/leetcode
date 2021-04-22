@@ -18,7 +18,7 @@
 
 <pre><strong>输入：</strong>[8,5,1,7,10,12]
 <strong>输出：</strong>[8,5,10,1,7,null,12]
-<img alt="" src="/solution/1000-1099/1008.Construct Binary Search Tree from Preorder Traversal/images/1266.png" style="height: 200px; width: 306px;">
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1008.Construct%20Binary%20Search%20Tree%20from%20Preorder%20Traversal/images/1266.png" style="height: 200px; width: 306px;">
 </pre>
 
 <p>&nbsp;</p>

@@ -32,14 +32,14 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/0900-0999/0913.Cat and Mouse/images/cat1.jpg" style="width: 300px; height: 300px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0913.Cat%20and%20Mouse/images/cat1.jpg" style="width: 300px; height: 300px;" />
 <pre>
 <strong>Input:</strong> graph = [[2,5],[3],[0,4,5],[1,4,5],[2,3],[0,2,3]]
 <strong>Output:</strong> 0
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="/solution/0900-0999/0913.Cat and Mouse/images/cat2.jpg" style="width: 200px; height: 200px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0913.Cat%20and%20Mouse/images/cat2.jpg" style="width: 200px; height: 200px;" />
 <pre>
 <strong>Input:</strong> graph = [[1,3],[0],[3],[0,2]]
 <strong>Output:</strong> 1

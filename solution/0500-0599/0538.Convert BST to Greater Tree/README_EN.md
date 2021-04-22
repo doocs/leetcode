@@ -28,7 +28,7 @@
 
 <p><strong>Example 1:</strong></p>
 
-<img alt="" src="/solution/0500-0599/0538.Convert BST to Greater Tree/images/tree.png" style="width: 550px; height: 375px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0538.Convert%20BST%20to%20Greater%20Tree/images/tree.png" style="width: 550px; height: 375px;" />
 
 <pre>
 

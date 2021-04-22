@@ -17,7 +17,7 @@
 
 <p>以下是一些有效和无效解锁模式的示例：</p>
 
-<p><img src="/solution/0300-0399/0351.Android Unlock Patterns/images/android-unlock.png" style="height: 128px; width: 418px;" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0351.Android%20Unlock%20Patterns/images/android-unlock.png" style="height: 128px; width: 418px;" /></p>
  
 
 <ul>

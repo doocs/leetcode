@@ -17,7 +17,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="/solution/0300-0399/0356.Line Reflection/images/356_example_1.PNG" style="width: 389px; height: 340px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0356.Line%20Reflection/images/356_example_1.PNG" style="width: 389px; height: 340px;" />
 <pre>
 <strong>输入：</strong>points = [[1,1],[-1,1]]
 <strong>输出：</strong>true
@@ -25,7 +25,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="/solution/0300-0399/0356.Line Reflection/images/356_example_2.PNG" style="width: 300px; height: 294px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0356.Line%20Reflection/images/356_example_2.PNG" style="width: 300px; height: 294px;" />
 <pre>
 <strong>输入：</strong>points = [[1,1],[-1,-1]]
 <strong>输出：</strong>false

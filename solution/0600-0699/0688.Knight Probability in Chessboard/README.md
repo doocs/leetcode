@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 
-<p><img src="/solution/0600-0699/0688.Knight Probability in Chessboard/images/knight.png" style="height: 200px; width: 200px;"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0688.Knight%20Probability%20in%20Chessboard/images/knight.png" style="height: 200px; width: 200px;"></p>
 
 <p>&nbsp;</p>
 

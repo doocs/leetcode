@@ -18,7 +18,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1600-1699/1601.Maximum Number of Achievable Transfer Requests/images/move1.jpg" style="height: 406px; width: 600px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/images/move1.jpg" style="height: 406px; width: 600px;"></p>
 
 <pre><strong>输入：</strong>n = 5, requests = [[0,1],[1,0],[0,1],[1,2],[2,0],[3,4]]
 <strong>输出：</strong>5
@@ -34,7 +34,7 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><img alt="" src="/solution/1600-1699/1601.Maximum Number of Achievable Transfer Requests/images/move2.jpg" style="height: 327px; width: 450px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1601.Maximum%20Number%20of%20Achievable%20Transfer%20Requests/images/move2.jpg" style="height: 327px; width: 450px;"></p>
 
 <pre><strong>输入：</strong>n = 3, requests = [[0,0],[1,2],[2,1]]
 <strong>输出：</strong>3

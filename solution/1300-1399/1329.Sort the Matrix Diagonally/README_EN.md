@@ -10,7 +10,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="/solution/1300-1399/1329.Sort the Matrix Diagonally/images/1482_example_1_2.png" style="width: 500px; height: 198px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1329.Sort%20the%20Matrix%20Diagonally/images/1482_example_1_2.png" style="width: 500px; height: 198px;" />
 <pre>
 <strong>Input:</strong> mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
 <strong>Output:</strong> [[1,1,1,1],[1,2,2,2],[1,2,3,3]]

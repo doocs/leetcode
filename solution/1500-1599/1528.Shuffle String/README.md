@@ -16,7 +16,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="/solution/1500-1599/1528.Shuffle String/images/q1.jpg" style="height: 243px; width: 321px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1528.Shuffle%20String/images/q1.jpg" style="height: 243px; width: 321px;"></p>
 
 <pre><strong>输入：</strong>s = &quot;codeleet&quot;, <code>indices</code> = [4,5,6,7,0,2,1,3]
 <strong>输出：</strong>&quot;leetcode&quot;
