@@ -3,13 +3,15 @@
  * @return {character}
  */
 var firstUniqChar = function (s) {
-  let t = new Array(26).fill(0);
-  let code = "a".charCodeAt();
-  for (let i = 0; i < s.length; i++) {
-    t[s[i].charCodeAt() - code]++;
+  if (s.length == 0) return " ";
+  let counter = new Array(26).fill(0);
+  for (let i = 0; i < s.length; ++i) {
+    const index = s[i].charCodeAt() - "a".charCodeAt();
+    ++counter[index];
   }
-  for (let i = 0; i < s.length; i++) {
-    if (t[s[i].charCodeAt() - code] === 1) return s[i];
+  for (let i = 0; i < s.length; ++i) {
+    const index = s[i].charCodeAt() - "a".charCodeAt();
+    if (counter[index] == 1) return s[i];
   }
   return " ";
 };
