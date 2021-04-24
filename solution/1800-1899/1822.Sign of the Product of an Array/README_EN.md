@@ -49,7 +49,6 @@
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -57,13 +56,47 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def arraySign(self, nums: List[int]) -> int:
+        res = 1
+        for num in nums:
+            if num == 0:
+                return 0
+            if num < 0:
+                res *= -1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int arraySign(int[] nums) {
+        int res = 1;
+        for (int num : nums) {
+            if (num == 0) return 0;
+            if (num < 0) res *= -1;
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arraySign = function (nums) {
+  let res = 1;
+  for (let num of nums) {
+    if (num == 0) return 0;
+    if (num < 0) res *= -1;
+  }
+  return res;
+};
 ```
 
 ### **...**

@@ -34,7 +34,7 @@
 class Solution:
     def constructArr(self, a: List[int]) -> List[int]:
         n = len(a)
-        output = [1 for _ in a]
+        output = [1] * n
         left = right = 1
         for i in range(n):
             output[i] = left
