@@ -88,7 +88,17 @@ John, Daiana, Steve and Jasmine are enrolled in departments 14, 33, 74 and 77 re
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT 
+    s.id, s.name
+FROM 
+    Students s
+LEFT JOIN
+    Departments d
+ON
+    s.department_id = d.id
+WHERE 
+    d.id IS NULL;
 ```
 
 <!-- tabs:end -->
