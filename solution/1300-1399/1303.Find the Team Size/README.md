@@ -52,7 +52,6 @@ ID 为 4 的员工是 team_id 为 7 的团队的成员，
 ID 为 5、6 的员工是 team_id 为 9 的团队的成员。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -61,8 +60,40 @@ ID 为 5、6 的员工是 team_id 为 9 的团队的成员。
 
 ### **SQL**
 
-```sql
+解法 1：
 
+```sql
+# Write your MySQL query statement below
+SELECT
+    e.employee_id, t.team_size
+FROM
+    Employee e
+LEFT JOIN
+    (SELECT
+        team_id, count(1) as team_size
+    FROM
+        Employee
+    GROUP BY
+        team_id
+    ) t
+ON
+    e.team_id = t.team_id;
+```
+
+解法 2：
+
+```sql
+# Write your MySQL query statement below
+SELECT
+    e1.employee_id, count(*) as team_size
+FROM
+    Employee e1
+LEFT JOIN
+    Employee e2
+ON
+    e1.team_id = e2.team_id
+GROUP BY
+    e1.employee_id;
 ```
 
 <!-- tabs:end -->
