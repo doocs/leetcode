@@ -90,12 +90,20 @@ The only pair is (1, 1) where they cooperated exactly 3 times.
 
 ## Solutions
 
+Use `GROUP BY` & `HAVING`.
+
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    actor_id, director_id
+FROM
+    ActorDirector
+GROUP BY actor_id, director_id
+HAVING count(1) >= 3;
 ```
 
 <!-- tabs:end -->
