@@ -49,10 +49,11 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+遍历数组，维护一个 preMax 变量。
 
 <!-- tabs:start -->
 
@@ -61,7 +62,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        n = len(nums)
+        pre_max = nums[0]
+        times = 0
+        for i in range(1, n):
+            if nums[i] <= pre_max:
+                steps = pre_max - nums[i] + 1
+                times += steps
+                pre_max = nums[i] + steps
+            else:
+                pre_max = nums[i]
+        return times
 ```
 
 ### **Java**
@@ -69,7 +82,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums) {
+        int n = nums.length;
+        int preMax = nums[0];
+        int times = 0;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] <= preMax) {
+                int steps = preMax - nums[i] + 1;
+                times += steps;
+                preMax = nums[i] + steps;
+            } else {
+                preMax = nums[i];
+            }
+        }
+        return times;
+    }
+}
 ```
 
 ### **...**

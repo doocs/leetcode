@@ -6,27 +6,17 @@
 
 <p>You are given an integer array <code>nums</code> (<strong>0-indexed</strong>). In one operation, you can choose an element of the array and increment it by <code>1</code>.</p>
 
-
-
 <ul>
 	<li>For example, if <code>nums = [1,2,3]</code>, you can choose to increment <code>nums[1]</code> to make <code>nums = [1,<u><b>3</b></u>,3]</code>.</li>
 </ul>
 
-
-
 <p>Return <em>the <strong>minimum</strong> number of operations needed to make</em> <code>nums</code> <em><strong>strictly</strong> <strong>increasing</strong>.</em></p>
 
-
-
 <p>An array <code>nums</code> is <strong>strictly increasing</strong> if <code>nums[i] &lt; nums[i+1]</code> for all <code>0 &lt;= i &lt; nums.length - 1</code>. An array of length <code>1</code> is trivially strictly increasing.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -44,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -58,11 +44,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -72,13 +54,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 5000</code></li>
@@ -92,13 +70,41 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        n = len(nums)
+        pre_max = nums[0]
+        times = 0
+        for i in range(1, n):
+            if nums[i] <= pre_max:
+                steps = pre_max - nums[i] + 1
+                times += steps
+                pre_max = nums[i] + steps
+            else:
+                pre_max = nums[i]
+        return times
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minOperations(int[] nums) {
+        int n = nums.length;
+        int preMax = nums[0];
+        int times = 0;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] <= preMax) {
+                int steps = preMax - nums[i] + 1;
+                times += steps;
+                preMax = nums[i] + steps;
+            } else {
+                preMax = nums[i];
+            }
+        }
+        return times;
+    }
+}
 ```
 
 ### **...**

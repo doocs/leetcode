@@ -53,7 +53,6 @@
 	<li><code>-100 <= nums[i] <= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -65,7 +64,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def arraySign(self, nums: List[int]) -> int:
+        res = 1
+        for num in nums:
+            if num == 0:
+                return 0
+            if num < 0:
+                res *= -1
+        return res
 ```
 
 ### **Java**
@@ -73,7 +80,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int arraySign(int[] nums) {
+        int res = 1;
+        for (int num : nums) {
+            if (num == 0) return 0;
+            if (num < 0) res *= -1;
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var arraySign = function (nums) {
+  let res = 1;
+  for (let num of nums) {
+    if (num == 0) return 0;
+    if (num < 0) res *= -1;
+  }
+  return res;
+};
 ```
 
 ### **...**

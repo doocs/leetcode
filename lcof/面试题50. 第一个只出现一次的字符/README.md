@@ -6,57 +6,59 @@
 
 **示例:**
 
-````
+```
 s = "abaccdeff"
 返回 "b"
 
 s = ""
 返回 " "
-``` 
+```
 
 **限制：**
 
 - `0 <= s 的长度 <= 50000`
 
 ## 解法
-有序字典解决。
+
+对字符串进行两次遍历：
+
+第一遍，先用 hash 表（或数组）统计字符串中每个字符出现的次数。
+
+第二遍，只要遍历到一个只出现一次的字符，那么就返回该字符，否则在遍历结束后返回空格。
 
 <!-- tabs:start -->
 
 ### **Python3**
+
 ```python
 import collections
 
 class Solution:
     def firstUniqChar(self, s: str) -> str:
-        if s == '':
-            return ' '
-        cache = collections.OrderedDict()
+        counter = collections.Counter()
         for c in s:
-            cache[c] = 1 if cache.get(c) is None else cache[c] + 1
-        for k, v in cache.items():
-            if v == 1:
-                return k
+            counter[c] += 1
+        for c in s:
+            if counter[c] == 1:
+                return c
         return ' '
-````
+```
 
 ### **Java**
 
 ```java
 class Solution {
     public char firstUniqChar(String s) {
-        if ("".equals(s)) {
-            return ' ';
+        int n;
+        if ((n = s.length()) == 0) return ' ';
+        int[] counter = new int[26];
+        for (int i = 0; i < n; ++i) {
+            int index = s.charAt(i) - 'a';
+            ++counter[index];
         }
-        Map<Character, Integer> map = new LinkedHashMap<>();
-        char[] chars = s.toCharArray();
-        for (char c : chars) {
-            map.put(c, map.get(c) == null ? 1 : 1 + map.get(c));
-        }
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            if (entry.getValue() == 1) {
-                return entry.getKey();
-            }
+        for (int i = 0; i < n; ++i) {
+            int index = s.charAt(i) - 'a';
+            if (counter[index] == 1) return s.charAt(i);
         }
         return ' ';
     }
@@ -71,13 +73,15 @@ class Solution {
  * @return {character}
  */
 var firstUniqChar = function (s) {
-  let t = new Array(26).fill(0);
-  let code = "a".charCodeAt();
-  for (let i = 0; i < s.length; i++) {
-    t[s[i].charCodeAt() - code]++;
+  if (s.length == 0) return " ";
+  let counter = new Array(26).fill(0);
+  for (let i = 0; i < s.length; ++i) {
+    const index = s[i].charCodeAt() - "a".charCodeAt();
+    ++counter[index];
   }
-  for (let i = 0; i < s.length; i++) {
-    if (t[s[i].charCodeAt() - code] === 1) return s[i];
+  for (let i = 0; i < s.length; ++i) {
+    const index = s[i].charCodeAt() - "a".charCodeAt();
+    if (counter[index] == 1) return s[i];
   }
   return " ";
 };

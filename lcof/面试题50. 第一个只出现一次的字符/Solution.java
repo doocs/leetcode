@@ -1,17 +1,15 @@
 class Solution {
     public char firstUniqChar(String s) {
-        if ("".equals(s)) {
-            return ' ';
+        int n;
+        if ((n = s.length()) == 0) return ' ';
+        int[] counter = new int[26];
+        for (int i = 0; i < n; ++i) {
+            int index = s.charAt(i) - 'a';
+            ++counter[index];
         }
-        Map<Character, Integer> map = new LinkedHashMap<>();
-        char[] chars = s.toCharArray();
-        for (char c : chars) {
-            map.put(c, map.get(c) == null ? 1 : 1 + map.get(c));
-        }
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            if (entry.getValue() == 1) {
-                return entry.getKey();
-            }
+        for (int i = 0; i < n; ++i) {
+            int index = s.charAt(i) - 'a';
+            if (counter[index] == 1) return s.charAt(i);
         }
         return ' ';
     }

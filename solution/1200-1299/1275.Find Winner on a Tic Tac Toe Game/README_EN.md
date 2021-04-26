@@ -6,11 +6,7 @@
 
 <p>Tic-tac-toe is played&nbsp;by&nbsp;two players <em>A</em> and <em>B</em> on a&nbsp;<i>3</i>&nbsp;x&nbsp;<i>3</i>&nbsp;grid.</p>
 
-
-
 <p>Here are the rules of Tic-Tac-Toe:</p>
-
-
 
 <ul>
 	<li>Players take turns placing characters into empty squares (&quot; &quot;).</li>
@@ -21,25 +17,15 @@
 	<li>No more moves can be played if the game is over.</li>
 </ul>
 
-
-
 <p>Given an array <code>moves</code> where each element&nbsp;is another array of size 2 corresponding to the row and column of the grid where they mark their respective character in the order in which <em>A</em> and <em>B</em> play.</p>
-
-
 
 <p>Return the winner of the game if it exists (<em>A</em> or <em>B</em>), in case the game ends in a draw return &quot;Draw&quot;, if there are still movements to play return &quot;Pending&quot;.</p>
 
-
-
 <p>You can assume that&nbsp;<code>moves</code> is&nbsp;<strong>valid</strong> (It follows the rules of Tic-Tac-Toe),&nbsp;the grid is initially empty and <em>A</em> will play <strong>first</strong>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -57,11 +43,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -79,11 +61,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -101,11 +79,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -123,13 +97,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= moves.length &lt;= 9</code></li>
@@ -146,13 +116,66 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def tictactoe(self, moves: List[List[int]]) -> str:
+        n = len(moves)
+        counter = [0] * 8
+        for i in range(n - 1, -1, -2):
+            row, col = moves[i][0], moves[i][1]
+            counter[row] += 1
+            counter[col + 3] += 1
+            if row == col:
+                counter[6] += 1
+            if row + col == 2:
+                counter[7] += 1
+            if counter[row] == 3 or counter[col + 3] == 3 or counter[6] == 3 or counter[7] == 3:
+                return "A" if (i % 2) == 0 else "B"
+        return "Draw" if n == 9 else "Pending"
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String tictactoe(int[][] moves) {
+        int n = moves.length;
+        int[] counter = new int[8];
+        for (int i = n - 1; i >= 0; i -= 2) {
+            int row = moves[i][0], col = moves[i][1];
+            ++counter[row];
+            ++counter[col + 3];
+            if (row == col) ++counter[6];
+            if (row + col == 2) ++counter[7];
+            if (counter[row] == 3 || counter[col + 3] == 3 || counter[6] == 3 || counter[7] == 3) {
+                return (i % 2) == 0 ? "A" : "B";
+            }
+        }
+        return n == 9 ? "Draw" : "Pending";
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string tictactoe(vector<vector<int>>& moves) {
+        int n = moves.size();
+        vector<int> counter(8, 0);
+        for (int i = n - 1; i >= 0; i -= 2) {
+            int row = moves[i][0], col = moves[i][1];
+            ++counter[row];
+            ++counter[col + 3];
+            if (row == col) ++counter[6];
+            if (row + col == 2) ++counter[7];
+            if (counter[row] == 3 || counter[col + 3] == 3 || counter[6] == 3 || counter[7] == 3) {
+                return (i % 2 == 0) ? "A" : "B";
+            }
+        }
+        return n == 9 ? "Draw" : "Pending";
+    }
+};
 ```
 
 ### **...**
