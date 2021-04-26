@@ -71,7 +71,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isPathCrossing(self, path: str) -> bool:
+        x = y = 0
+        visited = set()
+        visited.add('0.0')
+        for c in path:
+            if c == 'N':
+                y += 1
+            elif c == 'S':
+                y -= 1
+            elif c == 'E':
+                x += 1
+            else:
+                x -= 1
+            pos = f'{x}.{y}'
+            if pos in visited:
+                return True
+            visited.add(pos)
+        return False
 ```
 
 ### **Java**
@@ -79,7 +97,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean isPathCrossing(String path) {
+        Set<String> visited = new HashSet<>();
+        visited.add("0.0");
+        int x = 0, y = 0;
+        for (int i = 0; i < path.length(); ++i) {
+            char c = path.charAt(i);
+            if (c == 'N') {
+                ++y;
+            } else if (c == 'S') {
+                --y;
+            } else if (c == 'E') {
+                ++x;
+            } else {
+                --x;
+            }
+            String pos = x + "." + y;
+            if (visited.contains(pos)) {
+                return true;
+            }
+            visited.add(pos);
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**
