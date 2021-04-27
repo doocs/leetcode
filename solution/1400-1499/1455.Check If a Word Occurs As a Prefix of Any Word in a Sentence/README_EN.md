@@ -71,13 +71,33 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isPrefixOfWord(self, sentence: str, searchWord: str) -> int:
+        words = sentence.split(' ')
+        i, n = 0, len(words)
+        while i < n:
+            word = words[i]
+            if word[: len(searchWord)] == searchWord:
+                return i + 1
+            i += 1
+        return -1
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int isPrefixOfWord(String sentence, String searchWord) {
+        String[] words = sentence.split(" ");
+        int i = 0, n = words.length;
+        for (; i < n; ++i) {
+            if (words[i].indexOf(searchWord) == 0) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **...**
