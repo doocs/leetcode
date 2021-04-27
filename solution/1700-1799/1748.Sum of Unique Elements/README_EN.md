@@ -41,7 +41,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -49,13 +48,32 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sumOfUnique(self, nums: List[int]) -> int:
+        counter = [0] * 101
+        for num in nums:
+            counter[num] += 1
+        return sum([i for i in range(1, 101) if counter[i] == 1])
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int sumOfUnique(int[] nums) {
+        int[] counter = new int[101];
+        for (int num : nums) {
+            ++counter[num];
+        }
+        int res = 0;
+        for (int i = 1; i < 101; ++i) {
+            if (counter[i] == 1) {
+                res += i;
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
