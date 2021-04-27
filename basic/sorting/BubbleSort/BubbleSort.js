@@ -6,14 +6,15 @@ function bubbleSort(inputArr) {
         for (let j = 0; j < len - 1; j++) {
             if (inputArr[j] > inputArr[j + 1]) {
                 let temp = inputArr[j];
-                inputArr[j]=inputArr[j+1];
-                inputArr[j+1]=temp;
+                inputArr[j] = inputArr[j + 1];
+                inputArr[j + 1] = temp;
                 swapped = true
             }
         }
+        if (swapped === false) break;
     }
-    return(inputArr)
+    return (inputArr)
 }
 
-let arr = [6,3,2,1,5];
+let arr = [6, 3, 2, 1, 5];
 console.log(bubbleSort(arr))
