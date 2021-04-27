@@ -49,7 +49,6 @@ trie.countWordsStartingWith(&quot;app&quot;); // return 0
 	<li>It is guaranteed that for any function call to <code>erase</code>, the string <code>word</code> will exist in the trie.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -57,13 +56,124 @@ trie.countWordsStartingWith(&quot;app&quot;); // return 0
 ### **Python3**
 
 ```python
+class Trie:
 
+    def __init__(self):
+        self.children = [None] * 26
+        self.count = 0
+        self.pre_count = 0
+
+    def insert(self, word: str) -> None:
+        node = self
+        for c in word:
+            index = ord(c) - ord('a')
+            if node.children[index] is None:
+                node.children[index] = Trie()
+            node = node.children[index]
+            node.pre_count += 1
+        node.count += 1
+
+    def countWordsEqualTo(self, word: str) -> int:
+        node = self._search_prefix(word)
+        return 0 if node is None else node.count
+
+    def countWordsStartingWith(self, prefix: str) -> int:
+        node = self._search_prefix(prefix)
+        return 0 if node is None else node.pre_count
+
+    def erase(self, word: str) -> None:
+        node = self
+        for c in word:
+            index = ord(c) - ord('a')
+            node = node.children[index]
+            node.pre_count -= 1
+        node.count -= 1
+
+    def _search_prefix(self, prefix: str):
+        node = self
+        for c in prefix:
+            index = ord(c) - ord('a')
+            if node.children[index] is None:
+                return None
+            node = node.children[index]
+        return node
+
+# Your Trie object will be instantiated and called as such:
+# obj = Trie()
+# obj.insert(word)
+# param_2 = obj.countWordsEqualTo(word)
+# param_3 = obj.countWordsStartingWith(prefix)
+# obj.erase(word)
 ```
 
 ### **Java**
 
 ```java
+class Trie {
+    private Trie[] children;
+    private int count;
+    private int preCount;
 
+    public Trie() {
+        children = new Trie[26];
+        count = 0;
+        preCount = 0;
+    }
+    
+    public void insert(String word) {
+        Trie node = this;
+        for (int i = 0; i < word.length(); ++i) {
+            int index = word.charAt(i) - 'a';
+            if (node.children[index] == null) {
+                node.children[index] = new Trie();
+            }
+            node = node.children[index];
+            node.preCount += 1;
+        }
+        node.count += 1;
+    }
+    
+    public int countWordsEqualTo(String word) {
+        Trie node = searchPrefix(word);
+        return node == null ? 0 : node.count;
+    }
+    
+    public int countWordsStartingWith(String prefix) {
+        Trie node = searchPrefix(prefix);
+        return node == null ? 0 : node.preCount;
+    }
+    
+    public void erase(String word) {
+        Trie node = this;
+        for (int i = 0; i < word.length(); ++i) {
+            int index = word.charAt(i) - 'a';
+            node = node.children[index];
+            node.preCount -= 1;
+        }
+        node.count -= 1;
+    }
+
+    private Trie searchPrefix(String prefix) {
+        Trie node = this;
+        for (int i = 0; i < prefix.length(); ++i) {
+            int index = prefix.charAt(i) - 'a';
+            if (node.children[index] == null) {
+                return null;
+            }
+            node = node.children[index];
+        }
+        return node;
+    }
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie obj = new Trie();
+ * obj.insert(word);
+ * int param_2 = obj.countWordsEqualTo(word);
+ * int param_3 = obj.countWordsStartingWith(prefix);
+ * obj.erase(word);
+ */
 ```
 
 ### **...**
