@@ -541,7 +541,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0530](https://leetcode.com/problems/minimum-absolute-difference-in-bst)  |  [Minimum Absolute Difference in BST](/solution/0500-0599/0530.Minimum%20Absolute%20Difference%20in%20BST/README_EN.md)  |  `Tree`  |  Easy  |    |
 |  [0531](https://leetcode.com/problems/lonely-pixel-i)  |  [Lonely Pixel I](/solution/0500-0599/0531.Lonely%20Pixel%20I/README_EN.md)  |  `Depth-first Search`,`Array`  |  Medium  |  🔒  |
 |  [0532](https://leetcode.com/problems/k-diff-pairs-in-an-array)  |  [K-diff Pairs in an Array](/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |    |
-|  [0533](https://leetcode.com/problems/lonely-pixel-ii)  |  [Lonely Pixel II](/solution/0500-0599/0533.Lonely%20Pixel%20II/README_EN.md)  |  `Depth-first Search`,`Array`  |  Medium  |  🔒  |
+|  [0533](https://leetcode.com/problems/lonely-pixel-ii)  |  [Lonely Pixel II](/solution/0500-0599/0533.Lonely%20Pixel%20II/README_EN.md)  |  `Array`  |  Medium  |  🔒  |
 |  [0534](https://leetcode.com/problems/game-play-analysis-iii)  |  [Game Play Analysis III](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README_EN.md)  |    |  Medium  |  🔒  |
 |  [0535](https://leetcode.com/problems/encode-and-decode-tinyurl)  |  [Encode and Decode TinyURL](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README_EN.md)  |  `Hash Table`,`Math`  |  Medium  |    |
 |  [0536](https://leetcode.com/problems/construct-binary-tree-from-string)  |  [Construct Binary Tree from String](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README_EN.md)  |  `Tree`,`String`  |  Medium  |  🔒  |
@@ -570,7 +570,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0559](https://leetcode.com/problems/maximum-depth-of-n-ary-tree)  |  [Maximum Depth of N-ary Tree](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README_EN.md)  |  `Tree`,`Depth-first Search`,`Breadth-first Search`  |  Easy  |    |
 |  [0560](https://leetcode.com/problems/subarray-sum-equals-k)  |  [Subarray Sum Equals K](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README_EN.md)  |  `Array`,`Hash Table`  |  Medium  |    |
 |  [0561](https://leetcode.com/problems/array-partition-i)  |  [Array Partition I](/solution/0500-0599/0561.Array%20Partition%20I/README_EN.md)  |  `Array`  |  Easy  |    |
-|  [0562](https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix)  |  [Longest Line of Consecutive One in Matrix](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README_EN.md)  |  `Array`  |  Medium  |  🔒  |
+|  [0562](https://leetcode.com/problems/longest-line-of-consecutive-one-in-matrix)  |  [Longest Line of Consecutive One in Matrix](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |  🔒  |
 |  [0563](https://leetcode.com/problems/binary-tree-tilt)  |  [Binary Tree Tilt](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README_EN.md)  |  `Tree`,`Depth-first Search`,`Recursion`  |  Easy  |    |
 |  [0564](https://leetcode.com/problems/find-the-closest-palindrome)  |  [Find the Closest Palindrome](/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README_EN.md)  |  `String`  |  Hard  |    |
 |  [0565](https://leetcode.com/problems/array-nesting)  |  [Array Nesting](/solution/0500-0599/0565.Array%20Nesting/README_EN.md)  |  `Array`  |  Medium  |    |
@@ -1844,6 +1844,12 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1833](https://leetcode.com/problems/maximum-ice-cream-bars)  |  [Maximum Ice Cream Bars](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README_EN.md)  |  `Sort`,`Array`  |  Medium  |    |
 |  [1834](https://leetcode.com/problems/single-threaded-cpu)  |  [Single-Threaded CPU](/solution/1800-1899/1834.Single-Threaded%20CPU/README_EN.md)  |  `Heap`  |  Medium  |    |
 |  [1835](https://leetcode.com/problems/find-xor-sum-of-all-pairs-bitwise-and)  |  [Find XOR Sum of All Pairs Bitwise AND](/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README_EN.md)  |  `Math`  |  Hard  |    |
+|  [1836](https://leetcode.com/problems/remove-duplicates-from-an-unsorted-linked-list)  |  [Remove Duplicates From an Unsorted Linked List](/solution/1800-1899/1836.Remove%20Duplicates%20From%20an%20Unsorted%20Linked%20List/README_EN.md)  |  `Linked List`  |  Medium  |  🔒  |
+|  [1837](https://leetcode.com/problems/sum-of-digits-in-base-k)  |  [Sum of Digits in Base K](/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README_EN.md)  |  `Bit Manipulation`,`Math`  |  Easy  |    |
+|  [1838](https://leetcode.com/problems/frequency-of-the-most-frequent-element)  |  [Frequency of the Most Frequent Element](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1839](https://leetcode.com/problems/longest-substring-of-all-vowels-in-order)  |  [Longest Substring Of All Vowels in Order](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README_EN.md)  |  `Two Pointers`,`String`  |  Medium  |    |
+|  [1840](https://leetcode.com/problems/maximum-building-height)  |  [Maximum Building Height](/solution/1800-1899/1840.Maximum%20Building%20Height/README_EN.md)  |  `Greedy`,`Binary Search`  |  Hard  |    |
+|  [1841](https://leetcode.com/problems/league-statistics)  |  [League Statistics](/solution/1800-1899/1841.League%20Statistics/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

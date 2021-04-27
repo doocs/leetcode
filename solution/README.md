@@ -543,7 +543,7 @@
 |  [0530](https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst)  |  [二叉搜索树的最小绝对差](/solution/0500-0599/0530.Minimum%20Absolute%20Difference%20in%20BST/README.md)  |  `树`  |  简单  |    |
 |  [0531](https://leetcode-cn.com/problems/lonely-pixel-i)  |  [孤独像素 I](/solution/0500-0599/0531.Lonely%20Pixel%20I/README.md)  |  `深度优先搜索`,`数组`  |  中等  |  🔒  |
 |  [0532](https://leetcode-cn.com/problems/k-diff-pairs-in-an-array)  |  [数组中的 k-diff 数对](/solution/0500-0599/0532.K-diff%20Pairs%20in%20an%20Array/README.md)  |  `数组`,`双指针`  |  中等  |    |
-|  [0533](https://leetcode-cn.com/problems/lonely-pixel-ii)  |  [孤独像素 II](/solution/0500-0599/0533.Lonely%20Pixel%20II/README.md)  |  `深度优先搜索`,`数组`  |  中等  |  🔒  |
+|  [0533](https://leetcode-cn.com/problems/lonely-pixel-ii)  |  [孤独像素 II](/solution/0500-0599/0533.Lonely%20Pixel%20II/README.md)  |  `数组`  |  中等  |  🔒  |
 |  [0534](https://leetcode-cn.com/problems/game-play-analysis-iii)  |  [游戏玩法分析 III](/solution/0500-0599/0534.Game%20Play%20Analysis%20III/README.md)  |    |  中等  |  🔒  |
 |  [0535](https://leetcode-cn.com/problems/encode-and-decode-tinyurl)  |  [TinyURL 的加密与解密](/solution/0500-0599/0535.Encode%20and%20Decode%20TinyURL/README.md)  |  `哈希表`,`数学`  |  中等  |    |
 |  [0536](https://leetcode-cn.com/problems/construct-binary-tree-from-string)  |  [从字符串生成二叉树](/solution/0500-0599/0536.Construct%20Binary%20Tree%20from%20String/README.md)  |  `树`,`字符串`  |  中等  |  🔒  |
@@ -572,7 +572,7 @@
 |  [0559](https://leetcode-cn.com/problems/maximum-depth-of-n-ary-tree)  |  [N 叉树的最大深度](/solution/0500-0599/0559.Maximum%20Depth%20of%20N-ary%20Tree/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`  |  简单  |    |
 |  [0560](https://leetcode-cn.com/problems/subarray-sum-equals-k)  |  [和为K的子数组](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README.md)  |  `数组`,`哈希表`  |  中等  |    |
 |  [0561](https://leetcode-cn.com/problems/array-partition-i)  |  [数组拆分 I](/solution/0500-0599/0561.Array%20Partition%20I/README.md)  |  `数组`  |  简单  |    |
-|  [0562](https://leetcode-cn.com/problems/longest-line-of-consecutive-one-in-matrix)  |  [矩阵中最长的连续1线段](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README.md)  |  `数组`  |  中等  |  🔒  |
+|  [0562](https://leetcode-cn.com/problems/longest-line-of-consecutive-one-in-matrix)  |  [矩阵中最长的连续1线段](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README.md)  |  `数组`,`动态规划`  |  中等  |  🔒  |
 |  [0563](https://leetcode-cn.com/problems/binary-tree-tilt)  |  [二叉树的坡度](/solution/0500-0599/0563.Binary%20Tree%20Tilt/README.md)  |  `树`,`深度优先搜索`,`递归`  |  简单  |    |
 |  [0564](https://leetcode-cn.com/problems/find-the-closest-palindrome)  |  [寻找最近的回文数](/solution/0500-0599/0564.Find%20the%20Closest%20Palindrome/README.md)  |  `字符串`  |  困难  |    |
 |  [0565](https://leetcode-cn.com/problems/array-nesting)  |  [数组嵌套](/solution/0500-0599/0565.Array%20Nesting/README.md)  |  `数组`  |  中等  |    |
@@ -1846,6 +1846,12 @@
 |  [1833](https://leetcode-cn.com/problems/maximum-ice-cream-bars)  |  [雪糕的最大数量](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README.md)  |  `排序`,`数组`  |  中等  |    |
 |  [1834](https://leetcode-cn.com/problems/single-threaded-cpu)  |  [单线程 CPU](/solution/1800-1899/1834.Single-Threaded%20CPU/README.md)  |  `堆`  |  中等  |    |
 |  [1835](https://leetcode-cn.com/problems/find-xor-sum-of-all-pairs-bitwise-and)  |  [所有数对按位与结果的异或和](/solution/1800-1899/1835.Find%20XOR%20Sum%20of%20All%20Pairs%20Bitwise%20AND/README.md)  |  `数学`  |  困难  |    |
+|  [1836](https://leetcode-cn.com/problems/remove-duplicates-from-an-unsorted-linked-list)  |  [](/solution/1800-1899/1836.Remove%20Duplicates%20From%20an%20Unsorted%20Linked%20List/README.md)  |  `链表`  |  中等  |  🔒  |
+|  [1837](https://leetcode-cn.com/problems/sum-of-digits-in-base-k)  |  [K 进制表示下的各位数字总和](/solution/1800-1899/1837.Sum%20of%20Digits%20in%20Base%20K/README.md)  |  `位运算`,`数学`  |  简单  |    |
+|  [1838](https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element)  |  [最高频元素的频数](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1839](https://leetcode-cn.com/problems/longest-substring-of-all-vowels-in-order)  |  [所有元音按顺序排布的最长子字符串](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README.md)  |  `双指针`,`字符串`  |  中等  |    |
+|  [1840](https://leetcode-cn.com/problems/maximum-building-height)  |  [最高建筑高度](/solution/1800-1899/1840.Maximum%20Building%20Height/README.md)  |  `贪心算法`,`二分查找`  |  困难  |    |
+|  [1841](https://leetcode-cn.com/problems/league-statistics)  |  [](/solution/1800-1899/1841.League%20Statistics/README.md)  |    |  中等  |    |
 
 ## 版权
 
