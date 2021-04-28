@@ -33,7 +33,6 @@
 	<li><code>s</code> consists of only lowercase English letters and/or digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -41,13 +40,40 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def secondHighest(self, s: str) -> int:
+        largest_digit = second_largest_digit = -1
+        for c in s:
+            if c.isdigit():
+                num = int(c)
+                if num > largest_digit:
+                    second_largest_digit, largest_digit = largest_digit, num
+                elif num > second_largest_digit and num < largest_digit:
+                    second_largest_digit = num
+        return second_largest_digit
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int secondHighest(String s) {
+        int largestDigit = -1, secondLargestDigit = -1;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (c >= '0' && c <= '9') {
+                int num = c - '0';
+                if (num > largestDigit) {
+                    secondLargestDigit = largestDigit;
+                    largestDigit = num;
+                } else if (num > secondLargestDigit && num < largestDigit) {
+                    secondLargestDigit = num;
+                }
+            }
+        }
+        return secondLargestDigit;
+    }
+}
 ```
 
 ### **...**
