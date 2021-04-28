@@ -56,10 +56,21 @@
 	<li><code>1 <= coins[i] <= 4 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+先对 `coins` 数组进行排序。
+
+假设前 i 个数所有构造的的连续整数的个数为 res，初始化为 1。
+
+遍历排序后的 `coins` 数组：
+
+- 若 `coins[i] > res`，说明接下来无法组成 `res + 1` 个连续整数，跳出循环。
+
+  > 对于 `1, 3`，若遍历到 3，此时前面的连续整数个数为 2，即连续整数为：`0, 1`。此时 3 大于 2，无法构成连续整数 `0, 1, 2`，所以最大连续整数个数为 2。
+
+- 若 `coins[i] <= res`，说明有 `coins[i]` 个数也能构成连续整数。
 
 <!-- tabs:start -->
 
@@ -68,7 +79,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getMaximumConsecutive(self, coins: List[int]) -> int:
+        res = 1
+        for coin in sorted(coins):
+            if coin > res:
+                break
+            res += coin
+        return res
 ```
 
 ### **Java**
@@ -76,7 +94,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int getMaximumConsecutive(int[] coins) {
+        int res = 1;
+        Arrays.sort(coins);
+        for (int coin : coins) {
+            if (coin > res) {
+                break;
+            }
+            res += coin;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

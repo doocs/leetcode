@@ -52,7 +52,6 @@ You can make 8 consecutive integer values starting from 0.</pre>
 	<li><code>1 &lt;= coins[i] &lt;= 4 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -60,13 +59,32 @@ You can make 8 consecutive integer values starting from 0.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getMaximumConsecutive(self, coins: List[int]) -> int:
+        res = 1
+        for coin in sorted(coins):
+            if coin > res:
+                break
+            res += coin
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int getMaximumConsecutive(int[] coins) {
+        int res = 1;
+        Arrays.sort(coins);
+        for (int coin : coins) {
+            if (coin > res) {
+                break;
+            }
+            res += coin;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
