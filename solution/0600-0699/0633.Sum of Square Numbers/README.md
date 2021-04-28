@@ -53,6 +53,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+![](./images/table.png)
+
+上图为 a，b，c 之间的关系，这题其实就是在这张“表”里查找 c
+
+从表的右上角看，不难发现它类似一棵二叉查找树，所以只需从右上角开始，按照二叉查找树的规律进行搜索
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +66,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution(object):
+    def judgeSquareSum(self, c):
+        i, j = 0, int(math.sqrt(c))
+        while i <= j:
+            s = i * i + j * j
+            if s < c:
+                i += 1
+            elif s > c:
+                j -= 1
+            else:
+                return True
+        return False
 ```
 
 ### **Java**
@@ -68,7 +85,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        int i = 0, j = (int) Math.sqrt(c);
+        while (i <= j) {
+            int s = i * i + j * j;
+            if (s < c) {
+                ++i;
+            } else if (s > c) {
+                --j;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**

@@ -53,18 +53,50 @@
 
 ## Solutions
 
+![](./images/table.png)
+
+The picture above shows the relationship between `a`, `b`, and `c`. This question is actually looking up `c` in this table
+
+From the upper right corner of the table, it is not difficult to find that it is similar to a binary search tree, so just start from the upper right corner and search according to the law of the binary search tree
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution(object):
+    def judgeSquareSum(self, c):
+        i, j = 0, int(math.sqrt(c))
+        while i <= j:
+            s = i * i + j * j
+            if s < c:
+                i += 1
+            elif s > c:
+                j -= 1
+            else:
+                return True
+        return False
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean judgeSquareSum(int c) {
+        int i = 0, j = (int) Math.sqrt(c);
+        while (i <= j) {
+            int s = i * i + j * j;
+            if (s < c) {
+                ++i;
+            } else if (s > c) {
+                --j;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**
