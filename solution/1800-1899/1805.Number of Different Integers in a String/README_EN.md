@@ -45,7 +45,6 @@ the leading zeros are ignored when comparing their decimal values.
 	<li><code>word</code> consists of digits and lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,13 +52,34 @@ the leading zeros are ignored when comparing their decimal values.
 ### **Python3**
 
 ```python
+import re
 
+class Solution:
+    def numDifferentIntegers(self, word: str) -> int:
+        nums = re.split(r'[a-z]+', word)
+        return len({int(num) for num in nums if num != ''})
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int numDifferentIntegers(String word) {
+        String[] nums = word.split("[a-z]+");
+        Set<String> numSet = new HashSet<>();
+        for (String num : nums) {
+            if ("".equals(num)) {
+                continue;
+            }
+            int j = 0;
+            while (j < num.length() - 1 && num.charAt(j) == '0') {
+                ++j;
+            }
+            numSet.add(num.substring(j));
+        }
+        return numSet.size();
+    }
+}
 ```
 
 ### **...**

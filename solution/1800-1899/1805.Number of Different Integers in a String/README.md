@@ -48,10 +48,11 @@
 	<li><code>word</code> 由数字和小写英文字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+将 `word` 按照字母切分，得到数字数组 `nums`，然后利用 set 去重，返回 set 的长度即可。
 
 <!-- tabs:start -->
 
@@ -60,7 +61,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import re
 
+class Solution:
+    def numDifferentIntegers(self, word: str) -> int:
+        nums = re.split(r'[a-z]+', word)
+        return len({int(num) for num in nums if num != ''})
 ```
 
 ### **Java**
@@ -68,7 +74,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int numDifferentIntegers(String word) {
+        String[] nums = word.split("[a-z]+");
+        Set<String> numSet = new HashSet<>();
+        for (String num : nums) {
+            if ("".equals(num)) {
+                continue;
+            }
+            int j = 0;
+            while (j < num.length() - 1 && num.charAt(j) == '0') {
+                ++j;
+            }
+            numSet.add(num.substring(j));
+        }
+        return numSet.size();
+    }
+}
 ```
 
 ### **...**
