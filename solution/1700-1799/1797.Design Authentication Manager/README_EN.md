@@ -36,6 +36,7 @@ authenticationManager.generate(&quot;bbb&quot;, 7); // Generates a new token wit
 authenticationManager.<code>renew</code>(&quot;aaa&quot;, 8); // The token with tokenId &quot;aaa&quot; expired at time 7, and 8 &gt;= 7, so at time 8 the <code>renew</code> request is ignored, and nothing happens.
 authenticationManager.<code>renew</code>(&quot;bbb&quot;, 10); // The token with tokenId &quot;bbb&quot; is unexpired at time 10, so the <code>renew</code> request is fulfilled and now the token will expire at time 15.
 authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with tokenId &quot;bbb&quot; expires at time 15, and the token with tokenId &quot;aaa&quot; expired at time 7, so currently no token is unexpired, so return 0.
+
 </pre>
 
 <p>&nbsp;</p>
@@ -51,7 +52,6 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 	<li>At most <code>2000</code> calls will be made to all functions combined.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -59,13 +59,78 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // The token with t
 ### **Python3**
 
 ```python
+class AuthenticationManager:
 
+    def __init__(self, timeToLive: int):
+        self.timeToLive = timeToLive
+        self.tokens = {}
+
+    def generate(self, tokenId: str, currentTime: int) -> None:
+        self.tokens[tokenId] = currentTime + self.timeToLive
+
+    def renew(self, tokenId: str, currentTime: int) -> None:
+        expire_time = self.tokens.get(tokenId)
+        if expire_time is None or expire_time <= currentTime:
+            return
+        self.tokens[tokenId] = currentTime + self.timeToLive
+
+    def countUnexpiredTokens(self, currentTime: int) -> int:
+        unexpiredCount = 0
+        for val in self.tokens.values():
+            if val > currentTime:
+                unexpiredCount += 1
+        return unexpiredCount
+
+
+# Your AuthenticationManager object will be instantiated and called as such:
+# obj = AuthenticationManager(timeToLive)
+# obj.generate(tokenId,currentTime)
+# obj.renew(tokenId,currentTime)
+# param_3 = obj.countUnexpiredTokens(currentTime)
 ```
 
 ### **Java**
 
 ```java
+class AuthenticationManager {
+    private int timeToLive;
+    private Map<String, Integer> tokens;
 
+    public AuthenticationManager(int timeToLive) {
+        this.timeToLive = timeToLive;
+        tokens = new HashMap<>();
+    }
+
+    public void generate(String tokenId, int currentTime) {
+        tokens.put(tokenId, currentTime + timeToLive);
+    }
+
+    public void renew(String tokenId, int currentTime) {
+        Integer expireTime = tokens.get(tokenId);
+        if (expireTime == null || expireTime <= currentTime) {
+            return;
+        }
+        tokens.put(tokenId, currentTime + timeToLive);
+    }
+
+    public int countUnexpiredTokens(int currentTime) {
+        int unexpiredCount = 0;
+        for (Integer val : tokens.values()) {
+            if (val > currentTime) {
+                ++unexpiredCount;
+            }
+        }
+        return unexpiredCount;
+    }
+}
+
+/**
+ * Your AuthenticationManager object will be instantiated and called as such:
+ * AuthenticationManager obj = new AuthenticationManager(timeToLive);
+ * obj.generate(tokenId,currentTime);
+ * obj.renew(tokenId,currentTime);
+ * int param_3 = obj.countUnexpiredTokens(currentTime);
+ */
 ```
 
 ### **...**

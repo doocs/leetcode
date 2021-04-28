@@ -36,9 +36,10 @@ authenticationManager.<code>renew</code>("aaa", 1); // 时刻 1 时，没有验�
 authenticationManager.generate("aaa", 2); // 时刻 2 时，生成一个 tokenId 为 "aaa" 的新验证码。
 authenticationManager.<code>countUnexpiredTokens</code>(6); // 时刻 6 时，只有 tokenId 为 "aaa" 的验证码未过期，所以返回 1 。
 authenticationManager.generate("bbb", 7); // 时刻 7 时，生成一个 tokenId 为 "bbb" 的新验证码。
-authenticationManager.<code>renew</code>("aaa", 8); // tokenId 为 "aaa" 的验证码在时刻 7 过期，且 8 >= 7 ，所以时刻 8 的renew 操作被忽略，没有验证码被更新。
+authenticationManager.<code>renew</code>("aaa", 8); // tokenId 为 "aaa" 的验证码在时刻 7 过期，且 8 >= 7 ，所以时刻 8 的 renew 操作被忽略，没有验证码被更新。
 authenticationManager.<code>renew</code>("bbb", 10); // tokenId 为 "bbb" 的验证码在时刻 10 没有过期，所以 renew 操作会执行，该 token 将在时刻 15 过期。
 authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb" 的验证码在时刻 15 过期，tokenId 为 "aaa" 的验证码在时刻 7 过期，所有验证码均已过期，所以返回 0 。
+
 </pre>
 
 <p> </p>
@@ -55,10 +56,11 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 	<li>所有函数的调用次数总共不超过 <code>2000</code> 次。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+用哈希表存放 token 与对应的过期时间。
 
 <!-- tabs:start -->
 
@@ -67,7 +69,34 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class AuthenticationManager:
 
+    def __init__(self, timeToLive: int):
+        self.timeToLive = timeToLive
+        self.tokens = {}
+
+    def generate(self, tokenId: str, currentTime: int) -> None:
+        self.tokens[tokenId] = currentTime + self.timeToLive
+
+    def renew(self, tokenId: str, currentTime: int) -> None:
+        expire_time = self.tokens.get(tokenId)
+        if expire_time is None or expire_time <= currentTime:
+            return
+        self.tokens[tokenId] = currentTime + self.timeToLive
+
+    def countUnexpiredTokens(self, currentTime: int) -> int:
+        unexpiredCount = 0
+        for val in self.tokens.values():
+            if val > currentTime:
+                unexpiredCount += 1
+        return unexpiredCount
+
+
+# Your AuthenticationManager object will be instantiated and called as such:
+# obj = AuthenticationManager(timeToLive)
+# obj.generate(tokenId,currentTime)
+# obj.renew(tokenId,currentTime)
+# param_3 = obj.countUnexpiredTokens(currentTime)
 ```
 
 ### **Java**
@@ -75,7 +104,45 @@ authenticationManager.<code>countUnexpiredTokens</code>(15); // tokenId 为 "bbb
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class AuthenticationManager {
+    private int timeToLive;
+    private Map<String, Integer> tokens;
 
+    public AuthenticationManager(int timeToLive) {
+        this.timeToLive = timeToLive;
+        tokens = new HashMap<>();
+    }
+
+    public void generate(String tokenId, int currentTime) {
+        tokens.put(tokenId, currentTime + timeToLive);
+    }
+
+    public void renew(String tokenId, int currentTime) {
+        Integer expireTime = tokens.get(tokenId);
+        if (expireTime == null || expireTime <= currentTime) {
+            return;
+        }
+        tokens.put(tokenId, currentTime + timeToLive);
+    }
+
+    public int countUnexpiredTokens(int currentTime) {
+        int unexpiredCount = 0;
+        for (Integer val : tokens.values()) {
+            if (val > currentTime) {
+                ++unexpiredCount;
+            }
+        }
+        return unexpiredCount;
+    }
+}
+
+/**
+ * Your AuthenticationManager object will be instantiated and called as such:
+ * AuthenticationManager obj = new AuthenticationManager(timeToLive);
+ * obj.generate(tokenId,currentTime);
+ * obj.renew(tokenId,currentTime);
+ * int param_3 = obj.countUnexpiredTokens(currentTime);
+ */
 ```
 
 ### **...**
