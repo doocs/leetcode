@@ -39,18 +39,54 @@
 
 ## Solutions
 
+DP, use `dp[i][k]` to indicate whether `i` can be reached when the last jump was `k` units, and define the base case as `dp[0][0] = True` (starting point is at index 0).
+
+Because "the frog's last jump was `k` units, its next jump must be either `k - 1`, `k`, or `k + 1` units", so if any of `dp[j][k-1], dp[j][k], dp[j][k + 1]` is true, frog can jump from `j` to `i`.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canCross(self, stones: List[int]) -> bool:
+        n = len(stones)
+        dp = [[False] * n for i in range(n)]
+        dp[0][0] = True
+        for i in range(1, n):
+            for j in range(i):
+                k = stones[i] - stones[j];
+                if k > j + 1:
+                    continue
+                dp[i][k] = dp[j][k - 1] or dp[j][k] or dp[j][k + 1]
+                if i == n - 1 and dp[i][k]:
+                    return True
+        return False
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean canCross(int[] stones) {
+        int n = stones.length;
+        boolean[][] dp = new boolean[n][n];
+        dp[0][0] = true;
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                int k = stones[i] - stones[j];
+                if (k > j + 1) {
+                    continue;
+                }
+                dp[i][k] = dp[j][k - 1] || dp[j][k] || dp[j][k + 1];
+                if (i == n - 1 && dp[i][k]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**

@@ -40,10 +40,13 @@
 	<li><code>stones[0] == 0</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+动态规划，用 `dp[i][k]` 表示最后一次跳跃为 `k` 个单位时，能否到达 `i` ，定义 base case 为 `dp[0][0] = True`（起点在下标 0）。
+
+因为 “青蛙上一步跳跃了 `k` 个单位，那么它接下来的跳跃距离只能选择为 `k - 1`、`k` 或 `k + 1` 个单位”，所以 `dp[j][k - 1], dp[j][k], dp[j][k + 1]` 中有任一为真，即可从 `j` 跳跃到 `i`。
 
 <!-- tabs:start -->
 
@@ -52,7 +55,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canCross(self, stones: List[int]) -> bool:
+        n = len(stones)
+        dp = [[False] * n for i in range(n)]
+        dp[0][0] = True
+        for i in range(1, n):
+            for j in range(i):
+                k = stones[i] - stones[j];
+                if k > j + 1:
+                    continue
+                dp[i][k] = dp[j][k - 1] or dp[j][k] or dp[j][k + 1]
+                if i == n - 1 and dp[i][k]:
+                    return True
+        return False
 ```
 
 ### **Java**
@@ -60,7 +76,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean canCross(int[] stones) {
+        int n = stones.length;
+        boolean[][] dp = new boolean[n][n];
+        dp[0][0] = true;
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                int k = stones[i] - stones[j];
+                if (k > j + 1) {
+                    continue;
+                }
+                dp[i][k] = dp[j][k - 1] || dp[j][k] || dp[j][k + 1];
+                if (i == n - 1 && dp[i][k]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
 ```
 
 ### **...**
