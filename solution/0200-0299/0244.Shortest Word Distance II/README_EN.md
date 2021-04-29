@@ -41,7 +41,6 @@ wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 	<li>At most <code>5000</code> calls will be made to <code>shortest</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -49,13 +48,71 @@ wordDistance.shortest(&quot;makes&quot;, &quot;coding&quot;);    // return 1
 ### **Python3**
 
 ```python
+class WordDistance:
 
+    def __init__(self, wordsDict: List[str]):
+        self.words = {}
+        for i, word in enumerate(wordsDict):
+            indexes = self.words.get(word, [])
+            indexes.append(i)
+            self.words[word] = indexes
+
+    def shortest(self, word1: str, word2: str) -> int:
+        idx1, idx2 = self.words[word1], self.words[word2]
+        i1 = i2 = 0
+        shortest = float('inf')
+        while i1 < len(idx1) and i2 < len(idx2):
+            shortest = min(shortest, abs(idx1[i1] - idx2[i2]))
+            smaller = idx1[i1] < idx2[i2]
+            if smaller:
+                i1 += 1
+            else:
+                i2 += 1
+        return shortest
+
+
+# Your WordDistance object will be instantiated and called as such:
+# obj = WordDistance(wordsDict)
+# param_1 = obj.shortest(word1,word2)
 ```
 
 ### **Java**
 
 ```java
+class WordDistance {
+    private Map<String, List<Integer>> words;
 
+    public WordDistance(String[] wordsDict) {
+        words = new HashMap<>();
+        for (int i = 0; i < wordsDict.length; ++i) {
+            List<Integer> indexes = words.getOrDefault(wordsDict[i], new ArrayList<>());
+            indexes.add(i);
+            words.put(wordsDict[i], indexes);
+        }
+    }
+
+    public int shortest(String word1, String word2) {
+        List<Integer> idx1 = words.get(word1);
+        List<Integer> idx2 = words.get(word2);
+        int i1 = 0, i2 = 0, shortest = Integer.MAX_VALUE;
+        while (i1 < idx1.size() && i2 < idx2.size()) {
+            shortest = Math.min(shortest, Math.abs(idx1.get(i1) - idx2.get(i2)));
+            boolean smaller = idx1.get(i1) < idx2.get(i2);
+            if (smaller) {
+                ++i1;
+            } else {
+                ++i2;
+            }
+        }
+        return shortest;
+    }
+}
+
+/**
+ * Your WordDistance object will be instantiated and called as such:
+ * WordDistance obj = new WordDistance(wordsDict);
+ * int param_1 = obj.shortest(word1,word2);
+ */
 ```
 
 ### **...**
