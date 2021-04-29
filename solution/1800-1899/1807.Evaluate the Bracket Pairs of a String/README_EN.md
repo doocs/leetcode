@@ -74,7 +74,6 @@ Notice that the &quot;a&quot;s not in a bracket pair are not evaluated.
 	<li>Each <code>key<sub>i</sub></code> in <code>knowledge</code> is unique.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -82,13 +81,61 @@ Notice that the &quot;a&quot;s not in a bracket pair are not evaluated.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def evaluate(self, s: str, knowledge: List[List[str]]) -> str:
+        def find_right_bracket(s, start, end):
+            for i in range(start, end):
+                if s[i] == ')':
+                    return i
+        knowledge_dict = {item[0]: item[1] for item in knowledge}
+        res, n = [], len(s)
+        i = 0
+        while i < n:
+            if s[i] == '(':
+                right_bracket_pos = find_right_bracket(s, i + 1, n)
+                key = s[i + 1: right_bracket_pos]
+                res.append(knowledge_dict.get(key, '?'))
+                i = right_bracket_pos + 1
+            else:
+                res.append(s[i])
+                i += 1
+        return ''.join(res)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String evaluate(String s, List<List<String>> knowledge) {
+        Map<String, String> knowledgeDict = new HashMap<>();
+        for (List<String> item : knowledge) {
+            knowledgeDict.put(item.get(0), item.get(1));
+        }
+        StringBuilder res = new StringBuilder();
+        int i = 0, n = s.length();
+        while (i < n) {
+            if (s.charAt(i) == '(') {
+                int rightBracketPos = findRightBracket(s, i + 1, n);
+                String key = s.substring(i + 1, rightBracketPos);
+                res.append(knowledgeDict.getOrDefault(key, "?"));
+                i = rightBracketPos + 1;
+            } else {
+                res.append(s.charAt(i));
+                i += 1;
+            }
+        }
+        return res.toString();
+    }
 
+    private int findRightBracket(String s, int start, int end) {
+        for (int i =  start; i < end; ++i) {
+            if (s.charAt(i) == ')') {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **...**

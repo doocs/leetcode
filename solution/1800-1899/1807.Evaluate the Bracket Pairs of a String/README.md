@@ -74,10 +74,16 @@
 	<li><code>knowledge</code> 中的 <code>key<sub>i</sub></code> 不会重复。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+先将 `knowledge` 转为哈希字典。
+
+然后遍历字符串每个字符 `s[i]`：
+
+- 若 `s[i] == '('`，说明遇到了左括号，因此要找到右括号 `)` 的位置，然后截取括号间的子串作为 `key`，在哈希字典中查找 `key` 对应的 `value`，有则追加 `value` 到结果中，没有则追加 `?`，然后指针跳到右括号位置的下一个位置；
+- 若 `s[i]` 是其他字符，则正常追加即可。
 
 <!-- tabs:start -->
 
@@ -86,7 +92,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def evaluate(self, s: str, knowledge: List[List[str]]) -> str:
+        def find_right_bracket(s, start, end):
+            for i in range(start, end):
+                if s[i] == ')':
+                    return i
+        knowledge_dict = {item[0]: item[1] for item in knowledge}
+        res, n = [], len(s)
+        i = 0
+        while i < n:
+            if s[i] == '(':
+                right_bracket_pos = find_right_bracket(s, i + 1, n)
+                key = s[i + 1: right_bracket_pos]
+                res.append(knowledge_dict.get(key, '?'))
+                i = right_bracket_pos + 1
+            else:
+                res.append(s[i])
+                i += 1
+        return ''.join(res)
 ```
 
 ### **Java**
@@ -94,7 +118,37 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String evaluate(String s, List<List<String>> knowledge) {
+        Map<String, String> knowledgeDict = new HashMap<>();
+        for (List<String> item : knowledge) {
+            knowledgeDict.put(item.get(0), item.get(1));
+        }
+        StringBuilder res = new StringBuilder();
+        int i = 0, n = s.length();
+        while (i < n) {
+            if (s.charAt(i) == '(') {
+                int rightBracketPos = findRightBracket(s, i + 1, n);
+                String key = s.substring(i + 1, rightBracketPos);
+                res.append(knowledgeDict.getOrDefault(key, "?"));
+                i = rightBracketPos + 1;
+            } else {
+                res.append(s.charAt(i));
+                i += 1;
+            }
+        }
+        return res.toString();
+    }
 
+    private int findRightBracket(String s, int start, int end) {
+        for (int i =  start; i < end; ++i) {
+            if (s.charAt(i) == ')') {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **...**
