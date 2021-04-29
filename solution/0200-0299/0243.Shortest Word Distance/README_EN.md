@@ -32,7 +32,6 @@
 	<li><code>word1 != word2</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -40,13 +39,40 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def shortestDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
+        i1 = i2 = -1
+        shortest_distance = len(wordsDict)
+        for i in range(len(wordsDict)):
+            if wordsDict[i] == word1:
+                i1 = i
+            elif wordsDict[i] == word2:
+                i2 = i
+            if i1 != -1 and i2 != -1:
+                shortest_distance = min(shortest_distance, abs(i1 - i2))
+        return shortest_distance
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int shortestDistance(String[] wordsDict, String word1, String word2) {
+        int i1 = -1, i2 = -1;
+        int shortestDistance = wordsDict.length;
+        for (int i = 0; i < wordsDict.length; ++i) {
+            if (word1.equals(wordsDict[i])) {
+                i1 = i;
+            } else if (word2.equals(wordsDict[i])) {
+                i2 = i;
+            }
+            if (i1 != -1 && i2 != -1) {
+                shortestDistance = Math.min(shortestDistance, Math.abs(i1 - i2));
+            }
+        }
+        return shortestDistance;
+    }
+}
 ```
 
 ### **...**
