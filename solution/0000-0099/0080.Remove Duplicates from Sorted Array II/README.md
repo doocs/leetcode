@@ -149,7 +149,6 @@ public class Solution {
 
 ### **JavaScript**
 
-
 ``` JavaScript
 /**
  * @param {number[]} nums
