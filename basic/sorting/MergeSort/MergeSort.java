@@ -16,7 +16,7 @@ public class MergeSort {
             }
         }
 
-        System.arraycopy(tmp, low, nums, low, high - low + 1);
+        System.arraycopy(temp, low, nums, low, high - low + 1);
     }
 
     private static void mergeSort(int[] nums, int low, int high, int[] temp) {
