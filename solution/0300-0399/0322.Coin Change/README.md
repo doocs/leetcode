@@ -83,7 +83,7 @@
 
 动态规划法。
 
-```javascript
+```js
 /**
  * @param {number[]} coins
  * @param {number} amount

@@ -43,7 +43,7 @@ public class BubbleSort {
 ```
 ### **JavaScript**
 
-```javascript
+```js
 function bubbleSort(inputArr) {
     let len = inputArr.length;
     let swapped = false;

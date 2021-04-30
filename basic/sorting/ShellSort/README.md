@@ -43,7 +43,7 @@ public class ShellSort {
 
 ### **JavaScript**
 
-```javascript
+```js
 function shellSort(arr) {
     var len = arr.length;
     var gapSize = Math.floor(len / 2);

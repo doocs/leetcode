@@ -129,7 +129,7 @@ public class Solution {
 
 ### **JavaScript**
 
-``` JavaScript
+```js
 /**
  * @param {number[]} nums
  * @return {number}

@@ -83,7 +83,7 @@ class Solution {
 
 ### **JavaScript**
 
-```javascript
+```js
 var CheckPermutation = function(s1, s2) {
     let n1 = s1.length, n2 = s2.length;
     if (n1 != n2) return false;

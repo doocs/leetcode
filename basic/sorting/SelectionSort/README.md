@@ -42,7 +42,7 @@ public class SelectionSort {
 
 ### **JavaScript**
 
-```javascript
+```js
 function selectionSort(inputArr) {
     let len = inputArr.length;
     for (let i = 0; i <= len - 2; i++) {

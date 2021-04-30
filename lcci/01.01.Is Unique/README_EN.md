@@ -70,7 +70,7 @@ class Solution {
 
 ### **JavaScript**
 
-``` js
+```js
 /**
  * @param {string} astr
  * @return {boolean}
