@@ -56,6 +56,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+简单动态规划，`dp[i]` 表示总和为 `i` 的元素组合的个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +65,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def combinationSum4(self, nums: List[int], target: int) -> int:
+        dp = [0 for i in range(target + 1)]
+        dp[0] = 1
+        for i in range(1, target + 1):
+            for num in nums:
+                if i - num >= 0:
+                    dp[i] += dp[i - num]
+        return dp[target]
 ```
 
 ### **Java**
@@ -71,7 +81,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int combinationSum4(int[] nums, int target) {
+        int[] dp = new int[target + 1];
+        dp[0] = 1;
+        for (int i = 1; i <= target; i++) {
+            for (int num : nums) {
+                if (i - num >= 0) {
+                    dp[i] += dp[i - num];
+                }
+            }
+        }
+        return dp[target];
+    }
+}
 ```
 
 ### **...**
