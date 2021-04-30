@@ -45,7 +45,7 @@
 
 <!-- tabs:start -->
 
-### **SQL**
+### **MySQL8**
 
 使用 `DENSE_RANK()` 函数，语法如下：
 
@@ -69,6 +69,21 @@ DENSE_RANK() OVER (
 # Write your MySQL query statement below
 SELECT Score, DENSE_RANK() OVER (ORDER BY Score DESC) 'Rank'
 FROM Scores;
+```
+
+### **MySQL5**
+
+MySQL 8 开始才提供了 `ROW_NUMBER()`，`RANK()`，`DENSE_RANK()` 等[窗口函数](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html)，在之前的版本，可以使用变量实现类似的功能：
+
+```sql
+SELECT Score,
+       CONVERT(rk, SIGNED) `Rank`
+FROM (SELECT Score,
+             IF(@latest = Score, @rank, @rank := @rank + 1) rk,
+             @latest := Score
+      FROM Scores,
+           (SELECT @rank := 0, @latest := NULL) tmp
+      ORDER BY Score DESC) s;
 ```
 
 <!-- tabs:end -->

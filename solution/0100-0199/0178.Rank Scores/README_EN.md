@@ -41,7 +41,7 @@
 
 <!-- tabs:start -->
 
-### **SQL**
+### **MySQL8**
 
 Use `DENSE_RANK()` to solve this problem.
 
@@ -58,6 +58,21 @@ Solution:
 # Write your MySQL query statement below
 SELECT Score, DENSE_RANK() OVER (ORDER BY Score DESC) 'Rank'
 FROM Scores;
+```
+
+### **MySQL5**
+
+MySQL only provides [window function](https://dev.mysql.com/doc/refman/8.0/en/window-function-descriptions.html) after version 8. In previous versions, variables can be used to achieve similar functions:
+
+```sql
+SELECT Score,
+       CONVERT(rk, SIGNED) `Rank`
+FROM (SELECT Score,
+             IF(@latest = Score, @rank, @rank := @rank + 1) rk,
+             @latest := Score
+      FROM Scores,
+           (SELECT @rank := 0, @latest := NULL) tmp
+      ORDER BY Score DESC) s;
 ```
 
 <!-- tabs:end -->
