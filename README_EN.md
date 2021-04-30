@@ -39,6 +39,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [Selection Sort](/basic/sorting/SelectionSort/README.md)
 - [Merge Sort](/basic/sorting/MergeSort/README.md)
 - [Quick Sort](/basic/sorting/QuickSort/README.md)
+- [Shell Sort](/basic/sorting/ShellSort/README.md)
 
 ### Searching
 
