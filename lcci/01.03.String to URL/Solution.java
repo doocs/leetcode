@@ -1,16 +1,16 @@
 class Solution {
     public String replaceSpaces(String S, int length) {
-        char[] c = S.toCharArray();
-        int j = c.length;
-        for (int i = length - 1; i >= 0; i--) {
-            if (c[i] == ' ') {
-                c[--j] = '0';
-                c[--j] = '2';
-                c[--j] = '%';
+        char[] chars = S.toCharArray();
+        int j = chars.length;
+        for (int i = length - 1; i >= 0; --i) {
+            if (chars[i] == ' ') {
+                chars[--j] = '0';
+                chars[--j] = '2';
+                chars[--j] = '%';
             } else {
-                c[--j] = c[i];
+                chars[--j] = chars[i];
             }
         }
-        return new String(c, j, c.length - j);
+        return new String(chars, j, chars.length - j);
     }
 }

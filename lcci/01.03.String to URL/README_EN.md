@@ -44,11 +44,23 @@ The missing numbers are [5,6,8,...], hence the third missing number is 8.
 
 ### **Python3**
 
+Use `replace()` function.
+
 ```python
 class Solution:
     def replaceSpaces(self, S: str, length: int) -> str:
-        S = S[:length] if length < len(S) else S
-        return S.replace(' ', '%20')
+        return S[:length].replace(' ', '%20')
+```
+
+Use list:
+
+```python
+class Solution:
+    def replaceSpaces(self, S: str, length: int) -> str:
+        chars = []
+        for c in S[:length]:
+            chars.append('%20' if c == ' ' else c)
+        return ''.join(chars)
 ```
 
 ### **Java**
@@ -56,20 +68,33 @@ class Solution:
 ```java
 class Solution {
     public String replaceSpaces(String S, int length) {
-        char[] c = S.toCharArray();
-        int j = c.length;
-        for (int i = length - 1; i >= 0; i--) {
-            if (c[i] == ' ') {
-                c[--j] = '0';
-                c[--j] = '2';
-                c[--j] = '%';
+        char[] chars = S.toCharArray();
+        int j = chars.length;
+        for (int i = length - 1; i >= 0; --i) {
+            if (chars[i] == ' ') {
+                chars[--j] = '0';
+                chars[--j] = '2';
+                chars[--j] = '%';
             } else {
-                c[--j] = c[i];
+                chars[--j] = chars[i];
             }
         }
-        return new String(c, j, c.length - j);
+        return new String(chars, j, chars.length - j);
     }
 }
+```
+
+### JavaScript
+
+```js
+/**
+ * @param {string} S
+ * @param {number} length
+ * @return {string}
+ */
+var replaceSpaces = function(S, length) {
+    return encodeURI(S.substring(0,length));
+};
 ```
 
 ### **...**
