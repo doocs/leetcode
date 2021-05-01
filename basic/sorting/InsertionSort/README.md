@@ -42,7 +42,7 @@ public class InsertionSort {
 }
 ```
 ### **JavaScript**
-```javascript
+```js
 function insertionSort(inputArr) {
     let len = inputArr.length;
     for (let i = 1; i <= len - 1; i++) {

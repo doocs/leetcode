@@ -56,7 +56,7 @@ public class QuickSort {
 ```
 ### **JavaScript**
 
-```javascript
+```js
 function quickSort(arr) {
     let len = arr.length;
     return qSort(arr, 0, len - 1);

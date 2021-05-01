@@ -49,18 +49,41 @@ Note that different sequences are counted as different combinations.
 
 ## Solutions
 
+`dp[i]` represents the number of element combinations whose sum is `i`.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def combinationSum4(self, nums: List[int], target: int) -> int:
+        dp = [0 for i in range(target + 1)]
+        dp[0] = 1
+        for i in range(1, target + 1):
+            for num in nums:
+                if i - num >= 0:
+                    dp[i] += dp[i - num]
+        return dp[target]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int combinationSum4(int[] nums, int target) {
+        int[] dp = new int[target + 1];
+        dp[0] = 1;
+        for (int i = 1; i <= target; i++) {
+            for (int num : nums) {
+                if (i - num >= 0) {
+                    dp[i] += dp[i - num];
+                }
+            }
+        }
+        return dp[target];
+    }
+}
 ```
 
 ### **...**

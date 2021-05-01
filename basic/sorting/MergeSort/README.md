@@ -58,7 +58,7 @@ public class MergeSort {
 
 ### **JavaScript**
 
-```JavaScript
+```js
 function mergeSort(arr) {
     if (arr.length < 2) return arr;
     let mid = Math.ceil(arr.length / 2);
