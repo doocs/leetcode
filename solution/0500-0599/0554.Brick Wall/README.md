@@ -45,6 +45,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+题目可以理解为，让垂线尽可能多地穿过砖块边缘，用哈希表处理不同位置的砖块边缘出现的频次（不包括两个垂直边缘），最终的答案就是总行数减去最大频数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,7 +54,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def leastBricks(self, wall: List[List[int]]) -> int:
+        cnt = collections.defaultdict(int)
+        for row in wall:
+            width = 0
+            for brick in row[:-1]:
+                width += brick
+                cnt[width] += 1
+        if not cnt:
+            return len(wall)
+        return len(wall) - cnt[max(cnt, key=cnt.get)]
 ```
 
 ### **Java**
@@ -60,7 +72,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int leastBricks(List<List<Integer>> wall) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (List<Integer> row : wall) {
+            int width = 0;
+            for (int i = 0, n = row.size() - 1; i < n; i++) {
+                width += row.get(i);
+                cnt.merge(width, 1, Integer::sum);
+            }
+        }
+        int max = cnt.values().stream().max(Comparator.naturalOrder()).orElse(0);
+        return wall.size() - max;
+    }
+}
+```
 
+### **Go**
+
+```go
+func leastBricks(wall [][]int) int {
+	cnt := make(map[int]int)
+	for _, row := range wall {
+        width := 0
+		for _, brick := range row[:len(row)-1] {
+            width += brick
+			cnt[width]++
+		}
+	}
+	max := 0
+	for _, v := range cnt {
+		if v > max {
+			max = v
+		}
+	}
+	return len(wall) - max
+}
 ```
 
 ### **...**
