@@ -17,3 +17,4 @@ jobs:
           svgWidth: 890
           round: true
           includeBots: true
+          commitMessage: 'chore: update contributors to @doocs/leetcode'
