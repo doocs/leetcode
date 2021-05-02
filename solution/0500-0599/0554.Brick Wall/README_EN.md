@@ -73,18 +73,65 @@
 
 ## Solutions
 
+The question can be understood as, let the vertical line pass through the edge of the brick as much as possible, use the hash table to process the frequency of the brick edge in different positions (not including the two vertical edges), and the final answer is the total number of rows minus the maximum Frequency.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def leastBricks(self, wall: List[List[int]]) -> int:
+        cnt = collections.defaultdict(int)
+        for row in wall:
+            width = 0
+            for brick in row[:-1]:
+                width += brick
+                cnt[width] += 1
+        if not cnt:
+            return len(wall)
+        return len(wall) - cnt[max(cnt, key=cnt.get)]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int leastBricks(List<List<Integer>> wall) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (List<Integer> row : wall) {
+            int width = 0;
+            for (int i = 0, n = row.size() - 1; i < n; i++) {
+                width += row.get(i);
+                cnt.merge(width, 1, Integer::sum);
+            }
+        }
+        int max = cnt.values().stream().max(Comparator.naturalOrder()).orElse(0);
+        return wall.size() - max;
+    }
+}
+```
 
+### **Go**
+
+```go
+func leastBricks(wall [][]int) int {
+	cnt := make(map[int]int)
+	for _, row := range wall {
+        width := 0
+		for _, brick := range row[:len(row)-1] {
+            width += brick
+			cnt[width]++
+		}
+	}
+	max := 0
+	for _, v := range cnt {
+		if v > max {
+			max = v
+		}
+	}
+	return len(wall) - max
+}
 ```
 
 ### **...**

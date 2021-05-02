@@ -63,24 +63,47 @@ class Solution:
 ```java
 class Solution {
     public String compressString(String S) {
-        if (S == null || S.length() < 2) {
+        int n;
+        if (S == null || (n = S.length()) < 2) {
             return S;
         }
-        char[] chars = S.toCharArray();
-        int p = 0, q = 1, n = chars.length;
+        int p = 0, q = 1;
         StringBuilder sb = new StringBuilder();
         while (q < n) {
-            if (chars[p] != chars[q]) {
-                sb.append(chars[p]).append(q - p);
+            if (S.charAt(p) != S.charAt(q)) {
+                sb.append(S.charAt(p)).append(q - p);
                 p = q;
             }
-            q += 1;
+            ++q;
         }
-        sb.append(chars[p]).append(q - p);
+        sb.append(S.charAt(p)).append(q - p);
         String res = sb.toString();
         return res.length() < n ? res : S;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} S
+ * @return {string}
+ */
+var compressString = function(S) {
+    if (!S) return S;
+    let p = 0, q = 1;
+    let res = '';
+    while (q < S.length) {
+        if (S[p] != S[q]) {
+            res += (S[p] + (q - p));
+            p = q;
+        }
+        ++q;
+    }
+    res += (S[p] + (q - p));
+    return res.length < S.length ? res : S;
+};
 ```
 
 ### **...**
