@@ -48,7 +48,6 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 	<li>There will be at most <code>1000</code>&nbsp;function calls.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -56,13 +55,65 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 ### **Python3**
 
 ```python
+class Leaderboard:
 
+    def __init__(self):
+        self.player_scores = {}
+
+    def addScore(self, playerId: int, score: int) -> None:
+        self.player_scores[playerId] = self.player_scores.get(playerId, 0) + score
+
+    def top(self, K: int) -> int:
+        scores = sorted(list(self.player_scores.values()), reverse=True)
+        return sum(scores[:K])
+
+    def reset(self, playerId: int) -> None:
+        self.player_scores[playerId] = 0
+
+
+# Your Leaderboard object will be instantiated and called as such:
+# obj = Leaderboard()
+# obj.addScore(playerId,score)
+# param_2 = obj.top(K)
+# obj.reset(playerId)
 ```
 
 ### **Java**
 
 ```java
+class Leaderboard {
+    private Map<Integer, Integer> playerScores;
 
+    public Leaderboard() {
+        playerScores = new HashMap<>();
+    }
+    
+    public void addScore(int playerId, int score) {
+        playerScores.put(playerId, playerScores.getOrDefault(playerId, 0) + score);
+    }
+    
+    public int top(int K) {
+        List<Integer> scores = new ArrayList<>(playerScores.values());
+        Collections.sort(scores, Collections.reverseOrder());
+        int res = 0;
+        for (int i = 0; i < K; ++i) {
+            res += scores.get(i);
+        }
+        return res;
+    }
+    
+    public void reset(int playerId) {
+        playerScores.put(playerId, 0);
+    }
+}
+
+/**
+ * Your Leaderboard object will be instantiated and called as such:
+ * Leaderboard obj = new Leaderboard();
+ * obj.addScore(playerId,score);
+ * int param_2 = obj.top(K);
+ * obj.reset(playerId);
+ */
 ```
 
 ### **...**

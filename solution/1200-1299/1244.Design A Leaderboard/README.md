@@ -12,7 +12,6 @@
 
 <ol>
 	<li><code>addScore(playerId, score)</code>：
-
 	<ul>
 		<li>假如参赛者已经在排行榜上，就给他的当前得分增加 <code>score</code> 点分值并更新排行。</li>
 		<li>假如该参赛者不在排行榜上，就把他添加到榜单上，并且将分数设置为 <code>score</code>。</li>
@@ -60,10 +59,13 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 	<li>最多进行 <code>1000</code> 次函数调用</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+用哈希表存放每个 playerId 所对应的分数。
+
+计算 topK 时，取出所有的分数，进行排序，获取前 K 个分数，累加得到结果。
 
 <!-- tabs:start -->
 
@@ -72,7 +74,27 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Leaderboard:
 
+    def __init__(self):
+        self.player_scores = {}
+
+    def addScore(self, playerId: int, score: int) -> None:
+        self.player_scores[playerId] = self.player_scores.get(playerId, 0) + score
+
+    def top(self, K: int) -> int:
+        scores = sorted(list(self.player_scores.values()), reverse=True)
+        return sum(scores[:K])
+
+    def reset(self, playerId: int) -> None:
+        self.player_scores[playerId] = 0
+
+
+# Your Leaderboard object will be instantiated and called as such:
+# obj = Leaderboard()
+# obj.addScore(playerId,score)
+# param_2 = obj.top(K)
+# obj.reset(playerId)
 ```
 
 ### **Java**
@@ -80,7 +102,39 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Leaderboard {
+    private Map<Integer, Integer> playerScores;
 
+    public Leaderboard() {
+        playerScores = new HashMap<>();
+    }
+
+    public void addScore(int playerId, int score) {
+        playerScores.put(playerId, playerScores.getOrDefault(playerId, 0) + score);
+    }
+
+    public int top(int K) {
+        List<Integer> scores = new ArrayList<>(playerScores.values());
+        Collections.sort(scores, Collections.reverseOrder());
+        int res = 0;
+        for (int i = 0; i < K; ++i) {
+            res += scores.get(i);
+        }
+        return res;
+    }
+
+    public void reset(int playerId) {
+        playerScores.put(playerId, 0);
+    }
+}
+
+/**
+ * Your Leaderboard object will be instantiated and called as such:
+ * Leaderboard obj = new Leaderboard();
+ * obj.addScore(playerId,score);
+ * int param_2 = obj.top(K);
+ * obj.reset(playerId);
+ */
 ```
 
 ### **...**
