@@ -59,23 +59,42 @@
 
 ## Solutions
 
+Similar to the idea of ​​a complete backpack, there is no limit to the number of coins. Find the minimum number of coins required to make up the total amount.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [amount + 1 for i in range(amount + 1)]
+        dp[0] = 0
+        for coin in coins:
+            for j in range(coin, amount + 1):
+                dp[j] = min(dp[j], dp[j - coin] + 1)
+        return -1 if dp[amount] > amount else dp[amount]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        for (int coin : coins) {
+            for (int j = coin; j <= amount; j++) {
+                dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+}
 ```
 
 ### **JavaScript**
-
-Dynamic programming.
 
 ```js
 /**

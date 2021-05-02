@@ -16,7 +16,7 @@
 
 <pre>
 <strong>输入：</strong>coins = <code>[1, 2, 5]</code>, amount = <code>11</code>
-<strong>输出：</strong><code>3</code> 
+<strong>输出：</strong><code>3</code>
 <strong>解释：</strong>11 = 5 + 5 + 1</pre>
 
 <p><strong>示例 2：</strong></p>
@@ -61,6 +61,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+类似完全背包的思路，硬币数量不限，求凑成总金额所需的最少的硬币个数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +70,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        dp = [amount + 1 for i in range(amount + 1)]
+        dp[0] = 0
+        for coin in coins:
+            for j in range(coin, amount + 1):
+                dp[j] = min(dp[j], dp[j - coin] + 1)
+        return -1 if dp[amount] > amount else dp[amount]
 ```
 
 ### **Java**
@@ -76,12 +85,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        for (int coin : coins) {
+            for (int j = coin; j <= amount; j++) {
+                dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+}
 ```
 
 ### **JavaScript**
-
-动态规划法。
 
 ```js
 /**
