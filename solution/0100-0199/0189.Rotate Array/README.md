@@ -121,6 +121,9 @@ class Solution {
 
 ### **JavaScript**
 
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+使用原生 API 将数组的 `k~n-1` 范围内的元素插入到前面
+
 ```js
 /**
  * @param {number[]} nums
