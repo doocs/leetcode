@@ -11,7 +11,7 @@ class Solution {
         int res = 0;
         for (int i = 0; i < 32; ++i) {
             if (bits[i] % 3 == 1) {
-                res += (1 << i);
+                res |= (1 << i);
             }
         }
         return res;

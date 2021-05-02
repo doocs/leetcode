@@ -8,5 +8,5 @@ class Solution:
         res = 0
         for i in range(32):
             if bits[i] % 3 != 0:
-                res += (1 << i)
+                res |= (1 << i)
         return res if bits[31] % 3 == 0 else ~(res ^ 0xffffffff)
