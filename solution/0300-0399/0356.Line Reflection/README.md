@@ -47,7 +47,7 @@
 
 先找出所有点中的最小、最大的 x 坐标 `minX` 和 `maxX`。若存在满足条件的直线，则直线 `x = (minX + maxX) / 2`。(或者说：`s = minX + maxX`)
 
-遍历每个点 `point(x, y)`，若 (s - x, y) 不在点集里，说明不满足条件，直接返回 false。遍历结束返回 true。
+遍历每个点 `point(x, y)`，若 `(s - x, y)` 不在点集里，说明不满足条件，直接返回 false。遍历结束返回 true。
 
 <!-- tabs:start -->
 
