@@ -66,7 +66,7 @@ class LCSpider:
             'Connection': 'keep-alive',
             'Content-Type': 'application/json',
             'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug,
-            # cookie here
+            # leetcode-cn.com cookie here
             # 'cookie': ''
         }
         self.session.post(url=LCSpider.graph_url,
@@ -108,7 +108,9 @@ class LCSpider:
             'accept': 'application/json, text/javascript, */*; q=0.01',
             'content-type': 'application/json',
             'user-agent': LCSpider.user_agent,
-            'x-requested-with': 'XMLHttpRequest'
+            'x-requested-with': 'XMLHttpRequest',
+            # leetcode.com cookie here
+            # 'cookie': ''
         }
         resp = self.session.get(url='https://leetcode.com/api/problems/all/',
                                 headers=headers,
@@ -119,14 +121,15 @@ class LCSpider:
         for question in questions:
             question_title_slug = question['stat']['question__title_slug']
             question_detail = self.get_question_detail(question_title_slug)
-            if not question_detail:
-                continue
-
             frontend_question_id = str(question['stat']['frontend_question_id']).zfill(4)
             no = int(frontend_question_id) // 100
 
             question_title_en = question['stat']['question__title']
             question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
+
+            if not question_detail:
+                print(f'skip {frontend_question_id}. {question_title_en}')
+                continue
 
             url_cn = f'https://leetcode-cn.com/problems/{question_title_slug}'
             url_en = f'https://leetcode.com/problems/{question_title_slug}'
@@ -257,6 +260,7 @@ class LCSpider:
                 summary_cn += ("\n- " + file + "\n")
                 summary_en += ("\n- " + file + "\n")
                 for sub in os.listdir("./" + file):
+                    sub = sub.replace('`', ' ')
                     enc = quote(sub)
                     summary_cn += f'  - [{sub}](/solution/{file}/{enc}/README.md)\n'
                     summary_en += f'  - [{sub}](/solution/{file}/{enc}/README_EN.md)\n'
