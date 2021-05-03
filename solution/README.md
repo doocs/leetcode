@@ -704,7 +704,7 @@
 |  [0691](https://leetcode-cn.com/problems/stickers-to-spell-word)  |  [贴纸拼词](/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README.md)  |  `动态规划`,`回溯算法`  |  困难  |    |
 |  [0692](https://leetcode-cn.com/problems/top-k-frequent-words)  |  [前K个高频单词](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README.md)  |  `堆`,`字典树`,`哈希表`  |  中等  |    |
 |  [0693](https://leetcode-cn.com/problems/binary-number-with-alternating-bits)  |  [交替位二进制数](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README.md)  |  `位运算`  |  简单  |    |
-|  [0694](https://leetcode-cn.com/problems/number-of-distinct-islands)  |  [不同岛屿的数量](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README.md)  |  `深度优先搜索`,`哈希表`  |  中等  |  🔒  |
+|  [0694](https://leetcode-cn.com/problems/number-of-distinct-islands)  |  [不同岛屿的数量](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README.md)  |  `深度优先搜索`,`广度优先搜索`,`哈希表`  |  中等  |  🔒  |
 |  [0695](https://leetcode-cn.com/problems/max-area-of-island)  |  [岛屿的最大面积](/solution/0600-0699/0695.Max%20Area%20of%20Island/README.md)  |  `深度优先搜索`,`数组`  |  中等  |    |
 |  [0696](https://leetcode-cn.com/problems/count-binary-substrings)  |  [计数二进制子串](/solution/0600-0699/0696.Count%20Binary%20Substrings/README.md)  |  `字符串`  |  简单  |    |
 |  [0697](https://leetcode-cn.com/problems/degree-of-an-array)  |  [数组的度](/solution/0600-0699/0697.Degree%20of%20an%20Array/README.md)  |  `数组`  |  简单  |    |
@@ -750,7 +750,7 @@
 |  [0737](https://leetcode-cn.com/problems/sentence-similarity-ii)  |  [句子相似性 II](/solution/0700-0799/0737.Sentence%20Similarity%20II/README.md)  |  `深度优先搜索`,`并查集`  |  中等  |  🔒  |
 |  [0738](https://leetcode-cn.com/problems/monotone-increasing-digits)  |  [单调递增的数字](/solution/0700-0799/0738.Monotone%20Increasing%20Digits/README.md)  |  `贪心算法`  |  中等  |    |
 |  [0739](https://leetcode-cn.com/problems/daily-temperatures)  |  [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md)  |  `栈`,`哈希表`  |  中等  |    |
-|  [0740](https://leetcode-cn.com/problems/delete-and-earn)  |  [删除与获得点数](/solution/0700-0799/0740.Delete%20and%20Earn/README.md)  |  `动态规划`  |  中等  |    |
+|  [0740](https://leetcode-cn.com/problems/delete-and-earn)  |  [删除并获得点数](/solution/0700-0799/0740.Delete%20and%20Earn/README.md)  |  `动态规划`  |  中等  |    |
 |  [0741](https://leetcode-cn.com/problems/cherry-pickup)  |  [摘樱桃](/solution/0700-0799/0741.Cherry%20Pickup/README.md)  |  `动态规划`  |  困难  |    |
 |  [0742](https://leetcode-cn.com/problems/closest-leaf-in-a-binary-tree)  |  [二叉树最近的叶节点](/solution/0700-0799/0742.Closest%20Leaf%20in%20a%20Binary%20Tree/README.md)  |  `树`  |  中等  |  🔒  |
 |  [0743](https://leetcode-cn.com/problems/network-delay-time)  |  [网络延迟时间](/solution/0700-0799/0743.Network%20Delay%20Time/README.md)  |  `堆`,`深度优先搜索`,`广度优先搜索`,`图`  |  中等  |    |
@@ -1852,6 +1852,16 @@
 |  [1839](https://leetcode-cn.com/problems/longest-substring-of-all-vowels-in-order)  |  [所有元音按顺序排布的最长子字符串](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README.md)  |  `双指针`,`字符串`  |  中等  |    |
 |  [1840](https://leetcode-cn.com/problems/maximum-building-height)  |  [最高建筑高度](/solution/1800-1899/1840.Maximum%20Building%20Height/README.md)  |  `贪心算法`,`二分查找`  |  困难  |    |
 |  [1841](https://leetcode-cn.com/problems/league-statistics)  |  [](/solution/1800-1899/1841.League%20Statistics/README.md)  |    |  中等  |    |
+|  [1842](https://leetcode-cn.com/problems/next-palindrome-using-same-digits)  |  [](/solution/1800-1899/1842.Next%20Palindrome%20Using%20Same%20Digits/README.md)  |  `贪心算法`  |  困难  |    |
+|  [1843](https://leetcode-cn.com/problems/suspicious-bank-accounts)  |  [](/solution/1800-1899/1843.Suspicious%20Bank%20Accounts/README.md)  |    |  中等  |    |
+|  [1844](https://leetcode-cn.com/problems/replace-all-digits-with-characters)  |  [将所有数字用字符替换](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README.md)  |  `字符串`  |  简单  |    |
+|  [1845](https://leetcode-cn.com/problems/seat-reservation-manager)  |  [座位预约管理系统](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README.md)  |  `堆`,`设计`  |  中等  |    |
+|  [1846](https://leetcode-cn.com/problems/maximum-element-after-decreasing-and-rearranging)  |  [减小和重新排列数组后的最大元素](/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README.md)  |  `贪心算法`,`排序`  |  中等  |    |
+|  [1847](https://leetcode-cn.com/problems/closest-room)  |  [最近的房间](/solution/1800-1899/1847.Closest%20Room/README.md)  |  `排序`,`二分查找`  |  困难  |    |
+|  [1848](https://leetcode-cn.com/problems/minimum-distance-to-the-target-element)  |  [到目标元素的最小距离](/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README.md)  |  `数组`  |  简单  |    |
+|  [1849](https://leetcode-cn.com/problems/splitting-a-string-into-descending-consecutive-values)  |  [将字符串拆分为递减的连续值](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README.md)  |  `递归`,`字符串`,`回溯算法`  |  中等  |    |
+|  [1850](https://leetcode-cn.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number)  |  [邻位交换的最小次数](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README.md)  |  `贪心算法`,`字符串`  |  中等  |    |
+|  [1851](https://leetcode-cn.com/problems/minimum-interval-to-include-each-query)  |  [包含每个查询的最小区间](/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README.md)  |    |  困难  |    |
 
 ## 版权
 
