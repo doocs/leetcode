@@ -63,7 +63,7 @@
 class Solution:
     def numberOfBoomerangs(self, points: List[List[int]]) -> int:
         n = len(points)
-        if len(points) < 3:
+        if n < 3:
             return 0
         number = 0
         for i in range(n):

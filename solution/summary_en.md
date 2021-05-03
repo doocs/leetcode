@@ -439,7 +439,7 @@
   - [0429.N-ary Tree Level Order Traversal](/solution/0400-0499/0429.N-ary%20Tree%20Level%20Order%20Traversal/README_EN.md)
   - [0430.Flatten a Multilevel Doubly Linked List](/solution/0400-0499/0430.Flatten%20a%20Multilevel%20Doubly%20Linked%20List/README_EN.md)
   - [0431.Encode N-ary Tree to Binary Tree](/solution/0400-0499/0431.Encode%20N-ary%20Tree%20to%20Binary%20Tree/README_EN.md)
-  - [0432.All O`one Data Structure](/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README_EN.md)
+  - [0432.All O one Data Structure](/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README_EN.md)
   - [0433.Minimum Genetic Mutation](/solution/0400-0499/0433.Minimum%20Genetic%20Mutation/README_EN.md)
   - [0434.Number of Segments in a String](/solution/0400-0499/0434.Number%20of%20Segments%20in%20a%20String/README_EN.md)
   - [0435.Non-overlapping Intervals](/solution/0400-0499/0435.Non-overlapping%20Intervals/README_EN.md)
