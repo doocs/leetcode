@@ -17,7 +17,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0356.Line%20Reflection/images/356_example_1.PNG" style="width: 389px; height: 340px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0356.Line%20Reflection/images/356_example_1.png" style="width: 389px; height: 340px;" />
 <pre>
 <strong>输入：</strong>points = [[1,1],[-1,1]]
 <strong>输出：</strong>true
@@ -25,7 +25,7 @@
 </pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0356.Line%20Reflection/images/356_example_2.PNG" style="width: 300px; height: 294px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0356.Line%20Reflection/images/356_example_2.png" style="width: 300px; height: 294px;" />
 <pre>
 <strong>输入：</strong>points = [[1,1],[-1,-1]]
 <strong>输出：</strong>false
@@ -41,10 +41,13 @@
 	<li><code>-10^8 <= points[i][j] <= 10^8</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+先找出所有点中的最小、最大的 x 坐标 `minX` 和 `maxX`。若存在满足条件的直线，则直线 `x = (minX + maxX) / 2`。(或者说：`s = minX + maxX`)
+
+遍历每个点 `point(x, y)`，若 (s - x, y) 不在点集里，说明不满足条件，直接返回 false。遍历结束返回 true。
 
 <!-- tabs:start -->
 
@@ -53,7 +56,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isReflected(self, points: List[List[int]]) -> bool:
+        min_x, max_x = float('inf'), float('-inf')
+        point_set = set()
+        for point in points:
+            min_x = min(min_x, point[0])
+            max_x = max(max_x, point[0])
+            point_set.add((point[0], point[1]))
+        s = min_x + max_x
+        for point in points:
+            if (s - point[0], point[1]) not in point_set:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -61,7 +76,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean isReflected(int[][] points) {
+        int minX = Integer.MAX_VALUE, maxX = Integer.MIN_VALUE;
+        Set<String> pointSet = new HashSet<>();
+        for (int[] point : points) {
+            minX = Math.min(minX, point[0]);
+            maxX = Math.max(maxX, point[0]);
+            pointSet.add(point[0] + "." + point[1]);
+        }
+        long s = minX + maxX;
+        for (int[] point : points) {
+            if (!pointSet.contains((s - point[0]) + "." + point[1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

@@ -24,7 +24,7 @@
 
 
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex1.JPG" style="width: 70px; height: 59px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex1.jpeg" style="width: 70px; height: 59px;" /></strong></p>
 
 
 
@@ -46,7 +46,7 @@ The path with the maximum score is highlighted in yellow.
 
 
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex2.JPG" style="width: 134px; height: 39px;" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex2.jpeg" style="width: 134px; height: 39px;" /></strong></p>
 
 
 
@@ -62,7 +62,7 @@ The path with the maximum score is highlighted in yellow.
 
 
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex3.JPG" /></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1102.Path%20With%20Maximum%20Minimum%20Value/images/1313_ex3.jpeg" /></strong></p>
 
 
 
