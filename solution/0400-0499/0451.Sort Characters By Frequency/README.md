@@ -50,10 +50,11 @@
 注意&#39;A&#39;和&#39;a&#39;被认为是两种不同的字符。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“计数器 + 桶”实现。其中，计数器统计字符串中每个字符出现的次数。而对于桶，第 i 个位置存放出现次数为 i 的所有字符。
 
 <!-- tabs:start -->
 
@@ -62,7 +63,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        if not s or len(s) < 3:
+            return s
+        counter = collections.Counter(s)
+        buckets = [[] for _ in range(len(s) + 1)]
+        for c, count in counter.items():
+            buckets[count].append(c)
+        res = []
+        for i in range(len(s), -1, -1):
+            if buckets[i]:
+                for c in buckets[i]:
+                    res.append(c * i)
+        return ''.join(res)
 ```
 
 ### **Java**
@@ -70,7 +84,37 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String frequencySort(String s) {
+        if (s == null || s.length() < 3) {
+            return s;
+        }
+        Map<Character, Integer> counter = new HashMap<>();
+        for (int i = 0; i < s.length(); ++i) {
+            counter.put(s.charAt(i), counter.getOrDefault(s.charAt(i), 0) + 1);
+        }
+        List<Character>[] buckets = new List[s.length() + 1];
+        for (Map.Entry<Character, Integer> entry : counter.entrySet()) {
+            char c = entry.getKey();
+            int count = entry.getValue();
+            if (buckets[count] == null) {
+                buckets[count] = new ArrayList<>();
+            }
+            buckets[count].add(c);
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = s.length(); i >= 0; --i) {
+            if (buckets[i] != null) {
+                for (char c : buckets[i]) {
+                    for (int j = 0; j < i; ++j) {
+                        sb.append(c);
+                    }
+                }
+            }
+        }
+        return sb.toString();
+    }
+}
 ```
 
 ### **...**
