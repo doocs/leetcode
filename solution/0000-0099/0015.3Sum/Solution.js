@@ -14,9 +14,9 @@ var threeSum = function (nums) {
         while (left < right) {
             if (nums[i] + nums[left] + nums[right] === 0) {
                 res.push([nums[i], nums[left], nums[right]]);
-                while (nums[left] == nums[left + 1]) left++;
+                while (nums[left] === nums[left + 1]) left++;
                 left++;
-                while (nums[right] == nums[right + 1]) right--;
+                while (nums[right] === nums[right - 1]) right--;
                 right--;
                 continue;
             } else if (nums[i] + nums[left] + nums[right] > 0) {
