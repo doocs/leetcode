@@ -1,23 +1,15 @@
 class Solution:
-    def findAnagrams(self, s, p):
-        """
-        :type s: str
-        :type p: str
-        :rtype: List[int]
-        """
-        lens=len(s)
-        lenp=len(p)
-        if lens < lenp:
-            return []
-        flag1 = [0] * 26
-        flag2 = [0] * 26
-        for i, x in enumerate(p):
-            flag1[ord(x) - 97] += 1
-        ans = []
-        for i, x in enumerate(s):
-            flag2[ord(x)- 97] += 1
-            if i >= lenp:
-                flag2[ord(s[i - lenp]) - 97] -= 1
-            if flag1 == flag2:
-                ans.append(i-lenp+1)
-        return ans
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        counter = collections.Counter(p)
+        res = []
+        left = right = 0
+        t = collections.Counter()
+        while right < len(s):
+            t[s[right]] += 1
+            while t[s[right]] > counter[s[right]]:
+                t[s[left]] -= 1
+                left += 1
+            if right - left == len(p) - 1:
+                res.append(left)
+            right += 1
+        return res
