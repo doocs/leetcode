@@ -60,8 +60,7 @@ public class Codec {
 
     // Encodes a URL to a shortened URL.
     public String encode(String longUrl) {
-        ++count;
-        String code = Integer.toHexString(count);
+        String code = Integer.toHexString(++count);
         code2Url.put(code, longUrl);
         return prefixUrl + code;
     }

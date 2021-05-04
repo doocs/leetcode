@@ -1,13 +1,14 @@
 class Solution {
 public:
-    int numJewelsInStones(string J, string S) {
-        std::unordered_map<char,int> count;
-        int number = 0;
-        for(char c: J) count[c]++;
-        for(char c: S){
-            if(count.find(c)!=count.end())
-                number++;
+    int numJewelsInStones(string jewels, string stones) {
+        unordered_set<char> jewelsSet;
+        for (int i = 0; i < jewels.length(); ++i) {
+            jewelsSet.insert(jewels[i]);
         }
-        return number;
+        int res = 0;
+        for (int i = 0; i < stones.length(); ++i) {
+            res += jewelsSet.count(stones[i]);
+        }
+        return res;
     }
 };
