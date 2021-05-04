@@ -69,8 +69,8 @@ class Solution:
             return s
         counter = collections.Counter(s)
         buckets = [[] for _ in range(len(s) + 1)]
-        for c, count in counter.items():
-            buckets[count].append(c)
+        for c, freq in counter.items():
+            buckets[freq].append(c)
         res = []
         for i in range(len(s), -1, -1):
             if buckets[i]:
@@ -96,11 +96,11 @@ class Solution {
         List<Character>[] buckets = new List[s.length() + 1];
         for (Map.Entry<Character, Integer> entry : counter.entrySet()) {
             char c = entry.getKey();
-            int count = entry.getValue();
-            if (buckets[count] == null) {
-                buckets[count] = new ArrayList<>();
+            int freq = entry.getValue();
+            if (buckets[freq] == null) {
+                buckets[freq] = new ArrayList<>();
             }
-            buckets[count].add(c);
+            buckets[freq].add(c);
         }
         StringBuilder sb = new StringBuilder();
         for (int i = s.length(); i >= 0; --i) {

@@ -31,13 +31,9 @@ s = ""
 ### **Python3**
 
 ```python
-import collections
-
 class Solution:
     def firstUniqChar(self, s: str) -> str:
-        counter = collections.Counter()
-        for c in s:
-            counter[c] += 1
+        counter = collections.Counter(s)
         for c in s:
             if counter[c] == 1:
                 return c

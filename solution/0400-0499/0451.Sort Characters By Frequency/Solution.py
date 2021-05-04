@@ -4,8 +4,8 @@ class Solution:
             return s
         counter = collections.Counter(s)
         buckets = [[] for _ in range(len(s) + 1)]
-        for c, count in counter.items():
-            buckets[count].append(c)
+        for c, freq in counter.items():
+            buckets[freq].append(c)
         res = []
         for i in range(len(s), -1, -1):
             if buckets[i]:
