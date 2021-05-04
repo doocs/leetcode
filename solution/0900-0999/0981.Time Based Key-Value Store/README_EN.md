@@ -6,21 +6,13 @@
 
 <p>Create a timebased key-value store class&nbsp;<code>TimeMap</code>, that supports two operations.</p>
 
-
-
 <p>1. <code>set(string key, string value, int timestamp)</code></p>
-
-
 
 <ul>
 	<li>Stores the <code>key</code> and <code>value</code>, along with the given <code>timestamp</code>.</li>
 </ul>
 
-
-
 <p>2. <code>get(string key, int timestamp)</code></p>
-
-
 
 <ul>
 	<li>Returns a value such that <code>set(key, value, timestamp_prev)</code> was called previously, with <code>timestamp_prev &lt;= timestamp</code>.</li>
@@ -28,17 +20,11 @@
 	<li>If there are no values, it returns the empty string (<code>&quot;&quot;</code>).</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -66,13 +52,9 @@ kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -86,15 +68,9 @@ kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 
 </div>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>All key/value strings are lowercase.</li>
@@ -104,8 +80,6 @@ kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 	<li><code>TimeMap.set</code> and <code>TimeMap.get</code>&nbsp;functions will be called a total of <code>120000</code> times (combined) per test case.</li>
 </ol>
 
-
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -113,13 +87,65 @@ kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 ### **Python3**
 
 ```python
+class TimeMap:
 
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.ktv = collections.defaultdict(list)
+
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        self.ktv[key].append((timestamp, value))
+
+    def get(self, key: str, timestamp: int) -> str:
+        if key not in self.ktv:
+            return ''
+        tv = self.ktv[key]
+        i = bisect.bisect_right(tv, (timestamp, chr(127)))
+        return tv[i - 1][1] if i else ''
+
+
+
+# Your TimeMap object will be instantiated and called as such:
+# obj = TimeMap()
+# obj.set(key,value,timestamp)
+# param_2 = obj.get(key,timestamp)
 ```
 
 ### **Java**
 
 ```java
+class TimeMap {
+    private Map<String, TreeMap<Integer, String>> ktv;
 
+    /** Initialize your data structure here. */
+    public TimeMap() {
+        ktv = new HashMap<>();
+    }
+
+    public void set(String key, String value, int timestamp) {
+        TreeMap<Integer, String> tv = ktv.getOrDefault(key, new TreeMap<>());
+        tv.put(timestamp, value);
+        ktv.put(key, tv);
+    }
+
+    public String get(String key, int timestamp) {
+        if (!ktv.containsKey(key)) {
+            return "";
+        }
+        TreeMap<Integer, String> tv = ktv.get(key);
+        Integer t = tv.floorKey(timestamp);
+        return t == null ? "" : tv.get(t);
+    }
+}
+
+/**
+ * Your TimeMap object will be instantiated and called as such:
+ * TimeMap obj = new TimeMap();
+ * obj.set(key,value,timestamp);
+ * String param_2 = obj.get(key,timestamp);
+ */
 ```
 
 ### **...**
