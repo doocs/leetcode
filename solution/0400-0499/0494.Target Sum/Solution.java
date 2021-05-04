@@ -7,7 +7,7 @@ class Solution {
         int n = nums.length;
         int[][] dp = new int[n][2001];
 
-        dp[0][nums[0] + 1000] = 1;
+        dp[0][nums[0] + 1000] += 1;
         dp[0][-nums[0] + 1000] += 1;
 
         for (int i = 1; i < n; i++) {
