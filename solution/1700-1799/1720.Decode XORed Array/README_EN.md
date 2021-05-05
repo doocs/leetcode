@@ -38,21 +38,39 @@
 	<li><code>0 &lt;= first &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
+
+XOR.
+
+`a = b ^ c` => `a ^ b = b ^ c ^ b` => `c = a ^ b`.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def decode(self, encoded: List[int], first: int) -> List[int]:
+        res = [first]
+        for e in encoded:
+            first ^= e
+            res.append(first)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] decode(int[] encoded, int first) {
+        int[] res = new int[encoded.length + 1];
+        res[0] = first;
+        for (int i = 0; i < encoded.length; ++i) {
+            res[i + 1] = res[i] ^ encoded[i];
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
