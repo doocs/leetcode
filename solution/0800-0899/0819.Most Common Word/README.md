@@ -41,10 +41,11 @@ banned = [&quot;hit&quot;]
 	<li>单词里只包含字母，不会出现省略号或者其他标点符号。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“正则 + 计数器”实现。
 
 <!-- tabs:start -->
 
@@ -53,7 +54,13 @@ banned = [&quot;hit&quot;]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        paragraph = collections.Counter(re.findall('[a-z]+', paragraph.lower()))
+        banned_words = set(banned)
+        for word, _ in paragraph.most_common():
+            if word not in banned_words:
+                return word
 ```
 
 ### **Java**
@@ -61,7 +68,35 @@ banned = [&quot;hit&quot;]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+class Solution {
+    public String mostCommonWord(String paragraph, String[] banned) {
+        Set<String> bannedWords = new HashSet<>();
+        for (String word : banned) {
+            bannedWords.add(word);
+        }
+        Map<String, Integer> counter = new HashMap<>();
+        Matcher matcher = Pattern.compile("[a-z]+").matcher(paragraph.toLowerCase());
+        while (matcher.find()) {
+            String word = matcher.group();
+            if (bannedWords.contains(word)) {
+                continue;
+            }
+            counter.put(word, counter.getOrDefault(word, 0) + 1);
+        }
+        int max = Integer.MIN_VALUE;
+        String res = null;
+        for (Map.Entry<String, Integer> entry : counter.entrySet()) {
+            if (entry.getValue() > max) {
+                max = entry.getValue();
+                res = entry.getKey();
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
