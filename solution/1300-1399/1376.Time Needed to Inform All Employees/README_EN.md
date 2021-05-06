@@ -33,7 +33,7 @@ The tree structure of the employees in the company is shown.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/1730_example_3_5.PNG" style="width: 568px; height: 432px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1376.Time%20Needed%20to%20Inform%20All%20Employees/images/1730_example_3_5.png" style="width: 568px; height: 432px;" />
 <pre>
 <strong>Input:</strong> n = 7, headID = 6, manager = [1,2,3,4,5,6,-1], informTime = [0,6,5,4,3,2,1]
 <strong>Output:</strong> 21

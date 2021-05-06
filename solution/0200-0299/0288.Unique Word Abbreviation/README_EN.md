@@ -59,7 +59,6 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 	<li>At most <code>5000</code> calls will be made to <code>isUnique</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -67,13 +66,71 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 ### **Python3**
 
 ```python
+class ValidWordAbbr:
 
+    def __init__(self, dictionary: List[str]):
+        self.words = {}
+        for word in dictionary:
+            abbr = self._word_abbr(word)
+            vals = self.words.get(abbr, set())
+            vals.add(word)
+            self.words[abbr] = vals
+
+    def isUnique(self, word: str) -> bool:
+        abbr = self._word_abbr(word)
+        vals = self.words.get(abbr)
+        return vals is None or (len(vals) == 1 and word in vals)
+
+    def _word_abbr(self, word: str) -> str:
+        n = len(word)
+        if n < 3:
+            return word
+        return f'{word[0]}{n - 2}{word[n - 1]}'
+
+
+# Your ValidWordAbbr object will be instantiated and called as such:
+# obj = ValidWordAbbr(dictionary)
+# param_1 = obj.isUnique(word)
 ```
 
 ### **Java**
 
 ```java
+class ValidWordAbbr {
+    private Map<String, Set<String>> words;
 
+    public ValidWordAbbr(String[] dictionary) {
+        words = new HashMap<>();
+        for (String word : dictionary) {
+            String abbr = wordAbbr(word);
+            Set<String> vals = words.getOrDefault(abbr, new HashSet<>());
+            vals.add(word);
+            words.put(abbr, vals);
+        }
+    }
+
+    public boolean isUnique(String word) {
+        String abbr = wordAbbr(word);
+        Set<String> vals = words.get(abbr);
+        return vals == null || (vals.size() == 1 && vals.contains(word));
+    }
+
+    private String wordAbbr(String word) {
+        int n = word.length();
+        if (n < 3) {
+            return word;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(word.charAt(0)).append(n - 2).append(word.charAt(n - 1));
+        return sb.toString();
+    }
+}
+
+/**
+ * Your ValidWordAbbr object will be instantiated and called as such:
+ * ValidWordAbbr obj = new ValidWordAbbr(dictionary);
+ * boolean param_1 = obj.isUnique(word);
+ */
 ```
 
 ### **...**

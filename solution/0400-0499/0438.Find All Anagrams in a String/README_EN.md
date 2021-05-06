@@ -44,13 +44,50 @@ The substring with start index = 2 is &quot;ab&quot;, which is an anagram of &qu
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        counter = collections.Counter(p)
+        res = []
+        left = right = 0
+        t = collections.Counter()
+        while right < len(s):
+            t[s[right]] += 1
+            while t[s[right]] > counter[s[right]]:
+                t[s[left]] -= 1
+                left += 1
+            if right - left == len(p) - 1:
+                res.append(left)
+            right += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int[] counter = new int[26];
+        for (int i = 0; i < p.length(); ++i) {
+            ++counter[p.charAt(i) - 'a'];
+        }
+        List<Integer> res = new ArrayList<>();
+        int left = 0, right = 0;
+        int[] t = new int[26];
+        while (right < s.length()) {
+            int i = s.charAt(right) - 'a';
+            ++t[i];
+            while (t[i] > counter[i]) {
+                --t[s.charAt(left) - 'a'];
+                ++left;
+            }
+            if (right - left == p.length() - 1) {
+                res.add(left);
+            }
+            ++right;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

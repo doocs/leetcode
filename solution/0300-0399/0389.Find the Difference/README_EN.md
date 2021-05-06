@@ -49,7 +49,6 @@
 	<li><code>s</code> and <code>t</code> consist of lower-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -57,13 +56,36 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        counter = collections.Counter(s)
+        for c in t:
+            if counter[c] <= 0:
+                return c
+            counter[c] -= 1
+        return None
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int[] counter = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            int index = s.charAt(i) - 'a';
+            ++counter[index];
+        }
+        for (int i = 0; i < t.length(); ++i) {
+            int index = t.charAt(i) - 'a';
+            if (counter[index] <= 0) {
+                return t.charAt(i);
+            }
+            --counter[index];
+        }
+        return ' ';
+    }
+}
 ```
 
 ### **...**

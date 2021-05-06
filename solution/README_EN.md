@@ -702,7 +702,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0691](https://leetcode.com/problems/stickers-to-spell-word)  |  [Stickers to Spell Word](/solution/0600-0699/0691.Stickers%20to%20Spell%20Word/README_EN.md)  |  `Dynamic Programming`,`Backtracking`  |  Hard  |    |
 |  [0692](https://leetcode.com/problems/top-k-frequent-words)  |  [Top K Frequent Words](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md)  |  `Heap`,`Trie`,`Hash Table`  |  Medium  |    |
 |  [0693](https://leetcode.com/problems/binary-number-with-alternating-bits)  |  [Binary Number with Alternating Bits](/solution/0600-0699/0693.Binary%20Number%20with%20Alternating%20Bits/README_EN.md)  |  `Bit Manipulation`  |  Easy  |    |
-|  [0694](https://leetcode.com/problems/number-of-distinct-islands)  |  [Number of Distinct Islands](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README_EN.md)  |  `Depth-first Search`,`Hash Table`  |  Medium  |  🔒  |
+|  [0694](https://leetcode.com/problems/number-of-distinct-islands)  |  [Number of Distinct Islands](/solution/0600-0699/0694.Number%20of%20Distinct%20Islands/README_EN.md)  |  `Depth-first Search`,`Breadth-first Search`,`Hash Table`  |  Medium  |  🔒  |
 |  [0695](https://leetcode.com/problems/max-area-of-island)  |  [Max Area of Island](/solution/0600-0699/0695.Max%20Area%20of%20Island/README_EN.md)  |  `Depth-first Search`,`Array`  |  Medium  |    |
 |  [0696](https://leetcode.com/problems/count-binary-substrings)  |  [Count Binary Substrings](/solution/0600-0699/0696.Count%20Binary%20Substrings/README_EN.md)  |  `String`  |  Easy  |    |
 |  [0697](https://leetcode.com/problems/degree-of-an-array)  |  [Degree of an Array](/solution/0600-0699/0697.Degree%20of%20an%20Array/README_EN.md)  |  `Array`  |  Easy  |    |
@@ -1850,6 +1850,16 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1839](https://leetcode.com/problems/longest-substring-of-all-vowels-in-order)  |  [Longest Substring Of All Vowels in Order](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README_EN.md)  |  `Two Pointers`,`String`  |  Medium  |    |
 |  [1840](https://leetcode.com/problems/maximum-building-height)  |  [Maximum Building Height](/solution/1800-1899/1840.Maximum%20Building%20Height/README_EN.md)  |  `Greedy`,`Binary Search`  |  Hard  |    |
 |  [1841](https://leetcode.com/problems/league-statistics)  |  [League Statistics](/solution/1800-1899/1841.League%20Statistics/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1842](https://leetcode.com/problems/next-palindrome-using-same-digits)  |  [Next Palindrome Using Same Digits](/solution/1800-1899/1842.Next%20Palindrome%20Using%20Same%20Digits/README_EN.md)  |  `Greedy`  |  Hard  |  🔒  |
+|  [1843](https://leetcode.com/problems/suspicious-bank-accounts)  |  [Suspicious Bank Accounts](/solution/1800-1899/1843.Suspicious%20Bank%20Accounts/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1844](https://leetcode.com/problems/replace-all-digits-with-characters)  |  [Replace All Digits with Characters](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README_EN.md)  |  `String`  |  Easy  |    |
+|  [1845](https://leetcode.com/problems/seat-reservation-manager)  |  [Seat Reservation Manager](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README_EN.md)  |  `Heap`,`Design`  |  Medium  |    |
+|  [1846](https://leetcode.com/problems/maximum-element-after-decreasing-and-rearranging)  |  [Maximum Element After Decreasing and Rearranging](/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README_EN.md)  |  `Greedy`,`Sort`  |  Medium  |    |
+|  [1847](https://leetcode.com/problems/closest-room)  |  [Closest Room](/solution/1800-1899/1847.Closest%20Room/README_EN.md)  |  `Sort`,`Binary Search`  |  Hard  |    |
+|  [1848](https://leetcode.com/problems/minimum-distance-to-the-target-element)  |  [Minimum Distance to the Target Element](/solution/1800-1899/1848.Minimum%20Distance%20to%20the%20Target%20Element/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [1849](https://leetcode.com/problems/splitting-a-string-into-descending-consecutive-values)  |  [Splitting a String Into Descending Consecutive Values](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README_EN.md)  |  `Recursion`,`String`,`Backtracking`  |  Medium  |    |
+|  [1850](https://leetcode.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number)  |  [Minimum Adjacent Swaps to Reach the Kth Smallest Number](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README_EN.md)  |  `Greedy`,`String`  |  Medium  |    |
+|  [1851](https://leetcode.com/problems/minimum-interval-to-include-each-query)  |  [Minimum Interval to Include Each Query](/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README_EN.md)  |  `Line Sweep`  |  Hard  |    |
 
 ## Copyright
 

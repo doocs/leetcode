@@ -49,10 +49,11 @@
 	<li><code>s</code> 和 <code>t</code> 只包含小写字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+计数器实现。
 
 <!-- tabs:start -->
 
@@ -61,7 +62,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        counter = collections.Counter(s)
+        for c in t:
+            if counter[c] <= 0:
+                return c
+            counter[c] -= 1
+        return None
 ```
 
 ### **Java**
@@ -69,7 +77,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int[] counter = new int[26];
+        for (int i = 0; i < s.length(); ++i) {
+            int index = s.charAt(i) - 'a';
+            ++counter[index];
+        }
+        for (int i = 0; i < t.length(); ++i) {
+            int index = t.charAt(i) - 'a';
+            if (counter[index] <= 0) {
+                return t.charAt(i);
+            }
+            --counter[index];
+        }
+        return ' ';
+    }
+}
 ```
 
 ### **...**

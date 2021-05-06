@@ -62,7 +62,7 @@ class Solution:
         res = 0
         for i in range(32):
             if bits[i] % 3 != 0:
-                res += (1 << i)
+                res |= (1 << i)
         # 如果为负数，先将 0-32 位取反（即 res ^ 0xffffffff ），再将所有位取反（即 ~ ）
         return res if bits[31] % 3 == 0 else ~(res ^ 0xffffffff)
 ```
@@ -85,7 +85,7 @@ class Solution {
         int res = 0;
         for (int i = 0; i < 32; ++i) {
             if (bits[i] % 3 == 1) {
-                res += (1 << i);
+                res |= (1 << i);
             }
         }
         return res;

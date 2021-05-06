@@ -11,7 +11,7 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/1397_example_1.PNG" style="width: 226px; height: 233px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/1397_example_1.png" style="width: 226px; height: 233px;" /></p>
 
 <pre>
 <strong>Input:</strong> edges = [[0,1],[0,2]]
@@ -22,7 +22,7 @@ A longest path of the tree is the path 1 - 0 - 2.
 
 <p><strong>Example 2:</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/1397_example_2.PNG" style="width: 350px; height: 316px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/1397_example_2.png" style="width: 350px; height: 316px;" /></p>
 
 <pre>
 <strong>Input:</strong> edges = [[0,1],[1,2],[2,3],[1,4],[4,5]]

@@ -49,7 +49,6 @@
 	<li><code>-2<sup>31</sup> <= x <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -86,6 +85,39 @@ class Solution {
         return res < Integer.MIN_VALUE || res > Integer.MAX_VALUE ? 0 : (int) res;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int reverse(int x) {
+        long long ans = 0;
+        while (x) {
+            ans = ans * 10 + x % 10;
+            x /= 10;
+        }
+        return ans < INT_MIN || ans > INT_MAX ? 0 : ans;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function (x) {
+  let res = 0;
+  while (x) {
+    res = res * 10 + (x % 10);
+    x = ~~(x / 10);
+  }
+  return res < Math.pow(-2, 31) || res > Math.pow(2, 31) - 1 ? 0 : res;
+};
 ```
 
 ### **...**

@@ -57,10 +57,11 @@ kv.get(&quot;foo&quot;, 5); // 输出 &quot;bar2&quot; &nbsp;
 	<li><code>TimeMap.set</code> 和&nbsp;<code>TimeMap.get</code>&nbsp;函数在每个测试用例中将（组合）调用总计&nbsp;<code>120000</code> 次。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+嵌套哈希表实现。
 
 <!-- tabs:start -->
 
@@ -69,7 +70,31 @@ kv.get(&quot;foo&quot;, 5); // 输出 &quot;bar2&quot; &nbsp;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class TimeMap:
 
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.ktv = collections.defaultdict(list)
+
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        self.ktv[key].append((timestamp, value))
+
+    def get(self, key: str, timestamp: int) -> str:
+        if key not in self.ktv:
+            return ''
+        tv = self.ktv[key]
+        # #查找第一个大于timestamp的
+        i = bisect.bisect_right(tv, (timestamp, chr(127)))
+        return tv[i - 1][1] if i else ''
+
+
+
+# Your TimeMap object will be instantiated and called as such:
+# obj = TimeMap()
+# obj.set(key,value,timestamp)
+# param_2 = obj.get(key,timestamp)
 ```
 
 ### **Java**
@@ -77,7 +102,36 @@ kv.get(&quot;foo&quot;, 5); // 输出 &quot;bar2&quot; &nbsp;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class TimeMap {
+    private Map<String, TreeMap<Integer, String>> ktv;
 
+    /** Initialize your data structure here. */
+    public TimeMap() {
+        ktv = new HashMap<>();
+    }
+
+    public void set(String key, String value, int timestamp) {
+        TreeMap<Integer, String> tv = ktv.getOrDefault(key, new TreeMap<>());
+        tv.put(timestamp, value);
+        ktv.put(key, tv);
+    }
+
+    public String get(String key, int timestamp) {
+        if (!ktv.containsKey(key)) {
+            return "";
+        }
+        TreeMap<Integer, String> tv = ktv.get(key);
+        Integer t = tv.floorKey(timestamp);
+        return t == null ? "" : tv.get(t);
+    }
+}
+
+/**
+ * Your TimeMap object will be instantiated and called as such:
+ * TimeMap obj = new TimeMap();
+ * obj.set(key,value,timestamp);
+ * String param_2 = obj.get(key,timestamp);
+ */
 ```
 
 ### **...**

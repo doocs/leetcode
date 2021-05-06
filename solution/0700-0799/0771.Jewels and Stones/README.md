@@ -29,10 +29,11 @@
 	<li>&nbsp;<code>J</code>&nbsp;中的字符不重复。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+哈希表实现。
 
 <!-- tabs:start -->
 
@@ -41,7 +42,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        jewel_set = {c for c in jewels}
+        return sum([1 for c in stones if c in jewel_set])
 ```
 
 ### **Java**
@@ -49,7 +53,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numJewelsInStones(String jewels, String stones) {
+        Set<Character> jewelSet = new HashSet<>();
+        for (char ch : jewels.toCharArray()) {
+            jewelSet.add(ch);
+        }
+        int res = 0;
+        for (char ch : stones.toCharArray()) {
+            res += (jewelSet.contains(ch) ? 1 : 0);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numJewelsInStones(string jewels, string stones) {
+        unordered_set<char> jewelsSet;
+        for (int i = 0; i < jewels.length(); ++i) {
+            jewelsSet.insert(jewels[i]);
+        }
+        int res = 0;
+        for (int i = 0; i < stones.length(); ++i) {
+            res += jewelsSet.count(stones[i]);
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**

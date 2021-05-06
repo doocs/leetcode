@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 <p><strong>Example :</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/images/1445_example_1.PNG" style="width: 400px; height: 404px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/images/1445_example_1.png" style="width: 400px; height: 404px;" /></p>
 
 <pre>
 <strong>Input:</strong> 

@@ -39,9 +39,7 @@ class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         res = 0
         for i, num in enumerate(nums):
-            res ^= i
-            res ^= num
-        res ^= len(nums)
+            res = res ^ num ^ (i + 1)
         return res
 ```
 
@@ -52,12 +50,10 @@ class Solution:
 ```java
 class Solution {
     public int missingNumber(int[] nums) {
-        int res = 0, n = nums.length;
-        for (int i = 0; i < n; ++i) {
-            res ^= i;
-            res ^= nums[i];
+        int res = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            res = res ^ nums[i] ^ (i + 1);
         }
-        res ^= n;
         return res;
     }
 }
@@ -76,6 +72,21 @@ var missingNumber = function(nums) {
         res = res ^ nums[i] ^ (i + 1);
     }
     return res;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int res = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            res = res ^ nums[i] ^ (i + 1);
+        }
+        return res;
+    }
 };
 ```
 

@@ -1,27 +1,34 @@
 class Solution {
-    public int maxPoints(Point[] points) {
-        if( points.length <= 2 ) return points.length;
-        int max = 2 ;
-        for( int i = 0 ; i < points.length ; i++ ){
-            int samePosition = 0;
-            int sameSlope = 1;
-            for( int j = i + 1 ; j < points.length ; j++ ){
-                long x1 = points[j].x - points[i].x;
-                long y1 = points[j].y - points[i].y;
-                if( x1 == 0 && y1 == 0 ){
-                    samePosition++;
-                } else {
-                    sameSlope++;
-                    for(int k = j + 1 ; k < points.length ; k++ ){
-                        long x2 = points[k].x - points[i].x;
-                        long y2 = points[k].y - points[i].y;
-                        if ( x1 * y2 == x2 * y1 ) sameSlope++;
-                    }
-                }
-                if(max < (samePosition + sameSlope)) max = samePosition + sameSlope;
-                sameSlope = 1;
-            }
+    public int maxPoints(int[][] points) {
+        int n = points.length;
+        if (n < 3) {
+            return n;
         }
-        return max;
+        int res = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            Map<String, Integer> kCounter = new HashMap<>();
+            int max = 0;
+            int duplicate = 0;
+            for (int j = i + 1; j < n; ++j) {
+                int deltaX = points[i][0] - points[j][0];
+                int deltaY = points[i][1] - points[j][1];
+                if (deltaX == 0 && deltaY == 0) {
+                    ++duplicate;
+                    continue;
+                }
+                int gcd = gcd(deltaX, deltaY);
+                int dX = deltaX / gcd;
+                int dY = deltaY / gcd;
+                String key = dX + "." + dY;
+                kCounter.put(key, kCounter.getOrDefault(key, 0) + 1);
+                max = Math.max(max, kCounter.get(key));
+            }
+            res = Math.max(res, max + duplicate + 1);
+        }
+        return res;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
     }
 }

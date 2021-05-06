@@ -46,10 +46,13 @@ s: &quot;abab&quot; p: &quot;ab&quot;
 起始索引等于 2 的子串是 &quot;ab&quot;, 它是 &quot;ab&quot; 的字母异位词。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“双指针 + 滑动窗口”求解。定义滑动窗口的左右两个指针 left、right，right 一步步往右走遍历 s 字符串，当 right 指针遍历到的字符加入 t 后超过 counter 的字符数量时，将滑动窗口左侧字符不断弹出，也就是 left 指针不断右移，直到符合要求为止。
+
+若滑动窗口长度等于字符串 p 的长度时，这时的 s 子字符串就是 p 的异位词。
 
 <!-- tabs:start -->
 
@@ -58,15 +61,82 @@ s: &quot;abab&quot; p: &quot;ab&quot;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        counter = collections.Counter(p)
+        res = []
+        left = right = 0
+        t = collections.Counter()
+        while right < len(s):
+            t[s[right]] += 1
+            while t[s[right]] > counter[s[right]]:
+                t[s[left]] -= 1
+                left += 1
+            if right - left == len(p) - 1:
+                res.append(left)
+            right += 1
+        return res
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```java
+“暴力”求解。利用哈希表 counter 统计字符串 p 中每个字符出现的次数。然后遍历字符串 s，判断子串 `s[i, i + p)` 中每个字符出现的次数是否与 counter 相同。若是，则将当前下标 i 添加到结果列表中。时间复杂度 `O(s.length * p.length)`。
 
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int[] counter = new int[26];
+        for (int i = 0; i < p.length(); ++i) {
+            ++counter[p.charAt(i) - 'a'];
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i <= s.length() - p.length(); ++i) {
+            int[] t = Arrays.copyOf(counter, counter.length);
+            boolean find = true;
+            for (int j = i; j < i + p.length(); ++j) {
+                if (--t[s.charAt(j) - 'a'] < 0) {
+                    find = false;
+                    break;
+                }
+            }
+            if (find) {
+                res.add(i);
+            }
+        }
+        return res;
+    }
+}
+```
+
+“双指针 + 滑动窗口”求解。
+
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int[] counter = new int[26];
+        for (int i = 0; i < p.length(); ++i) {
+            ++counter[p.charAt(i) - 'a'];
+        }
+        List<Integer> res = new ArrayList<>();
+        int left = 0, right = 0;
+        int[] t = new int[26];
+        while (right < s.length()) {
+            int i = s.charAt(right) - 'a';
+            ++t[i];
+            while (t[i] > counter[i]) {
+                --t[s.charAt(left) - 'a'];
+                ++left;
+            }
+            if (right - left == p.length() - 1) {
+                res.add(left);
+            }
+            ++right;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
