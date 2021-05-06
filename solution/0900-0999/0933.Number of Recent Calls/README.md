@@ -46,7 +46,6 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 	<li>至多调用 <code>ping</code> 方法 <code>10<sup>4</sup></code> 次</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -65,13 +64,12 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 class RecentCounter:
 
     def __init__(self):
-        self.q = []
-
+        self.q = collections.deque()
 
     def ping(self, t: int) -> int:
         self.q.append(t)
         while self.q[0] < t - 3000:
-            self.q.pop(0)
+            self.q.popleft()
         return len(self.q)
 
 
@@ -106,6 +104,32 @@ class RecentCounter {
  * Your RecentCounter object will be instantiated and called as such:
  * RecentCounter obj = new RecentCounter();
  * int param_1 = obj.ping(t);
+ */
+```
+
+### **JavaScript**
+
+```js
+var RecentCounter = function () {
+  this.q = [];
+};
+
+/**
+ * @param {number} t
+ * @return {number}
+ */
+RecentCounter.prototype.ping = function (t) {
+  this.q.push(t);
+  while (this.q[0] < t - 3000) {
+    this.q.shift();
+  }
+  return this.q.length;
+};
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * var obj = new RecentCounter()
+ * var param_1 = obj.ping(t)
  */
 ```
 
