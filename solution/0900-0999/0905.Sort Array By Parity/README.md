@@ -28,10 +28,11 @@
 	<li><code>0 &lt;= A[i] &lt;= 5000</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+双指针原地交换数组元素。
 
 <!-- tabs:start -->
 
@@ -40,7 +41,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sortArrayByParity(self, A: List[int]) -> List[int]:
+        i, j = 0, len(A) - 1
+        while i < j:
+            if (A[i] & 1) > (A[j] & 1):
+                A[i], A[j] = A[j], A[i]
+            if A[i] & 1 == 0:
+                i += 1
+            if A[j] & 1 == 1:
+                j -= 1
+        return A
 ```
 
 ### **Java**
@@ -48,7 +59,52 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] sortArrayByParity(int[] A) {
+        int i = 0, j = A.length - 1;
+        while (i < j) {
+            if ((A[i] & 1) > (A[j] & 1)) {
+                int t = A[i];
+                A[i] = A[j];
+                A[j] = t;
+            }
+            if ((A[i] & 1) == 0) {
+                ++i;
+            }
+            if ((A[j] & 1) == 1) {
+                --j;
+            }
+        }
+        return A;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} A
+ * @return {number[]}
+ */
+var sortArrayByParity = function (A) {
+  let i = 0;
+  let j = A.length - 1;
+  while (i < j) {
+    if ((A[i] & 1) > (A[j] & 1)) {
+      const t = A[i];
+      A[i] = A[j];
+      A[j] = t;
+    }
+    if ((A[i] & 1) == 0) {
+      ++i;
+    }
+    if ((A[j] & 1) == 1) {
+      --j;
+    }
+  }
+  return A;
+};
 ```
 
 ### **...**
