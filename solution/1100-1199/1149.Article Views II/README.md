@@ -49,17 +49,28 @@ Result table:
 | 6    |
 +------+</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“`DISTINCT` + `GROUP BY`” 实现。
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    DISTINCT(viewer_id) as id
+FROM
+    Views
+GROUP BY
+    view_date, viewer_id
+HAVING
+    COUNT(DISTINCT(article_id)) > 1
+ORDER BY
+    id;
 ```
 
 <!-- tabs:end -->
