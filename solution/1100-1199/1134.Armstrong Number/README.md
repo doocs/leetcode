@@ -36,10 +36,11 @@
 	<li><code>1 &lt;= N &lt;= 10^8</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+先求数字 n 的长度 k，然后累加 n 上每一位的数字的 k 次幂。最后判断累加的结果是否与 n 相等即可。
 
 <!-- tabs:start -->
 
@@ -48,7 +49,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isArmstrong(self, n: int) -> bool:
+        k = len(str(n))
+        s, t = 0, n
+        while t:
+            t, v = divmod(t, 10)
+            s += pow(v, k)
+        return n == s
 ```
 
 ### **Java**
@@ -56,7 +64,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isArmstrong(int n) {
+        int k = String.valueOf(n).length();
+        int s = 0, t = n;
+        while (t != 0) {
+            s += Math.pow(t % 10, k);
+            t /= 10;
+        }
+        return n == s;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isArmstrong = function (n) {
+  const k = String(n).length;
+  let s = 0;
+  let t = n;
+  while (t) {
+    s += Math.pow(t % 10, k);
+    t = Math.floor(t / 10);
+  }
+  return n == s;
+};
 ```
 
 ### **...**
