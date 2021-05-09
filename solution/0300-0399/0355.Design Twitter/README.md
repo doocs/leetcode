@@ -44,10 +44,11 @@ twitter.unfollow(1, 2);
 twitter.getNewsFeed(1);
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“哈希表 + 堆”实现。
 
 <!-- tabs:start -->
 
@@ -56,7 +57,58 @@ twitter.getNewsFeed(1);
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Twitter:
 
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.user_tweets = collections.defaultdict(list)
+        self.user_following = collections.defaultdict(set)
+        self.tweets = collections.defaultdict()
+        self.time = 0
+
+    def postTweet(self, userId: int, tweetId: int) -> None:
+        """
+        Compose a new tweet.
+        """
+        self.time += 1
+        self.user_tweets[userId].append(tweetId)
+        self.tweets[tweetId] = self.time
+
+    def getNewsFeed(self, userId: int) -> List[int]:
+        """
+        Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+        """
+        following = self.user_following[userId]
+        users = set(following)
+        users.add(userId)
+        tweets = [self.user_tweets[u][::-1][:10] for u in users]
+        tweets = sum(tweets, [])
+        return heapq.nlargest(10, tweets, key=lambda tweet: self.tweets[tweet])
+
+    def follow(self, followerId: int, followeeId: int) -> None:
+        """
+        Follower follows a followee. If the operation is invalid, it should be a no-op.
+        """
+        self.user_following[followerId].add(followeeId)
+
+    def unfollow(self, followerId: int, followeeId: int) -> None:
+        """
+        Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+        """
+        following = self.user_following[followerId]
+        if followeeId in following:
+            following.remove(followeeId)
+
+
+
+# Your Twitter object will be instantiated and called as such:
+# obj = Twitter()
+# obj.postTweet(userId,tweetId)
+# param_2 = obj.getNewsFeed(userId)
+# obj.follow(followerId,followeeId)
+# obj.unfollow(followerId,followeeId)
 ```
 
 ### **Java**
@@ -64,7 +116,72 @@ twitter.getNewsFeed(1);
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Twitter {
+    private Map<Integer, List<Integer>> userTweets;
+    private Map<Integer, Set<Integer>> userFollowing;
+    private Map<Integer, Integer> tweets;
+    private int time;
 
+    /** Initialize your data structure here. */
+    public Twitter() {
+        userTweets = new HashMap<>();
+        userFollowing = new HashMap<>();
+        tweets = new HashMap<>();
+        time = 0;
+    }
+    
+    /** Compose a new tweet. */
+    public void postTweet(int userId, int tweetId) {
+        List<Integer> userTweet = userTweets.getOrDefault(userId, new ArrayList<>());
+        userTweet.add(tweetId);
+        userTweets.put(userId, userTweet);
+        tweets.put(tweetId, ++time);
+    }
+    
+    /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
+    public List<Integer> getNewsFeed(int userId) {
+        Set<Integer> following = userFollowing.getOrDefault(userId, new HashSet<>());
+        Set<Integer> users = new HashSet<>(following);
+        users.add(userId);
+        PriorityQueue<Integer> pq = new PriorityQueue<>(10, (a, b) -> (tweets.get(b) - tweets.get(a)));
+        for (Integer u : users) {
+            List<Integer> userTweet = userTweets.get(u);
+            if (userTweet != null && !userTweet.isEmpty()) {
+                for (int i = userTweet.size() - 1, k = 10; i >= 0 && k > 0; --i, --k) {
+                    pq.offer(userTweet.get(i));
+                }
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        while (!pq.isEmpty() && res.size() < 10) {
+            res.add(pq.poll());
+        }
+        return res;
+    }
+    
+    /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
+    public void follow(int followerId, int followeeId) {
+        Set<Integer> following = userFollowing.getOrDefault(followerId, new HashSet<>());
+        following.add(followeeId);
+        userFollowing.put(followerId, following);
+    }
+    
+    /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
+    public void unfollow(int followerId, int followeeId) {
+        Set<Integer> following = userFollowing.getOrDefault(followerId, new HashSet<>());
+        following.remove(followeeId);
+        userFollowing.put(followerId, following);
+    }
+}
+
+/**
+ * Your Twitter object will be instantiated and called as such:
+ * Twitter obj = new Twitter();
+ * obj.postTweet(userId,tweetId);
+ * List<Integer> param_2 = obj.getNewsFeed(userId);
+ * obj.follow(followerId,followeeId);
+ * obj.unfollow(followerId,followeeId);
+ */
 ```
 
 ### **...**

@@ -4,15 +4,12 @@
  * @return {number}
  */
 var coinChange = function (coins, amount) {
-  var dp = Array(amount + 1).fill(amount + 1);
+  let dp = Array(amount + 1).fill(amount + 1);
   dp[0] = 0;
-  for (var i = 1; i <= amount; i++) {
-    for (var j = 0; j < coins.length; j++) {
-      if (coins[j] <= i) {
-        dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
-      }
+  for (const coin of coins) {
+    for (let j = coin; j <= amount; ++j) {
+      dp[j] = Math.min(dp[j], dp[j - coin] + 1);
     }
   }
-
   return dp[amount] > amount ? -1 : dp[amount];
 };

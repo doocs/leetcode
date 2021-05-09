@@ -37,10 +37,11 @@
 	<li><code>0 &lt;= A[i] &lt;= 1000</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+计数器实现。
 
 <!-- tabs:start -->
 
@@ -49,7 +50,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestUniqueNumber(self, A: List[int]) -> int:
+        counter = collections.Counter(A)
+        for i in range(1000, -1, -1):
+            if counter[i] == 1:
+                return i
+        return -1
 ```
 
 ### **Java**
@@ -57,7 +64,41 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int largestUniqueNumber(int[] A) {
+        int[] counter = new int[1001];
+        for (int a : A) {
+            ++counter[a];
+        }
+        for (int i = 1000; i >= 0; --i) {
+            if (counter[i] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} A
+ * @return {number}
+ */
+var largestUniqueNumber = function (A) {
+  let counter = {};
+  for (const a of A) {
+    counter[a] = (counter[a] || 0) + 1;
+  }
+  for (let i = 1000; i >= 0; --i) {
+    if (counter[i] == 1) {
+      return i;
+    }
+  }
+  return -1;
+};
 ```
 
 ### **...**

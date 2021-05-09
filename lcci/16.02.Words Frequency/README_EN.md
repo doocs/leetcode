@@ -47,13 +47,70 @@ wordsFrequency.get(&quot;pen&quot;); //returns 1
 ### **Python3**
 
 ```python
+class WordsFrequency:
 
+    def __init__(self, book: List[str]):
+        self.counter = collections.Counter(book)
+
+    def get(self, word: str) -> int:
+        return self.counter[word]
+
+# Your WordsFrequency object will be instantiated and called as such:
+# obj = WordsFrequency(book)
+# param_1 = obj.get(word)
 ```
 
 ### **Java**
 
 ```java
+class WordsFrequency {
 
+    private Map<String, Integer> counter = new HashMap<>();
+
+    public WordsFrequency(String[] book) {
+        for (String word : book) {
+            counter.put(word, counter.getOrDefault(word, 0) + 1);
+        }
+    }
+
+    public int get(String word) {
+        return counter.containsKey(word) ? counter.get(word) : 0;
+    }
+}
+
+/**
+ * Your WordsFrequency object will be instantiated and called as such:
+ * WordsFrequency obj = new WordsFrequency(book);
+ * int param_1 = obj.get(word);
+ */
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string[]} book
+ */
+var WordsFrequency = function (book) {
+  this.counter = {};
+  for (const word of book) {
+    this.counter[word] = (this.counter[word] || 0) + 1;
+  }
+};
+
+/**
+ * @param {string} word
+ * @return {number}
+ */
+WordsFrequency.prototype.get = function (word) {
+  return this.counter[word] || 0;
+};
+
+/**
+ * Your WordsFrequency object will be instantiated and called as such:
+ * var obj = new WordsFrequency(book)
+ * var param_1 = obj.get(word)
+ */
 ```
 
 ### **...**

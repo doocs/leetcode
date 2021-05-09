@@ -68,7 +68,7 @@ Similar to the idea of ​​a complete backpack, there is no limit to the numbe
 ```python
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        dp = [amount + 1 for i in range(amount + 1)]
+        dp = [amount + 1] * (amount + 1)
         dp[0] = 0
         for coin in coins:
             for j in range(coin, amount + 1):
@@ -103,18 +103,33 @@ class Solution {
  * @return {number}
  */
 var coinChange = function (coins, amount) {
-    var dp = Array(amount + 1).fill(amount + 1);
-    dp[0] = 0;
-    for (var i = 1; i <= amount; i++) {
-        for (var j = 0; j < coins.length; j++) {
-            if (coins[j] <= i) {
-                dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+  let dp = Array(amount + 1).fill(amount + 1);
+  dp[0] = 0;
+  for (const coin of coins) {
+    for (let j = coin; j <= amount; ++j) {
+      dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+    }
+  }
+  return dp[amount] > amount ? -1 : dp[amount];
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int coinChange(vector<int>& coins, int amount) {
+        vector<int> dp(amount + 1, amount + 1);
+        dp[0] = 0;
+        for (auto coin : coins) {
+            for (int j = coin; j <= amount; ++j) {
+                dp[j] = min(dp[j], dp[j - coin] + 1);
             }
         }
+        return dp[amount] > amount ? -1 : dp[amount];
     }
-
-    return dp[amount] > amount ? -1 : dp[amount];
 };
+```
 
 <!-- tabs:end -->
-```

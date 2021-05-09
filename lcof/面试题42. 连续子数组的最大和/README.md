@@ -65,15 +65,49 @@ class Solution {
  * @return {number}
  */
 var maxSubArray = function (nums) {
-  if (!nums || !nums.length) return null;
-  let len = nums.length;
-  let dp = new Array(len);
-  dp[0] = nums[0];
-  for (let i = 1; i < len; i++) {
-    dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
+  let res = nums[0];
+  let f = nums[0];
+  for (let i = 1; i < nums.length; ++i) {
+    f = Math.max(f, 0) + nums[i];
+    res = Math.max(res, f);
   }
-  return Math.max(...dp);
+  return res;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int res = nums[0], f = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            f = max(f, 0) + nums[i];
+            res = max(res, f);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSubArray(nums []int) int {
+    f, res := nums[0], nums[0]
+    for i := 1; i < len(nums); i++ {
+        if f > 0 {
+            f += nums[i]
+        } else {
+            f = nums[i]
+        }
+        if f > res {
+            res = f
+        }
+    }
+    return res
+}
 ```
 
 ### **...**
