@@ -173,6 +173,7 @@
 
 ### 设计
 
+- [LRU 缓存机制](/solution/0100-0199/0146.Lru%20Cache/README.md)
 - [实现 Trie (前缀树)](/solution/0200-0299/0208.Implement%20Trie%20%28Prefix%20Tree%29/README.md)
 - [实现 Trie （前缀树） II](/solution/1800-1899/1804.Implement%20Trie%20II%20%28Prefix%20Tree%29/README.md)
 - [设计哈希集合](/solution/0700-0799/0705.Design%20HashSet/README.md)
