@@ -166,6 +166,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Design
 
+- [LRU Cache](/solution/0100-0199/0146.Lru%20Cache/README_EN.md)
 - [Implement Trie (Prefix Tree)](<solution/0200-0299/0208.Implement%20Trie%20(Prefix%20Tree)/README_EN.md>)
 - [Implement Trie II (Prefix Tree)](/solution/1800-1899/1804.Implement%20Trie%20II%20%28Prefix%20Tree%29/README_EN.md)
 - [Design HashSet](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
