@@ -1860,6 +1860,12 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1849](https://leetcode.com/problems/splitting-a-string-into-descending-consecutive-values)  |  [Splitting a String Into Descending Consecutive Values](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README_EN.md)  |  `Recursion`,`String`,`Backtracking`  |  Medium  |    |
 |  [1850](https://leetcode.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number)  |  [Minimum Adjacent Swaps to Reach the Kth Smallest Number](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README_EN.md)  |  `Greedy`,`String`  |  Medium  |    |
 |  [1851](https://leetcode.com/problems/minimum-interval-to-include-each-query)  |  [Minimum Interval to Include Each Query](/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README_EN.md)  |  `Line Sweep`  |  Hard  |    |
+|  [1852](https://leetcode.com/problems/distinct-numbers-in-each-subarray)  |  [Distinct Numbers in Each Subarray](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README_EN.md)  |  `Array`,`Hash Table`,`Line Sweep`  |  Medium  |  🔒  |
+|  [1853](https://leetcode.com/problems/convert-date-format)  |  [Convert Date Format](/solution/1800-1899/1853.Convert%20Date%20Format/README_EN.md)  |    |  Easy  |  🔒  |
+|  [1854](https://leetcode.com/problems/maximum-population-year)  |  [Maximum Population Year](/solution/1800-1899/1854.Maximum%20Population%20Year/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [1855](https://leetcode.com/problems/maximum-distance-between-a-pair-of-values)  |  [Maximum Distance Between a Pair of Values](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README_EN.md)  |  `Greedy`,`Two Pointers`,`Binary Search`  |  Medium  |    |
+|  [1856](https://leetcode.com/problems/maximum-subarray-min-product)  |  [Maximum Subarray Min-Product](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md)  |  `Sort`,`Union Find`,`Queue`,`Binary Search`,`Dynamic Programming`  |  Medium  |    |
+|  [1857](https://leetcode.com/problems/largest-color-value-in-a-directed-graph)  |  [Largest Color Value in a Directed Graph](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README_EN.md)  |  `Topological Sort`,`Dynamic Programming`  |  Hard  |    |
 
 ## Copyright
 

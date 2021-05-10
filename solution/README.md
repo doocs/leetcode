@@ -1804,7 +1804,7 @@
 |  [1791](https://leetcode-cn.com/problems/find-center-of-star-graph)  |  [找出星型图的中心节点](/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/README.md)  |  `图`  |  中等  |    |
 |  [1792](https://leetcode-cn.com/problems/maximum-average-pass-ratio)  |  [最大平均通过率](/solution/1700-1799/1792.Maximum%20Average%20Pass%20Ratio/README.md)  |  `堆`  |  中等  |    |
 |  [1793](https://leetcode-cn.com/problems/maximum-score-of-a-good-subarray)  |  [好子数组的最大分数](/solution/1700-1799/1793.Maximum%20Score%20of%20a%20Good%20Subarray/README.md)  |  `贪心算法`  |  困难  |    |
-|  [1794](https://leetcode-cn.com/problems/count-pairs-of-equal-substrings-with-minimum-difference)  |  [](/solution/1700-1799/1794.Count%20Pairs%20of%20Equal%20Substrings%20With%20Minimum%20Difference/README.md)  |  `贪心算法`,`字符串`  |  中等  |  🔒  |
+|  [1794](https://leetcode-cn.com/problems/count-pairs-of-equal-substrings-with-minimum-difference)  |  [统计距离最小的子串对个数](/solution/1700-1799/1794.Count%20Pairs%20of%20Equal%20Substrings%20With%20Minimum%20Difference/README.md)  |  `贪心算法`,`字符串`  |  中等  |  🔒  |
 |  [1795](https://leetcode-cn.com/problems/rearrange-products-table)  |  [](/solution/1700-1799/1795.Rearrange%20Products%20Table/README.md)  |    |  简单  |  🔒  |
 |  [1796](https://leetcode-cn.com/problems/second-largest-digit-in-a-string)  |  [字符串中第二大的数字](/solution/1700-1799/1796.Second%20Largest%20Digit%20in%20a%20String/README.md)  |  `字符串`  |  简单  |    |
 |  [1797](https://leetcode-cn.com/problems/design-authentication-manager)  |  [设计一个验证系统](/solution/1700-1799/1797.Design%20Authentication%20Manager/README.md)  |  `设计`,`哈希表`  |  中等  |    |
@@ -1841,7 +1841,7 @@
 |  [1828](https://leetcode-cn.com/problems/queries-on-number-of-points-inside-a-circle)  |  [统计一个圆中点的数目](/solution/1800-1899/1828.Queries%20on%20Number%20of%20Points%20Inside%20a%20Circle/README.md)  |  `数学`  |  中等  |    |
 |  [1829](https://leetcode-cn.com/problems/maximum-xor-for-each-query)  |  [每个查询的最大异或值](/solution/1800-1899/1829.Maximum%20XOR%20for%20Each%20Query/README.md)  |  `位运算`  |  中等  |    |
 |  [1830](https://leetcode-cn.com/problems/minimum-number-of-operations-to-make-string-sorted)  |  [使字符串有序的最少操作次数](/solution/1800-1899/1830.Minimum%20Number%20of%20Operations%20to%20Make%20String%20Sorted/README.md)  |  `数学`,`字符串`  |  困难  |    |
-|  [1831](https://leetcode-cn.com/problems/maximum-transaction-each-day)  |  [](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README.md)  |    |  中等  |    |
+|  [1831](https://leetcode-cn.com/problems/maximum-transaction-each-day)  |  [](/solution/1800-1899/1831.Maximum%20Transaction%20Each%20Day/README.md)  |    |  中等  |  🔒  |
 |  [1832](https://leetcode-cn.com/problems/check-if-the-sentence-is-pangram)  |  [判断句子是否为全字母句](/solution/1800-1899/1832.Check%20if%20the%20Sentence%20Is%20Pangram/README.md)  |  `字符串`  |  简单  |    |
 |  [1833](https://leetcode-cn.com/problems/maximum-ice-cream-bars)  |  [雪糕的最大数量](/solution/1800-1899/1833.Maximum%20Ice%20Cream%20Bars/README.md)  |  `排序`,`数组`  |  中等  |    |
 |  [1834](https://leetcode-cn.com/problems/single-threaded-cpu)  |  [单线程 CPU](/solution/1800-1899/1834.Single-Threaded%20CPU/README.md)  |  `堆`  |  中等  |    |
@@ -1862,6 +1862,12 @@
 |  [1849](https://leetcode-cn.com/problems/splitting-a-string-into-descending-consecutive-values)  |  [将字符串拆分为递减的连续值](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README.md)  |  `递归`,`字符串`,`回溯算法`  |  中等  |    |
 |  [1850](https://leetcode-cn.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number)  |  [邻位交换的最小次数](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README.md)  |  `贪心算法`,`字符串`  |  中等  |    |
 |  [1851](https://leetcode-cn.com/problems/minimum-interval-to-include-each-query)  |  [包含每个查询的最小区间](/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README.md)  |    |  困难  |    |
+|  [1852](https://leetcode-cn.com/problems/distinct-numbers-in-each-subarray)  |  [](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README.md)  |  `数组`,`哈希表`  |  中等  |    |
+|  [1853](https://leetcode-cn.com/problems/convert-date-format)  |  [](/solution/1800-1899/1853.Convert%20Date%20Format/README.md)  |    |  简单  |    |
+|  [1854](https://leetcode-cn.com/problems/maximum-population-year)  |  [人口最多的年份](/solution/1800-1899/1854.Maximum%20Population%20Year/README.md)  |  `数组`  |  简单  |    |
+|  [1855](https://leetcode-cn.com/problems/maximum-distance-between-a-pair-of-values)  |  [下标对中的最大距离](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md)  |  `贪心算法`,`双指针`,`二分查找`  |  中等  |    |
+|  [1856](https://leetcode-cn.com/problems/maximum-subarray-min-product)  |  [子数组最小乘积的最大值](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md)  |  `排序`,`并查集`,`队列`,`二分查找`,`动态规划`  |  中等  |    |
+|  [1857](https://leetcode-cn.com/problems/largest-color-value-in-a-directed-graph)  |  [有向图中最大颜色值](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README.md)  |  `拓扑排序`,`动态规划`  |  困难  |    |
 
 ## 版权
 
