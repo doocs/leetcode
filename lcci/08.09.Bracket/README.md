@@ -25,18 +25,18 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-<!-- tabs:start -->
-
-### **Python3**
-
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 递归求解。其中，`left` 表示剩余的 `(`，`right` 表示剩余的 `)`。
 
 - 当 `left` > `right` 时，说明 state 中 `(` 少于 `)`，不是合法组合，直接剪枝；
 - 当 `right` == 0 时，说明 state 组合完毕；
 - 当 `left` > 0 时，此时可往 state 添加一个 `(`；
 - 当 `right` > 0 时，此时可往 state 添加一个 `)`。
+
+<!-- tabs:start -->
+
+### **Python3**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
 class Solution:
@@ -85,6 +85,33 @@ class Solution {
         if (right > 0) {
             generate(state + ")", left, right - 1);
         }
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+ var generateParenthesis = function(n) {
+    let res = [];
+    dfs(n, 0, 0, '', res);
+    return res;
+};
+
+function dfs(n, left, right, prev, res) {
+    if (left == n && right == n) {
+        res.push(prev);
+        return;
+    }
+    if (left < n) {
+        dfs(n, left + 1, right, prev + '(', res);
+    }
+    if (right < left) {
+        dfs(n, left, right + 1, prev + ')', res);
     }
 }
 ```
