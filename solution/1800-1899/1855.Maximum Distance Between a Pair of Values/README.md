@@ -61,10 +61,13 @@
 	<li><code>nums1</code> 和 <code>nums2</code> 都是 <strong>非递增</strong> 数组</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+二分法。
+
+遍历数组 A，对于每个数字 `A[i]`，用二分法找到数组 B 中下标最大并且比 `A[i]` 还大的数字即可。
 
 <!-- tabs:start -->
 
@@ -73,7 +76,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
+        res = 0
+        for i in range(len(nums1)):
+            l, r = i, len(nums2) - 1
+            while l <= r:
+                mid = (l + r) >> 1
+                if nums2[mid] >= nums1[i]:
+                    res = max(res, mid - i)
+                    l = mid + 1
+                else:
+                    r = mid - 1
+        return res
 ```
 
 ### **Java**
@@ -81,7 +96,48 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxDistance(int[] nums1, int[] nums2) {
+        int res = 0;
+        for (int i = 0; i < nums1.length; ++i) {
+            int l = i, r = nums2.length - 1;
+            while (l <= r) {
+                int mid = (l + r) >>> 1;
+                if (nums2[mid] >= nums1[i]) {
+                    res = Math.max(res, mid - i);
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxDistance(vector<int>& nums1, vector<int>& nums2) {
+        int res = 0;
+        for (int i = 0; i < nums1.size(); ++i) {
+            int l = i, r = nums2.size() - 1;
+            while (l <= r) {
+                int mid = (l + r) >> 1;
+                if (nums2[mid] >= nums1[i]) {
+                    res = max(res, mid - i);
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+            }
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**

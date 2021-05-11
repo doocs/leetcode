@@ -58,7 +58,6 @@ The maximum distance is 2 with pair (2,4).
 	<li>Both <code>nums1</code> and <code>nums2</code> are <strong>non-increasing</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -66,13 +65,66 @@ The maximum distance is 2 with pair (2,4).
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
+        res = 0
+        for i in range(len(nums1)):
+            l, r = i, len(nums2) - 1
+            while l <= r:
+                mid = (l + r) >> 1
+                if nums2[mid] >= nums1[i]:
+                    res = max(res, mid - i)
+                    l = mid + 1
+                else:
+                    r = mid - 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxDistance(int[] nums1, int[] nums2) {
+        int res = 0;
+        for (int i = 0; i < nums1.length; ++i) {
+            int l = i, r = nums2.length - 1;
+            while (l <= r) {
+                int mid = (l + r) >>> 1;
+                if (nums2[mid] >= nums1[i]) {
+                    res = Math.max(res, mid - i);
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxDistance(vector<int>& nums1, vector<int>& nums2) {
+        int res = 0;
+        for (int i = 0; i < nums1.size(); ++i) {
+            int l = i, r = nums2.size() - 1;
+            while (l <= r) {
+                int mid = (l + r) >> 1;
+                if (nums2[mid] >= nums1[i]) {
+                    res = max(res, mid - i);
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+            }
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**
