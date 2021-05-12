@@ -52,16 +52,13 @@ For number 4 in the first array, there is no next greater number for it in the s
 ```python
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        mapper = dict()
         stack = []
+        mapper = {}
         for num in nums2:
             while stack and stack[-1] < num:
                 mapper[stack.pop()] = num
             stack.append(num)
-        res = []
-        for num in nums1:
-            res.append(mapper.get(num, -1))
-        return res
+        return [mapper.get(num, -1) for num in nums1]
 ```
 
 ### **Java**
