@@ -20,10 +20,11 @@
 
 <p><strong>注意:</strong> 输入数组的长度不会超过 10000。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“单调栈 + 循环数组”实现。
 
 <!-- tabs:start -->
 
@@ -32,7 +33,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        stack = []
+        n = len(nums)
+        res = [-1] * n
+        for i in range(n << 1):
+            while stack and nums[stack[-1]] < nums[i % n]:
+                res[stack.pop()] = nums[i % n]
+            stack.append(i % n)
+        return res
 ```
 
 ### **Java**
@@ -40,7 +50,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        Arrays.fill(res, -1);
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < (n << 1); ++i) {
+            while (!stack.isEmpty() && nums[stack.peek()] < nums[i % n]) {
+                res[stack.pop()] = nums[i % n];
+            }
+            stack.push(i % n);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
