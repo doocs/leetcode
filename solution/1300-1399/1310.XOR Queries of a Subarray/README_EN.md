@@ -79,13 +79,31 @@ The XOR values for queries are:
 ### **Python3**
 
 ```python
-
+class Solution:
+    def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
+        pre_xor = [0] * (len(arr) + 1)
+        for i in range(1, len(arr) + 1):
+            pre_xor[i] = pre_xor[i - 1] ^ arr[i - 1]
+        return [pre_xor[l] ^ pre_xor[r + 1] for l, r in queries]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] xorQueries(int[] arr, int[][] queries) {
+        int[] preXor = new int[arr.length + 1];
+        for (int i = 1; i <= arr.length; ++i) {
+            preXor[i] = preXor[i - 1] ^ arr[i - 1];
+        }
+        int[] res = new int[queries.length];
+        for (int i = 0; i < queries.length; ++i) {
+            int l = queries[i][0], r = queries[i][1];
+            res[i] = preXor[l] ^ preXor[r + 1];
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

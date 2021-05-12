@@ -49,10 +49,13 @@
 	<li><code>0 &lt;= queries[i][0] &lt;= queries[i][1] &lt; arr.length</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+由于 `A ^ B = C` => `A ^ A ^ B = A ^ C` => `B = A ^ C`。因此，我们求解 `arr[l] ^ ... ^ arr[r]`，可以转换为求解 `arr[0] ^ ... ^ arr[l - 1]` ^ `arr[0] ^ ... ^ ... ^ arr[r]`。
+
+所以，我们先求解前缀异或，再进行两数异或即可求得每一个 query 的结果。
 
 <!-- tabs:start -->
 
@@ -61,7 +64,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def xorQueries(self, arr: List[int], queries: List[List[int]]) -> List[int]:
+        pre_xor = [0] * (len(arr) + 1)
+        for i in range(1, len(arr) + 1):
+            pre_xor[i] = pre_xor[i - 1] ^ arr[i - 1]
+        return [pre_xor[l] ^ pre_xor[r + 1] for l, r in queries]
 ```
 
 ### **Java**
@@ -69,7 +77,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] xorQueries(int[] arr, int[][] queries) {
+        int[] preXor = new int[arr.length + 1];
+        for (int i = 1; i <= arr.length; ++i) {
+            preXor[i] = preXor[i - 1] ^ arr[i - 1];
+        }
+        int[] res = new int[queries.length];
+        for (int i = 0; i < queries.length; ++i) {
+            int l = queries[i][0], r = queries[i][1];
+            res[i] = preXor[l] ^ preXor[r + 1];
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
