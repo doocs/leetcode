@@ -144,6 +144,8 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [Number of Recent Calls](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README_EN.md)
 - [Daily Temperatures](/solution/0700-0799/0739.Daily%20Temperatures/README_EN.md)
 - [Basic Calculator II](/solution/0200-0299/0227.Basic%20Calculator%20II/README_EN.md)
+- [Next Greater Element I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md)
+- [Next Greater Element II](/solution/0500-0599/0503.Next%20Greater%20Element%20II/README_EN.md)
 
 ### Dynamic Programming
 

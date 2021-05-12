@@ -150,6 +150,8 @@
 - [最近的请求次数](/solution/0900-0999/0933.Number%20of%20Recent%20Calls/README.md)
 - [每日温度](/solution/0700-0799/0739.Daily%20Temperatures/README.md)
 - [基本计算器 II](/solution/0200-0299/0227.Basic%20Calculator%20II/README.md)
+- [下一个更大元素 I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README.md)
+- [下一个更大元素 II](/solution/0500-0599/0503.Next%20Greater%20Element%20II/README.md)
 
 ### 动态规划
 

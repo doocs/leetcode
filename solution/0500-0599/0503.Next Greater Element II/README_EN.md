@@ -42,13 +42,36 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 ### **Python3**
 
 ```python
-
+class Solution:
+    def nextGreaterElements(self, nums: List[int]) -> List[int]:
+        stack = []
+        n = len(nums)
+        res = [-1] * n
+        for i in range(n << 1):
+            while stack and nums[stack[-1]] < nums[i % n]:
+                res[stack.pop()] = nums[i % n]
+            stack.append(i % n)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        Arrays.fill(res, -1);
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (int i = 0; i < (n << 1); ++i) {
+            while (!stack.isEmpty() && nums[stack.peek()] < nums[i % n]) {
+                res[stack.pop()] = nums[i % n];
+            }
+            stack.push(i % n);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
