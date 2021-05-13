@@ -56,10 +56,11 @@
 	<li><code>1 <= nums[i] <= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“前缀和 + 单调栈”实现。
 
 <!-- tabs:start -->
 
@@ -68,7 +69,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxSumMinProduct(self, nums: List[int]) -> int:
+        n = len(nums)
+        # 前缀和
+        pre_sum = [0] * (n + 1)
+        for i in range(1, n + 1):
+            pre_sum[i] = pre_sum[i - 1] + nums[i - 1]
 
+        # 单调栈求下一个较小值
+        stack = []
+        next_lesser = [n] * n
+        for i in range(n):
+            while stack and nums[stack[-1]] > nums[i]:
+                next_lesser[stack.pop()] = i
+            stack.append(i)
+
+        # 单调栈求前一个较小值
+        stack = []
+        prev_lesser = [-1] * n
+        for i in range(n - 1, -1, -1):
+            while stack and nums[stack[-1]] > nums[i]:
+                prev_lesser[stack.pop()] = i
+            stack.append(i)
+
+        res = 0
+        for i in range(n):
+            start, end = prev_lesser[i], next_lesser[i]
+            t = nums[i] * (pre_sum[end] - pre_sum[start + 1])
+            res = max(res, t)
+        return res % (10 ** 9 + 7)
 ```
 
 ### **Java**
@@ -76,7 +106,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxSumMinProduct(int[] nums) {
+        int n = nums.length;
 
+        // 前缀和
+        long[] preSum = new long[n + 1];
+        for (int i = 1; i < n + 1; ++i) {
+            preSum[i] = preSum[i - 1] + nums[i - 1];
+        }
+
+        // 单调栈求下一个较小值
+        Deque<Integer> stack = new ArrayDeque<>();
+        int[] nextLesser = new int[n];
+        Arrays.fill(nextLesser, n);
+        for (int i = 0; i < n; ++i) {
+            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
+                nextLesser[stack.pop()] = i;
+            }
+            stack.push(i);
+        }
+
+        // 单调栈求前一个较小值
+        stack = new ArrayDeque<>();
+        int[] prevLesser = new int[n];
+        Arrays.fill(prevLesser, -1);
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
+                prevLesser[stack.pop()] = i;
+            }
+            stack.push(i);
+        }
+        long res = 0;
+        for (int i = 0; i < n; ++i) {
+            int start = prevLesser[i], end = nextLesser[i];
+            long t = nums[i] * (preSum[end] - preSum[start + 1]);
+            res = Math.max(res, t);
+        }
+        return (int) (res % 1000000007);
+    }
+}
 ```
 
 ### **...**

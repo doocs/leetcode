@@ -52,7 +52,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -60,13 +59,73 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def maxSumMinProduct(self, nums: List[int]) -> int:
+        n = len(nums)
+        pre_sum = [0] * (n + 1)
+        for i in range(1, n + 1):
+            pre_sum[i] = pre_sum[i - 1] + nums[i - 1]
 
+        stack = []
+        next_lesser = [n] * n
+        for i in range(n):
+            while stack and nums[stack[-1]] > nums[i]:
+                next_lesser[stack.pop()] = i
+            stack.append(i)
+
+        stack = []
+        prev_lesser = [-1] * n
+        for i in range(n - 1, -1, -1):
+            while stack and nums[stack[-1]] > nums[i]:
+                prev_lesser[stack.pop()] = i
+            stack.append(i)
+
+        res = 0
+        for i in range(n):
+            start, end = prev_lesser[i], next_lesser[i]
+            t = nums[i] * (pre_sum[end] - pre_sum[start + 1])
+            res = max(res, t)
+        return res % (10 ** 9 + 7)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxSumMinProduct(int[] nums) {
+        int n = nums.length;
+        long[] preSum = new long[n + 1];
+        for (int i = 1; i < n + 1; ++i) {
+            preSum[i] = preSum[i - 1] + nums[i - 1];
+        }
+        Deque<Integer> stack = new ArrayDeque<>();
+        int[] nextLesser = new int[n];
+        Arrays.fill(nextLesser, n);
+        for (int i = 0; i < n; ++i) {
+            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
+                nextLesser[stack.pop()] = i;
+            }
+            stack.push(i);
+        }
 
+        stack = new ArrayDeque<>();
+        int[] prevLesser = new int[n];
+        Arrays.fill(prevLesser, -1);
+        for (int i = n - 1; i >= 0; --i) {
+            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
+                prevLesser[stack.pop()] = i;
+            }
+            stack.push(i);
+        }
+        long res = 0;
+        for (int i = 0; i < n; ++i) {
+            int start = prevLesser[i], end = nextLesser[i];
+            long t = nums[i] * (preSum[end] - preSum[start + 1]);
+            res = Math.max(res, t);
+        }
+        return (int) (res % 1000000007);
+    }
+}
 ```
 
 ### **...**
