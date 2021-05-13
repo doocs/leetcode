@@ -73,7 +73,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+        delta = [0] * 1001
+        for num, start, end in trips:
+            delta[start] += num
+            delta[end] -= num
+        cur = 0
+        for num in delta:
+            cur += num
+            if cur > capacity:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -81,7 +92,74 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean carPooling(int[][] trips, int capacity) {
+        int[] delta = new int[1001];
+        for (int[] trip : trips) {
+            int num = trip[0], start = trip[1], end = trip[2];
+            delta[start] += num;
+            delta[end] -= num;
+        }
+        int cur = 0;
+        for (int num : delta) {
+            cur += num;
+            if (cur > capacity) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} trips
+ * @param {number} capacity
+ * @return {boolean}
+ */
+ var carPooling = function(trips, capacity) {
+    let delta = new Array();
+    for (let trip of trips) {
+        let [num, start, end] = trip;
+        delta[start] = (delta[start] || 0) + num;
+        delta[end] = (delta[end] || 0) - num;
+    }
+    let total = 0;
+    for (let i = 0; i < delta.length; i++) {
+        let cur = delta[i];
+        if (cur == undefined) continue;
+        total += cur;
+        if (total > capacity) return false;
+    }
+    return true;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool carPooling(vector<vector<int>>& trips, int capacity) {
+        vector<int> delta(1001);
+        for (auto &trip : trips) {
+            int num = trip[0], start = trip[1], end = trip[2];
+            delta[start] += num;
+            delta[end] -= num;
+        }
+        int cur = 0;
+        for (auto &num : delta) {
+            cur += num;
+            if (cur > capacity) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
 ```
 
 ### **JavaScript**
