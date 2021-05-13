@@ -44,10 +44,11 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 	<li>最多调用 <code>next</code> 方法 <code>10<sup>4</sup></code> 次</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“循环数组”实现。
 
 <!-- tabs:start -->
 
@@ -56,7 +57,29 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class MovingAverage:
 
+    def __init__(self, size: int):
+        """
+        Initialize your data structure here.
+        """
+        self.size = size
+        self.data = [0] * size
+        self.count = 0
+        self.s = 0
+
+    def next(self, val: int) -> float:
+        idx = self.count % self.size
+        old_val = self.data[idx]
+        self.data[idx] = val
+        self.s += (val - old_val)
+        self.count += 1
+        return self.s / min(self.size, self.count)
+
+
+# Your MovingAverage object will be instantiated and called as such:
+# obj = MovingAverage(size)
+# param_1 = obj.next(val)
 ```
 
 ### **Java**
@@ -64,7 +87,33 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class MovingAverage {
+    private int size;
+    private int[] data;
+    private int count;
+    private int s;
 
+    /** Initialize your data structure here. */
+    public MovingAverage(int size) {
+        this.size = size;
+        this.data = new int[size];
+    }
+    
+    public double next(int val) {
+        int idx = count % size;
+        int oldVal = data[idx];
+        data[idx] = val;
+        s += (val - oldVal);
+        ++count;
+        return s * 1.0 / Math.min(size, count);
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
+ */
 ```
 
 ### **...**

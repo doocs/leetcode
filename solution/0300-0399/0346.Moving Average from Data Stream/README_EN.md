@@ -40,7 +40,6 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>next</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -48,13 +47,61 @@ movingAverage.next(5); // return 6.0 = (10 + 3 + 5) / 3
 ### **Python3**
 
 ```python
+class MovingAverage:
 
+    def __init__(self, size: int):
+        """
+        Initialize your data structure here.
+        """
+        self.size = size
+        self.data = [0] * size
+        self.count = 0
+        self.s = 0
+
+    def next(self, val: int) -> float:
+        idx = self.count % self.size
+        old_val = self.data[idx]
+        self.data[idx] = val
+        self.s += (val - old_val)
+        self.count += 1
+        return self.s / min(self.size, self.count)
+
+
+# Your MovingAverage object will be instantiated and called as such:
+# obj = MovingAverage(size)
+# param_1 = obj.next(val)
 ```
 
 ### **Java**
 
 ```java
+class MovingAverage {
+    private int size;
+    private int[] data;
+    private int count;
+    private int s;
 
+    /** Initialize your data structure here. */
+    public MovingAverage(int size) {
+        this.size = size;
+        this.data = new int[size];
+    }
+    
+    public double next(int val) {
+        int idx = count % size;
+        int oldVal = data[idx];
+        data[idx] = val;
+        s += (val - oldVal);
+        ++count;
+        return s * 1.0 / Math.min(size, count);
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
+ */
 ```
 
 ### **...**
