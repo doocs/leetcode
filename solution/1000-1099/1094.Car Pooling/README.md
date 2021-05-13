@@ -64,7 +64,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-差分数组
+差分数组。
 
 <!-- tabs:start -->
 
@@ -73,7 +73,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+        delta = [0] * 1001
+        for num, start, end in trips:
+            delta[start] += num
+            delta[end] -= num
+        cur = 0
+        for num in delta:
+            cur += num
+            if cur > capacity:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -81,7 +92,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean carPooling(int[][] trips, int capacity) {
+        int[] delta = new int[1001];
+        for (int[] trip : trips) {
+            int num = trip[0], start = trip[1], end = trip[2];
+            delta[start] += num;
+            delta[end] -= num;
+        }
+        int cur = 0;
+        for (int num : delta) {
+            cur += num;
+            if (cur > capacity) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **JavaScript**
