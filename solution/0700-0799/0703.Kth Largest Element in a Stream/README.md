@@ -47,10 +47,11 @@ kthLargest.add(4);   // return 8
 	<li>题目数据保证，在查找第 <code>k</code> 大元素时，数组中至少有 <code>k</code> 个元素</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+小根堆存放最大的 k 个元素，那么堆顶就是第 k 大的元素。
 
 <!-- tabs:start -->
 
@@ -59,7 +60,24 @@ kthLargest.add(4);   // return 8
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class KthLargest:
 
+    def __init__(self, k: int, nums: List[int]):
+        self.q = []
+        self.size = k
+        for num in nums:
+            self.add(num)
+
+    def add(self, val: int) -> int:
+        heapq.heappush(self.q, val)
+        if len(self.q) > self.size:
+            heapq.heappop(self.q)
+        return self.q[0]
+
+
+# Your KthLargest object will be instantiated and called as such:
+# obj = KthLargest(k, nums)
+# param_1 = obj.add(val)
 ```
 
 ### **Java**
@@ -67,7 +85,32 @@ kthLargest.add(4);   // return 8
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class KthLargest {
+    private PriorityQueue<Integer> q;
+    private int size;
 
+    public KthLargest(int k, int[] nums) {
+        q = new PriorityQueue<>(k);
+        size = k;
+        for (int num : nums) {
+            add(num);
+        }
+    }
+
+    public int add(int val) {
+        q.offer(val);
+        if (q.size() > size) {
+            q.poll();
+        }
+        return q.peek();
+    }
+}
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * KthLargest obj = new KthLargest(k, nums);
+ * int param_1 = obj.add(val);
+ */
 ```
 
 ### **...**

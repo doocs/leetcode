@@ -44,7 +44,6 @@ kthLargest.add(4);   // return 8
 	<li>It is guaranteed that there will be at least <code>k</code> elements in the array when you search for the <code>k<sup>th</sup></code> element.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -52,13 +51,55 @@ kthLargest.add(4);   // return 8
 ### **Python3**
 
 ```python
+class KthLargest:
 
+    def __init__(self, k: int, nums: List[int]):
+        self.q = []
+        self.size = k
+        for num in nums:
+            self.add(num)
+
+    def add(self, val: int) -> int:
+        heapq.heappush(self.q, val)
+        if len(self.q) > self.size:
+            heapq.heappop(self.q)
+        return self.q[0]
+
+
+# Your KthLargest object will be instantiated and called as such:
+# obj = KthLargest(k, nums)
+# param_1 = obj.add(val)
 ```
 
 ### **Java**
 
 ```java
+class KthLargest {
+    private PriorityQueue<Integer> q;
+    private int size;
 
+    public KthLargest(int k, int[] nums) {
+        q = new PriorityQueue<>(k);
+        size = k;
+        for (int num : nums) {
+            add(num);
+        }
+    }
+
+    public int add(int val) {
+        q.offer(val);
+        if (q.size() > size) {
+            q.poll();
+        }
+        return q.peek();
+    }
+}
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * KthLargest obj = new KthLargest(k, nums);
+ * int param_1 = obj.add(val);
+ */
 ```
 
 ### **...**
