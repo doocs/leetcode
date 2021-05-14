@@ -58,10 +58,13 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 	<li><code>1 &lt;= k &lt;= 40000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“前缀积”实现。
+
+若遇到 0，则清空前缀积列表。
 
 <!-- tabs:start -->
 
@@ -70,7 +73,28 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class ProductOfNumbers:
 
+    def __init__(self):
+        self.pre_product = []
+
+    def add(self, num: int) -> None:
+        if num == 0:
+            self.pre_product = []
+            return
+        if not self.pre_product:
+            self.pre_product.append(1)
+        self.pre_product.append(num * self.pre_product[-1])
+
+    def getProduct(self, k: int) -> int:
+        n = len(self.pre_product)
+        return 0 if n <= k else self.pre_product[n - 1] // self.pre_product[n - k - 1]
+
+
+# Your ProductOfNumbers object will be instantiated and called as such:
+# obj = ProductOfNumbers()
+# obj.add(num)
+# param_2 = obj.getProduct(k)
 ```
 
 ### **Java**
@@ -78,7 +102,35 @@ productOfNumbers.getProduct(2); // 返回 32 。最后 2 个数字的乘积是 4
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class ProductOfNumbers {
+    private List<Integer> preProduct;
 
+    public ProductOfNumbers() {
+        preProduct = new ArrayList<>();
+    }
+
+    public void add(int num) {
+        if (num == 0) {
+            preProduct.clear();
+            return;
+        }
+        if (preProduct.isEmpty()) {
+            preProduct.add(1);
+        }
+        preProduct.add(num * preProduct.get(preProduct.size() - 1));
+    }
+
+    public int getProduct(int k) {
+        return preProduct.size() <= k ? 0 : preProduct.get(preProduct.size() - 1) / preProduct.get(preProduct.size() - 1 - k);
+    }
+}
+
+/**
+ * Your ProductOfNumbers object will be instantiated and called as such:
+ * ProductOfNumbers obj = new ProductOfNumbers();
+ * obj.add(num);
+ * int param_2 = obj.getProduct(k);
+ */
 ```
 
 ### **...**
