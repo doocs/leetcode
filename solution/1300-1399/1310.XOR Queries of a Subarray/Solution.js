@@ -10,8 +10,8 @@
         xors[i + 1] = xors[i] ^ arr[i]; 
     }
     let res = [];
-    for (let querie of queries) {
-        let [start, end] = querie;
+    for (let query of queries) {
+        let [start, end] = query;
         res.push(xors[start] ^ xors[end + 1]);
     }
     return res;
