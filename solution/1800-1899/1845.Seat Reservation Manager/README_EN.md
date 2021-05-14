@@ -55,13 +55,52 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 ### **Python3**
 
 ```python
+class SeatManager:
 
+    def __init__(self, n: int):
+        self.q = [i for i in range(1, n + 1)]
+
+    def reserve(self) -> int:
+        return heapq.heappop(self.q)
+
+    def unreserve(self, seatNumber: int) -> None:
+        heapq.heappush(self.q, seatNumber)
+
+
+# Your SeatManager object will be instantiated and called as such:
+# obj = SeatManager(n)
+# param_1 = obj.reserve()
+# obj.unreserve(seatNumber)
 ```
 
 ### **Java**
 
 ```java
+class SeatManager {
+    private PriorityQueue<Integer> q;
 
+    public SeatManager(int n) {
+        q = new PriorityQueue<>(n);
+        for (int i = 1; i <= n; ++i) {
+            q.offer(i);
+        }
+    }
+    
+    public int reserve() {
+        return q.poll();
+    }
+    
+    public void unreserve(int seatNumber) {
+        q.offer(seatNumber);
+    }
+}
+
+/**
+ * Your SeatManager object will be instantiated and called as such:
+ * SeatManager obj = new SeatManager(n);
+ * int param_1 = obj.reserve();
+ * obj.unreserve(seatNumber);
+ */
 ```
 
 ### **...**
