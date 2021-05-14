@@ -161,7 +161,7 @@ class LCSpider:
             }
 
             col1_cn = f'[{frontend_question_id}]({url_cn})'
-            col2_cn = f'[{item["title_cn"]}]({path_cn})'
+            col2_cn = f'[{item["title_cn"]}]({path_cn})' if item["title_cn"] else f'[{item["title_en"]}]({path_en})'
             col3_cn = ','.join([f'`{tag}`' for tag in item['tags_cn']])
             col3_cn = '' if (col3_cn == 'None' or not col3_cn) else col3_cn
             col4_cn = item['difficulty_cn']

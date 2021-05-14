@@ -102,7 +102,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0091](https://leetcode.com/problems/decode-ways)  |  [Decode Ways](/solution/0000-0099/0091.Decode%20Ways/README_EN.md)  |  `String`,`Dynamic Programming`  |  Medium  |    |
 |  [0092](https://leetcode.com/problems/reverse-linked-list-ii)  |  [Reverse Linked List II](/solution/0000-0099/0092.Reverse%20Linked%20List%20II/README_EN.md)  |  `Linked List`  |  Medium  |    |
 |  [0093](https://leetcode.com/problems/restore-ip-addresses)  |  [Restore IP Addresses](/solution/0000-0099/0093.Restore%20IP%20Addresses/README_EN.md)  |  `String`,`Backtracking`  |  Medium  |    |
-|  [0094](https://leetcode.com/problems/binary-tree-inorder-traversal)  |  [Binary Tree Inorder Traversal](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`,`Hash Table`  |  Medium  |    |
+|  [0094](https://leetcode.com/problems/binary-tree-inorder-traversal)  |  [Binary Tree Inorder Traversal](/solution/0000-0099/0094.Binary%20Tree%20Inorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`,`Hash Table`  |  Easy  |    |
 |  [0095](https://leetcode.com/problems/unique-binary-search-trees-ii)  |  [Unique Binary Search Trees II](/solution/0000-0099/0095.Unique%20Binary%20Search%20Trees%20II/README_EN.md)  |  `Tree`,`Dynamic Programming`  |  Medium  |    |
 |  [0096](https://leetcode.com/problems/unique-binary-search-trees)  |  [Unique Binary Search Trees](/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md)  |  `Tree`,`Dynamic Programming`  |  Medium  |    |
 |  [0097](https://leetcode.com/problems/interleaving-string)  |  [Interleaving String](/solution/0000-0099/0097.Interleaving%20String/README_EN.md)  |  `String`,`Dynamic Programming`  |  Medium  |    |
@@ -153,7 +153,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0142](https://leetcode.com/problems/linked-list-cycle-ii)  |  [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Medium  |    |
 |  [0143](https://leetcode.com/problems/reorder-list)  |  [Reorder List](/solution/0100-0199/0143.Reorder%20List/README_EN.md)  |  `Linked List`  |  Medium  |    |
 |  [0144](https://leetcode.com/problems/binary-tree-preorder-traversal)  |  [Binary Tree Preorder Traversal](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Medium  |    |
-|  [0145](https://leetcode.com/problems/binary-tree-postorder-traversal)  |  [Binary Tree Postorder Traversal](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Medium  |    |
+|  [0145](https://leetcode.com/problems/binary-tree-postorder-traversal)  |  [Binary Tree Postorder Traversal](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Easy  |    |
 |  [0146](https://leetcode.com/problems/lru-cache)  |  [LRU Cache](/solution/0100-0199/0146.LRU%20Cache/README_EN.md)  |  `Design`  |  Medium  |    |
 |  [0147](https://leetcode.com/problems/insertion-sort-list)  |  [Insertion Sort List](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)  |  `Sort`,`Linked List`  |  Medium  |    |
 |  [0148](https://leetcode.com/problems/sort-list)  |  [Sort List](/solution/0100-0199/0148.Sort%20List/README_EN.md)  |  `Sort`,`Linked List`  |  Medium  |    |
