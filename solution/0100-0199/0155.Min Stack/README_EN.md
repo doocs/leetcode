@@ -47,7 +47,6 @@ minStack.getMin(); // return -2
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>push</code>, <code>pop</code>, <code>top</code>, and <code>getMin</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -62,28 +61,26 @@ class MinStack:
         initialize your data structure here.
         """
         self.s = []
-        self.helper = []
+        self.mins = [float('inf')]
 
-
-    def push(self, x: int) -> None:
-        self.s.append(x)
-        element = x if not self.helper or x < self.helper[-1] else self.helper[-1]
-        self.helper.append(element)
+    def push(self, val: int) -> None:
+        self.s.append(val)
+        self.mins.append(min(self.mins[-1], val))
 
     def pop(self) -> None:
         self.s.pop()
-        self.helper.pop()
+        self.mins.pop()
 
     def top(self) -> int:
         return self.s[-1]
 
     def getMin(self) -> int:
-        return self.helper[-1]
+        return self.mins[-1]
 
 
 # Your MinStack object will be instantiated and called as such:
 # obj = MinStack()
-# obj.push(x)
+# obj.push(val)
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
@@ -93,25 +90,24 @@ class MinStack:
 
 ```java
 class MinStack {
-
     private Deque<Integer> s;
-    private Deque<Integer> helper;
+    private Deque<Integer> mins;
 
     /** initialize your data structure here. */
     public MinStack() {
         s = new ArrayDeque<>();
-        helper = new ArrayDeque<>();
+        mins = new ArrayDeque<>();
+        mins.push(Integer.MAX_VALUE);
     }
 
-    public void push(int x) {
-        s.push(x);
-        int element = helper.isEmpty() || x < helper.peek() ? x : helper.peek();
-        helper.push(element);
+    public void push(int val) {
+        s.push(val);
+        mins.push(Math.min(mins.peek(), val));
     }
 
     public void pop() {
         s.pop();
-        helper.pop();
+        mins.pop();
     }
 
     public int top() {
@@ -119,17 +115,112 @@ class MinStack {
     }
 
     public int getMin() {
-        return helper.peek();
+        return mins.peek();
     }
 }
 
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack obj = new MinStack();
- * obj.push(x);
+ * obj.push(val);
  * obj.pop();
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();
+ */
+```
+
+### **C++**
+
+```cpp
+class MinStack {
+private:
+    stack<int> s;
+    stack<int> mins;
+
+public:
+    /** initialize your data structure here. */
+    MinStack() {
+        mins.push(INT_MAX);
+    }
+
+    void push(int val) {
+        s.push(val);
+        mins.push(min(mins.top(), val));
+    }
+
+    void pop() {
+        s.pop();
+        mins.pop();
+    }
+
+    int top() {
+        return s.top();
+    }
+
+    int getMin() {
+        return mins.top();
+    }
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack* obj = new MinStack();
+ * obj->push(val);
+ * obj->pop();
+ * int param_3 = obj->top();
+ * int param_4 = obj->getMin();
+ */
+```
+
+### **JavaScript**
+
+```js
+/**
+ * initialize your data structure here.
+ */
+var MinStack = function() {
+    this.s = [];
+    this.mins = [Infinity];
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+    this.s.push(val);
+    this.mins.push(Math.min(this.mins[this.mins.length - 1], val));
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+    this.s.pop();
+    this.mins.pop();
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+    return this.s[this.s.length - 1];
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+    return this.mins[this.mins.length - 1];
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
  */
 ```
 
