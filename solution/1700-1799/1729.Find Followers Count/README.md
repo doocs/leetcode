@@ -49,17 +49,26 @@
 
 <p> </p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+`GROUP BY` 实现。
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    user_id, count(1) AS followers_count
+FROM
+    Followers
+GROUP BY
+    user_id
+ORDER BY
+    user_id
 ```
 
 <!-- tabs:end -->
