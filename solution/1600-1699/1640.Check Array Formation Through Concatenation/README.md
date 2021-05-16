@@ -62,10 +62,11 @@
 	<li><code>pieces</code> 中的整数 <strong>互不相同</strong>（也就是说，如果将 <code>pieces</code> 扁平化成一维数组，数组中的所有整数互不相同）</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“哈希表”实现。
 
 <!-- tabs:start -->
 
@@ -74,7 +75,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+        mapper = {piece[0]: piece for piece in pieces}
+        i, n = 0, len(arr)
+        while i < n:
+            if arr[i] not in mapper:
+                return False
+            vals = mapper[arr[i]]
+            for val in vals:
+                if arr[i] != val:
+                    return False
+                i += 1
+        return True
 ```
 
 ### **Java**
@@ -82,7 +95,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean canFormArray(int[] arr, int[][] pieces) {
+        Map<Integer, int[]> map = new HashMap<>();
+        for (int[] piece : pieces) {
+            map.put(piece[0], piece);
+        }
+        for (int i = 0; i < arr.length;) {
+            int[] vals = map.get(arr[i]);
+            if (vals == null) {
+                return false;
+            }
+            for (int val : vals) {
+                if (arr[i] != val) {
+                    return false;
+                }
+                ++i;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

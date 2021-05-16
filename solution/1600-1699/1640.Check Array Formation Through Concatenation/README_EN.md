@@ -66,13 +66,45 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+        mapper = {piece[0]: piece for piece in pieces}
+        i, n = 0, len(arr)
+        while i < n:
+            if arr[i] not in mapper:
+                return False
+            vals = mapper[arr[i]]
+            for val in vals:
+                if arr[i] != val:
+                    return False
+                i += 1
+        return True
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean canFormArray(int[] arr, int[][] pieces) {
+        Map<Integer, int[]> map = new HashMap<>();
+        for (int[] piece : pieces) {
+            map.put(piece[0], piece);
+        }
+        for (int i = 0; i < arr.length;) {
+            int[] vals = map.get(arr[i]);
+            if (vals == null) {
+                return false;
+            }
+            for (int val : vals) {
+                if (arr[i] != val) {
+                    return false;
+                }
+                ++i;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
