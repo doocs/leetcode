@@ -1,16 +1,15 @@
 class Solution {
     public List<String> findRepeatedDnaSequences(String s) {
-        Map<String, Integer> map = new HashMap<>();
-        for (int i = 10; i <= s.length(); ++i) {
-            String sub = s.substring(i - 10, i);
-            map.put(sub, map.getOrDefault(sub, 0) + 1);
-        }
-        List<String> res = new ArrayList<>();
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > 1) {
-                res.add(entry.getKey());
+        int len = 10;
+        Set<String> subs = new HashSet<>();
+        Set<String> res = new HashSet<>();
+        for (int i = 0; i < s.length() - len + 1; ++i) {
+            String sub = s.substring(i, i + len);
+            if (subs.contains(sub)) {
+                res.add(sub);
             }
+            subs.add(sub);
         }
-        return res;
+        return new ArrayList<>(res);
     }
 }
