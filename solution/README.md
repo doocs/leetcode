@@ -390,7 +390,7 @@
 |  [0377](https://leetcode-cn.com/problems/combination-sum-iv)  |  [组合总和 Ⅳ](/solution/0300-0399/0377.Combination%20Sum%20IV/README.md)  |  `动态规划`  |  中等  |    |
 |  [0378](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix)  |  [有序矩阵中第 K 小的元素](/solution/0300-0399/0378.Kth%20Smallest%20Element%20in%20a%20Sorted%20Matrix/README.md)  |  `堆`,`二分查找`  |  中等  |    |
 |  [0379](https://leetcode-cn.com/problems/design-phone-directory)  |  [电话目录管理系统](/solution/0300-0399/0379.Design%20Phone%20Directory/README.md)  |  `设计`,`链表`  |  中等  |  🔒  |
-|  [0380](https://leetcode-cn.com/problems/insert-delete-getrandom-o1)  |  [常数时间插入、删除和获取随机元素](/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README.md)  |  `设计`,`数组`,`哈希表`  |  中等  |    |
+|  [0380](https://leetcode-cn.com/problems/insert-delete-getrandom-o1)  |  [O(1) 时间插入、删除和获取随机元素](/solution/0300-0399/0380.Insert%20Delete%20GetRandom%20O%281%29/README.md)  |  `设计`,`数组`,`哈希表`  |  中等  |    |
 |  [0381](https://leetcode-cn.com/problems/insert-delete-getrandom-o1-duplicates-allowed)  |  [O(1) 时间插入、删除和获取随机元素 - 允许重复](/solution/0300-0399/0381.Insert%20Delete%20GetRandom%20O%281%29%20-%20Duplicates%20allowed/README.md)  |  `设计`,`数组`,`哈希表`  |  困难  |    |
 |  [0382](https://leetcode-cn.com/problems/linked-list-random-node)  |  [链表随机节点](/solution/0300-0399/0382.Linked%20List%20Random%20Node/README.md)  |  `蓄水池抽样`  |  中等  |    |
 |  [0383](https://leetcode-cn.com/problems/ransom-note)  |  [赎金信](/solution/0300-0399/0383.Ransom%20Note/README.md)  |  `字符串`  |  简单  |    |
@@ -1868,6 +1868,15 @@
 |  [1855](https://leetcode-cn.com/problems/maximum-distance-between-a-pair-of-values)  |  [下标对中的最大距离](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md)  |  `贪心算法`,`双指针`,`二分查找`  |  中等  |    |
 |  [1856](https://leetcode-cn.com/problems/maximum-subarray-min-product)  |  [子数组最小乘积的最大值](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md)  |  `排序`,`并查集`,`队列`,`二分查找`,`动态规划`  |  中等  |    |
 |  [1857](https://leetcode-cn.com/problems/largest-color-value-in-a-directed-graph)  |  [有向图中最大颜色值](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README.md)  |  `拓扑排序`,`动态规划`  |  困难  |    |
+|  [1858](https://leetcode-cn.com/problems/longest-word-with-all-prefixes)  |  [Longest Word With All Prefixes](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)  |  `深度优先搜索`,`字典树`,`哈希表`  |  中等  |    |
+|  [1859](https://leetcode-cn.com/problems/sorting-the-sentence)  |  [将句子排序](/solution/1800-1899/1859.Sorting%20the%20Sentence/README.md)  |  `排序`,`字符串`  |  简单  |    |
+|  [1860](https://leetcode-cn.com/problems/incremental-memory-leak)  |  [增长的内存泄露](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md)  |  `数学`  |  中等  |    |
+|  [1861](https://leetcode-cn.com/problems/rotating-the-box)  |  [旋转盒子](/solution/1800-1899/1861.Rotating%20the%20Box/README.md)  |  `数组`,`双指针`  |  中等  |    |
+|  [1862](https://leetcode-cn.com/problems/sum-of-floored-pairs)  |  [向下取整数对和](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README.md)  |  `数学`  |  困难  |    |
+|  [1863](https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals)  |  [找出所有子集的异或总和再求和](/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README.md)  |  `递归`,`回溯算法`  |  简单  |    |
+|  [1864](https://leetcode-cn.com/problems/minimum-number-of-swaps-to-make-the-binary-string-alternating)  |  [构成交替字符串需要的最小交换次数](/solution/1800-1899/1864.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20Binary%20String%20Alternating/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1865](https://leetcode-cn.com/problems/finding-pairs-with-a-certain-sum)  |  [找出和为指定值的下标对](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README.md)  |  `设计`,`哈希表`  |  中等  |    |
+|  [1866](https://leetcode-cn.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible)  |  [恰有 K 根木棍可以看到的排列数目](/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README.md)  |  `动态规划`  |  困难  |    |
 
 ## 版权
 

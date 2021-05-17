@@ -1,4 +1,4 @@
-# [432. All O`one Data Structure](https://leetcode.com/problems/all-oone-data-structure)
+# [432. All O one Data Structure](https://leetcode.com/problems/all-oone-data-structure)
 
 [中文文档](/solution/0400-0499/0432.All%20O%60one%20Data%20Structure/README.md)
 

@@ -1866,6 +1866,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1855](https://leetcode.com/problems/maximum-distance-between-a-pair-of-values)  |  [Maximum Distance Between a Pair of Values](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README_EN.md)  |  `Greedy`,`Two Pointers`,`Binary Search`  |  Medium  |    |
 |  [1856](https://leetcode.com/problems/maximum-subarray-min-product)  |  [Maximum Subarray Min-Product](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README_EN.md)  |  `Sort`,`Union Find`,`Queue`,`Binary Search`,`Dynamic Programming`  |  Medium  |    |
 |  [1857](https://leetcode.com/problems/largest-color-value-in-a-directed-graph)  |  [Largest Color Value in a Directed Graph](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README_EN.md)  |  `Topological Sort`,`Dynamic Programming`  |  Hard  |    |
+|  [1858](https://leetcode.com/problems/longest-word-with-all-prefixes)  |  [Longest Word With All Prefixes](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)  |  `Depth-first Search`,`Trie`,`Hash Table`  |  Medium  |  🔒  |
+|  [1859](https://leetcode.com/problems/sorting-the-sentence)  |  [Sorting the Sentence](/solution/1800-1899/1859.Sorting%20the%20Sentence/README_EN.md)  |  `Sort`,`String`  |  Easy  |    |
+|  [1860](https://leetcode.com/problems/incremental-memory-leak)  |  [Incremental Memory Leak](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README_EN.md)  |  `Math`  |  Medium  |    |
+|  [1861](https://leetcode.com/problems/rotating-the-box)  |  [Rotating the Box](/solution/1800-1899/1861.Rotating%20the%20Box/README_EN.md)  |  `Array`,`Two Pointers`  |  Medium  |    |
+|  [1862](https://leetcode.com/problems/sum-of-floored-pairs)  |  [Sum of Floored Pairs](/solution/1800-1899/1862.Sum%20of%20Floored%20Pairs/README_EN.md)  |  `Math`  |  Hard  |    |
+|  [1863](https://leetcode.com/problems/sum-of-all-subset-xor-totals)  |  [Sum of All Subset XOR Totals](/solution/1800-1899/1863.Sum%20of%20All%20Subset%20XOR%20Totals/README_EN.md)  |  `Recursion`,`Backtracking`  |  Easy  |    |
+|  [1864](https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-binary-string-alternating)  |  [Minimum Number of Swaps to Make the Binary String Alternating](/solution/1800-1899/1864.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1865](https://leetcode.com/problems/finding-pairs-with-a-certain-sum)  |  [Finding Pairs With a Certain Sum](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README_EN.md)  |  `Design`,`Hash Table`,`Ordered Map`  |  Medium  |    |
+|  [1866](https://leetcode.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible)  |  [Number of Ways to Rearrange Sticks With K Sticks Visible](/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 
 ## Copyright
 
