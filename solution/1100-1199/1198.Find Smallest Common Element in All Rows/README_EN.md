@@ -34,7 +34,6 @@
 	<li><code>mat[i]</code> is sorted in strictly increasing order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -42,13 +41,34 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def smallestCommonElement(self, mat: List[List[int]]) -> int:
+        counter = collections.Counter()
+        for row in mat:
+            for num in row:
+                counter[num] += 1
+                if counter[num] == len(mat):
+                    return num
+        return -1
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int smallestCommonElement(int[][] mat) {
+        int[] counter = new int[10001];
+        for (int[] row : mat) {
+            for (int num : row) {
+                ++counter[num];
+                if (counter[num] == mat.length) {
+                    return num;
+                }
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **...**

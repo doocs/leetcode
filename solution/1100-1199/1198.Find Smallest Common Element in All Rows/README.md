@@ -29,10 +29,11 @@
 	<li><code>mat[i]</code> 已按严格递增顺序排列。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“计数器”实现。
 
 <!-- tabs:start -->
 
@@ -41,7 +42,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def smallestCommonElement(self, mat: List[List[int]]) -> int:
+        counter = collections.Counter()
+        for row in mat:
+            for num in row:
+                counter[num] += 1
+                if counter[num] == len(mat):
+                    return num
+        return -1
 ```
 
 ### **Java**
@@ -49,7 +58,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int smallestCommonElement(int[][] mat) {
+        int[] counter = new int[10001];
+        for (int[] row : mat) {
+            for (int num : row) {
+                ++counter[num];
+                if (counter[num] == mat.length) {
+                    return num;
+                }
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **...**

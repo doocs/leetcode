@@ -1,9 +1,6 @@
 class Solution:
-    def anagramMappings(self, A, B):
-        """
-        :type A: List[int]
-        :type B: List[int]
-        :rtype: List[int]
-        """
-        record = {val: i for i, val in enumerate(B)}
-        return [record[val] for val in A]
+    def anagramMappings(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        mapper = collections.defaultdict(set)
+        for i, num in enumerate(nums2):
+            mapper[num].add(i)
+        return [mapper[num].pop() for num in nums1]
