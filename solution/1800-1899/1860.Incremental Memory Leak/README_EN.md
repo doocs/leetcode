@@ -43,7 +43,6 @@
 	<li><code>0 &lt;= memory1, memory2 &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -51,13 +50,45 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def memLeak(self, memory1: int, memory2: int) -> List[int]:
+        i = 1
+        while 1:
+            if memory1 >= memory2:
+                if memory1 < i:
+                    break
+                memory1 -= i
+            else:
+                if memory2 < i:
+                    break
+                memory2 -= i
+            i += 1
+        return [i, memory1, memory2]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] memLeak(int memory1, int memory2) {
+        int i = 1;
+        while (true) {
+            if (memory1 >= memory2) {
+                if (memory1 < i) {
+                    break;
+                }
+                memory1 -= i;
+            } else {
+                if (memory2 < i) {
+                    break;
+                }
+                memory2 -= i;
+            }
+            ++i;
+        }
+        return new int[]{i, memory1, memory2};
+    }
+}
 ```
 
 ### **...**

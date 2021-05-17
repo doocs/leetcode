@@ -45,7 +45,6 @@
 	<li><code>s</code> 不包含任何前导或者后缀空格。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -57,7 +56,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        words = s.split(' ')
+        arr = [None] * len(words)
+        for word in words:
+            idx = int(word[-1]) - 1
+            arr[idx] = word[:-1]
+        return ' '.join(arr)
 ```
 
 ### **Java**
@@ -65,7 +71,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String sortSentence(String s) {
+        String[] words = s.split(" ");
+        String[] arr = new String[words.length];
+        for (String word : words) {
+            int idx = word.charAt(word.length() - 1) - '0' - 1;
+            arr[idx] = word.substring(0, word.length() - 1);
+        }
+        return String.join(" ", arr);
+    }
+}
 ```
 
 ### **...**

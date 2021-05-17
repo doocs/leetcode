@@ -6,27 +6,17 @@
 
 <p>A <strong>sentence</strong> is a list of words that are separated by a single space with no leading or trailing spaces. Each word consists of lowercase and uppercase English letters.</p>
 
-
-
 <p>A sentence can be <strong>shuffled</strong> by appending the <strong>1-indexed word position</strong> to each word then rearranging the words in the sentence.</p>
-
-
 
 <ul>
 	<li>For example, the sentence <code>&quot;This is a sentence&quot;</code> can be shuffled as <code>&quot;sentence4 a3 is2 This1&quot;</code> or <code>&quot;is2 sentence4 This1 a3&quot;</code>.</li>
 </ul>
 
-
-
 <p>Given a <strong>shuffled sentence</strong> <code>s</code> containing no more than <code>9</code> words, reconstruct and return <em>the original sentence</em>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -38,11 +28,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -54,13 +40,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>2 &lt;= s.length &lt;= 200</code></li>
@@ -77,13 +59,30 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        words = s.split(' ')
+        arr = [None] * len(words)
+        for word in words:
+            idx = int(word[-1]) - 1
+            arr[idx] = word[:-1]
+        return ' '.join(arr)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public String sortSentence(String s) {
+        String[] words = s.split(" ");
+        String[] arr = new String[words.length];
+        for (String word : words) {
+            int idx = word.charAt(word.length() - 1) - '0' - 1;
+            arr[idx] = word.substring(0, word.length() - 1);
+        }
+        return String.join(" ", arr);
+    }
+}
 ```
 
 ### **...**

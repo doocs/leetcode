@@ -69,10 +69,11 @@
 	<li><code>box[i][j]</code> 只可能是 <code>'#'</code> ，<code>'*'</code> 或者 <code>'.'</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+先旋转，再挪动箱子。
 
 <!-- tabs:start -->
 
@@ -81,7 +82,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def rotateTheBox(self, box: List[List[str]]) -> List[List[str]]:
+        m, n = len(box), len(box[0])
+        res = [[None] * m for _ in range(n)]
+        for i in range(m):
+            for j in range(n):
+                res[j][m - i - 1] = box[i][j]
+        for j in range(m):
+            q = collections.deque()
+            for i in range(n - 1, -1, -1):
+                if res[i][j] == '*':
+                    q.clear()
+                    continue
+                if res[i][j] == '.':
+                    q.append(i)
+                else:
+                    if not q:
+                        continue
+                    res[q.popleft()][j] = '#'
+                    res[i][j] = '.'
+                    q.append(i)
+        return res
 ```
 
 ### **Java**
@@ -89,7 +111,37 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public char[][] rotateTheBox(char[][] box) {
+        int m = box.length, n = box[0].length;
+        char[][] res = new char[n][m];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                res[j][m - i - 1] = box[i][j];
+            }
+        }
+        for (int j = 0; j < m; ++j) {
+            Deque<Integer> q = new ArrayDeque<>();
+            for (int i = n - 1; i >= 0; --i) {
+                if (res[i][j] == '*') {
+                    q.clear();
+                    continue;
+                }
+                if (res[i][j] == '.') {
+                    q.offer(i);
+                } else {
+                    if (q.isEmpty()) {
+                        continue;
+                    }
+                    res[q.poll()][j] = '#';
+                    res[i][j] = '.';
+                    q.offer(i);
+                }
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
