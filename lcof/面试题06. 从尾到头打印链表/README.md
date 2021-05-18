@@ -124,6 +124,8 @@ func reversePrint(head *ListNode) []int {
 
 ### **C++**
 
+- 递归实现
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -151,6 +153,28 @@ public:
         getVal(head);
         // 返回的是全局的ret信息。在getVal函数中被赋值
         return ret;
+    }
+};
+```
+
+- 栈实现
+
+```cpp
+class Solution {
+public:
+    vector<int> reversePrint(ListNode* head) {
+        stack<int> stk;
+        vector<int> ans;
+        ListNode *p = head;
+        while (p) {
+            stk.push(p->val);
+            p = p->next;
+        }
+        while (!stk.empty()) {
+            ans.push_back(stk.top());
+            stk.pop();
+        }
+        return ans;
     }
 };
 ```
