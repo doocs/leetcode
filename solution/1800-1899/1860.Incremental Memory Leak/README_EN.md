@@ -53,14 +53,10 @@
 class Solution:
     def memLeak(self, memory1: int, memory2: int) -> List[int]:
         i = 1
-        while 1:
+        while memory1 >= i or memory2 >= i:
             if memory1 >= memory2:
-                if memory1 < i:
-                    break
                 memory1 -= i
             else:
-                if memory2 < i:
-                    break
                 memory2 -= i
             i += 1
         return [i, memory1, memory2]
@@ -72,16 +68,10 @@ class Solution:
 class Solution {
     public int[] memLeak(int memory1, int memory2) {
         int i = 1;
-        while (true) {
+        while (memory1 >= i || memory2 >= i) {
             if (memory1 >= memory2) {
-                if (memory1 < i) {
-                    break;
-                }
                 memory1 -= i;
             } else {
-                if (memory2 < i) {
-                    break;
-                }
                 memory2 -= i;
             }
             ++i;
@@ -110,6 +100,26 @@ var memLeak = function(memory1, memory2) {
         i++;
     }
     return [i, memory1, memory2];
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> memLeak(int memory1, int memory2) {
+        int i = 1;
+        while (memory1 >= i || memory2 >= i) {
+            if (memory1 >= memory2) {
+                memory1 -= i;
+            } else {
+                memory2 -= i;
+            }
+            ++i;
+        }
+        return {i, memory1, memory2};
+    }
 };
 ```
 
