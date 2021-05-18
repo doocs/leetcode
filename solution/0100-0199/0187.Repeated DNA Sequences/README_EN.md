@@ -71,7 +71,7 @@ class Solution {
 }
 ```
 
-### *JavaScript**
+### **JavaScript**
 
 ```js
 /**
