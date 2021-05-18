@@ -49,13 +49,46 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def powerfulIntegers(self, x: int, y: int, bound: int) -> List[int]:
+        s = set()
+        i = 1
+        while i < bound:
+            j = 1
+            while j < bound:
+                if i + j <= bound:
+                    s.add(i + j)
+                if y == 1:
+                    break
+                j *= y
+            if x == 1:
+                break
+            i *= x
+        return list(s)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<Integer> powerfulIntegers(int x, int y, int bound) {
+        Set<Integer> s = new HashSet<>();
+        for (int i = 1; i < bound; i *= x) {
+            for (int j = 1; j < bound; j *= y) {
+                if (i + j <= bound) {
+                    s.add(i + j);
+                }
+                if (y == 1) {
+                    break;
+                }
+            }
+            if (x == 1) {
+                break;
+            }
+        }
+        return new ArrayList<>(s);
+    }
+}
 ```
 
 ### **...**
