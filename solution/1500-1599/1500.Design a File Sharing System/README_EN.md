@@ -134,8 +134,6 @@ fileSharing.join([]);        // A user who doesn&#39;t have any chunks joined th
 ### **Python3**
 
 ```python
-import queue
-
 class FileSharing:
 
     def __init__(self, m: int):

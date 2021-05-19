@@ -91,8 +91,6 @@ fileSharing.join([]);        // 一个不拥有任何文件块的用户加入系
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-import queue
-
 class FileSharing:
 
     def __init__(self, m: int):

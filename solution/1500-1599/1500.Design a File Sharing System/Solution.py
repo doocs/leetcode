@@ -1,5 +1,3 @@
-import queue
-
 class FileSharing:
 
     def __init__(self, m: int):
