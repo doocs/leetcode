@@ -10,7 +10,6 @@
 
 <ul>
 	<li><code>void checkIn(int id, string stationName, int t)</code>
-
 	<ul>
 		<li>A customer with a card ID equal to <code>id</code>, checks in at the station <code>stationName</code> at time <code>t</code>.</li>
 		<li>A customer can only be checked into one place at a time.</li>
@@ -102,13 +101,82 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 ### **Python3**
 
 ```python
+class UndergroundSystem:
 
+    def __init__(self):
+        self.check_in_station = {}
+        self.check_in_time = {}
+        self.total_time = {}
+
+    def checkIn(self, id: int, stationName: str, t: int) -> None:
+        self.check_in_station[id] = stationName
+        self.check_in_time[id] = t
+
+    def checkOut(self, id: int, stationName: str, t: int) -> None:
+        cost = t - self.check_in_time.pop(id)
+        start_station = self.check_in_station.pop(id)
+        stations = start_station + '.' + stationName
+        times = self.total_time.get(stations, [0, 0])
+        times[0] += cost
+        times[1] += 1
+        self.total_time[stations] = times
+
+    def getAverageTime(self, startStation: str, endStation: str) -> float:
+        stations = startStation + '.' + endStation
+        times = self.total_time[stations]
+        return times[0] / times[1]
+
+
+# Your UndergroundSystem object will be instantiated and called as such:
+# obj = UndergroundSystem()
+# obj.checkIn(id,stationName,t)
+# obj.checkOut(id,stationName,t)
+# param_3 = obj.getAverageTime(startStation,endStation)
 ```
 
 ### **Java**
 
 ```java
+class UndergroundSystem {
+    private Map<Integer, String> checkInStation;
+    private Map<Integer, Integer> checkInTime;
+    private Map<String, int[]> totalTime;
 
+    public UndergroundSystem() {
+        checkInStation = new HashMap<>();
+        checkInTime = new HashMap<>();
+        totalTime = new HashMap<>();
+    }
+    
+    public void checkIn(int id, String stationName, int t) {
+        checkInStation.put(id, stationName);
+        checkInTime.put(id, t);
+    }
+    
+    public void checkOut(int id, String stationName, int t) {
+        int cost = t - checkInTime.remove(id);
+        String startStation = checkInStation.remove(id);
+        String stations = startStation + "." + stationName;
+        int[] times = totalTime.getOrDefault(stations, new int[2]);
+        times[0] += cost;
+        ++times[1];
+        totalTime.put(stations, times);
+    }
+    
+    public double getAverageTime(String startStation, String endStation) {
+        String stations = startStation + "." + endStation;
+        int[] times = totalTime.get(stations);
+        return times[0] * 1.0 / times[1];
+    }
+}
+
+/**
+ * Your UndergroundSystem object will be instantiated and called as such:
+ * UndergroundSystem obj = new UndergroundSystem();
+ * obj.checkIn(id,stationName,t);
+ * obj.checkOut(id,stationName,t);
+ * double param_3 = obj.getAverageTime(startStation,endStation);
+ */
 ```
 
 ### **...**
