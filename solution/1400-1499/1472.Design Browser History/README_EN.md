@@ -50,21 +50,173 @@ browserHistory.back(7);                   // You are in &quot;google.com&quot;, 
 	<li>At most <code>5000</code>&nbsp;calls will be made to <code>visit</code>, <code>back</code>, and <code>forward</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
 
 ### **Python3**
 
-```python
+Using list.
 
+```python
+class BrowserHistory:
+
+    def __init__(self, homepage: str):
+        self.urls = []
+        self.cur = -1
+        self.tail = -1
+        self.visit(homepage)
+
+    def visit(self, url: str) -> None:
+        self.cur += 1
+        if self.cur < len(self.urls):
+            self.urls[self.cur] = url
+        else:
+            self.urls.append(url)
+        self.tail = self.cur
+
+    def back(self, steps: int) -> str:
+        self.cur = max(0, self.cur -steps)
+        return self.urls[self.cur]
+
+    def forward(self, steps: int) -> str:
+        self.cur = min(self.tail, self.cur + steps)
+        return self.urls[self.cur]
+
+# Your BrowserHistory object will be instantiated and called as such:
+# obj = BrowserHistory(homepage)
+# obj.visit(url)
+# param_2 = obj.back(steps)
+# param_3 = obj.forward(steps)
+```
+
+Using stacks.
+
+```python
+class BrowserHistory:
+
+    def __init__(self, homepage: str):
+        self.s1 = []
+        self.s2 = []
+        self.cur = homepage
+
+    def visit(self, url: str) -> None:
+        self.s2.clear()
+        self.s1.append(self.cur)
+        self.cur = url
+
+    def back(self, steps: int) -> str:
+        while steps > 0 and self.s1:
+            self.s2.append(self.cur)
+            self.cur = self.s1.pop()
+            steps -= 1
+        return self.cur
+
+    def forward(self, steps: int) -> str:
+        while steps > 0 and self.s2:
+            self.s1.append(self.cur)
+            self.cur = self.s2.pop()
+            steps -= 1
+        return self.cur
+
+
+# Your BrowserHistory object will be instantiated and called as such:
+# obj = BrowserHistory(homepage)
+# obj.visit(url)
+# param_2 = obj.back(steps)
 ```
 
 ### **Java**
 
-```java
+Using list.
 
+```java
+class BrowserHistory {
+    private List<String> urls;
+    private int cur = -1;
+    private int tail = -1;
+
+    public BrowserHistory(String homepage) {
+        urls = new ArrayList<>();
+        visit(homepage);
+    }
+
+    public void visit(String url) {
+        ++cur;
+        if (cur < urls.size()) {
+            urls.set(cur, url);
+        } else {
+            urls.add(url);
+        }
+        tail = cur;
+    }
+
+    public String back(int steps) {
+        cur = Math.max(0, cur - steps);
+        return urls.get(cur);
+    }
+
+    public String forward(int steps) {
+        cur = Math.min(tail, cur + steps);
+        return urls.get(cur);
+    }
+}
+
+/**
+ * Your BrowserHistory object will be instantiated and called as such:
+ * BrowserHistory obj = new BrowserHistory(homepage);
+ * obj.visit(url);
+ * String param_2 = obj.back(steps);
+ * String param_3 = obj.forward(steps);
+ */
+```
+
+Using stacks.
+
+```java
+class BrowserHistory {
+    private Deque<String> s1;
+    private Deque<String> s2;
+    private String cur;
+
+    public BrowserHistory(String homepage) {
+        s1 = new ArrayDeque<>();
+        s2 = new ArrayDeque<>();
+        cur = homepage;
+    }
+
+    public void visit(String url) {
+        s2.clear();
+        s1.push(cur);
+        cur = url;
+    }
+
+    public String back(int steps) {
+        while (steps > 0 && !s1.isEmpty()) {
+            s2.push(cur);
+            cur = s1.pop();
+            --steps;
+        }
+        return cur;
+    }
+
+    public String forward(int steps) {
+        while (steps > 0 && !s2.isEmpty()) {
+            s1.push(cur);
+            cur = s2.pop();
+            --steps;
+        }
+        return cur;
+    }
+}
+
+/**
+ * Your BrowserHistory object will be instantiated and called as such:
+ * BrowserHistory obj = new BrowserHistory(homepage);
+ * obj.visit(url);
+ * String param_2 = obj.back(steps);
+ * String param_3 = obj.forward(steps);
+ */
 ```
 
 ### **...**
