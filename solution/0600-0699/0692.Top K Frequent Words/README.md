@@ -1,4 +1,4 @@
-# [692. 前K个高频单词](https://leetcode-cn.com/problems/top-k-frequent-words)
+# [692. 前 K 个高频单词](https://leetcode-cn.com/problems/top-k-frequent-words)
 
 [English Version](/solution/0600-0699/0692.Top%20K%20Frequent%20Words/README_EN.md)
 
@@ -47,7 +47,6 @@
 	<li>尝试以&nbsp;<em>O</em>(<em>n</em> log <em>k</em>) 时间复杂度和&nbsp;<em>O</em>(<em>n</em>) 空间复杂度解决。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -59,7 +58,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+        counter = collections.Counter(words)
+        res = sorted(counter, key=lambda word: (-counter[word], word))
+        return res[:k]
 ```
 
 ### **Java**
@@ -67,7 +70,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<String> topKFrequent(String[] words, int k) {
+        Map<String, Integer> counter = new HashMap<>();
+        for (String word : words) {
+            counter.put(word, counter.getOrDefault(word, 0) + 1);
+        }
+        PriorityQueue<String> minHeap = new PriorityQueue<>((a, b) -> {
+            if (counter.get(a).equals(counter.get(b))) {
+                return b.compareTo(a);
+            }
+            return counter.get(a) - counter.get(b);
+        });
+        for (String word : counter.keySet()) {
+            minHeap.offer(word);
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+        List<String> res = new ArrayList<>();
+        while (!minHeap.isEmpty()) {
+            res.add(minHeap.poll());
+        }
+        Collections.reverse(res);
+        return res;
+    }
+}
 ```
 
 ### **...**
