@@ -1875,6 +1875,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1864](https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-binary-string-alternating)  |  [Minimum Number of Swaps to Make the Binary String Alternating](/solution/1800-1899/1864.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md)  |  `Greedy`  |  Medium  |    |
 |  [1865](https://leetcode.com/problems/finding-pairs-with-a-certain-sum)  |  [Finding Pairs With a Certain Sum](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README_EN.md)  |  `Design`,`Hash Table`,`Ordered Map`  |  Medium  |    |
 |  [1866](https://leetcode.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible)  |  [Number of Ways to Rearrange Sticks With K Sticks Visible](/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
+|  [1867](https://leetcode.com/problems/orders-with-maximum-quantity-above-average)  |  [Orders With Maximum Quantity Above Average](/solution/1800-1899/1867.Orders%20With%20Maximum%20Quantity%20Above%20Average/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

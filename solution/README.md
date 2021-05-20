@@ -1851,9 +1851,9 @@
 |  [1838](https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element)  |  [最高频元素的频数](/solution/1800-1899/1838.Frequency%20of%20the%20Most%20Frequent%20Element/README.md)  |  `贪心算法`  |  中等  |    |
 |  [1839](https://leetcode-cn.com/problems/longest-substring-of-all-vowels-in-order)  |  [所有元音按顺序排布的最长子字符串](/solution/1800-1899/1839.Longest%20Substring%20Of%20All%20Vowels%20in%20Order/README.md)  |  `双指针`,`字符串`  |  中等  |    |
 |  [1840](https://leetcode-cn.com/problems/maximum-building-height)  |  [最高建筑高度](/solution/1800-1899/1840.Maximum%20Building%20Height/README.md)  |  `贪心算法`,`二分查找`  |  困难  |    |
-|  [1841](https://leetcode-cn.com/problems/league-statistics)  |  [League Statistics](/solution/1800-1899/1841.League%20Statistics/README_EN.md)  |    |  中等  |    |
-|  [1842](https://leetcode-cn.com/problems/next-palindrome-using-same-digits)  |  [Next Palindrome Using Same Digits](/solution/1800-1899/1842.Next%20Palindrome%20Using%20Same%20Digits/README_EN.md)  |  `贪心算法`  |  困难  |    |
-|  [1843](https://leetcode-cn.com/problems/suspicious-bank-accounts)  |  [Suspicious Bank Accounts](/solution/1800-1899/1843.Suspicious%20Bank%20Accounts/README_EN.md)  |    |  中等  |    |
+|  [1841](https://leetcode-cn.com/problems/league-statistics)  |  [League Statistics](/solution/1800-1899/1841.League%20Statistics/README_EN.md)  |    |  中等  |  🔒  |
+|  [1842](https://leetcode-cn.com/problems/next-palindrome-using-same-digits)  |  [Next Palindrome Using Same Digits](/solution/1800-1899/1842.Next%20Palindrome%20Using%20Same%20Digits/README_EN.md)  |  `贪心算法`  |  困难  |  🔒  |
+|  [1843](https://leetcode-cn.com/problems/suspicious-bank-accounts)  |  [Suspicious Bank Accounts](/solution/1800-1899/1843.Suspicious%20Bank%20Accounts/README_EN.md)  |    |  中等  |  🔒  |
 |  [1844](https://leetcode-cn.com/problems/replace-all-digits-with-characters)  |  [将所有数字用字符替换](/solution/1800-1899/1844.Replace%20All%20Digits%20with%20Characters/README.md)  |  `字符串`  |  简单  |    |
 |  [1845](https://leetcode-cn.com/problems/seat-reservation-manager)  |  [座位预约管理系统](/solution/1800-1899/1845.Seat%20Reservation%20Manager/README.md)  |  `堆`,`设计`  |  中等  |    |
 |  [1846](https://leetcode-cn.com/problems/maximum-element-after-decreasing-and-rearranging)  |  [减小和重新排列数组后的最大元素](/solution/1800-1899/1846.Maximum%20Element%20After%20Decreasing%20and%20Rearranging/README.md)  |  `贪心算法`,`排序`  |  中等  |    |
@@ -1862,13 +1862,13 @@
 |  [1849](https://leetcode-cn.com/problems/splitting-a-string-into-descending-consecutive-values)  |  [将字符串拆分为递减的连续值](/solution/1800-1899/1849.Splitting%20a%20String%20Into%20Descending%20Consecutive%20Values/README.md)  |  `递归`,`字符串`,`回溯算法`  |  中等  |    |
 |  [1850](https://leetcode-cn.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number)  |  [邻位交换的最小次数](/solution/1800-1899/1850.Minimum%20Adjacent%20Swaps%20to%20Reach%20the%20Kth%20Smallest%20Number/README.md)  |  `贪心算法`,`字符串`  |  中等  |    |
 |  [1851](https://leetcode-cn.com/problems/minimum-interval-to-include-each-query)  |  [包含每个查询的最小区间](/solution/1800-1899/1851.Minimum%20Interval%20to%20Include%20Each%20Query/README.md)  |    |  困难  |    |
-|  [1852](https://leetcode-cn.com/problems/distinct-numbers-in-each-subarray)  |  [Distinct Numbers in Each Subarray](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README_EN.md)  |  `数组`,`哈希表`  |  中等  |    |
+|  [1852](https://leetcode-cn.com/problems/distinct-numbers-in-each-subarray)  |  [Distinct Numbers in Each Subarray](/solution/1800-1899/1852.Distinct%20Numbers%20in%20Each%20Subarray/README_EN.md)  |  `数组`,`哈希表`  |  中等  |  🔒  |
 |  [1853](https://leetcode-cn.com/problems/convert-date-format)  |  [Convert Date Format](/solution/1800-1899/1853.Convert%20Date%20Format/README_EN.md)  |    |  简单  |  🔒  |
 |  [1854](https://leetcode-cn.com/problems/maximum-population-year)  |  [人口最多的年份](/solution/1800-1899/1854.Maximum%20Population%20Year/README.md)  |  `数组`  |  简单  |    |
 |  [1855](https://leetcode-cn.com/problems/maximum-distance-between-a-pair-of-values)  |  [下标对中的最大距离](/solution/1800-1899/1855.Maximum%20Distance%20Between%20a%20Pair%20of%20Values/README.md)  |  `贪心算法`,`双指针`,`二分查找`  |  中等  |    |
 |  [1856](https://leetcode-cn.com/problems/maximum-subarray-min-product)  |  [子数组最小乘积的最大值](/solution/1800-1899/1856.Maximum%20Subarray%20Min-Product/README.md)  |  `排序`,`并查集`,`队列`,`二分查找`,`动态规划`  |  中等  |    |
 |  [1857](https://leetcode-cn.com/problems/largest-color-value-in-a-directed-graph)  |  [有向图中最大颜色值](/solution/1800-1899/1857.Largest%20Color%20Value%20in%20a%20Directed%20Graph/README.md)  |  `拓扑排序`,`动态规划`  |  困难  |    |
-|  [1858](https://leetcode-cn.com/problems/longest-word-with-all-prefixes)  |  [Longest Word With All Prefixes](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)  |  `深度优先搜索`,`字典树`,`哈希表`  |  中等  |    |
+|  [1858](https://leetcode-cn.com/problems/longest-word-with-all-prefixes)  |  [Longest Word With All Prefixes](/solution/1800-1899/1858.Longest%20Word%20With%20All%20Prefixes/README_EN.md)  |  `深度优先搜索`,`字典树`,`哈希表`  |  中等  |  🔒  |
 |  [1859](https://leetcode-cn.com/problems/sorting-the-sentence)  |  [将句子排序](/solution/1800-1899/1859.Sorting%20the%20Sentence/README.md)  |  `排序`,`字符串`  |  简单  |    |
 |  [1860](https://leetcode-cn.com/problems/incremental-memory-leak)  |  [增长的内存泄露](/solution/1800-1899/1860.Incremental%20Memory%20Leak/README.md)  |  `数学`  |  中等  |    |
 |  [1861](https://leetcode-cn.com/problems/rotating-the-box)  |  [旋转盒子](/solution/1800-1899/1861.Rotating%20the%20Box/README.md)  |  `数组`,`双指针`  |  中等  |    |
@@ -1877,6 +1877,7 @@
 |  [1864](https://leetcode-cn.com/problems/minimum-number-of-swaps-to-make-the-binary-string-alternating)  |  [构成交替字符串需要的最小交换次数](/solution/1800-1899/1864.Minimum%20Number%20of%20Swaps%20to%20Make%20the%20Binary%20String%20Alternating/README.md)  |  `贪心算法`  |  中等  |    |
 |  [1865](https://leetcode-cn.com/problems/finding-pairs-with-a-certain-sum)  |  [找出和为指定值的下标对](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README.md)  |  `设计`,`哈希表`  |  中等  |    |
 |  [1866](https://leetcode-cn.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible)  |  [恰有 K 根木棍可以看到的排列数目](/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README.md)  |  `动态规划`  |  困难  |    |
+|  [1867](https://leetcode-cn.com/problems/orders-with-maximum-quantity-above-average)  |  [Orders With Maximum Quantity Above Average](/solution/1800-1899/1867.Orders%20With%20Maximum%20Quantity%20Above%20Average/README_EN.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
