@@ -76,7 +76,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def subsetXORSum(self, nums: List[int]) -> int:
+        def dfs(nums, depth, prev):
+            self.res += prev
+            for num in nums[depth:]:
+                prev ^= num
+                depth += 1
+                dfs(nums, depth, prev)
+                prev ^= num
 
+        self.res = 0
+        dfs(nums, 0, 0)
+        return self.res
 ```
 
 ### **Java**
@@ -84,7 +96,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int res;
 
+    public int subsetXORSum(int[] nums) {
+        dfs(nums, 0, 0);
+        return res;
+    }
+
+    private void dfs(int[] nums, int depth, int prev) {
+        res += prev;
+        for (int i = depth; i < nums.length; ++i) {
+            prev ^= nums[i];
+            dfs(nums, ++depth, prev);
+            prev ^= nums[i];
+        }
+    }
+}
 ```
 
 ### **JavaScript**
