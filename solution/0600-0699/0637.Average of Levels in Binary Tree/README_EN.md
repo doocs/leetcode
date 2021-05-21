@@ -38,13 +38,70 @@ Hence return [3, 14.5, 11].
 ### **Python3**
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def averageOfLevels(self, root: TreeNode) -> List[float]:
+        res = []
+        q = collections.deque([root])
+        while q:
+            n = len(q)
+            s = 0
+            for _ in range(n):
+                node = q.popleft()
+                s += node.val
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            res.append(s / n)
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> res = new ArrayList<>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            double s = 0, n = q.size();
+            for (int i = 0; i < n; ++i) {
+                TreeNode node = q.poll();
+                s += node.val;
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
+            }
+            res.add(s / n);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
