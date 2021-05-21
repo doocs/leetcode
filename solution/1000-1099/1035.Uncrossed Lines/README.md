@@ -52,6 +52,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+最长公共子序列问题
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +61,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxUncrossedLines(self, nums1: List[int], nums2: List[int]) -> int:
+        m, n = len(nums1), len(nums2)
+        dp = [[0] * (n + 1) for i in range(m + 1)]
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if nums1[i - 1] == nums2[j - 1]:
+                    dp[i][j] = dp[i - 1][j - 1] + 1
+                else:
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+        return dp[m][n]
 ```
 
 ### **Java**
@@ -67,7 +79,45 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxUncrossedLines(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (nums1[i - 1] == nums2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[m][n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
+        int m = nums1.size(), n = nums2.size();
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (nums1[i - 1] == nums2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[m][n];
+    }
+};
 ```
 
 ### **...**
