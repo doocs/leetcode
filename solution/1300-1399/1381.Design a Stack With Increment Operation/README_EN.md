@@ -92,13 +92,70 @@ customStack.pop();                            // return -1 --&gt; Stack is empty
 ### **Python3**
 
 ```python
+class CustomStack:
 
+    def __init__(self, maxSize: int):
+        self.s = [0] * maxSize
+        self.tail = 0
+
+    def push(self, x: int) -> None:
+        if self.tail < len(self.s):
+            self.s[self.tail] = x
+            self.tail += 1
+
+    def pop(self) -> int:
+        if self.tail == 0:
+            return -1
+        self.tail -= 1
+        return self.s[self.tail]
+
+    def increment(self, k: int, val: int) -> None:
+        for i in range(min(k, self.tail)):
+            self.s[i] += val
+
+
+# Your CustomStack object will be instantiated and called as such:
+# obj = CustomStack(maxSize)
+# obj.push(x)
+# param_2 = obj.pop()
+# obj.increment(k,val)
 ```
 
 ### **Java**
 
 ```java
+class CustomStack {
+    private int[] s;
+    private int tail;
 
+    public CustomStack(int maxSize) {
+        s = new int[maxSize];
+    }
+    
+    public void push(int x) {
+        if (tail < s.length) {
+            s[tail++] = x;
+        }
+    }
+    
+    public int pop() {
+        return tail == 0 ? -1 : s[--tail];
+    }
+    
+    public void increment(int k, int val) {
+        for (int i = 0; i < Math.min(k, tail); ++i) {
+            s[i] += val;
+        }
+    }
+}
+
+/**
+ * Your CustomStack object will be instantiated and called as such:
+ * CustomStack obj = new CustomStack(maxSize);
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * obj.increment(k,val);
+ */
 ```
 
 ### **...**
