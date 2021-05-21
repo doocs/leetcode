@@ -36,8 +36,8 @@ findMedian() -&gt; 2
 <!-- 这里可写通用的实现逻辑 -->
 
 - 创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
-- 添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多 1）；若不等，放入大根堆（使得大小根堆元素个数相等）
-- 取中位数时，若两堆元素个数相等，取两堆顶求平均值；若不等，取小根堆堆顶。
+- 添加元素时，先放入小根堆，然后将小根堆对顶元素弹出并放入大根堆（使得大根堆个数多 1）；若大小根堆元素个数差超过 1，则将大根堆元素弹出放入小根堆。
+- 取中位数时，若大根堆元素较多，取大根堆堆顶，否则取两堆顶元素和的平均值。
 
 <!-- tabs:start -->
 
@@ -52,18 +52,19 @@ class MedianFinder:
         """
         initialize your data structure here.
         """
-        self.max_heap = []
         self.min_heap = []
-
+        self.max_heap = []
 
     def addNum(self, num: int) -> None:
-        if len(self.max_heap) == len(self.min_heap):
-            heapq.heappush(self.min_heap, -heapq.heappushpop(self.max_heap, -num))
-        else:
-            heapq.heappush(self.max_heap, -heapq.heappushpop(self.min_heap, num))
+        heapq.heappush(self.min_heap, num)
+        heapq.heappush(self.max_heap, -heapq.heappop(self.min_heap))
+        if len(self.max_heap) - len(self.min_heap) > 1:
+            heapq.heappush(self.min_heap, -heapq.heappop(self.max_heap))
 
     def findMedian(self) -> float:
-        return (-self.max_heap[0] + self.min_heap[0]) / 2 if len(self.max_heap) == len(self.min_heap) else self.min_heap[0]
+        if len(self.max_heap) > len(self.min_heap):
+            return -self.max_heap[0]
+        return (self.min_heap[0] - self.max_heap[0]) / 2
 
 
 # Your MedianFinder object will be instantiated and called as such:
@@ -78,27 +79,28 @@ class MedianFinder:
 
 ```java
 class MedianFinder {
-    private Queue<Integer> minHeap;
-    private Queue<Integer> maxHeap;
+    private PriorityQueue<Integer> minHeap;
+    private PriorityQueue<Integer> maxHeap;
 
     /** initialize your data structure here. */
     public MedianFinder() {
         minHeap = new PriorityQueue<>();
-        maxHeap = new PriorityQueue<>((a, b) -> b - a);
+        maxHeap = new PriorityQueue<>(Collections.reverseOrder());
     }
 
     public void addNum(int num) {
-        if (minHeap.size() == maxHeap.size()) {
-            maxHeap.offer(num);
+        minHeap.offer(num);
+        maxHeap.offer(minHeap.poll());
+        if (maxHeap.size() - minHeap.size() > 1) {
             minHeap.offer(maxHeap.poll());
-        } else {
-            minHeap.offer(num);
-            maxHeap.offer(minHeap.poll());
         }
     }
 
     public double findMedian() {
-        return minHeap.size() == maxHeap.size() ? (minHeap.peek() + maxHeap.peek()) / 2.0 : minHeap.peek();
+        if (maxHeap.size() > minHeap.size()) {
+            return maxHeap.peek();
+        }
+        return (minHeap.peek() + maxHeap.peek()) * 1.0 / 2;
     }
 }
 

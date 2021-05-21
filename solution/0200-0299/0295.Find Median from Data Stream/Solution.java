@@ -1,42 +1,32 @@
 class MedianFinder {
-
-    private PriorityQueue<Integer> bigRoot;
-    private PriorityQueue<Integer> smallRoot;
+    private PriorityQueue<Integer> minHeap;
+    private PriorityQueue<Integer> maxHeap;
 
     /** initialize your data structure here. */
     public MedianFinder() {
-        bigRoot = new PriorityQueue<>(Comparator.reverseOrder());
-        smallRoot = new PriorityQueue<>(Integer::compareTo);
+        minHeap = new PriorityQueue<>();
+        maxHeap = new PriorityQueue<>(Collections.reverseOrder());
     }
-
+    
     public void addNum(int num) {
-        if (bigRoot.isEmpty() || bigRoot.peek() > num) {
-            bigRoot.offer(num);
-        } else {
-            smallRoot.offer(num);
-        }
-
-        int size1 = bigRoot.size();
-        int size2 = smallRoot.size();
-        if (size1 - size2 > 1) {
-            smallRoot.offer(bigRoot.poll());
-        } else if (size2 - size1 > 1) {
-            bigRoot.offer(smallRoot.poll());
+        minHeap.offer(num);
+        maxHeap.offer(minHeap.poll());
+        if (maxHeap.size() - minHeap.size() > 1) {
+            minHeap.offer(maxHeap.poll());
         }
     }
-
+    
     public double findMedian() {
-        int size1 = bigRoot.size();
-        int size2 = smallRoot.size();
-
-        return size1 == size2 ? (bigRoot.peek() + smallRoot.peek()) * 1.0 / 2
-                : (size1 > size2 ? bigRoot.peek() : smallRoot.peek());
+        if (maxHeap.size() > minHeap.size()) {
+            return maxHeap.peek();
+        }
+        return (minHeap.peek() + maxHeap.peek()) * 1.0 / 2;
     }
 }
 
 /**
  * Your MedianFinder object will be instantiated and called as such:
- * MedianFinder obj = new MedianFinder(); 
- * obj.addNum(num); 
+ * MedianFinder obj = new MedianFinder();
+ * obj.addNum(num);
  * double param_2 = obj.findMedian();
  */
