@@ -52,6 +52,8 @@ circularQueue.Rear(); &nbsp;// 返回 4</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+“循环数组”实现。
+
 <!-- tabs:start -->
 
 ### **Python3**

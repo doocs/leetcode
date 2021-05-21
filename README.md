@@ -178,6 +178,8 @@
 - [LRU 缓存机制](/solution/0100-0199/0146.Lru%20Cache/README.md)
 - [实现 Trie (前缀树)](/solution/0200-0299/0208.Implement%20Trie%20%28Prefix%20Tree%29/README.md)
 - [实现 Trie （前缀树） II](/solution/1800-1899/1804.Implement%20Trie%20II%20%28Prefix%20Tree%29/README.md)
+- [设计循环队列](/solution/0600-0699/0622.Design%20Circular%20Queue/README.md)
+- [设计循环双端队列](/solution/0600-0699/0641.Design%20Circular%20Deque/README.md)
 - [设计哈希集合](/solution/0700-0799/0705.Design%20HashSet/README.md)
 - [设计哈希映射](/solution/0700-0799/0706.Design%20HashMap/README.md)
 
