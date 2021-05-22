@@ -58,13 +58,67 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        s = set()
+        for num in nums:
+            if num in s:
+                return num
+            s.add(num)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int repeatedNTimes(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (s.contains(num)) {
+                return num;
+            }
+            s.add(num);
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& nums) {
+        unordered_set<int> s;
+        for (auto &num : nums) {
+            if (s.find(num) != s.end()) {
+                return num;
+            }
+            s.insert(num);
+        }
+        return -1;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var repeatedNTimes = function(nums) {
+    const s = new Set();
+    for (const num of nums) {
+        if (s.has(num)) {
+            return num;
+        }
+        s.add(num);
+    }
+    return -1;
+};
 ```
 
 ### **...**

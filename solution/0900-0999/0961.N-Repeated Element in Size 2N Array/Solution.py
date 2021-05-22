@@ -1,17 +1,7 @@
 class Solution:
-    def repeatedNTimes(self, A):
-        """
-        :type A: List[int]
-        :rtype: int
-        """
-        if A[0] == A[1] or A[0] == A[2] or A[0] == A[3]:
-            return A[0]
-        elif A[1] == A[2] or A[1] == A[3]:
-            return A[1]
-        elif A[2] == A[3]:
-            return A[2]
-        i = 4
-        while i < len(A):
-            if A[i] == A[i + 1]:
-                return A[i]
-            i += 2
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        s = set()
+        for num in nums:
+            if num in s:
+                return num
+            s.add(num)

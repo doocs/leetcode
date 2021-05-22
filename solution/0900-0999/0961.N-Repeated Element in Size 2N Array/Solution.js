@@ -1,10 +1,14 @@
-const repeatedNTimes = function (A) {
-  let ss = new Set();
-  for (let i = 0; i < A.length; i++) {
-    if (ss.has(A[i])) {
-      return A[i];
-    }
-    ss.add(A[i]);
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+ var repeatedNTimes = function(nums) {
+  const s = new Set();
+  for (const num of nums) {
+      if (s.has(num)) {
+          return num;
+      }
+      s.add(num);
   }
-  return null;
+  return -1;
 };

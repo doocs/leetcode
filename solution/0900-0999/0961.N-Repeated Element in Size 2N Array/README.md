@@ -51,6 +51,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+长度为 `2N`，共 `N+1` 个不同元素，其中一个元素出现 `N` 次，说明其它元素各不相同。
+
+遍历数组，只要出现重复元素，它就是我们要找的重复 `N` 次的元素。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +62,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def repeatedNTimes(self, nums: List[int]) -> int:
+        s = set()
+        for num in nums:
+            if num in s:
+                return num
+            s.add(num)
 ```
 
 ### **Java**
@@ -66,7 +76,55 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int repeatedNTimes(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (s.contains(num)) {
+                return num;
+            }
+            s.add(num);
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& nums) {
+        unordered_set<int> s;
+        for (auto &num : nums) {
+            if (s.find(num) != s.end()) {
+                return num;
+            }
+            s.insert(num);
+        }
+        return -1;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var repeatedNTimes = function(nums) {
+    const s = new Set();
+    for (const num of nums) {
+        if (s.has(num)) {
+            return num;
+        }
+        s.add(num);
+    }
+    return -1;
+};
 ```
 
 ### **...**
