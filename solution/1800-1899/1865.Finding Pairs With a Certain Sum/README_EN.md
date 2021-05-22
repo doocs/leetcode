@@ -54,7 +54,6 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 	<li>At most <code>1000</code> calls are made to <code>add</code> and <code>count</code> <strong>each</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -62,13 +61,67 @@ findSumPairs.count(7);  // return 11; pairs (2,1), (2,2), (2,4), (3,1), (3,2), (
 ### **Python3**
 
 ```python
+class FindSumPairs:
 
+    def __init__(self, nums1: List[int], nums2: List[int]):
+        self.nums1 = nums1
+        self.nums2 = nums2
+        self.counter = collections.Counter(nums2)
+
+    def add(self, index: int, val: int) -> None:
+        old_val = self.nums2[index]
+        self.counter[old_val] -= 1
+        self.nums2[index] += val
+        self.counter[old_val + val] += 1
+
+    def count(self, tot: int) -> int:
+        return sum([self.counter[tot - num] for num in self.nums1])
+
+# Your FindSumPairs object will be instantiated and called as such:
+# obj = FindSumPairs(nums1, nums2)
+# obj.add(index,val)
+# param_2 = obj.count(tot)
 ```
 
 ### **Java**
 
 ```java
+class FindSumPairs {
+    private int[] nums1;
+    private int[] nums2;
+    private Map<Integer, Integer> counter;
 
+    public FindSumPairs(int[] nums1, int[] nums2) {
+        this.nums1 = nums1;
+        this.nums2 = nums2;
+        counter = new HashMap<>();
+        for (int num : nums2) {
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        }
+    }
+
+    public void add(int index, int val) {
+        int oldVal = nums2[index];
+        counter.put(oldVal, counter.get(oldVal) - 1);
+        nums2[index] += val;
+        counter.put(oldVal + val, counter.getOrDefault(oldVal + val, 0) + 1);
+    }
+
+    public int count(int tot) {
+        int res = 0;
+        for (int num : nums1) {
+            res += counter.getOrDefault(tot - num, 0);
+        }
+        return res;
+    }
+}
+
+/**
+ * Your FindSumPairs object will be instantiated and called as such:
+ * FindSumPairs obj = new FindSumPairs(nums1, nums2);
+ * obj.add(index,val);
+ * int param_2 = obj.count(tot);
+ */
 ```
 
 ### **...**
