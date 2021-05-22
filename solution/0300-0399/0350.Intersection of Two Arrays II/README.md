@@ -43,6 +43,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+“哈希表”实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,7 +52,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        counter = collections.Counter(nums1)
+        res = []
+        for num in nums2:
+            if counter[num] > 0:
+                res.append(num)
+                counter[num] -= 1
+        return res
 ```
 
 ### **Java**
@@ -58,7 +68,52 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums1) {
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        }
+        List<Integer> intersection = new ArrayList<>();
+        for (int num : nums2) {
+            int val = counter.getOrDefault(num, 0);
+            if (val > 0) {
+                intersection.add(num);
+                counter.put(num, val - 1);
+            }
+        }
+        int i = 0;
+        int[] res = new int[intersection.size()];
+        for (int num : intersection) {
+            res[i++] = num;
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersect = function(nums1, nums2) {
+    const counter = {};
+    for (const num of nums1) {
+        counter[num] = (counter[num] || 0) + 1;
+    }
+    let res = [];
+    for (const num of nums2) {
+        if (counter[num] > 0) {
+            res.push(num);
+            counter[num] -= 1;
+        }
+    }
+    return res;
+};
 ```
 
 ### **...**

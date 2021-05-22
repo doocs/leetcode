@@ -46,7 +46,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0035](https://leetcode.com/problems/search-insert-position)  |  [Search Insert Position](/solution/0000-0099/0035.Search%20Insert%20Position/README_EN.md)  |  `Array`,`Binary Search`  |  Easy  |    |
 |  [0036](https://leetcode.com/problems/valid-sudoku)  |  [Valid Sudoku](/solution/0000-0099/0036.Valid%20Sudoku/README_EN.md)  |  `Hash Table`  |  Medium  |    |
 |  [0037](https://leetcode.com/problems/sudoku-solver)  |  [Sudoku Solver](/solution/0000-0099/0037.Sudoku%20Solver/README_EN.md)  |  `Hash Table`,`Backtracking`  |  Hard  |    |
-|  [0038](https://leetcode.com/problems/count-and-say)  |  [Count and Say](/solution/0000-0099/0038.Count%20and%20Say/README_EN.md)  |  `String`  |  Easy  |    |
+|  [0038](https://leetcode.com/problems/count-and-say)  |  [Count and Say](/solution/0000-0099/0038.Count%20and%20Say/README_EN.md)  |  `String`  |  Medium  |    |
 |  [0039](https://leetcode.com/problems/combination-sum)  |  [Combination Sum](/solution/0000-0099/0039.Combination%20Sum/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |    |
 |  [0040](https://leetcode.com/problems/combination-sum-ii)  |  [Combination Sum II](/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md)  |  `Array`,`Backtracking`  |  Medium  |    |
 |  [0041](https://leetcode.com/problems/first-missing-positive)  |  [First Missing Positive](/solution/0000-0099/0041.First%20Missing%20Positive/README_EN.md)  |  `Array`  |  Hard  |    |
@@ -152,7 +152,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0141](https://leetcode.com/problems/linked-list-cycle)  |  [Linked List Cycle](/solution/0100-0199/0141.Linked%20List%20Cycle/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Easy  |    |
 |  [0142](https://leetcode.com/problems/linked-list-cycle-ii)  |  [Linked List Cycle II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README_EN.md)  |  `Linked List`,`Two Pointers`  |  Medium  |    |
 |  [0143](https://leetcode.com/problems/reorder-list)  |  [Reorder List](/solution/0100-0199/0143.Reorder%20List/README_EN.md)  |  `Linked List`  |  Medium  |    |
-|  [0144](https://leetcode.com/problems/binary-tree-preorder-traversal)  |  [Binary Tree Preorder Traversal](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Medium  |    |
+|  [0144](https://leetcode.com/problems/binary-tree-preorder-traversal)  |  [Binary Tree Preorder Traversal](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Easy  |    |
 |  [0145](https://leetcode.com/problems/binary-tree-postorder-traversal)  |  [Binary Tree Postorder Traversal](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README_EN.md)  |  `Stack`,`Tree`  |  Easy  |    |
 |  [0146](https://leetcode.com/problems/lru-cache)  |  [LRU Cache](/solution/0100-0199/0146.LRU%20Cache/README_EN.md)  |  `Design`  |  Medium  |    |
 |  [0147](https://leetcode.com/problems/insertion-sort-list)  |  [Insertion Sort List](/solution/0100-0199/0147.Insertion%20Sort%20List/README_EN.md)  |  `Sort`,`Linked List`  |  Medium  |    |

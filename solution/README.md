@@ -48,7 +48,7 @@
 |  [0035](https://leetcode-cn.com/problems/search-insert-position)  |  [搜索插入位置](/solution/0000-0099/0035.Search%20Insert%20Position/README.md)  |  `数组`,`二分查找`  |  简单  |    |
 |  [0036](https://leetcode-cn.com/problems/valid-sudoku)  |  [有效的数独](/solution/0000-0099/0036.Valid%20Sudoku/README.md)  |  `哈希表`  |  中等  |    |
 |  [0037](https://leetcode-cn.com/problems/sudoku-solver)  |  [解数独](/solution/0000-0099/0037.Sudoku%20Solver/README.md)  |  `哈希表`,`回溯算法`  |  困难  |    |
-|  [0038](https://leetcode-cn.com/problems/count-and-say)  |  [外观数列](/solution/0000-0099/0038.Count%20and%20Say/README.md)  |  `字符串`  |  简单  |    |
+|  [0038](https://leetcode-cn.com/problems/count-and-say)  |  [外观数列](/solution/0000-0099/0038.Count%20and%20Say/README.md)  |  `字符串`  |  中等  |    |
 |  [0039](https://leetcode-cn.com/problems/combination-sum)  |  [组合总和](/solution/0000-0099/0039.Combination%20Sum/README.md)  |  `数组`,`回溯算法`  |  中等  |    |
 |  [0040](https://leetcode-cn.com/problems/combination-sum-ii)  |  [组合总和 II](/solution/0000-0099/0040.Combination%20Sum%20II/README.md)  |  `数组`,`回溯算法`  |  中等  |    |
 |  [0041](https://leetcode-cn.com/problems/first-missing-positive)  |  [缺失的第一个正数](/solution/0000-0099/0041.First%20Missing%20Positive/README.md)  |  `数组`  |  困难  |    |
@@ -154,7 +154,7 @@
 |  [0141](https://leetcode-cn.com/problems/linked-list-cycle)  |  [环形链表](/solution/0100-0199/0141.Linked%20List%20Cycle/README.md)  |  `链表`,`双指针`  |  简单  |    |
 |  [0142](https://leetcode-cn.com/problems/linked-list-cycle-ii)  |  [环形链表 II](/solution/0100-0199/0142.Linked%20List%20Cycle%20II/README.md)  |  `链表`,`双指针`  |  中等  |    |
 |  [0143](https://leetcode-cn.com/problems/reorder-list)  |  [重排链表](/solution/0100-0199/0143.Reorder%20List/README.md)  |  `链表`  |  中等  |    |
-|  [0144](https://leetcode-cn.com/problems/binary-tree-preorder-traversal)  |  [二叉树的前序遍历](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README.md)  |  `栈`,`树`  |  中等  |    |
+|  [0144](https://leetcode-cn.com/problems/binary-tree-preorder-traversal)  |  [二叉树的前序遍历](/solution/0100-0199/0144.Binary%20Tree%20Preorder%20Traversal/README.md)  |  `栈`,`树`  |  简单  |    |
 |  [0145](https://leetcode-cn.com/problems/binary-tree-postorder-traversal)  |  [二叉树的后序遍历](/solution/0100-0199/0145.Binary%20Tree%20Postorder%20Traversal/README.md)  |  `栈`,`树`  |  简单  |    |
 |  [0146](https://leetcode-cn.com/problems/lru-cache)  |  [LRU 缓存机制](/solution/0100-0199/0146.LRU%20Cache/README.md)  |  `设计`  |  中等  |    |
 |  [0147](https://leetcode-cn.com/problems/insertion-sort-list)  |  [对链表进行插入排序](/solution/0100-0199/0147.Insertion%20Sort%20List/README.md)  |  `排序`,`链表`  |  中等  |    |

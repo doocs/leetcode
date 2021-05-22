@@ -40,8 +40,12 @@
 ```python
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        s1, s2 = set(nums1), set(nums2)
-        return list(s1 & s2)
+        s = set(nums1)
+        res = set()
+        for num in nums2:
+            if num in s:
+                res.add(num)
+        return list(res)
 ```
 
 ### **Java**
@@ -49,25 +53,47 @@ class Solution:
 ```java
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-        Set<Integer> s1 = transfer(nums1);
-        Set<Integer> s2 = transfer(nums2);
-        s1.retainAll(s2);
-        int[] output = new int[s1.size()];
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums1) {
+            s.add(num);
+        }
+        Set<Integer> res = new HashSet<>();
+        for (int num : nums2) {
+            if (s.contains(num)) {
+                res.add(num);
+            }
+        }
+        int[] output = new int[res.size()];
         int i = 0;
-        for (Integer e : s1) {
-            output[i++] = e;
+        for (int num : res) {
+            output[i++] = num;
         }
         return output;
     }
-
-    private Set<Integer> transfer(int[] nums) {
-        Set<Integer> s = new HashSet<>();
-        for (int e : nums) {
-            s.add(e);
-        }
-        return s;
-    }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+    const s = new Set();
+    for (const num of nums1) {
+        s.add(num);
+    }
+    let res = new Set();
+    for (const num of nums2) {
+        if (s.has(num)) {
+            res.add(num);
+        }
+    }
+    return [...res];
+};
 ```
 
 ### **...**
