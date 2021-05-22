@@ -58,7 +58,6 @@
 	<li>All the pairs <code>(x<sub>i</sub>,<sub>&nbsp;</sub>y<sub>i</sub>)</code> are <strong>distinct</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -66,13 +65,39 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def areSentencesSimilar(self, sentence1: List[str], sentence2: List[str], similarPairs: List[List[str]]) -> bool:
+        if len(sentence1) != len(sentence2):
+            return False
+        pairs = {(word1, word2) for word1, word2 in similarPairs}
+        for i in range(len(sentence1)):
+            similar = (sentence1[i], sentence2[i]) in pairs or (sentence2[i], sentence1[i]) in pairs or sentence1[i] == sentence2[i]
+            if not similar:
+                return False
+        return True
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean areSentencesSimilar(String[] sentence1, String[] sentence2, List<List<String>> similarPairs) {
+        if (sentence1.length != sentence2.length) {
+            return false;
+        }
+        Set<String> pairs = new HashSet<>();
+        for (List<String> pair : similarPairs) {
+            pairs.add(pair.get(0) + "." + pair.get(1));
+        }
+        for (int i = 0; i < sentence1.length; ++i) {
+            boolean similar =  pairs.contains(sentence1[i] + "." + sentence2[i]) || pairs.contains(sentence2[i] + "." + sentence1[i]) || sentence1[i].equals(sentence2[i]);
+            if (!similar) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
