@@ -56,7 +56,6 @@
 	<li><code>1 &lt;= phrases[i].length &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -64,13 +63,61 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def beforeAndAfterPuzzles(self, phrases: List[str]) -> List[str]:
+        same_first_word = collections.defaultdict(set)
+        for i, phrase in enumerate(phrases):
+            same_first_word[phrase.split()[0]].add(i)
+        res = set()
+        for i, phrase in enumerate(phrases):
+            words = phrase.split()
+            last_word = words[-1]
+            if last_word in same_first_word:
+                for j in same_first_word[last_word]:
+                    if i != j:
+                        res.add(' '.join(words[:-1] + phrases[j].split()))
+        return sorted(list(res))
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public List<String> beforeAndAfterPuzzles(String[] phrases) {
+        Map<String, Set<Integer>> sameFirstWord = new HashMap<>();
+        for (int i = 0; i < phrases.length; ++i) {
+            String phrase = phrases[i];
+            String word = phrase.split(" ")[0];
+            if (!sameFirstWord.containsKey(word)) {
+                sameFirstWord.put(word, new HashSet<>());
+            }
+            sameFirstWord.get(word).add(i);
+        }
+        Set<String> res = new HashSet<>();
+        for (int i = 0; i < phrases.length; ++i) {
+            String phrase = phrases[i];
+            String[] words = phrase.split(" ");
+            String lastWord = words[words.length - 1];
+            if (sameFirstWord.containsKey(lastWord)) {
+                for (int j : sameFirstWord.get(lastWord)) {
+                    if (i != j) {
+                        List<String> t = new ArrayList<>();
+                        for (int k = 0; k < words.length - 1; ++k) {
+                            t.add(words[k]);
+                        }
+                        for (String word : phrases[j].split(" ")) {
+                            t.add(word);
+                        }
+                        res.add(String.join(" ", t));
+                    }
+                }
+            }
+        }
+        List<String> output = new ArrayList<>(res);
+        Collections.sort(output);
+        return output;
+    }
+}
 ```
 
 ### **...**
