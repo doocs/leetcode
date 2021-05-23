@@ -68,6 +68,8 @@
 
 二分法。
 
+以“二分法”方式枚举速度值，找到满足条件的最小速度。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -104,7 +106,7 @@ class Solution {
         if (dist.length - 1 >= hour) {
             return -1;
         }
-        int l = 0, r = 10000000;
+        int l = 1, r = 10000000;
         while (l < r) {
             int m = (l + r) >> 1;
             if (arriveOnTime(dist, m, hour)) {

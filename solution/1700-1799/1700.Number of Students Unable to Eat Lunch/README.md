@@ -53,10 +53,13 @@
 	<li><code>students[i]</code> 要么是 <code>0</code> ，要么是 <code>1</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+学生位置可调整，而三明治位置不可调整。也就是说，若前面的三明治没被拿走，则往后的所有三明治也无法被拿走。
+
+因此，先用计数器 counter 统计学生喜欢的三明治种类和对应的数量，然后遍历三明治，若在 counter 中找不到喜欢此三明治的学生，说明已经找到答案，当前以及往后的三明治均无法被拿走，数量为 `n - i`。
 
 <!-- tabs:start -->
 
@@ -65,7 +68,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        counter = collections.Counter(students)
+        for i, sandwich in enumerate(sandwiches):
+            if counter[sandwich] == 0:
+                return len(students) - i
+            counter[sandwich] -= 1
+        return 0
 ```
 
 ### **Java**
@@ -73,7 +83,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+        int[] counter = new int[2];
+        for (int i : students) {
+            counter[i] += 1;
+        }
+        for (int i = 0; i < sandwiches.length; ++i) {
+            if (counter[sandwiches[i]] == 0) {
+                return sandwiches.length - i;
+            }
+            counter[sandwiches[i]] -= 1;
+        }
+        return 0;
+    }
+}
 ```
 
 ### **...**

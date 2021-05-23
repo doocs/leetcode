@@ -94,7 +94,7 @@ class Solution {
         if (dist.length - 1 >= hour) {
             return -1;
         }
-        int l = 0, r = 10000000;
+        int l = 1, r = 10000000;
         while (l < r) {
             int m = (l + r) >> 1;
             if (arriveOnTime(dist, m, hour)) {

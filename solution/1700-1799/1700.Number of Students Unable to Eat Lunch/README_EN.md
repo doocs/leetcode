@@ -52,7 +52,6 @@ Hence all students are able to eat.
 	<li><code>students[i]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -60,13 +59,34 @@ Hence all students are able to eat.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        counter = collections.Counter(students)
+        for i, sandwich in enumerate(sandwiches):
+            if counter[sandwich] == 0:
+                return len(students) - i
+            counter[sandwich] -= 1
+        return 0
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int countStudents(int[] students, int[] sandwiches) {
+        int[] counter = new int[2];
+        for (int i : students) {
+            counter[i] += 1;
+        }
+        for (int i = 0; i < sandwiches.length; ++i) {
+            if (counter[sandwiches[i]] == 0) {
+                return sandwiches.length - i;
+            }
+            counter[sandwiches[i]] -= 1;
+        }
+        return 0;
+    }
+}
 ```
 
 ### **...**
