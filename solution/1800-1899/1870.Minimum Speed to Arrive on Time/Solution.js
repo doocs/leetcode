@@ -4,10 +4,10 @@
  * @return {number}
  */
  var minSpeedOnTime = function(dist, hour) {
-    if(dist.length > Math.ceil(hour)) return -1;
+    if (dist.length > Math.ceil(hour)) return -1;
     let left = 1, right = 10 ** 7;
     while (left < right) {
-        let mid = parseInt((left + right) >> 1);
+        let mid = (left + right) >> 1;
         if (arriveOnTime(dist, mid, hour)) {
             right = mid;
         } else {
