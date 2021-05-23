@@ -54,10 +54,11 @@
 	<li><code>arrival<sub>i </sub><= arrival<sub>i+1</sub></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+记 totalWaitingTime 表示总等待时间，f 表示当次做菜完成时间。
 
 <!-- tabs:start -->
 
@@ -66,7 +67,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def averageWaitingTime(self, customers: List[List[int]]) -> float:
+        f = total_waiting_time = 0
+        for arrival, time in customers:
+            f = max(arrival, f) + time
+            total_waiting_time += (f - arrival)
+        return total_waiting_time / len(customers)
 ```
 
 ### **Java**
@@ -74,7 +81,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public double averageWaitingTime(int[][] customers) {
+        int f = 0;
+        double totalWaitingTime = 0;
+        for (int[] customer : customers) {
+            f = Math.max(f, customer[0]) + customer[1];
+            totalWaitingTime += (f - customer[0]);
+        }
+        return totalWaitingTime / customers.length;
+    }
+}
 ```
 
 ### **...**

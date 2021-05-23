@@ -50,7 +50,6 @@ So the average waiting time = (2 + 6 + 4 + 1) / 4 = 3.25.
 	<li><code>arrival<sub>i&nbsp;</sub>&lt;= arrival<sub>i+1</sub></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -58,13 +57,29 @@ So the average waiting time = (2 + 6 + 4 + 1) / 4 = 3.25.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def averageWaitingTime(self, customers: List[List[int]]) -> float:
+        f = total_waiting_time = 0
+        for arrival, time in customers:
+            f = max(arrival, f) + time
+            total_waiting_time += (f - arrival)
+        return total_waiting_time / len(customers)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public double averageWaitingTime(int[][] customers) {
+        int f = 0;
+        double totalWaitingTime = 0;
+        for (int[] customer : customers) {
+            f = Math.max(f, customer[0]) + customer[1];
+            totalWaitingTime += (f - customer[0]);
+        }
+        return totalWaitingTime / customers.length;
+    }
+}
 ```
 
 ### **...**
