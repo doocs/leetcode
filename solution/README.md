@@ -1878,6 +1878,11 @@
 |  [1865](https://leetcode-cn.com/problems/finding-pairs-with-a-certain-sum)  |  [找出和为指定值的下标对](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README.md)  |  `设计`,`哈希表`  |  中等  |    |
 |  [1866](https://leetcode-cn.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible)  |  [恰有 K 根木棍可以看到的排列数目](/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README.md)  |  `动态规划`  |  困难  |    |
 |  [1867](https://leetcode-cn.com/problems/orders-with-maximum-quantity-above-average)  |  [Orders With Maximum Quantity Above Average](/solution/1800-1899/1867.Orders%20With%20Maximum%20Quantity%20Above%20Average/README_EN.md)  |    |  中等  |  🔒  |
+|  [1868](https://leetcode-cn.com/problems/product-of-two-run-length-encoded-arrays)  |  [Product of Two Run-Length Encoded Arrays](/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README_EN.md)  |  `双指针`  |  中等  |    |
+|  [1869](https://leetcode-cn.com/problems/longer-contiguous-segments-of-ones-than-zeros)  |  [哪种连续子字符串更长](/solution/1800-1899/1869.Longer%20Contiguous%20Segments%20of%20Ones%20than%20Zeros/README.md)  |  `数组`,`双指针`  |  简单  |    |
+|  [1870](https://leetcode-cn.com/problems/minimum-speed-to-arrive-on-time)  |  [准时到达的列车最小时速](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md)  |  `数学`,`二分查找`  |  中等  |    |
+|  [1871](https://leetcode-cn.com/problems/jump-game-vii)  |  [跳跃游戏 VII](/solution/1800-1899/1871.Jump%20Game%20VII/README.md)  |  `贪心算法`,`广度优先搜索`  |  中等  |    |
+|  [1872](https://leetcode-cn.com/problems/stone-game-viii)  |  [石子游戏 VIII](/solution/1800-1899/1872.Stone%20Game%20VIII/README.md)  |  `动态规划`  |  困难  |    |
 
 ## 版权
 

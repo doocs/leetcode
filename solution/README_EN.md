@@ -1876,6 +1876,11 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1865](https://leetcode.com/problems/finding-pairs-with-a-certain-sum)  |  [Finding Pairs With a Certain Sum](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README_EN.md)  |  `Design`,`Hash Table`,`Ordered Map`  |  Medium  |    |
 |  [1866](https://leetcode.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible)  |  [Number of Ways to Rearrange Sticks With K Sticks Visible](/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 |  [1867](https://leetcode.com/problems/orders-with-maximum-quantity-above-average)  |  [Orders With Maximum Quantity Above Average](/solution/1800-1899/1867.Orders%20With%20Maximum%20Quantity%20Above%20Average/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1868](https://leetcode.com/problems/product-of-two-run-length-encoded-arrays)  |  [Product of Two Run-Length Encoded Arrays](/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README_EN.md)  |  `Two Pointers`  |  Medium  |  🔒  |
+|  [1869](https://leetcode.com/problems/longer-contiguous-segments-of-ones-than-zeros)  |  [Longer Contiguous Segments of Ones than Zeros](/solution/1800-1899/1869.Longer%20Contiguous%20Segments%20of%20Ones%20than%20Zeros/README_EN.md)  |  `Array`,`Two Pointers`  |  Easy  |    |
+|  [1870](https://leetcode.com/problems/minimum-speed-to-arrive-on-time)  |  [Minimum Speed to Arrive on Time](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README_EN.md)  |  `Math`,`Binary Search`  |  Medium  |    |
+|  [1871](https://leetcode.com/problems/jump-game-vii)  |  [Jump Game VII](/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md)  |  `Greedy`,`Breadth-first Search`,`Line Sweep`  |  Medium  |    |
+|  [1872](https://leetcode.com/problems/stone-game-viii)  |  [Stone Game VIII](/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 
 ## Copyright
 

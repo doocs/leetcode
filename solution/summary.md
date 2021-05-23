@@ -1903,3 +1903,8 @@
   - [1865.Finding Pairs With a Certain Sum](/solution/1800-1899/1865.Finding%20Pairs%20With%20a%20Certain%20Sum/README.md)
   - [1866.Number of Ways to Rearrange Sticks With K Sticks Visible](/solution/1800-1899/1866.Number%20of%20Ways%20to%20Rearrange%20Sticks%20With%20K%20Sticks%20Visible/README.md)
   - [1867.Orders With Maximum Quantity Above Average](/solution/1800-1899/1867.Orders%20With%20Maximum%20Quantity%20Above%20Average/README.md)
+  - [1868.Product of Two Run-Length Encoded Arrays](/solution/1800-1899/1868.Product%20of%20Two%20Run-Length%20Encoded%20Arrays/README.md)
+  - [1869.Longer Contiguous Segments of Ones than Zeros](/solution/1800-1899/1869.Longer%20Contiguous%20Segments%20of%20Ones%20than%20Zeros/README.md)
+  - [1870.Minimum Speed to Arrive on Time](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md)
+  - [1871.Jump Game VII](/solution/1800-1899/1871.Jump%20Game%20VII/README.md)
+  - [1872.Stone Game VIII](/solution/1800-1899/1872.Stone%20Game%20VIII/README.md)
