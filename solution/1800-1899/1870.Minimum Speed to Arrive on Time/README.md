@@ -156,8 +156,10 @@ function arriveOnTime (dist, speed, hour) {
    let n = dist.length;
    for (let i = 0; i < n; i++) {
        let cost = parseFloat(dist[i]) / speed;
-       let time = i == n - 1 ? cost : Math.ceil(cost);
-       res += time;
+        if (i != n - 1) {
+            cost = Math.ceil(cost);
+        }
+        res += cost;
    }
    return res <= hour;
 }
