@@ -46,7 +46,6 @@
 	<li><code>-10<sup>4</sup> <= Node.val <= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -58,7 +57,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        def height(root):
+            if not root:
+                return 0
+            return 1 + max(height(root.left), height(root.right))
+        if not root:
+            return True
+        left_height, right_height = height(root.left), height(root.right)
+        return abs(left_height - right_height) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
 ```
 
 ### **Java**
@@ -66,7 +80,76 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        return Math.abs(leftHeight - rightHeight) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+    }
 
+    private int height(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int l = height(root.left);
+        int r = height(root.right);
+        return 1 + Math.max(l, r);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        if (root == nullptr) {
+            return true;
+        }
+        int leftHeight = height(root->left);
+        int rightHeight = height(root->right);
+        return abs(leftHeight - rightHeight) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+    }
+private:
+    int height(TreeNode* root) {
+        if (root == nullptr) {
+            return 0;
+        }
+        int l = height(root->left);
+        int r = height(root->right);
+        return 1 + max(l, r);
+    }
+};
 ```
 
 ### **...**
