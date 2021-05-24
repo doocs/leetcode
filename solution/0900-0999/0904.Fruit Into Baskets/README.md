@@ -67,6 +67,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+“计数器 + 滑动窗口”实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +76,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def totalFruit(self, tree: List[int]) -> int:
+        counter = collections.Counter()
+        i = res = 0
+        for j, type in enumerate(tree):
+            counter[type] += 1
+            while len(counter) > 2:
+                counter[tree[i]] -= 1
+                if counter[tree[i]] == 0:
+                    counter.pop(tree[i])
+                i += 1
+            res = max(res, j - i + 1)
+        return res
 ```
 
 ### **Java**
@@ -82,7 +96,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int totalFruit(int[] tree) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        int i = 0, res = 0;
+        for (int j = 0; j < tree.length; ++j) {
+            counter.put(tree[j], counter.getOrDefault(tree[j], 0) + 1);
+            while (counter.size() > 2) {
+                counter.put(tree[i], counter.get(tree[i]) - 1);
+                if (counter.get(tree[i]) == 0) {
+                    counter.remove(tree[i]);
+                }
+                ++i;
+            }
+            res = Math.max(res, j - i + 1);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
