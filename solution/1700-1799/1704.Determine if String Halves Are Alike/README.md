@@ -63,7 +63,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        half = len(s) >> 1
+        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+        s1 = sum(1 for c in s[:half] if c in vowels)
+        s2 = sum(1 for c in s[half:] if c in vowels)
+        return s1 == s2
 ```
 
 ### **Java**
@@ -71,7 +77,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean halvesAreAlike(String s) {
+        int half = s.length() >> 1;
+        Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
+        int s1 = 0, s2 = 0;
+        for (int i = 0; i < half; ++i) {
+            if (vowels.contains(s.charAt(i))) {
+                ++s1;
+            }
+            if (vowels.contains(s.charAt(half + i))) {
+                ++s2;
+            }
+        }
+        return s1 == s2;
+    }
+}
 ```
 
 ### **...**
