@@ -34,20 +34,19 @@
 ```python
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        if s is None:
-            return s
+        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+        i, j = 0, len(s) - 1
         chars = list(s)
-        p, q = 0, len(chars) - 1
-        while p < q:
-            if chars[p] not in 'aeiouAEIOU':
-                p += 1
+        while i < j:
+            if chars[i] not in vowels:
+                i += 1
                 continue
-            if chars[q] not in 'aeiouAEIOU':
-                q -= 1
+            if chars[j] not in vowels:
+                j -= 1
                 continue
-            chars[p], chars[q] = chars[q], chars[p]
-            p += 1
-            q -= 1
+            chars[i], chars[j] = chars[j], chars[i]
+            i += 1
+            j -= 1
         return ''.join(chars)
 ```
 
@@ -56,47 +55,25 @@ class Solution:
 ```java
 class Solution {
     public String reverseVowels(String s) {
-        if (s == null) {
-            return s;
-        }
+        Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
+        int i = 0, j = s.length() - 1;
         char[] chars = s.toCharArray();
-        int p = 0, q = chars.length - 1;
-        while (p < q) {
-            if (!isVowel(chars[p])) {
-                ++p;
+        while (i < j) {
+            if (!vowels.contains(chars[i])) {
+                ++i;
                 continue;
             }
-            if (!isVowel(chars[q])) {
-                --q;
+            if (!vowels.contains(chars[j])) {
+                --j;
                 continue;
             }
-            swap(chars, p++, q--);
+            char t = chars[i];
+            chars[i] = chars[j];
+            chars[j] = t;
+            ++i;
+            --j;
         }
-        return String.valueOf(chars);
-    }
-
-    private void swap(char[] chars, int i, int j) {
-        char t = chars[i];
-        chars[i] = chars[j];
-        chars[j] = t;
-    }
-
-    private boolean isVowel(char c) {
-        switch(c) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
-        case 'A':
-        case 'E':
-        case 'I':
-        case 'O':
-        case 'U':
-            return true;
-        default:
-            return false;
-        }
+        return new String(chars);
     }
 }
 ```
