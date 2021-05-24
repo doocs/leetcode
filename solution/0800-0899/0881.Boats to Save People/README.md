@@ -46,6 +46,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+“排序 + 双指针”实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +55,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
+        people.sort()
+        num, i, j = 0, 0, len(people) - 1
+        while i <= j:
+            if people[i] + people[j] <= limit:
+                i += 1
+            j -= 1
+            num += 1
+        return num
 ```
 
 ### **Java**
@@ -61,7 +72,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int numRescueBoats(int[] people, int limit) {
+        Arrays.sort(people);
+        int num = 0;
+        int i = 0, j = people.length - 1;
+        while (i <= j) {
+            if (people[i] + people[j] <= limit) {
+                ++i;
+            }
+            --j;
+            ++num;
+        }
+        return num;
+    }
+}
 ```
 
 ### **...**
