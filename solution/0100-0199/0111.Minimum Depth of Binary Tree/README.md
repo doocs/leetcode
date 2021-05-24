@@ -37,7 +37,6 @@
 	<li><code>-1000 <= Node.val <= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -59,15 +58,13 @@ class Solution:
     def minDepth(self, root: TreeNode) -> int:
         if root is None:
             return 0
-        if root.left is None and root.right is None:
-            return 1
-        l = self.minDepth(root.left)
-        r = self.minDepth(root.right)
-        # 如果左子树和右子树其中一个为空，那么需要返回比较大的那个子树的深度
-        if root.left is None or root.right is None:
-            return l + r + 1
+        # 如果左子树和右子树其中一个为空，那么需要返回比较大的那个子树的深度+1
+        if root.left is None:
+            return 1 + self.minDepth(root.right)
+        if root.right is None:
+            return 1 + self.minDepth(root.left)
         # 左右子树都不为空，返回最小深度+1即可
-        return min(l, r) + 1
+        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
 ```
 
 ### **Java**
@@ -92,14 +89,49 @@ class Solution:
  */
 class Solution {
     public int minDepth(TreeNode root) {
-        if (root == null) return 0;
-        if (root.left == null && root.right == null) return 1;
-        int l = minDepth(root.left);
-        int r = minDepth(root.right);
-        if (root.left == null || root.right == null) return l + r + 1;
-        return Math.min(l, r) + 1;
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null) {
+            return 1 + minDepth(root.right);
+        }
+        if (root.right == null) {
+            return 1 + minDepth(root.left);
+        }
+        return 1 + Math.min(minDepth(root.left), minDepth(root.right));
     }
 }
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if (root == nullptr) {
+            return 0;
+        }
+        if (root->left == nullptr) {
+            return 1 + minDepth(root->right);
+        }
+        if (root->right == nullptr) {
+            return 1 + minDepth(root->left);
+        }
+        return 1 + min(minDepth(root->left), minDepth(root->right));
+    }
+};
 ```
 
 ### **...**

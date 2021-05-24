@@ -8,12 +8,10 @@ class Solution:
     def minDepth(self, root: TreeNode) -> int:
         if root is None:
             return 0
-        if root.left is None and root.right is None:
-            return 1
-        l = self.minDepth(root.left)
-        r = self.minDepth(root.right)
-        # 如果左子树和右子树其中一个为空，那么需要返回比较大的那个子树的深度
-        if root.left is None or root.right is None:
-            return l + r + 1
+        # 如果左子树和右子树其中一个为空，那么需要返回比较大的那个子树的深度+1
+        if root.left is None:
+            return 1 + self.minDepth(root.right)
+        if root.right is None:
+            return 1 + self.minDepth(root.left)
         # 左右子树都不为空，返回最小深度+1即可
-        return min(l, r) + 1
+        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
