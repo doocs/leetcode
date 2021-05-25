@@ -43,10 +43,18 @@ G = [0, 3, 1, 4]
 	<li><code>G</code> 是链表中所有结点的值的一个子集.</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+定义 pre 表示是否可加 1，初始为 true。
+
+遍历链表各个结点：
+
+- 若当前结点值在 nums 中，并且当前为可加 1 的状态，则 `res++`，并且将 pre 状态置为 false；
+- 若当前结点值不在 nums 中，则将 pre 置为 true，表示可加 1。
+
+最后返回 res 即可。
 
 <!-- tabs:start -->
 
@@ -55,7 +63,24 @@ G = [0, 3, 1, 4]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def numComponents(self, head: ListNode, nums: List[int]) -> int:
+        s = set(nums)
+        res, pre = 0, True
+        while head:
+            if head.val in s:
+                if pre:
+                    res += 1
+                    pre = False
+            else:
+                pre = True
+            head = head.next
+        return res
 ```
 
 ### **Java**
@@ -63,7 +88,38 @@ G = [0, 3, 1, 4]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public int numComponents(ListNode head, int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            s.add(num);
+        }
+        int res = 0;
+        boolean pre = true;
+        while (head != null) {
+            if (s.contains(head.val)) {
+                if (pre) {
+                    ++res;
+                    pre = false;
+                }
+            } else {
+                pre = true;
+            }
+            head = head.next;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
