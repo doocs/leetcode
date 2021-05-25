@@ -53,13 +53,23 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def squareIsWhite(self, coordinates: str) -> bool:
+        x = ord(coordinates[0]) - ord('a') + 1
+        y = int(coordinates[1])
+        return ((x + y) & 1) == 1
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean squareIsWhite(String coordinates) {
+        int x = coordinates.charAt(0) - 'a' + 1;
+        int y = coordinates.charAt(1) - '0';
+        return ((x + y) & 1) == 1;
+    }
+}
 ```
 
 ### **...**

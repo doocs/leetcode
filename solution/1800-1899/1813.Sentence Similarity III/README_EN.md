@@ -59,13 +59,63 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def areSentencesSimilar(self, sentence1: str, sentence2: str) -> bool:
+        if sentence1 == sentence2:
+            return True
+        n1, n2 = len(sentence1), len(sentence2)
+        if n1 == n2:
+            return False
+        if n1 < n2:
+            sentence1, sentence2 = sentence2, sentence1
+        words1, words2 = sentence1.split(), sentence2.split()
+        i = j = 0
+        while i < len(words2) and words1[i] == words2[i]:
+            i += 1
+        if i == len(words2):
+            return True
+        while j < len(words2) and words1[len(words1) - 1 - j] == words2[len(words2) - 1 - j]:
+            j += 1
+        if j == len(words2):
+            return True
+        return i + j == len(words2)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean areSentencesSimilar(String sentence1, String sentence2) {
+        if (Objects.equals(sentence1, sentence2)) {
+            return true;
+        }
+        int n1 = sentence1.length(), n2 = sentence2.length();
+        if (n1 == n2) {
+            return false;
+        }
+        if (n1 < n2) {
+            String t = sentence1;
+            sentence1 = sentence2;
+            sentence2 = t;
+        }
+        String[] words1 = sentence1.split(" ");
+        String[] words2 = sentence2.split(" ");
+        int i = 0, j = 0;
+        while (i < words2.length &&  Objects.equals(words1[i], words2[i])) {
+            ++i;
+        }
+        if (i == words2.length) {
+            return true;
+        }
+        while (j < words2.length && Objects.equals(words1[words1.length - 1 - j], words2[words2.length - 1 - j])) {
+            ++j;
+        }
+        if (j == words2.length) {
+            return true;
+        }
+        return i + j == words2.length;
+    }
+}
 ```
 
 ### **...**
