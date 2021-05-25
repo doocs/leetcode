@@ -37,10 +37,11 @@
 	<li><code>2 <= k <= 10</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+将 n 除 k 取余，直至为 0，余数相加求得结果。
 
 <!-- tabs:start -->
 
@@ -49,7 +50,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sumBase(self, n: int, k: int) -> int:
+        res = 0
+        while n != 0:
+            n, t = divmod(n, k)
+            res += t
+        return res
 ```
 
 ### **Java**
@@ -57,7 +64,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int sumBase(int n, int k) {
+        int res = 0;
+        while (n != 0) {
+            res += (n % k);
+            n /= k;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

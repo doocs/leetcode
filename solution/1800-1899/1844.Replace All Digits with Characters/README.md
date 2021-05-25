@@ -49,7 +49,6 @@
 	<li>对所有 <strong>奇数</strong> 下标处的 <code>i</code> ，满足 <code>shift(s[i-1], s[i]) &lt;= 'z'</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -61,7 +60,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def replaceDigits(self, s: str) -> str:
+        s = list(s)
+        for i in range(1, len(s), 2):
+            s[i] = chr(ord(s[i - 1]) + int(s[i]))
+        return ''.join(s)
 ```
 
 ### **Java**
@@ -69,7 +73,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String replaceDigits(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 1; i < chars.length; i += 2) {
+            chars[i] = (char) (chars[i - 1] + (chars[i] - '0'));
+        }
+        return new String(chars);
+    }
+}
 ```
 
 ### **...**

@@ -47,7 +47,6 @@
 	<li><code>shift(s[i-1], s[i]) &lt;= &#39;z&#39;</code> for all <strong>odd</strong> indices <code>i</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -55,13 +54,26 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def replaceDigits(self, s: str) -> str:
+        s = list(s)
+        for i in range(1, len(s), 2):
+            s[i] = chr(ord(s[i - 1]) + int(s[i]))
+        return ''.join(s)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public String replaceDigits(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 1; i < chars.length; i += 2) {
+            chars[i] = (char) (chars[i - 1] + (chars[i] - '0'));
+        }
+        return new String(chars);
+    }
+}
 ```
 
 ### **...**
