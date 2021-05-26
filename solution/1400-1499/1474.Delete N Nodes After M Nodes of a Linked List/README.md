@@ -66,10 +66,11 @@
 	<li><code>1 <= m,n <= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+遍历链表，修改指针指向即可。
 
 <!-- tabs:start -->
 
@@ -78,7 +79,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteNodes(self, head: ListNode, m: int, n: int) -> ListNode:
+        pre = head
+        while pre:
+            for i in range(m - 1):
+                if pre:
+                    pre = pre.next
+            if pre is None:
+                return head
+            cur = pre
+            for i in range(n):
+                if cur:
+                    cur = cur.next
+            pre.next = None if cur is None else cur.next
+            pre = pre.next
+        return head
 ```
 
 ### **Java**
@@ -86,7 +107,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode deleteNodes(ListNode head, int m, int n) {
+        ListNode pre = head;
+        while (pre != null) {
+            for (int i = 0; i < m - 1 && pre != null; ++i) {
+                pre = pre.next;
+            }
+            if (pre == null) {
+                return head;
+            }
+            ListNode cur = pre;
+            for (int i = 0; i < n && cur != null; ++i) {
+                cur = cur.next;
+            }
+            pre.next = cur == null ? null : cur.next;
+            pre = pre.next;
+        }
+        return head;
+    }
+}
 ```
 
 ### **...**
