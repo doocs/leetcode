@@ -43,10 +43,11 @@
 	<li>给定列表的长度在 <code>[0, 10000]</code>&nbsp;范围内</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“单调栈”实现。
 
 <!-- tabs:start -->
 
@@ -55,7 +56,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def nextLargerNodes(self, head: ListNode) -> List[int]:
+        nums = []
+        while head:
+            nums.append(head.val)
+            head = head.next
+        s = []
+        larger = [0] * len(nums)
+        for i, num in enumerate(nums):
+            while s and nums[s[-1]] < num:
+                larger[s.pop()] = num
+            s.append(i)
+        return larger
 ```
 
 ### **Java**
@@ -63,7 +82,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int[] nextLargerNodes(ListNode head) {
+        List<Integer> nums = new ArrayList<>();
+        while (head != null) {
+            nums.add(head.val);
+            head = head.next;
+        }
+        Deque<Integer> s = new ArrayDeque<>();
+        int[] larger = new int[nums.size()];
+        for (int i = 0; i < nums.size(); ++i) {
+            while (!s.isEmpty() && nums.get(s.peek()) < nums.get(i)) {
+                larger[s.pop()] = nums.get(i);
+            }
+            s.push(i);
+        }
+        return larger;
+    }
+}
 ```
 
 ### **...**

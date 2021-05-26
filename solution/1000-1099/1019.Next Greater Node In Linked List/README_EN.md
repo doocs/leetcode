@@ -6,29 +6,17 @@
 
 <p>We are given a linked list with&nbsp;<code>head</code>&nbsp;as the first node.&nbsp; Let&#39;s number the&nbsp;nodes in the list: <code>node_1, node_2, node_3, ...</code> etc.</p>
 
-
-
 <p>Each node may have a <em>next larger</em> <strong>value</strong>: for <code>node_i</code>,&nbsp;<code>next_larger(node_i)</code>&nbsp;is the <code>node_j.val</code> such that <code>j &gt; i</code>, <code>node_j.val &gt; node_i.val</code>, and <code>j</code> is the smallest possible choice.&nbsp; If such a <code>j</code>&nbsp;does not exist, the next larger value is <code>0</code>.</p>
-
-
 
 <p>Return an array of integers&nbsp;<code>answer</code>, where <code>answer[i] = next_larger(node_{i+1})</code>.</p>
 
-
-
 <p>Note that in the example <strong>inputs</strong>&nbsp;(not outputs) below, arrays such as <code>[2,1,5]</code>&nbsp;represent the serialization of a linked list with a head node value of 2, second node value of 1, and third node value of 5.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -38,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -54,13 +38,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -70,15 +50,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong><span>Note:</span></strong></p>
-
-
 
 <ol>
 	<li><code><span>1 &lt;= node.val&nbsp;&lt;= 10^9</span></code><span>&nbsp;for each node in the linked list.</span></li>
@@ -98,13 +72,56 @@
 ### **Python3**
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def nextLargerNodes(self, head: ListNode) -> List[int]:
+        nums = []
+        while head:
+            nums.append(head.val)
+            head = head.next
+        s = []
+        larger = [0] * len(nums)
+        for i, num in enumerate(nums):
+            while s and nums[s[-1]] < num:
+                larger[s.pop()] = num
+            s.append(i)
+        return larger
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int[] nextLargerNodes(ListNode head) {
+        List<Integer> nums = new ArrayList<>();
+        while (head != null) {
+            nums.add(head.val);
+            head = head.next;
+        }
+        Deque<Integer> s = new ArrayDeque<>();
+        int[] larger = new int[nums.size()];
+        for (int i = 0; i < nums.size(); ++i) {
+            while (!s.isEmpty() && nums.get(s.peek()) < nums.get(i)) {
+                larger[s.pop()] = nums.get(i);
+            }
+            s.push(i);
+        }
+        return larger;
+    }
+}
 ```
 
 ### **...**
