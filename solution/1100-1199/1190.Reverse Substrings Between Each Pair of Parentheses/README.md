@@ -53,6 +53,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+用双端队列或者栈，模拟反转过程
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +62,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reverseParentheses(self, s: str) -> str:
+        stack = []
+        for c in s:
+            if c == ")":
+                tmp = []
+                while stack[-1] != "(":
+                    tmp += stack.pop()
+                stack.pop()
+                stack += tmp
+            else:
+                stack.append(c)
+        return "".join(stack)
 ```
 
 ### **Java**
@@ -68,7 +82,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String reverseParentheses(String s) {
+        Deque<Character> deque = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            if (c == ')') {
+                StringBuilder sb = new StringBuilder();
+                while (deque.peekLast() != '(') {
+                    sb.append(deque.pollLast());
+                }
+                deque.pollLast();
+                for (int i = 0, n = sb.length(); i < n; i++) {
+                    deque.offerLast(sb.charAt(i));
+                }
+            } else {
+                deque.offerLast(c);
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        while (!deque.isEmpty()) {
+            sb.append(deque.pollFirst());
+        }
+        return sb.toString();
+    }
+}
 ```
 
 ### **...**
