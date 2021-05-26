@@ -48,7 +48,6 @@
 	<li>二叉树包含的节点数目在&nbsp;<code>1</code>&nbsp;到&nbsp;<code>2500</code>&nbsp;之间。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -60,7 +59,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSubPath(self, head: ListNode, root: TreeNode) -> bool:
+        def dfs(head, root):
+            if head is None:
+                return True
+            if root is None:
+                return False
+            if root.val != head.val:
+                return False
+            return dfs(head.next, root.left) or dfs(head.next, root.right)
 
+        if root is None:
+            return False
+        return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
 ```
 
 ### **Java**
@@ -68,7 +91,52 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean isSubPath(ListNode head, TreeNode root) {
+        if (root == null) {
+            return false;
+        }
+        return dfs(head, root) || isSubPath(head, root.left) || isSubPath(head, root.right);
+    }
 
+    private boolean dfs(ListNode head, TreeNode root) {
+        if (head == null) {
+            return true;
+        }
+        if (root == null) {
+            return false;
+        }
+        if (root.val != head.val) {
+            return false;
+        }
+        return dfs(head.next, root.left) || dfs(head.next, root.right);
+    }
+}
 ```
 
 ### **...**
