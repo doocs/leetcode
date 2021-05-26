@@ -31,22 +31,19 @@
 
 class Solution:
     def partition(self, head: ListNode, x: int) -> ListNode:
-        if head is None or head.next is None:
-            return head
-        left, right = ListNode(-1), ListNode(-1)
-        p, q = left, right
+        l1, l2 = ListNode(0), ListNode(0)
+        cur1, cur2 = l1, l2
         while head:
-            t = head.next
-            head.next = None
             if head.val < x:
-                p.next = head
-                p = p.next
+                cur1.next = head
+                cur1 = cur1.next
             else:
-                q.next = head
-                q = q.next
-            head = t
-        p.next = right.next
-        return left.next
+                cur2.next = head
+                cur2 = cur2.next
+            head = head.next
+        cur1.next = l2.next
+        cur2.next = None
+        return l1.next
 ```
 
 ### **Java**
@@ -57,33 +54,68 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode left = new ListNode(-1);
-        ListNode right = new ListNode(-1);
-        ListNode p = left, q = right;
+        ListNode l1 = new ListNode(0);
+        ListNode l2 = new ListNode(0);
+        ListNode cur1 = l1, cur2 = l2;
         while (head != null) {
-            ListNode t = head.next;
-            head.next = null;
             if (head.val < x) {
-                p.next = head;
-                p = p.next;
+                cur1.next = head;
+                cur1 = cur1.next;
             } else {
-                q.next = head;
-                q = q.next;
+                cur2.next = head;
+                cur2 = cur2.next;
             }
-            head = t;
+            head = head.next;
         }
-        p.next = right.next;
-        return left.next;
+        cur1.next = l2.next;
+        cur2.next = null;
+        return l1.next;
     }
 }
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        ListNode* l1 = new ListNode();
+        ListNode* l2 = new ListNode();
+        ListNode* cur1 = l1;
+        ListNode* cur2 = l2;
+        while (head != nullptr) {
+            if (head->val < x) {
+                cur1->next = head;
+                cur1 = cur1->next;
+            } else {
+                cur2->next = head;
+                cur2 = cur2->next;
+            }
+            head = head->next;
+        }
+        cur1->next = l2->next;
+        cur2->next = nullptr;
+        return l1->next;
+    }
+};
 ```
 
 ### **...**
