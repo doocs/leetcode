@@ -38,7 +38,6 @@
 	<li><code>1 &lt;= list2.length &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -46,13 +45,56 @@
 ### **Python3**
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeInBetween(self, list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:
+        p = q = list1
+        for _ in range(a - 1):
+            p = p.next
+        for _ in range(b + 1):
+            q = q.next
+        p.next = list2
+        while list2.next:
+            list2 = list2.next
+        list2.next = q
+        return list1
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
+        ListNode p = list1;
+        for (int i = 0; i < a - 1; ++i) {
+            p = p.next;
+        }
+        ListNode q = list1;
+        for (int i = 0; i < b + 1; ++i) {
+            q = q.next;
+        }
+        p.next = list2;
+        while (list2.next != null) {
+            list2 = list2.next;
+        }
+        list2.next = q;
+        return list1;
+    }
+}
 ```
 
 ### **...**
