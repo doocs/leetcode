@@ -60,10 +60,11 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 	<li>最多调用 <code>1000</code> 次 <code>pushFront</code>， <code>pushMiddle</code>， <code>pushBack</code>， <code>popFront</code>， <code>popMiddle</code> 和 <code>popBack</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+两个“双端队列”实现。
 
 <!-- tabs:start -->
 
@@ -72,7 +73,69 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class FrontMiddleBackQueue:
 
+    def __init__(self):
+        self.left = collections.deque()
+        self.right = collections.deque()
+
+    def pushFront(self, val: int) -> None:
+        self.left.appendleft(val)
+        self.rebalance()
+
+    def pushMiddle(self, val: int) -> None:
+        self.left.append(val)
+        self.rebalance()
+
+    def pushBack(self, val: int) -> None:
+        self.right.append(val)
+        self.rebalance()
+
+    def popFront(self) -> int:
+        if self.empty():
+            return -1
+        if self.left:
+            val = self.left.popleft()
+        else:
+            val = self.right.popleft()
+        self.rebalance()
+        return val
+
+    def popMiddle(self) -> int:
+        if self.empty():
+            return -1
+        if len(self.left) >= len(self.right):
+            val = self.left.pop()
+        else:
+            val = self.right.popleft()
+        self.rebalance()
+        return val
+
+    def popBack(self) -> int:
+        if self.empty():
+            return -1
+        val = self.right.pop()
+        self.rebalance()
+        return val
+
+    def empty(self) -> bool:
+        return not self.left and not self.right
+
+    def rebalance(self) -> None:
+        while len(self.left) > len(self.right):
+            self.right.appendleft(self.left.pop())
+        while len(self.right) - len(self.left) > 1:
+            self.left.append(self.right.popleft())
+
+
+# Your FrontMiddleBackQueue object will be instantiated and called as such:
+# obj = FrontMiddleBackQueue()
+# obj.pushFront(val)
+# obj.pushMiddle(val)
+# obj.pushBack(val)
+# param_4 = obj.popFront()
+# param_5 = obj.popMiddle()
+# param_6 = obj.popBack()
 ```
 
 ### **Java**
@@ -80,7 +143,81 @@ q.popFront();     // 返回 -1 -> [] （队列为空）
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class FrontMiddleBackQueue {
+    private Deque<Integer> left;
+    private Deque<Integer> right;
 
+    public FrontMiddleBackQueue() {
+        left = new LinkedList<>();
+        right = new LinkedList<>();
+    }
+
+    public void pushFront(int val) {
+        left.offerFirst(val);
+        rebalance();
+    }
+
+    public void pushMiddle(int val) {
+        left.offerLast(val);
+        rebalance();
+    }
+
+    public void pushBack(int val) {
+        right.offerLast(val);
+        rebalance();
+    }
+
+    public int popFront() {
+        if (empty()) {
+            return -1;
+        }
+        int val = left.isEmpty() ? right.pollFirst() : left.pollFirst();
+        rebalance();
+        return val;
+    }
+
+    public int popMiddle() {
+        if (empty()) {
+            return -1;
+        }
+        int val = left.size() >= right.size() ? left.pollLast() : right.pollFirst();
+        rebalance();
+        return val;
+    }
+
+    public int popBack() {
+        if (empty()) {
+            return -1;
+        }
+        int val = right.pollLast();
+        rebalance();
+        return val;
+    }
+
+    private boolean empty() {
+        return left.isEmpty() && right.isEmpty();
+    }
+
+    private void rebalance() {
+        while (left.size() > right.size()) {
+            right.offerFirst(left.pollLast());
+        }
+        while (right.size() - left.size() > 1) {
+            left.offerLast(right.pollFirst());
+        }
+    }
+}
+
+/**
+ * Your FrontMiddleBackQueue object will be instantiated and called as such:
+ * FrontMiddleBackQueue obj = new FrontMiddleBackQueue();
+ * obj.pushFront(val);
+ * obj.pushMiddle(val);
+ * obj.pushBack(val);
+ * int param_4 = obj.popFront();
+ * int param_5 = obj.popMiddle();
+ * int param_6 = obj.popBack();
+ */
 ```
 
 ### **...**
