@@ -33,6 +33,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+利用异或运算的规律找出不同的位
+
+- 0 ^ 0 = 0
+- 1 ^ 1 = 0
+- 0 ^ 1 = 1
+- 1 ^ 0 = 1
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -40,7 +47,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def hammingDistance(self, x: int, y: int) -> int:
+        num, count = x ^ y, 0
+        while num != 0:
+            num &= num - 1
+            count += 1
+        return count
 ```
 
 ### **Java**
@@ -48,7 +61,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int hammingDistance(int x, int y) {
+        int num = x ^ y;
+        int count = 0;
+        while (num != 0) {
+            num &= num - 1;
+            count++;
+        }
+        return count;
+    }
+}
+```
 
+或者利用库函数 `Integer.bitCount()`
+
+```java
+class Solution {
+    public int hammingDistance(int x, int y) {
+        return Integer.bitCount(x ^ y);
+    }
+}
 ```
 
 ### **...**
