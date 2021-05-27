@@ -8,34 +8,19 @@
  */
 class Solution {
     public ListNode removeZeroSumSublists(ListNode head) {
-        Map<Integer, ListNode> map = new HashMap<>();
-        boolean isZeroSum = true; 
-        
-        while (isZeroSum) {
-        	isZeroSum = false;
-        	int sum = 0;
-        	ListNode temp = head;
-        	
-        	while (temp != null) {
-        		sum += temp.val;
-        		
-        		if (sum == 0) {
-        			head = temp.next;
-        			map.clear();
-        			isZeroSum = true;
-        			break;
-        		} else if (map.containsKey(sum)) {
-        			map.get(sum).next = temp.next;
-        			map.clear();
-        			isZeroSum = true;
-        			break;
-        		}
-        		
-        		map.put(sum, temp);
-        		temp = temp.next;
-        	}
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        Map<Integer, ListNode> preSumNode = new HashMap<>();
+        int s = 0;
+        for (ListNode cur = dummy; cur != null; cur = cur.next) {
+            s += cur.val;
+            preSumNode.put(s, cur);
         }
-        
-        return head;
+        s = 0;
+        for (ListNode cur = dummy; cur != null; cur = cur.next) {
+            s += cur.val;
+            cur.next = preSumNode.get(s).next;
+        }
+        return dummy.next;
     }
 }

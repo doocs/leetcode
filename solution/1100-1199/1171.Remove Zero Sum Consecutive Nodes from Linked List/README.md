@@ -44,10 +44,17 @@
 	<li>对于链表中的每个节点，节点的值：<code>-1000 &lt;= node.val &lt;= 1000</code>.</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“前缀和 + 哈希表”实现。
+
+若链表节点的两个前缀和相等，说明两个前缀和之间的连续节点序列的和为 0，那么可以消去这部分连续节点。
+
+第一次遍历链表，用哈希表 `pre_sum_node` 记录前缀和以及对应的链表节点，同一前缀和 s，**后者的链表节点覆盖前者**。
+
+第二次遍历链表，若当前节点 cur 的前缀和 s 在 `pre_sum_node` 出现，说明 cur 与 pre_sum_node[s] 之间的所有节点和为 0，直接修改 cur 的指向，`cur.next = pre_sum_node[s].next`，就删去了这部分和为 0 的连续节点。
 
 <!-- tabs:start -->
 
@@ -56,7 +63,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def removeZeroSumSublists(self, head: ListNode) -> ListNode:
+        dummy = ListNode(0)
+        dummy.next = head
+        s, cur = 0, dummy
+        pre_sum_node = {}
+        while cur:
+            s += cur.val
+            pre_sum_node[s] = cur
+            cur = cur.next
+        s, cur = 0, dummy
+        while cur:
+            s += cur.val
+            cur.next = pre_sum_node[s].next
+            cur = cur.next
+        return dummy.next
 ```
 
 ### **Java**
@@ -64,7 +92,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode removeZeroSumSublists(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        Map<Integer, ListNode> preSumNode = new HashMap<>();
+        int s = 0;
+        for (ListNode cur = dummy; cur != null; cur = cur.next) {
+            s += cur.val;
+            preSumNode.put(s, cur);
+        }
+        s = 0;
+        for (ListNode cur = dummy; cur != null; cur = cur.next) {
+            s += cur.val;
+            cur.next = preSumNode.get(s).next;
+        }
+        return dummy.next;
+    }
+}
 ```
 
 ### **...**
