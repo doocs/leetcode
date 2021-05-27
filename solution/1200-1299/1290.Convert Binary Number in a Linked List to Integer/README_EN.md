@@ -6,11 +6,7 @@
 
 <p>Given <code>head</code> which is a reference node to&nbsp;a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.</p>
 
-
-
 <p>Return the <em>decimal value</em> of the number in the linked list.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -28,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -42,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -56,11 +44,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -70,11 +54,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -84,13 +64,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>The Linked List is not empty.</li>
@@ -105,13 +81,54 @@
 ### **Python3**
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def getDecimalValue(self, head: ListNode) -> int:
+        n, cur = 0, head
+        while cur:
+            n += 1
+            cur = cur.next
+        res, cur = 0, head
+        while cur:
+            n -= 1
+            if cur.val == 1:
+                res += (2 ** (n))
+            cur = cur.next
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int getDecimalValue(ListNode head) {
+        int n = 0;
+        for (ListNode cur = head; cur != null; cur = cur.next) {
+            ++n;
+        }
+        int res = 0;
+        for (ListNode cur = head; cur != null; cur = cur.next) {
+            --n;
+            if (cur.val == 1) {
+                res += Math.pow(2, n);
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

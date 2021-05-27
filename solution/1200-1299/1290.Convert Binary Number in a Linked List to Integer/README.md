@@ -55,10 +55,11 @@
 	<li>每个结点的值不是&nbsp;<code>0</code> 就是 <code>1</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+先求链表长度 n，再遍历链表，累加求得结果。
 
 <!-- tabs:start -->
 
@@ -67,7 +68,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
+class Solution:
+    def getDecimalValue(self, head: ListNode) -> int:
+        n, cur = 0, head
+        while cur:
+            n += 1
+            cur = cur.next
+        res, cur = 0, head
+        while cur:
+            n -= 1
+            if cur.val == 1:
+                res += (2 ** (n))
+            cur = cur.next
+        return res
 ```
 
 ### **Java**
@@ -75,7 +94,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public int getDecimalValue(ListNode head) {
+        int n = 0;
+        for (ListNode cur = head; cur != null; cur = cur.next) {
+            ++n;
+        }
+        int res = 0;
+        for (ListNode cur = head; cur != null; cur = cur.next) {
+            --n;
+            if (cur.val == 1) {
+                res += Math.pow(2, n);
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
