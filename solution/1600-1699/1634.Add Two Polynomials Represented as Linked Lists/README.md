@@ -68,10 +68,11 @@
 	<li><code>PolyNode.power > PolyNode.next.power</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+遍历两多项式链表，比较节点间的 power 值，进行节点串联。若两节点 coefficient 值相加和为 0，不串联此合并的节点。
 
 <!-- tabs:start -->
 
@@ -80,7 +81,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for polynomial singly-linked list.
+# class PolyNode:
+#     def __init__(self, x=0, y=0, next=None):
+#         self.coefficient = x
+#         self.power = y
+#         self.next = next
 
+class Solution:
+    def addPoly(self, poly1: 'PolyNode', poly2: 'PolyNode') -> 'PolyNode':
+        dummy = PolyNode()
+        cur = dummy
+        while poly1 or poly2:
+            if poly1 is None or (poly2 and poly2.power > poly1.power):
+                cur.next = poly2
+                cur = cur.next
+                poly2 = poly2.next
+            elif poly2 is None or (poly1 and poly1.power > poly2.power):
+                cur.next = poly1
+                cur = cur.next
+                poly1 = poly1.next
+            else:
+                val = poly1.coefficient + poly2.coefficient
+                if val != 0:
+                    cur.next = PolyNode(x=val, y=poly1.power)
+                    cur = cur.next
+                poly1 = poly1.next
+                poly2 = poly2.next
+        cur.next = None
+        return dummy.next
 ```
 
 ### **Java**
@@ -88,7 +117,45 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for polynomial singly-linked list.
+ * class PolyNode {
+ *     int coefficient, power;
+ *     PolyNode next = null;
 
+ *     PolyNode() {}
+ *     PolyNode(int x, int y) { this.coefficient = x; this.power = y; }
+ *     PolyNode(int x, int y, PolyNode next) { this.coefficient = x; this.power = y; this.next = next; }
+ * }
+ */
+
+class Solution {
+    public PolyNode addPoly(PolyNode poly1, PolyNode poly2) {
+        PolyNode dummy = new PolyNode();
+        PolyNode cur = dummy;
+        while (poly1 != null || poly2 != null) {
+            if (poly1 == null || (poly2 != null && poly2.power > poly1.power)) {
+                cur.next = poly2;
+                cur = cur.next;
+                poly2 = poly2.next;
+            } else if (poly2 == null || (poly1 != null && poly1.power > poly2.power)) {
+                cur.next = poly1;
+                cur = cur.next;
+                poly1 = poly1.next;
+            } else {
+                int val = poly1.coefficient + poly2.coefficient;
+                if (val != 0) {
+                    cur.next = new PolyNode(val, poly1.power);
+                    cur = cur.next;
+                }
+                poly1 = poly1.next;
+                poly2 = poly2.next;
+            }
+        }
+        cur.next = null;
+        return dummy.next;
+    }
+}
 ```
 
 ### **...**
