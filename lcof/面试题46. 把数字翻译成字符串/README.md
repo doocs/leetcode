@@ -90,7 +90,9 @@ var translateNum = function (num) {
 
 ### **C++**
 
-注释的代码是一维 dp ，因为 `dp[i]` 只依赖 `dp[i - 1]` 和 `dp[i - 2]` ，所以可以进一步压缩空间。
+动态规划解法，定义 `dp[i]` 表示前 `i` 个数字有多少种不同的翻译方法。
+
+注释部分是常规的一维 dp ，因为 `dp[i]` 只依赖 `dp[i - 1]` 和 `dp[i - 2]` ，所以可以进一步压缩空间。
 
 ```cpp
 class Solution {
