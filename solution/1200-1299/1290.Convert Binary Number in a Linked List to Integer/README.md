@@ -59,7 +59,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先求链表长度 n，再遍历链表，累加求得结果。
+遍历链表。
+
+当遍历到链表某个结点，先将已有结果 res 乘以 2（即左移 1 位：`<< 1`），再加上当前结点的值，得出已遍历过的结点的十进制值。最后返回 res 即可。
 
 <!-- tabs:start -->
 
@@ -122,13 +124,13 @@ class Solution {
  * @param {ListNode} head
  * @return {number}
  */
-var getDecimalValue = function(head) {
-    let res = 0;
-    while (head != null) {
-        res = (res << 1) + head.val;
-        head = head.next;
-    }
-    return res;
+var getDecimalValue = function (head) {
+  let res = 0;
+  while (head != null) {
+    res = (res << 1) + head.val;
+    head = head.next;
+  }
+  return res;
 };
 ```
 

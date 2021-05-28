@@ -52,7 +52,6 @@
 	<li><code>-10^6 <= insertVal <= 10^6</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -64,7 +63,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = next
+"""
 
+class Solution:
+    def insert(self, head: 'Node', insertVal: int) -> 'Node':
+        node = Node(val=insertVal)
+        if head is None:
+            node.next = node
+            return node
+        pre, cur = head, head.next
+        while 1:
+            if pre.val <= insertVal <= cur.val or (pre.val > cur.val and (insertVal >= pre.val or insertVal <= cur.val)):
+                break
+            pre, cur = cur, cur.next
+            if pre == head:
+                break
+        pre.next = node
+        node.next = cur
+        return head
 ```
 
 ### **Java**
@@ -72,7 +94,48 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node next;
 
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _next) {
+        val = _val;
+        next = _next;
+    }
+};
+*/
+
+class Solution {
+    public Node insert(Node head, int insertVal) {
+        Node node = new Node(insertVal);
+        if (head == null) {
+            node.next = node;
+            return node;
+        }
+        Node pre = head, cur = head.next;
+        while (true) {
+            if ((pre.val <= insertVal && insertVal <= cur.val) || (pre.val > cur.val && (insertVal >= pre.val || cur.val >= insertVal))) {
+                break;
+            }
+            pre = cur;
+            cur = cur.next;
+            if (pre == head) {
+                break;
+            }
+        }
+        pre.next = node;
+        node.next = cur;
+        return head;
+    }
+}
 ```
 
 ### **...**
