@@ -1908,3 +1908,4 @@
   - [1870.Minimum Speed to Arrive on Time](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README_EN.md)
   - [1871.Jump Game VII](/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md)
   - [1872.Stone Game VIII](/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md)
+  - [1873.Calculate Special Bonus](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md)

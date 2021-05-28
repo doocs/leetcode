@@ -136,7 +136,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0125](https://leetcode.com/problems/valid-palindrome)  |  [Valid Palindrome](/solution/0100-0199/0125.Valid%20Palindrome/README_EN.md)  |  `Two Pointers`,`String`  |  Easy  |    |
 |  [0126](https://leetcode.com/problems/word-ladder-ii)  |  [Word Ladder II](/solution/0100-0199/0126.Word%20Ladder%20II/README_EN.md)  |  `Breadth-first Search`,`Array`,`String`,`Backtracking`  |  Hard  |    |
 |  [0127](https://leetcode.com/problems/word-ladder)  |  [Word Ladder](/solution/0100-0199/0127.Word%20Ladder/README_EN.md)  |  `Breadth-first Search`  |  Hard  |    |
-|  [0128](https://leetcode.com/problems/longest-consecutive-sequence)  |  [Longest Consecutive Sequence](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README_EN.md)  |  `Union Find`,`Array`  |  Hard  |    |
+|  [0128](https://leetcode.com/problems/longest-consecutive-sequence)  |  [Longest Consecutive Sequence](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README_EN.md)  |  `Union Find`,`Array`  |  Medium  |    |
 |  [0129](https://leetcode.com/problems/sum-root-to-leaf-numbers)  |  [Sum Root to Leaf Numbers](/solution/0100-0199/0129.Sum%20Root%20to%20Leaf%20Numbers/README_EN.md)  |  `Tree`,`Depth-first Search`  |  Medium  |    |
 |  [0130](https://leetcode.com/problems/surrounded-regions)  |  [Surrounded Regions](/solution/0100-0199/0130.Surrounded%20Regions/README_EN.md)  |  `Depth-first Search`,`Breadth-first Search`,`Union Find`  |  Medium  |    |
 |  [0131](https://leetcode.com/problems/palindrome-partitioning)  |  [Palindrome Partitioning](/solution/0100-0199/0131.Palindrome%20Partitioning/README_EN.md)  |  `Depth-first Search`,`Dynamic Programming`,`Backtracking`  |  Medium  |    |
@@ -346,7 +346,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0335](https://leetcode.com/problems/self-crossing)  |  [Self Crossing](/solution/0300-0399/0335.Self%20Crossing/README_EN.md)  |  `Math`  |  Hard  |    |
 |  [0336](https://leetcode.com/problems/palindrome-pairs)  |  [Palindrome Pairs](/solution/0300-0399/0336.Palindrome%20Pairs/README_EN.md)  |  `Trie`,`Hash Table`,`String`  |  Hard  |    |
 |  [0337](https://leetcode.com/problems/house-robber-iii)  |  [House Robber III](/solution/0300-0399/0337.House%20Robber%20III/README_EN.md)  |  `Tree`,`Depth-first Search`,`Dynamic Programming`  |  Medium  |    |
-|  [0338](https://leetcode.com/problems/counting-bits)  |  [Counting Bits](/solution/0300-0399/0338.Counting%20Bits/README_EN.md)  |  `Bit Manipulation`,`Dynamic Programming`  |  Medium  |    |
+|  [0338](https://leetcode.com/problems/counting-bits)  |  [Counting Bits](/solution/0300-0399/0338.Counting%20Bits/README_EN.md)  |  `Bit Manipulation`,`Dynamic Programming`  |  Easy  |    |
 |  [0339](https://leetcode.com/problems/nested-list-weight-sum)  |  [Nested List Weight Sum](/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README_EN.md)  |  `Depth-first Search`,`Breadth-first Search`  |  Medium  |  🔒  |
 |  [0340](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters)  |  [Longest Substring with At Most K Distinct Characters](/solution/0300-0399/0340.Longest%20Substring%20with%20At%20Most%20K%20Distinct%20Characters/README_EN.md)  |  `Hash Table`,`Two Pointers`,`String`,`Sliding Window`  |  Medium  |  🔒  |
 |  [0341](https://leetcode.com/problems/flatten-nested-list-iterator)  |  [Flatten Nested List Iterator](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README_EN.md)  |  `Stack`,`Design`  |  Medium  |    |
@@ -759,7 +759,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0748](https://leetcode.com/problems/shortest-completing-word)  |  [Shortest Completing Word](/solution/0700-0799/0748.Shortest%20Completing%20Word/README_EN.md)  |  `Hash Table`  |  Easy  |    |
 |  [0749](https://leetcode.com/problems/contain-virus)  |  [Contain Virus](/solution/0700-0799/0749.Contain%20Virus/README_EN.md)  |  `Depth-first Search`  |  Hard  |    |
 |  [0750](https://leetcode.com/problems/number-of-corner-rectangles)  |  [Number Of Corner Rectangles](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README_EN.md)  |  `Dynamic Programming`  |  Medium  |  🔒  |
-|  [0751](https://leetcode.com/problems/ip-to-cidr)  |  [IP to CIDR](/solution/0700-0799/0751.IP%20to%20CIDR/README_EN.md)  |  `Bit Manipulation`  |  Easy  |  🔒  |
+|  [0751](https://leetcode.com/problems/ip-to-cidr)  |  [IP to CIDR](/solution/0700-0799/0751.IP%20to%20CIDR/README_EN.md)  |  `Bit Manipulation`  |  Medium  |  🔒  |
 |  [0752](https://leetcode.com/problems/open-the-lock)  |  [Open the Lock](/solution/0700-0799/0752.Open%20the%20Lock/README_EN.md)  |  `Breadth-first Search`  |  Medium  |    |
 |  [0753](https://leetcode.com/problems/cracking-the-safe)  |  [Cracking the Safe](/solution/0700-0799/0753.Cracking%20the%20Safe/README_EN.md)  |  `Depth-first Search`,`Math`  |  Hard  |    |
 |  [0754](https://leetcode.com/problems/reach-a-number)  |  [Reach a Number](/solution/0700-0799/0754.Reach%20a%20Number/README_EN.md)  |  `Math`  |  Medium  |    |
@@ -1881,6 +1881,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1870](https://leetcode.com/problems/minimum-speed-to-arrive-on-time)  |  [Minimum Speed to Arrive on Time](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README_EN.md)  |  `Math`,`Binary Search`  |  Medium  |    |
 |  [1871](https://leetcode.com/problems/jump-game-vii)  |  [Jump Game VII](/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md)  |  `Greedy`,`Breadth-first Search`,`Line Sweep`  |  Medium  |    |
 |  [1872](https://leetcode.com/problems/stone-game-viii)  |  [Stone Game VIII](/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
+|  [1873](https://leetcode.com/problems/calculate-special-bonus)  |  [Calculate Special Bonus](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md)  |    |  Easy  |  🔒  |
 
 ## Copyright
 

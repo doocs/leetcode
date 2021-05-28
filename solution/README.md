@@ -138,7 +138,7 @@
 |  [0125](https://leetcode-cn.com/problems/valid-palindrome)  |  [验证回文串](/solution/0100-0199/0125.Valid%20Palindrome/README.md)  |  `双指针`,`字符串`  |  简单  |    |
 |  [0126](https://leetcode-cn.com/problems/word-ladder-ii)  |  [单词接龙 II](/solution/0100-0199/0126.Word%20Ladder%20II/README.md)  |  `广度优先搜索`,`数组`,`字符串`,`回溯算法`  |  困难  |    |
 |  [0127](https://leetcode-cn.com/problems/word-ladder)  |  [单词接龙](/solution/0100-0199/0127.Word%20Ladder/README.md)  |  `广度优先搜索`  |  困难  |    |
-|  [0128](https://leetcode-cn.com/problems/longest-consecutive-sequence)  |  [最长连续序列](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README.md)  |  `并查集`,`数组`  |  困难  |    |
+|  [0128](https://leetcode-cn.com/problems/longest-consecutive-sequence)  |  [最长连续序列](/solution/0100-0199/0128.Longest%20Consecutive%20Sequence/README.md)  |  `并查集`,`数组`  |  中等  |    |
 |  [0129](https://leetcode-cn.com/problems/sum-root-to-leaf-numbers)  |  [求根节点到叶节点数字之和](/solution/0100-0199/0129.Sum%20Root%20to%20Leaf%20Numbers/README.md)  |  `树`,`深度优先搜索`  |  中等  |    |
 |  [0130](https://leetcode-cn.com/problems/surrounded-regions)  |  [被围绕的区域](/solution/0100-0199/0130.Surrounded%20Regions/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`  |  中等  |    |
 |  [0131](https://leetcode-cn.com/problems/palindrome-partitioning)  |  [分割回文串](/solution/0100-0199/0131.Palindrome%20Partitioning/README.md)  |  `深度优先搜索`,`动态规划`,`回溯算法`  |  中等  |    |
@@ -348,7 +348,7 @@
 |  [0335](https://leetcode-cn.com/problems/self-crossing)  |  [路径交叉](/solution/0300-0399/0335.Self%20Crossing/README.md)  |  `数学`  |  困难  |    |
 |  [0336](https://leetcode-cn.com/problems/palindrome-pairs)  |  [回文对](/solution/0300-0399/0336.Palindrome%20Pairs/README.md)  |  `字典树`,`哈希表`,`字符串`  |  困难  |    |
 |  [0337](https://leetcode-cn.com/problems/house-robber-iii)  |  [打家劫舍 III](/solution/0300-0399/0337.House%20Robber%20III/README.md)  |  `树`,`深度优先搜索`,`动态规划`  |  中等  |    |
-|  [0338](https://leetcode-cn.com/problems/counting-bits)  |  [比特位计数](/solution/0300-0399/0338.Counting%20Bits/README.md)  |  `位运算`,`动态规划`  |  中等  |    |
+|  [0338](https://leetcode-cn.com/problems/counting-bits)  |  [比特位计数](/solution/0300-0399/0338.Counting%20Bits/README.md)  |  `位运算`,`动态规划`  |  简单  |    |
 |  [0339](https://leetcode-cn.com/problems/nested-list-weight-sum)  |  [嵌套列表权重和](/solution/0300-0399/0339.Nested%20List%20Weight%20Sum/README.md)  |  `深度优先搜索`,`广度优先搜索`  |  中等  |  🔒  |
 |  [0340](https://leetcode-cn.com/problems/longest-substring-with-at-most-k-distinct-characters)  |  [至多包含 K 个不同字符的最长子串](/solution/0300-0399/0340.Longest%20Substring%20with%20At%20Most%20K%20Distinct%20Characters/README.md)  |  `哈希表`,`双指针`,`字符串`  |  中等  |  🔒  |
 |  [0341](https://leetcode-cn.com/problems/flatten-nested-list-iterator)  |  [扁平化嵌套列表迭代器](/solution/0300-0399/0341.Flatten%20Nested%20List%20Iterator/README.md)  |  `栈`,`设计`  |  中等  |    |
@@ -761,7 +761,7 @@
 |  [0748](https://leetcode-cn.com/problems/shortest-completing-word)  |  [最短补全词](/solution/0700-0799/0748.Shortest%20Completing%20Word/README.md)  |  `哈希表`  |  简单  |    |
 |  [0749](https://leetcode-cn.com/problems/contain-virus)  |  [隔离病毒](/solution/0700-0799/0749.Contain%20Virus/README.md)  |  `深度优先搜索`  |  困难  |    |
 |  [0750](https://leetcode-cn.com/problems/number-of-corner-rectangles)  |  [角矩形的数量](/solution/0700-0799/0750.Number%20Of%20Corner%20Rectangles/README.md)  |  `动态规划`  |  中等  |  🔒  |
-|  [0751](https://leetcode-cn.com/problems/ip-to-cidr)  |  [IP 到 CIDR](/solution/0700-0799/0751.IP%20to%20CIDR/README.md)  |  `位运算`  |  简单  |  🔒  |
+|  [0751](https://leetcode-cn.com/problems/ip-to-cidr)  |  [IP 到 CIDR](/solution/0700-0799/0751.IP%20to%20CIDR/README.md)  |  `位运算`  |  中等  |  🔒  |
 |  [0752](https://leetcode-cn.com/problems/open-the-lock)  |  [打开转盘锁](/solution/0700-0799/0752.Open%20the%20Lock/README.md)  |  `广度优先搜索`  |  中等  |    |
 |  [0753](https://leetcode-cn.com/problems/cracking-the-safe)  |  [破解保险箱](/solution/0700-0799/0753.Cracking%20the%20Safe/README.md)  |  `深度优先搜索`,`数学`  |  困难  |    |
 |  [0754](https://leetcode-cn.com/problems/reach-a-number)  |  [到达终点数字](/solution/0700-0799/0754.Reach%20a%20Number/README.md)  |  `数学`  |  中等  |    |
@@ -1883,6 +1883,7 @@
 |  [1870](https://leetcode-cn.com/problems/minimum-speed-to-arrive-on-time)  |  [准时到达的列车最小时速](/solution/1800-1899/1870.Minimum%20Speed%20to%20Arrive%20on%20Time/README.md)  |  `数学`,`二分查找`  |  中等  |    |
 |  [1871](https://leetcode-cn.com/problems/jump-game-vii)  |  [跳跃游戏 VII](/solution/1800-1899/1871.Jump%20Game%20VII/README.md)  |  `贪心算法`,`广度优先搜索`  |  中等  |    |
 |  [1872](https://leetcode-cn.com/problems/stone-game-viii)  |  [石子游戏 VIII](/solution/1800-1899/1872.Stone%20Game%20VIII/README.md)  |  `动态规划`  |  困难  |    |
+|  [1873](https://leetcode-cn.com/problems/calculate-special-bonus)  |  [Calculate Special Bonus](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md)  |    |  简单  |    |
 
 ## 版权
 
