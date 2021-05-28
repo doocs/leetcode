@@ -8,16 +8,10 @@
  */
 class Solution {
     public int getDecimalValue(ListNode head) {
-        int n = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            ++n;
-        }
         int res = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            --n;
-            if (cur.val == 1) {
-                res += Math.pow(2, n);
-            }
+        while (head != null) {
+            res = (res << 1) + head.val;
+            head = head.next;
         }
         return res;
     }

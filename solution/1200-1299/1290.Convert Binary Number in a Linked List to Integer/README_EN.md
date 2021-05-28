@@ -89,16 +89,10 @@
 
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
-        n, cur = 0, head
-        while cur:
-            n += 1
-            cur = cur.next
-        res, cur = 0, head
-        while cur:
-            n -= 1
-            if cur.val == 1:
-                res += (2 ** (n))
-            cur = cur.next
+        res = 0
+        while head:
+            res = (res << 1) + head.val
+            head = head.next
         return res
 ```
 
@@ -115,16 +109,10 @@ class Solution:
  */
 class Solution {
     public int getDecimalValue(ListNode head) {
-        int n = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            ++n;
-        }
         int res = 0;
-        for (ListNode cur = head; cur != null; cur = cur.next) {
-            --n;
-            if (cur.val == 1) {
-                res += Math.pow(2, n);
-            }
+        while (head != null) {
+            res = (res << 1) + head.val;
+            head = head.next;
         }
         return res;
     }
@@ -147,12 +135,35 @@ class Solution {
  */
 var getDecimalValue = function(head) {
     let res = 0;
-    while (head !== null) {
-        res *= 2;
-        if (head.val) res += 1;
+    while (head != null) {
+        res = (res << 1) + head.val;
         head = head.next;
     }
     return res;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        int res = 0;
+        while (head != NULL) {
+            res = (res << 1) + head->val;
+            head = head->next;
+        }
+        return res;
+    }
 };
 ```
 
