@@ -66,12 +66,12 @@
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         dummy = ListNode(next=head)
-        p = q = dummy
-        for i in range(n):
-            p = p.next
-        while p.next:
-            p, q = p.next, q.next
-        q.next = q.next.next
+        fast = slow = dummy
+        for _ in range(n):
+            fast = fast.next
+        while fast.next:
+            slow, fast = slow.next, fast.next
+        slow.next = slow.next.next
         return dummy.next
 ```
 
@@ -93,15 +93,15 @@ class Solution:
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode dummy = new ListNode(0, head);
-        ListNode p = dummy, q = dummy;
+        ListNode fast = dummy, slow = dummy;
         while (n-- > 0) {
-            p = p.next;
+            fast = fast.next;
         }
-        while (p.next != null) {
-            p = p.next;
-            q = q.next;
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        q.next = q.next.next;
+        slow.next = slow.next.next;
         return dummy.next;
     }
 }
@@ -124,16 +124,16 @@ class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         ListNode* dummy = new ListNode(0, head);
-        ListNode* p = dummy;
-        ListNode* q = dummy;
-        while (n-- > 0) {
-            p = p->next;
+        ListNode* fast = dummy;
+        ListNode* slow = dummy;
+        while (n--) {
+            fast = fast->next;
         }
-        while (p->next != nullptr) {
-            p = p->next;
-            q = q->next;
+        while (fast->next) {
+            slow = slow->next;
+            fast = fast->next;
         }
-        q->next = q->next->next;
+        slow->next = slow->next->next;
         return dummy->next;
     }
 };
@@ -150,20 +150,80 @@ public:
  * }
  */
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-    dummy := &ListNode{Val:0, Next:head}
-    p := dummy
-    q := dummy
+    dummy := &ListNode{0, head}
+    fast := dummy
+    slow := dummy
     for n > 0 {
-        p = p.Next
-        n--
+        fast = fast.Next
+        n -= 1
     }
-    for p.Next != nil {
-        p = p.Next
-        q = q.Next
+    for fast.Next != nil {
+        slow = slow.Next
+        fast = fast.Next
     }
-    q.Next = q.Next.Next
+    slow.Next = slow.Next.Next
     return dummy.Next
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+    const dummy = new ListNode(0, head);
+    let fast = dummy, slow = dummy;
+    while (n--) {
+        fast = fast.next;
+    }
+    while (fast.next) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+    slow.next = slow.next.next;
+    return dummy.next;
+};
+```
+
+### **Ruby**
+
+```rb
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode} head
+# @param {Integer} n
+# @return {ListNode}
+def remove_nth_from_end(head, n)
+    dummy = ListNode.new(0, head)
+    fast = slow = dummy
+    while n > 0
+        fast = fast.next
+        n -= 1
+    end
+    while fast.next
+        slow = slow.next
+        fast = fast.next
+    end
+    slow.next = slow.next.next
+    return dummy.next
+end
 ```
 
 ### **...**
