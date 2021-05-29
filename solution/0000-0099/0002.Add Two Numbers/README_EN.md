@@ -50,15 +50,13 @@
 ```python
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        carry = 0
-        dummy = ListNode(-1)
-        cur = dummy
+        dummy = ListNode()
+        carry, cur = 0, dummy
         while l1 or l2 or carry:
             s = (0 if not l1 else l1.val) + (0 if not l2 else l2.val) + carry
             carry, val = divmod(s, 10)
@@ -77,13 +75,15 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
         int carry = 0;
-        ListNode dummy = new ListNode(-1);
         ListNode cur = dummy;
         while (l1 != null || l2 != null || carry != 0) {
             int s = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
@@ -106,22 +106,24 @@ class Solution {
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* dummy = new ListNode();
         int carry = 0;
-        ListNode* dummy = new ListNode(-1);
         ListNode* cur = dummy;
-        while (l1 != NULL || l2 != NULL || carry != 0) {
-            int s = (l1 == NULL ? 0 : l1-> val) + (l2 == NULL ? 0 : l2->val) + carry;
+        while (l1 || l2 || carry) {
+            int s = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + carry;
             carry = s / 10;
             cur->next = new ListNode(s % 10);
             cur = cur->next;
-            l1 = l1 == NULL ? NULL : l1->next;
-            l2 = l2 == NULL ? NULL : l2->next;
+            l1 = l1 ? l1->next : nullptr;
+            l2 = l2 ? l2->next : nullptr;
         }
         return dummy->next;
     }
@@ -133,9 +135,9 @@ public:
 ```js
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
@@ -143,19 +145,19 @@ public:
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function (l1, l2) {
-  let carry = 0;
-  const dummy = new ListNode(-1);
-  let cur = dummy;
-  while (l1 || l2 || carry) {
-    const s = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + carry;
-    carry = Math.floor(s / 10);
-    cur.next = new ListNode(s % 10);
-    cur = cur.next;
-    l1 = l1 ? l1.next : l1;
-    l2 = l2 ? l2.next : l2;
-  }
-  return dummy.next;
+var addTwoNumbers = function(l1, l2) {
+    const dummy = new ListNode();
+    let carry = 0;
+    let cur = dummy;
+    while (l1 || l2 || carry) {
+        const s = (l1?.val || 0) + (l2?.val || 0) + carry;
+        carry = Math.floor(s / 10);
+        cur.next = new ListNode(s % 10);
+        cur = cur.next;
+        l1 = l1?.next;
+        l2 = l2?.next;
+    }
+    return dummy.next;
 };
 ```
 
@@ -175,14 +177,13 @@ var addTwoNumbers = function (l1, l2) {
  */
 public class Solution {
     public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(-1);
+        ListNode dummy = new ListNode();
+        int carry = 0;
         ListNode cur = dummy;
-        var carry = 0;
-        while (l1 != null || l2 != null || carry != 0)
-        {
-            int t = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
-            carry = t / 10;
-            cur.next = new ListNode(t % 10);
+        while (l1 != null || l2 != null || carry != 0) {
+            int s = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
+            carry = s / 10;
+            cur.next = new ListNode(s % 10);
             cur = cur.next;
             l1 = l1 == null ? null : l1.next;
             l2 = l2 == null ? null : l2.next;
@@ -190,6 +191,72 @@ public class Solution {
         return dummy.next;
     }
 }
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+    dummy := &ListNode{}
+    carry := 0
+    cur := dummy
+    for l1 != nil || l2 != nil || carry != 0 {
+        s := carry
+        if l1 != nil {
+            s += l1.Val
+        }
+        if l2 != nil {
+            s += l2.Val
+        }
+        carry = s / 10
+        cur.Next = &ListNode{s % 10, nil}
+        cur = cur.Next
+        if l1 != nil {
+            l1 = l1.Next
+        }
+        if l2 != nil {
+            l2 = l2.Next
+        }
+    }
+    return dummy.Next
+}
+```
+
+### **Ruby**
+
+```rb
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode} l1
+# @param {ListNode} l2
+# @return {ListNode}
+def add_two_numbers(l1, l2)
+    dummy = ListNode.new()
+    carry = 0
+    cur = dummy
+    while !l1.nil? || !l2.nil? || carry > 0
+        s = (l1.nil? ? 0 : l1.val) + (l2.nil? ? 0 : l2.val) + carry
+        carry = s / 10
+        cur.next = ListNode.new(s % 10)
+        cur = cur.next
+        l1 = l1.nil? ? l1 : l1.next
+        l2 = l2.nil? ? l2 : l2.next
+    end
+    dummy.next
+end
 ```
 
 ### **...**
