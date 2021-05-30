@@ -74,13 +74,13 @@ targetWord 的数值为 "aaaa" -&gt; "0000" -&gt; 0
 ```python
 class Solution:
     def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
-        def transfer(word):
+        def convert(word):
             res = 0
             for c in word:
                 res *= 10
                 res += (ord(c) - ord('a'))
             return res
-        return transfer(firstWord) + transfer(secondWord) == transfer(targetWord)
+        return convert(firstWord) + convert(secondWord) == convert(targetWord)
 ```
 
 ### **Java**
@@ -90,10 +90,10 @@ class Solution:
 ```java
 class Solution {
     public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
-        return transfer(firstWord) + transfer(secondWord) == transfer(targetWord);
+        return convert(firstWord) + convert(secondWord) == convert(targetWord);
     }
 
-    private int transfer(String word) {
+    private int convert(String word) {
         int res = 0;
         for (char c : word.toCharArray()) {
             res *= 10;
@@ -110,10 +110,10 @@ class Solution {
 class Solution {
 public:
     bool isSumEqual(string firstWord, string secondWord, string targetWord) {
-        return transfer(firstWord) + transfer(secondWord) == transfer(targetWord);
+        return convert(firstWord) + convert(secondWord) == convert(targetWord);
     }
 private:
-    int transfer(string word) {
+    int convert(string word) {
         int res = 0;
         for (char c : word) {
             res *= 10;

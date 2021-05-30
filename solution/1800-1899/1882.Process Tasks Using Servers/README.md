@@ -58,10 +58,19 @@
 	<li><code>1 <= servers[i], tasks[j] <= 2 * 10<sup>5</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“优先队列”实现。
+
+定义两个优先级队列，分别表示空闲服务器、使用中的服务器。其中：空闲服务器 `idle` 依据**权重、下标**排序；而使用中的服务器 `busy` 依据**结束时间、权重、下标**排序。
+
+遍历任务：
+
+- 若有使用中的服务器小于任务开始时间，将其加入到空闲服务器队列 `idle` 中；
+- 若当前有空闲服务器，那么在空闲队列 `idle` 中取出权重最小的服务器，将其加入使用中的队列 `busy` 中；
+- 若当前没有空闲服务器，那么在使用队列 `busy` 中找出最早结束时间且权重最小的服务器，重新加入使用中的队列 `busy` 中。
 
 <!-- tabs:start -->
 
@@ -70,7 +79,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:
+        idle, busy = [], []
+        for i, weight in enumerate(servers):
+            heapq.heappush(idle, (weight, i))
+        res = []
+        for start, cost in enumerate(tasks):
+            while busy and busy[0][0] <= start:
+                _, s, i = heapq.heappop(busy)
+                heapq.heappush(idle, (s, i))
+            if idle:
+                s, i = heapq.heappop(idle)
+                heapq.heappush(busy, (start + cost, s, i))
+            else:
+                t, s, i = heapq.heappop(busy)
+                heapq.heappush(busy, (t + cost, s, i))
+            res.append(i)
+        return res
 ```
 
 ### **Java**
@@ -78,7 +104,40 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] assignTasks(int[] servers, int[] tasks) {
+        int m = tasks.length, n = servers.length;
+        PriorityQueue<int[]> idle = new PriorityQueue<>((a, b) -> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        PriorityQueue<int[]> busy = new PriorityQueue<>((a, b) -> {
+            if (a[0] == b[0]) {
+                return a[1] == b[1] ? a[2] - b[2] : a[1] - b[1];
+            }
+            return a[0] - b[0];
+        });
+        for (int i = 0; i < n; ++i) {
+            idle.offer(new int[]{servers[i], i});
+        }
+        int[] res = new int[m];
+        int j = 0;
+        for (int start = 0; start < m; ++start) {
+            int cost = tasks[start];
+            while (!busy.isEmpty() && busy.peek()[0] <= start) {
+                int[] item = busy.poll();
+                idle.offer(new int[]{item[1], item[2]});
+            }
+            if (!idle.isEmpty()) {
+                int[] item = idle.poll();
+                res[j++] = item[1];
+                busy.offer(new int[]{start + cost, item[0], item[1]});
+            } else {
+                int[] item = busy.poll();
+                res[j++] = item[2];
+                busy.offer(new int[]{item[0] + cost, item[1], item[2]});
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

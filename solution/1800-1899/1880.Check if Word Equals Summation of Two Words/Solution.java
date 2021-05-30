@@ -1,9 +1,9 @@
 class Solution {
     public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
-        return transfer(firstWord) + transfer(secondWord) == transfer(targetWord);
+        return convert(firstWord) + convert(secondWord) == convert(targetWord);
     }
 
-    private int transfer(String word) {
+    private int convert(String word) {
         int res = 0;
         for (char c : word.toCharArray()) {
             res *= 10;
