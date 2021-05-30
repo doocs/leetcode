@@ -4,7 +4,13 @@ import "fmt"
 
 func merge(nums, temp []int, low, mid, high int) {
 	for i, j, k := low, mid+1, low; k <= high; k++ {
-		if j > high || nums[i] < nums[j] {
+		if i > mid {
+			temp[k] = nums[j]
+			j++
+		} else if j > high {
+			temp[k] = nums[i]
+			i++
+		} else if nums[i] <= nums[j] {
 			temp[k] = nums[i]
 			i++
 		} else {
