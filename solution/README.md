@@ -241,7 +241,7 @@
 |  [0228](https://leetcode-cn.com/problems/summary-ranges)  |  [汇总区间](/solution/0200-0299/0228.Summary%20Ranges/README.md)  |  `数组`  |  简单  |    |
 |  [0229](https://leetcode-cn.com/problems/majority-element-ii)  |  [求众数 II](/solution/0200-0299/0229.Majority%20Element%20II/README.md)  |  `数组`  |  中等  |    |
 |  [0230](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst)  |  [二叉搜索树中第K小的元素](/solution/0200-0299/0230.Kth%20Smallest%20Element%20in%20a%20BST/README.md)  |  `树`,`二分查找`  |  中等  |    |
-|  [0231](https://leetcode-cn.com/problems/power-of-two)  |  [2的幂](/solution/0200-0299/0231.Power%20of%20Two/README.md)  |  `位运算`,`数学`  |  简单  |    |
+|  [0231](https://leetcode-cn.com/problems/power-of-two)  |  [2 的幂](/solution/0200-0299/0231.Power%20of%20Two/README.md)  |  `位运算`,`数学`  |  简单  |    |
 |  [0232](https://leetcode-cn.com/problems/implement-queue-using-stacks)  |  [用栈实现队列](/solution/0200-0299/0232.Implement%20Queue%20using%20Stacks/README.md)  |  `栈`,`设计`  |  简单  |    |
 |  [0233](https://leetcode-cn.com/problems/number-of-digit-one)  |  [数字 1 的个数](/solution/0200-0299/0233.Number%20of%20Digit%20One/README.md)  |  `数学`  |  困难  |    |
 |  [0234](https://leetcode-cn.com/problems/palindrome-linked-list)  |  [回文链表](/solution/0200-0299/0234.Palindrome%20Linked%20List/README.md)  |  `链表`,`双指针`  |  简单  |    |
@@ -1884,6 +1884,16 @@
 |  [1871](https://leetcode-cn.com/problems/jump-game-vii)  |  [跳跃游戏 VII](/solution/1800-1899/1871.Jump%20Game%20VII/README.md)  |  `贪心算法`,`广度优先搜索`  |  中等  |    |
 |  [1872](https://leetcode-cn.com/problems/stone-game-viii)  |  [石子游戏 VIII](/solution/1800-1899/1872.Stone%20Game%20VIII/README.md)  |  `动态规划`  |  困难  |    |
 |  [1873](https://leetcode-cn.com/problems/calculate-special-bonus)  |  [Calculate Special Bonus](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md)  |    |  简单  |    |
+|  [1874](https://leetcode-cn.com/problems/minimize-product-sum-of-two-arrays)  |  [Minimize Product Sum of Two Arrays](/solution/1800-1899/1874.Minimize%20Product%20Sum%20of%20Two%20Arrays/README_EN.md)  |  `贪心算法`  |  中等  |  🔒  |
+|  [1875](https://leetcode-cn.com/problems/group-employees-of-the-same-salary)  |  [Group Employees of the Same Salary](/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README_EN.md)  |    |  中等  |    |
+|  [1876](https://leetcode-cn.com/problems/substrings-of-size-three-with-distinct-characters)  |  [长度为三且各字符不同的子字符串](/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README.md)  |  `字符串`  |  简单  |    |
+|  [1877](https://leetcode-cn.com/problems/minimize-maximum-pair-sum-in-array)  |  [数组中最大数对和的最小值](/solution/1800-1899/1877.Minimize%20Maximum%20Pair%20Sum%20in%20Array/README.md)  |  `贪心算法`,`排序`  |  中等  |    |
+|  [1878](https://leetcode-cn.com/problems/get-biggest-three-rhombus-sums-in-a-grid)  |  [矩阵中最大的三个菱形和](/solution/1800-1899/1878.Get%20Biggest%20Three%20Rhombus%20Sums%20in%20a%20Grid/README.md)  |  `数组`,`数学`  |  中等  |    |
+|  [1879](https://leetcode-cn.com/problems/minimum-xor-sum-of-two-arrays)  |  [两个数组最小的异或值之和](/solution/1800-1899/1879.Minimum%20XOR%20Sum%20of%20Two%20Arrays/README.md)  |  `位运算`,`动态规划`  |  困难  |    |
+|  [1880](https://leetcode-cn.com/problems/check-if-word-equals-summation-of-two-words)  |  [检查某单词是否等于两单词之和](/solution/1800-1899/1880.Check%20if%20Word%20Equals%20Summation%20of%20Two%20Words/README.md)  |  `字符串`  |  简单  |    |
+|  [1881](https://leetcode-cn.com/problems/maximum-value-after-insertion)  |  [插入后的最大值](/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1882](https://leetcode-cn.com/problems/process-tasks-using-servers)  |  [使用服务器处理任务](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)  |  `堆`  |  中等  |    |
+|  [1883](https://leetcode-cn.com/problems/minimum-skips-to-arrive-at-meeting-on-time)  |  [准时抵达会议现场的最小跳过休息次数](/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README.md)  |  `动态规划`  |  困难  |    |
 
 ## 版权
 

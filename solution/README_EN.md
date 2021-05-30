@@ -1882,6 +1882,16 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1871](https://leetcode.com/problems/jump-game-vii)  |  [Jump Game VII](/solution/1800-1899/1871.Jump%20Game%20VII/README_EN.md)  |  `Greedy`,`Breadth-first Search`,`Line Sweep`  |  Medium  |    |
 |  [1872](https://leetcode.com/problems/stone-game-viii)  |  [Stone Game VIII](/solution/1800-1899/1872.Stone%20Game%20VIII/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 |  [1873](https://leetcode.com/problems/calculate-special-bonus)  |  [Calculate Special Bonus](/solution/1800-1899/1873.Calculate%20Special%20Bonus/README_EN.md)  |    |  Easy  |  🔒  |
+|  [1874](https://leetcode.com/problems/minimize-product-sum-of-two-arrays)  |  [Minimize Product Sum of Two Arrays](/solution/1800-1899/1874.Minimize%20Product%20Sum%20of%20Two%20Arrays/README_EN.md)  |  `Greedy`  |  Medium  |  🔒  |
+|  [1875](https://leetcode.com/problems/group-employees-of-the-same-salary)  |  [Group Employees of the Same Salary](/solution/1800-1899/1875.Group%20Employees%20of%20the%20Same%20Salary/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1876](https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters)  |  [Substrings of Size Three with Distinct Characters](/solution/1800-1899/1876.Substrings%20of%20Size%20Three%20with%20Distinct%20Characters/README_EN.md)  |  `String`  |  Easy  |    |
+|  [1877](https://leetcode.com/problems/minimize-maximum-pair-sum-in-array)  |  [Minimize Maximum Pair Sum in Array](/solution/1800-1899/1877.Minimize%20Maximum%20Pair%20Sum%20in%20Array/README_EN.md)  |  `Greedy`,`Sort`  |  Medium  |    |
+|  [1878](https://leetcode.com/problems/get-biggest-three-rhombus-sums-in-a-grid)  |  [Get Biggest Three Rhombus Sums in a Grid](/solution/1800-1899/1878.Get%20Biggest%20Three%20Rhombus%20Sums%20in%20a%20Grid/README_EN.md)  |  `Array`,`Math`  |  Medium  |    |
+|  [1879](https://leetcode.com/problems/minimum-xor-sum-of-two-arrays)  |  [Minimum XOR Sum of Two Arrays](/solution/1800-1899/1879.Minimum%20XOR%20Sum%20of%20Two%20Arrays/README_EN.md)  |  `Bit Manipulation`,`Dynamic Programming`  |  Hard  |    |
+|  [1880](https://leetcode.com/problems/check-if-word-equals-summation-of-two-words)  |  [Check if Word Equals Summation of Two Words](/solution/1800-1899/1880.Check%20if%20Word%20Equals%20Summation%20of%20Two%20Words/README_EN.md)  |  `String`  |  Easy  |    |
+|  [1881](https://leetcode.com/problems/maximum-value-after-insertion)  |  [Maximum Value after Insertion](/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1882](https://leetcode.com/problems/process-tasks-using-servers)  |  [Process Tasks Using Servers](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)  |  `Heap`  |  Medium  |    |
+|  [1883](https://leetcode.com/problems/minimum-skips-to-arrive-at-meeting-on-time)  |  [Minimum Skips to Arrive at Meeting On Time](/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 
 ## Copyright
 
