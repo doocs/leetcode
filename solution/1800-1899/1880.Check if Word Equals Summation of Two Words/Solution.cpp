@@ -1,14 +1,15 @@
 class Solution {
-    public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
+public:
+    bool isSumEqual(string firstWord, string secondWord, string targetWord) {
         return transfer(firstWord) + transfer(secondWord) == transfer(targetWord);
     }
-
-    private int transfer(String word) {
+private:
+    int transfer(string word) {
         int res = 0;
-        for (char c : word.toCharArray()) {
+        for (char c : word) {
             res *= 10;
             res += (c - 'a');
         }
         return res;
     }
-}
+};

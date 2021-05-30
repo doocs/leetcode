@@ -96,19 +96,13 @@ We return true because 0 + 0 == 0.
 ```python
 class Solution:
     def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
-        n = 9
-        firstWord = 'a' * (n - len(firstWord)) + firstWord
-        secondWord = 'a' * (n - len(secondWord)) + secondWord
-        targetWord = 'a' * (n - len(targetWord)) + targetWord
-        carry = 0
-        while n > 0:
-            n -= 1
-            i = ord(firstWord[n]) - ord('a')
-            j = ord(secondWord[n]) - ord('a')
-            carry, s = divmod(i + j + carry, 10)
-            if targetWord[n] != chr(ord('a') + s):
-                return False
-        return True
+        def transfer(word):
+            res = 0
+            for c in word:
+                res *= 10
+                res += (ord(c) - ord('a'))
+            return res
+        return transfer(firstWord) + transfer(secondWord) == transfer(targetWord)
 ```
 
 ### **Java**
@@ -116,32 +110,38 @@ class Solution:
 ```java
 class Solution {
     public boolean isSumEqual(String firstWord, String secondWord, String targetWord) {
-        int n = 9;
-        firstWord = fillA(firstWord, n);
-        secondWord = fillA(secondWord, n);
-        targetWord = fillA(targetWord, n);
-        int carry = 0;
-        while (--n >= 0) {
-            int i = firstWord.charAt(n) - 'a';
-            int j = secondWord.charAt(n) - 'a';
-            int s = i + j + carry;
-            if (targetWord.charAt(n) != (char) ('a' + (s % 10))) {
-                return false;
-            }
-            carry = s / 10;
-        }
-        return true;
+        return transfer(firstWord) + transfer(secondWord) == transfer(targetWord);
     }
 
-    private String fillA(String word, int n) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < n - word.length(); ++i) {
-            sb.append("a");
+    private int transfer(String word) {
+        int res = 0;
+        for (char c : word.toCharArray()) {
+            res *= 10;
+            res += (c - 'a');
         }
-        sb.append(word);
-        return sb.toString();
+        return res;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isSumEqual(string firstWord, string secondWord, string targetWord) {
+        return transfer(firstWord) + transfer(secondWord) == transfer(targetWord);
+    }
+private:
+    int transfer(string word) {
+        int res = 0;
+        for (char c : word) {
+            res *= 10;
+            res += (c - 'a');
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**
