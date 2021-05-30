@@ -21,7 +21,7 @@ class Solution {
     }
 
     private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         ListNode cur = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {

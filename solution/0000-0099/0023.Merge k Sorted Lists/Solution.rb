@@ -1,39 +1,36 @@
 # Definition for singly-linked list.
 # class ListNode
 #     attr_accessor :val, :next
-#     def initialize(val)
+#     def initialize(val = 0, _next = nil)
 #         @val = val
-#         @next = nil
+#         @next = _next
 #     end
 # end
-
 # @param {ListNode[]} lists
 # @return {ListNode}
 def merge_k_lists(lists)
-  if lists.nil?
-    nil
-  elsif lists.length == 1
-    lists[0]
-  else
-    cur_list = lists[0]
-    for i in 1..lists.length - 1
-      cur_list = merge_2_lists(cur_list, lists[i])
-    end
-    cur_list
+  n = lists.length
+  i = 1
+  while i < n
+      lists[i] = merge_two_lists(lists[i - 1], lists[i])
+      i += 1
   end
-
+  lists[n - 1]
 end
 
-def merge_2_lists(list_a, list_b)
-  if list_a.nil?
-    list_b
-  elsif list_b.nil?
-    list_a
-  elsif list_a.val < list_b.val
-    list_a.next = merge_2_lists(list_a.next, list_b)
-    list_a
-  else
-    list_b.next = merge_2_lists(list_a, list_b.next)
-    list_b
-  end
+def merge_two_lists(l1, l2)
+dummy = ListNode.new()
+cur = dummy
+while l1 && l2
+    if l1.val <= l2.val
+        cur.next = l1
+        l1 = l1.next
+    else
+        cur.next = l2
+        l2 = l2.next
+    end
+    cur = cur.next
+end
+cur.next = l1 || l2
+dummy.next
 end

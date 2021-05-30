@@ -12,7 +12,6 @@ class Solution:
             lists[i] = self.mergeTwoLists(lists[i - 1], lists[i])
         return lists[n - 1]
         
-    
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         dummy = ListNode()
         cur = dummy
