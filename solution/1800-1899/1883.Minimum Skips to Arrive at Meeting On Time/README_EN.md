@@ -61,7 +61,6 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 	<li><code>1 &lt;= hoursBefore &lt;= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -69,13 +68,56 @@ You can skip the first and third rest to arrive in ((7/2 + <u>0</u>) + (3/2 + 0)
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+        n = len(dist)
+        dp = [[float('inf')] * (n + 1) for _ in range(n + 1)]
+        dp[0][0] = 0
+        for i in range(1, n + 1):
+            for j in range(i + 1):
+                if i != j:
+                    dp[i][j] = min(dp[i][j], ((dp[i - 1][j] + dist[i - 1] - 1) // speed + 1) * speed)
+                if j > 0:
+                    dp[i][j] = min(dp[i][j], dp[i - 1][j - 1] + dist[i - 1])
+        for i in range(n + 1):
+            if dp[n][i] <= hoursBefore * speed:
+                return i
+        return -1
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minSkips(int[] dist, int speed, int hoursBefore) {
+        int n = dist.length;
+        int[][] dp = new int[n + 1][n + 1];
+        for (int i = 0; i <= n; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                dp[i][j] = Integer.MAX_VALUE;
+            }
+        }
+        dp[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                if (i != j) {
+                    // 没有跳过
+                    dp[i][j] = Math.min(dp[i][j], ((dp[i - 1][j] + dist[i - 1] - 1) / speed + 1) * speed);
+                }
+                if (j > 0) {
+                    // 跳过
+                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1] + dist[i - 1]);
+                }
+            }
+        }
+        for (int i = 0; i <= n; ++i) {
+            if (dp[n][i] <= hoursBefore * speed) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **...**

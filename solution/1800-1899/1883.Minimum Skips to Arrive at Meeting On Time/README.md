@@ -65,10 +65,20 @@
 	<li><code>1 <= hoursBefore <= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“动态规划”实现。
+
+定义 `dp[i][j]` 表示前 i 段道路，跳过了 j 次的最短路程（耗时也一样）。
+
+考虑最后一段道路 `dist[i - 1]` 是否跳过：
+
+- 若没有跳过，那么 `dp[i][j] = ⌈dp[i - 1][j] + dist[i - 1] / speed⌉`
+- 若跳过，那么 `dp[i][j] = dp[i - 1][j - 1] + dist[i - 1] / speed`
+
+综合两种情况，`dp[i][j] = min{⌈dp[i - 1][j] + dist[i - 1] / speed⌉, dp[i - 1][j - 1] + dist[i - 1] / speed}`。
 
 <!-- tabs:start -->
 
@@ -77,7 +87,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSkips(self, dist: List[int], speed: int, hoursBefore: int) -> int:
+        n = len(dist)
+        dp = [[float('inf')] * (n + 1) for _ in range(n + 1)]
+        dp[0][0] = 0
+        for i in range(1, n + 1):
+            for j in range(i + 1):
+                if i != j:
+                    # 没有跳过
+                    dp[i][j] = min(dp[i][j], ((dp[i - 1][j] + dist[i - 1] - 1) // speed + 1) * speed)
+                if j > 0:
+                    # 跳过
+                    dp[i][j] = min(dp[i][j], dp[i - 1][j - 1] + dist[i - 1])
+        for i in range(n + 1):
+            if dp[n][i] <= hoursBefore * speed:
+                return i
+        return -1
 ```
 
 ### **Java**
@@ -85,7 +111,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minSkips(int[] dist, int speed, int hoursBefore) {
+        int n = dist.length;
+        int[][] dp = new int[n + 1][n + 1];
+        for (int i = 0; i <= n; ++i) {
+            for (int j = 0; j <= n; ++j) {
+                dp[i][j] = Integer.MAX_VALUE;
+            }
+        }
+        dp[0][0] = 0;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                if (i != j) {
+                    // 没有跳过
+                    dp[i][j] = Math.min(dp[i][j], ((dp[i - 1][j] + dist[i - 1] - 1) / speed + 1) * speed);
+                }
+                if (j > 0) {
+                    // 跳过
+                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1] + dist[i - 1]);
+                }
+            }
+        }
+        for (int i = 0; i <= n; ++i) {
+            if (dp[n][i] <= hoursBefore * speed) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **...**
