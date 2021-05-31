@@ -36,13 +36,50 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isPowerOfFour(self, n: int) -> bool:
+        return n > 0 and (n & (n - 1)) == 0 and (n & 0xaaaaaaaa) == 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfFour = function(n) {
+    return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
+};
+```
+
+### **Go**
+
+```go
+func isPowerOfFour(n int) bool {
+    return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0
+}
 ```
 
 ### **...**

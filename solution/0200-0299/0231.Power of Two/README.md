@@ -1,4 +1,4 @@
-# [231. 2的幂](https://leetcode-cn.com/problems/power-of-two)
+# [231. 2 的幂](https://leetcode-cn.com/problems/power-of-two)
 
 [English Version](/solution/0200-0299/0231.Power%20of%20Two/README_EN.md)
 
@@ -25,7 +25,6 @@
 <pre><strong>输入:</strong> 218
 <strong>输出:</strong> false</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -37,7 +36,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n > 0 and (n & (n - 1)) == 0
 ```
 
 ### **Java**
@@ -45,7 +46,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfTwo = function(n) {
+    return n > 0 && (n & (n - 1)) == 0;
+};
+```
+
+### **Go**
+
+```go
+func isPowerOfTwo(n int) bool {
+    return n > 0 && (n & (n - 1)) == 0
+}
 ```
 
 ### **...**

@@ -63,13 +63,50 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n > 0 and (n & (n - 1)) == 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfTwo = function(n) {
+    return n > 0 && (n & (n - 1)) == 0;
+};
+```
+
+### **Go**
+
+```go
+func isPowerOfTwo(n int) bool {
+    return n > 0 && (n & (n - 1)) == 0
+}
 ```
 
 ### **...**
