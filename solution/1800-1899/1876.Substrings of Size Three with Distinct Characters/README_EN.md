@@ -39,7 +39,6 @@ The good substrings are &quot;abc&quot;, &quot;bca&quot;, &quot;cab&quot;, and &
 	<li><code>s</code>​​​​​​ consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -47,13 +46,29 @@ The good substrings are &quot;abc&quot;, &quot;bca&quot;, &quot;cab&quot;, and &
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countGoodSubstrings(self, s: str) -> int:
+        count, n = 0, len(s)
+        for i in range(n - 2):
+            count += (s[i] != s[i + 1] and s[i] != s[i + 2] and s[i + 1] != s[i + 2])
+        return count
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int countGoodSubstrings(String s) {
+        int count = 0, n = s.length();
+        for (int i = 0; i < n - 2; ++i) {
+            char a = s.charAt(i), b = s.charAt(i + 1), c = s.charAt(i + 2);
+            if (a != b && a != c && b != c) {
+                ++count;
+            }
+        }
+        return count;
+    }
+}
 ```
 
 ### **...**
