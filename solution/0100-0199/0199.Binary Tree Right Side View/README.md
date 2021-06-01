@@ -45,13 +45,13 @@ class Solution:
     def rightSideView(self, root: TreeNode) -> List[int]:
         if not root:
             return []
-        q = [root]
+        q = collections.deque([root])
         res = []
         while q:
             size = len(q)
             res.append(q[0].val)
             for _ in range(size):
-                node = q.pop(0)
+                node = q.popleft()
                 if node.right:
                     q.append(node.right)
                 if node.left:

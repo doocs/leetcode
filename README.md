@@ -125,6 +125,7 @@
 - [二叉搜索树的最近公共祖先](/solution/0200-0299/0236.Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree/README.md)
 - [将二叉搜索树转换为单链表](/lcci/17.12.BiNode/README.md)
 - [将二叉搜索树转化为排序的双向链表](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README.md)
+- [二叉树的边界](/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README.md)
 
 ### 数学
 
