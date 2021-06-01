@@ -1,48 +1,41 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
 public class Solution {
     public bool IsPalindrome(ListNode head) {
-        if (head == null) return true;
-        var count = Count(head);
-        var temp = head;
-        var c = 1;
-        while (c < count / 2)
-        {
-            ++c;
-            temp = temp.next;
+        if (head == null || head.next == null) {
+            return true;
         }
-        var head2 = Reverse(temp.next);
-        temp.next = null;
-
-        while (head != null && head2 != null)
-        {
-            if (head.val != head2.val) return false;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode cur = slow.next;
+        slow.next = null;
+        ListNode pre = null;
+        while (cur != null) {
+            ListNode t = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = t;
+        }
+        while (pre != null) {
+            if (pre.val != head.val) {
+                return false;
+            }
+            pre = pre.next;
             head = head.next;
-            head2 = head2.next;
         }
         return true;
-    }
-
-    private int Count(ListNode head)
-    {
-        var count = 0;
-        while (head != null)
-        {
-            ++count;
-            head = head.next;
-        }
-        return count;
-    }
-
-    private ListNode Reverse(ListNode head)
-    {
-        var temp = head;
-        head = null;
-        while (temp != null)
-        {
-            var temp2 = temp.next;
-            temp.next = head;
-            head = temp;
-            temp = temp2;
-        }
-        return head;
     }
 }
