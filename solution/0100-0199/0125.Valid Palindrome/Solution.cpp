@@ -1,14 +1,14 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int left = 0, right = s.size() - 1;
-        while (left < right) {
-            if (!isAlphaNum(s[left])) ++left;
-            else if (!isAlphaNum(s[right])) --right;
-            else if ((s[left] + 32 - 'a') % 32 != (s[right] + 32 - 'a') % 32) return false;
+        int i = 0, j = s.size() - 1;
+        while (i < j) {
+            if (!isAlphaNum(s[i])) ++i;
+            else if (!isAlphaNum(s[j])) --j;
+            else if ((s[i] + 32 - 'a') % 32 != (s[j] + 32 - 'a') % 32) return false;
             else {
-                ++left;
-                --right;
+                ++i;
+                --j;
             }
         }
         return true;

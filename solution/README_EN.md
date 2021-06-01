@@ -503,7 +503,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0492](https://leetcode.com/problems/construct-the-rectangle)  |  [Construct the Rectangle](/solution/0400-0499/0492.Construct%20the%20Rectangle/README_EN.md)  |  `Math`  |  Easy  |    |
 |  [0493](https://leetcode.com/problems/reverse-pairs)  |  [Reverse Pairs](/solution/0400-0499/0493.Reverse%20Pairs/README_EN.md)  |  `Sort`,`Binary Indexed Tree`,`Segment Tree`,`Binary Search`,`Divide and Conquer`  |  Hard  |    |
 |  [0494](https://leetcode.com/problems/target-sum)  |  [Target Sum](/solution/0400-0499/0494.Target%20Sum/README_EN.md)  |  `Depth-first Search`,`Dynamic Programming`  |  Medium  |    |
-|  [0495](https://leetcode.com/problems/teemo-attacking)  |  [Teemo Attacking](/solution/0400-0499/0495.Teemo%20Attacking/README_EN.md)  |  `Array`  |  Medium  |    |
+|  [0495](https://leetcode.com/problems/teemo-attacking)  |  [Teemo Attacking](/solution/0400-0499/0495.Teemo%20Attacking/README_EN.md)  |  `Array`  |  Easy  |    |
 |  [0496](https://leetcode.com/problems/next-greater-element-i)  |  [Next Greater Element I](/solution/0400-0499/0496.Next%20Greater%20Element%20I/README_EN.md)  |  `Stack`  |  Easy  |    |
 |  [0497](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles)  |  [Random Point in Non-overlapping Rectangles](/solution/0400-0499/0497.Random%20Point%20in%20Non-overlapping%20Rectangles/README_EN.md)  |  `Binary Search`,`Random`  |  Medium  |    |
 |  [0498](https://leetcode.com/problems/diagonal-traverse)  |  [Diagonal Traverse](/solution/0400-0499/0498.Diagonal%20Traverse/README_EN.md)  |    |  Medium  |    |
@@ -766,7 +766,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0755](https://leetcode.com/problems/pour-water)  |  [Pour Water](/solution/0700-0799/0755.Pour%20Water/README_EN.md)  |  `Array`  |  Medium  |  🔒  |
 |  [0756](https://leetcode.com/problems/pyramid-transition-matrix)  |  [Pyramid Transition Matrix](/solution/0700-0799/0756.Pyramid%20Transition%20Matrix/README_EN.md)  |  `Bit Manipulation`,`Depth-first Search`  |  Medium  |    |
 |  [0757](https://leetcode.com/problems/set-intersection-size-at-least-two)  |  [Set Intersection Size At Least Two](/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README_EN.md)  |  `Greedy`  |  Hard  |    |
-|  [0758](https://leetcode.com/problems/bold-words-in-string)  |  [Bold Words in String](/solution/0700-0799/0758.Bold%20Words%20in%20String/README_EN.md)  |  `String`  |  Easy  |  🔒  |
+|  [0758](https://leetcode.com/problems/bold-words-in-string)  |  [Bold Words in String](/solution/0700-0799/0758.Bold%20Words%20in%20String/README_EN.md)  |  `String`  |  Medium  |  🔒  |
 |  [0759](https://leetcode.com/problems/employee-free-time)  |  [Employee Free Time](/solution/0700-0799/0759.Employee%20Free%20Time/README_EN.md)  |  `Heap`,`Greedy`  |  Hard  |  🔒  |
 |  [0760](https://leetcode.com/problems/find-anagram-mappings)  |  [Find Anagram Mappings](/solution/0700-0799/0760.Find%20Anagram%20Mappings/README_EN.md)  |  `Hash Table`  |  Easy  |  🔒  |
 |  [0761](https://leetcode.com/problems/special-binary-string)  |  [Special Binary String](/solution/0700-0799/0761.Special%20Binary%20String/README_EN.md)  |  `Recursion`,`String`  |  Hard  |    |
