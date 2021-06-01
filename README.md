@@ -126,6 +126,8 @@
 - [将二叉搜索树转换为单链表](/lcci/17.12.BiNode/README.md)
 - [将二叉搜索树转化为排序的双向链表](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README.md)
 - [二叉树的边界](/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README.md)
+- [填充每个节点的下一个右侧节点指针](/solution/0100-0199/0116.Populating%20Next%20Right%20Pointers%20in%20Each%20Node/README.md)
+- [填充每个节点的下一个右侧节点指针 II](/solution/0100-0199/0117.Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/README.md)
 
 ### 数学
 

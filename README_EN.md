@@ -122,6 +122,8 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [BiNode](/lcci/17.12.BiNode/README_EN.md)
 - [Convert Binary Search Tree to Sorted Doubly Linked List](/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/README_EN.md)
 - [Boundary of Binary Tree](/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/README_EN.md)
+- [Populating Next Right Pointers in Each Node](/solution/0100-0199/0116.Populating%20Next%20Right%20Pointers%20in%20Each%20Node/README_EN.md)
+- [Populating Next Right Pointers in Each Node II](/solution/0100-0199/0117.Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II/README_EN.md)
 
 ### Math
 
