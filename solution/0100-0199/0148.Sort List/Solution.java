@@ -22,7 +22,7 @@ class Solution {
         slow.next = null;
         ListNode l1 = sortList(head);
         ListNode l2 = sortList(t);
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode();
         ListNode cur = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {
