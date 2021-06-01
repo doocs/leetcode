@@ -29,7 +29,6 @@
 	<li>字符串只包含从 a-z 的小写字母。字符串的最大长度是50000。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -41,7 +40,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        def isPalindrome(s):
+            i, j = 0, len(s) - 1
+            while i < j:
+                if s[i] != s[j]:
+                    return False
+                i += 1
+                j -= 1
+            return True
 
+        i, j = 0, len(s) - 1
+        while i < j:
+            if s[i] != s[j]:
+                return isPalindrome(s[i: j]) or isPalindrome(s[i + 1: j + 1])
+            i += 1
+            j -= 1
+        return True
 ```
 
 ### **Java**
@@ -49,7 +65,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean validPalindrome(String s) {
+        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return isPalindrome(s.substring(i, j)) || isPalindrome(s.substring(i + 1, j + 1));
+            }
+        }
+        return true;
+    }
 
+    private boolean isPalindrome(String s) {
+        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
