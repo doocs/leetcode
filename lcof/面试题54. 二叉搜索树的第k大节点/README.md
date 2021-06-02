@@ -131,6 +131,63 @@ var kthLargest = function (root, k) {
 };
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int kthLargest(TreeNode* root, int k) {
+        cur = k;
+        inOrder(root);
+        return res;
+    }
+
+private:
+    int cur, res;
+
+    void inOrder(TreeNode* root) {
+        if (root) {
+            inOrder(root->right);
+            --cur;
+            if (cur == 0) {
+                res = root->val;
+                return;
+            }
+            inOrder(root->left);
+        }
+    }
+};
+```
+
+### **Go**
+
+利用 Go 的特性，中序遍历“生产”的数字传到 `channel`，返回第 `k` 个。
+
+```go
+func kthLargest(root *TreeNode, k int) int {
+	ch := make(chan int)
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	go inOrder(ctx, root, ch)
+	for ; k > 1; k-- {
+		<-ch
+	}
+	return <-ch
+}
+
+func inOrder(ctx context.Context, cur *TreeNode, ch chan<- int) {
+	if cur != nil {
+		inOrder(ctx, cur.Right, ch)
+		select {
+		case ch <- cur.Val:
+		case <-ctx.Done():
+			return
+		}
+		inOrder(ctx, cur.Left, ch)
+	}
+}
+```
+
 ### **...**
 
 ```
