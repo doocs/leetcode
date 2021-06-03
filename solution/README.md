@@ -1894,6 +1894,7 @@
 |  [1881](https://leetcode-cn.com/problems/maximum-value-after-insertion)  |  [插入后的最大值](/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README.md)  |  `贪心算法`  |  中等  |    |
 |  [1882](https://leetcode-cn.com/problems/process-tasks-using-servers)  |  [使用服务器处理任务](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README.md)  |  `堆`  |  中等  |    |
 |  [1883](https://leetcode-cn.com/problems/minimum-skips-to-arrive-at-meeting-on-time)  |  [准时抵达会议现场的最小跳过休息次数](/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README.md)  |  `动态规划`  |  困难  |    |
+|  [1884](https://leetcode-cn.com/problems/egg-drop-with-2-eggs-and-n-floors)  |  [Egg Drop With 2 Eggs and N Floors](/solution/1800-1899/1884.Egg%20Drop%20With%202%20Eggs%20and%20N%20Floors/README_EN.md)  |  `数学`,`二分查找`,`动态规划`  |  中等  |    |
 
 ## 版权
 

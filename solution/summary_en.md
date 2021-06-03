@@ -1919,3 +1919,4 @@
   - [1881.Maximum Value after Insertion](/solution/1800-1899/1881.Maximum%20Value%20after%20Insertion/README_EN.md)
   - [1882.Process Tasks Using Servers](/solution/1800-1899/1882.Process%20Tasks%20Using%20Servers/README_EN.md)
   - [1883.Minimum Skips to Arrive at Meeting On Time](/solution/1800-1899/1883.Minimum%20Skips%20to%20Arrive%20at%20Meeting%20On%20Time/README_EN.md)
+  - [1884.Egg Drop With 2 Eggs and N Floors](/solution/1800-1899/1884.Egg%20Drop%20With%202%20Eggs%20and%20N%20Floors/README_EN.md)
