@@ -6,20 +6,35 @@
  *    this.random = random;
  * };
  */
+
 /**
  * @param {Node} head
  * @return {Node}
  */
-var copyRandomList = function (head) {
-  function copy(node) {
-    if (!node) return null;
-    if (isRead.get(node)) return isRead.get(node);
-    let newNode = new Node(node.val);
-    isRead.set(node, newNode);
-    newNode.random = copy(node.random);
-    newNode.next = copy(node.next);
-    return newNode;
+ var copyRandomList = function(head) {
+  if (head == null) {
+      return null;
   }
-  let isRead = new Map();
-  return copy(head);
+  let cur = head;
+  while (cur != null) {
+      let node = new Node(cur.val, cur.next);
+      cur.next = node;
+      cur = node.next;
+  }
+
+  cur = head;
+  while (cur != null) {
+      cur.next.random = cur.random == null ? null : cur.random.next;
+      cur = cur.next.next;
+  }
+
+  let copy = head.next;
+  cur = head;
+  while (cur != null) {
+      let next = cur.next;
+      cur.next = next.next;
+      next.next = next.next == null ? null : next.next.next;
+      cur = cur.next;
+  }
+  return copy;
 };
