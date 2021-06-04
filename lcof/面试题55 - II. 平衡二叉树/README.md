@@ -54,14 +54,14 @@
 
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
+        def height(root):
+            if root is None:
+                return 0
+            return 1 + max(height(root.left), height(root.right))
+        
         if root is None:
             return True
-        return abs(self._height(root.left) - self._height(root.right)) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
-
-    def _height(self, tree):
-        if tree is None:
-            return 0
-        return 1 + max(self._height(tree.left), self._height(tree.right))
+        return abs(height(root.left) - height(root.right)) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
 ```
 
 ### **Java**
@@ -81,14 +81,14 @@ class Solution {
         if (root == null) {
             return true;
         }
-        return Math.abs(height(root.left) - height(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(depth(root.left) - depth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
 
-    private int height(TreeNode tree) {
+    private int depth(TreeNode tree) {
         if (tree == null) {
             return 0;
         }
-        return 1 + Math.max(height(tree.left), height(tree.right));
+        return 1 + Math.max(depth(tree.left), depth(tree.right));
     }
 }
 ```
@@ -107,57 +107,80 @@ class Solution {
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isBalanced = function (root) {
-  if (!root) return true;
-  if (!isBalanced(root.left) || !isBalanced(root.right)) return false;
-  if (Math.abs(getDepth(root.left) - getDepth(root.right)) > 1) return false;
-  return true;
-};
+var isBalanced = function(root) {
+    const depth = (root) => {
+        if (!root) {
+            return 0;
+        }
+        return 1 + Math.max(depth(root.left), depth(root.right));
+    }
 
-function getDepth(node) {
-  if (!node) return 0;
-  return Math.max(getDepth(node.left), getDepth(node.right)) + 1;
-}
+    if (!root) {
+        return true;
+    }
+    return Math.abs(depth(root.left) - depth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+};
 ```
 
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    bool isBalanced(TreeNode* root, int* depth) {
-        if (root == nullptr) {
-            *depth = 0;
-            return true;
-        }
-
-        int left = 0;
-        int right = 0;
-        if (isBalanced(root->left, &left) && isBalanced(root->right, &right)) {
-            // 这样做的优势是，不用每次都计算单个子树的深度
-            int diff = left - right;
-            if (diff > 1 || diff < -1) {
-                // 如果有一处不符合 -1 < diff < 1，则直接返回false
-                return false;
-            } else {
-                // 如果符合，则记录当前深度，然后返回上一层继续计算
-                *depth = max(left, right) + 1;
-                return true;
-            }
-        }
-
-        return false;    // 如果
-    }
-
     bool isBalanced(TreeNode* root) {
         if (!root) {
             return true;
         }
+        return abs(depth(root->left) - depth(root->right)) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+    }
 
-        int depth = 0;
-        return isBalanced(root, &depth);
+private:
+    int depth(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        return 1 + max(depth(root->left), depth(root->right));
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isBalanced(root *TreeNode) bool {
+    if (root == nil) {
+        return true
+    }
+    return math.Abs(float64(depth(root.Left)-depth(root.Right))) <= 1 && isBalanced(root.Left) && isBalanced(root.Right)
+}
+
+func depth(root *TreeNode) int {
+    if (root == nil) {
+        return 0
+    }
+    left, right := depth(root.Left), depth(root.Right)
+    if (left > right) {
+        return 1 + left
+    }
+    return 1 + right
+}
 ```
 
 ### **...**

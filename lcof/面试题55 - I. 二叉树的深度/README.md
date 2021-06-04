@@ -79,36 +79,58 @@ class Solution {
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function (root) {
-  let res = 0;
-  function traversal(node, depth) {
-    if (!node) {
-      res = Math.max(res, depth);
-      return;
+var maxDepth = function(root) {
+    if (!root) {
+        return 0;
     }
-    traversal(node.left, depth + 1);
-    traversal(node.right, depth + 1);
-  }
-  traversal(root, 0);
-  return res;
+    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
 ```
 
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        if (nullptr == root) {
+        if (!root) {
             return 0;
         }
-
-        int left = maxDepth(root->left);
-        int right = maxDepth(root->right);
-        return std::max(left, right) + 1;
+        return 1 + max(maxDepth(root->left), maxDepth(root->right));
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maxDepth(root *TreeNode) int {
+    if (root == nil) {
+        return 0
+    }
+    left, right := maxDepth(root.Left), maxDepth(root.Right)
+    if left > right {
+        return 1 + left
+    }
+    return 1 + right
+}
 ```
 
 ### **...**

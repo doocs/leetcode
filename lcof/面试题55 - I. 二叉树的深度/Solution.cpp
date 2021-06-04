@@ -7,16 +7,12 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        if (nullptr == root) {
+        if (!root) {
             return 0;
         }
-
-        int left = maxDepth(root->left);
-        int right = maxDepth(root->right);
-        return std::max(left, right) + 1;
+        return 1 + max(maxDepth(root->left), maxDepth(root->right));
     }
 };

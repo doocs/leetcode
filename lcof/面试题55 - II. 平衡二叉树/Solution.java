@@ -12,13 +12,13 @@ class Solution {
         if (root == null) {
             return true;
         }
-        return Math.abs(height(root.left) - height(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(depth(root.left) - depth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
 
-    private int height(TreeNode tree) {
+    private int depth(TreeNode tree) {
         if (tree == null) {
             return 0;
         }
-        return 1 + Math.max(height(tree.left), height(tree.right));
+        return 1 + Math.max(depth(tree.left), depth(tree.right));
     }
 }
