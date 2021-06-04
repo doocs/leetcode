@@ -13,5 +13,3 @@ class Solution:
             p += 1
         num = n // (p + 1) + pow(10, p)
         return int(str(num)[n % (p + 1)])
-
-

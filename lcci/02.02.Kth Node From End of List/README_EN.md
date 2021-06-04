@@ -35,12 +35,12 @@
 
 class Solution:
     def kthToLast(self, head: ListNode, k: int) -> int:
-        p = q = head
+        slow = fast = head
         for _ in range(k):
-            q = q.next
-        while q:
-            p, q = p.next, q.next
-        return p.val
+            fast = fast.next
+        while fast:
+            slow, fast = slow.next, fast.next
+        return slow.val
 ```
 
 ### **Java**
@@ -56,15 +56,15 @@ class Solution:
  */
 class Solution {
     public int kthToLast(ListNode head, int k) {
-        ListNode p = head, q = head;
+        ListNode slow = head, fast = head;
         while (k-- > 0) {
-            q = q.next;
+            fast = fast.next;
         }
-        while (q != null) {
-            q = q.next;
-            p = p.next;
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        return p.val;
+        return slow.val;
     }
 }
 ```
@@ -94,6 +94,34 @@ var kthToLast = function(head, k) {
         slow = slow.next;
     }
     return slow.val;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int kthToLast(ListNode* head, int k) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while (k-- > 0) {
+            fast = fast->next;
+        }
+        while (fast) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+        return slow->val;
+    }
 };
 ```
 
