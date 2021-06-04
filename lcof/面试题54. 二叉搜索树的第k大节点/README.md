@@ -51,20 +51,20 @@
 #         self.right = None
 
 class Solution:
-    t, res = 0, -1
     def kthLargest(self, root: TreeNode, k: int) -> int:
-        self.t = k
-        self._traverse(root)
-        return self.res
-
-    def _traverse(self, node):
-        if node:
-            self._traverse(node.right)
-            self.t -= 1
-            if self.t == 0:
-                self.res = node.val
+        def inorder(root):
+            if root is None:
                 return
-            self._traverse(node.left)
+            inorder(root.right)
+            self.cur -= 1
+            if self.cur == 0:
+                self.res = root.val
+                return
+            inorder(root.left)
+
+        self.cur = k
+        inorder(root)
+        return self.res
 ```
 
 ### **Java**
@@ -80,24 +80,27 @@ class Solution:
  * }
  */
 class Solution {
-    private int t;
+    private int cur;
     private int res;
+
     public int kthLargest(TreeNode root, int k) {
-        t = k;
-        traverse(root);
+        cur = k;
+        res = 0;
+        inorder(root);
         return res;
     }
 
-    private void traverse(TreeNode node) {
-        if (node != null) {
-            traverse(node.right);
-            --t;
-            if (t == 0) {
-                res = node.val;
-                return;
-            }
-            traverse(node.left);
+    private void inorder(TreeNode root) {
+        if (root == null) {
+            return;
         }
+        inorder(root.right);
+        --cur;
+        if (cur == 0) {
+            res = root.val;
+            return;
+        }
+        inorder(root.left);
     }
 }
 ```
@@ -117,44 +120,60 @@ class Solution {
  * @param {number} k
  * @return {number}
  */
-var kthLargest = function (root, k) {
-  let res;
-  let t = 0;
-  function traversal(node) {
-    if (!node) return;
-    traversal(node.right);
-    if (++t === k) res = node.val;
-    traversal(node.left);
-  }
-  traversal(root);
-  return res;
+var kthLargest = function(root, k) {
+    const inorder = (root) => {
+        if (!root) {
+            return;
+        }
+        inorder(root.right);
+        --cur;
+        if (cur == 0) {
+            res = root.val;
+            return;
+        }
+        inorder(root.left);
+    }
+    let res = 0;
+    let cur = k;
+    inorder(root);
+    return res;
 };
 ```
 
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
     int kthLargest(TreeNode* root, int k) {
         cur = k;
-        inOrder(root);
+        inorder(root);
         return res;
     }
 
 private:
     int cur, res;
 
-    void inOrder(TreeNode* root) {
-        if (root) {
-            inOrder(root->right);
-            --cur;
-            if (cur == 0) {
-                res = root->val;
-                return;
-            }
-            inOrder(root->left);
+    void inorder(TreeNode* root) {
+        if (!root) {
+            return;
         }
+        inorder(root->right);
+        --cur;
+        if (cur == 0) {
+            res = root->val;
+            return;
+        }
+        inorder(root->left);
     }
 };
 ```
@@ -164,26 +183,34 @@ private:
 利用 Go 的特性，中序遍历“生产”的数字传到 `channel`，返回第 `k` 个。
 
 ```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
 func kthLargest(root *TreeNode, k int) int {
 	ch := make(chan int)
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	go inOrder(ctx, root, ch)
+	go inorder(ctx, root, ch)
 	for ; k > 1; k-- {
 		<-ch
 	}
 	return <-ch
 }
 
-func inOrder(ctx context.Context, cur *TreeNode, ch chan<- int) {
+func inorder(ctx context.Context, cur *TreeNode, ch chan<- int) {
 	if cur != nil {
-		inOrder(ctx, cur.Right, ch)
+		inorder(ctx, cur.Right, ch)
 		select {
 		case ch <- cur.Val:
 		case <-ctx.Done():
 			return
 		}
-		inOrder(ctx, cur.Left, ch)
+		inorder(ctx, cur.Left, ch)
 	}
 }
 ```
