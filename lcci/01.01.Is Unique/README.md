@@ -59,8 +59,8 @@ class Solution:
 class Solution {
     public boolean isUnique(String astr) {
         int bitmap = 0;
-        for (int i = 0, n = astr.length(); i < n; ++i) {
-            int pos = astr.charAt(i) - 'a';
+        for (char c : astr.toCharArray()) {
+            int pos = c - 'a';
             if ((bitmap & (1 << pos)) != 0) {
                 return false;
             }
@@ -105,6 +105,25 @@ func isUnique(astr string) bool {
 	}
 	return true
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isUnique(string astr) {
+        int bitmap = 0;
+        for (char c : astr) {
+            int pos = c - 'a';
+            if ((bitmap & (1 << pos)) != 0) {
+                return false;
+            }
+            bitmap |= (1 << pos);
+        }
+        return true;
+    }
+};
 ```
 
 ### **...**
