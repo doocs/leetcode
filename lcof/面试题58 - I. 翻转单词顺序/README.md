@@ -92,9 +92,9 @@ var reverseWords = function (s) {
 };
 ```
 
-### **C++**
+### **Go**
 
-```cpp
+```go
 func reverseWords(s string) string {
 	s = strings.Trim(s, " ")
 	n := len(s) - 1

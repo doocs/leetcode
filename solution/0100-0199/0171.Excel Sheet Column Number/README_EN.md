@@ -65,13 +65,41 @@ AB -&gt; 28
 ### **Python3**
 
 ```python
-
+class Solution:
+    def titleToNumber(self, columnTitle: str) -> int:
+        res = 0
+        for c in columnTitle:
+            res = res * 26 + (ord(c) - ord('A') + 1)
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int titleToNumber(String columnTitle) {
+        int res = 0;
+        for (char c : columnTitle.toCharArray()) {
+            res = res * 26 + (c - 'A' + 1);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int titleToNumber(string columnTitle) {
+        int res = 0;
+        for (char c : columnTitle) {
+            res = res * 26 + (c - 'A' + 1);
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**
