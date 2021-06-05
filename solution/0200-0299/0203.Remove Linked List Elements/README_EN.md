@@ -88,6 +88,45 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        ListNode* dummy = new ListNode();
+        dummy->next = head;
+        ListNode* p = dummy;
+        while (p->next) {
+            if (p->next->val == val) {
+                p->next = p->next->next;
+            } else {
+                p = p->next;
+            }
+        }
+        return dummy->next;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeElements(head *ListNode, val int) *ListNode {
+	dummy := new(ListNode)
+	dummy.Next = head
+	p := dummy
+	for p.Next != nil {
+		if p.Next.Val == val {
+			p.Next = p.Next.Next
+		} else {
+			p = p.Next
+		}
+	}
+	return dummy.Next
+}
+```
+
 ### **...**
 
 ```
