@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
@@ -200,12 +200,12 @@ I'm looking for long-term contributors/partners to this repo! Send me [PRs](http
 1. See [CONTRIBUTING](https://github.com/doocs/.github/blob/main/CONTRIBUTING.md) or [GitHub Help](https://help.github.com/en) for more details.
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/how-to-contribute.png" alt="How to contribute"></a>
 </p>
 
 You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) using [Gitpod.io](https://www.gitpod.io), a free online dev environment with a single click.
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/doocs/leetcode)
+<a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
 
 ## Contributors
 
@@ -227,4 +227,4 @@ Thank you to all our backers and sponsors!
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large)
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large" target="_blank"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large"></a>

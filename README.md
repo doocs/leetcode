@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/leetcode-doocs.png" alt="LeetCode-GitHub-Doocs"></a>
 </p>
 
 <p align="center">
@@ -209,12 +209,12 @@
 1. 你也可以参考帮助文档「[GitHub](https://help.github.com/cn) / [Gitee](https://gitee.com/help)」了解更多细节。
 
 <p align="center">
-  <a href="https://github.com/doocs/leetcode"><img src="./images/how-to-contribute.png" alt="how-to-contribute"></a>
+  <a href="https://github.com/doocs/leetcode"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/how-to-contribute.png" alt="how-to-contribute"></a>
 </p>
 
 [Gitpod.io](https://www.gitpod.io) 是一个免费的在线开发环境，你也可以使用它参与本项目。
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/doocs/leetcode)
+<a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
 
 ## 贡献者
 
@@ -236,10 +236,10 @@
 
 知名互联网科技博主 [@爱可可-爱生活](https://weibo.com/fly51fly) 微博推荐。
 
-[![fly51fly](./images/recommender-fly51fly.png)](https://weibo.com/fly51fly)
+<a href="https://weibo.com/fly51fly" target="_blank"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/recommender-fly51fly.png"></a>
 
 ## 许可证
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large)
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large" target="_blank"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large"></a>
