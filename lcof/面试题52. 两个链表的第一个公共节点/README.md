@@ -50,9 +50,11 @@
 
 ## 解法
 
-先求出两个链表的长度差 `len1-len2`，之后遍历链表，长的链表先走 `len1-len2` 步。
+使用两个指针 `cur1`, `cur2` 分别指向两个链表 `headA`, `headB`。
 
-接着两个链表同时走，当出现相同的节点时，说明两个链表在此节点相交，返回此节点，否则返回 `null`。
+同时遍历链表，当 `cur1` 到达链表 `headA` 的末尾时，重新定位到链表 `headB` 的头节点；当 `cur2` 到达链表 `headB` 的末尾时，重新定位到链表 `headA` 的头节点。
+
+若两指针相遇，所指向的结点就是第一个公共节点。若没相遇，说明两链表无公共节点，此时两个指针都指向 `null`。
 
 <!-- tabs:start -->
 
@@ -67,27 +69,11 @@
 
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
-        if headA is None or headB is None:
-            return None
-        len1 = len2 = 0
-        p, q = headA, headB
-        while p:
-            p = p.next
-            len1 += 1
-        while q:
-            q = q.next
-            len2 += 1
-        p, q = headA, headB
-        if len1 > len2:
-            p, q = q, p
-        for _ in range(abs(len1 - len2)):
-            q = q.next
-        while p and q:
-            if p == q:
-                return p
-            p = p.next
-            q = q.next
-
+        cur1, cur2 = headA, headB
+        while cur1 != cur2:
+            cur1 = headB if cur1 is None else cur1.next
+            cur2 = headA if cur2 is None else cur2.next
+        return cur1
 ```
 
 ### **Java**
@@ -106,38 +92,12 @@ class Solution:
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if (headA == null || headB == null) {
-            return null;
+        ListNode cur1 = headA, cur2 = headB;
+        while (cur1 != cur2) {
+            cur1 = cur1 == null ? headB : cur1.next;
+            cur2 = cur2 == null ? headA : cur2.next;
         }
-        ListNode p = headA, q = headB;
-        int len1 = len(p), len2 = len(q);
-        if (len1 > len2) {
-            ListNode t = headA;
-            headA = headB;
-            headB = t;
-        }
-        p = headA;
-        q = headB;
-        for (int i = 0; i < Math.abs(len1 - len2); ++i) {
-            q = q.next;
-        }
-        while (p != null && q != null) {
-            if (p == q) {
-                return p;
-            }
-            p = p.next;
-            q = q.next;
-        }
-        return null;
-    }
-
-    private int len(ListNode node) {
-        int len = 0;
-        while (node != null) {
-            node = node.next;
-            ++len;
-        }
-        return len;
+        return cur1;
     }
 }
 ```
@@ -158,14 +118,14 @@ public class Solution {
  * @param {ListNode} headB
  * @return {ListNode}
  */
-var getIntersectionNode = function (headA, headB) {
-  let h1 = headA;
-  let h2 = headB;
-  while (h1 !== h2) {
-    h1 = h1 === null ? headB : h1.next;
-    h2 = h2 === null ? headA : h2.next;
-  }
-  return h2;
+var getIntersectionNode = function(headA, headB) {
+    let cur1 = headA;
+    let cur2 = headB;
+    while (cur1 != cur2) {
+        cur1 = cur1 ? cur1.next : headB;
+        cur2 = cur2 ? cur2.next : headA;
+    }
+    return cur1;
 };
 ```
 
@@ -180,23 +140,46 @@ var getIntersectionNode = function (headA, headB) {
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode* a = headA;
-        ListNode* b = headB;
-        while (a != b) {
-            /* 这个循环的思路是，a先从listA往后走，如果到最后，就接着从listB走；b正好相反。
-               如果有交集的话，a和b会在分别进入listB和listA之后的循环中项目
-               如果没有交集的话，则a和b会同时遍历完listA和listB后，值同时为nullptr */
-            a = (a == nullptr) ? headB : a->next;
-            b = (b == nullptr) ? headA : b->next;
+        ListNode* cur1 = headA;
+        ListNode* cur2 = headB;
+        while (cur1 != cur2) {
+            cur1 = cur1 ? cur1->next : headB;
+            cur2 = cur2 ? cur2->next : headA;
         }
-
-        return a;
+        return cur1;
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+    cur1, cur2 := headA, headB
+    for cur1 != cur2 {
+        if cur1 == nil {
+            cur1 = headB
+        } else {
+            cur1 = cur1.Next
+        }
+        if cur2 == nil {
+            cur2 = headA
+        } else {
+            cur2 = cur2.Next
+        }
+    }
+    return cur1
+}
 ```
 
 ### **...**
