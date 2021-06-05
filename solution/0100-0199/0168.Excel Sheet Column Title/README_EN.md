@@ -55,7 +55,6 @@ AB -&gt; 28
 	<li><code>1 &lt;= columnNumber &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -63,13 +62,46 @@ AB -&gt; 28
 ### **Python3**
 
 ```python
-
+class Solution:
+    def convertToTitle(self, columnNumber: int) -> str:
+        res = []
+        while columnNumber:
+            columnNumber -= 1
+            res.append(chr(ord('A') + columnNumber % 26))
+            columnNumber //= 26
+        return ''.join(res[::-1])
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String convertToTitle(int columnNumber) {
+        StringBuilder res = new StringBuilder();
+        while (columnNumber != 0) {
+            --columnNumber;
+            res.append((char) ('A' + columnNumber % 26));
+            columnNumber /= 26;
+        }
+        return res.reverse().toString();
+    }
+}
+```
 
+### **C#**
+
+```cs
+public class Solution {
+    public string ConvertToTitle(int columnNumber) {
+        StringBuilder res = new StringBuilder();
+        while (columnNumber != 0) {
+            --columnNumber;
+            res.Append((char) ('A' + columnNumber % 26));
+            columnNumber /= 26;
+        }
+        return new string(res.ToString().Reverse().ToArray());
+    }
+}
 ```
 
 ### **...**

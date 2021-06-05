@@ -1,4 +1,4 @@
-# [168. Excel表列名称](https://leetcode-cn.com/problems/excel-sheet-column-title)
+# [168. Excel 表列名称](https://leetcode-cn.com/problems/excel-sheet-column-title)
 
 [English Version](/solution/0100-0199/0168.Excel%20Sheet%20Column%20Title/README_EN.md)
 
@@ -38,7 +38,6 @@
 <strong>输出:</strong> &quot;ZY&quot;
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -50,7 +49,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def convertToTitle(self, columnNumber: int) -> str:
+        res = []
+        while columnNumber:
+            columnNumber -= 1
+            res.append(chr(ord('A') + columnNumber % 26))
+            columnNumber //= 26
+        return ''.join(res[::-1])
 ```
 
 ### **Java**
@@ -58,7 +64,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String convertToTitle(int columnNumber) {
+        StringBuilder res = new StringBuilder();
+        while (columnNumber != 0) {
+            --columnNumber;
+            res.append((char) ('A' + columnNumber % 26));
+            columnNumber /= 26;
+        }
+        return res.reverse().toString();
+    }
+}
+```
 
+### **C#**
+
+```cs
+public class Solution {
+    public string ConvertToTitle(int columnNumber) {
+        StringBuilder res = new StringBuilder();
+        while (columnNumber != 0) {
+            --columnNumber;
+            res.Append((char) ('A' + columnNumber % 26));
+            columnNumber /= 26;
+        }
+        return new string(res.ToString().Reverse().ToArray());
+    }
+}
 ```
 
 ### **...**
