@@ -50,19 +50,13 @@ Can you solve it without using additional space?</p>
 #         self.next = None
 
 class Solution:
-    def detectCycle(self, head: ListNode) -> ListNode:
-        fast = slow = p = head
+    def hasCycle(self, head: ListNode) -> bool:
+        slow = fast = head
         while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
-            if fast == slow:
-                break
-        if fast is None or fast.next is None:
-            return None
-        while slow != p:
-            p = p.next
-            slow = slow.next
-        return p
+            slow, fast = slow.next, fast.next.next
+            if slow == fast:
+                return True
+        return False
 ```
 
 ### **Java**
@@ -80,21 +74,97 @@ class Solution:
  * }
  */
 public class Solution {
-    public ListNode detectCycle(ListNode head) {
-         ListNode fast = head, slow = head;
-         while (fast != null && fast.next != null) {
-             fast = fast.next.next;
-             slow = slow.next;
-             if (fast == slow) break;
-         }
-         if (fast == null || fast.next == null) return null;
-         ListNode p = head;
-         while (p != slow) {
-             p = p.next;
-             slow = slow.next;
-         }
-         return p;
+    public boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function(head) {
+    let slow = head;
+    let fast = head;
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow == fast) {
+            return true;
+        }
+    }
+    return false;
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func hasCycle(head *ListNode) bool {
+    slow, fast := head, head
+    for fast != nil && fast.Next != nil {
+        slow, fast = slow.Next, fast.Next.Next
+        if slow == fast {
+            return true
+        }
+    }
+    return false
 }
 ```
 

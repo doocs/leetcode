@@ -69,7 +69,7 @@
 
 若链表有环，我们分析快慢相遇时走过的距离。
 
-对于慢指针，走过的距离为 `S=X+Y` ①；快指针走过的距离为 `2S=X+Y+N(Y+Z)` ②。如下图所示，其中 `N` 表示快指针与慢指针相遇时在环中所走过的圈数，而我们要求的环入口，也即是 `X` 的距离：
+对于慢指针（每次走 1 步），走过的距离为 `S=X+Y` ①；快指针（每次走 2 步）走过的距离为 `2S=X+Y+N(Y+Z)` ②。如下图所示，其中 `N` 表示快指针与慢指针相遇时在环中所走过的圈数，而我们要求的环入口，也即是 `X` 的距离：
 
 ![](./images/linked-list-cycle-ii.png)
 
@@ -96,11 +96,9 @@ class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
         slow = fast = head
         has_cycle = False
-        while fast and fast.next:
+        while not has_cycle and fast and fast.next:
             slow, fast = slow.next, fast.next.next
-            if slow == fast:
-                has_cycle = True
-                break
+            has_cycle = slow == fast
         if not has_cycle:
             return None
         p = head
@@ -129,13 +127,10 @@ public class Solution {
     public ListNode detectCycle(ListNode head) {
         ListNode slow = head, fast = head;
         boolean hasCycle = false;
-        while (fast != null && fast.next != null) {
+        while (!hasCycle && fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast) {
-                hasCycle = true;
-                break;
-            }
+            hasCycle = slow == fast;
         }
         if (!hasCycle) {
             return null;
@@ -147,6 +142,105 @@ public class Solution {
         }
         return p;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        bool hasCycle = false;
+        while (!hasCycle && fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+            hasCycle = slow == fast;
+        }
+        if (!hasCycle) {
+            return nullptr;
+        }
+        ListNode* p = head;
+        while (p != slow) {
+            p = p->next;
+            slow = slow->next;
+        }
+        return p;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var detectCycle = function(head) {
+    let slow = head;
+    let fast = head;
+    let hasCycle = false;
+    while (!hasCycle && fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+        hasCycle = slow == fast;
+    }
+    if (!hasCycle) {
+        return null;
+    }
+    let p = head;
+    while (p != slow) {
+        p = p.next;
+        slow = slow.next;
+    }
+    return p;
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func detectCycle(head *ListNode) *ListNode {
+    slow, fast := head, head
+    hasCycle := false
+    for !hasCycle && fast != nil && fast.Next != nil {
+        slow, fast = slow.Next, fast.Next.Next
+        hasCycle = slow == fast
+    }
+    if !hasCycle {
+        return nil
+    }
+    p := head
+    for p != slow {
+        p, slow = p.Next, slow.Next
+    }
+    return p
 }
 ```
 
