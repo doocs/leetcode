@@ -225,7 +225,6 @@ function isPalindrome(head: ListNode | null): boolean {
         slow = slow.next;
         fast = fast.next.next;
     }
-    console.log(slow)
     // 翻转链表
     let cur: ListNode = slow.next;
     slow.next = null;
