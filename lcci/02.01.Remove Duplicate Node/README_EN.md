@@ -30,7 +30,6 @@
 
 <ol>
 	<li>The length of the list is within the range[0, 20000].</li>
-
     <li>The values of the list elements are within the range [0, 20000].</li>
 
 </ol>
@@ -87,18 +86,16 @@ class Solution {
         }
         Set<Integer> s = new HashSet<>();
         s.add(head.val);
-        ListNode p = head.next, cur = head;
-        while (p != null) {
+        ListNode cur = head;
+        for (ListNode p = head.next; p != null; p = p.next) {
             if (!s.contains(p.val)) {
                 cur.next = p;
                 cur = cur.next;
                 s.add(p.val);
             }
-            p = p.next;
         }
         cur.next = null;
         return head;
-
     }
 }
 ```
@@ -132,6 +129,38 @@ class Solution {
     }
     cur.next = null;
     return head;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeDuplicateNodes(ListNode* head) {
+        if (head == nullptr || head->next == nullptr) {
+            return head;
+        }
+        unordered_set<int> cache = {head->val};
+        ListNode *cur = head;
+        for (ListNode *p = head->next; p != nullptr; p = p->next) {
+            if (!cache.count(p->val)) {
+                cur->next = p;
+                cur = cur->next;
+                cache.insert(p->val);
+            }
+        }
+        cur->next = nullptr;
+        return head;
+    }
 };
 ```
 
