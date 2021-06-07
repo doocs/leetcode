@@ -54,10 +54,13 @@
 	<li><code>1 <= n <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+假设 01 交替出现，那么我们可以通过错位异或将尾部全部转为 1，加 1 可以得到 2 的幂次的一个数 n（n 中只有一个位是 1），接着利用 `n & (n - 1)` 可以消除最后一位的 1。
+
+此时判断是否为 0，若是，说明假设成立，是 01 交替串。
 
 <!-- tabs:start -->
 
@@ -66,7 +69,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        n = (n ^ (n >> 1)) + 1
+        return (n & (n - 1)) == 0
 ```
 
 ### **Java**
@@ -74,7 +80,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        n = (n ^ (n >> 1)) + 1;
+        return (n & (n - 1)) == 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool hasAlternatingBits(int n) {
+        n ^= (n >> 1);
+        return (n & ((long) n + 1)) == 0;
+    }
+};
 ```
 
 ### **...**

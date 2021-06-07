@@ -58,13 +58,33 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        n = (n ^ (n >> 1)) + 1
+        return (n & (n - 1)) == 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        n = (n ^ (n >> 1)) + 1;
+        return (n & (n - 1)) == 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool hasAlternatingBits(int n) {
+        n ^= (n >> 1);
+        return (n & ((long) n + 1)) == 0;
+    }
+};
 ```
 
 ### **...**
