@@ -195,7 +195,9 @@
 
 ## 维护者
 
-[Yang Libin](https://github.com/yanglbme): 开源社区 @Doocs 创建者「[GitHub](https://github.com/doocs) / [Gitee](https://gitee.com/doocs)」；GitHub 开源组织 [@TheAlgorithms](https://github.com/TheAlgorithms) 成员。
+- [Yang Libin](https://github.com/yanglbme)
+- [Mao Longlong](https://github.com/MaoLongLong)
+
 
 ## 加入我们
 

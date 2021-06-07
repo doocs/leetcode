@@ -1,31 +1,35 @@
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- * int val;
- * TreeNode left;
- * TreeNode right;
- * TreeNode(int x) { val = x; }
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    int max = -1;
-    int value = 0;
-
     public int findBottomLeftValue(TreeNode root) {
-        dfs(root, 0);
-        return value;
-    }
-
-    private void dfs(TreeNode root, int d) {
-        if (root == null) {
-            return;
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        int res = 0;
+        while (!q.isEmpty()) {
+            res = q.peek().val;
+            for (int i = 0, n = q.size(); i < n; ++i) {
+                TreeNode node = q.poll();
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
+            }
         }
-        d++;
-        if (max < d) {
-            max = d;
-            value = root.val;
-        }
-        dfs(root.left, d);
-        dfs(root.right, d);
+        return res;
     }
 }
