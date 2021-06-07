@@ -44,6 +44,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+“BFS 层次遍历实现”。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +53,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+"""
 
+class Solution:
+    def levelOrder(self, root: 'Node') -> List[List[int]]:
+        if root is None:
+            return []
+        q = collections.deque([root])
+        res = []
+        while q:
+            n = len(q)
+            t = []
+            for _ in range(n):
+                node = q.popleft()
+                t.append(node.val)
+                if node.children:
+                    q.extend(node.children)
+            res.append(t)
+        return res
 ```
 
 ### **Java**
@@ -59,7 +84,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
 
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    public List<List<Integer>> levelOrder(Node root) {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        Deque<Node> q = new ArrayDeque<>();
+        List<List<Integer>> res = new ArrayList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            List<Integer> t = new ArrayList<>();
+            for (int i = 0, n = q.size(); i < n; ++i) {
+                Node node = q.poll();
+                t.add(node.val);
+                if (node.children != null) {
+                    q.addAll(node.children);
+                }
+            }
+            res.add(t);
+        }
+        return res;
+    }
+}
+```
+
+也可以使用 DFS:
+
+```java
+class Solution {
+    public List<List<Integer>> levelOrder(Node root) {
+        List<List<Integer>> res = new ArrayList<>();
+        dfs(root, 0, res);
+        return res;
+    }
+
+    private void dfs(Node root, int level, List<List<Integer>> res) {
+        if (root == null) {
+            return;
+        }
+        if (res.size() <= level) {
+            res.add(new ArrayList<>());
+        }
+        res.get(level++).add(root.val);
+        for (Node child : root.children) {
+            dfs(child, level, res);
+        }
+    }
+}
 ```
 
 ### **...**
