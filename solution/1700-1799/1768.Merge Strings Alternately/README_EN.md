@@ -98,13 +98,58 @@ merged: a p b q c   d
 ### **Python3**
 
 ```python
-
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        i, m, n = 0, len(word1), len(word2)
+        res = []
+        while i < m or i < n:
+            if i < m:
+                res.append(word1[i])
+            if i < n:
+                res.append(word2[i])
+            i += 1
+        return ''.join(res)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        int m = word1.length(), n = word2.length();
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < m || i < n; ++i) {
+            if (i < m) {
+                res.append(word1.charAt(i));
+            }
+            if (i < n) {
+                res.append(word2.charAt(i));
+            }
+        }
+        return res.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string mergeAlternately(string word1, string word2) {
+        int m = word1.size(), n = word2.size();
+        string res;
+        for (int i = 0; i < m || i < n; ++i) {
+            if (i < m) {
+                res.push_back(word1[i]);
+            }
+            if (i < n) {
+                res.push_back(word2[i]);
+            }
+        }
+        return res;
+    }
+};
 ```
 
 ### **...**
