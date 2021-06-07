@@ -122,6 +122,54 @@ var maxSlidingWindow = function (nums, k) {
 };
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        vector<int> ans;
+        deque<int> window;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            while (!window.empty() && nums[window.back()] <= nums[i]) {
+                window.pop_back();
+            }
+            window.push_back(i);
+            if (window.front() == i - k) {
+                window.pop_front();
+            }
+            if (i >= k - 1) {
+                ans.push_back(nums[window.front()]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSlidingWindow(nums []int, k int) []int {
+	ans := make([]int, 0, len(nums)-k+1)
+	window := make([]int, 0)
+	for i, num := range nums {
+		for len(window) != 0 && nums[window[len(window)-1]] <= num {
+			window = window[:len(window)-1]
+		}
+		window = append(window, i)
+		if window[0] == i-k {
+			window = window[1:]
+		}
+		if i >= k-1 {
+			ans = append(ans, nums[window[0]])
+		}
+	}
+	return ans
+}
+```
+
 ### **...**
 
 ```
