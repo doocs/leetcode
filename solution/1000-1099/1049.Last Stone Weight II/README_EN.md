@@ -55,18 +55,75 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 
 ## Solutions
 
+This question can be converted to calculate how many stones a backpack with a capacity of `sum / 2` can hold.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def lastStoneWeightII(self, stones: List[int]) -> int:
+        s = sum(stones)
+        n = s // 2
+        dp = [False for i in range(n + 1)]
+        dp[0] = True
+        for stone in stones:
+            for j in range(n, stone - 1, -1):
+                dp[j] = dp[j] or dp[j - stone]
+        for j in range(n, -1, -1):
+            if dp[j]:
+                return s - j - j
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int lastStoneWeightII(int[] stones) {
+        int sum = 0;
+        for (int stone : stones) {
+            sum += stone;
+        }
+        int n = sum / 2;
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for (int stone : stones) {
+            for (int j = n; j >= stone; j--) {
+                dp[j] = dp[j] || dp[j - stone];
+            }
+        }
+        for (int j = n; ; j--) {
+            if (dp[j]) {
+                return sum - j - j;
+            }
+        }
+    }
+}
+```
 
+### **Go**
+
+```go
+func lastStoneWeightII(stones []int) int {
+	sum := 0
+	for _, stone := range stones {
+		sum += stone
+	}
+	n := sum / 2
+	dp := make([]bool, n+1)
+	dp[0] = true
+	for _, stone := range stones {
+		for j := n; j >= stone; j-- {
+			dp[j] = dp[j] || dp[j-stone]
+		}
+	}
+	for j := n; ; j-- {
+		if dp[j] {
+			return sum - j - j
+		}
+	}
+}
 ```
 
 ### **...**

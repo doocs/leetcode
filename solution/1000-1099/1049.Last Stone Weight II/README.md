@@ -44,6 +44,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+**两个**石头的重量越接近，粉碎后的新重量就越小。同样的，**两堆**石头的重量越接近，它们粉碎后的新重量也越小。
+
+所以本题可以转换为，计算容量为 `sum / 2` 的背包最多能装多少石头。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +55,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def lastStoneWeightII(self, stones: List[int]) -> int:
+        s = sum(stones)
+        n = s // 2
+        dp = [False for i in range(n + 1)]
+        dp[0] = True
+        for stone in stones:
+            for j in range(n, stone - 1, -1):
+                dp[j] = dp[j] or dp[j - stone]
+        for j in range(n, -1, -1):
+            if dp[j]:
+                return s - j - j
 ```
 
 ### **Java**
@@ -59,7 +74,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int lastStoneWeightII(int[] stones) {
+        int sum = 0;
+        for (int stone : stones) {
+            sum += stone;
+        }
+        int n = sum / 2;
+        boolean[] dp = new boolean[n + 1];
+        dp[0] = true;
+        for (int stone : stones) {
+            for (int j = n; j >= stone; j--) {
+                dp[j] = dp[j] || dp[j - stone];
+            }
+        }
+        for (int j = n; ; j--) {
+            if (dp[j]) {
+                return sum - j - j;
+            }
+        }
+    }
+}
+```
 
+### **Go**
+
+```go
+func lastStoneWeightII(stones []int) int {
+	sum := 0
+	for _, stone := range stones {
+		sum += stone
+	}
+	n := sum / 2
+	dp := make([]bool, n+1)
+	dp[0] = true
+	for _, stone := range stones {
+		for j := n; j >= stone; j-- {
+			dp[j] = dp[j] || dp[j-stone]
+		}
+	}
+	for j := n; ; j-- {
+		if dp[j] {
+			return sum - j - j
+		}
+	}
+}
 ```
 
 ### **...**
