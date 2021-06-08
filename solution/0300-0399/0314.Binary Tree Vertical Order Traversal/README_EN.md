@@ -45,7 +45,6 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,13 +52,79 @@
 ### **Python3**
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def verticalOrder(self, root: TreeNode) -> List[List[int]]:
+        if root is None:
+            return []
+        q = collections.deque([(root, 0)])
+        offset_vals = collections.defaultdict(list)
+        while q:
+            node, offset = q.popleft()
+            offset_vals[offset].append(node.val)
+            if node.left:
+                q.append((node.left, offset - 1))
+            if node.right:
+                q.append((node.right, offset + 1))
+        res = []
+        for _, vals in sorted(offset_vals.items(), key=lambda x: x[0]):
+            res.append(vals)
+        return res
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> verticalOrder(TreeNode root) {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        Map<Integer, List<Integer>> offsetVals = new TreeMap<>();
+        Map<TreeNode, Integer> nodeOffsets = new HashMap<>();
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        nodeOffsets.put(root, 0);
 
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
+            int offset = nodeOffsets.get(node);
+            if (!offsetVals.containsKey(offset)) {
+                offsetVals.put(offset, new ArrayList<>());
+            }
+            offsetVals.get(offset).add(node.val);
+            if (node.left != null) {
+                q.offer(node.left);
+                nodeOffsets.put(node.left, offset - 1);
+            }
+            if (node.right != null) {
+                q.offer(node.right);
+                nodeOffsets.put(node.right, offset + 1);
+            }
+        }
+        return new ArrayList<>(offsetVals.values());
+    }
+}
 ```
 
 ### **...**
