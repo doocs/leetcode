@@ -52,14 +52,14 @@ class Solution:
     def oddEvenList(self, head: ListNode) -> ListNode:
         if head is None:
             return head
-        evenHead = head.next
-        odd, even = head, evenHead
+        odd, even = head, head.next
+        even_head = even
         while even and even.next:
             odd.next = even.next
             odd = odd.next
             even.next = odd.next
             even = even.next
-        odd.next = evenHead
+        odd.next = even_head
         return head
 ```
 
@@ -81,8 +81,8 @@ class Solution {
         if (head == null) {
             return head;
         }
-        ListNode evenHead = head.next;
-        ListNode odd = head, even = evenHead;
+        ListNode odd = head, even = head.next;
+        ListNode evenHead = even;
         while (even != null && even.next != null) {
             odd.next = even.next;
             odd = odd.next;
@@ -92,6 +92,66 @@ class Solution {
         odd.next = evenHead;
         return head;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if (!head) {
+            return head;
+        }
+        ListNode *odd = head, *even = head->next;
+        ListNode *evenHead = even;
+        while (even && even->next) {
+            odd->next = even->next;
+            odd = odd->next;
+            even->next = odd->next;
+            even = even->next;
+        }
+        odd->next = evenHead;
+        return head;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func oddEvenList(head *ListNode) *ListNode {
+    if head == nil {
+        return head
+    }
+    odd, even := head, head.Next
+    evenHead := even
+    for even != nil && even.Next != nil {
+        odd.Next = even.Next
+        odd = odd.Next
+        even.Next = odd.Next
+        even = even.Next
+    }
+    odd.Next = evenHead
+    return head
 }
 ```
 
