@@ -7,7 +7,7 @@
 <p><strong>Run-length encoding</strong> is a compression algorithm that allows for an integer array <code>nums</code> with many segments of <strong>consecutive repeated</strong> numbers to be represented by a (generally smaller) 2D array <code>encoded</code>. Each <code>encoded[i] = [val<sub>i</sub>, freq<sub>i</sub>]</code> describes the <code>i<sup>th</sup></code> segment of repeated numbers in <code>nums</code> where <code>val<sub>i</sub></code> is the value that is repeated <code>freq<sub>i</sub></code> times.</p>
 
 <ul>
-	<li>For example, <code>nums = [1,1,1,2,2,2,2,2]</code> is represented by the <strong>run-length encoded</strong> array <code>encoded = [[1,3],[2,5]]</code>. Another way to read this is &quot;three <code>1</code>s followed by five <code>2</code>s&quot;.</li>
+	<li>For example, <code>nums = [1,1,1,2,2,2,2,2]</code> is represented by the <strong>run-length encoded</strong> array <code>encoded = [[1,3],[2,5]]</code>. Another way to read this is &quot;three <code>1</code>&#39;s followed by five <code>2</code>&#39;s&quot;.</li>
 </ul>
 
 <p>The <strong>product</strong> of two run-length encoded arrays <code>encoded1</code> and <code>encoded2</code> can be calculated using the following steps:</p>

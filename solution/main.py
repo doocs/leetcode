@@ -79,19 +79,7 @@ class LCSpider:
             'variables': {
                 'titleSlug': question_title_slug
             },
-            'query': """query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    
-            questionId\n    questionFrontendId\n    boundTopicId\n    title\n    titleSlug\n    content\n    
-            translatedTitle\n    translatedContent\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n    
-            isLiked\n    similarQuestions\n    contributors {\n      username\n      profileUrl\n      
-            avatarUrl\n      __typename\n    }\n    langToValidPlayground\n    topicTags {\n      name\n      
-            slug\n      translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      
-            lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    solution {\n      
-            id\n      canSeeDetail\n      __typename\n    }\n    status\n    sampleTestCase\n    metaData\n    
-            judgerAvailable\n    judgeType\n    mysqlSchemas\n    enableRunCode\n    envInfo\n    book {\n      
-            id\n      bookName\n      pressName\n      source\n      shortDescription\n      fullDescription\n      
-            bookImgUrl\n      pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    
-            isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    
-            __typename\n  }\n}\n"""
+            'query': """query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    }\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    exampleTestcases\n    __typename\n  }\n}\n"""
         }
 
         # get question detail
@@ -139,20 +127,23 @@ class LCSpider:
 
             print(f'{frontend_question_id}. {question_title_en}')
             topic_tags = question_detail.get('topicTags')
+            
             item = {
                 'question_id': str(question['stat']['question_id']).zfill(4),
                 'frontend_question_id': frontend_question_id,
                 'paid_only': question['paid_only'],
                 'paid_only_cn': question_detail.get('isPaidOnly'),
+                # Shell Database Algorithms Concurrency
+                'category': question_detail.get('categoryTitle'),
                 'url_cn': url_cn,
                 'url_en': url_en,
                 'relative_path_cn': path_cn,
                 'relative_path_en': path_en,
-                'title_cn': question_detail.get('translatedTitle') or '',
+                'title_cn': question_detail.get('translatedTitle') or question_title_en or '',
                 'title_en': question_title_en or '',
                 'question_title_slug': question_title_slug,
                 'content_en': question_detail.get('content'),
-                'content_cn': question_detail.get('translatedContent'),
+                'content_cn': question_detail.get('translatedContent') or question_detail.get('content'),
                 'tags_en': [e['name'] for e in topic_tags if e['name']] or [],
                 'tags_cn': [e['translatedName'] for e in topic_tags if e['translatedName']] or [],
                 'difficulty_en': question_detail.get('difficulty'),
@@ -166,12 +157,14 @@ class LCSpider:
             col3_cn = '' if (col3_cn == 'None' or not col3_cn) else col3_cn
             col4_cn = item['difficulty_cn']
             col5_cn = '🔒' if item['paid_only_cn'] else ''
+
             col1_en = f'[{frontend_question_id}]({url_en})'
             col2_en = f'[{item["title_en"]}]({path_en})'
             col3_en = ','.join([f'`{tag}`' for tag in item['tags_en']])
             col3_en = '' if (col3_en == 'None' or not col3_en) else col3_en
             col4_en = item['difficulty_en']
             col5_en = '🔒' if item['paid_only'] else ''
+
             item['md_table_row_cn'] = [col1_cn, col2_cn, col3_cn, col4_cn, col5_cn]
             item['md_table_row_en'] = [col1_en, col2_en, col3_en, col4_en, col5_en]
 
@@ -220,6 +213,14 @@ class LCSpider:
             readme_cn = f.read()
         with open('./problem_readme_template_en.md', 'r', encoding='utf-8') as f:
             readme_en = f.read()
+        with open('./sql_problem_readme_template.md', 'r', encoding='utf-8') as f:
+            sql_readme_cn = f.read()
+        with open('./sql_problem_readme_template_en.md', 'r', encoding='utf-8') as f:
+            sql_readme_en = f.read()
+        with open('./bash_problem_readme_template.md', 'r', encoding='utf-8') as f:
+            bash_readme_cn = f.read()
+        with open('./bash_problem_readme_template_en.md', 'r', encoding='utf-8') as f:
+            bash_readme_en = f.read()
 
         with open('./result.json', 'r', encoding='utf-8') as f:
             result = f.read()
@@ -233,10 +234,21 @@ class LCSpider:
                 if os.path.isdir(path):
                     continue
                 os.makedirs(path)
+                # choose the readme template
+                category = item['category']
+                if category == 'Shell':
+                    readme_template_cn = bash_readme_cn
+                    readme_template_en = bash_readme_en
+                elif category == 'Database':
+                    readme_template_cn = sql_readme_cn
+                    readme_template_en = sql_readme_en
+                else:
+                    readme_template_cn = readme_cn
+                    readme_template_en = readme_en
 
                 # generate lc problem readme cn
                 with open(f'{path}/README.md', 'w', encoding='utf-8') as f1:
-                    f1.write(readme_cn.format(int(item['frontend_question_id']),
+                    f1.write(readme_template_cn.format(int(item['frontend_question_id']),
                                               item["title_cn"],
                                               item['url_cn'],
                                               item['relative_path_en'],
@@ -244,7 +256,7 @@ class LCSpider:
 
                 # generate lc problem readme en
                 with open(f'{path}/README_EN.md', 'w', encoding='utf-8') as f2:
-                    f2.write(readme_en.format(int(item['frontend_question_id']),
+                    f2.write(readme_template_en.format(int(item['frontend_question_id']),
                                               item["title_en"],
                                               item['url_en'],
                                               item['relative_path_cn'],

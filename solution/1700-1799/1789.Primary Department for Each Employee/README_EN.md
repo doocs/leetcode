@@ -67,21 +67,9 @@ Result table:
 
 <!-- tabs:start -->
 
-### **Python3**
+### **SQL**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
-```
-
-### **...**
-
-```
+```sql
 
 ```
 

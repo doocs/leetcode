@@ -107,7 +107,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0096](https://leetcode.com/problems/unique-binary-search-trees)  |  [Unique Binary Search Trees](/solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md)  |  `Tree`,`Dynamic Programming`  |  Medium  |    |
 |  [0097](https://leetcode.com/problems/interleaving-string)  |  [Interleaving String](/solution/0000-0099/0097.Interleaving%20String/README_EN.md)  |  `String`,`Dynamic Programming`  |  Medium  |    |
 |  [0098](https://leetcode.com/problems/validate-binary-search-tree)  |  [Validate Binary Search Tree](/solution/0000-0099/0098.Validate%20Binary%20Search%20Tree/README_EN.md)  |  `Tree`,`Depth-first Search`,`Recursion`  |  Medium  |    |
-|  [0099](https://leetcode.com/problems/recover-binary-search-tree)  |  [Recover Binary Search Tree](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README_EN.md)  |  `Tree`,`Depth-first Search`  |  Hard  |    |
+|  [0099](https://leetcode.com/problems/recover-binary-search-tree)  |  [Recover Binary Search Tree](/solution/0000-0099/0099.Recover%20Binary%20Search%20Tree/README_EN.md)  |  `Tree`,`Depth-first Search`  |  Medium  |    |
 |  [0100](https://leetcode.com/problems/same-tree)  |  [Same Tree](/solution/0100-0199/0100.Same%20Tree/README_EN.md)  |  `Tree`,`Depth-first Search`  |  Easy  |    |
 |  [0101](https://leetcode.com/problems/symmetric-tree)  |  [Symmetric Tree](/solution/0100-0199/0101.Symmetric%20Tree/README_EN.md)  |  `Tree`,`Depth-first Search`,`Breadth-first Search`  |  Easy  |    |
 |  [0102](https://leetcode.com/problems/binary-tree-level-order-traversal)  |  [Binary Tree Level Order Traversal](/solution/0100-0199/0102.Binary%20Tree%20Level%20Order%20Traversal/README_EN.md)  |  `Tree`,`Breadth-first Search`  |  Medium  |    |
@@ -673,7 +673,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0662](https://leetcode.com/problems/maximum-width-of-binary-tree)  |  [Maximum Width of Binary Tree](/solution/0600-0699/0662.Maximum%20Width%20of%20Binary%20Tree/README_EN.md)  |  `Tree`  |  Medium  |    |
 |  [0663](https://leetcode.com/problems/equal-tree-partition)  |  [Equal Tree Partition](/solution/0600-0699/0663.Equal%20Tree%20Partition/README_EN.md)  |  `Tree`  |  Medium  |  🔒  |
 |  [0664](https://leetcode.com/problems/strange-printer)  |  [Strange Printer](/solution/0600-0699/0664.Strange%20Printer/README_EN.md)  |  `Depth-first Search`,`Dynamic Programming`  |  Hard  |    |
-|  [0665](https://leetcode.com/problems/non-decreasing-array)  |  [Non-decreasing Array](/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md)  |  `Array`  |  Easy  |    |
+|  [0665](https://leetcode.com/problems/non-decreasing-array)  |  [Non-decreasing Array](/solution/0600-0699/0665.Non-decreasing%20Array/README_EN.md)  |  `Array`  |  Medium  |    |
 |  [0666](https://leetcode.com/problems/path-sum-iv)  |  [Path Sum IV](/solution/0600-0699/0666.Path%20Sum%20IV/README_EN.md)  |  `Tree`  |  Medium  |  🔒  |
 |  [0667](https://leetcode.com/problems/beautiful-arrangement-ii)  |  [Beautiful Arrangement II](/solution/0600-0699/0667.Beautiful%20Arrangement%20II/README_EN.md)  |  `Array`  |  Medium  |    |
 |  [0668](https://leetcode.com/problems/kth-smallest-number-in-multiplication-table)  |  [Kth Smallest Number in Multiplication Table](/solution/0600-0699/0668.Kth%20Smallest%20Number%20in%20Multiplication%20Table/README_EN.md)  |  `Binary Search`  |  Hard  |    |
@@ -1231,7 +1231,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1220](https://leetcode.com/problems/count-vowels-permutation)  |  [Count Vowels Permutation](/solution/1200-1299/1220.Count%20Vowels%20Permutation/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 |  [1221](https://leetcode.com/problems/split-a-string-in-balanced-strings)  |  [Split a String in Balanced Strings](/solution/1200-1299/1221.Split%20a%20String%20in%20Balanced%20Strings/README_EN.md)  |  `Greedy`,`String`  |  Easy  |    |
 |  [1222](https://leetcode.com/problems/queens-that-can-attack-the-king)  |  [Queens That Can Attack the King](/solution/1200-1299/1222.Queens%20That%20Can%20Attack%20the%20King/README_EN.md)  |  `Array`  |  Medium  |    |
-|  [1223](https://leetcode.com/problems/dice-roll-simulation)  |  [Dice Roll Simulation](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README_EN.md)  |  `Dynamic Programming`  |  Medium  |    |
+|  [1223](https://leetcode.com/problems/dice-roll-simulation)  |  [Dice Roll Simulation](/solution/1200-1299/1223.Dice%20Roll%20Simulation/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 |  [1224](https://leetcode.com/problems/maximum-equal-frequency)  |  [Maximum Equal Frequency](/solution/1200-1299/1224.Maximum%20Equal%20Frequency/README_EN.md)  |  `Hash Table`  |  Hard  |    |
 |  [1225](https://leetcode.com/problems/report-contiguous-dates)  |  [Report Contiguous Dates](/solution/1200-1299/1225.Report%20Contiguous%20Dates/README_EN.md)  |    |  Hard  |  🔒  |
 |  [1226](https://leetcode.com/problems/the-dining-philosophers)  |  [The Dining Philosophers](/solution/1200-1299/1226.The%20Dining%20Philosophers/README_EN.md)  |    |  Medium  |    |

@@ -6,6 +6,8 @@
 
 <p>Table: <code>Teams</code></p>
 
+
+
 <pre>
 
 +----------------+---------+
@@ -26,9 +28,15 @@ Each row contains information about one team in the league.
 
 </pre>
 
+
+
 <p>&nbsp;</p>
 
+
+
 <p>Table: <code>Matches</code></p>
+
+
 
 <pre>
 
@@ -60,11 +68,19 @@ The winner of the match is the team with the higher number of goals.
 
 </pre>
 
+
+
 <p>&nbsp;</p>
+
+
 
 <p>Write an SQL query to report the statistics of the league. The statistics should be built using the played matches where the <strong>winning</strong> team gets <strong>three points</strong> and the <strong>losing</strong> team gets <strong>no points</strong>. If a match ends with a <strong>draw</strong>, both teams get <strong>one point</strong>.</p>
 
+
+
 <p>Each row of the result table should contain:</p>
+
+
 
 <ul>
 	<li><code>team_name</code> - The name of the team in the <code>Teams</code> table.</li>
@@ -75,11 +91,19 @@ The winner of the match is the team with the higher number of goals.
 	<li><code>goal_diff</code> - The result of <code>goal_for - goal_against</code>.</li>
 </ul>
 
+
+
 <p>Return the result table <strong>in descending order by </strong><code>points</code>. If two or more teams have the same <code>points</code>, order them <strong>in descending order by</strong> <code>goal_diff</code>. If there is still a tie, order them by <code>team_name</code> in <strong>lexicographical order</strong>.</p>
+
+
 
 <p>The query result format is in the following example:</p>
 
+
+
 <p>&nbsp;</p>
+
+
 
 <pre>
 
