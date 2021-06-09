@@ -69,10 +69,9 @@ class Solution:
         for i, c in enumerate(s):
             cnt += c != target[i & 1]
         res = min(cnt, n - cnt)
-        s *= 2
         for i in range(n):
             cnt -= s[i] != target[i & 1]
-            cnt += s[i + n] != target[(i + n) & 1]
+            cnt += s[i] != target[(i + n) & 1]
             res = min(res, cnt, n - cnt)
         return res
 ```
@@ -89,10 +88,9 @@ class Solution {
             cnt += (s.charAt(i) == target.charAt(i & 1) ? 0 : 1);
         }
         int res = Math.min(cnt, n - cnt);
-        s += s;
         for (int i = 0; i < n; ++i) {
             cnt -= (s.charAt(i) == target.charAt(i & 1) ? 0 : 1);
-            cnt += (s.charAt(i + n) == target.charAt((i + n) & 1) ? 0 : 1);
+            cnt += (s.charAt(i) == target.charAt((i + n) & 1) ? 0 : 1);
             res = Math.min(res, Math.min(cnt, n - cnt));
         }
         return res;
