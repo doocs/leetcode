@@ -51,7 +51,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        def buildBST(nums, start, end):
+            if start > end:
+                return None
+            mid = (start + end) >> 1
+            return TreeNode(nums[mid], buildBST(nums, start, mid - 1), buildBST(nums, mid + 1, end))
 
+        return buildBST(nums, 0, len(nums) - 1)
 ```
 
 ### **Java**
@@ -59,7 +73,102 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return buildBST(nums, 0, nums.length - 1);
+    }
 
+    private TreeNode buildBST(int[] nums, int start, int end) {
+        if (start > end) {
+            return null;
+        }
+        int mid = (start + end) >> 1;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = buildBST(nums, start, mid - 1);
+        root.right = buildBST(nums, mid + 1, end);
+        return root;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        return buildBST(nums, 0, nums.size() - 1);
+    }
+
+private:
+    TreeNode* buildBST(vector<int>& nums, int start, int end) {
+        if (start > end) {
+            return nullptr;
+        }
+        int mid = (start + end) / 2;
+        TreeNode *root = new TreeNode(nums[mid]);
+        root->left = buildBST(nums, start, mid - 1);
+        root->right = buildBST(nums, mid + 1, end);
+        return root;
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {number[]} nums
+ * @return {TreeNode}
+ */
+var sortedArrayToBST = function(nums) {
+    const buildBST = (nums, start, end) => {
+        if (start > end) {
+            return null;
+        }
+        const mid = (start + end) >> 1;
+        const root = new TreeNode(nums[mid]);
+        root.left = buildBST(nums, start, mid - 1);
+        root.right = buildBST(nums, mid + 1, end);
+        return root;
+    }
+
+    return buildBST(nums, 0, nums.length - 1);
+};
 ```
 
 ### **...**
