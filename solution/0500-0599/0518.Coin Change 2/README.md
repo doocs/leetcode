@@ -33,7 +33,7 @@
 
 <p><strong>示例 3:</strong></p>
 
-<pre><strong>输入:</strong> amount = 10, coins = [10] 
+<pre><strong>输入:</strong> amount = 10, coins = [10]
 <strong>输出:</strong> 1
 </pre>
 
@@ -55,6 +55,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+完全背包问题
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +64,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        dp = [0 for i in range(amount + 1)]
+        dp[0] = 1
+        for coin in coins:
+            for j in range(coin, amount + 1):
+                dp[j] += dp[j - coin]
+        return dp[amount]
 ```
 
 ### **Java**
@@ -70,7 +79,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int change(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+        for (int coin : coins) {
+            for (int j = coin; j <= amount; j++) {
+                dp[j] += dp[j - coin];
+            }
+        }
+        return dp[amount];
+    }
+}
+```
 
+### **Go**
+
+```go
+func change(amount int, coins []int) int {
+	dp := make([]int, amount+1)
+	dp[0] = 1
+	for _, coin := range coins {
+		for j := coin; j <= amount; j++ {
+			dp[j] += dp[j-coin]
+		}
+	}
+	return dp[amount]
+}
 ```
 
 ### **...**

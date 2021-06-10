@@ -1,12 +1,12 @@
 class Solution {
     public int change(int amount, int[] coins) {
-        int[] f = new int[amount + 1];
-        f[0] = 1;
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
         for (int coin : coins) {
-            for (int i = coin; i <= amount; ++i) {
-                f[i] += f[i - coin];
+            for (int j = coin; j <= amount; j++) {
+                dp[j] += dp[j - coin];
             }
         }
-        return f[amount];
+        return dp[amount];
     }
 }

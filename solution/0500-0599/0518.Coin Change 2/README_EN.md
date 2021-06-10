@@ -64,7 +64,7 @@
 
 <pre>
 
-<b>Input:</b> amount = 10, coins = [10] 
+<b>Input:</b> amount = 10, coins = [10]
 
 <b>Output:</b> 1
 
@@ -95,18 +95,53 @@
 
 ## Solutions
 
+Complete knapsack problem
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        dp = [0 for i in range(amount + 1)]
+        dp[0] = 1
+        for coin in coins:
+            for j in range(coin, amount + 1):
+                dp[j] += dp[j - coin]
+        return dp[amount]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int change(int amount, int[] coins) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+        for (int coin : coins) {
+            for (int j = coin; j <= amount; j++) {
+                dp[j] += dp[j - coin];
+            }
+        }
+        return dp[amount];
+    }
+}
+```
 
+### **Go**
+
+```go
+func change(amount int, coins []int) int {
+	dp := make([]int, amount+1)
+	dp[0] = 1
+	for _, coin := range coins {
+		for j := coin; j <= amount; j++ {
+			dp[j] += dp[j-coin]
+		}
+	}
+	return dp[amount]
+}
 ```
 
 ### **...**
