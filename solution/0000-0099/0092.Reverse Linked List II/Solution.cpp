@@ -3,38 +3,32 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
 class Solution {
 public:
-    ListNode* reverseBetween(ListNode* head, int m, int n) {
-        ListNode headNode(0) ;
-        headNode.next = head ;
-        
-        n = n-m+1 ;
-        
-        ListNode *p = &headNode ;
-        while (--m) // 移动m-1次，故--m
-            p = p->next ;
-        
-        ListNode revNode(0) ;
-        ListNode *pRev = &revNode ;
-        pRev->next = nullptr ;
-        ListNode *pN = p->next ;
-        
-        ListNode *pTmp ;
-        while (n--)
-        {
-            pTmp = p->next ;
-            p->next = p->next->next ;
-            pTmp->next = pRev->next ;
-            pRev->next = pTmp ;
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if (head == nullptr || head->next == nullptr || left == right) {
+            return head;
         }
-        
-        pN->next = p->next ;
-        p->next = revNode.next ;
-        
-        return headNode.next ;
+        ListNode *dummy = new ListNode(0, head);
+        ListNode *pre = dummy;
+        for (int i = 0; i < left - 1; ++i) {
+            pre = pre->next;
+        }
+        ListNode *p = pre, *q = pre->next;
+        ListNode *cur = q;
+        for (int i = 0; i < right - left + 1; ++i) {
+            ListNode *t = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = t;
+        }
+        p->next = pre;
+        q->next = cur;
+        return dummy->next;
     }
 };

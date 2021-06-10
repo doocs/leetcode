@@ -43,26 +43,23 @@
 ```python
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
-        if head is None or head.next is None or m == n:
+    def reverseBetween(self, head: ListNode, left: int, right: int) -> ListNode:
+        if head is None or head.next is None or left == right:
             return head
-        dummy = ListNode(0)
-        dummy.next = head
-        pre, cur = dummy, head
-        for _ in range(m - 1):
-            pre = cur
-            cur = cur.next
-        p, q = pre, cur
-        for _ in range(n - m + 1):
+        dummy = ListNode(0, head)
+        pre = dummy
+        for _ in range(left - 1):
+            pre = pre.next
+        p, q = pre, pre.next
+        cur = q
+        for _ in range(right - left + 1):
             t = cur.next
             cur.next = pre
-            pre = cur
-            cur = t
+            pre, cur = cur, t
         p.next = pre
         q.next = cur
         return dummy.next
@@ -76,23 +73,147 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
-    public ListNode reverseBetween(ListNode head, int m, int n) {
-        if (head == null || head.next == null || m == n) {
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        if (head == null || head.next == null || left == right) {
             return head;
         }
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode pre = dummy, cur = head;
-        for (int i = 0; i < m - 1; ++i) {
-            pre = cur;
-            cur = cur.next;
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy;
+        for (int i = 0; i < left - 1; ++i) {
+            pre = pre.next;
         }
-        ListNode p = pre, q = cur;
-        for (int i = 0; i < n - m + 1; ++i) {
+        ListNode p = pre;
+        ListNode q = pre.next;
+        ListNode cur = q;
+        for (int i = 0; i < right - left + 1; ++i) {
+            ListNode t = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = t;
+        }
+        p.next = pre;
+        q.next = cur;
+        return dummy.next;
+    }
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} left
+ * @param {number} right
+ * @return {ListNode}
+ */
+var reverseBetween = function(head, left, right) {
+    if (!head || !head.next || left == right) {
+        return head;
+    }
+    const dummy = new ListNode(0, head);
+    let pre = dummy;
+    for (let i = 0; i < left - 1; ++i) {
+        pre = pre.next;
+    }
+    const p = pre;
+    const q = pre.next;
+    let cur = q;
+    for (let i = 0; i < right - left + 1; ++i) {
+        const t = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = t;
+    }
+    p.next = pre;
+    q.next = cur;
+    return dummy.next;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if (head == nullptr || head->next == nullptr || left == right) {
+            return head;
+        }
+        ListNode *dummy = new ListNode(0, head);
+        ListNode *pre = dummy;
+        for (int i = 0; i < left - 1; ++i) {
+            pre = pre->next;
+        }
+        ListNode *p = pre, *q = pre->next;
+        ListNode *cur = q;
+        for (int i = 0; i < right - left + 1; ++i) {
+            ListNode *t = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = t;
+        }
+        p->next = pre;
+        q->next = cur;
+        return dummy->next;
+    }
+};
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ReverseBetween(ListNode head, int left, int right) {
+        if (head == null || head.next == null || left == right)
+        {
+            return head;
+        }
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy;
+        for (int i = 0; i < left - 1; ++i)
+        {
+            pre = pre.next;
+        }
+        ListNode p = pre;
+        ListNode q = pre.next;
+        ListNode cur = q;
+        for (int i = 0; i < right - left + 1; ++i)
+        {
             ListNode t = cur.next;
             cur.next = pre;
             pre = cur;
