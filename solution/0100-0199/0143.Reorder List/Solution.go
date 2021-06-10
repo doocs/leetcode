@@ -5,24 +5,30 @@
  *     Next *ListNode
  * }
  */
-func reorderList(head *ListNode)  {
-    // 判空
-    if head == nil {
-        return 
+ func reorderList(head *ListNode)  {
+    if head == nil || head.Next == nil {
+        return
     }
-    //切片存放指针
-    deq := []*ListNode{}
-    for head != nil {
-        deq = append(deq, head)
-        head = head.Next
+    slow, fast := head, head.Next
+    for fast != nil && fast.Next != nil {
+        slow, fast = slow.Next, fast.Next.Next
     }
 
-    left, right := 0, len(deq) -1
-    for left < right {
-        deq[left].Next = deq[right]
-        left++
-        deq[right].Next = deq[left]
-        right--
+    cur := slow.Next
+    slow.Next = nil
+
+    var pre *ListNode
+    for cur != nil {
+        t := cur.Next
+        cur.Next = pre
+        pre, cur = cur, t
     }
-    deq[left].Next = nil
+    cur = head
+
+    for pre != nil {
+        t := pre.Next
+        pre.Next = cur.Next
+        cur.Next = pre
+        cur, pre = pre.Next, t
+    }
 }
