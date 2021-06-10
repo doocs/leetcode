@@ -94,11 +94,7 @@ class Solution {
 ### **TypeScript**
 
 ```ts
-/**
- * @param {number[]} nums
- * @return {number}
- */
-var maxAscendingSum = function(nums) {
+function maxAscendingSum(nums: number[]): number {
     let res = 0, sum = nums[0];
     for (let i = 1; i < nums.length; ++i) {
         if (nums[i] > nums[i - 1]) {
