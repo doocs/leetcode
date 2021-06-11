@@ -1898,6 +1898,8 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1887](https://leetcode.com/problems/reduction-operations-to-make-the-array-elements-equal)  |  [Reduction Operations to Make the Array Elements Equal](/solution/1800-1899/1887.Reduction%20Operations%20to%20Make%20the%20Array%20Elements%20Equal/README_EN.md)  |  `Greedy`,`Sort`  |  Medium  |    |
 |  [1888](https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating)  |  [Minimum Number of Flips to Make the Binary String Alternating](/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |    |
 |  [1889](https://leetcode.com/problems/minimum-space-wasted-from-packaging)  |  [Minimum Space Wasted From Packaging](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md)  |  `Binary Search`  |  Hard  |    |
+|  [1890](https://leetcode.com/problems/the-latest-login-in-2020)  |  [The Latest Login in 2020](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md)  |    |  Easy  |  🔒  |
+|  [1891](https://leetcode.com/problems/cutting-ribbons)  |  [Cutting Ribbons](/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md)  |  `Binary Search`  |  Medium  |  🔒  |
 
 ## Copyright
 

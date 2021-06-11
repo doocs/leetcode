@@ -1900,6 +1900,8 @@
 |  [1887](https://leetcode-cn.com/problems/reduction-operations-to-make-the-array-elements-equal)  |  [使数组元素相等的减少操作次数](/solution/1800-1899/1887.Reduction%20Operations%20to%20Make%20the%20Array%20Elements%20Equal/README.md)  |  `贪心算法`,`排序`  |  中等  |    |
 |  [1888](https://leetcode-cn.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating)  |  [使二进制字符串字符交替的最少反转次数](/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README.md)  |  `贪心算法`,`数组`  |  中等  |    |
 |  [1889](https://leetcode-cn.com/problems/minimum-space-wasted-from-packaging)  |  [装包裹的最小浪费空间](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README.md)  |  `二分查找`  |  困难  |    |
+|  [1890](https://leetcode-cn.com/problems/the-latest-login-in-2020)  |  [The Latest Login in 2020](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README.md)  |    |  简单  |    |
+|  [1891](https://leetcode-cn.com/problems/cutting-ribbons)  |  [Cutting Ribbons](/solution/1800-1899/1891.Cutting%20Ribbons/README.md)  |  `二分查找`  |  中等  |  🔒  |
 
 ## 版权
 

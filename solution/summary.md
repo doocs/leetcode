@@ -1925,3 +1925,5 @@
   - [1887.Reduction Operations to Make the Array Elements Equal](/solution/1800-1899/1887.Reduction%20Operations%20to%20Make%20the%20Array%20Elements%20Equal/README.md)
   - [1888.Minimum Number of Flips to Make the Binary String Alternating](/solution/1800-1899/1888.Minimum%20Number%20of%20Flips%20to%20Make%20the%20Binary%20String%20Alternating/README.md)
   - [1889.Minimum Space Wasted From Packaging](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README.md)
+  - [1890.The Latest Login in 2020](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README.md)
+  - [1891.Cutting Ribbons](/solution/1800-1899/1891.Cutting%20Ribbons/README.md)
