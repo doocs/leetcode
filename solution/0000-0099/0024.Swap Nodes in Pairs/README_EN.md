@@ -60,8 +60,7 @@ class Solution:
             cur.next = t.next
             t.next = cur
             pre.next = t
-            pre = cur
-            cur = pre.next
+            pre, cur = cur, cur.next
         return dummy.next
 ```
 
@@ -88,12 +87,41 @@ class Solution {
             t.next = cur;
             pre.next = t;
             pre = cur;
-            cur = pre.next;
-
+            cur = cur.next;
         }
         return dummy.next;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var swapPairs = function(head) {
+    const dummy = new ListNode(0, head);
+    let pre = dummy;
+    let cur = head;
+    while (cur && cur.next) {
+        const t = cur.next;
+        cur.next = t.next;
+        t.next = cur;
+        pre.next = t;
+        pre = cur;
+        cur = cur.next;
+    }
+    return dummy.next;
+};
 ```
 
 ### **C++**
@@ -112,20 +140,73 @@ class Solution {
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        ListNode* dummy = new ListNode(0, head);
-        ListNode* pre = dummy;
-        ListNode* cur = head;
+        ListNode *dummy = new ListNode(0, head);
+        ListNode *pre = dummy, *cur = head;
         while (cur != nullptr && cur->next != nullptr) {
-            ListNode* t = cur->next;
+            ListNode *t = cur->next;
             cur->next = t->next;
             t->next = cur;
             pre->next = t;
             pre = cur;
-            cur = pre->next;
+            cur = cur->next;
         }
         return dummy->next;
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func swapPairs(head *ListNode) *ListNode {
+    dummy := &ListNode{0, head}
+    pre, cur := dummy, head
+    for cur != nil && cur.Next != nil {
+        t := cur.Next
+        cur.Next = t.Next
+        t.Next = cur
+        pre.Next = t
+        pre = cur
+        cur = cur.Next
+    }
+    return dummy.Next
+}
+```
+
+### **Ruby**
+
+```rb
+# Definition for singly-linked list.
+# class ListNode
+#     attr_accessor :val, :next
+#     def initialize(val = 0, _next = nil)
+#         @val = val
+#         @next = _next
+#     end
+# end
+# @param {ListNode} head
+# @return {ListNode}
+def swap_pairs(head)
+    dummy = ListNode.new(0, head)
+    pre = dummy
+    cur = head
+    while !cur.nil? && !cur.next.nil?
+        t = cur.next
+        cur.next = t.next
+        t.next = cur
+        pre.next = t
+        pre = cur
+        cur = cur.next
+    end
+    dummy.next
+end
 ```
 
 ### **...**

@@ -18,8 +18,7 @@ class Solution {
             t.next = cur;
             pre.next = t;
             pre = cur;
-            cur = pre.next;
-
+            cur = cur.next;
         }
         return dummy.next;
     }
