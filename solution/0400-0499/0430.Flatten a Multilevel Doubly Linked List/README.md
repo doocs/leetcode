@@ -85,7 +85,6 @@
 	<li><code>1 &lt;= Node.val &lt;= 10^5</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -97,7 +96,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val, prev, next, child):
+        self.val = val
+        self.prev = prev
+        self.next = next
+        self.child = child
+"""
 
+class Solution:
+    def flatten(self, head: 'Node') -> 'Node':
+        def preorder(pre, cur):
+            if cur is None:
+                return pre
+            cur.prev = pre
+            pre.next = cur
+
+            t = cur.next
+            tail = preorder(cur, cur.child)
+            cur.child = None
+            return preorder(tail, t)
+            
+        if head is None:
+            return None
+        dummy = Node(0, None, head, None)
+        preorder(dummy, head)
+        dummy.next.prev = None
+        return dummy.next
 ```
 
 ### **Java**
@@ -105,7 +132,41 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
+};
+*/
 
+class Solution {
+    public Node flatten(Node head) {
+        if (head == null) {
+            return null;
+        }
+        Node dummy = new Node();
+        dummy.next = head;
+        preorder(dummy, head);
+        dummy.next.prev = null;
+        return dummy.next;
+    }
+
+    private Node preorder(Node pre, Node cur) {
+        if (cur == null) {
+            return pre;
+        }
+        cur.prev = pre;
+        pre.next = cur;
+
+        Node t = cur.next;
+        Node tail = preorder(cur, cur.child);
+        cur.child = null;
+        return preorder(tail, t);
+    }
+}
 ```
 
 ### **...**

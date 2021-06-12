@@ -6,10 +6,7 @@
 
 <p>You are given a doubly linked list which in addition to the next and previous pointers, it could have a child pointer, which may or may not point to a separate doubly linked list. These child lists may have one or more children of their own, and so on, to produce a multilevel data structure, as shown in the example below.</p>
 
-
-
 <p>Flatten the list so that all the nodes appear in a single-level, doubly linked list. You are given the head of the first level of the list.</p>
-
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -91,7 +88,6 @@ After flattening the multilevel linked list it becomes:
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -99,13 +95,75 @@ After flattening the multilevel linked list it becomes:
 ### **Python3**
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val, prev, next, child):
+        self.val = val
+        self.prev = prev
+        self.next = next
+        self.child = child
+"""
 
+class Solution:
+    def flatten(self, head: 'Node') -> 'Node':
+        def preorder(pre, cur):
+            if cur is None:
+                return pre
+            cur.prev = pre
+            pre.next = cur
+
+            t = cur.next
+            tail = preorder(cur, cur.child)
+            cur.child = None
+            return preorder(tail, t)
+            
+        if head is None:
+            return None
+        dummy = Node(0, None, head, None)
+        preorder(dummy, head)
+        dummy.next.prev = None
+        return dummy.next
 ```
 
 ### **Java**
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
+};
+*/
 
+class Solution {
+    public Node flatten(Node head) {
+        if (head == null) {
+            return null;
+        }
+        Node dummy = new Node();
+        dummy.next = head;
+        preorder(dummy, head);
+        dummy.next.prev = null;
+        return dummy.next;
+    }
+
+    private Node preorder(Node pre, Node cur) {
+        if (cur == null) {
+            return pre;
+        }
+        cur.prev = pre;
+        pre.next = cur;
+
+        Node t = cur.next;
+        Node tail = preorder(cur, cur.child);
+        cur.child = null;
+        return preorder(tail, t);
+    }
+}
 ```
 
 ### **...**
