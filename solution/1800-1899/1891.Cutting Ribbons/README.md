@@ -69,6 +69,8 @@ Now you have 4 ribbons of length 4.
 
 <!-- 这里可写通用的实现逻辑 -->
 
+“二分法”实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -76,7 +78,19 @@ Now you have 4 ribbons of length 4.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxLength(self, ribbons: List[int], k: int) -> int:
+        low, high = 0, 100000
+        while low < high:
+            mid = (low + high + 1) >> 1
+            cnt = 0
+            for ribbon in ribbons:
+                cnt += ribbon // mid
+            if cnt < k:
+                high = mid - 1
+            else:
+                low = mid
+        return low
 ```
 
 ### **Java**
@@ -84,7 +98,96 @@ Now you have 4 ribbons of length 4.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxLength(int[] ribbons, int k) {
+        int low = 0, high = 100000;
+        while (low < high) {
+            int mid = (low + high + 1) >> 1;
+            int cnt = 0;
+            for (int ribbon : ribbons) {
+                cnt += ribbon / mid;
+            }
+            if (cnt < k) {
+                high = mid - 1;
+            } else {
+                low = mid;
+            }
+        }
+        return low;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} ribbons
+ * @param {number} k
+ * @return {number}
+ */
+var maxLength = function(ribbons, k) {
+    let low = 0;
+    let high = 100000;
+    while (low < high) {
+        const mid = (low + high + 1) >> 1;
+        let cnt = 0;
+        for (let ribbon of ribbons) {
+            cnt += Math.floor(ribbon / mid);
+        }
+        if (cnt < k) {
+            high = mid - 1;
+        } else {
+            low = mid;
+        }
+    }
+    return low;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxLength(vector<int>& ribbons, int k) {
+        int low = 0, high = 100000;
+        while (low < high) {
+            int mid = (low + high + 1) / 2;
+            int cnt = 0;
+            for (auto ribbon : ribbons) {
+                cnt += ribbon / mid;
+            }
+            if (cnt < k) {
+                high = mid - 1;
+            } else {
+                low = mid;
+            }
+        }
+        return low;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxLength(ribbons []int, k int) int {
+	low, high := 0, 100000
+	for low < high {
+		mid := (low + high + 1) >> 1
+		cnt := 0
+		for _, ribbon := range ribbons {
+			cnt += ribbon / mid
+		}
+		if cnt < k {
+			high = mid - 1
+		} else {
+			low = mid
+		}
+	}
+	return low
+}
 ```
 
 ### **...**
