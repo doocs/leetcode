@@ -5,55 +5,39 @@
  *     Next *ListNode
  * }
  */
- func reverseKGroup(head *ListNode, k int) *ListNode {
-	start := head
-	var h *ListNode = nil
-	var t *ListNode = nil
-	ok := false
-	if h, t, ok = revert(start, k); !ok {
+func reverseKGroup(head *ListNode, k int) *ListNode {
+	dummy := &ListNode{0, head}
+	pre := dummy
+	cur := dummy
+	for cur.Next != nil {
+		for i := 0; i < k && cur != nil; i++ {
+			cur = cur.Next
+		}
+		if cur == nil {
+			return dummy.Next
+		}
+		t := cur.Next
+		cur.Next = nil
+		start := pre.Next
+		pre.Next = reverseList(start)
+		start.Next = t
+		pre = start
+		cur = pre
+	}
+	return dummy.Next
+}
+
+func reverseList(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
 		return head
 	}
-	r := h
-	p := t
-	print(2, r)
-	for ok {
-		start = t.Next
-		h, t, ok = revert(start, k)
-		p.Next = h
-		p = t
+	dummyHead := &ListNode{}
+	cur := head
+	for cur != nil {
+		tmp := cur.Next
+		cur.Next = dummyHead.Next
+		dummyHead.Next = cur
+		cur = tmp
 	}
-	return r
-}
-
-func revert(head *ListNode, k int) (h, t *ListNode, ok bool) {
-	c := head
-	if !check(c, k) {
-		return head, nil, false
-	}
-
-	t = head
-	var p *ListNode = nil
-	for k > 0 {
-		temp := head
-		head = head.Next
-		temp.Next = p
-		p = temp
-		k--
-	}
-	h = p
-	t.Next = head
-	ok = true
-	print(11, h)
-	return
-}
-
-func check(head *ListNode, k int) bool {
-	for k > 0 {
-		if head == nil {
-			return false
-		}
-		k--
-		head = head.Next
-	}
-	return true
+	return dummyHead.Next
 }

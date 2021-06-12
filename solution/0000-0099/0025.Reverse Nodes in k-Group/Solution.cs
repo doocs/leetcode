@@ -1,52 +1,48 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
 public class Solution {
     public ListNode ReverseKGroup(ListNode head, int k) {
-        if (k < 2) return head;
-        ListNode newHead = null;
-        ListNode newTail = null;
-        var current = head;
-        while (current != null)
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy, cur = dummy;
+        while (cur.next != null)
         {
-            ListNode segmentHead = null;
-            ListNode segmentTail = null;
-            var count = 0;
-            while (current != null && count < k)
+            for (int i = 0; i < k && cur != null; ++i)
             {
-                if (segmentHead == null) segmentHead = current;
-                segmentTail = current;
-                current = current.next;
-                ++count;
+                cur = cur.next;
             }
-            segmentTail.next = null;
-            if (count == k)
+            if (cur == null)
             {
-                segmentTail = segmentHead;
-                segmentHead = ReverseList(segmentHead);
+                return dummy.next;
             }
-            if (newHead == null)
-            {
-                newHead = segmentHead;
-                newTail = segmentTail;
-            }
-            else
-            {
-                newTail.next = segmentHead;
-                newTail = segmentTail;
-            }
+            ListNode t = cur.next;
+            cur.next = null;
+            ListNode start = pre.next;
+            pre.next = ReverseList(start);
+            start.next = t;
+            pre = start;
+            cur = pre;
         }
-        return newHead;
+        return dummy.next;
     }
 
-    private ListNode ReverseList(ListNode head)
-    {
-        var current = head;
-        head = null;
-        while (current != null)
+    private ListNode ReverseList(ListNode head) {
+        ListNode pre = null, p = head;
+        while (p != null)
         {
-            var next = current.next;
-            current.next = head;
-            head = current;
-            current = next;
+            ListNode q = p.next;
+            p.next = pre;
+            pre = p;
+            p = q;
         }
-        return head;
+        return pre;
     }
 }

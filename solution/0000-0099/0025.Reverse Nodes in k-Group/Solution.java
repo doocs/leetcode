@@ -3,47 +3,41 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if(head == null || k < 2) {
-            return head;
-        }
-        int num = 0;
-        ListNode pNode = head;
-        ListNode lastNode = new ListNode(0);
-        ListNode reNode = lastNode;
-        lastNode.next = head;
-        while (pNode != null) {
-            num++;
-            if(num >= k) {
-                num = 0;
-                ListNode tempNode = pNode.next;
-                reverse(lastNode.next, k);
-				// k 个节点的尾节点指向下一组的头节点
-                lastNode.next.next = tempNode;	
-				// 上一组的尾节点指向当前 k 个节点的头节点				
-                tempNode = lastNode.next;				
-                lastNode.next = pNode;
-				
-                lastNode = tempNode;
-                pNode = lastNode.next;
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy, cur = dummy;
+        while (cur.next != null) {
+            for (int i = 0; i < k && cur != null; ++i) {
+                cur = cur.next;
             }
-            else {
-                pNode = pNode.next;
+            if (cur == null) {
+                return dummy.next;
             }
+            ListNode t = cur.next;
+            cur.next = null;
+            ListNode start = pre.next;
+            pre.next = reverseList(start);
+            start.next = t;
+            pre = start;
+            cur = pre;
         }
-        return reNode.next;
+        return dummy.next;
     }
 
-    private ListNode reverse(ListNode node, int i) {
-        if(i <= 1 || node.next == null) {
-            return node;
+    private ListNode reverseList(ListNode head) {
+        ListNode pre = null, p = head;
+        while (p != null) {
+            ListNode q = p.next;
+            p.next = pre;
+            pre = p;
+            p = q;
         }
-        ListNode lastNode = reverse(node.next, i - 1);
-        lastNode.next = node; 
-        return node;
+        return pre;
     }
 }
