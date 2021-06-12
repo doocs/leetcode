@@ -50,6 +50,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Arrays
 
+- [Majority Element](./solution/0100-0199/0169.Majority%20Element/README_EN.md)
 - [Remove Duplicates from Sorted Array](./solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README_EN.md)
 - [Remove Duplicates from Sorted Array II](./solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README_EN.md)
 - [Remove Element](./solution/0000-0099/0027.Remove%20Element/README_EN.md)

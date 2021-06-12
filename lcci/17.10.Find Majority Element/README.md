@@ -35,7 +35,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-摩尔投票法
+摩尔投票法。时间复杂度 O(n)，空间复杂度 O(1)。
 
 <!-- tabs:start -->
 
@@ -44,7 +44,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        cnt = major = 0
+        for num in nums:
+            if cnt == 0:
+                major = num
+                cnt = 1
+            else:
+                cnt += (1 if major == num else -1)
+        return major
 ```
 
 ### **Java**
@@ -52,7 +61,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int majorityElement(int[] nums) {
+        int cnt = 0, major = 0;
+        for (int num : nums) {
+            if (cnt == 0) {
+                major = num;
+                cnt = 1;
+            } else {
+                cnt += (major == num ? 1 : -1);
+            }
+        }
+        return major;
+    }
+}
 ```
 
 ### **JavaScript**
@@ -63,21 +85,61 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    let candidate = 0, count = 0;
-    for (let num of nums) {
-        if (count == 0) candidate = num;
-        if (candidate == num) {
-            count++;
+    let cnt = 0;
+    let major = 0;
+    for (const num of nums) {
+        if (cnt == 0) {
+            major = num;
+            cnt = 1;
         } else {
-            count--;
+            cnt += (major == num ? 1 : -1);
         }
     }
-    let n = 0;
-    for (let num of nums) {
-        if (candidate == num) n++;
-    }
-    return n > (nums.length / 2) ? candidate : -1;
+    return major;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int cnt = 0, major = 0;
+        for (int num : nums) {
+            if (cnt == 0) {
+                major = num;
+                cnt = 1;
+            } else {
+                cnt += (major == num ? 1 : -1);
+            }
+        }
+        return major;
+    }
+};
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MajorityElement(int[] nums) {
+        int cnt = 0, major = 0;
+        foreach (int num in nums)
+        {
+            if (cnt == 0)
+            {
+                major = num;
+                cnt = 1;
+            }
+            else
+            {
+                cnt += (major == num ? 1 : -1);
+            }
+        }
+        return major;
+    }
+}
 ```
 
 ### **...**

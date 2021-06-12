@@ -25,6 +25,8 @@
 
 ### **Python3**
 
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -32,7 +34,7 @@ class Solution:
         for num in nums:
             if cnt == 0:
                 major = num
-                cnt += 1
+                cnt = 1
             else:
                 cnt += (1 if major == num else -1)
         return major
@@ -40,16 +42,18 @@ class Solution:
 
 ### **Java**
 
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
 ```java
 class Solution {
     public int majorityElement(int[] nums) {
-        int major = 0, cnt = 0;
+        int cnt = 0, major = 0;
         for (int num : nums) {
             if (cnt == 0) {
                 major = num;
-                ++cnt;
+                cnt = 1;
             } else {
-                cnt += (num == major ? 1 : -1);
+                cnt += (major == num ? 1 : -1);
             }
         }
         return major;
@@ -64,20 +68,18 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var majorityElement = function (nums) {
-  let cnt = 0;
-  let mode = -1;
-  for (let num of nums) {
-    if (!cnt) {
-      mode = num;
-      cnt++;
-    } else {
-      if (mode === num) cnt++;
-      else cnt--;
+var majorityElement = function(nums) {
+    let cnt = 0;
+    let major = 0;
+    for (const num of nums) {
+        if (cnt == 0) {
+            major = num;
+            cnt = 1;
+        } else {
+            cnt += (major == num ? 1 : -1);
+        }
     }
-  }
-  return mode;
-  // return nums.sort((a,b)=>a-b)[~~(nums.length/2)]
+    return major;
 };
 ```
 
@@ -95,6 +97,29 @@ public:
         return x;
     }
 };
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MajorityElement(int[] nums) {
+        int cnt = 0, major = 0;
+        foreach (int num in nums)
+        {
+            if (cnt == 0)
+            {
+                major = num;
+                cnt = 1;
+            }
+            else
+            {
+                cnt += (major == num ? 1 : -1);
+            }
+        }
+        return major;
+    }
+}
 ```
 
 ### **...**

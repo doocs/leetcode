@@ -35,13 +35,100 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        cnt = major = 0
+        for num in nums:
+            if cnt == 0:
+                major = num
+                cnt = 1
+            else:
+                cnt += (1 if major == num else -1)
+        return major
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int majorityElement(int[] nums) {
+        int cnt = 0, major = 0;
+        for (int num : nums) {
+            if (cnt == 0) {
+                major = num;
+                cnt = 1;
+            } else {
+                cnt += (major == num ? 1 : -1);
+            }
+        }
+        return major;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function(nums) {
+    let cnt = 0;
+    let major = 0;
+    for (const num of nums) {
+        if (cnt == 0) {
+            major = num;
+            cnt = 1;
+        } else {
+            cnt += (major == num ? 1 : -1);
+        }
+    }
+    return major;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int cnt = 0, major = 0;
+        for (int num : nums) {
+            if (cnt == 0) {
+                major = num;
+                cnt = 1;
+            } else {
+                cnt += (major == num ? 1 : -1);
+            }
+        }
+        return major;
+    }
+};
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MajorityElement(int[] nums) {
+        int cnt = 0, major = 0;
+        foreach (int num in nums)
+        {
+            if (cnt == 0)
+            {
+                major = num;
+                cnt = 1;
+            }
+            else
+            {
+                cnt += (major == num ? 1 : -1);
+            }
+        }
+        return major;
+    }
+}
 ```
 
 ### **...**

@@ -1,5 +1,6 @@
 class Solution {
-    public int majorityElement(int[] nums) {
+public:
+    int majorityElement(vector<int>& nums) {
         int cnt = 0, major = 0;
         for (int num : nums) {
             if (cnt == 0) {
@@ -11,4 +12,4 @@ class Solution {
         }
         return major;
     }
-}
+};

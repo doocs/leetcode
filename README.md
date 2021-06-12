@@ -50,6 +50,7 @@
 
 ### 数组
 
+- [多数元素](./solution/0100-0199/0169.Majority%20Element/README.md)
 - [删除排序数组中的重复项](./solution/0000-0099/0026.Remove%20Duplicates%20from%20Sorted%20Array/README.md)
 - [删除排序数组中的重复项 II](./solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README.md)
 - [移除元素](./solution/0000-0099/0027.Remove%20Element/README.md)
