@@ -53,14 +53,16 @@ class Solution:
         k %= n
         if k == 0:
             return head
-        p = q = head
-        for i in range(k):
-            q = q.next
-        while q.next:
-            p, q = p.next, q.next
-        start = p.next
-        p.next = None
-        q.next = head
+        
+        slow = fast = head
+        for _ in range(k):
+            fast = fast.next
+        while fast.next:
+            slow, fast = slow.next, fast.next
+        
+        start = slow.next
+        slow.next = None
+        fast.next = head
         return start
 ```
 
@@ -82,27 +84,26 @@ class Solution {
         if (k == 0 || head == null || head.next == null) {
             return head;
         }
-        ListNode cur = head;
         int n = 0;
-        while (cur != null) {
-            cur = cur.next;
+        for (ListNode cur = head; cur != null; cur = cur.next) {
             ++n;
         }
         k %= n;
         if (k == 0) {
             return head;
         }
-        ListNode p = head, q = head;
+        ListNode slow = head, fast = head;
         while (k-- > 0) {
-            q = q.next;
+            fast = fast.next;
         }
-        while (q.next != null) {
-            p = p.next;
-            q = q.next;
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        ListNode start = p.next;
-        p.next = null;
-        q.next = head;
+
+        ListNode start = slow.next;
+        slow.next = null;
+        fast.next = head;
         return start;
     }
 }
@@ -150,6 +151,50 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
 };
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        if (k == 0 || !head || !head->next) {
+            return head;
+        }
+        int n = 0;
+        for (ListNode *cur = head; !!cur; cur = cur->next) {
+            ++n;
+        }
+        k %= n;
+        if (k == 0) {
+            return head;
+        }
+        ListNode *slow = head, *fast = head;
+        while (k-- > 0) {
+            fast = fast->next;
+        }
+        while (fast->next) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+
+        ListNode *start = slow->next;
+        slow->next = nullptr;
+        fast->next = head;
+        return start;
+    }
+};
+```
+
 ### **C#**
 
 ```cs
@@ -170,11 +215,9 @@ public class Solution {
         {
             return head;
         }
-        ListNode cur = head;
         var n = 0;
-        while (cur != null)
+        for (ListNode cur = head; cur != null; cur = cur.next)
         {
-            cur = cur.next;
             ++n;
         }
         k %= n;
@@ -182,21 +225,21 @@ public class Solution {
         {
             return head;
         }
-        ListNode p = head, q = head;
+        ListNode slow = head, fast = head;
         while (k-- > 0)
         {
-            q = q.next;
+            fast = fast.next;
         }
-        while (q.next != null)
+        while (fast.next != null)
         {
-            p = p.next;
-            q = q.next;
+            slow = slow.next;
+            fast = fast.next;
         }
-        ListNode start = p.next;
-        p.next = null;
-        q.next = head;
-        return start;
 
+        ListNode start = slow.next;
+        slow.next = null;
+        fast.next = head;
+        return start;
     }
 }
 ```

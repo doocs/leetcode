@@ -13,12 +13,14 @@ class Solution:
         k %= n
         if k == 0:
             return head
-        p = q = head
-        for i in range(k):
-            q = q.next
-        while q.next:
-            p, q = p.next, q.next
-        start = p.next
-        p.next = None
-        q.next = head
+        
+        slow = fast = head
+        for _ in range(k):
+            fast = fast.next
+        while fast.next:
+            slow, fast = slow.next, fast.next
+        
+        start = slow.next
+        slow.next = None
+        fast.next = head
         return start

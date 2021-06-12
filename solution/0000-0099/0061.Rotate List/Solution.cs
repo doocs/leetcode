@@ -15,11 +15,9 @@ public class Solution {
         {
             return head;
         }
-        ListNode cur = head;
         var n = 0;
-        while (cur != null)
+        for (ListNode cur = head; cur != null; cur = cur.next)
         {
-            cur = cur.next;
             ++n;
         }
         k %= n;
@@ -27,20 +25,20 @@ public class Solution {
         {
             return head;
         }
-        ListNode p = head, q = head;
+        ListNode slow = head, fast = head;
         while (k-- > 0)
         {
-            q = q.next;
+            fast = fast.next;
         }
-        while (q.next != null)
+        while (fast.next != null)
         {
-            p = p.next;
-            q = q.next;
+            slow = slow.next;
+            fast = fast.next;
         }
-        ListNode start = p.next;
-        p.next = null;
-        q.next = head;
-        return start;
 
+        ListNode start = slow.next;
+        slow.next = null;
+        fast.next = head;
+        return start;
     }
 }

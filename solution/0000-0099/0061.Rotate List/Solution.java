@@ -13,27 +13,26 @@ class Solution {
         if (k == 0 || head == null || head.next == null) {
             return head;
         }
-        ListNode cur = head;
         int n = 0;
-        while (cur != null) {
-            cur = cur.next;
+        for (ListNode cur = head; cur != null; cur = cur.next) {
             ++n;
         }
         k %= n;
         if (k == 0) {
             return head;
         }
-        ListNode p = head, q = head;
+        ListNode slow = head, fast = head;
         while (k-- > 0) {
-            q = q.next;
+            fast = fast.next;
         }
-        while (q.next != null) {
-            p = p.next;
-            q = q.next;
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        ListNode start = p.next;
-        p.next = null;
-        q.next = head;
+
+        ListNode start = slow.next;
+        slow.next = null;
+        fast.next = head;
         return start;
     }
 }
