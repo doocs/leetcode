@@ -1900,6 +1900,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1889](https://leetcode.com/problems/minimum-space-wasted-from-packaging)  |  [Minimum Space Wasted From Packaging](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md)  |  `Binary Search`  |  Hard  |    |
 |  [1890](https://leetcode.com/problems/the-latest-login-in-2020)  |  [The Latest Login in 2020](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md)  |    |  Easy  |  🔒  |
 |  [1891](https://leetcode.com/problems/cutting-ribbons)  |  [Cutting Ribbons](/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md)  |  `Binary Search`  |  Medium  |  🔒  |
+|  [1892](https://leetcode.com/problems/page-recommendations-ii)  |  [Page Recommendations II](/solution/1800-1899/1892.Page%20Recommendations%20II/README_EN.md)  |    |  Hard  |  🔒  |
+|  [1893](https://leetcode.com/problems/check-if-all-the-integers-in-a-range-are-covered)  |  [Check if All the Integers in a Range Are Covered](/solution/1800-1899/1893.Check%20if%20All%20the%20Integers%20in%20a%20Range%20Are%20Covered/README_EN.md)  |  `Greedy`  |  Easy  |    |
+|  [1894](https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk)  |  [Find the Student that Will Replace the Chalk](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md)  |  `Greedy`,`Array`  |  Medium  |    |
+|  [1895](https://leetcode.com/problems/largest-magic-square)  |  [Largest Magic Square](/solution/1800-1899/1895.Largest%20Magic%20Square/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
+|  [1896](https://leetcode.com/problems/minimum-cost-to-change-the-final-value-of-expression)  |  [Minimum Cost to Change the Final Value of Expression](/solution/1800-1899/1896.Minimum%20Cost%20to%20Change%20the%20Final%20Value%20of%20Expression/README_EN.md)  |  `Stack`,`Dynamic Programming`  |  Hard  |    |
+|  [1897](https://leetcode.com/problems/redistribute-characters-to-make-all-strings-equal)  |  [Redistribute Characters to Make All Strings Equal](/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README_EN.md)  |  `Greedy`,`String`  |  Easy  |    |
+|  [1898](https://leetcode.com/problems/maximum-number-of-removable-characters)  |  [Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md)  |  `Binary Search`  |  Medium  |    |
+|  [1899](https://leetcode.com/problems/merge-triplets-to-form-target-triplet)  |  [Merge Triplets to Form Target Triplet](/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README_EN.md)  |  `Greedy`  |  Medium  |    |
+|  [1900](https://leetcode.com/problems/the-earliest-and-latest-rounds-where-players-compete)  |  [The Earliest and Latest Rounds Where Players Compete](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
 
 ## Copyright
 

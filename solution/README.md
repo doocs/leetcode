@@ -1902,6 +1902,15 @@
 |  [1889](https://leetcode-cn.com/problems/minimum-space-wasted-from-packaging)  |  [装包裹的最小浪费空间](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README.md)  |  `二分查找`  |  困难  |    |
 |  [1890](https://leetcode-cn.com/problems/the-latest-login-in-2020)  |  [The Latest Login in 2020](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README.md)  |    |  简单  |    |
 |  [1891](https://leetcode-cn.com/problems/cutting-ribbons)  |  [Cutting Ribbons](/solution/1800-1899/1891.Cutting%20Ribbons/README.md)  |  `二分查找`  |  中等  |  🔒  |
+|  [1892](https://leetcode-cn.com/problems/page-recommendations-ii)  |  [Page Recommendations II](/solution/1800-1899/1892.Page%20Recommendations%20II/README.md)  |    |  困难  |    |
+|  [1893](https://leetcode-cn.com/problems/check-if-all-the-integers-in-a-range-are-covered)  |  [检查是否区域内所有整数都被覆盖](/solution/1800-1899/1893.Check%20if%20All%20the%20Integers%20in%20a%20Range%20Are%20Covered/README.md)  |  `贪心算法`  |  简单  |    |
+|  [1894](https://leetcode-cn.com/problems/find-the-student-that-will-replace-the-chalk)  |  [找到需要补充粉笔的学生编号](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README.md)  |  `贪心算法`,`数组`  |  中等  |    |
+|  [1895](https://leetcode-cn.com/problems/largest-magic-square)  |  [最大的幻方](/solution/1800-1899/1895.Largest%20Magic%20Square/README.md)  |  `数组`,`动态规划`  |  中等  |    |
+|  [1896](https://leetcode-cn.com/problems/minimum-cost-to-change-the-final-value-of-expression)  |  [反转表达式值的最少操作次数](/solution/1800-1899/1896.Minimum%20Cost%20to%20Change%20the%20Final%20Value%20of%20Expression/README.md)  |  `栈`,`动态规划`  |  困难  |    |
+|  [1897](https://leetcode-cn.com/problems/redistribute-characters-to-make-all-strings-equal)  |  [重新分配字符使所有字符串都相等](/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README.md)  |  `贪心算法`,`字符串`  |  简单  |    |
+|  [1898](https://leetcode-cn.com/problems/maximum-number-of-removable-characters)  |  [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md)  |  `二分查找`  |  中等  |    |
+|  [1899](https://leetcode-cn.com/problems/merge-triplets-to-form-target-triplet)  |  [合并若干三元组以形成目标三元组](/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README.md)  |  `贪心算法`  |  中等  |    |
+|  [1900](https://leetcode-cn.com/problems/the-earliest-and-latest-rounds-where-players-compete)  |  [最佳运动员的比拼回合](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README.md)  |  `动态规划`  |  困难  |    |
 
 ## 版权
 

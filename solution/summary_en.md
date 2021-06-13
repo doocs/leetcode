@@ -1927,3 +1927,14 @@
   - [1889.Minimum Space Wasted From Packaging](/solution/1800-1899/1889.Minimum%20Space%20Wasted%20From%20Packaging/README_EN.md)
   - [1890.The Latest Login in 2020](/solution/1800-1899/1890.The%20Latest%20Login%20in%202020/README_EN.md)
   - [1891.Cutting Ribbons](/solution/1800-1899/1891.Cutting%20Ribbons/README_EN.md)
+  - [1892.Page Recommendations II](/solution/1800-1899/1892.Page%20Recommendations%20II/README_EN.md)
+  - [1893.Check if All the Integers in a Range Are Covered](/solution/1800-1899/1893.Check%20if%20All%20the%20Integers%20in%20a%20Range%20Are%20Covered/README_EN.md)
+  - [1894.Find the Student that Will Replace the Chalk](/solution/1800-1899/1894.Find%20the%20Student%20that%20Will%20Replace%20the%20Chalk/README_EN.md)
+  - [1895.Largest Magic Square](/solution/1800-1899/1895.Largest%20Magic%20Square/README_EN.md)
+  - [1896.Minimum Cost to Change the Final Value of Expression](/solution/1800-1899/1896.Minimum%20Cost%20to%20Change%20the%20Final%20Value%20of%20Expression/README_EN.md)
+  - [1897.Redistribute Characters to Make All Strings Equal](/solution/1800-1899/1897.Redistribute%20Characters%20to%20Make%20All%20Strings%20Equal/README_EN.md)
+  - [1898.Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md)
+  - [1899.Merge Triplets to Form Target Triplet](/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README_EN.md)
+
+- 1900-1999
+  - [1900.The Earliest and Latest Rounds Where Players Compete](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README_EN.md)
