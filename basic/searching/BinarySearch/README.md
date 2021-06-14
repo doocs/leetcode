@@ -1,105 +1,154 @@
 # 二分查找
 
-二分查找是一种非常高效的查找算法，高效到什么程度呢？我们来分析一下它的时间复杂度。
+二分的本质并非“单调性”，而是“边界”，只要找到某种性质，使得整个区间一分为二，那么就可以用二分把边界点二分出来。
 
-假设数据大小是 n，每次查找后数据都会缩小为原来的一半，也就是会除以 2。最坏情况下，直到查找区间被缩小为空，才停止。
-
-被查找区间的大小变化为：
-
-```
-n, n/2, n/4, n/8, ..., n/(2^k)
-```
-
-可以看出来，这是一个等比数列。其中 `n/(2^k)=1` 时，k 的值就是总共缩小的次数。而每一次缩小操作只涉及两个数据的大小比较，所以，经过了 k 次区间缩小操作，时间复杂度就是 O(k)。通过 `n/(2^k)=1`，我们可以求得 `k=log2n`，所以时间复杂度就是 O(logn)。
-
-## 代码示例
-
-注意容易出错的 3 个地方。
-
-1. 循环退出条件是 `low <= high`，而不是 `low < high`；
-1. mid 的取值，可以是 `mid = (low + high) / 2`，但是如果 low 和 high 比较大的话，`low + high` 可能会溢出，所以这里写为 `mid = (low + high) >>> 1`；
-1. low 和 high 的更新分别为 `low = mid + 1`、`high = mid - 1`。
-
-<!-- tabs:start -->
-
-### **Java**
-
-非递归实现：
+整数二分算法模板：
 
 ```java
-public class BinarySearch {
+/** 检查x是否满足某种性质 */
+boolean check(int x) {}
 
-    private static int search(int[] nums, int low, int high, int val) {
-        while (low <= high) {
-            int mid = (low + high) >>> 1;
-            if (nums[mid] == val) {
-                return mid;
-            } else if (nums[mid] < val) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-        return -1;
+/** 区间[low, high]被划分成[low, mid]和[mid + 1, high]时使用 */
+int binarySearch1(int low, int high) {
+    while (low < high) {
+        int mid = (low + high) >> 1;
+        if (check(mid)) high = mid;
+        else low = mid + 1;
     }
+    return low;
+}
 
-    /**
-     * 二分查找(非递归)
-     *
-     * @param nums 有序数组
-     * @param val 要查找的值
-     * @return 要查找的值在数组中的索引位置
-     */
-    private static int search(int[] nums, int val) {
-        return search(nums, 0, nums.length - 1, val);
+/** 区间[low, high] 被划分成[low, mid - 1]和[mid, high]时使用 */
+int binarySearch2(int low, int high) {
+    while (low < high) {
+        int mid = (low + high + 1) >> 1;
+        if (check(mid)) low = mid;
+        else high = mid - 1;
     }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 5, 7, 8, 9};
-
-        // 非递归查找
-        int r1 = search(nums, 7);
-        System.out.println(r1);
-    }
+    return low;
 }
 ```
 
-递归实现：
+## 题目描述
+
+给定一个按照升序排列的长度为 `n` 的整数数组，以及 `q` 个查询。
+
+对于每个查询，返回一个元素 k 的起始位置和终止位置（位置从 0 开始计数）。
+
+如果数组中不存在该元素，则返回 `-1 -1`。
+
+**输入格式**
+
+第一行包含整数 n 和 q，表示数组长度和询问个数。
+
+第二行包含  n  个整数（均在 1∼10000 范围内），表示完整数组。
+
+接下来 q 行，每行包含一个整数 k，表示一个询问元素。
+
+**输出格式**
+
+共 q 行，每行包含两个整数，表示所求元素的起始位置和终止位置。
+
+如果数组中不存在该元素，则返回 `-1 -1`。
+
+**数据范围**
+
+- 1≤n≤100000
+- 1≤q≤10000
+- 1≤k≤10000
+
+**输入样例：**
+
+```
+6 3
+1 2 2 3 3 4
+3
+4
+5
+```
+
+**输出样例：**
+
+```
+3 4
+5 5
+-1 -1
+```
+
+## 代码实现
+
+<!-- tabs:start -->
+
+### **Python3**
+
+```python
+n, q = map(int, input().split())
+nums = list(map(int, input().split()))
+
+for _ in range(q):
+    x = int(input())
+    low, high = 0, n - 1
+    while low < high:
+        mid = (low + high) >> 1
+        if nums[mid] >= x:
+            high = mid
+        else:
+            low = mid + 1
+    if nums[low] != x:
+        print('-1 -1')
+    else:
+        t = low
+        low, high = 0, n - 1
+        while low < high:
+            mid = (low + high + 1) >> 1
+            if nums[mid] <= x:
+                low = mid
+            else:
+                high = mid - 1
+        print(f'{t} {low}')
+```
+
+### **Java**
 
 ```java
-public class BinarySearch {
+import java.util.Scanner;
 
-    private static int searchRecursive(int[] nums, int low, int high, int val) {
-        while (low <= high) {
-            int mid = (low + high) >>> 1;
-            if (nums[mid] == val) {
-                return mid;
-            } else if (nums[mid] < val) {
-                return searchRecursive(nums, mid + 1, high, val);
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt(), q = sc.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; ++i) {
+            nums[i] = sc.nextInt();
+        }
+        while (q-- > 0) {
+            int x = sc.nextInt();
+            int low = 0, high = n - 1;
+            while (low < high) {
+                int mid = (low + high) >> 1;
+                if (nums[mid] >= x) {
+                    high = mid;
+                } else {
+                    low = mid + 1;
+                }
+            }
+            if (nums[low] != x) {
+                System.out.println("-1 -1");
             } else {
-                return searchRecursive(nums, low, mid - 1, val);
+                int t = low;
+                low = 0;
+                high = n - 1;
+                while (low < high) {
+                    int mid = (low + high + 1) >> 1;
+                    if (nums[mid] <= x) {
+                        low = mid;
+                    } else {
+                        high = mid - 1;
+                    }
+                }
+                System.out.printf("%d %d\n", t, low);
             }
         }
-        return -1;
-    }
-
-    /**
-     * 二分查找(递归)
-     *
-     * @param nums 有序数组
-     * @param val 要查找的值
-     * @return 要查找的值在数组中的索引位置
-     */
-    private static int searchRecursive(int[] nums, int val) {
-        return searchRecursive(nums, 0, nums.length - 1, val);
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 5, 7, 8, 9};
-
-        // 递归查找
-        int r2 = searchRecursive(nums, 7);
-        System.out.println(r2);
     }
 }
 ```

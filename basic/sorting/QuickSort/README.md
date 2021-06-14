@@ -1,5 +1,30 @@
 # 快速排序
 
+快速排序也采用了分治的思想：把原始的数组筛选成较小和较大的两个子数组，然后递归地排序两个子数组。
+
+**快速排序算法模板：**
+
+```java
+void quickSort(int[] nums, int low, int high) {
+    if (low >= high) {
+        return;
+    }
+    int i = low - 1, j = high + 1;
+    int x = nums[low];
+    while (i < j) {
+        while (nums[++i] < x);
+        while (nums[--j] > x);
+        if (i < j) {
+            int t = nums[i];
+            nums[i] = nums[j];
+            nums[j] = t;
+        }
+    }
+    quickSort(nums, low, j);
+    quickSort(nums, j + 1, high);
+}
+```
+
 ## 题目描述
 
 给定你一个长度为 `n` 的整数数列。
@@ -36,32 +61,7 @@
 ```
 
 
-## 解法
-
-快速排序也采用了分治的思想：把原始的数组筛选成较小和较大的两个子数组，然后递归地排序两个子数组。
-
-快速排序模板：
-
-```java
-void quickSort(int[] nums, int low, int high) {
-    if (low >= high) {
-        return;
-    }
-    int i = low - 1, j = high + 1;
-    int x = nums[low];
-    while (i < j) {
-        while (nums[++i] < x);
-        while (nums[--j] > x);
-        if (i < j) {
-            int t = nums[i];
-            nums[i] = nums[j];
-            nums[j] = t;
-        }
-    }
-    quickSort(nums, low, j);
-    quickSort(nums, j + 1, high);
-}
-```
+## 代码实现
 
 <!-- tabs:start -->
 

@@ -37,14 +37,13 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 - [Bubble Sort](./basic/sorting/BubbleSort/README.md)
 - [Insertion Sort](./basic/sorting/InsertionSort/README.md)
 - [Selection Sort](./basic/sorting/SelectionSort/README.md)
-- [Merge Sort](./basic/sorting/MergeSort/README.md)
-- [Quick Sort](./basic/sorting/QuickSort/README.md)
+- [Merge Sort(Algorithm Template)](./basic/sorting/MergeSort/README.md)
+- [Quick Sort(Algorithm Template)](./basic/sorting/QuickSort/README.md)
 - [Shell Sort](./basic/sorting/ShellSort/README.md)
 
 ### Searching
 
-- [Binary Search](./basic/searching/BinarySearch/README.md)
-- [Binary Search II](./basic/searching/BinarySearch-II/README.md)
+- [Binary Search(Algorithm Template)](./basic/searching/BinarySearch/README.md)
 
 ## High Frequency Interview Questions
 

@@ -1,5 +1,39 @@
 # 归并排序
 
+归并排序的核心思想是分治，把一个复杂问题拆分成若干个子问题来求解。
+
+归并排序的算法思想是：把数组从中间划分为两个子数组，一直递归地把子数组划分成更小的数组，直到子数组里面只有一个元素的时候开始排序。排序的方法就是按照大小顺序合并两个元素。接着依次按照递归的顺序返回，不断合并排好序的数组，直到把整个数组排好序。
+
+**归并排序算法模板：**
+
+```java
+void mergeSort(int[] nums, int low, int high) {
+    if (low >= high) {
+        return;
+    }
+    int mid = (low + high) >>> 1;
+    mergeSort(nums, low, mid);
+    mergeSort(nums, mid + 1, high);
+    int i = low, j = mid + 1, k = 0;
+    while (i <= mid && j <= high) {
+        if (nums[i] <= nums[j]) {
+            tmp[k++] = nums[i++];
+        } else {
+            tmp[k++] = nums[j++];
+        }
+    }
+    while (i <= mid) {
+        tmp[k++] = nums[i++];
+    }
+    while (j <= high) {
+        tmp[k++] = nums[j++];
+    }
+    for (i = low, j = 0; i <= high; ++i, ++j) {
+        nums[i] = tmp[j];
+    }
+}
+```
+
 ## 题目描述
 
 给定你一个长度为 `n` 的整数数列。
@@ -35,41 +69,7 @@
 1 2 3 4 5
 ```
 
-## 解法
-
-归并排序的核心思想是分治，把一个复杂问题拆分成若干个子问题来求解。
-
-归并排序的算法思想是：把数组从中间划分为两个子数组，一直递归地把子数组划分成更小的数组，直到子数组里面只有一个元素的时候开始排序。排序的方法就是按照大小顺序合并两个元素。接着依次按照递归的顺序返回，不断合并排好序的数组，直到把整个数组排好序。
-
-归并排序模板：
-
-```java
-void mergeSort(int[] nums, int low, int high) {
-    if (low >= high) {
-        return;
-    }
-    int mid = (low + high) >>> 1;
-    mergeSort(nums, low, mid);
-    mergeSort(nums, mid + 1, high);
-    int i = low, j = mid + 1, k = 0;
-    while (i <= mid && j <= high) {
-        if (nums[i] <= nums[j]) {
-            tmp[k++] = nums[i++];
-        } else {
-            tmp[k++] = nums[j++];
-        }
-    }
-    while (i <= mid) {
-        tmp[k++] = nums[i++];
-    }
-    while (j <= high) {
-        tmp[k++] = nums[j++];
-    }
-    for (i = low, j = 0; i <= high; ++i, ++j) {
-        nums[i] = tmp[j];
-    }
-}
-```
+## 代码实现
 
 <!-- tabs:start -->
 
