@@ -38,7 +38,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        if x == 0:
+            return 0
+        low, high = 1, x
+        while low < high:
+            mid = (low + high + 1) >> 1
+            # mid * mid <= x
+            if x // mid >= mid:
+                low = mid
+            else:
+                high = mid - 1
+        return low
 ```
 
 ### **Java**
@@ -46,7 +58,94 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int mySqrt(int x) {
+        if (x == 0) {
+            return 0;
+        }
+        int low = 1, high = x;
+        while (low < high) {
+            int mid = (low + high + 1) >>> 1;
+            if (x / mid >= mid) {
+                low = mid;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return low;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+    if (x == 0) {
+        return 0;
+    }
+    let low = 1;
+    let high = x;
+    while (low < high) {
+        const mid = low + ((high - low + 1) >> 1);
+        if (x / mid >= mid) {
+            low = mid;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return low;
+};
+```
+
+### **Go**
+
+```go
+func mySqrt(x int) int {
+	if x == 0 {
+		return 0
+	}
+	low, high := 1, x
+	for low < high {
+		mid := low + (high-low+1)>>1
+		if x/mid >= mid {
+			low = mid
+		} else {
+			high = mid - 1
+		}
+	}
+	return low
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MySqrt(int x) {
+        if (x == 0) {
+            return 0;
+        }
+        int low = 1, high = x;
+        while (low < high)
+        {
+            int mid = low + ((high - low + 1) >> 1);
+            if (x / mid >= mid)
+            {
+                low = mid;
+            } 
+            else 
+            {
+                high = mid - 1;
+            }
+        }
+        return low;
+    }
+}
 ```
 
 ### **...**

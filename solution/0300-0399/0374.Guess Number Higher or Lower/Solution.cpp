@@ -7,11 +7,12 @@
  * int guess(int num);
  */
 
-public class Solution extends GuessGame {
-    public int guessNumber(int n) {
+class Solution {
+public:
+    int guessNumber(int n) {
         int low = 1, high = n;
         while (low < high) {
-            int mid = low + high >>> 1;
+            int mid = low + (high - low) / 2;
             if (guess(mid) <= 0) {
                 high = mid;
             } else {
@@ -20,4 +21,4 @@ public class Solution extends GuessGame {
         }
         return low;
     }
-}
+};

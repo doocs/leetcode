@@ -78,6 +78,29 @@ public class Solution extends VersionControl {
 }
 ```
 
+### **C++**
+
+```cpp
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        int low = 1, high = n;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (isBadVersion(mid)) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+};
+```
+
 ### **JavaScript**
 
 ```js
@@ -114,6 +137,31 @@ var solution = function (isBadVersion) {
     return low;
   };
 };
+```
+
+### **Go**
+
+```go
+/** 
+ * Forward declaration of isBadVersion API.
+ * @param   version   your guess about first bad version
+ * @return 	 	      true if current version is bad 
+ *			          false if current version is good
+ * func isBadVersion(version int) bool;
+ */
+
+func firstBadVersion(n int) int {
+    low, high := 1, n
+    for low < high {
+        mid := (low + high) >> 1
+        if isBadVersion(mid) {
+            high = mid
+        } else {
+            low = mid + 1
+        }
+    }
+    return low
+}
 ```
 
 ### **...**

@@ -1,30 +1,21 @@
 public class Solution {
     public int MySqrt(int x) {
-        long l = 0;
-        long r = x;
-        while (l < r)
+        if (x == 0) {
+            return 0;
+        }
+        int low = 1, high = x;
+        while (low < high)
         {
-            var mid = (l + r) / 2;
-            if (mid * mid <= x)
+            int mid = low + ((high - low + 1) >> 1);
+            if (x / mid >= mid)
             {
-                l = mid;
-                if (l == mid)
-                {
-                    if (r * r <= x)
-                    {
-                        l = r;
-                    }
-                    else
-                    {
-                        --r;
-                    }
-                }
-            }
-            else
+                low = mid;
+            } 
+            else 
             {
-                r = mid;
+                high = mid - 1;
             }
         }
-        return (int) l;
+        return low;
     }
 }

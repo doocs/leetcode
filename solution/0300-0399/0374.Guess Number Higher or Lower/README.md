@@ -74,7 +74,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# The guess API is already defined for you.
+# @param num, your guess
+# @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+# def guess(num: int) -> int:
 
+class Solution:
+    def guessNumber(self, n: int) -> int:
+        low, high = 0, n
+        while low < high:
+            mid = low + high >> 1
+            if guess(mid) <= 0:
+                high = mid
+            else:
+                low = mid + 1
+        return low
 ```
 
 ### **Java**
@@ -82,7 +96,84 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is lower than the guess number
+ *			      1 if num is higher than the guess number
+ *               otherwise return 0
+ * int guess(int num);
+ */
 
+public class Solution extends GuessGame {
+    public int guessNumber(int n) {
+        int low = 1, high = n;
+        while (low < high) {
+            int mid = low + high >>> 1;
+            if (guess(mid) <= 0) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is lower than the guess number
+ *			      1 if num is higher than the guess number
+ *               otherwise return 0
+ * int guess(int num);
+ */
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        int low = 1, high = n;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (guess(mid) <= 0) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+};
+```
+
+### **Go**
+
+```go
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is lower than the guess number
+ *			      1 if num is higher than the guess number
+ *               otherwise return 0
+ * func guess(num int) int;
+ */
+
+func guessNumber(n int) int {
+    low, high := 1, n
+    for low < high {
+        mid := (low + high) >> 1
+        if guess(mid) <= 0 {
+            high = mid
+        } else {
+            low = mid + 1
+        }
+    }
+    return low
+}
 ```
 
 ### **...**
