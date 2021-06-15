@@ -23,7 +23,6 @@
 	<li><code>1 &lt;= num &lt;= 2^31 - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -31,13 +30,72 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        left, right = 1, num
+        while left < right:
+            mid = left + ((right - left) >> 1)
+            if num // mid <= mid:
+                right = mid
+            else:
+                left = mid + 1
+        return left * left == num
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        int left = 1, right = num;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (num / mid <= mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left * left == num;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        long left = 1, right = num;
+        while (left < right) {
+            int mid = left + ((right - left) >> 1);
+            if (num / mid <= mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left * left == num;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isPerfectSquare(num int) bool {
+	left, right := 1, num
+	for left < right {
+		mid := left + (right-left)>>1
+		if num/mid <= mid {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left*left == num
+}
 ```
 
 ### **...**
