@@ -75,6 +75,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -82,7 +84,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def peakIndexInMountainArray(self, arr: List[int]) -> int:
+        n = len(arr)
+        left, right = 1, n - 2
+        while left < right:
+            mid = (left + right) // 2
+            if arr[mid] < arr[mid + 1]:
+                left = mid + 1
+            else:
+                right = mid
+        return right
 ```
 
 ### **Java**
@@ -90,7 +102,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int peakIndexInMountainArray(int[] arr) {
+        int n = arr.length;
+        int left = 1, right = n - 2;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] < arr[mid + 1]) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
+    }
+}
+```
 
+### **Go**
+
+```go
+func peakIndexInMountainArray(arr []int) int {
+	n := len(arr)
+	left, right := 1, n-2
+	for left < right {
+		mid := left + (right-left)/2
+		if arr[mid] < arr[mid+1] {
+			left = mid + 1
+		} else {
+			right = mid
+		}
+	}
+	return right
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int n = arr.size();
+        int left = 1, right = n - 2;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] < arr[mid + 1]) {
+                left = mid + 1;
+            } else {
+                right = mid;
+            }
+        }
+        return right;
+    }
+};
 ```
 
 ### **...**

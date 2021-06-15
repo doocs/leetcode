@@ -1,6 +1,7 @@
 class Solution {
-    public int peakIndexInMountainArray(int[] arr) {
-        int n = arr.length;
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int n = arr.size();
         int left = 1, right = n - 2;
         while (left < right) {
             int mid = left + (right - left) / 2;
@@ -12,4 +13,4 @@ class Solution {
         }
         return right;
     }
-}
+};
