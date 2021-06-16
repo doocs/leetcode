@@ -16,15 +16,15 @@ public class Main {
         }
     }
     
-    public static void mergeSort(int[] nums, int low, int high) {
-        if (low >= high) {
+    public static void mergeSort(int[] nums, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int mid = (low + high) >>> 1;
-        mergeSort(nums, low, mid);
-        mergeSort(nums, mid + 1, high);
-        int i = low, j = mid + 1, k = 0;
-        while (i <= mid && j <= high) {
+        int mid = (left + right) >>> 1;
+        mergeSort(nums, left, mid);
+        mergeSort(nums, mid + 1, right);
+        int i = left, j = mid + 1, k = 0;
+        while (i <= mid && j <= right) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
             } else {
@@ -34,10 +34,10 @@ public class Main {
         while (i <= mid) {
             tmp[k++] = nums[i++];
         }
-        while (j <= high) {
+        while (j <= right) {
             tmp[k++] = nums[j++];
         }
-        for (i = low, j = 0; i <= high; ++i, ++j) {
+        for (i = left, j = 0; i <= right; ++i, ++j) {
             nums[i] = tmp[j];
         }
     }

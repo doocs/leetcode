@@ -10,30 +10,30 @@ public class Main {
         }
         while (q-- > 0) {
             int x = sc.nextInt();
-            int low = 0, high = n - 1;
-            while (low < high) {
-                int mid = (low + high) >> 1;
+            int left = 0, right = n - 1;
+            while (left < right) {
+                int mid = (left + right) >> 1;
                 if (nums[mid] >= x) {
-                    high = mid;
+                    right = mid;
                 } else {
-                    low = mid + 1;
+                    left = mid + 1;
                 }
             }
-            if (nums[low] != x) {
+            if (nums[left] != x) {
                 System.out.println("-1 -1");
             } else {
-                int t = low;
-                low = 0;
-                high = n - 1;
-                while (low < high) {
-                    int mid = (low + high + 1) >> 1;
+                int t = left;
+                left = 0;
+                right = n - 1;
+                while (left < right) {
+                    int mid = (left + right + 1) >> 1;
                     if (nums[mid] <= x) {
-                        low = mid;
+                        left = mid;
                     } else {
-                        high = mid - 1;
+                        right = mid - 1;
                     }
                 }
-                System.out.printf("%d %d\n", t, low);
+                System.out.printf("%d %d\n", t, left);
             }
         }
     }

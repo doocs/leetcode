@@ -14,12 +14,12 @@ public class Main {
         }
     }
     
-    public static void quickSort(int[] nums, int low, int high) {
-        if (low >= high) {
+    public static void quickSort(int[] nums, int left, int high) {
+        if (left >= high) {
             return;
         }
-        int i = low - 1, j = high + 1;
-        int x = nums[low];
+        int i = left - 1, j = high + 1;
+        int x = nums[left];
         while (i < j) {
             while (nums[++i] < x);
             while (nums[--j] > x);
@@ -29,7 +29,7 @@ public class Main {
                 nums[j] = t;
             }
         }
-        quickSort(nums, low, j);
+        quickSort(nums, left, j);
         quickSort(nums, j + 1, high);
     }
 }

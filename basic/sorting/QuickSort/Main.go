@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-func quickSort(nums []int, low, high int) {
-	if low >= high {
+func quickSort(nums []int, left, right int) {
+	if left >= right {
 		return
 	}
-	i, j := low-1, high+1
-	x := nums[(low+high)>>1]
+	i, j := left-1, right+1
+	x := nums[(left+right)>>1]
 	for i < j {
 		for {
 			i++
@@ -25,8 +25,8 @@ func quickSort(nums []int, low, high int) {
 			nums[i], nums[j] = nums[j], nums[i]
 		}
 	}
-	quickSort(nums, low, j)
-	quickSort(nums, j+1, high)
+	quickSort(nums, left, j)
+	quickSort(nums, j+1, right)
 }
 
 func main() {

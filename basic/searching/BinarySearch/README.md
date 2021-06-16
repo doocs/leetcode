@@ -8,24 +8,24 @@
 /** 检查x是否满足某种性质 */
 boolean check(int x) {}
 
-/** 区间[low, high]被划分成[low, mid]和[mid + 1, high]时使用 */
-int binarySearch1(int low, int high) {
-    while (low < high) {
-        int mid = (low + high) >> 1;
-        if (check(mid)) high = mid;
-        else low = mid + 1;
+/** 区间[left, right]被划分成[left, mid]和[mid + 1, right]时使用 */
+int binarySearch1(int left, int right) {
+    while (left < right) {
+        int mid = (left + right) >> 1;
+        if (check(mid)) right = mid;
+        else left = mid + 1;
     }
-    return low;
+    return left;
 }
 
-/** 区间[low, high] 被划分成[low, mid - 1]和[mid, high]时使用 */
-int binarySearch2(int low, int high) {
-    while (low < high) {
-        int mid = (low + high + 1) >> 1;
-        if (check(mid)) low = mid;
-        else high = mid - 1;
+/** 区间[left, right] 被划分成[left, mid - 1]和[mid, right]时使用 */
+int binarySearch2(int left, int right) {
+    while (left < right) {
+        int mid = (left + right + 1) >> 1;
+        if (check(mid)) left = mid;
+        else right = mid - 1;
     }
-    return low;
+    return left;
 }
 ```
 
@@ -87,25 +87,25 @@ nums = list(map(int, input().split()))
 
 for _ in range(q):
     x = int(input())
-    low, high = 0, n - 1
-    while low < high:
-        mid = (low + high) >> 1
+    left, right = 0, n - 1
+    while left < right:
+        mid = (left + right) >> 1
         if nums[mid] >= x:
-            high = mid
+            right = mid
         else:
-            low = mid + 1
-    if nums[low] != x:
+            left = mid + 1
+    if nums[left] != x:
         print('-1 -1')
     else:
-        t = low
-        low, high = 0, n - 1
-        while low < high:
-            mid = (low + high + 1) >> 1
+        t = left
+        left, right = 0, n - 1
+        while left < right:
+            mid = (left + right + 1) >> 1
             if nums[mid] <= x:
-                low = mid
+                left = mid
             else:
-                high = mid - 1
-        print(f'{t} {low}')
+                right = mid - 1
+        print(f'{t} {left}')
 ```
 
 ### **Java**
@@ -123,30 +123,30 @@ public class Main {
         }
         while (q-- > 0) {
             int x = sc.nextInt();
-            int low = 0, high = n - 1;
-            while (low < high) {
-                int mid = (low + high) >> 1;
+            int left = 0, right = n - 1;
+            while (left < right) {
+                int mid = (left + right) >> 1;
                 if (nums[mid] >= x) {
-                    high = mid;
+                    right = mid;
                 } else {
-                    low = mid + 1;
+                    left = mid + 1;
                 }
             }
-            if (nums[low] != x) {
+            if (nums[left] != x) {
                 System.out.println("-1 -1");
             } else {
-                int t = low;
-                low = 0;
-                high = n - 1;
-                while (low < high) {
-                    int mid = (low + high + 1) >> 1;
+                int t = left;
+                left = 0;
+                right = n - 1;
+                while (left < right) {
+                    int mid = (left + right + 1) >> 1;
                     if (nums[mid] <= x) {
-                        low = mid;
+                        left = mid;
                     } else {
-                        high = mid - 1;
+                        right = mid - 1;
                     }
                 }
-                System.out.printf("%d %d\n", t, low);
+                System.out.printf("%d %d\n", t, left);
             }
         }
     }

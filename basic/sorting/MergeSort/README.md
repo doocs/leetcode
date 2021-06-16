@@ -7,15 +7,15 @@
 **归并排序算法模板：**
 
 ```java
-void mergeSort(int[] nums, int low, int high) {
-    if (low >= high) {
+void mergeSort(int[] nums, int left, int right) {
+    if (left >= right) {
         return;
     }
-    int mid = (low + high) >>> 1;
-    mergeSort(nums, low, mid);
-    mergeSort(nums, mid + 1, high);
-    int i = low, j = mid + 1, k = 0;
-    while (i <= mid && j <= high) {
+    int mid = (left + right) >>> 1;
+    mergeSort(nums, left, mid);
+    mergeSort(nums, mid + 1, right);
+    int i = left, j = mid + 1, k = 0;
+    while (i <= mid && j <= right) {
         if (nums[i] <= nums[j]) {
             tmp[k++] = nums[i++];
         } else {
@@ -25,10 +25,10 @@ void mergeSort(int[] nums, int low, int high) {
     while (i <= mid) {
         tmp[k++] = nums[i++];
     }
-    while (j <= high) {
+    while (j <= right) {
         tmp[k++] = nums[j++];
     }
-    for (i = low, j = 0; i <= high; ++i, ++j) {
+    for (i = left, j = 0; i <= right; ++i, ++j) {
         nums[i] = tmp[j];
     }
 }
@@ -80,15 +80,15 @@ N = int(input())
 nums = list(map(int, input().split()))
 
 
-def merge_sort(nums, low, high):
-    if low >= high:
+def merge_sort(nums, left, right):
+    if left >= right:
         return
-    mid = (low + high) >> 1
-    merge_sort(nums, low, mid)
-    merge_sort(nums, mid + 1, high)
+    mid = (left + right) >> 1
+    merge_sort(nums, left, mid)
+    merge_sort(nums, mid + 1, right)
     tmp = []
-    i, j = low, mid + 1
-    while i <= mid and j <= high:
+    i, j = left, mid + 1
+    while i <= mid and j <= right:
         if nums[i] <= nums[j]:
             tmp.append(nums[i])
             i += 1
@@ -98,12 +98,12 @@ def merge_sort(nums, low, high):
     while i <= mid:
         tmp.append(nums[i])
         i += 1
-    while j <= high:
+    while j <= right:
         tmp.append(nums[j])
         j += 1
     
     j = 0
-    for i in range(low, high + 1):
+    for i in range(left, right + 1):
         nums[i] = tmp[j]
         j += 1
 
@@ -133,15 +133,15 @@ public class Main {
         }
     }
     
-    public static void mergeSort(int[] nums, int low, int high) {
-        if (low >= high) {
+    public static void mergeSort(int[] nums, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int mid = (low + high) >>> 1;
-        mergeSort(nums, low, mid);
-        mergeSort(nums, mid + 1, high);
-        int i = low, j = mid + 1, k = 0;
-        while (i <= mid && j <= high) {
+        int mid = (left + right) >>> 1;
+        mergeSort(nums, left, mid);
+        mergeSort(nums, mid + 1, right);
+        int i = left, j = mid + 1, k = 0;
+        while (i <= mid && j <= right) {
             if (nums[i] <= nums[j]) {
                 tmp[k++] = nums[i++];
             } else {
@@ -151,10 +151,10 @@ public class Main {
         while (i <= mid) {
             tmp[k++] = nums[i++];
         }
-        while (j <= high) {
+        while (j <= right) {
             tmp[k++] = nums[j++];
         }
-        for (i = low, j = 0; i <= high; ++i, ++j) {
+        for (i = left, j = 0; i <= right; ++i, ++j) {
             nums[i] = tmp[j];
         }
     }
@@ -175,18 +175,18 @@ let getInputArgs = line => {
     return line.split(' ').filter(s => s !== '').map(x => parseInt(x));
 }
 
-function mergeSort(nums, low, high) {
-    if (low >= high) {
+function mergeSort(nums, left, right) {
+    if (left >= right) {
         return;
     }
     
-    const mid = (low + high) >> 1;
-    mergeSort(nums, low, mid);
-    mergeSort(nums, mid + 1, high);
-    let i = low;
+    const mid = (left + right) >> 1;
+    mergeSort(nums, left, mid);
+    mergeSort(nums, mid + 1, right);
+    let i = left;
     let j = mid + 1;
     let tmp = [];
-    while (i <= mid && j <= high) {
+    while (i <= mid && j <= right) {
         if (nums[i] <= nums[j]) {
             tmp.push(nums[i++]);
         } else {
@@ -196,10 +196,10 @@ function mergeSort(nums, low, high) {
     while (i <= mid) {
         tmp.push(nums[i++]);
     }
-    while (j <= high) {
+    while (j <= right) {
         tmp.push(nums[j++]);
     }
-    for (i = low, j = 0; i <= high; ++i, ++j) {
+    for (i = left, j = 0; i <= right; ++i, ++j) {
         nums[i] = tmp[j];
     }
 }
@@ -225,16 +225,16 @@ package main
 
 import "fmt"
 
-func mergeSort(nums []int, low, high int) {
-	if low >= high {
+func mergeSort(nums []int, left, right int) {
+	if left >= right {
 		return
 	}
-	mid := (low + high) >> 1
-	mergeSort(nums, low, mid)
-	mergeSort(nums, mid+1, high)
-	i, j := low, mid+1
+	mid := (left + right) >> 1
+	mergeSort(nums, left, mid)
+	mergeSort(nums, mid+1, right)
+	i, j := left, mid+1
 	tmp := make([]int, 0)
-	for i <= mid && j <= high {
+	for i <= mid && j <= right {
 		if nums[i] <= nums[j] {
 			tmp = append(tmp, nums[i])
 			i++
@@ -247,11 +247,11 @@ func mergeSort(nums []int, low, high int) {
 		tmp = append(tmp, nums[i])
 		i++
 	}
-	for j <= high {
+	for j <= right {
 		tmp = append(tmp, nums[j])
 		j++
 	}
-	for i, j = low, 0; i <= high; i, j = i+1, j+1 {
+	for i, j = left, 0; i <= right; i, j = i+1, j+1 {
 		nums[i] = tmp[j]
 	}
 }

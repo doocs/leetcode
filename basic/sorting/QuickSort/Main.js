@@ -9,14 +9,14 @@ let getInputArgs = line => {
     return line.split(' ').filter(s => s !== '').map(x => parseInt(x));
 }
 
-function quickSort(nums, low, high) {
-    if (low >= high) {
+function quickSort(nums, left, high) {
+    if (left >= high) {
         return;
     }
     
-    let i = low - 1;
+    let i = left - 1;
     let j = high + 1;
-    let x = nums[(low + high) >> 1];
+    let x = nums[(left + high) >> 1];
     while (i < j) {
         while (nums[++i] < x);
         while (nums[--j] > x);
@@ -26,7 +26,7 @@ function quickSort(nums, low, high) {
             nums[j] = t;
         }
     }
-    quickSort(nums, low, j);
+    quickSort(nums, left, j);
     quickSort(nums, j + 1, high);
 }
 
