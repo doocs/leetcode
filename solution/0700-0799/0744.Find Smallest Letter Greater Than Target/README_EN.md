@@ -10,11 +10,9 @@ Given a list of sorted characters <code>letters</code> containing only lowercase
 
 </p><p>
 
-Letters also wrap around.  For example, if the target is <code>target = 'z'</code> and <code>letters = ['a', 'b']</code>, the answer is <code>'a'</code>.
+Letters also wrap around. For example, if the target is <code>target = 'z'</code> and <code>letters = ['a', 'b']</code>, the answer is <code>'a'</code>.
 
 </p>
-
-
 
 <p><b>Examples:</b><br />
 
@@ -82,8 +80,6 @@ target = "k"
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -105,13 +101,72 @@ target = "k"
 ### **Python3**
 
 ```python
-
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        left, right = 0, len(letters)
+        while left < right:
+            mid = (left + right) >> 1
+            if ord(letters[mid]) > ord(target):
+                right = mid
+            else:
+                left = mid + 1
+        return letters[left % len(letters)]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        int left = 0, right = letters.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (letters[mid] > target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return letters[left % letters.length];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        int left = 0, right = letters.size();
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (letters[mid] > target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return letters[left % letters.size()];
+    }
+};
+```
+
+### **Go**
+
+```go
+func nextGreatestLetter(letters []byte, target byte) byte {
+	left, right := 0, len(letters)
+	for left < right {
+		mid := (left + right) >> 1
+		if letters[mid] > target {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return letters[left%len(letters)]
+}
 ```
 
 ### **...**

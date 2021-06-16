@@ -59,7 +59,6 @@ target = &quot;k&quot;
 	<li>目标字母<code>target</code> 是一个小写字母。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -71,7 +70,16 @@ target = &quot;k&quot;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        left, right = 0, len(letters)
+        while left < right:
+            mid = (left + right) >> 1
+            if ord(letters[mid]) > ord(target):
+                right = mid
+            else:
+                left = mid + 1
+        return letters[left % len(letters)]
 ```
 
 ### **Java**
@@ -79,7 +87,57 @@ target = &quot;k&quot;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        int left = 0, right = letters.length;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (letters[mid] > target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return letters[left % letters.length];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    char nextGreatestLetter(vector<char>& letters, char target) {
+        int left = 0, right = letters.size();
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (letters[mid] > target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return letters[left % letters.size()];
+    }
+};
+```
+
+### **Go**
+
+```go
+func nextGreatestLetter(letters []byte, target byte) byte {
+	left, right := 0, len(letters)
+	for left < right {
+		mid := (left + right) >> 1
+		if letters[mid] > target {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return letters[left%len(letters)]
+}
 ```
 
 ### **...**
