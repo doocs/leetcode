@@ -4,54 +4,159 @@
 
 归并排序的算法思想是：把数组从中间划分为两个子数组，一直递归地把子数组划分成更小的数组，直到子数组里面只有一个元素的时候开始排序。排序的方法就是按照大小顺序合并两个元素。接着依次按照递归的顺序返回，不断合并排好序的数组，直到把整个数组排好序。
 
-## 代码示例
+**归并排序算法模板：**
+
+```java
+void mergeSort(int[] nums, int left, int right) {
+    if (left >= right) {
+        return;
+    }
+    int mid = (left + right) >>> 1;
+    mergeSort(nums, left, mid);
+    mergeSort(nums, mid + 1, right);
+    int i = left, j = mid + 1, k = 0;
+    while (i <= mid && j <= right) {
+        if (nums[i] <= nums[j]) {
+            tmp[k++] = nums[i++];
+        } else {
+            tmp[k++] = nums[j++];
+        }
+    }
+    while (i <= mid) {
+        tmp[k++] = nums[i++];
+    }
+    while (j <= right) {
+        tmp[k++] = nums[j++];
+    }
+    for (i = left, j = 0; i <= right; ++i, ++j) {
+        nums[i] = tmp[j];
+    }
+}
+```
+
+## 题目描述
+
+给定你一个长度为 `n` 的整数数列。
+
+请你使用归并排序对这个数列按照从小到大进行排序。
+
+并将排好序的数列按顺序输出。
+
+**输入格式**
+
+输入共两行，第一行包含整数 n。
+
+第二行包含 n 个整数（所有整数均在 1∼10^9 范围内），表示整个数列。
+
+**输出格式**
+
+输出共一行，包含 n 个整数，表示排好序的数列。
+
+**数据范围**
+
+1≤n≤100000
+
+**输入样例：**
+
+```
+5
+3 1 2 4 5
+```
+
+**输出样例：**
+
+```
+1 2 3 4 5
+```
+
+## 代码实现
 
 <!-- tabs:start -->
+
+### **Python3**
+
+```python
+N = int(input())
+nums = list(map(int, input().split()))
+
+
+def merge_sort(nums, left, right):
+    if left >= right:
+        return
+    mid = (left + right) >> 1
+    merge_sort(nums, left, mid)
+    merge_sort(nums, mid + 1, right)
+    tmp = []
+    i, j = left, mid + 1
+    while i <= mid and j <= right:
+        if nums[i] <= nums[j]:
+            tmp.append(nums[i])
+            i += 1
+        else:
+            tmp.append(nums[j])
+            j += 1
+    while i <= mid:
+        tmp.append(nums[i])
+        i += 1
+    while j <= right:
+        tmp.append(nums[j])
+        j += 1
+    
+    j = 0
+    for i in range(left, right + 1):
+        nums[i] = tmp[j]
+        j += 1
+
+
+merge_sort(nums, 0, N - 1)
+print(' '.join(list(map(str, nums))))
+```
 
 ### **Java**
 
 ```java
-import java.util.Arrays;
+import java.util.Scanner;
 
-public class MergeSort {
-
-    private static void merge(int[] nums, int low, int mid, int high, int[] temp) {
-        int i = low, j = mid + 1, k = low;
-        while (k <= high) {
-            if (i > mid) {
-                temp[k++] = nums[j++];
-            } else if (j > high) {
-                temp[k++] = nums[i++];
-            } else if (nums[i] <= nums[j]) {
-                temp[k++] = nums[i++];
-            } else {
-                temp[k++] = nums[j++];
-            }
+public class Main {
+    private static int[] tmp = new int[100010];
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; ++i) {
+            nums[i] = sc.nextInt();
         }
-
-        System.arraycopy(tmp, low, nums, low, high - low + 1);
+        mergeSort(nums, 0, n - 1);
+        for (int i = 0; i < n; ++i) {
+            System.out.printf("%d ", nums[i]);
+        }
     }
-
-    private static void mergeSort(int[] nums, int low, int high, int[] temp) {
-        if (low >= high) {
+    
+    public static void mergeSort(int[] nums, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int mid = (low + high) >>> 1;
-        mergeSort(nums, low, mid, temp);
-        mergeSort(nums, mid + 1, high, temp);
-        merge(nums, low, mid, high, temp);
-    }
-
-    private static void mergeSort(int[] nums) {
-        int n = nums.length;
-        int[] temp = new int[n];
-        mergeSort(nums, 0, n - 1, temp);
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 7, 4, 5, 3};
-        mergeSort(nums);
-        System.out.println(Arrays.toString(nums));
+        int mid = (left + right) >>> 1;
+        mergeSort(nums, left, mid);
+        mergeSort(nums, mid + 1, right);
+        int i = left, j = mid + 1, k = 0;
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
+            } else {
+                tmp[k++] = nums[j++];
+            }
+        }
+        while (i <= mid) {
+            tmp[k++] = nums[i++];
+        }
+        while (j <= right) {
+            tmp[k++] = nums[j++];
+        }
+        for (i = left, j = 0; i <= right; ++i, ++j) {
+            nums[i] = tmp[j];
+        }
     }
 }
 ```
@@ -59,25 +164,58 @@ public class MergeSort {
 ### **JavaScript**
 
 ```js
-function mergeSort(arr) {
-    if (arr.length < 2) return arr;
-    let mid = Math.ceil(arr.length / 2);
-    let arrLeft = mergeSort(arr.splice(0, mid));
-    let arrRight = mergeSort(arr.splice(-mid));
-    return merge(arrLeft, arrRight);
+var buf = '';
+
+process.stdin.on('readable', function () {
+    var chunk = process.stdin.read();
+    if (chunk) buf += chunk.toString();
+});
+
+let getInputArgs = line => {
+    return line.split(' ').filter(s => s !== '').map(x => parseInt(x));
 }
 
-function merge(arr1, arr2) {
-    let arr = [];
-    while (arr1.length && arr2.length) {
-        arr.push(arr1[0] <= arr2[0] ? arr1.shift() : arr2.shift());
+function mergeSort(nums, left, right) {
+    if (left >= right) {
+        return;
     }
-    return [...arr, ...arr1, ...arr2];
-
+    
+    const mid = (left + right) >> 1;
+    mergeSort(nums, left, mid);
+    mergeSort(nums, mid + 1, right);
+    let i = left;
+    let j = mid + 1;
+    let tmp = [];
+    while (i <= mid && j <= right) {
+        if (nums[i] <= nums[j]) {
+            tmp.push(nums[i++]);
+        } else {
+            tmp.push(nums[j++]);
+        }
+    }
+    while (i <= mid) {
+        tmp.push(nums[i++]);
+    }
+    while (j <= right) {
+        tmp.push(nums[j++]);
+    }
+    for (i = left, j = 0; i <= right; ++i, ++j) {
+        nums[i] = tmp[j];
+    }
 }
 
-arr = [3, 5, 6, 2, 1, 7, 4];
-console.log(mergeSort(arr));
+
+
+process.stdin.on('end', function () {
+    buf.split('\n').forEach(function (line, lineIdx) {
+        if (lineIdx % 2 === 1) {
+            nums = getInputArgs(line);
+            mergeSort(nums, 0, nums.length - 1);
+            console.log(nums.join(' '));
+        }
+
+    });
+});
 ```
 
 ### **Go**
@@ -87,53 +225,52 @@ package main
 
 import "fmt"
 
-func merge(nums, temp []int, low, mid, high int) {
-	for i, j, k := low, mid+1, low; k <= high; k++ {
-		if j > high || nums[i] < nums[j] {
-			temp[k] = nums[i]
+func mergeSort(nums []int, left, right int) {
+	if left >= right {
+		return
+	}
+	mid := (left + right) >> 1
+	mergeSort(nums, left, mid)
+	mergeSort(nums, mid+1, right)
+	i, j := left, mid+1
+	tmp := make([]int, 0)
+	for i <= mid && j <= right {
+		if nums[i] <= nums[j] {
+			tmp = append(tmp, nums[i])
 			i++
 		} else {
-			temp[k] = nums[j]
+			tmp = append(tmp, nums[j])
 			j++
 		}
 	}
-	for i := low; i <= high; i++ {
-		nums[i] = temp[i]
+	for i <= mid {
+		tmp = append(tmp, nums[i])
+		i++
 	}
-}
-
-func _mergeSort(nums, temp []int, low, high int) {
-	if low >= high {
-		return
+	for j <= right {
+		tmp = append(tmp, nums[j])
+		j++
 	}
-	mid := low + (high-low)/2
-	_mergeSort(nums, temp, low, mid)
-	_mergeSort(nums, temp, mid+1, high)
-	merge(nums, temp, low, mid, high)
-}
-
-func mergeSort(nums []int) {
-	n := len(nums)
-	temp := make([]int, n)
-	_mergeSort(nums, temp, 0, n-1)
+	for i, j = left, 0; i <= right; i, j = i+1, j+1 {
+		nums[i] = tmp[j]
+	}
 }
 
 func main() {
-	nums := []int{1, 2, 7, 4, 5, 3}
-	mergeSort(nums)
-	fmt.Println(nums)
+	var n int
+	fmt.Scanf("%d\n", &n)
+	nums := make([]int, n)
+	for i := 0; i < n; i++ {
+		fmt.Scanf("%d", &nums[i])
+	}
+
+	mergeSort(nums, 0, n-1)
+
+	for _, v := range nums {
+		fmt.Printf("%d ", v)
+	}
 }
 ```
 
 
 <!-- tabs:end -->
-
-## 算法分析
-
-空间复杂度 O(n)，时间复杂度 O(nlogn)。
-
-对于规模为 n 的问题，一共要进行 log(n) 次的切分，每一层的合并复杂度都是 O(n)，所以整体时间复杂度为 O(nlogn)。
-
-由于合并 n 个元素需要分配一个大小为 n 的额外数组，所以空间复杂度为 O(n)。
-
-这是一种稳定的排序算法。
