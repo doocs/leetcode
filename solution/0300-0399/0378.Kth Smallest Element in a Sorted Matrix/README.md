@@ -39,10 +39,11 @@
 	<li><code>1 <= k <= n<sup>2</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+二分法。
 
 <!-- tabs:start -->
 
@@ -51,7 +52,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+        def check(matrix, mid, k, n):
+            count = 0
+            i, j = n - 1, 0
+            while i >= 0 and j < n:
+                if matrix[i][j] <= mid:
+                    count += (i + 1)
+                    j += 1
+                else:
+                    i -= 1
+            return count >= k
 
+        n = len(matrix)
+        left, right = matrix[0][0], matrix[n - 1][n - 1]
+        while left < right:
+            mid = (left + right) >> 1
+            if check(matrix, mid, k, n):
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -59,7 +81,103 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        int n = matrix.length;
+        int left = matrix[0][0], right = matrix[n - 1][n - 1];
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (check(matrix, mid, k, n)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
 
+    private boolean check(int[][] matrix, int mid, int k, int n) {
+        int count = 0;
+        int i = n - 1, j = 0;
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] <= mid) {
+                count += (i + 1);
+                ++j;
+            } else {
+                --i;
+            }
+        }
+        return count >= k;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int kthSmallest(vector<vector<int>>& matrix, int k) {
+        int n = matrix.size();
+        int left = matrix[0][0], right = matrix[n - 1][n - 1];
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (check(matrix, mid, k, n)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+private:
+    bool check(vector<vector<int>>& matrix, int mid, int k, int n) {
+        int count = 0;
+        int i = n - 1, j = 0;
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] <= mid) {
+                count += (i + 1);
+                ++j;
+            } else {
+                --i;
+            }
+        }
+        return count >= k;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthSmallest(matrix [][]int, k int) int {
+	n := len(matrix)
+	left, right := matrix[0][0], matrix[n-1][n-1]
+	for left < right {
+		mid := (left + right) >> 1
+		if check(matrix, mid, k, n) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+
+func check(matrix [][]int, mid, k, n int) bool {
+	count := 0
+	i, j := n-1, 0
+	for i >= 0 && j < n {
+		if matrix[i][j] <= mid {
+			count += (i + 1)
+			j++
+		} else {
+			i--
+		}
+	}
+	return count >= k
+}
 ```
 
 ### **...**
