@@ -1,44 +1,34 @@
 class Solution {
-    private int res = 0;
+    private static int[] tmp = new int[50000];
+    
     public int reversePairs(int[] nums) {
-        int n = nums.length;
-        if (n < 2) {
+        return mergeSort(nums, 0, nums.length - 1);
+    }
+
+    private int mergeSort(int[] nums, int left, int right) {
+        if (left >= right) {
             return 0;
         }
-        mergeSort(nums, 0, n - 1);
-        return res;
-    }
-
-    private void mergeSort(int[] nums, int s, int e) {
-        if (s == e) {
-            return;
-        }
-        int mid = (s + e) >>> 1;
-        mergeSort(nums, s, mid);
-        mergeSort(nums, mid + 1, e);
-        merge(nums, s, mid, e);
-    }
-
-    private void merge(int[] nums, int s, int mid, int e) {
-        int n = e - s + 1;
-        int[] help = new int[n];
-        int i = s, j = mid + 1, idx = 0;
-        while (i <= mid && j <= e) {
-            if (nums[i] > nums[j]) {
-                res += (mid - i + 1);
-                help[idx++] = nums[j++];
+        int mid = (left + right) >>> 1;
+        int res = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
+        int i = left, j = mid + 1, k = 0;
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
             } else {
-                help[idx++] = nums[i++];
+                tmp[k++] = nums[j++];
+                res += (mid - i + 1);
             }
         }
         while (i <= mid) {
-            help[idx++] = nums[i++];
+            tmp[k++] = nums[i++];
         }
-        while (j <= e) {
-            help[idx++] = nums[j++];
+        while (j <= right) {
+            tmp[k++] = nums[j++];
         }
-        for (int t = 0; t < n; ++t) {
-            nums[s + t] = help[t];
+        for (i = left, j = 0; i <= right; ++i) {
+            nums[i] = tmp[j++];
         }
+        return res;
     }
 }

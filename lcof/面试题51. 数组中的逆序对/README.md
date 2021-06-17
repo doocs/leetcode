@@ -32,41 +32,33 @@
 ```python
 class Solution:
     def reversePairs(self, nums: List[int]) -> int:
-        self.res = 0
-
-        def merge(part1, part2, nums):
-            len1, len2 = len(part1) - 1, len(part2) - 1
-            t = len(nums) - 1
-            while len1 >= 0 and len2 >= 0:
-                if part1[len1] > part2[len2]:
-                    self.res += (len2 + 1)
-                    nums[t] = part1[len1]
-                    len1 -= 1
+        def merge_sort(nums, left, right):
+            if left >= right:
+                return 0
+            mid = (left + right) >> 1
+            res = merge_sort(nums, left, mid) + merge_sort(nums, mid + 1, right)
+            i, j, k = left, mid + 1, 0
+            tmp = []
+            while i <= mid and j <= right:
+                if nums[i] <= nums[j]:
+                    tmp.append(nums[i])
+                    i += 1
                 else:
-                    nums[t] = part2[len2]
-                    len2 -= 1
-                t -= 1
-            while len1 >= 0:
-                nums[t] = part1[len1]
-                t -= 1
-                len1 -= 1
-            while len2 >= 0:
-                nums[t] = part2[len2]
-                t -= 1
-                len2 -= 1
-
-        def merge_sort(nums):
-            if len(nums) < 2:
-                return
-            mid = len(nums) // 2
-            s1, s2 = nums[:mid], nums[mid:]
-            merge_sort(s1)
-            merge_sort(s2)
-            merge(s1, s2, nums)
-
-        merge_sort(nums)
-        return self.res
-
+                    tmp.append(nums[j])
+                    j += 1
+                    res += (mid - i + 1)
+            while i <= mid:
+                tmp.append(nums[i])
+                i += 1
+            while j <= right:
+                tmp.append(nums[j])
+                j += 1
+            for i in range(left, right + 1):
+                nums[i] = tmp[k]
+                k += 1
+            return res
+        
+        return merge_sort(nums, 0, len(nums) - 1)
 ```
 
 ### **Java**
@@ -75,47 +67,37 @@ class Solution:
 
 ```java
 class Solution {
-    private int res = 0;
+    private static int[] tmp = new int[50000];
+    
     public int reversePairs(int[] nums) {
-        int n = nums.length;
-        if (n < 2) {
+        return mergeSort(nums, 0, nums.length - 1);
+    }
+
+    private int mergeSort(int[] nums, int left, int right) {
+        if (left >= right) {
             return 0;
         }
-        mergeSort(nums, 0, n - 1);
-        return res;
-    }
-
-    private void mergeSort(int[] nums, int s, int e) {
-        if (s == e) {
-            return;
-        }
-        int mid = (s + e) >>> 1;
-        mergeSort(nums, s, mid);
-        mergeSort(nums, mid + 1, e);
-        merge(nums, s, mid, e);
-    }
-
-    private void merge(int[] nums, int s, int mid, int e) {
-        int n = e - s + 1;
-        int[] help = new int[n];
-        int i = s, j = mid + 1, idx = 0;
-        while (i <= mid && j <= e) {
-            if (nums[i] > nums[j]) {
-                res += (mid - i + 1);
-                help[idx++] = nums[j++];
+        int mid = (left + right) >>> 1;
+        int res = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
+        int i = left, j = mid + 1, k = 0;
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp[k++] = nums[i++];
             } else {
-                help[idx++] = nums[i++];
+                tmp[k++] = nums[j++];
+                res += (mid - i + 1);
             }
         }
         while (i <= mid) {
-            help[idx++] = nums[i++];
+            tmp[k++] = nums[i++];
         }
-        while (j <= e) {
-            help[idx++] = nums[j++];
+        while (j <= right) {
+            tmp[k++] = nums[j++];
         }
-        for (int t = 0; t < n; ++t) {
-            nums[s + t] = help[t];
+        for (i = left, j = 0; i <= right; ++i) {
+            nums[i] = tmp[j++];
         }
+        return res;
     }
 }
 ```
@@ -127,33 +109,37 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var reversePairs = function (nums) {
-  if (!nums || nums.length < 2) return 0;
-  let res = 0;
-  function mergeSort(arr) {
-    if (arr.length === 1) {
-      return arr;
+var reversePairs = function(nums) {
+    const mergeSort = (nums, left, right) => {
+        if (left >= right) {
+            return 0;
+        }
+        const mid = (left + right) >> 1;
+        let res = mergeSort(nums, left, mid) + mergeSort(nums, mid + 1, right);
+        let i = left;
+        let j = mid + 1;
+        let tmp = [];
+        while (i <= mid && j <= right) {
+            if (nums[i] <= nums[j]) {
+                tmp.push(nums[i++]);
+            } else {
+                tmp.push(nums[j++]);
+                res += (mid - i + 1);
+            }
+        }
+        while (i <= mid) {
+            tmp.push(nums[i++]);
+        }
+        while (j <= right) {
+            tmp.push(nums[j++]);
+        }
+        for (i = left, j = 0; i <= right; ++i, ++j) {
+            nums[i] = tmp[j];
+        }
+        return res;
     }
-    let mid = ~~(arr.length / 2);
-    return merge(mergeSort(arr.slice(0, mid)), mergeSort(arr.slice(mid)));
-  }
-  function merge(a, b) {
-    let r = [];
-    let cnt = 0;
-    while (a && b && a.length && b.length) {
-      if (a[0] <= b[0]) {
-        res += cnt;
-        r.push(a.shift());
-      } else {
-        r.push(b.shift());
-        cnt++;
-      }
-    }
-    res += a.length * cnt;
-    return r.concat(a, b);
-  }
-  mergeSort(nums);
-  return res;
+
+    return mergeSort(nums, 0, nums.length - 1);
 };
 ```
 
