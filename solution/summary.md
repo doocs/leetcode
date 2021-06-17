@@ -1938,3 +1938,5 @@
 
 - 1900-1999
   - [1900.The Earliest and Latest Rounds Where Players Compete](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README.md)
+  - [1901.Find a Peak Element II](/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README.md)
+  - [1902.Depth of BST Given Insertion Order](/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README.md)

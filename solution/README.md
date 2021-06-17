@@ -1214,7 +1214,6 @@
 |  [1201](https://leetcode-cn.com/problems/ugly-number-iii)  |  [丑数 III](/solution/1200-1299/1201.Ugly%20Number%20III/README.md)  |  `数学`,`二分查找`  |  中等  |    |
 |  [1202](https://leetcode-cn.com/problems/smallest-string-with-swaps)  |  [交换字符串中的元素](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README.md)  |  `并查集`,`数组`  |  中等  |    |
 |  [1203](https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies)  |  [项目管理](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README.md)  |  `深度优先搜索`,`图`,`拓扑排序`  |  困难  |    |
-|  [1204](https://leetcode-cn.com/problems/last-person-to-fit-in-the-elevator)  |  [最后一个能进入电梯的人](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Elevator/README.md)  |    |  中等  |  🔒  |
 |  [1205](https://leetcode-cn.com/problems/monthly-transactions-ii)  |  [每月交易II](/solution/1200-1299/1205.Monthly%20Transactions%20II/README.md)  |    |  中等  |  🔒  |
 |  [1206](https://leetcode-cn.com/problems/design-skiplist)  |  [设计跳表](/solution/1200-1299/1206.Design%20Skiplist/README.md)  |  `设计`  |  困难  |    |
 |  [1207](https://leetcode-cn.com/problems/unique-number-of-occurrences)  |  [独一无二的出现次数](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README.md)  |  `哈希表`  |  简单  |    |
@@ -1911,6 +1910,8 @@
 |  [1898](https://leetcode-cn.com/problems/maximum-number-of-removable-characters)  |  [可移除字符的最大数目](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README.md)  |  `二分查找`  |  中等  |    |
 |  [1899](https://leetcode-cn.com/problems/merge-triplets-to-form-target-triplet)  |  [合并若干三元组以形成目标三元组](/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README.md)  |  `贪心算法`  |  中等  |    |
 |  [1900](https://leetcode-cn.com/problems/the-earliest-and-latest-rounds-where-players-compete)  |  [最佳运动员的比拼回合](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README.md)  |  `动态规划`  |  困难  |    |
+|  [1901](https://leetcode-cn.com/problems/find-a-peak-element-ii)  |  [Find a Peak Element II](/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README.md)  |  `二分查找`,`分治算法`  |  中等  |    |
+|  [1902](https://leetcode-cn.com/problems/depth-of-bst-given-insertion-order)  |  [Depth of BST Given Insertion Order](/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README.md)  |  `树`,`二叉搜索树`  |  中等  |  🔒  |
 
 ## 版权
 

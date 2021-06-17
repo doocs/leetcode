@@ -1212,7 +1212,6 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1201](https://leetcode.com/problems/ugly-number-iii)  |  [Ugly Number III](/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md)  |  `Math`,`Binary Search`  |  Medium  |    |
 |  [1202](https://leetcode.com/problems/smallest-string-with-swaps)  |  [Smallest String With Swaps](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md)  |  `Union Find`,`Array`  |  Medium  |    |
 |  [1203](https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies)  |  [Sort Items by Groups Respecting Dependencies](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md)  |  `Depth-first Search`,`Graph`,`Topological Sort`  |  Hard  |    |
-|  [1204](https://leetcode.com/problems/last-person-to-fit-in-the-elevator)  |  [Last Person to Fit in the Elevator](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Elevator/README_EN.md)  |    |  Medium  |  🔒  |
 |  [1205](https://leetcode.com/problems/monthly-transactions-ii)  |  [Monthly Transactions II](/solution/1200-1299/1205.Monthly%20Transactions%20II/README_EN.md)  |    |  Medium  |  🔒  |
 |  [1206](https://leetcode.com/problems/design-skiplist)  |  [Design Skiplist](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)  |  `Design`  |  Hard  |    |
 |  [1207](https://leetcode.com/problems/unique-number-of-occurrences)  |  [Unique Number of Occurrences](/solution/1200-1299/1207.Unique%20Number%20of%20Occurrences/README_EN.md)  |  `Hash Table`  |  Easy  |    |
@@ -1909,6 +1908,8 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1898](https://leetcode.com/problems/maximum-number-of-removable-characters)  |  [Maximum Number of Removable Characters](/solution/1800-1899/1898.Maximum%20Number%20of%20Removable%20Characters/README_EN.md)  |  `Binary Search`  |  Medium  |    |
 |  [1899](https://leetcode.com/problems/merge-triplets-to-form-target-triplet)  |  [Merge Triplets to Form Target Triplet](/solution/1800-1899/1899.Merge%20Triplets%20to%20Form%20Target%20Triplet/README_EN.md)  |  `Greedy`  |  Medium  |    |
 |  [1900](https://leetcode.com/problems/the-earliest-and-latest-rounds-where-players-compete)  |  [The Earliest and Latest Rounds Where Players Compete](/solution/1900-1999/1900.The%20Earliest%20and%20Latest%20Rounds%20Where%20Players%20Compete/README_EN.md)  |  `Dynamic Programming`  |  Hard  |    |
+|  [1901](https://leetcode.com/problems/find-a-peak-element-ii)  |  [Find a Peak Element II](/solution/1900-1999/1901.Find%20a%20Peak%20Element%20II/README_EN.md)  |  `Binary Search`,`Divide and Conquer`  |  Medium  |    |
+|  [1902](https://leetcode.com/problems/depth-of-bst-given-insertion-order)  |  [Depth of BST Given Insertion Order](/solution/1900-1999/1902.Depth%20of%20BST%20Given%20Insertion%20Order/README_EN.md)  |  `Tree`,`Binary Search Tree`  |  Medium  |  🔒  |
 
 ## Copyright
 
