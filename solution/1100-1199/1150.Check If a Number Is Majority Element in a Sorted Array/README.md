@@ -54,6 +54,8 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+自己实现二分查找：
+
 ```python
 class Solution:
     def isMajorityElement(self, nums: List[int], target: int) -> bool:
@@ -83,6 +85,15 @@ class Solution:
         if right == -1:
             return False
         return right - left + 1 > n >> 1
+```
+
+使用 `bisect` 实现二分查找：
+
+```python
+class Solution:
+    def isMajorityElement(self, nums: List[int], target: int) -> bool:
+        left, right = bisect.bisect_left(nums, target), bisect.bisect_right(nums, target)
+        return right - left > (len(nums) >> 1)
 ```
 
 ### **Java**
