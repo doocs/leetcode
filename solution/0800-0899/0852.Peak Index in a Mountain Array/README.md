@@ -75,7 +75,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找
+二分查找。
 
 <!-- tabs:start -->
 
@@ -143,10 +143,9 @@ func peakIndexInMountainArray(arr []int) int {
 class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
-        int n = arr.size();
-        int left = 1, right = n - 2;
+        int left = 1, right = arr.size() - 2;
         while (left < right) {
-            int mid = left + (right - left) / 2;
+            int mid = left + right >> 1;
             if (arr[mid] < arr[mid + 1]) {
                 left = mid + 1;
             } else {
@@ -155,6 +154,28 @@ public:
         }
         return right;
     }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var peakIndexInMountainArray = function(arr) {
+    let left = 1;
+    let right = arr.length - 2;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (arr[mid] < arr[mid + 1]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return left;
 };
 ```
 
