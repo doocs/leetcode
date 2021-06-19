@@ -42,10 +42,11 @@
 	<li><code>arr[i]</code>&nbsp;中只含有小写英文字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+状态压缩，用一个 32 位数记录字母的出现情况，`masks` 存储之前枚举的字符串。
 
 <!-- tabs:start -->
 
@@ -54,7 +55,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxLength(self, arr: List[str]) -> int:
+        def ones_count(x):
+            c = 0
+            while x:
+                x &= x - 1
+                c += 1
+            return c
 
+        ans = 0
+        masks = [0]
+        for s in arr:
+            mask = 0
+            for ch in s:
+                ch = ord(ch) - ord('a')
+                if (mask >> ch) & 1 == 1:
+                    mask = 0
+                    break
+                mask |= 1 << ch
+            if mask == 0:
+                continue
+            for m in masks:
+                if m & mask == 0:
+                    masks.append(m | mask)
+                    ans = max(ans, ones_count(m | mask))
+
+        return ans
 ```
 
 ### **Java**
@@ -62,7 +89,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxLength(List<String> arr) {
+        int ans = 0;
+        List<Integer> masks = new ArrayList<>();
+        masks.add(0);
 
+    loop:
+        for (String s : arr) {
+            int mask = 0;
+            for (char ch : s.toCharArray()) {
+                ch -= 'a';
+                if (((mask >> ch) & 1) == 1) {
+                    continue loop;
+                }
+                mask |= 1 << ch;
+            }
+            int n = masks.size();
+            for (int i = 0; i < n; i++) {
+                int m = masks.get(i);
+                if ((m & mask) == 0) {
+                    masks.add(m | mask);
+                    ans = Math.max(ans, Integer.bitCount(m | mask));
+                }
+            }
+        }
+
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+func maxLength(arr []string) int {
+
+	max := func(x, y int) int {
+		if x > y {
+			return x
+		}
+		return y
+	}
+
+	ans := 0
+	masks := []int{0}
+
+loop:
+	for _, s := range arr {
+		mask := 0
+		for _, ch := range s {
+			ch -= 'a'
+			if (mask>>ch)&1 == 1 {
+				continue loop
+			}
+			mask |= 1 << ch
+		}
+		for _, m := range masks {
+			if m&mask == 0 {
+				masks = append(masks, m|mask)
+				ans = max(ans, bits.OnesCount(uint(m|mask)))
+			}
+		}
+	}
+
+	return ans
+}
 ```
 
 ### **...**

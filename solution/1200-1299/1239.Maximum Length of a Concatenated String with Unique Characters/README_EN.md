@@ -45,18 +45,111 @@ Maximum length is 4.
 
 ## Solutions
 
+State compression uses a 32-bit number to record the appearance of letters, and `masks` stores the previously enumerated strings.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def maxLength(self, arr: List[str]) -> int:
+        def ones_count(x):
+            c = 0
+            while x:
+                x &= x - 1
+                c += 1
+            return c
 
+        ans = 0
+        masks = [0]
+        for s in arr:
+            mask = 0
+            for ch in s:
+                ch = ord(ch) - ord('a')
+                if (mask >> ch) & 1 == 1:
+                    mask = 0
+                    break
+                mask |= 1 << ch
+            if mask == 0:
+                continue
+            for m in masks:
+                if m & mask == 0:
+                    masks.append(m | mask)
+                    ans = max(ans, ones_count(m | mask))
+
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxLength(List<String> arr) {
+        int ans = 0;
+        List<Integer> masks = new ArrayList<>();
+        masks.add(0);
 
+    loop:
+        for (String s : arr) {
+            int mask = 0;
+            for (char ch : s.toCharArray()) {
+                ch -= 'a';
+                if (((mask >> ch) & 1) == 1) {
+                    continue loop;
+                }
+                mask |= 1 << ch;
+            }
+            int n = masks.size();
+            for (int i = 0; i < n; i++) {
+                int m = masks.get(i);
+                if ((m & mask) == 0) {
+                    masks.add(m | mask);
+                    ans = Math.max(ans, Integer.bitCount(m | mask));
+                }
+            }
+        }
+
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+func maxLength(arr []string) int {
+
+	max := func(x, y int) int {
+		if x > y {
+			return x
+		}
+		return y
+	}
+
+	ans := 0
+	masks := []int{0}
+
+loop:
+	for _, s := range arr {
+		mask := 0
+		for _, ch := range s {
+			ch -= 'a'
+			if (mask>>ch)&1 == 1 {
+				continue loop
+			}
+			mask |= 1 << ch
+		}
+		for _, m := range masks {
+			if m&mask == 0 {
+				masks = append(masks, m|mask)
+				ans = max(ans, bits.OnesCount(uint(m|mask)))
+			}
+		}
+	}
+
+	return ans
+}
 ```
 
 ### **...**
