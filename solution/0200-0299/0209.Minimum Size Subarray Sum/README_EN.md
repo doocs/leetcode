@@ -47,14 +47,123 @@
 
 ### **Python3**
 
-```python
+Presum and binary search.
 
+```python
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        n = len(nums)
+        pre_sum = [0] * (n + 1)
+        for i in range(1, n + 1):
+            pre_sum[i] = pre_sum[i - 1] + nums[i - 1]
+        res = n + 1
+        for i in range(1, n + 1):
+            t = pre_sum[i - 1] + target
+            left, right = 0, n
+            while left < right:
+                mid = (left + right) >> 1
+                if pre_sum[mid] >= t:
+                    right = mid
+                else:
+                    left = mid + 1
+            if pre_sum[left] - pre_sum[i - 1] >= target:
+                res = min(res, left - i + 1)
+        return 0 if res == n + 1 else res
+```
+
+Slide window.
+
+```python
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        n = len(nums)
+        left = right = 0
+        sum, res = 0, n + 1
+        while right < n:
+            sum += nums[right]
+            while sum >= target:
+                res = min(res, right - left + 1)
+                sum -= nums[left]
+                left += 1
+            right += 1
+        return 0 if res == n + 1 else res
 ```
 
 ### **Java**
 
-```java
+Presum and binary search.
 
+```java
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int n = nums.length;
+        int[] preSum = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            preSum[i] = preSum[i - 1] +nums[i - 1];
+        }
+        int res = n + 1;
+        for (int i = 1; i <= n; ++i) {
+            int t = preSum[i - 1] + target;
+            int left = 0, right = n;
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (preSum[mid] >= t) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            if (preSum[left] - preSum[i - 1] >= target) {
+                res = Math.min(res, left - i + 1);
+            }
+        }
+        return res == n + 1 ? 0 : res;
+    }
+}
+```
+
+Slide window.
+
+```java
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int n = nums.length;
+        int left = 0, right = 0;
+        int sum = 0, res = n + 1;
+        while (right < n) {
+            sum += nums[right];
+            while (sum >= target) {
+                res = Math.min(res, right - left + 1);
+                sum -= nums[left++];
+            }
+            ++right;
+        }
+        return res == n + 1 ? 0 : res;
+    }
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MinSubArrayLen(int target, int[] nums) {
+        int n = nums.Length;
+        int left = 0, right = 0;
+        int sum = 0, res = n + 1;
+        while (right < n)
+        {
+            sum += nums[right];
+            while (sum >= target)
+            {
+                res = Math.Min(res, right - left + 1);
+                sum -= nums[left++];
+            }
+            ++right;
+        }
+        return res == n + 1 ? 0 : res;
+    }
+}
 ```
 
 ### **...**
