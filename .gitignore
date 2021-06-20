@@ -2,3 +2,7 @@
 .DS_Store
 .vscode
 /node_modules
+/solution/result.json
+/lcof/lcof.json
+/lcof/lcof_list.json
+/lcci/lcci.json
