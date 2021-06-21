@@ -56,17 +56,15 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         m, n = len(matrix), len(matrix[0])
-        l, h = 0, m * n - 1
-        while l <= h:
-            mid = (l + h) >> 1
+        left, right = 0, m * n - 1
+        while left < right:
+            mid = (left + right) >> 1
             x, y = divmod(mid, n)
-            if matrix[x][y] == target:
-                return True
-            if matrix[x][y] < target:
-                l = mid + 1
+            if matrix[x][y] >= target:
+                right = mid
             else:
-                h = mid - 1
-        return False
+                left = mid + 1
+        return matrix[left // n][left % n] == target
 ```
 
 ### **Java**
@@ -77,15 +75,17 @@ class Solution:
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length, n = matrix[0].length;
-        int l = 0, h = m * n - 1;
-        while (l <= h) {
-            int mid = (l + h) >>> 1;
+        int left = 0, right = m * n - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
             int x = mid / n, y = mid % n;
-            if (matrix[x][y] == target) return true;
-            if (matrix[x][y] < target) l = mid + 1;
-            else h = mid - 1;
+            if (matrix[x][y] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        return false;
+        return matrix[left / n][left % n] == target;
     }
 }
 ```
@@ -97,15 +97,17 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int m = matrix.size(), n = matrix[0].size();
-        int l = 0, h = m * n - 1;
-        while (l <= h) {
-            int mid = l + ((h - l) >> 1);
+        int left = 0, right = m * n - 1;
+        while (left < right) {
+            int mid = left + right >> 1;
             int x = mid / n, y = mid % n;
-            if (matrix[x][y] == target) return true;
-            if (matrix[x][y] < target) l = mid + 1;
-            else h = mid - 1;
+            if (matrix[x][y] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        return false;
+        return matrix[left / n][left % n] == target;
     }
 };
 ```
@@ -118,26 +120,42 @@ public:
  * @param {number} target
  * @return {boolean}
  */
-var searchMatrix = function (matrix, target) {
-  const m = matrix.length;
-  const n = matrix[0].length;
-  let l = 0;
-  let h = m * n - 1;
-  while (l <= h) {
-    const mid = (l + h) >>> 1;
-    const x = Math.floor(mid / n);
-    const y = mid % n;
-    if (matrix[x][y] == target) {
-      return true;
+var searchMatrix = function(matrix, target) {
+    const m = matrix.length;
+    const n = matrix[0].length;
+    let left = 0;
+    let right = m * n - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        const x = Math.floor(mid / n);
+        const y = mid % n;
+        if (matrix[x][y] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
     }
-    if (matrix[x][y] < target) {
-      l = mid + 1;
-    } else {
-      h = mid - 1;
-    }
-  }
-  return false;
+    return matrix[Math.floor(left / n)][left % n] == target;
 };
+```
+
+### **Go**
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	m, n := len(matrix), len(matrix[0])
+	left, right := 0, m*n-1
+	for left < right {
+		mid := (left + right) >> 1
+		x, y := mid/n, mid%n
+		if matrix[x][y] >= target {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return matrix[left/n][left%n] == target
+}
 ```
 
 ### **...**
