@@ -412,7 +412,7 @@
 |  [0399](https://leetcode-cn.com/problems/evaluate-division)  |  [除法求值](/solution/0300-0399/0399.Evaluate%20Division/README.md)  |  `并查集`,`图`  |  中等  |    |
 |  [0400](https://leetcode-cn.com/problems/nth-digit)  |  [第 N 位数字](/solution/0400-0499/0400.Nth%20Digit/README.md)  |  `数学`  |  中等  |    |
 |  [0401](https://leetcode-cn.com/problems/binary-watch)  |  [二进制手表](/solution/0400-0499/0401.Binary%20Watch/README.md)  |  `位运算`,`回溯算法`  |  简单  |    |
-|  [0402](https://leetcode-cn.com/problems/remove-k-digits)  |  [移掉K位数字](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)  |  `栈`,`贪心算法`  |  中等  |    |
+|  [0402](https://leetcode-cn.com/problems/remove-k-digits)  |  [移掉 K 位数字](/solution/0400-0499/0402.Remove%20K%20Digits/README.md)  |  `栈`,`贪心算法`  |  中等  |    |
 |  [0403](https://leetcode-cn.com/problems/frog-jump)  |  [青蛙过河](/solution/0400-0499/0403.Frog%20Jump/README.md)  |  `动态规划`  |  困难  |    |
 |  [0404](https://leetcode-cn.com/problems/sum-of-left-leaves)  |  [左叶子之和](/solution/0400-0499/0404.Sum%20of%20Left%20Leaves/README.md)  |  `树`  |  简单  |    |
 |  [0405](https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal)  |  [数字转换为十六进制数](/solution/0400-0499/0405.Convert%20a%20Number%20to%20Hexadecimal/README.md)  |  `位运算`  |  简单  |    |
