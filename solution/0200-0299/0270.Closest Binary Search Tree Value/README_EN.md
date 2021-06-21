@@ -33,18 +33,174 @@
 
 ## Solutions
 
+Binary search.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def closestValue(self, root: TreeNode, target: float) -> int:
+        res, min_diff = root.val, float('inf')
+        while root:
+            val = abs(root.val - target)
+            if min_diff > val:
+                min_diff = val
+                res = root.val
+            if root.val > target:
+                root = root.left
+            else:
+                root = root.right
+        return res
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int closestValue(TreeNode root, double target) {
+        int res = root.val;
+        double minDiff = Double.MAX_VALUE;
+        while (root != null) {
+            double val = Math.abs(root.val - target);
+            if (minDiff > val) {
+                minDiff = val;
+                res = root.val;
+            }
+            if (root.val > target) {
+                root = root.left;
+            } else {
+                root = root.right;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} target
+ * @return {number}
+ */
+var closestValue = function(root, target) {
+    let res = root.val;
+    let minDiff = Math.abs(root.val - target);
+    while (root) {
+        const val = Math.abs(root.val - target);
+        if (minDiff > val) {
+            minDiff = val;
+            res = root.val;
+        }
+        if (root.val > target) {
+            root = root.left;
+        } else {
+            root = root.right;
+        }
+    }
+    return res;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int closestValue(TreeNode* root, double target) {
+        int res = root->val;
+        double minDiff = abs(root->val - target);
+        while (root != nullptr) {
+            double val = abs(root->val - target);
+            if (minDiff > val) {
+                minDiff = val;
+                res = root->val;
+            }
+            if (root->val > target) {
+                root = root->left;
+            } else {
+                root = root->right;
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+import "math"
+
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func closestValue(root *TreeNode, target float64) int {
+	res := root.Val
+	minDiff := math.Abs(float64(root.Val) - float64(target))
+	for root != nil {
+		val := math.Abs(float64(root.Val) - float64(target))
+		if minDiff > val {
+			minDiff = val
+			res = root.Val
+		}
+		if float64(root.Val) > target {
+			root = root.Left
+		} else {
+			root = root.Right
+		}
+	}
+	return res
+}
 ```
 
 ### **...**
