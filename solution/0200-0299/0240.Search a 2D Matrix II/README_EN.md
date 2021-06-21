@@ -47,13 +47,83 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m, n = len(matrix), len(matrix[0])
+        i, j = m - 1, 0
+        while i >= 0 and j < n:
+            if matrix[i][j] == target:
+                return True
+            if matrix[i][j] > target:
+                i -= 1
+            else:
+                j += 1
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length, n = matrix[0].length;
+        int i = m - 1, j = 0;
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] == target) {
+                return true;
+            }
+            if (matrix[i][j] > target) {
+                --i;
+            } else {
+                ++j;
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int i = m - 1, j = 0;
+        while (i >= 0 && j < n) {
+            if (matrix[i][j] == target) {
+                return true;
+            }
+            if (matrix[i][j] > target) {
+                --i;
+            } else {
+                ++j;
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	m, n := len(matrix), len(matrix[0])
+	i, j := m-1, 0
+	for i >= 0 && j < n {
+		if matrix[i][j] == target {
+			return true
+		}
+		if matrix[i][j] > target {
+			i--
+		} else {
+			j++
+		}
+	}
+	return false
+}
 ```
 
 ### **...**
