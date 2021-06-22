@@ -34,18 +34,177 @@
 
 ## Solutions
 
+Binary search.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if len(nums) == 0:
+            return [-1, -1]
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            if nums[mid] >= target:
+                right = mid
+            else:
+                left = mid + 1
+        if nums[left] != target:
+            return [-1, -1]
+        l, right = left, len(nums) - 1
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if nums[mid] <= target:
+                left = mid
+            else:
+                right = mid - 1
+        return [l, left]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        if (nums.length == 0) {
+            return new int[]{-1, -1};
+        }
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (nums[left] != target) {
+            return new int[]{-1, -1};
+        }
+        int l = left;
+        right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right + 1) >>> 1;
+            if (nums[mid] <= target) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return new int[]{l, left};
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        if (nums.size() == 0) {
+            return vector<int>{-1, -1};
+        }
+        int left = 0, right = nums.size() - 1;
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (nums[left] != target) {
+            return vector<int>{-1, -1};
+        }
+        int l = left;
+        right = nums.size() - 1;
+        while (left < right) {
+            int mid = left + right + 1 >> 1;
+            if (nums[mid] <= target) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return vector<int>{l, left};
+    }
+};
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function(nums, target) {
+    if (nums.length == 0) {
+        return [-1, -1];
+    }
+    let left = 0;
+    let right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    if (nums[left] != target) {
+        return [-1, -1];
+    }
+    let l = left;
+    right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right + 1) >> 1;
+        if (nums[mid] <= target) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return [l, left];
+};
+```
+
+### **Go**
+
+```go
+func searchRange(nums []int, target int) []int {
+	if len(nums) == 0 {
+		return []int{-1, -1}
+	}
+	left, right := 0, len(nums)-1
+	for left < right {
+		mid := (left + right) >> 1
+		if nums[mid] >= target {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	if nums[left] != target {
+		return []int{-1, -1}
+	}
+	l := left
+	right = len(nums) - 1
+	for left < right {
+		mid := (left + right + 1) >> 1
+		if nums[mid] <= target {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return []int{l, left}
+}
 ```
 
 ### **...**

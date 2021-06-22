@@ -43,7 +43,7 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Searching
 
-- [Binary Search(Algorithm Template)](./basic/searching/BinarySearch/README.md)
+- [Binary Search(Algorithm Template)](./basic/searching/BinarySearch/README_EN.md)
 
 ## High Frequency Interview Questions
 
