@@ -3,13 +3,17 @@
  * @param {number} n
  * @return {number}
  */
-var myPow = function (x, n) {
-  if (n == 0) return 1;
+ var myPow = function(x, n) {
+  let res = 1;
   if (n < 0) {
-    n = -n;
-    x = 1 / x;
+      n = -n;
+      x = 1 / x;
   }
-  return n % 2 == 0
-    ? Math.pow(x * x, parseInt(n / 2))
-    : x * Math.pow(x * x, parseInt(n / 2));
+  for (let i = n;i != 0 ;i = Math.floor(i / 2)) {
+      if (i & 1 == 1) {
+          res *= x;
+      }
+      x *= x;
+  }
+  return res;
 };
