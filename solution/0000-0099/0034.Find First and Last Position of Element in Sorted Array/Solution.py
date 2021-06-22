@@ -1,41 +1,21 @@
-class Solution(object):
-    def searchRange(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-
-        if not nums or target < nums[0] or target > nums[-1]:
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if len(nums) == 0:
             return [-1, -1]
-
-        # Finding the lower limit
-        left = 0
-        right = len(nums)
-
+        left, right = 0, len(nums) - 1
         while left < right:
-            middle = (left + right)/2
-            if nums[middle] >= target:
-                right = middle
-
+            mid = (left + right) >> 1
+            if nums[mid] >= target:
+                right = mid
             else:
-                left = middle + 1
-
-
-        low = left
-        # Finding the higher limit
-        left = 0
-        right = len(nums)
-
-        while left < right-1:
-            middle = (left + right) / 2
-            if nums[middle] > target:
-                right = middle
-            else:
-                left = middle
-        high = left
-
-        if nums[low] == target and nums[high] == target:
-            return [low, high]
-        else:
+                left = mid + 1
+        if nums[left] != target:
             return [-1, -1]
+        l, right = left, len(nums) - 1
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if nums[mid] <= target:
+                left = mid
+            else:
+                right = mid - 1
+        return [l, left]

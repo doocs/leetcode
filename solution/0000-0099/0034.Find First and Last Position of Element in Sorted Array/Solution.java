@@ -1,32 +1,30 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int start = 0, end = nums.length - 1;
-        while (start <= end) {
-            int mid = start + (end - start) / 2;
-            if (nums[mid] < target) start = mid + 1;
-            else if (nums[mid] > target) end = mid - 1;
-            if (nums[mid] == target) {
-                return new int[]{findFirst(nums, start, mid, target),findEnd(nums, mid, end, target)};
+        if (nums.length == 0) {
+            return new int[]{-1, -1};
+        }
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-        return new int[]{-1,-1};
-    }
-
-    private int findFirst(int[] nums, int start, int end, int target) {
-        while (start < end) {
-            int temp = start + (end - start) / 2;
-            if (nums[temp] < target) start = temp + 1;
-            else if (nums[temp] == target) end = temp;
+        if (nums[left] != target) {
+            return new int[]{-1, -1};
         }
-        return start;
-    }
-
-    private int findEnd(int[] nums, int start, int end, int target) {
-        while (start < end) {
-            int temp = start + (end - start + 1) / 2;
-            if (nums[temp] > target) end = temp - 1;
-            else if (nums[temp] == target) start = temp;
+        int l = left;
+        right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right + 1) >>> 1;
+            if (nums[mid] <= target) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
         }
-        return start;
+        return new int[]{l, left};
     }
 }

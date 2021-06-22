@@ -43,16 +43,14 @@
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
-        l, h = 0, len(nums) - 1
-        while l <= h:
-            m = (l + h) >> 1
-            if nums[m] == target:
-                return m
-            if nums[m] < target:
-                l = m + 1
+        left, right = 0, len(nums)
+        while left < right:
+            mid = (left + right) >> 1
+            if nums[mid] >= target:
+                right = mid
             else:
-                h = m - 1
-        return l
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -60,35 +58,17 @@ class Solution:
 ```java
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int l = 0, h = nums.length - 1;
-        while (l <= h) {
-            int m = (l + h) >>> 1;
-            if (nums[m] == target) return m;
-            if (nums[m] < target) l = m + 1;
-            else h = m - 1;
+        int left = 0, right = nums.length;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        return l;
+        return left;
     }
-}
-```
-
-### **Go**
-
-```go
-func searchInsert(nums []int, target int) int {
-    l, h := 0, len(nums) - 1
-    for l <= h {
-        m := l + ((h - l) >> 1)
-        if nums[m] == target {
-            return m
-        }
-        if nums[m] < target {
-            l = m + 1
-        } else {
-            h = m - 1
-        }
-    }
-    return l
 }
 ```
 
@@ -98,16 +78,35 @@ func searchInsert(nums []int, target int) int {
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        int l = 0, h = nums.size() - 1;
-        while (l <= h) {
-            int m = l + ((h - l) >> 1);
-            if (nums[m] == target) return m;
-            if (nums[m] < target) l = m + 1;
-            else h = m - 1;
+        int left = 0, right = nums.size();
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        return l;
+        return left;
     }
 };
+```
+
+### **Go**
+
+```go
+func searchInsert(nums []int, target int) int {
+	left, right := 0, len(nums)
+	for left < right {
+		mid := (left + right) >> 1
+		if nums[mid] >= target {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
 ```
 
 ### **JavaScript**
@@ -118,16 +117,18 @@ public:
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function (nums, target) {
-  let l = 0,
-    h = nums.length;
-  while (l <= h) {
-    const m = (l + h) >>> 1;
-    if (nums[m] == target) return m;
-    if (nums[m] < target) l = m + 1;
-    else h = m - 1;
-  }
-  return l;
+var searchInsert = function(nums, target) {
+    let left = 0;
+    let right = nums.length;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
 };
 ```
 
