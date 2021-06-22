@@ -115,15 +115,14 @@ class Solution {
  * @return {number}
  */
  var numberOfRounds = function(startTime, finishTime) {
-    let p1 = Math.ceil(toMinutes(startTime) / 15);
-    let p2 = Math.floor(toMinutes(finishTime) / 15);
+    let m1 = toMinutes(startTime), m2 = toMinutes(finishTime);
 
-    if (p1 > p2) {
-        p2 += 24 * 60 / 15;
+    if (m1 > m2) {
+        m2 += 24 * 60;
     }
 
-    let ans = p2 - p1;
-    return ans;
+    let ans = Math.floor(m2 / 15) - Math.ceil(m1 / 15);
+    return ans < 0 ? 0 : ans;
 };
 
 function toMinutes(time) {
