@@ -9,11 +9,11 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        low, high = 1, n
-        while low < high:
-            mid = (low + high) >> 1
+        left, right = 1, n
+        while left < right:
+            mid  = (left + right) >> 1
             if isBadVersion(mid):
-                high = mid
+                right = mid
             else:
-                low = mid + 1
-        return low
+                left = mid + 1
+        return left
