@@ -47,14 +47,14 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        low, high = 1, n
-        while low < high:
-            mid = (low + high) >> 1
+        left, right = 1, n
+        while left < right:
+            mid  = (left + right) >> 1
             if isBadVersion(mid):
-                high = mid
+                right = mid
             else:
-                low = mid + 1
-        return low
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -67,13 +67,16 @@ class Solution:
 
 public class Solution extends VersionControl {
     public int firstBadVersion(int n) {
-        int low = 1, high = n;
-        while (low < high) {
-            int mid = (low + high) >>> 1;
-            if (isBadVersion(mid)) high = mid;
-            else low = mid + 1;
+        int left = 1, right = n;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (isBadVersion(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
         }
-        return low;
+        return left;
     }
 }
 ```
@@ -87,16 +90,16 @@ public class Solution extends VersionControl {
 class Solution {
 public:
     int firstBadVersion(int n) {
-        int low = 1, high = n;
-        while (low < high) {
-            int mid = low + (high - low) / 2;
+        int left = 1, right = n;
+        while (left < right) {
+            int mid = left + ((right - left) >> 1);
             if (isBadVersion(mid)) {
-                high = mid;
+                right = mid;
             } else {
-                low = mid + 1;
+                left = mid + 1;
             }
         }
-        return low;
+        return left;
     }
 };
 ```
@@ -106,7 +109,7 @@ public:
 ```js
 /**
  * Definition for isBadVersion()
- *
+ * 
  * @param {integer} version number
  * @return {boolean} whether the version is bad
  * isBadVersion = function(version) {
@@ -118,49 +121,49 @@ public:
  * @param {function} isBadVersion()
  * @return {function}
  */
-var solution = function (isBadVersion) {
-  /**
-   * @param {integer} n Total versions
-   * @return {integer} The first bad version
-   */
-  return function (n) {
-    let low = 1,
-      high = n;
-    while (low < high) {
-      const mid = (low + high) >>> 1;
-      if (isBadVersion(mid)) {
-        high = mid;
-      } else {
-        low = mid + 1;
-      }
-    }
-    return low;
-  };
+var solution = function(isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function(n) {
+        let left = 1;
+        let right = n;
+        while (left < right) {
+            const mid = (left + right) >>> 1;
+            if (isBadVersion(mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    };
 };
 ```
 
 ### **Go**
 
 ```go
-/** 
+/**
  * Forward declaration of isBadVersion API.
  * @param   version   your guess about first bad version
- * @return 	 	      true if current version is bad 
+ * @return 	 	      true if current version is bad
  *			          false if current version is good
  * func isBadVersion(version int) bool;
  */
 
 func firstBadVersion(n int) int {
-    low, high := 1, n
-    for low < high {
-        mid := (low + high) >> 1
-        if isBadVersion(mid) {
-            high = mid
-        } else {
-            low = mid + 1
-        }
-    }
-    return low
+	left, right := 1, n
+	for left < right {
+		mid := (left + right) >> 1
+		if isBadVersion(mid) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
 }
 ```
 
