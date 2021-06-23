@@ -1,9 +1,10 @@
 class Solution {
-    public int hIndex(int[] citations) {
-        int n = citations.length;
+public:
+    int hIndex(vector<int>& citations) {
+        int n = citations.size();
         int left = 0, right = n;
         while (left < right) {
-            int mid = (left + right) >>> 1;
+            int mid = left + right >> 1;
             if (citations[mid] >= n - mid) {
                 right = mid;
             } else {
@@ -12,4 +13,4 @@ class Solution {
         }
         return n - left;
     }
-}
+};
