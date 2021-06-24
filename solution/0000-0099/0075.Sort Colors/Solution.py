@@ -1,19 +1,17 @@
 class Solution:
-    def sortColors(self, nums):
+    def sortColors(self, nums: List[int]) -> None:
         """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead.
         """
-        p=-1
-        q=len(nums)
-        cur=0
-        while cur < q:
+        i, j = -1, len(nums)
+        cur = 0
+        while cur < j:
             if nums[cur] == 0:
-                nums[cur],nums[p+1]=nums[p+1],nums[cur]
+                i += 1
+                nums[cur], nums[i] = nums[i], nums[cur]
                 cur += 1
-                p += 1
             elif nums[cur] == 1:
                 cur += 1
             else:
-                nums[cur],nums[q-1]=nums[q-1],nums[cur]
-                q -= 1
+                j -= 1
+                nums[cur], nums[j] = nums[j], nums[cur]

@@ -74,7 +74,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        i, j = -1, len(nums)
+        cur = 0
+        while cur < j:
+            if nums[cur] == 0:
+                i += 1
+                nums[cur], nums[i] = nums[i], nums[cur]
+                cur += 1
+            elif nums[cur] == 1:
+                cur += 1
+            else:
+                j -= 1
+                nums[cur], nums[j] = nums[j], nums[cur]
 ```
 
 ### **Java**
@@ -82,7 +98,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public void sortColors(int[] nums) {
+        int i = -1, j = nums.length;
+        int cur = 0;
+        while (cur < j) {
+            if (nums[cur] == 0) {
+                swap(nums, cur++, ++i);
+            } else if (nums[cur] == 1) {
+                ++cur;
+            } else {
+                swap(nums, cur, --j);
+            }
+        }
+    }
 
+    private void swap(int[] nums, int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int i = -1, j = nums.size(), cur = 0;
+        while (cur < j) {
+            if (nums[cur] == 0) {
+                swap(nums[++i], nums[cur++]);
+            } else if (nums[cur] == 1) {
+                ++cur;
+            } else {
+                swap(nums[cur], nums[--j]);
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortColors(nums []int) {
+	i, j, cur := -1, len(nums), 0
+	for cur < j {
+		if nums[cur] == 0 {
+			i++
+			nums[cur], nums[i] = nums[i], nums[cur]
+			cur++
+		} else if nums[cur] == 1 {
+			cur++
+		} else {
+			j--
+			nums[cur], nums[j] = nums[j], nums[cur]
+		}
+	}
+}
 ```
 
 ### **...**
