@@ -45,17 +45,27 @@ tweet_id 是这个表的主键。
 推文 2 的长度 length = 32。该推文是无效的。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+- `CHAR_LENGTH(str)`: 中文、数字、字母都是 1 字节
+- `LENGTH(str)`:
+  - utf8: 中文 3 字节，数字、字母 1 字节
+  - gbk: 中文 2 字节，数字、字母 1 字节
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    tweet_id
+FROM
+    Tweets
+WHERE
+    CHAR_LENGTH(content) > 15;
 ```
 
 <!-- tabs:end -->

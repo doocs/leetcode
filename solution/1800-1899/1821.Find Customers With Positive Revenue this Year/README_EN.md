@@ -65,7 +65,14 @@ Thus only customers 1 and 4 have postive revenue in year 2021.</pre>
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    customer_id
+FROM
+    Customers
+WHERE
+    year = '2021'
+AND revenue > 0;
 ```
 
 <!-- tabs:end -->
