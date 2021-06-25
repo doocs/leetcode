@@ -1944,3 +1944,5 @@
   - [1904.The Number of Full Rounds You Have Played](/solution/1900-1999/1904.The%20Number%20of%20Full%20Rounds%20You%20Have%20Played/README_EN.md)
   - [1905.Count Sub Islands](/solution/1900-1999/1905.Count%20Sub%20Islands/README_EN.md)
   - [1906.Minimum Absolute Difference Queries](/solution/1900-1999/1906.Minimum%20Absolute%20Difference%20Queries/README_EN.md)
+  - [1907.Count Salary Categories](/solution/1900-1999/1907.Count%20Salary%20Categories/README_EN.md)
+  - [1908.Game of Nim](/solution/1900-1999/1908.Game%20of%20Nim/README_EN.md)
