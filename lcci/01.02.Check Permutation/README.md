@@ -10,7 +10,7 @@
 <p><strong>示例 1：</strong></p>
 
 <pre><strong>输入:</strong> <code>s1</code> = &quot;abc&quot;, <code>s2</code> = &quot;bca&quot;
-<strong>输出:</strong> true 
+<strong>输出:</strong> true
 </pre>
 
 <p><strong>示例 2：</strong></p>
@@ -95,6 +95,29 @@ var CheckPermutation = function(s1, s2) {
     }
     return Object.values(counter).every(v => v == 0);
 };
+```
+
+### **Go**
+
+```go
+func CheckPermutation(s1 string, s2 string) bool {
+	freq := make(map[rune]int)
+	for _, r := range s1 {
+		freq[r]++
+	}
+	for _, r := range s2 {
+		if freq[r] == 0 {
+			return false
+		}
+		freq[r]--
+	}
+	for _, v := range freq {
+		if v != 0 {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**
