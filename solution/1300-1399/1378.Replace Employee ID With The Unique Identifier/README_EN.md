@@ -86,7 +86,16 @@ The unique ID of Jonathan is 1.
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    b.unique_id AS unique_id,
+    a.name AS name
+FROM
+    Employees a
+LEFT JOIN
+    EmployeeUNI b
+ON
+    a.id = b.id;
 ```
 
 <!-- tabs:end -->
