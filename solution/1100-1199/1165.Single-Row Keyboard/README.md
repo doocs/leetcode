@@ -46,10 +46,11 @@
 	<li><code>word[i]</code>&nbsp;是一个小写英文字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+哈希表实现。
 
 <!-- tabs:start -->
 
@@ -58,7 +59,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def calculateTime(self, keyboard: str, word: str) -> int:
+        index = {c: i for i, c in enumerate(keyboard)}
+        res = t = 0
+        for c in word:
+            res += abs(index[c] - t)
+            t = index[c]
+        return res
 ```
 
 ### **Java**
@@ -66,7 +74,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int calculateTime(String keyboard, String word) {
+        Map<Character, Integer> index = new HashMap<>();
+        for (int i = 0; i < keyboard.length(); ++i) {
+            index.put(keyboard.charAt(i), i);
+        }
+        int res = 0, t = 0;
+        for (char c : word.toCharArray()) {
+            res += Math.abs(index.get(c) - t);
+            t = index.get(c);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int calculateTime(string keyboard, string word) {
+        unordered_map <char, int> index;
+        for (int i = 0; i < keyboard.size(); ++i) {
+            index[keyboard[i]] = i;
+        }
+        int res = 0, t = 0;
+        for (char c : word) {
+            res += abs(index[c] - t);
+            t = index[c];
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func calculateTime(keyboard string, word string) int {
+	index := map[byte]int{}
+	for i := 0; i < len(keyboard); i++ {
+		index[keyboard[i]] = i
+	}
+	res := 0
+	t := 0
+	for i := 0; i < len(word); i++ {
+		res += abs(index[word[i]] - t)
+		t = index[word[i]]
+	}
+	return res
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**
