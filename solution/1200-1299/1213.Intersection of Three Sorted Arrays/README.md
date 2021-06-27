@@ -33,6 +33,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -40,7 +42,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def arraysIntersection(self, arr1: List[int], arr2: List[int], arr3: List[int]) -> List[int]:
+        def find(arr, val):
+            left, right = 0, len(arr) - 1
+            while left < right:
+                mid = (left + right) >> 1
+                if arr[mid] >= val:
+                    right = mid
+                else:
+                    left = mid + 1
+            return arr[left] == val
 
+        res = []
+        for num in arr1:
+            if find(arr2, num) and find(arr3, num):
+                res.append(num)
+        return res
 ```
 
 ### **Java**
@@ -48,7 +66,88 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> arraysIntersection(int[] arr1, int[] arr2, int[] arr3) {
+        List<Integer> res = new ArrayList<>();
+        for (int num : arr1) {
+            if (find(arr2, num) && find(arr3, num)) {
+                res.add(num);
+            }
+        }
+        return res;
+    }
 
+    private boolean find(int[] arr, int val) {
+        int left = 0, right = arr.length - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arr[mid] >= val) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return arr[left] == val;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> arraysIntersection(vector<int>& arr1, vector<int>& arr2, vector<int>& arr3) {
+        vector<int> res;
+        for (int num : arr1) {
+            if (find(arr2, num) && find(arr3, num)) {
+                res.push_back(num);
+            }
+        }
+        return res;
+    }
+
+private:
+    bool find(vector<int>& arr, int val) {
+        int left = 0, right = arr.size() - 1;
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (arr[mid] >= val) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return arr[left] == val;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arraysIntersection(arr1 []int, arr2 []int, arr3 []int) []int {
+	var res []int
+	for _, num := range arr1 {
+		if find(arr2, num) && find(arr3, num) {
+			res = append(res, num)
+		}
+	}
+	return res
+}
+
+func find(arr []int, val int) bool {
+	left, right := 0, len(arr)-1
+	for left < right {
+		mid := (left + right) >> 1
+		if arr[mid] >= val {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return arr[left] == val
+}
 ```
 
 ### **...**
