@@ -55,7 +55,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProductDifference(self, nums: List[int]) -> int:
+        nums.sort()
+        return nums[-1] * nums[-2] - nums[0] * nums[1]
 ```
 
 ### **Java**
@@ -63,7 +66,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxProductDifference(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        return nums[n - 1] * nums[n - 2] - nums[0] * nums[1];
+    }
+}
 ```
 
 ### **...**
