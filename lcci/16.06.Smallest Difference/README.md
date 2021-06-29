@@ -32,15 +32,15 @@ class Solution:
     def smallestDifference(self, a: List[int], b: List[int]) -> int:
         a.sort()
         b.sort()
-        i, j, res = 0, 0, 2147483647
-        m, n = len(a), len(b)
-        while i < m and j < n:
-            if a[i] == b[j]: return 0
+        i = j = 0
+        res = float('inf')
+        while i < len(a) and j < len(b):
             res = min(res, abs(a[i] - b[j]))
-            if a[i] > b[j]: j += 1
-            else: i += 1
+            if a[i] > b[j]:
+                j += 1
+            else:
+                i += 1
         return res
-
 ```
 
 ### **Java**
@@ -52,17 +52,71 @@ class Solution {
     public int smallestDifference(int[] a, int[] b) {
         Arrays.sort(a);
         Arrays.sort(b);
-        int m = a.length, n = b.length;
         int i = 0, j = 0;
         long res = Long.MAX_VALUE;
-        while (i < m && j < n) {
-            if (a[i] == b[j]) return 0;
+        while (i < a.length && j < b.length) {
             res = Math.min(res, Math.abs((long) a[i] - (long) b[j]));
-            if (a[i] > b[j]) ++j;
-            else ++i;
+            if (a[i] > b[j]) {
+                ++j;
+            } else {
+                ++i;
+            }
         }
         return (int) res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int smallestDifference(vector<int>& a, vector<int>& b) {
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
+        int i = 0, j = 0;
+        long res = LONG_MAX;
+        while (i < a.size() && j < b.size()) {
+            res = min(res, abs((long)a[i] - (long)b[j]));
+            if (a[i] > b[j]) ++j;
+            else ++i;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestDifference(a []int, b []int) int {
+	sort.Ints(a)
+	sort.Ints(b)
+	i, j, res := 0, 0, 2147483647
+	for i < len(a) && j < len(b) {
+		res = min(res, abs(a[i]-b[j]))
+		if a[i] > b[j] {
+			j++
+		} else {
+			i++
+		}
+	}
+	return res
+}
+
+func abs(a int) int {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 
