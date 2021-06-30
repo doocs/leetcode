@@ -1227,6 +1227,7 @@
   - [1201.Ugly Number III](/solution/1200-1299/1201.Ugly%20Number%20III/README_EN.md)
   - [1202.Smallest String With Swaps](/solution/1200-1299/1202.Smallest%20String%20With%20Swaps/README_EN.md)
   - [1203.Sort Items by Groups Respecting Dependencies](/solution/1200-1299/1203.Sort%20Items%20by%20Groups%20Respecting%20Dependencies/README_EN.md)
+  - [1204.Last Person to Fit in the Bus](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Bus/README_EN.md)
   - [1204.Last Person to Fit in the Elevator](/solution/1200-1299/1204.Last%20Person%20to%20Fit%20in%20the%20Elevator/README_EN.md)
   - [1205.Monthly Transactions II](/solution/1200-1299/1205.Monthly%20Transactions%20II/README_EN.md)
   - [1206.Design Skiplist](/solution/1200-1299/1206.Design%20Skiplist/README_EN.md)
@@ -1954,3 +1955,4 @@
   - [1914.Cyclically Rotating a Grid](/solution/1900-1999/1914.Cyclically%20Rotating%20a%20Grid/README_EN.md)
   - [1915.Number of Wonderful Substrings](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README_EN.md)
   - [1916.Count Ways to Build Rooms in an Ant Colony](/solution/1900-1999/1916.Count%20Ways%20to%20Build%20Rooms%20in%20an%20Ant%20Colony/README_EN.md)
+  - [1917.Leetcodify Friends Recommendations](/solution/1900-1999/1917.Leetcodify%20Friends%20Recommendations/README_EN.md)
