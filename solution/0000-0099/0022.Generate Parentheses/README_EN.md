@@ -29,13 +29,91 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        def dfs(ans, l, r, n):
+            if len(ans) == (n << 1):
+                self.res.append(ans)
+                return
+            if l < n:
+                dfs(ans + '(', l + 1, r, n)
+            if r < l:
+                dfs(ans + ')', l, r + 1, n)
+        
+        self.res = []
+        dfs('', 0, 0, n)
+        return self.res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> res = new ArrayList<>();
+        dfs(res, "", 0, 0, n);
+        return res;
+    }
 
+    private void dfs(List<String> res, String ans, int l, int r, int n) {
+        if (ans.length() == (n << 1)) {
+            res.add(ans);
+            return;
+        }
+        if (l < n) {
+            dfs(res, ans + "(", l + 1, r, n);
+        }
+        if (r < l) {
+            dfs(res, ans + ")", l, r + 1, n);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> res;
+        dfs(res, "", 0, 0, n);
+        return res;
+    }
+
+private:
+    void dfs(vector<string>& res, string ans, int l, int r, int n) {
+        if (ans.size() == (n << 1)) {
+            res.push_back(ans);
+            return;
+        }
+        if (l < n) dfs(res, ans + "(", l + 1, r, n);
+        if (r < l) dfs(res, ans + ")", l, r + 1, n);
+    }
+};
+```
+
+### **Go**
+
+```go
+func generateParenthesis(n int) []string {
+	res := new([]string)
+	dfs(res, "", 0, 0, n)
+	return *res
+}
+
+func dfs(res *[]string, ans string, l, r, n int) {
+	if len(ans) == (n << 1) {
+		*res = append(*res, ans)
+		return
+	}
+	if l < n {
+		dfs(res, ans+"(", l+1, r, n)
+	}
+	if r < l {
+		dfs(res, ans+")", l, r+1, n)
+	}
+}
 ```
 
 ### **...**

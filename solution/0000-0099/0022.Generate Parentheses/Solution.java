@@ -5,16 +5,16 @@ class Solution {
         return res;
     }
 
-    private void dfs(List<String> res, String ans, int l, int r, int length) {
-        if (ans.length() == length * 2) {
+    private void dfs(List<String> res, String ans, int l, int r, int n) {
+        if (ans.length() == (n << 1)) {
             res.add(ans);
             return;
         }
-        if (l < length) {
-            dfs(res, ans + "(", l + 1, r, length);
+        if (l < n) {
+            dfs(res, ans + "(", l + 1, r, n);
         }
         if (r < l) {
-            dfs(res, ans + ")", l, r + 1, length);
+            dfs(res, ans + ")", l, r + 1, n);
         }
     }
 }
