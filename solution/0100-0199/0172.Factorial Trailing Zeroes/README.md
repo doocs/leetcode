@@ -27,6 +27,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+统计5的个数
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -43,6 +45,19 @@
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function trailingZeroes(n: number): number {
+    let count = 0;
+    while (n > 0) {
+        n = Math.floor(n / 5);
+        count += n;
+    }
+    return count;
+};
 ```
 
 ### **...**
