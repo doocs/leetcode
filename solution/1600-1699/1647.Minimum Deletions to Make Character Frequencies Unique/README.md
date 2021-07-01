@@ -53,7 +53,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表 + 升序排序
+哈希表 + 排序。
 
 <!-- tabs:start -->
 
@@ -62,7 +62,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minDeletions(self, s: str) -> int:
+        counter = collections.Counter(s)
+        vals = [v for v in counter.values()]
+        vals.sort(reverse=True)
+        ans = 0
+        for i in range(1, len(vals)):
+            while vals[i] >= vals[i - 1] and vals[i] > 0:
+                vals[i] -= 1
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -70,7 +80,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minDeletions(String s) {
+        int[] counter = new int[26];
+        for (char c : s.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        Arrays.sort(counter);
+        int ans = 0;
+        for (int i = 24; i >= 0; --i) {
+            while (counter[i] >= counter[i + 1] && counter[i] > 0) {
+                --counter[i];
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
