@@ -32,7 +32,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-滑动窗口
+滑动窗口。
 
 <!-- tabs:start -->
 
@@ -41,7 +41,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        s = sum(nums[:k])
+        ans = s
+        for i in range(k, len(nums)):
+            s += (nums[i] - nums[i - k])
+            ans = max(ans, s)
+        return ans / k
 ```
 
 ### **Java**
@@ -49,7 +56,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public double findMaxAverage(int[] nums, int k) {
+        int s = 0;
+        for (int i = 0; i < k; ++i) {
+            s += nums[i];
+        }
+        int ans = s;
+        for (int i = k; i < nums.length; ++i) {
+            s += (nums[i] - nums[i - k]);
+            ans = Math.max(ans, s);
+        }
+        return ans * 1.0 / k;
+    }
+}
 ```
 
 ### **TypeScript**
