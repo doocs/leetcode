@@ -53,6 +53,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+注意数据范围，题目很容易误导我们使用01背包（会超时），其实这题就是简单贪心，优先选择定价小的雪糕。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +62,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxIceCream(self, costs: List[int], coins: int) -> int:
+        costs.sort()
+        ans, n = 0, len(costs)
+        for i in range(n):
+            if coins < costs[i]:
+                break
+            else:
+                ans += 1
+                coins -= costs[i]
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +80,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxIceCream(int[] costs, int coins) {
+        Arrays.sort(costs);
+        int ans = 0, n = costs.length;
+        for (int i = 0; i < n && coins >= costs[i]; i++) {
+            ans++;
+            coins -= costs[i];
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func maxIceCream(costs []int, coins int) int {
+	sort.Ints(costs)
+	n := len(costs)
+	ans := 0
+	for i := 0; i < n && coins >= costs[i]; i++ {
+		ans++
+		coins -= costs[i]
+	}
+	return ans
+}
 ```
 
 ### **...**
