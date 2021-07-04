@@ -14,7 +14,7 @@
 
 ## Introduction
 
-Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF](https://leetcode-cn.com/problemset/lcof/) and [LCCI](https://leetcode-cn.com/problemset/lcci/) problems, updated daily. Please give me a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
+Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](https://leetcode-cn.com/problemset/lcof/) and [LCCI](https://leetcode-cn.com/problemset/lcci/) problems, updated daily. Please give me a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
 
 [中文文档](./README.md)
 
