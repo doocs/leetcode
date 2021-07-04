@@ -118,9 +118,7 @@ public:
             while (nums[++i] < x);
             while (nums[--j] > x);
             if (i < j) {
-                int t = nums[i];
-                nums[i] = nums[j];
-                nums[j] = t;
+                swap(nums[i], nums[j]);
             }
         }
         if (j < k) {
