@@ -1,35 +1,33 @@
-func adjustHeap(heap []int,i,k int){
-    child := i*2+1
-    for child < k{
-        if child + 1 < k && heap[child] > heap[child+1]{
-            child++
-        }
-        if heap[child] > heap[i]{
-            break
-        }
-        
-        heap[child],heap[i] = heap[i],heap[child]
-        i = child
-        child = i * 2 + 1
-    }
+func findKthLargest(nums []int, k int) int {
+	n := len(nums)
+	return quickSort(nums, 0, n-1, n-k)
 }
 
-
-func findKthLargest(nums []int, k int) int {
-    
-    minHeap := make([]int,k)
-    copy(minHeap,nums)
-    
-    for i := k/2-1;i>=0;i--{
-        adjustHeap(minHeap,i,k)
-    }
-      
-    for i := k;i < len(nums);i++{
-        if nums[i] > minHeap[0]{
-            minHeap[0] = nums[i]
-            adjustHeap(minHeap,0,k)
-        }
-    }
-        
-    return minHeap[0]   
+func quickSort(nums []int, left, right, k int) int {
+	if left == right {
+		return nums[left]
+	}
+	i, j := left-1, right+1
+	x := nums[(left+right)>>1]
+	for i < j {
+		for {
+			i++
+			if nums[i] >= x {
+				break
+			}
+		}
+		for {
+			j--
+			if nums[j] <= x {
+				break
+			}
+		}
+		if i < j {
+			nums[i], nums[j] = nums[j], nums[i]
+		}
+	}
+	if j < k {
+		return quickSort(nums, j+1, right, k)
+	}
+	return quickSort(nums, left, j, k)
 }
