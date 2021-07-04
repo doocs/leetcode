@@ -127,6 +127,27 @@ class Solution {
 }
 ```
 
+### **Go**
+
+把每个数都放到它应该在的位置，最后出现“异常”的就是重复的数和丢失的数。
+
+```go
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	for i := 0; i < n; i++ {
+		for nums[i] != i+1 && nums[nums[i]-1] != nums[i] {
+			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+		}
+	}
+	for i := 0; i < n; i++ {
+		if nums[i] != i+1 {
+			return []int{nums[i], i + 1}
+		}
+	}
+	return []int{-1, -1}
+}
+```
+
 ### **...**
 
 ```
