@@ -70,13 +70,80 @@ T_4 = 1 + 1 + 2 = 4
 ### **Python3**
 
 ```python
-
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        a, b, c = 0, 1, 1
+        for _ in range(n):
+            a, b, c = b, c, a + b + c
+        return a
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int tribonacci(int n) {
+        int a = 0, b = 1, c = 1;
+        while (n-- > 0) {
+            int d = a + b + c;
+            a = b;
+            b = c;
+            c = d;
+        }
+        return a;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int tribonacci(int n) {
+        long long a = 0, b = 1, c = 1;
+        while (n--) {
+            long long d = a + b + c;
+            a = b;
+            b = c;
+            c = d;
+        }
+        return (int) a;
+    }
+};
+```
+
+### **Go**
+
+```go
+func tribonacci(n int) int {
+	a, b, c := 0, 1, 1
+	for i := 0; i < n; i++ {
+		a, b, c = b, c, a+b+c
+	}
+	return a
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var tribonacci = function(n) {
+    let a = 0;
+    let b = 1;
+    let c = 1;
+    while (n--) {
+        let d = a + b + c;
+        a = b;
+        b = c;
+        c = d;
+    }
+    return a;
+};
 ```
 
 ### **...**
