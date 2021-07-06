@@ -158,7 +158,10 @@
 
 ### 动态规划
 
+- [斐波那契数](./solution/0500-0599/0509.Fibonacci%20Number/README.md)
+- [第 N 个泰波那契数](./solution/1100-1199/1137.N-th%20Tribonacci%20Number/README.md)
 - [爬楼梯](./solution/0000-0099/0070.Climbing%20Stairs/README.md)
+- [使用最小花费爬楼梯](./solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README.md)
 - [接雨水](./solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 - [最大子序和](./solution/0000-0099/0053.Maximum%20Subarray/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)

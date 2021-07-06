@@ -152,7 +152,10 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 
 ### Dynamic Programming
 
+- [Fibonacci Number](./solution/0500-0599/0509.Fibonacci%20Number/README_EN.md)
+- [N-th Tribonacci Number](./solution/1100-1199/1137.N-th%20Tribonacci%20Number/README_EN.md)
 - [Climbing Stairs](./solution/0000-0099/0070.Climbing%20Stairs/README_EN.md)
+- [Min Cost Climbing Stairs](./solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md)
 - [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
 - [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
