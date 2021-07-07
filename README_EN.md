@@ -158,6 +158,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Min Cost Climbing Stairs](./solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md)
 - [House Robber](./solution/0100-0199/0198.House%20Robber/README_EN.md)
 - [House Robber II](./solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
+- [Delete and Earn](./solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md)
 - [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
 - [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
