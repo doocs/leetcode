@@ -29,6 +29,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+贪心。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -36,7 +38,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        end = mx = steps = 0
+        for i, num in enumerate(nums[:-1]):
+            mx = max(mx, i + num)
+            if i == end:
+                end = mx
+                steps += 1
+        return steps
 ```
 
 ### **Java**
@@ -44,7 +54,85 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int jump(int[] nums) {
+        int end = 0;
+        int mx = 0;
+        int steps = 0;
+        for (int i = 0; i < nums.length - 1; ++i) {
+            mx = Math.max(mx, i + nums[i]);
+            if (i == end) {
+                end = mx;
+                ++steps;
+            }
+        }
+        return steps;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        int mx = 0, steps = 0, end = 0;
+        for (int i = 0; i < nums.size() - 1; ++i) {
+            mx = max(mx, i + nums[i]);
+            if (i == end) {
+                end = mx;
+                ++steps;
+            }
+        }
+        return steps;
+    }
+};
+```
+
+### **Go**
+
+```go
+func jump(nums []int) int {
+	mx, steps, end := 0, 0, 0
+	for i := 0; i < len(nums)-1; i++ {
+		mx = max(mx, i+nums[i])
+		if i == end {
+			end = mx
+			steps++
+		}
+	}
+	return steps
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int Jump(int[] nums) {
+        int end = 0;
+        int mx = 0;
+        int steps = 0;
+        for (int i = 0; i < nums.Length - 1; ++i)
+        {
+            mx = Math.Max(mx, i + nums[i]);
+            if (i == end)
+            {
+                end = mx;
+                ++steps;
+            }
+        }
+        return steps;
+    }
+}
 ```
 
 ### **...**

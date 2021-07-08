@@ -160,6 +160,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [House Robber II](./solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
 - [Delete and Earn](./solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md)
 - [Jump Game](./solution/0000-0099/0055.Jump%20Game/README_EN.md)
+- [Jump Game II](./solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
 - [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
 - [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
@@ -232,5 +233,3 @@ Thank you to all our backers and sponsors!
 ## License
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large" target="_blank"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large"></a>

@@ -166,6 +166,7 @@
 - [打家劫舍 II](./solution/0200-0299/0213.House%20Robber%20II/README.md)
 - [删除并获得点数](./solution/0700-0799/0740.Delete%20and%20Earn/README.md)
 - [跳跃游戏](./solution/0000-0099/0055.Jump%20Game/README.md)
+- [跳跃游戏 II](./solution/0000-0099/0045.Jump%20Game%20II/README.md)
 - [接雨水](./solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 - [最大子序和](./solution/0000-0099/0053.Maximum%20Subarray/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
@@ -248,5 +249,3 @@
 ## 许可证
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>
-
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large" target="_blank"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large"></a>
