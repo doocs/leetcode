@@ -39,10 +39,11 @@
 	<li><code>0 <= nums[i] <= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+贪心。
 
 <!-- tabs:start -->
 
@@ -51,7 +52,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        mx = 0
+        for i, num in enumerate(nums):
+            if i > mx:
+                return False
+            mx = max(mx, i + num)
+        return True
 ```
 
 ### **Java**
@@ -59,7 +67,77 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean canJump(int[] nums) {
+        int mx = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (i > mx) {
+                return false;
+            }
+            mx = Math.max(mx, i + nums[i]);
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int mx = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i > mx) {
+                return false;
+            }
+            mx = max(mx, i + nums[i]);
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canJump(nums []int) bool {
+	mx := 0
+	for i, num := range nums {
+		if i > mx {
+			return false
+		}
+		mx = max(mx, i+num)
+	}
+	return true
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool CanJump(int[] nums) {
+        int mx = 0;
+        for (int i = 0; i < nums.Length; ++i)
+        {
+            if (i > mx)
+            {
+                return false;
+            }
+            mx = Math.Max(mx, i + nums[i]);
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
