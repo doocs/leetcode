@@ -162,6 +162,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Jump Game](./solution/0000-0099/0055.Jump%20Game/README_EN.md)
 - [Jump Game II](./solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
 - [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
+- [Maximum Sum Circular Subarray](./solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
 - [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
 - [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)

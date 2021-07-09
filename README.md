@@ -168,6 +168,7 @@
 - [跳跃游戏](./solution/0000-0099/0055.Jump%20Game/README.md)
 - [跳跃游戏 II](./solution/0000-0099/0045.Jump%20Game%20II/README.md)
 - [最大子序和](./solution/0000-0099/0053.Maximum%20Subarray/README.md)
+- [环形子数组的最大和](./solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README.md)
 - [接雨水](./solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
 - [最小路径和](./solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
