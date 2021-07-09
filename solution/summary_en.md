@@ -1962,3 +1962,4 @@
   - [1921.Eliminate Maximum Number of Monsters](/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README_EN.md)
   - [1922.Count Good Numbers](/solution/1900-1999/1922.Count%20Good%20Numbers/README_EN.md)
   - [1923.Longest Common Subpath](/solution/1900-1999/1923.Longest%20Common%20Subpath/README_EN.md)
+  - [1924.Erect the Fence II](/solution/1900-1999/1924.Erect%20the%20Fence%20II/README_EN.md)
