@@ -28,14 +28,14 @@
 
 <pre><strong>输入：</strong>inputs = [&quot;TimeMap&quot;,&quot;set&quot;,&quot;get&quot;,&quot;get&quot;,&quot;set&quot;,&quot;get&quot;,&quot;get&quot;], inputs = [[],[&quot;foo&quot;,&quot;bar&quot;,1],[&quot;foo&quot;,1],[&quot;foo&quot;,3],[&quot;foo&quot;,&quot;bar2&quot;,4],[&quot;foo&quot;,4],[&quot;foo&quot;,5]]
 <strong>输出：</strong>[null,null,&quot;bar&quot;,&quot;bar&quot;,null,&quot;bar2&quot;,&quot;bar2&quot;]
-<strong>解释：</strong>&nbsp; 
-TimeMap kv; &nbsp; 
-kv.set(&quot;foo&quot;, &quot;bar&quot;, 1); // 存储键 &quot;foo&quot; 和值 &quot;bar&quot; 以及时间戳 timestamp = 1 &nbsp; 
-kv.get(&quot;foo&quot;, 1);  // 输出 &quot;bar&quot; &nbsp; 
-kv.get(&quot;foo&quot;, 3); // 输出 &quot;bar&quot; 因为在时间戳 3 和时间戳 2 处没有对应 &quot;foo&quot; 的值，所以唯一的值位于时间戳 1 处（即 &quot;bar&quot;） &nbsp; 
-kv.set(&quot;foo&quot;, &quot;bar2&quot;, 4); &nbsp; 
-kv.get(&quot;foo&quot;, 4); // 输出 &quot;bar2&quot; &nbsp; 
-kv.get(&quot;foo&quot;, 5); // 输出 &quot;bar2&quot; &nbsp; 
+<strong>解释：</strong>&nbsp;
+TimeMap kv; &nbsp;
+kv.set(&quot;foo&quot;, &quot;bar&quot;, 1); // 存储键 &quot;foo&quot; 和值 &quot;bar&quot; 以及时间戳 timestamp = 1 &nbsp;
+kv.get(&quot;foo&quot;, 1);  // 输出 &quot;bar&quot; &nbsp;
+kv.get(&quot;foo&quot;, 3); // 输出 &quot;bar&quot; 因为在时间戳 3 和时间戳 2 处没有对应 &quot;foo&quot; 的值，所以唯一的值位于时间戳 1 处（即 &quot;bar&quot;） &nbsp;
+kv.set(&quot;foo&quot;, &quot;bar2&quot;, 4); &nbsp;
+kv.get(&quot;foo&quot;, 4); // 输出 &quot;bar2&quot; &nbsp;
+kv.get(&quot;foo&quot;, 5); // 输出 &quot;bar2&quot; &nbsp;
 
 </pre>
 
@@ -132,6 +132,41 @@ class TimeMap {
  * obj.set(key,value,timestamp);
  * String param_2 = obj.get(key,timestamp);
  */
+```
+
+### **Go**
+
+因为 timestamp 是一直增长的，所以可以用二分查找快速找到值
+
+```go
+type pair struct {
+	timestamp int
+	value     string
+}
+
+type TimeMap struct {
+	data map[string][]pair
+}
+
+func Constructor() TimeMap {
+	return TimeMap{data: make(map[string][]pair)}
+}
+
+func (m *TimeMap) Set(key string, value string, timestamp int) {
+	m.data[key] = append(m.data[key], pair{timestamp, value})
+}
+
+func (m *TimeMap) Get(key string, timestamp int) string {
+	pairs := m.data[key]
+	// sort.Search return the smallest index i in [0, n) at which f(i) is true
+	i := sort.Search(len(pairs), func(i int) bool {
+		return pairs[i].timestamp > timestamp
+	})
+	if i > 0 {
+		return pairs[i-1].value
+	}
+	return ""
+}
 ```
 
 ### **...**
