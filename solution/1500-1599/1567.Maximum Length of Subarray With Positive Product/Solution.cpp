@@ -1,9 +1,10 @@
 class Solution {
-    public int getMaxLen(int[] nums) {
+public:
+    int getMaxLen(vector<int>& nums) {
         int f1 = nums[0] > 0 ? 1 : 0;
         int f2 = nums[0] < 0 ? 1 : 0;
         int res = f1;
-        for (int i = 1; i < nums.length; ++i) {
+        for (int i = 1; i < nums.size(); ++i) {
             if (nums[i] > 0) {
                 ++f1;
                 f2 = f2 > 0 ? f2 + 1 : 0;
@@ -15,8 +16,8 @@ class Solution {
                 f1 = 0;
                 f2 = 0;
             }
-            res = Math.max(res, f1);
+            res = max(res, f1);
         }
         return res;
     }
-}
+};

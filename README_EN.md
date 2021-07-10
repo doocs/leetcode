@@ -164,6 +164,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
 - [Maximum Sum Circular Subarray](./solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
 - [Maximum Product Subarray](./solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
+- [Maximum Length of Subarray With Positive Product](./solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README_EN.md)
 - [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
 - [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)
