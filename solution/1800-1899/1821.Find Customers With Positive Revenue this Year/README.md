@@ -70,7 +70,14 @@ Result table:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    customer_id
+FROM
+    Customers
+WHERE
+    year = '2021'
+AND revenue > 0;
 ```
 
 <!-- tabs:end -->

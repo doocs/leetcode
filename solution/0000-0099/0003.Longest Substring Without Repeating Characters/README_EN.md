@@ -111,6 +111,50 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function lengthOfLongestSubstring(s: string): number {
+    // 滑动窗口+哈希表
+    let left = -1;
+    let maxLen = 0;
+    let hashTable = new Map();
+    for (let right = 0; right < s.length; right++) {
+        let cur = s.charAt(right);
+        if (hashTable.has(cur)) {
+          left = Math.max(left, hashTable.get(cur));
+        }
+        hashTable.set(cur, right);
+        maxLen = Math.max(maxLen, right - left);
+    }
+      return maxLen;
+  };
+```
+
+### **Swift**
+
+```swift
+class Solution {
+    func lengthOfLongestSubstring(_ s: String) -> Int {
+        var map = [Character: Int]()
+        var currentStartingIndex = 0
+        var i = 0
+        var maxLength = 0
+        for char in s {
+            if map[char] != nil {
+                if map[char]! >= currentStartingIndex {
+                    maxLength = max(maxLength, i - currentStartingIndex)
+                    currentStartingIndex = map[char]! + 1
+                }
+            }
+            map[char] = i
+            i += 1
+        }
+        return max(maxLength, i - currentStartingIndex)
+    }
+}
+```
+
 ### **...**
 
 ```

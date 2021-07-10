@@ -3,19 +3,19 @@ public class Solution {
         if (x == 0) {
             return 0;
         }
-        int low = 1, high = x;
-        while (low < high)
+        int left = 1, right = x;
+        while (left < right)
         {
-            int mid = low + ((high - low + 1) >> 1);
+            int mid = left + right + 1 >> 1;
             if (x / mid >= mid)
             {
-                low = mid;
+                left = mid;
             } 
             else 
             {
-                high = mid - 1;
+                right = mid - 1;
             }
         }
-        return low;
+        return left;
     }
 }

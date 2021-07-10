@@ -1,21 +1,46 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
-    private List<List<Integer>> list;
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        list = new ArrayList<>();
-        lever(root, 0);
-        for (int i = 1; i < list.size(); i = i + 2) {
-            List<Integer> nList = list.get(i);
-            List<Integer> nnl = new ArrayList<>();
-            for (int j = nList.size() - 1; j >= 0; j--) nnl.add(nList.get(j));
-            list.set(i, nnl);
+        if (root == null) {
+            return Collections.emptyList();
         }
-        return list;
-    }
-    private void lever(TreeNode root, int l) {
-        if (root == null) return;
-        while (l > list.size() - 1) list.add(new ArrayList<>());
-        list.get(l++).add(root.val);
-        lever(root.left, l);
-        lever(root.right, l);
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        List<List<Integer>> res = new ArrayList<>();
+        boolean left = false;
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> t = new ArrayList<>();
+            while (size-- > 0) {
+                TreeNode node = q.pollFirst();
+                t.add(node.val);
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
+            }
+            if (left) {
+                Collections.reverse(t);
+            }
+            res.add(t);
+            left = !left;
+        }
+        return res;
     }
 }

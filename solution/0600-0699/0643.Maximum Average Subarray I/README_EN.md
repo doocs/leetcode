@@ -45,18 +45,60 @@
 
 ## Solutions
 
+Slide window.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        s = sum(nums[:k])
+        ans = s
+        for i in range(k, len(nums)):
+            s += (nums[i] - nums[i - k])
+            ans = max(ans, s)
+        return ans / k
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public double findMaxAverage(int[] nums, int k) {
+        int s = 0;
+        for (int i = 0; i < k; ++i) {
+            s += nums[i];
+        }
+        int ans = s;
+        for (int i = k; i < nums.length; ++i) {
+            s += (nums[i] - nums[i - k]);
+            ans = Math.max(ans, s);
+        }
+        return ans * 1.0 / k;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function findMaxAverage(nums: number[], k: number): number {
+    let n = nums.length;
+    let ans = 0;
+    let sum = 0;
+    // 前k
+    for (let i = 0; i < k; i++) {
+        sum += nums[i];
+    }
+    ans = sum;
+    for (let i = k; i < n; i++) {
+        sum += (nums[i] - nums[i - k]);
+        ans = Math.max(ans, sum);
+    }
+    return ans / k;
+};
 ```
 
 ### **...**

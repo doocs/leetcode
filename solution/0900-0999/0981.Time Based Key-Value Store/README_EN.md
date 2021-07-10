@@ -32,21 +32,21 @@
 
 <strong>Output: </strong><span id="example-output-1">[null,null,&quot;bar&quot;,&quot;bar&quot;,null,&quot;bar2&quot;,&quot;bar2&quot;]</span>
 
-<strong>Explanation: </strong><span id="example-output-1">&nbsp; 
+<strong>Explanation: </strong><span id="example-output-1">&nbsp;
 
-TimeMap kv; &nbsp; 
+TimeMap kv; &nbsp;
 
-kv.set(&quot;foo&quot;, &quot;bar&quot;, 1); // store the key &quot;foo&quot; and value &quot;bar&quot; along with timestamp = 1 &nbsp; 
+kv.set(&quot;foo&quot;, &quot;bar&quot;, 1); // store the key &quot;foo&quot; and value &quot;bar&quot; along with timestamp = 1 &nbsp;
 
-kv.get(&quot;foo&quot;, 1);  // output &quot;bar&quot; &nbsp; 
+kv.get(&quot;foo&quot;, 1);  // output &quot;bar&quot; &nbsp;
 
-kv.get(&quot;foo&quot;, 3); // output &quot;bar&quot; since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 ie &quot;bar&quot; &nbsp; 
+kv.get(&quot;foo&quot;, 3); // output &quot;bar&quot; since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 ie &quot;bar&quot; &nbsp;
 
-kv.set(&quot;foo&quot;, &quot;bar2&quot;, 4); &nbsp; 
+kv.set(&quot;foo&quot;, &quot;bar2&quot;, 4); &nbsp;
 
-kv.get(&quot;foo&quot;, 4); // output &quot;bar2&quot; &nbsp; 
+kv.get(&quot;foo&quot;, 4); // output &quot;bar2&quot; &nbsp;
 
-kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp; 
+kv.get(&quot;foo&quot;, 5); //output &quot;bar2&quot; &nbsp;
 
 </span>
 
@@ -146,6 +146,41 @@ class TimeMap {
  * obj.set(key,value,timestamp);
  * String param_2 = obj.get(key,timestamp);
  */
+```
+
+### **Go**
+
+Because timestamp is always increasing, you can use binary search to quickly find the value
+
+```go
+type pair struct {
+	timestamp int
+	value     string
+}
+
+type TimeMap struct {
+	data map[string][]pair
+}
+
+func Constructor() TimeMap {
+	return TimeMap{data: make(map[string][]pair)}
+}
+
+func (m *TimeMap) Set(key string, value string, timestamp int) {
+	m.data[key] = append(m.data[key], pair{timestamp, value})
+}
+
+func (m *TimeMap) Get(key string, timestamp int) string {
+	pairs := m.data[key]
+	// sort.Search return the smallest index i in [0, n) at which f(i) is true
+	i := sort.Search(len(pairs), func(i int) bool {
+		return pairs[i].timestamp > timestamp
+	})
+	if i > 0 {
+		return pairs[i-1].value
+	}
+	return ""
+}
 ```
 
 ### **...**

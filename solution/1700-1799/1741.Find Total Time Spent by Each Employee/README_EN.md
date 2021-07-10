@@ -62,7 +62,15 @@ Employee 2 has two events: one on day 2020-11-28 with a total of (33 - 3) = 30, 
 ### **SQL**
 
 ```sql
-
+# Write your MySQL query statement below
+SELECT
+    event_day AS day,
+    emp_id,
+    SUM(out_time - in_time) AS  total_time
+FROM
+    Employees
+GROUP BY
+    emp_id, event_day;
 ```
 
 <!-- tabs:end -->

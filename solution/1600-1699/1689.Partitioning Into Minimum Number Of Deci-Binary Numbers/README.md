@@ -41,10 +41,11 @@
 	<li><code>n</code> 不含任何前导零并总是表示正整数</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+题目等价于找字符串中的最大数。
 
 <!-- tabs:start -->
 
@@ -53,7 +54,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minPartitions(self, n: str) -> int:
+        return int(max(n))
 ```
 
 ### **Java**
@@ -61,7 +64,55 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minPartitions(String n) {
+        int res = 0;
+        for (char c : n.toCharArray()) {
+            res = Math.max(res, c - '0');
+        }
+        return res;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function minPartitions(n: string): number {
+    let nums = n.split('').map(d => parseInt(d));
+    let ans = Math.max(...nums);
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minPartitions(string n) {
+        int res = 0;
+        for (auto& c : n) {
+            res = max(res, c - '0');
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minPartitions(n string) int {
+	res := 0
+	for _, c := range n {
+		t := int(c - '0')
+		if t > res {
+			res = t
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

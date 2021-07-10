@@ -158,15 +158,23 @@
 
 ### 动态规划
 
+- [斐波那契数](./solution/0500-0599/0509.Fibonacci%20Number/README.md)
+- [第 N 个泰波那契数](./solution/1100-1199/1137.N-th%20Tribonacci%20Number/README.md)
 - [爬楼梯](./solution/0000-0099/0070.Climbing%20Stairs/README.md)
-- [接雨水](./solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
+- [使用最小花费爬楼梯](./solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README.md)
+- [打家劫舍](./solution/0100-0199/0198.House%20Robber/README.md)
+- [打家劫舍 II](./solution/0200-0299/0213.House%20Robber%20II/README.md)
+- [删除并获得点数](./solution/0700-0799/0740.Delete%20and%20Earn/README.md)
+- [跳跃游戏](./solution/0000-0099/0055.Jump%20Game/README.md)
+- [跳跃游戏 II](./solution/0000-0099/0045.Jump%20Game%20II/README.md)
 - [最大子序和](./solution/0000-0099/0053.Maximum%20Subarray/README.md)
+- [环形子数组的最大和](./solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README.md)
+- [乘积最大子序列](./solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md)
+- [乘积为正数的最长子数组长度](./solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README.md)
+- [接雨水](./solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
 - [最小路径和](./solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
 - [解码方法](./solution/0000-0099/0091.Decode%20Ways/README.md)
-- [乘积最大子序列](./solution/0100-0199/0152.Maximum%20Product%20Subarray/README.md)
-- [打家劫舍](./solution/0100-0199/0198.House%20Robber/README.md)
-- [打家劫舍 II](./solution/0200-0299/0213.House%20Robber%20II/README.md)
 - [最长上升子序列](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
 - [俄罗斯套娃信封问题](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
 - [最长公共子序列](./solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
@@ -243,5 +251,3 @@
 ## 许可证
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享 版权归属-相同方式共享 4.0 国际 公共许可证</a>
-
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large" target="_blank"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large"></a>

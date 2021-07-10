@@ -43,18 +43,83 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 ## Solutions
 
+Binary search.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        n = len(citations)
+        left, right = 0, n
+        while left < right:
+            mid = (left + right) >> 1
+            if citations[mid] >= n - mid:
+                right = mid
+            else:
+                left = mid + 1
+        return n - left
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int hIndex(int[] citations) {
+        int n = citations.length;
+        int left = 0, right = n;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (citations[mid] >= n - mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return n - left;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int hIndex(vector<int>& citations) {
+        int n = citations.size();
+        int left = 0, right = n;
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (citations[mid] >= n - mid) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return n - left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func hIndex(citations []int) int {
+	n := len(citations)
+	left, right := 0, n
+	for left < right {
+		mid := (left + right) >> 1
+		if citations[mid] >= n-mid {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return n - left
+}
 ```
 
 ### **...**

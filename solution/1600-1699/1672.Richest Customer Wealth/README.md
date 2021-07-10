@@ -61,7 +61,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        res = 0
+        for account in accounts:
+            res = max(res, sum(account))
+        return res
 ```
 
 ### **Java**
@@ -69,7 +74,56 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int res = 0;
+        for (int[] account : accounts) {
+            int t = 0;
+            for (int money : account) {
+                t += money;
+            }
+            res = Math.max(res, t);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        int res = 0;
+        for (auto& account : accounts) {
+            int t = 0;
+            for (auto& money : account) {
+                t += money;
+            }
+            res = max(res, t);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumWealth(accounts [][]int) int {
+	res := 0
+	for _, account := range accounts {
+		t := 0
+		for _, money := range account {
+			t += money
+		}
+		if t > res {
+			res = t
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

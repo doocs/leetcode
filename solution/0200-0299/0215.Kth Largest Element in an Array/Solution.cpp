@@ -1,44 +1,26 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        --k ;
-        int ii = 0, jj = nums.size()-1 ;
-        int i, j ;
-        while (true)
-        {
-            i = ii, j = jj ;
-            if (i + 63 < j)
-            {
-                const int mid = i + (j-i)/2 ;
-                if (nums[j] >= nums[mid] && nums[j] <= nums[i]
-                   || nums[j] <= nums[mid] && nums[j] >= nums[i])
-                {
-                    swap(nums[i], nums[j]) ;
-                }
-                else if (nums[mid] >= nums[i] && nums[mid] <= nums[j]
-                   || nums[mid] <= nums[i] && nums[mid] >= nums[j])
-                {
-                    swap(nums[i], nums[mid]) ;
-                }
-            }
-            while (i < j)
-            {
-                while (i < j && nums.at(i) >= nums.at(j))
-                    --j ;
-                swap(nums[i], nums[j]) ;
-                while (i < j && nums.at(i) >= nums.at(j))
-                    ++i ;
-                swap(nums[i], nums[j]) ;
-            }
-            
-            if (i > k)
-                jj = i-1 ;
-            else if (i < k)
-                ii = i+1 ;
-            else
-                return nums[k] ;
+        int n = nums.size();
+        return quickSort(nums, 0, n - 1, n - k);
+    }
+
+    int quickSort(vector<int>& nums, int left, int right, int k) {
+        if (left == right) {
+            return nums[left];
         }
-        
-        return nums.at(k) ;
+        int i = left - 1, j = right + 1;
+        int x = nums[left + right >> 1];
+        while (i < j) {
+            while (nums[++i] < x);
+            while (nums[--j] > x);
+            if (i < j) {
+                swap(nums[i], nums[j]);
+            }
+        }
+        if (j < k) {
+            return quickSort(nums, j + 1, right, k);
+        }
+        return quickSort(nums, left, j, k);
     }
 };

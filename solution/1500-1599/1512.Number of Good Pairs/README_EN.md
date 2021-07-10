@@ -82,13 +82,63 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        counter = collections.Counter(nums)
+        return sum([x * (x - 1) for x in counter.values()]) >> 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums) {
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        }
+        int res = 0;
+        for (int n : counter.values()) {
+            res += n * (n - 1);
+        }
+        return res >> 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+        unordered_map <int, int> counter;
+        for (int num : nums) {
+            ++counter[num];
+        }
+        int res = 0;
+        for (auto &[num, n] : counter) {
+            res += n * (n - 1);
+        }
+        return res >> 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numIdenticalPairs(nums []int) int {
+	counter := make(map[int]int)
+	for _, num := range nums {
+		counter[num]++
+	}
+	res := 0
+	for _, n := range counter {
+		res += n * (n - 1)
+	}
+	return res >> 1
+}
 ```
 
 ### **...**

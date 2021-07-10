@@ -52,13 +52,60 @@ Note that we only care about characters that are still in the string at the end 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minDeletions(self, s: str) -> int:
+        counter = collections.Counter(s)
+        vals = [v for v in counter.values()]
+        vals.sort(reverse=True)
+        ans = 0
+        for i in range(1, len(vals)):
+            while vals[i] >= vals[i - 1] and vals[i] > 0:
+                vals[i] -= 1
+                ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minDeletions(String s) {
+        int[] counter = new int[26];
+        for (char c : s.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        Arrays.sort(counter);
+        int ans = 0;
+        for (int i = 24; i >= 0; --i) {
+            while (counter[i] >= counter[i + 1] && counter[i] > 0) {
+                --counter[i];
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function minDeletions(s: string): number {
+    let map = {};
+    for (let c of s) {
+        map[c] = (map[c] || 0) + 1;
+    }
+    let ans = 0;
+    let vals: number[] = Object.values(map);
+    vals.sort((a, b) => a - b);
+    for (let i = 1; i < vals.length; ++i) {
+        while(vals[i] > 0 && i != vals.indexOf(vals[i])) {
+            --vals[i];
+            ++ans;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**

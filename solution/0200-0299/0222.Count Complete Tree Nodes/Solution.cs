@@ -1,38 +1,38 @@
-﻿// https://leetcode.com/problems/count-complete-tree-nodes/
-
-using System;
-
-public class Solution
-{
-    public int CountNodes(TreeNode root)
-    {
-        if (root == null) return 0;
-        var lastNodeOffset = CountNodes_GetLastNodeOffset(root, 0);
-        var totalDepth = CountNodes_GetDeepth(root);
-        return (int)Math.Pow(2, totalDepth - 1) - 1 + lastNodeOffset;
-    }
-
-    private int CountNodes_GetLastNodeOffset(TreeNode node, int offset)
-    {
-        if (node == null) return offset;
-        if (node.left == null) return offset + 1;
-        var leftDepth = CountNodes_GetDeepth(node.left);
-        var rightDepth = CountNodes_GetDeepth(node.right);
+﻿/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public int CountNodes(TreeNode root) {
+        if (root == null)
+        {
+            return 0;
+        }
+        int leftDepth = depth(root.left);
+        int rightDepth = depth(root.right);
         if (leftDepth > rightDepth)
         {
-            return CountNodes_GetLastNodeOffset(node.left, offset);
+            return (1 << rightDepth) + CountNodes(root.left);
         }
-        return CountNodes_GetLastNodeOffset(node.right, offset + (int)Math.Pow(2, leftDepth - 1));
+        return (1 << leftDepth) + CountNodes(root.right);
     }
 
-    private int CountNodes_GetDeepth(TreeNode node)
-    {
-        var depth = 0;
-        while (node != null)
+    private int depth(TreeNode root) {
+        int res = 0;
+        while (root != null)
         {
-            ++depth;
-            node = node.left;
+            ++res;
+            root = root.left;
         }
-        return depth;
+        return res;
     }
 }

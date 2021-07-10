@@ -42,13 +42,106 @@ After sorting, it becomes [0,1,9,16,100].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        res = [0] * n
+        i, j, k = 0, n - 1, n - 1
+        while i <= j:
+            if nums[i] * nums[i] > nums[j] * nums[j]:
+                res[k] = nums[i] * nums[i]
+                i += 1
+            else:
+                res[k] = nums[j] * nums[j]
+                j -= 1
+            k -= 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        for (int i = 0, j = n - 1, k = n - 1; i <= j;) {
+            if (nums[i] * nums[i] > nums[j] * nums[j]) {
+                res[k--] = nums[i] * nums[i];
+                ++i;
+            } else {
+                res[k--] = nums[j] * nums[j];
+                --j;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> res(n);
+        for (int i = 0, j = n - 1, k = n - 1; i <= j;) {
+            if (nums[i] * nums[i] > nums[j] * nums[j]) {
+                res[k--] = nums[i] * nums[i];
+                ++i;
+            } else {
+                res[k--] = nums[j] * nums[j];
+                --j;
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortedSquares(nums []int) []int {
+	n := len(nums)
+	res := make([]int, n)
+	for i, j, k := 0, n-1, n-1; i <= j; {
+		if nums[i]*nums[i] > nums[j]*nums[j] {
+			res[k] = nums[i] * nums[i]
+			i++
+		} else {
+			res[k] = nums[j] * nums[j]
+			j--
+		}
+		k--
+	}
+	return res
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortedSquares = function(nums) {
+    const n = nums.length;
+    const res = new Array(n);
+    for (let i = 0, j = n - 1, k = n - 1; i <= j;) {
+        if (nums[i] * nums[i] > nums[j] * nums[j]) {
+            res[k--] = nums[i] * nums[i];
+            ++i;
+        } else {
+            res[k--] = nums[j] * nums[j];
+            --j;
+        }
+    }
+    return res;
+};
 ```
 
 ### **...**

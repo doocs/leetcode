@@ -14,7 +14,7 @@
 
 ## Introduction
 
-Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF](https://leetcode-cn.com/problemset/lcof/) and [LCCI](https://leetcode-cn.com/problemset/lcci/) problems, updated daily. Please give me a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
+Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](https://leetcode-cn.com/problemset/lcof/) and [LCCI](https://leetcode-cn.com/problemset/lcci/) problems, updated daily. Please give me a [star](https://github.com/doocs/leetcode) 🌟 if you like it.
 
 [中文文档](./README.md)
 
@@ -152,14 +152,22 @@ Complete solutions to [LeetCode](https://leetcode-cn.com/problemset/all/), [LCOF
 
 ### Dynamic Programming
 
+- [Fibonacci Number](./solution/0500-0599/0509.Fibonacci%20Number/README_EN.md)
+- [N-th Tribonacci Number](./solution/1100-1199/1137.N-th%20Tribonacci%20Number/README_EN.md)
 - [Climbing Stairs](./solution/0000-0099/0070.Climbing%20Stairs/README_EN.md)
-- [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
-- [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
-- [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
-- [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)
-- [Maximum Product Subarray](./solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
+- [Min Cost Climbing Stairs](./solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md)
 - [House Robber](./solution/0100-0199/0198.House%20Robber/README_EN.md)
 - [House Robber II](./solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
+- [Delete and Earn](./solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md)
+- [Jump Game](./solution/0000-0099/0055.Jump%20Game/README_EN.md)
+- [Jump Game II](./solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
+- [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
+- [Maximum Sum Circular Subarray](./solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
+- [Maximum Product Subarray](./solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
+- [Maximum Length of Subarray With Positive Product](./solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README_EN.md)
+- [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
+- [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
+- [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)
 - [Longest Increasing Subsequence](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 - [Russian Doll Envelopes](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
 - [Longest Common Subsequence](./solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md)
@@ -227,5 +235,3 @@ Thank you to all our backers and sponsors!
 ## License
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large" target="_blank"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large"></a>

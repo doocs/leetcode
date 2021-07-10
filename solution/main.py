@@ -100,7 +100,10 @@ class LCSpider:
 
         for question in questions:
             question_title_slug = question['stat']['question__title_slug']
-            question_detail = self.get_question_detail(question_title_slug)
+            try:
+                question_detail = self.get_question_detail(question_title_slug)
+            except:
+                continue
             frontend_question_id = str(question['stat']['frontend_question_id']).zfill(4)
             no = int(frontend_question_id) // 100
 

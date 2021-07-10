@@ -48,7 +48,6 @@ queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is pu
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you find the answer for each query in better complexity than <code>O(n)</code>?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -56,13 +55,102 @@ queries[0] is green, queries[1] is red, queries[2] is blue, and queries[3] is pu
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countPoints(self, points: List[List[int]], queries: List[List[int]]) -> List[int]:
+        ans = []
+        for x0, y0, r in queries:
+            count = 0
+            for x, y in points:
+                dx, dy = x - x0, y - y0
+                if dx * dx + dy * dy <= r * r:
+                    count += 1
+            ans.append(count)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] countPoints(int[][] points, int[][] queries) {
+        int[] ans = new int[queries.length];
+        int i = 0;
+        for (int[] query : queries) {
+            int x0 = query[0], y0 = query[1], r = query[2];
+            for (int[] point : points) {
+                int x = point[0], y = point[1];
+                int dx = x - x0, dy = y - y0;
+                if (dx * dx + dy * dy <= r * r) {
+                    ++ans[i];
+                }
+            }
+            ++i;
+        }
+        return ans;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function countPoints(points: number[][], queries: number[][]): number[] {
+    let ans = [];
+    for (let [cx, cy, r] of queries) {
+        let square = r ** 2;
+        let count = 0;
+        for (let [px, py] of points) {
+            if ((px - cx) ** 2 + (py - cy) ** 2 <= square) {
+                ++count;
+            }
+        }
+        ans.push(count);
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
+        vector<int> ans;
+        for (auto& query : queries) {
+            int x0 = query[0], y0 = query[1], r = query[2];
+            int count = 0;
+            for (auto& point : points) {
+                int x = point[0], y = point[1];
+                int dx = x - x0, dy = y - y0;
+                if (dx * dx + dy * dy <= r * r) {
+                    ++count;
+                }
+            }
+            ans.push_back(count);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countPoints(points [][]int, queries [][]int) []int {
+	ans := make([]int, len(queries))
+	for i, query := range queries {
+		x0, y0, r := query[0], query[1], query[2]
+		for _, point := range points {
+			x, y := point[0], point[1]
+			dx, dy := x-x0, y-y0
+			if dx*dx+dy*dy <= r*r {
+				ans[i]++
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

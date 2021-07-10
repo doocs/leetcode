@@ -51,10 +51,8 @@ Note that &#39;A&#39; and &#39;a&#39; are treated as two different characters.
 ```python
 class Solution:
     def frequencySort(self, s: str) -> str:
-        if not s or len(s) < 3:
-            return s
         counter = collections.Counter(s)
-        buckets = [[] for _ in range(len(s) + 1)]
+        buckets = collections.defaultdict(list)
         for c, freq in counter.items():
             buckets[freq].append(c)
         res = []
@@ -70,12 +68,9 @@ class Solution:
 ```java
 class Solution {
     public String frequencySort(String s) {
-        if (s == null || s.length() < 3) {
-            return s;
-        }
         Map<Character, Integer> counter = new HashMap<>();
-        for (int i = 0; i < s.length(); ++i) {
-            counter.put(s.charAt(i), counter.getOrDefault(s.charAt(i), 0) + 1);
+        for (char c : s.toCharArray()) {
+            counter.put(c, counter.getOrDefault(c, 0) + 1);
         }
         List<Character>[] buckets = new List[s.length() + 1];
         for (Map.Entry<Character, Integer> entry : counter.entrySet()) {
@@ -98,6 +93,34 @@ class Solution {
         }
         return sb.toString();
     }
+}
+```
+
+### **Go**
+
+Simulation with structure sorting.
+
+```go
+type pair struct {
+	b   byte
+	cnt int
+}
+
+func frequencySort(s string) string {
+	freq := make(map[byte]int)
+	for _, r := range s {
+		freq[byte(r)]++
+	}
+	a := make([]pair, 0)
+	for k, v := range freq {
+		a = append(a, pair{b: k, cnt: v})
+	}
+	sort.Slice(a, func(i, j int) bool { return a[i].cnt > a[j].cnt })
+	var sb strings.Builder
+	for _, p := range a {
+		sb.Write(bytes.Repeat([]byte{p.b}, p.cnt))
+	}
+	return sb.String()
 }
 ```
 

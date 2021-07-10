@@ -16,7 +16,7 @@
 <pre>
 <strong>Input:</strong> nums = [2,7,11,15], target = 9
 <strong>Output:</strong> [0,1]
-<strong>Output:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].
+<strong>Explanation:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -115,6 +115,25 @@ class Solution {
     }
 }
 ```
+
+### **Nim**
+
+```nim
+import std/enumerate
+
+proc twoSum(nums: seq[int], target: int): seq[int] =
+    var
+        bal: int
+        tdx: int
+    for idx, val in enumerate(nums):
+        bal = target - val
+        if bal in nums:
+            tdx = nums.find(bal)
+            if idx != tdx:
+                return @[idx, tdx]
+
+```
+
 ### **...**
 
 ```

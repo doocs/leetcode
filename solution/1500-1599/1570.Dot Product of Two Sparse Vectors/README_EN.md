@@ -52,7 +52,6 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 	<li><code>0 &lt;= nums1[i], nums2[i]&nbsp;&lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -60,13 +59,67 @@ v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
 ### **Python3**
 
 ```python
+class SparseVector:
+    def __init__(self, nums: List[int]):
+        self.v = {}
+        for i, num in enumerate(nums):
+            if num != 0:
+                self.v[i] = num
 
+    # Return the dotProduct of two sparse vectors
+    def dotProduct(self, vec: 'SparseVector') -> int:
+        res = 0
+        if len(self.v) > len(vec.v):
+            self.v, vec.v = vec.v, self.v
+        for i, num in self.v.items():
+            if i not in vec.v:
+                continue
+            res += num * vec.v[i]
+        return res
+
+
+# Your SparseVector object will be instantiated and called as such:
+# v1 = SparseVector(nums1)
+# v2 = SparseVector(nums2)
+# ans = v1.dotProduct(v2)
 ```
 
 ### **Java**
 
 ```java
+class SparseVector {
 
+    private Map<Integer, Integer> v;
+    
+    SparseVector(int[] nums) {
+        v = new HashMap<>();
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] != 0) {
+                v.put(i, nums[i]);
+            }
+        }
+    }
+    
+	// Return the dotProduct of two sparse vectors
+    public int dotProduct(SparseVector vec) {
+        int res = 0;
+        if (v.size() > vec.v.size()) {
+            Map<Integer, Integer> t = v;
+            v = vec.v;
+            vec.v = t;
+        }
+        for (Map.Entry<Integer, Integer> entry : v.entrySet()) {
+            int i = entry.getKey(), num = entry.getValue();
+            res += num * vec.v.getOrDefault(i, 0);
+        }
+        return res;
+    }
+}
+
+// Your SparseVector object will be instantiated and called as such:
+// SparseVector v1 = new SparseVector(nums1);
+// SparseVector v2 = new SparseVector(nums2);
+// int ans = v1.dotProduct(v2);
 ```
 
 ### **...**

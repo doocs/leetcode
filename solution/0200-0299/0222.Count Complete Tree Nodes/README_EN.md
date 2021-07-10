@@ -49,13 +49,186 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def countNodes(self, root: TreeNode) -> int:
+        def depth(root):
+            res = 0
+            while root:
+                res += 1
+                root = root.left
+            return res
 
+        if root is None:
+            return 0
+        left_depth = depth(root.left)
+        right_depth = depth(root.right)
+        if left_depth > right_depth:
+            return (1 << right_depth) + self.countNodes(root.left)
+        return (1 << left_depth) + self.countNodes(root.right)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int countNodes(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftDepth = depth(root.left);
+        int rightDepth = depth(root.right);
+        if (leftDepth > rightDepth) {
+            return (1 << rightDepth) + countNodes(root.left);
+        }
+        return (1 << leftDepth) + countNodes(root.right);
+    }
 
+    private int depth(TreeNode root) {
+        int res = 0;
+        while (root != null) {
+            ++res;
+            root = root.left;
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        if (!root) {
+            return 0;
+        }
+        int leftDepth = depth(root->left);
+        int rightDepth = depth(root->right);
+        if (leftDepth > rightDepth) {
+            return (1 << rightDepth) + countNodes(root->left);
+        }
+        return (1 << leftDepth) + countNodes(root->right);
+    }
+
+private:
+    int depth(TreeNode* root) {
+        int res = 0;
+        while (root) {
+            ++res;
+            root = root->left;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func countNodes(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	leftDepth := depth(root.Left)
+	rightDepth := depth(root.Right)
+	if leftDepth > rightDepth {
+		return (1 << rightDepth) + countNodes(root.Left)
+	}
+	return (1 << leftDepth) + countNodes(root.Right)
+}
+
+func depth(root *TreeNode) int {
+	res := 0
+	for root != nil {
+		res++
+		root = root.Left
+	}
+	return res
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public int CountNodes(TreeNode root) {
+        if (root == null)
+        {
+            return 0;
+        }
+        int leftDepth = depth(root.left);
+        int rightDepth = depth(root.right);
+        if (leftDepth > rightDepth)
+        {
+            return (1 << rightDepth) + CountNodes(root.left);
+        }
+        return (1 << leftDepth) + CountNodes(root.right);
+    }
+
+    private int depth(TreeNode root) {
+        int res = 0;
+        while (root != null)
+        {
+            ++res;
+            root = root.left;
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

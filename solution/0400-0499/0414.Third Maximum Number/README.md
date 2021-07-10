@@ -58,7 +58,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        m1 = m2 = m3 = float('-inf')
+        for num in nums:
+            if num == m1 or num == m2 or num == m3:
+                continue
+            if num > m1:
+                m3, m2, m1 = m2, m1, num
+            elif num > m2:
+                m3, m2 = m2, num
+            elif num > m3:
+                m3 = num
+        return m1 if m3 == float('-inf') else m3
 ```
 
 ### **Java**
@@ -66,7 +78,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int thirdMax(int[] nums) {
+        long m1 = Long.MIN_VALUE;
+        long m2 = Long.MIN_VALUE;
+        long m3 = Long.MIN_VALUE;
+        for (int num : nums) {
+            if (num == m1 || num == m2 || num == m3) {
+                continue;
+            }
+            if (num > m1) {
+                m3 = m2;
+                m2 = m1;
+                m1 = num;
+            } else if (num > m2) {
+                m3 = m2;
+                m2 = num;
+            } else if (num > m3) {
+                m3 = num;
+            }
+        }
+        return (int) (m3 == Long.MIN_VALUE ? m1 : m3);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int thirdMax(vector<int>& nums) {
+        long m1 = LONG_MIN, m2 = LONG_MIN, m3 = LONG_MIN;
+        for (int& num : nums) {
+            if (num == m1 || num == m2 || num == m3) continue;
+            if (num > m1) {
+                m3 = m2;
+                m2 = m1;
+                m1 = num;
+            } else if (num > m2) {
+                m3 = m2;
+                m2 = num;
+            } else if (num > m3) {
+                m3 = num;
+            }
+        }
+        return (int) (m3 == LONG_MIN ? m1 : m3);
+    }
+};
+```
+
+### **Go**
+
+```go
+import "math"
+
+func thirdMax(nums []int) int {
+	m1, m2, m3 := math.MinInt64, math.MinInt64, math.MinInt64
+	for _, num := range nums {
+		if num == m1 || num == m2 || num == m3 {
+			continue
+		}
+		if num > m1 {
+			m3, m2, m1 = m2, m1, num
+		} else if num > m2 {
+			m3, m2 = m2, num
+		} else if num > m3 {
+			m3 = num
+		}
+	}
+	if m3 == math.MinInt64 {
+		return m1
+	}
+	return m3
+}
 ```
 
 ### **...**

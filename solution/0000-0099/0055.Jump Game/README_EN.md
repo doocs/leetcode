@@ -35,7 +35,6 @@
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -43,13 +42,90 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        mx = 0
+        for i, num in enumerate(nums):
+            if i > mx:
+                return False
+            mx = max(mx, i + num)
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean canJump(int[] nums) {
+        int mx = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (i > mx) {
+                return false;
+            }
+            mx = Math.max(mx, i + nums[i]);
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int mx = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i > mx) {
+                return false;
+            }
+            mx = max(mx, i + nums[i]);
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canJump(nums []int) bool {
+	mx := 0
+	for i, num := range nums {
+		if i > mx {
+			return false
+		}
+		mx = max(mx, i+num)
+	}
+	return true
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool CanJump(int[] nums) {
+        int mx = 0;
+        for (int i = 0; i < nums.Length; ++i)
+        {
+            if (i > mx)
+            {
+                return false;
+            }
+            mx = Math.Max(mx, i + nums[i]);
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

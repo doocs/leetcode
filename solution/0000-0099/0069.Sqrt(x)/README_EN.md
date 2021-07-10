@@ -42,15 +42,15 @@ class Solution:
     def mySqrt(self, x: int) -> int:
         if x == 0:
             return 0
-        low, high = 1, x
-        while low < high:
-            mid = (low + high + 1) >> 1
-            # mid * mid <= x
+        left, right = 1, x
+        while left < right:
+            mid = (left + right + 1) >> 1
+            # mid*mid <= x
             if x // mid >= mid:
-                low = mid
+                left = mid
             else:
-                high = mid - 1
-        return low
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
@@ -61,18 +61,42 @@ class Solution {
         if (x == 0) {
             return 0;
         }
-        int low = 1, high = x;
-        while (low < high) {
-            int mid = (low + high + 1) >>> 1;
+        int left = 1, right = x;
+        while (left < right) {
+            int mid = (left + right + 1) >>> 1;
             if (x / mid >= mid) {
-                low = mid;
+                // mid*mid <= x
+                left = mid;
             } else {
-                high = mid - 1;
+                right = mid - 1;
             }
         }
-        return low;
+        return left;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int mySqrt(int x) {
+        if (x == 0) {
+            return 0;
+        }
+        int left = 1, right = x;
+        while (left < right) {
+            int mid = left + ((right - left + 1) >> 1);
+            if (x / mid >= mid) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+};
 ```
 
 ### **JavaScript**
@@ -86,17 +110,17 @@ var mySqrt = function(x) {
     if (x == 0) {
         return 0;
     }
-    let low = 1;
-    let high = x;
-    while (low < high) {
-        const mid = low + ((high - low + 1) >> 1);
+    let left = 1;
+    let right = x;
+    while (left < right) {
+        const mid = (left + right + 1) >>> 1;
         if (x / mid >= mid) {
-            low = mid;
+            left = mid;
         } else {
-            high = mid - 1;
+            right = mid - 1;
         }
     }
-    return low;
+    return left;
 };
 ```
 
@@ -107,16 +131,16 @@ func mySqrt(x int) int {
 	if x == 0 {
 		return 0
 	}
-	low, high := 1, x
-	for low < high {
-		mid := low + (high-low+1)>>1
+	left, right := 1, x
+	for left < right {
+		mid := left + (right-left+1)>>1
 		if x/mid >= mid {
-			low = mid
+			left = mid
 		} else {
-			high = mid - 1
+			right = mid - 1
 		}
 	}
-	return low
+	return left
 }
 ```
 
@@ -128,20 +152,20 @@ public class Solution {
         if (x == 0) {
             return 0;
         }
-        int low = 1, high = x;
-        while (low < high)
+        int left = 1, right = x;
+        while (left < right)
         {
-            int mid = low + ((high - low + 1) >> 1);
+            int mid = left + right + 1 >> 1;
             if (x / mid >= mid)
             {
-                low = mid;
+                left = mid;
             } 
             else 
             {
-                high = mid - 1;
+                right = mid - 1;
             }
         }
-        return low;
+        return left;
     }
 }
 ```

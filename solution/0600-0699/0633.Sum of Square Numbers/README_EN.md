@@ -50,10 +50,9 @@
 	<li><code>0 &lt;= c &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
-![](./images/table.png)
+![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0633.Sum%20of%20Square%20Numbers/images/table.png)
 
 The picture above shows the relationship between `a`, `b`, and `c`. This question is actually looking up `c` in this table
 
@@ -96,6 +95,61 @@ class Solution {
         }
         return false;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function judgeSquareSum(c: number): boolean {
+    let a = 0, b = Math.floor(Math.sqrt(c));
+    while (a <= b) {
+        let sum = a ** 2 + b ** 2;
+        if (sum == c) return true;
+        if (sum < c) {
+            ++a;
+        } else {
+            --b;
+        }
+    }
+    return false;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        long i = 0, j = (long) sqrt(c);
+        while (i <= j) {
+            long s = i * i + j * j;
+            if (s < c) ++i;
+            else if (s > c) --j;
+            else return true;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func judgeSquareSum(c int) bool {
+	i, j := 0, int(math.Sqrt(float64(c)))
+	for i <= j {
+		s := i*i + j*j
+		if s < c {
+			i++
+		} else if s > c {
+			j--
+		} else {
+			return true
+		}
+	}
+	return false
 }
 ```
 
