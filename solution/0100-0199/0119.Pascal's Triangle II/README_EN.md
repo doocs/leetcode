@@ -37,13 +37,57 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        def makePascal(prevArr):
+            if len(prevArr) == 0:
+                return [1]
+            elif len(prevArr) == 1:
+                return [1, 1]
+            else:
+                NewArr = [0] * (len(prevArr) + 1)
+                NewArr[0], NewArr[-1] = 1, 1
+                for i in range(len(prevArr) - 1):
+                    NewArr[i + 1] = prevArr[i] + prevArr[i + 1]
+                return NewArr
 
+        temp = []
+        Pascal = []
+        for i in range(rowIndex + 1):
+            temp = makePascal(temp)
+            Pascal.append(temp)
+        return Pascal[rowIndex]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> getRow(int rowIndex) {
+        List<Integer> ret = new LinkedList<>();
+        long nk = 1;
+        for (int i = 0; i <= rowIndex; i++) {
+            ret.add((int) nk);
+            nk = nk * (rowIndex - i) / (i + 1);
+        }
+        return ret;
+    }
+}
+```
 
+### **Go**
+
+```go
+func getRow(rowIndex int) []int {
+	row := make([]int, rowIndex+1)
+	row[0] = 1
+	for i := 1; i <= rowIndex; i++ {
+		for j := i; j > 0; j-- {
+			row[j] += row[j-1]
+		}
+	}
+	return row
+}
 ```
 
 ### **...**
