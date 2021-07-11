@@ -80,6 +80,51 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.size() != t.size()) {
+            return false;
+        }
+        vector<int> chars(26, 0);
+        for (int i = 0, n = s.size(); i < n; ++i) {
+            ++chars[s[i] - 'a'];
+            --chars[t[i] - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if (chars[i] != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isAnagram(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
+	var chars [26]int
+	for i := 0; i < len(s); i++ {
+		chars[s[i]-'a']++
+		chars[t[i]-'a']--
+	}
+	for i := 0; i < 26; i++ {
+		if chars[i] != 0 {
+			return false
+		}
+	}
+	return true
+}
+```
+
 ### **...**
 
 ```
