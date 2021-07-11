@@ -54,13 +54,10 @@
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        if not prices:
-            return 0
-        res = 0
-        min_price = prices[0]
-        for price in prices:
-            min_price = min(min_price, price)
-            res = max(res, price - min_price)
+        res, mi = 0, prices[0]
+        for price in prices[1:]:
+            res = max(res, price - mi)
+            mi = min(mi, price)
         return res
 ```
 
@@ -71,15 +68,56 @@ class Solution:
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
-        if (prices == null) return 0;
-        int res = 0;
-        int min = Integer.MAX_VALUE;
-        for (int price : prices) {
-            min = Math.min(min, price);
-            res = Math.max(res, price - min);
+        int res = 0, mi = prices[0];
+        for (int i = 1; i < prices.length; ++i) {
+            res = Math.max(res, prices[i] - mi);
+            mi = Math.min(mi, prices[i]);
         }
         return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int res = 0, mi = prices[0];
+        for (int i = 1; i < prices.size(); ++i) {
+            res = max(res, prices[i] - mi);
+            mi = min(mi, prices[i]);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProfit(prices []int) int {
+	res, mi := 0, prices[0]
+	for i := 1; i < len(prices); i++ {
+		res = max(res, prices[i]-mi)
+		mi = min(min, prices[i])
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -90,19 +128,31 @@ class Solution {
  * @param {number[]} prices
  * @return {number}
  */
-const maxProfit = function (prices) {
-  let min = prices[0];
-  let profit = 0;
-  for (let i = 0; i < prices.length; i++) {
-    if (prices[i] < min) {
-      min = prices[i];
+var maxProfit = function(prices) {
+    let res = 0;
+    let mi = prices[0];
+    for (let i = 1; i < prices.length; ++i) {
+        res = Math.max(res, prices[i] - mi);
+        mi = Math.min(mi, prices[i]);
     }
-    if (profit < prices[i] - min) {
-      profit = prices[i] - min;
-    }
-  }
-  return profit;
+    return res;
 };
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaxProfit(int[] prices) {
+        int res = 0, mi = prices[0];
+        for (int i = 1; i < prices.Length; ++i)
+        {
+            res = Math.Max(res, prices[i] - mi);
+            mi = Math.Min(mi, prices[i]);
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
