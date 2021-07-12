@@ -50,14 +50,12 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         # 买入，卖出，继续空仓
         f1, f2, f3 = -prices[0], 0, 0
-        res = f2
         for price in prices[1:]:
             pf1, pf2, pf3 = f1, f2, f3
             f1 = max(pf1, pf3 - price)
             f2 = max(pf2, pf1 + price)
             f3 = max(pf3, pf2)
-            res = max(res, f2)
-        return res
+        return f2
 ```
 
 ### **Java**
@@ -69,15 +67,13 @@ class Solution {
     public int maxProfit(int[] prices) {
         // 买入，卖出，继续空仓
         int f1 = -prices[0], f2 = 0, f3 = 0;
-        int res = f2;
         for (int i = 1; i < prices.length; ++i) {
             int pf1 = f1, pf2 = f2, pf3 = f3;
             f1 = Math.max(pf1, pf3 - prices[i]);
             f2 = Math.max(pf2, pf1 + prices[i]);
             f3 = Math.max(pf3, pf2);
-            res = Math.max(res, f2);
         }
-        return res;
+        return f2;
     }
 }
 ```
@@ -89,15 +85,13 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         int f1 = -prices[0], f2 = 0, f3 = 0;
-        int res = f2;
         for (int i = 1; i < prices.size(); ++i) {
             int pf1 = f1, pf2 = f2, pf3 = f3;
             f1 = max(pf1, pf3 - prices[i]);
             f2 = max(pf2, pf1 + prices[i]);
             f3 = max(pf3, pf2);
-            res = max(res, f2);
         }
-        return res;
+        return f2;
     }
 };
 ```
@@ -106,15 +100,14 @@ public:
 
 ```go
 func maxProfit(prices []int) int {
-	f1, f2, f3, res := -prices[0], 0, 0, 0
+	f1, f2, f3 := -prices[0], 0, 0
 	for i := 1; i < len(prices); i++ {
 		pf1, pf2, pf3 := f1, f2, f3
 		f1 = max(pf1, pf3-prices[i])
 		f2 = max(pf2, pf1+prices[i])
 		f3 = max(pf3, pf2)
-		res = max(res, f2)
 	}
-	return res
+	return f2
 }
 
 func max(a, b int) int {
