@@ -1,14 +1,15 @@
 class Solution {
-    public int minEatingSpeed(int[] piles, int h) {
+public:
+    int minEatingSpeed(vector<int>& piles, int h) {
         int mx = 0;
-        for (int pile : piles) {
-            mx = Math.max(mx, pile);
+        for (auto pile : piles) {
+            mx = max(mx, pile);
         }
         int left = 1, right = mx;
         while (left < right) {
-            int mid = (left + right) >>> 1;
+            int mid = left + right >> 1;
             int s = 0;
-            for (int pile : piles) {
+            for (auto pile : piles) {
                 s += (pile + mid - 1) / mid;
             }
             if (s <= h) {
@@ -19,4 +20,4 @@ class Solution {
         }
         return left;
     }
-}
+};
