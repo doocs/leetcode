@@ -5,11 +5,11 @@
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        low, high = 0, n
-        while low < high:
-            mid = low + high >> 1
+        left, right = 1, n
+        while left < right:
+            mid = (left + right) >> 1
             if guess(mid) <= 0:
-                high = mid
+                right = mid
             else:
-                low = mid + 1
-        return low
+                left = mid + 1
+        return left
