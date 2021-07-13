@@ -1,9 +1,10 @@
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        for (int p = 0, q = nums.length - 1; p < q;) {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        for (int p = 0, q = nums.size() - 1; p < q;) {
             int s = nums[p] + nums[q];
             if (s == target) {
-                return new int[]{nums[p], nums[q]};
+                return vector<int>{nums[p], nums[q]};
             }
             if (s < target) {
                 ++p;
@@ -11,6 +12,6 @@ class Solution {
                 --q;
             }
         }
-        return null;
+        return vector<int>{};
     }
-}
+};
