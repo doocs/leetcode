@@ -60,12 +60,18 @@ class Solution:
 class Solution {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
         int m, n;
-        if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0) return false;
-        int i = 0, j = n - 1;
-        while (i < m && j >= 0) {
-            if (matrix[i][j] == target) return true;
-            if (matrix[i][j] > target) --j;
-            else ++i;
+        if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0) {
+            return false;
+        }
+        for (int i = 0, j = n - 1; i < m && j >= 0;) {
+            if (matrix[i][j] == target) {
+                return true;
+            }
+            if (matrix[i][j] < target) {
+                ++i;
+            } else {
+                --j;
+            }
         }
         return false;
     }
@@ -81,22 +87,21 @@ class Solution {
  * @return {boolean}
  */
 var findNumberIn2DArray = function (matrix, target) {
-  let m, n;
-  if (
-    matrix == null ||
-    (m = matrix.length) == 0 ||
-    matrix[0] == null ||
-    (n = matrix[0].length) == 0
-  )
+    let m, n;
+    if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0) {
+        return false;
+    }
+    for (let i = 0, j = n - 1; i < m && j >= 0;) {
+        if (matrix[i][j] == target) {
+            return true;
+        }
+        if (matrix[i][j] < target) {
+            ++i;
+        } else {
+            --j;
+        }
+    }
     return false;
-  let i = 0,
-    j = n - 1;
-  while (i < m && j >= 0) {
-    if (matrix[i][j] == target) return true;
-    if (matrix[i][j] > target) --j;
-    else ++i;
-  }
-  return false;
 };
 ```
 
@@ -104,22 +109,21 @@ var findNumberIn2DArray = function (matrix, target) {
 
 ```go
 func findNumberIn2DArray(matrix [][]int, target int) bool {
-    if len(matrix) == 0 {
-        return false
-    }
-    rows, cols := len(matrix), len(matrix[0])
-    i, j := rows - 1, 0
-    for i >= 0 && j < cols {
-        if matrix[i][j] == target {
-            return true
-        }
-        if matrix[i][j] > target {
-            i--
-        } else {
-            j++
-        }
-    }
-    return false
+	if len(matrix) == 0 {
+		return false
+	}
+	m, n := len(matrix), len(matrix[0])
+	for i, j := 0, n-1; i < m && j >= 0; {
+		if matrix[i][j] == target {
+			return true
+		}
+		if matrix[i][j] < target {
+			i++
+		} else {
+			j--
+		}
+	}
+	return false
 }
 ```
 
