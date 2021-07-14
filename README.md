@@ -179,6 +179,7 @@
 - [买卖股票的最佳时机含手续费](./solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README.md)
 - [单词拆分](./solution/0100-0199/0139.Word%20Break/README.md)
 - [接雨水](./solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
+- [等差数列划分](./solution/0400-0499/0413.Arithmetic%20Slices/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
 - [最小路径和](./solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
 - [解码方法](./solution/0000-0099/0091.Decode%20Ways/README.md)

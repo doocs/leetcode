@@ -173,6 +173,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Best Time to Buy and Sell Stock with Transaction Fee](./solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md)
 - [Word Break](./solution/0100-0199/0139.Word%20Break/README_EN.md)
 - [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
+- [Arithmetic Slices](./solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
 - [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)
 - [Longest Increasing Subsequence](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
