@@ -63,7 +63,7 @@
 ```python
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        left, right = 1, sum(piles)
+        left, right = 1, max(piles)
         while left < right:
             mid = (left + right) >> 1
             s = sum([(pile + mid - 1) // mid for pile in piles])
@@ -160,6 +160,34 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MinEatingSpeed(int[] piles, int h) {
+        int left = 1, right = piles.Max();
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            int s = 0;
+            foreach (int pile in piles)
+            {
+                s += (pile + mid - 1) / mid;
+            }
+            if (s <= h)
+            {
+                right = mid;
+            }
+            else
+            {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
 }
 ```
 

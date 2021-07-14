@@ -1,6 +1,6 @@
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        left, right = 1, sum(piles)
+        left, right = 1, max(piles)
         while left < right:
             mid = (left + right) >> 1
             s = sum([(pile + mid - 1) // mid for pile in piles])
