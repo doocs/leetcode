@@ -62,24 +62,23 @@ Hence, the maximum k is 2.
 ```python
 class Solution:
     def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
-        def isSubsequence(mid):
-            m, n = len(s), len(p)
-            i = j = 0
-            ids = {e for e in removable[:mid]}
+        def check(mid):
+            m, n, i, j = len(s), len(p), 0, 0
+            ids = set(removable[:mid])
             while i < m and j < n:
                 if i not in ids and s[i] == p[j]:
                     j += 1
                 i += 1
             return j == n
 
-        low, high = 0, len(removable)
-        while low < high:
-            mid = (low + high + 1) >> 1
-            if isSubsequence(mid):
-                low = mid
+        left, right = 0, len(removable)
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if check(mid):
+                left = mid
             else:
-                high = mid - 1
-        return low
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
@@ -87,21 +86,20 @@ class Solution:
 ```java
 class Solution {
     public int maximumRemovals(String s, String p, int[] removable) {
-        int low = 0, high = removable.length;
-        while (low < high) {
-            int mid = (low + high + 1) >> 1;
-            if (isSubsequence(s, p, removable, mid)) {
-                low = mid;
+        int left = 0, right = removable.length;
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(s, p, removable, mid)) {
+                left = mid;
             } else {
-                high = mid - 1;
+                right = mid - 1;
             }
         }
-        return low;
+        return left;
     }
 
-    private boolean isSubsequence(String s, String p, int[] removable, int mid) {
-        int m = s.length(), n = p.length();
-        int i = 0, j = 0;
+    private boolean check(String s, String p, int[] removable, int mid) {
+        int m = s.length(), n = p.length(), i = 0, j = 0;
         Set<Integer> ids = new HashSet<>();
         for (int k = 0; k < mid; ++k) {
             ids.add(removable[k]);
@@ -143,6 +141,73 @@ function isSub(str: string, sub: string, idxes: Set<number>): boolean {
         ++i;
     }
     return j == n;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumRemovals(string s, string p, vector<int>& removable) {
+        int left = 0, right = removable.size();
+        while (left < right) {
+            int mid = left + right + 1 >> 1;
+            if (check(s, p, removable, mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
+    bool check(string s, string p, vector<int>& removable, int mid) {
+        int m = s.size(), n = p.size(), i = 0, j = 0;
+        unordered_set<int> ids;
+        for (int k = 0; k < mid; ++k) {
+            ids.insert(removable[k]);
+        }
+        while (i < m && j < n) {
+            if (ids.count(i) == 0 && s[i] == p[j]) {
+                ++j;
+            }
+            ++i;
+        }
+        return j == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumRemovals(s string, p string, removable []int) int {
+	left, right := 0, len(removable)
+	for left < right {
+		mid := (left + right + 1) >> 1
+		if check(s, p, removable, mid) {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
+
+func check(s string, p string, removable []int, mid int) bool {
+	m, n, i, j := len(s), len(p), 0, 0
+	ids := make(map[int]bool)
+	for k := 0; k < mid; k++ {
+		ids[removable[k]] = true
+	}
+	for i < m && j < n {
+		if !ids[i] && s[i] == p[j] {
+			j++
+		}
+		i++
+	}
+	return j == n
 }
 ```
 
