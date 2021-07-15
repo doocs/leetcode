@@ -175,6 +175,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
 - [Arithmetic Slices](./solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md)
 - [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)
+- [Unique Binary Search Trees](./solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
 - [Longest Increasing Subsequence](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 - [Russian Doll Envelopes](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)

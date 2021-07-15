@@ -181,6 +181,7 @@
 - [接雨水](./solution/0000-0099/0042.Trapping%20Rain%20Water/README.md)
 - [等差数列划分](./solution/0400-0499/0413.Arithmetic%20Slices/README.md)
 - [解码方法](./solution/0000-0099/0091.Decode%20Ways/README.md)
+- [不同的二叉搜索树](./solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
 - [最小路径和](./solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
 - [最长上升子序列](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)

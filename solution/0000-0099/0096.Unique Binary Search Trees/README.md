@@ -21,10 +21,11 @@
     /     /       \                 \
    2     1         2                 3</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+假设 n 个节点存在二叉搜索树的个数是 `G(n)`，1 为根节点，2 为根节点，...，n 为根节点，当 1 为根节点时，其左子树节点个数为 0，右子树节点个数为 n-1，同理当 2 为根节点时，其左子树节点个数为 1，右子树节点为 n-2，所以可得 `G(n) = G(0) * G(n-1) + G(1) * (n-2) + ... + G(n-1) * G(0)`。
 
 <!-- tabs:start -->
 
@@ -33,7 +34,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numTrees(self, n: int) -> int:
+        dp = [0] * (n + 1)
+        dp[0] = 1
+        for i in range(1, n + 1):
+            for j in range(i):
+                dp[i] += dp[j] * dp[i - j - 1]
+        return dp[-1]
 ```
 
 ### **Java**
@@ -41,7 +49,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numTrees(int n) {
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                dp[i] += dp[j] * dp[i - j - 1];
+            }
+        }
+        return dp[n];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numTrees(int n) {
+        vector<int> dp(n + 1);
+        dp[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                dp[i] += dp[j] * dp[i - j - 1];
+            }
+        }
+        return dp[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func numTrees(n int) int {
+	dp := make([]int, n+1)
+	dp[0] = 1
+	for i := 1; i <= n; i++ {
+		for j := 0; j < i; j++ {
+			dp[i] += dp[j] * dp[i-j-1]
+		}
+	}
+	return dp[n]
+}
 ```
 
 ### **...**
