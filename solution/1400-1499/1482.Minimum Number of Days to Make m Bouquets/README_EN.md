@@ -134,7 +134,7 @@ It is obvious that we can make two bouquets in different ways.
 
 ## Solutions
 
-Quickly locate using binary search
+Quickly locate using binary search.
 
 <!-- tabs:start -->
 
@@ -147,7 +147,7 @@ class Solution:
             return -1
 
         def check(day: int) -> bool:
-            cnt, cur = 0, 0
+            cnt = cur = 0
             for bd in bloomDay:
                 cur = cur + 1 if bd <= day else 0
                 if cur == k:
@@ -157,7 +157,7 @@ class Solution:
 
         left, right = min(bloomDay), max(bloomDay)
         while left < right:
-            mid = (left + right) // 2
+            mid = (left + right) >> 1
             if check(mid):
                 right = mid
             else:
@@ -201,6 +201,101 @@ class Solution {
         }
         return cnt >= m;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minDays(vector<int>& bloomDay, int m, int k) {
+        if (m * k > bloomDay.size()) {
+            return -1;
+        }
+        int mi = INT_MIN, mx = INT_MAX;
+        for (int& bd : bloomDay) {
+            mi = min(mi, bd);
+            mx = max(mx, bd);
+        }
+        int left = mi, right = mx;
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (check(bloomDay, m, k, mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+
+    bool check(vector<int>& bloomDay, int m, int k, int day) {
+        int cnt = 0, cur = 0;
+        for (int& bd : bloomDay) {
+            cur = bd <= day ? cur + 1 : 0;
+            if (cur == k) {
+                ++cnt;
+                cur = 0;
+            }
+        }
+        return cnt >= m;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minDays(bloomDay []int, m int, k int) int {
+	if m*k > len(bloomDay) {
+		return -1
+	}
+	mi, mx := 0, 1000000000
+	for _, bd := range bloomDay {
+		mi = min(mi, bd)
+		mx = max(mx, bd)
+	}
+	left, right := mi, mx
+	for left < right {
+		mid := (left + right) >> 1
+		if check(bloomDay, m, k, mid) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+
+func check(bloomDay []int, m, k, day int) bool {
+	cnt, cur := 0, 0
+	for _, bd := range bloomDay {
+		if bd <= day {
+			cur++
+		} else {
+			cur = 0
+		}
+		if cur == k {
+			cnt++
+			cur = 0
+		}
+	}
+	return cnt >= m
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 
