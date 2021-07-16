@@ -36,24 +36,11 @@
 ```python
 class Solution:
     def getRow(self, rowIndex: int) -> List[int]:
-        def makePascal(prevArr):
-            if len(prevArr) == 0:
-                return [1]
-            elif len(prevArr) == 1:
-                return [1, 1]
-            else:
-                NewArr = [0] * (len(prevArr) + 1)
-                NewArr[0], NewArr[-1] = 1, 1
-                for i in range(len(prevArr) - 1):
-                    NewArr[i + 1] = prevArr[i] + prevArr[i + 1]
-                return NewArr
-
-        temp = []
-        Pascal = []
-        for i in range(rowIndex + 1):
-            temp = makePascal(temp)
-            Pascal.append(temp)
-        return Pascal[rowIndex]
+        row = [1] * (rowIndex + 1)
+        for i in range(2, rowIndex + 1):
+            for j in range(i - 1, 0, -1):
+                row[j] += row[j - 1]
+        return row
 ```
 
 ### **Java**
@@ -63,15 +50,35 @@ class Solution:
 ```java
 class Solution {
     public List<Integer> getRow(int rowIndex) {
-        List<Integer> ret = new LinkedList<>();
-        long nk = 1;
-        for (int i = 0; i <= rowIndex; i++) {
-            ret.add((int) nk);
-            nk = nk * (rowIndex - i) / (i + 1);
+        List<Integer> row = new ArrayList<>();
+        for (int i = 0; i < rowIndex + 1; ++i) {
+            row.add(1);
         }
-        return ret;
+        for (int i = 2; i < rowIndex + 1; ++i) {
+            for (int j = i - 1; j > 0; --j) {
+                row.set(j, row.get(j) + row.get(j - 1));
+            }
+        }
+        return row;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+        vector<int> row(rowIndex + 1, 1);
+        for (int i = 2; i < rowIndex + 1; ++i) {
+            for (int j = i - 1; j > 0; --j) {
+                row[j] += row[j - 1];
+            }
+        }
+        return row;
+    }
+};
 ```
 
 ### **Go**

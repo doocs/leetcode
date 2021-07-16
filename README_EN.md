@@ -177,6 +177,8 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)
 - [Unique Binary Search Trees](./solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md)
 - [Ugly Number II](./solution/0200-0299/0264.Ugly%20Number%20II/README_EN.md)
+- [Pascal's Triangle](./solution/0100-0199/0118.Pascal%27s%20Triangle/README_EN.md)
+- [Pascal's Triangle II](./solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
 - [Longest Increasing Subsequence](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 - [Russian Doll Envelopes](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
