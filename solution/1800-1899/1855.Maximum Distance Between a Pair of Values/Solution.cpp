@@ -2,17 +2,18 @@ class Solution {
 public:
     int maxDistance(vector<int>& nums1, vector<int>& nums2) {
         int res = 0;
-        for (int i = 0; i < nums1.size(); ++i) {
-            int l = i, r = nums2.size() - 1;
-            while (l <= r) {
-                int mid = (l + r) >> 1;
+        int m = nums1.size(), n = nums2.size();
+        for (int i = 0; i < m; ++i) {
+            int left = i, right = n - 1;
+            while (left < right) {
+                int mid = (left + right + 1) >> 1;
                 if (nums2[mid] >= nums1[i]) {
-                    res = max(res, mid - i);
-                    l = mid + 1;
+                    left = mid;
                 } else {
-                    r = mid - 1;
+                    right = mid - 1;
                 }
             }
+            res = max(res, left - i);
         }
         return res;
     }

@@ -1,13 +1,13 @@
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
-        res = 0
-        for i in range(len(nums1)):
-            l, r = i, len(nums2) - 1
-            while l <= r:
-                mid = (l + r) >> 1
-                if nums2[mid] >= nums1[i]:
-                    res = max(res, mid - i)
-                    l = mid + 1
+        res, n = 0, len(nums2)
+        for i, num in enumerate(nums1):
+            left, right = i, n - 1
+            while left < right:
+                mid = (left + right + 1) >> 1
+                if nums2[mid] >= num:
+                    left = mid
                 else:
-                    r = mid - 1
+                    right = mid - 1
+            res = max(res, left - i)
         return res
