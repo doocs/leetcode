@@ -1,7 +1,5 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        if numRows == 0:
-            return []
         res = []
         for i in range(numRows):
             t = [1 if j == 0 or j == i else 0 for j in range(i + 1)]

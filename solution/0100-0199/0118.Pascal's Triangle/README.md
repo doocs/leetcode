@@ -40,8 +40,6 @@
 ```python
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        if numRows == 0:
-            return []
         res = []
         for i in range(numRows):
             t = [1 if j == 0 or j == i else 0 for j in range(i + 1)]
@@ -59,13 +57,10 @@ class Solution:
 class Solution {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<>();
-        if (numRows == 0) return res;
         for (int i = 0; i < numRows; ++i) {
-            // 每一行
             List<Integer> t = new ArrayList<>();
             for (int j = 0; j < i + 1; ++j) {
                 boolean firstOrLast = j == 0 || j == i;
-                // 设置每一行首尾元素为1，其它元素为0
                 t.add(firstOrLast ? 1 : 0);
             }
             for (int j = 1; j < i; ++j) {
@@ -76,6 +71,45 @@ class Solution {
         }
         return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> res;
+        for (int i = 0; i < numRows; ++i) {
+            vector<int> t(i + 1);
+            t[0] = 1;
+            t[i] = 1;
+            for (int j = 1; j < i; ++j) {
+                t[j] = res[i - 1][j - 1] + res[i - 1][j];
+            }
+            res.push_back(t);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func generate(numRows int) [][]int {
+	res := make([][]int, numRows)
+	for i := 0; i < numRows; i++ {
+		t := make([]int, i+1)
+		t[0] = 1
+		t[i] = 1
+		for j := 1; j < i; j++ {
+			t[j] = res[i-1][j-1] + res[i-1][j]
+		}
+		res[i] = t
+	}
+	return res
 }
 ```
 
