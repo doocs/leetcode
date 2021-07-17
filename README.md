@@ -186,6 +186,7 @@
 - [杨辉三角](./solution/0100-0199/0118.Pascal%27s%20Triangle/README.md)
 - [杨辉三角 II](./solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README.md)
 - [下降路径最小和](./solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README.md)
+- [三角形最小路径和](./solution/0100-0199/0120.Triangle/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
 - [最小路径和](./solution/0000-0099/0064.Minimum%20Path%20Sum/README.md)
 - [最长上升子序列](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
