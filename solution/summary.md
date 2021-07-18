@@ -1972,3 +1972,4 @@
   - [1931.Painting a Grid With Three Different Colors](/solution/1900-1999/1931.Painting%20a%20Grid%20With%20Three%20Different%20Colors/README.md)
   - [1932.Merge BSTs to Create Single BST](/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README.md)
   - [1933.Check if String Is Decomposable Into Value-Equal Substrings](/solution/1900-1999/1933.Check%20if%20String%20Is%20Decomposable%20Into%20Value-Equal%20Substrings/README.md)
+  - [1934.Confirmation Rate](/solution/1900-1999/1934.Confirmation%20Rate/README.md)
