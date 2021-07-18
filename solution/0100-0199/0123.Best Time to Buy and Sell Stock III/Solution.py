@@ -1,12 +1,9 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        length = len(prices)
-        if 0 == length:
-            return 0
-        dp = [([0] * length) for i in range(3)]
-        for i in range(1, 3, 1):
-            maxdiff = -((1 << 31) - 1)
-            for j in range(1, length, 1):
-                maxdiff = max(maxdiff, dp[i-1][j-1] - prices[j-1])
-                dp[i][j] = max(dp[i][j - 1], maxdiff + prices[j])
-        return dp[2][length - 1]
+        f1, f2, f3, f4 = -prices[0], 0, -prices[0], 0
+        for price in prices[1:]:
+            f1 = max(f1, -price)
+            f2 = max(f2, f1 + price)
+            f3 = max(f3, f2 - price)
+            f4 = max(f4, f3 + price)
+        return f4

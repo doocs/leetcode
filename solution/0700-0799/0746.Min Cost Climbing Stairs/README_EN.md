@@ -45,12 +45,10 @@
 ```python
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
-        pre = cur = 0
-        n = len(cost)
-        for i in range(1, n):
-            t = min(cost[i] + cur, cost[i - 1] + pre)
-            pre, cur = cur, t
-        return cur
+        a = b = 0
+        for i in range(1, len(cost)):
+            a, b = b, min(a + cost[i - 1], b + cost[i])
+        return b
 ```
 
 ### **Java**
@@ -58,14 +56,62 @@ class Solution:
 ```java
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
-        int pre = 0, cur = 0;
-        for (int i = 1, n = cost.length; i < n; ++i) {
-            int t = Math.min(cost[i] + cur, cost[i - 1] + pre);
-            pre = cur;
-            cur = t;
+        int a = 0, b = 0;
+        for (int i = 1; i < cost.length; ++i) {
+            int c = Math.min(a + cost[i - 1], b + cost[i]);
+            a = b;
+            b = c;
         }
-        return cur;
+        return b;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function minCostClimbingStairs(cost: number[]): number {
+    let a = 0, b = 0;
+    for (let i = 1; i < cost.length; ++i) {
+        [a, b] = [b, Math.min(a + cost[i - 1], b + cost[i])];
+    }
+    return b;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int a = 0, b = 0;
+        for (int i = 1; i < cost.size(); ++i) {
+            int c = min(a + cost[i - 1], b + cost[i]);
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	a, b := 0, 0
+	for i := 1; i < len(cost); i++ {
+		a, b = b, min(a+cost[i-1], b+cost[i])
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 

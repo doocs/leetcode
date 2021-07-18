@@ -48,12 +48,11 @@
 ```python
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        maxf = minf = nums[0]
-        res, n = nums[0], len(nums)
-        for i in range(1, n):
-            p, q = maxf, minf
-            maxf = max(nums[i], p * nums[i], q * nums[i])
-            minf = min(nums[i], p * nums[i], q * nums[i])
+        maxf = minf = res = nums[0]
+        for num in nums[1:]:
+            m, n = maxf, minf
+            maxf = max(num, m * num, n * num)
+            minf = min(num, m * num, n * num)
             res = max(res, maxf)
         return res
 ```
@@ -65,16 +64,97 @@ class Solution:
 ```java
 class Solution {
     public int maxProduct(int[] nums) {
-        int maxf = nums[0], minf = nums[0];
-        int res = nums[0], n = nums.length;
-        for (int i = 1; i < n; ++i) {
-            int p = maxf, q = minf;
-            maxf = Math.max(nums[i], Math.max(p * nums[i], q * nums[i]));
-            minf = Math.min(nums[i], Math.min(p * nums[i], q * nums[i]));
+        int maxf = nums[0], minf = nums[0], res = nums[0];
+        for (int i = 1; i < nums.length; ++i) {
+            int m = maxf, n = minf;
+            maxf = Math.max(nums[i], Math.max(m * nums[i], n * nums[i]));
+            minf = Math.min(nums[i], Math.min(m * nums[i], n * nums[i]));
             res = Math.max(res, maxf);
         }
         return res;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxProduct(nums: number[]): number {
+    let n = nums.length;
+    let preMax = nums[0], preMin = nums[0], ans = nums[0];
+    for (let i = 1; i < n; ++i) {
+        let cur = nums[i];
+        let x = preMax, y = preMin;
+        preMax = Math.max(x * cur, y * cur, cur);
+        preMin = Math.min(x * cur, y * cur, cur);
+        ans = Math.max(preMax, ans);
+    }
+    return ans;
+};
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaxProduct(int[] nums) {
+        int maxf = nums[0], minf = nums[0], res = nums[0];
+        for (int i = 1; i < nums.Length; ++i)
+        {
+            int m = maxf, n = minf;
+            maxf = Math.Max(nums[i], Math.Max(nums[i] * m, nums[i] * n));
+            minf = Math.Min(nums[i], Math.Min(nums[i] * m, nums[i] * n));
+            res = Math.Max(res, maxf);
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int maxf = nums[0], minf = nums[0], res = nums[0];
+        for (int i = 1; i < nums.size(); ++i) {
+            int m = maxf, n = minf;
+            maxf = max(nums[i], max(nums[i] * m, nums[i] * n));
+            minf = min(nums[i], min(nums[i] * m, nums[i] * n));
+            res = max(res, maxf);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProduct(nums []int) int {
+	maxf, minf, res := nums[0], nums[0], nums[0]
+	for i := 1; i < len(nums); i++ {
+		m, n := maxf, minf
+		maxf = max(nums[i], max(nums[i]*m, nums[i]*n))
+		minf = min(nums[i], min(nums[i]*m, nums[i]*n))
+		res = max(res, maxf)
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 

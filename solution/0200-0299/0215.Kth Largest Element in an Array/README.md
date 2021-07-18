@@ -28,6 +28,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+快速排序 partition 实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -35,7 +37,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        def quickSort(nums, left, right, k):
+            if left == right:
+                return nums[left]
+            i, j = left - 1, right + 1
+            x = nums[(left + right) >> 1]
+            while i < j:
+                while 1:
+                    i += 1
+                    if nums[i] >= x:
+                        break
+                while 1:
+                    j -= 1
+                    if nums[j] <= x:
+                        break
+                if i < j:
+                    nums[i], nums[j] = nums[j], nums[i]
+            if j < k:
+                return quickSort(nums, j + 1, right, k)
+            return quickSort(nums, left, j, k)
 
+        n = len(nums)
+        return quickSort(nums, 0, n - 1, n - k)
 ```
 
 ### **Java**
@@ -43,7 +68,103 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        int n = nums.length;
+        return quickSort(nums, 0, n - 1, n - k);
+    }
 
+    private int quickSort(int[] nums, int left, int right, int k) {
+        if (left == right) {
+            return nums[left];
+        }
+        int i = left - 1, j = right + 1;
+        int x = nums[(left + right) >>> 1];
+        while (i < j) {
+            while (nums[++i] < x);
+            while (nums[--j] > x);
+            if (i < j) {
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
+            }
+        }
+        if (j < k) {
+            return quickSort(nums, j + 1, right, k);
+        }
+        return quickSort(nums, left, j, k);
+
+    }
+}
+```
+
+###  **C++**
+
+```cpp
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int n = nums.size();
+        return quickSort(nums, 0, n - 1, n - k);
+    }
+
+    int quickSort(vector<int>& nums, int left, int right, int k) {
+        if (left == right) {
+            return nums[left];
+        }
+        int i = left - 1, j = right + 1;
+        int x = nums[left + right >> 1];
+        while (i < j) {
+            while (nums[++i] < x);
+            while (nums[--j] > x);
+            if (i < j) {
+                swap(nums[i], nums[j]);
+            }
+        }
+        if (j < k) {
+            return quickSort(nums, j + 1, right, k);
+        }
+        return quickSort(nums, left, j, k);
+    }
+};
+```
+
+### **Go**
+
+```go
+func findKthLargest(nums []int, k int) int {
+	n := len(nums)
+	return quickSort(nums, 0, n-1, n-k)
+}
+
+func quickSort(nums []int, left, right, k int) int {
+	if left == right {
+		return nums[left]
+	}
+	i, j := left-1, right+1
+	x := nums[(left+right)>>1]
+	for i < j {
+		for {
+			i++
+			if nums[i] >= x {
+				break
+			}
+		}
+		for {
+			j--
+			if nums[j] <= x {
+				break
+			}
+		}
+		if i < j {
+			nums[i], nums[j] = nums[j], nums[i]
+		}
+	}
+	if j < k {
+		return quickSort(nums, j+1, right, k)
+	}
+	return quickSort(nums, left, j, k)
+}
 ```
 
 ### **...**

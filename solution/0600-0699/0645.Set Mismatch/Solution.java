@@ -1,34 +1,22 @@
 class Solution {
     public int[] findErrorNums(int[] nums) {
-        int res = 0;
-        for (int num : nums) {
-            res ^= num;
+        int eor = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            eor ^= (i ^ nums[i - 1]);
         }
-        for (int i = 1, n = nums.length; i < n + 1; ++i) {
-            res ^= i;
-        }
-        int pos = 0;
-        while ((res & 1) == 0) {
-            res >>= 1;
-            ++pos;
-        }
-        int a = 0, b = 0;
-        for (int num : nums) {
-            if (((num >> pos) & 1) == 0) {
-                a ^= num;
-            } else {
-                b ^= num;
+        int diff = eor & (~eor + 1);
+        int a = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            if ((nums[i - 1] & diff) == 0) {
+                a ^= nums[i - 1];
             }
-        }
-        for (int i = 1, n = nums.length; i < n + 1; ++i) {
-            if (((i >> pos) & 1) == 0) {
+            if ((i & diff) == 0) {
                 a ^= i;
-            } else {
-                b ^= i;
             }
         }
+        int b = eor ^ a;
         for (int num : nums) {
-            if (num == a) {
+            if (a == num) {
                 return new int[]{a, b};
             }
         }

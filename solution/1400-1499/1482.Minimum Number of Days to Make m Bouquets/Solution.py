@@ -4,7 +4,7 @@ class Solution:
             return -1
 
         def check(day: int) -> bool:
-            cnt, cur = 0, 0
+            cnt = cur = 0
             for bd in bloomDay:
                 cur = cur + 1 if bd <= day else 0
                 if cur == k:
@@ -14,7 +14,7 @@ class Solution:
 
         left, right = min(bloomDay), max(bloomDay)
         while left < right:
-            mid = (left + right) // 2
+            mid = (left + right) >> 1
             if check(mid):
                 right = mid
             else:

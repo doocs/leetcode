@@ -53,13 +53,77 @@ F(n) = F(n - 1) + F(n - 2), for n &gt; 1.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def fib(self, n: int) -> int:
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int fib(int n) {
+        int a = 0, b = 1;
+        while (n-- > 0) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        return a;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int fib(int n) {
+        int a = 0, b = 1;
+        while (n--) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        return a;
+    }
+};
+```
+
+### **Go**
+
+```go
+func fib(n int) int {
+	a, b := 0, 1
+	for i := 0; i < n; i++ {
+		a, b = b, a+b
+	}
+	return a
+}
+```
+
+### **JavaScript**
+
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var fib = function(n) {
+    let a = 0;
+    let b = 1;
+    while (n--) {
+        const c = a + b;
+        a = b;
+        b = c;
+    }
+    return a;
+};
 ```
 
 ### **...**

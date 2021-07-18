@@ -33,10 +33,22 @@
 	<li><code>0 &lt;= fee &lt; 50000</code>.</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+动态规划法。
+
+设 f1 表示当天持有股票的最大利润，f2 表示当天没持有股票的最大利润。
+
+初始第 1 天结束时，`f1 = -prices[0]`，`f2 = 0`。
+
+从第 2 天开始，当天结束时：
+
+- 若持有，则可能是前一天持有，今天继续持有；也可能前一天没持有，今天买入，`f1 = max(f1, f2 - price)`。
+- 若没持有，则可能是前一天持有，今天卖出；也可能是前一天没没有，今天继续没持有，`f2 = max(f2, f1 + price - fee)`。
+
+最后返回 f2 即可。
 
 <!-- tabs:start -->
 
@@ -45,7 +57,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProfit(self, prices: List[int], fee: int) -> int:
+        # 持有，没持有
+        f1, f2 = -prices[0], 0
+        for price in prices[1:]:
+            f1 = max(f1, f2 - price)
+            f2 = max(f2, f1 + price - fee)
+        return f2
 ```
 
 ### **Java**
@@ -53,7 +72,52 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxProfit(int[] prices, int fee) {
+        int f1 = -prices[0], f2 = 0;
+        for (int i = 1; i < prices.length; ++i) {
+            f1 = Math.max(f1, f2 - prices[i]);
+            f2 = Math.max(f2, f1 + prices[i] - fee);
+        }
+        return f2;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int f1 = -prices[0], f2 = 0;
+        for (int i = 1; i < prices.size(); ++i) {
+            f1 = max(f1, f2 - prices[i]);
+            f2 = max(f2, f1 + prices[i] - fee);
+        }
+        return f2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProfit(prices []int, fee int) int {
+	f1, f2 := -prices[0], 0
+	for i := 1; i < len(prices); i++ {
+		f1 = max(f1, f2-prices[i])
+		f2 = max(f2, f1+prices[i]-fee)
+	}
+	return f2
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

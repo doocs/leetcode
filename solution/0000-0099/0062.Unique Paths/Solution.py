@@ -1,15 +1,7 @@
 class Solution:
-    def uniquePaths(self, m, n):
-        """
-        :type m: int
-        :type n: int
-        :rtype: int
-        """
-        res = [[0]*m]*n
-        for i in range(n):
-            for j in range(m):
-                if i == 0 or j==0:
-                    res[i][j] = 1
-                else:
-                    res[i][j] = res[i][j-1]+res[i-1][j]
-        return res[n-1][m-1]
+    def uniquePaths(self, m: int, n: int) -> int:
+        dp = [[1] * n for _ in range(m)]
+        for i in range(1, m):
+            for j in range(1, n):
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+        return dp[-1][-1]

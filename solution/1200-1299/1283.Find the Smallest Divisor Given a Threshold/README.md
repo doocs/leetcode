@@ -54,6 +54,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +63,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        left, right = 1, 1000000
+        while left < right:
+            mid = (left + right) >> 1
+            s = 0
+            for num in nums:
+                s += (num + mid - 1) // mid
+            if s <= threshold:
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -69,7 +83,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int smallestDivisor(int[] nums, int threshold) {
+        int left = 1, right = 1000000;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            int s = 0;
+            for (int num : nums) {
+                s += (num + mid - 1) / mid;
+            }
+            if (s <= threshold) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int smallestDivisor(vector<int>& nums, int threshold) {
+        int left = 1, right = 1000000;
+        while (left < right) {
+            int mid = left + right >> 1;
+            int s = 0;
+            for (int& num : nums) {
+                s += (num + mid - 1) / mid;
+            }
+            if (s <= threshold) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestDivisor(nums []int, threshold int) int {
+	left, right := 1, 1000000
+	for left < right {
+		mid := (left + right) >> 1
+		s := 0
+		for _, num := range nums {
+			s += (num + mid - 1) / mid
+		}
+		if s <= threshold {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
 ```
 
 ### **...**

@@ -173,6 +173,81 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numDecodings(string s) {
+        int n = s.size();
+        vector<int> dp(n + 1);
+        dp[0] = 1;
+        for (int i = 1; i <= n; ++i) {
+            if (s[i - 1] != '0') {
+                dp[i] += dp[i - 1];
+            }
+            if (i > 1 && s[i - 2] != '0') {
+                if ((s[i - 2] - '0') * 10 + s[i - 1] - '0' <= 26) {
+                    dp[i] += dp[i - 2];
+                }
+            }
+        }
+        return dp[n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func numDecodings(s string) int {
+	n := len(s)
+	dp := make([]int, n+1)
+	dp[0] = 1
+	for i := 1; i <= n; i++ {
+		if s[i-1] != '0' {
+			dp[i] += dp[i-1]
+		}
+		if i > 1 && s[i-2] != '0' {
+			if (s[i-2]-'0')*10+(s[i-1]-'0') <= 26 {
+				dp[i] += dp[i-2]
+			}
+		}
+	}
+	return dp[n]
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int NumDecodings(string s) {
+        if (s.Length == 0) return 0;
+        
+        var f0 = 1;
+        var f1 = 1;
+        var f2 = 1;
+        for (var i = 0; i < s.Length; ++i)
+        {
+            f0 = f1;
+            f1 = f2;
+            f2 = 0;
+            var two = i > 0 ? int.Parse(string.Format("{0}{1}", s[i - 1], s[i])) : 0;
+            if (two >= 10 && two <= 26)
+            {
+               f2 += f0;  
+            }
+            if (s[i] != '0')
+            {
+                f2 += f1;
+            }
+        }
+        return f2;
+    }
+}
+```
+
 ### **...**
 
 ```

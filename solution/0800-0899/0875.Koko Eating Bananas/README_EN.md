@@ -46,18 +46,139 @@
 
 ## Solutions
 
+Binary search.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minEatingSpeed(self, piles: List[int], h: int) -> int:
+        left, right = 1, max(piles)
+        while left < right:
+            mid = (left + right) >> 1
+            s = sum([(pile + mid - 1) // mid for pile in piles])
+            if s <= h:
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+        int mx = 0;
+        for (int pile : piles) {
+            mx = Math.max(mx, pile);
+        }
+        int left = 1, right = mx;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            int s = 0;
+            for (int pile : piles) {
+                s += (pile + mid - 1) / mid;
+            }
+            if (s <= h) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minEatingSpeed(vector<int>& piles, int h) {
+        int mx = 0;
+        for (auto pile : piles) {
+            mx = max(mx, pile);
+        }
+        int left = 1, right = mx;
+        while (left < right) {
+            int mid = left + right >> 1;
+            int s = 0;
+            for (auto pile : piles) {
+                s += (pile + mid - 1) / mid;
+            }
+            if (s <= h) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minEatingSpeed(piles []int, h int) int {
+	mx := 0
+	for _, pile := range piles {
+		mx = max(mx, pile)
+	}
+	left, right := 1, mx
+	for left < right {
+		mid := (left + right) >> 1
+		s := 0
+		for _, pile := range piles {
+			s += (pile + mid - 1) / mid
+		}
+		if s <= h {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MinEatingSpeed(int[] piles, int h) {
+        int left = 1, right = piles.Max();
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            int s = 0;
+            foreach (int pile in piles)
+            {
+                s += (pile + mid - 1) / mid;
+            }
+            if (s <= h)
+            {
+                right = mid;
+            }
+            else
+            {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
 ```
 
 ### **...**

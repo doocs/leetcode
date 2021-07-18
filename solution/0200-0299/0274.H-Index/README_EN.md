@@ -39,18 +39,111 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 
 ## Solutions
 
+The simplest solution is to judge after sort, but because `H` cannot be greater than the total number of papers, it can be optimized by counting sort.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def hIndex(self, citations: List[int]) -> int:
+        n = len(citations)
+        cnt = [0 for i in range(n + 1)]
+        for c in citations:
+            if c <= n:
+                cnt[c] += 1
+            else:
+                cnt[n] += 1
+        sum = 0
+        for i in range(n, -1, -1):
+            sum += cnt[i]
+            if sum >= i:
+                return i
+        return 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int hIndex(int[] citations) {
+        int n = citations.length;
+        int[] cnt = new int[n + 1];
+        for (int c : citations) {
+            if (c <= n) {
+                ++cnt[c];
+            } else {
+                ++cnt[n];
+            }
+        }
+        int sum = 0;
+        for (int i = n; i >= 0; --i) {
+            sum += cnt[i];
+            if (sum >= i) {
+                return i;
+            }
+        }
+        return 0;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function hIndex(citations: number[]): number {
+    let n = citations.length;
+    let cnt = new Array(n + 1).fill(0);
+    for (let c of citations) {
+        if ( c <= n) {
+            ++cnt[c];
+        } else {
+            ++cnt[n];
+        }
+    }
+    let sum = 0;
+    for (let i = n; i > -1; --i) {
+        sum += cnt[i];
+        if (sum >= i) {
+            return i;
+        }
+    }
+    return 0;
+};
+```
+
+### **Go**
+
+Use binary search to locate the maximum value that meets the conditions
+
+```go
+func hIndex(citations []int) int {
+	n := len(citations)
+	left, right := 0, n
+	for left+1 < right {
+		mid := int(uint(left+right) >> 1)
+		if check(citations, mid) {
+			left = mid
+		} else {
+			right = mid
+		}
+	}
+	if check(citations, right) {
+		return right
+	}
+	return left
+}
+
+func check(citations []int, mid int) bool {
+	cnt := 0
+	for _, citation := range citations {
+		if citation >= mid {
+			cnt++
+		}
+	}
+	return cnt >= mid
+}
 ```
 
 ### **...**

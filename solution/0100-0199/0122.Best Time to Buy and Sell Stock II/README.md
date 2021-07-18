@@ -48,12 +48,26 @@
 	<li><code>0 <= prices[i] <= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
+### 1. 贪心法
+
 所有上涨交易日都做买卖，所有下跌交易日都不做买卖，这样便能实现利润最大化。
+
+### 2. 动态规划法
+
+设 f1 表示当天结束后持有股票的最大利润，f2 表示当前结束后没有持有股票的最大利润。
+
+初始第 1 天结束时，`f1 = -prices[0]`，`f2 = 0`。
+
+从第 2 天开始，当天结束时：
+
+- 若持有股票，则可能是前一天持有股票，然后继续持有；也可能是前一天没有持有股票，然后当天买入股票。最大利润 `f1 = max(f1, f2 - prices[i])`。
+- 若没有持有股票，则可能是前一天没持有股票，今天也没持有股票；或者前一天持有股票，然后今天卖出。最大利润 `f2 = max(f2, f1 + prices[i])`。
+
+最后返回 f2 即可。
 
 <!-- tabs:start -->
 
@@ -61,11 +75,11 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+贪心：
+
 ```python
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        if not prices:
-            return 0
         res = 0
         for i in range(1, len(prices)):
             t = prices[i] - prices[i - 1]
@@ -73,16 +87,29 @@ class Solution:
         return res
 ```
 
+动态规划：
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        f1, f2 = -prices[0], 0
+        for price in prices[1:]:
+            f1 = max(f1, f2 - price)
+            f2 = max(f2, f1 + price)
+        return f2
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+贪心：
+
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
-        if (prices == null) return 0;
         int res = 0;
-        for (int i = 1, n = prices.length; i < n; ++i) {
+        for (int i = 1; i < prices.length; ++i) {
             // 策略是所有上涨交易日都做买卖，所以下跌交易日都不做买卖
             int t = prices[i] - prices[i - 1];
             res += Math.max(t, 0);
@@ -92,23 +119,138 @@ class Solution {
 }
 ```
 
+动态规划：
+
+```java
+class Solution {
+    public int maxProfit(int[] prices) {
+        int f1 = -prices[0], f2 = 0;
+        for (int i = 1; i < prices.length; ++i) {
+            f1 = Math.max(f1, f2 - prices[i]);
+            f2 = Math.max(f2, f1 + prices[i]);
+        }
+        return f2;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function maxProfit(prices: number[]): number {
+    let ans = 0;
+    for (let i = 1; i < prices.length; i++) {
+        ans += Math.max(0, prices[i] - prices[i - 1]);
+    }
+    return ans;
+};
+```
+
 ### **C++**
+
+贪心：
 
 ```cpp
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int res = 0, n;
-        if ((n = prices.size()) == 0) return 0;
-        for (int i = 1; i < n; ++i)
-        {
+        int res = 0;
+        for (int i = 1; i < prices.size(); ++i) {
             int t = prices[i] - prices[i - 1];
-            res += max(0, t);
+            res += max(t, 0);
         }
         return res;
     }
 };
 ```
+
+动态规划：
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int f1 = -prices[0], f2 = 0;
+        for (int i = 1; i < prices.size(); ++i) {
+            f1 = max(f1, f2 - prices[i]);
+            f2 = max(f2, f1 + prices[i]);
+        }
+        return f2;
+    }
+};
+```
+
+### **Go**
+
+贪心：
+
+```go
+func maxProfit(prices []int) int {
+	res := 0
+	for i := 1; i < len(prices); i++ {
+		t := prices[i] - prices[i-1]
+		if t > 0 {
+			res += t
+		}
+	}
+	return res
+}
+```
+
+动态规划：
+
+```go
+func maxProfit(prices []int) int {
+	f1, f2 := -prices[0], 0
+	for _, price := range prices[1:] {
+		f1 = max(f1, f2-price)
+		f2 = max(f2, f1+price)
+	}
+	return f2
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **C#**
+
+贪心：
+
+```cs
+public class Solution {
+    public int MaxProfit(int[] prices) {
+        int res = 0;
+        for (int i = 1; i < prices.Length; ++i)
+        {
+            int t = prices[i] - prices[i - 1];
+            res += Math.Max(t, 0);
+        }
+        return res;
+    }
+}
+```
+
+动态规划：
+
+```cs
+public class Solution {
+    public int MaxProfit(int[] prices) {
+        int f1 = -prices[0], f2 = 0;
+        for (int i = 1; i < prices.Length; ++i)
+        {
+            f1 = Math.Max(f1, f2 - prices[i]);
+            f2 = Math.Max(f2, f1 + prices[i]);
+        }
+        return f2;
+    }
+}
+```
+
 
 ### **...**
 

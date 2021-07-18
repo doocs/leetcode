@@ -5,17 +5,20 @@
  */
  var maxDistance = function(nums1, nums2) {
     let res = 0;
-    for (let i = 0; i < nums1.length; i++) {
-        let left = 0, right = nums2.length - 1;
-        while (left <= right) {
-            mid = (left + right) >> 1;
+    let m = nums1.length;
+    let n = nums2.length;
+    for (let i = 0; i < m; ++i) {
+        let left = i;
+        let right = n - 1;
+        while (left < right) {
+            const mid = (left + right + 1) >> 1;
             if (nums2[mid] >= nums1[i]) {
-                res = Math.max(res, mid - i);
-                left = mid + 1;
+                left = mid;
             } else {
                 right = mid - 1;
             }
         }
+        res = Math.max(res, left - i);
     }
     return res;
 };

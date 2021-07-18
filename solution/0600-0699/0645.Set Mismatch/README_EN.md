@@ -36,28 +36,19 @@
 ```python
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        res = 0
-        for num in nums:
-            res ^= num
-        for i in range(1, len(nums) + 1):
-            res ^= i
-        pos = 0
-        while (res & 1) == 0:
-            res >>= 1
-            pos += 1
-        a = b = 0
-        for num in nums:
-            if ((num >> pos) & 1) == 0:
-                a ^= num
-            else:
-                b ^= num
-        for i in range(1, len(nums) + 1):
-            if ((i >> pos) & 1) == 0:
+        eor, n = 0, len(nums)
+        for i in range(1, n + 1):
+            eor ^= (i ^ nums[i - 1])
+        diff = eor & (~eor + 1)
+        a = 0
+        for i in range(1, n + 1):
+            if (nums[i - 1] & diff) == 0:
+                a ^= nums[i - 1]
+            if (i & diff) == 0:
                 a ^= i
-            else:
-                b ^= i
+        b = eor ^ a
         for num in nums:
-            if num == a:
+            if a == num:
                 return [a, b]
         return [b, a]
 ```
@@ -67,40 +58,112 @@ class Solution:
 ```java
 class Solution {
     public int[] findErrorNums(int[] nums) {
-        int res = 0;
-        for (int num : nums) {
-            res ^= num;
+        int eor = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            eor ^= (i ^ nums[i - 1]);
         }
-        for (int i = 1, n = nums.length; i < n + 1; ++i) {
-            res ^= i;
-        }
-        int pos = 0;
-        while ((res & 1) == 0) {
-            res >>= 1;
-            ++pos;
-        }
-        int a = 0, b = 0;
-        for (int num : nums) {
-            if (((num >> pos) & 1) == 0) {
-                a ^= num;
-            } else {
-                b ^= num;
+        int diff = eor & (~eor + 1);
+        int a = 0;
+        for (int i = 1; i <= nums.length; ++i) {
+            if ((nums[i - 1] & diff) == 0) {
+                a ^= nums[i - 1];
             }
-        }
-        for (int i = 1, n = nums.length; i < n + 1; ++i) {
-            if (((i >> pos) & 1) == 0) {
+            if ((i & diff) == 0) {
                 a ^= i;
-            } else {
-                b ^= i;
             }
         }
+        int b = eor ^ a;
         for (int num : nums) {
-            if (num == a) {
+            if (a == num) {
                 return new int[]{a, b};
             }
         }
         return new int[]{b, a};
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function findErrorNums(nums: number[]): number[] {
+    let xor = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        xor ^= ((i + 1) ^ nums[i]);
+    }
+
+    let divide = 1;
+    while ((xor & divide) == 0) {
+        divide <<= 1;
+    }
+    
+    let ans1 = 0, ans2 = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        let cur = nums[i];
+        if (divide & cur) {
+            ans1 ^= cur;
+        } else {
+            ans2 ^= cur;
+        }
+
+        let idx = i + 1;
+        if (divide & idx) {
+            ans1 ^= idx;
+        } else {
+            ans2 ^= idx;
+        }
+    }
+    return nums.includes(ans1) ? [ans1, ans2] : [ans2, ans1];
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int eor = 0, n = nums.size();
+        for (int i = 1; i <= n; ++i) {
+            eor ^= (i ^ nums[i - 1]);
+        }
+        int diff = eor & (~eor + 1);
+        int a = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((nums[i - 1] & diff) == 0) {
+                a ^= nums[i - 1];
+            }
+            if ((i & diff) == 0) {
+                a ^= i;
+            }
+        }
+        int b = eor ^ a;
+        for (int num : nums) {
+            if (a == num) {
+                return {a, b};
+            }
+        }
+        return {b, a};
+    }
+};
+```
+
+### **Go**
+
+```go
+func findErrorNums(nums []int) []int {
+	n := len(nums)
+	for i := 0; i < n; i++ {
+		for nums[i] != i+1 && nums[nums[i]-1] != nums[i] {
+			nums[i], nums[nums[i]-1] = nums[nums[i]-1], nums[i]
+		}
+	}
+	for i := 0; i < n; i++ {
+		if nums[i] != i+1 {
+			return []int{nums[i], i + 1}
+		}
+	}
+	return []int{-1, -1}
 }
 ```
 

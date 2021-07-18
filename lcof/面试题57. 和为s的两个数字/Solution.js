@@ -3,17 +3,16 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
-  let left = 0;
-  let right = nums.length - 1;
-  while (left < right) {
-    let sum = nums[left] + nums[right];
-    if (sum === target) {
-      return [nums[left], nums[right]];
-    } else if (sum > target) {
-      right--;
-    } else {
-      left++;
-    }
+ var twoSum = function(nums, target) {
+  for (let p = 0, q = nums.length; p < q;) {
+      const s = nums[p] + nums[q];
+      if (s == target) {
+          return [nums[p], nums[q]];
+      }
+      if (s < target) {
+          ++p;
+      } else {
+          --q;
+      }
   }
 };

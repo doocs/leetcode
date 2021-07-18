@@ -50,18 +50,55 @@
 
 ## Solutions
 
+Pay attention to the data range. The question can easily mislead us to use the 01 backpack (it will overtime). In fact, this question is a simple "greedy problem" (choose low-priced ice cream first)
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxIceCream(self, costs: List[int], coins: int) -> int:
+        costs.sort()
+        ans, n = 0, len(costs)
+        for i in range(n):
+            if coins < costs[i]:
+                break
+            else:
+                ans += 1
+                coins -= costs[i]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxIceCream(int[] costs, int coins) {
+        Arrays.sort(costs);
+        int ans = 0, n = costs.length;
+        for (int i = 0; i < n && coins >= costs[i]; i++) {
+            ans++;
+            coins -= costs[i];
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func maxIceCream(costs []int, coins int) int {
+	sort.Ints(costs)
+	n := len(costs)
+	ans := 0
+	for i := 0; i < n && coins >= costs[i]; i++ {
+		ans++
+		coins -= costs[i]
+	}
+	return ans
+}
 ```
 
 ### **...**

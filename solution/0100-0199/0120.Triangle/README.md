@@ -56,6 +56,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+动态规划。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +65,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        n = len(triangle)
+        for i in range(1, n):
+            for j in range(i + 1):
+                mi = float('inf')
+                if j > 0:
+                    mi = min(mi, triangle[i - 1][j - 1])
+                if j < i:
+                    mi = min(mi, triangle[i - 1][j])
+                triangle[i][j] += mi
+        return min(triangle[n - 1])
 ```
 
 ### **Java**
@@ -71,7 +84,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i + 1; ++j) {
+                int mi = Integer.MAX_VALUE;
+                if (j > 0) {
+                    mi = Math.min(mi, triangle.get(i - 1).get(j - 1));
+                }
+                if (j < i) {
+                    mi = Math.min(mi, triangle.get(i - 1).get(j));
+                }
+                triangle.get(i).set(j, triangle.get(i).get(j) + mi);
+            }
+        }
+        int res = Integer.MAX_VALUE;
+        for (int val : triangle.get(n - 1)) {
+            res = Math.min(res, val);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int n = triangle.size();
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i + 1; ++j) {
+                int mi = INT_MAX;
+                if (j > 0) mi = min(mi, triangle[i - 1][j - 1]);
+                if (j < i) mi = min(mi, triangle[i - 1][j]);
+                triangle[i][j] += mi;
+            }
+        }
+        int res = INT_MAX;
+        for (int& val : triangle[n - 1]) {
+            res = min(res, val);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumTotal(triangle [][]int) int {
+	n := len(triangle)
+	for i := 1; i < n; i++ {
+		for j := 0; j < i+1; j++ {
+			mi := 2000000
+			if j > 0 && mi > triangle[i-1][j-1] {
+				mi = triangle[i-1][j-1]
+			}
+			if j < i && mi > triangle[i-1][j] {
+				mi = triangle[i-1][j]
+			}
+			triangle[i][j] += mi
+		}
+	}
+
+	res := 2000000
+	for j := 0; j < n; j++ {
+		if res > triangle[n-1][j] {
+			res = triangle[n-1][j]
+		}
+	}
+	return res
+}
 ```
 
 ### **...**
