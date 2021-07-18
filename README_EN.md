@@ -181,6 +181,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Pascal's Triangle II](./solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md)
 - [Minimum Falling Path Sum](./solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README_EN.md)
 - [Triangle](./solution/0100-0199/0120.Triangle/README_EN.md)
+- [Matrix Block Sum](./solution/1300-1399/1314.Matrix%20Block%20Sum/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
 - [Longest Increasing Subsequence](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 - [Russian Doll Envelopes](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
