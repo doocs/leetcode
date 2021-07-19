@@ -57,7 +57,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
+        letters = set(brokenLetters)
+        res = 0
+        for word in text.split():
+            find = False
+            for letter in letters:
+                if letter in word:
+                    find = True
+                    break
+            if not find:
+                res += 1
+        return res
 ```
 
 ### **Java**
@@ -65,7 +77,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int canBeTypedWords(String text, String brokenLetters) {
+        Set<Character> letters = new HashSet<>();
+        for (char c : brokenLetters.toCharArray()) {
+            letters.add(c);
+        }
+        int res = 0;
+        for (String word : text.split(" ")) {
+            boolean find = false;
+            for (char c : letters) {
+                if (word.indexOf(c) > -1) {
+                    find = true;
+                    break;
+                }
+            }
+            if (!find) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

@@ -76,7 +76,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def addRungs(self, rungs: List[int], dist: int) -> int:
+        prev = res = 0
+        for rung in rungs:
+            res += (rung - prev - 1) // dist
+            prev = rung
+        return res
 ```
 
 ### **Java**
@@ -84,7 +90,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int addRungs(int[] rungs, int dist) {
+        int res = 0;
+        for (int i = 0, prev = 0; i < rungs.length; ++i) {
+            res += (rungs[i] - prev - 1) / dist;
+            prev = rungs[i];
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

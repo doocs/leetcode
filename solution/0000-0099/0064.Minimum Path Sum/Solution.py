@@ -8,5 +8,5 @@ class Solution:
             dp[0][j] = dp[0][j - 1] + grid[0][j]
         for i in range(1, m):
             for j in range(1, n):
-                dp[i][j] = min(dp[i -1][j], dp[i][j - 1]) + grid[i][j]
+                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j]
         return dp[-1][-1]
