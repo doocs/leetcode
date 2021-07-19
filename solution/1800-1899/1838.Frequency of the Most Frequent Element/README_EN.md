@@ -54,13 +54,70 @@ Explanation:</strong> Increment the first element three times and the second ele
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxFrequency(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = 1
+        window = 0
+        l, r, n = 0, 1, len(nums)
+        while r < n:
+            window += (nums[r] - nums[r - 1]) * (r - l)
+            r += 1
+            while window > k:
+                window -= nums[r - 1] - nums[l]
+                l += 1
+            ans = max(ans, r - l)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxFrequency(int[] nums, int k) {
+        Arrays.sort(nums);
+        int ans = 1;
+        int window = 0;
+        int l = 0, r = 1, n = nums.length;
+        while (r < n) {
+            window += (nums[r] - nums[r - 1]) * (r++ - l);
+            while (window > k) {
+                window -= nums[r - 1] - nums[l];
+                l++;
+            }
+            ans = Math.max(ans, r - l);
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func maxFrequency(nums []int, k int) int {
+	sort.Ints(nums)
+	ans := 1
+	window := 0
+	l, r, n := 0, 1, len(nums)
+	for r < n {
+		window += (nums[r] - nums[r-1]) * (r - l)
+		r++
+		for window > k {
+			window -= nums[r-1] - nums[l]
+			l++
+		}
+		ans = max(ans, r-l)
+	}
+	return ans
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
 ```
 
 ### **...**

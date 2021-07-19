@@ -55,6 +55,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+排序后，用滑动窗口维护下标 `l` 到 `r` 的数都增加到 `nums[r]` 的操作次数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +64,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxFrequency(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = 1
+        window = 0
+        l, r, n = 0, 1, len(nums)
+        while r < n:
+            window += (nums[r] - nums[r - 1]) * (r - l)
+            r += 1
+            while window > k:
+                window -= nums[r - 1] - nums[l]
+                l += 1
+            ans = max(ans, r - l)
+        return ans
 ```
 
 ### **Java**
@@ -70,7 +85,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxFrequency(int[] nums, int k) {
+        Arrays.sort(nums);
+        int ans = 1;
+        int window = 0;
+        int l = 0, r = 1, n = nums.length;
+        while (r < n) {
+            window += (nums[r] - nums[r - 1]) * (r++ - l);
+            while (window > k) {
+                window -= nums[r - 1] - nums[l];
+                l++;
+            }
+            ans = Math.max(ans, r - l);
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func maxFrequency(nums []int, k int) int {
+	sort.Ints(nums)
+	ans := 1
+	window := 0
+	l, r, n := 0, 1, len(nums)
+	for r < n {
+		window += (nums[r] - nums[r-1]) * (r - l)
+		r++
+		for window > k {
+			window -= nums[r-1] - nums[l]
+			l++
+		}
+		ans = max(ans, r-l)
+	}
+	return ans
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
 ```
 
 ### **...**
