@@ -58,6 +58,7 @@ class Solution:
     first = None
     second = None
     prev = None
+
     def recoverTree(self, root: TreeNode) -> None:
         """
         Do not return anything, modify root in-place instead.

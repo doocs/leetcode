@@ -85,12 +85,12 @@ class Solution:
             values.add(i[0])
             if i[1] in dic:
                 dic[i[1]].append(i[0])
-            else: dic[i[1]] = [i[0]]
+            else:
+                dic[i[1]] = [i[0]]
 
         for key, value in dic.items():
             if len(dic[key]) == n-1 and key not in values:
-                return key
-        return -1
+                return k
 ```
 
 ### **Java**
