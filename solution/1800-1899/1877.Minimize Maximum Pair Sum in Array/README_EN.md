@@ -62,18 +62,71 @@ The maximum pair sum is max(3+5, 4+4, 6+2) = max(8, 8, 8) = 8.
 
 ## Solutions
 
+Sort & Greedy.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+        res, n = 0, len(nums)
+        for i in range(n >> 1):
+            res = max(res, nums[i] + nums[n - i - 1])
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int res = 0, n = nums.length;
+        for (int i = 0; i < (n >> 1); ++i) {
+            res = Math.max(res, nums[i] + nums[n - i - 1]);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minPairSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int res = 0, n = nums.size();
+        for (int i = 0; i < (n >> 1); ++i) {
+            res = max(res, nums[i] + nums[n - i - 1]);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minPairSum(nums []int) int {
+	sort.Ints(nums)
+	res, n := 0, len(nums)
+	for i := 0; i < (n >> 1); i++ {
+		res = max(res, nums[i]+nums[n-i-1])
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
