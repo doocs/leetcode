@@ -50,10 +50,11 @@ class Node {
 	<li>节点的总个数在&nbsp;<code>[0,&nbsp;10^4]</code>&nbsp;之间</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+DFS。
 
 <!-- tabs:start -->
 
@@ -62,7 +63,20 @@ class Node {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children if children is not None else []
+"""
 
+class Solution:
+    def cloneTree(self, root: 'Node') -> 'Node':
+        if root:
+            node = Node(val=root.val)
+            node.children = [self.cloneTree(child) for child in root.children]
+            return node
 ```
 
 ### **Java**
@@ -70,7 +84,104 @@ class Node {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
 
+
+    public Node() {
+        children = new ArrayList<Node>();
+    }
+
+    public Node(int _val) {
+        val = _val;
+        children = new ArrayList<Node>();
+    }
+
+    public Node(int _val,ArrayList<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    public Node cloneTree(Node root) {
+        if (root == null) {
+            return null;
+        }
+        Node node = new Node(root.val);
+        for (Node child : root.children) {
+            node.children.add(cloneTree(child));
+        }
+        return node;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    Node* cloneTree(Node* root) {
+        if (root == nullptr) {
+            return nullptr;
+        }
+        Node* node = new Node(root->val);
+        vector<Node*> children;
+        for (Node* node : root->children) {
+            children.push_back(cloneTree(node));
+        }
+        node->children = children;
+        return node;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func cloneTree(root *Node) *Node {
+	if root == nil {
+		return nil
+	}
+	node := &Node{Val: root.Val}
+	for _, child := range root.Children {
+		node.Children = append(node.Children, cloneTree(child))
+	}
+	return node
+}
 ```
 
 ### **...**
