@@ -45,10 +45,18 @@
 <strong>解释:</strong> 你不需要移除任何区间，因为它们已经是无重叠的了。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+贪心。
+
+先按照区间右边界排序。优先选择最小的区间的右边界作为起始边界。遍历区间：
+
+- 若当前区间左边界大于等于起始右边界，说明该区间无需移除，直接更新起始右边界；
+- 否则说明该区间需要移除，更新移除区间的数量 cnt。
+
+最后返回 cnt 即可。
 
 <!-- tabs:start -->
 
@@ -57,7 +65,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        if not intervals:
+            return 0
+        intervals.sort(key=lambda x: x[1])
+        cnt, end = 0, intervals[0][1]
+        for interval in intervals[1:]:
+            if interval[0] >= end:
+                end = interval[1]
+            else:
+                cnt += 1
+        return cnt
 ```
 
 ### **Java**
@@ -65,7 +84,45 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
+        int end = intervals[0][1], cnt = 0;
+        for (int i = 1; i < intervals.length; ++i) {
+            if (intervals[i][0] >= end) {
+                end = intervals[i][1];
+            } else {
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+}
+```
 
+### **Go**
+
+```go
+func eraseOverlapIntervals(intervals [][]int) int {
+	if intervals == nil || len(intervals) == 0 {
+		return 0
+	}
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][1] < intervals[j][1]
+	})
+	end, cnt := intervals[0][1], 0
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i][0] >= end {
+			end = intervals[i][1]
+		} else {
+			cnt++
+		}
+	}
+	return cnt
+}
 ```
 
 ### **...**
