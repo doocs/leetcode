@@ -186,6 +186,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Unique Paths](./solution/0000-0099/0062.Unique%20Paths/README_EN.md)
 - [Unique Paths II](./solution/0000-0099/0063.Unique%20Paths%20II/README_EN.md)
 - [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
+- [Longest Palindromic Substring](./solution/0000-0099/0005.Longest%20Palindromic%20Substring/README_EN.md)
 - [Longest Increasing Subsequence](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 - [Russian Doll Envelopes](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
 - [Longest Common Subsequence](./solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md)
