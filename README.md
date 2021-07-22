@@ -195,6 +195,7 @@
 - [最长回文子串](./solution/0000-0099/0005.Longest%20Palindromic%20Substring/README.md)
 - [最长回文子序列](.solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README.md)
 - [最长递增子序列](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)
+- [摆动序列](./solution/0300-0399/0376.Wiggle%20Subsequence/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
 - [俄罗斯套娃信封问题](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
 - [最长公共子序列](./solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
