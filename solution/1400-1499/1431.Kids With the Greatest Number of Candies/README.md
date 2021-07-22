@@ -47,7 +47,6 @@
 	<li><code>1 &lt;= extraCandies &lt;= 50</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -59,7 +58,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        mx = max(candies)
+        return [candy + extraCandies >= mx for candy in candies]
 ```
 
 ### **Java**
@@ -67,7 +69,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int mx = 0;
+        for (int candy : candies) {
+            mx = Math.max(mx, candy);
+        }
+        List<Boolean> res = new ArrayList<>();
+        for (int candy : candies) {
+            res.add(candy + extraCandies >= mx);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        int mx = *max_element(candies.begin(), candies.end());
+        vector<bool> res;
+        for (int candy : candies) {
+            res.push_back(candy + extraCandies >= mx);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kidsWithCandies(candies []int, extraCandies int) []bool {
+	mx := 0
+	for _, candy := range candies {
+		mx = max(mx, candy)
+	}
+	var res []bool
+	for _, candy := range candies {
+		res = append(res, candy+extraCandies >= mx)
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
