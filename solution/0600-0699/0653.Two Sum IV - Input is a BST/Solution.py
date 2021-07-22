@@ -13,6 +13,6 @@ class Solution:
                 return True
             nodes.add(node.val)
             return find(node.left) or find(node.right)
-        
+
         nodes = set()
         return find(root)
