@@ -47,8 +47,9 @@
 	<li>Could you improve it to <code>O(n log(n))</code> time complexity?</li>
 </ul>
 
-
 ## Solutions
+
+Dynamic programming.
 
 <!-- tabs:start -->
 
@@ -58,8 +59,6 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         n = len(nums)
-        if n < 2:
-            return n
         dp = [1] * n
         res = 1
         for i in range(1, n):
@@ -89,6 +88,56 @@ class Solution {
         }
         return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> dp(n, 1);
+        int res = 1;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[j] < nums[i]) {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
+            }
+            res = max(res, dp[i]);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lengthOfLIS(nums []int) int {
+	n := len(nums)
+	dp := make([]int, n)
+	dp[0] = 1
+	res := 1
+	for i := 1; i < n; i++ {
+		dp[i] = 1
+		for j := 0; j < i; j++ {
+			if nums[j] < nums[i] {
+				dp[i] = max(dp[i], dp[j]+1)
+			}
+		}
+		res = max(res, dp[i])
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
