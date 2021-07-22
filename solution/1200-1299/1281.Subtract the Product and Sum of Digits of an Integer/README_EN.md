@@ -5,6 +5,7 @@
 ## Description
 
 Given an integer number <code>n</code>, return the difference between the product of its digits and the sum of its digits.
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -35,7 +36,6 @@ Result = 32 - 11 = 21
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -43,13 +43,65 @@ Result = 32 - 11 = 21
 ### **Python3**
 
 ```python
-
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        s, p = 0, 1
+        while n:
+            t = n % 10
+            n //= 10
+            s += t
+            p *= t
+        return p - s
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int subtractProductAndSum(int n) {
+        int s = 0, p = 1;
+        while (n != 0) {
+            int t = n % 10;
+            n /= 10;
+            s += t;
+            p *= t;
+        }
+        return p - s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        int s = 0, p = 1;
+        while (n) {
+            int t = n % 10;
+            n /= 10;
+            s += t;
+            p *= t;
+        }
+        return p - s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func subtractProductAndSum(n int) int {
+	s, p := 0, 1
+	for n != 0 {
+		t := n % 10
+		n /= 10
+		s += t
+		p *= t
+	}
+	return p - s
+}
 ```
 
 ### **...**
