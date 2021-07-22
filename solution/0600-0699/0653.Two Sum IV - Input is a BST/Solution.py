@@ -6,12 +6,13 @@
 #         self.right = right
 class Solution:
     def findTarget(self, root: TreeNode, k: int) -> bool:
-        a=set()
-        def h(node):
+        def find(node):
             if not node:
                 return False
-            if(k-node.val in a):
+            if k - node.val in nodes:
                 return True
-            a.add(node.val)
-            return h(node.right) or h(node.left)
-        return h(root)
+            nodes.add(node.val)
+            return find(node.left) or find(node.right)
+        
+        nodes = set()
+        return find(root)
