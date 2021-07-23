@@ -39,7 +39,7 @@
 
 ### **SQL**
 
-```
+```sql
 UPDATE salary
 SET
     sex = CASE sex

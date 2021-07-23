@@ -61,7 +61,7 @@ Result table:
 
 ### **SQL**
 
-```
+```sql
 UPDATE salary
 SET
     sex = CASE sex
