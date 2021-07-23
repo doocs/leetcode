@@ -55,13 +55,53 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def checkIfExist(self, arr: List[int]) -> bool:
+        map = collections.defaultdict(int)
+        for i, num in enumerate(arr):
+            map[num] = i
+        for i, num in enumerate(arr):
+            if num << 1 in map and i != map[num << 1]:
+                return True
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean checkIfExist(int[] arr) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            map.put(arr[i], i);
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (map.containsKey(arr[i] << 1) && i != map.get(arr[i] << 1))
+                return true;
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        unordered_map<int, int> map;
+        for (int i = 0; i < arr.size(); ++i) {
+            map[arr[i]] = i;
+        }
+        for (int i = 0; i < arr.size(); ++i) {
+            if (map.find(arr[i] * 2) != map.end() && i != map[arr[i] * 2]) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
 ```
 
 ### **...**
