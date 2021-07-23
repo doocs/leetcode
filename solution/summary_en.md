@@ -1977,3 +1977,5 @@
   - [1936.Add Minimum Number of Rungs](/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README_EN.md)
   - [1937.Maximum Number of Points with Cost](/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README_EN.md)
   - [1938.Maximum Genetic Difference Query](/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/README_EN.md)
+  - [1939.Users That Actively Request Confirmation Messages](/solution/1900-1999/1939.Users%20That%20Actively%20Request%20Confirmation%20Messages/README_EN.md)
+  - [1940.Longest Common Subsequence Between Sorted Arrays](/solution/1900-1999/1940.Longest%20Common%20Subsequence%20Between%20Sorted%20Arrays/README_EN.md)
