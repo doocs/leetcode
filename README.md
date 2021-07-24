@@ -202,6 +202,7 @@
 - [零钱兑换 II](./solution/0500-0599/0518.Coin%20Change%202/README.md)
 - [组合总和 Ⅳ](./solution/0300-0399/0377.Combination%20Sum%20IV/README.md)
 - [整数拆分](./solution/0300-0399/0343.Integer%20Break/README.md)
+- [完全平方数](./solution/0200-0299/0279.Perfect%20Squares/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
 - [俄罗斯套娃信封问题](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
 

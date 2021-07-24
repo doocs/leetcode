@@ -51,14 +51,14 @@
 ```python
 class Solution:
     def numSquares(self, n: int) -> int:
-        dp = [0 for i in range(n + 1)]
+        dp = [0] * (n + 1)
         for i in range(1, n + 1):
-            j, mi = 1, 0x3f3f3f3f
+            j, mi = 1, float('inf')
             while j * j <= i:
                 mi = min(mi, dp[i - j * j])
                 j += 1
             dp[i] = mi + 1
-        return dp[n]
+        return dp[-1]
 ```
 
 ### **Java**
@@ -68,18 +68,36 @@ class Solution:
 ```java
 class Solution {
     public int numSquares(int n) {
-        List<Integer> ans = new ArrayList<>();
-        ans.add(0);
-        while (ans.size() <= n) {
-            int m = ans.size(), val = Integer.MAX_VALUE;
-            for (int i = 1; i * i <= m; i++) {
-                val = Math.min(val, ans.get(m - i * i) + 1);
+        int[] dp = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            int mi = Integer.MAX_VALUE;
+            for (int j = 1; j * j <= i; ++j) {
+                mi = Math.min(mi, dp[i - j * j]);
             }
-            ans.add(val);
+            dp[i] = mi + 1;
         }
-        return ans.get(n);
+        return dp[n];
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numSquares(int n) {
+        vector<int> dp(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            int mi = 100000;
+            for (int j = 1; j * j <= i; ++j) {
+                mi = min(mi, dp[i - j * j]);
+            }
+            dp[i] = mi + 1;
+        }
+        return dp[n];
+    }
+};
 ```
 
 ### **TypeScript**
@@ -101,29 +119,23 @@ function numSquares(n: number): number {
 ### **Go**
 
 ```go
-/*
- * @lc app=leetcode.cn id=279 lang=golang
- * 动态规划的思路，状态转移方程：dp[n] = min(dp[n-1*1]+1, dp[n-2*2]+1, ..., dp[n-k*k]+1), ( 0< k*k <=n )
- */
 func numSquares(n int) int {
-	if n <= 0 {
-		return 0
-	}
-	dp := make([]int, n+1) // 多申请了一份整形，使代码更容易理解, dp[n] 就是 n 的完全平方数的求解
+	dp := make([]int, n+1)
 	for i := 1; i <= n; i++ {
-		dp[i] = i // 初始值 dp[n] 的最大值的解，也是最容易求的解
-		for j := 0; j*j <= i; j++ {
-			dp[i] = minInt(dp[i-j*j]+1, dp[i])
+		mi := 100000
+		for j := 1; j*j <= i; j++ {
+			mi = min(mi, dp[i-j*j])
 		}
+		dp[i] = mi + 1
 	}
 	return dp[n]
 }
 
-func minInt(x, y int) int {
-	if x < y {
-		return x
+func min(a, b int) int {
+	if a < b {
+		return a
 	}
-	return y
+	return b
 }
 ```
 

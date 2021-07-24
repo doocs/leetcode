@@ -196,6 +196,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Coin Change 2](./solution/0500-0599/0518.Coin%20Change%202/README_EN.md)
 - [Combination Sum IV](./solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md)
 - [Integer Break](./solution/0300-0399/0343.Integer%20Break/README_EN.md)
+- [Perfect Squares](./solution/0200-0299/0279.Perfect%20Squares/README_EN.md)
 - [Russian Doll Envelopes](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
 
 ### Backtracking

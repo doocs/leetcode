@@ -1,14 +1,13 @@
 class Solution {
     public int numSquares(int n) {
-        List<Integer> ans = new ArrayList<>();
-        ans.add(0);
-        while (ans.size() <= n) {
-            int m = ans.size(), val = Integer.MAX_VALUE;
-            for (int i = 1; i * i <= m; i++) {
-                val = Math.min(val, ans.get(m - i * i) + 1);
+        int[] dp = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            int mi = Integer.MAX_VALUE;
+            for (int j = 1; j * j <= i; ++j) {
+                mi = Math.min(mi, dp[i - j * j]);
             }
-            ans.add(val);
+            dp[i] = mi + 1;
         }
-        return ans.get(n);
+        return dp[n];
     }
 }
