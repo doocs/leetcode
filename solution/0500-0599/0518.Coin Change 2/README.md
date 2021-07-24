@@ -55,7 +55,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-完全背包问题
+动态规划。
+
+完全背包问题。
 
 <!-- tabs:start -->
 
@@ -121,6 +123,24 @@ func change(amount int, coins []int) int {
 	}
 	return dp[amount]
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int change(int amount, vector<int>& coins) {
+        vector<int> dp(amount + 1);
+        dp[0] = 1;
+        for (auto coin : coins) {
+            for (int j = coin; j <= amount; ++j) {
+                dp[j] += dp[j - coin];
+            }
+        }
+        return dp[amount];
+    }
+};
 ```
 
 ### **...**
