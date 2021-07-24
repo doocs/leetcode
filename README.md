@@ -198,6 +198,7 @@
 - [摆动序列](./solution/0300-0399/0376.Wiggle%20Subsequence/README.md)
 - [最长公共子序列](./solution/1100-1199/1143.Longest%20Common%20Subsequence/README.md)
 - [编辑距离](./solution/0000-0099/0072.Edit%20Distance/README.md)
+- [零钱兑换](./solution/0300-0399/0322.Coin%20Change/README.md)
 - [礼物的最大价值](./lcof/面试题47.%20礼物的最大价值/README.md)
 - [俄罗斯套娃信封问题](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README.md)
 
