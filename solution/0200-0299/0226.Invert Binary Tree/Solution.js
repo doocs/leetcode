@@ -16,3 +16,23 @@ var invertTree = function (root) {
   invertTree(root.right);
   return root;
 };
+
+//non-recursion
+var invertTree = function (root) {
+  if (!root) {
+    return null;
+  }
+  let q = [];
+  q.push(root);
+  while (q.length) {
+    let cur = q.pop();
+    [cur.left, cur.right] = [cur.right, cur.left];
+    if (cur.left) {
+      q.push(cur.left);
+    }
+    if (cur.right) {
+      q.push(cur.right);
+    }
+  }
+  return root;
+}
