@@ -45,13 +45,35 @@ There are 2 different transformations, &quot;--...-.&quot; and &quot;--...--.&qu
 ### **Python3**
 
 ```python
-
+class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        codes = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        s = set()
+        for word in words:
+            t = []
+            for c in word:
+                t.append(codes[ord(c) - ord('a')])
+            s.add(''.join(t))
+        return len(s)
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int uniqueMorseRepresentations(String[] words) {
+        String[] codes = new String[]{".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+        Set<String> s = new HashSet<>();
+        for (String word : words) {
+            StringBuilder t = new StringBuilder();
+            for (char c : word.toCharArray()) {
+                t.append(codes[c - 'a']);
+            }
+            s.add(t.toString());
+        }
+        return s.size();
+    }
+}
 ```
 
 ### **...**
