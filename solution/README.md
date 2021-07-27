@@ -622,7 +622,6 @@
 |  [0609](https://leetcode-cn.com/problems/find-duplicate-file-in-system)  |  [在系统中查找重复文件](/solution/0600-0699/0609.Find%20Duplicate%20File%20in%20System/README.md)  |  `数组`,`哈希表`,`字符串`  |  中等  |    |
 |  [0610](https://leetcode-cn.com/problems/triangle-judgement)  |  [判断三角形](/solution/0600-0699/0610.Triangle%20Judgement/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  [0611](https://leetcode-cn.com/problems/valid-triangle-number)  |  [有效三角形的个数](/solution/0600-0699/0611.Valid%20Triangle%20Number/README.md)  |  `贪心`,`数组`,`双指针`,`二分查找`,`排序`  |  中等  |    |
-|  [0612](https://leetcode-cn.com/problems/shortest-distance-in-a-plane)  |  [平面上的最近距离](/solution/0600-0699/0612.Shortest%20Distance%20in%20a%20Plane/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  [0613](https://leetcode-cn.com/problems/shortest-distance-in-a-line)  |  [直线上的最近距离](/solution/0600-0699/0613.Shortest%20Distance%20in%20a%20Line/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  [0614](https://leetcode-cn.com/problems/second-degree-follower)  |  [二级关注者](/solution/0600-0699/0614.Second%20Degree%20Follower/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  [0615](https://leetcode-cn.com/problems/average-salary-departments-vs-company)  |  [平均工资：部门与公司比较](/solution/0600-0699/0615.Average%20Salary%20Departments%20VS%20Company/README.md)  |  `数据库`  |  困难  |  🔒  |
@@ -903,7 +902,7 @@
 |  [0890](https://leetcode-cn.com/problems/find-and-replace-pattern)  |  [查找和替换模式](/solution/0800-0899/0890.Find%20and%20Replace%20Pattern/README.md)  |  `数组`,`哈希表`,`字符串`  |  中等  |    |
 |  [0891](https://leetcode-cn.com/problems/sum-of-subsequence-widths)  |  [子序列宽度之和](/solution/0800-0899/0891.Sum%20of%20Subsequence%20Widths/README.md)  |  `数组`,`数学`,`排序`  |  困难  |    |
 |  [0892](https://leetcode-cn.com/problems/surface-area-of-3d-shapes)  |  [三维形体的表面积](/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/README.md)  |  `几何`,`数组`,`数学`,`矩阵`  |  简单  |    |
-|  [0893](https://leetcode-cn.com/problems/groups-of-special-equivalent-strings)  |  [特殊等价字符串组](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)  |  `数组`,`哈希表`,`字符串`  |  简单  |    |
+|  [0893](https://leetcode-cn.com/problems/groups-of-special-equivalent-strings)  |  [特殊等价字符串组](/solution/0800-0899/0893.Groups%20of%20Special-Equivalent%20Strings/README.md)  |  `数组`,`哈希表`,`字符串`  |  中等  |    |
 |  [0894](https://leetcode-cn.com/problems/all-possible-full-binary-trees)  |  [所有可能的满二叉树](/solution/0800-0899/0894.All%20Possible%20Full%20Binary%20Trees/README.md)  |  `树`,`递归`,`记忆化搜索`,`动态规划`,`二叉树`  |  中等  |    |
 |  [0895](https://leetcode-cn.com/problems/maximum-frequency-stack)  |  [最大频率栈](/solution/0800-0899/0895.Maximum%20Frequency%20Stack/README.md)  |  `栈`,`设计`,`哈希表`,`有序集合`  |  困难  |    |
 |  [0896](https://leetcode-cn.com/problems/monotonic-array)  |  [单调数列](/solution/0800-0899/0896.Monotonic%20Array/README.md)  |  `数组`  |  简单  |    |
@@ -1172,7 +1171,6 @@
 |  [1159](https://leetcode-cn.com/problems/market-analysis-ii)  |  [市场分析 II](/solution/1100-1199/1159.Market%20Analysis%20II/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  [1160](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters)  |  [拼写单词](/solution/1100-1199/1160.Find%20Words%20That%20Can%20Be%20Formed%20by%20Characters/README.md)  |  `数组`,`哈希表`,`字符串`  |  简单  |    |
 |  [1161](https://leetcode-cn.com/problems/maximum-level-sum-of-a-binary-tree)  |  [最大层内元素和](/solution/1100-1199/1161.Maximum%20Level%20Sum%20of%20a%20Binary%20Tree/README.md)  |  `树`,`广度优先搜索`,`二叉树`  |  中等  |    |
-|  [1162](https://leetcode-cn.com/problems/as-far-from-land-as-possible)  |  [地图分析](/solution/1100-1199/1162.As%20Far%20from%20Land%20as%20Possible/README.md)  |  `广度优先搜索`,`数组`,`动态规划`,`矩阵`  |  中等  |    |
 |  [1163](https://leetcode-cn.com/problems/last-substring-in-lexicographical-order)  |  [按字典序排在最后的子串](/solution/1100-1199/1163.Last%20Substring%20in%20Lexicographical%20Order/README.md)  |  `双指针`,`字符串`  |  困难  |    |
 |  [1164](https://leetcode-cn.com/problems/product-price-at-a-given-date)  |  [指定日期的产品价格](/solution/1100-1199/1164.Product%20Price%20at%20a%20Given%20Date/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  [1165](https://leetcode-cn.com/problems/single-row-keyboard)  |  [单行键盘](/solution/1100-1199/1165.Single-Row%20Keyboard/README.md)  |  `哈希表`,`字符串`  |  简单  |  🔒  |
@@ -1713,7 +1711,6 @@
 |  [1700](https://leetcode-cn.com/problems/number-of-students-unable-to-eat-lunch)  |  [无法吃午餐的学生数量](/solution/1700-1799/1700.Number%20of%20Students%20Unable%20to%20Eat%20Lunch/README.md)  |  `栈`,`队列`,`数组`,`模拟`  |  简单  |    |
 |  [1701](https://leetcode-cn.com/problems/average-waiting-time)  |  [平均等待时间](/solution/1700-1799/1701.Average%20Waiting%20Time/README.md)  |  `数组`,`模拟`  |  中等  |    |
 |  [1702](https://leetcode-cn.com/problems/maximum-binary-string-after-change)  |  [修改后的最大二进制字符串](/solution/1700-1799/1702.Maximum%20Binary%20String%20After%20Change/README.md)  |  `贪心`,`字符串`  |  中等  |    |
-|  [1703](https://leetcode-cn.com/problems/minimum-adjacent-swaps-for-k-consecutive-ones)  |  [得到连续 K 个 1 的最少相邻交换次数](/solution/1700-1799/1703.Minimum%20Adjacent%20Swaps%20for%20K%20Consecutive%20Ones/README.md)  |  `贪心`,`数组`,`前缀和`,`滑动窗口`  |  困难  |    |
 |  [1704](https://leetcode-cn.com/problems/determine-if-string-halves-are-alike)  |  [判断字符串的两半是否相似](/solution/1700-1799/1704.Determine%20if%20String%20Halves%20Are%20Alike/README.md)  |  `字符串`,`计数`  |  简单  |    |
 |  [1705](https://leetcode-cn.com/problems/maximum-number-of-eaten-apples)  |  [吃苹果的最大数目](/solution/1700-1799/1705.Maximum%20Number%20of%20Eaten%20Apples/README.md)  |  `贪心`,`数组`,`堆（优先队列）`  |  中等  |    |
 |  [1706](https://leetcode-cn.com/problems/where-will-the-ball-fall)  |  [球会落何处](/solution/1700-1799/1706.Where%20Will%20the%20Ball%20Fall/README.md)  |  `深度优先搜索`,`数组`,`动态规划`,`矩阵`,`模拟`  |  中等  |    |
@@ -1792,6 +1789,7 @@
 |  [1779](https://leetcode-cn.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate)  |  [找到最近的有相同 X 或 Y 坐标的点](/solution/1700-1799/1779.Find%20Nearest%20Point%20That%20Has%20the%20Same%20X%20or%20Y%20Coordinate/README.md)  |  `数组`  |  简单  |    |
 |  [1780](https://leetcode-cn.com/problems/check-if-number-is-a-sum-of-powers-of-three)  |  [判断一个数字是否可以表示成三的幂的和](/solution/1700-1799/1780.Check%20if%20Number%20is%20a%20Sum%20of%20Powers%20of%20Three/README.md)  |  `数学`  |  中等  |    |
 |  [1781](https://leetcode-cn.com/problems/sum-of-beauty-of-all-substrings)  |  [所有子字符串美丽值之和](/solution/1700-1799/1781.Sum%20of%20Beauty%20of%20All%20Substrings/README.md)  |  `哈希表`,`字符串`,`计数`  |  中等  |    |
+|  [1782](https://leetcode-cn.com/problems/count-pairs-of-nodes)  |  [统计点对的数目](/solution/1700-1799/1782.Count%20Pairs%20Of%20Nodes/README.md)  |  `图`,`双指针`,`二分查找`  |  困难  |    |
 |  [1783](https://leetcode-cn.com/problems/grand-slam-titles)  |  [大满贯数量](/solution/1700-1799/1783.Grand%20Slam%20Titles/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  [1784](https://leetcode-cn.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones)  |  [检查二进制字符串字段](/solution/1700-1799/1784.Check%20if%20Binary%20String%20Has%20at%20Most%20One%20Segment%20of%20Ones/README.md)  |  `字符串`  |  简单  |    |
 |  [1785](https://leetcode-cn.com/problems/minimum-elements-to-add-to-form-a-given-sum)  |  [构成特定和需要添加的最少元素](/solution/1700-1799/1785.Minimum%20Elements%20to%20Add%20to%20Form%20a%20Given%20Sum/README.md)  |  `贪心`,`数组`  |  中等  |    |
@@ -1944,7 +1942,7 @@
 |  [1932](https://leetcode-cn.com/problems/merge-bsts-to-create-single-bst)  |  [合并多棵二叉搜索树](/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/README.md)  |  `树`,`深度优先搜索`,`哈希表`,`二分查找`,`二叉树`  |  困难  |    |
 |  [1933](https://leetcode-cn.com/problems/check-if-string-is-decomposable-into-value-equal-substrings)  |  [判断字符串是否可分解为值均等的子串](/solution/1900-1999/1933.Check%20if%20String%20Is%20Decomposable%20Into%20Value-Equal%20Substrings/README.md)  |    |  简单  |  🔒  |
 |  [1934](https://leetcode-cn.com/problems/confirmation-rate)  |  [Confirmation Rate](/solution/1900-1999/1934.Confirmation%20Rate/README.md)  |    |  中等  |  🔒  |
-|  [1935](https://leetcode-cn.com/problems/maximum-number-of-words-you-can-type)  |  [可以输入的最大单词数](/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README.md)  |  `字符串`  |  简单  |    |
+|  [1935](https://leetcode-cn.com/problems/maximum-number-of-words-you-can-type)  |  [可以输入的最大单词数](/solution/1900-1999/1935.Maximum%20Number%20of%20Words%20You%20Can%20Type/README.md)  |  `哈希表`,`字符串`  |  简单  |    |
 |  [1936](https://leetcode-cn.com/problems/add-minimum-number-of-rungs)  |  [新增的最少台阶数](/solution/1900-1999/1936.Add%20Minimum%20Number%20of%20Rungs/README.md)  |    |  中等  |    |
 |  [1937](https://leetcode-cn.com/problems/maximum-number-of-points-with-cost)  |  [扣分后的最大得分](/solution/1900-1999/1937.Maximum%20Number%20of%20Points%20with%20Cost/README.md)  |    |  中等  |    |
 |  [1938](https://leetcode-cn.com/problems/maximum-genetic-difference-query)  |  [查询最大基因差](/solution/1900-1999/1938.Maximum%20Genetic%20Difference%20Query/README.md)  |    |  困难  |    |
@@ -1958,6 +1956,7 @@
 |  [1946](https://leetcode-cn.com/problems/largest-number-after-mutating-substring)  |  [子字符串突变后可能得到的最大整数](/solution/1900-1999/1946.Largest%20Number%20After%20Mutating%20Substring/README.md)  |    |  中等  |    |
 |  [1947](https://leetcode-cn.com/problems/maximum-compatibility-score-sum)  |  [最大兼容性评分和](/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README.md)  |    |  中等  |    |
 |  [1948](https://leetcode-cn.com/problems/delete-duplicate-folders-in-system)  |  [删除系统中的重复文件夹](/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README.md)  |    |  困难  |    |
+|  [1949](https://leetcode-cn.com/problems/strong-friendship)  |  [Strong Friendship](/solution/1900-1999/1949.Strong%20Friendship/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

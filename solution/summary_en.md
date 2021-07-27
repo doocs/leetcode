@@ -1987,3 +1987,4 @@
   - [1946.Largest Number After Mutating Substring](/solution/1900-1999/1946.Largest%20Number%20After%20Mutating%20Substring/README_EN.md)
   - [1947.Maximum Compatibility Score Sum](/solution/1900-1999/1947.Maximum%20Compatibility%20Score%20Sum/README_EN.md)
   - [1948.Delete Duplicate Folders in System](/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/README_EN.md)
+  - [1949.Strong Friendship](/solution/1900-1999/1949.Strong%20Friendship/README_EN.md)
