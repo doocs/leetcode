@@ -42,13 +42,42 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def areOccurrencesEqual(self, s: str) -> bool:
+        counter = collections.Counter(s)
+        cnt = -1
+        for c, times in counter.items():
+            if cnt == -1:
+                cnt = times
+            elif cnt != times:
+                return False
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean areOccurrencesEqual(String s) {
+        int[] counter = new int[26];
+        for (char c : s.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        int cnt = -1;
+        for (int i = 0; i < 26; ++i) {
+            if (counter[i] == 0) {
+                continue;
+            }
 
+            if (cnt == -1) {
+                cnt = counter[i];
+            } else if (cnt != counter[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
