@@ -64,9 +64,11 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 class Solution {
     public int numberOfSteps(int num) {
         int cnt = 0;
-        while(num != 0) {
-            if (num % 2 == 1) num--;
-            else num /= 2;
+        while (num != 0) {
+            if (num % 2 == 1)
+                num--;
+            else
+                num /= 2;
             cnt++;
         }
         return cnt;
