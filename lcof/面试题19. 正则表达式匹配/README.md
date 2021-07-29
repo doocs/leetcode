@@ -75,16 +75,16 @@ p = "mis*is*p*."
 ```python
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
-        m, n = len(s) + 1, len(p) + 1
-        if n == 1:
-            return m == 1
-        dp = [[False for _ in range(n)] for _ in range(m)]
-        dp[0][0], dp[0][1] = True, False
-        for j in range(2, n):
+        m, n = len(s), len(p)
+        if n == 0:
+            return m == 0
+        dp = [[False] * (n + 1) for _ in range(m + 1)]
+        dp[0][0] = True
+        for j in range(2, n + 1):
             if p[j - 1] == '*':
                 dp[0][j] = dp[0][j - 2]
-        for i in range(1, m):
-            for j in range(1, n):
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
                 if s[i - 1] == p[j - 1] or p[j - 1] == '.':
                     dp[i][j] = dp[i - 1][j - 1]
                 elif p[j - 1] == '*':
@@ -92,10 +92,7 @@ class Solution:
                         dp[i][j] = dp[i][j - 2] or dp[i - 1][j]
                     else:
                         dp[i][j] = dp[i][j - 2]
-                else:
-                    dp[i][j] = False
-        return dp[m - 1][n - 1]
-
+        return dp[-1][-1]
 ```
 
 ### **Java**
@@ -103,20 +100,19 @@ class Solution:
 ```java
 class Solution {
     public boolean isMatch(String s, String p) {
-        int m = s.length() + 1, n = p.length() + 1;
-        if (n == 1) {
-            return m == 1;
+        int m = s.length(), n = p.length();
+        if (n == 0) {
+            return m == 0;
         }
         boolean[][] dp = new boolean[m + 1][n + 1];
         dp[0][0] = true;
-        dp[0][1] = false;
-        for (int j = 1; j < n; ++j) {
+        for (int j = 1; j < n + 1; ++j) {
             if (p.charAt(j - 1) == '*') {
                 dp[0][j] = dp[0][j - 2];
             }
         }
-        for (int i = 1; i < m; ++i) {
-            for (int j = 1; j < n; ++j) {
+        for (int i = 1; i < m + 1; ++i) {
+            for (int j = 1; j < n + 1; ++j) {
                 if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.') {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else if (p.charAt(j - 1) == '*') {
@@ -125,13 +121,79 @@ class Solution {
                     } else {
                         dp[i][j] = dp[i][j - 2];
                     }
-                } else {
-                    dp[i][j] = false;
                 }
             }
         }
-        return dp[m - 1][n - 1];
+        return dp[m][n];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int m = s.size(), n = p.size();
+        if (n == 0) return m == 0;
+        vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
+        dp[0][0] = true;
+        for (int j = 1; j < n + 1; ++j) {
+            if (p[j - 1] == '*') {
+                dp[0][j] = dp[0][j - 2];
+            }
+        }
+        for (int i = 1; i < m + 1; ++i) {
+            for (int j = 1; j < n + 1; ++j) {
+                if (s[i - 1] == p[j - 1] || p[j - 1] == '.') {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else if (p[j - 1] == '*') {
+                    if (s[i - 1] == p[j - 2] || p[j - 2] == '.') {
+                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j];
+                    } else {
+                        dp[i][j] = dp[i][j - 2];
+                    }
+                }
+            }
+        }
+        return dp[m][n];
+    }
+};
+```
+
+### **Go**
+
+```go
+func isMatch(s string, p string) bool {
+	m, n := len(s), len(p)
+	if n == 0 {
+		return m == 0
+	}
+	dp := make([][]bool, m+1)
+	for i := 0; i < m+1; i++ {
+		dp[i] = make([]bool, n+1)
+	}
+	dp[0][0] = true
+	for j := 1; j < n+1; j++ {
+		if p[j-1] == '*' {
+			dp[0][j] = dp[0][j-2]
+		}
+	}
+	for i := 1; i < m+1; i++ {
+		for j := 1; j < n+1; j++ {
+			if s[i-1] == p[j-1] || p[j-1] == '.' {
+				dp[i][j] = dp[i-1][j-1]
+			} else if p[j-1] == '*' {
+				if s[i-1] == p[j-2] || p[j-2] == '.' {
+					dp[i][j] = dp[i][j-2] || dp[i-1][j]
+				} else {
+					dp[i][j] = dp[i][j-2]
+				}
+			}
+		}
+	}
+	return dp[m][n]
 }
 ```
 
@@ -160,46 +222,6 @@ var isMatch = function (s, p) {
     return ans;
   }
   return recursive(0, 0);
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    bool match(string s, string p, int sl, int pl) {
-        /* 说明：sl指的是s的len，pl指的是p的len。
-           使用这种写法，在牛客上是能ac的。在leetcode上会显示特定的用例超时。
-           写在这里，给大家提供一种新的思路吧。
-           二维动态规划应该更适合做这一题的题解（参考java版本答案） */
-        if (sl == s.size() && pl == p.size()) {
-            return true;
-        }
-
-        if (sl < s.size() && pl == p.size()) {
-            return false;
-        }
-
-        if (p[pl+1] != '*') {
-            // 如果p的下一个不是*的情况
-            if ((s[sl] == p[pl]) || (sl<s.size() && p[pl] == '.')) {
-                return match(s, p, sl+1, pl+1);
-            } else {
-                return false;
-            }
-        } else {
-            if ((s[sl] == p[pl]) || (sl<s.size() && p[pl] == '.')) {
-                return match(s, p, sl, pl+2) || match(s, p, sl+1, pl);
-            } else {
-                return match(s, p, sl, pl+2);
-            }
-        }
-    }
-
-    bool isMatch(string s, string p) {
-        return match(s, p, 0, 0);
-    }
 };
 ```
 
