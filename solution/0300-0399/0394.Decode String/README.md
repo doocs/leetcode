@@ -40,10 +40,20 @@
 <strong>输出：</strong>&quot;abccdcdcdxyz&quot;
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+用栈 s1 存储左括号前的数字 num，栈 s2 存储左括号前的字符串 res。
+
+遍历字符串 s 中每个字符 c：
+
+- 若 c 是数字，则累乘数字 num
+- 若 `c == '['`，则将左括号前的数字 num 存入 s1，左括号前的字符串 res 存入 s2，并将 num 重新置为 0，res 置为空串
+- 若 `c == ']'`，则 `res = s2.pop() + res * s1.pop()`
+- 若 c 是字符，则累加字符串 res
+
+最后返回 res 即可。
 
 <!-- tabs:start -->
 
@@ -52,7 +62,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def decodeString(self, s: str) -> str:
+        s1, s2 = [], []
+        num, res = 0, ''
+        for c in s:
+            if c.isdigit():
+                num = num * 10 + int(c)
+            elif c == '[':
+                s1.append(num)
+                s2.append(res)
+                num, res = 0, ''
+            elif c == ']':
+                res = s2.pop() + res * s1.pop()
+            else:
+                res += c
+        return res
 ```
 
 ### **Java**
@@ -60,7 +85,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String decodeString(String s) {
+        Deque<Integer> s1 = new ArrayDeque<>();
+        Deque<String> s2 = new ArrayDeque<>();
+        int num = 0;
+        String res = "";
+        for (char c : s.toCharArray()) {
+            if ('0' <= c && c <= '9') {
+                num = num * 10 + c - '0';
+            } else if (c == '[') {
+                s1.push(num);
+                s2.push(res);
+                num = 0;
+                res = "";
+            } else if (c == ']') {
+                StringBuilder t = new StringBuilder();
+                for (int i = 0, n = s1.pop(); i < n; ++i) {
+                    t.append(res);
+                }
+                res = s2.pop() + t.toString();
+            } else {
+                res += String.valueOf(c);
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**

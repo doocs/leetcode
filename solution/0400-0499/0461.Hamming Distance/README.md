@@ -103,6 +103,37 @@ var hammingDistance = function(x, y) {
 };
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        x ^= y;
+        int count = 0;
+        while (x) {
+            ++count;
+            x &= (x - 1);
+        }
+        return count;
+    }
+};
+```
+
+### **Go**
+
+```go
+func hammingDistance(x int, y int) int {
+	x ^= y
+	count := 0
+	for x != 0 {
+		count++
+		x &= (x - 1)
+	}
+	return count
+}
+```
+
 ### **...**
 
 ```
