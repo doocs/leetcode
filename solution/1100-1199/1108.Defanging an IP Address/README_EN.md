@@ -60,6 +60,14 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function defangIPaddr(address: string): string {
+    return address.split('.').join('[.]');
+};
+```
+
 ### **C++**
 
 ```cpp
