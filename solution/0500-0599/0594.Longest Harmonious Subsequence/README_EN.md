@@ -41,7 +41,6 @@
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -49,13 +48,80 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findLHS(self, nums: List[int]) -> int:
+        counter = collections.Counter(nums)
+        res = 0
+        for num in nums:
+            if num + 1 in counter:
+                res = max(res, counter[num] + counter[num + 1])
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findLHS(int[] nums) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums) {
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        }
+        int res = 0;
+        for (int num : nums) {
+            if (counter.containsKey(num + 1)) {
+                res = Math.max(res, counter.get(num) + counter.get(num + 1));
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        unordered_map<int, int> counter;
+        for (int num : nums) {
+            ++counter[num];
+        }
+        int res = 0;
+        for (int num : nums) {
+            if (counter.count(num + 1)) {
+                res = max(res, counter[num] + counter[num + 1]);
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLHS(nums []int) int {
+	counter := make(map[int]int)
+	for _, num := range nums {
+		counter[num]++
+	}
+	res := 0
+	for _, num := range nums {
+		if counter[num+1] > 0 {
+			res = max(res, counter[num]+counter[num+1])
+		}
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
