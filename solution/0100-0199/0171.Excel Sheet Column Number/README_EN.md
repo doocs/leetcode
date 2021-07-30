@@ -57,7 +57,6 @@ AB -&gt; 28
 	<li><code>columnTitle</code> is in the range <code>[&quot;A&quot;, &quot;FXSHRXW&quot;]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -91,12 +90,12 @@ class Solution {
 
 ```ts
 function titleToNumber(columnTitle: string): number {
-    let res: number = 0;
-    for (let char of columnTitle) {
-        res = res * 26 + char.charCodeAt(0) - 64;
-    }
-    return res;
-};
+  let res: number = 0;
+  for (let char of columnTitle) {
+    res = res * 26 + char.charCodeAt(0) - 64;
+  }
+  return res;
+}
 ```
 
 ### **C++**
@@ -112,6 +111,18 @@ public:
         return res;
     }
 };
+```
+
+### **Go**
+
+```go
+func titleToNumber(columnTitle string) int {
+	res := 0
+	for _, c := range columnTitle {
+		res = res*26 + int(c-'A'+1)
+	}
+	return res
+}
 ```
 
 ### **...**
