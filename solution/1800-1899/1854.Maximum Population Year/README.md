@@ -44,14 +44,6 @@
 
 差分数组实现。
 
-用 delta 数组记录每个人的出生和死亡年份。
-
-题目中起始年份为 1950，我们希望数组的起始下标对应起始年份，并且年份与数组下标一一对应，因此我们需要引入起始年份与数组起始下标之差 `offset=1950`，使得下标 i 对应 `i+offset` 年。
-
-遍历 logs 时，将每个人出生年份对应的变化量加上 1，同时将死亡年份对应的变化量减去 1。
-
-最后，遍历 delta 数组，可以求出每一年的人口数量并维护其最大值和对应的最小下标 res。遍历结束后，将最小下标加上 offset，即是所求的年份。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,23 +53,18 @@
 ```python
 class Solution:
     def maximumPopulation(self, logs: List[List[int]]) -> int:
-        offset = 1950
-        delta = [0] * 101
-        # 遍历每个人的出生和死亡年份
+        delta = [0] * 2055
         for birth, death in logs:
-            # 出生年份人数+1
-            delta[birth - offset] += 1
-            # 死亡年份人数-1
-            delta[death - offset] -= 1
-
-        # mx表示人口数量最大值，cur表示当前年份人口数量，res表示人口数量最大的年份-offset
-        mx = cur = res = 0
-        for i in range(101):
-            cur += delta[i]
+            delta[birth] += 1
+            delta[death] -= 1
+        
+        mx = res = cur = 0
+        for i, v in enumerate(delta):
+            cur += v
             if mx < cur:
                 mx = cur
                 res = i
-        return res + offset
+        return res
 ```
 
 ### **Java**
@@ -87,26 +74,20 @@ class Solution:
 ```java
 class Solution {
     public int maximumPopulation(int[][] logs) {
-        int offset = 1950;
-        int[] delta = new int[101];
-        // 遍历每个人的出生和死亡年份
+        int[] delta = new int[2055];
         for (int[] log : logs) {
-            // 出生年份人数+1
-            ++delta[log[0] - offset];
-            // 死亡年份人数-1
-            --delta[log[1] - offset];
+            ++delta[log[0]];
+            --delta[log[1]];
         }
-        
-        // mx表示人口数量最大值，cur表示当前年份人口数量，res表示人口数量最大的年份-offset
-        int mx = 0, cur = 0, res = 0;
-        for (int i = 0; i < 101; ++i) {
+        int res = 0, mx = 0, cur = 0;
+        for (int i = 0; i < delta.length; ++i) {
             cur += delta[i];
-            if (mx < cur) {
+            if (cur > mx) {
                 mx = cur;
                 res = i;
             }
         }
-        return res + offset;
+        return res;
     }
 }
 ```
@@ -138,6 +119,53 @@ var maximumPopulation = function(logs) {
     }
     return index + offset;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumPopulation(vector<vector<int>>& logs) {
+        vector<int> delta(101, 0);
+        int offset = 1950;
+        for (auto log : logs) {
+            ++delta[log[0] - offset];
+            --delta[log[1] - offset];
+        }
+        int res = 0, mx = 0, cur = 0;
+        for (int i = 0; i < delta.size(); ++i) {
+            cur += delta[i];
+            if (cur > mx) {
+                mx = cur;
+                res = i;
+            }
+        }
+        return res + offset;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumPopulation(logs [][]int) int {
+	delta := make([]int, 101)
+	offset := 1950
+	for _, log := range logs {
+		delta[log[0]-offset]++
+		delta[log[1]-offset]--
+	}
+	res, mx, cur := 0, 0, 0
+	for i := 0; i < len(delta); i++ {
+		cur += delta[i]
+		if cur > mx {
+			mx = cur
+			res = i
+		}
+	}
+	return res + offset
+}
 ```
 
 ### **...**
