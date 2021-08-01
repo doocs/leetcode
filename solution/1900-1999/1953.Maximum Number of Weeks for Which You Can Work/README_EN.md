@@ -67,13 +67,66 @@ Thus, one milestone in project 0 will remain unfinished.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfWeeks(self, milestones: List[int]) -> int:
+        mx, s = max(milestones), sum(milestones)
+        rest = s - mx
+        return rest * 2 + 1 if mx > rest + 1 else s
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long numberOfWeeks(int[] milestones) {
+        int mx = 0;
+        long s = 0;
+        for (int e : milestones) {
+            s += e;
+            mx = Math.max(mx, e);
+        }
+        long rest = s - mx;
+        return mx > rest + 1 ? rest * 2 + 1 : s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long numberOfWeeks(vector<int>& milestones) {
+        int mx = *max_element(milestones.begin(), milestones.end());
+        long long s = accumulate(milestones.begin(), milestones.end(), 0LL);
+        long long rest = s - mx;
+        return mx > rest + 1 ? rest * 2 + 1 : s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfWeeks(milestones []int) int64 {
+	mx, s := 0, 0
+	for _, e := range milestones {
+		mx = max(mx, e)
+		s += e
+	}
+	rest := s - mx
+	if mx > rest+1 {
+		return int64(rest*2 + 1)
+	}
+	return int64(s)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

@@ -39,13 +39,58 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isThree(self, n: int) -> bool:
+        cnt = 0
+        for i in range(2, n):
+            if n % i == 0:
+                cnt += 1
+        return cnt == 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isThree(int n) {
+        int cnt = 0;
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                ++cnt;
+            }
+        }
+        return cnt == 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isThree(int n) {
+        int cnt = 0;
+        for (int i = 2; i < n; ++i) {
+            if (n % i == 0) ++cnt;
+        }
+        return cnt == 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isThree(n int) bool {
+	cnt := 0
+	for i := 2; i < n; i++ {
+		if n%i == 0 {
+			cnt++
+		}
+	}
+	return cnt == 1
+}
 ```
 
 ### **...**
