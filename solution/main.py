@@ -4,6 +4,9 @@ import re
 from urllib.parse import quote
 
 import requests
+import requests.packages.urllib3
+
+requests.packages.urllib3.disable_warnings()
 
 
 class LCSpider:
@@ -50,7 +53,8 @@ class LCSpider:
         self.session.post(url=LCSpider.graph_url,
                           data=json.dumps(form_data),
                           headers=headers,
-                          timeout=10)
+                          timeout=10,
+                          verify=False)
 
         form_data = {
             'operationName': 'questionData',
@@ -78,7 +82,8 @@ class LCSpider:
         resp = self.session.post(url=LCSpider.graph_url,
                                  data=json.dumps(form_data).encode('utf-8'),
                                  headers=headers,
-                                 timeout=10)
+                                 timeout=10,
+                                 verify=False)
         res = resp.json()
         return res['data']['question']
 
@@ -95,7 +100,8 @@ class LCSpider:
         resp = self.session.get(url='https://leetcode.com/api/problems/all/',
                                 headers=headers,
                                 allow_redirects=False,
-                                timeout=10)
+                                timeout=10,
+                                verify=False)
         questions = resp.json()['stat_status_pairs']
 
         for question in questions:
