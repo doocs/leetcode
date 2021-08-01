@@ -41,10 +41,11 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 	<li><code>1 <= nums[i] <= nums[i + 1] <= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+前缀和实现。
 
 <!-- tabs:start -->
 
@@ -53,7 +54,17 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        presum = [0] * (n + 1)
+        for i in range(n):
+            presum[i + 1] = presum[i] + nums[i]
+        res = []
+        for i, num in enumerate(nums):
+            t = num * i - presum[i] + presum[n] - presum[i + 1] - num * (n - i - 1)
+            res.append(t)
+        return res
 ```
 
 ### **Java**
@@ -61,7 +72,59 @@ result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] getSumAbsoluteDifferences(int[] nums) {
+        int n = nums.length;
+        int[] presum = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            presum[i + 1] = presum[i] + nums[i];
+        }
+        int[] res = new int[n];
+        for (int i = 0; i < n; ++i) {
+            res[i] = nums[i] * i - presum[i] + presum[n] - presum[i + 1] - nums[i] * (n - i - 1);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> presum(n + 1);
+        for (int i = 0; i < n; ++i) {
+            presum[i + 1] = presum[i] + nums[i];
+        }
+        vector<int> res;
+        for (int i = 0; i < n; ++i) {
+            int t = nums[i] * i - presum[i] + presum[n] - presum[i + 1] - nums[i] * (n - i - 1);
+            res.push_back(t);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getSumAbsoluteDifferences(nums []int) []int {
+	n := len(nums)
+	presum := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		presum[i+1] = presum[i] + nums[i]
+	}
+	var res []int
+	for i := 0; i < n; i++ {
+		t := nums[i]*i - presum[i] + presum[n] - presum[i+1] - nums[i]*(n-i-1)
+		res = append(res, t)
+	}
+	return res
+}
 ```
 
 ### **...**
