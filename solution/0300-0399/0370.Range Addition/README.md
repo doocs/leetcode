@@ -33,10 +33,11 @@
 [-2,0,3,5,3]
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+差分数组。
 
 <!-- tabs:start -->
 
@@ -45,7 +46,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
+        delta = [0] * length
+        for start, end, inc in updates:
+            delta[start] += inc
+            if end + 1 < length:
+                delta[end + 1] -= inc
+        for i in range(1, length):
+            delta[i] += delta[i - 1]
+        return delta
 ```
 
 ### **Java**
@@ -53,7 +63,56 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] getModifiedArray(int length, int[][] updates) {
+        int[] delta = new int[length];
+        for (int[] e : updates) {
+            delta[e[0]] += e[2];
+            if (e[1] + 1 < length) {
+                delta[e[1] + 1] -= e[2];
+            }
+        }
+        for (int i = 1; i < length; ++i) {
+            delta[i] += delta[i - 1];
+        }
+        return delta;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getModifiedArray(int length, vector<vector<int>>& updates) {
+        vector<int> delta(length);
+        for (auto e : updates) {
+            delta[e[0]] += e[2];
+            if (e[1] + 1 < length) delta[e[1] + 1] -= e[2];
+        }
+        for (int i = 1; i < length; ++i) delta[i] += delta[i - 1];
+        return delta;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getModifiedArray(length int, updates [][]int) []int {
+	delta := make([]int, length)
+	for _, e := range updates {
+		delta[e[0]] += e[2]
+		if e[1]+1 < length {
+			delta[e[1]+1] -= e[2]
+		}
+	}
+	for i := 1; i < length; i++ {
+		delta[i] += delta[i-1]
+	}
+	return delta
+}
 ```
 
 ### **...**
