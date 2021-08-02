@@ -5,7 +5,4 @@ class Solution:
             for c in word:
                 counter[c] += 1
         n = len(words)
-        for count in counter.values():
-            if count % n != 0:
-                return False
-        return True
+        return all(count % n == 0 for count in counter.values())

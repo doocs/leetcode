@@ -41,7 +41,6 @@ So you finally need to output 3.
 	<li><code>timeSeries</code> is sorted in non-decreasing order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -49,13 +48,60 @@ So you finally need to output 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
+        n, res = len(timeSeries), duration
+        for i in range(n - 1):
+            res += min(duration, timeSeries[i + 1] - timeSeries[i])
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findPoisonedDuration(int[] timeSeries, int duration) {
+        int n = timeSeries.length, res = duration;
+        for (int i = 0; i < n - 1; ++i) {
+            res += Math.min(duration, timeSeries[i + 1] - timeSeries[i]);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findPoisonedDuration(vector<int>& timeSeries, int duration) {
+        int n = timeSeries.size(), res = duration;
+        for (int i = 0; i < n - 1; ++i) {
+            res += min(duration, timeSeries[i + 1] - timeSeries[i]);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findPoisonedDuration(timeSeries []int, duration int) int {
+	n, res := len(timeSeries), duration
+	for i := 0; i < n-1; i++ {
+		res += min(duration, timeSeries[i+1]-timeSeries[i])
+	}
+	return res
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

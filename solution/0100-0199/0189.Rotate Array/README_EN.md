@@ -23,7 +23,7 @@ rotate 3 steps to the right: [5,6,7,1,2,3,4]
 <pre>
 <strong>Input:</strong> nums = [-1,-100,3,99], k = 2
 <strong>Output:</strong> [3,99,-1,-100]
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 rotate 1 steps to the right: [99,-1,-100,3]
 rotate 2 steps to the right: [3,99,-1,-100]
 </pre>
@@ -110,6 +110,27 @@ var rotate = function (nums, k) {
     k %= nums.length;
     nums.splice(0, 0, ...nums.splice(-k, k))
 };
+```
+
+### **Go**
+
+```go
+func rotate(nums []int, k int) {
+	n := len(nums)
+	k %= n
+
+	reverse(nums, 0, n-1)
+	reverse(nums, 0, k-1)
+	reverse(nums, k, n-1)
+}
+
+func reverse(nums []int, i, j int) {
+	for i < j {
+		nums[i], nums[j] = nums[j], nums[i]
+		i++
+		j--
+	}
+}
 ```
 
 ### **...**

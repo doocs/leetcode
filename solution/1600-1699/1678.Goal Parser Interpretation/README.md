@@ -44,7 +44,6 @@ G -&gt; G
 	<li><code>command</code> 由 <code>"G"</code>、<code>"()"</code> 和/或 <code>"(al)"</code> 按某种顺序组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -56,7 +55,28 @@ G -&gt; G
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def interpret(self, command: str) -> str:
+        return command.replace('()', 'o').replace('(al)', 'al')
+```
 
+```python
+class Solution:
+    def interpret(self, command: str) -> str:
+        res = ''
+        i, n = 0, len(command)
+        while i < n:
+            c = command[i]
+            if c == 'G':
+                res += c
+                i += 1
+            elif c == '(' and command[i + 1] != ')':
+                res += 'al'
+                i += 4
+            else:
+                res += 'o'
+                i += 2
+        return res
 ```
 
 ### **Java**
@@ -86,6 +106,55 @@ class Solution {
         }
         return sb.toString();
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string interpret(string command) {
+        string res = "";
+        int i = 0, n = command.size();
+        while (i < n) {
+            char c = command[i];
+            if (c == 'G') {
+                res += "G";
+                i += 1;
+            } else if (c == '(' && command[i + 1] != ')') {
+                res += "al";
+                i += 4;
+            } else {
+                res += "o";
+                i += 2;
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func interpret(command string) string {
+	var res string
+	i, n := 0, len(command)
+	for i < n {
+		c := command[i]
+		if c == 'G' {
+			res += "G"
+			i += 1
+		} else if c == '(' && command[i+1] != ')' {
+			res += "al"
+			i += 4
+		} else {
+			res += "o"
+			i += 2
+		}
+	}
+	return res
 }
 ```
 

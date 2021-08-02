@@ -1,4 +1,4 @@
-# [171. Excel表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number)
+# [171. Excel 表列序号](https://leetcode-cn.com/problems/excel-sheet-column-number)
 
 [English Version](/solution/0100-0199/0171.Excel%20Sheet%20Column%20Number/README_EN.md)
 
@@ -40,7 +40,6 @@
 <p><strong>致谢：</strong><br>
 特别感谢&nbsp;<a href="http://leetcode.com/discuss/user/ts">@ts</a>&nbsp;添加此问题并创建所有测试用例。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -80,12 +79,12 @@ class Solution {
 
 ```ts
 function titleToNumber(columnTitle: string): number {
-    let res: number = 0;
-    for (let char of columnTitle) {
-        res = res * 26 + char.charCodeAt(0) - 64;
-    }
-    return res;
-};
+  let res: number = 0;
+  for (let char of columnTitle) {
+    res = res * 26 + char.charCodeAt(0) - 64;
+  }
+  return res;
+}
 ```
 
 ### **C++**
@@ -101,6 +100,18 @@ public:
         return res;
     }
 };
+```
+
+### **Go**
+
+```go
+func titleToNumber(columnTitle string) int {
+	res := 0
+	for _, c := range columnTitle {
+		res = res*26 + int(c-'A'+1)
+	}
+	return res
+}
 ```
 
 ### **...**

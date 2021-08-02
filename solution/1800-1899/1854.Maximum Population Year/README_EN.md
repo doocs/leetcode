@@ -46,18 +46,18 @@ The earlier year between them is 1960.</pre>
 ```python
 class Solution:
     def maximumPopulation(self, logs: List[List[int]]) -> int:
-        offset = 1950
-        delta = [0] * 101
+        delta = [0] * 2055
         for birth, death in logs:
-            delta[birth - offset] += 1
-            delta[death - offset] -= 1
-        mx = cur = res = 0
-        for i in range(101):
-            cur += delta[i]
+            delta[birth] += 1
+            delta[death] -= 1
+        
+        mx = res = cur = 0
+        for i, v in enumerate(delta):
+            cur += v
             if mx < cur:
                 mx = cur
                 res = i
-        return res + offset
+        return res
 ```
 
 ### **Java**
@@ -65,21 +65,20 @@ class Solution:
 ```java
 class Solution {
     public int maximumPopulation(int[][] logs) {
-        int offset = 1950;
-        int[] delta = new int[101];
+        int[] delta = new int[2055];
         for (int[] log : logs) {
-            ++delta[log[0] - offset];
-            --delta[log[1] - offset];
+            ++delta[log[0]];
+            --delta[log[1]];
         }
-        int mx = 0, cur = 0, res = 0;
-        for (int i = 0; i < 101; ++i) {
+        int res = 0, mx = 0, cur = 0;
+        for (int i = 0; i < delta.length; ++i) {
             cur += delta[i];
-            if (mx < cur) {
+            if (cur > mx) {
                 mx = cur;
                 res = i;
             }
         }
-        return res + offset;
+        return res;
     }
 }
 ```
@@ -111,6 +110,53 @@ var maximumPopulation = function(logs) {
     }
     return index + offset;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumPopulation(vector<vector<int>>& logs) {
+        vector<int> delta(101, 0);
+        int offset = 1950;
+        for (auto log : logs) {
+            ++delta[log[0] - offset];
+            --delta[log[1] - offset];
+        }
+        int res = 0, mx = 0, cur = 0;
+        for (int i = 0; i < delta.size(); ++i) {
+            cur += delta[i];
+            if (cur > mx) {
+                mx = cur;
+                res = i;
+            }
+        }
+        return res + offset;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumPopulation(logs [][]int) int {
+	delta := make([]int, 101)
+	offset := 1950
+	for _, log := range logs {
+		delta[log[0]-offset]++
+		delta[log[1]-offset]--
+	}
+	res, mx, cur := 0, 0, 0
+	for i := 0; i < len(delta); i++ {
+		cur += delta[i]
+		if cur > mx {
+			mx = cur
+			res = i
+		}
+	}
+	return res + offset
+}
 ```
 
 ### **...**

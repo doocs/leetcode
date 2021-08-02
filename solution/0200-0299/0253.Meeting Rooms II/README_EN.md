@@ -22,7 +22,6 @@
 	<li><code>0 &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -30,13 +29,82 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        delta = [0] * 1000010
+        for start, end in intervals:
+            delta[start] += 1
+            delta[end] -= 1
+        for i in range(len(delta) - 1):
+            delta[i + 1] += delta[i]
+        return max(delta)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minMeetingRooms(int[][] intervals) {
+        int n = 1000010;
+        int[] delta = new int[n];
+        for (int[] e : intervals) {
+            ++delta[e[0]];
+            --delta[e[1]];
+        }
+        int res = delta[0];
+        for (int i = 1; i < n; ++i) {
+            delta[i] += delta[i - 1];
+            res = Math.max(res, delta[i]);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMeetingRooms(vector<vector<int>>& intervals) {
+        int n = 1000010;
+        vector<int> delta(n);
+        for (auto e : intervals) {
+            ++delta[e[0]];
+            --delta[e[1]];
+        }
+        for (int i = 0; i < n - 1; ++i) {
+            delta[i + 1] += delta[i];
+        }
+        return *max_element(delta.begin(), delta.end());
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMeetingRooms(intervals [][]int) int {
+	n := 1000010
+	delta := make([]int, n)
+	for _, e := range intervals {
+		delta[e[0]]++
+		delta[e[1]]--
+	}
+	res := delta[0]
+	for i := 1; i < n; i++ {
+		delta[i] += delta[i-1]
+		res = max(res, delta[i])
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

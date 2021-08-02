@@ -35,7 +35,6 @@
 	<li><code>-1000 &lt;= inc<sub>i</sub> &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -43,13 +42,71 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
+        delta = [0] * length
+        for start, end, inc in updates:
+            delta[start] += inc
+            if end + 1 < length:
+                delta[end + 1] -= inc
+        for i in range(1, length):
+            delta[i] += delta[i - 1]
+        return delta
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] getModifiedArray(int length, int[][] updates) {
+        int[] delta = new int[length];
+        for (int[] e : updates) {
+            delta[e[0]] += e[2];
+            if (e[1] + 1 < length) {
+                delta[e[1] + 1] -= e[2];
+            }
+        }
+        for (int i = 1; i < length; ++i) {
+            delta[i] += delta[i - 1];
+        }
+        return delta;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> getModifiedArray(int length, vector<vector<int>>& updates) {
+        vector<int> delta(length);
+        for (auto e : updates) {
+            delta[e[0]] += e[2];
+            if (e[1] + 1 < length) delta[e[1] + 1] -= e[2];
+        }
+        for (int i = 1; i < length; ++i) delta[i] += delta[i - 1];
+        return delta;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getModifiedArray(length int, updates [][]int) []int {
+	delta := make([]int, length)
+	for _, e := range updates {
+		delta[e[0]] += e[2]
+		if e[1]+1 < length {
+			delta[e[1]+1] -= e[2]
+		}
+	}
+	for i := 1; i < length; i++ {
+		delta[i] += delta[i-1]
+	}
+	return delta
+}
 ```
 
 ### **...**

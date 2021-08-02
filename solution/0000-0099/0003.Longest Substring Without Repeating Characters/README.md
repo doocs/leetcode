@@ -14,7 +14,7 @@
 
 <pre>
 <strong>输入: </strong>s = "abcabcbb"
-<strong>输出: </strong>3 
+<strong>输出: </strong>3
 <strong>解释:</strong> 因为无重复字符的最长子串是 <code>"abc"，所以其</code>长度为 3。
 </pre>
 
@@ -147,6 +147,35 @@ class Solution {
         }
         return max(maxLength, i - currentStartingIndex)
     }
+}
+```
+
+### **Go**
+
+```go
+func lengthOfLongestSubstring(s string) int {
+	window := make(map[byte]int)
+	n := len(s)
+	ans := 0
+	left, right := 0, 0
+	for right < n {
+		b := s[right]
+		right++
+		window[b]++
+		for window[b] > 1 {
+			window[s[left]]--
+			left++
+		}
+		ans = max(ans, right-left)
+	}
+	return ans
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
 }
 ```
 
