@@ -33,10 +33,11 @@
 	<li><code>0 <= start<sub>i</sub> < end<sub>i</sub> <= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+差分数组。
 
 <!-- tabs:start -->
 
@@ -45,7 +46,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        delta = [0] * 1000010
+        for start, end in intervals:
+            delta[start] += 1
+            delta[end] -= 1
+        for i in range(len(delta) - 1):
+            delta[i + 1] += delta[i]
+        return max(delta)
 ```
 
 ### **Java**
@@ -53,7 +62,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minMeetingRooms(int[][] intervals) {
+        int n = 1000010;
+        int[] delta = new int[n];
+        for (int[] e : intervals) {
+            ++delta[e[0]];
+            --delta[e[1]];
+        }
+        int res = delta[0];
+        for (int i = 1; i < n; ++i) {
+            delta[i] += delta[i - 1];
+            res = Math.max(res, delta[i]);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMeetingRooms(vector<vector<int>>& intervals) {
+        int n = 1000010;
+        vector<int> delta(n);
+        for (auto e : intervals) {
+            ++delta[e[0]];
+            --delta[e[1]];
+        }
+        for (int i = 0; i < n - 1; ++i) {
+            delta[i + 1] += delta[i];
+        }
+        return *max_element(delta.begin(), delta.end());
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMeetingRooms(intervals [][]int) int {
+	n := 1000010
+	delta := make([]int, n)
+	for _, e := range intervals {
+		delta[e[0]]++
+		delta[e[1]]--
+	}
+	res := delta[0]
+	for i := 1; i < n; i++ {
+		delta[i] += delta[i-1]
+		res = max(res, delta[i])
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
