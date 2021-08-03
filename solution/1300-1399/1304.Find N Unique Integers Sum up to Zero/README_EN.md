@@ -36,7 +36,6 @@
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -44,7 +43,15 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        presum = 0
+        res = []
+        for i in range(1, n):
+            res.append(i)
+            presum += i
+        res.append(-presum)
+        return res
 ```
 
 ### **Java**
@@ -61,6 +68,39 @@ class Solution {
     ret[n - 1] = -preSum;
     return ret;
   }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        int presum = 0;
+        vector<int> res;
+        for (int i = 1; i < n; ++i) {
+            res.push_back(i);
+            presum += i;
+        }
+        res.push_back(-presum);
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumZero(n int) []int {
+	presum := 0
+	var res []int
+	for i := 1; i < n; i++ {
+		res = append(res, i)
+		presum += i
+	}
+	res = append(res, -presum)
+	return res
 }
 ```
 
