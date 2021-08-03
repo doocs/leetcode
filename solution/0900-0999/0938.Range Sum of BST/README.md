@@ -35,7 +35,6 @@
 	<li>所有 <code>Node.val</code> <strong>互不相同</strong></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -47,27 +46,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def rangeSumBST(self, root, L, R):
-        """
-        :type root: TreeNode
-        :type L: int
-        :type R: int
-        :rtype: int
-        """
-        def searchBST(node):
+    def rangeSumBST(self, root: TreeNode, low: int, high: int) -> int:
+        def search(node):
             if not node:
                 return
-            if L <= node.val <= R:
+            if low <= node.val <= high:
                 self.ans += node.val
-                searchBST(node.right)
-                searchBST(node.left)
-            elif node.val < L:
-                searchBST(node.right)
-            elif node.val > R:
-                searchBST(node.left)
+                search(node.left)
+                search(node.right)
+            elif node.val < low:
+                search(node.right)
+            elif node.val > high:
+                search(node.left)
+
         self.ans = 0
-        searchBST(root)
+        search(root)
         return self.ans
 ```
 
@@ -76,24 +76,33 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
-    private int res = 0;
-    public int rangeSumBST(TreeNode root, int L, int R) {
+    public int rangeSumBST(TreeNode root, int low, int high) {
         if (root == null) {
-            return res;
+            return 0;
         }
-        
-        if (root.val < L) {
-            rangeSumBST(root.right, L, R);
-        } else if (root.val > R) {
-            rangeSumBST(root.left, L, R);
+        if (low <= root.val && root.val <= high) {
+            return root.val + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
+        } else if (root.val < low) {
+            return rangeSumBST(root.right, low, high);
         } else {
-            res += root.val;
-            rangeSumBST(root.left, L, R);
-            rangeSumBST(root.right, L, R);
+            return rangeSumBST(root.left, low, high);
         }
-        return res;
-        
     }
 }
 ```
@@ -101,44 +110,55 @@ class Solution {
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
-    int rangeSumBST(TreeNode* root, int L, int R) {
-        if (nullptr == root)
-            return 0 ;
-        stack<TreeNode *> s ;
-        s.push(root) ;
-        int sum = 0 ;
-        while (!s.empty())
-        {
-            TreeNode *node = s.top() ;
-            s.pop() ;
-            
-            if (nullptr == node)
-                continue ;
-            
-            if (node->val > R)
-                s.push(node->left) ;
-            else if (node->val < L)
-                s.push(node->right) ;
-            else
-            {
-                sum += node->val ;
-                s.push(node->left) ;
-                s.push(node->right) ;
-            }
+    int rangeSumBST(TreeNode* root, int low, int high) {
+        if (root == nullptr) return 0;
+        if (low <= root->val && root->val <= high) {
+            return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
+        } else if (root->val < low) {
+            return rangeSumBST(root->right, low, high);
+        } else {
+            return rangeSumBST(root->left, low, high);
         }
-        
-        return sum ;
     }
 };
+```
 
-static int x = []()
-{
-    ios::sync_with_stdio(false); 
-    cin.tie(nullptr); 
-    return 0; 
-}() ;
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func rangeSumBST(root *TreeNode, low int, high int) int {
+	if root == nil {
+		return 0
+	}
+	if low <= root.Val && root.Val <= high {
+		return root.Val + rangeSumBST(root.Left, low, high) + rangeSumBST(root.Right, low, high)
+	} else if root.Val < low {
+		return rangeSumBST(root.Right, low, high)
+	} else {
+		return rangeSumBST(root.Left, low, high)
+	}
+}
 ```
 
 ### **...**

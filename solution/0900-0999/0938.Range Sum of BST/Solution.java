@@ -4,26 +4,26 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    private int res = 0;
-    public int rangeSumBST(TreeNode root, int L, int R) {
+    public int rangeSumBST(TreeNode root, int low, int high) {
         if (root == null) {
-            return res;
+            return 0;
         }
-        
-        if (root.val < L) {
-            rangeSumBST(root.right, L, R);
-        } else if (root.val > R) {
-            rangeSumBST(root.left, L, R);
+        if (low <= root.val && root.val <= high) {
+            return root.val + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
+        } else if (root.val < low) {
+            return rangeSumBST(root.right, low, high);
         } else {
-            res += root.val;
-            rangeSumBST(root.left, L, R);
-            rangeSumBST(root.right, L, R);
+            return rangeSumBST(root.left, low, high);
         }
-        return res;
-        
     }
 }

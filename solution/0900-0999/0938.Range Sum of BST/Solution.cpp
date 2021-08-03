@@ -4,44 +4,21 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    int rangeSumBST(TreeNode* root, int L, int R) {
-        if (nullptr == root)
-            return 0 ;
-        stack<TreeNode *> s ;
-        s.push(root) ;
-        int sum = 0 ;
-        while (!s.empty())
-        {
-            TreeNode *node = s.top() ;
-            s.pop() ;
-            
-            if (nullptr == node)
-                continue ;
-            
-            if (node->val > R)
-                s.push(node->left) ;
-            else if (node->val < L)
-                s.push(node->right) ;
-            else
-            {
-                sum += node->val ;
-                s.push(node->left) ;
-                s.push(node->right) ;
-            }
+    int rangeSumBST(TreeNode* root, int low, int high) {
+        if (root == nullptr) return 0;
+        if (low <= root->val && root->val <= high) {
+            return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
+        } else if (root->val < low) {
+            return rangeSumBST(root->right, low, high);
+        } else {
+            return rangeSumBST(root->left, low, high);
         }
-        
-        return sum ;
     }
 };
-
-static int x = []()
-{
-    ios::sync_with_stdio(false); 
-    cin.tie(nullptr); 
-    return 0; 
-}() ;
