@@ -1,9 +1,9 @@
 class Solution:
     def reductionOperations(self, nums: List[int]) -> int:
-        counter = collections.Counter(nums)
-        f = res = 0
-        n = len(nums)
-        for _, v in sorted(counter.items(), key=lambda x: x[0]):
-            f += v
-            res += (n - f)
+        nums.sort()
+        cnt, res, n = 0, 0, len(nums)
+        for i in range(1, n):
+            if nums[i] != nums[i - 1]:
+                cnt += 1
+            res += cnt
         return res

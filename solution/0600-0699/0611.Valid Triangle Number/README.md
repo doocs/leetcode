@@ -32,7 +32,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-双指针加二分，先枚举两条边，然后利用二分查找定位第三条边
+双指针加二分，先枚举两条边，然后利用二分查找定位第三条边。
 
 <!-- tabs:start -->
 
@@ -46,7 +46,7 @@ class Solution:
         n = len(nums)
         nums.sort()
         ans = 0
-        for i in range(0, n - 2):
+        for i in range(n - 2):
             for j in range(i + 1, n - 1):
                 left, right = j + 1, n
                 while left < right:
@@ -108,6 +108,34 @@ func triangleNumber(nums []int) int {
 	}
 	return ans
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int triangleNumber(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int n = nums.size();
+        int ans = 0;
+        for (int i = 0; i < n - 2; ++i) {
+            for (int j = i + 1; j < n - 1; ++j) {
+                int left = j + 1, right = n;
+                while (left < right) {
+                    int mid = left + right >> 1;
+                    if (nums[mid] < nums[i] + nums[j]) {
+                        left = mid + 1;
+                    } else {
+                        right = mid;
+                    }
+                }
+                ans += left - j - 1;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**
