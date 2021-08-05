@@ -1994,3 +1994,4 @@
   - [1953.Maximum Number of Weeks for Which You Can Work](/solution/1900-1999/1953.Maximum%20Number%20of%20Weeks%20for%20Which%20You%20Can%20Work/README_EN.md)
   - [1954.Minimum Garden Perimeter to Collect Enough Apples](/solution/1900-1999/1954.Minimum%20Garden%20Perimeter%20to%20Collect%20Enough%20Apples/README_EN.md)
   - [1955.Count Number of Special Subsequences](/solution/1900-1999/1955.Count%20Number%20of%20Special%20Subsequences/README_EN.md)
+  - [1956.Minimum Time For K Virus Variants to Spread](/solution/1900-1999/1956.Minimum%20Time%20For%20K%20Virus%20Variants%20to%20Spread/README_EN.md)
