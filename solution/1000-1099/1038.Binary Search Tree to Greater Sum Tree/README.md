@@ -57,7 +57,6 @@
 	<li>给定的树为二叉搜索树。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -69,7 +68,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    add = 0
 
+    def bstToGst(self, root: TreeNode) -> TreeNode:
+        if root:
+            self.bstToGst(root.right)
+            root.val += self.add
+            self.add = root.val
+            self.bstToGst(root.left)
+        return root
 ```
 
 ### **Java**
@@ -77,22 +91,88 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
-    private int max = 0;
-
+    int add = 0;
     public TreeNode bstToGst(TreeNode root) {
-        if (root == null) return new TreeNode(0);
-        int temp = bstToGst(root.right).val;
-        root.val += (temp > max ? temp : max);
-        max = root.val > max ? root.val : max;
-        if (root.left != null) {
-            int temp2 = bstToGst(root.left.right).val;
-            root.left.val += max > temp2 ? max : temp2;
-            max = max > root.left.val ? max : root.left.val;
-            bstToGst(root.left.left);
+        if (root != null) {
+            bstToGst(root.right);
+            root.val += add;
+            add = root.val;
+            bstToGst(root.left);
         }
         return root;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int add = 0;
+    TreeNode* bstToGst(TreeNode* root) {
+        if (root) {
+            bstToGst(root->right);
+            root->val += add;
+            add = root->val;
+            bstToGst(root->left);
+        }
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func bstToGst(root *TreeNode) *TreeNode {
+	add := 0
+	var dfs func(*TreeNode)
+	dfs = func(node *TreeNode) {
+		if node != nil {
+			dfs(node.Right)
+			node.Val += add
+			add = node.Val
+			dfs(node.Left)
+		}
+	}
+	dfs(root)
+	return root
 }
 ```
 

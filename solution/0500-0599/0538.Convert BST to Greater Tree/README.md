@@ -57,7 +57,6 @@
 	<li>给定的树为二叉搜索树。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -69,7 +68,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    add = 0
+    def convertBST(self, root: TreeNode) -> TreeNode:
+        if root:
+            self.convertBST(root.right)
+            root.val += self.add
+            self.add = root.val
+            self.convertBST(root.left)
+        return root
 ```
 
 ### **Java**
@@ -89,6 +102,35 @@ class Solution {
         return root;
     }
 }
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int add = 0;
+    TreeNode* convertBST(TreeNode* root) {
+        if (root) {
+            convertBST(root->right);
+            root->val += add;
+            add = root->val;
+            convertBST(root->left);
+        }
+        return root;
+    }
+};
 ```
 
 ### **...**
