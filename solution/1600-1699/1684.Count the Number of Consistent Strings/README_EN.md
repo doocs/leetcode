@@ -44,7 +44,6 @@
 	<li><code>words[i]</code> and <code>allowed</code> contain only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -52,13 +51,97 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+        res = 0
+        chars = set(allowed)
+        for word in words:
+            find = True
+            for c in word:
+                if c not in chars:
+                    find = False
+                    break
+            if find:
+                res += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countConsistentStrings(String allowed, String[] words) {
+        boolean[] chars = new boolean[26];
+        for (char c : allowed.toCharArray()) {
+            chars[c - 'a'] = true;
+        }
+        int res = 0;
+        for (String word : words) {
+            boolean find = true;
+            for (char c : word.toCharArray()) {
+                if (!chars[c - 'a']) {
+                    find = false;
+                    break;
+                }
+            }
+            if (find) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countConsistentStrings(string allowed, vector<string>& words) {
+        vector<bool> chars(26, false);
+        for (char c : allowed) {
+            chars[c - 'a'] = true;
+        }
+        int res = 0;
+        for (string word : words) {
+            bool find = true;
+            for (char c : word) {
+                if (!chars[c - 'a']) {
+                    find = false;
+                    break;
+                }
+            }
+            if (find) ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countConsistentStrings(allowed string, words []string) int {
+	chars := [26]bool{}
+	for _, c := range allowed {
+		chars[c-'a'] = true
+	}
+	res := 0
+	for _, word := range words {
+		find := true
+		for _, c := range word {
+			if !chars[c-'a'] {
+				find = false
+				break
+			}
+		}
+		if find {
+			res++
+		}
+	}
+	return res
+}
 ```
 
 ### **...**
