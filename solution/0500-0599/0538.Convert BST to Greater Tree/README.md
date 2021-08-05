@@ -77,7 +77,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    int add = 0;
+    public TreeNode convertBST(TreeNode root) {
+        if (root != null) {
+            convertBST(root.right);
+            root.val += add;
+            add = root.val;
+            convertBST(root.left);
+        }
+        return root;
+    }
+}
 ```
 
 ### **...**
