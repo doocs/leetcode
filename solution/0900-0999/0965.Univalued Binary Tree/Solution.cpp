@@ -4,27 +4,23 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
-private:
-    bool isUnivalVal(TreeNode* r, int val)
-    {
-        if (val != r->val)
-            return false ;
-        
-        if (r->left && !isUnivalVal(r->left, val))
-            return false ;
-        if (r->right && !isUnivalVal(r->right, val))
-            return false ;
-        
-        return true ;
-    }
 public:
+    int val;
+
     bool isUnivalTree(TreeNode* root) {
-        if (nullptr == root)
-            return true ;
-        return isUnivalVal(root, root->val) ;
+        val = root->val;
+        return dfs(root);
     }
-} ;
+
+    bool dfs(TreeNode* root) {
+        if (root == nullptr) return true;
+        if (root->val != val) return false;
+        return dfs(root->left) && dfs(root->right);
+    }
+};
