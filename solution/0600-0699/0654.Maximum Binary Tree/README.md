@@ -52,10 +52,11 @@
 	<li><code>nums</code> 中的所有整数 <strong>互不相同</strong></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+先找到数组的最大元素所在的位置，作为根节点，然后递归左右两侧的子数组，构建左右子树。
 
 <!-- tabs:start -->
 
@@ -64,7 +65,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructMaximumBinaryTree(self, nums: List[int]) -> TreeNode:
+        def inner(nums, l, r):
+            if l > r:
+                return None
+            mx = l
+            for i in range(l + 1, r + 1):
+                if nums[mx] < nums[i]:
+                    mx = i
+            return TreeNode(nums[mx], inner(nums, l, mx - 1), inner(nums, mx + 1, r))
 
+        return inner(nums, 0, len(nums) - 1)
 ```
 
 ### **Java**
@@ -72,7 +90,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode constructMaximumBinaryTree(int[] nums) {
+        return construct(nums, 0, nums.length - 1);
+    }
 
+    private TreeNode construct(int[] nums, int l, int r) {
+        if (l > r) {
+            return null;
+        }
+        int mx = l;
+        for (int i = l + 1; i <= r; ++i) {
+            if (nums[mx] < nums[i]) {
+                mx = i;
+            }
+        }
+        return new TreeNode(nums[mx], construct(nums, l, mx - 1), construct(nums, mx + 1, r));
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums) {
+        return construct(nums, 0, nums.size() - 1);
+    }
+
+    TreeNode* construct(vector<int>& nums, int l, int r) {
+        if (l > r) return nullptr;
+        int mx = l;
+        for (int i = l + 1; i <= r; ++i) {
+            if (nums[mx] < nums[i]) mx = i;
+        }
+        TreeNode* root = new TreeNode(nums[mx]);
+        root->left = construct(nums, l, mx - 1);
+        root->right = construct(nums, mx + 1, r);
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func constructMaximumBinaryTree(nums []int) *TreeNode {
+	return construct(nums, 0, len(nums)-1)
+}
+
+func construct(nums []int, l, r int) *TreeNode {
+	if l > r {
+		return nil
+	}
+	mx := l
+	for i := l + 1; i <= r; i++ {
+		if nums[mx] < nums[i] {
+			mx = i
+		}
+	}
+	return &TreeNode{
+		Val:   nums[mx],
+		Left:  construct(nums, l, mx-1),
+		Right: construct(nums, mx+1, r),
+	}
+}
 ```
 
 ### **...**

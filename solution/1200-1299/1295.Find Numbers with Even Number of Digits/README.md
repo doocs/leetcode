@@ -40,7 +40,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -56,10 +55,7 @@
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        res = 0
-        for num in nums:
-            res += (len(str(num)) & 1) == 0
-        return res
+        return sum(1 for num in nums if (len(str(num)) & 1) == 0)
 ```
 
 ### **Java**
@@ -69,12 +65,43 @@ class Solution:
 ```java
 class Solution {
     public int findNumbers(int[] nums) {
-        int res = 0;
+        int s = 0;
         for (int num : nums) {
-            res += (String.valueOf(num).length() & 1) == 0 ? 1 : 0;
+            if ((String.valueOf(num).length() & 1) == 0) {
+                ++s;
+            }
         }
-        return res;
+        return s;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int s = 0;
+        for (int num : nums) {
+            s += (to_string(num).size() & 1) == 0;
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findNumbers(nums []int) int {
+	s := 0
+	for _, num := range nums {
+		if (len(strconv.Itoa(num)) & 1) == 0 {
+			s++
+		}
+	}
+	return s
 }
 ```
 

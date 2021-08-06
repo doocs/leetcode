@@ -5,6 +5,7 @@
 ## Description
 
 Given an array <code>nums</code> of integers, return how many of them contain an <strong>even number</strong> of digits.
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -37,7 +38,6 @@ Only 1771 contains an even number of digits.
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -47,10 +47,7 @@ Only 1771 contains an even number of digits.
 ```python
 class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        res = 0
-        for num in nums:
-            res += (len(str(num)) & 1) == 0
-        return res
+        return sum(1 for num in nums if (len(str(num)) & 1) == 0)
 ```
 
 ### **Java**
@@ -58,12 +55,43 @@ class Solution:
 ```java
 class Solution {
     public int findNumbers(int[] nums) {
-        int res = 0;
+        int s = 0;
         for (int num : nums) {
-            res += (String.valueOf(num).length() & 1) == 0 ? 1 : 0;
+            if ((String.valueOf(num).length() & 1) == 0) {
+                ++s;
+            }
         }
-        return res;
+        return s;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int s = 0;
+        for (int num : nums) {
+            s += (to_string(num).size() & 1) == 0;
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findNumbers(nums []int) int {
+	s := 0
+	for _, num := range nums {
+		if (len(strconv.Itoa(num)) & 1) == 0 {
+			s++
+		}
+	}
+	return s
 }
 ```
 
