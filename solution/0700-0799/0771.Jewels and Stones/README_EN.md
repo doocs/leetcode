@@ -34,8 +34,8 @@
 ```python
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        jewel_set = {c for c in jewels}
-        return sum([1 for c in stones if c in jewel_set])
+        s = set(jewels)
+        return sum([1 for c in stones if c in s])
 ```
 
 ### **Java**
@@ -43,13 +43,13 @@ class Solution:
 ```java
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
-        Set<Character> jewelSet = new HashSet<>();
-        for (char ch : jewels.toCharArray()) {
-            jewelSet.add(ch);
+        Set<Character> s = new HashSet<>();
+        for (char c : jewels.toCharArray()) {
+            s.add(c);
         }
         int res = 0;
-        for (char ch : stones.toCharArray()) {
-            res += (jewelSet.contains(ch) ? 1 : 0);
+        for (char c : stones.toCharArray()) {
+            res += (s.contains(c) ? 1 : 0);
         }
         return res;
     }
@@ -62,17 +62,35 @@ class Solution {
 class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
-        unordered_set<char> jewelsSet;
-        for (int i = 0; i < jewels.length(); ++i) {
-            jewelsSet.insert(jewels[i]);
+        unordered_set<char> s;
+        for (char c : jewels) {
+            s.insert(c);
         }
         int res = 0;
-        for (int i = 0; i < stones.length(); ++i) {
-            res += jewelsSet.count(stones[i]);
+        for (char c : stones) {
+            res += s.count(c);
         }
         return res;
     }
 };
+```
+
+### **Go**
+
+```go
+func numJewelsInStones(jewels string, stones string) int {
+	s := make(map[rune]bool)
+	for _, c := range jewels {
+		s[c] = true
+	}
+	res := 0
+	for _, c := range stones {
+		if s[c] {
+			res++
+		}
+	}
+	return res
+}
 ```
 
 ### **...**
