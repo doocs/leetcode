@@ -42,7 +42,6 @@
 	<li><code>0 &lt;= digits[i] &lt;= 9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -50,13 +49,89 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        n = len(digits)
+        for i in range(n - 1, -1 , -1):
+            digits[i] += 1
+            digits[i] %= 10
+            if digits[i] != 0:
+                return digits
+        return [1] + digits
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int n = digits.length;
+        for (int i = n - 1; i >= 0; --i) {
+            ++digits[i];
+            digits[i] %= 10;
+            if (digits[i] != 0) {
+                return digits;
+            }
+        }
+        digits = new int[n + 1];
+        digits[0] = 1;
+        return digits;
+    }
+}
+```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+var plusOne = function(digits) {
+    for (let i = digits.length - 1; i >= 0; --i) {
+        ++digits[i];
+        digits[i] %= 10;
+        if (digits[i] != 0) {
+            return digits;
+        }
+    }
+    digits.unshift(1);
+    return digits;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int n = digits.size();
+        for (int i = n - 1; i >= 0; --i) {
+            ++digits[i];
+            digits[i] %= 10;
+            if (digits[i] != 0) return digits;
+        }
+        digits.insert(digits.begin(), 1);
+        return digits;
+    }
+};
+```
+
+### **Go**
+
+```go
+func plusOne(digits []int) []int {
+	n := len(digits)
+	for i := n - 1; i >= 0; i-- {
+		digits[i]++
+		digits[i] %= 10
+		if digits[i] != 0 {
+			return digits
+		}
+	}
+	return append([]int{1}, digits...)
+}
 ```
 
 ### **...**
