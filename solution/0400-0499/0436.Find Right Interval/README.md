@@ -51,10 +51,11 @@
 	<li>每个间隔的起点都 <strong>不相同</strong></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+二分查找。
 
 <!-- tabs:start -->
 
@@ -63,7 +64,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
+        n = len(intervals)
+        starts = [(intervals[i][0], i) for i in range(n)]
+        starts.sort(key=lambda x : x[0])
+        res = []
+        for _, end in intervals:
+            left, right = 0, n - 1
+            while left < right:
+                mid = (left + right) >> 1
+                if starts[mid][0] >= end:
+                    right = mid
+                else:
+                    left = mid + 1
+            res.append(-1 if starts[left][0] < end else starts[left][1])
+        return res
 ```
 
 ### **Java**
@@ -71,7 +87,95 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] findRightInterval(int[][] intervals) {
+        int n = intervals.length;
+        List<int[]> starts = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            starts.add(new int[]{intervals[i][0], i});
+        }
+        starts.sort(Comparator.comparingInt(a -> a[0]));
+        int[] res = new int[n];
+        int i = 0;
+        for (int[] interval : intervals) {
+            int left = 0, right = n - 1;
+            int end = interval[1];
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (starts.get(mid)[0] >= end) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            res[i++] = starts.get(left)[0] < end ? -1 : starts.get(left)[1];
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findRightInterval(vector<vector<int>>& intervals) {
+        int n = intervals.size();
+        vector<pair<int, int>> starts;
+        for (int i = 0; i < n; ++i) {
+            starts.emplace_back(make_pair(intervals[i][0], i));
+        }
+        sort(starts.begin(), starts.end());
+        vector<int> res;
+        for (auto interval : intervals) {
+            int left = 0, right = n - 1;
+            int end = interval[1];
+            while (left < right) {
+                int mid = left + right >> 1;
+                if (starts[mid].first >= end) right = mid;
+                else left = mid + 1;
+            }
+            res.push_back(starts[left].first < end ? -1 : starts[left].second);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findRightInterval(intervals [][]int) []int {
+	n := len(intervals)
+	starts := make([][]int, n)
+	for i := 0; i < n; i++ {
+		starts[i] = make([]int, 2)
+		starts[i][0] = intervals[i][0]
+		starts[i][1] = i
+	}
+	sort.Slice(starts, func(i, j int) bool {
+		return starts[i][0] < starts[j][0]
+	})
+	var res []int
+	for _, interval := range intervals {
+		left, right, end := 0, n-1, interval[1]
+		for left < right {
+			mid := (left + right) >> 1
+			if starts[mid][0] >= end {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		val := -1
+		if starts[left][0] >= end {
+			val = starts[left][1]
+		}
+		res = append(res, val)
+	}
+	return res
+}
 ```
 
 ### **...**
