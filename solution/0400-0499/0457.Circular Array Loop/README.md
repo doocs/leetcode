@@ -65,10 +65,11 @@
 
 <p><strong>进阶：</strong>你能设计一个时间复杂度为 <code>O(n)</code> 且额外空间复杂度为 <code>O(1)</code> 的算法吗？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+快慢指针。
 
 <!-- tabs:start -->
 
@@ -77,7 +78,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def circularArrayLoop(self, nums: List[int]) -> bool:
+        n = len(nums)
 
+        def next(i):
+            return (i + nums[i] % n + n) % n
+
+        for i in range(n):
+            if nums[i] == 0:
+                continue
+            slow, fast = i, next(i)
+            while nums[slow] * nums[fast] > 0 and nums[slow] * nums[next(fast)] > 0:
+                if slow == fast:
+                    if slow != next(slow):
+                        return True
+                    break
+                slow, fast = next(slow), next(next(fast))
+            j = i
+            while nums[j] * nums[next(j)] > 0:
+                nums[j] = 0
+                j = next(j)
+        return False
 ```
 
 ### **Java**
@@ -85,7 +107,108 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int n;
+    private int[] nums;
 
+    public boolean circularArrayLoop(int[] nums) {
+        n = nums.length;
+        this.nums = nums;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] == 0) {
+                continue;
+            }
+            int slow = i, fast = next(i);
+            while (nums[slow] * nums[fast] > 0 && nums[slow] * nums[next(fast)] > 0) {
+                if (slow == fast) {
+                    if (slow != next(slow)) {
+                        return true;
+                    }
+                    break;
+                }
+                slow = next(slow);
+                fast = next(next(fast));
+            }
+            int j = i;
+            while (nums[j] * nums[next(j)] > 0) {
+                nums[j] = 0;
+                j = next(j);
+            }
+        }
+        return false;
+    }
+
+    private int next(int i) {
+        return (i + nums[i] % n + n) % n;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool circularArrayLoop(vector<int>& nums) {
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            if (!nums[i]) continue;
+            int slow = i, fast = next(nums, i);
+            while (nums[slow] * nums[fast] > 0 && nums[slow] * nums[next(nums, fast)] > 0) {
+                if (slow == fast) {
+                    if (slow != next(nums, slow)) return true;
+                    break;
+                }
+                slow = next(nums, slow);
+                fast = next(nums, next(nums, fast));
+            }
+            int j = i;
+            while (nums[j] * nums[next(nums, j)] > 0) {
+                nums[j] = 0;
+                j = next(nums, j);
+            }
+        }
+        return false;
+    }
+
+    int next(vector<int>& nums, int i) {
+        int n = nums.size();
+        return (i + nums[i] % n + n) % n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func circularArrayLoop(nums []int) bool {
+	for i, num := range nums {
+		if num == 0 {
+			continue
+		}
+		slow, fast := i, next(nums, i)
+		for nums[slow]*nums[fast] > 0 && nums[slow]*nums[next(nums, fast)] > 0 {
+			if slow == fast {
+				if slow != next(nums, slow) {
+					return true
+				}
+				break
+			}
+			slow, fast = next(nums, slow), next(nums, next(nums, fast))
+		}
+		j := i
+		for nums[j]*nums[next(nums, j)] > 0 {
+			nums[j] = 0
+			j = next(nums, j)
+		}
+	}
+	return false
+}
+
+func next(nums []int, i int) int {
+	n := len(nums)
+	return (i + nums[i]%n + n) % n
+}
 ```
 
 ### **...**
