@@ -12,7 +12,7 @@
 
 <p><b>示例 1：</b></p>
 
-<p><img alt="" src="https://pic.leetcode-cn.com/1626667201-NCWmuP-image.png" style="width: 150px; " /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20107.%20%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%9D%E7%A6%BB/images/1626667201-NCWmuP-image.png" style="width: 150px; " /></p>
 
 <pre>
 <strong>输入：</strong>mat =<strong> </strong>[[0,0,0],[0,1,0],[0,0,0]]
@@ -21,7 +21,7 @@
 
 <p><b>示例 2：</b></p>
 
-<p><img alt="" src="https://pic.leetcode-cn.com/1626667205-xFxIeK-image.png" style="width: 150px; " /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20107.%20%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%9D%E7%A6%BB/images/1626667205-xFxIeK-image.png" style="width: 150px; " /></p>
 
 <pre>
 <b>输入：</b>mat =<b> </b>[[0,0,0],[0,1,0],[1,1,1]]

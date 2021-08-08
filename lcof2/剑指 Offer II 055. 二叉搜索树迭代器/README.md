@@ -24,7 +24,7 @@
 
 <p><strong>示例：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2018/12/25/bst-tree.png" style="width: 189px; height: 178px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20055.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E8%BF%AD%E4%BB%A3%E5%99%A8/images/bst-tree.png" style="width: 189px; height: 178px;" /></p>
 
 <pre>
 <strong>输入</strong>

@@ -10,7 +10,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img src="https://assets.leetcode.com/uploads/2021/02/14/tree.jpg" style="width: 270px; " /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20046.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E4%BE%A7%E8%A7%86%E5%9B%BE/images/tree.jpg" style="width: 270px; " /></p>
 
 <pre>
 <strong>输入:</strong>&nbsp;[1,2,3,null,5,null,4]

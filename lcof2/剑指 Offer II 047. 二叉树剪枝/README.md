@@ -19,7 +19,7 @@
 只有红色节点满足条件&ldquo;所有不包含 1 的子树&rdquo;。
 右图为返回的答案。
 
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/06/1028_2.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20047.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/images/1028_2.png" style="width:450px" />
 </pre>
 
 <p><strong>示例 2:</strong></p>
@@ -29,7 +29,7 @@
 <strong>输出: </strong>[1,null,1,null,1]
 <strong>解释:</strong> 
 
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/06/1028_1.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20047.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/images/1028_1.png" style="width:450px" />
 </pre>
 
 <p><strong>示例 3:</strong></p>
@@ -39,7 +39,7 @@
 <strong>输出: </strong>[1,1,0,1,1,null,1]
 <strong>解释:</strong> 
 
-<img alt="" src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/04/05/1028.png" style="width:450px" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20047.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/images/1028.png" style="width:450px" />
 </pre>
 
 <p>&nbsp;</p>

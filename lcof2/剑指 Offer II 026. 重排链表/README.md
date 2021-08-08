@@ -17,7 +17,7 @@
 
 <p><strong>示例 1:</strong></p>
 
-<p><img alt="" src="https://pic.leetcode-cn.com/1626420311-PkUiGI-image.png" style="width: 240px; " /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20026.%20%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/images/1626420311-PkUiGI-image.png" style="width: 240px; " /></p>
 
 <pre>
 <strong>输入: </strong>head = [1,2,3,4]
@@ -25,7 +25,7 @@
 
 <p><strong>示例 2:</strong></p>
 
-<p><img alt="" src="https://pic.leetcode-cn.com/1626420320-YUiulT-image.png" style="width: 320px; " /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20026.%20%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8/images/1626420320-YUiulT-image.png" style="width: 320px; " /></p>
 
 <pre>
 <strong>输入: </strong>head = [1,2,3,4,5]

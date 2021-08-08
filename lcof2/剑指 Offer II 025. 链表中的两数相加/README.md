@@ -12,7 +12,7 @@
 
 <p><strong>示例1：</strong></p>
 
-<p><img alt="" src="https://pic.leetcode-cn.com/1626420025-fZfzMX-image.png" style="width: 302px; " /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20025.%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/images/1626420025-fZfzMX-image.png" style="width: 302px; " /></p>
 
 <pre>
 <strong>输入：</strong>l1 = [7,2,4,3], l2 = [5,6,4]
