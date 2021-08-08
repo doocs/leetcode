@@ -5,11 +5,11 @@
 **快速排序算法模板：**
 
 ```java
-void quickSort(int[] nums, int left, int high) {
-    if (left >= high) {
+void quickSort(int[] nums, int left, int right) {
+    if (left >= right) {
         return;
     }
-    int i = left - 1, j = high + 1;
+    int i = left - 1, j = right + 1;
     int x = nums[left];
     while (i < j) {
         while (nums[++i] < x);
@@ -21,7 +21,7 @@ void quickSort(int[] nums, int left, int high) {
         }
     }
     quickSort(nums, left, j);
-    quickSort(nums, j + 1, high);
+    quickSort(nums, j + 1, right);
 }
 ```
 
@@ -72,11 +72,11 @@ N = int(input())
 nums = list(map(int, input().split()))
 
 
-def quick_sort(nums, left, high):
-    if left >= high:
+def quick_sort(nums, left, right):
+    if left >= right:
         return
-    i, j = left - 1, high + 1
-    x = nums[(left + high) >> 1]
+    i, j = left - 1, right + 1
+    x = nums[(left + right) >> 1]
     while i < j:
         while 1:
             i += 1
@@ -89,7 +89,7 @@ def quick_sort(nums, left, high):
         if i < j:
             nums[i], nums[j] = nums[j], nums[i]
     quick_sort(nums, left, j)
-    quick_sort(nums, j + 1, high)
+    quick_sort(nums, j + 1, right)
 
 
 quick_sort(nums, 0, N - 1)
@@ -115,11 +115,11 @@ public class Main {
         }
     }
     
-    public static void quickSort(int[] nums, int left, int high) {
-        if (left >= high) {
+    public static void quickSort(int[] nums, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int i = left - 1, j = high + 1;
+        int i = left - 1, j = right + 1;
         int x = nums[left];
         while (i < j) {
             while (nums[++i] < x);
@@ -131,7 +131,7 @@ public class Main {
             }
         }
         quickSort(nums, left, j);
-        quickSort(nums, j + 1, high);
+        quickSort(nums, j + 1, right);
     }
 }
 ```
@@ -150,14 +150,14 @@ let getInputArgs = line => {
     return line.split(' ').filter(s => s !== '').map(x => parseInt(x));
 }
 
-function quickSort(nums, left, high) {
-    if (left >= high) {
+function quickSort(nums, left, right) {
+    if (left >= right) {
         return;
     }
     
     let i = left - 1;
-    let j = high + 1;
-    let x = nums[(left + high) >> 1];
+    let j = right + 1;
+    let x = nums[(left + right) >> 1];
     while (i < j) {
         while (nums[++i] < x);
         while (nums[--j] > x);
@@ -168,7 +168,7 @@ function quickSort(nums, left, high) {
         }
     }
     quickSort(nums, left, j);
-    quickSort(nums, j + 1, high);
+    quickSort(nums, j + 1, right);
 }
 
 
@@ -192,12 +192,12 @@ package main
 
 import "fmt"
 
-func quickSort(nums []int, left, high int) {
-	if left >= high {
+func quickSort(nums []int, left, right int) {
+	if left >= right {
 		return
 	}
-	i, j := left-1, high+1
-	x := nums[(left+high)>>1]
+	i, j := left-1, right+1
+	x := nums[(left+right)>>1]
 	for i < j {
 		for {
 			i++
@@ -216,7 +216,7 @@ func quickSort(nums []int, left, high int) {
 		}
 	}
 	quickSort(nums, left, j)
-	quickSort(nums, j+1, high)
+	quickSort(nums, j+1, right)
 }
 
 func main() {
