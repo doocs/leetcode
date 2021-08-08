@@ -48,7 +48,6 @@
 	<li><code>0 &lt;= num &lt;= 10^6</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -60,7 +59,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfSteps(self, num: int) -> int:
+        res = 0
+        while num:
+            if (num & 1) == 0:
+                num >>= 1
+            else:
+                num -= 1
+            res += 1
+        return res
 ```
 
 ### **Java**
@@ -70,16 +78,52 @@
 ```java
 class Solution {
     public int numberOfSteps(int num) {
-        int cnt = 0;
+        int res = 0;
         while (num != 0) {
-            if (num % 2 == 1)
-                num--;
-            else
-                num /= 2;
-            cnt++;
+            if ((num & 1) == 0) {
+                num >>= 1;
+            } else {
+                --num;
+            }
+            ++res;
         }
-        return cnt;
+        return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfSteps(int num) {
+        int res = 0;
+        while (num)
+        {
+            if ((num & 1) == 0) num >>= 1;
+            else --num;
+            ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfSteps(num int) int {
+	res := 0
+	for num != 0 {
+		if (num & 1) == 0 {
+			num >>= 1
+		} else {
+			num--
+		}
+		res++
+	}
+	return res
 }
 ```
 
