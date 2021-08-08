@@ -14,7 +14,7 @@
 
 ## 介绍
 
-本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。欢迎 Star 🌟 关注本项目「[GitHub](https://github.com/doocs/leetcode) / [Gitee](https://gitee.com/doocs/leetcode)」，获取项目最新动态。
+本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《剑指 Offer（专项突击版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。欢迎 Star 🌟 关注本项目「[GitHub](https://github.com/doocs/leetcode) / [Gitee](https://gitee.com/doocs/leetcode)」，获取项目最新动态。
 
 [English Version](./README_EN.md)
 

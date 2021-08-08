@@ -1,4 +1,4 @@
-# [《剑指 Offer（第 2 版）》系列](https://leetcode-cn.com/problemset/lcof/)
+# [《剑指 Offer（专项突击版）》系列](https://leetcode-cn.com/problem-list/e8X3pBZi)
 
 ![](./lcof2.jpg)
 
