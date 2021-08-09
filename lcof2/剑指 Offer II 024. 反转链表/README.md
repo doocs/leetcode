@@ -70,7 +70,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode res = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return res;
+    }
+}
 ```
 
 ### **...**
