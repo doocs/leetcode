@@ -53,6 +53,10 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 
 <!-- 这里可写通用的实现逻辑 -->
 
+在第 1、100、3001、3002 这四个时间点分别进行了 ping 请求， 在 3001 秒的时候， 它前面的 3000 秒指的是区间 `[1,3001]`， 所以一共是有 `1、100、3001` 三个请求， t = 3002 的前 3000 秒指的是区间 `[2,3002]`, 所以有 `100、3001、3002` 三次请求。
+
+可以用队列实现。每次将 t 进入队尾，同时从队头开始依次移除小于 `t-3000` 的元素。然后返回队列的大小 `q.size()` 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +64,21 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class RecentCounter:
 
+    def __init__(self):
+        self.q = collections.deque()
+
+    def ping(self, t: int) -> int:
+        self.q.append(t)
+        while self.q[0] < t - 3000:
+            self.q.popleft()
+        return len(self.q)
+
+
+# Your RecentCounter object will be instantiated and called as such:
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
 ```
 
 ### **Java**
@@ -68,7 +86,108 @@ recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001<
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class RecentCounter {
+    private Deque<Integer> q;
 
+    public RecentCounter() {
+        q = new LinkedList<>();
+    }
+    
+    public int ping(int t) {
+        q.offerLast(t);
+        while (q.peekFirst() < t - 3000) {
+            q.pollFirst();
+        }
+        return q.size();
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.ping(t);
+ */
+```
+
+### **C++**
+
+```cpp
+class RecentCounter {
+public:
+    deque<int> q;
+
+    RecentCounter() {
+
+    }
+    
+    int ping(int t) {
+        q.push_back(t);
+        while (q.front() < t - 3000) {
+            q.pop_front();
+        }
+        return q.size();
+    }
+};
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter* obj = new RecentCounter();
+ * int param_1 = obj->ping(t);
+ */
+```
+
+### **Go**
+
+```go
+type RecentCounter struct {
+	q []int
+}
+
+func Constructor() RecentCounter {
+	return RecentCounter{
+		q: []int{},
+	}
+}
+
+func (this *RecentCounter) Ping(t int) int {
+	this.q = append(this.q, t)
+	for this.q[0] < t-3000 {
+		this.q = this.q[1:len(this.q)]
+	}
+	return len(this.q)
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Ping(t);
+ */
+```
+
+### **JavaScript**
+
+```js
+var RecentCounter = function() {
+    this.q = [];
+};
+
+/** 
+ * @param {number} t
+ * @return {number}
+ */
+RecentCounter.prototype.ping = function(t) {
+    this.q.push(t);
+    while (this.q[0] < t - 3000) {
+        this.q.shift();
+    }
+    return this.q.length;
+};
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * var obj = new RecentCounter()
+ * var param_1 = obj.ping(t)
+ */
 ```
 
 ### **...**
