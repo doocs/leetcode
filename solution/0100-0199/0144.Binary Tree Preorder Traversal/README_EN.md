@@ -56,6 +56,12 @@
 
 ## Solutions
 
+**1. Recusive Traversal**
+
+**2. Non-recursive using Stack**
+
+**3. Morris Traversal**
+
 <!-- tabs:start -->
 
 ### **Python3**
