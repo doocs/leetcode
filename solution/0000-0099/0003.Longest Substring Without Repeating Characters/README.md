@@ -56,9 +56,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-- 定义一个哈希表存放字符及其出现的位置；
-- 定义 i, j 分别表示不重复子串的开始位置和结束位置；
-- j 向后遍历，若遇到与 `[i, j]` 区间内字符相同的元素，更新 i 的值，此时 `[i, j]` 区间内不存在重复字符，计算 res 的最大值。
+“双指针 + 滑动窗口”。
+
+定义一个哈希表记录当前窗口内出现的字符，i、j 分别表示不重复子串的结束位置和开始位置，res 表示无重复字符子串的最大长度。
+
+遍历 i，若 `[j, i - 1]` 窗口内存在 `s[i]`，则 j 循环向右移动，更新哈希表，直至 `[j, i - 1]` 窗口不存在 `s[i]`，循环结束。将 `s[i]` 加入哈希表中，此时 `[j, i]` 窗口内不含重复元素，更新 res 的最大值：`res = max(res, i - j + 1)`。
+
+最后返回 res 即可。
 
 <!-- tabs:start -->
 
@@ -69,16 +73,16 @@
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        res, chars = 0, dict()
-        i = j = 0
-        while j < len(s):
-            if s[j] in chars:
-                # chars[s[j]]+1 可能比 i 还小，通过 max 函数来锁住左边界
-                # e.g. 在"tmmzuxt"这个字符串中，遍历到最后一步时，最后一个字符't'和第一个字符't'是相等的。如果没有 max 函数，i 就会回到第一个't'的索引0处的下一个位置
-                i = max(i, chars[s[j]] + 1)
-            res = max(res, j - i + 1)
-            chars[s[j]] = j
-            j += 1
+        i = j = res = 0
+        chars = set()
+        while i < len(s):
+            while s[i] in chars:
+                if s[j] in chars:
+                    chars.remove(s[j])
+                j += 1
+            chars.add(s[i])
+            res = max(res, i - j + 1)
+            i += 1
         return res
 ```
 
@@ -90,20 +94,39 @@ class Solution:
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         int res = 0;
-        Map<Character, Integer> chars = new HashMap<>();
-        for (int i = 0, j = 0; j < s.length(); ++j) {
-            char c = s.charAt(j);
-            if (chars.containsKey(c)) {
-                // chars.get(c)+1 可能比 i 还小，通过 max 函数来锁住左边界
-                // e.g. 在"tmmzuxt"这个字符串中，遍历到最后一步时，最后一个字符't'和第一个字符't'是相等的。如果没有 max 函数，i 就会回到第一个't'的索引0处的下一个位置
-                i = Math.max(i, chars.get(c) + 1);
+        Set<Character> set = new HashSet<>();
+        for (int i = 0, j = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            while (set.contains(c)) {
+                set.remove(s.charAt(j++));
             }
-            chars.put(c, j);
-            res = Math.max(res, j - i + 1);
+            set.add(c);
+            res = Math.max(res, i - j + 1);
         }
         return res;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+ var lengthOfLongestSubstring = function(s) {
+    let res = 0;
+    let chars = new Set();
+    for (let i = 0, j = 0; i < s.length; ++i) {
+        while (chars.has(s[i])) {
+            chars.delete(s[j++]);
+        }
+        chars.add(s[i]);
+        res = Math.max(res, i - j + 1);
+    }
+    return res;
+};
 ```
 
 ### **TypeScript**
