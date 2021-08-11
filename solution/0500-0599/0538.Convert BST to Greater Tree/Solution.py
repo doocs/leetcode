@@ -5,12 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    add = 0
-
     def convertBST(self, root: TreeNode) -> TreeNode:
-        if root:
-            self.convertBST(root.right)
-            root.val += self.add
-            self.add = root.val
-            self.convertBST(root.left)
-        return root
+        s = 0
+        node = root
+        while root:
+            if root.right is None:
+                s += root.val
+                root.val = s
+                root = root.left
+            else:
+                next = root.right
+                while next.left and next.left != root:
+                    next = next.left
+                if next.left is None:
+                    next.left = root
+                    root = root.right
+                else:
+                    s += root.val
+                    root.val = s
+                    next.left = None
+                    root = root.left
+        return node

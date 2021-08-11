@@ -7,16 +7,28 @@
  * }
  */
 func bstToGst(root *TreeNode) *TreeNode {
-	add := 0
-	var dfs func(*TreeNode)
-	dfs = func(node *TreeNode) {
-		if node != nil {
-			dfs(node.Right)
-			node.Val += add
-			add = node.Val
-			dfs(node.Left)
+	s := 0
+	node := root
+	for root != nil {
+		if root.Right == nil {
+			s += root.Val
+			root.Val = s
+			root = root.Left
+		} else {
+			next := root.Right
+			for next.Left != nil && next.Left != root {
+				next = next.Left
+			}
+			if next.Left == nil {
+				next.Left = root
+				root = root.Right
+			} else {
+				s += root.Val
+				root.Val = s
+				next.Left = nil
+				root = root.Left
+			}
 		}
 	}
-	dfs(root)
-	return root
+	return node
 }

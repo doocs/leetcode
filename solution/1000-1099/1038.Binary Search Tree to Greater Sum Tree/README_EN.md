@@ -96,6 +96,38 @@ class Solution:
         return root
 ```
 
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def bstToGst(self, root: TreeNode) -> TreeNode:
+        s = 0
+        node = root
+        while root:
+            if root.right is None:
+                s += root.val
+                root.val = s
+                root = root.left
+            else:
+                next = root.right
+                while next.left and next.left != root:
+                    next = next.left
+                if next.left is None:
+                    next.left = root
+                    root = root.right
+                else:
+                    s += root.val
+                    root.val = s
+                    next.left = None
+                    root = root.left
+        return node
+```
+
 ### **Java**
 
 ```java
@@ -124,6 +156,52 @@ class Solution {
             bstToGst(root.left);
         }
         return root;
+    }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode bstToGst(TreeNode root) {
+        int s = 0;
+        TreeNode node = root;
+        while (root != null) {
+            if (root.right == null) {
+                s += root.val;
+                root.val = s;
+                root = root.left;
+            } else {
+                TreeNode next = root.right;
+                while (next.left != null && next.left != root) {
+                    next = next.left;
+                }
+                if (next.left == null) {
+                    next.left = root;
+                    root = root.right;
+                } else {
+                    s += root.val;
+                    root.val = s;
+                    next.left = null;
+                    root = root.left;
+                }
+            }
+        }
+        return node;
     }
 }
 ```
@@ -157,6 +235,56 @@ public:
 };
 ```
 
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* bstToGst(TreeNode* root) {
+        int s = 0;
+        TreeNode* node = root;
+        while (root)
+        {
+            if (root->right == nullptr) {
+                s += root->val;
+                root->val = s;
+                root = root->left;
+            }
+            else
+            {
+                TreeNode* next = root->right;
+                while (next->left && next->left != root)
+                {
+                    next = next->left;
+                }
+                if (next->left == nullptr)
+                {
+                    next->left = root;
+                    root = root->right;
+                }
+                else
+                {
+                    s += root->val;
+                    root->val = s;
+                    next->left = nullptr;
+                    root = root->left;
+                }
+            }
+        }
+        return node;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -181,6 +309,43 @@ func bstToGst(root *TreeNode) *TreeNode {
 	}
 	dfs(root)
 	return root
+}
+```
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func bstToGst(root *TreeNode) *TreeNode {
+	s := 0
+	node := root
+	for root != nil {
+		if root.Right == nil {
+			s += root.Val
+			root.Val = s
+			root = root.Left
+		} else {
+			next := root.Right
+			for next.Left != nil && next.Left != root {
+				next = next.Left
+			}
+			if next.Left == nil {
+				next.Left = root
+				root = root.Right
+			} else {
+				s += root.Val
+				root.Val = s
+				next.Left = nil
+				root = root.Left
+			}
+		}
+	}
+	return node
 }
 ```
 

@@ -11,14 +11,37 @@
  */
 class Solution {
 public:
-    int add = 0;
     TreeNode* bstToGst(TreeNode* root) {
-        if (root) {
-            bstToGst(root->right);
-            root->val += add;
-            add = root->val;
-            bstToGst(root->left);
+        int s = 0;
+        TreeNode* node = root;
+        while (root)
+        {
+            if (root->right == nullptr) {
+                s += root->val;
+                root->val = s;
+                root = root->left;
+            }
+            else
+            {
+                TreeNode* next = root->right;
+                while (next->left && next->left != root)
+                {
+                    next = next->left;
+                }
+                if (next->left == nullptr)
+                {
+                    next->left = root;
+                    root = root->right;
+                }
+                else
+                {
+                    s += root->val;
+                    root->val = s;
+                    next->left = nullptr;
+                    root = root->left;
+                }
+            }
         }
-        return root;
+        return node;
     }
 };
