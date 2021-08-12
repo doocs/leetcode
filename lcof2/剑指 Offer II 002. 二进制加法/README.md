@@ -41,6 +41,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+模拟笔算加法的过程，注意进位
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,7 +50,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        x, y = len(a) - 1, len(b) - 1
+        arr = []
+        carry = 0
+        while x >= 0 or y >= 0:
+            if x >= 0:
+                if a[x] == '1':
+                    carry += 1
+                x -= 1
+            if y >= 0:
+                if b[y] == '1':
+                    carry += 1
+                y -= 1
+            arr.append(chr((carry & 1) + ord('0')))
+            carry >>= 1
+        if carry == 1:
+            arr.append('1')
+        return ''.join(reversed(arr))
 ```
 
 ### **Java**
@@ -56,7 +76,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String addBinary(String a, String b) {
+        int x = a.length() - 1, y = b.length() - 1;
+        StringBuilder builder = new StringBuilder();
+        int carry = 0;
+        while (x >= 0 || y >= 0) {
+            if (x >= 0) {
+                if (a.charAt(x) == '1') {
+                    carry += 1;
+                }
+                x--;
+            }
+            if (y >= 0) {
+                if (b.charAt(y) == '1') {
+                    carry += 1;
+                }
+                y--;
+            }
+            builder.append((char) ((carry & 1) + '0'));
+            carry >>= 1;
+        }
+        if (carry == 1) {
+            builder.append('1');
+        }
+        return builder.reverse().toString();
+    }
+}
+```
 
+### **Go**
+
+```go
+func addBinary(a string, b string) string {
+	x, y := len(a)-1, len(b)-1
+	var builder strings.Builder
+	carry := 0
+	for x >= 0 || y >= 0 {
+		if x >= 0 {
+			if a[x] == '1' {
+				carry += 1
+			}
+			x--
+		}
+		if y >= 0 {
+			if b[y] == '1' {
+				carry += 1
+			}
+			y--
+		}
+		builder.WriteRune(rune(carry&1 + '0'))
+		carry >>= 1
+	}
+	if carry == 1 {
+		builder.WriteRune('1')
+	}
+	bytes := []byte(builder.String())
+	for i, j := 0, len(bytes)-1; i < j; i, j = i+1, j-1 {
+		bytes[i], bytes[j] = bytes[j], bytes[i]
+	}
+	return string(bytes)
+}
 ```
 
 ### **...**
