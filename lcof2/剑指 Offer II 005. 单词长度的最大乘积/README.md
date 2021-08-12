@@ -49,6 +49,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+因为只有 26 个小写字符，所以可以用一个 `int32` 存储字符的出现情况，然后枚举最大乘积
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +58,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProduct(self, words: List[str]) -> int:
+        n = len(words)
+        mask = [0 for _ in range(n)]
+        for i, word in enumerate(words):
+            for ch in word:
+                mask[i] |= 1 << (ord(ch) - ord('a'))
+        ans = 0
+        for i in range(0, n - 1):
+            for j in range(i + 1, n):
+                if mask[i] & mask[j] == 0:
+                    ans = max(ans, len(words[i]) * len(words[j]))
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +78,56 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxProduct(String[] words) {
+        int n = words.length;
+        int[] mask = new int[n];
+        for (int i = 0; i < n; i++) {
+            for (char ch : words[i].toCharArray()) {
+                mask[i] |= 1 << (ch - 'a');
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if ((mask[i] & mask[j]) == 0) {
+                    ans = Math.max(ans, words[i].length() * words[j].length());
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func maxProduct(words []string) int {
+	n := len(words)
+	mask := make([]int32, n)
+	for i, word := range words {
+		for _, r := range word {
+			mask[i] |= 1 << (r - 'a')
+		}
+	}
+	ans := 0
+	for i := 0; i < n-1; i++ {
+		for j := i + 1; j < n; j++ {
+			if mask[i]&mask[j] == 0 {
+				ans = max(ans, len(words[i])*len(words[j]))
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

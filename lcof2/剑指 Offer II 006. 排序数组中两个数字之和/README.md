@@ -55,6 +55,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+双指针
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +64,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        i, j = 0, len(numbers) - 1
+        while True:
+            if numbers[i] + numbers[j] < target:
+                i += 1
+            elif numbers[i] + numbers[j] > target:
+                j -= 1
+            else:
+                return [i, j]
 ```
 
 ### **Java**
@@ -70,7 +81,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int i = 0, j = numbers.length - 1;
+        for (;;) {
+            if (numbers[i] + numbers[j] < target) {
+                i++;
+            } else if (numbers[i] + numbers[j] > target) {
+                j--;
+            } else {
+                return new int[]{i, j};
+            }
+        }
+    }
+}
+```
 
+### **Go**
+
+```go
+func twoSum(numbers []int, target int) []int {
+	for i, j := 0, len(numbers)-1; ; {
+		if numbers[i]+numbers[j] < target {
+			i++
+		} else if numbers[i]+numbers[j] > target {
+			j--
+		} else {
+			return []int{i, j}
+		}
+	}
+}
 ```
 
 ### **...**
