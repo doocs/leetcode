@@ -72,6 +72,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+双指针。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,7 +81,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        i, k, n = 0, 0, len(chars)
+        while i < n:
+            j = i + 1
+            while j < n and chars[j] == chars[i]:
+                j += 1
+            chars[k] = chars[i]
+            k += 1
+            if j - i > 1:
+                cnt = str(j - i)
+                for c in cnt:
+                    chars[k] = c
+                    k += 1
+            i = j
+        return k
 ```
 
 ### **Java**
@@ -87,7 +104,76 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int compress(char[] chars) {
+        int k = 0, n = chars.length;
+        for (int i = 0, j = i + 1; i < n;) {
+            while (j < n && chars[j] == chars[i]) {
+                ++j;
+            }
+            chars[k++] = chars[i];
+            if (j - i > 1) {
+                String cnt = String.valueOf(j - i);
+                for (char c : cnt.toCharArray()) {
+                    chars[k++] = c;
+                }
+            }
+            i = j;
+        }
+        return k;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int compress(vector<char> &chars) {
+        int k = 0, n = chars.size();
+        for (int i = 0, j = i + 1; i < n;)
+        {
+            while (j < n && chars[j] == chars[i])
+                ++j;
+            chars[k++] = chars[i];
+            if (j - i > 1)
+            {
+                for (char c : to_string(j - i))
+                {
+                    chars[k++] = c;
+                }
+            }
+            i = j;
+        }
+        return k;
+    }
+};
+```
+
+### **Go**
+
+```go
+func compress(chars []byte) int {
+	i, k, n := 0, 0, len(chars)
+	for i < n {
+		j := i + 1
+		for j < n && chars[j] == chars[i] {
+			j++
+		}
+		chars[k] = chars[i]
+		k++
+		if j-i > 1 {
+			cnt := strconv.Itoa(j - i)
+			for _, c := range cnt {
+				chars[k] = byte(c)
+				k++
+			}
+		}
+		i = j
+	}
+	return k
+}
 ```
 
 ### **...**
