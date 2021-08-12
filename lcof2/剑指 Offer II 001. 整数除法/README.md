@@ -64,6 +64,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+通过下面这段伪代码，不难理解除法本质上就是减法，但是一次循环只能做一次减法，效率太低会导致超时，所以再加上快速幂的思想优化即可
+
+```py
+sign = -1 if a * b < 0 else 1
+a = abs(a)
+b = abs(b)
+cnt = 0
+while a >= b:
+	a -= b
+	cnt += 1
+return sign * cnt
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +84,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def divide(self, a: int, b: int) -> int:
+        INT_MAX = (1 << 31) - 1
+        INT_MIN = -(1 << 31)
+        sign = -1 if a * b < 0 else 1
+        a = abs(a)
+        b = abs(b)
+        tot = 0
+        while a >= b:
+            cnt = 0
+            while a >= (b << cnt):
+                cnt += 1
+            cnt -= 1
+            tot += 1 << cnt
+            a -= b << cnt
+        return sign * tot if INT_MIN <= sign * tot <= INT_MAX else INT_MAX
 ```
 
 ### **Java**
@@ -79,7 +107,76 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int divide(int a, int b) {
+        int sign = 1;
+        if ((a < 0) != (b < 0)) {
+            sign = -1;
+        }
+        long x = abs(a);
+        long y = abs(b);
+        long tot = 0;
+        while (x >= y) {
+            int cnt = 0;
+            while (x >= (y << cnt)) {
+                cnt++;
+            }
+            cnt--;
+            tot += 1L << cnt;
+            x -= y << cnt;
+        }
+        long ans = sign * tot;
+        if (ans >= Integer.MIN_VALUE && ans <= Integer.MAX_VALUE) {
+            return (int) ans;
+        }
+        return Integer.MAX_VALUE;
+    }
 
+    private long abs(long a) {
+        if (a < 0) {
+            return -a;
+        }
+        return a;
+    }
+}
+```
+
+### **Go**
+
+```go
+func divide(a int, b int) int {
+	sign := 1
+	if a*b < 0 {
+		sign = -1
+	}
+
+	a = abs(a)
+	b = abs(b)
+
+	tot := 0
+	for a >= b {
+		cnt := 0
+		for a >= (b << cnt) {
+			cnt++
+		}
+		cnt--
+		tot += 1 << cnt
+		a -= b << cnt
+	}
+
+	ans := sign * tot
+	if ans >= math.MinInt32 && ans <= math.MaxInt32 {
+		return ans
+	}
+	return math.MaxInt32
+}
+
+func abs(a int) int {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
 ```
 
 ### **...**
