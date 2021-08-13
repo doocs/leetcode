@@ -1,16 +1,15 @@
 class Solution {
-    public int[] sortArrayByParityII(int[] A) {
-        int j = 1, length = A.length;
-        for (int i = 0; i < length; i += 2) {
-            if ((A[i] & 1) != 0) {
-                while ((A[j] & 1) != 0)  j += 2;
-
-                // Swap A[i] and A[j]
-                int tmp = A[i];
-                A[i] = A[j];
-                A[j] = tmp;
+    public int[] sortArrayByParityII(int[] nums) {
+        for (int i = 0, j = 1; i < nums.length; i += 2) {
+            if ((nums[i] & 1) == 1) {
+                while ((nums[j] & 1) == 1) {
+                    j += 2;
+                }
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
             }
         }
-        return A;
+        return nums;
     }
 }

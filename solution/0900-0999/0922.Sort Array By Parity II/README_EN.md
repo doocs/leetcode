@@ -36,7 +36,6 @@
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -44,13 +43,93 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sortArrayByParityII(self, nums: List[int]) -> List[int]:
+        n, j = len(nums), 1
+        for i in range(0, n, 2):
+            if (nums[i] & 1) == 1:
+                while (nums[j] & 1) == 1:
+                    j += 2
+                nums[i], nums[j] = nums[j], nums[i]
+        return nums
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] sortArrayByParityII(int[] nums) {
+        for (int i = 0, j = 1; i < nums.length; i += 2) {
+            if ((nums[i] & 1) == 1) {
+                while ((nums[j] & 1) == 1) {
+                    j += 2;
+                }
+                int t = nums[i];
+                nums[i] = nums[j];
+                nums[j] = t;
+            }
+        }
+        return nums;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sortArrayByParityII(vector<int> &nums) {
+        for (int i = 0, j = 1; i < nums.size(); i += 2)
+        {
+            if ((nums[i] & 1) == 1)
+            {
+                while ((nums[j] & 1) == 1)
+                {
+                    j += 2;
+                }
+                swap(nums[i], nums[j]);
+            }
+        }
+        return nums;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortArrayByParityII(nums []int) []int {
+	for i, j := 0, 1; i < len(nums); i += 2 {
+		if (nums[i] & 1) == 1 {
+			for (nums[j] & 1) == 1 {
+				j += 2
+			}
+			nums[i], nums[j] = nums[j], nums[i]
+		}
+	}
+	return nums
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var sortArrayByParityII = function(nums) {
+    for (let i = 0, j = 1; i < nums.length; i += 2) {
+        if ((nums[i] & 1) == 1) {
+            while ((nums[j] & 1) == 1) {
+                j += 2;
+            }
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+        }
+    }
+    return nums;
+};
 ```
 
 ### **...**
