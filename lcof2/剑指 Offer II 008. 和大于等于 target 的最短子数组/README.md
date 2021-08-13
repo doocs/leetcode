@@ -66,7 +66,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        n = len(nums)
+        ans = float('inf')
+        sum = 0
+        left, right = 0, 0
+        while right < n:
+            sum += nums[right]
+            right += 1
+            while sum >= target:
+                ans = min(ans, right - left)
+                sum -= nums[left]
+                left += 1
+        return 0 if ans == float('inf') else ans
 ```
 
 ### **Java**
@@ -74,7 +87,53 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int n = nums.length;
+        int ans = Integer.MAX_VALUE;
+        int sum = 0;
+        int left = 0, right = 0;
+        while (right < n) {
+            sum += nums[right++];
+            while (sum >= target) {
+                ans = Math.min(ans, right - left);
+                sum -= nums[left++];
+            }
+        }
+        return ans == Integer.MAX_VALUE ? 0 : ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func minSubArrayLen(target int, nums []int) int {
+	n := len(nums)
+	ans := math.MaxInt32
+	sum := 0
+	left, right := 0, 0
+	for right < n {
+		sum += nums[right]
+		right++
+		for sum >= target {
+			ans = min(ans, right-left)
+			sum -= nums[left]
+			left++
+		}
+	}
+	if ans == math.MaxInt32 {
+		return 0
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
