@@ -47,6 +47,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+枚举第一个数，然后用双指针确定另外两个数
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +56,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        n, ans = len(nums), []
+        nums.sort()
+        for i in range(n - 2):
+            if i > 0 and nums[i] == nums[i - 1]: continue
+            left, right = i + 1, n - 1
+            while left < right:
+                cur = nums[i] + nums[left] + nums[right]
+                if cur < 0:
+                    left += 1
+                elif cur > 0:
+                    right -= 1
+                else:
+                    ans.append([nums[i], nums[left], nums[right]])
+                    while left < right and nums[left] == nums[left + 1]:
+                        left += 1
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1
+                    left += 1
+                    right -= 1
+        return ans
 ```
 
 ### **Java**
@@ -62,7 +85,73 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        int n = nums.length;
+        List<List<Integer>> ans = new ArrayList<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < n - 2; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            int left = i + 1, right = n - 1;
+            while (left < right) {
+                int cur = nums[i] + nums[left] + nums[right];
+                if (cur < 0) {
+                    left++;
+                } else if (cur > 0) {
+                    right--;
+                } else {
+                    ans.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    while (left < right && nums[left] == nums[left + 1]) {
+                        left++;
+                    }
+                    while (left < right && nums[right] == nums[right - 1]) {
+                        right--;
+                    }
+                    left++;
+                    right--;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func threeSum(nums []int) [][]int {
+	n := len(nums)
+	ans := make([][]int, 0)
+	sort.Ints(nums)
+	for i := 0; i < n-2 && nums[i] <= 0; i++ {
+		left, right := i+1, n-1
+		for left < right {
+			cur := nums[i] + nums[left] + nums[right]
+			if cur < 0 {
+				left++
+			} else if cur > 0 {
+				right--
+			} else {
+				ans = append(ans, []int{nums[i], nums[left], nums[right]})
+				for left < right && nums[left] == nums[left+1] {
+					left++
+				}
+				for left < right && nums[right] == nums[right-1] {
+					right--
+				}
+				left++
+				right--
+			}
+		}
+		for i < n-2 && nums[i] == nums[i+1] {
+			i++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
