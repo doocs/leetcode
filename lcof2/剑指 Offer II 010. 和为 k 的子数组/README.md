@@ -44,6 +44,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+数组中既有正数又有负数，无法使用双指针。可以利用前缀和思想，快速判断子数组的和
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +53,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        d = defaultdict(int, {0: 1})
+        ans, sum = 0, 0
+        for num in nums:
+            sum += num
+            ans += d[sum - k]
+            d[sum] += 1
+        return ans
 ```
 
 ### **Java**
@@ -59,7 +69,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int ans = 0, sum = 0;
+        map.put(0, 1);
+        for (int num : nums) {
+            sum += num;
+            ans += map.getOrDefault(sum - k, 0);
+            map.merge(sum, 1, Integer::sum);
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func subarraySum(nums []int, k int) int {
+	m := map[int]int{0: 1}
+	sum, ans := 0, 0
+	for _, num := range nums {
+		sum += num
+		ans += m[sum-k]
+		m[sum]++
+	}
+	return ans
+}
 ```
 
 ### **...**
