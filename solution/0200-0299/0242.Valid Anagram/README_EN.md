@@ -42,8 +42,8 @@ class Solution:
         for i in range(n):
             chars[ord(s[i]) - ord('a')] += 1
             chars[ord(t[i]) - ord('a')] -= 1
-        for i in range(26):
-            if chars[i] != 0:
+        for c in chars:
+            if c != 0:
                 return False
         return True
 ```
@@ -62,8 +62,8 @@ class Solution {
             ++chars[s.charAt(i) - 'a'];
             --chars[t.charAt(i) - 'a'];
         }
-        for (int i = 0; i < 26; ++i) {
-            if (chars[i] != 0) {
+        for (int c : chars) {
+            if (c != 0) {
                 return false;
             }
         }
@@ -93,18 +93,18 @@ function isAnagram(s: string, t: string): boolean {
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        if (s.size() != t.size()) {
+        if (s.size() != t.size())
             return false;
-        }
         vector<int> chars(26, 0);
-        for (int i = 0, n = s.size(); i < n; ++i) {
+        for (int i = 0, n = s.size(); i < n; ++i)
+        {
             ++chars[s[i] - 'a'];
             --chars[t[i] - 'a'];
         }
-        for (int i = 0; i < 26; ++i) {
-            if (chars[i] != 0) {
+        for (int c : chars)
+        {
+            if (c != 0)
                 return false;
-            }
         }
         return true;
     }
@@ -123,8 +123,8 @@ func isAnagram(s string, t string) bool {
 		chars[s[i]-'a']++
 		chars[t[i]-'a']--
 	}
-	for i := 0; i < 26; i++ {
-		if chars[i] != 0 {
+	for _, c := range chars {
+		if c != 0 {
 			return false
 		}
 	}

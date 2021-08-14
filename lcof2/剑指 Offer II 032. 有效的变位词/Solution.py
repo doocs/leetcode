@@ -1,6 +1,6 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
+        if len(s) != len(t) or s == t:
             return False
         n = len(s)
         chars = [0] * 26

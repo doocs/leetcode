@@ -7,8 +7,8 @@ func isAnagram(s string, t string) bool {
 		chars[s[i]-'a']++
 		chars[t[i]-'a']--
 	}
-	for i := 0; i < 26; i++ {
-		if chars[i] != 0 {
+	for _, c := range chars {
+		if c != 0 {
 			return false
 		}
 	}

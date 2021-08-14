@@ -30,7 +30,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-哈希表解决。
+数组或哈希表累加 s 中每个字符出现的次数，再减去 t 中对应的每个字符出现的次数。遍历结束后，若字符中出现次数不为 0 的情况，返回 false，否则返回 true。
 
 <!-- tabs:start -->
 
@@ -48,8 +48,8 @@ class Solution:
         for i in range(n):
             chars[ord(s[i]) - ord('a')] += 1
             chars[ord(t[i]) - ord('a')] -= 1
-        for i in range(26):
-            if chars[i] != 0:
+        for c in chars:
+            if c != 0:
                 return False
         return True
 ```
@@ -70,8 +70,8 @@ class Solution {
             ++chars[s.charAt(i) - 'a'];
             --chars[t.charAt(i) - 'a'];
         }
-        for (int i = 0; i < 26; ++i) {
-            if (chars[i] != 0) {
+        for (int c : chars) {
+            if (c != 0) {
                 return false;
             }
         }
@@ -101,18 +101,18 @@ function isAnagram(s: string, t: string): boolean {
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        if (s.size() != t.size()) {
+        if (s.size() != t.size())
             return false;
-        }
         vector<int> chars(26, 0);
-        for (int i = 0, n = s.size(); i < n; ++i) {
+        for (int i = 0, n = s.size(); i < n; ++i)
+        {
             ++chars[s[i] - 'a'];
             --chars[t[i] - 'a'];
         }
-        for (int i = 0; i < 26; ++i) {
-            if (chars[i] != 0) {
+        for (int c : chars)
+        {
+            if (c != 0)
                 return false;
-            }
         }
         return true;
     }
@@ -131,8 +131,8 @@ func isAnagram(s string, t string) bool {
 		chars[s[i]-'a']++
 		chars[t[i]-'a']--
 	}
-	for i := 0; i < 26; i++ {
-		if chars[i] != 0 {
+	for _, c := range chars {
+		if c != 0 {
 			return false
 		}
 	}
