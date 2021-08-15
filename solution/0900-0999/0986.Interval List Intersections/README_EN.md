@@ -61,13 +61,101 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def intervalIntersection(self, firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:
+        i = j = 0
+        res = []
+        while i < len(firstList) and j < len(secondList):
+            l, r = max(firstList[i][0], secondList[j][0]), min(
+                firstList[i][1], secondList[j][1])
+            if l <= r:
+                res.append([l, r])
+            if firstList[i][1] < secondList[j][1]:
+                i += 1
+            else:
+                j += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
+        List<int[]> res = new ArrayList<>();
+        for (int i = 0, j = 0; i < firstList.length && j < secondList.length;) {
+            int l = Math.max(firstList[i][0], secondList[j][0]);
+            int r = Math.min(firstList[i][1], secondList[j][1]);
+            if (l <= r) {
+                res.add(new int[]{l, r});
+            }
+            if (firstList[i][1] < secondList[j][1]) {
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return res.toArray(new int[res.size()][]);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> intervalIntersection(vector<vector<int>> &firstList, vector<vector<int>> &secondList) {
+        vector<vector<int>> res;
+        for (int i = 0, j = 0; i < firstList.size() && j < secondList.size();)
+        {
+            int l = max(firstList[i][0], secondList[j][0]);
+            int r = min(firstList[i][1], secondList[j][1]);
+            if (l <= r)
+                res.push_back({l, r});
+            if (firstList[i][1] < secondList[j][1])
+                ++i;
+            else
+                ++j;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
+	i, j := 0, 0
+	var res [][]int
+	for i < len(firstList) && j < len(secondList) {
+		l, r := max(firstList[i][0], secondList[j][0]), min(firstList[i][1], secondList[j][1])
+		if l <= r {
+			res = append(res, []int{l, r})
+		}
+		if firstList[i][1] < secondList[j][1] {
+			i++
+		} else {
+			j++
+		}
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
