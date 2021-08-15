@@ -64,13 +64,122 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        def merge(intervals: List[List[int]]) -> List[List[int]]:
+            intervals.sort(key=lambda x: x[0])
+            st = ed = -1
+            res = []
+            for s, e in intervals:
+                if ed < s:
+                    if st != -1:
+                        res.append([st, ed])
+                    st, ed = s, e
+                else:
+                    ed = max(ed, e)
+            if st != -1:
+                res.append([st, ed])
+            return res
 
+        intervals.append(newInterval)
+        return merge(intervals)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        List<int[]> list = new LinkedList<>();
+        int i = 0;
+        while ((i < intervals.length) && (intervals[i][1] < newInterval[0])) list.add(intervals[i++]);
+        while ((i < intervals.length) && (intervals[i][0] <= newInterval[1])) {
+            newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
+            newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
+            i++;
+        }
+        list.add(newInterval);
+        while (i < intervals.length) list.add(intervals[i++]);
+        return list.toArray(new int[list.size()][]);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInterval) {
+        intervals.push_back(newInterval);
+        return merge(intervals);
+    }
+
+    vector<vector<int>> merge(vector<vector<int>> &intervals) {
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>> res;
+        int st = -1, ed = -1;
+        for (auto e : intervals)
+        {
+            if (ed < e[0])
+            {
+                if (st != -1)
+                {
+                    res.push_back({st, ed});
+                }
+                st = e[0];
+                ed = e[1];
+            }
+            else
+            {
+                ed = max(ed, e[1]);
+            }
+        }
+        if (st != -1)
+        {
+            res.push_back({st, ed});
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func insert(intervals [][]int, newInterval []int) [][]int {
+	intervals = append(intervals, newInterval)
+	return merge(intervals)
+}
+
+func merge(intervals [][]int) [][]int {
+	var res [][]int
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
+	})
+	st, ed := -1, -1
+	for _, e := range intervals {
+		if ed < e[0] {
+			if st != -1 {
+				res = append(res, []int{st, ed})
+			}
+			st, ed = e[0], e[1]
+		} else {
+			ed = max(ed, e[1])
+		}
+	}
+	if st != -1 {
+		res = append(res, []int{st, ed})
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

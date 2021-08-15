@@ -1,28 +1,27 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
     public int[][] Merge(int[][] intervals) {
-        var result = new List<int[]>();
-        foreach (var interval in intervals.OrderBy(i => i[0]))
+        var res = new List<int[]>();
+        int st = -1, ed = -1;
+        foreach (var e in intervals.OrderBy(a => a[0]))
         {
-            if (!result.Any())
+            if (ed < e[0])
             {
-                result.Add(interval);
+                if (st != -1)
+                {
+                    res.Add(new int[] { st, ed });
+                }
+                st = e[0];
+                ed = e[1];
             }
             else
             {
-                var last = result.Last();
-                if (last[1] < interval[0])
-                {
-                    result.Add(interval);
-                }
-                else if (last[1] < interval[1])
-                {
-                    last[1] = interval[1];
-                }
+                ed = Math.Max(ed, e[1]);
             }
         }
-        return result.ToArray();
+        if (st != -1)
+        {
+            res.Add(new int[] { st, ed });
+        }
+        return res.ToArray();
     }
 }
