@@ -213,8 +213,6 @@ func max(a, b int) int {
 }
 ```
 
-### **Go**
-
 ```go
 func longestConsecutive(nums []int) int {
 	s := make(map[int]bool)
