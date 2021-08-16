@@ -130,9 +130,9 @@ public:
  */
 ```
 
-### **C++**
+### **Go**
 
-```cpp
+```go
 type NumMatrix struct {
 	pre [][]int
 }
