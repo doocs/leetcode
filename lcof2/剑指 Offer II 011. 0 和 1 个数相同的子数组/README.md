@@ -40,6 +40,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+前缀和加哈希表，把 0 当作 -1 处理，题目变成求和为 0 的子数组
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -47,7 +49,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMaxLength(self, nums: List[int]) -> int:
+        m = {0: -1}
+        ans, sum = 0, 0
+        for i, num in enumerate(nums):
+            sum += 1 if num == 1 else -1
+            if sum in m:
+                ans = max(ans, i - m[sum])
+            else:
+                m[sum] = i
+        return ans
 ```
 
 ### **Java**
@@ -55,7 +67,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findMaxLength(int[] nums) {
+        Map<Integer, Integer> m = new HashMap<>();
+        m.put(0, -1);
+        int ans = 0, sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i] == 1 ? 1 : -1;
+            if (m.containsKey(sum)) {
+                ans = Math.max(ans, i - m.get(sum));
+            } else {
+                m.put(sum, i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func findMaxLength(nums []int) int {
+	m := map[int]int{0: -1}
+	ans, sum := 0, 0
+	for i, num := range nums {
+		if num == 0 {
+			sum -= 1
+		} else {
+			sum += 1
+		}
+		if j, ok := m[sum]; ok {
+			ans = max(ans, i-j)
+		} else {
+			m[sum] = i
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
