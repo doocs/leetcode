@@ -22,7 +22,7 @@
 
 <pre><strong>输入:</strong> 8
 <strong>输出:</strong> 2
-<strong>说明:</strong> 8 的平方根是 2.82842..., 
+<strong>说明:</strong> 根号 8 是 2.82842..., 
 &nbsp;    由于返回类型是整数，小数部分将被舍去。
 </pre>
 

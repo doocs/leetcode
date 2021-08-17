@@ -24,6 +24,8 @@
 - Gitee Pages: https://doocs.gitee.io/leetcode
 - GitHub Pages: https://doocs.github.io/leetcode
 
+注：😶本项目被 Gitee 官方误判为“包含违禁违规内容”，导致 Gitee Pages 404。我们正在尝试联系 Gitee 官方人员处理，请朋友们优先访问 Netlify / GitHub Pages 站点。 
+
 ## LeetCode 全解
 
 - [LeetCode](./solution/README.md)
