@@ -26,21 +26,26 @@ Each temperature will be an integer in the range <code>[30, 100]</code>.
 
 ## Solutions
 
+Easy solution with stack.
+
+Everytime a higher temperature is found, we update answer of the peak one in the stack.
+
+If the day with higher temperature is not found, we leave the ans to be the default `0`.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
 class Solution:
-    def dailyTemperatures(self, T: List[int]) -> List[int]:
-        n = len(T)
-        res = [0 for _ in range(n)]
-        s = []
-        for i in range(n):
-            while s and T[s[-1]] < T[i]:
-                j = s.pop()
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        res = [0] * len(temperatures)
+        stk = []
+        for i, t in enumerate(temperatures):
+            while stk and temperatures[stk[-1]] < t:
+                j = stk.pop()
                 res[j] = i - j
-            s.append(i)
+            stk.append(i)
         return res
 ```
 
@@ -48,16 +53,16 @@ class Solution:
 
 ```java
 class Solution {
-    public int[] dailyTemperatures(int[] T) {
-        int n = T.length;
+    public int[] dailyTemperatures(int[] temperatures) {
+        int n = temperatures.length;
         int[] res = new int[n];
-        Deque<Integer> s = new ArrayDeque<>();
+        Deque<Integer> stk = new ArrayDeque<>();
         for (int i = 0; i < n; ++i) {
-            while (!s.isEmpty() && T[s.peek()] < T[i]) {
-                int j = s.pop();
+            while (!stk.isEmpty() && temperatures[stk.peek()] < temperatures[i]) {
+                int j = stk.pop();
                 res[j] = i - j;
             }
-            s.push(i);
+            stk.push(i);
         }
         return res;
     }
@@ -71,19 +76,20 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> dailyTemperatures(vector<int>& T) {
-        int n = T.size();
-        vector<int> ans(n);
-        stack<int> s;
-        for(int i = 0; i < n; ++i) {
-            while(!s.empty() && T[s.top()] < T[i]) {
-                int pre = s.top();
-                s.pop();
-                ans[pre] = i - pre;
+    vector<int> dailyTemperatures(vector<int> &temperatures) {
+        int n = temperatures.size();
+        vector<int> res(n);
+        stack<int> stk;
+        for (int i = 0; i < n; ++i)
+        {
+            while (!stk.empty() && temperatures[stk.top()] < temperatures[i])
+            {
+                res[stk.top()] = i - stk.top();
+                stk.pop();
             }
-            s.push(i);
+            stk.push(i);
         }
-        return ans;
+        return res;
     }
 };
 ```
@@ -91,17 +97,16 @@ public:
 ### **Go**
 
 ```go
-func dailyTemperatures(T []int) []int {
-	n := len(T)
-	res := make([]int, n)
-	stack := make([]int, 0)
-	for i, v := range T {
-		for len(stack) != 0 && T[stack[len(stack)-1]] < v {
-			j := stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
+func dailyTemperatures(temperatures []int) []int {
+	res := make([]int, len(temperatures))
+	var stk []int
+	for i, t := range temperatures {
+		for len(stk) > 0 && temperatures[stk[len(stk)-1]] < t {
+			j := stk[len(stk)-1]
 			res[j] = i - j
+			stk = stk[:len(stk)-1]
 		}
-		stack = append(stack, i)
+		stk = append(stk, i)
 	}
 	return res
 }

@@ -128,7 +128,7 @@ func nextGreaterElements(nums []int) []int {
 			stk = stk[:len(stk)-1]
 		}
 		stk = append(stk, i%n)
-	}
+	} 
 	return res
 }
 ```
