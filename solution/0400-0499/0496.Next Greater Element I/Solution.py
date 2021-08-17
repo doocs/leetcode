@@ -1,9 +1,10 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        stack = []
-        mapper = {}
-        for num in nums2:
-            while stack and stack[-1] < num:
-                mapper[stack.pop()] = num
-            stack.append(num)
-        return [mapper.get(num, -1) for num in nums1]
+        stk = []
+        mp = {}
+        for num in nums2[::-1]:
+            while stk and stk[-1] <= num:
+                stk.pop()
+            mp[num] = stk[-1] if stk else -1
+            stk.append(num)
+        return [mp[num] for num in nums1]
