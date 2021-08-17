@@ -35,13 +35,13 @@
 ```python
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
-        stack = []
         n = len(nums)
         res = [-1] * n
+        stk = []
         for i in range(n << 1):
-            while stack and nums[stack[-1]] < nums[i % n]:
-                res[stack.pop()] = nums[i % n]
-            stack.append(i % n)
+            while stk and nums[stk[-1]] < nums[i % n]:
+                res[stk.pop()] = nums[i % n]
+            stk.append(i % n)
         return res
 ```
 
@@ -55,12 +55,12 @@ class Solution {
         int n = nums.length;
         int[] res = new int[n];
         Arrays.fill(res, -1);
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stk = new ArrayDeque<>();
         for (int i = 0; i < (n << 1); ++i) {
-            while (!stack.isEmpty() && nums[stack.peek()] < nums[i % n]) {
-                res[stack.pop()] = nums[i % n];
+            while (!stk.isEmpty() && nums[stk.peek()] < nums[i % n]) {
+                res[stk.pop()] = nums[i % n];
             }
-            stack.push(i % n);
+            stk.push(i % n);
         }
         return res;
     }
@@ -87,6 +87,50 @@ class Solution {
     }
     return res;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElements(vector<int> &nums) {
+        int n = nums.size();
+        vector<int> res(n, -1);
+        stack<int> stk;
+        for (int i = 0; i < (n << 1); ++i)
+        {
+            while (!stk.empty() && nums[stk.top()] < nums[i % n])
+            {
+                res[stk.top()] = nums[i % n];
+                stk.pop();
+            }
+            stk.push(i % n);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func nextGreaterElements(nums []int) []int {
+	n := len(nums)
+	res := make([]int, n)
+	for i := range res {
+		res[i] = -1
+	}
+	var stk []int
+	for i := 0; i < (n << 1); i++ {
+		for len(stk) > 0 && nums[stk[len(stk)-1]] < nums[i%n] {
+			res[stk[len(stk)-1]] = nums[i%n]
+			stk = stk[:len(stk)-1]
+		}
+		stk = append(stk, i%n)
+	}
+	return res
+}
 ```
 
 ### **...**
