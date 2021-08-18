@@ -52,7 +52,6 @@
 	<li><code>patterns[i]</code> and <code>word</code> consist of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -60,13 +59,54 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numOfStrings(self, patterns: List[str], word: str) -> int:
+        return sum(1 for p in patterns if p in word)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numOfStrings(String[] patterns, String word) {
+        int res = 0;
+        for (String p : patterns) {
+            if (word.contains(p)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numOfStrings(vector<string> &patterns, string word) {
+        int res = 0;
+        for (auto p : patterns)
+            if (word.find(p) != string::npos)
+                ++res;
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numOfStrings(patterns []string, word string) int {
+    res := 0
+    for _, p := range patterns {
+		if strings.Contains(word, p) {
+			res++
+		}
+	}
+    return res
+}
 ```
 
 ### **...**

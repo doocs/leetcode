@@ -56,7 +56,6 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 	<li><code>patterns[i]</code> 和 <code>word</code> 由小写英文字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -68,7 +67,9 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numOfStrings(self, patterns: List[str], word: str) -> int:
+        return sum(1 for p in patterns if p in word)
 ```
 
 ### **Java**
@@ -76,7 +77,46 @@ patterns 中有 2 个字符串作为子字符串出现在 word 中。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numOfStrings(String[] patterns, String word) {
+        int res = 0;
+        for (String p : patterns) {
+            if (word.contains(p)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numOfStrings(vector<string> &patterns, string word) {
+        int res = 0;
+        for (auto p : patterns)
+            if (word.find(p) != string::npos)
+                ++res;
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numOfStrings(patterns []string, word string) int {
+    res := 0
+    for _, p := range patterns {
+		if strings.Contains(word, p) {
+			res++
+		}
+	}
+    return res
+}
 ```
 
 ### **...**
