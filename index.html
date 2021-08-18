@@ -6,7 +6,7 @@
   <title>LeetCode & Coding Interview Guide</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="keywords"
-    content="doc,docs,doocs,documentation,github,gitee,coding,pages,leetcode,coding-interview,coding-interview-guide,cracking-the-coding-interview,yanglbme">
+    content="doc,docs,doocs,documentation,github,coding,pages,leetcode,coding-interview,coding-interview-guide,cracking-the-coding-interview,yanglbme">
   <meta name="description" content="LeetCode、剑指Offer、程序员面试金典题解">
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -78,8 +78,7 @@
               .replace(/\/main/, '/blob/main') : 'https://github.com/doocs/leetcode/blob/main/' + vm.route.file
 
             const github = `[GitHub](${url})`
-            const gitee = `[Gitee](${url.replace("github", "gitee")})`
-            const editHtml = en ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
+            const editHtml = en ? `:memo: Edit on ${github}\n` : `:memo: 在 ${github} 编辑\n`
             return editHtml + html
           })
 

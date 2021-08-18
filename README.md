@@ -14,17 +14,14 @@
 
 ## 介绍
 
-本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《剑指 Offer（专项突击版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。欢迎 Star 🌟 关注本项目「[GitHub](https://github.com/doocs/leetcode) / [Gitee](https://gitee.com/doocs/leetcode)」，获取项目最新动态。
+本项目包含 LeetCode、《剑指 Offer（第 2 版）》、《剑指 Offer（专项突击版）》、《程序员面试金典（第 6 版）》等题目的相关题解。所有题解均由多种编程语言实现，包括但不限于：Java、Python、C++、JavaScript、C#、Go，日常更新。欢迎 Star 🌟 关注[本项目](https://github.com/doocs/leetcode)，获取项目最新动态。
 
 [English Version](./README_EN.md)
 
 ## 站点
 
 - Netlify: https://lc.netlify.app
-- Gitee Pages: https://doocs.gitee.io/leetcode
 - GitHub Pages: https://doocs.github.io/leetcode
-
-注：😶本项目被 Gitee 官方误判为“包含违禁违规内容”，导致 Gitee Pages 404。我们正在尝试联系 Gitee 官方人员处理，请朋友们优先访问 Netlify / GitHub Pages 站点。 
 
 ## LeetCode 全解
 
@@ -242,10 +239,10 @@
 
 如果你对本项目感兴趣，并且希望加入我们刷题小分队，欢迎随时提交 [PR](https://github.com/doocs/leetcode/pulls)。请参考如下步骤：
 
-1. 将本项目 fork 到你的个人 GitHub / Gitee 帐户，然后 clone 到你的本地机器；
-1. 对项目做出一些变更，然后使用 git add、commit、push 等命令将你的本地变更提交到你的远程 GitHub / Gitee 仓库；
+1. 将本项目 fork 到你的个人 GitHub 帐户，然后 clone 到你的本地机器；
+1. 对项目做出一些变更，然后使用 git add、commit、push 等命令将你的本地变更提交到你的远程 GitHub 仓库；
 1. 将你的变更以 PR 的形式提交过来，项目的维护人员会在第一时间对你的变更进行 review！
-1. 你也可以参考帮助文档「[GitHub](https://help.github.com/cn) / [Gitee](https://gitee.com/help)」了解更多细节。
+1. 你也可以参考帮助文档 https://help.github.com/cn 了解更多细节。
 
 <p align="center">
   <a href="https://github.com/doocs/leetcode"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/how-to-contribute.png" alt="how-to-contribute"></a>
