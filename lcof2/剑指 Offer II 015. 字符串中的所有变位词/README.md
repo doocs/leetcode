@@ -49,6 +49,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+和上一题一样的思路，利用固定长度滑动窗口
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +58,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        m, n = len(s), len(p)
+        if n > m:
+            return []
+        window, ans = [0 for _ in range(26)], []
+        for i in range(n):
+            window[ord(p[i]) - ord('a')] += 1
+            window[ord(s[i]) - ord('a')] -= 1
+        if self.check(window): ans.append(0)
+        for i in range(n, m):
+            window[ord(s[i]) - ord('a')] -= 1
+            window[ord(s[i - n]) - ord('a')] += 1
+            if self.check(window): ans.append(i - n + 1)
+        return ans
 
+    def check(self, window: List[int]) -> bool:
+        return all([cnt == 0 for cnt in window])
 ```
 
 ### **Java**
@@ -64,7 +83,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> ans = new ArrayList<>();
+        int m = s.length(), n = p.length();
+        if (n > m) {
+            return ans;
+        }
+        int[] window = new int[26];
+        for (int i = 0; i < n; i++) {
+            window[p.charAt(i) - 'a']++;
+            window[s.charAt(i) - 'a']--;
+        }
+        if (check(window)) {
+            ans.add(0);
+        }
+        for (int i = n; i < m; i++) {
+            window[s.charAt(i) - 'a']--;
+            window[s.charAt(i - n) - 'a']++;
+            if (check(window)) {
+                ans.add(i - n + 1);
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(int[] window) {
+        return Arrays.stream(window).allMatch(cnt -> cnt == 0);
+    }
+}
+```
+
+### **Go**
+
+```go
+func findAnagrams(s string, p string) []int {
+	m, n := len(s), len(p)
+	if n > m {
+		return []int{}
+	}
+	ans := make([]int, 0)
+	window := make([]int, 26)
+	for i := 0; i < n; i++ {
+		window[p[i]-'a']++
+		window[s[i]-'a']--
+	}
+	if check(window) {
+		ans = append(ans, 0)
+	}
+	for i := n; i < m; i++ {
+		window[s[i]-'a']--
+		window[s[i-n]-'a']++
+		if check(window) {
+			ans = append(ans, i-n+1)
+		}
+	}
+	return ans
+}
+
+func check(window []int) bool {
+	for _, cnt := range window {
+		if cnt != 0 {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**

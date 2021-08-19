@@ -12,7 +12,7 @@
 
 <pre>
 <strong>输入: </strong>s = &quot;abcabcbb&quot;
-<strong>输出: </strong>3 
+<strong>输出: </strong>3
 <strong>解释:</strong> 因为无重复字符的最长子字符串是 <code>&quot;abc&quot;，所以其</code>长度为 3。
 </pre>
 
@@ -58,6 +58,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+因为 `s` 中可能会出现字母、数字、符号和空格，所以可以用哈希表表示窗口
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +67,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        window = defaultdict(int)
+        n, ans = len(s), 0
+        left, right = 0, 0
+        while right < n:
+            ch = s[right]
+            right += 1
+            window[ch] += 1
+            while window[ch] > 1:
+                window[s[left]] -= 1
+                left += 1
+            ans = max(ans, right - left)
+        return ans
 ```
 
 ### **Java**
@@ -73,7 +88,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> window = new HashMap<>();
+        int n = s.length(), ans = 0;
+        int left = 0, right = 0;
+        while (right < n) {
+            char ch = s.charAt(right++);
+            window.merge(ch, 1, Integer::sum);
+            while (window.get(ch) > 1) {
+                window.merge(s.charAt(left++), -1, Integer::sum);
+            }
+            ans = Math.max(ans, right - left);
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+func lengthOfLongestSubstring(s string) int {
+	window := make(map[byte]int)
+	n := len(s)
+	ans := 0
+	left, right := 0, 0
+	for right < n {
+		ch := s[right]
+		right++
+		window[ch]++
+		for window[ch] > 1 {
+			window[s[left]]--
+			left++
+		}
+		ans = max(ans, right-left)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
