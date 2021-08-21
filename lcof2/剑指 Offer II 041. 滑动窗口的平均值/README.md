@@ -51,6 +51,8 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 <!-- 这里可写通用的实现逻辑 -->
 
+“循环数组/队列”实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -58,7 +60,28 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class MovingAverage:
 
+    def __init__(self, size: int):
+        """
+        Initialize your data structure here.
+        """
+        self.size = size
+        self.data = [0] * size
+        self.sum = 0
+        self.count = 0
+
+    def next(self, val: int) -> float:
+        idx = self.count % self.size
+        old_val = self.data[idx]
+        self.data[idx] = val
+        self.sum += val - old_val
+        self.count += 1
+        return self.sum / min(self.count, self.size)
+
+# Your MovingAverage object will be instantiated and called as such:
+# obj = MovingAverage(size)
+# param_1 = obj.next(val)
 ```
 
 ### **Java**
@@ -66,7 +89,110 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class MovingAverage {
+    private int size;
+    private int[] data;
+    private int sum;
+    private int count;
 
+    /** Initialize your data structure here. */
+    public MovingAverage(int size) {
+        this.size = size;
+        this.data = new int[size];
+    }
+    
+    public double next(int val) {
+        int idx = count % size;
+        int oldVal = data[idx];
+        data[idx] = val;
+        sum += val - oldVal;
+        ++count;
+        return sum * 1.0 / Math.min(count, size);
+    }
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
+ */
+```
+
+### **C++**
+
+```cpp
+class MovingAverage {
+public:
+    /** Initialize your data structure here. */
+    MovingAverage(int size) {
+        this->size = size;
+        data.resize(size);
+    }
+    
+    double next(int val) {
+        int idx = count % size;
+        int oldVal = data[idx];
+        data[idx] = val;
+        sum += val - oldVal;
+        ++count;
+        return (double) sum / min(count, size);
+    }
+
+private:
+    int size = 0;
+    vector<int> data;
+    int sum = 0;
+    int count = 0;
+};
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage* obj = new MovingAverage(size);
+ * double param_1 = obj->next(val);
+ */
+```
+
+### **Go**
+
+```go
+type MovingAverage struct {
+	size  int
+	data  []int
+	sum   int
+	count int
+}
+
+/** Initialize your data structure here. */
+func Constructor(size int) MovingAverage {
+	return MovingAverage{
+		size:  size,
+		data:  make([]int, size),
+		sum:   0,
+		count: 0,
+	}
+}
+
+func (this *MovingAverage) Next(val int) float64 {
+	idx := this.count % this.size
+	oldVal := this.data[idx]
+	this.data[idx] = val
+	this.sum += val - oldVal
+	this.count++
+	return float64(this.sum) / float64(min(this.count, this.size))
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * obj := Constructor(size);
+ * param_1 := obj.Next(val);
+ */
 ```
 
 ### **...**
