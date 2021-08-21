@@ -1,5 +1,6 @@
 class Solution {
-    public boolean canWinNim(int n) {
+public:
+    bool canWinNim(int n) {
         return n % 4 != 0;
     }
-}
+};
