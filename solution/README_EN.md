@@ -863,6 +863,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0852](https://leetcode.com/problems/peak-index-in-a-mountain-array)  |  [Peak Index in a Mountain Array](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README_EN.md)  |  `Array`,`Binary Search`  |  Easy  |    |
 |  [0853](https://leetcode.com/problems/car-fleet)  |  [Car Fleet](/solution/0800-0899/0853.Car%20Fleet/README_EN.md)  |  `Array`,`Sorting`  |  Medium  |    |
 |  [0854](https://leetcode.com/problems/k-similar-strings)  |  [K-Similar Strings](/solution/0800-0899/0854.K-Similar%20Strings/README_EN.md)  |  `Breadth-First Search`,`String`  |  Hard  |    |
+|  [0855](https://leetcode.com/problems/exam-room)  |  [Exam Room](/solution/0800-0899/0855.Exam%20Room/README_EN.md)  |  `Design`,`Ordered Set`  |  Medium  |    |
 |  [0856](https://leetcode.com/problems/score-of-parentheses)  |  [Score of Parentheses](/solution/0800-0899/0856.Score%20of%20Parentheses/README_EN.md)  |  `Stack`,`String`  |  Medium  |    |
 |  [0857](https://leetcode.com/problems/minimum-cost-to-hire-k-workers)  |  [Minimum Cost to Hire K Workers](/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README_EN.md)  |  `Greedy`,`Array`,`Sorting`,`Heap (Priority Queue)`  |  Hard  |    |
 |  [0858](https://leetcode.com/problems/mirror-reflection)  |  [Mirror Reflection](/solution/0800-0899/0858.Mirror%20Reflection/README_EN.md)  |  `Geometry`,`Math`  |  Medium  |    |
@@ -1931,7 +1932,6 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1921](https://leetcode.com/problems/eliminate-maximum-number-of-monsters)  |  [Eliminate Maximum Number of Monsters](/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Medium  |    |
 |  [1922](https://leetcode.com/problems/count-good-numbers)  |  [Count Good Numbers](/solution/1900-1999/1922.Count%20Good%20Numbers/README_EN.md)  |  `Recursion`,`Math`  |  Medium  |    |
 |  [1923](https://leetcode.com/problems/longest-common-subpath)  |  [Longest Common Subpath](/solution/1900-1999/1923.Longest%20Common%20Subpath/README_EN.md)  |  `Array`,`Binary Search`,`Suffix Array`,`Hash Function`,`Rolling Hash`  |  Hard  |    |
-|  [1924](https://leetcode.com/problems/erect-the-fence-ii)  |  [Erect the Fence II](/solution/1900-1999/1924.Erect%20the%20Fence%20II/README_EN.md)  |    |  Hard  |  🔒  |
 |  [1925](https://leetcode.com/problems/count-square-sum-triples)  |  [Count Square Sum Triples](/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README_EN.md)  |  `Math`,`Enumeration`  |  Easy  |    |
 |  [1926](https://leetcode.com/problems/nearest-exit-from-entrance-in-maze)  |  [Nearest Exit from Entrance in Maze](/solution/1900-1999/1926.Nearest%20Exit%20from%20Entrance%20in%20Maze/README_EN.md)  |  `Breadth-First Search`,`Array`,`Matrix`  |  Medium  |    |
 |  [1927](https://leetcode.com/problems/sum-game)  |  [Sum Game](/solution/1900-1999/1927.Sum%20Game/README_EN.md)  |  `Greedy`,`Math`,`Game Theory`  |  Medium  |    |
@@ -1980,6 +1980,15 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1970](https://leetcode.com/problems/last-day-where-you-can-still-cross)  |  [Last Day Where You Can Still Cross](/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README_EN.md)  |  `Depth-First Search`,`Breadth-First Search`,`Union Find`,`Array`,`Binary Search`,`Matrix`  |  Hard  |    |
 |  [1971](https://leetcode.com/problems/find-if-path-exists-in-graph)  |  [Find if Path Exists in Graph](/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README_EN.md)  |    |  Easy  |    |
 |  [1972](https://leetcode.com/problems/first-and-last-call-on-the-same-day)  |  [First and Last Call On the Same Day](/solution/1900-1999/1972.First%20and%20Last%20Call%20On%20the%20Same%20Day/README_EN.md)  |    |  Hard  |  🔒  |
+|  [1973](https://leetcode.com/problems/count-nodes-equal-to-sum-of-descendants)  |  [Count Nodes Equal to Sum of Descendants](/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/README_EN.md)  |    |  Medium  |  🔒  |
+|  [1974](https://leetcode.com/problems/minimum-time-to-type-word-using-special-typewriter)  |  [Minimum Time to Type Word Using Special Typewriter](/solution/1900-1999/1974.Minimum%20Time%20to%20Type%20Word%20Using%20Special%20Typewriter/README_EN.md)  |    |  Easy  |    |
+|  [1975](https://leetcode.com/problems/maximum-matrix-sum)  |  [Maximum Matrix Sum](/solution/1900-1999/1975.Maximum%20Matrix%20Sum/README_EN.md)  |    |  Medium  |    |
+|  [1976](https://leetcode.com/problems/number-of-ways-to-arrive-at-destination)  |  [Number of Ways to Arrive at Destination](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README_EN.md)  |    |  Medium  |    |
+|  [1977](https://leetcode.com/problems/number-of-ways-to-separate-numbers)  |  [Number of Ways to Separate Numbers](/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README_EN.md)  |    |  Hard  |    |
+|  [1979](https://leetcode.com/problems/find-greatest-common-divisor-of-array)  |  [Find Greatest Common Divisor of Array](/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README_EN.md)  |    |  Easy  |    |
+|  [1980](https://leetcode.com/problems/find-unique-binary-string)  |  [Find Unique Binary String](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README_EN.md)  |    |  Medium  |    |
+|  [1981](https://leetcode.com/problems/minimize-the-difference-between-target-and-chosen-elements)  |  [Minimize the Difference Between Target and Chosen Elements](/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README_EN.md)  |    |  Medium  |    |
+|  [1982](https://leetcode.com/problems/find-array-given-subset-sums)  |  [Find Array Given Subset Sums](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

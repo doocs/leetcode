@@ -865,6 +865,7 @@
 |  [0852](https://leetcode-cn.com/problems/peak-index-in-a-mountain-array)  |  [山脉数组的峰顶索引](/solution/0800-0899/0852.Peak%20Index%20in%20a%20Mountain%20Array/README.md)  |  `数组`,`二分查找`  |  简单  |    |
 |  [0853](https://leetcode-cn.com/problems/car-fleet)  |  [车队](/solution/0800-0899/0853.Car%20Fleet/README.md)  |  `数组`,`排序`  |  中等  |    |
 |  [0854](https://leetcode-cn.com/problems/k-similar-strings)  |  [相似度为 K 的字符串](/solution/0800-0899/0854.K-Similar%20Strings/README.md)  |  `广度优先搜索`,`字符串`  |  困难  |    |
+|  [0855](https://leetcode-cn.com/problems/exam-room)  |  [考场就座](/solution/0800-0899/0855.Exam%20Room/README.md)  |  `设计`,`有序集合`  |  中等  |    |
 |  [0856](https://leetcode-cn.com/problems/score-of-parentheses)  |  [括号的分数](/solution/0800-0899/0856.Score%20of%20Parentheses/README.md)  |  `栈`,`字符串`  |  中等  |    |
 |  [0857](https://leetcode-cn.com/problems/minimum-cost-to-hire-k-workers)  |  [雇佣 K 名工人的最低成本](/solution/0800-0899/0857.Minimum%20Cost%20to%20Hire%20K%20Workers/README.md)  |  `贪心`,`数组`,`排序`,`堆（优先队列）`  |  困难  |    |
 |  [0858](https://leetcode-cn.com/problems/mirror-reflection)  |  [镜面反射](/solution/0800-0899/0858.Mirror%20Reflection/README.md)  |  `几何`,`数学`  |  中等  |    |
@@ -1933,7 +1934,6 @@
 |  [1921](https://leetcode-cn.com/problems/eliminate-maximum-number-of-monsters)  |  [消灭怪物的最大数量](/solution/1900-1999/1921.Eliminate%20Maximum%20Number%20of%20Monsters/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |    |
 |  [1922](https://leetcode-cn.com/problems/count-good-numbers)  |  [统计好数字的数目](/solution/1900-1999/1922.Count%20Good%20Numbers/README.md)  |  `递归`,`数学`  |  中等  |    |
 |  [1923](https://leetcode-cn.com/problems/longest-common-subpath)  |  [最长公共子路径](/solution/1900-1999/1923.Longest%20Common%20Subpath/README.md)  |  `数组`,`二分查找`,`后缀数组`,`哈希函数`,`滚动哈希`  |  困难  |    |
-|  [1924](https://leetcode-cn.com/problems/erect-the-fence-ii)  |  [Erect the Fence II](/solution/1900-1999/1924.Erect%20the%20Fence%20II/README.md)  |    |  困难  |  🔒  |
 |  [1925](https://leetcode-cn.com/problems/count-square-sum-triples)  |  [统计平方和三元组的数目](/solution/1900-1999/1925.Count%20Square%20Sum%20Triples/README.md)  |  `数学`,`枚举`  |  简单  |    |
 |  [1926](https://leetcode-cn.com/problems/nearest-exit-from-entrance-in-maze)  |  [迷宫中离入口最近的出口](/solution/1900-1999/1926.Nearest%20Exit%20from%20Entrance%20in%20Maze/README.md)  |  `广度优先搜索`,`数组`,`矩阵`  |  中等  |    |
 |  [1927](https://leetcode-cn.com/problems/sum-game)  |  [求和游戏](/solution/1900-1999/1927.Sum%20Game/README.md)  |  `贪心`,`数学`,`博弈`  |  中等  |    |
@@ -1982,6 +1982,15 @@
 |  [1970](https://leetcode-cn.com/problems/last-day-where-you-can-still-cross)  |  [你能穿过矩阵的最后一天](/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`数组`,`二分查找`,`矩阵`  |  困难  |    |
 |  [1971](https://leetcode-cn.com/problems/find-if-path-exists-in-graph)  |  [Find if Path Exists in Graph](/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README.md)  |    |  简单  |    |
 |  [1972](https://leetcode-cn.com/problems/first-and-last-call-on-the-same-day)  |  [First and Last Call On the Same Day](/solution/1900-1999/1972.First%20and%20Last%20Call%20On%20the%20Same%20Day/README.md)  |    |  困难  |    |
+|  [1973](https://leetcode-cn.com/problems/count-nodes-equal-to-sum-of-descendants)  |  [Count Nodes Equal to Sum of Descendants](/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/README.md)  |    |  中等  |  🔒  |
+|  [1974](https://leetcode-cn.com/problems/minimum-time-to-type-word-using-special-typewriter)  |  [使用特殊打字机键入单词的最少时间](/solution/1900-1999/1974.Minimum%20Time%20to%20Type%20Word%20Using%20Special%20Typewriter/README.md)  |    |  简单  |    |
+|  [1975](https://leetcode-cn.com/problems/maximum-matrix-sum)  |  [最大方阵和](/solution/1900-1999/1975.Maximum%20Matrix%20Sum/README.md)  |    |  中等  |    |
+|  [1976](https://leetcode-cn.com/problems/number-of-ways-to-arrive-at-destination)  |  [到达目的地的方案数](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README.md)  |    |  中等  |    |
+|  [1977](https://leetcode-cn.com/problems/number-of-ways-to-separate-numbers)  |  [划分数字的方案数](/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README.md)  |    |  困难  |    |
+|  [1979](https://leetcode-cn.com/problems/find-greatest-common-divisor-of-array)  |  [找出数组的最大公约数](/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README.md)  |    |  简单  |    |
+|  [1980](https://leetcode-cn.com/problems/find-unique-binary-string)  |  [找出不同的二进制字符串](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README.md)  |    |  中等  |    |
+|  [1981](https://leetcode-cn.com/problems/minimize-the-difference-between-target-and-chosen-elements)  |  [最小化目标值与所选元素的差](/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README.md)  |    |  中等  |    |
+|  [1982](https://leetcode-cn.com/problems/find-array-given-subset-sums)  |  [从子集的和还原数组](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README.md)  |    |  困难  |    |
 
 ## 版权
 

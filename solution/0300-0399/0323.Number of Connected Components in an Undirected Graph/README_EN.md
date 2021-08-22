@@ -35,7 +35,6 @@
 	<li>There are no repeated edges.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -43,13 +42,137 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        p = [i for i in range(n)]
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for a, b in edges:
+            p[find(b)] = find(a)
+        cnt = 0
+        visit = [False] * n
+        for i in range(n):
+            if not visit[find(i)]:
+                cnt += 1
+                visit[find(i)] = True
+        return cnt
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int countComponents(int n, int[][] edges) {
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            p[find(b)] = find(a);
+        }
+
+        int cnt = 0;
+        boolean[] visit = new boolean[n];
+        for (int i = 0; i < n; ++i) {
+            if (!visit[find(i)]) {
+                ++cnt;
+                visit[find(i)] = true;
+            }
+        }
+        return cnt;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int countComponents(int n, vector<vector<int>> &edges) {
+        p.resize(n);
+        for (int i = 0; i < n; ++i)
+        {
+            p[i] = i;
+        }
+        for (auto e : edges)
+        {
+            int a = e[0], b = e[1];
+            p[find(b)] = find(a);
+        }
+        int cnt = 0;
+        vector<bool> visit(n, false);
+        for (int i = 0; i < n; ++i)
+        {
+            if (!visit[find(i)])
+            {
+                ++cnt;
+                visit[find(i)] = true;
+            }
+        }
+        return cnt;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+        {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func countComponents(n int, edges [][]int) int {
+	p = make([]int, n)
+	for i := 1; i < n; i++ {
+		p[i] = i
+	}
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		p[find(b)] = find(a)
+	}
+	cnt := 0
+	visit := make([]bool, n)
+	for i := 0; i < n; i++ {
+		visit[i] = false
+	}
+	for i := 0; i < n; i++ {
+		if !visit[find(i)] {
+			cnt++
+			visit[find(i)] = true
+		}
+	}
+	return cnt
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**
