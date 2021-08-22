@@ -163,6 +163,8 @@ class Solution {
 }
 ```
 
+### **C++**
+
 ```cpp
 class Solution {
 public:
