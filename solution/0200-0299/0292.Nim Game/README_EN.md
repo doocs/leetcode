@@ -72,6 +72,14 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function canWinNim(n: number): boolean {
+    return n % 4 != 0;
+};
+```
+
 ### **C++**
 
 ```cpp
