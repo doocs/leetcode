@@ -65,6 +65,24 @@ class Solution:
         return num
 ```
 
+```python
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
+        p = [i for i in range(n)]
+        
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+        
+        for i in range(n):
+            for j in range(n):
+                if i != j and isConnected[i][j] == 1:
+                    p[find(i)] = find(j)
+        return sum(i == find(i) for i in range(n))
+```
+
 ### **Java**
 
 ```java
@@ -90,6 +108,119 @@ class Solution {
             }
         }
     }
+}
+```
+
+```java
+class Solution {
+    private int[] p;
+
+    public int findCircleNum(int[][] isConnected) {
+        int n = isConnected.length;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (isConnected[i][j] == 1) {
+                    p[find(i)] = find(j);
+                }
+            }
+        }
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i == find(i)) {
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int findCircleNum(vector<vector<int>> &isConnected) {
+        int n = isConnected.size();
+        p.resize(n);
+        for (int i = 0; i < n; ++i)
+        {
+            p[i] = i;
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (isConnected[i][j])
+                {
+                    p[find(i)] = find(j);
+                }
+            }
+        }
+        int cnt = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (i == find(i))
+                ++cnt;
+        }
+        return cnt;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+        {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func findCircleNum(isConnected [][]int) int {
+	n := len(isConnected)
+	p = make([]int, n)
+	for i := 1; i < n; i++ {
+		p[i] = i
+	}
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			if isConnected[i][j] == 1 {
+				p[find(i)] = find(j)
+			}
+		}
+	}
+	cnt := 0
+	for i := 0; i < n; i++ {
+		if i == find(i) {
+			cnt++
+		}
+	}
+	return cnt
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
 }
 ```
 
