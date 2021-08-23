@@ -47,6 +47,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+双指针，当 `s[i]` 不等于 `s[j]` 时，分别尝试跳过 `i` 或跳过 `j`
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +56,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        def check(i, j):
+            while i < j:
+                if s[i] != s[j]:
+                    return False
+                i += 1
+                j -= 1
+            return True
 
+        i, j = 0, len(s) - 1
+        while i < j:
+            if s[i] == s[j]:
+                i += 1
+                j -= 1
+            else:
+                return check(i + 1, j) or check(i, j - 1)
+        return True
 ```
 
 ### **Java**
@@ -62,7 +81,59 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean validPalindrome(String s) {
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            if (s.charAt(i) == s.charAt(j)) {
+                i++;
+                j--;
+            } else {
+                return check(s, i + 1, j) || check(s, i, j - 1);
+            }
+        }
+        return true;
+    }
 
+    private boolean check(String s, int i, int j) {
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}
+```
+
+### **Go**
+
+```go
+func validPalindrome(s string) bool {
+	i, j := 0, len(s)-1
+	for i < j {
+		if s[i] == s[j] {
+			i++
+			j--
+		} else {
+			return check(s, i+1, j) || check(s, i, j-1)
+		}
+	}
+	return true
+}
+
+func check(s string, i, j int) bool {
+	for i < j {
+		if s[i] != s[j] {
+			return false
+		}
+		i++
+		j--
+	}
+	return true
+}
 ```
 
 ### **...**

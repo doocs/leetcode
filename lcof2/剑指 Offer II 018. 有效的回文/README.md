@@ -49,7 +49,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        i, j = 0, len(s) - 1
+        while i < j:
+            while i < j and not s[i].isalnum():
+                i += 1
+            while i < j and not s[j].isalnum():
+                j -= 1
+            if s[i].lower() != s[j].lower():
+                return False
+            i += 1
+            j -= 1
+        return True
 ```
 
 ### **Java**
@@ -57,7 +69,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isPalindrome(String s) {
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            while (i < j && !Character.isLetterOrDigit(s.charAt(i))) {
+                i++;
+            }
+            while (i < j && !Character.isLetterOrDigit(s.charAt(j))) {
+                j--;
+            }
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}
+```
 
+### **Go**
+
+```go
+func isPalindrome(s string) bool {
+	i, j := 0, len(s)-1
+	for i < j {
+		for i < j && !isalnum(s[i]) {
+			i++
+		}
+		for i < j && !isalnum(s[j]) {
+			j--
+		}
+		if tolower(s[i]) != tolower(s[j]) {
+			return false
+		}
+		i++
+		j--
+	}
+	return true
+}
+
+func tolower(b byte) byte {
+	if b >= 'A' && b <= 'Z' {
+		return b - 'A' + 'a'
+	}
+	return b
+}
+
+func isalnum(b byte) bool {
+	return b >= '0' && b <= '9' ||
+		b >= 'a' && b <= 'z' ||
+		b >= 'A' && b <= 'Z'
+}
 ```
 
 ### **...**
