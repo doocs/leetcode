@@ -12,11 +12,9 @@ class Solution {
         }
 
         int cnt = 0;
-        boolean[] visit = new boolean[n];
         for (int i = 0; i < n; ++i) {
-            if (!visit[find(i)]) {
+            if (i == find(i)) {
                 ++cnt;
-                visit[find(i)] = true;
             }
         }
         return cnt;

@@ -10,14 +10,9 @@ func countComponents(n int, edges [][]int) int {
 		p[find(b)] = find(a)
 	}
 	cnt := 0
-	visit := make([]bool, n)
 	for i := 0; i < n; i++ {
-		visit[i] = false
-	}
-	for i := 0; i < n; i++ {
-		if !visit[find(i)] {
+		if i == find(i) {
 			cnt++
-			visit[find(i)] = true
 		}
 	}
 	return cnt

@@ -53,13 +53,7 @@ class Solution:
 
         for a, b in edges:
             p[find(b)] = find(a)
-        cnt = 0
-        visit = [False] * n
-        for i in range(n):
-            if not visit[find(i)]:
-                cnt += 1
-                visit[find(i)] = True
-        return cnt
+        return sum(i == find(i) for i in range(n))
 ```
 
 ### **Java**
@@ -67,7 +61,7 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
-
+    
     public int countComponents(int n, int[][] edges) {
         p = new int[n];
         for (int i = 0; i < n; ++i) {
@@ -79,11 +73,9 @@ class Solution {
         }
 
         int cnt = 0;
-        boolean[] visit = new boolean[n];
         for (int i = 0; i < n; ++i) {
-            if (!visit[find(i)]) {
+            if (i == find(i)) {
                 ++cnt;
-                visit[find(i)] = true;
             }
         }
         return cnt;
@@ -117,14 +109,10 @@ public:
             p[find(b)] = find(a);
         }
         int cnt = 0;
-        vector<bool> visit(n, false);
         for (int i = 0; i < n; ++i)
         {
-            if (!visit[find(i)])
-            {
+            if (i == find(i))
                 ++cnt;
-                visit[find(i)] = true;
-            }
         }
         return cnt;
     }
@@ -154,14 +142,9 @@ func countComponents(n int, edges [][]int) int {
 		p[find(b)] = find(a)
 	}
 	cnt := 0
-	visit := make([]bool, n)
 	for i := 0; i < n; i++ {
-		visit[i] = false
-	}
-	for i := 0; i < n; i++ {
-		if !visit[find(i)] {
+		if i == find(i) {
 			cnt++
-			visit[find(i)] = true
 		}
 	}
 	return cnt

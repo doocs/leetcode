@@ -14,14 +14,10 @@ public:
             p[find(b)] = find(a);
         }
         int cnt = 0;
-        vector<bool> visit(n, false);
         for (int i = 0; i < n; ++i)
         {
-            if (!visit[find(i)])
-            {
+            if (i == find(i))
                 ++cnt;
-                visit[find(i)] = true;
-            }
         }
         return cnt;
     }
