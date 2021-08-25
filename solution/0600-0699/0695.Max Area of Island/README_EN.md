@@ -62,6 +62,8 @@ Given the above grid, return <code>0</code>.
 
 ### **Python3**
 
+DFS:
+
 ```python
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
@@ -83,7 +85,45 @@ class Solution:
         return res
 ```
 
+Union find:
+
+```python
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        p = list(range(m * n))
+        size = [1] * (m * n)
+        
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+        
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    if i < m - 1 and grid[i + 1][j] == 1:
+                        a, b = find(i * n + j), find((i + 1) * n + j)
+                        if a != b:
+                            size[a] += size[b]
+                        p[b] = a
+                    if j < n - 1 and grid[i][j + 1] == 1:
+                        a, b = find(i * n + j), find(i * n + j + 1)
+                        if a != b:
+                            size[a] += size[b]
+                        p[b] = a
+
+        res = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    res = max(res, size[i * n + j])
+        return res
+```
+
 ### **Java**
+
+DFS:
 
 ```java
 class Solution {
@@ -115,7 +155,66 @@ class Solution {
 }
 ```
 
+Union find:
+
+```java
+class Solution {
+    private int[] p;
+    private int[] size;
+
+    public int maxAreaOfIsland(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        p = new int[m * n];
+        size = new int[m * n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                p[i * n + j] = i * n + j;
+                size[i * n + j] = 1;
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    if (i < m - 1 && grid[i + 1][j] == 1) {
+                        int a = find(i * n + j), b = find((i + 1) * n + j);
+                        if (a != b) {
+                            size[a] += size[b];
+                        }
+                        p[b] = a;
+                    }
+                    if (j < n - 1 && grid[i][j + 1] == 1) {
+                        int a = find(i * n + j), b = find(i * n + j + 1);
+                        if (a != b) {
+                            size[a] += size[b];
+                        }
+                        p[b] = a;
+                    }
+                }
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    res = Math.max(res, size[i * n + j]);
+                }
+            }
+        }
+        return res;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
 ### **TypeScript**
+
+DFS:
 
 ```ts
 function maxAreaOfIsland(grid: number[][]): number {
@@ -147,6 +246,8 @@ function dfs(grid: number[][], i: number, j: number): number {
 
 ### **C++**
 
+DFS:
+
 ```cpp
 class Solution {
 public:
@@ -177,6 +278,137 @@ private:
     }
 
 };
+```
+
+Union find:
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        vector<int> size(m * n, 1);
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                p.push_back(i * n + j);
+            }
+        }
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (grid[i][j] == 1)
+                {
+                    if (i < m - 1 && grid[i + 1][j] == 1)
+                    {
+                        int a = find(i * n + j), b = find((i + 1) * n + j);
+                        if (a != b)
+                        {
+                            size[a] += size[b];
+                        }
+                        p[b] = a;
+                    }
+                    if (j < n - 1 && grid[i][j + 1] == 1)
+                    {
+                        int a = find(i * n + j), b = find(i * n + j + 1);
+                        if (a != b)
+                        {
+                            size[a] += size[b];
+                        }
+                        p[b] = a;
+                    }
+                }
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (grid[i][j] == 1)
+                {
+                    res = max(res, size[i * n + j]);
+                }
+            }
+        }
+        return res;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+        {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+Union find:
+
+```go
+var p []int
+
+func maxAreaOfIsland(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	p = make([]int, m*n)
+	size := make([]int, m*n)
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			p[i*n+j] = i*n + j
+			size[i*n+j] = 1
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 {
+				if i < m-1 && grid[i+1][j] == 1 {
+					a, b := find(i*n+j), find((i+1)*n+j)
+					if a != b {
+						size[a] += size[b]
+					}
+					p[b] = a
+				}
+				if j < n-1 && grid[i][j+1] == 1 {
+					a, b := find(i*n+j), find(i*n+j+1)
+					if a != b {
+						size[a] += size[b]
+					}
+					p[b] = a
+				}
+			}
+		}
+	}
+	res := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 {
+				res = max(res, size[i*n+j])
+			}
+		}
+	}
+	return res
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
