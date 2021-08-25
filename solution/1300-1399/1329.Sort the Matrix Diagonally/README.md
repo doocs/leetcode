@@ -64,7 +64,7 @@ class Solution {
         for (int i = 0; i < mat.length; i++) {
             handler(mat, i, 0);
         }
-        for (int i = 0; i < mat[0].length; i++){
+        for (int i = 0; i < mat[0].length; i++) {
             handler(mat, 0, i);
         }
         return mat;
