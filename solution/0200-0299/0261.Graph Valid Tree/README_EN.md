@@ -35,21 +35,120 @@
 	<li>There are no self-loops or repeated edges.</li>
 </ul>
 
-
 ## Solutions
+
+Union find.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for a, b in edges:
+            if find(a) == find(b):
+                return False
+            p[find(a)] = find(b)
+            n -= 1
+        return n == 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public boolean validTree(int n, int[][] edges) {
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int[] e : edges) {
+            if (find(e[0]) == find(e[1])) {
+                return false;
+            }
+            p[find(e[0])] = find(e[1]);
+            --n;
+        }
+        return n == 1;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    bool validTree(int n, vector<vector<int>> &edges) {
+        for (int i = 0; i < n; ++i)
+        {
+            p.push_back(i);
+        }
+        for (auto e : edges)
+        {
+            if (find(e[0]) == find(e[1]))
+                return false;
+            p[find(e[0])] = find(e[1]);
+            --n;
+        }
+        return n == 1;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+        {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func validTree(n int, edges [][]int) bool {
+	p = make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	for _, e := range edges {
+		if find(e[0]) == find(e[1]) {
+			return false
+		}
+		p[find(e[0])] = find(e[1])
+		n--
+	}
+	return n == 1
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**
