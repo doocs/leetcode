@@ -2016,6 +2016,7 @@
   - [1975.Maximum Matrix Sum](/solution/1900-1999/1975.Maximum%20Matrix%20Sum/README_EN.md)
   - [1976.Number of Ways to Arrive at Destination](/solution/1900-1999/1976.Number%20of%20Ways%20to%20Arrive%20at%20Destination/README_EN.md)
   - [1977.Number of Ways to Separate Numbers](/solution/1900-1999/1977.Number%20of%20Ways%20to%20Separate%20Numbers/README_EN.md)
+  - [1978.Employees Whose Manager Left the Company](/solution/1900-1999/1978.Employees%20Whose%20Manager%20Left%20the%20Company/README_EN.md)
   - [1979.Find Greatest Common Divisor of Array](/solution/1900-1999/1979.Find%20Greatest%20Common%20Divisor%20of%20Array/README_EN.md)
   - [1980.Find Unique Binary String](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README_EN.md)
   - [1981.Minimize the Difference Between Target and Chosen Elements](/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README_EN.md)
