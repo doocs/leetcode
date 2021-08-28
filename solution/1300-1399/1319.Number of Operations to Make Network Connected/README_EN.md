@@ -65,7 +65,7 @@
 ```python
 class Solution:
     def makeConnected(self, n: int, connections: List[List[int]]) -> int:
-        p = [i for i in range(n)]
+        p = list(range(n))
 
         def find(x):
             if p[x] != x:

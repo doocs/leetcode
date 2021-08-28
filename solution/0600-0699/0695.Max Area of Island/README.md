@@ -38,7 +38,6 @@
 
 <p><strong>注意:&nbsp;</strong>给定的矩阵<code>grid</code>&nbsp;的长度和宽度都不超过 50。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -51,13 +50,15 @@ DFS 或并查集实现。
 
 ```python
 # 初始化，p存储每个点的祖宗节点
-p = [i for i in range(n)]
+p = list(range(n))
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
+
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
 ```
@@ -66,25 +67,29 @@ p[find(a)] = find(b)
 
 ```python
 # 初始化，p存储每个点的祖宗节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
-p = [i for i in range(n)]
+p = list(range(n))
 size = [1] * n
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
         # 路径压缩
         p[x] = find(p[x])
     return p[x]
+
 # 合并a和b所在的两个集合
-size[find(b)] += size[find(a)]
-p[find(a)] = find(b)
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
 ```
 
 模板 3——维护到祖宗节点距离的并查集：
 
 ```python
 # 初始化，p存储每个点的祖宗节点，d[x]存储x到p[x]的距离
-p = [i for i in range(n)]
+p = list(range(n))
 d = [0] * n
+
 # 返回x的祖宗节点
 def find(x):
     if p[x] != x:
@@ -92,6 +97,7 @@ def find(x):
         d[x] += d[p[x]]
         p[x] = t
     return p[x]
+
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
 d[find(a)] = dinstance
@@ -116,7 +122,7 @@ class Solution:
             for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
                 res += dfs(grid, i + x, j + y, m, n)
             return res
-        
+
         m, n = len(grid), len(grid[0])
         res = 0
         for i in range(m):
@@ -134,12 +140,12 @@ class Solution:
         m, n = len(grid), len(grid[0])
         p = list(range(m * n))
         size = [1] * (m * n)
-        
+
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 1:
@@ -261,29 +267,36 @@ DFS：
 
 ```ts
 function maxAreaOfIsland(grid: number[][]): number {
-    let m = grid.length, n = grid[0].length;
-    let res = 0;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == 1) {
-                res = Math.max(dfs(grid, i, j), res);
-            }
-        }
+  let m = grid.length,
+    n = grid[0].length;
+  let res = 0;
+  for (let i = 0; i < m; ++i) {
+    for (let j = 0; j < n; ++j) {
+      if (grid[i][j] == 1) {
+        res = Math.max(dfs(grid, i, j), res);
+      }
     }
-    return res;
-};
+  }
+  return res;
+}
 
 function dfs(grid: number[][], i: number, j: number): number {
-    let m = grid.length, n = grid[0].length;
-    if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || grid[i][j] == 0) {
-        return 0;
-    }
-    grid[i][j] = 0;
-    let res = 1;
-    for (let [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
-        res += dfs(grid, i + dx, j + dy);
-    }
-    return res;
+  let m = grid.length,
+    n = grid[0].length;
+  if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || grid[i][j] == 0) {
+    return 0;
+  }
+  grid[i][j] = 0;
+  let res = 1;
+  for (let [dx, dy] of [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ]) {
+    res += dfs(grid, i + dx, j + dy);
+  }
+  return res;
 }
 ```
 

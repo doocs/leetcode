@@ -1,6 +1,6 @@
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        p = [i for i in range(n)]
+        p = list(range(n))
 
         def find(x):
             if p[x] != x:

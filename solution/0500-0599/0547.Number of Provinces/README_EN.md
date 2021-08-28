@@ -39,7 +39,6 @@
 	<li><code>isConnected[i][j] == isConnected[j][i]</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -69,13 +68,13 @@ class Solution:
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         n = len(isConnected)
-        p = [i for i in range(n)]
-        
+        p = list(range(n))
+
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         for i in range(n):
             for j in range(n):
                 if i != j and isConnected[i][j] == 1:

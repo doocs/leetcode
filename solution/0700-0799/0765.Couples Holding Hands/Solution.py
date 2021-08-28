@@ -1,7 +1,7 @@
 class Solution:
     def minSwapsCouples(self, row: List[int]) -> int:
         n = len(row) >> 1
-        p = [i for i in range(n)]
+        p = list(range(n))
 
         def find(x):
             if p[x] != x:

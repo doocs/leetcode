@@ -44,7 +44,7 @@
 ```python
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        p = [i for i in range(n)]
+        p = list(range(n))
 
         def find(x):
             if p[x] != x:
@@ -61,7 +61,7 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
-    
+
     public int countComponents(int n, int[][] edges) {
         p = new int[n];
         for (int i = 0; i < n; ++i) {
