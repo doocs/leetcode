@@ -1334,7 +1334,6 @@
 |  [1321](https://leetcode-cn.com/problems/restaurant-growth)  |  [餐馆营业额变化增长](/solution/1300-1399/1321.Restaurant%20Growth/README.md)  |  `数据库`  |  中等  |  🔒  |
 |  [1322](https://leetcode-cn.com/problems/ads-performance)  |  [广告效果](/solution/1300-1399/1322.Ads%20Performance/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  [1323](https://leetcode-cn.com/problems/maximum-69-number)  |  [6 和 9 组成的最大数字](/solution/1300-1399/1323.Maximum%2069%20Number/README.md)  |  `贪心`,`数学`  |  简单  |    |
-|  [1324](https://leetcode-cn.com/problems/print-words-vertically)  |  [竖直打印单词](/solution/1300-1399/1324.Print%20Words%20Vertically/README.md)  |  `数组`,`字符串`,`模拟`  |  中等  |    |
 |  [1325](https://leetcode-cn.com/problems/delete-leaves-with-a-given-value)  |  [删除给定值的叶子节点](/solution/1300-1399/1325.Delete%20Leaves%20With%20a%20Given%20Value/README.md)  |  `树`,`深度优先搜索`,`广度优先搜索`,`哈希表`,`二叉树`  |  中等  |    |
 |  [1326](https://leetcode-cn.com/problems/minimum-number-of-taps-to-open-to-water-a-garden)  |  [灌溉花园的最少水龙头数目](/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README.md)  |  `贪心`,`数组`,`动态规划`  |  困难  |    |
 |  [1327](https://leetcode-cn.com/problems/list-the-products-ordered-in-a-period)  |  [列出指定时间段内所有的下单产品](/solution/1300-1399/1327.List%20the%20Products%20Ordered%20in%20a%20Period/README.md)  |  `数据库`  |  简单  |  🔒  |
@@ -1765,6 +1764,7 @@
 |  [1752](https://leetcode-cn.com/problems/check-if-array-is-sorted-and-rotated)  |  [检查数组是否经排序和轮转得到](/solution/1700-1799/1752.Check%20if%20Array%20Is%20Sorted%20and%20Rotated/README.md)  |  `数组`  |  简单  |    |
 |  [1753](https://leetcode-cn.com/problems/maximum-score-from-removing-stones)  |  [移除石子的最大得分](/solution/1700-1799/1753.Maximum%20Score%20From%20Removing%20Stones/README.md)  |  `贪心`,`数学`,`堆（优先队列）`  |  中等  |    |
 |  [1754](https://leetcode-cn.com/problems/largest-merge-of-two-strings)  |  [构造字典序最大的合并字符串](/solution/1700-1799/1754.Largest%20Merge%20Of%20Two%20Strings/README.md)  |  `贪心`,`双指针`,`字符串`  |  中等  |    |
+|  [1755](https://leetcode-cn.com/problems/closest-subsequence-sum)  |  [最接近目标值的子序列和](/solution/1700-1799/1755.Closest%20Subsequence%20Sum/README.md)  |  `位运算`,`数组`,`双指针`,`动态规划`,`状态压缩`  |  困难  |    |
 |  [1756](https://leetcode-cn.com/problems/design-most-recently-used-queue)  |  [设计最近使用（MRU）队列](/solution/1700-1799/1756.Design%20Most%20Recently%20Used%20Queue/README.md)  |  `栈`,`设计`,`数组`,`哈希表`,`有序集合`  |  中等  |  🔒  |
 |  [1757](https://leetcode-cn.com/problems/recyclable-and-low-fat-products)  |  [可回收且低脂的产品](/solution/1700-1799/1757.Recyclable%20and%20Low%20Fat%20Products/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  [1758](https://leetcode-cn.com/problems/minimum-changes-to-make-alternating-binary-string)  |  [生成交替二进制字符串的最少操作数](/solution/1700-1799/1758.Minimum%20Changes%20To%20Make%20Alternating%20Binary%20String/README.md)  |  `字符串`  |  简单  |    |
@@ -1992,6 +1992,11 @@
 |  [1980](https://leetcode-cn.com/problems/find-unique-binary-string)  |  [找出不同的二进制字符串](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README.md)  |  `数组`,`字符串`,`回溯`  |  中等  |    |
 |  [1981](https://leetcode-cn.com/problems/minimize-the-difference-between-target-and-chosen-elements)  |  [最小化目标值与所选元素的差](/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README.md)  |  `数组`,`动态规划`,`矩阵`  |  中等  |    |
 |  [1982](https://leetcode-cn.com/problems/find-array-given-subset-sums)  |  [从子集的和还原数组](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README.md)  |  `数组`,`分治`  |  困难  |    |
+|  [1983](https://leetcode-cn.com/problems/widest-pair-of-indices-with-equal-range-sum)  |  [Widest Pair of Indices With Equal Range Sum](/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README.md)  |    |  中等  |    |
+|  [1984](https://leetcode-cn.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores)  |  [学生分数的最小差值](/solution/1900-1999/1984.Minimum%20Difference%20Between%20Highest%20and%20Lowest%20of%20K%20Scores/README.md)  |    |  简单  |    |
+|  [1985](https://leetcode-cn.com/problems/find-the-kth-largest-integer-in-the-array)  |  [找出数组中的第 K 大整数](/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README.md)  |    |  中等  |    |
+|  [1986](https://leetcode-cn.com/problems/minimum-number-of-work-sessions-to-finish-the-tasks)  |  [完成任务的最少工作时间段](/solution/1900-1999/1986.Minimum%20Number%20of%20Work%20Sessions%20to%20Finish%20the%20Tasks/README.md)  |    |  中等  |    |
+|  [1987](https://leetcode-cn.com/problems/number-of-unique-good-subsequences)  |  [不同的好子序列数目](/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README.md)  |    |  困难  |    |
 
 ## 版权
 

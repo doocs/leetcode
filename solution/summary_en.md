@@ -2021,3 +2021,8 @@
   - [1980.Find Unique Binary String](/solution/1900-1999/1980.Find%20Unique%20Binary%20String/README_EN.md)
   - [1981.Minimize the Difference Between Target and Chosen Elements](/solution/1900-1999/1981.Minimize%20the%20Difference%20Between%20Target%20and%20Chosen%20Elements/README_EN.md)
   - [1982.Find Array Given Subset Sums](/solution/1900-1999/1982.Find%20Array%20Given%20Subset%20Sums/README_EN.md)
+  - [1983.Widest Pair of Indices With Equal Range Sum](/solution/1900-1999/1983.Widest%20Pair%20of%20Indices%20With%20Equal%20Range%20Sum/README_EN.md)
+  - [1984.Minimum Difference Between Highest and Lowest of K Scores](/solution/1900-1999/1984.Minimum%20Difference%20Between%20Highest%20and%20Lowest%20of%20K%20Scores/README_EN.md)
+  - [1985.Find the Kth Largest Integer in the Array](/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README_EN.md)
+  - [1986.Minimum Number of Work Sessions to Finish the Tasks](/solution/1900-1999/1986.Minimum%20Number%20of%20Work%20Sessions%20to%20Finish%20the%20Tasks/README_EN.md)
+  - [1987.Number of Unique Good Subsequences](/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README_EN.md)
