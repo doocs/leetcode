@@ -113,7 +113,7 @@ def find(x):
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
-d[find(a)] = dinstance
+d[find(a)] = distance
 ```
 
 对于本题，套用并查集模板时，将数值较大的祖宗节点指向数值较小的祖宗节点，这样可以保证祖宗节点存放的是本集合的最小值。

@@ -87,7 +87,7 @@ def find(x):
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
-d[find(a)] = dinstance
+d[find(a)] = distance
 ```
 
 对于本题，将相似对的所有单词转换为下标，然后套用并查集模板，将相似对合并。

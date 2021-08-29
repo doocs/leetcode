@@ -100,7 +100,7 @@ def find(x):
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
-d[find(a)] = dinstance
+d[find(a)] = distance
 ```
 
 <!-- tabs:start -->

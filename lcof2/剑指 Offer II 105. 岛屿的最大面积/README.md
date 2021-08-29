@@ -42,7 +42,6 @@
 
 <p>注意：本题与主站 695&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/max-area-of-island/">https://leetcode-cn.com/problems/max-area-of-island/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -105,7 +104,7 @@ def find(x):
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
-d[find(a)] = dinstance
+d[find(a)] = distance
 ```
 
 <!-- tabs:start -->
@@ -127,7 +126,7 @@ class Solution:
             for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
                 res += dfs(grid, i + x, j + y, m, n)
             return res
-        
+
         m, n = len(grid), len(grid[0])
         res = 0
         for i in range(m):
@@ -145,12 +144,12 @@ class Solution:
         m, n = len(grid), len(grid[0])
         p = list(range(m * n))
         size = [1] * (m * n)
-        
+
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 1:
@@ -272,29 +271,36 @@ DFS：
 
 ```ts
 function maxAreaOfIsland(grid: number[][]): number {
-    let m = grid.length, n = grid[0].length;
-    let res = 0;
-    for (let i = 0; i < m; ++i) {
-        for (let j = 0; j < n; ++j) {
-            if (grid[i][j] == 1) {
-                res = Math.max(dfs(grid, i, j), res);
-            }
-        }
+  let m = grid.length,
+    n = grid[0].length;
+  let res = 0;
+  for (let i = 0; i < m; ++i) {
+    for (let j = 0; j < n; ++j) {
+      if (grid[i][j] == 1) {
+        res = Math.max(dfs(grid, i, j), res);
+      }
     }
-    return res;
-};
+  }
+  return res;
+}
 
 function dfs(grid: number[][], i: number, j: number): number {
-    let m = grid.length, n = grid[0].length;
-    if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || grid[i][j] == 0) {
-        return 0;
-    }
-    grid[i][j] = 0;
-    let res = 1;
-    for (let [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
-        res += dfs(grid, i + dx, j + dy);
-    }
-    return res;
+  let m = grid.length,
+    n = grid[0].length;
+  if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || grid[i][j] == 0) {
+    return 0;
+  }
+  grid[i][j] = 0;
+  let res = 1;
+  for (let [dx, dy] of [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ]) {
+    res += dfs(grid, i + dx, j + dy);
+  }
+  return res;
 }
 ```
 

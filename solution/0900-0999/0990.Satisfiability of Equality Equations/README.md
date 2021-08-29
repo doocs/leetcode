@@ -119,7 +119,7 @@ def find(x):
 
 # 合并a和b所在的两个集合
 p[find(a)] = find(b)
-d[find(a)] = dinstance
+d[find(a)] = distance
 ```
 
 对于本题，先遍历所有的等式，构造并查集。接着遍历所有不等式，如果不等式的两个变量处于同一个集合，说明发生矛盾，返回 false。否则遍历结束返回 true。
