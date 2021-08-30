@@ -60,6 +60,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+DFS。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +69,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumNumbers(self, root: TreeNode) -> int:
+        def dfs(root, presum):
+            if root is None:
+                return 0
+            s = 10 * presum + root.val
+            if root.left is None and root.right is None:
+                return s
+            return dfs(root.left, s) + dfs(root.right, s)
 
+        return dfs(root, 0)
 ```
 
 ### **Java**
@@ -75,7 +93,95 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int sumNumbers(TreeNode root) {
+        return dfs(root, 0);
+    }
 
+    private int dfs(TreeNode root, int presum) {
+        if (root == null) {
+            return 0;
+        }
+        int s = presum * 10 + root.val;
+        if (root.left == null && root.right == null) {
+            return s;
+        }
+        return dfs(root.left, s) + dfs(root.right, s);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int sumNumbers(TreeNode *root) {
+        return dfs(root, 0);
+    }
+
+    int dfs(TreeNode *root, int presum) {
+        if (root == nullptr)
+            return 0;
+        int s = presum * 10 + root->val;
+        if (root->left == nullptr && root->right == nullptr)
+            return s;
+        return dfs(root->left, s) + dfs(root->right, s);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func sumNumbers(root *TreeNode) int {
+	return dfs(root, 0)
+}
+
+func dfs(root *TreeNode, presum int) int {
+	if root == nil {
+		return 0
+	}
+	s := presum*10 + root.Val
+	if root.Left == nil && root.Right == nil {
+		return s
+	}
+	return dfs(root.Left, s) + dfs(root.Right, s)
+}
 ```
 
 ### **...**
