@@ -55,7 +55,23 @@ MyCalendar.book(20, 30); // returns true
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class MyCalendar {
+    List<int[]> calendar;
 
+    MyCalendar() {
+        calendar = new ArrayList<>();
+    }
+
+    public boolean book(int start, int end) {
+        for (int[] item : calendar) {
+            if (item[0] < end && item[1] > start) {
+                return false;
+            }
+        }
+        calendar.add(new int[]{start, end});
+        return true;
+    }
+}
 ```
 
 ### **...**
