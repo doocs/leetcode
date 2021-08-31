@@ -59,12 +59,12 @@ class MyCalendar {
     List<int[]> calendar;
 
     MyCalendar() {
-        calendar = new ArrayList();
+        calendar = new ArrayList<>();
     }
 
     public boolean book(int start, int end) {
-        for (int[] item: calendar) {
-            if (item[0] < end &&  item[1] > start ) {
+        for (int[] item : calendar) {
+            if (item[0] < end && item[1] > start) {
                 return false;
             }
         }
