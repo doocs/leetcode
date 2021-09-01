@@ -53,20 +53,19 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-
+        
         def check(a, b):
             cnt = 0
             for i, c in enumerate(a):
                 if c != b[i]:
                     cnt += 1
             return cnt <= 2
-
+        
         for i in range(n):
             for j in range(i + 1, n):
-                if not check(strs[i], strs[j]):
-                    continue
-                p[find(i)] = find(j)
-
+                if check(strs[i], strs[j]):
+                    p[find(i)] = find(j)
+        
         return sum(i == find(i) for i in range(n))
 ```
 
@@ -84,10 +83,9 @@ class Solution {
         }
         for (int i = 0; i < n; ++i) {
             for (int j = i + 1; j < n; ++j) {
-                if (!check(strs[i], strs[j])) {
-                    continue;
+                if (check(strs[i], strs[j])) {
+                    p[find(i)] = find(j);
                 }
-                p[find(i)] = find(j);
             }
         }
         int res = 0;
@@ -132,8 +130,8 @@ public:
         {
             for (int j = i + 1; j < n; ++j)
             {
-                if (!check(strs[i], strs[j])) continue;
-                p[find(i)] = find(j);
+                if (check(strs[i], strs[j]))
+                    p[find(i)] = find(j);
             }
         }
         int res = 0;
