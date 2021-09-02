@@ -43,6 +43,7 @@
 - [归并排序（算法模板）](./basic/sorting/MergeSort/README.md)
 - [快速排序（算法模板）](./basic/sorting/QuickSort/README.md)
 - [希尔排序](./basic/sorting/ShellSort/README.md)
+- [堆排序（算法模板）](./basic/sorting/HeapSort/README.md)
 
 ### 查找算法
 

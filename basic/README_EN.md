@@ -8,6 +8,7 @@
 - [Merge Sort](./sorting/MergeSort/README.md)
 - [Quick Sort](./sorting/QuickSort/README.md)
 - [Shell Sort](./sorting/ShellSort/README.md)
+- [Heap Sort](./sorting/HeapSort/README.md)
 
 ## Searching
 

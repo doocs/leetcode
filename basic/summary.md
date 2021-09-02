@@ -5,5 +5,6 @@
     - [选择排序](/basic/sorting/SelectionSort/README.md)
     - [归并排序](/basic/sorting/MergeSort/README.md)
     - [快速排序](/basic/sorting/QuickSort/README.md)
+    - [堆排序](/basic/sortring/HeapSort/README.md)
   - 查找算法
     - [二分查找](/basic/searching/BinarySearch/README.md)

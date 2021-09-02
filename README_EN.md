@@ -39,6 +39,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Merge Sort(Algorithm Template)](./basic/sorting/MergeSort/README.md)
 - [Quick Sort(Algorithm Template)](./basic/sorting/QuickSort/README.md)
 - [Shell Sort](./basic/sorting/ShellSort/README.md)
+- [Heap Sort(Algorithm Template)](./basic/sorting/HeapSort/README.md)
 
 ### Searching
 
