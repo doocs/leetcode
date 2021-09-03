@@ -54,7 +54,6 @@ Stones [0,0] and [1,1] cannot be removed since they do not share a row/column wi
 	<li>No two stones are at the same coordinate point.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -62,13 +61,115 @@ Stones [0,0] and [1,1] cannot be removed since they do not share a row/column wi
 ### **Python3**
 
 ```python
+class Solution:
+    def removeStones(self, stones: List[List[int]]) -> int:
+        n = 10010
+        p = list(range(n << 1))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for x, y in stones:
+            p[find(x)] = find(y + n)
+
+        s = set()
+        for x, _ in stones:
+            s.add(find(x))
+        return len(stones) - len(s)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int removeStones(int[][] stones) {
+        int n = 10010;
+        p = new int[n << 1];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        for (int[] e : stones) {
+            p[find(e[0])] = find(e[1] + n);
+        }
+        Set<Integer> s = new HashSet<>();
+        for (int[] e : stones) {
+            s.add(find(e[0]));
+        }
+        return stones.length - s.size();
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int removeStones(vector<vector<int>> &stones) {
+        int n = 10010;
+        p.resize(n << 1);
+        for (int i = 0; i < p.size(); ++i)
+            p[i] = i;
+        for (auto e : stones)
+        {
+            p[find(e[0])] = find(e[1] + 10010);
+        }
+        unordered_set<int> s;
+        for (auto e : stones)
+        {
+            s.insert(find(e[0]));
+        }
+        return stones.size() - s.size();
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+            p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func removeStones(stones [][]int) int {
+	n := 10010
+	p = make([]int, n<<1)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	for _, e := range stones {
+		p[find(e[0])] = find(e[1] + n)
+	}
+	s := make(map[int]bool)
+	for _, e := range stones {
+		s[find(e[0])] = true
+	}
+	return len(stones) - len(s)
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**
