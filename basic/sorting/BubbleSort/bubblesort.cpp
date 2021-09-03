@@ -37,6 +37,7 @@ void bubblesort1(vector<int>& vec)
                 exchange = true;
             }
         }
+
         if(!exchange)
         {
             break;
@@ -55,6 +56,7 @@ void printvec(const vector<int>& vec, const string& strbegin="", const string& s
     cout << endl;
     cout << strend<< endl;
 }
+
 int main(void)
 {
     vector<int> vec = {9, 8, 7, 6, 5, 4, 3, 2 , 1, 0};
