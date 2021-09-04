@@ -6,19 +6,11 @@
 
 <p>In a N x N&nbsp;<code>grid</code> composed of 1 x 1 squares, each 1 x 1 square consists of a <code>/</code>, <code>\</code>, or blank space.&nbsp; These characters divide the square into contiguous regions.</p>
 
-
-
 <p>(Note that backslash characters are escaped, so a <code>\</code>&nbsp;is represented as <code>&quot;\\&quot;</code>.)</p>
-
-
 
 <p>Return the number of regions.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -44,13 +36,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -72,13 +60,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -100,13 +84,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -130,13 +110,9 @@ The 2x2 grid is as follows:
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -160,13 +136,9 @@ The 2x2 grid is as follows:
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -188,15 +160,9 @@ The 2x2 grid is as follows:
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= grid.length == grid[0].length &lt;= 30</code></li>
@@ -220,13 +186,186 @@ The 2x2 grid is as follows:
 ### **Python3**
 
 ```python
+class Solution:
+    def regionsBySlashes(self, grid: List[str]) -> int:
+        n = len(grid)
+        p = list(range(n * n * 4))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for i in range(n):
+            for j in range(n):
+                idx = i * n + j
+                if i < n - 1:
+                    p[find(idx * 4 + 2)] = find((idx + n) * 4)
+                if j < n - 1:
+                    p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3)
+
+                if grid[i][j] == '/':
+                    p[find(idx * 4)] = find(idx * 4 + 3)
+                    p[find(idx * 4 + 1)] = find(idx * 4 + 2)
+                elif grid[i][j] == '\\':
+                    p[find(idx * 4)] = find(idx * 4 + 1)
+                    p[find(idx * 4 + 2)] = find(idx * 4 + 3)
+                else:
+                    p[find(idx * 4)] = find(idx * 4 + 1)
+                    p[find(idx * 4 + 1)] = find(idx * 4 + 2)
+                    p[find(idx * 4 + 2)] = find(idx * 4 + 3)
+        s = set()
+        for i in range(len(p)):
+            s.add(find(i))
+        return len(s)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int regionsBySlashes(String[] grid) {
+        int n = grid.length;
+        p = new int[n * n * 4];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < n; ++i) {
+            char[] row = grid[i].toCharArray();
+            for (int j = 0; j < n; ++j) {
+                int idx = i * n + j;
+                if (i < n - 1) {
+                    p[find(idx * 4 + 2)] = find((idx + n) * 4);
+                }
+                if (j < n - 1) {
+                    p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3);
+                }
+
+                if (row[j] == '/') {
+                    p[find(idx * 4)] = find(idx * 4 + 3);
+                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
+                } else if (row[j] == '\\') {
+                    p[find(idx * 4)] = find(idx * 4 + 1);
+                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                } else {
+                    p[find(idx * 4)] = find(idx * 4 + 1);
+                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
+                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                }
+            }
+        }
+        Set<Integer> s = new HashSet<>();
+        for (int i = 0; i < p.length; ++i) {
+            s.add(find(i));
+        }
+        return s.size();
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int regionsBySlashes(vector<string>& grid) {
+        int n = grid.size();
+        for (int i = 0; i < n * n * 4; ++i) p.push_back(i);
+        for (int i = 0; i < n; ++i) {
+            string row = grid[i];
+            for (int j = 0; j < n; ++j) {
+                int idx = i * n + j;
+                if (i < n - 1) p[find(idx * 4 + 2)] = find((idx + n) * 4);
+                if (j < n - 1) p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3);
+                if (row[j] == '/')
+                {
+                    p[find(idx * 4)] = find(idx * 4 + 3);
+                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
+                }
+                else if (row[j] == '\\')
+                {
+                    p[find(idx * 4)] = find(idx * 4 + 1);
+                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                }
+                else
+                {
+                    p[find(idx * 4)] = find(idx * 4 + 1);
+                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
+                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                }
+            }
+        }
+        unordered_set<int> s;
+        for (int i = 0; i < p.size(); ++i)
+            s.insert(find(i));
+        return s.size();
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func regionsBySlashes(grid []string) int {
+	n := len(grid)
+	p = make([]int, n*n*4)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	for i := 0; i < n; i++ {
+		row := grid[i]
+		for j := 0; j < n; j++ {
+			idx := i*n + j
+			if i < n-1 {
+				p[find(idx*4+2)] = find((idx + n) * 4)
+			}
+			if j < n-1 {
+				p[find(idx*4+1)] = find((idx+1)*4 + 3)
+			}
+			if row[j] == '/' {
+				p[find(idx*4)] = find(idx*4 + 3)
+				p[find(idx*4+1)] = find(idx*4 + 2)
+			} else if row[j] == '\\' {
+				p[find(idx*4)] = find(idx*4 + 1)
+				p[find(idx*4+2)] = find(idx*4 + 3)
+			} else {
+				p[find(idx*4)] = find(idx*4 + 1)
+				p[find(idx*4+1)] = find(idx*4 + 2)
+				p[find(idx*4+2)] = find(idx*4 + 3)
+			}
+		}
+	}
+	s := make(map[int]bool)
+	for i := 0; i < len(p); i++ {
+		s[find(i)] = true
+	}
+	return len(s)
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**
