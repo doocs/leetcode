@@ -2026,3 +2026,5 @@
   - [1985.Find the Kth Largest Integer in the Array](/solution/1900-1999/1985.Find%20the%20Kth%20Largest%20Integer%20in%20the%20Array/README_EN.md)
   - [1986.Minimum Number of Work Sessions to Finish the Tasks](/solution/1900-1999/1986.Minimum%20Number%20of%20Work%20Sessions%20to%20Finish%20the%20Tasks/README_EN.md)
   - [1987.Number of Unique Good Subsequences](/solution/1900-1999/1987.Number%20of%20Unique%20Good%20Subsequences/README_EN.md)
+  - [1988.Find Cutoff Score for Each School](/solution/1900-1999/1988.Find%20Cutoff%20Score%20for%20Each%20School/README_EN.md)
+  - [1989.Maximum Number of People That Can Be Caught in Tag](/solution/1900-1999/1989.Maximum%20Number%20of%20People%20That%20Can%20Be%20Caught%20in%20Tag/README_EN.md)
