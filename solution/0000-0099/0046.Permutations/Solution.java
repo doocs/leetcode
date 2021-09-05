@@ -1,29 +1,26 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        permute(res, nums, 0);
+        List<Integer> path = new ArrayList<>();
+        int n = nums.length;
+        boolean[] used = new boolean[n];
+        dfs(0, n, nums, used, path, res);
         return res;
     }
 
-    private void permute(List<List<Integer>> res, int[] nums, int start) {
-        if (start == nums.length) {
-            List<Integer> t = new ArrayList<>();
-            for (int e : nums) {
-                t.add(e);
-            }
-            res.add(t);
+    private void dfs(int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
+        if (u == n) {
+            res.add(new ArrayList<>(path));
             return;
         }
-        for (int i = start; i < nums.length; ++i) {
-            swap(nums, i, start);
-            permute(res, nums, start + 1);
-            swap(nums, i, start);
+        for (int i = 0; i < n; ++i) {
+            if (!used[i]) {
+                path.add(nums[i]);
+                used[i] = true;
+                dfs(u + 1, n, nums, used, path, res);
+                used[i] = false;
+                path.remove(path.size() - 1);
+            }
         }
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
     }
 }

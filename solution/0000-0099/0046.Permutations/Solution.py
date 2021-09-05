@@ -1,10 +1,20 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        if len(nums) <= 1:
-            return [nums]
+        n = len(nums)
         res = []
-        for i, num in enumerate(nums):
-            n = nums[:i] + nums[i + 1:]
-            for item in self.permute(n):
-                res.append([num] + item)
+        path = [0] * n
+        used = [False] * n
+
+        def dfs(u):
+            if u == n:
+                res.append(path.copy())
+                return
+            for i in range(n):
+                if not used[i]:
+                    path[u] = nums[i]
+                    used[i] = True
+                    dfs(u + 1)
+                    used[i] = False
+
+        dfs(0)
         return res

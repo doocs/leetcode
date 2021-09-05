@@ -29,6 +29,8 @@
 
 ## Solutions
 
+DFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -36,78 +38,53 @@
 ```python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        if len(nums) <= 1:
-            return [nums]
+        n = len(nums)
         res = []
-        for i, num in enumerate(nums):
-            n = nums[:i] + nums[i + 1:]
-            for item in self.permute(n):
-                res.append([num] + item)
+        path = [0] * n
+        used = [False] * n
+
+        def dfs(u):
+            if u == n:
+                res.append(path.copy())
+                return
+            for i in range(n):
+                if not used[i]:
+                    path[u] = nums[i]
+                    used[i] = True
+                    dfs(u + 1)
+                    used[i] = False
+
+        dfs(0)
         return res
 ```
 
 ### **Java**
-
-Backtracking:
 
 ```java
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
-        boolean[] used = new boolean[nums.length];
-        dfs(nums, 0, res, path, used);
+        int n = nums.length;
+        boolean[] used = new boolean[n];
+        dfs(0, n, nums, used, path, res);
         return res;
     }
 
-    private void dfs(int[] nums, int i, List<List<Integer>> res, List<Integer> path, boolean[] used) {
-        if (i == nums.length) {
+    private void dfs(int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
+        if (u == n) {
             res.add(new ArrayList<>(path));
             return;
         }
-        for (int j = 0; j < nums.length; ++j) {
-            if (!used[j]) {
-                path.add(nums[j]);
-                used[j] = true;
-                dfs(nums, i + 1, res, path, used);
-                used[j] = false;
+        for (int i = 0; i < n; ++i) {
+            if (!used[i]) {
+                path.add(nums[i]);
+                used[i] = true;
+                dfs(u + 1, n, nums, used, path, res);
+                used[i] = false;
                 path.remove(path.size() - 1);
             }
         }
-    }
-}
-```
-
-- Recursion:
-
-```java
-class Solution {
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        permute(res, nums, 0);
-        return res;
-    }
-
-    private void permute(List<List<Integer>> res, int[] nums, int start) {
-        if (start == nums.length) {
-            List<Integer> t = new ArrayList<>();
-            for (int e : nums) {
-                t.add(e);
-            }
-            res.add(t);
-            return;
-        }
-        for (int i = start; i < nums.length; ++i) {
-            swap(nums, i, start);
-            permute(res, nums, start + 1);
-            swap(nums, i, start);
-        }
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int t = nums[i];
-        nums[i] = nums[j];
-        nums[j] = t;
     }
 }
 ```
@@ -120,27 +97,92 @@ class Solution {
  * @return {number[][]}
  */
 var permute = function(nums) {
+    const n = nums.length;
     let res = [];
-    let solution = [];
-    let record = new Array(nums.length).fill(false);
-    dfs(nums, 0, record, solution, res);
+    let path = [];
+    let used = new Array(n).fill(false);
+    dfs(0, n, nums, used, path, res);
     return res;
 };
 
-function dfs (nums, depth, record, solution, res) {
-    if (depth == nums.length) {
-        res.push(solution.slice());
+function dfs(u, n, nums, used, path, res) {
+    if (u == n) {
+        res.push(path.slice());
         return;
     }
-    for (let i = 0; i < nums.length; i++) {
-        if (!record[i]) {
-            solution.push(nums[i]);
-            record[i] = true;
-            dfs(nums, depth + 1, record, solution, res);
-            solution.pop();
-            record[i] = false;
+    for (let i = 0; i < n; ++i) {
+        if (!used[i]) {
+            path.push(nums[i]);
+            used[i] = true;
+            dfs(u + 1, n, nums, used, path, res);
+            used[i] = false;
+            path.pop();
         }
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> res;
+        vector<int> path(n, 0);
+        vector<bool> used(n, false);
+        dfs(0, n, nums, used, path, res);
+        return res;
+    }
+
+    void dfs(int u, int n, vector<int>& nums, vector<bool>& used, vector<int>& path, vector<vector<int>>& res) {
+        if (u == n)
+        {
+            res.emplace_back(path);
+            return;
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            if (!used[i])
+            {
+                path[u] = nums[i];
+                used[i] = true;
+                dfs(u + 1, n, nums, used, path, res);
+                used[i] = false;
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func permute(nums []int) [][]int {
+	n := len(nums)
+	res := make([][]int, 0)
+	path := make([]int, n)
+	used := make([]bool, n)
+	dfs(0, n, nums, used, path, &res)
+	return res
+}
+
+func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
+	if u == n {
+		t := make([]int, n)
+		copy(t, path)
+		*res = append(*res, t)
+		return
+	}
+	for i := 0; i < n; i++ {
+		if !used[i] {
+			path[u] = nums[i]
+			used[i] = true
+			dfs(u+1, n, nums, used, path, res)
+			used[i] = false
+		}
+	}
 }
 ```
 
