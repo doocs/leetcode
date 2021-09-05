@@ -1,39 +1,36 @@
 class Solution {
-    private List<List<String>> solutions;
-    private char[][] nQueens;
-    private boolean[] colUsed;
-    private boolean[] diagonals45Used;
-    private boolean[] diagonals135Used;
-    private int n;
-
     public List<List<String>> solveNQueens(int n) {
-        solutions = new ArrayList<>();
-        nQueens = new char[n][n];
-        for (int i = 0; i < n; i++) Arrays.fill(nQueens[i], '.');
-        colUsed = new boolean[n];
-        diagonals45Used = new boolean[(2 * n) - 1];
-        diagonals135Used = new boolean[(2 * n) - 1];
-        this.n = n;
-        backtracking(0);
-        return solutions;
+        List<List<String>> res = new ArrayList<>();
+        String[][] g = new String[n][n];
+        for (int i = 0; i < n; ++i) {
+            String[] t = new String[n];
+            Arrays.fill(t, ".");
+            g[i] = t;
+        }
+        boolean[] col = new boolean[n];
+        boolean[] dg = new boolean[2 * n];
+        boolean[] udg = new boolean[2 * n];
+        dfs(0, n, col, dg, udg, g, res);
+        return res;
     }
 
-    private void backtracking(int row) {
-        if (row == n) {
-            List<String> list = new ArrayList<>();
-            for (char[] chars : nQueens) list.add(new String(chars));
-            solutions.add(list);
+    private void dfs(int u, int n, boolean[] col, boolean[] dg, boolean[] udg, String[][] g, List<List<String>> res) {
+        if (u == n) {
+            List<String> t = new ArrayList<>();
+            for (String[] e : g) {
+                t.add(String.join("", e));
+            }
+            res.add(t);
             return;
         }
-        for (int col = 0; col < n; col++) {
-            int diagonals45Idx = row + col;
-            int diagonals135Idx = n - 1 - (row - col);
-            if (colUsed[col] || diagonals45Used[diagonals45Idx] || diagonals135Used[diagonals135Idx]) continue;
-            nQueens[row][col] = 'Q';
-            colUsed[col] = diagonals45Used[diagonals45Idx] = diagonals135Used[diagonals135Idx] = true;
-            backtracking(row + 1);
-            colUsed[col] = diagonals45Used[diagonals45Idx] = diagonals135Used[diagonals135Idx] = false;
-            nQueens[row][col] = '.';
+        for (int i = 0; i < n; ++i) {
+            if (!col[i] && !dg[u + i] && !udg[n - u + i]) {
+                g[u][i] = "Q";
+                col[i] = dg[u + i] = udg[n - u + i] = true;
+                dfs(u + 1, n, col, dg, udg, g, res);
+                g[u][i] = ".";
+                col[i] = dg[u + i] = udg[n - u + i] = false;
+            }
         }
     }
 }
