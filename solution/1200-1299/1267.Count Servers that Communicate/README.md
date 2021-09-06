@@ -52,10 +52,15 @@
 	<li><code>grid[i][j] == 0 or 1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+对每一行、每一列的服务器数量进行统计。
+
+然后遍历每个服务器，若当前服务器所在的行或者列的服务器数量超过 1，说明当前服务器满足条件，累加结果 res。
+
+遍历结束后，返回 res 即可。
 
 <!-- tabs:start -->
 
@@ -64,7 +69,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countServers(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        rows = [0] * m
+        cols = [0] * n
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    rows[i] += 1
+                    cols[j] += 1
+        res = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1:
+                    if rows[i] > 1 or cols[j] > 1:
+                        res += 1
+        return res
 ```
 
 ### **Java**
@@ -72,7 +93,100 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countServers(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int[] rows = new int[m];
+        int[] cols = new int[n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    ++rows[i];
+                    ++cols[j];
+                }
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    if (rows[i] > 1 || cols[j] > 1) {
+                        ++res;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countServers(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        vector<int> rows(m);
+        vector<int> cols(n);
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (grid[i][j] == 1)
+                {
+                    ++rows[i];
+                    ++cols[j];
+                }
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (grid[i][j] == 1)
+                {
+                    if (rows[i] > 1 || cols[j] > 1)
+                    {
+                        ++res;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countServers(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	rows := make([]int, m)
+	cols := make([]int, n)
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 {
+				rows[i]++
+				cols[j]++
+			}
+		}
+	}
+	res := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 {
+				if rows[i] > 1 || cols[j] > 1 {
+					res++
+				}
+			}
+		}
+	}
+	return res
+}
 ```
 
 ### **...**
