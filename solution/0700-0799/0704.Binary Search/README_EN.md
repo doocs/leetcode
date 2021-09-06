@@ -79,13 +79,11 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         int left = 0, right = nums.size() - 1;
-        while (left < right) {
+        while (left < right)
+        {
             int mid = left + right >> 1;
-            if (nums[mid] >= target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+            if (nums[mid] >= target) right = mid;
+            else left = mid + 1;
         }
         return nums[left] == target ? left : -1;
     }
@@ -110,6 +108,29 @@ func search(nums []int, target int) int {
 	}
 	return -1
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+ var search = function(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return nums[left] == target ? left : -1;
+};
 ```
 
 ### **...**
