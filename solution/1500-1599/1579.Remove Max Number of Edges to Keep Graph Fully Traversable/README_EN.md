@@ -60,7 +60,6 @@
 	<li>All tuples&nbsp;<code>(type<sub>i</sub>, u<sub>i</sub>, v<sub>i</sub>)</code>&nbsp;are distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -68,13 +67,225 @@
 ### **Python3**
 
 ```python
+class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.n = n
 
+    def union(self, a, b) -> bool:
+        pa, pb = self.find(a - 1), self.find(b - 1)
+        if pa == pb:
+            return False
+        self.p[pa] = pb
+        self.n -= 1
+        return True
+
+    def find(self, x) -> int:
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+
+class Solution:
+    def maxNumEdgesToRemove(self, n: int, edges: List[List[int]]) -> int:
+        ufa, ufb = UnionFind(n), UnionFind(n)
+        res = 0
+        for t, u, v in edges:
+            if t == 3:
+                if not ufa.union(u, v):
+                    res += 1
+                else:
+                    ufb.union(u, v)
+        for t, u, v in edges:
+            if t == 1:
+                if not ufa.union(u, v):
+                    res += 1
+            elif t == 2:
+                if not ufb.union(u, v):
+                    res += 1
+        return res if ufa.n == 1 and ufb.n == 1 else -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxNumEdgesToRemove(int n, int[][] edges) {
+        UnionFind ufa = new UnionFind(n);
+        UnionFind ufb = new UnionFind(n);
+        int res = 0;
+        for (int[] e : edges) {
+            if (e[0] == 3) {
+                if (!ufa.union(e[1], e[2])) {
+                    ++res;
+                } else {
+                    ufb.union(e[1], e[2]);
+                }
+            }
+        }
+        for (int[] e : edges) {
+            if (e[0] == 1) {
+                if (!ufa.union(e[1], e[2])) {
+                    ++res;
+                }
+            } else if (e[0] == 2) {
+                if (!ufb.union(e[1], e[2])) {
+                    ++res;
+                }
+            }
+        }
+        return ufa.n == 1 && ufb.n == 1 ? res : -1;
+    }
+}
 
+class UnionFind {
+    public int[] p;
+    public int n;
+
+    public UnionFind(int n) {
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        this.n = n;
+    }
+
+    public boolean union(int a, int b) {
+        int pa = find(a - 1), pb = find(b - 1);
+        if (pa == pb) {
+            return false;
+        }
+        p[pa] = pb;
+        --n;
+        return true;
+    }
+
+    public int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class UnionFind {
+public:
+    vector<int> p;
+    int n;
+
+    UnionFind(int _n): n(_n), p(_n) {
+        iota(p.begin(), p.end(), 0);
+    }
+
+    bool unite(int a, int b) {
+        int pa = find(a - 1), pb = find(b - 1);
+        if (pa == pb)
+            return false;
+        p[pa] = pb;
+        --n;
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+            p[x] = find(p[x]);
+        return p[x];
+    }
+};
+
+class Solution {
+public:
+    int maxNumEdgesToRemove(int n, vector<vector<int>>& edges) {
+        UnionFind ufa(n), ufb(n);
+        int res = 0;
+        for (auto e : edges)
+        {
+            if (e[0] == 3)
+            {
+                if (!ufa.unite(e[1], e[2])) ++res;
+                else ufb.unite(e[1], e[2]);
+            }
+        }
+        for (auto e : edges)
+        {
+            if (e[0] == 1)
+            {
+                if (!ufa.unite(e[1], e[2])) ++res;
+            }
+            else if (e[0] == 2)
+            {
+                if (!ufb.unite(e[1], e[2])) ++res;
+            }
+        }
+        return ufa.n == 1 && ufb.n == 1 ? res : -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+type unionFind struct {
+	p []int
+	n int
+}
+
+func newUnionFind(n int) *unionFind {
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	return &unionFind{p, n}
+}
+
+func (uf *unionFind) find(x int) int {
+	if uf.p[x] != x {
+		uf.p[x] = uf.find(uf.p[x])
+	}
+	return uf.p[x]
+}
+
+func (uf *unionFind) union(a, b int) bool {
+	pa, pb := uf.find(a-1), uf.find(b-1)
+	if pa == pb {
+		return false
+	}
+	uf.p[pa] = pb
+	uf.n--
+	return true
+}
+
+func maxNumEdgesToRemove(n int, edges [][]int) int {
+	ufa, ufb := newUnionFind(n), newUnionFind(n)
+	res := 0
+	for _, e := range edges {
+		if e[0] == 3 {
+			if !ufa.union(e[1], e[2]) {
+				res++
+			} else {
+				ufb.union(e[1], e[2])
+			}
+		}
+	}
+	for _, e := range edges {
+		if e[0] == 1 {
+			if !ufa.union(e[1], e[2]) {
+				res++
+			}
+		} else if e[0] == 2 {
+			if !ufb.union(e[1], e[2]) {
+				res++
+			}
+		}
+	}
+	if ufa.n == 1 && ufb.n == 1 {
+		return res
+	}
+	return -1
+}
 ```
 
 ### **...**
