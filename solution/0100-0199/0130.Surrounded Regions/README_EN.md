@@ -41,14 +41,89 @@
 
 ### **Python3**
 
-```python
+Union find.
 
+```python
+class Solution:
+    def solve(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        m, n = len(board), len(board[0])
+        p = list(range(m * n + 1))
+
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+        
+        for i in range(m):
+            for j in range(n):
+                if board[i][j] == 'O':
+                    root = find(i * n + j)
+                    if i == 0 or j == 0 or i == m - 1 or j == n - 1:
+                        p[find(i * n + j)] = find(m * n)
+                    else:
+                        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                            if board[i + x][j + y] == "O":
+                                p[find(i * n + j)] = find((i + x) * n + j + y)
+                    
+        for i in range(m):
+            for j in range(n):
+                if find(i * n + j) != find(m * n):
+                    board[i][j] = 'X'
+                else:
+                    board[i][j] = 'O'
 ```
 
 ### **Java**
 
-```java
+Union find.
 
+```java
+class Solution {
+    private int[] p;
+    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+
+    public void solve(char[][] board) {
+        int m = board.length, n = board[0].length;
+        p = new int[m * n + 1];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (board[i][j] == 'O') {
+                    if (i == 0 || j == 0 || i == m - 1 || j == n - 1) {
+                        p[find(i * n + j)] = find(m * n);
+                    } else {
+                        for (int[] e : dirs) {
+                            if (board[i + e[0]][j + e[1]] == 'O') {
+                                p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (find(i * n + j) != find(m * n)) {
+                    board[i][j] = 'X';
+                } else {
+                    board[i][j] = 'O';
+                }
+            }
+        }
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
 ```
 
 ### **TypeScript**
