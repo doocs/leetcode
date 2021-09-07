@@ -61,6 +61,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+1. 头节点如果为空，直接返回 `node`
+2. 如果 `insertVal` 在链表的最小值和最大值之间，找到合适的位置插入
+3. 如果 `insertVal` 小于链表的最小值或大于链表的最大值，则在头节点和尾节点之间插入
+4. 链表的所有值和 `insertVal` 都相等，任意位置插入
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +73,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = next
+"""
 
+class Solution:
+    def insert(self, head: 'Node', insertVal: int) -> 'Node':
+        node = Node(insertVal)
+        if head is None:
+            node.next = node
+            return node
+        p = head
+        while True:
+            if p.val <= insertVal and insertVal <= p.next.val or \
+                p.val > p.next.val and (insertVal <= p.next.val or insertVal >= p.val) or \
+                p.next == head:
+
+                node.next = p.next
+                p.next = node
+                break
+
+            p = p.next
+        return head
 ```
 
 ### **Java**
@@ -76,7 +106,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node next;
 
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _next) {
+        val = _val;
+        next = _next;
+    }
+};
+*/
+
+class Solution {
+    public Node insert(Node head, int insertVal) {
+        Node node = new Node(insertVal);
+        if (head == null) {
+            node.next = node;
+            return node;
+        }
+        Node p = head;
+        for (;;) {
+            if (p.val <= insertVal && insertVal <= p.next.val ||
+                    p.val > p.next.val && (insertVal <= p.next.val || insertVal >= p.val) ||
+                    p.next == head) {
+                node.next = p.next;
+                p.next = node;
+                break;
+            }
+            p = p.next;
+        }
+        return head;
+    }
+}
 ```
 
 ### **...**

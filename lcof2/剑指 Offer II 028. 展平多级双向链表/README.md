@@ -99,6 +99,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+仔细观察一下这个结构，不难发现其实就是前序遍历二叉树
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -106,7 +108,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val, prev, next, child):
+        self.val = val
+        self.prev = prev
+        self.next = next
+        self.child = child
+"""
 
+class Solution:
+    def flatten(self, head: 'Node') -> 'Node':
+        if head is None:
+            return None
+        dummy = Node()
+        tail = dummy
+
+        def preOrder(node: 'Node'):
+            nonlocal tail
+            if node is None:
+                return
+            next = node.next
+            child = node.child
+            tail.next = node
+            node.prev = tail
+            tail = tail.next
+            node.child = None
+            preOrder(child)
+            preOrder(next)
+
+        preOrder(head)
+        dummy.next.prev = None
+        return dummy.next
 ```
 
 ### **Java**
@@ -114,7 +148,43 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
+};
+*/
 
+class Solution {
+    private Node dummy = new Node();
+    private Node tail = dummy;
+
+    public Node flatten(Node head) {
+        if (head == null) {
+            return null;
+        }
+        preOrder(head);
+        dummy.next.prev = null;
+        return dummy.next;
+    }
+
+    private void preOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        Node next = node.next;
+        Node child = node.child;
+        tail.next = node;
+        node.prev = tail;
+        tail = tail.next;
+        node.child = null;
+        preOrder(child);
+        preOrder(next);
+    }
+}
 ```
 
 ### **...**
