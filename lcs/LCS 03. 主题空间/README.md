@@ -15,7 +15,7 @@
 > 输出：`1`
 >
 > 解释：4 个主题空间中，只有 1 个不与走廊相邻，面积为 1。
-> ![image.png](https://pic.leetcode-cn.com/1613708145-rscctN-image.png)
+> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcs/LCS%2003.%20主题空间/images/1613708145-rscctN-image.png)
 
 **示例 2:**
 
@@ -24,7 +24,7 @@
 > 输出：`3`
 >
 > 解释：8 个主题空间中，有 5 个不与走廊相邻，面积分别为 3、1、1、1、2，最大面积为 3。
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcs/LCS%2003.%20主题空间/images/613707985-KJyiXJ-image.png)
+> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcs/LCS%2003.%20主题空间/images/1613707985-KJyiXJ-image.png)
 
 **提示：**
 
@@ -36,6 +36,67 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+并查集。
+
+并查集模板：
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -43,7 +104,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def largestArea(self, grid: List[str]) -> int:
+        m, n = len(grid), len(grid[0])
+        p = list(range(m * n + 1))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for i in range(m):
+            for j in range(n):
+                if i == 0 or i == m - 1 or j == 0 or j == n - 1 or grid[i][j] == '0':
+                    p[find(i * n + j)] = find(m * n)
+                else:
+                    for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                        if grid[i + x][j + y] == '0' or grid[i][j] == grid[i + x][j + y]:
+                            p[find(i * n + j)] = find((i + x) * n + j + y)
+
+        mp = collections.defaultdict(int)
+        res = 0
+        for i in range(m):
+            for j in range(n):
+                root = find(i * n + j)
+                if root != find(m * n):
+                    mp[root] += 1
+                    res = max(res, mp[root])
+        return res
 ```
 
 ### **Java**
@@ -51,7 +139,50 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
+    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
+    public int largestArea(String[] grid) {
+        int m = grid.length, n = grid[0].length();
+        p = new int[m * n + 1];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || grid[i].charAt(j) == '0') {
+                    p[find(i * n + j)] = find(m * n);
+                } else {
+                    for (int[] e : dirs) {
+                        if (grid[i + e[0]].charAt(j + e[1]) == '0' || grid[i].charAt(j) == grid[i + e[0]].charAt(j + e[1])) {
+                            p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                        }
+                    }
+                }
+            }
+        }
+        Map<Integer, Integer> mp = new HashMap<>();
+        int res = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int root = find(i * n + j);
+                if (root != find(m * n)) {
+                    mp.put(root, mp.getOrDefault(root, 0) + 1);
+                    res = Math.max(res, mp.get(root));
+                }
+            }
+        }
+        return res;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
 ```
 
 ### **...**

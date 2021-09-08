@@ -36,6 +36,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+统计各个问题类型出现的次数，按照次数降序排列。
+
+然后依次选择问题类型，直至满足条件。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -43,7 +47,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def halfQuestions(self, questions: List[int]) -> int:
+        counter = collections.Counter(questions)
+        counter = OrderedDict(counter.most_common())
+        n = len(questions) >> 1
+        res = 0
+        for _, v in counter.items():
+            res += 1
+            if v >= n:
+                return res
+            n -= v
+        return res
 ```
 
 ### **Java**
@@ -51,7 +66,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int halfQuestions(int[] questions) {
+        int[] counter = new int[1010];
+        for (int e : questions) {
+            ++counter[e];
+        }
+        int n = questions.length >> 1;
+        Arrays.sort(counter);
+        int res = 0;
+        for (int i = counter.length - 1; i >= 0; --i) {
+            ++res;
+            if (counter[i] >= n) {
+                return res;
+            }
+            n -= counter[i];
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
