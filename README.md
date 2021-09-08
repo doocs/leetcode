@@ -21,10 +21,8 @@
 ## 站点
 
 - Netlify: https://lc.netlify.app
-- ~~Gitee Pages: https://doocs.gitee.io/leetcode~~
+- Gitee Pages: https://doocs.gitee.io/leetcode
 - GitHub Pages: https://doocs.github.io/leetcode
-
-注：Gitee Pages 站点被 Gitee 官方误判为“包含违禁违规内容”，惨遭下线。
 
 ## LeetCode 全解
 

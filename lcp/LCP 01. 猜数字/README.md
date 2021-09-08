@@ -35,7 +35,6 @@
 	<li><code>answer</code> 的元素取值为 <code>{1, 2, 3}</code> 之一。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -47,7 +46,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def game(self, guess: List[int], answer: List[int]) -> int:
+        return sum(1 for i in range(3) if guess[i] == answer[i])
 ```
 
 ### **Java**
@@ -55,7 +56,42 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int game(int[] guess, int[] answer) {
+        int times = 0;
+        for (int i = 0; i < 3; ++i) {
+            times += (guess[i] == answer[i] ? 1 : 0);
+        }
+        return times;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int game(vector<int>& guess, vector<int>& answer) {
+        int times = 0;
+        for (int i = 0; i < 3; ++i) times += guess[i] == answer[i];
+        return times;
+    }
+};
+```
+
+### **Go**
+
+```go
+func game(guess []int, answer []int) int {
+	times := 0
+	for i := 0; i < 3; i++ {
+		if guess[i] == answer[i] {
+			times++
+		}
+	}
+	return times
+}
 ```
 
 ### **...**

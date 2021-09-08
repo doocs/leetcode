@@ -21,6 +21,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 ## Sites
 
 - Netlify: https://lc.netlify.app
+- Gitee Pages: https://doocs.gitee.io/leetcode
 - GitHub Pages: https://doocs.github.io/leetcode
 
 ## Solutions
