@@ -45,6 +45,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+如果不能在一分钟内下载完，那么可以先加速，循环直至能在一分钟内下载完。那么“循环次数 + 1”即为最少消耗的分钟数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,7 +54,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def leastMinutes(self, n: int) -> int:
+        speed = res = 1
+        while speed < n:
+            speed <<= 1
+            res += 1
+        return res
 ```
 
 ### **Java**
@@ -60,7 +68,47 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int leastMinutes(int n) {
+        int speed = 1;
+        int res = 1;
+        while (speed < n) {
+            speed <<= 1;
+            ++res;
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int leastMinutes(int n) {
+        int speed = 1, res = 1;
+        while (speed < n)
+        {
+            speed <<= 1;
+            ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func leastMinutes(n int) int {
+	speed, res := 1, 1
+	for speed < n {
+		speed <<= 1
+		res++
+	}
+	return res
+}
 ```
 
 ### **...**

@@ -87,6 +87,50 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int halfQuestions(vector<int>& questions) {
+        vector<int> counter(1010);
+        for (int e : questions) ++counter[e];
+        int n = questions.size() >> 1;
+        sort(counter.begin(), counter.end());
+        int res = 0;
+        for (int i = counter.size() - 1; i >= 0; --i)
+        {
+            ++res;
+            if (counter[i] >= n) return res;
+            n -= counter[i];
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func halfQuestions(questions []int) int {
+	counter := make([]int, 1010)
+	for _, e := range questions {
+		counter[e]++
+	}
+	n := len(questions) >> 1
+	sort.Ints(counter)
+	res := 0
+	for i := len(counter) - 1; i >= 0; i-- {
+		res++
+		if counter[i] >= n {
+			return res
+		}
+		n -= counter[i]
+	}
+	return res
+}
+```
+
 ### **...**
 
 ```
