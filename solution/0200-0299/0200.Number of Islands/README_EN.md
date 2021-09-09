@@ -54,7 +54,7 @@ Union Find:
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         m, n = len(grid), len(grid[0])
-        p = [-1] * (m * n)
+        p = list(range(m * n))
 
         def find(x):
             if p[x] != x:
@@ -64,24 +64,17 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == '1':
-                    p[i * n + j] = i * n + j
-
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == '1':
                     if i < m - 1 and grid[i + 1][j] == '1':
-                        a, b = i * n + j, (i + 1) * n + j
-                        p[find(a)] = find(b)
+                        p[find(i * n + j)] = find((i + 1) * n + j)
                     if j < n - 1 and grid[i][j + 1] == '1':
-                        a, b = i * n + j, i * n + j + 1
-                        p[find(a)] = find(b)
-        
-        cnt = 0
+                        p[find(i * n + j)] = find(i * n + j + 1)
+
+        res = 0
         for i in range(m):
             for j in range(n):
-                if i * n + j == find(i * n + j):
-                    cnt += 1
-        return cnt
+                if grid[i][j] == '1' and i * n + j == find(i * n + j):
+                    res += 1
+        return res
 ```
 
 ### **Java**
@@ -127,10 +120,8 @@ class Solution {
     public int numIslands(char[][] grid) {
         int m = grid.length, n = grid[0].length;
         p = new int[m * n];
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                p[i * n + j] = grid[i][j] == '1' ? i * n + j : -1;
-            }
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
@@ -144,15 +135,15 @@ class Solution {
                 }
             }
         }
-        int cnt = 0;
+        int res = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (p[i * n + j] != -1 && i * n + j == find(i * n + j)) {
-                    ++cnt;
+                if (grid[i][j] == '1' && i * n + j == find(i * n + j)) {
+                    ++res;
                 }
             }
         }
-        return cnt;
+        return res;
     }
 
     private int find(int x) {
@@ -196,55 +187,41 @@ function dfs(grid: string[][], i: number, j: number) {
 
 ### **C++**
 
+Union find:
+
 ```cpp
 class Solution {
 public:
     vector<int> p;
 
-    int numIslands(vector<vector<char>> &grid) {
+    int numIslands(vector<vector<char>>& grid) {
         int m = grid.size(), n = grid[0].size();
         p.resize(m * n);
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                p[i * n + j] = grid[i][j] == '1' ? i * n + j : -1;
-            }
-        }
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
         for (int i = 0; i < m; ++i)
         {
             for (int j = 0; j < n; ++j)
             {
                 if (grid[i][j] == '1')
                 {
-                    if (i < m - 1 && grid[i + 1][j] == '1')
-                    {
-                        p[find(i * n + j)] = find((i + 1) * n + j);
-                    }
-                    if (j < n - 1 && grid[i][j + 1] == '1')
-                    {
-                        p[find(i * n + j)] = find(i * n + j + 1);
-                    }
+                    if (i < m - 1 && grid[i + 1][j] == '1') p[find(i * n + j)] = find((i + 1) * n + j);
+                    if (j < n - 1 && grid[i][j + 1] == '1') p[find(i * n + j)] = find(i * n + j + 1);
                 }
             }
         }
-        int cnt = 0;
+        int res = 0;
         for (int i = 0; i < m; ++i)
         {
             for (int j = 0; j < n; ++j)
             {
-                if (p[i * n + j] != -1 && i * n + j == find(i * n + j))
-                    ++cnt;
+                if (grid[i][j] == '1' && i * n + j == find(i * n + j)) ++res;
             }
         }
-        return cnt;
+        return res;
     }
 
     int find(int x) {
-        if (p[x] != x)
-        {
-            p[x] = find(p[x]);
-        }
+        if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
 };
@@ -252,20 +229,16 @@ public:
 
 ### **Go**
 
+Union find:
+
 ```go
 var p []int
 
 func numIslands(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
 	p = make([]int, m*n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == '1' {
-				p[i*n+j] = i*n + j
-			} else {
-				p[i*n+j] = -1
-			}
-		}
+	for i := 0; i < len(p); i++ {
+		p[i] = i
 	}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
@@ -279,15 +252,15 @@ func numIslands(grid [][]byte) int {
 			}
 		}
 	}
-	cnt := 0
+	res := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			if p[i*n+j] != -1 && i*n+j == find(i*n+j) {
-				cnt++
+			if grid[i][j] == '1' && i*n+j == find(i*n+j) {
+				res++
 			}
 		}
 	}
-	return cnt
+	return res
 }
 
 func find(x int) int {
