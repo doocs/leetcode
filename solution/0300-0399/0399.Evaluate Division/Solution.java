@@ -1,54 +1,42 @@
 class Solution {
-    private int[] p;
-    private double[] w;
+    private Map<String, String> p;
+    private Map<String, Double> w;
 
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         int n = equations.size();
-        p = new int[n << 1];
-        w = new double[n << 1];
-        for (int i = 0; i < p.length; ++i) {
-            p[i] = i;
-            w[i] = 1.0;
+        p = new HashMap<>(n << 1);
+        w = new HashMap<>(n << 1);
+        for (List<String> e : equations) {
+            p.put(e.get(0), e.get(0));
+            p.put(e.get(1), e.get(1));
+            w.put(e.get(0), 1.0);
+            w.put(e.get(1), 1.0);
         }
-        Map<String, Integer> mp = new HashMap<>(n << 1);
-        int idx = 0;
         for (int i = 0; i < n; ++i) {
             List<String> e = equations.get(i);
             String a = e.get(0), b = e.get(1);
-            if (!mp.containsKey(a)) {
-                mp.put(a, idx++);
-            }
-            if (!mp.containsKey(b)) {
-                mp.put(b, idx++);
-            }
-            int pa = find(mp.get(a)), pb = find(mp.get(b));
-            if (pa == pb) {
+            String pa = find(a), pb = find(b);
+            if (Objects.equals(pa, pb)) {
                 continue;
             }
-            p[pa] = pb;
-            w[pa] = w[mp.get(b)] * values[i] / w[mp.get(a)];
+            p.put(pa, pb);
+            w.put(pa, w.get(b) * values[i] / w.get(a));
         }
         int m = queries.size();
         double[] res = new double[m];
         for (int i = 0; i < m; ++i) {
             String c = queries.get(i).get(0), d = queries.get(i).get(1);
-            Integer id1 = mp.get(c), id2 = mp.get(d);
-            if (id1 == null || id2 == null) {
-                res[i] = -1.0;
-            } else {
-                int pa = find(id1), pb = find(id2);
-                res[i] = pa == pb ? w[id1] / w[id2] : -1.0;
-            }
+            res[i] = !p.containsKey(c) || !p.containsKey(d) || !Objects.equals(find(c), find(d)) ? - 1.0 : w.get(c) / w.get(d);
         }
         return res;
     }
 
-    private int find(int x) {
-        if (p[x] != x) {
-            int origin = p[x];
-            p[x] = find(p[x]);
-            w[x] *= w[origin];
+    private String find(String x) {
+        if (!Objects.equals(p.get(x), x)) {
+            String origin = p.get(x);
+            p.put(x, find(p.get(x)));
+            w.put(x, w.get(x) * w.get(origin));
         }
-        return p[x];
+        return p.get(x);
     }
 }

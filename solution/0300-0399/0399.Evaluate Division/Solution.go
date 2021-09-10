@@ -1,51 +1,37 @@
-var p []int
-var w []float64
+var p map[string]string
+var w map[string]float64
 
 func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
-	n := len(equations)
-	p = make([]int, (n<<1)+10)
-	w = make([]float64, (n<<1)+10)
-	for i := 0; i < (n<<1)+10; i++ {
-		p[i] = i
-		w[i] = 1.0
+	p = make(map[string]string)
+	w = make(map[string]float64)
+	for _, e := range equations {
+		p[e[0]] = e[0]
+		p[e[1]] = e[1]
+		w[e[0]] = 1.0
+		w[e[1]] = 1.0
 	}
-	mp := make(map[string]int)
-	idx := 1
 	for i, e := range equations {
 		a, b := e[0], e[1]
-		if mp[a] == 0 {
-			mp[a] = idx
-			idx++
-		}
-		if mp[b] == 0 {
-			mp[b] = idx
-			idx++
-		}
-		pa, pb := find(mp[a]), find(mp[b])
+		pa, pb := find(a), find(b)
 		if pa == pb {
 			continue
 		}
 		p[pa] = pb
-		w[pa] = w[mp[b]] * values[i] / w[mp[a]]
+		w[pa] = w[b] * values[i] / w[a]
 	}
 	var res []float64
-	for _, q := range queries {
-		c, d := q[0], q[1]
-		if mp[c] == 0 || mp[d] == 0 {
+	for _, e := range queries {
+		c, d := e[0], e[1]
+		if p[c] == "" || p[d] == "" || find(c) != find(d) {
 			res = append(res, -1.0)
 		} else {
-			pa, pb := find(mp[c]), find(mp[d])
-			if pa == pb {
-				res = append(res, w[mp[c]]/w[mp[d]])
-			} else {
-				res = append(res, -1.0)
-			}
+			res = append(res, w[c]/w[d])
 		}
 	}
 	return res
 }
 
-func find(x int) int {
+func find(x string) string {
 	if p[x] != x {
 		origin := p[x]
 		p[x] = find(p[x])

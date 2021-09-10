@@ -55,6 +55,8 @@ return: [6.0, 0.5, -1.0, 1.0, -1.0 ]
 
 ## Solutions
 
+Union find.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,10 +64,12 @@ return: [6.0, 0.5, -1.0, 1.0, -1.0 ]
 ```python
 class Solution:
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
-        n = len(equations)
-        p = list(range(n << 1))
-        w = [1.0] * (n << 1)
-
+        w = collections.defaultdict(lambda: 1)
+        p = collections.defaultdict()
+        for a, b in equations:
+            p[a] = a
+            p[b] = b
+        
         def find(x):
             if p[x] != x:
                 origin = p[x]
@@ -73,88 +77,59 @@ class Solution:
                 w[x] *= w[origin]
             return p[x]
 
-        mp = {}
-        idx = 0
         for i, e in enumerate(equations):
-            a, b = e[0], e[1]
-            if a not in mp:
-                mp[a] = idx
-                idx += 1
-            if b not in mp:
-                mp[b] = idx
-                idx += 1
-            pa, pb = find(mp[a]), find(mp[b])
+            pa, pb = find(e[0]), find(e[1])
             if pa == pb:
                 continue
             p[pa] = pb
-            w[pa] = w[mp[b]] * values[i] / w[mp[a]]
-
-        res = []
-        for q in queries:
-            c, d = q[0], q[1]
-            if c not in mp or d not in mp:
-                res.append(-1.0)
-            else:
-                pa, pb = find(mp[c]), find(mp[d])
-                res.append(w[mp[c]] / w[mp[d]] if pa == pb else -1.0)
-        return res
+            w[pa] = w[e[1]] * values[i] / w[e[0]]
+        
+        return [-1 if c not in p or d not in p or find(c) != find(d) else w[c] / w[d] for c, d in queries]
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    private int[] p;
-    private double[] w;
+    private Map<String, String> p;
+    private Map<String, Double> w;
 
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         int n = equations.size();
-        p = new int[n << 1];
-        w = new double[n << 1];
-        for (int i = 0; i < p.length; ++i) {
-            p[i] = i;
-            w[i] = 1.0;
+        p = new HashMap<>(n << 1);
+        w = new HashMap<>(n << 1);
+        for (List<String> e : equations) {
+            p.put(e.get(0), e.get(0));
+            p.put(e.get(1), e.get(1));
+            w.put(e.get(0), 1.0);
+            w.put(e.get(1), 1.0);
         }
-        Map<String, Integer> mp = new HashMap<>(n << 1);
-        int idx = 0;
         for (int i = 0; i < n; ++i) {
             List<String> e = equations.get(i);
             String a = e.get(0), b = e.get(1);
-            if (!mp.containsKey(a)) {
-                mp.put(a, idx++);
-            }
-            if (!mp.containsKey(b)) {
-                mp.put(b, idx++);
-            }
-            int pa = find(mp.get(a)), pb = find(mp.get(b));
-            if (pa == pb) {
+            String pa = find(a), pb = find(b);
+            if (Objects.equals(pa, pb)) {
                 continue;
             }
-            p[pa] = pb;
-            w[pa] = w[mp.get(b)] * values[i] / w[mp.get(a)];
+            p.put(pa, pb);
+            w.put(pa, w.get(b) * values[i] / w.get(a));
         }
         int m = queries.size();
         double[] res = new double[m];
         for (int i = 0; i < m; ++i) {
             String c = queries.get(i).get(0), d = queries.get(i).get(1);
-            Integer id1 = mp.get(c), id2 = mp.get(d);
-            if (id1 == null || id2 == null) {
-                res[i] = -1.0;
-            } else {
-                int pa = find(id1), pb = find(id2);
-                res[i] = pa == pb ? w[id1] / w[id2] : -1.0;
-            }
+            res[i] = !p.containsKey(c) || !p.containsKey(d) || !Objects.equals(find(c), find(d)) ? - 1.0 : w.get(c) / w.get(d);
         }
         return res;
     }
 
-    private int find(int x) {
-        if (p[x] != x) {
-            int origin = p[x];
-            p[x] = find(p[x]);
-            w[x] *= w[origin];
+    private String find(String x) {
+        if (!Objects.equals(p.get(x), x)) {
+            String origin = p.get(x);
+            p.put(x, find(p.get(x)));
+            w.put(x, w.get(x) * w.get(origin));
         }
-        return p[x];
+        return p.get(x);
     }
 }
 ```
@@ -164,48 +139,41 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> p;
-    vector<double> w;
+    unordered_map<string, string> p;
+    unordered_map<string, double> w;
 
     vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
         int n = equations.size();
-        for (int i = 0; i < (n << 1); ++i)
+        for (auto e : equations)
         {
-            p.push_back(i);
-            w.push_back(1.0);
+            p[e[0]] = e[0];
+            p[e[1]] = e[1];
+            w[e[0]] = 1.0;
+            w[e[1]] = 1.0;
         }
-        unordered_map<string, int> mp;
-        int idx = 0;
         for (int i = 0; i < n; ++i)
         {
-            auto e = equations[i];
+            vector<string> e = equations[i];
             string a = e[0], b = e[1];
-            if (mp.find(a) == mp.end()) mp[a] = idx++;
-            if (mp.find(b) == mp.end()) mp[b] = idx++;
-            int pa = find(mp[a]), pb = find(mp[b]);
+            string pa = find(a), pb = find(b);
             if (pa == pb) continue;
             p[pa] = pb;
-            w[pa] = w[mp[b]] * values[i] / w[mp[a]];
+            w[pa] = w[b] * values[i] / w[a];
         }
         int m = queries.size();
-        vector<double> res;
+        vector<double> res(m);
         for (int i = 0; i < m; ++i)
         {
             string c = queries[i][0], d = queries[i][1];
-            if (mp.find(c) == mp.end() || mp.find(d) == mp.end()) res.push_back(-1.0);
-            else
-            {
-                int pa = find(mp[c]), pb = find(mp[d]);
-                res.push_back(pa == pb ? w[mp[c]] / w[mp[d]] : -1.0);
-            }
+            res[i] = p.find(c) == p.end() || p.find(d) == p.end() || find(c) != find(d) ? -1.0 : w[c] / w[d];
         }
         return res;
     }
 
-    int find(int x) {
+    string find(string x) {
         if (p[x] != x)
         {
-            int origin = p[x];
+            string origin = p[x];
             p[x] = find(p[x]);
             w[x] *= w[origin];
         }
@@ -217,54 +185,40 @@ public:
 ### **Go**
 
 ```go
-var p []int
-var w []float64
+var p map[string]string
+var w map[string]float64
 
 func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
-	n := len(equations)
-	p = make([]int, (n<<1)+10)
-	w = make([]float64, (n<<1)+10)
-	for i := 0; i < (n<<1)+10; i++ {
-		p[i] = i
-		w[i] = 1.0
+	p = make(map[string]string)
+	w = make(map[string]float64)
+	for _, e := range equations {
+		p[e[0]] = e[0]
+		p[e[1]] = e[1]
+		w[e[0]] = 1.0
+		w[e[1]] = 1.0
 	}
-	mp := make(map[string]int)
-	idx := 1
 	for i, e := range equations {
 		a, b := e[0], e[1]
-		if mp[a] == 0 {
-			mp[a] = idx
-			idx++
-		}
-		if mp[b] == 0 {
-			mp[b] = idx
-			idx++
-		}
-		pa, pb := find(mp[a]), find(mp[b])
+		pa, pb := find(a), find(b)
 		if pa == pb {
 			continue
 		}
 		p[pa] = pb
-		w[pa] = w[mp[b]] * values[i] / w[mp[a]]
+		w[pa] = w[b] * values[i] / w[a]
 	}
 	var res []float64
-	for _, q := range queries {
-		c, d := q[0], q[1]
-		if mp[c] == 0 || mp[d] == 0 {
+	for _, e := range queries {
+		c, d := e[0], e[1]
+		if p[c] == "" || p[d] == "" || find(c) != find(d) {
 			res = append(res, -1.0)
 		} else {
-			pa, pb := find(mp[c]), find(mp[d])
-			if pa == pb {
-				res = append(res, w[mp[c]]/w[mp[d]])
-			} else {
-				res = append(res, -1.0)
-			}
+			res = append(res, w[c]/w[d])
 		}
 	}
 	return res
 }
 
-func find(x int) int {
+func find(x string) string {
 	if p[x] != x {
 		origin := p[x]
 		p[x] = find(p[x])

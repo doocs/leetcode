@@ -1,47 +1,40 @@
 class Solution {
 public:
-    vector<int> p;
-    vector<double> w;
+    unordered_map<string, string> p;
+    unordered_map<string, double> w;
 
     vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
         int n = equations.size();
-        for (int i = 0; i < (n << 1); ++i)
+        for (auto e : equations)
         {
-            p.push_back(i);
-            w.push_back(1.0);
+            p[e[0]] = e[0];
+            p[e[1]] = e[1];
+            w[e[0]] = 1.0;
+            w[e[1]] = 1.0;
         }
-        unordered_map<string, int> mp;
-        int idx = 0;
         for (int i = 0; i < n; ++i)
         {
-            auto e = equations[i];
+            vector<string> e = equations[i];
             string a = e[0], b = e[1];
-            if (mp.find(a) == mp.end()) mp[a] = idx++;
-            if (mp.find(b) == mp.end()) mp[b] = idx++;
-            int pa = find(mp[a]), pb = find(mp[b]);
+            string pa = find(a), pb = find(b);
             if (pa == pb) continue;
             p[pa] = pb;
-            w[pa] = w[mp[b]] * values[i] / w[mp[a]];
+            w[pa] = w[b] * values[i] / w[a];
         }
         int m = queries.size();
-        vector<double> res;
+        vector<double> res(m);
         for (int i = 0; i < m; ++i)
         {
             string c = queries[i][0], d = queries[i][1];
-            if (mp.find(c) == mp.end() || mp.find(d) == mp.end()) res.push_back(-1.0);
-            else
-            {
-                int pa = find(mp[c]), pb = find(mp[d]);
-                res.push_back(pa == pb ? w[mp[c]] / w[mp[d]] : -1.0);
-            }
+            res[i] = p.find(c) == p.end() || p.find(d) == p.end() || find(c) != find(d) ? -1.0 : w[c] / w[d];
         }
         return res;
     }
 
-    int find(int x) {
+    string find(string x) {
         if (p[x] != x)
         {
-            int origin = p[x];
+            string origin = p[x];
             p[x] = find(p[x]);
             w[x] *= w[origin];
         }
