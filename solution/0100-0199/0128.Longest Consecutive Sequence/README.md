@@ -94,11 +94,9 @@ class Solution:
         s, res = set(nums), 0
         for num in nums:
             if num - 1 not in s:
-                t = 1
-                next = num + 1
+                t, next = 1, num + 1
                 while next in s:
-                    t += 1
-                    next += 1
+                    t, next = t + 1, next + 1
                 res = max(res, t)
         return res
 ```
