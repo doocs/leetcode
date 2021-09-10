@@ -7,8 +7,7 @@ class Solution {
             p[i] = i;
         }
         for (int[] e : edges) {
-            int a = e[0], b = e[1];
-            p[find(b)] = find(a);
+            p[find(e[0])] = find(e[1]);
         }
 
         int cnt = 0;

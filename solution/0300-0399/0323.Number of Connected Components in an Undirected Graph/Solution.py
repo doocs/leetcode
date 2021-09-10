@@ -8,5 +8,5 @@ class Solution:
             return p[x]
 
         for a, b in edges:
-            p[find(b)] = find(a)
+            p[find(a)] = find(b)
         return sum(i == find(i) for i in range(n))

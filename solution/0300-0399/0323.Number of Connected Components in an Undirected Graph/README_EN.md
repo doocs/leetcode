@@ -52,7 +52,7 @@ class Solution:
             return p[x]
 
         for a, b in edges:
-            p[find(b)] = find(a)
+            p[find(a)] = find(b)
         return sum(i == find(i) for i in range(n))
 ```
 
@@ -61,15 +61,14 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
-
+    
     public int countComponents(int n, int[][] edges) {
         p = new int[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
         for (int[] e : edges) {
-            int a = e[0], b = e[1];
-            p[find(b)] = find(a);
+            p[find(e[0])] = find(e[1]);
         }
 
         int cnt = 0;
@@ -97,31 +96,20 @@ class Solution {
 public:
     vector<int> p;
 
-    int countComponents(int n, vector<vector<int>> &edges) {
+    int countComponents(int n, vector<vector<int>>& edges) {
         p.resize(n);
-        for (int i = 0; i < n; ++i)
-        {
-            p[i] = i;
-        }
-        for (auto e : edges)
-        {
-            int a = e[0], b = e[1];
-            p[find(b)] = find(a);
-        }
+        for (int i = 0; i < n; ++i) p[i] = i;
+        for (auto e : edges) p[find(e[0])] = find(e[1]);
         int cnt = 0;
         for (int i = 0; i < n; ++i)
         {
-            if (i == find(i))
-                ++cnt;
+            if (i == find(i)) ++cnt;
         }
         return cnt;
     }
 
     int find(int x) {
-        if (p[x] != x)
-        {
-            p[x] = find(p[x]);
-        }
+        if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
 };
@@ -138,8 +126,7 @@ func countComponents(n int, edges [][]int) int {
 		p[i] = i
 	}
 	for _, e := range edges {
-		a, b := e[0], e[1]
-		p[find(b)] = find(a)
+		p[find(e[0])] = find(e[1])
 	}
 	cnt := 0
 	for i := 0; i < n; i++ {

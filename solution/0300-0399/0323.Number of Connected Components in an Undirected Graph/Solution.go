@@ -6,8 +6,7 @@ func countComponents(n int, edges [][]int) int {
 		p[i] = i
 	}
 	for _, e := range edges {
-		a, b := e[0], e[1]
-		p[find(b)] = find(a)
+		p[find(e[0])] = find(e[1])
 	}
 	cnt := 0
 	for i := 0; i < n; i++ {
