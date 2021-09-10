@@ -42,5 +42,3 @@ int main( void )
 	printvec( vec, "after insert sort" );
 	return(0);
 }
-
-

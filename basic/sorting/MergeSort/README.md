@@ -101,7 +101,7 @@ def merge_sort(nums, left, right):
     while j <= right:
         tmp.append(nums[j])
         j += 1
-    
+
     j = 0
     for i in range(left, right + 1):
         nums[i] = tmp[j]
@@ -119,7 +119,7 @@ import java.util.Scanner;
 
 public class Main {
     private static int[] tmp = new int[100010];
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -132,7 +132,7 @@ public class Main {
             System.out.printf("%d ", nums[i]);
         }
     }
-    
+
     public static void mergeSort(int[] nums, int left, int right) {
         if (left >= right) {
             return;
@@ -179,7 +179,7 @@ function mergeSort(nums, left, right) {
     if (left >= right) {
         return;
     }
-    
+
     const mid = (left + right) >> 1;
     mergeSort(nums, left, mid);
     mergeSort(nums, mid + 1, right);
@@ -272,9 +272,9 @@ func main() {
 }
 ```
 
-**C++**
+### **C++**
 
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -282,76 +282,73 @@ using namespace std;
 
 void printvec( const vector<int> &vec, const string &strbegin = "", const string &strend = "" )
 {
-	cout << strbegin << endl;
-	for ( auto val : vec )
-	{
-		cout << val << "\t";
-	}
+    cout << strbegin << endl;
+    for ( auto val : vec )
+    {
+        cout << val << "\t";
+    }
 
-	cout << endl;
-	cout << strend << endl;
+    cout << endl;
+    cout << strend << endl;
 }
 
 
 void mergesort( vector<int> & vec, int left, int right )
 {
-	if ( left >= right )
-	{
-		return;
-	}
+    if ( left >= right )
+    {
+        return;
+    }
 
-	int mid = left + (right - left) / 2;
-	mergesort( vec, left, mid );
-	mergesort( vec, mid + 1, right );
+    int mid = left + (right - left) / 2;
+    mergesort( vec, left, mid );
+    mergesort( vec, mid + 1, right );
 
-	int i = left;
-	int j = mid + 1;
-	int k = 0;
-	vector<int>	vecTmp;
-	while ( i <= mid && j <= right )
-	{
-		if ( vec[i] < vec[j] )
-		{
-			vecTmp.push_back( vec[i] );
-			i++;
-		}else  {
-			vecTmp.push_back( vec[j] );
-			j++;
-		}
-	}
+    int i = left;
+    int j = mid + 1;
+    int k = 0;
+    vector<int>	vecTmp;
+    while ( i <= mid && j <= right )
+    {
+        if ( vec[i] < vec[j] )
+        {
+            vecTmp.push_back( vec[i] );
+            i++;
+        }else  {
+            vecTmp.push_back( vec[j] );
+            j++;
+        }
+    }
 
-	while ( i <= mid )
-	{
-		vecTmp.push_back( vec[i] );
-		i++;
-	}
+    while ( i <= mid )
+    {
+        vecTmp.push_back( vec[i] );
+        i++;
+    }
 
-	while ( j <= right )
-	{
-		vecTmp.push_back( vec[j] );
-		j++;
-	}
+    while ( j <= right )
+    {
+        vecTmp.push_back( vec[j] );
+        j++;
+    }
 
-	for ( int i = left; i <= right; i++ )
-	{
-		vec[i] = vecTmp[i - left];
-	}
+    for ( int i = left; i <= right; i++ )
+    {
+        vec[i] = vecTmp[i - left];
+    }
 
-	return;
+    return;
 }
 
 
 int main( void )
 {
-	vector<int> vec = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
-	printvec( vec );
-	mergesort( vec, 0, vec.size() - 1 );
-	printvec( vec, "after insert sort" );
-	return(0);
+    vector<int> vec = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+    printvec( vec );
+    mergesort( vec, 0, vec.size() - 1 );
+    printvec( vec, "after insert sort" );
+    return(0);
 }
-
 ```
-
-
 
 <!-- tabs:end -->
