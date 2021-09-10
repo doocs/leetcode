@@ -6,7 +6,7 @@
   <title>LeetCode & Coding Interview Guide</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="keywords"
-    content="doc,docs,doocs,documentation,github,coding,pages,leetcode,coding-interview,coding-interview-guide,cracking-the-coding-interview,yanglbme">
+    content="doc,docs,doocs,documentation,github,gitee,coding,pages,leetcode,coding-interview,coding-interview-guide,cracking-the-coding-interview,yanglbme">
   <meta name="description" content="LeetCode、剑指Offer、程序员面试金典题解">
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -80,14 +80,16 @@
               .replace(/\/main/, '/blob/main') : 'https://github.com/doocs/leetcode/blob/main/' + vm.route.file
 
             const github = `[GitHub](${url})`
-            const editHtml = en ? `:memo: Edit on ${github}\n` : `:memo: 在 ${github} 编辑\n`
+            const gitee = `[Gitee](${url.replace("github", "gitee")})`
+            const editHtml = en ? `:memo: Edit on ${github} / ${gitee}\n` : `:memo: 在 ${github} / ${gitee} 编辑\n`
             return editHtml + html
           })
 
           hook.afterEach(function (html) {
             const en = vm.route.file.indexOf('README_EN') != -1
             const copyright = en ? '. All Rights Reserved' : ' 版权所有'
-            const footer = `<footer><span>Copyright © 2018-2021 <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
+            const currentYear = new Date().getFullYear()
+            const footer = `<footer><span>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
             return html + footer
           })
         },
@@ -104,8 +106,8 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-kotlin.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-csharp.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-typescript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.15.0/components/prism-javascript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.15.0/components/prism-typescript.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-swift.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-nim.min.js"></script>
