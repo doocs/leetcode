@@ -87,13 +87,13 @@ We have overhauled the problem description + test cases and specified clearly th
 ```python
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
-        p = [i for i in range(1010)]
+        p = list(range(1010))
 
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-
+        
         for a, b in edges:
             if find(a) == find(b):
                 return [a, b]
@@ -137,28 +137,19 @@ class Solution {
 public:
     vector<int> p;
 
-    vector<int> findRedundantConnection(vector<vector<int>> &edges) {
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         p.resize(1010);
-        for (int i = 0; i < p.size(); ++i)
-        {
-            p[i] = i;
-        }
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
         for (auto e : edges)
         {
-            if (find(e[0]) == find(e[1]))
-            {
-                return e;
-            }
+            if (find(e[0]) == find(e[1])) return e;
             p[find(e[0])] = find(e[1]);
         }
         return {};
     }
 
     int find(int x) {
-        if (p[x] != x)
-        {
-            p[x] = find(p[x]);
-        }
+        if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
 };
