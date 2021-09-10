@@ -54,10 +54,74 @@
 	<li><code>1 <= heights[i][j] <= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+并查集模板：
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，每个格子当做图的一个节点，把相邻两个格子的高度差绝对值当做边的权重，因此本题是求解从最左上角的节点到最右下角的节点的连通性问题。
+
+先把图中所有边去掉，然后按照边的权重从小到大，逐个把边添加上。如果在某一次添加一条边时，最左上角和最右下角的节点连通了，那么该边的权重就是题目的最小体力消耗值。
 
 <!-- tabs:start -->
 
@@ -66,7 +130,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        m, n = len(heights), len(heights[0])
+        p = list(range(m * n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        e = []
+        for i in range(m):
+            for j in range(n):
+                if i < m - 1:
+                    e.append([abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j])
+                if j < n - 1:
+                    e.append([abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1])
+        e.sort()
+        for h, i, j in e:
+            p[find(i)] = find(j)
+            if find(0) == find(m * n - 1):
+                return h
+        return 0
 ```
 
 ### **Java**
@@ -74,7 +160,133 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int minimumEffortPath(int[][] heights) {
+        int m = heights.length, n = heights[0].length;
+        p = new int[m * n];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        List<int[]> edges = new ArrayList<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i < m - 1) {
+                    edges.add(new int[]{Math.abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j});
+                }
+                if (j < n - 1) {
+                    edges.add(new int[]{Math.abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1});
+                }
+            }
+        }
+        Collections.sort(edges, Comparator.comparingInt(a -> a[0]));
+        for (int[] e : edges) {
+            int i = e[1], j = e[2];
+            p[find(i)] = find(j);
+            if (find(0) == find(m * n - 1)) {
+                return e[0];
+            }
+        }
+        return 0;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int minimumEffortPath(vector<vector<int>>& heights) {
+        int m = heights.size(), n = heights[0].size();
+        p.resize(m * n);
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        vector<vector<int>> edges;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (i < m - 1) edges.push_back({abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j});
+                if (j < n - 1) edges.push_back({abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1});
+            }
+        }
+        sort(edges.begin(), edges.end());
+        for (auto e : edges)
+        {
+            int i = e[1], j = e[2];
+            p[find(i)] = find(j);
+            if (find(0) == find(m * n - 1)) return e[0];
+        }
+        return 0;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func minimumEffortPath(heights [][]int) int {
+	m, n := len(heights), len(heights[0])
+	p = make([]int, m*n)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	var edges [][]int
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if i < m-1 {
+				s := []int{abs(heights[i][j] - heights[i+1][j]), i*n + j, (i+1)*n + j}
+				edges = append(edges, s)
+			}
+			if j < n-1 {
+				s := []int{abs(heights[i][j] - heights[i][j+1]), i*n + j, i*n + j + 1}
+				edges = append(edges, s)
+			}
+		}
+	}
+	sort.Slice(edges, func(i, j int) bool {
+		return edges[i][0] < edges[j][0]
+	})
+	for _, e := range edges {
+		i, j := e[1], e[2]
+		p[find(i)] = find(j)
+		if find(0) == find(m*n-1) {
+			return e[0]
+		}
+	}
+	return 0
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
+
+func abs(x int) int {
+	if x > 0 {
+		return x
+	}
+	return -x
+}
 ```
 
 ### **...**

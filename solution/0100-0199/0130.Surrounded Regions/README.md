@@ -71,7 +71,6 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if board[i][j] == 'O':
-                    root = find(i * n + j)
                     if i == 0 or j == 0 or i == m - 1 or j == n - 1:
                         p[find(i * n + j)] = find(m * n)
                     else:
@@ -81,10 +80,8 @@ class Solution:
                     
         for i in range(m):
             for j in range(n):
-                if find(i * n + j) != find(m * n):
+                if board[i][j] == 'O' and find(i * n + j) != find(m * n):
                     board[i][j] = 'X'
-                else:
-                    board[i][j] = 'O'
 ```
 
 ### **Java**
@@ -121,10 +118,8 @@ class Solution {
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (find(i * n + j) != find(m * n)) {
+                if (board[i][j] == 'O' && find(i * n + j) != find(m * n)) {
                     board[i][j] = 'X';
-                } else {
-                    board[i][j] = 'O';
                 }
             }
         }
@@ -192,6 +187,100 @@ function dfs(board: string[][], i: number, j: number, visited: boolean[][], edge
         let x = i + dx, y = j + dy;
         dfs(board, x, y, visited, edge);
     }
+}
+```
+
+### **C++**
+
+并查集。
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+
+    void solve(vector<vector<char>>& board) {
+        int m = board.size(), n = board[0].size();
+        p.resize(m * n + 1);
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (board[i][j] == 'O')
+                {
+                    if (i == 0 || j == 0 || i == m - 1 || j == n - 1) p[find(i * n + j)] = find(m * n);
+                    else
+                    {
+                        for (auto e : dirs)
+                        {
+                            if (board[i + e[0]][j + e[1]] == 'O') p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (board[i][j] == 'O' && find(i * n + j) != find(m * n)) board[i][j] = 'X';
+            }
+        }
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+并查集。
+
+```go
+var p []int
+
+func solve(board [][]byte) {
+	m, n := len(board), len(board[0])
+	p = make([]int, m*n+1)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if board[i][j] == 'O' {
+				if i == 0 || j == 0 || i == m-1 || j == n-1 {
+					p[find(i*n+j)] = find(m * n)
+				} else {
+					for _, e := range dirs {
+						if board[i+e[0]][j+e[1]] == 'O' {
+							p[find(i*n+j)] = find((i+e[0])*n + j + e[1])
+						}
+					}
+				}
+			}
+
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if board[i][j] == 'O' && find(i*n+j) != find(m*n) {
+				board[i][j] = 'X'
+			}
+		}
+	}
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
 }
 ```
 

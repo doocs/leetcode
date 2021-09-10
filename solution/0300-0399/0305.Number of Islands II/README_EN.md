@@ -47,21 +47,189 @@ Initially, the 2d grid is filled with water.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it in time complexity <code>O(k log(mn))</code>, where <code>k == positions.length</code>?</p>
 
-
 ## Solutions
+
+Union find.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
+        p = list(range(m * n))
+        grid = [[0] * n for _ in range(m)]
 
+        def check(i, j):
+            return 0 <= i < m and 0 <= j < n and grid[i][j] == 1
+
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        res = []
+        cur = 0
+        for i, j in positions:
+            if grid[i][j] == 1:
+                res.append(cur)
+                continue
+            grid[i][j] = 1
+            cur += 1
+            for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                if check(i + x, j + y) and find(i * n + j) != find((i + x) * n + j + y):
+                    p[find(i * n + j)] = find((i + x) * n + j + y)
+                    cur -= 1
+            res.append(cur)
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
+    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+    private int[][] grid;
+    private int m;
+    private int n;
 
+    public List<Integer> numIslands2(int m, int n, int[][] positions) {
+        p = new int[m * n];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        grid = new int[m][n];
+        this.m = m;
+        this.n = n;
+        List<Integer> res = new ArrayList<>();
+        int cur = 0;
+        for (int[] position : positions) {
+            int i = position[0], j = position[1];
+            if (grid[i][j] == 1) {
+                res.add(cur);
+                continue;
+            }
+            grid[i][j] = 1;
+            ++cur;
+            for (int[] e : dirs) {
+                if (check(i + e[0], j + e[1]) && find(i * n + j) != find((i + e[0]) * n + j + e[1])) {
+                    p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                    --cur;
+                }
+            }
+            res.add(cur);
+        }
+        return res;
+    }
+
+    private boolean check(int i, int j) {
+        return i >= 0 && i < m && j >= 0 && j < n && grid[i][j] == 1;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+
+    vector<int> numIslands2(int m, int n, vector<vector<int>>& positions) {
+        p.resize(m * n);
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        vector<vector<int>> grid(m, vector<int>(n, 0));
+        vector<int> res;
+        int cur = 0;
+        for (auto position : positions)
+        {
+            int i = position[0], j = position[1];
+            if (grid[i][j] == 1)
+            {
+                res.push_back(cur);
+                continue;
+            }
+            grid[i][j] = 1;
+            ++cur;
+            for (auto e : dirs) {
+                if (check(i + e[0], j + e[1], grid) && find(i * n + j) != find((i + e[0]) * n + j + e[1]))
+                {
+                    p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                    --cur;
+                }
+            }
+            res.push_back(cur);
+        }
+        return res;
+    }
+
+    bool check(int i, int j, vector<vector<int>>& grid) {
+        return i >= 0 && i < grid.size() && j >= 0 && j < grid[0].size() && grid[i][j] == 1;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func numIslands2(m int, n int, positions [][]int) []int {
+	p = make([]int, m*n)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	grid := make([][]int, m)
+	for i := 0; i < m; i++ {
+		grid[i] = make([]int, n)
+	}
+	var res []int
+	cur := 0
+	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	for _, position := range positions {
+		i, j := position[0], position[1]
+		if grid[i][j] == 1 {
+			res = append(res, cur)
+			continue
+		}
+		grid[i][j] = 1
+		cur++
+		for _, e := range dirs {
+			if check(i+e[0], j+e[1], grid) && find(i*n+j) != find((i+e[0])*n+j+e[1]) {
+				p[find(i*n+j)] = find((i+e[0])*n + j + e[1])
+				cur--
+			}
+		}
+		res = append(res, cur)
+	}
+	return res
+}
+
+func check(i, j int, grid [][]int) bool {
+	return i >= 0 && i < len(grid) && j >= 0 && j < len(grid[0]) && grid[i][j] == 1
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

@@ -25,10 +25,8 @@ class Solution {
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (find(i * n + j) != find(m * n)) {
+                if (board[i][j] == 'O' && find(i * n + j) != find(m * n)) {
                     board[i][j] = 'X';
-                } else {
-                    board[i][j] = 'O';
                 }
             }
         }

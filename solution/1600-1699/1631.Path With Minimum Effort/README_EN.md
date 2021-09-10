@@ -50,7 +50,6 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 	<li><code>1 &lt;= heights[i][j] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -58,13 +57,161 @@ This is better than the route of [1,2,2,2,5], where the maximum absolute differe
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        m, n = len(heights), len(heights[0])
+        p = list(range(m * n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        e = []
+        for i in range(m):
+            for j in range(n):
+                if i < m - 1:
+                    e.append([abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j])
+                if j < n - 1:
+                    e.append([abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1])
+        e.sort()
+        for h, i, j in e:
+            p[find(i)] = find(j)
+            if find(0) == find(m * n - 1):
+                return h
+        return 0
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int minimumEffortPath(int[][] heights) {
+        int m = heights.length, n = heights[0].length;
+        p = new int[m * n];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        List<int[]> edges = new ArrayList<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (i < m - 1) {
+                    edges.add(new int[]{Math.abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j});
+                }
+                if (j < n - 1) {
+                    edges.add(new int[]{Math.abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1});
+                }
+            }
+        }
+        Collections.sort(edges, Comparator.comparingInt(a -> a[0]));
+        for (int[] e : edges) {
+            int i = e[1], j = e[2];
+            p[find(i)] = find(j);
+            if (find(0) == find(m * n - 1)) {
+                return e[0];
+            }
+        }
+        return 0;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int minimumEffortPath(vector<vector<int>>& heights) {
+        int m = heights.size(), n = heights[0].size();
+        p.resize(m * n);
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        vector<vector<int>> edges;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (i < m - 1) edges.push_back({abs(heights[i][j] - heights[i + 1][j]), i * n + j, (i + 1) * n + j});
+                if (j < n - 1) edges.push_back({abs(heights[i][j] - heights[i][j + 1]), i * n + j, i * n + j + 1});
+            }
+        }
+        sort(edges.begin(), edges.end());
+        for (auto e : edges)
+        {
+            int i = e[1], j = e[2];
+            p[find(i)] = find(j);
+            if (find(0) == find(m * n - 1)) return e[0];
+        }
+        return 0;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func minimumEffortPath(heights [][]int) int {
+	m, n := len(heights), len(heights[0])
+	p = make([]int, m*n)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	var edges [][]int
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if i < m-1 {
+				s := []int{abs(heights[i][j] - heights[i+1][j]), i*n + j, (i+1)*n + j}
+				edges = append(edges, s)
+			}
+			if j < n-1 {
+				s := []int{abs(heights[i][j] - heights[i][j+1]), i*n + j, i*n + j + 1}
+				edges = append(edges, s)
+			}
+		}
+	}
+	sort.Slice(edges, func(i, j int) bool {
+		return edges[i][0] < edges[j][0]
+	})
+	for _, e := range edges {
+		i, j := e[1], e[2]
+		p[find(i)] = find(j)
+		if find(0) == find(m*n-1) {
+			return e[0]
+		}
+	}
+	return 0
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
+
+func abs(x int) int {
+	if x > 0 {
+		return x
+	}
+	return -x
+}
 ```
 
 ### **...**

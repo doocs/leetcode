@@ -3,14 +3,8 @@ var p []int
 func numIslands(grid [][]byte) int {
 	m, n := len(grid), len(grid[0])
 	p = make([]int, m*n)
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid[i][j] == '1' {
-				p[i*n+j] = i*n + j
-			} else {
-				p[i*n+j] = -1
-			}
-		}
+	for i := 0; i < len(p); i++ {
+		p[i] = i
 	}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
@@ -24,15 +18,15 @@ func numIslands(grid [][]byte) int {
 			}
 		}
 	}
-	cnt := 0
+	res := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			if p[i*n+j] != -1 && i*n+j == find(i*n+j) {
-				cnt++
+			if grid[i][j] == '1' && i*n+j == find(i*n+j) {
+				res++
 			}
 		}
 	}
-	return cnt
+	return res
 }
 
 func find(x int) int {

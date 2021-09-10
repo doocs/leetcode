@@ -86,14 +86,34 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+利用栈存储运算数，每次遇到符号，对栈顶两个元素进行运算
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
+需要注意 Python 的整除对负数也是向下取整（例如：`6 // -132 = -1`），和答案对应不上，所以需要特殊处理
 
+```python
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        nums = []
+        for t in tokens:
+            if len(t) > 1 or t.isdigit():
+                nums.append(int(t))
+            else:
+                if t == "+":
+                    nums[-2] += nums[-1]
+                elif t == "-":
+                    nums[-2] -= nums[-1]
+                elif t == "*":
+                    nums[-2] *= nums[-1]
+                else:
+                    nums[-2] = int(nums[-2] / nums[-1])
+                nums.pop()
+        return nums[0]
 ```
 
 ### **Java**
@@ -101,7 +121,94 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Deque<Integer> stack = new ArrayDeque<>();
+        for (String t : tokens) {
+            if (t.length() > 1 || Character.isDigit(t.charAt(0))) {
+                stack.push(Integer.parseInt(t));
+            } else {
+                int y = stack.pop();
+                int x = stack.pop();
+                switch (t) {
+                    case "+":
+                        stack.push(x + y);
+                        break;
+                    case "-":
+                        stack.push(x - y);
+                        break;
+                    case "*":
+                        stack.push(x * y);
+                        break;
+                    default:
+                        stack.push(x / y);
+                        break;
+                }
+            }
+        }
+        return stack.pop();
+    }
+}
+```
 
+### **Go**
+
+```go
+func evalRPN(tokens []string) int {
+	// https://github.com/emirpasic/gods#arraystack
+	stack := arraystack.New()
+	for _, token := range tokens {
+		if len(token) > 1 || token[0] >= '0' && token[0] <= '9' {
+			num, _ := strconv.Atoi(token)
+			stack.Push(num)
+		} else {
+			y := popInt(stack)
+			x := popInt(stack)
+			switch token {
+			case "+":
+				stack.Push(x + y)
+			case "-":
+				stack.Push(x - y)
+			case "*":
+				stack.Push(x * y)
+			default:
+				stack.Push(x / y)
+			}
+		}
+	}
+	return popInt(stack)
+}
+
+func popInt(stack *arraystack.Stack) int {
+	v, _ := stack.Pop()
+	return v.(int)
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> stk;
+        for (const auto& token : tokens) {
+            if (token.size() > 1 || isdigit(token[0])) {
+                stk.push(stoi(token));
+            } else {
+                int y = stk.top();
+                stk.pop();
+                int x = stk.top();
+                stk.pop();
+                if (token[0] == '+') stk.push(x + y);
+                else if (token[0] == '-') stk.push(x - y);
+                else if (token[0] == '*') stk.push(x * y);
+                else stk.push(x / y);
+            }
+        }
+        return stk.top();
+    }
+};
 ```
 
 ### **...**
