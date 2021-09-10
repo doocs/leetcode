@@ -53,7 +53,7 @@ class Solution:
         counter = OrderedDict(counter.most_common())
         n = len(questions) >> 1
         res = 0
-        for _, v in counter.items():
+        for v in counter.values():
             res += 1
             if v >= n:
                 return res

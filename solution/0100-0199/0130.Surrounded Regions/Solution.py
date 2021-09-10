@@ -23,7 +23,5 @@ class Solution:
 
         for i in range(m):
             for j in range(n):
-                if find(i * n + j) != find(m * n):
+                if board[i][j] == 'O' and find(i * n + j) != find(m * n):
                     board[i][j] = 'X'
-                else:
-                    board[i][j] = 'O'
