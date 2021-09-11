@@ -53,18 +53,186 @@ We can sort [10,5,9,3,15] by performing the following operations:
 
 ## Solutions
 
+Union find.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def gcdSort(self, nums: List[int]) -> bool:
+        n = 10 ** 5 + 10
+        p = list(range(n))
+        f = collections.defaultdict(list)
+        mx = max(nums)
+        for i in range(2, mx + 1):
+            if f[i]:
+                continue
+            for j in range(i, mx + 1, i):
+                f[j].append(i)
+        
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+        
+        for i in nums:
+            for j in f[i]:
+                p[find(i)] = find(j)
+        
+        s = sorted(nums)
+        for i, num in enumerate(nums):
+            if s[i] != num and find(num) != find(s[i]):
+                return False
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public boolean gcdSort(int[] nums) {
+        int n = 100010;
+        p = new int[n];
+        Map<Integer, List<Integer>> f = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }    
+        int mx = 0;
+        for (int num : nums) {
+            mx = Math.max(mx, num);
+        }
+        for (int i = 2; i <= mx; ++i) {
+            if (f.containsKey(i)) {
+                continue;
+            }
+            for (int j = i; j <= mx; j += i) {
+                f.putIfAbsent(j, new ArrayList<>());
+                f.get(j).add(i);
+            }
+        }
+        for (int i : nums) {
+            for (int j : f.get(i)) {
+                p[find(i)] = find(j);
+            }
+        }
+        int[] s = new int[nums.length];
+        System.arraycopy(nums, 0, s, 0, nums.length);
+        Arrays.sort(s);
+        for (int i = 0; i < nums.length; ++i) {
+            if (s[i] != nums[i] && find(nums[i]) != find(s[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    bool gcdSort(vector<int>& nums) {
+        int n = 100010;
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        int mx = 0;
+        for (auto num : nums) mx = max(mx, num);
+        unordered_map<int, vector<int>> f;
+        for (int i = 2; i <= mx; ++i)
+        {
+            if (!f[i].empty()) continue;
+            for (int j = i; j <= mx; j += i) f[j].push_back(i);
+        }
+        for (int i : nums)
+        {
+            for (int j : f[i]) p[find(i)] = find(j);
+        }
+        vector<int> s = nums;
+        sort(s.begin(), s.end());
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            if (s[i] != nums[i] && find(s[i]) != find(nums[i])) return false;
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func gcdSort(nums []int) bool {
+	n := 100010
+	p = make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	mx := 0
+	for _, num := range nums {
+		mx = max(mx, num)
+	}
+	f := make([][]int, mx+1)
+	for i := 2; i <= mx; i++ {
+		if len(f[i]) > 0 {
+			continue
+		}
+		for j := i; j <= mx; j += i {
+			f[j] = append(f[j], i)
+		}
+	}
+	for _, i := range nums {
+		for _, j := range f[i] {
+			p[find(i)] = find(j)
+		}
+	}
+	s := make([]int, len(nums))
+	for i, num := range nums {
+		s[i] = num
+	}
+	sort.Ints(s)
+	for i, num := range nums {
+		if s[i] != num && find(s[i]) != find(num) {
+			return false
+		}
+	}
+	return true
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
