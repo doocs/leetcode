@@ -52,7 +52,6 @@ The last day where it is possible to cross from top to bottom is on day 3.
 	<li>All the values of <code>cells</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -60,13 +59,186 @@ The last day where it is possible to cross from top to bottom is on day 3.
 ### **Python3**
 
 ```python
+class Solution:
+    def latestDayToCross(self, row: int, col: int, cells: List[List[int]]) -> int:
+        n = row * col
+        p = list(range(n + 2))
+        grid = [[False] * col for _ in range(row)]
+        top, bottom = n, n + 1
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        def check(i, j):
+            return 0 <= i < row and 0 <= j < col and grid[i][j]
+
+        for k in range(len(cells) - 1, -1, -1):
+            i, j = cells[k][0] - 1, cells[k][1] - 1
+            grid[i][j] = True
+            for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+                if check(i + x, j + y):
+                    p[find(i * col + j)] = find((i + x) * col + j + y)
+            if i == 0:
+                p[find(i * col + j)] = find(top)
+            if i == row - 1:
+                p[find(i * col + j)] = find(bottom)
+            if find(top) == find(bottom):
+                return k
+        return 0
 ```
 
 ### **Java**
 
-```java
+<!-- 这里可写当前语言的特殊实现逻辑 -->
 
+```java
+class Solution {
+    private int[] p;
+    private int row;
+    private int col;
+    private boolean[][] grid;
+    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+
+    public int latestDayToCross(int row, int col, int[][] cells) {
+        int n = row * col;
+        this.row = row;
+        this.col = col;
+        p = new int[n + 2];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        grid = new boolean[row][col];
+        int top = n, bottom = n + 1;
+        for (int k = cells.length - 1; k >= 0; --k) {
+            int i = cells[k][0] - 1, j = cells[k][1] - 1;
+            grid[i][j] = true;
+            for (int[] e : dirs) {
+                if (check(i + e[0], j + e[1])) {
+                    p[find(i * col + j)] = find((i + e[0]) * col + j + e[1]);
+                }
+            }
+            if (i == 0) {
+                p[find(i * col + j)] = find(top);
+            }
+            if (i == row - 1) {
+                p[find(i * col + j)] = find(bottom);
+            }
+            if (find(top) == find(bottom)) {
+                return k;
+            }
+        }
+        return 0;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+
+    private boolean check(int i, int j) {
+        return i >= 0 && i < row && j >= 0 && j < col && grid[i][j];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+    int row, col;
+
+    int latestDayToCross(int row, int col, vector<vector<int>>& cells) {
+        int n = row * col;
+        this->row = row;
+        this->col = col;
+        p.resize(n + 2);
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        vector<vector<bool>> grid(row, vector<bool>(col, false));
+        int top = n, bottom = n + 1;
+        for (int k = cells.size() - 1; k >= 0; --k)
+        {
+            int i = cells[k][0] - 1, j = cells[k][1] - 1;
+            grid[i][j] = true;
+            for (auto e : dirs)
+            {
+                if (check(i + e[0], j + e[1], grid))
+                {
+                    p[find(i * col + j)] = find((i + e[0]) * col + j + e[1]);
+                }
+            }
+            if (i == 0) p[find(i * col + j)] = find(top);
+            if (i == row - 1) p[find(i * col + j)] = find(bottom);
+            if (find(top) == find(bottom)) return k;
+        }
+        return 0;
+    }
+
+    bool check(int i, int j, vector<vector<bool>>& grid) {
+        return i >= 0 && i < row && j >= 0 && j < col && grid[i][j];
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func latestDayToCross(row int, col int, cells [][]int) int {
+	n := row * col
+	p = make([]int, n+2)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	grid := make([][]bool, row)
+	for i := 0; i < row; i++ {
+		grid[i] = make([]bool, col)
+	}
+	top, bottom := n, n+1
+	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	for k := len(cells) - 1; k >= 0; k-- {
+		i, j := cells[k][0]-1, cells[k][1]-1
+		grid[i][j] = true
+		for _, e := range dirs {
+			if check(i+e[0], j+e[1], grid) {
+				p[find(i*col+j)] = find((i+e[0])*col + j + e[1])
+			}
+		}
+		if i == 0 {
+			p[find(i*col+j)] = find(top)
+		}
+		if i == row-1 {
+			p[find(i*col+j)] = find(bottom)
+		}
+		if find(top) == find(bottom) {
+			return k
+		}
+	}
+	return 0
+}
+
+func check(i, j int, grid [][]bool) bool {
+	return i >= 0 && i < len(grid) && j >= 0 && j < len(grid[0]) && grid[i][j]
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**
