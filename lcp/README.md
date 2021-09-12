@@ -46,6 +46,11 @@
 | [LCP 36](https://leetcode-cn.com/problems/Up5XYM)                        | [ 最多牌组数](/lcp/LCP%2036.%20%E6%9C%80%E5%A4%9A%E7%89%8C%E7%BB%84%E6%95%B0/README.md)                                  | `数组`,`动态规划`,`排序`                                    | 困难 |
 | [LCP 37](https://leetcode-cn.com/problems/zui-xiao-ju-xing-mian-ji)      | [ 最小矩形面积](/lcp/LCP%2037.%20%E6%9C%80%E5%B0%8F%E7%9F%A9%E5%BD%A2%E9%9D%A2%E7%A7%AF/README.md)                       | `贪心`,`几何`,`数组`,`数学`,`组合数学`,`排序`               | 困难 |
 | [LCP 38](https://leetcode-cn.com/problems/7rLGCR)                        | [ 守卫城堡](/lcp/LCP%2038.%20%E5%AE%88%E5%8D%AB%E5%9F%8E%E5%A0%A1/README.md)                                             | `数组`,`动态规划`,`矩阵`                                    | 困难 |
+| [LCP 39](https://leetcode-cn.com/problems/0jQkd0)                        | [ 无人机方阵](/lcp/LCP%2039.%20%E6%97%A0%E4%BA%BA%E6%9C%BA%E6%96%B9%E9%98%B5/README.md)                                  |                                                             | 简单 |
+| [LCP 40](https://leetcode-cn.com/problems/uOAnQW)                        | [ 心算挑战](/lcp/LCP%2040.%20%E5%BF%83%E7%AE%97%E6%8C%91%E6%88%98/README.md)                                             |                                                             | 简单 |
+| [LCP 41](https://leetcode-cn.com/problems/fHi6rV)                        | [ 黑白翻转棋](/lcp/LCP%2041.%20%E9%BB%91%E7%99%BD%E7%BF%BB%E8%BD%AC%E6%A3%8B/README.md)                                  |                                                             | 中等 |
+| [LCP 42](https://leetcode-cn.com/problems/vFjcfV)                        | [ 玩具套圈](/lcp/LCP%2042.%20%E7%8E%A9%E5%85%B7%E5%A5%97%E5%9C%88/README.md)                                             |                                                             | 困难 |
+| [LCP 43](https://leetcode-cn.com/problems/Y1VbOX)                        | [ 十字路口的交通](/lcp/LCP%2043.%20%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3%E7%9A%84%E4%BA%A4%E9%80%9A/README.md)            |                                                             | 困难 |
 
 ## 版权
 
