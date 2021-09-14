@@ -109,7 +109,7 @@ func singleNumber(nums []int) int {
 
 ### **C++**
 
-```c++
+```cpp
 class Solution
 {
     public:
