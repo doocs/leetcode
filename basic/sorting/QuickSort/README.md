@@ -289,7 +289,8 @@ fn main() -> io::Result<()> {
 ```
 
 ### **C++**
-```c++
+
+```cpp
 #include <iostream>
 #include <vector>
 
