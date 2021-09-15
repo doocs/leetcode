@@ -113,7 +113,7 @@ func twoSum(numbers []int, target int) []int {
 }
 ```
 
-### **Cpp**
+### **C++**
 
 ```cpp
 class Solution
