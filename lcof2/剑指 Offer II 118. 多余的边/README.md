@@ -122,7 +122,7 @@ d[find(a)] = distance
 ```python
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
-        p = [i for i in range(1010)]
+        p = list(range(1010))
 
         def find(x):
             if p[x] != x:
