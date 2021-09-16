@@ -67,47 +67,43 @@
 ### **C++**
 
 ```cpp
-class Solution
-{
+class Solution {
 public:
-    int findBottomLeftValue ( TreeNode* root )
-    {
+    int findBottomLeftValue(TreeNode* root) {
         if ( !root )
         {
             return 0;
         }
 
         int res = root->val;
-        deque<TreeNode* > deq;
-        deq.push_back ( root );
-
-        while ( !deq.empty() )
+        queue<TreeNode* > que;
+        que.push(root);
+        while( !que.empty())
         {
-            int size = deq.size();
-
-            for ( int i = 0; i < size; i++ )
+            int size = que.size();
+            for (int i = 0; i < size; i++)
             {
-                TreeNode* ptr = deq.front();
-                deq.pop_front();
-
-                if ( i == 0 )
+                TreeNode* ptr = que.front();
+                que.pop();
+                if ( i == 0)
                 {
                     res = ptr->val;
                 }
-
-                if ( ptr->left )
+                
+                if (ptr->left)
                 {
-                    deq.push_back ( ptr->left );
+                    que.push(ptr->left);
                 }
 
-                if ( ptr->right )
+                if (ptr->right)
                 {
-                    deq.push_back ( ptr->right );
+                    que.push(ptr->right);
                 }
             }
         }
 
         return res;
+
     }
 };
 ```
