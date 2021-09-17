@@ -1,18 +1,18 @@
 class Solution {
     public boolean checkZeroOnes(String s) {
-        int len0 = 0, len1 = 0;
+        int n0 = 0, n1 = 0;
         int t0 = 0, t1 = 0;
         for (int i = 0; i < s.length(); ++i) {
             if (s.charAt(i) == '0') {
-                t0 += 1;
+                ++t0;
                 t1 = 0;
             } else {
+                ++t1;
                 t0 = 0;
-                t1 += 1;
             }
-            len0 = Math.max(len0, t0);
-            len1 = Math.max(len1, t1);
+            n0 = Math.max(n0, t0);
+            n1 = Math.max(n1, t1);
         }
-        return len1 > len0;
+        return n1 > n0;
     }
 }

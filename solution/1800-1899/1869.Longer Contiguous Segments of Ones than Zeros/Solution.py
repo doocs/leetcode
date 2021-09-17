@@ -1,6 +1,6 @@
 class Solution:
     def checkZeroOnes(self, s: str) -> bool:
-        len0 = len1 = 0
+        n0 = n1 = 0
         t0 = t1 = 0
         for c in s:
             if c == '0':
@@ -9,6 +9,6 @@ class Solution:
             else:
                 t0 = 0
                 t1 += 1
-            len0 = max(len0, t0)
-            len1 = max(len1, t1)
-        return len1 > len0
+            n0 = max(n0, t0)
+            n1 = max(n1, t1)
+        return n1 > n0
