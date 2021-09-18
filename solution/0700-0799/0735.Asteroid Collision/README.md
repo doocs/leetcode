@@ -57,6 +57,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+可以类比成左右括号匹配：
+
+- 向右移动的小行星（左括号）：不会引发碰撞，直接入栈
+- 向左移动的小行星（右括号）：可能会和之前向右移动的小行星发生碰撞，特殊处理
+
+因为答案需要碰撞后剩下的所有小行星，相当于栈里最后剩下的元素，所以可以直接用数组表示栈
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -64,7 +71,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        ans = []
+        for a in asteroids:
+            if a > 0:
+                ans.append(a)
+            else:
+                while len(ans) > 0 and ans[-1] > 0 and ans[-1] < -a:
+                    ans.pop()
+                if len(ans) > 0 and ans[-1] == -a:
+                    ans.pop()
+                elif len(ans) == 0 or ans[-1] < -a:
+                    ans.append(a)
+        return ans
 ```
 
 ### **Java**
@@ -72,7 +92,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] asteroidCollision(int[] asteroids) {
+        Deque<Integer> d = new ArrayDeque<>();
+        for (int a : asteroids) {
+            if (a > 0) {
+                d.offerLast(a);
+            } else {
+                while (!d.isEmpty() && d.peekLast() > 0 && d.peekLast() < -a) {
+                    d.pollLast();
+                }
+                if (!d.isEmpty() && d.peekLast() == -a) {
+                    d.pollLast();
+                } else if (d.isEmpty() || d.peekLast() < -a) {
+                    d.offerLast(a);
+                }
+            }
+        }
+        return d.stream().mapToInt(Integer::valueOf).toArray();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> asteroidCollision(vector<int>& asteroids) {
+        vector<int> ans;
+        for (int a : asteroids) {
+            if (a > 0) {
+                ans.push_back(a);
+            } else {
+                while (!ans.empty() && ans.back() > 0 && ans.back() < -a) {
+                    ans.pop_back();
+                }
+                if (!ans.empty() && ans.back() == -a) {
+                    ans.pop_back();
+                } else if (ans.empty() || ans.back() < -a) {
+                    ans.push_back(a);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func asteroidCollision(asteroids []int) []int {
+	var ans []int
+	for _, a := range asteroids {
+		if a > 0 {
+			ans = append(ans, a)
+		} else {
+			for len(ans) > 0 && ans[len(ans)-1] > 0 && ans[len(ans)-1] < -a {
+				ans = ans[:len(ans)-1]
+			}
+			if len(ans) > 0 && ans[len(ans)-1] == -a {
+				ans = ans[:len(ans)-1]
+			} else if len(ans) == 0 || ans[len(ans)-1] < -a {
+				ans = append(ans, a)
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
