@@ -47,13 +47,131 @@ Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&
 ### **Python3**
 
 ```python
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        l = len(strs)
+        dp = [[[0] * (n + 1) for i in range(m + 1)] for j in range(l)]
+        t = [(s.count('0'), s.count('1')) for s in strs]
+        n0, n1 = t[0]
+        for j in range(m + 1):
+            for k in range(n + 1):
+                if n0 <= j and n1 <= k:
+                    dp[0][j][k] = 1
 
+        for i in range(1, l):
+            n0, n1 = t[i]
+            for j in range(m + 1):
+                for k in range(n + 1):
+                    dp[i][j][k] = dp[i - 1][j][k]
+                    if n0 <= j and n1 <= k:
+                        dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j - n0][k - n1] + 1)
+
+        return dp[-1][-1][-1]
+```
+
+```python
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        t = [(s.count('0'), s.count('1')) for s in strs]
+        for k in range(len(strs)):
+            n0, n1 = t[k]
+            for i in range(m, n0 - 1, -1):
+                for j in range(n, n1 - 1, -1):
+                    dp[i][j] = max(dp[i][j], dp[i - n0][j - n1] + 1)
+        return dp[-1][-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findMaxForm(String[] strs, int m, int n) {
+        int[][] dp = new int[m + 1][n + 1];
+        for (String s : strs) {
+            int[] t = count(s);
+            for (int i = m; i >= t[0]; --i) {
+                for (int j = n; j >= t[1]; --j) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i - t[0]][j - t[1]] + 1);
+                }
+            }
+        }
+        return dp[m][n];
+    }
 
+    private int[] count(String s) {
+        int n0 = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '0') {
+                ++n0;
+            }
+        }
+        return new int[]{n0, s.length() - n0};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+        for (auto s : strs)
+        {
+            vector<int> t = count(s);
+            for (int i = m; i >= t[0]; --i)
+                for (int j = n; j >= t[1]; --j)
+                    dp[i][j] = max(dp[i][j], dp[i - t[0]][j - t[1]] + 1);
+        }
+        return dp[m][n];
+    }
+
+    vector<int> count(string s) {
+        int n0 = 0;
+        for (char c : s)
+            if (c == '0') ++n0;
+        return {n0, (int) s.size() - n0};
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMaxForm(strs []string, m int, n int) int {
+	dp := make([][]int, m+1)
+	for i := 0; i < m+1; i++ {
+		dp[i] = make([]int, n+1)
+	}
+	for _, s := range strs {
+		t := count(s)
+		for i := m; i >= t[0]; i-- {
+			for j := n; j >= t[1]; j-- {
+				dp[i][j] = max(dp[i][j], dp[i-t[0]][j-t[1]]+1)
+			}
+		}
+	}
+	return dp[m][n]
+}
+
+func count(s string) []int {
+	n0 := 0
+	for i := 0; i < len(s); i++ {
+		if s[i] == '0' {
+			n0++
+		}
+	}
+	return []int{n0, len(s) - n0}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

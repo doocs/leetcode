@@ -49,6 +49,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+题目可以转换为 `0-1` 背包问题，在 k 个字符串中选出一些字符串（每个字符串只能使用一次），并且满足字符串最多包含 m 个 0 和 n 个 1，求满足此条件的字符串的最大长度（字符串个数）。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +58,41 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        l = len(strs)
+        dp = [[[0] * (n + 1) for i in range(m + 1)] for j in range(l)]
+        t = [(s.count('0'), s.count('1')) for s in strs]
+        n0, n1 = t[0]
+        for j in range(m + 1):
+            for k in range(n + 1):
+                if n0 <= j and n1 <= k:
+                    dp[0][j][k] = 1
 
+        for i in range(1, l):
+            n0, n1 = t[i]
+            for j in range(m + 1):
+                for k in range(n + 1):
+                    dp[i][j][k] = dp[i - 1][j][k]
+                    if n0 <= j and n1 <= k:
+                        dp[i][j][k] = max(dp[i][j][k], dp[i - 1][j - n0][k - n1] + 1)
+
+        return dp[-1][-1][-1]
+```
+
+空间优化：
+
+```python
+class Solution:
+    def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        t = [(s.count('0'), s.count('1')) for s in strs]
+        for k in range(len(strs)):
+            n0, n1 = t[k]
+            for i in range(m, n0 - 1, -1):
+                for j in range(n, n1 - 1, -1):
+                    dp[i][j] = max(dp[i][j], dp[i - n0][j - n1] + 1)
+        return dp[-1][-1]
 ```
 
 ### **Java**
@@ -64,7 +100,90 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+        for (auto s : strs)
+        {
+            vector<int> t = count(s);
+            for (int i = m; i >= t[0]; --i)
+                for (int j = n; j >= t[1]; --j)
+                    dp[i][j] = max(dp[i][j], dp[i - t[0]][j - t[1]] + 1);
+        }
+        return dp[m][n];
+    }
 
+    vector<int> count(string s) {
+        int n0 = 0;
+        for (char c : s)
+            if (c == '0') ++n0;
+        return {n0, (int) s.size() - n0};
+    }
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+        for (int k = 0; k < strs.size(); ++k)
+        {
+            vector<int> t = count(strs[k]);
+            for (int i = m; i >= t[0]; --i)
+                for (int j = n; j >= t[1]; --j)
+                    dp[i][j] = max(dp[i][j], dp[i - t[0]][j - t[1]] + 1);
+        }
+        return dp[m][n];
+    }
+
+    vector<int> count(string s) {
+        int n0 = 0;
+        for (char c : s)
+            if (c == '0') ++n0;
+        return {n0, (int) s.size() - n0};
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMaxForm(strs []string, m int, n int) int {
+	dp := make([][]int, m+1)
+	for i := 0; i < m+1; i++ {
+		dp[i] = make([]int, n+1)
+	}
+	for _, s := range strs {
+		t := count(s)
+		for i := m; i >= t[0]; i-- {
+			for j := n; j >= t[1]; j-- {
+				dp[i][j] = max(dp[i][j], dp[i-t[0]][j-t[1]]+1)
+			}
+		}
+	}
+	return dp[m][n]
+}
+
+func count(s string) []int {
+	n0 := 0
+	for i := 0; i < len(s); i++ {
+		if s[i] == '0' {
+			n0++
+		}
+	}
+	return []int{n0, len(s) - n0}
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
