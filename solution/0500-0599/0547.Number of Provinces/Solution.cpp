@@ -6,19 +6,19 @@ public:
         int n = isConnected.size();
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
+        int size = n;
         for (int i = 0; i < n; ++i)
         {
-            for (int j = 0; j < n; ++j)
+            for (int j = i + 1; j < n; ++j)
             {
-                if (i != j && isConnected[i][j] == 1) p[find(i)] = find(j);
+                if (isConnected[i][j] && find(i) != find(j))
+                {
+                    p[find(i)] = find(j);
+                    --size;
+                }
             }
         }
-        int cnt = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            if (i == find(i)) ++cnt;
-        }
-        return cnt;
+        return size;
     }
 
     int find(int x) {

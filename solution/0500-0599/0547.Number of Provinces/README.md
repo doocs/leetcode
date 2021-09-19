@@ -145,19 +145,20 @@ class Solution:
 ```python
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        n = len(isConnected)
+        n = size = len(isConnected)
         p = list(range(n))
 
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-
+        
         for i in range(n):
-            for j in range(n):
-                if i != j and isConnected[i][j] == 1:
+            for j in range(i + 1, n):
+                if isConnected[i][j] == 1 and find(i) != find(j):
                     p[find(i)] = find(j)
-        return sum(i == find(i) for i in range(n))
+                    size -= 1
+        return size
 ```
 
 ### **Java**
@@ -204,20 +205,16 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
+        int size =  n;
         for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (isConnected[i][j] == 1) {
+            for (int j = i + 1; j < n; ++j) {
+                if (isConnected[i][j] == 1 && find(i) != find(j)) {
                     p[find(i)] = find(j);
+                    --size;
                 }
             }
         }
-        int cnt = 0;
-        for (int i = 0; i < n; ++i) {
-            if (i == find(i)) {
-                ++cnt;
-            }
-        }
-        return cnt;
+        return size;
     }
 
     private int find(int x) {
@@ -240,19 +237,19 @@ public:
         int n = isConnected.size();
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
+        int size = n;
         for (int i = 0; i < n; ++i)
         {
-            for (int j = 0; j < n; ++j)
+            for (int j = i + 1; j < n; ++j)
             {
-                if (i != j && isConnected[i][j] == 1) p[find(i)] = find(j);
+                if (isConnected[i][j] && find(i) != find(j))
+                {
+                    p[find(i)] = find(j);
+                    --size;
+                }
             }
         }
-        int cnt = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            if (i == find(i)) ++cnt;
-        }
-        return cnt;
+        return size;
     }
 
     int find(int x) {
@@ -270,23 +267,19 @@ var p []int
 func findCircleNum(isConnected [][]int) int {
 	n := len(isConnected)
 	p = make([]int, n)
-	for i := 1; i < n; i++ {
+	for i := 0; i < n; i++ {
 		p[i] = i
 	}
+	size := n
 	for i := 0; i < n; i++ {
-		for j := 0; j < n; j++ {
-			if isConnected[i][j] == 1 {
+		for j := i + 1; j < n; j++ {
+			if isConnected[i][j] == 1 && find(i) != find(j) {
 				p[find(i)] = find(j)
+				size--
 			}
 		}
 	}
-	cnt := 0
-	for i := 0; i < n; i++ {
-		if i == find(i) {
-			cnt++
-		}
-	}
-	return cnt
+	return size
 }
 
 func find(x int) int {
