@@ -79,12 +79,68 @@ class Solution:
         for coin in coins:
             for j in range(coin, amount + 1):
                 dp[j] = min(dp[j], dp[j - coin] + 1)
-        return -1 if dp[amount] > amount else dp[amount]
+        return -1 if dp[-1] > amount else dp[-1]
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```java
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int m = coins.length;
+        int[][] dp = new int[m + 1][amount + 1];
+        for (int i = 0; i <= m; ++i) {
+            Arrays.fill(dp[i], amount + 1);
+        }
+        dp[0][0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            int v = coins[i - 1];
+            for (int j = 0; j <= amount; ++j) {
+                for (int k = 0; k * v <= j; ++k) {
+                    dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - k * v] + k);
+                }
+            }
+        }
+        return dp[m][amount] > amount ? - 1 : dp[m][amount];
+    }
+}
+```
+
+下面对 k 这层循环进行优化：
+
+由于：
+
+- `dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - v] + 1, dp[i - 1][j - 2v] + 2, ... , dp[i - 1][j - kv] + k)`
+- `dp[i][j - v] = min(          dp[i - 1][j - v],     dp[i - 1][j - 2v] + 1, ... , dp[i - 1][j - kv] + k - 1)`
+
+因此 `dp[i][j] = min(dp[i - 1][j], dp[i][j - v] + 1)`。
+
+```java
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int m = coins.length;
+        int[][] dp = new int[m + 1][amount + 1];
+        for (int i = 0; i <= m; ++i) {
+            Arrays.fill(dp[i], amount + 1);
+        }
+        dp[0][0] = 0;
+        for (int i = 1; i <= m; ++i) {
+            int v = coins[i - 1];
+            for (int j = 0; j <= amount; ++j) {
+                dp[i][j] = dp[i - 1][j];
+                if (j >= v) {
+                    dp[i][j] = Math.min(dp[i][j], dp[i][j - v] + 1);
+                }
+            }
+        }
+        return dp[m][amount] > amount ? - 1 : dp[m][amount];
+    }
+}
+```
+
+空间优化：
 
 ```java
 class Solution {
