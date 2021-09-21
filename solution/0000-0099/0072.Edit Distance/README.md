@@ -66,6 +66,10 @@ i, j 分别从 1 开始遍历，判断 `word1[i - 1]` 与 `word2[j - 1]` 是否�
 - 若 `word1[i - 1] == word2[j - 1]`，则 `dp[i][j] = dp[i - 1][j - 1]`。
 - 若 `word1[i - 1] != word2[j - 1]`，则 `dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1`。其中 `dp[i - 1][j] + 1` 对应插入操作，`dp[i][j - 1] + 1` 对应删除操作，`dp[i - 1][j - 1] + 1` 对应替换操作。取三者的最小值即可。
 
+递推公式如下：
+
+![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0072.Edit%20Distance/images/gif.gif)
+
 最后返回 `dp[m][n]` 即可。
 
 <!-- tabs:start -->

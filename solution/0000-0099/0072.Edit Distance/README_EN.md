@@ -51,6 +51,8 @@ exection -&gt; execution (insert &#39;u&#39;)
 
 Dynamic programming.
 
+![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0072.Edit%20Distance/images/gif.gif)
+
 <!-- tabs:start -->
 
 ### **Python3**
