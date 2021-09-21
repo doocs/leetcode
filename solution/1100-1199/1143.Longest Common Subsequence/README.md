@@ -62,7 +62,7 @@
 
 递推公式如下：
 
-![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1143.Longest%20Common%20Subsequence/images/gif.gif)
+![](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1143.Longest%20Common%20Subsequence/images/CodeCogsEqn.gif)
 
 <!-- tabs:start -->
 
@@ -119,14 +119,8 @@ public:
         {
             for (int j = 1; j <= n; ++j)
             {
-                if (text1[i - 1] == text2[j - 1])
-                {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
-                }
-                else
-                {
-                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-                }
+                if (text1[i - 1] == text2[j - 1]) dp[i][j] = dp[i - 1][j - 1] + 1;
+                else dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
             }
         }
         return dp[m][n];
