@@ -31,7 +31,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-[最长递增子序列](../../0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)的变形题，除了原有的 `dp` 数组之外，另加了 `cnt` 数组记录以 `nums[i]` 结尾的最长子序列的个数
+[最长递增子序列](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README.md)的变形题，除了原有的 `dp` 数组之外，另加了 `cnt` 数组记录以 `nums[i]` 结尾的最长子序列的个数
 
 <!-- tabs:start -->
 

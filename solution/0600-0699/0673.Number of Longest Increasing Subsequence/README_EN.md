@@ -37,7 +37,7 @@
 
 ## Solutions
 
-similar problem: [LIS](../../0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
+similar problem: [LIS](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
 
 `cnt` array records the number of longest sequence ending in `nums[i]`
 
