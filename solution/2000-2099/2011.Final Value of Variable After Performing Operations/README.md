@@ -88,6 +88,18 @@ X--：X 减 1 ，X = 1 - 1 = 0
 
 ```
 
+### **TypeScript**
+
+```ts
+function finalValueAfterOperations(operations: string[]): number {
+    let ans = 0;
+    for (let operation of operations) {
+        ans += (operation.includes('+') ? 1 : -1)
+    }
+    return ans;
+};
+```
+
 ### **...**
 
 ```
