@@ -68,7 +68,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def minOperations(self, nums: List[int]) -> int:
+        n = len(nums)
+        nums = sorted(set(nums))
 
+        ans = n
+        for i, start in enumerate(nums):
+            end = start + n - 1
+            j = bisect_right(nums, end)
+            remainLen = j - i
+            ans = min(ans, n - remainLen)
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +87,47 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minOperations(int[] nums) {
+        int N = nums.length;
+        if (N == 1) return 0;
+        Arrays.sort(nums);
+        int M = 1;
+        for (int i = 1; i < N; i++) {
+            if (nums[i] != nums[i - 1])
+                nums[M++] = nums[i];
+        }
 
+        int j = 0;
+        int ans = N;
+        for (int i = 0; i < M; i++) {
+            while (j < M && nums[j] <= N + nums[i] - 1) j++;
+            ans = Math.min(ans, N - j + i);
+        }
+
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int End = unique(nums.begin(), nums.end()) - nums.begin();
+        int n = nums.size();
+
+        int len = 0;
+        for (int i = 0; i < End; ++i) {
+            int temp = upper_bound(nums.begin(), nums.begin() + End, n + nums[i] - 1) - nums.begin() - i;
+            len = max(len, temp);
+        }
+        return n - len;
+    }
+};
 ```
 
 ### **...**
