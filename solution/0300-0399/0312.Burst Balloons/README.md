@@ -2,7 +2,7 @@
 
 [English Version](/solution/0300-0399/0312.Burst%20Balloons/README_EN.md)
 
-## 题目描述
+## **题目描述**
 
 <!-- 这里写题目描述 -->
 
@@ -50,6 +50,10 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 以区间长度 l 从小到大开始处理每个状态值。
 
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0312.Burst%20Balloons/ex1.jpg" style="width: 177px; height: 157px;" />
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0312.Burst%20Balloons/ex2.jpg" style="width:633px; height: 398px;" />
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -94,6 +98,25 @@ class Solution {
         return dp[0][n - 1];
     }
 }
+```
+
+### **TypeScript**
+
+```ts
+function maxCoins(nums: number[]): number {
+    let n = nums.length;
+    let dp = Array.from({ length: n + 1 }, v => new Array(n + 2).fill(0));
+    nums.unshift(1);
+    nums.push(1);
+    for (let i = n - 1; i >= 0; --i) {
+        for (let j = i + 2; j < n + 2; ++j) {
+            for (let k = i + 1; k < j; ++k) {
+                dp[i][j] = Math.max(nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j], dp[i][j]);
+            }
+        }
+    }
+    return dp[0][n + 1];
+};
 ```
 
 ### **C++**
