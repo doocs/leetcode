@@ -50,10 +50,6 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 以区间长度 l 从小到大开始处理每个状态值。
 
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0312.Burst%20Balloons/ex1.jpg" style="width: 177px; height: 157px;" />
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0312.Burst%20Balloons/ex2.jpg" style="width:633px; height: 398px;" />
-
 <!-- tabs:start -->
 
 ### **Python3**
