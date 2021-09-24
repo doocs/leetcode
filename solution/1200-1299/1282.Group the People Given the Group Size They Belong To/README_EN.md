@@ -41,7 +41,6 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 	<li><code>1 &lt;=&nbsp;groupSizes[i] &lt;= n</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -49,13 +48,81 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
+        mp = collections.defaultdict(list)
+        for i, x in enumerate(groupSizes):
+            mp[x].append(i)
+        res = []
+        for x, indexes in mp.items():
+            l = len(indexes)
+            for i in range(0, l, x):
+                res.append(indexes[i: i + x])
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<List<Integer>> groupThePeople(int[] groupSizes) {
+        Map<Integer, List<Integer>> mp = new HashMap<>();
+        for (int i = 0; i < groupSizes.length; ++i) {
+            mp.computeIfAbsent(groupSizes[i], k -> new ArrayList<>()).add(i);
+        }
+        List<List<Integer>> res = new ArrayList<>();
+        for (Map.Entry<Integer, List<Integer>> entry : mp.entrySet()) {
+            int x = entry.getKey();
+            List<Integer> indexes = entry.getValue();
+            for (int i = 0; i < indexes.size(); i += x) {
+                res.add(new ArrayList<>(indexes.subList(i, i + x)));
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
+        unordered_map<int, vector<int>> mp;
+        for (int i = 0; i < groupSizes.size(); ++i) mp[groupSizes[i]].push_back(i);
+        vector<vector<int>> res;
+        for (auto& entry : mp)
+        {
+            int x = entry.first;
+            auto indexes = entry.second;
+            for (int i = 0; i < indexes.size(); i += x)
+            {
+                vector<int> t(indexes.begin() + i, indexes.begin() + i + x);
+                res.push_back(t);
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func groupThePeople(groupSizes []int) [][]int {
+	mp := make(map[int][]int)
+	for i, x := range groupSizes {
+		mp[x] = append(mp[x], i)
+	}
+	var res [][]int
+	for x, indexes := range mp {
+		for i := 0; i < len(indexes); i += x {
+			res = append(res, indexes[i:i+x])
+		}
+	}
+	return res
+}
 ```
 
 ### **...**
