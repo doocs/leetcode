@@ -58,13 +58,50 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sumOfBeauties(self, nums: List[int]) -> int:
+        n = len(nums)
+        lmx = [0] * n
+        for i in range(1, n):
+            lmx[i] = max(lmx[i - 1], nums[i - 1])
+        rmi = [100001] * n
+        for i in range(n - 2, -1, -1):
+            rmi[i] = min(rmi[i + 1], nums[i + 1])
+        ans = 0
+        for i in range(1, n - 1):
+            if lmx[i] < nums[i] < rmi[i]:
+                ans += 2
+            elif nums[i - 1] < nums[i] < nums[i + 1]:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int sumOfBeauties(int[] nums) {
+        int n = nums.length;
+        int[] lmx = new int[n];
+        int[] rmi = new int[n];
+        rmi[n - 1] = 100001;
+        for (int i = 1; i < n; ++i) {
+            lmx[i] = Math.max(lmx[i - 1], nums[i - 1]);
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            rmi[i] = Math.min(rmi[i + 1], nums[i + 1]);
+        }
+        int ans = 0;
+        for (int i = 1; i < n - 1; ++i) {
+            if (lmx[i] < nums[i] && nums[i] < rmi[i]) {
+                ans += 2;
+            } else if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) {
+                ans += 1;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -89,6 +126,68 @@ function sumOfBeauties(nums: number[]): number {
     }
     return ans;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int sumOfBeauties(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> lmx(n);
+        vector<int> rmi(n, 100001);
+        for (int i = 1; i < n; ++i) lmx[i] = max(lmx[i - 1], nums[i - 1]);
+        for (int i = n - 2; i >= 0; --i) rmi[i] = min(rmi[i + 1], nums[i + 1]);
+        int ans = 0;
+        for (int i = 1; i < n - 1; ++i)
+        {
+            if (lmx[i] < nums[i] && nums[i] < rmi[i]) ans += 2;
+            else if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) ans += 1;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumOfBeauties(nums []int) int {
+	n := len(nums)
+	lmx := make([]int, n)
+	rmi := make([]int, n)
+	rmi[n-1] = 100001
+	for i := 1; i < n; i++ {
+		lmx[i] = max(lmx[i-1], nums[i-1])
+	}
+	for i := n - 2; i >= 0; i-- {
+		rmi[i] = min(rmi[i+1], nums[i+1])
+	}
+	ans := 0
+	for i := 1; i < n-1; i++ {
+		if lmx[i] < nums[i] && nums[i] < rmi[i] {
+			ans += 2
+		} else if nums[i-1] < nums[i] && nums[i] < nums[i+1] {
+			ans += 1
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

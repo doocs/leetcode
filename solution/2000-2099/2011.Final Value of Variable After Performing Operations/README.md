@@ -77,7 +77,9 @@ X--：X 减 1 ，X = 1 - 1 = 0
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def finalValueAfterOperations(self, operations: List[str]) -> int:
+        return sum(1 if s[1] == '+' else -1 for s in operations)
 ```
 
 ### **Java**
@@ -85,7 +87,15 @@ X--：X 减 1 ，X = 1 - 1 = 0
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int finalValueAfterOperations(String[] operations) {
+        int ans = 0;
+        for (String s : operations) {
+            ans += (s.charAt(1) == '+' ? 1 : -1);
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -98,6 +108,35 @@ function finalValueAfterOperations(operations: string[]): number {
     }
     return ans;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int finalValueAfterOperations(vector<string>& operations) {
+        int ans = 0;
+        for (auto s : operations) ans += (s[1] == '+' ? 1 : -1);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func finalValueAfterOperations(operations []string) int {
+    ans := 0
+    for _, s := range operations {
+        if s[1] == '+' {
+            ans += 1
+        } else {
+            ans -= 1
+        }
+    }
+    return ans
+}
 ```
 
 ### **...**
