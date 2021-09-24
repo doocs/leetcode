@@ -57,7 +57,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findOriginalArray(self, changed: List[int]) -> List[int]:
+        if len(changed) % 2 != 0:
+            return []
+        n = 100010
+        counter = [0] * n
+        for x in changed:
+            counter[x] += 1
+        if counter[0] % 2 != 0:
+            return []
+        res = [0] * (counter[0] // 2)
+        for i in range(1, n):
+            if counter[i] == 0:
+                continue
+            if i * 2 > n or counter[i] > counter[i*2]:
+                return []
+            res.extend([i] * counter[i])
+            counter[i*2] -= counter[i]
+        return res
 ```
 
 ### **Java**
@@ -65,7 +83,96 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] findOriginalArray(int[] changed) {
+        if (changed.length % 2 != 0) {
+            return new int[]{};
+        }
+        int n = 100010;
+        int[] counter = new int[n];
+        for (int x : changed) {
+            ++counter[x];
+        }
+        if (counter[0] % 2 != 0) {
+            return new int[]{};
+        }
+        int[] res = new int[changed.length / 2];
+        int j = counter[0] / 2;
+        for (int i = 1; i < n; ++i) {
+            if (counter[i] == 0) {
+                continue;
+            }
+            if (i * 2 >= n || counter[i] > counter[i * 2]) {
+                return new int[]{};
+            }
+            counter[i * 2] -= counter[i];
+            while (counter[i]-- > 0) {
+                res[j++] = i;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findOriginalArray(vector<int>& changed) {
+        if (changed.size() % 2 != 0) return {};
+        int n = 100010;
+        vector<int> counter(n);
+        for (int x : changed) ++counter[x];
+        if (counter[0] % 2 != 0) return {};
+        vector<int> res(changed.size() / 2);
+        int j = counter[0] / 2;
+        for (int i = 1; i < n; ++i)
+        {
+            if (counter[i] == 0) continue;
+            if (i * 2 >= n || counter[i] > counter[i * 2]) return {};
+            counter[i * 2] -= counter[i];
+            while (counter[i]--) res[j++] = i;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findOriginalArray(changed []int) []int {
+	if len(changed)%2 != 0 {
+		return []int{}
+	}
+	n := 100010
+	counter := make([]int, n)
+	for _, x := range changed {
+		counter[x]++
+	}
+	if counter[0]%2 != 0 {
+		return []int{}
+	}
+	var res []int
+	for j := 0; j < counter[0]/2; j++ {
+		res = append(res, 0)
+	}
+	for i := 1; i < n; i++ {
+		if counter[i] == 0 {
+			continue
+		}
+		if i*2 >= n || counter[i] > counter[i*2] {
+			return []int{}
+		}
+		for j := 0; j < counter[i]; j++ {
+			res = append(res, i)
+		}
+		counter[i*2] -= counter[i]
+	}
+	return res
+}
 ```
 
 ### **...**

@@ -54,7 +54,6 @@
 	<li><code>1 &lt;= k &lt;= 99</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -62,13 +61,74 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countKDifference(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        res = 0
+        for i in range(n):
+            for j in range(i + 1, n):
+                if abs(nums[i] - nums[j]) == k:
+                    res += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countKDifference(int[] nums, int k) {
+        int n = nums.length;
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (Math.abs(nums[i] - nums[j]) == k) {
+                    ++res;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countKDifference(vector<int>& nums, int k) {
+        int n = nums.size();
+        int res = 0;
+        for (int i = 0; i < n; ++i)
+            for (int j = i + 1; j < n; ++j)
+                if (abs(nums[i] - nums[j]) == k) ++ res;
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countKDifference(nums []int, k int) int {
+	n := len(nums)
+	res := 0
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			if abs(nums[i]-nums[j]) == k {
+				res++
+			}
+		}
+	}
+	return res
+}
+
+func abs(x int) int {
+	if x > 0 {
+		return x
+	}
+	return -x
+}
 ```
 
 ### **...**
