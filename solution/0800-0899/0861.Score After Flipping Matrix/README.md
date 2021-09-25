@@ -37,10 +37,15 @@
 	<li><code>A[i][j]</code>&nbsp;是&nbsp;<code>0</code> 或&nbsp;<code>1</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+贪心。
+
+每一行的数字要尽可能大，因此，遍历每一行，若行首元素为 0，则将该行每个元素进行翻转，即 `grid[i][j] ^= 1`；
+
+接着，遍历每一列，统计列中元素为 1 的个数 `cnt`，若 `cnt`(1 的个数) 比 `m - cnt`(0 的个数) 小，则将该列进行翻转。实际过程中，并不需要对列进行翻转，只需要取 `max(cnt, m - cnt)`，即表示 1 的个数，再乘上该位的大小 `n - j - 1`，即求得当前列的大小。累加每一列大小即可。
 
 <!-- tabs:start -->
 
@@ -49,7 +54,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def matrixScore(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            if grid[i][0] == 0:
+                for j in range(n):
+                    grid[i][j] ^= 1
 
+        res = 0
+        for j in range(n):
+            cnt = 0
+            for i in range(m):
+                cnt += grid[i][j]
+            res += max(cnt, m - cnt) * (1 << (n - j - 1))
+        return res
 ```
 
 ### **Java**
@@ -57,7 +76,84 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int matrixScore(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        for (int i = 0; i < m; ++i) {
+            if (grid[i][0] == 0) {
+                for (int j = 0; j < n; ++j) {
+                    grid[i][j] ^= 1;
+                }
+            }
+        }
+        int res = 0;
+        for (int j = 0; j < n; ++j) {
+            int cnt = 0;
+            for (int i = 0; i < m; ++i) {
+                cnt += grid[i][j];
+            }
+            res += Math.max(cnt, m - cnt) * (1 << (n - j - 1));
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int matrixScore(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        for (int i = 0; i < m; ++i)
+        {
+            if (grid[i][0] == 0)
+            {
+                for (int j = 0; j < n; ++j) grid[i][j] ^= 1;
+            }
+        }
+        int res = 0;
+        for (int j = 0; j < n; ++j)
+        {
+            int cnt = 0;
+            for (int i = 0; i < m; ++i) cnt += grid[i][j];
+            res += max(cnt, m - cnt) * (1 << (n - j - 1));
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func matrixScore(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	for i := 0; i < m; i++ {
+		if grid[i][0] == 0 {
+			for j := 0; j < n; j++ {
+				grid[i][j] ^= 1
+			}
+		}
+	}
+	res := 0
+	for j := 0; j < n; j++ {
+		cnt := 0
+		for i := 0; i < m; i++ {
+			cnt += grid[i][j]
+		}
+		res += max(cnt, m-cnt) * (1 << (n - j - 1))
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
