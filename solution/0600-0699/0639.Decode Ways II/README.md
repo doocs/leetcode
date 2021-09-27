@@ -45,6 +45,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+只是在 [91. 解码方法](/solution/0000-0099/0091.Decode%20Ways/README.md) 的基础上加了些关于 `*` 的条件判断
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -52,7 +54,45 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def numDecodings(self, s: str) -> int:
+        mod = int(1e9 + 7)
+        n = len(s)
 
+        # dp[i - 2], dp[i - 1], dp[i]
+        a, b, c = 0, 1, 0
+        for i in range(1, n + 1):
+            # 1 digit
+            if s[i - 1] == "*":
+                c = 9 * b % mod
+            elif s[i - 1] != "0":
+                c = b
+            else:
+                c = 0
+
+            # 2 digits
+            if i > 1:
+                if s[i - 2] == "*" and s[i - 1] == "*":
+                    c = (c + 15 * a) % mod
+                elif s[i - 2] == "*":
+                    if s[i - 1] > "6":
+                        c = (c + a) % mod
+                    else:
+                        c = (c + 2 * a) % mod
+                elif s[i - 1] == "*":
+                    if s[i - 2] == "1":
+                        c = (c + 9 * a) % mod
+                    elif s[i - 2] == "2":
+                        c = (c + 6 * a) % mod
+                elif (
+                    s[i - 2] != "0"
+                    and (ord(s[i - 2]) - ord("0")) * 10 + ord(s[i - 1]) - ord("0") <= 26
+                ):
+                    c = (c + a) % mod
+
+            a, b = b, c
+
+        return c
 ```
 
 ### **Java**
@@ -60,7 +100,101 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    private static final int MOD = 1000000007;
+
+    public int numDecodings(String s) {
+        int n = s.length();
+        char[] cs = s.toCharArray();
+
+        // dp[i - 2], dp[i - 1], dp[i]
+        long a = 0, b = 1, c = 0;
+        for (int i = 1; i <= n; i++) {
+            // 1 digit
+            if (cs[i - 1] == '*') {
+                c = 9 * b % MOD;
+            } else if (cs[i - 1] != '0') {
+                c = b;
+            } else {
+                c = 0;
+            }
+
+            // 2 digits
+            if (i > 1) {
+                if (cs[i - 2] == '*' && cs[i - 1] == '*') {
+                    c = (c + 15 * a) % MOD;
+                } else if (cs[i - 2] == '*') {
+                    if (cs[i - 1] > '6') {
+                        c = (c + a) % MOD;
+                    } else {
+                        c = (c + 2 * a) % MOD;
+                    }
+                } else if (cs[i - 1] == '*') {
+                    if (cs[i - 2] == '1') {
+                        c = (c + 9 * a) % MOD;
+                    } else if (cs[i - 2] == '2') {
+                        c = (c + 6 * a) % MOD;
+                    }
+                } else if (cs[i - 2] != '0' && (cs[i - 2] - '0') * 10 + cs[i - 1] - '0' <= 26) {
+                    c = (c + a) % MOD;
+                }
+            }
+
+            a = b;
+            b = c;
+        }
+
+        return (int) c;
+    }
+}
+```
+
+### **Go**
+
+```go
+const mod int = 1e9 + 7
+
+func numDecodings(s string) int {
+	n := len(s)
+
+	// dp[i - 2], dp[i - 1], dp[i]
+	a, b, c := 0, 1, 0
+	for i := 1; i <= n; i++ {
+		// 1 digit
+		if s[i-1] == '*' {
+			c = 9 * b % mod
+		} else if s[i-1] != '0' {
+			c = b
+		} else {
+			c = 0
+		}
+
+		// 2 digits
+		if i > 1 {
+			if s[i-2] == '*' && s[i-1] == '*' {
+				c = (c + 15*a) % mod
+			} else if s[i-2] == '*' {
+				if s[i-1] > '6' {
+					c = (c + a) % mod
+				} else {
+					c = (c + 2*a) % mod
+				}
+			} else if s[i-1] == '*' {
+				if s[i-2] == '1' {
+					c = (c + 9*a) % mod
+				} else if s[i-2] == '2' {
+					c = (c + 6*a) % mod
+				}
+			} else if s[i-2] != '0' && (s[i-2]-'0')*10+s[i-1]-'0' <= 26 {
+				c = (c + a) % mod
+			}
+		}
+
+		a, b = b, c
+	}
+	return c
+}
 ```
 
 ### **...**
