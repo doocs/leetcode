@@ -49,10 +49,11 @@
 	<li><code>u</code> 是以 <code>root</code> 为根的二叉树的一个节点。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+BFS 层序遍历。
 
 <!-- tabs:start -->
 
@@ -61,7 +62,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findNearestRightNode(self, root: TreeNode, u: TreeNode) -> TreeNode:
+        q = collections.deque([root])
+        while q:
+            n = len(q)
+            for i in range(n):
+                node = q.popleft()
+                if node == u:
+                    return None if i == n - 1 else q.popleft()
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
 ```
 
 ### **Java**
@@ -69,7 +88,112 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode findNearestRightNode(TreeNode root, TreeNode u) {
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            for (int i = 0, n = q.size(); i < n; ++i) {
+                TreeNode node = q.poll();
+                if (node == u) {
+                    return i == n - 1 ? null : q.poll();
+                }
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
+            }
+        }
+        return null;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* findNearestRightNode(TreeNode* root, TreeNode* u) {
+        queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty())
+        {
+            for (int i = 0, n = q.size(); i < n; ++i)
+            {
+                TreeNode* node = q.front();
+                q.pop();
+                if (node == u) return i == n - 1 ? nullptr : q.front();
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+        }
+        return nullptr;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func findNearestRightNode(root *TreeNode, u *TreeNode) *TreeNode {
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		t := q
+		q = nil
+		for i, node := range t {
+			if node == u {
+				if i == len(t)-1 {
+					return nil
+				}
+				return t[i+1]
+			}
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+	}
+	return nil
+}
 ```
 
 ### **...**
