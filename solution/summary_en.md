@@ -2055,3 +2055,8 @@
   - [2012.Sum of Beauty in the Array](/solution/2000-2099/2012.Sum%20of%20Beauty%20in%20the%20Array/README_EN.md)
   - [2013.Detect Squares](/solution/2000-2099/2013.Detect%20Squares/README_EN.md)
   - [2014.Longest Subsequence Repeated k Times](/solution/2000-2099/2014.Longest%20Subsequence%20Repeated%20k%20Times/README_EN.md)
+  - [2015.Average Height of Buildings in Each Segment](/solution/2000-2099/2015.Average%20Height%20of%20Buildings%20in%20Each%20Segment/README_EN.md)
+  - [2016.Maximum Difference Between Increasing Elements](/solution/2000-2099/2016.Maximum%20Difference%20Between%20Increasing%20Elements/README_EN.md)
+  - [2017.Grid Game](/solution/2000-2099/2017.Grid%20Game/README_EN.md)
+  - [2018.Check if Word Can Be Placed In Crossword](/solution/2000-2099/2018.Check%20if%20Word%20Can%20Be%20Placed%20In%20Crossword/README_EN.md)
+  - [2019.The Score of Students Solving Math Expression](/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README_EN.md)
