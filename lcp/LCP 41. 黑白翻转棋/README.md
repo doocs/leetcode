@@ -6,7 +6,7 @@
 
 在 `n*m` 大小的棋盘中，有黑白两种棋子，黑棋记作字母 `"X"`, 白棋记作字母 `"O"`，空余位置记作 `"."`。当落下的棋子与其他相同颜色的棋子在行、列或对角线完全包围（中间不存在空白位置）另一种颜色的棋子，则可以翻转这些棋子的颜色。
 
-![1.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2041.%20黑白翻转棋/images/1630396029-eTgzpN-6da662e67368466a96d203f67bb6e793.gif){:height=170px}![2.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2041.%20黑白翻转棋/images/1630396240-nMvdcc-8e4261afe9f60e05a4f740694b439b6b.gif){:height=170px}![3.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2041.%20黑白翻转棋/images/1630396291-kEtzLL-6fcb682daeecb5c3f56eb88b23c81d33.gif){:height=170px}
+![1.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2041.%20黑白翻转棋/images/1630396029-eTgzpN-6da662e67368466a96d203f67bb6e793.gif)![2.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2041.%20黑白翻转棋/images/1630396240-nMvdcc-8e4261afe9f60e05a4f740694b439b6b.gif)![3.gif](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2041.%20黑白翻转棋/images/1630396291-kEtzLL-6fcb682daeecb5c3f56eb88b23c81d33.gif)
 
 「力扣挑战赛」黑白翻转棋项目中，将提供给选手一个未形成可翻转棋子的棋盘残局，其状态记作 `chessboard`。若下一步可放置一枚黑棋，请问选手最多能翻转多少枚白棋。
 

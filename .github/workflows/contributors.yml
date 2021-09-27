@@ -9,12 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'doocs/leetcode'
     steps:
-      - uses: bubkoo/contributors-list@v1
-        name: contributors-doocs-leetcode
+      - uses: wow-actions/contributors-list@v1
+        name: Update contributors
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           svgPath: images/contributors.svg
           svgWidth: 890
-          round: true
-          includeBots: true
-          commitMessage: 'chore: update contributors to @doocs/leetcode'
+          commitMessage: "chore: update contributors to leetcode project @doocs"

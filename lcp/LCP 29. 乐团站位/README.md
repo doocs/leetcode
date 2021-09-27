@@ -10,28 +10,28 @@
 
 ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2029.%20乐团站位/images/1616125411-WOblWH-image.png)
 
-
 请返回位于场地坐标 [`Xpos`,`Ypos`] 的成员所持乐器编号。
 
 **示例 1：**
->输入：`num = 3, Xpos = 0, Ypos = 2`
->
->输出：`3`
->
->解释：
-![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2029.%20乐团站位/images/1616125437-WUOwsu-image.png)
 
+> 输入：`num = 3, Xpos = 0, Ypos = 2`
+>
+> 输出：`3`
+>
+> 解释：
+> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2029.%20乐团站位/images/1616125437-WUOwsu-image.png)
 
 **示例 2：**
->输入：`num = 4, Xpos = 1, Ypos = 2`
->
->输出：`5`
->
->解释：
-![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2029.%20乐团站位/images/1616125453-IIDpxg-image.png)
 
+> 输入：`num = 4, Xpos = 1, Ypos = 2`
+>
+> 输出：`5`
+>
+> 解释：
+> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2029.%20乐团站位/images/1616125453-IIDpxg-image.png)
 
 **提示：**
+
 - `1 <= num <= 10^9`
 - `0 <= Xpos, Ypos < num`
 

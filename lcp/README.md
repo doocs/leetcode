@@ -51,6 +51,12 @@
 | [LCP 41](https://leetcode-cn.com/problems/fHi6rV)                        | [ 黑白翻转棋](/lcp/LCP%2041.%20%E9%BB%91%E7%99%BD%E7%BF%BB%E8%BD%AC%E6%A3%8B/README.md)                                  |                                                             | 中等 |
 | [LCP 42](https://leetcode-cn.com/problems/vFjcfV)                        | [ 玩具套圈](/lcp/LCP%2042.%20%E7%8E%A9%E5%85%B7%E5%A5%97%E5%9C%88/README.md)                                             |                                                             | 困难 |
 | [LCP 43](https://leetcode-cn.com/problems/Y1VbOX)                        | [ 十字路口的交通](/lcp/LCP%2043.%20%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3%E7%9A%84%E4%BA%A4%E9%80%9A/README.md)            |                                                             | 困难 |
+| [LCP 44](https://leetcode-cn.com/problems/sZ59z6)                        | [ 开幕式焰火](/lcp/LCP%2044.%20%E5%BC%80%E5%B9%95%E5%BC%8F%E7%84%B0%E7%81%AB/README.md)                                  |                                                             | 简单 |
+| [LCP 45](https://leetcode-cn.com/problems/kplEvH)                        | [ 自行车炫技赛场](/lcp/LCP%2045.%20%E8%87%AA%E8%A1%8C%E8%BD%A6%E7%82%AB%E6%8A%80%E8%B5%9B%E5%9C%BA/README.md)            |                                                             | 中等 |
+| [LCP 46](https://leetcode-cn.com/problems/05ZEDJ)                        | [ 志愿者调配](/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/README.md)                                  |                                                             | 中等 |
+| [LCP 47](https://leetcode-cn.com/problems/oPs9Bm)                        | [ 入场安检](/lcp/LCP%2047.%20%E5%85%A5%E5%9C%BA%E5%AE%89%E6%A3%80/README.md)                                             |                                                             | 困难 |
+| [LCP 48](https://leetcode-cn.com/problems/fsa7oZ)                        | [ 无限棋局](/lcp/LCP%2048.%20%E6%97%A0%E9%99%90%E6%A3%8B%E5%B1%80/README.md)                                             |                                                             | 困难 |
+| [LCP 49](https://leetcode-cn.com/problems/K8GULz)                        | [ 环形闯关游戏](/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/README.md)                       |                                                             | 困难 |
 
 ## 版权
 

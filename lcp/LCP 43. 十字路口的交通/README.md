@@ -21,7 +21,7 @@
 
 各个车道驶出的车辆可能的行驶路线如图所示：
 
-![图片.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2043.%20十字路口的交通/images/1630393755-gyPeMM-%E5%9B%BE%E7%89%87.png){:height="350px"}
+![图片.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2043.%20十字路口的交通/images/1630393755-gyPeMM-%E5%9B%BE%E7%89%87.png)
 
 **注意：**
 

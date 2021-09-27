@@ -31,7 +31,7 @@
 > 输出：`2`
 >
 > 解释： 如图所示，套中两个玩具
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2042.%20玩具套圈/images/1629194157-RiOAuy-image.png){:width="400px"}
+> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2042.%20玩具套圈/images/1629194157-RiOAuy-image.png)
 
 **提示：**
 
