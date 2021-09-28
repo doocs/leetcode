@@ -4,32 +4,37 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
 
-    public int pathSum(TreeNode root, int sum) {
-        if (root == null) return 0;
-        int res = 0;
-        LinkedList<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.poll();
-            res += solution(node, sum);
-            if (node.left != null) {
-                queue.offer(node.left);
-            }
-            if (node.right != null) {
-                queue.offer(node.right);
-            }
-        }
-        return res;
+    private final Map<Integer, Integer> preSum = new HashMap<>();
+
+    public int pathSum(TreeNode root, int targetSum) {
+        preSum.put(0, 1);
+        return dfs(root, 0, targetSum);
     }
 
-    private int solution(TreeNode root, int sum) {
-        if (root == null) return 0;
-        int res = sum == root.val ? 1 :
-        return solution(root.left, sum - root.val) + solution(root.right, sum - root.val) + res;
+    private int dfs(TreeNode node, int cur, int targetSum) {
+        if (node == null) {
+            return 0;
+        }
+
+        cur += node.val;
+        int ret = preSum.getOrDefault(cur - targetSum, 0);
+
+        preSum.merge(cur, 1, Integer::sum);
+        ret += dfs(node.left, cur, targetSum);
+        ret += dfs(node.right, cur, targetSum);
+        preSum.merge(cur, -1, Integer::sum);
+
+        return ret;
     }
 }
