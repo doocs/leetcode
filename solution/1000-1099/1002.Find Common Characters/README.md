@@ -34,7 +34,6 @@
 	<li><code>A[i][j]</code> 是小写字母</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -93,7 +92,7 @@ class Solution {
 
 ### **C++**
 
-```go
+```cpp
 class Solution {
 public:
     vector<string> commonChars(vector<string>& words) {

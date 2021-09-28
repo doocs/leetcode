@@ -73,6 +73,48 @@ function containsDuplicate(nums: number[]): boolean {
 };
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> s;
+        for (int e : nums)
+        {
+            if (s.count(e)) return true;
+            s.insert(e);
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func containsDuplicate(nums []int) bool {
+	s := make(map[int]bool)
+	for _, e := range nums {
+		if s[e] {
+			return true
+		}
+		s[e] = true
+	}
+	return false
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool ContainsDuplicate(int[] nums) {
+        return nums.Distinct().Count() < nums.Length;
+    }
+}
+```
+
 ### **...**
 
 ```
