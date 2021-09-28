@@ -47,10 +47,13 @@
 	<li><code>dict[i]</code>&nbsp;只包含小写英文字母。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+哈希表。
+
+将字符串列表中每个字符串进行处理，比如 `"abcd"` 处理成 `"*bcd"`、`"a*cd"`、`"ab*d"`、`"abc*"` 模式串，依次存入哈希表中。存入之前先判断哈希表中是否已存在该模式串，若是，说明存在两个字符串在相同索引处只有一个字符不同，直接返回 true。否则遍历结束返回 false。
 
 <!-- tabs:start -->
 
@@ -59,7 +62,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def differByOne(self, dict: List[str]) -> bool:
+        s = set()
+        for word in dict:
+            for i in range(len(word)):
+                t = word[:i] + "*" + word[i + 1:]
+                if t in s:
+                    return True
+                s.add(t)
+        return False
 ```
 
 ### **Java**
@@ -67,7 +79,61 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean differByOne(String[] dict) {
+        Set<String> s = new HashSet<>();
+        for (String word : dict) {
+            for (int i = 0; i < word.length(); ++i) {
+                String t = word.substring(0, i) + "*" + word.substring(i + 1);
+                if (s.contains(t)) {
+                    return true;
+                }
+                s.add(t);
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool differByOne(vector<string>& dict) {
+        unordered_set<string> s;
+        for (auto word : dict)
+        {
+            for (int i = 0; i < word.size(); ++i)
+            {
+                auto t = word;
+                t[i] = '*';
+                if (s.count(t)) return true;
+                s.insert(t);
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func differByOne(dict []string) bool {
+	s := make(map[string]bool)
+	for _, word := range dict {
+		for i := range word {
+			t := word[:i] + "*" + word[i+1:]
+			if s[t] {
+				return true
+			}
+			s[t] = true
+		}
+	}
+	return false
+}
 ```
 
 ### **...**

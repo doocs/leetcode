@@ -43,7 +43,6 @@
 	<li><code>dict[i]</code> contains only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -51,13 +50,76 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def differByOne(self, dict: List[str]) -> bool:
+        s = set()
+        for word in dict:
+            for i in range(len(word)):
+                t = word[:i] + "*" + word[i + 1:]
+                if t in s:
+                    return True
+                s.add(t)
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean differByOne(String[] dict) {
+        Set<String> s = new HashSet<>();
+        for (String word : dict) {
+            for (int i = 0; i < word.length(); ++i) {
+                String t = word.substring(0, i) + "*" + word.substring(i + 1);
+                if (s.contains(t)) {
+                    return true;
+                }
+                s.add(t);
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool differByOne(vector<string>& dict) {
+        unordered_set<string> s;
+        for (auto word : dict)
+        {
+            for (int i = 0; i < word.size(); ++i)
+            {
+                auto t = word;
+                t[i] = '*';
+                if (s.count(t)) return true;
+                s.insert(t);
+            }
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func differByOne(dict []string) bool {
+	s := make(map[string]bool)
+	for _, word := range dict {
+		for i := range word {
+			t := word[:i] + "*" + word[i+1:]
+			if s[t] {
+				return true
+			}
+			s[t] = true
+		}
+	}
+	return false
+}
 ```
 
 ### **...**
