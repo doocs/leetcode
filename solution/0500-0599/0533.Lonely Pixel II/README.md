@@ -49,10 +49,11 @@ N = 3
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“哈希表”实现。
 
 <!-- tabs:start -->
 
@@ -61,7 +62,31 @@ N = 3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findBlackPixel(self, picture: List[List[str]], target: int) -> int:
+        m, n = len(picture), len(picture[0])
+        rows = [0] * m
+        cols = collections.defaultdict(list)
+        for i in range(m):
+            for j in range(n):
+                if picture[i][j] == 'B':
+                    rows[i] += 1
+                    cols[j].append(i)
+        t = [[False] * m for _ in range(m)]
+        for i in range(m):
+            for k in range(i, m):
+                if i == k:
+                    t[i][k] = True
+                else:
+                    t[i][k] = all([picture[i][j] == picture[k][j] for j in range(n)])
+                t[k][i] = t[i][k]
+        res = 0
+        for i in range(m):
+            if rows[i] == target:
+                for j in range(n):
+                    if len(cols[j]) == target and all([t[i][k] for k in cols[j]]):
+                        res += 1
+        return res
 ```
 
 ### **Java**
@@ -69,7 +94,173 @@ N = 3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findBlackPixel(char[][] picture, int target) {
+        int m = picture.length, n = picture[0].length;
+        int[] rows = new int[m];
+        Map<Integer, List<Integer>> cols = new HashMap<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (picture[i][j] == 'B') {
+                    ++rows[i];
+                    cols.computeIfAbsent(j, k -> new ArrayList<>()).add(i);
+                }
+            }
+        }
+        boolean[][] t = new boolean[m][m];
+        for (int i = 0; i < m; ++i) {
+            for (int k = i; k < m; ++k) {
+                t[i][k] = i == k || all(picture[i], picture[k]);
+                t[k][i] = t[i][k];
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < m; ++i) {
+            if (rows[i] == target) {
+                for (int j = 0; j < n; ++j) {
+                    List<Integer> col = cols.get(j);
+                    if (col != null && col.size() == target) {
+                        boolean check = true;
+                        for (int k : col) {
+                            check = check && t[i][k];
+                        }
+                        if (check) {
+                            ++res;
+                        }
+                    }
+                }
+            }
+        }
+        return res;
+    }
 
+    private boolean all(char[] row1, char[] row2) {
+        int n = row1.length;
+        for (int j = 0; j < n; ++j) {
+            if (row1[j] != row2[j]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findBlackPixel(vector<vector<char>>& picture, int target) {
+        int m = picture.size(), n = picture[0].size();
+        vector<int> rows(m);
+        unordered_map<int, vector<int>> cols;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (picture[i][j] == 'B')
+                {
+                    ++rows[i];
+                    cols[j].push_back(i);
+                }
+            }
+        }
+        vector<vector<bool>> t(m, vector<bool>(m, false));
+        for (int i = 0; i < m; ++i)
+        {
+            for (int k = i; k < m; ++k)
+            {
+                t[i][k] = i == k || all(picture[i], picture[k]);
+                t[k][i] = t[i][k];
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < m; ++i)
+        {
+            if (rows[i] == target)
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    if (cols[j].size() == target)
+                    {
+                        bool check = true;
+                        for (int k : cols[j]) check = check && t[i][k];
+                        if (check) ++res;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+    bool all(vector<char>& row1, vector<char>& row2) {
+        int n = row1.size();
+        for (int j = 0; j < n; ++j)
+            if (row1[j] != row2[j]) return false;
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findBlackPixel(picture [][]byte, target int) int {
+	m, n := len(picture), len(picture[0])
+	rows := make([]int, m)
+	cols := make(map[int][]int)
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if picture[i][j] == 'B' {
+				rows[i]++
+				cols[j] = append(cols[j], i)
+			}
+		}
+	}
+	t := make([][]bool, m)
+	for i := 0; i < m; i++ {
+		t[i] = make([]bool, m)
+	}
+	for i := 0; i < m; i++ {
+		for k := i; k < m; k++ {
+			if i == k {
+				t[i][k] = true
+			} else {
+				t[i][k] = all(picture[i], picture[k])
+			}
+			t[k][i] = t[i][k]
+		}
+	}
+	res := 0
+	for i := 0; i < m; i++ {
+		if rows[i] == target {
+			for j := 0; j < n; j++ {
+				col, ok := cols[j]
+				if ok && len(col) == target {
+					check := true
+					for _, k := range col {
+						check = check && t[i][k]
+					}
+					if check {
+						res++
+					}
+				}
+			}
+		}
+	}
+	return res
+}
+
+func all(row1, row2 []byte) bool {
+	n := len(row1)
+	for i := 0; i < n; i++ {
+		if row1[i] != row2[i] {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**
