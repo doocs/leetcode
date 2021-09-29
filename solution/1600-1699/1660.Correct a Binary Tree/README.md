@@ -58,7 +58,6 @@
 	<li><code>fromNode.right</code> 在测试用例的树中建立后为 <code>null</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -69,8 +68,69 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
+记录父节点。
 
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def correctBinaryTree(self, root: TreeNode) -> TreeNode:
+        q = collections.deque([root])
+        res = root
+        p = {}
+        while q:
+            n = len(q)
+            mp = {}
+            for _ in range(n):
+                node = q.popleft()
+                if node.val in mp:
+                    left, father = p[mp[node.val]]
+                    if left:
+                        father.left = None
+                    else:
+                        father.right = None
+                    return res
+                if node.left:
+                    q.append(node.left)
+                    p[node.left.val] = [True, node]
+                if node.right:
+                    q.append(node.right)
+                    p[node.right.val] = [False, node]
+                    mp[node.right.val] = node.val
+        return res
+```
+
+优化，无需记录父节点。
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def correctBinaryTree(self, root: TreeNode) -> TreeNode:
+        q = collections.deque([root])
+        while q:
+            n = len(q)
+            for _ in range(n):
+                node = q.popleft()
+                if node.right:
+                    if node.right.right in q:
+                        node.right = None
+                        return root
+                    q.append(node.right)
+                if node.left:
+                    if node.left.right in q:
+                        node.left = None
+                        return root
+                    q.append(node.left)
+        return root
 ```
 
 ### **Java**
@@ -78,7 +138,102 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode correctBinaryTree(TreeNode root) {
+        Deque<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            int n = q.size();
+            while (n-- > 0) {
+                TreeNode node = q.pollFirst();
+                if (node.right != null) {
+                    if (node.right.right != null && q.contains(node.right.right)) {
+                        node.right = null;
+                        return root;
+                    }
+                    q.offer(node.right);
+                }
+                if (node.left != null) {
+                    if (node.left.right != null && q.contains(node.left.right)) {
+                        node.left = null;
+                        return root;
+                    }
+                    q.offer(node.left);
+                }
+            }
+        }
+        return root;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* correctBinaryTree(TreeNode* root) {
+        queue<TreeNode*> q;
+        q.push(root);
+        unordered_set<TreeNode*> s;
+        while (!q.empty())
+        {
+            int n = q.size();
+            while (n--)
+            {
+                TreeNode* node = q.front();
+                q.pop();
+                if (node->right)
+                {
+                    if (s.count(node->right->right))
+                    {
+                        node->right = nullptr;
+                        return root;
+                    }
+                    q.push(node->right);
+                    s.insert(node->right);
+                }
+                if (node->left)
+                {
+                    if (s.count(node->left->right))
+                    {
+                        node->left = nullptr;
+                        return root;
+                    }
+                    q.push(node->left);
+                    s.insert(node->left);
+                }
+            }
+        }
+        return root;
+    }
+};
 ```
 
 ### **...**

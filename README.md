@@ -254,6 +254,10 @@
 
 <a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
 
+## Stars 趋势
+
+<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="./images/starcharts.svg" alt="Stargazers over time" /></a>
+
 ## 贡献者
 
 非常感谢以下所有朋友对本项目的贡献，你们是最可爱的人！
@@ -275,10 +279,6 @@
 知名互联网科技博主 [@爱可可-爱生活](https://weibo.com/fly51fly) 微博推荐。
 
 <a href="https://weibo.com/fly51fly" target="_blank"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/recommender-fly51fly.png"></a>
-
-## Star 趋势
-
-![Stargazers over time](./images/starcharts.svg)
 
 ## 许可证
 

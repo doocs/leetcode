@@ -244,6 +244,10 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 <a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
 
+## Stargazers over time
+
+<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="./images/starcharts.svg" alt="Stargazers over time" /></a>
+
 ## Contributors
 
 This project exists thanks to all the people who contribute.
@@ -259,10 +263,6 @@ Thank you to all our backers and sponsors!
 <a href="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/sponsors.svg?width=890"></a>
 
 > "_You help the developer community practice for interviews, and there is nothing better we could ask for._" -- [Alan Yessenbayev](https://opencollective.com/alan-yessenbayev)
-
-## Stargazers over time
-
-![Stargazers over time](./images/starcharts.svg)
 
 ## License
 
