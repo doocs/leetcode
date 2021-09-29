@@ -6,7 +6,7 @@
   <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Java%20%7C%20Python%20%7C%20C%2B%2B%20%7C%20JavaScript%20%7C%20Go%20%7C%20...-red?style=flat-square&color=42b883" alt="languages"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://img.shields.io/badge/organization-join%20us-42b883?style=flat-square" alt="open-source-organization"></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doocs/leetcode?color=42b883&style=flat-square" alt="LICENSE"></a><br>
-  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a> 
+  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode?color=42b883&logo=github&style=flat-square" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode?color=42b883&logo=github&style=flat-square" alt="forks"></a>
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://img.shields.io/opencollective/sponsors/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
@@ -275,6 +275,10 @@
 知名互联网科技博主 [@爱可可-爱生活](https://weibo.com/fly51fly) 微博推荐。
 
 <a href="https://weibo.com/fly51fly" target="_blank"><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/images/recommender-fly51fly.png"></a>
+
+## Star 趋势
+
+![Stargazers over time](./images/starcharts.svg)
 
 ## 许可证
 
