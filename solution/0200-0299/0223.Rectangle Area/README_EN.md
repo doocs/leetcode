@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="Rectangle Area" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle-plane.jpg" style="width: 600px; height: 325px;" />
+<img alt="Rectangle Area" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle-plane.png" style="width: 600px; height: 325px;" />
 <pre>
 <strong>Input:</strong> A = -3, B = 0, C = 3, D = 4, E = 0, F = -1, G = 9, H = 2
 <strong>Output:</strong> 45

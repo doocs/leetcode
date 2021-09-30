@@ -10,7 +10,7 @@
 
 <p>每个矩形由其左下顶点和右上顶点坐标表示，如图所示。</p>
 
-<p><img alt="Rectangle Area" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle_area.png"></p>
+<p><img alt="Rectangle Area" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle-plane.png"></p>
 
 <p><strong>示例:</strong></p>
 
