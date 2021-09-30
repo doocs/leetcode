@@ -38,6 +38,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+在 Manacher 算法的计算过程中，`p[i] - 1` 表示以第 `i` 位为中心的最大回文长度，`(p[i] - 1) / 2` **向上取整**即可得到以第 `i` 位为中心的回文串数量
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -45,7 +47,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        t = '^#' + '#'.join(s) + '#$'
+        n = len(t)
+        p = [0 for _ in range(n)]
+        pos, maxRight = 0, 0
+        ans = 0
+        for i in range(1, n - 1):
+            p[i] = min(maxRight - i, p[2 * pos - i]) if maxRight > i else 1
+            while t[i - p[i]] == t[i + p[i]]:
+                p[i] += 1
+            if i + p[i] > maxRight:
+                maxRight = i + p[i]
+                pos = i
+            ans += p[i] // 2
+        return ans
 ```
 
 ### **Java**
@@ -53,7 +70,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int countSubstrings(String s) {
+        StringBuilder sb = new StringBuilder("^#");
+        for (char ch : s.toCharArray()) {
+            sb.append(ch).append('#');
+        }
+        String t = sb.append('$').toString();
+        int n = t.length();
+        int[] p = new int[n];
+        int pos = 0, maxRight = 0;
+        int ans = 0;
+        for (int i = 1; i < n - 1; i++) {
+            p[i] = maxRight > i ? Math.min(maxRight - i, p[2 * pos - i]) : 1;
+            while (t.charAt(i - p[i]) == t.charAt(i + p[i])) {
+                p[i]++;
+            }
+            if (i + p[i] > maxRight) {
+                maxRight = i + p[i];
+                pos = i;
+            }
+            ans += p[i] / 2;
+        }
+        return ans;
+    }
+}
 ```
 
 ### **...**

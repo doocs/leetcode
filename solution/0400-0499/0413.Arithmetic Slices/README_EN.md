@@ -38,21 +38,85 @@
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
+
+Dynamic programming.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [0] * n
+        for i in range(2, n):
+            if nums[i] + nums[i - 2] == (nums[i - 1] << 1):
+                dp[i] = 1 + dp[i - 1]
+        return sum(dp)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numberOfArithmeticSlices(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n];
+        for (int i = 2; i < n; ++i) {
+            if (nums[i] + nums[i - 2] == (nums[i - 1] << 1)) {
+                dp[i] = 1 + dp[i - 1];
+            }
+        }
+        int res = 0;
+        for (int e : dp) {
+            res += e;
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfArithmeticSlices(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> dp(n, 0);
+        for (int i = 2; i < n; ++i) {
+            if (nums[i] + nums[i - 2] == (nums[i - 1] * 2)) {
+                dp[i] = 1 + dp[i - 1];
+            }
+        }
+        int res = 0;
+        for (auto e : dp) {
+            res += e;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfArithmeticSlices(nums []int) int {
+	n := len(nums)
+	dp := make([]int, n)
+	for i := 2; i < n; i++ {
+		if nums[i]-nums[i-1] == nums[i-1]-nums[i-2] {
+			dp[i] = 1 + dp[i-1]
+		}
+	}
+	res := 0
+	for _, e := range dp {
+		res += e
+	}
+	return res
+}
 ```
 
 ### **...**

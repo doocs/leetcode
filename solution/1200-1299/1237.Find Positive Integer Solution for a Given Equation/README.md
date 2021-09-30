@@ -74,6 +74,8 @@ x=5, y=1 -> f(5, 1) = 5 * 1 = 5</pre>
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,7 +83,31 @@ x=5, y=1 -> f(5, 1) = 5 * 1 = 5</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+   This is the custom function interface.
+   You should not implement it, or speculate about its implementation
+   class CustomFunction:
+       # Returns f(x, y) for any given positive integers x and y.
+       # Note that f(x, y) is increasing with respect to both x and y.
+       # i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
+       def f(self, x, y):
+  
+"""
 
+class Solution:
+    def findSolution(self, customfunction: 'CustomFunction', z: int) -> List[List[int]]:
+        res = []
+        for x in range(1, 1001):
+            left, right = 1, 1000
+            while left < right:
+                mid = (left + right) >> 1
+                if customfunction.f(x, mid) >= z:
+                    right = mid
+                else:
+                    left = mid + 1
+            if customfunction.f(x, left) == z:
+                res.append([x, left])
+        return res
 ```
 
 ### **Java**
@@ -89,7 +115,139 @@ x=5, y=1 -> f(5, 1) = 5 * 1 = 5</pre>
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+ * // This is the custom function interface.
+ * // You should not implement it, or speculate about its implementation
+ * class CustomFunction {
+ *     // Returns f(x, y) for any given positive integers x and y.
+ *     // Note that f(x, y) is increasing with respect to both x and y.
+ *     // i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
+ *     public int f(int x, int y);
+ * };
+ */
 
+class Solution {
+    public List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 1; i <= 1000; ++i) {
+            int left = 1, right = 1000;
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (customfunction.f(i, mid) >= z) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            if (customfunction.f(i, left) == z) {
+                res.add(Arrays.asList(i, left));
+            }
+        }
+        return res;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * // This is the CustomFunction's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class CustomFunction {
+ *      f(x: number, y: number): number {}
+ * }
+ */
+
+ function findSolution(customfunction: CustomFunction, z: number): number[][] {
+	// 二分
+    let ans = [];
+    for (let i = 1; i <= 1000; i++) {
+        let left = 1, right = 1000;
+        while (left < right) {
+            let mid = (left + right) >> 1;
+            if (customfunction.f(i, mid) >= z) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (customfunction.f(i, left) == z) {
+            ans.push([i, left]);
+        }
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+/*
+ * // This is the custom function interface.
+ * // You should not implement it, or speculate about its implementation
+ * class CustomFunction {
+ * public:
+ *     // Returns f(x, y) for any given positive integers x and y.
+ *     // Note that f(x, y) is increasing with respect to both x and y.
+ *     // i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
+ *     int f(int x, int y);
+ * };
+ */
+
+class Solution {
+public:
+    vector<vector<int>> findSolution(CustomFunction& customfunction, int z) {
+        vector<vector<int>> res;
+        for (int i = 1; i <= 1000; ++i) {
+            int left = 1, right = 1000;
+            while (left < right) {
+                int mid = left + right >> 1;
+                if (customfunction.f(i, mid) >= z) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            if (customfunction.f(i, left) == z) {
+                res.push_back({i, left});
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * This is the declaration of customFunction API.
+ * @param  x    int
+ * @param  x    int
+ * @return 	    Returns f(x, y) for any given positive integers x and y.
+ *			    Note that f(x, y) is increasing with respect to both x and y.
+ *              i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
+ */
+
+func findSolution(customFunction func(int, int) int, z int) [][]int {
+	res := [][]int{}
+	for i := 1; i <= 1000; i++ {
+		left, right := 1, 1000
+		for left < right {
+			mid := (left + right) >> 1
+			if customFunction(i, mid) >= z {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		if customFunction(i, left) == z {
+			res = append(res, []int{i, left})
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

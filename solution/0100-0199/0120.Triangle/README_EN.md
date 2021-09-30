@@ -44,18 +44,91 @@ The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above)
 
 ## Solutions
 
+Dynamic programming.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        n = len(triangle)
+        dp = [[0] * (n + 1) for _ in range(n + 1)]
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1):
+                dp[i][j] = min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle[i][j]
+        return dp[0][0]
+```
 
+```python
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        n = len(triangle)
+        dp = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            for j in range(i + 1):
+                dp[j] = min(dp[j], dp[j + 1]) + triangle[i][j]
+        return dp[0]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        int[] dp = new int[n + 1];
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = 0; j <= i; ++j) {
+                dp[j] = Math.min(dp[j], dp[j + 1]) + triangle.get(i).get(j);
+            }
+        }
+        return dp[0];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int n = triangle.size();
+        vector<int> dp(n + 1);
+        for (int i = n - 1; i >= 0; --i)
+        {
+            for (int j = 0; j <= i; ++j)
+            {
+                dp[j] = min(dp[j], dp[j + 1]) + triangle[i][j];
+            }
+        }
+        return dp[0];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumTotal(triangle [][]int) int {
+	n := len(triangle)
+	dp := make([]int, n+1)
+	for i := n - 1; i >= 0; i-- {
+		for j := 0; j <= i; j++ {
+			dp[j] = min(dp[j], dp[j+1]) + triangle[i][j]
+		}
+	}
+	return dp[0]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

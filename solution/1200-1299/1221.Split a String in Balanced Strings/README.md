@@ -70,7 +70,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def balancedStringSplit(self, s: str) -> int:
+        n = res = 0
+        for c in s:
+            if c == 'L':
+                n += 1
+            else:
+                n -= 1
+            if n == 0:
+                res += 1
+        return res
 ```
 
 ### **Java**
@@ -78,7 +88,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int balancedStringSplit(String s) {
+        int n = 0, res = 0;
+        for (char c : s.toCharArray()) {
+            if (c == 'L') {
+                ++n;
+            } else {
+                --n;
+            }
+            if (n == 0) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int balancedStringSplit(string s) {
+        int n = 0, res = 0;
+        for (char c : s) {
+            if (c == 'L') ++n;
+            else --n;
+            if (n == 0) ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func balancedStringSplit(s string) int {
+	n, res := 0, 0
+	for _, c := range s {
+		if c == 'L' {
+			n++
+		} else {
+			n--
+		}
+		if n == 0 {
+			res++
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

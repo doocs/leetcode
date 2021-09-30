@@ -27,7 +27,6 @@
 	<li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -37,30 +36,29 @@
 ```python
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        if nums is None or len(nums) < 3:
-            return []
+        n, res = len(nums), []
+        if n < 3:
+            return res
         nums.sort()
-        n = len(nums)
-        res = []
         for i in range(n - 2):
+            if nums[i] > 0:
+                break
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
-            p, q = i + 1, n - 1
-            while p < q:
-                if p > i + 1 and nums[p] == nums[p - 1]:
-                    p += 1
-                    continue
-                if q < n - 1 and nums[q] == nums[q + 1]:
-                    q -= 1
-                    continue
-                if nums[i] + nums[p] + nums[q] < 0:
-                    p += 1
-                elif nums[i] + nums[p] + nums[q] > 0:
-                    q -= 1
+            j, k = i + 1, n - 1
+            while j < k:
+                if nums[i] + nums[j] + nums[k] == 0:
+                    res.append([nums[i], nums[j], nums[k]])
+                    j += 1
+                    k -= 1
+                    while j < n and nums[j] == nums[j - 1]:
+                        j += 1
+                    while k > i and nums[k] == nums[k + 1]:
+                        k -= 1
+                elif nums[i] + nums[j] + nums[k] < 0:
+                    j += 1
                 else:
-                    res.append([nums[i], nums[p], nums[q]])
-                    p += 1
-                    q -= 1
+                    k -= 1
         return res
 ```
 
@@ -69,39 +67,107 @@ class Solution:
 ```java
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        int n;
-        if (nums == null || (n = nums.length) < 3) {
+        int n = nums.length;
+        if (n < 3) {
             return Collections.emptyList();
         }
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>();
-        for (int i = 0; i < n - 2; ++i) {
+        for (int i = 0; i < n - 2 && nums[i] <= 0; ++i) {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
-            int p = i + 1, q = n - 1;
-            while (p < q) {
-                if (p > i + 1 && nums[p] == nums[p - 1]) {
-                    ++p;
-                    continue;
-                }
-                if (q < n - 1 && nums[q] == nums[q + 1]) {
-                    --q;
-                    continue;
-                }
-                if (nums[p] + nums[q] + nums[i] < 0) {
-                    ++p;
-                } else if (nums[p] + nums[q] + nums[i] > 0) {
-                    --q;
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                if (nums[i] + nums[j] + nums[k] == 0) {
+                    res.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    ++j;
+                    --k;
+                    while (j < n && nums[j] == nums[j - 1]) {
+                        ++j;
+                    }
+                    while (k > i && nums[k] == nums[k + 1]) {
+                        --k;
+                    }
+                } else if (nums[i] + nums[j] + nums[k] < 0) {
+                    ++j;
                 } else {
-                    res.add(Arrays.asList(nums[p], nums[q], nums[i]));
-                    ++p;
-                    --q;
+                    --k;
                 }
             }
         }
         return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        int n = nums.size();
+        if (n < 3) {
+            return {};
+        }
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> res;
+        for (int i = 0; i < n - 2 && nums[i] <= 0; ++i) {
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                if (nums[i] + nums[j] + nums[k] == 0) {
+                    res.push_back({nums[i], nums[j], nums[k]});
+                    ++j;
+                    --k;
+                    while (j < n && nums[j] == nums[j - 1]) ++j;
+                    while (k > i && nums[k] == nums[k + 1]) --k;
+                } else if (nums[i] + nums[j] + nums[k] < 0) {
+                    ++j;
+                } else {
+                    --k;
+                }
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func threeSum(nums []int) [][]int {
+	n, res := len(nums), make([][]int, 0)
+	if n < 3 {
+		return res
+	}
+	sort.Ints(nums)
+	for i := 0; i < n-2 && nums[i] <= 0; i++ {
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+		j, k := i+1, n-1
+		for j < k {
+			if nums[i]+nums[j]+nums[k] == 0 {
+				res = append(res, []int{nums[i], nums[j], nums[k]})
+				j++
+				k--
+				for j < n && nums[j] == nums[j-1] {
+					j++
+				}
+				for k > i && nums[k] == nums[k+1] {
+					k--
+				}
+			} else if nums[i]+nums[j]+nums[k] < 0 {
+				j++
+			} else {
+				k--
+			}
+		}
+	}
+	return res
 }
 ```
 
@@ -112,29 +178,26 @@ class Solution {
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function (nums) {
-    let len = nums.length;
-    if (len < 3) return [];
+var threeSum = function(nums) {
+    const n = nums.length;
+    if (n < 3) return [];
     let res = [];
     nums.sort((a, b) => a - b);
-    for (let i = 0; i < len - 2; i++) {
-        if (nums[i] > 0) break;
-        if (i > 0 && nums[i] === nums[i - 1]) continue;
-        let left = i + 1, right = len - 1;
-        while (left < right) {
-            if (nums[i] + nums[left] + nums[right] === 0) {
-                res.push([nums[i], nums[left], nums[right]]);
-                while (nums[left] === nums[left + 1]) left++;
-                left++;
-                while (nums[right] === nums[right - 1]) right--;
-                right--;
-                continue;
-            } else if (nums[i] + nums[left] + nums[right] > 0) {
-                right--;
-                continue;
+    for (let i = 0; i < n - 2 && nums[i] <= 0; ++i) {
+        if (i > 0 && nums[i] == nums[i - 1]) continue;
+        let j = i + 1;
+        let k = n - 1;
+        while (j < k) {
+            if (nums[i] + nums[j] + nums[k] === 0) {
+                res.push([nums[i], nums[j], nums[k]]);
+                ++j;
+                --k;
+                while (nums[j] === nums[j - 1]) ++j;
+                while (nums[k] === nums[k + 1]) --k;
+            } else if (nums[i] + nums[j] + nums[k] < 0) {
+                ++j;
             } else {
-                left++;
-                continue;
+                --k;
             }
         }
     }

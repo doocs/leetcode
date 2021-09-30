@@ -101,13 +101,137 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def smallestEquivalentString(self, s1: str, s2: str, baseStr: str) -> str:
+        p = list(range(26))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for i in range(len(s1)):
+            a, b = ord(s1[i]) - ord('a'), ord(s2[i]) - ord('a')
+            pa, pb = find(a), find(b)
+            if pa < pb:
+                p[pb] = pa
+            else:
+                p[pa] = pb
+
+        res = []
+        for a in baseStr:
+            a = ord(a) - ord('a')
+            res.append(chr(find(a) + ord('a')))
+        return ''.join(res)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public String smallestEquivalentString(String s1, String s2, String baseStr) {
+        p = new int[26];
+        for (int i = 0; i < 26; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < s1.length(); ++i) {
+            int a = s1.charAt(i) - 'a', b = s2.charAt(i) - 'a';
+            int pa = find(a), pb = find(b);
+            if (pa < pb) {
+                p[pb] = pa;
+            } else {
+                p[pa] = pb;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (char a : baseStr.toCharArray()) {
+            char b = (char) (find(a - 'a') + 'a');
+            sb.append(b);
+        }
+        return sb.toString();
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    string smallestEquivalentString(string s1, string s2, string baseStr) {
+        p.resize(26);
+        for (int i = 0; i < 26; ++i)
+            p[i] = i;
+        for (int i = 0; i < s1.size(); ++i)
+        {
+            int a = s1[i] - 'a', b = s2[i] - 'a';
+            int pa = find(a), pb = find(b);
+            if (pa < pb)
+                p[pb] = pa;
+            else
+                p[pa] = pb;
+        }
+        string res = "";
+        for (char a : baseStr)
+        {
+            char b = (char)(find(a - 'a') + 'a');
+            res += b;
+        }
+        return res;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+            p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func smallestEquivalentString(s1 string, s2 string, baseStr string) string {
+	p = make([]int, 26)
+	for i := 0; i < 26; i++ {
+		p[i] = i
+	}
+	for i := 0; i < len(s1); i++ {
+		a, b := int(s1[i]-'a'), int(s2[i]-'a')
+		pa, pb := find(a), find(b)
+		if pa < pb {
+			p[pb] = pa
+		} else {
+			p[pa] = pb
+		}
+	}
+	var res []byte
+	for _, a := range baseStr {
+		b := byte(find(int(a-'a'))) + 'a'
+		res = append(res, b)
+	}
+	return string(res)
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

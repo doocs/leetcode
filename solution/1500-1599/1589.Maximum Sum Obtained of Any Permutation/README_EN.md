@@ -52,7 +52,6 @@ Total sum: 11 + 8 = 19, which is the best that you can do.
 	<li><code>0 &lt;= start<sub>i</sub>&nbsp;&lt;= end<sub>i</sub>&nbsp;&lt;&nbsp;n</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -60,13 +59,99 @@ Total sum: 11 + 8 = 19, which is the best that you can do.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSumRangeQuery(self, nums: List[int], requests: List[List[int]]) -> int:
+        n = 100010
+        delta = [0] * n
+        for start, end in requests:
+            delta[start] += 1
+            delta[end + 1] -= 1
+        for i in range(1, n):
+            delta[i] += delta[i - 1]
+        nums.sort()
+        delta.sort()
+        i, j, res = n - 1, len(nums) - 1, 0
+        while i > 0 and delta[i] > 0:
+            res += delta[i] * nums[j]
+            i -= 1
+            j -= 1
+        return res % 1000000007
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxSumRangeQuery(int[] nums, int[][] requests) {
+        int n = 100010;
+        int[] delta = new int[n];
+        for (int[] request : requests) {
+            ++delta[request[0]];
+            --delta[request[1] + 1];
+        }
+        for (int i = 1; i < n; ++i) {
+            delta[i] += delta[i - 1];
+        }
+        Arrays.sort(nums);
+        Arrays.sort(delta);
+        long res = 0;
+        for (int i = n - 1, j = nums.length - 1; i >= 0 && delta[i] > 0; --i, --j) {
+            res += (long) delta[i] * nums[j];
+        }
+        return (int) (res % 1000000007);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxSumRangeQuery(vector<int>& nums, vector<vector<int>>& requests) {
+        int n = 100010;
+        vector<int> delta(n);
+        for (auto request : requests) {
+            ++delta[request[0]];
+            --delta[request[1] + 1];
+        }
+        for (int i = 1; i < n; ++i) {
+            delta[i] += delta[i - 1];
+        }
+        sort(nums.begin(), nums.end());
+        sort(delta.begin(), delta.end());
+        long long res = 0;
+        for (int i =  n - 1, j = nums.size() - 1; i >= 0 && delta[i] > 0; --i, --j) {
+            res += (long long) delta[i] * nums[j];
+        }
+        return (int) (res % 1000000007);
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSumRangeQuery(nums []int, requests [][]int) int {
+	n := 100010
+	delta := make([]int, n)
+	for _, request := range requests {
+		delta[request[0]]++
+		delta[request[1]+1]--
+	}
+	for i := 1; i < n; i++ {
+		delta[i] += delta[i-1]
+	}
+	sort.Ints(nums)
+	sort.Ints(delta)
+	i, j, res := n-1, len(nums)-1, 0
+	for i >= 0 && delta[i] > 0 {
+		res += delta[i] * nums[j]
+		i--
+		j--
+	}
+	return res % 1000000007
+}
 ```
 
 ### **...**

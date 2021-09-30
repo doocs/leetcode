@@ -70,18 +70,81 @@ The rows ordered from weakest to strongest are [0,2,3,1].
 
 ## Solutions
 
+Binary search & sort.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+        m, n = len(mat), len(mat[0])
+        res = []
+        for row in mat:
+            left, right = 0, n
+            while left < right:
+                mid = (left + right) >> 1
+                if row[mid] == 0:
+                    right = mid
+                else:
+                    left = mid + 1
+            res.append(left)
+        idx = list(range(m))
+        idx.sort(key=lambda x: res[x])
+        return idx[:k]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] kWeakestRows(int[][] mat, int k) {
+        int m = mat.length, n = mat[0].length;
+        int[] res = new int[m];
+        List<Integer> idx = new ArrayList<>();
+        for (int i = 0; i < m; ++i) {
+            idx.add(i);
+            int[] row = mat[i];
+            int left = 0, right = n;
+            while (left < right) {
+                int mid = (left + right) >> 1;
+                if (row[mid] == 0) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            res[i] = left;
+        }
+        idx.sort(Comparator.comparingInt(a -> res[a]));
+        int[] ans = new int[k];
+        for (int i = 0; i < k; ++i) {
+            ans[i] = idx.get(i);
+        }
+        return ans;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function kWeakestRows(mat: number[][], k: number): number[] {
+    let n = mat.length;
+    let sumMap = mat.map((d, i)=> ([d.reduce((a, c) => a + c, 0), i]));
+    let ans = [];
+    // 冒泡排序
+    for (let i = 0; i < k; i++) {
+        for (let j = i; j < n; j++) {
+            if (sumMap[j][0] < sumMap[i][0] || (sumMap[j][0] == sumMap[i][0]) && sumMap[i][1] > sumMap[j][1]) {
+                [sumMap[i], sumMap[j]] = [sumMap[j], sumMap[i]];
+            }
+        }
+        ans.push(sumMap[i][1]);
+    }
+    return ans;
+};
 ```
 
 ### **...**

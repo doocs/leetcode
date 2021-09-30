@@ -4,12 +4,10 @@ class WordDistance {
     public WordDistance(String[] wordsDict) {
         words = new HashMap<>();
         for (int i = 0; i < wordsDict.length; ++i) {
-            List<Integer> indexes = words.getOrDefault(wordsDict[i], new ArrayList<>());
-            indexes.add(i);
-            words.put(wordsDict[i], indexes);
+            words.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
         }
     }
-    
+
     public int shortest(String word1, String word2) {
         List<Integer> idx1 = words.get(word1);
         List<Integer> idx2 = words.get(word2);

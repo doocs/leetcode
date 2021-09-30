@@ -77,13 +77,69 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        ans = []
+        for i in range(n):
+            ans.append(nums[i])
+            ans.append(nums[i + n])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int[] ans = new int[n << 1];
+        for (int i = 0, j = 0; i < n; ++i) {
+            ans[j++] = nums[i];
+            ans[j++] = nums[i + n];
+        }
+        return ans;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function shuffle(nums: number[], n: number): number[] {
+    let ans = [];
+    for (let i = 0; i < n; i++) {
+        ans.push(nums[i], nums[n + i]);
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> shuffle(vector<int>& nums, int n) {
+        vector<int> ans;
+        for (int i = 0; i < n; ++i) {
+            ans.push_back(nums[i]);
+            ans.push_back(nums[i + n]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shuffle(nums []int, n int) []int {
+	var ans []int
+	for i := 0; i < n; i++ {
+		ans = append(ans, nums[i])
+		ans = append(ans, nums[i+n])
+	}
+	return ans
+}
 ```
 
 ### **...**

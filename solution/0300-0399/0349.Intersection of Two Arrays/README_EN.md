@@ -57,18 +57,18 @@ class Solution {
         for (int num : nums1) {
             s.add(num);
         }
-        Set<Integer> res = new HashSet<>();
+        Set<Integer> t = new HashSet<>();
         for (int num : nums2) {
             if (s.contains(num)) {
-                res.add(num);
+                t.add(num);
             }
         }
-        int[] output = new int[res.size()];
+        int[] res = new int[t.size()];
         int i = 0;
-        for (int num : res) {
-            output[i++] = num;
+        for (int num : t) {
+            res[i++] = num;
         }
-        return output;
+        return res;
     }
 }
 ```
@@ -94,6 +94,49 @@ var intersection = function(nums1, nums2) {
     }
     return [...res];
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> s;
+        for (int num : nums1) s.insert(num);
+        unordered_set<int> t;
+        vector<int> res;
+        for (int num : nums2)
+        {
+            if (s.count(num) && !t.count(num))
+            {
+                t.insert(num);
+                res.push_back(num);
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func intersection(nums1 []int, nums2 []int) []int {
+	s := make(map[int]bool)
+	for _, num := range nums1 {
+		s[num] = true
+	}
+	t := make(map[int]bool)
+	var res []int
+	for _, num := range nums2 {
+		if s[num] && !t[num] {
+			res = append(res, num)
+			t[num] = true
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

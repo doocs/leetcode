@@ -43,16 +43,14 @@
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        low, high = 0, len(nums) - 1
-        while low <= high:
-            mid = (low + high) >> 1
-            if nums[mid] == target:
-                return mid
-            if nums[mid] < target:
-                low = mid + 1
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            if nums[mid] >= target:
+                right = mid
             else:
-                high = mid - 1
-        return -1
+                left = mid + 1
+        return left if nums[left] == target else -1
 ```
 
 ### **Java**
@@ -60,21 +58,79 @@ class Solution:
 ```java
 class Solution {
     public int search(int[] nums, int target) {
-        int low = 0, high = nums.length - 1;
-        while (low <= high) {
-            int mid = (low + high) >>> 1;
-            if (nums[mid] == target) {
-                return mid;
-            }
-            if (nums[mid] < target) {
-                low = mid + 1;
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (nums[mid] >= target) {
+                right = mid;
             } else {
-                high = mid - 1;
+                left = mid + 1;
             }
         }
-        return -1;
+        return nums[left] == target ? left : -1;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() - 1;
+        while (left < right)
+        {
+            int mid = left + right >> 1;
+            if (nums[mid] >= target) right = mid;
+            else left = mid + 1;
+        }
+        return nums[left] == target ? left : -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func search(nums []int, target int) int {
+	left, right := 0, len(nums)-1
+	for left < right {
+		mid := (left + right) >> 1
+		if nums[mid] >= target {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	if nums[left] == target {
+		return left
+	}
+	return -1
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+ var search = function(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return nums[left] == target ? left : -1;
+};
 ```
 
 ### **...**

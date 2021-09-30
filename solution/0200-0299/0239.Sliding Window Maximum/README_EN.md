@@ -70,13 +70,46 @@ Window position                Max
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        q, res = collections.deque(), []
+        for i, num in enumerate(nums):
+            if q and i - k + 1 > q[0]:
+                q.popleft()
+            while q and nums[q[-1]] <= num:
+                q.pop()
+            q.append(i)
+            if i >= k - 1:
+                res.append(nums[q[0]])
+        return res
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        int n = nums.length;
+        if (n == 0) {
+            return new int[0];
+        }
+        int[] res = new int[n - k + 1];
+        Deque<Integer> q = new LinkedList<>();
+        for (int i = 0, j = 0; i < n; ++i) {
+            if (!q.isEmpty() && i - k + 1 > q.peekFirst()) {
+                q.pollFirst();
+            }
+            while (!q.isEmpty() && nums[q.peekLast()] <= nums[i]) {
+                q.pollLast();
+            }
+            q.offerLast(i);
+            if (i >= k - 1) {
+                res[j++] = nums[q.peekFirst()];
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **JavaScript**
@@ -107,6 +140,51 @@ var maxSlidingWindow = function (nums, k) {
     }
     return res;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+	vector<int> maxSlidingWindow(vector<int> &nums, int k) {
+		vector<int> res;
+		deque<int> q;
+		for (int i = 0; i < nums.size(); ++i)
+		{
+			if (!q.empty() && i - k + 1 > q.front())
+				q.pop_front();
+			while (!q.empty() && nums[q.back()] <= nums[i])
+				q.pop_back();
+			q.push_back(i);
+			if (i >= k - 1)
+				res.push_back(nums[q.front()]);
+		}
+		return res;
+	}
+};
+```
+
+### **Go**
+
+```go
+func maxSlidingWindow(nums []int, k int) []int {
+	var res []int
+	var q []int
+	for i, num := range nums {
+		if len(q) > 0 && i-k+1 > q[0] {
+			q = q[1:]
+		}
+		for len(q) > 0 && nums[q[len(q)-1]] <= num {
+			q = q[:len(q)-1]
+		}
+		q = append(q, i)
+		if i >= k-1 {
+			res = append(res, nums[q[0]])
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

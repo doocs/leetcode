@@ -1,4 +1,4 @@
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -7,15 +7,15 @@
  * func guess(num int) int;
  */
 
- func guessNumber(n int) int {
-    low, high := 1, n
-    for low < high {
-        mid := (low + high) >> 1
-        if guess(mid) <= 0 {
-            high = mid
-        } else {
-            low = mid + 1
-        }
-    }
-    return low
+func guessNumber(n int) int {
+	left, right := 1, n
+	for left < right {
+		mid := (left + right) >> 1
+		if guess(mid) <= 0 {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
 }

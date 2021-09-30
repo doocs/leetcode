@@ -84,13 +84,12 @@ class RecentCounter:
 
 ```java
 class RecentCounter {
-
     private Deque<Integer> q;
 
     public RecentCounter() {
-        q = new ArrayDeque<>();
+        q = new LinkedList<>();
     }
-
+    
     public int ping(int t) {
         q.offerLast(t);
         while (q.peekFirst() < t - 3000) {
@@ -107,23 +106,78 @@ class RecentCounter {
  */
 ```
 
-### **JavaScript**
+### **C++**
 
-```js
-var RecentCounter = function () {
-  this.q = [];
+```cpp
+class RecentCounter {
+public:
+    deque<int> q;
+
+    RecentCounter() {
+
+    }
+    
+    int ping(int t) {
+        q.push_back(t);
+        while (q.front() < t - 3000) {
+            q.pop_front();
+        }
+        return q.size();
+    }
 };
 
 /**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter* obj = new RecentCounter();
+ * int param_1 = obj->ping(t);
+ */
+```
+
+### **Go**
+
+```go
+type RecentCounter struct {
+	q []int
+}
+
+func Constructor() RecentCounter {
+	return RecentCounter{
+		q: []int{},
+	}
+}
+
+func (this *RecentCounter) Ping(t int) int {
+	this.q = append(this.q, t)
+	for this.q[0] < t-3000 {
+		this.q = this.q[1:len(this.q)]
+	}
+	return len(this.q)
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Ping(t);
+ */
+```
+
+### **JavaScript**
+
+```js
+var RecentCounter = function() {
+    this.q = [];
+};
+
+/** 
  * @param {number} t
  * @return {number}
  */
-RecentCounter.prototype.ping = function (t) {
-  this.q.push(t);
-  while (this.q[0] < t - 3000) {
-    this.q.shift();
-  }
-  return this.q.length;
+RecentCounter.prototype.ping = function(t) {
+    this.q.push(t);
+    while (this.q[0] < t - 3000) {
+        this.q.shift();
+    }
+    return this.q.length;
 };
 
 /**

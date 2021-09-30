@@ -26,16 +26,20 @@
   <script>
     window.$docsify = {
       name: 'leetcode',
+      repo: 'doocs/leetcode',
       logo: '/images/doocs-leetcode.png',
       search: [
-        '/', '/solution/', '/lcof/', '/lcci/', '/basic/'
+        '/', '/solution/', '/lcof/', '/lcof2/', '/lcci/', '/lcs/', '/lcp/', '/basic/'
       ],
       loadSidebar: 'summary.md',
       auto2top: true,
       subMaxLevel: 2,
       alias: {
+        '/lcs/.*/summary.md': '/lcs/summary.md',
+        '/lcp/.*/summary.md': '/lcp/summary.md',
         '/lcci/.*/summary.md': '/lcci/summary.md',
         '/lcof/.*/summary.md': '/lcof/summary.md',
+        '/lcof2/.*/summary.md': '/lcof2/summary.md',
         '/solution/.*/summary.md': '/solution/summary.md',
         '/basic/.*/summary.md': '/basic/summary.md'
       },
@@ -85,7 +89,8 @@
           hook.afterEach(function (html) {
             const en = vm.route.file.indexOf('README_EN') != -1
             const copyright = en ? '. All Rights Reserved' : ' 版权所有'
-            const footer = `<footer><span>Copyright © 2018-2021 <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
+            const currentYear = new Date().getFullYear()
+            const footer = `<footer><span>Copyright © 2018-${currentYear} <a href="https://github.com/doocs" target="_blank">Doocs</a>${copyright}</footer>`
             return html + footer
           })
         },
@@ -102,10 +107,13 @@
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-kotlin.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-csharp.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-typescript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.15.0/components/prism-javascript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.15.0/components/prism-typescript.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-swift.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-nim.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-ruby.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-rust.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>

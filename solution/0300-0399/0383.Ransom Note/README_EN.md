@@ -66,6 +66,47 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function canConstruct(ransomNote: string, magazine: string): boolean {
+    let counter = new Array(26).fill(0);
+    let base = 'a'.charCodeAt(0);
+    for (let s of magazine) {
+        ++counter[s.charCodeAt(0) - base];
+    }
+    for (let s of ransomNote) {
+        let idx = s.charCodeAt(0) - base;
+        if (counter[idx] == 0) return false;
+        --counter[idx];
+    }
+    return true;
+};
+```
+
+### **Go**
+
+```go
+func canConstruct(ransomNote string, magazine string) bool {
+	rc := make([]int, 26)
+	for _, b := range ransomNote {
+		rc[b-'a']++
+	}
+
+	mc := make([]int, 26)
+	for _, b := range magazine {
+		mc[b-'a']++
+	}
+
+	for i := 0; i < 26; i++ {
+		if rc[i] > mc[i] {
+			return false
+		}
+	}
+	return true
+}
+```
+
 ### **...**
 
 ```

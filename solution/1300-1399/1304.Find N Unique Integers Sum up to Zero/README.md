@@ -1,4 +1,4 @@
-# [1304. 和为零的N个唯一整数](https://leetcode-cn.com/problems/find-n-unique-integers-sum-up-to-zero)
+# [1304. 和为零的 N 个唯一整数](https://leetcode-cn.com/problems/find-n-unique-integers-sum-up-to-zero)
 
 [English Version](/solution/1300-1399/1304.Find%20N%20Unique%20Integers%20Sum%20up%20to%20Zero/README_EN.md)
 
@@ -37,7 +37,6 @@
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -49,7 +48,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        presum = 0
+        res = []
+        for i in range(1, n):
+            res.append(i)
+            presum += i
+        res.append(-presum)
+        return res
 ```
 
 ### **Java**
@@ -57,7 +64,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] sumZero(int n) {
+        int preSum = 0;
+        int[] ret = new int[n];
+        for (int i = 1; i < n; ++i) {
+            ret[i - 1] = i;
+            preSum += i;
+        }
+        ret[n - 1] = -preSum;
+        return ret;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> sumZero(int n) {
+        int presum = 0;
+        vector<int> res;
+        for (int i = 1; i < n; ++i) {
+            res.push_back(i);
+            presum += i;
+        }
+        res.push_back(-presum);
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumZero(n int) []int {
+	presum := 0
+	var res []int
+	for i := 1; i < n; i++ {
+		res = append(res, i)
+		presum += i
+	}
+	res = append(res, -presum)
+	return res
+}
 ```
 
 ### **...**

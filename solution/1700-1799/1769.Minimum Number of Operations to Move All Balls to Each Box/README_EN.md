@@ -39,7 +39,6 @@
 	<li><code>boxes[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -47,13 +46,102 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperations(self, boxes: str) -> List[int]:
+        n = len(boxes)
+        res = [0] * n
+        total = 0
+        for i, b in enumerate(boxes):
+            if b == '1':
+                res[0] += i
+                total += 1
+        left, right = 0, total
+        for i in range(1, n):
+            if boxes[i - 1] == '1':
+                left += 1
+                right -= 1
+            res[i] = res[i - 1] + left - right
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] minOperations(String boxes) {
+        int n = boxes.length();
+        int[] res = new int[n];
+        int total = 0;
+        for (int i = 0; i < n; ++i) {
+            if (boxes.charAt(i) == '1') {
+                res[0] += i;
+                ++total;
+            }
+        }
+        int left = 0, right = total;
+        for (int i = 1; i < n; ++i) {
+            if (boxes.charAt(i - 1) == '1') {
+                ++left;
+                --right;
+            }
+            res[i] = res[i - 1] + left - right;
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> minOperations(string boxes) {
+        int n = boxes.size();
+        vector<int> res(n);
+        int total = 0;
+        for (int i = 0; i < n; ++i) {
+            if (boxes[i] == '1') {
+                res[0] += i;
+                ++total;
+            }
+        }
+        int left = 0, right = total;
+        for (int i = 1; i < n; ++i) {
+            if (boxes[i - 1] == '1') {
+                ++left;
+                --right;
+            }
+            res[i] = res[i - 1] + left - right;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minOperations(boxes string) []int {
+	n := len(boxes)
+	res := make([]int, n)
+	total := 0
+	for i, b := range boxes {
+		if b == '1' {
+			res[0] += i
+			total++
+		}
+	}
+	left, right := 0, total
+	for i := 1; i < n; i++ {
+		if boxes[i-1] == '1' {
+			left++
+			right--
+		}
+		res[i] = res[i-1] + left - right
+	}
+	return res
+}
 ```
 
 ### **...**

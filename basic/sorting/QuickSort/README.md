@@ -5,11 +5,11 @@
 **快速排序算法模板：**
 
 ```java
-void quickSort(int[] nums, int left, int high) {
-    if (left >= high) {
+void quickSort(int[] nums, int left, int right) {
+    if (left >= right) {
         return;
     }
-    int i = left - 1, j = high + 1;
+    int i = left - 1, j = right + 1;
     int x = nums[left];
     while (i < j) {
         while (nums[++i] < x);
@@ -21,7 +21,7 @@ void quickSort(int[] nums, int left, int high) {
         }
     }
     quickSort(nums, left, j);
-    quickSort(nums, j + 1, high);
+    quickSort(nums, j + 1, right);
 }
 ```
 
@@ -72,11 +72,11 @@ N = int(input())
 nums = list(map(int, input().split()))
 
 
-def quick_sort(nums, left, high):
-    if left >= high:
+def quick_sort(nums, left, right):
+    if left >= right:
         return
-    i, j = left - 1, high + 1
-    x = nums[(left + high) >> 1]
+    i, j = left - 1, right + 1
+    x = nums[(left + right) >> 1]
     while i < j:
         while 1:
             i += 1
@@ -89,7 +89,7 @@ def quick_sort(nums, left, high):
         if i < j:
             nums[i], nums[j] = nums[j], nums[i]
     quick_sort(nums, left, j)
-    quick_sort(nums, j + 1, high)
+    quick_sort(nums, j + 1, right)
 
 
 quick_sort(nums, 0, N - 1)
@@ -114,12 +114,12 @@ public class Main {
             System.out.printf("%d ", nums[i]);
         }
     }
-    
-    public static void quickSort(int[] nums, int left, int high) {
-        if (left >= high) {
+
+    public static void quickSort(int[] nums, int left, int right) {
+        if (left >= right) {
             return;
         }
-        int i = left - 1, j = high + 1;
+        int i = left - 1, j = right + 1;
         int x = nums[left];
         while (i < j) {
             while (nums[++i] < x);
@@ -131,7 +131,7 @@ public class Main {
             }
         }
         quickSort(nums, left, j);
-        quickSort(nums, j + 1, high);
+        quickSort(nums, j + 1, right);
     }
 }
 ```
@@ -150,14 +150,14 @@ let getInputArgs = line => {
     return line.split(' ').filter(s => s !== '').map(x => parseInt(x));
 }
 
-function quickSort(nums, left, high) {
-    if (left >= high) {
+function quickSort(nums, left, right) {
+    if (left >= right) {
         return;
     }
-    
+
     let i = left - 1;
-    let j = high + 1;
-    let x = nums[(left + high) >> 1];
+    let j = right + 1;
+    let x = nums[(left + right) >> 1];
     while (i < j) {
         while (nums[++i] < x);
         while (nums[--j] > x);
@@ -168,7 +168,7 @@ function quickSort(nums, left, high) {
         }
     }
     quickSort(nums, left, j);
-    quickSort(nums, j + 1, high);
+    quickSort(nums, j + 1, right);
 }
 
 
@@ -192,12 +192,12 @@ package main
 
 import "fmt"
 
-func quickSort(nums []int, left, high int) {
-	if left >= high {
+func quickSort(nums []int, left, right int) {
+	if left >= right {
 		return
 	}
-	i, j := left-1, high+1
-	x := nums[(left+high)>>1]
+	i, j := left-1, right+1
+	x := nums[(left+right)>>1]
 	for i < j {
 		for {
 			i++
@@ -216,7 +216,7 @@ func quickSort(nums []int, left, high int) {
 		}
 	}
 	quickSort(nums, left, j)
-	quickSort(nums, j+1, high)
+	quickSort(nums, j+1, right)
 }
 
 func main() {
@@ -235,4 +235,138 @@ func main() {
 }
 ```
 
+### **Rust**
+
+```rust
+use rand::Rng; // 0.7.2
+use std::io;
+
+fn quick_sort(nums: &mut Vec<i32>, left: usize, right: usize) {
+    if left >= right {
+        return;
+    }
+
+    let random_index = rand::thread_rng().gen_range(left, right + 1);
+    let temp = nums[random_index];
+    nums[random_index] = nums[left];
+    nums[left] = temp;
+
+    let pivot = nums[left];
+    let mut i = left;
+    let mut j = right;
+    while i < j {
+        while i < j && nums[j] >= pivot {
+            j -= 1;
+        }
+        nums[i] = nums[j];
+        while i < j && nums[i] < pivot {
+            i += 1;
+        }
+        nums[j] = nums[i];
+    }
+    nums[i] = pivot;
+
+    quick_sort(nums, left, i);
+    quick_sort(nums, i + 1, right);
+}
+
+fn main() -> io::Result<()> {
+    let mut n = String::new();
+    io::stdin().read_line(&mut n)?;
+    let n = n.trim().parse::<usize>().unwrap();
+
+    let mut nums = String::new();
+    io::stdin().read_line(&mut nums)?;
+    let mut nums: Vec<i32> = nums.split(' ').map(|s| s.trim().parse().unwrap()).collect();
+
+    quick_sort(&mut nums, 0, n - 1);
+    for num in nums.iter() {
+        print!("{} ", num);
+    }
+
+    Ok(())
+}
+```
+
+### **C++**
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+void printvec( const vector<int> &vec, const string &strbegin = "", const string &strend = "" )
+{
+	cout << strbegin << endl;
+	for ( auto val : vec )
+	{
+		cout << val << "\t";
+	}
+
+	cout << endl;
+	cout << strend << endl;
+}
+
+
+int partition( vector<int> & vec, int left, int right )
+{
+	if ( left >= right )
+	{
+		return left;
+	}
+
+	int base = vec[left];
+	while ( left < right )
+	{
+		while ( left < right && vec[right] >= base )
+		{
+			right--;
+		}
+		if ( left >= right )
+		{
+			break;
+		}
+
+		vec[left] = vec[right];
+
+		while ( left < right && vec[left] <= base )
+		{
+			left++;
+		}
+
+		if ( left >= right )
+		{
+			break;
+		}
+
+		vec[right] = vec[left];
+	}
+
+	vec[left] = base;
+	return left;
+}
+
+
+void quicksort( vector<int> & vec, int left, int right )
+{
+	if ( left >= right )
+	{
+		return;
+	}
+
+	int idx = partition( vec, left, right );
+	quicksort( vec, left, idx - 1 );
+	quicksort( vec, idx + 1, right );
+}
+
+
+int main( void )
+{
+	vector<int> vec = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+	printvec( vec );
+	quicksort( vec, 0, vec.size() - 1 );
+	printvec( vec, "after insert sort" );
+	return 0;
+}
+```
 <!-- tabs:end -->

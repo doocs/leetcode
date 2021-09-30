@@ -40,7 +40,6 @@
 	<li>题目数据给出的 <code>edges</code> 表示一个有效的星型图</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -52,7 +51,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findCenter(self, edges: List[List[int]]) -> int:
+        a, b = edges[0]
+        c, d = edges[1]
+        return a if a == c or a == d else b
 ```
 
 ### **Java**
@@ -60,7 +63,51 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findCenter(int[][] edges) {
+        int a = edges[0][0], b = edges[0][1];
+        int c = edges[1][0], d = edges[1][1];
+        return a == c || a == d ? a : b;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function findCenter(edges: number[][]): number {
+    for (let num of edges[0]) {
+        if (edges[1].includes(num)) {
+            return num;
+        }
+    }
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findCenter(vector<vector<int>>& edges) {
+        int a = edges[0][0], b = edges[0][1];
+        int c = edges[1][0], d = edges[1][1];
+        return a == c || a == d ? a : b;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findCenter(edges [][]int) int {
+	a, b := edges[0][0], edges[0][1]
+	c, d := edges[1][0], edges[1][1]
+	if a == c || a == d {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

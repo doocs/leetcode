@@ -35,7 +35,6 @@
 	<li>There are no repeated edges.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -43,13 +42,107 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for a, b in edges:
+            p[find(a)] = find(b)
+        return sum(i == find(i) for i in range(n))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
+    
+    public int countComponents(int n, int[][] edges) {
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int[] e : edges) {
+            p[find(e[0])] = find(e[1]);
+        }
 
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i == find(i)) {
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int countComponents(int n, vector<vector<int>>& edges) {
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        for (auto e : edges) p[find(e[0])] = find(e[1]);
+        int cnt = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (i == find(i)) ++cnt;
+        }
+        return cnt;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func countComponents(n int, edges [][]int) int {
+	p = make([]int, n)
+	for i := 1; i < n; i++ {
+		p[i] = i
+	}
+	for _, e := range edges {
+		p[find(e[0])] = find(e[1])
+	}
+	cnt := 0
+	for i := 0; i < n; i++ {
+		if i == find(i) {
+			cnt++
+		}
+	}
+	return cnt
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

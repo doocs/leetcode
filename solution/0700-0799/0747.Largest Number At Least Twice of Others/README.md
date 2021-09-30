@@ -50,7 +50,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        max_idx, n = 0, len(nums)
+        for i in range(1, n):
+            if nums[i] > nums[max_idx]:
+                max_idx = i
+        for i in range(n):
+            if i != max_idx and nums[i] * 2 > nums[max_idx]:
+                return -1
+        return max_idx
 ```
 
 ### **Java**
@@ -58,7 +67,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+  public int dominantIndex(int[] nums) {
+    int maxIndex = 0;
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] > nums[maxIndex])
+        maxIndex = i;
+    }
+    for (int i = 0; i < nums.length; i++) {
+      if (nums[i] * 2 > nums[maxIndex] && i != maxIndex)
+        return -1;
+    }
+    return maxIndex;
+  }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int dominantIndex(vector<int>& nums) {
+        int maxIdx = 0, n = nums.size();
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] > nums[maxIdx]) maxIdx = i;
+        }
+        for (int i = 0; i < n; ++i) {
+            if (i != maxIdx && nums[i] * 2 > nums[maxIdx]) return -1;
+        }
+        return maxIdx;
+    }
+};
+```
+
+### **Go**
+
+```go
+func dominantIndex(nums []int) int {
+	maxIndex, n := 0, len(nums)
+	for i := 1; i < n; i++ {
+		if nums[i] > nums[maxIndex] {
+			maxIndex = i
+		}
+	}
+	for i := 0; i < n; i++ {
+		if i != maxIndex && nums[i]*2 > nums[maxIndex] {
+			return -1
+		}
+	}
+	return maxIndex
+}
 ```
 
 ### **...**

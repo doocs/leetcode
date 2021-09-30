@@ -65,9 +65,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分法。
+二分查找。
 
-遍历数组 A，对于每个数字 `A[i]`，用二分法找到数组 B 中下标最大并且比 `A[i]` 还大的数字即可。
+遍历数组 nums1，对于每个数字 `nums1[i]`，用二分法找到数组 nums2 中下标最大并且比 `nums1[i]` 还大的数字即可。
 
 <!-- tabs:start -->
 
@@ -78,16 +78,16 @@
 ```python
 class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
-        res = 0
-        for i in range(len(nums1)):
-            l, r = i, len(nums2) - 1
-            while l <= r:
-                mid = (l + r) >> 1
-                if nums2[mid] >= nums1[i]:
-                    res = max(res, mid - i)
-                    l = mid + 1
+        res, n = 0, len(nums2)
+        for i, num in enumerate(nums1):
+            left, right = i, n - 1
+            while left < right:
+                mid = (left + right + 1) >> 1
+                if nums2[mid] >= num:
+                    left = mid
                 else:
-                    r = mid - 1
+                    right = mid - 1
+            res = max(res, left - i)
         return res
 ```
 
@@ -99,17 +99,18 @@ class Solution:
 class Solution {
     public int maxDistance(int[] nums1, int[] nums2) {
         int res = 0;
-        for (int i = 0; i < nums1.length; ++i) {
-            int l = i, r = nums2.length - 1;
-            while (l <= r) {
-                int mid = (l + r) >>> 1;
+        int m = nums1.length, n = nums2.length;
+        for (int i = 0; i < m; ++i) {
+            int left = i, right = n - 1;
+            while (left < right) {
+                int mid = (left + right + 1) >> 1;
                 if (nums2[mid] >= nums1[i]) {
-                    res = Math.max(res, mid - i);
-                    l = mid + 1;
+                    left = mid;
                 } else {
-                    r = mid - 1;
+                    right = mid - 1;
                 }
             }
+            res = Math.max(res, left - i);
         }
         return res;
     }
@@ -123,21 +124,45 @@ class Solution {
 public:
     int maxDistance(vector<int>& nums1, vector<int>& nums2) {
         int res = 0;
-        for (int i = 0; i < nums1.size(); ++i) {
-            int l = i, r = nums2.size() - 1;
-            while (l <= r) {
-                int mid = (l + r) >> 1;
+        int m = nums1.size(), n = nums2.size();
+        for (int i = 0; i < m; ++i) {
+            int left = i, right = n - 1;
+            while (left < right) {
+                int mid = (left + right + 1) >> 1;
                 if (nums2[mid] >= nums1[i]) {
-                    res = max(res, mid - i);
-                    l = mid + 1;
+                    left = mid;
                 } else {
-                    r = mid - 1;
+                    right = mid - 1;
                 }
             }
+            res = max(res, left - i);
         }
         return res;
     }
 };
+```
+
+### **Go**
+
+```go
+func maxDistance(nums1 []int, nums2 []int) int {
+	res, n := 0, len(nums2)
+	for i, num := range nums1 {
+		left, right := i, n-1
+		for left < right {
+			mid := (left + right + 1) >> 1
+			if nums2[mid] >= num {
+				left = mid
+			} else {
+				right = mid - 1
+			}
+		}
+		if res < left-i {
+			res = left - i
+		}
+	}
+	return res
+}
 ```
 
 ### **JavaScript**
@@ -150,17 +175,20 @@ public:
  */
 var maxDistance = function(nums1, nums2) {
     let res = 0;
-    for (let i = 0; i < nums1.length; i++) {
-        let left = 0, right = nums2.length - 1;
-        while (left <= right) {
-            mid = (left + right) >> 1;
+    let m = nums1.length;
+    let n = nums2.length;
+    for (let i = 0; i < m; ++i) {
+        let left = i;
+        let right = n - 1;
+        while (left < right) {
+            const mid = (left + right + 1) >> 1;
             if (nums2[mid] >= nums1[i]) {
-                res = Math.max(res, mid - i);
-                left = mid + 1;
+                left = mid;
             } else {
                 right = mid - 1;
             }
         }
+        res = Math.max(res, left - i);
     }
     return res;
 };

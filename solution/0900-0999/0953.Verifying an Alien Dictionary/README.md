@@ -42,10 +42,11 @@
 	<li>在&nbsp;<code>words[i]</code>&nbsp;和&nbsp;<code>order</code>&nbsp;中的所有字符都是英文小写字母。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+用数组或哈希表存放字母顺序。依次遍历单词列表，检测相邻两单词是否满足字典序。
 
 <!-- tabs:start -->
 
@@ -56,22 +57,19 @@
 ```python
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
-        index = {v: k for k, v in enumerate(order)}
+        index = {c: i for i, c in enumerate(order)}
         for i in range(len(words) - 1):
-            word1, word2 = words[i], words[i + 1]
-            len1, len2 = len(word1), len(word2)
-            flag = True
-            for j in range(min(len1, len2)):
-                diff = index[word1[j]] - index[word2[j]]
-                if diff > 0:
+            w1, w2 = words[i], words[i + 1]
+            l1, l2 = len(w1), len(w2)
+            flag = False
+            for j in range(max(l1, l2)):
+                i1, i2 = -1 if j >= l1 else index[w1[j]], -1 if j >= l2 else index[w2[j]]
+                if i1 > i2:
                     # 说明不是按字典序排序，直接返回False
                     return False
-                if diff < 0:
+                if i1 < i2:
                     # 说明当前两单词是按字典序排序，无需再往下进行循环比较
-                    flag = False
                     break
-            if flag and len1 > len2:
-                return False
         return True
 ```
 
@@ -83,26 +81,93 @@ class Solution:
 class Solution {
     public boolean isAlienSorted(String[] words, String order) {
         int[] index = new int[26];
-        for (int i = 0; i < 26; ++i) {
+        for (int i = 0; i < index.length; ++i) {
             index[order.charAt(i) - 'a'] = i;
         }
-        for (int i = 0, m = words.length; i < m - 1; ++i) {
-            String word1 = words[i];
-            String word2 = words[i + 1];
-            int len1 = word1.length();
-            int len2 = word2.length();
-            boolean flag = true;
-            for (int j = 0, n = Math.min(len1, len2); j < n && flag; ++j) {
-                int diff = index[word1.charAt(j) - 'a'] - index[word2.charAt(j) - 'a'];
-                // 说明不是按字典序排序，直接返回False
-                if (diff > 0) return false;
-                // 说明当前两单词是按字典序排序，无需再往下进行循环比较
-                if (diff < 0) flag = false;
+        for (int i = 0; i < words.length - 1; ++i) {
+            String w1 = words[i];
+            String w2 = words[i + 1];
+            int l1 = w1.length(), l2 = w2.length();
+            for (int j = 0; j < Math.max(l1, l2); ++j) {
+                int i1 = j >= l1 ? -1 : index[w1.charAt(j) - 'a'];
+                int i2 = j >= l2 ? -1 : index[w2.charAt(j) - 'a'];
+                if (i1 > i2) {
+                    // 说明不是按字典序排序，直接返回False
+                    return false;
+                }
+                if (i1 < i2) {
+                    // 说明当前两单词是按字典序排序，无需再往下进行循环比较
+                    break;
+                }
             }
-            if (flag && len1 > len2) return false;
         }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isAlienSorted(vector<string> &words, string order) {
+        vector<int> index(26);
+        for (int i = 0; i < index.size(); ++i)
+            index[order[i] - 'a'] = i;
+        for (int i = 0; i < words.size() - 1; ++i)
+        {
+            string w1 = words[i];
+            string w2 = words[i + 1];
+            int l1 = w1.size(), l2 = w2.size();
+            for (int j = 0; j < max(l1, l2); ++j)
+            {
+                int i1 = j >= l1 ? -1 : index[w1[j] - 'a'];
+                int i2 = j >= l2 ? -1 : index[w2[j] - 'a'];
+                if (i1 > i2)
+                    return false;
+                if (i1 < i2)
+                    break;
+            }
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isAlienSorted(words []string, order string) bool {
+	index := make(map[byte]int)
+	for i := range order {
+		index[order[i]] = i
+	}
+	for i := 0; i < len(words)-1; i++ {
+		w1, w2 := words[i], words[i+1]
+		l1, l2 := len(w1), len(w2)
+		flag := true
+		for j := 0; j < min(l1, l2) && flag; j++ {
+			i1, i2 := index[w1[j]], index[w2[j]]
+			if i1 > i2 {
+				return false
+			}
+			if i1 < i2 {
+				flag = false
+			}
+		}
+		if flag && l1 > l2 {
+			return false
+		}
+	}
+	return true
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 

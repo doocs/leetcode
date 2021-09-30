@@ -52,7 +52,6 @@
 	<li><code>1 &lt;= ages[i] &lt;= 120</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -60,13 +59,116 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def numFriendRequests(self, ages: List[int]) -> int:
+        def check(a, b):
+            return (0.5 * a + 7 < b) and (a >= b) and (a >= 100 or b <= 100)
 
+        res = 0
+        counter = [0] * 121
+        for age in ages:
+            counter[age] += 1
+        for i in range(1, 121):
+            n1 = counter[i]
+            for j in range(1, 121):
+                if check(i, j):
+                    n2 = counter[j]
+                    res += (n1 * n2)
+                    if i == j:
+                        res -= n2
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numFriendRequests(int[] ages) {
+        int[] counter = new int[121];
+        for (int age : ages) {
+            ++counter[age];
+        }
+        int res = 0;
+        for (int i = 1; i < 121; ++i) {
+            int n1 = counter[i];
+            for (int j = 1; j < 121; ++j) {
+                if (check(i, j)) {
+                    int n2 = counter[j];
+                    res += (n1 * n2);
+                    if (i == j) {
+                        res -= n2;
+                    }
+                }
 
+            }
+        }
+        return res;
+    }
+
+    private boolean check(int a, int b) {
+        return (0.5 * a + 7 < b) && (a >= b) && (a >= 100 || b <= 100);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numFriendRequests(vector<int>& ages) {
+        vector<int> counter(121);
+        for (int age : ages) ++counter[age];
+        int res = 0;
+        for (int i = 1; i < 121; ++i)
+        {
+            int n1 = counter[i];
+            for (int j = 1; j < 121; ++j)
+            {
+                int n2 = counter[j];
+                if (check(i, j))
+                {
+                    res += (n1 * n2);
+                    if (i == j) res -= n2;
+                }
+            }
+        }
+        return res;
+    }
+
+    bool check(int a, int b) {
+        return (0.5 * a + 7 < b) && (a >= b) && (a >= 100 || b <= 100);
+    }
+};
+```
+
+### **Go**
+
+```go
+func numFriendRequests(ages []int) int {
+	counter := make([]int, 121)
+	for _, age := range ages {
+		counter[age]++
+	}
+	res := 0
+	for i := 1; i < 121; i++ {
+		n1 := counter[i]
+		for j := 1; j < 121; j++ {
+			n2 := counter[j]
+			if check(i, j) {
+				res += (n1 * n2)
+				if i == j {
+					res -= n2
+				}
+			}
+		}
+	}
+	return res
+}
+
+func check(a, b int) bool {
+	return (a/2+7 < b) && (a >= b) && (a >= 100 || b <= 100)
+}
 ```
 
 ### **...**

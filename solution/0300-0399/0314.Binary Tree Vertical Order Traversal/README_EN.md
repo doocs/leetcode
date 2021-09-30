@@ -109,10 +109,7 @@ class Solution {
         while (!q.isEmpty()) {
             TreeNode node = q.poll();
             int offset = nodeOffsets.get(node);
-            if (!offsetVals.containsKey(offset)) {
-                offsetVals.put(offset, new ArrayList<>());
-            }
-            offsetVals.get(offset).add(node.val);
+            offsetVals.computeIfAbsent(offset, k -> new ArrayList<>()).add(node.val);
             if (node.left != null) {
                 q.offer(node.left);
                 nodeOffsets.put(node.left, offset - 1);

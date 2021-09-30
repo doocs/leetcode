@@ -38,10 +38,72 @@ accounts = [["John", "johnsmith@mail.com", "john00@mail.com"], ["John", "johnnyb
 	<li><code>accounts[i][j]</code>的长度将在<code>[1，30]</code>的范围内。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，初始每个 account 是一个独立的集合。遍历 accounts 列表，若遇到相同的 email，则将两账户进行合并，遍历完毕得到并查集。
+
+接着对每个集合进行中的所有账户邮箱进行合并排序，最后返回账户名称以及对应的邮箱列表。
 
 <!-- tabs:start -->
 
@@ -50,7 +112,36 @@ accounts = [["John", "johnsmith@mail.com", "john00@mail.com"], ["John", "johnnyb
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+        n = len(accounts)
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        email_id = {}
+        for i in range(n):
+            name = accounts[i][0]
+            for email in accounts[i][1:]:
+                if email in email_id:
+                    p[find(i)] = find(email_id[email])
+                else:
+                    email_id[email] = i
+
+        mp = collections.defaultdict(set)
+        for i in range(n):
+            pa = find(i)
+            for email in accounts[i][1:]:
+                mp[pa].add(email)
+        res = []
+        for i, emails in mp.items():
+            t = [accounts[i][0]]
+            t.extend(sorted(emails))
+            res.append(t)
+        return res
 ```
 
 ### **Java**
@@ -58,7 +149,55 @@ accounts = [["John", "johnsmith@mail.com", "john00@mail.com"], ["John", "johnnyb
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+        int n = accounts.size();
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        Map<String, Integer> emailId = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            List<String> account = accounts.get(i);
+            String name = account.get(0);
+            for (int j = 1; j < account.size(); ++j) {
+                String email = account.get(j);
+                if (emailId.containsKey(email)) {
+                    p[find(i)] = find(emailId.get(email));
+                } else {
+                    emailId.put(email, i);
+                }
+            }
+        }
+        Map<Integer, Set<String>> mp = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            int pa = find(i);
+            List<String> account = accounts.get(i);
+            for (int j = 1; j < account.size(); ++j) {
+                String email = account.get(j);
+                mp.computeIfAbsent(pa, k -> new HashSet<>()).add(email);
+            }
+        }
+        List<List<String>> res = new ArrayList<>();
+        for (Map.Entry<Integer, Set<String>> entry : mp.entrySet()) {
+            List<String> t = new LinkedList<>();
+            t.addAll(entry.getValue());
+            Collections.sort(t);
+            t.add(0, accounts.get(entry.getKey()).get(0));
+            res.add(t);
+        }
+        return res;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
 ```
 
 ### **...**

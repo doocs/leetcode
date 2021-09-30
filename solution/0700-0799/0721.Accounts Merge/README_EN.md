@@ -41,7 +41,6 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 	<li><code>accounts[i][j] (for j &gt; 0)</code> is a valid email.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -49,13 +48,90 @@ We could return these lists in any order, for example the answer [[&#39;Mary&#39
 ### **Python3**
 
 ```python
+class Solution:
+    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+        n = len(accounts)
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        email_id = {}
+        for i in range(n):
+            name = accounts[i][0]
+            for email in accounts[i][1:]:
+                if email in email_id:
+                    p[find(i)] = find(email_id[email])
+                else:
+                    email_id[email] = i
+
+        mp = collections.defaultdict(set)
+        for i in range(n):
+            pa = find(i)
+            for email in accounts[i][1:]:
+                mp[pa].add(email)
+        res = []
+        for i, emails in mp.items():
+            t = [accounts[i][0]]
+            t.extend(sorted(emails))
+            res.append(t)
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public List<List<String>> accountsMerge(List<List<String>> accounts) {
+        int n = accounts.size();
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        Map<String, Integer> emailId = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            List<String> account = accounts.get(i);
+            String name = account.get(0);
+            for (int j = 1; j < account.size(); ++j) {
+                String email = account.get(j);
+                if (emailId.containsKey(email)) {
+                    p[find(i)] = find(emailId.get(email));
+                } else {
+                    emailId.put(email, i);
+                }
+            }
+        }
+        Map<Integer, Set<String>> mp = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            int pa = find(i);
+            List<String> account = accounts.get(i);
+            for (int j = 1; j < account.size(); ++j) {
+                String email = account.get(j);
+                mp.computeIfAbsent(pa, k -> new HashSet<>()).add(email);
+            }
+        }
+        List<List<String>> res = new ArrayList<>();
+        for (Map.Entry<Integer, Set<String>> entry : mp.entrySet()) {
+            List<String> t = new LinkedList<>();
+            t.addAll(entry.getValue());
+            Collections.sort(t);
+            t.add(0, accounts.get(entry.getKey()).get(0));
+            res.add(t);
+        }
+        return res;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
 ```
 
 ### **...**

@@ -93,6 +93,98 @@ func main() {
 }
 ```
 
+### **C++**
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+/* 简单版本 */
+void bubblesort(vector<int> &vec)
+{
+    for (int i = 0; i < vec.size() - 1; i++)
+    {
+        for (int j = 0; j < vec.size() - i - 1; j++)
+        {
+            if (vec[j] > vec[j + 1])
+            {
+                swap(vec[j], vec[j + 1]);
+            }
+        }
+    }
+}
+
+/* 改进版本 */
+void bubblesort1(vector<int> &vec)
+{
+    for (int i = 0; i < vec.size() - 1; i++)
+    {
+        bool exchange = false;
+        for (int j = 0; j < vec.size() - i - 1; j++)
+        {
+            if (vec[j] > vec[j + 1])
+            {
+                swap(vec[j], vec[j + 1]);
+                exchange = true;
+            }
+        }
+
+        if (!exchange)
+        {
+            break;
+        }
+    }
+}
+
+void printvec(const vector<int> &vec, const string &strbegin = "", const string &strend = "")
+{
+    cout << strbegin << endl;
+    for (auto val : vec)
+    {
+        cout << val << "\t";
+    }
+
+    cout << endl;
+    cout << strend << endl;
+}
+
+int main(void)
+{
+    vector<int> vec = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    printvec(vec);
+
+    bubblesort1(vec);
+
+    printvec(vec, "after sort", "");
+}
+```
+
+### **Rust**
+
+```rust
+fn bubble_sort(nums: &mut Vec<i32>) {
+    let n = nums.len();
+    for i in 0..n - 1 {
+        for j in i..n {
+            if nums[i] > nums[j] {
+                let temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+            }
+        }
+    }
+}
+
+fn main() {
+    let mut nums = vec![1, 2, 7, 9, 5, 8];
+    bubble_sort(&mut nums);
+    println!("{:?}", nums);
+}
+```
+
 <!-- tabs:end -->
 
 ## 算法分析

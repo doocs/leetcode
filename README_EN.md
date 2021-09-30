@@ -6,7 +6,7 @@
   <a href="https://github.com/doocs/leetcode"><img src="https://img.shields.io/badge/langs-Java%20%7C%20Python%20%7C%20C%2B%2B%20%7C%20JavaScript%20%7C%20Go%20%7C%20...-red?style=flat-square&color=42b883" alt="languages"></a>
   <a href="https://doocs.github.io/#/?id=how-to-join"><img src="https://img.shields.io/badge/organization-join%20us-42b883?style=flat-square" alt="open-source-organization"></a>
   <a href="https://github.com/doocs/leetcode/blob/main/LICENSE"><img src="https://img.shields.io/github/license/doocs/leetcode?color=42b883&style=flat-square" alt="LICENSE"></a><br>
-  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a> 
+  <a href="https://opencollective.com/doocs-leetcode/backers/badge.svg" alt="backers on Open Collective"><img src="https://img.shields.io/opencollective/backers/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
   <a href="https://github.com/doocs/leetcode/stargazers"><img src="https://img.shields.io/github/stars/doocs/leetcode?color=42b883&logo=github&style=flat-square" alt="stars"></a>
   <a href="https://github.com/doocs/leetcode/network/members"><img src="https://img.shields.io/github/forks/doocs/leetcode?color=42b883&logo=github&style=flat-square" alt="forks"></a>
   <a href="https://opencollective.com/doocs-leetcode/sponsors/badge.svg" alt="Sponsors on Open Collective"><img src="https://img.shields.io/opencollective/sponsors/doocs-leetcode?color=42b883&style=flat-square&logo=open%20collective&logoColor=ffffff" /></a>
@@ -40,6 +40,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Merge Sort(Algorithm Template)](./basic/sorting/MergeSort/README.md)
 - [Quick Sort(Algorithm Template)](./basic/sorting/QuickSort/README.md)
 - [Shell Sort](./basic/sorting/ShellSort/README.md)
+- [Heap Sort(Algorithm Template)](./basic/sorting/HeapSort/README.md)
 
 ### Searching
 
@@ -156,16 +157,48 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [N-th Tribonacci Number](./solution/1100-1199/1137.N-th%20Tribonacci%20Number/README_EN.md)
 - [Climbing Stairs](./solution/0000-0099/0070.Climbing%20Stairs/README_EN.md)
 - [Min Cost Climbing Stairs](./solution/0700-0799/0746.Min%20Cost%20Climbing%20Stairs/README_EN.md)
-- [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
-- [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
-- [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
-- [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)
-- [Maximum Product Subarray](./solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
 - [House Robber](./solution/0100-0199/0198.House%20Robber/README_EN.md)
 - [House Robber II](./solution/0200-0299/0213.House%20Robber%20II/README_EN.md)
+- [Delete and Earn](./solution/0700-0799/0740.Delete%20and%20Earn/README_EN.md)
+- [Jump Game](./solution/0000-0099/0055.Jump%20Game/README_EN.md)
+- [Jump Game II](./solution/0000-0099/0045.Jump%20Game%20II/README_EN.md)
+- [Maximum Subarray](./solution/0000-0099/0053.Maximum%20Subarray/README_EN.md)
+- [Maximum Sum Circular Subarray](./solution/0900-0999/0918.Maximum%20Sum%20Circular%20Subarray/README_EN.md)
+- [Maximum Product Subarray](./solution/0100-0199/0152.Maximum%20Product%20Subarray/README_EN.md)
+- [Maximum Length of Subarray With Positive Product](./solution/1500-1599/1567.Maximum%20Length%20of%20Subarray%20With%20Positive%20Product/README_EN.md)
+- [Best Sightseeing Pair](./solution/1000-1099/1014.Best%20Sightseeing%20Pair/README_EN.md)
+- [Best Time to Buy and Sell Stock](./solution/0100-0199/0121.Best%20Time%20to%20Buy%20and%20Sell%20Stock/README_EN.md)
+- [Best Time to Buy and Sell Stock II](./solution/0100-0199/0122.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20II/README_EN.md)
+- [Best Time to Buy and Sell Stock III](./solution/0100-0199/0123.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20III/README_EN.md)
+- [Best Time to Buy and Sell Stock with Cooldown](./solution/0300-0399/0309.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown/README_EN.md)
+- [Best Time to Buy and Sell Stock with Transaction Fee](./solution/0700-0799/0714.Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Transaction%20Fee/README_EN.md)
+- [Word Break](./solution/0100-0199/0139.Word%20Break/README_EN.md)
+- [Trapping Rain Water](./solution/0000-0099/0042.Trapping%20Rain%20Water/README_EN.md)
+- [Arithmetic Slices](./solution/0400-0499/0413.Arithmetic%20Slices/README_EN.md)
+- [Decode Ways](./solution/0000-0099/0091.Decode%20Ways/README_EN.md)
+- [Unique Binary Search Trees](./solution/0000-0099/0096.Unique%20Binary%20Search%20Trees/README_EN.md)
+- [Ugly Number II](./solution/0200-0299/0264.Ugly%20Number%20II/README_EN.md)
+- [Pascal's Triangle](./solution/0100-0199/0118.Pascal%27s%20Triangle/README_EN.md)
+- [Pascal's Triangle II](./solution/0100-0199/0119.Pascal%27s%20Triangle%20II/README_EN.md)
+- [Minimum Falling Path Sum](./solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/README_EN.md)
+- [Triangle](./solution/0100-0199/0120.Triangle/README_EN.md)
+- [Matrix Block Sum](./solution/1300-1399/1314.Matrix%20Block%20Sum/README_EN.md)
+- [Range Sum Query 2D - Immutable](./solution/0300-0399/0304.Range%20Sum%20Query%202D%20-%20Immutable/README_EN.md)
+- [Unique Paths](./solution/0000-0099/0062.Unique%20Paths/README_EN.md)
+- [Unique Paths II](./solution/0000-0099/0063.Unique%20Paths%20II/README_EN.md)
+- [Minimum Path Sum](./solution/0000-0099/0064.Minimum%20Path%20Sum/README_EN.md)
+- [Longest Palindromic Substring](./solution/0000-0099/0005.Longest%20Palindromic%20Substring/README_EN.md)
+- [Longest Palindromic Subsequence](.solution/0500-0599/0516.Longest%20Palindromic%20Subsequence/README_EN.md)
 - [Longest Increasing Subsequence](./solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
-- [Russian Doll Envelopes](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
+- [Wiggle Subsequence](./solution/0300-0399/0376.Wiggle%20Subsequence/README_EN.md)
 - [Longest Common Subsequence](./solution/1100-1199/1143.Longest%20Common%20Subsequence/README_EN.md)
+- [Edit Distance](./solution/0000-0099/0072.Edit%20Distance/README_EN.md)
+- [Coin Change](./solution/0300-0399/0322.Coin%20Change/README_EN.md)
+- [Coin Change 2](./solution/0500-0599/0518.Coin%20Change%202/README_EN.md)
+- [Combination Sum IV](./solution/0300-0399/0377.Combination%20Sum%20IV/README_EN.md)
+- [Integer Break](./solution/0300-0399/0343.Integer%20Break/README_EN.md)
+- [Perfect Squares](./solution/0200-0299/0279.Perfect%20Squares/README_EN.md)
+- [Russian Doll Envelopes](./solution/0300-0399/0354.Russian%20Doll%20Envelopes/README_EN.md)
 
 ### Backtracking
 
@@ -211,6 +244,10 @@ You can also contribute to [doocs/leetcode](https://github.com/doocs/leetcode) u
 
 <a href="https://gitpod.io/#https://github.com/doocs/leetcode" target="_blank" alt="Open in Gitpod"><img src="https://gitpod.io/button/open-in-gitpod.svg"></a>
 
+## Stargazers over time
+
+<a href="https://github.com/doocs/leetcode/stargazers" target="_blank"><img src="./images/starcharts.svg" alt="Stargazers over time" /></a>
+
 ## Contributors
 
 This project exists thanks to all the people who contribute.
@@ -230,5 +267,3 @@ Thank you to all our backers and sponsors!
 ## License
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
-<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode?ref=badge_large" target="_blank"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdoocs%2Fleetcode.svg?type=large"></a>

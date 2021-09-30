@@ -43,18 +43,110 @@
 
 ## Solutions
 
+The point with zero out-degree is safe, and if a point can **only** reach the safe point, then it is also safe, so the problem can be converted to topological sorting.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
+        n = len(graph)
+        outDegree = [len(vs) for vs in graph]
+        revGraph = [[] for _ in range(n)]
+        for u, vs in enumerate(graph):
+            for v in vs:
+                revGraph[v].append(u)
+        q = deque([i for i, d in enumerate(outDegree) if d == 0])
+        while q:
+            for u in revGraph[q.popleft()]:
+                outDegree[u] -= 1
+                if outDegree[u] == 0:
+                    q.append(u)
+        return [i for i, d in enumerate(outDegree) if d == 0]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> eventualSafeNodes(int[][] graph) {
+        int n = graph.length;
+        int[] outDegrees = new int[n];
+        Queue<Integer> queue = new ArrayDeque<>();
+        List<List<Integer>> revGraph = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            revGraph.add(new ArrayList<>());
+        }
+        for (int u = 0; u < n; u++) {
+            for (int v : graph[u]) {
+                revGraph.get(v).add(u);
+            }
+            outDegrees[u] = graph[u].length;
+            if (outDegrees[u] == 0) {
+                queue.offer(u);
+            }
+        }
 
+        while (!queue.isEmpty()) {
+            int v = queue.poll();
+            for (int u : revGraph.get(v)) {
+                if (--outDegrees[u] == 0) {
+                    queue.offer(u);
+                }
+            }
+        }
+
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (outDegrees[i] == 0) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+func eventualSafeNodes(graph [][]int) []int {
+	n := len(graph)
+	outDegree := make([]int, n)
+	revGraph := make([][]int, n)
+	queue := make([]int, 0)
+	ans := make([]int, 0)
+
+	for u, vs := range graph {
+		for _, v := range vs {
+			revGraph[v] = append(revGraph[v], u)
+		}
+		outDegree[u] = len(vs)
+		if outDegree[u] == 0 {
+			queue = append(queue, u)
+		}
+	}
+
+	for len(queue) > 0 {
+		v := queue[0]
+		queue = queue[1:]
+		for _, u := range revGraph[v] {
+			outDegree[u]--
+			if outDegree[u] == 0 {
+				queue = append(queue, u)
+			}
+		}
+	}
+
+	for i, d := range outDegree {
+		if d == 0 {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

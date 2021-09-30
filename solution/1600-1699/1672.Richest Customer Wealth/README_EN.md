@@ -58,10 +58,7 @@ The 2nd customer is the richest with a wealth of 10.</pre>
 ```python
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
-        res = 0
-        for account in accounts:
-            res = max(res, sum(account))
-        return res
+        return max(sum(account) for account in accounts)
 ```
 
 ### **Java**
@@ -89,13 +86,8 @@ class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts) {
         int res = 0;
-        for (auto& account : accounts) {
-            int t = 0;
-            for (auto& money : account) {
-                t += money;
-            }
-            res = max(res, t);
-        }
+        for (auto& account : accounts)
+            res = max(res, accumulate(account.begin(), account.end(), 0));
         return res;
     }
 };

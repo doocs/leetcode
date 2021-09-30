@@ -62,10 +62,11 @@
 	<li><code>0 &lt;= d &lt;= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+由于 arr1，arr2 的长度不超过 500，直接暴力遍历即可。
 
 <!-- tabs:start -->
 
@@ -74,7 +75,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+        res = 0
+        for a in arr1:
+            exist = False
+            for b in arr2:
+                if abs(a - b) <= d:
+                    exist = True
+                    break
+            if not exist:
+                res += 1
+        return res
 ```
 
 ### **Java**
@@ -82,7 +94,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+        int res = 0;
+        for (int a : arr1) {
+            boolean exist = false;
+            for (int b : arr2) {
+                if (Math.abs(a - b) <= d) {
+                    exist = true;
+                    break;
+                }
+            }
+            if (!exist) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
+        int res = 0;
+        for (auto& a : arr1) {
+            bool exist = false;
+            for (auto& b : arr2) {
+                if (abs(a - b) <= d) {
+                    exist = true;
+                    break;
+                }
+            }
+            if (!exist) ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
+	res := 0
+	for _, a := range arr1 {
+		exist := false
+		for _, b := range arr2 {
+			if math.Abs(float64(a-b)) <= float64(d) {
+				exist = true
+				break
+			}
+		}
+		if !exist {
+			res++
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

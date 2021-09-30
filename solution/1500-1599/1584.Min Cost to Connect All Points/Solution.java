@@ -1,46 +1,39 @@
 class Solution {
-    static class Edge {
-
-        int x;
-        int y;
-        int len;
-
-        Edge(int x, int y, int len) {
-            this.x = x;
-            this.y = y;
-            this.len = len;
-        }
-    }
-
+    private int[] p;
     public int minCostConnectPoints(int[][] points) {
-        Queue<Edge> heap = new PriorityQueue<>(Comparator.comparingInt((Edge e) -> e.len));
-        boolean[] marked = new boolean[points.length];
-        marked[0] = true;
-        addVertex(points, marked, 0, heap);
-        int count = 1;
+        int n = points.length;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        List<int[]> edges = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            int x1 = points[i][0], y1 = points[i][1];
+            for (int j =  i + 1; j < n; ++j) {
+                int x2 = points[j][0], y2 = points[j][1];
+                edges.add(new int[]{Math.abs(x1 - x2) + Math.abs(y1 - y2), i, j});
+            }
+        }
+        edges.sort(Comparator.comparingInt(a -> a[0]));
         int res = 0;
-        while (!heap.isEmpty()) {
-            Edge edge = heap.poll();
-            if (!marked[edge.y]) {
-                res += edge.len;
-                marked[edge.y] = true;
-                addVertex(points, marked, edge.y, heap);
-                count++;
-                if (count == points.length) {
-                    break;
-                }
+        for (int[] e : edges) {
+            if (find(e[1]) == find(e[2])) {
+                continue;
+            }
+            p[find(e[1])] = find(e[2]);
+            --n;
+            res += e[0];
+            if (n == 1) {
+                break;
             }
         }
         return res;
     }
 
-    public void addVertex(int[][] points, boolean[] marked, int x, Queue<Edge> heap) {
-        for (int i = 0; i < marked.length; i++) {
-            if (marked[i]) {
-                continue;
-            }
-            heap.add(new Edge(x, i,
-                    Math.abs(points[x][0] - points[i][0]) + Math.abs(points[x][1] - points[i][1])));
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
         }
+        return p[x];
     }
 }

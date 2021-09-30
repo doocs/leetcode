@@ -59,10 +59,70 @@
 	<li><code>equations[i][2]</code>&nbsp;是&nbsp;<code>&#39;=&#39;</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，先遍历所有的等式，构造并查集。接着遍历所有不等式，如果不等式的两个变量处于同一个集合，说明发生矛盾，返回 false。否则遍历结束返回 true。
 
 <!-- tabs:start -->
 
@@ -71,7 +131,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def equationsPossible(self, equations: List[str]) -> bool:
+        p = [i for i in range(26)]
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for e in equations:
+            a, r, b = ord(e[0]) - ord('a'), e[1:3], ord(e[3]) - ord('a')
+            if r == '==':
+                p[find(a)] = find(b)
+        for e in equations:
+            a, r, b = ord(e[0]) - ord('a'), e[1:3], ord(e[3]) - ord('a')
+            if r == '!=' and find(a) == find(b):
+                return False
+        return True
 ```
 
 ### **Java**
@@ -79,7 +156,109 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public boolean equationsPossible(String[] equations) {
+        p = new int[26];
+        for (int i = 0; i < 26; ++i) {
+            p[i] = i;
+        }
+        for (String e : equations) {
+            int a = e.charAt(0) - 'a', b = e.charAt(3) - 'a';
+            String r = e.substring(1, 3);
+            if ("==".equals(r)) {
+                p[find(a)] = find(b);
+            }
+        }
+        for (String e : equations) {
+            int a = e.charAt(0) - 'a', b = e.charAt(3) - 'a';
+            String r = e.substring(1, 3);
+            if ("!=".equals(r) && find(a) == find(b)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    bool equationsPossible(vector<string>& equations) {
+        p.resize(26);
+        for (int i = 0; i < 26; ++i)
+            p[i] = i;
+        for (auto e : equations)
+        {
+            int a = e[0] - 'a', b = e[3] - 'a';
+            char r = e[1];
+            if (r == '=')
+                p[find(a)] = find(b);
+        }
+        for (auto e : equations)
+        {
+            int a = e[0] - 'a', b = e[3] - 'a';
+            char r = e[1];
+            if (r == '!' && find(a) == find(b))
+                return false;
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+            p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func equationsPossible(equations []string) bool {
+	p = make([]int, 26)
+	for i := 1; i < 26; i++ {
+		p[i] = i
+	}
+	for _, e := range equations {
+		a, b := int(e[0]-'a'), int(e[3]-'a')
+		r := e[1]
+		if r == '=' {
+			p[find(a)] = find(b)
+		}
+	}
+	for _, e := range equations {
+		a, b := int(e[0]-'a'), int(e[3]-'a')
+		r := e[1]
+		if r == '!' && find(a) == find(b) {
+			return false
+		}
+	}
+	return true
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

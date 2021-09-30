@@ -47,7 +47,6 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 	<li><code>0 &lt;= num &lt;= 10^6</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -55,13 +54,70 @@ Step 4) 1 is odd; subtract 1 and obtain 0.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfSteps(self, num: int) -> int:
+        res = 0
+        while num:
+            if (num & 1) == 0:
+                num >>= 1
+            else:
+                num -= 1
+            res += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numberOfSteps(int num) {
+        int res = 0;
+        while (num != 0) {
+            if ((num & 1) == 0) {
+                num >>= 1;
+            } else {
+                --num;
+            }
+            ++res;
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfSteps(int num) {
+        int res = 0;
+        while (num)
+        {
+            if ((num & 1) == 0) num >>= 1;
+            else --num;
+            ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfSteps(num int) int {
+	res := 0
+	for num != 0 {
+		if (num & 1) == 0 {
+			num >>= 1
+		} else {
+			num--
+		}
+		res++
+	}
+	return res
+}
 ```
 
 ### **...**

@@ -55,18 +55,106 @@
 
 ## Solutions
 
+this can be analogous to matching parentheses:
+
+- right-moving asteroid (left parenthesis): will not cause a collision, will be pushed directly
+- left-moving asteroid (right parenthesis): may collision with the right-moving asteroid, special treatment
+
+because the answer requires all the asteroids left after the collision, which is element left in the stack, you can simply represent the stack in an array
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+        ans = []
+        for a in asteroids:
+            if a > 0:
+                ans.append(a)
+            else:
+                while len(ans) > 0 and ans[-1] > 0 and ans[-1] < -a:
+                    ans.pop()
+                if len(ans) > 0 and ans[-1] == -a:
+                    ans.pop()
+                elif len(ans) == 0 or ans[-1] < -a:
+                    ans.append(a)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] asteroidCollision(int[] asteroids) {
+        Deque<Integer> d = new ArrayDeque<>();
+        for (int a : asteroids) {
+            if (a > 0) {
+                d.offerLast(a);
+            } else {
+                while (!d.isEmpty() && d.peekLast() > 0 && d.peekLast() < -a) {
+                    d.pollLast();
+                }
+                if (!d.isEmpty() && d.peekLast() == -a) {
+                    d.pollLast();
+                } else if (d.isEmpty() || d.peekLast() < -a) {
+                    d.offerLast(a);
+                }
+            }
+        }
+        return d.stream().mapToInt(Integer::valueOf).toArray();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> asteroidCollision(vector<int>& asteroids) {
+        vector<int> ans;
+        for (int a : asteroids) {
+            if (a > 0) {
+                ans.push_back(a);
+            } else {
+                while (!ans.empty() && ans.back() > 0 && ans.back() < -a) {
+                    ans.pop_back();
+                }
+                if (!ans.empty() && ans.back() == -a) {
+                    ans.pop_back();
+                } else if (ans.empty() || ans.back() < -a) {
+                    ans.push_back(a);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func asteroidCollision(asteroids []int) []int {
+	var ans []int
+	for _, a := range asteroids {
+		if a > 0 {
+			ans = append(ans, a)
+		} else {
+			for len(ans) > 0 && ans[len(ans)-1] > 0 && ans[len(ans)-1] < -a {
+				ans = ans[:len(ans)-1]
+			}
+			if len(ans) > 0 && ans[len(ans)-1] == -a {
+				ans = ans[:len(ans)-1]
+			} else if len(ans) == 0 || ans[len(ans)-1] < -a {
+				ans = append(ans, a)
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

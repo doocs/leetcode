@@ -2,16 +2,12 @@
  * @param {number[]} prices
  * @return {number}
  */
-const maxProfit = function (prices) {
-  let min = prices[0];
-  let profit = 0;
-  for (let i = 0; i < prices.length; i++) {
-    if (prices[i] < min) {
-      min = prices[i];
-    }
-    if (profit < prices[i] - min) {
-      profit = prices[i] - min;
-    }
+ var maxProfit = function(prices) {
+  let res = 0;
+  let mi = prices[0];
+  for (let i = 1; i < prices.length; ++i) {
+      res = Math.max(res, prices[i] - mi);
+      mi = Math.min(mi, prices[i]);
   }
-  return profit;
+  return res;
 };

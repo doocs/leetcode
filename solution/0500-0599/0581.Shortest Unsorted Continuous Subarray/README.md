@@ -56,6 +56,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+将排序后的数组与原数组进行比较，确定左右边界。更进一步优化，可以通过维护最大值和最小值，一次遍历得出结果（见 Golang 解法）
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +65,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findUnsortedSubarray(self, nums: List[int]) -> int:
+        n = len(nums)
+        numsSorted = sorted(nums)
+        left, right = 0, n - 1
+        while left < n and nums[left] == numsSorted[left]:
+            left += 1
+        while right >= 0 and nums[right] == numsSorted[right]:
+            right -= 1
+        return 0 if right == -1 else right - left + 1
 ```
 
 ### **Java**
@@ -71,7 +82,48 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findUnsortedSubarray(int[] nums) {
+        int n = nums.length;
+        int[] numsSorted = new int[n];
+        System.arraycopy(nums, 0, numsSorted, 0, n);
+        Arrays.sort(numsSorted);
+        int left = 0, right = n - 1;
+        while (left < n && nums[left] == numsSorted[left]) {
+            left++;
+        }
+        while (right >= 0 && nums[right] == numsSorted[right]) {
+            right--;
+        }
+        return right == -1 ? 0 : right - left + 1;
+    }
+}
+```
 
+### **Go**
+
+```go
+func findUnsortedSubarray(nums []int) int {
+	n := len(nums)
+	maxn, minn := math.MinInt32, math.MaxInt32
+	left, right := -1, -1
+	for i := 0; i < n; i++ {
+		if maxn > nums[i] {
+			right = i
+		} else {
+			maxn = nums[i]
+		}
+		if minn < nums[n-i-1] {
+			left = n - i - 1
+		} else {
+			minn = nums[n-i-1]
+		}
+	}
+	if right == -1 {
+		return 0
+	}
+	return right - left + 1
+}
 ```
 
 ### **...**

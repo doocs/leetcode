@@ -115,12 +115,10 @@ class ValidWordAbbr {
         words = new HashMap<>();
         for (String word : dictionary) {
             String abbr = wordAbbr(word);
-            Set<String> vals = words.getOrDefault(abbr, new HashSet<>());
-            vals.add(word);
-            words.put(abbr, vals);
+            words.computeIfAbsent(abbr, k -> new HashSet<>()).add(word);
         }
     }
-
+    
     public boolean isUnique(String word) {
         String abbr = wordAbbr(word);
         Set<String> vals = words.get(abbr);

@@ -50,18 +50,103 @@
 
 ## Solutions
 
+Dynamic programming.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minFallingPathSum(self, matrix: List[List[int]]) -> int:
+        n = len(matrix)
+        for i in range(1, n):
+            for j in range(n):
+                mi = matrix[i - 1][j]
+                if j > 0:
+                    mi = min(mi, matrix[i - 1][j - 1])
+                if j < n - 1:
+                    mi = min(mi, matrix[i - 1][j + 1])
+                matrix[i][j] += mi
+        return min(matrix[n - 1])
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minFallingPathSum(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int mi = matrix[i - 1][j];
+                if (j > 0) {
+                    mi = Math.min(mi, matrix[i - 1][j - 1]);
+                }
+                if (j < n - 1) {
+                    mi = Math.min(mi, matrix[i - 1][j + 1]);
+                }
+                matrix[i][j] += mi;
+            }
+        }
+        int res = Integer.MAX_VALUE;
+        for (int j = 0; j < n; ++j) {
+            res = Math.min(res, matrix[n - 1][j]);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minFallingPathSum(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int mi = matrix[i - 1][j];
+                if (j > 0) mi = min(mi, matrix[i - 1][j - 1]);
+                if (j < n - 1) mi = min(mi, matrix[i - 1][j + 1]);
+                matrix[i][j] += mi;
+            }
+        }
+        int res = INT_MAX;
+        for (int j = 0; j < n; ++j) {
+            res = min(res, matrix[n - 1][j]);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minFallingPathSum(matrix [][]int) int {
+    n := len(matrix)
+    for i := 1; i < n; i++ {
+        for j := 0; j < n; j++ {
+            mi := matrix[i - 1][j]
+            if j > 0 && mi > matrix[i - 1][j - 1] {
+                mi = matrix[i - 1][j - 1]
+            }
+            if j < n - 1 && mi > matrix[i - 1][j + 1] {
+                mi = matrix[i - 1][j + 1]
+            }
+            matrix[i][j] += mi
+        }
+    }
+    res := 10000
+    for j := 0; j < n; j++ {
+        if res > matrix[n - 1][j] {
+            res = matrix[n - 1][j]
+        }
+    }
+    return res
+}
 ```
 
 ### **...**

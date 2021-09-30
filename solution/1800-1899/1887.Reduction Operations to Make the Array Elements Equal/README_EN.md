@@ -54,7 +54,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -64,12 +63,12 @@
 ```python
 class Solution:
     def reductionOperations(self, nums: List[int]) -> int:
-        counter = collections.Counter(nums)
-        f = res = 0
-        n = len(nums)
-        for _, v in sorted(counter.items(), key=lambda x: x[0]):
-            f += v
-            res += (n - f)
+        nums.sort()
+        cnt, res, n = 0, 0, len(nums)
+        for i in range(1, n):
+            if nums[i] != nums[i - 1]:
+                cnt += 1
+            res += cnt
         return res
 ```
 
@@ -78,18 +77,66 @@ class Solution:
 ```java
 class Solution {
     public int reductionOperations(int[] nums) {
-        TreeMap<Integer, Integer> counter = new TreeMap<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
-        }
-        int n = nums.length;
-        int f = 0, res = 0;
-        while (counter.size() != 0) {
-            f += counter.pollFirstEntry().getValue();
-            res += (n - f);
+        Arrays.sort(nums);
+        int cnt = 0, res = 0, n = nums.length;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] != nums[i - 1]) {
+                ++cnt;
+            }
+            res += cnt;
         }
         return res;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function reductionOperations(nums: number[]): number {
+    nums.sort((a, b) => a - b);
+    let n = nums.length;
+    let ans = 0, count = 0;
+    for (let i = 1; i < n; i++) {
+        if (nums[i] != nums[i - 1]) {
+            count++;
+        }
+        ans += count;
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int reductionOperations(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int cnt = 0, res = 0, n = nums.size();
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] != nums[i - 1]) ++cnt;
+            res += cnt;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reductionOperations(nums []int) int {
+	sort.Ints(nums)
+	cnt, res, n := 0, 0, len(nums)
+	for i := 1; i < n; i++ {
+		if nums[i] != nums[i-1] {
+			cnt++
+		}
+		res += cnt
+	}
+	return res
 }
 ```
 

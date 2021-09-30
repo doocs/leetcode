@@ -51,7 +51,6 @@
 
 <p><strong>进阶：</strong>如果给定的数组中含有负数会发生什么？问题会产生何种变化？如果允许负数出现，需要向题目中添加哪些限制条件？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -67,13 +66,13 @@
 ```python
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
-        dp = [0 for i in range(target + 1)]
+        dp = [0] * (target + 1)
         dp[0] = 1
         for i in range(1, target + 1):
             for num in nums:
-                if i - num >= 0:
+                if i >= num:
                     dp[i] += dp[i - num]
-        return dp[target]
+        return dp[-1]
 ```
 
 ### **Java**
@@ -85,15 +84,52 @@ class Solution {
     public int combinationSum4(int[] nums, int target) {
         int[] dp = new int[target + 1];
         dp[0] = 1;
-        for (int i = 1; i <= target; i++) {
+        for (int i = 1; i <= target; ++i) {
             for (int num : nums) {
-                if (i - num >= 0) {
+                if (i >= num) {
                     dp[i] += dp[i - num];
                 }
             }
         }
         return dp[target];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int combinationSum4(vector<int>& nums, int target) {
+        vector<int> dp(target + 1);
+        dp[0] = 1;
+        for (int i = 1; i <= target; ++i) {
+            for (int num : nums) {
+                if (i >= num && dp[i - num] < INT_MAX - dp[i]) {
+                    dp[i] += dp[i - num];
+                }
+            }
+        }
+        return dp[target];
+    }
+};
+```
+
+### **Go**
+
+```go
+func combinationSum4(nums []int, target int) int {
+	dp := make([]int, target+1)
+	dp[0] = 1
+	for i := 1; i <= target; i++ {
+		for _, num := range nums {
+			if i >= num {
+				dp[i] += dp[i-num]
+			}
+		}
+	}
+	return dp[target]
 }
 ```
 

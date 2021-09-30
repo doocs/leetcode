@@ -4,31 +4,23 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    int sumNumbers(TreeNode* root) {
-        if (!root) return 0;
-        int res = 0;
-        stack<TreeNode*> st{{root}};
-        while (!st.empty()) {
-            TreeNode* t = st.top();
-            st.pop();
-            if (!t->left && !t->right) {
-                res += t->val;
-            }
-            if (t->right) {
-                t->right->val += t->val * 10;
-                st.push(t->right);
-            }
-            if (t->left) {
-                t->left->val += t->val * 10;
-                st.push(t->left);
-            }
-        }
-        return res;
+    int sumNumbers(TreeNode *root) {
+        return dfs(root, 0);
     }
 
+    int dfs(TreeNode *root, int presum) {
+        if (root == nullptr)
+            return 0;
+        int s = presum * 10 + root->val;
+        if (root->left == nullptr && root->right == nullptr)
+            return s;
+        return dfs(root->left, s) + dfs(root->right, s);
+    }
 };

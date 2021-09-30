@@ -9,7 +9,7 @@ class Solution:
                     if not dfs(grid1, grid2, a, b, m, n):
                         res = False
             return res
-        
+
         m, n = len(grid1), len(grid1[0])
         count = 0
         for i in range(m):

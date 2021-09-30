@@ -10,15 +10,15 @@
 class Solution {
 public:
     int guessNumber(int n) {
-        int low = 1, high = n;
-        while (low < high) {
-            int mid = low + (high - low) / 2;
+        int left = 1, right = n;
+        while (left < right) {
+            int mid = left + ((right - left) >> 1);
             if (guess(mid) <= 0) {
-                high = mid;
+                right = mid;
             } else {
-                low = mid + 1;
+                left = mid + 1;
             }
         }
-        return low;
+        return left;
     }
 };

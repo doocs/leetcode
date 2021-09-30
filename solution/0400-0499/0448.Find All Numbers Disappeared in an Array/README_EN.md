@@ -37,14 +37,10 @@
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         for num in nums:
-            index = abs(num) - 1
-            if nums[index] > 0:
-                nums[index] *= -1
-        res = []
-        for i, v in enumerate(nums):
-            if v > 0:
-                res.append(i + 1)
-        return res
+            idx = abs(num) - 1
+            if nums[idx] > 0:
+                nums[idx] *= -1
+        return [i + 1 for i, v in enumerate(nums) if v > 0]
 ```
 
 ### **Java**
@@ -54,9 +50,9 @@ class Solution {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < n; ++i) {
-            int index = Math.abs(nums[i]) - 1;
-            if (nums[index] > 0) {
-                nums[index] *= -1;
+            int idx = Math.abs(nums[i]) - 1;
+            if (nums[idx] > 0) {
+                nums[idx] *= -1;
             }
         }
         List<Integer> res = new ArrayList<>();
@@ -67,6 +63,77 @@ class Solution {
         }
         return res;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function findDisappearedNumbers(nums: number[]): number[] {
+    for (let i = 0; i < nums.length; i++) {
+        let idx = Math.abs(nums[i]) - 1;
+        if (nums[idx] > 0) {
+            nums[idx] *= -1;
+        }
+    }
+    let ans = [];
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > 0) {
+            ans.push(i + 1);
+        }
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int> &nums) {
+        int n = nums.size();
+        for (int i = 0; i < n; ++i)
+        {
+            int idx = abs(nums[i]) - 1;
+            if (nums[idx] > 0)
+                nums[idx] *= -1;
+        }
+        vector<int> res;
+        for (int i = 0; i < n; ++i)
+        {
+            if (nums[i] > 0)
+                res.push_back(i + 1);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findDisappearedNumbers(nums []int) []int {
+	for _, num := range nums {
+		idx := abs(num) - 1
+		if nums[idx] > 0 {
+			nums[idx] *= -1
+		}
+	}
+	var res []int
+	for i, num := range nums {
+		if num > 0 {
+			res = append(res, i+1)
+		}
+	}
+	return res
+}
+
+func abs(a int) int {
+	if a > 0 {
+		return a
+	}
+	return -a
 }
 ```
 

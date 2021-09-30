@@ -59,6 +59,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+从度为一的点开始遍历图
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,7 +68,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
+        graph = collections.defaultdict(list)
+        for pair in adjacentPairs:
+            graph[pair[0]].append(pair[1])
+            graph[pair[1]].append(pair[0])
+        ans = []
+        vis = set()
 
+        def dfs(idx):
+            if idx in vis:
+                return
+            vis.add(idx)
+            ans.append(idx)
+            for nxt in graph[idx]:
+                dfs(nxt)
+
+        start = -1
+        for idx, adj in graph.items():
+            if len(adj) == 1:
+                start = idx
+                break
+
+        dfs(start)
+        return ans
 ```
 
 ### **Java**
@@ -74,7 +100,71 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] restoreArray(int[][] adjacentPairs) {
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        for (int[] pair : adjacentPairs) {
+            graph.computeIfAbsent(pair[0], k -> new ArrayList<>()).add(pair[1]);
+            graph.computeIfAbsent(pair[1], k -> new ArrayList<>()).add(pair[0]);
+        }
+        List<Integer> ans = new ArrayList<>();
+        Set<Integer> vis = new HashSet<>();
+        int start = -1;
+        for (Map.Entry<Integer, List<Integer>> entry : graph.entrySet()) {
+            if (entry.getValue().size() == 1) {
+                start = entry.getKey();
+                break;
+            }
+        }
+        dfs(graph, ans, vis, start);
+        return ans.stream().mapToInt(Integer::valueOf).toArray();
+    }
 
+    private void dfs(Map<Integer, List<Integer>> graph, List<Integer> ans, Set<Integer> vis, int idx) {
+        if (vis.contains(idx)) {
+            return;
+        }
+        vis.add(idx);
+        ans.add(idx);
+        for (Integer next : graph.get(idx)) {
+            dfs(graph, ans, vis, next);
+        }
+    }
+}
+```
+
+### **Go**
+
+```go
+func restoreArray(adjacentPairs [][]int) []int {
+	graph := make(map[int][]int)
+	for _, pair := range adjacentPairs {
+		graph[pair[0]] = append(graph[pair[0]], pair[1])
+		graph[pair[1]] = append(graph[pair[1]], pair[0])
+	}
+	ans := make([]int, 0)
+	vis := make(map[int]bool)
+	var start int
+	for idx, adj := range graph {
+		if len(adj) == 1 {
+			start = idx
+			break
+		}
+	}
+	dfs(graph, &ans, vis, start)
+	return ans
+}
+
+func dfs(graph map[int][]int, ans *[]int, vis map[int]bool, idx int) {
+	if vis[idx] {
+		return
+	}
+	vis[idx] = true
+	*ans = append(*ans, idx)
+	for _, next := range graph[idx] {
+		dfs(graph, ans, vis, next)
+	}
+}
 ```
 
 ### **...**

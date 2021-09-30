@@ -25,7 +25,6 @@
 	<li><code>A</code> 和&nbsp;<code>B</code>&nbsp;长度不超过&nbsp;<code>100</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -37,7 +36,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        if len(s) != len(goal):
+            return False
+        return goal in s + s
 ```
 
 ### **Java**
@@ -45,7 +48,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        if (s.length() != goal.length()) {
+            return false;
+        }
+        return (s + s).contains(goal);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        if (s.size() != goal.size()) {
+            return false;
+        }
+        return !!strstr((s + s).data(), goal.data());
+    }
+};
+```
+
+### **Go**
+
+```go
+func rotateString(s string, goal string) bool {
+	if len(s) != len(goal) {
+		return false
+	}
+	return strings.Contains(s+s, goal)
+}
 ```
 
 ### **...**

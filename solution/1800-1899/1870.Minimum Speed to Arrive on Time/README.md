@@ -84,16 +84,15 @@ class Solution:
             for i, d in enumerate(dist):
                 res += (d / speed) if i == len(dist) - 1 else math.ceil(d / speed)
             return res <= hour
-        if len(dist) - 1 >= hour:
-            return -1
-        l, r = 1, 10 ** 7
-        while l < r:
-            m = (l + r) >> 1
-            if arrive_on_time(m):
-                r = m
+
+        left, right = 1, 10 ** 7
+        while left < right:
+            mid = (left + right) >> 1
+            if arrive_on_time(mid):
+                right = mid
             else:
-                l = m + 1
-        return l
+                left = mid + 1
+        return left if arrive_on_time(left) else -1
 ```
 
 ### **Java**
@@ -103,19 +102,16 @@ class Solution:
 ```java
 class Solution {
     public int minSpeedOnTime(int[] dist, double hour) {
-        if (dist.length - 1 >= hour) {
-            return -1;
-        }
-        int l = 1, r = 10000000;
-        while (l < r) {
-            int m = (l + r) >> 1;
-            if (arriveOnTime(dist, m, hour)) {
-                r = m;
+        int left = 1, right = (int) 1e7;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arriveOnTime(dist, mid, hour)) {
+                right = mid;
             } else {
-                l = m + 1;
+                left = mid + 1;
             }
         }
-        return l;
+        return arriveOnTime(dist, left, hour) ? left : -1;
     }
 
     private boolean arriveOnTime(int[] dist, int speed, double hour) {
@@ -127,6 +123,35 @@ class Solution {
         return res <= hour;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSpeedOnTime(vector<int>& dist, double hour) {
+        int left = 1, right = 1e7;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arriveOnTime(dist, mid, hour)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return arriveOnTime(dist, left, hour) ? left : -1;
+    }
+
+    bool arriveOnTime(vector<int>& dist, int speed, double hour) {
+        double res = 0;
+        for (int i = 0; i < dist.size(); ++i) {
+            double cost = dist[i] * 1.0 / speed;
+            res += (i == dist.size() - 1 ? cost : ceil(cost));
+        }
+        return res <= hour;
+    }
+};
 ```
 
 ### **JavaScript**
@@ -163,6 +188,36 @@ class Solution {
     }
     return res <= hour;
  }
+```
+
+### **Go**
+
+```go
+func minSpeedOnTime(dist []int, hour float64) int {
+	n := len(dist)
+	left, right := 1, int(1e7)
+	for left < right {
+		mid := (left + right) >> 1
+		if arriveOnTime(dist, n, float64(mid), hour) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	if arriveOnTime(dist, n, float64(left), hour) {
+		return left
+	}
+	return -1
+}
+
+func arriveOnTime(dist []int, n int, speed, hour float64) bool {
+	var cost float64
+	for _, v := range dist[:n-1] {
+		cost += math.Ceil(float64(v) / speed)
+	}
+	cost += float64(dist[n-1]) / speed
+	return cost <= hour
+}
 ```
 
 ### **...**

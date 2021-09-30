@@ -112,16 +112,15 @@ class Solution {
  */
 class Solution {
 public:
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
+    TreeNode *sortedArrayToBST(vector<int> &nums) {
         return buildBST(nums, 0, nums.size() - 1);
     }
 
 private:
-    TreeNode* buildBST(vector<int>& nums, int start, int end) {
-        if (start > end) {
+    TreeNode *buildBST(vector<int> &nums, int start, int end) {
+        if (start > end)
             return nullptr;
-        }
-        int mid = (start + end) / 2;
+        int mid = start + end >> 1;
         TreeNode *root = new TreeNode(nums[mid]);
         root->left = buildBST(nums, start, mid - 1);
         root->right = buildBST(nums, mid + 1, end);
@@ -159,6 +158,34 @@ var sortedArrayToBST = function(nums) {
 
     return buildBST(nums, 0, nums.length - 1);
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func sortedArrayToBST(nums []int) *TreeNode {
+	return buildBST(nums, 0, len(nums)-1)
+}
+
+func buildBST(nums []int, start, end int) *TreeNode {
+	if start > end {
+		return nil
+	}
+	mid := (start + end) >> 1
+	return &TreeNode{
+		Val:   nums[mid],
+		Left:  buildBST(nums, start, mid-1),
+		Right: buildBST(nums, mid+1, end),
+	}
+}
 ```
 
 ### **...**

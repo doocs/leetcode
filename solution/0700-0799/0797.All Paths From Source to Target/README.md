@@ -61,6 +61,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+因为图中不存在环，所以直接用 DFS 或 BFS 遍历即可
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +70,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        n = len(graph)
+        q = deque([[0]])
+        ans = []
+        while q:
+            path = q.popleft()
+            u = path[-1]
+            if u == n - 1:
+                ans.append(path)
+                continue
+            for v in graph[u]:
+                q.append(path + [v])
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +91,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        int n = graph.length;
+        Queue<List<Integer>> queue = new ArrayDeque<>();
+        queue.offer(Arrays.asList(0));
+        List<List<Integer>> ans = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            List<Integer> path = queue.poll();
+            int u = path.get(path.size() - 1);
+            if (u == n - 1) {
+                ans.add(path);
+                continue;
+            }
+            for (int v : graph[u]) {
+                List<Integer> next = new ArrayList<>(path);
+                next.add(v);
+                queue.offer(next);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **...**

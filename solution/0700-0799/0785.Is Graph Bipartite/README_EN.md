@@ -45,7 +45,6 @@
 	<li>If <code>graph[u]</code> contains <code>v</code>, then <code>graph[v]</code> contains <code>u</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,13 +52,115 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def isBipartite(self, graph: List[List[int]]) -> bool:
+        n = len(graph)
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for u, g in enumerate(graph):
+            for v in g:
+                if find(u) == find(v):
+                    return False
+                p[find(v)] = find(g[0])
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public boolean isBipartite(int[][] graph) {
+        int n = graph.length;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int u = 0; u < n; ++u) {
+            int[] g = graph[u];
+            for (int v : g) {
+                if (find(u) == find(v)) {
+                    return false;
+                }
+                p[find(v)] = find(g[0]);
+            }
+        }
+        return true;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    bool isBipartite(vector<vector<int>>& graph) {
+        int n = graph.size();
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        for (int u = 0; u < n; ++u)
+        {
+            auto g = graph[u];
+            for (int v : g)
+            {
+                if (find(u) == find(v)) return false;
+                p[find(v)] = find(g[0]);
+            }
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func isBipartite(graph [][]int) bool {
+	n := len(graph)
+	p = make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	for u, g := range graph {
+		for _, v := range g {
+			if find(u) == find(v) {
+				return false
+			}
+			p[find(v)] = find(g[0])
+		}
+	}
+	return true
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

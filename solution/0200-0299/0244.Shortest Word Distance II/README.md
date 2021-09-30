@@ -71,9 +71,7 @@ class WordDistance {
     public WordDistance(String[] wordsDict) {
         words = new HashMap<>();
         for (int i = 0; i < wordsDict.length; ++i) {
-            List<Integer> indexes = words.getOrDefault(wordsDict[i], new ArrayList<>());
-            indexes.add(i);
-            words.put(wordsDict[i], indexes);
+            words.computeIfAbsent(wordsDict[i], k -> new ArrayList<>()).add(i);
         }
     }
 

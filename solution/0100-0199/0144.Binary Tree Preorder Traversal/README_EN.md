@@ -56,6 +56,12 @@
 
 ## Solutions
 
+**1. Recusive Traversal**
+
+**2. Non-recursive using Stack**
+
+**3. Morris Traversal**
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,12 +77,14 @@ Recursive:
 #         self.right = right
 class Solution:
     def preorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+
         def preorder(root):
             if root:
                 res.append(root.val)
                 preorder(root.left)
                 preorder(root.right)
-        res = []
+        
         preorder(root)
         return res
 ```
@@ -105,6 +113,36 @@ class Solution:
         return res
 ```
 
+Morris Traversal:
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+        while root:
+            if root.left is None:
+                res.append(root.val)
+                root = root.right
+            else:
+                pre = root.left
+                while pre.right and pre.right != root:
+                    pre = pre.right
+                if pre.right is None:
+                    res.append(root.val)
+                    pre.right = root
+                    root = root.left
+                else:
+                    pre.right = None
+                    root = root.right
+        return res
+```
+
 ### **Java**
 
 Recursive:
@@ -126,20 +164,17 @@ Recursive:
  * }
  */
 class Solution {
-
-    private List<Integer> res;
-
     public List<Integer> preorderTraversal(TreeNode root) {
-        res = new ArrayList<>();
-        preorder(root);
+        List<Integer> res = new ArrayList<>();
+        preorder(root, res);
         return res;
     }
 
-    private void preorder(TreeNode root) {
+    private void preorder(TreeNode root, List<Integer> res) {
         if (root != null) {
             res.add(root.val);
-            preorder(root.left);
-            preorder(root.right);
+            preorder(root.left, res);
+            preorder(root.right, res);
         }
     }
 }
@@ -165,24 +200,188 @@ Non-recursive:
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
         List<Integer> res = new ArrayList<>();
-        Deque<TreeNode> s = new ArrayDeque<>();
-        s.push(root);
-        while (!s.isEmpty()) {
-            TreeNode node = s.pop();
-            res.add(node.val);
-            if (node.right != null) {
-                s.push(node.right);
-            }
-            if (node.left != null) {
-                s.push(node.left);
+        if (root != null) {
+            Deque<TreeNode> s = new LinkedList<>();
+            s.offerLast(root);
+            while (!s.isEmpty()) {
+                TreeNode node = s.pollLast();
+                res.add(node.val);
+                if (node.right != null) {
+                    s.offerLast(node.right);
+                }
+                if (node.left != null) {
+                    s.offerLast(node.left);
+                }
             }
         }
         return res;
     }
+}
+```
+
+Morris Traversal:
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        while (root != null) {
+            if (root.left == null) {
+                res.add(root.val);
+                root = root.right;
+            } else {
+                TreeNode pre = root.left;
+                while (pre.right != null && pre.right != root) {
+                    pre = pre.right;
+                }
+                if (pre.right == null) {
+                    res.add(root.val);
+                    pre.right = root;
+                    root = root.left;
+                } else {
+                    pre.right = null;
+                    root = root.right;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function preorderTraversal(root: TreeNode | null): number[] {
+    if (root == null) return [];
+    let stack = [];
+    let ans = [];
+    while (root || stack.length) {
+        while (root) {
+            ans.push(root.val);
+            stack.push(root);
+            root = root.left;
+        }
+        root = stack.pop();
+        root = root.right;
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode *root) {
+        vector<int> res;
+        while (root)
+        {
+            if (root->left == nullptr)
+            {
+                res.push_back(root->val);
+                root = root->right;
+            }
+            else
+            {
+                TreeNode *pre = root->left;
+                while (pre->right && pre->right != root)
+                {
+                    pre = pre->right;
+                }
+                if (pre->right == nullptr)
+                {
+                    res.push_back(root->val);
+                    pre->right = root;
+                    root = root->left;
+                }
+                else
+                {
+                    pre->right = nullptr;
+                    root = root->right;
+                }
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func preorderTraversal(root *TreeNode) []int {
+	var res []int
+	for root != nil {
+		if root.Left == nil {
+			res = append(res, root.Val)
+			root = root.Right
+		} else {
+			pre := root.Left
+			for pre.Right != nil && pre.Right != root {
+				pre = pre.Right
+			}
+			if pre.Right == nil {
+				res = append(res, root.Val)
+				pre.Right = root
+				root = root.Left
+			} else {
+				pre.Right = nil
+				root = root.Right
+			}
+		}
+	}
+	return res
 }
 ```
 

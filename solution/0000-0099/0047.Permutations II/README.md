@@ -36,10 +36,11 @@
 	<li><code>-10 <= nums[i] <= 10</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+排序 + 深度优先搜索。
 
 <!-- tabs:start -->
 
@@ -48,7 +49,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        res = []
+        path = [0] * n
+        used = [False] * n
+        nums.sort()
 
+        def dfs(u):
+            if u == n:
+                res.append(path.copy())
+                return
+            for i in range(n):
+                if used[i] or (i > 0 and nums[i] == nums[i - 1] and not used[i - 1]):
+                    continue
+                path[u] = nums[i]
+                used[i] = True
+                dfs(u + 1)
+                used[i] = False
+
+        dfs(0)
+        return res
 ```
 
 ### **Java**
@@ -56,7 +78,99 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+        int n = nums.length;
+        boolean[] used = new boolean[n];
+        Arrays.sort(nums);
+        dfs(0, n, nums, used, path, res);
+        return res;
+    }
 
+    private void dfs(int u, int n, int[] nums, boolean[] used, List<Integer> path, List<List<Integer>> res) {
+        if (u == n) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = 0; i < n; ++i) {
+            if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {
+                continue;
+            }
+            path.add(nums[i]);
+            used[i] = true;
+            dfs(u + 1, n, nums, used, path, res);
+            used[i] = false;
+            path.remove(path.size() - 1);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> res;
+        vector<int> path(n, 0);
+        vector<bool> used(n, false);
+        sort(nums.begin(), nums.end());
+        dfs(0, n, nums, used, path, res);
+        return res;
+    }
+
+    void dfs(int u, int n, vector<int>& nums, vector<bool>& used, vector<int>& path, vector<vector<int>>& res) {
+        if (u == n)
+        {
+            res.emplace_back(path);
+            return;
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) continue;
+            path[u] = nums[i];
+            used[i] = true;
+            dfs(u + 1, n, nums, used, path, res);
+            used[i] = false;
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func permuteUnique(nums []int) [][]int {
+	n := len(nums)
+	res := make([][]int, 0)
+	path := make([]int, n)
+	used := make([]bool, n)
+	sort.Ints(nums)
+	dfs(0, n, nums, used, path, &res)
+	return res
+}
+
+func dfs(u, n int, nums []int, used []bool, path []int, res *[][]int) {
+	if u == n {
+		t := make([]int, n)
+		copy(t, path)
+		*res = append(*res, t)
+		return
+	}
+	for i := 0; i < n; i++ {
+		if used[i] || (i > 0 && nums[i] == nums[i-1] && !used[i-1]) {
+			continue
+		}
+		path[u] = nums[i]
+		used[i] = true
+		dfs(u+1, n, nums, used, path, res)
+		used[i] = false
+	}
+}
 ```
 
 ### **...**

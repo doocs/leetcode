@@ -37,7 +37,6 @@
 	<li>All words in <code>strs</code> have the same length and are anagrams of each other.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -45,13 +44,163 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def numSimilarGroups(self, strs: List[str]) -> int:
+        n = len(strs)
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+        
+        def check(a, b):
+            cnt = 0
+            for i, c in enumerate(a):
+                if c != b[i]:
+                    cnt += 1
+            return cnt <= 2
+        
+        for i in range(n):
+            for j in range(i + 1, n):
+                if check(strs[i], strs[j]):
+                    p[find(i)] = find(j)
+        
+        return sum(i == find(i) for i in range(n))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int numSimilarGroups(String[] strs) {
+        int n = strs.length;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (check(strs[i], strs[j])) {
+                    p[find(i)] = find(j);
+                }
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i == find(i)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+
+    private boolean check(String a, String b) {
+        int cnt = 0;
+        int n = a.length();
+        for (int i = 0; i < n; ++i) {
+            if (a.charAt(i) != b.charAt(i)) {
+                ++cnt;
+            }
+        }
+        return cnt <= 2;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+    int numSimilarGroups(vector<string>& strs) {
+        int n = strs.size();
+        for (int i = 0; i < n; ++i) p.push_back(i);
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = i + 1; j < n; ++j)
+            {
+                if (check(strs[i], strs[j]))
+                    p[find(i)] = find(j);
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (i == find(i)) ++res;
+        }
+        return res;
+    }
+
+    bool check(string a, string b) {
+        int cnt = 0;
+        int n = a.size();
+        for (int i = 0; i < n; ++i)
+            if (a[i] != b[i]) ++cnt;
+        return cnt <= 2;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func numSimilarGroups(strs []string) int {
+	n := len(strs)
+	p = make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			if !check(strs[i], strs[j]) {
+				continue
+			}
+			p[find(i)] = find(j)
+		}
+	}
+	res := 0
+	for i := 0; i < n; i++ {
+		if i == find(i) {
+			res++
+		}
+	}
+	return res
+}
+
+func check(a, b string) bool {
+	cnt, n := 0, len(a)
+	for i := 0; i < n; i++ {
+		if a[i] != b[i] {
+			cnt++
+		}
+	}
+	return cnt <= 2
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

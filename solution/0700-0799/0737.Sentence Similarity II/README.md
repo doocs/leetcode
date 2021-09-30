@@ -27,10 +27,72 @@
 	<li>每个&nbsp;<code>words[i]</code>&nbsp;和&nbsp;<code>pairs[i][j]</code>&nbsp;的长度范围为&nbsp;<code>[1, 20]</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，将相似对的所有单词转换为下标，然后套用并查集模板，将相似对合并。
+
+接着遍历 `sentence1`, `sentence2`，若对应的单词相同，直接 continue；若对应的单词不在相似对单词中，或者两单词不在同一个集合中，直接返回 false。否则遍历结束返回 true。
 
 <!-- tabs:start -->
 
@@ -39,7 +101,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def areSentencesSimilarTwo(self, sentence1: List[str], sentence2: List[str], similarPairs: List[List[str]]) -> bool:
+        if len(sentence1) != len(sentence2):
+            return False
+        n = len(similarPairs)
+        p = list(range(n << 1))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        words = {}
+        idx = 0
+        for a, b in similarPairs:
+            if a not in words:
+                words[a] = idx
+                idx += 1
+            if b not in words:
+                words[b] = idx
+                idx += 1
+            p[find(words[a])] = find(words[b])
+
+        for i in range(len(sentence1)):
+            if sentence1[i] == sentence2[i]:
+                continue
+            if sentence1[i] not in words or sentence2[i] not in words or find(words[sentence1[i]]) != find(words[sentence2[i]]):
+                return False
+        return True
 ```
 
 ### **Java**
@@ -47,7 +137,95 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public boolean areSentencesSimilarTwo(String[] sentence1, String[] sentence2, List<List<String>> similarPairs) {
+        if (sentence1.length != sentence2.length) {
+            return false;
+        }
+        int n = similarPairs.size();
+        p = new int[n << 1];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        Map<String, Integer> words = new HashMap<>();
+        int idx = 0;
+        for (List<String> e : similarPairs) {
+            String a = e.get(0), b = e.get(1);
+            if (!words.containsKey(a)) {
+                words.put(a, idx++);
+            }
+            if (!words.containsKey(b)) {
+                words.put(b, idx++);
+            }
+            p[find(words.get(a))] = find(words.get(b));
+        }
+        for (int i = 0; i < sentence1.length; ++i) {
+            if (Objects.equals(sentence1[i], sentence2[i])) {
+                continue;
+            }
+            if (!words.containsKey(sentence1[i]) || !words.containsKey(sentence2[i]) || find(words.get(sentence1[i])) != find(words.get(sentence2[i]))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **Go**
+
+```go
+var p []int
+
+func areSentencesSimilarTwo(sentence1 []string, sentence2 []string, similarPairs [][]string) bool {
+	if len(sentence1) != len(sentence2) {
+		return false
+	}
+	n := len(similarPairs)
+	p = make([]int, (n<<1)+10)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	words := make(map[string]int)
+	idx := 1
+	for _, e := range similarPairs {
+		a, b := e[0], e[1]
+		if words[a] == 0 {
+			words[a] = idx
+			idx++
+		}
+		if words[b] == 0 {
+			words[b] = idx
+			idx++
+		}
+		p[find(words[a])] = find(words[b])
+	}
+	for i := 0; i < len(sentence1); i++ {
+		if sentence1[i] == sentence2[i] {
+			continue
+		}
+		if words[sentence1[i]] == 0 || words[sentence2[i]] == 0 || find(words[sentence1[i]]) != find(words[sentence2[i]]) {
+			return false
+		}
+	}
+	return true
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

@@ -97,18 +97,99 @@ Student number 1 does not have enough chalk, so they will have to replace it.
 
 ## Solutions
 
+PreSum and Binary search.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def chalkReplacer(self, chalk: List[int], k: int) -> int:
+        pre_sum = list(itertools.accumulate(chalk))
+        k %= pre_sum[-1]
+        left, right = 0, len(chalk) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            if pre_sum[mid] > k:
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int chalkReplacer(int[] chalk, int k) {
+        int n = chalk.length;
+        long[] preSum = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            preSum[i + 1] = preSum[i] + chalk[i];
+        }
+        k %= preSum[n];
+        int left = 0, right = n - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (preSum[mid + 1] > k) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int chalkReplacer(vector<int>& chalk, int k) {
+        int n = chalk.size();
+        vector<long long> preSum(n + 1);
+        for (int i = 0; i < n; ++i) {
+            preSum[i + 1] = preSum[i] + chalk[i];
+        }
+        k %= preSum[n];
+        int left = 0, right = n - 1;
+        while (left < right) {
+            int mid = left + (right - left >> 1);
+            if (preSum[mid + 1] > k) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func chalkReplacer(chalk []int, k int) int {
+	n := len(chalk)
+	preSum := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		preSum[i+1] = preSum[i] + chalk[i]
+	}
+	k %= preSum[n]
+	left, right := 0, n-1
+	for left < right {
+		mid := left + ((right - left) >> 1)
+		if preSum[mid+1] > k {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
 ```
 
 ### **...**

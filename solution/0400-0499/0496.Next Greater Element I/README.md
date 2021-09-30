@@ -49,12 +49,21 @@
 
 <p><strong>进阶：</strong>你可以设计一个时间复杂度为 <code>O(nums1.length + nums2.length)</code> 的解决方案吗？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
 先对将 nums2 中的每一个元素，求出其下一个更大的元素。随后对于将这些答案放入哈希映射（HashMap）中，再遍历数组 nums1，并直接找出答案。对于 nums2，可以使用单调栈来解决这个问题。
+
+单调栈常见模型：找出每个数左/右边**离它最近的**且**比它大/小的数**。模板：
+
+```python
+stk = []
+for i in range(n):
+    while stk and check(stk[-1], i):
+        stk.pop()
+    stk.append(i)
+```
 
 <!-- tabs:start -->
 
@@ -65,13 +74,14 @@
 ```python
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        stack = []
-        mapper = {}
-        for num in nums2:
-            while stack and stack[-1] < num:
-                mapper[stack.pop()] = num
-            stack.append(num)
-        return [mapper.get(num, -1) for num in nums1]
+        stk = []
+        mp = {}
+        for num in nums2[::-1]:
+            while stk and stk[-1] <= num:
+                stk.pop()
+            mp[num] = stk[-1] if stk else -1
+            stk.append(num)
+        return [mp[num] for num in nums1]
 ```
 
 ### **Java**
@@ -81,18 +91,19 @@ class Solution:
 ```java
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        Deque<Integer> stack = new ArrayDeque<>();
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int num : nums2) {
-            while (!stack.isEmpty() && stack.peek() < num) {
-                map.put(stack.pop(), num);
+        Deque<Integer> stk = new ArrayDeque<>();
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int i = nums2.length - 1; i >= 0; --i) {
+            while (!stk.isEmpty() && stk.peek() <= nums2[i]) {
+                stk.pop();
             }
-            stack.push(num);
+            mp.put(nums2[i], stk.isEmpty() ? -1 : stk.peek());
+            stk.push(nums2[i]);
         }
         int n = nums1.length;
         int[] res = new int[n];
         for (int i = 0; i < n; ++i) {
-            res[i] = map.getOrDefault(nums1[i], -1);
+            res[i] = mp.get(nums1[i]);
         }
         return res;
     }
@@ -107,18 +118,66 @@ class Solution {
  * @param {number[]} nums2
  * @return {number[]}
  */
-var nextGreaterElement = function(nums1, nums2) {
-    let stack = [];
-    let nextGreater = {};
-    for (let num of nums2) {
-        while (stack.length > 0 && stack[stack.length - 1] < num) {
-            nextGreater[stack.pop()] = num;
-        }
-        stack.push(num);
+var nextGreaterElement = function (nums1, nums2) {
+  let stack = [];
+  let nextGreater = {};
+  for (let num of nums2) {
+    while (stack.length > 0 && stack[stack.length - 1] < num) {
+      nextGreater[stack.pop()] = num;
     }
-    let res = nums1.map(d => nextGreater[d] || -1);
-    return res;
+    stack.push(num);
+  }
+  let res = nums1.map((d) => nextGreater[d] || -1);
+  return res;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2) {
+        stack<int> stk;
+        unordered_map<int, int> mp;
+        for (int i = nums2.size() - 1; i >= 0; --i)
+        {
+            while (!stk.empty() && stk.top() <= nums2[i])
+                stk.pop();
+            mp[nums2[i]] = stk.empty() ? -1 : stk.top();
+            stk.push(nums2[i]);
+        }
+        vector<int> res;
+        for (int num : nums1)
+            res.push_back(mp[num]);
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func nextGreaterElement(nums1 []int, nums2 []int) []int {
+	var stk []int
+	mp := make(map[int]int)
+	for i := len(nums2) - 1; i >= 0; i-- {
+		for len(stk) > 0 && stk[len(stk)-1] <= nums2[i] {
+			stk = stk[:len(stk)-1]
+		}
+		if len(stk) > 0 {
+			mp[nums2[i]] = stk[len(stk)-1]
+		} else {
+			mp[nums2[i]] = -1
+		}
+		stk = append(stk, nums2[i])
+	}
+	var res []int
+	for _, num := range nums1 {
+		res = append(res, mp[num])
+	}
+	return res
+}
 ```
 
 ### **...**

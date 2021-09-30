@@ -57,10 +57,70 @@
 	<li><code>A<sub>i</sub>, B<sub>i</sub>, C<sub>j</sub>, D<sub>j</sub></code> 由小写英文字母与数字组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，具备等式关系的所有变量构成同一个集合，同时，需要维护一个权重数组 w，初始时 `w[i] = 1`。对于等式关系如 `a / b = 2`，令 `w[a] = 2`。在 `find()` 查找祖宗节点的时候，同时进行路径压缩，并更新节点权重。
 
 <!-- tabs:start -->
 
@@ -69,7 +129,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+        w = collections.defaultdict(lambda: 1)
+        p = collections.defaultdict()
+        for a, b in equations:
+            p[a] = a
+            p[b] = b
+        
+        def find(x):
+            if p[x] != x:
+                origin = p[x]
+                p[x] = find(p[x])
+                w[x] *= w[origin]
+            return p[x]
 
+        for i, e in enumerate(equations):
+            pa, pb = find(e[0]), find(e[1])
+            if pa == pb:
+                continue
+            p[pa] = pb
+            w[pa] = w[e[1]] * values[i] / w[e[0]]
+        
+        return [-1 if c not in p or d not in p or find(c) != find(d) else w[c] / w[d] for c, d in queries]
 ```
 
 ### **Java**
@@ -77,7 +159,142 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Map<String, String> p;
+    private Map<String, Double> w;
 
+    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+        int n = equations.size();
+        p = new HashMap<>(n << 1);
+        w = new HashMap<>(n << 1);
+        for (List<String> e : equations) {
+            p.put(e.get(0), e.get(0));
+            p.put(e.get(1), e.get(1));
+            w.put(e.get(0), 1.0);
+            w.put(e.get(1), 1.0);
+        }
+        for (int i = 0; i < n; ++i) {
+            List<String> e = equations.get(i);
+            String a = e.get(0), b = e.get(1);
+            String pa = find(a), pb = find(b);
+            if (Objects.equals(pa, pb)) {
+                continue;
+            }
+            p.put(pa, pb);
+            w.put(pa, w.get(b) * values[i] / w.get(a));
+        }
+        int m = queries.size();
+        double[] res = new double[m];
+        for (int i = 0; i < m; ++i) {
+            String c = queries.get(i).get(0), d = queries.get(i).get(1);
+            res[i] = !p.containsKey(c) || !p.containsKey(d) || !Objects.equals(find(c), find(d)) ? - 1.0 : w.get(c) / w.get(d);
+        }
+        return res;
+    }
+
+    private String find(String x) {
+        if (!Objects.equals(p.get(x), x)) {
+            String origin = p.get(x);
+            p.put(x, find(p.get(x)));
+            w.put(x, w.get(x) * w.get(origin));
+        }
+        return p.get(x);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    unordered_map<string, string> p;
+    unordered_map<string, double> w;
+
+    vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+        int n = equations.size();
+        for (auto e : equations)
+        {
+            p[e[0]] = e[0];
+            p[e[1]] = e[1];
+            w[e[0]] = 1.0;
+            w[e[1]] = 1.0;
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            vector<string> e = equations[i];
+            string a = e[0], b = e[1];
+            string pa = find(a), pb = find(b);
+            if (pa == pb) continue;
+            p[pa] = pb;
+            w[pa] = w[b] * values[i] / w[a];
+        }
+        int m = queries.size();
+        vector<double> res(m);
+        for (int i = 0; i < m; ++i)
+        {
+            string c = queries[i][0], d = queries[i][1];
+            res[i] = p.find(c) == p.end() || p.find(d) == p.end() || find(c) != find(d) ? -1.0 : w[c] / w[d];
+        }
+        return res;
+    }
+
+    string find(string x) {
+        if (p[x] != x)
+        {
+            string origin = p[x];
+            p[x] = find(p[x]);
+            w[x] *= w[origin];
+        }
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p map[string]string
+var w map[string]float64
+
+func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
+	p = make(map[string]string)
+	w = make(map[string]float64)
+	for _, e := range equations {
+		p[e[0]] = e[0]
+		p[e[1]] = e[1]
+		w[e[0]] = 1.0
+		w[e[1]] = 1.0
+	}
+	for i, e := range equations {
+		a, b := e[0], e[1]
+		pa, pb := find(a), find(b)
+		if pa == pb {
+			continue
+		}
+		p[pa] = pb
+		w[pa] = w[b] * values[i] / w[a]
+	}
+	var res []float64
+	for _, e := range queries {
+		c, d := e[0], e[1]
+		if p[c] == "" || p[d] == "" || find(c) != find(d) {
+			res = append(res, -1.0)
+		} else {
+			res = append(res, w[c]/w[d])
+		}
+	}
+	return res
+}
+
+func find(x string) string {
+	if p[x] != x {
+		origin := p[x]
+		p[x] = find(p[x])
+		w[x] *= w[origin]
+	}
+	return p[x]
+}
 ```
 
 ### **...**

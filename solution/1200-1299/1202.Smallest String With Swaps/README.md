@@ -53,10 +53,72 @@
 	<li><code>s</code>&nbsp;中只含有小写英文字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，索引对具备传递性。即如果索引对是 `[0,2]`, `[0, 3]`，那么索引 0、2、3 可以进行任意交换。我们可以利用并查集，遍历每个索引对，将其中的两个索引进行合并，得到并查集，连在一起的索引对应的字符按照字典序排列，这里可以利用优先级队列实现。
+
+最后遍历字符串，找到每个字符的根元素，并替换为字典序中对应的字符。
 
 <!-- tabs:start -->
 
@@ -65,7 +127,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
+        n = len(s)
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for a, b in pairs:
+            p[find(a)] = find(b)
+
+        mp = collections.defaultdict(list)
+        for i in range(n):
+            heapq.heappush(mp[find(i)], s[i])
+        chars = list(s)
+        for i in range(n):
+            chars[i] = heapq.heappop(mp[find(i)])
+        return ''.join(chars)
 ```
 
 ### **Java**
@@ -73,7 +154,36 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
+        int n = s.length();
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (List<Integer> pair : pairs) {
+            p[find(pair.get(0))] = find(pair.get(1));
+        }
+        Map<Integer, PriorityQueue<Character>> mp = new HashMap<>();
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < n; ++i) {
+            mp.computeIfAbsent(find(i), key -> new PriorityQueue<>()).offer(chars[i]);
+        }
+        for (int i = 0; i < n; ++i) {
+            chars[i] = mp.get(find(i)).poll();
+        }
+        return new String(chars);
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
 ```
 
 ### **...**

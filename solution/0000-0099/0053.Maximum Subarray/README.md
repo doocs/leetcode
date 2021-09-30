@@ -64,9 +64,21 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+### 1. 动态规划
+
 设 `dp[i]` 表示 `[0..i]` 中，以 `nums[i]` 结尾的最大子数组和，状态转移方程 `dp[i] = nums[i] + max(dp[i - 1], 0)`。
 
 由于 `dp[i]` 只与子问题 `dp[i-1]` 有关，故可以用一个变量 f 来表示。
+
+### 2. 分治
+
+最大子序和可能有三种情况：
+
+1. 在数组左半部分
+1. 在数组右半部分
+1. 跨越左右半部分
+
+递归求得三者，返回最大值即可。
 
 <!-- tabs:start -->
 
@@ -74,20 +86,52 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+动态规划：
+
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        n = len(nums)
         res = f = nums[0]
-        for i in range(1, n):
-            f = nums[i] + max(f, 0)
+        for num in nums[1:]:
+            f = num + max(f, 0)
             res = max(res, f)
         return res
+```
+
+分治：
+
+```python
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        def crossMaxSub(nums, left, mid, right):
+            lsum = rsum = 0
+            lmx = rmx = float('-inf')
+            for i in range(mid, left - 1, -1):
+                lsum += nums[i]
+                lmx = max(lmx, lsum)
+            for i in range(mid + 1, right + 1):
+                rsum += nums[i]
+                rmx = max(rmx, rsum)
+            return lmx + rmx
+
+        def maxSub(nums, left, right):
+            if left == right:
+                return nums[left]
+            mid = (left + right) >> 1
+            lsum = maxSub(nums, left, mid)
+            rsum = maxSub(nums, mid + 1, right)
+            csum = crossMaxSub(nums, left, mid, right)
+            return max(lsum, rsum, csum)
+
+        left, right = 0, len(nums) - 1
+        return maxSub(nums, left, right)
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+动态规划：
 
 ```java
 class Solution {
@@ -98,6 +142,40 @@ class Solution {
             res = Math.max(res, f);
         }
         return res;
+    }
+}
+```
+
+分治：
+
+```java
+class Solution {
+    public int maxSubArray(int[] nums) {
+        return maxSub(nums, 0, nums.length - 1);
+    }
+
+    private int maxSub(int[] nums, int left, int right) {
+        if (left == right) {
+            return nums[left];
+        }
+        int mid = (left + right) >>> 1;
+        int lsum = maxSub(nums, left, mid);
+        int rsum = maxSub(nums, mid + 1, right);
+        return Math.max(Math.max(lsum, rsum), crossMaxSub(nums, left, mid, right));
+    }
+
+    private int crossMaxSub(int[] nums, int left, int mid, int right) {
+        int lsum = 0, rsum = 0;
+        int lmx = Integer.MIN_VALUE, rmx = Integer.MIN_VALUE;
+        for (int i = mid; i >= left; --i) {
+            lsum += nums[i];
+            lmx = Math.max(lmx, lsum);
+        }
+        for (int i = mid + 1; i <= right; ++i) {
+            rsum += nums[i];
+            rmx = Math.max(rmx, rsum);
+        }
+        return lmx + rmx;
     }
 }
 ```
@@ -152,6 +230,22 @@ func maxSubArray(nums []int) int {
         }
     }
     return res
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaxSubArray(int[] nums) {
+        int res = nums[0], f = nums[0];
+        for (int i = 1; i < nums.Length; ++i)
+        {
+            f = nums[i] + Math.Max(f, 0);
+            res = Math.Max(res, f);
+        }
+        return res;
+    }
 }
 ```
 

@@ -58,10 +58,13 @@
 
 <p> </p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+从右上角开始遍历。当遇到负数时，说明这一列从当前行往下的所有数（共 `m - i` 个数）均为负数，`cnt += (m - i)`，然后 j 往左移动一个位置。否则 i 往下移动一个位置。
+
+最后返回 cnt 值即可。
 
 <!-- tabs:start -->
 
@@ -70,7 +73,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countNegatives(self, grid: List[List[int]]) -> int:
+        m, n, cnt = len(grid), len(grid[0]), 0
+        i, j = 0, n - 1
+        while i < m and j >= 0:
+            if grid[i][j] < 0:
+                cnt += (m - i)
+                j -= 1
+            else:
+                i += 1
+        return cnt
 ```
 
 ### **Java**
@@ -78,7 +91,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countNegatives(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int cnt = 0;
+        for (int i = 0, j = n - 1; j >= 0 && i < m;) {
+            if (grid[i][j] < 0) {
+                cnt += (m - i);
+                --j;
+            } else {
+                ++i;
+            }
+        }
+        return cnt;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function countNegatives(grid: number[][]): number {
+    let m = grid.length, n = grid[0].length;
+    let i = 0, j = n - 1;
+    let ans = 0;
+    while (i < m && j > -1) {
+        let cur = grid[i][j];
+        if (cur < 0) {
+            j--;
+            ans += (m - i);
+        } else {
+            i++;
+        }
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int i = 0, j = n - 1, cnt = 0;
+        while (i < m && j >= 0) {
+            if (grid[i][j] < 0) {
+                cnt += (m - i);
+                --j;
+            } else {
+                ++i;
+            }
+        }
+        return cnt;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countNegatives(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	i, j, cnt := 0, n-1, 0
+	for i < m && j >= 0 {
+		if grid[i][j] < 0 {
+			cnt += (m - i)
+			j--
+		} else {
+			i++
+		}
+	}
+	return cnt
+}
 ```
 
 ### **...**

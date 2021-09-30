@@ -58,10 +58,73 @@
 	<li>两台计算机不会通过多条线缆连接。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，先遍历所有的边：
+
+- 如果边的两个节点已经属于同个集合，说明两个节点已经相连，不必再将此边加入到集合中，累加 cnt；
+- 否则将边加入集合中。
+
+最后判断集合的数量 total 与 cnt 的大小关系。
 
 <!-- tabs:start -->
 
@@ -70,7 +133,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def makeConnected(self, n: int, connections: List[List[int]]) -> int:
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        cnt = 0
+        for a, b in connections:
+            if find(a) == find(b):
+                cnt += 1
+            else:
+                p[find(a)] = find(b)
+        total = sum(i == find(i) for i in range(n))
+        return -1 if total - 1 > cnt else total - 1
 ```
 
 ### **Java**
@@ -78,7 +157,120 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int makeConnected(int n, int[][] connections) {
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        int cnt = 0;
+        for (int[] e : connections) {
+            if (find(e[0]) == find(e[1])) {
+                ++cnt;
+            } else {
+                p[find(e[0])] = find(e[1]);
+            }
+        }
+        int total = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i == find(i)) {
+                ++total;
+            }
+        }
+        return total - 1 > cnt ? -1 : total - 1;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int makeConnected(int n, vector<vector<int>> &connections) {
+        p.resize(n);
+        for (int i = 0; i < n; ++i)
+        {
+            p[i] = i;
+        }
+        int cnt = 0;
+        for (auto e : connections)
+        {
+            if (find(e[0]) == find(e[1]))
+            {
+                ++cnt;
+            }
+            else
+            {
+                p[find(e[0])] = find(e[1]);
+            }
+        }
+        int total = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (i == find(i))
+            {
+                ++total;
+            }
+        }
+        return total - 1 > cnt ? -1 : total - 1;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+            p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func makeConnected(n int, connections [][]int) int {
+	p = make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	cnt := 0
+	for _, e := range connections {
+		if find(e[0]) == find(e[1]) {
+			cnt++
+		} else {
+			p[find(e[0])] = find(e[1])
+		}
+	}
+	total := 0
+	for i := 0; i < n; i++ {
+		if i == find(i) {
+			total++
+		}
+	}
+	if total-1 > cnt {
+		return -1
+	}
+	return total - 1
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

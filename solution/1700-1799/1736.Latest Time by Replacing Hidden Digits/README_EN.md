@@ -49,13 +49,93 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumTime(self, time: str) -> str:
+        t = list(time)
+        if t[0] == '?':
+            t[0] = '1' if '4' <= t[1] <= '9' else '2'
+        if t[1] == '?':
+            t[1] = '3' if t[0] == '2' else '9'
+        if t[3] == '?':
+            t[3] = '5'
+        if t[4] == '?':
+            t[4] = '9'
+        return ''.join(t)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String maximumTime(String time) {
+        char[] t = time.toCharArray();
+        if (t[0] == '?') {
+            t[0] = t[1] >= '4' && t[1] <= '9' ? '1' : '2';
+        }
+        if (t[1] == '?') {
+            t[1] = t[0] == '2' ? '3' : '9';
+        }
+        if (t[3] == '?') {
+            t[3] = '5';
+        }
+        if (t[4] == '?') {
+            t[4] = '9';
+        }
+        return new String(t);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string maximumTime(string time) {
+        if (time[0] == '?') {
+            time[0] = (time[1] >= '4' && time[1] <= '9') ? '1' : '2';
+        }
+        if (time[1] == '?') {
+            time[1] = (time[0] == '2') ? '3' : '9';
+        }
+        if (time[3] == '?') {
+            time[3] = '5';
+        }
+        if (time[4] == '?') {
+            time[4] = '9';
+        }
+        return time;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumTime(time string) string {
+	t := []byte(time)
+	if t[0] == '?' {
+		if t[1] >= '4' && t[1] <= '9' {
+			t[0] = '1'
+		} else {
+			t[0] = '2'
+		}
+	}
+	if t[1] == '?' {
+		if t[0] == '2' {
+			t[1] = '3'
+		} else {
+			t[1] = '9'
+		}
+	}
+	if t[3] == '?' {
+		t[3] = '5'
+	}
+	if t[4] == '?' {
+		t[4] = '9'
+	}
+	return string(t)
+}
 ```
 
 ### **...**

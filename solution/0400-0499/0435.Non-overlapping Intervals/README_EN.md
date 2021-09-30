@@ -43,18 +43,98 @@
 
 ## Solutions
 
+Greedy.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        if not intervals:
+            return 0
+        intervals.sort(key=lambda x: x[1])
+        cnt, end = 0, intervals[0][1]
+        for interval in intervals[1:]:
+            if interval[0] >= end:
+                end = interval[1]
+            else:
+                cnt += 1
+        return cnt
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int eraseOverlapIntervals(int[][] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
+        int end = intervals[0][1], cnt = 0;
+        for (int i = 1; i < intervals.length; ++i) {
+            if (intervals[i][0] >= end) {
+                end = intervals[i][1];
+            } else {
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int eraseOverlapIntervals(vector<vector<int>> &intervals) {
+        if (intervals.empty())
+        {
+            return 0;
+        }
+        sort(intervals.begin(), intervals.end(), [](const auto &a, const auto &b)
+             { return a[1] < b[1]; });
+        int ed = intervals[0][1], cnt = 0;
+        for (int i = 1; i < intervals.size(); ++i)
+        {
+            if (ed <= intervals[i][0])
+            {
+                ed = intervals[i][1];
+            }
+            else
+            {
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+};
+```
+
+### **Go**
+
+```go
+func eraseOverlapIntervals(intervals [][]int) int {
+	if intervals == nil || len(intervals) == 0 {
+		return 0
+	}
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][1] < intervals[j][1]
+	})
+	end, cnt := intervals[0][1], 0
+	for i := 1; i < len(intervals); i++ {
+		if intervals[i][0] >= end {
+			end = intervals[i][1]
+		} else {
+			cnt++
+		}
+	}
+	return cnt
+}
 ```
 
 ### **...**

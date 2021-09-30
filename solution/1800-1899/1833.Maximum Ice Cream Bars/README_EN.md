@@ -47,7 +47,6 @@
 	<li><code>1 &lt;= coins &lt;= 10<sup>8</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 Pay attention to the data range. The question can easily mislead us to use the 01 backpack (it will overtime). In fact, this question is a simple "greedy problem" (choose low-priced ice cream first)
@@ -60,13 +59,13 @@ Pay attention to the data range. The question can easily mislead us to use the 0
 class Solution:
     def maxIceCream(self, costs: List[int], coins: int) -> int:
         costs.sort()
-        ans, n = 0, len(costs)
-        for i in range(n):
-            if coins < costs[i]:
+        ans = 0
+        for c in costs:
+            if coins < c:
                 break
             else:
                 ans += 1
-                coins -= costs[i]
+                coins -= c
         return ans
 ```
 
@@ -84,6 +83,24 @@ class Solution {
         return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxIceCream(vector<int>& costs, int coins) {
+        sort(costs.begin(), costs.end());
+        int ans = 0;
+        for (int i = 0; i < costs.size() && coins >= costs[i]; ++i)
+        {
+            ++ans;
+            coins -= costs[i];
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**

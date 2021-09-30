@@ -56,13 +56,65 @@ Clearly the destination city is &quot;A&quot;.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def destCity(self, paths: List[List[str]]) -> str:
+        mp = {a: b for a, b in paths}
+        a =  paths[0][0]
+        while mp.get(a):
+            a = mp[a]
+        return a
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String destCity(List<List<String>> paths) {
+        Map<String, String> mp = new HashMap<>();
+        for (List<String> path : paths) {
+            mp.put(path.get(0), path.get(1));
+        }
+        String a = paths.get(0).get(0);
+        while (mp.get(a) != null) {
+            a = mp.get(a);
+        }
+        return a;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string destCity(vector<vector<string>>& paths) {
+        unordered_map<string, string> mp;
+        for (auto& path : paths) mp[path[0]] = path[1];
+        string a = paths[0][0];
+        while (mp.find(a) != mp.end()) a = mp[a];
+        return a;
+    }
+};
+```
+
+### **Go**
+
+```go
+func destCity(paths [][]string) string {
+	mp := make(map[string]string)
+	for _, path := range paths {
+		mp[path[0]] = path[1]
+	}
+	a := paths[0][0]
+	for true {
+		if _, ok := mp[a]; !ok {
+			return a
+		}
+		a = mp[a]
+	}
+	return ""
+}
 ```
 
 ### **...**

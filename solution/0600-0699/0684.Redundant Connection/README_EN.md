@@ -10,15 +10,15 @@ In this problem, a tree is an <b>undirected</b> graph that is connected and has 
 
 </p><p>
 
-The given input is a graph that started as a tree with N nodes (with distinct values 1, 2, ..., N), with one additional edge added.  The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.
+The given input is a graph that started as a tree with N nodes (with distinct values 1, 2, ..., N), with one additional edge added. The added edge has two different vertices chosen from 1 to N, and was not an edge that already existed.
 
 </p><p>
 
-The resulting graph is given as a 2D-array of <code>edges</code>.  Each element of <code>edges</code> is a pair <code>[u, v]</code> with <code>u < v</code>, that represents an <b>undirected</b> edge connecting nodes <code>u</code> and <code>v</code>.
+The resulting graph is given as a 2D-array of <code>edges</code>. Each element of <code>edges</code> is a pair <code>[u, v]</code> with <code>u < v</code>, that represents an <b>undirected</b> edge connecting nodes <code>u</code> and <code>v</code>.
 
 </p><p>
 
-Return an edge that can be removed so that the resulting graph is a tree of N nodes.  If there are multiple answers, return the answer that occurs last in the given 2D-array.  The answer edge <code>[u, v]</code> should be in the same format, with <code>u < v</code>.
+Return an edge that can be removed so that the resulting graph is a tree of N nodes. If there are multiple answers, return the answer that occurs last in the given 2D-array. The answer edge <code>[u, v]</code> should be in the same format, with <code>u < v</code>.
 
 </p><p><b>Example 1:</b><br />
 
@@ -68,11 +68,7 @@ Return an edge that can be removed so that the resulting graph is a tree of N no
 
 </p>
 
-
-
 <br />
-
-
 
 <p>
 
@@ -89,13 +85,101 @@ We have overhauled the problem description + test cases and specified clearly th
 ### **Python3**
 
 ```python
+class Solution:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        p = list(range(1010))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+        
+        for a, b in edges:
+            if find(a) == find(b):
+                return [a, b]
+            p[find(a)] = find(b)
+        return []
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int[] findRedundantConnection(int[][] edges) {
+        p = new int[1010];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        for (int[] e : edges) {
+            if (find(e[0]) == find(e[1])) {
+                return e;
+            }
+            p[find(e[0])] = find(e[1]);
+        }
+        return null;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        p.resize(1010);
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        for (auto e : edges)
+        {
+            if (find(e[0]) == find(e[1])) return e;
+            p[find(e[0])] = find(e[1]);
+        }
+        return {};
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func findRedundantConnection(edges [][]int) []int {
+	p = make([]int, 1010)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	for _, e := range edges {
+		if find(e[0]) == find(e[1]) {
+			return e
+		}
+		p[find(e[0])] = find(e[1])
+	}
+	return nil
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

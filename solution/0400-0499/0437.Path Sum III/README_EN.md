@@ -41,13 +41,154 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: TreeNode, targetSum: int) -> int:
+        preSum = defaultdict(int)
+        preSum[0] = 1
 
+        def dfs(node: TreeNode, cur: int) -> int:
+            if not node:
+                return 0
+
+            cur += node.val
+            ret = preSum[cur - targetSum]
+
+            preSum[cur] += 1
+            ret += dfs(node.left, cur)
+            ret += dfs(node.right, cur)
+            preSum[cur] -= 1
+
+            return ret
+
+        return dfs(root, 0)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    private final Map<Integer, Integer> preSum = new HashMap<>();
+
+    public int pathSum(TreeNode root, int targetSum) {
+        preSum.put(0, 1);
+        return dfs(root, 0, targetSum);
+    }
+
+    private int dfs(TreeNode node, int cur, int targetSum) {
+        if (node == null) {
+            return 0;
+        }
+
+        cur += node.val;
+        int ret = preSum.getOrDefault(cur - targetSum, 0);
+
+        preSum.merge(cur, 1, Integer::sum);
+        ret += dfs(node.left, cur, targetSum);
+        ret += dfs(node.right, cur, targetSum);
+        preSum.merge(cur, -1, Integer::sum);
+
+        return ret;
+    }
+}
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pathSum(root *TreeNode, targetSum int) int {
+	preSum := make(map[int]int)
+	preSum[0] = 1
+
+	var dfs func(*TreeNode, int) int
+	dfs = func(node *TreeNode, cur int) int {
+		if node == nil {
+			return 0
+		}
+
+		cur += node.Val
+		ret := preSum[cur-targetSum]
+
+		preSum[cur]++
+		ret += dfs(node.Left, cur)
+		ret += dfs(node.Right, cur)
+		preSum[cur]--
+
+		return ret
+	}
+
+	return dfs(root, 0)
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int pathSum(TreeNode* root, int targetSum) {
+        unordered_map<int, int> preSum;
+        preSum[0] = 1;
+
+        function<int(TreeNode*, int)> dfs = [&](TreeNode* node, int cur) {
+            if (node == nullptr) {
+                return 0;
+            }
+
+            cur += node->val;
+            int ret = preSum[cur - targetSum];
+
+            ++preSum[cur];
+            ret += dfs(node->left, cur);
+            ret += dfs(node->right, cur);
+            --preSum[cur];
+
+            return ret;
+        };
+
+        return dfs(root, 0);
+    }
+};
 ```
 
 ### **...**

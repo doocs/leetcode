@@ -43,7 +43,6 @@ The final concatenated result is &quot;Goal&quot;.
 	<li><code>command</code> consists of <code>&quot;G&quot;</code>, <code>&quot;()&quot;</code>, and/or <code>&quot;(al)&quot;</code> in some order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -51,13 +50,105 @@ The final concatenated result is &quot;Goal&quot;.
 ### **Python3**
 
 ```python
+class Solution:
+    def interpret(self, command: str) -> str:
+        return command.replace('()', 'o').replace('(al)', 'al')
+```
 
+```python
+class Solution:
+    def interpret(self, command: str) -> str:
+        res = ''
+        i, n = 0, len(command)
+        while i < n:
+            c = command[i]
+            if c == 'G':
+                res += c
+                i += 1
+            elif c == '(' and command[i + 1] != ')':
+                res += 'al'
+                i += 4
+            else:
+                res += 'o'
+                i += 2
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String interpret(String command) {
+        StringBuilder sb = new StringBuilder();
+        int p = 0, q = 1;
+        for (; p < command.length(); p++, q++) {
+            char c = command.charAt(p);
+            if (c == 'G')
+                sb.append('G');
+            if (c == '(') {
+                if (command.charAt(q) == ')') {
+                    sb.append("o");
+                    p++;
+                    q++;
+                } else {
+                    sb.append("al");
+                    p += 2;
+                    q += 2;
+                }
+            }
+        }
+        return sb.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string interpret(string command) {
+        string res = "";
+        int i = 0, n = command.size();
+        while (i < n) {
+            char c = command[i];
+            if (c == 'G') {
+                res += "G";
+                i += 1;
+            } else if (c == '(' && command[i + 1] != ')') {
+                res += "al";
+                i += 4;
+            } else {
+                res += "o";
+                i += 2;
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func interpret(command string) string {
+	var res string
+	i, n := 0, len(command)
+	for i < n {
+		c := command[i]
+		if c == 'G' {
+			res += "G"
+			i += 1
+		} else if c == '(' && command[i+1] != ')' {
+			res += "al"
+			i += 4
+		} else {
+			res += "o"
+			i += 2
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

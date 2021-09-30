@@ -14,11 +14,9 @@ We want to find an <i>index mapping</i> <code>P</code>, from <code>A</code> to <
 
 </p><p>
 
-These lists <code>A</code> and <code>B</code> may contain duplicates.  If there are multiple answers, output any of them.
+These lists <code>A</code> and <code>B</code> may contain duplicates. If there are multiple answers, output any of them.
 
 </p>
-
-
 
 <p>
 
@@ -50,8 +48,6 @@ and so on.
 
 </p>
 
-
-
 <p><b>Note:</b><ol>
 
 <li><code>A, B</code> have equal lengths in range <code>[1, 100]</code>.</li>
@@ -82,9 +78,7 @@ class Solution {
     public int[] anagramMappings(int[] nums1, int[] nums2) {
         Map<Integer, Set<Integer>> map = new HashMap<>();
         for (int i = 0; i < nums2.length; ++i) {
-            Set<Integer> s = map.getOrDefault(nums2[i], new HashSet<>());
-            s.add(i);
-            map.put(nums2[i], s);
+            map.computeIfAbsent(nums2[i], k -> new HashSet<>()).add(i);
         }
         int[] res = new int[nums1.length];
         for (int i = 0; i < nums1.length; ++i) {

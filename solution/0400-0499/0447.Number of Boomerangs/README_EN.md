@@ -52,21 +52,14 @@
 ```python
 class Solution:
     def numberOfBoomerangs(self, points: List[List[int]]) -> int:
-        n = len(points)
-        if n < 3:
-            return 0
-        number = 0
-        for i in range(n):
-            distance_counter = collections.Counter()
-            for j in range(n):
-                if i == j:
-                    continue
-                x1, y1 = points[i][0], points[i][1]
-                x2, y2 = points[j][0], points[j][1]
-                distance = (x1 - x2) ** 2 + (y1 - y2) ** 2
-                distance_counter[distance] += 1
-            number += sum([val * (val - 1) for val in distance_counter.values()])
-        return number
+        ans = 0
+        for p in points:
+            counter = collections.Counter()
+            for q in points:
+                distance = (p[0] - q[0]) * (p[0] - q[0]) + (p[1] - q[1]) * (p[1] - q[1])
+                counter[distance] += 1
+            ans += sum([val * (val - 1) for val in counter.values()])
+        return ans
 ```
 
 ### **Java**
@@ -74,29 +67,59 @@ class Solution:
 ```java
 class Solution {
     public int numberOfBoomerangs(int[][] points) {
-        int n = points.length;
-        if (n < 3) {
-            return 0;
-        }
-        int number = 0;
-        for (int i = 0; i < n; ++i) {
-            Map<Integer, Integer> distanceCounter = new HashMap<>();
-            for (int j = 0; j < n; ++j) {
-                if (i == j) {
-                    continue;
-                }
-                int x1 = points[i][0], y1 = points[i][1];
-                int x2 = points[j][0], y2 = points[j][1];
-                int distance = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
-                distanceCounter.put(distance, distanceCounter.getOrDefault(distance, 0) + 1);
+        int ans = 0;
+        for (int[] p : points) {
+            Map<Integer, Integer> counter = new HashMap<>();
+            for (int[] q : points) {
+                int distance = (p[0] - q[0]) * (p[0] - q[0]) + (p[1] - q[1]) * (p[1] - q[1]);
+                counter.put(distance, counter.getOrDefault(distance, 0) + 1);
             }
-            for (int val : distanceCounter.values()) {
-                number += val * (val - 1);
+            for (int val : counter.values()) {
+                ans += val * (val - 1);
             }
         }
-        return number;
+        return ans;
     }
 }
+```
+
+### **Go**
+
+```go
+func numberOfBoomerangs(points [][]int) int {
+	ans := 0
+	for _, p := range points {
+		cnt := make(map[int]int)
+		for _, q := range points {
+			cnt[(p[0]-q[0])*(p[0]-q[0])+(p[1]-q[1])*(p[1]-q[1])]++
+		}
+		for _, v := range cnt {
+			ans += v * (v - 1)
+		}
+	}
+	return ans
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfBoomerangs(vector<vector<int>>& points) {
+        int ans = 0;
+        for (const auto& p : points) {
+        unordered_map<int, int> cnt;
+            for (const auto& q : points) {
+                ++cnt[(p[0] - q[0]) * (p[0] - q[0]) + (p[1] - q[1]) * (p[1] - q[1])];
+            }
+            for (const auto& [_, v] : cnt) {
+                ans += v * (v - 1);
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**

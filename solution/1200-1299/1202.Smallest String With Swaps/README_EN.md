@@ -60,13 +60,61 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 ### **Python3**
 
 ```python
+class Solution:
+    def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
+        n = len(s)
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for a, b in pairs:
+            p[find(a)] = find(b)
+
+        mp = collections.defaultdict(list)
+        for i in range(n):
+            heapq.heappush(mp[find(i)], s[i])
+        chars = list(s)
+        for i in range(n):
+            chars[i] = heapq.heappop(mp[find(i)])
+        return ''.join(chars)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
+        int n = s.length();
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (List<Integer> pair : pairs) {
+            p[find(pair.get(0))] = find(pair.get(1));
+        }
+        Map<Integer, PriorityQueue<Character>> mp = new HashMap<>();
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < n; ++i) {
+            mp.computeIfAbsent(find(i), key -> new PriorityQueue<>()).offer(chars[i]);
+        }
+        for (int i = 0; i < n; ++i) {
+            chars[i] = mp.get(find(i)).poll();
+        }
+        return new String(chars);
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
 ```
 
 ### **...**

@@ -51,10 +51,11 @@
 	<li><code>1 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“前缀和”实现。
 
 <!-- tabs:start -->
 
@@ -63,7 +64,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        n = len(arr)
+        presum = [0] * (n + 1)
+        for i in range(n):
+            presum[i + 1] = presum[i] + arr[i]
 
+        res = 0
+        for i in range(n):
+            for j in range(0, n, 2):
+                if i + j < n:
+                    res += presum[i + j + 1] - presum[i]
+        return res
 ```
 
 ### **Java**
@@ -71,7 +84,63 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int sumOddLengthSubarrays(int[] arr) {
+        int n = arr.length;
+        int[] presum = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            presum[i + 1] = presum[i] + arr[i];
+        }
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; i + j < n; j += 2) {
+                res += presum[i + j + 1] - presum[i];
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int sumOddLengthSubarrays(vector<int>& arr) {
+        int n = arr.size();
+        int presum[n + 1];
+        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + arr[i];
+        int res = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; i + j < n; j += 2)
+            {
+                res += presum[i + j + 1] - presum[i];
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumOddLengthSubarrays(arr []int) int {
+	n := len(arr)
+	presum := make([]int, n+1)
+	for i := range arr {
+		presum[i+1] = presum[i] + arr[i]
+	}
+	res := 0
+	for i := 0; i < n; i++ {
+		for j := 0; i+j < n; j += 2 {
+			res += presum[i+j+1] - presum[i]
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

@@ -45,7 +45,6 @@
 	<li><code>-1000 &lt;= target &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 It is similar to the backpack problem, except that the index may appear negative, which requires special handling.
@@ -69,6 +68,40 @@ class Solution:
                     dp[i][j + nums[i] + 1000] += dp[i - 1][j + 1000]
                     dp[i][j - nums[i] + 1000] += dp[i - 1][j + 1000]
         return dp[n - 1][target + 1000]
+```
+
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        s = sum(nums)
+        if s - target < 0 or (s - target) % 2 != 0:
+            return 0
+        target = (s - target) // 2 + 1
+        n = len(nums) + 1
+        dp = [[0] * target for _ in range(n)]
+        dp[0][0] = 1
+        for i in range(1, n):
+            for j in range(target):
+                dp[i][j] = dp[i - 1][j]
+                if nums[i - 1] <= j:
+                    dp[i][j] += dp[i - 1][j - nums[i - 1]]
+        return dp[-1][-1]
+```
+
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        s = sum(nums)
+        if s - target < 0 or (s - target) % 2 != 0:
+            return 0
+        target = (s - target) // 2 + 1
+        n = len(nums) + 1
+        dp = [0] * target
+        dp[0] = 1
+        for i in range(1, n):
+            for j in range(target - 1, nums[i - 1] - 1, -1):
+                dp[j] += dp[j - nums[i - 1]]
+        return dp[-1]
 ```
 
 ### **Java**
@@ -99,6 +132,53 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int findTargetSumWays(int[] nums, int target) {
+        int s = 0;
+        for (int x : nums) {
+            s += x;
+        }
+        if (s - target < 0 || (s - target) % 2 != 0) {
+            return 0;
+        }
+        target = (s - target) / 2 + 1;
+        int[] dp = new int[target];
+        dp[0] = 1;
+        for (int i = 1; i < nums.length + 1; ++i) {
+            for (int j = target - 1; j >= nums[i - 1]; --j) {
+                dp[j] += dp[j - nums[i - 1]];
+            }
+        }
+        return dp[target - 1];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findTargetSumWays(vector<int>& nums, int target) {
+        int s = 0;
+        for (int x : nums) s += x;
+        if (s - target < 0 || (s - target) % 2 != 0) return 0;
+        target = (s - target) / 2 + 1;
+        vector<int> dp(target);
+        dp[0] = 1;
+        for (int i = 1; i < nums.size() + 1; ++i)
+        {
+            for (int j = target - 1; j >= nums[i - 1]; --j)
+            {
+                dp[j] += dp[j - nums[i - 1]];
+            }
+        }
+        return dp[target - 1];
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -122,6 +202,27 @@ func findTargetSumWays(nums []int, target int) int {
 		}
 	}
 	return dp[n-1][target+1000]
+}
+```
+
+```go
+func findTargetSumWays(nums []int, target int) int {
+	s := 0
+	for _, x := range nums {
+		s += x
+	}
+	if s-target < 0 || (s-target)%2 != 0 {
+		return 0
+	}
+	target = (s-target)/2 + 1
+	dp := make([]int, target)
+	dp[0] = 1
+	for i := 1; i < len(nums)+1; i++ {
+		for j := target - 1; j >= nums[i-1]; j-- {
+			dp[j] += dp[j-nums[i-1]]
+		}
+	}
+	return dp[target-1]
 }
 ```
 

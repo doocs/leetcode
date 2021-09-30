@@ -35,18 +35,208 @@
 
 ## Solutions
 
+**1. Sort**
+
+Sort the array then compare each value. `O(nlogn)`, `O(1)`.
+
+**2. HashSet**
+
+Making use of hash set. `O(n)`, `O(n)`.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n < 2:
+            return n
+        nums.sort()
+        res = t = 1
+        for i in range(1, n):
+            if nums[i] == nums[i - 1]:
+                continue
+            if nums[i] - nums[i - 1] == 1:
+                t += 1
+                res = max(res, t)
+            else:
+                t = 1
+        return res
+```
 
+```python
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        s, res = set(nums), 0
+        for num in nums:
+            if num - 1 not in s:
+                t, next = 1, num + 1
+                while next in s:
+                    t, next = t + 1, next + 1
+                res = max(res, t)
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        int n = nums.length;
+        if (n < 1) {
+            return n;
+        }
+        Arrays.sort(nums);
+        int res = 1, t = 1;
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] == nums[i - 1]) {
+                continue;
+            }
+            if (nums[i] - nums[i - 1] == 1) {
+                t += 1;
+                res = Math.max(res, t);
+            } else {
+                t = 1;
+            }
+        }
+        return res;
+    }
+}
+```
 
+```java
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            s.add(num);
+        }
+        int res = 0;
+        for (int num : nums) {
+            if (!s.contains(num - 1)) {
+                int t = 1, next = num + 1;
+                while (s.contains(next++)) {
+                    ++t;
+                }
+                res = Math.max(res, t);
+            }
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestConsecutive(vector<int> &nums) {
+        int n = nums.size();
+        if (n < 2)
+            return n;
+        sort(nums.begin(), nums.end());
+        int res = 1, t = 1;
+        for (int i = 1; i < n; ++i)
+        {
+            if (nums[i] == nums[i - 1])
+                continue;
+            if (nums[i] - nums[i - 1] == 1)
+            {
+                ++t;
+                res = max(res, t);
+            }
+            else
+            {
+                t = 1;
+            }
+        }
+        return res;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int longestConsecutive(vector<int> &nums) {
+        unordered_set<int> s;
+        for (int num : nums)
+            s.insert(num);
+        int res = 0;
+        for (int num : nums)
+        {
+            if (!s.count(num - 1))
+            {
+                int t = 1, next = num + 1;
+                while (s.count(next++))
+                    ++t;
+                res = max(res, t);
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestConsecutive(nums []int) int {
+	n := len(nums)
+	if n < 2 {
+		return n
+	}
+	sort.Ints(nums)
+	res, t := 1, 1
+	for i := 1; i < n; i++ {
+		if nums[i] == nums[i-1] {
+			continue
+		}
+		if nums[i]-nums[i-1] == 1 {
+			t++
+			res = max(res, t)
+		}
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+```go
+func longestConsecutive(nums []int) int {
+	s := make(map[int]bool)
+	for _, num := range nums {
+		s[num] = true
+	}
+	res := 0
+	for _, num := range nums {
+		if !s[num-1] {
+			t, next := 1, num+1
+			for s[next] {
+				next++
+				t++
+			}
+			res = max(res, t)
+		}
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

@@ -25,9 +25,27 @@
 
 ## 解法
 
+哈希表或双指针实现。时间复杂度均为 `O(n)`。
+
+哈希表空间复杂度 `O(n)`，双指针则是 `O(1)`。
+
 <!-- tabs:start -->
 
 ### **Python3**
+
+哈希表：
+
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        s = set()
+        for num in nums:
+            if target - num in s:
+                return [num, target - num]
+            s.add(num)
+```
+
+双指针：
 
 ```python
 class Solution:
@@ -41,19 +59,36 @@ class Solution:
                 p += 1
             else:
                 q -= 1
-
 ```
 
 ### **Java**
 
+哈希表：
+
 ```java
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int p = 0, q = nums.length - 1;
-        while (p < q) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (s.contains(target - num)) {
+                return new int[]{num, target - num};
+            }
+            s.add(num);
+        }
+        return null;
+    }
+}
+```
+
+双指针：
+
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        for (int p = 0, q = nums.length - 1; p < q;) {
             int s = nums[p] + nums[q];
             if (s == target) {
-                return new int[] {nums[p], nums[q]};
+                return new int[]{nums[p], nums[q]};
             }
             if (s < target) {
                 ++p;
@@ -61,8 +96,49 @@ class Solution {
                 --q;
             }
         }
-        return new int[]{0};
+        return null;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        for (int p = 0, q = nums.size() - 1; p < q;) {
+            int s = nums[p] + nums[q];
+            if (s == target) {
+                return vector<int>{nums[p], nums[q]};
+            }
+            if (s < target) {
+                ++p;
+            } else {
+                --q;
+            }
+        }
+        return vector<int>{};
+    }
+};
+```
+
+### **Go**
+
+```go
+func twoSum(nums []int, target int) []int {
+	for p, q := 0, len(nums)-1; p < q; {
+		s := nums[p] + nums[q]
+		if s == target {
+			return []int{nums[p], nums[q]}
+		}
+		if s < target {
+			p++
+		} else {
+			q--
+		}
+	}
+	return nil
 }
 ```
 
@@ -74,19 +150,18 @@ class Solution {
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
-  let left = 0;
-  let right = nums.length - 1;
-  while (left < right) {
-    let sum = nums[left] + nums[right];
-    if (sum === target) {
-      return [nums[left], nums[right]];
-    } else if (sum > target) {
-      right--;
-    } else {
-      left++;
+var twoSum = function(nums, target) {
+    for (let p = 0, q = nums.length; p < q;) {
+        const s = nums[p] + nums[q];
+        if (s == target) {
+            return [nums[p], nums[q]];
+        }
+        if (s < target) {
+            ++p;
+        } else {
+            --q;
+        }
     }
-  }
 };
 ```
 

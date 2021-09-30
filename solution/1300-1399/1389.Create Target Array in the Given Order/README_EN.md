@@ -70,13 +70,71 @@ nums       index     target
 ### **Python3**
 
 ```python
-
+class Solution:
+    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
+        target = []
+        for i in range(len(nums)):
+            target.insert(index[i], nums[i])
+        return target
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+        int n = nums.length;
+        List<Integer> target = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            target.add(index[i], nums[i]);
+        }
+        int[] res = new int[n];
+        for (int i = 0; i < n; ++i) {
+            res[i] = target.get(i);
+        }
+        return res;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function createTargetArray(nums: number[], index: number[]): number[] {
+    let ans = [];
+    for (let i = 0; i < nums.length; i++) {
+        ans.splice(index[i], 0, nums[i]);
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
+        vector<int> target;
+        for (int i = 0; i < nums.size(); ++i) {
+            target.insert(target.begin() + index[i], nums[i]);
+        }
+        return target;
+    }
+};
+```
+
+### **Go**
+
+```go
+func createTargetArray(nums []int, index []int) []int {
+	target := make([]int, len(nums))
+	for i, v := range nums {
+		copy(target[index[i]+1:], target[index[i]:])
+		target[index[i]] = v
+	}
+	return target
+}
 ```
 
 ### **...**

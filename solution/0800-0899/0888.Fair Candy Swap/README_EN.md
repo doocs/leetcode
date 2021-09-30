@@ -122,13 +122,79 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def fairCandySwap(self, aliceSizes: List[int], bobSizes: List[int]) -> List[int]:
+        diff = (sum(aliceSizes) - sum(bobSizes)) >> 1
+        s = set(bobSizes)
+        for a in aliceSizes:
+            target = a - diff
+            if target in s:
+                return [a, target]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
+        int s1 = 0, s2 = 0;
+        Set<Integer> s = new HashSet<>();
+        for (int a : aliceSizes) {
+            s1 += a;
+        }
+        for (int b : bobSizes) {
+            s.add(b);
+            s2 += b;
+        }
+        int diff = (s1 - s2) >> 1;
+        for (int a : aliceSizes) {
+            int target = a - diff;
+            if (s.contains(target)) {
+                return new int[]{a, target};
+            }
+        }
+        return null;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
+    let s1 = aliceSizes.reduce((a, c) => a + c, 0);
+    let s2 = bobSizes.reduce((a, c) => a + c, 0);
+    let diff = (s1 - s2) >> 1;
+    for (let num of aliceSizes) {
+        let target = num - diff;
+        if (bobSizes.includes(target)) {
+            return [num, target];
+        }
+    }
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> fairCandySwap(vector<int>& aliceSizes, vector<int>& bobSizes) {
+        int s1 = accumulate(aliceSizes.begin(), aliceSizes.end(), 0);
+        int s2 = accumulate(bobSizes.begin(), bobSizes.end(), 0);
+        int diff = (s1 - s2) >> 1;
+        unordered_set<int> s(bobSizes.begin(), bobSizes.end());
+        vector<int> ans;
+        for (int& a : aliceSizes) {
+            int target = a - diff;
+            if (s.count(target)) {
+                ans = vector<int>{a, target};
+                break;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**

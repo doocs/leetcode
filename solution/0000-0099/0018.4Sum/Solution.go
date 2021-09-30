@@ -1,78 +1,36 @@
-import "strconv"
-
-type Entry struct {
-	a1, a2, a3, a4 int
-}
-
-func(e *Entry) String() string {
-	return strconv.FormatInt(int64(e.a1), 10) +
-		"," + strconv.FormatInt(int64(e.a2), 10) +
-		"," + strconv.FormatInt(int64(e.a3), 10) +
-		"," + strconv.FormatInt(int64(e.a4), 10)
-}
-
 func fourSum(nums []int, target int) [][]int {
-	flag := make(map[string]bool)
-	sort(nums)
-	result := make([][]int, 0)
-	begin := 0
-	lenNums := len(nums) - 1
-	for begin + 2 < lenNums {
-		left := begin + 1
-		right := lenNums
-		lt := target - nums[begin]
-		for left + 1 < right {
-			i := left + 1
-			j := right
-			subTarget := lt - nums[left]
-			for i < j {
-				if nums[i] + nums[j] > subTarget {
-					j--
-				} else if nums[i] + nums[j] < subTarget {
-					i++
+	n, res := len(nums), make([][]int, 0)
+	if n < 4 {
+		return res
+	}
+	sort.Ints(nums)
+	for i := 0; i < n-3; i++ {
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+		for j := i + 1; j < n-2; j++ {
+			if j > i+1 && nums[j] == nums[j-1] {
+				continue
+			}
+			k, l := j+1, n-1
+			for k < l {
+				if nums[i]+nums[j]+nums[k]+nums[l] == target {
+					res = append(res, []int{nums[i], nums[j], nums[k], nums[l]})
+					k++
+					l--
+					for k < n && nums[k] == nums[k-1] {
+						k++
+					}
+					for l > j && nums[l] == nums[l+1] {
+						l--
+					}
+				} else if nums[i]+nums[j]+nums[k]+nums[l] < target {
+					k++
 				} else {
-					entry := &Entry{
-						a1:nums[begin],
-						a2:nums[left],
-						a3:nums[i],
-						a4:nums[j],
-					}
-					if !flag[entry.String()] {
-						r := []int{nums[begin], nums[left], nums[i], nums[j]}
-						result = append(result, r)
-						flag[entry.String()] = true
-					}
-					i++
-					j--
+					l--
 				}
 			}
-			left++
 		}
-		begin++
 	}
-	return result
-}
-
-// quick sort
-func sort(array []int) {
-	if len(array) == 0 {
-		return
-	}
-	left := 0
-	right := len(array) - 1
-	obj := array[left]
-	for left < right {
-		for left < right && array[right] >= obj {
-			right--
-		}
-		array[left] = array[right]
-
-		for left < right && array[left] <= obj {
-			left++
-		}
-		array[right] = array[left]
-	}
-	array[left] = obj
-	sort(array[:left])
-	sort(array[right+1:])
+	return res
 }

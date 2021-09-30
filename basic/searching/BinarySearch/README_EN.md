@@ -1,27 +1,38 @@
 # Binary Search
 
-**Algorithm Templates:**
+## Algorithm Templates
+
+### Template 1
 
 ```java
-/** check x if valid */
 boolean check(int x) {}
 
-/** template1 */
-int binarySearch1(int left, int right) {
+int search(int left, int right) {
     while (left < right) {
         int mid = (left + right) >> 1;
-        if (check(mid)) right = mid;
-        else left = mid + 1;
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
     }
     return left;
 }
+```
 
-/** template2 */
-int binarySearch2(int left, int right) {
+### Template 1
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
     while (left < right) {
         int mid = (left + right + 1) >> 1;
-        if (check(mid)) left = mid;
-        else right = mid - 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
     }
     return left;
 }

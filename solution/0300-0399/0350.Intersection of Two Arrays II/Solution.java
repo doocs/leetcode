@@ -4,18 +4,16 @@ class Solution {
         for (int num : nums1) {
             counter.put(num, counter.getOrDefault(num, 0) + 1);
         }
-        List<Integer> intersection = new ArrayList<>();
+        List<Integer> t = new ArrayList<>();
         for (int num : nums2) {
-            int val = counter.getOrDefault(num, 0);
-            if (val > 0) {
-                intersection.add(num);
-                counter.put(num, val - 1);
+            if (counter.getOrDefault(num, 0) > 0) {
+                t.add(num);
+                counter.put(num, counter.get(num) - 1);
             }
         }
-        int i = 0;
-        int[] res = new int[intersection.size()];
-        for (int num : intersection) {
-            res[i++] = num;
+        int[] res = new int[t.size()];
+        for (int i = 0; i < res.length; ++i) {
+            res[i] = t.get(i);
         }
         return res;
     }

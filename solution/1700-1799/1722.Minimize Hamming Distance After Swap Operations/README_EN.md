@@ -51,21 +51,149 @@ The Hamming distance of source and target is 2 as they differ in 2 positions: in
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
-
 ## Solutions
+
+Union find.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def minimumHammingDistance(self, source: List[int], target: List[int], allowedSwaps: List[List[int]]) -> int:
+        n = len(source)
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for i, j in allowedSwaps:
+            p[find(i)] = find(j)
+
+        mp = collections.defaultdict(collections.Counter)
+        for i in range(n):
+            mp[find(i)][source[i]] += 1
+        res = 0
+        for i in range(n):
+            if mp[find(i)][target[i]] > 0:
+                mp[find(i)][target[i]] -= 1
+            else:
+                res += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int minimumHammingDistance(int[] source, int[] target, int[][] allowedSwaps) {
+        int n = source.length;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int[] e : allowedSwaps) {
+            p[find(e[0])] = find(e[1]);
+        }
+        Map<Integer, Map<Integer, Integer>> mp = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            int root = find(i);
+            mp.computeIfAbsent(root, k -> new HashMap<>()).put(source[i], mp.get(root).getOrDefault(source[i], 0) + 1);
+        }
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            int root = find(i);
+            if (mp.get(root).getOrDefault(target[i], 0) > 0) {
+                mp.get(root).put(target[i], mp.get(root).get(target[i]) - 1);
+            } else {
+                ++res;
+            }
+        }
+        return res;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int minimumHammingDistance(vector<int>& source, vector<int>& target, vector<vector<int>>& allowedSwaps) {
+        int n = source.size();
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        for (auto e : allowedSwaps) p[find(e[0])] = find(e[1]);
+        unordered_map<int, unordered_map<int, int>> mp;
+        for (int i = 0; i < n; ++i) ++mp[find(i)][source[i]];
+        int res = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (mp[find(i)][target[i]] > 0) --mp[find(i)][target[i]];
+            else ++res;
+        }
+        return res;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func minimumHammingDistance(source []int, target []int, allowedSwaps [][]int) int {
+	n := len(source)
+	p = make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	for _, e := range allowedSwaps {
+		p[find(e[0])] = find(e[1])
+	}
+	mp := make(map[int]map[int]int)
+	for i := 0; i < n; i++ {
+		if mp[find(i)] == nil {
+			mp[find(i)] = make(map[int]int)
+		}
+		mp[find(i)][source[i]]++
+	}
+	res := 0
+	for i := 0; i < n; i++ {
+		if mp[find(i)][target[i]] > 0 {
+			mp[find(i)][target[i]]--
+		} else {
+			res++
+		}
+	}
+	return res
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

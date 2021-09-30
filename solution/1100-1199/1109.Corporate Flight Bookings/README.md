@@ -58,6 +58,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+差分数组。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -147,29 +149,23 @@ public:
 };
 ```
 
-### **JavaScript**
+### **Go**
 
-```js
-/**
- * @param {number[][]} bookings
- * @param {number} n
- * @return {number[]}
- */
-var corpFlightBookings = function(bookings, n) {
-    let delta = new Array(n).fill(0);
-    for (let book of bookings) {
-        let [start, end, num] = book;
-        start -= 1;
-        delta[start] += num;
-        if (end != n) {
-            delta[end] -= num;
-        }
-    }
-    for (let i = 1; i < n; i++) {
-        delta[i] += delta[i - 1];
-    }
-    return delta;
-};
+```go
+func corpFlightBookings(bookings [][]int, n int) []int {
+	delta := make([]int, n)
+	for _, booking := range bookings {
+		first, last, seats := booking[0], booking[1], booking[2]
+		delta[first-1] += seats
+		if last < n {
+			delta[last] -= seats
+		}
+	}
+	for i := 0; i < n-1; i++ {
+		delta[i+1] += delta[i]
+	}
+	return delta
+}
 ```
 
 ### **...**

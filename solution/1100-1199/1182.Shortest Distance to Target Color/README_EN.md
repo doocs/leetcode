@@ -85,10 +85,7 @@ class Solution {
         Map<Integer, List<Integer>> colorIndexes = new HashMap<>();
         for (int i = 0; i < colors.length; ++i) {
             int c = colors[i];
-            if (!colorIndexes.containsKey(c)) {
-                colorIndexes.put(c, new ArrayList<>());
-            }
-            colorIndexes.get(c).add(i);
+            colorIndexes.computeIfAbsent(c, k -> new ArrayList<>()).add(i);
         }
         List<Integer> res = new ArrayList<>();
         for (int[] query : queries) {

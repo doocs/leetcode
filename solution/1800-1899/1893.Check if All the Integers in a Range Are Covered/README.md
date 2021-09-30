@@ -48,6 +48,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+利用差分数组进行区间更新
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +57,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isCovered(self, ranges: List[List[int]], left: int, right: int) -> bool:
+        diff = [0 for i in range(52)]
+        for rg in ranges:
+            diff[rg[0]] += 1
+            diff[rg[1] + 1] -= 1
+        cur = 0
+        for i, df in enumerate(diff):
+            cur += df
+            if left <= i <= right and cur == 0:
+                return False
+        return True
 ```
 
 ### **Java**
@@ -63,7 +76,63 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isCovered(int[][] ranges, int left, int right) {
+        int[] diff = new int[52];
+        for (int[] range : ranges) {
+            diff[range[0]]++;
+            diff[range[1] + 1]--;
+        }
+        int cur = 0;
+        for (int i = 0; i < 52; i++) {
+            cur += diff[i];
+            if (left <= i && i <= right && cur == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function isCovered(ranges: number[][], left: number, right: number): boolean {
+    let diff = new Array(52).fill(0);
+    for (let [start, end] of ranges) {
+        ++diff[start];
+        --diff[end + 1];
+    }
+    let cur = 0;
+    for (let i = 1; i <= 50; i++) {
+        cur += diff[i];
+        if (i >= left && i <= right && cur <= 0) {
+            return false;
+        }
+    }
+    return true;
+};
+```
+
+### **Go**
+
+```go
+func isCovered(ranges [][]int, left int, right int) bool {
+	diff := make([]int, 52)
+	for _, rg := range ranges {
+		diff[rg[0]]++
+		diff[rg[1]+1]--
+	}
+	cur := 0
+	for i, df := range diff {
+		cur += df
+		if i >= left && i <= right && cur == 0 {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**

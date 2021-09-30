@@ -56,6 +56,8 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 
 <!-- 这里可写通用的实现逻辑 -->
 
+因为节点 `level` 随机，所以需要多个 `next` 指针，其余操作类似单链表
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -63,7 +65,68 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Node:
+    def __init__(self, val: int, level: int):
+        self.val = val
+        self.next = [None for _ in range(level)]
 
+
+class Skiplist:
+    max_level = 16
+    p = 0.5
+
+    def __init__(self):
+        self.head = Node(-1, self.max_level)
+        self.level = 1
+
+    def search(self, target: int) -> bool:
+        p = self.head
+        for i in range(self.level - 1, -1, -1):
+            p = self.find_closest(p, i, target)
+            if p.next[i] != None and p.next[i].val == target:
+                return True
+        return False
+
+    def add(self, num: int) -> None:
+        level = self.random_level()
+        self.level = max(self.level, level)
+        node = Node(num, level)
+        p = self.head
+        for i in range(self.level - 1, -1, -1):
+            p = self.find_closest(p, i, num)
+            if i < level:
+                node.next[i] = p.next[i]
+                p.next[i] = node
+
+    def erase(self, num: int) -> bool:
+        ok = False
+        p = self.head
+        for i in range(self.level - 1, -1, -1):
+            p = self.find_closest(p, i, num)
+            if p.next[i] != None and p.next[i].val == num:
+                p.next[i] = p.next[i].next[i]
+                ok = True
+        while self.level > 1 and self.head.next[self.level - 1] == None:
+            self.level -= 1
+        return ok
+
+    def find_closest(self, p: Node, level: int, target: int) -> Node:
+        while p.next[level] != None and p.next[level].val < target:
+            p = p.next[level]
+        return p
+
+    def random_level(self) -> int:
+        level = 1
+        while level < self.max_level and random.random() < self.p:
+            level += 1
+        return level
+
+
+# Your Skiplist object will be instantiated and called as such:
+# obj = Skiplist()
+# param_1 = obj.search(target)
+# obj.add(num)
+# param_3 = obj.erase(num)
 ```
 
 ### **Java**
@@ -71,7 +134,186 @@ skiplist.search(1);   // 返回 false，1 已被擦除
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Skiplist {
 
+	private static final int DEFAULT_MAX_LEVEL = 16;
+	private static final double DEFAULT_P_FACTOR = 0.5;
+
+	private final Node head;
+	private int currentLevel;
+
+    public Skiplist() {
+    	this.head = new Node(0, DEFAULT_MAX_LEVEL);
+    	this.currentLevel = 1;
+    }
+
+    public boolean search(int target) {
+    	Node node = head;
+    	for (int i = currentLevel - 1; i >= 0; i--) {
+    		node = findClosest(node, i, target);
+    		if (node.next[i] != null && node.next[i].value == target) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+
+    public void add(int num) {
+    	int level = randomLevel();
+    	currentLevel = Math.max(currentLevel, level);
+    	Node newNode = new Node(num, level);
+    	Node updateNode = head;
+    	for (int i = currentLevel - 1; i >= 0; i--) {
+    		updateNode = findClosest(updateNode, i, num);
+    		if (i < level) {
+    			newNode.next[i] = updateNode.next[i];
+    			updateNode.next[i] = newNode;
+    		}
+    	}
+    }
+
+    public boolean erase(int num) {
+    	boolean exist = false;
+    	Node node = head;
+    	for (int i = currentLevel - 1; i >= 0; i--) {
+    		node = findClosest(node, i, num);
+    		if (node.next[i] != null && node.next[i].value == num) {
+    			node.next[i] = node.next[i].next[i];
+    			exist = true;
+    		}
+    	}
+    	while (currentLevel > 1 && head.next[currentLevel - 1] == null) {
+    		currentLevel--;
+    	}
+    	return exist;
+    }
+
+    private Node findClosest(Node node, int level, int value) {
+    	while (node.next[level] != null && node.next[level].value < value) {
+    		node = node.next[level];
+    	}
+    	return node;
+    }
+
+    private int randomLevel() {
+    	int level = 1;
+    	while (level < DEFAULT_MAX_LEVEL && Math.random() < DEFAULT_P_FACTOR) {
+    		level++;
+    	}
+    	return level;
+    }
+
+    static class Node {
+    	int value;
+    	Node[] next;
+
+    	Node(int value, int level) {
+    		this.value = value;
+    		this.next = new Node[level];
+    	}
+    }
+}
+```
+
+### **Go**
+
+```go
+func init() { rand.Seed(time.Now().UnixNano()) }
+
+const (
+	maxLevel = 16
+	p        = 0.5
+)
+
+type node struct {
+	val  int
+	next []*node
+}
+
+func newNode(val, level int) *node {
+	return &node{
+		val:  val,
+		next: make([]*node, level),
+	}
+}
+
+type Skiplist struct {
+	head  *node
+	level int
+}
+
+func Constructor() Skiplist {
+	return Skiplist{
+		head:  newNode(-1, maxLevel),
+		level: 1,
+	}
+}
+
+func (this *Skiplist) Search(target int) bool {
+	p := this.head
+	for i := this.level - 1; i >= 0; i-- {
+		p = findClosest(p, i, target)
+		if p.next[i] != nil && p.next[i].val == target {
+			return true
+		}
+	}
+	return false
+}
+
+func (this *Skiplist) Add(num int) {
+	level := randomLevel()
+	if level > this.level {
+		this.level = level
+	}
+	node := newNode(num, level)
+	p := this.head
+	for i := this.level - 1; i >= 0; i-- {
+		p = findClosest(p, i, num)
+		if i < level {
+			node.next[i] = p.next[i]
+			p.next[i] = node
+		}
+	}
+}
+
+func (this *Skiplist) Erase(num int) bool {
+	ok := false
+	p := this.head
+	for i := this.level - 1; i >= 0; i-- {
+		p = findClosest(p, i, num)
+		if p.next[i] != nil && p.next[i].val == num {
+			p.next[i] = p.next[i].next[i]
+			ok = true
+		}
+	}
+	for this.level > 1 && this.head.next[this.level-1] == nil {
+		this.level--
+	}
+	return ok
+}
+
+func findClosest(p *node, level, target int) *node {
+	for p.next[level] != nil && p.next[level].val < target {
+		p = p.next[level]
+	}
+	return p
+}
+
+func randomLevel() int {
+	level := 1
+	for level < maxLevel && rand.Float64() < p {
+		level++
+	}
+	return level
+}
+
+/**
+ * Your Skiplist object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Search(target);
+ * obj.Add(num);
+ * param_3 := obj.Erase(num);
+ */
 ```
 
 ### **...**

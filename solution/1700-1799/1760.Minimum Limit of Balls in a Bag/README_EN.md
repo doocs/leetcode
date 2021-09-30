@@ -11,10 +11,11 @@
 <ul>
 	<li>Take any bag of balls and divide it into two new bags with a <strong>positive </strong>number of balls.
 
-	<ul>
-		<li>For example, a bag of <code>5</code> balls can become two new bags of <code>1</code> and <code>4</code> balls, or two new bags of <code>2</code> and <code>3</code> balls.</li>
-	</ul>
-	</li>
+    <ul>
+    	<li>For example, a bag of <code>5</code> balls can become two new bags of <code>1</code> and <code>4</code> balls, or two new bags of <code>2</code> and <code>3</code> balls.</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>Your penalty is the <strong>maximum</strong> number of balls in a bag. You want to <strong>minimize</strong> your penalty after the operations.</p>
@@ -61,21 +62,104 @@ The bag with the most number of balls has 2 balls, so your penalty is 2 an you s
 	<li><code>1 &lt;= maxOperations, nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
+
+Binary search.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumSize(self, nums: List[int], maxOperations: int) -> int:
+        left, right = 1, max(nums)
+        while left < right:
+            mid = (left + right) >> 1
+            ops = sum([(num - 1) // mid for num in nums])
+            if ops <= maxOperations:
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumSize(int[] nums, int maxOperations) {
+        int left = 1, right = 1000000000;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            long ops = 0;
+            for (int num : nums) {
+                ops += (num - 1) / mid;
+            }
+            if (ops <= maxOperations) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumSize(vector<int>& nums, int maxOperations) {
+        int left = 1, right = *max_element(nums.begin(), nums.end());
+        while (left < right) {
+            int mid = left + (right - left >> 1);
+            long long ops = 0;
+            for (int num : nums) {
+                ops += (num - 1) / mid;
+            }
+            if (ops <= maxOperations) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumSize(nums []int, maxOperations int) int {
+	left, right := 1, max(nums)
+	for left < right {
+		mid := (left + right) >> 1
+		var ops int
+		for _, num := range nums {
+			ops += (num - 1) / mid
+		}
+		if ops <= maxOperations {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+
+func max(nums []int) int {
+	res := 0
+	for _, num := range nums {
+		if res < num {
+			res = num
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

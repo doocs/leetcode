@@ -51,14 +51,13 @@
 	<li>你能将算法的时间复杂度降低到 <code>O(n log(n))</code> 吗?</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
 动态规划求解。
 
-定义 `dp[i]` 为以 `nums[i]` 结尾的最长子序列的长度。即题目求的是 `dp[i]` （`i ∈[0, n-1]`）的最大值。
+定义 `dp[i]` 为以 `nums[i]` 结尾的最长子序列的长度，`dp[i]` 初始化为 1(`i∈[0, n)`)。即题目求的是 `dp[i]` （`i ∈[0, n-1]`）的最大值。
 
 状态转移方程为：
 
@@ -74,16 +73,12 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         n = len(nums)
-        if n < 2:
-            return n
         dp = [1] * n
-        res = 1
         for i in range(1, n):
             for j in range(i):
                 if nums[j] < nums[i]:
                     dp[i] = max(dp[i], dp[j] + 1)
-            res = max(res, dp[i])
-        return res
+        return max(dp)
 ```
 
 ### **Java**
@@ -107,6 +102,71 @@ class Solution {
         }
         return res;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function lengthOfLIS(nums: number[]): number {
+    let n = nums.length;
+    let dp = new Array(n).fill(1);
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < i; j++) {
+            if (nums[j] < nums[i]) {
+                dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
+        }
+    }
+    return Math.max(...dp);
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> dp(n, 1);
+        for (int i = 1; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                if (nums[j] < nums[i]) dp[i] = max(dp[i], dp[j] + 1);
+            }
+        }
+        return *max_element(dp.begin(), dp.end());
+    }
+};
+```
+
+### **Go**
+
+```go
+func lengthOfLIS(nums []int) int {
+	n := len(nums)
+	dp := make([]int, n)
+	dp[0] = 1
+	res := 1
+	for i := 1; i < n; i++ {
+		dp[i] = 1
+		for j := 0; j < i; j++ {
+			if nums[j] < nums[i] {
+				dp[i] = max(dp[i], dp[j]+1)
+			}
+		}
+		res = max(res, dp[i])
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 

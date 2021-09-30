@@ -58,7 +58,6 @@
 	<li><code>s</code> and <code>t</code> contain lower-case English letters only.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -66,13 +65,77 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minSteps(self, s: str, t: str) -> int:
+        counter = collections.Counter(s)
+        res = 0
+        for c in t:
+            if counter[c] > 0:
+                counter[c] -= 1
+            else:
+                res += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minSteps(String s, String t) {
+        int[] counter = new int[26];
+        for (char c : s.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        int res = 0;
+        for (char c : t.toCharArray()) {
+            if (counter[c - 'a'] > 0) {
+                --counter[c - 'a'];
+            } else {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        vector<int> counter(26);
+        for (char c : s) ++counter[c - 'a'];
+        int res = 0;
+        for (char c : t)
+        {
+            if (counter[c - 'a'] > 0) --counter[c - 'a'];
+            else ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSteps(s string, t string) int {
+	counter := make([]int, 26)
+	for _, c := range s {
+		counter[c-'a']++
+	}
+	res := 0
+	for _, c := range t {
+		if counter[c-'a'] > 0 {
+			counter[c-'a']--
+		} else {
+			res++
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

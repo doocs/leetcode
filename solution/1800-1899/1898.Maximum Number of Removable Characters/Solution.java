@@ -1,20 +1,19 @@
 class Solution {
     public int maximumRemovals(String s, String p, int[] removable) {
-        int low = 0, high = removable.length;
-        while (low < high) {
-            int mid = (low + high + 1) >> 1;
-            if (isSubsequence(s, p, removable, mid)) {
-                low = mid;
+        int left = 0, right = removable.length;
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(s, p, removable, mid)) {
+                left = mid;
             } else {
-                high = mid - 1;
+                right = mid - 1;
             }
         }
-        return low;
+        return left;
     }
 
-    private boolean isSubsequence(String s, String p, int[] removable, int mid) {
-        int m = s.length(), n = p.length();
-        int i = 0, j = 0;
+    private boolean check(String s, String p, int[] removable, int mid) {
+        int m = s.length(), n = p.length(), i = 0, j = 0;
         Set<Integer> ids = new HashSet<>();
         for (int k = 0; k < mid; ++k) {
             ids.add(removable[k]);

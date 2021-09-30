@@ -45,10 +45,13 @@
 	<li><code>1 <= m <= min(50, nums.length)</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+二分查找。
+
+二分枚举**子数组的和的最大值**，找到满足条件的最小值。
 
 <!-- tabs:start -->
 
@@ -57,7 +60,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def splitArray(self, nums: List[int], m: int) -> int:
+        def check(x):
+            s, cnt = 0, 1
+            for num in nums:
+                if s + num > x:
+                    cnt += 1
+                    s = num
+                else:
+                    s += num
+            return cnt <= m
 
+        left, right = max(nums), sum(nums)
+        while left < right:
+            mid = (left + right) >> 1
+            if check(mid):
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -65,7 +87,108 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int splitArray(int[] nums, int m) {
+        int mx = -1;
+        for (int num : nums) {
+            mx = Math.max(mx, num);
+        }
+        int left = mx, right = (int) 1e9;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (check(nums, m, mid)) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
 
+    private boolean check(int[] nums, int m, int x) {
+        int s = 0, cnt = 1;
+        for (int num : nums) {
+            if (s + num > x) {
+                ++cnt;
+                s = num;
+            } else {
+                s += num;
+            }
+        }
+        return cnt <= m;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int splitArray(vector<int>& nums, int m) {
+        int left = *max_element(nums.begin(), nums.end()), right = (int) 1e9;
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (check(nums, m, mid)) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+
+    bool check(vector<int>& nums, int m, int x) {
+        int s = 0, cnt = 1;
+        for (int num : nums) {
+            if (s + num > x) {
+                ++cnt;
+                s = num;
+            } else {
+                s += num;
+            }
+        }
+        return cnt <= m;
+    }
+};
+```
+
+### **Go**
+
+```go
+func splitArray(nums []int, m int) int {
+	mx := -1
+	for _, num := range nums {
+		mx = max(mx, num)
+	}
+	left, right := mx, int(1e9)
+	for left < right {
+		mid := (left + right) >> 1
+		if check(nums, m, mid) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+
+func check(nums []int, m, x int) bool {
+	s, cnt := 0, 1
+	for _, num := range nums {
+		if s+num > x {
+			cnt++
+			s = num
+		} else {
+			s += num
+		}
+	}
+	return cnt <= m
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

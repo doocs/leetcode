@@ -33,7 +33,20 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-双端队列实现。
+单调队列。
+
+单调队列常见模型：找出滑动窗口中的最大值/最小值。模板：
+
+```python
+q = deque()
+for i in range(n):
+    # 判断队头是否滑出窗口
+    while q and checkout_out(q[0]):
+        q.popleft()
+    while q and check(q[-1]):
+        q.pop()
+    q.append(i)
+```
 
 <!-- tabs:start -->
 
@@ -44,14 +57,13 @@
 ```python
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        q, res = [], []
+        q, res = collections.deque(), []
         for i, num in enumerate(nums):
-            while len(q) != 0 and nums[q[-1]] <= num:
-                q.pop(-1)
+            if q and i - k + 1 > q[0]:
+                q.popleft()
+            while q and nums[q[-1]] <= num:
+                q.pop()
             q.append(i)
-
-            if q[0] == i - k:
-                q = q[1:]
             if i >= k - 1:
                 res.append(nums[q[0]])
         return res

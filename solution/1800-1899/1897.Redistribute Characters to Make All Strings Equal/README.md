@@ -59,10 +59,7 @@ class Solution:
             for c in word:
                 counter[c] += 1
         n = len(words)
-        for count in counter.values():
-            if count % n != 0:
-                return False
-        return True
+        return all(count % n == 0 for count in counter.values())
 ```
 
 ### **Java**
@@ -108,6 +105,47 @@ function makeEqual(words: string[]): boolean {
     }
     return true;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool makeEqual(vector<string>& words) {
+        vector<int> counter(26, 0);
+        for (string word : words) {
+            for (char c : word) {
+                ++counter[c - 'a'];
+            }
+        }
+        int n = words.size();
+        for (int count : counter) {
+            if (count % n != 0) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func makeEqual(words []string) bool {
+	counter := [26]int{}
+	for _, word := range words {
+		for _, c := range word {
+			counter[c-'a']++
+		}
+	}
+	n := len(words)
+	for _, count := range counter {
+		if count%n != 0 {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**

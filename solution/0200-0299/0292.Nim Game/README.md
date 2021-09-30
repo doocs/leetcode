@@ -50,10 +50,19 @@
 	<li><code>1 <= n <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+第一个得到 4 的倍数（即 n % 4 == 0）的将会输掉比赛。
+
+证明：
+
+1. 当 `n == 4`，无论第一个玩家选择 1/2/3 哪个数字，第二个玩家总能选择剩下的数字，**第一个玩家将会输掉比赛**。
+1. 当 `4 < n < 8`，即 (n = 5,6,7)，第一个玩家可以相应地将数字减少为 4，那么 4 这个死亡数字给到了第二个玩家，第二个玩家将会输掉比赛。
+1. 当 `n == 8`，无论第一个玩家选择 1/2/3 哪个数字，都会把 `4 < n < 8` 的数字留给第二个，**第一个玩家将会输掉比赛**。
+1. ...
+1. 依次类推，当玩家拿到 n 这个数字，且 n 能被 4 整除，即 `n % 4 == 0`，他将会输掉比赛，否则他将赢得比赛。
 
 <!-- tabs:start -->
 
@@ -62,7 +71,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def canWinNim(self, n: int) -> bool:
+        return n % 4 != 0
 ```
 
 ### **Java**
@@ -70,7 +81,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean canWinNim(int n) {
+        return n % 4 != 0;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function canWinNim(n: number): boolean {
+    return n % 4 != 0;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canWinNim(int n) {
+        return n % 4 != 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canWinNim(n int) bool {
+	return n%4 != 0
+}
 ```
 
 ### **...**

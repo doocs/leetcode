@@ -1,32 +1,15 @@
-class Solution(object):
-    def summaryRanges(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[str]
-        """
-        length = len(nums)
-        if length == 0:
-            return []
-        ans = []
-        count = 0
-        idx = 0
-        while idx + count < length - 1:
-            if nums[idx + count] == nums[idx + count + 1] - 1:
-                count += 1
-            else:
-                string = ''
-                if count == 0:
-                    string = str(nums[idx])
-                else:
-                    string = str(nums[idx]) + "->" + str(nums[idx + count])
-                ans.append(string)
-                idx += count + 1
-                count = 0
-        # 末尾处理
-        string = ''
-        if count > 0:
-            string = str(nums[idx]) + "->" + str(nums[idx + count])
-        else:
-            string = str(nums[idx])
-        ans.append(string)
-        return ans
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        def make(nums, i, j):
+            return str(nums[i]) if i == j else f'{nums[i]}->{nums[j]}'
+
+        i = j = 0
+        n = len(nums)
+        res = []
+        while j < n:
+            while j + 1 < n and nums[j] + 1 == nums[j + 1]:
+                j += 1
+            res.append(make(nums, i, j))
+            i = j + 1
+            j = i
+        return res

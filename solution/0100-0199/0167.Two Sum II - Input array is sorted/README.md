@@ -47,7 +47,6 @@
 	<li>仅存在一个有效答案</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -63,14 +62,14 @@
 ```python
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        low, high = 0, len(numbers) - 1
-        while low <= high:
-            if numbers[low] + numbers[high] == target:
-                return [low + 1, high + 1]
-            if numbers[low] + numbers[high] < target:
-                low += 1
+        left, right = 0, len(numbers) - 1
+        while left < right:
+            if numbers[left] + numbers[right] == target:
+                return [left + 1, right + 1]
+            if numbers[left] + numbers[right] < target:
+                left += 1
             else:
-                high -= 1
+                right -= 1
         return [-1, -1]
 ```
 
@@ -81,20 +80,34 @@ class Solution:
 ```java
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        int low = 0, high = numbers.length - 1;
-        while (low <= high) {
-            if (numbers[low] + numbers[high] == target) {
-                return new int[]{low + 1, high + 1};
+        int left = 0, right = numbers.length - 1;
+        while (left < right) {
+            if (numbers[left] + numbers[right] == target) {
+                return new int[]{left + 1, right + 1};
             }
-            if (numbers[low] + numbers[high] < target) {
-                ++low;
+            if (numbers[left] + numbers[right] < target) {
+                ++left;
             } else {
-                --high;
+                --right;
             }
         }
         return new int[]{-1, -1};
     }
 }
+```
+
+### **TypeScript**
+
+```ts
+function twoSum(numbers: number[], target: number): number[] {
+    for (let right = numbers.length - 1; right >= 0; --right) {
+        let left = numbers.indexOf(target - numbers[right]);
+        if (left > -1 && left < right) {
+            return [left + 1, right + 1];
+        }
+    }
+    return [-1, -1];
+};
 ```
 
 ### **C++**
@@ -103,20 +116,36 @@ class Solution {
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        int low = 0, high = numbers.size() - 1;
-        while (low <= high) {
-            if (numbers[low] + numbers[high] == target) {
-                return {low + 1, high + 1};
+        int left = 0, right = numbers.size() - 1;
+        while (left < right) {
+            if (numbers[left] + numbers[right] == target) {
+                return {left + 1, right + 1};
             }
-            if (numbers[low] + numbers[high] < target) {
-                ++low;
-            } else {
-                --high;
-            }
+            if (numbers[left] + numbers[right] < target) ++left;
+            else --right;
         }
         return {-1, -1};
     }
 };
+```
+
+### **Go**
+
+```go
+func twoSum(numbers []int, target int) []int {
+	left, right := 0, len(numbers)-1
+	for left < right {
+		if numbers[left]+numbers[right] == target {
+			return []int{left + 1, right + 1}
+		}
+		if numbers[left]+numbers[right] < target {
+			left++
+		} else {
+			right--
+		}
+	}
+	return []int{-1, -1}
+}
 ```
 
 ### **...**

@@ -58,8 +58,13 @@
 
 <p>&nbsp;</p>
 
-
 ## Solutions
+
+**1. Recusive Traversal**
+
+**2. Non-recursive using Stack**
+
+**3. Morris Traversal**
 
 <!-- tabs:start -->
 
@@ -76,12 +81,14 @@ Recursive:
 #         self.right = right
 class Solution:
     def postorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+
         def postorder(root):
             if root:
                 postorder(root.left)
                 postorder(root.right)
                 res.append(root.val)
-        res = []
+
         postorder(root)
         return res
 ```
@@ -97,18 +104,47 @@ Non-recursive:
 #         self.right = right
 class Solution:
     def postorderTraversal(self, root: TreeNode) -> List[int]:
-        if not root:
-            return []
-        s1 = [root]
-        s2 = []
-        while s1:
-            node = s1.pop()
-            s2.append(node.val)
-            if node.left:
-                s1.append(node.left)
-            if node.right:
-                s1.append(node.right)
-        return s2[::-1]
+        res = []
+        if root:
+            s = [root]
+            while s:
+                node = s.pop()
+                res.append(node.val)
+                if node.left:
+                    s.append(node.left)
+                if node.right:
+                    s.append(node.right)
+        return res[::-1]
+```
+
+Morris Traversal:
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+        while root:
+            if root.right is None:
+                res.append(root.val)
+                root = root.left
+            else:
+                next = root.right
+                while next.left and next.left != root:
+                    next = next.left
+                if next.left is None:
+                    res.append(root.val)
+                    next.left = root
+                    root = root.right
+                else:
+                    next.left = None
+                    root = root.left
+        return res[::-1]
 ```
 
 ### **Java**
@@ -132,19 +168,16 @@ Recursive:
  * }
  */
 class Solution {
-
-    private List<Integer> res;
-
     public List<Integer> postorderTraversal(TreeNode root) {
-        res = new ArrayList<>();
-        postorder(root);
+        List<Integer> res = new ArrayList<>();
+        postorder(root, res);
         return res;
     }
 
-    private void postorder(TreeNode root) {
+    private void postorder(TreeNode root, List<Integer> res) {
         if (root != null) {
-            postorder(root.left);
-            postorder(root.right);
+            postorder(root.left, res);
+            postorder(root.right, res);
             res.add(root.val);
         }
     }
@@ -171,25 +204,197 @@ Non-recursive:
  */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        Deque<TreeNode> s1 = new ArrayDeque<>();
-        List<Integer> s2 = new ArrayList<>();
-        s1.push(root);
-        while (!s1.isEmpty()) {
-            TreeNode node = s1.pop();
-            s2.add(node.val);
-            if (node.left != null) {
-                s1.push(node.left);
+        LinkedList<Integer> res = new LinkedList<>();
+        if (root != null) {
+            Deque<TreeNode> s = new LinkedList<>();
+            s.offerLast(root);
+            while (!s.isEmpty()) {
+                TreeNode node = s.pollLast();
+                res.addFirst(node.val);
+                if (node.left != null) {
+                    s.offerLast(node.left);
+                }
+                if (node.right != null) {
+                    s.offerLast(node.right);
+                }
             }
-            if (node.right != null) {
-                s1.push(node.right);
-            }
         }
-        Collections.reverse(s2);
-        return s2;
+        return res;
     }
+}
+```
+
+Morris Traversal:
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        LinkedList<Integer> res = new LinkedList<>();
+        while (root != null) {
+            if (root.right == null) {
+                res.addFirst(root.val);
+                root = root.left;
+            } else {
+                TreeNode next = root.right;
+                while (next.left != null && next.left != root) {
+                    next = next.left;
+                }
+                if (next.left == null) {
+                    res.addFirst(root.val);
+                    next.left = root;
+                    root = root.right;
+                } else {
+                    next.left = null;
+                    root = root.left;
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function postorderTraversal(root: TreeNode | null): number[] {
+    if (root == null) return [];
+    let stack = [];
+    let ans = [];
+    let prev = null;
+    while (root || stack.length) {
+        while (root) {
+            stack.push(root);
+            root = root.left;
+        }
+        root = stack.pop();
+        if (!root.right || root.right == prev) {
+            ans.push(root.val);
+            prev = root;
+            root = null;
+        } else {
+            stack.push(root);
+            root = root.right;
+        }
+        
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode *root) {
+        vector<int> res;
+        while (root)
+        {
+            if (root->right == nullptr)
+            {
+                res.push_back(root->val);
+                root = root->left;
+            }
+            else
+            {
+                TreeNode *next = root->right;
+                while (next->left && next->left != root)
+                {
+                    next = next->left;
+                }
+                if (next->left == nullptr)
+                {
+                    res.push_back(root->val);
+                    next->left = root;
+                    root = root->right;
+                }
+                else
+                {
+                    next->left = nullptr;
+                    root = root->left;
+                }
+            }
+        }
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func postorderTraversal(root *TreeNode) []int {
+	var res []int
+	for root != nil {
+		if root.Right == nil {
+			res = append([]int{root.Val}, res...)
+			root = root.Left
+		} else {
+			next := root.Right
+			for next.Left != nil && next.Left != root {
+				next = next.Left
+			}
+			if next.Left == nil {
+				res = append([]int{root.Val}, res...)
+				next.Left = root
+				root = root.Right
+			} else {
+				next.Left = nil
+				root = root.Left
+			}
+		}
+	}
+	return res
 }
 ```
 

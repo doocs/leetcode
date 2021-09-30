@@ -59,7 +59,6 @@
 	<li><code>1 &lt;= arr[i] &lt;= 500</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -71,7 +70,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findLucky(self, arr: List[int]) -> int:
+        counter = collections.Counter(arr)
+        ans = -1
+        for num, n in counter.items():
+            if num == n and ans < num:
+                ans = num
+        return ans
 ```
 
 ### **Java**
@@ -79,7 +85,59 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findLucky(int[] arr) {
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int num : arr) {
+            mp.put(num, mp.getOrDefault(num, 0) + 1);
+        }
+        int ans = -1;
+        for (int num : arr) {
+            if (num == mp.get(num) && ans < num) {
+                ans = num;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findLucky(vector<int>& arr) {
+        int n = 510;
+        vector<int> counter(n);
+        for (int e : arr) ++counter[e];
+        int ans = -1;
+        for (int i = 1; i < n; ++i)
+        {
+            if (i == counter[i] && ans < i) ans = i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLucky(arr []int) int {
+    n := 510
+    counter := make([]int, n)
+    for _, e := range arr {
+        counter[e]++
+    }
+    ans := -1
+    for i := 1; i < n; i++ {
+        if i == counter[i] && ans < i {
+            ans = i
+        }
+    }
+    return ans
+}
 ```
 
 ### **...**

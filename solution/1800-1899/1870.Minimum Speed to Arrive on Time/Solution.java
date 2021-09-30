@@ -1,18 +1,15 @@
 class Solution {
     public int minSpeedOnTime(int[] dist, double hour) {
-        if (dist.length - 1 >= hour) {
-            return -1;
-        }
-        int l = 1, r = 10000000;
-        while (l < r) {
-            int m = (l + r) >> 1;
-            if (arriveOnTime(dist, m, hour)) {
-                r = m;
+        int left = 1, right = (int) 1e7;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (arriveOnTime(dist, mid, hour)) {
+                right = mid;
             } else {
-                l = m + 1;
+                left = mid + 1;
             }
         }
-        return l;
+        return arriveOnTime(dist, left, hour) ? left : -1;
     }
 
     private boolean arriveOnTime(int[] dist, int speed, double hour) {

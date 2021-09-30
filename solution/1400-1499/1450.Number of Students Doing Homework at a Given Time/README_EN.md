@@ -69,13 +69,59 @@ The third student started doing homework at time 3 and finished at time 7 and wa
 ### **Python3**
 
 ```python
-
+class Solution:
+    def busyStudent(self, startTime: List[int], endTime: List[int], queryTime: int) -> int:
+        count, n = 0, len(startTime)
+        for i in range(n):
+            count += startTime[i] <= queryTime <= endTime[i]
+        return count
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int busyStudent(int[] startTime, int[] endTime, int queryTime) {
+        int count = 0, n = startTime.length;
+        for (int i = 0; i < n; ++i) {
+            if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
+                ++count;
+            }
+        }
+        return count;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
+        int count = 0, n = startTime.size();
+        for (int i = 0; i < n; ++i) {
+            if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
+                ++count;
+            }
+        }
+        return count;
+    }
+};
+```
+
+### **Go**
+
+```go
+func busyStudent(startTime []int, endTime []int, queryTime int) int {
+	count, n := 0, len(startTime)
+	for i := 0; i < n; i++ {
+		if startTime[i] <= queryTime && queryTime <= endTime[i] {
+			count++
+		}
+	}
+	return count
+}
 ```
 
 ### **...**

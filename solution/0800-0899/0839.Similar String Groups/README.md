@@ -47,10 +47,70 @@
 
 <p>      字母异位词（anagram），一种把某个字符串的字母的位置（顺序）加以改换所形成的新词。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集模板题。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，先遍历所有字符串对，判断两字符串是否相似，若相似，则将两字符串合并到同一个集合中，从而形成并查集。最后统计集合的数量即可。
 
 <!-- tabs:start -->
 
@@ -59,7 +119,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def numSimilarGroups(self, strs: List[str]) -> int:
+        n = len(strs)
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+        
+        def check(a, b):
+            cnt = 0
+            for i, c in enumerate(a):
+                if c != b[i]:
+                    cnt += 1
+            return cnt <= 2
+        
+        for i in range(n):
+            for j in range(i + 1, n):
+                if check(strs[i], strs[j]):
+                    p[find(i)] = find(j)
+        
+        return sum(i == find(i) for i in range(n))
 ```
 
 ### **Java**
@@ -67,7 +149,135 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int numSimilarGroups(String[] strs) {
+        int n = strs.length;
+        p = new int[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (check(strs[i], strs[j])) {
+                    p[find(i)] = find(j);
+                }
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i == find(i)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+
+    private boolean check(String a, String b) {
+        int cnt = 0;
+        int n = a.length();
+        for (int i = 0; i < n; ++i) {
+            if (a.charAt(i) != b.charAt(i)) {
+                ++cnt;
+            }
+        }
+        return cnt <= 2;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+    int numSimilarGroups(vector<string>& strs) {
+        int n = strs.size();
+        for (int i = 0; i < n; ++i) p.push_back(i);
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = i + 1; j < n; ++j)
+            {
+                if (check(strs[i], strs[j]))
+                    p[find(i)] = find(j);
+            }
+        }
+        int res = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (i == find(i)) ++res;
+        }
+        return res;
+    }
+
+    bool check(string a, string b) {
+        int cnt = 0;
+        int n = a.size();
+        for (int i = 0; i < n; ++i)
+            if (a[i] != b[i]) ++cnt;
+        return cnt <= 2;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func numSimilarGroups(strs []string) int {
+	n := len(strs)
+	p = make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	for i := 0; i < n; i++ {
+		for j := i + 1; j < n; j++ {
+			if !check(strs[i], strs[j]) {
+				continue
+			}
+			p[find(i)] = find(j)
+		}
+	}
+	res := 0
+	for i := 0; i < n; i++ {
+		if i == find(i) {
+			res++
+		}
+	}
+	return res
+}
+
+func check(a, b string) bool {
+	cnt, n := 0, len(a)
+	for i := 0; i < n; i++ {
+		if a[i] != b[i] {
+			cnt++
+		}
+	}
+	return cnt <= 2
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

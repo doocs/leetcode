@@ -35,6 +35,14 @@
 
 ## 解法
 
+“滑动窗口 + 哈希表”。
+
+定义一个哈希表记录当前窗口内出现的字符，i、j 分别表示不重复子串的结束位置和开始位置，res 表示无重复字符子串的最大长度。
+
+遍历 i，若 `[j, i - 1]` 窗口内存在 `s[i]`，则 j 循环向右移动，更新哈希表，直至 `[j, i - 1]` 窗口不存在 `s[i]`，循环结束。将 `s[i]` 加入哈希表中，此时 `[j, i]` 窗口内不含重复元素，更新 res 的最大值：`res = max(res, i - j + 1)`。
+
+最后返回 res 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -42,22 +50,16 @@
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        if not s:
-            return 0
-        cache = {}
-        cache[s[0]] = 0
-        dp = [0 for _ in s]
-        dp[0] = res = 1
-        for i in range(1, len(s)):
-            if s[i] == s[i - 1]:
-                dp[i] = 1
-            else:
-                if cache.get(s[i]) is None:
-                    dp[i] = dp[i - 1] + 1
-                else:
-                    dp[i] = min(dp[i - 1] + 1, i - cache[s[i]])
-            cache[s[i]] = i
-            res = max(res, dp[i])
+        i = j = res = 0
+        chars = set()
+        while i < len(s):
+            while s[i] in chars:
+                if s[j] in chars:
+                    chars.remove(s[j])
+                j += 1
+            chars.add(s[i])
+            res = max(res, i - j + 1)
+            i += 1
         return res
 ```
 
@@ -66,31 +68,65 @@ class Solution:
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        if (s == null || "".equals(s)) {
-            return 0;
-        }
-        int n = s.length();
-        char[] chars = s.toCharArray();
-        int[] dp = new int[n];
-        int res = 1;
-        Map<Character, Integer> map = new HashMap<>();
-        dp[0] = 1;
-        map.put(chars[0], 0);
-        for (int i = 1; i < n; ++i) {
-            if (chars[i] == chars[i - 1]) {
-                dp[i] = 1;
-            } else {
-                if (map.get(chars[i]) == null) {
-                    dp[i] = dp[i - 1] + 1;
-                } else {
-                    dp[i] = Math.min(dp[i - 1] + 1, i - map.get(chars[i]));
-                }
+        int res = 0;
+        Set<Character> set = new HashSet<>();
+        for (int i = 0, j = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            while (set.contains(c)) {
+                set.remove(s.charAt(j++));
             }
-            map.put(chars[i], i);
-            res = Math.max(res, dp[i]);
+            set.add(c);
+            res = Math.max(res, i - j + 1);
         }
         return res;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int res = 0;
+        unordered_set<char> chars;
+        for (int i = 0, j = 0; i < s.size(); ++i)
+        {
+            while (chars.count(s[i]))
+            {
+                chars.erase(s[j++]);
+            }
+            chars.insert(s[i]);
+            res = max(res, i - j + 1);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lengthOfLongestSubstring(s string) int {
+	chars := make(map[byte]bool)
+	res := 0
+	for i, j := 0, 0; i < len(s); i++ {
+		for chars[s[i]] {
+			chars[s[j]] = false
+			j++
+		}
+		chars[s[i]] = true
+		res = max(res, i-j+1)
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
@@ -101,65 +137,18 @@ class Solution {
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function (s) {
-  let left = 0;
-  let right = 0;
-  let res = 0;
-  let len = s.length;
-  let rec = {};
-  while (right < len) {
-    let tmp = "*";
-    while (right < len) {
-      tmp = s[right];
-      if (!rec[tmp]) rec[tmp] = 0;
-      rec[tmp]++;
-      if (rec[tmp] > 1) break;
-      right++;
-    }
-    res = Math.max(res, right - left);
-    while (rec[tmp] > 1) rec[s[left++]]--;
-    right++;
-  }
-  return res;
-};
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int lengthOfLongestSubstring(string s) {
-        int arr[1024];    // 本题的用例中，有不为小写字母的情况
-        for (int i = 0; i < 1024; i++) {
-            arr[i] = -1;
+ var lengthOfLongestSubstring = function(s) {
+    let res = 0;
+    let chars = new Set();
+    for (let i = 0, j = 0; i < s.length; ++i) {
+        while (chars.has(s[i])) {
+            chars.delete(s[j++]);
         }
-
-        int curLen = 0;
-        int maxLen = 0;
-
-        int len = s.size();
-        for (int i = 0; i < len; i++) {
-            int prev = arr[int(s[i])];    // 之前位置的index
-            if (prev < 0 || i - prev > curLen) {
-                // 其中，prev>0表示之前没有遇到过该字符
-                // i - prev > curLen 表示之前遇到的当前字符，远超当前限定的范围
-                // 这两种情况下，都是直接继续加就可以了
-                curLen++;
-            } else {
-                if (curLen > maxLen) {
-                    maxLen = curLen;
-                }
-                curLen = i - prev;    // curLen重新开始计数
-            }
-
-            arr[int(s[i])] = i;
-        }
-
-        return maxLen > curLen ? maxLen : curLen;
+        chars.add(s[i]);
+        res = Math.max(res, i - j + 1);
     }
+    return res;
 };
-
 ```
 
 ### **...**

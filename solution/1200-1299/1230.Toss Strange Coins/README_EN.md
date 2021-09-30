@@ -34,13 +34,89 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def probabilityOfHeads(self, prob: List[float], target: int) -> float:
+        m = len(prob)
+        dp = [[0] * (target + 1) for _ in range(m + 1)]
+        dp[0][0] = 1
+        for i in range(1, m + 1):
+            for j in range(target + 1):
+                dp[i][j] = dp[i - 1][j] * (1 - prob[i - 1])
+                if j >= 1:
+                    dp[i][j] += dp[i - 1][j - 1] * prob[i - 1]
+        return dp[-1][-1]
+```
 
+```python
+class Solution:
+    def probabilityOfHeads(self, prob: List[float], target: int) -> float:
+        dp = [0] * (target + 1)
+        dp[0] = 1
+        for v in prob:
+            for j in range(target, -1, -1):
+                dp[j] *= (1 - v)
+                if j >= 1:
+                    dp[j] += dp[j - 1] * v
+        return dp[-1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public double probabilityOfHeads(double[] prob, int target) {
+        double[] dp = new double[target + 1];
+        dp[0] = 1;
+        for (double v : prob) {
+            for (int j = target; j >= 0; --j) {
+                dp[j] *= (1 - v);
+                if (j >= 1) {
+                    dp[j] += dp[j - 1] * v;
+                }
+            }
+        }
+        return dp[target];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double probabilityOfHeads(vector<double>& prob, int target) {
+        vector<double> dp(target + 1);
+        dp[0] = 1;
+        for (auto v : prob)
+        {
+            for (int j = target; j >= 0; --j)
+            {
+                dp[j] *= (1 - v);
+                if (j >= 1) dp[j] += dp[j - 1] * v;
+            }
+        }
+        return dp[target];
+    }
+};
+```
+
+### **Go**
+
+```go
+func probabilityOfHeads(prob []float64, target int) float64 {
+	dp := make([]float64, target+1)
+	dp[0] = 1
+	for _, v := range prob {
+		for j := target; j >= 0; j-- {
+			dp[j] *= (1 - v)
+			if j >= 1 {
+				dp[j] += dp[j-1] * v
+			}
+		}
+	}
+	return dp[target]
+}
 ```
 
 ### **...**

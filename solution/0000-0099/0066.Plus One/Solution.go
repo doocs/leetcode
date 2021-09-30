@@ -1,11 +1,11 @@
 func plusOne(digits []int) []int {
-	for right := len(digits) - 1; right >= 0; right-- {
-		digits[right] = (digits[right] + 1) % 10
-		if digits[right] != 0 {
+	n := len(digits)
+	for i := n - 1; i >= 0; i-- {
+		digits[i]++
+		digits[i] %= 10
+		if digits[i] != 0 {
 			return digits
 		}
 	}
-	ret := make([]int, len(digits)+1)
-	ret[0] = 1
-	return ret
+	return append([]int{1}, digits...)
 }

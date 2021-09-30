@@ -6,23 +6,13 @@
 
 <p>Given a set of <code>N</code>&nbsp;people (numbered <code>1, 2, ..., N</code>), we would like to split everyone into two groups of <strong>any</strong> size.</p>
 
-
-
 <p>Each person may dislike some other people, and they should not go into the same group.&nbsp;</p>
-
-
 
 <p>Formally, if <code>dislikes[i] = [a, b]</code>, it means it is not allowed to put the people numbered <code>a</code> and <code>b</code> into the same group.</p>
 
-
-
 <p>Return <code>true</code>&nbsp;if and only if it is possible to split everyone into two groups in this way.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -36,13 +26,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -54,13 +40,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -70,13 +52,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -92,13 +70,9 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= N &lt;= 2000</code></li>
@@ -111,18 +85,138 @@
 
 ## Solutions
 
+Union find.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
+        p = list(range(n))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        mp = collections.defaultdict(list)
+        for i, j in dislikes:
+            mp[i - 1].append(j - 1)
+            mp[j - 1].append(i - 1)
+        for i in range(n):
+            dis = mp[i]
+            for j in dis:
+                if find(i) == find(j):
+                    return False
+                p[find(j)] = find(dis[0])
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+public:
+    vector<int> p;
 
+    bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        unordered_map<int, vector<int>> mp;
+        for (auto e : dislikes)
+        {
+            mp[e[0] - 1].push_back(e[1] - 1);
+            mp[e[1] - 1].push_back(e[0] - 1);
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            auto dis = mp[i];
+            for (int j : dis)
+            {
+                if (find(i) == find(j)) return false;
+                p[find(j)] = find(dis[0]);
+            }
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        unordered_map<int, vector<int>> mp;
+        for (auto e : dislikes)
+        {
+            mp[e[0] - 1].push_back(e[1] - 1);
+            mp[e[1] - 1].push_back(e[0] - 1);
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            auto dis = mp[i];
+            for (int j : dis)
+            {
+                if (find(i) == find(j)) return false;
+                p[find(j)] = find(dis[0]);
+            }
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func possibleBipartition(n int, dislikes [][]int) bool {
+	p = make([]int, n)
+	for i := 0; i < n; i++ {
+		p[i] = i
+	}
+	mp := make(map[int][]int)
+	for _, e := range dislikes {
+		mp[e[0]-1] = append(mp[e[0]-1], e[1]-1)
+		mp[e[1]-1] = append(mp[e[1]-1], e[0]-1)
+	}
+	for i := 0; i < n; i++ {
+		dis := mp[i]
+		for _, j := range dis {
+			if find(i) == find(j) {
+				return false
+			}
+			p[find(j)] = find(dis[0])
+		}
+	}
+	return true
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

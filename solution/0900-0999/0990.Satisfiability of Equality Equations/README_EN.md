@@ -141,13 +141,132 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def equationsPossible(self, equations: List[str]) -> bool:
+        p = [i for i in range(26)]
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for e in equations:
+            a, r, b = ord(e[0]) - ord('a'), e[1:3], ord(e[3]) - ord('a')
+            if r == '==':
+                p[find(a)] = find(b)
+        for e in equations:
+            a, r, b = ord(e[0]) - ord('a'), e[1:3], ord(e[3]) - ord('a')
+            if r == '!=' and find(a) == find(b):
+                return False
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] p;
 
+    public boolean equationsPossible(String[] equations) {
+        p = new int[26];
+        for (int i = 0; i < 26; ++i) {
+            p[i] = i;
+        }
+        for (String e : equations) {
+            int a = e.charAt(0) - 'a', b = e.charAt(3) - 'a';
+            String r = e.substring(1, 3);
+            if ("==".equals(r)) {
+                p[find(a)] = find(b);
+            }
+        }
+        for (String e : equations) {
+            int a = e.charAt(0) - 'a', b = e.charAt(3) - 'a';
+            String r = e.substring(1, 3);
+            if ("!=".equals(r) && find(a) == find(b)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    bool equationsPossible(vector<string>& equations) {
+        p.resize(26);
+        for (int i = 0; i < 26; ++i)
+            p[i] = i;
+        for (auto e : equations)
+        {
+            int a = e[0] - 'a', b = e[3] - 'a';
+            char r = e[1];
+            if (r == '=')
+                p[find(a)] = find(b);
+        }
+        for (auto e : equations)
+        {
+            int a = e[0] - 'a', b = e[3] - 'a';
+            char r = e[1];
+            if (r == '!' && find(a) == find(b))
+                return false;
+        }
+        return true;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+            p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func equationsPossible(equations []string) bool {
+	p = make([]int, 26)
+	for i := 1; i < 26; i++ {
+		p[i] = i
+	}
+	for _, e := range equations {
+		a, b := int(e[0]-'a'), int(e[3]-'a')
+		r := e[1]
+		if r == '=' {
+			p[find(a)] = find(b)
+		}
+	}
+	for _, e := range equations {
+		a, b := int(e[0]-'a'), int(e[3]-'a')
+		r := e[1]
+		if r == '!' && find(a) == find(b) {
+			return false
+		}
+	}
+	return true
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

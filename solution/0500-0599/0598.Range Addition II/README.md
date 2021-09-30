@@ -46,7 +46,6 @@ M 中最大的整数是 2, 而且 M 中有4个值为2的元素。因此返回 4�
 	<li>操作数目不超过 10000。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -58,7 +57,12 @@ M 中最大的整数是 2, 而且 M 中有4个值为2的元素。因此返回 4�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxCount(self, m: int, n: int, ops: List[List[int]]) -> int:
+        for a, b in ops:
+            m = min(m, a)
+            n = min(n, b)
+        return m * n
 ```
 
 ### **Java**
@@ -66,7 +70,49 @@ M 中最大的整数是 2, 而且 M 中有4个值为2的元素。因此返回 4�
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxCount(int m, int n, int[][] ops) {
+        for (int[] op : ops) {
+            m = Math.min(m, op[0]);
+            n = Math.min(n, op[1]);
+        }
+        return m * n;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxCount(int m, int n, vector<vector<int>>& ops) {
+        for (auto op : ops) {
+            m = min(m, op[0]);
+            n = min(n, op[1]);
+        }
+        return m * n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxCount(m int, n int, ops [][]int) int {
+	for _, op := range ops {
+		m = min(m, op[0])
+		n = min(n, op[1])
+	}
+	return m * n
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

@@ -44,10 +44,70 @@
 <p><strong>更新(2017-09-26):</strong><br>
 我们已经重新检查了问题描述及测试用例，明确图是<em><strong>无向&nbsp;</strong></em>图。对于有向图详见<strong><a href="https://leetcodechina.com/problems/redundant-connection-ii/description/">冗余连接II</a>。</strong>对于造成任何不便，我们深感歉意。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，先遍历所有的边，如果边的两个节点已经属于同个集合，说明两个节点已经相连，若再将这条件加入集合中，就会出现环，因此可以直接返回这条边。
 
 <!-- tabs:start -->
 
@@ -56,7 +116,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        p = list(range(1010))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+        
+        for a, b in edges:
+            if find(a) == find(b):
+                return [a, b]
+            p[find(a)] = find(b)
+        return []
 ```
 
 ### **Java**
@@ -64,7 +137,82 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int[] findRedundantConnection(int[][] edges) {
+        p = new int[1010];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        for (int[] e : edges) {
+            if (find(e[0]) == find(e[1])) {
+                return e;
+            }
+            p[find(e[0])] = find(e[1]);
+        }
+        return null;
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        p.resize(1010);
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        for (auto e : edges)
+        {
+            if (find(e[0]) == find(e[1])) return e;
+            p[find(e[0])] = find(e[1]);
+        }
+        return {};
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func findRedundantConnection(edges [][]int) []int {
+	p = make([]int, 1010)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	for _, e := range edges {
+		if find(e[0]) == find(e[1]) {
+			return e
+		}
+		p[find(e[0])] = find(e[1])
+	}
+	return nil
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

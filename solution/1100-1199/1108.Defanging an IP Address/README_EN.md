@@ -45,13 +45,51 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def defangIPaddr(self, address: str) -> str:
+        return address.replace('.', '[.]')
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String defangIPaddr(String address) {
+        return address.replace(".", "[.]");
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function defangIPaddr(address: string): string {
+    return address.split('.').join('[.]');
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string defangIPaddr(string address) {
+        for (int i = address.size(); i >= 0; --i){
+            if (address[i] == '.') {
+                address.replace(i, 1, "[.]");
+            }
+        }
+        return address;
+    }
+};
+```
+
+### **Go**
+
+```go
+func defangIPaddr(address string) string {
+	return strings.Replace(address, ".", "[.]", -1)
+}
 ```
 
 ### **...**

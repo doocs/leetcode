@@ -64,7 +64,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def diagonalSum(self, mat: List[List[int]]) -> int:
+        n = len(mat)
+        res = 0
+        for i in range(n):
+            res += mat[i][i] + (0 if n - i - 1 == i else mat[i][n - i - 1])
+        return res
 ```
 
 ### **Java**
@@ -72,7 +78,64 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        int n = mat.length;
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            res += mat[i][i] + (n - i - 1 == i ? 0 : mat[i][n - i - 1]);
+        }
+        return res;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function diagonalSum(mat: number[][]): number {
+    let n = mat.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        ans += mat[i][i];
+        let j = n - 1 - i;
+        if (i != j) {
+            ans += mat[i][j];
+        }
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+        int n = mat.size();
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            res += mat[i][i] + (n - i - 1 == i ? 0 : mat[i][n - i - 1]);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func diagonalSum(mat [][]int) int {
+	n, res := len(mat), 0
+	for i := 0; i < n; i++ {
+		res += mat[i][i]
+		if n-i-1 != i {
+			res += mat[i][n-i-1]
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

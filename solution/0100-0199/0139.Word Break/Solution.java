@@ -1,21 +1,20 @@
-class Solution {
-    public boolean wordBreak(String s, List<String> wordDict) {
-        if (s == null || s.length() == 0) {
-            return false;
-        }
-        Set<String> words = new HashSet<>(wordDict);
-        boolean[] dp = new boolean[s.length() + 1];
+public class Solution {
+    public bool WordBreak(string s, IList<string> wordDict) {
+        var words = new HashSet<string>(wordDict);
+        int n = s.Length;
+        var dp = new bool[n + 1];
         dp[0] = true;
-
-        for (int i = 1; i <= s.length(); i++) {
-            for (int j = i - 1; j > -1; j--) {
-                dp[i] = dp[j] && words.contains(s.substring(j, i));
-                if (dp[i]) {
+        for (int i = 1; i <= n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                if (dp[j] && words.Contains(s.Substring(j, i - j)))
+                {
+                    dp[i] = true;
                     break;
                 }
             }
         }
-
-        return dp[s.length()];
+        return dp[n];
     }
 }

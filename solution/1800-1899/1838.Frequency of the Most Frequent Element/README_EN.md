@@ -46,7 +46,6 @@ Explanation:</strong> Increment the first element three times and the second ele
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -54,13 +53,174 @@ Explanation:</strong> Increment the first element three times and the second ele
 ### **Python3**
 
 ```python
+class Solution:
+    def maxFrequency(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        ans = 1
+        window = 0
+        l, r, n = 0, 1, len(nums)
+        while r < n:
+            window += (nums[r] - nums[r - 1]) * (r - l)
+            r += 1
+            while window > k:
+                window -= nums[r - 1] - nums[l]
+                l += 1
+            ans = max(ans, r - l)
+        return ans
+```
 
+```python
+class Solution:
+    def maxFrequency(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        n = len(nums)
+        presum = [0] * (n + 1)
+        for i in range(1, n + 1):
+            presum[i] = presum[i - 1] + nums[i - 1]
+
+        def check(count):
+            for i in range(n - count + 1):
+                j = i + count - 1
+                if nums[j] * count - (presum[j + 1] - presum[i]) <= k:
+                    return True
+            return False
+        
+        left, right = 1, n
+        while left < right:
+            mid = (left + right + 1) >> 1
+            if check(mid):
+                left = mid
+            else:
+                right = mid - 1
+        return left
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxFrequency(int[] nums, int k) {
+        Arrays.sort(nums);
+        int ans = 1;
+        int window = 0;
+        int l = 0, r = 1, n = nums.length;
+        while (r < n) {
+            window += (nums[r] - nums[r - 1]) * (r++ - l);
+            while (window > k) {
+                window -= nums[r - 1] - nums[l];
+                l++;
+            }
+            ans = Math.max(ans, r - l);
+        }
+        return ans;
+    }
+}
+```
 
+```java
+class Solution {
+    private int[] nums;
+    private int k;
+    private int n;
+    private int[] presum;
+
+    public int maxFrequency(int[] nums, int k) {
+        Arrays.sort(nums);
+        this.nums = nums;
+        this.k = k;
+        n = nums.length;
+        presum = new int[n + 1];
+        for (int i = 1; i <= n; ++i) {
+            presum[i] = presum[i - 1] + nums[i - 1];
+        }
+        int left = 1, right = n;
+        while (left < right) {
+            int mid = (left + right + 1) >> 1;
+            if (check(mid)) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
+
+    private boolean check(int count) {
+        for (int i = 0; i < n - count + 1; ++i) {
+            int j = i + count - 1;
+            if (nums[j] * count - (presum[j + 1] - presum[i]) <= k) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+### **Go**
+
+```go
+func maxFrequency(nums []int, k int) int {
+	sort.Ints(nums)
+	ans := 1
+	window := 0
+	l, r, n := 0, 1, len(nums)
+	for r < n {
+		window += (nums[r] - nums[r-1]) * (r - l)
+		r++
+		for window > k {
+			window -= nums[r-1] - nums[l]
+			l++
+		}
+		ans = max(ans, r-l)
+	}
+	return ans
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> nums;
+    int k;
+    vector<long long> presum;
+    int n;
+
+    int maxFrequency(vector<int>& nums, int k) {
+        sort(nums.begin(), nums.end());
+        n = nums.size();
+        this->k = k;
+        this->nums = nums;
+        presum = vector<long long>(n + 1);
+        for (int i = 1; i <= n; ++i) {
+            presum[i] = presum[i - 1] + nums[i - 1];
+        }
+        int left = 1, right = n;
+        while (left < right) {
+            int mid = left + right + 1 >> 1;
+            if (check(mid)) left = mid;
+            else right = mid - 1;
+        }
+        return left;
+    }
+
+    bool check(int count) {
+        for (int i = 0; i < n - count + 1; ++i) {
+            int j = i + count - 1;
+            if ((long long) nums[j] * count - (presum[j + 1] - presum[i]) <= k) return true;
+        }
+        return false;
+    }
+};
 ```
 
 ### **...**

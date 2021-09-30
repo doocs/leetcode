@@ -6,17 +6,11 @@
 
 <p>Given the array <code>candies</code> and the integer <code>extraCandies</code>, where <code>candies[i]</code> represents the number of candies that the <strong><em>ith</em></strong> kid has.</p>
 
-
-
 <p>For each kid check if there is a way to distribute <code>extraCandies</code> among the kids such that he or she can have the <strong>greatest</strong> number of candies among them.&nbsp;Notice that multiple kids can have the <strong>greatest</strong> number of candies.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -38,11 +32,7 @@ Kid 5 has 3 candies and if he or she receives at least 2 extra candies will have
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -54,11 +44,7 @@ Kid 5 has 3 candies and if he or she receives at least 2 extra candies will have
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -68,13 +54,9 @@ Kid 5 has 3 candies and if he or she receives at least 2 extra candies will have
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>2 &lt;= candies.length &lt;= 100</code></li>
@@ -89,13 +71,67 @@ Kid 5 has 3 candies and if he or she receives at least 2 extra candies will have
 ### **Python3**
 
 ```python
-
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        mx = max(candies)
+        return [candy + extraCandies >= mx for candy in candies]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int mx = 0;
+        for (int candy : candies) {
+            mx = Math.max(mx, candy);
+        }
+        List<Boolean> res = new ArrayList<>();
+        for (int candy : candies) {
+            res.add(candy + extraCandies >= mx);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        int mx = *max_element(candies.begin(), candies.end());
+        vector<bool> res;
+        for (int candy : candies) {
+            res.push_back(candy + extraCandies >= mx);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func kidsWithCandies(candies []int, extraCandies int) []bool {
+	mx := 0
+	for _, candy := range candies {
+		mx = max(mx, candy)
+	}
+	var res []bool
+	for _, candy := range candies {
+		res = append(res, candy+extraCandies >= mx)
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

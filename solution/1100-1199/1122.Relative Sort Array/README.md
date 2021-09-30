@@ -35,10 +35,15 @@
 	<li><code>arr2</code> 中的每个元素 <code>arr2[i]</code> 都出现在 <code>arr1</code> 中</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+由于本题数据范围是 `[0, 1000]`，因此我们可以开辟一个长度为 1001 的数组 mp，记录 arr1 的元素以及出现的次数。
+
+接着，遍历 arr2 中每个元素 x，若 `mp[x]` 大于 0，循环将 x 加入到答案数组 arr1 中，并且递减 `mp[x]`。遍历结束后，再从下标 `j = 0` 开始遍历 mp，若遇到 `mp[j]` 大于 0，将 `mp[j]` 个 j 加入到答案数组 arr1 中。
+
+最后返回 arr1 即可。
 
 <!-- tabs:start -->
 
@@ -47,7 +52,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        mp = {num: i for i, num in enumerate(arr2)}
+        arr1.sort(key=lambda x: (mp.get(x, 10000), x))
+        return arr1
+```
 
+```python
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        mp = [0] * 1001
+        for x in arr1:
+            mp[x] += 1
+        i = 0
+        for x in arr2:
+            while mp[x] > 0:
+                arr1[i] = x
+                mp[x] -= 1
+                i += 1
+        for x, cnt in enumerate(mp):
+            for _ in range(cnt):
+                arr1[i] = x
+                i += 1
+        return arr1
 ```
 
 ### **Java**
@@ -55,7 +83,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] relativeSortArray(int[] arr1, int[] arr2) {
+        int[] mp = new int[1001];
+        for (int x : arr1) {
+            ++mp[x];
+        }
+        int i = 0;
+        for (int x : arr2) {
+            while (mp[x]-- > 0) {
+                arr1[i++] = x;
+            }
+        }
+        for (int j = 0; j < mp.length; ++j) {
+            while (mp[j]-- > 0) {
+                arr1[i++] = j;
+            }
+        }
+        return arr1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        vector<int> mp(1001);
+        for (int x : arr1) ++mp[x];
+        int i = 0;
+        for (int x : arr2)
+        {
+            while (mp[x]-- > 0) arr1[i++] = x;
+        }
+        for (int j = 0; j < mp.size(); ++j)
+        {
+            while (mp[j]-- > 0) arr1[i++] = j;
+        }
+        return arr1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func relativeSortArray(arr1 []int, arr2 []int) []int {
+	mp := make([]int, 1001)
+	for _, x := range arr1 {
+		mp[x]++
+	}
+	i := 0
+	for _, x := range arr2 {
+		for mp[x] > 0 {
+			arr1[i] = x
+			mp[x]--
+			i++
+		}
+	}
+	for j, cnt := range mp {
+		for cnt > 0 {
+			arr1[i] = j
+			i++
+			cnt--
+		}
+	}
+	return arr1
+}
 ```
 
 ### **...**

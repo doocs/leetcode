@@ -81,7 +81,7 @@ class Solution:
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0, n = nums.length; i < n; ++i) {
+        for (int i = 0; i < nums.length; ++i) {
             int num = target - nums[i];
             if (map.containsKey(num)) {
                 return new int[]{map.get(num), i};
@@ -90,6 +90,41 @@ class Solution {
         }
         return null;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> map;
+        for (int i = 0; i < nums.size(); ++i) {
+            int num = target - nums[i];
+            if (map.find(num) != map.end()) {
+                return {map[num], i};
+            }
+            map[nums[i]] = i;
+        }
+        return {};
+    }
+};
+```
+
+### **Go**
+
+```go
+func twoSum(nums []int, target int) []int {
+	numMap := make(map[int]int)
+	for i, num := range nums {
+		other := target - num
+		if _, ok := numMap[other]; ok {
+			return []int{numMap[other], i}
+		}
+		numMap[num] = i
+	}
+	return nil
 }
 ```
 

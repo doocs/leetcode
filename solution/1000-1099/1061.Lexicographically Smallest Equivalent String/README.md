@@ -53,10 +53,70 @@
 	<li>字符串&nbsp;<code>A</code>&nbsp;和&nbsp;<code>B</code>&nbsp;长度相同。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
+
+对于本题，套用并查集模板时，将数值较大的祖宗节点指向数值较小的祖宗节点，这样可以保证祖宗节点存放的是本集合的最小值。
 
 <!-- tabs:start -->
 
@@ -65,7 +125,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def smallestEquivalentString(self, s1: str, s2: str, baseStr: str) -> str:
+        p = list(range(26))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for i in range(len(s1)):
+            a, b = ord(s1[i]) - ord('a'), ord(s2[i]) - ord('a')
+            pa, pb = find(a), find(b)
+            if pa < pb:
+                p[pb] = pa
+            else:
+                p[pa] = pb
+
+        res = []
+        for a in baseStr:
+            a = ord(a) - ord('a')
+            res.append(chr(find(a) + ord('a')))
+        return ''.join(res)
 ```
 
 ### **Java**
@@ -73,7 +154,110 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public String smallestEquivalentString(String s1, String s2, String baseStr) {
+        p = new int[26];
+        for (int i = 0; i < 26; ++i) {
+            p[i] = i;
+        }
+        for (int i = 0; i < s1.length(); ++i) {
+            int a = s1.charAt(i) - 'a', b = s2.charAt(i) - 'a';
+            int pa = find(a), pb = find(b);
+            if (pa < pb) {
+                p[pb] = pa;
+            } else {
+                p[pa] = pb;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        for (char a : baseStr.toCharArray()) {
+            char b = (char) (find(a - 'a') + 'a');
+            sb.append(b);
+        }
+        return sb.toString();
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    string smallestEquivalentString(string s1, string s2, string baseStr) {
+        p.resize(26);
+        for (int i = 0; i < 26; ++i)
+            p[i] = i;
+        for (int i = 0; i < s1.size(); ++i)
+        {
+            int a = s1[i] - 'a', b = s2[i] - 'a';
+            int pa = find(a), pb = find(b);
+            if (pa < pb)
+                p[pb] = pa;
+            else
+                p[pa] = pb;
+        }
+        string res = "";
+        for (char a : baseStr)
+        {
+            char b = (char)(find(a - 'a') + 'a');
+            res += b;
+        }
+        return res;
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+            p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func smallestEquivalentString(s1 string, s2 string, baseStr string) string {
+	p = make([]int, 26)
+	for i := 0; i < 26; i++ {
+		p[i] = i
+	}
+	for i := 0; i < len(s1); i++ {
+		a, b := int(s1[i]-'a'), int(s2[i]-'a')
+		pa, pb := find(a), find(b)
+		if pa < pb {
+			p[pb] = pa
+		} else {
+			p[pa] = pb
+		}
+	}
+	var res []byte
+	for _, a := range baseStr {
+		b := byte(find(int(a-'a'))) + 'a'
+		res = append(res, b)
+	}
+	return string(res)
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**

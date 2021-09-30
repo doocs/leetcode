@@ -6,17 +6,11 @@
 
 <p>Given an array of integers <code>arr</code>, a lucky integer is an integer which has a frequency in the array equal to its value.</p>
 
-
-
 <p>Return <i>a lucky integer</i>&nbsp;in the array. If there are multiple lucky integers return the <strong>largest</strong> of them. If there is no lucky&nbsp;integer return <strong>-1</strong>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -28,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -44,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -60,11 +46,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -74,11 +56,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -88,13 +66,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= arr.length &lt;= 500</code></li>
@@ -108,13 +82,72 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findLucky(self, arr: List[int]) -> int:
+        counter = collections.Counter(arr)
+        ans = -1
+        for num, n in counter.items():
+            if num == n and ans < num:
+                ans = num
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findLucky(int[] arr) {
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int num : arr) {
+            mp.put(num, mp.getOrDefault(num, 0) + 1);
+        }
+        int ans = -1;
+        for (int num : arr) {
+            if (num == mp.get(num) && ans < num) {
+                ans = num;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findLucky(vector<int>& arr) {
+        int n = 510;
+        vector<int> counter(n);
+        for (int e : arr) ++counter[e];
+        int ans = -1;
+        for (int i = 1; i < n; ++i)
+        {
+            if (i == counter[i] && ans < i) ans = i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLucky(arr []int) int {
+    n := 510
+    counter := make([]int, n)
+    for _, e := range arr {
+        counter[e]++
+    }
+    ans := -1
+    for i := 1; i < n; i++ {
+        if i == counter[i] && ans < i {
+            ans = i
+        }
+    }
+    return ans
+}
 ```
 
 ### **...**

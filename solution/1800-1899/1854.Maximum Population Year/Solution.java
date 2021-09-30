@@ -1,19 +1,18 @@
 class Solution {
     public int maximumPopulation(int[][] logs) {
-        int offset = 1950;
-        int[] delta = new int[101];
+        int[] delta = new int[2055];
         for (int[] log : logs) {
-            ++delta[log[0] - offset];
-            --delta[log[1] - offset];
+            ++delta[log[0]];
+            --delta[log[1]];
         }
-        int mx = 0, cur = 0, res = 0;
-        for (int i = 0; i < 101; ++i) {
+        int res = 0, mx = 0, cur = 0;
+        for (int i = 0; i < delta.length; ++i) {
             cur += delta[i];
-            if (mx < cur) {
+            if (cur > mx) {
                 mx = cur;
                 res = i;
             }
         }
-        return res + offset;
+        return res;
     }
 }

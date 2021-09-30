@@ -57,14 +57,16 @@ Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence an
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        res, chars = 0, dict()
-        i = j = 0
-        while j < len(s):
-            if s[j] in chars:
-                i = max(i, chars[s[j]] + 1)
-            res = max(res, j - i + 1)
-            chars[s[j]] = j
-            j += 1
+        i = j = res = 0
+        chars = set()
+        while i < len(s):
+            while s[i] in chars:
+                if s[j] in chars:
+                    chars.remove(s[j])
+                j += 1
+            chars.add(s[i])
+            res = max(res, i - j + 1)
+            i += 1
         return res
 ```
 
@@ -74,18 +76,59 @@ class Solution:
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         int res = 0;
-        Map<Character, Integer> chars = new HashMap<>();
-        for (int i = 0, j = 0; j < s.length(); ++j) {
-            char c = s.charAt(j);
-            if (chars.containsKey(c)) {
-                i = Math.max(i, chars.get(c) + 1);
+        Set<Character> set = new HashSet<>();
+        for (int i = 0, j = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            while (set.contains(c)) {
+                set.remove(s.charAt(j++));
             }
-            chars.put(c, j);
-            res = Math.max(res, j - i + 1);
+            set.add(c);
+            res = Math.max(res, i - j + 1);
         }
         return res;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+ var lengthOfLongestSubstring = function(s) {
+    let res = 0;
+    let chars = new Set();
+    for (let i = 0, j = 0; i < s.length; ++i) {
+        while (chars.has(s[i])) {
+            chars.delete(s[j++]);
+        }
+        chars.add(s[i]);
+        res = Math.max(res, i - j + 1);
+    }
+    return res;
+};
+```
+
+### **TypeScript**
+
+```ts
+function lengthOfLongestSubstring(s: string): number {
+    // 滑动窗口+哈希表
+    let left = -1;
+    let maxLen = 0;
+    let hashTable = new Map();
+    for (let right = 0; right < s.length; right++) {
+        let cur = s.charAt(right);
+        if (hashTable.has(cur)) {
+          left = Math.max(left, hashTable.get(cur));
+        }
+        hashTable.set(cur, right);
+        maxLen = Math.max(maxLen, right - left);
+    }
+      return maxLen;
+  };
 ```
 
 ### **Swift**
@@ -109,6 +152,35 @@ class Solution {
         }
         return max(maxLength, i - currentStartingIndex)
     }
+}
+```
+
+### **Go**
+
+```go
+func lengthOfLongestSubstring(s string) int {
+	window := make(map[byte]int)
+	n := len(s)
+	ans := 0
+	left, right := 0, 0
+	for right < n {
+		b := s[right]
+		right++
+		window[b]++
+		for window[b] > 1 {
+			window[s[left]]--
+			left++
+		}
+		ans = max(ans, right-left)
+	}
+	return ans
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
 }
 ```
 

@@ -9,16 +9,14 @@ class RandomizedCollection {
         l = new ArrayList<>();
         rnd = new Random();
     }
-    
+
     /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
     public boolean insert(int val) {
-        Set<Integer> idxSet = m.getOrDefault(val, new HashSet<>());
-        idxSet.add(l.size());
-        m.put(val, idxSet);
+        m.computeIfAbsent(val, k -> new HashSet<>()).add(l.size());
         l.add(val);
-        return idxSet.size() == 1;
+        return m.get(val).size() == 1;
     }
-    
+
     /** Removes a value from the collection. Returns true if the collection contained the specified element. */
     public boolean remove(int val) {
         if (!m.containsKey(val)) {
@@ -41,7 +39,7 @@ class RandomizedCollection {
         l.remove(lastIdx);
         return true;
     }
-    
+
     /** Get a random element from the collection. */
     public int getRandom() {
         int size = l.size();

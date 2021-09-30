@@ -48,12 +48,11 @@
 	<li><code>1 &lt;= coins &lt;= 10<sup>8</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-注意数据范围，题目很容易误导我们使用01背包（会超时），其实这题就是简单贪心，优先选择定价小的雪糕。
+注意数据范围，题目很容易误导我们使用 01 背包（会超时），其实这题就是简单贪心，优先选择定价小的雪糕。
 
 <!-- tabs:start -->
 
@@ -65,13 +64,13 @@
 class Solution:
     def maxIceCream(self, costs: List[int], coins: int) -> int:
         costs.sort()
-        ans, n = 0, len(costs)
-        for i in range(n):
-            if coins < costs[i]:
+        ans = 0
+        for c in costs:
+            if coins < c:
                 break
             else:
                 ans += 1
-                coins -= costs[i]
+                coins -= c
         return ans
 ```
 
@@ -91,6 +90,24 @@ class Solution {
         return ans;
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxIceCream(vector<int>& costs, int coins) {
+        sort(costs.begin(), costs.end());
+        int ans = 0;
+        for (int i = 0; i < costs.size() && coins >= costs[i]; ++i)
+        {
+            ++ans;
+            coins -= costs[i];
+        }
+        return ans;
+    }
+};
 ```
 
 ### **Go**

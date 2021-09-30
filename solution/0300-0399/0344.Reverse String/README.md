@@ -52,18 +52,49 @@ class Solution:
 ```java
 class Solution {
     public void reverseString(char[] s) {
-        int n;
-        if (s == null || (n = s.length) < 2) return;
-        int i = 0, j = n - 1;
-        while (i < j) {
+        for (int i = 0, j = s.length - 1; i < j; ++i, --j) {
             char t = s[i];
             s[i] = s[j];
             s[j] = t;
-            ++i;
-            --j;
         }
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j)
+            swap(s[i], s[j]);
+    }
+};
+```
+
+### **Go**
+
+```go
+func reverseString(s []byte) {
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		s[i], s[j] = s[j], s[i]
+	}
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {character[]} s
+ * @return {void} Do not return anything, modify s in-place instead.
+ */
+var reverseString = function(s) {
+    for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
+        [s[i], s[j]] = [s[j], s[i]];
+    }
+};
 ```
 
 ### **...**

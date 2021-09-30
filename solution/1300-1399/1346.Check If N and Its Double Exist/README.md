@@ -60,7 +60,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def checkIfExist(self, arr: List[int]) -> bool:
+        map = collections.defaultdict(int)
+        for i, num in enumerate(arr):
+            map[num] = i
+        for i, num in enumerate(arr):
+            if num << 1 in map and i != map[num << 1]:
+                return True
+        return False
 ```
 
 ### **Java**
@@ -68,7 +76,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean checkIfExist(int[] arr) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            map.put(arr[i], i);
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (map.containsKey(arr[i] << 1) && i != map.get(arr[i] << 1))
+                return true;
+        }
+        return false;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function checkIfExist(arr: number[]): boolean {
+    for (let i = arr.length - 1; i >= 0; --i) {
+        let cur = arr[i];
+        let t1 = 2 * cur; 
+        if (arr.includes(t1) && arr.indexOf(t1) != i) {
+            return true;
+        }
+        let t2 = cur >> 1;
+        if (cur % 2 == 0 && arr.includes(t2) && arr.indexOf(t2) != i) {
+            return true;
+        }
+    }
+    return false;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkIfExist(vector<int>& arr) {
+        unordered_map<int, int> map;
+        for (int i = 0; i < arr.size(); ++i) {
+            map[arr[i]] = i;
+        }
+        for (int i = 0; i < arr.size(); ++i) {
+            if (map.find(arr[i] * 2) != map.end() && i != map[arr[i] * 2]) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
 ```
 
 ### **...**

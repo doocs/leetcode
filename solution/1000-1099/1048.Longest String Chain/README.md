@@ -34,10 +34,11 @@
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+先按字符串长度升序排列，再利用动态规划或者哈希表求解。
 
 <!-- tabs:start -->
 
@@ -45,16 +46,154 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```python
+动态规划：
 
+```python
+class Solution:
+    def longestStrChain(self, words: List[str]) -> int:
+        def check(w1, w2):
+            if len(w2) - len(w1) != 1:
+                return False
+            i = j = cnt = 0
+            while i < len(w1) and j < len(w2):
+                if w1[i] != w2[j]:
+                    cnt += 1
+                else:
+                    i += 1
+                j += 1
+            return cnt < 2 and i == len(w1)
+
+        n = len(words)
+        dp = [1] * (n + 1)
+        words.sort(key= lambda x: len(x))
+        res = 1
+        for i in range(1, n):
+            for j in range(i):
+                if check(words[j], words[i]):
+                    dp[i] = max(dp[i], dp[j] + 1)
+            res = max(res, dp[i])
+        return res
+```
+
+哈希表：
+
+```python
+class Solution:
+    def longestStrChain(self, words: List[str]) -> int:
+        words.sort(key= lambda x: len(x))
+        res = 0
+        mp = {}
+        for word in words:
+            x = 1
+            for i in range(len(word)):
+                pre = word[:i] + word[i + 1:]
+                x = max(x, mp.get(pre, 0) + 1)
+            mp[word] = x
+            res = max(res, x)
+        return res
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-```java
+哈希表：
 
+```java
+class Solution {
+    public int longestStrChain(String[] words) {
+        Arrays.sort(words, Comparator.comparingInt(String::length));
+        int res = 0;
+        Map<String, Integer> map = new HashMap<>();
+        for (String word : words) {
+            int x = 1;
+            for (int i = 0; i < word.length(); ++i) {
+                String pre = word.substring(0, i) + word.substring(i + 1);
+                x = Math.max(x, map.getOrDefault(pre, 0) + 1);
+            }
+            map.put(word, x);
+            res = Math.max(res, x);
+        }
+        return res;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function longestStrChain(words: string[]): number {
+    words.sort((a, b) => a.length - b.length);
+    let ans = 0;
+    let hashTable = new Map();
+    for (let word of words) {
+        let c = 1;
+        for (let i = 0; i < word.length; i++) {
+            let pre = word.substring(0, i) + word.substring(i+1);
+            c = Math.max(c, (hashTable.get(pre) || 0) + 1);
+        }
+        hashTable.set(word, c);
+        ans = Math.max(ans, c);
+    }
+    return ans;
+};
+```
+
+### **C++**
+
+哈希表：
+
+```cpp
+class Solution {
+public:
+    int longestStrChain(vector<string> &words) {
+        sort(words.begin(), words.end(), [&](string a, string b)
+             { return a.size() < b.size(); });
+        int res = 0;
+        unordered_map<string, int> map;
+        for (auto word : words)
+        {
+            int x = 1;
+            for (int i = 0; i < word.size(); ++i)
+            {
+                string pre = word.substr(0, i) + word.substr(i + 1);
+                x = max(x, map[pre] + 1);
+            }
+            map[word] = x;
+            res = max(res, x);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+哈希表：
+
+```go
+func longestStrChain(words []string) int {
+	sort.Slice(words, func(i, j int) bool { return len(words[i]) < len(words[j]) })
+	res := 0
+	mp := make(map[string]int)
+	for _, word := range words {
+		x := 1
+		for i := 0; i < len(word); i++ {
+			pre := word[0:i] + word[i+1:len(word)]
+			x = max(x, mp[pre]+1)
+		}
+		mp[word] = x
+		res = max(res, x)
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

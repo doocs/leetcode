@@ -49,7 +49,6 @@
 	<li><code>1 <= heights[i] <= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -61,7 +60,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        bucket = [0] * 101
+        for h in heights:
+            bucket[h] += 1
+        res = i = 0
+        for j in range(1, 101):
+            while bucket[j] > 0:
+                bucket[j] -= 1
+                if heights[i] != j:
+                    res += 1
+                i += 1
+        return res
+```
 
+```python
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        expected = sorted(heights)
+        return sum(1 for i, h in enumerate(heights) if h != expected[i])
 ```
 
 ### **Java**
@@ -69,7 +87,54 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int heightChecker(int[] heights) {
+        int[] expected = Arrays.copyOf(heights, heights.length);
+        Arrays.sort(expected);
+        int res = 0;
+        for (int i = 0; i < heights.length; ++i) {
+            if (heights[i] != expected[i]) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int heightChecker(vector<int>& heights) {
+        vector<int> expected = heights;
+        sort(expected.begin(), expected.end());
+        int res = 0;
+        for (int i = 0; i < heights.size(); ++i)
+        {
+            if (heights[i] != expected[i]) ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func heightChecker(heights []int) int {
+    expected := make([]int, len(heights))
+    copy(expected, heights)
+    sort.Ints(expected)
+    res := 0
+    for i, h := range heights {
+        if h != expected[i] {
+            res++
+        }
+    }
+    return res
+}
 ```
 
 ### **...**

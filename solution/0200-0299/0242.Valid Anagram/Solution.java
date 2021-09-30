@@ -9,8 +9,8 @@ class Solution {
             ++chars[s.charAt(i) - 'a'];
             --chars[t.charAt(i) - 'a'];
         }
-        for (int i = 0; i < 26; ++i) {
-            if (chars[i] != 0) {
+        for (int c : chars) {
+            if (c != 0) {
                 return false;
             }
         }

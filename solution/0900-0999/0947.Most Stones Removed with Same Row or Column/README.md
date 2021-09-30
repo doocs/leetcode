@@ -55,10 +55,70 @@
 	<li>不会有两块石头放在同一个坐标点上</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+并查集。
+
+并查集模板：
+
+模板 1——朴素并查集：
+
+```python
+# 初始化，p存储每个点的父节点
+p = list(range(n))
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+```
+
+模板 2——维护 size 的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，size只有当节点是祖宗节点时才有意义，表示祖宗节点所在集合中，点的数量
+p = list(range(n))
+size = [1] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        # 路径压缩
+        p[x] = find(p[x])
+    return p[x]
+
+# 合并a和b所在的两个集合
+if find(a) != find(b):
+    size[find(b)] += size[find(a)]
+    p[find(a)] = find(b)
+```
+
+模板 3——维护到祖宗节点距离的并查集：
+
+```python
+# 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
+p = list(range(n))
+d = [0] * n
+
+# 返回x的祖宗节点
+def find(x):
+    if p[x] != x:
+        t = find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    return p[x]
+
+# 合并a和b所在的两个集合
+p[find(a)] = find(b)
+d[find(a)] = distance
+```
 
 <!-- tabs:start -->
 
@@ -67,7 +127,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def removeStones(self, stones: List[List[int]]) -> int:
+        n = 10010
+        p = list(range(n << 1))
 
+        def find(x):
+            if p[x] != x:
+                p[x] = find(p[x])
+            return p[x]
+
+        for x, y in stones:
+            p[find(x)] = find(y + n)
+
+        s = set()
+        for x, _ in stones:
+            s.add(find(x))
+        return len(stones) - len(s)
 ```
 
 ### **Java**
@@ -75,7 +151,93 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] p;
 
+    public int removeStones(int[][] stones) {
+        int n = 10010;
+        p = new int[n << 1];
+        for (int i = 0; i < p.length; ++i) {
+            p[i] = i;
+        }
+        for (int[] e : stones) {
+            p[find(e[0])] = find(e[1] + n);
+        }
+        Set<Integer> s = new HashSet<>();
+        for (int[] e : stones) {
+            s.add(find(e[0]));
+        }
+        return stones.length - s.size();
+    }
+
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    int removeStones(vector<vector<int>> &stones) {
+        int n = 10010;
+        p.resize(n << 1);
+        for (int i = 0; i < p.size(); ++i)
+            p[i] = i;
+        for (auto e : stones)
+        {
+            p[find(e[0])] = find(e[1] + 10010);
+        }
+        unordered_set<int> s;
+        for (auto e : stones)
+        {
+            s.insert(find(e[0]));
+        }
+        return stones.size() - s.size();
+    }
+
+    int find(int x) {
+        if (p[x] != x)
+            p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+var p []int
+
+func removeStones(stones [][]int) int {
+	n := 10010
+	p = make([]int, n<<1)
+	for i := 0; i < len(p); i++ {
+		p[i] = i
+	}
+	for _, e := range stones {
+		p[find(e[0])] = find(e[1] + n)
+	}
+	s := make(map[int]bool)
+	for _, e := range stones {
+		s[find(e[0])] = true
+	}
+	return len(stones) - len(s)
+}
+
+func find(x int) int {
+	if p[x] != x {
+		p[x] = find(p[x])
+	}
+	return p[x]
+}
 ```
 
 ### **...**
