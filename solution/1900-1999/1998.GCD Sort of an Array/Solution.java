@@ -7,7 +7,7 @@ class Solution {
         Map<Integer, List<Integer>> f = new HashMap<>();
         for (int i = 0; i < n; ++i) {
             p[i] = i;
-        }    
+        }
         int mx = 0;
         for (int num : nums) {
             mx = Math.max(mx, num);
@@ -17,8 +17,7 @@ class Solution {
                 continue;
             }
             for (int j = i; j <= mx; j += i) {
-                f.putIfAbsent(j, new ArrayList<>());
-                f.get(j).add(i);
+                f.computeIfAbsent(j, k -> new ArrayList<>()).add(i);
             }
         }
         for (int i : nums) {

@@ -14,9 +14,7 @@ class Twitter {
     
     /** Compose a new tweet. */
     public void postTweet(int userId, int tweetId) {
-        List<Integer> userTweet = userTweets.getOrDefault(userId, new ArrayList<>());
-        userTweet.add(tweetId);
-        userTweets.put(userId, userTweet);
+        userTweets.computeIfAbsent(userId, k -> new ArrayList<>()).add(tweetId);
         tweets.put(tweetId, ++time);
     }
     

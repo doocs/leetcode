@@ -85,10 +85,7 @@ class Solution {
             char[] t = s.toCharArray();
             Arrays.sort(t);
             String k = new String(t);
-            if (!chars.containsKey(k)) {
-                chars.put(k, new ArrayList<>());
-            }
-            chars.get(k).add(s);
+            chars.computeIfAbsent(k, key -> new ArrayList<>()).add(s);
         }
         return new ArrayList<>(chars.values());
     }

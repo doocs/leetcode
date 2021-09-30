@@ -2,10 +2,8 @@ class Solution {
     public int[] restoreArray(int[][] adjacentPairs) {
         Map<Integer, List<Integer>> graph = new HashMap<>();
         for (int[] pair : adjacentPairs) {
-            graph.putIfAbsent(pair[0], new ArrayList<>());
-            graph.putIfAbsent(pair[1], new ArrayList<>());
-            graph.get(pair[0]).add(pair[1]);
-            graph.get(pair[1]).add(pair[0]);
+            graph.computeIfAbsent(pair[0], k -> new ArrayList<>()).add(pair[1]);
+            graph.computeIfAbsent(pair[1], k -> new ArrayList<>()).add(pair[0]);
         }
         List<Integer> ans = new ArrayList<>();
         Set<Integer> vis = new HashSet<>();
