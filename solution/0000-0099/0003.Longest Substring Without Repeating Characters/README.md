@@ -202,6 +202,8 @@ func max(x, y int) int {
 }
 ```
 
+### **Nim**
+
 ```nim
 proc lengthOfLongestSubstring(s: string): int =
   var
