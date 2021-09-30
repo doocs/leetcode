@@ -6,21 +6,13 @@
 
 <p>We will use a file-sharing system to share a very large file which consists of <code>m</code> small <b>chunks</b> with IDs from <code>1</code> to <code>m</code>.</p>
 
-
-
 <p>When users join the system, the system should assign&nbsp;<b>a unique</b> ID to them. The unique ID should be used <b>once</b> for each user, but when a user leaves the system, the ID can be <b>reused</b> again.</p>
 
-
-
 <p>Users can request a certain chunk of the file, the system should return a list of IDs of all the users who own this chunk. If the user receive a non-empty list of IDs, they receive the requested chunk successfully.</p>
-
-
 
 <p><br />
 
 Implement the <code>FileSharing</code> class:</p>
-
-
 
 <ul>
 	<li><code>FileSharing(int m)</code> Initializes the object with a file of <code>m</code> chunks.</li>
@@ -29,15 +21,9 @@ Implement the <code>FileSharing</code> class:</p>
 	<li><code>int[] request(int userID, int chunkID)</code>: The user&nbsp;<code>userID</code> requested the file chunk with <code>chunkID</code>. Return a list of the IDs of all users that own this chunk sorted in ascending order.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Follow-ups:</b></p>
-
-
 
 <ul>
 	<li>What happens if the system identifies the user by their&nbsp;IP address instead of their unique ID and users disconnect and connect from the system with the same IP?</li>
@@ -46,13 +32,9 @@ Implement the <code>FileSharing</code> class:</p>
 	<li>If the system will be used to share <code>n</code> files where the <code>ith</code> file consists of <code>m[i]</code>, what are the changes you have to do?</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -108,13 +90,9 @@ fileSharing.join([]);        // A user who doesn&#39;t have any chunks joined th
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= m &lt;= 10^5</code></li>
@@ -216,11 +194,8 @@ class FileSharing {
                 res.add(entry.getKey());
             }
         }
-        if (!userChunks.containsKey(userID)) {
-            userChunks.put(userID, new HashSet<>());
-        }
         if (!res.isEmpty()) {
-            userChunks.get(userID).add(chunkID);
+            userChunks.computeIfAbsent(userID, k -> new HashSet<>()).add(chunkID);
         }
         return res;
     }

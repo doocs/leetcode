@@ -159,16 +159,12 @@ class Twitter {
     
     /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
     public void follow(int followerId, int followeeId) {
-        Set<Integer> following = userFollowing.getOrDefault(followerId, new HashSet<>());
-        following.add(followeeId);
-        userFollowing.put(followerId, following);
+        userFollowing.computeIfAbsent(followerId, k -> new HashSet<>()).add(followeeId);
     }
     
     /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
     public void unfollow(int followerId, int followeeId) {
-        Set<Integer> following = userFollowing.getOrDefault(followerId, new HashSet<>());
-        following.remove(followeeId);
-        userFollowing.put(followerId, following);
+        userFollowing.computeIfAbsent(followerId, k -> new HashSet<>()).remove(followeeId);
     }
 }
 

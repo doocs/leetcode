@@ -26,10 +26,7 @@ class Solution {
             List<String> account = accounts.get(i);
             for (int j = 1; j < account.size(); ++j) {
                 String email = account.get(j);
-                if (!mp.containsKey(pa)) {
-                    mp.put(pa, new HashSet<>());
-                }
-                mp.get(pa).add(email);
+                mp.computeIfAbsent(pa, k -> new HashSet<>()).add(email);
             }
         }
         List<List<String>> res = new ArrayList<>();

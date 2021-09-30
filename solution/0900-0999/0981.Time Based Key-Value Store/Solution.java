@@ -7,9 +7,7 @@ class TimeMap {
     }
     
     public void set(String key, String value, int timestamp) {
-        TreeMap<Integer, String> tv = ktv.getOrDefault(key, new TreeMap<>());
-        tv.put(timestamp, value);
-        ktv.put(key, tv);
+        ktv.computeIfAbsent(key, k -> new TreeMap<>()).put(timestamp, value);
     }
     
     public String get(String key, int timestamp) {

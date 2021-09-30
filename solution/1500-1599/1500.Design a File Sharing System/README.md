@@ -79,7 +79,6 @@ fileSharing.join([]);        // 一个不拥有任何文件块的用户加入系
 	<li>每次对&nbsp;<code>leave</code>&nbsp;的调用都有对应的对&nbsp;<code>join</code>&nbsp;的调用。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -175,11 +174,8 @@ class FileSharing {
                 res.add(entry.getKey());
             }
         }
-        if (!userChunks.containsKey(userID)) {
-            userChunks.put(userID, new HashSet<>());
-        }
         if (!res.isEmpty()) {
-            userChunks.get(userID).add(chunkID);
+            userChunks.computeIfAbsent(userID, k -> new HashSet<>()).add(chunkID);
         }
         return res;
     }

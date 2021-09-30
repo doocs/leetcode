@@ -13,14 +13,8 @@ class Solution {
         Map<String, Set<String>> s = new HashMap<>();
         for (List<String> item : synonyms) {
             String a = find(item.get(0)), b = find(item.get(1));
-            if (!s.containsKey(a)) {
-                s.put(a, new HashSet<>());
-            }
-            if (!s.containsKey(b)) {
-                s.put(b, new HashSet<>());
-            }
-            s.get(a).add(item.get(0));
-            s.get(b).add(item.get(1));
+            s.computeIfAbsent(a, k -> new HashSet<>()).add(item.get(0));
+            s.computeIfAbsent(b, k -> new HashSet<>()).add(item.get(1));
         }
         List<List<String>> all = new ArrayList<>();
         for (String word : text.split(" ")) {

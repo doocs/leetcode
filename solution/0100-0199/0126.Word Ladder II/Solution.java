@@ -38,13 +38,12 @@ class Solution {
                     if (!backward.contains(temp) && !dict.contains(temp)) continue;
                     String key = !swap ? str : temp;
                     String val = !swap ? temp : str;
-                    if (!hs.containsKey(key)) hs.put(key, new ArrayList<>());
                     if (backward.contains(temp)) {
-                        hs.get(key).add(val);
+                        hs.computeIfAbsent(key, k -> new ArrayList<>()).add(val);
                         isConnected = true;
                     }
                     if (!isConnected && dict.contains(temp)) {
-                        hs.get(key).add(val);
+                        hs.computeIfAbsent(key, k -> new ArrayList<>()).add(val);
                         set3.add(temp);
                     }
                 }

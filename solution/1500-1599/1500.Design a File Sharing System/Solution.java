@@ -38,11 +38,8 @@ class FileSharing {
                 res.add(entry.getKey());
             }
         }
-        if (!userChunks.containsKey(userID)) {
-            userChunks.put(userID, new HashSet<>());
-        }
         if (!res.isEmpty()) {
-            userChunks.get(userID).add(chunkID);
+            userChunks.computeIfAbsent(userID, k -> new HashSet<>()).add(chunkID);
         }
         return res;
     }
