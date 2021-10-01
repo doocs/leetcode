@@ -1,26 +1,27 @@
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
  * }
  */
-class Solution {
-    public ListNode mergeKLists(ListNode[] lists) {
-        int n = lists.length;
+public class Solution {
+    public ListNode MergeKLists(ListNode[] lists) {
+        int n = lists.Length;
         if (n == 0) {
             return null;
         }
-        for (int i = 0; i < n - 1; ++i) {
-            lists[i + 1] = mergeLists(lists[i], lists[i + 1]);
+        for (int i = 1; i < n; ++i) {
+            lists[i] = MergeTwoLists(lists[i - 1], lists[i]);
         }
         return lists[n - 1];
     }
 
-    private ListNode mergeLists(ListNode l1, ListNode l2) {
+    private ListNode MergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode();
         ListNode cur = dummy;
         while (l1 != null && l2 != null) {
