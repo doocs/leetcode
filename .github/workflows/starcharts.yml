@@ -2,7 +2,7 @@ name: Starcharts
 
 on:
   schedule:
-    - cron: "0 0 * * 0"
+    - cron: "0 0/12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -15,3 +15,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           svg_path: images/starcharts.svg
           commit_message: "chore: update starcharts to leetcode project @doocs"
+          stars_change: "100"
