@@ -32,8 +32,9 @@
 	<li>All the numbers of&nbsp;<code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
+
+DFS.
 
 <!-- tabs:start -->
 
@@ -42,15 +43,18 @@
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        def dfs(nums, i, res, path):
-            res.append(copy.deepcopy(path))
-            while i < len(nums):
-                path.append(nums[i])
-                dfs(nums, i + 1, res, path)
-                path.pop()
-                i += 1
-        res, path = [], []
-        dfs(nums, 0, res, path)
+        res = []
+
+        def dfs(i, n, t):
+            res.append(t.copy())
+            if i == n:
+                return
+            for j in range(i, n):
+                t.append(nums[j])
+                dfs(j + 1, n, t)
+                t.pop()
+
+        dfs(0, len(nums), [])
         return res
 ```
 
@@ -59,21 +63,72 @@ class Solution:
 ```java
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<Integer> path = new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
-        dfs(nums, 0, res, path);
+        dfs(0, nums, new ArrayList<>(), res);
         return res;
     }
 
-    private void dfs(int[] nums, int i, List<List<Integer>> res, List<Integer> path) {
-        res.add(new ArrayList<>(path));
-        while (i < nums.length) {
-            path.add(nums[i]);
-            dfs(nums, i + 1, res, path);
-            path.remove(path.size() - 1);
-            ++i;
+    private void dfs(int i, int[] nums, List<Integer> t, List<List<Integer>> res) {
+        res.add(new ArrayList<>(t));
+        if (i == nums.length) {
+            return;
+        }
+        for (int j = i; j < nums.length; ++j) {
+            t.add(nums[j]);
+            dfs(j + 1, nums, t, res);
+            t.remove(t.size() - 1);
         }
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> res;
+        vector<int> t;
+        dfs(0, nums, t, res);
+        return res;
+    }
+
+    void dfs(int i, vector<int>& nums, vector<int> t, vector<vector<int>>& res) {
+        res.push_back(t);
+        if (i == nums.size()) return;
+        for (int j = i; j < nums.size(); ++j)
+        {
+            t.push_back(nums[j]);
+            dfs(j + 1, nums, t, res);
+            t.pop_back();
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func subsets(nums []int) [][]int {
+	var res [][]int
+	var t []int
+	dfs(0, nums, t, &res)
+	return res
+}
+
+func dfs(i int, nums, t []int, res *[][]int) {
+	cp := make([]int, len(t))
+	copy(cp, t)
+	*res = append(*res, cp)
+	if i == len(nums) {
+		return
+	}
+	for j := i; j < len(nums); j++ {
+		t = append(t, nums[j])
+		dfs(j+1, nums, t, res)
+		t = t[:len(t)-1]
+	}
 }
 ```
 
