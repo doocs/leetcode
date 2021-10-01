@@ -61,7 +61,6 @@ and so on.
 	<li><code>pickIndex</code>&nbsp;will be called at most <code>10000</code> times.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -69,13 +68,138 @@ and so on.
 ### **Python3**
 
 ```python
+class Solution:
 
+    def __init__(self, w: List[int]):
+        n = len(w)
+        self.presum = [0] * (n + 1)
+        for i in range(n):
+            self.presum[i + 1] = self.presum[i] + w[i]
+
+    def pickIndex(self) -> int:
+        n = len(self.presum)
+        x = random.randint(1, self.presum[-1])
+        left, right = 0, n - 2
+        while left < right:
+            mid = (left + right) >> 1
+            if self.presum[mid + 1] >= x:
+                right = mid
+            else:
+                left = mid + 1
+        return left
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(w)
+# param_1 = obj.pickIndex()
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] presum;
 
+    public Solution(int[] w) {
+        int n = w.length;
+        presum = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            presum[i + 1] = presum[i] + w[i];
+        }
+    }
+
+    public int pickIndex() {
+        int n = presum.length;
+        int x = (int) (Math.random() * presum[n - 1]) + 1;
+        int left = 0, right = n - 2;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (presum[mid + 1] >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(w);
+ * int param_1 = obj.pickIndex();
+ */
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> presum;
+
+    Solution(vector<int>& w) {
+        int n = w.size();
+        presum.resize(n + 1);
+        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + w[i];
+    }
+
+    int pickIndex() {
+        int n = presum.size();
+        int x = rand() % presum[n - 1] + 1;
+        int left = 0, right = n - 2;
+        while (left < right)
+        {
+            int mid = left + right >> 1;
+            if (presum[mid + 1] >= x) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(w);
+ * int param_1 = obj->pickIndex();
+ */
+```
+
+### **Go**
+
+```go
+type Solution struct {
+	presum []int
+}
+
+func Constructor(w []int) Solution {
+	n := len(w)
+	pre := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		pre[i+1] = pre[i] + w[i]
+	}
+	return Solution{pre}
+}
+
+func (this *Solution) PickIndex() int {
+	n := len(this.presum)
+	x := rand.Intn(this.presum[n-1]) + 1
+	left, right := 0, n-2
+	for left < right {
+		mid := (left + right) >> 1
+		if this.presum[mid+1] >= x {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * obj := Constructor(w);
+ * param_1 := obj.PickIndex();
+ */
 ```
 
 ### **...**
