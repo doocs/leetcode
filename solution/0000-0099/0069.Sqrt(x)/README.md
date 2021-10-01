@@ -31,6 +31,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -40,13 +42,11 @@
 ```python
 class Solution:
     def mySqrt(self, x: int) -> int:
-        if x == 0:
-            return 0
-        left, right = 1, x
+        left, right = 0, x
         while left < right:
             mid = (left + right + 1) >> 1
             # mid*mid <= x
-            if x // mid >= mid:
+            if mid <= x // mid:
                 left = mid
             else:
                 right = mid - 1
@@ -60,13 +60,10 @@ class Solution:
 ```java
 class Solution {
     public int mySqrt(int x) {
-        if (x == 0) {
-            return 0;
-        }
-        int left = 1, right = x;
+        int left = 0, right = x;
         while (left < right) {
             int mid = (left + right + 1) >>> 1;
-            if (x / mid >= mid) {
+            if (mid <= x /mid) {
                 // mid*mid <= x
                 left = mid;
             } else {
@@ -84,21 +81,33 @@ class Solution {
 class Solution {
 public:
     int mySqrt(int x) {
-        if (x == 0) {
-            return 0;
+        long long left = 0, right = x;
+        while (left < right)
+        {
+            long long mid = left + ((right - left + 1) >> 1);
+            if (mid <= x / mid) left = mid;
+            else right = mid - 1;
         }
-        int left = 1, right = x;
-        while (left < right) {
-            int mid = left + ((right - left + 1) >> 1);
-            if (x / mid >= mid) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
-        }
-        return left;
+        return (int) left;
     }
 };
+```
+
+### **Go**
+
+```go
+func mySqrt(x int) int {
+	left, right := 0, x
+	for left < right {
+		mid = left + (right-left+1)>>1
+		if mid <= x/mid {
+			left = mid
+		} else {
+			right = mid - 1
+		}
+	}
+	return left
+}
 ```
 
 ### **JavaScript**
@@ -109,14 +118,11 @@ public:
  * @return {number}
  */
 var mySqrt = function(x) {
-    if (x == 0) {
-        return 0;
-    }
-    let left = 1;
+    let left = 0;
     let right = x;
     while (left < right) {
         const mid = (left + right + 1) >>> 1;
-        if (x / mid >= mid) {
+        if (mid <= x / mid) {
             left = mid;
         } else {
             right = mid - 1;
@@ -126,43 +132,20 @@ var mySqrt = function(x) {
 };
 ```
 
-### **Go**
-
-```go
-func mySqrt(x int) int {
-	if x == 0 {
-		return 0
-	}
-	left, right := 1, x
-	for left < right {
-		mid := left + (right-left+1)>>1
-		if x/mid >= mid {
-			left = mid
-		} else {
-			right = mid - 1
-		}
-	}
-	return left
-}
-```
-
 ### **C#**
 
 ```cs
 public class Solution {
     public int MySqrt(int x) {
-        if (x == 0) {
-            return 0;
-        }
-        int left = 1, right = x;
+        int left = 0, right = x;
         while (left < right)
         {
             int mid = left + right + 1 >> 1;
-            if (x / mid >= mid)
+            if (mid <= x / mid)
             {
                 left = mid;
-            } 
-            else 
+            }
+            else
             {
                 right = mid - 1;
             }
