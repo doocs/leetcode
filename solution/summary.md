@@ -2060,3 +2060,5 @@
   - [2017.Grid Game](/solution/2000-2099/2017.Grid%20Game/README.md)
   - [2018.Check if Word Can Be Placed In Crossword](/solution/2000-2099/2018.Check%20if%20Word%20Can%20Be%20Placed%20In%20Crossword/README.md)
   - [2019.The Score of Students Solving Math Expression](/solution/2000-2099/2019.The%20Score%20of%20Students%20Solving%20Math%20Expression/README.md)
+  - [2020.Number of Accounts That Did Not Stream](/solution/2000-2099/2020.Number%20of%20Accounts%20That%20Did%20Not%20Stream/README.md)
+  - [2021.Brightest Position on Street](/solution/2000-2099/2021.Brightest%20Position%20on%20Street/README.md)
