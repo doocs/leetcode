@@ -37,7 +37,6 @@
 	<li><code>1 &lt;=&nbsp;minutesToDie &lt;=&nbsp;minutesToTest &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -45,13 +44,56 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def poorPigs(self, buckets: int, minutesToDie: int, minutesToTest: int) -> int:
+        base = minutesToTest // minutesToDie + 1
+        res, p = 0, 1
+        while p < buckets:
+            p *= base
+            res += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
+        int base = minutesToTest / minutesToDie + 1;
+        int res = 0;
+        for (int p = 1; p < buckets; p *= base) {
+            ++res;
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int poorPigs(int buckets, int minutesToDie, int minutesToTest) {
+        int base = minutesToTest / minutesToDie + 1;
+        int res = 0;
+        for (int p = 1; p < buckets; p *= base) ++res;
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func poorPigs(buckets int, minutesToDie int, minutesToTest int) int {
+	base := minutesToTest/minutesToDie + 1
+	res := 0
+	for p := 1; p < buckets; p *= base {
+		res++
+	}
+	return res
+}
 ```
 
 ### **...**
