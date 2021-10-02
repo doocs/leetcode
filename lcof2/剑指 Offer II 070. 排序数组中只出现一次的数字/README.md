@@ -48,6 +48,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -55,7 +57,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            if (mid & 1) == 1:
+                mid -= 1
+            if nums[mid] == nums[mid + 1]:
+                left = mid + 2
+            else:
+                right = mid
+        return nums[left]
+```
 
+```python
+class Solution:
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            if (mid % 2 == 0 and nums[mid] != nums[mid + 1]) or (mid % 2 != 0 and nums[mid] != nums[mid - 1]):
+                right = mid
+            else:
+                left = mid + 1
+        return nums[left]
 ```
 
 ### **Java**
@@ -63,7 +89,98 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if ((mid & 1) == 1) {
+                --mid;
+            }
+            if (nums[mid] == nums[mid + 1]) {
+                left = mid + 2;
+            } else {
+                right = mid;
+            }
+        }
+        return nums[left];
+    }
+}
+```
 
+```java
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if ((mid % 2 == 0 && nums[mid] != nums[mid + 1]) || (mid % 2 != 0 && nums[mid] != nums[mid - 1])) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return nums[left];
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function singleNonDuplicate(nums: number[]): number {
+    let left = 0, right = nums.length - 1;
+    while (left < right) {
+        let mid = (left + right) >> 1;
+        if ((mid & 1) == 1) --mid;
+        if (nums[mid] == nums[mid + 1]) {
+            left = mid + 2;
+        } else {
+            right = mid;
+        }
+    }
+    return nums[left];
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int singleNonDuplicate(vector<int> &nums) {
+        int left = 0, right = nums.size() - 1;
+        while (left < right)
+        {
+            int mid = left + right >> 1;
+            if ((mid % 2 == 0 && nums[mid] != nums[mid + 1]) || (mid % 2 != 0 && nums[mid] != nums[mid - 1]))
+                right = mid;
+            else
+                left = mid + 1;
+        }
+        return nums[left];
+    }
+};
+```
+
+### **Go**
+
+```go
+func singleNonDuplicate(nums []int) int {
+	left, right := 0, len(nums)-1
+	for left < right {
+		mid := (left + right) >> 1
+		if (mid & 1) == 1 {
+			mid--
+		}
+		if nums[mid] == nums[mid+1] {
+			left = mid + 2
+		} else {
+			right = mid
+		}
+	}
+	return nums[left]
+}
 ```
 
 ### **...**
