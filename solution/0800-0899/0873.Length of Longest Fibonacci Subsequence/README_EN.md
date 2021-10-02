@@ -38,21 +38,142 @@
 	<li><code>1 &lt;= arr[i] &lt; arr[i + 1] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
+
+Dynamic programming.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def lenLongestFibSubseq(self, arr: List[int]) -> int:
+        mp = {v: i for i, v in enumerate(arr)}
+        n = len(arr)
+        dp = [[0] * n for _ in range(n)]
+        for i in range(n):
+            for j in range(i):
+                dp[j][i] = 2
+        ans = 0
+        for i in range(n):
+            for j in range(i):
+                delta = arr[i] - arr[j]
+                if delta in mp:
+                    k = mp[delta]
+                    if k < j:
+                        dp[j][i] = dp[k][j] + 1
+                        ans = max(ans, dp[j][i])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int lenLongestFibSubseq(int[] arr) {
+        int n = arr.length;
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            mp.put(arr[i], i);
+        }
+        int[][] dp = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                dp[j][i] = 2;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                int delta = arr[i] - arr[j];
+                if (mp.containsKey(delta)) {
+                    int k = mp.get(delta);
+                    if (k < j) {
+                        dp[j][i] = dp[k][j] + 1;
+                        ans = Math.max(ans, dp[j][i]);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lenLongestFibSubseq(vector<int>& arr) {
+        unordered_map<int, int> mp;
+        int n = arr.size();
+        for (int i = 0; i < n; ++i) mp[arr[i]] = i;
+        vector<vector<int>> dp(n, vector<int>(n));
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+                dp[j][i] = 2;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                int delta = arr[i] - arr[j];
+                if (mp.count(delta))
+                {
+                    int k = mp[delta];
+                    if (k < j)
+                    {
+                        dp[j][i] = dp[k][j] + 1;
+                        ans = max(ans, dp[j][i]);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lenLongestFibSubseq(arr []int) int {
+	n := len(arr)
+	mp := make(map[int]int, n)
+	for i, v := range arr {
+		mp[v] = i + 1
+	}
+	dp := make([][]int, n)
+	for i := 0; i < n; i++ {
+		dp[i] = make([]int, n)
+		for j := 0; j < i; j++ {
+			dp[j][i] = 2
+		}
+	}
+	ans := 0
+	for i := 0; i < n; i++ {
+		for j := 0; j < i; j++ {
+			delta := arr[i] - arr[j]
+			k := mp[delta] - 1
+			if k >= 0 && k < j {
+				dp[j][i] = dp[k][j] + 1
+				ans = max(ans, dp[j][i])
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

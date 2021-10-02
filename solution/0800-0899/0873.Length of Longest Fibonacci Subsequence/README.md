@@ -49,10 +49,14 @@
 	<li><em>（对于以 Java，C，C++，以及&nbsp;C# 的提交，时间限制被减少了 50%）</em></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+动态规划。
+
+- 状态表示：`dp[j][i]` 表示斐波那契式最后两项为 `arr[j]`, `arr[i]` 时的最大子序列长度。
+- 状态计算：`dp[j][i] = dp[k][j] + 1`（当且仅当 `k < j < i`，并且 `arr[k] + arr[j] == arr[i]`）, `ans = max(ans, dp[j][i])`。
 
 <!-- tabs:start -->
 
@@ -61,7 +65,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def lenLongestFibSubseq(self, arr: List[int]) -> int:
+        mp = {v: i for i, v in enumerate(arr)}
+        n = len(arr)
+        dp = [[0] * n for _ in range(n)]
+        for i in range(n):
+            for j in range(i):
+                dp[j][i] = 2
+        ans = 0
+        for i in range(n):
+            for j in range(i):
+                delta = arr[i] - arr[j]
+                if delta in mp:
+                    k = mp[delta]
+                    if k < j:
+                        dp[j][i] = dp[k][j] + 1
+                        ans = max(ans, dp[j][i])
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +90,110 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int lenLongestFibSubseq(int[] arr) {
+        int n = arr.length;
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int i = 0; i < n; ++i) {
+            mp.put(arr[i], i);
+        }
+        int[][] dp = new int[n][n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                dp[j][i] = 2;
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                int delta = arr[i] - arr[j];
+                if (mp.containsKey(delta)) {
+                    int k = mp.get(delta);
+                    if (k < j) {
+                        dp[j][i] = dp[k][j] + 1;
+                        ans = Math.max(ans, dp[j][i]);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lenLongestFibSubseq(vector<int>& arr) {
+        unordered_map<int, int> mp;
+        int n = arr.size();
+        for (int i = 0; i < n; ++i) mp[arr[i]] = i;
+        vector<vector<int>> dp(n, vector<int>(n));
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+                dp[j][i] = 2;
+        }
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < i; ++j)
+            {
+                int delta = arr[i] - arr[j];
+                if (mp.count(delta))
+                {
+                    int k = mp[delta];
+                    if (k < j)
+                    {
+                        dp[j][i] = dp[k][j] + 1;
+                        ans = max(ans, dp[j][i]);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lenLongestFibSubseq(arr []int) int {
+	n := len(arr)
+	mp := make(map[int]int, n)
+	for i, v := range arr {
+		mp[v] = i + 1
+	}
+	dp := make([][]int, n)
+	for i := 0; i < n; i++ {
+		dp[i] = make([]int, n)
+		for j := 0; j < i; j++ {
+			dp[j][i] = 2
+		}
+	}
+	ans := 0
+	for i := 0; i < n; i++ {
+		for j := 0; j < i; j++ {
+			delta := arr[i] - arr[j]
+			k := mp[delta] - 1
+			if k >= 0 && k < j {
+				dp[j][i] = dp[k][j] + 1
+				ans = max(ans, dp[j][i])
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
