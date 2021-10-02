@@ -86,15 +86,14 @@
 ```python
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
-        n = len(arr)
-        left, right = 1, n - 2
+        left, right = 1, len(arr) - 2
         while left < right:
-            mid = (left + right) // 2
-            if arr[mid] < arr[mid + 1]:
-                left = mid + 1
-            else:
+            mid = (left + right) >> 1
+            if arr[mid] > arr[mid + 1]:
                 right = mid
-        return right
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -104,36 +103,17 @@ class Solution:
 ```java
 class Solution {
     public int peakIndexInMountainArray(int[] arr) {
-        int n = arr.length;
-        int left = 1, right = n - 2;
+        int left = 1, right = arr.length - 2;
         while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (arr[mid] < arr[mid + 1]) {
-                left = mid + 1;
-            } else {
+            int mid = (left + right) >> 1;
+            if (arr[mid] > arr[mid + 1]) {
                 right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-        return right;
+        return left;
     }
-}
-```
-
-### **Go**
-
-```go
-func peakIndexInMountainArray(arr []int) int {
-	n := len(arr)
-	left, right := 1, n-2
-	for left < right {
-		mid := left + (right-left)/2
-		if arr[mid] < arr[mid+1] {
-			left = mid + 1
-		} else {
-			right = mid
-		}
-	}
-	return right
 }
 ```
 
@@ -144,17 +124,32 @@ class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
         int left = 1, right = arr.size() - 2;
-        while (left < right) {
-            int mid = left + right >> 1;
-            if (arr[mid] < arr[mid + 1]) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (arr[mid] > arr[mid + 1]) right = mid;
+            else left = mid + 1;
         }
-        return right;
+        return left;
     }
 };
+```
+
+### **Go**
+
+```go
+func peakIndexInMountainArray(arr []int) int {
+	left, right := 1, len(arr)-2
+	for left < right {
+		mid := (left + right) >> 1
+		if arr[mid] > arr[mid+1] {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
 ```
 
 ### **JavaScript**
