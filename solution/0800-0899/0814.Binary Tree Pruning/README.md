@@ -16,8 +16,8 @@
 <strong>示例1:</strong>
 <strong>输入:</strong> [1,null,0,0,1]
 <strong>输出: </strong>[1,null,0,null,1]
- 
-<strong>解释:</strong> 
+
+<strong>解释:</strong>
 只有红色节点满足条件&ldquo;所有不包含 1 的子树&rdquo;。
 右图为返回的答案。
 
@@ -61,7 +61,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pruneTree(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return None
+        root.left = self.pruneTree(root.left)
+        root.right = self.pruneTree(root.right)
+        if root.val == 0 and not root.left and not root.right:
+            return None
+        return root
 ```
 
 ### **Java**
@@ -69,7 +83,58 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode pruneTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        root.left = pruneTree(root.left);
+        root.right = pruneTree(root.right);
+        if (root.val == 0 && root.left == null && root.right == null) {
+            return null;
+        }
+        return root;
+    }
+}
+```
 
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pruneTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	root.Left = pruneTree(root.Left)
+	root.Right = pruneTree(root.Right)
+	if root.Val == 0 && root.Left == nil && root.Right == nil {
+		return nil
+	}
+	return root
+}
 ```
 
 ### **...**
