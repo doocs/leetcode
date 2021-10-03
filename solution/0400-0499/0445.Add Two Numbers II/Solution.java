@@ -3,7 +3,9 @@
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
@@ -17,11 +19,10 @@ class Solution {
             s2.push(l2.val);
         }
         int carry = 0;
-        ListNode dummy = new ListNode(-1);
+        ListNode dummy = new ListNode();
         while (!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
             carry += (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop());
-            ListNode node = new ListNode(carry % 10);
-            node.next = dummy.next;
+            ListNode node = new ListNode(carry % 10, dummy.next);
             dummy.next = node;
             carry /= 10;
         }

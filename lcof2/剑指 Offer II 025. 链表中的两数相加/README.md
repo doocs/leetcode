@@ -67,10 +67,9 @@
 ```python
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         s1, s2 = [], []
@@ -80,12 +79,11 @@ class Solution:
         while l2:
             s2.append(l2.val)
             l2 = l2.next
-        carry, dummy = 0, ListNode(-1)
+        carry, dummy = 0, ListNode()
         while s1 or s2 or carry:
             carry += (0 if not s1 else s1.pop()) + (0 if not s2 else s2.pop())
             # 创建结点，利用头插法将结点插入链表
-            node = ListNode(carry % 10)
-            node.next = dummy.next
+            node = ListNode(carry % 10, dummy.next)
             dummy.next = node
             carry //= 10
         return dummy.next
@@ -101,7 +99,9 @@ class Solution:
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
@@ -115,18 +115,59 @@ class Solution {
             s2.push(l2.val);
         }
         int carry = 0;
-        ListNode dummy = new ListNode(-1);
+        ListNode dummy = new ListNode();
         while (!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
             carry += (s1.isEmpty() ? 0 : s1.pop()) + (s2.isEmpty() ? 0 : s2.pop());
-            // 创建结点，利用头插法将结点插入链表
-            ListNode node = new ListNode(carry % 10);
-            node.next = dummy.next;
+            ListNode node = new ListNode(carry % 10, dummy.next);
             dummy.next = node;
             carry /= 10;
         }
         return dummy.next;
     }
 }
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        stack<int> s1;
+        stack<int> s2;
+        for (; l1; l1 = l1->next) s1.push(l1->val);
+        for (; l2; l2 = l2->next) s2.push(l2->val);
+        int carry = 0;
+        ListNode* dummy = new ListNode();
+        while (!s1.empty() || !s2.empty() || carry)
+        {
+            if (!s1.empty())
+            {
+                carry += s1.top();
+                s1.pop();
+            }
+            if (!s2.empty())
+            {
+                carry += s2.top();
+                s2.pop();
+            }
+            ListNode* node = new ListNode(carry % 10, dummy->next);
+            dummy->next = node;
+            carry /= 10;
+        }
+        return dummy->next;
+    }
+};
 ```
 
 ### **Go**
