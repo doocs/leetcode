@@ -34,7 +34,6 @@
 	<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 similar problem: [LIS](/solution/0300-0399/0300.Longest%20Increasing%20Subsequence/README_EN.md)
