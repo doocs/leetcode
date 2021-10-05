@@ -37,18 +37,141 @@
 
 ## Solutions
 
+Similar to problem [687. Longest Univalue Path](/solution/0600-0699/0687.Longest%20Univalue%20Path/README_EN.md).
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        res = 0
 
+        def dfs(root):
+            nonlocal res
+            if root is None:
+                return 0
+            left, right = dfs(root.left), dfs(root.right)
+            res = max(res, left + right)
+            return 1 + max(left, right)
+        
+        dfs(root)
+        return res
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int res;
 
+    public int diameterOfBinaryTree(TreeNode root) {
+        res = 0;
+        dfs(root);
+        return res;
+    }
+
+    private int dfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+        res = Math.max(res, left + right);
+        return 1 + Math.max(left, right);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int res;
+
+    int diameterOfBinaryTree(TreeNode* root) {
+        res = 0;
+        dfs(root);
+        return res;
+    }
+
+    int dfs(TreeNode* root) {
+        if (!root) return 0;
+        int left = dfs(root->left), right = dfs(root->right);
+        res = max(res, left + right);
+        return 1 + max(left, right);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+var res int
+
+func diameterOfBinaryTree(root *TreeNode) int {
+	res = 0
+	dfs(root)
+	return res
+}
+
+func dfs(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	left, right := dfs(root.Left), dfs(root.Right)
+	res = max(res, left+right)
+	return 1 + max(left, right)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
