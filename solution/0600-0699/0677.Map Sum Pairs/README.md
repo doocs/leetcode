@@ -44,10 +44,11 @@ mapSum.sum("ap");           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 	<li>最多调用 <code>50</code> 次 <code>insert</code> 和 <code>sum</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+利用哈希表存储每个键的所有前缀子串。
 
 <!-- tabs:start -->
 
@@ -56,7 +57,29 @@ mapSum.sum("ap");           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class MapSum:
 
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.data = collections.defaultdict(int)
+        self.t = collections.defaultdict(int)
+
+    def insert(self, key: str, val: int) -> None:
+        old = self.t[key]
+        self.t[key] = val
+        for i in range(1, len(key) + 1):
+            self.data[key[:i]] += val - old
+
+    def sum(self, prefix: str) -> int:
+        return self.data[prefix]
+
+
+# Your MapSum object will be instantiated and called as such:
+# obj = MapSum()
+# obj.insert(key,val)
+# param_2 = obj.sum(prefix)
 ```
 
 ### **Java**
@@ -64,7 +87,109 @@ mapSum.sum("ap");           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3 + 2 = 5)
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class MapSum {
+    private Map<String, Integer> data;
+    private Map<String, Integer> t;
 
+    /** Initialize your data structure here. */
+    public MapSum() {
+        data = new HashMap<>();
+        t = new HashMap<>();
+    }
+
+    public void insert(String key, int val) {
+        int old = t.getOrDefault(key, 0);
+        t.put(key, val);
+        for (int i = 1; i < key.length() + 1; ++i) {
+            String k = key.substring(0, i);
+            data.put(k, data.getOrDefault(k, 0) + (val - old));
+        }
+    }
+
+    public int sum(String prefix) {
+        return data.getOrDefault(prefix, 0);
+    }
+}
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * MapSum obj = new MapSum();
+ * obj.insert(key,val);
+ * int param_2 = obj.sum(prefix);
+ */
+```
+
+### **C++**
+
+```cpp
+class MapSum {
+public:
+    unordered_map<string, int> data;
+    unordered_map<string, int> t;
+
+    /** Initialize your data structure here. */
+    MapSum() {
+
+    }
+
+    void insert(string key, int val) {
+        int old = t[key];
+        t[key] = val;
+        for (int i = 1; i < key.size() + 1; ++i)
+        {
+            string k = key.substr(0, i);
+            data[k] += (val - old);
+        }
+    }
+
+    int sum(string prefix) {
+        return data[prefix];
+    }
+};
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * MapSum* obj = new MapSum();
+ * obj->insert(key,val);
+ * int param_2 = obj->sum(prefix);
+ */
+```
+
+### **Go**
+
+```go
+type MapSum struct {
+	data map[string]int
+	t    map[string]int
+}
+
+/** Initialize your data structure here. */
+func Constructor() MapSum {
+	return MapSum{
+		data: make(map[string]int),
+		t:    make(map[string]int),
+	}
+}
+
+func (this *MapSum) Insert(key string, val int) {
+	old := this.t[key]
+	this.t[key] = val
+	for i := 1; i < len(key)+1; i++ {
+		k := key[:i]
+		this.data[k] += (val - old)
+	}
+}
+
+func (this *MapSum) Sum(prefix string) int {
+	return this.data[prefix]
+}
+
+/**
+ * Your MapSum object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Insert(key,val);
+ * param_2 := obj.Sum(prefix);
+ */
 ```
 
 ### **...**
