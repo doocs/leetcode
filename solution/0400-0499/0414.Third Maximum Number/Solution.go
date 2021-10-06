@@ -1,5 +1,3 @@
-import "math"
-
 func thirdMax(nums []int) int {
 	m1, m2, m3 := math.MinInt64, math.MinInt64, math.MinInt64
 	for _, num := range nums {
@@ -14,8 +12,8 @@ func thirdMax(nums []int) int {
 			m3 = num
 		}
 	}
-	if m3 == math.MinInt64 {
-		return m1
+	if m3 != math.MinInt64 {
+		return m3
 	}
-	return m3
+	return m1
 }

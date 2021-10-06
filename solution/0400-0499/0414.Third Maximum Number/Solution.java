@@ -18,6 +18,6 @@ class Solution {
                 m3 = num;
             }
         }
-        return (int) (m3 == Long.MIN_VALUE ? m1 : m3);
+        return (int) (m3 != Long.MIN_VALUE ? m3 : m1);
     }
 }
