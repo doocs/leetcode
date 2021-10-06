@@ -1,3 +1,8 @@
 class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
-        return len(set(sentence)) == 26
+        res = 0
+        for c in sentence:
+            res |= (1 << (ord(c) - ord('a')))
+            if res == 0x3ffffff:
+                return True
+        return False
