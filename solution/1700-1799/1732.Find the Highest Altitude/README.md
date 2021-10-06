@@ -38,10 +38,11 @@
 	<li><code>-100 <= gain[i] <= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+求前 N 项和的最大值即可。
 
 <!-- tabs:start -->
 
@@ -50,7 +51,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        res = t = 0
+        for h in gain:
+            t += h
+            res = max(res, t)
+        return res
 ```
 
 ### **Java**
@@ -58,7 +65,54 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int res = 0;
+        int t = 0;
+        for (int h : gain) {
+            t += h;
+            res = Math.max(res, t);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestAltitude(vector<int>& gain) {
+        int res = 0, t = 0;
+        for (int h : gain)
+        {
+            t += h;
+            res = max(res, t);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestAltitude(gain []int) int {
+	res, t := 0, 0
+	for _, h := range gain {
+		t += h
+		res = max(res, t)
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
