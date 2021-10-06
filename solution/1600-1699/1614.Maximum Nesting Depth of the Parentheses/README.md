@@ -68,7 +68,6 @@
 	<li>题目数据保证括号表达式 <code>s</code> 是 <strong>有效的括号表达式</strong></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -80,7 +79,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        res = depth = 0
+        for c in s:
+            if c == '(':
+                depth += 1
+                res = max(res, depth)
+            elif c == ')':
+                depth -= 1
+        return res
 ```
 
 ### **Java**
@@ -88,7 +96,55 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxDepth(String s) {
+        int res = 0, depth = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                res = Math.max(res, ++depth);
+            } else if (c == ')') {
+                --depth;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxDepth(string s) {
+        int res = 0, depth =0;
+        for (char c : s)
+        {
+            if (c == '(') res = max(res, ++depth);
+            else if (c == ')') --depth;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxDepth(s string) int {
+	res, depth := 0, 0
+	for _, c := range s {
+		if c == '(' {
+			depth++
+			if depth > res {
+				res = depth
+			}
+		} else if c == ')' {
+			depth--
+		}
+	}
+	return res
+}
 ```
 
 ### **...**
