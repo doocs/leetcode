@@ -71,7 +71,7 @@
 
 <!-- tabs:start -->
 
-### [**Python3**](Solution.py)
+### **Python3**
 
 ```python
 class Solution:
@@ -88,37 +88,13 @@ class Solution:
             return nums1[int(value)]
 ```
 
-### [**Java**](Solution.java)
+### **Java**
 
 ```java
-// Check the link
+
 ```
 
-### [**C++**](Solution.cpp)
-
-```cpp
-// Check the link
-```
-
-### [**C#**](Solution.cs)
-
-```c#
-// Check the link
-```
-
-### [**Go**](Solution.go)
-
-```go
-// Check the link
-```
-
-### [**JavaScript**](Solution.js)
-
-```js
-// Check the link
-```
-
-### [**Nim**](Solution.nim)
+### **Nim**
 
 ```nim
 proc medianOfTwoSortedArrays(nums1: seq[int], nums2: seq[int]): float =
