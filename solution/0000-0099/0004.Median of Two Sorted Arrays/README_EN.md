@@ -66,13 +66,40 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+       # concatenate the 2 lists and sort them
+        nums1 += nums2
+        nums1.sort()
+        length = len(nums1)
+        value = length/2
+        if length % 2 == 0:
+            value = int(value)
+            return (nums1[value-1] + nums1[value])/2
+        else:
+            return nums1[int(value)]
 ```
 
 ### **Java**
 
 ```java
 
+```
+
+### **Nim**
+
+```nim
+proc medianOfTwoSortedArrays(nums1: seq[int], nums2: seq[int]): float =
+  var
+    fullList: seq[int] = concat(nums1, nums2)
+    value: int = fullList.len div 2
+
+  fullList.sort()
+
+  if fullList.len mod 2 == 0:
+    result = (fullList[value - 1] + fullList[value]) / 2
+  else:
+    result = fullList[value].toFloat()
 ```
 
 ### **...**
