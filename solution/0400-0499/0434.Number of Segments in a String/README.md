@@ -32,14 +32,14 @@ split 切分字符串，或者直接遍历计数。
 ```python
 class Solution:
     def countSegments(self, s: str) -> int:
-        return sum(1 for t in s.split(' ') if t)
+        return len(s.split())
 ```
 
 ```python
 class Solution:
     def countSegments(self, s: str) -> int:
-        res, n = 0, len(s)
-        for i in range(n):
+        res = 0
+        for i in range(len(s)):
             if s[i] != ' ' and (i == 0 or s[i - 1] == ' '):
                 res += 1
         return res
