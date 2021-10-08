@@ -43,6 +43,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+思考二叉树递归问题的经典套路：
+
+1. 终止条件（何时终止递归）
+2. 递归处理左右子树
+3. 合并左右子树的计算结果
+
+对于本题，由于要满足题目对 “路径” 的定义，在返回当前子树对外贡献的最大路径和时，需要取 `left`，`right` 的最大值
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,7 +58,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxPathSum(self, root: TreeNode) -> int:
+        ans = float("-inf")
 
+        def dfs(node: TreeNode) -> int:
+            if not node:
+                return 0
+            left = max(0, dfs(node.left))
+            right = max(0, dfs(node.right))
+            nonlocal ans
+            ans = max(ans, node.val + left + right)
+            return node.val + max(left, right)
+
+        dfs(root)
+        return ans
 ```
 
 ### **Java**
@@ -58,7 +86,111 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int ans = Integer.MIN_VALUE;
 
+    public int maxPathSum(TreeNode root) {
+        dfs(root);
+        return ans;
+    }
+
+    private int dfs(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int left = Math.max(0, dfs(node.left));
+        int right = Math.max(0, dfs(node.right));
+        ans = Math.max(ans, node.val + left + right);
+        return node.val + Math.max(left, right);
+    }
+}
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maxPathSum(root *TreeNode) int {
+	ans := math.MinInt32
+
+	var dfs func(*TreeNode) int
+	dfs = func(node *TreeNode) int {
+		if node == nil {
+			return 0
+		}
+		left := max(0, dfs(node.Left))
+		right := max(0, dfs(node.Right))
+		ans = max(ans, node.Val+left+right)
+		return node.Val + max(left, right)
+	}
+
+	dfs(root)
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxPathSum(TreeNode* root) {
+        int ans = INT_MIN;
+
+        function<int(TreeNode*)> dfs = [&](TreeNode* node) {
+            if (node == nullptr) {
+                return 0;
+            }
+            int left = max(0, dfs(node->left));
+            int right = max(0, dfs(node->right));
+            ans = max(ans, node->val + left + right);
+            return node->val + max(left, right);
+        };
+
+        dfs(root);
+        return ans;
+    }
+};
 ```
 
 ### **...**
