@@ -1,14 +1,17 @@
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func reverseList(head *ListNode) *ListNode {
-    if head == nil ||head.Next == nil {
-        return head
-    }
-    dummyHead := &ListNode{}
-    cur := head
-    for cur != nil {
-        tmp := cur.Next
-        cur.Next = dummyHead.Next
-        dummyHead.Next = cur
-        cur = tmp
-    }
-    return dummyHead.Next
+	var pre *ListNode
+	for p := head; p != nil; {
+		q := p.Next
+		p.Next = pre
+		pre = p
+		p = q
+	}
+	return pre
 }

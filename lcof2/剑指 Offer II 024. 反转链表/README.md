@@ -50,10 +50,13 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 206&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/reverse-linked-list/">https://leetcode-cn.com/problems/reverse-linked-list/</a></p>
 
-
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
+定义指针 `p`、`q` 分别指向头节点和下一个节点，`pre` 指向头节点的前一个节点。
+
+遍历链表，改变指针 `p` 指向的节点的指向，将其指向 `pre` 指针指向的节点，即 `p.next = pre`。然后 `pre` 指针指向 `p`，`p`、`q` 指针往前走。
+
+当遍历结束后，返回 `pre` 指针即可。
 
 <!-- tabs:start -->
 
@@ -133,44 +136,105 @@ class Solution {
 ```js
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function (head) {
-  let node = head;
-  let pre = null;
-  while (node) {
-    let cur = node;
-    node = cur.next;
-    cur.next = pre;
-    pre = cur;
-  }
-  return pre;
+ var reverseList = function(head) {
+    let pre = null;
+    for (let p = head; p;) {
+        let q = p.next;
+        p.next = pre;
+        pre = p;
+        p = q;
+    }
+    return pre;
 };
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func reverseList(head *ListNode) *ListNode {
-    if head == nil ||head.Next == nil {
-        return head
+	var pre *ListNode
+	for p := head; p != nil; {
+		q := p.Next
+		p.Next = pre
+		pre = p
+		p = q
+	}
+	return pre
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* pre = nullptr;
+        ListNode* p = head;
+        while (p)
+        {
+            ListNode* q = p->next;
+            p->next = pre;
+            pre = p;
+            p = q;
+        }
+        return pre;
     }
-    dummyHead := &ListNode{}
-    cur := head
-    for cur != nil {
-        tmp := cur.Next
-        cur.Next = dummyHead.Next
-        dummyHead.Next = cur
-        cur = tmp
+};
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        ListNode pre = null;
+        for (ListNode p = head; p != null;)
+        {
+            ListNode t = p.next;
+            p.next = pre;
+            pre = p;
+            p = t;
+        }
+        return pre;
     }
-    return dummyHead.Next
 }
 ```
 

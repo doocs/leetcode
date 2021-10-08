@@ -40,15 +40,15 @@
 ```python
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
-        n = 10
-        subs = set()
-        res = set()
-        for i in range(len(s) - n + 1):
-            sub = s[i:i + n]
-            if sub in subs:
-                res.add(sub)
-            subs.add(sub)
-        return list(res)
+        n = len(s) - 10
+        cnt = collections.Counter()
+        ans = []
+        for i in range(n + 1):
+            sub = s[i: i + 10]
+            cnt[sub] += 1
+            if cnt[sub] == 2:
+                ans.append(sub)
+        return ans
 ```
 
 ### **Java**
@@ -56,17 +56,17 @@ class Solution:
 ```java
 class Solution {
     public List<String> findRepeatedDnaSequences(String s) {
-        int len = 10;
-        Set<String> subs = new HashSet<>();
-        Set<String> res = new HashSet<>();
-        for (int i = 0; i < s.length() - len + 1; ++i) {
-            String sub = s.substring(i, i + len);
-            if (subs.contains(sub)) {
-                res.add(sub);
+        int n = s.length() - 10;
+        Map<String, Integer> cnt = new HashMap<>();
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i <= n; ++i) {
+            String sub = s.substring(i, i + 10);
+            cnt.put(sub, cnt.getOrDefault(sub, 0) + 1);
+            if (cnt.get(sub) == 2) {
+                ans.add(sub);
             }
-            subs.add(sub);
         }
-        return new ArrayList<>(res);
+        return ans;
     }
 }
 ```
@@ -79,17 +79,17 @@ class Solution {
  * @return {string[]}
  */
 var findRepeatedDnaSequences = function(s) {
-    let n = 10;
-    let subs = new Set();
-    let res = new Set();
-    for (let i = 0; i < s.length - n + 1; i++) {
-        let sub = s.slice(i, i + n);
-        if (subs.has(sub)) {
-            res.add(sub);
+    const n = s.length - 10;
+    let cnt = new Map();
+    let ans = [];
+    for (let i = 0; i <= n; ++i) {
+        let sub = s.slice(i, i + 10);
+        cnt[sub] = (cnt[sub] || 0) + 1;
+        if (cnt[sub] == 2) {
+            ans.push(sub);
         }
-        subs.add(sub);
     }
-    return [...res];
+    return ans;
 };
 ```
 

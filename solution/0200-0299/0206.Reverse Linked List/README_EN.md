@@ -120,44 +120,105 @@ class Solution {
 ```js
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function (head) {
-  let node = head;
-  let pre = null;
-  while (node) {
-    let cur = node;
-    node = cur.next;
-    cur.next = pre;
-    pre = cur;
-  }
-  return pre;
+ var reverseList = function(head) {
+    let pre = null;
+    for (let p = head; p;) {
+        let q = p.next;
+        p.next = pre;
+        pre = p;
+        p = q;
+    }
+    return pre;
 };
 ```
 
 ### **Go**
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func reverseList(head *ListNode) *ListNode {
-    if head == nil ||head.Next == nil {
-        return head
+	var pre *ListNode
+	for p := head; p != nil; {
+		q := p.Next
+		p.Next = pre
+		pre = p
+		p = q
+	}
+	return pre
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* pre = nullptr;
+        ListNode* p = head;
+        while (p)
+        {
+            ListNode* q = p->next;
+            p->next = pre;
+            pre = p;
+            p = q;
+        }
+        return pre;
     }
-    dummyHead := &ListNode{}
-    cur := head
-    for cur != nil {
-        tmp := cur.Next
-        cur.Next = dummyHead.Next
-        dummyHead.Next = cur
-        cur = tmp
+};
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        ListNode pre = null;
+        for (ListNode p = head; p != null;)
+        {
+            ListNode t = p.next;
+            p.next = pre;
+            pre = p;
+            p = t;
+        }
+        return pre;
     }
-    return dummyHead.Next
 }
 ```
 
