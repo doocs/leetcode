@@ -93,6 +93,44 @@ var findRepeatedDnaSequences = function(s) {
 };
 ```
 
+### **Go**
+
+```go
+func findRepeatedDnaSequences(s string) []string {
+	cnt := make(map[string]int)
+	n := len(s) - 10
+	ans := make([]string, 0)
+	for i := 0; i <= n; i++ {
+		sub := s[i : i+10]
+		cnt[sub]++
+		if cnt[sub] == 2 {
+			ans = append(ans, sub)
+		}
+	}
+	return ans
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> findRepeatedDnaSequences(string s) {
+        map<string, int> cnt;
+        int n = s.size() - 10;
+        vector<string> ans;
+        for (int i = 0; i <= n; ++i) {
+            string sub = s.substr(i, 10);
+            if (++cnt[sub] == 2) {
+                ans.push_back(sub);
+            }
+        }
+        return ans;
+    }
+};
+```
+
 ### **...**
 
 ```
