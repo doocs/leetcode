@@ -74,6 +74,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,7 +83,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def breakfastNumber(self, staple: List[int], drinks: List[int], x: int) -> int:
+        res, n = 0, len(drinks)
+        drinks.sort()
+        for s in staple:
+            remain = x - s
+            if remain >= drinks[0]:
+                left, right = 0, n - 1
+                while left < right:
+                    mid = (left + right + 1) >> 1
+                    if drinks[mid] <= remain:
+                        left = mid
+                    else:
+                        right = mid - 1
+                res = (res + left + 1) % 1000000007
+        return res
 ```
 
 ### **Java**
@@ -89,7 +106,81 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int breakfastNumber(int[] staple, int[] drinks, int x) {
+        int res = 0, n = drinks.length;
+        Arrays.sort(drinks);
+        for (int s : staple) {
+            int remain = x - s;
+            if (remain >= drinks[0]) {
+                int left = 0, right = n - 1;
+                while (left < right) {
+                    int mid = (left + right + 1) >>> 1;
+                    if (drinks[mid] <= remain) {
+                        left = mid;
+                    } else {
+                        right = mid - 1;
+                    }
+                }
+                res = (res + left + 1) % 1000000007;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int breakfastNumber(vector<int>& staple, vector<int>& drinks, int x) {
+        int res = 0, n = drinks.size();
+        sort(drinks.begin(), drinks.end());
+        for (int s : staple)
+        {
+            int remain = x - s;
+            if (remain >= drinks[0])
+            {
+                int left = 0, right = n - 1;
+                while (left < right)
+                {
+                    int mid = left + right + 1 >> 1;
+                    if (drinks[mid] <= remain) left = mid;
+                    else right = mid - 1;
+                }
+                res = (res + left + 1) % 1000000007;
+            }
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func breakfastNumber(staple []int, drinks []int, x int) int {
+	res, n := 0, len(drinks)
+	sort.Ints(drinks)
+	for _, s := range staple {
+		remain := x - s
+		if remain >= drinks[0] {
+			left, right := 0, n-1
+			for left < right {
+				mid := (left + right + 1) >> 1
+				if drinks[mid] <= remain {
+					left = mid
+				} else {
+					right = mid - 1
+				}
+			}
+			res = (res + left + 1) % 1000000007
+		}
+	}
+	return res
+}
 ```
 
 ### **...**
