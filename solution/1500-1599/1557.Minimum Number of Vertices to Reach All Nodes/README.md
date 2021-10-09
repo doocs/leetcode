@@ -43,10 +43,11 @@
 	<li>所有点对&nbsp;<code>(from<sub>i</sub>, to<sub>i</sub>)</code>&nbsp;互不相同。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+找出所有入度为 0 的点即可。
 
 <!-- tabs:start -->
 
@@ -55,7 +56,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findSmallestSetOfVertices(self, n: int, edges: List[List[int]]) -> List[int]:
+        s = {to for _, to in edges}
+        return [i for i in range(n) if i not in s]
 ```
 
 ### **Java**
@@ -63,7 +67,57 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> findSmallestSetOfVertices(int n, List<List<Integer>> edges) {
+        Set<Integer> s = new HashSet<>();
+        for (List<Integer> e : edges) {
+            s.add(e.get(1));
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (!s.contains(i)) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findSmallestSetOfVertices(int n, vector<vector<int>>& edges) {
+        unordered_set<int> s;
+        for (auto& e : edges) s.insert(e[1]);
+        vector<int> ans;
+        for (int i = 0; i < n; ++i)
+        {
+            if (!s.count(i)) ans.push_back(i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findSmallestSetOfVertices(n int, edges [][]int) []int {
+	s := make(map[int]bool)
+	for _, e := range edges {
+		s[e[1]] = true
+	}
+	var ans []int
+	for i := 0; i < n; i++ {
+		if !s[i] {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
