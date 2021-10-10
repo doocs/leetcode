@@ -1,24 +1,19 @@
 class Solution {
     public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+        int[] s1 = get(nums1), s2 = get(nums2), s3 = get(nums3);
         List<Integer> ans = new ArrayList<>();
-        Set<Integer> s1 = get(nums1);
-        Set<Integer> s2 = get(nums2);
-        Set<Integer> s3 = get(nums3);
         for (int i = 1; i <= 100; ++i) {
-            int a = s1.contains(i) ? 1 : 0;
-            int b = s2.contains(i) ? 1 : 0;
-            int c = s3.contains(i) ? 1 : 0;
-            if (a + b + c > 1) {
+            if (s1[i] + s2[i] + s3[i] > 1) {
                 ans.add(i);
             }
         }
         return ans;
     }
 
-    private Set<Integer> get(int[] nums) {
-        Set<Integer> s = new HashSet<>();
+    private int[] get(int[] nums) {
+        int[] s = new int[101];
         for (int num : nums) {
-            s.add(num);
+            s[num] = 1;
         }
         return s;
     }

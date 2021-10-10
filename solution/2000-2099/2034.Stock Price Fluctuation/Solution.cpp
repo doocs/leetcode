@@ -3,8 +3,8 @@ private:
     int lastTs;
     priority_queue<int> mx;
     priority_queue<int, vector<int>, greater<int>> mi;
-    map<int, int> mp;
-    map<int, int> counter;
+    unordered_map<int, int> mp;
+    unordered_map<int, int> counter;
 public:
     StockPrice() {
         
