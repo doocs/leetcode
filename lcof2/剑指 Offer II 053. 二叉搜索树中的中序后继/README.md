@@ -12,7 +12,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20053.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E4%B8%AD%E5%BA%8F%E5%90%8E%E7%BB%A7/images/285_example_1.PNG" style="height: 117px; width: 122px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20053.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E4%B8%AD%E5%BA%8F%E5%90%8E%E7%BB%A7/images/285_example_1.png" style="height: 117px; width: 122px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [2,1,3], p = 1
@@ -22,7 +22,7 @@
 
 <p><strong>示例&nbsp;2：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20053.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E4%B8%AD%E5%BA%8F%E5%90%8E%E7%BB%A7/images/285_example_2.PNG" style="height: 229px; width: 246px;" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof2/%E5%89%91%E6%8C%87%20Offer%20II%20053.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E4%B8%AD%E5%BA%8F%E5%90%8E%E7%BB%A7/images/285_example_2.png" style="height: 229px; width: 246px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [5,3,6,2,4,null,null,1], p = 6
@@ -49,6 +49,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+利用二叉搜索树的特性，`p` 的中序后继一定是所有大于 `p` 的节点中最小的那个
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +58,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+        cur, ans = root, None
+        while cur:
+            if cur.val <= p.val:
+                cur = cur.right
+            else:
+                ans = cur
+                cur = cur.left
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +82,83 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+        TreeNode cur = root, ans = null;
+        while (cur != null) {
+            if (cur.val <= p.val) {
+                cur = cur.right;
+            } else {
+                ans = cur;
+                cur = cur.left;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func inorderSuccessor(root *TreeNode, p *TreeNode) (ans *TreeNode) {
+	cur := root
+	for cur != nil {
+		if cur.Val <= p.Val {
+			cur = cur.Right
+		} else {
+			ans = cur
+			cur = cur.Left
+		}
+	}
+	return
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+        TreeNode *cur = root, *ans = nullptr;
+        while (cur != nullptr) {
+            if (cur->val <= p->val) {
+                cur = cur->right;
+            } else {
+                ans = cur;
+                cur = cur->left;
+            }
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**
