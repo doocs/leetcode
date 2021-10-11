@@ -57,7 +57,6 @@
 	<li><code>-1000 <= Node.val <= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -69,7 +68,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findTilt(self, root: TreeNode) -> int:
+        ans = 0
 
+        def sum(root):
+            if root is None:
+                return 0
+            nonlocal ans
+            left = sum(root.left)
+            right = sum(root.right)
+            ans += abs(left - right)
+            return root.val + left + right
+
+        sum(root)
+        return ans
 ```
 
 ### **Java**
@@ -77,7 +96,109 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int ans;
 
+    public int findTilt(TreeNode root) {
+        ans = 0;
+        sum(root);
+        return ans;
+    }
+
+    private int sum(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = sum(root.left);
+        int right = sum(root.right);
+        ans += Math.abs(left - right);
+        return root.val + left + right;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans;
+
+    int findTilt(TreeNode* root) {
+        ans = 0;
+        sum(root);
+        return ans;
+    }
+
+    int sum(TreeNode* root) {
+        if (!root) return 0;
+        int left = sum(root->left), right = sum(root->right);
+        ans += abs(left - right);
+        return root->val + left + right;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+var ans int
+
+func findTilt(root *TreeNode) int {
+	ans = 0
+	sum(root)
+	return ans
+}
+
+func sum(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	left, right := sum(root.Left), sum(root.Right)
+	ans += abs(left - right)
+	return root.Val + left + right
+}
+
+func abs(x int) int {
+	if x > 0 {
+		return x
+	}
+	return -x
+}
 ```
 
 ### **...**
