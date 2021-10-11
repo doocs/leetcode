@@ -123,7 +123,7 @@ class Solution {
 }
 ```
 
-### **TypeScript
+### **TypeScript**
 
 ```ts
 function increasingTriplet(nums: number[]): boolean {
