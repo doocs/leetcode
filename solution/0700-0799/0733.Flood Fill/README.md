@@ -36,10 +36,11 @@ sr = 1, sc = 1, newColor = 2
 	<li><code>image[i][j]</code> 和&nbsp;<code>newColor</code>&nbsp;表示的颜色值在范围&nbsp;<code>[0, 65535]</code>内。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+DFS。
 
 <!-- tabs:start -->
 
@@ -48,7 +49,17 @@ sr = 1, sc = 1, newColor = 2
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
+        def dfs(i, j, oc, nc):
+            if i < 0 or i >= len(image) or j < 0 or j >= len(image[0]) or image[i][j] != oc or image[i][j] == nc:
+                return
+            image[i][j] = nc
+            for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+                dfs(i + x, j + y, oc, nc)
 
+        dfs(sr, sc, image[sr][sc], newColor)
+        return image
 ```
 
 ### **Java**
@@ -56,7 +67,64 @@ sr = 1, sc = 1, newColor = 2
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
+    public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+        dfs(image, sr, sc, image[sr][sc], newColor);
+        return image;
+    }
+
+    private void dfs(int[][] image, int i, int j, int oc, int nc) {
+        if (i < 0 || i >= image.length || j < 0 || j >= image[0].length || image[i][j] != oc || image[i][j] == nc) {
+            return;
+        }
+        image[i][j] = nc;
+        for (int[] dir : dirs) {
+            dfs(image, i + dir[0], j + dir[1], oc, nc);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+        dfs(image, sr, sc, image[sr][sc], newColor);
+        return image;
+    }
+
+    void dfs(vector<vector<int>>& image, int i, int j, int oc, int nc) {
+        if (i < 0 || i >= image.size() || j < 0 || j >= image[0].size() || image[i][j] != oc || image[i][j] == nc) return;
+        image[i][j] = nc;
+        for (auto& dir : dirs) dfs(image, i + dir[0], j + dir[1], oc, nc);
+    }
+};
+```
+
+### **Go**
+
+```go
+func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
+	dfs(image, sr, sc, image[sr][sc], newColor)
+	return image
+}
+
+func dfs(image [][]int, i, j, oc, nc int) {
+	if i < 0 || i >= len(image) || j < 0 || j >= len(image[0]) || image[i][j] != oc || image[i][j] == nc {
+		return
+	}
+	image[i][j] = nc
+	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	for _, dir := range dirs {
+		dfs(image, i+dir[0], j+dir[1], oc, nc)
+	}
+}
 ```
 
 ### **...**
