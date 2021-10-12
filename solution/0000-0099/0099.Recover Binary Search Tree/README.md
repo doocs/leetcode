@@ -36,7 +36,6 @@
 	<li><code>-2<sup>31</sup> <= Node.val <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -55,25 +54,25 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    first = None
-    second = None
-    prev = None
-
-    def recoverTree(self, root: TreeNode) -> None:
+    def recoverTree(self, root: Optional[TreeNode]) -> None:
         """
         Do not return anything, modify root in-place instead.
         """
         def dfs(root):
+            nonlocal prev, first, second
             if root:
                 dfs(root.left)
-                if self.prev and root.val < self.prev.val:
-                    if not self.first:
-                        self.first = self.prev
-                    self.second = root
-                self.prev = root
+                if prev:
+                    if first is None and root.val < prev.val:
+                        first = prev
+                    if first and root.val < prev.val:
+                        second = root
+                prev = root
                 dfs(root.right)
+
+        prev = first = second = None
         dfs(root)
-        self.first.val, self.second.val = self.second.val, self.first.val
+        first.val, second.val = second.val, first.val
 ```
 
 ### **Java**
@@ -81,7 +80,176 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private TreeNode prev;
+    private TreeNode first;
+    private TreeNode second;
 
+    public void recoverTree(TreeNode root) {
+        dfs(root);
+        int t = first.val;
+        first.val = second.val;
+        second.val = t;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        if (prev != null) {
+            if (first == null && prev.val > root.val) {
+                first = prev;
+            }
+            if (first != null && prev.val > root.val) {
+                second = root;
+            }
+        }
+        prev = root;
+        dfs(root.right);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* prev;
+    TreeNode* first;
+    TreeNode* second;
+
+    void recoverTree(TreeNode* root) {
+        dfs(root);
+        swap(first->val, second->val);
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->left);
+        if (prev)
+        {
+            if (!first && prev->val > root->val) first = prev;
+            if (first && prev->val > root->val) second = root;
+        }
+        prev = root;
+        dfs(root->right);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func recoverTree(root *TreeNode) {
+	var prev *TreeNode
+	var first *TreeNode
+	var second *TreeNode
+
+	var dfs func(root *TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		if prev != nil {
+			if first == nil && prev.Val > root.Val {
+				first = prev
+			}
+			if first != nil && prev.Val > root.Val {
+				second = root
+			}
+		}
+		prev = root
+		dfs(root.Right)
+	}
+
+	dfs(root)
+	first.Val, second.Val = second.Val, first.Val
+}
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    private TreeNode prev, first, second;
+
+    public void RecoverTree(TreeNode root) {
+        dfs(root);
+        int t = first.val;
+        first.val = second.val;
+        second.val = t;
+    }
+
+    private void dfs(TreeNode root) {
+        if (root != null)
+        {
+            dfs(root.left);
+            if (prev != null)
+            {
+                if (first == null && prev.val > root.val)
+                {
+                    first = prev;
+                }
+                if (first != null && prev.val > root.val)
+                {
+                    second = root;
+                }
+            }
+            prev = root;
+            dfs(root.right);
+        }
+    }
+}
 ```
 
 ### **...**

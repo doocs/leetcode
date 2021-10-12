@@ -5,22 +5,22 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    first = None
-    second = None
-    prev = None
-
-    def recoverTree(self, root: TreeNode) -> None:
+    def recoverTree(self, root: Optional[TreeNode]) -> None:
         """
         Do not return anything, modify root in-place instead.
         """
         def dfs(root):
+            nonlocal prev, first, second
             if root:
                 dfs(root.left)
-                if self.prev and root.val < self.prev.val:
-                    if not self.first:
-                        self.first = self.prev
-                    self.second = root
-                self.prev = root
+                if prev:
+                    if first is None and root.val < prev.val:
+                        first = prev
+                    if first and root.val < prev.val:
+                        second = root
+                prev = root
                 dfs(root.right)
+        
+        prev = first = second = None
         dfs(root)
-        self.first.val, self.second.val = self.second.val, self.first.val
+        first.val, second.val = second.val, first.val

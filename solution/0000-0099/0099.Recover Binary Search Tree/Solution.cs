@@ -1,62 +1,43 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 public class Solution {
-    private TreeNode last, first, second;
+    private TreeNode prev, first, second;
 
     public void RecoverTree(TreeNode root) {
-        Traverse(root);
-        var temp = first.val;
+        dfs(root);
+        int t = first.val;
         first.val = second.val;
-        second.val = temp;
+        second.val = t;
     }
 
-    private void Traverse(TreeNode root)
-    {
-        var current = root;
-        TreeNode temp;
-        while (current != null)
+    private void dfs(TreeNode root) {
+        if (root != null)
         {
-            if (current.left == null)
+            dfs(root.left);
+            if (prev != null)
             {
-                Visit(current);
-                current = current.right;
-            }
-            else
-            {
-                temp = current.left;
-                while (temp.right != null && temp.right != current)
+                if (first == null && prev.val > root.val)
                 {
-                    temp = temp.right;
+                    first = prev;
                 }
-                if (temp.right == null)
+                if (first != null && prev.val > root.val)
                 {
-                    temp.right = current;
-                    current = current.left;
-                }
-                else
-                {
-                    Visit(current);
-                    temp.right = null;
-                    current = current.right;
+                    second = root;
                 }
             }
+            prev = root;
+            dfs(root.right);
         }
-    }
-
-    private void Visit(TreeNode node)
-    {
-        if (last != null)
-        {
-            if (node.val < last.val)
-            {
-                if (first == null)
-                {
-                    first = last;
-                }
-            }
-            if (first != null && node.val < first.val)
-            {
-                second = node;
-            }
-        }
-        last = node;
     }
 }
