@@ -1,29 +1,15 @@
-class Solution(object):
-    def divide(self, dividend, divisor):
-        """
-        :type dividend: int
-        :type divisor: int
-        :rtype: int
-        """
-        if dividend == 0:
-            return 0
-        if divisor == 0:
-            return 2 ** 31 - 1
-
-        sign = (dividend < 0) ^ (divisor < 0)
-
-        quotient = 0
-        dividend = abs(dividend)
-        divisor = abs(divisor)
-        while dividend >= divisor:
-            tmp, i = divisor, 1
-            while dividend >= tmp:
-                dividend -= tmp
-                quotient += i
-                tmp <<= 1
-                print('Value of temp: '+str(tmp))
-                i <<= 1
-                print('Value of i: '+str(i))
-        quotient *= (-1) ** sign
-
-        return min(max(quotient, - 2 ** 31), 2 ** 31 - 1)
+class Solution:
+    def divide(self, a: int, b: int) -> int:
+        INT_MAX = (1 << 31) - 1
+        INT_MIN = -(1 << 31)
+        sign = -1 if a * b < 0 else 1
+        a = abs(a)
+        b = abs(b)
+        tot = 0
+        while a >= b:
+            cnt = 0
+            while a >= (b << (cnt + 1)):
+                cnt += 1
+            tot += 1 << cnt
+            a -= b << cnt
+        return sign * tot if INT_MIN <= sign * tot <= INT_MAX else INT_MAX

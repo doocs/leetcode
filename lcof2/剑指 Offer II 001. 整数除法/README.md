@@ -72,8 +72,8 @@ a = abs(a)
 b = abs(b)
 cnt = 0
 while a >= b:
-	a -= b
-	cnt += 1
+    a -= b
+    cnt += 1
 return sign * cnt
 ```
 
@@ -94,9 +94,8 @@ class Solution:
         tot = 0
         while a >= b:
             cnt = 0
-            while a >= (b << cnt):
+            while a >= (b << (cnt + 1)):
                 cnt += 1
-            cnt -= 1
             tot += 1 << cnt
             a -= b << cnt
         return sign * tot if INT_MIN <= sign * tot <= INT_MAX else INT_MAX
@@ -118,10 +117,9 @@ class Solution {
         long tot = 0;
         while (x >= y) {
             int cnt = 0;
-            while (x >= (y << cnt)) {
+            while (x >= (y << (cnt + 1))) {
                 cnt++;
             }
-            cnt--;
             tot += 1L << cnt;
             x -= y << cnt;
         }
@@ -156,10 +154,9 @@ func divide(a int, b int) int {
 	tot := 0
 	for a >= b {
 		cnt := 0
-		for a >= (b << cnt) {
+		for a >= (b << (cnt + 1)) {
 			cnt++
 		}
-		cnt--
 		tot += 1 << cnt
 		a -= b << cnt
 	}
@@ -177,6 +174,38 @@ func abs(a int) int {
 	}
 	return a
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int divide(int a, int b) {
+        int sign = 1;
+        if (a < 0 ^ b < 0) {
+            sign = -1;
+        }
+
+        auto x = abs(static_cast<long long>(a));
+        auto y = abs(static_cast<long long>(b));
+        auto tot = 0ll;
+        while (x >= y) {
+            int cnt = 0;
+            while (x >= (y << (cnt + 1))) {
+                ++cnt;
+            }
+            tot += 1ll << cnt;
+            x -= y << cnt;
+        }
+
+        auto ans = sign * tot;
+        if (ans >= INT32_MIN && ans <= INT32_MAX) {
+            return static_cast<int>(ans);
+        }
+        return INT32_MAX;
+    }
+};
 ```
 
 ### **...**
