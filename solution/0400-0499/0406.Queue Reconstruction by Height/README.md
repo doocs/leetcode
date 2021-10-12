@@ -48,10 +48,11 @@
 	<li>题目数据确保队列可以被重建</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+对 people 按照身高降序排列，若身高相同，则按照人数 k 升序排列。然后按照索引位置依次将 people 插入到结果列表中即可。
 
 <!-- tabs:start -->
 
@@ -60,7 +61,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
+        people.sort(key=lambda x: (-x[0], x[1]))
+        ans = []
+        for p in people:
+            ans.insert(p[1], p)
+        return ans
 ```
 
 ### **Java**
@@ -68,7 +75,50 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[][] reconstructQueue(int[][] people) {
+        Arrays.sort(people, (a, b) -> a[0] == b[0] ? a[1] - b[1] : b[0] - a[0]);
+        List<int[]> ans = new ArrayList<>(people.length);
+        for (int[] p : people) {
+            ans.add(p[1], p);
+        }
+        return ans.toArray(new int[ans.size()][]);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
+        sort(people.begin(), people.end(), [](const vector<int>& a, const vector<int>& b) {
+            return a[0] > b[0] || (a[0] == b[0] && a[1] < b[1]);
+        });
+        vector<vector<int>> ans;
+        for (const vector<int>& p: people)
+            ans.insert(ans.begin() + p[1], p);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reconstructQueue(people [][]int) [][]int {
+	sort.Slice(people, func(i, j int) bool {
+		a, b := people[i], people[j]
+		return a[0] > b[0] || a[0] == b[0] && a[1] < b[1]
+	})
+	var ans [][]int
+	for _, p := range people {
+		i := p[1]
+		ans = append(ans[:i], append([][]int{p}, ans[i:]...)...)
+	}
+	return ans
+}
 ```
 
 ### **...**
