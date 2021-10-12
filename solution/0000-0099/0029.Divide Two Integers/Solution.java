@@ -4,8 +4,8 @@ class Solution {
         if ((a < 0) != (b < 0)) {
             sign = -1;
         }
-        long x = abs(a);
-        long y = abs(b);
+        long x = Math.abs((long) a);
+        long y = Math.abs((long) b);
         long tot = 0;
         while (x >= y) {
             int cnt = 0;
@@ -20,12 +20,5 @@ class Solution {
             return (int) ans;
         }
         return Integer.MAX_VALUE;
-    }
-
-    private long abs(long a) {
-        if (a < 0) {
-            return -a;
-        }
-        return a;
     }
 }
