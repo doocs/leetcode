@@ -34,7 +34,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        mp = collections.Counter()
+        mp[0] = 1
+        res = s = 0
+        for num in nums:
+            s += num
+            res += mp[s - k]
+            mp[s] += 1
+        return res
 ```
 
 ### **Java**
@@ -42,7 +51,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int res = 0;
+        int s = 0;
+        for (int num : nums) {
+            s += num;
+            res += map.getOrDefault(s - k, 0);
+            map.put(s, map.getOrDefault(s, 0) + 1);
+        }
+        return res;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -59,6 +81,42 @@ function subarraySum(nums: number[], k: number): number {
     }
     return ans;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        unordered_map<int, int> mp;
+        mp[0] = 1;
+        int res = 0, s = 0;
+        for (int num : nums)
+        {
+            s += num;
+            res += mp[s - k];
+            ++mp[s];
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func subarraySum(nums []int, k int) int {
+	mp := make(map[int]int)
+	mp[0] = 1
+	res, s := 0, 0
+	for _, num := range nums {
+		s += num
+		res += mp[s-k]
+		mp[s]++
+	}
+	return res
+}
 ```
 
 ### **...**

@@ -6,15 +6,9 @@
 
 <p>Given a non-empty 2D array <code>grid</code> of 0&#39;s and 1&#39;s, an <b>island</b> is a group of <code>1</code>&#39;s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
 
-
-
 <p>Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -38,11 +32,7 @@
 
 Given the above grid, return <code>6</code>. Note the answer is not 11, because the island must be connected 4-directionally.
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -50,11 +40,7 @@ Given the above grid, return <code>6</code>. Note the answer is not 11, because 
 
 Given the above grid, return <code>0</code>.
 
-
-
 <p><b>Note:</b> The length of each dimension in the given <code>grid</code> does not exceed 50.</p>
-
-
 
 ## Solutions
 
@@ -67,20 +53,20 @@ DFS:
 ```python
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        def dfs(grid, i, j, m, n):
-            if i < 0 or i >= m or j < 0 or j >= n or grid[i][j] == 0:
+        def dfs(i, j):
+            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == 0:
                 return 0
             grid[i][j] = 0
             res = 1
             for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                res += dfs(grid, i + x, j + y, m, n)
+                res += dfs(i + x, j + y)
             return res
         
         m, n = len(grid), len(grid[0])
         res = 0
         for i in range(m):
             for j in range(n):
-                t = dfs(grid, i, j, m, n)
+                t = dfs(i, j)
                 res = max(res, t)
         return res
 ```
@@ -93,12 +79,12 @@ class Solution:
         m, n = len(grid), len(grid[0])
         p = list(range(m * n))
         size = [1] * (m * n)
-        
+
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 1:
@@ -254,8 +240,10 @@ public:
     int maxAreaOfIsland(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
         int res = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
                 int t = dfs(grid, i, j, m, n);
                 res = max(res, t);
             }
@@ -263,20 +251,16 @@ public:
         return res;
     }
 private:
-    vector<vector<int>> directions = {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}};
+    vector<vector<int>> dirs = {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}};
 
     int dfs(vector<vector<int>>& grid, int i, int j, int m, int n) {
-        if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) {
-            return 0;
-        }
+        if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) return 0;
         grid[i][j] = 0;
         int res = 1;
-        for (auto direction : directions) {
-            res += dfs(grid, i + direction[0], j + direction[1], m, n);
-        }
+        for (auto dir : dirs)
+            res += dfs(grid, i + dir[0], j + dir[1], m, n);
         return res;
     }
-
 };
 ```
 
@@ -290,13 +274,8 @@ public:
     int maxAreaOfIsland(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
         vector<int> size(m * n, 1);
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                p.push_back(i * n + j);
-            }
-        }
+        p.resize(m * n);
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
         for (int i = 0; i < m; ++i)
         {
             for (int j = 0; j < n; ++j)
@@ -306,19 +285,13 @@ public:
                     if (i < m - 1 && grid[i + 1][j] == 1)
                     {
                         int a = find(i * n + j), b = find((i + 1) * n + j);
-                        if (a != b)
-                        {
-                            size[a] += size[b];
-                        }
+                        if (a != b) size[a] += size[b];
                         p[b] = a;
                     }
                     if (j < n - 1 && grid[i][j + 1] == 1)
                     {
                         int a = find(i * n + j), b = find(i * n + j + 1);
-                        if (a != b)
-                        {
-                            size[a] += size[b];
-                        }
+                        if (a != b) size[a] += size[b];
                         p[b] = a;
                     }
                 }
@@ -329,20 +302,14 @@ public:
         {
             for (int j = 0; j < n; ++j)
             {
-                if (grid[i][j] == 1)
-                {
-                    res = max(res, size[i * n + j]);
-                }
+                if (grid[i][j] == 1) res = max(res, size[i * n + j]);
             }
         }
         return res;
     }
 
     int find(int x) {
-        if (p[x] != x)
-        {
-            p[x] = find(p[x]);
-        }
+        if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
 };
