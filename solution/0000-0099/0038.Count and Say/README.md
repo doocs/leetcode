@@ -69,7 +69,6 @@ countAndSay(4) = 读 "21" = 一 个 2 + 一 个 1 = "12" + "11" = "1211"
 	<li><code>1 <= n <= 30</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -81,7 +80,21 @@ countAndSay(4) = 读 "21" = 一 个 2 + 一 个 1 = "12" + "11" = "1211"
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        s = '1'
+        for _ in range(n - 1):
+            i = 0
+            t = []
+            while i < len(s):
+                j = i
+                while j < len(s) and s[j] == s[i]:
+                    j += 1
+                t.append(str(j - i))
+                t.append(str(s[i]))
+                i = j
+            s = ''.join(t)
+        return s
 ```
 
 ### **Java**
@@ -89,7 +102,73 @@ countAndSay(4) = 读 "21" = 一 个 2 + 一 个 1 = "12" + "11" = "1211"
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String countAndSay(int n) {
+        String s = "1";
+        while (--n > 0) {
+            StringBuilder t = new StringBuilder();
+            for (int i = 0; i < s.length();) {
+                int j = i;
+                while (j < s.length() && s.charAt(j) == s.charAt(i)) {
+                    ++j;
+                }
+                t.append((j - i) + "");
+                t.append(s.charAt(i));
+                i = j;
+            }
+            s = t.toString();
+        }
+        return s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string countAndSay(int n) {
+        string s = "1";
+        while (--n)
+        {
+            string t = "";
+            for (int i = 0; i < s.size();)
+            {
+                int j = i;
+                while (j < s.size() && s[j] == s[i]) ++j;
+                t += to_string(j - i);
+                t += s[i];
+                i = j;
+            }
+            s = t;
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countAndSay(n int) string {
+	s := "1"
+	for k := 0; k < n-1; k++ {
+		t := &strings.Builder{}
+		i := 0
+		for i < len(s) {
+			j := i
+			for j < len(s) && s[j] == s[i] {
+				j++
+			}
+			t.WriteString(strconv.Itoa(j - i))
+			t.WriteByte(s[i])
+			i = j
+		}
+		s = t.String()
+	}
+	return s
+}
 ```
 
 ### **...**
