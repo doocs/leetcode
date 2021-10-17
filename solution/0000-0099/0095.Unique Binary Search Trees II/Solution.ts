@@ -28,9 +28,7 @@ function helper (start: number, end: number): Array<TreeNode | null> {
         let rights = helper(i + 1, end);
         for (let left of lefts) {
             for (let right of rights) {
-                let root = new TreeNode(i);
-                root.left = left;
-                root.right = right;
+                let root = new TreeNode(i, left, right);
                 ans.push(root);
             }
         }
