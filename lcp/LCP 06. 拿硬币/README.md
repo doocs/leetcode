@@ -42,7 +42,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minCount(self, coins: List[int]) -> int:
+        return sum((coin + 1) // 2 for coin in coins)
 ```
 
 ### **Java**
@@ -50,7 +52,40 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minCount(int[] coins) {
+        int ans = 0;
+        for (int coin : coins) {
+            ans += (coin + 1) / 2;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCount(vector<int>& coins) {
+        int ans = 0;
+        for (int coin : coins) ans += (coin + 1) / 2;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCount(coins []int) int {
+	ans := 0
+	for _, coin := range coins {
+		ans += (coin + 1) / 2
+	}
+	return ans
+}
 ```
 
 ### **...**

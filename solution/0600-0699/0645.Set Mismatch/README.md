@@ -85,7 +85,6 @@ class Solution {
         int eor = 0;
         for (int i = 1; i <= nums.length; ++i) {
             eor ^= (i ^ nums[i - 1]);
-<<<<<<< Updated upstream
         }
         int diff = eor & (~eor + 1);
         int a = 0;
@@ -158,15 +157,6 @@ public:
             if ((nums[i - 1] & diff) == 0) {
                 a ^= nums[i - 1];
             }
-=======
-        }
-        int diff = eor & (~eor + 1);
-        int a = 0;
-        for (int i = 1; i <= nums.length; ++i) {
-            if ((nums[i - 1] & diff) == 0) {
-                a ^= nums[i - 1];
-            }
->>>>>>> Stashed changes
             if ((i & diff) == 0) {
                 a ^= i;
             }
@@ -174,11 +164,7 @@ public:
         int b = eor ^ a;
         for (int num : nums) {
             if (a == num) {
-<<<<<<< Updated upstream
                 return {a, b};
-=======
-                return new int[]{a, b};
->>>>>>> Stashed changes
             }
         }
         return {b, a};
