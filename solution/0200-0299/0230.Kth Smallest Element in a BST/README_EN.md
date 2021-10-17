@@ -47,19 +47,20 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def kthSmallest(self, root: TreeNode, k: int) -> int:
-        def inorder(root):
-            if root is None:
-                return
-            inorder(root.left)
-            self.k -= 1
-            if self.k == 0:
-                self.res = root.val
-                return
-            inorder(root.right)
-        self.k = k
-        inorder(root)
-        return self.res
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        def dfs(root):
+            if root:
+                nonlocal k, ans
+                dfs(root.left)
+                k -= 1
+                if k == 0:
+                    ans = root.val
+                    return
+                dfs(root.right)
+
+        ans = -1
+        dfs(root)
+        return ans
 ```
 
 ### **Java**
@@ -82,25 +83,146 @@ class Solution:
  */
 class Solution {
     private int k;
-    private int res;
+    private int ans;
 
     public int kthSmallest(TreeNode root, int k) {
         this.k = k;
-        inorder(root);
-        return res;
+        dfs(root);
+        return ans;
     }
 
-    private void inorder(TreeNode root) {
+    private void dfs(TreeNode root) {
         if (root == null) {
             return;
         }
-        inorder(root.left);
+        dfs(root.left);
         if (--k == 0) {
-            res = root.val;
+            ans = root.val;
             return;
         }
-        inorder(root.right);
+        dfs(root.right);
     }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int kthSmallest(TreeNode root, int k) {
+        int ans = -1;
+        while (root != null) {
+            if (root.left == null) {
+                --k;
+                if (k == 0) {
+                    ans = root.val;
+                    return ans;
+                }
+                root = root.right;
+            } else {
+                TreeNode pre = root.left;
+                while (pre.right != null && pre.right != root) {
+                    pre = pre.right;
+                }
+                if (pre.right == null) {
+                    pre.right = root;
+                    root = root.left;
+                } else {
+                    --k;
+                    if (k == 0) {
+                        ans = root.val;
+                        return ans;
+                    }
+                    pre.right = null;
+                    root = root.right;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int k;
+    int ans;
+
+    int kthSmallest(TreeNode* root, int k) {
+        this->k = k;
+        dfs(root);
+        return ans;
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->left);
+        if (--k == 0)
+        {
+            ans = root->val;
+            return;
+        }
+        dfs(root->right);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func kthSmallest(root *TreeNode, k int) int {
+	var ans int
+
+	var dfs func(root *TreeNode)
+	dfs = func(root *TreeNode) {
+		if root != nil {
+			dfs(root.Left)
+			k--
+			if k == 0 {
+				ans = root.Val
+				return
+			}
+			dfs(root.Right)
+		}
+	}
+
+	dfs(root)
+	return ans
 }
 ```
 
