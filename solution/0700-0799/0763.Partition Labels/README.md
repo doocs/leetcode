@@ -30,7 +30,6 @@
 	<li><code>S</code>只包含小写字母 <code>'a'</code> 到 <code>'z'</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -42,7 +41,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        last = collections.defaultdict(int)
+        n = len(s)
+        for i in range(n):
+            last[s[i]] = i
+        ans = []
+        left = right = 0
+        for i in range(n):
+            right = max(right, last[s[i]])
+            if i == right:
+                ans.append(right - left + 1)
+                left = right + 1
+        return ans
 ```
 
 ### **Java**
@@ -50,7 +62,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<Integer> partitionLabels(String s) {
+        int[] last = new int[128];
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            last[s.charAt(i)] = i;
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0, left = 0, right = 0; i < n; ++i) {
+            right = Math.max(right, last[s.charAt(i)]);
+            if (i == right) {
+                ans.add(right - left + 1);
+                left = right + 1;
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -73,6 +102,59 @@ function partitionLabels(s: string): number[] {
     }
     return ans;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> partitionLabels(string s) {
+        int n = s.size();
+        vector<int> last(128);
+        for (int i = 0; i < n; ++i) last[s[i]] = i;
+        vector<int> ans;
+        for (int i = 0, left = 0, right = 0; i < n; ++i)
+        {
+            right = max(right, last[s[i]]);
+            if (i == right)
+            {
+                ans.push_back(right - left + 1);
+                left = right + 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func partitionLabels(s string) []int {
+	n := len(s)
+	last := make([]int, 128)
+	for i := 0; i < n; i++ {
+		last[s[i]] = i
+	}
+	var ans []int
+	left, right := 0, 0
+	for i := 0; i < n; i++ {
+		right = max(right, last[s[i]])
+		if i == right {
+			ans = append(ans, right-left+1)
+			left = right + 1
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
