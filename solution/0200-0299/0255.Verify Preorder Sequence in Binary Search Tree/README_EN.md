@@ -33,7 +33,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you do it using only constant space complexity?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -41,13 +40,81 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def verifyPreorder(self, preorder: List[int]) -> bool:
+        stk = []
+        last = float('-inf')
+        for x in preorder:
+            if x < last:
+                return False
+            while stk and stk[-1] < x:
+                last = stk.pop()
+            stk.append(x)
+        return True
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean verifyPreorder(int[] preorder) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int last = Integer.MIN_VALUE;
+        for (int x : preorder) {
+            if (x < last) {
+                return false;
+            }
+            while (!stk.isEmpty() && stk.peek() < x) {
+                last = stk.poll();
+            }
+            stk.push(x);
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool verifyPreorder(vector<int>& preorder) {
+        stack<int> stk;
+        int last = INT_MIN;
+        for (int x : preorder)
+        {
+            if (x < last) return false;
+            while (!stk.empty() && stk.top() < x)
+            {
+                last = stk.top();
+                stk.pop();
+            }
+            stk.push(x);
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func verifyPreorder(preorder []int) bool {
+	var stk []int
+	last := math.MinInt32
+	for _, x := range preorder {
+		if x < last {
+			return false
+		}
+		for len(stk) > 0 && stk[len(stk)-1] < x {
+			last = stk[len(stk)-1]
+			stk = stk[0 : len(stk)-1]
+		}
+		stk = append(stk, x)
+	}
+	return true
+}
 ```
 
 ### **...**
