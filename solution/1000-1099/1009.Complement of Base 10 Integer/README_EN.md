@@ -54,7 +54,6 @@
 </div>
 </div>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -62,13 +61,89 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def bitwiseComplement(self, n: int) -> int:
+        if n == 0:
+            return 1
+        ans = 0
+        find = False
+        for i in range(30, -1, -1):
+            b = n & (1 << i)
+            if not find and b == 0:
+                continue
+            find = True
+            if b == 0:
+                ans |= (1 << i)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int bitwiseComplement(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        int ans = 0;
+        boolean find = false;
+        for (int i = 30; i >= 0; --i) {
+            int b = n & (1 << i);
+            if (!find && b == 0) {
+                continue;
+            }
+            find = true;
+            if (b == 0) {
+                ans |= (1 << i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int bitwiseComplement(int n) {
+        if (n == 0) return 1;
+        int ans = 0;
+        bool find = false;
+        for (int i = 30; i >= 0; --i)
+        {
+            int b = n & (1 << i);
+            if (!find && b == 0) continue;
+            find = true;
+            if (b == 0) ans |= (1 << i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func bitwiseComplement(n int) int {
+	if n == 0 {
+		return 1
+	}
+	ans := 0
+	find := false
+	for i := 30; i >= 0; i-- {
+		b := n & (1 << i)
+		if !find && b == 0 {
+			continue
+		}
+		find = true
+		if b == 0 {
+			ans |= (1 << i)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
