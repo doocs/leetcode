@@ -57,7 +57,6 @@
 	<li>每个节点的值都是独一无二的。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -69,7 +68,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def subtreeWithAllDeepest(self, root: TreeNode) -> TreeNode:
+        def dfs(root):
+            if not root:
+                return None, 0
+            l, d1 = dfs(root.left)
+            r, d2 = dfs(root.right)
+            if d1 > d2:
+                return l, d1 + 1
+            if d1 < d2:
+                return r, d2 + 1
+            return root, d1 + 1
 
+        return dfs(root)[0]
 ```
 
 ### **Java**
@@ -77,7 +95,112 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode subtreeWithAllDeepest(TreeNode root) {
+        return dfs(root)[0];
+    }
 
+    private TreeNode[] dfs(TreeNode root) {
+        if (root == null) {
+            return new TreeNode[]{null, new TreeNode(0)};
+        }
+        TreeNode[] left = dfs(root.left);
+        TreeNode[] right = dfs(root.right);
+        int d1 = left[1].val, d2 = right[1].val;
+        if (d1 > d2) {
+            return new TreeNode[]{left[0], new TreeNode(d1 + 1)};
+        }
+        if (d1 < d2) {
+            return new TreeNode[]{right[0], new TreeNode(d2 + 1)};
+        }
+        return new TreeNode[]{root, new TreeNode(d1 + 1)};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* subtreeWithAllDeepest(TreeNode* root) {
+        return dfs(root).first;
+    }
+
+    pair<TreeNode*, int> dfs(TreeNode* root) {
+        if (!root) return {nullptr, 0};
+        auto left = dfs(root->left);
+        auto right = dfs(root->right);
+        int d1 = left.second, d2 = right.second;
+        if (d1 > d2) return {left.first, d1 + 1};
+        if (d1 < d2) return {right.first, d2 + 1};
+        return {root, d1 + 1};
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+type Result struct {
+	Node  *TreeNode
+	Depth int
+}
+
+func subtreeWithAllDeepest(root *TreeNode) *TreeNode {
+	return dfs(root).Node
+}
+
+func dfs(root *TreeNode) Result {
+	if root == nil {
+		return Result{
+			nil, 0,
+		}
+	}
+	left, right := dfs(root.Left), dfs(root.Right)
+	d1, d2 := left.Depth, right.Depth
+	if d1 > d2 {
+		return Result{left.Node, d1 + 1}
+	}
+	if d1 < d2 {
+		return Result{right.Node, d2 + 1}
+	}
+	return Result{root, d1 + 1}
+}
 ```
 
 ### **...**
