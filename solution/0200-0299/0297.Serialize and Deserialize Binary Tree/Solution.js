@@ -12,20 +12,8 @@
  * @param {TreeNode} root
  * @return {string}
  */
-var serialize = function (root) {
-    let data = [];
-    let serializeRec = function (root) {
-        if (!root) {
-            data.push(1001);
-            return null;
-        }
-        data.push(root.val);
-
-        serializeRec(root.left);
-        serializeRec(root.right);
-    }
-    serializeRec(root);
-    return data;
+ var serialize = function(root) {
+    return rserialize(root, '');
 };
 
 /**
@@ -34,19 +22,35 @@ var serialize = function (root) {
  * @param {string} data
  * @return {TreeNode}
  */
-var deserialize = function (data) {
-    if (!data) {
-        return null;
-    }
-    let curVal = data.shift();
-    if (curVal == 1001) {
-        return null;
-    }
-    let node = new TreeNode(curVal);
-    node.left = deserialize(data);
-    node.right = deserialize(data);
-    return node;
+var deserialize = function(data) {
+    const dataArray = data.split(",");
+    return rdeserialize(dataArray);
 };
+
+const rserialize = (root, str) => {
+    if (root === null) {
+        str += "#,";
+    } else {
+        str += root.val + '' + ",";
+        str = rserialize(root.left, str);
+        str = rserialize(root.right, str);
+    }
+    return str;
+}
+
+const rdeserialize = (dataList) => {
+    if (dataList[0] === "#") {
+        dataList.shift();
+        return null;
+    }
+
+    const root = new TreeNode(parseInt(dataList[0]));
+    dataList.shift();
+    root.left = rdeserialize(dataList);
+    root.right = rdeserialize(dataList);
+
+    return root;
+}
 
 /**
  * Your functions will be called as such:
