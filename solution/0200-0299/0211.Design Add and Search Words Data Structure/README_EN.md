@@ -62,36 +62,33 @@ class Trie:
 class WordDictionary:
 
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.trie = Trie()
 
     def addWord(self, word: str) -> None:
         node = self.trie
         for c in word:
-            index = ord(c) - ord('a')
-            if node.children[index] is None:
-                node.children[index] = Trie()
-            node = node.children[index]
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
         node.is_end = True
 
     def search(self, word: str) -> bool:
-        return self._search(word, self.trie)
+        def search(word, node):
+            for i in range(len(word)):
+                c = word[i]
+                idx = ord(c) - ord('a')
+                if c != '.' and node.children[idx] is None:
+                    return False
+                if c == '.':
+                    for child in node.children:
+                        if child is not None and search(word[i + 1:], child):
+                            return True
+                    return False
+                node = node.children[idx]
+            return node.is_end
 
-    def _search(self, word: str, node: Trie) -> bool:
-        for i in range(len(word)):
-            c = word[i]
-            index = ord(c) - ord('a')
-            if c != '.' and node.children[index] is None:
-                return False
-            if c == '.':
-                for j in range(26):
-                    if node.children[j] is not None and self._search(word[i + 1:], node.children[j]):
-                        return True
-                return False
-            node = node.children[index]
-        return node.is_end
+        return search(word, self.trie)
 
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()
@@ -102,36 +99,31 @@ class WordDictionary:
 ### **Java**
 
 ```java
-class WordDictionary {
-    class Trie {
-        Trie[] children;
-        boolean isEnd;
-        Trie() {
-            children = new Trie[26];
-            isEnd = false;
-        }
-    }
+class Trie {
+    Trie[] children = new Trie[26];
+    boolean isEnd;
+}
 
+class WordDictionary {
     private Trie trie;
 
     /** Initialize your data structure here. */
     public WordDictionary() {
         trie = new Trie();
     }
-
+    
     public void addWord(String word) {
         Trie node = trie;
-        for (int i = 0; i < word.length(); ++i) {
-            char c = word.charAt(i);
-            int index = c - 'a';
-            if (node.children[index] == null) {
-                node.children[index] = new Trie();
+        for (char c : word.toCharArray()) {
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[index];
+            node = node.children[idx];
         }
         node.isEnd = true;
     }
-
+    
     public boolean search(String word) {
         return search(word, trie);
     }
@@ -139,19 +131,19 @@ class WordDictionary {
     private boolean search(String word, Trie node) {
         for (int i = 0; i < word.length(); ++i) {
             char c = word.charAt(i);
-            int index = c - 'a';
-            if (c != '.' && node.children[index] == null) {
+            int idx = c - 'a';
+            if (c != '.' && node.children[idx] == null) {
                 return false;
             }
             if (c == '.') {
-                for (int j = 0; j < 26; ++j) {
-                    if (node.children[j] != null && search(word.substring(i + 1), node.children[j])) {
+                for (Trie child : node.children) {
+                    if (child != null && search(word.substring(i + 1), child)) {
                         return true;
                     }
                 }
                 return false;
             }
-            node = node.children[index];
+            node = node.children[idx];
         }
         return node.isEnd;
     }
