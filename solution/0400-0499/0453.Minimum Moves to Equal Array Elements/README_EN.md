@@ -34,7 +34,6 @@
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -42,13 +41,68 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        return sum(nums) - min(nums) * len(nums)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minMoves(int[] nums) {
+        return Arrays.stream(nums).sum() - Arrays.stream(nums).min().getAsInt() * nums.length;
+    }
+}
+```
 
+```java
+class Solution {
+    public int minMoves(int[] nums) {
+        int s = 0;
+        int mi = Integer.MAX_VALUE;
+        for (int num : nums) {
+            s += num;
+            mi = Math.min(mi, num);
+        }
+        return s - mi * nums.length;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMoves(vector<int>& nums) {
+        int s = 0;
+        int mi = INT_MAX;
+        for (int num : nums)
+        {
+            s += num;
+            mi = min(mi, num);
+        }
+        return s - mi * nums.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMoves(nums []int) int {
+	mi := math.MaxInt32
+	s := 0
+	for _, num := range nums {
+		s += num
+		if num < mi {
+			mi = num
+		}
+	}
+	return s - mi*len(nums)
+
+}
 ```
 
 ### **...**
