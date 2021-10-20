@@ -115,7 +115,7 @@
  */
 
 function cloneGraph(node: Node | null): Node | null {
-	if (node == null) return null;
+    if (node == null) return null;
 
     const visited = new Map();
     visited.set(node, new Node(node.val));
