@@ -1,44 +1,36 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public class Solution {
     public IList<int> MajorityElement(int[] nums) {
-        if (nums.Length == 0) return new int[0];
-        var targetIndices = new [] { nums.Length / 3, nums.Length - nums.Length / 3 - 1 }.Distinct().ToList();
-        var candidates = Sort(nums, 0, nums.Length - 1, targetIndices).Distinct();
-        return candidates.Where(c => nums.Count(n => n == c) > nums.Length / 3).ToList();
-    }
-
-    private IList<int> Sort(int[] nums, int left, int right, IList<int> targetIndices)
-    {
-        if (left == right) return new [] { nums[left] };
-        var mid = nums[(left + right) / 2];
-        var i = left;
-        var j = right;
-        while (i <= j)
+        int n1 = 0, n2 = 0;
+        int m1 = 0, m2 = 1;
+        foreach (int m in nums)
         {
-            while (nums[i] < mid) ++i;
-            while (nums[j] > mid) --j;
-            if (i <= j)
+            if (m == m1)
             {
-                var temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-                ++i;
-                --j;
+                ++n1;
+            }
+            else if (m == m2)
+            {
+                ++n2;
+            }
+            else if (n1 == 0)
+            {
+                m1 = m;
+                ++n1;
+            }
+            else if (n2 == 0)
+            {
+                m2 = m;
+                ++n2;
+            }
+            else
+            {
+                --n1;
+                --n2;
             }
         }
-        var result = new List<int>();
-        var leftTargetIndices = new List<int>();
-        var rightTargetIndecies = new List<int>();
-        foreach (var targetIndex in targetIndices)
-        {
-            if (targetIndex <= j) leftTargetIndices.Add(targetIndex);
-            else if (targetIndex >= i) rightTargetIndecies.Add(targetIndex);
-            else result.Add(mid);
-        }
-        if (leftTargetIndices.Count > 0) result.AddRange(Sort(nums, left, j, leftTargetIndices));
-        if (rightTargetIndecies.Count > 0) result.AddRange(Sort(nums, i, right, rightTargetIndecies));
-        return result;
+        var ans = new List<int>();
+        ans.Add(m1);
+        ans.Add(m2);
+        return ans.Where(m => nums.Count(n => n == m) > nums.Length / 3).ToList();
     }
 }

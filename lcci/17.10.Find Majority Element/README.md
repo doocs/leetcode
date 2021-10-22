@@ -37,6 +37,19 @@
 
 摩尔投票法。时间复杂度 O(n)，空间复杂度 O(1)。
 
+一般而言，摩尔投票法需要对输入的列表进行**两次遍历**。在第一次遍历中，我们生成候选值 candidate，如果存在多数，那么该候选值就是多数值。在第二次遍历中，只需要简单地计算候选值的频率，以确认是否是多数值。
+
+接下来我们详细看下**第一次遍历**：
+
+我们需要两个变量：`cnt`, `candidate`，其中 `cnt` 初始化为 0，`candidate` 初始化可以是任何值，这里我们设置为 0。
+
+对于列表中的每个元素 num，我们首先检查计数值 cnt，
+
+- 若 `cnt == 0`，我们将候选值 candidate 设置为当前元素值，即 `candidate = num`。
+- 若 `candidate == num`，将 cnt 加 1，否则减 1。
+
+**第二次遍历**，则是扫描列表中 candidate 出现的次数，若大于 `n/2`，则该候选值就是多数值，否则返回 -1。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,14 +59,12 @@
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        cnt = major = 0
+        cnt = candidate = 0
         for num in nums:
             if cnt == 0:
-                major = num
-                cnt = 1
-            else:
-                cnt += (1 if major == num else -1)
-        return major
+                candidate = num
+            cnt += (1 if candidate == num else -1)
+        return candidate if nums.count(candidate) > len(nums) / 2 else -1
 ```
 
 ### **Java**
@@ -63,16 +74,20 @@ class Solution:
 ```java
 class Solution {
     public int majorityElement(int[] nums) {
-        int cnt = 0, major = 0;
+        int cnt = 0, candidate = 0;
         for (int num : nums) {
             if (cnt == 0) {
-                major = num;
-                cnt = 1;
-            } else {
-                cnt += (major == num ? 1 : -1);
+                candidate = num;
+            }
+            cnt += (num == candidate ? 1 : -1);
+        }
+        cnt = 0;
+        for (int num : nums) {
+            if (num == candidate) {
+                ++cnt;
             }
         }
-        return major;
+        return cnt > nums.length / 2 ? candidate : -1;
     }
 }
 ```
@@ -86,16 +101,20 @@ class Solution {
  */
 var majorityElement = function(nums) {
     let cnt = 0;
-    let major = 0;
+    let candidate = 0;
     for (const num of nums) {
         if (cnt == 0) {
-            major = num;
-            cnt = 1;
-        } else {
-            cnt += (major == num ? 1 : -1);
+            candidate = num;
+        }
+        cnt += (candidate == num ? 1 : -1);
+    }
+    cnt = 0;
+    for (const num of nums) {
+        if (candidate == num) {
+            ++cnt;
         }
     }
-    return major;
+    return cnt > nums.length / 2 ? candidate : -1;
 };
 ```
 
@@ -105,18 +124,44 @@ var majorityElement = function(nums) {
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int cnt = 0, major = 0;
-        for (int num : nums) {
-            if (cnt == 0) {
-                major = num;
-                cnt = 1;
-            } else {
-                cnt += (major == num ? 1 : -1);
-            }
+        int cnt = 0, candidate = 0;
+        for (int num : nums)
+        {
+            if (cnt == 0) candidate = num;
+            cnt += (candidate == num ? 1 : -1);
         }
-        return major;
+        cnt = count(nums.begin(), nums.end(), candidate);
+        return cnt > nums.size() / 2 ? candidate : -1;
     }
 };
+```
+
+### **Go**
+
+```go
+func majorityElement(nums []int) int {
+	var cnt, candidate int
+	for _, num := range nums {
+		if cnt == 0 {
+			candidate = num
+		}
+		if candidate == num {
+			cnt++
+		} else {
+			cnt--
+		}
+	}
+	cnt = 0
+	for _, num := range nums {
+		if candidate == num {
+			cnt++
+		}
+	}
+	if cnt > len(nums)/2 {
+		return candidate
+	}
+	return -1
+}
 ```
 
 ### **C#**
@@ -124,20 +169,24 @@ public:
 ```cs
 public class Solution {
     public int MajorityElement(int[] nums) {
-        int cnt = 0, major = 0;
+        int cnt = 0, candidate = 0;
         foreach (int num in nums)
         {
             if (cnt == 0)
             {
-                major = num;
-                cnt = 1;
+                candidate = num;
             }
-            else
+            cnt += (candidate == num ? 1 : -1);
+        }
+        cnt = 0;
+        foreach (int num in nums)
+        {
+            if (candidate == num)
             {
-                cnt += (major == num ? 1 : -1);
+                ++cnt;
             }
         }
-        return major;
+        return cnt > nums.Length / 2 ? candidate : -1;
     }
 }
 ```
