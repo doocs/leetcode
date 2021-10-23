@@ -34,7 +34,6 @@
 	<li>你设计的页面的长度和宽度必须都是正整数。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -48,17 +47,10 @@
 ```python
 class Solution:
     def constructRectangle(self, area: int) -> List[int]:
-        sr = int(math.sqrt(area))
-        l = w = sr
-        while l <= area and w >= 1:
-            s = l * w
-            if s == area:
-                break
-            if s > area:
-                w -= 1
-            else:
-                l += 1
-        return [l, w]
+        w = int(sqrt(area))
+        while area % w != 0:
+            w -= 1
+        return [area // w, w]
 ```
 
 ### **Java**
@@ -68,16 +60,37 @@ class Solution:
 ```java
 class Solution {
     public int[] constructRectangle(int area) {
-        int sr = (int) Math.sqrt(area);
-        int l = sr, w = sr;
-        while (l <= area && w >= 1) {
-            int s = l * w;
-            if (s == area) break;
-            if (s > area) --w;
-            else ++l;
+        int w = (int) Math.sqrt(area);
+        while (area % w != 0) {
+            --w;
         }
-        return new int[]{l, w};
+        return new int[]{area / w, w};
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> constructRectangle(int area) {
+        int w = sqrt(1.0 * area);
+        while (area % w != 0) --w;
+        return {area / w, w};
+    }
+};
+```
+
+### **Go**
+
+```go
+func constructRectangle(area int) []int {
+	w := int(math.Sqrt(float64(area)))
+	for area%w != 0 {
+		w--
+	}
+	return []int{area / w, w}
 }
 ```
 
