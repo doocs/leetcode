@@ -53,18 +53,23 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    pre = None
     def isValidBST(self, root: TreeNode) -> bool:
-        if not root:
+        prev = float('-inf')
+
+        def dfs(root):
+            nonlocal prev
+            if root is None:
+                return True
+            if not dfs(root.left):
+                return False
+            if prev >= root.val:
+                return False
+            prev = root.val
+            if not dfs(root.right):
+                return False
             return True
-        if not self.isValidBST(root.left):
-            return False
-        if self.pre is not None and self.pre >= root.val:
-            return False
-        self.pre = root.val
-        if not self.isValidBST(root.right):
-            return False
-        return True
+
+        return dfs(root)
 ```
 
 ### **Java**
@@ -86,15 +91,99 @@ class Solution:
  * }
  */
 class Solution {
-    private Integer pre = null;
+    private Integer prev;
+
     public boolean isValidBST(TreeNode root) {
-        if (root == null) return true;
-        if (!isValidBST(root.left)) return false;
-        if (pre != null && pre >= root.val) return false;
-        pre = root.val;
-        if (!isValidBST(root.right)) return false;
+        prev = null;
+        return dfs(root);
+    }
+
+    private boolean dfs(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        if (!dfs(root.left)) {
+            return false;
+        }
+        if (prev != null && prev >= root.val) {
+            return false;
+        }
+        prev = root.val;
+        if (!dfs(root.right)) {
+            return false;
+        }
         return true;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* prev;
+
+    bool isValidBST(TreeNode* root) {
+        prev = nullptr;
+        return dfs(root);
+    }
+
+    bool dfs(TreeNode* root) {
+        if (!root) return true;
+        if (!dfs(root->left)) return false;
+        if (prev && prev->val >= root->val) return false;
+        prev = root;
+        if (!dfs(root->right)) return false;
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isValidBST(root *TreeNode) bool {
+	var prev *TreeNode
+
+	var dfs func(root *TreeNode) bool
+	dfs = func(root *TreeNode) bool {
+		if root == nil {
+			return true
+		}
+		if !dfs(root.Left) {
+			return false
+		}
+		if prev != nil && prev.Val >= root.Val {
+			return false
+		}
+		prev = root
+		if !dfs(root.Right) {
+			return false
+		}
+		return true
+	}
+
+	return dfs(root)
 }
 ```
 
@@ -113,18 +202,75 @@ class Solution {
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function (root) {
-    let isValidBSTRec = function (root, min, max) {
+var isValidBST = function(root) {
+    let prev = null;
+
+    let dfs = function(root) {
         if (!root) {
             return true;
         }
-        if (root.val <= min || root.val >= max) {
+        if (!dfs(root.left)) {
             return false;
         }
-        return isValidBSTRec(root.left, min, root.val) && isValidBSTRec(root.right, root.val, max);
+        if (prev && prev.val >= root.val) {
+            return false;
+        }
+        prev = root;
+        if (!dfs(root.right)) {
+            return false;
+        }
+        return true;
     }
-    return isValidBSTRec(root, -Infinity, Infinity);
+
+    return dfs(root);
 };
+```
+
+### **C#**
+
+```cs
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    private TreeNode prev;
+
+    public bool IsValidBST(TreeNode root) {
+        prev = null;
+        return dfs(root);
+    }
+
+    private bool dfs(TreeNode root) {
+        if (root == null)
+        {
+            return true;
+        }
+        if (!dfs(root.left))
+        {
+            return false;
+        }
+        if (prev != null && prev.val >= root.val)
+        {
+            return false;
+        }
+        prev = root;
+        if (!dfs(root.right))
+        {
+            return false;
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**

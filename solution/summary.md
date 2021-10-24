@@ -2087,3 +2087,7 @@
   - [2044.Count Number of Maximum Bitwise-OR Subsets](/solution/2000-2099/2044.Count%20Number%20of%20Maximum%20Bitwise-OR%20Subsets/README.md)
   - [2045.Second Minimum Time to Reach Destination](/solution/2000-2099/2045.Second%20Minimum%20Time%20to%20Reach%20Destination/README.md)
   - [2046.Sort Linked List Already Sorted Using Absolute Values](/solution/2000-2099/2046.Sort%20Linked%20List%20Already%20Sorted%20Using%20Absolute%20Values/README.md)
+  - [2047.Number of Valid Words in a Sentence](/solution/2000-2099/2047.Number%20of%20Valid%20Words%20in%20a%20Sentence/README.md)
+  - [2048.Next Greater Numerically Balanced Number](/solution/2000-2099/2048.Next%20Greater%20Numerically%20Balanced%20Number/README.md)
+  - [2049.Count Nodes With the Highest Score](/solution/2000-2099/2049.Count%20Nodes%20With%20the%20Highest%20Score/README.md)
+  - [2050.Parallel Courses III](/solution/2000-2099/2050.Parallel%20Courses%20III/README.md)
