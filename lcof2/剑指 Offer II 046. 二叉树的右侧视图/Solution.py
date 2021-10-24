@@ -12,12 +12,11 @@ class Solution:
         d = deque([root])
         while d:
             n = len(d)
+            ans.append(d[0].val)
             for i in range(n):
                 node = d.popleft()
-                if i == n - 1:
-                    ans.append(node.val)
-                if node.left:
-                    d.append(node.left)
                 if node.right:
                     d.append(node.right)
+                if node.left:
+                    d.append(node.left)
         return ans
