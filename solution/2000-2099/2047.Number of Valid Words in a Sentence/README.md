@@ -92,7 +92,7 @@ function countValidWords(sentence: string): number {
     let words = sentence.trim().split(/\s+/);
     let ans = 0;
     for (let word of words) {
-        if(isValied(word)) {
+        if (isValied(word)) {
             ans++;
         }
     }
