@@ -30,7 +30,6 @@
 
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->
