@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import time
 from urllib.parse import quote
 
 import requests
@@ -18,7 +19,8 @@ class LCSpider:
         self.session = requests.session()
 
         # ['0000-0099', '0100-0199', ..., '9900-9999']
-        self.sub_folders = [str(i * 100).zfill(4) + '-' + str(i * 100 + 99).zfill(4) for i in range(100)]
+        self.sub_folders = [str(i * 100).zfill(4) + '-' +
+                            str(i * 100 + 99).zfill(4) for i in range(100)]
         self.difficulty_mapper = dict(Easy='简单', Medium='中等', Hard='困难')
 
         self.result = []
@@ -48,7 +50,7 @@ class LCSpider:
             'Content-Type': 'application/json',
             'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug,
             # lc-cn cookie here
-            # 'cookie': ''
+            'cookie': ''
         }
         self.session.post(url=LCSpider.graph_url,
                           data=json.dumps(form_data),
@@ -95,7 +97,7 @@ class LCSpider:
             'user-agent': LCSpider.user_agent,
             'x-requested-with': 'XMLHttpRequest',
             # lc cookie here
-            # 'cookie': ''
+            'cookie': ''
         }
         resp = self.session.get(url='https://leetcode.com/api/problems/all/',
                                 headers=headers,
@@ -105,18 +107,30 @@ class LCSpider:
         questions = resp.json()['stat_status_pairs']
 
         for question in questions:
+            time.sleep(0.5)
             question_title_slug = question['stat']['question__title_slug']
-            try:
-                question_detail = self.get_question_detail(question_title_slug)
-            except:
-                continue
-            frontend_question_id = str(question['stat']['frontend_question_id']).zfill(4)
+            success = False
+            question_detail = None
+            for _ in range(5):
+                try:
+                    question_detail = self.get_question_detail(
+                        question_title_slug)
+                    if question_detail:
+                        success = True
+                        break
+                except Exception as e:
+                    print(f'error:{str(e)}')
+                time.sleep(1)
+
+            frontend_question_id = str(
+                question['stat']['frontend_question_id']).zfill(4)
             no = int(frontend_question_id) // 100
 
             question_title_en = question['stat']['question__title']
-            question_title_en = re.sub(r'[\\/:*?"<>|]', '', question_title_en).strip()
+            question_title_en = re.sub(
+                r'[\\/:*?"<>|]', '', question_title_en).strip()
 
-            if not question_detail:
+            if not success or not question_detail:
                 print(f'skip {frontend_question_id}. {question_title_en}')
                 continue
 
@@ -166,8 +180,10 @@ class LCSpider:
             col4_en = item['difficulty_en']
             col5_en = '🔒' if item['paid_only'] else ''
 
-            item['md_table_row_cn'] = [col1_cn, col2_cn, col3_cn, col4_cn, col5_cn]
-            item['md_table_row_en'] = [col1_en, col2_en, col3_en, col4_en, col5_en]
+            item['md_table_row_cn'] = [
+                col1_cn, col2_cn, col3_cn, col4_cn, col5_cn]
+            item['md_table_row_en'] = [
+                col1_en, col2_en, col3_en, col4_en, col5_en]
 
             self.result.append(item)
 
@@ -189,7 +205,8 @@ class LCSpider:
         items = []
         table_cn = '\n|  题号  |  题解  |  标签  |  难度  | 备注 |\n| --- | --- | --- | --- | --- |'
         for item in sorted(md_table_cn, key=lambda x: x[0]):
-            items.append(f'\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |')
+            items.append(
+                f'\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |')
         table_cn += ''.join(items)
 
         with open('./readme_template.md', 'r', encoding='utf-8') as f:
@@ -201,7 +218,8 @@ class LCSpider:
         items = []
         table_en = '\n|  #  |  Solution  |  Tags  |  Difficulty  |  Remark |\n| --- | --- | --- | --- | --- |'
         for item in sorted(md_table_en, key=lambda x: x[0]):
-            items.append(f'\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |')
+            items.append(
+                f'\n|  {item[0]}  |  {item[1]}  |  {item[2]}  |  {item[3]}  |  {item[4]}  |')
         table_en += ''.join(items)
 
         with open('./readme_template_en.md', 'r', encoding='utf-8') as f:
