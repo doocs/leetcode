@@ -8,36 +8,33 @@ class Trie:
 class WordDictionary:
 
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.trie = Trie()
 
     def addWord(self, word: str) -> None:
         node = self.trie
         for c in word:
-            index = ord(c) - ord('a')
-            if node.children[index] is None:
-                node.children[index] = Trie()
-            node = node.children[index]
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
         node.is_end = True
 
     def search(self, word: str) -> bool:
-        return self._search(word, self.trie)
+        def search(word, node):
+            for i in range(len(word)):
+                c = word[i]
+                idx = ord(c) - ord('a')
+                if c != '.' and node.children[idx] is None:
+                    return False
+                if c == '.':
+                    for child in node.children:
+                        if child is not None and search(word[i + 1:], child):
+                            return True
+                    return False
+                node = node.children[idx]
+            return node.is_end
 
-    def _search(self, word: str, node: Trie) -> bool:
-        for i in range(len(word)):
-            c = word[i]
-            index = ord(c) - ord('a')
-            if c != '.' and node.children[index] is None:
-                return False
-            if c == '.':
-                for j in range(26):
-                    if node.children[j] is not None and self._search(word[i + 1:], node.children[j]):
-                        return True
-                return False
-            node = node.children[index]
-        return node.is_end
+        return search(word, self.trie)
 
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()

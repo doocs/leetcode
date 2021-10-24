@@ -49,7 +49,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-层序遍历，取每层最后一个元素
+层序遍历，取每层最后一个元素。
 
 <!-- tabs:start -->
 
@@ -72,14 +72,13 @@ class Solution:
         d = deque([root])
         while d:
             n = len(d)
+            ans.append(d[0].val)
             for i in range(n):
                 node = d.popleft()
-                if i == n - 1:
-                    ans.append(node.val)
-                if node.left:
-                    d.append(node.left)
                 if node.right:
                     d.append(node.right)
+                if node.left:
+                    d.append(node.left)
         return ans
 ```
 
@@ -109,20 +108,17 @@ class Solution {
         if (root == null) {
             return ans;
         }
-        Queue<TreeNode> q = new ArrayDeque<>();
+        Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            int n = q.size();
-            for (int i = 0; i < n; i++) {
+            ans.add(q.peekFirst().val);
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
-                if (i == n - 1) {
-                    ans.add(node.val);
+                if (node.right != null) {
+                    q.offer(node.right);
                 }
                 if (node.left != null) {
                     q.offer(node.left);
-                }
-                if (node.right != null) {
-                    q.offer(node.right);
                 }
             }
         }
@@ -134,48 +130,35 @@ class Solution {
 ### **C++**
 
 ```cpp
-class Solution
-{
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
 public:
-    vector<int> rightSideView ( TreeNode* root )
-    {
-        vector<int> res;
-
-        if ( !root )
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans;
+        if (!root) return ans;
+        queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty())
         {
-            return res;
-        }
-
-        queue<TreeNode* > que;
-        que.push ( root );
-
-        while ( !que.empty() )
-        {
-            int size = que.size();
-
-            for ( int i = 0; i < size; i++ )
-            {
-                TreeNode* ptr = que.front();
-                que.pop();
-
-                if ( i == size - 1 )
-                {
-                    res.push_back ( ptr->val );
-                }
-
-                if ( ptr->left )
-                {
-                    que.push ( ptr->left );
-                }
-
-                if ( ptr-> right )
-                {
-                    que.push ( ptr->right );
-                }
+            ans.push_back(q.front()->val);
+            for (int i = q.size(); i > 0; --i) {
+                auto node = q.front();
+                q.pop();
+                if (node->right) q.push(node->right);
+                if (node->left) q.push(node->left);
             }
         }
-
-        return res;
+        return ans;
     }
 };
 ```
@@ -192,27 +175,25 @@ public:
  * }
  */
 func rightSideView(root *TreeNode) []int {
-    var ans []int
-    if root == nil {
-        return ans
-    }
-    q := []*TreeNode{root}
-    for n := len(q); n > 0; n = len(q) {
-        for i := 0; i < n; i++ {
-            node := q[0]
-            q = q[1:]
-            if i == n - 1 {
-                ans = append(ans, node.Val)
-            }
-            if node.Left != nil {
-                q = append(q, node.Left)
-            }
-            if node.Right != nil {
-                q = append(q, node.Right)
-            }
-        }
-    }
-    return ans
+	var ans []int
+	if root == nil {
+		return ans
+	}
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		ans = append(ans, q[0].Val)
+		for i := len(q); i > 0; i-- {
+			node := q[0]
+			q = q[1:]
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+		}
+	}
+	return ans
 }
 ```
 

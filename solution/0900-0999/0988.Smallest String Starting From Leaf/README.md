@@ -35,7 +35,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree3.png" style="height: 180px; width: 172px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree3.png" style="height: 180px; width: 268px;"></strong></p>
 
 <pre><strong>输入：</strong>[2,2,1,null,1,0,null,0]
 <strong>输出：</strong>&quot;abc&quot;
@@ -50,10 +50,30 @@
 	<li>树中的每个结点都有一个介于&nbsp;<code>0</code>&nbsp;和&nbsp;<code>25</code>&nbsp;之间的值。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+本题不能用这种以下这种方式实现：
+
+```python
+class Solution:
+    def smallestFromLeaf(self, root: TreeNode) -> str:
+        if root is None:
+            return ''
+        left = self.smallestFromLeaf(root.left)
+        right = self.smallestFromLeaf(root.right)
+        val = chr(ord('a') + root.val)
+        return min(left + val, right + val)
+```
+
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/image_1551131779.png" style="height: 180px; width: 172px;"></strong></p>
+
+我们举个例子来说明，对于上面这棵二叉树，正确答案应该是 "ababz"，但是我们采用以上实现方式得到的答案是 "abz"。
+
+问题就在于，当 `str(x) < str(y)`，并不能保证 `str(x) + a < str(y) + a`，例如 `"ab" < "abab"`，但是 `"abz" > "ababz"`。
+
+本题可以用 DFS 解决，每次到达一个叶子节点时，翻转此路径上的字符串，并与 ans 比较大小，取二者较小值。
 
 <!-- tabs:start -->
 
@@ -62,7 +82,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def smallestFromLeaf(self, root: TreeNode) -> str:
+        ans = chr(ord('z') + 1)
 
+        def dfs(root, path):
+            nonlocal ans
+            if root:
+                path.append(chr(ord('a') + root.val))
+                if root.left is None and root.right is None:
+                    ans = min(ans, ''.join(reversed(path)))
+                dfs(root.left, path)
+                dfs(root.right, path)
+                path.pop()
+
+        dfs(root, [])
+        return ans
 ```
 
 ### **Java**
@@ -70,7 +111,122 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private StringBuilder path;
+    private String ans;
 
+    public String smallestFromLeaf(TreeNode root) {
+        path = new StringBuilder();
+        ans = String.valueOf((char) ('z' + 1));
+        dfs(root, path);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, StringBuilder path) {
+        if (root != null) {
+            path.append((char) ('a' + root.val));
+            if (root.left == null && root.right == null) {
+                String t = path.reverse().toString();
+                if (t.compareTo(ans) < 0) {
+                    ans = t;
+                }
+                path.reverse();
+            }
+            dfs(root.left, path);
+            dfs(root.right, path);
+            path.deleteCharAt(path.length() - 1);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    string ans = "";
+
+    string smallestFromLeaf(TreeNode* root) {
+        string path = "";
+        dfs(root, path);
+        return ans;
+    }
+
+    void dfs(TreeNode* root, string& path) {
+        if (!root) return;
+        path += 'a' + root->val;
+        if (!root->left && !root->right)
+        {
+            string t = path;
+            reverse(t.begin(), t.end());
+            if (ans == "" || t < ans) ans = t;
+        }
+        dfs(root->left, path);
+        dfs(root->right, path);
+        path.pop_back();
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func smallestFromLeaf(root *TreeNode) string {
+	ans := ""
+	var dfs func(root *TreeNode, path string)
+	dfs = func(root *TreeNode, path string) {
+		if root == nil {
+			return
+		}
+		path = string('a'+root.Val) + path
+		if root.Left == nil && root.Right == nil {
+			if ans == "" || path < ans {
+				ans = path
+			}
+			return
+		}
+		dfs(root.Left, path)
+		dfs(root.Right, path)
+	}
+
+	dfs(root, "")
+	return ans
+}
 ```
 
 ### **...**

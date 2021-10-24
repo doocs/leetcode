@@ -66,10 +66,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 797&nbsp;题相同：<a href="https://leetcode-cn.com/problems/all-paths-from-source-to-target/">https://leetcode-cn.com/problems/all-paths-from-source-to-target/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+DFS。
 
 <!-- tabs:start -->
 
@@ -78,7 +79,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        ans = []
 
+        def dfs(i, path):
+            if i == len(graph) - 1:
+                ans.append(path.copy())
+                return
+            for j in graph[i]:
+                path.append(j)
+                dfs(j, path)
+                path.pop(-1)
+
+        dfs(0, [0])
+        return ans
 ```
 
 ### **Java**
@@ -86,7 +101,89 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<List<Integer>> ans;
+    private int[][] graph;
 
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        ans = new ArrayList<>();
+        this.graph = graph;
+        List<Integer> path = new ArrayList<>();
+        path.add(0);
+        dfs(0, path);
+        return ans;
+    }
+
+    private void dfs(int i, List<Integer> path) {
+        if (i == graph.length - 1) {
+            ans.add(new ArrayList<>(path));
+            return;
+        }
+        for (int j : graph[i]) {
+            path.add(j);
+            dfs(j, path);
+            path.remove(path.size() - 1);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> graph;
+    vector<vector<int>> ans;
+
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        this->graph = graph;
+        vector<int> path;
+        path.push_back(0);
+        dfs(0, path);
+        return ans;
+    }
+
+    void dfs(int i, vector<int> path) {
+        if (i == graph.size() - 1)
+        {
+            ans.push_back(path);
+            return;
+        }
+        for (int j : graph[i])
+        {
+            path.push_back(j);
+            dfs(j, path);
+            path.pop_back();
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func allPathsSourceTarget(graph [][]int) [][]int {
+	var path []int
+	path = append(path, 0)
+	var ans [][]int
+
+	var dfs func(i int)
+	dfs = func(i int) {
+		if i == len(graph)-1 {
+			ans = append(ans, append([]int(nil), path...))
+			return
+		}
+		for _, j := range graph[i] {
+			path = append(path, j)
+			dfs(j)
+			path = path[:len(path)-1]
+		}
+	}
+
+	dfs(0)
+	return ans
+}
 ```
 
 ### **...**

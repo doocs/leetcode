@@ -45,7 +45,6 @@ A，B，C的价格分别为&yen;2，&yen;3，&yen;4.
 	<li>你不可以购买超出待购清单的物品，即使更便宜。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -57,7 +56,24 @@ A，B，C的价格分别为&yen;2，&yen;3，&yen;4.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def shoppingOffers(self, price: List[int], special: List[List[int]], needs: List[int]) -> int:
+        def total(price, needs):
+            return sum(price[i] * needs[i] for i in range(len(needs)))
 
+        ans = total(price, needs)
+        t = []
+        for offer in special:
+            t.clear()
+            for j in range(len(needs)):
+                if offer[j] > needs[j]:
+                    t.clear()
+                    break
+                t.append(needs[j] - offer[j])
+            if t:
+                ans = min(ans, offer[-1] +
+                          self.shoppingOffers(price, special, t))
+        return ans
 ```
 
 ### **Java**
@@ -65,7 +81,105 @@ A，B，C的价格分别为&yen;2，&yen;3，&yen;4.
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
+        int ans = total(price, needs);
+        List<Integer> t = new ArrayList<>();
+        for (List<Integer> offer : special) {
+            t.clear();
+            for (int j = 0; j < needs.size(); ++j) {
+                if (offer.get(j) > needs.get(j)) {
+                    t.clear();
+                    break;
+                }
+                t.add(needs.get(j) - offer.get(j));
+            }
+            if (!t.isEmpty()) {
+                ans = Math.min(ans, offer.get(offer.size() - 1) + shoppingOffers(price, special, t));
+            }
+        }
+        return ans;
+    }
 
+    private int total(List<Integer> price, List<Integer> needs) {
+        int s = 0;
+        for (int i = 0; i < price.size(); ++i) {
+            s += price.get(i) * needs.get(i);
+        }
+        return s;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int shoppingOffers(vector<int>& price, vector<vector<int>>& special, vector<int>& needs) {
+        int ans = total(price, needs);
+        vector<int> t;
+        for (auto& offer : special)
+        {
+            t.clear();
+            for (int j = 0; j < needs.size(); ++j)
+            {
+                if (offer[j] > needs[j])
+                {
+                    t.clear();
+                    break;
+                }
+                t.push_back(needs[j] - offer[j]);
+            }
+            if (!t.empty()) ans = min(ans, offer[offer.size() - 1] + shoppingOffers(price, special, t));
+        }
+        return ans;
+    }
+
+    int total(vector<int>& price, vector<int>& needs) {
+        int s = 0;
+        for (int i = 0; i < price.size(); ++i) s += price[i] * needs[i];
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shoppingOffers(price []int, special [][]int, needs []int) int {
+	total := func(price, needs []int) int {
+		s := 0
+		for i := 0; i < len(needs); i++ {
+			s += price[i] * needs[i]
+		}
+		return s
+	}
+
+	min := func(a, b int) int {
+		if a < b {
+			return a
+		}
+		return b
+	}
+
+	ans := total(price, needs)
+	var t []int
+	for _, offer := range special {
+		t = t[:0]
+		for j := 0; j < len(needs); j++ {
+			if offer[j] > needs[j] {
+				t = t[:0]
+				break
+			}
+			t = append(t, needs[j]-offer[j])
+		}
+		if len(t) > 0 {
+			ans = min(ans, offer[len(offer)-1]+shoppingOffers(price, special, t))
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
