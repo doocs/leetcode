@@ -59,13 +59,104 @@ It is also the smallest numerically balanced number strictly greater than 3000.
 ### **Python3**
 
 ```python
+class Solution:
+    def nextBeautifulNumber(self, n: int) -> int:
+        def check(num):
+            counter = [0] * 10
+            for c in str(num):
+                counter[int(c)] += 1
 
+            for c in str(num):
+                if counter[int(c)] != int(c):
+                    return False
+            return True
+
+        for i in range(n + 1, 10 ** 7):
+            if (check(i)):
+                return i
+        return -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int nextBeautifulNumber(int n) {
+        for (int i = n + 1; i < 10000000; ++i) {
+            if (check(i)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
+    private boolean check(int num) {
+        int[] counter = new int[10];
+        char[] chars = String.valueOf(num).toCharArray();
+        for (char c : chars) {
+            ++counter[c - '0'];
+        }
+        for (char c : chars) {
+            if (counter[c - '0'] != c - '0') {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int nextBeautifulNumber(int n) {
+        for (int i = n + 1; i < 10000000; ++i)
+        {
+            if (check(i)) return i;
+        }
+        return -1;
+    }
+
+    bool check(int num) {
+        string s = to_string(num);
+        vector<int> counter(10);
+        for (char c : s) ++counter[c - '0'];
+        for (char c : s)
+        {
+            if (counter[c - '0'] != c - '0') return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func nextBeautifulNumber(n int) int {
+	check := func(num int) bool {
+		s := strconv.Itoa(num)
+		counter := make([]int, 10)
+		for _, c := range s {
+			counter[int(c-'0')]++
+		}
+		for _, c := range s {
+			if counter[int(c-'0')] != int(c-'0') {
+				return false
+			}
+		}
+		return true
+	}
+
+	for i := n + 1; i <= 10000000; i++ {
+		if check(i) {
+			return i
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**
