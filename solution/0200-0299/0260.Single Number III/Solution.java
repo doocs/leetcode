@@ -1,18 +1,17 @@
 class Solution {
     public int[] singleNumber(int[] nums) {
         int eor = 0;
-        for (int num : nums) {
-            eor ^= num;
+        for (int x : nums) {
+            eor ^= x;
         }
-        // 提取最右的 1
-        int diff = eor & (~eor + 1);
-        int a = 0;
-        for (int num : nums) {
-            if ((num & diff) == 0) {
-                a ^= num;
+        int lowbit = eor & (-eor);
+        int[] ans = new int[2];
+        for (int x : nums) {
+            if ((x & lowbit) == 0) {
+                ans[0] ^= x;
             }
         }
-        int b = eor ^ a;
-        return new int[]{a, b};
+        ans[1] = eor ^ ans[0];
+        return ans;
     }
 }
