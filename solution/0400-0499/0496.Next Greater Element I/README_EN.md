@@ -52,14 +52,13 @@ For number 4 in the first array, there is no next greater number for it in the s
 ```python
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        stk = []
         mp = {}
-        for num in nums2[::-1]:
-            while stk and stk[-1] <= num:
-                stk.pop()
-            mp[num] = stk[-1] if stk else -1
+        stk = []
+        for num in nums2:
+            while stk and stk[-1] < num:
+                mp[stk.pop()] = num
             stk.append(num)
-        return [mp[num] for num in nums1]
+        return [mp.get(num, -1) for num in nums1]
 ```
 
 ### **Java**
@@ -69,19 +68,18 @@ class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         Deque<Integer> stk = new ArrayDeque<>();
         Map<Integer, Integer> mp = new HashMap<>();
-        for (int i = nums2.length - 1; i >= 0; --i) {
-            while (!stk.isEmpty() && stk.peek() <= nums2[i]) {
-                stk.pop();
+        for (int num : nums2) {
+            while (!stk.isEmpty() && stk.peek() < num) {
+                mp.put(stk.pop(), num);
             }
-            mp.put(nums2[i], stk.isEmpty() ? -1 : stk.peek());
-            stk.push(nums2[i]);
+            stk.push(num);
         }
         int n = nums1.length;
-        int[] res = new int[n];
+        int[] ans = new int[n];
         for (int i = 0; i < n; ++i) {
-            res[i] = mp.get(nums1[i]);
+            ans[i] = mp.getOrDefault(nums1[i], -1);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -95,16 +93,15 @@ class Solution {
  * @return {number[]}
  */
 var nextGreaterElement = function(nums1, nums2) {
-    let stack = [];
+    let stk = [];
     let nextGreater = {};
     for (let num of nums2) {
-        while (stack.length > 0 && stack[stack.length - 1] < num) {
-            nextGreater[stack.pop()] = num;
+        while (stk && stk[stk.length - 1] < num) {
+            nextGreater[stk.pop()] = num;
         }
-        stack.push(num);
+        stk.push(num);
     }
-    let res = nums1.map(d => nextGreater[d] || -1);
-    return res;
+    return nums1.map(e => nextGreater[e] || -1);
 };
 ```
 
@@ -113,20 +110,21 @@ var nextGreaterElement = function(nums1, nums2) {
 ```cpp
 class Solution {
 public:
-    vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2) {
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         stack<int> stk;
         unordered_map<int, int> mp;
-        for (int i = nums2.size() - 1; i >= 0; --i)
+        for (int num : nums2)
         {
-            while (!stk.empty() && stk.top() <= nums2[i])
+            while (!stk.empty() && stk.top() < num)
+            {
+                mp[stk.top()] = num;
                 stk.pop();
-            mp[nums2[i]] = stk.empty() ? -1 : stk.top();
-            stk.push(nums2[i]);
+            }
+            stk.push(num);
         }
-        vector<int> res;
-        for (int num : nums1)
-            res.push_back(mp[num]);
-        return res;
+        vector<int> ans;
+        for (int num : nums1) ans.push_back(mp.count(num) ? mp[num] : -1);
+        return ans;
     }
 };
 ```
@@ -137,22 +135,22 @@ public:
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
 	var stk []int
 	mp := make(map[int]int)
-	for i := len(nums2) - 1; i >= 0; i-- {
-		for len(stk) > 0 && stk[len(stk)-1] <= nums2[i] {
+	for _, num := range nums2 {
+		for len(stk) > 0 && stk[len(stk)-1] < num {
+			mp[stk[len(stk)-1]] = num
 			stk = stk[:len(stk)-1]
 		}
-		if len(stk) > 0 {
-			mp[nums2[i]] = stk[len(stk)-1]
-		} else {
-			mp[nums2[i]] = -1
-		}
-		stk = append(stk, nums2[i])
+		stk = append(stk, num)
 	}
-	var res []int
+	var ans []int
 	for _, num := range nums1 {
-		res = append(res, mp[num])
+		val, ok := mp[num]
+		if !ok {
+			val = -1
+		}
+		ans = append(ans, val)
 	}
-	return res
+	return ans
 }
 ```
 
