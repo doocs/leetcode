@@ -1,79 +1,49 @@
 class Solution {
+    private int tdel;
+    private String s;
+    private Set<String> ans;
+
     public List<String> removeInvalidParentheses(String s) {
-        // 最终结果去重
-        HashSet<String> set = new HashSet<>();
-        // 先遍历一遍，比对，找出需要删除的"（"和"）"的个数
-        // 当前处理字符的位置
-        int index = 0;
-        // 需要删除"（"的个数
-        int leftToDelete = 0;
-        // 需要删除"）"的个数
-        int rightToDelete = 0;
-        // 剩余几个"（"没有匹配到"）"
-        int leftCount = 0;
-        char[] chars = s.toCharArray();
-        for (char c : chars) {
-            switch (c) {
-                case '(':
-                    leftToDelete++;
-                    break;
-                case ')':
-                    if (leftToDelete > 0) {
-                        // 抵消
-                        leftToDelete--;
-                    } else {
-                        rightToDelete++;
-                    }
-                    break;
-                default:
+        int ldel = 0, rdel = 0;
+        for (char c : s.toCharArray()) {
+            if (c == '(') {
+                ++ldel;
+            } else if (c == ')') {
+                if (ldel == 0) {
+                    ++rdel;
+                } else {
+                    --ldel;
+                }
             }
         }
-        dfs(s, index, leftCount, leftToDelete, rightToDelete, set, new StringBuilder());
-        ArrayList<String> list = new ArrayList<>();
-        list.addAll(set);
-        return list;
+        tdel = ldel + rdel;
+        this.s = s;
+        ans = new HashSet<>();
+        dfs(0, "", 0, 0, ldel, rdel);
+        return new ArrayList<>(ans);
     }
 
-
-    private void dfs(String s, int index, int leftCount, int leftToDelete, int rightToDelete, HashSet<String> set, StringBuilder sb) {
-        if (index == s.length()) {
-            if (leftToDelete == 0 && rightToDelete == 0 && leftCount == 0) {
-                set.add(sb.toString());
-            }
+    private void dfs(int i, String t, int lcnt, int rcnt, int ldel, int rdel) {
+        if (ldel * rdel < 0 || lcnt < rcnt || ldel + rdel > s.length() - i) {
             return;
         }
-        char c = s.charAt(index);
+        if (ldel == 0 && rdel == 0) {
+            if (s.length() - t.length() == tdel) {
+                ans.add(t);
+            }
+        }
+        if (i == s.length()) {
+            return;
+        }
+        char c = s.charAt(i);
         if (c == '(') {
-            // 如果是'(',那么要么删除,要么保留.
-            // 如果删除
-            if (leftToDelete > 0) {
-                StringBuilder tmp = new StringBuilder(sb);
-                dfs(s, index + 1, leftCount, leftToDelete - 1, rightToDelete, set, tmp);
-            }
-            // 不删,或者没有可以删除的
-            StringBuilder tmp = new StringBuilder(sb);
-            tmp.append(c);
-            dfs(s, index + 1, leftCount + 1, leftToDelete, rightToDelete, set, tmp);
+            dfs(i + 1, t, lcnt, rcnt, ldel - 1, rdel);
+            dfs(i + 1, t + String.valueOf(c), lcnt + 1, rcnt, ldel, rdel);
         } else if (c == ')') {
-            // 删除
-            if (rightToDelete > 0) {
-                StringBuilder tmp = new StringBuilder(sb);
-                dfs(s, index + 1, leftCount, leftToDelete, rightToDelete - 1, set, tmp);
-            }
-            // 在前面有'('的时候保留.
-            if (leftCount > 0) {
-                StringBuilder tmp = new StringBuilder(sb);
-                tmp.append(c);
-                dfs(s, index + 1, leftCount - 1, leftToDelete, rightToDelete, set, tmp);
-            } else {
-                // "）"这个没有"（"和他对应，结束
-                return;
-            }
+            dfs(i + 1, t, lcnt, rcnt, ldel, rdel - 1);
+            dfs(i + 1, t + String.valueOf(c), lcnt, rcnt + 1, ldel, rdel);
         } else {
-            // 其他字符
-            StringBuilder tmp = new StringBuilder(sb);
-            tmp.append(c);
-            dfs(s, index + 1, leftCount, leftToDelete, rightToDelete, set, tmp);
+            dfs(i + 1, t + String.valueOf(c), lcnt, rcnt, ldel, rdel);
         }
     }
 }
