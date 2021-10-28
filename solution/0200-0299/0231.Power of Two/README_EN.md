@@ -68,12 +68,30 @@ class Solution:
         return n > 0 and (n & (n - 1)) == 0
 ```
 
+lowbit:
+
+```python
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        return n > 0 and n == n & (-n)
+```
+
 ### **Java**
 
 ```java
 class Solution {
     public boolean isPowerOfTwo(int n) {
         return n > 0 && (n & (n - 1)) == 0;
+    }
+}
+```
+
+lowbit:
+
+```java
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        return n > 0 && n == (n & (-n));
     }
 }
 ```
@@ -85,6 +103,15 @@ class Solution {
 public:
     bool isPowerOfTwo(int n) {
         return n > 0 && (n & (n - 1)) == 0;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        return n > 0 && n == (n & (-n));
     }
 };
 ```
@@ -101,11 +128,31 @@ var isPowerOfTwo = function(n) {
 };
 ```
 
+lowbit:
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfTwo = function(n) {
+    return n > 0 && n == (n & (-n));
+};
+```
+
 ### **Go**
 
 ```go
 func isPowerOfTwo(n int) bool {
-    return n > 0 && (n & (n - 1)) == 0
+	return n > 0 && (n&(n-1)) == 0
+}
+```
+
+lowbit:
+
+```go
+func isPowerOfTwo(n int) bool {
+	return n > 0 && n == (n&(-n))
 }
 ```
 
@@ -113,7 +160,15 @@ func isPowerOfTwo(n int) bool {
 
 ```ts
 function isPowerOfTwo(n: number): boolean {
-  return n > 0 && (n & (n - 1)) == 0;
+    return n > 0 && (n & (n - 1)) == 0;
+};
+```
+
+lowbit:
+
+```ts
+function isPowerOfTwo(n: number): boolean {
+    return n > 0 && n == (n & (-n));
 };
 ```
 
