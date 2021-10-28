@@ -36,7 +36,7 @@ MyCalendar.book(15, 25); // returns false
 
 MyCalendar.book(20, 30); // returns true
 
-<b>Explanation:</b> 
+<b>Explanation:</b>
 
 The first event can be booked.  The second can&#39;t because time 15 is already booked by another event.
 
@@ -72,29 +72,91 @@ The third event can be booked, as the first event takes every time less than 20,
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedDict
 
+
+class MyCalendar:
+
+    def __init__(self):
+        self.sd = SortedDict()
+
+    def book(self, start: int, end: int) -> bool:
+        idx = self.sd.bisect_right(start)
+        if 0 <= idx < len(self.sd):
+            if end > self.sd.values()[idx]:
+                return False
+        self.sd[end] = start
+        return True
+
+
+# Your MyCalendar object will be instantiated and called as such:
+# obj = MyCalendar()
+# param_1 = obj.book(start,end)
 ```
 
 ### **Java**
 
 ```java
-class MyCalendar {
-    List<int[]> calendar;
+import java.util.Map;
+import java.util.TreeMap;
 
-    MyCalendar() {
-        calendar = new ArrayList<>();
+class MyCalendar {
+
+    private final TreeMap<Integer, Integer> tm = new TreeMap<>();
+
+    public MyCalendar() {
     }
 
     public boolean book(int start, int end) {
-        for (int[] item : calendar) {
-            if (item[0] < end && item[1] > start) {
-                return false;
-            }
+        Map.Entry<Integer, Integer> ent = tm.floorEntry(start);
+        if (ent != null && ent.getValue() > start) {
+            return false;
         }
-        calendar.add(new int[]{start, end});
+        ent = tm.ceilingEntry(start);
+        if (ent != null && ent.getKey() < end) {
+            return false;
+        }
+        tm.put(start, end);
         return true;
     }
 }
+
+/**
+ * Your MyCalendar object will be instantiated and called as such: MyCalendar
+ * obj = new MyCalendar(); boolean param_1 = obj.book(start,end);
+ */
+```
+
+### **Go**
+
+```go
+type MyCalendar struct {
+	rbt *redblacktree.Tree
+}
+
+func Constructor() MyCalendar {
+	return MyCalendar{
+		rbt: redblacktree.NewWithIntComparator(),
+	}
+}
+
+func (this *MyCalendar) Book(start int, end int) bool {
+	if p, ok := this.rbt.Floor(start); ok && p.Value.(int) > start {
+		return false
+	}
+	if p, ok := this.rbt.Ceiling(start); ok && p.Key.(int) < end {
+		return false
+	}
+	this.rbt.Put(start, end)
+	return true
+}
+
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Book(start,end);
+ */
 ```
 
 ### **...**
