@@ -1,7 +1,15 @@
 class Solution {
- public:
+public:
     int findComplement(int num) {
-        int full = pow(2, int(log2(num)) + 1) - 1;
-        return full ^ num;
+        int ans = 0;
+        bool find = false;
+        for (int i = 30; i >= 0; --i)
+        {
+            int b = num & (1 << i);
+            if (!find && b == 0) continue;
+            find = true;
+            if (b == 0) ans |= (1 << i);
+        }
+        return ans;
     }
 };

@@ -6,42 +6,55 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二叉搜索树和一个目标结果，如果 BST 中存在两个元素且它们的和等于给定的目标结果，则返回 true。</p>
+<p>给定一个二叉搜索树 <code>root</code> 和一个目标结果 <code>k</code>，如果 BST 中存在两个元素且它们的和等于给定的目标结果，则返回 <code>true</code>。</p>
 
-<p><strong>案例 1:</strong></p>
+<p> </p>
 
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/images/sum_tree_1.jpg" style="width: 562px; height: 322px;" />
 <pre>
-<strong>输入:</strong> 
-    5
-   / \
-  3   6
- / \   \
-2   4   7
-
-Target = 9
-
-<strong>输出:</strong> True
+<strong>输入:</strong> root = [5,3,6,2,4,null,7], k = 9
+<strong>输出:</strong> true
 </pre>
 
-<p>&nbsp;</p>
-
-<p><strong>案例 2:</strong></p>
-
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0653.Two%20Sum%20IV%20-%20Input%20is%20a%20BST/images/sum_tree_2.jpg" style="width: 562px; height: 322px;" />
 <pre>
-<strong>输入:</strong> 
-    5
-   / \
-  3   6
- / \   \
-2   4   7
-
-Target = 28
-
-<strong>输出:</strong> False
+<strong>输入:</strong> root = [5,3,6,2,4,null,7], k = 28
+<strong>输出:</strong> false
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 3：</strong></p>
 
+<pre>
+<strong>输入:</strong> root = [2,1,3], k = 4
+<strong>输出:</strong> true
+</pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre>
+<strong>输入:</strong> root = [2,1,3], k = 1
+<strong>输出:</strong> false
+</pre>
+
+<p><strong>示例 5：</strong></p>
+
+<pre>
+<strong>输入:</strong> root = [2,1,3], k = 3
+<strong>输出:</strong> true
+</pre>
+
+<p> </p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li>二叉树的节点个数的范围是  <code>[1, 10<sup>4</sup>]</code>.</li>
+	<li><code>-10<sup>4</sup> <= Node.val <= 10<sup>4</sup></code></li>
+	<li><code>root</code> 为二叉搜索树</li>
+	<li><code>-10<sup>5</sup> <= k <= 10<sup>5</sup></code></li>
+</ul>
 
 ## 解法
 
@@ -64,14 +77,14 @@ Target = 28
 #         self.right = right
 class Solution:
     def findTarget(self, root: TreeNode, k: int) -> bool:
-        def find(node):
-            if not node:
+        def find(root):
+            if not root:
                 return False
-            if k - node.val in nodes:
+            if k - root.val in nodes:
                 return True
-            nodes.add(node.val)
-            return find(node.left) or find(node.right)
-
+            nodes.add(root.val)
+            return find(root.left) or find(root.right)
+        
         nodes = set()
         return find(root)
 ```
@@ -104,15 +117,15 @@ class Solution {
         return find(root, k);
     }
 
-    private boolean find(TreeNode node, int k) {
-        if (node == null) {
+    private boolean find(TreeNode root, int k) {
+        if (root == null) {
             return false;
         }
-        if (nodes.contains(k - node.val)) {
+        if (nodes.contains(k - root.val)) {
             return true;
         }
-        nodes.add(node.val);
-        return find(node.left, k) || find(node.right, k);
+        nodes.add(root.val);
+        return find(root.left, k) || find(root.right, k);
     }
 }
 ```
@@ -135,16 +148,15 @@ class Solution {
  */
 
 function findTarget(root: TreeNode | null, k: number): boolean {
-    let set: Set<number> = new Set();
-    return find(root, k, set);
+    let nodes: Set<number> = new Set();
+    return find(root, k, nodes);
 };
 
-
-function find(root: TreeNode | null, k: number, set: Set<number>): boolean {
+function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
     if (!root) return false;
-    if (set.has(k - root.val)) return true;
-    set.add(root.val);
-    return find(root.left, k, set) || find(root.right, k, set);
+    if (nodes.has(k - root.val)) return true;
+    nodes.add(root.val);
+    return find(root.left, k, nodes) || find(root.right, k, nodes);
 }
 ```
 
@@ -170,15 +182,11 @@ public:
         return find(root, k);    
     }
 
-    bool find(TreeNode* node, int k) {
-        if (node == nullptr) {
-            return false;
-        }
-        if (nodes.count(k - node->val)) {
-            return true;
-        }
-        nodes.insert(node->val);
-        return find(node->left, k) || find(node->right, k);
+    bool find(TreeNode* root, int k) {
+        if (!root) return false;
+        if (nodes.count(k - root->val)) return true;
+        nodes.insert(root->val);
+        return find(root->left, k) || find(root->right, k);
     }
 };
 ```
@@ -196,19 +204,19 @@ public:
  */
 func findTarget(root *TreeNode, k int) bool {
 	nodes := make(map[int]bool)
-	var find func(node *TreeNode, k int) bool
-	find = func(node *TreeNode, k int) bool {
-		if node == nil {
+
+	var find func(root *TreeNode, k int) bool
+	find = func(root *TreeNode, k int) bool {
+		if root == nil {
 			return false
 		}
-		if nodes[k-node.Val] {
+		if nodes[k-root.Val] {
 			return true
 		}
-		nodes[node.Val] = true
-		return find(node.Left, k) || find(node.Right, k)
+		nodes[root.Val] = true
+		return find(root.Left, k) || find(root.Right, k)
 	}
 	return find(root, k)
-
 }
 ```
 

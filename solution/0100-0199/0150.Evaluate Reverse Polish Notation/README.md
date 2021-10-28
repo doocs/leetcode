@@ -79,16 +79,11 @@
 	<li>适合用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-栈实现。
-
-遍历数组，遇到数字则压入栈中，遇到运算符号，则从栈中弹出右、左操作数，运算过后，将结果压入栈中。
-
-遍历结束后，返回栈中的唯一元素。
+利用栈存储运算数，每次遇到符号，对栈顶两个元素进行运算。
 
 <!-- tabs:start -->
 
@@ -116,6 +111,28 @@ class Solution:
         return s[0]
 ```
 
+需要注意 Python 的整除对负数也是向下取整（例如：`6 // -132 = -1`），和答案对应不上，所以需要特殊处理。
+
+```python
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        nums = []
+        for t in tokens:
+            if len(t) > 1 or t.isdigit():
+                nums.append(int(t))
+            else:
+                if t == "+":
+                    nums[-2] += nums[-1]
+                elif t == "-":
+                    nums[-2] -= nums[-1]
+                elif t == "*":
+                    nums[-2] *= nums[-1]
+                else:
+                    nums[-2] = int(nums[-2] / nums[-1])
+                nums.pop()
+        return nums[0]
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -123,36 +140,94 @@ class Solution:
 ```java
 class Solution {
     public int evalRPN(String[] tokens) {
-        Deque<Integer> s = new ArrayDeque<>();
-        int left, right;
-        for (String token : tokens) {
-            switch(token) {
-            case "+":
-                right = s.pop();
-                left = s.pop();
-                s.push(left + right);
-                break;
-            case "-":
-                right = s.pop();
-                left = s.pop();
-                s.push(left - right);
-                break;
-            case "*":
-                right = s.pop();
-                left = s.pop();
-                s.push(left * right);
-                break;
-            case "/":
-                right = s.pop();
-                left = s.pop();
-                s.push(left / right);
-                break;
-            default:
-                s.push(Integer.valueOf(token));
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (String t : tokens) {
+            if (t.length() > 1 || Character.isDigit(t.charAt(0))) {
+                stk.push(Integer.parseInt(t));
+            } else {
+                int y = stk.pop();
+                int x = stk.pop();
+                switch (t) {
+                    case "+":
+                        stk.push(x + y);
+                        break;
+                    case "-":
+                        stk.push(x - y);
+                        break;
+                    case "*":
+                        stk.push(x * y);
+                        break;
+                    default:
+                        stk.push(x / y);
+                        break;
+                }
             }
         }
-        return s.pop();
+        return stk.pop();
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> stk;
+        for (auto& t : tokens) {
+            if (t.size() > 1 || isdigit(t[0]))
+            {
+                stk.push(stoi(t));
+            }
+            else
+            {
+                int y = stk.top();
+                stk.pop();
+                int x = stk.top();
+                stk.pop();
+                if (t[0] == '+') stk.push(x + y);
+                else if (t[0] == '-') stk.push(x - y);
+                else if (t[0] == '*') stk.push(x * y);
+                else stk.push(x / y);
+            }
+        }
+        return stk.top();
+    }
+};
+```
+
+### **Go**
+
+```go
+func evalRPN(tokens []string) int {
+	// https://github.com/emirpasic/gods#arraystack
+	stk := arraystack.New()
+	for _, token := range tokens {
+		if len(token) > 1 || token[0] >= '0' && token[0] <= '9' {
+			num, _ := strconv.Atoi(token)
+			stk.Push(num)
+		} else {
+			y := popInt(stk)
+			x := popInt(stk)
+			switch token {
+			case "+":
+				stk.Push(x + y)
+			case "-":
+				stk.Push(x - y)
+			case "*":
+				stk.Push(x * y)
+			default:
+				stk.Push(x / y)
+			}
+		}
+	}
+	return popInt(stk)
+}
+
+func popInt(stack *arraystack.Stack) int {
+	v, _ := stack.Pop()
+	return v.(int)
 }
 ```
 

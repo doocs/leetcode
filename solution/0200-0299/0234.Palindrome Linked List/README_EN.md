@@ -108,6 +108,86 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        if (!head || !head->next) return true;
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+        while (fast && fast->next)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        ListNode* pre = nullptr;
+        ListNode* cur = slow->next;
+        while (cur)
+        {
+            ListNode* t = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = t;
+        }
+        while (pre)
+        {
+            if (pre->val != head->val) return false;
+            pre = pre->next;
+            head = head->next;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func isPalindrome(head *ListNode) bool {
+	if head == nil || head.Next == nil {
+		return true
+	}
+	slow, fast := head, head.Next
+	for fast != nil && fast.Next != nil {
+		slow, fast = slow.Next, fast.Next.Next
+	}
+	var pre *ListNode
+	cur := slow.Next
+	for cur != nil {
+		t := cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = t
+	}
+	for pre != nil {
+		if pre.Val != head.Val {
+			return false
+		}
+		pre, head = pre.Next, head.Next
+	}
+	return true
+}
+```
+
 ### **JavaScript**
 
 ```js

@@ -64,7 +64,6 @@
 	<li>保证表达式不包含除以零的操作。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -76,7 +75,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+import abc 
+from abc import ABC, abstractmethod 
+"""
+This is the interface for the expression tree Node.
+You should not remove it, and you can define some classes to implement it.
+"""
 
+class Node(ABC):
+    @abstractmethod
+    # define your fields here
+    def evaluate(self) -> int:
+        pass
+
+class MyNode(Node):
+
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+    def evaluate(self) -> int:
+        x = self.val
+        if x.isdigit():
+            return int(x)
+        
+        left, right = self.left.evaluate(), self.right.evaluate()
+        if x == '+':
+            return left + right
+        if x == '-':
+            return left - right
+        if x == '*':
+            return left * right
+        if x == '/':
+            return left // right
+
+
+"""    
+This is the TreeBuilder class.
+You can treat it as the driver code that takes the postinfix input
+and returns the expression tree represnting it as a Node.
+"""
+
+class TreeBuilder(object):
+    def buildTree(self, postfix: List[str]) -> 'Node':
+        stk = []
+        for s in postfix:
+            node = MyNode(s)
+            if not s.isdigit():
+                node.right = stk.pop()
+                node.left = stk.pop()
+            stk.append(node)
+        return stk[-1]
+		
+"""
+Your TreeBuilder object will be instantiated and called as such:
+obj = TreeBuilder();
+expTree = obj.buildTree(postfix);
+ans = expTree.evaluate();
+"""
 ```
 
 ### **Java**
@@ -84,7 +141,167 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * This is the interface for the expression tree Node.
+ * You should not remove it, and you can define some classes to implement it.
+ */
 
+abstract class Node {
+    public abstract int evaluate();
+    // define your fields here
+    protected String val;
+    protected Node left;
+    protected Node right;
+};
+
+class MyNode extends Node {
+    public MyNode(String val) {
+        this.val = val;
+    }
+
+    public int evaluate() {
+        if (isNumeric()) {
+            return Integer.parseInt(val);
+        }
+        int leftVal = left.evaluate();
+        int rightVal = right.evaluate();
+        if (Objects.equals(val, "+")) {
+            return leftVal + rightVal;
+        }
+        if (Objects.equals(val, "-")) {
+            return leftVal - rightVal;
+        }
+        if (Objects.equals(val, "*")) {
+            return leftVal * rightVal;
+        }
+        if (Objects.equals(val, "/")) {
+            return leftVal / rightVal;
+        }
+        return 0;
+    }
+
+    public boolean isNumeric() {
+        for (char c : val.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+/**
+ * This is the TreeBuilder class.
+ * You can treat it as the driver code that takes the postinfix input 
+ * and returns the expression tree represnting it as a Node.
+ */
+
+class TreeBuilder {
+    Node buildTree(String[] postfix) {
+        Deque<MyNode> stk = new ArrayDeque<>();
+        for (String s : postfix) {
+            MyNode node = new MyNode(s);
+            if (!node.isNumeric()) {
+                node.right = stk.pop();
+                node.left = stk.pop();
+            }
+            stk.push(node);
+        }
+        return stk.peek();
+    }
+};
+
+
+/**
+ * Your TreeBuilder object will be instantiated and called as such:
+ * TreeBuilder obj = new TreeBuilder();
+ * Node expTree = obj.buildTree(postfix);
+ * int ans = expTree.evaluate();
+ */
+```
+
+### **C++**
+
+```cpp
+/**
+ * This is the interface for the expression tree Node.
+ * You should not remove it, and you can define some classes to implement it.
+ */
+
+class Node {
+public:
+    virtual ~Node () {};
+    virtual int evaluate() const = 0;
+protected:
+    // define your fields here
+    string val;
+    Node* left;
+    Node* right;
+};
+
+class MyNode : public Node {
+public:
+    MyNode(string val) {
+        this->val = val;
+    }
+
+    MyNode(string val, Node* left, Node* right) {
+        this->val = val;
+        this->left = left;
+        this->right = right;
+    }
+
+    int evaluate() const {
+        if (!(val == "+" || val == "-" || val == "*" || val == "/")) return stoi(val);
+        auto leftVal = left->evaluate(), rightVal = right->evaluate();
+        if (val == "+") return leftVal + rightVal;
+        if (val == "-") return leftVal - rightVal;
+        if (val == "*") return leftVal * rightVal;
+        if (val == "/") return leftVal / rightVal;
+        return 0;
+    }
+};
+
+
+/**
+ * This is the TreeBuilder class.
+ * You can treat it as the driver code that takes the postinfix input 
+ * and returns the expression tree represnting it as a Node.
+ */
+
+class TreeBuilder {
+public:
+    Node* buildTree(vector<string>& postfix) {
+        stack<MyNode*> stk;
+        for (auto s : postfix)
+        {
+            MyNode* node;
+            if (s == "+" || s == "-" || s == "*" || s == "/")
+            {
+                auto right = stk.top();
+                stk.pop();
+                auto left = stk.top();
+                stk.pop();
+                node = new MyNode(s, left, right);
+            }
+            else
+            {
+                node = new MyNode(s);
+            }
+            stk.push(node);
+        }
+        return stk.top();
+    }
+};
+
+
+/**
+ * Your TreeBuilder object will be instantiated and called as such:
+ * TreeBuilder* obj = new TreeBuilder();
+ * Node* expTree = obj->buildTree(postfix);
+ * int ans = expTree->evaluate();
+ */
 ```
 
 ### **...**

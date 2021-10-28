@@ -65,13 +65,13 @@ merging them into one sorted list:
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-        if not lists:
-            return None
         n = len(lists)
-        for i in range(1, n):
-            lists[i] = self.mergeTwoLists(lists[i - 1], lists[i])
-        return lists[n - 1]
-
+        if n == 0:
+            return None
+        for i in range(n - 1):
+            lists[i + 1] = self.mergeTwoLists(lists[i], lists[i + 1])
+        return lists[-1]
+        
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         dummy = ListNode()
         cur = dummy
@@ -102,17 +102,17 @@ class Solution:
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        int n;
-        if (lists == null || (n = lists.length) == 0) {
+        int n = lists.length;
+        if (n == 0) {
             return null;
         }
-        for (int i = 1; i < n; ++i) {
-            lists[i] = mergeTwoLists(lists[i - 1], lists[i]);
+        for (int i = 0; i < n - 1; ++i) {
+            lists[i + 1] = mergeLists(lists[i], lists[i + 1]);
         }
         return lists[n - 1];
     }
 
-    private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    private ListNode mergeLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode();
         ListNode cur = dummy;
         while (l1 != null && l2 != null) {
@@ -148,12 +148,8 @@ class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         int n = lists.size();
-        if (n == 0) {
-            return nullptr;
-        }
-        for (int i = 1; i < n; ++i) {
-            lists[i] = mergeTwoLists(lists[i - 1], lists[i]);
-        }
+        if (n == 0) return nullptr;
+        for (int i = 1; i < n; ++i) lists[i] = mergeTwoLists(lists[i - 1], lists[i]);
         return lists[n - 1];
     }
 
@@ -161,11 +157,15 @@ private:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode* dummy = new ListNode();
         ListNode* cur = dummy;
-        while (l1 && l2) {
-            if (l1->val <= l2->val) {
+        while (l1 && l2)
+        {
+            if (l1->val <= l2->val)
+            {
                 cur->next = l1;
                 l1 = l1->next;
-            } else {
+            }
+            else
+            {
                 cur->next = l2;
                 l2 = l2->next;
             }

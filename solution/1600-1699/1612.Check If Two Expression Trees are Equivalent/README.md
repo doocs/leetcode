@@ -52,7 +52,6 @@
 	<li>给定的树<strong>保证</strong>是有效的二叉表达式树。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -64,7 +63,56 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class Node(object):
+#     def __init__(self, val=" ", left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def checkEquivalence(self, root1: 'Node', root2: 'Node') -> bool:
+        counter = [0] * 26
 
+        def dfs(root, incr):
+            if root:
+                dfs(root.left, incr)
+                dfs(root.right, incr)
+                if root.val != '+':
+                    counter[ord(root.val) - ord('a')] += incr
+
+        dfs(root1, 1)
+        dfs(root2, -1)
+        return counter.count(0) == 26
+```
+
+```python
+# Definition for a binary tree node.
+# class Node(object):
+#     def __init__(self, val=" ", left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def checkEquivalence(self, root1: 'Node', root2: 'Node') -> bool:
+        def calc(ans, left, right, op):
+            for i in range(26):
+                if op == '+':
+                    ans[i] = left[i] + right[i]
+                else:
+                    ans[i] = left[i] - right[i]
+
+        def dfs(root):
+            ans = [0] * 26
+            if not root:
+                return ans
+            if root.val in ['+', '-']:
+                left, right = dfs(root.left), dfs(root.right)
+                calc(ans, left, right, root.val)
+            else:
+                ans[ord(root.val) - ord('a')] += 1
+            return ans
+
+        return dfs(root1) == dfs(root2)
 ```
 
 ### **Java**
@@ -72,7 +120,171 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * class Node {
+ *     char val;
+ *     Node left;
+ *     Node right;
+ *     Node() {this.val = ' ';}
+ *     Node(char val) { this.val = val; }
+ *     Node(char val, Node left, Node right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int[] counter;
 
+    public boolean checkEquivalence(Node root1, Node root2) {
+        counter = new int[26];
+        dfs(root1, 1);
+        dfs(root2, -1);
+        for (int n : counter) {
+            if (n != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void dfs(Node root, int incr) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left, incr);
+        dfs(root.right, incr);
+        if (root.val != '+') {
+            counter[root.val - 'a'] += incr;
+        }
+    }
+}
+```
+
+```java
+/**
+ * Definition for a binary tree node.
+ * class Node {
+ *     char val;
+ *     Node left;
+ *     Node right;
+ *     Node() {this.val = ' ';}
+ *     Node(char val) { this.val = val; }
+ *     Node(char val, Node left, Node right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean checkEquivalence(Node root1, Node root2) {
+        int[] ans1 = dfs(root1);
+        int[] ans2 = dfs(root2);
+        for (int i = 0; i < 26; ++i) {
+            if (ans1[i] != ans2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int[] dfs(Node root) {
+        int[] ans = new int[26];
+        if (root == null) {
+            return ans;
+        }
+        if (root.val == '+' || root.val == '-') {
+            int[] left = dfs(root.left);
+            int[] right = dfs(root.right);
+            calc(ans, left, right, root.val);
+        } else {
+            ++ans[root.val - 'a'];
+        }
+        return ans;
+    }
+
+    private void calc(int[] ans, int[] left, int[] right, char op) {
+        for (int i = 0; i < 26; ++i) {
+            ans[i] = op == '+' ? left[i] + right[i] : left[i] - right[i];
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct Node {
+ *     char val;
+ *     Node *left;
+ *     Node *right;
+ *     Node() : val(' '), left(nullptr), right(nullptr) {}
+ *     Node(char x) : val(x), left(nullptr), right(nullptr) {}
+ *     Node(char x, Node *left, Node *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> counter;
+
+    bool checkEquivalence(Node* root1, Node* root2) {
+        counter.resize(26);
+        dfs(root1, 1);
+        dfs(root2, -1);
+        return count(counter.begin(), counter.end(), 0) == 26;
+    }
+
+    void dfs(Node* root, int incr) {
+        if (!root) return;
+        dfs(root->left, incr);
+        dfs(root->right, incr);
+        if (root->val != '+') counter[root->val - 'a'] += incr;
+    }
+};
+```
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct Node {
+ *     char val;
+ *     Node *left;
+ *     Node *right;
+ *     Node() : val(' '), left(nullptr), right(nullptr) {}
+ *     Node(char x) : val(x), left(nullptr), right(nullptr) {}
+ *     Node(char x, Node *left, Node *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool checkEquivalence(Node* root1, Node* root2) {
+        return dfs(root1) == dfs(root2);
+    }
+
+    vector<int> dfs(Node* root) {
+        vector<int> ans(26);
+        if (!root) return ans;
+        if (root->val == '+' || root->val == '-')
+        {
+            auto left = dfs(root->left);
+            auto right = dfs(root->right);
+            calc(ans, left, right, root->val);
+            return ans;
+        }
+        ++ans[root->val - 'a'];
+        return ans;
+    }
+
+    void calc(vector<int>& ans, vector<int>& left, vector<int>& right, char op) {
+        for (int i = 0; i < 26; ++i)
+            ans[i] = op == '+' ? left[i] + right[i] : left[i] - right[i];
+    }
+};
 ```
 
 ### **...**

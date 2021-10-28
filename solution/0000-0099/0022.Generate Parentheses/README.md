@@ -37,7 +37,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-dfs
+深度优先搜索 DFS。
 
 <!-- tabs:start -->
 
@@ -48,18 +48,19 @@ dfs
 ```python
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        def dfs(ans, l, r, n):
-            if len(ans) == (n << 1):
-                self.res.append(ans)
+        ans = []
+
+        def dfs(left, right, t):
+            if left == n and right == n:
+                ans.append(t)
                 return
-            if l < n:
-                dfs(ans + '(', l + 1, r, n)
-            if r < l:
-                dfs(ans + ')', l, r + 1, n)
-        
-        self.res = []
-        dfs('', 0, 0, n)
-        return self.res
+            if left < n:
+                dfs(left + 1, right, t + '(')
+            if right < left:
+                dfs(left, right + 1, t + ')')
+
+        dfs(0, 0, '')
+        return ans
 ```
 
 ### **Java**
@@ -69,21 +70,21 @@ class Solution:
 ```java
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> res = new ArrayList<>();
-        dfs(res, "", 0, 0, n);
-        return res;
+        List<String> ans = new ArrayList<>();
+        dfs(0, 0, n, "", ans);
+        return ans;
     }
 
-    private void dfs(List<String> res, String ans, int l, int r, int n) {
-        if (ans.length() == (n << 1)) {
-            res.add(ans);
+    private void dfs(int left, int right, int n, String t, List<String> ans) {
+        if (left == n && right == n) {
+            ans.add(t);
             return;
         }
-        if (l < n) {
-            dfs(res, ans + "(", l + 1, r, n);
+        if (left < n) {
+            dfs(left + 1, right, n, t + "(", ans);
         }
-        if (r < l) {
-            dfs(res, ans + ")", l, r + 1, n);
+        if (right < left) {
+            dfs(left, right + 1, n, t + ")", ans);
         }
     }
 }
@@ -94,20 +95,20 @@ class Solution {
 ```ts
 function generateParenthesis(n: number): string[] {
     let ans = [];
-    dfs(n, 0, 0, '', ans);
+    dfs(0, 0, n, '', ans);
     return ans;
 };
 
-function dfs(n: number, left: number, right: number, str: string, ans: string[]) {
-    if (str.length == 2 * n) {
-        ans.push(str);
+function dfs(left: number, right: number, n: number, t: string, ans: string[]) {
+    if (left == n && right == n) {
+        ans.push(t);
         return;
     }
     if (left < n) {
-        dfs(n, left + 1, right, str + '(', ans);
+        dfs(left + 1, right, n, t + '(', ans);
     }
     if (right < left) {
-        dfs(n, left, right + 1, str + ')', ans);
+        dfs(left, right + 1, n, t + ')', ans);
     }
 }
 ```
@@ -118,19 +119,19 @@ function dfs(n: number, left: number, right: number, str: string, ans: string[])
 class Solution {
 public:
     vector<string> generateParenthesis(int n) {
-        vector<string> res;
-        dfs(res, "", 0, 0, n);
-        return res;
+        vector<string> ans;
+        dfs(0, 0, n, "", ans);
+        return ans;
     }
 
-private:
-    void dfs(vector<string>& res, string ans, int l, int r, int n) {
-        if (ans.size() == (n << 1)) {
-            res.push_back(ans);
+    void dfs(int left, int right, int n, string t, vector<string>& ans) {
+        if (left == n && right == n)
+        {
+            ans.push_back(t);
             return;
         }
-        if (l < n) dfs(res, ans + "(", l + 1, r, n);
-        if (r < l) dfs(res, ans + ")", l, r + 1, n);
+        if (left < n) dfs(left + 1, right, n, t + "(", ans);
+        if (right < left) dfs(left, right + 1, n, t + ")", ans);
     }
 };
 ```
@@ -139,22 +140,49 @@ private:
 
 ```go
 func generateParenthesis(n int) []string {
-	res := new([]string)
-	dfs(res, "", 0, 0, n)
-	return *res
+	var ans []string
+	dfs(0, 0, n, "", &ans)
+	return ans
 }
 
-func dfs(res *[]string, ans string, l, r, n int) {
-	if len(ans) == (n << 1) {
-		*res = append(*res, ans)
+func dfs(left, right, n int, t string, ans *[]string) {
+	if left == n && right == n {
+		*ans = append(*ans, t)
 		return
 	}
-	if l < n {
-		dfs(res, ans+"(", l+1, r, n)
+	if left < n {
+		dfs(left+1, right, n, t+"(", ans)
 	}
-	if r < l {
-		dfs(res, ans+")", l, r+1, n)
+	if right < left {
+		dfs(left, right+1, n, t+")", ans)
 	}
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+ var generateParenthesis = function(n) {
+    let res = [];
+    dfs(n, 0, 0, '', res);
+    return res;
+};
+
+function dfs(n, left, right, prev, res) {
+    if (left == n && right == n) {
+        res.push(prev);
+        return;
+    }
+    if (left < n) {
+        dfs(n, left + 1, right, prev + '(', res);
+    }
+    if (right < left) {
+        dfs(n, left, right + 1, prev + ')', res);
+    }
 }
 ```
 

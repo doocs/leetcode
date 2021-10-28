@@ -63,7 +63,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def addOperators(self, num: str, target: int) -> List[str]:
+        ans = []
 
+        def dfs(u, prev, curr, path):
+            if u == len(num):
+                if curr == target:
+                    ans.append(path)
+                return
+            for i in range(u, len(num)):
+                if i != u and num[u] == '0':
+                    break
+                next = int(num[u: i+1])
+                if u == 0:
+                    dfs(i + 1, next, next, path + str(next))
+                else:
+                    dfs(i + 1,  next, curr + next, path + "+" + str(next))
+                    dfs(i + 1, -next, curr - next, path + "-" + str(next))
+                    dfs(i + 1, prev * next, curr - prev +
+                        prev * next, path + "*" + str(next))
+
+        dfs(0, 0, 0, "")
+        return ans
 ```
 
 ### **Java**
@@ -72,6 +94,39 @@
 
 ```java
 
+class Solution {
+    private List<String> ans;
+    private String num;
+    private int target;
+
+    public List<String> addOperators(String num, int target) {
+        ans = new ArrayList<>();
+        this.num = num;
+        this.target = target;
+        dfs(0, 0, 0, "");
+        return ans;
+    }
+
+    private void dfs(int u, long prev, long curr, String path) {
+        if (u == num.length()) {
+            if (curr == target) ans.add(path);
+            return ;
+        }
+        for (int i = u; i < num.length(); i++) {
+            if (i != u && num.charAt(u) == '0') {
+                break;
+            }
+            long next = Long.parseLong(num.substring(u, i + 1));
+            if (u == 0) {
+                dfs(i + 1, next, next, path + next);
+            } else {
+                dfs(i + 1,  next, curr + next, path + "+" + next);
+                dfs(i + 1, -next, curr - next, path + "-" + next);
+                dfs(i + 1, prev * next, curr - prev + prev * next, path + "*" + next);
+            }
+        }
+    }
+}
 ```
 
 ### **...**

@@ -81,12 +81,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 150&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/">https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-利用栈存储运算数，每次遇到符号，对栈顶两个元素进行运算
+利用栈存储运算数，每次遇到符号，对栈顶两个元素进行运算。
 
 <!-- tabs:start -->
 
@@ -94,7 +93,7 @@
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-需要注意 Python 的整除对负数也是向下取整（例如：`6 // -132 = -1`），和答案对应不上，所以需要特殊处理
+需要注意 Python 的整除对负数也是向下取整（例如：`6 // -132 = -1`），和答案对应不上，所以需要特殊处理。
 
 ```python
 class Solution:
@@ -123,65 +122,31 @@ class Solution:
 ```java
 class Solution {
     public int evalRPN(String[] tokens) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stk = new ArrayDeque<>();
         for (String t : tokens) {
             if (t.length() > 1 || Character.isDigit(t.charAt(0))) {
-                stack.push(Integer.parseInt(t));
+                stk.push(Integer.parseInt(t));
             } else {
-                int y = stack.pop();
-                int x = stack.pop();
+                int y = stk.pop();
+                int x = stk.pop();
                 switch (t) {
                     case "+":
-                        stack.push(x + y);
+                        stk.push(x + y);
                         break;
                     case "-":
-                        stack.push(x - y);
+                        stk.push(x - y);
                         break;
                     case "*":
-                        stack.push(x * y);
+                        stk.push(x * y);
                         break;
                     default:
-                        stack.push(x / y);
+                        stk.push(x / y);
                         break;
                 }
             }
         }
-        return stack.pop();
+        return stk.pop();
     }
-}
-```
-
-### **Go**
-
-```go
-func evalRPN(tokens []string) int {
-	// https://github.com/emirpasic/gods#arraystack
-	stack := arraystack.New()
-	for _, token := range tokens {
-		if len(token) > 1 || token[0] >= '0' && token[0] <= '9' {
-			num, _ := strconv.Atoi(token)
-			stack.Push(num)
-		} else {
-			y := popInt(stack)
-			x := popInt(stack)
-			switch token {
-			case "+":
-				stack.Push(x + y)
-			case "-":
-				stack.Push(x - y)
-			case "*":
-				stack.Push(x * y)
-			default:
-				stack.Push(x / y)
-			}
-		}
-	}
-	return popInt(stack)
-}
-
-func popInt(stack *arraystack.Stack) int {
-	v, _ := stack.Pop()
-	return v.(int)
 }
 ```
 
@@ -192,23 +157,60 @@ class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
         stack<int> stk;
-        for (const auto& token : tokens) {
-            if (token.size() > 1 || isdigit(token[0])) {
-                stk.push(stoi(token));
-            } else {
+        for (auto& t : tokens) {
+            if (t.size() > 1 || isdigit(t[0]))
+            {
+                stk.push(stoi(t));
+            }
+            else
+            {
                 int y = stk.top();
                 stk.pop();
                 int x = stk.top();
                 stk.pop();
-                if (token[0] == '+') stk.push(x + y);
-                else if (token[0] == '-') stk.push(x - y);
-                else if (token[0] == '*') stk.push(x * y);
+                if (t[0] == '+') stk.push(x + y);
+                else if (t[0] == '-') stk.push(x - y);
+                else if (t[0] == '*') stk.push(x * y);
                 else stk.push(x / y);
             }
         }
         return stk.top();
     }
 };
+```
+
+### **Go**
+
+```go
+func evalRPN(tokens []string) int {
+	// https://github.com/emirpasic/gods#arraystack
+	stk := arraystack.New()
+	for _, token := range tokens {
+		if len(token) > 1 || token[0] >= '0' && token[0] <= '9' {
+			num, _ := strconv.Atoi(token)
+			stk.Push(num)
+		} else {
+			y := popInt(stk)
+			x := popInt(stk)
+			switch token {
+			case "+":
+				stk.Push(x + y)
+			case "-":
+				stk.Push(x - y)
+			case "*":
+				stk.Push(x * y)
+			default:
+				stk.Push(x / y)
+			}
+		}
+	}
+	return popInt(stk)
+}
+
+func popInt(stack *arraystack.Stack) int {
+	v, _ := stack.Pop()
+	return v.(int)
+}
 ```
 
 ### **...**

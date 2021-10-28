@@ -50,12 +50,9 @@ One longest palindrome that can be built is &quot;dccaccd&quot;, whose length is
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        res = [0] * 128
-        for ch in s:
-            res[ord(ch)] += 1
-        odd_cnt, n = 0, len(s)
-        for e in res:
-            odd_cnt += (e % 2)
+        n = len(s)
+        counter = collections.Counter(s)
+        odd_cnt = sum(e % 2 for e in counter.values())
         return n if odd_cnt == 0 else n - odd_cnt + 1
 ```
 
@@ -64,17 +61,71 @@ class Solution:
 ```java
 class Solution {
     public int longestPalindrome(String s) {
-        int[] res = new int[128];
-        int n = s.length();
-        for (int i = 0; i < n; ++i) {
-            res[s.charAt(i)]++;
+        int[] counter = new int[128];
+        for (char c : s.toCharArray()) {
+            ++counter[c];
         }
         int oddCnt = 0;
-        for (int e : res) {
+        for (int e : counter) {
             oddCnt += (e % 2);
         }
+        int n = s.length();
         return oddCnt == 0 ? n : n - oddCnt + 1;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function longestPalindrome(s: string): number {
+    let n = s.length;
+    let ans = 0;
+    let record = new Array(128).fill(0);
+    for (let i = 0; i < n; i++) {
+        record[s.charCodeAt(i)]++;
+    }
+    for (let i = 65; i < 128; i++) {
+        let count = record[i];
+        ans += (count % 2 == 0 ? count : count - 1);
+    }
+    return ans < s.length ? ans + 1 : ans;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        vector<int> counter(128);
+        for (char c : s) ++counter[c];
+        int oddCnt = 0;
+        for (int e : counter) oddCnt += e % 2;
+        int n = s.size();
+        return oddCnt == 0 ? n : n - oddCnt + 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestPalindrome(s string) int {
+	counter := make([]int, 128)
+	for _, c := range s {
+		counter[c]++
+	}
+	oddCnt := 0
+	for _, e := range counter {
+		oddCnt += e % 2
+	}
+	n := len(s)
+	if oddCnt == 0 {
+		return n
+	}
+	return n - oddCnt + 1
 }
 ```
 

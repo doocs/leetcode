@@ -4,8 +4,8 @@ class Solution {
         map.put(0, 1);
         int res = 0;
         int s = 0;
-        for (int i = 0; i < nums.length; ++i) {
-            s += nums[i];
+        for (int num : nums) {
+            s += num;
             res += map.getOrDefault(s - k, 0);
             map.put(s, map.getOrDefault(s, 0) + 1);
         }

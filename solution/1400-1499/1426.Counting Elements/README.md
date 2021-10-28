@@ -48,7 +48,6 @@
 	<li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -60,7 +59,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countElements(self, arr: List[int]) -> int:
+        s = set(arr)
+        res = 0
+        for num in arr:
+            if num + 1 in s:
+                res += 1
+        return res
 ```
 
 ### **Java**
@@ -68,7 +74,55 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countElements(int[] arr) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : arr) {
+            s.add(num);
+        }
+        int res = 0;
+        for (int num : arr) {
+            if (s.contains(num + 1)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countElements(vector<int>& arr) {
+        unordered_set<int> s;
+        for (int num : arr) s.insert(num);
+        int res = 0;
+        for (int num : arr)
+            if (s.count(num + 1)) ++res;
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countElements(arr []int) int {
+	s := make(map[int]bool)
+	for _, num := range arr {
+		s[num] = true
+	}
+	res := 0
+	for _, num := range arr {
+		if s[num+1] {
+			res++
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

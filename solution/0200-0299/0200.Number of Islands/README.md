@@ -61,6 +61,28 @@ BFS、DFS、并查集均可。
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+DFS：
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        def dfs(i, j):
+            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] != '1':
+                return
+            grid[i][j] = '0'
+            for x, y in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                dfs(i + x, j + y)
+
+        ans = 0
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    dfs(i, j)
+                    ans += 1
+        return ans
+```
+
 并查集：
 
 ```python
@@ -98,30 +120,29 @@ DFS：
 
 ```java
 class Solution {
+    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+
     public int numIslands(char[][] grid) {
-        int islandNum = 0;
+        int ans = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == '1') {
-                    infect(grid, i, j);
-                    islandNum ++;
+                    dfs(grid, i, j);
+                    ++ans;
                 }
             }
         }
-        return islandNum;
+        return ans;
     }
 
-    public void infect(char[][] grid, int i, int j) {
-        if (i < 0 || i >= grid.length ||
-                j < 0 || j >= grid[0].length ||
-                grid[i][j] != '1') {
+    public void dfs(char[][] grid, int i, int j) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] != '1') {
             return;
         }
-        grid[i][j] = '2';
-        infect(grid, i + 1, j);
-        infect(grid, i - 1, j);
-        infect(grid, i, j + 1);
-        infect(grid, i, j - 1);
+        grid[i][j] = '0';
+        for (int[] dir : dirs) {
+            dfs(grid, i + dir[0], j + dir[1]);
+        }
     }
 }
 ```
@@ -174,37 +195,29 @@ class Solution {
 
 ```ts
 function numIslands(grid: string[][]): number {
-  let m = grid.length,
-    n = grid[0].length;
-  let ans = 0;
-  for (let i = 0; i < m; ++i) {
-    for (let j = 0; j < n; ++j) {
-      if (grid[i][j] == "1") {
-        dfs(grid, i, j);
-        ++ans;
-      }
+    let m = grid.length, n = grid[0].length;
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (grid[i][j] == '1') {
+                dfs(grid, i, j);
+                ++ans;
+            }
+        }
     }
-  }
-  return ans;
-}
+    return ans;
+};
 
 function dfs(grid: string[][], i: number, j: number) {
-  let m = grid.length,
-    n = grid[0].length;
-  if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || grid[i][j] == "0") {
-    return;
-  }
-  grid[i][j] = "0";
-  for (let [dx, dy] of [
-    [0, 1],
-    [0, -1],
-    [1, 0],
-    [-1, 0],
-  ]) {
-    let x = i + dx,
-      y = j + dy;
-    dfs(grid, x, y);
-  }
+    let m = grid.length, n = grid[0].length;
+    if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || grid[i][j] == '0') {
+        return;
+    }
+    grid[i][j] = '0';
+    for (let [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
+        let x = i + dx, y = j + dy;
+        dfs(grid, x, y);
+    }
 }
 ```
 

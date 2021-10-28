@@ -46,7 +46,6 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 	<li><code>1 &lt;= n &lt;= 200</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -54,13 +53,50 @@ Total number of matches = 7 + 3 + 2 + 1 = 13.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfMatches(self, n: int) -> int:
+        return n - 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numberOfMatches(int n) {
+        return n - 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfMatches(int n) {
+        return n - 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfMatches(n int) int {
+	return n - 1
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var numberOfMatches = function(n) {
+    return n - 1;
+};
 ```
 
 ### **...**

@@ -43,6 +43,23 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+回溯法的基本模板：
+
+```py
+res = []
+path = []
+
+def backtrack(未探索区域, res, path):
+    if path 满足条件:
+        res.add(path) # 深度拷贝
+        # return  # 如果不用继续搜索需要 return
+    for 选择 in 未探索区域当前可能的选择:
+        if 当前选择符合要求:
+            path.add(当前选择)
+            backtrack(新的未探索区域, res, path)
+            path.pop()
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -50,7 +67,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        res = []
 
+        def dfs(i, n, t):
+            res.append(t.copy())
+            if i == n:
+                return
+            for j in range(i, n):
+                t.append(nums[j])
+                dfs(j + 1, n, t)
+                t.pop()
+
+        dfs(0, len(nums), [])
+        return res
 ```
 
 ### **Java**
@@ -58,7 +89,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        dfs(0, nums, new ArrayList<>(), res);
+        return res;
+    }
 
+    private void dfs(int i, int[] nums, List<Integer> t, List<List<Integer>> res) {
+        res.add(new ArrayList<>(t));
+        if (i == nums.length) {
+            return;
+        }
+        for (int j = i; j < nums.length; ++j) {
+            t.add(nums[j]);
+            dfs(j + 1, nums, t, res);
+            t.remove(t.size() - 1);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> res;
+        vector<int> t;
+        dfs(0, nums, t, res);
+        return res;
+    }
+
+    void dfs(int i, vector<int>& nums, vector<int> t, vector<vector<int>>& res) {
+        res.push_back(t);
+        if (i == nums.size()) return;
+        for (int j = i; j < nums.size(); ++j)
+        {
+            t.push_back(nums[j]);
+            dfs(j + 1, nums, t, res);
+            t.pop_back();
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func subsets(nums []int) [][]int {
+	var res [][]int
+	var t []int
+	dfs(0, nums, t, &res)
+	return res
+}
+
+func dfs(i int, nums, t []int, res *[][]int) {
+	cp := make([]int, len(t))
+	copy(cp, t)
+	*res = append(*res, cp)
+	if i == len(nums) {
+		return
+	}
+	for j := i; j < len(nums); j++ {
+		t = append(t, nums[j])
+		dfs(j+1, nums, t, res)
+		t = t[:len(t)-1]
+	}
+}
 ```
 
 ### **...**

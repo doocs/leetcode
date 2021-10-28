@@ -51,7 +51,6 @@
 	<li><code>tokens[i]</code> is either an operator: <code>&quot;+&quot;</code>, <code>&quot;-&quot;</code>, <code>&quot;*&quot;</code>, or <code>&quot;/&quot;</code>, or an integer in the range <code>[-200, 200]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -78,41 +77,119 @@ class Solution:
         return s[0]
 ```
 
+```python
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        nums = []
+        for t in tokens:
+            if len(t) > 1 or t.isdigit():
+                nums.append(int(t))
+            else:
+                if t == "+":
+                    nums[-2] += nums[-1]
+                elif t == "-":
+                    nums[-2] -= nums[-1]
+                elif t == "*":
+                    nums[-2] *= nums[-1]
+                else:
+                    nums[-2] = int(nums[-2] / nums[-1])
+                nums.pop()
+        return nums[0]
+```
+
 ### **Java**
 
 ```java
 class Solution {
     public int evalRPN(String[] tokens) {
-        Deque<Integer> s = new ArrayDeque<>();
-        int left, right;
-        for (String token : tokens) {
-            switch(token) {
-            case "+":
-                right = s.pop();
-                left = s.pop();
-                s.push(left + right);
-                break;
-            case "-":
-                right = s.pop();
-                left = s.pop();
-                s.push(left - right);
-                break;
-            case "*":
-                right = s.pop();
-                left = s.pop();
-                s.push(left * right);
-                break;
-            case "/":
-                right = s.pop();
-                left = s.pop();
-                s.push(left / right);
-                break;
-            default:
-                s.push(Integer.valueOf(token));
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (String t : tokens) {
+            if (t.length() > 1 || Character.isDigit(t.charAt(0))) {
+                stk.push(Integer.parseInt(t));
+            } else {
+                int y = stk.pop();
+                int x = stk.pop();
+                switch (t) {
+                    case "+":
+                        stk.push(x + y);
+                        break;
+                    case "-":
+                        stk.push(x - y);
+                        break;
+                    case "*":
+                        stk.push(x * y);
+                        break;
+                    default:
+                        stk.push(x / y);
+                        break;
+                }
             }
         }
-        return s.pop();
+        return stk.pop();
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> stk;
+        for (auto& t : tokens) {
+            if (t.size() > 1 || isdigit(t[0]))
+            {
+                stk.push(stoi(t));
+            }
+            else
+            {
+                int y = stk.top();
+                stk.pop();
+                int x = stk.top();
+                stk.pop();
+                if (t[0] == '+') stk.push(x + y);
+                else if (t[0] == '-') stk.push(x - y);
+                else if (t[0] == '*') stk.push(x * y);
+                else stk.push(x / y);
+            }
+        }
+        return stk.top();
+    }
+};
+```
+
+### **Go**
+
+```go
+func evalRPN(tokens []string) int {
+	// https://github.com/emirpasic/gods#arraystack
+	stk := arraystack.New()
+	for _, token := range tokens {
+		if len(token) > 1 || token[0] >= '0' && token[0] <= '9' {
+			num, _ := strconv.Atoi(token)
+			stk.Push(num)
+		} else {
+			y := popInt(stk)
+			x := popInt(stk)
+			switch token {
+			case "+":
+				stk.Push(x + y)
+			case "-":
+				stk.Push(x - y)
+			case "*":
+				stk.Push(x * y)
+			default:
+				stk.Push(x / y)
+			}
+		}
+	}
+	return popInt(stk)
+}
+
+func popInt(stack *arraystack.Stack) int {
+	v, _ := stack.Pop()
+	return v.(int)
 }
 ```
 

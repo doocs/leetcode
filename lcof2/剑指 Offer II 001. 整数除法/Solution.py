@@ -8,9 +8,8 @@ class Solution:
         tot = 0
         while a >= b:
             cnt = 0
-            while a >= (b << cnt):
+            while a >= (b << (cnt + 1)):
                 cnt += 1
-            cnt -= 1
             tot += 1 << cnt
             a -= b << cnt
         return sign * tot if INT_MIN <= sign * tot <= INT_MAX else INT_MAX

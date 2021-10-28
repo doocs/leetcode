@@ -44,6 +44,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+由于二叉搜索树的性质，可以利用中序遍历得到递增序列
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +53,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def increasingBST(self, root: TreeNode) -> TreeNode:
+        head, tail = None, None
+        stack = []
+        cur = root
+        while stack or cur:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            if not head:
+                head = cur
+            else:
+                tail.right = cur
+            tail = cur
+            cur.left = None
+            cur = cur.right
+        return head
 ```
 
 ### **Java**
@@ -59,7 +84,120 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode increasingBST(TreeNode root) {
+        TreeNode head = null, tail = null;
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode cur = root;
+        while (!stack.isEmpty() || cur != null) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            if (head == null) {
+                head = cur;
+            } else {
+                tail.right = cur;
+            }
+            tail = cur;
+            cur.left = null;
+            cur = cur.right;
+        }
+        return head;
+    }
+}
+```
 
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func increasingBST(root *TreeNode) *TreeNode {
+	var head, tail *TreeNode
+	stack := make([]*TreeNode, 0)
+	cur := root
+	for len(stack) > 0 || cur != nil {
+		for cur != nil {
+			stack = append(stack, cur)
+			cur = cur.Left
+		}
+		cur = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if head == nil {
+			head = cur
+		} else {
+			tail.Right = cur
+		}
+		tail = cur
+		cur.Left = nil
+		cur = cur.Right
+	}
+	return head
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* increasingBST(TreeNode* root) {
+        TreeNode *head = nullptr, *tail = nullptr;
+        stack<TreeNode*> stk;
+        TreeNode* cur = root;
+        while (!stk.empty() || cur != nullptr) {
+            while (cur != nullptr) {
+                stk.push(cur);
+                cur = cur->left;
+            }
+            cur = stk.top();
+            stk.pop();
+            if (head == nullptr) {
+                head = cur;
+            } else {
+                tail->right = cur;
+            }
+            tail = cur;
+            cur->left = nullptr;
+            cur = cur->right;
+        }
+        return head;
+    }
+};
 ```
 
 ### **...**

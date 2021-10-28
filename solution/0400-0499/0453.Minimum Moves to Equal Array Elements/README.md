@@ -22,10 +22,31 @@
 [1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+定义 s 表示数组元素之和，mi 表示数组中最小的元素，n 表示数组的长度，经过最小的 k 次操作过后，每个元素都变成 v。
+
+那么：
+
+```
+k * (n - 1) + s = v * n     ①
+```
+
+实际上，v 与 mi 存在着这样的关系：
+
+```
+v = mi + k                  ②
+```
+
+这是因为，最小的数每次都会被增加，直至变成 v。因此，如果最终数字是 v，那么操作的次数 `k = v - mi`。
+
+整合 ①②，可得
+
+```
+k = s - mi * n
+```
 
 <!-- tabs:start -->
 
@@ -34,7 +55,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        return sum(nums) - min(nums) * len(nums)
 ```
 
 ### **Java**
@@ -42,7 +65,60 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minMoves(int[] nums) {
+        return Arrays.stream(nums).sum() - Arrays.stream(nums).min().getAsInt() * nums.length;
+    }
+}
+```
 
+```java
+class Solution {
+    public int minMoves(int[] nums) {
+        int s = 0;
+        int mi = Integer.MAX_VALUE;
+        for (int num : nums) {
+            s += num;
+            mi = Math.min(mi, num);
+        }
+        return s - mi * nums.length;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMoves(vector<int>& nums) {
+        int s = 0;
+        int mi = INT_MAX;
+        for (int num : nums)
+        {
+            s += num;
+            mi = min(mi, num);
+        }
+        return s - mi * nums.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMoves(nums []int) int {
+	mi := math.MaxInt32
+	s := 0
+	for _, num := range nums {
+		s += num
+		if num < mi {
+			mi = num
+		}
+	}
+	return s - mi*len(nums)
+
+}
 ```
 
 ### **...**

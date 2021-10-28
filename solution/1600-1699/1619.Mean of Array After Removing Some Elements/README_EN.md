@@ -62,13 +62,73 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def trimMean(self, arr: List[int]) -> float:
+        n = len(arr)
+        start, end = int(n * 0.05), int(n * 0.95)
+        arr.sort()
+        t = arr[start: end]
+        return round(sum(t) / len(t), 5)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public double trimMean(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        double s = 0;
+        for (int start = (int) (n * 0.05), i = start; i < n - start; ++i) {
+            s += arr[i];
+        }
+        return s / (n * 0.9);
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function trimMean(arr: number[]): number {
+    arr.sort((a, b) => a - b);
+    let n = arr.length, rmLen = n * 0.05;
+    let sum = 0;
+    for (let i = rmLen; i < n - rmLen; i++) {
+        sum += arr[i];
+    }
+    return sum / (n * 0.9);
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double trimMean(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int n = arr.size();
+        double s = 0;
+        for (int start = (int) (n * 0.05), i = start; i < n - start; ++i)
+            s += arr[i];
+        return s / (n * 0.9);
+    }
+};
+```
+
+### **Go**
+
+```go
+func trimMean(arr []int) float64 {
+	sort.Ints(arr)
+	n := len(arr)
+	sum := 0.0
+	for i := n / 20; i < n-n/20; i++ {
+		sum += float64(arr[i])
+	}
+	return sum / (float64(n) * 0.9)
+}
 ```
 
 ### **...**

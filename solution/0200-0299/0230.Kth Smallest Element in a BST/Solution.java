@@ -15,23 +15,23 @@
  */
 class Solution {
     private int k;
-    private int res;
+    private int ans;
 
     public int kthSmallest(TreeNode root, int k) {
         this.k = k;
-        inorder(root);
-        return res;
+        dfs(root);
+        return ans; 
     }
 
-    private void inorder(TreeNode root) {
+    private void dfs(TreeNode root) {
         if (root == null) {
             return;
         }
-        inorder(root.left);
+        dfs(root.left);
         if (--k == 0) {
-            res = root.val;
+            ans = root.val;
             return;
         }
-        inorder(root.right);
+        dfs(root.right);
     }
 }

@@ -23,6 +23,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+定义一个变量 peekElement 专门用来保存下一个值，布尔变量 hasPeeked 标记是否保存了下一个元素。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -140,6 +142,113 @@ class PeekingIterator implements Iterator<Integer> {
 	public boolean hasNext() {
 	    return hasPeeked || iterator.hasNext();
 	}
+}
+```
+
+### **C++**
+
+```cpp
+/*
+ * Below is the interface for Iterator, which is already defined for you.
+ * **DO NOT** modify the interface for Iterator.
+ *
+ *  class Iterator {
+ *		struct Data;
+ * 		Data* data;
+ *  public:
+ *		Iterator(const vector<int>& nums);
+ * 		Iterator(const Iterator& iter);
+ *
+ * 		// Returns the next element in the iteration.
+ *		int next();
+ *
+ *		// Returns true if the iteration has more elements.
+ *		bool hasNext() const;
+ *	};
+ */
+
+class PeekingIterator : public Iterator {
+public:
+	PeekingIterator(const vector<int>& nums) : Iterator(nums) {
+	    // Initialize any member here.
+	    // **DO NOT** save a copy of nums and manipulate it directly.
+	    // You should only use the Iterator interface methods.
+	    hasPeeked = false;
+	}
+
+    // Returns the next element in the iteration without advancing the iterator.
+	int peek() {
+        if (!hasPeeked)
+        {
+            peekedElement = Iterator::next();
+            hasPeeked = true;
+        }
+        return peekedElement;
+	}
+
+	// hasNext() and next() should behave the same as in the Iterator interface.
+	// Override them if needed.
+	int next() {
+	    if (!hasPeeked) return Iterator::next();
+        hasPeeked = false;
+        return peekedElement;
+	}
+
+	bool hasNext() const {
+	    return hasPeeked || Iterator::hasNext();
+	}
+private:
+    bool hasPeeked;
+    int peekedElement;
+};
+```
+
+### **Go**
+
+```go
+/*   Below is the interface for Iterator, which is already defined for you.
+ *
+ *   type Iterator struct {
+ *
+ *   }
+ *
+ *   func (this *Iterator) hasNext() bool {
+ *		// Returns true if the iteration has more elements.
+ *   }
+ *
+ *   func (this *Iterator) next() int {
+ *		// Returns the next element in the iteration.
+ *   }
+ */
+
+type PeekingIterator struct {
+	iter          *Iterator
+	hasPeeked     bool
+	peekedElement int
+}
+
+func Constructor(iter *Iterator) *PeekingIterator {
+	return &PeekingIterator{iter, iter.hasNext(), iter.next()}
+}
+
+func (this *PeekingIterator) hasNext() bool {
+	return this.hasPeeked || this.iter.hasNext()
+}
+
+func (this *PeekingIterator) next() int {
+	if !this.hasPeeked {
+		return this.iter.next()
+	}
+	this.hasPeeked = false
+	return this.peekedElement
+}
+
+func (this *PeekingIterator) peek() int {
+	if !this.hasPeeked {
+		this.peekedElement = this.iter.next()
+		this.hasPeeked = true
+	}
+	return this.peekedElement
 }
 ```
 

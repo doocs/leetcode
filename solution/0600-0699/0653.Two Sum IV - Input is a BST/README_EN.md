@@ -68,14 +68,14 @@
 #         self.right = right
 class Solution:
     def findTarget(self, root: TreeNode, k: int) -> bool:
-        def find(node):
-            if not node:
+        def find(root):
+            if not root:
                 return False
-            if k - node.val in nodes:
+            if k - root.val in nodes:
                 return True
-            nodes.add(node.val)
-            return find(node.left) or find(node.right)
-
+            nodes.add(root.val)
+            return find(root.left) or find(root.right)
+        
         nodes = set()
         return find(root)
 ```
@@ -106,15 +106,15 @@ class Solution {
         return find(root, k);
     }
 
-    private boolean find(TreeNode node, int k) {
-        if (node == null) {
+    private boolean find(TreeNode root, int k) {
+        if (root == null) {
             return false;
         }
-        if (nodes.contains(k - node.val)) {
+        if (nodes.contains(k - root.val)) {
             return true;
         }
-        nodes.add(node.val);
-        return find(node.left, k) || find(node.right, k);
+        nodes.add(root.val);
+        return find(root.left, k) || find(root.right, k);
     }
 }
 ```
@@ -137,16 +137,15 @@ class Solution {
  */
 
 function findTarget(root: TreeNode | null, k: number): boolean {
-    let set: Set<number> = new Set();
-    return find(root, k, set);
+    let nodes: Set<number> = new Set();
+    return find(root, k, nodes);
 };
 
-
-function find(root: TreeNode | null, k: number, set: Set<number>): boolean {
+function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
     if (!root) return false;
-    if (set.has(k - root.val)) return true;
-    set.add(root.val);
-    return find(root.left, k, set) || find(root.right, k, set);
+    if (nodes.has(k - root.val)) return true;
+    nodes.add(root.val);
+    return find(root.left, k, nodes) || find(root.right, k, nodes);
 }
 ```
 
@@ -172,15 +171,11 @@ public:
         return find(root, k);    
     }
 
-    bool find(TreeNode* node, int k) {
-        if (node == nullptr) {
-            return false;
-        }
-        if (nodes.count(k - node->val)) {
-            return true;
-        }
-        nodes.insert(node->val);
-        return find(node->left, k) || find(node->right, k);
+    bool find(TreeNode* root, int k) {
+        if (!root) return false;
+        if (nodes.count(k - root->val)) return true;
+        nodes.insert(root->val);
+        return find(root->left, k) || find(root->right, k);
     }
 };
 ```
@@ -198,19 +193,19 @@ public:
  */
 func findTarget(root *TreeNode, k int) bool {
 	nodes := make(map[int]bool)
-	var find func(node *TreeNode, k int) bool
-	find = func(node *TreeNode, k int) bool {
-		if node == nil {
+
+	var find func(root *TreeNode, k int) bool
+	find = func(root *TreeNode, k int) bool {
+		if root == nil {
 			return false
 		}
-		if nodes[k-node.Val] {
+		if nodes[k-root.Val] {
 			return true
 		}
-		nodes[node.Val] = true
-		return find(node.Left, k) || find(node.Right, k)
+		nodes[root.Val] = true
+		return find(root.Left, k) || find(root.Right, k)
 	}
 	return find(root, k)
-
 }
 ```
 

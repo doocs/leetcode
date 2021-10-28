@@ -39,7 +39,7 @@
 ```python
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        def quickSort(nums, left, right, k):
+        def quick_sort(left, right, k):
             if left == right:
                 return nums[left]
             i, j = left - 1, right + 1
@@ -56,11 +56,11 @@ class Solution:
                 if i < j:
                     nums[i], nums[j] = nums[j], nums[i]
             if j < k:
-                return quickSort(nums, j + 1, right, k)
-            return quickSort(nums, left, j, k)
+                return quick_sort(j + 1, right, k)
+            return quick_sort(left, j, k)
 
         n = len(nums)
-        return quickSort(nums, 0, n - 1, n - k)
+        return quick_sort(0, n - 1, n - k)
 ```
 
 ### **Java**
@@ -109,22 +109,16 @@ public:
     }
 
     int quickSort(vector<int>& nums, int left, int right, int k) {
-        if (left == right) {
-            return nums[left];
-        }
+        if (left == right) return nums[left];
         int i = left - 1, j = right + 1;
         int x = nums[left + right >> 1];
-        while (i < j) {
+        while (i < j)
+        {
             while (nums[++i] < x);
             while (nums[--j] > x);
-            if (i < j) {
-                swap(nums[i], nums[j]);
-            }
+            if (i < j) swap(nums[i], nums[j]);
         }
-        if (j < k) {
-            return quickSort(nums, j + 1, right, k);
-        }
-        return quickSort(nums, left, j, k);
+        return j < k ? quickSort(nums, j + 1, right, k) : quickSort(nums, left, j, k);
     }
 };
 ```

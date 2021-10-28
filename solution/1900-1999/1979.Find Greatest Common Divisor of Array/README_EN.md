@@ -58,13 +58,79 @@ The greatest common divisor of 3 and 3 is 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findGCD(self, nums: List[int]) -> int:
+        return gcd(max(nums), min(nums))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findGCD(int[] nums) {
+        int a = 1, b = 1000;
+        for (int num : nums) {
+            a = Math.max(a, num);
+            b = Math.min(b, num);
+        }
+        return gcd(a, b);
+    }
 
+    private int gcd(int a, int b) {
+        return b > 0 ? gcd(b, a % b) : a;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findGCD(vector<int>& nums) {
+        int a = 0, b = 1000;
+        for (int num : nums)
+        {
+            a = max(a, num);
+            b = min(b, num);
+        }
+        return gcd(a, b);
+    }
+};
+```
+
+### **Go**
+
+```go
+func findGCD(nums []int) int {
+	a, b := 0, 1000
+	for _, num := range nums {
+		a = max(a, num)
+		b = min(b, num)
+	}
+	return gcd(a, b)
+}
+
+func gcd(a, b int) int {
+	if b > 0 {
+		return gcd(b, a%b)
+	}
+	return a
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

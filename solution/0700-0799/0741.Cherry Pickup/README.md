@@ -46,10 +46,13 @@
 	<li>可以保证起点&nbsp;<code>grid[0][0]</code>&nbsp;和终点&nbsp;<code>grid[N-1][N-1]</code>&nbsp;的值都不会是 -1。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+动态规划 - 数字三角形模型。
+
+类似题型：方格取数、传纸条。
 
 <!-- tabs:start -->
 
@@ -58,7 +61,26 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def cherryPickup(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        dp = [[[float('-inf')] * n for _ in range(n)] for _ in range((n << 1) -1 )]
+        dp[0][0][0] = grid[0][0]
+        for k in range(1, (n << 1) - 1):
+            for i1 in range(n):
+                for i2 in range(n):
+                    j1, j2 = k - i1, k - i2
+                    if j1 >= 0 and j1 < n and j2 >= 0 and j2 < n:
+                        if grid[i1][j1] == -1 or grid[i2][j2] == -1:
+                            continue
+                        t = grid[i1][j1]
+                        if i1 != i2:
+                            t += grid[i2][j2]
+                        for p1 in range(i1 - 1, i1 + 1):
+                            for p2 in range(i2 - 1, i2 + 1):
+                                if p1 >= 0 and p2 >= 0:
+                                    dp[k][i1][i2] = max(dp[k][i1][i2], dp[k - 1][p1][p2] + t)
+        return max(dp[-1][-1][-1], 0)
 ```
 
 ### **Java**
@@ -66,7 +88,130 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int cherryPickup(int[][] grid) {
+        int n = grid.length;
+        int[][][] dp = new int[2 * n][n][n];
+        for (int[][] item : dp) {
+            for (int[] row : item) {
+                Arrays.fill(row, Integer.MIN_VALUE);
+            }
+        }
+        dp[0][0][0] = grid[0][0];
+        for (int k = 1; k < 2 * n - 1; ++k) {
+            for (int i1 = 0; i1 < n; ++i1) {
+                for (int i2 = 0; i2 < n; ++i2) {
+                    int j1 = k - i1, j2 = k - i2;
+                    if (j1 >= 0 && j1 < n && j2 >= 0 && j2 < n) {
+                        if (grid[i1][j1] == -1 || grid[i2][j2] == -1) {
+                            continue;
+                        }
+                        int t = grid[i1][j1];
+                        if (i1 != i2) {
+                            t += grid[i2][j2];
+                        }
+                        for (int p1 = i1 - 1; p1 <= i1; ++p1) {
+                            for (int p2 = i2 - 1; p2 <= i2; ++p2) {
+                                if (p1 >= 0 && p2 >= 0) {
+                                    dp[k][i1][i2] = Math.max(dp[k][i1][i2], dp[k - 1][p1][p2] + t);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return Math.max(dp[2 * n - 2][n - 1][n - 1], 0);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int cherryPickup(vector<vector<int>>& grid) {
+        int n = grid.size();
+        vector<vector<vector<int>>> dp(n << 1, vector<vector<int>>(n, vector<int>(n, -1e9)));
+        dp[0][0][0] = grid[0][0];
+        for (int k = 1; k < 2 * n - 1; ++k)
+        {
+            for (int i1 = 0; i1 < n; ++i1)
+            {
+                for (int i2 = 0; i2 < n; ++i2)
+                {
+                    int j1 = k - i1, j2 = k - i2;
+                    if (j1 >= 0 && j1 < n && j2 >= 0 && j2 < n)
+                    {
+                        if (grid[i1][j1] == -1 || grid[i2][j2] == -1) continue;
+                        int t = grid[i1][j1];
+                        if (i1 != i2) t += grid[i2][j2];
+                        for (int p1 = i1 - 1; p1 <= i1; ++p1)
+                        {
+                            for (int p2 = i2 - 1; p2 <= i2; ++p2)
+                            {
+                                if (p1 >= 0 && p2 >= 0) dp[k][i1][i2] = max(dp[k][i1][i2], dp[k - 1][p1][p2] + t);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return max(dp[2 * n - 2][n - 1][n - 1], 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func cherryPickup(grid [][]int) int {
+    n := len(grid)
+    dp := make([][][]int, (n << 1) - 1)
+    for i := range dp {
+        dp[i] = make([][]int, n)
+        for j := range dp[i] {
+            dp[i][j] = make([]int, n)
+            for k := range dp[i][j] {
+                dp[i][j][k] = int(-1e9)
+            }
+        }
+    }
+    dp[0][0][0] = grid[0][0]
+    for k := 1; k < (n << 1) - 1; k++ {
+        for i1 := 0; i1 < n; i1++ {
+            for i2 := 0; i2 < n; i2++ {
+                j1, j2 := k - i1, k - i2
+                if j1 >= 0 && j1 < n && j2 >= 0 && j2 < n {
+                    if grid[i1][j1] == -1 || grid[i2][j2] == -1 {
+                        continue
+                    }
+                    t := grid[i1][j1]
+                    if i1 != i2 {
+                        t += grid[i2][j2]
+                    }
+                    for p1 := i1 - 1; p1 <= i1; p1++ {
+                        for p2 := i2 - 1; p2 <= i2; p2++ {
+                            if p1 >= 0 && p2 >= 0 {
+                                dp[k][i1][i2] = max(dp[k][i1][i2], dp[k - 1][p1][p2] + t)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return max(dp[(n << 1) - 2][n - 1][n - 1], 0)
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
 ```
 
 ### **...**

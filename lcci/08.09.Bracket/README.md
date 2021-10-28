@@ -23,14 +23,7 @@
 
 ## 解法
 
-<!-- 这里可写通用的实现逻辑 -->
-
-递归求解。其中，`left` 表示剩余的 `(`，`right` 表示剩余的 `)`。
-
-- 当 `left` > `right` 时，说明 state 中 `(` 少于 `)`，不是合法组合，直接剪枝；
-- 当 `right` == 0 时，说明 state 组合完毕；
-- 当 `left` > 0 时，此时可往 state 添加一个 `(`；
-- 当 `right` > 0 时，此时可往 state 添加一个 `)`。
+深度优先搜索 DFS。
 
 <!-- tabs:start -->
 
@@ -41,20 +34,19 @@
 ```python
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        res = []
-        def generate(state, left, right):
-            # 剩余的`(`多于`)`
-            if left > right:
+        ans = []
+
+        def dfs(left, right, t):
+            if left == n and right == n:
+                ans.append(t)
                 return
-            if right == 0:
-                res.append(state)
-                return
-            if left > 0:
-                generate(state + '(', left - 1, right)
-            if right > 0:
-                generate(state + ')', left, right - 1)
-        generate('', n, n)
-        return res
+            if left < n:
+                dfs(left + 1, right, t + '(')
+            if right < left:
+                dfs(left, right + 1, t + ')')
+
+        dfs(0, 0, '')
+        return ans
 ```
 
 ### **Java**
@@ -63,29 +55,93 @@ class Solution:
 
 ```java
 class Solution {
-    List<String> res;
-
     public List<String> generateParenthesis(int n) {
-        res = new ArrayList<>();
-        generate("", n, n);
-        return res;
+        List<String> ans = new ArrayList<>();
+        dfs(0, 0, n, "", ans);
+        return ans;
     }
 
-    private void generate(String state, int left, int right) {
-        if (left > right) {
+    private void dfs(int left, int right, int n, String t, List<String> ans) {
+        if (left == n && right == n) {
+            ans.add(t);
             return;
         }
-        if (right == 0) {
-            res.add(state);
-            return;
+        if (left < n) {
+            dfs(left + 1, right, n, t + "(", ans);
         }
-        if (left > 0) {
-            generate(state + "(", left - 1, right);
-        }
-        if (right > 0) {
-            generate(state + ")", left, right - 1);
+        if (right < left) {
+            dfs(left, right + 1, n, t + ")", ans);
         }
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function generateParenthesis(n: number): string[] {
+    let ans = [];
+    dfs(0, 0, n, '', ans);
+    return ans;
+};
+
+function dfs(left: number, right: number, n: number, t: string, ans: string[]) {
+    if (left == n && right == n) {
+        ans.push(t);
+        return;
+    }
+    if (left < n) {
+        dfs(left + 1, right, n, t + '(', ans);
+    }
+    if (right < left) {
+        dfs(left, right + 1, n, t + ')', ans);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> ans;
+        dfs(0, 0, n, "", ans);
+        return ans;
+    }
+
+    void dfs(int left, int right, int n, string t, vector<string>& ans) {
+        if (left == n && right == n)
+        {
+            ans.push_back(t);
+            return;
+        }
+        if (left < n) dfs(left + 1, right, n, t + "(", ans);
+        if (right < left) dfs(left, right + 1, n, t + ")", ans);
+    }
+};
+```
+
+### **Go**
+
+```go
+func generateParenthesis(n int) []string {
+	var ans []string
+	dfs(0, 0, n, "", &ans)
+	return ans
+}
+
+func dfs(left, right, n int, t string, ans *[]string) {
+	if left == n && right == n {
+		*ans = append(*ans, t)
+		return
+	}
+	if left < n {
+		dfs(left+1, right, n, t+"(", ans)
+	}
+	if right < left {
+		dfs(left, right+1, n, t+")", ans)
+	}
 }
 ```
 

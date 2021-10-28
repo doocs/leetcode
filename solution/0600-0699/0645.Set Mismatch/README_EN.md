@@ -150,6 +150,8 @@ public:
 
 ### **Go**
 
+把每个数都放到它应该在的位置，最后出现“异常”的就是重复的数和丢失的数。
+
 ```go
 func findErrorNums(nums []int) []int {
 	n := len(nums)
@@ -165,6 +167,65 @@ func findErrorNums(nums []int) []int {
 	}
 	return []int{-1, -1}
 }
+```
+
+也可以使用位运算。
+
+```go
+func findErrorNums(nums []int) []int {
+	eor, n := 0, len(nums)
+	for i := 1; i <= n; i++ {
+		eor ^= (i ^ nums[i-1])
+	}
+	diff := eor & (-eor)
+	a := 0
+	for i := 1; i <= n; i++ {
+		if (nums[i-1] & diff) == 0 {
+			a ^= nums[i-1]
+		}
+		if (i & diff) == 0 {
+			a ^= i
+		}
+	}
+	b := eor ^ a
+	for _, num := range nums {
+		if a == num {
+			return []int{a, b}
+		}
+	}
+	return []int{b, a}
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int eor = 0, n = nums.size();
+        for (int i = 1; i <= n; ++i) {
+            eor ^= (i ^ nums[i - 1]);
+        }
+        int diff = eor & (~eor + 1);
+        int a = 0;
+        for (int i = 1; i <= n; ++i) {
+            if ((nums[i - 1] & diff) == 0) {
+                a ^= nums[i - 1];
+            }
+            if ((i & diff) == 0) {
+                a ^= i;
+            }
+        }
+        int b = eor ^ a;
+        for (int num : nums) {
+            if (a == num) {
+                return {a, b};
+            }
+        }
+        return {b, a};
+    }
+};
 ```
 
 ### **...**

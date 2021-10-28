@@ -19,20 +19,17 @@ class Solution {
         if (root == null) {
             return ans;
         }
-        Queue<TreeNode> q = new ArrayDeque<>();
+        Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
         while (!q.isEmpty()) {
-            int n = q.size();
-            for (int i = 0; i < n; i++) {
+            ans.add(q.peekFirst().val);
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
-                if (i == n - 1) {
-                    ans.add(node.val);
+                if (node.right != null) {
+                    q.offer(node.right);
                 }
                 if (node.left != null) {
                     q.offer(node.left);
-                }
-                if (node.right != null) {
-                    q.offer(node.right);
                 }
             }
         }

@@ -32,7 +32,6 @@
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -45,6 +44,20 @@ class Solution:
         return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
 
+```python
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        left, right = 1, n
+        while left < right:
+            mid = (left + right + 1) >> 1
+            s = ((1 + mid) * mid) >> 1
+            if n < s:
+                right = mid - 1
+            else:
+                left = mid
+        return left
+```
+
 ### **Java**
 
 ```java
@@ -52,6 +65,63 @@ class Solution {
     public int arrangeCoins(int n) {
         return (int) (Math.sqrt(2) * Math.sqrt(n + 0.125) - 0.5);
     }
+}
+```
+
+```java
+class Solution {
+    public int arrangeCoins(int n) {
+        long left = 1, right = n;
+        while (left < right) {
+            long mid = (left + right + 1) >> 1;
+            long s = ((1 + mid) * mid) >> 1;
+            if (n < s) {
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+        }
+        return (int) left;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using LL = long;
+
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        LL left = 1, right = n;
+        while (left < right)
+        {
+            LL mid = left + right + 1 >> 1;
+            LL s = (1 + mid) * mid >> 1;
+            if (n < s) right = mid - 1;
+            else left = mid;
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arrangeCoins(n int) int {
+	left, right := 1, n
+	for left < right {
+		mid := (left + right + 1) >> 1
+		s := (1 + mid) * mid >> 1
+		if n < s {
+			right = mid - 1
+		} else {
+			left = mid
+		}
+	}
+	return left
 }
 ```
 

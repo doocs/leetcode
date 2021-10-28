@@ -43,9 +43,9 @@ class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         if not matrix or not matrix[0]:
             return False
-        rows, cols = len(matrix), len(matrix[0])
-        i, j = rows - 1, 0
-        while i >= 0 and j < cols:
+        m, n = len(matrix), len(matrix[0])
+        i, j = m - 1, 0
+        while i >= 0 and j < n:
             if matrix[i][j] == target:
                 return True
             if matrix[i][j] > target:
@@ -53,7 +53,6 @@ class Solution:
             else:
                 j += 1
         return False
-
 ```
 
 ### **Java**
@@ -64,9 +63,9 @@ class Solution {
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
             return false;
         }
-        int rows = matrix.length, cols = matrix[0].length;
-        int i = rows - 1, j = 0;
-        while (i >= 0 && j < cols) {
+        int m = matrix.length, n = matrix[0].length;
+        int i = m - 1, j = 0;
+        while (i >= 0 && j < n) {
             if (matrix[i][j] == target) {
                 return true;
             }
@@ -78,6 +77,49 @@ class Solution {
         }
         return false;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        if (matrix.size() == 0 || matrix[0].size() == 0) return false;
+        int m = matrix.size(), n = matrix[0].size();
+        int i = m - 1, j = 0;
+        while (i >= 0 && j < n)
+        {
+            if (matrix[i][j] == target) return true;
+            if (matrix[i][j] > target) --i;
+            else ++j;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func searchMatrix(matrix [][]int, target int) bool {
+	if len(matrix) == 0 || len(matrix[0]) == 0 {
+		return false
+	}
+	m, n := len(matrix), len(matrix[0])
+	i, j := m-1, 0
+	for i >= 0 && j < n {
+		if matrix[i][j] == target {
+			return true
+		}
+		if matrix[i][j] > target {
+			i--
+		} else {
+			j++
+		}
+	}
+	return false
 }
 ```
 

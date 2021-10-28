@@ -1,36 +1,24 @@
 class Solution {
-    public int divide(int dividend, int divisor) {
-        if(dividend == 0 || divisor == 1) {
-            return dividend;
+    public int divide(int a, int b) {
+        int sign = 1;
+        if ((a < 0) != (b < 0)) {
+            sign = -1;
         }
-        if(divisor == 0 || (dividend == Integer.MIN_VALUE && divisor == -1)) {
-            return Integer.MAX_VALUE;
-        }
-        // 商的符号，true 为正，false 为负
-        boolean flag = true;
-        if((dividend < 0 && divisor > 0) || (dividend > 0 && divisor < 0)) {
-            flag = false;
-        }
-        long dividendLong = Math.abs((long)dividend);
-        long divisorLong = Math.abs((long)divisor);
-
-        int re = 0;
-        long factor = 0x1;
-
-        while (dividendLong >= (divisorLong << 1)) {
-            divisorLong <<= 1;
-            factor <<= 1;
-        }
-
-        while (factor > 0 && dividendLong > 0) {
-            if(dividendLong >= divisorLong) {
-                dividendLong -= divisorLong;
-                re += factor;
+        long x = Math.abs((long) a);
+        long y = Math.abs((long) b);
+        long tot = 0;
+        while (x >= y) {
+            int cnt = 0;
+            while (x >= (y << (cnt + 1))) {
+                cnt++;
             }
-            factor >>>= 1;
-            divisorLong >>>= 1;
+            tot += 1L << cnt;
+            x -= y << cnt;
         }
-
-        return flag ? re : -re;
+        long ans = sign * tot;
+        if (ans >= Integer.MIN_VALUE && ans <= Integer.MAX_VALUE) {
+            return (int) ans;
+        }
+        return Integer.MAX_VALUE;
     }
 }

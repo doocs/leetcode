@@ -8,6 +8,7 @@ on:
       - "**.jpeg"
       - "**.png"
       - "**.webp"
+  workflow_dispatch:
 
 jobs:
   compress:

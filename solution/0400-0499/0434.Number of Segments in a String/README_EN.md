@@ -47,7 +47,6 @@
 	<li>The only space character in <code>s</code> is <code>&#39; &#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -55,13 +54,80 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def countSegments(self, s: str) -> int:
+        return len(s.split())
+```
 
+```python
+class Solution:
+    def countSegments(self, s: str) -> int:
+        res = 0
+        for i in range(len(s)):
+            if s[i] != ' ' and (i == 0 or s[i - 1] == ' '):
+                res += 1
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countSegments(String s) {
+        int res = 0;
+        for (String t : s.split(" ")) {
+            if (!"".equals(t)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
 
+```java
+class Solution {
+    public int countSegments(String s) {
+        int res = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) != ' ' && (i == 0 || s.charAt(i - 1) == ' ')) {
+                ++res;
+            }
+        }
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countSegments(string s) {
+        int res = 0;
+        for (int i = 0; i < s.size(); ++i)
+        {
+            if (s[i] != ' ' && (i == 0 || s[i - 1] == ' '))
+                ++res;
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countSegments(s string) int {
+	res := 0
+	for i, c := range s {
+		if c != ' ' && (i == 0 || s[i-1] == ' ') {
+			res++
+		}
+	}
+	return res
+}
 ```
 
 ### **...**

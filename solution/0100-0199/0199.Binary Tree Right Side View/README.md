@@ -21,12 +21,11 @@
   5     4       &lt;---
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-队列实现。
+层序遍历，取每层最后一个元素。
 
 <!-- tabs:start -->
 
@@ -43,20 +42,20 @@
 #         self.right = right
 class Solution:
     def rightSideView(self, root: TreeNode) -> List[int]:
+        ans = []
         if not root:
-            return []
-        q = collections.deque([root])
-        res = []
-        while q:
-            size = len(q)
-            res.append(q[0].val)
-            for _ in range(size):
-                node = q.popleft()
+            return ans
+        d = deque([root])
+        while d:
+            n = len(d)
+            ans.append(d[0].val)
+            for i in range(n):
+                node = d.popleft()
                 if node.right:
-                    q.append(node.right)
+                    d.append(node.right)
                 if node.left:
-                    q.append(node.left)
-        return res
+                    d.append(node.left)
+        return ans
 ```
 
 ### **Java**
@@ -81,21 +80,96 @@ class Solution:
  */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        if (root == null) return Collections.emptyList();
+        List<Integer> ans = new ArrayList<>();
+        if (root == null) {
+            return ans;
+        }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<Integer> res = new ArrayList<>();
         while (!q.isEmpty()) {
-            int size = q.size();
-            res.add(q.peek().val);
-            while (size-- > 0) {
+            ans.add(q.peekFirst().val);
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
-                if (node.right != null) q.offer(node.right);
-                if (node.left != null) q.offer(node.left);
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
             }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans;
+        if (!root) return ans;
+        queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty())
+        {
+            ans.push_back(q.front()->val);
+            for (int i = q.size(); i > 0; --i) {
+                auto node = q.front();
+                q.pop();
+                if (node->right) q.push(node->right);
+                if (node->left) q.push(node->left);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func rightSideView(root *TreeNode) []int {
+	var ans []int
+	if root == nil {
+		return ans
+	}
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		ans = append(ans, q[0].Val)
+		for i := len(q); i > 0; i-- {
+			node := q[0]
+			q = q[1:]
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+		}
+	}
+	return ans
 }
 ```
 

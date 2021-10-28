@@ -1,19 +1,20 @@
 class Solution {
     public int countBinarySubstrings(String s) {
-		     int[] group = new int[s.length()];
-		     int k = 0;
-		     Arrays.fill(group , 0);
-		     group[0] = 1;
-		     for(int i = 1;i < s.length();i++) {
-		    	   if(s.charAt(i) == s.charAt(i-1))
-		    		   group[k]++;
-		    	   else
-		    		   group[++k] = 1;
-		     }
-		     int ans = 0;
-		     for(int i = 1;i < s.length() && group[i] != 0;i++) {
-		    	   ans += Math.min(group[i-1], group[i]);
-		     }
-		     return ans;
+        int i = 0, n = s.length();
+        List<Integer> t = new ArrayList<>();
+        while (i < n) {
+            int cnt = 1;
+            while (i + 1 < n && s.charAt(i + 1) == s.charAt(i)) {
+                ++i;
+                ++cnt;
+            }
+            t.add(cnt);
+            ++i;
+        }
+        int ans = 0;
+        for (i = 1; i < t.size(); ++i) {
+            ans += Math.min(t.get(i - 1), t.get(i));
+        }
+        return ans;
     }
 }

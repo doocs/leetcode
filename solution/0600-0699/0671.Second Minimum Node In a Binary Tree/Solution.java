@@ -14,21 +14,21 @@
  * }
  */
 class Solution {
-    private int res;
+    private int ans;
+
     public int findSecondMinimumValue(TreeNode root) {
-        res = -1;
-        traverse(root, root.val);
-        return res;
+        ans = -1;
+        dfs(root, root.val);
+        return ans;
     }
 
-    private void traverse(TreeNode root, int min) {
-        if (root == null) {
-            return;
-        }
-        traverse(root.left, min);
-        traverse(root.right, min);
-        if (root.val > min) {
-            res = res == -1 ? root.val : Math.min(res, root.val);
+    private void dfs(TreeNode root, int val) {
+        if (root != null) {
+            dfs(root.left, val);
+            dfs(root.right, val);
+            if (root.val > val) {
+                ans = ans == -1 ? root.val : Math.min(ans, root.val);
+            }
         }
     }
 }

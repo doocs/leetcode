@@ -41,12 +41,33 @@
 	<li><code>grid[i][j]</code> is <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
 
 ### **Python3**
+
+DFS:
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        def dfs(i, j):
+            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] != '1':
+                return
+            grid[i][j] = '0'
+            for x, y in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                dfs(i + x, j + y)
+
+        ans = 0
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1':
+                    dfs(i, j)
+                    ans += 1
+        return ans
+```
 
 Union Find:
 
@@ -83,30 +104,29 @@ DFS：
 
 ```java
 class Solution {
+    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+
     public int numIslands(char[][] grid) {
-        int islandNum = 0;
+        int ans = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == '1') {
-                    infect(grid, i, j);
-                    islandNum ++;
+                    dfs(grid, i, j);
+                    ++ans;
                 }
             }
         }
-        return islandNum;
+        return ans;
     }
 
-    public void infect(char[][] grid, int i, int j) {
-        if (i < 0 || i >= grid.length ||
-                j < 0 || j >= grid[0].length ||
-                grid[i][j] != '1') {
+    public void dfs(char[][] grid, int i, int j) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] != '1') {
             return;
         }
-        grid[i][j] = '2';
-        infect(grid, i + 1, j);
-        infect(grid, i - 1, j);
-        infect(grid, i, j + 1);
-        infect(grid, i, j - 1);
+        grid[i][j] = '0';
+        for (int[] dir : dirs) {
+            dfs(grid, i + dir[0], j + dir[1]);
+        }
     }
 }
 ```

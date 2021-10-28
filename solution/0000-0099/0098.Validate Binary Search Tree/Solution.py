@@ -5,15 +5,20 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    pre = None
     def isValidBST(self, root: TreeNode) -> bool:
-        if not root:
+        prev = float('-inf')
+
+        def dfs(root):
+            nonlocal prev
+            if root is None:
+                return True
+            if not dfs(root.left):
+                return False
+            if prev >= root.val:
+                return False
+            prev = root.val
+            if not dfs(root.right):
+                return False
             return True
-        if not self.isValidBST(root.left):
-            return False
-        if self.pre is not None and self.pre >= root.val:
-            return False
-        self.pre = root.val
-        if not self.isValidBST(root.right):
-            return False
-        return True
+
+        return dfs(root)

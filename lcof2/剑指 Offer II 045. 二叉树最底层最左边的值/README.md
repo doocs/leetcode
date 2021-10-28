@@ -63,18 +63,18 @@
 #         self.right = right
 class Solution:
     def findBottomLeftValue(self, root: TreeNode) -> int:
-        d = deque([root])
+        q = deque([root])
         ans = -1
-        while d:
-            n = len(d)
+        while q:
+            n = len(q)
             for i in range(n):
-                node = d.popleft()
+                node = q.popleft()
                 if i == 0:
                     ans = node.val
                 if node.left:
-                    d.append(node.left)
+                    q.append(node.left)
                 if node.right:
-                    d.append(node.right)
+                    q.append(node.right)
         return ans
 ```
 
@@ -126,42 +126,35 @@ class Solution {
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
-        if (!root)
+        queue<TreeNode*> q;
+        q.push(root);
+        int ans = -1;
+        while (!q.empty())
         {
-            return 0;
-        }
-
-        int res = root->val;
-        queue<TreeNode*> que;
-        que.push(root);
-        while (!que.empty())
-        {
-            int size = que.size();
-            for (int i = 0; i < size; i++)
+            for (int i = 0, n = q.size(); i < n; ++i)
             {
-                TreeNode* ptr = que.front();
-                que.pop();
-                if (i == 0)
-                {
-                    res = ptr->val;
-                }
-
-                if (ptr->left)
-                {
-                    que.push(ptr->left);
-                }
-
-                if (ptr->right)
-                {
-                    que.push(ptr->right);
-                }
+                TreeNode* node = q.front();
+                if (i == 0) ans = node->val;
+                q.pop();
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
             }
         }
-
-        return res;
+        return ans;
     }
 };
 ```

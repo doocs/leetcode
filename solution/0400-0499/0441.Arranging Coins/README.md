@@ -39,16 +39,19 @@ n = 8
 因为第四行不完整，所以返回3.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+1. 数学推导
 
 `(1 + x) * x / 2 <= n`，求解 x。
 
 `(x + 1/2)² <= 2n + 1/4`，即 `x <= sqrt(2n + 1/4) - 1/2`。
 
 由于 2n 可能溢出，故转换为 `x <= sqrt(2) * sqrt(n + 1/8) - 1/2`。
+
+2. 二分查找
 
 <!-- tabs:start -->
 
@@ -62,6 +65,20 @@ class Solution:
         return int(math.sqrt(2) * math.sqrt(n + 0.125) - 0.5)
 ```
 
+```python
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+        left, right = 1, n
+        while left < right:
+            mid = (left + right + 1) >> 1
+            s = ((1 + mid) * mid) >> 1
+            if n < s:
+                right = mid - 1
+            else:
+                left = mid
+        return left
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -71,6 +88,63 @@ class Solution {
     public int arrangeCoins(int n) {
         return (int) (Math.sqrt(2) * Math.sqrt(n + 0.125) - 0.5);
     }
+}
+```
+
+```java
+class Solution {
+    public int arrangeCoins(int n) {
+        long left = 1, right = n;
+        while (left < right) {
+            long mid = (left + right + 1) >> 1;
+            long s = ((1 + mid) * mid) >> 1;
+            if (n < s) {
+                right = mid - 1;
+            } else {
+                left = mid;
+            }
+        }
+        return (int) left;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+using LL = long;
+
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        LL left = 1, right = n;
+        while (left < right)
+        {
+            LL mid = left + right + 1 >> 1;
+            LL s = (1 + mid) * mid >> 1;
+            if (n < s) right = mid - 1;
+            else left = mid;
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func arrangeCoins(n int) int {
+	left, right := 1, n
+	for left < right {
+		mid := (left + right + 1) >> 1
+		s := (1 + mid) * mid >> 1
+		if n < s {
+			right = mid - 1
+		} else {
+			left = mid
+		}
+	}
+	return left
 }
 ```
 

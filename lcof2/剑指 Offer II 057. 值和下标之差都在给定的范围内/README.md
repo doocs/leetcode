@@ -43,10 +43,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 220&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/contains-duplicate-iii/">https://leetcode-cn.com/problems/contains-duplicate-iii/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+“滑动窗口 + 有序集合”实现。
 
 <!-- tabs:start -->
 
@@ -55,7 +56,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+from sortedcontainers import SortedSet
 
+
+class Solution:
+    def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
+        s = SortedSet()
+        for i, num in enumerate(nums):
+            idx = s.bisect_left(num - t)
+            if 0 <= idx < len(s) and s[idx] <= num + t:
+                return True
+            s.add(num)
+            if i >= k:
+                s.remove(nums[i - k])
+        return False
 ```
 
 ### **Java**
@@ -63,7 +77,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        TreeSet<Long> ts = new TreeSet<>();
+        for (int i = 0; i < nums.length; ++i) {
+            Long x = ts.ceiling((long) nums[i] - (long) t);
+            if (x != null && x <= (long) nums[i] + (long) t) {
+                return true;
+            }
+            ts.add((long) nums[i]);
+            if (i >= k) {
+                ts.remove((long) nums[i - k]);
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+        set<long> s;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            auto it = s.lower_bound((long) nums[i] - t);
+            if (it != s.end() && *it <= (long) nums[i] + t) return true;
+            s.insert((long) nums[i]);
+            if (i >= k) s.erase((long) nums[i - k]);
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
+	n := len(nums)
+	left, right := 0, 0
+	rbt := redblacktree.NewWithIntComparator()
+	for right < n {
+		cur := nums[right]
+		right++
+		if p, ok := rbt.Floor(cur); ok && cur-p.Key.(int) <= t {
+			return true
+		}
+		if p, ok := rbt.Ceiling(cur); ok && p.Key.(int)-cur <= t {
+			return true
+		}
+		rbt.Put(cur, struct{}{})
+		if right-left > k {
+			rbt.Remove(nums[left])
+			left++
+		}
+	}
+	return false
+}
 ```
 
 ### **...**

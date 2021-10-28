@@ -23,7 +23,6 @@
 <pre><strong>输入:</strong> <code>&quot;carerac&quot;</code>
 <strong>输出:</strong> true</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -39,14 +38,9 @@
 ```python
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        mapper = {}
-        for ch in s:
-            mapper[ch] = mapper.get(ch, 0) + 1
-        cnt = 0
-        for _, v in mapper.items():
-            if v % 2 != 0:
-                cnt += 1
-        return cnt <= 1
+        counter = collections.Counter(s)
+        odd_cnt = sum(e % 2 for e in counter.values())
+        return odd_cnt < 2
 ```
 
 ### **Java**
@@ -56,19 +50,47 @@ class Solution:
 ```java
 class Solution {
     public boolean canPermutePalindrome(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        for (int i = 0, n = s.length(); i < n; ++i) {
-            char ch = s.charAt(i);
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        Map<Character, Integer> counter = new HashMap<>();
+        for (char c : s.toCharArray()) {
+            counter.put(c, counter.getOrDefault(c, 0) + 1);
         }
-        int cnt = 0;
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            if (entry.getValue() % 2 != 0) {
-                ++cnt;
-            }
+        int oddCnt = 0;
+        for (int e : counter.values()) {
+            oddCnt += e % 2;
         }
-        return cnt <= 1;
+        return oddCnt < 2;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canPermutePalindrome(string s) {
+        unordered_map<char, int> counter;
+        for (char c : s) ++counter[c];
+        int oddCnt = 0;
+        for (auto& it : counter) oddCnt += it.second % 2;
+        return oddCnt < 2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canPermutePalindrome(s string) bool {
+    counter := make(map[rune]int)
+    for _, c := range s {
+        counter[c]++
+    }
+    oddCnt := 0
+    for _, e := range counter {
+        oddCnt += e % 2
+    }
+    return oddCnt < 2
 }
 ```
 

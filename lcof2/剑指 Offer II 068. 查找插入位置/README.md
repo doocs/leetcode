@@ -65,6 +65,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+二分查找。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +74,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums)
+        while left < right:
+            mid = (left + right) >> 1
+            if nums[mid] >= target:
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -80,7 +91,78 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int left = 0, right = nums.length;
+        while (left < right) {
+            int mid = (left + right) >>> 1;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int left = 0, right = nums.size();
+        while (left < right)
+        {
+            int mid = left + right >> 1;
+            if (nums[mid] >= target) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func searchInsert(nums []int, target int) int {
+	left, right := 0, len(nums)
+	for left < right {
+		mid := (left + right) >> 1
+		if nums[mid] >= target {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function(nums, target) {
+    let left = 0;
+    let right = nums.length;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (nums[mid] >= target) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+};
 ```
 
 ### **...**

@@ -32,7 +32,6 @@
 	<li><code>sentence</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -54,8 +53,7 @@ class Solution:
     def checkIfPangram(self, sentence: str) -> bool:
         res = 0
         for c in sentence:
-            diff = ord(c) - ord('a')
-            res |= (1 << diff)
+            res |= (1 << (ord(c) - ord('a')))
             if res == 0x3ffffff:
                 return True
         return False
@@ -69,9 +67,11 @@ HashSet:
 class Solution {
     public boolean checkIfPangram(String sentence) {
         Set<Character> s = new HashSet<>();
-        for (int i = 0; i < sentence.length(); ++i) {
-            s.add(sentence.charAt(i));
-            if (s.size() == 26) return true;
+        for (char c : sentence.toCharArray()) {
+            s.add(c);
+            if (s.size() == 26) {
+                return true;
+            }
         }
         return false;
     }
@@ -84,13 +84,46 @@ Bit Manipulation:
 class Solution {
     public boolean checkIfPangram(String sentence) {
         int res = 0;
-        for (int i = 0; i < sentence.length(); ++i) {
-            int diff = sentence.charAt(i) - 'a';
-            res |= (1 << diff);
+        for (char c : sentence.toCharArray()) {
+            res |= (1 << (c - 'a'));
+            if (res == 0x3ffffff) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        int res = 0;
+        for (char c : sentence)
+        {
+            res |= (1 << (c - 'a'));
             if (res == 0x3ffffff) return true;
         }
         return false;
     }
+};
+```
+
+### **Go**
+
+```go
+func checkIfPangram(sentence string) bool {
+	res := 0
+	for _, c := range sentence {
+		res |= (1 << (c - 'a'))
+		if res == 0x3ffffff {
+			return true
+		}
+	}
+	return false
 }
 ```
 

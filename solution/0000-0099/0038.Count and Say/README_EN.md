@@ -45,7 +45,6 @@ countAndSay(4) = say &quot;21&quot; = one 2 + one 1 = &quot;12&quot; + &quot;11&
 	<li><code>1 &lt;= n &lt;= 30</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,13 +52,93 @@ countAndSay(4) = say &quot;21&quot; = one 2 + one 1 = &quot;12&quot; + &quot;11&
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        s = '1'
+        for _ in range(n - 1):
+            i = 0
+            t = []
+            while i < len(s):
+                j = i
+                while j < len(s) and s[j] == s[i]:
+                    j += 1
+                t.append(str(j - i))
+                t.append(str(s[i]))
+                i = j
+            s = ''.join(t)
+        return s
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String countAndSay(int n) {
+        String s = "1";
+        while (--n > 0) {
+            StringBuilder t = new StringBuilder();
+            for (int i = 0; i < s.length();) {
+                int j = i;
+                while (j < s.length() && s.charAt(j) == s.charAt(i)) {
+                    ++j;
+                }
+                t.append((j - i) + "");
+                t.append(s.charAt(i));
+                i = j;
+            }
+            s = t.toString();
+        }
+        return s;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string countAndSay(int n) {
+        string s = "1";
+        while (--n)
+        {
+            string t = "";
+            for (int i = 0; i < s.size();)
+            {
+                int j = i;
+                while (j < s.size() && s[j] == s[i]) ++j;
+                t += to_string(j - i);
+                t += s[i];
+                i = j;
+            }
+            s = t;
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countAndSay(n int) string {
+	s := "1"
+	for k := 0; k < n-1; k++ {
+		t := &strings.Builder{}
+		i := 0
+		for i < len(s) {
+			j := i
+			for j < len(s) && s[j] == s[i] {
+				j++
+			}
+			t.WriteString(strconv.Itoa(j - i))
+			t.WriteByte(s[i])
+			i = j
+		}
+		s = t.String()
+	}
+	return s
+}
 ```
 
 ### **...**

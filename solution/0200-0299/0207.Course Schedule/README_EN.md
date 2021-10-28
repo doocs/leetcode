@@ -42,7 +42,6 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 	<li>All the pairs prerequisites[i] are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -50,13 +49,178 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        edges = collections.defaultdict(list)
+        indegree = [0] * numCourses
+        for i, j in prerequisites:
+            edges[j].append(i)
+            indegree[i] += 1
+        q = collections.deque()
+        for i in range(numCourses):
+            if indegree[i] == 0:
+                q.append(i)
+        cnt = 0
+        while q:
+            i = q.popleft()
+            cnt += 1
+            for j in edges[i]:
+                indegree[j] -= 1
+                if indegree[j] == 0:
+                    q.append(j)
+        return cnt == numCourses
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        List<Integer>[] edges = new List[numCourses];
+        for (int i = 0; i < numCourses; ++i) {
+            edges[i] = new ArrayList<>();
+        }
+        int[] indegree = new int[numCourses];
+        for (int[] p : prerequisites) {
+            edges[p[1]].add(p[0]);
+            ++indegree[p[0]];
+        }
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < numCourses; ++i) {
+            if (indegree[i] == 0) {
+                q.offer(i);
+            }
+        }
+        int cnt = 0;
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            ++cnt;
+            for (int j : edges[i]) {
+                --indegree[j];
+                if (indegree[j] == 0) {
+                    q.offer(j);
+                }
+            }
+        }
+        return cnt == numCourses;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<vector<int>> edges(numCourses);
+        vector<int> indegree(numCourses);
+        for (auto p : prerequisites)
+        {
+            edges[p[1]].push_back(p[0]);
+            ++indegree[p[0]];
+        }
+        queue<int> q;
+        for (int i = 0; i < numCourses; ++i)
+        {
+            if (indegree[i] == 0) q.push(i);
+        }
+        int cnt = 0;
+        while (!q.empty())
+        {
+            int i = q.front();
+            q.pop();
+            ++cnt;
+            for (int j : edges[i])
+            {
+                --indegree[j];
+                if (indegree[j] == 0) q.push(j);
+            }
+        }
+        return cnt == numCourses;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canFinish(numCourses int, prerequisites [][]int) bool {
+	edges := make([][]int, numCourses)
+	indegree := make([]int, numCourses)
+	for _, p := range prerequisites {
+		edges[p[1]] = append(edges[p[1]], p[0])
+		indegree[p[0]]++
+	}
+	var q []int
+	for i := 0; i < numCourses; i++ {
+		if indegree[i] == 0 {
+			q = append(q, i)
+		}
+	}
+	cnt := 0
+	for len(q) > 0 {
+		i := q[0]
+		q = q[1:]
+		cnt++
+		for _, j := range edges[i] {
+			indegree[j]--
+			if indegree[j] == 0 {
+				q = append(q, j)
+			}
+		}
+	}
+	return cnt == numCourses
+}
+```
+
+### **C#**
+
+```cs
+using System.Collections.Generic;
+
+public class Solution {
+    public bool CanFinish(int numCourses, int[][] prerequisites) {
+        var indegree = new int[numCourses];
+        var edgeCount = prerequisites.Length;
+        var edge = new List<int>[numCourses];
+        for (var i = 0; i < edgeCount; ++i)
+        {
+            var child = prerequisites[i][0];
+            var parent = prerequisites[i][1];
+            if (edge[parent] == null)
+            {
+                edge[parent] = new List<int>();
+            }
+            edge[parent].Add(child);
+            ++indegree[child];
+        }
+
+        var queue = new Queue<int>();
+        for (var i = 0; i < numCourses; ++i)
+        {
+            if (indegree[i] == 0) queue.Enqueue(i);
+        }
+
+        var count = 0;
+        while (queue.Count > 0)
+        {
+            var node = queue.Dequeue();
+            ++count;
+            if (edge[node] != null)
+            {
+                foreach (var next in edge[node])
+                {
+                    if (--indegree[next] == 0)
+                    {
+                        queue.Enqueue(next);
+                    }
+                }
+            }
+        }
+        return count == numCourses;
+    }
+}
 ```
 
 ### **...**

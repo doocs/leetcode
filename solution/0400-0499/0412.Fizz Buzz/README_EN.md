@@ -31,7 +31,6 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -39,13 +38,85 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def fizzBuzz(self, n: int) -> List[str]:
+        ans = []
+        for i in range(1, n + 1):
+            if i % 15 == 0:
+                ans.append('FizzBuzz')
+            elif i % 3 == 0:
+                ans.append('Fizz')
+            elif i % 5 == 0:
+                ans.append('Buzz')
+            else:
+                ans.append(str(i))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> fizzBuzz(int n) {
+        List<String> ans = new ArrayList<>();
+        for (int i = 1; i <= n; ++i) {
+            String s = "";
+            if (i % 3 == 0) {
+                s += "Fizz";
+            }
+            if (i % 5 == 0) {
+                s += "Buzz";
+            }
+            if (s.length() == 0) {
+                s += i;
+            }
+            ans.add(s);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> fizzBuzz(int n) {
+        vector<string> ans;
+        for (int i = 1; i <= n; ++i)
+        {
+            string s = "";
+            if (i % 3 == 0) s += "Fizz";
+            if (i % 5 == 0) s += "Buzz";
+            if (s.size() == 0) s = to_string(i);
+            ans.push_back(s);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func fizzBuzz(n int) []string {
+	var ans []string
+	for i := 1; i <= n; i++ {
+		s := &strings.Builder{}
+		if i%3 == 0 {
+			s.WriteString("Fizz")
+		}
+		if i%5 == 0 {
+			s.WriteString("Buzz")
+		}
+		if s.Len() == 0 {
+			s.WriteString(strconv.Itoa(i))
+		}
+		ans = append(ans, s.String())
+	}
+	return ans
+}
 ```
 
 ### **...**

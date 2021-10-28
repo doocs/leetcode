@@ -40,7 +40,6 @@
 	<li>对于树中每个节点 <code>root.val == min(root.left.val, root.right.val)</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -60,17 +59,17 @@
 #         self.right = right
 class Solution:
     def findSecondMinimumValue(self, root: TreeNode) -> int:
-        def traverse(root, val):
-            if root is None:
-                return
-            traverse(root.left, val)
-            traverse(root.right, val)
-            if root.val > val:
-                self.res = root.val if self.res == -1 else min(self.res, root.val)
+        def dfs(root, val):
+            if root:
+                dfs(root.left, val)
+                dfs(root.right, val)
+                nonlocal ans
+                if root.val > val:
+                    ans = root.val if ans == -1 else min(ans, root.val)
 
-        self.res = -1
-        traverse(root, root.val)
-        return self.res
+        ans = -1
+        dfs(root, root.val)
+        return ans
 ```
 
 ### **Java**
@@ -94,23 +93,98 @@ class Solution:
  * }
  */
 class Solution {
-    private int res;
+    private int ans;
+
     public int findSecondMinimumValue(TreeNode root) {
-        res = -1;
-        traverse(root, root.val);
-        return res;
+        ans = -1;
+        dfs(root, root.val);
+        return ans;
     }
 
-    private void traverse(TreeNode root, int min) {
-        if (root == null) {
-            return;
-        }
-        traverse(root.left, min);
-        traverse(root.right, min);
-        if (root.val > min) {
-            res = res == -1 ? root.val : Math.min(res, root.val);
+    private void dfs(TreeNode root, int val) {
+        if (root != null) {
+            dfs(root.left, val);
+            dfs(root.right, val);
+            if (root.val > val) {
+                ans = ans == -1 ? root.val : Math.min(ans, root.val);
+            }
         }
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans;
+
+    int findSecondMinimumValue(TreeNode* root) {
+        ans = -1;
+        dfs(root, root->val);
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int val) {
+        if (!root) return;
+        dfs(root->left, val);
+        dfs(root->right, val);
+        if (root->val > val) ans = ans == -1 ? root->val : min(ans, root->val);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func findSecondMinimumValue(root *TreeNode) int {
+	ans := -1
+
+	var dfs func(root *TreeNode, val int)
+	dfs = func(root *TreeNode, val int) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left, val)
+		dfs(root.Right, val)
+		if root.Val > val {
+			if ans == -1 {
+				ans = root.Val
+			} else {
+				ans = min(ans, root.Val)
+			}
+		}
+	}
+
+	dfs(root, root.Val)
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 

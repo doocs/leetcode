@@ -47,14 +47,12 @@ Boyer–Moore majority vote algorithm
 ```python
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        cnt = major = 0
+        cnt = candidate = 0
         for num in nums:
             if cnt == 0:
-                major = num
-                cnt = 1
-            else:
-                cnt += (1 if major == num else -1)
-        return major
+                candidate = num
+            cnt += (1 if candidate == num else -1)
+        return candidate if nums.count(candidate) > len(nums) / 2 else -1
 ```
 
 ### **Java**
@@ -62,16 +60,20 @@ class Solution:
 ```java
 class Solution {
     public int majorityElement(int[] nums) {
-        int cnt = 0, major = 0;
+        int cnt = 0, candidate = 0;
         for (int num : nums) {
             if (cnt == 0) {
-                major = num;
-                cnt = 1;
-            } else {
-                cnt += (major == num ? 1 : -1);
+                candidate = num;
+            }
+            cnt += (num == candidate ? 1 : -1);
+        }
+        cnt = 0;
+        for (int num : nums) {
+            if (num == candidate) {
+                ++cnt;
             }
         }
-        return major;
+        return cnt > nums.length / 2 ? candidate : -1;
     }
 }
 ```
@@ -85,16 +87,20 @@ class Solution {
  */
 var majorityElement = function(nums) {
     let cnt = 0;
-    let major = 0;
+    let candidate = 0;
     for (const num of nums) {
         if (cnt == 0) {
-            major = num;
-            cnt = 1;
-        } else {
-            cnt += (major == num ? 1 : -1);
+            candidate = num;
+        }
+        cnt += (candidate == num ? 1 : -1);
+    }
+    cnt = 0;
+    for (const num of nums) {
+        if (candidate == num) {
+            ++cnt;
         }
     }
-    return major;
+    return cnt > nums.length / 2 ? candidate : -1;
 };
 ```
 
@@ -104,18 +110,44 @@ var majorityElement = function(nums) {
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int cnt = 0, major = 0;
-        for (int num : nums) {
-            if (cnt == 0) {
-                major = num;
-                cnt = 1;
-            } else {
-                cnt += (major == num ? 1 : -1);
-            }
+        int cnt = 0, candidate = 0;
+        for (int num : nums)
+        {
+            if (cnt == 0) candidate = num;
+            cnt += (candidate == num ? 1 : -1);
         }
-        return major;
+        cnt = count(nums.begin(), nums.end(), candidate);
+        return cnt > nums.size() / 2 ? candidate : -1;
     }
 };
+```
+
+### **Go**
+
+```go
+func majorityElement(nums []int) int {
+	var cnt, candidate int
+	for _, num := range nums {
+		if cnt == 0 {
+			candidate = num
+		}
+		if candidate == num {
+			cnt++
+		} else {
+			cnt--
+		}
+	}
+	cnt = 0
+	for _, num := range nums {
+		if candidate == num {
+			cnt++
+		}
+	}
+	if cnt > len(nums)/2 {
+		return candidate
+	}
+	return -1
+}
 ```
 
 ### **C#**
@@ -123,20 +155,24 @@ public:
 ```cs
 public class Solution {
     public int MajorityElement(int[] nums) {
-        int cnt = 0, major = 0;
+        int cnt = 0, candidate = 0;
         foreach (int num in nums)
         {
             if (cnt == 0)
             {
-                major = num;
-                cnt = 1;
+                candidate = num;
             }
-            else
+            cnt += (candidate == num ? 1 : -1);
+        }
+        cnt = 0;
+        foreach (int num in nums)
+        {
+            if (candidate == num)
             {
-                cnt += (major == num ? 1 : -1);
+                ++cnt;
             }
         }
-        return major;
+        return cnt > nums.Length / 2 ? candidate : -1;
     }
 }
 ```

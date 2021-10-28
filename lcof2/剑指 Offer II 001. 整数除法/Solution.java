@@ -9,10 +9,9 @@ class Solution {
         long tot = 0;
         while (x >= y) {
             int cnt = 0;
-            while (x >= (y << cnt)) {
+            while (x >= (y << (cnt + 1))) {
                 cnt++;
             }
-            cnt--;
             tot += 1L << cnt;
             x -= y << cnt;
         }

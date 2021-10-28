@@ -33,7 +33,6 @@
 <p><strong>说明:</strong><br>
 你可以假设&nbsp;<code>pattern</code>&nbsp;只包含小写字母，&nbsp;<code>str</code>&nbsp;包含了由单个空格分隔的小写字母。&nbsp; &nbsp;&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -47,18 +46,18 @@
 ```python
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        ch2str, str2ch = {}, {}
-        ss = s.split(' ')
+        s = s.split(' ')
         n = len(pattern)
-        if n != len(ss):
+        if n != len(s):
             return False
+        c2str, str2c = collections.defaultdict(), collections.defaultdict()
         for i in range(n):
-            if ch2str.get(pattern[i]) is not None and ch2str.get(pattern[i]) != ss[i]:
+            k, v = pattern[i], s[i]
+            if k in c2str and c2str[k] != v:
                 return False
-            if str2ch.get(ss[i]) is not None and str2ch.get(ss[i]) != pattern[i]:
+            if v in str2c and str2c[v] != k:
                 return False
-            ch2str[pattern[i]] = ss[i]
-            str2ch[ss[i]] = pattern[i]
+            c2str[k], str2c[v] = v, k
         return True
 ```
 
@@ -69,26 +68,101 @@ class Solution:
 ```java
 class Solution {
     public boolean wordPattern(String pattern, String s) {
-        Map<Character, String> ch2str = new HashMap<>();
-        Map<String, Character> str2ch = new HashMap<>();
         String[] ss = s.split(" ");
         int n = pattern.length();
         if (n != ss.length) {
             return false;
         }
+        Map<Character, String> c2str = new HashMap<>();
+        Map<String, Character> str2c = new HashMap<>();
         for (int i = 0; i < n; ++i) {
-            char ch = pattern.charAt(i);
-            if (ch2str.containsKey(ch) && !ch2str.get(ch).equals(ss[i])) {
+            char k = pattern.charAt(i);
+            String v = ss[i];
+            if (c2str.containsKey(k) && !Objects.equals(c2str.get(k), v)) {
                 return false;
             }
-            if (str2ch.containsKey(ss[i]) && !str2ch.get(ss[i]).equals(ch)) {
+            if (str2c.containsKey(v) && !Objects.equals(str2c.get(v), k)) {
                 return false;
             }
-            ch2str.put(ch, ss[i]);
-            str2ch.put(ss[i], ch);
+            c2str.put(k, v);
+            str2c.put(v, k);
         }
         return true;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function wordPattern(pattern: string, s: string): boolean {
+    let n = pattern.length;
+    let values = s.split(' ');
+    if (n != values.length) return false;
+    let table = new Array(128);
+    for (let i = 0; i < n; i++) {
+        let k = pattern.charCodeAt(i), v = values[i];
+        if (!table[k]) {
+            if (table.includes(v)) return false;
+            table[k] = v;
+        } else {
+            if (table[k] != v) return false;
+        }
+    }
+    return true;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool wordPattern(string pattern, string s) {
+        istringstream is(s);
+        vector<string> ss;
+        while (is >> s) ss.push_back(s);
+        int n = pattern.size();
+        if (n != ss.size()) return false;
+
+        unordered_map<char, string> c2str;
+        unordered_map<string, char> str2c;
+        for (int i = 0; i < n; ++i)
+        {
+            char k = pattern[i];
+            string v = ss[i];
+            if (c2str.count(k) && c2str[k] != v) return false;
+            if (str2c.count(v) && str2c[v] != k) return false;
+            c2str[k] = v;
+            str2c[v] = k;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func wordPattern(pattern string, s string) bool {
+	ss := strings.Split(s, " ")
+	n := len(pattern)
+	if n != len(ss) {
+		return false
+	}
+	c2str := make(map[byte]string)
+	str2c := make(map[string]byte)
+	for i := 0; i < n; i++ {
+		k, v := pattern[i], ss[i]
+		if c2str[k] != "" && c2str[k] != v {
+			return false
+		}
+		if str2c[v] > 0 && str2c[v] != k {
+			return false
+		}
+		c2str[k], str2c[v] = v, k
+	}
+	return true
 }
 ```
 

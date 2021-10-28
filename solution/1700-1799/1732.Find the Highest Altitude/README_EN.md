@@ -34,7 +34,6 @@
 	<li><code>-100 &lt;= gain[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -42,13 +41,66 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        res = t = 0
+        for h in gain:
+            t += h
+            res = max(res, t)
+        return res
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int res = 0;
+        int t = 0;
+        for (int h : gain) {
+            t += h;
+            res = Math.max(res, t);
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestAltitude(vector<int>& gain) {
+        int res = 0, t = 0;
+        for (int h : gain)
+        {
+            t += h;
+            res = max(res, t);
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestAltitude(gain []int) int {
+	res, t := 0, 0
+	for _, h := range gain {
+		t += h
+		res = max(res, t)
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

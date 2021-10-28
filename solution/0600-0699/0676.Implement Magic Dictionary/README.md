@@ -57,10 +57,11 @@ magicDictionary.search("leetcoded"); // 返回 False
 </div>
 </div>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+哈希表实现。
 
 <!-- tabs:start -->
 
@@ -69,12 +70,39 @@ magicDictionary.search("leetcoded"); // 返回 False
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class MagicDictionary:
 
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+
+    def _patterns(self, word):
+        return [word[:i] + '*' + word[i + 1:] for i in range(len(word))]
+
+    def buildDict(self, dictionary: List[str]) -> None:
+        self.words = set(dictionary)
+        self.counter = collections.Counter(
+            p for word in dictionary for p in self._patterns(word))
+
+    def search(self, searchWord: str) -> bool:
+        for p in self._patterns(searchWord):
+            if self.counter[p] > 1 or (self.counter[p] == 1 and searchWord not in self.words):
+                return True
+        return False
+
+
+# Your MagicDictionary object will be instantiated and called as such:
+# obj = MagicDictionary()
+# obj.buildDict(dictionary)
+# param_2 = obj.search(searchWord)
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+暴力法。直接遍历字典，判断是否存在一个单词与所要查找的单词之间只有一个字符不同，若是返回 true，否则返回 false。
 
 ```java
 class MagicDictionary {
@@ -109,6 +137,160 @@ class MagicDictionary {
         return false;
     }
 }
+```
+
+哈希表。
+
+```java
+class MagicDictionary {
+    private Set<String> words;
+    private Map<String, Integer> counter;
+
+    /** Initialize your data structure here. */
+    public MagicDictionary() {
+        words = new HashSet<>();
+        counter = new HashMap<>();
+    }
+
+    public void buildDict(String[] dictionary) {
+        for (String word : dictionary) {
+            words.add(word);
+            for (String p : patterns(word)) {
+                counter.put(p, counter.getOrDefault(p, 0) + 1);
+            }
+        }
+    }
+
+    public boolean search(String searchWord) {
+        for (String p : patterns(searchWord)) {
+            int cnt = counter.getOrDefault(p, 0);
+            if (cnt > 1 || (cnt == 1 && !words.contains(searchWord))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private List<String> patterns(String word) {
+        List<String> res = new ArrayList<>();
+        char[] chars = word.toCharArray();
+        for (int i = 0; i < chars.length; ++i) {
+            char c = chars[i];
+            chars[i] = '*';
+            res.add(new String(chars));
+            chars[i] = c;
+        }
+        return res;
+    }
+}
+
+/**
+ * Your MagicDictionary object will be instantiated and called as such:
+ * MagicDictionary obj = new MagicDictionary();
+ * obj.buildDict(dictionary);
+ * boolean param_2 = obj.search(searchWord);
+ */
+```
+
+### **C++**
+
+```cpp
+class MagicDictionary {
+public:
+    /** Initialize your data structure here. */
+    MagicDictionary() {
+
+    }
+
+    void buildDict(vector<string> dictionary) {
+        for (string word : dictionary)
+        {
+            words.insert(word);
+            for (string p : patterns(word)) ++counter[p];
+        }
+    }
+
+    bool search(string searchWord) {
+        for (string p : patterns(searchWord))
+        {
+            if (counter[p] > 1 || (counter[p] == 1 && !words.count(searchWord))) return true;
+        }
+        return false;
+    }
+
+private:
+    unordered_set<string> words;
+    unordered_map<string, int> counter;
+
+    vector<string> patterns(string word) {
+        vector<string> res;
+        for (int i = 0; i < word.size(); ++i)
+        {
+            char c = word[i];
+            word[i] = '*';
+            res.push_back(word);
+            word[i] = c;
+        }
+        return res;
+    }
+};
+
+/**
+ * Your MagicDictionary object will be instantiated and called as such:
+ * MagicDictionary* obj = new MagicDictionary();
+ * obj->buildDict(dictionary);
+ * bool param_2 = obj->search(searchWord);
+ */
+```
+
+### **Go**
+
+```go
+type MagicDictionary struct {
+	words   map[string]bool
+	counter map[string]int
+}
+
+/** Initialize your data structure here. */
+func Constructor() MagicDictionary {
+	return MagicDictionary{
+		words:   make(map[string]bool),
+		counter: make(map[string]int),
+	}
+}
+
+func (this *MagicDictionary) BuildDict(dictionary []string) {
+	for _, word := range dictionary {
+		this.words[word] = true
+		for _, p := range patterns(word) {
+			this.counter[p]++
+		}
+	}
+}
+
+func (this *MagicDictionary) Search(searchWord string) bool {
+	for _, p := range patterns(searchWord) {
+		if this.counter[p] > 1 || (this.counter[p] == 1 && !this.words[searchWord]) {
+			return true
+		}
+	}
+	return false
+}
+
+func patterns(word string) []string {
+	var res []string
+	for i := 0; i < len(word); i++ {
+		res = append(res, word[:i]+"."+word[i+1:])
+	}
+	return res
+}
+
+/**
+ * Your MagicDictionary object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.BuildDict(dictionary);
+ * param_2 := obj.Search(searchWord);
+ */
 ```
 
 ### **...**
