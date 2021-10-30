@@ -44,6 +44,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+经典 Top K 问题，可以用堆解决
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +53,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        counter = Counter(nums)
 
+        hp = []
+        for num, freq in counter.items():
+            if len(hp) == k:
+                if freq > hp[0][0]:
+                    heapq.heappop(hp)
+                    heapq.heappush(hp, (freq, num))
+            else:
+                heapq.heappush(hp, (freq, num))
+
+        return list(map(lambda t: t[1], hp))
 ```
 
 ### **Java**
@@ -59,7 +74,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Long> frequency = Arrays.stream(nums).boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
+        Queue<Map.Entry<Integer, Long>> queue = new PriorityQueue<>(Map.Entry.comparingByValue());
+        for (Map.Entry<Integer, Long> entry : frequency.entrySet()) {
+            long count = entry.getValue();
+            if (queue.size() == k) {
+                if (count > queue.peek().getValue()) {
+                    queue.poll();
+                    queue.offer(entry);
+                }
+            } else {
+                queue.offer(entry);
+            }
+        }
+
+        return queue.stream().mapToInt(Map.Entry::getKey).toArray();
+    }
+}
 ```
 
 ### **...**
