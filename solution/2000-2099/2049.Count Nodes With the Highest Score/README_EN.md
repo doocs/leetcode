@@ -82,8 +82,8 @@ function countHighestScoreNodes(parents: number[]): number {
     function dfs(idx: number): number {
         let size = 1, score = 1;
         for (let i = 0; i < edge[idx].length; i++) {
-            const parent = edge[idx][i];
-            let childSize = dfs(parent);
+            const child = edge[idx][i];
+            let childSize = dfs(child);
             size += childSize;
             score *= childSize;
         }
