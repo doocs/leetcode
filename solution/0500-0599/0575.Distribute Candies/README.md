@@ -35,7 +35,6 @@
 	</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -47,7 +46,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        return min(len(candyType) >> 1, len(set(candyType)))
 ```
 
 ### **Java**
@@ -55,7 +56,47 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int distributeCandies(int[] candyType) {
+        Set<Integer> s = new HashSet<>();
+        for (int c : candyType) {
+            s.add(c);
+        }
+        return Math.min(candyType.length >> 1, s.size());
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int distributeCandies(vector<int>& candyType) {
+        unordered_set<int> s;
+        for (int c : candyType) s.insert(c);
+        return min(candyType.size() >> 1, s.size());
+    }
+};
+```
+
+### **Go**
+
+```go
+func distributeCandies(candyType []int) int {
+	s := hashset.New()
+	for _, c := range candyType {
+		s.Add(c)
+	}
+	return min(len(candyType)>>1, s.Size())
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

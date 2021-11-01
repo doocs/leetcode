@@ -28,7 +28,6 @@
 	<li>每个输入保证至少有一个答案。如果有多个答案，可以返回其中一个。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -40,7 +39,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> TreeNode:
+        n = len(preorder)
+        if n == 0:
+            return None
+        root = TreeNode(preorder[0])
+        if n == 1:
+            return root
+        for i in range(n - 1):
+            if postorder[i] == preorder[1]:
+                root.left = self.constructFromPrePost(
+                    preorder[1: 1 + i + 1], postorder[: i + 1])
+                root.right = self.constructFromPrePost(
+                    preorder[1 + i + 1:], postorder[i + 1: -1])
+                return root
 ```
 
 ### **Java**
