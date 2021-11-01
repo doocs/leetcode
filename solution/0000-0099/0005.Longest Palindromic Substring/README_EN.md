@@ -6,13 +6,9 @@
 
 <p>Given a string <code>s</code>, return&nbsp;<em>the longest palindromic substring</em> in <code>s</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -24,11 +20,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -38,11 +30,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -52,11 +40,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -66,17 +50,13 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-	<li><code>s</code> consist of only digits and English letters (lower-case and/or upper-case),</li>
+    <li><code>1 &lt;= s.length &lt;= 1000</code></li>
+    <li><code>s</code> consist of only digits and English letters (lower-case and/or upper-case),</li>
 </ul>
 
 ## Solutions
@@ -161,25 +141,25 @@ public:
 
 ```go
 func longestPalindrome(s string) string {
-	n := len(s)
-	dp := make([][]bool, n)
-	for i := 0; i < n; i++ {
-		dp[i] = make([]bool, n)
-	}
-	mx, start := 1, 0
-	for j := 0; j < n; j++ {
-		for i := 0; i <= j; i++ {
-			if j-i < 2 {
-				dp[i][j] = s[i] == s[j]
-			} else {
-				dp[i][j] = dp[i+1][j-1] && s[i] == s[j]
-			}
-			if dp[i][j] && mx < j-i+1 {
-				mx, start = j-i+1, i
-			}
-		}
-	}
-	return s[start : start+mx]
+    n := len(s)
+    dp := make([][]bool, n)
+    for i := 0; i < n; i++ {
+        dp[i] = make([]bool, n)
+    }
+    mx, start := 1, 0
+    for j := 0; j < n; j++ {
+        for i := 0; i <= j; i++ {
+            if j-i < 2 {
+                dp[i][j] = s[i] == s[j]
+            } else {
+                dp[i][j] = dp[i+1][j-1] && s[i] == s[j]
+            }
+            if dp[i][j] && mx < j-i+1 {
+                mx, start = j-i+1, i
+            }
+        }
+    }
+    return s[start : start+mx]
 }
 ```
 
@@ -215,9 +195,35 @@ public class Solution{
 }
 ```
 
+### **Nim**
+
+```nim
+import std/sequtils
+
+proc longestPalindrome(s: string): string =
+  let n: int = s.len()
+  var
+    dp = newSeqWith[bool](n, newSeqWith[bool](n, false))
+    start: int = 0
+    mx: int = 1
+
+  for j in 0 ..< n:
+    for i in 0 .. j:
+      if j - i < 2:
+        dp[i][j] = s[i] == s[j]
+      else:
+        dp[i][j] = dp[i + 1][j - 1] and s[i] == s[j]
+
+      if dp[i][j] and mx < j - i + 1:
+        start = i
+        mx = j - i + 1
+
+  result = s[start ..< start+mx]
+```
+
 ### **...**
 
-```
+```txt
 
 ```
 
