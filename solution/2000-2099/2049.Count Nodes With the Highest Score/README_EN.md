@@ -55,13 +55,117 @@ The highest score is 2, and two nodes (node 0 and node 1) have the highest score
 ### **Python3**
 
 ```python
+class Solution:
+    def countHighestScoreNodes(self, parents: List[int]) -> int:
+        n, max_score, ans = len(parents), 0, 0
+        g = [[] for _ in range(n)]
+        for i in range(1, n):
+            g[parents[i]].append(i)
 
+        def dfs(cur: int) -> int:
+            nonlocal max_score, ans
+            size, score = 1, 1
+            for c in g[cur]:
+                s = dfs(c)
+                size += s
+                score *= s
+            if cur > 0:
+                score *= n - size
+            if score > max_score:
+                max_score = score
+                ans = 1
+            elif score == max_score:
+                ans += 1
+            return size
+
+        dfs(0)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    private int n;
+    private long maxScore;
+    private int ans;
+    private List<List<Integer>> graph;
+
+    public int countHighestScoreNodes(int[] parents) {
+        n = parents.length;
+        maxScore = 0;
+        ans = 0;
+        graph = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            graph.add(new ArrayList<>());
+        }
+        for (int i = 1; i < n; i++) {
+            graph.get(parents[i]).add(i);
+        }
+        dfs(0);
+        return ans;
+    }
+
+    private int dfs(int cur) {
+        int size = 1;
+        long score = 1;
+        for (int child : graph.get(cur)) {
+            int s = dfs(child);
+            size += s;
+            score *= s;
+        }
+        if (cur > 0) {
+            score *= n - size;
+        }
+        if (score > maxScore) {
+            maxScore = score;
+            ans = 1;
+        } else if (score == maxScore) {
+            ans++;
+        }
+        return size;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function countHighestScoreNodes(parents: number[]): number {
+    const n = parents.length;
+    let edge = Array.from({length: n}, (v, i) => ([]));
+    for (let i = 0; i < n; i++) {
+        const parent = parents[i];
+        if (parent != -1) {
+            edge[parent].push(i);
+        }
+    }
+
+    let ans = 0;
+    let max = 0;
+    function dfs(idx: number): number {
+        let size = 1, score = 1;
+        for (let i = 0; i < edge[idx].length; i++) {
+            const child = edge[idx][i];
+            let childSize = dfs(child);
+            size += childSize;
+            score *= childSize;
+        }
+        if (idx > 0) {
+            score *= (n - size);
+        }
+        if (score > max) {
+            max = score;
+            ans = 1;
+        } else if (score == max) {
+            ans++;
+        }
+        return size;
+    }
+    dfs(0);
+    return ans;
+};
 ```
 
 ### **...**

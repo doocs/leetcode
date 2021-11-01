@@ -45,7 +45,6 @@
 	<li><code>words[i]</code> consists of English letters (both lowercase and uppercase).&nbsp;</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -93,6 +92,63 @@ class Solution {
         }
         return res.toArray(new String[0]);
     }
+}
+```
+
+```java
+class Solution {
+    public String[] findWords(String[] words) {
+        String s = "12210111011122000010020202";
+        List<String> res = new ArrayList<>();
+        for (String word : words) {
+            Set<Character> t = new HashSet<>();
+            for (char c : word.toLowerCase().toCharArray()) {
+                t.add(s.charAt(c - 'a'));
+            }
+            if (t.size() == 1) {
+                res.add(word);
+            }
+        }
+        return res.toArray(new String[0]);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+        string s = "12210111011122000010020202";
+        vector<string> ans;
+        for (auto& word : words)
+        {
+            unordered_set<char> t;
+            for (char c : word) t.insert(s[tolower(c) - 'a']);
+            if (t.size() == 1) ans.push_back(word);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findWords(words []string) []string {
+	s := "12210111011122000010020202"
+	var ans []string
+	for _, word := range words {
+		t := make(map[byte]bool)
+		for _, c := range word {
+			t[s[unicode.ToLower(c)-'a']] = true
+		}
+		if len(t) == 1 {
+			ans = append(ans, word)
+		}
+	}
+	return ans
 }
 ```
 

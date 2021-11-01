@@ -45,7 +45,6 @@
 	<li><code>-10<sup>5</sup> &lt;= candyType[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,13 +52,55 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        return min(len(candyType) >> 1, len(set(candyType)))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int distributeCandies(int[] candyType) {
+        Set<Integer> s = new HashSet<>();
+        for (int c : candyType) {
+            s.add(c);
+        }
+        return Math.min(candyType.length >> 1, s.size());
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int distributeCandies(vector<int>& candyType) {
+        unordered_set<int> s;
+        for (int c : candyType) s.insert(c);
+        return min(candyType.size() >> 1, s.size());
+    }
+};
+```
+
+### **Go**
+
+```go
+func distributeCandies(candyType []int) int {
+	s := hashset.New()
+	for _, c := range candyType {
+		s.Add(c)
+	}
+	return min(len(candyType)>>1, s.Size())
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

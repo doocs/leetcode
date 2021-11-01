@@ -6,21 +6,13 @@
 
 <p>Return any binary tree that matches the given preorder and postorder traversals.</p>
 
-
-
 <p>Values in the traversals&nbsp;<code>pre</code> and <code>post</code>&nbsp;are distinct&nbsp;positive integers.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,15 +22,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong><span>Note:</span></strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= pre.length == post.length &lt;= 30</code></li>
@@ -48,8 +34,6 @@
 
 </div>
 
-
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -57,7 +41,27 @@
 ### **Python3**
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> TreeNode:
+        n = len(preorder)
+        if n == 0:
+            return None
+        root = TreeNode(preorder[0])
+        if n == 1:
+            return root
+        for i in range(n - 1):
+            if postorder[i] == preorder[1]:
+                root.left = self.constructFromPrePost(
+                    preorder[1: 1 + i + 1], postorder[: i + 1])
+                root.right = self.constructFromPrePost(
+                    preorder[1 + i + 1:], postorder[i + 1: -1])
+                return root
 ```
 
 ### **Java**

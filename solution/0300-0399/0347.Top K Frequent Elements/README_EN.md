@@ -36,20 +36,18 @@
 ```python
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        counter = collections.Counter(nums)
-        buckets = [[] for _ in range(len(nums) + 1)]
+        counter = Counter(nums)
+
+        hp = []
         for num, freq in counter.items():
-            buckets[freq].append(num)
-        i, res = len(nums), []
-        while k > 0 and i >= 0:
-            if buckets[i]:
-                for num in buckets[i]:
-                    if k <= 0:
-                        break
-                    res.append(num)
-                    k -= 1
-            i -= 1
-        return res
+            if len(hp) == k:
+                if freq > hp[0][0]:
+                    heapq.heappop(hp)
+                    heapq.heappush(hp, (freq, num))
+            else:
+                heapq.heappush(hp, (freq, num))
+
+        return list(map(lambda t: t[1], hp))
 ```
 
 ### **Java**
@@ -57,31 +55,23 @@ class Solution:
 ```java
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        Map<Integer, Integer> counter = new HashMap<>();
-        for (int num : nums) {
-            counter.put(num, counter.getOrDefault(num, 0) + 1);
-        }
-        List<Integer>[] buckets = new List[nums.length + 1];
-        for (Map.Entry<Integer, Integer> entry : counter.entrySet()) {
-            int num = entry.getKey();
-            int freq = entry.getValue();
-            if (buckets[freq] == null) {
-                buckets[freq] = new ArrayList<>();
-            }
-            buckets[freq].add(num);
-        }
-        int[] res = new int[k];
-        for (int i = nums.length; i >= 0 && k > 0; --i) {
-            if (buckets[i] != null) {
-                for (int num : buckets[i]) {
-                    if (k <= 0) {
-                        break;
-                    }
-                    res[--k] = num;
+        Map<Integer, Long> frequency = Arrays.stream(nums).boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        Queue<Map.Entry<Integer, Long>> queue = new PriorityQueue<>(Map.Entry.comparingByValue());
+        for (Map.Entry<Integer, Long> entry : frequency.entrySet()) {
+            long count = entry.getValue();
+            if (queue.size() == k) {
+                if (count > queue.peek().getValue()) {
+                    queue.poll();
+                    queue.offer(entry);
                 }
+            } else {
+                queue.offer(entry);
             }
         }
-        return res;
+
+        return queue.stream().mapToInt(Map.Entry::getKey).toArray();
     }
 }
 ```
