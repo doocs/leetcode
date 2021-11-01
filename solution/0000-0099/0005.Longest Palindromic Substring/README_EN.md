@@ -55,8 +55,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-    <li><code>1 &lt;= s.length &lt;= 1000</code></li>
-    <li><code>s</code> consist of only digits and English letters (lower-case and/or upper-case),</li>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s</code> consist of only digits and English letters (lower-case and/or upper-case),</li>
 </ul>
 
 ## Solutions
@@ -141,25 +141,25 @@ public:
 
 ```go
 func longestPalindrome(s string) string {
-    n := len(s)
-    dp := make([][]bool, n)
-    for i := 0; i < n; i++ {
-        dp[i] = make([]bool, n)
-    }
-    mx, start := 1, 0
-    for j := 0; j < n; j++ {
-        for i := 0; i <= j; i++ {
-            if j-i < 2 {
-                dp[i][j] = s[i] == s[j]
-            } else {
-                dp[i][j] = dp[i+1][j-1] && s[i] == s[j]
-            }
-            if dp[i][j] && mx < j-i+1 {
-                mx, start = j-i+1, i
-            }
-        }
-    }
-    return s[start : start+mx]
+	n := len(s)
+	dp := make([][]bool, n)
+	for i := 0; i < n; i++ {
+		dp[i] = make([]bool, n)
+	}
+	mx, start := 1, 0
+	for j := 0; j < n; j++ {
+		for i := 0; i <= j; i++ {
+			if j-i < 2 {
+				dp[i][j] = s[i] == s[j]
+			} else {
+				dp[i][j] = dp[i+1][j-1] && s[i] == s[j]
+			}
+			if dp[i][j] && mx < j-i+1 {
+				mx, start = j-i+1, i
+			}
+		}
+	}
+	return s[start : start+mx]
 }
 ```
 
@@ -223,7 +223,7 @@ proc longestPalindrome(s: string): string =
 
 ### **...**
 
-```txt
+```
 
 ```
 
