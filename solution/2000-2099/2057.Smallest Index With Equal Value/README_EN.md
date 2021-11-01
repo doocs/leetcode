@@ -74,6 +74,21 @@ i=3: 3 mod 10 = 3 != nums[3].
 
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var smallestEqual = function(nums) {
+    for (let i = 0; i < nums.length; i++) {
+        if (i % 10 == nums[i]) return i;
+    }
+    return -1;
+};
+```
+
 ### **...**
 
 ```
