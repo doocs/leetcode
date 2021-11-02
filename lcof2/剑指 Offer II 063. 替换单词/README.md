@@ -67,10 +67,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 648&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/replace-words/">https://leetcode-cn.com/problems/replace-words/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+前缀树实现。
 
 <!-- tabs:start -->
 
@@ -79,7 +80,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Trie:
+    def __init__(self) -> None:
+        self.children = [None] * 26
+        self.root = None
 
+
+class Solution:
+    def replaceWords(self, dictionary: List[str], sentence: str) -> str:
+        trie = Trie()
+        for root in dictionary:
+            cur = trie
+            for c in root:
+                idx = ord(c) - ord('a')
+                if cur.children[idx] is None:
+                    cur.children[idx] = Trie()
+                cur = cur.children[idx]
+            cur.root = root
+
+        ans = []
+        for word in sentence.split():
+            cur = trie
+            for c in word:
+                idx = ord(c) - ord('a')
+                if cur.children[idx] is None or cur.root is not None:
+                    break
+                cur = cur.children[idx]
+            ans.append(word if cur.root is None else cur.root)
+        return ' '.join(ans)
 ```
 
 ### **Java**
@@ -87,7 +115,131 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+    String root;
+}
 
+class Solution {
+    public String replaceWords(List<String> dictionary, String sentence) {
+        Trie trie = new Trie();
+        for (String root : dictionary) {
+            Trie cur = trie;
+            for (char c : root.toCharArray()) {
+                if (cur.children[c - 'a'] == null) {
+                    cur.children[c - 'a'] = new Trie();
+                }
+                cur = cur.children[c - 'a'];
+            }
+            cur.root = root;
+        }
+        List<String> ans = new ArrayList<>();
+        for (String word : sentence.split("\\s+")) {
+            Trie cur = trie;
+            for (char c : word.toCharArray()) {
+                if (cur.children[c - 'a'] == null || cur.root != null) {
+                    break;
+                }
+                cur = cur.children[c - 'a'];
+            }
+            ans.add(cur.root == null ? word : cur.root);
+        }
+        return String.join(" ", ans);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Trie {
+public:
+    string root;
+    vector<Trie*> children;
+
+    Trie() {
+        root = "";
+        children.resize(26);
+    }
+};
+
+class Solution {
+public:
+    string replaceWords(vector<string>& dictionary, string sentence) {
+        Trie* trie = new Trie();
+        for (auto root : dictionary)
+        {
+            Trie* cur = trie;
+            for (char c : root)
+            {
+                if (!cur->children[c - 'a']) cur->children[c - 'a'] = new Trie();
+                cur = cur->children[c - 'a'];
+            }
+            cur->root = root;
+        }
+
+        string ans = "";
+        istringstream is(sentence);
+        vector<string> ss;
+        string s;
+        while (is >> s) ss.push_back(s);
+        for (auto word : ss)
+        {
+            Trie* cur = trie;
+            for (char c : word)
+            {
+                if (!cur->children[c - 'a'] || cur->root != "") break;
+                cur = cur->children[c - 'a'];
+            }
+            ans += cur->root == "" ? word : cur->root;
+            ans += " ";
+        }
+        ans.pop_back();
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func replaceWords(dictionary []string, sentence string) string {
+	trie := &Trie{}
+	for _, root := range dictionary {
+		cur := trie
+		for _, c := range root {
+			c -= 'a'
+			if cur.children[c] == nil {
+				cur.children[c] = &Trie{}
+			}
+			cur = cur.children[c]
+		}
+		cur.root = root
+	}
+
+	var ans []string
+	for _, word := range strings.Split(sentence, " ") {
+		cur := trie
+		for _, c := range word {
+			c -= 'a'
+			if cur.children[c] == nil || cur.root != "" {
+				break
+			}
+			cur = cur.children[c]
+		}
+		if cur.root == "" {
+			ans = append(ans, word)
+		} else {
+			ans = append(ans, cur.root)
+		}
+	}
+	return strings.Join(ans, " ")
+}
+
+type Trie struct {
+	children [26]*Trie
+	root     string
+}
 ```
 
 ### **...**
