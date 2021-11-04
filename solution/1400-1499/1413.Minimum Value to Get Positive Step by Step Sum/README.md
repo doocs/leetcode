@@ -67,14 +67,11 @@
 ```python
 class Solution:
     def minStartValue(self, nums: List[int]) -> int:
-        n = len(nums)
-        pre_sum = [nums[0]] * n
-        for i in range(1, n):
-            pre_sum[i] = pre_sum[i - 1] + nums[i]
-        ans = maxsize
-        for num in pre_sum:
-            ans = min(ans, num)
-        return ans * -1 + 1 if ans <= 0 else 1
+        s, t = 0, float('inf')
+        for num in nums:
+            s += num
+            t = min(t, s)
+        return max(1, 1 - t)
 ```
 
 ### **Java**
@@ -85,16 +82,13 @@ class Solution:
 class Solution {
     public int minStartValue(int[] nums) {
         int n = nums.length;
-        int[] preSum = new int[n];
-        preSum[0] = nums[0];
-        for (int i = 1; i < n; i++) {
-            preSum[i] = preSum[i - 1] + nums[i];
-        }
+        int perSum = 0;
         int ans = Integer.MAX_VALUE;
-        for (int num : preSum) {
-            ans = Math.min(ans, num);
+        for (int num : nums) {
+            perSum += num;
+            ans = Math.min(ans, perSum);
         }
-        return ans < 1 ? ans * -1 + 1 : 1;
+        return ans < 1 ? 1 - ans : 1;
     }
 }
 ```
