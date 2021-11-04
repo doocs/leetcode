@@ -65,7 +65,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minStartValue(self, nums: List[int]) -> int:
+        s, t = 0, float('inf')
+        for num in nums:
+            s += num
+            t = min(t, s)
+        return max(1, 1 - t)
 ```
 
 ### **Java**
@@ -73,7 +79,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minStartValue(int[] nums) {
+        int s = 0;
+        int t = Integer.MAX_VALUE;
+        for (int num : nums) {
+            s += num;
+            t = Math.min(t, s);
+        }
+        return Math.max(1, 1 - t);
+    }
+}
 ```
 
 ### **...**
