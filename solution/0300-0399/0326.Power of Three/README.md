@@ -68,7 +68,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        dic = set()
+        cur = 1
+        dic.add(cur)
+        while cur <= maxsize // 3:
+            cur *= 3
+            dic.add(cur)
+        return n > 0 and n in dic
 ```
 
 ### **Java**
@@ -76,7 +84,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    static Set<Integer> set = new HashSet<>();
+    static {
+        int cur = 1;
+        set.add(cur);
+        while (cur <= Integer.MAX_VALUE / 3) {
+            cur *= 3;
+            set.add(cur);
+        }
+    }
+    public boolean isPowerOfThree(int n) {
+        return n > 0 && set.contains(n);
+    }
+}
 ```
 
 ### **TypeScript**
