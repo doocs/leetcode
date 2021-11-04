@@ -53,7 +53,6 @@
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -89,6 +88,41 @@ class Solution {
         }
         return Math.max(1, 1 - t);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minStartValue(vector<int>& nums) {
+        int s = 0, t = INT_MAX;
+        for (int num : nums)
+        {
+            s += num;
+            t = min(t, s);
+        }
+        return max(1, 1 - t);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minStartValue(nums []int) int {
+	s, t := 0, 10000
+	for _, num := range nums {
+		s += num
+		if s < t {
+			t = s
+		}
+	}
+	if t < 0 {
+		return 1 - t
+	}
+	return 1
 }
 ```
 

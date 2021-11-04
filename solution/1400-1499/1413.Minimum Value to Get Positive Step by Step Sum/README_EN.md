@@ -6,21 +6,13 @@
 
 <p>Given an array of integers&nbsp;<code>nums</code>, you start with an initial <strong>positive</strong> value <em>startValue</em><em>.</em></p>
 
-
-
 <p>In each iteration, you calculate the step by step sum of <em>startValue</em>&nbsp;plus&nbsp;elements in <code>nums</code>&nbsp;(from left to right).</p>
 
-
-
 <p>Return the minimum <strong>positive</strong> value of&nbsp;<em>startValue</em> such that the step by step sum is never less than 1.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -46,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -62,11 +50,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -76,13 +60,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
@@ -118,6 +98,41 @@ class Solution {
         }
         return Math.max(1, 1 - t);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minStartValue(vector<int>& nums) {
+        int s = 0, t = INT_MAX;
+        for (int num : nums)
+        {
+            s += num;
+            t = min(t, s);
+        }
+        return max(1, 1 - t);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minStartValue(nums []int) int {
+	s, t := 0, 10000
+	for _, num := range nums {
+		s += num
+		if s < t {
+			t = s
+		}
+	}
+	if t < 0 {
+		return 1 - t
+	}
+	return 1
 }
 ```
 
