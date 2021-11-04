@@ -34,12 +34,22 @@ class Solution:
     def isPerfectSquare(self, num: int) -> bool:
         left, right = 1, num
         while left < right:
-            mid = left + ((right - left) >> 1)
-            if num // mid <= mid:
+            mid = (left + right) >> 1
+            if mid * mid >= num:
                 right = mid
             else:
                 left = mid + 1
         return left * left == num
+```
+
+```python
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        i = 1
+        while num > 0:
+            num -= i
+            i += 2
+        return num == 0
 ```
 
 ### **Java**
@@ -47,16 +57,27 @@ class Solution:
 ```java
 class Solution {
     public boolean isPerfectSquare(int num) {
-        int left = 1, right = num;
+        long left = 1, right = num;
         while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (num / mid <= mid) {
+            long mid = (left + right) >>> 1;
+            if (mid * mid >= num) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
         return left * left == num;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        for (int i = 1; num > 0; i += 2) {
+            num -= i;
+        }
+        return num == 0;
     }
 }
 ```
@@ -68,15 +89,23 @@ class Solution {
 public:
     bool isPerfectSquare(int num) {
         long left = 1, right = num;
-        while (left < right) {
-            int mid = left + ((right - left) >> 1);
-            if (num / mid <= mid) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+        while (left < right)
+        {
+            long mid = left + right >> 1;
+            if (mid * mid >= num) right = mid;
+            else left = mid + 1;
         }
         return left * left == num;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        for (int i = 1; num > 0; i += 2) num -= i;
+        return num == 0;
     }
 };
 ```
@@ -87,14 +116,23 @@ public:
 func isPerfectSquare(num int) bool {
 	left, right := 1, num
 	for left < right {
-		mid := left + (right-left)>>1
-		if num/mid <= mid {
+		mid := (left + right) >> 1
+		if mid*mid >= num {
 			right = mid
 		} else {
 			left = mid + 1
 		}
 	}
 	return left*left == num
+}
+```
+
+```go
+func isPerfectSquare(num int) bool {
+	for i := 1; num > 0; i += 2 {
+		num -= i
+	}
+	return num == 0
 }
 ```
 

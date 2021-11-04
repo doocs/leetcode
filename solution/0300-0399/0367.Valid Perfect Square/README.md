@@ -38,7 +38,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分法。
+**1. 二分查找**
+
+**2. 转换为数学问题**
+
+由于 `n² = 1 + 3 + 5 + ... + (2n-1)`，对数字 num 不断减去 i (`i = 1, 3, 5, ...`) 直至 num 不大于 0，如果最终 num 等于 0，说明是一个有效的完全平方数。
 
 <!-- tabs:start -->
 
@@ -51,12 +55,22 @@ class Solution:
     def isPerfectSquare(self, num: int) -> bool:
         left, right = 1, num
         while left < right:
-            mid = left + ((right - left) >> 1)
-            if num // mid <= mid:
+            mid = (left + right) >> 1
+            if mid * mid >= num:
                 right = mid
             else:
                 left = mid + 1
         return left * left == num
+```
+
+```python
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        i = 1
+        while num > 0:
+            num -= i
+            i += 2
+        return num == 0
 ```
 
 ### **Java**
@@ -66,16 +80,27 @@ class Solution:
 ```java
 class Solution {
     public boolean isPerfectSquare(int num) {
-        int left = 1, right = num;
+        long left = 1, right = num;
         while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (num / mid <= mid) {
+            long mid = (left + right) >>> 1;
+            if (mid * mid >= num) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
         return left * left == num;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        for (int i = 1; num > 0; i += 2) {
+            num -= i;
+        }
+        return num == 0;
     }
 }
 ```
@@ -87,15 +112,23 @@ class Solution {
 public:
     bool isPerfectSquare(int num) {
         long left = 1, right = num;
-        while (left < right) {
-            int mid = left + ((right - left) >> 1);
-            if (num / mid <= mid) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+        while (left < right)
+        {
+            long mid = left + right >> 1;
+            if (mid * mid >= num) right = mid;
+            else left = mid + 1;
         }
         return left * left == num;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        for (int i = 1; num > 0; i += 2) num -= i;
+        return num == 0;
     }
 };
 ```
@@ -106,14 +139,23 @@ public:
 func isPerfectSquare(num int) bool {
 	left, right := 1, num
 	for left < right {
-		mid := left + (right-left)>>1
-		if num/mid <= mid {
+		mid := (left + right) >> 1
+		if mid*mid >= num {
 			right = mid
 		} else {
 			left = mid + 1
 		}
 	}
 	return left*left == num
+}
+```
+
+```go
+func isPerfectSquare(num int) bool {
+	for i := 1; num > 0; i += 2 {
+		num -= i
+	}
+	return num == 0
 }
 ```
 

@@ -1,9 +1,9 @@
 class Solution {
     public boolean isPerfectSquare(int num) {
-        int left = 1, right = num;
+        long left = 1, right = num;
         while (left < right) {
-            int mid = (left + right) >>> 1;
-            if (num / mid <= mid) {
+            long mid = (left + right) >>> 1;
+            if (mid * mid >= num) {
                 right = mid;
             } else {
                 left = mid + 1;

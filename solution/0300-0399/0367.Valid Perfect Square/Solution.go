@@ -1,8 +1,8 @@
 func isPerfectSquare(num int) bool {
 	left, right := 1, num
 	for left < right {
-		mid := left + (right-left)>>1
-		if num/mid <= mid {
+		mid := (left + right) >> 1
+		if mid*mid >= num {
 			right = mid
 		} else {
 			left = mid + 1
