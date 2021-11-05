@@ -1,27 +1,26 @@
 class TopVotedCandidate {
-    int[] persons;
-    int[] times;
-    int[] winPerson;
+    private int[] persons;
+    private int[] times;
+    private int[] winPersons;
 
     public TopVotedCandidate(int[] persons, int[] times) {
         this.persons = persons;
         this.times = times;
-        int len = times.length;
-        winPerson = new int[len];
-        int max = 0;
-        int curWin = -1;
-        int[] count = new int[len];
-        for (int i = 0; i < len; i++) {
-            if (++count[persons[i]] >= max) {
-                max = count[persons[i]];
+        int mx = -1, curWin = -1;
+        int n = persons.length;
+        int[] counter = new int[n + 1];
+        winPersons = new int[n];
+        for (int i = 0; i < n; ++i) {
+            if (++counter[persons[i]] >= mx) {
+                mx = counter[persons[i]];
                 curWin = persons[i];
             }
-            winPerson[i] = curWin;
+            winPersons[i] = curWin;
         }
     }
-
+    
     public int q(int t) {
-        int left = 0, right = times.length - 1;
+        int left = 0, right = persons.length - 1;
         while (left < right) {
             int mid = (left + right + 1) >> 1;
             if (times[mid] <= t) {
@@ -30,6 +29,12 @@ class TopVotedCandidate {
                 right = mid - 1;
             }
         }
-        return winPerson[left];
+        return winPersons[left];
     }
 }
+
+/**
+ * Your TopVotedCandidate object will be instantiated and called as such:
+ * TopVotedCandidate obj = new TopVotedCandidate(persons, times);
+ * int param_1 = obj.q(t);
+ */
