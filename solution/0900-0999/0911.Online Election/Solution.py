@@ -1,7 +1,6 @@
 class TopVotedCandidate:
 
     def __init__(self, persons: List[int], times: List[int]):
-        self.persons = persons
         self.times = times
         mx, cur_win, n = -1, -1, len(persons)
         counter = [0] * (n + 1)
@@ -14,7 +13,7 @@ class TopVotedCandidate:
             self.win_persons[i] = cur_win
 
     def q(self, t: int) -> int:
-        left, right = 0, len(self.persons) - 1
+        left, right = 0, len(self.win_persons) - 1
         while left < right:
             mid = (left + right + 1) >> 1
             if self.times[mid] <= t:

@@ -15,7 +15,7 @@
     let pre = head.val;
     head = head.next;
     let nums = [];
-    while(head.next != null) {
+    while (head.next != null) {
         let val = head.val, post = head.next.val;
         if (pre < val && val > post) {
             nums.push(idx);

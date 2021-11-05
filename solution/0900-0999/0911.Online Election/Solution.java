@@ -1,10 +1,8 @@
 class TopVotedCandidate {
-    private int[] persons;
     private int[] times;
     private int[] winPersons;
 
     public TopVotedCandidate(int[] persons, int[] times) {
-        this.persons = persons;
         this.times = times;
         int mx = -1, curWin = -1;
         int n = persons.length;
@@ -20,7 +18,7 @@ class TopVotedCandidate {
     }
     
     public int q(int t) {
-        int left = 0, right = persons.length - 1;
+        int left = 0, right = winPersons.length - 1;
         while (left < right) {
             int mid = (left + right + 1) >> 1;
             if (times[mid] <= t) {
