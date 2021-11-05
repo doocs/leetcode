@@ -56,7 +56,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def longestSubsequence(self, arr: List[int], difference: int) -> int:
+        dp, ans = defaultdict(int), 1
+        for num in arr:
+            dp[num] = dp[num - difference] + 1
+            ans = max(ans, dp[num])
+        return ans
 ```
 
 ### **Java**
@@ -64,7 +70,54 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int longestSubsequence(int[] arr, int difference) {
+        Map<Integer, Integer> dp = new HashMap<>();
+        int ans = 1;
+        for (int num : arr) {
+            dp.put(num, dp.getOrDefault(num - difference, 0) + 1);
+            ans = Math.max(ans, dp.get(num));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestSubsequence(vector<int>& arr, int difference) {
+        unordered_map<int, int> dp;
+        int ans = 1;
+        for (int num : arr) {
+            dp[num] = dp[num - difference] + 1;
+            ans = max(ans, dp[num]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestSubsequence(arr []int, difference int) int {
+	dp, ans := make(map[int]int), 1
+	for _, num := range arr {
+		dp[num] = dp[num-difference] + 1
+		ans = max(ans, dp[num])
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
