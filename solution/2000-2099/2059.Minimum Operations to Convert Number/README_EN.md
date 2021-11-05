@@ -47,7 +47,7 @@ We can go from 2 &rarr; 14 &rarr; 12 with the following 2 operations.
 <strong>Input:</strong> nums = [3,5,7], start = 0, goal = -4
 <strong>Output:</strong> 2
 <strong>Explanation:</strong>
-We can go from 0 &rarr; 3 &rarr; -4 with the following 2 operations. 
+We can go from 0 &rarr; 3 &rarr; -4 with the following 2 operations.
 - 0 + 3 = 3
 - 3 - 7 = -4
 Note that the last operation sets x out of the range 0 &lt;= x &lt;= 1000, which is valid.
@@ -66,9 +66,9 @@ There is no way to convert 0 into 1.</pre>
 <pre>
 <strong>Input:</strong> nums = [1], start = 0, goal = 3
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> 
-We can go from 0 &rarr; 1 &rarr; 2 &rarr; 3 with the following 3 operations. 
-- 0 + 1 = 1 
+<strong>Explanation:</strong>
+We can go from 0 &rarr; 1 &rarr; 2 &rarr; 3 with the following 3 operations.
+- 0 + 1 = 1
 - 1 + 1 = 2
 - 2 + 1 = 3
 </pre>
@@ -93,13 +93,131 @@ BFS
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
+        op1 = lambda x, y: x + y
+        op2 = lambda x, y: x - y
+        op3 = lambda x, y: x ^ y
+        ops = [op1, op2, op3]
+        vis = [False] * 1001
+        q = deque([(start, 0)])
+        while q:
+            x, step = q.popleft()
+            for num in nums:
+                for op in ops:
+                    nx = op(x, num)
+                    if nx == goal:
+                        return step + 1
+                    if nx >= 0 and nx <= 1000 and not vis[nx]:
+                        q.append((nx, step + 1))
+                        vis[nx] = True
+        return -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumOperations(int[] nums, int start, int goal) {
+        IntBinaryOperator op1 = (x, y) -> x + y;
+        IntBinaryOperator op2 = (x, y) -> x - y;
+        IntBinaryOperator op3 = (x, y) -> x ^ y;
+        IntBinaryOperator[] ops = { op1, op2, op3 };
+        boolean[] vis = new boolean[1001];
+        Queue<int[]> queue = new ArrayDeque<>();
+        queue.offer(new int[] { start, 0 });
+        while (!queue.isEmpty()) {
+            int[] p = queue.poll();
+            int x = p[0], step = p[1];
+            for (int num : nums) {
+                for (IntBinaryOperator op : ops) {
+                    int nx = op.applyAsInt(x, num);
+                    if (nx == goal) {
+                        return step + 1;
+                    }
+                    if (nx >= 0 && nx <= 1000 && !vis[nx]) {
+                        queue.offer(new int[] { nx, step + 1 });
+                        vis[nx] = true;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums, int start, int goal) {
+        using pii = pair<int, int>;
+        vector<function<int(int, int)>> ops{
+            [](int x, int y) { return x + y; },
+            [](int x, int y) { return x - y; },
+            [](int x, int y) { return x ^ y; },
+        };
+        vector<bool> vis(1001, false);
+        queue<pii> q;
+        q.push({start, 0});
+        while (!q.empty()) {
+            auto [x, step] = q.front();
+            q.pop();
+            for (int num : nums) {
+                for (auto op : ops) {
+                    int nx = op(x, num);
+                    if (nx == goal) {
+                        return step + 1;
+                    }
+                    if (nx >= 0 && nx <= 1000 && !vis[nx]) {
+                        q.push({nx, step + 1});
+                        vis[nx] = true;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumOperations(nums []int, start int, goal int) int {
+	type pair struct {
+		x    int
+		step int
+	}
+
+	ops := []func(int, int) int{
+		func(x, y int) int { return x + y },
+		func(x, y int) int { return x - y },
+		func(x, y int) int { return x ^ y },
+	}
+	vis := make([]bool, 1001)
+	q := []pair{{start, 0}}
+
+	for len(q) > 0 {
+		x, step := q[0].x, q[0].step
+		q = q[1:]
+		for _, num := range nums {
+			for _, op := range ops {
+				nx := op(x, num)
+				if nx == goal {
+					return step + 1
+				}
+				if nx >= 0 && nx <= 1000 && !vis[nx] {
+					q = append(q, pair{nx, step + 1})
+					vis[nx] = true
+				}
+			}
+		}
+	}
+	return -1
+}
 ```
 
 ### **TypeScript**
