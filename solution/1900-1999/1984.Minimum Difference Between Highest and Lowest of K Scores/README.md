@@ -57,7 +57,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumDifference(self, nums: List[int], k: int) -> int:
+        if k == 1:
+            return 0
+        nums.sort()
+        ans = maxsize
+        for i in range(len(nums) - k + 1):
+            ans = min(ans, nums[i + k - 1] - nums[i])
+        return ans
 ```
 
 ### **Java**
@@ -65,7 +73,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minimumDifference(int[] nums, int k) {
+        if (k == 1) {
+            return 0;
+        }
+        Arrays.sort(nums);
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length - k + 1; i++) {
+            min = Math.min((nums[i + k - 1] - nums[i]), min);
+        }
+        return min;
+    }
+}
 ```
 
 ### **...**
