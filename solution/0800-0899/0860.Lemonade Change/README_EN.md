@@ -6,33 +6,19 @@
 
 <p>At a lemonade stand, each lemonade costs <code>$5</code>.&nbsp;</p>
 
-
-
 <p>Customers are standing in a queue to buy from you, and order one at a time (in the order specified by <code>bills</code>).</p>
-
-
 
 <p>Each customer will only buy one lemonade and&nbsp;pay with either a <code>$5</code>, <code>$10</code>, or <code>$20</code> bill.&nbsp; You must provide the correct change to each customer, so that the net transaction is that the customer pays $5.</p>
 
-
-
 <p>Note that you don&#39;t have any change&nbsp;in hand at first.</p>
-
-
 
 <p>Return <code>true</code>&nbsp;if and only if you can provide every customer with correct change.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -52,13 +38,9 @@ Since all customers got correct change, we output true.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -68,13 +50,9 @@ Since all customers got correct change, we output true.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -84,13 +62,9 @@ Since all customers got correct change, we output true.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -110,15 +84,9 @@ Since not every customer received correct change, the answer is false.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong><span>Note:</span></strong></p>
-
-
 
 <ul>
 	<li><code>0 &lt;= bills.length &lt;= 10000</code></li>
@@ -133,8 +101,6 @@ Since not every customer received correct change, the answer is false.
 
 </div>
 
-
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -142,13 +108,54 @@ Since not every customer received correct change, the answer is false.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def lemonadeChange(self, bills: List[int]) -> bool:
+        five, ten = 0, 0
+        for bill in bills:
+            if bill == 5:
+                five += 1
+            elif bill == 10:
+                ten += 1
+                five -= 1
+            elif bill == 20:
+                if ten > 0:
+                    ten -= 1
+                    five -= 1
+                else:
+                    five -= 3
+            if five < 0:
+                return False
+        return True
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public boolean lemonadeChange(int[] bills) {
+        int fives = 0, tens = 0;
+        for (int bill : bills) {
+            if (bill == 5) {
+                ++fives;
+            } else if (bill == 10) {
+                ++tens;
+                if (--fives < 0) {
+                    return false;
+                }
+            } else {
+                if (tens >= 1 && fives >= 1) {
+                    --tens;
+                    --fives;
+                } else if (fives >= 3) {
+                    fives -= 3;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **...**
