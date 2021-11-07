@@ -3,7 +3,7 @@ class Solution {
     private List<List<String>> ans;
     private int n;
 
-    public List<List<String>> partition(String s) {
+    public String[][] partition(String s) {
         ans = new ArrayList<>();
         n = s.length();
         dp = new boolean[n][n];
@@ -16,7 +16,11 @@ class Solution {
             }
         }
         dfs(s, 0, new ArrayList<>());
-        return ans;
+        String [][] res = new String [ans.size()][];
+        for (int i = 0; i < ans.size(); ++i) {
+            res[i] = ans.get(i).toArray(new String[0]);
+        }
+        return res;
     }
 
     private void dfs(String s, int i, List<String> t) {
