@@ -69,6 +69,22 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3. </pre>
 
 ```
 
+### **TypeScript**
+
+```ts
+function countVowels(word: string): number {
+    const n = word.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        let char = word.charAt(i);
+        if (['a', 'e', 'i', 'o', 'u'].includes(char)) {
+            ans += ((i + 1) * (n - i));
+        }
+    }
+    return ans;
+};
+```
+
 ### **Java**
 
 ```java

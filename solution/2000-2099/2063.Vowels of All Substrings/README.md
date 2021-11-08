@@ -66,6 +66,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+判断word[i]是否为元音，且在所有子字符串中一共出现了 (i+1)*(n-i) 次
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -82,6 +84,22 @@
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function countVowels(word: string): number {
+    const n = word.length;
+    let ans = 0;
+    for (let i = 0; i < n; i++) {
+        let char = word.charAt(i);
+        if (['a', 'e', 'i', 'o', 'u'].includes(char)) {
+            ans += ((i + 1) * (n - i));
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
