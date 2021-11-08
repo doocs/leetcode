@@ -58,7 +58,6 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3. </pre>
 	<li><code>word</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -66,7 +65,30 @@ Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3. </pre>
 ### **Python3**
 
 ```python
+class Solution:
+    def countVowels(self, word: str) -> int:
+        ans, n = 0, len(word)
+        for i, c in enumerate(word):
+            if c in ['a', 'e', 'i', 'o', 'u']:
+                ans += (i + 1) * (n - i)
+        return ans
+```
 
+### **Java**
+
+```java
+class Solution {
+    public long countVowels(String word) {
+        long ans = 0;
+        for (int i = 0, n = word.length(); i < n; ++i) {
+            char c = word.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                ans += (long) (i + 1) * (n - i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -85,10 +107,36 @@ function countVowels(word: string): number {
 };
 ```
 
-### **Java**
+### **C++**
 
-```java
+```cpp
+class Solution {
+public:
+    long long countVowels(string word) {
+        long long ans = 0;
+        for (int i = 0, n = word.size(); i < n; ++i)
+        {
+            char c = word[i];
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') ans += (long long) (i + 1) * (n - i);
+        }
+        return ans;
+    }
+};
+```
 
+### **Go**
+
+```go
+func countVowels(word string) int64 {
+	var ans int64
+	n := len(word)
+	for i, c := range word {
+		if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' {
+			ans += int64((i + 1) * (n - i))
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

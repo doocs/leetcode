@@ -66,7 +66,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-判断word[i]是否为元音，且在所有子字符串中一共出现了 (i+1)*(n-i) 次
+判断 `word[i]` 是否为元音，且在所有子字符串中一共出现了 `(i+1)*(n-i)` 次。
 
 <!-- tabs:start -->
 
@@ -75,7 +75,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countVowels(self, word: str) -> int:
+        ans, n = 0, len(word)
+        for i, c in enumerate(word):
+            if c in ['a', 'e', 'i', 'o', 'u']:
+                ans += (i + 1) * (n - i)
+        return ans
 ```
 
 ### **Java**
@@ -83,7 +89,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long countVowels(String word) {
+        long ans = 0;
+        for (int i = 0, n = word.length(); i < n; ++i) {
+            char c = word.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                ans += (long) (i + 1) * (n - i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -100,6 +117,38 @@ function countVowels(word: string): number {
     }
     return ans;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long countVowels(string word) {
+        long long ans = 0;
+        for (int i = 0, n = word.size(); i < n; ++i)
+        {
+            char c = word[i];
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') ans += (long long) (i + 1) * (n - i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countVowels(word string) int64 {
+	var ans int64
+	n := len(word)
+	for i, c := range word {
+		if c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' {
+			ans += int64((i + 1) * (n - i))
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
