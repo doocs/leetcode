@@ -1,22 +1,20 @@
 class Solution {
     public String getHint(String secret, String guess) {
-        int aCnt = 0, bCnt = 0;
-        Map<Character, Integer> nums1 = new HashMap<>();
-        Map<Character, Integer> nums2 = new HashMap<>();
+        int x = 0, y = 0;
+        int[] cnt1 = new int[10];
+        int[] cnt2 = new int[10];
         for (int i = 0; i < secret.length(); ++i) {
-            if (secret.charAt(i) == guess.charAt(i)) {
-                ++aCnt;
+            int a = secret.charAt(i) - '0', b = guess.charAt(i) - '0';
+            if (a == b) {
+                ++x;
             } else {
-                nums1.put(secret.charAt(i), nums1.getOrDefault(secret.charAt(i), 0) + 1);
-                nums2.put(guess.charAt(i), nums2.getOrDefault(guess.charAt(i), 0) + 1);
+                ++cnt1[a];
+                ++cnt2[b];
             }
         }
-        
-        for (Map.Entry<Character, Integer> entry : nums1.entrySet()) {
-            if (nums2.containsKey(entry.getKey())) {
-                bCnt += Math.min(entry.getValue(), nums2.get(entry.getKey()));
-            }
+        for (int i = 0; i < 10; ++i) {
+            y += Math.min(cnt1[i], cnt2[i]);
         }
-        return String.format("%dA%dB", aCnt, bCnt);
+        return String.format("%dA%dB", x, y);
     }
 }
