@@ -46,7 +46,6 @@
 	<li><code>1 &lt;= S.length &lt;= 150</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -58,7 +57,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def toGoatLatin(self, sentence: str) -> str:
+        ans = []
+        for i, word in enumerate(sentence.split()):
+            if word.lower()[0] not in ['a', 'e', 'i', 'o', 'u']:
+                word = word[1:] + word[0]
+            word += 'ma'
+            word += 'a' * (i + 1)
+            ans.append(word)
+        return ' '.join(ans)
 ```
 
 ### **Java**
@@ -66,7 +74,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String toGoatLatin(String sentence) {
+        List<String> ans = new ArrayList<>();
+        Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'));
+        int i = 1;
+        for (String word : sentence.split(" ")) {
+            StringBuilder t = new StringBuilder();
+            if (!vowels.contains(word.charAt(0))) {
+                t.append(word.substring(1));
+                t.append(word.charAt(0));
+            } else {
+                t.append(word);
+            }
+            t.append("ma");
+            for (int j = 0; j < i; ++j) {
+                t.append("a");
+            }
+            ++i;
+            ans.add(t.toString());
+        }
+        return String.join(" ", ans);
+    }
+}
 ```
 
 ### **...**
