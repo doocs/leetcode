@@ -42,7 +42,6 @@ The two tuples are:
 	<li><code>-2<sup>28</sup> &lt;= nums1[i], nums2[i], nums3[i], nums4[i] &lt;= 2<sup>28</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -50,13 +49,78 @@ The two tuples are:
 ### **Python3**
 
 ```python
-
+class Solution:
+    def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
+        counter = Counter()
+        for a in nums1:
+            for b in nums2:
+                counter[a + b] += 1
+        ans = 0
+        for c in nums3:
+            for d in nums4:
+                ans += counter[-(c + d)]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int a : nums1) {
+            for (int b : nums2) {
+                counter.put(a + b, counter.getOrDefault(a + b, 0) + 1);
+            }
+        }
+        int ans = 0;
+        for (int c : nums3) {
+            for (int d : nums4) {
+                ans += counter.getOrDefault(-(c + d), 0);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
+        unordered_map<int, int> counter;
+        for (int a : nums1)
+            for (int b : nums2)
+                ++counter[a + b];
+        int ans = 0;
+        for (int c : nums3)
+            for (int d : nums4)
+                ans += counter[-(c + d)];
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func fourSumCount(nums1 []int, nums2 []int, nums3 []int, nums4 []int) int {
+	counter := make(map[int]int)
+	for _, a := range nums1 {
+		for _, b := range nums2 {
+			counter[a+b]++
+		}
+	}
+	ans := 0
+	for _, c := range nums3 {
+		for _, d := range nums4 {
+			ans += counter[-(c + d)]
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
