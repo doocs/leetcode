@@ -78,6 +78,46 @@ class Solution:
         return dp[k]
 ```
 
+`dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1] + dp[i - 1][j - 2] + ... + dp[i - 1][j - (i - 1)]` ①
+
+`dp[i][j - 1] =            dp[i - 1][j - 1] + dp[i - 1][j - 2] + ... + dp[i - 1][j - (i - 1)] + dp[i - 1][j - i]` ②
+
+① - ②，得 `dp[i][j] = dp[i][j - 1] + dp[i - 1][j] - dp[i - 1][j - i]`
+
+```python
+class Solution:
+    def kInversePairs(self, n: int, k: int) -> int:
+        N, MOD = 1010, int(1e9) + 7
+        dp = [[0] * N for _ in range(N)]
+        dp[1][0] = 1
+        for i in range(2, n + 1):
+            dp[i][0] = 1
+            for j in range(1, k + 1):
+                dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+                if j >= i:
+                    dp[i][j] -= dp[i - 1][j - i]
+                dp[i][j] %= MOD
+        return dp[n][k]
+```
+
+空间优化：
+
+```python
+class Solution:
+    def kInversePairs(self, n: int, k: int) -> int:
+        N, MOD = 1010, int(1e9) + 7
+        dp = [0] * N
+        dp[0] = 1
+        for i in range(2, n + 1):
+            t = dp.copy()
+            for j in range(1, k + 1):
+                dp[j] = t[j] + dp[j - 1]
+                if j >= i:
+                    dp[j] -= t[j - i]
+                dp[j] %= MOD
+        return dp[k]
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -103,6 +143,26 @@ class Solution {
             }
         }
         return dp[k];
+    }
+}
+```
+
+```java
+class Solution {
+    public int kInversePairs(int n, int k) {
+        int N = 1010, MOD = (int) (1e9 + 7);
+        int[][] dp = new int[N][N];
+        dp[1][0] = 1;
+        for (int i = 2; i < n + 1; ++i) {
+            dp[i][0] = 1;
+            for (int j = 1; j < k + 1; ++j) {
+                dp[i][j] = (dp[i - 1][j] + dp[i][j - 1]) % MOD;
+                if (j >= i) {
+                    dp[i][j] = (dp[i][j] - dp[i - 1][j - i] + MOD) % MOD;
+                }
+            }
+        }
+        return dp[n][k];
     }
 }
 ```
