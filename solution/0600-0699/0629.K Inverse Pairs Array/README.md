@@ -17,7 +17,7 @@
 <pre>
 <strong>输入:</strong> n = 3, k = 0
 <strong>输出:</strong> 1
-<strong>解释:</strong> 
+<strong>解释:</strong>
 只有数组 [1,2,3] 包含了从1到3的整数并且正好拥有 0 个逆序对。
 </pre>
 
@@ -26,7 +26,7 @@
 <pre>
 <strong>输入:</strong> n = 3, k = 1
 <strong>输出:</strong> 2
-<strong>解释:</strong> 
+<strong>解释:</strong>
 数组 [1,3,2] 和 [2,1,3] 都有 1 个逆序对。
 </pre>
 
@@ -41,6 +41,19 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+动态规划，我们规定 `dp[i][j]` 表示 `i` 个数字恰好拥有 `j` 个逆序对的不同数组的个数，最终答案为 `dp[n][k]`
+
+思考如何得到 `dp[i][j]`，假设 `i - 1` 个数字已经确定，现在插入 `i` 一共有 `i` 种情况：
+
+- 放在第一个，由于 `i` 比之前的任何数都大，所以会产生 `i - 1` 个逆序对，为了凑够 `j` 个逆序对，之前确定的数需要产生 `j - (i - 1)` 个逆序对
+- 放在第二个，产生 `i - 2` 个逆序对，为了凑够 `j` 个逆序对，之前确定的数需要产生 `j - (i - 2)` 个逆序对
+- 放在第三个......同理
+- 放在最后一个，产生 `0` 个逆序对，之前确认的数需要产生 `j` 个逆序对
+
+可得状态转移公式：`dp[i][j] = dp[i - 1][j - (i - 1)] + ... + dp[i - 1][j]`
+
+看到这种累加，很容易想到需要用前缀和进行优化。最终 `dp[i][]` 只依赖前缀和数组，甚至连 `dp[i - 1][]` 都不需要，所以可以进一步用一维数组优化空间
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,7 +61,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def kInversePairs(self, n: int, k: int) -> int:
+        mod = 1000000007
+        dp, pre = [0] * (k + 1), [0] * (k + 2)
+        for i in range(1, n + 1):
+            dp[0] = 1
 
+            # dp[i][j] = dp[i - 1][j - (i - 1)] + ... + dp[i - 1][j]
+            for j in range(1, k + 1):
+                dp[j] = (pre[j + 1] - pre[max(0, j - i + 1)] + mod) % mod
+
+            for j in range(1, k + 2):
+                pre[j] = (pre[j - 1] + dp[j - 1]) % mod
+
+        return dp[k]
 ```
 
 ### **Java**
@@ -56,7 +83,86 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    private static final int MOD = 1000000007;
+
+    public int kInversePairs(int n, int k) {
+        int[] dp = new int[k + 1];
+        int[] pre = new int[k + 2];
+        for (int i = 1; i <= n; i++) {
+            dp[0] = 1;
+
+            // dp[i][j] = dp[i - 1][j - (i - 1)] + ... + dp[i - 1][j]
+            for (int j = 1; j <= k; j++) {
+                dp[j] = (pre[j + 1] - pre[Math.max(0, j - i + 1)] + MOD) % MOD;
+            }
+
+            for (int j = 1; j <= k + 1; j++) {
+                pre[j] = (pre[j - 1] + dp[j - 1]) % MOD;
+            }
+        }
+        return dp[k];
+    }
+}
+```
+
+### **Go**
+
+```go
+const mod int = 1e9 + 7
+
+func kInversePairs(n int, k int) int {
+	dp := make([]int, k+1)
+	pre := make([]int, k+2)
+	for i := 1; i <= n; i++ {
+		dp[0] = 1
+
+		// dp[i][j] = dp[i - 1][j - (i - 1)] + ... + dp[i - 1][j]
+		for j := 1; j <= k; j++ {
+			dp[j] = (pre[j+1] - pre[max(0, j-i+1)] + mod) % mod
+		}
+
+		for j := 1; j <= k+1; j++ {
+			pre[j] = (pre[j-1] + dp[j-1]) % mod
+		}
+	}
+	return dp[k]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+private:
+    static constexpr int MOD = 1e9 + 7;
+
+public:
+    int kInversePairs(int n, int k) {
+        vector<int> dp(k + 1), pre(k + 2, 0);
+        for (int i = 1; i <= n; ++i) {
+            dp[0] = 1;
+
+            // dp[i][j] = dp[i - 1][j - (i - 1)] + ... + dp[i - 1][j]
+            for (int j = 1; j <= k; ++j) {
+                dp[j] = (pre[j + 1] - pre[max(0, j - i + 1)] + MOD) % MOD;
+            }
+
+            for (int j = 1; j <= k + 1; ++j) {
+                pre[j] = (pre[j - 1] + dp[j - 1]) % MOD;
+            }
+        }
+        return dp[k];
+    }
+};
 ```
 
 ### **...**
