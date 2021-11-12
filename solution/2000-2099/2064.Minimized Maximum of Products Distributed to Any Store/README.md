@@ -66,7 +66,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分法
+二分查找。
 
 <!-- tabs:start -->
 
@@ -75,7 +75,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimizedMaximum(self, n: int, quantities: List[int]) -> int:
+        left, right = 1, int(1e5)
+        while left < right:
+            mid = (left + right) >> 1
+            s = sum([(q + mid - 1) // mid for q in quantities])
+            if s <= n:
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
@@ -83,30 +93,86 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minimizedMaximum(int n, int[] quantities) {
+        int left = 1, right = (int) 1e5;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            int s = 0;
+            for (int q : quantities) {
+                s += ((q + mid - 1) / mid);
+            }
+            if (s <= n) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function minimizedMaximum(n: number, quantities: number[]): number {
-    const m = quantities.length;
-    let left = 1, right = Math.max(...quantities);
-    while (left <= right) {
-        let mid = (left + right) >> 1;
-        let sum = 0;
-        for (let num of quantities) {
-            let cur = Math.floor((num - 1) / mid) + 1;
-            sum += cur;
+    let left = 1, right = 1e5;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let s = 0;
+        for (let q of quantities) {
+            s += Math.floor((q - 1) / mid) + 1;
         }
-        if (sum > n) {
-            left = mid + 1;
+        if (s <= n) {
+            right = mid;
         } else {
-            right = mid - 1;
+            left = mid + 1;
         }
     }
     return left;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimizedMaximum(int n, vector<int>& quantities) {
+        int left = 1, right = 1e5;
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            int s = 0;
+            for (int& q : quantities) s += (q + mid - 1) / mid;
+            if (s <= n) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimizedMaximum(n int, quantities []int) int {
+	left, right := 1, int(1e5)
+	for left < right {
+		mid := (left + right) >> 1
+		s := 0
+		for _, q := range quantities {
+			s += (q + mid - 1) / mid
+		}
+		if s <= n {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
 ```
 
 ### **...**

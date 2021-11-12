@@ -1,17 +1,15 @@
 function minimizedMaximum(n: number, quantities: number[]): number {
-    const m = quantities.length;
-    let left = 1, right = Math.max(...quantities);
-    while (left <= right) {
-        let mid = (left + right) >> 1;
-        let sum = 0;
-        for (let num of quantities) {
-            let cur = Math.floor((num - 1) / mid) + 1;
-            sum += cur;
+    let left = 1, right = 1e5;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        let s = 0;
+        for (let q of quantities) {
+            s += Math.floor((q - 1) / mid) + 1;
         }
-        if (sum > n) {
-            left = mid + 1;
+        if (s <= n) {
+            right = mid;
         } else {
-            right = mid - 1;
+            left = mid + 1;
         }
     }
     return left;
