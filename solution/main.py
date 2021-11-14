@@ -14,6 +14,8 @@ class LCSpider:
     graph_url = 'https://leetcode-cn.com/graphql'
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) ' \
                  'Chrome/77.0.3865.120 Safari/537.36'
+    lc_en_cookie = ''
+    lc_cn_cookie = ''
 
     def __init__(self):
         self.session = requests.session()
@@ -50,7 +52,7 @@ class LCSpider:
             'Content-Type': 'application/json',
             'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug,
             # lc-cn cookie here
-            'cookie': ''
+            'cookie': LCSpider.lc_cn_cookie
         }
         self.session.post(url=LCSpider.graph_url,
                           data=json.dumps(form_data),
@@ -97,7 +99,7 @@ class LCSpider:
             'user-agent': LCSpider.user_agent,
             'x-requested-with': 'XMLHttpRequest',
             # lc cookie here
-            'cookie': ''
+            'cookie': LCSpider.lc_en_cookie
         }
         resp = self.session.get(url='https://leetcode.com/api/problems/all/',
                                 headers=headers,
