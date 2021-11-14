@@ -30,7 +30,6 @@ for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
 </pre>
- 
 
 <p><strong>示例 1：</strong></p>
 
@@ -60,10 +59,16 @@ for (int i = 0; i < len; i++) {
 
 <p> </p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+原问题要求最多相同的数字最多出现 1 次，我们可以扩展至相同的数字最多保留 k 个。
+
+- 由于相同的数字最多保留 k 个，那么原数组的前 k 个元素我们可以直接保留；
+- 对于后面的数字，能够保留的前提是：当前数字 num 与前面已保留的数字的倒数第 k 个元素比较，不同则保留，相同则跳过。
+
+相似题目：[80. 删除有序数组中的重复项 II](/solution/0000-0099/0080.Remove%20Duplicates%20from%20Sorted%20Array%20II/README.md)
 
 <!-- tabs:start -->
 
@@ -74,13 +79,12 @@ for (int i = 0; i < len; i++) {
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        cnt, n = 0, len(nums)
-        for i in range(1, n):
-            if nums[i] == nums[i - 1]:
-                cnt += 1
-            else:
-                nums[i - cnt] = nums[i]
-        return n - cnt
+        i = 0
+        for num in nums:
+            if i < 1 or num != nums[i - 1]:
+                nums[i] = num
+                i += 1
+        return i
 ```
 
 ### **Java**
@@ -90,13 +94,44 @@ class Solution:
 ```java
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int cnt = 0, n = nums.length;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == nums[i - 1]) ++cnt;
-            else nums[i - cnt] = nums[i];
+        int i = 0;
+        for (int num : nums) {
+            if (i < 1 || num != nums[i - 1]) {
+                nums[i++] = num;
+            }
         }
-        return n - cnt;
+        return i;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int i = 0;
+        for (int& num : nums)
+            if (i < 1 || num != nums[i - 1])
+                nums[i++] = num;
+        return i;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeDuplicates(nums []int) int {
+    i := 0
+	for _, num := range nums {
+		if i < 1 || num != nums[i-1] {
+			nums[i] = num
+			i++
+		}
+	}
+	return i
 }
 ```
 
@@ -107,47 +142,14 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function (nums) {
-  let cnt = 0;
-  const n = nums.length;
-  for (let i = 1; i < n; ++i) {
-    if (nums[i] == nums[i - 1]) ++cnt;
-    else nums[i - cnt] = nums[i];
-  }
-  return n - cnt;
-};
-```
-
-### **Go**
-
-```go
-func removeDuplicates(nums []int) int {
-    cnt := 0
-    n := len(nums)
-    for i := 1; i < n; i++ {
-        if nums[i] == nums[i - 1] {
-            cnt++
-        } else {
-            nums[i - cnt] = nums[i]
+ var removeDuplicates = function(nums) {
+    let i = 0;
+    for (const num of nums) {
+        if (i < 1 || num != nums[i - 1]) {
+            nums[i++] = num;
         }
     }
-    return n - cnt
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        int cnt = 0, n = nums.size();
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == nums[i - 1]) ++cnt;
-            else nums[i - cnt] = nums[i];
-        }
-        return n - cnt;
-    }
+    return i;
 };
 ```
 
@@ -156,20 +158,15 @@ public:
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
-        int cnt = 0;
-        int n = nums.Length;
-        for (int i = 1; i < n; ++i)
+        int i = 0;
+        foreach(int num in nums)
         {
-            if (nums[i] == nums[i - 1])
+            if (i < 1 || num != nums[i - 1])
             {
-                ++cnt;
-            }
-            else
-            {
-                nums[i - cnt] = nums[i];
+                nums[i++] = num;
             }
         }
-        return n - cnt;
+        return i;
     }
 }
 ```

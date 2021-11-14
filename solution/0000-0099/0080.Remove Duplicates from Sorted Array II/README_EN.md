@@ -53,7 +53,6 @@ for (int i = 0; i &lt; len; i++) {
 	<li><code>nums</code>&nbsp;is sorted in ascending order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -63,17 +62,12 @@ for (int i = 0; i &lt; len; i++) {
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        n = len(nums)
-        cnt, cur = 0, 1
-        for i in range(1, n):
-            if nums[i] == nums[i - 1]:
-                cnt += 1
-            else:
-                cnt = 0
-            if cnt < 2:
-                nums[cur] = nums[i]
-                cur += 1
-        return cur
+        i = 0
+        for num in nums:
+            if i < 2 or num != nums[i - 2]:
+                nums[i] = num
+                i += 1
+        return i
 ```
 
 ### **Java**
@@ -81,13 +75,13 @@ class Solution:
 ```java
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int cnt = 0, cur = 1;
-        for (int i = 1; i < nums.length; ++i) {
-            if (nums[i] == nums[i - 1]) ++cnt;
-            else cnt = 0;
-            if (cnt < 2) nums[cur++] = nums[i];
+        int i = 0;
+        for (int num : nums) {
+            if (i < 2 || num != nums[i - 2]) {
+                nums[i++] = num;
+            }
         }
-        return cur;
+        return i;
     }
 }
 ```
@@ -98,14 +92,11 @@ class Solution {
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int n = nums.size();
-        int cnt = 0, cur = 1;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == nums[i - 1]) ++cnt;
-            else cnt = 0;
-            if (cnt < 2) nums[cur++] = nums[i];
-        }
-        return cur;
+        int i = 0;
+        for (int& num : nums)
+            if (i < 2 || num != nums[i - 2])
+                nums[i++] = num;
+        return i;
     }
 };
 ```
@@ -115,14 +106,15 @@ public:
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
-        int cnt = 0, cur = 1;
-        for (int i = 1; i < nums.Length; ++i)
+        int i = 0;
+        foreach(int num in nums)
         {
-            if (nums[i] == nums[i - 1]) ++cnt;
-            else cnt = 0;
-            if (cnt < 2) nums[cur++] = nums[i];
+            if (i < 2 || num != nums[i - 2])
+            {
+                nums[i++] = num;
+            }
         }
-        return cur;
+        return i;
     }
 }
 ```
@@ -134,17 +126,14 @@ public class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function (nums) {
-    if (nums.length == 0) return 0;
-    let len = nums.length;
-    let j = 0;
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] != nums[i - 1] || nums[i] != nums[i + 1]) {
-            nums[j++] = nums[i];
+var removeDuplicates = function(nums) {
+    let i = 0;
+    for (const num of nums) {
+        if (i < 2 || num != nums[i - 2]) {
+            nums[i++] = num;
         }
     }
-    nums[j] = nums[len - 1];
-    return j + 1;
+    return i;
 };
 ```
 

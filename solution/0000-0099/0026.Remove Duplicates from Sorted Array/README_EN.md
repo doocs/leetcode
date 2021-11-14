@@ -52,7 +52,6 @@ for (int i = 0; i &lt; len; i++) {
 	<li><code>nums</code>&nbsp;is sorted in ascending order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -62,13 +61,12 @@ for (int i = 0; i &lt; len; i++) {
 ```python
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        cnt, n = 0, len(nums)
-        for i in range(1, n):
-            if nums[i] == nums[i - 1]:
-                cnt += 1
-            else:
-                nums[i - cnt] = nums[i]
-        return n - cnt
+        i = 0
+        for num in nums:
+            if i < 1 or num != nums[i - 1]:
+                nums[i] = num
+                i += 1
+        return i
 ```
 
 ### **Java**
@@ -76,13 +74,44 @@ class Solution:
 ```java
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int cnt = 0, n = nums.length;
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == nums[i - 1]) ++cnt;
-            else nums[i - cnt] = nums[i];
+        int i = 0;
+        for (int num : nums) {
+            if (i < 1 || num != nums[i - 1]) {
+                nums[i++] = num;
+            }
         }
-        return n - cnt;
+        return i;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int i = 0;
+        for (int& num : nums)
+            if (i < 1 || num != nums[i - 1])
+                nums[i++] = num;
+        return i;
+    }
+};
+```
+
+### **Go**
+
+```go
+func removeDuplicates(nums []int) int {
+    i := 0
+	for _, num := range nums {
+		if i < 1 || num != nums[i-1] {
+			nums[i] = num
+			i++
+		}
+	}
+	return i
 }
 ```
 
@@ -93,47 +122,14 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function (nums) {
-  let cnt = 0;
-  const n = nums.length;
-  for (let i = 1; i < n; ++i) {
-    if (nums[i] == nums[i - 1]) ++cnt;
-    else nums[i - cnt] = nums[i];
-  }
-  return n - cnt;
-};
-```
-
-### **Go**
-
-```go
-func removeDuplicates(nums []int) int {
-    cnt := 0
-    n := len(nums)
-    for i := 1; i < n; i++ {
-        if nums[i] == nums[i - 1] {
-            cnt++
-        } else {
-            nums[i - cnt] = nums[i]
+ var removeDuplicates = function(nums) {
+    let i = 0;
+    for (const num of nums) {
+        if (i < 1 || num != nums[i - 1]) {
+            nums[i++] = num;
         }
     }
-    return n - cnt
-}
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        int cnt = 0, n = nums.size();
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] == nums[i - 1]) ++cnt;
-            else nums[i - cnt] = nums[i];
-        }
-        return n - cnt;
-    }
+    return i;
 };
 ```
 
@@ -142,20 +138,15 @@ public:
 ```cs
 public class Solution {
     public int RemoveDuplicates(int[] nums) {
-        int cnt = 0;
-        int n = nums.Length;
-        for (int i = 1; i < n; ++i)
+        int i = 0;
+        foreach(int num in nums)
         {
-            if (nums[i] == nums[i - 1])
+            if (i < 1 || num != nums[i - 1])
             {
-                ++cnt;
-            }
-            else
-            {
-                nums[i - cnt] = nums[i];
+                nums[i++] = num;
             }
         }
-        return n - cnt;
+        return i;
     }
 }
 ```
