@@ -18,7 +18,7 @@
 <pre>
 <strong>Input:</strong> tickets = [2,3,2], k = 2
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> 
+<strong>Explanation:</strong>
 - In the first pass, everyone in the line buys a ticket and the line becomes [1, 2, 1].
 - In the second pass, everyone in the line buys a ticket and the line becomes [0, 1, 0].
 The person at&nbsp;position 2 has successfully bought 2 tickets and it took 3 + 3 = 6 seconds.
@@ -54,14 +54,13 @@ The person at&nbsp;position 0 has successfully bought 5 tickets and it took 4 + 
 ```python
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
-        i = ans = 0
-        while True:
-            if i == k and tickets[i] == 1:
-                return ans + 1
-            if tickets[i] > 0:
-                tickets[i] -= 1
-                ans += 1
-            i = (i + 1) % len(tickets)
+        ans = 0
+        for i, t in enumerate(tickets):
+            if i <= k:
+                ans += min(tickets[k], t)
+            else:
+                ans += min(tickets[k] - 1, t)
+        return ans
 ```
 
 ### **Java**
@@ -69,15 +68,15 @@ class Solution:
 ```java
 class Solution {
     public int timeRequiredToBuy(int[] tickets, int k) {
-        for (int i = 0, ans = 1;; i = (i + 1) % tickets.length) {
-            if (i == k && tickets[i] == 1) {
-                return ans;
-            }
-            if (tickets[i] > 0) {
-                --tickets[i];
-                ++ans;
+        int ans = 0;
+        for (int i = 0; i < tickets.length; i++) {
+            if (i <= k) {
+                ans += Math.min(tickets[k], tickets[i]);
+            } else {
+                ans += Math.min(tickets[k] - 1, tickets[i]);
             }
         }
+        return ans;
     }
 }
 ```
@@ -116,15 +115,15 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
 class Solution {
 public:
     int timeRequiredToBuy(vector<int>& tickets, int k) {
-        for (int i = 0, ans = 1;; i = (i + 1) % tickets.size())
-        {
-            if (i == k && tickets[i] == 1) return ans;
-            if (tickets[i] > 0)
-            {
-                --tickets[i];
-                ++ans;
+        int ans = 0;
+        for (int i = 0; i < tickets.size(); ++i) {
+            if (i <= k) {
+                ans += min(tickets[k], tickets[i]);
+            } else {
+                ans += min(tickets[k] - 1, tickets[i]);
             }
         }
+        return ans;
     }
 };
 ```
@@ -133,16 +132,22 @@ public:
 
 ```go
 func timeRequiredToBuy(tickets []int, k int) int {
-	ans := 1
-	for i := 0; ; i = (i + 1) % len(tickets) {
-		if i == k && tickets[i] == 1 {
-			return ans
-		}
-		if tickets[i] > 0 {
-			tickets[i]--
-			ans++
+	ans := 0
+	for i, t := range tickets {
+		if i <= k {
+			ans += min(tickets[k], t)
+		} else {
+			ans += min(tickets[k]-1, t)
 		}
 	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 ```
 

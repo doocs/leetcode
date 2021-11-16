@@ -1,12 +1,18 @@
 func timeRequiredToBuy(tickets []int, k int) int {
-	ans := 1
-	for i := 0; ; i = (i + 1) % len(tickets) {
-		if i == k && tickets[i] == 1 {
-			return ans
-		}
-		if tickets[i] > 0 {
-			tickets[i]--
-			ans++
+	ans := 0
+	for i, t := range tickets {
+		if i <= k {
+			ans += min(tickets[k], t)
+		} else {
+			ans += min(tickets[k]-1, t)
 		}
 	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
