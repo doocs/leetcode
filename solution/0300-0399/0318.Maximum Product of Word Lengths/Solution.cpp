@@ -1,16 +1,16 @@
 ﻿class Solution {
 public:
     int maxProduct(vector<string>& words) {
-        vector<int> v(words.size(), 0) ;
-        for (int i = 0; i < words.size(); ++i)
-            for (auto ch: words[i])
-                v[i] |= 1 << (ch-'a') ;
-        
-        int M = 0 ;
-        for (int i = 0; i < words.size(); ++i)
-            for (int j = i+1; j < words.size(); ++j)
-                if ((v[i] & v[j]) == 0)
-                    M = max(M, (int)words[i].size() * (int)words[j].size()) ;
-        return M ;
+        int n = words.size();
+        vector<int> masks(n);
+        for (int i = 0; i < n; ++i)
+            for (char c : words[i])
+                masks[i] |= (1 << (c - 'a'));
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i)
+            for (int j = i + 1; j < n; ++j)
+                if ((masks[i] & masks[j]) == 0)
+                    ans = max(ans, (int) (words[i].size() * words[j].size()));
+        return ans;
     }
 };

@@ -40,7 +40,6 @@
 	<li><code>words[i]</code> consists only of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -48,13 +47,95 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxProduct(self, words: List[str]) -> int:
+        n = len(words)
+        masks = [0] * n
+        for i, word in enumerate(words):
+            for c in word:
+                masks[i] |= (1 << (ord(c) - ord('a')))
+        ans = 0
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                if (masks[i] & masks[j]) == 0:
+                    ans = max(ans, len(words[i]) * len(words[j]))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxProduct(String[] words) {
+        int n = words.length;
+        int[] masks = new int[n];
+        for (int i = 0; i < n; ++i) {
+            for (char c : words[i].toCharArray()) {
+                masks[i] |= (1 << (c - 'a'));
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if ((masks[i] & masks[j]) == 0) {
+                    ans = Math.max(ans, words[i].length() * words[j].length());
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<string>& words) {
+        int n = words.size();
+        vector<int> masks(n);
+        for (int i = 0; i < n; ++i)
+            for (char c : words[i])
+                masks[i] |= (1 << (c - 'a'));
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i)
+            for (int j = i + 1; j < n; ++j)
+                if ((masks[i] & masks[j]) == 0)
+                    ans = max(ans, (int) (words[i].size() * words[j].size()));
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxProduct(words []string) int {
+	n := len(words)
+	masks := make([]int, n)
+	for i, word := range words {
+		for _, c := range word {
+			masks[i] |= (1 << (c - 'a'))
+		}
+	}
+	ans := 0
+	for i := 0; i < n-1; i++ {
+		for j := i + 1; j < n; j++ {
+			if (masks[i] & masks[j]) == 0 {
+				ans = max(ans, len(words[i])*len(words[j]))
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
