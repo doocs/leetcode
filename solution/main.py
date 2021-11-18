@@ -5,9 +5,9 @@ import time
 from urllib.parse import quote
 
 import requests
-import requests.packages.urllib3
+import urllib3
 
-requests.packages.urllib3.disable_warnings()
+urllib3.disable_warnings()
 
 
 class LCSpider:
