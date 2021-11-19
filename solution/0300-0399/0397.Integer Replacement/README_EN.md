@@ -45,7 +45,6 @@ or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,13 +52,78 @@ or 7 -&gt; 6 -&gt; 3 -&gt; 2 -&gt; 1
 ### **Python3**
 
 ```python
-
+class Solution:
+    def integerReplacement(self, n: int) -> int:
+        ans = 0
+        while n != 1:
+            if (n & 1) == 0:
+                n >>= 1
+            elif n != 3 and (n & 3) == 3:
+                n += 1
+            else:
+                n -= 1
+            ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int integerReplacement(int n) {
+        int ans = 0;
+        while (n != 1) {
+            if ((n & 1) == 0) {
+                n >>>= 1;
+            } else if (n != 3 && (n & 3) == 3) {
+                ++n;
+            } else {
+                --n;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int integerReplacement(int N) {
+        int ans = 0;
+        long n = N;
+        while (n != 1)
+        {
+            if ((n & 1) == 0) n >>= 1;
+            else if (n != 3 && (n & 3) == 3) ++n;
+            else --n;
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func integerReplacement(n int) int {
+	ans := 0
+	for n != 1 {
+		if (n & 1) == 0 {
+			n >>= 1
+		} else if n != 3 && (n&3) == 3 {
+			n++
+		} else {
+			n--
+		}
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **...**

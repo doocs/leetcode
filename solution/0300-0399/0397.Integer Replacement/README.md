@@ -49,10 +49,11 @@
 	<li><code>1 <= n <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+偶数直接除以 2，对于奇数，若二进制形式如 `0bxxx11`，并且不为 3，则进行加 1，否则进行减 1。
 
 <!-- tabs:start -->
 
@@ -61,7 +62,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def integerReplacement(self, n: int) -> int:
+        ans = 0
+        while n != 1:
+            if (n & 1) == 0:
+                n >>= 1
+            elif n != 3 and (n & 3) == 3:
+                n += 1
+            else:
+                n -= 1
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +81,61 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int integerReplacement(int n) {
+        int ans = 0;
+        while (n != 1) {
+            if ((n & 1) == 0) {
+                n >>>= 1;
+            } else if (n != 3 && (n & 3) == 3) {
+                ++n;
+            } else {
+                --n;
+            }
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int integerReplacement(int N) {
+        int ans = 0;
+        long n = N;
+        while (n != 1)
+        {
+            if ((n & 1) == 0) n >>= 1;
+            else if (n != 3 && (n & 3) == 3) ++n;
+            else --n;
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func integerReplacement(n int) int {
+	ans := 0
+	for n != 1 {
+		if (n & 1) == 0 {
+			n >>= 1
+		} else if n != 3 && (n&3) == 3 {
+			n++
+		} else {
+			n--
+		}
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **...**
