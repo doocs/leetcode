@@ -5,12 +5,12 @@ public:
         for (int num : nums) {
             ++counter[num];
         }
-        int res = 0;
+        int ans = 0;
         for (int num : nums) {
             if (counter.count(num + 1)) {
-                res = max(res, counter[num] + counter[num + 1]);
+                ans = max(ans, counter[num] + counter[num + 1]);
             }
         }
-        return res;
+        return ans;
     }
 };

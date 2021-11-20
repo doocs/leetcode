@@ -50,12 +50,19 @@
 ```python
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
-        counter = collections.Counter(nums)
-        res = 0
+        counter = Counter(nums)
+        ans = 0
         for num in nums:
             if num + 1 in counter:
-                res = max(res, counter[num] + counter[num + 1])
-        return res
+                ans = max(ans, counter[num] + counter[num + 1])
+        return ans
+```
+
+```python
+class Solution:
+    def findLHS(self, nums: List[int]) -> int:
+        counter = Counter(nums)
+        return max([counter[num] + counter[num + 1] for num in nums if num + 1 in counter], default=0)
 ```
 
 ### **Java**
@@ -67,13 +74,13 @@ class Solution {
         for (int num : nums) {
             counter.put(num, counter.getOrDefault(num, 0) + 1);
         }
-        int res = 0;
+        int ans = 0;
         for (int num : nums) {
             if (counter.containsKey(num + 1)) {
-                res = Math.max(res, counter.get(num) + counter.get(num + 1));
+                ans = Math.max(ans, counter.get(num) + counter.get(num + 1));
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -88,13 +95,13 @@ public:
         for (int num : nums) {
             ++counter[num];
         }
-        int res = 0;
+        int ans = 0;
         for (int num : nums) {
             if (counter.count(num + 1)) {
-                res = max(res, counter[num] + counter[num + 1]);
+                ans = max(ans, counter[num] + counter[num + 1]);
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -107,13 +114,13 @@ func findLHS(nums []int) int {
 	for _, num := range nums {
 		counter[num]++
 	}
-	res := 0
+	ans := 0
 	for _, num := range nums {
 		if counter[num+1] > 0 {
-			res = max(res, counter[num]+counter[num+1])
+			ans = max(ans, counter[num]+counter[num+1])
 		}
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {

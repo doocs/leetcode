@@ -3,13 +3,13 @@ func findLHS(nums []int) int {
 	for _, num := range nums {
 		counter[num]++
 	}
-	res := 0
+	ans := 0
 	for _, num := range nums {
 		if counter[num+1] > 0 {
-			res = max(res, counter[num]+counter[num+1])
+			ans = max(ans, counter[num]+counter[num+1])
 		}
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {
