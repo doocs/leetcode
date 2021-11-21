@@ -66,13 +66,14 @@
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
         def height(root):
-            if not root:
+            if root is None:
                 return 0
-            return 1 + max(height(root.left), height(root.right))
-        if not root:
-            return True
-        left_height, right_height = height(root.left), height(root.right)
-        return abs(left_height - right_height) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
+            l, r = height(root.left), height(root.right)
+            if l == -1 or r == -1 or abs(l - r) > 1:
+                return -1
+            return 1 + max(l, r)
+        
+        return height(root) >= 0
 ```
 
 ### **Java**
@@ -97,12 +98,7 @@ class Solution:
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        int leftHeight = height(root.left);
-        int rightHeight = height(root.right);
-        return Math.abs(leftHeight - rightHeight) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+        return height(root) >= 0;
     }
 
     private int height(TreeNode root) {
@@ -111,6 +107,9 @@ class Solution {
         }
         int l = height(root.left);
         int r = height(root.right);
+        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
         return 1 + Math.max(l, r);
     }
 }
@@ -131,17 +130,21 @@ class Solution {
  * @param {TreeNode} root
  * @return {boolean}
  */
- var isBalanced = function(root) {
-    if (root == null) return true; 
-    let left = root.left;
-    let right = root.right;
-    return isBalanced(left) && isBalanced(right) && Math.abs(depth(left) - depth(right)) <= 1;
-};
+var isBalanced = function(root) {
+    let height = function(root) {
+        if (root == null) {
+            return 0;
+        }
+        const l = height(root.left);
+        const r = height(root.right);
+        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(l, r);
+    }
 
-function depth(root) {
-    if (root == null) return 0;
-    return Math.max(depth(root.left), depth(root.right)) + 1;
-}
+    return height(root) >= 0;
+};
 ```
 
 ### **C++**
@@ -161,23 +164,57 @@ function depth(root) {
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
-        if (root == nullptr) {
-            return true;
-        }
-        int leftHeight = height(root->left);
-        int rightHeight = height(root->right);
-        return abs(leftHeight - rightHeight) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+        return height(root) >= 0;
     }
-private:
+
     int height(TreeNode* root) {
-        if (root == nullptr) {
-            return 0;
-        }
-        int l = height(root->left);
-        int r = height(root->right);
+        if (!root) return 0;
+        int l = height(root->left), r = height(root->right);
+        if (l == -1 || r == -1 || abs(l - r) > 1) return -1;
         return 1 + max(l, r);
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isBalanced(root *TreeNode) bool {
+	return height(root) >= 0
+}
+
+func height(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	l, r := height(root.Left), height(root.Right)
+	if l == -1 || r == -1 || abs(l-r) > 1 {
+		return -1
+	}
+	return 1 + max(l, r)
+}
+
+func abs(x int) int {
+	if x >= 0 {
+		return x
+	}
+	return -x
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

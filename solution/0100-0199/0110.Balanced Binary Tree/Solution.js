@@ -11,13 +11,17 @@
  * @return {boolean}
  */
  var isBalanced = function(root) {
-    if (root == null) return true; 
-    let left = root.left;
-    let right = root.right;
-    return isBalanced(left) && isBalanced(right) && Math.abs(depth(left) - depth(right)) <= 1;
-};
+    let height = function(root) {
+        if (root == null) {
+            return 0;
+        }
+        const l = height(root.left);
+        const r = height(root.right);
+        if (l == -1 || r == -1 || Math.abs(l - r) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(l, r);
+    }
 
-function depth(root) {
-    if (root == null) return 0;
-    return Math.max(depth(root.left), depth(root.right)) + 1;
-}
+    return height(root) >= 0;
+};

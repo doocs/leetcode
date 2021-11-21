@@ -2117,3 +2117,8 @@
   - [2074.Reverse Nodes in Even Length Groups](/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/README.md)
   - [2075.Decode the Slanted Ciphertext](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README.md)
   - [2076.Process Restricted Friend Requests](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README.md)
+  - [2077.Paths in Maze That Lead to Same Room](/solution/2000-2099/2077.Paths%20in%20Maze%20That%20Lead%20to%20Same%20Room/README.md)
+  - [2078.Two Furthest Houses With Different Colors](/solution/2000-2099/2078.Two%20Furthest%20Houses%20With%20Different%20Colors/README.md)
+  - [2079.Watering Plants](/solution/2000-2099/2079.Watering%20Plants/README.md)
+  - [2080.Range Frequency Queries](/solution/2000-2099/2080.Range%20Frequency%20Queries/README.md)
+  - [2081.Sum of k-Mirror Numbers](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md)

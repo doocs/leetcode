@@ -21,7 +21,6 @@
 ## 站点
 
 - Netlify: https://lc.netlify.app
-- Gitee Pages: https://doocs.gitee.io/leetcode
 - GitHub Pages: https://doocs.github.io/leetcode
 
 ## LeetCode 全解
