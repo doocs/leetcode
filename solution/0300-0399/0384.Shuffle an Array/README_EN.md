@@ -42,7 +42,6 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 	<li>At most <code>5 * 10<sup>4</sup></code> calls will be made to <code>reset</code> and <code>shuffle</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -50,13 +49,138 @@ solution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example
 ### **Python3**
 
 ```python
+class Solution:
 
+    def __init__(self, nums: List[int]):
+        self.nums = nums
+        self.original = nums.copy()
+
+    def reset(self) -> List[int]:
+        self.nums = self.original.copy()
+        return self.nums
+
+    def shuffle(self) -> List[int]:
+        for i in range(len(self.nums)):
+            j = random.randrange(i, len(self.nums))
+            self.nums[i], self.nums[j] = self.nums[j], self.nums[i]
+        return self.nums
+
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(nums)
+# param_1 = obj.reset()
+# param_2 = obj.shuffle()
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] nums;
+    private int[] original;
+    private Random rand;
 
+    public Solution(int[] nums) {
+        this.nums = nums;
+        this.original = Arrays.copyOf(nums, nums.length);
+        this.rand = new Random();
+    }
+
+    public int[] reset() {
+        nums = Arrays.copyOf(original, original.length);
+        return nums;
+    }
+
+    public int[] shuffle() {
+        for (int i = 0; i < nums.length; ++i) {
+            swap(i, i + rand.nextInt(nums.length - i));
+        }
+        return nums;
+    }
+
+    private void swap(int i, int j) {
+        int t = nums[i];
+        nums[i] = nums[j];
+        nums[j] = t;
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(nums);
+ * int[] param_1 = obj.reset();
+ * int[] param_2 = obj.shuffle();
+ */
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> nums;
+    vector<int> original;
+
+    Solution(vector<int>& nums) {
+        this->nums = nums;
+        this->original.resize(nums.size());
+        copy(nums.begin(), nums.end(), original.begin());
+    }
+
+    vector<int> reset() {
+        copy(original.begin(), original.end(), nums.begin());
+        return nums;
+    }
+
+    vector<int> shuffle() {
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            int j = i + rand() % (nums.size() - i);
+            swap(nums[i], nums[j]);
+        }
+        return nums;
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(nums);
+ * vector<int> param_1 = obj->reset();
+ * vector<int> param_2 = obj->shuffle();
+ */
+```
+
+### **Go**
+
+```go
+type Solution struct {
+	nums, original []int
+}
+
+func Constructor(nums []int) Solution {
+	return Solution{nums, append([]int(nil), nums...)}
+}
+
+func (this *Solution) Reset() []int {
+	copy(this.nums, this.original)
+	return this.nums
+}
+
+func (this *Solution) Shuffle() []int {
+	n := len(this.nums)
+	for i := range this.nums {
+		j := i + rand.Intn(n-i)
+		this.nums[i], this.nums[j] = this.nums[j], this.nums[i]
+	}
+	return this.nums
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * obj := Constructor(nums);
+ * param_1 := obj.Reset();
+ * param_2 := obj.Shuffle();
+ */
 ```
 
 ### **...**
