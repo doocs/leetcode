@@ -58,7 +58,6 @@
 	<li><code>A</code> 和 <code>B</code> 仅由小写字母构成。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -70,7 +69,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def buddyStrings(self, s: str, goal: str) -> bool:
+        m, n = len(s), len(goal)
+        if m != n:
+            return False
+        diff = sum(1 for i in range(n) if s[i] != goal[i])
+        cnt1, cnt2 = Counter(s), Counter(goal)
+        if cnt1 != cnt2:
+            return False
+        return diff == 2 or (diff == 0 and any(e > 1 for e in cnt1.values()))
 ```
 
 ### **Java**
@@ -78,7 +86,94 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean buddyStrings(String s, String goal) {
+        int m = s.length(), n = goal.length();
+        if (m != n) {
+            return false;
+        }
+        int diff = 0;
+        int[] cnt1 = new int[26];
+        int[] cnt2 = new int[26];
+        for (int i = 0; i < n; ++i) {
+            int a = s.charAt(i), b = goal.charAt(i);
+            ++cnt1[a - 'a'];
+            ++cnt2[b - 'a'];
+            if (a != b) {
+                ++diff;
+            }
+        }
+        boolean f = false;
+        for (int i = 0; i < 26; ++i) {
+            if (cnt1[i] != cnt2[i]) {
+                return false;
+            }
+            if (cnt1[i] > 1) {
+                f = true;
+            }
+        }
+        return diff == 2 || (diff == 0 && f);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool buddyStrings(string s, string goal) {
+        int m = s.size(), n = goal.size();
+        if (m != n) return false;
+        int diff = 0;
+        vector<int> cnt1(26);
+        vector<int> cnt2(26);
+        for (int i = 0; i < n; ++i)
+        {
+            ++cnt1[s[i] - 'a'];
+            ++cnt2[goal[i] - 'a'];
+            if (s[i] != goal[i]) ++diff;
+        }
+        bool f = false;
+        for (int i = 0; i < 26; ++i)
+        {
+            if (cnt1[i] != cnt2[i]) return false;
+            if (cnt1[i] > 1) f = true;
+        }
+        return diff == 2 || (diff == 0 && f);
+    }
+};
+```
+
+### **Go**
+
+```go
+func buddyStrings(s string, goal string) bool {
+	m, n := len(s), len(goal)
+	if m != n {
+		return false
+	}
+	diff := 0
+	cnt1 := make([]int, 26)
+	cnt2 := make([]int, 26)
+	for i := 0; i < n; i++ {
+		cnt1[s[i]-'a']++
+		cnt2[goal[i]-'a']++
+		if s[i] != goal[i] {
+			diff++
+		}
+	}
+	f := false
+	for i := 0; i < 26; i++ {
+		if cnt1[i] != cnt2[i] {
+			return false
+		}
+		if cnt1[i] > 1 {
+			f = true
+		}
+	}
+	return diff == 2 || (diff == 0 && f)
+}
 ```
 
 ### **...**
