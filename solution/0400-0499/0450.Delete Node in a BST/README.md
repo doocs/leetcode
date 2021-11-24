@@ -48,7 +48,6 @@ key = 3
     4   7
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -60,7 +59,32 @@ key = 3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+        if root is None:
+            return None
+        if root.val > key:
+            root.left = self.deleteNode(root.left, key)
+            return root
+        if root.val < key:
+            root.right = self.deleteNode(root.right, key)
+            return root
+        if root.left is None:
+            return root.right
+        if root.right is None:
+            return root.left
+        node = root.right
+        while node.left:
+            node = node.left
+        node.left = root.left
+        root = root.right
+        return root
 ```
 
 ### **Java**
@@ -68,7 +92,127 @@ key = 3
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode deleteNode(TreeNode root, int key) {
+        if (root == null) {
+            return null;
+        }
+        if (root.val > key) {
+            root.left = deleteNode(root.left, key);
+            return root;
+        }
+        if (root.val < key) {
+            root.right = deleteNode(root.right, key);
+            return root;
+        }
+        if (root.left == null) {
+            return root.right;
+        }
+        if (root.right == null) {
+            return root.left;
+        }
+        TreeNode node = root.right;
+        while (node.left != null) {
+            node = node.left;
+        }
+        node.left = root.left;
+        root = root.right;
+        return root;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* deleteNode(TreeNode* root, int key) {
+        if (!root) return root;
+        if (root->val > key)
+        {
+            root->left = deleteNode(root->left, key);
+            return root;
+        }
+        if (root->val < key)
+        {
+            root->right = deleteNode(root->right, key);
+            return root;
+        }
+        if (!root->left) return root->right;
+        if (!root->right) return root->left;
+        TreeNode* node = root->right;
+        while (node->left) node = node->left;
+        node->left = root->left;
+        root = root->right;
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func deleteNode(root *TreeNode, key int) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	if root.Val > key {
+		root.Left = deleteNode(root.Left, key)
+		return root
+	}
+	if root.Val < key {
+		root.Right = deleteNode(root.Right, key)
+		return root
+	}
+	if root.Left == nil {
+		return root.Right
+	}
+	if root.Right == nil {
+		return root.Left
+	}
+	node := root.Right
+	for node.Left != nil {
+		node = node.Left
+	}
+	node.Left = root.Left
+	root = root.Right
+	return root
+}
 ```
 
 ### **...**
