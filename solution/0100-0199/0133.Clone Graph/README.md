@@ -76,7 +76,6 @@
 	<li>图是连通图，你可以从给定节点访问到所有节点。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -88,7 +87,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+"""
 
+
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        visited = defaultdict()
+
+        def clone(node):
+            if node is None:
+                return None
+            if node in visited:
+                return visited[node]
+            c = Node(node.val)
+            visited[node] = c
+            for e in node.neighbors:
+                c.neighbors.append(clone(e))
+            return c
+
+        return clone(node)
 ```
 
 ### **Java**
@@ -96,7 +119,44 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> neighbors;
+    public Node() {
+        val = 0;
+        neighbors = new ArrayList<Node>();
+    }
+    public Node(int _val) {
+        val = _val;
+        neighbors = new ArrayList<Node>();
+    }
+    public Node(int _val, ArrayList<Node> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+}
+*/
 
+class Solution {
+    private Map<Node, Node> visited = new HashMap<>();
+
+    public Node cloneGraph(Node node) {
+        if (node == null) {
+            return null;
+        }
+        if (visited.containsKey(node)) {
+            return visited.get(node);
+        }
+        Node clone = new Node(node.val);
+        visited.put(node, clone);
+        for (Node e : node.neighbors) {
+            clone.neighbors.add(cloneGraph(e));
+        }
+        return clone;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -114,7 +174,7 @@
  * }
  */
 
-function cloneGraph(node: Node | null): Node | null {
+ function cloneGraph(node: Node | null): Node | null {
     if (node == null) return null;
 
     const visited = new Map();
@@ -134,6 +194,79 @@ function cloneGraph(node: Node | null): Node | null {
     }
     return visited.get(node);
 };
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> neighbors;
+    Node() {
+        val = 0;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val) {
+        val = _val;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val, vector<Node*> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+};
+*/
+
+class Solution {
+public:
+    unordered_map<Node*, Node*> visited;
+
+    Node* cloneGraph(Node* node) {
+        if (!node) return nullptr;
+        if (visited.count(node)) return visited[node];
+        Node* clone = new Node(node->val);
+        visited[node] = clone;
+        for (auto& e : node->neighbors)
+            clone->neighbors.push_back(cloneGraph(e));
+        return clone;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Neighbors []*Node
+ * }
+ */
+
+func cloneGraph(node *Node) *Node {
+	visited := map[*Node]*Node{}
+	var clone func(node *Node) *Node
+	clone = func(node *Node) *Node {
+		if node == nil {
+			return nil
+		}
+		if _, ok := visited[node]; ok {
+			return visited[node]
+		}
+		c := &Node{node.Val, []*Node{}}
+		visited[node] = c
+		for _, e := range node.Neighbors {
+			c.Neighbors = append(c.Neighbors, clone(e))
+		}
+		return c
+	}
+
+	return clone(node)
+}
 ```
 
 ### **...**
