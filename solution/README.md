@@ -1356,6 +1356,7 @@
 |  [1343](https://leetcode-cn.com/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold)  |  [大小为 K 且平均值大于等于阈值的子数组数目](/solution/1300-1399/1343.Number%20of%20Sub-arrays%20of%20Size%20K%20and%20Average%20Greater%20than%20or%20Equal%20to%20Threshold/README.md)  |  `数组`,`滑动窗口`  |  中等  |    |
 |  [1344](https://leetcode-cn.com/problems/angle-between-hands-of-a-clock)  |  [时钟指针的夹角](/solution/1300-1399/1344.Angle%20Between%20Hands%20of%20a%20Clock/README.md)  |  `数学`  |  中等  |    |
 |  [1345](https://leetcode-cn.com/problems/jump-game-iv)  |  [跳跃游戏 IV](/solution/1300-1399/1345.Jump%20Game%20IV/README.md)  |  `广度优先搜索`,`数组`,`哈希表`  |  困难  |    |
+|  [1346](https://leetcode-cn.com/problems/check-if-n-and-its-double-exist)  |  [检查整数及其两倍数是否存在](/solution/1300-1399/1346.Check%20If%20N%20and%20Its%20Double%20Exist/README.md)  |  `数组`,`哈希表`,`双指针`,`二分查找`,`排序`  |  简单  |    |
 |  [1347](https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram)  |  [制造字母异位词的最小步骤数](/solution/1300-1399/1347.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram/README.md)  |  `哈希表`,`字符串`  |  中等  |    |
 |  [1348](https://leetcode-cn.com/problems/tweet-counts-per-frequency)  |  [推文计数](/solution/1300-1399/1348.Tweet%20Counts%20Per%20Frequency/README.md)  |  `设计`,`哈希表`,`二分查找`,`有序集合`,`排序`  |  中等  |    |
 |  [1349](https://leetcode-cn.com/problems/maximum-students-taking-exam)  |  [参加考试的最大学生数](/solution/1300-1399/1349.Maximum%20Students%20Taking%20Exam/README.md)  |  `位运算`,`数组`,`动态规划`,`状态压缩`,`矩阵`  |  困难  |    |
@@ -1542,6 +1543,7 @@
 |  [1530](https://leetcode-cn.com/problems/number-of-good-leaf-nodes-pairs)  |  [好叶子节点对的数量](/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |    |
 |  [1531](https://leetcode-cn.com/problems/string-compression-ii)  |  [压缩字符串 II](/solution/1500-1599/1531.String%20Compression%20II/README.md)  |  `字符串`,`动态规划`  |  困难  |    |
 |  [1532](https://leetcode-cn.com/problems/the-most-recent-three-orders)  |  [最近的三笔订单](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md)  |  `数据库`  |  中等  |  🔒  |
+|  [1533](https://leetcode-cn.com/problems/find-the-index-of-the-large-integer)  |  [找到最大整数的索引](/solution/1500-1599/1533.Find%20the%20Index%20of%20the%20Large%20Integer/README.md)  |  `数组`,`二分查找`,`交互`  |  中等  |  🔒  |
 |  [1534](https://leetcode-cn.com/problems/count-good-triplets)  |  [统计好三元组](/solution/1500-1599/1534.Count%20Good%20Triplets/README.md)  |  `数组`,`枚举`  |  简单  |    |
 |  [1535](https://leetcode-cn.com/problems/find-the-winner-of-an-array-game)  |  [找出数组游戏的赢家](/solution/1500-1599/1535.Find%20the%20Winner%20of%20an%20Array%20Game/README.md)  |  `数组`,`模拟`  |  中等  |    |
 |  [1536](https://leetcode-cn.com/problems/minimum-swaps-to-arrange-a-binary-grid)  |  [排布二进制网格的最少交换次数](/solution/1500-1599/1536.Minimum%20Swaps%20to%20Arrange%20a%20Binary%20Grid/README.md)  |  `贪心`,`数组`,`矩阵`  |  中等  |    |
@@ -2085,11 +2087,13 @@
 |  [2074](https://leetcode-cn.com/problems/reverse-nodes-in-even-length-groups)  |  [反转偶数长度组的节点](/solution/2000-2099/2074.Reverse%20Nodes%20in%20Even%20Length%20Groups/README.md)  |  `链表`  |  中等  |    |
 |  [2075](https://leetcode-cn.com/problems/decode-the-slanted-ciphertext)  |  [解码斜向换位密码](/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/README.md)  |  `字符串`,`模拟`  |  中等  |    |
 |  [2076](https://leetcode-cn.com/problems/process-restricted-friend-requests)  |  [处理含限制条件的好友请求](/solution/2000-2099/2076.Process%20Restricted%20Friend%20Requests/README.md)  |  `并查集`,`图`  |  困难  |    |
-|  [2077](https://leetcode-cn.com/problems/paths-in-maze-that-lead-to-same-room)  |  [Paths in Maze That Lead to Same Room](/solution/2000-2099/2077.Paths%20in%20Maze%20That%20Lead%20to%20Same%20Room/README.md)  |    |  中等  |  🔒  |
-|  [2078](https://leetcode-cn.com/problems/two-furthest-houses-with-different-colors)  |  [两栋颜色不同且距离最远的房子](/solution/2000-2099/2078.Two%20Furthest%20Houses%20With%20Different%20Colors/README.md)  |    |  简单  |    |
+|  [2077](https://leetcode-cn.com/problems/paths-in-maze-that-lead-to-same-room)  |  [Paths in Maze That Lead to Same Room](/solution/2000-2099/2077.Paths%20in%20Maze%20That%20Lead%20to%20Same%20Room/README.md)  |  `图`  |  中等  |  🔒  |
+|  [2078](https://leetcode-cn.com/problems/two-furthest-houses-with-different-colors)  |  [两栋颜色不同且距离最远的房子](/solution/2000-2099/2078.Two%20Furthest%20Houses%20With%20Different%20Colors/README.md)  |  `贪心`,`数组`  |  简单  |    |
 |  [2079](https://leetcode-cn.com/problems/watering-plants)  |  [给植物浇水](/solution/2000-2099/2079.Watering%20Plants/README.md)  |  `数组`  |  中等  |    |
-|  [2080](https://leetcode-cn.com/problems/range-frequency-queries)  |  [区间内查询数字的频率](/solution/2000-2099/2080.Range%20Frequency%20Queries/README.md)  |  `数组`,`二分查找`  |  中等  |    |
-|  [2081](https://leetcode-cn.com/problems/sum-of-k-mirror-numbers)  |  [k 镜像数字的和](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md)  |    |  困难  |    |
+|  [2080](https://leetcode-cn.com/problems/range-frequency-queries)  |  [区间内查询数字的频率](/solution/2000-2099/2080.Range%20Frequency%20Queries/README.md)  |  `设计`,`线段树`,`数组`,`哈希表`,`二分查找`  |  中等  |    |
+|  [2081](https://leetcode-cn.com/problems/sum-of-k-mirror-numbers)  |  [k 镜像数字的和](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md)  |  `数学`,`枚举`  |  困难  |    |
+|  [2082](https://leetcode-cn.com/problems/the-number-of-rich-customers)  |  [The Number of Rich Customers](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md)  |  `数据库`  |  简单  |  🔒  |
+|  [2083](https://leetcode-cn.com/problems/substrings-that-begin-and-end-with-the-same-letter)  |  [Substrings That Begin and End With the Same Letter](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 

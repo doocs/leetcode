@@ -51,13 +51,9 @@
 #         self.right = right
 class Solution:
     def searchBST(self, root: TreeNode, val: int) -> TreeNode:
-        if root is None:
-            return None
-        if root.val == val:
+        if root is None or root.val == val:
             return root
-        if root.val < val:
-            return self.searchBST(root.right, val)
-        return self.searchBST(root.left, val)
+        return self.searchBST(root.right, val) if root.val < val else self.searchBST(root.left, val)
 ```
 
 ### **Java**
@@ -82,16 +78,10 @@ class Solution:
  */
 class Solution {
     public TreeNode searchBST(TreeNode root, int val) {
-        if (root == null) {
-            return null;
-        }
-        if (root.val == val) {
+        if (root == null || root.val == val) {
             return root;
         }
-        if (root.val < val) {
-            return searchBST(root.right, val);
-        }
-        return searchBST(root.left, val);
+        return root.val < val ? searchBST(root.right, val) : searchBST(root.left, val);
     }
 }
 ```
@@ -113,10 +103,8 @@ class Solution {
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
-        if (root == nullptr) return nullptr;
-        if (root->val == val) return root;
-        if (root->val < val) return searchBST(root->right, val);
-        return searchBST(root->left, val);
+        if (!root || root->val == val) return root;
+        return root->val < val ? searchBST(root->right, val) : searchBST(root->left, val);
     }
 };
 ```
@@ -133,10 +121,7 @@ public:
  * }
  */
 func searchBST(root *TreeNode, val int) *TreeNode {
-	if root == nil {
-		return nil
-	}
-	if root.Val == val {
+	if root == nil || root.Val == val {
 		return root
 	}
 	if root.Val < val {

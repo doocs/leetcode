@@ -2122,3 +2122,5 @@
   - [2079.Watering Plants](/solution/2000-2099/2079.Watering%20Plants/README_EN.md)
   - [2080.Range Frequency Queries](/solution/2000-2099/2080.Range%20Frequency%20Queries/README_EN.md)
   - [2081.Sum of k-Mirror Numbers](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README_EN.md)
+  - [2082.The Number of Rich Customers](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README_EN.md)
+  - [2083.Substrings That Begin and End With the Same Letter](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README_EN.md)
