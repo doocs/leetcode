@@ -20,7 +20,7 @@ class Solution {
         }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<Integer> res = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
         while (!q.isEmpty()) {
             int t = Integer.MIN_VALUE;
             for (int i = 0, n = q.size(); i < n; ++i) {
@@ -33,8 +33,8 @@ class Solution {
                     q.offer(node.right);
                 }
             }
-            res.add(t);
+            ans.add(t);
         }
-        return res;
+        return ans;
     }
 }

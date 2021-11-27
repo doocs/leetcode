@@ -8,8 +8,8 @@ class Solution:
     def largestValues(self, root: TreeNode) -> List[int]:
         if root is None:
             return []
-        q = collections.deque([root])
-        res = []
+        q = deque([root])
+        ans = []
         while q:
             n = len(q)
             t = float('-inf')
@@ -20,5 +20,5 @@ class Solution:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            res.append(t)
-        return res
+            ans.append(t)
+        return ans
