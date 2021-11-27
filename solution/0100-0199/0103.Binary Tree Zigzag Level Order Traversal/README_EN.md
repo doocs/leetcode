@@ -54,13 +54,12 @@ class Solution:
     def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
             return []
-        res = []
-        q = collections.deque([root])
-        left = False
+        left, ans = False, []
+        q = deque([root])
         while q:
-            size = len(q)
+            n = len(q)
             t = []
-            for _ in range(size):
+            for _ in range(n):
                 node = q.popleft()
                 t.append(node.val)
                 if node.left:
@@ -69,9 +68,9 @@ class Solution:
                     q.append(node.right)
             if left:
                 t.reverse()
-            res.append(t)
+            ans.append(t)
             left = not left
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -99,12 +98,11 @@ class Solution {
         }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<List<Integer>> res = new ArrayList<>();
         boolean left = false;
+        List<List<Integer>> ans = new ArrayList<>();
         while (!q.isEmpty()) {
-            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            while (size-- > 0) {
+            for (int i = 0, n = q.size(); i < n; ++i) {
                 TreeNode node = q.pollFirst();
                 t.add(node.val);
                 if (node.left != null) {
@@ -117,11 +115,99 @@ class Solution {
             if (left) {
                 Collections.reverse(t);
             }
-            res.add(t);
+            ans.add(t);
             left = !left;
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        if (!root) return {};
+        queue<TreeNode*> q{{root}};
+        vector<vector<int>> ans;
+        bool left = false;
+        while (!q.empty())
+        {
+            vector<int> t;
+            for (int i = 0, n = q.size(); i < n; ++i)
+            {
+                auto node = q.front();
+                q.pop();
+                t.push_back(node->val);
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+            if (left) reverse(t.begin(), t.end());
+            ans.push_back(t);
+            left = !left;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func zigzagLevelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return nil
+	}
+	var ans [][]int
+	var q = []*TreeNode{root}
+	left := false
+	for len(q) > 0 {
+		var t []int
+		n := len(q)
+		for i := 0; i < n; i++ {
+			node := q[0]
+			q = q[1:]
+			t = append(t, node.Val)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		if left {
+			i, j := 0, n-1
+			for i < j {
+				t[i], t[j] = t[j], t[i]
+				i++
+				j--
+			}
+		}
+		ans = append(ans, t)
+		left = !left
+	}
+	return ans
 }
 ```
 
@@ -140,33 +226,32 @@ class Solution {
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var zigzagLevelOrder = function (root) {
+var zigzagLevelOrder = function(root) {
     if (!root) {
         return [];
     }
-    let res = [], q = [];
-    q.push(root);
-    let leftToRight = true;
+    let ans = [];
+    let q = [root];
+    let left = false;
     while (q.length) {
-        let levelSize = q.length, levelOutput = [];
-        for (let i = 0; i < levelSize; i++) {
-            let cur = q.shift();
-            if (cur.left) {
-                q.push(cur.left);
+        let t = [];
+        for (let i = 0, n = q.length; i < n; ++i) {
+            const node = q.shift();
+            t.push(node.val);
+            if (node.left) {
+                q.push(node.left);
             }
-            if (cur.right) {
-                q.push(cur.right);
-            }
-            if (leftToRight) {
-                levelOutput.push(cur.val);
-            } else {
-                levelOutput.unshift(cur.val);
+            if (node.right) {
+                q.push(node.right);
             }
         }
-        res.push(levelOutput);
-        leftToRight = !leftToRight;
+        if (left) {
+            t.reverse();
+        }
+        ans.push(t);
+        left = !left;
     }
-    return res;
+    return ans;
 };
 ```
 

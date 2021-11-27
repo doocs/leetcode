@@ -20,12 +20,11 @@ class Solution {
         }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<List<Integer>> res = new ArrayList<>();
         boolean left = false;
+        List<List<Integer>> ans = new ArrayList<>();
         while (!q.isEmpty()) {
-            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            while (size-- > 0) {
+            for (int i = 0, n = q.size(); i < n; ++i) {
                 TreeNode node = q.pollFirst();
                 t.add(node.val);
                 if (node.left != null) {
@@ -38,9 +37,9 @@ class Solution {
             if (left) {
                 Collections.reverse(t);
             }
-            res.add(t);
+            ans.add(t);
             left = !left;
         }
-        return res;
+        return ans;
     }
 }

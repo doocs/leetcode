@@ -47,30 +47,28 @@
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
             return []
-        res = []
-        q = []
-        q.append(root)
+        ans = []
+        q = deque([root])
         while q:
-            size = len(q)
+            n = len(q)
             t = []
-            for _ in range(size):
-                node = q.pop(0)
-                if node.left is not None:
-                    q.append(node.left)
-                if node.right is not None:
-                    q.append(node.right)
+            for _ in range(n):
+                node = q.popleft()
                 t.append(node.val)
-            res.append(t)
-        return res
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            ans.append(t)
+        return ans
 ```
 
 ### **Java**
@@ -84,27 +82,38 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) return Collections.emptyList();
+        if (root == null) {
+            return Collections.emptyList();
+        }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
         while (!q.isEmpty()) {
-            int size = q.size();
             List<Integer> t = new ArrayList<>();
-            while (size-- > 0) {
-                TreeNode node = q.poll();
+            for (int i = 0, n = q.size(); i < n; ++i) {
+                TreeNode node = q.pollFirst();
                 t.add(node.val);
-                if (node.left != null) q.offer(node.left);
-                if (node.right != null) q.offer(node.right);
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
             }
-            res.add(t);
+            ans.add(t);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -118,28 +127,108 @@ class Solution {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
         if (!root) return {};
-        vector<vector<int>> res;
+        vector<vector<int>> ans;
         queue<TreeNode*> q{{root}};
-        while (!q.empty()) {
-            vector<int> oneLevel;
-            for (int i = q.size(); i > 0; --i) {
-                TreeNode* t = q.front();
+        while (!q.empty())
+        {
+            vector<int> t;
+            for (int i = 0, n = q.size(); i < n; ++i)
+            {
+                auto node = q.front();
                 q.pop();
-                oneLevel.push_back(t->val);
-                if (t->left) q.push(t->left);
-                if (t->right) q.push(t->right);
+                t.push_back(node->val);
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
             }
-            res.push_back(oneLevel);
+            ans.push_back(t);
         }
-        return res;
+        return ans;
     }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func levelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return nil
+	}
+	var ans [][]int
+	var q = []*TreeNode{root}
+	for len(q) > 0 {
+		var t []int
+		n := len(q)
+		for i := 0; i < n; i++ {
+			node := q[0]
+			q = q[1:]
+			t = append(t, node.Val)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		ans = append(ans, t)
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+var levelOrder = function(root) {
+    if (!root) {
+        return [];
+    }
+    let ans = [];
+    let q = [root];
+    while (q.length) {
+        let t = [];
+        for (let i = 0, n = q.length; i < n; ++i) {
+            const node = q.shift();
+            t.push(node.val);
+            if (node.left) {
+                q.push(node.left);
+            }
+            if (node.right) {
+                q.push(node.right);
+            }
+        }
+        ans.push(t);
+    }
+    return ans;
 };
 ```
 
