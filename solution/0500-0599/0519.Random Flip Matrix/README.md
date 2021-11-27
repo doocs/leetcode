@@ -36,7 +36,6 @@
 
 <p>输入包含两个列表：被调用的子程序和他们的参数。<code>Solution</code> 的构造函数有两个参数，分别为 <code>n_rows</code> 和 <code>n_cols</code>。<code>flip</code>&nbsp;和 <code>reset</code> 没有参数，参数总会以列表形式给出，哪怕该列表为空</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -48,7 +47,29 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
 
+    def __init__(self, m: int, n: int):
+        self.m = m
+        self.n = n
+        self.total = m * n
+        self.mp = {}
+
+    def flip(self) -> List[int]:
+        self.total -= 1
+        x = random.randint(0, self.total)
+        idx = self.mp.get(x, x)
+        self.mp[x] = self.mp.get(self.total, self.total)
+        return [idx // self.n, idx % self.n]
+
+    def reset(self) -> None:
+        self.total = self.m * self.n
+        self.mp.clear()
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(m, n)
+# param_1 = obj.flip()
+# obj.reset()
 ```
 
 ### **Java**
@@ -56,7 +77,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int m;
+    private int n;
+    private int total;
+    private Random rand = new Random();
+    private Map<Integer, Integer> mp = new HashMap<>();
 
+    public Solution(int m, int n) {
+        this.m = m;
+        this.n = n;
+        this.total = m * n;
+    }
+    
+    public int[] flip() {
+        int x = rand.nextInt(total--);
+        int idx = mp.getOrDefault(x, x);
+        mp.put(x, mp.getOrDefault(total, total));
+        return new int[]{idx / n, idx % n};
+    }
+    
+    public void reset() {
+        total = m * n;
+        mp.clear();
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(m, n);
+ * int[] param_1 = obj.flip();
+ * obj.reset();
+ */
 ```
 
 ### **...**
