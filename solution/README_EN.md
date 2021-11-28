@@ -2092,6 +2092,11 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2081](https://leetcode.com/problems/sum-of-k-mirror-numbers)  |  [Sum of k-Mirror Numbers](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README_EN.md)  |  `Math`,`Enumeration`  |  Hard  |    |
 |  [2082](https://leetcode.com/problems/the-number-of-rich-customers)  |  [The Number of Rich Customers](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  [2083](https://leetcode.com/problems/substrings-that-begin-and-end-with-the-same-letter)  |  [Substrings That Begin and End With the Same Letter](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README_EN.md)  |    |  Medium  |  🔒  |
+|  [2084](https://leetcode.com/problems/drop-type-1-orders-for-customers-with-type-0-orders)  |  [Drop Type 1 Orders for Customers With Type 0 Orders](/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README_EN.md)  |    |  Medium  |  🔒  |
+|  [2085](https://leetcode.com/problems/count-common-words-with-one-occurrence)  |  [Count Common Words With One Occurrence](/solution/2000-2099/2085.Count%20Common%20Words%20With%20One%20Occurrence/README_EN.md)  |    |  Easy  |    |
+|  [2086](https://leetcode.com/problems/minimum-number-of-buckets-required-to-collect-rainwater-from-houses)  |  [Minimum Number of Buckets Required to Collect Rainwater from Houses](/solution/2000-2099/2086.Minimum%20Number%20of%20Buckets%20Required%20to%20Collect%20Rainwater%20from%20Houses/README_EN.md)  |    |  Medium  |    |
+|  [2087](https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid)  |  [Minimum Cost Homecoming of a Robot in a Grid](/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README_EN.md)  |    |  Medium  |    |
+|  [2088](https://leetcode.com/problems/count-fertile-pyramids-in-a-land)  |  [Count Fertile Pyramids in a Land](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

@@ -847,7 +847,7 @@
 |  [0834](https://leetcode-cn.com/problems/sum-of-distances-in-tree)  |  [树中距离之和](/solution/0800-0899/0834.Sum%20of%20Distances%20in%20Tree/README.md)  |  `树`,`深度优先搜索`,`图`,`动态规划`  |  困难  |    |
 |  [0835](https://leetcode-cn.com/problems/image-overlap)  |  [图像重叠](/solution/0800-0899/0835.Image%20Overlap/README.md)  |  `数组`,`矩阵`  |  中等  |    |
 |  [0836](https://leetcode-cn.com/problems/rectangle-overlap)  |  [矩形重叠](/solution/0800-0899/0836.Rectangle%20Overlap/README.md)  |  `几何`,`数学`  |  简单  |    |
-|  [0837](https://leetcode-cn.com/problems/new-21-game)  |  [新21点](/solution/0800-0899/0837.New%2021%20Game/README.md)  |  `数学`,`动态规划`,`滑动窗口`,`概率与统计`  |  中等  |    |
+|  [0837](https://leetcode-cn.com/problems/new-21-game)  |  [新 21 点](/solution/0800-0899/0837.New%2021%20Game/README.md)  |  `数学`,`动态规划`,`滑动窗口`,`概率与统计`  |  中等  |    |
 |  [0838](https://leetcode-cn.com/problems/push-dominoes)  |  [推多米诺](/solution/0800-0899/0838.Push%20Dominoes/README.md)  |  `双指针`,`字符串`,`动态规划`  |  中等  |    |
 |  [0839](https://leetcode-cn.com/problems/similar-string-groups)  |  [相似字符串组](/solution/0800-0899/0839.Similar%20String%20Groups/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`字符串`  |  困难  |    |
 |  [0840](https://leetcode-cn.com/problems/magic-squares-in-grid)  |  [矩阵中的幻方](/solution/0800-0899/0840.Magic%20Squares%20In%20Grid/README.md)  |  `数组`,`数学`,`矩阵`  |  中等  |    |
@@ -1981,7 +1981,7 @@
 |  [1968](https://leetcode-cn.com/problems/array-with-elements-not-equal-to-average-of-neighbors)  |  [构造元素不等于两相邻元素平均值的数组](/solution/1900-1999/1968.Array%20With%20Elements%20Not%20Equal%20to%20Average%20of%20Neighbors/README.md)  |  `贪心`,`数组`,`排序`  |  中等  |    |
 |  [1969](https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements)  |  [数组元素的最小非零乘积](/solution/1900-1999/1969.Minimum%20Non-Zero%20Product%20of%20the%20Array%20Elements/README.md)  |  `贪心`,`递归`,`数学`  |  中等  |    |
 |  [1970](https://leetcode-cn.com/problems/last-day-where-you-can-still-cross)  |  [你能穿过矩阵的最后一天](/solution/1900-1999/1970.Last%20Day%20Where%20You%20Can%20Still%20Cross/README.md)  |  `深度优先搜索`,`广度优先搜索`,`并查集`,`数组`,`二分查找`,`矩阵`  |  困难  |    |
-|  [1971](https://leetcode-cn.com/problems/find-if-path-exists-in-graph)  |  [Find if Path Exists in Graph](/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`  |  简单  |    |
+|  [1971](https://leetcode-cn.com/problems/find-if-path-exists-in-graph)  |  [寻找图中是否存在路径](/solution/1900-1999/1971.Find%20if%20Path%20Exists%20in%20Graph/README.md)  |  `深度优先搜索`,`广度优先搜索`,`图`  |  简单  |    |
 |  [1972](https://leetcode-cn.com/problems/first-and-last-call-on-the-same-day)  |  [First and Last Call On the Same Day](/solution/1900-1999/1972.First%20and%20Last%20Call%20On%20the%20Same%20Day/README.md)  |  `数据库`  |  困难  |  🔒  |
 |  [1973](https://leetcode-cn.com/problems/count-nodes-equal-to-sum-of-descendants)  |  [Count Nodes Equal to Sum of Descendants](/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/README.md)  |    |  中等  |  🔒  |
 |  [1974](https://leetcode-cn.com/problems/minimum-time-to-type-word-using-special-typewriter)  |  [使用特殊打字机键入单词的最少时间](/solution/1900-1999/1974.Minimum%20Time%20to%20Type%20Word%20Using%20Special%20Typewriter/README.md)  |  `贪心`,`字符串`  |  简单  |    |
@@ -2094,6 +2094,11 @@
 |  [2081](https://leetcode-cn.com/problems/sum-of-k-mirror-numbers)  |  [k 镜像数字的和](/solution/2000-2099/2081.Sum%20of%20k-Mirror%20Numbers/README.md)  |  `数学`,`枚举`  |  困难  |    |
 |  [2082](https://leetcode-cn.com/problems/the-number-of-rich-customers)  |  [The Number of Rich Customers](/solution/2000-2099/2082.The%20Number%20of%20Rich%20Customers/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  [2083](https://leetcode-cn.com/problems/substrings-that-begin-and-end-with-the-same-letter)  |  [Substrings That Begin and End With the Same Letter](/solution/2000-2099/2083.Substrings%20That%20Begin%20and%20End%20With%20the%20Same%20Letter/README.md)  |    |  中等  |  🔒  |
+|  [2084](https://leetcode-cn.com/problems/drop-type-1-orders-for-customers-with-type-0-orders)  |  [Drop Type 1 Orders for Customers With Type 0 Orders](/solution/2000-2099/2084.Drop%20Type%201%20Orders%20for%20Customers%20With%20Type%200%20Orders/README.md)  |    |  中等  |  🔒  |
+|  [2085](https://leetcode-cn.com/problems/count-common-words-with-one-occurrence)  |  [统计出现过一次的公共字符串](/solution/2000-2099/2085.Count%20Common%20Words%20With%20One%20Occurrence/README.md)  |    |  简单  |    |
+|  [2086](https://leetcode-cn.com/problems/minimum-number-of-buckets-required-to-collect-rainwater-from-houses)  |  [从房屋收集雨水需要的最少水桶数](/solution/2000-2099/2086.Minimum%20Number%20of%20Buckets%20Required%20to%20Collect%20Rainwater%20from%20Houses/README.md)  |    |  中等  |    |
+|  [2087](https://leetcode-cn.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid)  |  [网格图中机器人回家的最小代价](/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README.md)  |    |  中等  |    |
+|  [2088](https://leetcode-cn.com/problems/count-fertile-pyramids-in-a-land)  |  [统计农场中肥沃金字塔的数目](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README.md)  |    |  困难  |    |
 
 ## 版权
 

@@ -1,10 +1,10 @@
 class Solution {
     public List<Integer> findAnagrams(String s, String p) {
         int[] counter = new int[26];
-        for (int i = 0; i < p.length(); ++i) {
-            ++counter[p.charAt(i) - 'a'];
+        for (char c : p.toCharArray()) {
+            ++counter[c - 'a'];
         }
-        List<Integer> res = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
         int left = 0, right = 0;
         int[] t = new int[26];
         while (right < s.length()) {
@@ -14,11 +14,11 @@ class Solution {
                 --t[s.charAt(left) - 'a'];
                 ++left;
             }
-            if (right - left == p.length() - 1) {
-                res.add(left);
+            if (right - left + 1 == p.length()) {
+                ans.add(left);
             }
             ++right;
         }
-        return res;
+        return ans;
     }
 }

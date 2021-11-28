@@ -43,15 +43,11 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
-        n = len(s)
         chars = [0] * 26
-        for i in range(n):
+        for i in range(len(s)):
             chars[ord(s[i]) - ord('a')] += 1
             chars[ord(t[i]) - ord('a')] -= 1
-        for c in chars:
-            if c != 0:
-                return False
-        return True
+        return all(c == 0 for c in chars)
 ```
 
 ### **Java**
@@ -61,12 +57,11 @@ class Solution:
 ```java
 class Solution {
     public boolean isAnagram(String s, String t) {
-        int n;
-        if ((n = s.length()) != t.length()) {
+        if (s.length() != t.length()) {
             return false;
         }
         int[] chars = new int[26];
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < s.length(); ++i) {
             ++chars[s.charAt(i) - 'a'];
             --chars[t.charAt(i) - 'a'];
         }
@@ -138,6 +133,27 @@ func isAnagram(s string, t string) bool {
 	}
 	return true
 }
+```
+
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isAnagram = function(s, t) {
+    if (s.length != t.length) return false;
+    let record = new Array(26).fill(0);
+    let base = 'a'.charCodeAt(0);
+    for (let i = 0; i < s.length; ++i) {
+        ++record[s.charCodeAt(i) - base];
+        --record[t.charCodeAt(i) - base];
+    }
+    return record.every(v => v == 0);
+};
 ```
 
 ### **...**
