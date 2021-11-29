@@ -1673,7 +1673,6 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1662](https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent)  |  [Check If Two String Arrays are Equivalent](/solution/1600-1699/1662.Check%20If%20Two%20String%20Arrays%20are%20Equivalent/README_EN.md)  |  `Array`,`String`  |  Easy  |    |
 |  [1663](https://leetcode.com/problems/smallest-string-with-a-given-numeric-value)  |  [Smallest String With A Given Numeric Value](/solution/1600-1699/1663.Smallest%20String%20With%20A%20Given%20Numeric%20Value/README_EN.md)  |  `Greedy`,`String`  |  Medium  |    |
 |  [1664](https://leetcode.com/problems/ways-to-make-a-fair-array)  |  [Ways to Make a Fair Array](/solution/1600-1699/1664.Ways%20to%20Make%20a%20Fair%20Array/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
-|  [1665](https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks)  |  [Minimum Initial Energy to Finish Tasks](/solution/1600-1699/1665.Minimum%20Initial%20Energy%20to%20Finish%20Tasks/README_EN.md)  |  `Greedy`,`Array`,`Sorting`  |  Hard  |    |
 |  [1666](https://leetcode.com/problems/change-the-root-of-a-binary-tree)  |  [Change the Root of a Binary Tree](/solution/1600-1699/1666.Change%20the%20Root%20of%20a%20Binary%20Tree/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |  🔒  |
 |  [1667](https://leetcode.com/problems/fix-names-in-a-table)  |  [Fix Names in a Table](/solution/1600-1699/1667.Fix%20Names%20in%20a%20Table/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  [1668](https://leetcode.com/problems/maximum-repeating-substring)  |  [Maximum Repeating Substring](/solution/1600-1699/1668.Maximum%20Repeating%20Substring/README_EN.md)  |  `String`,`String Matching`  |  Easy  |    |
@@ -2097,6 +2096,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2086](https://leetcode.com/problems/minimum-number-of-buckets-required-to-collect-rainwater-from-houses)  |  [Minimum Number of Buckets Required to Collect Rainwater from Houses](/solution/2000-2099/2086.Minimum%20Number%20of%20Buckets%20Required%20to%20Collect%20Rainwater%20from%20Houses/README_EN.md)  |    |  Medium  |    |
 |  [2087](https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid)  |  [Minimum Cost Homecoming of a Robot in a Grid](/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README_EN.md)  |    |  Medium  |    |
 |  [2088](https://leetcode.com/problems/count-fertile-pyramids-in-a-land)  |  [Count Fertile Pyramids in a Land](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README_EN.md)  |    |  Hard  |    |
+|  [2089](https://leetcode.com/problems/find-target-indices-after-sorting-array)  |  [Find Target Indices After Sorting Array](/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README_EN.md)  |    |  Easy  |    |
+|  [2090](https://leetcode.com/problems/k-radius-subarray-averages)  |  [K Radius Subarray Averages](/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README_EN.md)  |    |  Medium  |    |
+|  [2091](https://leetcode.com/problems/removing-minimum-and-maximum-from-array)  |  [Removing Minimum and Maximum From Array](/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README_EN.md)  |    |  Medium  |    |
+|  [2092](https://leetcode.com/problems/find-all-people-with-secret)  |  [Find All People With Secret](/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

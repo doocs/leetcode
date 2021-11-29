@@ -2129,3 +2129,7 @@
   - [2086.Minimum Number of Buckets Required to Collect Rainwater from Houses](/solution/2000-2099/2086.Minimum%20Number%20of%20Buckets%20Required%20to%20Collect%20Rainwater%20from%20Houses/README_EN.md)
   - [2087.Minimum Cost Homecoming of a Robot in a Grid](/solution/2000-2099/2087.Minimum%20Cost%20Homecoming%20of%20a%20Robot%20in%20a%20Grid/README_EN.md)
   - [2088.Count Fertile Pyramids in a Land](/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/README_EN.md)
+  - [2089.Find Target Indices After Sorting Array](/solution/2000-2099/2089.Find%20Target%20Indices%20After%20Sorting%20Array/README_EN.md)
+  - [2090.K Radius Subarray Averages](/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README_EN.md)
+  - [2091.Removing Minimum and Maximum From Array](/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README_EN.md)
+  - [2092.Find All People With Secret](/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md)
