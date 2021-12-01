@@ -41,7 +41,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 746&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/min-cost-climbing-stairs/">https://leetcode-cn.com/problems/min-cost-climbing-stairs/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -53,7 +52,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        a = b = 0
+        for i in range(1, len(cost)):
+            a, b = b, min(a + cost[i - 1], b + cost[i])
+        return b
 ```
 
 ### **Java**
@@ -61,7 +65,66 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int a = 0, b = 0;
+        for (int i = 1; i < cost.length; ++i) {
+            int c = Math.min(a + cost[i - 1], b + cost[i]);
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+}
+```
 
+### **TypeScript**
+
+```ts
+function minCostClimbingStairs(cost: number[]): number {
+  let a = 0,
+    b = 0;
+  for (let i = 1; i < cost.length; ++i) {
+    [a, b] = [b, Math.min(a + cost[i - 1], b + cost[i])];
+  }
+  return b;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minCostClimbingStairs(vector<int>& cost) {
+        int a = 0, b = 0;
+        for (int i = 1; i < cost.size(); ++i) {
+            int c = min(a + cost[i - 1], b + cost[i]);
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minCostClimbingStairs(cost []int) int {
+	a, b := 0, 0
+	for i := 1; i < len(cost); i++ {
+		a, b = b, min(a+cost[i-1], b+cost[i])
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
