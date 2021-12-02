@@ -44,7 +44,6 @@
 	<li>All the values in <code>score</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -57,44 +56,78 @@ class Solution:
         n = len(score)
         idx = list(range(n))
         idx.sort(key=lambda x: -score[x])
-        res = [None] * n
+        top3 = ['Gold Medal', 'Silver Medal', 'Bronze Medal']
+        ans = [None] * n
         for i in range(n):
-            if i == 0:
-                res[idx[i]] = 'Gold Medal'
-            elif i == 1:
-                res[idx[i]] = 'Silver Medal'
-            elif i == 2:
-                res[idx[i]] = 'Bronze Medal'
-            else:
-                res[idx[i]] = str(i + 1)
-        return res
+            ans[idx[i]] = top3[i] if i < 3 else str(i + 1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public String[] findRelativeRanks(int[] nums) {
-        int n = nums.length;
-        Integer[] index = new Integer[n];
+    public String[] findRelativeRanks(int[] score) {
+        int n = score.length;
+        Integer[] idx = new Integer[n];
         for (int i = 0; i < n; ++i) {
-            index[i] = i;
+            idx[i] = i;
         }
-        Arrays.sort(index, (o1, o2) -> Integer.compare(nums[o2], nums[o1]));
-        String[] res = new String[n];
+        Arrays.sort(idx, (i1, i2) -> score[i2] - score[i1]);
+        String[] ans = new String[n];
+        String[] top3 = new String[]{"Gold Medal", "Silver Medal", "Bronze Medal"};
         for (int i = 0; i < n; ++i) {
-            if (i == 0) {
-                res[index[i]] = "Gold Medal";
-            } else if (i == 1) {
-                res[index[i]] = "Silver Medal";
-            } else if (i == 2) {
-                res[index[i]] = "Bronze Medal";
-            } else {
-                res[index[i]] = String.valueOf(i + 1);
-            }
+            ans[idx[i]] = i < 3 ? top3[i] : String.valueOf(i + 1);
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> findRelativeRanks(vector<int> &score) {
+        int n = score.size();
+        vector<pair<int, int>> idx;
+        for (int i = 0; i < n; ++i)
+            idx.push_back(make_pair(score[i], i));
+        sort(idx.begin(), idx.end(),
+             [&](const pair<int, int> &x, const pair<int, int> &y)
+             { return x.first > y.first; });
+        vector<string> ans(n);
+        vector<string> top3 = {"Gold Medal", "Silver Medal", "Bronze Medal"};
+        for (int i = 0; i < n; ++i)
+            ans[idx[i].second] = i < 3 ? top3[i] : to_string(i + 1);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findRelativeRanks(score []int) []string {
+	n := len(score)
+	idx := make([][]int, n)
+	for i := 0; i < n; i++ {
+		idx[i] = []int{score[i], i}
+	}
+	sort.Slice(idx, func(i1, i2 int) bool {
+		return idx[i1][0] > idx[i2][0]
+	})
+	ans := make([]string, n)
+	top3 := []string{"Gold Medal", "Silver Medal", "Bronze Medal"}
+	for i := 0; i < n; i++ {
+		if i < 3 {
+			ans[idx[i][1]] = top3[i]
+		} else {
+			ans[idx[i][1]] = strconv.Itoa(i + 1)
+		}
+	}
+	return ans
 }
 ```
 

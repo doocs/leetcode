@@ -3,14 +3,8 @@ class Solution:
         n = len(score)
         idx = list(range(n))
         idx.sort(key=lambda x: -score[x])
-        res = [None] * n
+        top3 = ['Gold Medal', 'Silver Medal', 'Bronze Medal']
+        ans = [None] * n
         for i in range(n):
-            if i == 0:
-                res[idx[i]] = 'Gold Medal'
-            elif i == 1:
-                res[idx[i]] = 'Silver Medal'
-            elif i == 2:
-                res[idx[i]] = 'Bronze Medal'
-            else:
-                res[idx[i]] = str(i + 1)
-        return res
+            ans[idx[i]] = top3[i] if i < 3 else str(i + 1)
+        return ans
