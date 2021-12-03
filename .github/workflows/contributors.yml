@@ -16,4 +16,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           svgPath: images/contributors.svg
           svgWidth: 890
-          commitMessage: "chore: update contributors to leetcode project @doocs"
+          commitMessage: "chore: auto update contributors"
