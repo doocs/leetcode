@@ -53,6 +53,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+单调栈。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -60,7 +62,22 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def canSeePersonsCount(self, heights: List[int]) -> List[int]:
+        n = len(heights)
+        ans = [0] * n
+        stack = list()
 
+        for i in range(n - 1, -1, -1):
+            while stack:
+                ans[i] += 1;
+                if heights[i] > stack[-1]:
+                    stack.pop()
+                else:
+                    break
+            stack.append(heights[i])
+        
+        return ans
 ```
 
 ### **Java**
@@ -71,10 +88,28 @@
 
 ```
 
-### **...**
+### **C++**
 
-```
-
+```cpp
+class Solution {
+public:
+    vector<int> canSeePersonsCount(vector<int>& heights) {
+        int n = heights.size();
+        vector<int> ans(n);
+        stack<int> stk;
+        for (int i = n  - 1; i >= 0; --i)
+        {
+            while (!stk.empty())
+            {
+                ans[i]++;
+                if (heights[i] <= stk.top()) break;
+                stk.pop();
+            }
+            stk.push(heights[i]);
+        }
+        return ans;
+    }
+};
 ```
 
 <!-- tabs:end -->
