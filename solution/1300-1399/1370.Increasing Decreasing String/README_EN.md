@@ -70,7 +70,6 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 	<li><code>s</code> contains only lower-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -78,13 +77,111 @@ After steps 4, 5 and 6 of the second iteration, result = &quot;abccbaabccba&quot
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sortString(self, s: str) -> str:
+        counter = [0] * 26
+        for c in s:
+            counter[ord(c) - ord('a')] += 1
+        ans = []
+        while len(ans) < len(s):
+            for i in range(26):
+                if counter[i]:
+                    ans.append(chr(i + ord('a')))
+                    counter[i] -= 1
+            for i in range(25, -1, -1):
+                if counter[i]:
+                    ans.append(chr(i + ord('a')))
+                    counter[i] -= 1
+        return ''.join(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String sortString(String s) {
+        int[] counter = new int[26];
+        for (char c : s.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        StringBuilder sb = new StringBuilder();
+        while (sb.length() < s.length()) {
+            for (int i = 0; i < 26; ++i) {
+                if (counter[i] > 0) {
+                    sb.append((char) ('a' + i));
+                    --counter[i];
+                }
+            }
+            for (int i = 25; i >= 0; --i) {
+                if (counter[i] > 0) {
+                    sb.append((char) ('a' + i));
+                    --counter[i];
+                }
+            }
+        }
+        return sb.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string sortString(string s) {
+        vector<int> counter(26);
+        for (char c : s) ++counter[c - 'a'];
+        string ans = "";
+        while (ans.size() < s.size())
+        {
+            for (int i = 0; i < 26; ++i)
+            {
+                if (counter[i])
+                {
+                    ans += (i + 'a');
+                    --counter[i];
+                }
+            }
+            for (int i = 25; i >= 0; --i)
+            {
+                if (counter[i])
+                {
+                    ans += (i + 'a');
+                    --counter[i];
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sortString(s string) string {
+	counter := ['z' + 1]int{}
+	for _, c := range s {
+		counter[c]++
+	}
+	var ans []byte
+	for len(ans) < len(s) {
+		for i := byte('a'); i <= 'z'; i++ {
+			if counter[i] > 0 {
+				ans = append(ans, i)
+				counter[i]--
+			}
+		}
+		for i := byte('z'); i >= 'a'; i-- {
+			if counter[i] > 0 {
+				ans = append(ans, i)
+				counter[i]--
+			}
+		}
+	}
+	return string(ans)
+}
 ```
 
 ### **...**
