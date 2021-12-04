@@ -94,16 +94,17 @@ class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
         ans = []
 
-        def dfs(i, path):
-            if i == len(graph) - 1:
-                ans.append(path.copy())
+        def dfs(t):
+            if t[-1] == len(graph) - 1:
+                ans.append(t.copy())
                 return
-            for j in graph[i]:
-                path.append(j)
-                dfs(j, path)
-                path.pop(-1)
+            
+            for v in graph[t[-1]]:
+                t.append(v)
+                dfs(t)
+                t.pop()
 
-        dfs(0, [0])
+        dfs([0])
         return ans
 ```
 
@@ -148,21 +149,22 @@ class Solution {
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         ans = new ArrayList<>();
         this.graph = graph;
-        List<Integer> path = new ArrayList<>();
-        path.add(0);
-        dfs(0, path);
+        List<Integer> t = new ArrayList<>();
+        t.add(0);
+        dfs(t);
         return ans;
     }
 
-    private void dfs(int i, List<Integer> path) {
-        if (i == graph.length - 1) {
-            ans.add(new ArrayList<>(path));
+    private void dfs(List<Integer> t) {
+        int cur = t.get(t.size() - 1);
+        if (cur == graph.length - 1) {
+            ans.add(new ArrayList<>(t));
             return;
         }
-        for (int j : graph[i]) {
-            path.add(j);
-            dfs(j, path);
-            path.remove(path.size() - 1);
+        for (int v : graph[cur]) {
+            t.add(v);
+            dfs(t);
+            t.remove(t.size() - 1);
         }
     }
 }
@@ -228,6 +230,35 @@ func allPathsSourceTarget(graph [][]int) [][]int {
 	dfs(0)
 	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} graph
+ * @return {number[][]}
+ */
+var allPathsSourceTarget = function(graph) {
+    const ans = [];
+    const t = [0];
+
+    const dfs = t => {
+        const cur = t[t.length - 1];
+        if (cur == graph.length - 1) {
+            ans.push([...t]);
+            return;
+        }
+        for (const v of graph[cur]) {
+            t.push(v);
+            dfs(t);
+            t.pop();
+        }
+    }
+
+    dfs(t);
+    return ans;
+};
 ```
 
 ### **...**
