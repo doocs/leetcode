@@ -41,7 +41,6 @@
 	<li>你可以假设两个字符串均只含有小写字母。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -57,13 +56,11 @@
 ```python
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        chars = {}
-        for i in magazine:
-            chars[i] = chars.get(i, 0) + 1
-        for i in ransomNote:
-            if not chars.get(i):
+        counter = Counter(magazine)
+        for c in ransomNote:
+            if counter[c] <= 0:
                 return False
-            chars[i] -= 1
+            counter[c] -= 1
         return True
 ```
 
@@ -74,15 +71,15 @@ class Solution:
 ```java
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        int[] chars = new int[26];
-        for (int i = 0, n = magazine.length(); i < n; ++i) {
-            int idx = magazine.charAt(i) - 'a';
-            ++chars[idx];
+        int[] counter = new int[26];
+        for (char c : magazine.toCharArray()) {
+            ++counter[c - 'a'];
         }
-        for (int i = 0, n = ransomNote.length(); i < n; ++i) {
-            int idx = ransomNote.charAt(i) - 'a';
-            if (chars[idx] == 0) return false;
-            --chars[idx];
+        for (char c : ransomNote.toCharArray()) {
+            if (counter[c - 'a'] <= 0) {
+                return false;
+            }
+            --counter[c - 'a'];
         }
         return true;
     }
@@ -104,6 +101,24 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
         --counter[idx];
     }
     return true;
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        vector<int> counter(26);
+        for (char c : magazine) ++counter[c - 'a'];
+        for (char c : ransomNote)
+        {
+            if (counter[c - 'a'] <= 0) return false;
+            --counter[c - 'a'];
+        }
+        return true;
+    }
 };
 ```
 
