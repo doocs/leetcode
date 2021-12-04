@@ -37,7 +37,6 @@
 
 <p><strong>进阶：</strong>你所设计算法的时间复杂度 <strong>必须</strong> 优于 <code>O(n log n)</code> ，其中 <code>n</code><em> </em>是数组大小。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -54,17 +53,14 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         counter = Counter(nums)
-
         hp = []
         for num, freq in counter.items():
             if len(hp) == k:
-                if freq > hp[0][0]:
-                    heapq.heappop(hp)
-                    heapq.heappush(hp, (freq, num))
+                heapq.heappush(hp, (freq, num))
+                heapq.heappop(hp)
             else:
                 heapq.heappush(hp, (freq, num))
-
-        return list(map(lambda t: t[1], hp))
+        return [t[1] for t in hp]
 ```
 
 ### **Java**
@@ -93,6 +89,59 @@ class Solution {
         return queue.stream().mapToInt(Map.Entry::getKey).toArray();
     }
 }
+```
+
+```java
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums) {
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        }
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+        counter.forEach((num, freq) -> {
+            if (pq.size() == k) {
+                pq.offer(new int[]{num, freq});
+                pq.poll();
+            } else {
+                pq.offer(new int[]{num, freq});
+            }
+        });
+        return pq.stream().mapToInt(e -> e[0]).toArray();
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    static bool cmp(pair<int, int>& m, pair<int, int>& n) {
+        return m.second > n.second;
+    }
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> counter;
+        for (auto& e : nums) ++counter[e];
+        priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(&cmp)> pq(cmp);
+        for (auto& [num, freq] : counter)
+        {
+            if (pq.size() == k)
+            {
+                pq.emplace(num, freq);
+                pq.pop();
+            }
+            else pq.emplace(num, freq);
+        }
+        vector<int> ans;
+        while (!pq.empty())
+        {
+            ans.push_back(pq.top().first);
+            pq.pop();
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**
