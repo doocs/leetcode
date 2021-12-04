@@ -42,7 +42,6 @@
 	<li>所有字符串中都仅包含小写英文字母</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -54,7 +53,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        counter = Counter(chars)
+        ans = 0
+        for word in words:
+            cnt = Counter(word)
+            if all([counter[c] >= v for c, v in cnt.items()]):
+                ans += len(word)
+        return ans
 ```
 
 ### **Java**
@@ -62,7 +69,99 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countCharacters(String[] words, String chars) {
+        int[] counter = count(chars);
+        int ans = 0;
+        for (String word : words) {
+            int[] cnt = count(word);
+            if (check(counter, cnt)) {
+                ans += word.length();
+            }
+        }
+        return ans;
+    }
 
+    private int[] count(String s) {
+        int[] counter = new int[26];
+        for (char c : s.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        return counter;
+    }
+
+    private boolean check(int[] cnt1, int[] cnt2) {
+        for (int i = 0; i < 26; ++i) {
+            if (cnt1[i] < cnt2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countCharacters(vector<string>& words, string chars) {
+        vector<int> counter = count(chars);
+        int ans = 0;
+        for (auto& word : words)
+        {
+            vector<int> cnt = count(word);
+            if (check(counter, cnt)) ans += word.size();
+        }
+        return ans;
+    }
+
+    vector<int> count(string s) {
+        vector<int> counter(26);
+        for (char c : s) ++counter[c - 'a'];
+        return counter;
+    }
+
+    bool check(vector<int>& cnt1, vector<int>& cnt2) {
+        for (int i = 0; i < 26; ++i)
+            if (cnt1[i] < cnt2[i]) return false;
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countCharacters(words []string, chars string) int {
+	counter := count(chars)
+	ans := 0
+	for _, word := range words {
+		cnt := count(word)
+		if check(counter, cnt) {
+			ans += len(word)
+		}
+	}
+	return ans
+}
+
+func count(s string) []int {
+	counter := make([]int, 26)
+	for _, c := range s {
+		counter[c-'a']++
+	}
+	return counter
+}
+
+func check(cnt1, cnt2 []int) bool {
+	for i := 0; i < 26; i++ {
+		if cnt1[i] < cnt2[i] {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**
