@@ -49,10 +49,11 @@
 	<li><code>b</code> 不含前导 0</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+乘方快速幂。
 
 <!-- tabs:start -->
 
@@ -61,7 +62,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def superPow(self, a: int, b: List[int]) -> int:
+        MOD = 1337
+        ans = 1
+        for e in b[::-1]:
+            ans = ans * pow(a, e, MOD) % MOD
+            a = pow(a, 10, MOD)
+        return ans
 ```
 
 ### **Java**
@@ -69,7 +77,89 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = 1337;
 
+    public int superPow(int a, int[] b) {
+        int ans = 1;
+        for (int i = b.length - 1; i >= 0; --i) {
+            ans = (int) ((long) ans * quickPowAndMod(a, b[i]) % MOD);
+            a = quickPowAndMod(a, 10);
+        }
+        return ans;
+    }
+
+    private int quickPowAndMod(int a, int b) {
+        int ans = 1;
+        while (b > 0) {
+            if ((b & 1) == 1) {
+                ans = (ans * (a % MOD)) % MOD;
+            }
+            b >>= 1;
+            a = (a % MOD) * (a % MOD) % MOD;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+    const int MOD = 1337;
+public:
+    int superPow(int a, vector<int>& b) {
+        int ans = 1;
+        for (int i = b.size() - 1; i >= 0; --i)
+        {
+            ans = (long) ans * quickPowAndMod(a, b[i]) % MOD;
+            a = quickPowAndMod(a, 10);
+        }
+        return ans;
+    }
+
+    int quickPowAndMod(int a, int b) {
+        int ans = 1;
+        while (b)
+        {
+            if (b & 1)
+            {
+                ans = (ans * (a % MOD)) % MOD;
+            }
+            b >>= 1;
+            a = ((a % MOD) * (a % MOD)) % MOD;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+const mod = 1337
+
+func superPow(a int, b []int) int {
+	ans := 1
+	for i := len(b) - 1; i >= 0; i-- {
+		ans = ans * quickPowAndMod(a, b[i]) % mod
+		a = quickPowAndMod(a, 10)
+	}
+	return ans
+}
+
+func quickPowAndMod(a, b int) int {
+	ans := 1
+	for b > 0 {
+		if b&1 > 0 {
+			ans = ans * a % mod
+		}
+		b >>= 1
+		a = ((a % mod) * (a % mod)) % mod
+	}
+	return ans
+}
 ```
 
 ### **...**
