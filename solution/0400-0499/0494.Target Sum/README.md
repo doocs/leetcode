@@ -43,9 +43,13 @@
 
 题目可以转换为 `0-1` 背包问题，只不过下标可能会出现负数，需要特殊处理。
 
+也可以用 DFS 记忆化搜索。
+
 <!-- tabs:start -->
 
 ### **Python3**
+
+**0-1 背包**
 
 ```python
 class Solution:
@@ -100,6 +104,23 @@ class Solution:
             for j in range(target - 1, nums[i - 1] - 1, -1):
                 dp[j] += dp[j - nums[i - 1]]
         return dp[-1]
+```
+
+**DFS**
+
+```python
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        @lru_cache(None)
+        def dfs(i, t):
+            if i == n:
+                if t == target:
+                    return 1
+                return 0
+            return dfs(i + 1, t + nums[i]) + dfs(i + 1, t - nums[i])
+
+        ans, n = 0, len(nums)
+        return dfs(0, 0)
 ```
 
 ### **Java**

@@ -39,22 +39,14 @@
 	<li><code>0 <= prices[i] <= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-动态规划
+动态规划。
 
-**dp[i][0]** 表示第 *i* 次买入后的收益，
+`dp[i][j][2]` 表示第 i 天，进行了 j 次交易后是否持有股票。其中 `dp[i][j][0]` 表示未持有股票，`dp[i][j][1]` 表示持有股票。
 
-**dp[i][1]** 表示第 *i* 次卖出后的收益。
-
-状态转移方程：
-
-**dp[i][0] = max{dp[i][0], dp[i - 1][1] + prices[i]}**
-
-**dp[i][1] = max{dp[i][1], dp[i][0] + prices[i]}**
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +54,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxProfit(self, k: int, prices: List[int]) -> int:
+        n = len(prices)
+        if n < 2:
+            return 0
+        dp = [[[0] * 2 for _ in range(k + 1)] for _ in range(n)]
+        for i in range(1, k + 1):
+            dp[0][i][1] = - prices[0]
+        for i in range(1, n):
+            for j in range(1, k + 1):
+                dp[i][j][0] = max(dp[i - 1][j][1] + prices[i], dp[i - 1][j][0])
+                dp[i][j][1] = max(dp[i - 1][j - 1][0] -
+                                  prices[i], dp[i - 1][j][1])
+        return dp[-1][k][0]
 ```
 
 ### **Java**
@@ -70,10 +75,38 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maxProfit(int k, int[] prices) {
+        int n = prices.length;
+        if (n <= 1) {
+            return 0;
+        }
+        int[][][] dp = new int[n][k + 1][2];
+        for (int i = 1; i <= k; ++i) {
+            dp[0][i][1] = -prices[0];
+        }
+        for (int i = 1; i < n; ++i) {
+            for (int j = 1; j <= k; ++j) {
+                dp[i][j][0] = Math.max(dp[i - 1][j][1] + prices[i], dp[i - 1][j][0]);
+                dp[i][j][1] = Math.max(dp[i - 1][j - 1][0] - prices[i], dp[i - 1][j][1]);
+            }
+        }
+        return dp[n - 1][k][0];
+    }
+}
 ```
 
 ### **C++**
+
+`dp[i][0]` 表示第 _i_ 次买入后的收益，`dp[i][1]` 表示第 _i_ 次卖出后的收益。
+
+状态转移方程：
+
+```bash
+dp[i][0] = max{dp[i][0], dp[i - 1][1] - prices[i]}
+
+dp[i][1] = max{dp[i][1], dp[i][0] + prices[i]}
+```
 
 ```cpp
 class Solution {
@@ -81,11 +114,11 @@ public:
     int maxProfit(int k, vector<int>& prices) {
         int dp[k + 1][2];
         memset(dp, 0, sizeof(dp));
-        for(int i = 1; i <= k && !prices.empty(); ++i) {
+        for (int i = 1; i <= k && !prices.empty(); ++i) {
             dp[i][0] = -prices[0];
         }
-        for(int i = 1; i < prices.size(); ++i) {
-            for(int j = 1; j <= k; ++j) {
+        for (int i = 1; i < prices.size(); ++i) {
+            for (int j = 1; j <= k; ++j) {
                 dp[j][0] = max(dp[j][0], dp[j - 1][1] - prices[i]);
                 dp[j][1] = max(dp[j][1], dp[j][0] + prices[i]);
             }
@@ -93,6 +126,47 @@ public:
         return dp[k][1];
     }
 };
+```
+
+### **Go**
+
+```go
+func maxProfit(k int, prices []int) int {
+	n := len(prices)
+	if n < 2 {
+		return 0
+	}
+	dp := make([][][]int, n)
+	for i := 0; i < n; i++ {
+		dp[i] = make([][]int, k+1)
+		for j := 0; j <= k; j++ {
+			dp[i][j] = make([]int, 2)
+		}
+	}
+	for i := 1; i <= k; i++ {
+		dp[0][i][1] = -prices[0]
+	}
+	for i := 1; i < n; i++ {
+		for j := 1; j <= k; j++ {
+			dp[i][j][0] = max(dp[i-1][j][1]+prices[i], dp[i-1][j][0])
+			dp[i][j][1] = max(dp[i-1][j-1][0]-prices[i], dp[i-1][j][1])
+		}
+	}
+	return dp[n-1][k][0]
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->
