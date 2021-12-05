@@ -2133,3 +2133,7 @@
   - [2090.K Radius Subarray Averages](/solution/2000-2099/2090.K%20Radius%20Subarray%20Averages/README_EN.md)
   - [2091.Removing Minimum and Maximum From Array](/solution/2000-2099/2091.Removing%20Minimum%20and%20Maximum%20From%20Array/README_EN.md)
   - [2092.Find All People With Secret](/solution/2000-2099/2092.Find%20All%20People%20With%20Secret/README_EN.md)
+  - [2094.Finding 3-Digit Even Numbers](/solution/2000-2099/2094.Finding%203-Digit%20Even%20Numbers/README_EN.md)
+  - [2095.Delete the Middle Node of a Linked List](/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README_EN.md)
+  - [2096.Step-By-Step Directions From a Binary Tree Node to Another](/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README_EN.md)
+  - [2097.Valid Arrangement of Pairs](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README_EN.md)
