@@ -209,6 +209,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Surrounded Regions](./solution/0100-0199/0130.Surrounded%20Regions/README_EN.md)
 - [Number of Provinces](./solution/0500-0599/0547.Number%20of%20Provinces/README_EN.md)
 - [Redundant Connection](./solution/0600-0699/0684.Redundant%20Connection/README_EN.md)
+- [Possible Bipartition](./solution/0800-0899/0886.Possible%20Bipartition/README_EN.md)
 
 ### Design
 

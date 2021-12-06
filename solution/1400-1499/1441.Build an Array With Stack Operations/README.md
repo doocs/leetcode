@@ -68,7 +68,6 @@
 	<li><code>target</code> 是严格递增的</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -80,7 +79,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def buildArray(self, target: List[int], n: int) -> List[str]:
+        cur, ans = 1, []
+        for t in target:
+            for i in range(cur, n + 1):
+                ans.append('Push')
+                if t == i:
+                    cur = i + 1
+                    break
+                ans.append('Pop')
+        return ans
 ```
 
 ### **Java**
@@ -88,7 +97,69 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<String> buildArray(int[] target, int n) {
+        List<String> ans = new ArrayList<>();
+        int cur = 1;
+        for (int t : target) {
+            for (int i = cur; i <= n; ++i) {
+                ans.add("Push");
+                if (t == i) {
+                    cur = i + 1;
+                    break;
+                }
+                ans.add("Pop");
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> buildArray(vector<int>& target, int n) {
+        vector<string> ans;
+        int cur = 1;
+        for (int t : target)
+        {
+            for (int i = cur; i <= n; ++i)
+            {
+                ans.push_back("Push");
+                if (t == i)
+                {
+                    cur = i + 1;
+                    break;
+                }
+                ans.push_back("Pop");
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func buildArray(target []int, n int) []string {
+	var ans []string
+	cur := 1
+	for _, t := range target {
+		for i := cur; i <= n; i++ {
+			ans = append(ans, "Push")
+			if t == i {
+				cur = i + 1
+				break
+			}
+			ans = append(ans, "Pop")
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

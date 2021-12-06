@@ -217,6 +217,7 @@
 - [被围绕的区域](./solution/0100-0199/0130.Surrounded%20Regions/README.md)
 - [省份数量](./solution/0500-0599/0547.Number%20of%20Provinces/README.md)
 - [冗余连接](./solution/0600-0699/0684.Redundant%20Connection/README.md)
+- [可能的二分法](./solution/0800-0899/0886.Possible%20Bipartition/README.md)
 
 ### 设计
 
