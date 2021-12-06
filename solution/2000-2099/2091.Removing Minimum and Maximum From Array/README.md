@@ -64,6 +64,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+先找出最小值和最大值的下标 mi, mx。如果 mi 下标大于 mx，则将 mx 与 mi 两数进行交换。
+
+最小删除的次数，共有 3 种情况：
+
+1. 从左侧往右依次删除 `nums[mi]` 和 `nums[mx]`
+1. 从右侧往左依次删除 `nums[mx]` 和 `nums[mi]`
+1. 从左侧往右删除 `nums[mi]`，从右侧往左删除 `nums[mx]`
+
+求这 3 种情况的最小值即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +81,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumDeletions(self, nums: List[int]) -> int:
+        mi = mx = 0
+        for i, num in enumerate(nums):
+            if num < nums[mi]:
+                mi = i
+            if num > nums[mx]:
+                mx = i
+        if mi > mx:
+            mi, mx = mx, mi
+        return min(mx + 1, len(nums) - mi, mi + 1 + len(nums) - mx)
 ```
 
 ### **Java**
@@ -79,7 +99,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int minimumDeletions(int[] nums) {
+        int mi = 0, mx = 0, n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] < nums[mi]) {
+                mi = i;
+            }
+            if (nums[i] > nums[mx]) {
+                mx = i;
+            }
+        }
+        if (mi > mx) {
+            int t = mx;
+            mx = mi;
+            mi = t;
+        }
+        return Math.min(Math.min(mx + 1, n - mi), mi + 1 + n - mx);
+    }
+}
 ```
 
 ### **TypeScript**
@@ -97,6 +135,56 @@ function minimumDeletions(nums: number[]): number {
     // 都是右边 n - right + right - left = n - left
     return Math.min(left + 1 + n - right, right + 1, n - left);
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumDeletions(vector<int>& nums) {
+        int mi = 0, mx = 0, n = nums.size();
+        for (int i = 0; i < n; ++i)
+        {
+            if (nums[i] < nums[mi]) mi = i;
+            if (nums[i] > nums[mx]) mx = i;
+        }
+        if (mi > mx)
+        {
+            int t = mi;
+            mi = mx;
+            mx = t;
+        }
+        return min(min(mx + 1, n - mi), mi + 1 + n - mx);
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumDeletions(nums []int) int {
+	mi, mx, n := 0, 0, len(nums)
+	for i, num := range nums {
+		if num < nums[mi] {
+			mi = i
+		}
+		if num > nums[mx] {
+			mx = i
+		}
+	}
+	if mi > mx {
+		mi, mx = mx, mi
+	}
+	return min(min(mx+1, n-mi), mi+1+n-mx)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
