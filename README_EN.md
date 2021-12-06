@@ -204,6 +204,12 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Subsets](./solution/0000-0099/0078.Subsets/README_EN.md)
 - [Subsets II](./solution/0000-0099/0090.Subsets%20II/README_EN.md)
 
+### Union Find
+
+- [Surrounded Regions](./solution/0100-0199/0130.Surrounded%20Regions/README_EN.md)
+- [Number of Provinces](./solution/0500-0599/0547.Number%20of%20Provinces/README_EN.md)
+- [Redundant Connection](./solution/0600-0699/0684.Redundant%20Connection/README_EN.md)
+
 ### Design
 
 - [LRU Cache](./solution/0100-0199/0146.Lru%20Cache/README_EN.md)
@@ -213,13 +219,6 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Design Circular Deque](./solution/0600-0699/0641.Design%20Circular%20Deque/README_EN.md)
 - [Design HashSet](./solution/0700-0799/0705.Design%20HashSet/README_EN.md)
 - [Design HashMap](./solution/0700-0799/0706.Design%20HashMap/README_EN.md)
-
-### Database
-
-- [Combine Two Tables](./solution/0100-0199/0175.Combine%20Two%20Tables/README_EN.md)
-- [Second Highest Salary](./solution/0100-0199/0176.Second%20Highest%20Salary/README_EN.md)
-- [Nth Highest Salary](./solution/0100-0199/0177.Nth%20Highest%20Salary/README_EN.md)
-- [Rank Scores](./solution/0100-0199/0178.Rank%20Scores/README_EN.md)
 
 ## Maintainer
 

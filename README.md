@@ -212,6 +212,12 @@
 - [子集](./solution/0000-0099/0078.Subsets/README.md)
 - [子集 II](./solution/0000-0099/0090.Subsets%20II/README.md)
 
+### 并查集
+
+- [被围绕的区域](./solution/0100-0199/0130.Surrounded%20Regions/README.md)
+- [省份数量](./solution/0500-0599/0547.Number%20of%20Provinces/README.md)
+- [冗余连接](./solution/0600-0699/0684.Redundant%20Connection/README.md)
+
 ### 设计
 
 - [LRU 缓存机制](./solution/0100-0199/0146.Lru%20Cache/README.md)
@@ -221,13 +227,6 @@
 - [设计循环双端队列](./solution/0600-0699/0641.Design%20Circular%20Deque/README.md)
 - [设计哈希集合](./solution/0700-0799/0705.Design%20HashSet/README.md)
 - [设计哈希映射](./solution/0700-0799/0706.Design%20HashMap/README.md)
-
-### 数据库
-
-- [组合两个表](./solution/0100-0199/0175.Combine%20Two%20Tables/README.md)
-- [第二高的薪水](./solution/0100-0199/0176.Second%20Highest%20Salary/README.md)
-- [第 N 高的薪水](./solution/0100-0199/0177.Nth%20Highest%20Salary/README.md)
-- [分数排名](./solution/0100-0199/0178.Rank%20Scores/README.md)
 
 ## 维护者
 
