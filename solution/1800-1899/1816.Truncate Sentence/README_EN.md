@@ -52,12 +52,17 @@ Hence, you should return &quot;What is the solution&quot;.</pre>
 	<li>There are no leading or trailing spaces.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
 
 ### **Python3**
+
+```python
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        return ' '.join(s.split()[:k])
+```
 
 ```python
 class Solution:
@@ -101,6 +106,22 @@ public:
 };
 ```
 
+### **Go**
+
+```go
+func truncateSentence(s string, k int) string {
+	for i, c := range s {
+		if c == ' ' {
+			k--
+		}
+		if k == 0 {
+			return s[:i]
+		}
+	}
+	return s
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -109,13 +130,13 @@ public:
  * @param {number} k
  * @return {string}
  */
-var truncateSentence = function (s, k) {
-  for (let i = 0; i < s.length; ++i) {
-    if (s[i] == " " && --k == 0) {
-      return s.substring(0, i);
+var truncateSentence = function(s, k) {
+    for (let i = 0; i < s.length; ++i) {
+        if (s[i] == ' ' && (--k) == 0) {
+            return s.slice(0, i);
+        }
     }
-  }
-  return s;
+    return s;
 };
 ```
 
