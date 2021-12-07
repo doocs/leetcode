@@ -6,19 +6,11 @@
 
 <p>We have a wooden&nbsp;plank of the length <code>n</code> <strong>units</strong>. Some ants are walking on the&nbsp;plank, each ant moves with speed <strong>1 unit per second</strong>. Some of the ants move to the <strong>left</strong>, the other move to the <strong>right</strong>.</p>
 
-
-
 <p>When two ants moving in two <strong>different</strong> directions meet at some point, they change their directions and continue moving again. Assume changing directions doesn&#39;t take any additional time.</p>
-
-
 
 <p>When an ant reaches <strong>one end</strong> of the plank at a time <code>t</code>, it falls out of the plank imediately.</p>
 
-
-
 <p>Given an integer <code>n</code> and two integer arrays <code>left</code> and <code>right</code>, the positions of the ants moving to the left and the right.&nbsp;Return <em>the&nbsp;moment</em> when the last ant(s) fall out of the plank.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -46,8 +38,6 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1503.Last%20Moment%20Before%20All%20Ants%20Fall%20Out%20of%20a%20Plank/images/ants2.jpg" style="width: 639px; height: 101px;" />
@@ -61,8 +51,6 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 <strong>Explanation:</strong> All ants are going to the right, the ant at index 0 needs 7 seconds to fall.
 
 </pre>
-
-
 
 <p><strong>Example 3:</strong></p>
 
@@ -78,11 +66,7 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -94,11 +78,7 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -108,13 +88,9 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10^4</code></li>
@@ -133,13 +109,67 @@ Note that the last moment when an ant was on the plank is t = 4 second, after th
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getLastMoment(self, n: int, left: List[int], right: List[int]) -> int:
+        ans = 0
+        for t in left:
+            ans = max(ans, t)
+        for t in right:
+            ans = max(ans, n - t)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int getLastMoment(int n, int[] left, int[] right) {
+        int ans = 0;
+        for (int t : left) {
+            ans = Math.max(ans, t);
+        }
+        for (int t : right) {
+            ans = Math.max(ans, n - t);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getLastMoment(int n, vector<int>& left, vector<int>& right) {
+        int ans = 0;
+        for (int t : left) ans = max(ans, t);
+        for (int t : right) ans = max(ans, n - t);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getLastMoment(n int, left []int, right []int) int {
+	ans := 0
+	for _, t := range left {
+		ans = max(ans, t)
+	}
+	for _, t := range right {
+		ans = max(ans, n-t)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

@@ -76,10 +76,11 @@
 	<li><code>left</code> 和 <code>right</code> 中的所有值都是唯一的，并且每个值 <strong>只能出现在二者之一</strong> 中。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+题目关键点在于两只蚂蚁相遇，然后分别调转方向的情况，实际上相当于两只蚂蚁继续往原来的方向移动。
 
 <!-- tabs:start -->
 
@@ -88,7 +89,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def getLastMoment(self, n: int, left: List[int], right: List[int]) -> int:
+        ans = 0
+        for t in left:
+            ans = max(ans, t)
+        for t in right:
+            ans = max(ans, n - t)
+        return ans
 ```
 
 ### **Java**
@@ -96,7 +104,54 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int getLastMoment(int n, int[] left, int[] right) {
+        int ans = 0;
+        for (int t : left) {
+            ans = Math.max(ans, t);
+        }
+        for (int t : right) {
+            ans = Math.max(ans, n - t);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getLastMoment(int n, vector<int>& left, vector<int>& right) {
+        int ans = 0;
+        for (int t : left) ans = max(ans, t);
+        for (int t : right) ans = max(ans, n - t);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getLastMoment(n int, left []int, right []int) int {
+	ans := 0
+	for _, t := range left {
+		ans = max(ans, t)
+	}
+	for _, t := range right {
+		ans = max(ans, n-t)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
