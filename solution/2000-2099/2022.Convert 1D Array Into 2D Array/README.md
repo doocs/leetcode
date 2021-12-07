@@ -72,7 +72,11 @@ original 中只有 1 个元素。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:
+        if m * n != len(original):
+            return []
+        return [original[i: i + n] for i in range(0, m * n, n)]
 ```
 
 ### **Java**
@@ -80,7 +84,55 @@ original 中只有 1 个元素。
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[][] construct2DArray(int[] original, int m, int n) {
+        if (m * n != original.length) {
+            return new int[0][0];
+        }
+        int[][] ans = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans[i][j] = original[i * n + j];
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
+        if (m * n != original.size()) return {};
+        vector<vector<int>> ans(m, vector<int>(n, 0));
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                ans[i][j] = original[i * n + j];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func construct2DArray(original []int, m int, n int) [][]int {
+	if m*n != len(original) {
+		return [][]int{}
+	}
+	var ans [][]int
+	for i := 0; i < m*n; i += n {
+		ans = append(ans, original[i:i+n])
+	}
+	return ans
+}
 ```
 
 ### **...**
