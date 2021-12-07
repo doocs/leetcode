@@ -48,10 +48,11 @@
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+深度优先搜索，利用 vis 记录访问过的位置。
 
 <!-- tabs:start -->
 
@@ -60,7 +61,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def colorBorder(self, grid: List[List[int]], row: int, col: int, color: int) -> List[List[int]]:
+        m, n = len(grid), len(grid[0])
+        vis = [[False] * n for _ in range(m)]
 
+        def dfs(i, j, color):
+            vis[i][j] = True
+            old_color = grid[i][j]
+            for a, b in [[-1, 0], [1, 0], [0, -1], [0, 1]]:
+                x, y = a + i, b + j
+                if 0 <= x < m and 0 <= y < n:
+                    if not vis[x][y]:
+                        if grid[x][y] == old_color:
+                            dfs(x, y, color)
+                        else:
+                            grid[i][j] = color
+                else:
+                    grid[i][j] = color
+
+        dfs(row, col, color)
+        return grid
 ```
 
 ### **Java**
@@ -68,7 +89,105 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[] dirs = new int[]{-1, 0, 1, 0, -1};
 
+    public int[][] colorBorder(int[][] grid, int r0, int c0, int color) {
+        boolean[][] vis = new boolean[grid.length][grid[0].length];
+        dfs(grid, r0, c0, color, vis);
+        return grid;
+    }
+
+    private void dfs(int[][] grid, int i, int j, int color, boolean[][] vis) {
+        vis[i][j] = true;
+        int oldColor = grid[i][j];
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < grid.length && y >= 0 && y < grid[0].length) {
+                if (!vis[x][y]) {
+                    if (grid[x][y] == oldColor) {
+                        dfs(grid, x, y, color, vis);
+                    } else {
+                        grid[i][j] = color;
+                    }
+                }
+            } else {
+                grid[i][j] = color;
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int m, n;
+    vector<vector<int>> dirs = {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}};
+
+    vector<vector<int>> colorBorder(vector<vector<int>>& grid, int row, int col, int color) {
+        m = grid.size();
+        n = grid[0].size();
+        vector<vector<bool>> vis(m, vector<bool>(n, false));
+        dfs(row, col, color, grid, vis);
+        return grid;
+    }
+
+    void dfs(int i, int j, int color, vector<vector<int>>& grid, vector<vector<bool>>& vis) {
+        vis[i][j] = true;
+        int oldColor = grid[i][j];
+        for (auto& dir : dirs)
+        {
+            int x = i + dir[0], y = j + dir[1];
+            if (x >= 0 && x < m && y >= 0 && y < n)
+            {
+                if (!vis[x][y])
+                {
+                    if (grid[x][y] == oldColor) dfs(x, y, color, grid, vis);
+                    else grid[i][j] = color;
+                }
+            }
+            else grid[i][j] = color;
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func colorBorder(grid [][]int, row int, col int, color int) [][]int {
+	m, n := len(grid), len(grid[0])
+	vis := make([][]bool, m)
+	for i := 0; i < m; i++ {
+		vis[i] = make([]bool, n)
+	}
+	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+
+	var dfs func(i, j, color int)
+	dfs = func(i, j, color int) {
+		vis[i][j] = true
+		oldColor := grid[i][j]
+		for _, dir := range dirs {
+			x, y := i+dir[0], j+dir[1]
+			if x >= 0 && x < m && y >= 0 && y < n {
+				if !vis[x][y] {
+					if grid[x][y] == oldColor {
+						dfs(x, y, color)
+					} else {
+						grid[i][j] = color
+					}
+				}
+			} else {
+				grid[i][j] = color
+			}
+		}
+	}
+	dfs(row, col, color)
+	return grid
+}
 ```
 
 ### **...**
