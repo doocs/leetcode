@@ -40,6 +40,8 @@
 
 题目可以转换为 `0-1` 背包问题，在 m 个数字中选出一些数字（每个数字只能使用一次），这些数字之和恰好等于 `s / 2`（s 表示所有数字之和）。
 
+也可以用 DFS + 记忆化搜索。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -87,6 +89,28 @@ class Solution:
             for j in range(n - 1, nums[i] - 1, -1):
                 dp[j] = dp[j] or dp[j - nums[i]]
         return dp[-1]
+```
+
+DFS + 记忆化搜索：
+
+```python
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        s = sum(nums)
+        if s % 2 != 0:
+            return False
+        target = s >> 1
+
+        @lru_cache(None)
+        def dfs(i, s):
+            nonlocal target
+            if s > target or i >= len(nums):
+                return False
+            if s == target:
+                return True
+            return dfs(i + 1, s) or dfs(i + 1, s + nums[i])
+        
+        return dfs(0, 0)
 ```
 
 ### **Java**
