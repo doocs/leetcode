@@ -58,7 +58,6 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 	<li><code>grid[i][j]</code> is <code>1</code> or <code>-1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -66,13 +65,130 @@ Ball b4 is dropped at column 4 and will get stuck on the box between column 2 an
 ### **Python3**
 
 ```python
+class Solution:
+    def findBall(self, grid: List[List[int]]) -> List[int]:
+        m, n = len(grid), len(grid[0])
 
+        def dfs(i, j):
+            nonlocal m, n
+            if i == m:
+                return j
+            if j == 0 and grid[i][j] == -1:
+                return -1
+            if j == n - 1 and grid[i][j] == 1:
+                return -1
+            if grid[i][j] == 1 and grid[i][j + 1] == -1:
+                return -1
+            if grid[i][j] == -1 and grid[i][j - 1] == 1:
+                return -1
+            return dfs(i + 1, j + 1) if grid[i][j] == 1 else dfs(i + 1, j - 1)
+
+        return [dfs(0, j) for j in range(n)]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int m;
+    private int n;
+    private int[][] grid;
 
+    public int[] findBall(int[][] grid) {
+        m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
+        int[] ans = new int[n];
+        for (int j = 0; j < n; ++j) {
+            ans[j] = dfs(0, j);
+        }
+        return ans;
+    }
+
+    private int dfs(int i, int j) {
+        if (i == m) {
+            return j;
+        }
+        if (j == 0 && grid[i][j] == -1) {
+            return -1;
+        }
+        if (j == n - 1 && grid[i][j] == 1) {
+            return -1;
+        }
+        if (grid[i][j] == 1 && grid[i][j + 1] == -1) {
+            return -1;
+        }
+        if (grid[i][j] == -1 && grid[i][j - 1] == 1) {
+            return -1;
+        }
+        return grid[i][j] == 1 ? dfs(i + 1, j + 1) : dfs(i + 1, j - 1);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int m, n;
+    vector<vector<int>> grid;
+
+    vector<int> findBall(vector<vector<int>>& grid) {
+        this->grid = grid;
+        m = grid.size();
+        n = grid[0].size();
+        vector<int> ans(n);
+        for (int j = 0; j < n; ++j) ans[j] = dfs(0, j);
+        return ans;
+    }
+
+    int dfs(int i, int j) {
+        if (i == m) return j;
+        if (j == 0 && grid[i][j] == -1) return -1;
+        if (j == n - 1 && grid[i][j] == 1)  return -1;
+        if (grid[i][j] == 1 && grid[i][j + 1] == -1) return -1;
+        if (grid[i][j] == -1 && grid[i][j - 1] == 1) return -1;
+        return grid[i][j] == 1 ? dfs(i + 1, j + 1) : dfs(i + 1, j - 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+func findBall(grid [][]int) []int {
+	m, n := len(grid), len(grid[0])
+
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i == m {
+			return j
+		}
+		if j == 0 && grid[i][j] == -1 {
+			return -1
+		}
+		if j == n-1 && grid[i][j] == 1 {
+			return -1
+		}
+		if grid[i][j] == 1 && grid[i][j+1] == -1 {
+			return -1
+		}
+		if grid[i][j] == -1 && grid[i][j-1] == 1 {
+			return -1
+		}
+		if grid[i][j] == 1 {
+			return dfs(i+1, j+1)
+		}
+		return dfs(i+1, j-1)
+	}
+
+	var ans []int
+	for j := 0; j < n; j++ {
+		ans = append(ans, dfs(0, j))
+	}
+	return ans
+}
 ```
 
 ### **...**
