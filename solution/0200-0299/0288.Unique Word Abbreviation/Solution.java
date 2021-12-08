@@ -4,25 +4,20 @@ class ValidWordAbbr {
     public ValidWordAbbr(String[] dictionary) {
         words = new HashMap<>();
         for (String word : dictionary) {
-            String abbr = wordAbbr(word);
+            String abbr = abbr(word);
             words.computeIfAbsent(abbr, k -> new HashSet<>()).add(word);
         }
     }
     
     public boolean isUnique(String word) {
-        String abbr = wordAbbr(word);
+        String abbr = abbr(word);
         Set<String> vals = words.get(abbr);
         return vals == null || (vals.size() == 1 && vals.contains(word));
     }
 
-    private String wordAbbr(String word) {
-        int n = word.length();
-        if (n < 3) {
-            return word;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(word.charAt(0)).append(n - 2).append(word.charAt(n - 1));
-        return sb.toString();
+    private String abbr(String s) {
+        int n = s.length();
+        return n < 3 ? s : s.charAt(0) + Integer.toString(n - 2) + s.charAt(n - 1);
     }
 }
 

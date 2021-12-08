@@ -1,23 +1,18 @@
 class ValidWordAbbr:
 
     def __init__(self, dictionary: List[str]):
-        self.words = {}
+        self.words = defaultdict(set)
         for word in dictionary:
-            abbr = self._word_abbr(word)
-            vals = self.words.get(abbr, set())
-            vals.add(word)
-            self.words[abbr] = vals
+            abbr = self.word_abbr(word)
+            self.words[abbr].add(word)
 
     def isUnique(self, word: str) -> bool:
-        abbr = self._word_abbr(word)
-        vals = self.words.get(abbr)
-        return vals is None or (len(vals) == 1 and word in vals)
+        abbr = self.word_abbr(word)
+        words = self.words[abbr]
+        return not words or (len(words) == 1 and word in words)
 
-    def _word_abbr(self, word: str) -> str:
-        n = len(word)
-        if n < 3:
-            return word
-        return f'{word[0]}{n - 2}{word[n - 1]}'
+    def word_abbr(self, s):
+        return s if len(s) < 3 else f'{s[0]}{len(s) - 2}{s[-1]}'
 
 
 # Your ValidWordAbbr object will be instantiated and called as such:
