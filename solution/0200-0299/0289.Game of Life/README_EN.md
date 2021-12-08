@@ -50,7 +50,6 @@
 	<li>In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches upon the border of the array (i.e., live cells reach the border). How would you address these problems?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -58,13 +57,224 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def gameOfLife(self, board: List[List[int]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        m, n = len(board), len(board[0])
+        cb = [[board[i][j] for j in range(n)] for i in range(m)]
+        dirs = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]]
+        for i in range(m):
+            for j in range(n):
+                cnt = sum(cb[i + a][j + b] for a, b in dirs if 0 <= i + a < m and 0 <= j + b < n)
+                if cb[i][j] == 1 and (cnt < 2 or cnt > 3):
+                    board[i][j] = 0
+                elif cb[i][j] == 0 and (cnt == 3):
+                    board[i][j] = 1
+```
 
+```python
+class Solution:
+    def gameOfLife(self, board: List[List[int]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        m, n = len(board), len(board[0])
+        dirs = [[-1, 0], [1, 0], [0, -1], [0, 1],
+                [-1, -1], [-1, 1], [1, -1], [1, 1]]
+        for i in range(m):
+            for j in range(n):
+                cnt = sum(1 for a, b in dirs if 0 <= i + a < m and 0 <=
+                          j + b < n and board[i + a][j + b] in (1, 2))
+                if board[i][j] == 1 and (cnt < 2 or cnt > 3):
+                    board[i][j] = 2
+                elif board[i][j] == 0 and (cnt == 3):
+                    board[i][j] = 3
+        for i in range(m):
+            for j in range(n):
+                board[i][j] %= 2
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public void gameOfLife(int[][] board) {
+        int m = board.length, n = board[0].length;
+        int[][] cb = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                cb[i][j] = board[i][j];
+            }
+        }
+        int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int cnt = 0;
+                for (int[] dir : dirs) {
+                    int x = i + dir[0], y = j + dir[1];
+                    if (x >= 0 && x < m && y >= 0 && y < n) {
+                        cnt += cb[x][y];
+                    }
+                }
+                if (cb[i][j] == 1 && (cnt < 2 || cnt > 3)) {
+                    board[i][j] = 0;
+                } else if (cb[i][j] == 0 && cnt == 3) {
+                    board[i][j] = 1;
+                }
+            }
+        }
+    }
+}
+```
 
+```java
+class Solution {
+    public void gameOfLife(int[][] board) {
+        int m = board.length, n = board[0].length;
+        int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int cnt = 0;
+                for (int[] dir : dirs) {
+                    int x = i + dir[0], y = j + dir[1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && (board[x][y] == 1 || board[x][y] == 2)) {
+                        ++cnt;
+                    }
+                }
+                if (board[i][j] == 1 && (cnt < 2 || cnt > 3)) {
+                    board[i][j] = 2;
+                } else if (board[i][j] == 0 && cnt == 3) {
+                    board[i][j] = 3;
+                }
+            }
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                board[i][j] %= 2;
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void gameOfLife(vector<vector<int>>& board) {
+        int m = board.size(), n = board[0].size();
+        vector<vector<int>> cb(m, vector<int>(n, 0));
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                cb[i][j] = board[i][j];
+
+        vector<vector<int>> dirs = {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                int cnt = 0;
+                for (auto& dir : dirs)
+                {
+                    int x = i + dir[0], y = j + dir[1];
+                    if (x >= 0 && x < m && y >= 0 && y < n) cnt += cb[x][y];
+                }
+                if (cb[i][j] == 1 && (cnt < 2 || cnt > 3)) board[i][j] = 0;
+                else if (cb[i][j] == 0 && cnt == 3) board[i][j] = 1;
+            }
+        }
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    void gameOfLife(vector<vector<int>>& board) {
+        int m = board.size(), n = board[0].size();
+        vector<vector<int>> dirs = {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                int cnt = 0;
+                for (auto& dir : dirs)
+                {
+                    int x = i + dir[0], y = j + dir[1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && (board[x][y] == 1 || board[x][y] == 2)) ++cnt;
+                }
+                if (board[i][j] == 1 && (cnt < 2 || cnt > 3)) board[i][j] = 2;
+                else if (board[i][j] == 0 && cnt == 3) board[i][j] = 3;
+            }
+        }
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                board[i][j] %= 2;
+    }
+};
+```
+
+### **Go**
+
+```go
+func gameOfLife(board [][]int)  {
+    m, n := len(board), len(board[0])
+    cb := make([][]int, m)
+    for i := range cb {
+        cb[i] = make([]int, n)
+        for j := 0; j < n; j++ {
+            cb[i][j] = board[i][j]
+        }
+    }
+    dirs := [8][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
+    for i := 0; i < m; i++ {
+        for j := 0; j < n; j++ {
+            cnt := 0
+            for _, dir := range dirs {
+                x, y := i + dir[0], j + dir[1]
+                if x >= 0 && x < m && y >= 0 && y < n {
+                    cnt += cb[x][y]
+                }
+            }
+            if cb[i][j] == 1 && (cnt < 2 || cnt > 3) {
+                board[i][j] = 0
+            } else if cb[i][j] == 0 && cnt == 3 {
+                board[i][j] = 1
+            }
+        }
+    }
+}
+```
+
+```go
+func gameOfLife(board [][]int) {
+	m, n := len(board), len(board[0])
+	dirs := [8][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			cnt := 0
+			for _, dir := range dirs {
+				x, y := i+dir[0], j+dir[1]
+				if x >= 0 && x < m && y >= 0 && y < n && (board[x][y] == 1 || board[x][y] == 2) {
+					cnt++
+				}
+			}
+			if board[i][j] == 1 && (cnt < 2 || cnt > 3) {
+				board[i][j] = 2
+			} else if board[i][j] == 0 && cnt == 3 {
+				board[i][j] = 3
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			board[i][j] %= 2
+		}
+	}
+}
 ```
 
 ### **...**
