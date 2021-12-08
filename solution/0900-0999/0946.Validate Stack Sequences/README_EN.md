@@ -40,7 +40,6 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 	<li><code>pushed</code> and <code>popped</code> have distinct values.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -48,13 +47,73 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 ### **Python3**
 
 ```python
-
+class Solution:
+    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
+        stk, j, n = [], 0, len(popped)
+        for x in pushed:
+            stk.append(x)
+            while stk and j < n and stk[-1] == popped[j]:
+                stk.pop()
+                j += 1
+        return j == n
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int j = 0, n = popped.length;
+        for (int x : pushed) {
+            stk.push(x);
+            while (!stk.isEmpty() && j < n && stk.peek() == popped[j]) {
+                stk.pop();
+                ++j;
+            }
+        }
+        return j == n;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        int j = 0, n = popped.size();
+        stack<int> stk;
+        for (int x : pushed)
+        {
+            stk.push(x);
+            while (!stk.empty() && j < n && stk.top() == popped[j])
+            {
+                stk.pop();
+                ++j;
+            }
+        }
+        return j == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func validateStackSequences(pushed []int, popped []int) bool {
+	j, n := 0, len(popped)
+	var stk []int
+	for _, x := range pushed {
+		stk = append(stk, x)
+		for len(stk) > 0 && j < n && stk[len(stk)-1] == popped[j] {
+			stk = stk[:len(stk)-1]
+			j++
+		}
+	}
+	return j == n
+}
 ```
 
 ### **...**

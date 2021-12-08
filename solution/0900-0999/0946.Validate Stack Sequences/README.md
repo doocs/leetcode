@@ -36,10 +36,13 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 	<li><code>pushed</code>&nbsp;是&nbsp;<code>popped</code>&nbsp;的排列。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+遍历 pushed 序列，将每个数依次压入栈中，压入后检查这个数是不是 popped 序列中下一个要 pop 的值，如果是就把它 pop 出来。
+
+最后检查所有数是否都 pop 出来了。
 
 <!-- tabs:start -->
 
@@ -48,7 +51,15 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
+        stk, j, n = [], 0, len(popped)
+        for x in pushed:
+            stk.append(x)
+            while stk and j < n and stk[-1] == popped[j]:
+                stk.pop()
+                j += 1
+        return j == n
 ```
 
 ### **Java**
@@ -56,7 +67,59 @@ push(5), pop() -&gt; 5, pop() -&gt; 3, pop() -&gt; 2, pop() -&gt; 1
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        Deque<Integer> stk = new ArrayDeque<>();
+        int j = 0, n = popped.length;
+        for (int x : pushed) {
+            stk.push(x);
+            while (!stk.isEmpty() && j < n && stk.peek() == popped[j]) {
+                stk.pop();
+                ++j;
+            }
+        }
+        return j == n;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
+        int j = 0, n = popped.size();
+        stack<int> stk;
+        for (int x : pushed)
+        {
+            stk.push(x);
+            while (!stk.empty() && j < n && stk.top() == popped[j])
+            {
+                stk.pop();
+                ++j;
+            }
+        }
+        return j == n;
+    }
+};
+```
+
+### **Go**
+
+```go
+func validateStackSequences(pushed []int, popped []int) bool {
+	j, n := 0, len(popped)
+	var stk []int
+	for _, x := range pushed {
+		stk = append(stk, x)
+		for len(stk) > 0 && j < n && stk[len(stk)-1] == popped[j] {
+			stk = stk[:len(stk)-1]
+			j++
+		}
+	}
+	return j == n
+}
 ```
 
 ### **...**
