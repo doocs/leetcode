@@ -130,6 +130,57 @@ function deleteMiddle(head: ListNode | null): ListNode | null {
 };
 ```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteMiddle(ListNode* head) {
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* slow = dummy;
+        ListNode* fast = head;
+        while (fast && fast->next)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        slow->next = slow->next->next;
+        return dummy->next;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteMiddle(head *ListNode) *ListNode {
+	dummy := &ListNode{Val: 0, Next: head}
+	slow, fast := dummy, dummy.Next
+	for fast != nil && fast.Next != nil {
+		slow, fast = slow.Next, fast.Next.Next
+	}
+	slow.Next = slow.Next.Next
+	return dummy.Next
+}
+```
+
 ### **...**
 
 ```
