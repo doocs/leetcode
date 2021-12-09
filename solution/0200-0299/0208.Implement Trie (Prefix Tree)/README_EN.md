@@ -55,45 +55,33 @@ trie.search(&quot;app&quot;);     // return True
 class Trie:
 
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.children = [None] * 26
         self.is_end = False
 
     def insert(self, word: str) -> None:
-        """
-        Inserts a word into the trie.
-        """
         node = self
         for c in word:
-            index = ord(c) - ord("a")
-            if node.children[index] is None:
-                node.children[index] = Trie()
-            node = node.children[index]
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
+                node.children[idx] = Trie()
+            node = node.children[idx]
         node.is_end = True
 
     def search(self, word: str) -> bool:
-        """
-        Returns if the word is in the trie.
-        """
         node = self._search_prefix(word)
         return node is not None and node.is_end
 
     def startsWith(self, prefix: str) -> bool:
-        """
-        Returns if there is any word in the trie that starts with the given prefix.
-        """
         node = self._search_prefix(prefix)
         return node is not None
 
     def _search_prefix(self, prefix: str):
         node = self
         for c in prefix:
-            index = ord(c) - ord("a")
-            if node.children[index] is None:
+            idx = ord(c) - ord('a')
+            if node.children[idx] is None:
                 return None
-            node = node.children[index]
+            node = node.children[idx]
         return node
 
 # Your Trie object will be instantiated and called as such:
@@ -110,47 +98,40 @@ class Trie {
     private Trie[] children;
     private boolean isEnd;
 
-    /** Initialize your data structure here. */
     public Trie() {
         children = new Trie[26];
-        isEnd = false;
     }
     
-    /** Inserts a word into the trie. */
     public void insert(String word) {
         Trie node = this;
-        for (int i = 0; i < word.length(); ++i) {
-            char c = word.charAt(i);
-            int index = c - 'a';
-            if (node.children[index] == null) {
-                node.children[index] = new Trie();
+        for (char c : word.toCharArray()) {
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
+                node.children[idx] = new Trie();
             }
-            node = node.children[index];
+            node = node.children[idx];
         }
         node.isEnd = true;
     }
     
-    /** Returns if the word is in the trie. */
     public boolean search(String word) {
         Trie node = searchPrefix(word);
         return node != null && node.isEnd;
     }
     
-    /** Returns if there is any word in the trie that starts with the given prefix. */
     public boolean startsWith(String prefix) {
         Trie node = searchPrefix(prefix);
         return node != null;
     }
 
-    private Trie searchPrefix(String prefix) {
+    private Trie searchPrefix(String s) {
         Trie node = this;
-        for (int i = 0; i < prefix.length(); ++i) {
-            char c = prefix.charAt(i);
-            int index = c - 'a';
-            if (node.children[index] == null) {
+        for (char c : s.toCharArray()) {
+            int idx = c - 'a';
+            if (node.children[idx] == null) {
                 return null;
             }
-            node = node.children[index];
+            node = node.children[idx];
         }
         return node;
     }
@@ -225,6 +206,170 @@ Trie.prototype.startsWith = function(prefix) {
  * obj.insert(word)
  * var param_2 = obj.search(word)
  * var param_3 = obj.startsWith(prefix)
+ */
+```
+
+### **C++**
+
+```cpp
+class Trie {
+private:
+    vector<Trie*> children;
+    bool isEnd;
+
+    Trie* searchPrefix(string s) {
+        Trie* node = this;
+        for (char c : s)
+        {
+            int idx = c - 'a';
+            if (!node->children[idx]) return nullptr;
+            node = node->children[idx];
+        }
+        return node;
+    }
+
+public:
+    Trie() : children(26), isEnd(false) {}
+    
+    void insert(string word) {
+        Trie* node = this;
+        for (char c : word)
+        {
+            int idx = c - 'a';
+            if (!node->children[idx]) node->children[idx] = new Trie();
+            node = node->children[idx];
+        }
+        node->isEnd = true;
+    }
+    
+    bool search(string word) {
+        Trie* node = searchPrefix(word);
+        return node != nullptr && node->isEnd;
+    }
+    
+    bool startsWith(string prefix) {
+        Trie* node = searchPrefix(prefix);
+        return node != nullptr;
+    }
+};
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
+ * obj->insert(word);
+ * bool param_2 = obj->search(word);
+ * bool param_3 = obj->startsWith(prefix);
+ */
+```
+
+### **Go**
+
+```go
+type Trie struct {
+	children [26]*Trie
+	isEnd    bool
+}
+
+func Constructor() Trie {
+	return Trie{}
+}
+
+func (this *Trie) Insert(word string) {
+	node := this
+	for _, c := range word {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			node.children[idx] = &Trie{}
+		}
+		node = node.children[idx]
+	}
+	node.isEnd = true
+}
+
+func (this *Trie) Search(word string) bool {
+	node := this.SearchPrefix(word)
+	return node != nil && node.isEnd
+}
+
+func (this *Trie) StartsWith(prefix string) bool {
+	node := this.SearchPrefix(prefix)
+	return node != nil
+}
+
+func (this *Trie) SearchPrefix(s string) *Trie {
+	node := this
+	for _, c := range s {
+		idx := c - 'a'
+		if node.children[idx] == nil {
+			return nil
+		}
+		node = node.children[idx]
+	}
+	return node
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Insert(word);
+ * param_2 := obj.Search(word);
+ * param_3 := obj.StartsWith(prefix);
+ */
+```
+
+### **C#**
+
+```cs
+public class Trie {
+    bool isEnd;
+    Trie[] children = new Trie[26];
+
+    public Trie() {
+
+    }
+
+    public void Insert(string word) {
+        Trie node = this;
+        foreach (var c in word)
+        {
+            var idx = c - 'a';
+            node.children[idx] ??= new Trie();
+            node = node.children[idx];
+        }
+        node.isEnd = true;
+    }
+
+    public bool Search(string word) {
+        Trie node = SearchPrefix(word);
+        return node != null && node.isEnd;
+    }
+
+    public bool StartsWith(string prefix) {
+        Trie node = SearchPrefix(prefix);
+        return node != null;
+    }
+
+    private Trie SearchPrefix(string s) {
+        Trie node = this;
+        foreach (var c in s)
+        {
+            var idx = c - 'a';
+            if (node.children[idx] == null)
+            {
+                return null;
+            }
+            node = node.children[idx];
+        }
+        return node;
+    }
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie obj = new Trie();
+ * obj.Insert(word);
+ * bool param_2 = obj.Search(word);
+ * bool param_3 = obj.StartsWith(prefix);
  */
 ```
 
