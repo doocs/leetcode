@@ -55,10 +55,11 @@
 	<li><code>2 &lt;=&nbsp;numExchange &lt;= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+直接模拟空瓶兑新酒即可。
 
 <!-- tabs:start -->
 
@@ -67,7 +68,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
+        ans = numBottles
+        while numBottles >= numExchange:
+            numBottles -= (numExchange - 1)
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -75,7 +82,46 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numWaterBottles(int numBottles, int numExchange) {
+        int ans = numBottles;
+        while (numBottles >= numExchange) {
+            numBottles -= (numExchange - 1);
+            ++ans;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numWaterBottles(int numBottles, int numExchange) {
+        int ans = numBottles;
+        while (numBottles >= numExchange)
+        {
+            numBottles -= (numExchange - 1);
+            ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numWaterBottles(numBottles int, numExchange int) int {
+	ans := numBottles
+	for numBottles >= numExchange {
+		numBottles -= (numExchange - 1)
+		ans++
+	}
+	return ans
+}
 ```
 
 ### **...**

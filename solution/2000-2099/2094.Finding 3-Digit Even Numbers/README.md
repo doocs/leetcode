@@ -178,6 +178,82 @@ function check(target: Array<number>, digits: string): boolean {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findEvenNumbers(vector<int>& digits) {
+        vector<int> counter = count(digits);
+        vector<int> ans;
+        for (int i = 100; i < 1000; i += 2)
+        {
+            vector<int> t(3);
+            for (int j = 0, k = i; k > 0; ++j)
+            {
+                t[j] = k % 10;
+                k /= 10;
+            }
+            vector<int> cnt = count(t);
+            if (check(counter, cnt)) ans.push_back(i);
+        }
+        return ans;
+    }
+
+    vector<int> count(vector<int>& nums) {
+        vector<int> counter(10);
+        for (int num : nums) ++counter[num];
+        return counter;
+    }
+
+    bool check(vector<int>& cnt1, vector<int>& cnt2) {
+        for (int i = 0; i < 10; ++i)
+            if (cnt1[i] < cnt2[i])
+                return false;
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findEvenNumbers(digits []int) []int {
+	counter := count(digits)
+	var ans []int
+	for i := 100; i < 1000; i += 2 {
+		t := make([]int, 3)
+		k := i
+		for j := 0; k > 0; j++ {
+			t[j] = k % 10
+			k /= 10
+		}
+		cnt := count(t)
+		if check(counter, cnt) {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
+
+func count(nums []int) []int {
+	counter := make([]int, 10)
+	for _, num := range nums {
+		counter[num]++
+	}
+	return counter
+}
+
+func check(cnt1, cnt2 []int) bool {
+	for i := 0; i < 10; i++ {
+		if cnt1[i] < cnt2[i] {
+			return false
+		}
+	}
+	return true
+}
+```
+
 ### **...**
 
 ```
