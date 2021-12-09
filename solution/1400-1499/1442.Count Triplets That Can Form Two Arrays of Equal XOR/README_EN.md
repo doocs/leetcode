@@ -6,36 +6,22 @@
 
 <p>Given an array of&nbsp;integers <code>arr</code>.</p>
 
-
-
 <p>We want to select three indices <code>i</code>, <code>j</code> and <code>k</code> where <code>(0 &lt;= i &lt; j &lt;= k &lt; arr.length)</code>.</p>
 
-
-
 <p>Let&#39;s define <code>a</code> and <code>b</code> as follows:</p>
-
-
 
 <ul>
 	<li><code>a = arr[i] ^ arr[i + 1] ^ ... ^ arr[j - 1]</code></li>
 	<li><code>b = arr[j] ^ arr[j + 1] ^ ... ^ arr[k]</code></li>
 </ul>
 
-
-
 <p>Note that <strong>^</strong> denotes the <strong>bitwise-xor</strong> operation.</p>
 
-
-
 <p>Return <em>the number of triplets</em> (<code>i</code>, <code>j</code> and <code>k</code>) Where <code>a == b</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -47,11 +33,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,11 +43,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -75,11 +53,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -89,11 +63,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -103,13 +73,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= arr.length &lt;= 300</code></li>
@@ -123,13 +89,97 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countTriplets(self, arr: List[int]) -> int:
+        n = len(arr)
+        pre = [0] * (n + 1)
+        for i in range(n):
+            pre[i + 1] = pre[i] ^ arr[i]
+        ans = 0
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                for k in range(j, n):
+                    a, b = pre[j] ^ pre[i], pre[k + 1] ^ pre[j]
+                    if a == b:
+                        ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countTriplets(int[] arr) {
+        int n = arr.length;
+        int[] pre = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            pre[i + 1] = pre[i] ^ arr[i];
+        }
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                for (int k = j; k < n; ++k) {
+                    int a = pre[j] ^ pre[i];
+                    int b = pre[k + 1] ^ pre[j];
+                    if (a == b) {
+                        ++ans;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countTriplets(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> pre(n + 1);
+        for (int i = 0; i < n; ++i) pre[i + 1] = pre[i] ^ arr[i];
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i)
+        {
+            for (int j = i + 1; j < n; ++j)
+            {
+                for (int k = j; k < n; ++k)
+                {
+                    int a = pre[j] ^ pre[i], b = pre[k + 1] ^ pre[j];
+                    if (a == b) ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countTriplets(arr []int) int {
+	n := len(arr)
+	pre := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		pre[i+1] = pre[i] ^ arr[i]
+	}
+	ans := 0
+	for i := 0; i < n-1; i++ {
+		for j := i + 1; j < n; j++ {
+			for k := j; k < n; k++ {
+				a, b := pre[j]^pre[i], pre[k+1]^pre[j]
+				if a == b {
+					ans++
+				}
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

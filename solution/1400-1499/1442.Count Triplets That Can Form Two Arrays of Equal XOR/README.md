@@ -63,10 +63,11 @@
 	<li><code>1 &lt;= arr[i] &lt;= 10^8</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+前缀异或，然后暴力枚举即可。
 
 <!-- tabs:start -->
 
@@ -75,7 +76,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countTriplets(self, arr: List[int]) -> int:
+        n = len(arr)
+        pre = [0] * (n + 1)
+        for i in range(n):
+            pre[i + 1] = pre[i] ^ arr[i]
+        ans = 0
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                for k in range(j, n):
+                    a, b = pre[j] ^ pre[i], pre[k + 1] ^ pre[j]
+                    if a == b:
+                        ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -83,7 +97,78 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countTriplets(int[] arr) {
+        int n = arr.length;
+        int[] pre = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            pre[i + 1] = pre[i] ^ arr[i];
+        }
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                for (int k = j; k < n; ++k) {
+                    int a = pre[j] ^ pre[i];
+                    int b = pre[k + 1] ^ pre[j];
+                    if (a == b) {
+                        ++ans;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countTriplets(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> pre(n + 1);
+        for (int i = 0; i < n; ++i) pre[i + 1] = pre[i] ^ arr[i];
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i)
+        {
+            for (int j = i + 1; j < n; ++j)
+            {
+                for (int k = j; k < n; ++k)
+                {
+                    int a = pre[j] ^ pre[i], b = pre[k + 1] ^ pre[j];
+                    if (a == b) ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countTriplets(arr []int) int {
+	n := len(arr)
+	pre := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		pre[i+1] = pre[i] ^ arr[i]
+	}
+	ans := 0
+	for i := 0; i < n-1; i++ {
+		for j := i + 1; j < n; j++ {
+			for k := j; k < n; k++ {
+				a, b := pre[j]^pre[i], pre[k+1]^pre[j]
+				if a == b {
+					ans++
+				}
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

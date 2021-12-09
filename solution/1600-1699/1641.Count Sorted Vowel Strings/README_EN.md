@@ -43,6 +43,14 @@ Note that &quot;ea&quot; is not a valid string since &#39;e&#39; comes after &#3
 
 ## Solutions
 
+```bash
+a	e	i	o 	u
+1	1	1	1	1		n=1
+5	4	3	2	1		n=2
+15	10	6	3	1		n=3
+...						n=...
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
