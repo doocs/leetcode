@@ -60,7 +60,6 @@
 	<li><code>0 <= Node.val <= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -72,7 +71,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def verticalTraversal(self, root: TreeNode) -> List[List[int]]:
+        def dfs(root, i, j):
+            if root is None:
+                return
+            nodes.append((i, j, root.val))
+            dfs(root.left, i + 1, j - 1)
+            dfs(root.right, i + 1, j + 1)
 
+        nodes = []
+        dfs(root, 0, 0)
+        nodes.sort(key=lambda x: (x[1], x[0], x[2]))
+        ans = []
+        prev = -2000
+        for i, j, v in nodes:
+            if prev != j:
+                ans.append([])
+                prev = j
+            ans[-1].append(v)
+        return ans
 ```
 
 ### **Java**
@@ -80,7 +104,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+        List<int[]> list = new ArrayList<>();
+        dfs(root, 0, 0, list);
+        list.sort(new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                if (o1[0] != o2[0]) return Integer.compare(o1[0], o2[0]);
+                if (o1[1] != o2[1]) return Integer.compare(o2[1], o1[1]);
+                return Integer.compare(o1[2], o2[2]);
+            }
+        });
+        List<List<Integer>> res = new ArrayList<>();
+        int preX = 1;
+        for (int[] cur : list) {
+            if (preX != cur[0]) {
+                res.add(new ArrayList<>());
+                preX = cur[0];
+            }
+            res.get(res.size() - 1).add(cur[2]);
+        }
+        return res;
+    }
 
+    private void dfs(TreeNode root, int x, int y, List<int[]> list) {
+        if (root == null) {
+            return;
+        }
+        list.add(new int[]{x, y, root.val});
+        dfs(root.left, x - 1, y - 1, list);
+        dfs(root.right, x + 1, y - 1, list);
+    }
+}
 ```
 
 ### **TypeScript**
@@ -100,12 +156,11 @@
  * }
  */
 
-function verticalTraversal(root: TreeNode | null): number[][] {
+ function verticalTraversal(root: TreeNode | null): number[][] {
     let solution = [];
     dfs(root, 0, 0, solution);
     // 优先依据i=2排序， 然后依据i=1排序
     solution.sort(compare);
-    // console.log(solution);
     let ans = [];
     let pre = Number.MIN_SAFE_INTEGER;
     for (let node of solution) {
