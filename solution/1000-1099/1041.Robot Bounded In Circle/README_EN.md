@@ -57,7 +57,7 @@ When repeating these instructions, the robot remains in the circle of radius 2 c
 ```python
 class Solution:
     def isRobotBounded(self, instructions: str) -> bool:
-        dicertion = [0] * 4
+        direction = [0] * 4
         cur = 0
         for i in range(len(instructions)):
             if instructions[i] == 'L':
@@ -65,8 +65,8 @@ class Solution:
             elif instructions[i] == 'R':
                 cur = cur - 1 if cur > 0 else 3
             else:
-                dicertion[cur] += 1
-        return cur != 0 or (dicertion[0] == dicertion[2] and dicertion[1] == dicertion[3])
+                direction[cur] += 1
+        return cur != 0 or (direction[0] == direction[2] and direction[1] == direction[3])
 ```
 
 ### **Java**
