@@ -71,7 +71,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def sortByBits(self, arr: List[int]) -> List[int]:
+        arr.sort(key=lambda x: (bin(x).count("1"), x))
+        return arr
 ```
 
 ### **Java**
@@ -79,7 +82,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int[] sortByBits(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            arr[i] += Integer.bitCount(arr[i]) * 100000;
+        }
+        Arrays.sort(arr);
+        for (int i = 0; i < n; i++) {
+            arr[i] %= 100000;
+        }
+        return arr;
+    }
+}
 ```
 
 ### **...**
