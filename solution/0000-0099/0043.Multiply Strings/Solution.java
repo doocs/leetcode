@@ -1,28 +1,40 @@
 class Solution {
     public String multiply(String num1, String num2) {
-        char[] chars1 = num1.toCharArray(),chars2 = num2.toCharArray();
-        int[] result = new int[chars1.length+chars2.length];
-        int pow = result.length-1;
-        for (int i = chars1.length - 1; i >= 0; i--) {
-            int a = chars1[i] - '0';
-            int j = 0,bit = pow;
-            for (int i1 = chars2.length - 1; i1 >= 0; i1--) {
-                int b = chars2[i1] -'0';
-                j = a*b + j + result[bit];
-                result[bit--] = j%10;
-                j = j/10;
-            }
-            while (j!=0){
-                j += result[bit];
-                result[bit--] = j%10;
-                j = j/10;
-            }
-            pow--;
+        if (Objects.equals(num1, "0") || Objects.equals(num2, "0")) {
+            return "0";
         }
-        StringBuilder builder = new StringBuilder();
-        int i = 0;
-        for (; i < result.length; i++) if (result[i] != 0) break;
-        for (; i < result.length; i++) builder.append(result[i]);
-        return builder.length()==0? "0" : builder.toString();
+        int n1 = num1.length(), n2 = num2.length();
+        String ans = "";
+        for (int i = 0; i < n1; ++i) {
+            int a = num1.charAt(n1 - i - 1) - '0';
+            String t = "";
+            for (int j = 0; j < n2; ++j) {
+                int b = num2.charAt(n2 - j - 1) - '0';
+                StringBuilder sb = new StringBuilder(String.valueOf(a * b));
+                for (int k = 0; k < j; ++k) {
+                    sb.append(0);
+                }
+                t = add(t, sb.toString());
+            }
+            StringBuilder sb = new StringBuilder(t);
+            for (int k = 0; k < i; ++k) {
+                sb.append(0);
+            }
+            ans = add(ans, sb.toString());
+        }
+        return ans;
+    }
+
+    private String add(String s1, String s2) {
+        int n1 = s1.length(), n2 = s2.length();
+        StringBuilder res = new StringBuilder();
+        for (int i = 0, carry = 0; i < Math.max(n1, n2) || carry > 0; ++i) {
+            int a = i < n1 ? (s1.charAt(n1 - i - 1) - '0') : 0;
+            int b = i < n2 ? (s2.charAt(n2 - i - 1) - '0') : 0;
+            int s = a + b + carry;
+            carry = s / 10;
+            res.append(s % 10);
+        }
+        return res.reverse().toString();
     }
 }

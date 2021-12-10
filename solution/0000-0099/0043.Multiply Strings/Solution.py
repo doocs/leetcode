@@ -1,20 +1,26 @@
-class Solution(object):
-    def multiply(self, num1, num2):
+class Solution:
+    def multiply(self, num1: str, num2: str) -> str:
+        def add(s1, s2):
+            n1, n2 = len(s1), len(s2)
+            i = carry = 0
+            res = []
+            while i < max(n1, n2) or carry > 0:
+                a = int(s1[n1 - i - 1]) if i < n1 else 0
+                b = int(s2[n2 - i - 1]) if i < n2 else 0
+                carry, t = divmod(a + b + carry, 10)
+                res.append(str(t))
+                i += 1
+            return ''.join(res[::-1])
 
-        # Create a dictionary to store 0-9 key-value pairs
-        dict_nums={"0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9}
-        number1 = 0
-        number2 = 0
-
-	# Convert num1 in integer format
-        for i in num1:
-            key = dict_nums[i]
-            number1 = (number1 * 10) + key
-
-
-	# Convert num2 in integer format
-        for i in num2:
-	    key = dict_nums[i]
-		number2 = (number2 * 10) + key
-
-        return str(number1 * number2)
+        if '0' in [num1, num2]:
+            return '0'
+        n1, n2 = len(num1), len(num2)
+        ans = ''
+        for i in range(n1):
+            a = int(num1[n1 - i - 1])
+            t = ''
+            for j in range(n2):
+                b = int(num2[n2 - j - 1])
+                t = add(t, str(a * b) + '0' * j)
+            ans = add(ans, t + '0' * i)
+        return ans
