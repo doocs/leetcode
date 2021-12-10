@@ -259,13 +259,13 @@
 
 ## 贡献者
 
-非常感谢以下所有朋友对本项目的贡献，你们是最可爱的人！
+感谢以下所有朋友对本项目的贡献！
 
 <a href="https://github.com/doocs/leetcode/graphs/contributors" target="_blank"><img src="./images/contributors.svg" /></a>
 
 ## 赞助者
 
-特别感谢以下个人、组织对本项目的赞助！
+感谢以下个人、组织对本项目的赞助！
 
 <a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
 

@@ -52,10 +52,11 @@
 	<li><code>Node.val</code> 为 <code>0</code> 或 <code>1</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+深度优先搜索 DFS 实现。
 
 <!-- tabs:start -->
 
@@ -64,7 +65,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sumRootToLeaf(self, root: TreeNode) -> int:
+        def dfs(root, t):
+            if root is None:
+                return 0
+            t = (t << 1) | root.val
+            if root.left is None and root.right is None:
+                return t
+            return dfs(root.left, t) + dfs(root.right, t)
+        
+        return dfs(root, 0)
 ```
 
 ### **Java**
@@ -72,7 +89,94 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int sumRootToLeaf(TreeNode root) {
+        return dfs(root, 0);
+    }
 
+    private int dfs(TreeNode root, int t) {
+        if (root == null) {
+            return 0;
+        }
+        t = (t << 1) | root.val;
+        if (root.left == null && root.right == null) {
+            return t;
+        }
+        return dfs(root.left, t) + dfs(root.right, t);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int sumRootToLeaf(TreeNode* root) {
+        return dfs(root, 0);
+    }
+
+    int dfs(TreeNode* root, int t) {
+        if (!root) return 0;
+        t = (t << 1) | root->val;
+        if (!root->left && !root->right) return t;
+        return dfs(root->left, t) + dfs(root->right, t);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func sumRootToLeaf(root *TreeNode) int {
+	var dfs func(root *TreeNode, t int) int
+	dfs = func(root *TreeNode, t int) int {
+		if root == nil {
+			return 0
+		}
+		t = (t << 1) | root.Val
+		if root.Left == nil && root.Right == nil {
+			return t
+		}
+		return dfs(root.Left, t) + dfs(root.Right, t)
+	}
+
+	return dfs(root, 0)
+}
 ```
 
 ### **...**
