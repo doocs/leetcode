@@ -66,13 +66,28 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 ### **Python3**
 
 ```python
-
+class Solution:
+    def sortByBits(self, arr: List[int]) -> List[int]:
+        arr.sort(key=lambda x: (bin(x).count("1"), x))
+        return arr
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int[] sortByBits(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.bitCount(arr[i]) * 100000 + arr[i];
+        }
+        Arrays.sort(arr);
+        for (int i = 0; i < n; i++) {
+            arr[i] %= 100000;
+        }
+        return arr;
+    }
+}
 ```
 
 ### **...**
