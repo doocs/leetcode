@@ -53,10 +53,15 @@
 	<li><code>instructions[i]</code> 在&nbsp;<code>{&#39;G&#39;, &#39;L&#39;, &#39;R&#39;}</code>&nbsp;中</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+定义 `cur` 表示初始方向（上），值为 0，`cur + 1`，`cur + 2`，`cur + 3` 分别表示 左、下、右。
+
+`direction[4]` 分别表示机器人在四个方向上行走的距离。
+
+只要机器人最后的方向与初始方向 0 不一样，或者最后回到原点，返回 true。
 
 <!-- tabs:start -->
 
@@ -67,13 +72,12 @@
 ```python
 class Solution:
     def isRobotBounded(self, instructions: str) -> bool:
-        direction = [0] * 4
-        cur = 0
-        for i in range(len(instructions)):
-            if instructions[i] == 'L':
-                cur = cur + 1 if cur < 3 else 0
-            elif instructions[i] == 'R':
-                cur = cur - 1 if cur > 0 else 3
+        cur, direction = 0, [0] * 4
+        for ins in instructions:
+            if ins == 'L':
+                cur = (cur + 1) % 4
+            elif ins == 'R':
+                cur = (cur + 3) % 4
             else:
                 direction[cur] += 1
         return cur != 0 or (direction[0] == direction[2] and direction[1] == direction[3])
@@ -88,18 +92,55 @@ class Solution {
     public boolean isRobotBounded(String instructions) {
         int[] direction = new int[4];
         int cur = 0;
-        char[] chars = instructions.toCharArray();
-        for (char c : chars) {
+        for (char c : instructions.toCharArray()) {
             if (c == 'L') {
-                cur = cur < 3 ? cur + 1 : 0;
+                cur = (cur + 1) % 4;
             } else if (c == 'R') {
-                cur = cur > 0 ? cur - 1 : 3;
+                cur = (cur + 3) % 4;
             } else {
-                direction[cur] += 1;
+                ++direction[cur];
             }
         }
         return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3]);
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isRobotBounded(string instructions) {
+        vector<int> direction(4);
+        int cur = 0;
+        for (char c : instructions)
+        {
+            if (c == 'L') cur = (cur + 1) % 4;
+            else if (c == 'R') cur = (cur + 3) % 4;
+            else ++direction[cur];
+        }
+        return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3]);
+    }
+};
+```
+
+### **Go**
+
+```go
+func isRobotBounded(instructions string) bool {
+	direction := make([]int, 4)
+	cur := 0
+	for _, ins := range instructions {
+		if ins == 'L' {
+			cur = (cur + 1) % 4
+		} else if ins == 'R' {
+			cur = (cur + 3) % 4
+		} else {
+			direction[cur]++
+		}
+	}
+	return cur != 0 || (direction[0] == direction[2] && direction[1] == direction[3])
 }
 ```
 

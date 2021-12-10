@@ -42,7 +42,6 @@ The second beautiful arrangement is [2,1]:
 	<li><code>1 &lt;= n &lt;= 15</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -50,13 +49,171 @@ The second beautiful arrangement is [2,1]:
 ### **Python3**
 
 ```python
+class Solution:
+    def countArrangement(self, n: int) -> int:
+        def dfs(i):
+            nonlocal ans, n
+            if i == n + 1:
+                ans += 1
+                return
+            for j in match[i]:
+                if not vis[j]:
+                    vis[j] = True
+                    dfs(i + 1)
+                    vis[j] = False
 
+        ans = 0
+        vis = [False] * (n + 1)
+        match = defaultdict(list)
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if j % i == 0 or i % j == 0:
+                    match[i].append(j)
+
+        dfs(1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int n;
+    private int ans;
+    private boolean[] vis;
+    private Map<Integer, List<Integer>> match;
 
+    public int countArrangement(int n) {
+        this.n = n;
+        ans = 0;
+        vis = new boolean[n + 1];
+        match = new HashMap<>();
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (i % j == 0 || j % i == 0) {
+                    match.computeIfAbsent(i, k -> new ArrayList<>()).add(j);
+                }
+            }
+        }
+        dfs(1);
+        return ans;
+    }
+
+    private void dfs(int i) {
+        if (i == n + 1) {
+            ++ans;
+            return;
+        }
+        if (!match.containsKey(i)) {
+            return;
+        }
+        for (int j : match.get(i)) {
+            if (!vis[j]) {
+                vis[j] = true;
+                dfs(i + 1);
+                vis[j] = false;
+            }
+        }
+    }
+}
+```
+
+```java
+class Solution {
+    public int countArrangement(int N) {
+        int maxn = 1 << N;
+        int[] f = new int[maxn];
+        f[0] = 1;
+        for (int i = 0; i < maxn; ++i) {
+            int s = 1;
+            for (int j = 0; j < N; ++j) {
+                s += (i >> j) & 1;
+            }
+            for (int j = 1; j <= N; ++j) {
+                if (((i >> (j - 1) & 1) == 0) && (s % j == 0 || j % s == 0)) {
+                    f[i | (1 << (j - 1))] += f[i];
+                }
+            }
+        }
+        return f[maxn - 1];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int n;
+    int ans;
+    vector<bool> vis;
+    unordered_map<int, vector<int>> match;
+
+    int countArrangement(int n) {
+        this->n = n;
+        this->ans = 0;
+        vis.resize(n + 1);
+        for (int i = 1; i <= n; ++i)
+            for (int j = 1; j <= n; ++j)
+                if (i % j == 0 || j % i == 0)
+                    match[i].push_back(j);
+        dfs(1);
+        return ans;
+    }
+
+    void dfs(int i) {
+        if (i == n + 1)
+        {
+            ++ans;
+            return;
+        }
+        for (int j : match[i])
+        {
+            if (!vis[j])
+            {
+                vis[j] = true;
+                dfs(i + 1);
+                vis[j] = false;
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func countArrangement(n int) int {
+	ans := 0
+	match := make(map[int][]int)
+	for i := 1; i <= n; i++ {
+		for j := 1; j <= n; j++ {
+			if i%j == 0 || j%i == 0 {
+				match[i] = append(match[i], j)
+			}
+		}
+	}
+	vis := make([]bool, n+1)
+
+	var dfs func(i int)
+	dfs = func(i int) {
+		if i == n+1 {
+			ans++
+			return
+		}
+		for _, j := range match[i] {
+			if !vis[j] {
+				vis[j] = true
+				dfs(i + 1)
+				vis[j] = false
+			}
+		}
+	}
+
+	dfs(1)
+	return ans
+}
 ```
 
 ### **...**

@@ -38,10 +38,13 @@ XXXX
 
 <p>你可以用<strong>一次扫描算法</strong>，只使用<strong>O(1)额外空间，</strong>并且<strong>不修改</strong>甲板的值来解决这个问题吗？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+初始化结果数 ans = 0。
+
+遍历二维甲板，若 X 的左方、上方不为 X，则结果 ans 加 1。
 
 <!-- tabs:start -->
 
@@ -53,7 +56,7 @@ XXXX
 class Solution:
     def countBattleships(self, board: List[List[str]]) -> int:
         m, n = len(board), len(board[0])
-        res = 0
+        ans = 0
         for i in range(m):
             for j in range(n):
                 if board[i][j] == '.':
@@ -62,8 +65,8 @@ class Solution:
                     continue
                 if j > 0 and board[i][j - 1] == 'X':
                     continue
-                res += 1
-        return res
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -74,9 +77,9 @@ class Solution:
 class Solution {
     public int countBattleships(char[][] board) {
         int m = board.length, n = board[0].length;
-        int res = 0;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (board[i][j] == '.') {
                     continue;
                 }
@@ -86,11 +89,58 @@ class Solution {
                 if (j > 0 && board[i][j - 1] == 'X') {
                     continue;
                 }
-                res++;
+                ++ans;
             }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countBattleships(vector<vector<char>>& board) {
+        int m = board.size(), n = board[0].size();
+        int ans = 0;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (board[i][j] == '.') continue;
+                if (i > 0 && board[i - 1][j] == 'X') continue;
+                if (j > 0 && board[i][j - 1] == 'X') continue;
+                ++ans;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countBattleships(board [][]byte) int {
+	m, n := len(board), len(board[0])
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if board[i][j] == '.' {
+				continue
+			}
+			if i > 0 && board[i-1][j] == 'X' {
+				continue
+			}
+			if j > 0 && board[i][j-1] == 'X' {
+				continue
+			}
+			ans++
+		}
+	}
+	return ans
 }
 ```
 
