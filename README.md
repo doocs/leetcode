@@ -265,7 +265,7 @@
 
 ## 赞助者
 
-感谢以下个人、组织对本项目的赞助！
+感谢以下个人、组织对本项目的支持和赞助！
 
 <a href="https://opencollective.com/doocs-leetcode/backers.svg?width=890" target="_blank"><img src="https://opencollective.com/doocs-leetcode/backers.svg?width=890"></a>
 

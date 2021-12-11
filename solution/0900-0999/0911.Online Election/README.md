@@ -6,38 +6,62 @@
 
 <!-- 这里写题目描述 -->
 
-<p>在选举中，第&nbsp;<code>i</code>&nbsp;张票是在时间为&nbsp;<code>times[i]</code>&nbsp;时投给&nbsp;<code>persons[i]</code>&nbsp;的。</p>
+<p>给你两个整数数组 <code>persons</code> 和 <code>times</code> 。在选举中，第&nbsp;<code>i</code>&nbsp;张票是在时刻为&nbsp;<code>times[i]</code>&nbsp;时投给候选人 <code>persons[i]</code>&nbsp;的。</p>
 
-<p>现在，我们想要实现下面的查询函数： <code>TopVotedCandidate.q(int t)</code> 将返回在&nbsp;<code>t</code> 时刻主导选举的候选人的编号。</p>
+<p>对于发生在时刻 <code>t</code> 的每个查询，需要找出在&nbsp;<code>t</code> 时刻在选举中领先的候选人的编号。</p>
 
 <p>在&nbsp;<code>t</code> 时刻投出的选票也将被计入我们的查询之中。在平局的情况下，最近获得投票的候选人将会获胜。</p>
 
+<p>实现 <code>TopVotedCandidate</code> 类：</p>
+
+<ul>
+	<li><code>TopVotedCandidate(int[] persons, int[] times)</code> 使用&nbsp;<code>persons</code> 和 <code>times</code> 数组初始化对象。</li>
+	<li><code>int q(int t)</code> 根据前面描述的规则，返回在时刻 <code>t</code> 在选举中领先的候选人的编号。</li>
+</ul>
+&nbsp;
+
 <p><strong>示例：</strong></p>
 
-<pre><strong>输入：</strong>[&quot;TopVotedCandidate&quot;,&quot;q&quot;,&quot;q&quot;,&quot;q&quot;,&quot;q&quot;,&quot;q&quot;,&quot;q&quot;], [[[0,1,1,0,0,1,0],[0,5,10,15,20,25,30]],[3],[12],[25],[15],[24],[8]]
-<strong>输出：</strong>[null,0,1,1,0,0,1]
+<pre>
+<strong>输入：</strong>
+["TopVotedCandidate", "q", "q", "q", "q", "q", "q"]
+[[[0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]], [3], [12], [25], [15], [24], [8]]
+<strong>输出：</strong>
+[null, 0, 1, 1, 0, 0, 1]
+
 <strong>解释：</strong>
-时间为 3，票数分布情况是 [0]，编号为 0 的候选人领先。
-时间为 12，票数分布情况是 [0,1,1]，编号为 1 的候选人领先。
-时间为 25，票数分布情况是 [0,1,1,0,0,1]，编号为 1 的候选人领先（因为最近的投票结果是平局）。
-在时间 15、24 和 8 处继续执行 3 个查询。
+TopVotedCandidate topVotedCandidate = new TopVotedCandidate([0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]);
+topVotedCandidate.q(3); // 返回 0 ，在时刻 3 ，票数分布为 [0] ，编号为 0 的候选人领先。
+topVotedCandidate.q(12); // 返回 1 ，在时刻 12 ，票数分布为 [0,1,1] ，编号为 1 的候选人领先。
+topVotedCandidate.q(25); // 返回 1 ，在时刻 25 ，票数分布为 [0,1,1,0,0,1] ，编号为 1 的候选人领先。（在平局的情况下，1 是最近获得投票的候选人）。
+topVotedCandidate.q(15); // 返回 0
+topVotedCandidate.q(24); // 返回 0
+topVotedCandidate.q(8); // 返回 1
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= persons.length = times.length &lt;= 5000</code></li>
-	<li><code>0 &lt;= persons[i] &lt;= persons.length</code></li>
-	<li><code>times</code>&nbsp;是严格递增的数组，所有元素都在&nbsp;<code>[0, 10^9]</code>&nbsp;范围中。</li>
-	<li>每个测试用例最多调用&nbsp;<code>10000</code>&nbsp;次&nbsp;<code>TopVotedCandidate.q</code>。</li>
-	<li><code>TopVotedCandidate.q(int t)</code>&nbsp;被调用时总是满足&nbsp;<code>t &gt;= times[0]</code>。</li>
-</ol>
+<ul>
+	<li><code>1 &lt;= persons.length &lt;= 5000</code></li>
+	<li><code>times.length == persons.length</code></li>
+	<li><code>0 &lt;= persons[i] &lt; persons.length</code></li>
+	<li><code>0 &lt;= times[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>times</code> 是一个严格递增的有序数组</li>
+	<li><code>times[0] &lt;= t &lt;= 10<sup>9</sup></code></li>
+	<li>每个测试用例最多调用 <code>10<sup>4</sup></code> 次 <code>q</code></li>
+</ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+二分查找。
+
+先预处理得到每个时刻的领先的候选人编号 `wins[i]`。
+
+然后对于每次查询 q，二分查找得到小于等于 t 时刻的最大时刻 left，返回 `wins[left]` 即可。
 
 <!-- tabs:start -->
 
@@ -49,26 +73,26 @@
 class TopVotedCandidate:
 
     def __init__(self, persons: List[int], times: List[int]):
+        mx = cur = 0
+        counter = Counter()
         self.times = times
-        mx, cur_win, n = -1, -1, len(persons)
-        counter = [0] * (n + 1)
-        self.win_persons = [0] * n
+        self.wins = [0] * len(persons)
         for i, p in enumerate(persons):
             counter[p] += 1
             if counter[p] >= mx:
-                mx = counter[p]
-                cur_win = p
-            self.win_persons[i] = cur_win
+                mx, cur = counter[p], p
+            self.wins[i] = cur
 
     def q(self, t: int) -> int:
-        left, right = 0, len(self.win_persons) - 1
+        left, right = 0, len(self.wins) - 1
         while left < right:
             mid = (left + right + 1) >> 1
             if self.times[mid] <= t:
                 left = mid
             else:
                 right = mid - 1
-        return self.win_persons[left]
+        return self.wins[left]
+
 
 # Your TopVotedCandidate object will be instantiated and called as such:
 # obj = TopVotedCandidate(persons, times)
@@ -126,35 +150,35 @@ class TopVotedCandidate {
 class TopVotedCandidate {
 public:
     vector<int> times;
-    vector<int> winPersons;
+    vector<int> wins;
 
     TopVotedCandidate(vector<int>& persons, vector<int>& times) {
-        this->times = times;
-        int mx = -1, curWin = -1;
         int n = persons.size();
-        vector<int> counter(n + 1);
-        winPersons.resize(n);
+        wins.resize(n);
+        int mx = 0, cur = 0;
+        this->times = times;
+        vector<int> counter(n);
         for (int i = 0; i < n; ++i)
         {
-            if (++counter[persons[i]] >= mx)
+            int p = persons[i];
+            if (++counter[p] >= mx)
             {
-                mx = counter[persons[i]];
-                curWin = persons[i];
+                mx = counter[p];
+                cur = p;
             }
-            winPersons[i] = curWin;
+            wins[i] = cur;
         }
-
     }
 
     int q(int t) {
-        int left = 0, right = winPersons.size() - 1;
+        int left = 0, right = wins.size() - 1;
         while (left < right)
         {
-            int mid = (left + right + 1) >> 1;
+            int mid = left + right + 1 >> 1;
             if (times[mid] <= t) left = mid;
             else right = mid - 1;
         }
-        return winPersons[left];
+        return wins[left];
     }
 };
 
@@ -169,29 +193,27 @@ public:
 
 ```go
 type TopVotedCandidate struct {
-	times      []int
-	winPersons []int
+	times []int
+	wins  []int
 }
 
 func Constructor(persons []int, times []int) TopVotedCandidate {
-	mx, curWin, n := -1, -1, len(persons)
-	counter := make([]int, n+1)
-	winPersons := make([]int, n)
+	mx, cur, n := 0, 0, len(persons)
+	counter := make([]int, n)
+	wins := make([]int, n)
 	for i, p := range persons {
 		counter[p]++
 		if counter[p] >= mx {
 			mx = counter[p]
-			curWin = p
+			cur = p
 		}
-		winPersons[i] = curWin
+		wins[i] = cur
 	}
-	return TopVotedCandidate{
-		times, winPersons,
-	}
+	return TopVotedCandidate{times, wins}
 }
 
 func (this *TopVotedCandidate) Q(t int) int {
-	left, right := 0, len(this.winPersons)-1
+	left, right := 0, len(this.wins)-1
 	for left < right {
 		mid := (left + right + 1) >> 1
 		if this.times[mid] <= t {
@@ -200,7 +222,7 @@ func (this *TopVotedCandidate) Q(t int) int {
 			right = mid - 1
 		}
 	}
-	return this.winPersons[left]
+	return this.wins[left]
 }
 
 /**

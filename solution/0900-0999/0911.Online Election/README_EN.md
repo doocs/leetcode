@@ -4,51 +4,54 @@
 
 ## Description
 
-<p>In an election, the <code>i</code>-th&nbsp;vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>
+<p>You are given two integer arrays <code>persons</code> and <code>times</code>. In an election, the <code>i<sup>th</sup></code> vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>
 
-<p>Now, we would like to implement the following query function: <code>TopVotedCandidate.q(int t)</code> will return the number of the person that was leading the election at time <code>t</code>.&nbsp;&nbsp;</p>
+<p>For each query at a time <code>t</code>, find the person that was leading the election at time <code>t</code>. Votes cast at time <code>t</code> will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins.</p>
 
-<p>Votes cast at time <code>t</code> will count towards our query.&nbsp; In the case of a tie, the most recent vote (among tied candidates) wins.</p>
+<p>Implement the <code>TopVotedCandidate</code> class:</p>
+
+<ul>
+	<li><code>TopVotedCandidate(int[] persons, int[] times)</code> Initializes the object with the <code>persons</code> and <code>times</code> arrays.</li>
+	<li><code>int q(int t)</code> Returns the number of the person that was leading the election at time <code>t</code> according to the mentioned rules.</li>
+</ul>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input</strong>
+[&quot;TopVotedCandidate&quot;, &quot;q&quot;, &quot;q&quot;, &quot;q&quot;, &quot;q&quot;, &quot;q&quot;, &quot;q&quot;]
+[[[0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]], [3], [12], [25], [15], [24], [8]]
+<strong>Output</strong>
+[null, 0, 1, 1, 0, 0, 1]
 
-<strong>Input: </strong><span id="example-input-1-1">[&quot;TopVotedCandidate&quot;,&quot;q&quot;,&quot;q&quot;,&quot;q&quot;,&quot;q&quot;,&quot;q&quot;,&quot;q&quot;]</span>, <span id="example-input-1-2">[[[0,1,1,0,0,1,0],[0,5,10,15,20,25,30]],[3],[12],[25],[15],[24],[8]]</span>
-
-<strong>Output: </strong><span id="example-output-1">[null,0,1,1,0,0,1]</span>
-
-<strong>Explanation: </strong>
-
-At time 3, the votes are [0], and 0 is leading.
-
-At time 12, the votes are [0,1,1], and 1 is leading.
-
-At time 25, the votes are [0,1,1,0,0,1], and 1 is leading (as ties go to the most recent vote.)
-
-This continues for 3 more queries at time 15, 24, and 8.
+<strong>Explanation</strong>
+TopVotedCandidate topVotedCandidate = new TopVotedCandidate([0, 1, 1, 0, 0, 1, 0], [0, 5, 10, 15, 20, 25, 30]);
+topVotedCandidate.q(3); // return 0, At time 3, the votes are [0], and 0 is leading.
+topVotedCandidate.q(12); // return 1, At time 12, the votes are [0,1,1], and 1 is leading.
+topVotedCandidate.q(25); // return 1, At time 25, the votes are [0,1,1,0,0,1], and 1 is leading (as ties go to the most recent vote.)
+topVotedCandidate.q(15); // return 0
+topVotedCandidate.q(24); // return 0
+topVotedCandidate.q(8); // return 1
 
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li><code>1 &lt;= persons.length = times.length &lt;= 5000</code></li>
-	<li><code>0 &lt;= persons[i] &lt;= persons.length</code></li>
-	<li><code>times</code>&nbsp;is a strictly increasing array with all elements in <code>[0, 10^9]</code>.</li>
-	<li><code>TopVotedCandidate.q</code> is called at most <code>10000</code> times per test case.</li>
-	<li><code>TopVotedCandidate.q(int t)</code> is always called with <code>t &gt;= times[0]</code>.</li>
-</ol>
-
-</div>
+<ul>
+	<li><code>1 &lt;= persons.length &lt;= 5000</code></li>
+	<li><code>times.length == persons.length</code></li>
+	<li><code>0 &lt;= persons[i] &lt; persons.length</code></li>
+	<li><code>0 &lt;= times[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>times</code> is sorted in a strictly increasing order.</li>
+	<li><code>times[0] &lt;= t &lt;= 10<sup>9</sup></code></li>
+	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>q</code>.</li>
+</ul>
 
 ## Solutions
+
+Binary search.
 
 <!-- tabs:start -->
 
@@ -58,26 +61,26 @@ This continues for 3 more queries at time 15, 24, and 8.
 class TopVotedCandidate:
 
     def __init__(self, persons: List[int], times: List[int]):
+        mx = cur = 0
+        counter = Counter()
         self.times = times
-        mx, cur_win, n = -1, -1, len(persons)
-        counter = [0] * (n + 1)
-        self.win_persons = [0] * n
+        self.wins = [0] * len(persons)
         for i, p in enumerate(persons):
             counter[p] += 1
             if counter[p] >= mx:
-                mx = counter[p]
-                cur_win = p
-            self.win_persons[i] = cur_win
+                mx, cur = counter[p], p
+            self.wins[i] = cur
 
     def q(self, t: int) -> int:
-        left, right = 0, len(self.win_persons) - 1
+        left, right = 0, len(self.wins) - 1
         while left < right:
             mid = (left + right + 1) >> 1
             if self.times[mid] <= t:
                 left = mid
             else:
                 right = mid - 1
-        return self.win_persons[left]
+        return self.wins[left]
+
 
 # Your TopVotedCandidate object will be instantiated and called as such:
 # obj = TopVotedCandidate(persons, times)
@@ -89,34 +92,35 @@ class TopVotedCandidate:
 ```java
 class TopVotedCandidate {
     private int[] times;
-    private int[] winPersons;
+    private int[] wins;
 
     public TopVotedCandidate(int[] persons, int[] times) {
-        this.times = times;
-        int mx = -1, curWin = -1;
         int n = persons.length;
-        int[] counter = new int[n + 1];
-        winPersons = new int[n];
+        int mx = 0, cur = 0;
+        this.times = times;
+        wins = new int[n];
+        int[] counter = new int[n];
         for (int i = 0; i < n; ++i) {
-            if (++counter[persons[i]] >= mx) {
-                mx = counter[persons[i]];
-                curWin = persons[i];
+            int p = persons[i];
+            if (++counter[p] >= mx) {
+                mx = counter[p];
+                cur = p;
             }
-            winPersons[i] = curWin;
+            wins[i] = cur;
         }
     }
-
+    
     public int q(int t) {
-        int left = 0, right = winPersons.length - 1;
+        int left = 0, right = wins.length - 1;
         while (left < right) {
-            int mid = (left + right + 1) >> 1;
+            int mid = (left + right + 1) >>> 1;
             if (times[mid] <= t) {
                 left = mid;
             } else {
                 right = mid - 1;
             }
         }
-        return winPersons[left];
+        return wins[left];
     }
 }
 
@@ -133,35 +137,35 @@ class TopVotedCandidate {
 class TopVotedCandidate {
 public:
     vector<int> times;
-    vector<int> winPersons;
+    vector<int> wins;
 
     TopVotedCandidate(vector<int>& persons, vector<int>& times) {
-        this->times = times;
-        int mx = -1, curWin = -1;
         int n = persons.size();
-        vector<int> counter(n + 1);
-        winPersons.resize(n);
+        wins.resize(n);
+        int mx = 0, cur = 0;
+        this->times = times;
+        vector<int> counter(n);
         for (int i = 0; i < n; ++i)
         {
-            if (++counter[persons[i]] >= mx)
+            int p = persons[i];
+            if (++counter[p] >= mx)
             {
-                mx = counter[persons[i]];
-                curWin = persons[i];
+                mx = counter[p];
+                cur = p;
             }
-            winPersons[i] = curWin;
+            wins[i] = cur;
         }
-
     }
-
+    
     int q(int t) {
-        int left = 0, right = winPersons.size() - 1;
+        int left = 0, right = wins.size() - 1;
         while (left < right)
         {
-            int mid = (left + right + 1) >> 1;
+            int mid = left + right + 1 >> 1;
             if (times[mid] <= t) left = mid;
             else right = mid - 1;
         }
-        return winPersons[left];
+        return wins[left];
     }
 };
 
@@ -176,29 +180,27 @@ public:
 
 ```go
 type TopVotedCandidate struct {
-	times      []int
-	winPersons []int
+	times []int
+	wins  []int
 }
 
 func Constructor(persons []int, times []int) TopVotedCandidate {
-	mx, curWin, n := -1, -1, len(persons)
-	counter := make([]int, n+1)
-	winPersons := make([]int, n)
+	mx, cur, n := 0, 0, len(persons)
+	counter := make([]int, n)
+	wins := make([]int, n)
 	for i, p := range persons {
 		counter[p]++
 		if counter[p] >= mx {
 			mx = counter[p]
-			curWin = p
+			cur = p
 		}
-		winPersons[i] = curWin
+		wins[i] = cur
 	}
-	return TopVotedCandidate{
-		times, winPersons,
-	}
+	return TopVotedCandidate{times, wins}
 }
 
 func (this *TopVotedCandidate) Q(t int) int {
-	left, right := 0, len(this.winPersons)-1
+	left, right := 0, len(this.wins)-1
 	for left < right {
 		mid := (left + right + 1) >> 1
 		if this.times[mid] <= t {
@@ -207,7 +209,7 @@ func (this *TopVotedCandidate) Q(t int) int {
 			right = mid - 1
 		}
 	}
-	return this.winPersons[left]
+	return this.wins[left]
 }
 
 /**
