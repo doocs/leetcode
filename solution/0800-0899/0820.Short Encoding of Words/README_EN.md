@@ -51,13 +51,149 @@ words[2] = &quot;bell&quot;, the substring of s starting from indices[2] = 5 to 
 ### **Python3**
 
 ```python
+class Trie:
+    def __init__(self) -> None:
+        self.children = [None] * 26
 
+
+class Solution:
+    def minimumLengthEncoding(self, words: List[str]) -> int:
+        root = Trie()
+        for w in words:
+            cur = root
+            for i in range(len(w) - 1, -1, -1):
+                idx = ord(w[i]) - ord('a')
+                if cur.children[idx] == None:
+                    cur.children[idx] = Trie()
+                cur = cur.children[idx]
+        return self.dfs(root, 1)
+
+    def dfs(self, cur: Trie, l: int) -> int:
+        isLeaf, ans = True, 0
+        for i in range(26):
+            if cur.children[i] != None:
+                isLeaf = False
+                ans += self.dfs(cur.children[i], l + 1)
+        if isLeaf:
+            ans += l
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Trie {
+    Trie[] children = new Trie[26];
+}
 
+class Solution {
+    public int minimumLengthEncoding(String[] words) {
+        Trie root = new Trie();
+        for (String w : words) {
+            Trie cur = root;
+            for (int i = w.length() - 1; i >= 0; i--) {
+                int idx = w.charAt(i) - 'a';
+                if (cur.children[idx] == null) {
+                    cur.children[idx] = new Trie();
+                }
+                cur = cur.children[idx];
+            }
+        }
+        return dfs(root, 1);
+    }
+
+    private int dfs(Trie cur, int l) {
+        boolean isLeaf = true;
+        int ans = 0;
+        for (int i = 0; i < 26; i++) {
+            if (cur.children[i] != null) {
+                isLeaf = false;
+                ans += dfs(cur.children[i], l + 1);
+            }
+        }
+        if (isLeaf) {
+            ans += l;
+        }
+        return ans;
+    }
+}
+```
+
+### **Go**
+
+```go
+type trie struct {
+	children [26]*trie
+}
+
+func minimumLengthEncoding(words []string) int {
+	root := new(trie)
+	for _, w := range words {
+		cur := root
+		for i := len(w) - 1; i >= 0; i-- {
+			if cur.children[w[i]-'a'] == nil {
+				cur.children[w[i]-'a'] = new(trie)
+			}
+			cur = cur.children[w[i]-'a']
+		}
+	}
+	return dfs(root, 1)
+}
+
+func dfs(cur *trie, l int) int {
+	isLeaf, ans := true, 0
+	for i := 0; i < 26; i++ {
+		if cur.children[i] != nil {
+			isLeaf = false
+			ans += dfs(cur.children[i], l+1)
+		}
+	}
+	if isLeaf {
+		ans += l
+	}
+	return ans
+}
+```
+
+### **C++**
+
+```cpp
+struct Trie {
+    Trie* children[26] = { nullptr };
+};
+
+class Solution {
+public:
+    int minimumLengthEncoding(vector<string>& words) {
+        auto root = new Trie();
+        for (auto& w : words) {
+            auto cur = root;
+            for (int i = w.size() - 1; i >= 0; --i) {
+                if (cur->children[w[i] - 'a'] == nullptr) {
+                    cur->children[w[i] - 'a'] = new Trie();
+                }
+                cur = cur->children[w[i] - 'a'];
+            }
+        }
+        return dfs(root, 1);
+    }
+
+private:
+    int dfs(Trie* cur, int l) {
+        bool isLeaf = true;
+        int ans = 0;
+        for (int i = 0; i < 26; ++i) {
+            if (cur->children[i] != nullptr) {
+                isLeaf = false;
+                ans += dfs(cur->children[i], l + 1);
+            }
+        }
+        if (isLeaf) {
+            ans += l;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**
