@@ -47,7 +47,6 @@ On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
 	<li>1 &lt;= num_people &lt;= 1000</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -55,13 +54,67 @@ On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def distributeCandies(self, candies: int, num_people: int) -> List[int]:
+        ans = [0] * num_people
+        i = 0
+        while candies > 0:
+            ans[i % num_people] += min(candies, i + 1)
+            candies -= min(candies, i + 1)
+            i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] distributeCandies(int candies, int num_people) {
+        int[] ans = new int[num_people];
+        for (int i = 0; candies > 0; ++i) {
+            ans[i % num_people] += Math.min(candies, i + 1);
+            candies -= Math.min(candies, i + 1);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> distributeCandies(int candies, int num_people) {
+        vector<int> ans(num_people);
+        for (int i = 0; candies > 0; ++i)
+        {
+            ans[i % num_people] += min(candies, i + 1);
+            candies -= min(candies, i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func distributeCandies(candies int, num_people int) []int {
+	ans := make([]int, num_people)
+	for i := 0; candies > 0; i++ {
+		ans[i%num_people] += min(candies, i+1)
+		candies -= min(candies, i+1)
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
