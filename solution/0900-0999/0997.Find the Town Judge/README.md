@@ -63,10 +63,13 @@
 	<li><code>1 &lt;= trust[i][0], trust[i][1] &lt;= N</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+创建长度为 1001 的计数器 `c1[i]`、`c2[i]`，其中 `c1[i]` 表示 i 信任的人数，`c2[i]` 表示信任 i 的人数。
+
+遍历 trust 列表，统计人数，最后再遍历计数器，若存在 `c1[i] == 0 && c2[i] == n - 1`，说明存在法官，直接返回 i。否则遍历结束返回 -1。
 
 <!-- tabs:start -->
 
@@ -77,20 +80,15 @@
 ```python
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        if n == 1 and len(trust) == 0:
-            return 1
-        dic = {}
-        values = set()
-        for i in trust:
-            values.add(i[0])
-            if i[1] in dic:
-                dic[i[1]].append(i[0])
-            else:
-                dic[i[1]] = [i[0]]
-
-        for key, value in dic.items():
-            if len(dic[key]) == n-1 and key not in values:
-                return k
+        N = 1001
+        c1, c2 = [0] * N, [0] * N
+        for a, b in trust:
+            c1[a] += 1
+            c2[b] += 1
+        for i in range(1, N):
+            if c1[i] == 0 and c2[i] == n - 1:
+                return i
+        return -1
 ```
 
 ### **Java**
@@ -98,7 +96,23 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int findJudge(int n, int[][] trust) {
+        int N = 1001;
+        int[] c1 = new int[N];
+        int[] c2 = new int[N];
+        for (int[] e : trust) {
+            ++c1[e[0]];
+            ++c2[e[1]];
+        }
+        for (int i = 1; i < N; ++i) {
+            if (c1[i] == 0 && c2[i] == n - 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -120,6 +134,49 @@ function findJudge(n: number, trust: number[][]): number {
     }
     return -1;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        int N = 1001;
+        vector<int> c1(N);
+        vector<int> c2(N);
+        for (auto& e : trust)
+        {
+            ++c1[e[0]];
+            ++c2[e[1]];
+        }
+        for (int i = 1; i < N; ++i)
+        {
+            if (c1[i] == 0 && c2[i] == n - 1) return i;
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findJudge(n int, trust [][]int) int {
+	N := 1001
+	c1 := make([]int, N)
+	c2 := make([]int, N)
+	for _, e := range trust {
+		c1[e[0]]++
+		c2[e[1]]++
+	}
+	for i := 1; i < N; i++ {
+		if c1[i] == 0 && c2[i] == n-1 {
+			return i
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**

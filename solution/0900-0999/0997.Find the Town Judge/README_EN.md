@@ -6,11 +6,7 @@
 
 <p>In a town, there are <code>N</code> people labelled from&nbsp;<code>1</code> to <code>N</code>.&nbsp; There is a rumor that one of these people is secretly the town judge.</p>
 
-
-
 <p>If the&nbsp;town judge exists, then:</p>
-
-
 
 <ol>
 	<li>The town judge trusts nobody.</li>
@@ -18,15 +14,9 @@
 	<li>There is exactly one person that satisfies properties 1 and 2.</li>
 </ol>
 
-
-
 <p>You are given <code>trust</code>, an array of pairs <code>trust[i] = [a, b]</code> representing that the person labelled <code>a</code> trusts the person labelled <code>b</code>.</p>
 
-
-
 <p>If the town judge exists and can be identified, return the label of the town judge.&nbsp; Otherwise, return <code>-1</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -66,8 +56,6 @@
 
 <p><strong>Constraints:</strong></p>
 
-
-
 <ul>
 	<li><code>1 &lt;= N &lt;= 1000</code></li>
 	<li><code>0 &lt;= trust.length &lt;= 10^4</code></li>
@@ -86,26 +74,37 @@
 ```python
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        if n == 1 and len(trust) == 0:
-            return 1
-        dic = {}
-        values = set()
-        for i in trust:
-            values.add(i[0])
-            if i[1] in dic:
-                dic[i[1]].append(i[0])
-            else:
-                dic[i[1]] = [i[0]]
-
-        for key, value in dic.items():
-            if len(dic[key]) == n-1 and key not in values:
-                return k
+        N = 1001
+        c1, c2 = [0] * N, [0] * N
+        for a, b in trust:
+            c1[a] += 1
+            c2[b] += 1
+        for i in range(1, N):
+            if c1[i] == 0 and c2[i] == n - 1:
+                return i
+        return -1
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findJudge(int n, int[][] trust) {
+        int N = 1001;
+        int[] c1 = new int[N];
+        int[] c2 = new int[N];
+        for (int[] e : trust) {
+            ++c1[e[0]];
+            ++c2[e[1]];
+        }
+        for (int i = 1; i < N; ++i) {
+            if (c1[i] == 0 && c2[i] == n - 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -127,6 +126,49 @@ function findJudge(n: number, trust: number[][]): number {
     }
     return -1;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+        int N = 1001;
+        vector<int> c1(N);
+        vector<int> c2(N);
+        for (auto& e : trust)
+        {
+            ++c1[e[0]];
+            ++c2[e[1]];
+        }
+        for (int i = 1; i < N; ++i)
+        {
+            if (c1[i] == 0 && c2[i] == n - 1) return i;
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findJudge(n int, trust [][]int) int {
+	N := 1001
+	c1 := make([]int, N)
+	c2 := make([]int, N)
+	for _, e := range trust {
+		c1[e[0]]++
+		c2[e[1]]++
+	}
+	for i := 1; i < N; i++ {
+		if c1[i] == 0 && c2[i] == n-1 {
+			return i
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**

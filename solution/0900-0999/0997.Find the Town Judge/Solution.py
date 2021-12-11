@@ -1,16 +1,11 @@
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        if n == 1 and len(trust) == 0:
-            return 1
-        dic = {}
-        values = set()
-        for i in trust:
-            values.add(i[0])
-            if i[1] in dic:
-                dic[i[1]].append(i[0])
-            else:
-                dic[i[1]] = [i[0]]
-
-        for key, value in dic.items():
-            if len(dic[key]) == n-1 and key not in values:
-                return k
+        N = 1001
+        c1, c2 = [0] * N, [0] * N
+        for a, b in trust:
+            c1[a] += 1
+            c2[b] += 1
+        for i in range(1, N):
+            if c1[i] == 0 and c2[i] == n - 1:
+                return i
+        return -1

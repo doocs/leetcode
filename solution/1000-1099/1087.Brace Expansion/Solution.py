@@ -9,7 +9,6 @@ class Solution:
                 convert(s[j + 1:])
             else:
                 j = s.find('{')
-
                 if j != -1:
                     items.append(s[: j].split(','))
                     convert(s[j:])
