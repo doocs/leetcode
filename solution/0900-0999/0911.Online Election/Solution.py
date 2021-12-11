@@ -4,12 +4,12 @@ class TopVotedCandidate:
         mx = cur = 0
         counter = Counter()
         self.times = times
-        self.wins = [0] * len(persons)
+        self.wins = []
         for i, p in enumerate(persons):
             counter[p] += 1
             if counter[p] >= mx:
                 mx, cur = counter[p], p
-            self.wins[i] = cur
+            self.wins.append(cur)
 
     def q(self, t: int) -> int:
         left, right = 0, len(self.wins) - 1
