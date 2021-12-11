@@ -30,10 +30,11 @@
 	<li><code>S</code>&nbsp;仅由数字和字母组成。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+DFS 回溯法。
 
 <!-- tabs:start -->
 
@@ -42,7 +43,39 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def letterCasePermutation(self, s: str) -> List[str]:
+        def dfs(i, t):
+            if i == len(t):
+                ans.append(''.join(t))
+                return
+            dfs(i + 1, t)
+            if t[i].isalpha():
+                t[i] = t[i].upper() if t[i].islower() else t[i].lower()
+                dfs(i + 1, t)
 
+        ans = []
+        t = list(s)
+        dfs(0, t)
+        return ans
+```
+
+```python
+class Solution:
+    def letterCasePermutation(self, s: str) -> List[str]:
+        def dfs(i, t):
+            if i == len(s):
+                ans.append(t)
+                return
+            if s[i].isalpha():
+                dfs(i + 1, t + s[i].upper())
+                dfs(i + 1, t + s[i].lower())
+            else:
+                dfs(i + 1, t + s[i])
+
+        ans = []
+        dfs(0, '')
+        return ans
 ```
 
 ### **Java**
@@ -50,7 +83,62 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<String> letterCasePermutation(String S) {
+        char[] cs = S.toCharArray();
+        List<String> res = new ArrayList<>();
+        dfs(cs, 0, res);
+        return res;
+    }
 
+    private void dfs(char[] cs, int i, List<String> res) {
+        if (i == cs.length) {
+            res.add(String.valueOf(cs));
+            return;
+        }
+        dfs(cs, i + 1, res);
+        if (cs[i] >= 'A') {
+            cs[i] ^= 32;
+            dfs(cs, i + 1, res);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> ans;
+    string s;
+
+    vector<string> letterCasePermutation(string s) {
+        this->s = s;
+        string t = "";
+        dfs(0, t);
+        return ans;
+    }
+
+    void dfs(int i, string t) {
+        if (i == s.size())
+        {
+            ans.push_back(t);
+            return;
+        }
+        if (isalpha(s[i]))
+        {
+            char c1 = toupper(s[i]);
+            char c2 = tolower(s[i]);
+            dfs(i + 1, t + c1);
+            dfs(i + 1, t + c2);
+        }
+        else
+        {
+            dfs(i + 1, t + s[i]);
+        }
+    }
+};
 ```
 
 ### **...**
