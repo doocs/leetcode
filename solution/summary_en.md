@@ -2138,3 +2138,13 @@
   - [2095.Delete the Middle Node of a Linked List](/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README_EN.md)
   - [2096.Step-By-Step Directions From a Binary Tree Node to Another](/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README_EN.md)
   - [2097.Valid Arrangement of Pairs](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README_EN.md)
+  - [2099.Find Subsequence of Length K With the Largest Sum](/solution/2000-2099/2099.Find%20Subsequence%20of%20Length%20K%20With%20the%20Largest%20Sum/README_EN.md)
+
+- 2100-2199
+  - [2100.Find Good Days to Rob the Bank](/solution/2100-2199/2100.Find%20Good%20Days%20to%20Rob%20the%20Bank/README_EN.md)
+  - [2101.Detonate the Maximum Bombs](/solution/2100-2199/2101.Detonate%20the%20Maximum%20Bombs/README_EN.md)
+  - [2102.Sequentially Ordinal Rank Tracker](/solution/2100-2199/2102.Sequentially%20Ordinal%20Rank%20Tracker/README_EN.md)
+  - [2103.Rings and Rods](/solution/2100-2199/2103.Rings%20and%20Rods/README_EN.md)
+  - [2104.Sum of Subarray Ranges](/solution/2100-2199/2104.Sum%20of%20Subarray%20Ranges/README_EN.md)
+  - [2105.Watering Plants II](/solution/2100-2199/2105.Watering%20Plants%20II/README_EN.md)
+  - [2106.Maximum Fruits Harvested After at Most K Steps](/solution/2100-2199/2106.Maximum%20Fruits%20Harvested%20After%20at%20Most%20K%20Steps/README_EN.md)

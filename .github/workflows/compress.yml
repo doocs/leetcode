@@ -22,15 +22,15 @@ jobs:
         id: calibre
         uses: calibreapp/image-actions@main
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          githubToken: ${{ secrets.ACTION_TOKEN }}
           compressOnly: true
 
       - name: Commit Files
         if: |
           steps.calibre.outputs.markdown != ''
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "szuyanglb@outlook.com"
+          git config --local user.name "yanglbme"
           git commit -m "chore: auto compress images" -a
 
       - name: Push Changes
@@ -38,4 +38,4 @@ jobs:
           steps.calibre.outputs.markdown != ''
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACTION_TOKEN }}
