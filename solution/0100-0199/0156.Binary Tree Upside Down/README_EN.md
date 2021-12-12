@@ -49,7 +49,6 @@
 	<li><code>Every node has either 0 or 2 children.</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -57,13 +56,107 @@
 ### **Python3**
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def upsideDownBinaryTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root is None or root.left is None:
+            return root
+        new_root = self.upsideDownBinaryTree(root.left)
+        root.left.right = root
+        root.left.left = root.right
+        root.left = None
+        root.right = None
+        return new_root
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode upsideDownBinaryTree(TreeNode root) {
+        if (root == null || root.left == null) {
+            return root;
+        }
+        TreeNode newRoot = upsideDownBinaryTree(root.left);
+        root.left.right = root;
+        root.left.left = root.right;
+        root.left = null;
+        root.right = null;
+        return newRoot;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* upsideDownBinaryTree(TreeNode* root) {
+        if (!root || !root->left) return root;
+        TreeNode* newRoot = upsideDownBinaryTree(root->left);
+        root->left->right = root;
+        root->left->left = root->right;
+        root->left = nullptr;
+        root->right = nullptr;
+        return newRoot;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func upsideDownBinaryTree(root *TreeNode) *TreeNode {
+	if root == nil || root.Left == nil {
+		return root
+	}
+	newRoot := upsideDownBinaryTree(root.Left)
+	root.Left.Right = root
+	root.Left.Left = root.Right
+	root.Left = nil
+	root.Right = nil
+	return newRoot
+}
 ```
 
 ### **...**

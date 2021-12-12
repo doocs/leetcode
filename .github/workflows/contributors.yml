@@ -13,7 +13,7 @@ jobs:
       - uses: wow-actions/contributors-list@v1
         name: Update contributors
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
           svgPath: images/contributors.svg
           svgWidth: 890
           commitMessage: "chore: auto update contributors"
