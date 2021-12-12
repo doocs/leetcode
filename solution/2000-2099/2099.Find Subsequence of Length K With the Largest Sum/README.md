@@ -52,6 +52,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+两次排序。
+
+先按照数字大小**对下标进行排序**，然后取出倒数 k 个下标（对应的数字是数组中前 k 个数字），对下标进行排序。最后将排序后的下标依次映射成数字，得到结果数组。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +63,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
+        idx = list(range(len(nums)))
+        idx.sort(key=lambda i: nums[i])
+        return [nums[i] for i in sorted(idx[-k:])]
 ```
 
 ### **Java**
@@ -67,7 +75,64 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] maxSubsequence(int[] nums, int k) {
+        int[] ans = new int[k];
+        List<Integer> idx = new ArrayList<>();
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            idx.add(i);
+        }
+        idx.sort(Comparator.comparingInt(i -> -nums[i]));
+        int[] t = new int[k];
+        for (int i = 0; i < k; ++i) {
+            t[i] = idx.get(i);
+        }
+        Arrays.sort(t);
+        for (int i = 0; i < k; ++i) {
+            ans[i] = nums[t[i]];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> maxSubsequence(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<pair<int, int>> vals;
+        for (int i = 0; i < n; ++i) vals.push_back({i, nums[i]});
+        sort(vals.begin(), vals.end(), [&](auto x1, auto x2) {
+            return x1.second > x2.second;
+        });
+        sort(vals.begin(), vals.begin() + k);
+        vector<int> ans;
+        for (int i = 0; i < k; ++i) ans.push_back(vals[i].second);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxSubsequence(nums []int, k int) []int {
+	idx := make([]int, len(nums))
+	for i := range idx {
+		idx[i] = i
+	}
+	sort.Slice(idx, func(i, j int) bool { return nums[idx[i]] > nums[idx[j]] })
+	sort.Ints(idx[:k])
+	ans := make([]int, k)
+	for i, j := range idx[:k] {
+		ans[i] = nums[j]
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
