@@ -71,14 +71,9 @@ gridNew = [ [8, 4, 8, 7],
 ```python
 class Solution:
     def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
-        m, n = len(grid), len(grid[0])
-        we = [max(item) for item in grid]
-        ns = [max([grid[i][j] for i in range(m)]) for j in range(n)]
-        res = 0
-        for i in range(m):
-            for j in range(n):
-                res += min(we[i], ns[j]) - grid[i][j]
-        return res
+        rmx = [max(row) for row in grid]
+        cmx = [max(col) for col in zip(*grid)]
+        return sum((min(rmx[i], cmx[j]) - grid[i][j]) for i in range(len(grid)) for j in range(len(grid[0])))
 ```
 
 ### **Java**
@@ -87,21 +82,21 @@ class Solution:
 class Solution {
     public int maxIncreaseKeepingSkyline(int[][] grid) {
         int m = grid.length, n = grid[0].length;
-        int[] we = new int[m];
-        int[] ns = new int[n];
+        int[] rmx = new int[m];
+        int[] cmx = new int[n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                we[i] = Math.max(we[i], grid[i][j]);
-                ns[j] = Math.max(ns[j], grid[i][j]);
+                rmx[i] = Math.max(rmx[i], grid[i][j]);
+                cmx[j] = Math.max(cmx[j], grid[i][j]);
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                res += Math.min(we[i], ns[j]) - grid[i][j];
+                ans += Math.min(rmx[i], cmx[j]) - grid[i][j];
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -137,21 +132,21 @@ class Solution {
 public:
     int maxIncreaseKeepingSkyline(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
-        vector<int> we(m, 0);
-        vector<int> ns(n, 0);
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                we[i] = max(we[i], grid[i][j]);
-                ns[j] = max(ns[j], grid[i][j]);
+        vector<int> rmx(m, 0);
+        vector<int> cmx(n, 0);
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                rmx[i] = max(rmx[i], grid[i][j]);
+                cmx[j] = max(cmx[j], grid[i][j]);
             }
         }
-        int res = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                res += min(we[i], ns[j]) - grid[i][j];
-            }
-        }
-        return res;
+        int ans = 0;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                ans += min(rmx[i], cmx[j]) - grid[i][j];
+        return ans;
     }
 };
 ```
@@ -161,21 +156,21 @@ public:
 ```go
 func maxIncreaseKeepingSkyline(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	we := make([]int, m)
-	ns := make([]int, n)
+	rmx := make([]int, m)
+	cmx := make([]int, n)
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			we[i] = max(we[i], grid[i][j])
-			ns[j] = max(ns[j], grid[i][j])
+			rmx[i] = max(rmx[i], grid[i][j])
+			cmx[j] = max(cmx[j], grid[i][j])
 		}
 	}
-	res := 0
+	ans := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			res += min(we[i], ns[j]) - grid[i][j]
+			ans += min(rmx[i], cmx[j]) - grid[i][j]
 		}
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {

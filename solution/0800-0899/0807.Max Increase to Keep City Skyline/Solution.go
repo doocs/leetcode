@@ -1,20 +1,20 @@
 func maxIncreaseKeepingSkyline(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	we := make([]int, m)
-	ns := make([]int, n)
+	rmx := make([]int, m)
+	cmx := make([]int, n)
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			we[i] = max(we[i], grid[i][j])
-			ns[j] = max(ns[j], grid[i][j])
+			rmx[i] = max(rmx[i], grid[i][j])
+			cmx[j] = max(cmx[j], grid[i][j])
 		}
 	}
-	res := 0
+	ans := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			res += min(we[i], ns[j]) - grid[i][j]
+			ans += min(rmx[i], cmx[j]) - grid[i][j]
 		}
 	}
-	return res
+	return ans
 }
 
 func max(a, b int) int {
