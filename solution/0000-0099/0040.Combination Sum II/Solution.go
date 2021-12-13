@@ -1,26 +1,28 @@
 func combinationSum2(candidates []int, target int) [][]int {
-    //排序，然后递归搜索
-    sort.Ints(candidates)
-    return dfs(candidates,target)
-}
+	var ans [][]int
+	var t []int
+	sort.Ints(candidates)
+	var dfs func(u, s int, t []int)
+	dfs = func(u, s int, t []int) {
+		if s > target {
+			return
+		}
+		if s == target {
+			cp := make([]int, len(t))
+			copy(cp, t)
+			ans = append(ans, cp)
+			return
+		}
+		for i := u; i < len(candidates); i++ {
+			if i > u && candidates[i] == candidates[i-1] {
+				continue
+			}
+			t = append(t, candidates[i])
+			dfs(i+1, s+candidates[i], t)
+			t = t[:len(t)-1]
+		}
+	}
 
-func dfs(nums []int, target int) [][]int {
-    ret := [][]int{}
-    for i, n := range nums {
-        //跳过与之前迭代相同的值
-        if i > 0 && nums[i-1] == n {
-            continue
-        } else if target < n {
-            break
-        } else if target == n {
-            ret = append(ret, []int{n})
-            continue
-        }
-        //不能使用同一位置数字
-        for _,v := range dfs(nums[i+1:], target - n) {
-            ret = append(ret,append([]int{n}, v...))
-        }
-    }
-
-    return ret
+	dfs(0, 0, t)
+	return ans
 }
