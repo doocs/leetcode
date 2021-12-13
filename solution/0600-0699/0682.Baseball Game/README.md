@@ -70,12 +70,11 @@
 	<li>对于 <code>"C"</code> 和 <code>"D"</code> 操作，题目数据保证记录此操作时前面总是存在一个有效的分数</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-栈实现。
+利用栈简单模拟即可。
 
 <!-- tabs:start -->
 
@@ -86,17 +85,17 @@
 ```python
 class Solution:
     def calPoints(self, ops: List[str]) -> int:
-        stack = []
+        stk = []
         for op in ops:
-            if op == 'C':
-                stack.pop()
+            if op == '+':
+                stk.append(stk[-1] + stk[-2])
             elif op == 'D':
-                stack.append(stack[-1] << 1)
-            elif op == '+':
-                stack.append(stack[-1] + stack[-2])
+                stk.append(stk[-1] << 1)
+            elif op == 'C':
+                stk.pop()
             else:
-                stack.append(int(op))
-        return sum(stack)
+                stk.append(int(op))
+        return sum(stk)
 ```
 
 ### **Java**
@@ -106,27 +105,75 @@ class Solution:
 ```java
 class Solution {
     public int calPoints(String[] ops) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> stk = new ArrayDeque<>();
         for (String op : ops) {
-            if ("C".equals(op)) {
-                stack.pop();
+            if ("+".equals(op)) {
+                int a = stk.pop();
+                int b = stk.peek();
+                stk.push(a);
+                stk.push(a + b);
             } else if ("D".equals(op)) {
-                stack.push(stack.peek() << 1);
-            } else if ("+".equals(op)) {
-                Integer a = stack.pop();
-                Integer b = stack.peek();
-                stack.push(a);
-                stack.push(a + b);
+                stk.push(stk.peek() << 1);
+            } else if ("C".equals(op)) {
+                stk.pop();
             } else {
-                stack.push(Integer.valueOf(op));
+                stk.push(Integer.valueOf(op));
             }
         }
-        int res = 0;
-        for (Integer score : stack) {
-            res += score;
-        }
-        return res;
+        return stk.stream().mapToInt(Integer::intValue).sum();
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int calPoints(vector<string>& ops) {
+        vector<int> stk;
+        for (auto& op : ops)
+        {
+            int n = stk.size();
+            if (op == "+")
+            {
+                int a = stk[n - 1];
+                int b = stk[n - 2];
+                stk.push_back(a + b);
+            }
+            else if (op == "D") stk.push_back(stk[n - 1] * 2);
+            else if (op == "C") stk.pop_back();
+            else stk.push_back(stoi(op));
+        }
+        return accumulate(stk.begin(), stk.end(), 0);
+    }
+};
+```
+
+### **Go**
+
+```go
+func calPoints(ops []string) int {
+	var stk []int
+	for _, op := range ops {
+		n := len(stk)
+		switch op {
+		case "+":
+			stk = append(stk, stk[n-1]+stk[n-2])
+		case "D":
+			stk = append(stk, stk[n-1]*2)
+		case "C":
+			stk = stk[:n-1]
+		default:
+			num, _ := strconv.Atoi(op)
+			stk = append(stk, num)
+		}
+	}
+	ans := 0
+	for _, score := range stk {
+		ans += score
+	}
+	return ans
 }
 ```
 
