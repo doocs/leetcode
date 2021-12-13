@@ -53,10 +53,18 @@
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+暴力模拟。
+
+把 s 按照不同长度去做 x, y 两部分的拆分。
+
+将拆分后的 x, y，分别检查是否满足以下条件：
+
+- 左半部分开头不能是 0（除非是 0 本身）
+- 右半部分不能以 0 为结尾
 
 <!-- tabs:start -->
 
@@ -65,7 +73,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def ambiguousCoordinates(self, s: str) -> List[str]:
+        def convert(i, j):
+            res = []
+            for k in range(1, j - i + 1):
+                left, right = s[i: i + k], s[i + k: j]
+                valid = (left == '0' or not left.startswith(
+                    '0')) and not right.endswith('0')
+                if valid:
+                    res.append(left + ('.' if k < j - i else '') + right)
+            return res
 
+        n = len(s)
+        ans = []
+        for i in range(2, n - 1):
+            for x in convert(1, i):
+                for y in convert(i, n - 1):
+                    ans.append(f'({x}, {y})')
+        return ans
 ```
 
 ### **Java**
@@ -73,7 +99,35 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<String> ambiguousCoordinates(String s) {
+        int n = s.length();
+        List<String> ans = new ArrayList<>();
+        for (int i = 2; i < n - 1; ++i) {
+            for (String x : convert(s, 1, i)) {
+                for (String y : convert(s, i, n - 1)) {
+                    ans.add(String.format("(%s, %s)", x, y));
+                }
+            }
+        }
+        return ans;
+    }
 
+    private List<String> convert(String s, int i, int j) {
+        List<String> res = new ArrayList<>();
+        for (int k = 1; k <= j - i; ++k) {
+            String left = s.substring(i, i + k);
+            String right = s.substring(i + k, j);
+            // 左半部分开头不能是0（除非是0本身）
+            // 右半部分不能以0为结尾
+            boolean valid = ("0".equals(left) || !left.startsWith("0")) && !right.endsWith("0");
+            if (valid) {
+                res.add(left + (k < j - i ? "." : "") + right);
+            }
+        }
+        return res;
+    }
+}
 ```
 
 ### **...**
