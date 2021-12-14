@@ -2138,6 +2138,7 @@
   - [2095.Delete the Middle Node of a Linked List](/solution/2000-2099/2095.Delete%20the%20Middle%20Node%20of%20a%20Linked%20List/README.md)
   - [2096.Step-By-Step Directions From a Binary Tree Node to Another](/solution/2000-2099/2096.Step-By-Step%20Directions%20From%20a%20Binary%20Tree%20Node%20to%20Another/README.md)
   - [2097.Valid Arrangement of Pairs](/solution/2000-2099/2097.Valid%20Arrangement%20of%20Pairs/README.md)
+  - [2098.Subsequence of Size K With the Largest Even Sum](/solution/2000-2099/2098.Subsequence%20of%20Size%20K%20With%20the%20Largest%20Even%20Sum/README.md)
   - [2099.Find Subsequence of Length K With the Largest Sum](/solution/2000-2099/2099.Find%20Subsequence%20of%20Length%20K%20With%20the%20Largest%20Sum/README.md)
 
 - 2100-2199
