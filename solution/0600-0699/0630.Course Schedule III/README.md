@@ -35,10 +35,16 @@
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+贪心 + 优先队列。
+
+先根据「结束时间」对 `courses` 升序排列，从前往后考虑每个课程，过程中维护一个总时长 s，对于某个课程 `courses[i]` 而言，根据如果学习该课程，是否满足「最晚完成时间」条件进行讨论：
+
+- 学习该课程后，满足「最晚完成时间」要求，即 s + `courses[i][0]` <= `courses[i][1]`，则进行学习；
+- 学习该课程后，不满足「最晚完成时间」要求，此时从过往学习的课程中找出「持续时间」最长的课程进行「回退」操作（这个持续时长最长的课程也有可能是当前课程）。
 
 <!-- tabs:start -->
 
@@ -47,7 +53,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def scheduleCourse(self, courses: List[List[int]]) -> int:
+        courses.sort(key=lambda x: x[1])
+        pq = []
+        s = 0
+        for d, e in courses:
+            heapq.heappush(pq, -d)
+            s += d
+            if s > e:
+                s += heapq.heappop(pq)
+        return len(pq)
 ```
 
 ### **Java**
@@ -55,7 +71,92 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int scheduleCourse(int[][] courses) {
+        Arrays.sort(courses, Comparator.comparingInt(a -> a[1]));
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+        int s = 0;
+        for (int[] course : courses) {
+            int duration = course[0], lastDay = course[1];
+            pq.offer(duration);
+            s += duration;
+            if (s > lastDay) {
+                s -= pq.poll();
+            }
+        }
+        return pq.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int scheduleCourse(vector<vector<int>>& courses) {
+        sort(courses.begin(), courses.end(), [](const auto& c0, const auto& c1) {
+            return c0[1] < c1[1];
+        });
+        int s = 0;
+        priority_queue<int> pq;
+        for (auto& course : courses)
+        {
+            int d = course[0], e = course[1];
+            pq.push(d);
+            s += d;
+            if (s > e)
+            {
+                s -= pq.top();
+                pq.pop();
+            }
+        }
+        return pq.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func scheduleCourse(courses [][]int) int {
+	sort.Slice(courses, func(i, j int) bool {
+		return courses[i][1] < courses[j][1]
+	})
+
+	h := &Heap{}
+	s := 0
+	for _, course := range courses {
+		if d := course[0]; s+d <= course[1] {
+			s += d
+			heap.Push(h, d)
+		} else if h.Len() > 0 && d < h.IntSlice[0] {
+			s += d - h.IntSlice[0]
+			h.IntSlice[0] = d
+			heap.Fix(h, 0)
+		}
+	}
+	return h.Len()
+}
+
+type Heap struct {
+	sort.IntSlice
+}
+
+func (h Heap) Less(i, j int) bool {
+	return h.IntSlice[i] > h.IntSlice[j]
+}
+
+func (h *Heap) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
+}
+
+func (h *Heap) Pop() interface{} {
+	a := h.IntSlice
+	x := a[len(a)-1]
+	h.IntSlice = a[:len(a)-1]
+	return x
+}
 ```
 
 ### **...**
