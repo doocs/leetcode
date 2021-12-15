@@ -54,9 +54,9 @@
 先按照区间右边界排序。优先选择最小的区间的右边界作为起始边界。遍历区间：
 
 - 若当前区间左边界大于等于起始右边界，说明该区间无需移除，直接更新起始右边界；
-- 否则说明该区间需要移除，更新移除区间的数量 cnt。
+- 否则说明该区间需要移除，更新移除区间的数量 ans。
 
-最后返回 cnt 即可。
+最后返回 ans 即可。
 
 <!-- tabs:start -->
 
@@ -70,13 +70,13 @@ class Solution:
         if not intervals:
             return 0
         intervals.sort(key=lambda x: x[1])
-        cnt, end = 0, intervals[0][1]
-        for interval in intervals[1:]:
-            if interval[0] >= end:
-                end = interval[1]
+        ans, t = 0, intervals[0][1]
+        for s, e in intervals[1:]:
+            if s >= t:
+                t = e
             else:
-                cnt += 1
-        return cnt
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -90,15 +90,15 @@ class Solution {
             return 0;
         }
         Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
-        int end = intervals[0][1], cnt = 0;
+        int t = intervals[0][1], ans = 0;
         for (int i = 1; i < intervals.length; ++i) {
-            if (intervals[i][0] >= end) {
-                end = intervals[i][1];
+            if (intervals[i][0] >= t) {
+                t = intervals[i][1];
             } else {
-                ++cnt;
+                ++ans;
             }
         }
-        return cnt;
+        return ans;
     }
 }
 ```
@@ -128,26 +128,16 @@ function eraseOverlapIntervals(intervals: number[][]): number {
 ```cpp
 class Solution {
 public:
-    int eraseOverlapIntervals(vector<vector<int>> &intervals) {
-        if (intervals.empty())
-        {
-            return 0;
-        }
-        sort(intervals.begin(), intervals.end(), [](const auto &a, const auto &b)
-             { return a[1] < b[1]; });
-        int ed = intervals[0][1], cnt = 0;
+    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        if (intervals.empty()) return 0;
+        sort(intervals.begin(), intervals.end(), [](const auto &a, const auto &b) { return a[1] < b[1]; });
+        int ans = 0, t = intervals[0][1];
         for (int i = 1; i < intervals.size(); ++i)
         {
-            if (ed <= intervals[i][0])
-            {
-                ed = intervals[i][1];
-            }
-            else
-            {
-                ++cnt;
-            }
+            if (t <= intervals[i][0]) t = intervals[i][1];
+            else ++ans;
         }
-        return cnt;
+        return ans;
     }
 };
 ```
@@ -162,15 +152,15 @@ func eraseOverlapIntervals(intervals [][]int) int {
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][1] < intervals[j][1]
 	})
-	end, cnt := intervals[0][1], 0
+	t, ans := intervals[0][1], 0
 	for i := 1; i < len(intervals); i++ {
-		if intervals[i][0] >= end {
-			end = intervals[i][1]
+		if intervals[i][0] >= t {
+			t = intervals[i][1]
 		} else {
-			cnt++
+			ans++
 		}
 	}
-	return cnt
+	return ans
 }
 ```
 

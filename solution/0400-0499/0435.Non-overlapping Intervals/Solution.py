@@ -3,10 +3,10 @@ class Solution:
         if not intervals:
             return 0
         intervals.sort(key=lambda x: x[1])
-        cnt, end = 0, intervals[0][1]
-        for interval in intervals[1:]:
-            if interval[0] >= end:
-                end = interval[1]
+        ans, t = 0, intervals[0][1]
+        for s, e in intervals[1:]:
+            if s >= t:
+                t = e
             else:
-                cnt += 1
-        return cnt
+                ans += 1
+        return ans
