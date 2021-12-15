@@ -69,21 +69,20 @@ The length of the given binary array will not exceed 50,000.
 ```cpp
 class Solution {
 public:
-    int subarraySum(vector<int>& nums, int k) {
-        if (nums.size() < 0) return 0;
-
+    int findMaxLength(vector<int>& nums) {
         int presum = 0;
-        int count = 0;
+        int maxlen = 0;
         unordered_map<int, int> mp;
-        mp[0] = 1;
-
-        for (int right = 0; right < nums.size(); right++) {
-            presum += nums[right];
-            count += mp[presum - k];
-            mp[presum]++;
+        mp[0] = -1;
+        for (int i = 0; i < nums.size(); i++) {
+            presum += nums[i] == 0? -1: 1;
+            if (mp.find(presum) != mp.end())
+                maxlen = max(maxlen, i - mp[presum]);
+            else
+                mp[presum] = i;    
         }
 
-        return count;
+        return maxlen;
     }
 };
 ```
