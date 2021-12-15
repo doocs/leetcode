@@ -45,10 +45,13 @@ answer[7] = 7，
 	<li>对&nbsp;<code>richer</code>&nbsp;的观察在逻辑上是一致的。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+根据 richer 关系构建有向图，如果 a 比 b 有钱，那么连一条从 b 到 a 的有向边，最终构建出一个有向无环图。
+
+我们知道，从图的任一点 i 出发，沿着有向边所能访问到的点，都比 i 更有钱。DFS 深搜即可。
 
 <!-- tabs:start -->
 
@@ -57,7 +60,26 @@ answer[7] = 7，
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def loudAndRich(self, richer: List[List[int]], quiet: List[int]) -> List[int]:
+        n = len(quiet)
+        g = defaultdict(list)
+        for a, b in richer:
+            g[b].append(a)
+        ans = [-1] * n
 
+        def dfs(i):
+            if ans[i] != -1:
+                return
+            ans[i] = i
+            for j in g[i]:
+                dfs(j)
+                if quiet[ans[j]] < quiet[ans[i]]:
+                    ans[i] = ans[j]
+
+        for i in range(n):
+            dfs(i)
+        return ans
 ```
 
 ### **Java**
@@ -65,7 +87,103 @@ answer[7] = 7，
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private Map<Integer, List<Integer>> g;
+    private int[] quiet;
+    private int[] ans;
 
+    public int[] loudAndRich(int[][] richer, int[] quiet) {
+        g = new HashMap<>();
+        this.quiet = quiet;
+        ans = new int[quiet.length];
+        Arrays.fill(ans, -1);
+        for (int[] r : richer) {
+            g.computeIfAbsent(r[1], k -> new ArrayList<>()).add(r[0]);
+        }
+        for (int i = 0; i < quiet.length; ++i) {
+            dfs(i);
+        }
+        return ans;
+    }
+
+    private void dfs(int i) {
+        if (ans[i] != -1) {
+            return;
+        }
+        ans[i] = i;
+        if (!g.containsKey(i)) {
+            return;
+        }
+        for (int j : g.get(i)) {
+            dfs(j);
+            if (quiet[ans[j]] < quiet[ans[i]]) {
+                ans[i] = ans[j];
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> loudAndRich(vector<vector<int>>& richer, vector<int>& quiet) {
+        int n = quiet.size();
+        vector<vector<int>> g(n);
+        for (auto& r : richer) g[r[1]].push_back(r[0]);
+        vector<int> ans(n, -1);
+        function<void(int)> dfs = [&](int i) {
+            if (ans[i] != -1) return;
+            ans[i] = i;
+            for (int j : g[i])
+            {
+                dfs(j);
+                if (quiet[ans[j]] < quiet[ans[i]]) ans[i] = ans[j];
+            }
+        };
+        for (int i = 0; i < n; ++i)
+            dfs(i);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func loudAndRich(richer [][]int, quiet []int) []int {
+    n := len(quiet)
+    ans := make([]int, n)
+    g := make([][]int, n)
+    for i := 0; i < n; i++ {
+        ans[i] = -1
+        g[i] = make([]int, 0)
+    }
+    for _, r := range richer {
+        g[r[1]] = append(g[r[1]], r[0])
+    }
+
+    var dfs func(i int)
+    dfs = func(i int) {
+        if ans[i] != - 1 {
+            return
+        }
+        ans[i] = i
+        for _, j := range g[i] {
+            dfs(j)
+            if quiet[ans[j]] < quiet[ans[i]] {
+                ans[i] = ans[j]
+            }
+        }
+    }
+
+    for i := 0; i < n; i++ {
+        dfs(i)
+    }
+    return ans
+}
 ```
 
 ### **...**
