@@ -65,6 +65,41 @@ The sum of the numbers after index 0 is: 0
 
 <!-- tabs:start -->
 
+### **Python3**
+
+```python
+class Solution:
+    def findMiddleIndex(self, nums: List[int]) -> int:
+        s = sum(nums)
+        total = 0
+        for i, num in enumerate(nums):
+            total += num
+            if total - num == s - total:
+                return i
+        return -1
+```
+
+### **Java**
+
+```java
+class Solution {
+    public int findMiddleIndex(int[] nums) {
+        int s = 0;
+        for (int num : nums) {
+            s += num;
+        }
+        int total = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            total += nums[i];
+            if (total - nums[i] == s - total) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -73,12 +108,12 @@ public:
     int findMiddleIndex(vector<int>& nums) {
         int sum = 0;
         int total = 0;
-        for(int num: nums)
+        for (int num: nums)
             sum += num;
 
-        for(int i = 0; i < nums.size(); i++) {
+        for (int i = 0; i < nums.size(); i++) {
             total += nums[i];
-            if(total - nums[i] == sum - total)
+            if (total - nums[i] == sum - total)
                 return i;
         }
 
@@ -87,16 +122,23 @@ public:
 };
 ```
 
-### **Python3**
+### **Go**
 
-```python
-
-```
-
-### **Java**
-
-```java
-
+```go
+func findMiddleIndex(nums []int) int {
+	s := 0
+	for _, num := range nums {
+		s += num
+	}
+	total := 0
+	for i, num := range nums {
+		total += num
+		if total-num == s-total {
+			return i
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**
