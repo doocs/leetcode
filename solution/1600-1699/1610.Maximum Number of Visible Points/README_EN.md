@@ -54,7 +54,6 @@
 	<li><code>0 &lt;= pos<sub>x</sub>, pos<sub>y</sub>, x<sub>i</sub>, y<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -62,13 +61,124 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def visiblePoints(self, points: List[List[int]], angle: int, location: List[int]) -> int:
+        v = []
+        x, y = location
+        same = 0
+        for xi, yi in points:
+            if xi == x and yi == y:
+                same += 1
+            else:
+                v.append(atan2(yi - y, xi - x))
+        v.sort()
+        n = len(v)
+        v += [deg + 2 * pi for deg in v]
+        t = angle * pi / 180
+        mx = max((bisect_right(v, v[i] + t) - i for i in range(n)), default=0)
+        return mx + same
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int visiblePoints(List<List<Integer>> points, int angle, List<Integer> location) {
+        List<Double> v = new ArrayList<>();
+        int x = location.get(0), y = location.get(1);
+        int same = 0;
+        for (List<Integer> p : points) {
+            int xi = p.get(0), yi = p.get(1);
+            if (xi == x && yi == y) {
+                ++same;
+                continue;
+            }
+            v.add(Math.atan2(yi - y, xi - x));
+        }
+        Collections.sort(v);
+        int n = v.size();
+        for (int i = 0; i < n; ++i) {
+            v.add(v.get(i) + 2 * Math.PI);
+        }
+        int mx = 0;
+        Double t = angle * Math.PI / 180;
+        for (int i = 0, j = 0; j < 2 * n; ++j) {
+            while (i < j && v.get(j) - v.get(i) > t) {
+                ++i;
+            }
+            mx = Math.max(mx, j - i + 1);
+        }
+        return mx + same;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int visiblePoints(vector<vector<int>>& points, int angle, vector<int>& location) {
+        vector<double> v;
+        int x = location[0], y = location[1];
+        int same = 0;
+        for (auto& p : points)
+        {
+            int xi = p[0], yi = p[1];
+            if (xi == x && yi == y) ++same;
+            else v.emplace_back(atan2(yi - y, xi - x));
+        }
+        sort(v.begin(), v.end());
+        int n = v.size();
+        for (int i = 0; i < n; ++i) v.emplace_back(v[i] + 2 * M_PI);
+
+        int mx = 0;
+        double t = angle * M_PI / 180;
+        for (int i = 0, j = 0; j < 2 * n; ++j)
+        {
+            while (i < j && v[j] - v[i] > t) ++i;
+            mx = max(mx, j - i + 1);
+        }
+        return mx + same;
+    }
+};
+```
+
+### **Go**
+
+```go
+func visiblePoints(points [][]int, angle int, location []int) int {
+	same := 0
+	v := []float64{}
+	for _, p := range points {
+		if p[0] == location[0] && p[1] == location[1] {
+			same++
+		} else {
+			v = append(v, math.Atan2(float64(p[1]-location[1]), float64(p[0]-location[0])))
+		}
+	}
+	sort.Float64s(v)
+	for _, deg := range v {
+		v = append(v, deg+2*math.Pi)
+	}
+
+	mx := 0
+	t := float64(angle) * math.Pi / 180
+	for i, j := 0, 0; j < len(v); j++ {
+		for i < j && v[j]-v[i] > t {
+			i++
+		}
+		mx = max(mx, j-i+1)
+	}
+	return same + mx
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
