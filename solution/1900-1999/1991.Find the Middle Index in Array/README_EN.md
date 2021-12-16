@@ -65,6 +65,28 @@ The sum of the numbers after index 0 is: 0
 
 <!-- tabs:start -->
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMiddleIndex(vector<int>& nums) {
+        int sum = 0;
+        int total = 0;
+        for(int num: nums)
+            sum += num;
+
+        for(int i = 0; i < nums.size(); i++) {
+            total += nums[i];
+            if(total - nums[i] == sum - total)
+                return i;
+        }
+
+        return -1;
+    }
+};
+```
+
 ### **Python3**
 
 ```python
