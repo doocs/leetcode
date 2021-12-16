@@ -67,6 +67,28 @@
 
 <!-- tabs:start -->
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMiddleIndex(vector<int>& nums) {
+        int sum = 0;
+        int total = 0;
+        for(int num: nums)
+            sum += num;
+
+        for(int i = 0; i < nums.size(); i++) {
+            total += nums[i];
+            if(total - nums[i] == sum - total)
+                return i;
+        }
+
+        return -1;
+    }
+};
+```
+
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
