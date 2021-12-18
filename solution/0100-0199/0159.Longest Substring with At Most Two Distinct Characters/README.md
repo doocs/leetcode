@@ -22,10 +22,11 @@
 <strong>解释: <em>t</em></strong><em> </em>是 &quot;aabbb&quot;，长度为5。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+哈希表 + 双指针。
 
 <!-- tabs:start -->
 
@@ -34,7 +35,20 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
+        mp = Counter()
+        i = j = ans = 0
+        for c in s:
+            mp[c] += 1
+            while len(mp) > 2:
+                mp[s[i]] -= 1
+                if mp[s[i]] == 0:
+                    mp.pop(s[i])
+                i += 1
+            ans = max(ans, j - i + 1)
+            j += 1
+        return ans
 ```
 
 ### **Java**
@@ -42,7 +56,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int lengthOfLongestSubstringTwoDistinct(String s) {
+        Map<Character, Integer> mp = new HashMap<>();
+        int i = 0, j = 0, ans = 0;
+        for (char c : s.toCharArray()) {
+            mp.put(c, mp.getOrDefault(c, 0) + 1);
+            while (mp.size() > 2) {
+                char t = s.charAt(i);
+                mp.put(t, mp.get(t) - 1);
+                if (mp.get(t) == 0) {
+                    mp.remove(t);
+                }
+                ++i;
+            }
+            ans = Math.max(ans, j - i + 1);
+            ++j;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstringTwoDistinct(string s) {
+        unordered_map<char, int> mp;
+        int i = 0, j = 0, ans = 0;
+        for (char& c : s)
+        {
+            ++mp[c];
+            while (mp.size() > 2)
+            {
+                --mp[s[i]];
+                if (mp[s[i]] == 0) mp.erase(s[i]);
+                ++i;
+            }
+            ans = max(ans, j - i + 1);
+            ++j;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lengthOfLongestSubstringTwoDistinct(s string) int {
+	mp := make(map[byte]int)
+	i, j, ans := 0, 0, 0
+	for _, c := range s {
+		mp[byte(c)]++
+		for len(mp) > 2 {
+			mp[s[i]]--
+			if mp[s[i]] == 0 {
+				delete(mp, s[i])
+			}
+			i++
+		}
+		ans = max(ans, j-i+1)
+		j++
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
