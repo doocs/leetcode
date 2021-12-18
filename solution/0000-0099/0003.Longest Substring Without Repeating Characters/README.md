@@ -58,11 +58,11 @@
 
 “滑动窗口 + 哈希表”。
 
-定义一个哈希表记录当前窗口内出现的字符，i、j 分别表示不重复子串的结束位置和开始位置，res 表示无重复字符子串的最大长度。
+定义一个哈希表记录当前窗口内出现的字符，i、j 分别表示不重复子串的开始位置和结束位置，ans 表示无重复字符子串的最大长度。
 
-遍历 i，若 `[j, i - 1]` 窗口内存在 `s[i]`，则 j 循环向右移动，更新哈希表，直至 `[j, i - 1]` 窗口不存在 `s[i]`，循环结束。将 `s[i]` 加入哈希表中，此时 `[j, i]` 窗口内不含重复元素，更新 res 的最大值：`res = max(res, i - j + 1)`。
+遍历 s 每个字符 c，若 `[i, j - 1]` 窗口内存在 `c`，则 i 循环向右移动，更新哈希表，直至 `[i, j - 1]` 窗口不存在 `c`，循环结束。将 `c` 加入哈希表中，此时 `[i, j]` 窗口内不含重复元素，更新 ans 的最大值：`res = max(ans, j - i + 1)`。
 
-最后返回 res 即可。
+最后返回 ans 即可。
 
 <!-- tabs:start -->
 
@@ -73,17 +73,15 @@
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        i = j = res = 0
+        i = ans = 0
         chars = set()
-        while i < len(s):
-            while s[i] in chars:
-                if s[j] in chars:
-                    chars.remove(s[j])
-                j += 1
-            chars.add(s[i])
-            res = max(res, i - j + 1)
-            i += 1
-        return res
+        for j, c in enumerate(s):
+            while c in chars:
+                chars.remove(s[i])
+                i += 1
+            chars.add(c)
+            ans = max(ans, j - i + 1)
+        return ans
 ```
 
 ### **Java**
@@ -93,17 +91,17 @@ class Solution:
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        int res = 0;
-        Set<Character> set = new HashSet<>();
-        for (int i = 0, j = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            while (set.contains(c)) {
-                set.remove(s.charAt(j++));
+        int i = 0, j = 0, ans = 0;
+        Set<Character> chars = new HashSet<>();
+        for (char c : s.toCharArray()) {
+            while (chars.contains(c)) {
+                chars.remove(s.charAt(i++));
             }
-            set.add(c);
-            res = Math.max(res, i - j + 1);
+            chars.add(c);
+            ans = Math.max(ans, j - i + 1);
+            ++j;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -115,17 +113,18 @@ class Solution {
  * @param {string} s
  * @return {number}
  */
- var lengthOfLongestSubstring = function(s) {
-    let res = 0;
+var lengthOfLongestSubstring = function(s) {
+    let i = 0, j = 0, ans = 0;
     let chars = new Set();
-    for (let i = 0, j = 0; i < s.length; ++i) {
-        while (chars.has(s[i])) {
-            chars.delete(s[j++]);
+    for (let c of s) {
+        while (chars.has(c)) {
+            chars.delete(s[i++]);
         }
-        chars.add(s[i]);
-        res = Math.max(res, i - j + 1);
+        chars.add(c);
+        ans = Math.max(ans, j - i + 1);
+        ++j;
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -200,6 +199,27 @@ func max(x, y int) int {
 	}
 	return y
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int i = 0, j = 0, ans = 0;
+        unordered_set<char> chars;
+        for (char& c : s)
+        {
+            while (chars.count(c)) chars.erase(s[i++]);
+            chars.insert(c);
+            ans = max(ans, j - i + 1);
+            ++j;
+        }
+        return ans;
+        
+    }
+};
 ```
 
 ### **Nim**

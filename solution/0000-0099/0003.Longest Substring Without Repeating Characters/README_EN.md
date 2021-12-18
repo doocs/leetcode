@@ -57,17 +57,15 @@ Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence an
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        i = j = res = 0
+        i = ans = 0
         chars = set()
-        while i < len(s):
-            while s[i] in chars:
-                if s[j] in chars:
-                    chars.remove(s[j])
-                j += 1
-            chars.add(s[i])
-            res = max(res, i - j + 1)
-            i += 1
-        return res
+        for j, c in enumerate(s):
+            while c in chars:
+                chars.remove(s[i])
+                i += 1
+            chars.add(c)
+            ans = max(ans, j - i + 1)
+        return ans
 ```
 
 ### **Java**
@@ -75,17 +73,17 @@ class Solution:
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        int res = 0;
-        Set<Character> set = new HashSet<>();
-        for (int i = 0, j = 0; i < s.length(); ++i) {
-            char c = s.charAt(i);
-            while (set.contains(c)) {
-                set.remove(s.charAt(j++));
+        int i = 0, j = 0, ans = 0;
+        Set<Character> chars = new HashSet<>();
+        for (char c : s.toCharArray()) {
+            while (chars.contains(c)) {
+                chars.remove(s.charAt(i++));
             }
-            set.add(c);
-            res = Math.max(res, i - j + 1);
+            chars.add(c);
+            ans = Math.max(ans, j - i + 1);
+            ++j;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -97,17 +95,18 @@ class Solution {
  * @param {string} s
  * @return {number}
  */
- var lengthOfLongestSubstring = function(s) {
-    let res = 0;
+var lengthOfLongestSubstring = function(s) {
+    let i = 0, j = 0, ans = 0;
     let chars = new Set();
-    for (let i = 0, j = 0; i < s.length; ++i) {
-        while (chars.has(s[i])) {
-            chars.delete(s[j++]);
+    for (let c of s) {
+        while (chars.has(c)) {
+            chars.delete(s[i++]);
         }
-        chars.add(s[i]);
-        res = Math.max(res, i - j + 1);
+        chars.add(c);
+        ans = Math.max(ans, j - i + 1);
+        ++j;
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -182,6 +181,27 @@ func max(x, y int) int {
 	}
 	return y
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int i = 0, j = 0, ans = 0;
+        unordered_set<char> chars;
+        for (char& c : s)
+        {
+            while (chars.count(c)) chars.erase(s[i++]);
+            chars.insert(c);
+            ans = max(ans, j - i + 1);
+            ++j;
+        }
+        return ans;
+        
+    }
+};
 ```
 
 ### **Nim**
