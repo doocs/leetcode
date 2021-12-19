@@ -12,7 +12,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/12/13/ballon1.jpg" style="width: 404px; height: 243px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/images/balloon1.jpg" style="width: 404px; height: 243px;" />
 <pre>
 <strong>Input:</strong> colors = &quot;abaac&quot;, neededTime = [1,2,3,4,5]
 <strong>Output:</strong> 3
@@ -21,7 +21,7 @@ Bob can remove the blue balloon at index 2. This takes 3 seconds.
 There are no longer two consecutive balloons of the same color. Total time = 3.</pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/12/13/balloon2.jpg" style="width: 244px; height: 243px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/images/balloon2.jpg" style="width: 244px; height: 243px;" />
 <pre>
 <strong>Input:</strong> colors = &quot;abc&quot;, neededTime = [1,2,3]
 <strong>Output:</strong> 0
@@ -29,7 +29,7 @@ There are no longer two consecutive balloons of the same color. Total time = 3.<
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/12/13/balloon3.jpg" style="width: 404px; height: 243px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/images/balloon3.jpg" style="width: 404px; height: 243px;" />
 <pre>
 <strong>Input:</strong> colors = &quot;aabaa&quot;, neededTime = [1,2,3,4,1]
 <strong>Output:</strong> 2

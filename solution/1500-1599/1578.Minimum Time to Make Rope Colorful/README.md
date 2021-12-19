@@ -15,7 +15,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/12/13/ballon1.jpg" style="width: 404px; height: 243px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/images/balloon1.jpg" style="width: 404px; height: 243px;" />
 <pre>
 <strong>输入：</strong>colors = "abaac", neededTime = [1,2,3,4,5]
 <strong>输出：</strong>3
@@ -24,7 +24,7 @@ Bob 可以移除下标 2 的蓝色气球。这将花费 3 秒。
 移除后，不存在两个连续的气球涂着相同的颜色。总时间 = 3 。</pre>
 
 <p><strong>示例 2：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/12/13/balloon2.jpg" style="width: 244px; height: 243px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/images/balloon2.jpg" style="width: 244px; height: 243px;" />
 <pre>
 <strong>输入：</strong>colors = "abc", neededTime = [1,2,3]
 <strong>输出：</strong>0
@@ -32,7 +32,7 @@ Bob 可以移除下标 2 的蓝色气球。这将花费 3 秒。
 </pre>
 
 <p><strong>示例 3：</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/12/13/balloon3.jpg" style="width: 404px; height: 243px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1578.Minimum%20Time%20to%20Make%20Rope%20Colorful/images/balloon3.jpg" style="width: 404px; height: 243px;" />
 <pre>
 <strong>输入：</strong>colors = "aabaa", neededTime = [1,2,3,4,1]
 <strong>输出：</strong>2
