@@ -44,7 +44,6 @@
 	<li><code>1 &lt;= houses[i], heaters[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -52,13 +51,129 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def findRadius(self, houses: List[int], heaters: List[int]) -> int:
+        houses.sort()
+        heaters.sort()
 
+        def check(r):
+            m, n = len(houses), len(heaters)
+            i = j = 0
+            while i < m:
+                if j >= n:
+                    return False
+                mi = heaters[j] - r
+                mx = heaters[j] + r
+                if houses[i] < mi:
+                    return False
+                if houses[i] > mx:
+                    j += 1
+                else:
+                    i += 1
+            return True
+
+        left, right = 0, int(1e9)
+        while left < right:
+            mid = (left + right) >> 1
+            if check(mid):
+                right = mid
+            else:
+                left = mid + 1
+        return left
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findRadius(int[] houses, int[] heaters) {
+        Arrays.sort(heaters);
+        int res = 0;
+        for (int x : houses) {
+            int i = Arrays.binarySearch(heaters, x);
+            if (i < 0) {
+                i = ~i;
+            }
+            int dis1 = i > 0 ? x - heaters[i - 1] : Integer.MAX_VALUE;
+            int dis2 = i < heaters.length ? heaters[i] - x : Integer.MAX_VALUE;
+            res = Math.max(res, Math.min(dis1, dis2));
+        }
+        return res;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findRadius(vector<int>& houses, vector<int>& heaters) {
+        sort(houses.begin(), houses.end());
+        sort(heaters.begin(), heaters.end());
+        int left = 0, right = 1e9;
+        while (left < right) {
+            int mid = left + right >> 1;
+            if (check(houses, heaters, mid)) right = mid;
+            else left = mid + 1;
+        }
+        return left;
+    }
+
+    bool check(vector<int>& houses, vector<int>& heaters, int r) {
+        int m = houses.size(), n = heaters.size();
+        int i = 0, j = 0;
+        while (i < m)
+        {
+            if (j >= n) return false;
+            int mi = heaters[j] - r;
+            int mx = heaters[j] + r;
+            if (houses[i] < mi) return false;
+            if (houses[i] > mx) ++j;
+            else ++i;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findRadius(houses []int, heaters []int) int {
+	sort.Ints(houses)
+	sort.Ints(heaters)
+	m, n := len(houses), len(heaters)
+
+	check := func(r int) bool {
+		var i, j int
+		for i < m {
+			if j >= n {
+				return false
+			}
+			mi, mx := heaters[j]-r, heaters[j]+r
+			if houses[i] < mi {
+				return false
+			}
+			if houses[i] > mx {
+				j++
+			} else {
+				i++
+			}
+		}
+		return true
+	}
+	left, right := 0, int(1e9)
+	for left < right {
+		mid := (left + right) >> 1
+		if check(mid) {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	return left
+}
 ```
 
 ### **...**
