@@ -54,21 +54,144 @@ Path to get the maximum gold, 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 7.
 	<li>There are at most <strong>25 </strong>cells containing gold.</li>
 </ul>
 
-
 ## Solutions
+
+DFS.
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+class Solution:
+    def getMaximumGold(self, grid: List[List[int]]) -> int:
+        def dfs(i, j):
+            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == 0 or vis[i][j]:
+                return 0
 
+            vis[i][j] = True
+            t = 0
+            for x, y in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                t = max(t, dfs(i + x, j + y))
+            vis[i][j] = False
+            return t + grid[i][j]
+
+        m, n = len(grid), len(grid[0])
+        ans = 0
+        vis = [[False] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                ans = max(ans, dfs(i, j))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[][] grid;
+    private boolean[][] vis;
 
+    public int getMaximumGold(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        this.grid = grid;
+        this.vis = new boolean[m][n];
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans = Math.max(ans, dfs(i, j));
+            }
+        }
+        return ans;
+    }
+
+    private int dfs(int i, int j) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 0 || vis[i][j]) {
+            return 0;
+        }
+        vis[i][j] = true;
+        int t = 0;
+        int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+        for (int[] dir : dirs) {
+            t = Math.max(t, dfs(i + dir[0], j + dir[1]));
+        }
+        vis[i][j] = false;
+        return t + grid[i][j];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> grid;
+    vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    int getMaximumGold(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        this->grid = grid;
+        vector<vector<bool>> vis(m, vector<bool>(n, false));
+        int ans = 0;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                ans = max(ans, dfs(i, j, vis));
+        return ans;
+    }
+
+    int dfs(int i, int j,  vector<vector<bool>>& vis) {
+        if (i < 0 || i >= grid.size() || j < 0 || j >= grid[0].size() || grid[i][j] == 0 || vis[i][j]) return 0;
+        vis[i][j] = true;
+        int t = 0;
+        for (auto& dir : dirs)
+            t = max(t, dfs(i + dir[0], j + dir[1], vis));
+        vis[i][j] = false;
+        return t + grid[i][j];
+    }
+};
+```
+
+### **Go**
+
+```go
+func getMaximumGold(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
+	}
+
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0 || vis[i][j] {
+			return 0
+		}
+		vis[i][j] = true
+		dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+		t := 0
+		for _, dir := range dirs {
+			t = max(t, dfs(i+dir[0], j+dir[1]))
+		}
+		vis[i][j] = false
+		return t + grid[i][j]
+	}
+
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			ans = max(ans, dfs(i, j))
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
