@@ -46,7 +46,6 @@
 	<li><code>1 &lt;= jug1Capacity, jug2Capacity, targetCapacity &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -86,6 +85,16 @@ class Solution:
         return False
 ```
 
+```python
+class Solution:
+    def canMeasureWater(self, jug1Capacity: int, jug2Capacity: int, targetCapacity: int) -> bool:
+        if jug1Capacity + jug2Capacity < targetCapacity:
+            return False
+        if jug1Capacity == 0 or jug2Capacity == 0:
+            return targetCapacity == 0 or jug1Capacity + jug2Capacity == targetCapacity
+        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0
+```
+
 ### **Java**
 
 ```java
@@ -119,7 +128,7 @@ class Solution {
             } else {
                 stk.offer(new int[]{0, cur1 + cur2});
             }
-       
+
         }
         return false;
     }
@@ -127,6 +136,64 @@ class Solution {
     public long hash(int[] nums) {
         return nums[0] * 10000006L + nums[1];
     }
+}
+```
+
+```java
+class Solution {
+    public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
+        if (jug1Capacity + jug2Capacity < targetCapacity) {
+            return false;
+        }
+        if (jug1Capacity == 0 || jug2Capacity == 0) {
+            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
+        }
+        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
+    }
+
+    private int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
+        if (jug1Capacity + jug2Capacity < targetCapacity) return false;
+        if (jug1Capacity == 0 || jug2Capacity == 0)
+            return targetCapacity == 0 || jug1Capacity + jug2Capacity == targetCapacity;
+        return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
+    }
+
+    int gcd(int a, int b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+};
+```
+
+### **Go**
+
+```go
+func canMeasureWater(jug1Capacity int, jug2Capacity int, targetCapacity int) bool {
+	if jug1Capacity+jug2Capacity < targetCapacity {
+		return false
+	}
+	if jug1Capacity == 0 || jug2Capacity == 0 {
+		return targetCapacity == 0 || jug1Capacity+jug2Capacity == targetCapacity
+	}
+
+	var gcd func(a, b int) int
+	gcd = func(a, b int) int {
+		if b == 0 {
+			return a
+		}
+		return gcd(b, a%b)
+	}
+	return targetCapacity%gcd(jug1Capacity, jug2Capacity) == 0
 }
 ```
 
