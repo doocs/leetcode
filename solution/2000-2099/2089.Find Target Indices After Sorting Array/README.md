@@ -65,7 +65,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        nums.sort()
+        return [i for i, num in enumerate(nums) if num == target]
 ```
 
 ### **Java**
@@ -73,7 +76,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public List<Integer> targetIndices(int[] nums, int target) {
+        Arrays.sort(nums);
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == target) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -90,6 +104,37 @@ function targetIndices(nums: number[], target: number): number[] {
     }
     return ans;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> targetIndices(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        vector<int> ans;
+        for (int i = 0; i < nums.size(); ++i)
+            if (nums[i] == target)
+                ans.push_back(i);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func targetIndices(nums []int, target int) []int {
+	sort.Ints(nums)
+	var ans []int
+	for i, num := range nums {
+		if num == target {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
