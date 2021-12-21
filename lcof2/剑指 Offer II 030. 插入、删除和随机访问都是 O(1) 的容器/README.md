@@ -167,6 +167,66 @@ class RandomizedSet {
  */
 ```
 
+### **C++**
+
+1. 插入
+
+每次添加新数值时，先使用哈希表判断该数值是否存在，存在则直接返回false。不存在则进行插入操作，只要将该数值添加到数组尾部即可，并将该数值和其下标的映射存入哈希表。
+
+2. 删除
+
+删除同样需使用哈希表判断是否存在，若不存在则返回false。存在则进行删除操作，在哈希表中删除时间复杂度为 O(1)，但是在数值中删除比较麻烦。若只是直接删除，则为了保证数组内存连续性需将删除数值后面的数值均前移一位，时间复杂度为 O(n)。比较好的处理方式是，用数组的最后一个数值去填充需要删除的数值的内存，其他数值在数组中的位置保持不变，并将这个拿来填充的数值的下标更新即可，最后只要删除数组最后一个数值，同样可以保证时间复杂度为 O(1)。
+
+3. 随机返回
+
+只要随机生成数组下标范围内一个随机下标值，返回该数组下标内的数值即可。
+
+
+```cpp
+class RandomizedSet {
+    unordered_map<int, int> mp;
+    vector<int> nums;
+public:
+    RandomizedSet() {
+
+    }
+
+    bool insert(int val) {
+        if (mp.count(val))
+            return false;
+
+        mp[val] = nums.size();
+        nums.push_back(val);
+        return true;
+    }
+
+    bool remove(int val) {
+        if (!mp.count(val))
+            return false;
+
+        int removeIndex = mp[val];
+        nums[removeIndex] = nums.back();
+        mp[nums.back()] = removeIndex;
+        
+        mp.erase(val);
+        nums.pop_back();
+        return true;
+    }
+
+    int getRandom() {
+        return nums[rand() % nums.size()];
+    }
+};
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet* obj = new RandomizedSet();
+ * bool param_1 = obj->insert(val);
+ * bool param_2 = obj->remove(val);
+ * int param_3 = obj->getRandom();
+ */
+```
+
 ### **...**
 
 ```
