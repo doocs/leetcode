@@ -66,7 +66,37 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def getAverages(self, nums: List[int], k: int) -> List[int]:
+        n = len(nums)
+        presum = [0] * (n + 1)
+        for i in range(n):
+            presum[i + 1] = presum[i] + nums[i]
+        return [-1 if i - k < 0 or i + k >= n else (presum[i + k + 1] - presum[i - k]) // (k * 2 + 1) for i in range(n)]
 
+```
+
+### **Java**
+
+```java
+class Solution {
+    public int[] getAverages(int[] nums, int k) {
+        int n = nums.length;
+        long[] presum = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            presum[i + 1] = presum[i] + nums[i];
+        }
+        int[] ans = new int[n];
+        for (int i = 0; i < n; ++i) {
+            if (i - k < 0 || i + k >= n) {
+                ans[i] = -1;
+            } else {
+                ans[i] = (int) ((presum[i + k + 1] - presum[i - k]) / (k * 2 + 1));
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScipt*
@@ -80,7 +110,7 @@ function getAverages(nums: number[], k: number): number[] {
     for (let i = 0; i < n; i++) {
         sum += nums[i];
         let shiftIndex = i - l;
-        if ( shiftIndex > -1) {
+        if (shiftIndex > -1) {
             sum -= nums[shiftIndex];
         }
         if (i + 1 >= l) {
@@ -91,10 +121,43 @@ function getAverages(nums: number[], k: number): number[] {
 };
 ```
 
-### **Java**
+### **C++**
 
-```java
+```cpp
+class Solution {
+public:
+    vector<int> getAverages(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<long long> presum(n + 1);
+        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + nums[i];
+        vector<int> ans;
+        for (int i = 0; i < n; ++i)
+            if (i - k < 0 || i + k >= n) ans.push_back(-1);
+            else ans.push_back((presum[i + k + 1] - presum[i - k]) * 1ll / (k * 2 + 1));
+        return ans;
+    }
+};
+```
 
+### **Go**
+
+```go
+func getAverages(nums []int, k int) []int {
+	n := len(nums)
+	presum := make([]int64, n+1)
+	for i, num := range nums {
+		presum[i+1] = presum[i] + int64(num)
+	}
+	var ans []int
+	for i := 0; i < n; i++ {
+		if i-k < 0 || i+k >= n {
+			ans = append(ans, -1)
+		} else {
+			ans = append(ans, int((presum[i+k+1]-presum[i-k])/int64(k*2+1)))
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
