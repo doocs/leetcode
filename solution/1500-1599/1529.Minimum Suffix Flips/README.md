@@ -1,6 +1,6 @@
-# [1529. 灯泡开关 IV](https://leetcode-cn.com/problems/bulb-switcher-iv)
+# [1529. 灯泡开关 IV](https://leetcode-cn.com/problems/minimum-suffix-flips)
 
-[English Version](/solution/1500-1599/1529.Bulb%20Switcher%20IV/README_EN.md)
+[English Version](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README_EN.md)
 
 ## 题目描述
 
@@ -61,7 +61,6 @@
 	<li><code>target[i] == &#39;0&#39;</code> 或者 <code>target[i] == &#39;1&#39;</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -81,6 +80,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+
+```
+
+### **TypeScript**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```ts
 
 ```
 

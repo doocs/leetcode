@@ -819,7 +819,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [0808](https://leetcode.com/problems/soup-servings)  |  [Soup Servings](/solution/0800-0899/0808.Soup%20Servings/README_EN.md)  |  `Math`,`Dynamic Programming`,`Probability and Statistics`  |  Medium  |    |
 |  [0809](https://leetcode.com/problems/expressive-words)  |  [Expressive Words](/solution/0800-0899/0809.Expressive%20Words/README_EN.md)  |  `Array`,`Two Pointers`,`String`  |  Medium  |    |
 |  [0810](https://leetcode.com/problems/chalkboard-xor-game)  |  [Chalkboard XOR Game](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README_EN.md)  |  `Bit Manipulation`,`Brainteaser`,`Array`,`Math`,`Game Theory`  |  Hard  |    |
-|  [0811](https://leetcode.com/problems/subdomain-visit-count)  |  [Subdomain Visit Count](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README_EN.md)  |  `Array`,`Hash Table`,`String`  |  Medium  |    |
+|  [0811](https://leetcode.com/problems/subdomain-visit-count)  |  [Subdomain Visit Count](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README_EN.md)  |  `Array`,`Hash Table`,`String`,`Counting`  |  Medium  |    |
 |  [0812](https://leetcode.com/problems/largest-triangle-area)  |  [Largest Triangle Area](/solution/0800-0899/0812.Largest%20Triangle%20Area/README_EN.md)  |  `Geometry`,`Array`,`Math`  |  Easy  |    |
 |  [0813](https://leetcode.com/problems/largest-sum-of-averages)  |  [Largest Sum of Averages](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README_EN.md)  |  `Array`,`Dynamic Programming`  |  Medium  |    |
 |  [0814](https://leetcode.com/problems/binary-tree-pruning)  |  [Binary Tree Pruning](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |    |
@@ -1537,7 +1537,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1526](https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array)  |  [Minimum Number of Increments on Subarrays to Form a Target Array](/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README_EN.md)  |  `Stack`,`Greedy`,`Array`,`Dynamic Programming`,`Monotonic Stack`  |  Hard  |    |
 |  [1527](https://leetcode.com/problems/patients-with-a-condition)  |  [Patients With a Condition](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README_EN.md)  |  `Database`  |  Easy  |  🔒  |
 |  [1528](https://leetcode.com/problems/shuffle-string)  |  [Shuffle String](/solution/1500-1599/1528.Shuffle%20String/README_EN.md)  |  `Array`,`String`  |  Easy  |    |
-|  [1529](https://leetcode.com/problems/bulb-switcher-iv)  |  [Bulb Switcher IV](/solution/1500-1599/1529.Bulb%20Switcher%20IV/README_EN.md)  |  `Greedy`,`String`  |  Medium  |    |
+|  [1529](https://leetcode.com/problems/minimum-suffix-flips)  |  [Minimum Suffix Flips](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README_EN.md)  |  `Greedy`,`String`  |  Medium  |    |
 |  [1530](https://leetcode.com/problems/number-of-good-leaf-nodes-pairs)  |  [Number of Good Leaf Nodes Pairs](/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README_EN.md)  |  `Tree`,`Depth-First Search`,`Binary Tree`  |  Medium  |    |
 |  [1531](https://leetcode.com/problems/string-compression-ii)  |  [String Compression II](/solution/1500-1599/1531.String%20Compression%20II/README_EN.md)  |  `String`,`Dynamic Programming`  |  Hard  |    |
 |  [1532](https://leetcode.com/problems/the-most-recent-three-orders)  |  [The Most Recent Three Orders](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README_EN.md)  |  `Database`  |  Medium  |  🔒  |
@@ -1663,7 +1663,6 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [1652](https://leetcode.com/problems/defuse-the-bomb)  |  [Defuse the Bomb](/solution/1600-1699/1652.Defuse%20the%20Bomb/README_EN.md)  |  `Array`  |  Easy  |    |
 |  [1653](https://leetcode.com/problems/minimum-deletions-to-make-string-balanced)  |  [Minimum Deletions to Make String Balanced](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README_EN.md)  |  `Stack`,`String`,`Dynamic Programming`  |  Medium  |    |
 |  [1654](https://leetcode.com/problems/minimum-jumps-to-reach-home)  |  [Minimum Jumps to Reach Home](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README_EN.md)  |  `Breadth-First Search`,`Array`,`Dynamic Programming`  |  Medium  |    |
-|  [1655](https://leetcode.com/problems/distribute-repeating-integers)  |  [Distribute Repeating Integers](/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README_EN.md)  |  `Bit Manipulation`,`Array`,`Dynamic Programming`,`Backtracking`,`Bitmask`  |  Hard  |    |
 |  [1656](https://leetcode.com/problems/design-an-ordered-stream)  |  [Design an Ordered Stream](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README_EN.md)  |  `Design`,`Array`,`Hash Table`,`Data Stream`  |  Easy  |    |
 |  [1657](https://leetcode.com/problems/determine-if-two-strings-are-close)  |  [Determine if Two Strings Are Close](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README_EN.md)  |  `Hash Table`,`String`,`Sorting`  |  Medium  |    |
 |  [1658](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero)  |  [Minimum Operations to Reduce X to Zero](/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README_EN.md)  |  `Array`,`Hash Table`,`Binary Search`,`Prefix Sum`,`Sliding Window`  |  Medium  |    |
@@ -2120,6 +2119,7 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2109](https://leetcode.com/problems/adding-spaces-to-a-string)  |  [Adding Spaces to a String](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README_EN.md)  |    |  Medium  |    |
 |  [2110](https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock)  |  [Number of Smooth Descent Periods of a Stock](/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README_EN.md)  |    |  Medium  |    |
 |  [2111](https://leetcode.com/problems/minimum-operations-to-make-the-array-k-increasing)  |  [Minimum Operations to Make the Array K-Increasing](/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README_EN.md)  |    |  Hard  |    |
+|  [2112](https://leetcode.com/problems/the-airport-with-the-most-traffic)  |  [The Airport With the Most Traffic](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README_EN.md)  |    |  Medium  |  🔒  |
 
 ## Copyright
 

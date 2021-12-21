@@ -1559,7 +1559,7 @@
   - [1526.Minimum Number of Increments on Subarrays to Form a Target Array](/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README.md)
   - [1527.Patients With a Condition](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README.md)
   - [1528.Shuffle String](/solution/1500-1599/1528.Shuffle%20String/README.md)
-  - [1529.Bulb Switcher IV](/solution/1500-1599/1529.Bulb%20Switcher%20IV/README.md)
+  - [1529.Minimum Suffix Flips](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README.md)
   - [1530.Number of Good Leaf Nodes Pairs](/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README.md)
   - [1531.String Compression II](/solution/1500-1599/1531.String%20Compression%20II/README.md)
   - [1532.The Most Recent Three Orders](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md)
@@ -2154,3 +2154,4 @@
   - [2109.Adding Spaces to a String](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README.md)
   - [2110.Number of Smooth Descent Periods of a Stock](/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README.md)
   - [2111.Minimum Operations to Make the Array K-Increasing](/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README.md)
+  - [2112.The Airport With the Most Traffic](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README.md)

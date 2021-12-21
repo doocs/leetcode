@@ -821,7 +821,7 @@
 |  [0808](https://leetcode-cn.com/problems/soup-servings)  |  [分汤](/solution/0800-0899/0808.Soup%20Servings/README.md)  |  `数学`,`动态规划`,`概率与统计`  |  中等  |    |
 |  [0809](https://leetcode-cn.com/problems/expressive-words)  |  [情感丰富的文字](/solution/0800-0899/0809.Expressive%20Words/README.md)  |  `数组`,`双指针`,`字符串`  |  中等  |    |
 |  [0810](https://leetcode-cn.com/problems/chalkboard-xor-game)  |  [黑板异或游戏](/solution/0800-0899/0810.Chalkboard%20XOR%20Game/README.md)  |  `位运算`,`脑筋急转弯`,`数组`,`数学`,`博弈`  |  困难  |    |
-|  [0811](https://leetcode-cn.com/problems/subdomain-visit-count)  |  [子域名访问计数](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README.md)  |  `数组`,`哈希表`,`字符串`  |  中等  |    |
+|  [0811](https://leetcode-cn.com/problems/subdomain-visit-count)  |  [子域名访问计数](/solution/0800-0899/0811.Subdomain%20Visit%20Count/README.md)  |  `数组`,`哈希表`,`字符串`,`计数`  |  中等  |    |
 |  [0812](https://leetcode-cn.com/problems/largest-triangle-area)  |  [最大三角形面积](/solution/0800-0899/0812.Largest%20Triangle%20Area/README.md)  |  `几何`,`数组`,`数学`  |  简单  |    |
 |  [0813](https://leetcode-cn.com/problems/largest-sum-of-averages)  |  [最大平均值和的分组](/solution/0800-0899/0813.Largest%20Sum%20of%20Averages/README.md)  |  `数组`,`动态规划`  |  中等  |    |
 |  [0814](https://leetcode-cn.com/problems/binary-tree-pruning)  |  [二叉树剪枝](/solution/0800-0899/0814.Binary%20Tree%20Pruning/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |    |
@@ -1539,7 +1539,7 @@
 |  [1526](https://leetcode-cn.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array)  |  [形成目标数组的子数组最少增加次数](/solution/1500-1599/1526.Minimum%20Number%20of%20Increments%20on%20Subarrays%20to%20Form%20a%20Target%20Array/README.md)  |  `栈`,`贪心`,`数组`,`动态规划`,`单调栈`  |  困难  |    |
 |  [1527](https://leetcode-cn.com/problems/patients-with-a-condition)  |  [患某种疾病的患者](/solution/1500-1599/1527.Patients%20With%20a%20Condition/README.md)  |  `数据库`  |  简单  |  🔒  |
 |  [1528](https://leetcode-cn.com/problems/shuffle-string)  |  [重新排列字符串](/solution/1500-1599/1528.Shuffle%20String/README.md)  |  `数组`,`字符串`  |  简单  |    |
-|  [1529](https://leetcode-cn.com/problems/bulb-switcher-iv)  |  [灯泡开关 IV](/solution/1500-1599/1529.Bulb%20Switcher%20IV/README.md)  |  `贪心`,`字符串`  |  中等  |    |
+|  [1529](https://leetcode-cn.com/problems/minimum-suffix-flips)  |  [灯泡开关 IV](/solution/1500-1599/1529.Minimum%20Suffix%20Flips/README.md)  |  `贪心`,`字符串`  |  中等  |    |
 |  [1530](https://leetcode-cn.com/problems/number-of-good-leaf-nodes-pairs)  |  [好叶子节点对的数量](/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/README.md)  |  `树`,`深度优先搜索`,`二叉树`  |  中等  |    |
 |  [1531](https://leetcode-cn.com/problems/string-compression-ii)  |  [压缩字符串 II](/solution/1500-1599/1531.String%20Compression%20II/README.md)  |  `字符串`,`动态规划`  |  困难  |    |
 |  [1532](https://leetcode-cn.com/problems/the-most-recent-three-orders)  |  [最近的三笔订单](/solution/1500-1599/1532.The%20Most%20Recent%20Three%20Orders/README.md)  |  `数据库`  |  中等  |  🔒  |
@@ -1665,7 +1665,6 @@
 |  [1652](https://leetcode-cn.com/problems/defuse-the-bomb)  |  [拆炸弹](/solution/1600-1699/1652.Defuse%20the%20Bomb/README.md)  |  `数组`  |  简单  |    |
 |  [1653](https://leetcode-cn.com/problems/minimum-deletions-to-make-string-balanced)  |  [使字符串平衡的最少删除次数](/solution/1600-1699/1653.Minimum%20Deletions%20to%20Make%20String%20Balanced/README.md)  |  `栈`,`字符串`,`动态规划`  |  中等  |    |
 |  [1654](https://leetcode-cn.com/problems/minimum-jumps-to-reach-home)  |  [到家的最少跳跃次数](/solution/1600-1699/1654.Minimum%20Jumps%20to%20Reach%20Home/README.md)  |  `广度优先搜索`,`数组`,`动态规划`  |  中等  |    |
-|  [1655](https://leetcode-cn.com/problems/distribute-repeating-integers)  |  [分配重复整数](/solution/1600-1699/1655.Distribute%20Repeating%20Integers/README.md)  |  `位运算`,`数组`,`动态规划`,`回溯`,`状态压缩`  |  困难  |    |
 |  [1656](https://leetcode-cn.com/problems/design-an-ordered-stream)  |  [设计有序流](/solution/1600-1699/1656.Design%20an%20Ordered%20Stream/README.md)  |  `设计`,`数组`,`哈希表`,`数据流`  |  简单  |    |
 |  [1657](https://leetcode-cn.com/problems/determine-if-two-strings-are-close)  |  [确定两个字符串是否接近](/solution/1600-1699/1657.Determine%20if%20Two%20Strings%20Are%20Close/README.md)  |  `哈希表`,`字符串`,`排序`  |  中等  |    |
 |  [1658](https://leetcode-cn.com/problems/minimum-operations-to-reduce-x-to-zero)  |  [将 x 减到 0 的最小操作数](/solution/1600-1699/1658.Minimum%20Operations%20to%20Reduce%20X%20to%20Zero/README.md)  |  `数组`,`哈希表`,`二分查找`,`前缀和`,`滑动窗口`  |  中等  |    |
@@ -2122,6 +2121,7 @@
 |  [2109](https://leetcode-cn.com/problems/adding-spaces-to-a-string)  |  [向字符串添加空格](/solution/2100-2199/2109.Adding%20Spaces%20to%20a%20String/README.md)  |    |  中等  |    |
 |  [2110](https://leetcode-cn.com/problems/number-of-smooth-descent-periods-of-a-stock)  |  [股票平滑下跌阶段的数目](/solution/2100-2199/2110.Number%20of%20Smooth%20Descent%20Periods%20of%20a%20Stock/README.md)  |    |  中等  |    |
 |  [2111](https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-k-increasing)  |  [使数组 K 递增的最少操作次数](/solution/2100-2199/2111.Minimum%20Operations%20to%20Make%20the%20Array%20K-Increasing/README.md)  |    |  困难  |    |
+|  [2112](https://leetcode-cn.com/problems/the-airport-with-the-most-traffic)  |  [The Airport With the Most Traffic](/solution/2100-2199/2112.The%20Airport%20With%20the%20Most%20Traffic/README.md)  |    |  中等  |  🔒  |
 
 ## 版权
 
