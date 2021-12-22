@@ -60,7 +60,7 @@ function bubbleSort(inputArr) {
 			break;
 		}
 	}
-	
+
 	return inputArr;
 }
 
