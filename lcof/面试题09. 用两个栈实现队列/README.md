@@ -70,33 +70,29 @@ class CQueue:
 ### **Java**
 
 ```java
-class CQueue {
+import java.util.Stack;
 
-    private Deque<Integer> s1;
-    private Deque<Integer> s2;
+class CQueue {
+    private Stack<Integer> stack_1;
+    private Stack<Integer> stack_2;
+
     public CQueue() {
-        s1 = new ArrayDeque<>();
-        s2 = new ArrayDeque<>();
+        stack_1 = new Stack<>();
+        stack_2 = new Stack<>();
     }
 
     public void appendTail(int value) {
-        s1.push(value);
-        if (s2.isEmpty()) {
-            move();
-        }
+        stack_1.push(value);
     }
 
     public int deleteHead() {
-        if (s2.isEmpty()) {
-            move();
+        if (stack_2.empty()) {
+            while (!stack_1.empty()) {
+                stack_2.push(stack_1.pop());
+            }
         }
-        return s2.isEmpty() ? -1 : s2.pop();
-    }
 
-    private void move() {
-        while (!s1.isEmpty()) {
-            s2.push(s1.pop());
-        }
+        return stack_2.empty() ? -1 : stack_2.pop();
     }
 }
 
@@ -112,32 +108,32 @@ class CQueue {
 
 ```js
 var CQueue = function () {
-  this.data = [];
-  this.helper = [];
+    this.data = [];
+    this.helper = [];
 };
 /**
  * @param {number} value
  * @return {void}
  */
 CQueue.prototype.appendTail = function (value) {
-  this.data.push(value);
+    this.data.push(value);
 };
 /**
  * @return {number}
  */
 CQueue.prototype.deleteHead = function () {
-  if (this.data.length) {
-    while (this.data.length > 1) {
-      this.helper.push(this.data.pop());
+    if (this.data.length) {
+        while (this.data.length > 1) {
+            this.helper.push(this.data.pop());
+        }
+        let res = this.data.pop();
+        while (this.helper.length) {
+            this.data.push(this.helper.pop());
+        }
+        return res;
+    } else {
+        return -1;
     }
-    let res = this.data.pop();
-    while (this.helper.length) {
-      this.data.push(this.helper.pop());
-    }
-    return res;
-  } else {
-    return -1;
-  }
 };
 ```
 
