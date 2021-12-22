@@ -47,7 +47,6 @@
 	<li><code>a</code>&nbsp;and&nbsp;<code>b</code>&nbsp;consist of lower-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -55,13 +54,76 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def repeatedStringMatch(self, a: str, b: str) -> int:
+        m, n = len(a), len(b)
+        ans = ceil(n / m)
+        t = [a] * ans
+        for _ in range(3):
+            if b in ''.join(t):
+                return ans
+            ans += 1
+            t.append(a)
+        return -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int repeatedStringMatch(String a, String b) {
+        int m = a.length(), n = b.length();
+        int ans = (n + m - 1) / m;
+        StringBuilder t = new StringBuilder(a.repeat(ans));
+        for (int i = 0; i < 3; ++i) {
+            if (t.toString().contains(b)) {
+                return ans;
+            }
+            ++ans;
+            t.append(a);
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int repeatedStringMatch(string a, string b) {
+        int m = a.size(), n = b.size();
+        int ans = (n + m - 1) / m;
+        string t = "";
+        for (int i = 0; i < ans; ++i) t += a;
+        for (int i = 0; i < 3; ++i)
+        {
+            if (t.find(b) != -1) return ans;
+            ++ans;
+            t += a;
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func repeatedStringMatch(a string, b string) int {
+	m, n := len(a), len(b)
+	ans := (n + m - 1) / m
+	t := strings.Repeat(a, ans)
+	for i := 0; i < 3; i++ {
+		if strings.Contains(t, b) {
+			return ans
+		}
+		ans++
+		t += a
+	}
+	return -1
+}
 ```
 
 ### **...**
