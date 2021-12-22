@@ -46,19 +46,19 @@
 #         self.next = next
 class Solution:
     def partition(self, head: ListNode, x: int) -> ListNode:
-        l1, l2 = ListNode(), ListNode()
-        cur1, cur2 = l1, l2
+        d1, d2 = ListNode(), ListNode()
+        t1, t2 = d1, d2
         while head:
             if head.val < x:
-                cur1.next = head
-                cur1 = cur1.next
+                t1.next = head
+                t1 = t1.next
             else:
-                cur2.next = head
-                cur2 = cur2.next
+                t2.next = head
+                t2 = t2.next
             head = head.next
-        cur1.next = l2.next
-        cur2.next = None
-        return l1.next
+        t1.next = d2.next
+        t2.next = None
+        return d1.next
 ```
 
 ### **Java**
@@ -76,22 +76,22 @@ class Solution:
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode l1 = new ListNode(0);
-        ListNode l2 = new ListNode(0);
-        ListNode cur1 = l1, cur2 = l2;
+        ListNode d1 = new ListNode();
+        ListNode d2 = new ListNode();
+        ListNode t1 = d1, t2 = d2;
         while (head != null) {
             if (head.val < x) {
-                cur1.next = head;
-                cur1 = cur1.next;
+                t1.next = head;
+                t1 = t1.next;
             } else {
-                cur2.next = head;
-                cur2 = cur2.next;
+                t2.next = head;
+                t2 = t2.next;
             }
             head = head.next;
         }
-        cur1.next = l2.next;
-        cur2.next = null;
-        return l1.next;
+        t1.next = d2.next;
+        t2.next = null;
+        return d1.next;
     }
 }
 ```
@@ -112,26 +112,60 @@ class Solution {
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode* l1 = new ListNode();
-        ListNode* l2 = new ListNode();
-        ListNode* cur1 = l1;
-        ListNode* cur2 = l2;
-        while (head != nullptr) {
-            if (head->val < x) {
-                cur1->next = head;
-                cur1 = cur1->next;
-            } else {
-                cur2->next = head;
-                cur2 = cur2->next;
+        ListNode* d1 = new ListNode();
+        ListNode* d2 = new ListNode();
+        ListNode* t1 = d1;
+        ListNode* t2 = d2;
+        while (head)
+        {
+            if (head->val < x)
+            {
+                t1->next = head;
+                t1 = t1->next;
+            }
+            else
+            {
+                t2->next = head;
+                t2 = t2->next;
             }
             head = head->next;
         }
-        cur1->next = l2->next;
-        cur2->next = nullptr;
-        return l1->next;
+        t1->next = d2->next;
+        t2->next = nullptr;
+        return d1->next;
     }
 };
 ```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func partition(head *ListNode, x int) *ListNode {
+	d1, d2 := &ListNode{}, &ListNode{}
+	t1, t2 := d1, d2
+	for head != nil {
+		if head.Val < x {
+			t1.Next = head
+			t1 = t1.Next
+		} else {
+			t2.Next = head
+			t2 = t2.Next
+		}
+		head = head.Next
+	}
+	t1.Next = d2.Next
+	t2.Next = nil
+	return d1.Next
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -147,27 +181,23 @@ public:
  * @param {number} x
  * @return {ListNode}
  */
-var partition = function (head, x) {
-
-    if (!head || !head.next) {
-        return head;
-    }
-    const dummy1 = new ListNode(-1), dummy2 = new ListNode(-1);
-    let cur1 = dummy1, cur2 = dummy2;
-    let cur = head;
-    while (cur) {
-        if (cur.val < x) {
-            cur1.next = cur;
-            cur1 = cur1.next;
+var partition = function(head, x) {
+    const d1 = new ListNode();
+    const d2 = new ListNode();
+    let t1 = d1, t2 = d2;
+    while (head) {
+        if (head.val < x) {
+            t1.next = head;
+            t1 = t1.next;
         } else {
-            cur2.next = cur;
-            cur2 = cur2.next;
+            t2.next = head;
+            t2 = t2.next;
         }
-        cur = cur.next;
+        head = head.next;
     }
-    cur2.next = null;
-    cur1.next = dummy2.next;
-    return (dummy1.next);
+    t1.next = d2.next;
+    t2.next = null;
+    return d1.next;
 };
 ```
 
