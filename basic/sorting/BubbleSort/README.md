@@ -45,25 +45,27 @@ public class BubbleSort {
 
 ```js
 function bubbleSort(inputArr) {
-    let len = inputArr.length;
-    let swapped = false;
-    for (let i = 1; i <= len - 1; i++) {
-        swapped = false;
-        for (let j = 0; j < len - 1; j++) {
+    for (let i = inputArr.length - 1; i > 0; i--) {
+        let hasChange = false;
+        for (let j = 0; j < i; j++) {
             if (inputArr[j] > inputArr[j + 1]) {
-                let temp = inputArr[j];
+                const temp = inputArr[j];
                 inputArr[j] = inputArr[j + 1];
                 inputArr[j + 1] = temp;
-                swapped = true
+                hasChange = true;
             }
         }
-        if (swapped === false) break;
+        
+        if (!hasChange) {
+            break;
+        }
     }
-    return (inputArr)
+    
+    return inputArr;
 }
 
-let arr = [6, 3, 2, 1, 5];
-console.log(bubbleSort(arr))
+const arr = [6, 3, 2, 1, 5];
+console.log(bubbleSort(arr));
 ```
 
 ### **Go**
