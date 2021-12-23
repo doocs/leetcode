@@ -1,27 +1,24 @@
 typedef unsigned long long ULL;
+
 class Solution {
 public:
     string longestPrefix(string s) {
         int base = 131;
-        int n = 100010;
-        ULL p[100010];
+        int n = s.size();
+        ULL p[n + 10];
+        ULL h[n + 10];
         p[0] = 1;
-        ULL h[100010];
         h[0] = 0;
-        for (int i = 1; i <= s.size(); i++)
+        for (int i = 0; i < n; ++i)
         {
-            p[i] = p[i - 1] * base;
-            h[i] = h[i - 1] * base + s[i - 1];
+            p[i + 1] = p[i] * base;
+            h[i + 1] = h[i] * base + s[i];
         }
-        int l = s.size();
-        for (int i = l - 1; i >= 1; i--)
+        for (int l = n - 1; l > 0; --l)
         {
-            ULL prefix = h[i];
-            ULL suffix = h[l] - h[l - i] * p[i];
-            if (prefix == suffix)
-            {
-                return s.substr(0, i);
-            }
+            ULL prefix = h[l];
+            ULL suffix = h[n] - h[n - l] * p[l];
+            if (prefix == suffix) return s.substr(0, l);
         }
         return "";
     }

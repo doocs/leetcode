@@ -17,9 +17,9 @@ class Solution {
         while (left < right) {
             int mid = (left + right + 1) >> 1;
             String t = check(s, mid);
-            ans = t.length() > ans.length() ? t : ans;
             if (t.length() > 0) {
                 left = mid;
+                ans = t;
             } else {
                 right = mid - 1;
             }

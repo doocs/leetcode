@@ -1,19 +1,17 @@
 func longestPrefix(s string) string {
 	base := 131
-	n := 100010
-	p := make([]int, n)
-	h := make([]int, n)
+	n := len(s)
+	p := make([]int, n+10)
+	h := make([]int, n+10)
 	p[0] = 1
-	for i := 1; i <= len(s); i++ {
-		p[i] = p[i-1] * base
-		h[i] = h[i-1]*base + int(s[i-1])
+	for i, c := range s {
+		p[i+1] = p[i] * base
+		h[i+1] = h[i]*base + int(c)
 	}
-	l := len(s)
-	for i := l - 1; i > 0; i-- {
-		prefix := h[i]
-		suffix := h[l] - h[l-i]*p[i]
+	for l := n - 1; l > 0; l-- {
+		prefix, suffix := h[l], h[n]-h[n-l]*p[l]
 		if prefix == suffix {
-			return s[:i]
+			return s[:l]
 		}
 	}
 	return ""

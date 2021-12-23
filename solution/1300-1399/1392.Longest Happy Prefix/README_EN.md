@@ -73,18 +73,17 @@ class Solution {
 
     public String longestPrefix(String s) {
         int base = 131;
-        int n = 100010;
-        p = new long[n];
-        h = new long[n];
+        int n = s.length();
+        p = new long[n + 10];
+        h = new long[n + 10];
         p[0] = 1;
-        for (int i = 1; i <= s.length(); ++i) {
-            p[i] = p[i - 1] * base;
-            h[i] = h[i - 1] * base + s.charAt(i - 1);
+        for (int i = 0; i < n; ++i) {
+            p[i + 1] = p[i] * base;
+            h[i + 1] = h[i] * base + s.charAt(i);
         }
-        int l = s.length();
-        for (int i = l - 1; i > 0; --i) {
-            if (get(1, i) == get(l - i + 1, l)) {
-                return s.substring(0, i);
+        for (int l = n - 1; l > 0; --l) {
+            if (get(1, l) == get(n - l + 1, n)) {
+                return s.substring(0, l);
             }
         }
         return "";
@@ -100,29 +99,26 @@ class Solution {
 
 ```cpp
 typedef unsigned long long ULL;
+
 class Solution {
 public:
     string longestPrefix(string s) {
         int base = 131;
-        int n = 100010;
-        ULL p[100010];
+        int n = s.size();
+        ULL p[n + 10];
+        ULL h[n + 10];
         p[0] = 1;
-        ULL h[100010];
         h[0] = 0;
-        for (int i = 1; i <= s.size(); i++)
+        for (int i = 0; i < n; ++i)
         {
-            p[i] = p[i - 1] * base;
-            h[i] = h[i - 1] * base + s[i - 1];
+            p[i + 1] = p[i] * base;
+            h[i + 1] = h[i] * base + s[i];
         }
-        int l = s.size();
-        for (int i = l - 1; i >= 1; i--)
+        for (int l = n - 1; l > 0; --l)
         {
-            ULL prefix = h[i];
-            ULL suffix = h[l] - h[l - i] * p[i];
-            if (prefix == suffix)
-            {
-                return s.substr(0, i);
-            }
+            ULL prefix = h[l];
+            ULL suffix = h[n] - h[n - l] * p[l];
+            if (prefix == suffix) return s.substr(0, l);
         }
         return "";
     }
@@ -134,20 +130,18 @@ public:
 ```go
 func longestPrefix(s string) string {
 	base := 131
-	n := 100010
-	p := make([]int, n)
-	h := make([]int, n)
+	n := len(s)
+	p := make([]int, n+10)
+	h := make([]int, n+10)
 	p[0] = 1
-	for i := 1; i <= len(s); i++ {
-		p[i] = p[i-1] * base
-		h[i] = h[i-1]*base + int(s[i-1])
+	for i, c := range s {
+		p[i+1] = p[i] * base
+		h[i+1] = h[i]*base + int(c)
 	}
-	l := len(s)
-	for i := l - 1; i > 0; i-- {
-		prefix := h[i]
-		suffix := h[l] - h[l-i]*p[i]
+	for l := n - 1; l > 0; l-- {
+		prefix, suffix := h[l], h[n]-h[n-l]*p[l]
 		if prefix == suffix {
-			return s[:i]
+			return s[:l]
 		}
 	}
 	return ""

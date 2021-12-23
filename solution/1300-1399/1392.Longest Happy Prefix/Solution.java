@@ -4,18 +4,17 @@ class Solution {
 
     public String longestPrefix(String s) {
         int base = 131;
-        int n = 100010;
-        p = new long[n];
-        h = new long[n];
+        int n = s.length();
+        p = new long[n + 10];
+        h = new long[n + 10];
         p[0] = 1;
-        for (int i = 1; i <= s.length(); ++i) {
-            p[i] = p[i - 1] * base;
-            h[i] = h[i - 1] * base + s.charAt(i - 1);
+        for (int i = 0; i < n; ++i) {
+            p[i + 1] = p[i] * base;
+            h[i + 1] = h[i] * base + s.charAt(i);
         }
-        int l = s.length();
-        for (int i = l - 1; i > 0; --i) {
-            if (get(1, i) == get(l - i + 1, l)) {
-                return s.substring(0, i);
+        for (int l = n - 1; l > 0; --l) {
+            if (get(1, l) == get(n - l + 1, n)) {
+                return s.substring(0, l);
             }
         }
         return "";

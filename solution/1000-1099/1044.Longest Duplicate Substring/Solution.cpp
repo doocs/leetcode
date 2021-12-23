@@ -18,9 +18,12 @@ public:
         {
             int mid = (left + right + 1) >> 1;
             string t = check(s, mid);
-            if (t.size() > ans.size()) ans = t;
-            if (t.size() > 0) left = mid;
-            else right = mid - 1;
+            if (t.empty()) right = mid - 1;
+            else
+            {
+                left = mid;
+                ans = t;
+            }
         }
         return ans;
     }

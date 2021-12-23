@@ -79,9 +79,9 @@ class Solution {
         while (left < right) {
             int mid = (left + right + 1) >> 1;
             String t = check(s, mid);
-            ans = t.length() > ans.length() ? t : ans;
             if (t.length() > 0) {
                 left = mid;
+                ans = t;
             } else {
                 right = mid - 1;
             }
@@ -128,9 +128,12 @@ public:
         {
             int mid = (left + right + 1) >> 1;
             string t = check(s, mid);
-            if (t.size() > ans.size()) ans = t;
-            if (t.size() > 0) left = mid;
-            else right = mid - 1;
+            if (t.empty()) right = mid - 1;
+            else
+            {
+                left = mid;
+                ans = t;
+            }
         }
         return ans;
     }
@@ -179,11 +182,9 @@ func longestDupSubstring(s string) string {
 	for left < right {
 		mid := (left + right + 1) >> 1
 		t := check(mid)
-		if len(t) > len(ans) {
-			ans = t
-		}
 		if len(t) > 0 {
 			left = mid
+			ans = t
 		} else {
 			right = mid - 1
 		}

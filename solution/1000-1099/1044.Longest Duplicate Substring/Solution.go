@@ -24,11 +24,9 @@ func longestDupSubstring(s string) string {
 	for left < right {
 		mid := (left + right + 1) >> 1
 		t := check(mid)
-		if len(t) > len(ans) {
-			ans = t
-		}
 		if len(t) > 0 {
 			left = mid
+			ans = t
 		} else {
 			right = mid - 1
 		}
