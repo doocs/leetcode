@@ -9,7 +9,7 @@
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
- var mergeKLists = function(lists) {
+var mergeKLists = function (lists) {
     const n = lists.length;
     if (n == 0) {
         return null;

@@ -12,10 +12,10 @@
  * }
  */
 
- function findTarget(root: TreeNode | null, k: number): boolean {
+function findTarget(root: TreeNode | null, k: number): boolean {
     let nodes: Set<number> = new Set();
     return find(root, k, nodes);
-};
+}
 
 function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
     if (!root) return false;

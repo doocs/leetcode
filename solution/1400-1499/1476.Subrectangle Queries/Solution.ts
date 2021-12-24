@@ -6,7 +6,13 @@ class SubrectangleQueries {
         this.history = [];
     }
 
-    updateSubrectangle(row1: number, col1: number, row2: number, col2: number, newValue: number): void {
+    updateSubrectangle(
+        row1: number,
+        col1: number,
+        row2: number,
+        col2: number,
+        newValue: number
+    ): void {
         this.history.push([row1, col1, row2, col2, newValue]);
     }
 

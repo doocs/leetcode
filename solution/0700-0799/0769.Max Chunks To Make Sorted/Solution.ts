@@ -10,4 +10,4 @@ function maxChunksToSorted(arr: number[]): number {
         }
     }
     return ans;
-};
+}

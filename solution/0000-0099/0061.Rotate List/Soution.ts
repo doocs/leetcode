@@ -10,8 +10,8 @@
  * }
  */
 
- function rotateRight(head: ListNode | null, k: number): ListNode | null {
-    if (k == 0  || head == null || head.next == null) return head;
+function rotateRight(head: ListNode | null, k: number): ListNode | null {
+    if (k == 0 || head == null || head.next == null) return head;
     // mod n
     let n = 0;
     let p = head;
@@ -21,8 +21,9 @@
     }
     k %= n;
     if (k == 0) return head;
-    
-    let fast = head, slow = head;
+
+    let fast = head,
+        slow = head;
     for (let i = 0; i < k; ++i) {
         fast = fast.next;
     }
@@ -34,4 +35,4 @@
     slow.next = null;
     fast.next = head;
     return start;
-};
+}

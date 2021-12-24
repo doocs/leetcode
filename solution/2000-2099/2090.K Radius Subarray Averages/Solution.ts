@@ -6,7 +6,7 @@ function getAverages(nums: number[], k: number): number[] {
     for (let i = 0; i < n; i++) {
         sum += nums[i];
         let shiftIndex = i - l;
-        if ( shiftIndex > -1) {
+        if (shiftIndex > -1) {
             sum -= nums[shiftIndex];
         }
         if (i + 1 >= l) {
@@ -14,4 +14,4 @@ function getAverages(nums: number[], k: number): number[] {
         }
     }
     return ans;
-};
+}

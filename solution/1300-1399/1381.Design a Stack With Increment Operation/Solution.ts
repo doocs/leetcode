@@ -23,7 +23,7 @@ class CustomStack {
     increment(k: number, val: number): void {
         let tmp: Array<number> = [];
         for (let i = Math.max(this.size - k, 0); i < this.size; i++) {
-           this.stack[i] = this.stack[i] + val;
+            this.stack[i] = this.stack[i] + val;
         }
     }
 }

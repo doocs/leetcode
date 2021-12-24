@@ -9,4 +9,4 @@ function waysToChange(n: number): number {
         }
     }
     return dp.pop() % MOD;
-};
+}

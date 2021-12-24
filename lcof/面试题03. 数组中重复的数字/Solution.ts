@@ -7,8 +7,8 @@ function findRepeatNumber(nums: number[]): number {
         }
     }
     return -1;
-};
+}
 
-function swap (nums: number[], i: number, j: number): void {
+function swap(nums: number[], i: number, j: number): void {
     [nums[i], nums[j]] = [nums[j], nums[i]];
 }

@@ -10,10 +10,11 @@
  * }
  */
 
- function sortList(head: ListNode | null): ListNode | null {
+function sortList(head: ListNode | null): ListNode | null {
     if (head == null || head.next == null) return head;
     // 快慢指针定位中点
-    let slow: ListNode = head, fast: ListNode = head.next;
+    let slow: ListNode = head,
+        fast: ListNode = head.next;
     while (fast != null && fast.next != null) {
         slow = slow.next;
         fast = fast.next.next;
@@ -37,4 +38,4 @@
     }
     cur.next = l1 == null ? l2 : l1;
     return dummy.next;
-};
+}

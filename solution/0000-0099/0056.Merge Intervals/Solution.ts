@@ -13,4 +13,4 @@ function merge(intervals: number[][]): number[][] {
         }
     }
     return ans;
-};
+}

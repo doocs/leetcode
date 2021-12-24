@@ -10,7 +10,10 @@
  * }
  */
 
- function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
+function getIntersectionNode(
+    headA: ListNode | null,
+    headB: ListNode | null
+): ListNode | null {
     let p1: ListNode | null = headA;
     let p2: ListNode | null = headB;
     while (p1 != p2) {
@@ -18,4 +21,4 @@
         p2 = p2 == null ? headA : p2.next;
     }
     return p1;
-};
+}

@@ -14,7 +14,9 @@ var levelOrderBottom = function (root) {
     if (!root) {
         return [];
     }
-    let q = [], output = [], levelOutput = [];
+    let q = [],
+        output = [],
+        levelOutput = [];
     q.push(root);
     q.push(null);
     while (q.length) {

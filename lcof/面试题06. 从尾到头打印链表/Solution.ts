@@ -10,11 +10,11 @@
  * }
  */
 
- function reversePrint(head: ListNode | null): number[] {
+function reversePrint(head: ListNode | null): number[] {
     let res: number[] = [];
     while (head != null) {
         res.unshift(head.val);
         head = head.next;
     }
     return res;
-};
+}

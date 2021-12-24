@@ -5,4 +5,4 @@ function trailingZeroes(n: number): number {
         count += n;
     }
     return count;
-};
+}

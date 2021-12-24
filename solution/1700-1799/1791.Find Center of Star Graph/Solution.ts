@@ -4,4 +4,4 @@ function findCenter(edges: number[][]): number {
             return num;
         }
     }
-};
+}

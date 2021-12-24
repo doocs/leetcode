@@ -12,7 +12,11 @@
  * }
  */
 
- function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+function lowestCommonAncestor(
+    root: TreeNode | null,
+    p: TreeNode | null,
+    q: TreeNode | null
+): TreeNode | null {
     while (root) {
         if (root.val > p.val && root.val > q.val) {
             root = root.left;
@@ -22,4 +26,4 @@
             return root;
         }
     }
-};
+}

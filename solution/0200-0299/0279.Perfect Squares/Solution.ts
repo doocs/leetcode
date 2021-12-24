@@ -8,4 +8,4 @@ function numSquares(n: number): number {
         dp[i] = min + 1;
     }
     return dp.pop();
-};
+}

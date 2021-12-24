@@ -24,4 +24,4 @@ function minSubarray(nums: number[], p: number): number {
         hashMap.set(subMod, i);
     }
     return ans == n ? -1 : ans;
-};
+}

@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
- var nextGreaterElements = function(nums) {
+var nextGreaterElements = function (nums) {
     let n = nums.length;
     let stack = [];
     let res = new Array(n).fill(-1);

@@ -3,9 +3,9 @@ function countVowels(word: string): number {
     let ans = 0;
     for (let i = 0; i < n; i++) {
         let char = word.charAt(i);
-        if (['a', 'e', 'i', 'o', 'u'].includes(char)) {
-            ans += ((i + 1) * (n - i));
+        if (["a", "e", "i", "o", "u"].includes(char)) {
+            ans += (i + 1) * (n - i);
         }
     }
     return ans;
-};
+}

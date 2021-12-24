@@ -9,8 +9,8 @@ function insertionSort(inputArr) {
         }
         inputArr[j + 1] = temp;
     }
-    return (inputArr);
+    return inputArr;
 }
 
 let arr = [6, 3, 2, 1, 5];
-console.log(insertionSort(arr))
+console.log(insertionSort(arr));

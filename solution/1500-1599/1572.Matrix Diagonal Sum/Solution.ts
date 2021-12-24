@@ -9,4 +9,4 @@ function diagonalSum(mat: number[][]): number {
         }
     }
     return ans;
-};
+}

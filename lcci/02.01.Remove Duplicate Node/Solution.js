@@ -9,11 +9,12 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
- var removeDuplicateNodes = function(head) {
+var removeDuplicateNodes = function (head) {
     if (head == null || head.next == null) return head;
     const cache = new Set([]);
     cache.add(head.val);
-    let cur = head, fast = head.next;
+    let cur = head,
+        fast = head.next;
     while (fast !== null) {
         if (!cache.has(fast.val)) {
             cur.next = fast;

@@ -10,7 +10,7 @@
  * }
  */
 
- function reverseEvenLengthGroups(head: ListNode | null): ListNode | null {
+function reverseEvenLengthGroups(head: ListNode | null): ListNode | null {
     let nums = [];
     let cur = head;
     while (cur) {
@@ -35,4 +35,4 @@
         cur = cur.next;
     }
     return head;
-};
+}

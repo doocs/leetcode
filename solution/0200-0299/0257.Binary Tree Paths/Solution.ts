@@ -12,12 +12,12 @@
  * }
  */
 
- function binaryTreePaths(root: TreeNode | null): string[] {
+function binaryTreePaths(root: TreeNode | null): string[] {
     let ans = [];
-    let pre = '';
+    let pre = "";
     dfs(root, pre, ans);
     return ans;
-};
+}
 
 function dfs(root: TreeNode | null, pre: string, ans: string[]): void {
     if (root == null) return;

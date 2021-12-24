@@ -10,7 +10,7 @@
  * @param {TreeNode} p
  * @return {TreeNode}
  */
- var inorderSuccessor = function(root, p) {
+var inorderSuccessor = function (root, p) {
     let cur = root;
     let ans = null;
     while (cur != null) {

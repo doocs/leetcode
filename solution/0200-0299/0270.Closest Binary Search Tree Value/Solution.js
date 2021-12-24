@@ -11,7 +11,7 @@
  * @param {number} target
  * @return {number}
  */
- var closestValue = function(root, target) {
+var closestValue = function (root, target) {
     let res = root.val;
     let minDiff = Math.abs(root.val - target);
     while (root) {

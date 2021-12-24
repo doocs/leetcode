@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
- var permute = function(nums) {
+var permute = function (nums) {
     const n = nums.length;
     let res = [];
     let path = [];

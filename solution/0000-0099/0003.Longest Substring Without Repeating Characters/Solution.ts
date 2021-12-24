@@ -6,10 +6,10 @@ function lengthOfLongestSubstring(s: string): number {
     for (let right = 0; right < s.length; right++) {
         let cur = s.charAt(right);
         if (hashTable.has(cur)) {
-          left = Math.max(left, hashTable.get(cur));
+            left = Math.max(left, hashTable.get(cur));
         }
         hashTable.set(cur, right);
         maxLen = Math.max(maxLen, right - left);
     }
-      return maxLen;
-  };
+    return maxLen;
+}

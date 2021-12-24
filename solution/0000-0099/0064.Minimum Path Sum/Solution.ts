@@ -1,6 +1,7 @@
 function minPathSum(grid: number[][]): number {
-    let m = grid.length, n = grid[0].length;
-    let dp = Array.from({ length: m}, v => new Array(n).fill(0));
+    let m = grid.length,
+        n = grid[0].length;
+    let dp = Array.from({ length: m }, v => new Array(n).fill(0));
     dp[0][0] = grid[0][0];
     for (let i = 1; i < m; ++i) {
         dp[i][0] = dp[i - 1][0] + grid[i][0];
@@ -16,4 +17,4 @@ function minPathSum(grid: number[][]): number {
         }
     }
     return dp[m - 1][n - 1];
- };
+}

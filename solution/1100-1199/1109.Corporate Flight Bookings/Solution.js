@@ -3,7 +3,7 @@
  * @param {number} n
  * @return {number[]}
  */
- var corpFlightBookings = function(bookings, n) {
+var corpFlightBookings = function (bookings, n) {
     let delta = new Array(n).fill(0);
     for (let book of bookings) {
         let [start, end, num] = book;

@@ -21,7 +21,9 @@ class MinStack {
     }
 
     getMin(): number {
-        return this.mins.length == 0 ? Infinity : this.mins[this.mins.length - 1];
+        return this.mins.length == 0
+            ? Infinity
+            : this.mins[this.mins.length - 1];
     }
 }
 

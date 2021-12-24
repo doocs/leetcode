@@ -3,8 +3,9 @@
  * @param {string} finishTime
  * @return {number}
  */
- var numberOfRounds = function(startTime, finishTime) {
-    let m1 = toMinutes(startTime), m2 = toMinutes(finishTime);
+var numberOfRounds = function (startTime, finishTime) {
+    let m1 = toMinutes(startTime),
+        m2 = toMinutes(finishTime);
 
     if (m1 > m2) {
         m2 += 24 * 60;
@@ -15,6 +16,6 @@
 };
 
 function toMinutes(time) {
-    let [h, m] = time.split(':');
+    let [h, m] = time.split(":");
     return Number(h) * 60 + Number(m);
 }

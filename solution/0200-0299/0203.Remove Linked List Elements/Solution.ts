@@ -10,7 +10,7 @@
  * }
  */
 
- function removeElements(head: ListNode | null, val: number): ListNode | null {
+function removeElements(head: ListNode | null, val: number): ListNode | null {
     let dummy: ListNode = new ListNode(0, head);
     let cur: ListNode = dummy;
     while (cur.next != null) {
@@ -21,4 +21,4 @@
         }
     }
     return dummy.next;
-};
+}

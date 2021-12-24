@@ -2,7 +2,7 @@
  * @param {number[][]} graph
  * @return {number[][]}
  */
- var allPathsSourceTarget = function(graph) {
+var allPathsSourceTarget = function (graph) {
     const ans = [];
     const t = [0];
 
@@ -17,7 +17,7 @@
             dfs(t);
             t.pop();
         }
-    }
+    };
 
     dfs(t);
     return ans;

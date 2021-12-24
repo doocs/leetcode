@@ -11,4 +11,4 @@ function myPow(x: number, n: number): number {
         x *= x;
     }
     return res;
-};
+}

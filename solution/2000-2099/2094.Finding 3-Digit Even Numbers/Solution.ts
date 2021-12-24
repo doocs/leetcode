@@ -10,7 +10,7 @@ function findEvenNumbers(digits: number[]): number[] {
         }
     }
     return ans;
-};
+}
 
 function check(target: Array<number>, digits: string): boolean {
     let record = new Array(10).fill(0);

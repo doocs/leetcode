@@ -1,7 +1,7 @@
 function checkIfExist(arr: number[]): boolean {
     for (let i = arr.length - 1; i >= 0; --i) {
         let cur = arr[i];
-        let t1 = 2 * cur; 
+        let t1 = 2 * cur;
         if (arr.includes(t1) && arr.indexOf(t1) != i) {
             return true;
         }
@@ -11,4 +11,4 @@ function checkIfExist(arr: number[]): boolean {
         }
     }
     return false;
-};
+}

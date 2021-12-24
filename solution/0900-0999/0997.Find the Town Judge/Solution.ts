@@ -6,11 +6,11 @@ function findJudge(n: number, trust: number[][]): number {
             candidates[b - 1]++;
         }
     }
-    
+
     for (let i = 0; i < n; i++) {
         if (candidates[i] == n - 1) {
             return i + 1;
         }
     }
     return -1;
-};
+}

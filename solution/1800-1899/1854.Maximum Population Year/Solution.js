@@ -2,7 +2,7 @@
  * @param {number[][]} logs
  * @return {number}
  */
- var maximumPopulation = function(logs) {
+var maximumPopulation = function (logs) {
     const offset = 1950;
     const len = 2050 - 1950 + 1;
     let delta = new Array(len).fill(0);

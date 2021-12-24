@@ -9,4 +9,4 @@ function minimumDeletions(nums: number[]): number {
     // 两个都是左边 left + 1 + right - left = right + 1
     // 都是右边 n - right + right - left = n - left
     return Math.min(left + 1 + n - right, right + 1, n - left);
-};
+}

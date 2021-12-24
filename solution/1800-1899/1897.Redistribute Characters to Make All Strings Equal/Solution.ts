@@ -13,4 +13,4 @@ function makeEqual(words: string[]): boolean {
         }
     }
     return true;
-};
+}

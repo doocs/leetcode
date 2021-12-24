@@ -1,10 +1,11 @@
 /**
  Do not return anything, modify nums in-place instead.
  */
- function sortColors(nums: number[]): void {
+function sortColors(nums: number[]): void {
     let n = nums.length;
     if (n < 2) return;
-    let p0 = 0, p2 = n - 1;
+    let p0 = 0,
+        p2 = n - 1;
     let p1 = 0;
     while (p1 <= p2) {
         if (nums[p1] == 0) {
@@ -18,4 +19,4 @@
             p2--;
         }
     }
-};
+}

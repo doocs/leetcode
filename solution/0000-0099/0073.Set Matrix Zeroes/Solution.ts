@@ -1,9 +1,11 @@
 /**
  Do not return anything, modify matrix in-place instead.
  */
- function setZeroes(matrix: number[][]): void {
-    let m = matrix.length, n = matrix[0].length;
-    let c0 = false, r0 = false;
+function setZeroes(matrix: number[][]): void {
+    let m = matrix.length,
+        n = matrix[0].length;
+    let c0 = false,
+        r0 = false;
     // 遍历第一行
     for (let i = 0; i < m; i++) {
         if (!matrix[i][0] && !c0) {
@@ -45,4 +47,4 @@
             matrix[0][j] = 0;
         }
     }
-};
+}
