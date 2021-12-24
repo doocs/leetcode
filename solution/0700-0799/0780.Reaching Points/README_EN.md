@@ -6,11 +6,7 @@
 
 <p>A move consists of taking a point <code>(x, y)</code> and transforming it to either <code>(x, x+y)</code> or <code>(x+y, y)</code>.</p>
 
-
-
 <p>Given a starting point <code>(sx, sy)</code> and a target point <code>(tx, ty)</code>, return <code>True</code> if and only if a sequence of moves exists to transform the point <code>(sx, sy)</code> to <code>(tx, ty)</code>. Otherwise, return <code>False</code>.</p>
-
-
 
 <pre>
 
@@ -46,17 +42,11 @@ One series of moves that transforms the starting point to the target is:
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 	<li><code>sx, sy, tx, ty</code> will all be integers in the range <code>[1, 10^9]</code>.</li>
 </ul>
-
-
 
 ## Solutions
 

@@ -37,7 +37,6 @@
 	<li><code>str1</code>&nbsp;和 <code>str2</code> 中都只会出现&nbsp;<strong>小写英文字母</strong></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

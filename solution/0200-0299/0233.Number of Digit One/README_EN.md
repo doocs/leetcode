@@ -28,7 +28,6 @@
 	<li><code>0 &lt;= n &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 simple digital dp problem (or it can be solved by finding a rule)
@@ -91,7 +90,7 @@ public class Solution {
         if (n < 10) return 1;
         return CountDigitOne(n / 10 - 1) * 10 + n / 10 + CountDigitOneOfN(n / 10) * (n % 10 + 1) + (n % 10 >= 1 ? 1 : 0);
     }
-    
+
     private int CountDigitOneOfN(int n) {
         var count = 0;
         while (n > 0)

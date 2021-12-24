@@ -33,7 +33,6 @@ The minimum absolute difference is 1, which is the difference between 2 and 1 (o
 	<li>This question is the same as 783:&nbsp;<a href="https://leetcode.com/problems/minimum-distance-between-bst-nodes/">https://leetcode.com/problems/minimum-distance-between-bst-nodes/</a></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -29,15 +29,16 @@
 
 <strong>Explanation</strong>
 BSTIterator bSTIterator = new BSTIterator([7, 3, 15, null, null, 9, 20]);
-bSTIterator.next();    // return 3
-bSTIterator.next();    // return 7
+bSTIterator.next(); // return 3
+bSTIterator.next(); // return 7
 bSTIterator.hasNext(); // return True
-bSTIterator.next();    // return 9
+bSTIterator.next(); // return 9
 bSTIterator.hasNext(); // return True
-bSTIterator.next();    // return 15
+bSTIterator.next(); // return 15
 bSTIterator.hasNext(); // return True
-bSTIterator.next();    // return 20
+bSTIterator.next(); // return 20
 bSTIterator.hasNext(); // return False
+
 </pre>
 </div>
 
@@ -56,7 +57,6 @@ bSTIterator.hasNext(); // return False
 <ul>
 	<li>Could you implement <code>next()</code> and <code>hasNext()</code> to run in average <code>O(1)</code> time and use&nbsp;<code>O(h)</code> memory, where <code>h</code> is the height of the tree?</li>
 </ul>
-
 
 ## Solutions
 
@@ -157,11 +157,11 @@ class BSTIterator {
     public BSTIterator(TreeNode root) {
         inorder(root);
     }
-    
+
     public int next() {
         return vals.get(cur++);
     }
-    
+
     public boolean hasNext() {
         return cur < vals.size();
     }
@@ -207,7 +207,7 @@ class BSTIterator {
             stack.offerLast(root);
         }
     }
-    
+
     public int next() {
         TreeNode cur = stack.pollLast();
         for (TreeNode node = cur.right; node != null; node = node.left) {
@@ -215,7 +215,7 @@ class BSTIterator {
         }
         return cur.val;
     }
-    
+
     public boolean hasNext() {
         return !stack.isEmpty();
     }
@@ -251,11 +251,11 @@ public:
         cur = 0;
         inorder(root);
     }
-    
+
     int next() {
         return vals[cur++];
     }
-    
+
     bool hasNext() {
         return cur < vals.size();
     }
@@ -297,7 +297,7 @@ public:
             stack.push(root);
         }
     }
-    
+
     int next() {
         TreeNode* cur = stack.top();
         stack.pop();
@@ -307,7 +307,7 @@ public:
         }
         return cur->val;
     }
-    
+
     bool hasNext() {
         return !stack.empty();
     }
@@ -381,8 +381,8 @@ func (this *BSTIterator) HasNext() bool {
 /**
  * @param {TreeNode} root
  */
-var BSTIterator = function(root) {
-    this.stack = []
+var BSTIterator = function (root) {
+    this.stack = [];
     for (; root != null; root = root.left) {
         this.stack.push(root);
     }
@@ -391,7 +391,7 @@ var BSTIterator = function(root) {
 /**
  * @return {number}
  */
-BSTIterator.prototype.next = function() {
+BSTIterator.prototype.next = function () {
     let cur = this.stack.pop();
     let node = cur.right;
     for (; node != null; node = node.left) {
@@ -403,7 +403,7 @@ BSTIterator.prototype.next = function() {
 /**
  * @return {boolean}
  */
-BSTIterator.prototype.hasNext = function() {
+BSTIterator.prototype.hasNext = function () {
     return this.stack.length > 0;
 };
 

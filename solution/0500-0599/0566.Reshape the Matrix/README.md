@@ -50,7 +50,6 @@ r = 2, c = 4
 	<li>给定的 r 和 c 都是正数。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -95,9 +94,10 @@ class Solution {
 
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {
-    let m = mat.length, n = mat[0].length;
+    let m = mat.length,
+        n = mat[0].length;
     if (m * n != r * c) return mat;
-    let ans = Array.from({length: r}, v => new Array(c).fill(0));
+    let ans = Array.from({ length: r }, v => new Array(c).fill(0));
     let k = 0;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
@@ -106,7 +106,7 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **...**

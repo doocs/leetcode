@@ -37,7 +37,6 @@ Then 4 is the first bad version.
 	<li><code>1 &lt;= bad &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -116,7 +115,7 @@ public:
 ```js
 /**
  * Definition for isBadVersion()
- * 
+ *
  * @param {integer} version number
  * @return {boolean} whether the version is bad
  * isBadVersion = function(version) {
@@ -128,12 +127,12 @@ public:
  * @param {function} isBadVersion()
  * @return {function}
  */
-var solution = function(isBadVersion) {
+var solution = function (isBadVersion) {
     /**
      * @param {integer} n Total versions
      * @return {integer} The first bad version
      */
-    return function(n) {
+    return function (n) {
         let left = 1;
         let right = n;
         while (left < right) {

@@ -48,7 +48,6 @@ Clearly the destination city is &quot;A&quot;.
 	<li>All strings consist of lowercase and uppercase English letters and the space character.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

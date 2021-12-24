@@ -116,7 +116,6 @@ Alex has one contact and it is a trusted contact (Alice).
 John doesn&#39;t have any contacts.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -120,8 +120,8 @@ class Solution {
  * @param {number} k
  * @return {number}
  */
-var kthLargest = function(root, k) {
-    const inorder = (root) => {
+var kthLargest = function (root, k) {
+    const inorder = root => {
         if (!root) {
             return;
         }
@@ -132,7 +132,7 @@ var kthLargest = function(root, k) {
             return;
         }
         inorder(root.left);
-    }
+    };
     let res = 0;
     let cur = k;
     inorder(root);

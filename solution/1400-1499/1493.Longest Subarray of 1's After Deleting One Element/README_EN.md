@@ -54,7 +54,6 @@
 	<li><code>nums[i]</code>&nbsp;is either&nbsp;<code>0</code>&nbsp;or&nbsp;<code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

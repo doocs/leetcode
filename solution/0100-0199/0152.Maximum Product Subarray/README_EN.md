@@ -36,7 +36,6 @@
 	<li>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -77,16 +76,19 @@ class Solution {
 ```ts
 function maxProduct(nums: number[]): number {
     let n = nums.length;
-    let preMax = nums[0], preMin = nums[0], ans = nums[0];
+    let preMax = nums[0],
+        preMin = nums[0],
+        ans = nums[0];
     for (let i = 1; i < n; ++i) {
         let cur = nums[i];
-        let x = preMax, y = preMin;
+        let x = preMax,
+            y = preMin;
         preMax = Math.max(x * cur, y * cur, cur);
         preMin = Math.min(x * cur, y * cur, cur);
         ans = Math.max(preMax, ans);
     }
     return ans;
-};
+}
 ```
 
 ### **C#**

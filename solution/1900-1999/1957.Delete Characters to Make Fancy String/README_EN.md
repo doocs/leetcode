@@ -48,7 +48,6 @@ No three consecutive characters are equal, so return &quot;aabaa&quot;.
 	<li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

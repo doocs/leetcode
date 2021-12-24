@@ -51,7 +51,6 @@
 	<li><code>s</code> 由英文字母、数字、符号和空格组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -113,8 +112,10 @@ class Solution {
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
-    let i = 0, j = 0, ans = 0;
+var lengthOfLongestSubstring = function (s) {
+    let i = 0,
+        j = 0,
+        ans = 0;
     let chars = new Set();
     for (let c of s) {
         while (chars.has(c)) {
@@ -139,13 +140,13 @@ function lengthOfLongestSubstring(s: string): number {
     for (let right = 0; right < s.length; right++) {
         let cur = s.charAt(right);
         if (hashTable.has(cur)) {
-          left = Math.max(left, hashTable.get(cur));
+            left = Math.max(left, hashTable.get(cur));
         }
         hashTable.set(cur, right);
         maxLen = Math.max(maxLen, right - left);
     }
-      return maxLen;
-  };
+    return maxLen;
+}
 ```
 
 ### **Swift**
@@ -217,7 +218,7 @@ public:
             ++j;
         }
         return ans;
-        
+
     }
 };
 ```

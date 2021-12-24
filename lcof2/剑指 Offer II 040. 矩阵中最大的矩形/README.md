@@ -63,7 +63,6 @@
 
 <p>注意：本题与主站 85 题相同（输入参数格式不同）：&nbsp;<a href="https://leetcode-cn.com/problems/maximal-rectangle/">https://leetcode-cn.com/problems/maximal-rectangle/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

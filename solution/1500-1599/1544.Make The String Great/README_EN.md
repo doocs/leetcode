@@ -6,11 +6,7 @@
 
 <p>Given a string <code>s</code> of lower and upper case English letters.</p>
 
-
-
 <p>A good string is a string which doesn&#39;t have&nbsp;<strong>two adjacent characters</strong> <code>s[i]</code> and <code>s[i + 1]</code> where:</p>
-
-
 
 <ul>
 	<li><code>0 &lt;= i &lt;= s.length - 2</code></li>
@@ -18,25 +14,15 @@
 
 </ul>
 
-
-
 <p>To make the string good, you can choose <strong>two adjacent</strong> characters that make the string bad and remove them. You can keep doing this until the string becomes good.</p>
-
-
 
 <p>Return <em>the string</em> after making it good. The answer is guaranteed to be unique under the given constraints.</p>
 
-
-
 <p><strong>Notice</strong> that an empty string is also good.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -68,11 +50,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -82,13 +60,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 100</code></li>

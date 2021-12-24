@@ -151,7 +151,6 @@ By the end of November --&gt; six active drivers (10, 8, 5, 7, 4, 1) and two acc
 By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one accepted ride (2).
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

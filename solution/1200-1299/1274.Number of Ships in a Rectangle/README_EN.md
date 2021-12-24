@@ -36,7 +36,6 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 	<li><code>topRight != bottomLeft</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

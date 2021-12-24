@@ -19,7 +19,6 @@
 
 <pre>给定链表 1-&gt;2-&gt;3-&gt;4-&gt;5, 重新排列为 1-&gt;5-&gt;2-&gt;4-&gt;3.</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -50,7 +49,7 @@ class Solution:
         slow, fast = head, head.next
         while fast and fast.next:
             slow, fast = slow.next, fast.next.next
-        
+
         # cur 指向右半部分链表
         cur = slow.next
         slow.next = None
@@ -176,7 +175,6 @@ public class Solution {
 
 ### **Go**
 
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -228,7 +226,7 @@ public class Solution {
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
-var reorderList = function(head) {
+var reorderList = function (head) {
     if (!head || !head.next) {
         return;
     }
@@ -260,7 +258,6 @@ var reorderList = function(head) {
     }
 };
 ```
-
 
 ### **...**
 

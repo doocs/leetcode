@@ -40,7 +40,6 @@
 
 <p><strong>注意：</strong>&nbsp;<code>n</code>&nbsp;和&nbsp;<code>m</code> 都属于 [0, 1000].</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

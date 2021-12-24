@@ -120,7 +120,7 @@ public:
  * @param {number} target
  * @return {boolean}
  */
-var searchMatrix = function(matrix, target) {
+var searchMatrix = function (matrix, target) {
     const m = matrix.length;
     const n = matrix[0].length;
     let left = 0;

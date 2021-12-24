@@ -6,36 +6,22 @@
 
 <p>The power of an integer <code>x</code> is defined as the number of steps needed to transform&nbsp;<code>x</code> into <code>1</code> using the following steps:</p>
 
-
-
 <ul>
 	<li>if <code>x</code> is even then <code>x = x / 2</code></li>
 	<li>if <code>x</code> is odd then <code>x = 3 * x + 1</code></li>
 </ul>
 
-
-
 <p>For example, the power of x = 3 is 7 because 3 needs 7 steps to become 1 (3 --&gt; 10 --&gt; 5 --&gt; 16 --&gt; 8 --&gt; 4 --&gt; 2 --&gt; 1).</p>
-
-
 
 <p>Given three integers <code>lo</code>, <code>hi</code> and <code>k</code>. The task is to sort all integers in the interval <code>[lo, hi]</code> by the power value in <strong>ascending order</strong>, if two or more integers have <strong>the same</strong> power value sort them by <strong>ascending order</strong>.</p>
 
-
-
 <p>Return the <code>k-th</code> integer in the range <code>[lo, hi]</code> sorted by the power value.</p>
 
-
-
 <p>Notice that for any&nbsp;integer <code>x</code> <code>(lo &lt;= x &lt;= hi)</code> it is <strong>guaranteed</strong> that <code>x</code> will transform into <code>1</code> using these steps and that the power of <code>x</code> is will <strong>fit</strong> in 32 bit signed integer.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -57,11 +43,7 @@ Notice that 12 and 13 have the same power value and we sorted them in ascending 
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -71,11 +53,7 @@ Notice that 12 and 13 have the same power value and we sorted them in ascending 
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -91,11 +69,7 @@ The fourth number in the sorted array is 7.
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -105,11 +79,7 @@ The fourth number in the sorted array is 7.
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -119,13 +89,9 @@ The fourth number in the sorted array is 7.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= lo &lt;= hi &lt;= 1000</code></li>

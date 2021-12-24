@@ -41,7 +41,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10^3</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -88,7 +87,7 @@ function shuffle(nums: number[], n: number): number[] {
         ans.push(nums[i], nums[n + i]);
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

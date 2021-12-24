@@ -14,8 +14,6 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 
 </p><p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -27,8 +25,6 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -42,8 +38,6 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 
 </p>
 
-
-
 <p><b>Example 3:</b><br />
 
 <pre>
@@ -55,8 +49,6 @@ Given a non-negative integer <code>N</code>, find the largest number that is les
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 

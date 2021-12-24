@@ -40,7 +40,6 @@
 	<li>Each integer in <code>nums</code> will appear twice, only two integers will appear once.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -91,12 +90,12 @@ class Solution {
  * @param {number[]} nums
  * @return {number[]}
  */
-var singleNumber = function(nums) {
+var singleNumber = function (nums) {
     let eor = 0;
     for (const x of nums) {
         eor ^= x;
     }
-    const lowbit = eor & (-eor);
+    const lowbit = eor & -eor;
     let ans = [0];
     for (const x of nums) {
         if ((x & lowbit) == 0) {

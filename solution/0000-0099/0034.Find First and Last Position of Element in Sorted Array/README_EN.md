@@ -31,7 +31,6 @@
 	<li><code>-10<sup>9</sup>&nbsp;&lt;= target&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 Binary search.
@@ -146,7 +145,7 @@ public:
  * @param {number} target
  * @return {number[]}
  */
-var searchRange = function(nums, target) {
+var searchRange = function (nums, target) {
     if (nums.length == 0) {
         return [-1, -1];
     }

@@ -30,7 +30,6 @@
 	<li><code>2 &lt;= a, b &lt;= 4 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

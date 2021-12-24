@@ -6,33 +6,21 @@
 
 <p>You are given a 2D integer array <code>orders</code>, where each <code>orders[i] = [price<sub>i</sub>, amount<sub>i</sub>, orderType<sub>i</sub>]</code> denotes that <code>amount<sub>i</sub></code><sub> </sub>orders have been placed of type <code>orderType<sub>i</sub></code> at the price <code>price<sub>i</sub></code>. The <code>orderType<sub>i</sub></code> is:</p>
 
-
-
 <ul>
 	<li><code>0</code> if it is a batch of <code>buy</code> orders, or</li>
 	<li><code>1</code> if it is a batch of <code>sell</code> orders.</li>
 </ul>
 
-
-
 <p>Note that <code>orders[i]</code> represents a batch of <code>amount<sub>i</sub></code> independent orders with the same price and order type. All orders represented by <code>orders[i]</code> will be placed before all orders represented by <code>orders[i+1]</code> for all valid <code>i</code>.</p>
 
-
-
 <p>There is a <strong>backlog</strong> that consists of orders that have not been executed. The backlog is initially empty. When an order is placed, the following happens:</p>
-
-
 
 <ul>
 	<li>If the order is a <code>buy</code> order, you look at the <code>sell</code> order with the <strong>smallest</strong> price in the backlog. If that <code>sell</code> order&#39;s price is <strong>smaller than or equal to</strong> the current <code>buy</code> order&#39;s price, they will match and be executed, and that <code>sell</code> order will be removed from the backlog. Else, the <code>buy</code> order is added to the backlog.</li>
 	<li>Vice versa, if the order is a <code>sell</code> order, you look at the <code>buy</code> order with the <strong>largest</strong> price in the backlog. If that <code>buy</code> order&#39;s price is <strong>larger than or equal to</strong> the current <code>sell</code> order&#39;s price, they will match and be executed, and that <code>buy</code> order will be removed from the backlog. Else, the <code>sell</code> order is added to the backlog.</li>
 </ul>
 
-
-
 <p>Return <em>the total <strong>amount</strong> of orders in the backlog after placing all the orders from the input</em>. Since this number can be large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -60,8 +48,6 @@ Finally, the backlog has 5 buy orders with price 10, and 1 buy order with price 
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1801.Number%20of%20Orders%20in%20the%20Backlog/images/ex2.png" style="width: 450px; height: 584px;" />
@@ -86,13 +72,9 @@ Finally, the backlog has (1000000000-3) sell orders with price 7, and (999999995
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= orders.length &lt;= 10<sup>5</sup></code></li>

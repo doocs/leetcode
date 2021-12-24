@@ -39,7 +39,6 @@ So return 6.
 	<li>There will be <strong>at least two</strong> friends in the <code>grid</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

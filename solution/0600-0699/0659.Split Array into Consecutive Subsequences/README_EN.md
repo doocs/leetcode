@@ -45,7 +45,6 @@ You can split them into two consecutive subsequences :
 	<li><code>nums</code> is sorted in an <strong>ascending</strong> order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

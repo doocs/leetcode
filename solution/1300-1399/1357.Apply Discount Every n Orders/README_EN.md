@@ -8,28 +8,20 @@
 
 There are some products in the supermarket where the id of the <code>i-th</code> product is <code>products[i]</code> and the price per unit of this product is&nbsp;<code>prices[i]</code>.<br />
 
-The system will count the number of customers and when the <code>n-th</code> customer arrive he/she will have a <code>discount</code> on the bill. (i.e if the cost is <code>x</code> the new cost is <code>x - (discount * x) / 100</code>). Then the system will start counting customers again.<br />
+The system will count the number of customers and when the <code>n-th</code> customer arrive he/she will have a <code>discount</code> on the bill. (i.e if the cost is <code>x</code> the new cost is <code>x - (discount \* x) / 100</code>). Then the system will start counting customers again.<br />
 
 The customer orders a certain amount of each product where <code>product[i]</code> is the id of the <code>i-th</code> product the customer ordered and <code>amount[i]</code> is the number of units the customer ordered of that product.</p>
 
-
-
 <p>Implement the <code>Cashier</code> class:</p>
-
-
 
 <ul>
 	<li><code>Cashier(int n, int discount, int[] products, int[] prices)</code> Initializes the object with <code>n</code>, the <code>discount</code>, the <code>products</code>&nbsp;and their <code>prices</code>.</li>
 	<li><code>double&nbsp;getBill(int[] product, int[] amount)</code>&nbsp;returns the value of the bill and apply the discount if needed. Answers within <code>10^-5</code> of the actual value will be accepted as correct.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -63,13 +55,9 @@ cashier.getBill([2,3,5],[5,3,2]);                    // return 2500.0
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10^4</code></li>

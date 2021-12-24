@@ -36,7 +36,6 @@
 	<li><code>0 &lt;= k &lt; nums.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

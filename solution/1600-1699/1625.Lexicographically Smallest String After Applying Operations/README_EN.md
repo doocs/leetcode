@@ -6,32 +6,20 @@
 
 <p>You are given a string <code>s</code> of <strong>even length</strong> consisting of digits from <code>0</code> to <code>9</code>, and two integers <code>a</code> and <code>b</code>.</p>
 
-
-
 <p>You can apply either of the following two operations any number of times and in any order on <code>s</code>:</p>
-
-
 
 <ul>
 	<li>Add <code>a</code> to all odd indices of <code>s</code> <strong>(0-indexed)</strong>. Digits post <code>9</code> are cycled back to <code>0</code>. For example, if <code>s = &quot;3456&quot;</code> and <code>a = 5</code>, <code>s</code> becomes <code>&quot;3951&quot;</code>.</li>
 	<li>Rotate <code>s</code> to the right by <code>b</code> positions. For example, if <code>s = &quot;3456&quot;</code> and <code>b = 1</code>, <code>s</code> becomes <code>&quot;6345&quot;</code>.</li>
 </ul>
 
-
-
 <p>Return <em>the <strong>lexicographically smallest</strong> string you can obtain by applying the above operations any number of times on</em> <code>s</code>.</p>
 
-
-
 <p>A string <code>a</code> is lexicographically smaller than a string <code>b</code> (of the same length) if in the first position where <code>a</code> and <code>b</code> differ, string <code>a</code> has a letter that appears earlier in the alphabet than the corresponding letter in <code>b</code>. For example, <code>&quot;0158&quot;</code> is lexicographically smaller than <code>&quot;0190&quot;</code> because the first position they differ is at the third letter, and <code>&#39;5&#39;</code> comes before <code>&#39;9&#39;</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -63,11 +51,7 @@ There is no way to obtain a string that is lexicographically smaller then &quot;
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -89,11 +73,7 @@ There is no way to obtain a string that is lexicographically smaller then &quot;
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -105,11 +85,7 @@ There is no way to obtain a string that is lexicographically smaller then &quot;
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -119,13 +95,9 @@ There is no way to obtain a string that is lexicographically smaller then &quot;
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>2 &lt;= s.length &lt;= 100</code></li>

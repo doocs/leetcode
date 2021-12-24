@@ -46,7 +46,6 @@ Or paint house 0 into color 2, paint house 1 into color 0. Minimum cost: 3 + 2 =
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it in <code>O(nk)</code> runtime?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

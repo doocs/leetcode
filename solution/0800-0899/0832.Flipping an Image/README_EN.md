@@ -47,7 +47,6 @@ Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 	<li><code>images[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

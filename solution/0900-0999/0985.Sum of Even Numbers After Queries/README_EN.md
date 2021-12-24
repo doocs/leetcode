@@ -165,7 +165,7 @@ func sumEvenAfterQueries(nums []int, queries [][]int) []int {
  * @param {number[][]} queries
  * @return {number[]}
  */
-var sumEvenAfterQueries = function(nums, queries) {
+var sumEvenAfterQueries = function (nums, queries) {
     let s = 0;
     for (let num of nums) {
         if (num % 2 == 0) {

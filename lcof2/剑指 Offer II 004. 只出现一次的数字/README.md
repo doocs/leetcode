@@ -40,7 +40,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 137&nbsp;题相同：<a href="https://leetcode-cn.com/problems/single-number-ii/">https://leetcode-cn.com/problems/single-number-ii/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -138,7 +137,5 @@ class Solution
 ```
 
 ```
-
-
 
 <!-- tabs:end -->

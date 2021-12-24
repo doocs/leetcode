@@ -37,7 +37,6 @@ iterator.hasNext(); // 返回 false
 
 <p><strong>进阶：</strong>尝试在代码中仅使用 <a href="http://www.cplusplus.com/reference/iterator/iterator/">C++ 提供的迭代器</a> 或 <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Iterator.html">Java 提供的迭代器</a>。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

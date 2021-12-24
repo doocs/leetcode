@@ -78,7 +78,6 @@ Task 2 was divided into 2 subtasks (1, 2). No subtask was executed successfully,
 Task 3 was divided into 4 subtasks (1, 2, 3, 4). All of the subtasks were executed successfully.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

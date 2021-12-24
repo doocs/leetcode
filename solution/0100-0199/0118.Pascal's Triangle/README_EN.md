@@ -23,7 +23,6 @@
 	<li><code>1 &lt;= numRows &lt;= 30</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -74,14 +73,14 @@ function generate(numRows: number): number[][] {
     for (let i = 1; i < numRows; ++i) {
         ans.push(new Array(i + 1).fill(1));
         let half = i >> 1;
-        for (let j = 1;j <= half; ++j) {
+        for (let j = 1; j <= half; ++j) {
             let cur = ans[i - 1][j - 1] + ans[i - 1][j];
             ans[i][j] = cur;
             ans[i][i - j] = cur;
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**
@@ -127,17 +126,17 @@ func generate(numRows int) [][]int {
 
 ```js
 const generate = function (numRows) {
-  let arr = [];
-  for (let i = 0; i < numRows; i++) {
-    let row = [];
-    row[0] = 1;
-    row[i] = 1;
-    for (let j = 1; j < row.length - 1; j++) {
-      row[j] = arr[i - 1][j - 1] + arr[i - 1][j];
+    let arr = [];
+    for (let i = 0; i < numRows; i++) {
+        let row = [];
+        row[0] = 1;
+        row[i] = 1;
+        for (let j = 1; j < row.length - 1; j++) {
+            row[j] = arr[i - 1][j - 1] + arr[i - 1][j];
+        }
+        arr.push(row);
     }
-    arr.push(row);
-  }
-  return arr;
+    return arr;
 };
 ```
 

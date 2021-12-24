@@ -48,7 +48,6 @@
 	<li><code>0 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

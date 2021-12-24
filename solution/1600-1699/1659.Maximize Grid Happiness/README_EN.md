@@ -61,7 +61,6 @@ The grid happiness is 90 + 80 + 90 = 260.
 	<li><code>0 &lt;= introvertsCount, extrovertsCount &lt;= min(m * n, 6)</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

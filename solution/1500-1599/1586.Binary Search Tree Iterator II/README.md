@@ -61,7 +61,6 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 	<li>最多调用&nbsp;10<sup>5</sup>&nbsp;次&nbsp;<code>hasNext</code>、&nbsp;<code>next</code>、&nbsp;<code>hasPrev</code>&nbsp;和&nbsp;<code>prev</code>&nbsp;。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -58,7 +58,6 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 	<li><code>obstacles[0] == obstacles[n] == 0</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

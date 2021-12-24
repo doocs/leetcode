@@ -38,7 +38,6 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 	<li>The elements in <code>nums</code> are <strong>distinct</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -72,7 +71,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number[]}
  */
-var buildArray = function(nums) {
+var buildArray = function (nums) {
     let ans = [];
     for (let i = 0; i < nums.length; ++i) {
         ans[i] = nums[nums[i]];

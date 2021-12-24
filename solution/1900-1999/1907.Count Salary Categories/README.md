@@ -60,7 +60,6 @@ Average Salary: No accounts.
 High Salary: Accounts 3, 6, and 8.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

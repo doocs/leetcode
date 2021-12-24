@@ -66,7 +66,6 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 	<li>Each node&#39;s value is between&nbsp;<code>[1, 10^6]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

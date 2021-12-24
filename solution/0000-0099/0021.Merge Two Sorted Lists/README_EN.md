@@ -37,7 +37,6 @@
 	<li>Both <code>l1</code> and <code>l2</code> are sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -148,7 +147,7 @@ public:
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var mergeTwoLists = function(l1, l2) {
+var mergeTwoLists = function (l1, l2) {
     const dummy = new ListNode();
     let cur = dummy;
     while (l1 && l2) {

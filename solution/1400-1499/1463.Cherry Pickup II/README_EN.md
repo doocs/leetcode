@@ -69,7 +69,6 @@ Total of cherries: 17 + 11 = 28.
 	<li><code>0 &lt;= grid[i][j] &lt;= 100&nbsp;</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

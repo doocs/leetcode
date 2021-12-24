@@ -10,11 +10,7 @@ During the NBA playoffs, we always arrange the rather strong team to play with t
 
 </p>
 
-
-
-<p>The <b>n</b> teams are given in the form of positive integers from 1 to n, which represents their initial rank. (Rank 1 is the strongest team and Rank n is the weakest team.) We'll use parentheses('(', ')') and commas(',') to represent the contest team pairing - parentheses('(' , ')') for pairing and commas(',') for partition. During the pairing process in each round, you always need to follow the strategy of making the rather strong one pair with the rather weak one.</p> 
-
-
+<p>The <b>n</b> teams are given in the form of positive integers from 1 to n, which represents their initial rank. (Rank 1 is the strongest team and Rank n is the weakest team.) We'll use parentheses('(', ')') and commas(',') to represent the contest team pairing - parentheses('(' , ')') for pairing and commas(',') for partition. During the pairing process in each round, you always need to follow the strategy of making the rather strong one pair with the rather weak one.</p>
 
 <p><b>Example 1:</b><br />
 
@@ -33,8 +29,6 @@ Then we pair the team (1,2) together with '(', ')' and ',', which is the final a
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -58,8 +52,6 @@ And we got the final answer ((1,4),(2,3)).
 
 </p>
 
-
-
 <p><b>Example 3:</b><br />
 
 <pre>
@@ -81,8 +73,6 @@ Since the third round will generate the final winner, you need to output the ans
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

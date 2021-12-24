@@ -26,7 +26,6 @@
 
 <p><strong>注意:&nbsp;</strong>给定的二进制数组的长度不会超过50000。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -64,14 +63,13 @@ public:
             if (mp.find(presum) != mp.end())
                 maxlen = max(maxlen, i - mp[presum]);
             else
-                mp[presum] = i;    
+                mp[presum] = i;
         }
 
         return maxlen;
     }
 };
 ```
-
 
 ### **...**
 

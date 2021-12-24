@@ -36,7 +36,6 @@ Thus, we output the size of this set, which is 3.
 	<li><code>0 &lt;= a<sub>i</sub> &lt;&nbsp;b<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

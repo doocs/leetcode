@@ -35,7 +35,6 @@ Only two moves are needed (remember each move increments or decrements one eleme
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

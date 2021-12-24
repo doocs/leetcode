@@ -42,7 +42,6 @@ class FooBar {
 <strong>Explanation:</strong> &quot;foobar&quot; is being output 2 times.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

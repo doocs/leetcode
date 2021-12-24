@@ -42,7 +42,6 @@ The best solution that has 4 ones is:
 	<li><code>0 &lt;= maxOnes &lt;= sideLength * sideLength</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

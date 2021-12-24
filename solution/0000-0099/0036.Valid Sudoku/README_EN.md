@@ -62,7 +62,6 @@
 	<li><code>board[i][j]</code> is a digit or <code>&#39;.&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -82,7 +81,7 @@ class Solution:
                     continue
                 num = int(c) - 1
                 k = i // 3 * 3 + j // 3
-                if row[i][num] or col[j][num] or sub[k][num]: 
+                if row[i][num] or col[j][num] or sub[k][num]:
                     return False
                 row[i][num] = True
                 col[j][num] = True
@@ -178,13 +177,13 @@ func isValidSudoku(board [][]byte) bool {
  * @param {character[][]} board
  * @return {boolean}
  */
-var isValidSudoku = function(board) {
+var isValidSudoku = function (board) {
     let row = [...Array(9)].map(() => Array(9).fill(false));
     let col = [...Array(9)].map(() => Array(9).fill(false));
     let sub = [...Array(9)].map(() => Array(9).fill(false));
     for (let i = 0; i < 9; ++i) {
         for (let j = 0; j < 9; ++j) {
-            const num = board[i][j].charCodeAt() - '1'.charCodeAt();
+            const num = board[i][j].charCodeAt() - "1".charCodeAt();
             if (num < 0 || num > 9) {
                 continue;
             }

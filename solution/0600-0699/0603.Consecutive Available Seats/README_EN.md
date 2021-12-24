@@ -26,17 +26,11 @@ Can you help to query all the consecutive available seats order by the seat_id u
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 Your query should return the following result for the sample case above.
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -54,14 +48,10 @@ Your query should return the following result for the sample case above.
 
 <b>Note</b>:
 
-
-
 <ul>
 	<li>The seat_id is an auto increment int, and free is bool (&#39;1&#39; means free, and &#39;0&#39; means occupied.).</li>
 	<li>Consecutive available seats are more than 2(inclusive) seats consecutively available.</li>
 </ul>
-
-
 
 ## Solutions
 

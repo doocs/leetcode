@@ -90,7 +90,7 @@ class SparseVector:
 class SparseVector {
 
     private Map<Integer, Integer> v;
-    
+
     SparseVector(int[] nums) {
         v = new HashMap<>();
         for (int i = 0; i < nums.length; ++i) {
@@ -99,7 +99,7 @@ class SparseVector {
             }
         }
     }
-    
+
 	// Return the dotProduct of two sparse vectors
     public int dotProduct(SparseVector vec) {
         int res = 0;

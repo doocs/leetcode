@@ -46,7 +46,6 @@ S = &#39;abcdabcdabcdabcdabcdabcdabcdabcddcbadcbadcbadcbadcbadcbadcbadcba&#39;
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

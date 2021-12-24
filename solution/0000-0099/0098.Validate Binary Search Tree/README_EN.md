@@ -38,7 +38,6 @@
 	<li><code>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -202,10 +201,10 @@ func isValidBST(root *TreeNode) bool {
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function(root) {
+var isValidBST = function (root) {
     let prev = null;
 
-    let dfs = function(root) {
+    let dfs = function (root) {
         if (!root) {
             return true;
         }
@@ -220,7 +219,7 @@ var isValidBST = function(root) {
             return false;
         }
         return true;
-    }
+    };
 
     return dfs(root);
 };

@@ -6,11 +6,7 @@
 
 <p>There are <code>n</code> friends that are playing a game. The friends are sitting in a circle and are numbered from <code>1</code> to <code>n</code> in <strong>clockwise order</strong>. More formally, moving clockwise from the <code>i<sup>th</sup></code> friend brings you to the <code>(i+1)<sup>th</sup></code> friend for <code>1 &lt;= i &lt; n</code>, and moving clockwise from the <code>n<sup>th</sup></code> friend brings you to the <code>1<sup>st</sup></code> friend.</p>
 
-
-
 <p>The rules of the game are as follows:</p>
-
-
 
 <ol>
 	<li><strong>Start</strong> at the <code>1<sup>st</sup></code> friend.</li>
@@ -20,11 +16,7 @@
 	<li>Else, the last friend in the circle wins the game.</li>
 </ol>
 
-
-
 <p>Given the number of friends, <code>n</code>, and an integer <code>k</code>, return <em>the winner of the game</em>.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -58,11 +50,7 @@
 
 9) Friend 5 leaves the circle. Only friend 3 is left, so they are the winner.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -74,13 +62,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= k &lt;= n &lt;= 500</code></li>

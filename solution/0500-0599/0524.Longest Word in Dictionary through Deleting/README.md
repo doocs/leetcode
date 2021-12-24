@@ -36,7 +36,6 @@ s = &quot;abpcplea&quot;, d = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
 	<li>所有输入的字符串长度不会超过 1000。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -40,7 +40,6 @@ numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>sumRange</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

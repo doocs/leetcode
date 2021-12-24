@@ -33,7 +33,6 @@
 	<li><code>nums</code>&nbsp;的每个元素都将在&nbsp;<code>[-9999, 9999]</code>之间。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -124,7 +123,7 @@ func search(nums []int, target int) int {
  * @param {number} target
  * @return {number}
  */
- var search = function(nums, target) {
+var search = function (nums, target) {
     let left = 0;
     let right = nums.length - 1;
     while (left < right) {

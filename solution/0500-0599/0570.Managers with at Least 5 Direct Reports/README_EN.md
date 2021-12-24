@@ -6,8 +6,6 @@
 
 <p>The <code>Employee</code> table holds all employees including their managers. Every employee has an Id, and there is also a column for the manager Id.</p>
 
-
-
 <pre>
 
 +------+----------+-----------+----------+
@@ -32,11 +30,7 @@
 
 </pre>
 
-
-
 <p>Given the <code>Employee</code> table, write a SQL query that finds out managers with at least 5 direct report. For the above table, your SQL query should return:</p>
-
-
 
 <pre>
 
@@ -52,13 +46,9 @@
 
 </pre>
 
-
-
 <p><b>Note:</b><br />
 
 No one would report to himself.</p>
-
-
 
 ## Solutions
 
@@ -71,4 +61,3 @@ No one would report to himself.</p>
 ```
 
 <!-- tabs:end -->
-

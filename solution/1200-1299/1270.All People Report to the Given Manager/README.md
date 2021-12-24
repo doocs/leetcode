@@ -1,4 +1,4 @@
-# [1270. 向公司CEO汇报工作的所有人](https://leetcode-cn.com/problems/all-people-report-to-the-given-manager)
+# [1270. 向公司 CEO 汇报工作的所有人](https://leetcode-cn.com/problems/all-people-report-to-the-given-manager)
 
 [English Version](/solution/1200-1299/1270.All%20People%20Report%20to%20the%20Given%20Manager/README_EN.md)
 
@@ -60,7 +60,6 @@ employee_id 是 4 的职员间接汇报给公司 CEO 4 --&gt; 2 --&gt; 1 。
 employee_id 是 7 的职员间接汇报给公司 CEO 7 --&gt; 4 --&gt; 2 --&gt; 1 。
 employee_id 是 3, 8 ，9 的职员不会直接或间接的汇报给公司 CEO。 
 </pre>
-
 
 ## 解法
 

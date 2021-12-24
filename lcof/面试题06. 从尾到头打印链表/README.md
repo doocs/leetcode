@@ -115,7 +115,7 @@ class Solution {
  * @param {ListNode} head
  * @return {number[]}
  */
-var reversePrint = function(head) {
+var reversePrint = function (head) {
     let res = [];
     while (head != null) {
         res.unshift(head.val);
@@ -218,14 +218,14 @@ public:
  * }
  */
 
- function reversePrint(head: ListNode | null): number[] {
+function reversePrint(head: ListNode | null): number[] {
     let res: number[] = [];
     while (head != null) {
         res.unshift(head.val);
         head = head.next;
     }
     return res;
-};
+}
 ```
 
 ### **...**

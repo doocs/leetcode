@@ -49,7 +49,6 @@
 	<li><code>buildings</code> 按 <code>left<sub>i</sub></code> 非递减排序</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

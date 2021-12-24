@@ -35,7 +35,6 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 	<li><code>0 &lt;= nums[i] &lt;= 400</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

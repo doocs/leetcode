@@ -30,7 +30,6 @@
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -81,7 +80,7 @@ class Solution {
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersection = function(nums1, nums2) {
+var intersection = function (nums1, nums2) {
     const s = new Set();
     for (const num of nums1) {
         s.add(num);

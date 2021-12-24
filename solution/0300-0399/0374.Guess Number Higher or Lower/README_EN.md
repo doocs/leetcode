@@ -42,7 +42,6 @@
 	<li><code>1 &lt;= pick &lt;= n</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -70,7 +69,7 @@ class Solution:
 ### **Java**
 
 ```java
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -98,7 +97,7 @@ public class Solution extends GuessGame {
 ### **C++**
 
 ```cpp
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -153,7 +152,7 @@ func guessNumber(n int) int {
 ### **C#**
 
 ```cs
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -170,7 +169,7 @@ public class Solution : GuessGame {
             int mid = left + ((right - left) >> 1);
             if (guess(mid) <= 0)
             {
-                right = mid; 
+                right = mid;
             }
             else
             {

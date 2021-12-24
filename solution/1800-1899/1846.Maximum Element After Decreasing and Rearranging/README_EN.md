@@ -61,7 +61,6 @@ The largest element in <code>arr is 3.</code>
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

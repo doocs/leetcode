@@ -41,7 +41,6 @@
 	<li><code>password</code> consists of letters, digits, dot&nbsp;<code>&#39;.&#39;</code> or exclamation mark <code>&#39;!&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

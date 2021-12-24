@@ -31,7 +31,6 @@ str2 = &quot;cab&quot; 是 &quot;cabac&quot; 的一个子串，因为我们可�
 	<li><code>str1</code> 和&nbsp;<code>str2</code>&nbsp;都由小写英文字母组成。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -82,7 +82,6 @@
 	<li>There is only one character&nbsp;<code>&#39;S&#39;</code>, <code>&#39;B&#39;</code>&nbsp;<font face="sans-serif, Arial, Verdana, Trebuchet MS">and&nbsp;</font><code>&#39;T&#39;</code>&nbsp;in the <code>grid</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

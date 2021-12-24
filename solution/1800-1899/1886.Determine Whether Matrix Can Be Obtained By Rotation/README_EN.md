@@ -41,7 +41,6 @@
 	<li><code>mat[i][j]</code> and <code>target[i][j]</code> are either <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -81,7 +80,7 @@ class Solution {
         }
         return false;
     }
-    
+
     private void rotate(int[][] matrix) {
         int n = matrix.length;
         for (int i = 0; i < n / 2; ++i) {
@@ -94,7 +93,7 @@ class Solution {
             }
         }
     }
-    
+
     private boolean equals(int[][] nums1, int[][] nums2) {
         int n = nums1.length;
         for (int i = 0; i < n; ++i) {

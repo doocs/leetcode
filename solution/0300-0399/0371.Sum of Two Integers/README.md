@@ -19,7 +19,6 @@
 <pre><strong>输入: </strong>a = -2, b = 3
 <strong>输出: </strong>1</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

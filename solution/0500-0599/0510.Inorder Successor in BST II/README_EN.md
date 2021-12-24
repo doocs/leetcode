@@ -69,7 +69,6 @@ class Node {
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it without looking up any of the node&#39;s values?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

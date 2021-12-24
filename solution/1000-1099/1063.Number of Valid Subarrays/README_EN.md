@@ -6,19 +6,11 @@
 
 <p>Given an array <code>A</code> of integers, return the number of <strong>non-empty continuous subarrays</strong> that satisfy the following condition:</p>
 
-
-
 <p>The leftmost element of the subarray is not larger than other elements in the subarray.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -46,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -62,15 +46,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= A.length &lt;= 50000</code></li>

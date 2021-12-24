@@ -49,7 +49,6 @@
 
 <p><strong>进阶：</strong>你可以使用原地算法（<code>O(1)</code> 额外空间）展开这棵树吗？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -159,7 +158,7 @@ function flatten(root: TreeNode | null): void {
         }
         root = root.right;
     }
-};
+}
 ```
 
 ### **C++**

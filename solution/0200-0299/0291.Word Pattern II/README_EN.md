@@ -53,7 +53,6 @@ Note that &#39;a&#39; and &#39;b&#39; cannot both map to &quot;asd&quot; since t
 	<li><code>pattern</code> and <code>s</code> consist of only lower-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

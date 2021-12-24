@@ -40,7 +40,6 @@ ans = [nums[nums[0]], nums[nums[1]], nums[nums[2]], nums[nums[3]], nums[nums[4]]
 	<li><code>nums</code> 中的元素 <strong>互不相同</strong></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -80,7 +79,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number[]}
  */
-var buildArray = function(nums) {
+var buildArray = function (nums) {
     let ans = [];
     for (let i = 0; i < nums.length; ++i) {
         ans[i] = nums[nums[i]];

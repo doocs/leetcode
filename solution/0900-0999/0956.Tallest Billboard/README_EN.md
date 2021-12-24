@@ -44,7 +44,6 @@
 	<li><code>sum(rods[i]) &lt;= 5000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -87,7 +87,6 @@ We now know that the target is the cell (0, 1), and the minimum total cost to re
 	<li><code>0 &lt;= grid[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

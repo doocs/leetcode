@@ -39,7 +39,6 @@ Then, delete 3 again to earn 3 points, and 3 again to earn 3 points.
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 Intuition: **If we take a number, we will take all of the copies of it**.

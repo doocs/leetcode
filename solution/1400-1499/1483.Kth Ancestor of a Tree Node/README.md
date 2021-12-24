@@ -45,7 +45,6 @@ treeAncestor.getKthAncestor(6, 3);  // 返回 -1 因为不存在满足要求的�
 	<li>至多查询 <code>5*10^4</code> 次</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

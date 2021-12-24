@@ -57,7 +57,6 @@
 	<li><code>s</code> consists of parentheses only <code>&#39;()[]{}&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

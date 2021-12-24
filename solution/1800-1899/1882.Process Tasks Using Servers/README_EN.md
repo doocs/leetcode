@@ -55,7 +55,6 @@
 	<li><code>1 &lt;= servers[i], tasks[j] &lt;= 2 * 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

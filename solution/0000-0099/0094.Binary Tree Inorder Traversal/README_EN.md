@@ -58,7 +58,6 @@
 
 <p>&nbsp;</p>
 
-
 ## Solutions
 
 **1. Recusive Traversal**
@@ -89,7 +88,7 @@ class Solution:
                 inorder(root.left)
                 res.append(root.val)
                 inorder(root.right)
-        
+
         inorder(root)
         return res
 ```
@@ -283,8 +282,8 @@ Recursive:
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
-    let res = []
+var inorderTraversal = function (root) {
+    let res = [];
     function inorder(root) {
         if (root) {
             inorder(root.left);
@@ -312,7 +311,7 @@ Non-recursive:
  * @param {TreeNode} root
  * @return {number[]}
  */
-var inorderTraversal = function(root) {
+var inorderTraversal = function (root) {
     let res = [];
     let s = [];
     while (root || s.length > 0) {

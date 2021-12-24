@@ -6,8 +6,6 @@
 
 <p>Table: <code>Prices</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -34,15 +32,9 @@ For each product_id there will be no two overlapping periods. That means there w
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>UnitsSold</code></p>
-
-
 
 <pre>
 
@@ -66,23 +58,13 @@ Each row of this table indicates the date, units and product_id of each product 
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find the average selling price for each product.</p>
 
-
-
 <p><code>average_price&nbsp;</code>should be&nbsp;<strong>rounded to 2 decimal places</strong>.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

@@ -49,7 +49,6 @@
 	<li>All the integers in <code>rating</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

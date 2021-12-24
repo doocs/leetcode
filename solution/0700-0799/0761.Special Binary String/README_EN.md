@@ -16,15 +16,13 @@
 
 </p><p>
 
-Given a special string <code>S</code>, a <i>move</i> consists of choosing two consecutive, non-empty, special substrings of <code>S</code>, and swapping them.  <i>(Two strings are consecutive if the last character of the first string is exactly one index before the first character of the second string.)</i>
+Given a special string <code>S</code>, a <i>move</i> consists of choosing two consecutive, non-empty, special substrings of <code>S</code>, and swapping them. <i>(Two strings are consecutive if the last character of the first string is exactly one index before the first character of the second string.)</i>
 
 </p><p>
 
 At the end of any number of moves, what is the lexicographically largest resulting string possible?
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,8 +41,6 @@ This is the lexicographically largest string possible after some number of swaps
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><ol>
 

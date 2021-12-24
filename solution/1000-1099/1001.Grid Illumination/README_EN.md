@@ -54,7 +54,6 @@ The 1<sup>st</sup>&nbsp;query asks if the lamp at grid[1][0] is illuminated or n
 	<li><code>0 &lt;= row<sub>j</sub>, col<sub>j</sub> &lt; N</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

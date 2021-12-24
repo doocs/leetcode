@@ -6,7 +6,7 @@
 
 <p>
 
-We are given N different types of stickers.  Each sticker has a lowercase English word on it.
+We are given N different types of stickers. Each sticker has a lowercase English word on it.
 
 </p><p>
 
@@ -18,11 +18,9 @@ You can use each sticker more than once if you want, and you have infinite quant
 
 </p><p>
 
-What is the minimum number of stickers that you need to spell out the <code>target</code>?  If the task is impossible, return -1.
+What is the minimum number of stickers that you need to spell out the <code>target</code>? If the task is impossible, return -1.
 
 </p>
-
-
 
 <p><b>Example 1:</b></p>
 
@@ -32,15 +30,11 @@ What is the minimum number of stickers that you need to spell out the <code>targ
 
 </pre></p>
 
-
-
 <p>Output:<pre>
 
 3
 
 </pre></p>
-
-
 
 <p>Explanation:<pre>
 
@@ -52,8 +46,6 @@ Also, this is the minimum number of stickers necessary to form the target string
 
 </pre></p>
 
-
-
 <p><b>Example 2:</b></p>
 
 <p>Input:<pre>
@@ -62,23 +54,17 @@ Also, this is the minimum number of stickers necessary to form the target string
 
 </pre></p>
 
-
-
 <p>Output:<pre>
 
 -1
 
 </pre></p>
 
-
-
 <p>Explanation:<pre>
 
 We can't form the target "basicbasic" from cutting letters from the given stickers.
 
 </pre></p>
-
-
 
 <p><b>Note:</b>
 

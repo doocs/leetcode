@@ -56,7 +56,6 @@ The customer id 4 has a first order with delivery id 7 and it is immediate.
 Hence, half the customers have immediate first orders.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

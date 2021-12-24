@@ -1,4 +1,4 @@
-# [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits)
+# [402. 移掉 K 位数字](https://leetcode-cn.com/problems/remove-k-digits)
 
 [English Version](/solution/0400-0499/0402.Remove%20K%20Digits/README_EN.md)
 
@@ -39,7 +39,6 @@
 解释: 从原数字移除所有的数字，剩余为空就是0。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -77,8 +76,8 @@ function removeKdigits(num: string, k: number): string {
         nums.splice(idx, 1);
         k--;
     }
-    return nums.join('').replace(/^0*/g, '') || '0';
-};
+    return nums.join("").replace(/^0*/g, "") || "0";
+}
 ```
 
 ### **...**

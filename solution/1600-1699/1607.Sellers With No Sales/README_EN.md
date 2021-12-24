@@ -100,7 +100,6 @@ Elizabeth made 2 sales in 2020 and 1 sale in 2019.
 Frank made 1 sale in 2019 but no sales in 2020.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

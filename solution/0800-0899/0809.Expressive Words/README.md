@@ -39,7 +39,6 @@ words = ["hello", "hi", "helo"]
 	<li><code>S</code> 和所有在 <code>words</code> 中的单词都只由小写字母组成。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

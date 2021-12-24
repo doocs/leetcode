@@ -41,7 +41,6 @@
 	<li><code>1 <= u<sub>i</sub>, v<sub>i</sub> <= n</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -161,7 +161,7 @@ function findBottomLeftValue(root: TreeNode | null): number {
         stack = next;
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

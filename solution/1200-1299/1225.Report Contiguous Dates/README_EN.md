@@ -79,7 +79,6 @@ From 2019-01-04 to 2019-01-05 all tasks failed and system state was &quot;failed
 From 2019-01-06 to 2019-01-06 all tasks succeeded and system state was &quot;succeeded&quot;.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -39,7 +39,6 @@
 	<li>Could you come up with a one-pass algorithm using only <code>O(1)</code> constant space?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -101,7 +100,8 @@ class Solution {
 function sortColors(nums: number[]): void {
     let n = nums.length;
     if (n < 2) return;
-    let p0 = 0, p2 = n - 1;
+    let p0 = 0,
+        p2 = n - 1;
     let p1 = 0;
     while (p1 <= p2) {
         if (nums[p1] == 0) {
@@ -115,7 +115,7 @@ function sortColors(nums: number[]): void {
             p2--;
         }
     }
-};
+}
 ```
 
 ### **C++**

@@ -39,7 +39,6 @@
 	<li>The black pixels in the <code>image</code> only form <strong>one component</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

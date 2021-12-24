@@ -45,8 +45,8 @@ Morris 遍历无需使用栈，空间复杂度为 O(1)。核心思想是：
 
 1. 若当前节点 root 的右子树为空，**将当前节点值添加至结果列表 res** 中，并将当前节点更新为 `root.left`
 2. 若当前节点 root 的右子树不为空，找到右子树的最左节点 next（也即是 root 节点在中序遍历下的后继节点）：
-   - 若后继节点 next 的左子树为空，**将当前节点值添加至结果列表 res** 中，然后将后继节点的左子树指向当前节点 root，并将当前节点更新为 `root.right`。
-   - 若后继节点 next 的左子树不为空，将后继节点左子树指向空（即解除 next 与 root 的指向关系），并将当前节点更新为 `root.left`。
+    - 若后继节点 next 的左子树为空，**将当前节点值添加至结果列表 res** 中，然后将后继节点的左子树指向当前节点 root，并将当前节点更新为 `root.right`。
+    - 若后继节点 next 的左子树不为空，将后继节点左子树指向空（即解除 next 与 root 的指向关系），并将当前节点更新为 `root.left`。
 3. 循环以上步骤，直至二叉树节点为空，遍历结束。
 4. 最后返回结果列表的逆序即可。
 
@@ -295,12 +295,10 @@ function postorderTraversal(root: TreeNode | null): number[] {
             stack.push(root);
             root = root.right;
         }
-        
     }
     return ans;
-};
+}
 ```
-
 
 ### **C++**
 

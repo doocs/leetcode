@@ -8,27 +8,19 @@
 
 </p>
 
-
-
 <p>
 
 You're given a matrix represented by a two-dimensional array, and two <b>positive</b> integers <b>r</b> and <b>c</b> representing the <b>row</b> number and <b>column</b> number of the wanted reshaped matrix, respectively.</p>
 
-
-
  <p>The reshaped matrix need to be filled with all the elements of the original matrix in the same <b>row-traversing</b> order as they were.
 
 </p>
-
-
 
 <p>
 
 If the 'reshape' operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -53,8 +45,6 @@ r = 1, c = 4
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -81,8 +71,6 @@ r = 2, c = 4
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 
@@ -134,9 +122,10 @@ class Solution {
 
 ```ts
 function matrixReshape(mat: number[][], r: number, c: number): number[][] {
-    let m = mat.length, n = mat[0].length;
+    let m = mat.length,
+        n = mat[0].length;
     if (m * n != r * c) return mat;
-    let ans = Array.from({length: r}, v => new Array(c).fill(0));
+    let ans = Array.from({ length: r }, v => new Array(c).fill(0));
     let k = 0;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
@@ -145,7 +134,7 @@ function matrixReshape(mat: number[][], r: number, c: number): number[][] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **...**

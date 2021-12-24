@@ -45,7 +45,6 @@
 	<li><code>1 <= W <= hand.length</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -66,7 +65,7 @@
 
 ```java
 class Solution {
-    public boolean isNStraightHand(int[] hand, int groupSize) { 
+    public boolean isNStraightHand(int[] hand, int groupSize) {
         if (hand.length % groupSize != 0) {
             return false;
         }

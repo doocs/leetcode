@@ -32,7 +32,6 @@
 	<li>给出的&nbsp;<code>address</code>&nbsp;是一个有效的 IPv4 地址</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -65,8 +64,8 @@ class Solution {
 
 ```ts
 function defangIPaddr(address: string): string {
-    return address.split('.').join('[.]');
-};
+    return address.split(".").join("[.]");
+}
 ```
 
 ### **C++**

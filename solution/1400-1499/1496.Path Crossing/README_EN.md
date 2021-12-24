@@ -36,7 +36,6 @@
 	<li><code>path</code> will only consist of characters in&nbsp;<code>{&#39;N&#39;, &#39;S&#39;, &#39;E&#39;, &#39;W}</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

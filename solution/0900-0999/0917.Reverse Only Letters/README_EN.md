@@ -6,11 +6,7 @@
 
 <p>Given a string <code>S</code>, return the &quot;reversed&quot; string where all characters that are not a letter&nbsp;stay in the same place, and all letters reverse their positions.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -28,13 +24,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -44,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -60,13 +48,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -76,17 +60,11 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong><span>Note:</span></strong></p>
-
-
 
 <ol>
 	<li><code>S.length &lt;= 100</code></li>

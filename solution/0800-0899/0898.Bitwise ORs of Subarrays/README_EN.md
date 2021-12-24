@@ -45,7 +45,6 @@ There are 3 unique values, so the answer is 3.
 	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

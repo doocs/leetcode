@@ -8,15 +8,11 @@
 
 Given two strings representing two <a href = "https://en.wikipedia.org/wiki/Complex_number">complex numbers</a>.</p>
 
-
-
 <p>
 
 You need to return a string representing their multiplication. Note i<sup>2</sup> = -1 according to the definition.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -32,8 +28,6 @@ You need to return a string representing their multiplication. Note i<sup>2</sup
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -47,8 +41,6 @@ You need to return a string representing their multiplication. Note i<sup>2</sup
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 

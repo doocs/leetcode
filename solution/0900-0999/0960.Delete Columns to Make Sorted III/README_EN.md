@@ -52,7 +52,6 @@ Note that strs[0] &gt; strs[1] - the array strs is not necessarily in lexicograp
 	<li>&nbsp;</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

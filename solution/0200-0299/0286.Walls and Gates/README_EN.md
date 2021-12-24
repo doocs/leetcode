@@ -53,7 +53,6 @@
 	<li><code>rooms[i][j]</code> is <code>-1</code>, <code>0</code>, or <code>2<sup>31</sup> - 1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

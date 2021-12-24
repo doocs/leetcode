@@ -22,7 +22,6 @@
 
 所以，4 是第一个错误的版本。&nbsp;</code></pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -109,7 +108,7 @@ public:
 ```js
 /**
  * Definition for isBadVersion()
- * 
+ *
  * @param {integer} version number
  * @return {boolean} whether the version is bad
  * isBadVersion = function(version) {
@@ -121,12 +120,12 @@ public:
  * @param {function} isBadVersion()
  * @return {function}
  */
-var solution = function(isBadVersion) {
+var solution = function (isBadVersion) {
     /**
      * @param {integer} n Total versions
      * @return {integer} The first bad version
      */
-    return function(n) {
+    return function (n) {
         let left = 1;
         let right = n;
         while (left < right) {

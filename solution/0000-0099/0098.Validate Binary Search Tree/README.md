@@ -38,7 +38,6 @@
 &nbsp;    根节点的值为 5 ，但是其右子节点值为 4 。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -210,10 +209,10 @@ func isValidBST(root *TreeNode) bool {
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function(root) {
+var isValidBST = function (root) {
     let prev = null;
 
-    let dfs = function(root) {
+    let dfs = function (root) {
         if (!root) {
             return true;
         }
@@ -228,7 +227,7 @@ var isValidBST = function(root) {
             return false;
         }
         return true;
-    }
+    };
 
     return dfs(root);
 };

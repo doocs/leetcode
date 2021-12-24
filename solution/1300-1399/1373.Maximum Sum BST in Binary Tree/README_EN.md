@@ -65,7 +65,6 @@
 	<li>Each node&#39;s value is between <code>[-4 * 10^4&nbsp;, 4 * 10^4]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

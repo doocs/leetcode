@@ -65,7 +65,7 @@ class Solution:
                 dfs(i + 1, t + ')', lcnt, rcnt + 1, ldel, rdel)
             else:
                 dfs(i + 1, t + s[i], lcnt, rcnt, ldel, rdel)
-        
+
         ldel = rdel = 0
         for c in s:
             if c == '(':

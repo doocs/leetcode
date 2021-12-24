@@ -6,8 +6,6 @@
 
 <p>Table: <code>Queue</code></p>
 
-
-
 <pre>
 
 +-------------+---------+
@@ -34,23 +32,13 @@ The <code>person_id</code>&nbsp;and <code>turn</code> columns will contain all n
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>The maximum weight the elevator can hold is <strong>1000</strong>.</p>
 
-
-
 <p>Write an SQL query to find the&nbsp;<code>person_name</code> of the last person who will fit in the elevator without exceeding the weight limit. It is guaranteed that the person who is&nbsp;first in the queue can fit in the elevator.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 
@@ -99,8 +87,6 @@ In the example George Washington(id 5), John Adams(id 3) and Thomas Jefferson(id
 Thomas Jefferson(id 6) is the last person to fit in the elevator because he has the last turn in these three people.
 
 </pre>
-
-
 
 ## Solutions
 

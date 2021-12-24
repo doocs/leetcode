@@ -46,7 +46,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Try to optimize your time and space complexity.</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

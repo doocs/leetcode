@@ -58,7 +58,6 @@
 	<li><code>1 &lt;= k &lt;= nCr(row + column, row)</code>, where <code>nCr(a, b)</code> denotes <code>a</code> choose <code>b</code>​​​​​.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

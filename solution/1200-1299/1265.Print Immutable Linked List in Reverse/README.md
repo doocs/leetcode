@@ -67,7 +67,6 @@
 	<li>每个节点的值在&nbsp;<code>[-1000, 1000]</code>&nbsp;之间。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -148,7 +147,7 @@ public:
 /*   Below is the interface for ImmutableListNode, which is already defined for you.
  *
  *   type ImmutableListNode struct {
- *       
+ *
  *   }
  *
  *   func (this *ImmutableListNode) getNext() ImmutableListNode {

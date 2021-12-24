@@ -47,7 +47,6 @@ Remove palindromic subsequence &quot;baab&quot; then &quot;b&quot;.
 	<li><code>s[i]</code> is either <code>&#39;a&#39;</code> or <code>&#39;b&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -85,9 +84,9 @@ class Solution {
 ```ts
 function removePalindromeSub(s: string): number {
     if (s.length == 0) return 0;
-    if (s == s.split('').reverse().join('')) return 1;
+    if (s == s.split("").reverse().join("")) return 1;
     return 2;
-};
+}
 ```
 
 ### **C++**

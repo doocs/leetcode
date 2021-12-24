@@ -36,7 +36,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Assume that the BST is balanced. Could you solve it in less than <code>O(n)</code> runtime (where <code>n = total nodes</code>)?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

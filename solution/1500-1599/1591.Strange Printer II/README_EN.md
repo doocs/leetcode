@@ -58,7 +58,6 @@
 	<li><code>1 &lt;= targetGrid[row][col] &lt;= 60</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

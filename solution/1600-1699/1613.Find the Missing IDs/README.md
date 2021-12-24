@@ -1,4 +1,4 @@
-# [1613. 找到遗失的ID](https://leetcode-cn.com/problems/find-the-missing-ids)
+# [1613. 找到遗失的 ID](https://leetcode-cn.com/problems/find-the-missing-ids)
 
 [English Version](/solution/1600-1699/1613.Find%20the%20Missing%20IDs/README_EN.md)
 
@@ -49,7 +49,6 @@ Result 表:
 | 3   |
 +-----+
 表中最大的customer_id是5, 所以在范围[1,5]内, ID2和3从表中遗失.</pre>
-
 
 ## 解法
 

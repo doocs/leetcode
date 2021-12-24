@@ -26,7 +26,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you do it without extra space and in <code>O(n)</code> runtime? You may assume the returned list does not count as extra space.</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -83,7 +82,7 @@ function findDisappearedNumbers(nums: number[]): number[] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

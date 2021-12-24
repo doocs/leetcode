@@ -1,4 +1,4 @@
-# [717. 1比特与2比特字符](https://leetcode-cn.com/problems/1-bit-and-2-bit-characters)
+# [717. 1 比特与 2 比特字符](https://leetcode-cn.com/problems/1-bit-and-2-bit-characters)
 
 [English Version](/solution/0700-0799/0717.1-bit%20and%202-bit%20Characters/README_EN.md)
 
@@ -36,7 +36,6 @@ bits = [1, 1, 1, 0]
 	<li><code>1 &lt;= len(bits) &lt;= 1000</code>.</li>
 	<li><code>bits[i]</code> 总是<code>0</code> 或&nbsp;<code>1</code>.</li>
 </ul>
-
 
 ## 解法
 

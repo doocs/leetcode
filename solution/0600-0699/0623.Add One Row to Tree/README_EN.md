@@ -43,7 +43,6 @@
 	<li><code>1 &lt;= depth &lt;= the depth of tree + 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

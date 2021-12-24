@@ -27,14 +27,14 @@
 <strong>输入：</strong>n = <code>13</code>
 <strong>输出：</strong>2
 <strong>解释：</strong><code>13 = 4 + 9</code></pre>
- 
+
+
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>1 <= n <= 10<sup>4</sup></code></li>
 </ul>
-
 
 ## 解法
 
@@ -113,7 +113,7 @@ function numSquares(n: number): number {
         dp[i] = min + 1;
     }
     return dp.pop();
-};
+}
 ```
 
 ### **Go**

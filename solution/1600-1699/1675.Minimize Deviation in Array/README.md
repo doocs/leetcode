@@ -13,15 +13,16 @@
 <ul>
 	<li>如果元素是<strong> 偶数</strong> ，<strong>除以</strong> <code>2</code>
 
-	<ul>
-		<li>例如，如果数组是 <code>[1,2,3,4]</code> ，那么你可以对最后一个元素执行此操作，使其变成 <code>[1,2,3,<strong>2</strong>]</code></li>
-	</ul>
-	</li>
-	<li>如果元素是 <strong>奇数</strong> ，<strong>乘上</strong> <code>2</code>
-	<ul>
-		<li>例如，如果数组是 <code>[1,2,3,4]</code> ，那么你可以对第一个元素执行此操作，使其变成 <code>[<strong>2</strong>,2,3,4]</code></li>
-	</ul>
-	</li>
+    <ul>
+    	<li>例如，如果数组是 <code>[1,2,3,4]</code> ，那么你可以对最后一个元素执行此操作，使其变成 <code>[1,2,3,<strong>2</strong>]</code></li>
+    </ul>
+    </li>
+    <li>如果元素是 <strong>奇数</strong> ，<strong>乘上</strong> <code>2</code>
+    <ul>
+    	<li>例如，如果数组是 <code>[1,2,3,4]</code> ，那么你可以对第一个元素执行此操作，使其变成 <code>[<strong>2</strong>,2,3,4]</code></li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>数组的 <strong>偏移量</strong> 是数组中任意两个元素之间的 <strong>最大差值</strong> 。</p>
@@ -59,7 +60,6 @@
 	<li><code>2 &lt;= n &lt;= 10<sup><span style="">5</span></sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
-
 
 ## 解法
 

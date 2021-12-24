@@ -94,7 +94,6 @@
 	<li><code>p</code>&nbsp;和&nbsp;<code>q</code>&nbsp;是两个不同的节点（即&nbsp;<code>p != q</code>&nbsp;）。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

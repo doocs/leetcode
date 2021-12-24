@@ -84,7 +84,6 @@ User 6 requested two messages within 23 hours, 59 minutes, and 59 seconds of eac
 User 7 requested two messages within 24 hours and 1 second of each other, so we exclude them from the answer.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

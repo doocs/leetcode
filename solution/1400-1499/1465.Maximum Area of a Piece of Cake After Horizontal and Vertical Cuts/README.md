@@ -49,7 +49,6 @@
 	<li>题目数据保证 <code>verticalCuts</code>&nbsp;中的所有元素各不相同</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

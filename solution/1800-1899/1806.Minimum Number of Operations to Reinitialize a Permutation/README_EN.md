@@ -54,7 +54,6 @@ So it takes only 2 operations.
 	<li><code>n</code>​​​​​​ is even.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -124,14 +124,16 @@ Dynamic Programming
 
 ```ts
 function possiblyEquals(s1: string, s2: string): boolean {
-    const n = s1.length, m = s2.length;
-    let dp: Array<Array<Set<number>>> = Array.from({ length: n + 1 }, v => Array.from({ length: m + 1}, w => new Set()));
+    const n = s1.length,
+        m = s2.length;
+    let dp: Array<Array<Set<number>>> = Array.from({ length: n + 1 }, v =>
+        Array.from({ length: m + 1 }, w => new Set())
+    );
     dp[0][0].add(0);
 
     for (let i = 0; i <= n; i++) {
         for (let j = 0; j <= m; j++) {
             for (let delta of dp[i][j]) {
-
                 // s1为数字
                 let num = 0;
                 if (delta <= 0) {
@@ -172,15 +174,14 @@ function possiblyEquals(s1: string, s2: string): boolean {
                 if (i < n && j < m && delta == 0 && s1[i] == s2[j]) {
                     dp[i + 1][j + 1].add(0);
                 }
-
             }
         }
     }
     return dp[n][m].has(0);
-};
+}
 
 function isDigit(char: string): boolean {
-    return (/^\d{1}$/g).test(char);
+    return /^\d{1}$/g.test(char);
 }
 ```
 

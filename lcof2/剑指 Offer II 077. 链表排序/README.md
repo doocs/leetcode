@@ -53,7 +53,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 148&nbsp;题相同：<a href="https://leetcode-cn.com/problems/sort-list/">https://leetcode-cn.com/problems/sort-list/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -249,7 +248,7 @@ func sortList(head *ListNode) *ListNode {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var sortList = function(head) {
+var sortList = function (head) {
     if (!head || !head.next) {
         return head;
     }
@@ -350,7 +349,8 @@ public class Solution {
 function sortList(head: ListNode | null): ListNode | null {
     if (head == null || head.next == null) return head;
     // 快慢指针定位中点
-    let slow: ListNode = head, fast: ListNode = head.next;
+    let slow: ListNode = head,
+        fast: ListNode = head.next;
     while (fast != null && fast.next != null) {
         slow = slow.next;
         fast = fast.next.next;
@@ -374,7 +374,7 @@ function sortList(head: ListNode | null): ListNode | null {
     }
     cur.next = l1 == null ? l2 : l1;
     return dummy.next;
-};
+}
 ```
 
 ### **...**

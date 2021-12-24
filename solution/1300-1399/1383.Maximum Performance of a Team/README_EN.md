@@ -6,17 +6,11 @@
 
 <p>There are <code>n</code> engineers numbered from 1 to <code>n</code>&nbsp;and&nbsp;two arrays: <code>speed</code>&nbsp;and <code>efficiency</code>, where <code>speed[i]</code> and <code>efficiency[i]</code> represent the speed and efficiency for the i-th engineer respectively. <em>Return the maximum <strong>performance</strong> of a team composed of&nbsp;at most&nbsp;<code>k</code>&nbsp;engineers, since the answer can be a huge number, return this modulo&nbsp;10^9 + 7.</em></p>
 
-
-
 <p>The <strong>performance</strong> of a team is the sum of their engineers&#39; speeds multiplied by the minimum efficiency among&nbsp;their engineers.&nbsp;</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,11 +24,7 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +38,7 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -62,13 +48,9 @@ We have the maximum performance of the team by selecting engineer 2 (with speed=
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10^5</code></li>

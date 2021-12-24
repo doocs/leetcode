@@ -46,7 +46,6 @@
 	<li><code>2 &lt;= k &lt;= n</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

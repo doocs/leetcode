@@ -30,7 +30,6 @@
 	<li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,13 +52,13 @@ class Solution:
         k %= n
         if k == 0:
             return head
-        
+
         slow = fast = head
         for _ in range(k):
             fast = fast.next
         while fast.next:
             slow, fast = slow.next, fast.next
-        
+
         start = slow.next
         slow.next = None
         fast.next = head
@@ -125,7 +124,7 @@ class Solution {
  */
 
 function rotateRight(head: ListNode | null, k: number): ListNode | null {
-    if (k == 0  || head == null || head.next == null) return head;
+    if (k == 0 || head == null || head.next == null) return head;
     // mod n
     let n = 0;
     let p = head;
@@ -135,8 +134,9 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
     }
     k %= n;
     if (k == 0) return head;
-    
-    let fast = head, slow = head;
+
+    let fast = head,
+        slow = head;
     for (let i = 0; i < k; ++i) {
         fast = fast.next;
     }
@@ -148,7 +148,7 @@ function rotateRight(head: ListNode | null, k: number): ListNode | null {
     slow.next = null;
     fast.next = head;
     return start;
-};
+}
 ```
 
 ### **C++**

@@ -1,4 +1,4 @@
-# [651. 4键键盘](https://leetcode-cn.com/problems/4-keys-keyboard)
+# [651. 4 键键盘](https://leetcode-cn.com/problems/4-keys-keyboard)
 
 [English Version](/solution/0600-0699/0651.4%20Keys%20Keyboard/README_EN.md)
 
@@ -48,7 +48,6 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 </ol>
 
 <p>&nbsp;</p>
-
 
 ## 解法
 

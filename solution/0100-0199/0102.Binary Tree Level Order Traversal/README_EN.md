@@ -36,7 +36,6 @@
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -205,7 +204,7 @@ func levelOrder(root *TreeNode) [][]int {
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
+var levelOrder = function (root) {
     if (!root) {
         return [];
     }

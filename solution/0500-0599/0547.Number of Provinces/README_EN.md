@@ -74,7 +74,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         for i in range(n):
             for j in range(i + 1, n):
                 if isConnected[i][j] == 1 and find(i) != find(j):

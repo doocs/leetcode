@@ -54,7 +54,6 @@
 	<li><code><font face="monospace">0 &lt;= arr[i] &lt;= 10<sup>5</sup></font></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -92,13 +91,14 @@ class Solution {
 ```ts
 function trimMean(arr: number[]): number {
     arr.sort((a, b) => a - b);
-    let n = arr.length, rmLen = n * 0.05;
+    let n = arr.length,
+        rmLen = n * 0.05;
     let sum = 0;
     for (let i = rmLen; i < n - rmLen; i++) {
         sum += arr[i];
     }
     return sum / (n * 0.9);
-};
+}
 ```
 
 ### **C++**

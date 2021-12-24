@@ -24,7 +24,6 @@
 
 <strong>解释:</strong> 所有根节点到叶子节点的路径为: 1-&gt;2-&gt;5, 1-&gt;3</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -120,10 +119,10 @@ class Solution {
 
 function binaryTreePaths(root: TreeNode | null): string[] {
     let ans = [];
-    let pre = '';
+    let pre = "";
     dfs(root, pre, ans);
     return ans;
-};
+}
 
 function dfs(root: TreeNode | null, pre: string, ans: string[]): void {
     if (root == null) return;

@@ -40,7 +40,6 @@
 	<li><code>s</code>&nbsp;only consists of&nbsp;<em>a</em>, <em>b</em> or <em>c&nbsp;</em>characters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

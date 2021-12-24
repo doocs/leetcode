@@ -80,7 +80,6 @@ Result table:
 John, Daiana, Steve and Jasmine are enrolled in departments 14, 33, 74 and 77 respectively. department 14, 33, 74 and 77 doesn&#39;t exist in the Departments table.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -89,15 +88,15 @@ John, Daiana, Steve and Jasmine are enrolled in departments 14, 33, 74 and 77 re
 
 ```sql
 # Write your MySQL query statement below
-SELECT 
+SELECT
     s.id, s.name
-FROM 
+FROM
     Students s
 LEFT JOIN
     Departments d
 ON
     s.department_id = d.id
-WHERE 
+WHERE
     d.id IS NULL;
 ```
 

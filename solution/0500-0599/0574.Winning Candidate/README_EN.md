@@ -52,7 +52,6 @@ CandidateId is the id appeared in Candidate table.
 
 <p>&nbsp;</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -82,4 +81,3 @@ ON
 ```
 
 <!-- tabs:end -->
-

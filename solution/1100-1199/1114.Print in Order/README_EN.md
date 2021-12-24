@@ -37,7 +37,6 @@ public class Foo {
 <strong>Explanation:</strong> The input [1,3,2] means thread A calls first(), thread B calls third(), and thread C calls second(). &quot;firstsecondthird&quot; is the correct output.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

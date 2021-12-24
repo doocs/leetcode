@@ -25,7 +25,6 @@
 	<li>All the words in <code>s</code> are separated by a single space.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

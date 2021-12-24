@@ -48,7 +48,6 @@ Result table:
 | 6    |
 +------+</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

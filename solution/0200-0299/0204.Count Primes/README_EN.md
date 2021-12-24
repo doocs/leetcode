@@ -36,7 +36,6 @@
 	<li><code>0 &lt;= n &lt;= 5 * 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

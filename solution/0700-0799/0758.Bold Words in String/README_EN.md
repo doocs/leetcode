@@ -21,7 +21,6 @@
 
 <p><strong>Note:</strong> This question is the same as 616:&nbsp;<a href="https://leetcode.com/problems/add-bold-tag-in-string/">https://leetcode.com/problems/add-bold-tag-in-string/</a></p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -113,7 +113,6 @@ Alex didn&#39;t attend any exam.
 John attended Math exam 1 time, Physics exam 1 time and Programming exam 1 time.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

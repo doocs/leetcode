@@ -87,7 +87,6 @@ read4(buf4); // read4 返回 0。现在 buf = &quot;&quot;，fp 指向文件末�
 	<li>你可以假定目标缓存数组&nbsp;<code>buf</code> 保证有足够的空间存下 n 个字符。&nbsp;</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -56,7 +56,6 @@ bank: ["AAAACCCC", "AAACCCCC", "AACCCCCC"]
 返回值: 3
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -51,7 +51,6 @@
 	<li><code>start</code>, <code>end</code>, and <code>bank[i]</code> consist of only the characters <code>[&#39;A&#39;, &#39;C&#39;, &#39;G&#39;, &#39;T&#39;]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

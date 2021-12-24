@@ -41,7 +41,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 513&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/find-bottom-left-tree-value/">https://leetcode-cn.com/problems/find-bottom-left-tree-value/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

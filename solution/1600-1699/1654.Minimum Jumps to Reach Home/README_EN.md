@@ -54,7 +54,6 @@
 	<li>Position <code>x</code> is not forbidden.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

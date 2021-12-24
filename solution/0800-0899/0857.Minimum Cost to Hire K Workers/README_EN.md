@@ -6,38 +6,24 @@
 
 <p>There are <code>N</code> workers.&nbsp; The <code>i</code>-th worker has a <code>quality[i]</code> and a minimum wage expectation <code>wage[i]</code>.</p>
 
-
-
 <p>Now we want to hire exactly <code>K</code>&nbsp;workers to form a <em>paid group</em>.&nbsp; When hiring a group of K workers, we must pay them according to the following rules:</p>
-
-
 
 <ol>
 	<li>Every worker in the paid group should be paid in the ratio of their quality compared to other workers in the paid group.</li>
 	<li>Every worker in the paid group must be paid at least their minimum wage expectation.</li>
 </ol>
 
-
-
 <p>Return the least amount of money needed to form a paid group satisfying the above conditions.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -49,13 +35,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -67,15 +49,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= K &lt;= N &lt;= 10000</code>, where <code>N = quality.length = wage.length</code></li>
@@ -87,8 +63,6 @@
 </div>
 
 </div>
-
-
 
 ## Solutions
 

@@ -33,7 +33,6 @@
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 Binary search.
@@ -117,7 +116,7 @@ func searchInsert(nums []int, target int) int {
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function(nums, target) {
+var searchInsert = function (nums, target) {
     let left = 0;
     let right = nums.length;
     while (left < right) {

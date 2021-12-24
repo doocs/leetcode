@@ -50,7 +50,6 @@ wordDict = [&quot;cats&quot;, &quot;dog&quot;, &quot;sand&quot;, &quot;and&quot;
 </strong>[]
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

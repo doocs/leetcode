@@ -108,7 +108,6 @@ On 2013-10-03:
   - The Cancellation Rate is (1 / 2) = 0.50
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

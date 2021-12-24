@@ -41,7 +41,6 @@
 	<li>不要从你的函数中返回任何结果。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -107,8 +106,8 @@ class Solution {
  * @return {void} Do not return anything, modify node in-place instead.
  */
 var deleteNode = function (node) {
-  node.val = node.next.val;
-  node.next = node.next.next;
+    node.val = node.next.val;
+    node.next = node.next.next;
 };
 ```
 

@@ -6,11 +6,7 @@
 
 <p>Given a list of <strong>non-overlapping</strong>&nbsp;axis-aligned rectangles <code>rects</code>, write a function <code>pick</code> which randomly and uniformily picks an <strong>integer point</strong> in the space&nbsp;covered by the rectangles.</p>
 
-
-
 <p>Note:</p>
-
-
 
 <ol>
 	<li>An <strong>integer point</strong>&nbsp;is a point that has integer coordinates.&nbsp;</li>
@@ -22,13 +18,9 @@
 	<li><code>pick</code> is called at most <code>10000</code>&nbsp;times.</li>
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -44,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -66,13 +54,9 @@
 
 </div>
 
-
-
 <div>
 
 <p><strong>Explanation of Input Syntax:</strong></p>
-
-
 
 <p>The input is two lists:&nbsp;the subroutines called&nbsp;and their&nbsp;arguments.&nbsp;<code>Solution</code>&#39;s&nbsp;constructor has one argument, the array of rectangles <code>rects</code>. <code>pick</code>&nbsp;has no arguments.&nbsp;Arguments&nbsp;are&nbsp;always wrapped with a list, even if there aren&#39;t any.</p>
 
@@ -80,15 +64,11 @@
 
 </div>
 
-
-
 <div>
 
 <div>&nbsp;</div>
 
 </div>
-
-
 
 ## Solutions
 

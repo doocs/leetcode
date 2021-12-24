@@ -49,7 +49,6 @@ In all outcomes, your friend wins.
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -77,7 +76,7 @@ class Solution {
 ```ts
 function canWinNim(n: number): boolean {
     return n % 4 != 0;
-};
+}
 ```
 
 ### **C++**

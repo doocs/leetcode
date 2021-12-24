@@ -60,7 +60,6 @@
 	<li><code>path</code> is a valid absolute Unix path.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

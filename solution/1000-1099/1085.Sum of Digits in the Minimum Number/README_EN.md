@@ -36,7 +36,6 @@ The minimal element is 33, and the sum of those digits is S = 3 + 3 = 6 which is
 	<li><code>1 &lt;= A[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

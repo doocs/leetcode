@@ -50,7 +50,6 @@
 
 <p>注意：本题与主站 167 题相似（下标起点不同）：<a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/">https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -156,4 +155,3 @@ class Solution
 ```
 
 <!-- tabs:end -->
-

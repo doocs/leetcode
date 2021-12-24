@@ -57,7 +57,6 @@ XRLXXRRLX
 	<li>Both <code>start</code> and <code>end</code> will only consist of characters in <code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>, and&nbsp;<code>&#39;X&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

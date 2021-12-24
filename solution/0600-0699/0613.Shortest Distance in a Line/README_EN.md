@@ -10,11 +10,7 @@ Table <code>point</code> holds the x coordinate of some points on x-axis in a pl
 
 Write a query to find the shortest distance between two points in these points.
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -30,17 +26,11 @@ Write a query to find the shortest distance between two points in these points.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 The shortest distance is &#39;1&#39; obviously, which is from point &#39;-1&#39; to &#39;0&#39;. So the output is as below:
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -52,23 +42,15 @@ The shortest distance is &#39;1&#39; obviously, which is from point &#39;-1&#39;
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <b>Note:</b> Every point is unique, which means there is no duplicates in table <code>point</code>.
-
-
 
 <p>&nbsp;</p>
 
 <b>Follow-up:</b> What if all these points have an id and are arranged from the left most to the right most of x axis?
 
-
-
 <p>&nbsp;</p>
-
-
 
 ## Solutions
 

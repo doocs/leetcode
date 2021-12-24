@@ -38,7 +38,6 @@ We calculate the floor of the division for every pair of indices in the array th
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

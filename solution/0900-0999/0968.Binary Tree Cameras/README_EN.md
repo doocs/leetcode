@@ -6,19 +6,11 @@
 
 <p>Given a binary tree, we install cameras on the nodes of the tree.&nbsp;</p>
 
-
-
 <p>Each camera at&nbsp;a node can monitor <strong>its parent, itself, and its immediate children</strong>.</p>
-
-
 
 <p>Calculate the minimum number of cameras needed to monitor all nodes of the tree.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Example 1:</strong></p>
 
@@ -36,8 +28,6 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
@@ -54,13 +44,9 @@
 
 </pre>
 
-
-
 <p><br />
 
 <strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The number of nodes in the given tree will be in the range&nbsp;<code>[1, 1000]</code>.</li>
@@ -70,8 +56,6 @@
 </div>
 
 </div>
-
-
 
 ## Solutions
 

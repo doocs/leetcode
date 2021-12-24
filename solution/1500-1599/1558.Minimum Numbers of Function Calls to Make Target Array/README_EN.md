@@ -64,7 +64,6 @@ Total of operations: 2 + 1 = 3.
 	<li><code>0 &lt;= nums[i] &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

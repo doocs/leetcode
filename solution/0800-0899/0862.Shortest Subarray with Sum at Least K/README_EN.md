@@ -6,27 +6,17 @@
 
 <p>Return the <strong>length</strong> of the shortest, non-empty, contiguous&nbsp;subarray of <code>A</code> with sum at least <code>K</code>.</p>
 
-
-
 <p>If there is no non-empty subarray with sum at least <code>K</code>, return <code>-1</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -36,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -52,13 +38,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -68,15 +50,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= A.length &lt;= 50000</code></li>
@@ -89,8 +65,6 @@
 </div>
 
 </div>
-
-
 
 ## Solutions
 

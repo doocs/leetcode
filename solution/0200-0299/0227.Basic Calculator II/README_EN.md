@@ -30,7 +30,6 @@
 	<li>The answer is <strong>guaranteed</strong> to fit in a <strong>32-bit integer</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

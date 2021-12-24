@@ -51,7 +51,6 @@ The unique good subsequences are &quot;0&quot;, &quot;1&quot;, &quot;10&quot;, &
 	<li><code>binary</code> consists of only <code>&#39;0&#39;</code>s and <code>&#39;1&#39;</code>s.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

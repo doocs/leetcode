@@ -10,8 +10,6 @@ LeetCode wants to give one of its best employees the option to travel among <b>N
 
 </p>
 
-
-
 <p><b>Rules and restrictions:</b><br>
 
 <ol>
@@ -28,11 +26,7 @@ LeetCode wants to give one of its best employees the option to travel among <b>N
 
 </p>
 
-
-
 <p>You're given the <b>flights</b> matrix and <b>days</b> matrix, and you need to output the maximum vacation days you could take during <b>K</b> weeks.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -56,8 +50,6 @@ One of the best strategies is:
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -73,8 +65,6 @@ Since there is no flights enable you to move to another city, you have to stay a
 </pre>
 
 </p>
-
-
 
 <p><b>Example 3:</b><br />
 
@@ -97,10 +87,6 @@ One of the best strategies is:
 </pre>
 
 </p>
-
-
-
-
 
 <p><b>Note:</b><br>
 

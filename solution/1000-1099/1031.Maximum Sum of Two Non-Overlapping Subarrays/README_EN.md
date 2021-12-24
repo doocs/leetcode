@@ -6,34 +6,22 @@
 
 <p>Given an array <code>A</code> of non-negative integers, return the maximum sum of elements in two non-overlapping (contiguous) subarrays, which have lengths&nbsp;<code>L</code> and <code>M</code>.&nbsp; (For clarification, the <code>L</code>-length subarray could occur before or after the <code>M</code>-length subarray.)</p>
 
-
-
 <p>Formally,&nbsp;return the largest <code>V</code> for which&nbsp;<code>V = (A[i] + A[i+1] + ... + A[i+L-1]) + (A[j] + A[j+1] + ... + A[j+M-1])</code> and either:</p>
-
-
 
 <ul>
 	<li><code>0 &lt;= i &lt; i + L - 1 &lt; j &lt; j + M - 1 &lt; A.length</code>, <strong>or</strong></li>
 	<li><code>0 &lt;= j &lt; j + M - 1 &lt; i &lt; i + L - 1 &lt; A.length</code>.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,13 +33,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,13 +47,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -81,15 +61,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>L &gt;= 1</code></li>
@@ -103,8 +77,6 @@
 </div>
 
 </div>
-
-
 
 ## Solutions
 

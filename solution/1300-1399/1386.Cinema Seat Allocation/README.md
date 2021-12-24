@@ -50,7 +50,6 @@
 	<li>所有&nbsp;<code>reservedSeats[i]</code> 都是互不相同的。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

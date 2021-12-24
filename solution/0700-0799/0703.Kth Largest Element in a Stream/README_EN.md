@@ -114,7 +114,7 @@ public:
         size = k;
         for (int num : nums) add(num);
     }
-    
+
     int add(int val) {
         q.push(val);
         if (q.size() > size) q.pop();

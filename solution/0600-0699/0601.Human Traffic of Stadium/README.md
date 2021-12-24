@@ -7,6 +7,7 @@
 <!-- 这里写题目描述 -->
 
 表：<code>Stadium</code>
+
 <div class="original__bRMd">
 <div>
 <pre>
@@ -60,7 +61,6 @@ Result table:
 </pre>
 </div>
 </div>
-
 
 ## 解法
 

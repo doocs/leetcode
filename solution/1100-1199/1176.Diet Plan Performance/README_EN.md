@@ -58,7 +58,6 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 	<li><code>0 &lt;= lower &lt;= upper</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

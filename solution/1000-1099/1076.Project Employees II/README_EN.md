@@ -70,7 +70,6 @@ Result table:
 +-------------+
 The first project has 3 employees while the second one has 2.</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

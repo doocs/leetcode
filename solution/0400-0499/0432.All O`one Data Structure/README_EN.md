@@ -50,7 +50,6 @@ allOne.getMinKey(); // return &quot;leet&quot;
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you apply all the operations in <code>O(1)</code> time complexity?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -40,7 +40,6 @@ In this case, it is not possible to rotate the dominoes to make one row of value
 	<li><code>1 &lt;= A[i], B[i] &lt;= 6</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

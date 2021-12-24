@@ -27,7 +27,6 @@
 	<li><code>0 &lt;= t &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

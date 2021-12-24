@@ -47,7 +47,6 @@
 	<li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 Dynamic programming.

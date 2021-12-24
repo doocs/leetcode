@@ -107,7 +107,6 @@ Daniel and Monica have rated 3 movies (&quot;Avengers&quot;, &quot;Frozen 2&quot
 Frozen 2 and Joker have a rating average of 3.5 in February but Frozen 2 is&nbsp;smaller lexicographically.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

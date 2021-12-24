@@ -61,7 +61,6 @@ stk.top();     // 返回 5，[<strong>5</strong>] - 栈没有改变
 	<li>试着设计解决方案：调用 <code>top</code> 方法的时间复杂度为 <code>O(1)</code> ，调用其他方法的时间复杂度为 <code>O(logn)</code> 。 </li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

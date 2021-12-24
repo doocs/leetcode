@@ -47,7 +47,6 @@
 	<li><code>rec2[0] <= rec2[2]</code> 且 <code>rec2[1] <= rec2[3]</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

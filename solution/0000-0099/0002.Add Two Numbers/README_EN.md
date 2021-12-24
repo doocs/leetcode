@@ -40,7 +40,6 @@
 	<li>It is guaranteed that the list represents a number that does not have leading zeros.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -145,7 +144,7 @@ public:
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function (l1, l2) {
     const dummy = new ListNode();
     let carry = 0;
     let cur = dummy;
@@ -304,7 +303,7 @@ class Solution {
         next: Node[int]
 
     SinglyLinkedList[T] = object
-        head, tail: Node[T]  
+        head, tail: Node[T]
 ]#
 
 # More efficient code churning ...

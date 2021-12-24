@@ -14,17 +14,7 @@
 
 <p><code>Key 4: (Ctrl-V)</code>: Print buffer on screen appending it after what has already been printed. </p>
 
-
-
-
-
-
-
 <p>Now, you can only press the keyboard for <b>N</b> times (with the above four keys), find out the maximum numbers of 'A' you can print on screen.</p>
-
-
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -44,8 +34,6 @@ A, A, A
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -64,8 +52,6 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -77,8 +63,6 @@ A, A, A, Ctrl A, Ctrl C, Ctrl V, Ctrl V
 </ol>
 
 </p>
-
-
 
 ## Solutions
 

@@ -26,7 +26,6 @@
 	<li><code>word1</code> and <code>word2</code> are in <code>wordsDict</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

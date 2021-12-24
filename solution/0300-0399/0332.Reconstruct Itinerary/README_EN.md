@@ -42,7 +42,6 @@
 	<li><code>from<sub>i</sub> != to<sub>i</sub></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

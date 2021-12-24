@@ -7,6 +7,7 @@
 <!-- 这里写题目描述 -->
 
 符合下列属性的数组 <code>arr</code> 称为 <strong>山脉数组</strong> ：
+
 <ul>
 	<li><code>arr.length >= 3</code></li>
 	<li>存在 <code>i</code>（<code>0 < i < arr.length - 1</code>）使得：
@@ -69,7 +70,6 @@
 <p> </p>
 
 <p><strong>进阶：</strong>很容易想到时间复杂度 <code>O(n)</code> 的解决方案，你可以设计一个 <code>O(log(n))</code> 的解决方案吗？</p>
-
 
 ## 解法
 
@@ -159,7 +159,7 @@ func peakIndexInMountainArray(arr []int) int {
  * @param {number[]} arr
  * @return {number}
  */
-var peakIndexInMountainArray = function(arr) {
+var peakIndexInMountainArray = function (arr) {
     let left = 1;
     let right = arr.length - 2;
     while (left < right) {

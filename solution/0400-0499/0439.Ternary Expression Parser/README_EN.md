@@ -48,7 +48,6 @@ or &quot;(F ? 1 : (T ? 4 : 5))&quot; --&gt; &quot;(T ? 4 : 5)&quot; --&gt; &quot
 	<li>It is <strong>guaranteed</strong> that <code>expression</code> is a valid ternary expression and that each number is a <strong>one-digit number</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

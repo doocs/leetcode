@@ -6,32 +6,20 @@
 
 <p>A <strong>happy string</strong> is a string that:</p>
 
-
-
 <ul>
 	<li>consists only of letters of the set <code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code>.</li>
 	<li><code>s[i] != s[i + 1]</code>&nbsp;for all values of <code>i</code> from <code>1</code> to <code>s.length - 1</code> (string is 1-indexed).</li>
 </ul>
 
-
-
 <p>For example, strings <strong>&quot;abc&quot;, &quot;ac&quot;, &quot;b&quot;</strong> and <strong>&quot;abcbabcbcb&quot;</strong> are all happy strings and strings <strong>&quot;aa&quot;, &quot;baa&quot;</strong> and&nbsp;<strong>&quot;ababbc&quot;</strong> are not happy strings.</p>
-
-
 
 <p>Given two integers <code>n</code> and <code>k</code>, consider a list of all happy strings of length <code>n</code> sorted in lexicographical order.</p>
 
-
-
 <p>Return <em>the kth string</em> of this list or return an <strong>empty string</strong>&nbsp;if there are less than <code>k</code> happy strings of length <code>n</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +31,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -59,11 +43,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -75,11 +55,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -89,11 +65,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -103,20 +75,14 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 10</code></li>
 	<li><code>1 &lt;= k &lt;= 100</code></li>
 </ul>
-
-
 
 <div id="vidyowebrtcscreenshare_is_installed">&nbsp;</div>
 

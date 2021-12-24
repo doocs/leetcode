@@ -30,7 +30,6 @@
 	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 Binary search.
@@ -116,7 +115,7 @@ class Solution {
  * @param {number} target
  * @return {number}
  */
-var closestValue = function(root, target) {
+var closestValue = function (root, target) {
     let res = root.val;
     let minDiff = Math.abs(root.val - target);
     while (root) {

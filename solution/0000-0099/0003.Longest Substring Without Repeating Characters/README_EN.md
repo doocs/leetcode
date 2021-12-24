@@ -47,7 +47,6 @@ Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence an
 	<li><code>s</code> consists of English letters, digits, symbols and spaces.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -95,8 +94,10 @@ class Solution {
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
-    let i = 0, j = 0, ans = 0;
+var lengthOfLongestSubstring = function (s) {
+    let i = 0,
+        j = 0,
+        ans = 0;
     let chars = new Set();
     for (let c of s) {
         while (chars.has(c)) {
@@ -121,13 +122,13 @@ function lengthOfLongestSubstring(s: string): number {
     for (let right = 0; right < s.length; right++) {
         let cur = s.charAt(right);
         if (hashTable.has(cur)) {
-          left = Math.max(left, hashTable.get(cur));
+            left = Math.max(left, hashTable.get(cur));
         }
         hashTable.set(cur, right);
         maxLen = Math.max(maxLen, right - left);
     }
-      return maxLen;
-  };
+    return maxLen;
+}
 ```
 
 ### **Swift**
@@ -199,7 +200,7 @@ public:
             ++j;
         }
         return ans;
-        
+
     }
 };
 ```

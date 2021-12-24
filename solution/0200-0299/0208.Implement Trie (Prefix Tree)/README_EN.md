@@ -44,7 +44,6 @@ trie.search(&quot;app&quot;);     // return True
 	<li>At most <code>3 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>insert</code>, <code>search</code>, and <code>startsWith</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -101,7 +100,7 @@ class Trie {
     public Trie() {
         children = new Trie[26];
     }
-    
+
     public void insert(String word) {
         Trie node = this;
         for (char c : word.toCharArray()) {
@@ -113,12 +112,12 @@ class Trie {
         }
         node.isEnd = true;
     }
-    
+
     public boolean search(String word) {
         Trie node = searchPrefix(word);
         return node != null && node.isEnd;
     }
-    
+
     public boolean startsWith(String prefix) {
         Trie node = searchPrefix(prefix);
         return node != null;
@@ -152,16 +151,16 @@ class Trie {
 /**
  * Initialize your data structure here.
  */
-var Trie = function() {
+var Trie = function () {
     this.children = {};
 };
 
 /**
- * Inserts a word into the trie. 
+ * Inserts a word into the trie.
  * @param {string} word
  * @return {void}
  */
-Trie.prototype.insert = function(word) {
+Trie.prototype.insert = function (word) {
     let node = this.children;
     for (let char of word) {
         if (!node[char]) {
@@ -173,11 +172,11 @@ Trie.prototype.insert = function(word) {
 };
 
 /**
- * Returns if the word is in the trie. 
+ * Returns if the word is in the trie.
  * @param {string} word
  * @return {boolean}
  */
-Trie.prototype.search = function(word) {
+Trie.prototype.search = function (word) {
     let node = this.searchPrefix(word);
     return node != undefined && node.isEnd != undefined;
 };
@@ -189,14 +188,14 @@ Trie.prototype.searchPrefix = function (prefix) {
         node = node[char];
     }
     return node;
-}
+};
 
 /**
- * Returns if there is any word in the trie that starts with the given prefix. 
+ * Returns if there is any word in the trie that starts with the given prefix.
  * @param {string} prefix
  * @return {boolean}
  */
-Trie.prototype.startsWith = function(prefix) {
+Trie.prototype.startsWith = function (prefix) {
     return this.searchPrefix(prefix);
 };
 
@@ -230,7 +229,7 @@ private:
 
 public:
     Trie() : children(26), isEnd(false) {}
-    
+
     void insert(string word) {
         Trie* node = this;
         for (char c : word)
@@ -241,12 +240,12 @@ public:
         }
         node->isEnd = true;
     }
-    
+
     bool search(string word) {
         Trie* node = searchPrefix(word);
         return node != nullptr && node->isEnd;
     }
-    
+
     bool startsWith(string prefix) {
         Trie* node = searchPrefix(prefix);
         return node != nullptr;

@@ -78,7 +78,6 @@ The third minute they will inform the rest of employees.
 	<li>It is <strong>guaranteed</strong> that all the employees can be informed.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

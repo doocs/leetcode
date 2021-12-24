@@ -13,28 +13,29 @@
 <ul>
 	<li>如果只给出单一的元素 <code>x</code>，那么表达式表示的字符串就只有 <code>"x"</code>。<code>R(x) = {x}</code>
 
-	<ul>
-		<li>例如，表达式 <code>{"a"}</code> 表示字符串 <code>"a"</code>。</li>
-		<li>而表达式 <code>{"w"}</code> 就表示字符串 <code>"w"</code>。</li>
-	</ul>
-	</li>
-	<li>当两个或多个表达式并列，以逗号分隔时，我们取这些表达式中元素的并集。<code>R({e_1,e_2,...}) = R(e_1) ∪ R(e_2) ∪ ...</code>
-	<ul>
-		<li>例如，表达式 <code>"{a,b,c}"</code> 表示字符串 <code>"a","b","c"</code>。</li>
-		<li>而表达式 <code>"{{a,b},{b,c}}"</code> 也可以表示字符串 <code>"a","b","c"</code>。</li>
-	</ul>
-	</li>
-	<li>要是两个或多个表达式相接，中间没有隔开时，我们从这些表达式中各取一个元素依次连接形成字符串。<code>R(e_1 + e_2) = {a + b for (a, b) in R(e_1) × R(e_2)}</code>
-	<ul>
-		<li>例如，表达式 <code>"{a,b}{c,d}"</code> 表示字符串 <code>"ac","ad","bc","bd"</code>。</li>
-	</ul>
-	</li>
-	<li>表达式之间允许嵌套，单一元素与表达式的连接也是允许的。
-	<ul>
-		<li>例如，表达式 <code>"a{b,c,d}"</code> 表示字符串 <code>"ab","ac","ad"​​​​​​</code>。</li>
-		<li>例如，表达式 <code>"a{b,c}{d,e}f{g,h}"</code> 可以表示字符串 <code>"abdfg", "abdfh", "abefg", "abefh", "acdfg", "acdfh", "acefg", "acefh"</code>。</li>
-	</ul>
-	</li>
+    <ul>
+    	<li>例如，表达式 <code>{"a"}</code> 表示字符串 <code>"a"</code>。</li>
+    	<li>而表达式 <code>{"w"}</code> 就表示字符串 <code>"w"</code>。</li>
+    </ul>
+    </li>
+    <li>当两个或多个表达式并列，以逗号分隔时，我们取这些表达式中元素的并集。<code>R({e_1,e_2,...}) = R(e_1) ∪ R(e_2) ∪ ...</code>
+    <ul>
+    	<li>例如，表达式 <code>"{a,b,c}"</code> 表示字符串 <code>"a","b","c"</code>。</li>
+    	<li>而表达式 <code>"{{a,b},{b,c}}"</code> 也可以表示字符串 <code>"a","b","c"</code>。</li>
+    </ul>
+    </li>
+    <li>要是两个或多个表达式相接，中间没有隔开时，我们从这些表达式中各取一个元素依次连接形成字符串。<code>R(e_1 + e_2) = {a + b for (a, b) in R(e_1) × R(e_2)}</code>
+    <ul>
+    	<li>例如，表达式 <code>"{a,b}{c,d}"</code> 表示字符串 <code>"ac","ad","bc","bd"</code>。</li>
+    </ul>
+    </li>
+    <li>表达式之间允许嵌套，单一元素与表达式的连接也是允许的。
+    <ul>
+    	<li>例如，表达式 <code>"a{b,c,d}"</code> 表示字符串 <code>"ab","ac","ad"​​​​​​</code>。</li>
+    	<li>例如，表达式 <code>"a{b,c}{d,e}f{g,h}"</code> 可以表示字符串 <code>"abdfg", "abdfh", "abefg", "abefh", "acdfg", "acdfh", "acefg", "acefh"</code>。</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>给出表示基于给定语法规则的表达式 <code>expression</code>，返回它所表示的所有字符串组成的有序列表。</p>
@@ -66,7 +67,6 @@
 	<li><code>expression[i]</code> 由 <code>'{'</code>，<code>'}'</code>，<code>','</code> 或小写英文字母组成</li>
 	<li>给出的表达式 <code>expression</code> 用以表示一组基于题目描述中语法构造的字符串</li>
 </ol>
-
 
 ## 解法
 

@@ -37,7 +37,6 @@
 <strong>输出: </strong>true
 <strong>解释: </strong>可以将字符串 <strong><em>s</em></strong>&nbsp;中的 &#39;0&#39; 替换为 &#39;1&#39; 来得到 <em><strong>t</strong></em>。</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

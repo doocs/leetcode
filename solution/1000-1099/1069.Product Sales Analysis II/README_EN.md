@@ -6,8 +6,6 @@
 
 <p>Table:&nbsp;<code>Sales</code></p>
 
-
-
 <pre>
 
 +-------------+-------+
@@ -36,11 +34,7 @@ Note that the price is per unit.
 
 </pre>
 
-
-
 <p>Table:&nbsp;<code>Product</code></p>
-
-
 
 <pre>
 
@@ -60,19 +54,11 @@ product_id is the primary key of this table.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query that reports the total quantity sold for every product id.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 
@@ -125,8 +111,6 @@ Result table:
 | 200          | 15             |
 
 +--------------+----------------+</pre>
-
-
 
 ## Solutions
 

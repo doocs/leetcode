@@ -51,7 +51,6 @@ The 2<sup>nd</sup> largest integer in nums is &quot;0&quot;.
 	<li><code>nums[i]</code> will not have any leading zeros.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

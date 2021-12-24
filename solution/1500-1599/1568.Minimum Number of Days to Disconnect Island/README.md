@@ -66,7 +66,6 @@
 	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -202,7 +202,7 @@ func isPalindrome(head *ListNode) bool {
  * @param {ListNode} head
  * @return {boolean}
  */
-var isPalindrome = function(head) {
+var isPalindrome = function (head) {
     if (!head || !head.next) {
         return true;
     }
@@ -301,7 +301,8 @@ public class Solution {
 function isPalindrome(head: ListNode | null): boolean {
     if (head == null || head.next == null) return true;
     // 快慢指针定位到中点
-    let slow: ListNode = head, fast: ListNode = head.next;
+    let slow: ListNode = head,
+        fast: ListNode = head.next;
     while (fast != null && fast.next != null) {
         slow = slow.next;
         fast = fast.next.next;
@@ -323,7 +324,7 @@ function isPalindrome(head: ListNode | null): boolean {
         head = head.next;
     }
     return true;
-};
+}
 ```
 
 ### **...**

@@ -47,7 +47,6 @@
 	<li><code>0 &lt;= threshold&nbsp;&lt;= 10^5</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

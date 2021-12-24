@@ -69,7 +69,6 @@ x=5, y=1 -> f(5, 1) = 5 * 1 = 5</pre>
 	<li>在 <code>1 <= x, y <= 1000</code> 的前提下，题目保证 <code>f(x, y)</code> 是一个 32 位有符号整数。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -91,7 +90,7 @@ x=5, y=1 -> f(5, 1) = 5 * 1 = 5</pre>
        # Note that f(x, y) is increasing with respect to both x and y.
        # i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
        def f(self, x, y):
-  
+
 """
 
 class Solution:
@@ -159,11 +158,12 @@ class Solution {
  * }
  */
 
- function findSolution(customfunction: CustomFunction, z: number): number[][] {
-	// 二分
+function findSolution(customfunction: CustomFunction, z: number): number[][] {
+    // 二分
     let ans = [];
     for (let i = 1; i <= 1000; i++) {
-        let left = 1, right = 1000;
+        let left = 1,
+            right = 1000;
         while (left < right) {
             let mid = (left + right) >> 1;
             if (customfunction.f(i, mid) >= z) {
@@ -177,7 +177,7 @@ class Solution {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

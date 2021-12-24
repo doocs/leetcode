@@ -33,7 +33,6 @@
 	<li><code>arr2[i]</code>&nbsp;为&nbsp;<code>0</code> 或&nbsp;<code>1</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -24,7 +24,6 @@
 	<li><code>s</code> consists of only English letters and spaces <code>&#39; &#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

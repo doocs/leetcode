@@ -64,7 +64,6 @@ All 3 columns are not sorted, so you will delete all 3.
 	<li><code>strs[i]</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

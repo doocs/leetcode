@@ -84,7 +84,7 @@ function integerBreak(n: number): number {
         }
     }
     return dp.pop();
-};
+}
 ```
 
 ### **...**

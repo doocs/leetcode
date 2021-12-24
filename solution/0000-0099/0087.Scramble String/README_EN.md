@@ -59,7 +59,6 @@ As there is one possible scenario that led s1 to be scrambled to s2, we return t
 	<li><code>s1</code> and <code>s2</code> consist of lower-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

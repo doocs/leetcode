@@ -25,7 +25,6 @@
 <pre><strong>输入：</strong>[&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]
 <strong>输出：</strong>[&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -90,7 +89,7 @@ func reverseString(s []byte) {
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */
-var reverseString = function(s) {
+var reverseString = function (s) {
     for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
         [s[i], s[j]] = [s[j], s[i]];
     }

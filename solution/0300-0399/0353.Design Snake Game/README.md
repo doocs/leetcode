@@ -43,6 +43,7 @@ snakeGame.move("R"); // 返回 1 ，蛇吃掉了第一个食物，同时第二�
 snakeGame.move("U"); // 返回 1
 snakeGame.move("L"); // 返回 2 ，蛇吃掉了第二个食物，没有出现更多食物
 snakeGame.move("U"); // 返回 -1 ，蛇与边界相撞，游戏结束
+
 </pre>
 
 <p> </p>
@@ -59,7 +60,6 @@ snakeGame.move("U"); // 返回 -1 ，蛇与边界相撞，游戏结束
 	<li><code>direction</code> is <code>'U'</code>, <code>'D'</code>, <code>'L'</code>, or <code>'R'</code>.</li>
 	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>move</code> 方法</li>
 </ul>
-
 
 ## 解法
 

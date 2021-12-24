@@ -65,7 +65,6 @@ movieRentingSystem.search(2);  // 返回 [0, 1] 。商店 0 和 1 有未借出�
 	<li><code>search</code>，<code>rent</code>，<code>drop</code> 和 <code>report</code> 的调用 <strong>总共</strong> 不超过 <code>10<sup>5</sup></code> 次。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

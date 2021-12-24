@@ -60,7 +60,6 @@ There aren&#39;t any adjacent pairs of 1&#39;s in the binary representation of 8
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

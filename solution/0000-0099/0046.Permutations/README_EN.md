@@ -26,7 +26,6 @@
 	<li>All the integers of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 DFS.
@@ -96,7 +95,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute = function(nums) {
+var permute = function (nums) {
     const n = nums.length;
     let res = [];
     let path = [];

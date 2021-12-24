@@ -6,27 +6,15 @@
 
 <p>Write an iterator that iterates through a run-length encoded sequence.</p>
 
-
-
 <p>The iterator is initialized by <code>RLEIterator(int[] A)</code>, where <code>A</code> is a run-length encoding of some&nbsp;sequence.&nbsp; More specifically,&nbsp;for all even <code>i</code>,&nbsp;<code>A[i]</code> tells us the number of times that the non-negative integer value <code>A[i+1]</code> is repeated in the sequence.</p>
-
-
 
 <p>The iterator supports one function:&nbsp;<code>next(int n)</code>, which exhausts the next <code>n</code> elements&nbsp;(<code>n &gt;= 1</code>) and returns the last element exhausted in this way.&nbsp; If there is no element left to exhaust, <code>next</code>&nbsp;returns <code>-1</code> instead.</p>
 
-
-
 <p>For example, we start with <code>A = [3,8,0,9,2,5]</code>, which is a run-length encoding of the sequence <code>[8,8,8,5,5]</code>.&nbsp; This is because the sequence can be read as&nbsp;&quot;three eights, zero nines, two fives&quot;.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -64,11 +52,7 @@ but the second term did not exist.  Since the last term exhausted does not exist
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>0 &lt;= A.length &lt;= 1000</code></li>
@@ -77,8 +61,6 @@ but the second term did not exist.  Since the last term exhausted does not exist
 	<li>There are at most <code>1000</code> calls to <code>RLEIterator.next(int n)</code> per test case.</li>
 	<li>Each call to&nbsp;<code>RLEIterator.next(int n)</code>&nbsp;will have <code>1 &lt;= n &lt;= 10^9</code>.</li>
 </ol>
-
-
 
 ## Solutions
 

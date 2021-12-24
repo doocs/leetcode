@@ -28,7 +28,6 @@
 	<li>链表的第一个节点视为奇数节点，第二个节点视为偶数节点，以此类推。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -111,7 +110,8 @@ class Solution {
 
 function oddEvenList(head: ListNode | null): ListNode | null {
     if (head == null) return head;
-    let odd: ListNode = head, even: ListNode = head.next;
+    let odd: ListNode = head,
+        even: ListNode = head.next;
     let evenHead = even;
     while (even != null && even.next != null) {
         odd.next = even.next;
@@ -121,7 +121,7 @@ function oddEvenList(head: ListNode | null): ListNode | null {
     }
     odd.next = evenHead;
     return head;
-};
+}
 ```
 
 ### **C++**

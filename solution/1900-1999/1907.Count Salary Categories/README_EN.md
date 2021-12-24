@@ -58,7 +58,6 @@ Average Salary: No accounts.
 High Salary: Accounts 3, 6, and 8.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

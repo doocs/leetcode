@@ -80,7 +80,6 @@ The name of employee 1 is missing.
 The salary of employee 2 is missing.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -6,11 +6,7 @@
 
 <p>Let <code>f(x)</code> be the number of zeroes at the end of <code>x!</code>. (Recall that <code>x! = 1 * 2 * 3 * ... * x</code>, and by convention, <code>0! = 1</code>.)</p>
 
-
-
 <p>For example, <code>f(3) = 0</code> because 3! = 6 has no zeroes at the end, while <code>f(11) = 2</code> because 11! = 39916800 has 2 zeroes at the end. Given <code>K</code>, find how many non-negative integers <code>x</code> have the property that <code>f(x) = K</code>.</p>
-
-
 
 <pre>
 
@@ -34,17 +30,11 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 	<li><code>K</code> will be an integer in the range <code>[0, 10^9]</code>.</li>
 </ul>
-
-
 
 ## Solutions
 

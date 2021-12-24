@@ -46,7 +46,6 @@
 	<li><code>1 &lt;= boxes[i]&nbsp;&lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

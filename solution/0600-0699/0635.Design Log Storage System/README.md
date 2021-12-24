@@ -55,7 +55,6 @@ logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
 	<li>最多调用 <code>500</code> 次 <code>put</code> 和 <code>retrieve</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

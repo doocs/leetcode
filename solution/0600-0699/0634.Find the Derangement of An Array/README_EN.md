@@ -10,23 +10,17 @@ In combinatorial mathematics, a derangement is a permutation of the elements of 
 
 </p>
 
-
-
 <p>
 
 There's originally an array consisting of <code>n</code> integers from 1 to <code>n</code> in ascending order, you need to find the number of derangement it can generate.
 
 </p>
 
-
-
 <p>
 
 Also, since the answer may be very large, you should return the output mod 10<sup>9</sup> + 7.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -41,8 +35,6 @@ Also, since the answer may be very large, you should return the output mod 10<su
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br/>
 

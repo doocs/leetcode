@@ -35,7 +35,6 @@
 	<li><code>to_delete</code> contains distinct values between <code>1</code> and <code>1000</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

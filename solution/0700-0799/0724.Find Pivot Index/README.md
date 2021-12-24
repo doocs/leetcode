@@ -55,7 +55,6 @@
 	<li>任何一个 <code>nums[i]</code> 将会是一个范围在 <code>[-1000, 1000]</code>的整数。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -108,14 +107,14 @@ class Solution {
 ```ts
 function pivotIndex(nums: number[]): number {
     let rightSum = nums.reduce((a, c) => a + c, 0),
-    leftSum = 0;
+        leftSum = 0;
     for (let i = 0; i < nums.length; i++) {
         rightSum -= nums[i];
         if (leftSum == rightSum) return i;
         leftSum += nums[i];
     }
     return -1;
-};
+}
 ```
 
 ### **C++**

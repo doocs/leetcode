@@ -39,7 +39,6 @@
 	<li><code>nums</code> 按 <strong>严格递增</strong> 顺序排列</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -154,7 +153,7 @@ private:
  * @param {number[]} nums
  * @return {TreeNode}
  */
-var sortedArrayToBST = function(nums) {
+var sortedArrayToBST = function (nums) {
     const buildBST = (nums, start, end) => {
         if (start > end) {
             return null;
@@ -164,7 +163,7 @@ var sortedArrayToBST = function(nums) {
         root.left = buildBST(nums, start, mid - 1);
         root.right = buildBST(nums, mid + 1, end);
         return root;
-    }
+    };
 
     return buildBST(nums, 0, nums.length - 1);
 };

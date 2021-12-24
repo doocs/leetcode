@@ -65,7 +65,6 @@
 	<li><code>0 &lt;= nums[i], k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -132,7 +131,7 @@ function getAverages(nums: number[], k: number): number[] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

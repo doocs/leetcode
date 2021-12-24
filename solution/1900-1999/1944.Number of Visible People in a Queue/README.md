@@ -48,7 +48,6 @@
 	<li><code>heights</code>&nbsp;中所有数 <strong>互不相同</strong>&nbsp;。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -76,7 +75,7 @@ class Solution:
                 else:
                     break
             stack.append(heights[i])
-        
+
         return ans
 ```
 

@@ -26,7 +26,6 @@
 &nbsp;    由于返回类型是整数，小数部分将被舍去。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -117,7 +116,7 @@ func mySqrt(x int) int {
  * @param {number} x
  * @return {number}
  */
-var mySqrt = function(x) {
+var mySqrt = function (x) {
     let left = 0;
     let right = x;
     while (left < right) {

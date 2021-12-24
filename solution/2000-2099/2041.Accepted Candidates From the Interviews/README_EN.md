@@ -87,7 +87,6 @@ Rounds table:
 - Candidate 8: The total score is 6, and they have zero years of experience. We do not include them in the result table because of their years of experience and the score.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

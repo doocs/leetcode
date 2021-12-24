@@ -52,7 +52,6 @@
 	<li><code>connections[i][0] != connections[i][1]</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

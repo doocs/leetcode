@@ -36,7 +36,6 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 	<li><code>0 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

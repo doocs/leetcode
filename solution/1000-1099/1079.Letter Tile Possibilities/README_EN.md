@@ -39,7 +39,6 @@
 	<li><code>tiles</code> consists of uppercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

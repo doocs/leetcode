@@ -58,7 +58,6 @@ Such that: &quot;SIX&quot; + &quot;SEVEN&quot; + &quot;SEVEN&quot; = &quot;TWENT
 	<li>The number of different characters used in the expression is at most <code>10</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

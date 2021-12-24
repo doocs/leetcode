@@ -53,7 +53,6 @@
 	<li>How to make sure the duplicated files you find are not false positive?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

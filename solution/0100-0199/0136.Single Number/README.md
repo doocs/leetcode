@@ -23,7 +23,6 @@
 <pre><strong>输入:</strong> [4,1,2,1,2]
 <strong>输出:</strong> 4</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -71,11 +70,11 @@ class Solution {
  * @return {number}
  */
 var singleNumber = function (nums) {
-  let res = 0;
-  for (let num of nums) {
-    res ^= num;
-  }
-  return res;
+    let res = 0;
+    for (let num of nums) {
+        res ^= num;
+    }
+    return res;
 };
 ```
 

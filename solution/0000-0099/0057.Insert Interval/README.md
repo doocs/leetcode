@@ -60,7 +60,6 @@
 	<li><code>0 <= newInterval[0] <= newInterval[1] <= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

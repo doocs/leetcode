@@ -31,7 +31,6 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -119,10 +118,10 @@ class Solution {
 
 function binaryTreePaths(root: TreeNode | null): string[] {
     let ans = [];
-    let pre = '';
+    let pre = "";
     dfs(root, pre, ans);
     return ans;
-};
+}
 
 function dfs(root: TreeNode | null, pre: string, ans: string[]): void {
     if (root == null) return;

@@ -68,7 +68,6 @@
 	<li><code>1 &lt;= d &lt;= arr.length</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

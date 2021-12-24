@@ -51,7 +51,6 @@ We first assign bike 0 to worker 0, then assign bike 1 to worker 1 or worker 2, 
 	<li>All the workers and the bikes locations are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

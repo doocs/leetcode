@@ -39,7 +39,6 @@ sumRegion(1, 2, 2, 4) -> 12
 	<li>你可以假设 <code>row1 ≤ row2</code> 且 <code>col1 ≤ col2</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -88,7 +87,7 @@ class NumMatrix {
             }
         }
     }
-    
+
     public int sumRegion(int row1, int col1, int row2, int col2) {
         return pre[row2 + 1][col2 + 1] - pre[row2 + 1][col1] - pre[row1][col2 + 1] + pre[row1][col1];
     }
@@ -117,7 +116,7 @@ public:
             }
         }
     }
-    
+
     int sumRegion(int row1, int col1, int row2, int col2) {
         return pre[row2 + 1][col2 + 1] - pre[row2 + 1][col1] - pre[row1][col2 + 1] + pre[row1][col1];
     }

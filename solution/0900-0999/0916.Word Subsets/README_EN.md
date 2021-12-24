@@ -6,35 +6,21 @@
 
 <p>We are given two arrays <code>A</code> and <code>B</code> of words.&nbsp; Each word is a string of lowercase letters.</p>
 
-
-
 <p>Now, say that&nbsp;word <code>b</code> is a subset of word <code>a</code><strong>&nbsp;</strong>if every letter in <code>b</code> occurs in <code>a</code>, <strong>including multiplicity</strong>.&nbsp; For example, <code>&quot;wrr&quot;</code> is a subset of <code>&quot;warrior&quot;</code>, but is not a subset of <code>&quot;world&quot;</code>.</p>
-
-
 
 <p>Now say a word <code>a</code> from <code>A</code> is <em>universal</em> if for every <code>b</code> in <code>B</code>, <code>b</code>&nbsp;is a subset of <code>a</code>.&nbsp;</p>
 
-
-
 <p>Return a list of all universal words in <code>A</code>.&nbsp; You can return the words in any order.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -44,13 +30,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -60,13 +42,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -76,13 +54,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -92,13 +66,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -108,15 +78,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= A.length, B.length &lt;= 10000</code></li>
@@ -134,8 +98,6 @@
 </div>
 
 </div>
-
-
 
 ## Solutions
 

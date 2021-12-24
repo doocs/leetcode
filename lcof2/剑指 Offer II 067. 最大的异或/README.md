@@ -64,7 +64,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 421&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/">https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

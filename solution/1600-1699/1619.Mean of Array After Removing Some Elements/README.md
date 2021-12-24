@@ -58,7 +58,6 @@
 	<li><code>0 <= arr[i] <= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -102,13 +101,14 @@ class Solution {
 ```ts
 function trimMean(arr: number[]): number {
     arr.sort((a, b) => a - b);
-    let n = arr.length, rmLen = n * 0.05;
+    let n = arr.length,
+        rmLen = n * 0.05;
     let sum = 0;
     for (let i = rmLen; i < n - rmLen; i++) {
         sum += arr[i];
     }
     return sum / (n * 0.9);
-};
+}
 ```
 
 ### **C++**

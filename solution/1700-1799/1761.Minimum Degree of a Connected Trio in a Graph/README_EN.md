@@ -44,7 +44,6 @@
 	<li>There are no repeated edges.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

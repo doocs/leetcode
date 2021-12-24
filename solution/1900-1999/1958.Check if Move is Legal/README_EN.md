@@ -40,7 +40,6 @@ The two good lines with the chosen cell as an endpoint are annotated above with 
 	<li><code>color</code> is either <code>&#39;B&#39;</code> or <code>&#39;W&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

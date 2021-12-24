@@ -48,7 +48,6 @@
 	<li><code>1 <= nums[i] <= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -89,7 +88,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number[]}
  */
-var getConcatenation = function(nums) {
+var getConcatenation = function (nums) {
     let ans = nums.slice();
     ans.splice(nums.length, 0, ...nums);
     return ans;

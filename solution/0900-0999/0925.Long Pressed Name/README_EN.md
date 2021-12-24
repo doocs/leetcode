@@ -49,7 +49,6 @@
 	<li><code>name</code> and <code>typed</code> contain only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

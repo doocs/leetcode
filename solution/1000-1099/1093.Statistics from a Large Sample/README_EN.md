@@ -58,7 +58,6 @@ The mode is 1 as it appears the most in the sample.
 	<li>The mode of the sample that <code>count</code> represents is <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

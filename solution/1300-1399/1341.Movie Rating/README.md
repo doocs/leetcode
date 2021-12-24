@@ -105,7 +105,6 @@ Daniel 和 Monica 都点评了 3 部电影（&quot;Avengers&quot;, &quot;Frozen 
 Frozen 2 和 Joker 在 2 月的评分都是 3.5，但是 Frozen 2 的字典序比较小。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

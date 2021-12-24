@@ -12,8 +12,7 @@
 >
 > 输出：`12`
 >
-> 解释：`结点 5、3、4 染成蓝色，获得最大的价值 5+3+4=12`
-> ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2034.%20二叉树染色/images/1616126267-BqaCRj-image.png)
+> 解释：`结点 5、3、4 染成蓝色，获得最大的价值 5+3+4=12` > ![image.png](https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2034.%20二叉树染色/images/1616126267-BqaCRj-image.png)
 
 **示例 2：**
 

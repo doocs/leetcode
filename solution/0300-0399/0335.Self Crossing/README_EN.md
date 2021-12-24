@@ -43,7 +43,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you write a one-pass algorithm with <code>O(1)</code> extra space?</p>
 
-
 ## Solutions
 
 ```bash
@@ -51,14 +50,14 @@
     case 1 : i-1┌─┐
                 └─┼─>i
                  i-3
-                 
+
                    i-2
     case 2 : i-1 ┌────┐
                  └─══>┘i-3
                  i  i-4
 
     case 3 :    i-4
-               ┌──┐ 
+               ┌──┐
                │i<┼─┐
             i-3│ i-5│i-1
                └────┘

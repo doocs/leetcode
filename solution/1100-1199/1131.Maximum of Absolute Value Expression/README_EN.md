@@ -6,14 +6,9 @@
 
 <p>Given two arrays of integers with equal lengths, return the maximum value of:</p>
 
-
-
 <p><code>|arr1[i] - arr1[j]| + |arr2[i] - arr2[j]| + |i - j|</code></p>
 
-
-
 <p>where the maximum is taken over all <code>0 &lt;= i, j &lt; arr1.length</code>.</p>
-
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -37,7 +32,6 @@
 	<li><code>2 &lt;= arr1.length == arr2.length &lt;= 40000</code></li>
 	<li><code>-10^6 &lt;= arr1[i], arr2[i] &lt;= 10^6</code></li>
 </ul>
-
 
 ## Solutions
 

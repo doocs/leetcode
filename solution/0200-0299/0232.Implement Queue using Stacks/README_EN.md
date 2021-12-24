@@ -52,7 +52,6 @@ myQueue.empty(); // return false
 	<li>All the calls to <code>pop</code> and <code>peek</code> are valid.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

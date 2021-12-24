@@ -57,7 +57,6 @@
 	<li><code>end<sub>j</sub> < start<sub>j+1</sub></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

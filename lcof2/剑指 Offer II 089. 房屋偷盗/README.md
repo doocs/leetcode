@@ -40,7 +40,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 198&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/house-robber/">https://leetcode-cn.com/problems/house-robber/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -35,7 +35,6 @@
 	<li>The total area covered by all rectangles will never exceed <code>2<sup>63</sup> - 1</code> and thus will fit in a <strong>64-bit</strong> signed integer.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

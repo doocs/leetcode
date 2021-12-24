@@ -49,7 +49,6 @@
 
 <p><strong>进阶：</strong>你可以使用搜索剪枝的技术来优化解决方案，使其在 <code>board</code> 更大的情况下可以更快解决问题？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -126,7 +125,8 @@ class Solution {
 
 ```ts
 function exist(board: string[][], word: string): boolean {
-    let m = board.length, n = board[0].length;
+    let m = board.length,
+        n = board[0].length;
     let visited = Array.from({ length: m }, v => new Array(n).fill(false));
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
@@ -136,10 +136,18 @@ function exist(board: string[][], word: string): boolean {
         }
     }
     return false;
-};
+}
 
-function dfs(board: string[][], word: string, i: number, j: number, depth: number, visited: boolean[][]): boolean {
-    let m = board.length, n = board[0].length;
+function dfs(
+    board: string[][],
+    word: string,
+    i: number,
+    j: number,
+    depth: number,
+    visited: boolean[][]
+): boolean {
+    let m = board.length,
+        n = board[0].length;
     if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || visited[i][j]) {
         return false;
     }
@@ -154,8 +162,14 @@ function dfs(board: string[][], word: string, i: number, j: number, depth: numbe
     visited[i][j] = true;
     ++depth;
     let res = false;
-    for (let [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
-        let x = i + dx, y = j + dy;
+    for (let [dx, dy] of [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ]) {
+        let x = i + dx,
+            y = j + dy;
         res = res || dfs(board, word, x, y, depth, visited);
     }
     visited[i][j] = false;

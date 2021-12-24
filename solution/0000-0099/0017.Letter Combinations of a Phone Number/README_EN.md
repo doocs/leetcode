@@ -40,7 +40,6 @@
 	<li><code>digits[i]</code> is a digit in the range <code>[&#39;2&#39;, &#39;9&#39;]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

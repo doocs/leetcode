@@ -33,7 +33,6 @@
 	<li><code>haystack</code> and&nbsp;<code>needle</code> consist of only lower-case English characters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

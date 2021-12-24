@@ -171,7 +171,7 @@ class Solution {
  * }
  */
 
- function cloneGraph(node: Node | null): Node | null {
+function cloneGraph(node: Node | null): Node | null {
     if (node == null) return null;
 
     const visited = new Map();
@@ -190,7 +190,7 @@ class Solution {
         }
     }
     return visited.get(node);
-};
+}
 ```
 
 ### **C++**

@@ -50,7 +50,6 @@ The greatest common divisor of 3 and 3 is 3.
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

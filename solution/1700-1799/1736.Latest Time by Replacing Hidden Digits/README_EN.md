@@ -41,7 +41,6 @@
 	<li>It is guaranteed that you can produce a valid time from the given string.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

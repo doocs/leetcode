@@ -30,7 +30,6 @@
 	<li><code>1 &lt;= arr1[i], arr2[i], arr3[i] &lt;= 2000</code></li>
 </ul>
 
-
 ## Solutions
 
 Binary search.

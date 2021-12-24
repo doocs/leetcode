@@ -46,7 +46,6 @@ So the final output is 4.
 	<li>It is guaranteed that <code>key</code> could always be spelled by rotating <code>ring</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

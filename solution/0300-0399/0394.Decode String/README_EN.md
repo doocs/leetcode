@@ -36,7 +36,6 @@
 	<li>All the integers in <code>s</code> are in the range <code>[1, 300]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -98,18 +97,18 @@ class Solution {
 
 ```ts
 function decodeString(s: string): string {
-    let ans = '';
+    let ans = "";
     let stack = [];
     let count = 0; // repeatCount
     for (let cur of s) {
-        if ((/[0-9]/.test(cur))) {
+        if (/[0-9]/.test(cur)) {
             count = count * 10 + Number(cur);
         } else if (/[a-z]/.test(cur)) {
             ans += cur;
-        } else if ('[' == cur) {
+        } else if ("[" == cur) {
             stack.push([ans, count]);
             // reset
-            ans = '';
+            ans = "";
             count = 0;
         } else {
             // match ']'
@@ -118,7 +117,7 @@ function decodeString(s: string): string {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **...**

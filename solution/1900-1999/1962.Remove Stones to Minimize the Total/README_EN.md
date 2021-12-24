@@ -49,7 +49,6 @@ The total number of stones in [2,3,3,4] is 12.
 	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

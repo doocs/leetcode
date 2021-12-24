@@ -41,7 +41,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10^4</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

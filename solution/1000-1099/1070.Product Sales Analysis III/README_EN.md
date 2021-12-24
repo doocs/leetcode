@@ -6,8 +6,6 @@
 
 <p>Table:&nbsp;<code>Sales</code></p>
 
-
-
 <pre>
 
 +-------------+-------+
@@ -36,11 +34,7 @@ Note that the price is per unit.
 
 </pre>
 
-
-
 <p>Table:&nbsp;<code>Product</code></p>
-
-
 
 <pre>
 
@@ -60,19 +54,11 @@ product_id is the primary key of this table.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p style="direction: ltr;">Write an SQL query that selects the <strong>product id</strong>, <strong>year</strong>, <strong>quantity</strong>, and <strong>price</strong> for the <strong>first year</strong> of every product sold.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 
@@ -128,8 +114,6 @@ Result table:
 
 </pre>
 
-
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -147,7 +131,7 @@ FROM
     Sales
 WHERE
     (product_id, year) IN (
-        SELECT 
+        SELECT
             product_id, min(year) year
         FROM
             Sales

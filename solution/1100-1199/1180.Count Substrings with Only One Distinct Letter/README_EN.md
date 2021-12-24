@@ -35,7 +35,6 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 	<li><code>S[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

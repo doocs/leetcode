@@ -64,7 +64,6 @@ Corona Masks stock was bought at day 1 for 10$ and was sold at day 3 for 1010$. 
 
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

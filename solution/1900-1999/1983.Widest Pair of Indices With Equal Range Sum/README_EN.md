@@ -54,7 +54,6 @@ There are no pairs of indices that meet the requirements.
 	<li><code>nums2[i]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

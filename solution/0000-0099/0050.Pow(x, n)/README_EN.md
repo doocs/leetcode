@@ -38,7 +38,6 @@
 	<li><code>-10<sup>4</sup> &lt;= x<sup>n</sup> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -91,7 +90,7 @@ function myPow(x: number, n: number): number {
         x *= x;
     }
     return res;
-};
+}
 ```
 
 ### **...**

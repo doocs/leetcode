@@ -80,7 +80,6 @@ Bob&#39;s balance is 1000.
 Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

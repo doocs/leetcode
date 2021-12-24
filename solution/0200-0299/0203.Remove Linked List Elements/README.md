@@ -7,6 +7,7 @@
 <!-- 这里写题目描述 -->
 
 给你一个链表的头节点 <code>head</code> 和一个整数 <code>val</code> ，请你删除链表中所有满足 <code>Node.val == val</code> 的节点，并返回 <strong>新的头节点</strong> 。
+
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
@@ -39,7 +40,6 @@
 	<li><code>1 <= Node.val <= 50</code></li>
 	<li><code>0 <= k <= 50</code></li>
 </ul>
-
 
 ## 解法
 
@@ -151,7 +151,7 @@ func removeElements(head *ListNode, val int) *ListNode {
  * }
  */
 
- function removeElements(head: ListNode | null, val: number): ListNode | null {
+function removeElements(head: ListNode | null, val: number): ListNode | null {
     let dummy: ListNode = new ListNode(0, head);
     let cur: ListNode = dummy;
     while (cur.next != null) {
@@ -162,7 +162,7 @@ func removeElements(head *ListNode, val int) *ListNode {
         }
     }
     return dummy.next;
-};
+}
 ```
 
 ### **...**

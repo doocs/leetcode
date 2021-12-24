@@ -53,7 +53,7 @@ class Solution {
  * @return {string}
  */
 var reverseLeftWords = function (s, n) {
-  return s.substring(n) + s.substr(0, n);
+    return s.substring(n) + s.substr(0, n);
 };
 ```
 

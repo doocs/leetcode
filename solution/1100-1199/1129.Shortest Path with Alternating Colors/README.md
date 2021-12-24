@@ -56,7 +56,6 @@
 	<li><code>0 &lt;= red_edges[i][j], blue_edges[i][j] &lt; n</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

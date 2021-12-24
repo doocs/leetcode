@@ -58,7 +58,6 @@
 	<li>Folder names consist of lowercase English letters and digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

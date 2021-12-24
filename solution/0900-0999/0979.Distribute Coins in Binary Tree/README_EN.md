@@ -51,7 +51,6 @@
 	<li>The sum of <code>Node.val</code> is <code>n</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

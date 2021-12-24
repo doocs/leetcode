@@ -1,4 +1,4 @@
-# [373. 查找和最小的K对数字](https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums)
+# [373. 查找和最小的 K 对数字](https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums)
 
 [English Version](/solution/0300-0399/0373.Find%20K%20Pairs%20with%20Smallest%20Sums/README_EN.md)
 
@@ -34,7 +34,6 @@
 <strong>输出:</strong> [1,3],[2,3]
 <strong>解释: </strong>也可能序列中所有的数对都被返回:[1,3],[2,3]
 </pre>
-
 
 ## 解法
 

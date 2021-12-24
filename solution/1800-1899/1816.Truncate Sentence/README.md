@@ -53,7 +53,6 @@ s 中的单词为 ["What", "is" "the", "solution", "to", "this", "problem"]
 	<li>不存在前导或尾随空格</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -138,9 +137,9 @@ func truncateSentence(s string, k int) string {
  * @param {number} k
  * @return {string}
  */
-var truncateSentence = function(s, k) {
+var truncateSentence = function (s, k) {
     for (let i = 0; i < s.length; ++i) {
-        if (s[i] == ' ' && (--k) == 0) {
+        if (s[i] == " " && --k == 0) {
             return s.slice(0, i);
         }
     }

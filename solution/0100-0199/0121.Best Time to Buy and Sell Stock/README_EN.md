@@ -36,7 +36,6 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -118,7 +117,7 @@ func min(a, b int) int {
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {
     let res = 0;
     let mi = prices[0];
     for (let i = 1; i < prices.length; ++i) {

@@ -86,15 +86,15 @@ class LRUCache:
                 node = self.remove_tail()
                 self.cache.pop(node.key)
                 self.size -= 1
-    
+
     def move_to_head(self, node):
         self.remove_node(node)
         self.add_to_head(node)
-    
+
     def remove_node(self, node):
         node.prev.next = node.next
         node.next.prev = node.prev
-    
+
     def add_to_head(self, node):
         node.next = self.head.next
         self.head.next.prev = node
@@ -145,7 +145,7 @@ class LRUCache {
         head.next = tail;
         tail.prev = head;
     }
-    
+
     public int get(int key) {
         if (!cache.containsKey(key)) {
             return -1;
@@ -154,7 +154,7 @@ class LRUCache {
         moveToHead(node);
         return node.value;
     }
-    
+
     public void put(int key, int value) {
         if (cache.containsKey(key)) {
             Node node = cache.get(key);

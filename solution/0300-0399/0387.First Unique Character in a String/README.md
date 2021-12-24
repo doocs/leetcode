@@ -23,7 +23,6 @@ s = &quot;loveleetcode&quot;
 
 <p><strong>提示：</strong>你可以假定该字符串只包含小写字母。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -74,13 +73,13 @@ class Solution {
 function firstUniqChar(s: string): number {
     let record = new Map();
     for (let cur of [...s]) {
-        record.set(cur, record.has(cur))
+        record.set(cur, record.has(cur));
     }
-    for (let i =0 ; i < s.length; i++) {
+    for (let i = 0; i < s.length; i++) {
         if (!record.get(s[i])) return i;
     }
     return -1;
-};
+}
 ```
 
 ### **C++**
@@ -123,7 +122,7 @@ func firstUniqChar(s string) int {
  * @param {string} s
  * @return {number}
  */
-var firstUniqChar = function(s) {
+var firstUniqChar = function (s) {
     const counter = new Map();
     for (let c of s) {
         counter[c] = (counter[c] || 0) + 1;

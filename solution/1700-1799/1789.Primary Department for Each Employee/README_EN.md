@@ -62,7 +62,6 @@ Result table:
 
 <p>&nbsp;</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

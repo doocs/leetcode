@@ -129,7 +129,7 @@ class Logger {
  * Initialize your data structure here.
  */
 var Logger = function () {
-  this.limiter = {};
+    this.limiter = {};
 };
 
 /**
@@ -141,12 +141,12 @@ var Logger = function () {
  * @return {boolean}
  */
 Logger.prototype.shouldPrintMessage = function (timestamp, message) {
-  const t = this.limiter[message] || 0;
-  if (t > timestamp) {
-    return false;
-  }
-  this.limiter[message] = timestamp + 10;
-  return true;
+    const t = this.limiter[message] || 0;
+    if (t > timestamp) {
+        return false;
+    }
+    this.limiter[message] = timestamp + 10;
+    return true;
 };
 
 /**

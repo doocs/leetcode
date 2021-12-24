@@ -25,7 +25,6 @@
 <p><strong>进阶:</strong><br>
 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -81,13 +80,13 @@ class Solution {
 function isAnagram(s: string, t: string): boolean {
     if (s.length != t.length) return false;
     let record = new Array(26).fill(0);
-    let base = 'a'.charCodeAt(0);
+    let base = "a".charCodeAt(0);
     for (let i = 0; i < s.length; ++i) {
         ++record[s.charCodeAt(i) - base];
         --record[t.charCodeAt(i) - base];
     }
     return record.every(v => v == 0);
-};
+}
 ```
 
 ### **C++**
@@ -135,7 +134,6 @@ func isAnagram(s string, t string) bool {
 }
 ```
 
-
 ### **JavaScript**
 
 ```js
@@ -144,10 +142,10 @@ func isAnagram(s string, t string) bool {
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
+var isAnagram = function (s, t) {
     if (s.length != t.length) return false;
     let record = new Array(26).fill(0);
-    let base = 'a'.charCodeAt(0);
+    let base = "a".charCodeAt(0);
     for (let i = 0; i < s.length; ++i) {
         ++record[s.charCodeAt(i) - base];
         --record[t.charCodeAt(i) - base];

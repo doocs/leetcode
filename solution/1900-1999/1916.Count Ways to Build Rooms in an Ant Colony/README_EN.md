@@ -46,7 +46,6 @@
 	<li>Every room is reachable from room <code>0</code> once all the rooms are built.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

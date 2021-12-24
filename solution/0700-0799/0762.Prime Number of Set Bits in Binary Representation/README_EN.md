@@ -10,11 +10,9 @@ Given two integers <code>L</code> and <code>R</code>, find the count of numbers 
 
 </p><p>
 
-(Recall that the number of set bits an integer has is the number of <code>1</code>s present when written in binary.  For example, <code>21</code> written in binary is <code>10101</code> which has 3 set bits.  Also, 1 is not a prime.)
+(Recall that the number of set bits an integer has is the number of <code>1</code>s present when written in binary. For example, <code>21</code> written in binary is <code>10101</code> which has 3 set bits. Also, 1 is not a prime.)
 
 </p><p>
-
-
 
 <p><b>Example 1:</b><br /><pre>
 
@@ -33,8 +31,6 @@ Given two integers <code>L</code> and <code>R</code>, find the count of numbers 
 10->1010 (2 set bits , 2 is prime)
 
 </pre></p>
-
-
 
 <p><b>Example 2:</b><br /><pre>
 
@@ -57,8 +53,6 @@ Given two integers <code>L</code> and <code>R</code>, find the count of numbers 
 15 -> 1111 (4 set bits, 4 is not prime)
 
 </pre></p>
-
-
 
 <p><b>Note:</b><br><ol>
 

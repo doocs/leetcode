@@ -106,10 +106,11 @@ class Solution {
  * @param {number} x
  * @return {string}
  */
- var maxValue = function(n, x) {
+var maxValue = function (n, x) {
     let nums = [...n];
-    let sign = 1, i = 0;
-    if (nums[0] == '-') {
+    let sign = 1,
+        i = 0;
+    if (nums[0] == "-") {
         sign = -1;
         i++;
     }
@@ -117,7 +118,7 @@ class Solution {
         i++;
     }
     nums.splice(i, 0, x);
-    return nums.join('');
+    return nums.join("");
 };
 ```
 

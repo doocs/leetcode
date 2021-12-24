@@ -6,27 +6,15 @@
 
 <p>Three stones are on a number line at positions <code>a</code>, <code>b</code>, and <code>c</code>.</p>
 
-
-
 <p>Each turn, you pick up a stone at an endpoint (ie., either the lowest or highest position stone), and move it to an unoccupied position between those&nbsp;endpoints.&nbsp; Formally, let&#39;s say the stones are currently at positions <code>x, y, z</code> with <code>x &lt; y &lt; z</code>.&nbsp; You pick up the stone at either position <code>x</code> or position <code>z</code>, and move that stone to an integer position <code>k</code>, with <code>x &lt; k &lt; z</code> and <code>k != y</code>.</p>
-
-
 
 <p>The game ends when you cannot make any more moves, ie. the stones are in consecutive positions.</p>
 
-
-
 <p>When the game ends, what is the minimum and maximum number of moves that you could have made?&nbsp; Return the answer as an length 2 array: <code>answer = [minimum_moves, maximum_moves]</code></p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -38,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -56,13 +40,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -74,19 +54,13 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= a &lt;= 100</code></li>
@@ -95,13 +69,9 @@
 	<li><code>a != b, b != c, c != a</code></li>
 </ol>
 
-
-
 <div>
 
 <p>&nbsp;</p>
-
-
 
 <div>
 
@@ -110,8 +80,6 @@
 </div>
 
 </div>
-
-
 
 ## Solutions
 

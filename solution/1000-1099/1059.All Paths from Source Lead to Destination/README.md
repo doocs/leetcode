@@ -76,7 +76,6 @@
 	<li><code>0 &lt;= destination &lt;= n - 1</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

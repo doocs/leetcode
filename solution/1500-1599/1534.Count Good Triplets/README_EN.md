@@ -6,11 +6,7 @@
 
 <p>Given an array of integers <code>arr</code>, and three integers&nbsp;<code>a</code>,&nbsp;<code>b</code>&nbsp;and&nbsp;<code>c</code>. You need to find the number of good triplets.</p>
 
-
-
 <p>A triplet <code>(arr[i], arr[j], arr[k])</code>&nbsp;is <strong>good</strong> if the following conditions are true:</p>
-
-
 
 <ul>
 	<li><code>0 &lt;= i &lt; j &lt; k &lt;&nbsp;arr.length</code></li>
@@ -19,21 +15,13 @@
 	<li><code>|arr[i] - arr[k]| &lt;= c</code></li>
 </ul>
 
-
-
 <p>Where <code>|x|</code> denotes the absolute value of <code>x</code>.</p>
 
-
-
 <p>Return<em> the number of good triplets</em>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +33,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,13 +45,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>3 &lt;= arr.length &lt;= 100</code></li>

@@ -43,7 +43,6 @@ The string is now alternating.
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -117,7 +116,7 @@ class Solution {
  * @param {string} s
  * @return {number}
  */
- var minSwaps = function(s) {
+var minSwaps = function (s) {
     let n = s.length;
     let n1 = [...s].reduce((a, c) => parseInt(c) + a, 0);
     let n0 = n - n1;
@@ -127,7 +126,7 @@ class Solution {
     if (n1 == Math.ceil(half) && n0 == Math.floor(half)) {
         let cur = 0;
         for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != '1') cur++;
+            if (i % 2 == 0 && s.charAt(i) != "1") cur++;
         }
         count = Math.min(count, cur);
     }
@@ -135,7 +134,7 @@ class Solution {
     if (n0 == Math.ceil(half) && n1 == Math.floor(half)) {
         let cur = 0;
         for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != '0') cur++;
+            if (i % 2 == 0 && s.charAt(i) != "0") cur++;
         }
         count = Math.min(count, cur);
     }

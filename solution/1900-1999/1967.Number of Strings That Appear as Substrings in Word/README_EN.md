@@ -91,7 +91,7 @@ function numOfStrings(patterns: string[], word: string): number {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

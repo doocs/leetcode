@@ -31,7 +31,6 @@
 	<li><code>s</code> and <code>dictionary[i]</code> consist of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

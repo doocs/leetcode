@@ -94,7 +94,6 @@ LCHouse3: 1 unit of LC-T-Shirt.
           Total volume: 1*800 = 800 cubic feet.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

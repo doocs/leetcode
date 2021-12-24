@@ -58,7 +58,6 @@ Kalel&#39;s manager is employee 11, who is still in the company (Joziah).
 Joziah&#39;s manager is employee 6, who left the company because there is no row for employee 6 as it was deleted.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

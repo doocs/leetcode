@@ -8,15 +8,9 @@
 
 <p>给定一个 <strong>m &times; n </strong>的网格和一个球。球的起始坐标为&nbsp;<strong>(i,j)</strong>&nbsp;，你可以将球移到<strong>相邻</strong>的单元格内，或者往上、下、左、右四个方向上移动使球穿过网格边界。但是，你<strong>最多</strong>可以移动&nbsp;<strong>N&nbsp;</strong>次。找出可以将球移出边界的路径数量。答案可能非常大，返回 结果 mod 10<sup>9</sup>&nbsp;+ 7 的值。</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>示例 1：</strong></p>
-
-
 
 <pre><strong>输入: </strong>m = 2, n = 2, N = 2, i = 0, j = 0
 
@@ -28,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>示例 2：</strong></p>
-
-
 
 <pre><strong>输入: </strong>m = 1, n = 3, N = 3, i = 0, j = 1
 
@@ -44,15 +34,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>说明:</strong></p>
-
-
 
 <ol>
 	<li>球一旦出界，就不能再被移动回网格内。</li>

@@ -39,7 +39,6 @@
 	<li><code>1 <= mat[i][j] <= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -79,7 +78,7 @@ class Solution {
                     mat[i][j] = temp;
                 }
             }
-        }    
+        }
     }
 }
 ```

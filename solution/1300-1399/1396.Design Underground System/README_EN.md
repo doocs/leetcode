@@ -93,7 +93,6 @@ undergroundSystem.getAverageTime(&quot;Leyton&quot;, &quot;Paradise&quot;); // r
 	<li>Answers within <code>10<sup>-5</sup></code> of the actual value will be accepted.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -147,12 +146,12 @@ class UndergroundSystem {
         checkInTime = new HashMap<>();
         totalTime = new HashMap<>();
     }
-    
+
     public void checkIn(int id, String stationName, int t) {
         checkInStation.put(id, stationName);
         checkInTime.put(id, t);
     }
-    
+
     public void checkOut(int id, String stationName, int t) {
         int cost = t - checkInTime.remove(id);
         String startStation = checkInStation.remove(id);
@@ -162,7 +161,7 @@ class UndergroundSystem {
         ++times[1];
         totalTime.put(stations, times);
     }
-    
+
     public double getAverageTime(String startStation, String endStation) {
         String stations = startStation + "." + endStation;
         int[] times = totalTime.get(stations);

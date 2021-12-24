@@ -1,4 +1,4 @@
-# [440. 字典序的第K小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order)
+# [440. 字典序的第 K 小数字](https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order)
 
 [English Version](/solution/0400-0499/0440.K-th%20Smallest%20in%20Lexicographical%20Order/README_EN.md)
 
@@ -22,7 +22,6 @@ n: 13   k: 2
 <strong>解释:</strong>
 字典序的排列是 [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]，所以第二小的数字是 10。
 </pre>
-
 
 ## 解法
 

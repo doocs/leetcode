@@ -78,7 +78,6 @@ Horse Riding 活动有一个人参加, 是最少人参加的活动 (Bob B.)
 Singing 活动有两个人参加 (Victor J. and Jade W.)
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

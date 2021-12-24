@@ -65,7 +65,6 @@
 	<li><code>-10<sup>8</sup> &lt;= arr[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

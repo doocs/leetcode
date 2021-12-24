@@ -48,7 +48,6 @@
 	<li>All the values in <code>voyage</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

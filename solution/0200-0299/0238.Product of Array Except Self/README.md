@@ -24,7 +24,6 @@
 <p><strong>进阶：</strong><br>
 你可以在常数空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组<strong>不被视为</strong>额外空间。）</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -80,17 +79,17 @@ class Solution {
  * @return {number[]}
  */
 var productExceptSelf = function (nums) {
-  const n = nums.length;
-  let output = new Array(n);
-  for (let i = 0, left = 1; i < n; ++i) {
-    output[i] = left;
-    left *= nums[i];
-  }
-  for (let i = n - 1, right = 1; i >= 0; --i) {
-    output[i] *= right;
-    right *= nums[i];
-  }
-  return output;
+    const n = nums.length;
+    let output = new Array(n);
+    for (let i = 0, left = 1; i < n; ++i) {
+        output[i] = left;
+        left *= nums[i];
+    }
+    for (let i = n - 1, right = 1; i >= 0; --i) {
+        output[i] *= right;
+        right *= nums[i];
+    }
+    return output;
 };
 ```
 

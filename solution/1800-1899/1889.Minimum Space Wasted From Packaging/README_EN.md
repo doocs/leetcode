@@ -58,7 +58,6 @@ The total waste is (5-3) + (5-5) + (10-8) + (10-10) + (14-11) + (14-12) = 9.
 	<li>The elements in <code>boxes[j]</code> are <strong>distinct</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -140,7 +139,8 @@ function minWastedSpace(packages: number[], boxes: number[][]): number {
     for (let box of boxes) {
         box.sort((a, b) => a - b);
         if (max_package > box[box.length - 1]) continue;
-        let left = 0, sum = 0;
+        let left = 0,
+            sum = 0;
         for (let capacity of box) {
             let right = searchRight(packages, capacity, left);
             sum += (right - left) * capacity;
@@ -149,7 +149,7 @@ function minWastedSpace(packages: number[], boxes: number[][]): number {
         res = Math.min(res, sum);
     }
     return res == Infinity ? -1 : (res - total) % MOD;
-};
+}
 
 function searchRight(packages: number[], target: number, left: number): number {
     let right = packages.length;

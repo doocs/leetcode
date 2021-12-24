@@ -51,7 +51,6 @@ Result table:
 Bob and George both have a condition that starts with DIAB1.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

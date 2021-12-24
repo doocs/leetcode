@@ -31,7 +31,6 @@
 	<li><code>num</code> does not contain any leading zeros except for zero itself.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

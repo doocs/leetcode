@@ -52,7 +52,6 @@ The total number of cherries picked up is 5, and this is the maximum possible.
 	<li><code>grid[n - 1][n - 1] != -1</code></li>
 </ul>
 
-
 ## Solutions
 
 Dynamic programming.
@@ -116,7 +115,7 @@ class Solution {
                                 }
                             }
                         }
-                    }   
+                    }
                 }
             }
         }

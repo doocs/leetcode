@@ -35,7 +35,6 @@ Since 2 has only one digit, return it.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you do it without any loop/recursion in <code>O(1)</code> runtime?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

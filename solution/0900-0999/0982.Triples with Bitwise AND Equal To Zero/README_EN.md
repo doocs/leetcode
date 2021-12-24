@@ -6,8 +6,6 @@
 
 <p>Given an array of integers <code>A</code>, find the number of&nbsp;triples of indices (i, j, k)&nbsp;such that:</p>
 
-
-
 <ul>
 	<li><code>0 &lt;= i &lt; A.length</code></li>
 	<li><code>0 &lt;= j &lt; A.length</code></li>
@@ -15,15 +13,9 @@
 	<li><code>A[i]&nbsp;&amp; A[j]&nbsp;&amp; A[k] == 0</code>, where <code>&amp;</code>&nbsp;represents the bitwise-AND operator.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -59,22 +51,14 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code><font face="monospace">1 &lt;= A.length &lt;= 1000</font></code></li>
 	<li><code>0 &lt;= A[i] &lt; 2^16</code></li>
 </ol>
-
-
 
 ## Solutions
 

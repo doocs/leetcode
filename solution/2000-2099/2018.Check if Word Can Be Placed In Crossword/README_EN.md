@@ -53,7 +53,6 @@
 	<li><code>word</code> will contain only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

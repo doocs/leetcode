@@ -70,7 +70,6 @@
 	<li><code>1 &lt;= k &lt;= arr.length</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

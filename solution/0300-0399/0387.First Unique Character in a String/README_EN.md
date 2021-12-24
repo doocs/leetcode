@@ -25,7 +25,6 @@
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -68,13 +67,13 @@ class Solution {
 function firstUniqChar(s: string): number {
     let record = new Map();
     for (let cur of [...s]) {
-        record.set(cur, record.has(cur))
+        record.set(cur, record.has(cur));
     }
-    for (let i =0 ; i < s.length; i++) {
+    for (let i = 0; i < s.length; i++) {
         if (!record.get(s[i])) return i;
     }
     return -1;
-};
+}
 ```
 
 ### **C++**
@@ -117,7 +116,7 @@ func firstUniqChar(s string) int {
  * @param {string} s
  * @return {number}
  */
-var firstUniqChar = function(s) {
+var firstUniqChar = function (s) {
     const counter = new Map();
     for (let c of s) {
         counter[c] = (counter[c] || 0) + 1;

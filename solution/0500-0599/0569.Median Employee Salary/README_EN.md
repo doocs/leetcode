@@ -6,8 +6,6 @@
 
 <p>The <code>Employee</code> table holds all employees. The employee table has three columns: Employee Id, Company Name, and Salary.</p>
 
-
-
 <pre>
 
 +-----+------------+--------+
@@ -54,11 +52,7 @@
 
 </pre>
 
-
-
 <p>Write a SQL query to find the median salary of each company. Bonus points if you can solve it without using any built-in SQL functions.</p>
-
-
 
 <pre>
 
@@ -81,8 +75,6 @@
 +-----+------------+--------+
 
 </pre>
-
-
 
 ## Solutions
 

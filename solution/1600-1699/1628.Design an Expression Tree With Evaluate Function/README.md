@@ -75,8 +75,8 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-import abc 
-from abc import ABC, abstractmethod 
+import abc
+from abc import ABC, abstractmethod
 """
 This is the interface for the expression tree Node.
 You should not remove it, and you can define some classes to implement it.
@@ -99,7 +99,7 @@ class MyNode(Node):
         x = self.val
         if x.isdigit():
             return int(x)
-        
+
         left, right = self.left.evaluate(), self.right.evaluate()
         if x == '+':
             return left + right
@@ -111,7 +111,7 @@ class MyNode(Node):
             return left // right
 
 
-"""    
+"""
 This is the TreeBuilder class.
 You can treat it as the driver code that takes the postinfix input
 and returns the expression tree represnting it as a Node.
@@ -127,7 +127,7 @@ class TreeBuilder(object):
                 node.left = stk.pop()
             stk.append(node)
         return stk[-1]
-		
+
 """
 Your TreeBuilder object will be instantiated and called as such:
 obj = TreeBuilder();
@@ -193,7 +193,7 @@ class MyNode extends Node {
 
 /**
  * This is the TreeBuilder class.
- * You can treat it as the driver code that takes the postinfix input 
+ * You can treat it as the driver code that takes the postinfix input
  * and returns the expression tree represnting it as a Node.
  */
 
@@ -266,7 +266,7 @@ public:
 
 /**
  * This is the TreeBuilder class.
- * You can treat it as the driver code that takes the postinfix input 
+ * You can treat it as the driver code that takes the postinfix input
  * and returns the expression tree represnting it as a Node.
  */
 

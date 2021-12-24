@@ -36,7 +36,6 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -226,7 +225,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var zigzagLevelOrder = function(root) {
+var zigzagLevelOrder = function (root) {
     if (!root) {
         return [];
     }

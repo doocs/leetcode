@@ -47,7 +47,6 @@
 	<li><code>p</code> 和 <code>q</code> 均存在于给定的二叉树中。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -135,12 +134,12 @@ class Solution {
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function (root, p, q) {
-  if (!root || root == p || root == q) return root;
-  const left = lowestCommonAncestor(root.left, p, q);
-  const right = lowestCommonAncestor(root.right, p, q);
-  if (!left) return right;
-  if (!right) return left;
-  return root;
+    if (!root || root == p || root == q) return root;
+    const left = lowestCommonAncestor(root.left, p, q);
+    const right = lowestCommonAncestor(root.right, p, q);
+    if (!left) return right;
+    if (!right) return left;
+    return root;
 };
 ```
 

@@ -10,25 +10,17 @@ You are given <code>n</code> pairs of numbers. In every pair, the first number i
 
 </p>
 
-
-
 <p>
 
-Now, we define a pair <code>(c, d)</code> can follow another pair <code>(a, b)</code> if and only if <code>b < c</code>. Chain of pairs can be formed in this fashion. 
+Now, we define a pair <code>(c, d)</code> can follow another pair <code>(a, b)</code> if and only if <code>b < c</code>. Chain of pairs can be formed in this fashion.
 
 </p>
-
-
 
 <p>
 
 Given a set of pairs, find the length longest chain which can be formed. You needn't use up all the given pairs. You can select pairs in any order.
 
 </p>
-
-
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -43,8 +35,6 @@ Given a set of pairs, find the length longest chain which can be formed. You nee
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

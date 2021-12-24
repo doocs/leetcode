@@ -1,4 +1,4 @@
-# [326. 3的幂](https://leetcode-cn.com/problems/power-of-three)
+# [326. 3 的幂](https://leetcode-cn.com/problems/power-of-three)
 
 [English Version](/solution/0300-0399/0326.Power%20of%20Three/README_EN.md)
 
@@ -56,7 +56,6 @@
 	<li>你能不使用循环或者递归来完成本题吗？</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -88,7 +87,7 @@ function isPowerOfThree(n: number): boolean {
         n /= 3;
     }
     return n == 1;
-};
+}
 ```
 
 ### **...**

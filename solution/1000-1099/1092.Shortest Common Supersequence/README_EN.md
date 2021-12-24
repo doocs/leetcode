@@ -30,7 +30,6 @@ The answer provided is the shortest such string that satisfies these properties.
 	<li><code>str1</code> and <code>str2</code> consist of lowercase English letters.</li>
 </ol>
 
-
 ## Solutions
 
 <!-- tabs:start -->

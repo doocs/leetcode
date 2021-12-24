@@ -46,7 +46,6 @@
 	<li><code>1 &lt;= sweetness[i] &lt;= 10^5</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

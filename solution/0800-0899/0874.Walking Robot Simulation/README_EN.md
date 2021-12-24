@@ -65,7 +65,6 @@ The furthest point away from the origin is (1, 8), which is 1<sup>2</sup> + 8<su
 	<li>The answer is guaranteed to be less than <code>2<sup>31</sup></code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

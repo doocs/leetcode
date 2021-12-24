@@ -6,31 +6,19 @@
 
 <p>Given an array <code>A</code> of integers, for each integer <code>A[i]</code> we may choose any <code>x</code> with <code>-K &lt;= x &lt;= K</code>, and add <code>x</code> to <code>A[i]</code>.</p>
 
-
-
 <p>After this process, we have some array <code>B</code>.</p>
-
-
 
 <p>Return the smallest possible difference between the maximum value of <code>B</code>&nbsp;and the minimum value of <code>B</code>.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -42,13 +30,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -60,13 +44,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -78,15 +58,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= A.length &lt;= 10000</code></li>

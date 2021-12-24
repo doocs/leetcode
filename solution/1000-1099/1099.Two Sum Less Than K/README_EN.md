@@ -32,7 +32,6 @@
 	<li><code>1 &lt;= k &lt;= 2000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

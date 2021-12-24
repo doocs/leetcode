@@ -54,7 +54,6 @@ Employee 1 has three events: two on day 2020-11-28 with a total of (32 - 4) + (2
 Employee 2 has two events: one on day 2020-11-28 with a total of (33 - 3) = 30, and one on day 2020-12-09 with a total of (74 - 47) = 27.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

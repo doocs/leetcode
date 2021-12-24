@@ -44,7 +44,6 @@
 <strong>输出:</strong> &quot;No solution&quot;
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

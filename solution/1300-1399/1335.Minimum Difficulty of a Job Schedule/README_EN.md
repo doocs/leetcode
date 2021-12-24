@@ -6,19 +6,11 @@
 
 <p>You want to schedule a list of jobs in <code>d</code> days. Jobs are dependent (i.e To work on the <code>i-th</code> job, you have to finish all the jobs <code>j</code> where <code>0 &lt;= j &lt; i</code>).</p>
 
-
-
 <p>You have to finish <strong>at least</strong> one task every day. The difficulty of a job schedule is the sum of difficulties of each day of the <code>d</code> days. The difficulty of a day is the maximum difficulty of a job done in that day.</p>
-
-
 
 <p>Given an array of integers <code>jobDifficulty</code> and an integer <code>d</code>. The difficulty of the <code>i-th</code>&nbsp;job is&nbsp;<code>jobDifficulty[i]</code>.</p>
 
-
-
 <p>Return <em>the minimum difficulty</em> of a job schedule. If you cannot find a schedule for the jobs return <strong>-1</strong>.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -40,11 +32,7 @@ The difficulty of the schedule = 6 + 1 = 7
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -56,11 +44,7 @@ The difficulty of the schedule = 6 + 1 = 7
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -72,11 +56,7 @@ The difficulty of the schedule = 6 + 1 = 7
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -86,11 +66,7 @@ The difficulty of the schedule = 6 + 1 = 7
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -100,13 +76,9 @@ The difficulty of the schedule = 6 + 1 = 7
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= jobDifficulty.length &lt;= 300</code></li>

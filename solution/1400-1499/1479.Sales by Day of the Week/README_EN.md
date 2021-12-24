@@ -6,8 +6,6 @@
 
 <p>Table: <code>Orders</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -36,15 +34,9 @@ order_date is the date when item_id was ordered by the customer with id customer
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Items</code></p>
-
-
 
 <pre>
 
@@ -70,31 +62,17 @@ item_category&nbsp;is the category of the item.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>You are the business owner and would like to obtain a sales report for category items and day of the week.</p>
 
-
-
 <p>Write an SQL query to&nbsp;report how many units in each category have been ordered on each <strong>day of the week</strong>.</p>
-
-
 
 <p>Return the result table&nbsp;<strong>ordered</strong>&nbsp;by category.</p>
 
-
-
 <p>The query result format is in the following example:</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

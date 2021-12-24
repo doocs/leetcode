@@ -58,7 +58,6 @@ The resulting string is &quot;[[][]]&quot;.
 	<li>The number of opening brackets <code>&#39;[&#39;</code> equals <code>n / 2</code>, and the number of closing brackets <code>&#39;]&#39;</code> equals <code>n / 2</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

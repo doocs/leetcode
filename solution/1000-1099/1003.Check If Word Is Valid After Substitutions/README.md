@@ -7,6 +7,7 @@
 <!-- 这里写题目描述 -->
 
 给你一个字符串 <code>s</code> ，请你判断它是否 <strong>有效</strong> 。
+
 <p>字符串 <code>s</code> <strong>有效</strong> 需要满足：假设开始有一个空字符串 <code>t = ""</code> ，你可以执行 <strong>任意次</strong> 下述操作将<strong> </strong><code>t</code><strong> 转换为 </strong><code>s</code> ：</p>
 
 <ul>
@@ -57,7 +58,6 @@
 	<li><code>1 <= s.length <= 2 * 10<sup>4</sup></code></li>
 	<li><code>s</code> 由字母 <code>'a'</code>、<code>'b'</code> 和 <code>'c'</code> 组成</li>
 </ul>
-
 
 ## 解法
 

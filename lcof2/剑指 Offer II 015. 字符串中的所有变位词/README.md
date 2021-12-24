@@ -44,7 +44,6 @@
 
 <p>注意：本题与主站 438&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/" style="background-color: rgb(255, 255, 255);">https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

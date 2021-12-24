@@ -54,7 +54,6 @@ Therefore, it is NOT a valid word square.
 	<li><code>words[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

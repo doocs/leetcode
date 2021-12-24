@@ -6,8 +6,6 @@
 
 <p>Table <code>Activities</code>:</p>
 
-
-
 <pre>
 
 +-------------+---------+
@@ -26,27 +24,15 @@ There is no primary key for this table, it may contains duplicates.
 
 Each row of this table contains the product name and the date it was sold in a market.</pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find for each date, the number of distinct products sold and their names.</p>
 
-
-
 <p>The sold-products names for each date should be sorted lexicographically.&nbsp;</p>
-
-
 
 <p>Return the result table ordered by <code>sell_date</code>.</p>
 
-
-
 <p>The query result format is in the following example.</p>
-
-
 
 <pre>
 

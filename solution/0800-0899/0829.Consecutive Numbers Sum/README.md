@@ -31,7 +31,6 @@
 
 <p><strong>说明:&nbsp;</strong><code>1 &lt;= N &lt;= 10 ^ 9</code></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

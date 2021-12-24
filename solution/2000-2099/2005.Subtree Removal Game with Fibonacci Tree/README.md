@@ -65,7 +65,6 @@ Return true because Alice wins.
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

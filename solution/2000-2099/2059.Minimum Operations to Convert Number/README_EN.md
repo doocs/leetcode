@@ -223,11 +223,21 @@ func minimumOperations(nums []int, start int, goal int) int {
 ### **TypeScript**
 
 ```ts
-function minimumOperations(nums: number[], start: number, goal: number): number {
+function minimumOperations(
+    nums: number[],
+    start: number,
+    goal: number
+): number {
     const n = nums.length;
-    const op1 = function (x: number, y: number): number { return x + y; };
-    const op2 = function (x: number, y: number): number { return x - y; };
-    const op3 = function (x: number, y: number): number { return x ^ y; };
+    const op1 = function (x: number, y: number): number {
+        return x + y;
+    };
+    const op2 = function (x: number, y: number): number {
+        return x - y;
+    };
+    const op3 = function (x: number, y: number): number {
+        return x ^ y;
+    };
     const ops = [op1, op2, op3];
     let vis = new Array(1001).fill(false);
     let quenue: Array<Array<number>> = [[start, 0]];
@@ -248,7 +258,7 @@ function minimumOperations(nums: number[], start: number, goal: number): number 
         }
     }
     return -1;
-};
+}
 ```
 
 ### **...**

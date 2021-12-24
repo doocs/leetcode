@@ -70,7 +70,6 @@ The characters are printed as follows:
 	<li><code>word</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

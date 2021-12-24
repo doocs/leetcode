@@ -1,4 +1,4 @@
-# [698. 划分为k个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets)
+# [698. 划分为 k 个相等的子集](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets)
 
 [English Version](/solution/0600-0699/0698.Partition%20to%20K%20Equal%20Sum%20Subsets/README_EN.md)
 
@@ -22,7 +22,6 @@
 	<li><code>1 &lt;= k &lt;= len(nums) &lt;= 16</code></li>
 	<li><code>0 &lt; nums[i] &lt; 10000</code></li>
 </ul>
-
 
 ## 解法
 

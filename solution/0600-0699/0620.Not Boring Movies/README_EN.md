@@ -8,15 +8,9 @@ X city opened a new cinema, many people would like to go to this cinema. The cin
 
 <p>Please write a SQL query to output movies with an odd numbered ID and a description that is not &#39;boring&#39;. Order the result by rating.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>For example, table <code>cinema</code>:</p>
-
-
 
 <pre>
 
@@ -42,8 +36,6 @@ X city opened a new cinema, many people would like to go to this cinema. The cin
 
 For the example above, the output should be:
 
-
-
 <pre>
 
 +---------+-----------+--------------+-----------+
@@ -60,11 +52,7 @@ For the example above, the output should be:
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 ## Solutions
 

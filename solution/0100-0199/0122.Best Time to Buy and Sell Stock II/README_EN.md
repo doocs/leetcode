@@ -45,7 +45,6 @@ Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are 
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 Greedy or Dynamic Programming.
@@ -119,7 +118,7 @@ function maxProfit(prices: number[]): number {
         ans += Math.max(0, prices[i] - prices[i - 1]);
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

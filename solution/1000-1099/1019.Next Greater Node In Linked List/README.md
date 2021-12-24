@@ -124,7 +124,7 @@ class Solution {
  * @param {ListNode} head
  * @return {number[]}
  */
-var nextLargerNodes = function(head) {
+var nextLargerNodes = function (head) {
     let nums = [];
     while (head != null) {
         nums.push(head.val);

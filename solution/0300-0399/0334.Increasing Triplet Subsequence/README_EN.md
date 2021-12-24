@@ -113,7 +113,8 @@ class Solution {
 function increasingTriplet(nums: number[]): boolean {
     let n = nums.length;
     if (n < 3) return false;
-    let min = nums[0], mid = Number.MAX_SAFE_INTEGER;
+    let min = nums[0],
+        mid = Number.MAX_SAFE_INTEGER;
     for (let num of nums) {
         if (num <= min) {
             min = num;
@@ -124,7 +125,7 @@ function increasingTriplet(nums: number[]): boolean {
         }
     }
     return false;
-};
+}
 ```
 
 ### **C++**

@@ -30,7 +30,6 @@
 <strong>输入: </strong>[1,1,1,3,3,4,3,2,4,2]
 <strong>输出:</strong> true</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -70,7 +69,7 @@ class Solution {
 function containsDuplicate(nums: number[]): boolean {
     let unique: Set<number> = new Set(nums);
     return unique.size != nums.length;
-};
+}
 ```
 
 ### **C++**

@@ -49,7 +49,6 @@ If we choose the first string, we cannot choose anything else and we&#39;d get o
 	<li><code>s</code>&nbsp;contains only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -26,7 +26,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong>&nbsp;Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

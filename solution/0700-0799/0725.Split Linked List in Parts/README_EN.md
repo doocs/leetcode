@@ -8,7 +8,7 @@
 
 </p><p>
 
-The length of each part should be as equal as possible: no two parts should have a size differing by more than 1.  This may lead to some parts being null.
+The length of each part should be as equal as possible: no two parts should have a size differing by more than 1. This may lead to some parts being null.
 
 </p><p>
 
@@ -20,13 +20,11 @@ Return a List of ListNode's representing the linked list parts that are formed.
 
 </p>
 
-
-
 Examples
 
 1->2->3->4, k = 5 // 5 equal parts
 
-[ [1], 
+[ [1],
 
 [2],
 
@@ -35,8 +33,6 @@ Examples
 [4],
 
 null ]
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -62,8 +58,6 @@ The last element output[4] is null, but it's string representation as a ListNode
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -81,8 +75,6 @@ The input has been split into consecutive parts with size difference at most 1, 
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 

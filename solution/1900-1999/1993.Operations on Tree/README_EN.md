@@ -41,16 +41,17 @@
 
 <strong>Explanation</strong>
 LockingTree lockingTree = new LockingTree([-1, 0, 0, 1, 1, 2, 2]);
-lockingTree.lock(2, 2);    // return true because node 2 is unlocked.
-                           // Node 2 will now be locked by user 2.
-lockingTree.unlock(2, 3);  // return false because user 3 cannot unlock a node locked by user 2.
-lockingTree.unlock(2, 2);  // return true because node 2 was previously locked by user 2.
-                           // Node 2 will now be unlocked.
-lockingTree.lock(4, 5);    // return true because node 4 is unlocked.
-                           // Node 4 will now be locked by user 5.
+lockingTree.lock(2, 2); // return true because node 2 is unlocked.
+// Node 2 will now be locked by user 2.
+lockingTree.unlock(2, 3); // return false because user 3 cannot unlock a node locked by user 2.
+lockingTree.unlock(2, 2); // return true because node 2 was previously locked by user 2.
+// Node 2 will now be unlocked.
+lockingTree.lock(4, 5); // return true because node 4 is unlocked.
+// Node 4 will now be locked by user 5.
 lockingTree.upgrade(0, 1); // return true because node 0 is unlocked and has at least one locked descendant (node 4).
-                           // Node 0 will now be locked by user 1 and node 4 will now be unlocked.
-lockingTree.lock(0, 1);    // return false because node 0 is already locked.
+// Node 0 will now be locked by user 1 and node 4 will now be unlocked.
+lockingTree.lock(0, 1); // return false because node 0 is already locked.
+
 </pre>
 
 <p>&nbsp;</p>
@@ -66,7 +67,6 @@ lockingTree.lock(0, 1);    // return false because node 0 is already locked.
 	<li><code>parent</code> represents a valid tree.</li>
 	<li>At most <code>2000</code> calls <strong>in total</strong> will be made to <code>lock</code>, <code>unlock</code>, and <code>upgrade</code>.</li>
 </ul>
-
 
 ## Solutions
 

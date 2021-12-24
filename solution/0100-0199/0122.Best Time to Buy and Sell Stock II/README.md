@@ -143,7 +143,7 @@ function maxProfit(prices: number[]): number {
         ans += Math.max(0, prices[i] - prices[i - 1]);
     }
     return ans;
-};
+}
 ```
 
 ### **C++**
@@ -250,7 +250,6 @@ public class Solution {
     }
 }
 ```
-
 
 ### **...**
 

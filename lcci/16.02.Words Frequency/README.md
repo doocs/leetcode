@@ -87,10 +87,10 @@ class WordsFrequency {
  * @param {string[]} book
  */
 var WordsFrequency = function (book) {
-  this.counter = {};
-  for (const word of book) {
-    this.counter[word] = (this.counter[word] || 0) + 1;
-  }
+    this.counter = {};
+    for (const word of book) {
+        this.counter[word] = (this.counter[word] || 0) + 1;
+    }
 };
 
 /**
@@ -98,7 +98,7 @@ var WordsFrequency = function (book) {
  * @return {number}
  */
 WordsFrequency.prototype.get = function (word) {
-  return this.counter[word] || 0;
+    return this.counter[word] || 0;
 };
 
 /**

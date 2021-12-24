@@ -70,7 +70,6 @@
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

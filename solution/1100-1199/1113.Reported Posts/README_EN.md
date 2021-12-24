@@ -55,7 +55,6 @@ Result table:
 +---------------+--------------+ 
 Note that we only care about report reasons with non zero number of reports.</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

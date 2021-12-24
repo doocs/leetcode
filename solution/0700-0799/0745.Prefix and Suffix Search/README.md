@@ -29,7 +29,6 @@ WordFilter.f(&quot;b&quot;, &quot;&quot;) // 返回 -1
 	<li><code>words[i]</code>和<code>prefix, suffix</code>只包含小写字母。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

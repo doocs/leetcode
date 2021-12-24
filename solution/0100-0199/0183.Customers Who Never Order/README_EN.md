@@ -6,11 +6,7 @@
 
 <p>Suppose that a website contains two tables, the <code>Customers</code> table and the <code>Orders</code> table. Write a SQL query to find all customers who never order anything.</p>
 
-
-
 <p>Table: <code>Customers</code>.</p>
-
-
 
 <pre>
 
@@ -32,11 +28,7 @@
 
 </pre>
 
-
-
 <p>Table: <code>Orders</code>.</p>
-
-
 
 <pre>
 
@@ -54,11 +46,7 @@
 
 </pre>
 
-
-
 <p>Using the above tables as example, return the following:</p>
-
-
 
 <pre>
 
@@ -75,8 +63,6 @@
 +-----------+
 
 </pre>
-
-
 
 ## Solutions
 

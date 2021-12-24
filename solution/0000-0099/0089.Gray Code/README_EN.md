@@ -42,7 +42,6 @@
 	<li><code>1 &lt;= n &lt;= 16</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

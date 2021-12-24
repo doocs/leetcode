@@ -34,7 +34,6 @@
 	<li><code>0 &lt;= arr[i] &lt;= 10^5</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

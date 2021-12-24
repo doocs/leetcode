@@ -6,29 +6,17 @@
 
 <p>Given an array of integers <code>A</code>, consider all non-empty subsequences of <code>A</code>.</p>
 
-
-
 <p>For any sequence S, let the&nbsp;<em>width</em>&nbsp;of S be the difference between the maximum and minimum element of S.</p>
-
-
 
 <p>Return the sum of the widths of all subsequences of A.&nbsp;</p>
 
-
-
 <p>As the answer may be very large, <strong>return the answer modulo 10^9 + 7</strong>.</p>
-
-
 
 <div>
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -46,15 +34,9 @@ The sum of these widths is 6.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= A.length &lt;= 20000</code></li>
@@ -62,8 +44,6 @@ The sum of these widths is 6.
 </ul>
 
 </div>
-
-
 
 ## Solutions
 

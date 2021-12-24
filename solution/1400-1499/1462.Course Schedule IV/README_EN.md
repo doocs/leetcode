@@ -68,7 +68,6 @@
 	<li><code>queries[i][0] != queries[i][1]</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

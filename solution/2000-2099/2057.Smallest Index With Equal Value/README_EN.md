@@ -82,7 +82,7 @@ function smallestEqual(nums: number[]): number {
         if (i % 10 == nums[i]) return i;
     }
     return -1;
-};
+}
 ```
 
 ### **...**

@@ -182,7 +182,7 @@ public:
         int removeIndex = mp[val];
         nums[removeIndex] = nums.back();
         mp[nums.back()] = removeIndex;
-        
+
         mp.erase(val);
         nums.pop_back();
         return true;
@@ -201,6 +201,7 @@ public:
  * int param_3 = obj->getRandom();
  */
 ```
+
 ```
 
 ### **...**
@@ -210,3 +211,4 @@ public:
 ```
 
 <!-- tabs:end -->
+```

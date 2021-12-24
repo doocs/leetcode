@@ -67,7 +67,6 @@ Hence, there are a total of (6 * 2) + (3 * 1) = 12 + 3 = 15 ways to decode &quot
 	<li><code>s[i]</code> is a digit or <code>&#39;*&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 It's just that some conditional judgments about `*` have been added to the [91. Decode Ways](/solution/0000-0099/0091.Decode%20Ways/README_EN.md).

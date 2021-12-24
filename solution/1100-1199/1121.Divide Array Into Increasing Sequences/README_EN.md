@@ -6,15 +6,9 @@
 
 <p>Given a <strong>non-decreasing</strong> array of positive integers&nbsp;<code>nums</code>&nbsp;and an integer <code>K</code>, find out if this array can be divided into one or more <strong>disjoint increasing subsequences of length at least</strong> <code>K</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -28,11 +22,7 @@ The array can be divided into the two subsequences [1,2,3,4] and [2,3,4] with le
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -46,23 +36,15 @@ There is no way to divide the array using the conditions required.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= nums.length&nbsp;&lt;= 10^5</code></li>
 	<li><code>1 &lt;= K &lt;= nums.length</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10^5</code></li>
 </ol>
-
-
 
 ## Solutions
 

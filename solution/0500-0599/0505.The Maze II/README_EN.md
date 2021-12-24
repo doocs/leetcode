@@ -53,7 +53,6 @@ The length of the path is 1 + 1 + 3 + 1 + 2 + 2 + 2 = 12.
 	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

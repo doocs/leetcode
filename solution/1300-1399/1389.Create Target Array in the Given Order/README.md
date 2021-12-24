@@ -63,7 +63,6 @@ nums       index     target
 	<li><code>0 &lt;= index[i] &lt;= i</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -113,7 +112,7 @@ function createTargetArray(nums: number[], index: number[]): number[] {
         ans.splice(index[i], 0, nums[i]);
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

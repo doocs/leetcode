@@ -46,7 +46,6 @@ The four ways to get there in 7 minutes are:
 	<li>You can reach any intersection from any other intersection.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -43,7 +43,6 @@ myCalendarThree.book(25, 55); // return 3
 	<li>At most <code>400</code> calls will be made to <code>book</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -56,7 +56,6 @@
 	<li>The <code>node</code> to be deleted is <strong>in the list</strong> and is <strong>not a tail</strong> node</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -114,8 +113,8 @@ class Solution {
  * @return {void} Do not return anything, modify node in-place instead.
  */
 var deleteNode = function (node) {
-  node.val = node.next.val;
-  node.next = node.next.next;
+    node.val = node.next.val;
+    node.next = node.next.next;
 };
 ```
 

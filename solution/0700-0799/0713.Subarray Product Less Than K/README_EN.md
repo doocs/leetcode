@@ -8,8 +8,6 @@
 
 <p>Count and print the number of (contiguous) subarrays where the product of all the elements in the subarray is less than <code>k</code>.</p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -25,8 +23,6 @@ Note that [10, 5, 2] is not included as the product of 100 is not strictly less 
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 
@@ -66,7 +62,6 @@ public:
     }
 };
 ```
-
 
 ### **Python3**
 

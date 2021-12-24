@@ -50,7 +50,6 @@ Note that other answers, such as [3, 3], would also be accepted.
 	<li>All integers in <code>arr</code> are unique (i.e. <code>arr</code> is a permutation of the integers from <code>1</code> to <code>arr.length</code>).</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

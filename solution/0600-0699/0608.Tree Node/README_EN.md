@@ -6,8 +6,6 @@
 
 <p>Given a table <code>tree</code>, <b>id</b> is identifier of the tree node and <b>p_id</b> is its parent node&#39;s <b>id</b>.</p>
 
-
-
 <pre>
 
 +----+------+
@@ -32,25 +30,17 @@
 
 Each node in the tree can be one of three types:
 
-
-
 <ul>
 	<li>Leaf: if the node is a leaf node.</li>
 	<li>Root: if the node is the root of the tree.</li>
 	<li>Inner: If the node is neither a leaf node nor a root node.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
 Write a query to print the node id and the type of the node. Sort your output by the node id. The result for the above sample is:
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -74,19 +64,11 @@ Write a query to print the node id and the type of the node. Sort your output by
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><b>Explanation</b></p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ul>
 	<li>Node &#39;1&#39; is root node, because its parent node is NULL and it has child node &#39;2&#39; and &#39;3&#39;.</li>
@@ -97,9 +79,9 @@ Write a query to print the node id and the type of the node. Sort your output by
 	<p>&nbsp;</p>
 	<pre>
 
-			  1
+    		  1
 
-			/   \
+    		/   \
 
                       2       3
 
@@ -112,8 +94,6 @@ Write a query to print the node id and the type of the node. Sort your output by
 	<p>If there is only one node on the tree, you only need to output its root attributes.</p>
 	</li>
 </ul>
-
-
 
 ## Solutions
 

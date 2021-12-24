@@ -6,15 +6,9 @@
 
 <p>Given a <code>text</code>&nbsp;string and <code>words</code> (a list of strings), return all index pairs <code>[i, j]</code> so that the substring <code>text[i]...text[j]</code>&nbsp;is in the list of <code>words</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -24,11 +18,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -42,15 +32,9 @@ Notice that matches can overlap, see &quot;aba&quot; is found in [0,2] and [2,4]
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>All strings contains only lowercase English letters.</li>

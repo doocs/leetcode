@@ -74,7 +74,6 @@ The salary after taxes = salary - (taxes percentage / 100) * salary
 For example, Salary for Morninngcat (3, 15) after taxes = 7777 - 7777 * (24 / 100) = 7777 - 1866.48 = 5910.52, which is rounded to 5911.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

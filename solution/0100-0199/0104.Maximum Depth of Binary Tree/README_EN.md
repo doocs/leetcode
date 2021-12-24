@@ -178,7 +178,7 @@ func max(a, b int) int {
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
+var maxDepth = function (root) {
     if (!root) {
         return 0;
     }

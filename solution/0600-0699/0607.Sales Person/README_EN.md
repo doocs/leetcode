@@ -25,6 +25,7 @@ Output all the <b>names</b> in the table <code>salesperson</code>, who didn&rsqu
 |   5      | Alex | 50000  |     10          | 2/3/2007  |
 +----------+------+--------+-----------------+-----------+
 </pre>
+
 The table <code>salesperson</code> holds the salesperson information. Every salesperson has a <b>sales_id</b> and a <b>name</b>.
 
 <p>Table: <code>company</code></p>
@@ -39,6 +40,7 @@ The table <code>salesperson</code> holds the salesperson information. Every sale
 |   4     | GREEN  |   Austin   |
 +---------+--------+------------+
 </pre>
+
 The table <code>company</code> holds the company information. Every company has a <b>com_id</b> and a <b>name</b>.
 
 <p>Table: <code>orders</code></p>
@@ -53,6 +55,7 @@ The table <code>company</code> holds the company information. Every company has 
 | 4        |   4/1/2014 |    1    |    4     | 25000  |
 +----------+----------+---------+----------+--------+
 </pre>
+
 The table <code>orders</code> holds the sales record information, salesperson and customer company are represented by <b>sales_id</b> and <b>com_id</b>.
 
 <p><b>output</b></p>
@@ -71,7 +74,6 @@ The table <code>orders</code> holds the sales record information, salesperson an
 
 <p>According to order &#39;3&#39; and &#39;4&#39; in table <code>orders</code>, it is easy to tell only salesperson &#39;John&#39; and &#39;Pam&#39; have sales to company &#39;RED&#39;,<br />
 so we need to output all the other <b>names</b> in the table <code>salesperson</code>.</p>
-
 
 ## Solutions
 

@@ -6,8 +6,6 @@
 
 <p>Table: <code>Activity</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -34,19 +32,11 @@ The table shows the user activities for a social media website.
 
 Note that each session belongs to exactly one user.</pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find the average number of sessions per user for a period of 30 days ending <strong>2019-07-27</strong>&nbsp;inclusively, <strong>rounded to 2 decimal places</strong>. The sessions we want to count for a user are those with at least one activity in that time period.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

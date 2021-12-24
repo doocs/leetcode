@@ -230,7 +230,7 @@ function reverseEvenLengthGroups(head: ListNode | null): ListNode | null {
         cur = cur.next;
     }
     return head;
-};
+}
 ```
 
 ### **...**

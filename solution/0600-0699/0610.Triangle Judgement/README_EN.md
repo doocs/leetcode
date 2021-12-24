@@ -10,17 +10,11 @@ A pupil Tim gets homework to identify whether three line segments could possibly
 
 However, this assignment is very heavy because there are hundreds of records to calculate.
 
-
-
 <p>&nbsp;</p>
 
 Could you help Tim by writing a query to judge whether these three sides can form a triangle, assuming table <code>triangle</code> holds the length of the three sides x, y and z.
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -36,8 +30,6 @@ Could you help Tim by writing a query to judge whether these three sides can for
 
 For the sample data above, your query should return the follow result:
 
-
-
 <pre>
 
 | x  | y  | z  | triangle |
@@ -49,8 +41,6 @@ For the sample data above, your query should return the follow result:
 | 10 | 20 | 15 | Yes      |
 
 </pre>
-
-
 
 ## Solutions
 

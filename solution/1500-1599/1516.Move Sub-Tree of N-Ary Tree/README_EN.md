@@ -86,7 +86,6 @@ As node p was the root of the tree, node q replaces it and becomes the root of t
 	<li><code>p</code> and <code>q</code> are two different nodes (i.e. <code>p != q</code>).</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

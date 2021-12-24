@@ -67,7 +67,6 @@ x=5, y=1 -&gt; f(5, 1) = 5 * 1 = 5.
 	<li>It is also guaranteed that <code>f(x, y)</code> will fit in 32 bit signed integer if <code>1 &lt;= x, y &lt;= 1000</code>.</li>
 </ul>
 
-
 ## Solutions
 
 Binary search.
@@ -85,7 +84,7 @@ Binary search.
        # Note that f(x, y) is increasing with respect to both x and y.
        # i.e. f(x, y) < f(x + 1, y), f(x, y) < f(x, y + 1)
        def f(self, x, y):
-  
+
 """
 
 class Solution:
@@ -151,11 +150,12 @@ class Solution {
  * }
  */
 
- function findSolution(customfunction: CustomFunction, z: number): number[][] {
-	// 二分
+function findSolution(customfunction: CustomFunction, z: number): number[][] {
+    // 二分
     let ans = [];
     for (let i = 1; i <= 1000; i++) {
-        let left = 1, right = 1000;
+        let left = 1,
+            right = 1000;
         while (left < right) {
             let mid = (left + right) >> 1;
             if (customfunction.f(i, mid) >= z) {
@@ -169,7 +169,7 @@ class Solution {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

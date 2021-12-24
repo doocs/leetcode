@@ -52,7 +52,6 @@ The city 0 has 1 neighboring city at a distanceThreshold = 2.
 	<li>All pairs <code>(from<sub>i</sub>, to<sub>i</sub>)</code> are distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

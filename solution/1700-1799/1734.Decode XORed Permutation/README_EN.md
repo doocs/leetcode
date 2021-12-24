@@ -35,7 +35,6 @@
 	<li><code>encoded.length == n - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

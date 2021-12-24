@@ -64,8 +64,8 @@ p = "mis*is*p*."
 
 1. `s[i] == p[j]` or `p[j] == '.'`：比如 ab**b** 和 ab**b**，或者 ab**b** 和 ab. ，很容易得到 `dp[i][j]` = `dp[i-1][j-1]` = True。因为 ab 和 ab 是匹配的，如果后面分别加一个 b，或者 s 加一个 b 而 p 加一个 `.` ，仍然是匹配的。
 2. `p[j] == '*'`：当 `p[j] == '*'` 时，由于 `*` 与前面的字符相关，因此我们比较 `*` 前面的字符 `p[j-1]` 和 `s[i]` 的关系。根据 `*` 前面的字符与 s[i] 是否相等，又可分为以下两种情况：
-   - `p[j-1] != s[i]`：如果 `*` 前一个字符匹配不上，`*` 匹配了 0 次，应忽略这两个字符，看 `p[j-2]` 和 `s[i]` 是否匹配。 这时 `dp[i][j] = dp[i][j-2]`。
-   - `p[j-1] == s[i]` or `p[j-1] == '.'`：`*` 前面的字符可以与 s[i] 匹配，这种情况下，`*` 可能匹配了前面的字符的 0 个，也可能匹配了前面字符的多个，当匹配 0 个时，如 `ab` 和 `abb*`，或者 `ab` 和 `ab.*` ，这时我们需要去掉 p 中的 `b*` 或 `.*` 后进行比较，即 `dp[i][j] = dp[i][j-2]`；当匹配多个时，如 `abbb` 和 `ab*`，或者 `abbb` 和 `a.*`，我们需要将 s[i] 前面的与 p 重新比较，即 `dp[i][j] = dp[i-1][j]`。
+    - `p[j-1] != s[i]`：如果 `*` 前一个字符匹配不上，`*` 匹配了 0 次，应忽略这两个字符，看 `p[j-2]` 和 `s[i]` 是否匹配。 这时 `dp[i][j] = dp[i][j-2]`。
+    - `p[j-1] == s[i]` or `p[j-1] == '.'`：`*` 前面的字符可以与 s[i] 匹配，这种情况下，`*` 可能匹配了前面的字符的 0 个，也可能匹配了前面字符的多个，当匹配 0 个时，如 `ab` 和 `abb*`，或者 `ab` 和 `ab.*` ，这时我们需要去掉 p 中的 `b*` 或 `.*` 后进行比较，即 `dp[i][j] = dp[i][j-2]`；当匹配多个时，如 `abbb` 和 `ab*`，或者 `abbb` 和 `a.*`，我们需要将 s[i] 前面的与 p 重新比较，即 `dp[i][j] = dp[i-1][j]`。
 3. 其他情况：以上两种情况把能匹配的都考虑全面了，所以其他情况为不匹配，即 `dp[i][j] = False`。
 
 <!-- tabs:start -->
@@ -206,22 +206,22 @@ func isMatch(s string, p string) bool {
  * @return {boolean}
  */
 var isMatch = function (s, p) {
-  // 回溯大法好
-  let memo = {};
-  function recursive(i, j) {
-    if (memo[[i, j]] !== undefined) return memo[[i, j]];
-    if (j === p.length) return i === s.length;
-    let tmp = i < s.length && (s[i] === p[j] || p[j] === ".");
-    let ans = false;
-    if (p[j + 1] === "*") {
-      ans = recursive(i, j + 2) || (tmp && recursive(i + 1, j));
-    } else {
-      ans = tmp && recursive(i + 1, j + 1);
+    // 回溯大法好
+    let memo = {};
+    function recursive(i, j) {
+        if (memo[[i, j]] !== undefined) return memo[[i, j]];
+        if (j === p.length) return i === s.length;
+        let tmp = i < s.length && (s[i] === p[j] || p[j] === ".");
+        let ans = false;
+        if (p[j + 1] === "*") {
+            ans = recursive(i, j + 2) || (tmp && recursive(i + 1, j));
+        } else {
+            ans = tmp && recursive(i + 1, j + 1);
+        }
+        memo[[i, j]] = ans;
+        return ans;
     }
-    memo[[i, j]] = ans;
-    return ans;
-  }
-  return recursive(0, 0);
+    return recursive(0, 0);
 };
 ```
 

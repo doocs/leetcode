@@ -33,7 +33,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> What if the input numbers come in one by one as an infinite stream? In other words, you can&#39;t store all numbers coming from the stream as it&#39;s too large to hold in memory. Could you solve it efficiently?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

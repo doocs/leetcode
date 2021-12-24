@@ -62,7 +62,6 @@
 	<li><code>1 <= dist[i], speed[i] <= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -116,7 +115,7 @@ class Solution {
  * @param {number[]} speed
  * @return {number}
  */
- var eliminateMaximum = function(dist, speed) {
+var eliminateMaximum = function (dist, speed) {
     let arr = [];
     for (let i = 0; i < dist.length; i++) {
         arr[i] = dist[i] / speed[i];

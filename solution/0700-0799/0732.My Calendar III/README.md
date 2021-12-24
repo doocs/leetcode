@@ -47,7 +47,6 @@ myCalendarThree.book(25, 55); // 返回 3
 	<li>每个测试用例，调用 <code>book</code> 函数最多不超过 <code>400</code>次</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

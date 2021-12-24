@@ -6,19 +6,11 @@
 
 <p>Given an array of integers A, a <em>move</em> consists of choosing any <code>A[i]</code>, and incrementing it by <code>1</code>.</p>
 
-
-
 <p>Return the least number of moves to make every value in <code>A</code> unique.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -50,24 +38,16 @@ It can be shown with 5 or less moves that it is impossible for the array to have
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>0 &lt;= A.length &lt;= 40000</code></li>
 	<li><code>0 &lt;= A[i] &lt; 40000</code></li>
 </ol>
-
-
 
 <div>
 

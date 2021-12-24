@@ -6,8 +6,6 @@
 
 <p>Given a table <code>customer</code> holding customers information and the referee.</p>
 
-
-
 <pre>
 
 +------+------+-----------+
@@ -32,15 +30,9 @@
 
 </pre>
 
-
-
 <p>Write a query to return the list of customers <b>NOT</b> referred by the person with id &#39;2&#39;.</p>
 
-
-
 <p>For the sample data above, the result is:</p>
-
-
 
 <pre>
 
@@ -61,8 +53,6 @@
 +------+
 
 </pre>
-
-
 
 ## Solutions
 

@@ -4,7 +4,8 @@
 
 ## Description
 
-Given two <strong>sorted 0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> as well as an integer <code>k</code>, return <em>the </em><code>k<sup>th</sup></code><em> (<strong>1-based</strong>) smallest product of </em><code>nums1[i] * nums2[j]</code><em> where </em><code>0 &lt;= i &lt; nums1.length</code><em> and </em><code>0 &lt;= j &lt; nums2.length</code>.
+Given two <strong>sorted 0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code> as well as an integer <code>k</code>, return <em>the </em><code>k<sup>th</sup></code><em> (<strong>1-based</strong>) smallest product of </em><code>nums1[i] \* nums2[j]</code><em> where </em><code>0 &lt;= i &lt; nums1.length</code><em> and </em><code>0 &lt;= j &lt; nums2.length</code>.
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -53,7 +54,6 @@ The 3<sup>rd</sup> smallest product is -6.
 	<li><code>1 &lt;= k &lt;= nums1.length * nums2.length</code></li>
 	<li><code>nums1</code> and <code>nums2</code> are sorted.</li>
 </ul>
-
 
 ## Solutions
 

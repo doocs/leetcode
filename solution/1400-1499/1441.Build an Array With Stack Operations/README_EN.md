@@ -60,7 +60,6 @@ Read number 3 and automatically push in the array -&gt; [1,3]
 	<li><code>target</code> is strictly&nbsp;increasing.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

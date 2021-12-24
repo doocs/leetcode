@@ -36,7 +36,6 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
 	<li><code>left</code> is less than or equal to <code>right</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

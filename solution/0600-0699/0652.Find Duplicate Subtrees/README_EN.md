@@ -40,7 +40,6 @@
 	<li><code>-200 &lt;= Node.val &lt;= 200</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -34,7 +34,6 @@
 	<li><code>n</code> is representing an integer in the range <code>[1, 10<sup>18</sup> - 1]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

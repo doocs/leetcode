@@ -6,11 +6,7 @@
 
 <p>Design a stack which supports the following operations.</p>
 
-
-
 <p>Implement the <code>CustomStack</code> class:</p>
-
-
 
 <ul>
 	<li><code>CustomStack(int maxSize)</code> Initializes the object with <code>maxSize</code> which is the maximum number of elements in the stack or do nothing if the stack reached the <code>maxSize</code>.</li>
@@ -19,13 +15,9 @@
 	<li><code>void inc(int k, int val)</code> Increments the bottom <code>k</code> elements of the stack by <code>val</code>. If there are less than <code>k</code> elements in the stack, just increment all the elements in the stack.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -69,13 +61,9 @@ customStack.pop();                            // return -1 --&gt; Stack is empty
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= maxSize &lt;= 1000</code></li>
@@ -131,17 +119,17 @@ class CustomStack {
     public CustomStack(int maxSize) {
         s = new int[maxSize];
     }
-    
+
     public void push(int x) {
         if (tail < s.length) {
             s[tail++] = x;
         }
     }
-    
+
     public int pop() {
         return tail == 0 ? -1 : s[--tail];
     }
-    
+
     public void increment(int k, int val) {
         for (int i = 0; i < Math.min(k, tail); ++i) {
             s[i] += val;
@@ -186,7 +174,7 @@ class CustomStack {
     increment(k: number, val: number): void {
         let tmp: Array<number> = [];
         for (let i = Math.max(this.size - k, 0); i < this.size; i++) {
-           this.stack[i] = this.stack[i] + val;
+            this.stack[i] = this.stack[i] + val;
         }
     }
 }

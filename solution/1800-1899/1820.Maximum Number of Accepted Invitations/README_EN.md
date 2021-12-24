@@ -47,7 +47,6 @@ Explanation:</strong> The invitations are sent as follows:
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

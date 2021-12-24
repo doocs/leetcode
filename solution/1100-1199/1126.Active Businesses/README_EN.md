@@ -48,7 +48,6 @@ Result table:
 Average for &#39;reviews&#39;, &#39;ads&#39; and &#39;page views&#39; are (7+3)/2=5, (11+7+6)/3=8, (3+12)/2=7.5 respectively.
 Business with id 1 has 7 &#39;reviews&#39; events (more than 5) and 11 &#39;ads&#39; events (more than 8) so it is an active business.</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

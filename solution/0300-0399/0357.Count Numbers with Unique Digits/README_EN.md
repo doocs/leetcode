@@ -29,7 +29,6 @@
 	<li><code>0 &lt;= n &lt;= 8</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

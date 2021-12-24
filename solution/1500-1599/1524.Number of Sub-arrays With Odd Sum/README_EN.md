@@ -6,17 +6,11 @@
 
 <p>Given an array of integers <code>arr</code>. Return <em>the number of sub-arrays</em> with <strong>odd</strong> sum.</p>
 
-
-
 <p>As the answer may grow large, the answer&nbsp;<strong>must be</strong>&nbsp;computed modulo&nbsp;<code>10^9 + 7</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -32,11 +26,7 @@ Odd sums are [1,9,3,5] so the answer is 4.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -52,11 +42,7 @@ All sub-arrays have even sum and the answer is 0.
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -66,11 +52,7 @@ All sub-arrays have even sum and the answer is 0.
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -80,11 +62,7 @@ All sub-arrays have even sum and the answer is 0.
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -94,13 +72,9 @@ All sub-arrays have even sum and the answer is 0.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>

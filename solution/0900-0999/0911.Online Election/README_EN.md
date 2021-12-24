@@ -109,7 +109,7 @@ class TopVotedCandidate {
             wins[i] = cur;
         }
     }
-    
+
     public int q(int t) {
         int left = 0, right = wins.length - 1;
         while (left < right) {
@@ -156,7 +156,7 @@ public:
             wins[i] = cur;
         }
     }
-    
+
     int q(int t) {
         int left = 0, right = wins.size() - 1;
         while (left < right)

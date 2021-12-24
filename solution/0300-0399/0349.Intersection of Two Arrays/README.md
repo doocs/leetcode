@@ -30,7 +30,6 @@
 	<li>我们可以不考虑输出结果的顺序。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -89,7 +88,7 @@ class Solution {
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersection = function(nums1, nums2) {
+var intersection = function (nums1, nums2) {
     const s = new Set();
     for (const num of nums1) {
         s.add(num);

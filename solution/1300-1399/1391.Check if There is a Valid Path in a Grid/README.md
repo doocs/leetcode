@@ -75,7 +75,6 @@
 	<li><code>1 &lt;= grid[i][j] &lt;= 6</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -157,23 +156,23 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         def left(i, j):
             if j > 0 and grid[i][j - 1] in (1, 4, 6):
                 p[find(i * n + j)] = find(i * n + j - 1)
-        
+
         def right(i, j):
             if j < n - 1 and grid[i][j + 1] in (1, 3, 5):
                 p[find(i * n + j)] = find(i * n + j + 1)
-        
+
         def up(i, j):
             if i > 0 and grid[i - 1][j] in (2, 3, 4):
                 p[find(i * n + j)] = find((i - 1) * n + j)
-        
+
         def down(i, j):
             if i < m - 1 and grid[i + 1][j] in (2, 5, 6):
                 p[find(i * n + j)] = find((i + 1) * n + j)
-        
+
         for i in range(m):
             for j in range(n):
                 e = grid[i][j]

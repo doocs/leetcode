@@ -57,7 +57,6 @@ Both ways have shortest distance 6, but the first way is lexicographically small
 	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,21 +6,13 @@
 
 <p>You are given a numeric string <code>num</code>, representing a very large <strong>palindrome</strong>.</p>
 
-
-
 <p>Return<em> the <strong>smallest palindrome larger than </strong></em><code>num</code><em> that can be created by rearranging its digits. If no such palindrome exists, return an empty string </em><code>&quot;&quot;</code>.</p>
 
-
-
 <p>A <strong>palindrome</strong> is a number that reads the same backward as forward.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -32,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +36,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -64,13 +48,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= num.length &lt;= 10<sup>5</sup></code></li>

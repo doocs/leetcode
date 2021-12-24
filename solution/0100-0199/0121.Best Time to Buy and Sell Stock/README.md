@@ -40,7 +40,6 @@
 	<li><code>0 <= prices[i] <= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -128,7 +127,7 @@ func min(a, b int) int {
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {
     let res = 0;
     let mi = prices[0];
     for (let i = 1; i < prices.length; ++i) {

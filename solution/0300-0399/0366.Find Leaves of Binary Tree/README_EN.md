@@ -63,7 +63,7 @@ class Solution:
                     prev.right = None
             dfs(root.left, root, t)
             dfs(root.right, root, t)
-        
+
         res = []
         prev = TreeNode(left=root)
         while prev.left:

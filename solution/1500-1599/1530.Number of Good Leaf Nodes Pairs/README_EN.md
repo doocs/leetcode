@@ -6,11 +6,7 @@
 
 <p>Given the <code>root</code> of a binary tree and an integer <code>distance</code>. A pair of two different <strong>leaf</strong> nodes of a binary tree is said to be good if the length of <strong>the shortest path</strong> between them is less than or equal to <code>distance</code>.</p>
 
-
-
 <p>Return <em>the number of good leaf node pairs</em> in the tree.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -28,8 +24,6 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1530.Number%20of%20Good%20Leaf%20Nodes%20Pairs/images/e2.jpg" style="width: 441px; height: 321px;" />
@@ -44,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -60,11 +50,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -74,11 +60,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -88,13 +70,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>The number of nodes in the&nbsp;<code>tree</code>&nbsp;is in the range&nbsp;<code>[1, 2^10].</code></li>

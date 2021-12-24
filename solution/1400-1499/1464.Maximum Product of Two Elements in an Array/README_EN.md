@@ -4,7 +4,8 @@
 
 ## Description
 
-Given the array of integers <code>nums</code>, you will choose two different indices <code>i</code> and <code>j</code> of that array. <em>Return the maximum value of</em> <code>(nums[i]-1)*(nums[j]-1)</code>.
+Given the array of integers <code>nums</code>, you will choose two different indices <code>i</code> and <code>j</code> of that array. <em>Return the maximum value of</em> <code>(nums[i]-1)\*(nums[j]-1)</code>.
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -36,7 +37,6 @@ Given the array of integers <code>nums</code>, you will choose two different ind
 	<li><code>2 &lt;= nums.length &lt;= 500</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10^3</code></li>
 </ul>
-
 
 ## Solutions
 

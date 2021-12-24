@@ -45,7 +45,6 @@
 	<li><code>brokenLetters</code> 由 <strong>互不相同</strong> 的小写英文字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

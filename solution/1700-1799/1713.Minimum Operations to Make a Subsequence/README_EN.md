@@ -37,7 +37,6 @@
 	<li><code>target</code> contains no duplicates.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

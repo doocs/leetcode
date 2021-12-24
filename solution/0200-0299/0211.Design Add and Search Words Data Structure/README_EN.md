@@ -111,7 +111,7 @@ class WordDictionary {
     public WordDictionary() {
         trie = new Trie();
     }
-    
+
     public void addWord(String word) {
         Trie node = trie;
         for (char c : word.toCharArray()) {
@@ -123,7 +123,7 @@ class WordDictionary {
         }
         node.isEnd = true;
     }
-    
+
     public boolean search(String word) {
         return search(word, trie);
     }

@@ -6,19 +6,11 @@
 
 <p>Given words <code>first</code> and <code>second</code>, consider occurrences in some&nbsp;<code>text</code> of the form &quot;<code>first second third</code>&quot;, where <code>second</code> comes immediately after <code>first</code>, and <code>third</code> comes immediately after <code>second</code>.</p>
 
-
-
 <p>For each such occurrence, add &quot;<code>third</code>&quot; to the answer, and return the answer.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -28,13 +20,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -44,15 +32,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= text.length &lt;= 1000</code></li>
@@ -62,8 +44,6 @@
 </ol>
 
 </div>
-
-
 
 ## Solutions
 

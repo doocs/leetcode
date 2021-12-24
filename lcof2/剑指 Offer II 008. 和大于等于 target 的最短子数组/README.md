@@ -54,7 +54,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 209&nbsp;题相同：<a href="https://leetcode-cn.com/problems/minimum-size-subarray-sum/">https://leetcode-cn.com/problems/minimum-size-subarray-sum/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -143,7 +142,7 @@ class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
         int left = 0, right;
-        int sum = 0; 
+        int sum = 0;
         int minlen = INT_MAX;
 
         for (right = 0; right < nums.size(); right++) {
@@ -158,7 +157,6 @@ public:
     }
 };
 ```
-
 
 ### **...**
 

@@ -87,7 +87,6 @@ Airport 6 was engaged with 7 flights.
 The airports with the most traffic are airports 1, 2, 3, and 4.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

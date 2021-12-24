@@ -30,7 +30,6 @@
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

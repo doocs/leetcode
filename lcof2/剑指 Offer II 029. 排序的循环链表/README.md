@@ -56,7 +56,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 708&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list/">https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -193,13 +192,13 @@ public:
         Node* cur = head;
         Node* maxNode = head;
         Node* next = head->next;
-        
+
         while (!(cur->val <= insert->val && insert->val <= next->val) && next != head) {
             cur = cur->next;
             next = next->next;
 
             if (cur->val >= maxNode->val)
-                maxNode = cur; 
+                maxNode = cur;
         }
 
         if (cur->val <= insert->val && insert->val <= next->val) {
@@ -208,7 +207,7 @@ public:
         } else {
             insert->next = maxNode->next;
             maxNode->next = insert;
-            
+
         }
 
     }

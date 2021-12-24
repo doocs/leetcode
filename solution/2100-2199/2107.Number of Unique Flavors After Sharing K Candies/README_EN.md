@@ -62,7 +62,6 @@ You do not have any candies left over, so return 0.
 	<li><code>0 &lt;= k &lt;= candies.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

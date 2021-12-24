@@ -43,7 +43,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -82,7 +81,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var maxProductDifference = function(nums) {
+var maxProductDifference = function (nums) {
     nums.sort((a, b) => a - b);
     let n = nums.length;
     let ans = nums[n - 1] * nums[n - 2] - nums[0] * nums[1];

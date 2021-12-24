@@ -50,7 +50,6 @@ The 3-sequence (&quot;cart&quot;, &quot;maps&quot;, &quot;home&quot;) was visite
 	<li>No user visits two websites at the same time.</li>
 </ol>
 
-
 ## Solutions
 
 <!-- tabs:start -->

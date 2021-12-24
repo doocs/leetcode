@@ -31,7 +31,6 @@
 	<li><code>0 &lt;= height[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -49,7 +48,7 @@ class Solution:
         for i in range(1, n):
             lmx[i] = max(lmx[i - 1], height[i])
             rmx[n - 1 - i] = max(rmx[n - i], height[n - 1 - i])
-        
+
         res = 0
         for i in range(n):
             res += min(lmx[i], rmx[i]) - height[i]
@@ -74,7 +73,7 @@ class Solution {
             lmx[i] = Math.max(lmx[i - 1], height[i]);
             rmx[n - 1 - i] = Math.max(rmx[n - i], height[n - i - 1]);
         }
-        
+
         int res = 0;
         for (int i = 0; i < n; ++i) {
             res += Math.min(lmx[i], rmx[i]) - height[i];
@@ -89,15 +88,17 @@ class Solution {
 ```ts
 function trap(height: number[]): number {
     let ans = 0;
-    let left = 0, right = height.length - 1;
-    let maxLeft = 0, maxRight = 0;
+    let left = 0,
+        right = height.length - 1;
+    let maxLeft = 0,
+        maxRight = 0;
     while (left < right) {
         if (height[left] < height[right]) {
             // move left
             if (height[left] >= maxLeft) {
                 maxLeft = height[left];
             } else {
-                ans += (maxLeft - height[left]);
+                ans += maxLeft - height[left];
             }
             ++left;
         } else {
@@ -105,13 +106,13 @@ function trap(height: number[]): number {
             if (height[right] >= maxRight) {
                 maxRight = height[right];
             } else {
-                ans += (maxRight - height[right]);
+                ans += maxRight - height[right];
             }
             --right;
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**
@@ -131,7 +132,7 @@ public:
             lmx[i] = max(lmx[i - 1], height[i]);
             rmx[n - 1 - i] = max(rmx[n - i], height[n - 1 - i]);
         }
-        
+
         int res = 0;
         for (int i = 0; i < n; ++i) {
             res += min(lmx[i], rmx[i]) - height[i];

@@ -43,7 +43,6 @@
 	<li><code>queries[i][j]</code>、<code>words[i][j]</code> 都由小写英文字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

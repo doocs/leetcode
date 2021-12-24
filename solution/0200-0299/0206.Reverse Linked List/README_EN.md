@@ -39,7 +39,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> A linked list can be reversed either iteratively or recursively. Could you implement both?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -129,9 +128,9 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
- var reverseList = function(head) {
+var reverseList = function (head) {
     let pre = null;
-    for (let p = head; p;) {
+    for (let p = head; p; ) {
         let q = p.next;
         p.next = pre;
         pre = p;

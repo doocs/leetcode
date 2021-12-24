@@ -62,7 +62,6 @@
 	<li><code>1 <= pick <= n</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -96,7 +95,7 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -124,7 +123,7 @@ public class Solution extends GuessGame {
 ### **C++**
 
 ```cpp
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -179,7 +178,7 @@ func guessNumber(n int) int {
 ### **C#**
 
 ```cs
-/** 
+/**
  * Forward declaration of guess API.
  * @param  num   your guess
  * @return 	     -1 if num is lower than the guess number
@@ -196,7 +195,7 @@ public class Solution : GuessGame {
             int mid = left + ((right - left) >> 1);
             if (guess(mid) <= 0)
             {
-                right = mid; 
+                right = mid;
             }
             else
             {

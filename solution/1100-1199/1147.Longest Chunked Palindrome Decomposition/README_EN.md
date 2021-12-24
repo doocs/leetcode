@@ -55,7 +55,6 @@
 	<li><code>text</code> consists only of lowercase English characters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

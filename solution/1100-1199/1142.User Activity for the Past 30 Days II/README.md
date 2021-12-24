@@ -1,4 +1,4 @@
-# [1142. 过去30天的用户活动 II](https://leetcode-cn.com/problems/user-activity-for-the-past-30-days-ii)
+# [1142. 过去 30 天的用户活动 II](https://leetcode-cn.com/problems/user-activity-for-the-past-30-days-ii)
 
 [English Version](/solution/1100-1199/1142.User%20Activity%20for%20the%20Past%2030%20Days%20II/README_EN.md)
 
@@ -58,7 +58,6 @@ Result table:
 | 1.33                      |
 +---------------------------+ 
 User 1 和 2 在过去30天内各自进行了1次会话，而用户3进行了2次会话，因此平均值为（1 +1 + 2）/ 3 = 1.33。</pre>
-
 
 ## 解法
 

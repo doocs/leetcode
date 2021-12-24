@@ -61,7 +61,7 @@ class Solution:
             for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
                 res += dfs(i + x, j + y)
             return res
-        
+
         m, n = len(grid), len(grid[0])
         res = 0
         for i in range(m):
@@ -204,7 +204,8 @@ DFS:
 
 ```ts
 function maxAreaOfIsland(grid: number[][]): number {
-    let m = grid.length, n = grid[0].length;
+    let m = grid.length,
+        n = grid[0].length;
     let res = 0;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
@@ -214,16 +215,22 @@ function maxAreaOfIsland(grid: number[][]): number {
         }
     }
     return res;
-};
+}
 
 function dfs(grid: number[][], i: number, j: number): number {
-    let m = grid.length, n = grid[0].length;
+    let m = grid.length,
+        n = grid[0].length;
     if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || grid[i][j] == 0) {
         return 0;
     }
     grid[i][j] = 0;
     let res = 1;
-    for (let [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
+    for (let [dx, dy] of [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ]) {
         res += dfs(grid, i + dx, j + dy);
     }
     return res;

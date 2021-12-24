@@ -100,7 +100,6 @@ Quarz won a medal in 5 consecutive contests (190, 191, 192, 193, and 194), so we
 	<li>Some users may not participate in every contest but still perform well in the ones they do. How would you change your solution to only consider contests where the user <strong>was a participant</strong>? Suppose the registered users for each contest are given in another table.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

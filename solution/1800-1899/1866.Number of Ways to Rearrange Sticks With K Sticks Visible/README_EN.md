@@ -47,7 +47,6 @@ The visible sticks are underlined.
 	<li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

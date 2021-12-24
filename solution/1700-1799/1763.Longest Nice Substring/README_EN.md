@@ -48,7 +48,6 @@ As there are multiple longest nice substrings, return &quot;dD&quot; since it oc
 	<li><code>s</code> consists of uppercase and lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

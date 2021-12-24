@@ -54,7 +54,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 297&nbsp;题相同：<a href="https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/">https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/</a>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -77,7 +76,7 @@ class Codec:
 
     def serialize(self, root):
         """Encodes a tree to a single string.
-        
+
         :type root: TreeNode
         :rtype: str
         """
@@ -93,14 +92,14 @@ class Codec:
             res.append(str(root.val) + ",")
             preorder(root.left)
             preorder(root.right)
-        
+
         preorder(root)
         return ''.join(res)
-        
+
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
+
         :type data: str
         :rtype: TreeNode
         """
@@ -113,7 +112,7 @@ class Codec:
             if first == '#':
                 return None
             return TreeNode(int(first), inner(), inner())
-        
+
         return inner()
 
 # Your Codec object will be instantiated and called as such:
@@ -263,8 +262,8 @@ public:
  * @param {TreeNode} root
  * @return {string}
  */
-var serialize = function(root) {
-    return rserialize(root, '');
+var serialize = function (root) {
+    return rserialize(root, "");
 };
 
 /**
@@ -273,7 +272,7 @@ var serialize = function(root) {
  * @param {string} data
  * @return {TreeNode}
  */
-var deserialize = function(data) {
+var deserialize = function (data) {
     const dataArray = data.split(",");
     return rdeserialize(dataArray);
 };
@@ -282,14 +281,14 @@ const rserialize = (root, str) => {
     if (root === null) {
         str += "#,";
     } else {
-        str += root.val + '' + ",";
+        str += root.val + "" + ",";
         str = rserialize(root.left, str);
         str = rserialize(root.right, str);
     }
     return str;
-}
+};
 
-const rdeserialize = (dataList) => {
+const rdeserialize = dataList => {
     if (dataList[0] === "#") {
         dataList.shift();
         return null;
@@ -301,7 +300,7 @@ const rdeserialize = (dataList) => {
     root.right = rdeserialize(dataList);
 
     return root;
-}
+};
 
 /**
  * Your functions will be called as such:

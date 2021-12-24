@@ -52,7 +52,6 @@
 	<li>There will be at most <code>10<sup>5</sup></code> integers in all the arrays.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

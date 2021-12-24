@@ -61,7 +61,6 @@ for (int i = 0; i < len; i++) {
 	<li><code>0 <= val <= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -126,13 +125,13 @@ public:
  * @return {number}
  */
 var removeElement = function (nums, val) {
-  let cnt = 0;
-  const n = nums.length;
-  for (let i = 0; i < n; ++i) {
-    if (nums[i] == val) ++cnt;
-    else nums[i - cnt] = nums[i];
-  }
-  return n - cnt;
+    let cnt = 0;
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        if (nums[i] == val) ++cnt;
+        else nums[i - cnt] = nums[i];
+    }
+    return n - cnt;
 };
 ```
 

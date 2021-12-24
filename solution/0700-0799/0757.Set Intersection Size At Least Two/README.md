@@ -1,4 +1,4 @@
-# [757. 设置交集大小至少为2](https://leetcode-cn.com/problems/set-intersection-size-at-least-two)
+# [757. 设置交集大小至少为 2](https://leetcode-cn.com/problems/set-intersection-size-at-least-two)
 
 [English Version](/solution/0700-0799/0757.Set%20Intersection%20Size%20At%20Least%20Two/README_EN.md)
 
@@ -36,7 +36,6 @@
 	<li><code>intervals[i]</code>&nbsp;长度为&nbsp;<code>2</code>，分别代表左、右边界。</li>
 	<li><code>intervals[i][j]</code> 的值是&nbsp;<code>[0, 10^8]</code>范围内的整数。</li>
 </ol>
-
 
 ## 解法
 

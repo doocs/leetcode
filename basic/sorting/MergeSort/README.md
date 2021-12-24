@@ -164,16 +164,19 @@ public class Main {
 ### **JavaScript**
 
 ```js
-var buf = '';
+var buf = "";
 
-process.stdin.on('readable', function () {
+process.stdin.on("readable", function () {
     var chunk = process.stdin.read();
     if (chunk) buf += chunk.toString();
 });
 
 let getInputArgs = line => {
-    return line.split(' ').filter(s => s !== '').map(x => parseInt(x));
-}
+    return line
+        .split(" ")
+        .filter(s => s !== "")
+        .map(x => parseInt(x));
+};
 
 function mergeSort(nums, left, right) {
     if (left >= right) {
@@ -204,16 +207,13 @@ function mergeSort(nums, left, right) {
     }
 }
 
-
-
-process.stdin.on('end', function () {
-    buf.split('\n').forEach(function (line, lineIdx) {
+process.stdin.on("end", function () {
+    buf.split("\n").forEach(function (line, lineIdx) {
         if (lineIdx % 2 === 1) {
             nums = getInputArgs(line);
             mergeSort(nums, 0, nums.length - 1);
-            console.log(nums.join(' '));
+            console.log(nums.join(" "));
         }
-
     });
 });
 ```

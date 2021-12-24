@@ -50,7 +50,6 @@ The cost is 1 + max(3, 1 + max(1, 2)) = 4.
 	<li><code>1 &lt;= split &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

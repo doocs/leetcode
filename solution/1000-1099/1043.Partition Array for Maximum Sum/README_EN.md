@@ -40,7 +40,6 @@
 	<li><code>1 &lt;= k &lt;= arr.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

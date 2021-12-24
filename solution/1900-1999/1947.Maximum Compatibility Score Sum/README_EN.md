@@ -50,7 +50,6 @@ The compatibility score sum is 3 + 2 + 3 = 8.
 	<li><code>mentors[j][k]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

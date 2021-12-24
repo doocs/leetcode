@@ -84,7 +84,7 @@ class Solution:
                 if nums[j] * count - (presum[j + 1] - presum[i]) <= k:
                     return True
             return False
-        
+
         left, right = 1, n
         while left < right:
             mid = (left + right + 1) >> 1

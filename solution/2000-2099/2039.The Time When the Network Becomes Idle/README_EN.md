@@ -43,11 +43,11 @@ At second 2,
 - The reply 1A arrives at server 1. No more resending will occur from server 1.
 - Message 2A arrives at the master server. Master server processes message 2A instantly and sends a reply 2A back.
 - Server 2 resends the message (denoted 2C).
-  ...
-  At second 4,
+    ...
+    At second 4,
 - The reply 2A arrives at server 2. No more resending will occur from server 2.
-  ...
-  At second 7, reply 2D arrives at server 2.
+    ...
+    At second 7, reply 2D arrives at server 2.
 
 Starting from the beginning of the second 8, there are no messages passing between servers or arriving at servers.
 This is the time when the network becomes idle.

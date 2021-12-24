@@ -47,7 +47,6 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

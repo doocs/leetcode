@@ -35,7 +35,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 525&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/contiguous-array/">https://leetcode-cn.com/problems/contiguous-array/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -129,14 +128,13 @@ public:
             if (mp.find(presum) != mp.end())
                 maxlen = max(maxlen, i - mp[presum]);
             else
-                mp[presum] = i;    
+                mp[presum] = i;
         }
 
         return maxlen;
     }
 };
 ```
-
 
 ### **...**
 

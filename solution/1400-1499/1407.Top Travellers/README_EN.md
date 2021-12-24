@@ -89,7 +89,6 @@ Bob, Jonathan, Alex and Alice have only one ride and we just order them by the t
 Donald didn&#39;t have any rides, the distance travelled by him is 0.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

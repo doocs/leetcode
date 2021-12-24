@@ -83,8 +83,8 @@ Morris 遍历无需使用栈，空间复杂度为 O(1)。核心思想是：
 
 1. 若当前节点 root 的左子树为空，**将当前节点值添加至结果列表 res** 中，并将当前节点更新为 `root.right`
 2. 若当前节点 root 的左子树不为空，找到左子树的最右节点 pre（也即是 root 节点在中序遍历下的前驱节点）：
-   - 若前驱节点 pre 的右子树为空，将前驱节点的右子树指向当前节点 root，并将当前节点更新为 `root.left`。
-   - 若前驱节点 pre 的右子树不为空，**将当前节点值添加至结果列表 res** 中，然后将前驱节点右子树指向空（即解除 pre 与 root 的指向关系），并将当前节点更新为 `root.right`。
+    - 若前驱节点 pre 的右子树为空，将前驱节点的右子树指向当前节点 root，并将当前节点更新为 `root.left`。
+    - 若前驱节点 pre 的右子树不为空，**将当前节点值添加至结果列表 res** 中，然后将前驱节点右子树指向空（即解除 pre 与 root 的指向关系），并将当前节点更新为 `root.right`。
 3. 循环以上步骤，直至二叉树节点为空，遍历结束。
 
 <!-- tabs:start -->
@@ -308,16 +308,16 @@ class Solution {
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
-  let res = [];
-  function inorder(root) {
-    if (root) {
-      inorder(root.left);
-      res.push(root.val);
-      inorder(root.right);
+    let res = [];
+    function inorder(root) {
+        if (root) {
+            inorder(root.left);
+            res.push(root.val);
+            inorder(root.right);
+        }
     }
-  }
-  inorder(root);
-  return res;
+    inorder(root);
+    return res;
 };
 ```
 
@@ -337,19 +337,19 @@ var inorderTraversal = function (root) {
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
-  let res = [];
-  let s = [];
-  while (root || s.length > 0) {
-    if (root) {
-      s.push(root);
-      root = root.left;
-    } else {
-      root = s.pop();
-      res.push(root.val);
-      root = root.right;
+    let res = [];
+    let s = [];
+    while (root || s.length > 0) {
+        if (root) {
+            s.push(root);
+            root = root.left;
+        } else {
+            root = s.pop();
+            res.push(root.val);
+            root = root.right;
+        }
     }
-  }
-  return res;
+    return res;
 };
 ```
 

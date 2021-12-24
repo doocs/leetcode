@@ -39,7 +39,6 @@
 	<li><code>cost[i]</code> 将会是一个整型数据，范围为 <code>[0, 999]</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -81,12 +80,13 @@ class Solution {
 
 ```ts
 function minCostClimbingStairs(cost: number[]): number {
-    let a = 0, b = 0;
+    let a = 0,
+        b = 0;
     for (let i = 1; i < cost.length; ++i) {
         [a, b] = [b, Math.min(a + cost[i - 1], b + cost[i])];
     }
     return b;
-};
+}
 ```
 
 ### **C++**

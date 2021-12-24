@@ -43,7 +43,6 @@ The output order does not matter, returning [9,0] is fine too.
 	<li><code>words[i]</code>&nbsp;consists of lower-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

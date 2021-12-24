@@ -1,4 +1,4 @@
-# [837. 新21点](https://leetcode-cn.com/problems/new-21-game)
+# [837. 新 21 点](https://leetcode-cn.com/problems/new-21-game)
 
 [English Version](/solution/0800-0899/0837.New%2021%20Game/README_EN.md)
 
@@ -42,7 +42,6 @@
 	<li>如果答案与正确答案的误差不超过 <code>10^-5</code>，则该答案将被视为正确答案通过。</li>
 	<li>此问题的判断限制时间已经减少。</li>
 </ol>
-
 
 ## 解法
 

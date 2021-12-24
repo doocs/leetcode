@@ -72,7 +72,7 @@ class Solution:
             if l == -1 or r == -1 or abs(l - r) > 1:
                 return -1
             return 1 + max(l, r)
-        
+
         return height(root) >= 0
 ```
 
@@ -130,8 +130,8 @@ class Solution {
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isBalanced = function(root) {
-    let height = function(root) {
+var isBalanced = function (root) {
+    let height = function (root) {
         if (root == null) {
             return 0;
         }
@@ -141,7 +141,7 @@ var isBalanced = function(root) {
             return -1;
         }
         return 1 + Math.max(l, r);
-    }
+    };
 
     return height(root) >= 0;
 };

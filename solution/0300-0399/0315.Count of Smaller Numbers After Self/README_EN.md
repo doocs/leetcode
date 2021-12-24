@@ -41,7 +41,6 @@ To the right of 1 there is <b>0</b> smaller element.
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

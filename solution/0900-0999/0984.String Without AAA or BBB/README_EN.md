@@ -36,7 +36,6 @@
 	<li>It is guaranteed such an <code>s</code> exists for the given <code>a</code> and <code>b</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

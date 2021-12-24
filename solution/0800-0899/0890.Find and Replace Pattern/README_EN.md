@@ -6,33 +6,19 @@
 
 <p>You have a list of&nbsp;<code>words</code> and a <code>pattern</code>, and you want to know which words in <code>words</code> matches the pattern.</p>
 
-
-
 <p>A word matches the pattern if there exists a permutation of letters <code>p</code> so that after replacing every letter <code>x</code> in the pattern with <code>p(x)</code>, we get the desired word.</p>
-
-
 
 <p>(<em>Recall that a permutation of letters is a bijection from letters to letters: every letter maps to another letter, and no two letters map to the same letter.</em>)</p>
 
-
-
 <p>Return a list of the words in <code>words</code>&nbsp;that match the given pattern.&nbsp;</p>
-
-
 
 <p>You may return the answer in any order.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -46,15 +32,9 @@
 
 since a and b map to the same letter.</pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= words.length &lt;= 50</code></li>
@@ -62,8 +42,6 @@ since a and b map to the same letter.</pre>
 </ul>
 
 </div>
-
-
 
 ## Solutions
 

@@ -6,8 +6,6 @@
 
 <p>Implementing the class <code>MajorityChecker</code>, which has the following API:</p>
 
-
-
 <ul>
 	<li><code>MajorityChecker(int[] arr)</code> constructs an instance of MajorityChecker with the given array <code>arr</code>;</li>
 	<li><code>int query(int left, int right, int threshold)</code>&nbsp;has arguments&nbsp;such that:
@@ -18,19 +16,11 @@
 	</li>
 </ul>
 
-
-
 <p>Each&nbsp;<code>query(...)</code> returns the element in <code>arr[left], arr[left+1], ..., arr[right]</code> that occurs at least <code>threshold</code> times, or <code>-1</code> if no such element exists.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -44,13 +34,9 @@ majorityChecker.query(2,3,2); // returns 2
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= arr.length &lt;=&nbsp;20000</code></li>

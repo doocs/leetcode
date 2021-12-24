@@ -42,7 +42,6 @@
 	<li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -224,7 +224,7 @@ var boundaryOfBinaryTree = function (root) {
             }
             res.push(curVal);
         }
-    }
+    };
     let rightBoundary = function (root, res) {
         let stk = [];
         while (root) {
@@ -242,7 +242,7 @@ var boundaryOfBinaryTree = function (root) {
         for (let i = 0; i < len; i++) {
             res.push(stk.pop());
         }
-    }
+    };
     let levelBoundary = function (root, res) {
         if (root) {
             levelBoundary(root.left, res);
@@ -251,7 +251,7 @@ var boundaryOfBinaryTree = function (root) {
             }
             levelBoundary(root.right, res);
         }
-    }
+    };
     let res = [];
     if (root) {
         res.push(root.val);

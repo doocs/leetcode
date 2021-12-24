@@ -6,8 +6,6 @@
 
 <p>Given an integer, return its base 7 string representation.</p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -20,8 +18,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -33,8 +29,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 

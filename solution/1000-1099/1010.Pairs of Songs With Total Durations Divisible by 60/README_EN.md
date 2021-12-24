@@ -36,7 +36,6 @@
 	<li><code>1 &lt;= time[i] &lt;= 500</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

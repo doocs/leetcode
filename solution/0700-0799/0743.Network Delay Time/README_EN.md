@@ -43,7 +43,6 @@
 	<li>All the pairs <code>(u<sub>i</sub>, v<sub>i</sub>)</code> are <strong>unique</strong>. (i.e., no multiple edges.)</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

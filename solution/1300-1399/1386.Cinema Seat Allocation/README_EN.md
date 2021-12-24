@@ -49,7 +49,6 @@
 	<li>All <code>reservedSeats[i]</code> are distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

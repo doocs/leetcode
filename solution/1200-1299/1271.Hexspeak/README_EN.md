@@ -33,7 +33,6 @@
 	<li>All answers must be in uppercase letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

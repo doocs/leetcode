@@ -59,7 +59,6 @@ This yields an absolute sum difference of <code>|10-9| + |10-3| + |4-5| + |4-1| 
 	<li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

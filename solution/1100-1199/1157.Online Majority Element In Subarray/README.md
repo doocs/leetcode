@@ -42,7 +42,6 @@ majorityChecker.query(2,3,2); // 返回 2
 	<li>查询次数最多为 <code>10000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

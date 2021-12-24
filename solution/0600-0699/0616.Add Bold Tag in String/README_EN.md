@@ -5,6 +5,7 @@
 ## Description
 
 Given a string <b>s</b> and a list of strings <b>dict</b>, you need to add a closed pair of bold tag <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code> to wrap the substrings in s that exist in dict. If two such substrings overlap, you need to wrap them together by only one pair of closed bold tag. Also, if two substrings wrapped by bold tags are consecutive, you need to combine them.
+
 <p><b>Example 1:</b></p>
 
 <pre>
@@ -37,7 +38,6 @@ dict = [&quot;aaa&quot;,&quot;aab&quot;,&quot;bc&quot;]
 </ul>
 
 <p><strong>Note:</strong> This question is the same as 758:&nbsp;<a href="https://leetcode.com/problems/bold-words-in-string/">https://leetcode.com/problems/bold-words-in-string/</a></p>
-
 
 ## Solutions
 

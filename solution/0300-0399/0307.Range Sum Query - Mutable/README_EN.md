@@ -43,7 +43,6 @@ numArray.sumRange(0, 2); // return 8 = sum([1,2,5])
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>update</code> and <code>sumRange</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

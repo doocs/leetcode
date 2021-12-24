@@ -6,8 +6,6 @@
 
 <p>Table: <code>Customer</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -36,35 +34,19 @@ amount is the total paid by a customer.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>You are the restaurant owner and you want to analyze a possible expansion (there will be at least one customer every day).</p>
 
-
-
 <p>Write an SQL query to compute moving average of how much customer paid in a 7 days window (current day + 6&nbsp;days before) .</p>
-
-
 
 <p>The query result format is in the following example:</p>
 
-
-
 <p>Return result table ordered by visited_on.</p>
-
-
 
 <p><code>average_amount&nbsp;</code>should be&nbsp;<strong>rounded to 2 decimal places</strong>, all dates are in the format (&#39;YYYY-MM-DD&#39;).</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

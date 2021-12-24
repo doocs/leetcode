@@ -6,15 +6,9 @@
 
 <p>Given a string <font face="monospace">s</font>&nbsp;of&nbsp;<code>&#39;(&#39;</code>&nbsp;,&nbsp;<code>&#39;)&#39;</code>&nbsp;and lowercase English characters.&nbsp;</p>
 
-
-
 <p>Your task is to remove the minimum number of parentheses (&nbsp;<code>&#39;(&#39;</code>&nbsp;or&nbsp;<code>&#39;)&#39;</code>,&nbsp;in any positions ) so that the resulting <em>parentheses string</em> is valid and return <strong>any</strong> valid string.</p>
 
-
-
 <p>Formally, a <em>parentheses string</em> is valid if and only if:</p>
-
-
 
 <ul>
 	<li>It is the empty string, contains only lowercase characters, or</li>
@@ -22,13 +16,9 @@
 	<li>It can be written as&nbsp;<code>(A)</code>, where&nbsp;<code>A</code>&nbsp;is a valid string.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -40,11 +30,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -54,11 +40,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -70,11 +52,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -84,13 +62,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>

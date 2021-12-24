@@ -6,15 +6,13 @@
 
 <p>
 
-In a 2D <code>grid</code> from (0, 0) to (N-1, N-1), every cell contains a <code>1</code>, except those cells in the given list <code>mines</code> which are <code>0</code>.  What is the largest axis-aligned plus sign of <code>1</code>s contained in the grid?  Return the order of the plus sign.  If there is none, return 0.
+In a 2D <code>grid</code> from (0, 0) to (N-1, N-1), every cell contains a <code>1</code>, except those cells in the given list <code>mines</code> which are <code>0</code>. What is the largest axis-aligned plus sign of <code>1</code>s contained in the grid? Return the order of the plus sign. If there is none, return 0.
 
 </p><p>
 
-An "<i>axis-aligned plus sign of <code>1</code>s</i> of order <b>k</b>" has some center <code>grid[x][y] = 1</code> along with 4 arms of length <code>k-1</code> going up, down, left, and right, and made of <code>1</code>s.  This is demonstrated in the diagrams below.  Note that there could be <code>0</code>s or <code>1</code>s beyond the arms of the plus sign, only the relevant area of the plus sign is checked for 1s.
+An "<i>axis-aligned plus sign of <code>1</code>s</i> of order <b>k</b>" has some center <code>grid[x][y] = 1</code> along with 4 arms of length <code>k-1</code> going up, down, left, and right, and made of <code>1</code>s. This is demonstrated in the diagrams below. Note that there could be <code>0</code>s or <code>1</code>s beyond the arms of the plus sign, only the relevant area of the plus sign is checked for 1s.
 
 </p><p>
-
-
 
 <p><b>Examples of Axis-Aligned Plus Signs of Order k:</b><br /><pre>
 
@@ -25,8 +23,6 @@ Order 1:
 0<b>1</b>0
 
 000
-
-
 
 Order 2:
 
@@ -39,8 +35,6 @@ Order 2:
 00<b>1</b>00
 
 00000
-
-
 
 Order 3:
 
@@ -60,8 +54,6 @@ Order 3:
 
 </pre></p>
 
-
-
 <p><b>Example 1:</b><br /><pre>
 
 <b>Input:</b> N = 5, mines = [[4, 2]]
@@ -80,11 +72,9 @@ Order 3:
 
 1<b>1</b>011
 
-In the above grid, the largest plus sign can only be order 2.  One of them is marked in bold.
+In the above grid, the largest plus sign can only be order 2. One of them is marked in bold.
 
 </pre></p>
-
-
 
 <p><b>Example 2:</b><br /><pre>
 
@@ -98,8 +88,6 @@ There is no plus sign of order 2, but there is of order 1.
 
 </pre></p>
 
-
-
 <p><b>Example 3:</b><br /><pre>
 
 <b>Input:</b> N = 1, mines = [[0, 0]]
@@ -111,8 +99,6 @@ There is no plus sign of order 2, but there is of order 1.
 There is no plus sign, so return 0.
 
 </pre></p>
-
-
 
 <p><b>Note:</b><br><ol>
 

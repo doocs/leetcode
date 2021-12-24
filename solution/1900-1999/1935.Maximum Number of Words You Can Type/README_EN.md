@@ -44,7 +44,6 @@
 	<li><code>brokenLetters</code> consists of <strong>distinct</strong> lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

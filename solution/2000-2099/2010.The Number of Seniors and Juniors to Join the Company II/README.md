@@ -95,7 +95,6 @@ We cannot hire any seniors with the current budget as we need at least $80000 to
 We can hire all three juniors with the remaining budget.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

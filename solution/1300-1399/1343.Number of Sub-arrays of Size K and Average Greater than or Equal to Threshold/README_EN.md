@@ -56,7 +56,6 @@
 	<li><code>0 &lt;= threshold &lt;= 10^4</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

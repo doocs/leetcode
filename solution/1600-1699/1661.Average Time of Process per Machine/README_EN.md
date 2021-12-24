@@ -70,7 +70,6 @@ Machine 1&#39;s average time is ((1.550 - 0.550) + (1.420 - 0.430)) / 2 = 0.995
 Machine 2&#39;s average time is ((4.512 - 4.100) + (5.000 - 2.500)) / 2 = 1.456
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

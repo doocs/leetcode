@@ -39,7 +39,6 @@
 
 <p>注意：本题与主站 653 题相同：&nbsp;<a href="https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/">https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -68,7 +67,7 @@ class Solution:
                 return True
             nodes.add(root.val)
             return find(root.left) or find(root.right)
-        
+
         nodes = set()
         return find(root)
 ```
@@ -134,7 +133,7 @@ class Solution {
 function findTarget(root: TreeNode | null, k: number): boolean {
     let nodes: Set<number> = new Set();
     return find(root, k, nodes);
-};
+}
 
 function find(root: TreeNode | null, k: number, nodes: Set<number>): boolean {
     if (!root) return false;
@@ -163,7 +162,7 @@ public:
     unordered_set<int> nodes;
 
     bool findTarget(TreeNode* root, int k) {
-        return find(root, k);    
+        return find(root, k);
     }
 
     bool find(TreeNode* root, int k) {

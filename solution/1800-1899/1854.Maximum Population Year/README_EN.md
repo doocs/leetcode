@@ -36,7 +36,6 @@ The earlier year between them is 1960.</pre>
 	<li><code>1950 &lt;= birth<sub>i</sub> &lt; death<sub>i</sub> &lt;= 2050</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -50,7 +49,7 @@ class Solution:
         for birth, death in logs:
             delta[birth] += 1
             delta[death] -= 1
-        
+
         mx = res = cur = 0
         for i, v in enumerate(delta):
             cur += v
@@ -90,7 +89,7 @@ class Solution {
  * @param {number[][]} logs
  * @return {number}
  */
-var maximumPopulation = function(logs) {
+var maximumPopulation = function (logs) {
     const offset = 1950;
     const len = 2050 - 1950 + 1;
     let delta = new Array(len).fill(0);

@@ -36,7 +36,6 @@
 	<li><code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -204,13 +203,14 @@ func fourSum(nums []int, target int) [][]int {
 ```
 
 ### **JavaScript**
+
 ```js
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[][]}
  */
-var fourSum = function(nums, target) {
+var fourSum = function (nums, target) {
     const n = nums.length;
     if (n < 4) return [];
     let res = [];

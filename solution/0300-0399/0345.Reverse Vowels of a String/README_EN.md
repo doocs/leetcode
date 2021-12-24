@@ -24,7 +24,6 @@
 	<li><code>s</code> consist of <strong>printable ASCII</strong> characters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

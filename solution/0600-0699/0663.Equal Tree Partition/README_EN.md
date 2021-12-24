@@ -10,8 +10,6 @@ Given a binary tree with <code>n</code> nodes, your task is to check if it's pos
 
 </p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -60,10 +58,6 @@ Sum: 15
 
 </p>
 
-
-
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -89,8 +83,6 @@ Sum: 15
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

@@ -110,7 +110,6 @@ class Node {
 	<li><code>n == 2^x</code> ，其中 <code>0 <= x <= 9</code>.</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

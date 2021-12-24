@@ -55,7 +55,6 @@ Thus, &quot;<u>021</u>&quot; becomes &quot;<u>934</u>&quot;.
 	<li><code>0 &lt;= change[d] &lt;= 9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

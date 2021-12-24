@@ -54,7 +54,6 @@ Number of valid subsequences (63 - 2 = 61).
 	<li><code>1 &lt;= target &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

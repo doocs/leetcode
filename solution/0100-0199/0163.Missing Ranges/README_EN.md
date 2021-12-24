@@ -71,7 +71,6 @@
 	<li>All the values of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

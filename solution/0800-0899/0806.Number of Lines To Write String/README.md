@@ -44,7 +44,6 @@ S = &quot;bbbcccdddaaa&quot;
 	<li><code>widths[i]</code>&nbsp;值的范围在&nbsp;<code>[2, 10]</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -41,7 +41,6 @@ queries[4] :&nbsp;子串 = &quot;abcda&quot;，可以变成回文的 &quot;abcba
 	<li><code>s</code> 中只有小写英文字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

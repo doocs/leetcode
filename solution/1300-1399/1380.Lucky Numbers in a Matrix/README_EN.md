@@ -43,7 +43,6 @@
 	<li>All elements in the matrix are distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

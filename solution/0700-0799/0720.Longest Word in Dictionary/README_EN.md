@@ -34,7 +34,6 @@
 	<li><code>words[i]</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

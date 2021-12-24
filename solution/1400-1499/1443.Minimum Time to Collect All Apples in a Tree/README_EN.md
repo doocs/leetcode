@@ -48,7 +48,6 @@
 	<li><code>hasApple.length == n</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

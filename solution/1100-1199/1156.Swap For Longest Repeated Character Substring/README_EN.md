@@ -53,7 +53,6 @@
 	<li><code>text</code> consist of lowercase English characters only.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

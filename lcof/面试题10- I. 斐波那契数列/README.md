@@ -89,14 +89,14 @@ public:
  * @return {number}
  */
 var fib = function (n) {
-  let a = 0,
-    b = 1;
-  for (let i = 0; i < n; ++i) {
-    const c = (a + b) % (1e9 + 7);
-    a = b;
-    b = c;
-  }
-  return a;
+    let a = 0,
+        b = 1;
+    for (let i = 0; i < n; ++i) {
+        const c = (a + b) % (1e9 + 7);
+        a = b;
+        b = c;
+    }
+    return a;
 };
 ```
 
@@ -116,13 +116,14 @@ func fib(n int) int {
 
 ```ts
 function fib(n: number): number {
-    let a: number = 0, b: number = 1;
+    let a: number = 0,
+        b: number = 1;
     for (let i: number = 0; i < n; i++) {
         let c: number = (a + b) % 1000000007;
         [a, b] = [b, c];
     }
     return a;
-};
+}
 ```
 
 ### **Rust**

@@ -34,7 +34,6 @@ So the answer is 6 which is the maximum.
 	<li>Answers will be accepted as correct if they are within <code>10^-5</code> of the correct answer.</li>
 </ol>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -61,7 +61,6 @@
 	<li><code>2 &lt;= k&nbsp;&lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

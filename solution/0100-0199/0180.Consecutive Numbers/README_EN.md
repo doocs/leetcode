@@ -49,7 +49,6 @@ Result table:
 1 is the only number that appears consecutively for at least three times.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

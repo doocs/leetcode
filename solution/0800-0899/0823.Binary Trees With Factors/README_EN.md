@@ -34,7 +34,6 @@
 	<li>All the values of <code>arr</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

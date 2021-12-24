@@ -89,7 +89,7 @@ class Solution {
  * @param {number} memory2
  * @return {number[]}
  */
-var memLeak = function(memory1, memory2) {
+var memLeak = function (memory1, memory2) {
     let i = 1;
     while (memory1 >= i || memory2 >= i) {
         if (memory1 >= memory2) {

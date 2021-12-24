@@ -6,25 +6,15 @@
 
 <p>Given an integer array <code>arr</code> of <strong>distinct</strong> integers and an integer <code>k</code>.</p>
 
-
-
 <p>A game will be played between the first two elements of the array (i.e. <code>arr[0]</code> and <code>arr[1]</code>). In each round of the game, we compare <code>arr[0]</code> with <code>arr[1]</code>, the larger integer&nbsp;wins and remains at position <code>0</code> and the smaller integer moves to the end of the array. The game ends when an integer wins <code>k</code> consecutive rounds.</p>
-
-
 
 <p>Return <em>the integer which will win the game</em>.</p>
 
-
-
 <p>It is <strong>guaranteed</strong> that there will be a winner of the game.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +38,7 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -64,11 +50,7 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -78,11 +60,7 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -92,13 +70,9 @@ So we can see that 4 rounds will be played and 5 is the winner because it wins 2
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>2 &lt;= arr.length &lt;= 10^5</code></li>

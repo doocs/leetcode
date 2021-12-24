@@ -6,8 +6,6 @@
 
 <p>Given an integer array, return the k-th smallest <b>distance</b> among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B. </p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -35,8 +33,6 @@ Then the 1st smallest distance pair is (1,1), and its distance is 0.
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

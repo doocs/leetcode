@@ -58,7 +58,6 @@
 	<li><code>pattern</code> 和 <code>s</code> 由小写英文字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

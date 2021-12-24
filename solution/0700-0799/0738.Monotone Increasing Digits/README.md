@@ -30,7 +30,6 @@
 
 <p><strong>说明:</strong> <code>N</code>&nbsp;是在&nbsp;<code>[0, 10^9]</code>&nbsp;范围内的一个整数。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

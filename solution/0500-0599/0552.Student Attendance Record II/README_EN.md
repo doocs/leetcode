@@ -53,7 +53,6 @@ Only &quot;AA&quot; is not eligible because there are 2 absences (there need to 
 	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

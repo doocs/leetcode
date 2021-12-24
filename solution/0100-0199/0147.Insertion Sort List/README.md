@@ -137,10 +137,11 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var insertionSortList = function(head) {
+var insertionSortList = function (head) {
     if (head == null || head.next == null) return head;
     let dummy = new ListNode(head.val, head);
-    let prev = dummy, cur = head;
+    let prev = dummy,
+        cur = head;
     while (cur != null) {
         if (prev.val <= cur.val) {
             prev = cur;

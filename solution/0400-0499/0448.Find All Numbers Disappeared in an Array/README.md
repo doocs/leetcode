@@ -22,7 +22,6 @@
 [5,6]
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -89,7 +88,7 @@ function findDisappearedNumbers(nums: number[]): number[] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

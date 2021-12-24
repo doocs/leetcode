@@ -6,21 +6,13 @@
 
 <p>Given a binary tree <code>root</code>.&nbsp;Split the binary tree into two subtrees by removing&nbsp;1 edge such that the product of the sums of the subtrees are maximized.</p>
 
-
-
 <p>Since the answer&nbsp;may be too large,&nbsp;return it modulo&nbsp;10^9 + 7.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-
-
 <p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/images/sample_1_1699.png" style="width: 495px; height: 200px;" /></strong></p>
-
-
 
 <pre>
 
@@ -32,15 +24,9 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
-
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1339.Maximum%20Product%20of%20Splitted%20Binary%20Tree/images/sample_2_1699.png" style="width: 495px; height: 200px;" /></p>
-
-
 
 <pre>
 
@@ -52,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -66,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -80,13 +58,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>Each tree has at most <code>50000</code> nodes and at least <code>2</code> nodes.</li>

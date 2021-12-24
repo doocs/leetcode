@@ -57,7 +57,6 @@ prodNums = [2,2,2,6,9,9], which is compressed into the run-length encoded array 
 	<li>The full arrays that <code>encoded1</code> and <code>encoded2</code> represent are the same length.</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

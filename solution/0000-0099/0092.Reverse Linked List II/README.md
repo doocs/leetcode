@@ -6,7 +6,8 @@
 
 <!-- 这里写题目描述 -->
 
-给你单链表的头指针 <code>head</code> 和两个整数 <code>left</code> 和 <code>right</code> ，其中 <code>left <= right</code> 。请你反转从位置 <code>left</code> 到位置 <code>right</code> 的链表节点，返回 <strong>反转后的链表</strong> 。
+给你单链表的头指针 <code>head</code> 和两个整数  <code>left</code> 和 <code>right</code> ，其中  <code>left <= right</code> 。请你反转从位置 <code>left</code> 到位置 <code>right</code> 的链表节点，返回 <strong>反转后的链表</strong> 。
+
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
@@ -37,7 +38,6 @@
 <p> </p>
 
 <p><strong>进阶：</strong> 你可以使用一趟扫描完成反转吗？</p>
-
 
 ## 解法
 
@@ -131,7 +131,7 @@ class Solution {
  * @param {number} right
  * @return {ListNode}
  */
-var reverseBetween = function(head, left, right) {
+var reverseBetween = function (head, left, right) {
     if (!head || !head.next || left == right) {
         return head;
     }

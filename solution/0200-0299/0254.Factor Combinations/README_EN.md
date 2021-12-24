@@ -35,7 +35,6 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

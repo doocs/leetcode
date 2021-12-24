@@ -78,7 +78,6 @@ The name of employee 1 is missing.
 The salary of employee 2 is missing.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

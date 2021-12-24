@@ -35,7 +35,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow Up:</strong> Can you do it in <code>O(n)</code> time?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

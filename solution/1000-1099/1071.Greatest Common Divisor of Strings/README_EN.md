@@ -31,7 +31,6 @@
 	<li><code>str1</code>&nbsp;and <code>str2</code>&nbsp;consist of&nbsp;English uppercase letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -10,8 +10,6 @@ Given the array <code>arr</code> of positive integers and the array <code>querie
 
 <p><strong>Example 1:</strong></p>
 
-
-
 <pre>
 
 <strong>Input:</strong> arr = [1,3,4,8], queries = [[0,1],[1,2],[0,3],[3,3]]
@@ -42,11 +40,7 @@ The XOR values for queries are:
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -56,13 +50,9 @@ The XOR values for queries are:
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= arr.length &lt;= 3 *&nbsp;10^4</code></li>
@@ -114,11 +104,11 @@ class Solution {
  * @param {number[][]} queries
  * @return {number[]}
  */
-var xorQueries = function(arr, queries) {
+var xorQueries = function (arr, queries) {
     let n = arr.length;
     let xors = new Array(n + 1).fill(0);
     for (let i = 0; i < n; i++) {
-        xors[i + 1] = xors[i] ^ arr[i]; 
+        xors[i + 1] = xors[i] ^ arr[i];
     }
     let res = [];
     for (let query of queries) {

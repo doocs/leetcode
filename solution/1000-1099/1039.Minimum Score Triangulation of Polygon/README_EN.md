@@ -45,7 +45,6 @@ The minimum score is 144.
 	<li><code>1 &lt;= values[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

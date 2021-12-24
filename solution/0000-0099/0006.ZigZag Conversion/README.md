@@ -30,6 +30,7 @@ string convert(string s, int numRows);</pre>
 <strong>输入：</strong>s = "PAYPALISHIRING", numRows = 3
 <strong>输出：</strong>"PAHNAPLSIIGYIR"
 </pre>
+
 <strong>示例 2：</strong>
 
 <pre>
@@ -58,7 +59,6 @@ P     I
 	<li><code>s</code> 由英文字母（小写和大写）、<code>','</code> 和 <code>'.'</code> 组成</li>
 	<li><code>1 <= numRows <= 1000</code></li>
 </ul>
-
 
 ## 解法
 

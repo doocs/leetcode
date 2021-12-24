@@ -53,7 +53,6 @@
 	<li>All <code>nodes[i]</code> are distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

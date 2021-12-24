@@ -22,12 +22,11 @@
 
 <p><strong>说明: </strong>你算法的时间复杂度应为&nbsp;<em>O</em>(log&nbsp;<em>n</em>)<em>&nbsp;</em>。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-统计5的个数
+统计 5 的个数
 
 <!-- tabs:start -->
 
@@ -57,7 +56,7 @@ function trailingZeroes(n: number): number {
         count += n;
     }
     return count;
-};
+}
 ```
 
 ### **...**

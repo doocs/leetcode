@@ -33,7 +33,6 @@
 	<li><code>strs[i]</code> consists of only lower-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

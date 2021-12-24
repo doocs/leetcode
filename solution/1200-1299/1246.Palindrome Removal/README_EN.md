@@ -32,7 +32,6 @@
 	<li><code>1 &lt;= arr[i] &lt;= 20</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

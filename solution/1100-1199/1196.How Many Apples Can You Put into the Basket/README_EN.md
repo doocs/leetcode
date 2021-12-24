@@ -33,7 +33,6 @@
 	<li><code>1 &lt;= arr[i] &lt;= 10^3</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

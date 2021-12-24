@@ -53,7 +53,6 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 	<li><code>1 &lt;= piles[i] &lt;= 10^4</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

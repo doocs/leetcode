@@ -41,7 +41,6 @@ There are two ways to reach the bottom-right corner:
 	<li><code>obstacleGrid[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 Dynamic programming.

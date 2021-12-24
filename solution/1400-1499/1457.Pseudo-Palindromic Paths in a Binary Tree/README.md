@@ -47,7 +47,6 @@
 	<li>节点值在&nbsp;<code>1</code> 到&nbsp;<code>9</code>&nbsp;之间。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

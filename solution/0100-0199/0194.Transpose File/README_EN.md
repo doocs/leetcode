@@ -25,7 +25,6 @@ name alice ryan
 age 21 30
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -45,7 +45,6 @@
 	<li><code>1 &lt;= duration &lt;= 10^6&nbsp;</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

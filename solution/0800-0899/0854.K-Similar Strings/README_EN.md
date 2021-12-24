@@ -32,7 +32,6 @@
 	<li><code>s2</code> is an anagram of <code>s1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

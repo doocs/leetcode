@@ -57,7 +57,6 @@
 	<li><code>s[i]</code>&nbsp;可能是&nbsp;<code>&#39;(&#39;</code>、<code>&#39;)&#39;</code>&nbsp;或英文小写字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

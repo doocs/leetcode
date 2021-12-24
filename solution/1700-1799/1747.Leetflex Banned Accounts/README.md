@@ -1,4 +1,4 @@
-# [1747. 应该被禁止的Leetflex账户](https://leetcode-cn.com/problems/leetflex-banned-accounts)
+# [1747. 应该被禁止的 Leetflex 账户](https://leetcode-cn.com/problems/leetflex-banned-accounts)
 
 [English Version](/solution/1700-1799/1747.Leetflex%20Banned%20Accounts/README_EN.md)
 
@@ -57,7 +57,6 @@ Account ID 2 --&gt; 该账户在两个不同的网络地址 (6, 7) 激活了，�
 Account ID 3 --&gt; 该账户在两个不同的网络地址 (9, 13) 激活了，虽然是同一天，但时间上没有交集.
 Account ID 4 --&gt; 该账户从 "2021-02-01 17:00:00" 到 "2021-02-01 17:00:00" 在两个不同的网络地址 (10 and 11)上激活了。它应该被禁止.
 </pre>
-
 
 ## 解法
 

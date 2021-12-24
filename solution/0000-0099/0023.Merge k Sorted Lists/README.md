@@ -1,4 +1,4 @@
-# [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)
+# [23. 合并 K 个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)
 
 [English Version](/solution/0000-0099/0023.Merge%20k%20Sorted%20Lists/README_EN.md)
 
@@ -51,7 +51,6 @@
 	<li><code>lists[i].length</code> 的总和不超过 <code>10^4</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -78,7 +77,7 @@ class Solution:
         for i in range(n - 1):
             lists[i + 1] = self.mergeTwoLists(lists[i], lists[i + 1])
         return lists[-1]
-        
+
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         dummy = ListNode()
         cur = dummy
@@ -243,7 +242,7 @@ func mergeKLists(lists []*ListNode) *ListNode {
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-var mergeKLists = function(lists) {
+var mergeKLists = function (lists) {
     const n = lists.length;
     if (n == 0) {
         return null;

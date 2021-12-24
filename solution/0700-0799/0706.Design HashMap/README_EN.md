@@ -48,7 +48,6 @@ myHashMap.get(2);    // return -1 (i.e., not found), The map is now [[1,1]]
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Please do not use the built-in HashMap library.</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

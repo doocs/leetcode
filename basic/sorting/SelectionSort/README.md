@@ -49,8 +49,7 @@ function selectionSort(inputArr) {
         let j = i;
         let min = j;
         while (j <= len - 1) {
-            if (inputArr[j] < inputArr[min])
-                min = j;
+            if (inputArr[j] < inputArr[min]) min = j;
             j++;
         }
         let temp = inputArr[i];
@@ -61,7 +60,7 @@ function selectionSort(inputArr) {
 }
 
 let arr = [6, 3, 2, 1, 5];
-console.log(selectionSort(arr))
+console.log(selectionSort(arr));
 ```
 
 ### **Go**

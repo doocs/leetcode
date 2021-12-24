@@ -43,7 +43,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 540&nbsp;题相同：<a href="https://leetcode-cn.com/problems/single-element-in-a-sorted-array/">https://leetcode-cn.com/problems/single-element-in-a-sorted-array/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -129,7 +128,8 @@ class Solution {
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {
-    let left = 0, right = nums.length - 1;
+    let left = 0,
+        right = nums.length - 1;
     while (left < right) {
         let mid = (left + right) >> 1;
         if ((mid & 1) == 1) --mid;
@@ -140,7 +140,7 @@ function singleNonDuplicate(nums: number[]): number {
         }
     }
     return nums[left];
-};
+}
 ```
 
 ### **C++**

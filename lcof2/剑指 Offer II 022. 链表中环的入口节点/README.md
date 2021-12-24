@@ -63,7 +63,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 142&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/">https://leetcode-cn.com/problems/linked-list-cycle-ii/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -198,7 +197,7 @@ public:
  * @param {ListNode} head
  * @return {ListNode}
  */
-var detectCycle = function(head) {
+var detectCycle = function (head) {
     let slow = head;
     let fast = head;
     let hasCycle = false;

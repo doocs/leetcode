@@ -47,7 +47,6 @@ word2 表示的字符串为 "a" + "bc" -> "abc"
 	<li><code>word1[i]</code> 和 <code>word2[i]</code> 由小写字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -91,9 +90,10 @@ class Solution {
 
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
-    let s1 = word1.join(''), s2 = word2.join('');
+    let s1 = word1.join(""),
+        s2 = word2.join("");
     return s1 == s2;
-};
+}
 ```
 
 ### **...**

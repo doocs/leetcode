@@ -41,7 +41,6 @@ linkedList.get(1);            //返回3
 	<li>请不要使用内置的 LinkedList 库。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

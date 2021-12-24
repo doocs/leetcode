@@ -115,7 +115,6 @@ Global call duration average = (2 * (33 + 4 + 59 + 102 + 330 + 5 + 13 + 3 + 1 + 
 Since Peru is the only country where average call duration is greater than the global average, it&#39;s the only recommended country.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

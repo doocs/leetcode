@@ -58,7 +58,6 @@
 	<li><code>1 &lt;= p &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -110,7 +109,7 @@ function minSubarray(nums: number[], p: number): number {
         hashMap.set(subMod, i);
     }
     return ans == n ? -1 : ans;
-};
+}
 ```
 
 ### **...**

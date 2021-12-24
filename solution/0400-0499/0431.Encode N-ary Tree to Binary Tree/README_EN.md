@@ -30,7 +30,6 @@
 	<li>Do not use class member/global/static variables to store states. Your encode and decode algorithms should be stateless.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

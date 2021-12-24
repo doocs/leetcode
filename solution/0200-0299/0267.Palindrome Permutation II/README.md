@@ -20,7 +20,6 @@
 <pre><strong>输入: </strong><code>&quot;abc&quot;</code>
 <strong>输出: </strong><code>[]</code></pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

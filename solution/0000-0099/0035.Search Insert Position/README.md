@@ -34,7 +34,6 @@
 <strong>输出:</strong> 0
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -124,7 +123,7 @@ func searchInsert(nums []int, target int) int {
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function(nums, target) {
+var searchInsert = function (nums, target) {
     let left = 0;
     let right = nums.length;
     while (left < right) {

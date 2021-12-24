@@ -41,7 +41,6 @@
 	<li>可以假设 <em><strong>s </strong></em>和 <strong><em>t </em></strong>长度相同。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

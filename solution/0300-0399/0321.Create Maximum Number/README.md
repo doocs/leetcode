@@ -39,7 +39,6 @@ k = <code>3</code>
 <strong>输出:</strong>
 <code>[9, 8, 9]</code></pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

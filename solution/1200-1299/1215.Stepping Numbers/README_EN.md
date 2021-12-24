@@ -20,7 +20,6 @@
 	<li><code>0 &lt;= low &lt;= high &lt;= 2 * 10^9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

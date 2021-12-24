@@ -45,7 +45,6 @@
 	<li>题目数据保证 <code>kill</code> 在 <code>pid</code> 中</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

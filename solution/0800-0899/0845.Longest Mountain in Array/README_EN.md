@@ -51,7 +51,6 @@
 	<li>Can you solve it in <code>O(1)</code> space?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

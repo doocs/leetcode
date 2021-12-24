@@ -6,8 +6,6 @@
 
 <p>Table: <code>NPV</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -30,15 +28,9 @@ The table has information about the id and the year of each inventory and the co
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Queries</code></p>
-
-
 
 <pre>
 
@@ -60,23 +52,13 @@ The table has information about the id and the year of each inventory query.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find the npv of all each query of queries table.</p>
 
-
-
 <p>Return the result table in any order.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

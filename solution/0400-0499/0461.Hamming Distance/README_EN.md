@@ -35,7 +35,6 @@ The above arrows point to positions where the corresponding bits are different.
 	<li><code>0 &lt;=&nbsp;x, y &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 Use xor operation to find different bits.
@@ -93,12 +92,12 @@ class Solution {
  * @param {number} y
  * @return {number}
  */
-var hammingDistance = function(x, y) {
+var hammingDistance = function (x, y) {
     let distance = x ^ y;
     let count = 0;
     while (distance != 0) {
         count++;
-        distance &= (distance - 1);
+        distance &= distance - 1;
     }
     return count;
 };

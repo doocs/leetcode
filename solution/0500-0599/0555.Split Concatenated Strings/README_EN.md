@@ -6,9 +6,7 @@
 
 <p>Given a list of strings, you could concatenate these strings together into a loop, where for each string you could choose to reverse it or not. Among all the possible loops, you need to find the lexicographically biggest string after cutting the loop, which will make the looped string into a regular one.</p>
 
-
-
-<p>Specifically, to find the lexicographically biggest string, you need to experience two phases: 
+<p>Specifically, to find the lexicographically biggest string, you need to experience two phases:
 
 <ol>
 
@@ -20,13 +18,7 @@
 
 </p>
 
-
-
 <p>And your job is to find the lexicographically biggest one among all the possible regular strings.</p>
-
-
-
-
 
 <p><b>Example:</b><br />
 
@@ -41,8 +33,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

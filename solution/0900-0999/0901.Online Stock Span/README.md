@@ -43,7 +43,6 @@ S.next(85) 被调用并返回 6。
 	<li>此问题的总时间限制减少了 50%。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -96,7 +95,7 @@ class StockSpanner {
     public StockSpanner() {
         stk = new ArrayDeque<>();
     }
-    
+
     public int next(int price) {
         int res = 1;
         while (!stk.isEmpty() && stk.peek()[0] <= price) {

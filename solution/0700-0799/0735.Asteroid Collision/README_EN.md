@@ -52,7 +52,6 @@
 	<li><code>asteroids[i] != 0</code></li>
 </ul>
 
-
 ## Solutions
 
 this can be analogous to matching parentheses:

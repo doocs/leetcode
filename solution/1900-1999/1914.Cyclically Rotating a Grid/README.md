@@ -45,7 +45,6 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -84,7 +83,7 @@ class Solution:
             for i in range(s2, s1, -1):
                 grid[i][e2] = t[k]
                 k += 1
-        
+
         m, n = len(grid), len(grid[0])
         s1 = e1 = 0
         s2, e2 = m - 1, n - 1

@@ -45,7 +45,6 @@ The different GCDs are 6, 10, 3, 2, and 1.
 	<li><code>1 &lt;= nums[i] &lt;= 2 * 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

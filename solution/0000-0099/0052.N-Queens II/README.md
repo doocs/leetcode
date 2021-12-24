@@ -1,4 +1,4 @@
-# [52. N皇后 II](https://leetcode-cn.com/problems/n-queens-ii)
+# [52. N 皇后 II](https://leetcode-cn.com/problems/n-queens-ii)
 
 [English Version](/solution/0000-0099/0052.N-Queens%20II/README_EN.md)
 
@@ -39,7 +39,6 @@
 </ul>
 </div>
 </div>
-
 
 ## 解法
 

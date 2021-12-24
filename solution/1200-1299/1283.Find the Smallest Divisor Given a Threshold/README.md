@@ -49,7 +49,6 @@
 	<li><code>nums.length &lt;=&nbsp;threshold &lt;= 10^6</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

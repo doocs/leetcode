@@ -6,21 +6,13 @@
 
 <p>The Tribonacci sequence T<sub>n</sub> is defined as follows:&nbsp;</p>
 
-
-
 <p>T<sub>0</sub> = 0, T<sub>1</sub> = 1, T<sub>2</sub> = 1, and T<sub>n+3</sub> = T<sub>n</sub> + T<sub>n+1</sub> + T<sub>n+2</sub> for n &gt;= 0.</p>
 
-
-
 <p>Given <code>n</code>, return the value of T<sub>n</sub>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -36,11 +28,7 @@ T_4 = 1 + 1 + 2 = 4
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -50,13 +38,9 @@ T_4 = 1 + 1 + 2 = 4
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>0 &lt;= n &lt;= 37</code></li>
@@ -132,7 +116,7 @@ func tribonacci(n int) int {
  * @param {number} n
  * @return {number}
  */
-var tribonacci = function(n) {
+var tribonacci = function (n) {
     let a = 0;
     let b = 1;
     let c = 1;

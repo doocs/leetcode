@@ -34,7 +34,6 @@ class FizzBuzz {
 	<li>Thread D will call <code>number()</code> which should only output the numbers.</li>
 </ol>
 
-
 ## Solutions
 
 <!-- tabs:start -->

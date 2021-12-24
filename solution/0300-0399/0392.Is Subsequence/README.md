@@ -44,7 +44,6 @@
 	<li>两个字符串都只由小写字符组成。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -93,7 +92,8 @@ class Solution {
 
 ```ts
 function isSubsequence(s: string, t: string): boolean {
-    let m = s.length, n = t.length;
+    let m = s.length,
+        n = t.length;
     let i = 0;
     for (let j = 0; j < n && i < m; ++j) {
         if (s.charAt(i) == t.charAt(j)) {
@@ -101,7 +101,7 @@ function isSubsequence(s: string, t: string): boolean {
         }
     }
     return i == m;
-};
+}
 ```
 
 ### **C++**

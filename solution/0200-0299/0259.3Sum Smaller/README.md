@@ -19,7 +19,6 @@
 
 <p><strong>进阶：</strong>是否能在&nbsp;<em>O</em>(<em>n</em><sup>2</sup>) 的时间复杂度内解决？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -94,14 +93,15 @@ class Solution {
 var threeSumSmaller = function (nums, target) {
     let len = nums.length;
     if (len < 3) return 0;
-    nums.sort((a, b) => a - b)
+    nums.sort((a, b) => a - b);
     let res = 0;
     for (let i = 0; i < len - 2; i++) {
-        let left = i + 1, right = len - 1;
+        let left = i + 1,
+            right = len - 1;
         if (nums[i] + nums[left] + nums[i + 2] >= target) break;
         while (left < right) {
             if (nums[i] + nums[left] + nums[right] < target) {
-                res += (right - left);
+                res += right - left;
                 left++;
                 continue;
             } else {

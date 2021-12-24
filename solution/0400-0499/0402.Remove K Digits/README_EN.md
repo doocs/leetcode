@@ -40,7 +40,6 @@
 	<li><code>num</code> does not have any leading zeros except for the zero itself.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -70,8 +69,8 @@ function removeKdigits(num: string, k: number): string {
         nums.splice(idx, 1);
         k--;
     }
-    return nums.join('').replace(/^0*/g, '') || '0';
-};
+    return nums.join("").replace(/^0*/g, "") || "0";
+}
 ```
 
 ### **...**

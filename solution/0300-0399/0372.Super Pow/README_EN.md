@@ -30,7 +30,6 @@
 	<li><code>b</code> doesn&#39;t contain leading zeros.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

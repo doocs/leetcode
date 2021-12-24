@@ -40,7 +40,6 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it in logarithmic time complexity?</p>
 
-
 ## Solutions
 
 Binary search.

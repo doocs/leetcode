@@ -8,11 +8,7 @@ Given an integer <code>d</code> between <code>0</code> and <code>9</code>, and t
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -26,13 +22,9 @@ The digit <code>d=1</code> occurs <code>6</code> times in <code>1,10,11,12,13</c
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -46,15 +38,9 @@ The digit <code>d=3</code> occurs <code>35</code> times in <code>103,113,123,130
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>0 &lt;= d &lt;= 9</code></li>

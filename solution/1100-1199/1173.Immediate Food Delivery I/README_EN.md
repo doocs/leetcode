@@ -49,7 +49,6 @@ Result table:
 The orders with delivery id 2 and 3 are immediate while the others are scheduled.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

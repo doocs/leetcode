@@ -60,7 +60,6 @@ Operation 2: i=4, j=4. Swap s[3] and s[4] to get s=&quot;aaaab&quot;, then rever
 	<li><code>s</code>​​​​​​ consists only of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -51,7 +51,6 @@ Note that nodes 6, 0, and 8 are also leaf nodes, but the depth of them is 2, but
 	<li>The values of the nodes in the tree&nbsp;are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

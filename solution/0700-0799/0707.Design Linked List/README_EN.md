@@ -48,7 +48,6 @@ myLinkedList.get(1);              // return 3
 	<li>At most <code>2000</code> calls will be made to <code>get</code>, <code>addAtHead</code>, <code>addAtTail</code>, <code>addAtIndex</code> and <code>deleteAtIndex</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -57,7 +57,6 @@ The array product is 1 * 6 * 1 * 6 * 1 * 6 * 7 = 1512, which is the minimum poss
 	<li><code>1 &lt;= p &lt;= 60</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

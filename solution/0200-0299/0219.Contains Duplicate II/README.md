@@ -25,7 +25,6 @@
 <pre><strong>输入: </strong>nums = [1,2,3,1,2,3], k<em> </em>=<em> </em>2
 <strong>输出:</strong> false</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

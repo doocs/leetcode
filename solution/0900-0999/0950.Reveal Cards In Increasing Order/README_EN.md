@@ -6,15 +6,9 @@
 
 <p>In a deck of cards, every card has a unique integer.&nbsp; You can order the deck in&nbsp;any order you want.</p>
 
-
-
 <p>Initially, all the cards start face down (unrevealed) in one deck.</p>
 
-
-
 <p>Now, you do the following steps repeatedly, until all cards are revealed:</p>
-
-
 
 <ol>
 	<li>Take the top card of the deck, reveal it, and take it out of the deck.</li>
@@ -22,25 +16,15 @@
 	<li>If there are still unrevealed cards, go back to step 1.&nbsp; Otherwise, stop.</li>
 </ol>
 
-
-
 <p>Return an ordering of the deck that would reveal the cards&nbsp;in <strong>increasing order.</strong></p>
-
-
 
 <p>The first entry in the answer is considered to be the top of the deck.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -72,17 +56,11 @@ Since all the cards revealed are in increasing order, the answer is correct.
 
 </pre>
 
-
-
 <div>
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= A.length &lt;= 1000</code></li>
@@ -93,8 +71,6 @@ Since all the cards revealed are in increasing order, the answer is correct.
 </div>
 
 </div>
-
-
 
 ## Solutions
 

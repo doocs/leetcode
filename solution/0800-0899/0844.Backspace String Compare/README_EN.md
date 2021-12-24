@@ -52,7 +52,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it in <code>O(n)</code> time and <code>O(1)</code> space?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

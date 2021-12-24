@@ -42,7 +42,6 @@
 	<li>树中各节点的值均保证唯一。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -174,7 +173,7 @@ public:
  * @param {TreeNode} p
  * @return {TreeNode}
  */
-var inorderSuccessor = function(root, p) {
+var inorderSuccessor = function (root, p) {
     let cur = root;
     let ans = null;
     while (cur != null) {

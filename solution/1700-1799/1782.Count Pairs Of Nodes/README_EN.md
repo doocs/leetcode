@@ -45,7 +45,6 @@
 	<li><code>0 &lt;= queries[j] &lt; edges.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

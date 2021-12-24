@@ -50,7 +50,6 @@ Therefore, you can&#39;t travel around the circuit once no matter where you star
 	<li><code>0 &lt;= gas[i], cost[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

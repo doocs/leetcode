@@ -36,7 +36,6 @@ question 285 has answer rate 1/1, while question 369 has 0/1 answer rate, so out
 
 <p><b>Note:</b> The highest answer rate meaning is: answer number&#39;s ratio in show number in the same question.</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -1,4 +1,4 @@
-# [1076. 项目员工II](https://leetcode-cn.com/problems/project-employees-ii)
+# [1076. 项目员工 II](https://leetcode-cn.com/problems/project-employees-ii)
 
 [English Version](/solution/1000-1099/1076.Project%20Employees%20II/README_EN.md)
 
@@ -63,7 +63,6 @@ Result table:
 | 1           |
 +-------------+
 第一个项目有3名员工，第二个项目有2名员工。</pre>
-
 
 ## 解法
 

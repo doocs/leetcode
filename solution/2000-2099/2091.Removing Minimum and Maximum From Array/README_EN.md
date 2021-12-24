@@ -111,7 +111,7 @@ function minimumDeletions(nums: number[]): number {
     let left = Math.min(i, j);
     let right = Math.max(i, j);
     return Math.min(left + 1 + n - right, right + 1, n - left);
-};
+}
 ```
 
 ### **C++**

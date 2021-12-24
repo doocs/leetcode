@@ -13,17 +13,18 @@
 <ul>
 	<li>For <code>i &lt;= k &lt; j</code>:
 
-	<ul>
-		<li><code>arr[k] &gt; arr[k + 1]</code> when <code>k</code> is odd, and</li>
-		<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is even.</li>
-	</ul>
-	</li>
-	<li>Or, for <code>i &lt;= k &lt; j</code>:
-	<ul>
-		<li><code>arr[k] &gt; arr[k + 1]</code> when <code>k</code> is even, and</li>
-		<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is odd.</li>
-	</ul>
-	</li>
+    <ul>
+    	<li><code>arr[k] &gt; arr[k + 1]</code> when <code>k</code> is odd, and</li>
+    	<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is even.</li>
+    </ul>
+    </li>
+    <li>Or, for <code>i &lt;= k &lt; j</code>:
+    <ul>
+    	<li><code>arr[k] &gt; arr[k + 1]</code> when <code>k</code> is even, and</li>
+    	<li><code>arr[k] &lt; arr[k + 1]</code> when <code>k</code> is odd.</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>&nbsp;</p>
@@ -56,7 +57,6 @@
 	<li><code>1 &lt;= arr.length &lt;= 4 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
-
 
 ## Solutions
 

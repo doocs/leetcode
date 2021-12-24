@@ -51,7 +51,6 @@ Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are 
 	<li><code>0 &lt;= prices[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

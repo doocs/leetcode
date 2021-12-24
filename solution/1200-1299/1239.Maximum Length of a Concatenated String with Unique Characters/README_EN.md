@@ -42,7 +42,6 @@ Maximum length is 4.
 	<li><code>arr[i]</code> contains only lower case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 State compression uses a 32-bit number to record the appearance of letters, and `masks` stores the previously enumerated strings.

@@ -86,7 +86,6 @@ We now know that the target is the cell (0, 1), and the shortest path to the tar
 	<li>There is <strong>exactly one</strong> <code>2</code> in <code>grid</code>.</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

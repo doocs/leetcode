@@ -88,7 +88,6 @@ subrectangleQueries.getValue(2, 2); // 返回 20
 	<li><code>0 &lt;= col &lt; cols</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -137,11 +136,11 @@ class SubrectangleQueries {
         rec = rectangle;
         history = new ArrayList<>();
     }
-    
+
     public void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
         history.add(new int[]{row1, col1, row2, col2, newValue});
     }
-    
+
     public int getValue(int row, int col) {
         for (int i = history.size() - 1; i >= 0; --i) {
             int[] record = history.get(i);
@@ -172,7 +171,13 @@ class SubrectangleQueries {
         this.history = [];
     }
 
-    updateSubrectangle(row1: number, col1: number, row2: number, col2: number, newValue: number): void {
+    updateSubrectangle(
+        row1: number,
+        col1: number,
+        row2: number,
+        col2: number,
+        newValue: number
+    ): void {
         this.history.push([row1, col1, row2, col2, newValue]);
     }
 

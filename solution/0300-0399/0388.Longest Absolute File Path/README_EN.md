@@ -73,7 +73,6 @@ Since the absolute path for anything at the root directory is just the name itse
 	<li><code>input</code> may contain lowercase or uppercase English letters, a new line character <code>&#39;\n&#39;</code>, a tab character <code>&#39;\t&#39;</code>, a dot <code>&#39;.&#39;</code>, a space <code>&#39; &#39;</code>, and digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

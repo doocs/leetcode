@@ -46,7 +46,6 @@
 	<li>All the words in <code>wordList</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

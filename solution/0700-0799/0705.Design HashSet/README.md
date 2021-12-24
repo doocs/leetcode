@@ -50,7 +50,6 @@ myHashSet.contains(2); // 返回 False ，（已移除）</pre>
 
 <p><strong>进阶：</strong>你可以不使用内建的哈希集合库解决此问题吗？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -190,7 +189,7 @@ class MyHashSet {
  */
 ```
 
-### **TypeScript** 
+### **TypeScript**
 
 ```ts
 class MyHashSet {

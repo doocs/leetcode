@@ -53,7 +53,6 @@ myStack.empty(); // return False
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> Can you implement the stack such that each operation is <strong><a href="https://en.wikipedia.org/wiki/Amortized_analysis" target="_blank">amortized</a></strong> <code>O(1)</code> time complexity? In other words, performing <code>n</code> operations will take overall <code>O(n)</code> time even if one of those operations may take longer. You can use more than two queues.</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

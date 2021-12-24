@@ -34,7 +34,6 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 Similar to problem [687. Longest Univalue Path](/solution/0600-0699/0687.Longest%20Univalue%20Path/README_EN.md).
@@ -61,7 +60,7 @@ class Solution:
             left, right = dfs(root.left), dfs(root.right)
             res = max(res, left + right)
             return 1 + max(left, right)
-        
+
         dfs(root)
         return res
 ```

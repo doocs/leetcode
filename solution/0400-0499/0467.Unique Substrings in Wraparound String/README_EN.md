@@ -45,7 +45,6 @@ Explanation: Only the substring &quot;a&quot; of p is in s.
 	<li><code>p</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

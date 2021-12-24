@@ -6,21 +6,13 @@
 
 <p>Given a string <code>s</code> and an integer <code>k</code>.</p>
 
-
-
 <p>Return <em>the maximum number of vowel letters</em> in any substring of <code>s</code>&nbsp;with&nbsp;length <code>k</code>.</p>
 
-
-
 <p><strong>Vowel letters</strong> in&nbsp;English are&nbsp;(a, e, i, o, u).</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -32,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +36,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -64,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -80,11 +60,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -94,13 +70,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>

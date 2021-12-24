@@ -95,7 +95,8 @@ class Solution {
 
 ```ts
 function maxAscendingSum(nums: number[]): number {
-    let res = 0, sum = nums[0];
+    let res = 0,
+        sum = nums[0];
     for (let i = 1; i < nums.length; ++i) {
         if (nums[i] > nums[i - 1]) {
             sum += nums[i];
@@ -106,7 +107,7 @@ function maxAscendingSum(nums: number[]): number {
     }
     res = Math.max(res, sum);
     return res;
-};
+}
 ```
 
 ### **C++**

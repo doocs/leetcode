@@ -46,7 +46,6 @@ Explanation: The two patches can be [2, 4].
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

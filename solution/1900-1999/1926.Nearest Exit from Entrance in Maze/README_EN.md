@@ -58,7 +58,6 @@ Thus, the nearest exit is [1,2], which is 2 steps away.
 	<li><code>entrance</code> will always be an empty cell.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

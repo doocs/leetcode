@@ -66,7 +66,6 @@ It&#39;s equivalent to [&quot;ATL&quot;,&quot;DXB&quot;,&quot;HND&quot;,&quot;DX
 	<li><code>targetPath[i]</code> consists of upper-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

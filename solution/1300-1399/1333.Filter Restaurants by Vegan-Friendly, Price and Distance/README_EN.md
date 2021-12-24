@@ -53,7 +53,6 @@ After filter restaurants with veganFriendly = 1, maxPrice = 50 and maxDistance =
 	<li>All <code>id<sub>i</sub></code> are distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

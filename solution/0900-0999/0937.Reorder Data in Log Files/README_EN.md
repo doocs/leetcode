@@ -51,7 +51,6 @@ The digit-logs have a relative order of &quot;dig1 8 1 5 1&quot;, &quot;dig2 3 6
 	<li><code>logs[i]</code> is guaranteed to have an identifier and at least one word after the identifier.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

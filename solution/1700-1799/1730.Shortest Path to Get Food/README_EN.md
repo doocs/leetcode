@@ -68,7 +68,6 @@
 	<li>The <code>grid</code> contains <strong>exactly one</strong> <code>&#39;*&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

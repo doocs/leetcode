@@ -143,7 +143,7 @@ public:
         int ans = 0, n = arr.size();
         for (int i = 0; i < k; ++i)
         {
-            vector<int> t; 
+            vector<int> t;
             for (int j = i; j < n; j += k) t.push_back(arr[j]);
             ans += lis(t);
         }

@@ -47,7 +47,6 @@ There are no longer two consecutive balloons of the same color. Total time = 1 +
 	<li><code>colors</code> contains only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

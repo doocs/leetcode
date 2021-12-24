@@ -10,8 +10,6 @@ Given a non-negative integer, you could swap two digits <b>at most</b> once to g
 
 </p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -26,8 +24,6 @@ Given a non-negative integer, you could swap two digits <b>at most</b> once to g
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -41,10 +37,6 @@ Given a non-negative integer, you could swap two digits <b>at most</b> once to g
 </pre>
 
 </p>
-
-
-
-
 
 <p><b>Note:</b><br>
 

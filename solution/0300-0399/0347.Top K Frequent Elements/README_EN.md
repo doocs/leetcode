@@ -108,7 +108,7 @@ function topKFrequent(nums: number[], k: number): number[] {
         ans.push(list[i][0]);
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

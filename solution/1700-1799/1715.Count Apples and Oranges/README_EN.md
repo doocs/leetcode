@@ -88,7 +88,6 @@ Total number of apples = 6 + 24 + 27 + 27 + 17 + 14 + 36 = 151
 Total number of oranges = 15 + 25 + 8 + 28 + 15 + 15 + 17 = 123
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

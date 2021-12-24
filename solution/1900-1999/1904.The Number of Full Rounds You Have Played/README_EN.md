@@ -54,7 +54,6 @@ You did not play the full round from 12:30 to 12:45 because you stopped playing 
 	<li><code>startTime</code> and <code>finishTime</code> are not equal.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -66,7 +65,7 @@ class Solution:
     def numberOfRounds(self, startTime: str, finishTime: str) -> int:
         def get(s: str) -> int:
             return int(s[:2]) * 60 + int(s[3:])
-        
+
         start, finish = get(startTime), get(finishTime)
         if start > finish:
             finish += 24 * 60
@@ -102,8 +101,9 @@ class Solution {
  * @param {string} finishTime
  * @return {number}
  */
- var numberOfRounds = function(startTime, finishTime) {
-    let m1 = toMinutes(startTime), m2 = toMinutes(finishTime);
+var numberOfRounds = function (startTime, finishTime) {
+    let m1 = toMinutes(startTime),
+        m2 = toMinutes(finishTime);
 
     if (m1 > m2) {
         m2 += 24 * 60;
@@ -114,7 +114,7 @@ class Solution {
 };
 
 function toMinutes(time) {
-    let [h, m] = time.split(':');
+    let [h, m] = time.split(":");
     return Number(h) * 60 + Number(m);
 }
 ```

@@ -57,7 +57,6 @@ The absolute difference is 1.
 	<li><code>1 &lt;= target &lt;= 800</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -45,7 +45,6 @@ rotate 2 steps to the right: [3,99,-1,-100]
 	<li>Could you do it in-place with <code>O(1)</code> extra space?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -108,7 +107,7 @@ class Solution {
  */
 var rotate = function (nums, k) {
     k %= nums.length;
-    nums.splice(0, 0, ...nums.splice(-k, k))
+    nums.splice(0, 0, ...nums.splice(-k, k));
 };
 ```
 

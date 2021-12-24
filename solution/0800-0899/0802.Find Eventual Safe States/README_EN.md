@@ -40,7 +40,6 @@
 	<li>The number of edges in the graph will be in the range <code>[1, 4 * 10<sup>4</sup>]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 The point with zero out-degree is safe, and if a point can **only** reach the safe point, then it is also safe, so the problem can be converted to topological sorting.

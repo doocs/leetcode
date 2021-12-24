@@ -71,7 +71,6 @@
 	<li><code>fonts </code>已经按升序排序，且不包含重复项。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -97,7 +96,7 @@
 #        :type ch: char
 #        :rtype int
 #        """
-# 
+#
 #    def getHeight(self, fontSize):
 #        """
 #        :type fontSize: int
@@ -183,7 +182,7 @@ class Solution {
  *   public:
  *     // Return the width of char ch when fontSize is used.
  *     int getWidth(int fontSize, char ch);
- *     
+ *
  *     // Return Height of any char when fontSize is used.
  *     int getHeight(int fontSize)
  * };

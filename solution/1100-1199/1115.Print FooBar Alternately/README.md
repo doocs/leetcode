@@ -1,4 +1,4 @@
-# [1115. 交替打印FooBar](https://leetcode-cn.com/problems/print-foobar-alternately)
+# [1115. 交替打印 FooBar](https://leetcode-cn.com/problems/print-foobar-alternately)
 
 [English Version](/solution/1100-1199/1115.Print%20FooBar%20Alternately/README_EN.md)
 
@@ -45,7 +45,6 @@ class FooBar {
 <strong>输出:</strong> &quot;foobarfoobar&quot;
 <strong>解释:</strong> &quot;foobar&quot; 将被输出两次。
 </pre>
-
 
 ## 解法
 

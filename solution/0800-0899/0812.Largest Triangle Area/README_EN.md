@@ -6,8 +6,6 @@
 
 <p>You have a list of points in the plane. Return the area of the largest triangle that can be formed by any 3 of the points.</p>
 
-
-
 <pre>
 
 <strong>Example:</strong>
@@ -22,15 +20,9 @@ The five points are show in the figure below. The red triangle is the largest.
 
 </pre>
 
-
-
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0812.Largest%20Triangle%20Area/images/1027.png" style="height:328px; width:400px" /></p>
 
-
-
 <p><strong>Notes: </strong></p>
-
-
 
 <ul>
 	<li><code>3 &lt;= points.length &lt;= 50</code>.</li>
@@ -39,11 +31,7 @@ The five points are show in the figure below. The red triangle is the largest.
 	<li>Answers within&nbsp;<code>10^-6</code>&nbsp;of the true value will be accepted as correct.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
-
-
 
 ## Solutions
 

@@ -25,7 +25,6 @@
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

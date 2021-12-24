@@ -39,7 +39,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

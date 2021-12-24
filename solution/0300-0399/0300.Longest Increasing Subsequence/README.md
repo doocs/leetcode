@@ -119,7 +119,7 @@ function lengthOfLIS(nums: number[]): number {
         }
     }
     return Math.max(...dp);
-};
+}
 ```
 
 ### **C++**

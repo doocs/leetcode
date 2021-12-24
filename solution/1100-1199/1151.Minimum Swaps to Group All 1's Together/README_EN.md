@@ -53,7 +53,6 @@ One possible solution that uses 3 swaps is [0,0,0,0,0,1,1,1,1,1,1].
 	<li><code>data[i]</code>&nbsp;is <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

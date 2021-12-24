@@ -7,6 +7,7 @@
 <!-- 这里写题目描述 -->
 
 由空地（用 <code>0</code> 表示）和墙（用 <code>1</code> 表示）组成的迷宫 <code>maze</code> 中有一个球。球可以途经空地向<strong> 上、下、左、右 </strong>四个方向滚动，且在遇到墙壁前不会停止滚动。当球停下时，可以选择向下一个方向滚动。
+
 <div class="top-view__1vxA">
 <div class="original__bRMd">
 <div>
@@ -58,7 +59,6 @@
 </div>
 </div>
 </div>
-
 
 ## 解法
 

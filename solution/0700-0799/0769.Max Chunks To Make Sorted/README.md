@@ -35,7 +35,6 @@
 	<li><code>arr[i]</code>是 <code>[0, 1, ..., arr.length - 1]</code>的一种排列。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -73,7 +72,7 @@ function maxChunksToSorted(arr: number[]): number {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **...**

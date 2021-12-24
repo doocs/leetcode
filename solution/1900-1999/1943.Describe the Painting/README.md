@@ -75,7 +75,6 @@
 	<li>每种颜色&nbsp;<code>color<sub>i</sub></code>&nbsp;互不相同。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

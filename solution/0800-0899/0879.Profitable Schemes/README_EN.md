@@ -39,7 +39,6 @@ There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).</
 	<li><code>0 &lt;= profit[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

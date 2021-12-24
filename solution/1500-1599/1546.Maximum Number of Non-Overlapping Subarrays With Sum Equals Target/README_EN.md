@@ -48,7 +48,6 @@
 	<li><code>0 &lt;= target &lt;= 10^6</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

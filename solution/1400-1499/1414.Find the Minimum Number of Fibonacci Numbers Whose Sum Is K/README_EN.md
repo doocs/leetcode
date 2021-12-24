@@ -46,7 +46,6 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 	<li><code>1 &lt;= k &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

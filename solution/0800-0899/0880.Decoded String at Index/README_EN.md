@@ -61,7 +61,6 @@ The decoded string is &quot;a&quot; repeated 8301530446056247680 times.  The 1st
 	<li>The decoded string is guaranteed to have less than <code>2^63</code> letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

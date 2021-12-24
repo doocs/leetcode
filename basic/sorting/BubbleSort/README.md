@@ -41,6 +41,7 @@ public class BubbleSort {
     }
 }
 ```
+
 ### **JavaScript**
 
 ```js
@@ -55,12 +56,12 @@ function bubbleSort(inputArr) {
                 hasChange = true;
             }
         }
-        
+
         if (!hasChange) {
             break;
         }
     }
-    
+
     return inputArr;
 }
 

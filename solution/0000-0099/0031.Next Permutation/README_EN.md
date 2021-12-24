@@ -32,7 +32,6 @@
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

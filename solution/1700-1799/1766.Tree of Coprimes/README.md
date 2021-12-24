@@ -55,7 +55,6 @@
 	<li><code>u<sub>j</sub> != v<sub>j</sub></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

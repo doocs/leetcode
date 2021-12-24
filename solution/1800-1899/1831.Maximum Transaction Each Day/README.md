@@ -60,7 +60,6 @@ Result table:
 
 <p><strong>进阶：</strong>你可以不使用 <code>MAX()</code> 函数解决这道题目吗?</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

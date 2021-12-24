@@ -56,7 +56,6 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 	<li><code>0 &lt;= forest[i][j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

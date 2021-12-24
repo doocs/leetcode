@@ -26,7 +26,6 @@
 
 <p><strong>提示：</strong>如果 <em>h </em>有多种可能的值，<em>h</em> 指数是其中最大的那个。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -92,7 +91,7 @@ function hIndex(citations: number[]): number {
     let n = citations.length;
     let cnt = new Array(n + 1).fill(0);
     for (let c of citations) {
-        if ( c <= n) {
+        if (c <= n) {
             ++cnt[c];
         } else {
             ++cnt[n];
@@ -106,7 +105,7 @@ function hIndex(citations: number[]): number {
         }
     }
     return 0;
-};
+}
 ```
 
 ### **Go**

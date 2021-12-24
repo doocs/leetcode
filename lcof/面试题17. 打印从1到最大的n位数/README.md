@@ -51,11 +51,11 @@ class Solution {
  * @return {number[]}
  */
 var printNumbers = function (n) {
-  let res = [];
-  for (let i = 1; i < 10 ** n; ++i) {
-    res.push(i);
-  }
-  return res;
+    let res = [];
+    for (let i = 1; i < 10 ** n; ++i) {
+        res.push(i);
+    }
+    return res;
 };
 ```
 

@@ -84,7 +84,6 @@ startUrl = &quot;http://news.google.com&quot;
 	<li>你可以假定url库中不包含重复项。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

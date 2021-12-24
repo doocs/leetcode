@@ -49,7 +49,6 @@ Therefore, sum = 495 + 491 + 40 = <code>1026</code>.
 	<li>The depth of the tree will not exceed <code>10</code>.</li>
 </ul>
 
-
 ## Solutions
 
 DFS.
@@ -133,9 +132,9 @@ class Solution {
 
 function sumNumbers(root: TreeNode | null): number {
     return dfs(root);
-};
+}
 
-function dfs(root: TreeNode | null, preSum : number = 0): number {
+function dfs(root: TreeNode | null, preSum: number = 0): number {
     if (!root) return 0;
     preSum = preSum * 10 + root.val;
     if (!root.left && !root.right) return preSum;

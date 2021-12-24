@@ -32,7 +32,6 @@
 	<li><code>1 &lt;= n &lt;= 250</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

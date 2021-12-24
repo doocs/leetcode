@@ -39,7 +39,6 @@
 	<li><code>1 &lt;= W &lt;= hand.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -54,7 +53,7 @@
 
 ```java
 class Solution {
-    public boolean isNStraightHand(int[] hand, int groupSize) { 
+    public boolean isNStraightHand(int[] hand, int groupSize) {
         if (hand.length % groupSize != 0) {
             return false;
         }

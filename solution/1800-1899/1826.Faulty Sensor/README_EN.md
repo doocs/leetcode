@@ -51,7 +51,6 @@ The fourth data point from sensor 1 is dropped, and the last value of sensor 1 i
 	<li><code>1 &lt;= sensor1[i], sensor2[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -51,7 +51,6 @@
 	<li>The same city is not listed multiple times consecutively in <code>paths[i]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

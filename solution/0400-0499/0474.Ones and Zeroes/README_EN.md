@@ -39,7 +39,6 @@ Other valid but smaller subsets include {&quot;0001&quot;, &quot;1&quot;} and {&
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

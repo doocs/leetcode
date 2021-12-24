@@ -82,7 +82,6 @@ Students 表:
 John, Daiana, Steve 和 Jasmine 所在的院系分别是 14, 33, 74 和 77， 其中 14, 33, 74 和 77 并不存在于院系表
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -95,15 +94,15 @@ John, Daiana, Steve 和 Jasmine 所在的院系分别是 14, 33, 74 和 77， �
 
 ```sql
 # Write your MySQL query statement below
-SELECT 
+SELECT
     s.id, s.name
-FROM 
+FROM
     Students s
 LEFT JOIN
     Departments d
 ON
     s.department_id = d.id
-WHERE 
+WHERE
     d.id IS NULL;
 ```
 

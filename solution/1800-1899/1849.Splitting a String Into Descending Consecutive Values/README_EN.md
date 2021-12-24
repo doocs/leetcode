@@ -60,7 +60,6 @@ The values are in descending order with adjacent values differing by 1.
 	<li><code>s</code> only consists of digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

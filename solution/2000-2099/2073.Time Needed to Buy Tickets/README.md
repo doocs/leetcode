@@ -47,7 +47,6 @@
 	<li><code>0 &lt;= k &lt; n</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -114,10 +113,10 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
     // round2
     for (let i = 0; i <= k; i++) {
         let num = tickets[i];
-        ans += (num > 0 ? 1: 0);
+        ans += num > 0 ? 1 : 0;
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

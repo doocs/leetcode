@@ -54,7 +54,6 @@ Result table:
 (2, B) and (4, D) were changed from &#39;f&#39; to &#39;m&#39;.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

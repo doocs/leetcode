@@ -47,7 +47,6 @@ The final matrix is [[1,3,1],[1,3,1]], which contains 6 odd numbers.
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve this in <code>O(n + m + indices.length)</code> time with only <code>O(n + m)</code> extra space?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

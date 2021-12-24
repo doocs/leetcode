@@ -64,7 +64,6 @@
 	<li><code>s</code> 和&nbsp;<code>t</code>&nbsp;都只包含数字字符，即&nbsp;<code>&#39;0&#39;</code>&nbsp;到&nbsp;<code>&#39;9&#39;</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

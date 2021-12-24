@@ -43,7 +43,6 @@
 	<li><code>p</code> and <code>q</code> will exist in the BST.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -161,7 +160,11 @@ Iterative:
  * }
  */
 
-function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+function lowestCommonAncestor(
+    root: TreeNode | null,
+    p: TreeNode | null,
+    q: TreeNode | null
+): TreeNode | null {
     while (root) {
         if (root.val > p.val && root.val > q.val) {
             root = root.left;
@@ -171,7 +174,7 @@ function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: Tree
             return root;
         }
     }
-};
+}
 ```
 
 Recursive:
@@ -191,11 +194,17 @@ Recursive:
  * }
  */
 
-function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
-    if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
-    if (root.val < p.val && root.val < q.val) return lowestCommonAncestor(root.right, p, q);
+function lowestCommonAncestor(
+    root: TreeNode | null,
+    p: TreeNode | null,
+    q: TreeNode | null
+): TreeNode | null {
+    if (root.val > p.val && root.val > q.val)
+        return lowestCommonAncestor(root.left, p, q);
+    if (root.val < p.val && root.val < q.val)
+        return lowestCommonAncestor(root.right, p, q);
     return root;
-};
+}
 ```
 
 ### **Go**

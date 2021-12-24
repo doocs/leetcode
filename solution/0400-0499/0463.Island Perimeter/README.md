@@ -48,7 +48,6 @@
 	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -109,11 +108,13 @@ class Solution {
 
 ```ts
 function islandPerimeter(grid: number[][]): number {
-    let m = grid.length, n = grid[0].length;
+    let m = grid.length,
+        n = grid[0].length;
     let ans = 0;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            let top = 0, left = 0;
+            let top = 0,
+                left = 0;
             if (i > 0) {
                 top = grid[i - 1][j];
             }
@@ -133,7 +134,7 @@ function islandPerimeter(grid: number[][]): number {
         if (grid[m - 1][j] == 1) ++ans;
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

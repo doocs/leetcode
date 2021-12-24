@@ -42,7 +42,6 @@
 	<li><code>-10<sup>4</sup> <= Node.val <= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -163,7 +162,11 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 var isSameTree = function (p, q) {
     if (!p && !q) return true;
     if (p && q) {
-        return (p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right))
+        return (
+            p.val === q.val &&
+            isSameTree(p.left, q.left) &&
+            isSameTree(p.right, q.right)
+        );
     }
     return false;
 };

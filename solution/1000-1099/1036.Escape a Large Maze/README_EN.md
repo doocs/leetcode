@@ -44,7 +44,6 @@ We cannot move south or west because we cannot go outside of the grid.
 	<li>It is guaranteed that <code>source</code> and <code>target</code> are not blocked.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -50,7 +50,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 19&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -188,9 +187,10 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {
+var removeNthFromEnd = function (head, n) {
     const dummy = new ListNode(0, head);
-    let fast = dummy, slow = dummy;
+    let fast = dummy,
+        slow = dummy;
     while (n--) {
         fast = fast.next;
     }

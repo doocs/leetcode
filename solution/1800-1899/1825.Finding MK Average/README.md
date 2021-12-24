@@ -63,7 +63,6 @@ obj.calculateMKAverage(); // 最后 3 个元素为 [5,5,5]
 	<li><code>addElement</code> 与 <code>calculateMKAverage</code> 总操作次数不超过 <code>10<sup>5</sup></code> 次。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -46,7 +46,6 @@
 	<li><code>1 &lt;=&nbsp;stoneValue[i] &lt;= 10^6</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

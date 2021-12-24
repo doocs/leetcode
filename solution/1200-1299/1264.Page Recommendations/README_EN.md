@@ -6,8 +6,6 @@
 
 <p>Table: <code>Friendship</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -28,15 +26,9 @@ Each row of this table indicates that there is a friendship relation between use
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Likes</code></p>
-
-
 
 <pre>
 
@@ -58,23 +50,13 @@ Each row of this table indicates that user_id likes page_id.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to recommend pages to the user with <code>user_id</code> = 1 using the pages that your friends liked.&nbsp;It should not recommend pages you already liked.</p>
 
-
-
 <p>Return result table in any order without duplicates.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

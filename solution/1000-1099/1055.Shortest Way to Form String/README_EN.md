@@ -6,19 +6,11 @@
 
 <p>From any string, we can form a <i>subsequence</i> of that string by deleting some number of characters (possibly no deletions).</p>
 
-
-
 <p>Given two strings <code>source</code> and <code>target</code>, return the minimum number of subsequences of <code>source</code> such that their concatenation equals <code>target</code>. If the task is impossible, return <code>-1</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -46,11 +34,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -65,8 +49,6 @@
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>Both the <code>source</code> and <code>target</code> strings consist of only lowercase English letters from &quot;a&quot;-&quot;z&quot;.</li>

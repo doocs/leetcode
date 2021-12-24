@@ -37,7 +37,6 @@ There are 2 different transformations, &quot;--...-.&quot; and &quot;--...--.&qu
 	<li><code>words[i]</code> will only consist of lowercase letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -59,7 +59,6 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 	<li><code>nums[i]</code>&nbsp;is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
