@@ -6,21 +6,13 @@
 
 <p>Given a non-negative integer <code>num</code>, Return its <em>encoding</em> string.</p>
 
-
-
 <p>The encoding is done by converting the integer to a string using a secret function that you should deduce from the following table:</p>
 
-
-
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1256.Encode%20Number/images/encode_number.png" style="width: 164px; height: 360px;" /></p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,11 +22,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -44,13 +32,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>0 &lt;= num &lt;= 10^9</code></li>

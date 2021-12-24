@@ -52,7 +52,6 @@
 	<li><code>mat[i]</code> is a non decreasing array.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,15 +6,9 @@
 
 <p>A Tic-Tac-Toe board is given as a string array <code>board</code>. Return True if and only if it is possible to reach this board position during the course of a valid tic-tac-toe game.</p>
 
-
-
 <p>The <code>board</code> is a 3 x 3 array, and consists of characters <code>&quot; &quot;</code>, <code>&quot;X&quot;</code>, and <code>&quot;O&quot;</code>.&nbsp; The &quot; &quot; character represents an empty square.</p>
 
-
-
 <p>Here are the rules of Tic-Tac-Toe:</p>
-
-
 
 <ul>
 	<li>Players take turns placing characters into empty squares (&quot; &quot;).</li>
@@ -24,8 +18,6 @@
 	<li>The game also ends if all squares are non-empty.</li>
 	<li>No more moves can be played if the game is over.</li>
 </ul>
-
-
 
 <pre>
 
@@ -65,18 +57,12 @@
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 	<li><code>board</code> is a length-3 array of strings, where each string <code>board[i]</code> has length 3.</li>
 	<li>Each <code>board[i][j]</code> is a character in the set <code>{&quot; &quot;, &quot;X&quot;, &quot;O&quot;}</code>.</li>
 </ul>
-
-
 
 ## Solutions
 

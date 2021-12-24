@@ -55,7 +55,6 @@ It doesn&#39;t matter what you leave beyond the returned length. For example if 
 	<li><code>0 &lt;= val &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -114,13 +113,13 @@ public:
  * @return {number}
  */
 var removeElement = function (nums, val) {
-  let cnt = 0;
-  const n = nums.length;
-  for (let i = 0; i < n; ++i) {
-    if (nums[i] == val) ++cnt;
-    else nums[i - cnt] = nums[i];
-  }
-  return n - cnt;
+    let cnt = 0;
+    const n = nums.length;
+    for (let i = 0; i < n; ++i) {
+        if (nums[i] == val) ++cnt;
+        else nums[i - cnt] = nums[i];
+    }
+    return n - cnt;
 };
 ```
 

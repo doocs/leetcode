@@ -38,7 +38,6 @@
 	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -153,7 +152,11 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 var isSameTree = function (p, q) {
     if (!p && !q) return true;
     if (p && q) {
-        return (p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right))
+        return (
+            p.val === q.val &&
+            isSameTree(p.left, q.left) &&
+            isSameTree(p.right, q.right)
+        );
     }
     return false;
 };

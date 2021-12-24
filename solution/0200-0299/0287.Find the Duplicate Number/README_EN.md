@@ -42,7 +42,6 @@
 	<li>Can you solve the problem with runtime complexity less than <code>O(n<sup>2</sup>)</code>?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

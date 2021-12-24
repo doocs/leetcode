@@ -30,7 +30,6 @@
 	<li><code>0 &lt;= k &lt;= 50</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

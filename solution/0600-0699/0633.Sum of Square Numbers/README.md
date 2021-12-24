@@ -106,7 +106,8 @@ class Solution {
 
 ```ts
 function judgeSquareSum(c: number): boolean {
-    let a = 0, b = Math.floor(Math.sqrt(c));
+    let a = 0,
+        b = Math.floor(Math.sqrt(c));
     while (a <= b) {
         let sum = a ** 2 + b ** 2;
         if (sum == c) return true;
@@ -117,7 +118,7 @@ function judgeSquareSum(c: number): boolean {
         }
     }
     return false;
-};
+}
 ```
 
 ### **C++**

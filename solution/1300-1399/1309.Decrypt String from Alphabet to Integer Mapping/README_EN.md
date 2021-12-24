@@ -54,7 +54,6 @@
 	<li><code>s</code> will be valid string&nbsp;such that mapping is always possible.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

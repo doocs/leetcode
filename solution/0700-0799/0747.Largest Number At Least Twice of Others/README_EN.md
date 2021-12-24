@@ -36,7 +36,6 @@ The index of value 6 is 1, so we return 1.
 	<li>The largest element in <code>nums</code> is unique.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

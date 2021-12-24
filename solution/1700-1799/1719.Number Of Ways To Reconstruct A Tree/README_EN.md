@@ -66,7 +66,6 @@
 	<li>The elements in <code>pairs</code> are unique.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

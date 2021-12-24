@@ -31,7 +31,6 @@
 	<li><code>text</code>&nbsp;has only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

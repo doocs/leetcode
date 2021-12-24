@@ -36,8 +36,6 @@ left = 1, right = 22
 
 </p>
 
-
-
 <p><b>Note:</b>
 
 <li>The boundaries of each input argument are <code>1 <= left <= right <= 10000</code>.</li>

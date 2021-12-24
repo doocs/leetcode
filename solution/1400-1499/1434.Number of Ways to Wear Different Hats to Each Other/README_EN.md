@@ -6,25 +6,15 @@
 
 <p>There are&nbsp;<code>n</code> people&nbsp;and 40 types of hats labeled from 1 to 40.</p>
 
-
-
 <p>Given a list of list of integers <code>hats</code>, where <code>hats[i]</code>&nbsp;is a list of all hats preferred&nbsp;by the <code data-stringify-type="code">i-th</code> person.</p>
-
-
 
 <p>Return the number of ways that the n people wear different hats to each other.</p>
 
-
-
 <p>Since the answer&nbsp;may be too large,&nbsp;return it modulo&nbsp;<code>10^9 + 7</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -36,11 +26,7 @@
 
 First person choose hat 3, Second person choose hat 4 and last one hat 5.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -54,11 +40,7 @@ First person choose hat 3, Second person choose hat 4 and last one hat 5.</pre>
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -72,11 +54,7 @@ Number of Permutations of (1,2,3,4) = 24.
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -86,13 +64,9 @@ Number of Permutations of (1,2,3,4) = 24.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>n == hats.length</code></li>

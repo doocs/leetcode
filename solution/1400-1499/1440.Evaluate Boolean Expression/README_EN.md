@@ -6,8 +6,6 @@
 
 <p>Table <code>Variables</code>:</p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -28,15 +26,9 @@ This table contains the stored variables and their values.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table <code>Expressions</code>:</p>
-
-
 
 <pre>
 
@@ -64,23 +56,13 @@ The values of left_operand and right_operand are guaranteed to be in the Variabl
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to evaluate the boolean expressions in <code>Expressions</code> table.</p>
 
-
-
 <p>Return the result table in any order.</p>
 
-
-
 <p>The query result format is in the following example.</p>
-
-
 
 <pre>
 

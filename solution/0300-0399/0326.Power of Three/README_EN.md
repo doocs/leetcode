@@ -57,7 +57,7 @@ function isPowerOfThree(n: number): boolean {
         n /= 3;
     }
     return n == 1;
-};
+}
 ```
 
 ### **...**

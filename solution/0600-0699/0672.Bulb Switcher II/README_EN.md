@@ -6,11 +6,7 @@
 
 <p>There is a room with <code>n</code> lights which are turned on initially and 4 buttons on the wall. After performing exactly <code>m</code> unknown operations towards buttons, you need to return how many different kinds of status of the <code>n</code> lights could be.</p>
 
-
-
 <p>Suppose <code>n</code> lights are labeled as number [1, 2, 3 ..., n], function of these 4 buttons are given below:</p>
-
-
 
 <ol>
 	<li>Flip all the lights.</li>
@@ -19,15 +15,9 @@
 	<li>Flip lights with (3k + 1) numbers, k = 0, 1, 2, ...</li>
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -39,15 +29,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -59,15 +43,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 3:</b></p>
-
-
 
 <pre>
 
@@ -79,15 +57,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Note:</b> <code>n</code> and <code>m</code> both fit in range [0, 1000].</p>
-
-
 
 ## Solutions
 

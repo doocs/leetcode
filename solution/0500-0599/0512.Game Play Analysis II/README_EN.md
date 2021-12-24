@@ -47,7 +47,6 @@ Result table:
 | 3         | 1         |
 +-----------+-----------+</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

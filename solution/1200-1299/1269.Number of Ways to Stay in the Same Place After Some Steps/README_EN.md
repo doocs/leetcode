@@ -48,7 +48,6 @@ Stay, Stay
 	<li><code>1 &lt;= arrLen&nbsp;&lt;= 10^6</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

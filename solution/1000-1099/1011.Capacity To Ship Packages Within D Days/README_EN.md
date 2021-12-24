@@ -57,7 +57,6 @@ Note that the cargo must be shipped in the order given, so using a ship of capac
 	<li><code>1 &lt;= weights[i] &lt;= 500</code></li>
 </ul>
 
-
 ## Solutions
 
 Binary search.

@@ -41,7 +41,6 @@
 	<li><code>0 &lt;= turnedOn &lt;= 10</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

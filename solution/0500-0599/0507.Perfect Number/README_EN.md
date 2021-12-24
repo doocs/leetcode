@@ -53,7 +53,6 @@
 	<li><code>1 &lt;= num &lt;= 10<sup>8</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

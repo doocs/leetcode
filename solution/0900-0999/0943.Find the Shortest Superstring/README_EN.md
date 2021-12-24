@@ -34,7 +34,6 @@
 	<li>All the strings of <code>words</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

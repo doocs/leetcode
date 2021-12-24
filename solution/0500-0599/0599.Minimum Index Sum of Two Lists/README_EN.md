@@ -57,7 +57,6 @@
 	<li>All the stings of <code>list2</code>&nbsp;are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

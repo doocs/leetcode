@@ -160,7 +160,7 @@ func maxDistance(nums1 []int, nums2 []int) int {
  * @param {number[]} nums2
  * @return {number}
  */
-var maxDistance = function(nums1, nums2) {
+var maxDistance = function (nums1, nums2) {
     let res = 0;
     let m = nums1.length;
     let n = nums2.length;

@@ -55,7 +55,6 @@ Your final score is 12 - 1 = 11.
 	<li><code>0 &lt;= points[r][c] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

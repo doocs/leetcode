@@ -8,8 +8,6 @@ A U.S graduate school has students from Asia, Europe and America. The students&#
 
 <p>&nbsp;</p>
 
-
-
 <pre>
 
 | name   | continent |
@@ -26,23 +24,15 @@ A U.S graduate school has students from Asia, Europe and America. The students&#
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <a href="https://en.wikipedia.org/wiki/Pivot_table"> Pivot</a> the continent column in this table so that each name is sorted alphabetically and displayed underneath its corresponding continent. The output headers should be America, Asia and Europe respectively. It is guaranteed that the student number from America is no less than either Asia or Europe.
-
-
 
 <p>&nbsp;</p>
 
 For the sample input, the output is:
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -56,17 +46,11 @@ For the sample input, the output is:
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <b>Follow-up:</b> If it is unknown which continent has the most students, can you write a query to generate the student report?
 
-
-
 <p>&nbsp;</p>
-
-
 
 ## Solutions
 

@@ -95,7 +95,6 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 <p><strong>Follow-up:</strong><br />
 Can you write a general solution for the most recent <code>n</code> orders?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

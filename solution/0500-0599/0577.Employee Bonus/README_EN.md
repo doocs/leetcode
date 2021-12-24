@@ -6,11 +6,7 @@
 
 <p>Select all employee&#39;s name and bonus whose bonus is &lt; 1000.</p>
 
-
-
 <p>Table:<code>Employee </code></p>
-
-
 
 <pre>
 
@@ -34,11 +30,7 @@ empId is the primary key column for this table.
 
 </pre>
 
-
-
 <p>Table: <code>Bonus</code></p>
-
-
 
 <pre>
 
@@ -58,11 +50,7 @@ empId is the primary key column for this table.
 
 </pre>
 
-
-
 <p>Example ouput:</p>
-
-
 
 <pre>
 
@@ -81,8 +69,6 @@ empId is the primary key column for this table.
 +-------+-------+
 
 </pre>
-
-
 
 ## Solutions
 

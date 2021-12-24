@@ -48,7 +48,6 @@ The tree that the list represents is:
 The path sum is (3 + 1) = 4.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

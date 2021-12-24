@@ -72,7 +72,6 @@ There is a tie and we rank teams ascending by their IDs.
 	<li>All the characters&nbsp;that occur&nbsp;in <code>votes[0]</code> <strong>also&nbsp;occur</strong>&nbsp;in <code>votes[j]</code> where <code>1 &lt;= j &lt; votes.length</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

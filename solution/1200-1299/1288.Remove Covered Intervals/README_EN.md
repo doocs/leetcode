@@ -81,10 +81,9 @@
 - `cnt = 1`: `cnt` is the result.
 - `pre = intervals[0]`: `pre` is the last interval
 - For each `interval` in `intervals`
-	- if `pre.endTime < interval.endTime`, means `interval` is not overlapped then we count `cnt`, and update `pre = interval`
-	- else we do nothing
+    - if `pre.endTime < interval.endTime`, means `interval` is not overlapped then we count `cnt`, and update `pre = interval`
+    - else we do nothing
 - Return `cnt`
-
 
 <!-- tabs:start -->
 

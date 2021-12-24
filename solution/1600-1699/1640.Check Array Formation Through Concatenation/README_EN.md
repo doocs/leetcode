@@ -58,7 +58,6 @@
 	<li>The integers in&nbsp;<code>pieces</code> are <strong>distinct</strong>&nbsp;(i.e., If we flatten pieces in a 1D array, all the integers in this array are distinct).</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -115,12 +114,13 @@ class Solution {
  * @param {number[][]} pieces
  * @return {boolean}
  */
-var canFormArray = function(arr, pieces) {
+var canFormArray = function (arr, pieces) {
     let mapper = new Map();
     for (let i = 0; i < pieces.length; i++) {
         mapper.set(pieces[i][0], pieces[i]);
     }
-    let i = 0, n = arr.length;
+    let i = 0,
+        n = arr.length;
     while (i < n) {
         let cur = arr[i];
         let nums = mapper.get(cur);

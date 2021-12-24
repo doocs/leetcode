@@ -34,7 +34,6 @@
 	<li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

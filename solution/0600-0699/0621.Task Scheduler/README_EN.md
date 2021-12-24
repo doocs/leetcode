@@ -53,7 +53,6 @@ A -&gt; B -&gt; C -&gt; A -&gt; D -&gt; E -&gt; A -&gt; F -&gt; G -&gt; A -&gt; 
 	<li>The integer <code>n</code> is in the range <code>[0, 100]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

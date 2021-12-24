@@ -53,7 +53,6 @@
 	<li><code>end<sub>j</sub> &lt; start<sub>j+1</sub></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

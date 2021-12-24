@@ -47,7 +47,6 @@
 	<li><code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -170,7 +169,7 @@ public:
  * @param {number} target
  * @return {number[]}
  */
-var searchRange = function(nums, target) {
+var searchRange = function (nums, target) {
     if (nums.length == 0) {
         return [-1, -1];
     }

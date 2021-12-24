@@ -36,7 +36,6 @@
 解释：<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0469.Convex%20Polygon/images/polygon_not_convex.png" style="height: 100px; width: 100px;">
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

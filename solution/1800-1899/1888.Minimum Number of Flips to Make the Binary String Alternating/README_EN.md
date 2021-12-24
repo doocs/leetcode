@@ -53,7 +53,6 @@ Then, use the second operation on the third and sixth elements to make s = &quot
 	<li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -103,19 +102,19 @@ class Solution {
 ```ts
 function minFlips(s: string): number {
     const n: number = s.length;
-    const target: string[] = ['0', '1'];
+    const target: string[] = ["0", "1"];
     let count: number = 0;
     for (let i: number = 0; i < n; ++i) {
-        count += (s.charAt(i) == target[i & 1] ? 0 : 1);
+        count += s.charAt(i) == target[i & 1] ? 0 : 1;
     }
     let res = Math.min(count, n - count);
     for (let i: number = 0; i < n; ++i) {
-        count -= (s.charAt(i) == target[i & 1] ? 0 : 1);
-        count += (s.charAt(i) == target[(i + n) & 1] ? 0 : 1);
+        count -= s.charAt(i) == target[i & 1] ? 0 : 1;
+        count += s.charAt(i) == target[(i + n) & 1] ? 0 : 1;
         res = Math.min(res, count, n - count);
     }
     return res;
-};
+}
 ```
 
 ### **...**

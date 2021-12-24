@@ -46,7 +46,6 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 	<li><code>a</code> and <code>b</code> consist of lower-case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -56,7 +56,6 @@
 	<li><code>1 &lt;= k &lt;= n &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -48,7 +48,6 @@ Figure B shows the skyline formed by those buildings. The red points in figure B
 	<li><code>buildings</code> is sorted by <code>left<sub>i</sub></code> in&nbsp;non-decreasing order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

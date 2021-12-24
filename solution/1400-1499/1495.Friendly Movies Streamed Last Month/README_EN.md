@@ -6,8 +6,6 @@
 
 <p>Table: <code>TVProgram</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -30,15 +28,9 @@ This table contains information of the programs on the TV.
 
 content_id is the id of the program in some channel on the TV.</pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Content</code></p>
-
-
 
 <pre>
 
@@ -68,27 +60,15 @@ content_type&nbsp;is the category of the content as movies, series, etc.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to&nbsp;report the distinct titles of the kid-friendly movies streamed in June 2020.</p>
 
-
-
 <p>Return the result table in any order.</p>
-
-
 
 <p>The query result format is in the following example.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

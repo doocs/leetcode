@@ -6,11 +6,7 @@
 
 <p>You are given two arrays of positive integers, <code>boxes</code> and <code>warehouse</code>, representing the heights of some boxes of unit width and the heights of <code>n</code> rooms in a warehouse respectively. The warehouse&#39;s rooms are labeled from <code>0</code> to <code>n - 1</code> from left to right where <code>warehouse[i]</code> (0-indexed) is the height of the <code>i<sup>th</sup></code> room.</p>
 
-
-
 <p>Boxes are put into the warehouse by the following rules:</p>
-
-
 
 <ul>
 	<li>Boxes cannot be stacked.</li>
@@ -19,11 +15,7 @@
 	<li>If the height of some room in the warehouse is less than the height of a box, then that box and all other boxes behind it will be stopped before that room.</li>
 </ul>
 
-
-
 <p>Return <em>the maximum number of boxes you can put into the warehouse.</em></p>
-
-
 
 <p>&nbsp;</p>
 
@@ -55,8 +47,6 @@ Notice that there are other valid ways to put 4 boxes such as swapping the red a
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1580.Put%20Boxes%20Into%20the%20Warehouse%20II/images/22-2.png" style="width: 401px; height: 242px;" />
@@ -77,11 +67,7 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -91,11 +77,7 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -105,13 +87,9 @@ Other valid solutions are to put the green box in room 2 or to put the orange bo
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>n == warehouse.length</code></li>

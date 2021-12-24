@@ -61,7 +61,6 @@ movieRentingSystem.search(2);  // return [0, 1]. Movies of ID 2 are unrented at 
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to <code>search</code>, <code>rent</code>, <code>drop</code> and <code>report</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -67,7 +67,7 @@ class Solution:
                 t.append(candidates[i])
                 dfs(i + 1, s + candidates[i], t)
                 t.pop()
-        
+
         ans = []
         candidates.sort()
         dfs(0, 0, [])

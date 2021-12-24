@@ -37,7 +37,6 @@
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 Dynamic programming - 2D preSum.
@@ -54,7 +53,7 @@ class Solution:
         for i in range(1, m + 1):
             for j in range(1, n + 1):
                 pre[i][j] = pre[i - 1][j] + pre[i][j - 1] - pre[i - 1][j - 1] + mat[i - 1][j - 1]
-        
+
         def get(i, j):
             i = max(min(m, i), 0)
             j = max(min(n, j), 0)

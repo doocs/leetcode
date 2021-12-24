@@ -27,7 +27,6 @@
 	<li>The input tree is <strong>guaranteed</strong> to be a binary search tree.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -59,7 +59,6 @@
 	<li><code>s</code> consists of only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -56,7 +56,6 @@
 	<li><code>nums</code>​​​ is sorted in <strong>ascending</strong> order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,8 +6,6 @@
 
 <p>Given an array of n distinct non-empty strings, you need to generate <b>minimal</b> possible abbreviations for every word following rules below.</p>
 
-
-
 <ol>
 
 <li>Begin with the first character and then the number of characters abbreviated, which followed by the last character.</li>
@@ -17,8 +15,6 @@
 <li> If the abbreviation doesn't make the word shorter, then keep it as original.</li>
 
 </ol>
-
-
 
 <p><b>Example:</b><br />
 
@@ -32,11 +28,7 @@
 
 </p>
 
-
-
-
-
-<b>Note:</b> 
+<b>Note:</b>
 
 <ol>
 

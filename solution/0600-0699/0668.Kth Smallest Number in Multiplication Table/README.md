@@ -1,4 +1,4 @@
-# [668. 乘法表中第k小的数](https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table)
+# [668. 乘法表中第 k 小的数](https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table)
 
 [English Version](/solution/0600-0699/0668.Kth%20Smallest%20Number%20in%20Multiplication%20Table/README_EN.md)
 
@@ -43,7 +43,6 @@
 	<li><code>m</code> 和&nbsp;<code>n</code>&nbsp;的范围在 [1, 30000] 之间。</li>
 	<li><code>k</code> 的范围在 [1, m * n] 之间。</li>
 </ol>
-
 
 ## 解法
 

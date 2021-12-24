@@ -8,8 +8,6 @@
 
 <p>Table: <code>Accounts</code></p>
 
-
-
 <pre>
 
 +----------------+------+
@@ -30,15 +28,9 @@ Each row contains information about the maximum monthly income for one bank acco
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Transactions</code></p>
-
-
 
 <pre>
 
@@ -70,31 +62,17 @@ amount is the amount of money depositied/withdrawn during the transaction.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to report the IDs of all&nbsp;<strong>suspicious</strong> bank accounts.</p>
 
-
-
 <p>A bank account is <strong>suspicious</strong> if the <strong>total income</strong> exceeds the <code>max_income</code> for this account for <strong>two or more consecutive</strong> months. The <strong>total income</strong> of an account in some month is the sum of all its deposits in that month (i.e., transactions of the type <code>&#39;Creditor&#39;</code>).</p>
-
-
 
 <p>Return the result table <strong>in ascending order by </strong><code>transaction_id</code>.</p>
 
-
-
 <p>The query result format is in the following example:</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

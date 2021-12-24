@@ -88,7 +88,6 @@ Products with product_id = 4 was not ordered in February 2020.
 Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

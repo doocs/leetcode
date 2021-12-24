@@ -52,7 +52,6 @@ The total wasted space is (10 - 10) + (20 - 20) + (20 - 15) + (30 - 30) + (30 - 
 	<li><code>0 &lt;= k &lt;= nums.length - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

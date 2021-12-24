@@ -201,7 +201,7 @@ func threeSum(nums []int) [][]int {
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function(nums) {
+var threeSum = function (nums) {
     const n = nums.length;
     if (n < 3) return [];
     let res = [];

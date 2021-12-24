@@ -70,7 +70,6 @@
 	<li><code>(nums[i], nums[j])</code> 和 <code>(nums[j], nums[i])</code> 算同一个数对</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

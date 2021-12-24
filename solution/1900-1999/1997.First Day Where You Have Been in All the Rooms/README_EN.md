@@ -59,7 +59,6 @@ Day 6 is the first day where you have been in all the rooms.
 	<li><code>0 &lt;= nextVisit[i] &lt;= i</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

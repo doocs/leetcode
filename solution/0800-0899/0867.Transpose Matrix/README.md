@@ -40,7 +40,6 @@
 	<li><code>-10<sup>9</sup> <= matrix[i][j] <= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -89,16 +88,16 @@ class Solution {
  * @return {number[][]}
  */
 var transpose = function (matrix) {
-  const m = matrix.length,
-    n = matrix[0].length;
-  let res = [];
-  for (let i = 0; i < n; ++i) {
-    res[i] = [];
-    for (let j = 0; j < m; ++j) {
-      res[i][j] = matrix[j][i];
+    const m = matrix.length,
+        n = matrix[0].length;
+    let res = [];
+    for (let i = 0; i < n; ++i) {
+        res[i] = [];
+        for (let j = 0; j < m; ++j) {
+            res[i][j] = matrix[j][i];
+        }
     }
-  }
-  return res;
+    return res;
 };
 ```
 

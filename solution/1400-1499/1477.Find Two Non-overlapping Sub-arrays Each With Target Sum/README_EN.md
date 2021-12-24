@@ -60,7 +60,6 @@
 	<li><code>1 &lt;= target &lt;= 10<sup>8</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

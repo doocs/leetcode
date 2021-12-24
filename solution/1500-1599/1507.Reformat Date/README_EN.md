@@ -49,7 +49,6 @@
 	<li>The given dates are guaranteed to be valid, so no error handling is necessary.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

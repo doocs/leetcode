@@ -6,8 +6,6 @@
 
 <p>Table: <code>ActorDirector</code></p>
 
-
-
 <pre>
 
 +-------------+---------+
@@ -28,19 +26,11 @@ timestamp is the primary key column for this table.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write a SQL query for a report that provides the pairs <code>(actor_id, director_id)</code> where the actor have cooperated with the director at least 3 times.</p>
 
-
-
 <p><strong>Example:</strong></p>
-
-
 
 <pre>
 
@@ -85,8 +75,6 @@ Result table:
 The only pair is (1, 1) where they cooperated exactly 3 times.
 
 </pre>
-
-
 
 ## Solutions
 

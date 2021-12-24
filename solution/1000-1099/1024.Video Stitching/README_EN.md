@@ -60,7 +60,6 @@ Notice you can have extra video after the event ends.
 	<li><code>0 &lt;= T &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

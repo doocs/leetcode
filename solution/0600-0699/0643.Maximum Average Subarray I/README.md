@@ -27,7 +27,6 @@
 	<li>所给数据范围 [-10,000，10,000]。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -85,11 +84,11 @@ function findMaxAverage(nums: number[], k: number): number {
     }
     ans = sum;
     for (let i = k; i < n; i++) {
-        sum += (nums[i] - nums[i - k]);
+        sum += nums[i] - nums[i - k];
         ans = Math.max(ans, sum);
     }
     return ans / k;
-};
+}
 ```
 
 ### **...**

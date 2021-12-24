@@ -35,7 +35,6 @@
 	<li><code>first</code> 和&nbsp;<code>second</code>&nbsp;由小写英文字母组成</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

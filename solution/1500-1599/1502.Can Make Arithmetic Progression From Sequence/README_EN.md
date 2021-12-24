@@ -33,7 +33,6 @@
 	<li><code>-10^6 &lt;= arr[i] &lt;= 10^6</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -73,10 +72,10 @@ class Solution {
  * @param {number[]} arr
  * @return {boolean}
  */
-var canMakeArithmeticProgression = function(arr) {
+var canMakeArithmeticProgression = function (arr) {
     arr.sort((a, b) => a - b);
     for (let i = 1; i < arr.length - 1; i++) {
-        if ((arr[i] << 1) != (arr[i - 1] + arr[i + 1])) return false;
+        if (arr[i] << 1 != arr[i - 1] + arr[i + 1]) return false;
     }
     return true;
 };

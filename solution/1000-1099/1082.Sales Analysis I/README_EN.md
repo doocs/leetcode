@@ -69,7 +69,6 @@ Result table:
 +-------------+
 Both sellers with id 1 and 3 sold products with the most total price of 2800.</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

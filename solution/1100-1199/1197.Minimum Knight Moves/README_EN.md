@@ -36,7 +36,6 @@
 	<li><code>|x| + |y| &lt;= 300</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

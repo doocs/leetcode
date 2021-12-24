@@ -53,7 +53,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
 
-
 ## Solutions
 
 **1. Recusive Traversal**
@@ -84,7 +83,7 @@ class Solution:
                 res.append(root.val)
                 preorder(root.left)
                 preorder(root.right)
-        
+
         preorder(root)
         return res
 ```
@@ -296,7 +295,7 @@ function preorderTraversal(root: TreeNode | null): number[] {
         root = root.right;
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

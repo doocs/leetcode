@@ -43,7 +43,6 @@ words[2] = &quot;bell&quot;, the substring of s starting from indices[2] = 5 to 
 	<li><code>words[i]</code> consists of only lowercase letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,8 +6,6 @@
 
 <p>Table: <code>Countries</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -28,15 +26,9 @@ Each row of this table contains the ID and the name of one country.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Weather</code></p>
-
-
 
 <pre>
 
@@ -60,27 +52,15 @@ Each row of this table indicates the weather state in a country for one day.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find the type of weather in each country for November 2019.</p>
 
-
-
 <p>The type of weather is <strong>Cold</strong> if the average <code>weather_state</code> is less than or equal 15, <strong>Hot</strong> if the average <code>weather_state</code> is greater than or equal 25 and <strong>Warm</strong> otherwise.</p>
-
-
 
 <p>Return result table in any order.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

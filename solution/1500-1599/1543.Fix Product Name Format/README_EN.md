@@ -63,7 +63,6 @@ In Februery, 2 LCKeychains and 1 LCPhone were sold.
 In March, 1 matryoshka was sold.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

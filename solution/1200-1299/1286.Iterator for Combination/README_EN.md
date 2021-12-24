@@ -42,7 +42,6 @@ itr.hasNext(); // return False
 	<li>It&#39;s guaranteed that all&nbsp;calls&nbsp;of the function <code>next</code>&nbsp;are valid.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

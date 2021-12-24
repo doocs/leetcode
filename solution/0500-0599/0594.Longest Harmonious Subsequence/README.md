@@ -68,7 +68,6 @@ class Solution:
         return ans
 ```
 
-
 ```python
 class Solution:
     def findLHS(self, nums: List[int]) -> int:

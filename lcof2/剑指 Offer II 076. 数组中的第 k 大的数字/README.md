@@ -36,7 +36,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 215&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/">https://leetcode-cn.com/problems/kth-largest-element-in-an-array/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -111,7 +110,7 @@ class Solution {
 }
 ```
 
-###  **C++**
+### **C++**
 
 ```cpp
 class Solution {

@@ -25,7 +25,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Do not allocate extra space for another array. You must do this by modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a> with <code>O(1)</code> extra memory.</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -84,7 +83,7 @@ func reverseString(s []byte) {
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */
-var reverseString = function(s) {
+var reverseString = function (s) {
     for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
         [s[i], s[j]] = [s[j], s[i]];
     }

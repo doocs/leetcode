@@ -46,7 +46,6 @@
 	<li><code>1 &lt;= queries[j] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

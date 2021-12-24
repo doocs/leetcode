@@ -35,7 +35,6 @@
 	<li><code>1 &lt;= low &lt;= high &lt;= 2&times;10^8</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

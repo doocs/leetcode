@@ -46,7 +46,6 @@
 	<li><code>sequence</code> 和 <code>word</code> 都只包含小写英文字母。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

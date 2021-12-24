@@ -34,7 +34,6 @@ The second 1&#39;s next greater number needs to search circularly, which is also
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -81,7 +80,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number[]}
  */
- var nextGreaterElements = function(nums) {
+var nextGreaterElements = function (nums) {
     let n = nums.length;
     let stack = [];
     let res = new Array(n).fill(-1);

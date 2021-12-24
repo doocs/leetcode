@@ -58,7 +58,6 @@ fileSystem.get(&quot;/c&quot;); // return -1 because this path doesn&#39;t exist
 	<li><code>1 &lt;= value &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -36,7 +36,6 @@
 	<li><code>stones[0] == 0</code></li>
 </ul>
 
-
 ## Solutions
 
 DP, use `dp[i][k]` to indicate whether `i` can be reached when the last jump was `k` units, and define the base case as `dp[0][0] = True` (starting point is at index 0).

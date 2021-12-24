@@ -58,7 +58,6 @@ Thus the resulting integer is 6.
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

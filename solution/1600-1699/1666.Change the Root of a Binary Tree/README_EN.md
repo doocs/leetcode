@@ -42,7 +42,6 @@
 	<li><code>leaf</code> exist in the tree.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

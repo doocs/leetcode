@@ -62,7 +62,6 @@
 	<li><code>0 <= maxHeight<sub>i</sub> <= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

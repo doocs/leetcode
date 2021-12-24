@@ -152,7 +152,7 @@ class Trie {
         count = 0;
         preCount = 0;
     }
-    
+
     public void insert(String word) {
         Trie node = this;
         for (int i = 0; i < word.length(); ++i) {
@@ -165,17 +165,17 @@ class Trie {
         }
         node.count += 1;
     }
-    
+
     public int countWordsEqualTo(String word) {
         Trie node = searchPrefix(word);
         return node == null ? 0 : node.count;
     }
-    
+
     public int countWordsStartingWith(String prefix) {
         Trie node = searchPrefix(prefix);
         return node == null ? 0 : node.preCount;
     }
-    
+
     public void erase(String word) {
         Trie node = this;
         for (int i = 0; i < word.length(); ++i) {

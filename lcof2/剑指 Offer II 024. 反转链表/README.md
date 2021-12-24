@@ -145,9 +145,9 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
- var reverseList = function(head) {
+var reverseList = function (head) {
     let pre = null;
-    for (let p = head; p;) {
+    for (let p = head; p; ) {
         let q = p.next;
         p.next = pre;
         pre = p;

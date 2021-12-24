@@ -64,7 +64,6 @@
 	<li>输入是一个长度为 <code>32</code> 的二进制字符串</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -127,13 +126,13 @@ public:
  * @return {number} - a positive integer
  */
 var reverseBits = function (n) {
-  let res = 0;
-  for (let i = 0; i < 32 && n > 0; ++i) {
-    res |= (n & 1) << (31 - i);
-    n >>>= 1;
-  }
-  // 无符号右移
-  return res >>> 0;
+    let res = 0;
+    for (let i = 0; i < 32 && n > 0; ++i) {
+        res |= (n & 1) << (31 - i);
+        n >>>= 1;
+    }
+    // 无符号右移
+    return res >>> 0;
 };
 ```
 

@@ -50,7 +50,6 @@ Hence, answer = [10,25]
 	<li><code>1 &lt;= seats<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -99,7 +98,7 @@ class Solution {
  * @param {number} n
  * @return {number[]}
  */
-var corpFlightBookings = function(bookings, n) {
+var corpFlightBookings = function (bookings, n) {
     let delta = new Array(n).fill(0);
     for (let book of bookings) {
         let [start, end, num] = book;

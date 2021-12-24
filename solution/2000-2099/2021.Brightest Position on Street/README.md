@@ -26,6 +26,7 @@ The third street lamp lights up the area from [3 - 3, 3 + 3] = [0, 6].
 Position -1 has a brightness of 2, illuminated by the first and second street light.
 Positions 0, 1, 2, and 3 have a brightness of 2, illuminated by the second and third street light.
 Out of all these positions, -1 is the smallest, so return it.
+
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -62,7 +63,6 @@ Out of all these positions, -1 is the smallest, so return it.
 	<li><code>-10<sup>8</sup> &lt;= position<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 	<li><code>0 &lt;= range<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 </ul>
-
 
 ## 解法
 

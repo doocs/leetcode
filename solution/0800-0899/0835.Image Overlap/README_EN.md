@@ -51,7 +51,6 @@ The number of positions that have a 1 in both images is 3. (Shown in red)
 	<li><code>img2[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

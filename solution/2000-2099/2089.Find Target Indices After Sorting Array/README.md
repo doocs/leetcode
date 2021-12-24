@@ -103,7 +103,7 @@ function targetIndices(nums: number[], target: number): number[] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

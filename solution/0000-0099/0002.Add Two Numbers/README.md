@@ -46,7 +46,6 @@
 	<li>题目数据保证列表表示的数字不含前导零</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -157,7 +156,7 @@ public:
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function (l1, l2) {
     const dummy = new ListNode();
     let carry = 0;
     let cur = dummy;
@@ -316,7 +315,7 @@ class Solution {
         next: Node[int]
 
     SinglyLinkedList[T] = object
-        head, tail: Node[T]  
+        head, tail: Node[T]
 ]#
 
 # More efficient code churning ...
@@ -339,7 +338,6 @@ proc addTwoNumbers(l1: var SinglyLinkedList, l2: var SinglyLinkedList): SinglyLi
 
   result = aggregate
 ```
-
 
 ### **...**
 

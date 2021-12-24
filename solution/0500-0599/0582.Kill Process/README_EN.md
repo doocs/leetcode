@@ -42,7 +42,6 @@
 	<li><code>kill</code> is <strong>guaranteed</strong> to be in <code>pid</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

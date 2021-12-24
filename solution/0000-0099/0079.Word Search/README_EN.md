@@ -44,7 +44,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you use search pruning to make your solution faster with a larger <code>board</code>?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -113,7 +112,8 @@ class Solution {
 
 ```ts
 function exist(board: string[][], word: string): boolean {
-    let m = board.length, n = board[0].length;
+    let m = board.length,
+        n = board[0].length;
     let visited = Array.from({ length: m }, v => new Array(n).fill(false));
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
@@ -123,10 +123,18 @@ function exist(board: string[][], word: string): boolean {
         }
     }
     return false;
-};
+}
 
-function dfs(board: string[][], word: string, i: number, j: number, depth: number, visited: boolean[][]): boolean {
-    let m = board.length, n = board[0].length;
+function dfs(
+    board: string[][],
+    word: string,
+    i: number,
+    j: number,
+    depth: number,
+    visited: boolean[][]
+): boolean {
+    let m = board.length,
+        n = board[0].length;
     if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || visited[i][j]) {
         return false;
     }
@@ -141,8 +149,14 @@ function dfs(board: string[][], word: string, i: number, j: number, depth: numbe
     visited[i][j] = true;
     ++depth;
     let res = false;
-    for (let [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
-        let x = i + dx, y = j + dy;
+    for (let [dx, dy] of [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ]) {
+        let x = i + dx,
+            y = j + dy;
         res = res || dfs(board, word, x, y, depth, visited);
     }
     visited[i][j] = false;

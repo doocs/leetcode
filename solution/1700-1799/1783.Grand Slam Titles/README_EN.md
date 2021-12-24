@@ -6,8 +6,6 @@
 
 <p>Table: <code>Players</code></p>
 
-
-
 <pre>
 
 +----------------+---------+
@@ -28,15 +26,9 @@ Each row in this table contains the name and the ID of a tennis player.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Championships</code></p>
-
-
 
 <pre>
 
@@ -64,27 +56,15 @@ Each row of this table containts the IDs of the players who won one each tennis 
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to report the number of grand slam tournaments won by each player. Do not include the players who did not win any tournament.</p>
 
-
-
 <p>Return the result table in <strong>any order</strong>.</p>
-
-
 
 <p>The query result format is in the following example:</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

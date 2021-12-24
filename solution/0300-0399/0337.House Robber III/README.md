@@ -37,7 +37,6 @@
 <strong>解释:</strong>&nbsp;小偷一晚能够盗取的最高金额&nbsp;= <strong>4</strong> + <strong>5</strong> = <strong>9</strong>.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

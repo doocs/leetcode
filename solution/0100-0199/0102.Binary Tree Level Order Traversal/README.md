@@ -31,7 +31,6 @@
 ]
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -208,7 +207,7 @@ func levelOrder(root *TreeNode) [][]int {
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
+var levelOrder = function (root) {
     if (!root) {
         return [];
     }

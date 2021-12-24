@@ -8,8 +8,6 @@
 
 Can you write a SQL query to find the biggest number, which only appears once.</p>
 
-
-
 <pre>
 
 +---+
@@ -38,8 +36,6 @@ Can you write a SQL query to find the biggest number, which only appears once.</
 
 For the sample data above, your query should return the following result:
 
-
-
 <pre>
 
 +---+
@@ -56,11 +52,7 @@ For the sample data above, your query should return the following result:
 
 If there is no such number, just output <b>null</b>.
 
-
-
 <p>&nbsp;</p>
-
-
 
 ## Solutions
 

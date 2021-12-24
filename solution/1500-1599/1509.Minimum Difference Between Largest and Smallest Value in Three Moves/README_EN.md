@@ -6,17 +6,11 @@
 
 <p>Given an array <code>nums</code>, you are allowed to choose one element of <code>nums</code> and change it by any&nbsp;value in one move.</p>
 
-
-
 <p>Return the minimum difference between the largest and smallest value of <code>nums</code>&nbsp;after perfoming at most 3 moves.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -28,11 +22,7 @@
 
 The difference between the maximum and minimum is 2-2 = 0.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -46,11 +36,7 @@ The difference between the maximum and minimum is 1-0 = 1.
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -60,11 +46,7 @@ The difference between the maximum and minimum is 1-0 = 1.
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -74,13 +56,9 @@ The difference between the maximum and minimum is 1-0 = 1.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>

@@ -50,7 +50,6 @@ merging them into one sorted list:
 	<li>The sum of <code>lists[i].length</code> won&#39;t exceed <code>10^4</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -71,7 +70,7 @@ class Solution:
         for i in range(n - 1):
             lists[i + 1] = self.mergeTwoLists(lists[i], lists[i + 1])
         return lists[-1]
-        
+
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         dummy = ListNode()
         cur = dummy
@@ -234,7 +233,7 @@ func mergeKLists(lists []*ListNode) *ListNode {
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-var mergeKLists = function(lists) {
+var mergeKLists = function (lists) {
     const n = lists.length;
     if (n == 0) {
         return null;

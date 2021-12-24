@@ -57,7 +57,6 @@ Any height assignment that has a maximum height of 2 while still meeting the rul
 	<li>There is at least <strong>one</strong> water cell.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

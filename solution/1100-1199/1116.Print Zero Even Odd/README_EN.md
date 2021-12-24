@@ -42,7 +42,6 @@ class ZeroEvenOdd {
 <b>Output:</b> &quot;0102030405&quot;
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

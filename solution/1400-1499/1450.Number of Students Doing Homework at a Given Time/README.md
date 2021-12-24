@@ -60,7 +60,6 @@
 	<li><code>1 &lt;=&nbsp;queryTime &lt;= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

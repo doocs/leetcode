@@ -24,7 +24,6 @@ Solution solution = new Solution(head);
 solution.getRandom();
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

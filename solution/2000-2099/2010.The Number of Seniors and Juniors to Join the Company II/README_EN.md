@@ -93,7 +93,6 @@ We cannot hire any seniors with the current budget as we need at least $80000 to
 We can hire all three juniors with the remaining budget.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

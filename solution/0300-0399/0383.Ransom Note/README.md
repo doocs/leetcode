@@ -91,7 +91,7 @@ class Solution {
 ```ts
 function canConstruct(ransomNote: string, magazine: string): boolean {
     let counter = new Array(26).fill(0);
-    let base = 'a'.charCodeAt(0);
+    let base = "a".charCodeAt(0);
     for (let s of magazine) {
         ++counter[s.charCodeAt(0) - base];
     }
@@ -101,7 +101,7 @@ function canConstruct(ransomNote: string, magazine: string): boolean {
         --counter[idx];
     }
     return true;
-};
+}
 ```
 
 ### **C++**

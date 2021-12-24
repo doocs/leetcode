@@ -79,7 +79,6 @@ User Jonathan with id = 7 logged in 7 times in 6 different days, five of them we
 <p><strong>Follow up question:</strong><br />
 Can you write a general solution if the active&nbsp;users are those who logged in to their accounts for <code>n</code> or more consecutive days?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

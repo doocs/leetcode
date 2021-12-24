@@ -35,7 +35,6 @@
 	<li>All the given points are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

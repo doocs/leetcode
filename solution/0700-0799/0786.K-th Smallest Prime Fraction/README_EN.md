@@ -40,7 +40,6 @@ The third fraction is 2/5.
 	<li><code>1 &lt;= k &lt;= arr.length * (arr.length - 1) / 2</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

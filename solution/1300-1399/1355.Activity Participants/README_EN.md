@@ -74,7 +74,6 @@ Horse Riding activity is performed by 1 friend, minimum number of participants, 
 Singing is performed by 2 friends (Victor J. and Jade W.)
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -73,7 +73,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 852&nbsp;题相同：<a href="https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/">https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -162,7 +161,7 @@ func peakIndexInMountainArray(arr []int) int {
  * @param {number[]} arr
  * @return {number}
  */
-var peakIndexInMountainArray = function(arr) {
+var peakIndexInMountainArray = function (arr) {
     let left = 1;
     let right = arr.length - 2;
     while (left < right) {

@@ -102,7 +102,6 @@ startUrl = &quot;http://news.google.com&quot;
 	<li>你可以假设路径都是不重复的。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

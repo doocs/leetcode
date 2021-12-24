@@ -56,7 +56,7 @@ class Solution:
             for i in range(left, right + 1):
                 nums[i] = tmp[i - left]
             return res
-        
+
         return merge_sort(nums, 0, len(nums) - 1)
 ```
 
@@ -108,7 +108,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var reversePairs = function(nums) {
+var reversePairs = function (nums) {
     const mergeSort = (nums, left, right) => {
         if (left >= right) {
             return 0;
@@ -123,7 +123,7 @@ var reversePairs = function(nums) {
                 tmp.push(nums[i++]);
             } else {
                 tmp.push(nums[j++]);
-                res += (mid - i + 1);
+                res += mid - i + 1;
             }
         }
         while (i <= mid) {
@@ -136,7 +136,7 @@ var reversePairs = function(nums) {
             nums[i] = tmp[j];
         }
         return res;
-    }
+    };
 
     return mergeSort(nums, 0, nums.length - 1);
 };
@@ -185,13 +185,20 @@ function reversePairs(nums: number[]): number {
     const n: number = nums.length;
     if (n < 2) return 0;
 
-    function merge(nums: number[], left: number, mid: number, right: number): void {
+    function merge(
+        nums: number[],
+        left: number,
+        mid: number,
+        right: number
+    ): void {
         let n: number = right - left + 1;
         let t: number[] = new Array(n);
-        let i: number = left, j: number = mid + 1, idx: number = 0;
+        let i: number = left,
+            j: number = mid + 1,
+            idx: number = 0;
         while (i <= mid && j <= right) {
             if (nums[i] > nums[j]) {
-                count += (mid - i + 1);
+                count += mid - i + 1;
                 t[idx++] = nums[j++];
             } else {
                 t[idx++] = nums[i++];
@@ -207,7 +214,7 @@ function reversePairs(nums: number[]): number {
             nums[left + k] = t[k];
         }
     }
-    
+
     function mergeSort(nums: number[], left: number, right: number): void {
         if (left == right) return;
         let mid: number = (left + right) >> 1;
@@ -218,7 +225,7 @@ function reversePairs(nums: number[]): number {
 
     mergeSort(nums, 0, n - 1);
     return count;
-};
+}
 ```
 
 ### **Go**

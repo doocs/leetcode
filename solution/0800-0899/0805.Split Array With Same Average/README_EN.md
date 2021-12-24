@@ -36,7 +36,6 @@
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

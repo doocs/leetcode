@@ -1,4 +1,4 @@
-# [629. K个逆序对数组](https://leetcode-cn.com/problems/k-inverse-pairs-array)
+# [629. K 个逆序对数组](https://leetcode-cn.com/problems/k-inverse-pairs-array)
 
 [English Version](/solution/0600-0699/0629.K%20Inverse%20Pairs%20Array/README_EN.md)
 
@@ -35,7 +35,6 @@
 <ol>
 	<li>&nbsp;<code>n</code>&nbsp;的范围是 [1, 1000] 并且 <code>k</code> 的范围是 [0, 1000]。</li>
 </ol>
-
 
 ## 解法
 
@@ -80,7 +79,7 @@ class Solution:
 
 `dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1] + dp[i - 1][j - 2] + ... + dp[i - 1][j - (i - 1)]` ①
 
-`dp[i][j - 1] =            dp[i - 1][j - 1] + dp[i - 1][j - 2] + ... + dp[i - 1][j - (i - 1)] + dp[i - 1][j - i]` ②
+`dp[i][j - 1] = dp[i - 1][j - 1] + dp[i - 1][j - 2] + ... + dp[i - 1][j - (i - 1)] + dp[i - 1][j - i]` ②
 
 ① - ②，得 `dp[i][j] = dp[i][j - 1] + dp[i - 1][j] - dp[i - 1][j - i]`
 

@@ -51,7 +51,6 @@ freqStack.pop();   // return 4, as 4, 5 and 7 is the most frequent, but 4 is clo
 	<li>It is guaranteed that there will be at least one element in the stack before calling <code>pop</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

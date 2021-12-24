@@ -1,4 +1,4 @@
-# [342. 4的幂](https://leetcode-cn.com/problems/power-of-four)
+# [342. 4 的幂](https://leetcode-cn.com/problems/power-of-four)
 
 [English Version](/solution/0300-0399/0342.Power%20of%20Four/README_EN.md)
 
@@ -49,7 +49,6 @@
 	<li>你能不使用循环或者递归来完成本题吗？</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -96,7 +95,7 @@ public:
  * @param {number} n
  * @return {boolean}
  */
-var isPowerOfFour = function(n) {
+var isPowerOfFour = function (n) {
     return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
 };
 ```
@@ -114,7 +113,7 @@ func isPowerOfFour(n int) bool {
 ```ts
 function isPowerOfFour(n: number): boolean {
     return n > 0 && (n & (n - 1)) == 0 && (n & 0xaaaaaaaa) == 0;
-};
+}
 ```
 
 ### **...**

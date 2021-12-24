@@ -35,7 +35,6 @@ The substring &quot;BBBB&quot; has the longest repeating letters, which is 4.
 	<li><code>0 &lt;= k &lt;= s.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

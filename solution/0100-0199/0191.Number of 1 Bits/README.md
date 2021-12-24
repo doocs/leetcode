@@ -1,4 +1,4 @@
-# [191. 位1的个数](https://leetcode-cn.com/problems/number-of-1-bits)
+# [191. 位 1 的个数](https://leetcode-cn.com/problems/number-of-1-bits)
 
 [English Version](/solution/0100-0199/0191.Number%20of%201%20Bits/README_EN.md)
 
@@ -61,7 +61,6 @@
 	<li>如果多次调用这个函数，你将如何优化你的算法？</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -112,12 +111,12 @@ public class Solution {
  * @return {number}
  */
 var hammingWeight = function (n) {
-  let res = 0;
-  while (n) {
-    n &= n - 1;
-    ++res;
-  }
-  return res;
+    let res = 0;
+    while (n) {
+        n &= n - 1;
+        ++res;
+    }
+    return res;
 };
 ```
 

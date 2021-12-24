@@ -51,7 +51,6 @@
 	<li><code>connections[i][0] != connections[i][1]</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -48,7 +48,6 @@ The 2nd customer is the richest with a wealth of 10.</pre>
 	<li><code>1 &lt;= accounts[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -42,7 +42,6 @@ s 可以由 "i"、"love" 和 "leetcode" 相连得到。
 	<li><code>words[i]</code> 和 <code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -44,7 +44,6 @@
 
 <p>If the number of students is odd, there is no need to change the last one&#39;s seat.</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

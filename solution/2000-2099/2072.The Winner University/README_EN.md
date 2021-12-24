@@ -139,7 +139,7 @@ SELECT
     CASE
         WHEN n1.cnt > n2.cnt THEN 'New York University'
         WHEN n1.cnt < n2.cnt THEN 'California University'
-        ELSE 'No Winner' 
+        ELSE 'No Winner'
     END AS winner
 FROM
     (SELECT count(1) cnt FROM NewYork WHERE score >= 90) n1,

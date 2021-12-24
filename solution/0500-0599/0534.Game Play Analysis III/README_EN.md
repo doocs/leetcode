@@ -53,7 +53,6 @@ For the player with id 3, 0 + 5 = 5 games played by 2018-07-03.
 Note that for each player we only care about the days when the player logged in.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

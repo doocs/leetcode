@@ -46,7 +46,6 @@ movingAverage.next(5); // 返回 6.0 = (10 + 3 + 5) / 3
 
 <p><meta charset="UTF-8" />注意：本题与主站 346&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/moving-average-from-data-stream/">https://leetcode-cn.com/problems/moving-average-from-data-stream/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -100,7 +99,7 @@ class MovingAverage {
         this.size = size;
         this.data = new int[size];
     }
-    
+
     public double next(int val) {
         int idx = count % size;
         int oldVal = data[idx];
@@ -128,7 +127,7 @@ public:
         this->size = size;
         data.resize(size);
     }
-    
+
     double next(int val) {
         int idx = count % size;
         int oldVal = data[idx];

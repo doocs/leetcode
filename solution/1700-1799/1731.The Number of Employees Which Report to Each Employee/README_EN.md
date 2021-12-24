@@ -51,7 +51,6 @@ Result table:
 Hercy has 2 people report directly to him, Alice and Bob. Their average age is (41+36)/2 = 38.5, which is 39 after rounding it to the nearest integer.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

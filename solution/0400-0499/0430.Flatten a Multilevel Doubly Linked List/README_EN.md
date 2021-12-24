@@ -117,7 +117,7 @@ class Solution:
             tail = preorder(cur, cur.child)
             cur.child = None
             return preorder(tail, t)
-            
+
         if head is None:
             return None
         dummy = Node(0, None, head, None)

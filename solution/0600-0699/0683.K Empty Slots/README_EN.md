@@ -40,7 +40,6 @@ We return 2 because on the second day, there were two on bulbs with one off bulb
 	<li><code>0 &lt;= k &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -77,7 +77,6 @@
 	<li><code>arrivalTimes</code> is non-decreasing</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

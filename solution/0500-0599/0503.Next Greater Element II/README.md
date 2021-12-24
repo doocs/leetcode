@@ -74,7 +74,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number[]}
  */
- var nextGreaterElements = function(nums) {
+var nextGreaterElements = function (nums) {
     let n = nums.length;
     let stack = [];
     let res = new Array(n).fill(-1);
@@ -128,7 +128,7 @@ func nextGreaterElements(nums []int) []int {
 			stk = stk[:len(stk)-1]
 		}
 		stk = append(stk, i%n)
-	} 
+	}
 	return res
 }
 ```

@@ -41,7 +41,6 @@ Minimum cost: 2 + 5 + 3 = 10.
 	<li><code>1 &lt;= costs[i][j] &lt;= 20</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

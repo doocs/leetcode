@@ -46,7 +46,6 @@ Note that painting all the posts red or all the posts green is invalid because t
 	<li>The answer is guaranteed to be in the range <code>[0, 2<sup>31</sup> - 1]</code> for the given <code>n</code> and <code>k</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

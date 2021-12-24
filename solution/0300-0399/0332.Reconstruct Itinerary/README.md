@@ -35,7 +35,6 @@
 <strong>输出：</strong><code>["JFK","ATL","JFK","SFO","ATL","SFO"]</code>
 <strong>解释：</strong>另一种有效的行程是 <code>["JFK","SFO","ATL","JFK","ATL","SFO"]</code>。但是它自然排序更大更靠后。</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

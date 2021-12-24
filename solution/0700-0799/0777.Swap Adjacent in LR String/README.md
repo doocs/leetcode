@@ -1,4 +1,4 @@
-# [777. 在LR字符串中交换相邻字符](https://leetcode-cn.com/problems/swap-adjacent-in-lr-string)
+# [777. 在 LR 字符串中交换相邻字符](https://leetcode-cn.com/problems/swap-adjacent-in-lr-string)
 
 [English Version](/solution/0700-0799/0777.Swap%20Adjacent%20in%20LR%20String/README_EN.md)
 
@@ -31,7 +31,6 @@ XRLXXRRLX
 	<li><code>1 &lt;= len(start) = len(end) &lt;= 10000</code>。</li>
 	<li><code>start</code>和<code>end</code>中的字符串仅限于<code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>和<code>&#39;X&#39;</code>。</li>
 </ul>
-
 
 ## 解法
 

@@ -43,7 +43,6 @@
 	<li>It&#39;s <strong>guaranteed</strong> that <code>val</code> does not exist in the original BST.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

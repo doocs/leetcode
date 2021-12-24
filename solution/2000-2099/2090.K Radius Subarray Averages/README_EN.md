@@ -99,7 +99,7 @@ class Solution {
 }
 ```
 
-### **TypeScipt*
+### \*_TypeScipt_
 
 ```ts
 function getAverages(nums: number[], k: number): number[] {
@@ -118,7 +118,7 @@ function getAverages(nums: number[], k: number): number[] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

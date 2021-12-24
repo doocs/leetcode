@@ -85,7 +85,6 @@ startUrl = &quot;http://news.google.com&quot;
 	<li>You may assume there&#39;re&nbsp;no duplicates in url library.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -8,8 +8,6 @@ There&#39;s a tree, a squirrel, and several nuts. Positions are represented by t
 
 <p><b>Example 1:</b></p>
 
-
-
 <pre>
 
 <b>Input:</b> 
@@ -32,11 +30,7 @@ Nuts : [[3,0], [2,5]]
 
 </pre>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ol>
 	<li>All given positions won&#39;t overlap.</li>
@@ -45,8 +39,6 @@ Nuts : [[3,0], [2,5]]
 	<li>Height and width are positive integers. 3 &lt;= height * width &lt;= 10,000.</li>
 	<li>The given positions contain at least one nut, only one tree and one squirrel.</li>
 </ol>
-
-
 
 ## Solutions
 

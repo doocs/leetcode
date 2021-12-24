@@ -51,7 +51,6 @@ output[i] = [a, b, c] (three integers)
 	<li><code>1 &lt;= n &lt;= 60</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -68,7 +68,6 @@
 	<li><code>mat[i]</code> is sorted in non-decreasing order.</li>
 </ul>
 
-
 ## Solutions
 
 Binary search.

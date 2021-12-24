@@ -1,4 +1,4 @@
-# [596. 超过5名学生的课](https://leetcode-cn.com/problems/classes-more-than-5-students)
+# [596. 超过 5 名学生的课](https://leetcode-cn.com/problems/classes-more-than-5-students)
 
 [English Version](/solution/0500-0599/0596.Classes%20More%20Than%205%20Students/README_EN.md)
 
@@ -43,7 +43,6 @@
 <ul>
 	<li>学生在每个课中不应被重复计算。</li>
 </ul>
-
 
 ## 解法
 

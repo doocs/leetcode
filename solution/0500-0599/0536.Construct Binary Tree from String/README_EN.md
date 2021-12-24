@@ -40,7 +40,6 @@
 	<li><code>s</code> consists of digits, <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, and <code>&#39;-&#39;</code> only.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -32,7 +32,6 @@
 	<li><code>0 &lt;= start<sub>i</sub> &lt;= end<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -102,7 +101,7 @@ function merge(intervals: number[][]): number[][] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

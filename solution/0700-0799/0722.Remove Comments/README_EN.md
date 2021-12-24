@@ -6,8 +6,6 @@
 
 <p>Given a C++ program, remove comments from it. The program <code>source</code> is an array where <code>source[i]</code> is the <code>i</code>-th line of the source code.  This represents the result of splitting the original source code string by the newline character <code>\n</code>.</p>
 
-
-
 <p>In C++, there are two types of comments, line comments, and block comments.</p>
 
 <p>
@@ -16,11 +14,11 @@ The string <code>//</code> denotes a line comment, which represents that it and 
 
 </p><p>
 
-The string <code>/*</code> denotes a block comment, which represents that all characters until the next (non-overlapping) occurrence of <code>*/</code> should be ignored.  (Here, occurrences happen in reading order: line by line from left to right.)  To be clear, the string <code>/*/</code> does not yet end the block comment, as the ending would be overlapping the beginning.
+The string <code>/_</code> denotes a block comment, which represents that all characters until the next (non-overlapping) occurrence of <code>_/</code> should be ignored. (Here, occurrences happen in reading order: line by line from left to right.) To be clear, the string <code>/\*/</code> does not yet end the block comment, as the ending would be overlapping the beginning.
 
 </p><p>
 
-The first effective comment takes precedence over others: if the string <code>//</code> occurs in a block comment, it is ignored. Similarly, if the string <code>/*</code> occurs in a line or block comment, it is also ignored.
+The first effective comment takes precedence over others: if the string <code>//</code> occurs in a block comment, it is ignored. Similarly, if the string <code>/\*</code> occurs in a line or block comment, it is also ignored.
 
 </p><p>
 
@@ -28,23 +26,19 @@ If a certain line of code is empty after removing comments, you must not output 
 
 </p><p>
 
-There will be no control characters, single quote, or double quote characters.  For example, <code>source = "string s = "/* Not a comment. */";"</code> will not be a test case.  (Also, nothing else such as defines or macros will interfere with the comments.)
+There will be no control characters, single quote, or double quote characters. For example, <code>source = "string s = "/_ Not a comment. _/";"</code> will not be a test case. (Also, nothing else such as defines or macros will interfere with the comments.)
 
 </p><p>
 
-It is guaranteed that every open block comment will eventually be closed, so <code>/*</code> outside of a line or block comment always starts a new comment.
+It is guaranteed that every open block comment will eventually be closed, so <code>/\*</code> outside of a line or block comment always starts a new comment.
 
 </p><p>
 
-Finally, implicit newline characters can be deleted by block comments.  Please see the examples below for details.
+Finally, implicit newline characters can be deleted by block comments. Please see the examples below for details.
 
 </p>
 
-
-
 <p>After removing the comments from the source code, return the source code in the same format.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -110,8 +104,6 @@ The string <code>/*</code> denotes a block comment, including line 1 and lines 6
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre style="white-space: pre-wrap">
@@ -127,8 +119,6 @@ source = ["a/*comment", "line", "more_comment*/b"]
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 

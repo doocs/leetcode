@@ -49,7 +49,6 @@ F(n) = F(n - 1) + F(n - 2)，其中 n > 1
 	<li><code>0 <= n <= 30</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -118,13 +117,12 @@ func fib(n int) int {
 
 ### **JavaScript**
 
-
 ```js
 /**
  * @param {number} n
  * @return {number}
  */
-var fib = function(n) {
+var fib = function (n) {
     let a = 0;
     let b = 1;
     while (n--) {

@@ -35,7 +35,6 @@
 	<li><code>arr[i] &lt; arr[j]</code> for <code>1 &lt;= i &lt; j &lt;= arr.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -57,7 +57,6 @@
 	<li><code>0 &lt;= mountain_arr.get(index) &lt;=&nbsp;10^9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

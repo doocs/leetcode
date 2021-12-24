@@ -6,24 +6,16 @@
 
 <p>Design a queue-like data structure that moves the most recently used element to the end of the queue.</p>
 
-
-
 <p>Implement the <code>MRUQueue</code> class:</p>
-
-
 
 <ul>
 	<li><code>MRUQueue(int n)</code> constructs the <code>MRUQueue</code> with <code>n</code> elements: <code>[1,2,3,...,n]</code>.</li>
 	<li><code>fetch(int k)</code> moves the <code>k<sup>th</sup></code> element <strong>(1-indexed)</strong> to the end of the queue and returns it.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -53,21 +45,15 @@ mRUQueue.fetch(8); // The 8<sup>th</sup> element (2) is already at the end of th
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 2000</code></li>
 	<li><code>1 &lt;= k &lt;= n</code></li>
 	<li>At most <code>2000</code> calls will be made to <code>fetch</code>.</li>
 </ul>
-
-
 
 <p>&nbsp;</p>
 

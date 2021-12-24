@@ -47,7 +47,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -128,7 +127,8 @@ public class Solution {
  */
 
 function detectCycle(head: ListNode | null): ListNode | null {
-    let slow = head, fast = head;
+    let slow = head,
+        fast = head;
     while (fast) {
         slow = slow.next;
         if (!fast.next) return null;
@@ -139,12 +139,12 @@ function detectCycle(head: ListNode | null): ListNode | null {
             while (cur != slow) {
                 slow = slow.next;
                 cur = cur.next;
-            } 
+            }
             return cur;
         }
     }
     return null;
-};
+}
 ```
 
 ### **C++**
@@ -197,7 +197,7 @@ public:
  * @param {ListNode} head
  * @return {ListNode}
  */
-var detectCycle = function(head) {
+var detectCycle = function (head) {
     let slow = head;
     let fast = head;
     let hasCycle = false;

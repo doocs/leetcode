@@ -59,7 +59,6 @@ obj.calculateMKAverage(); // The last 3 elements are [5,5,5].
 	<li>At most <code>10<sup>5</sup></code> calls will be made to <code>addElement</code> and <code>calculateMKAverage</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

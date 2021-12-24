@@ -31,7 +31,6 @@ S中出现了字符 &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, 所以 &quot;a&
 	<li><code>S</code>和<code>T</code>只包含小写字符。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -6,11 +6,7 @@
 
 <p>You need to construct a string consists of parenthesis and integers from a binary tree with the preorder traversing way.</p>
 
-
-
 <p>The null node needs to be represented by empty parenthesis pair "()". And you need to omit all the empty parenthesis pairs that don't affect the one-to-one mapping relationship between the string and the original binary tree.</p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -37,8 +33,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 

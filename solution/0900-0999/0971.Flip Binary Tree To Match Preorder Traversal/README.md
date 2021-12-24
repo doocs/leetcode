@@ -54,7 +54,6 @@
 	<li><code>voyage</code> 中的所有值 <strong>互不相同</strong></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

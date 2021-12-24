@@ -37,7 +37,6 @@
 	<li><code>query_glass</code>&nbsp;和<code>query_row</code>&nbsp;的范围&nbsp;<code>[0, 99]</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

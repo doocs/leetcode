@@ -34,7 +34,6 @@
 	<li><code>sx, sy, tx, ty</code>&nbsp;是范围在&nbsp;<code>[1, 10^9]</code>&nbsp;的整数。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

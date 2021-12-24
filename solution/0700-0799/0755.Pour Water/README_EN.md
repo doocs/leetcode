@@ -6,11 +6,11 @@
 
 <p>
 
-We are given an elevation map, <code>heights[i]</code> representing the height of the terrain at that index.  The width at each index is 1.  After <code>V</code> units of water fall at index <code>K</code>, how much water is at each index?
+We are given an elevation map, <code>heights[i]</code> representing the height of the terrain at that index. The width at each index is 1. After <code>V</code> units of water fall at index <code>K</code>, how much water is at each index?
 
 </p><p>
 
-Water first drops at index <code>K</code> and rests on top of the highest terrain or water at that index.  Then, it flows according to the following rules:
+Water first drops at index <code>K</code> and rests on top of the highest terrain or water at that index. Then, it flows according to the following rules:
 
 <li>If the droplet would eventually fall by moving left, then move left.</li>
 
@@ -24,11 +24,9 @@ Also, "level" means the height of the terrain plus any water in that column.
 
 </p><p>
 
-We can assume there's infinitely high terrain on the two sides out of bounds of the array.  Also, there could not be partial water being spread out evenly on more than 1 grid block - each unit of water has to be in exactly one block.
+We can assume there's infinitely high terrain on the two sides out of bounds of the array. Also, there could not be partial water being spread out evenly on more than 1 grid block - each unit of water has to be in exactly one block.
 
 <p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -206,8 +204,6 @@ The final answer is [2,2,2,3,2,2,2]:
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -224,8 +220,6 @@ The last droplet settles at index 1, since moving further left would not cause i
 
 </p>
 
-
-
 <p><b>Example 3:</b><br />
 
 <pre>
@@ -237,8 +231,6 @@ The last droplet settles at index 1, since moving further left would not cause i
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br><ol>
 

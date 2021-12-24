@@ -134,7 +134,7 @@ public:
     int n;
 
     vector<vector<string>> partition(string s) {
-        n = s.size();    
+        n = s.size();
         dp.assign(n, vector<bool>(n, true));
         for (int i = n - 1; i >= 0; --i)
         {

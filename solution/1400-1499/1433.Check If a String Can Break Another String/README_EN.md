@@ -42,7 +42,6 @@
 	<li>All strings consist of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

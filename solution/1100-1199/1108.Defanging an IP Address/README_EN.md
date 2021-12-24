@@ -6,11 +6,7 @@
 
 <p>Given a valid (IPv4) IP <code>address</code>, return a defanged version of that IP address.</p>
 
-
-
 <p>A <em>defanged&nbsp;IP address</em>&nbsp;replaces every period <code>&quot;.&quot;</code> with <code>&quot;[.]&quot;</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -31,8 +27,6 @@
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>The given <code>address</code> is a valid IPv4 address.</li>
@@ -64,8 +58,8 @@ class Solution {
 
 ```ts
 function defangIPaddr(address: string): string {
-    return address.split('.').join('[.]');
-};
+    return address.split(".").join("[.]");
+}
 ```
 
 ### **C++**

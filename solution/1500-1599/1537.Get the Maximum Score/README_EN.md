@@ -68,7 +68,6 @@ Maximum sum is obtained with the path [6,7,8,9,10].
 	<li><code>nums1</code> and <code>nums2</code> are strictly increasing.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

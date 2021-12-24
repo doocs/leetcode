@@ -52,7 +52,6 @@ There are no groups of farmland.
 	<li>Groups of farmland are <strong>rectangular</strong> in shape.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

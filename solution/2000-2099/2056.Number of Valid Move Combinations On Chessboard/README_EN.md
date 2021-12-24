@@ -91,7 +91,6 @@ Of the 288 move combinations, 281 are valid.
 	<li>Each&nbsp;<code>positions[i]</code>&nbsp;is distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

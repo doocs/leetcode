@@ -43,7 +43,6 @@ So you should return 1 because there is only one bulb is on.</pre>
 	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -23,7 +23,6 @@
  -10  5
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -53,7 +52,7 @@ class Solution:
                 return None
             mid = (start + end) >> 1
             return TreeNode(nums[mid], buildBST(nums, start, mid - 1), buildBST(nums, mid + 1, end))
-        
+
         nums = []
         while head:
             nums.append(head.val)
@@ -183,7 +182,7 @@ private:
  * @param {ListNode} head
  * @return {TreeNode}
  */
-var sortedListToBST = function(head) {
+var sortedListToBST = function (head) {
     const buildBST = (nums, start, end) => {
         if (start > end) {
             return null;
@@ -193,7 +192,7 @@ var sortedListToBST = function(head) {
         root.left = buildBST(nums, start, mid - 1);
         root.right = buildBST(nums, mid + 1, end);
         return root;
-    }
+    };
 
     const nums = new Array();
     for (; head != null; head = head.next) {

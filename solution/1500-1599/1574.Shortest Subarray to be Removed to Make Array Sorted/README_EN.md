@@ -50,7 +50,6 @@ Another correct solution is to remove the subarray [3,10,4].</pre>
 	<li><code>0 &lt;= arr[i] &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

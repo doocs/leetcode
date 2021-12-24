@@ -38,7 +38,6 @@ T_4 = 1 + 1 + 2 = 4
 	<li>答案保证是一个 32 位整数，即&nbsp;<code>answer &lt;= 2^31 - 1</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -114,7 +113,7 @@ func tribonacci(n int) int {
  * @param {number} n
  * @return {number}
  */
-var tribonacci = function(n) {
+var tribonacci = function (n) {
     let a = 0;
     let b = 1;
     let c = 1;

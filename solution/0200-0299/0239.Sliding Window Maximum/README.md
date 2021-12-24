@@ -19,7 +19,7 @@
 <b>输出：</b>[3,3,5,5,6,7]
 <b>解释：</b>
 滑动窗口的位置                最大值
----------------               -----
+---------------             -----
 [1  3  -1] -3  5  3  6  7       <strong>3</strong>
  1 [3  -1  -3] 5  3  6  7       <strong>3</strong>
  1  3 [-1  -3  5] 3  6  7      <strong> 5</strong>
@@ -144,22 +144,24 @@ class Solution {
  * @return {number[]}
  */
 var maxSlidingWindow = function (nums, k) {
-  let len = nums.length;
-  if (len < k) return [];
-  let res = [],
-    win = [];
-  for (let i = 0; i < k; i++) {
-    while (win.length > 0 && nums[i] >= nums[win[win.length - 1]]) win.pop();
-    win.push(i);
-  }
-  res.push(nums[win[0]]);
-  for (let i = k; i < len; i++) {
-    while (win.length > 0 && nums[i] >= nums[win[win.length - 1]]) win.pop();
-    if (win.length > 0 && win[0] < i - k + 1) win.shift();
-    win.push(i);
+    let len = nums.length;
+    if (len < k) return [];
+    let res = [],
+        win = [];
+    for (let i = 0; i < k; i++) {
+        while (win.length > 0 && nums[i] >= nums[win[win.length - 1]])
+            win.pop();
+        win.push(i);
+    }
     res.push(nums[win[0]]);
-  }
-  return res;
+    for (let i = k; i < len; i++) {
+        while (win.length > 0 && nums[i] >= nums[win[win.length - 1]])
+            win.pop();
+        if (win.length > 0 && win[0] < i - k + 1) win.shift();
+        win.push(i);
+        res.push(nums[win[0]]);
+    }
+    return res;
 };
 ```
 

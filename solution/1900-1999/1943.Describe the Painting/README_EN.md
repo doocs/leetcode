@@ -74,7 +74,6 @@ Note that returning a single segment [1,7) is incorrect because the mixed color 
 	<li>Each <code>color<sub>i</sub></code> is distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

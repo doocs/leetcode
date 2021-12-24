@@ -6,21 +6,13 @@
 
 <p>Given two positive integers <code>n</code> and <code>k</code>.</p>
 
-
-
 <p>A factor of an integer <code>n</code> is defined as an integer <code>i</code> where <code>n % i == 0</code>.</p>
 
-
-
 <p>Consider a list of all factors of <code>n</code>&nbsp;sorted in <strong>ascending order</strong>, return <em>the </em><code>kth</code><em> factor</em> in this list or return <strong>-1</strong> if <code>n</code> has less than&nbsp;<code>k</code> factors.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -32,11 +24,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +36,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -64,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -80,11 +60,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -96,13 +72,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= k &lt;= n &lt;= 1000</code></li>

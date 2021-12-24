@@ -48,7 +48,6 @@ Same with other integers chosen by the first player, the second player will alwa
 	<li><code>0 &lt;= desiredTotal &lt;= 300</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -58,7 +58,6 @@
 	<li>The given input is <strong>guaranteed</strong> to represent a <strong>valid tree</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

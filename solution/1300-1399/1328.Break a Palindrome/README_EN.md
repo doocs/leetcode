@@ -49,7 +49,6 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 	<li><code>palindrome</code> consists of only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -57,7 +57,6 @@ You cannot take path 0 -&gt; 1 -&gt; 2 -&gt; 5 since it would take too long.
 	<li>The graph does not contain self loops.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -96,7 +96,6 @@ class Solution:
         return root
 ```
 
-
 ```python
 # Definition for a binary tree node.
 # class TreeNode:

@@ -38,10 +38,11 @@ SnakeGame snakeGame = new SnakeGame(3, 2, [[1, 2], [0, 1]]);
 snakeGame.move(&quot;R&quot;); // return 0
 snakeGame.move(&quot;D&quot;); // return 0
 snakeGame.move(&quot;R&quot;); // return 1, snake eats the first piece of food. The second piece of food appears
-                     // at (0, 1).
+// at (0, 1).
 snakeGame.move(&quot;U&quot;); // return 1
 snakeGame.move(&quot;L&quot;); // return 2, snake eats the second food. No more food appears.
 snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides with border
+
 </pre>
 
 <p>&nbsp;</p>
@@ -57,7 +58,6 @@ snakeGame.move(&quot;U&quot;); // return -1, game over because snake collides wi
 	<li><code>direction</code> is <code>&#39;U&#39;</code>, <code>&#39;D&#39;</code>, <code>&#39;L&#39;</code>, or <code>&#39;R&#39;</code>.</li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>move</code>.</li>
 </ul>
-
 
 ## Solutions
 

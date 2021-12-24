@@ -146,7 +146,6 @@ By the end of Septemeber --&gt; average_ride_distance = (0+0+163)/3=54.33, avera
 By the end of October --&gt; average_ride_distance = (0+163+6)/3=56.33, average_ride_duration = (0+193+38)/3=77.00
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

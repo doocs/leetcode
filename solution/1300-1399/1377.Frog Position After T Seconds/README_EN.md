@@ -51,7 +51,6 @@
 	<li>Answers within <code>10<sup>-5</sup></code> of the actual value will be accepted as correct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

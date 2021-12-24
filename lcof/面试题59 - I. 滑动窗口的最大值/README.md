@@ -14,7 +14,7 @@
 解释:
 
   滑动窗口的位置                最大值
----------------               -----
+---------------             -----
 [1  3  -1] -3  5  3  6  7       3
  1 [3  -1  -3] 5  3  6  7       3
  1  3 [-1  -3  5] 3  6  7       5
@@ -109,28 +109,28 @@ class Solution {
  * @return {number[]}
  */
 var maxSlidingWindow = function (nums, k) {
-  if (!nums.length || !k) return [];
-  if (k === 1) return nums;
-  let res = [];
-  let tmpMax = -Infinity;
-  let len = nums.length;
-  let window = [];
-  for (let i = 0; i < k; i++) {
-    tmpMax = Math.max(nums[i], tmpMax);
-    window.push(nums[i]);
-  }
-  res.push(tmpMax);
-  for (let i = k; i < len; i++) {
-    let a = window.shift();
-    window.push(nums[i]);
-    if (nums[i] > tmpMax) {
-      tmpMax = nums[i];
-    } else if (tmpMax === a) {
-      tmpMax = Math.max(...window);
+    if (!nums.length || !k) return [];
+    if (k === 1) return nums;
+    let res = [];
+    let tmpMax = -Infinity;
+    let len = nums.length;
+    let window = [];
+    for (let i = 0; i < k; i++) {
+        tmpMax = Math.max(nums[i], tmpMax);
+        window.push(nums[i]);
     }
     res.push(tmpMax);
-  }
-  return res;
+    for (let i = k; i < len; i++) {
+        let a = window.shift();
+        window.push(nums[i]);
+        if (nums[i] > tmpMax) {
+            tmpMax = nums[i];
+        } else if (tmpMax === a) {
+            tmpMax = Math.max(...window);
+        }
+        res.push(tmpMax);
+    }
+    return res;
 };
 ```
 

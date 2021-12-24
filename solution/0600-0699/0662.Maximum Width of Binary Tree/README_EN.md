@@ -78,7 +78,6 @@
 	<li>The&nbsp;given binary tree will have between&nbsp;<code>1</code>&nbsp;and&nbsp;<code>3000</code>&nbsp;nodes.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

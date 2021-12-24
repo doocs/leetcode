@@ -50,7 +50,6 @@
 	<li><code>nums</code> is a permutation of all the numbers in the range <code>[0, n - 1]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

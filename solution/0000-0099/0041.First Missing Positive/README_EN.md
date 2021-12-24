@@ -28,7 +28,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you implement an algorithm that runs in <code>O(n)</code> time and uses constant extra space?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

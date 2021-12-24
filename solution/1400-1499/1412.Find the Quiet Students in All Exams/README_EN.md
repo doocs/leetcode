@@ -86,7 +86,6 @@ Student 2 and 5 have never got the highest or lowest in any of the exam.
 Since student 5 is not taking any exam, he is excluded from the result.
 So, we only return the information of Student 2.</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

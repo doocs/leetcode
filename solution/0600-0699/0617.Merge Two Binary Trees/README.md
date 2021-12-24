@@ -31,7 +31,6 @@
 
 <p><strong>注意:</strong>&nbsp;合并必须从两个树的根节点开始。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -114,14 +113,17 @@ class Solution {
  * }
  */
 
- function mergeTrees(root1: TreeNode | null, root2: TreeNode | null): TreeNode | null {
+function mergeTrees(
+    root1: TreeNode | null,
+    root2: TreeNode | null
+): TreeNode | null {
     if (root1 == null && root2 == null) return null;
     if (root1 == null) return root2;
     if (root2 == null) return root1;
     let left = mergeTrees(root1.left, root2.left);
     let right = mergeTrees(root1.right, root2.right);
     return new TreeNode(root1.val + root2.val, left, right);
-}; 
+}
 ```
 
 ### **C++**

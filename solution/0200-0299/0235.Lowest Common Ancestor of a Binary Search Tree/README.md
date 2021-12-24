@@ -38,7 +38,6 @@
 	<li>p、q 为不同节点且均存在于给定的二叉搜索树中。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -164,7 +163,11 @@ class Solution {
  * }
  */
 
-function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+function lowestCommonAncestor(
+    root: TreeNode | null,
+    p: TreeNode | null,
+    q: TreeNode | null
+): TreeNode | null {
     while (root) {
         if (root.val > p.val && root.val > q.val) {
             root = root.left;
@@ -174,7 +177,7 @@ function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: Tree
             return root;
         }
     }
-};
+}
 ```
 
 递归：
@@ -194,11 +197,17 @@ function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: Tree
  * }
  */
 
-function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
-    if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
-    if (root.val < p.val && root.val < q.val) return lowestCommonAncestor(root.right, p, q);
+function lowestCommonAncestor(
+    root: TreeNode | null,
+    p: TreeNode | null,
+    q: TreeNode | null
+): TreeNode | null {
+    if (root.val > p.val && root.val > q.val)
+        return lowestCommonAncestor(root.left, p, q);
+    if (root.val < p.val && root.val < q.val)
+        return lowestCommonAncestor(root.right, p, q);
     return root;
-};
+}
 ```
 
 ### **Go**

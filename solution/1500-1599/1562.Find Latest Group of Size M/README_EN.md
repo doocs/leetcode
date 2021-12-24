@@ -63,7 +63,6 @@ No group of size 2 exists during any step.
 	<li><code>1 &lt;= m&nbsp;&lt;= arr.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

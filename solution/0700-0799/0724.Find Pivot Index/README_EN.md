@@ -51,7 +51,6 @@ Right sum = nums[1] + nums[2] = 1 + -1 = 0
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -96,14 +95,14 @@ class Solution {
 ```ts
 function pivotIndex(nums: number[]): number {
     let rightSum = nums.reduce((a, c) => a + c, 0),
-    leftSum = 0;
+        leftSum = 0;
     for (let i = 0; i < nums.length; i++) {
         rightSum -= nums[i];
         if (leftSum == rightSum) return i;
         leftSum += nums[i];
     }
     return -1;
-};
+}
 ```
 
 ### **C++**

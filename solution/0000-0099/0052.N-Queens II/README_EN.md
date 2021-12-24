@@ -31,7 +31,6 @@
 	<li><code>1 &lt;= n &lt;= 9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

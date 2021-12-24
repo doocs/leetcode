@@ -14,7 +14,6 @@
 
 <p>请尽可能的优化算法的时间复杂度和空间复杂度。 输入的数据&nbsp;<em>n&nbsp;</em>小于等于&nbsp;5,000,000。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -38,7 +37,7 @@ class Solution:
             res.append(i)
             for j in range(10):
                 dfs(i * 10 + j, n)
-        
+
         for i in range(1, 10):
             dfs(i, n)
         return res

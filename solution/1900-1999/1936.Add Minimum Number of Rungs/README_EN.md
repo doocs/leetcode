@@ -61,7 +61,6 @@ This ladder can be climbed without adding additional rungs.
 	<li><code>rungs</code> is <strong>strictly increasing</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -35,7 +35,6 @@
 	<li><code>-100 <= matrix[i][j] <= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -125,7 +124,10 @@ var spiralOrder = function (matrix) {
     let m = matrix.length;
     if (m === 0) return [];
     let res = [];
-    let top = 0, bottom = m - 1, left = 0, right = matrix[0].length - 1;
+    let top = 0,
+        bottom = m - 1,
+        left = 0,
+        right = matrix[0].length - 1;
     while (left < right && bottom > top) {
         for (let i = left; i < right; i++) res.push(matrix[top][i]);
         for (let i = top; i < bottom; i++) res.push(matrix[i][right]);

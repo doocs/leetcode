@@ -43,7 +43,6 @@ This is an invalid order (P1,D2,P2,D1) because Pickup 2 is after of Delivery 2.
 	<li><code>1 &lt;= n &lt;= 500</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

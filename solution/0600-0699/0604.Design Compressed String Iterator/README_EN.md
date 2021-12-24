@@ -46,7 +46,6 @@ stringIterator.hasNext(); // return True
 	<li>At most <code>100</code> calls will be made to <code>next</code> and <code>hasNext</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

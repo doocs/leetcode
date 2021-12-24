@@ -50,7 +50,6 @@ Therefore, nums[i] + nums[n-1-i] = 4 for every i, so nums is complementary.
 	<li><code>n</code> is even.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

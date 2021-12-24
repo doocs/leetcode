@@ -37,7 +37,6 @@ The closest occurrence of &#39;e&#39; for index 8 is at index 6, so the distance
 	<li>It is guaranteed that <code>c</code> occurs at least once in <code>s</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -71,7 +70,7 @@ function shortestToChar(s: string, c: string): number[] {
         ans[i] = Math.min(Math.abs(pre - i), ans[i]);
     }
     return ans;
-};
+}
 ```
 
 ### **...**

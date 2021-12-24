@@ -30,7 +30,6 @@
 	<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

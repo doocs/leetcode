@@ -49,7 +49,6 @@ Now s has no occurrences of &quot;xy&quot;.
 	<li><code>s</code>​​​​​​ and <code>part</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

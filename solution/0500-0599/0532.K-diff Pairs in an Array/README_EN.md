@@ -65,7 +65,6 @@ Although we have two 1s in the input, we should only return the number of <stron
 	<li><code>0 &lt;= k &lt;= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

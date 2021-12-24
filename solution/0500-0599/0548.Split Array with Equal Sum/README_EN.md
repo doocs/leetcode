@@ -6,7 +6,7 @@
 
 <p>
 
-Given an array with n integers, you need to find if there are triplets  (i, j, k) which satisfies following conditions:
+Given an array with n integers, you need to find if there are triplets (i, j, k) which satisfies following conditions:
 
 <ol>
 
@@ -19,8 +19,6 @@ Given an array with n integers, you need to find if there are triplets  (i, j, k
 where we define that subarray (L, R) represents a slice of the original array starting from the element indexed L to the element indexed R.
 
 </p>
-
-
 
 <p><b>Example:</b><br />
 
@@ -45,8 +43,6 @@ sum(k + 1, n - 1) = sum(6, 6) = 1
 </pre>
 
 </p>
-
-
 
 <b>Note:</b>
 

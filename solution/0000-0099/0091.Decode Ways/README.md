@@ -72,7 +72,6 @@
 	<li><code>s</code> 只包含数字，并且可能包含前导零。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -224,7 +223,7 @@ func numDecodings(s string) int {
 public class Solution {
     public int NumDecodings(string s) {
         if (s.Length == 0) return 0;
-        
+
         var f0 = 1;
         var f1 = 1;
         var f2 = 1;
@@ -236,7 +235,7 @@ public class Solution {
             var two = i > 0 ? int.Parse(string.Format("{0}{1}", s[i - 1], s[i])) : 0;
             if (two >= 10 && two <= 26)
             {
-               f2 += f0;  
+               f2 += f0;
             }
             if (s[i] != '0')
             {

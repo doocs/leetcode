@@ -6,30 +6,18 @@
 
 <p>On a broken calculator that has a number showing on its display, we can perform two operations:</p>
 
-
-
 <ul>
 	<li><strong>Double</strong>: Multiply the number on the display by 2, or;</li>
 	<li><strong>Decrement</strong>: Subtract 1 from the number on the display.</li>
 </ul>
 
-
-
 <p>Initially, the calculator is displaying the number <code>X</code>.</p>
-
-
 
 <p>Return the minimum number of operations needed to display the number <code>Y</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -41,11 +29,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -57,11 +41,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -73,11 +53,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -89,15 +65,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= X &lt;= 10^9</code></li>

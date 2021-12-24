@@ -53,7 +53,6 @@ myHashMap.get(2);    // 返回 -1（未找到），myHashMap 现在为 [[1,1]]
 
 <p><strong>进阶：</strong>你能否不使用内置的 HashMap 库解决此问题？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

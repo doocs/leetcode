@@ -134,7 +134,7 @@ class Solution {
 ```ts
 function countHighestScoreNodes(parents: number[]): number {
     const n = parents.length;
-    let edge = Array.from({length: n}, (v, i) => ([]));
+    let edge = Array.from({ length: n }, (v, i) => []);
     for (let i = 0; i < n; i++) {
         const parent = parents[i];
         if (parent != -1) {
@@ -145,7 +145,8 @@ function countHighestScoreNodes(parents: number[]): number {
     let ans = 0;
     let max = 0;
     function dfs(idx: number): number {
-        let size = 1, score = 1;
+        let size = 1,
+            score = 1;
         for (let i = 0; i < edge[idx].length; i++) {
             const child = edge[idx][i];
             let childSize = dfs(child);
@@ -153,7 +154,7 @@ function countHighestScoreNodes(parents: number[]): number {
             score *= childSize;
         }
         if (idx > 0) {
-            score *= (n - size);
+            score *= n - size;
         }
         if (score > max) {
             max = score;
@@ -165,7 +166,7 @@ function countHighestScoreNodes(parents: number[]): number {
     }
     dfs(0);
     return ans;
-};
+}
 ```
 
 ### **...**

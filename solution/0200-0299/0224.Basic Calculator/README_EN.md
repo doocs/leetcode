@@ -37,7 +37,6 @@
 	<li><code>s</code> represents a valid expression.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

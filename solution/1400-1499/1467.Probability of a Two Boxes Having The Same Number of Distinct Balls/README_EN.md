@@ -72,7 +72,6 @@ Probability = 18 / 60 = 0.3
 	<li>Answers within <code>10^-5</code> of the actual value will be accepted as correct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

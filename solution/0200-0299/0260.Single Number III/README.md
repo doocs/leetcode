@@ -44,7 +44,6 @@
 	<li>除两个只出现一次的整数外，<code>nums</code> 中的其他数字都出现两次</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -101,12 +100,12 @@ class Solution {
  * @param {number[]} nums
  * @return {number[]}
  */
-var singleNumber = function(nums) {
+var singleNumber = function (nums) {
     let eor = 0;
     for (const x of nums) {
         eor ^= x;
     }
-    const lowbit = eor & (-eor);
+    const lowbit = eor & -eor;
     let ans = [0];
     for (const x of nums) {
         if ((x & lowbit) == 0) {

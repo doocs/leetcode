@@ -6,29 +6,17 @@
 
 <p>Design a Skiplist without using any built-in libraries.</p>
 
-
-
 <p><em>A Skiplist is a data structure that takes&nbsp;O(log(n)) time&nbsp;to <code>add</code>, <code>erase</code> and <code>search</code>. Comparing with treap and red-black tree which has the same function and performance, the code length of Skiplist can be&nbsp;comparatively short and the idea behind Skiplists are just simple linked lists.</em></p>
 
-
-
 <p><em>For example:&nbsp;we have a Skiplist containing <code>[30,40,50,60,70,90]</code> and we want to add <code>80</code> and <code>45</code> into it. The&nbsp;Skiplist works this way:</em></p>
-
-
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1206.Design%20Skiplist/images/1506_skiplist.gif" style="width: 960px; height: 332px;" /><br />
 
 <small>Artyom Kalinin [CC BY-SA 3.0], via <a href="https://commons.wikimedia.org/wiki/File:Skip_list_add_element-en.gif" target="_blank" title="Artyom Kalinin [CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons">Wikimedia Commons</a></small></p>
 
-
-
 <p><em>You can see there are many layers in the Skiplist. Each layer is a sorted linked list. With the help of the top layers, <code>add</code>&nbsp;,&nbsp;<code>erase</code>&nbsp;and <code>search&nbsp;</code>can be faster than O(n).&nbsp;It can be proven&nbsp;that the average time complexity for each operation is O(log(n)) and space complexity is O(n).</em></p>
 
-
-
 <p>To be specific, your design should include these functions:</p>
-
-
 
 <ul>
 	<li><code>bool search(int target)</code> : Return whether&nbsp;the <code>target</code> exists in the Skiplist&nbsp;or not.</li>
@@ -36,23 +24,13 @@
 	<li><code>bool erase(int num)</code>: Remove a value in&nbsp;the Skiplist.&nbsp;If <code>num</code>&nbsp;does not exist in the Skiplist, do nothing and return false. If there exists multiple <code>num</code> values, removing&nbsp;any one of them is fine.</li>
 </ul>
 
-
-
 <p>See more about Skiplist :&nbsp;<a href="https://en.wikipedia.org/wiki/Skip_list" target="_blank">https://en.wikipedia.org/wiki/Skip_list</a></p>
-
-
 
 <p>Note that duplicates may exist in the Skiplist, your code needs to handle this situation.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example:</b></p>
-
-
 
 <pre>
 
@@ -78,13 +56,9 @@ skiplist.erase(1);    // return true.
 
 skiplist.search(1);   // return false, 1 has already been erased.</pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>0 &lt;= num, target&nbsp;&lt;= 20000</code></li>

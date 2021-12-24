@@ -41,7 +41,6 @@ When i=3, nums[i] = 2, and the average of its neighbors is (6+0) / 2 = 3.
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

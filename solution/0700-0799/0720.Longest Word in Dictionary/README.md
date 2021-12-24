@@ -40,7 +40,6 @@ words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &
 	<li><code>words[i]</code>的长度范围为<code>[1,30]</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

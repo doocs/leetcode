@@ -119,7 +119,7 @@ class Solution {
  * }
  */
 
- function findBottomLeftValue(root: TreeNode | null): number {
+function findBottomLeftValue(root: TreeNode | null): number {
     let stack: Array<TreeNode> = [root];
     let ans = root.val;
     while (stack.length) {
@@ -138,7 +138,7 @@ class Solution {
         stack = next;
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

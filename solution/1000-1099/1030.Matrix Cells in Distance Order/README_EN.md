@@ -6,25 +6,15 @@
 
 <p>We are given a matrix with <code>R</code> rows and <code>C</code> columns has cells with integer coordinates&nbsp;<code>(r, c)</code>, where <code>0 &lt;= r &lt; R</code> and <code>0 &lt;= c &lt; C</code>.</p>
 
-
-
 <p>Additionally, we are given a cell in that matrix with coordinates&nbsp;<code>(r0, c0)</code>.</p>
-
-
 
 <p>Return the coordinates of&nbsp;all cells in the matrix, sorted by their distance from <code>(r0, c0)</code>&nbsp;from smallest distance to largest distance.&nbsp; Here,&nbsp;the distance between two cells <code>(r1, c1)</code> and <code>(r2, c2)</code> is the Manhattan distance,&nbsp;<code>|r1 - r2| + |c1 - c2|</code>.&nbsp; (You may return the answer in any order that satisfies this condition.)</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -36,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -56,13 +42,9 @@ The answer [[0,1],[1,1],[0,0],[1,0]] would also be accepted as correct.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -76,15 +58,9 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong><span>Note:</span></strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= R &lt;= 100</code></li>
@@ -98,8 +74,6 @@ There are other answers that would also be accepted as correct, such as [[1,2],[
 </div>
 
 </div>
-
-
 
 ## Solutions
 

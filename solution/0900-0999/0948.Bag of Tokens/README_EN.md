@@ -6,32 +6,20 @@
 
 <p>You have an initial <strong>power</strong> of <code>P</code>, an initial <strong>score</strong> of <code>0</code>, and a bag of <code>tokens</code> where <code>tokens[i]</code> is the value of the <code>i<sup>th</sup></code> token (0-indexed).</p>
 
-
-
 <p>Your goal is to maximize your total <strong>score</strong> by potentially playing each token in one of two ways:</p>
-
-
 
 <ul>
 	<li>If your current <strong>power</strong> is at least <code>tokens[i]</code>, you may play the <code>i<sup>th</sup></code> token face up, losing <code>tokens[i]</code> <strong>power</strong> and gaining <code>1</code> <strong>score</strong>.</li>
 	<li>If your current <strong>score</strong> is at least <code>1</code>, you may play the <code>i<sup>th</sup></code> token face down, gaining <code>tokens[i]</code> <strong>power</strong> and losing <code>1</code> <strong>score</strong>.</li>
 </ul>
 
-
-
 <p>Each token may be played <strong>at most</strong> once and <strong>in any order</strong>. You do <strong>not</strong> have to play all the tokens.</p>
 
-
-
 <p>Return <em>the largest possible <strong>score</strong> you can achieve after playing any number of tokens</em>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -43,11 +31,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,11 +45,7 @@ There is no need to play the 1<sup>st</sup> token since you cannot play it face 
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -85,13 +65,9 @@ There is no need to play the 1<sup>st</sup> token since you cannot play it face 
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>0 &lt;= tokens.length &lt;= 1000</code></li>

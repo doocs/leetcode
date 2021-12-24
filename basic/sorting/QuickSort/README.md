@@ -60,7 +60,6 @@ void quickSort(int[] nums, int left, int right) {
 1 2 3 4 5
 ```
 
-
 ## 代码实现
 
 <!-- tabs:start -->
@@ -139,16 +138,19 @@ public class Main {
 ### **JavaScript**
 
 ```js
-var buf = '';
+var buf = "";
 
-process.stdin.on('readable', function () {
+process.stdin.on("readable", function () {
     var chunk = process.stdin.read();
     if (chunk) buf += chunk.toString();
 });
 
 let getInputArgs = line => {
-    return line.split(' ').filter(s => s !== '').map(x => parseInt(x));
-}
+    return line
+        .split(" ")
+        .filter(s => s !== "")
+        .map(x => parseInt(x));
+};
 
 function quickSort(nums, left, right) {
     if (left >= right) {
@@ -171,16 +173,13 @@ function quickSort(nums, left, right) {
     quickSort(nums, j + 1, right);
 }
 
-
-
-process.stdin.on('end', function () {
-    buf.split('\n').forEach(function (line, lineIdx) {
+process.stdin.on("end", function () {
+    buf.split("\n").forEach(function (line, lineIdx) {
         if (lineIdx % 2 === 1) {
             nums = getInputArgs(line);
             quickSort(nums, 0, nums.length - 1);
-            console.log(nums.join(' '));
+            console.log(nums.join(" "));
         }
-
     });
 });
 ```
@@ -369,4 +368,5 @@ int main( void )
 	return 0;
 }
 ```
+
 <!-- tabs:end -->

@@ -60,7 +60,6 @@
 	<li><code>A[i]</code>&nbsp;中所有的单词都是独一无二的，也就是说不存在&nbsp;<code>i != j</code>&nbsp;使得&nbsp;<code>A[i] == A[j]</code>。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

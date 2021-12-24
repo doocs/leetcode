@@ -42,7 +42,6 @@
 	<li><code>source</code> 和&nbsp;<code>target</code>&nbsp;两个字符串的长度介于&nbsp;<code>1</code> 和&nbsp;<code>1000</code>&nbsp;之间。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

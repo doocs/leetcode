@@ -38,7 +38,6 @@
 	<li><code>1 &lt;= extraStudents &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

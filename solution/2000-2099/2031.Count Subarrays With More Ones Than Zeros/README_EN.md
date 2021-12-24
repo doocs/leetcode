@@ -48,7 +48,6 @@ The subarrays of size 1 that have more ones than zeros are: [1]
 	<li><code>0 &lt;= nums[i] &lt;= 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

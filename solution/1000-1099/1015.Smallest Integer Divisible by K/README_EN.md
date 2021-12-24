@@ -42,7 +42,6 @@
 	<li><code>1 &lt;= K &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

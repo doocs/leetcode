@@ -52,7 +52,6 @@
 	<li><code>s</code> is a <strong>balanced</strong> string.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

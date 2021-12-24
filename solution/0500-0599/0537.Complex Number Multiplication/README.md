@@ -33,7 +33,6 @@
 	<li>输入字符串将以&nbsp;<strong>a+bi</strong> 的形式给出，其中整数 <strong>a</strong> 和 <strong>b</strong> 的范围均在 [-100, 100] 之间。<strong>输出也应当符合这种形式</strong>。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

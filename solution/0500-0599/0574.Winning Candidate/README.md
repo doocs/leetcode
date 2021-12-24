@@ -51,7 +51,6 @@ CandidateId 是 Candidate 表中的 id.
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -83,4 +82,3 @@ ON
 ```
 
 <!-- tabs:end -->
-

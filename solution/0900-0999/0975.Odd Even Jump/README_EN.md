@@ -69,7 +69,6 @@ number of jumps.
 	<li><code>0 &lt;= arr[i] &lt; 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

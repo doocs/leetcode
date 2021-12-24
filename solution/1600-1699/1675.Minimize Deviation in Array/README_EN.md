@@ -11,15 +11,16 @@
 <ul>
 	<li>If the element is <strong>even</strong>, <strong>divide</strong> it by <code>2</code>.
 
-	<ul>
-		<li>For example, if the array is <code>[1,2,3,4]</code>, then you can do this operation on the last element, and the array will be <code>[1,2,3,<u>2</u>].</code></li>
-	</ul>
-	</li>
-	<li>If the element is <strong>odd</strong>, <strong>multiply</strong> it by <code>2</code>.
-	<ul>
-		<li>For example, if the array is <code>[1,2,3,4]</code>, then you can do this operation on the first element, and the array will be <code>[<u>2</u>,2,3,4].</code></li>
-	</ul>
-	</li>
+    <ul>
+    	<li>For example, if the array is <code>[1,2,3,4]</code>, then you can do this operation on the last element, and the array will be <code>[1,2,3,<u>2</u>].</code></li>
+    </ul>
+    </li>
+    <li>If the element is <strong>odd</strong>, <strong>multiply</strong> it by <code>2</code>.
+    <ul>
+    	<li>For example, if the array is <code>[1,2,3,4]</code>, then you can do this operation on the first element, and the array will be <code>[<u>2</u>,2,3,4].</code></li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>The <strong>deviation</strong> of the array is the <strong>maximum difference</strong> between any two elements in the array.</p>
@@ -58,7 +59,6 @@
 	<li><code>2 &lt;= n &lt;= 10<sup><span style="font-size: 10.8333px;">5</span></sup></code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
-
 
 ## Solutions
 

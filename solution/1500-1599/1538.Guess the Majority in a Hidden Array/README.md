@@ -11,13 +11,14 @@
 <ul>
 	<li><code>int query(int a, int b, int c, int d)</code>：其中&nbsp;<code>0 &lt;= a &lt; b &lt; c &lt; d&nbsp;&lt;&nbsp;ArrayReader.length()</code>&nbsp;。此函数查询以这四个参数为下标的元素并返回：
 
-	<ul>
-		<li><strong>4 </strong>: 当这四个元素相同（0 或 1）时。</li>
-		<li><strong>2</strong>&nbsp;: 当其中三个元素的值等于 0 且一个元素等于 1 时，或当其中三个元素的值等于 1&nbsp;且一个元素等于 0&nbsp;时。</li>
-		<li><strong>0&nbsp;</strong>: 当其中两个元素等于 0 且两个元素等于 1 时。</li>
-	</ul>
-	</li>
-	<li><code>int length()</code>：返回数组的长度。</li>
+    <ul>
+    	<li><strong>4 </strong>: 当这四个元素相同（0 或 1）时。</li>
+    	<li><strong>2</strong>&nbsp;: 当其中三个元素的值等于 0 且一个元素等于 1 时，或当其中三个元素的值等于 1&nbsp;且一个元素等于 0&nbsp;时。</li>
+    	<li><strong>0&nbsp;</strong>: 当其中两个元素等于 0 且两个元素等于 1 时。</li>
+    </ul>
+    </li>
+    <li><code>int length()</code>：返回数组的长度。</li>
+
 </ul>
 
 <p>你可以调用&nbsp;<code>query()</code>&nbsp;最多&nbsp;<strong>2 * n 次</strong>，其中 n 等于&nbsp;<code>ArrayReader.length()</code>。</p>
@@ -61,7 +62,6 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 	<li><code>5 &lt;= nums.length&nbsp;&lt;= 10^5</code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 1</code></li>
 </ul>
-
 
 ## 解法
 

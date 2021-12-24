@@ -42,7 +42,6 @@
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

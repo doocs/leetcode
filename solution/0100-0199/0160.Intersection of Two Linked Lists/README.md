@@ -59,7 +59,6 @@
 	<li>程序尽量满足 O(<em>n</em>) 时间复杂度，且仅用 O(<em>1</em>) 内存。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -161,14 +160,14 @@ public:
  * @param {ListNode} headB
  * @return {ListNode}
  */
- var getIntersectionNode = function(headA, headB) {
-  let cur1 = headA;
-  let cur2 = headB;
-  while (cur1 != cur2) {
-      cur1 = cur1 ? cur1.next : headB;
-      cur2 = cur2 ? cur2.next : headA;
-  }
-  return cur1;
+var getIntersectionNode = function (headA, headB) {
+    let cur1 = headA;
+    let cur2 = headB;
+    while (cur1 != cur2) {
+        cur1 = cur1 ? cur1.next : headB;
+        cur2 = cur2 ? cur2.next : headA;
+    }
+    return cur1;
 };
 ```
 
@@ -215,7 +214,10 @@ public:
  * }
  */
 
-function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
+function getIntersectionNode(
+    headA: ListNode | null,
+    headB: ListNode | null
+): ListNode | null {
     let p1: ListNode | null = headA;
     let p2: ListNode | null = headB;
     while (p1 != p2) {
@@ -223,8 +225,9 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
         p2 = p2 == null ? headA : p2.next;
     }
     return p1;
-};
+}
 ```
+
 ### **...**
 
 ```

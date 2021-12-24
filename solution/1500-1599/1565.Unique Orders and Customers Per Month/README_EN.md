@@ -60,7 +60,6 @@ In December 2020 we have two orders from 1 customer both with invoices &gt; $20.
 In January 2021 we have two orders from 2 different customers, but only one of them with invoice &gt; $20.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

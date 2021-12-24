@@ -33,7 +33,6 @@
 	<li>尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -87,7 +86,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
-var majorityElement = function(nums) {
+var majorityElement = function (nums) {
     let cnt = 0;
     let major = 0;
     for (const num of nums) {
@@ -95,7 +94,7 @@ var majorityElement = function(nums) {
             major = num;
             cnt = 1;
         } else {
-            cnt += (major == num ? 1 : -1);
+            cnt += major == num ? 1 : -1;
         }
     }
     return major;

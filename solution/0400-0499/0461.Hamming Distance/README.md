@@ -28,7 +28,6 @@
 上面的箭头指出了对应二进制位不同的位置。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -92,12 +91,12 @@ class Solution {
  * @param {number} y
  * @return {number}
  */
-var hammingDistance = function(x, y) {
+var hammingDistance = function (x, y) {
     let distance = x ^ y;
     let count = 0;
     while (distance != 0) {
         count++;
-        distance &= (distance - 1);
+        distance &= distance - 1;
     }
     return count;
 };

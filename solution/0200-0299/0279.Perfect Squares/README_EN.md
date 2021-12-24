@@ -32,7 +32,6 @@
 	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 For dynamic programming, define `dp[i]` to represent the least number of perfect square numbers that sum to `i`.
@@ -104,7 +103,7 @@ function numSquares(n: number): number {
         dp[i] = min + 1;
     }
     return dp.pop();
-};
+}
 ```
 
 ### **Go**

@@ -56,7 +56,6 @@ But the second continuation byte does not start with 10, so it is invalid.
 	<li><code>0 &lt;= data[i] &lt;= 255</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

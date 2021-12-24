@@ -54,7 +54,6 @@ customStack.pop();                            // 返回 -1 --&gt; 栈为空，�
 	<li>每种方法 <code>increment</code>，<code>push</code> 以及 <code>pop</code> 分别最多调用 <code>1000</code> 次</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -107,17 +106,17 @@ class CustomStack {
     public CustomStack(int maxSize) {
         s = new int[maxSize];
     }
-    
+
     public void push(int x) {
         if (tail < s.length) {
             s[tail++] = x;
         }
     }
-    
+
     public int pop() {
         return tail == 0 ? -1 : s[--tail];
     }
-    
+
     public void increment(int k, int val) {
         for (int i = 0; i < Math.min(k, tail); ++i) {
             s[i] += val;
@@ -162,7 +161,7 @@ class CustomStack {
     increment(k: number, val: number): void {
         let tmp: Array<number> = [];
         for (let i = Math.max(this.size - k, 0); i < this.size; i++) {
-           this.stack[i] = this.stack[i] + val;
+            this.stack[i] = this.stack[i] + val;
         }
     }
 }

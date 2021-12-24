@@ -10,8 +10,6 @@ Given the root of a tree, you are asked to find the most frequent subtree sum. T
 
 </p>
 
-
-
 <p><b>Examples 1</b><br>
 
 Input:
@@ -30,8 +28,6 @@ return [2, -3, 4], since all the values happen only once, return all of them in 
 
 </p>
 
-
-
 <p><b>Examples 2</b><br>
 
 Input:
@@ -49,8 +45,6 @@ Input:
 return [2], since 2 happens twice, however -5 only occur once.
 
 </p>
-
-
 
 <p><b>Note:</b>
 

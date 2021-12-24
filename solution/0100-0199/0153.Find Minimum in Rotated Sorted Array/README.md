@@ -7,6 +7,7 @@
 <!-- 这里写题目描述 -->
 
 已知一个长度为 <code>n</code> 的数组，预先按照升序排列，经由 <code>1</code> 到 <code>n</code> 次 <strong>旋转</strong> 后，得到输入数组。例如，原数组 <code>nums = [0,1,2,4,5,6,7]</code> 在变化后可能得到：
+
 <ul>
 	<li>若旋转 <code>4</code> 次，则可以得到 <code>[4,5,6,7,0,1,2]</code></li>
 	<li>若旋转 <code>7</code> 次，则可以得到 <code>[0,1,2,4,5,6,7]</code></li>
@@ -53,7 +54,6 @@
 	<li><code>nums</code> 中的所有整数 <strong>互不相同</strong></li>
 	<li><code>nums</code> 原来是一个升序排序的数组，并进行了 <code>1</code> 至 <code>n</code> 次旋转</li>
 </ul>
-
 
 ## 解法
 
@@ -150,15 +150,15 @@ func findMin(nums []int) int {
  * @return {number}
  */
 var findMin = function (nums) {
-  let l = 0,
-    r = nums.length - 1;
-  if (nums[l] < nums[r]) return nums[0];
-  while (l < r) {
-    const m = (l + r) >> 1;
-    if (nums[m] > nums[r]) l = m + 1;
-    else r = m;
-  }
-  return nums[l];
+    let l = 0,
+        r = nums.length - 1;
+    if (nums[l] < nums[r]) return nums[0];
+    while (l < r) {
+        const m = (l + r) >> 1;
+        if (nums[m] > nums[r]) l = m + 1;
+        else r = m;
+    }
+    return nums[l];
 };
 ```
 

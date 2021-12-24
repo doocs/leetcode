@@ -39,7 +39,6 @@
 	<li><code>s</code> is the serialization of valid <code>NestedInteger</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

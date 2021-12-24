@@ -40,7 +40,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Find an algorithm without reconstructing the tree.</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -172,13 +172,13 @@ public:
         Node* cur = head;
         Node* maxNode = head;
         Node* next = head->next;
-        
+
         while (!(cur->val <= insert->val && insert->val <= next->val) && next != head) {
             cur = cur->next;
             next = next->next;
 
             if (cur->val >= maxNode->val)
-                maxNode = cur; 
+                maxNode = cur;
         }
 
         if (cur->val <= insert->val && insert->val <= next->val) {
@@ -187,7 +187,7 @@ public:
         } else {
             insert->next = maxNode->next;
             maxNode->next = insert;
-            
+
         }
 
     }

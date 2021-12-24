@@ -52,7 +52,6 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 	<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 This question can be converted to calculate how many stones a backpack with a capacity of `sum / 2` can hold.

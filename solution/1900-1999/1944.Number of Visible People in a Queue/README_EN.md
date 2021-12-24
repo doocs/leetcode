@@ -44,7 +44,6 @@ Person 5 can see no one since nobody is to the right of them.
 	<li>All the values of <code>heights</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 Monotonic stack.
@@ -68,7 +67,7 @@ class Solution:
                 else:
                     break
             stack.append(heights[i])
-        
+
         return ans
 ```
 

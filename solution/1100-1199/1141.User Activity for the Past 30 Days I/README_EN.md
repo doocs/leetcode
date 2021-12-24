@@ -6,8 +6,6 @@
 
 <p>Table: <code>Activity</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -36,19 +34,11 @@ Note that each session belongs to exactly one user.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find the daily active user count for a period of 30 days ending <strong>2019-07-27</strong>&nbsp;inclusively. A user was active on some day if he/she made at least one activity on that day.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

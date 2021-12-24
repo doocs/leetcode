@@ -29,7 +29,6 @@
 ]
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -225,7 +224,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var zigzagLevelOrder = function(root) {
+var zigzagLevelOrder = function (root) {
     if (!root) {
         return [];
     }

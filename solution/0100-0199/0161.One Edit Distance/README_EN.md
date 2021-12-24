@@ -54,7 +54,6 @@
 	<li><code>s</code> and <code>t</code> consist of lower-case letters, upper-case letters <strong>and/or</strong> digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

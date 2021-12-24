@@ -38,7 +38,6 @@ It is impossible to make s using a prefix of arr.</pre>
 	<li><code>words[i]</code> and <code>s</code> consist of only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

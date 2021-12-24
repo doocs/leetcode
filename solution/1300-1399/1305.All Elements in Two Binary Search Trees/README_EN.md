@@ -52,7 +52,6 @@
 	<li>Each node&#39;s value is between <code>[-10^5, 10^5]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

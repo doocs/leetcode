@@ -90,7 +90,6 @@ Jonathan received $500 on &quot;2020-08-02&quot; and paid $200 on &quot;2020-08-
 Winston received $400 on &quot;2020-08-01&quot; and paid $500 on &quot;2020-08-03&quot;, credit (10000 +400 -500) = $9990
 Luis didn&#39;t received any transfer, credit = $800</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

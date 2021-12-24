@@ -58,7 +58,6 @@ The rectangle formed by p1 = 1 and p2 = 2 has an area equal to |2-4| * |7-8| = 2
 Note that the rectangle formed by p1 = 1 and p2 = 3 is invalid because the area is 0.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

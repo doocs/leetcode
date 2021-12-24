@@ -43,7 +43,6 @@
 	<li>There are no self edges.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

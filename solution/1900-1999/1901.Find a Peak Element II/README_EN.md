@@ -44,7 +44,6 @@
 	<li>No two adjacent cells are equal.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

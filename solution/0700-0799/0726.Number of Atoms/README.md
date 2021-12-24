@@ -56,7 +56,6 @@ formula = &quot;K4(ON(SO3)2)2&quot;
 	<li><code>formula</code>只包含字母、数字和圆括号，并且题目中给定的是合法的化学式。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -6,8 +6,6 @@
 
 <p>Table:&nbsp;<code>Product</code></p>
 
-
-
 <pre>
 
 +--------------+---------+
@@ -28,11 +26,7 @@ product_id is the primary key of this table.
 
 </pre>
 
-
-
 <p>Table:&nbsp;<code>Sales</code></p>
-
-
 
 <pre>
 
@@ -62,19 +56,11 @@ product_id is a foreign key to Product table.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query that reports the <strong>buyers</strong> who have bought <em>S8</em> but not <em>iPhone</em>. Note that <em>S8</em> and <em>iPhone</em> are products present in the <code>Product</code> table.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 
@@ -129,8 +115,6 @@ Result table:
 +-------------+
 
 The buyer with id 1 bought an S8 but didn&#39;t buy an iPhone. The buyer with id 3 bought both.</pre>
-
-
 
 ## Solutions
 

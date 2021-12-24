@@ -57,7 +57,6 @@
 	<li><code>max(tasks[i]) &lt;= sessionTime &lt;= 15</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -34,7 +34,6 @@
 	<li><code>1 &lt;= label &lt;= 10^6</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

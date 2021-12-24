@@ -26,8 +26,6 @@
 
 </ol>
 
-
-
 <p><b>Valid Code Examples:</b><br />
 
 <pre>
@@ -78,8 +76,6 @@ The reason why cdata is NOT <b>"&lt;![CDATA[&lt;div>]>]]>]]>"</b> is because of 
 
 </p>
 
-
-
 <p><b>Invalid Code Examples:</b><br />
 
 <pre>
@@ -123,8 +119,6 @@ The reason why cdata is NOT <b>"&lt;![CDATA[&lt;div>]>]]>]]>"</b> is because of 
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

@@ -24,7 +24,6 @@
 
 <p><strong>注释 ：</strong>n&nbsp;不会超过&nbsp;<code>9 x 10^8</code>。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

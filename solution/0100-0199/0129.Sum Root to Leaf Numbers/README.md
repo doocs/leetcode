@@ -7,6 +7,7 @@
 <!-- 这里写题目描述 -->
 
 给你一个二叉树的根节点 <code>root</code> ，树中每个节点都存放有一个 <code>0</code> 到 <code>9</code> 之间的数字。
+
 <div class="original__bRMd">
 <div>
 <p>每条从根节点到叶节点的路径都代表一个数字：</p>
@@ -54,7 +55,6 @@
 </ul>
 </div>
 </div>
-
 
 ## 解法
 
@@ -145,9 +145,9 @@ class Solution {
 
 function sumNumbers(root: TreeNode | null): number {
     return dfs(root);
-};
+}
 
-function dfs(root: TreeNode | null, preSum : number = 0): number {
+function dfs(root: TreeNode | null, preSum: number = 0): number {
     if (!root) return 0;
     preSum = preSum * 10 + root.val;
     if (!root.left && !root.right) return preSum;

@@ -96,7 +96,6 @@ Result table:
 +-----------+------------+----------------+
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

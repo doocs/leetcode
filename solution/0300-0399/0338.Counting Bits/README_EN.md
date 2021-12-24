@@ -48,7 +48,6 @@
 	<li>Can you do it without using any built-in function (i.e., like <code>__builtin_popcount</code> in C++)?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

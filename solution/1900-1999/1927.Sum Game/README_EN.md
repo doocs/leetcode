@@ -63,7 +63,6 @@ Bob wins because 9 + 3 + 2 + 9 = 5 + 9 + 2 + 7.
 	<li><code>num</code> consists of only digits and <code>&#39;?&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -51,7 +51,6 @@
 	<li>All the numbers of <code>nums</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

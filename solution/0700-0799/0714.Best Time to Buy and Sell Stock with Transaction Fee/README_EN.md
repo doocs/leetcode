@@ -40,7 +40,6 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
 	<li><code>0 &lt;= fee &lt; 5 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

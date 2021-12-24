@@ -49,7 +49,6 @@
 	<li><code>0 &lt;= arr[i] &lt;= 9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

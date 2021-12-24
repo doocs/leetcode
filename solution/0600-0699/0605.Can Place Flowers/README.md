@@ -37,7 +37,6 @@
 	<li><code>0 <= n <= flowerbed.length</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

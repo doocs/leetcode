@@ -78,7 +78,6 @@ The resulting tree is shown above. This is the only valid operation that can be 
 	<li><code>1 &lt;= TreeNode.val &lt;= 5 * 10<sup>4</sup></code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

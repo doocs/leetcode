@@ -6,21 +6,13 @@
 
 <p>Given an integer <code>n</code> and an integer <code>start</code>.</p>
 
-
-
 <p>Define an array <code>nums</code> where <code>nums[i] = start + 2*i</code> (0-indexed) and <code>n == nums.length</code>.</p>
 
-
-
 <p>Return the bitwise&nbsp;XOR&nbsp;of all elements of <code>nums</code>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -34,11 +26,7 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +36,7 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 
 <strong>Explanation: </strong>Array nums is equal to [3, 5, 7, 9] where (3 ^ 5 ^ 7 ^ 9) = 8.</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -62,11 +46,7 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -76,13 +56,9 @@ Where &quot;^&quot; corresponds to bitwise XOR operator.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 1000</code></li>

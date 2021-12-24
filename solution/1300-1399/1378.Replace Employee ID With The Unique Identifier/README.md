@@ -1,4 +1,4 @@
-# [1378. 使用唯一标识码替换员工ID](https://leetcode-cn.com/problems/replace-employee-id-with-the-unique-identifier)
+# [1378. 使用唯一标识码替换员工 ID](https://leetcode-cn.com/problems/replace-employee-id-with-the-unique-identifier)
 
 [English Version](/solution/1300-1399/1378.Replace%20Employee%20ID%20With%20The%20Unique%20Identifier/README_EN.md)
 
@@ -79,7 +79,6 @@ Meir 的唯一标识码是 2 。
 Winston 的唯一标识码是 3 。
 Jonathan 唯一标识码是 1 。
 </pre>
-
 
 ## 解法
 

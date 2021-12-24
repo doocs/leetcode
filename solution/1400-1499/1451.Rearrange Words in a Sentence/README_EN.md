@@ -53,7 +53,6 @@ Output is ordered by length and the new first word starts with capital letter.
 	<li><code>1 &lt;= text.length &lt;= 10^5</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

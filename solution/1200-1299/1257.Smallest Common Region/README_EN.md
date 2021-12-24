@@ -38,7 +38,6 @@ region2 = &quot;New York&quot;
 	<li>All strings consist of English letters and spaces with at most 20 letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

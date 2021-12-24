@@ -49,7 +49,6 @@
 	<li><code>sources[i]</code>&nbsp;and <code>targets[i]</code>&nbsp;consist of only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -55,7 +55,6 @@
 	<li>Each tree will have <strong>unique node values</strong> in the range <code>[0, 99]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -61,7 +61,6 @@
 	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,8 +6,6 @@
 
 <p>Table: <code>LogInfo</code></p>
 
-
-
 <pre>
 
 +-------------+----------+
@@ -34,27 +32,15 @@ It is guaranteed that the logout time is after the login time.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find the <code>account_id</code> of the accounts that should be banned from Leetflex. An account should be banned if it was logged in at some moment from two different IP addresses.</p>
 
-
-
 <p>Return the result table in <strong>any order</strong>.</p>
-
-
 
 <p>The query result format is in the following example:</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

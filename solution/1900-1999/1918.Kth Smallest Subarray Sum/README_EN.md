@@ -53,7 +53,6 @@ Ordering the sums from smallest to largest gives 3, 3, 5, 5, 6, 8, <u>10</u>, 11
 	<li><code>1 &lt;= k &lt;= n * (n + 1) / 2</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

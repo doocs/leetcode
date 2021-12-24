@@ -36,7 +36,6 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -101,11 +100,11 @@ class Solution {
  * @return {TreeNode}
  */
 var invertTree = function (root) {
-  if (!root) return null;
-  [root.left, root.right] = [root.right, root.left];
-  invertTree(root.left);
-  invertTree(root.right);
-  return root;
+    if (!root) return null;
+    [root.left, root.right] = [root.right, root.left];
+    invertTree(root.left);
+    invertTree(root.right);
+    return root;
 };
 ```
 

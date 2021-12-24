@@ -6,15 +6,9 @@
 
 <p>There are some trees, where each tree is represented by (x,y) coordinate in a two-dimensional garden. Your job is to fence the entire garden using the <b>minimum length</b> of rope as it is expensive. The garden is well fenced only if all the trees are enclosed. Your task is to help find the coordinates of trees which are exactly located on the fence perimeter.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -28,11 +22,7 @@
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -48,15 +38,9 @@ Even you only have trees in a line, you need to use rope to enclose them.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>All trees should be enclosed together. You cannot cut the rope to enclose trees that will separate them in more than one group.</li>
@@ -66,8 +50,6 @@ Even you only have trees in a line, you need to use rope to enclose them.
 	<li>Input points have <b>NO</b> order. No order required for output.</li>
 	<li>input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.</li>
 </ol>
-
-
 
 ## Solutions
 

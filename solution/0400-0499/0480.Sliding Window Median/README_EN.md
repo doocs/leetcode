@@ -23,7 +23,7 @@
 <strong>Output:</strong> [1.00000,-1.00000,-1.00000,3.00000,5.00000,6.00000]
 <strong>Explanation:</strong> 
 Window position                Median
----------------                -----
+---------------              -----
 [<strong>1  3  -1</strong>] -3  5  3  6  7        1
  1 [<strong>3  -1  -3</strong>] 5  3  6  7       -1
  1  3 [<strong>-1  -3  5</strong>] 3  6  7       -1
@@ -46,7 +46,6 @@ Window position                Median
 	<li><code>1 &lt;= k &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
-
 
 ## Solutions
 

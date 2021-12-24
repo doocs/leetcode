@@ -6,17 +6,11 @@
 
 <p>Given an array of <strong>unique</strong> integers <code>salary</code>&nbsp;where <code>salary[i]</code> is the salary of the employee <code>i</code>.</p>
 
-
-
 <p>Return the average salary of employees excluding the minimum and maximum salary.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,11 +24,7 @@ Average salary excluding minimum and maximum salary is (2000+3000)/2= 2500
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +38,7 @@ Average salary excluding minimum and maximum salary is (2000)/1= 2000
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -62,11 +48,7 @@ Average salary excluding minimum and maximum salary is (2000)/1= 2000
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -76,13 +58,9 @@ Average salary excluding minimum and maximum salary is (2000)/1= 2000
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>3 &lt;= salary.length &lt;= 100</code></li>

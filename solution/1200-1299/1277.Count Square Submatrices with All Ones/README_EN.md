@@ -49,7 +49,6 @@ Total number of squares = 6 + 1 = <b>7</b>.
 	<li><code>0 &lt;= arr[i][j] &lt;= 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

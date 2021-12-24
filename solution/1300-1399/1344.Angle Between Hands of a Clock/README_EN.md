@@ -57,7 +57,6 @@
 	<li>Answers within&nbsp;<code>10^-5</code>&nbsp;of the actual value will be accepted as correct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

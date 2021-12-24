@@ -34,7 +34,6 @@
 	<li><code>board[i][j]</code> is <code>&#39;X&#39;</code> or <code>&#39;O&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -56,7 +55,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         for i in range(m):
             for j in range(n):
                 if board[i][j] == 'O':
@@ -66,7 +65,7 @@ class Solution:
                         for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                             if board[i + x][j + y] == "O":
                                 p[find(i * n + j)] = find((i + x) * n + j + y)
-                    
+
         for i in range(m):
             for j in range(n):
                 if board[i][j] == 'O' and find(i * n + j) != find(m * n):
@@ -128,13 +127,14 @@ class Solution {
  Do not return anything, modify board in-place instead.
  */
 function solve(board: string[][]): void {
-    let m = board.length, n = board[0].length;
+    let m = board.length,
+        n = board[0].length;
     if (m < 3 || n < 3) return;
     let visited = Array.from({ length: m }, v => new Array(n).fill(false));
     // 第一行，最后一行， 第一列， 最后一列
-    for (let i of [0, m-1]) {
+    for (let i of [0, m - 1]) {
         for (let j = 0; j < n; ++j) {
-            if (board[i][j] == 'X') {
+            if (board[i][j] == "X") {
                 visited[i][j] = true;
             } else {
                 dfs(board, i, j, visited, true);
@@ -143,7 +143,7 @@ function solve(board: string[][]): void {
     }
     for (let i = 0; i < m; ++i) {
         for (let j of [0, n - 1]) {
-            if (board[i][j] == 'X') {
+            if (board[i][j] == "X") {
                 visited[i][j] = true;
             } else {
                 dfs(board, i, j, visited, true);
@@ -155,23 +155,36 @@ function solve(board: string[][]): void {
             !visited[i][j] && dfs(board, i, j, visited);
         }
     }
-};
+}
 
-function dfs(board: string[][], i: number, j: number, visited: boolean[][], edge = false): void {
-    let m = board.length, n = board[0].length;
+function dfs(
+    board: string[][],
+    i: number,
+    j: number,
+    visited: boolean[][],
+    edge = false
+): void {
+    let m = board.length,
+        n = board[0].length;
     if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || visited[i][j]) {
         return;
     }
 
     visited[i][j] = true;
-    if (board[i][j] == 'X') {
+    if (board[i][j] == "X") {
         return;
     }
     if (!edge) {
-        board[i][j] = 'X';
+        board[i][j] = "X";
     }
-    for (let [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
-        let x = i + dx, y = j + dy;
+    for (let [dx, dy] of [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ]) {
+        let x = i + dx,
+            y = j + dy;
         dfs(board, x, y, visited, edge);
     }
 }

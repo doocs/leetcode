@@ -47,7 +47,6 @@ distanceLimitedPathsExist.query(0, 5, 6); // return false. There are no paths fr
 	<li>At most&nbsp;<code>10<sup>4</sup></code> calls will be made to <code>query</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -61,7 +61,6 @@ All other nodes are lonely.
 	<li>Each node&#39;s value is between&nbsp;<code>[1, 10^6]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

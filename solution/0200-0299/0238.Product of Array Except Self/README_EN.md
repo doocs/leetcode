@@ -33,7 +33,6 @@
 	<li>Could you solve it with <code>O(1)</code> constant space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -83,17 +82,17 @@ class Solution {
  * @return {number[]}
  */
 var productExceptSelf = function (nums) {
-  const n = nums.length;
-  let output = new Array(n);
-  for (let i = 0, left = 1; i < n; ++i) {
-    output[i] = left;
-    left *= nums[i];
-  }
-  for (let i = n - 1, right = 1; i >= 0; --i) {
-    output[i] *= right;
-    right *= nums[i];
-  }
-  return output;
+    const n = nums.length;
+    let output = new Array(n);
+    for (let i = 0, left = 1; i < n; ++i) {
+        output[i] = left;
+        left *= nums[i];
+    }
+    for (let i = n - 1, right = 1; i >= 0; --i) {
+        output[i] *= right;
+        right *= nums[i];
+    }
+    return output;
 };
 ```
 

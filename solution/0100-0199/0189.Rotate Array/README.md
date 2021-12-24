@@ -52,7 +52,6 @@
 <ul>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -122,6 +121,7 @@ class Solution {
 ### **JavaScript**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
 使用原生 API 将数组的 `k~n-1` 范围内的元素插入到前面
 
 ```js
@@ -132,7 +132,7 @@ class Solution {
  */
 var rotate = function (nums, k) {
     k %= nums.length;
-    nums.splice(0, 0, ...nums.splice(-k, k))
+    nums.splice(0, 0, ...nums.splice(-k, k));
 };
 ```
 

@@ -44,7 +44,6 @@
 	<li><code>2 &lt;= A.length == B.length &lt;= 20000</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

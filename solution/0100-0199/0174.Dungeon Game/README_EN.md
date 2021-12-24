@@ -42,7 +42,6 @@
 	<li><code>-1000 &lt;= dungeon[i][j] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

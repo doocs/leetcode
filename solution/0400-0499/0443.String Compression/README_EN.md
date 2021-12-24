@@ -61,7 +61,6 @@ Could you solve it using only <code>O(1)</code> extra space?</p>
 	<li><code>chars[i]</code> is a lower-case English letter, upper-case English letter, digit, or symbol.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

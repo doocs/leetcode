@@ -42,7 +42,6 @@
 	<li>题目数据保证 <code>c</code> 在 <code>s</code> 中至少出现一次</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -82,7 +81,7 @@ function shortestToChar(s: string, c: string): number[] {
         ans[i] = Math.min(Math.abs(pre - i), ans[i]);
     }
     return ans;
-};
+}
 ```
 
 ### **...**

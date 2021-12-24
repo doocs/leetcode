@@ -47,7 +47,6 @@
 	<li><strong>只会存在一个有效答案</strong></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -132,14 +131,14 @@ func twoSum(nums []int, target int) []int {
 
 ```js
 var twoSum = function (nums, target) {
-  const map = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    if (map.has(target - nums[i])) {
-      return [map.get(target - nums[i]), i];
+    const map = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        if (map.has(target - nums[i])) {
+            return [map.get(target - nums[i]), i];
+        }
+        map.set(nums[i], i);
     }
-    map.set(nums[i], i);
-  }
-  return [];
+    return [];
 };
 ```
 

@@ -68,7 +68,6 @@ Because only -1 is guaranteed to be found, you should return 1.
 <p>&nbsp;</p>
 <p><strong>Follow-up:</strong> If <code>nums</code> has <strong>duplicates</strong>, would you modify your algorithm? If so, how?</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

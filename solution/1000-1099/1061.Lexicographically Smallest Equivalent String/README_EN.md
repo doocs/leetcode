@@ -6,11 +6,7 @@
 
 <p>Given strings <code>A</code> and <code>B</code> of the same length, we say A[i] and B[i] are equivalent characters. For example, if <code>A = &quot;abc&quot;</code> and <code>B = &quot;cde&quot;</code>, then we have <code>&#39;a&#39; == &#39;c&#39;, &#39;b&#39; == &#39;d&#39;, &#39;c&#39; == &#39;e&#39;</code>.</p>
 
-
-
 <p>Equivalent characters follow the usual rules of any equivalence relation:</p>
-
-
 
 <ul>
 	<li>Reflexivity: &#39;a&#39; == &#39;a&#39;</li>
@@ -18,23 +14,13 @@
 	<li>Transitivity: &#39;a&#39; == &#39;b&#39; and &#39;b&#39; == &#39;c&#39; implies &#39;a&#39; == &#39;c&#39;</li>
 </ul>
 
-
-
 <p>For example, given the equivalency information from <code>A</code> and <code>B</code> above, <code>S = &quot;eed&quot;</code>, <code>&quot;acd&quot;</code>, and <code>&quot;aab&quot;</code> are equivalent strings, and <code>&quot;aab&quot;</code> is the lexicographically smallest equivalent string of <code>S</code>.</p>
-
-
 
 <p>Return the lexicographically smallest equivalent string of <code>S</code> by using the equivalency information from <code>A</code> and <code>B</code>.</p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -46,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -62,11 +44,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -78,15 +56,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>String <code>A</code>, <code>B</code> and <code>S</code> consist of only lowercase English letters from <code>&#39;a&#39;</code> - <code>&#39;z&#39;</code>.</li>

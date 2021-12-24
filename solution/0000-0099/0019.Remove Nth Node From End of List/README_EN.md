@@ -40,7 +40,6 @@
 	<li><code>1 &lt;= n &lt;= sz</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -169,9 +168,10 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
  * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {
+var removeNthFromEnd = function (head, n) {
     const dummy = new ListNode(0, head);
-    let fast = dummy, slow = dummy;
+    let fast = dummy,
+        slow = dummy;
     while (n--) {
         fast = fast.next;
     }

@@ -40,7 +40,6 @@
 	<li><code>​​​​​​0 &lt;= nums[i] &lt; 2<sup>10</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

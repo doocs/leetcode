@@ -30,7 +30,6 @@
 	<li><code>0 &lt;= low &lt;= high&nbsp;&lt;= 10^9</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

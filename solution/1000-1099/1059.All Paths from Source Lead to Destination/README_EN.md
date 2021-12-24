@@ -67,7 +67,6 @@
 	<li>The given graph may have self-loops and parallel edges.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

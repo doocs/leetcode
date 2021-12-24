@@ -49,7 +49,6 @@
 	<li>题目数据保证 <code>source</code> 和 <code>target</code> 不在封锁列表内</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

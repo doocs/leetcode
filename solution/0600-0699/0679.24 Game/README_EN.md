@@ -6,11 +6,9 @@
 
 <p>
 
-You have 4 cards each containing a number from 1 to 9.  You need to judge whether they could operated through <code>*</code>, <code>/</code>, <code>+</code>, <code>-</code>, <code>(</code>, <code>)</code> to get the value of 24.
+You have 4 cards each containing a number from 1 to 9. You need to judge whether they could operated through <code>\*</code>, <code>/</code>, <code>+</code>, <code>-</code>, <code>(</code>, <code>)</code> to get the value of 24.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -26,8 +24,6 @@ You have 4 cards each containing a number from 1 to 9.  You need to judge whethe
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -39,8 +35,6 @@ You have 4 cards each containing a number from 1 to 9.  You need to judge whethe
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

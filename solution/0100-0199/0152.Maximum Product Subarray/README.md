@@ -23,7 +23,6 @@
 <strong>输出:</strong> 0
 <strong>解释:</strong>&nbsp;结果不能为 2, 因为 [-2,-1] 不是子数组。</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -81,16 +80,19 @@ class Solution {
 ```ts
 function maxProduct(nums: number[]): number {
     let n = nums.length;
-    let preMax = nums[0], preMin = nums[0], ans = nums[0];
+    let preMax = nums[0],
+        preMin = nums[0],
+        ans = nums[0];
     for (let i = 1; i < n; ++i) {
         let cur = nums[i];
-        let x = preMax, y = preMin;
+        let x = preMax,
+            y = preMin;
         preMax = Math.max(x * cur, y * cur, cur);
         preMin = Math.min(x * cur, y * cur, cur);
         ans = Math.max(preMax, ans);
     }
     return ans;
-};
+}
 ```
 
 ### **C#**

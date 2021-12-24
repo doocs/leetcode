@@ -68,7 +68,6 @@ Result table:
 +-------------+--------------+
 The product with id 1 was only sold in spring 2019 while the other two were sold after.</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

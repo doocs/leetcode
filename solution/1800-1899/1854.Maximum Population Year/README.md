@@ -57,7 +57,7 @@ class Solution:
         for birth, death in logs:
             delta[birth] += 1
             delta[death] -= 1
-        
+
         mx = res = cur = 0
         for i, v in enumerate(delta):
             cur += v
@@ -99,7 +99,7 @@ class Solution {
  * @param {number[][]} logs
  * @return {number}
  */
-var maximumPopulation = function(logs) {
+var maximumPopulation = function (logs) {
     const offset = 1950;
     const len = 2050 - 1950 + 1;
     let delta = new Array(len).fill(0);

@@ -28,6 +28,7 @@
 <strong>输入：</strong>root = [1,null,3,2,4,null,5,6]
 <strong>输出：</strong>[1,3,5,6,2,4]
 </pre>
+
 <strong>示例 2：</strong>
 
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0589.N-ary%20Tree%20Preorder%20Traversal/images/sample_4_964.png" style="width: 296px; height: 241px;" /></p>
@@ -47,7 +48,6 @@
 </ul>
 </div>
 </div>
-
 
 ## 解法
 

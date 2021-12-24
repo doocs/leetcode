@@ -58,7 +58,6 @@ Since friend 0 sat on chair 2, we return 2.
 	<li>Each <code>arrival<sub>i</sub></code> time is <strong>distinct</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,15 +6,9 @@
 
 <p>Given a string <code>s</code>&nbsp;and an integer array <code>indices</code> of the <strong>same length</strong>.</p>
 
-
-
 <p>The string <code>s</code> will be shuffled such that the character at the <code>i<sup>th</sup></code> position moves to&nbsp;<code>indices[i]</code> in the shuffled string.</p>
 
-
-
 <p>Return <em>the shuffled string</em>.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -32,11 +26,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -62,11 +48,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -76,11 +58,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -90,13 +68,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>s.length == indices.length == n</code></li>

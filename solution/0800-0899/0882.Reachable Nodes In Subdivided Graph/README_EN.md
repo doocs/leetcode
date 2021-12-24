@@ -52,7 +52,6 @@ The nodes that are reachable are highlighted in yellow.
 	<li><code>1 &lt;= n &lt;= 3000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

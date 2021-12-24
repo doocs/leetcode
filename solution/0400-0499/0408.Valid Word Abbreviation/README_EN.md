@@ -35,7 +35,6 @@
 	<li><code>abbr</code> consists of lowercase English letters and digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

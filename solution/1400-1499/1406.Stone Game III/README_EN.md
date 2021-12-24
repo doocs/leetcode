@@ -6,33 +6,19 @@
 
 <p>Alice and Bob continue their&nbsp;games with piles of stones. There are several stones&nbsp;<strong>arranged in a row</strong>, and each stone has an associated&nbsp;value which is an integer given in the array&nbsp;<code>stoneValue</code>.</p>
 
-
-
 <p>Alice and Bob take turns, with <strong>Alice</strong> starting first. On each player&#39;s turn, that player&nbsp;can take <strong>1, 2 or 3 stones</strong>&nbsp;from&nbsp;the <strong>first</strong> remaining stones in the row.</p>
-
-
 
 <p>The score of each player is the sum of values of the stones taken. The score of each player is <strong>0</strong>&nbsp;initially.</p>
 
-
-
 <p>The objective of the game is to end with the highest score, and the winner is the player with the highest score and there could be a tie. The game continues until all the stones have been taken.</p>
-
-
 
 <p>Assume&nbsp;Alice&nbsp;and Bob&nbsp;<strong>play optimally</strong>.</p>
 
-
-
 <p>Return <em>&quot;Alice&quot;</em> if&nbsp;Alice will win, <em>&quot;Bob&quot;</em> if Bob will win or <em>&quot;Tie&quot;</em> if they end the game with the same score.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -44,11 +30,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -66,11 +48,7 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -82,11 +60,7 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -96,11 +70,7 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -110,13 +80,9 @@ Remember that both play optimally so here Alice will choose the scenario that ma
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= values.length &lt;= 50000</code></li>

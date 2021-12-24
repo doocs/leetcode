@@ -37,7 +37,6 @@
 	<li>It is <strong>guaranteed</strong> that the input board has only one solution.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -63,7 +63,6 @@ s = &quot;acdcb&quot;
 p = &quot;a*c?b&quot;
 <strong>输出:</strong> false</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

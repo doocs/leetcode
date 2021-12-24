@@ -6,13 +6,9 @@
 
 <p>Given a positive integer <code>a</code>, find the smallest positive integer <code>b</code> whose multiplication of each digit equals to <code>a</code>. </p>
 
-
-
 <p>
 
 If there is no answer or the answer is not fit in 32-bit signed integer, then return 0.</p>
-
-
 
 <p>
 
@@ -28,17 +24,13 @@ Output:
 
 </p>
 
-
-
 <p>
 
 <b>Example 2</b><br>
 
-Input: 
+Input:
 
 <pre>15</pre>
-
-
 
 Output:
 

@@ -56,7 +56,6 @@ You can only eliminate 1 monster.
 	<li><code>1 &lt;= dist[i], speed[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -104,7 +103,7 @@ class Solution {
  * @param {number[]} speed
  * @return {number}
  */
- var eliminateMaximum = function(dist, speed) {
+var eliminateMaximum = function (dist, speed) {
     let arr = [];
     for (let i = 0; i < dist.length; i++) {
         arr[i] = dist[i] / speed[i];

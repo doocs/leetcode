@@ -93,12 +93,12 @@ class Solution:
             node = Node(cur.val, cur.next)
             cur.next = node
             cur = node.next
-        
+
         cur = head
         while cur:
             cur.next.random = None if cur.random is None else cur.random.next
             cur = cur.next.next
-        
+
         copy = head.next
         cur = head
         while cur:
@@ -172,7 +172,7 @@ public:
     int val;
     Node* next;
     Node* random;
-    
+
     Node(int _val) {
         val = _val;
         next = NULL;
@@ -223,7 +223,7 @@ public class Node {
     public int val;
     public Node next;
     public Node random;
-    
+
     public Node(int _val) {
         val = _val;
         next = null;
@@ -237,7 +237,7 @@ public class Solution {
         if (head == null) {
             return null;
         }
-        
+
         Node cur = head;
         while (cur != null) {
             Node node = new Node(cur.val);
@@ -281,7 +281,7 @@ public class Solution {
  * @param {Node} head
  * @return {Node}
  */
-var copyRandomList = function(head) {
+var copyRandomList = function (head) {
     if (head == null) {
         return null;
     }

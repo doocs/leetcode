@@ -6,11 +6,7 @@
 
 <p>You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly&nbsp;once. Find this single element that appears only once.</p>
 
-
-
 <p><b>Follow up:</b> Your solution should run in O(log n) time and O(1) space.</p>
-
-
 
 <p>&nbsp;</p>
 
@@ -31,8 +27,6 @@
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10^5</code></li>
@@ -59,7 +53,6 @@ class Solution:
                 right = mid
         return nums[left]
 ```
-
 
 ```python
 class Solution:
@@ -117,7 +110,8 @@ class Solution {
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {
-    let left = 0, right = nums.length - 1;
+    let left = 0,
+        right = nums.length - 1;
     while (left < right) {
         let mid = (left + right) >> 1;
         if ((mid & 1) == 1) --mid;
@@ -128,7 +122,7 @@ function singleNonDuplicate(nums: number[]): number {
         }
     }
     return nums[left];
-};
+}
 ```
 
 ### **C++**

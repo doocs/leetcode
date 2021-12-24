@@ -44,7 +44,6 @@ Finally delete &quot;ddd&quot;, get &quot;aa&quot;</pre>
 	<li><code>s</code> only contains lower case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

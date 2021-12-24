@@ -64,7 +64,6 @@
 	<li><code>num</code> only consists of digits.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

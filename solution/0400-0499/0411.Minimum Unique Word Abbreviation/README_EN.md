@@ -55,7 +55,6 @@ Since none of them are abbreviations of words in the dictionary, returning any o
 	<li><code>log<sub>2</sub>(n) + m &lt;= 21</code> if <code>n &gt; 0</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -56,7 +56,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 23&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">https://leetcode-cn.com/problems/merge-k-sorted-lists/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -83,7 +82,7 @@ class Solution:
         for i in range(n - 1):
             lists[i + 1] = self.mergeTwoLists(lists[i], lists[i + 1])
         return lists[-1]
-        
+
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         dummy = ListNode()
         cur = dummy
@@ -248,7 +247,7 @@ func mergeKLists(lists []*ListNode) *ListNode {
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-var mergeKLists = function(lists) {
+var mergeKLists = function (lists) {
     const n = lists.length;
     if (n == 0) {
         return null;

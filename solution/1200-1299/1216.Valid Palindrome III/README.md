@@ -29,7 +29,6 @@
 	<li><code>1 &lt;= k&nbsp;&lt;= s.length</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

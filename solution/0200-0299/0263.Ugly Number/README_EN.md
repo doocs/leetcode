@@ -47,7 +47,6 @@
 	<li><code>-2<sup>31</sup> &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -117,17 +116,17 @@ public:
  * @return {boolean}
  */
 var isUgly = function (n) {
-  if (n < 1) return false;
-  while (n % 2 == 0) {
-    n /= 2;
-  }
-  while (n % 3 == 0) {
-    n /= 3;
-  }
-  while (n % 5 == 0) {
-    n /= 5;
-  }
-  return n == 1;
+    if (n < 1) return false;
+    while (n % 2 == 0) {
+        n /= 2;
+    }
+    while (n % 3 == 0) {
+        n /= 3;
+    }
+    while (n % 5 == 0) {
+        n /= 5;
+    }
+    return n == 1;
 };
 ```
 

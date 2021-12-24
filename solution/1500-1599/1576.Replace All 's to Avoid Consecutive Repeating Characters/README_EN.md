@@ -48,7 +48,6 @@
 	<li><code>s</code> contains&nbsp;only lower case English letters and <code>&#39;?&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

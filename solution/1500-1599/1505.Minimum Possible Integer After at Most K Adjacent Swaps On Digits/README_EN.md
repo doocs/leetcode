@@ -58,7 +58,6 @@
 	<li><code>1 &lt;= k &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

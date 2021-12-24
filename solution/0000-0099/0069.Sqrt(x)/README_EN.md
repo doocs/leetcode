@@ -30,7 +30,6 @@
 	<li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 Binary search.
@@ -115,7 +114,7 @@ func mySqrt(x int) int {
  * @param {number} x
  * @return {number}
  */
-var mySqrt = function(x) {
+var mySqrt = function (x) {
     let left = 0;
     let right = x;
     while (left < right) {

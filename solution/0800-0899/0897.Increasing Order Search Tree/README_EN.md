@@ -6,8 +6,6 @@
 
 <p>Given the <code>root</code> of a binary search tree, rearrange the tree in <strong>in-order</strong> so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only one right child.</p>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
@@ -22,8 +20,6 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0897.Increasing%20Order%20Search%20Tree/images/ex2.jpg" style="width: 300px; height: 114px;" />
@@ -36,13 +32,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>The number of nodes in the given tree will be in the range <code>[1, 100]</code>.</li>

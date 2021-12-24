@@ -41,7 +41,6 @@ A longest path of the tree is the path 3 - 2 - 1 - 4 - 5.
 	<li>The given edges form an undirected tree.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

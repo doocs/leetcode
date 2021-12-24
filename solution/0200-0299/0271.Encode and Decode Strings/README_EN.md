@@ -13,6 +13,7 @@ string encode(vector&lt;string&gt; strs) {
   // ... your code
   return encoded_string;
 }</pre>
+
 Machine 2 (receiver) has the function:
 
 <pre>
@@ -78,7 +79,6 @@ String[] strs = decoder.decode(msg);
 	<li>Could you write a generalized algorithm to work on any possible characters?</li>
 	<li>Could you solve the problem without using any serialize methods (such as <code>eval</code>)?</li>
 </ul>
-
 
 ## Solutions
 

@@ -49,7 +49,6 @@
 	<li>It is guaranteed that all elements in <code>verticalCuts</code>&nbsp;are distinct.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

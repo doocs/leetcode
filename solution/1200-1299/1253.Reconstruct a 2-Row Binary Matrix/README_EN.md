@@ -53,7 +53,6 @@
 	<li><code>0 &lt;= colsum[i] &lt;= 2</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -29,6 +29,7 @@ NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0,
 numMatrix.sumRegion(2, 1, 4, 3); // return 8
 numMatrix.update(3, 2, 2);
 numMatrix.sumRegion(2, 1, 4, 3); // return 10
+
 </pre>
 
 <p>&nbsp;</p>
@@ -46,7 +47,6 @@ numMatrix.sumRegion(2, 1, 4, 3); // return 10
 	<li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>sumRegion</code> and <code>update</code>.</li>
 </ul>
-
 
 ## Solutions
 

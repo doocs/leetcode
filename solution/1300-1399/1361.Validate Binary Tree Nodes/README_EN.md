@@ -48,7 +48,6 @@
 	<li><code>-1 &lt;= leftChild[i], rightChild[i] &lt;= n - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 Union find.

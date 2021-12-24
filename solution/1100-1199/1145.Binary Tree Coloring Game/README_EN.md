@@ -32,7 +32,6 @@
 	<li><code>1 &lt;= x &lt;= n&nbsp;&lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -156,7 +156,7 @@ class Solution {
  * }
  */
 
- function verticalTraversal(root: TreeNode | null): number[][] {
+function verticalTraversal(root: TreeNode | null): number[][] {
     let solution = [];
     dfs(root, 0, 0, solution);
     // 优先依据i=2排序， 然后依据i=1排序
@@ -172,10 +172,11 @@ class Solution {
         ans[ans.length - 1].push(val);
     }
     return ans;
-};
+}
 
 function compare(a: Array<number>, b: Array<number>) {
-    const [a0, a1, a2] = a, [b0, b1, b2] = b;
+    const [a0, a1, a2] = a,
+        [b0, b1, b2] = b;
     if (a2 == b2) {
         if (a1 == b1) {
             return a0 - b0;
@@ -185,7 +186,12 @@ function compare(a: Array<number>, b: Array<number>) {
     return a2 - b2;
 }
 
-function dfs(root: TreeNode | null, depth: number, idx: number, solution: Array<Array<number>>) {
+function dfs(
+    root: TreeNode | null,
+    depth: number,
+    idx: number,
+    solution: Array<Array<number>>
+) {
     if (!root) return;
     solution.push([root.val, depth, idx]);
     dfs(root.left, depth + 1, idx - 1, solution);

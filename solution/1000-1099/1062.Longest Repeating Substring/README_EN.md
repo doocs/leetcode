@@ -47,7 +47,6 @@
 	<li><code>1 &lt;= S.length &lt;= 1500</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

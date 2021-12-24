@@ -49,7 +49,6 @@ puzzles = ["aboveyz","abrodyz","abslute","absoryz","actresz","gaswxyz"]
 	<li>每个 <code>puzzles[i]</code> 所包含的字符都不重复。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -26,7 +26,6 @@
 	<li><code>0 &lt;= n &lt;= flowerbed.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

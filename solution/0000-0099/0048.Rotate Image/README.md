@@ -51,7 +51,6 @@
 	<li><code>-1000 <= matrix[i][j] <= 1000</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -114,13 +113,13 @@ function rotate(matrix: number[][]): void {
     for (let i = 0; i < Math.floor(n / 2); i++) {
         for (let j = 0; j < Math.floor((n + 1) / 2); j++) {
             let tmp = matrix[i][j];
-            matrix[i][j] = matrix[n-1-j][i];
+            matrix[i][j] = matrix[n - 1 - j][i];
             matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j];
             matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i];
             matrix[j][n - 1 - i] = tmp;
         }
     }
-};
+}
 ```
 
 ### **...**

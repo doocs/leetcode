@@ -109,7 +109,7 @@ class Solution:
             if s == target:
                 return True
             return dfs(i + 1, s) or dfs(i + 1, s + nums[i])
-        
+
         return dfs(0, 0)
 ```
 

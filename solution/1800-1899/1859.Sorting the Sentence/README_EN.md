@@ -92,8 +92,8 @@ class Solution {
  * @param {string} s
  * @return {string}
  */
-var sortSentence = function(s) {
-    let words = s.split(' ');
+var sortSentence = function (s) {
+    let words = s.split(" ");
     let n = words.length;
     let res = new Array(n);
     for (let word of words) {
@@ -101,7 +101,7 @@ var sortSentence = function(s) {
         let val = word.slice(0, -1);
         res[parseInt(key) - 1] = val;
     }
-    return res.join(' ');
+    return res.join(" ");
 };
 ```
 

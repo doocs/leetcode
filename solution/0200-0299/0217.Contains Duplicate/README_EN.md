@@ -25,7 +25,6 @@
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -59,7 +58,7 @@ class Solution {
 function containsDuplicate(nums: number[]): boolean {
     let unique: Set<number> = new Set(nums);
     return unique.size != nums.length;
-};
+}
 ```
 
 ### **C++**

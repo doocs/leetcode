@@ -114,7 +114,7 @@ function countPoints(points: number[][], queries: number[][]): number[] {
         ans.push(count);
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

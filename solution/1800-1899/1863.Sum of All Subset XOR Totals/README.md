@@ -64,7 +64,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 20</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -122,11 +121,11 @@ class Solution {
  * @param {number[]} nums
  * @return {number}
  */
- var subsetXORSum = function(nums) {
+var subsetXORSum = function (nums) {
     let res = [];
     let prev = 0;
     dfs(nums, 0, prev, res);
-    return res.reduce((a, c) => a + c, 0)
+    return res.reduce((a, c) => a + c, 0);
 };
 
 function dfs(nums, depth, prev, res) {

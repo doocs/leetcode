@@ -39,7 +39,6 @@
 	<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -74,7 +73,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number[]}
  */
-var getConcatenation = function(nums) {
+var getConcatenation = function (nums) {
     let ans = nums.slice();
     ans.splice(nums.length, 0, ...nums);
     return ans;

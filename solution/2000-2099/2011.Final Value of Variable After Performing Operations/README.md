@@ -65,7 +65,6 @@ X--：X 减 1 ，X = 1 - 1 = 0
 	<li><code>operations[i]</code> 将会是 <code>"++X"</code>、<code>"X++"</code>、<code>"--X"</code> 或 <code>"X--"</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -104,10 +103,10 @@ class Solution {
 function finalValueAfterOperations(operations: string[]): number {
     let ans = 0;
     for (let operation of operations) {
-        ans += (operation.includes('+') ? 1 : -1)
+        ans += operation.includes("+") ? 1 : -1;
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

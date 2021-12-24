@@ -30,7 +30,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you do it without extra space and in <code>O(n)</code> runtime?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

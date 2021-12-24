@@ -34,7 +34,6 @@ Notice that book number 2 does not have to be on the first shelf.
 	<li><code>1 &lt;= books[i][1] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

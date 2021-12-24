@@ -35,7 +35,6 @@
 	<li><code>0 &lt;= sum(words[i].length) &lt;= 6 * 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

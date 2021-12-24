@@ -22,7 +22,6 @@
 <p><strong>进阶：</strong><br>
 你能否用&nbsp;O(n) 时间复杂度和 O(1) 空间复杂度解决此题？</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -201,7 +200,7 @@ func isPalindrome(head *ListNode) bool {
  * @param {ListNode} head
  * @return {boolean}
  */
-var isPalindrome = function(head) {
+var isPalindrome = function (head) {
     if (!head || !head.next) {
         return true;
     }
@@ -300,7 +299,8 @@ public class Solution {
 function isPalindrome(head: ListNode | null): boolean {
     if (head == null || head.next == null) return true;
     // 快慢指针定位到中点
-    let slow: ListNode = head, fast: ListNode = head.next;
+    let slow: ListNode = head,
+        fast: ListNode = head.next;
     while (fast != null && fast.next != null) {
         slow = slow.next;
         fast = fast.next.next;
@@ -322,7 +322,7 @@ function isPalindrome(head: ListNode | null): boolean {
         head = head.next;
     }
     return true;
-};
+}
 ```
 
 ### **...**

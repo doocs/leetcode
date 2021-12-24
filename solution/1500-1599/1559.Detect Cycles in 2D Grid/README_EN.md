@@ -55,7 +55,6 @@
 	<li><code>grid</code>&nbsp;consists only of lowercase&nbsp;English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -23,7 +23,6 @@
 	<li>The given dates are valid&nbsp;dates between the years <code>1971</code> and <code>2100</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

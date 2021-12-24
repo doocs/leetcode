@@ -6,8 +6,6 @@
 
 <p>Write a SQL query to find all duplicate emails in a table named <code>Person</code>.</p>
 
-
-
 <pre>
 
 +----+---------+
@@ -26,11 +24,7 @@
 
 </pre>
 
-
-
 <p>For example, your query should return the following for the above table:</p>
-
-
 
 <pre>
 
@@ -46,11 +40,7 @@
 
 </pre>
 
-
-
 <p><strong>Note</strong>: All emails are in lowercase.</p>
-
-
 
 ## Solutions
 

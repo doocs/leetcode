@@ -62,7 +62,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it <strong>in-place</strong> with <code>O(1)</code> extra space?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -104,8 +103,8 @@ public class Solution {
 function reverseWords(s: string): string {
     let words: string[] = s.trim().split(/\s+/g);
     words.reverse();
-    return words.join(' ');
-};
+    return words.join(" ");
+}
 ```
 
 ### **...**

@@ -6,19 +6,11 @@
 
 <p>Given a Binary Search Tree (BST) with root node <code>root</code>, and a target value <code>V</code>, split the tree into two subtrees&nbsp;where one subtree has nodes that are all smaller or equal to the target value, while the other subtree has all nodes that are greater than the target value.&nbsp; It&#39;s not necessarily the case that the tree contains a node with value <code>V</code>.</p>
 
-
-
 <p>Additionally, most of the structure of the original tree should remain.&nbsp; Formally, for any child C with parent P in the original tree, if they are both in the same subtree after the split, then node C should still have the parent P.</p>
-
-
 
 <p>You should output the root TreeNode of&nbsp;both subtrees after splitting, in any order.</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -64,11 +56,7 @@ while the diagrams for the outputs are:
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The size of the BST will not exceed <code>50</code>.</li>

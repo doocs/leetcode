@@ -6,35 +6,19 @@
 
 <p>On a 2 dimensional grid with <code>R</code> rows and <code>C</code> columns, we start at <code>(r0, c0)</code> facing east.</p>
 
-
-
 <p>Here, the north-west corner of the grid is at the&nbsp;first row and column, and the south-east corner of the grid is at the last row and column.</p>
-
-
 
 <p>Now, we walk in a clockwise spiral shape to visit every position in this grid.&nbsp;</p>
 
-
-
 <p>Whenever we would move outside the boundary of the grid, we continue our walk outside the grid (but may return to the grid boundary later.)&nbsp;</p>
-
-
 
 <p>Eventually, we reach all <code>R * C</code> spaces of the grid.</p>
 
-
-
 <p>Return a list of coordinates representing the positions of the grid in the order they were visited.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -48,15 +32,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -70,19 +48,13 @@
 
 </pre>
 
-
-
 <div>
 
 <div>
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= R &lt;= 100</code></li>

@@ -37,7 +37,6 @@
 	<li><code>1 &lt;= n1, n2 &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

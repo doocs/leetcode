@@ -58,7 +58,7 @@ class Solution:
             if root is None:
                 return 0
             return 1 + max(height(root.left), height(root.right))
-        
+
         if root is None:
             return True
         return abs(height(root.left) - height(root.right)) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right)
@@ -107,18 +107,22 @@ class Solution {
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isBalanced = function(root) {
-    const depth = (root) => {
+var isBalanced = function (root) {
+    const depth = root => {
         if (!root) {
             return 0;
         }
         return 1 + Math.max(depth(root.left), depth(root.right));
-    }
+    };
 
     if (!root) {
         return true;
     }
-    return Math.abs(depth(root.left) - depth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+    return (
+        Math.abs(depth(root.left) - depth(root.right)) <= 1 &&
+        isBalanced(root.left) &&
+        isBalanced(root.right)
+    );
 };
 ```
 

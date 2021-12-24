@@ -77,7 +77,6 @@ source = [&quot;a/*comment&quot;, &quot;line&quot;, &quot;more_comment*/b&quot;]
 	<li>给定的源码中不会有单引号、双引号或其他控制字符。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

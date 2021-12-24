@@ -58,7 +58,6 @@
 	<li>Both of the given trees will have values in the range <code>[0, 200]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

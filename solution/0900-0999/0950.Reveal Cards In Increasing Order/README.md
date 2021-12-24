@@ -51,7 +51,6 @@
 	<li>对于所有的&nbsp;<code>i != j</code>，<code>A[i] != A[j]</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

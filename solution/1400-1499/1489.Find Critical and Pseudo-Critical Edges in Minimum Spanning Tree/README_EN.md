@@ -47,7 +47,6 @@ The edges 2, 3, 4, and 5 are only part of some MSTs, therefore they are consider
 	<li>All pairs <code>(a<sub>i</sub>, b<sub>i</sub>)</code> are <strong>distinct</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

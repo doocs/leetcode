@@ -47,7 +47,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -144,7 +143,7 @@ public:
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function(head) {
+var hasCycle = function (head) {
     let slow = head;
     let fast = head;
     while (fast && fast.next) {

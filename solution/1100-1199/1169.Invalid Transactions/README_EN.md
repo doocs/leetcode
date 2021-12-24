@@ -48,7 +48,6 @@
 	<li>Each <code>{amount}</code> consist of digits, and represent an integer between <code>0</code> and <code>2000</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

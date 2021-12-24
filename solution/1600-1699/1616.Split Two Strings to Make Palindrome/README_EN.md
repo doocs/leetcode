@@ -58,7 +58,6 @@ Then, a<sub>prefix</sub> + b<sub>suffix</sub> = &quot;ula&quot; + &quot;alu&quot
 	<li><code>a</code> and <code>b</code> consist of lowercase English letters</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

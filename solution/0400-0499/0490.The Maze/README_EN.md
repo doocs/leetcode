@@ -50,7 +50,6 @@
 	<li>The maze contains <strong>at least 2 empty spaces</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

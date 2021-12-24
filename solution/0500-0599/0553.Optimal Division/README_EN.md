@@ -6,11 +6,7 @@
 
 <p>Given a list of <b>positive integers</b>, the adjacent integers will perform the float division. For example, [2,3,4] -> 2 / 3 / 4.</p>
 
-
-
 <p>However, you can add any number of parenthesis at any position to change the priority of operations. You should find out how to add parenthesis to get the <b>maximum</b> result, and return the corresponding expression in string format. <b>Your expression should NOT contain redundant parenthesis.</b></p>
-
-
 
 <p><b>Example:</b><br />
 
@@ -41,8 +37,6 @@ Other cases:
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 

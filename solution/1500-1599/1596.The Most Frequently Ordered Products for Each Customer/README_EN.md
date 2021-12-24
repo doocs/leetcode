@@ -114,7 +114,6 @@ Jerry (customer 4) only ordered the keyboard (one time), so that is the most frq
 John (customer 5) did not order anything, so we do not include them in the result table.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

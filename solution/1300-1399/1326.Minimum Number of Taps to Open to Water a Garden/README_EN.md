@@ -65,7 +65,6 @@ Opening Only the second tap will water the whole garden [0,5]
 	<li><code>0 &lt;= ranges[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

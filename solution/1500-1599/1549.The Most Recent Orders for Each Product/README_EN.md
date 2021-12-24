@@ -111,7 +111,6 @@ screen&#39;s most recent order is in 2020-08-29, it was ordered only once this d
 The hard disk was never ordered and we don&#39;t include it in the result table.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

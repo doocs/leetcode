@@ -29,7 +29,6 @@
 	<li><code>0 &lt;= hours[i] &lt;= 16</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

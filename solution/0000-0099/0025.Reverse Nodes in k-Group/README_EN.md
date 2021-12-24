@@ -163,7 +163,7 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
     // pre->head-> ... ->tail-> next
     while (head != null) {
         let tail = pre;
-        for (let i=0; i<k; ++i) {
+        for (let i = 0; i < k; ++i) {
             tail = tail.next;
             if (tail == null) {
                 return dummy.next;
@@ -179,9 +179,9 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
         head = t;
     }
     return dummy.next;
-};
+}
 
-function reverse (head: ListNode, tail: ListNode) {
+function reverse(head: ListNode, tail: ListNode) {
     let cur = head;
     let pre = tail.next;
     // head -> next -> ... -> tail -> pre
@@ -191,7 +191,7 @@ function reverse (head: ListNode, tail: ListNode) {
         pre = cur;
         cur = t;
     }
-    return [tail, head]
+    return [tail, head];
 }
 ```
 

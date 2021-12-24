@@ -55,7 +55,6 @@ The third tree below is also not valid. Although it produces the same result and
 	<li>It is guaranteed that <code>s</code> is a valid expression.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

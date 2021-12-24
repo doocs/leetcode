@@ -40,7 +40,6 @@ solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each ind
 	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>pick</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

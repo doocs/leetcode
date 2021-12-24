@@ -40,7 +40,6 @@
 	<li><code>p</code> and <code>q</code> are values in the tree.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

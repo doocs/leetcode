@@ -76,7 +76,6 @@ Joining the blocks gives &quot;123-456-78&quot;.
 	<li>There are at least <strong>two</strong> digits in <code>number</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

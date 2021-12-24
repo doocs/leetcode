@@ -32,7 +32,6 @@
 	<li><code>rec2[0] &lt;= rec2[2]</code> and <code>rec2[1] &lt;= rec2[3]</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

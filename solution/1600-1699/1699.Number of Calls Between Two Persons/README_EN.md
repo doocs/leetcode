@@ -56,7 +56,6 @@ Users 1 and 3 had 1 call and the total duration is 20.
 Users 3 and 4 had 4 calls and the total duration is 999 (100 + 200 + 200 + 499).
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

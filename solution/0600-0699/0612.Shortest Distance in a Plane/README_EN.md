@@ -10,11 +10,7 @@ Table <code>point_2d</code> holds the coordinates (x,y) of some unique points (m
 
 Write a query to find the shortest distance between these points rounded to 2 decimals.
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -30,17 +26,11 @@ Write a query to find the shortest distance between these points rounded to 2 de
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 The shortest distance is 1.00 from point (-1,-1) to (-1,2). So the output should be:
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 
@@ -52,17 +42,11 @@ The shortest distance is 1.00 from point (-1,-1) to (-1,2). So the output should
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <b>Note:</b> The longest distance among all the points are less than 10000.
 
-
-
 <p>&nbsp;</p>
-
-
 
 ## Solutions
 

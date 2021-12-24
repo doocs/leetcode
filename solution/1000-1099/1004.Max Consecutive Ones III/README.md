@@ -1,4 +1,4 @@
-# [1004. 最大连续1的个数 III](https://leetcode-cn.com/problems/max-consecutive-ones-iii)
+# [1004. 最大连续 1 的个数 III](https://leetcode-cn.com/problems/max-consecutive-ones-iii)
 
 [English Version](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README_EN.md)
 
@@ -37,7 +37,6 @@
 	<li><code>0 &lt;= K &lt;= A.length</code></li>
 	<li><code>A[i]</code> 为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>&nbsp;</li>
 </ol>
-
 
 ## 解法
 

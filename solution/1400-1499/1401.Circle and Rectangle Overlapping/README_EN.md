@@ -56,7 +56,6 @@
 	<li><code>y1 &lt; y2</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

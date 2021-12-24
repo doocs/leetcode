@@ -6,8 +6,6 @@
 
 <p>Table: <code>Customers</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -30,15 +28,9 @@ This table contains information of the customers in the company.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Product</code></p>
-
-
 
 <pre>
 
@@ -62,15 +54,9 @@ This table contains information of the products in the company.
 
 price is the product cost.</pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>Table: <code>Orders</code></p>
-
-
 
 <pre>
 
@@ -100,27 +86,15 @@ customer_id is the id of the customer who bought &quot;quantity&quot; products w
 
 Order_date is the date in format (&#39;YYYY-MM-DD&#39;) when the order was shipped.</pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to&nbsp;report the&nbsp;customer_id and customer_name of customers who have spent at least $100 in each month of June and July 2020.</p>
 
-
-
 <p>Return the result table in any order.</p>
-
-
 
 <p>The query result format is in the following example.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

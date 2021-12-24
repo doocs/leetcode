@@ -35,7 +35,6 @@
 	<li><code>nums</code> is sorted in a <strong>strictly increasing</strong> order.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -144,7 +143,7 @@ private:
  * @param {number[]} nums
  * @return {TreeNode}
  */
-var sortedArrayToBST = function(nums) {
+var sortedArrayToBST = function (nums) {
     const buildBST = (nums, start, end) => {
         if (start > end) {
             return null;
@@ -154,7 +153,7 @@ var sortedArrayToBST = function(nums) {
         root.left = buildBST(nums, start, mid - 1);
         root.right = buildBST(nums, mid + 1, end);
         return root;
-    }
+    };
 
     return buildBST(nums, 0, nums.length - 1);
 };

@@ -175,7 +175,7 @@ class LRUCache {
         head.next = tail;
         tail.prev = head;
     }
-    
+
     public int get(int key) {
         if (!cache.containsKey(key)) {
             return -1;
@@ -184,7 +184,7 @@ class LRUCache {
         moveToHead(node);
         return node.value;
     }
-    
+
     public void put(int key, int value) {
         if (cache.containsKey(key)) {
             Node node = cache.get(key);

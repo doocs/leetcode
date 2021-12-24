@@ -28,7 +28,6 @@
 	<li>Each element in the array appears twice except for one element which appears only once.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -66,11 +65,11 @@ class Solution {
  * @return {number}
  */
 var singleNumber = function (nums) {
-  let res = 0;
-  for (let num of nums) {
-    res ^= num;
-  }
-  return res;
+    let res = 0;
+    for (let num of nums) {
+        res ^= num;
+    }
+    return res;
 };
 ```
 

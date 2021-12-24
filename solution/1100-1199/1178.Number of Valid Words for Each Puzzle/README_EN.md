@@ -5,6 +5,7 @@
 ## Description
 
 With respect to a given <code>puzzle</code> string, a <code>word</code> is <em>valid</em>&nbsp;if both the following conditions are satisfied:
+
 <ul>
 	<li><code>word</code> contains the first letter of <code>puzzle</code>.</li>
 	<li>For each letter in <code>word</code>, that letter is in <code>puzzle</code>.<br />
@@ -39,7 +40,6 @@ There&#39;re&nbsp;no valid words for&nbsp;&quot;gaswxyz&quot; cause none of the 
 	<li><code>words[i][j]</code>, <code>puzzles[i][j]</code> are English lowercase letters.</li>
 	<li>Each <code>puzzles[i] </code>doesn&#39;t contain repeated characters.</li>
 </ul>
-
 
 ## Solutions
 

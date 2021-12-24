@@ -45,7 +45,6 @@
 	<li><code>num</code> 仅由数字组成且不含前导零</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -92,14 +91,14 @@ class Solution {
  * @param {string} num
  * @return {string}
  */
- var largestOddNumber = function(num) {
+var largestOddNumber = function (num) {
     let n = num.length;
     for (let j = n - 1; j >= 0; j--) {
-        if (num.charAt(j) & 1 == 1) {
-            return num.slice(0, j+1);
+        if (num.charAt(j) & (1 == 1)) {
+            return num.slice(0, j + 1);
         }
     }
-    return '';
+    return "";
 };
 ```
 

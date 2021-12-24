@@ -42,7 +42,6 @@
 	<li><code>arr1</code> and <code>arr2</code> have no leading zeros</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

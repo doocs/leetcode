@@ -47,7 +47,6 @@
 	<li><code>1 &lt;= n &lt;= 2 * 10^4</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

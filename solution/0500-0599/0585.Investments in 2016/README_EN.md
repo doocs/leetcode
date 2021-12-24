@@ -6,20 +6,14 @@
 
 <p>Write a query to print the sum of all total investment values in 2016 (<b>TIV_2016</b>), to a scale of 2 decimal places, for all policy holders who meet the following criteria:</p>
 
-
-
 <ol>
 	<li>Have the same <b>TIV_2015</b> value as one or more other policyholders.</li>
 	<li>Are not located in the same city as any other policyholder (i.e.: the (latitude, longitude) attribute pairs must be unique).</li>
 </ol>
 
-
-
 <p><b>Input Format:</b><br />
 
 The <b><i>insurance</i></b> table is described as follows:</p>
-
-
 
 <pre>
 
@@ -39,15 +33,9 @@ The <b><i>insurance</i></b> table is described as follows:</p>
 
 </pre>
 
-
-
 <p>where <b>PID</b> is the policyholder&#39;s policy ID, <b>TIV_2015</b> is the total investment value in 2015, <b>TIV_2016</b> is the total investment value in 2016, <b>LAT</b> is the latitude of the policy holder&#39;s city, and <b>LON</b> is the longitude of the policy holder&#39;s city.</p>
 
-
-
 <p><b>Sample Input</b></p>
-
-
 
 <pre>
 
@@ -65,11 +53,7 @@ The <b><i>insurance</i></b> table is described as follows:</p>
 
 </pre>
 
-
-
 <p><b>Sample Output</b></p>
-
-
 
 <pre>
 
@@ -81,11 +65,7 @@ The <b><i>insurance</i></b> table is described as follows:</p>
 
 </pre>
 
-
-
 <p><b>Explanation</b></p>
-
-
 
 <pre>
 
@@ -104,8 +84,6 @@ And its location is the same with the third record, which makes the third record
 
 
 So, the result is the sum of <b>TIV_2016</b> of the first and last record, which is 45.</pre>
-
-
 
 ## Solutions
 

@@ -38,7 +38,6 @@
 	<li><code>0 &lt;= prices[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

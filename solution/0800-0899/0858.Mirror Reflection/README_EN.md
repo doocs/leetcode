@@ -30,7 +30,6 @@
 </ol>
 </div>
 
-
 ## Solutions
 
 <!-- tabs:start -->

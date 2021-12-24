@@ -102,7 +102,8 @@ function nodesBetweenCriticalPoints(head: ListNode | null): number[] {
     head = head.next;
     let nums = [];
     while (head.next != null) {
-        let val = head.val, post = head.next.val;
+        let val = head.val,
+            post = head.next.val;
         if (pre < val && val > post) {
             nums.push(idx);
         }
@@ -120,7 +121,7 @@ function nodesBetweenCriticalPoints(head: ListNode | null): number[] {
         min = Math.min(nums[i] - nums[i - 1], min);
     }
     return [min, nums[n - 1] - nums[0]];
-};
+}
 ```
 
 ### **...**

@@ -6,25 +6,15 @@
 
 <p>A program was supposed to print an array of integers. The program forgot to print whitespaces and the array is printed as a string of digits and all we know is that all integers in the array were in the range&nbsp;<code>[1, k]</code>&nbsp;and there are no leading zeros in the array.</p>
 
-
-
 <p>Given the string <code>s</code> and the integer <code>k</code>. There can be multiple ways to restore the array.</p>
-
-
 
 <p>Return <em>the number of possible array</em> that can be printed as a string <code>s</code>&nbsp;using the mentioned program.</p>
 
-
-
 <p>The number of ways could be very large so return it <strong>modulo</strong> <code>10^9 + 7</code></p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -36,11 +26,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -52,11 +38,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -68,11 +50,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -84,11 +62,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -98,13 +72,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 10^5</code>.</li>

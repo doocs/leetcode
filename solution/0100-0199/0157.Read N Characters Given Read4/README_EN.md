@@ -101,7 +101,6 @@ Note that &quot;abc&quot; is the file&#39;s content, not buf. buf is the destina
 	<li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

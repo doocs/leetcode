@@ -57,7 +57,6 @@
 	<li>All characters of <code>s</code>&nbsp;are lower case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

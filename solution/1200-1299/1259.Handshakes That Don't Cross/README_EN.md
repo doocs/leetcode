@@ -52,7 +52,6 @@
 	<li><code>num_people % 2 == 0</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

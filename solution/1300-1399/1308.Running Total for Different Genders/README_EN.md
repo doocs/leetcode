@@ -71,7 +71,6 @@ Fourth day is 2019-12-31, Joe scored 3 points and the total score for the team i
 Fifth day is 2020-01-07, Bajrang scored 7 points and the total score for the team is 36.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -39,7 +39,6 @@ solution.randPoint(); // return [0.36572, 0.17248]
 	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>randPoint</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,21 +6,13 @@
 
 <p>Given an array of strings <code>names</code> of size <code>n</code>. You will create <code>n</code> folders in your file system <strong>such that</strong>, at the <code>ith</code> minute, you will create a folder with the name <code>names[i]</code>.</p>
 
-
-
 <p>Since two files <strong>cannot</strong> have the same name, if you enter a folder name which is previously used,&nbsp;the system&nbsp;will have a suffix&nbsp;addition to its name in the form of <code>(k)</code>,&nbsp;where,&nbsp;<code>k</code> is the <strong>smallest positive integer</strong> such that the obtained name remains unique.</p>
 
-
-
 <p>Return <em>an array of strings of length <code>n</code></em> where <code>ans[i]</code> is the actual name the system will assign to the <code>ith</code> folder when you create it.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -40,11 +32,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -64,11 +52,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -80,11 +64,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -96,11 +76,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -112,13 +88,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= names.length &lt;= 5 * 10^4</code></li>

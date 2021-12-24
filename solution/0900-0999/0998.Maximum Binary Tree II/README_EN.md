@@ -127,13 +127,16 @@ class Solution {
  * }
  */
 
- function insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null {
+function insertIntoMaxTree(
+    root: TreeNode | null,
+    val: number
+): TreeNode | null {
     if (root == null || val > root.val) {
         return new TreeNode(val, root);
     }
     root.right = insertIntoMaxTree(root.right, val);
     return root;
-};
+}
 ```
 
 ### **C++**

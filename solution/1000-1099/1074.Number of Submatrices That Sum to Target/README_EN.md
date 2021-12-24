@@ -44,7 +44,6 @@
 	<li><code>-10^8 &lt;= target &lt;= 10^8</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

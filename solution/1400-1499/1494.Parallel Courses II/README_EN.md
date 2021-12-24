@@ -52,7 +52,6 @@
 	<li>The given graph is a directed acyclic graph.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

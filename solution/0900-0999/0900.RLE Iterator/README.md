@@ -47,7 +47,6 @@ RLEIterator 由 RLEIterator([3,8,0,9,2,5]) 初始化。
 	<li>每次调用&nbsp;<code>RLEIterator.next(int n)</code>&nbsp;都有&nbsp;<code>1 &lt;= n &lt;= 10^9</code>&nbsp;。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

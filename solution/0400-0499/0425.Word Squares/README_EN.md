@@ -42,7 +42,6 @@ The output consists of two word squares. The order of output does not matter (ju
 	<li>All <code>words[i]</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,27 +6,17 @@
 
 <p>We are given a binary tree (with root node&nbsp;<code>root</code>), a <code>target</code> node, and an integer value <code>K</code>.</p>
 
-
-
 <p>Return a list of the values of all&nbsp;nodes that have a distance <code>K</code> from the <code>target</code> node.&nbsp; The answer can be returned in any order.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <ol>
 
 </ol>
 
-
-
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -56,15 +46,9 @@ The descriptions of the inputs above are just serializations of these objects.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li>The given tree is non-empty.</li>
@@ -74,8 +58,6 @@ The descriptions of the inputs above are just serializations of these objects.
 </ol>
 
 </div>
-
-
 
 ## Solutions
 

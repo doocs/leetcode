@@ -65,7 +65,6 @@
 	<li><code>1 &lt;=&nbsp;capacity &lt;= 100000</code></li>
 </ol>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -118,7 +117,7 @@ class Solution {
  * @param {number} capacity
  * @return {boolean}
  */
- var carPooling = function(trips, capacity) {
+var carPooling = function (trips, capacity) {
     let delta = new Array();
     for (let trip of trips) {
         let [num, start, end] = trip;

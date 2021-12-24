@@ -6,25 +6,15 @@
 
 <p>Given an integer array <code>bloomDay</code>, an integer <code>m</code> and an integer <code>k</code>.</p>
 
-
-
 <p>We need to make <code>m</code>&nbsp;bouquets. To make a bouquet,&nbsp;you need to use <code>k</code> <strong>adjacent flowers</strong> from the garden.</p>
-
-
 
 <p>The garden consists of <code>n</code> flowers, the <code>ith</code> flower will bloom in the <code>bloomDay[i]</code>&nbsp;and then can be used in&nbsp;<strong>exactly one</strong> bouquet.</p>
 
-
-
 <p>Return <em>the minimum number of days</em> you need to wait to be able to make <code>m</code> bouquets from the garden. If it is impossible to make <code>m</code> bouquets return <strong>-1</strong>.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -44,11 +34,7 @@ After day 3: [x, _, x, _, x]   // we can make 3 bouquets. The answer is 3.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -60,11 +46,7 @@ After day 3: [x, _, x, _, x]   // we can make 3 bouquets. The answer is 3.
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -86,11 +68,7 @@ It is obvious that we can make two bouquets in different ways.
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -102,11 +80,7 @@ It is obvious that we can make two bouquets in different ways.
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -116,13 +90,9 @@ It is obvious that we can make two bouquets in different ways.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>bloomDay.length == n</code></li>

@@ -31,7 +31,6 @@
 
 <p><strong>说明:</strong>&nbsp;<code>1 &lt;= N &lt;= 10000</code></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

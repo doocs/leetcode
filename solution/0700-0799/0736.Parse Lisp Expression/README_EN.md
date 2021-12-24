@@ -42,8 +42,6 @@ The syntax for these expressions is given as follows.
 
 </p>
 
-
-
 <p><b>Evaluation Examples:</b><br />
 
 <pre>
@@ -115,8 +113,6 @@ of the final x in the add-expression.  That final x will equal 2.
 
 
 </pre>
-
-
 
 <p><b>Note:</b>
 

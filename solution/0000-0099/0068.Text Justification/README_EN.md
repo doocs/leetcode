@@ -70,7 +70,6 @@ Note that the second line is also left-justified becase it contains only one wor
 	<li><code>words[i].length &lt;= maxWidth</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

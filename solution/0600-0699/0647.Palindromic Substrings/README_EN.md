@@ -6,15 +6,9 @@
 
 <p>Given a string, your task is to count how many palindromic substrings in this string.</p>
 
-
-
 <p>The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -26,15 +20,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -46,21 +34,13 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ol>
 	<li>The input string length won&#39;t exceed 1000.</li>
 </ol>
-
-
 
 <p>&nbsp;</p>
 

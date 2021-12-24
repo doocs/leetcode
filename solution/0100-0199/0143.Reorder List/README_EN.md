@@ -41,7 +41,6 @@ L<sub>0</sub> &rarr; L<sub>n</sub> &rarr; L<sub>1</sub> &rarr; L<sub>n - 1</sub>
 	<li><code>1 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -186,7 +185,6 @@ public class Solution {
 
 ### **Go**
 
-
 ```go
 /**
  * Definition for singly-linked list.
@@ -238,7 +236,7 @@ public class Solution {
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
-var reorderList = function(head) {
+var reorderList = function (head) {
     if (!head || !head.next) {
         return;
     }

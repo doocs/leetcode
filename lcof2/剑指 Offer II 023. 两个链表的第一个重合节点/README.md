@@ -75,7 +75,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 160&nbsp;题相同：<a href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/">https://leetcode-cn.com/problems/intersection-of-two-linked-lists/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -177,14 +176,14 @@ public:
  * @param {ListNode} headB
  * @return {ListNode}
  */
- var getIntersectionNode = function(headA, headB) {
-  let cur1 = headA;
-  let cur2 = headB;
-  while (cur1 != cur2) {
-      cur1 = cur1 ? cur1.next : headB;
-      cur2 = cur2 ? cur2.next : headA;
-  }
-  return cur1;
+var getIntersectionNode = function (headA, headB) {
+    let cur1 = headA;
+    let cur2 = headB;
+    while (cur1 != cur2) {
+        cur1 = cur1 ? cur1.next : headB;
+        cur2 = cur2 ? cur2.next : headA;
+    }
+    return cur1;
 };
 ```
 
@@ -231,7 +230,10 @@ public:
  * }
  */
 
-function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): ListNode | null {
+function getIntersectionNode(
+    headA: ListNode | null,
+    headB: ListNode | null
+): ListNode | null {
     let p1: ListNode | null = headA;
     let p2: ListNode | null = headB;
     while (p1 != p2) {
@@ -239,8 +241,9 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
         p2 = p2 == null ? headA : p2.next;
     }
     return p1;
-};
+}
 ```
+
 ### **...**
 
 ```

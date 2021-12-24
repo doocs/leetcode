@@ -57,7 +57,6 @@
 	<li>答案肯定存在。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -122,7 +121,7 @@ function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
             return [num, target];
         }
     }
-};
+}
 ```
 
 ### **C++**

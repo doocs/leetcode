@@ -42,7 +42,6 @@
 <p><b>Follow up:</b><br />
 How would you handle overflow for very large input integers?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -52,7 +52,6 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
 	<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

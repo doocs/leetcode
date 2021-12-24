@@ -59,7 +59,6 @@
 	<li><code>formula</code> is always valid.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

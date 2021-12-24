@@ -13,7 +13,6 @@
 <pre><strong>输入:</strong> <code>nums = [3,5,2,1,6,4]</code>
 <strong>输出:</strong> 一个可能的解答是 [3,5,1,6,2,4]</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -45,7 +44,7 @@ class Solution {
         for (int i = 1; i < nums.length; ++i) {
             if ((i % 2 == 1 && nums[i] < nums[i - 1]) || (i % 2 == 0 && nums[i] > nums[i - 1])) {
                 swap(nums, i, i - 1);
-            } 
+            }
         }
     }
 

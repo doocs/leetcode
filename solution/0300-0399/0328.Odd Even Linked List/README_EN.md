@@ -112,7 +112,8 @@ class Solution {
 
 function oddEvenList(head: ListNode | null): ListNode | null {
     if (head == null) return head;
-    let odd: ListNode = head, even: ListNode = head.next;
+    let odd: ListNode = head,
+        even: ListNode = head.next;
     let evenHead = even;
     while (even != null && even.next != null) {
         odd.next = even.next;
@@ -122,7 +123,7 @@ function oddEvenList(head: ListNode | null): ListNode | null {
     }
     odd.next = evenHead;
     return head;
-};
+}
 ```
 
 ### **C++**

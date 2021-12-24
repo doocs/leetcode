@@ -6,8 +6,6 @@
 
 <p>Given a string representing an expression of fraction addition and subtraction, you need to return the calculation result in string format. The final result should be <a href = "https://en.wikipedia.org/wiki/Irreducible_fraction">irreducible fraction</a>. If your final result is an integer, say <code>2</code>, you need to change it to the format of fraction that has denominator <code>1</code>. So in this case, <code>2</code> should be converted to <code>2/1</code>.</p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -19,8 +17,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br />
 
@@ -34,8 +30,6 @@
 
 </p>
 
-
-
 <p><b>Example 3:</b><br />
 
 <pre>
@@ -47,8 +41,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Example 4:</b><br />
 
@@ -62,8 +54,6 @@
 
 </p>
 
-
-
 <p><b>Note:</b><br>
 
 <ol>
@@ -72,7 +62,7 @@
 
 <li>Each fraction (input and output) has format <code>±numerator/denominator</code>. If the first input fraction or the output is positive, then <code>'+'</code> will be omitted.</li>
 
-<li>The input only contains valid <b>irreducible fractions</b>, where the <b>numerator</b> and <b>denominator</b> of each fraction will always be in the range [1,10]. If the denominator is 1, it means this fraction is actually an integer in a fraction format defined above.</li> 
+<li>The input only contains valid <b>irreducible fractions</b>, where the <b>numerator</b> and <b>denominator</b> of each fraction will always be in the range [1,10]. If the denominator is 1, it means this fraction is actually an integer in a fraction format defined above.</li>
 
 <li>The number of given fractions will be in the range [1,10].</li>
 

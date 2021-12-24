@@ -31,7 +31,6 @@
 	<li>There are no repeated connections.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

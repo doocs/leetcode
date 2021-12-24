@@ -54,7 +54,6 @@ class Node {
 	<li><code>p</code> and <code>q</code> exist in the tree.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

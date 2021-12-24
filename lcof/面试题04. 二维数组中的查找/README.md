@@ -88,10 +88,15 @@ class Solution {
  */
 var findNumberIn2DArray = function (matrix, target) {
     let m, n;
-    if (matrix == null || (m = matrix.length) == 0 || matrix[0] == null || (n = matrix[0].length) == 0) {
+    if (
+        matrix == null ||
+        (m = matrix.length) == 0 ||
+        matrix[0] == null ||
+        (n = matrix[0].length) == 0
+    ) {
         return false;
     }
-    for (let i = 0, j = n - 1; i < m && j >= 0;) {
+    for (let i = 0, j = n - 1; i < m && j >= 0; ) {
         if (matrix[i][j] == target) {
             return true;
         }
@@ -156,9 +161,11 @@ public:
 
 ```ts
 function findNumberIn2DArray(matrix: number[][], target: number): boolean {
-    let m: number = matrix.length, n: number;
+    let m: number = matrix.length,
+        n: number;
     if (!matrix || !m || !matrix[0] || !(n = matrix[0].length)) return false;
-    let i: number = 0, j: number = n - 1;
+    let i: number = 0,
+        j: number = n - 1;
     while (i < m && j >= 0) {
         let cur: number = matrix[i][j];
         if (cur == target) return true;
@@ -169,7 +176,7 @@ function findNumberIn2DArray(matrix: number[][], target: number): boolean {
         }
     }
     return false;
-};
+}
 ```
 
 ### **...**

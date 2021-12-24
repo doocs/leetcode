@@ -54,7 +54,6 @@ k = 1
 	<li><code>grid[0][0] == grid[m-1][n-1] == 0</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

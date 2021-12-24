@@ -35,7 +35,6 @@ MyCalendar.book(20, 30); // returns true
 	<li>调用函数 <code>MyCalendar.book(start, end)</code>时， <code>start</code> 和 <code>end</code> 的取值范围为 <code>[0, 10^9]</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

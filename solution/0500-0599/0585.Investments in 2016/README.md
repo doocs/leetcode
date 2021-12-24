@@ -1,4 +1,4 @@
-# [585. 2016年的投资](https://leetcode-cn.com/problems/investments-in-2016)
+# [585. 2016 年的投资](https://leetcode-cn.com/problems/investments-in-2016)
 
 [English Version](/solution/0500-0599/0585.Investments%20in%202016/README_EN.md)
 
@@ -56,7 +56,6 @@
 且他所在城市的经纬度与第三个投保人相同。基于同样的原因，第三个投保人投资失败。
 
 所以返回的结果是第一个投保人和最后一个投保人的 <strong>TIV_2016 </strong>之和，结果是 45 。</pre>
-
 
 ## 解法
 

@@ -6,8 +6,6 @@
 
 <p>Table: <code>UserActivity</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -36,23 +34,13 @@ A person with username performed a activity from startDate to endDate.
 
 </pre>
 
-
-
 <p>Write an SQL query to&nbsp;show&nbsp;the <strong>second most recent activity </strong>of each user.</p>
-
-
 
 <p>If the user only has one activity, return that one.&nbsp;</p>
 
-
-
 <p>A&nbsp;user can&#39;t perform more than one activity at the same time. Return the result table in <strong>any</strong> order.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

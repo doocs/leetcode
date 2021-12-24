@@ -46,7 +46,6 @@
 	<li><code>0 <= source, target < 10<sup>6</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

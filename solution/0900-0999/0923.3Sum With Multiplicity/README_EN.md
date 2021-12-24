@@ -42,7 +42,6 @@ and two 2s from [2,2,2,2] in 6 ways.
 	<li><code>0 &lt;= target &lt;= 300</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

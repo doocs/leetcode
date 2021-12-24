@@ -79,7 +79,7 @@ class Solution {
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
+var maxDepth = function (root) {
     if (!root) {
         return 0;
     }

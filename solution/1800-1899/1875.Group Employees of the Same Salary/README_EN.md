@@ -6,8 +6,6 @@
 
 <p>Table: <code>Employees</code></p>
 
-
-
 <pre>
 
 +-------------+---------+
@@ -30,15 +28,9 @@ Each row of this table indicates the employee ID, employee name, and salary.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>A company wants to divide the employees into teams such that all the members on each team have the <strong>same salary</strong>. The teams should follow these criteria:</p>
-
-
 
 <ul>
 	<li>Each team should consist of <strong>at least two</strong> employees.</li>
@@ -48,23 +40,13 @@ Each row of this table indicates the employee ID, employee name, and salary.
 	<li>A team&#39;s ID is assigned based on the <strong>rank of the team&#39;s salary</strong> relative to the other teams&#39; salaries, where the team with the <strong>lowest</strong> salary has <code>team_id = 1</code>. Note that the salaries for employees not on a team are <strong>not included</strong> in this ranking.</li>
 </ul>
 
-
-
 <p>Write an SQL query to get the <code>team_id</code> of each employee that is in a team.</p>
-
-
 
 <p>Return the result table ordered by <code>team_id</code> <strong>in ascending order</strong>. In case of a tie, order it by&nbsp;<code>employee_id</code> in <strong>ascending order</strong>.</p>
 
-
-
 <p>The query result format is in the following example:</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

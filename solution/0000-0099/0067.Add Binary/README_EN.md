@@ -23,7 +23,6 @@
 	<li>Each string does not contain leading zeros except for the zero itself.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -82,7 +81,6 @@ public:
     }
 };
 ```
-
 
 ### **C#**
 

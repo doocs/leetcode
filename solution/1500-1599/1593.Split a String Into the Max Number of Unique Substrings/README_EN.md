@@ -47,7 +47,6 @@
 	</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

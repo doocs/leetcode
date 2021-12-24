@@ -59,7 +59,6 @@
 	<li>It is guaranteed that the snake starts at empty cells.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

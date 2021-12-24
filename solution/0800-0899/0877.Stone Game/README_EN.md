@@ -36,7 +36,6 @@ This demonstrated that taking the first 5 was a winning move for Alex, so we ret
 	<li><code>sum(piles)</code> is odd.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -53,7 +52,7 @@ This demonstrated that taking the first 5 was a winning move for Alex, so we ret
 class Solution {
         public boolean stoneGame(int[] ps) {
         int n = ps.length;
-        int[][] f = new int[n + 2][n + 2]; 
+        int[][] f = new int[n + 2][n + 2];
         for (int len = 1; len <= n; len++) {
             for (int l = 1; l + len - 1 <= n; l++) {
                 int r = l + len - 1;
@@ -63,7 +62,7 @@ class Solution {
             }
         }
         return f[1][n] > 0;
-    }   
+    }
 }
 ```
 

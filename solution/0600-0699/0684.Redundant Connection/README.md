@@ -124,7 +124,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         for a, b in edges:
             if find(a) == find(b):
                 return [a, b]

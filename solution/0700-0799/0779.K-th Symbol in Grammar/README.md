@@ -1,4 +1,4 @@
-# [779. 第K个语法符号](https://leetcode-cn.com/problems/k-th-symbol-in-grammar)
+# [779. 第 K 个语法符号](https://leetcode-cn.com/problems/k-th-symbol-in-grammar)
 
 [English Version](/solution/0700-0799/0779.K-th%20Symbol%20in%20Grammar/README_EN.md)
 
@@ -39,7 +39,6 @@
 	<li><code>N</code>&nbsp;的范围&nbsp;<code>[1, 30]</code>.</li>
 	<li><code>K</code>&nbsp;的范围&nbsp;<code>[1, 2^(N-1)]</code>.</li>
 </ol>
-
 
 ## 解法
 

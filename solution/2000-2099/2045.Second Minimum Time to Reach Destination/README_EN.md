@@ -39,12 +39,13 @@ The time taken is:
 Hence the minimum time needed is 6 minutes.
 
 The red path shows the path to get the second minimum time.
+
 - Start at 1, time elapsed=0
 - 1 -&gt; 3: 3 minutes, time elapsed=3
 - 3 -&gt; 4: 3 minutes, time elapsed=6
 - Wait at 4 for 4 minutes, time elapsed=10
 - 4 -&gt; 5: 3 minutes, time elapsed=13
-Hence the second minimum time is 13 minutes.      
+Hence the second minimum time is 13 minutes.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -69,7 +70,6 @@ The second minimum time path is 1 -&gt; 2 -&gt; 1 -&gt; 2 with time = 11 minutes
 	<li>Each vertex can be reached directly or indirectly from every other vertex.</li>
 	<li><code>1 &lt;= time, change &lt;= 10<sup>3</sup></code></li>
 </ul>
-
 
 ## Solutions
 

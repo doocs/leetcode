@@ -9,13 +9,14 @@
 <ul>
 	<li><code>int query(int a, int b, int c, int d)</code>: where <code>0 &lt;= a &lt; b &lt; c &lt; d&nbsp;&lt;&nbsp;ArrayReader.length()</code>.&nbsp;The function returns the distribution of the value of the 4 elements and returns:
 
-	<ul>
-		<li><strong>4 </strong>: if the values of the 4 elements are the same (0 or 1).</li>
-		<li><strong>2</strong>&nbsp;: if three&nbsp;elements have a value&nbsp;equal to 0&nbsp;and one&nbsp;element has value equal to 1&nbsp;or vice versa.</li>
-		<li><strong>0&nbsp;</strong>:&nbsp;if two element have a value equal to 0 and two elements have a value equal to 1.</li>
-	</ul>
-	</li>
-	<li><code>int length()</code>: Returns the size of the array.</li>
+    <ul>
+    	<li><strong>4 </strong>: if the values of the 4 elements are the same (0 or 1).</li>
+    	<li><strong>2</strong>&nbsp;: if three&nbsp;elements have a value&nbsp;equal to 0&nbsp;and one&nbsp;element has value equal to 1&nbsp;or vice versa.</li>
+    	<li><strong>0&nbsp;</strong>:&nbsp;if two element have a value equal to 0 and two elements have a value equal to 1.</li>
+    </ul>
+    </li>
+    <li><code>int length()</code>: Returns the size of the array.</li>
+
 </ul>
 
 <p>You are allowed to call&nbsp;<code>query()</code>&nbsp;<b>2 * n&nbsp;times</b> at most where n is equal to <code>ArrayReader.length()</code>.</p>
@@ -60,7 +61,6 @@ Index 2, 4, 6, 7 is also a correct answer.
 	<li><code>5 &lt;= nums.length&nbsp;&lt;= 10^5</code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 1</code></li>
 </ul>
-
 
 ## Solutions
 

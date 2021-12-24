@@ -6,8 +6,6 @@
 
 Given a 01 matrix <b>M</b>, find the longest line of consecutive one in the matrix. The line could be horizontal, vertical, diagonal or anti-diagonal.
 
-
-
 <p><b>Example:</b><br />
 
 <pre>
@@ -25,8 +23,6 @@ Given a 01 matrix <b>M</b>, find the longest line of consecutive one in the matr
 </pre>
 
 </p>
-
-
 
 <p>
 

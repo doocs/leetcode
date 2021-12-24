@@ -97,7 +97,7 @@ class MovingAverage {
         this.size = size;
         this.data = new int[size];
     }
-    
+
     public double next(int val) {
         int idx = count % size;
         int oldVal = data[idx];
@@ -125,7 +125,7 @@ public:
         this->size = size;
         data.resize(size);
     }
-    
+
     double next(int val) {
         int idx = count % size;
         int oldVal = data[idx];

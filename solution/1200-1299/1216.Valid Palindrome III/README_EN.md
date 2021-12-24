@@ -33,7 +33,6 @@
 	<li><code>1 &lt;= k &lt;= s.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

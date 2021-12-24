@@ -65,7 +65,6 @@ Result table:
 +------------+------------+----------+-------+
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -85,7 +84,7 @@ FROM
     Sales
 WHERE
     (product_id, year) IN (
-        SELECT 
+        SELECT
             product_id, min(year) year
         FROM
             Sales

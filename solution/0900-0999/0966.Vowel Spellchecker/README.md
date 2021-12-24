@@ -13,19 +13,20 @@
 <ul>
 	<li>大小写：如果查询匹配单词列表中的某个单词（<strong>不区分大小写</strong>），则返回的正确单词与单词列表中的大小写相同。
 
-	<ul>
-		<li>例如：<code>wordlist = [&quot;yellow&quot;]</code>, <code>query = &quot;YellOw&quot;</code>: <code>correct = &quot;yellow&quot;</code></li>
-		<li>例如：<code>wordlist = [&quot;Yellow&quot;]</code>, <code>query = &quot;yellow&quot;</code>: <code>correct = &quot;Yellow&quot;</code></li>
-		<li>例如：<code>wordlist = [&quot;yellow&quot;]</code>, <code>query = &quot;yellow&quot;</code>: <code>correct = &quot;yellow&quot;</code></li>
-	</ul>
-	</li>
-	<li>元音错误：如果在将查询单词中的元音（&lsquo;a&rsquo;、&lsquo;e&rsquo;、&lsquo;i&rsquo;、&lsquo;o&rsquo;、&lsquo;u&rsquo;）分别替换为任何元音后，能与单词列表中的单词匹配（<strong>不区分大小写</strong>），则返回的正确单词与单词列表中的匹配项大小写相同。
-	<ul>
-		<li>例如：<code>wordlist = [&quot;YellOw&quot;]</code>, <code>query = &quot;yollow&quot;</code>: <code>correct = &quot;YellOw&quot;</code></li>
-		<li>例如：<code>wordlist = [&quot;YellOw&quot;]</code>, <code>query = &quot;yeellow&quot;</code>: <code>correct = &quot;&quot;</code> （无匹配项）</li>
-		<li>例如：<code>wordlist = [&quot;YellOw&quot;]</code>, <code>query = &quot;yllw&quot;</code>: <code>correct = &quot;&quot;</code> （无匹配项）</li>
-	</ul>
-	</li>
+    <ul>
+    	<li>例如：<code>wordlist = [&quot;yellow&quot;]</code>, <code>query = &quot;YellOw&quot;</code>: <code>correct = &quot;yellow&quot;</code></li>
+    	<li>例如：<code>wordlist = [&quot;Yellow&quot;]</code>, <code>query = &quot;yellow&quot;</code>: <code>correct = &quot;Yellow&quot;</code></li>
+    	<li>例如：<code>wordlist = [&quot;yellow&quot;]</code>, <code>query = &quot;yellow&quot;</code>: <code>correct = &quot;yellow&quot;</code></li>
+    </ul>
+    </li>
+    <li>元音错误：如果在将查询单词中的元音（&lsquo;a&rsquo;、&lsquo;e&rsquo;、&lsquo;i&rsquo;、&lsquo;o&rsquo;、&lsquo;u&rsquo;）分别替换为任何元音后，能与单词列表中的单词匹配（<strong>不区分大小写</strong>），则返回的正确单词与单词列表中的匹配项大小写相同。
+    <ul>
+    	<li>例如：<code>wordlist = [&quot;YellOw&quot;]</code>, <code>query = &quot;yollow&quot;</code>: <code>correct = &quot;YellOw&quot;</code></li>
+    	<li>例如：<code>wordlist = [&quot;YellOw&quot;]</code>, <code>query = &quot;yeellow&quot;</code>: <code>correct = &quot;&quot;</code> （无匹配项）</li>
+    	<li>例如：<code>wordlist = [&quot;YellOw&quot;]</code>, <code>query = &quot;yllw&quot;</code>: <code>correct = &quot;&quot;</code> （无匹配项）</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>此外，拼写检查器还按照以下优先级规则操作：</p>
@@ -57,7 +58,6 @@
 	<li><code>1 &lt;= queries[i].length &lt;= 7</code></li>
 	<li><code>wordlist</code> 和&nbsp;<code>queries</code>&nbsp;中的所有字符串仅由<strong>英文</strong>字母组成。</li>
 </ol>
-
 
 ## 解法
 

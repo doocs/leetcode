@@ -8,8 +8,6 @@
 
 There is a strange printer with the following two special requirements:
 
-
-
 <ol>
 
 <li>The printer can only print a sequence of the same character each time.</li>
@@ -18,19 +16,13 @@ There is a strange printer with the following two special requirements:
 
 </ol>
 
-
-
 </p>
-
-
 
 <p>
 
 Given a string consists of lower English letters only, your job is to count the minimum number of turns the printer needed in order to print it.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -46,8 +38,6 @@ Given a string consists of lower English letters only, your job is to count the 
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -61,8 +51,6 @@ Given a string consists of lower English letters only, your job is to count the 
 </pre>
 
 </p>
-
-
 
 <p><b>Hint</b>: Length of the given string will not exceed 100.</p>
 

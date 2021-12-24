@@ -46,7 +46,6 @@
 	<li>The total number of nodes is between <code>[1, 10<sup>4</sup>]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

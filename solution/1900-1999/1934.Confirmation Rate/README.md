@@ -88,7 +88,6 @@ User 7 made 3 requests and all were confirmed. The confirmation rate is 1.
 User 2 made 2 requests where one was confirmed and the other timed out. The confirmation rate is 1 / 2 = 0.5.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

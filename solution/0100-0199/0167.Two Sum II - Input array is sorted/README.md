@@ -107,7 +107,7 @@ function twoSum(numbers: number[], target: number): number[] {
         }
     }
     return [-1, -1];
-};
+}
 ```
 
 ### **C++**

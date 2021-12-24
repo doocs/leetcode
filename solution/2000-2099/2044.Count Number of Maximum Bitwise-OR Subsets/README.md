@@ -127,7 +127,7 @@ function countMaxOrSubsets(nums: number[]): number {
         max |= nums[i];
     }
     let ans = 0;
-    function dfs (pre: number, depth: number): void {
+    function dfs(pre: number, depth: number): void {
         if (depth == n) {
             if (pre == max) ++ans;
             return;
@@ -137,7 +137,7 @@ function countMaxOrSubsets(nums: number[]): number {
     }
     dfs(0, 0);
     return ans;
-};
+}
 ```
 
 ### **C++**

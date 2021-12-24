@@ -43,7 +43,6 @@ The strings are the same, so return true.</pre>
 	<li><code>word1[i]</code> and <code>word2[i]</code> consist of lowercase letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -79,9 +78,10 @@ class Solution {
 
 ```ts
 function arrayStringsAreEqual(word1: string[], word2: string[]): boolean {
-    let s1 = word1.join(''), s2 = word2.join('');
+    let s1 = word1.join(""),
+        s2 = word2.join("");
     return s1 == s2;
-};
+}
 ```
 
 ### **...**

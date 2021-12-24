@@ -56,7 +56,6 @@
 	<li><code>0 <= amount <= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -113,7 +112,7 @@ class Solution {
 由于：
 
 - `dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - v] + 1, dp[i - 1][j - 2v] + 2, ... , dp[i - 1][j - kv] + k)`
-- `dp[i][j - v] = min(          dp[i - 1][j - v],     dp[i - 1][j - 2v] + 1, ... , dp[i - 1][j - kv] + k - 1)`
+- `dp[i][j - v] = min( dp[i - 1][j - v], dp[i - 1][j - 2v] + 1, ... , dp[i - 1][j - kv] + k - 1)`
 
 因此 `dp[i][j] = min(dp[i - 1][j], dp[i][j - v] + 1)`。
 
@@ -167,14 +166,14 @@ class Solution {
  * @return {number}
  */
 var coinChange = function (coins, amount) {
-  let dp = Array(amount + 1).fill(amount + 1);
-  dp[0] = 0;
-  for (const coin of coins) {
-    for (let j = coin; j <= amount; ++j) {
-      dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+    let dp = Array(amount + 1).fill(amount + 1);
+    dp[0] = 0;
+    for (const coin of coins) {
+        for (let j = coin; j <= amount; ++j) {
+            dp[j] = Math.min(dp[j], dp[j - coin] + 1);
+        }
     }
-  }
-  return dp[amount] > amount ? -1 : dp[amount];
+    return dp[amount] > amount ? -1 : dp[amount];
 };
 ```
 

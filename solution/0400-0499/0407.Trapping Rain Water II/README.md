@@ -62,7 +62,7 @@ class Solution:
                 if i == 0 or i == m - 1 or j == 0 or j == n - 1:
                     heapq.heappush(pq, (heightMap[i][j], i, j))
                     vis[i][j] = True
-        
+
         ans = 0
         while pq:
             e = heapq.heappop(pq)

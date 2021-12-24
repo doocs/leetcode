@@ -8,7 +8,7 @@
 
 </p><p>
 
-Here, <i>nearest</i> to a leaf means the least number of edges travelled on the binary tree to reach any leaf of the tree.  Also, a node is called a <i>leaf</i> if it has no children.
+Here, <i>nearest</i> to a leaf means the least number of edges travelled on the binary tree to reach any leaf of the tree. Also, a node is called a <i>leaf</i> if it has no children.
 
 </p><p>
 
@@ -64,8 +64,6 @@ root = [1], k = 1
 
 </p>
 
-
-
 <p>
 
 <b>Example 3:</b>
@@ -105,8 +103,6 @@ Diagram of binary tree:
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

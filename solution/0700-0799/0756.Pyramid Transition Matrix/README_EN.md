@@ -49,7 +49,6 @@ Note that there could be allowed triples (A, B, C) and (A, B, D) with C != D.
 	<li>The letters in all input strings are from the set <code>{&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;}</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

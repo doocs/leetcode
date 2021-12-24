@@ -193,10 +193,11 @@ func partition(head *ListNode, x int) *ListNode {
  * @param {number} x
  * @return {ListNode}
  */
-var partition = function(head, x) {
+var partition = function (head, x) {
     const d1 = new ListNode();
     const d2 = new ListNode();
-    let t1 = d1, t2 = d2;
+    let t1 = d1,
+        t2 = d2;
     while (head) {
         if (head.val < x) {
             t1.next = head;
@@ -212,8 +213,6 @@ var partition = function(head, x) {
     return d1.next;
 };
 ```
-
-
 
 ### **...**
 

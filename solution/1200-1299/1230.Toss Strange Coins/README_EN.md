@@ -26,7 +26,6 @@
 	<li>Answers will be accepted as correct if they are within <code>10^-5</code> of the correct answer.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

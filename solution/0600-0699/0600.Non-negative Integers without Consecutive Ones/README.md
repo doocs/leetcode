@@ -1,4 +1,4 @@
-# [600. 不含连续1的非负整数](https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones)
+# [600. 不含连续 1 的非负整数](https://leetcode-cn.com/problems/non-negative-integers-without-consecutive-ones)
 
 [English Version](/solution/0600-0699/0600.Non-negative%20Integers%20without%20Consecutive%20Ones/README_EN.md)
 
@@ -23,7 +23,6 @@
 其中，只有整数3违反规则（有两个连续的1），其他5个满足规则。</pre>
 
 <p><strong>说明:</strong> 1 &lt;= n &lt;= 10<sup>9</sup></p>
-
 
 ## 解法
 

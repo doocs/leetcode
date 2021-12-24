@@ -63,7 +63,6 @@
 	<li>Linear time complexity and less than linear space complexity?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -138,7 +137,7 @@ public:
 /*   Below is the interface for ImmutableListNode, which is already defined for you.
  *
  *   type ImmutableListNode struct {
- *       
+ *
  *   }
  *
  *   func (this *ImmutableListNode) getNext() ImmutableListNode {

@@ -51,7 +51,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you solve it using only <code>O(s2.length)</code> additional memory space?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

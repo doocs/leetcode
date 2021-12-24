@@ -39,7 +39,6 @@
 	<li><code>0 &lt;= graph[i].length &lt;&nbsp;graph.length</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

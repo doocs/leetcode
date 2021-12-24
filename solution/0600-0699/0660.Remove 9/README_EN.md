@@ -22,7 +22,6 @@
 	<li><code>1 &lt;= n &lt;=&nbsp;8&nbsp;x 10^8</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

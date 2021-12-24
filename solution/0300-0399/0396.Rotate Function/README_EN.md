@@ -44,7 +44,6 @@ So the maximum value of F(0), F(1), F(2), F(3) is F(3) = 26.
 	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

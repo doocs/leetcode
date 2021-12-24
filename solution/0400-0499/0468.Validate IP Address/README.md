@@ -1,4 +1,4 @@
-# [468. 验证IP地址](https://leetcode-cn.com/problems/validate-ip-address)
+# [468. 验证 IP 地址](https://leetcode-cn.com/problems/validate-ip-address)
 
 [English Version](/solution/0400-0499/0468.Validate%20IP%20Address/README_EN.md)
 
@@ -66,7 +66,6 @@
 <ul>
 	<li><code>IP</code> 仅由英文字母，数字，字符 <code>&#39;.&#39;</code> 和 <code>&#39;:&#39;</code> 组成。</li>
 </ul>
-
 
 ## 解法
 

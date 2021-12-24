@@ -6,8 +6,6 @@
 
 <p>Table: <code>Products</code></p>
 
-
-
 <pre>
 
 +-------------+---------+
@@ -30,27 +28,15 @@ store is an ENUM of type (&#39;store1&#39;, &#39;store2&#39;, &#39;store3&#39;) 
 
 price is the price of the product at this store.</pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find the price of each product in each store.</p>
 
-
-
 <p>Return the result table in <strong>any order</strong>.</p>
-
-
 
 <p>The query result format is in the following example:</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <pre>
 

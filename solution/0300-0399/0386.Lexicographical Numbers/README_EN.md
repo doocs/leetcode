@@ -24,7 +24,6 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you optimize your solution to use <code>O(n)</code> runtime and <code>O(1)</code> space?</p>
 
-
 ## Solutions
 
 DFS.
@@ -44,7 +43,7 @@ class Solution:
             res.append(i)
             for j in range(10):
                 dfs(i * 10 + j, n)
-        
+
         for i in range(1, 10):
             dfs(i, n)
         return res

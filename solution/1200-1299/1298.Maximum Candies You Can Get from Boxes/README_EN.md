@@ -6,8 +6,6 @@
 
 <p>Given <code>n</code> boxes, each box is given in the format <code>[status, candies, keys, containedBoxes]</code> where:</p>
 
-
-
 <ul>
 	<li><code>status[i]</code>: an integer which is <strong>1</strong> if&nbsp;<code>box[i]</code> is open and <strong>0</strong> if&nbsp;<code>box[i]</code> is closed.</li>
 	<li><code>candies[i]</code>:&nbsp;an integer representing the number of candies in <code>box[i]</code>.</li>
@@ -15,21 +13,13 @@
 	<li><code>containedBoxes[i]</code>: an array contains the indices of the boxes found in <code>box[i]</code>.</li>
 </ul>
 
-
-
 <p>You will start with some boxes given in <code>initialBoxes</code> array. You can take all the candies in any open&nbsp;box and you can use the keys in it to open new boxes and you also can use the boxes you find in it.</p>
 
-
-
 <p>Return <em>the maximum number of candies</em> you can get following the rules above.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -45,11 +35,7 @@ Total number of candies collected = 7 + 4 + 5 = 16 candy.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -61,11 +47,7 @@ Total number of candies collected = 7 + 4 + 5 = 16 candy.
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -75,11 +57,7 @@ Total number of candies collected = 7 + 4 + 5 = 16 candy.
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -89,11 +67,7 @@ Total number of candies collected = 7 + 4 + 5 = 16 candy.
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -103,13 +77,9 @@ Total number of candies collected = 7 + 4 + 5 = 16 candy.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= status.length &lt;= 1000</code></li>

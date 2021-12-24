@@ -6,13 +6,9 @@
 
 <p>Given a&nbsp;<code>rows * columns</code>&nbsp;matrix <code>mat</code> of ones and zeros, return how many&nbsp;<strong>submatrices</strong> have all ones.</p>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -40,11 +36,7 @@ Total number of rectangles = 6 + 2 + 3 + 1 + 1 = <strong>13.</strong>
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -76,11 +68,7 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24<strong>.</strong>
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -90,11 +78,7 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24<strong>.</strong>
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -104,13 +88,9 @@ Total number of rectangles = 8 + 5 + 2 + 4 + 2 + 2 + 1 = 24<strong>.</strong>
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= rows&nbsp;&lt;= 150</code></li>

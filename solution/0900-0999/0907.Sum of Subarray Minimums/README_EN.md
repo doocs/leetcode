@@ -33,7 +33,6 @@ Sum is 17.
 	<li><code>1 &lt;= arr[i] &lt;= 3 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -64,7 +64,6 @@ On the platform &quot;IOS&quot;, we had one &quot;Sports&quot; experiment and on
 On the platform &quot;Web&quot;, we had two &quot;Reading&quot; experiments and one &quot;Programming&quot; experiment.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

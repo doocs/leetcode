@@ -48,7 +48,6 @@
 	<li><code>1 &lt;= m, n &lt;= 9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

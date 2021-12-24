@@ -22,8 +22,6 @@ Two sequences <code>A_1, A_2, ...</code> and <code>B_1, B_2, ...</code> are diff
 
 </p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -44,8 +42,6 @@ Note that 'bcb' is counted only once, even though it occurs twice.
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -63,8 +59,6 @@ There are 3104860382 different non-empty palindromic subsequences, which is 1048
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 

@@ -37,7 +37,6 @@ Could you do better than O(<i>n</i><sup>2</sup>) ?</p>
 	<li><code>-10^8&nbsp;&lt;= points[i][j] &lt;=&nbsp;10^8</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

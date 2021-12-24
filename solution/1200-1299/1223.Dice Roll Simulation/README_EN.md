@@ -42,7 +42,6 @@
 	<li><code>1 &lt;= rollMax[i] &lt;= 15</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

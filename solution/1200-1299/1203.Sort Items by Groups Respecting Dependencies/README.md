@@ -50,7 +50,6 @@
 	<li><code>beforeItems[i]</code> 不含重复元素</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

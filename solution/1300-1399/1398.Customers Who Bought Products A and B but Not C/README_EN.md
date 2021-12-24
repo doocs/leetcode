@@ -76,7 +76,6 @@ Result table:
 +-------------+---------------+
 Only the customer_id with id 3 bought the product A and B but not the product C.</pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

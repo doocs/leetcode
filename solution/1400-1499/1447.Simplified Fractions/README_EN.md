@@ -6,13 +6,9 @@
 
 <p>Given an integer <code>n</code>, return a list of all <strong>simplified</strong> fractions between 0 and 1 (exclusive) such that the denominator is less-than-or-equal-to <code>n</code>. The fractions can be in <strong>any</strong> order.</p>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -22,11 +18,7 @@
 
 <strong>Explanation: </strong>&quot;1/2&quot; is the only unique fraction with a denominator less-than-or-equal-to 2.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -36,11 +28,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -50,11 +38,7 @@
 
 <strong>Explanation: </strong>&quot;2/4&quot; is not a simplified fraction because it can be simplified to &quot;1/2&quot;.</pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -64,13 +48,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 100</code></li>

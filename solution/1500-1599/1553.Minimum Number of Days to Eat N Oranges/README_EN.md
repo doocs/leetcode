@@ -6,29 +6,19 @@
 
 <p>There are <code>n</code> oranges in the kitchen and you decided to eat some of these oranges every day as follows:</p>
 
-
-
 <ul>
 	<li>Eat one orange.</li>
 	<li>If the number of remaining oranges (<code>n</code>) is divisible by 2 then you can eat&nbsp; n/2 oranges.</li>
 	<li>If the number of remaining oranges (<code>n</code>) is divisible by 3&nbsp;then you can eat&nbsp; 2*(n/3)&nbsp;oranges.</li>
 </ul>
 
-
-
 <p>You can only choose one of the actions per day.</p>
 
-
-
 <p>Return the minimum number of days to eat <code>n</code> oranges.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -50,11 +40,7 @@ You need at least 4 days to eat the 10 oranges.
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -74,11 +60,7 @@ You need at least 3 days to eat the 6 oranges.
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -88,11 +70,7 @@ You need at least 3 days to eat the 6 oranges.
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -102,13 +80,9 @@ You need at least 3 days to eat the 6 oranges.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= n &lt;= 2*10^9</code></li>

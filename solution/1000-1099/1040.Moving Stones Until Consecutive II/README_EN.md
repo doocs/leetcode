@@ -6,31 +6,17 @@
 
 <p>On an <strong>infinite</strong> number line, the position of the i-th stone is given by&nbsp;<code>stones[i]</code>.&nbsp; Call a stone an <em>endpoint stone</em> if it has the smallest or largest position.</p>
 
-
-
 <p>Each turn, you pick up an endpoint stone and move it to an unoccupied position so that it is no longer an endpoint stone.</p>
-
-
 
 <p>In particular,&nbsp;if the stones are at say, <code>stones = [1,2,5]</code>, you <strong>cannot</strong> move the endpoint stone at position 5, since moving it to any position (such as 0, or 3) will still keep that stone as an endpoint stone.</p>
 
-
-
 <p>The game ends when you cannot make any more moves, ie. the stones are in consecutive positions.</p>
-
-
 
 <p>When the game ends, what is the minimum and maximum number of moves that you could have made?&nbsp; Return the answer as an length 2 array:&nbsp;<code>answer = [minimum_moves, maximum_moves]</code></p>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -46,13 +32,9 @@ Or, we can move 9 -&gt; 5, 4 -&gt; 6 for two moves to finish the game.
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -68,13 +50,9 @@ Notice we cannot move 10 -&gt; 2 to finish the game, because that would be an il
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -82,27 +60,19 @@ Notice we cannot move 10 -&gt; 2 to finish the game, because that would be an il
 
 <strong>Output: </strong><span id="example-output-3">[0,0]</span></pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>3 &lt;= stones.length &lt;= 10^4</code></li>
 	<li><code>1 &lt;= stones[i] &lt;= 10^9</code></li>
 	<li><code>stones[i]</code> have distinct values.</li>
 </ol>
-
-
 
 <div>
 
@@ -113,8 +83,6 @@ Notice we cannot move 10 -&gt; 2 to finish the game, because that would be an il
 </div>
 
 </div>
-
-
 
 ## Solutions
 

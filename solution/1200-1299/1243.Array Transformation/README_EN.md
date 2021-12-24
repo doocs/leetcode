@@ -46,7 +46,6 @@ No more operations can be done to this array.
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

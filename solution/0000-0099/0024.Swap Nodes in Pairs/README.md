@@ -123,7 +123,7 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var swapPairs = function(head) {
+var swapPairs = function (head) {
     const dummy = new ListNode(0, head);
     let pre = dummy;
     let cur = head;

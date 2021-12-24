@@ -66,7 +66,6 @@ Note that we don&#39;t care about Ignored Ads.
 Result table is ordered by the ctr. in case of a tie we order them by ad_id
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

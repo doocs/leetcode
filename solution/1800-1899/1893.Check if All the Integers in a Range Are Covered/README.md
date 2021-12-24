@@ -43,7 +43,6 @@
 	<li><code>1 <= left <= right <= 50</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -112,7 +111,7 @@ function isCovered(ranges: number[][], left: number, right: number): boolean {
         }
     }
     return true;
-};
+}
 ```
 
 ### **Go**

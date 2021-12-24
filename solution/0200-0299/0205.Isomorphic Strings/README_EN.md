@@ -30,7 +30,6 @@
 	<li><code>s</code> and <code>t</code> consist of any valid ascii character.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

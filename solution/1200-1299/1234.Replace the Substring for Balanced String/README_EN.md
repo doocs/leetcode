@@ -53,7 +53,6 @@
 	<li><code>s&nbsp;</code>contains only <code>&#39;Q&#39;</code>, <code>&#39;W&#39;</code>, <code>&#39;E&#39;</code> and&nbsp;<code>&#39;R&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

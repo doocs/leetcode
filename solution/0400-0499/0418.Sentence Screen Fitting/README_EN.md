@@ -55,7 +55,6 @@ The character &#39;-&#39; signifies an empty space on the screen.
 	<li><code>1 &lt;= rows, cols &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

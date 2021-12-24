@@ -6,17 +6,11 @@
 
 <p>Given an array <code>arr</code>.&nbsp; You can choose a set of integers and remove all the occurrences of these integers in the array.</p>
 
-
-
 <p>Return <em>the minimum size of the set</em> so that <strong>at least</strong> half of the integers of the array are removed.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -32,11 +26,7 @@ Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5]
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +38,7 @@ Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5]
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -62,11 +48,7 @@ Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5]
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -76,11 +58,7 @@ Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5]
 
 </pre>
 
-
-
 <p><strong>Example 5:</strong></p>
-
-
 
 <pre>
 
@@ -90,13 +68,9 @@ Choosing set {2,7} is not possible as it will make the new array [3,3,3,3,5,5,5]
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>1 &lt;= arr.length &lt;= 10^5</code></li>

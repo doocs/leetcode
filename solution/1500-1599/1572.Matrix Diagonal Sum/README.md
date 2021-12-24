@@ -52,7 +52,6 @@
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -104,7 +103,7 @@ function diagonalSum(mat: number[][]): number {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

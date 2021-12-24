@@ -25,7 +25,6 @@
 <strong>解释: </strong>通过重复调用&nbsp;<em>next&nbsp;</em>直到&nbsp;<em>hasNex</em>t 返回 false，<em>next&nbsp;</em>返回的元素的顺序应该是: <code>[1,4,6]</code>。
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

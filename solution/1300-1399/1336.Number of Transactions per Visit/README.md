@@ -103,7 +103,6 @@
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/images/chart.png" style="height:359px; width:600px" />
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -128,7 +128,7 @@ function mergeTriplets(triplets: number[][], target: number[]): boolean {
         }
     }
     return i == x && j == y && k == z;
-};
+}
 ```
 
 ### **...**

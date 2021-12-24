@@ -98,7 +98,6 @@ Note that &quot;/a/z&quot; and &quot;/b/z&quot; are not marked because the set o
 	<li>For any folder not at the root level, its parent folder will also be in the input.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -47,7 +47,6 @@ The diagonal &quot;[1, 2]&quot; has different elements.
 	<li>What if the <code>matrix</code> is so large that you can only load up a partial row into the memory at once?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

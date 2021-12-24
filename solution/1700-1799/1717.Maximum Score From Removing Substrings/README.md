@@ -11,15 +11,16 @@
 <ul>
 	<li>删除子字符串 <code>"ab"</code> 并得到 <code>x</code> 分。
 
-	<ul>
-		<li>比方说，从 <code>"c<strong>ab</strong>xbae"</code> 删除 <code>ab</code> ，得到 <code>"cxbae"</code> 。</li>
-	</ul>
-	</li>
-	<li>删除子字符串<code>"ba"</code> 并得到 <code>y</code> 分。
-	<ul>
-		<li>比方说，从 <code>"cabx<strong>ba</strong>e"</code> 删除 <code>ba</code> ，得到 <code>"cabxe"</code> 。</li>
-	</ul>
-	</li>
+    <ul>
+    	<li>比方说，从 <code>"c<strong>ab</strong>xbae"</code> 删除 <code>ab</code> ，得到 <code>"cxbae"</code> 。</li>
+    </ul>
+    </li>
+    <li>删除子字符串<code>"ba"</code> 并得到 <code>y</code> 分。
+    <ul>
+    	<li>比方说，从 <code>"cabx<strong>ba</strong>e"</code> 删除 <code>ba</code> ，得到 <code>"cabxe"</code> 。</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>请返回对 <code>s</code> 字符串执行上面操作若干次能得到的最大得分。</p>
@@ -52,7 +53,6 @@
 	<li><code>1 &lt;= x, y &lt;= 10<sup>4</sup></code></li>
 	<li><code>s</code> 只包含小写英文字母。</li>
 </ul>
-
 
 ## 解法
 

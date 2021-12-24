@@ -31,7 +31,8 @@
 <strong>输入：</strong>words = ["a",""]
 <strong>输出：</strong>[[0,1],[1,0]]
 </pre>
- 
+
+
 
 <p><strong>提示：</strong></p>
 
@@ -40,7 +41,6 @@
 	<li><code>0 <= words[i].length <= 300</code></li>
 	<li><code>words[i]</code> 由小写英文字母组成</li>
 </ul>
-
 
 ## 解法
 

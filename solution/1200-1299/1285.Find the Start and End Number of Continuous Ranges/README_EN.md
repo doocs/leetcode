@@ -6,8 +6,6 @@
 
 <p>Table: <code>Logs</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -28,19 +26,11 @@ Each row of this table contains the ID in a log Table.
 
 </pre>
 
-
-
 <p>Since some IDs&nbsp;have been removed from <code>Logs</code>. Write an SQL query to find the start and end number of continuous ranges in table <code>Logs</code>.</p>
-
-
 
 <p>Order the result table by <code>start_id</code>.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

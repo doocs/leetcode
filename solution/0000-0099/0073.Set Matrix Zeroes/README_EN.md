@@ -39,7 +39,6 @@
 	<li><code>-2<sup>31</sup> &lt;= matrix[i][j] &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -181,8 +180,10 @@ class Solution {
  Do not return anything, modify matrix in-place instead.
  */
 function setZeroes(matrix: number[][]): void {
-    let m = matrix.length, n = matrix[0].length;
-    let c0 = false, r0 = false;
+    let m = matrix.length,
+        n = matrix[0].length;
+    let c0 = false,
+        r0 = false;
     // 遍历第一行
     for (let i = 0; i < m; i++) {
         if (!matrix[i][0] && !c0) {
@@ -224,7 +225,7 @@ function setZeroes(matrix: number[][]): void {
             matrix[0][j] = 0;
         }
     }
-};
+}
 ```
 
 ### **C++**

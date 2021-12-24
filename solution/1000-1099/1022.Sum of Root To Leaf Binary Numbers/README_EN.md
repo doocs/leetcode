@@ -72,7 +72,7 @@ class Solution:
             if root.left is None and root.right is None:
                 return t
             return dfs(root.left, t) + dfs(root.right, t)
-        
+
         return dfs(root, 0)
 ```
 

@@ -57,7 +57,6 @@
 	<li><code>0 &lt;= node.val &lt;= N</code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

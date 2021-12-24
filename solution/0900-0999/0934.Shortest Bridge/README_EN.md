@@ -29,7 +29,6 @@
 	<li><code>A[i][j] == 0</code> or <code>A[i][j] == 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

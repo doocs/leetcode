@@ -142,7 +142,7 @@ function flatten(root: TreeNode | null): void {
         }
         root = root.right;
     }
-};
+}
 ```
 
 ### **C++**

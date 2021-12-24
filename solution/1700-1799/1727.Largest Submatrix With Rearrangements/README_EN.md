@@ -55,7 +55,6 @@ The largest submatrix of 1s, in bold, has an area of 3.
 	<li><code>matrix[i][j]</code> is <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -37,7 +37,6 @@ Note that the two extra dashes are not needed and can be removed.
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

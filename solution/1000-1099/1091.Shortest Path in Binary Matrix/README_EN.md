@@ -47,7 +47,6 @@
 	<li><code>grid[i][j] is 0 or 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

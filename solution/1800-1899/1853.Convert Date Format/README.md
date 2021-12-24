@@ -48,7 +48,6 @@ Result table:
 Please note that the output is case-sensitive.
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

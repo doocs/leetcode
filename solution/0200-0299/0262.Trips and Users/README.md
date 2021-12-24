@@ -7,6 +7,7 @@
 <!-- 这里写题目描述 -->
 
 表：<code>Trips</code>
+
 <div class="original__bRMd">
 <div>
 <pre>
@@ -116,7 +117,6 @@ Result 表：
 </pre>
 </div>
 </div>
-
 
 ## 解法
 

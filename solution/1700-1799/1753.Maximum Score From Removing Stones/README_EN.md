@@ -56,7 +56,6 @@ After that, there are fewer than two non-empty piles, so the game ends.
 	<li><code>1 &lt;= a, b, c &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

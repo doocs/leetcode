@@ -36,7 +36,6 @@
 	<li>All the values of <code>preorder</code> are <strong>unique</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

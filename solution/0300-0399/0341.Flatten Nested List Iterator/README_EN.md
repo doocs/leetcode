@@ -39,7 +39,6 @@
 	<li>The values of the integers in the nested list is in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

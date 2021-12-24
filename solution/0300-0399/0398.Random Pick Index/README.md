@@ -24,7 +24,6 @@ solution.pick(3);
 solution.pick(1);
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

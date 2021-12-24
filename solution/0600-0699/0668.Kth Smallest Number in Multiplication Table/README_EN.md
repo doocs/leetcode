@@ -10,15 +10,11 @@ Nearly every one have used the <a href="https://en.wikipedia.org/wiki/Multiplica
 
 </p>
 
-
-
 <p>
 
-Given the height <code>m</code> and the length <code>n</code> of a <code>m * n</code> Multiplication Table, and a positive integer <code>k</code>, you need to return the <code>k-th</code> smallest number in this table.
+Given the height <code>m</code> and the length <code>n</code> of a <code>m \* n</code> Multiplication Table, and a positive integer <code>k</code>, you need to return the <code>k-th</code> smallest number in this table.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -46,10 +42,6 @@ The 5-th smallest number is 3 (1, 2, 2, 3, 3).
 
 </p>
 
-
-
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -73,10 +65,6 @@ The 6-th smallest number is 6 (1, 2, 2, 3, 4, 6).
 </pre>
 
 </p>
-
-
-
-
 
 <p><b>Note:</b><br>
 

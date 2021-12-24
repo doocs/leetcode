@@ -96,11 +96,11 @@ class Solution {
  * @return {number}
  */
 var findRepeatNumber = function (nums) {
-  let m = {};
-  for (let num of nums) {
-    if (m[num]) return num;
-    m[num] = 1;
-  }
+    let m = {};
+    for (let num of nums) {
+        if (m[num]) return num;
+        m[num] = 1;
+    }
 };
 ```
 
@@ -156,9 +156,9 @@ function findRepeatNumber(nums: number[]): number {
         }
     }
     return -1;
-};
+}
 
-function swap (nums: number[], i: number, j: number): void {
+function swap(nums: number[], i: number, j: number): void {
     [nums[i], nums[j]] = [nums[j], nums[i]];
 }
 ```

@@ -27,7 +27,6 @@
 (123) 456-7890
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

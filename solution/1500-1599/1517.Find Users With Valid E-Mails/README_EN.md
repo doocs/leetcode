@@ -63,7 +63,6 @@ The mail of user 6 doesn&#39;t have leetcode domain.
 The mail of user 7 starts with a period.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

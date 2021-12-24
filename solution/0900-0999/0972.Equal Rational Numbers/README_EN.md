@@ -11,20 +11,21 @@
 <ul>
 	<li><code>&lt;IntegerPart&gt;</code>
 
-	<ul>
-		<li>For example, <code>12</code>, <code>0</code>, and <code>123</code>.</li>
-	</ul>
-	</li>
-	<li><code>&lt;IntegerPart&gt;<strong>&lt;.&gt;</strong>&lt;NonRepeatingPart&gt;</code>
-	<ul>
-		<li>For example, <code>0.5</code>, <code>1.</code>, <code>2.12</code>, and <code>123.0001</code>.</li>
-	</ul>
-	</li>
-	<li><code>&lt;IntegerPart&gt;<strong>&lt;.&gt;</strong>&lt;NonRepeatingPart&gt;<strong>&lt;(&gt;</strong>&lt;RepeatingPart&gt;<strong>&lt;)&gt;</strong></code>
-	<ul>
-		<li>For example, <code>0.1(6)</code>, <code>1.(9)</code>, <code>123.00(1212)</code>.</li>
-	</ul>
-	</li>
+    <ul>
+    	<li>For example, <code>12</code>, <code>0</code>, and <code>123</code>.</li>
+    </ul>
+    </li>
+    <li><code>&lt;IntegerPart&gt;<strong>&lt;.&gt;</strong>&lt;NonRepeatingPart&gt;</code>
+    <ul>
+    	<li>For example, <code>0.5</code>, <code>1.</code>, <code>2.12</code>, and <code>123.0001</code>.</li>
+    </ul>
+    </li>
+    <li><code>&lt;IntegerPart&gt;<strong>&lt;.&gt;</strong>&lt;NonRepeatingPart&gt;<strong>&lt;(&gt;</strong>&lt;RepeatingPart&gt;<strong>&lt;)&gt;</strong></code>
+    <ul>
+    	<li>For example, <code>0.1(6)</code>, <code>1.(9)</code>, <code>123.00(1212)</code>.</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>The repeating portion of a decimal expansion is conventionally denoted within a pair of round brackets. For example:</p>
@@ -68,7 +69,6 @@
 	<li><code>0 &lt;= &lt;NonRepeatingPart&gt;.length &lt;= 4</code></li>
 	<li><code>1 &lt;= &lt;RepeatingPart&gt;.length &lt;= 4</code></li>
 </ul>
-
 
 ## Solutions
 

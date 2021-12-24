@@ -84,8 +84,9 @@ class Solution {
  * @param {number} k
  * @return {number}
  */
-var kthToLast = function(head, k) {
-    let fast = head, slow = head;
+var kthToLast = function (head, k) {
+    let fast = head,
+        slow = head;
     for (let i = 0; i < k; i++) {
         fast = fast.next;
     }

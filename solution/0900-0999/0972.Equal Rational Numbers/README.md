@@ -57,7 +57,6 @@
 	<li><code>1 &lt;= &lt;RepeatingPart&gt;.length &lt;= 4 </code></li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

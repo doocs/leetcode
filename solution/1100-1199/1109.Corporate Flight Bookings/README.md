@@ -53,7 +53,6 @@
 	<li><code>1 <= seats<sub>i</sub> <= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -110,7 +109,7 @@ class Solution {
  * @param {number} n
  * @return {number[]}
  */
-var corpFlightBookings = function(bookings, n) {
+var corpFlightBookings = function (bookings, n) {
     let delta = new Array(n).fill(0);
     for (let book of bookings) {
         let [start, end, num] = book;

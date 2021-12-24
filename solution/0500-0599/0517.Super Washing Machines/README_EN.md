@@ -4,19 +4,13 @@
 
 ## Description
 
-<p>You have <b>n</b> super washing machines on a line. Initially, each washing machine has some dresses or is empty. 
+<p>You have <b>n</b> super washing machines on a line. Initially, each washing machine has some dresses or is empty.
 
 </p>
 
-
-
 <p>For each <b>move</b>, you could choose <b>any m</b> (1 &le; m &le; n) washing machines, and pass <b>one dress</b> of each washing machine to one of its adjacent washing machines <b> at the same time </b>.  </p>
 
-
-
 <p>Given an integer array representing the number of dresses in each washing machine from left to right on the line, you should find the <b>minimum number of moves</b> to make all the washing machines have the same number of dresses. If it is not possible to do it, return -1.</p>
-
-
 
 <p><b>Example1</b>
 
@@ -40,8 +34,6 @@
 
 </pre>
 
-
-
 <p><b>Example2</b>
 
 <pre>
@@ -62,8 +54,6 @@
 
 </pre>
 
-
-
 <p><b>Example3</b>
 
 <pre>
@@ -82,11 +72,7 @@ It's impossible to make all the three washing machines have the same number of d
 
 </pre>
 
-
-
 </p>
-
-
 
 <p><b>Note:</b><br>
 

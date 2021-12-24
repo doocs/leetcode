@@ -77,7 +77,6 @@ LC T-shirt was sold for the period of 2018-12-01&nbsp;to 2020-01-01, and there a
 LC Keychain was sold for the period of 2019-12-01&nbsp;to 2020-01-31, and there are 31, 31 days for years 2019 and 2020 respectively.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

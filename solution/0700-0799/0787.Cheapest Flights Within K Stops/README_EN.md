@@ -45,7 +45,6 @@ The cheapest price from city <code>0</code> to city <code>2</code> with at most 
 	<li>There&nbsp;will&nbsp;not&nbsp;be&nbsp;any&nbsp;duplicated&nbsp;flights or&nbsp;self&nbsp;cycles.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

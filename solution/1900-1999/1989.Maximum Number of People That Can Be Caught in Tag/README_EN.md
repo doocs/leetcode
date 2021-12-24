@@ -50,7 +50,6 @@ There are no people who are not &quot;it&quot; to catch.
 	<li><code>1 &lt;= dist &lt;= team.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

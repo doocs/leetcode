@@ -35,7 +35,6 @@
 	<li><code>str1</code> and <code>str2</code> contain only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -38,7 +38,6 @@ Note that we do not consider the subarrays of length &lt; 4.
 	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

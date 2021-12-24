@@ -89,7 +89,6 @@ There are 4 unique accepted requests, and there are 5 requests in total. So the 
 	<li>Could you write a query to return the cumulative acceptance rate for every day?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

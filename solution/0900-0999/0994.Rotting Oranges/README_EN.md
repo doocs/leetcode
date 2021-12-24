@@ -50,7 +50,6 @@
 	<li><code>grid[i][j]</code> is <code>0</code>, <code>1</code>, or <code>2</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

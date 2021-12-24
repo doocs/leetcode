@@ -52,7 +52,6 @@ Node 0 with value 2 is the only node remaining after removing node 1.</pre>
 	<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -120,14 +119,15 @@ class Solution {
 
 function deleteMiddle(head: ListNode | null): ListNode | null {
     if (!head || !head.next) return null;
-    let fast = head.next, slow = head;
+    let fast = head.next,
+        slow = head;
     while (fast.next && fast.next.next) {
         slow = slow.next;
         fast = fast.next.next;
     }
     slow.next = slow.next.next;
     return head;
-};
+}
 ```
 
 ### **C++**

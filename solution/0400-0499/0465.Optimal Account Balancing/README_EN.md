@@ -44,7 +44,6 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 	<li><code>1 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -26,7 +26,6 @@
 
 <p><strong>注意：</strong>两结点之间的路径长度是以它们之间边的数目表示。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -57,7 +56,7 @@ class Solution:
             left, right = dfs(root.left), dfs(root.right)
             res = max(res, left + right)
             return 1 + max(left, right)
-        
+
         dfs(root)
         return res
 ```

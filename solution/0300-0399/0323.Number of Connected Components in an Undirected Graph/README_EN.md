@@ -61,7 +61,7 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
-    
+
     public int countComponents(int n, int[][] edges) {
         p = new int[n];
         for (int i = 0; i < n; ++i) {

@@ -40,7 +40,6 @@ The 1s colored red in grid2 are those considered to be part of a sub-island. The
 	<li><code>grid1[i][j]</code> and <code>grid2[i][j]</code> are either <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 DFS or Union find.
@@ -63,7 +62,7 @@ class Solution:
                     if not dfs(grid1, grid2, a, b, m, n):
                         res = False
             return res
-        
+
         m, n = len(grid1), len(grid1[0])
         count = 0
         for i in range(m):
@@ -85,7 +84,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         for i in range(m):
             for j in range(n):
                 if grid2[i][j] == 1:
@@ -94,7 +93,7 @@ class Solution:
                         p[find(idx)] = find((i + 1) * n + j)
                     if j < n - 1 and grid2[i][j + 1] == 1:
                         p[find(idx)] = find(i * n + j + 1)
-        
+
         s = [0] * (m * n)
         for i in range(m):
             for j in range(n):
@@ -209,7 +208,8 @@ class Solution {
 
 ```ts
 function countSubIslands(grid1: number[][], grid2: number[][]): number {
-    let m = grid1.length, n = grid1[0].length;
+    let m = grid1.length,
+        n = grid1[0].length;
     let ans = 0;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
@@ -219,17 +219,29 @@ function countSubIslands(grid1: number[][], grid2: number[][]): number {
         }
     }
     return ans;
-};
+}
 
-function dfs(grid1: number[][], grid2: number[][], i: number, j: number): boolean {
-    let m = grid1.length, n = grid1[0].length;
+function dfs(
+    grid1: number[][],
+    grid2: number[][],
+    i: number,
+    j: number
+): boolean {
+    let m = grid1.length,
+        n = grid1[0].length;
     let ans = true;
     if (grid1[i][j] == 0) {
         ans = false;
     }
     grid2[i][j] = 0;
-    for (let [dx, dy] of [[0, 1], [0, -1], [1, 0], [-1, 0]]) {
-        let x = i + dx, y = j + dy;
+    for (let [dx, dy] of [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ]) {
+        let x = i + dx,
+            y = j + dy;
         if (x < 0 || x > m - 1 || y < 0 || y > n - 1 || grid2[x][y] == 0) {
             continue;
         }

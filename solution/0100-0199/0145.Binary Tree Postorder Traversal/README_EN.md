@@ -305,10 +305,9 @@ function postorderTraversal(root: TreeNode | null): number[] {
             stack.push(root);
             root = root.right;
         }
-        
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

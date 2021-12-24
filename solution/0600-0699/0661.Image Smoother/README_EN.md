@@ -6,8 +6,6 @@
 
 <p>Given a 2D integer matrix M representing the gray scale of an image, you need to design a smoother to make the gray scale of each cell becomes the average gray scale (rounding down) of all the 8 surrounding cells and itself.  If a cell has less than 8 surrounding cells, then use as many as you can.</p>
 
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -39,8 +37,6 @@ For the point (1,1): floor(8/9) = floor(0.88888889) = 0
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

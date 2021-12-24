@@ -60,7 +60,6 @@ The sum of the numbers after index 0 is: 0
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

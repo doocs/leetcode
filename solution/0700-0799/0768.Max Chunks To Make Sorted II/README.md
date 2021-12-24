@@ -39,7 +39,6 @@
 	<li><code>arr[i]</code>的大小在<code>[0, 10**8]</code>之间。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -81,7 +80,7 @@ function maxChunksToSorted(arr: number[]): number {
         }
     }
     return stack.length;
-};
+}
 ```
 
 ### **...**

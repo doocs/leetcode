@@ -97,7 +97,6 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 	<li><code>1 &lt;= queries[i] &lt;= 500</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

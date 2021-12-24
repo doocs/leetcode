@@ -46,7 +46,6 @@
 	<li><code>beforeItems[i]&nbsp;</code>does not contain&nbsp;duplicates elements.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

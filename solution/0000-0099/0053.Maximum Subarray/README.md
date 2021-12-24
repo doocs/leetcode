@@ -59,7 +59,6 @@
 
 <p><strong>进阶：</strong>如果你已经实现复杂度为 <code>O(n)</code> 的解法，尝试使用更为精妙的 <strong>分治法</strong> 求解。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -204,13 +203,13 @@ public:
  * @return {number}
  */
 var maxSubArray = function (nums) {
-  let f = nums[0],
-    res = nums[0];
-  for (let i = 1; i < nums.length; ++i) {
-    f = nums[i] + Math.max(f, 0);
-    res = Math.max(res, f);
-  }
-  return res;
+    let f = nums[0],
+        res = nums[0];
+    for (let i = 1; i < nums.length; ++i) {
+        f = nums[i] + Math.max(f, 0);
+        res = Math.max(res, f);
+    }
+    return res;
 };
 ```
 

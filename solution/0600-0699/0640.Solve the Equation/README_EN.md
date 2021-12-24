@@ -10,8 +10,6 @@ Solve a given equation and return the value of <code>x</code> in the form of str
 
 </p>
 
-
-
 <p>
 
 If there is no solution for the equation, return "No solution".
@@ -30,8 +28,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 
 </p>
 
-
-
 <p><b>Example 1:</b><br/>
 
 <pre>
@@ -43,8 +39,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 </pre>
 
 </p>
-
-
 
 <p><b>Example 2:</b><br/>
 
@@ -58,8 +52,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 
 </p>
 
-
-
 <p><b>Example 3:</b><br/>
 
 <pre>
@@ -72,8 +64,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 
 </p>
 
-
-
 <p><b>Example 4:</b><br/>
 
 <pre>
@@ -85,8 +75,6 @@ If there is exactly one solution for the equation, we ensure that the value of <
 </pre>
 
 </p>
-
-
 
 <p><b>Example 5:</b><br/>
 

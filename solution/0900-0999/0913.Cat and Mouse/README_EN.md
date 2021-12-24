@@ -57,7 +57,6 @@
 	<li>The mouse and the cat can always move.&nbsp;</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

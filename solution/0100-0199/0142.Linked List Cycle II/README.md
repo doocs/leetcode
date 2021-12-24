@@ -60,7 +60,6 @@
 	<li><code>pos</code> 的值为 <code>-1</code> 或者链表中的一个有效索引</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -161,7 +160,8 @@ public class Solution {
  */
 
 function detectCycle(head: ListNode | null): ListNode | null {
-    let slow = head, fast = head;
+    let slow = head,
+        fast = head;
     while (fast) {
         slow = slow.next;
         if (!fast.next) return null;
@@ -172,12 +172,12 @@ function detectCycle(head: ListNode | null): ListNode | null {
             while (cur != slow) {
                 slow = slow.next;
                 cur = cur.next;
-            } 
+            }
             return cur;
         }
     }
     return null;
-};
+}
 ```
 
 ### **C++**
@@ -230,7 +230,7 @@ public:
  * @param {ListNode} head
  * @return {ListNode}
  */
-var detectCycle = function(head) {
+var detectCycle = function (head) {
     let slow = head;
     let fast = head;
     let hasCycle = false;

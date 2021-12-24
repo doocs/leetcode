@@ -56,7 +56,6 @@ So return 7.
 	<li>There will be <strong>at least one</strong> building in the <code>grid</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

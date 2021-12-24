@@ -42,7 +42,6 @@
 	<li><code>-10<sup>4</sup> <= x<sup>n</sup> <= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -101,7 +100,7 @@ function myPow(x: number, n: number): number {
         x *= x;
     }
     return res;
-};
+}
 ```
 
 ### **...**

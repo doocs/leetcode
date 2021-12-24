@@ -53,7 +53,6 @@ There are no session with a duration greater or equial than 10 minutes and less 
 For session_id 5 has a duration greater or equal than 15 minutes.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

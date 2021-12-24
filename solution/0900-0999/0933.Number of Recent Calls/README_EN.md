@@ -151,7 +151,7 @@ func (this *RecentCounter) Ping(t int) int {
 
 ```js
 var RecentCounter = function () {
-  this.q = [];
+    this.q = [];
 };
 
 /**
@@ -159,11 +159,11 @@ var RecentCounter = function () {
  * @return {number}
  */
 RecentCounter.prototype.ping = function (t) {
-  this.q.push(t);
-  while (this.q[0] < t - 3000) {
-    this.q.shift();
-  }
-  return this.q.length;
+    this.q.push(t);
+    while (this.q[0] < t - 3000) {
+        this.q.shift();
+    }
+    return this.q.length;
 };
 
 /**

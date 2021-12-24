@@ -9,15 +9,16 @@
 <ul>
 	<li>Operation 1: Swap any two <strong>existing</strong> characters.
 
-	<ul>
-		<li>For example, <code>a<u>b</u>cd<u>e</u> -&gt; a<u>e</u>cd<u>b</u></code></li>
-	</ul>
-	</li>
-	<li>Operation 2: Transform <strong>every</strong> occurrence of one <strong>existing</strong> character into another <strong>existing</strong> character, and do the same with the other character.
-	<ul>
-		<li>For example, <code><u>aa</u>c<u>abb</u> -&gt; <u>bb</u>c<u>baa</u></code> (all <code>a</code>&#39;s turn into <code>b</code>&#39;s, and all <code>b</code>&#39;s turn into <code>a</code>&#39;s)</li>
-	</ul>
-	</li>
+    <ul>
+    	<li>For example, <code>a<u>b</u>cd<u>e</u> -&gt; a<u>e</u>cd<u>b</u></code></li>
+    </ul>
+    </li>
+    <li>Operation 2: Transform <strong>every</strong> occurrence of one <strong>existing</strong> character into another <strong>existing</strong> character, and do the same with the other character.
+    <ul>
+    	<li>For example, <code><u>aa</u>c<u>abb</u> -&gt; <u>bb</u>c<u>baa</u></code> (all <code>a</code>&#39;s turn into <code>b</code>&#39;s, and all <code>b</code>&#39;s turn into <code>a</code>&#39;s)</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>You can use the operations on either string as many times as necessary.</p>
@@ -69,7 +70,6 @@ Apply Operation 2: &quot;<u>baa</u>ccc&quot; -&gt; &quot;<u>abb</u>ccc&quot;
 	<li><code>1 &lt;= word1.length, word2.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>word1</code> and <code>word2</code> contain&nbsp;only lowercase English letters.</li>
 </ul>
-
 
 ## Solutions
 

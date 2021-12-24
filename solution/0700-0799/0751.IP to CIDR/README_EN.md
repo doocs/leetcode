@@ -10,11 +10,9 @@ Given a start IP address <code>ip</code> and a number of ips we need to cover <c
 
 </p><p>
 
-A CIDR block is a string consisting of an IP, followed by a slash, and then the prefix length.  For example: "123.45.67.89/20".  That prefix length "20" represents the number of common prefix bits in the specified range.
+A CIDR block is a string consisting of an IP, followed by a slash, and then the prefix length. For example: "123.45.67.89/20". That prefix length "20" represents the number of common prefix bits in the specified range.
 
 </p>
-
-
 
 <p><b>Example 1:</b><br />
 
@@ -87,8 +85,6 @@ that are outside the specified range.
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b><br>
 

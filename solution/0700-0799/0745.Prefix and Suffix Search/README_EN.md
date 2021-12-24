@@ -39,7 +39,6 @@ wordFilter.f(&quot;a&quot;, &quot;e&quot;); // return 0, because the word at ind
 	<li>At most <code>15000</code> calls will be made to the function <code>f</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

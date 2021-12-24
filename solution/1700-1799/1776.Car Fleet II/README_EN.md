@@ -40,7 +40,6 @@
 	<li><code>position<sub>i</sub> &lt; position<sub>i+1</sub></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

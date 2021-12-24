@@ -110,7 +110,6 @@ Let us see all the possible triplets.
 - (Bob, Tom, Alice) --&gt; Valid triplet.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

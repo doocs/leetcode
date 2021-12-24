@@ -47,7 +47,6 @@ seatManager.unreserve(5); // Unreserve seat 5, so now the available seats are [5
 	<li>At most <code>10<sup>5</sup></code> calls <strong>in total</strong> will be made to <code>reserve</code> and <code>unreserve</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -85,11 +84,11 @@ class SeatManager {
             q.offer(i);
         }
     }
-    
+
     public int reserve() {
         return q.poll();
     }
-    
+
     public void unreserve(int seatNumber) {
         q.offer(seatNumber);
     }

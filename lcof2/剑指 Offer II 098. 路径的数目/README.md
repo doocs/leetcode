@@ -58,7 +58,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 62&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/unique-paths/">https://leetcode-cn.com/problems/unique-paths/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -108,14 +107,14 @@ class Solution {
 
 ```ts
 function uniquePaths(m: number, n: number): number {
-    let dp = Array.from({length: m}, v => new Array(n).fill(1));
+    let dp = Array.from({ length: m }, v => new Array(n).fill(1));
     for (let i = 1; i < m; ++i) {
         for (let j = 1; j < n; ++j) {
             dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
         }
     }
-    return dp[m-1][n-1];
-};
+    return dp[m - 1][n - 1];
+}
 ```
 
 ### **C++**

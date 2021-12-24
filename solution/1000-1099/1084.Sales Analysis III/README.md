@@ -1,4 +1,4 @@
-# [1084. 销售分析III](https://leetcode-cn.com/problems/sales-analysis-iii)
+# [1084. 销售分析 III](https://leetcode-cn.com/problems/sales-analysis-iii)
 
 [English Version](/solution/1000-1099/1084.Sales%20Analysis%20III/README_EN.md)
 
@@ -65,7 +65,6 @@ Result table:
 | 1           | S8           |
 +-------------+--------------+
 id为1的产品仅在2019年春季销售，其他两个产品在之后销售。</pre>
-
 
 ## 解法
 

@@ -48,7 +48,6 @@ We made 5 calls to master.guess and one of them was the secret, so we pass the t
 	<li><code>numguesses == 10</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

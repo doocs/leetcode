@@ -55,7 +55,6 @@ The robot has cleaned 1 space, so return 1.
 	<li><code>room[0][0] == 0</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

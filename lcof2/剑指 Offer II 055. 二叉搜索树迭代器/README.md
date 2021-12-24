@@ -68,7 +68,6 @@ bSTIterator.hasNext(); // 返回 False
 
 <p><meta charset="UTF-8" />注意：本题与主站 173&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/binary-search-tree-iterator/">https://leetcode-cn.com/problems/binary-search-tree-iterator/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -186,11 +185,11 @@ class BSTIterator {
     public BSTIterator(TreeNode root) {
         inorder(root);
     }
-    
+
     public int next() {
         return vals.get(cur++);
     }
-    
+
     public boolean hasNext() {
         return cur < vals.size();
     }
@@ -236,7 +235,7 @@ class BSTIterator {
             stack.offerLast(root);
         }
     }
-    
+
     public int next() {
         TreeNode cur = stack.pollLast();
         for (TreeNode node = cur.right; node != null; node = node.left) {
@@ -244,7 +243,7 @@ class BSTIterator {
         }
         return cur.val;
     }
-    
+
     public boolean hasNext() {
         return !stack.isEmpty();
     }
@@ -280,11 +279,11 @@ public:
         cur = 0;
         inorder(root);
     }
-    
+
     int next() {
         return vals[cur++];
     }
-    
+
     bool hasNext() {
         return cur < vals.size();
     }
@@ -326,7 +325,7 @@ public:
             stack.push(root);
         }
     }
-    
+
     int next() {
         TreeNode* cur = stack.top();
         stack.pop();
@@ -336,7 +335,7 @@ public:
         }
         return cur->val;
     }
-    
+
     bool hasNext() {
         return !stack.empty();
     }
@@ -410,8 +409,8 @@ func (this *BSTIterator) HasNext() bool {
 /**
  * @param {TreeNode} root
  */
-var BSTIterator = function(root) {
-    this.stack = []
+var BSTIterator = function (root) {
+    this.stack = [];
     for (; root != null; root = root.left) {
         this.stack.push(root);
     }
@@ -420,7 +419,7 @@ var BSTIterator = function(root) {
 /**
  * @return {number}
  */
-BSTIterator.prototype.next = function() {
+BSTIterator.prototype.next = function () {
     let cur = this.stack.pop();
     let node = cur.right;
     for (; node != null; node = node.left) {
@@ -432,7 +431,7 @@ BSTIterator.prototype.next = function() {
 /**
  * @return {boolean}
  */
-BSTIterator.prototype.hasNext = function() {
+BSTIterator.prototype.hasNext = function () {
     return this.stack.length > 0;
 };
 
@@ -451,4 +450,3 @@ BSTIterator.prototype.hasNext = function() {
 ```
 
 <!-- tabs:end -->
-

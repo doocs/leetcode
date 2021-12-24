@@ -6,33 +6,21 @@
 
 <p>Implement the class <code>SubrectangleQueries</code>&nbsp;which receives a <code>rows x cols</code> rectangle as a matrix of integers in the constructor and supports two methods:</p>
 
-
-
 <p>1.<code>&nbsp;updateSubrectangle(int row1, int col1, int row2, int col2, int newValue)</code></p>
-
-
 
 <ul>
 	<li>Updates all values with <code>newValue</code> in the subrectangle whose upper left coordinate is <code>(row1,col1)</code> and bottom right coordinate is <code>(row2,col2)</code>.</li>
 </ul>
 
-
-
 <p>2.<code>&nbsp;getValue(int row, int col)</code></p>
-
-
 
 <ul>
 	<li>Returns the current value of the coordinate <code>(row,col)</code> from&nbsp;the rectangle.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -96,11 +84,7 @@ subrectangleQueries.getValue(0, 2); // return 5
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -132,13 +116,9 @@ subrectangleQueries.getValue(2, 2); // return 20
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>There will be at most <code><font face="monospace">500</font></code>&nbsp;operations considering both methods:&nbsp;<code>updateSubrectangle</code> and <code>getValue</code>.</li>
@@ -194,11 +174,11 @@ class SubrectangleQueries {
         rec = rectangle;
         history = new ArrayList<>();
     }
-    
+
     public void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
         history.add(new int[]{row1, col1, row2, col2, newValue});
     }
-    
+
     public int getValue(int row, int col) {
         for (int i = history.size() - 1; i >= 0; --i) {
             int[] record = history.get(i);
@@ -229,7 +209,13 @@ class SubrectangleQueries {
         this.history = [];
     }
 
-    updateSubrectangle(row1: number, col1: number, row2: number, col2: number, newValue: number): void {
+    updateSubrectangle(
+        row1: number,
+        col1: number,
+        row2: number,
+        col2: number,
+        newValue: number
+    ): void {
         this.history.push([row1, col1, row2, col2, newValue]);
     }
 

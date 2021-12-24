@@ -46,7 +46,6 @@
 	<li>请你<span style="color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">设计时间复杂度为 <code>O(n)</code> 的算法解决本问题</span></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -146,10 +145,10 @@ func sortedSquares(nums []int) []int {
  * @param {number[]} nums
  * @return {number[]}
  */
-var sortedSquares = function(nums) {
+var sortedSquares = function (nums) {
     const n = nums.length;
     const res = new Array(n);
-    for (let i = 0, j = n - 1, k = n - 1; i <= j;) {
+    for (let i = 0, j = n - 1, k = n - 1; i <= j; ) {
         if (nums[i] * nums[i] > nums[j] * nums[j]) {
             res[k--] = nums[i] * nums[i];
             ++i;

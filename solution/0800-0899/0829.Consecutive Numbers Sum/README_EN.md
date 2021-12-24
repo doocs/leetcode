@@ -6,11 +6,7 @@
 
 <p>Given a positive integer&nbsp;<code>N</code>, how many ways can we write it as a sum of&nbsp;consecutive positive integers?</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -20,11 +16,7 @@
 
 <strong>Explanation: </strong>5 = 5 = 2 + 3</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -34,11 +26,7 @@
 
 <strong>Explanation: </strong>9 = 9 = 4 + 5 = 2 + 3 + 4</pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -48,11 +36,7 @@
 
 <strong>Explanation: </strong>15 = 15 = 8 + 7 = 4 + 5 + 6 = 1 + 2 + 3 + 4 + 5</pre>
 
-
-
 <p><strong>Note:</strong>&nbsp;<code>1 &lt;= N &lt;= 10 ^ 9</code>.</p>
-
-
 
 ## Solutions
 

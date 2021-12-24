@@ -1,4 +1,4 @@
-# [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array)
+# [215. 数组中的第 K 个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array)
 
 [English Version](/solution/0200-0299/0215.Kth%20Largest%20Element%20in%20an%20Array/README_EN.md)
 
@@ -22,7 +22,6 @@
 <p><strong>说明: </strong></p>
 
 <p>你可以假设 k 总是有效的，且 1 &le; k &le; 数组的长度。</p>
-
 
 ## 解法
 
@@ -98,7 +97,7 @@ class Solution {
 }
 ```
 
-###  **C++**
+### **C++**
 
 ```cpp
 class Solution {

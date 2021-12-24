@@ -6,21 +6,13 @@
 
 <p>Given a binary string&nbsp;<code>s</code>&nbsp;(a string consisting only of &#39;0&#39; and &#39;1&#39;s).</p>
 
-
-
 <p>Return the number of substrings with all characters 1&#39;s.</p>
 
-
-
 <p>Since the answer&nbsp;may be too large,&nbsp;return it modulo&nbsp;10^9 + 7.</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -36,11 +28,7 @@
 
 &quot;111&quot; -&gt; 1 time.</pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -52,11 +40,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -68,11 +52,7 @@
 
 </pre>
 
-
-
 <p><strong>Example 4:</strong></p>
-
-
 
 <pre>
 
@@ -82,13 +62,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>s[i] == &#39;0&#39;</code> or <code>s[i] == &#39;1&#39;</code></li>

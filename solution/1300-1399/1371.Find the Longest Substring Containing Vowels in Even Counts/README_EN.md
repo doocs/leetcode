@@ -39,7 +39,6 @@
 	<li><code>s</code>&nbsp;contains only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -23,7 +23,6 @@
 	<li><code>1 &lt;= n &lt;= 14</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

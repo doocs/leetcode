@@ -51,7 +51,6 @@
 	<li><code>divisor != 0</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

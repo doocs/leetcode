@@ -129,7 +129,7 @@ func peakIndexInMountainArray(arr []int) int {
  * @param {number[]} arr
  * @return {number}
  */
-var peakIndexInMountainArray = function(arr) {
+var peakIndexInMountainArray = function (arr) {
     let left = 1;
     let right = arr.length - 2;
     while (left < right) {

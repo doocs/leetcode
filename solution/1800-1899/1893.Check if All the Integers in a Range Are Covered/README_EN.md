@@ -39,7 +39,6 @@
 	<li><code>1 &lt;= left &lt;= right &lt;= 50</code></li>
 </ul>
 
-
 ## Solutions
 
 Interval update using difference array.
@@ -102,7 +101,7 @@ function isCovered(ranges: number[][], left: number, right: number): boolean {
         }
     }
     return true;
-};
+}
 ```
 
 ### **Go**

@@ -6,30 +6,18 @@
 
 <p>We write the integers of <code>A</code> and <code>B</code>&nbsp;(in the order they are given) on two separate horizontal lines.</p>
 
-
-
 <p>Now, we may draw <em>connecting lines</em>: a straight line connecting two numbers <code>A[i]</code> and <code>B[j]</code>&nbsp;such that:</p>
-
-
 
 <ul>
 	<li><code>A[i] == B[j]</code>;</li>
 	<li>The line we draw does not intersect any other connecting (non-horizontal) line.</li>
 </ul>
 
-
-
 <p>Note that a connecting lines cannot intersect even at the endpoints:&nbsp;each number can only belong to one connecting line.</p>
-
-
 
 <p>Return the maximum number of connecting lines we can draw in this way.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Example 1:</strong></p>
 
@@ -47,13 +35,9 @@ We cannot draw 3 uncrossed lines, because the line from A[1]=4 to B[2]=4 will in
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -63,13 +47,9 @@ We cannot draw 3 uncrossed lines, because the line from A[1]=4 to B[2]=4 will in
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -77,27 +57,19 @@ We cannot draw 3 uncrossed lines, because the line from A[1]=4 to B[2]=4 will in
 
 <strong>Output: </strong><span id="example-output-3">2</span></pre>
 
-
-
 <p>&nbsp;</p>
 
 </div>
 
 </div>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= A.length &lt;= 500</code></li>
 	<li><code>1 &lt;= B.length &lt;= 500</code></li>
 	<li><code><font face="monospace">1 &lt;= A[i], B[i] &lt;= 2000</font></code></li>
 </ol>
-
-
 
 ## Solutions
 

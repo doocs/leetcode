@@ -42,7 +42,6 @@
 	<li><code>1 &lt;= k &lt;= sum(nums)</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

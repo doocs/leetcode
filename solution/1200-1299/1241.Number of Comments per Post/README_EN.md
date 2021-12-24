@@ -64,7 +64,6 @@ The post with id 12 has no comments in the table.
 The comment with id 6 is a comment on a deleted post with id 7 so we ignored it.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

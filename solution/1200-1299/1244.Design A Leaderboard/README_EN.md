@@ -87,11 +87,11 @@ class Leaderboard {
     public Leaderboard() {
         playerScores = new HashMap<>();
     }
-    
+
     public void addScore(int playerId, int score) {
         playerScores.put(playerId, playerScores.getOrDefault(playerId, 0) + score);
     }
-    
+
     public int top(int K) {
         List<Integer> scores = new ArrayList<>(playerScores.values());
         Collections.sort(scores, Collections.reverseOrder());
@@ -101,7 +101,7 @@ class Leaderboard {
         }
         return res;
     }
-    
+
     public void reset(int playerId) {
         playerScores.put(playerId, 0);
     }

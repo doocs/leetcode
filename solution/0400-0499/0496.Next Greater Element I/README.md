@@ -116,7 +116,7 @@ class Solution {
  * @param {number[]} nums2
  * @return {number[]}
  */
-var nextGreaterElement = function(nums1, nums2) {
+var nextGreaterElement = function (nums1, nums2) {
     let stk = [];
     let nextGreater = {};
     for (let num of nums2) {

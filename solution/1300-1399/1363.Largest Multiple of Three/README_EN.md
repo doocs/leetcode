@@ -48,7 +48,6 @@
 	<li>The returning answer must not contain unnecessary leading zeros.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -50,7 +50,6 @@ seatManager.unreserve(5); // 将座位 5 变为可以预约，现在可预约的
 	<li>对 <code>reserve</code> 和 <code>unreserve</code> 的调用 <strong>总共</strong> 不超过 <code>10<sup>5</sup></code> 次。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -96,11 +95,11 @@ class SeatManager {
             q.offer(i);
         }
     }
-    
+
     public int reserve() {
         return q.poll();
     }
-    
+
     public void unreserve(int seatNumber) {
         q.offer(seatNumber);
     }

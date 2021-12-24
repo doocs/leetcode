@@ -6,19 +6,11 @@
 
 <p>Given a string <code>S</code>, count the number of distinct, non-empty subsequences of <code>S</code> .</p>
 
-
-
 <p>Since the result may be large, <strong>return the answer modulo <code>10^9 + 7</code></strong>.</p>
-
-
 
 <p>&nbsp;</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -30,13 +22,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -48,13 +36,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -70,32 +54,20 @@
 
 </div>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p><strong>Note:</strong></p>
-
-
 
 <ol>
 	<li><code>S</code> contains only lowercase letters.</li>
 	<li><code>1 &lt;= S.length &lt;= 2000</code></li>
 </ol>
 
-
-
 <div>
 
 <p>&nbsp;</p>
-
-
 
 <div>
 

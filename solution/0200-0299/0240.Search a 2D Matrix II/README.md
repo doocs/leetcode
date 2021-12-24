@@ -43,7 +43,6 @@
 	<li><code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -99,8 +98,10 @@ class Solution {
 
 ```ts
 function searchMatrix(matrix: number[][], target: number): boolean {
-    let m = matrix.length, n = matrix[0].length;
-    let i = m - 1, j = 0;
+    let m = matrix.length,
+        n = matrix[0].length;
+    let i = m - 1,
+        j = 0;
     while (i >= 0 && j < n) {
         let cur = matrix[i][j];
         if (cur == target) return true;
@@ -111,7 +112,7 @@ function searchMatrix(matrix: number[][], target: number): boolean {
         }
     }
     return false;
-};
+}
 ```
 
 ### **C++**

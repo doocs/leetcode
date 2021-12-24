@@ -69,7 +69,6 @@ Result table:
 The customers who bought all the products (5 and 6) are customers with id 1 and 3.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -6,21 +6,13 @@
 
 <p>You are given an array&nbsp;<code>coordinates</code>, <code>coordinates[i] = [x, y]</code>, where <code>[x, y]</code> represents the coordinate of a point. Check if these points&nbsp;make a straight line in the XY plane.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>&nbsp;</p>
 
 <p><strong>Example 1:</strong></p>
 
-
-
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/images/untitled-diagram-2.jpg" style="width: 336px; height: 336px;" /></p>
-
-
 
 <pre>
 
@@ -30,15 +22,9 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
-
-
 <p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1232.Check%20If%20It%20Is%20a%20Straight%20Line/images/untitled-diagram-1.jpg" style="width: 348px; height: 336px;" /></strong></p>
-
-
 
 <pre>
 
@@ -48,13 +34,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li><code>2 &lt;=&nbsp;coordinates.length &lt;= 1000</code></li>

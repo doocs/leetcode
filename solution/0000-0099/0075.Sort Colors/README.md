@@ -62,7 +62,6 @@
 	<li>你能想出一个仅使用常数空间的一趟扫描算法吗？</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -130,7 +129,8 @@ class Solution {
 function sortColors(nums: number[]): void {
     let n = nums.length;
     if (n < 2) return;
-    let p0 = 0, p2 = n - 1;
+    let p0 = 0,
+        p2 = n - 1;
     let p1 = 0;
     while (p1 <= p2) {
         if (nums[p1] == 0) {
@@ -144,7 +144,7 @@ function sortColors(nums: number[]): void {
             p2--;
         }
     }
-};
+}
 ```
 
 ### **C++**

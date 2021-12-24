@@ -39,7 +39,6 @@
 	<li><code>coordinates</code>&nbsp;中不含重复的点</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

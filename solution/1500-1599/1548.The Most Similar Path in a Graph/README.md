@@ -91,7 +91,6 @@ define editDistance(targetPath, myPath) {
 	<li><code>targetPath[i]</code> 由大写英文字母组成。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

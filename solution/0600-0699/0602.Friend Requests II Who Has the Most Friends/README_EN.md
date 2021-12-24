@@ -46,7 +46,6 @@ The person with id &#39;3&#39; is a friend of people &#39;1&#39;, &#39;2&#39; an
 <p><b>Follow-up:</b><br />
 In the real world, multiple people could have the same most number of friends, can you find all these people in this case?</p>
 
-
 ## Solutions
 
 <!-- tabs:start -->

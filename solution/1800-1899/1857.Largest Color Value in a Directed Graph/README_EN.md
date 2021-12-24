@@ -45,7 +45,6 @@
 	<li><code>0 &lt;= a<sub>j</sub>, b<sub>j</sub>&nbsp;&lt; n</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

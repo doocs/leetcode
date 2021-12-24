@@ -61,7 +61,6 @@ X--: X is decremented by 1, X = 1 - 1 = 0.
 	<li><code>operations[i]</code> will be either <code>&quot;++X&quot;</code>, <code>&quot;X++&quot;</code>, <code>&quot;--X&quot;</code>, or <code>&quot;X--&quot;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -94,10 +93,10 @@ class Solution {
 function finalValueAfterOperations(operations: string[]): number {
     let ans = 0;
     for (let operation of operations) {
-        ans += (operation.includes('+') ? 1 : -1)
+        ans += operation.includes("+") ? 1 : -1;
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

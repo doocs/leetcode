@@ -39,7 +39,6 @@ So [2,2,3,1,4,2] is the shortest subarray, therefore returning 6.
 	<li><code>nums[i]</code> will be an integer between 0 and 49,999.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -62,7 +62,6 @@ nums       index     target
 	<li><code>0 &lt;= index[i] &lt;= i</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -106,7 +105,7 @@ function createTargetArray(nums: number[], index: number[]): number[] {
         ans.splice(index[i], 0, nums[i]);
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

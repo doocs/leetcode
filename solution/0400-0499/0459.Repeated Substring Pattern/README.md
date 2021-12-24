@@ -36,7 +36,6 @@
 <strong>解释:</strong> 可由子字符串 &quot;abc&quot; 重复四次构成。 (或者子字符串 &quot;abcabc&quot; 重复两次构成。)
 </pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -93,7 +93,6 @@ Users 2 and 4 are friends, but they did not listen to the same three different s
 Users 2 and 5 are friends and listened to songs 10, 11, and 12, but they did not listen to them on the same day.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

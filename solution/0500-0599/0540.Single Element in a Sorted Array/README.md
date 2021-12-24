@@ -24,7 +24,6 @@
 
 <p><strong>注意:</strong> 您的方案应该在 O(log n)时间复杂度和 O(1)空间复杂度中运行。</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -110,7 +109,8 @@ class Solution {
 
 ```ts
 function singleNonDuplicate(nums: number[]): number {
-    let left = 0, right = nums.length - 1;
+    let left = 0,
+        right = nums.length - 1;
     while (left < right) {
         let mid = (left + right) >> 1;
         if ((mid & 1) == 1) --mid;
@@ -121,7 +121,7 @@ function singleNonDuplicate(nums: number[]): number {
         }
     }
     return nums[left];
-};
+}
 ```
 
 ### **C++**

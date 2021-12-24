@@ -51,7 +51,6 @@ Profit obtained 150 = 20 + 70 + 60.
 	<li><code>1 &lt;= profit[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

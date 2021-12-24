@@ -34,7 +34,6 @@
 	<li><code>0 &lt;=&nbsp;grumpy[i] &lt;= 1</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -80,7 +80,6 @@
 	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

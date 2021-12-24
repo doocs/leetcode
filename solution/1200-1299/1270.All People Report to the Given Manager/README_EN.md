@@ -6,8 +6,6 @@
 
 <p>Table: <code>Employees</code></p>
 
-
-
 <pre>
 
 +---------------+---------+
@@ -32,27 +30,15 @@ The head of the company is the employee with employee_id = 1.
 
 </pre>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <p>Write an SQL query to find&nbsp;<code>employee_id</code>&nbsp;of all employees that directly or indirectly report their work to the head of the company.</p>
 
-
-
 <p>The indirect relation between managers will not exceed 3 managers as the company is small.</p>
-
-
 
 <p>Return result table in any order without duplicates.</p>
 
-
-
 <p>The query result format is in the following example:</p>
-
-
 
 <pre>
 

@@ -41,7 +41,6 @@
 <pre><strong>输入: </strong><code>&quot;9,#,#,1&quot;</code>
 <strong>输出: </strong><code>false</code></pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

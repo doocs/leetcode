@@ -136,7 +136,8 @@ class Solution {
 
 ```ts
 function nextGreatestLetter(letters: string[], target: string): string {
-    let left = 0, right = letters.length;
+    let left = 0,
+        right = letters.length;
     let x = target.charCodeAt(0);
     while (left < right) {
         let mid = (left + right) >> 1;
@@ -147,7 +148,7 @@ function nextGreatestLetter(letters: string[], target: string): string {
         }
     }
     return letters[left % letters.length];
-};
+}
 ```
 
 ### **C++**

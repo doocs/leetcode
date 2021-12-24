@@ -71,7 +71,6 @@
 	<li>请尝试使用&nbsp;<em>O</em>(1) 额外空间复杂度的原地解法。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -119,8 +118,8 @@ public class Solution {
 function reverseWords(s: string): string {
     let words: string[] = s.trim().split(/\s+/g);
     words.reverse();
-    return words.join(' ');
-};
+    return words.join(" ");
+}
 ```
 
 ### **...**

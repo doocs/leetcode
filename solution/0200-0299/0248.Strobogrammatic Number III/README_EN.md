@@ -26,7 +26,6 @@
 	<li><code>low</code> and <code>high</code> do not contain any leading zeros except for zero itself.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -47,7 +47,6 @@ index 0 -&gt; index 4 -&gt; index 1 -&gt; index 3
 	<li><code>0 &lt;= start &lt; arr.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -53,7 +53,6 @@ The expression contains 3 operations.
 	<li><code>1 &lt;= target &lt;= 2 * 10<sup>8</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

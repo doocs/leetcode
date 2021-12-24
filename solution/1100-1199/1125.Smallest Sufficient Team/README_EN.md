@@ -41,7 +41,6 @@
 	<li>It is guaranteed a sufficient team exists.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

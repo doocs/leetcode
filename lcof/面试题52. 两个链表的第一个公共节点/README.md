@@ -118,7 +118,7 @@ public class Solution {
  * @param {ListNode} headB
  * @return {ListNode}
  */
-var getIntersectionNode = function(headA, headB) {
+var getIntersectionNode = function (headA, headB) {
     let cur1 = headA;
     let cur2 = headB;
     while (cur1 != cur2) {

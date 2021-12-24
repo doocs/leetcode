@@ -36,7 +36,6 @@ Explanation: The [1,3,2] has three different positive integers ranging from 1 to
 	<li><code>1 &lt;= k &lt; n &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

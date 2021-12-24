@@ -24,7 +24,6 @@
 	<li><code>1 &lt;= barcodes[i] &lt;= 10000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

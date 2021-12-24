@@ -47,7 +47,6 @@ There are a total of 2 lines, and the last line is 4 pixels wide.</pre>
 	<li><code>s</code> contains only lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

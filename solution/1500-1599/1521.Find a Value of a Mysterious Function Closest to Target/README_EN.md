@@ -45,7 +45,6 @@
 	<li><code>0 &lt;= target &lt;= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

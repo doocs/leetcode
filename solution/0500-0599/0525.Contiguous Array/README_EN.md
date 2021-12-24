@@ -6,10 +6,6 @@
 
 <p>Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1. </p>
 
-
-
-
-
 <p><b>Example 1:</b><br />
 
 <pre>
@@ -24,8 +20,6 @@
 
 </p>
 
-
-
 <p><b>Example 2:</b><br />
 
 <pre>
@@ -39,8 +33,6 @@
 </pre>
 
 </p>
-
-
 
 <p><b>Note:</b>
 
@@ -79,7 +71,7 @@ public:
             if (mp.find(presum) != mp.end())
                 maxlen = max(maxlen, i - mp[presum]);
             else
-                mp[presum] = i;    
+                mp[presum] = i;
         }
 
         return maxlen;

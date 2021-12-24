@@ -50,7 +50,6 @@
 	<li><code>haystack</code> 和 <code>needle</code> 仅由小写英文字符组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

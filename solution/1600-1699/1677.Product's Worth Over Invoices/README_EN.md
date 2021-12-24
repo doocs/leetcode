@@ -86,7 +86,6 @@ Result table:
 - The amount of money refunded for ham is 0 + 3 = 3
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

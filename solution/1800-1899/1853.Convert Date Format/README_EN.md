@@ -46,7 +46,6 @@ Result table:
 Please note that the output is case-sensitive.
 </pre>
 
-
 ## Solutions
 
 <!-- tabs:start -->

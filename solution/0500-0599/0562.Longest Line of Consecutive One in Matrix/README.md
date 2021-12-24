@@ -1,4 +1,4 @@
-# [562. 矩阵中最长的连续1线段](https://leetcode-cn.com/problems/longest-line-of-consecutive-one-in-matrix)
+# [562. 矩阵中最长的连续 1 线段](https://leetcode-cn.com/problems/longest-line-of-consecutive-one-in-matrix)
 
 [English Version](/solution/0500-0599/0562.Longest%20Line%20of%20Consecutive%20One%20in%20Matrix/README_EN.md)
 
@@ -18,7 +18,6 @@
 </pre>
 
 <p><strong>提示:</strong> 给定矩阵中的元素数量不会超过 10,000。</p>
-
 
 ## 解法
 

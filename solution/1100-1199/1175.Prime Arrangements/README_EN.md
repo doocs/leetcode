@@ -33,7 +33,6 @@
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

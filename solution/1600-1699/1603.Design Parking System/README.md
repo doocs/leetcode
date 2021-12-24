@@ -44,7 +44,6 @@ parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一
 	<li>最多会调用 <code>addCar</code> 函数 <code>1000</code> 次</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

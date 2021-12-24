@@ -53,7 +53,6 @@ distanceLimitedPathsExist.query(0, 5, 6); // 返回 false。从 0 到 5 之间�
 	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>query</code> 。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

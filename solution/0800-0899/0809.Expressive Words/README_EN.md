@@ -35,7 +35,6 @@ We can&#39;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the gr
 	<li><code>S</code> and all words in <code>words</code>&nbsp;consist only of&nbsp;lowercase letters</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -50,7 +50,6 @@ Therefore, the size of the longest subarray is 2.
 	<li><code>0 &lt;= limit &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

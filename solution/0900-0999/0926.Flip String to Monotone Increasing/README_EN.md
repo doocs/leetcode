@@ -6,25 +6,15 @@
 
 <p>A string of <code>&#39;0&#39;</code>s and <code>&#39;1&#39;</code>s is <em>monotone increasing</em> if it consists of some number of <code>&#39;0&#39;</code>s (possibly 0), followed by some number of <code>&#39;1&#39;</code>s (also possibly 0.)</p>
 
-
-
 <p>We are given a string <code>S</code> of <code>&#39;0&#39;</code>s and <code>&#39;1&#39;</code>s, and we may flip any <code>&#39;0&#39;</code> to a <code>&#39;1&#39;</code> or a <code>&#39;1&#39;</code> to a <code>&#39;0&#39;</code>.</p>
-
-
 
 <p>Return the minimum number of flips to make <code>S</code>&nbsp;monotone increasing.</p>
 
-
-
 <p>&nbsp;</p>
-
-
 
 <div>
 
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -36,13 +26,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -54,13 +40,9 @@
 
 </pre>
 
-
-
 <div>
 
 <p><strong>Example 3:</strong></p>
-
-
 
 <pre>
 
@@ -72,15 +54,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><strong><span>Note:</span></strong></p>
-
-
 
 <ol>
 	<li><code>1 &lt;= S.length &lt;= 20000</code></li>

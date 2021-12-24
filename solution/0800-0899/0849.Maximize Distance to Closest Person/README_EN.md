@@ -51,7 +51,6 @@ This is the maximum distance possible, so the answer is 3.
 	<li>At least one seat is <strong>occupied</strong>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

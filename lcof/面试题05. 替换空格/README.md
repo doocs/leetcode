@@ -66,9 +66,10 @@ class Solution {
  * @return {string}
  */
 var replaceSpace = function (s) {
-  return s.split(" ").join("%20");
+    return s.split(" ").join("%20");
 };
 ```
+
 - 使用两个指针
 
 ```js
@@ -76,28 +77,28 @@ var replaceSpace = function (s) {
  * @param {string}
  * @return {string}
  */
-var replaceSpace = function(s) {
-  s = s.split("");
-  let emptyNum = 0;
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === " ") {
-      emptyNum++;
+var replaceSpace = function (s) {
+    s = s.split("");
+    let emptyNum = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === " ") {
+            emptyNum++;
+        }
     }
-  }
-  let p1 = s.length - 1;
-  let p2 = p1 + 2 * emptyNum;
-  while (p1 >= 0 && p2 > p1) {
-    if (s[p1] === " ") {
-      s[p2] = "0";
-      s[--p2] = "2";
-      s[--p2] = "%";
-    } else {
-      s[p2] = s[p1];
+    let p1 = s.length - 1;
+    let p2 = p1 + 2 * emptyNum;
+    while (p1 >= 0 && p2 > p1) {
+        if (s[p1] === " ") {
+            s[p2] = "0";
+            s[--p2] = "2";
+            s[--p2] = "%";
+        } else {
+            s[p2] = s[p1];
+        }
+        p1--;
+        p2--;
     }
-    p1--;
-    p2--;
-  }
-  return s.join("");
+    return s.join("");
 };
 ```
 
@@ -131,8 +132,8 @@ public:
 
 ```ts
 function replaceSpace(s: string): string {
-    return s.replace(/\s/g, '%20');
-};
+    return s.replace(/\s/g, "%20");
+}
 ```
 
 ### **...**

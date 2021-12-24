@@ -46,7 +46,6 @@ Notice that element mat[1][1] = 5 is counted only once.
 	<li><code>1 &lt;= mat[i][j] &lt;= 100</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -92,7 +91,7 @@ function diagonalSum(mat: number[][]): number {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

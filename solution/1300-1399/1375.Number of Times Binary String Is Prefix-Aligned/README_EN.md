@@ -47,7 +47,6 @@ We can see that the string was prefix-aligned 1 time, so we return 1.
 	<li><code>flips</code> is a permutation of the integers in the range <code>[1, n]</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

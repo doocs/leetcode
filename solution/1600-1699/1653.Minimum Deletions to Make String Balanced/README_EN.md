@@ -37,7 +37,6 @@ Delete the characters at 0-indexed positions 3 and 6 (&quot;aab<u>a</u>bb<u>a</u
 	<li><code>s[i]</code> is&nbsp;<code>&#39;a&#39;</code> or <code>&#39;b&#39;</code>​​.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

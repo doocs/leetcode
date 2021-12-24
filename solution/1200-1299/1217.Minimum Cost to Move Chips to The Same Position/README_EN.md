@@ -49,7 +49,6 @@ Total cost is 1.
 	<li><code>1 &lt;= position[i] &lt;= 10^9</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

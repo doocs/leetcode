@@ -94,7 +94,7 @@ class Solution:
             if t[-1] == len(graph) - 1:
                 ans.append(t.copy())
                 return
-            
+
             for v in graph[t[-1]]:
                 t.append(v)
                 dfs(t)
@@ -233,7 +233,7 @@ func allPathsSourceTarget(graph [][]int) [][]int {
  * @param {number[][]} graph
  * @return {number[][]}
  */
-var allPathsSourceTarget = function(graph) {
+var allPathsSourceTarget = function (graph) {
     const ans = [];
     const t = [0];
 
@@ -248,7 +248,7 @@ var allPathsSourceTarget = function(graph) {
             dfs(t);
             t.pop();
         }
-    }
+    };
 
     dfs(t);
     return ans;

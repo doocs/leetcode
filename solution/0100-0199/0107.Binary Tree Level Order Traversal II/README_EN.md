@@ -36,7 +36,6 @@
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -124,7 +123,9 @@ var levelOrderBottom = function (root) {
     if (!root) {
         return [];
     }
-    let q = [], output = [], levelOutput = [];
+    let q = [],
+        output = [],
+        levelOutput = [];
     q.push(root);
     q.push(null);
     while (q.length) {

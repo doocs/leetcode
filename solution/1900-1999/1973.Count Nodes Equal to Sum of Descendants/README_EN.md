@@ -44,7 +44,6 @@ For the node with value 0: The sum of its descendants is 0 since it has no desce
 	<li><code>0 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

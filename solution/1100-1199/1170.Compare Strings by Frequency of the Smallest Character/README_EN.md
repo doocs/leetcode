@@ -37,7 +37,6 @@
 	<li><code>queries[i][j]</code>, <code>words[i][j]</code> consist of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

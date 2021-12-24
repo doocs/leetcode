@@ -41,7 +41,6 @@
 	<li><code>n</code> does not contain any leading zeros.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

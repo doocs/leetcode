@@ -6,15 +6,9 @@
 
 <p>Let&#39;s play the minesweeper game (<a href="https://en.wikipedia.org/wiki/Minesweeper_(video_game)">Wikipedia</a>, <a href="http://minesweeperonline.com">online game</a>)!</p>
 
-
-
 <p>You are given a 2D char matrix representing the game board. <b>&#39;M&#39;</b> represents an <b>unrevealed</b> mine, <b>&#39;E&#39;</b> represents an <b>unrevealed</b> empty square, <b>&#39;B&#39;</b> represents a <b>revealed</b> blank square that has no adjacent (above, below, left, right, and all 4 diagonals) mines, <b>digit</b> (&#39;1&#39; to &#39;8&#39;) represents how many mines are adjacent to this <b>revealed</b> square, and finally <b>&#39;X&#39;</b> represents a <b>revealed</b> mine.</p>
 
-
-
 <p>Now given the next click position (row and column indices) among all the <b>unrevealed</b> squares (&#39;M&#39; or &#39;E&#39;), return the board after revealing this position according to the following rules:</p>
-
-
 
 <ol>
 	<li>If a mine (&#39;M&#39;) is revealed, then the game is over - change it to <b>&#39;X&#39;</b>.</li>
@@ -23,15 +17,9 @@
 	<li>Return the board when no more squares will be revealed.</li>
 </ol>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Example 1:</b></p>
-
-
 
 <pre>
 
@@ -73,11 +61,7 @@ Click : [3,0]
 
 </pre>
 
-
-
 <p><b>Example 2:</b></p>
-
-
 
 <pre>
 
@@ -119,15 +103,9 @@ Click : [1,2]
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
-
-
 <p><b>Note:</b></p>
-
-
 
 <ol>
 	<li>The range of the input matrix&#39;s height and width is [1,50].</li>
@@ -135,8 +113,6 @@ Click : [1,2]
 	<li>The input board won&#39;t be a stage when game is over (some mines have been revealed).</li>
 	<li>For simplicity, not mentioned rules should be ignored in this problem. For example, you <b>don&#39;t</b> need to reveal all the unrevealed mines when the game is over, consider any cases that you will win the game or flag any squares.</li>
 </ol>
-
-
 
 ## Solutions
 

@@ -52,7 +52,6 @@ Other valid sequences are:
 	<li>Each node&#39;s value is between [0 - 9].</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

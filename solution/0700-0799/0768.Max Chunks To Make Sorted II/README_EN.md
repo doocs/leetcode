@@ -6,23 +6,13 @@
 
 <p><em>This question is the same as &quot;Max Chunks to Make Sorted&quot; except the integers of the given array are not necessarily distinct, the input array could be up to length <code>2000</code>, and the elements could be up to <code>10**8</code>.</em></p>
 
-
-
 <hr />
-
-
 
 <p>Given an array <code>arr</code> of integers (<strong>not necessarily distinct</strong>), we split the array into some number of &quot;chunks&quot; (partitions), and individually sort each chunk.&nbsp; After concatenating them,&nbsp;the result equals the sorted array.</p>
 
-
-
 <p>What is the most number of chunks we could have made?</p>
 
-
-
 <p><strong>Example 1:</strong></p>
-
-
 
 <pre>
 
@@ -38,11 +28,7 @@ For example, splitting into [5, 4], [3, 2, 1] will result in [4, 5, 1, 2, 3], wh
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
-
-
 
 <pre>
 
@@ -58,22 +44,14 @@ However, splitting into [2, 1], [3], [4], [4] is the highest number of chunks po
 
 </pre>
 
-
-
 <p><strong>Note:</strong></p>
-
-
 
 <ul>
 	<li><code>arr</code> will have length in range <code>[1, 2000]</code>.</li>
 	<li><code>arr[i]</code> will be an integer in range <code>[0, 10**8]</code>.</li>
 </ul>
 
-
-
 <p>&nbsp;</p>
-
-
 
 ## Solutions
 
@@ -108,7 +86,7 @@ function maxChunksToSorted(arr: number[]): number {
         }
     }
     return stack.length;
-};
+}
 ```
 
 ### **...**

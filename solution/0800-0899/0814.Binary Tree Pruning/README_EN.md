@@ -47,7 +47,6 @@ The diagram on the right represents the answer.
 	<li>The value of each node will only be <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

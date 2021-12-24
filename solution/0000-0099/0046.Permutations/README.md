@@ -21,7 +21,6 @@
   [3,2,1]
 ]</pre>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -97,7 +96,7 @@ class Solution {
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute = function(nums) {
+var permute = function (nums) {
     const n = nums.length;
     let res = [];
     let path = [];
