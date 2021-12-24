@@ -100,7 +100,7 @@ class Solution {
 }
 ```
 
-### C++
+### **C++**
 
 ```cpp
 typedef pair<int,int> PII;
