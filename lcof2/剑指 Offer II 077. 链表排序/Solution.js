@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
- var sortList = function(head) {
+var sortList = function (head) {
     if (!head || !head.next) {
         return head;
     }

@@ -8,4 +8,4 @@ function fairCandySwap(aliceSizes: number[], bobSizes: number[]): number[] {
             return [num, target];
         }
     }
-};
+}

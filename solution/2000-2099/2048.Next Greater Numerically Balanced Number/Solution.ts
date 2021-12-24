@@ -4,7 +4,7 @@ function nextBeautifulNumber(n: number): number {
             return ans;
         }
     }
-};
+}
 
 function isValid(n: number): boolean {
     let record = new Array(10).fill(0);

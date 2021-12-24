@@ -1,14 +1,16 @@
 function minWindow(s: string, t: string): string {
-    let n1 = s.length, n2 = t.length;
-    if (n1 < n2) return '';
+    let n1 = s.length,
+        n2 = t.length;
+    if (n1 < n2) return "";
     let need = new Array(128).fill(0);
     let window = new Array(128).fill(0);
     for (let i = 0; i < n2; ++i) {
         ++need[t.charCodeAt(i)];
     }
 
-    let left = 0, right = 0;
-    let res = '';
+    let left = 0,
+        right = 0;
+    let res = "";
     let count = 0;
     let min = n1 + 1;
     while (right < n1) {
@@ -32,4 +34,4 @@ function minWindow(s: string, t: string): string {
         ++right;
     }
     return res;
-};
+}

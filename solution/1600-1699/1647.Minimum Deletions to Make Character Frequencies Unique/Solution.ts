@@ -7,10 +7,10 @@ function minDeletions(s: string): number {
     let vals: number[] = Object.values(map);
     vals.sort((a, b) => a - b);
     for (let i = 1; i < vals.length; ++i) {
-        while(vals[i] > 0 && i != vals.indexOf(vals[i])) {
+        while (vals[i] > 0 && i != vals.indexOf(vals[i])) {
             --vals[i];
             ++ans;
         }
     }
     return ans;
-};
+}

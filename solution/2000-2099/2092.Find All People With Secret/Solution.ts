@@ -1,8 +1,12 @@
-function findAllPeople(n: number, meetings: number[][], firstPerson: number): number[] {
+function findAllPeople(
+    n: number,
+    meetings: number[][],
+    firstPerson: number
+): number[] {
     let parent: Array<number> = Array.from({ length: n + 1 }, (v, i) => i);
     parent[firstPerson] = 0;
 
-    function findParent (index: number): number {
+    function findParent(index: number): number {
         if (parent[index] != index) parent[index] = findParent(parent[index]);
         return parent[index];
     }
@@ -39,10 +43,10 @@ function findAllPeople(n: number, meetings: number[][], firstPerson: number): nu
     }
 
     let ans = new Array<number>();
-    for (let i = 0 ; i <= n; i++) {
+    for (let i = 0; i <= n; i++) {
         if (!parent[findParent(i)]) {
             ans.push(i);
         }
     }
     return ans;
-};
+}

@@ -12,12 +12,12 @@
  * }
  */
 
- function generateTrees(n: number): Array<TreeNode | null> {
+function generateTrees(n: number): Array<TreeNode | null> {
     if (n == 0) return [];
     return helper(1, n);
-};
+}
 
-function helper (start: number, end: number): Array<TreeNode | null> {
+function helper(start: number, end: number): Array<TreeNode | null> {
     let ans = [];
     if (start > end) {
         ans.push(null);

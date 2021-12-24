@@ -12,7 +12,7 @@
  * }
  */
 
- function postorderTraversal(root: TreeNode | null): number[] {
+function postorderTraversal(root: TreeNode | null): number[] {
     if (root == null) return [];
     let stack = [];
     let ans = [];
@@ -31,7 +31,6 @@
             stack.push(root);
             root = root.right;
         }
-        
     }
     return ans;
-};
+}

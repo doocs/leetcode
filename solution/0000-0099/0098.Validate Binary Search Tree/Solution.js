@@ -10,10 +10,10 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
- var isValidBST = function(root) {
+var isValidBST = function (root) {
     let prev = null;
 
-    let dfs = function(root) {
+    let dfs = function (root) {
         if (!root) {
             return true;
         }
@@ -28,7 +28,7 @@
             return false;
         }
         return true;
-    }
+    };
 
     return dfs(root);
 };

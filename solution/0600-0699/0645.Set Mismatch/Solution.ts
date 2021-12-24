@@ -1,15 +1,16 @@
 function findErrorNums(nums: number[]): number[] {
     let xor = 0;
     for (let i = 0; i < nums.length; ++i) {
-        xor ^= ((i + 1) ^ nums[i]);
+        xor ^= (i + 1) ^ nums[i];
     }
 
     let divide = 1;
     while ((xor & divide) == 0) {
         divide <<= 1;
     }
-    
-    let ans1 = 0, ans2 = 0;
+
+    let ans1 = 0,
+        ans2 = 0;
     for (let i = 0; i < nums.length; ++i) {
         let cur = nums[i];
         if (divide & cur) {
@@ -26,4 +27,4 @@ function findErrorNums(nums: number[]): number[] {
         }
     }
     return nums.includes(ans1) ? [ans1, ans2] : [ans2, ans1];
-};
+}

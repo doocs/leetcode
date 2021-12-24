@@ -17,7 +17,7 @@ function timeRequiredToBuy(tickets: number[], k: number): number {
     // round2
     for (let i = 0; i <= k; i++) {
         let num = tickets[i];
-        ans += (num > 0 ? 1: 0);
+        ans += num > 0 ? 1 : 0;
     }
     return ans;
-};
+}

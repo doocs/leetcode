@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number}
  */
- var firstUniqChar = function(s) {
+var firstUniqChar = function (s) {
     const counter = new Map();
     for (let c of s) {
         counter[c] = (counter[c] || 0) + 1;

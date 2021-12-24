@@ -1,5 +1,6 @@
 function minDifference(nums: number[], queries: number[][]): number[] {
-    let m = nums.length, n = queries.length;
+    let m = nums.length,
+        n = queries.length;
     let max = 100;
     // let max = Math.max(...nums);
     let pre: number[][] = [];
@@ -25,4 +26,4 @@ function minDifference(nums: number[], queries: number[][]): number[] {
         ans.push(min == Infinity ? -1 : min);
     }
     return ans;
-};
+}

@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
- var tribonacci = function(n) {
+var tribonacci = function (n) {
     let a = 0;
     let b = 1;
     let c = 1;

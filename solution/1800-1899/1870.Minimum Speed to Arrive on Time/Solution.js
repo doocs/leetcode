@@ -3,9 +3,10 @@
  * @param {number} hour
  * @return {number}
  */
- var minSpeedOnTime = function(dist, hour) {
+var minSpeedOnTime = function (dist, hour) {
     if (dist.length > Math.ceil(hour)) return -1;
-    let left = 1, right = 10 ** 7;
+    let left = 1,
+        right = 10 ** 7;
     while (left < right) {
         let mid = (left + right) >> 1;
         if (arriveOnTime(dist, mid, hour)) {
@@ -15,9 +16,9 @@
         }
     }
     return left;
- };
- 
- function arriveOnTime (dist, speed, hour) {
+};
+
+function arriveOnTime(dist, speed, hour) {
     let res = 0.0;
     let n = dist.length;
     for (let i = 0; i < n; i++) {
@@ -28,4 +29,4 @@
         res += cost;
     }
     return res <= hour;
- }
+}

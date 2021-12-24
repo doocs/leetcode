@@ -7,4 +7,4 @@ function change(amount: number, coins: number[]): number {
         }
     }
     return dp.pop();
-};
+}

@@ -15,7 +15,7 @@
 /**
  Do not return anything, modify root in-place instead.
  */
- function flatten(root: TreeNode | null): void {
+function flatten(root: TreeNode | null): void {
     while (root != null) {
         if (root.left != null) {
             let pre = root.left;
@@ -28,4 +28,4 @@
         }
         root = root.right;
     }
-};
+}

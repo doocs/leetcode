@@ -8,5 +8,5 @@ function removeKdigits(num: string, k: number): string {
         nums.splice(idx, 1);
         k--;
     }
-    return nums.join('').replace(/^0*/g, '') || '0';
-};
+    return nums.join("").replace(/^0*/g, "") || "0";
+}

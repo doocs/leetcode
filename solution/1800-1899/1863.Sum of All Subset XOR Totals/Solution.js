@@ -2,11 +2,11 @@
  * @param {number[]} nums
  * @return {number}
  */
- var subsetXORSum = function(nums) {
+var subsetXORSum = function (nums) {
     let res = [];
     let prev = 0;
     dfs(nums, 0, prev, res);
-    return res.reduce((a, c) => a + c, 0)
+    return res.reduce((a, c) => a + c, 0);
 };
 
 function dfs(nums, depth, prev, res) {

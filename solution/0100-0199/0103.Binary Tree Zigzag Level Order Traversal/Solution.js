@@ -10,7 +10,7 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
- var zigzagLevelOrder = function(root) {
+var zigzagLevelOrder = function (root) {
     if (!root) {
         return [];
     }

@@ -12,7 +12,7 @@
  * }
  */
 
- function preorderTraversal(root: TreeNode | null): number[] {
+function preorderTraversal(root: TreeNode | null): number[] {
     if (root == null) return [];
     let stack = [];
     let ans = [];
@@ -26,4 +26,4 @@
         root = root.right;
     }
     return ans;
-};
+}

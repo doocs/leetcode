@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string[]}
  */
- var findRepeatedDnaSequences = function(s) {
+var findRepeatedDnaSequences = function (s) {
     const n = s.length - 10;
     let cnt = new Map();
     let ans = [];

@@ -12,4 +12,4 @@ function shortestToChar(s: string, c: string): number[] {
         ans[i] = Math.min(Math.abs(pre - i), ans[i]);
     }
     return ans;
-};
+}

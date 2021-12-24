@@ -3,7 +3,7 @@
  * @param {number[]} speed
  * @return {number}
  */
- var eliminateMaximum = function(dist, speed) {
+var eliminateMaximum = function (dist, speed) {
     let arr = [];
     for (let i = 0; i < dist.length; i++) {
         arr[i] = dist[i] / speed[i];

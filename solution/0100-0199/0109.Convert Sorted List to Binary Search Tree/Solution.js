@@ -17,7 +17,7 @@
  * @param {ListNode} head
  * @return {TreeNode}
  */
- var sortedListToBST = function(head) {
+var sortedListToBST = function (head) {
     const buildBST = (nums, start, end) => {
         if (start > end) {
             return null;
@@ -27,7 +27,7 @@
         root.left = buildBST(nums, start, mid - 1);
         root.right = buildBST(nums, mid + 1, end);
         return root;
-    }
+    };
 
     const nums = new Array();
     for (; head != null; head = head.next) {

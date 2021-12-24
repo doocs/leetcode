@@ -2,7 +2,7 @@ function hIndex(citations: number[]): number {
     let n = citations.length;
     let cnt = new Array(n + 1).fill(0);
     for (let c of citations) {
-        if ( c <= n) {
+        if (c <= n) {
             ++cnt[c];
         } else {
             ++cnt[n];
@@ -16,4 +16,4 @@ function hIndex(citations: number[]): number {
         }
     }
     return 0;
-};
+}

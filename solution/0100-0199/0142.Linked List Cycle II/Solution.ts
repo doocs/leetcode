@@ -10,8 +10,9 @@
  * }
  */
 
- function detectCycle(head: ListNode | null): ListNode | null {
-    let slow = head, fast = head;
+function detectCycle(head: ListNode | null): ListNode | null {
+    let slow = head,
+        fast = head;
     while (fast) {
         slow = slow.next;
         if (!fast.next) return null;
@@ -22,9 +23,9 @@
             while (cur != slow) {
                 slow = slow.next;
                 cur = cur.next;
-            } 
+            }
             return cur;
         }
     }
     return null;
-};
+}

@@ -10,8 +10,8 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
- var isBalanced = function(root) {
-    let height = function(root) {
+var isBalanced = function (root) {
+    let height = function (root) {
         if (root == null) {
             return 0;
         }
@@ -21,7 +21,7 @@
             return -1;
         }
         return 1 + Math.max(l, r);
-    }
+    };
 
     return height(root) >= 0;
 };

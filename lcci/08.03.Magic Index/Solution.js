@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
- var findMagicIndex = function(nums) {
+var findMagicIndex = function (nums) {
     return helper(nums, 0, nums.length - 1);
 };
 

@@ -3,13 +3,20 @@ function reversePairs(nums: number[]): number {
     const n: number = nums.length;
     if (n < 2) return 0;
 
-    function merge(nums: number[], left: number, mid: number, right: number): void {
+    function merge(
+        nums: number[],
+        left: number,
+        mid: number,
+        right: number
+    ): void {
         let n: number = right - left + 1;
         let t: number[] = new Array(n);
-        let i: number = left, j: number = mid + 1, idx: number = 0;
+        let i: number = left,
+            j: number = mid + 1,
+            idx: number = 0;
         while (i <= mid && j <= right) {
             if (nums[i] > nums[j]) {
-                count += (mid - i + 1);
+                count += mid - i + 1;
                 t[idx++] = nums[j++];
             } else {
                 t[idx++] = nums[i++];
@@ -25,7 +32,7 @@ function reversePairs(nums: number[]): number {
             nums[left + k] = t[k];
         }
     }
-    
+
     function mergeSort(nums: number[], left: number, right: number): void {
         if (left == right) return;
         let mid: number = (left + right) >> 1;
@@ -36,4 +43,4 @@ function reversePairs(nums: number[]): number {
 
     mergeSort(nums, 0, n - 1);
     return count;
-};
+}

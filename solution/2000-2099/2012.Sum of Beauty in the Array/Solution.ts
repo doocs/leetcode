@@ -1,6 +1,7 @@
 function sumOfBeauties(nums: number[]): number {
     let n = nums.length;
-    let prefix = new Array(n), postfix = new Array(n);
+    let prefix = new Array(n),
+        postfix = new Array(n);
     prefix[0] = nums[0];
     postfix[n - 1] = nums[n - 1];
     for (let i = 1, j = n - 2; i < n; ++i, --j) {
@@ -16,4 +17,4 @@ function sumOfBeauties(nums: number[]): number {
         }
     }
     return ans;
-};
+}

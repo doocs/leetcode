@@ -18,4 +18,4 @@ function shellSort(arr) {
 }
 
 let arr = [6, 3, 2, 1, 5];
-console.log(shellSort(arr))
+console.log(shellSort(arr));

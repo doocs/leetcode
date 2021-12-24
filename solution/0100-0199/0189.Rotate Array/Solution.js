@@ -5,5 +5,5 @@
  */
 var rotate = function (nums, k) {
     k %= nums.length;
-    nums.splice(0, 0, ...nums.splice(-k, k))
+    nums.splice(0, 0, ...nums.splice(-k, k));
 };

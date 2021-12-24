@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {number}
  */
- var maxLength = function(ribbons, k) {
+var maxLength = function (ribbons, k) {
     let low = 0;
     let high = 100000;
     while (low < high) {

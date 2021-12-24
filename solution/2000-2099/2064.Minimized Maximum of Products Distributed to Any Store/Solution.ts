@@ -1,5 +1,6 @@
 function minimizedMaximum(n: number, quantities: number[]): number {
-    let left = 1, right = 1e5;
+    let left = 1,
+        right = 1e5;
     while (left < right) {
         const mid = (left + right) >> 1;
         let s = 0;
@@ -13,4 +14,4 @@ function minimizedMaximum(n: number, quantities: number[]): number {
         }
     }
     return left;
-};
+}

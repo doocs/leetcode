@@ -3,7 +3,7 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
- var intersection = function(nums1, nums2) {
+var intersection = function (nums1, nums2) {
     const s = new Set();
     for (const num of nums1) {
         s.add(num);

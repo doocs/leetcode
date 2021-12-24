@@ -3,7 +3,7 @@
  * @param {number} capacity
  * @return {boolean}
  */
- var carPooling = function(trips, capacity) {
+var carPooling = function (trips, capacity) {
     let delta = new Array();
     for (let trip of trips) {
         let [num, start, end] = trip;

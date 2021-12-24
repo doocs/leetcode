@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
- var isPalindrome = function(head) {
+var isPalindrome = function (head) {
     if (!head || !head.next) {
         return true;
     }

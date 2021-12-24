@@ -4,4 +4,4 @@ function titleToNumber(columnTitle: string): number {
         res = res * 26 + char.charCodeAt(0) - 64;
     }
     return res;
-};
+}

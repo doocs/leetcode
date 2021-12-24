@@ -9,8 +9,8 @@
 /**
  * @param {TreeNode} root
  */
- var BSTIterator = function(root) {
-    this.stack = []
+var BSTIterator = function (root) {
+    this.stack = [];
     for (; root != null; root = root.left) {
         this.stack.push(root);
     }
@@ -19,7 +19,7 @@
 /**
  * @return {number}
  */
-BSTIterator.prototype.next = function() {
+BSTIterator.prototype.next = function () {
     let cur = this.stack.pop();
     let node = cur.right;
     for (; node != null; node = node.left) {
@@ -31,7 +31,7 @@ BSTIterator.prototype.next = function() {
 /**
  * @return {boolean}
  */
-BSTIterator.prototype.hasNext = function() {
+BSTIterator.prototype.hasNext = function () {
     return this.stack.length > 0;
 };
 

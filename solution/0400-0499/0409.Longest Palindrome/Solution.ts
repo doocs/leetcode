@@ -7,7 +7,7 @@ function longestPalindrome(s: string): number {
     }
     for (let i = 65; i < 128; i++) {
         let count = record[i];
-        ans += (count % 2 == 0 ? count : count - 1);
+        ans += count % 2 == 0 ? count : count - 1;
     }
     return ans < s.length ? ans + 1 : ans;
-};
+}

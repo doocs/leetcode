@@ -4,4 +4,4 @@ function shuffle(nums: number[], n: number): number[] {
         ans.push(nums[i], nums[n + i]);
     }
     return ans;
-};
+}

@@ -2,7 +2,7 @@
  * @param {number[]} nums
  */
 const Solution = function (nums) {
-  this.nums = nums || [];
+    this.nums = nums || [];
 };
 
 /**
@@ -10,7 +10,7 @@ const Solution = function (nums) {
  * @return {number[]}
  */
 Solution.prototype.reset = function () {
-  return this.nums;
+    return this.nums;
 };
 
 /**
@@ -18,14 +18,14 @@ Solution.prototype.reset = function () {
  * @return {number[]}
  */
 Solution.prototype.shuffle = function () {
-  let a = this.nums.slice();
-  for (let i = 0; i < a.length; i++) {
-    let rand = Math.floor(Math.random() * (a.length - i)) + i;
-    let tmp = a[i];
-    a[i] = a[rand];
-    a[rand] = tmp;
-  }
-  return a;
+    let a = this.nums.slice();
+    for (let i = 0; i < a.length; i++) {
+        let rand = Math.floor(Math.random() * (a.length - i)) + i;
+        let tmp = a[i];
+        a[i] = a[rand];
+        a[rand] = tmp;
+    }
+    return a;
 };
 
 /**

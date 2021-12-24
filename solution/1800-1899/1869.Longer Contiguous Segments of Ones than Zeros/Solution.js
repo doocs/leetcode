@@ -2,11 +2,13 @@
  * @param {string} s
  * @return {boolean}
  */
- var checkZeroOnes = function(s) {
-    let max0 = 0, max1 = 0;
-    let t0 = 0, t1 = 0;
+var checkZeroOnes = function (s) {
+    let max0 = 0,
+        max1 = 0;
+    let t0 = 0,
+        t1 = 0;
     for (let char of s) {
-        if (char == '0') {
+        if (char == "0") {
             t0++;
             t1 = 0;
         } else {

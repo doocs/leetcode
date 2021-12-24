@@ -4,4 +4,4 @@ function createTargetArray(nums: number[], index: number[]): number[] {
         ans.splice(index[i], 0, nums[i]);
     }
     return ans;
-};
+}
