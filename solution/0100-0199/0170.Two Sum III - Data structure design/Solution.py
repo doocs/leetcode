@@ -4,7 +4,7 @@ class TwoSum:
         """
         Initialize your data structure here.
         """
-        self.counter = collections.Counter()
+        self.counter = Counter()
 
     def add(self, number: int) -> None:
         """

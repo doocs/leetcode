@@ -38,7 +38,6 @@
 	<li>如果&nbsp;<em>nums2&nbsp;</em>的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -54,7 +53,7 @@
 ```python
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        counter = collections.Counter(nums1)
+        counter = Counter(nums1)
         res = []
         for num in nums2:
             if counter[num] > 0:
@@ -98,19 +97,19 @@ class Solution {
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersect = function(nums1, nums2) {
-    const counter = {};
-    for (const num of nums1) {
-        counter[num] = (counter[num] || 0) + 1;
+var intersect = function (nums1, nums2) {
+  const counter = {};
+  for (const num of nums1) {
+    counter[num] = (counter[num] || 0) + 1;
+  }
+  let res = [];
+  for (const num of nums2) {
+    if (counter[num] > 0) {
+      res.push(num);
+      counter[num] -= 1;
     }
-    let res = [];
-    for (const num of nums2) {
-        if (counter[num] > 0) {
-            res.push(num);
-            counter[num] -= 1;
-        }
-    }
-    return res;
+  }
+  return res;
 };
 ```
 

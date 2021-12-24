@@ -50,7 +50,7 @@ class Solution:
         n = len(pattern)
         if n != len(s):
             return False
-        c2str, str2c = collections.defaultdict(), collections.defaultdict()
+        c2str, str2c = defaultdict(), defaultdict()
         for i in range(n):
             k, v = pattern[i], s[i]
             if k in c2str and c2str[k] != v:
@@ -96,21 +96,22 @@ class Solution {
 
 ```ts
 function wordPattern(pattern: string, s: string): boolean {
-    let n = pattern.length;
-    let values = s.split(' ');
-    if (n != values.length) return false;
-    let table = new Array(128);
-    for (let i = 0; i < n; i++) {
-        let k = pattern.charCodeAt(i), v = values[i];
-        if (!table[k]) {
-            if (table.includes(v)) return false;
-            table[k] = v;
-        } else {
-            if (table[k] != v) return false;
-        }
+  let n = pattern.length;
+  let values = s.split(" ");
+  if (n != values.length) return false;
+  let table = new Array(128);
+  for (let i = 0; i < n; i++) {
+    let k = pattern.charCodeAt(i),
+      v = values[i];
+    if (!table[k]) {
+      if (table.includes(v)) return false;
+      table[k] = v;
+    } else {
+      if (table[k] != v) return false;
     }
-    return true;
-};
+  }
+  return true;
+}
 ```
 
 ### **C++**

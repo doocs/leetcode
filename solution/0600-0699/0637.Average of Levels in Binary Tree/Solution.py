@@ -7,7 +7,7 @@
 class Solution:
     def averageOfLevels(self, root: TreeNode) -> List[float]:
         res = []
-        q = collections.deque([root])
+        q = deque([root])
         while q:
             n = len(q)
             s = 0

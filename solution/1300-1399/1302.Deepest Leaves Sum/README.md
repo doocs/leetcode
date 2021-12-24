@@ -35,7 +35,6 @@
 	<li><code>1 <= Node.val <= 100</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -57,7 +56,7 @@
 #         self.right = right
 class Solution:
     def deepestLeavesSum(self, root: TreeNode) -> int:
-        q = collections.deque([root])
+        q = deque([root])
         s = 0
         while q:
             n = len(q)

@@ -1,6 +1,6 @@
 class Solution:
     def beforeAndAfterPuzzles(self, phrases: List[str]) -> List[str]:
-        same_first_word = collections.defaultdict(set)
+        same_first_word = defaultdict(set)
         for i, phrase in enumerate(phrases):
             same_first_word[phrase.split()[0]].add(i)
         res = set()

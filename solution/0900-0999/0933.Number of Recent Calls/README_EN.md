@@ -52,7 +52,7 @@ recentCounter.ping(3002);  // requests = [1, <u>100</u>, <u>3001</u>, <u>3002</u
 class RecentCounter:
 
     def __init__(self):
-        self.q = collections.deque()
+        self.q = deque()
 
     def ping(self, t: int) -> int:
         self.q.append(t)
@@ -75,7 +75,7 @@ class RecentCounter {
     public RecentCounter() {
         q = new LinkedList<>();
     }
-    
+
     public int ping(int t) {
         q.offerLast(t);
         while (q.peekFirst() < t - 3000) {
@@ -102,7 +102,7 @@ public:
     RecentCounter() {
 
     }
-    
+
     int ping(int t) {
         q.push_back(t);
         while (q.front() < t - 3000) {
@@ -150,20 +150,20 @@ func (this *RecentCounter) Ping(t int) int {
 ### **JavaScript**
 
 ```js
-var RecentCounter = function() {
-    this.q = [];
+var RecentCounter = function () {
+  this.q = [];
 };
 
-/** 
+/**
  * @param {number} t
  * @return {number}
  */
-RecentCounter.prototype.ping = function(t) {
-    this.q.push(t);
-    while (this.q[0] < t - 3000) {
-        this.q.shift();
-    }
-    return this.q.length;
+RecentCounter.prototype.ping = function (t) {
+  this.q.push(t);
+  while (this.q[0] < t - 3000) {
+    this.q.shift();
+  }
+  return this.q.length;
 };
 
 /**

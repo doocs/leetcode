@@ -2,7 +2,7 @@ class Solution:
     def findBlackPixel(self, picture: List[List[str]], target: int) -> int:
         m, n = len(picture), len(picture[0])
         rows = [0] * m
-        cols = collections.defaultdict(list)
+        cols = defaultdict(list)
         for i in range(m):
             for j in range(n):
                 if picture[i][j] == 'B':
@@ -14,7 +14,8 @@ class Solution:
                 if i == k:
                     t[i][k] = True
                 else:
-                    t[i][k] = all([picture[i][j] == picture[k][j] for j in range(n)])
+                    t[i][k] = all([picture[i][j] == picture[k][j]
+                                   for j in range(n)])
                 t[k][i] = t[i][k]
         res = 0
         for i in range(m):

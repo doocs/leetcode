@@ -1,7 +1,7 @@
 class Solution:
     def sortFeatures(self, features: List[str], responses: List[str]) -> List[str]:
         feature_set = set(features)
-        counter = collections.Counter()
+        counter = Counter()
         for resp in responses:
             for feat in set(resp.split(' ')):
                 if feat in feature_set:

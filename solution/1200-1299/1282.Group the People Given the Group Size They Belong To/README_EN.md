@@ -50,7 +50,7 @@ Other possible solutions are [[2,1,6],[5],[0,4,3]] and [[5],[0,6,2],[4,3,1]].
 ```python
 class Solution:
     def groupThePeople(self, groupSizes: List[int]) -> List[List[int]]:
-        mp = collections.defaultdict(list)
+        mp = defaultdict(list)
         for i, x in enumerate(groupSizes):
             mp[x].append(i)
         res = []

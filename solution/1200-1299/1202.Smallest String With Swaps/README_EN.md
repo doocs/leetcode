@@ -52,7 +52,6 @@ Swap s[0] and s[1], s = &quot;abc&quot;
 	<li><code>s</code>&nbsp;only contains lower case English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -73,7 +72,7 @@ class Solution:
         for a, b in pairs:
             p[find(a)] = find(b)
 
-        mp = collections.defaultdict(list)
+        mp = defaultdict(list)
         for i in range(n):
             heapq.heappush(mp[find(i)], s[i])
         chars = list(s)

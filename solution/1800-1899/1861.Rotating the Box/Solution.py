@@ -6,7 +6,7 @@ class Solution:
             for j in range(n):
                 res[j][m - i - 1] = box[i][j]
         for j in range(m):
-            q = collections.deque()
+            q = deque()
             for i in range(n - 1, -1, -1):
                 if res[i][j] == '*':
                     q.clear()

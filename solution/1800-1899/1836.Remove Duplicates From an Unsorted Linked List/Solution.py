@@ -6,7 +6,7 @@
 class Solution:
     def deleteDuplicatesUnsorted(self, head: ListNode) -> ListNode:
         cur = head
-        counter = collections.Counter()
+        counter = Counter()
         while cur:
             counter[cur.val] += 1
             cur = cur.next

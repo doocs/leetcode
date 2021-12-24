@@ -1,7 +1,7 @@
 class Solution:
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
-        w = collections.defaultdict(lambda: 1)
-        p = collections.defaultdict()
+        w = defaultdict(lambda: 1)
+        p = defaultdict()
         for a, b in equations:
             p[a] = a
             p[b] = b

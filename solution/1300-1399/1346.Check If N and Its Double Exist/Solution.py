@@ -1,6 +1,6 @@
 class Solution:
     def checkIfExist(self, arr: List[int]) -> bool:
-        map = collections.defaultdict(int)
+        map = defaultdict(int)
         for i, num in enumerate(arr):
             map[num] = i
         for i, num in enumerate(arr):

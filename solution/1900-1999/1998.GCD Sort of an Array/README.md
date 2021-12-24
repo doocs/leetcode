@@ -134,7 +134,7 @@ class Solution:
     def gcdSort(self, nums: List[int]) -> bool:
         n = 10 ** 5 + 10
         p = list(range(n))
-        f = collections.defaultdict(list)
+        f = defaultdict(list)
         mx = max(nums)
         for i in range(2, mx + 1):
             if f[i]:

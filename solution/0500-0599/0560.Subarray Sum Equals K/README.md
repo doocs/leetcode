@@ -1,4 +1,4 @@
-# [560. 和为K的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k)
+# [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k)
 
 [English Version](/solution/0500-0599/0560.Subarray%20Sum%20Equals%20K/README_EN.md)
 
@@ -22,7 +22,6 @@
 	<li>数组中元素的范围是 [-1000, 1000] ，且整数&nbsp;<strong>k&nbsp;</strong>的范围是&nbsp;[-1e7, 1e7]。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -36,7 +35,7 @@
 ```python
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        mp = collections.Counter()
+        mp = Counter()
         mp[0] = 1
         res = s = 0
         for num in nums:
@@ -71,16 +70,17 @@ class Solution {
 
 ```ts
 function subarraySum(nums: number[], k: number): number {
-    let ans = 0, pre = 0;
-    let hashTable = new Map();
-    hashTable.set(0, 1);
-    for (let num of nums) {
-        pre += num;
-        ans += (hashTable.get(pre - k) || 0);
-        hashTable.set(pre, (hashTable.get(pre) || 0) + 1);
-    }
-    return ans;
-};
+  let ans = 0,
+    pre = 0;
+  let hashTable = new Map();
+  hashTable.set(0, 1);
+  for (let num of nums) {
+    pre += num;
+    ans += hashTable.get(pre - k) || 0;
+    hashTable.set(pre, (hashTable.get(pre) || 0) + 1);
+  }
+  return ans;
+}
 ```
 
 ### **C++**

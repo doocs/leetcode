@@ -87,7 +87,7 @@ class Solution:
     def displayTable(self, orders: List[List[str]]) -> List[List[str]]:
         tables = set()
         foods = set()
-        mp = collections.Counter()
+        mp = Counter()
         for _, table, food in orders:
             tables.add(int(table))
             foods.add(food)

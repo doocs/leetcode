@@ -11,7 +11,7 @@ class Solution:
         for a, b in pairs:
             p[find(a)] = find(b)
 
-        mp = collections.defaultdict(list)
+        mp = defaultdict(list)
         for i in range(n):
             heapq.heappush(mp[find(i)], s[i])
         chars = list(s)

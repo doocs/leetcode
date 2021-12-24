@@ -1,8 +1,8 @@
 class FirstUnique:
 
     def __init__(self, nums: List[int]):
-        self.counter = collections.OrderedDict()
-        self.unique_nums = collections.OrderedDict()
+        self.counter = OrderedDict()
+        self.unique_nums = OrderedDict()
         for num in nums:
             self.counter[num] = self.counter.get(num, 0) + 1
         for k, v in self.counter.items():

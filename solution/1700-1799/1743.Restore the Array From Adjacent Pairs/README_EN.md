@@ -50,7 +50,6 @@ Another solution is [-3,1,4,-2], which would also be accepted.
 	<li>There exists some <code>nums</code> that has <code>adjacentPairs</code> as its pairs.</li>
 </ul>
 
-
 ## Solutions
 
 Traverse the graph from the point where the degree is one.
@@ -62,7 +61,7 @@ Traverse the graph from the point where the degree is one.
 ```python
 class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
-        graph = collections.defaultdict(list)
+        graph = defaultdict(list)
         for pair in adjacentPairs:
             graph[pair[0]].append(pair[1])
             graph[pair[1]].append(pair[0])

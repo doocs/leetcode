@@ -7,7 +7,7 @@
 class Solution:
     def isEvenOddTree(self, root: TreeNode) -> bool:
         even = True
-        q = collections.deque([root])
+        q = deque([root])
         while q:
             n = len(q)
             prev = 0 if even else 10 ** 6

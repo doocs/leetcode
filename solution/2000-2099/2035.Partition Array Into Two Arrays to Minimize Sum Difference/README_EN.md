@@ -55,8 +55,8 @@ The absolute difference between the sums of the arrays is abs((2 + 4 + -9) - (-1
 class Solution:
     def minimumDifference(self, nums: List[int]) -> int:
         n = len(nums) >> 1
-        f = collections.defaultdict(set)
-        g = collections.defaultdict(set)
+        f = defaultdict(set)
+        g = defaultdict(set)
         for i in range(1 << n):
             s = cnt = 0
             s1 = cnt1 = 0

@@ -39,7 +39,6 @@
 	<li>树的节点总数在 <code>[0, 10^4]</code> 之间</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -65,7 +64,7 @@ class Solution:
     def levelOrder(self, root: 'Node') -> List[List[int]]:
         if root is None:
             return []
-        q = collections.deque([root])
+        q = deque([root])
         res = []
         while q:
             n = len(q)

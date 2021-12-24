@@ -52,7 +52,7 @@ class Codec:
         """
         if not root:
             return '[]'
-        queue = collections.deque()
+        queue = deque()
         queue.append(root)
         res = []
         while queue:
@@ -74,7 +74,7 @@ class Codec:
         """
         if not data or data == '[]':
             return None
-        queue = collections.deque()
+        queue = deque()
         nodes = data[1:-1].split(',')
         root = TreeNode(nodes[0])
         queue.append(root)

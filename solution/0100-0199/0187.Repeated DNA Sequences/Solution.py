@@ -1,7 +1,7 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
         n = len(s) - 10
-        cnt = collections.Counter()
+        cnt = Counter()
         ans = []
         for i in range(n + 1):
             sub = s[i: i + 10]

@@ -41,7 +41,6 @@
 	<li><code>0 <= deliciousness[i] <= 2<sup>20</sup></code></li>
 </ul>
 
-
 ## 解法
 
 用最暴力的方法枚举每对元素肯定会超时，可以用哈希表优化对**之前元素出现次数**的查询。
@@ -60,7 +59,7 @@ class Solution:
         mod = 1000000007
         limit = max(deliciousness) * 2
         pairs = 0
-        freq = collections.defaultdict(int)
+        freq = defaultdict(int)
         for d in deliciousness:
             target = 1
             while target <= limit:

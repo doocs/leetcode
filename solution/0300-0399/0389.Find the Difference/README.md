@@ -64,7 +64,7 @@
 ```python
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        counter = collections.Counter(s)
+        counter = Counter(s)
         for c in t:
             if counter[c] <= 0:
                 return c

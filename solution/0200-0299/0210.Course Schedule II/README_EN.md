@@ -58,12 +58,12 @@ So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 ```python
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        edges = collections.defaultdict(list)
+        edges = defaultdict(list)
         indegree = [0] * numCourses
         for i, j in prerequisites:
             edges[j].append(i)
             indegree[i] += 1
-        q = collections.deque()
+        q = deque()
         for i in range(numCourses):
             if indegree[i] == 0:
                 q.append(i)

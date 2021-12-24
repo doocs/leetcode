@@ -8,11 +8,7 @@
 
 <p>Given the <code>head</code> of a linked list, find all the values that appear <strong>more than once</strong> in the list and delete the nodes that have any of those values.</p>
 
-
-
 <p>Return <em>the linked list after the deletions.</em></p>
-
-
 
 <p>&nbsp;</p>
 
@@ -30,8 +26,6 @@
 
 </pre>
 
-
-
 <p><strong>Example 2:</strong></p>
 
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1836.Remove%20Duplicates%20From%20an%20Unsorted%20Linked%20List/images/tmp-linked-list-1.jpg" style="width: 422px; height: 151px;" />
@@ -45,8 +39,6 @@
 <strong>Explanation:</strong> 2 and 1 both appear twice. All the elements should be deleted.
 
 </pre>
-
-
 
 <p><strong>Example 3:</strong></p>
 
@@ -62,13 +54,9 @@
 
 </pre>
 
-
-
 <p>&nbsp;</p>
 
 <p><strong>Constraints:</strong></p>
-
-
 
 <ul>
 	<li>The number of nodes in the list is in the range&nbsp;<code>[1, 10<sup>5</sup>]</code></li>
@@ -96,7 +84,7 @@
 class Solution:
     def deleteDuplicatesUnsorted(self, head: ListNode) -> ListNode:
         cur = head
-        counter = collections.Counter()
+        counter = Counter()
         while cur:
             counter[cur.val] += 1
             cur = cur.next

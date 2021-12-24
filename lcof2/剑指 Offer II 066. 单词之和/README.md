@@ -46,7 +46,6 @@ mapSum.sum(&quot;ap&quot;);           // return 5 (<u>ap</u>ple + <u>ap</u>p = 3
 
 <p><meta charset="UTF-8" />注意：本题与主站 677&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/map-sum-pairs/">https://leetcode-cn.com/problems/map-sum-pairs/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -66,8 +65,8 @@ class MapSum:
         """
         Initialize your data structure here.
         """
-        self.data = collections.defaultdict(int)
-        self.t = collections.defaultdict(int)
+        self.data = defaultdict(int)
+        self.t = defaultdict(int)
 
     def insert(self, key: str, val: int) -> None:
         old = self.t[key]

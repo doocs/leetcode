@@ -79,7 +79,7 @@
 #         self.right = right
 class Solution:
     def correctBinaryTree(self, root: TreeNode) -> TreeNode:
-        q = collections.deque([root])
+        q = deque([root])
         res = root
         p = {}
         while q:
@@ -113,7 +113,7 @@ class Solution:
 #         self.right = right
 class Solution:
     def correctBinaryTree(self, root: TreeNode) -> TreeNode:
-        q = collections.deque([root])
+        q = deque([root])
         while q:
             n = len(q)
             for _ in range(n):

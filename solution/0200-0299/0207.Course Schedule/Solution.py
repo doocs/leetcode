@@ -1,11 +1,11 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        edges = collections.defaultdict(list)
+        edges = defaultdict(list)
         indegree = [0] * numCourses
         for i, j in prerequisites:
             edges[j].append(i)
             indegree[i] += 1
-        q = collections.deque()
+        q = deque()
         for i in range(numCourses):
             if indegree[i] == 0:
                 q.append(i)

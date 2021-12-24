@@ -1,6 +1,6 @@
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
-        counter = collections.Counter(s)
+        counter = Counter(s)
         cnt = 0
         for val in counter.values():
             if (val & 1) == 1:

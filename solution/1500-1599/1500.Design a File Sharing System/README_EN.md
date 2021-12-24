@@ -118,7 +118,7 @@ class FileSharing:
         self.cur = 0
         self.chunks = m
         self.reused = []
-        self.user_chunks = collections.defaultdict(set)
+        self.user_chunks = defaultdict(set)
 
     def join(self, ownedChunks: List[int]) -> int:
         if self.reused:
@@ -166,7 +166,7 @@ class FileSharing {
         reused = new TreeSet<>();
         userChunks = new TreeMap<>();
     }
-    
+
     public int join(List<Integer> ownedChunks) {
         int userID;
         if (reused.isEmpty()) {
@@ -178,12 +178,12 @@ class FileSharing {
         userChunks.put(userID, new HashSet<>(ownedChunks));
         return userID;
     }
-    
+
     public void leave(int userID) {
         reused.add(userID);
         userChunks.remove(userID);
     }
-    
+
     public List<Integer> request(int userID, int chunkID) {
         if (chunkID < 1 || chunkID > chunks) {
             return Collections.emptyList();

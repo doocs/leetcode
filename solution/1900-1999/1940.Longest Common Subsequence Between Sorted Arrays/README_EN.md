@@ -57,7 +57,7 @@
 class Solution:
     def longestCommomSubsequence(self, arrays: List[List[int]]) -> List[int]:
         n = len(arrays)
-        counter = collections.defaultdict(int)
+        counter = defaultdict(int)
         for array in arrays:
             for e in array:
                 counter[e] += 1

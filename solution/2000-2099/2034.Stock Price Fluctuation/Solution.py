@@ -5,19 +5,18 @@ class StockPrice:
         self.mp = {}
         self.mi = []
         self.mx = []
-        self.counter = collections.Counter()
+        self.counter = Counter()
 
     def update(self, timestamp: int, price: int) -> None:
         if timestamp in self.mp:
             old_price = self.mp[timestamp]
             self.counter[old_price] -= 1
-            
+
         self.mp[timestamp] = price
         self.last_ts = max(self.last_ts, timestamp)
         self.counter[price] += 1
         heapq.heappush(self.mi, price)
         heapq.heappush(self.mx, -price)
-        
 
     def current(self) -> int:
         return self.mp[self.last_ts]

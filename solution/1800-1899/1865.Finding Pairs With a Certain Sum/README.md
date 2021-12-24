@@ -76,7 +76,7 @@ class FindSumPairs:
     def __init__(self, nums1: List[int], nums2: List[int]):
         self.nums1 = nums1
         self.nums2 = nums2
-        self.counter = collections.Counter(nums2)
+        self.counter = Counter(nums2)
 
     def add(self, index: int, val: int) -> None:
         old_val = self.nums2[index]

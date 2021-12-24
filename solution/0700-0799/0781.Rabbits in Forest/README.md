@@ -35,7 +35,6 @@
 	<li><code>answers[i]</code>&nbsp;是在&nbsp;<code>[0, 999]</code>&nbsp;范围内的整数。</li>
 </ol>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -55,7 +54,7 @@
 ```python
 class Solution:
     def numRabbits(self, answers: List[int]) -> int:
-        counter = collections.Counter(answers)
+        counter = Counter(answers)
         return sum([math.ceil(v / (k + 1)) * (k + 1) for k, v in counter.items()])
 ```
 

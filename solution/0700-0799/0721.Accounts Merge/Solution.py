@@ -17,7 +17,7 @@ class Solution:
                 else:
                     email_id[email] = i
 
-        mp = collections.defaultdict(set)
+        mp = defaultdict(set)
         for i in range(n):
             pa = find(i)
             for email in accounts[i][1:]:

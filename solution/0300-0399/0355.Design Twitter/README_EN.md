@@ -60,9 +60,9 @@ class Twitter:
         """
         Initialize your data structure here.
         """
-        self.user_tweets = collections.defaultdict(list)
-        self.user_following = collections.defaultdict(set)
-        self.tweets = collections.defaultdict()
+        self.user_tweets = defaultdict(list)
+        self.user_following = defaultdict(set)
+        self.tweets = defaultdict()
         self.time = 0
 
     def postTweet(self, userId: int, tweetId: int) -> None:
@@ -124,13 +124,13 @@ class Twitter {
         tweets = new HashMap<>();
         time = 0;
     }
-    
+
     /** Compose a new tweet. */
     public void postTweet(int userId, int tweetId) {
         userTweets.computeIfAbsent(userId, k -> new ArrayList<>()).add(tweetId);
         tweets.put(tweetId, ++time);
     }
-    
+
     /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
     public List<Integer> getNewsFeed(int userId) {
         Set<Integer> following = userFollowing.getOrDefault(userId, new HashSet<>());
@@ -151,12 +151,12 @@ class Twitter {
         }
         return res;
     }
-    
+
     /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
     public void follow(int followerId, int followeeId) {
         userFollowing.computeIfAbsent(followerId, k -> new HashSet<>()).add(followeeId);
     }
-    
+
     /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
     public void unfollow(int followerId, int followeeId) {
         userFollowing.computeIfAbsent(followerId, k -> new HashSet<>()).remove(followeeId);

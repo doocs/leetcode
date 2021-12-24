@@ -37,7 +37,7 @@
 ```python
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        chars = collections.defaultdict(list)
+        chars = defaultdict(list)
         for s in strs:
             k = ''.join(sorted(list(s)))
             chars[k].append(s)
@@ -65,17 +65,17 @@ class Solution {
 
 ```ts
 function groupAnagrams(strs: string[]): string[][] {
-    let map = new Map();
-    for (let str of strs) {
-        let arr = str.split('');
-        arr.sort();
-        let key  = arr.join('');
-        let value = map.get(key) ? map.get(key) : [];
-        value.push(str);
-        map.set(key, value);
-    }
-    return Array.from(map.values());
-};
+  let map = new Map();
+  for (let str of strs) {
+    let arr = str.split("");
+    arr.sort();
+    let key = arr.join("");
+    let value = map.get(key) ? map.get(key) : [];
+    value.push(str);
+    map.set(key, value);
+  }
+  return Array.from(map.values());
+}
 ```
 
 ### **C++**

@@ -80,7 +80,7 @@ class Solution:
     def isCousins(self, root: TreeNode, x: int, y: int) -> bool:
         p = list(range(110))
         d = list(range(110))
-        q = collections.deque([root])
+        q = deque([root])
         i = 0
         while q:
             n = len(q)

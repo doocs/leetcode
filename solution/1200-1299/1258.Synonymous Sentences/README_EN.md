@@ -76,7 +76,7 @@ class Solution:
         for a, b in synonyms:
             p[find(a)] = find(b)
 
-        s = collections.defaultdict(set)
+        s = defaultdict(set)
         for a, b in synonyms:
             s[find(a)].add(a)
             s[find(b)].add(b)

@@ -101,7 +101,7 @@ class Solution:
                 p[x] = find(p[x])
             return p[x]
 
-        mp = collections.defaultdict(list)
+        mp = defaultdict(list)
         for i, j in dislikes:
             mp[i - 1].append(j - 1)
             mp[j - 1].append(i - 1)

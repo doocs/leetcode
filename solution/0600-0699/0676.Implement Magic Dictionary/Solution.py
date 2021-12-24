@@ -10,7 +10,7 @@ class MagicDictionary:
 
     def buildDict(self, dictionary: List[str]) -> None:
         self.words = set(dictionary)
-        self.counter = collections.Counter(
+        self.counter = Counter(
             p for word in dictionary for p in self._patterns(word))
 
     def search(self, searchWord: str) -> bool:

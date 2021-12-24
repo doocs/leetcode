@@ -51,8 +51,8 @@ Note that &#39;A&#39; and &#39;a&#39; are treated as two different characters.
 ```python
 class Solution:
     def frequencySort(self, s: str) -> str:
-        counter = collections.Counter(s)
-        buckets = collections.defaultdict(list)
+        counter = Counter(s)
+        buckets = defaultdict(list)
         for c, freq in counter.items():
             buckets[freq].append(c)
         res = []

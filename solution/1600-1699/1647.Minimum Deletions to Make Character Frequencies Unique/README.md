@@ -48,7 +48,6 @@
 	<li><code>s</code> 仅含小写英文字母</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -64,7 +63,7 @@
 ```python
 class Solution:
     def minDeletions(self, s: str) -> int:
-        counter = collections.Counter(s)
+        counter = Counter(s)
         vals = [v for v in counter.values()]
         vals.sort(reverse=True)
         ans = 0
@@ -103,21 +102,21 @@ class Solution {
 
 ```ts
 function minDeletions(s: string): number {
-    let map = {};
-    for (let c of s) {
-        map[c] = (map[c] || 0) + 1;
+  let map = {};
+  for (let c of s) {
+    map[c] = (map[c] || 0) + 1;
+  }
+  let ans = 0;
+  let vals: number[] = Object.values(map);
+  vals.sort((a, b) => a - b);
+  for (let i = 1; i < vals.length; ++i) {
+    while (vals[i] > 0 && i != vals.indexOf(vals[i])) {
+      --vals[i];
+      ++ans;
     }
-    let ans = 0;
-    let vals: number[] = Object.values(map);
-    vals.sort((a, b) => a - b);
-    for (let i = 1; i < vals.length; ++i) {
-        while(vals[i] > 0 && i != vals.indexOf(vals[i])) {
-            --vals[i];
-            ++ans;
-        }
-    }
-    return ans;
-};
+  }
+  return ans;
+}
 ```
 
 ### **...**

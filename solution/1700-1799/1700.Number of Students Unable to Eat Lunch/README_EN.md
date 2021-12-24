@@ -61,7 +61,7 @@ Hence all students are able to eat.
 ```python
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
-        counter = collections.Counter(students)
+        counter = Counter(students)
         for i, sandwich in enumerate(sandwiches):
             if counter[sandwich] == 0:
                 return len(students) - i

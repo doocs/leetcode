@@ -47,7 +47,6 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 919&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/complete-binary-tree-inserter/">https://leetcode-cn.com/problems/complete-binary-tree-inserter/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -69,7 +68,7 @@ class CBTInserter:
 
     def __init__(self, root: TreeNode):
         self.tree = []
-        q = collections.deque([root])
+        q = deque([root])
         while q:
             n = len(q)
             for _ in range(n):

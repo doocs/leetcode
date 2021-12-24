@@ -4,7 +4,7 @@ class FileSharing:
         self.cur = 0
         self.chunks = m
         self.reused = []
-        self.user_chunks = collections.defaultdict(set)
+        self.user_chunks = defaultdict(set)
 
     def join(self, ownedChunks: List[int]) -> int:
         if self.reused:

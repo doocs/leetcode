@@ -45,7 +45,7 @@
 ```python
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
-        counter = collections.Counter(arr)
+        counter = Counter(arr)
         s = set()
         for num in counter.values():
             if num in s:

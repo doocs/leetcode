@@ -59,7 +59,6 @@ magicDictionary.search(&quot;leetcoded&quot;); // 返回 False
 
 <p><meta charset="UTF-8" />注意：本题与主站 676&nbsp;题相同：&nbsp;<a href="https://leetcode-cn.com/problems/implement-magic-dictionary/">https://leetcode-cn.com/problems/implement-magic-dictionary/</a></p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -85,7 +84,7 @@ class MagicDictionary:
 
     def buildDict(self, dictionary: List[str]) -> None:
         self.words = set(dictionary)
-        self.counter = collections.Counter(
+        self.counter = Counter(
             p for word in dictionary for p in self._patterns(word))
 
     def search(self, searchWord: str) -> bool:
@@ -115,7 +114,7 @@ class MagicDictionary {
         words = new HashSet<>();
         counter = new HashMap<>();
     }
-    
+
     public void buildDict(String[] dictionary) {
         for (String word : dictionary) {
             words.add(word);
@@ -124,7 +123,7 @@ class MagicDictionary {
             }
         }
     }
-    
+
     public boolean search(String searchWord) {
         for (String p : patterns(searchWord)) {
             int cnt = counter.getOrDefault(p, 0);
@@ -165,7 +164,7 @@ public:
     MagicDictionary() {
 
     }
-    
+
     void buildDict(vector<string> dictionary) {
         for (string word : dictionary)
         {
@@ -173,7 +172,7 @@ public:
             for (string p : patterns(word)) ++counter[p];
         }
     }
-    
+
     bool search(string searchWord) {
         for (string p : patterns(searchWord))
         {

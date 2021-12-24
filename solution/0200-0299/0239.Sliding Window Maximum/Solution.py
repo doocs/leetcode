@@ -1,6 +1,6 @@
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        q, res = collections.deque(), []
+        q, res = deque(), []
         for i, num in enumerate(nums):
             if q and i - k + 1 > q[0]:
                 q.popleft()

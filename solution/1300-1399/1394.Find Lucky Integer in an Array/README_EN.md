@@ -84,7 +84,7 @@
 ```python
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
-        counter = collections.Counter(arr)
+        counter = Counter(arr)
         ans = -1
         for num, n in counter.items():
             if num == n and ans < num:

@@ -1,6 +1,6 @@
 class Solution:
     def makeEqual(self, words: List[str]) -> bool:
-        counter = collections.Counter()
+        counter = Counter()
         for word in words:
             for c in word:
                 counter[c] += 1

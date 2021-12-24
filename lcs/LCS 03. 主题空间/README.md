@@ -123,7 +123,7 @@ class Solution:
                         if grid[i + x][j + y] == '0' or grid[i][j] == grid[i + x][j + y]:
                             p[find(i * n + j)] = find((i + x) * n + j + y)
 
-        mp = collections.defaultdict(int)
+        mp = defaultdict(int)
         res = 0
         for i in range(m):
             for j in range(n):
@@ -201,7 +201,7 @@ public:
         {
             for (int j = 0; j < n; ++j)
             {
-                if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || grid[i][j] == '0') 
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || grid[i][j] == '0')
                     p[find(i * n + j)] = find(m * n);
                 else
                 {

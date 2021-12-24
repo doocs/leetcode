@@ -64,7 +64,7 @@ class TwoSum:
         """
         Initialize your data structure here.
         """
-        self.counter = collections.Counter()
+        self.counter = Counter()
 
     def add(self, number: int) -> None:
         """
@@ -104,12 +104,12 @@ class TwoSum {
     public TwoSum() {
         counter = new HashMap<>();
     }
-    
+
     /** Add the number to an internal data structure.. */
     public void add(int number) {
         counter.put(number, counter.getOrDefault(number, 0) + 1);
     }
-    
+
     /** Find if there exists any pair of numbers which sum is equal to the value. */
     public boolean find(int value) {
         for (int num : counter.keySet()) {

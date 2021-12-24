@@ -5,6 +5,7 @@
 ## Description
 
 Given the <code>root</code> of a binary tree, return <em>the average value of the nodes on each level in the form of an array</em>. Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0637.Average%20of%20Levels%20in%20Binary%20Tree/images/avg1-tree.jpg" style="width: 277px; height: 302px;" />
@@ -30,7 +31,6 @@ Hence return [3, 14.5, 11].
 	<li><code>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -47,7 +47,7 @@ Hence return [3, 14.5, 11].
 class Solution:
     def averageOfLevels(self, root: TreeNode) -> List[float]:
         res = []
-        q = collections.deque([root])
+        q = deque([root])
         while q:
             n = len(q)
             s = 0
@@ -119,25 +119,25 @@ class Solution {
  * @param {TreeNode} root
  * @return {number[]}
  */
-var averageOfLevels = function(root) {
-    let res = [];
-    let queue = [root];
-    while (queue.length > 0) {
-        n = queue.length;
-        let sum = 0;
-        for (let i = 0; i < n; i++) {
-            let node = queue.shift();
-            sum += node.val;
-            if (node.left) {
-                queue.push(node.left);
-            }
-            if (node.right) {
-                queue.push(node.right);
-            }
-        }
-        res.push(sum / n);
+var averageOfLevels = function (root) {
+  let res = [];
+  let queue = [root];
+  while (queue.length > 0) {
+    n = queue.length;
+    let sum = 0;
+    for (let i = 0; i < n; i++) {
+      let node = queue.shift();
+      sum += node.val;
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
-    return res;
+    res.push(sum / n);
+  }
+  return res;
 };
 ```
 

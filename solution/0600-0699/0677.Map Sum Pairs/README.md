@@ -63,8 +63,8 @@ class MapSum:
         """
         Initialize your data structure here.
         """
-        self.data = collections.defaultdict(int)
-        self.t = collections.defaultdict(int)
+        self.data = defaultdict(int)
+        self.t = defaultdict(int)
 
     def insert(self, key: str, val: int) -> None:
         old = self.t[key]

@@ -62,7 +62,7 @@ The question can be understood as, let the vertical line pass through the edge o
 ```python
 class Solution:
     def leastBricks(self, wall: List[List[int]]) -> int:
-        cnt = collections.defaultdict(int)
+        cnt = defaultdict(int)
         for row in wall:
             width = 0
             for brick in row[:-1]:

@@ -54,7 +54,6 @@
 	<li>题目数据保证存在一些以 <code>adjacentPairs</code> 作为元素对的数组 <code>nums</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -70,7 +69,7 @@
 ```python
 class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
-        graph = collections.defaultdict(list)
+        graph = defaultdict(list)
         for pair in adjacentPairs:
             graph[pair[0]].append(pair[1])
             graph[pair[1]].append(pair[0])

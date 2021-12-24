@@ -2,13 +2,13 @@ class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
         def gcd(a, b) -> int:
             return a if b == 0 else gcd(b, a % b)
-            
+
         n = len(points)
         if n < 3:
             return n
         res = 0
         for i in range(n - 1):
-            counter = collections.Counter()
+            counter = Counter()
             t_max = duplicate = 0
             for j in range(i + 1, n):
                 delta_x = points[i][0] - points[j][0]

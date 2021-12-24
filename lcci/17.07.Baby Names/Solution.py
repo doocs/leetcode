@@ -1,7 +1,7 @@
 class Solution:
     def trulyMostPopular(self, names: List[str], synonyms: List[str]) -> List[str]:
-        mp = collections.defaultdict(int)
-        p = collections.defaultdict(str)
+        mp = defaultdict(int)
+        p = defaultdict(str)
 
         def find(x):
             if p[x] != x:

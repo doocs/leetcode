@@ -4,9 +4,9 @@ class Twitter:
         """
         Initialize your data structure here.
         """
-        self.user_tweets = collections.defaultdict(list)
-        self.user_following = collections.defaultdict(set)
-        self.tweets = collections.defaultdict()
+        self.user_tweets = defaultdict(list)
+        self.user_following = defaultdict(set)
+        self.tweets = defaultdict()
         self.time = 0
 
     def postTweet(self, userId: int, tweetId: int) -> None:
@@ -41,7 +41,6 @@ class Twitter:
         following = self.user_following[followerId]
         if followeeId in following:
             following.remove(followeeId)
-
 
 
 # Your Twitter object will be instantiated and called as such:

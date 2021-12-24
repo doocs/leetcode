@@ -75,7 +75,7 @@ class Solution:
     def connect(self, root: 'Node') -> 'Node':
         if root is None or (root.left is None and root.right is None):
             return root
-        q = collections.deque([root])
+        q = deque([root])
         while q:
             size = len(q)
             cur = None

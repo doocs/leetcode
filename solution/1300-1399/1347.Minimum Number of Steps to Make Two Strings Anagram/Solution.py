@@ -1,6 +1,6 @@
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
-        counter = collections.Counter(s)
+        counter = Counter(s)
         res = 0
         for c in t:
             if counter[c] > 0:

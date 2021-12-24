@@ -62,7 +62,6 @@ Window position                Max
 	<li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -72,7 +71,7 @@ Window position                Max
 ```python
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        q, res = collections.deque(), []
+        q, res = deque(), []
         for i, num in enumerate(nums):
             if q and i - k + 1 > q[0]:
                 q.popleft()
@@ -121,24 +120,22 @@ class Solution {
  * @return {number[]}
  */
 var maxSlidingWindow = function (nums, k) {
-    let len = nums.length;
-    if (len < k) return [];
-    let res = [], win = [];
-    for (let i = 0; i < k; i++) {
-        while (win.length > 0 && nums[i] >= nums[win[win.length - 1]])
-            win.pop();
-        win.push(i);
-    }
+  let len = nums.length;
+  if (len < k) return [];
+  let res = [],
+    win = [];
+  for (let i = 0; i < k; i++) {
+    while (win.length > 0 && nums[i] >= nums[win[win.length - 1]]) win.pop();
+    win.push(i);
+  }
+  res.push(nums[win[0]]);
+  for (let i = k; i < len; i++) {
+    while (win.length > 0 && nums[i] >= nums[win[win.length - 1]]) win.pop();
+    if (win.length > 0 && win[0] < i - k + 1) win.shift();
+    win.push(i);
     res.push(nums[win[0]]);
-    for (let i = k; i < len; i++) {
-        while (win.length > 0 && nums[i] >= nums[win[win.length - 1]])
-            win.pop();
-        if (win.length > 0 && win[0] < i - k + 1)
-            win.shift();
-        win.push(i);
-        res.push(nums[win[0]]);
-    }
-    return res;
+  }
+  return res;
 };
 ```
 

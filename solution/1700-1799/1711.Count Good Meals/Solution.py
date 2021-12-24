@@ -3,7 +3,7 @@ class Solution:
         mod = 1000000007
         limit = max(deliciousness) * 2
         pairs = 0
-        freq = collections.defaultdict(int)
+        freq = defaultdict(int)
         for d in deliciousness:
             target = 1
             while target <= limit:

@@ -34,7 +34,6 @@
 	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -44,7 +43,7 @@
 ```python
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
-        counter = collections.Counter(s)
+        counter = Counter(s)
         cnt = -1
         for c, times in counter.items():
             if cnt == -1:

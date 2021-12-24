@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def deepestLeavesSum(self, root: TreeNode) -> int:
-        q = collections.deque([root])
+        q = deque([root])
         s = 0
         while q:
             n = len(q)

@@ -38,7 +38,6 @@ B = [50, 12, 32, 46, 28]
 
 <p>&nbsp;</p>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -52,7 +51,7 @@ B = [50, 12, 32, 46, 28]
 ```python
 class Solution:
     def anagramMappings(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        mapper = collections.defaultdict(set)
+        mapper = defaultdict(set)
         for i, num in enumerate(nums2):
             mapper[num].add(i)
         return [mapper[num].pop() for num in nums1]

@@ -99,6 +99,7 @@ if find(a) != find(b):
 
 模板 3——维护到祖宗节点距离的并查集：
 x
+
 ```python
 # 初始化，p存储每个点的父节点，d[x]存储x到p[x]的距离
 p = list(range(n))
@@ -133,7 +134,7 @@ class Solution:
                 p[x] = find(p[x])
             return p[x]
 
-        mp = collections.defaultdict(list)
+        mp = defaultdict(list)
         for i, j in dislikes:
             mp[i - 1].append(j - 1)
             mp[j - 1].append(i - 1)

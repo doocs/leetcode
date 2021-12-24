@@ -39,7 +39,6 @@
 	<li>What if elements of <code>nums2</code> are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -49,7 +48,7 @@
 ```python
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        counter = collections.Counter(nums1)
+        counter = Counter(nums1)
         res = []
         for num in nums2:
             if counter[num] > 0:
@@ -91,19 +90,19 @@ class Solution {
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersect = function(nums1, nums2) {
-    const counter = {};
-    for (const num of nums1) {
-        counter[num] = (counter[num] || 0) + 1;
+var intersect = function (nums1, nums2) {
+  const counter = {};
+  for (const num of nums1) {
+    counter[num] = (counter[num] || 0) + 1;
+  }
+  let res = [];
+  for (const num of nums2) {
+    if (counter[num] > 0) {
+      res.push(num);
+      counter[num] -= 1;
     }
-    let res = [];
-    for (const num of nums2) {
-        if (counter[num] > 0) {
-            res.push(num);
-            counter[num] -= 1;
-        }
-    }
-    return res;
+  }
+  return res;
 };
 ```
 

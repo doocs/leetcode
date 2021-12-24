@@ -8,7 +8,7 @@ class CBTInserter:
 
     def __init__(self, root: TreeNode):
         self.tree = []
-        q = collections.deque([root])
+        q = deque([root])
         while q:
             n = len(q)
             for _ in range(n):

@@ -53,8 +53,8 @@ class MapSum:
         """
         Initialize your data structure here.
         """
-        self.data = collections.defaultdict(int)
-        self.t = collections.defaultdict(int)
+        self.data = defaultdict(int)
+        self.t = defaultdict(int)
 
     def insert(self, key: str, val: int) -> None:
         old = self.t[key]
@@ -84,7 +84,7 @@ class MapSum {
         data = new HashMap<>();
         t = new HashMap<>();
     }
-    
+
     public void insert(String key, int val) {
         int old = t.getOrDefault(key, 0);
         t.put(key, val);
@@ -93,7 +93,7 @@ class MapSum {
             data.put(k, data.getOrDefault(k, 0) + (val - old));
         }
     }
-    
+
     public int sum(String prefix) {
         return data.getOrDefault(prefix, 0);
     }

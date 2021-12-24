@@ -37,7 +37,6 @@ Their respective sums are 4, 8, 8, and 16, all of which are powers of 2.
 	<li><code>0 &lt;= deliciousness[i] &lt;= 2<sup>20</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -50,7 +49,7 @@ class Solution:
         mod = 1000000007
         limit = max(deliciousness) * 2
         pairs = 0
-        freq = collections.defaultdict(int)
+        freq = defaultdict(int)
         for d in deliciousness:
             target = 1
             while target <= limit:

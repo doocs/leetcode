@@ -30,7 +30,6 @@
 	<li><code>s[i]</code> is either <code>&#39;A&#39;</code>, <code>&#39;C&#39;</code>, <code>&#39;G&#39;</code>, or <code>&#39;T&#39;</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -41,7 +40,7 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
         n = len(s) - 10
-        cnt = collections.Counter()
+        cnt = Counter()
         ans = []
         for i in range(n + 1):
             sub = s[i: i + 10]
@@ -78,18 +77,18 @@ class Solution {
  * @param {string} s
  * @return {string[]}
  */
-var findRepeatedDnaSequences = function(s) {
-    const n = s.length - 10;
-    let cnt = new Map();
-    let ans = [];
-    for (let i = 0; i <= n; ++i) {
-        let sub = s.slice(i, i + 10);
-        cnt[sub] = (cnt[sub] || 0) + 1;
-        if (cnt[sub] == 2) {
-            ans.push(sub);
-        }
+var findRepeatedDnaSequences = function (s) {
+  const n = s.length - 10;
+  let cnt = new Map();
+  let ans = [];
+  for (let i = 0; i <= n; ++i) {
+    let sub = s.slice(i, i + 10);
+    cnt[sub] = (cnt[sub] || 0) + 1;
+    if (cnt[sub] == 2) {
+      ans.push(sub);
     }
-    return ans;
+  }
+  return ans;
 };
 ```
 

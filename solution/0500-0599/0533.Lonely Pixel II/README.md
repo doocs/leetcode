@@ -66,7 +66,7 @@ class Solution:
     def findBlackPixel(self, picture: List[List[str]], target: int) -> int:
         m, n = len(picture), len(picture[0])
         rows = [0] * m
-        cols = collections.defaultdict(list)
+        cols = defaultdict(list)
         for i in range(m):
             for j in range(n):
                 if picture[i][j] == 'B':

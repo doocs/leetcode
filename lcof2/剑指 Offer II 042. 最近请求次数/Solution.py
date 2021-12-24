@@ -1,7 +1,7 @@
 class RecentCounter:
 
     def __init__(self):
-        self.q = collections.deque()
+        self.q = deque()
 
     def ping(self, t: int) -> int:
         self.q.append(t)

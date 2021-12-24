@@ -4,7 +4,7 @@ class Solution:
         n = len(pattern)
         if n != len(s):
             return False
-        c2str, str2c = collections.defaultdict(), collections.defaultdict()
+        c2str, str2c = defaultdict(), defaultdict()
         for i in range(n):
             k, v = pattern[i], s[i]
             if k in c2str and c2str[k] != v:

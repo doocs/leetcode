@@ -35,14 +35,14 @@
 ```python
 class Solution:
     def trulyMostPopular(self, names: List[str], synonyms: List[str]) -> List[str]:
-        mp = collections.defaultdict(int)
-        p = collections.defaultdict(str)
+        mp = defaultdict(int)
+        p = defaultdict(str)
 
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         def union(a, b):
             pa, pb = find(a), find(b)
             if pa == pb:

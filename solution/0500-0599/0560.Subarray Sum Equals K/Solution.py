@@ -1,6 +1,6 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        mp = collections.Counter()
+        mp = Counter()
         mp[0] = 1
         res = s = 0
         for num in nums:

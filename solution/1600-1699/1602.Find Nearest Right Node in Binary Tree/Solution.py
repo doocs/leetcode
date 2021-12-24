@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def findNearestRightNode(self, root: TreeNode, u: TreeNode) -> TreeNode:
-        q = collections.deque([root])
+        q = deque([root])
         while q:
             n = len(q)
             for i in range(n):

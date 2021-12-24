@@ -4,7 +4,7 @@ class HitCounter:
         """
         Initialize your data structure here.
         """
-        self.counter = collections.Counter()
+        self.counter = Counter()
 
     def hit(self, timestamp: int) -> None:
         """
@@ -12,7 +12,6 @@ class HitCounter:
         @param timestamp - The current timestamp (in seconds granularity).
         """
         self.counter[timestamp] += 1
-
 
     def getHits(self, timestamp: int) -> int:
         """

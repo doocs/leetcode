@@ -65,8 +65,8 @@
 ```python
 class Solution:
     def frequencySort(self, s: str) -> str:
-        counter = collections.Counter(s)
-        buckets = collections.defaultdict(list)
+        counter = Counter(s)
+        buckets = defaultdict(list)
         for c, freq in counter.items():
             buckets[freq].append(c)
         res = []

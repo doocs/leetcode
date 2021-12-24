@@ -1,7 +1,7 @@
 class WordsFrequency:
 
     def __init__(self, book: List[str]):
-        self.counter = collections.Counter(book)
+        self.counter = Counter(book)
 
     def get(self, word: str) -> int:
         return self.counter[word]

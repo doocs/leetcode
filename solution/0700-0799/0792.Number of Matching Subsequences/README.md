@@ -54,7 +54,7 @@ buckets = {
 ```python
 class Solution:
     def numMatchingSubseq(self, s: str, words: List[str]) -> int:
-        buckets = collections.defaultdict(list)
+        buckets = defaultdict(list)
         for word in words:
             buckets[word[0]].append(word)
         res = 0

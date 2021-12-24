@@ -1,6 +1,6 @@
 class Solution:
     def minDeletions(self, s: str) -> int:
-        counter = collections.Counter(s)
+        counter = Counter(s)
         vals = [v for v in counter.values()]
         vals.sort(reverse=True)
         ans = 0

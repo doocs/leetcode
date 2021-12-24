@@ -11,7 +11,7 @@ class Solution:
         for i, j in allowedSwaps:
             p[find(i)] = find(j)
 
-        mp = collections.defaultdict(collections.Counter)
+        mp = defaultdict(Counter)
         for i in range(n):
             mp[find(i)][source[i]] += 1
         res = 0

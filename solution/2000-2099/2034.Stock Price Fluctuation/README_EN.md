@@ -73,19 +73,19 @@ class StockPrice:
         self.mp = {}
         self.mi = []
         self.mx = []
-        self.counter = collections.Counter()
+        self.counter = Counter()
 
     def update(self, timestamp: int, price: int) -> None:
         if timestamp in self.mp:
             old_price = self.mp[timestamp]
             self.counter[old_price] -= 1
-            
+
         self.mp[timestamp] = price
         self.last_ts = max(self.last_ts, timestamp)
         self.counter[price] += 1
         heapq.heappush(self.mi, price)
         heapq.heappush(self.mx, -price)
-        
+
 
     def current(self) -> int:
         return self.mp[self.last_ts]
@@ -122,7 +122,7 @@ class StockPrice {
     public StockPrice() {
 
     }
-    
+
     public void update(int timestamp, int price) {
         if (mp.containsKey(timestamp)) {
             int oldPrice = mp.get(timestamp);
@@ -134,18 +134,18 @@ class StockPrice {
         mi.offer(price);
         mx.offer(price);
     }
-    
+
     public int current() {
         return mp.get(lastTs);
     }
-    
+
     public int maximum() {
         while (counter.getOrDefault(mx.peek(), 0) == 0) {
             mx.poll();
         }
         return mx.peek();
     }
-    
+
     public int minimum() {
         while (counter.getOrDefault(mi.peek(), 0) == 0) {
             mi.poll();
@@ -176,9 +176,9 @@ private:
     unordered_map<int, int> counter;
 public:
     StockPrice() {
-        
+
     }
-    
+
     void update(int timestamp, int price) {
         if (mp.find(timestamp) != mp.end())
         {
@@ -191,16 +191,16 @@ public:
         mi.push(price);
         mx.push(price);
     }
-    
+
     int current() {
         return mp[lastTs];
     }
-    
+
     int maximum() {
         while (!counter[mx.top()]) mx.pop();
         return mx.top();
     }
-    
+
     int minimum() {
         while (!counter[mi.top()]) mi.pop();
         return mi.top();

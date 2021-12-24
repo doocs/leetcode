@@ -62,7 +62,6 @@
 	<li><code>0 &lt;= tree[i] &lt; tree.length</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -78,7 +77,7 @@
 ```python
 class Solution:
     def totalFruit(self, tree: List[int]) -> int:
-        counter = collections.Counter()
+        counter = Counter()
         i = res = 0
         for j, type in enumerate(tree):
             counter[type] += 1

@@ -10,7 +10,7 @@ class Solution:
         if len(nums) < n:
             return False
 
-        edges = collections.defaultdict(list)
+        edges = defaultdict(list)
         indegree = [0] * (n + 1)
         for seq in seqs:
             i = seq[0]
@@ -18,7 +18,7 @@ class Solution:
                 edges[i].append(j)
                 indegree[j] += 1
                 i = j
-        q = collections.deque()
+        q = deque()
         for i in range(1, n + 1):
             if indegree[i] == 0:
                 q.append(i)

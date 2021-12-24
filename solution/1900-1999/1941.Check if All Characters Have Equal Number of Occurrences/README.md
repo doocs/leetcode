@@ -36,7 +36,6 @@
 	<li><code>s</code> 只包含小写英文字母。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -50,7 +49,7 @@
 ```python
 class Solution:
     def areOccurrencesEqual(self, s: str) -> bool:
-        counter = collections.Counter(s)
+        counter = Counter(s)
         cnt = -1
         for c, times in counter.items():
             if cnt == -1:

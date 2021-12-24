@@ -1,6 +1,6 @@
 class Solution:
     def smallestCommonElement(self, mat: List[List[int]]) -> int:
-        counter = collections.Counter()
+        counter = Counter()
         for row in mat:
             for num in row:
                 counter[num] += 1

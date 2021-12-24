@@ -62,8 +62,8 @@ class Solution:
     def verticalOrder(self, root: TreeNode) -> List[List[int]]:
         if root is None:
             return []
-        q = collections.deque([(root, 0)])
-        offset_vals = collections.defaultdict(list)
+        q = deque([(root, 0)])
+        offset_vals = defaultdict(list)
         while q:
             node, offset = q.popleft()
             offset_vals[offset].append(node.val)

@@ -1,4 +1,4 @@
-# [187. 重复的DNA序列](https://leetcode-cn.com/problems/repeated-dna-sequences)
+# [187. 重复的 DNA 序列](https://leetcode-cn.com/problems/repeated-dna-sequences)
 
 [English Version](/solution/0100-0199/0187.Repeated%20DNA%20Sequences/README_EN.md)
 
@@ -35,7 +35,6 @@
 	<li><code>s[i]</code> 为 <code>'A'</code>、<code>'C'</code>、<code>'G'</code> 或 <code>'T'</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -50,7 +49,7 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
         n = len(s) - 10
-        cnt = collections.Counter()
+        cnt = Counter()
         ans = []
         for i in range(n + 1):
             sub = s[i: i + 10]
@@ -89,18 +88,18 @@ class Solution {
  * @param {string} s
  * @return {string[]}
  */
-var findRepeatedDnaSequences = function(s) {
-    const n = s.length - 10;
-    let cnt = new Map();
-    let ans = [];
-    for (let i = 0; i <= n; ++i) {
-        let sub = s.slice(i, i + 10);
-        cnt[sub] = (cnt[sub] || 0) + 1;
-        if (cnt[sub] == 2) {
-            ans.push(sub);
-        }
+var findRepeatedDnaSequences = function (s) {
+  const n = s.length - 10;
+  let cnt = new Map();
+  let ans = [];
+  for (let i = 0; i <= n; ++i) {
+    let sub = s.slice(i, i + 10);
+    cnt[sub] = (cnt[sub] || 0) + 1;
+    if (cnt[sub] == 2) {
+      ans.push(sub);
     }
-    return ans;
+  }
+  return ans;
 };
 ```
 

@@ -1,6 +1,6 @@
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
-        domains = collections.Counter()
+        domains = Counter()
         for item in cpdomains:
             count, domain = item.split()
             count = int(count)

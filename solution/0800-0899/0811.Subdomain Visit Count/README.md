@@ -42,7 +42,6 @@
 	<li>输入中任意一个域名的访问次数都小于<code>10000</code>。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -56,7 +55,7 @@
 ```python
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
-        domains = collections.Counter()
+        domains = Counter()
         for item in cpdomains:
             count, domain = item.split()
             count = int(count)

@@ -23,7 +23,6 @@
 	<li><code>-10<sup>7</sup> &lt;= k &lt;= 10<sup>7</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->
@@ -33,7 +32,7 @@
 ```python
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        mp = collections.Counter()
+        mp = Counter()
         mp[0] = 1
         res = s = 0
         for num in nums:
@@ -66,16 +65,17 @@ class Solution {
 
 ```ts
 function subarraySum(nums: number[], k: number): number {
-    let ans = 0, pre = 0;
-    let hashTable = new Map();
-    hashTable.set(0, 1);
-    for (let num of nums) {
-        pre += num;
-        ans += (hashTable.get(pre - k) || 0);
-        hashTable.set(pre, (hashTable.get(pre) || 0) + 1);
-    }
-    return ans;
-};
+  let ans = 0,
+    pre = 0;
+  let hashTable = new Map();
+  hashTable.set(0, 1);
+  for (let num of nums) {
+    pre += num;
+    ans += hashTable.get(pre - k) || 0;
+    hashTable.set(pre, (hashTable.get(pre) || 0) + 1);
+  }
+  return ans;
+}
 ```
 
 ### **C++**
