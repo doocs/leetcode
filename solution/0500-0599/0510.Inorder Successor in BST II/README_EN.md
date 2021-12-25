@@ -76,13 +76,144 @@ class Node {
 ### **Python3**
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+        self.parent = None
+"""
 
+
+class Solution:
+    def inorderSuccessor(self, node: 'Node') -> 'Optional[Node]':
+        if node.right:
+            node = node.right
+            while node.left:
+                node = node.left
+            return node
+        while node.parent and node == node.parent.right:
+            node = node.parent
+        return node.parent
 ```
 
 ### **Java**
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node parent;
+};
+*/
 
+class Solution {
+
+    public Node inorderSuccessor(Node node) {
+        if (node.right != null) {
+            node = node.right;
+            while (node.left != null) {
+                node = node.left;
+            }
+            return node;
+        }
+        while (node.parent != null && node == node.parent.right) {
+            node = node.parent;
+        }
+        return node.parent;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* parent;
+};
+*/
+
+class Solution {
+public:
+    Node* inorderSuccessor(Node* node) {
+        if (node->right)
+        {
+            node = node->right;
+            while (node->left) node = node->left;
+            return node;
+        }
+        while (node->parent && node == node->parent->right) node = node->parent;
+        return node->parent;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for Node.
+ * type Node struct {
+ *     Val int
+ *     Left *Node
+ *     Right *Node
+ *     Parent *Node
+ * }
+ */
+
+func inorderSuccessor(node *Node) *Node {
+    if node.Right != nil {
+        node = node.Right
+        for node.Left != nil {
+            node = node.Left
+        }
+        return node
+    }
+    for node.Parent != nil && node == node.Parent.Right {
+        node = node.Parent
+    }
+    return node.Parent
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * // Definition for a Node.
+ * function Node(val) {
+ *    this.val = val;
+ *    this.left = null;
+ *    this.right = null;
+ *    this.parent = null;
+ * };
+ */
+
+/**
+ * @param {Node} node
+ * @return {Node}
+ */
+var inorderSuccessor = function (node) {
+    if (node.right) {
+        node = node.right;
+        while (node.left) node = node.left;
+        return node;
+    }
+    while (node.parent && node == node.parent.right) node = node.parent;
+    return node.parent;
+};
 ```
 
 ### **...**
