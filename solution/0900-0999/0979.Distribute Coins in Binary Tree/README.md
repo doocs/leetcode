@@ -61,6 +61,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+先遍历左右子树，获得硬币的余额。比如，我们从左子树得到 `left = "+3"`，说明左子树有 3 个额外的硬币需要移出。如果我们从右子树得到 `right = "-1"`，说明右子树需要额外移入 1 个硬币。累加移动的次数 `abs(+3) + abs(-1)`，然后返回整个二叉树的余额 `left + right + root.val - 1`。
+
+返回最终的移动次数即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +72,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def distributeCoins(self, root: TreeNode) -> int:
+        def dfs(root):
+            nonlocal ans
+            if root is None:
+                return 0
+            left, right = dfs(root.left), dfs(root.right)
+            ans += abs(left) + abs(right)
+            return left + right + root.val - 1
 
+        ans = 0
+        dfs(root)
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +98,109 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    private int ans;
+
+    public int distributeCoins(TreeNode root) {
+        ans = 0;
+        dfs(root);
+        return ans;
+    }
+
+    private int dfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = dfs(root.left);
+        int right = dfs(root.right);
+        ans += Math.abs(left) + Math.abs(right);
+        return left + right + root.val - 1;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans;
+
+    int distributeCoins(TreeNode* root) {
+        ans = 0;
+        dfs(root);
+        return ans;
+    }
+
+    int dfs(TreeNode* root) {
+        if (!root) return 0;
+        int left = dfs(root->left), right = dfs(root->right);
+        ans += abs(left) + abs(right);
+        return left + right + root->val - 1;
+    }
+};
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func distributeCoins(root *TreeNode) int {
+	ans := 0
+	var dfs func(root *TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		left, right := dfs(root.Left), dfs(root.Right)
+		ans += abs(left) + abs(right)
+		return left + right + root.Val - 1
+	}
+	dfs(root)
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
 ```
 
 ### **...**
