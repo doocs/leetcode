@@ -44,6 +44,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+简单动态规划，用 `dp[i]` 表示 `0 ~ i` 的房子能偷到的最高金额
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,7 +53,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
 
+        n = len(nums)
+        dp = [0] * n
+        dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+        for i in range(2, n):
+            dp[i] = max(dp[i - 2] + nums[i], dp[i - 1])
+        return dp[n - 1]
 ```
 
 ### **Java**
@@ -59,7 +71,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int rob(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        int n = nums.length;
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < n; i++) {
+            dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+        }
+        return dp[n - 1];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        if (nums.size() == 1) {
+            return nums[0];
+        }
+        int n = nums.size();
+        vector<int> dp(n, 0);
+        dp[0] = nums[0];
+        dp[1] = max(nums[0], nums[1]);
+        for (int i = 2; i < n; i++) {
+            dp[i] = max(dp[i - 2] + nums[i], dp[i - 1]);
+        }
+        return dp[n - 1];
+    }
+};
+```
+
+### **Go**
+
+```go
+func rob(nums []int) int {
+	if len(nums) == 1 {
+		return nums[0]
+	}
+
+	n := len(nums)
+	dp := make([]int, n)
+	dp[0] = nums[0]
+	dp[1] = max(nums[0], nums[1])
+	for i := 2; i < n; i++ {
+		dp[i] = max(dp[i-2]+nums[i], dp[i-1])
+	}
+	return dp[n-1]
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
 ```
 
 ### **...**
