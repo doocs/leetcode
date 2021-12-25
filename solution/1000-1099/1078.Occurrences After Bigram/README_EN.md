@@ -52,13 +52,63 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
+        words = text.split(' ')
+        return [words[i + 2] for i in range(len(words) - 2) if words[i] == first and words[i + 1] == second]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public String[] findOcurrences(String text, String first, String second) {
+        String[] words = text.split(" ");
+        List<String> ans = new ArrayList<>();
+        for (int i = 0; i < words.length - 2; ++i) {
+            if (first.equals(words[i]) && second.equals(words[i + 1])) {
+                ans.add(words[i + 2]);
+            }
+        }
+        return ans.toArray(new String[0]);
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> findOcurrences(string text, string first, string second) {
+        istringstream is(text);
+        vector<string> words;
+        string word;
+        while (is >> word) words.push_back(word);
+        vector<string> ans;
+        for (int i = 0; i < words.size() - 2; ++i)
+            if (words[i] == first && words[i + 1] == second)
+                ans.push_back(words[i + 2]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findOcurrences(text string, first string, second string) []string {
+	words := strings.Split(text, " ")
+	var ans []string
+	for i := 0; i < len(words)-2; i++ {
+		if words[i] == first && words[i+1] == second {
+			ans = append(ans, words[i+2])
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
