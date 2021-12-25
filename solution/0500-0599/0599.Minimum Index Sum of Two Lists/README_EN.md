@@ -64,13 +64,107 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        ans = []
+        mp = {v: i for i, v in enumerate(list2)}
+        mi = 2000
+        for i, v in enumerate(list1):
+            if v in mp:
+                t = i + mp[v]
+                if t < mi:
+                    mi = t
+                    ans = [v]
+                elif t == mi:
+                    ans.append(v)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public String[] findRestaurant(String[] list1, String[] list2) {
+        Map<String, Integer> mp = new HashMap<>();
+        for (int i = 0; i < list2.length; ++i) {
+            mp.put(list2[i], i);
+        }
+        List<String> ans = new ArrayList<>();
+        int mi = 2000;
+        for (int i = 0; i < list1.length; ++i) {
+            if (mp.containsKey(list1[i])) {
+                int t = i + mp.get(list1[i]);
+                if (t < mi) {
+                    ans = new ArrayList<>();
+                    ans.add(list1[i]);
+                    mi = t;
+                } else if (t == mi) {
+                    ans.add(list1[i]);
+                }
+            }
+        }
+        return ans.toArray(new String[0]);
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
+        unordered_map<string, int> mp;
+        for (int i = 0; i < list2.size(); ++i) mp[list2[i]] = i;
+        int mi = 2000;
+        vector<string> ans;
+        for (int i = 0; i < list1.size(); ++i)
+        {
+            if (mp.count(list1[i]))
+            {
+                int t = i + mp[list1[i]];
+                if (t < mi)
+                {
+                    ans.clear();
+                    ans.push_back(list1[i]);
+                    mi = t;
+                }
+                else if (t == mi)
+                {
+                    ans.push_back(list1[i]);
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```cpp
+func findRestaurant(list1 []string, list2 []string) []string {
+	mp := make(map[string]int)
+	for i, v := range list2 {
+		mp[v] = i
+	}
+	mi := 2000
+	var ans []string
+	for i, v := range list1 {
+		if _, ok := mp[v]; ok {
+			t := i + mp[v]
+			if t < mi {
+				ans = []string{v}
+				mi = t
+			} else if t == mi {
+				ans = append(ans, v)
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
