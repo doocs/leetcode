@@ -1,4 +1,4 @@
-- [LCCI Solutions]
+- LCCI Solutions
     - [01.01. Is Unique](/lcci/01.01.Is%20Unique/README_EN.md)
     - [01.02. Check Permutation](/lcci/01.02.Check%20Permutation/README_EN.md)
     - [01.03. String to URL](/lcci/01.03.String%20to%20URL/README_EN.md)

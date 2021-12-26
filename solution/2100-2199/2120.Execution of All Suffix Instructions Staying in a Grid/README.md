@@ -73,10 +73,11 @@
 	<li><code>s</code> 由 <code>'L'</code>、<code>'R'</code>、<code>'U'</code> 和 <code>'D'</code> 组成</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+直接模拟。
 
 <!-- tabs:start -->
 
@@ -85,7 +86,27 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def executeInstructions(self, n: int, startPos: List[int], s: str) -> List[int]:
+        ans = []
+        m = len(s)
+        mp = {
+            "L": [0, -1],
+            "R": [0, 1],
+            "U": [-1, 0],
+            "D": [1, 0]
+        }
+        for i in range(m):
+            x, y = startPos
+            t = 0
+            for j in range(i, m):
+                a, b = mp[s[j]]
+                if 0 <= x + a < n and 0 <= y + b < n:
+                    x, y, t = x + a, y + b, t + 1
+                else:
+                    break
+            ans.append(t)
+        return ans
 ```
 
 ### **Java**
@@ -93,7 +114,99 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] executeInstructions(int n, int[] startPos, String s) {
+        int m = s.length();
+        int[] ans = new int[m];
+        Map<Character, int[]> mp = new HashMap<>(4);
+        mp.put('L', new int[]{0, -1});
+        mp.put('R', new int[]{0, 1});
+        mp.put('U', new int[]{-1, 0});
+        mp.put('D', new int[]{1, 0});
+        for (int i = 0; i < m; ++i) {
+            int x = startPos[0], y = startPos[1];
+            int t = 0;
+            for (int j = i; j < m; ++j) {
+                char c = s.charAt(j);
+                int a = mp.get(c)[0], b = mp.get(c)[1];
+                if (0 <= x + a && x + a < n && 0 <= y + b && y + b < n) {
+                    x += a;
+                    y += b;
+                    ++t;
+                } else {
+                    break;
+                }
+            }
+            ans[i] = t;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> executeInstructions(int n, vector<int>& startPos, string s) {
+        int m = s.size();
+        vector<int> ans(m);
+        unordered_map<char, vector<int>> mp;
+        mp['L'] = {0, -1};
+        mp['R'] = {0, 1};
+        mp['U'] = {-1, 0};
+        mp['D'] = {1, 0};
+        for (int i = 0; i < m; ++i)
+        {
+            int x = startPos[0], y = startPos[1];
+            int t = 0;
+            for (int j = i; j < m; ++j)
+            {
+                int a = mp[s[j]][0], b = mp[s[j]][1];
+                if (0 <= x + a && x + a < n && 0 <= y + b && y + b < n)
+                {
+                    x += a;
+                    y += b;
+                    ++t;
+                }
+                else break;
+            }
+            ans[i] = t;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func executeInstructions(n int, startPos []int, s string) []int {
+	m := len(s)
+	mp := make(map[byte][]int)
+	mp['L'] = []int{0, -1}
+	mp['R'] = []int{0, 1}
+	mp['U'] = []int{-1, 0}
+	mp['D'] = []int{1, 0}
+	ans := make([]int, m)
+	for i := 0; i < m; i++ {
+		x, y := startPos[0], startPos[1]
+		t := 0
+		for j := i; j < m; j++ {
+			a, b := mp[s[j]][0], mp[s[j]][1]
+			if 0 <= x+a && x+a < n && 0 <= y+b && y+b < n {
+				x += a
+				y += b
+				t++
+			} else {
+				break
+			}
+		}
+		ans[i] = t
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

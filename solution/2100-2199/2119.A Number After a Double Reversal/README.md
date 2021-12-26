@@ -55,7 +55,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def isSameAfterReversals(self, num: int) -> bool:
+        return num == 0 or num % 10 != 0
 ```
 
 ### **Java**
@@ -63,7 +65,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean isSameAfterReversals(int num) {
+        return num == 0 || num % 10 != 0;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isSameAfterReversals(int num) {
+        return num == 0 || num % 10 != 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isSameAfterReversals(num int) bool {
+	return num == 0 || num%10 != 0
+}
 ```
 
 ### **TypeScript**

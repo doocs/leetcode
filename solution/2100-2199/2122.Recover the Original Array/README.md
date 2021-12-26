@@ -64,6 +64,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+对 nums 排序后，`nums[0]` 必然是 `lower[0]`，接下来从在 `[1, i)` 区间内枚举 `higher[0]`，然后使用双指针遍历 nums，得到剩余的 lower 和 higher 元素。
+
+双指针遍历时，可以用 vis 数组标记 higher 中出现过的数字。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +75,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def recoverArray(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        n = len(nums)
+        for i in range(1, n):
+            d = nums[i] - nums[0]
+            if d == 0 or d % 2 == 1:
+                continue
+            vis = [False] * n
+            vis[i] = True
+            ans = [(nums[0] + nums[i]) >> 1]
+            l, r = 1, i + 1
+            while r < n:
+                while l < n and vis[l]:
+                    l += 1
+                while r < n and nums[r] - nums[l] < d:
+                    r += 1
+                if r == n or nums[r] - nums[l] > d:
+                    break
+                vis[r] = True
+                ans.append((nums[l] + nums[r]) >> 1)
+                l, r = l + 1, r + 1
+            if len(ans) == (n >> 1):
+                return ans
+        return []
 ```
 
 ### **Java**
@@ -79,7 +107,107 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] recoverArray(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 1, n = nums.length; i < n; ++i) {
+            int d = nums[i] - nums[0];
+            if (d == 0 || d % 2 == 1) {
+                continue;
+            }
+            boolean[] vis = new boolean[n];
+            vis[i] = true;
+            List<Integer> t = new ArrayList<>();
+            t.add((nums[0] + nums[i]) >> 1);
+            for (int l = 1, r = i + 1; r < n; ++l, ++r) {
+                while (l < n && vis[l]) {
+                    ++l;
+                }
+                while (r < n && nums[r] - nums[l] < d) {
+                    ++r;
+                }
+                if (r == n || nums[r] - nums[l] > d) {
+                    break;
+                }
+                vis[r] = true;
+                t.add((nums[l] + nums[r]) >> 1);
+            }
+            if (t.size() == (n >> 1)) {
+                int[] ans = new int[t.size()];
+                int idx = 0;
+                for (int e : t) {
+                    ans[idx++] = e;
+                }
+                return ans;
+            }
+        }
+        return null;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> recoverArray(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        for (int i = 1, n = nums.size(); i < n; ++i)
+        {
+            int d = nums[i] - nums[0];
+            if (d == 0 || d % 2 == 1) continue;
+            vector<bool> vis(n);
+            vis[i] = true;
+            vector<int> ans;
+            ans.push_back((nums[0] + nums[i]) >> 1);
+            for (int l = 1, r = i + 1; r < n; ++l, ++r)
+            {
+                while (l < n && vis[l]) ++l;
+                while (r < n && nums[r] - nums[l] < d) ++r;
+                if (r == n || nums[r] - nums[l] > d) break;
+                vis[r] = true;
+                ans.push_back((nums[l] + nums[r]) >> 1);
+            }
+            if (ans.size() == (n >> 1)) return ans;
+        }
+        return {};
+    }
+};
+```
+
+### **Go**
+
+```go
+func recoverArray(nums []int) []int {
+	sort.Ints(nums)
+	for i, n := 1, len(nums); i < n; i++ {
+		d := nums[i] - nums[0]
+		if d == 0 || d%2 == 1 {
+			continue
+		}
+		vis := make([]bool, n)
+		vis[i] = true
+		ans := []int{(nums[0] + nums[i]) >> 1}
+		for l, r := 1, i+1; r < n; l, r = l+1, r+1 {
+			for l < n && vis[l] {
+				l++
+			}
+			for r < n && nums[r]-nums[l] < d {
+				r++
+			}
+			if r == n || nums[r]-nums[l] > d {
+				break
+			}
+			vis[r] = true
+			ans = append(ans, (nums[l]+nums[r])>>1)
+		}
+		if len(ans) == (n >> 1) {
+			return ans
+		}
+	}
+	return []int{}
+}
 ```
 
 ### **TypeScript**
