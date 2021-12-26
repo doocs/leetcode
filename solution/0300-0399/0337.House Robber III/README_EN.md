@@ -42,13 +42,157 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rob(self, root: TreeNode) -> int:
+        @lru_cache(None)
+        def dfs(root):
+            if root is None:
+                return 0
+            if root.left is None and root.right is None:
+                return root.val
+            a = dfs(root.left) + dfs(root.right)
+            b = root.val
+            if root.left:
+                b += dfs(root.left.left) + dfs(root.left.right)
+            if root.right:
+                b += dfs(root.right.left) + dfs(root.right.right)
+            return max(a, b)
 
+        return dfs(root)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private Map<TreeNode, Integer> memo;
 
+    public int rob(TreeNode root) {
+        memo = new HashMap<>();
+        return dfs(root);
+    }
+
+    private int dfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        if (memo.containsKey(root)) {
+            return memo.get(root);
+        }
+        int a = dfs(root.left) + dfs(root.right);
+        int b = root.val;
+        if (root.left != null) {
+            b += dfs(root.left.left) + dfs(root.left.right);
+        }
+        if (root.right != null) {
+            b += dfs(root.right.left) + dfs(root.right.right);
+        }
+        int res = Math.max(a, b);
+        memo.put(root, res);
+        return res;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    unordered_map<TreeNode*, int> memo;
+
+    int rob(TreeNode* root) {
+        return dfs(root);
+    }
+
+    int dfs(TreeNode* root) {
+        if (!root) return 0;
+        if (memo.count(root)) return memo[root];
+        int a = dfs(root->left) + dfs(root->right);
+        int b = root-> val;
+        if (root->left) b += dfs(root->left->left) + dfs(root->left->right);
+        if (root->right) b += dfs(root->right->left) + dfs(root->right->right);
+        int res = max(a, b);
+        memo[root] = res;
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func rob(root *TreeNode) int {
+	memo := make(map[*TreeNode]int)
+	var dfs func(root *TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		if _, ok := memo[root]; ok {
+			return memo[root]
+		}
+		a := dfs(root.Left) + dfs(root.Right)
+		b := root.Val
+		if root.Left != nil {
+			b += dfs(root.Left.Left) + dfs(root.Left.Right)
+		}
+		if root.Right != nil {
+			b += dfs(root.Right.Left) + dfs(root.Right.Right)
+		}
+		res := max(a, b)
+		memo[root] = res
+		return res
+	}
+	return dfs(root)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
