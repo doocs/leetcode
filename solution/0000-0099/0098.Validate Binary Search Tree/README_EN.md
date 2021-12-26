@@ -53,8 +53,6 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
-        prev = float('-inf')
-
         def dfs(root):
             nonlocal prev
             if root is None:
@@ -68,6 +66,7 @@ class Solution:
                 return False
             return True
 
+        prev = float('-inf')
         return dfs(root)
 ```
 
