@@ -61,22 +61,17 @@
 ```python
 class Solution:
     def numFriendRequests(self, ages: List[int]) -> int:
-        def check(a, b):
-            return (0.5 * a + 7 < b) and (a >= b) and (a >= 100 or b <= 100)
-
-        res = 0
-        counter = [0] * 121
-        for age in ages:
-            counter[age] += 1
+        counter = Counter(ages)
+        ans = 0
         for i in range(1, 121):
             n1 = counter[i]
             for j in range(1, 121):
-                if check(i, j):
-                    n2 = counter[j]
-                    res += (n1 * n2)
+                n2 = counter[j]
+                if not(j <= 0.5 * i + 7 or j > i or (j > 100 and i < 100)):
+                    ans += n1 * n2
                     if i == j:
-                        res -= n2
-        return res
+                        ans -= n2
+        return ans
 ```
 
 ### **Java**
@@ -88,25 +83,20 @@ class Solution {
         for (int age : ages) {
             ++counter[age];
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 1; i < 121; ++i) {
             int n1 = counter[i];
             for (int j = 1; j < 121; ++j) {
-                if (check(i, j)) {
-                    int n2 = counter[j];
-                    res += (n1 * n2);
+                int n2 = counter[j];
+                if (!(j <= 0.5 * i + 7 || j > i || (j > 100 && i < 100))) {
+                    ans += n1 * n2;
                     if (i == j) {
-                        res -= n2;
+                        ans -= n2;
                     }
                 }
-
             }
         }
-        return res;
-    }
-
-    private boolean check(int a, int b) {
-        return (0.5 * a + 7 < b) && (a >= b) && (a >= 100 || b <= 100);
+        return ans;
     }
 }
 ```
@@ -119,25 +109,21 @@ public:
     int numFriendRequests(vector<int>& ages) {
         vector<int> counter(121);
         for (int age : ages) ++counter[age];
-        int res = 0;
+        int ans = 0;
         for (int i = 1; i < 121; ++i)
         {
             int n1 = counter[i];
             for (int j = 1; j < 121; ++j)
             {
                 int n2 = counter[j];
-                if (check(i, j))
+                if (!(j <= 0.5 * i + 7 || j > i || (j > 100 && i < 100)))
                 {
-                    res += (n1 * n2);
-                    if (i == j) res -= n2;
+                    ans += n1 * n2;
+                    if (i == j) ans -= n2;
                 }
             }
         }
-        return res;
-    }
-
-    bool check(int a, int b) {
-        return (0.5 * a + 7 < b) && (a >= b) && (a >= 100 || b <= 100);
+        return ans;
     }
 };
 ```
@@ -150,24 +136,20 @@ func numFriendRequests(ages []int) int {
 	for _, age := range ages {
 		counter[age]++
 	}
-	res := 0
+	ans := 0
 	for i := 1; i < 121; i++ {
 		n1 := counter[i]
 		for j := 1; j < 121; j++ {
 			n2 := counter[j]
-			if check(i, j) {
-				res += (n1 * n2)
+			if !(j <= i/2+7 || j > i || (j > 100 && i < 100)) {
+				ans += n1 * n2
 				if i == j {
-					res -= n2
+					ans -= n2
 				}
 			}
 		}
 	}
-	return res
-}
-
-func check(a, b int) bool {
-	return (a/2+7 < b) && (a >= b) && (a >= 100 || b <= 100)
+	return ans
 }
 ```
 

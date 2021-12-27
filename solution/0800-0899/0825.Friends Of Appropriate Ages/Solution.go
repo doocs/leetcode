@@ -3,22 +3,18 @@ func numFriendRequests(ages []int) int {
 	for _, age := range ages {
 		counter[age]++
 	}
-	res := 0
+	ans := 0
 	for i := 1; i < 121; i++ {
 		n1 := counter[i]
 		for j := 1; j < 121; j++ {
 			n2 := counter[j]
-			if check(i, j) {
-				res += (n1 * n2)
+			if !(j <= i/2+7 || j > i || (j > 100 && i < 100)) {
+				ans += n1 * n2
 				if i == j {
-					res -= n2
+					ans -= n2
 				}
 			}
 		}
 	}
-	return res
-}
-
-func check(a, b int) bool {
-	return (a/2+7 < b) && (a >= b) && (a >= 100 || b <= 100)
+	return ans
 }
