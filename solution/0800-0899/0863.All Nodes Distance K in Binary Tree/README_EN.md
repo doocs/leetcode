@@ -66,13 +66,182 @@ The descriptions of the inputs above are just serializations of these objects.
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
+class Solution:
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        def parents(root, prev):
+            nonlocal p
+            if root is None:
+                return
+            p[root] = prev
+            parents(root.left, root)
+            parents(root.right, root)
+
+        def dfs(root, k):
+            nonlocal ans, vis
+            if root is None or root.val in vis:
+                return
+            vis.add(root.val)
+            if k == 0:
+                ans.append(root.val)
+                return
+            dfs(root.left, k - 1)
+            dfs(root.right, k - 1)
+            dfs(p[root], k - 1)
+
+        p = {}
+        parents(root, None)
+        ans = []
+        vis = set()
+        dfs(target, k)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    private Map<TreeNode, TreeNode> p;
+    private Set<Integer> vis;
+    private List<Integer> ans;
 
+    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+        p = new HashMap<>();
+        vis = new HashSet<>();
+        ans = new ArrayList<>();
+        parents(root, null);
+        dfs(target, k);
+        return ans;
+    }
+
+    private void parents(TreeNode root, TreeNode prev) {
+        if (root == null) {
+            return;
+        }
+        p.put(root, prev);
+        parents(root.left, root);
+        parents(root.right, root);
+    }
+
+    private void dfs(TreeNode root, int k) {
+        if (root == null || vis.contains(root.val)) {
+            return;
+        }
+        vis.add(root.val);
+        if (k == 0) {
+            ans.add(root.val);
+            return;
+        }
+        dfs(root.left, k - 1);
+        dfs(root.right, k - 1);
+        dfs(p.get(root), k - 1);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    unordered_map<TreeNode*, TreeNode*> p;
+    unordered_set<int> vis;
+    vector<int> ans;
+
+    vector<int> distanceK(TreeNode* root, TreeNode* target, int k) {
+        parents(root, nullptr);
+        dfs(target, k);
+        return ans;
+    }
+
+    void parents(TreeNode* root, TreeNode* prev) {
+        if (!root) return;
+        p[root] = prev;
+        parents(root->left, root);
+        parents(root->right, root);
+    }
+
+    void dfs(TreeNode* root, int k) {
+        if (!root || vis.count(root->val)) return;
+        vis.insert(root->val);
+        if (k == 0)
+        {
+            ans.push_back(root->val);
+            return;
+        }
+        dfs(root->left, k - 1);
+        dfs(root->right, k - 1);
+        dfs(p[root], k - 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func distanceK(root *TreeNode, target *TreeNode, k int) []int {
+	p := make(map[*TreeNode]*TreeNode)
+	vis := make(map[int]bool)
+	var ans []int
+	var parents func(root, prev *TreeNode)
+	parents = func(root, prev *TreeNode) {
+		if root == nil {
+			return
+		}
+		p[root] = prev
+		parents(root.Left, root)
+		parents(root.Right, root)
+	}
+	parents(root, nil)
+	var dfs func(root *TreeNode, k int)
+	dfs = func(root *TreeNode, k int) {
+		if root == nil || vis[root.Val] {
+			return
+		}
+		vis[root.Val] = true
+		if k == 0 {
+			ans = append(ans, root.Val)
+			return
+		}
+		dfs(root.Left, k-1)
+		dfs(root.Right, k-1)
+		dfs(p[root], k-1)
+	}
+	dfs(target, k)
+	return ans
+}
 ```
 
 ### **...**
