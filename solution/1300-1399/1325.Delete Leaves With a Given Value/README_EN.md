@@ -69,13 +69,138 @@ After removing, new nodes become leaf nodes with value (target = 2) (Picture in 
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def removeLeafNodes(self, root: Optional[TreeNode], target: int) -> Optional[TreeNode]:
+        def dfs(root, prev):
+            if root is None:
+                return
+            dfs(root.left, root)
+            dfs(root.right, root)
+            if root.left is None and root.right is None and root.val == target:
+                if prev.left == root:
+                    prev.left = None
+                else:
+                    prev.right = None
 
+        p = TreeNode(val=0, left=root)
+        dfs(root, p)
+        return p.left
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode removeLeafNodes(TreeNode root, int target) {
+        TreeNode p = new TreeNode(0, root, null);
+        dfs(root, p, target);
+        return p.left;
+    }
 
+    private void dfs(TreeNode root, TreeNode prev, int target) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left, root, target);
+        dfs(root.right, root, target);
+        if (root.left == null && root.right == null && root.val == target) {
+            if (prev.left == root) {
+                prev.left = null;
+            } else {
+                prev.right = null;
+            }
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* removeLeafNodes(TreeNode* root, int target) {
+        TreeNode* p = new TreeNode(0, root, nullptr);
+        dfs(root, p, target);
+        return p->left;
+    }
+
+    void dfs(TreeNode* root, TreeNode* prev, int target) {
+        if (!root) return;
+        dfs(root->left, root, target);
+        dfs(root->right, root, target);
+        if (!root->left && !root->right && root->val == target)
+        {
+            if (prev->left == root) prev->left = nullptr;
+            else prev->right = nullptr;
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func removeLeafNodes(root *TreeNode, target int) *TreeNode {
+	p := &TreeNode{0, root, nil}
+	var dfs func(root, prev *TreeNode)
+	dfs = func(root, prev *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left, root)
+		dfs(root.Right, root)
+		if root.Left == nil && root.Right == nil && root.Val == target {
+			if prev.Left == root {
+				prev.Left = nil
+			} else {
+				prev.Right = nil
+			}
+		}
+	}
+	dfs(root, p)
+	return p.Left
+}
 ```
 
 ### **...**
