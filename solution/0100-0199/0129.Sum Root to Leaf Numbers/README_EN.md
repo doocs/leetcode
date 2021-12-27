@@ -163,11 +163,9 @@ public:
     }
 
     int dfs(TreeNode *root, int presum) {
-        if (root == nullptr)
-            return 0;
+        if (!root) return 0;
         int s = presum * 10 + root->val;
-        if (root->left == nullptr && root->right == nullptr)
-            return s;
+        if (!root->left && !root->right) return s;
         return dfs(root->left, s) + dfs(root->right, s);
     }
 };
@@ -185,18 +183,18 @@ public:
  * }
  */
 func sumNumbers(root *TreeNode) int {
-	return dfs(root, 0)
-}
-
-func dfs(root *TreeNode, presum int) int {
-	if root == nil {
-		return 0
-	}
-	s := presum*10 + root.Val
-	if root.Left == nil && root.Right == nil {
-		return s
-	}
-	return dfs(root.Left, s) + dfs(root.Right, s)
+    var dfs func(root *TreeNode, presum int) int
+    dfs = func(root *TreeNode, presum int) int {
+        if root == nil {
+            return 0
+        }
+        presum = presum * 10 + root.Val
+        if root.Left == nil && root.Right == nil {
+            return presum
+        }
+        return dfs(root.Left, presum) + dfs(root.Right, presum)
+    }
+    return dfs(root, 0)
 }
 ```
 
