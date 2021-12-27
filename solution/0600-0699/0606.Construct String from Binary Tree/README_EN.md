@@ -67,13 +67,108 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def tree2str(self, root: Optional[TreeNode]) -> str:
+        def dfs(root):
+            if root is None:
+                return ''
+            if root.left is None and root.right is None:
+                return str(root.val)
+            if root.right is None:
+                return f'{root.val}({dfs(root.left)})'
+            return f'{root.val}({dfs(root.left)})({dfs(root.right)})'
 
+        return dfs(root)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public String tree2str(TreeNode root) {
+        if (root == null) {
+            return "";
+        }
+        if (root.left == null && root.right == null) {
+            return root.val + "";
+        }
+        if (root.right == null) {
+            return root.val + "(" + tree2str(root.left) + ")";
+        }
+        return root.val + "(" + tree2str(root.left) + ")(" + tree2str(root.right) + ")";
+    }
+}
+```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    string tree2str(TreeNode* root) {
+        if (!root) return "";
+        if (!root->left && !root->right) return to_string(root->val);
+        if (!root->right) return to_string(root->val) + "(" + tree2str(root->left) + ")";
+        return to_string(root->val) + "(" + tree2str(root->left) + ")(" + tree2str(root->right) + ")";
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func tree2str(root *TreeNode) string {
+	if root == nil {
+		return ""
+	}
+	if root.Left == nil && root.Right == nil {
+		return strconv.Itoa(root.Val)
+	}
+	if root.Right == nil {
+		return strconv.Itoa(root.Val) + "(" + tree2str(root.Left) + ")"
+	}
+	return strconv.Itoa(root.Val) + "(" + tree2str(root.Left) + ")(" + tree2str(root.Right) + ")"
+}
 ```
 
 ### **...**
