@@ -13,9 +13,8 @@ class Solution {
 public:
     vector<int> largestValues(TreeNode* root) {
         if (!root) return {};
-        queue<TreeNode*> q;
+        queue<TreeNode*> q{{root}};
         vector<int> ans;
-        q.push(root);
         while (!q.empty())
         {
             int t = INT_MIN;
