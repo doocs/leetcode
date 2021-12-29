@@ -1,17 +1,16 @@
 class Solution {
     public int findMaxLength(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, -1);
-        int res = 0;
-        int s = 0;
+        Map<Integer, Integer> mp = new HashMap<>();
+        mp.put(0, -1);
+        int s = 0, ans = 0;
         for (int i = 0; i < nums.length; ++i) {
             s += nums[i] == 1 ? 1 : -1;
-            if (map.containsKey(s)) {
-                res = Math.max(res, i - map.get(s));
+            if (mp.containsKey(s)) {
+                ans = Math.max(ans, i - mp.get(s));
             } else {
-                map.put(s, i);
+                mp.put(s, i);
             }
         }
-        return res;
+        return ans;
     }
 }

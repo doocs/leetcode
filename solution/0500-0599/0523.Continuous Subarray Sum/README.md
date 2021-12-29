@@ -39,6 +39,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+前缀和 + 哈希表。
+
+要满足区间和是 k 的倍数，也即 `s[i] - s[j] = n * k` (其中 `i - j >= 2`)，变形，得 `s[i] / k - s[j] / k = n`，所以只要满足 `s[i] % k == s[j] % k` 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -46,7 +50,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def checkSubarraySum(self, nums: List[int], k: int) -> bool:
+        s = 0
+        mp = {0: -1}
+        for i, v in enumerate(nums):
+            s += v
+            r = s % k
+            if r in mp and i - mp[r] >= 2:
+                return True
+            if r not in mp:
+                mp[r] = i
+        return False
 ```
 
 ### **Java**
@@ -54,7 +69,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public boolean checkSubarraySum(int[] nums, int k) {
+        Map<Integer, Integer> mp = new HashMap<>();
+        mp.put(0, -1);
+        int s = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            s += nums[i];
+            int r = s % k;
+            if (mp.containsKey(r) && i - mp.get(r) >= 2) {
+                return true;
+            }
+            if (!mp.containsKey(r)) {
+                mp.put(r, i);
+            }
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkSubarraySum(vector<int>& nums, int k) {
+        unordered_map<int, int> mp;
+        mp[0] = -1;
+        int s = 0;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            s += nums[i];
+            int r = s % k;
+            if (mp.count(r) && i - mp[r] >= 2) return true;
+            if (!mp.count(r)) mp[r] = i;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkSubarraySum(nums []int, k int) bool {
+	mp := map[int]int{0: -1}
+	s := 0
+	for i, v := range nums {
+		s += v
+		r := s % k
+		if j, ok := mp[r]; ok && i-j >= 2 {
+			return true
+		}
+		if _, ok := mp[r]; !ok {
+			mp[r] = i
+		}
+	}
+	return false
+}
 ```
 
 ### **...**
