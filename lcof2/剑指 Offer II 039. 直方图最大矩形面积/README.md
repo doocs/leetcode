@@ -63,6 +63,34 @@
 
 ```
 
+### **C++**
+
+我们遍历每个柱体，若当前的柱体高度大于等于栈顶柱体的高度，就直接将当前柱体入栈，否则若当前的柱体高度小于栈顶柱体的高度，说明当前栈顶柱体找到了右边的第一个小于自身的柱体，那么就可以将栈顶柱体出栈来计算以其为高的矩形的面积了。
+
+```cpp
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        int maxarea = 0;
+        stack<int> s;
+        heights.insert(heights.begin(), 0);
+        heights.push_back(0);
+
+        for (int i = 0; i < heights.size(); i++) {
+            while (!s.empty() && heights[i] < heights[s.top()]) {
+                int h = heights[s.top()];
+                s.pop();
+                maxarea = max(maxarea, h * (i - s.top() - 1));
+            }
+
+            s.push(i);
+        }
+
+        return maxarea;
+    }
+};
+```
+
 ### **...**
 
 ```
