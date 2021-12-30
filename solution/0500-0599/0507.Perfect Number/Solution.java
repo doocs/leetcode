@@ -1,14 +1,17 @@
-public class Solution {
+class Solution {
     public boolean checkPerfectNumber(int num) {
-        if (num == 0 || num == 1) {
+        if (num == 1) {
             return false;
         }
-        int sum = 1;
-        for (int i = 2; i <= Math.sqrt(num); i++) {
+        int s = 1;
+        for (int i = 2; i * i <= num; ++i) {
             if (num % i == 0) {
-                sum = sum + i + num / i;
+                s += i;
+                if (i != num / i) {
+                    s += num / i;
+                }
             }
         }
-        return num == sum;
+        return s == num;
     }
 }
