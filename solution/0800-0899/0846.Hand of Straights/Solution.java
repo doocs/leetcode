@@ -3,22 +3,20 @@ class Solution {
         if (hand.length % groupSize != 0) {
             return false;
         }
-        TreeMap<Integer, Integer> mp = new TreeMap<>();
-        for (int item : hand) {
-            mp.put(item, mp.getOrDefault(item, 0) + 1);
+        TreeMap<Integer, Integer> tm = new TreeMap<>();
+        for (int h : hand) {
+            tm.put(h, tm.getOrDefault(h, 0) + 1);
         }
-
-        while (mp.size() > 0) {
-            int start = mp.firstKey();
-            for (int i = start; i < start + groupSize; i++) {
-                if (!mp.containsKey(i)) {
+        while (!tm.isEmpty()) {
+            int v = tm.firstKey();
+            for (int i = v; i < v + groupSize; ++i) {
+                if (!tm.containsKey(i)) {
                     return false;
                 }
-                int time = mp.get(i);
-                if (time == 1) {
-                    mp.remove(i);
+                if (tm.get(i) == 1) {
+                    tm.remove(i);
                 } else {
-                    mp.replace(i, time - 1);
+                    tm.put(i, tm.get(i) - 1);
                 }
             }
         }
