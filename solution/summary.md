@@ -2165,3 +2165,4 @@
   - [2120.Execution of All Suffix Instructions Staying in a Grid](/solution/2100-2199/2120.Execution%20of%20All%20Suffix%20Instructions%20Staying%20in%20a%20Grid/README.md)
   - [2121.Intervals Between Identical Elements](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md)
   - [2122.Recover the Original Array](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README.md)
+  - [2123.Minimum Operations to Remove Adjacent Ones in Matrix](/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/README.md)
