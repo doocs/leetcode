@@ -55,13 +55,103 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxNonOverlapping(self, nums: List[int], target: int) -> int:
+        i, n = 0, len(nums)
+        ans = 0
+        while i < n:
+            s = 0
+            seen = set([0])
+            while i < n:
+                s += nums[i]
+                if s - target in seen:
+                    ans += 1
+                    break
+                i += 1
+                seen.add(s)
+            i += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxNonOverlapping(int[] nums, int target) {
+        int i = 0, n = nums.length;
+        int ans = 0;
+        while (i < n) {
+            int s = 0;
+            Set<Integer> seen = new HashSet<>();
+            seen.add(0);
+            while (i < n) {
+                s += nums[i];
+                if (seen.contains(s - target)) {
+                    ++ans;
+                    break;
+                }
+                ++i;
+                seen.add(s);
+            }
+            ++i;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxNonOverlapping(vector<int>& nums, int target) {
+        int i = 0, n = nums.size();
+        int ans = 0;
+        while (i < n)
+        {
+            int s = 0;
+            unordered_set<int> seen;
+            seen.insert(0);
+            while (i < n)
+            {
+                s += nums[i];
+                if (seen.count(s - target))
+                {
+                    ++ans;
+                    break;
+                }
+                ++i;
+                seen.insert(s);
+            }
+            ++i;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxNonOverlapping(nums []int, target int) int {
+	i, n, ans := 0, len(nums), 0
+	for i < n {
+		s := 0
+		seen := map[int]bool{0: true}
+		for i < n {
+			s += nums[i]
+			if seen[s-target] {
+				ans++
+				break
+			}
+			seen[s] = true
+			i++
+		}
+		i++
+	}
+	return ans
+}
 ```
 
 ### **...**
