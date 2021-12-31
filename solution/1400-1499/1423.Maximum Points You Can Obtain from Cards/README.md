@@ -64,6 +64,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+要让左右两侧共 `k` 个元素和最大，可以转换为求中间连续数组 `n - k` 个元素和最小值 `mi`，然后用数组总和 `s` 减去 `mi` 得到答案。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -71,7 +73,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        n = len(cardPoints)
+        s = [0] * (n + 1)
+        for i in range(n):
+            s[i + 1] = s[i] + cardPoints[i]
+        mi = float('inf')
+        for i in range(n):
+            j = i + (n - k) - 1
+            if j < n:
+                mi = min(mi, s[j + 1] - s[i])
+        return s[-1] - mi
 ```
 
 ### **Java**
@@ -79,7 +92,72 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    public int maxScore(int[] cardPoints, int k) {
+        int n = cardPoints.length;
+        int[] s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + cardPoints[i];
+        }
+        int mi = Integer.MAX_VALUE;
+        for (int i = 0; i < n; ++i) {
+            int j = i + (n - k) - 1;
+            if (j < n) {
+                mi = Math.min(mi, s[j + 1] - s[i]);
+            }
+        }
+        return s[n] - mi;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxScore(vector<int>& cardPoints, int k) {
+        int n = cardPoints.size();
+        vector<int> s(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + cardPoints[i];
+        int mi = INT_MAX;
+        for (int i = 0; i < n; ++i)
+        {
+            int j = i + (n - k) - 1;
+            if (j < n) mi = min(mi, s[j + 1] - s[i]);
+        }
+        return s[n] - mi;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxScore(cardPoints []int, k int) int {
+	n := len(cardPoints)
+	s := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		s[i+1] = s[i] + cardPoints[i]
+	}
+	mi := math.MaxInt64
+	for i := 0; i < n; i++ {
+		j := i + (n - k) - 1
+		if j < n {
+			mi = min(mi, s[j+1]-s[i])
+		}
+	}
+	return s[n] - mi
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
