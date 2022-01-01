@@ -77,13 +77,146 @@
 ### **Python3**
 
 ```python
+class Solution:
 
+    def __init__(self, rects: List[List[int]]):
+        self.rects = rects
+        self.s = [0] * len(rects)
+        for i, (x1, y1, x2, y2) in enumerate(rects):
+            self.s[i] = self.s[i - 1] + (x2 - x1 + 1) * (y2 - y1 + 1)
+
+    def pick(self) -> List[int]:
+        v = random.randint(1, self.s[-1])
+        left, right = 0, len(self.s) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            if self.s[mid] >= v:
+                right = mid
+            else:
+                left = mid + 1
+        x1, y1, x2, y2 = self.rects[left]
+        return [random.randint(x1, x2), random.randint(y1, y2)]
+
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(rects)
+# param_1 = obj.pick()
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] s;
+    private int[][] rects;
+    private Random random = new Random();
 
+    public Solution(int[][] rects) {
+        int n = rects.length;
+        s = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            s[i + 1] = s[i] + (rects[i][2] - rects[i][0] + 1) * (rects[i][3] - rects[i][1] + 1);
+        }
+        this.rects = rects;
+    }
+
+    public int[] pick() {
+        int n = rects.length;
+        int v = 1 + random.nextInt(s[n]);
+        int left = 0, right = n;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (s[mid] >= v) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        int[] rect = rects[left - 1];
+        return new int[]{rect[0] + random.nextInt(rect[2] - rect[0] + 1), rect[1] + random.nextInt(rect[3] - rect[1] + 1)};
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(rects);
+ * int[] param_1 = obj.pick();
+ */
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> s;
+    vector<vector<int>> rects;
+
+    Solution(vector<vector<int>>& rects) {
+        int n = rects.size();
+        s.resize(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + (rects[i][2] - rects[i][0] + 1) * (rects[i][3] - rects[i][1] + 1);
+        this->rects = rects;
+        srand(time(nullptr));
+    }
+
+    vector<int> pick() {
+        int n = rects.size();
+        int v = 1 + rand() % s[n];
+        int left = 0, right = n;
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (s[mid] >= v) right = mid;
+            else left = mid + 1;
+        }
+        auto& rect = rects[left - 1];
+        int x = rect[0] + rand() % (rect[2] - rect[0] + 1);
+        int y = rect[1] + rand() % (rect[3] - rect[1] + 1);
+        return {x, y};
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(rects);
+ * vector<int> param_1 = obj->pick();
+ */
+```
+
+### **Go**
+
+```go
+type Solution struct {
+	s     []int
+	rects [][]int
+}
+
+func Constructor(rects [][]int) Solution {
+	n := len(rects)
+	s := make([]int, n+1)
+	for i, v := range rects {
+		s[i+1] = s[i] + (v[2]-v[0]+1)*(v[3]-v[1]+1)
+	}
+	return Solution{s, rects}
+}
+
+func (this *Solution) Pick() []int {
+	n := len(this.rects)
+	v := 1 + rand.Intn(this.s[len(this.s)-1])
+	left, right := 0, n
+	for left < right {
+		mid := (left + right) >> 1
+		if this.s[mid] >= v {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	rect := this.rects[left-1]
+	x, y := rect[0]+rand.Intn(rect[2]-rect[0]+1), rect[1]+rand.Intn(rect[3]-rect[1]+1)
+	return []int{x, y}
+}
 ```
 
 ### **...**
