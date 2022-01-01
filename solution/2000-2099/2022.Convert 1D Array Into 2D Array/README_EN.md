@@ -129,6 +129,48 @@ func construct2DArray(original []int, m int, n int) [][]int {
 }
 ```
 
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} original
+ * @param {number} m
+ * @param {number} n
+ * @return {number[][]}
+ */
+var construct2DArray = function(original, m, n) {
+    const result = [];
+
+    if (original.length != m * n) {
+        return result;
+    }
+    
+    for (let i = 0; i < m; i++) {
+        result.push(original.slice(i * n, i * n + n));
+    }
+    
+    return result;
+};
+```
+
+### **TypeScript**
+
+```ts
+function construct2DArray(original: number[], m: number, n: number): number[][] {
+    const result = [];
+
+    if (original.length != m * n) {
+        return result;
+    }
+    
+    for (let i = 0; i < m; i++) {
+        result.push(original.slice(i * n, i * n + n));
+    }
+    
+    return result;
+};
+```
+
 ### **...**
 
 ```
