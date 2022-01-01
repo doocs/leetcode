@@ -35,6 +35,14 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+前缀和 + 哈希表。前缀和 s 初始值为 0。遍历 hours 中每一项数据 h：
+
+-   若 h 大于 8，则 s 加 1，否则减 1。
+-   若当前 s 大于 0，说明从下标 0 到当前下标的这一段，满足「表现良好的时间段」，`ans = i + 1`。
+-   若出现了一个新的 s，我们记录到哈希表 seen 中，`seen[s]` 表示 s 第一次出现的位置。
+
+我们想要 s 大于 0，因此要找到 `s - 1` 第一次出现的位置。虽然 `s - x` 同样满足条件，但是它会出现得比 `s - 1` 要晚。因此最大长度是 `i - seen[s - 1]`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -44,19 +52,18 @@
 ```python
 class Solution:
     def longestWPI(self, hours: List[int]) -> int:
-        pre_sum, res = 0, 0
-        mp = {}
-        for i in range(len(hours)):
-            temp = 1 if hours[i] > 8 else -1
-            pre_sum += temp
-            if pre_sum > 0:
-                res = i + 1
+        ans = s = 0
+        seen = {}
+        for i, h in enumerate(hours):
+            s += 1 if h > 8 else -1
+            if s > 0:
+                ans = i + 1
             else:
-                if pre_sum not in mp:
-                    mp[pre_sum] = i
-                if (pre_sum - 1) in mp:
-                    res = max(res, i - mp[pre_sum - 1])
-        return res
+                if s not in seen:
+                    seen[s] = i
+                if s - 1 in seen:
+                    ans = max(ans, i - seen[s - 1])
+        return ans
 ```
 
 ### **Java**
@@ -66,23 +73,78 @@ class Solution:
 ```java
 class Solution {
     public int longestWPI(int[] hours) {
-        int res = 0;
-        Map<Integer, Integer> map = new HashMap<>();
-        int s = 0;
+        int s = 0, ans = 0;
+        Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < hours.length; ++i) {
             s += hours[i] > 8 ? 1 : -1;
             if (s > 0) {
-                res = i + 1;
+                ans = i + 1;
             } else {
-                int b = map.getOrDefault(s - 1, -1);
-                if (b != -1) {
-                    res = Math.max(res, i - b);
+                seen.putIfAbsent(s, i);
+                if (seen.containsKey(s - 1)) {
+                    ans = Math.max(ans, i - seen.get(s - 1));
                 }
             }
-            map.putIfAbsent(s, i);
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestWPI(vector<int>& hours) {
+        int s = 0, ans = 0;
+        unordered_map<int, int> seen;
+        for (int i = 0; i < hours.size(); ++i)
+        {
+            s += hours[i] > 8 ? 1 : -1;
+            if (s > 0) ans = i + 1;
+            else
+            {
+                if (!seen.count(s)) seen[s] = i;
+                if (seen.count(s - 1)) ans = max(ans, i - seen[s - 1]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestWPI(hours []int) int {
+	s, ans := 0, 0
+	seen := make(map[int]int)
+	for i, h := range hours {
+		if h > 8 {
+			s += 1
+		} else {
+			s -= 1
+		}
+		if s > 0 {
+			ans = i + 1
+		} else {
+			if _, ok := seen[s]; !ok {
+				seen[s] = i
+			}
+			if j, ok := seen[s-1]; ok {
+				ans = max(ans, i-j)
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 

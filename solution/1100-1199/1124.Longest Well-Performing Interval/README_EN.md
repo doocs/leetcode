@@ -38,19 +38,18 @@
 ```python
 class Solution:
     def longestWPI(self, hours: List[int]) -> int:
-        pre_sum, res = 0, 0
-        mp = {}
-        for i in range(len(hours)):
-            temp = 1 if hours[i] > 8 else -1
-            pre_sum += temp
-            if pre_sum > 0:
-                res = i + 1
+        ans = s = 0
+        seen = {}
+        for i, h in enumerate(hours):
+            s += 1 if h > 8 else -1
+            if s > 0:
+                ans = i + 1
             else:
-                if pre_sum not in mp:
-                    mp[pre_sum] = i
-                if (pre_sum - 1) in mp:
-                    res = max(res, i - mp[pre_sum - 1])
-        return res
+                if s not in seen:
+                    seen[s] = i
+                if s - 1 in seen:
+                    ans = max(ans, i - seen[s - 1])
+        return ans
 ```
 
 ### **Java**
@@ -58,23 +57,78 @@ class Solution:
 ```java
 class Solution {
     public int longestWPI(int[] hours) {
-        int res = 0;
-        Map<Integer, Integer> map = new HashMap<>();
-        int s = 0;
+        int s = 0, ans = 0;
+        Map<Integer, Integer> seen = new HashMap<>();
         for (int i = 0; i < hours.length; ++i) {
             s += hours[i] > 8 ? 1 : -1;
             if (s > 0) {
-                res = i + 1;
+                ans = i + 1;
             } else {
-                int b = map.getOrDefault(s - 1, -1);
-                if (b != -1) {
-                    res = Math.max(res, i - b);
+                seen.putIfAbsent(s, i);
+                if (seen.containsKey(s - 1)) {
+                    ans = Math.max(ans, i - seen.get(s - 1));
                 }
             }
-            map.putIfAbsent(s, i);
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int longestWPI(vector<int>& hours) {
+        int s = 0, ans = 0;
+        unordered_map<int, int> seen;
+        for (int i = 0; i < hours.size(); ++i)
+        {
+            s += hours[i] > 8 ? 1 : -1;
+            if (s > 0) ans = i + 1;
+            else
+            {
+                if (!seen.count(s)) seen[s] = i;
+                if (seen.count(s - 1)) ans = max(ans, i - seen[s - 1]);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestWPI(hours []int) int {
+	s, ans := 0, 0
+	seen := make(map[int]int)
+	for i, h := range hours {
+		if h > 8 {
+			s += 1
+		} else {
+			s -= 1
+		}
+		if s > 0 {
+			ans = i + 1
+		} else {
+			if _, ok := seen[s]; !ok {
+				seen[s] = i
+			}
+			if j, ok := seen[s-1]; ok {
+				ans = max(ans, i-j)
+			}
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
