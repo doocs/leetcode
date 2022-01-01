@@ -65,6 +65,10 @@ original 中只有 1 个元素。
 
 <!-- 这里可写通用的实现逻辑 -->
 
+在该题当中，想要成功转换为二维数组，**元素不能少也不能多**，所以需要先做一次长度判断，不对等的情况下直接退出。
+
+在数量正确时，则按照给出的规格，将 `original` 分割成小数组，放入返回数组当中。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -133,6 +137,48 @@ func construct2DArray(original []int, m int, n int) [][]int {
 	}
 	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} original
+ * @param {number} m
+ * @param {number} n
+ * @return {number[][]}
+ */
+var construct2DArray = function(original, m, n) {
+    const result = [];
+
+    if (original.length != m * n) {
+        return result;
+    }
+    
+    for (let i = 0; i < m; i++) {
+        result.push(original.slice(i * n, i * n + n));
+    }
+    
+    return result;
+};
+```
+
+### **TypeScript**
+
+```ts
+function construct2DArray(original: number[], m: number, n: number): number[][] {
+    const result = [];
+
+    if (original.length != m * n) {
+        return result;
+    }
+    
+    for (let i = 0; i < m; i++) {
+        result.push(original.slice(i * n, i * n + n));
+    }
+    
+    return result;
+};
 ```
 
 ### **...**
