@@ -69,13 +69,100 @@ Out of all these positions, -1 is the smallest, so return it.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def brightestPosition(self, lights: List[List[int]]) -> int:
+        d = defaultdict(int)
+        for p, r in lights:
+            d[p - r] += 1
+            d[p + r + 1] -= 1
+        s = mx = ans = 0
+        for k in sorted(d):
+            s += d[k]
+            if s > mx:
+                mx = s
+                ans = k
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int brightestPosition(int[][] lights) {
+        TreeMap<Integer, Integer> d = new TreeMap<>();
+        for (int[] e : lights) {
+            int l = e[0] - e[1], r = e[0] + e[1];
+            d.put(l, d.getOrDefault(l, 0) + 1);
+            d.put(r + 1, d.getOrDefault(r + 1, 0) - 1);
+        }
+        int s = 0, mx = 0, ans = 0;
+        for (Map.Entry<Integer, Integer> e : d.entrySet()) {
+            s += e.getValue();
+            if (s > mx) {
+                mx = s;
+                ans = e.getKey();
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int brightestPosition(vector<vector<int>>& lights) {
+        map<int, int> d;
+        for (auto& e : lights)
+        {
+            int l = e[0] - e[1], r = e[0] + e[1];
+            ++d[l];
+            --d[r + 1];
+        }
+        int s = 0, mx = 0, ans = 0;
+        for (auto& e : d)
+        {
+            s += e.second;
+            if (s > mx)
+            {
+                mx = s;
+                ans = e.first;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func brightestPosition(lights [][]int) int {
+	d := make(map[int]int)
+	for _, e := range lights {
+		l, r := e[0]-e[1], e[0]+e[1]
+		d[l] += 1
+		d[r+1] -= 1
+	}
+
+	var keys []int
+	for k := range d {
+		keys = append(keys, k)
+	}
+	sort.Ints(keys)
+
+	s, mx, ans := 0, 0, 0
+	for _, k := range keys {
+		s += d[k]
+		if s > mx {
+			mx = s
+			ans = k
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
