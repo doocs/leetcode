@@ -2134,6 +2134,10 @@
 |  [2121](https://leetcode-cn.com/problems/intervals-between-identical-elements)  |  [相同元素的间隔之和](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md)  |  `数组`,`哈希表`,`前缀和`  |  中等  |    |
 |  [2122](https://leetcode-cn.com/problems/recover-the-original-array)  |  [还原原数组](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README.md)  |  `数组`,`哈希表`,`枚举`,`排序`  |  困难  |    |
 |  [2123](https://leetcode-cn.com/problems/minimum-operations-to-remove-adjacent-ones-in-matrix)  |  [Minimum Operations to Remove Adjacent Ones in Matrix](/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/README.md)  |    |  困难  |  🔒  |
+|  [2124](https://leetcode-cn.com/problems/check-if-all-as-appears-before-all-bs)  |  [检查是否所有 A 都在 B 之前](/solution/2100-2199/2124.Check%20if%20All%20A%27s%20Appears%20Before%20All%20B%27s/README.md)  |    |  简单  |    |
+|  [2125](https://leetcode-cn.com/problems/number-of-laser-beams-in-a-bank)  |  [银行中的激光束数量](/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README.md)  |    |  中等  |    |
+|  [2126](https://leetcode-cn.com/problems/destroying-asteroids)  |  [摧毁小行星](/solution/2100-2199/2126.Destroying%20Asteroids/README.md)  |    |  中等  |    |
+|  [2127](https://leetcode-cn.com/problems/maximum-employees-to-be-invited-to-a-meeting)  |  [参加会议的最多员工数](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)  |    |  困难  |    |
 
 ## 版权
 

@@ -74,6 +74,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+left, right 分别记录左右符合要求的天数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -81,7 +83,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
+        n = len(security)
+        if n <= time * 2:
+            return []
+        left, right = [0] * n, [0] * n
+        for i in range(1, n):
+            if security[i] <= security[i - 1]:
+                left[i] = left[i - 1] + 1
+        for i in range(n - 2, -1, -1):
+            if security[i] <= security[i + 1]:
+                right[i] = right[i + 1] + 1
+        return [i for i in range(n) if time <= min(left[i], right[i])]
 ```
 
 ### **Java**
@@ -89,7 +103,88 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> goodDaysToRobBank(int[] security, int time) {
+        int n = security.length;
+        if (n <= time * 2) {
+            return Collections.emptyList();
+        }
+        int[] left = new int[n];
+        int[] right = new int[n];
+        for (int i = 1; i < n; ++i) {
+            if (security[i] <= security[i - 1]) {
+                left[i] = left[i - 1] + 1;
+            }
+        }
+        for (int i = n - 2; i >= 0; --i) {
+            if (security[i] <= security[i + 1]) {
+                right[i] = right[i + 1] + 1;
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            if (time <= Math.min(left[i], right[i])) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> goodDaysToRobBank(vector<int>& security, int time) {
+        int n = security.size();
+        if (n <= time * 2) return {};
+        vector<int> left(n);
+        vector<int> right(n);
+        for (int i = 1; i < n; ++i)
+            if (security[i] <= security[i - 1])
+                left[i] = left[i - 1] + 1;
+        for (int i = n - 2; i >= 0; --i)
+            if (security[i] <= security[i + 1])
+                right[i] = right[i + 1] + 1;
+        vector<int> ans;
+        for (int i = 0; i < n; ++i)
+            if (time <= min(left[i], right[i]))
+                ans.push_back(i);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func goodDaysToRobBank(security []int, time int) []int {
+	n := len(security)
+	if n <= time*2 {
+		return []int{}
+	}
+	left := make([]int, n)
+	right := make([]int, n)
+	for i := 1; i < n; i++ {
+		if security[i] <= security[i-1] {
+			left[i] = left[i-1] + 1
+		}
+	}
+	for i := n - 2; i >= 0; i-- {
+		if security[i] <= security[i+1] {
+			right[i] = right[i+1] + 1
+		}
+	}
+	var ans []int
+	for i := 0; i < n; i++ {
+		if time <= left[i] && time <= right[i] {
+			ans = append(ans, i)
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

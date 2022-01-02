@@ -2132,6 +2132,10 @@ Press <kbd>Control</kbd>+<kbd>F</kbd>(or <kbd>Command</kbd>+<kbd>F</kbd> on the 
 |  [2121](https://leetcode.com/problems/intervals-between-identical-elements)  |  [Intervals Between Identical Elements](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README_EN.md)  |  `Array`,`Hash Table`,`Prefix Sum`  |  Medium  |    |
 |  [2122](https://leetcode.com/problems/recover-the-original-array)  |  [Recover the Original Array](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README_EN.md)  |  `Array`,`Hash Table`,`Enumeration`,`Sorting`  |  Hard  |    |
 |  [2123](https://leetcode.com/problems/minimum-operations-to-remove-adjacent-ones-in-matrix)  |  [Minimum Operations to Remove Adjacent Ones in Matrix](/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/README_EN.md)  |    |  Hard  |  🔒  |
+|  [2124](https://leetcode.com/problems/check-if-all-as-appears-before-all-bs)  |  [Check if All A's Appears Before All B's](/solution/2100-2199/2124.Check%20if%20All%20A%27s%20Appears%20Before%20All%20B%27s/README_EN.md)  |    |  Easy  |    |
+|  [2125](https://leetcode.com/problems/number-of-laser-beams-in-a-bank)  |  [Number of Laser Beams in a Bank](/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README_EN.md)  |    |  Medium  |    |
+|  [2126](https://leetcode.com/problems/destroying-asteroids)  |  [Destroying Asteroids](/solution/2100-2199/2126.Destroying%20Asteroids/README_EN.md)  |    |  Medium  |    |
+|  [2127](https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting)  |  [Maximum Employees to Be Invited to a Meeting](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README_EN.md)  |    |  Hard  |    |
 
 ## Copyright
 

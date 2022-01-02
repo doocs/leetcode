@@ -2166,3 +2166,7 @@
   - [2121.Intervals Between Identical Elements](/solution/2100-2199/2121.Intervals%20Between%20Identical%20Elements/README.md)
   - [2122.Recover the Original Array](/solution/2100-2199/2122.Recover%20the%20Original%20Array/README.md)
   - [2123.Minimum Operations to Remove Adjacent Ones in Matrix](/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/README.md)
+  - [2124.Check if All A's Appears Before All B's](/solution/2100-2199/2124.Check%20if%20All%20A%27s%20Appears%20Before%20All%20B%27s/README.md)
+  - [2125.Number of Laser Beams in a Bank](/solution/2100-2199/2125.Number%20of%20Laser%20Beams%20in%20a%20Bank/README.md)
+  - [2126.Destroying Asteroids](/solution/2100-2199/2126.Destroying%20Asteroids/README.md)
+  - [2127.Maximum Employees to Be Invited to a Meeting](/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/README.md)
