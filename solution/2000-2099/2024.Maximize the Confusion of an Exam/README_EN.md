@@ -61,13 +61,96 @@ In both cases, there are five consecutive &#39;T&#39;s.
 ### **Python3**
 
 ```python
+class Solution:
+    def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
+        def get(c, k):
+            l = r = -1
+            while r < len(answerKey) - 1:
+                r += 1
+                if answerKey[r] == c:
+                    k -= 1
+                if k < 0:
+                    l += 1
+                    if answerKey[l] == c:
+                        k += 1
+            return r - l
 
+        return max(get('T', k), get('F', k))
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxConsecutiveAnswers(String answerKey, int k) {
+        return Math.max(get('T', k, answerKey), get('F', k, answerKey));
+    }
 
+    public int get(char c, int k, String answerKey) {
+        int l = 0, r = 0;
+        while (r < answerKey.length()) {
+            if (answerKey.charAt(r++) == c) {
+                --k;
+            }
+            if (k < 0 && answerKey.charAt(l++) == c) {
+                ++k;
+            }
+        }
+        return r - l;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxConsecutiveAnswers(string answerKey, int k) {
+        return max(get('T', k, answerKey), get('F', k, answerKey));
+    }
+
+    int get(char c, int k, string answerKey) {
+        int l = 0, r = 0;
+        while (r < answerKey.size())
+        {
+            if (answerKey[r++] == c) --k;
+            if (k < 0 && answerKey[l++] == c) ++k;
+        }
+        return r - l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxConsecutiveAnswers(answerKey string, k int) int {
+	get := func(c byte, k int) int {
+		l, r := -1, -1
+		for r < len(answerKey)-1 {
+			r++
+			if answerKey[r] == c {
+				k--
+			}
+			if k < 0 {
+				l++
+				if answerKey[l] == c {
+					k++
+				}
+			}
+		}
+		return r - l
+	}
+	return max(get('T', k), get('F', k))
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

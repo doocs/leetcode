@@ -62,6 +62,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+思路同 [1004. 最大连续 1 的个数 III](/solution/1000-1099/1004.Max%20Consecutive%20Ones%20III/README.md)
+
+维护一个单调变长的窗口。这种窗口经常出现在寻求“最大窗口”的问题中：因为要求的是”最大“，所以我们没有必要缩短窗口，于是代码就少了缩短窗口的部分；从另一个角度讲，本题里的 K 是资源数，一旦透支，窗口就不能再增长了。
+
+-   l 是窗口左端点，负责移动起始位置
+-   r 是窗口右端点，负责扩展窗口
+-   k 是资源数，每次要替换，k 减 1，同时 r 向右移动
+-   `r++` 每次都会执行，`l++` 只有资源 `k < 0` 时才触发，因此 `r - l` 的值只会单调递增（或保持不变）
+-   移动左端点时，如果可以释放一个资源，k 加 1
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -69,7 +79,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
+        def get(c, k):
+            l = r = -1
+            while r < len(answerKey) - 1:
+                r += 1
+                if answerKey[r] == c:
+                    k -= 1
+                if k < 0:
+                    l += 1
+                    if answerKey[l] == c:
+                        k += 1
+            return r - l
 
+        return max(get('T', k), get('F', k))
 ```
 
 ### **Java**
@@ -77,7 +101,76 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxConsecutiveAnswers(String answerKey, int k) {
+        return Math.max(get('T', k, answerKey), get('F', k, answerKey));
+    }
 
+    public int get(char c, int k, String answerKey) {
+        int l = 0, r = 0;
+        while (r < answerKey.length()) {
+            if (answerKey.charAt(r++) == c) {
+                --k;
+            }
+            if (k < 0 && answerKey.charAt(l++) == c) {
+                ++k;
+            }
+        }
+        return r - l;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxConsecutiveAnswers(string answerKey, int k) {
+        return max(get('T', k, answerKey), get('F', k, answerKey));
+    }
+
+    int get(char c, int k, string answerKey) {
+        int l = 0, r = 0;
+        while (r < answerKey.size())
+        {
+            if (answerKey[r++] == c) --k;
+            if (k < 0 && answerKey[l++] == c) ++k;
+        }
+        return r - l;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxConsecutiveAnswers(answerKey string, k int) int {
+	get := func(c byte, k int) int {
+		l, r := -1, -1
+		for r < len(answerKey)-1 {
+			r++
+			if answerKey[r] == c {
+				k--
+			}
+			if k < 0 {
+				l++
+				if answerKey[l] == c {
+					k++
+				}
+			}
+		}
+		return r - l
+	}
+	return max(get('T', k), get('F', k))
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
