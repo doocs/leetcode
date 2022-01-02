@@ -55,13 +55,66 @@ The substring of length 1 that starts and ends with the same letter is: &quot;a&
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numberOfSubstrings(self, s: str) -> int:
+        counter = [0] * 26
+        ans = 0
+        for c in s:
+            i = ord(c) - ord('a')
+            counter[i] += 1
+            ans += counter[i]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public long numberOfSubstrings(String s) {
+        int[] counter = new int[26];
+        long ans = 0;
+        for (char c : s.toCharArray()) {
+            int i = c - 'a';
+            ++counter[i];
+            ans += counter[i];
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long numberOfSubstrings(string s) {
+        vector<int> counter(26);
+        long long ans = 0;
+        for (char c : s)
+        {
+            int i = c - 'a';
+            ++counter[i];
+            ans += counter[i];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfSubstrings(s string) int64 {
+	var ans int64
+	counter := make([]int64, 26)
+	for _, c := range s {
+		i := c - 'a'
+		counter[i]++
+		ans += counter[i]
+	}
+	return ans
+}
 ```
 
 ### **...**
