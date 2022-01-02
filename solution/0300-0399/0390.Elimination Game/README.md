@@ -29,6 +29,19 @@ n = 9,
 
 <!-- 这里可写通用的实现逻辑 -->
 
+用 `i` 记录该从左边还是右边进行删除。由于经过每轮删除过后都是一个等差数列，因此我们用 `a1`, `an` 记录首尾元素，`cnt` 记录数列元素个数，`step` 记录元素间的间隔，`step` 初始为 1。
+
+-   若从左边删除：
+    -   `a1` 变为 `a1 + step`
+    -   若 `cnt` 为奇数个，`an` 变为 `an - step`，否则 `an` 不变
+-   若从右边删除：
+    -   `an` 变为 `an - step`
+    -   若 `cnt` 为奇数个，`a1` 变为 `a1 + step`，否则 `a1` 不变
+
+每次经过一轮删除，数列元素个数 `cnt` 变为 `cnt >> 1`，元素间隔 `step` 变为 `step << 1`，`i` 自增 1。
+
+当元素个数剩下 1 个时，退出循环，返回 `a1` 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -36,7 +49,23 @@ n = 9,
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def lastRemaining(self, n: int) -> int:
+        a1, an = 1, n
+        i, step, cnt = 0, 1, n
+        while cnt > 1:
+            if i % 2:
+                an -= step
+                if cnt % 2:
+                    a1 += step
+            else:
+                a1 += step
+                if cnt % 2:
+                    an -= step
+            cnt >>= 1
+            step <<= 1
+            i += 1
+        return a1
 ```
 
 ### **Java**
@@ -44,7 +73,72 @@ n = 9,
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int lastRemaining(int n) {
+        int a1 = 1, an = n, step = 1;
+        for (int i = 0, cnt = n; cnt > 1; cnt >>= 1, step <<= 1, ++i) {
+            if (i % 2 == 1) {
+                an -= step;
+                if (cnt % 2 == 1) {
+                    a1 += step;
+                }
+            } else {
+                a1 += step;
+                if (cnt % 2 == 1) {
+                    an -= step;
+                }
+            }
+        }
+        return a1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lastRemaining(int n) {
+        int a1 = 1, an = n, step = 1;
+        for (int i = 0, cnt = n; cnt > 1; cnt >>= 1, step <<= 1, ++i)
+        {
+            if (i % 2)
+            {
+                an -= step;
+                if (cnt % 2) a1 += step;
+            }
+            else
+            {
+                a1 += step;
+                if (cnt % 2) an -= step;
+            }
+        }
+        return a1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lastRemaining(n int) int {
+	a1, an, step := 1, n, 1
+	for i, cnt := 0, n; cnt > 1; cnt, step, i = cnt>>1, step<<1, i+1 {
+		if i%2 == 1 {
+			an -= step
+			if cnt%2 == 1 {
+				a1 += step
+			}
+		} else {
+			a1 += step
+			if cnt%2 == 1 {
+				an -= step
+			}
+		}
+	}
+	return a1
+}
 ```
 
 ### **...**

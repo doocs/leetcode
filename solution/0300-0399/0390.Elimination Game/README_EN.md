@@ -48,13 +48,94 @@ arr = [6]
 ### **Python3**
 
 ```python
-
+class Solution:
+    def lastRemaining(self, n: int) -> int:
+        a1, an = 1, n
+        i, step, cnt = 0, 1, n
+        while cnt > 1:
+            if i % 2:
+                an -= step
+                if cnt % 2:
+                    a1 += step
+            else:
+                a1 += step
+                if cnt % 2:
+                    an -= step
+            cnt >>= 1
+            step <<= 1
+            i += 1
+        return a1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int lastRemaining(int n) {
+        int a1 = 1, an = n, step = 1;
+        for (int i = 0, cnt = n; cnt > 1; cnt >>= 1, step <<= 1, ++i) {
+            if (i % 2 == 1) {
+                an -= step;
+                if (cnt % 2 == 1) {
+                    a1 += step;
+                }
+            } else {
+                a1 += step;
+                if (cnt % 2 == 1) {
+                    an -= step;
+                }
+            }
+        }
+        return a1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int lastRemaining(int n) {
+        int a1 = 1, an = n, step = 1;
+        for (int i = 0, cnt = n; cnt > 1; cnt >>= 1, step <<= 1, ++i)
+        {
+            if (i % 2)
+            {
+                an -= step;
+                if (cnt % 2) a1 += step;
+            }
+            else
+            {
+                a1 += step;
+                if (cnt % 2) an -= step;
+            }
+        }
+        return a1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func lastRemaining(n int) int {
+	a1, an, step := 1, n, 1
+	for i, cnt := 0, n; cnt > 1; cnt, step, i = cnt>>1, step<<1, i+1 {
+		if i%2 == 1 {
+			an -= step
+			if cnt%2 == 1 {
+				a1 += step
+			}
+		} else {
+			a1 += step
+			if cnt%2 == 1 {
+				an -= step
+			}
+		}
+	}
+	return a1
+}
 ```
 
 ### **...**
