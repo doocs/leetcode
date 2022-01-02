@@ -60,13 +60,170 @@ Therefore, no substrings in s are equal count substrings, so return 0</pre>
 ### **Python3**
 
 ```python
+class Solution:
+    def equalCountSubstrings(self, s: str, count: int) -> int:
+        n = len(s)
+        if count > n:
+            return 0
+        counter = [[0] * 26 for _ in range(n + 1)]
 
+        def check(i, j):
+            c1 = counter[i]
+            c2 = counter[j + 1]
+            for k in range(26):
+                if c2[k] == 0 or c1[k] == c2[k]:
+                    continue
+                if c2[k] - c1[k] != count:
+                    return False
+            return True
+
+        ans = 0
+        for i, c in enumerate(s):
+            idx = ord(c) - ord('a')
+            for j in range(26):
+                counter[i + 1][j] = counter[i][j]
+            counter[i + 1][idx] = counter[i][idx] + 1
+            l = 0
+            for _ in range(26):
+                l += count
+                j = i - l + 1
+                if j < 0:
+                    break
+                ans += check(j, i)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int equalCountSubstrings(String s, int count) {
+        int n = s.length();
+        if (count > n) {
+            return 0;
+        }
+        int[][] counter = new int[n + 1][26];
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            int idx = s.charAt(i) - 'a';
+            for (int j = 0; j < 26; ++j) {
+                counter[i + 1][j] = counter[i][j];
+            }
+            counter[i + 1][idx] = counter[i][idx] + 1;
+            int l = 0;
+            for (int k = 0; k < 26; ++k) {
+                l += count;
+                int j = i - l + 1;
+                if (j < 0) {
+                    break;
+                }
+                ans += check(j, i, count, counter) ? 1 : 0;
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(int i, int j, int count, int[][] counter) {
+        int[] c1 = counter[i];
+        int[] c2 = counter[j + 1];
+        for (int k = 0; k < 26; ++k) {
+            if (c2[k] == 0 || c1[k] == c2[k]) {
+                continue;
+            }
+            if (c2[k] - c1[k] != count) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int equalCountSubstrings(string s, int count) {
+        int n = s.size();
+        if (count > n) return 0;
+        vector<vector<int>> counter(n + 1, vector<int>(26));
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            int idx = s[i] - 'a';
+            for (int j = 0; j < 26; ++j) counter[i + 1][j] = counter[i][j];
+            counter[i + 1][idx] = counter[i][idx] + 1;
+            int l = 0;
+            for (int k = 0; k < 26; ++k)
+            {
+                l += count;
+                int j = i - l + 1;
+                if (j < 0) break;
+                ans += check(j, i, count, counter);
+            }
+        }
+        return ans;
+    }
+
+    bool check(int i, int j, int count, vector<vector<int>>& counter) {
+        auto& c1 = counter[i];
+        auto& c2 = counter[j + 1];
+        for (int k = 0; k < 26; ++k)
+        {
+            if (c2[k] == 0 || c1[k] == c2[k]) continue;
+            if (c2[k] - c1[k] != count) return false;
+        }
+        return true;
+    }
+};
+```
+
+### **Go**
+
+```go
+func equalCountSubstrings(s string, count int) int {
+	n := len(s)
+	if count > n {
+		return 0
+	}
+	counter := make([][]int, n+1)
+	for i := range counter {
+		counter[i] = make([]int, 26)
+	}
+	ans := 0
+	check := func(i, j int) bool {
+		c1, c2 := counter[i], counter[j+1]
+		for k := 0; k < 26; k++ {
+			if c2[k] == 0 || c1[k] == c2[k] {
+				continue
+			}
+			if c2[k]-c1[k] != count {
+				return false
+			}
+		}
+		return true
+	}
+	for i, c := range s {
+		idx := c - 'a'
+		for j := 0; j < 26; j++ {
+			counter[i+1][j] = counter[i][j]
+		}
+		counter[i+1][idx] = counter[i][idx] + 1
+		l := 0
+		for k := 0; k < 26; k++ {
+			l += count
+			j := i - l + 1
+			if j < 0 {
+				break
+			}
+			if check(j, i) {
+				ans++
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
