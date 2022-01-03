@@ -1,27 +1,27 @@
 class Solution {
-    private int[] presum;
+    private int[] s;
+    private Random random = new Random();
 
     public Solution(int[] w) {
         int n = w.length;
-        presum = new int[n + 1];
+        s = new int[n + 1];
         for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + w[i];
+            s[i + 1] = s[i] + w[i];
         }
     }
     
     public int pickIndex() {
-        int n = presum.length;
-        int x = (int) (Math.random() * presum[n - 1]) + 1;
-        int left = 0, right = n - 2;
+        int x = 1 + random.nextInt(s[s.length - 1]);
+        int left = 1, right = s.length - 1;
         while (left < right) {
             int mid = (left + right) >> 1;
-            if (presum[mid + 1] >= x) {
+            if (s[mid] >= x) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        return left;
+        return left - 1;
     }
 }
 

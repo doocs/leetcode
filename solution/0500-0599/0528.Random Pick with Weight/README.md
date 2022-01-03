@@ -79,22 +79,20 @@ solution.pickIndex(); // 返回 0，返回下标 0，返回该下标概率为 1/
 class Solution:
 
     def __init__(self, w: List[int]):
-        n = len(w)
-        self.presum = [0] * (n + 1)
-        for i in range(n):
-            self.presum[i + 1] = self.presum[i] + w[i]
+        self.s = [0]
+        for c in w:
+            self.s.append(self.s[-1] + c)
 
     def pickIndex(self) -> int:
-        n = len(self.presum)
-        x = random.randint(1, self.presum[-1])
-        left, right = 0, n - 2
+        x = random.randint(1, self.s[-1])
+        left, right = 1, len(self.s) - 1
         while left < right:
             mid = (left + right) >> 1
-            if self.presum[mid + 1] >= x:
+            if self.s[mid] >= x:
                 right = mid
             else:
                 left = mid + 1
-        return left
+        return left - 1
 
 # Your Solution object will be instantiated and called as such:
 # obj = Solution(w)
@@ -107,29 +105,29 @@ class Solution:
 
 ```java
 class Solution {
-    private int[] presum;
+    private int[] s;
+    private Random random = new Random();
 
     public Solution(int[] w) {
         int n = w.length;
-        presum = new int[n + 1];
+        s = new int[n + 1];
         for (int i = 0; i < n; ++i) {
-            presum[i + 1] = presum[i] + w[i];
+            s[i + 1] = s[i] + w[i];
         }
     }
 
     public int pickIndex() {
-        int n = presum.length;
-        int x = (int) (Math.random() * presum[n - 1]) + 1;
-        int left = 0, right = n - 2;
+        int x = 1 + random.nextInt(s[s.length - 1]);
+        int left = 1, right = s.length - 1;
         while (left < right) {
             int mid = (left + right) >> 1;
-            if (presum[mid + 1] >= x) {
+            if (s[mid] >= x) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        return left;
+        return left - 1;
     }
 }
 
@@ -145,25 +143,25 @@ class Solution {
 ```cpp
 class Solution {
 public:
-    vector<int> presum;
+    vector<int> s;
 
     Solution(vector<int>& w) {
         int n = w.size();
-        presum.resize(n + 1);
-        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + w[i];
+        s.resize(n + 1);
+        for (int i = 0; i < n; ++i) s[i + 1] = s[i] + w[i];
     }
 
     int pickIndex() {
-        int n = presum.size();
-        int x = rand() % presum[n - 1] + 1;
-        int left = 0, right = n - 2;
+        int n = s.size();
+        int x = 1 + rand() % s[n - 1];
+        int left = 1, right = n - 1;
         while (left < right)
         {
             int mid = left + right >> 1;
-            if (presum[mid + 1] >= x) right = mid;
+            if (s[mid] >= x) right = mid;
             else left = mid + 1;
         }
-        return left;
+        return left - 1;
     }
 };
 
@@ -178,37 +176,77 @@ public:
 
 ```go
 type Solution struct {
-	presum []int
+	s []int
 }
 
 func Constructor(w []int) Solution {
 	n := len(w)
-	pre := make([]int, n+1)
+	s := make([]int, n+1)
 	for i := 0; i < n; i++ {
-		pre[i+1] = pre[i] + w[i]
+		s[i+1] = s[i] + w[i]
 	}
-	return Solution{pre}
+	return Solution{s}
 }
 
 func (this *Solution) PickIndex() int {
-	n := len(this.presum)
-	x := rand.Intn(this.presum[n-1]) + 1
-	left, right := 0, n-2
+	n := len(this.s)
+	x := 1 + rand.Intn(this.s[n-1])
+	left, right := 1, n-1
 	for left < right {
 		mid := (left + right) >> 1
-		if this.presum[mid+1] >= x {
+		if this.s[mid] >= x {
 			right = mid
 		} else {
 			left = mid + 1
 		}
 	}
-	return left
+	return left - 1
 }
 
 /**
  * Your Solution object will be instantiated and called as such:
  * obj := Constructor(w);
  * param_1 := obj.PickIndex();
+ */
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} w
+ */
+var Solution = function (w) {
+    const n = w.length;
+    this.s = new Array(n + 1).fill(0);
+    for (let i = 0; i < n; ++i) {
+        this.s[i + 1] = this.s[i] + w[i];
+    }
+};
+
+/**
+ * @return {number}
+ */
+Solution.prototype.pickIndex = function () {
+    const n = this.s.length;
+    const x = 1 + Math.floor(Math.random() * this.s[n - 1]);
+    let left = 1,
+        right = n - 1;
+    while (left < right) {
+        const mid = (left + right) >> 1;
+        if (this.s[mid] >= x) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left - 1;
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * var obj = new Solution(w)
+ * var param_1 = obj.pickIndex()
  */
 ```
 
