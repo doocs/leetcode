@@ -140,7 +140,7 @@ public:
  */
 ```
 
-### **TypeScript**
+### **JavaScript**
 
 ```js
 /**

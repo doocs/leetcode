@@ -102,7 +102,7 @@ class KthLargest {
  */
 ```
 
-### **TypeScript**
+### **JavaScript**
 
 ```js
 /**
