@@ -81,13 +81,83 @@ Note that returning a single segment [1,7) is incorrect because the mixed color 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def splitPainting(self, segments: List[List[int]]) -> List[List[int]]:
+        d = defaultdict(int)
+        for l, r, c in segments:
+            d[l] += c
+            d[r] -= c
+        s = sorted([[k, v] for k, v in d.items()])
+        n = len(s)
+        for i in range(1, n):
+            s[i][1] += s[i - 1][1]
+        ans = []
+        for i in range(n - 1):
+            if s[i][1]:
+                ans.append([s[i][0], s[i + 1][0], s[i][1]])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<List<Long>> splitPainting(int[][] segments) {
+        TreeMap<Integer, Long> d = new TreeMap<>();
+        for (int[] e : segments) {
+            int l = e[0], r = e[1], c = e[2];
+            d.put(l, d.getOrDefault(l, 0L) + c);
+            d.put(r, d.getOrDefault(r, 0L) - c);
+        }
+        List<List<Long>> ans = new ArrayList<>();
+        long i = 0, j = 0;
+        long cur = 0;
+        for (Map.Entry<Integer, Long> e : d.entrySet()) {
+            if (Objects.equals(e.getKey(), d.firstKey())) {
+                i = e.getKey();
+            } else {
+                j = e.getKey();
+                if (cur > 0) {
+                    ans.add(Arrays.asList(i, j, cur));
+                }
+                i = j;
+            }
+            cur += e.getValue();
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<long long>> splitPainting(vector<vector<int>>& segments) {
+        map<int, long long> d;
+        for (auto& e : segments)
+        {
+            int l = e[0], r = e[1], c = e[2];
+            d[l] += c;
+            d[r] -= c;
+        }
+        vector<vector<long long>> ans;
+        long long i, j, cur = 0;
+        for (auto& it : d)
+        {
+            if (it == *d.begin()) i = it.first;
+            else
+            {
+                j = it.first;
+                if (cur > 0) ans.push_back({i, j, cur});
+                i = j;
+            }
+            cur += it.second;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **...**
