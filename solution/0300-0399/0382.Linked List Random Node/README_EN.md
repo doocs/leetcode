@@ -51,13 +51,149 @@ solution.getRandom(); // return 3
 ### **Python3**
 
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
 
+    def __init__(self, head: Optional[ListNode]):
+        self.head = head
+
+    def getRandom(self) -> int:
+        n = ans = 0
+        head = self.head
+        while head:
+            n += 1
+            x = random.randint(1, n)
+            if n == x:
+                ans = head.val
+            head = head.next
+        return ans
+
+
+# Your Solution object will be instantiated and called as such:
+# obj = Solution(head)
+# param_1 = obj.getRandom()
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    private ListNode head;
+    private Random random = new Random();
 
+    public Solution(ListNode head) {
+        this.head = head;
+    }
+
+    public int getRandom() {
+        int ans = 0, n = 0;
+        for (ListNode node = head; node != null; node = node.next) {
+            ++n;
+            int x = 1 + random.nextInt(n);
+            if (n == x) {
+                ans = node.val;
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(head);
+ * int param_1 = obj.getRandom();
+ */
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* head;
+
+    Solution(ListNode* head) {
+        this->head = head;
+    }
+
+    int getRandom() {
+        int n = 0, ans = 0;
+        for (ListNode* node = head; node != nullptr; node = node->next)
+        {
+            n += 1;
+            int x = 1 + rand() % n;
+            if (n == x) ans = node->val;
+        }
+        return ans;
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(head);
+ * int param_1 = obj->getRandom();
+ */
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+type Solution struct {
+	head *ListNode
+}
+
+func Constructor(head *ListNode) Solution {
+	return Solution{head}
+}
+
+func (this *Solution) GetRandom() int {
+	n, ans := 0, 0
+	for node := this.head; node != nil; node = node.Next {
+		n++
+		x := 1 + rand.Intn(n)
+		if n == x {
+			ans = node.Val
+		}
+	}
+	return ans
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * obj := Constructor(head);
+ * param_1 := obj.GetRandom();
+ */
 ```
 
 ### **...**
