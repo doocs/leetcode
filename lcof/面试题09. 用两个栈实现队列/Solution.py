@@ -6,8 +6,6 @@ class CQueue:
 
     def appendTail(self, value: int) -> None:
         self.s1.append(value)
-        if not self.s2:
-            self._move()
 
     def deleteHead(self) -> int:
         if not self.s2:

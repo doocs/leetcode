@@ -48,8 +48,6 @@ class CQueue:
 
     def appendTail(self, value: int) -> None:
         self.s1.append(value)
-        if not self.s2:
-            self._move()
 
     def deleteHead(self) -> int:
         if not self.s2:
@@ -82,9 +80,6 @@ class CQueue {
 
     public void appendTail(int value) {
         s1.push(value);
-        if (s2.isEmpty()) {
-            move();
-        }
     }
 
     public int deleteHead() {
@@ -225,9 +220,6 @@ class CQueue {
 
     appendTail(value: number): void {
         this.stack1.push(value);
-        if (this.stack2.length == 0) {
-            this.move();
-        }
     }
 
     move(): void {

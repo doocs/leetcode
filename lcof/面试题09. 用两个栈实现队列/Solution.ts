@@ -8,9 +8,6 @@ class CQueue {
 
     appendTail(value: number): void {
         this.stack1.push(value);
-        if (this.stack2.length == 0) {
-            this.move();
-        }
     }
 
     move(): void {
