@@ -4,38 +4,28 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
-    int helper(TreeNode* node, int& left, int & right) {
-        left = INT_MAX;
-        right = INT_MIN;
-        if (node == nullptr) {
-            return 0;
-        }
-        left = node->val;
-        right = node->val;
-        
-        int tmpLeft, tmpRight;
-        int res = 0;
-        
-        res = max(res, helper(node->left, tmpLeft, tmpRight));
-        left = min(left, tmpLeft);
-        right = max(right, tmpRight);
-        
-        res = max(res, helper(node->right, tmpLeft, tmpRight));
-        left = min(left, tmpLeft);
-        right = max(right, tmpRight);
-        
-        res = max(res, abs(node->val - left));
-        res = max(res, abs(node->val - right));
-        
-        return res;
-    }
 public:
+    int ans;
+
     int maxAncestorDiff(TreeNode* root) {
-        int left = 0, right = 0;
-        return helper(root, left, right);
+        ans = 0;
+        dfs(root, root->val, root->val);
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int mx, int mi) {
+        if (!root) return;
+        int t = max(abs(root->val - mx), abs(root->val - mi));
+        ans = max(ans, t);
+        mx = max(mx, root->val);
+        mi = min(mi, root->val);
+        dfs(root->left, mx, mi);
+        dfs(root->right, mx, mi);
     }
 };

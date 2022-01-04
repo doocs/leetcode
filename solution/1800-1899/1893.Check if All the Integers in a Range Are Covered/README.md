@@ -47,7 +47,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-利用差分数组进行区间更新
+利用差分数组进行区间更新。
 
 <!-- tabs:start -->
 
@@ -58,10 +58,10 @@
 ```python
 class Solution:
     def isCovered(self, ranges: List[List[int]], left: int, right: int) -> bool:
-        diff = [0 for i in range(52)]
-        for rg in ranges:
-            diff[rg[0]] += 1
-            diff[rg[1] + 1] -= 1
+        diff = [0] * 52
+        for l, r in ranges:
+            diff[l] += 1
+            diff[r + 1] -= 1
         cur = 0
         for i, df in enumerate(diff):
             cur += df
@@ -132,6 +132,29 @@ func isCovered(ranges [][]int, left int, right int) bool {
 	}
 	return true
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isCovered(vector<vector<int>>& ranges, int left, int right) {
+        vector<int> d(52);
+        for (auto& e : ranges)
+        {
+            ++d[e[0]];
+            --d[e[1] + 1];
+        }
+        int s = 0;
+        for (int i = 0; i < d.size(); ++i)
+        {
+            s += d[i];
+            if (left <= i && i <= right && s == 0) return false;
+        }
+        return true;
+    }
+};
 ```
 
 ### **...**

@@ -4,23 +4,33 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    public int bfs(TreeNode root, int max, int min) {
-        if (root == null) {
-            return 0;
-        }
-        int res = Math.max(max - root.val, root.val - min);
-        int mx = Math.max(root.val, max);
-        int mn = Math.min(root.val, min);
-        res = Math.max(res, bfs(root.left, mx, mn));
-        res = Math.max(res, bfs(root.right, mx, mn));
-        return res;
-    }
+    private int ans;
 
     public int maxAncestorDiff(TreeNode root) {
-        return bfs(root, root.val, root.val);
+        ans = 0;
+        dfs(root, root.val, root.val);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int mx, int mi) {
+        if (root == null) {
+            return;
+        }
+        int t = Math.max(Math.abs(root.val - mx), Math.abs(root.val - mi));
+        ans = Math.max(ans, t);
+        mx = Math.max(mx, root.val);
+        mi = Math.min(mi, root.val);
+        dfs(root.left, mx, mi);
+        dfs(root.right, mx, mi);
     }
 }

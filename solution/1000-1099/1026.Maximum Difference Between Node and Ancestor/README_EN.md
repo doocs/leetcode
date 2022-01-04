@@ -43,13 +43,155 @@ Among all possible differences, the maximum value of 7 is obtained by |8 - 1| = 
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxAncestorDiff(self, root: TreeNode) -> int:
+        def dfs(root, mx, mi):
+            if root is None:
+                return
+            nonlocal ans
+            ans = max(ans, abs(root.val - mx), abs(root.val - mi))
+            mx = max(mx, root.val)
+            mi = min(mi, root.val)
+            dfs(root.left, mx, mi)
+            dfs(root.right, mx, mi)
 
+        ans = 0
+        dfs(root, root.val, root.val)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int ans;
 
+    public int maxAncestorDiff(TreeNode root) {
+        ans = 0;
+        dfs(root, root.val, root.val);
+        return ans;
+    }
+
+    private void dfs(TreeNode root, int mx, int mi) {
+        if (root == null) {
+            return;
+        }
+        int t = Math.max(Math.abs(root.val - mx), Math.abs(root.val - mi));
+        ans = Math.max(ans, t);
+        mx = Math.max(mx, root.val);
+        mi = Math.min(mi, root.val);
+        dfs(root.left, mx, mi);
+        dfs(root.right, mx, mi);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int ans;
+
+    int maxAncestorDiff(TreeNode* root) {
+        ans = 0;
+        dfs(root, root->val, root->val);
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int mx, int mi) {
+        if (!root) return;
+        int t = max(abs(root->val - mx), abs(root->val - mi));
+        ans = max(ans, t);
+        mx = max(mx, root->val);
+        mi = min(mi, root->val);
+        dfs(root->left, mx, mi);
+        dfs(root->right, mx, mi);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maxAncestorDiff(root *TreeNode) int {
+	ans := 0
+	var dfs func(root *TreeNode, mx, mi int)
+	dfs = func(root *TreeNode, mx, mi int) {
+		if root == nil {
+			return
+		}
+		t := max(abs(root.Val-mx), abs(root.Val-mi))
+		ans = max(ans, t)
+		mx = max(mx, root.Val)
+		mi = min(mi, root.Val)
+		dfs(root.Left, mx, mi)
+		dfs(root.Right, mx, mi)
+	}
+	dfs(root, root.Val, root.Val)
+	return ans
+}
+
+func abs(x int) int {
+	if x > 0 {
+		return x
+	}
+	return -x
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
