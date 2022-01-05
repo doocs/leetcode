@@ -88,6 +88,8 @@ startUrl = &quot;http://news.google.com&quot;
 
 <!-- 这里可写通用的实现逻辑 -->
 
+DFS。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -95,7 +97,34 @@ startUrl = &quot;http://news.google.com&quot;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# """
+# This is HtmlParser's API interface.
+# You should not implement it, or speculate about its implementation
+# """
+# class HtmlParser(object):
+#    def getUrls(self, url):
+#        """
+#        :type url: str
+#        :rtype List[str]
+#        """
 
+class Solution:
+    def crawl(self, startUrl: str, htmlParser: 'HtmlParser') -> List[str]:
+        def host(url):
+            url = url[7:]
+            return url.split('/')[0]
+
+        def dfs(url):
+            if url in ans:
+                return
+            ans.add(url)
+            for next in htmlParser.getUrls(url):
+                if host(url) == host(next):
+                    dfs(next)
+
+        ans = set()
+        dfs(startUrl)
+        return list(ans)
 ```
 
 ### **Java**
@@ -103,7 +132,119 @@ startUrl = &quot;http://news.google.com&quot;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * // This is the HtmlParser's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * interface HtmlParser {
+ *     public List<String> getUrls(String url) {}
+ * }
+ */
 
+class Solution {
+    private Set<String> ans;
+
+    public List<String> crawl(String startUrl, HtmlParser htmlParser) {
+        ans = new HashSet<>();
+        dfs(startUrl, htmlParser);
+        return new ArrayList<>(ans);
+    }
+
+    private void dfs(String url, HtmlParser htmlParser) {
+        if (ans.contains(url)) {
+            return;
+        }
+        ans.add(url);
+        for (String next : htmlParser.getUrls(url)) {
+            if (host(next).equals(host(url))) {
+                dfs(next, htmlParser);
+            }
+        }
+    }
+
+    private String host(String url) {
+        url = url.substring(7);
+        return url.split("/")[0];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * // This is the HtmlParser's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * class HtmlParser {
+ *   public:
+ *     vector<string> getUrls(string url);
+ * };
+ */
+
+class Solution {
+public:
+    vector<string> ans;
+    unordered_set<string> vis;
+
+    vector<string> crawl(string startUrl, HtmlParser htmlParser) {
+        dfs(startUrl, htmlParser);
+        return ans;
+    }
+
+    void dfs(string& url, HtmlParser& htmlParser) {
+        if (vis.count(url)) return;
+        vis.insert(url);
+        ans.push_back(url);
+        for (string next : htmlParser.getUrls(url))
+            if (host(url) == host(next))
+                dfs(next, htmlParser);
+    }
+
+    string host(string url) {
+        int i = 7;
+        string res;
+        for (; i < url.size(); ++i)
+        {
+            if (url[i] == '/') break;
+            res += url[i];
+        }
+        return res;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * // This is HtmlParser's API interface.
+ * // You should not implement it, or speculate about its implementation
+ * type HtmlParser struct {
+ *     func GetUrls(url string) []string {}
+ * }
+ */
+
+func crawl(startUrl string, htmlParser HtmlParser) []string {
+	var ans []string
+	vis := make(map[string]bool)
+	var dfs func(url string)
+	host := func(url string) string {
+		return strings.Split(url[7:], "/")[0]
+	}
+	dfs = func(url string) {
+		if vis[url] {
+			return
+		}
+		vis[url] = true
+		ans = append(ans, url)
+		for _, next := range htmlParser.GetUrls(url) {
+			if host(next) == host(url) {
+				dfs(next)
+			}
+		}
+	}
+	dfs(startUrl)
+	return ans
+}
 ```
 
 ### **...**
