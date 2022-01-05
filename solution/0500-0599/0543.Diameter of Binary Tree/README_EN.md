@@ -51,18 +51,61 @@ Similar to problem [687. Longest Univalue Path](/solution/0600-0699/0687.Longest
 #         self.right = right
 class Solution:
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
-        res = 0
-
         def dfs(root):
-            nonlocal res
             if root is None:
                 return 0
+            nonlocal ans
             left, right = dfs(root.left), dfs(root.right)
-            res = max(res, left + right)
+            ans = max(ans, left + right)
             return 1 + max(left, right)
 
+        ans = 0
         dfs(root)
-        return res
+        return ans
+```
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        def build(root):
+            if root is None:
+                return
+            nonlocal d
+            if root.left:
+                d[root].add(root.left)
+                d[root.left].add(root)
+            if root.right:
+                d[root].add(root.right)
+                d[root.right].add(root)
+            build(root.left)
+            build(root.right)
+
+        def dfs(u, t):
+            nonlocal ans, vis, d, next
+            if u in vis:
+                return
+            vis.add(u)
+            if t > ans:
+                ans = t
+                next = u
+            for v in d[u]:
+                dfs(v, t + 1)
+
+        d = defaultdict(set)
+        ans = 0
+        next = root
+        build(root)
+        vis = set()
+        dfs(next, 0)
+        vis.clear()
+        dfs(next, 0)
+        return ans
 ```
 
 ### **Java**
@@ -84,12 +127,12 @@ class Solution:
  * }
  */
 class Solution {
-    private int res;
+    private int ans;
 
     public int diameterOfBinaryTree(TreeNode root) {
-        res = 0;
+        ans = 0;
         dfs(root);
-        return res;
+        return ans;
     }
 
     private int dfs(TreeNode root) {
@@ -98,7 +141,7 @@ class Solution {
         }
         int left = dfs(root.left);
         int right = dfs(root.right);
-        res = Math.max(res, left + right);
+        ans = Math.max(ans, left + right);
         return 1 + Math.max(left, right);
     }
 }
@@ -120,18 +163,19 @@ class Solution {
  */
 class Solution {
 public:
-    int res;
+    int ans;
 
     int diameterOfBinaryTree(TreeNode* root) {
-        res = 0;
+        ans = 0;
         dfs(root);
-        return res;
+        return ans;
     }
 
     int dfs(TreeNode* root) {
         if (!root) return 0;
-        int left = dfs(root->left), right = dfs(root->right);
-        res = max(res, left + right);
+        int left = dfs(root->left);
+        int right = dfs(root->right);
+        ans = max(ans, left + right);
         return 1 + max(left, right);
     }
 };
@@ -148,21 +192,19 @@ public:
  *     Right *TreeNode
  * }
  */
-var res int
-
 func diameterOfBinaryTree(root *TreeNode) int {
-	res = 0
-	dfs(root)
-	return res
-}
-
-func dfs(root *TreeNode) int {
-	if root == nil {
-		return 0
+	ans := 0
+	var dfs func(root *TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		left, right := dfs(root.Left), dfs(root.Right)
+		ans = max(ans, left+right)
+		return 1 + max(left, right)
 	}
-	left, right := dfs(root.Left), dfs(root.Right)
-	res = max(res, left+right)
-	return 1 + max(left, right)
+	dfs(root)
+	return ans
 }
 
 func max(a, b int) int {

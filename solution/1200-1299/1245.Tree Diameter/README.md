@@ -67,6 +67,8 @@
 
 因此定理成立。
 
+类似题目：[1522. N 叉树的直径](/solution/1500-1599/1522.Diameter%20of%20N-Ary%20Tree/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
