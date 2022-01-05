@@ -17,7 +17,8 @@
 
 ## 解法
 
-使用 replace 替换即可。
+- 使用 `replace()` 替换。
+- 遍历添加。
 
 <!-- tabs:start -->
 
@@ -70,7 +71,7 @@ var replaceSpace = function (s) {
 };
 ```
 
-- 使用两个指针
+- 双指针
 
 ```js
 /**
