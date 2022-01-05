@@ -131,9 +131,23 @@ public:
 
 ### **TypeScript**
 
+- 使用 `replace()`
+
 ```ts
 function replaceSpace(s: string): string {
     return s.replace(/\s/g, "%20");
+}
+```
+
+- 遍历添加
+
+```ts
+function replaceSpace(s: string): string {
+    const strArr = [];
+    for (const c of s) {
+        strArr.push(c === " " ? "%20" : c);
+    }
+    return strArr.join("");
 }
 ```
 
