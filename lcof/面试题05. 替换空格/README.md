@@ -143,8 +143,8 @@ function replaceSpace(s: string): string {
 ```ts
 function replaceSpace(s: string): string {
     const strArr = [];
-    for (const str of s) {
-        strArr.push(str === " " ? "%20" : str);
+    for (const c of s) {
+        strArr.push(c === " " ? "%20" : c);
     }
     return strArr.join("");
 }
