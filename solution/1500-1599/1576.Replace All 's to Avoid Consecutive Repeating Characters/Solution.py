@@ -1,12 +1,13 @@
 class Solution:
     def modifyString(self, s: str) -> str:
-        s = list(s)
-        for i in range(len(s)):
-            if s[i] == '?':
-                ahead = ' ' if i == 0 else s[i - 1]
-                behind = ' ' if i == len(s) - 1 else s[i + 1]
-                for c in string.ascii_lowercase:
-                    if c != ahead and c != behind:
-                        s[i] = c
-                        break
-        return "".join(s)
+        ans = list(s)
+        for i, c in enumerate(ans):
+            if c == '?':
+                for cc in 'abc':
+                    if i > 0 and ans[i - 1] == cc:
+                        continue
+                    if i < len(s) - 1 and ans[i + 1] == cc:
+                        continue
+                    ans[i] = cc
+                    break
+        return ''.join(ans)

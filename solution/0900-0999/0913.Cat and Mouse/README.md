@@ -200,11 +200,7 @@ public:
     int catMouseGame(vector<vector<int>>& graph) {
         int n = graph.size();
         this->graph = graph;
-        memo.resize(n, vector<vector<int>>(n, vector<int>(2 * n + 10)));
-        for (int i = 0; i < memo.size(); ++i)
-            for (int j = 0; j < memo[0].size(); ++j)
-                for (int k = 0; k < memo[0][0].size(); ++k)
-                    memo[i][j][k] = -1;
+        memo.resize(n, vector<vector<int>>(n, vector<int>(2 * n + 10, -1)));
         return dfs(1, 2, 0);
     }
 

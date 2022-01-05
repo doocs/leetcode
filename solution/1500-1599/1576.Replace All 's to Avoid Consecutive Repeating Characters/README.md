@@ -67,16 +67,17 @@
 ```python
 class Solution:
     def modifyString(self, s: str) -> str:
-        s = list(s)
-        for i in range(len(s)):
-            if s[i] == '?':
-                ahead = ' ' if i == 0 else s[i - 1]
-                behind = ' ' if i == len(s) - 1 else s[i + 1]
-                for c in string.ascii_lowercase:
-                    if c != ahead and c != behind:
-                        s[i] = c
-                        break
-        return "".join(s)
+        ans = list(s)
+        for i, c in enumerate(ans):
+            if c == '?':
+                for cc in 'abc':
+                    if i > 0 and ans[i - 1] == cc:
+                        continue
+                    if i < len(s) - 1 and ans[i + 1] == cc:
+                        continue
+                    ans[i] = cc
+                    break
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -87,40 +88,70 @@ class Solution:
 class Solution {
     public String modifyString(String s) {
         char[] chars = s.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == '?') {
-                // 前面的字符
-                char ahead = i == 0 ? ' ' : chars[i - 1];
-                // 后面的字符
-                char behind = i == chars.length - 1 ? ' ' : chars[i + 1];
-                char temp = 'a';
-                while (temp == ahead || temp == behind) {
-                    temp++;
+        for (int i = 0; i < chars.length; ++i) {
+            char c = chars[i];
+            if (c == '?') {
+                for (char cc = 'a'; cc <= 'c'; ++cc) {
+                    if (i > 0 && chars[i - 1] == cc) {
+                        continue;
+                    }
+                    if (i < chars.length - 1 && chars[i + 1] == cc) {
+                        continue;
+                    }
+                    chars[i] = cc;
+                    break;
                 }
-                chars[i] = temp;
             }
         }
-        return new String(chars);
+        return String.valueOf(chars);
     }
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string modifyString(string s) {
+        for (int i = 0; i < s.size(); ++i)
+        {
+            if (s[i] == '?')
+            {
+                for (char cc : "abc")
+                {
+                    if (i > 0 && s[i - 1] == cc) continue;
+                    if (i < s.size() - 1 && s[i + 1] == cc) continue;
+                    s[i] = cc;
+                    break;
+                }
+            }
+        }
+        return s;
+    }
+};
 ```
 
 ### **Go**
 
 ```go
 func modifyString(s string) string {
-	data := []byte(" " + s + " ")
-	for i, c := range data {
-		if c == byte('?') {
-			ahead, behind := data[i-1], data[i+1]
-			for t := byte('a'); t <= byte('z'); t++ {
-				if t != ahead && t != behind {
-					data[i] = t
+	ans := []byte(s)
+	for i, c := range ans {
+		if c == '?' {
+			for cc := byte('a'); cc <= 'c'; cc++ {
+				if i > 0 && ans[i-1] == cc {
+					continue
 				}
+				if i < len(s)-1 && ans[i+1] == cc {
+					continue
+				}
+				ans[i] = cc
+				break
 			}
 		}
 	}
-	return string(data[1 : len(data)-1])
+	return string(ans)
 }
 ```
 
