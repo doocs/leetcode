@@ -1,6 +1,6 @@
 class Solution {
-    int[] dr = new int[]{-1, 0, 1, 0};
-    int[] dc = new int[]{0, -1, 0, 1};
+    int[] dr = new int[] { -1, 0, 1, 0 };
+    int[] dc = new int[] { 0, -1, 0, 1 };
 
     public int orangesRotting(int[][] grid) {
         int R = grid.length, C = grid[0].length;
@@ -31,8 +31,8 @@ class Solution {
                 }
             }
         }
-        for (int[] row: grid) {
-            for (int v: row) {
+        for (int[] row : grid) {
+            for (int v : row) {
                 if (v == 1) {
                     return -1;
                 }
