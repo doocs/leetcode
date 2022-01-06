@@ -67,6 +67,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+栈实现。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +76,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def simplifyPath(self, path: str) -> str:
+        stk = []
+        for s in path.split('/'):
+            if not s or s == '.':
+                continue
+            if s == '..':
+                if stk:
+                    stk.pop()
+            else:
+                stk.append(s)
+        return '/' + '/'.join(stk)
 ```
 
 ### **Java**
@@ -82,7 +95,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String simplifyPath(String path) {
+        Deque<String> stk = new ArrayDeque<>();
+        for (String s : path.split("/")) {
+            if ("".equals(s) || ".".equals(s)) {
+                continue;
+            }
+            if ("..".equals(s)) {
+                stk.pollLast();
+            } else {
+                stk.offerLast(s);
+            }
+        }
+        return "/" + String.join("/", stk);
+    }
+}
+```
 
+### **Go**
+
+```go
+func simplifyPath(path string) string {
+	var stk []string
+	for _, s := range strings.Split(path, "/") {
+		if s == "" || s == "." {
+			continue
+		}
+		if s == ".." {
+			if len(stk) > 0 {
+				stk = stk[0 : len(stk)-1]
+			}
+		} else {
+			stk = append(stk, s)
+		}
+	}
+	return "/" + strings.Join(stk, "/")
+}
+```
+
+```go
+func simplifyPath(path string) string {
+    return filepath.Clean(path)
+}
 ```
 
 ### **...**
