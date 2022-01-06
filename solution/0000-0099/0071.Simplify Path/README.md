@@ -82,7 +82,89 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String simplifyPath(String path) {
+        List<String> dirs = new ArrayList<>();
+        int dirStart = 0, len = path.length();
+        while (dirStart < len) {
+            while (dirStart < len && path.charAt(dirStart) == '/') dirStart++;
+            int dirEnd = dirStart;
+            while (dirEnd < len && path.charAt(dirEnd) != '/') dirEnd++;
+            String dir = path.substring(dirStart, dirEnd);
+            if (!".".equals(dir)) {
+                if ("..".equals(dir)) {
+                    if (! dirs.isEmpty()) dirs.remove(dirs.size() - 1);
+                } else if (dir.length() > 0) {
+                    dirs.add(dir);
+                }
+            }
+            dirStart = ++dirEnd;
+        }
+        StringBuilder sb = new StringBuilder("/");
+        for (int i = 0; i < dirs.size(); i++) {
+            if (i == dirs.size() - 1) sb.append(dirs.get(i));
+            else sb.append(dirs.get(i)).append("/");
+        }
+        return sb.toString();
+    }
+}
+```
 
+### **C#**
+
+<!-- 这里可写当前语言的特殊实现逻辑 -->
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+public class Solution {
+    public string SimplifyPath(string path) {
+        var stack = new Stack<string>();
+        var sb = new StringBuilder();
+        foreach (var ch in ((IEnumerable<char>)path).Concat(Enumerable.Repeat('/', 1)))
+        {
+            if (ch == '/')
+            {
+                if (sb.Length > 0)
+                {
+                    var folder = sb.ToString();
+                    sb.Clear();
+                    switch (folder)
+                    {
+                        case ".":
+                            break;
+                        case "..":
+                            if (stack.Any())
+                            {
+                                stack.Pop();
+                            }
+                            break;
+                        default:
+                            stack.Push(folder);
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                sb.Append(ch);
+            }
+        }
+        
+        if (stack.Count == 0)
+        {
+            sb.Append('/');
+        }
+        foreach (var folder in ((IEnumerable<string>)stack.ToList()).Reverse())
+        {
+            sb.Append('/');
+            sb.Append(folder);
+        }
+        return sb.ToString();
+    }
+}
 ```
 
 ### **...**
