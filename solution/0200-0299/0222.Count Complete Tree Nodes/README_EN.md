@@ -66,11 +66,10 @@ class Solution:
 
         if root is None:
             return 0
-        left_depth = depth(root.left)
-        right_depth = depth(root.right)
-        if left_depth > right_depth:
-            return (1 << right_depth) + self.countNodes(root.left)
-        return (1 << left_depth) + self.countNodes(root.right)
+        left, right = depth(root.left), depth(root.right)
+        if left == right:
+            return (1 << left) + self.countNodes(root.right)
+        return (1 << right) + self.countNodes(root.left)
 ```
 
 ### **Java**
@@ -96,20 +95,17 @@ class Solution {
         if (root == null) {
             return 0;
         }
-        int leftDepth = depth(root.left);
-        int rightDepth = depth(root.right);
-        if (leftDepth > rightDepth) {
-            return (1 << rightDepth) + countNodes(root.left);
+        int left = depth(root.left);
+        int right = depth(root.right);
+        if (left == right) {
+            return (1 << left) + countNodes(root.right);
         }
-        return (1 << leftDepth) + countNodes(root.right);
+        return (1 << right) + countNodes(root.left);
     }
 
     private int depth(TreeNode root) {
         int res = 0;
-        while (root != null) {
-            ++res;
-            root = root.left;
-        }
+        for (; root != null; root = root.left, ++res);
         return res;
     }
 }
@@ -132,24 +128,16 @@ class Solution {
 class Solution {
 public:
     int countNodes(TreeNode* root) {
-        if (!root) {
-            return 0;
-        }
-        int leftDepth = depth(root->left);
-        int rightDepth = depth(root->right);
-        if (leftDepth > rightDepth) {
-            return (1 << rightDepth) + countNodes(root->left);
-        }
-        return (1 << leftDepth) + countNodes(root->right);
+        if (!root) return 0;
+        int left = depth(root->left);
+        int right = depth(root->right);
+        if (left == right) return (1 << left) + countNodes(root->right);
+        return (1 << right) + countNodes(root->left);
     }
 
-private:
     int depth(TreeNode* root) {
         int res = 0;
-        while (root) {
-            ++res;
-            root = root->left;
-        }
+        for (; root != nullptr; ++res, root = root->left);
         return res;
     }
 };
@@ -170,22 +158,51 @@ func countNodes(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	leftDepth := depth(root.Left)
-	rightDepth := depth(root.Right)
-	if leftDepth > rightDepth {
-		return (1 << rightDepth) + countNodes(root.Left)
+	depth := func(root *TreeNode) int {
+		res := 0
+		for root != nil {
+			res++
+			root = root.Left
+		}
+		return res
 	}
-	return (1 << leftDepth) + countNodes(root.Right)
+	left, right := depth(root.Left), depth(root.Right)
+	if left == right {
+		return (1 << left) + countNodes(root.Right)
+	}
+	return (1 << right) + countNodes(root.Left)
 }
+```
 
-func depth(root *TreeNode) int {
-	res := 0
-	for root != nil {
-		res++
-		root = root.Left
-	}
-	return res
-}
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var countNodes = function (root) {
+    if (!root) return 0;
+    let depth = function (root) {
+        let res = 0;
+        for (; root != null; ++res, root = root.left);
+        return res;
+    };
+    const left = depth(root.left);
+    const right = depth(root.right);
+    if (left == right) {
+        return (1 << left) + countNodes(root.right);
+    }
+    return (1 << right) + countNodes(root.left);
+};
 ```
 
 ### **C#**
@@ -210,22 +227,18 @@ public class Solution {
         {
             return 0;
         }
-        int leftDepth = depth(root.left);
-        int rightDepth = depth(root.right);
-        if (leftDepth > rightDepth)
+        int left = depth(root.left);
+        int right = depth(root.right);
+        if (left == right)
         {
-            return (1 << rightDepth) + CountNodes(root.left);
+            return (1 << left) + CountNodes(root.right);
         }
-        return (1 << leftDepth) + CountNodes(root.right);
+        return (1 << right) + CountNodes(root.left);
     }
 
     private int depth(TreeNode root) {
         int res = 0;
-        while (root != null)
-        {
-            ++res;
-            root = root.left;
-        }
+        for (; root != null; ++res, root = root.left);
         return res;
     }
 }

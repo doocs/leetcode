@@ -48,18 +48,18 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def closestValue(self, root: TreeNode, target: float) -> int:
-        res, min_diff = root.val, float('inf')
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        ans, mi = root.val, float('inf')
         while root:
-            val = abs(root.val - target)
-            if min_diff > val:
-                min_diff = val
-                res = root.val
+            t = abs(root.val - target)
+            if t < mi:
+                mi = t
+                ans = root.val
             if root.val > target:
                 root = root.left
             else:
                 root = root.right
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -84,13 +84,13 @@ class Solution:
  */
 class Solution {
     public int closestValue(TreeNode root, double target) {
-        int res = root.val;
-        double minDiff = Double.MAX_VALUE;
+        int ans = root.val;
+        double mi = Double.MAX_VALUE;
         while (root != null) {
-            double val = Math.abs(root.val - target);
-            if (minDiff > val) {
-                minDiff = val;
-                res = root.val;
+            double t = Math.abs(root.val - target);
+            if (t < mi) {
+                mi = t;
+                ans = root.val;
             }
             if (root.val > target) {
                 root = root.left;
@@ -98,7 +98,7 @@ class Solution {
                 root = root.right;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -119,14 +119,14 @@ class Solution {
  * @param {number} target
  * @return {number}
  */
-var closestValue = function (root, target) {
-    let res = root.val;
-    let minDiff = Math.abs(root.val - target);
+var closestValue = function(root, target) {
+    let ans = root.val;
+    let mi = Number.MAX_VALUE;
     while (root) {
-        const val = Math.abs(root.val - target);
-        if (minDiff > val) {
-            minDiff = val;
-            res = root.val;
+        const t = Math.abs(root.val - target);
+        if (t < mi) {
+            mi = t;
+            ans = root.val;
         }
         if (root.val > target) {
             root = root.left;
@@ -134,7 +134,7 @@ var closestValue = function (root, target) {
             root = root.right;
         }
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -155,21 +155,20 @@ var closestValue = function (root, target) {
 class Solution {
 public:
     int closestValue(TreeNode* root, double target) {
-        int res = root->val;
-        double minDiff = abs(root->val - target);
-        while (root != nullptr) {
-            double val = abs(root->val - target);
-            if (minDiff > val) {
-                minDiff = val;
-                res = root->val;
+        int ans = root->val;
+        double mi = INT_MAX;
+        while (root)
+        {
+            double t = abs(root->val - target);
+            if (t < mi)
+            {
+                mi = t;
+                ans = root->val;
             }
-            if (root->val > target) {
-                root = root->left;
-            } else {
-                root = root->right;
-            }
+            if (root->val > target) root = root->left;
+            else root = root->right;
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -177,8 +176,6 @@ public:
 ### **Go**
 
 ```go
-import "math"
-
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -188,13 +185,13 @@ import "math"
  * }
  */
 func closestValue(root *TreeNode, target float64) int {
-	res := root.Val
-	minDiff := math.Abs(float64(root.Val) - float64(target))
+	ans := root.Val
+	mi := math.MaxFloat64
 	for root != nil {
-		val := math.Abs(float64(root.Val) - float64(target))
-		if minDiff > val {
-			minDiff = val
-			res = root.Val
+		t := math.Abs(float64(root.Val) - target)
+		if t < mi {
+			mi = t
+			ans = root.Val
 		}
 		if float64(root.Val) > target {
 			root = root.Left
@@ -202,7 +199,7 @@ func closestValue(root *TreeNode, target float64) int {
 			root = root.Right
 		}
 	}
-	return res
+	return ans
 }
 ```
 

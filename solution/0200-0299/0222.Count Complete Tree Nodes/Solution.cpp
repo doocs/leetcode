@@ -12,24 +12,16 @@
 class Solution {
 public:
     int countNodes(TreeNode* root) {
-        if (!root) {
-            return 0;
-        }
-        int leftDepth = depth(root->left);
-        int rightDepth = depth(root->right);
-        if (leftDepth > rightDepth) {
-            return (1 << rightDepth) + countNodes(root->left);
-        }
-        return (1 << leftDepth) + countNodes(root->right);
+        if (!root) return 0;
+        int left = depth(root->left);
+        int right = depth(root->right);
+        if (left == right) return (1 << left) + countNodes(root->right);
+        return (1 << right) + countNodes(root->left);
     }
 
-private:
     int depth(TreeNode* root) {
         int res = 0;
-        while (root) {
-            ++res;
-            root = root->left;
-        }
+        for (; root != nullptr; ++res, root = root->left);
         return res;
     }
 };

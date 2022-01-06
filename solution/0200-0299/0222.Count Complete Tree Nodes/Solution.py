@@ -12,11 +12,10 @@ class Solution:
                 res += 1
                 root = root.left
             return res
-
+        
         if root is None:
             return 0
-        left_depth = depth(root.left)
-        right_depth = depth(root.right)
-        if left_depth > right_depth:
-            return (1 << right_depth) + self.countNodes(root.left)
-        return (1 << left_depth) + self.countNodes(root.right)
+        left, right = depth(root.left), depth(root.right)
+        if left == right:
+            return (1 << left) + self.countNodes(root.right)
+        return (1 << right) + self.countNodes(root.left)

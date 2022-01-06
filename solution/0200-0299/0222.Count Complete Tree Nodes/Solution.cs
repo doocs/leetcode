@@ -17,22 +17,18 @@ public class Solution {
         {
             return 0;
         }
-        int leftDepth = depth(root.left);
-        int rightDepth = depth(root.right);
-        if (leftDepth > rightDepth)
+        int left = depth(root.left);
+        int right = depth(root.right);
+        if (left == right)
         {
-            return (1 << rightDepth) + CountNodes(root.left);
+            return (1 << left) + CountNodes(root.right);
         }
-        return (1 << leftDepth) + CountNodes(root.right);
+        return (1 << right) + CountNodes(root.left);
     }
 
     private int depth(TreeNode root) {
         int res = 0;
-        while (root != null)
-        {
-            ++res;
-            root = root.left;
-        }
+        for (; root != null; ++res, root = root.left);
         return res;
     }
 }

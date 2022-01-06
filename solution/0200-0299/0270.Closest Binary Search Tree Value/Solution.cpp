@@ -12,20 +12,19 @@
 class Solution {
 public:
     int closestValue(TreeNode* root, double target) {
-        int res = root->val;
-        double minDiff = abs(root->val - target);
-        while (root != nullptr) {
-            double val = abs(root->val - target);
-            if (minDiff > val) {
-                minDiff = val;
-                res = root->val;
+        int ans = root->val;
+        double mi = INT_MAX;
+        while (root)
+        {
+            double t = abs(root->val - target);
+            if (t < mi)
+            {
+                mi = t;
+                ans = root->val;
             }
-            if (root->val > target) {
-                root = root->left;
-            } else {
-                root = root->right;
-            }
+            if (root->val > target) root = root->left;
+            else root = root->right;
         }
-        return res;
+        return ans;
     }
 };

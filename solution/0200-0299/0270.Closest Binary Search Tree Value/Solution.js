@@ -11,14 +11,14 @@
  * @param {number} target
  * @return {number}
  */
-var closestValue = function (root, target) {
-    let res = root.val;
-    let minDiff = Math.abs(root.val - target);
+ var closestValue = function(root, target) {
+    let ans = root.val;
+    let mi = Number.MAX_VALUE;
     while (root) {
-        const val = Math.abs(root.val - target);
-        if (minDiff > val) {
-            minDiff = val;
-            res = root.val;
+        const t = Math.abs(root.val - target);
+        if (t < mi) {
+            mi = t;
+            ans = root.val;
         }
         if (root.val > target) {
             root = root.left;
@@ -26,5 +26,5 @@ var closestValue = function (root, target) {
             root = root.right;
         }
     }
-    return res;
+    return ans;
 };

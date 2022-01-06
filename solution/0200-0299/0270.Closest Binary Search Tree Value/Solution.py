@@ -5,15 +5,15 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def closestValue(self, root: TreeNode, target: float) -> int:
-        res, min_diff = root.val, float('inf')
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        ans, mi = root.val, float('inf')
         while root:
-            val = abs(root.val - target)
-            if min_diff > val:
-                min_diff = val
-                res = root.val
+            t = abs(root.val - target)
+            if t < mi:
+                mi = t
+                ans = root.val
             if root.val > target:
                 root = root.left
             else:
                 root = root.right
-        return res
+        return ans
