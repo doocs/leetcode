@@ -6,8 +6,9 @@ class Solution {
         }
         int[] indegree = new int[numCourses];
         for (int[] p : prerequisites) {
-            edges[p[1]].add(p[0]);
-            ++indegree[p[0]];
+            int a = p[0], b = p[1];
+            edges[b].add(a);
+            ++indegree[a];
         }
         Queue<Integer> q = new LinkedList<>();
         for (int i = 0; i < numCourses; ++i) {
@@ -15,17 +16,16 @@ class Solution {
                 q.offer(i);
             }
         }
-        int cnt = 0;
+        int n = 0;
         while (!q.isEmpty()) {
-            int i = q.poll();
-            ++cnt;
-            for (int j : edges[i]) {
-                --indegree[j];
-                if (indegree[j] == 0) {
-                    q.offer(j);
+            int b = q.poll();
+            ++n;
+            for (int a : edges[b]) {
+                if (--indegree[a] == 0) {
+                    q.offer(a);
                 }
             }
         }
-        return cnt == numCourses;
+        return n == numCourses;
     }
 }

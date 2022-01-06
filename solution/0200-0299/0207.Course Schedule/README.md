@@ -61,22 +61,22 @@ class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         edges = defaultdict(list)
         indegree = [0] * numCourses
-        for i, j in prerequisites:
-            edges[j].append(i)
-            indegree[i] += 1
+        for a, b in prerequisites:
+            edges[b].append(a)
+            indegree[a] += 1
         q = deque()
         for i in range(numCourses):
             if indegree[i] == 0:
                 q.append(i)
-        cnt = 0
+        n = 0
         while q:
-            i = q.popleft()
-            cnt += 1
-            for j in edges[i]:
-                indegree[j] -= 1
-                if indegree[j] == 0:
-                    q.append(j)
-        return cnt == numCourses
+            b = q.popleft()
+            n += 1
+            for a in edges[b]:
+                indegree[a] -= 1
+                if indegree[a] == 0:
+                    q.append(a)
+        return n == numCourses
 ```
 
 ### **Java**
@@ -92,8 +92,9 @@ class Solution {
         }
         int[] indegree = new int[numCourses];
         for (int[] p : prerequisites) {
-            edges[p[1]].add(p[0]);
-            ++indegree[p[0]];
+            int a = p[0], b = p[1];
+            edges[b].add(a);
+            ++indegree[a];
         }
         Queue<Integer> q = new LinkedList<>();
         for (int i = 0; i < numCourses; ++i) {
@@ -101,18 +102,17 @@ class Solution {
                 q.offer(i);
             }
         }
-        int cnt = 0;
+        int n = 0;
         while (!q.isEmpty()) {
-            int i = q.poll();
-            ++cnt;
-            for (int j : edges[i]) {
-                --indegree[j];
-                if (indegree[j] == 0) {
-                    q.offer(j);
+            int b = q.poll();
+            ++n;
+            for (int a : edges[b]) {
+                if (--indegree[a] == 0) {
+                    q.offer(a);
                 }
             }
         }
-        return cnt == numCourses;
+        return n == numCourses;
     }
 }
 ```
@@ -159,29 +159,27 @@ public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         vector<vector<int>> edges(numCourses);
         vector<int> indegree(numCourses);
-        for (auto p : prerequisites)
+        for (auto& p : prerequisites)
         {
-            edges[p[1]].push_back(p[0]);
-            ++indegree[p[0]];
+            int a = p[0], b = p[1];
+            edges[b].push_back(a);
+            ++indegree[a];
         }
         queue<int> q;
         for (int i = 0; i < numCourses; ++i)
-        {
-            if (indegree[i] == 0) q.push(i);
-        }
-        int cnt = 0;
+            if (indegree[i] == 0)
+                q.push(i);
+        int n = 0;
         while (!q.empty())
         {
-            int i = q.front();
+            int b = q.front();
             q.pop();
-            ++cnt;
-            for (int j : edges[i])
-            {
-                --indegree[j];
-                if (indegree[j] == 0) q.push(j);
-            }
+            ++n;
+            for (int a : edges[b])
+                if (--indegree[a] == 0)
+                    q.push(a);
         }
-        return cnt == numCourses;
+        return n == numCourses;
     }
 };
 ```
@@ -193,8 +191,9 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 	edges := make([][]int, numCourses)
 	indegree := make([]int, numCourses)
 	for _, p := range prerequisites {
-		edges[p[1]] = append(edges[p[1]], p[0])
-		indegree[p[0]]++
+		a, b := p[0], p[1]
+		edges[b] = append(edges[b], a)
+		indegree[a]++
 	}
 	var q []int
 	for i := 0; i < numCourses; i++ {
@@ -202,67 +201,56 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 			q = append(q, i)
 		}
 	}
-	cnt := 0
+	n := 0
 	for len(q) > 0 {
-		i := q[0]
+		b := q[0]
 		q = q[1:]
-		cnt++
-		for _, j := range edges[i] {
-			indegree[j]--
-			if indegree[j] == 0 {
-				q = append(q, j)
+		n++
+		for _, a := range edges[b] {
+			indegree[a]--
+			if indegree[a] == 0 {
+				q = append(q, a)
 			}
 		}
 	}
-	return cnt == numCourses
+	return n == numCourses
 }
 ```
 
 ### **C#**
 
 ```cs
-using System.Collections.Generic;
-
 public class Solution {
     public bool CanFinish(int numCourses, int[][] prerequisites) {
+        var edges = new List<int>[numCourses];
+        for (int i = 0; i < numCourses; ++i)
+        {
+            edges[i] = new List<int>();
+        }
         var indegree = new int[numCourses];
-        var edgeCount = prerequisites.Length;
-        var edge = new List<int>[numCourses];
-        for (var i = 0; i < edgeCount; ++i)
+        for (int i = 0; i < prerequisites.Length; ++i)
         {
-            var child = prerequisites[i][0];
-            var parent = prerequisites[i][1];
-            if (edge[parent] == null)
-            {
-                edge[parent] = new List<int>();
-            }
-            edge[parent].Add(child);
-            ++indegree[child];
+            int a = prerequisites[i][0];
+            int b = prerequisites[i][1];
+            edges[b].Add(a);
+            ++indegree[a];
         }
-
-        var queue = new Queue<int>();
-        for (var i = 0; i < numCourses; ++i)
+        var q = new Queue<int>();
+        for (int i = 0; i < numCourses; ++i)
         {
-            if (indegree[i] == 0) queue.Enqueue(i);
+            if (indegree[i] == 0) q.Enqueue(i);
         }
-
-        var count = 0;
-        while (queue.Count > 0)
+        var n = 0;
+        while (q.Count > 0)
         {
-            var node = queue.Dequeue();
-            ++count;
-            if (edge[node] != null)
+            int b = q.Dequeue();
+            ++n;
+            foreach (int a in edges[b])
             {
-                foreach (var next in edge[node])
-                {
-                    if (--indegree[next] == 0)
-                    {
-                        queue.Enqueue(next);
-                    }
-                }
+                if (--indegree[a] == 0) q.Enqueue(a);
             }
         }
-        return count == numCourses;
+        return n == numCourses;
     }
 }
 ```

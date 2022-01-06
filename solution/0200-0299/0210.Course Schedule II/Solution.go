@@ -2,8 +2,9 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 	edges := make([][]int, numCourses)
 	indegree := make([]int, numCourses)
 	for _, p := range prerequisites {
-		edges[p[1]] = append(edges[p[1]], p[0])
-		indegree[p[0]]++
+		a, b := p[0], p[1]
+		edges[b] = append(edges[b], a)
+		indegree[a]++
 	}
 	var q []int
 	for i := 0; i < numCourses; i++ {
@@ -11,20 +12,20 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 			q = append(q, i)
 		}
 	}
-	var res []int
+	var ans []int
 	for len(q) > 0 {
-		i := q[0]
+		b := q[0]
 		q = q[1:]
-		res = append(res, i)
-		for _, j := range edges[i] {
-			indegree[j]--
-			if indegree[j] == 0 {
-				q = append(q, j)
+		ans = append(ans, b)
+		for _, a := range edges[b] {
+			indegree[a]--
+			if indegree[a] == 0 {
+				q = append(q, a)
 			}
 		}
 	}
-	if len(res) == numCourses {
-		return res
+	if len(ans) == numCourses {
+		return ans
 	}
 	return []int{}
 }

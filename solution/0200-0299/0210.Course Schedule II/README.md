@@ -6,44 +6,50 @@
 
 <!-- 这里写题目描述 -->
 
-<p>现在你总共有 <em>n</em> 门课需要选，记为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>n-1</code>。</p>
+<p>现在你总共有 <code>numCourses</code> 门课需要选，记为&nbsp;<code>0</code>&nbsp;到&nbsp;<code>numCourses - 1</code>。给你一个数组&nbsp;<code>prerequisites</code> ，其中 <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> ，表示在选修课程 <code>a<sub>i</sub></code> 前 <strong>必须</strong> 先选修&nbsp;<code>b<sub>i</sub></code> 。</p>
 
-<p>在选修某些课程之前需要一些先修课程。&nbsp;例如，想要学习课程 0 ，你需要先完成课程&nbsp;1 ，我们用一个匹配来表示他们: <code>[0,1]</code></p>
+<ul>
+	<li>例如，想要学习课程 <code>0</code> ，你需要先完成课程&nbsp;<code>1</code> ，我们用一个匹配来表示：<code>[0,1]</code> 。</li>
+</ul>
 
-<p>给定课程总量以及它们的先决条件，返回你为了学完所有课程所安排的学习顺序。</p>
+<p>返回你为了学完所有课程所安排的学习顺序。可能会有多个正确的顺序，你只要返回 <strong>任意一种</strong> 就可以了。如果不可能完成所有课程，返回 <strong>一个空数组</strong> 。</p>
 
-<p>可能会有多个正确的顺序，你只要返回一种就可以了。如果不可能完成所有课程，返回一个空数组。</p>
+<p>&nbsp;</p>
 
-<p><strong>示例&nbsp;1:</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> 2, [[1,0]] 
-<strong>输出: </strong><code>[0,1]</code>
-<strong>解释:</strong>&nbsp;总共有 2 门课程。要学习课程 1，你需要先完成课程 0。因此，正确的课程顺序为 <code>[0,1] 。</code></pre>
-
-<p><strong>示例&nbsp;2:</strong></p>
-
-<pre><strong>输入:</strong> 4, [[1,0],[2,0],[3,1],[3,2]]
-<strong>输出: </strong><code>[0,1,2,3] or [0,2,1,3]</code>
-<strong>解释:</strong>&nbsp;总共有 4 门课程。要学习课程 3，你应该先完成课程 1 和课程 2。并且课程 1 和课程 2 都应该排在课程 0 之后。
-&nbsp;    因此，一个正确的课程顺序是&nbsp;<code>[0,1,2,3]</code> 。另一个正确的排序是&nbsp;<code>[0,2,1,3]</code> 。
+<pre>
+<strong>输入：</strong>numCourses = 2, prerequisites = [[1,0]]
+<strong>输出：</strong>[0,1]
+<strong>解释：</strong>总共有 2 门课程。要学习课程 1，你需要先完成课程 0。因此，正确的课程顺序为 <code>[0,1] 。</code>
 </pre>
 
-<p><strong>说明:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<ol>
-	<li>输入的先决条件是由<strong>边缘列表</strong>表示的图形，而不是邻接矩阵。详情请参见<a href="http://blog.csdn.net/woaidapaopao/article/details/51732947" target="_blank">图的表示法</a>。</li>
-	<li>你可以假定输入的先决条件中没有重复的边。</li>
-</ol>
+<pre>
+<strong>输入：</strong>numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+<strong>输出：</strong>[0,2,1,3]
+<strong>解释：</strong>总共有 4 门课程。要学习课程 3，你应该先完成课程 1 和课程 2。并且课程 1 和课程 2 都应该排在课程 0 之后。
+因此，一个正确的课程顺序是&nbsp;<code>[0,1,2,3]</code> 。另一个正确的排序是&nbsp;<code>[0,2,1,3]</code> 。</pre>
 
-<p><strong>提示:</strong></p>
+<p><strong>示例 3：</strong></p>
 
-<ol>
-	<li>这个问题相当于查找一个循环是否存在于有向图中。如果存在循环，则不存在拓扑排序，因此不可能选取所有课程进行学习。</li>
-	<li><a href="https://www.coursera.org/specializations/algorithms" target="_blank">通过 DFS 进行拓扑排序</a> - 一个关于Coursera的精彩视频教程（21分钟），介绍拓扑排序的基本概念。</li>
-	<li>
-	<p>拓扑排序也可以通过&nbsp;<a href="https://baike.baidu.com/item/%E5%AE%BD%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/5224802?fr=aladdin&amp;fromid=2148012&amp;fromtitle=%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2" target="_blank">BFS</a>&nbsp;完成。</p>
-	</li>
-</ol>
+<pre>
+<strong>输入：</strong>numCourses = 1, prerequisites = []
+<strong>输出：</strong>[0]
+</pre>
+
+<p>&nbsp;</p>
+<strong>提示：</strong>
+
+<ul>
+	<li><code>1 &lt;= numCourses &lt;= 2000</code></li>
+	<li><code>0 &lt;= prerequisites.length &lt;= numCourses * (numCourses - 1)</code></li>
+	<li><code>prerequisites[i].length == 2</code></li>
+	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; numCourses</code></li>
+	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
+	<li>所有<code>[a<sub>i</sub>, b<sub>i</sub>]</code> <strong>互不相同</strong></li>
+</ul>
 
 ## 解法
 
@@ -62,22 +68,22 @@ class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
         edges = defaultdict(list)
         indegree = [0] * numCourses
-        for i, j in prerequisites:
-            edges[j].append(i)
-            indegree[i] += 1
+        for a, b in prerequisites:
+            edges[b].append(a)
+            indegree[a] += 1
         q = deque()
         for i in range(numCourses):
             if indegree[i] == 0:
                 q.append(i)
-        res = []
+        ans = []
         while q:
-            i = q.popleft()
-            res.append(i)
-            for j in edges[i]:
-                indegree[j] -= 1
-                if indegree[j] == 0:
-                    q.append(j)
-        return res if len(res) == numCourses else []
+            b = q.popleft()
+            ans.append(b)
+            for a in edges[b]:
+                indegree[a] -= 1
+                if indegree[a] == 0:
+                    q.append(a)
+        return ans if len(ans) == numCourses else []
 ```
 
 ### **Java**
@@ -93,8 +99,9 @@ class Solution {
         }
         int[] indegree = new int[numCourses];
         for (int[] p : prerequisites) {
-            edges[p[1]].add(p[0]);
-            ++indegree[p[0]];
+            int a = p[0], b = p[1];
+            edges[b].add(a);
+            ++indegree[a];
         }
         Queue<Integer> q = new LinkedList<>();
         for (int i = 0; i < numCourses; ++i) {
@@ -102,19 +109,18 @@ class Solution {
                 q.offer(i);
             }
         }
-        int[] res = new int[numCourses];
-        int cnt = 0;
+        int[] ans = new int[numCourses];
+        int n = 0;
         while (!q.isEmpty()) {
-            int i = q.poll();
-            res[cnt++] = i;
-            for (int j : edges[i]) {
-                --indegree[j];
-                if (indegree[j] == 0) {
-                    q.offer(j);
+            int b = q.poll();
+            ans[n++] = b;
+            for (int a : edges[b]) {
+                if (--indegree[a] == 0) {
+                    q.offer(a);
                 }
             }
         }
-        return cnt == numCourses ? res : new int[0];
+        return n == numCourses ? ans : new int[0];
     }
 }
 ```
@@ -123,7 +129,7 @@ class Solution {
 
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
-    let edges = Array.from({ length: numCourses }, ()  => ([]));
+    let edges = Array.from({ length: numCourses }, () => []);
     let indeg = new Array(numCourses).fill(0);
     for (let [b, a] of prerequisites) {
         edges[a].push(b);
@@ -149,7 +155,7 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
         }
     }
     return ans.length == numCourses ? ans : [];
-};
+}
 ```
 
 ### **C++**
@@ -160,29 +166,27 @@ public:
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
         vector<vector<int>> edges(numCourses);
         vector<int> indegree(numCourses);
-        for (auto p : prerequisites)
+        for (auto& p : prerequisites)
         {
-            edges[p[1]].push_back(p[0]);
-            ++indegree[p[0]];
+            int a = p[0], b = p[1];
+            edges[b].push_back(a);
+            ++indegree[a];
         }
         queue<int> q;
         for (int i = 0; i < numCourses; ++i)
-        {
-            if (indegree[i] == 0) q.push(i);
-        }
-        vector<int> res;
+            if (indegree[i] == 0)
+                q.push(i);
+        vector<int> ans;
         while (!q.empty())
         {
-            int i = q.front();
+            int b = q.front();
             q.pop();
-            res.push_back(i);
-            for (int j : edges[i])
-            {
-                --indegree[j];
-                if (indegree[j] == 0) q.push(j);
-            }
+            ans.push_back(b);
+            for (int a : edges[b])
+                if (--indegree[a] == 0)
+                    q.push(a);
         }
-        return res.size() == numCourses ? res : vector<int>();
+        return ans.size() == numCourses ? ans : vector<int>();
     }
 };
 ```
@@ -194,8 +198,9 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 	edges := make([][]int, numCourses)
 	indegree := make([]int, numCourses)
 	for _, p := range prerequisites {
-		edges[p[1]] = append(edges[p[1]], p[0])
-		indegree[p[0]]++
+		a, b := p[0], p[1]
+		edges[b] = append(edges[b], a)
+		indegree[a]++
 	}
 	var q []int
 	for i := 0; i < numCourses; i++ {
@@ -203,20 +208,20 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 			q = append(q, i)
 		}
 	}
-	var res []int
+	var ans []int
 	for len(q) > 0 {
-		i := q[0]
+		b := q[0]
 		q = q[1:]
-		res = append(res, i)
-		for _, j := range edges[i] {
-			indegree[j]--
-			if indegree[j] == 0 {
-				q = append(q, j)
+		ans = append(ans, b)
+		for _, a := range edges[b] {
+			indegree[a]--
+			if indegree[a] == 0 {
+				q = append(q, a)
 			}
 		}
 	}
-	if len(res) == numCourses {
-		return res
+	if len(ans) == numCourses {
+		return ans
 	}
 	return []int{}
 }
@@ -225,49 +230,38 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 ### **C#**
 
 ```cs
-using System.Collections.Generic;
-
 public class Solution {
     public int[] FindOrder(int numCourses, int[][] prerequisites) {
+        var edges = new List<int>[numCourses];
+        for (int i = 0; i < numCourses; ++i)
+        {
+            edges[i] = new List<int>();
+        }
         var indegree = new int[numCourses];
-        var edgeCount = prerequisites.Length;
-        var edge = new List<int>[numCourses];
-        for (var i = 0; i < edgeCount; ++i)
+        for (int i = 0; i < prerequisites.Length; ++i)
         {
-            var child = prerequisites[i][0];
-            var parent = prerequisites[i][1];
-            if (edge[parent] == null)
-            {
-                edge[parent] = new List<int>();
-            }
-            edge[parent].Add(child);
-            ++indegree[child];
+            int a = prerequisites[i][0];
+            int b = prerequisites[i][1];
+            edges[b].Add(a);
+            ++indegree[a];
         }
-
-        var queue = new Queue<int>();
-        for (var i = 0; i < numCourses; ++i)
+        var q = new Queue<int>();
+        for (int i = 0; i < numCourses; ++i)
         {
-            if (indegree[i] == 0) queue.Enqueue(i);
+            if (indegree[i] == 0) q.Enqueue(i);
         }
-
-        var result = new int[numCourses];
-        var count = 0;
-        while (queue.Count > 0)
+        var ans = new int[numCourses];
+        var n = 0;
+        while (q.Count > 0)
         {
-            var node = queue.Dequeue();
-            result[count++] = node;
-            if (edge[node] != null)
+            int b = q.Dequeue();
+            ans[n++] = b;
+            foreach (int a in edges[b])
             {
-                foreach (var next in edge[node])
-                {
-                    if (--indegree[next] == 0)
-                    {
-                        queue.Enqueue(next);
-                    }
-                }
+                if (--indegree[a] == 0) q.Enqueue(a);
             }
         }
-        return count == numCourses ? result : new int[0];
+        return n == numCourses ? ans : new int[0];
     }
 }
 ```
