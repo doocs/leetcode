@@ -73,14 +73,14 @@
 ```python
 class Solution:
     def maxDepth(self, s: str) -> int:
-        res = depth = 0
+        n = ans = 0
         for c in s:
             if c == '(':
-                depth += 1
-                res = max(res, depth)
+                n += 1
+                ans = max(ans, n)
             elif c == ')':
-                depth -= 1
-        return res
+                n -= 1
+        return ans
 ```
 
 ### **Java**
@@ -88,15 +88,15 @@ class Solution:
 ```java
 class Solution {
     public int maxDepth(String s) {
-        int res = 0, depth = 0;
+        int n = 0, ans = 0;
         for (char c : s.toCharArray()) {
             if (c == '(') {
-                res = Math.max(res, ++depth);
+                ans = Math.max(ans, ++n);
             } else if (c == ')') {
-                --depth;
+                --n;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -107,13 +107,13 @@ class Solution {
 class Solution {
 public:
     int maxDepth(string s) {
-        int res = 0, depth =0;
+        int n = 0, ans = 0;
         for (char c : s)
         {
-            if (c == '(') res = max(res, ++depth);
-            else if (c == ')') --depth;
+            if (c == '(') ans = max(ans, ++n);
+            else if (c == ')') --n;
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -122,18 +122,58 @@ public:
 
 ```go
 func maxDepth(s string) int {
-	res, depth := 0, 0
+	n, ans := 0, 0
 	for _, c := range s {
 		if c == '(' {
-			depth++
-			if depth > res {
-				res = depth
+			n++
+			if ans < n {
+				ans = n
 			}
 		} else if c == ')' {
-			depth--
+			n--
 		}
 	}
-	return res
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var maxDepth = function (s) {
+    let n = 0,
+        ans = 0;
+    for (let c of s) {
+        if (c == '(') ans = Math.max(ans, ++n);
+        else if (c == ')') --n;
+    }
+    return ans;
+};
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public int MaxDepth(string s) {
+        int n = 0, ans = 0;
+        foreach (char c in s)
+        {
+            if (c == '(')
+            {
+                ans = Math.Max(ans, ++n);
+            }
+            else if (c == ')')
+            {
+                --n;
+            }
+        }
+        return ans;
+    }
 }
 ```
 
