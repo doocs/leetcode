@@ -52,7 +52,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-出度为零的点是安全的，如果一个点**只能**到达安全的点，那么它同样是安全的，所以问题转换成了拓扑排序
+出度为零的点是安全的，如果一个点**只能**到达安全的点，那么它同样是安全的，所以问题转换成了拓扑排序。
 
 <!-- tabs:start -->
 
@@ -160,6 +160,44 @@ func eventualSafeNodes(graph [][]int) []int {
 	}
 	return ans
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> eventualSafeNodes(vector<vector<int>> &graph) {
+        int n = graph.size();
+        vector<vector<int>> revGraph(n);
+        vector<int> outDegree(n);
+        for (int i = 0; i < n; ++i)
+        {
+            outDegree[i] += graph[i].size();
+            for (int j : graph[i])
+                revGraph[j].push_back(i);
+        }
+        queue<int> q;
+        for (int i = 0; i < n; ++i)
+            if (outDegree[i] == 0)
+                q.push(i);
+        while (!q.empty())
+        {
+            int i = q.front();
+            q.pop();
+            for (int j : revGraph[i])
+            {
+                if (--outDegree[j] == 0)
+                    q.push(j);
+            }
+        }
+        vector<int> ans;
+        for (int i = 0; i < n; ++i)
+            if (outDegree[i] == 0)
+                ans.push_back(i);
+        return ans;
+    }
+};
 ```
 
 ### **...**
