@@ -65,6 +65,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+拓扑排序，BFS 实现。
+
+每一轮删除入度为 1 的节点，同时减小与之连接的节点的入度。循环此操作，最后一轮删除的节点，即为要找的最小高度树的根节点。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -72,7 +76,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+        if n == 1:
+            return [0]
+        g = defaultdict(list)
+        degree = [0] * n
+        for a, b in edges:
+            g[a].append(b)
+            g[b].append(a)
+            degree[a] += 1
+            degree[b] += 1
+        q = deque()
+        for i in range(n):
+            if degree[i] == 1:
+                q.append(i)
+        ans = []
+        while q:
+            n = len(q)
+            ans.clear()
+            for _ in range(n):
+                a = q.popleft()
+                ans.append(a)
+                for b in g[a]:
+                    degree[b] -= 1
+                    if degree[b] == 1:
+                        q.append(b)
+        return ans
 ```
 
 ### **Java**
@@ -80,7 +110,126 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+        if (n == 1) {
+            return Collections.singletonList(0);
+        }
+        List<Integer>[] g = new List[n];
+        int[] degree = new int[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] e : edges) {
+            int a = e[0], b = e[1];
+            g[a].add(b);
+            g[b].add(a);
+            ++degree[a];
+            ++degree[b];
+        }
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < n; ++i) {
+            if (degree[i] == 1) {
+                q.offer(i);
+            }
+        }
+        List<Integer> ans = new ArrayList<>();
+        while (!q.isEmpty()) {
+            ans.clear();
+            for (int i = q.size(); i > 0; --i) {
+                int a = q.poll();
+                ans.add(a);
+                for (int b : g[a]) {
+                    if (--degree[b] == 1) {
+                        q.offer(b);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+        if (n == 1) return {0};
+        vector<vector<int>> g(n);
+        vector<int> degree(n);
+        for (auto& e : edges)
+        {
+            int a = e[0], b = e[1];
+            g[a].push_back(b);
+            g[b].push_back(a);
+            ++degree[a];
+            ++degree[b];
+        }
+        queue<int> q;
+        for (int i = 0; i < n; ++i)
+            if (degree[i] == 1)
+                q.push(i);
+        vector<int> ans;
+        while (!q.empty())
+        {
+            ans.clear();
+            for (int i = q.size(); i > 0; --i)
+            {
+                int a = q.front();
+                q.pop();
+                ans.push_back(a);
+                for (int b : g[a])
+                    if (--degree[b] == 1)
+                        q.push(b);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMinHeightTrees(n int, edges [][]int) []int {
+	if n == 1 {
+		return []int{0}
+	}
+	g := make([][]int, n)
+	degree := make([]int, n)
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		g[a] = append(g[a], b)
+		g[b] = append(g[b], a)
+		degree[a]++
+		degree[b]++
+	}
+	var q []int
+	for i := 0; i < n; i++ {
+		if degree[i] == 1 {
+			q = append(q, i)
+		}
+	}
+	var ans []int
+	for len(q) > 0 {
+		ans = []int{}
+		for i := len(q); i > 0; i-- {
+			a := q[0]
+			q = q[1:]
+			ans = append(ans, a)
+			for _, b := range g[a] {
+				degree[b]--
+				if degree[b] == 1 {
+					q = append(q, b)
+				}
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
