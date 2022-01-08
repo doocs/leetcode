@@ -50,13 +50,154 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def addOneRow(self, root: TreeNode, val: int, depth: int) -> TreeNode:
+        def dfs(root, d):
+            if root is None:
+                return
+            if d == depth - 1:
+                l = TreeNode(val=val, left=root.left)
+                r = TreeNode(val=val, right=root.right)
+                root.left, root.right = l, r
+                return
+            dfs(root.left, d + 1)
+            dfs(root.right, d + 1)
 
+        if depth == 1:
+            return TreeNode(val=val, left=root)
+        dfs(root, 1)
+        return root
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int val;
+    private int depth;
 
+    public TreeNode addOneRow(TreeNode root, int val, int depth) {
+        if (depth == 1) {
+            return new TreeNode(val, root, null);
+        }
+        this.val = val;
+        this.depth = depth;
+        dfs(root, 1);
+        return root;
+    }
+
+    private void dfs(TreeNode root, int d) {
+        if (root == null) {
+            return;
+        }
+        if (d == depth - 1) {
+            TreeNode l = new TreeNode(val, root.left, null);
+            TreeNode r = new TreeNode(val, null, root.right);
+            root.left = l;
+            root.right = r;
+            return;
+        }
+        dfs(root.left, d + 1);
+        dfs(root.right, d + 1);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int val;
+    int depth;
+
+    TreeNode* addOneRow(TreeNode* root, int val, int depth) {
+        if (depth == 1) return new TreeNode(val, root, nullptr);
+        this->val = val;
+        this->depth = depth;
+        dfs(root, 1);
+        return root;
+    }
+
+    void dfs(TreeNode* root, int d) {
+        if (!root) return;
+        if (d == depth - 1)
+        {
+            auto l = new TreeNode(val, root->left, nullptr);
+            auto r = new TreeNode(val, nullptr, root->right);
+            root->left = l;
+            root->right = r;
+            return;
+        }
+        dfs(root->left, d + 1);
+        dfs(root->right, d + 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func addOneRow(root *TreeNode, val int, depth int) *TreeNode {
+	if depth == 1 {
+		return &TreeNode{Val: val, Left: root}
+	}
+	var dfs func(root *TreeNode, d int)
+	dfs = func(root *TreeNode, d int) {
+		if root == nil {
+			return
+		}
+		if d == depth-1 {
+			l, r := &TreeNode{Val: val, Left: root.Left}, &TreeNode{Val: val, Right: root.Right}
+			root.Left, root.Right = l, r
+			return
+		}
+		dfs(root.Left, d+1)
+		dfs(root.Right, d+1)
+	}
+	dfs(root, 1)
+	return root
+}
 ```
 
 ### **...**
