@@ -6,31 +6,29 @@
  *     Right *TreeNode
  * }
  */
-var res int
-
 func longestUnivaluePath(root *TreeNode) int {
-	res = 0
+	ans := 0
+	var dfs func(root *TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		left, right := dfs(root.Left), dfs(root.Right)
+		if root.Left != nil && root.Left.Val == root.Val {
+			left++
+		} else {
+			left = 0
+		}
+		if root.Right != nil && root.Right.Val == root.Val {
+			right++
+		} else {
+			right = 0
+		}
+		ans = max(ans, left+right)
+		return max(left, right)
+	}
 	dfs(root)
-	return res
-}
-
-func dfs(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	left, right := dfs(root.Left), dfs(root.Right)
-	if root.Left != nil && root.Left.Val == root.Val {
-		left++
-	} else {
-		left = 0
-	}
-	if root.Right != nil && root.Right.Val == root.Val {
-		right++
-	} else {
-		right = 0
-	}
-	res = max(res, left+right)
-	return max(left, right)
+	return ans
 }
 
 func max(a, b int) int {

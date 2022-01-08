@@ -5,25 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def countUnivalSubtrees(self, root: TreeNode) -> int:
-        if root is None:
-            return 0
-        cnt = 0
-
+    def countUnivalSubtrees(self, root: Optional[TreeNode]) -> int:
         def dfs(root):
-            nonlocal cnt
-            if root.left is None and root.right is None:
-                cnt += 1
+            if root is None:
                 return True
-            res = True
-            if root.left:
-                # exec dfs(root.left) first
-                res = dfs(root.left) and res and root.val == root.left.val
-            if root.right:
-                # exec dfs(root.right) first
-                res = dfs(root.right) and res and root.val == root.right.val
-            cnt += res
-            return res
+            left, right = dfs(root.left), dfs(root.right)
+            t = True
+            if root.left and root.left.val != root.val:
+                t = False
+            if root.right and root.right.val != root.val:
+                t = False
+            nonlocal ans
+            if left and t and right:
+                ans += 1
+            return left and t and right
 
+        ans = 0
         dfs(root)
-        return cnt
+        return ans

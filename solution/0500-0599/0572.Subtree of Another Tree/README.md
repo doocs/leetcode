@@ -71,18 +71,16 @@
 #         self.right = right
 class Solution:
     def isSubtree(self, root: TreeNode, subRoot: TreeNode) -> bool:
-        def same(root1, root2):
+        def dfs(root1, root2):
             if root1 is None and root2 is None:
                 return True
             if root1 is None or root2 is None:
                 return False
-            return root1.val == root2.val and same(root1.left, root2.left) and same(root1.right, root2.right)
+            return root1.val == root2.val and dfs(root1.left, root2.left) and dfs(root1.right, root2.right)
 
-        if root is None and subRoot is None:
-            return True
-        if root is None or subRoot is None:
+        if root is None:
             return False
-        return same(root, subRoot) or self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
+        return dfs(root, subRoot) or self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
 ```
 
 ### **Java**
@@ -107,23 +105,20 @@ class Solution:
  */
 class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        if (root == null && subRoot == null) {
-            return true;
-        }
-        if (root == null || subRoot == null) {
+        if (root == null) {
             return false;
         }
-        return same(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+        return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
 
-    private boolean same(TreeNode root1, TreeNode root2) {
+    private boolean dfs(TreeNode root1, TreeNode root2) {
         if (root1 == null && root2 == null) {
             return true;
         }
         if (root1 == null || root2 == null) {
             return false;
         }
-        return root1.val == root2.val && same(root1.left, root2.left) && same(root1.right, root2.right);
+        return root1.val == root2.val && dfs(root1.left, root2.left) && dfs(root1.right, root2.right);
     }
 }
 ```
@@ -145,15 +140,14 @@ class Solution {
 class Solution {
 public:
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if (!root && !subRoot) return true;
-        if (!root || !subRoot) return false;
-        return same(root, subRoot) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+        if (!root) return 0;
+        return dfs(root, subRoot) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
     }
 
-    bool same(TreeNode* root1, TreeNode* root2) {
-        if (!root1 && !root2) return true;
-        if (!root1 || !root2) return false;
-        return root1->val == root2->val && same(root1->left, root2->left) && same(root1->right, root2->right);
+    bool dfs(TreeNode* root1, TreeNode* root2) {
+        if (!root1 && !root2) return 1;
+        if (!root1 || !root2) return 0;
+        return root1->val == root2->val && dfs(root1->left, root2->left) && dfs(root1->right, root2->right);
     }
 };
 ```
@@ -170,24 +164,60 @@ public:
  * }
  */
 func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
-	if root == nil && subRoot == nil {
-		return true
-	}
-	if root == nil || subRoot == nil {
+	if root == nil {
 		return false
 	}
-	return same(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
+	var dfs func(root1, root2 *TreeNode) bool
+	dfs = func(root1, root2 *TreeNode) bool {
+		if root1 == nil && root2 == nil {
+			return true
+		}
+		if root1 == nil || root2 == nil {
+			return false
+		}
+		return root1.Val == root2.Val && dfs(root1.Left, root2.Left) && dfs(root1.Right, root2.Right)
+	}
+	return dfs(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
 }
+```
 
-func same(root1, root2 *TreeNode) bool {
-	if root1 == nil && root2 == nil {
-		return true
-	}
-	if root1 == nil || root2 == nil {
-		return false
-	}
-	return root1.Val == root2.Val && same(root1.Left, root2.Left) && same(root1.Right, root2.Right)
-}
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} subRoot
+ * @return {boolean}
+ */
+var isSubtree = function (root, subRoot) {
+    if (!root) return false;
+    let dfs = function (root1, root2) {
+        if (!root1 && !root2) {
+            return true;
+        }
+        if (!root1 || !root2) {
+            return false;
+        }
+        return (
+            root1.val == root2.val &&
+            dfs(root1.left, root2.left) &&
+            dfs(root1.right, root2.right)
+        );
+    };
+    return (
+        dfs(root, subRoot) ||
+        isSubtree(root.left, subRoot) ||
+        isSubtree(root.right, subRoot)
+    );
+};
 ```
 
 ### **...**

@@ -11,11 +11,12 @@
  */
 class Solution {
 public:
-    int res;
+    int ans;
+
     int longestUnivaluePath(TreeNode* root) {
-        res = 0;
+        ans = 0;
         dfs(root);
-        return res;
+        return ans;
     }
 
     int dfs(TreeNode* root) {
@@ -23,7 +24,7 @@ public:
         int left = dfs(root->left), right = dfs(root->right);
         left = root->left && root->left->val == root->val ? left + 1 : 0;
         right = root->right && root->right->val == root->val ? right + 1 : 0;
-        res = max(res, left + right);
+        ans = max(ans, left + right);
         return max(left, right);
     }
 };

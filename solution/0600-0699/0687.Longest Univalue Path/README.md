@@ -69,26 +69,19 @@
 #         self.right = right
 class Solution:
     def longestUnivaluePath(self, root: TreeNode) -> int:
-        res = 0
-
         def dfs(root):
-            # 返回以root为路径起始点的最长同值路径长
-            nonlocal res
             if root is None:
                 return 0
             left, right = dfs(root.left), dfs(root.right)
+            left = left + 1 if root.left and root.left.val == root.val else 0
+            right = right + 1 if root.right and root.right.val == root.val else 0
+            nonlocal ans
+            ans = max(ans, left + right)
+            return max(left, right)
 
-            # l, r 表示以root为节点，分别向左、右延伸的最长同值路径长
-            l = r = 0
-            if root.left and root.left.val == root.val:
-                l = left + 1
-            if root.right and root.right.val == root.val:
-                r = right + 1
-            res = max(res, l + r)
-            return max(l, r)
-
+        ans = 0
         dfs(root)
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -96,22 +89,39 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
+    private int ans;
+
     public int longestUnivaluePath(TreeNode root) {
-        int[] res = new int[1];
-        dfs(root, res);
-        return res[0];
+        ans = 0;
+        dfs(root);
+        return ans;
     }
 
-    private int dfs(TreeNode root, int[] res) {
+    private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int left = dfs(root.left, res);
-        int right = dfs(root.right, res);
+        int left = dfs(root.left);
+        int right = dfs(root.right);
         left = root.left != null && root.left.val == root.val ? left + 1 : 0;
         right = root.right != null && root.right.val == root.val ? right + 1 : 0;
-        res[0] = Math.max(res[0], left + right);
+        ans = Math.max(ans, left + right);
         return Math.max(left, right);
     }
 }
@@ -133,11 +143,12 @@ class Solution {
  */
 class Solution {
 public:
-    int res;
+    int ans;
+
     int longestUnivaluePath(TreeNode* root) {
-        res = 0;
+        ans = 0;
         dfs(root);
-        return res;
+        return ans;
     }
 
     int dfs(TreeNode* root) {
@@ -145,7 +156,7 @@ public:
         int left = dfs(root->left), right = dfs(root->right);
         left = root->left && root->left->val == root->val ? left + 1 : 0;
         right = root->right && root->right->val == root->val ? right + 1 : 0;
-        res = max(res, left + right);
+        ans = max(ans, left + right);
         return max(left, right);
     }
 };
@@ -162,31 +173,29 @@ public:
  *     Right *TreeNode
  * }
  */
-var res int
-
 func longestUnivaluePath(root *TreeNode) int {
-	res = 0
+	ans := 0
+	var dfs func(root *TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		left, right := dfs(root.Left), dfs(root.Right)
+		if root.Left != nil && root.Left.Val == root.Val {
+			left++
+		} else {
+			left = 0
+		}
+		if root.Right != nil && root.Right.Val == root.Val {
+			right++
+		} else {
+			right = 0
+		}
+		ans = max(ans, left+right)
+		return max(left, right)
+	}
 	dfs(root)
-	return res
-}
-
-func dfs(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	left, right := dfs(root.Left), dfs(root.Right)
-	if root.Left != nil && root.Left.Val == root.Val {
-		left++
-	} else {
-		left = 0
-	}
-	if root.Right != nil && root.Right.Val == root.Val {
-		right++
-	} else {
-		right = 0
-	}
-	res = max(res, left+right)
-	return max(left, right)
+	return ans
 }
 
 func max(a, b int) int {
@@ -195,6 +204,39 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var longestUnivaluePath = function (root) {
+    let ans = 0;
+    let dfs = function (root) {
+        if (!root) {
+            return 0;
+        }
+        let left = dfs(root.left),
+            right = dfs(root.right);
+        left = root.left?.val == root.val ? left + 1 : 0;
+        right = root.right?.val == root.val ? right + 1 : 0;
+        ans = Math.max(ans, left + right);
+        return Math.max(left, right);
+    };
+    dfs(root);
+    return ans;
+};
 ```
 
 ### **...**

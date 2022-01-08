@@ -11,26 +11,22 @@
  */
 class Solution {
 public:
-    int cnt;
+    int ans;
 
     int countUnivalSubtrees(TreeNode* root) {
-        if (!root) return 0;
-        cnt = 0;
+        ans = 0;
         dfs(root);
-        return cnt;
+        return ans;
     }
 
     bool dfs(TreeNode* root) {
-        if (!root->left && !root->right)
-        {
-            ++cnt;
-            return true;
-        }
-        bool res = true;
-        if (root->left) res = dfs(root->left) && res && root->val == root->left->val;
-        if (root->right) res = dfs(root->right) && res && root->val == root->right->val;
-        cnt += res;
-        return res;
-        
+        if (!root) return 1;
+        bool left = dfs(root->left);
+        bool right = dfs(root->right);
+        bool t = 1;
+        if (root->left && root->left->val != root->val) t = 0;
+        if (root->right && root->right->val != root->val) t = 0;
+        if (left && t && right) ++ans;
+        return left && t && right;
     }
 };

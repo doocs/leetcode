@@ -7,21 +7,18 @@
  * }
  */
 func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
-	if root == nil && subRoot == nil {
-		return true
-	}
-	if root == nil || subRoot == nil {
+	if root == nil {
 		return false
 	}
-	return same(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
-}
-
-func same(root1, root2 *TreeNode) bool {
-	if root1 == nil && root2 == nil {
-		return true
+	var dfs func(root1, root2 *TreeNode) bool
+	dfs = func(root1, root2 *TreeNode) bool {
+		if root1 == nil && root2 == nil {
+			return true
+		}
+		if root1 == nil || root2 == nil {
+			return false
+		}
+		return root1.Val == root2.Val && dfs(root1.Left, root2.Left) && dfs(root1.Right, root2.Right)
 	}
-	if root1 == nil || root2 == nil {
-		return false
-	}
-	return root1.Val == root2.Val && same(root1.Left, root2.Left) && same(root1.Right, root2.Right)
+	return dfs(root, subRoot) || isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
 }

@@ -52,28 +52,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def countUnivalSubtrees(self, root: TreeNode) -> int:
-        if root is None:
-            return 0
-        cnt = 0
-
+    def countUnivalSubtrees(self, root: Optional[TreeNode]) -> int:
         def dfs(root):
-            nonlocal cnt
-            if root.left is None and root.right is None:
-                cnt += 1
+            if root is None:
                 return True
-            res = True
-            if root.left:
-                # exec dfs(root.left) first
-                res = dfs(root.left) and res and root.val == root.left.val
-            if root.right:
-                # exec dfs(root.right) first
-                res = dfs(root.right) and res and root.val == root.right.val
-            cnt += res
-            return res
+            left, right = dfs(root.left), dfs(root.right)
+            t = True
+            if root.left and root.left.val != root.val:
+                t = False
+            if root.right and root.right.val != root.val:
+                t = False
+            nonlocal ans
+            if left and t and right:
+                ans += 1
+            return left and t and right
 
+        ans = 0
         dfs(root)
-        return cnt
+        return ans
 ```
 
 ### **Java**
@@ -95,35 +91,31 @@ class Solution:
  * }
  */
 class Solution {
-    private int cnt;
+    private int ans;
 
     public int countUnivalSubtrees(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        cnt = 0;
+        ans = 0;
         dfs(root);
-        return cnt;
+        return ans;
     }
 
     private boolean dfs(TreeNode root) {
-        if (root.left == null && root.right == null) {
-            ++cnt;
+        if (root == null) {
             return true;
         }
-        boolean res = true;
-        if (root.left != null) {
-            // exec dfs(root.left) first
-            res = dfs(root.left) && res && root.val == root.left.val;
+        boolean left = dfs(root.left);
+        boolean right = dfs(root.right);
+        boolean t = true;
+        if (root.left != null && root.left.val != root.val) {
+            t = false;
         }
-        if (root.right != null) {
-            // exec dfs(root.right) first
-            res = dfs(root.right) && res && root.val == root.right.val;
+        if (root.right != null && root.right.val != root.val) {
+            t = false;
         }
-        if (res) {
-            ++cnt;
+        if (left && t && right) {
+            ++ans;
         }
-        return res;
+        return left && t && right;
     }
 }
 ```
@@ -144,27 +136,23 @@ class Solution {
  */
 class Solution {
 public:
-    int cnt;
+    int ans;
 
     int countUnivalSubtrees(TreeNode* root) {
-        if (!root) return 0;
-        cnt = 0;
+        ans = 0;
         dfs(root);
-        return cnt;
+        return ans;
     }
 
     bool dfs(TreeNode* root) {
-        if (!root->left && !root->right)
-        {
-            ++cnt;
-            return true;
-        }
-        bool res = true;
-        if (root->left) res = dfs(root->left) && res && root->val == root->left->val;
-        if (root->right) res = dfs(root->right) && res && root->val == root->right->val;
-        cnt += res;
-        return res;
-
+        if (!root) return 1;
+        bool left = dfs(root->left);
+        bool right = dfs(root->right);
+        bool t = 1;
+        if (root->left && root->left->val != root->val) t = 0;
+        if (root->right && root->right->val != root->val) t = 0;
+        if (left && t && right) ++ans;
+        return left && t && right;
     }
 };
 ```
@@ -180,34 +168,69 @@ public:
  *     Right *TreeNode
  * }
  */
-var cnt int
-
 func countUnivalSubtrees(root *TreeNode) int {
-	if root == nil {
-		return 0
+	ans := 0
+	var dfs func(root *TreeNode) bool
+	dfs = func(root *TreeNode) bool {
+		if root == nil {
+			return true
+		}
+		left, right := dfs(root.Left), dfs(root.Right)
+		t := true
+		if root.Left != nil && root.Left.Val != root.Val {
+			t = false
+		}
+		if root.Right != nil && root.Right.Val != root.Val {
+			t = false
+		}
+		if left && t && right {
+			ans++
+		}
+		return left && t && right
 	}
-	cnt = 0
 	dfs(root)
-	return cnt
+	return ans
 }
+```
 
-func dfs(root *TreeNode) bool {
-	if root.Left == nil && root.Right == nil {
-		cnt++
-		return true
-	}
-	res := true
-	if root.Left != nil {
-		res = dfs(root.Left) && res && root.Val == root.Left.Val
-	}
-	if root.Right != nil {
-		res = dfs(root.Right) && res && root.Val == root.Right.Val
-	}
-	if res {
-		cnt++
-	}
-	return res
-}
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var countUnivalSubtrees = function (root) {
+    let ans = 0;
+    let dfs = function (root) {
+        if (!root) {
+            return true;
+        }
+        const left = dfs(root.left),
+            right = dfs(root.right);
+        let t = true;
+        if (root.left && root.left.val != root.val) {
+            t = false;
+        }
+        if (root.right && root.right.val != root.val) {
+            t = false;
+        }
+        if (left && t && right) {
+            ++ans;
+        }
+        return left && t && right;
+    };
+    dfs(root);
+    return ans;
+};
 ```
 
 ### **...**

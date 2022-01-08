@@ -12,14 +12,13 @@
 class Solution {
 public:
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        if (!root && !subRoot) return true;
-        if (!root || !subRoot) return false;
-        return same(root, subRoot) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+        if (!root) return 0;
+        return dfs(root, subRoot) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
     }
 
-    bool same(TreeNode* root1, TreeNode* root2) {
-        if (!root1 && !root2) return true;
-        if (!root1 || !root2) return false;
-        return root1->val == root2->val && same(root1->left, root2->left) && same(root1->right, root2->right);
+    bool dfs(TreeNode* root1, TreeNode* root2) {
+        if (!root1 && !root2) return 1;
+        if (!root1 || !root2) return 0;
+        return root1->val == root2->val && dfs(root1->left, root2->left) && dfs(root1->right, root2->right);
     }
 };
