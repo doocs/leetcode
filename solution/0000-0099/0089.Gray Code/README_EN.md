@@ -44,18 +44,71 @@
 
 ## Solutions
 
+`G(i) = i ^ (i/2)`.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def grayCode(self, n: int) -> List[int]:
+        return [i ^ (i >> 1) for i in range(1 << n)]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> grayCode(int n) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < 1 << n; ++i) {
+            ans.add(i ^ (i >> 1));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> grayCode(int n) {
+        vector<int> ans;
+        for (int i = 0; i < 1 << n; ++i) ans.push_back(i ^ (i >> 1));
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func grayCode(n int) []int {
+	var ans []int
+	for i := 0; i < 1<<n; i++ {
+		ans = append(ans, i^(i>>1))
+	}
+	return ans
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number[]}
+ */
+var grayCode = function (n) {
+    let ans = [];
+    for (let i = 0; i < 1 << n; ++i) {
+        ans.push(i ^ (i >> 1));
+    }
+    return ans;
+};
 ```
 
 ### **...**

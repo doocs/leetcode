@@ -59,13 +59,68 @@ The only way to decode it is two-bit character and two-bit character. So the las
 ### **Python3**
 
 ```python
-
+class Solution:
+    def isOneBitCharacter(self, bits: List[int]) -> bool:
+        i, n = 0, len(bits)
+        while i < n - 1:
+            i += bits[i] + 1
+        return i == n - 1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean isOneBitCharacter(int[] bits) {
+        int i = 0, n = bits.length;
+        while (i < n - 1) {
+            i += bits[i] + 1;
+        }
+        return i == n - 1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isOneBitCharacter(vector<int>& bits) {
+        int i = 0, n = bits.size();
+        while (i < n - 1) i += bits[i] + 1;
+        return i == n - 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isOneBitCharacter(bits []int) bool {
+	i, n := 0, len(bits)
+	for i < n-1 {
+		i += bits[i] + 1
+	}
+	return i == n-1
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} bits
+ * @return {boolean}
+ */
+var isOneBitCharacter = function (bits) {
+    let i = 0;
+    const n = bits.length;
+    while (i < n - 1) {
+        i += bits[i] + 1;
+    }
+    return i == n - 1;
+};
 ```
 
 ### **...**

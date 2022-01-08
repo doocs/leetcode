@@ -44,7 +44,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-统计所有数字每个位中 1 出现的次数，对于某个位，1 出现的次数一定是 3 的倍数 +1 或 0。对这个数 %3 得到的结果就是那个出现一次的数字在该位上的值
+统计所有数字每个位中 1 出现的次数，对于某个位，1 出现的次数一定是 3 的倍数 +1 或 0。对这个数 %3 得到的结果就是那个出现一次的数字在该位上的值。
 
 <!-- tabs:start -->
 
@@ -56,7 +56,7 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         ans = 0
-        for i in range(0, 32):
+        for i in range(32):
             cnt = sum(num >> i & 1 for num in nums)
             if cnt % 3:
                 if i == 31:
@@ -109,26 +109,22 @@ func singleNumber(nums []int) int {
 ### **C++**
 
 ```cpp
-class Solution
-{
-    public:
-        int singleNumber( vector<int> & nums )
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans = 0;
+        for (int i = 0; i < 32; ++i)
         {
-            int ans = 0;
-            for ( int i = 0; i < 32; i++ )
+            int cnt = 0;
+            for (int num : nums)
             {
-                int cnt = 0;
-                for ( int j = 0; j < nums.size(); j++ )
-                {
-                    cnt += ((nums[j] >> i) & 1);
-                }
-
-                cnt %= 3;
-                ans |= (cnt << i);
+                cnt += ((num >> i) & 1);
             }
-
-            return(ans);
+            cnt %= 3;
+            ans |= cnt << i;
         }
+        return ans;
+    }
 };
 ```
 
