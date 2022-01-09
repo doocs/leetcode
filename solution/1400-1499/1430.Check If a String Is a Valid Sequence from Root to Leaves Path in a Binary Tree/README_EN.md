@@ -54,18 +54,121 @@ Other valid sequences are:
 
 ## Solutions
 
+DFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isValidSequence(self, root: TreeNode, arr: List[int]) -> bool:
+        def dfs(root, u):
+            if root is None or root.val != arr[u]:
+                return False
+            if u == len(arr) - 1:
+                return root.left is None and root.right is None
+            return dfs(root.left, u + 1) or dfs(root.right, u + 1)
 
+        return dfs(root, 0)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int[] arr;
 
+    public boolean isValidSequence(TreeNode root, int[] arr) {
+        this.arr = arr;
+        return dfs(root, 0);
+    }
+
+    private boolean dfs(TreeNode root, int u) {
+        if (root == null || root.val != arr[u]) {
+            return false;
+        }
+        if (u == arr.length - 1) {
+            return root.left == null && root.right == null;
+        }
+        return dfs(root.left, u + 1) || dfs(root.right, u + 1);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isValidSequence(TreeNode* root, vector<int>& arr) {
+        return dfs(root, arr, 0);
+    }
+
+    bool dfs(TreeNode* root, vector<int>& arr, int u) {
+        if (!root || root->val != arr[u]) return false;
+        if (u == arr.size() - 1) return !root->left && !root->right;
+        return dfs(root->left, arr, u + 1) || dfs(root->right, arr, u + 1);
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isValidSequence(root *TreeNode, arr []int) bool {
+	var dfs func(root *TreeNode, u int) bool
+	dfs = func(root *TreeNode, u int) bool {
+		if root == nil || root.Val != arr[u] {
+			return false
+		}
+		if u == len(arr)-1 {
+			return root.Left == nil && root.Right == nil
+		}
+		return dfs(root.Left, u+1) || dfs(root.Right, u+1)
+	}
+	return dfs(root, 0)
+}
 ```
 
 ### **...**
