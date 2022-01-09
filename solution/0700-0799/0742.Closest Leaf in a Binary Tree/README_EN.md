@@ -120,7 +120,7 @@ Diagram of binary tree:
 
 ## Solutions
 
-DFS.
+DFS & BFS.
 
 <!-- tabs:start -->
 

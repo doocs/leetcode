@@ -74,7 +74,9 @@ root = [1,2,3,4,null,null,null,5,null,6], k = 2
 
 <!-- 这里可写通用的实现逻辑 -->
 
-DFS。
+DFS 和 BFS。
+
+先通过 DFS 构建图，然后 BFS 找距离值为 k 的结点最近的叶子结点。
 
 <!-- tabs:start -->
 
