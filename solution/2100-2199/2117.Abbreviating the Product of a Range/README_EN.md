@@ -45,7 +45,7 @@ Hence, the abbreviated product is &quot;399168e2&quot;.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/11/17/productdrawio.png" style="width: 250px; height: 140px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2117.Abbreviating%20the%20Product%20of%20a%20Range/images/productdrawio.png" style="width: 250px; height: 140px;" />
 <pre>
 <strong>Input:</strong> left = 999998, right = 1000000
 <strong>Output:</strong> &quot;99999...00002e6&quot;

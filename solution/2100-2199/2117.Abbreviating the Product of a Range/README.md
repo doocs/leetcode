@@ -47,7 +47,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://assets.leetcode.com/uploads/2021/11/17/productdrawio.png" style="width: 250px; height: 140px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2117.Abbreviating%20the%20Product%20of%20a%20Range/images/productdrawio.png" style="width: 250px; height: 140px;"></p>
 
 <pre><b>输入：</b>left = 999998, right = 1000000
 <b>输出：</b>"99999...00002e6"

@@ -60,6 +60,8 @@ bank: ["AAAACCCC", "AAACCCCC", "AACCCCCC"]
 
 <!-- 这里可写通用的实现逻辑 -->
 
+BFS 找最值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +69,22 @@ bank: ["AAAACCCC", "AAACCCCC", "AACCCCCC"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minMutation(self, start: str, end: str, bank: List[str]) -> int:
+        s = set(bank)
+        q = deque([(start, 0)])
+        mp = {'A': 'TCG', 'T': 'ACG', 'C': 'ATG', 'G': 'ATC'}
+        while q:
+            t, step = q.popleft()
+            if t == end:
+                return step
+            for i, v in enumerate(t):
+                for j in mp[v]:
+                    next = t[:i] + j + t[i + 1:]
+                    if next in s:
+                        q.append((next, step + 1))
+                        s.remove(next)
+        return -1
 ```
 
 ### **Java**
@@ -75,7 +92,118 @@ bank: ["AAAACCCC", "AAACCCCC", "AACCCCCC"]
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minMutation(String start, String end, String[] bank) {
+        Set<String> s = new HashSet<>();
+        for (String b : bank) {
+            s.add(b);
+        }
+        Map<Character, String> mp = new HashMap<>(4);
+        mp.put('A', "TCG");
+        mp.put('T', "ACG");
+        mp.put('C', "ATG");
+        mp.put('G', "ATC");
+        Deque<Pair<String, Integer>> q = new LinkedList<>();
+        q.offer(new Pair<>(start, 0));
+        while (!q.isEmpty()) {
+            Pair<String, Integer> p = q.poll();
+            String t = p.getKey();
+            int step = p.getValue();
+            if (end.equals(t)) {
+                return step;
+            }
+            for (int i = 0; i < t.length(); ++i) {
+                for (char c : mp.get(t.charAt(i)).toCharArray()) {
+                    String next = t.substring(0, i) + c + t.substring(i + 1);
+                    if (s.contains(next)) {
+                        q.offer(new Pair<>(next, step + 1));
+                        s.remove(next);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMutation(string start, string end, vector<string>& bank) {
+        unordered_set<string> s;
+        for (auto& b : bank) s.insert(b);
+        unordered_map<char, string> mp;
+        mp['A'] = "TCG";
+        mp['T'] = "ACG";
+        mp['C'] = "ATG";
+        mp['G'] = "ATC";
+        queue<pair<string, int>> q;
+        q.push({start, 0});
+        while (!q.empty())
+        {
+            auto p = q.front();
+            q.pop();
+            string t = p.first;
+            int step = p.second;
+            if (t == end) return step;
+            for (int i = 0; i < t.size(); ++i)
+            {
+                for (char c : mp[t[i]])
+                {
+                    string next = t.substr(0, i) + c + t.substr(i + 1, t.size() - i - 1);
+                    if (s.count(next))
+                    {
+                        q.push({next, step + 1});
+                        s.erase(next);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMutation(start string, end string, bank []string) int {
+	s := make(map[string]bool)
+	for _, b := range bank {
+		s[b] = true
+	}
+	mp := make(map[byte]string)
+	mp['A'] = "TCG"
+	mp['T'] = "ACG"
+	mp['C'] = "ATG"
+	mp['G'] = "ATC"
+	type pair struct {
+		first  string
+		second int
+	}
+	q := []pair{{start, 0}}
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+		t, step := p.first, p.second
+		if t == end {
+			return step
+		}
+		for i := 0; i < len(t); i++ {
+			for _, c := range mp[t[i]] {
+				next := t[:i] + string(c) + t[i+1:]
+				if s[next] {
+					q = append(q, pair{next, step + 1})
+					s[next] = false
+				}
+			}
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**
