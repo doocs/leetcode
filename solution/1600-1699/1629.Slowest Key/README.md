@@ -69,7 +69,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def slowestKey(self, releaseTimes: List[int], keysPressed: str) -> str:
+        ans = keysPressed[0]
+        mx = releaseTimes[0]
+        for i in range(1, len(keysPressed)):
+            d = releaseTimes[i] - releaseTimes[i - 1]
+            if d > mx or (d == mx and ord(keysPressed[i]) > ord(ans)):
+                mx = d
+                ans = keysPressed[i]
+        return ans
 ```
 
 ### **Java**
@@ -77,7 +86,59 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public char slowestKey(int[] releaseTimes, String keysPressed) {
+        char ans = keysPressed.charAt(0);
+        int mx = releaseTimes[0];
+        for (int i = 1; i < releaseTimes.length; ++i) {
+            int d = releaseTimes[i] - releaseTimes[i - 1];
+            if (d > mx || (d == mx && keysPressed.charAt(i) > ans)) {
+                mx = d;
+                ans = keysPressed.charAt(i);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    char slowestKey(vector<int>& releaseTimes, string keysPressed) {
+        char ans = keysPressed[0];
+        int mx = releaseTimes[0];
+        for (int i = 1, n = releaseTimes.size(); i < n; ++i)
+        {
+            int d = releaseTimes[i] - releaseTimes[i - 1];
+            if (d > mx || (d == mx && keysPressed[i] > ans))
+            {
+                mx = d;
+                ans = keysPressed[i];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func slowestKey(releaseTimes []int, keysPressed string) byte {
+	ans := keysPressed[0]
+	mx := releaseTimes[0]
+	for i := 1; i < len(releaseTimes); i++ {
+		d := releaseTimes[i] - releaseTimes[i-1]
+		if d > mx || (d == mx && keysPressed[i] > ans) {
+			mx = d
+			ans = keysPressed[i]
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
