@@ -1,44 +1,38 @@
-public class Solution {
+class Solution {
+    public boolean isAdditiveNumber(String num) {
+        int n = num.length();
+        for (int i = 1; i < Math.min(n - 1, 19); ++i) {
+            for (int j = i + 1; j < Math.min(n, i + 19); ++j) {
+                if (i > 1 && num.charAt(0) == '0') {
+                    break;
+                }
+                if (j - i > 1 && num.charAt(i) == '0') {
+                    continue;
+                }
+                long a = Long.parseLong(num.substring(0, i));
+                long b = Long.parseLong(num.substring(i, j));
+                if (dfs(a, b, num.substring(j))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
-	public boolean isAdditiveNumber(String num) {
-
-		int n = num.length();
-		for (int i = 1; i <= n / 2; i++) {
-			for (int j = 1; Math.max(j, i) <= n - i - j; j++) {
-				if (isValid(i, j, num)) {
-					return true;
-				}
-			}
-		}
-
-		return false;
-	}
-
-	private boolean isValid(int i, int j, String num) {
-
-		if (num.charAt(0) == '0' && i > 1) {
-			return false;
-		}
-
-		if (num.charAt(i) == '0' && j > 1) {
-			return false;
-		}
-
-		String sum;
-
-		Long x1 = Long.parseLong(num.substring(0, i));
-		Long x2 = Long.parseLong(num.substring(i, i + j));
-
-		for (int start = i + j; start < num.length(); start += sum.length()) {
-			x2 = x1 + x2;
-			x1 = x2 - x1;
-			sum = x2.toString();
-			if (!num.startsWith(sum, start)) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
+    private boolean dfs(long a, long b, String num) {
+        if ("".equals(num)) {
+            return true;
+        }
+        if (a + b > 0 && num.charAt(0) == '0') {
+            return false;
+        }
+        for (int i = 1; i < Math.min(num.length() + 1, 19); ++i) {
+            if (a + b == Long.parseLong(num.substring(0, i))) {
+                if (dfs(b, a + b, num.substring(i))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
