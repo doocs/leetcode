@@ -67,13 +67,125 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def wordCount(self, startWords: List[str], targetWords: List[str]) -> int:
+        s = set()
+        for word in startWords:
+            mask = 0
+            for c in word:
+                mask |= (1 << (ord(c) - ord('a')))
+            s.add(mask)
 
+        ans = 0
+        for word in targetWords:
+            mask = 0
+            for c in word:
+                mask |= (1 << (ord(c) - ord('a')))
+            for c in word:
+                t = mask ^ (1 << (ord(c) - ord('a')))
+                if t in s:
+                    ans += 1
+                    break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public int wordCount(String[] startWords, String[] targetWords) {
+        Set<Integer> s = new HashSet<>();
+        for (String word : startWords) {
+            int mask = 0;
+            for (char c : word.toCharArray()) {
+                mask |= (1 << (c - 'a'));
+            }
+            s.add(mask);
+        }
+        int ans = 0;
+        for (String word : targetWords) {
+            int mask = 0;
+            for (char c : word.toCharArray()) {
+                mask |= (1 << (c - 'a'));
+            }
+            for (char c : word.toCharArray()) {
+                int t = mask ^ (1 << (c - 'a'));
+                if (s.contains(t)) {
+                    ++ans;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int wordCount(vector<string>& startWords, vector<string>& targetWords) {
+        unordered_set<int> s;
+        for (auto& word : startWords)
+        {
+            int mask = 0;
+            for (char c : word)
+                mask |= (1 << (c - 'a'));
+            s.insert(mask);
+        }
+        int ans = 0;
+        for (auto& word : targetWords)
+        {
+            int mask = 0;
+            for (char c : word)
+                mask |= (1 << (c - 'a'));
+            for (char c : word)
+            {
+                int t = mask ^ (1 << (c - 'a'));
+                if (s.count(t))
+                {
+                    ++ans;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func wordCount(startWords []string, targetWords []string) int {
+	s := make(map[int]bool)
+	for _, word := range startWords {
+		mask := 0
+		for _, c := range word {
+			mask |= (1 << (c - 'a'))
+		}
+		s[mask] = true
+	}
+	ans := 0
+	for _, word := range targetWords {
+		mask := 0
+		for _, c := range word {
+			mask |= (1 << (c - 'a'))
+		}
+		for _, c := range word {
+			t := mask ^ (1 << (c - 'a'))
+			if s[t] {
+				ans++
+				break
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
