@@ -55,7 +55,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def checkValid(self, matrix: List[List[int]]) -> bool:
+        n = len(matrix)
+        for i in range(n):
+            seen = [False] * n
+            for j in range(n):
+                v = matrix[i][j] - 1
+                if seen[v]:
+                    return False
+                seen[v] = True
+        for j in range(n):
+            seen = [False] * n
+            for i in range(n):
+                v = matrix[i][j] - 1
+                if seen[v]:
+                    return False
+                seen[v] = True
+        return True
 ```
 
 ### **Java**
@@ -63,7 +80,32 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public boolean checkValid(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n; ++i) {
+            boolean[] seen = new boolean[n];
+            for (int j = 0; j < n; ++j) {
+                int v = matrix[i][j] - 1;
+                if (seen[v]) {
+                    return false;
+                }
+                seen[v] = true;
+            }
+        }
+        for (int j = 0; j < n; ++j) {
+            boolean[] seen = new boolean[n];
+            for (int i = 0; i < n; ++i) {
+                int v = matrix[i][j] - 1;
+                if (seen[v]) {
+                    return false;
+                }
+                seen[v] = true;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -84,7 +126,68 @@ function checkValid(matrix: number[][]): boolean {
         }
     }
     return true;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkValid(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        for (int i = 0; i < n; ++i)
+        {
+            vector<bool> seen(n);
+            for (int j = 0; j < n; ++j)
+            {
+                int v = matrix[i][j] - 1;
+                if (seen[v]) return false;
+                seen[v] = true;
+            }
+        }
+        for (int j = 0; j < n; ++j)
+        {
+            vector<bool> seen(n);
+            for (int i = 0; i < n; ++i)
+            {
+                int v = matrix[i][j] - 1;
+                if (seen[v]) return false;
+                seen[v] = true;
+            }
+        }
+        return true;
+    }
 };
+```
+
+### **Go**
+
+```go
+func checkValid(matrix [][]int) bool {
+	n := len(matrix)
+	for i := 0; i < n; i++ {
+		seen := make([]bool, n)
+		for j := 0; j < n; j++ {
+			v := matrix[i][j] - 1
+			if seen[v] {
+				return false
+			}
+			seen[v] = true
+		}
+	}
+	for j := 0; j < n; j++ {
+		seen := make([]bool, n)
+		for i := 0; i < n; i++ {
+			v := matrix[i][j] - 1
+			if seen[v] {
+				return false
+			}
+			seen[v] = true
+		}
+	}
+	return true
+}
 ```
 
 ### **...**

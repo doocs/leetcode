@@ -60,13 +60,45 @@ Thus, the minimum number of swaps required is 0.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minSwaps(self, nums: List[int]) -> int:
+        cnt = nums.count(1)
+        n = len(nums)
+        s = [0] * ((n << 1) + 1)
+        for i in range(n << 1):
+            s[i + 1] = s[i] + nums[i % n]
+        mx = 0
+        for i in range(n << 1):
+            j = i + cnt - 1
+            if j < (n << 1):
+                mx = max(mx, s[j + 1] - s[i])
+        return cnt - mx
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int minSwaps(int[] nums) {
+        int cnt = 0;
+        for (int v : nums) {
+            cnt += v;
+        }
+        int n = nums.length;
+        int[] s = new int[(n << 1) + 1];
+        for (int i = 0; i < (n << 1); ++i) {
+            s[i + 1] = s[i] + nums[i % n];
+        }
+        int mx = 0;
+        for (int i = 0; i < (n << 1); ++i) {
+            int j = i + cnt - 1;
+            if (j < (n << 1)) {
+                mx = Math.max(mx, s[j + 1] - s[i]);
+            }
+        }
+        return cnt - mx;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -80,11 +112,64 @@ function minSwaps(nums: number[]): number {
     for (let i = m; i < m + n; i++) {
         let prev = nums[i - m];
         let post = nums[i % n];
-        cnt += (post - prev);
+        cnt += post - prev;
         ans = Math.max(cnt, ans);
     }
     return m - ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSwaps(vector<int>& nums) {
+        int cnt = 0;
+        for (int& v : nums) cnt += v;
+        int n = nums.size();
+        vector<int> s((n << 1) + 1);
+        for (int i = 0; i < (n << 1); ++i) s[i + 1] = s[i] + nums[i % n];
+        int mx = 0;
+        for (int i = 0; i < (n << 1); ++i)
+        {
+            int j = i + cnt - 1;
+            if (j < (n << 1)) mx = max(mx, s[j + 1] - s[i]);
+        }
+        return cnt - mx;
+    }
 };
+```
+
+### **Go**
+
+```go
+func minSwaps(nums []int) int {
+	cnt := 0
+	for _, v := range nums {
+		cnt += v
+	}
+	n := len(nums)
+	s := make([]int, (n<<1)+1)
+	for i := 0; i < (n << 1); i++ {
+		s[i+1] = s[i] + nums[i%n]
+	}
+	mx := 0
+	for i := 0; i < (n << 1); i++ {
+		j := i + cnt - 1
+		if j < (n << 1) {
+			mx = max(mx, s[j+1]-s[i])
+		}
+	}
+	return cnt - mx
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
