@@ -1,5 +1,5 @@
 class Solution:
-    def add(self, a: int, b: int) -> int:
+    def getSum(self, a: int, b: int) -> int:
         a, b = a & 0xffffffff, b & 0xffffffff
         while b:
             carry = ((a & b) << 1) & 0xffffffff

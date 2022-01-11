@@ -28,13 +28,53 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        a, b = a & 0xffffffff, b & 0xffffffff
+        while b:
+            carry = ((a & b) << 1) & 0xffffffff
+            a, b = a ^ b, carry
+        return a if a < 0x80000000 else ~(a ^ 0xffffffff)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int getSum(int a, int b) {
+        return b == 0 ? a : getSum(a ^ b, (a & b) << 1);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int getSum(int a, int b) {
+        while (b)
+        {
+            unsigned int carry = (unsigned int)(a & b) << 1;
+            a = a ^ b;
+            b = carry;
+        }
+        return a;
+    }
+};
+```
+
+### **Go**
+
+```go
+func getSum(a int, b int) int {
+	for b != 0 {
+		s := a ^ b
+		b = (a & b) << 1
+		a = s
+	}
+	return a
+}
 ```
 
 ### **...**
