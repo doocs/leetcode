@@ -62,13 +62,116 @@
 ### **Python3**
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
+        def dfs(root):
+            if root is None:
+                return root
+            if root.val > high:
+                return dfs(root.left)
+            if root.val < low:
+                return dfs(root.right)
+            root.left = dfs(root.left)
+            root.right = dfs(root.right)
+            return root
 
+        return dfs(root)
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode trimBST(TreeNode root, int low, int high) {
+        if (root == null) {
+            return root;
+        }
+        if (root.val > high) {
+            return trimBST(root.left, low, high);
+        }
+        if (root.val < low) {
+            return trimBST(root.right, low, high);
+        }
+        root.left = trimBST(root.left, low, high);
+        root.right = trimBST(root.right, low, high);
+        return root;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* trimBST(TreeNode* root, int low, int high) {
+        if (!root) return root;
+        if (root->val > high) return trimBST(root->left, low, high);
+        if (root->val < low) return trimBST(root->right, low, high);
+        root->left = trimBST(root->left, low, high);
+        root->right = trimBST(root->right, low, high);
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func trimBST(root *TreeNode, low int, high int) *TreeNode {
+	if root == nil {
+		return root
+	}
+	if root.Val > high {
+		return trimBST(root.Left, low, high)
+	}
+	if root.Val < low {
+		return trimBST(root.Right, low, high)
+	}
+	root.Left = trimBST(root.Left, low, high)
+	root.Right = trimBST(root.Right, low, high)
+	return root
+}
 ```
 
 ### **...**
