@@ -60,7 +60,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def isEscapePossible(self, blocked: List[List[int]], source: List[int], target: List[int]) -> bool:
+        def dfs(source, target, seen):
+            x, y = source
+            if not (0 <= x < 10**6 and 0 <= y < 10**6) or (x, y) in blocked or (x, y) in seen:
+                return False
+            seen.add((x, y))
+            if len(seen) > 20000 or source == target:
+                return True
+            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                next = [x + a, y + b]
+                if dfs(next, target, seen):
+                    return True
+            return False
 
+        blocked = set((x, y) for x, y in blocked)
+        return dfs(source, target, set()) and dfs(target, source, set())
 ```
 
 ### **Java**
@@ -68,7 +84,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    private static final int N = (int) 1e6;
+    private Set<Integer> blocked;
 
+    public boolean isEscapePossible(int[][] blocked, int[] source, int[] target) {
+        this.blocked = new HashSet<>();
+        for (int[] b : blocked) {
+            this.blocked.add(b[0] * N + b[1]);
+        }
+        return dfs(source, target, new HashSet<>()) && dfs(target, source, new HashSet<>());
+    }
+
+    private boolean dfs(int[] source, int[] target, Set<Integer> seen) {
+        int sx = source[0], sy = source[1];
+        int tx = target[0], ty = target[1];
+        if (sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N || blocked.contains(sx * N + sy) || seen.contains(sx * N + sy)) {
+            return false;
+        }
+        seen.add(sx * N + sy);
+        if (seen.size() > 20000 || (sx == target[0] && sy == target[1])) {
+            return true;
+        }
+        for (int[] dir : dirs) {
+            if (dfs(new int[]{sx + dir[0], sy + dir[1]}, target, seen)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+typedef unsigned long long ULL;
+
+class Solution {
+public:
+    vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    unordered_set<ULL> blocked;
+    int N = 1e6;
+
+    bool isEscapePossible(vector<vector<int>>& blocked, vector<int>& source, vector<int>& target) {
+        this->blocked.clear();
+        for (auto& b : blocked) this->blocked.insert((ULL) b[0] * N + b[1]);
+        unordered_set<ULL> s1;
+        unordered_set<ULL> s2;
+        return dfs(source, target, s1) && dfs(target, source, s2);
+    }
+
+    bool dfs(vector<int>& source, vector<int>& target, unordered_set<ULL>& seen) {
+        int sx = source[0], sy = source[1];
+        int tx = target[0], ty = target[1];
+        if (sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N || blocked.count((ULL) sx * N + sy) || seen.count((ULL) sx * N + sy)) return 0;
+        seen.insert((ULL) sx * N + sy);
+        if (seen.size() > 20000 || (sx == target[0] && sy == target[1])) return 1;
+        for (auto& dir : dirs)
+        {
+            vector<int> next = {sx + dir[0], sy + dir[1]};
+            if (dfs(next, target, seen)) return 1;
+        }
+        return 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isEscapePossible(blocked [][]int, source []int, target []int) bool {
+	const N = 1e6
+	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	block := make(map[int]bool)
+	for _, b := range blocked {
+		block[b[0]*N+b[1]] = true
+	}
+	var dfs func(source, target []int, seen map[int]bool) bool
+	dfs = func(source, target []int, seen map[int]bool) bool {
+		sx, sy := source[0], source[1]
+		tx, ty := target[0], target[1]
+		if sx < 0 || sx >= N || sy < 0 || sy >= N || tx < 0 || tx >= N || ty < 0 || ty >= N || block[sx*N+sy] || seen[sx*N+sy] {
+			return false
+		}
+		seen[sx*N+sy] = true
+		if len(seen) > 20000 || (sx == target[0] && sy == target[1]) {
+			return true
+		}
+		for _, dir := range dirs {
+			next := []int{sx + dir[0], sy + dir[1]}
+			if dfs(next, target, seen) {
+				return true
+			}
+		}
+		return false
+	}
+	s1, s2 := make(map[int]bool), make(map[int]bool)
+	return dfs(source, target, s1) && dfs(target, source, s2)
+}
 ```
 
 ### **...**
