@@ -84,7 +84,7 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function (head) {
+var reverseList = function(head) {
     let node = head;
     let pre = null;
     while (node) {
@@ -144,6 +144,68 @@ public:
         return pre;
     }
 };
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function reverseList(head: ListNode | null): ListNode | null {
+    let cur = head;
+    let pre = null;
+    while (cur != null) {
+        const temp = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = temp;
+    }
+    return pre;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+// 
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut pre = None;
+        let mut cur = head;
+
+        while let Some(mut node) = cur {
+            cur = node.next.take();
+            node.next = pre.take();
+            pre = Some(node);
+        }
+        pre
+    }
+}
 ```
 
 ### **...**
