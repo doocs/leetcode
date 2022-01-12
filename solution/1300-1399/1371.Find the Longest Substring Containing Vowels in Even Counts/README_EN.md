@@ -46,13 +46,108 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findTheLongestSubstring(self, s: str) -> int:
+        pos = [float('inf')] * 32
+        pos[0] = -1
+        vowels = 'aeiou'
+        state = ans = 0
+        for i, c in enumerate(s):
+            for j, v in enumerate(vowels):
+                if c == v:
+                    state ^= (1 << j)
+            ans = max(ans, i - pos[state])
+            pos[state] = min(pos[state], i)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public int findTheLongestSubstring(String s) {
+        int[] pos = new int[32];
+        Arrays.fill(pos, Integer.MAX_VALUE);
+        pos[0] = -1;
+        String vowels = "aeiou";
+        int state = 0;
+        int ans = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            for (int j = 0; j < 5; ++j) {
+                if (c == vowels.charAt(j)) {
+                    state ^= (1 << j);
+                }
+            }
+            ans = Math.max(ans, i - pos[state]);
+            pos[state] = Math.min(pos[state], i);
+        }
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findTheLongestSubstring(string s) {
+        vector<int> pos(32, INT_MAX);
+        pos[0] = -1;
+        string vowels = "aeiou";
+        int state = 0, ans = 0;
+        for (int i = 0; i < s.size(); ++i)
+        {
+            for (int j = 0; j < 5; ++j)
+                if (s[i] == vowels[j])
+                    state ^= (1 << j);
+            ans = max(ans, i - pos[state]);
+            pos[state] = min(pos[state], i);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findTheLongestSubstring(s string) int {
+	pos := make([]int, 32)
+	for i := range pos {
+		pos[i] = math.MaxInt32
+	}
+	pos[0] = -1
+	vowels := "aeiou"
+	state, ans := 0, 0
+	for i, c := range s {
+		for j, v := range vowels {
+			if c == v {
+				state ^= (1 << j)
+			}
+		}
+		ans = max(ans, i-pos[state])
+		pos[state] = min(pos[state], i)
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
