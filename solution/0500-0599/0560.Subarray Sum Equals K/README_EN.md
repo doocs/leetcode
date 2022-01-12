@@ -32,14 +32,13 @@
 ```python
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        mp = Counter()
-        mp[0] = 1
-        res = s = 0
+        counter = Counter({0: 1})
+        ans = s = 0
         for num in nums:
             s += num
-            res += mp[s - k]
-            mp[s] += 1
-        return res
+            ans += counter[s - k]
+            counter[s] += 1
+        return ans
 ```
 
 ### **Java**
@@ -47,16 +46,15 @@ class Solution:
 ```java
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, 1);
-        int res = 0;
-        int s = 0;
+        Map<Integer, Integer> counter = new HashMap<>();
+        counter.put(0, 1);
+        int ans = 0, s = 0;
         for (int num : nums) {
             s += num;
-            res += map.getOrDefault(s - k, 0);
-            map.put(s, map.getOrDefault(s, 0) + 1);
+            ans += counter.getOrDefault(s - k, 0);
+            counter.put(s, counter.getOrDefault(s, 0) + 1);
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -66,13 +64,13 @@ class Solution {
 ```ts
 function subarraySum(nums: number[], k: number): number {
     let ans = 0,
-        pre = 0;
-    let hashTable = new Map();
-    hashTable.set(0, 1);
-    for (let num of nums) {
-        pre += num;
-        ans += hashTable.get(pre - k) || 0;
-        hashTable.set(pre, (hashTable.get(pre) || 0) + 1);
+        s = 0;
+    let counter = new Map();
+    counter[0] = 1;
+    for (const num of nums) {
+        s += num;
+        ans += counter[s - k] || 0;
+        counter[s] = (counter[s] || 0) + 1;
     }
     return ans;
 }
@@ -84,16 +82,16 @@ function subarraySum(nums: number[], k: number): number {
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        unordered_map<int, int> mp;
-        mp[0] = 1;
-        int res = 0, s = 0;
-        for (int num : nums)
+        unordered_map<int, int> counter;
+        counter[0] = 1;
+        int ans = 0, s = 0;
+        for (int& num : nums)
         {
             s += num;
-            res += mp[s - k];
-            ++mp[s];
+            ans += counter[s - k];
+            ++counter[s];
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -102,15 +100,14 @@ public:
 
 ```go
 func subarraySum(nums []int, k int) int {
-	mp := make(map[int]int)
-	mp[0] = 1
-	res, s := 0, 0
+	counter := map[int]int{0: 1}
+	ans, s := 0, 0
 	for _, num := range nums {
 		s += num
-		res += mp[s-k]
-		mp[s]++
+		ans += counter[s-k]
+		counter[s]++
 	}
-	return res
+	return ans
 }
 ```
 
