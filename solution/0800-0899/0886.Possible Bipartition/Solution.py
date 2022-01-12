@@ -7,14 +7,15 @@ class Solution:
                 p[x] = find(p[x])
             return p[x]
 
-        mp = defaultdict(list)
-        for i, j in dislikes:
-            mp[i - 1].append(j - 1)
-            mp[j - 1].append(i - 1)
+        dis = defaultdict(list)
+        for a, b in dislikes:
+            a, b = a - 1, b - 1
+            dis[a].append(b)
+            dis[b].append(a)
+
         for i in range(n):
-            dis = mp[i]
-            for j in dis:
+            for j in dis[i]:
                 if find(i) == find(j):
                     return False
-                p[find(j)] = find(dis[0])
+                p[find(j)] = find(dis[i][0])
         return True

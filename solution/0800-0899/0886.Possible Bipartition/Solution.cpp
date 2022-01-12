@@ -5,19 +5,19 @@ public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        unordered_map<int, vector<int>> mp;
-        for (auto e : dislikes)
+        unordered_map<int, vector<int>> dis;
+        for (auto& d : dislikes)
         {
-            mp[e[0] - 1].push_back(e[1] - 1);
-            mp[e[1] - 1].push_back(e[0] - 1);
+            int a = d[0] - 1, b = d[1] - 1;
+            dis[a].push_back(b);
+            dis[b].push_back(a);
         }
         for (int i = 0; i < n; ++i)
         {
-            auto dis = mp[i];
-            for (int j : dis)
+            for (int j : dis[i])
             {
                 if (find(i) == find(j)) return false;
-                p[find(j)] = find(dis[0]);
+                p[find(j)] = find(dis[i][0]);
             }
         }
         return true;

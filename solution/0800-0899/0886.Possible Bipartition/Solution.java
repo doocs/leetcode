@@ -3,21 +3,22 @@ class Solution {
 
     public boolean possibleBipartition(int n, int[][] dislikes) {
         p = new int[n];
+        List<Integer>[] dis = new List[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
+            dis[i] = new ArrayList<>();
         }
-        Map<Integer, List<Integer>> mp = new HashMap<>();
-        for (int[] e : dislikes) {
-            mp.computeIfAbsent(e[0] - 1, k -> new ArrayList<>()).add(e[1] - 1);
-            mp.computeIfAbsent(e[1] - 1, k -> new ArrayList<>()).add(e[0] - 1);
+        for (int[] d : dislikes) {
+            int a = d[0] - 1, b = d[1] - 1;
+            dis[a].add(b);
+            dis[b].add(a);
         }
         for (int i = 0; i < n; ++i) {
-            List<Integer> dis = mp.getOrDefault(i, new ArrayList<>());
-            for (int j : dis) {
+            for (int j : dis[i]) {
                 if (find(i) == find(j)) {
                     return false;
                 }
-                p[find(j)] = find(dis.get(0));
+                p[find(j)] = find(dis[i].get(0));
             }
         }
         return true;

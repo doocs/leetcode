@@ -133,17 +133,18 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-
-        mp = defaultdict(list)
-        for i, j in dislikes:
-            mp[i - 1].append(j - 1)
-            mp[j - 1].append(i - 1)
+        
+        dis = defaultdict(list)
+        for a, b in dislikes:
+            a, b = a - 1, b - 1
+            dis[a].append(b)
+            dis[b].append(a)
+        
         for i in range(n):
-            dis = mp[i]
-            for j in dis:
+            for j in dis[i]:
                 if find(i) == find(j):
                     return False
-                p[find(j)] = find(dis[0])
+                p[find(j)] = find(dis[i][0])
         return True
 ```
 
@@ -153,35 +154,38 @@ class Solution:
 
 ```java
 class Solution {
-public:
-    vector<int> p;
+    private int[] p;
 
-    bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        unordered_map<int, vector<int>> mp;
-        for (auto e : dislikes)
-        {
-            mp[e[0] - 1].push_back(e[1] - 1);
-            mp[e[1] - 1].push_back(e[0] - 1);
+    public boolean possibleBipartition(int n, int[][] dislikes) {
+        p = new int[n];
+        List<Integer>[] dis = new List[n];
+        for (int i = 0; i < n; ++i) {
+            p[i] = i;
+            dis[i] = new ArrayList<>();
         }
-        for (int i = 0; i < n; ++i)
-        {
-            auto dis = mp[i];
-            for (int j : dis)
-            {
-                if (find(i) == find(j)) return false;
-                p[find(j)] = find(dis[0]);
+        for (int[] d : dislikes) {
+            int a = d[0] - 1, b = d[1] - 1;
+            dis[a].add(b);
+            dis[b].add(a);
+        }
+        for (int i = 0; i < n; ++i) {
+            for (int j : dis[i]) {
+                if (find(i) == find(j)) {
+                    return false;
+                }
+                p[find(j)] = find(dis[i].get(0));
             }
         }
         return true;
     }
 
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
+    private int find(int x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
         return p[x];
     }
-};
+}
 ```
 
 ### **C++**
@@ -194,19 +198,19 @@ public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        unordered_map<int, vector<int>> mp;
-        for (auto e : dislikes)
+        unordered_map<int, vector<int>> dis;
+        for (auto& d : dislikes)
         {
-            mp[e[0] - 1].push_back(e[1] - 1);
-            mp[e[1] - 1].push_back(e[0] - 1);
+            int a = d[0] - 1, b = d[1] - 1;
+            dis[a].push_back(b);
+            dis[b].push_back(a);
         }
         for (int i = 0; i < n; ++i)
         {
-            auto dis = mp[i];
-            for (int j : dis)
+            for (int j : dis[i])
             {
                 if (find(i) == find(j)) return false;
-                p[find(j)] = find(dis[0]);
+                p[find(j)] = find(dis[i][0]);
             }
         }
         return true;
@@ -222,35 +226,33 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func possibleBipartition(n int, dislikes [][]int) bool {
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	dis := make([][]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	mp := make(map[int][]int)
-	for _, e := range dislikes {
-		mp[e[0]-1] = append(mp[e[0]-1], e[1]-1)
-		mp[e[1]-1] = append(mp[e[1]-1], e[0]-1)
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	for _, d := range dislikes {
+		a, b := d[0]-1, d[1]-1
+		dis[a] = append(dis[a], b)
+		dis[b] = append(dis[b], a)
 	}
 	for i := 0; i < n; i++ {
-		dis := mp[i]
-		for _, j := range dis {
+		for _, j := range dis[i] {
 			if find(i) == find(j) {
 				return false
 			}
-			p[find(j)] = find(dis[0])
+			p[find(j)] = find(dis[i][0])
 		}
 	}
 	return true
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }
 ```
 
