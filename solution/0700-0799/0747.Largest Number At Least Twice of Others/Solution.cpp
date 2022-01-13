@@ -1,13 +1,18 @@
 class Solution {
 public:
     int dominantIndex(vector<int>& nums) {
-        int maxIdx = 0, n = nums.size();
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] > nums[maxIdx]) maxIdx = i;
+        int mx = 0, mid = 0;
+        int ans = 0;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            if (nums[i] > mx)
+            {
+                mid = mx;
+                mx = nums[i];
+                ans = i;
+            }
+            else if (nums[i] > mid) mid = nums[i];
         }
-        for (int i = 0; i < n; ++i) {
-            if (i != maxIdx && nums[i] * 2 > nums[maxIdx]) return -1;
-        }
-        return maxIdx;
+        return mx >= mid * 2 ? ans : -1;
     }
 };

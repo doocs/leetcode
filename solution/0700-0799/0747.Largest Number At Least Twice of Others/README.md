@@ -42,6 +42,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+遍历数组找到最大值和次大值，最后判断是否满足条件即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -51,14 +53,15 @@
 ```python
 class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
-        max_idx, n = 0, len(nums)
-        for i in range(1, n):
-            if nums[i] > nums[max_idx]:
-                max_idx = i
-        for i in range(n):
-            if i != max_idx and nums[i] * 2 > nums[max_idx]:
-                return -1
-        return max_idx
+        mx = mid = 0
+        ans = -1
+        for i, v in enumerate(nums):
+            if v > mx:
+                mid, mx = mx, v
+                ans = i
+            elif v > mid:
+                mid = v
+        return ans if mx >= 2 * mid else -1
 ```
 
 ### **Java**
@@ -67,18 +70,20 @@ class Solution:
 
 ```java
 class Solution {
-  public int dominantIndex(int[] nums) {
-    int maxIndex = 0;
-    for (int i = 0; i < nums.length; i++) {
-      if (nums[i] > nums[maxIndex])
-        maxIndex = i;
+    public int dominantIndex(int[] nums) {
+        int mx = 0, mid = 0;
+        int ans = -1;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] > mx) {
+                mid = mx;
+                mx = nums[i];
+                ans = i;
+            } else if (nums[i] > mid) {
+                mid = nums[i];
+            }
+        }
+        return mx >= mid * 2 ? ans : -1;
     }
-    for (int i = 0; i < nums.length; i++) {
-      if (nums[i] * 2 > nums[maxIndex] && i != maxIndex)
-        return -1;
-    }
-    return maxIndex;
-  }
 }
 ```
 
@@ -88,14 +93,19 @@ class Solution {
 class Solution {
 public:
     int dominantIndex(vector<int>& nums) {
-        int maxIdx = 0, n = nums.size();
-        for (int i = 1; i < n; ++i) {
-            if (nums[i] > nums[maxIdx]) maxIdx = i;
+        int mx = 0, mid = 0;
+        int ans = 0;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            if (nums[i] > mx)
+            {
+                mid = mx;
+                mx = nums[i];
+                ans = i;
+            }
+            else if (nums[i] > mid) mid = nums[i];
         }
-        for (int i = 0; i < n; ++i) {
-            if (i != maxIdx && nums[i] * 2 > nums[maxIdx]) return -1;
-        }
-        return maxIdx;
+        return mx >= mid * 2 ? ans : -1;
     }
 };
 ```
@@ -104,19 +114,45 @@ public:
 
 ```go
 func dominantIndex(nums []int) int {
-	maxIndex, n := 0, len(nums)
-	for i := 1; i < n; i++ {
-		if nums[i] > nums[maxIndex] {
-			maxIndex = i
+	mx, mid := 0, 0
+	ans := 0
+	for i, v := range nums {
+		if v > mx {
+			mid, mx = mx, v
+			ans = i
+		} else if v > mid {
+			mid = v
 		}
 	}
-	for i := 0; i < n; i++ {
-		if i != maxIndex && nums[i]*2 > nums[maxIndex] {
-			return -1
-		}
+	if mx >= mid*2 {
+		return ans
 	}
-	return maxIndex
+	return -1
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var dominantIndex = function (nums) {
+    let mx = 0,
+        mid = 0;
+    let ans = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] > mx) {
+            mid = mx;
+            mx = nums[i];
+            ans = i;
+        } else if (nums[i] > mid) {
+            mid = nums[i];
+        }
+    }
+    return mx >= mid * 2 ? ans : -1;
+};
 ```
 
 ### **...**
