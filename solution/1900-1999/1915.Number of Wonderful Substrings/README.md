@@ -70,7 +70,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-状态压缩 + 前缀和
+状态压缩 + 前缀和。
+
+类似题目：[1371. 每个元音包含偶数次的最长子字符串](/solution/1300-1399/1371.Find%20the%20Longest%20Substring%20Containing%20Vowels%20in%20Even%20Counts/README.md)
 
 <!-- tabs:start -->
 
@@ -79,7 +81,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def wonderfulSubstrings(self, word: str) -> int:
+        counter = Counter({0: 1})
+        state = 0
+        ans = 0
+        for c in word:
+            state ^= (1 << (ord(c) - ord('a')))
+            ans += counter[state]
+            for i in range(10):
+                ans += counter[state ^ (1 << i)]
+            counter[state] += 1
+        return ans
 ```
 
 ### **Java**
@@ -87,7 +100,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public long wonderfulSubstrings(String word) {
+        int[] counter = new int[1 << 10];
+        counter[0] = 1;
+        int state = 0;
+        long ans = 0;
+        for (char c : word.toCharArray()) {
+            state ^= (1 << (c - 'a'));
+            ans += counter[state];
+            for (int i = 0; i < 10; ++i) {
+                ans += counter[state ^ (1 << i)];
+            }
+            ++counter[state];
+        }
+        return ans;
+    }
+}
 ```
 
 ### **JavaScript**
@@ -98,22 +127,62 @@
  * @return {number}
  */
 var wonderfulSubstrings = function (word) {
-    let n = 1 << 10;
-    let counts = new Array(n).fill(0);
-    counts[0] = 1;
-    let pre = 0;
+    let counter = new Array(1 << 10).fill(0);
+    counter[0] = 1;
+    let state = 0;
     let ans = 0;
     for (let c of word) {
-        let cur = c.charCodeAt(0) - "a".charCodeAt(0);
-        pre ^= 1 << cur;
-        ans += counts[pre];
-        for (let i = 1; i < n; i <<= 1) {
-            ans += counts[pre ^ i];
+        state ^= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+        ans += counter[state];
+        for (let i = 0; i < 10; ++i) {
+            ans += counter[state ^ (1 << i)];
         }
-        ++counts[pre];
+        ++counter[state];
     }
     return ans;
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    long long wonderfulSubstrings(string word) {
+        vector<int> counter(1024);
+        counter[0] = 1;
+        long long ans = 0;
+        int state = 0;
+        for (char c : word)
+        {
+            state ^= (1 << (c - 'a'));
+            ans += counter[state];
+            for (int i = 0; i < 10; ++i) ans += counter[state ^ (1 << i)];
+            ++counter[state];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func wonderfulSubstrings(word string) int64 {
+	counter := make([]int, 1024)
+	counter[0] = 1
+	state := 0
+	var ans int64
+	for _, c := range word {
+		state ^= (1 << (c - 'a'))
+		ans += int64(counter[state])
+		for i := 0; i < 10; i++ {
+			ans += int64(counter[state^(1<<i)])
+		}
+		counter[state]++
+	}
+	return ans
+}
 ```
 
 ### **...**

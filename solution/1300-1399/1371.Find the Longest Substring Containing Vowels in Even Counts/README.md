@@ -49,6 +49,8 @@
 
 前缀异或 + 状态压缩。
 
+类似题目：[1915. 最美子字符串的数目](/solution/1900-1999/1915.Number%20of%20Wonderful%20Substrings/README.md)
+
 <!-- tabs:start -->
 
 ### **Python3**
