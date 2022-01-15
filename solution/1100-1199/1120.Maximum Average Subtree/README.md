@@ -41,6 +41,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+后序遍历获取每个子树的结点个数以及结点和，求每个结点平均值的最大值。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -48,7 +50,28 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maximumAverageSubtree(self, root: TreeNode) -> float:
+        def dfs(root):
+            if root is None:
+                return 0, 0
+            ls, ln = dfs(root.left)
+            rs, rn = dfs(root.right)
+            s = ls + root.val + rs
+            n = ln + 1 + rn
+            nonlocal ans
+            ans = max(ans, s / n)
+            return s, n
 
+        ans = 0
+        dfs(root)
+        return ans
 ```
 
 ### **Java**
@@ -56,7 +79,107 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private double ans;
 
+    public double maximumAverageSubtree(TreeNode root) {
+        ans = 0;
+        dfs(root);
+        return ans;
+    }
+
+    private int[] dfs(TreeNode root) {
+        if (root == null) {
+            return new int[]{0, 0};
+        }
+        int[] l = dfs(root.left);
+        int[] r = dfs(root.right);
+        int s = l[0] + root.val + r[0];
+        int n = l[1] + 1 + r[1];
+        ans = Math.max(ans, s * 1.0 / n);
+        return new int[]{s, n};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    double ans;
+
+    double maximumAverageSubtree(TreeNode* root) {
+        ans = 0;
+        dfs(root);
+        return ans;
+    }
+
+    pair<int, int> dfs(TreeNode* root) {
+        if (!root) return {0, 0};
+        auto l = dfs(root->left);
+        auto r = dfs(root->right);
+        int s = l.first + root->val + r.first;
+        int n = l.second + 1 + r.second;
+        ans = max(ans, s * 1.0 / n);
+        return {s, n};
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maximumAverageSubtree(root *TreeNode) float64 {
+	var ans float64
+	var dfs func(root *TreeNode) []int
+	dfs = func(root *TreeNode) []int {
+		if root == nil {
+			return []int{0, 0}
+		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		s := l[0] + root.Val + r[0]
+		n := l[1] + 1 + r[1]
+		ans = math.Max(ans, float64(s)/float64(n))
+		return []int{s, n}
+	}
+	dfs(root)
+	return ans
+}
 ```
 
 ### **...**
