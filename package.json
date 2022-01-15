@@ -5,8 +5,5 @@
   },
   "dependencies": {
     "docsify-cli": "^4.4.3"
-  },
-  "devDependencies": {
-    "docsify-pdf-converter": "^2.0.7"
   }
 }
