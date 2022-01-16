@@ -50,6 +50,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+DFS。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -57,7 +59,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        def dfs(u):
+            if u == n or u in vis:
+                return
+            vis.add(u)
+            for v in rooms[u]:
+                dfs(v)
 
+        n = len(rooms)
+        vis = set()
+        dfs(0)
+        return len(vis) == n
 ```
 
 ### **Java**
@@ -65,7 +79,75 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private List<List<Integer>> rooms;
+    private Set<Integer> vis;
+    private int n;
 
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        vis = new HashSet<>();
+        this.rooms = rooms;
+        n = rooms.size();
+        dfs(0);
+        return vis.size() == n;
+    }
+
+    private void dfs(int u) {
+        if (u == n || vis.contains(u)) {
+            return;
+        }
+        vis.add(u);
+        for (int v : rooms.get(u)) {
+            dfs(v);
+        }
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> rooms;
+    unordered_set<int> vis;
+    int n;
+
+    bool canVisitAllRooms(vector<vector<int>>& rooms) {
+        vis.clear();
+        this->rooms = rooms;
+        n = rooms.size();
+        dfs(0);
+        return vis.size() == n;
+    }
+
+    void dfs(int u) {
+        if (u == n || vis.count(u)) return;
+        vis.insert(u);
+        for (int v : rooms[u]) dfs(v);
+    }
+};
+```
+
+### **Go**
+
+```go
+func canVisitAllRooms(rooms [][]int) bool {
+	n := len(rooms)
+	vis := make(map[int]bool)
+	var dfs func(u int)
+	dfs = func(u int) {
+		if u == n || vis[u] {
+			return
+		}
+		vis[u] = true
+		for _, v := range rooms[u] {
+			dfs(v)
+		}
+	}
+	dfs(0)
+	return len(vis) == n
+}
 ```
 
 ### **...**
