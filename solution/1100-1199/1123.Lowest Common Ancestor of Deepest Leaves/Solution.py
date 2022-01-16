@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def subtreeWithAllDeepest(self, root: TreeNode) -> TreeNode:
+    def lcaDeepestLeaves(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         def dfs(root):
             if root is None:
                 return None, 0

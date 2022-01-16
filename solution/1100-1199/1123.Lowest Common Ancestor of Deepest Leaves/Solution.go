@@ -11,7 +11,7 @@ type pair struct {
 	second int
 }
 
-func subtreeWithAllDeepest(root *TreeNode) *TreeNode {
+func lcaDeepestLeaves(root *TreeNode) *TreeNode {
 	var dfs func(root *TreeNode) pair
 	dfs = func(root *TreeNode) pair {
 		if root == nil {

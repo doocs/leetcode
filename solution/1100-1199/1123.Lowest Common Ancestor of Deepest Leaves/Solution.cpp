@@ -12,7 +12,7 @@
 using pti = pair<TreeNode*, int>;
 class Solution {
 public:
-    TreeNode* subtreeWithAllDeepest(TreeNode* root) {
+    TreeNode* lcaDeepestLeaves(TreeNode* root) {
         return dfs(root).first;
     }
 

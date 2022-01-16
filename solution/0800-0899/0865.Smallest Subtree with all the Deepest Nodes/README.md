@@ -77,7 +77,7 @@
 class Solution:
     def subtreeWithAllDeepest(self, root: TreeNode) -> TreeNode:
         def dfs(root):
-            if not root:
+            if root is None:
                 return None, 0
             l, d1 = dfs(root.left)
             r, d2 = dfs(root.right)
@@ -112,23 +112,23 @@ class Solution:
  */
 class Solution {
     public TreeNode subtreeWithAllDeepest(TreeNode root) {
-        return dfs(root)[0];
+        return dfs(root).getKey();
     }
 
-    private TreeNode[] dfs(TreeNode root) {
+    private Pair<TreeNode, Integer> dfs(TreeNode root) {
         if (root == null) {
-            return new TreeNode[]{null, new TreeNode(0)};
+            return new Pair<>(null, 0);
         }
-        TreeNode[] left = dfs(root.left);
-        TreeNode[] right = dfs(root.right);
-        int d1 = left[1].val, d2 = right[1].val;
+        Pair<TreeNode, Integer> l = dfs(root.left);
+        Pair<TreeNode, Integer> r = dfs(root.right);
+        int d1 = l.getValue(), d2 = r.getValue();
         if (d1 > d2) {
-            return new TreeNode[]{left[0], new TreeNode(d1 + 1)};
+            return new Pair<>(l.getKey(), d1 + 1);
         }
         if (d1 < d2) {
-            return new TreeNode[]{right[0], new TreeNode(d2 + 1)};
+            return new Pair<>(r.getKey(), d2 + 1);
         }
-        return new TreeNode[]{root, new TreeNode(d1 + 1)};
+        return new Pair<>(root, d1 + 1);
     }
 }
 ```
@@ -147,19 +147,20 @@ class Solution {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+using pti = pair<TreeNode*, int>;
 class Solution {
 public:
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
         return dfs(root).first;
     }
 
-    pair<TreeNode*, int> dfs(TreeNode* root) {
+    pti dfs(TreeNode* root) {
         if (!root) return {nullptr, 0};
-        auto left = dfs(root->left);
-        auto right = dfs(root->right);
-        int d1 = left.second, d2 = right.second;
-        if (d1 > d2) return {left.first, d1 + 1};
-        if (d1 < d2) return {right.first, d2 + 1};
+        pti l = dfs(root->left);
+        pti r = dfs(root->right);
+        int d1 = l.second, d2 = r.second;
+        if (d1 > d2) return {l.first, d1 + 1};
+        if (d1 < d2) return {r.first, d2 + 1};
         return {root, d1 + 1};
     }
 };
@@ -176,30 +177,28 @@ public:
  *     Right *TreeNode
  * }
  */
-type Result struct {
-	Node  *TreeNode
-	Depth int
+type pair struct {
+	first  *TreeNode
+	second int
 }
 
 func subtreeWithAllDeepest(root *TreeNode) *TreeNode {
-	return dfs(root).Node
-}
-
-func dfs(root *TreeNode) Result {
-	if root == nil {
-		return Result{
-			nil, 0,
+	var dfs func(root *TreeNode) pair
+	dfs = func(root *TreeNode) pair {
+		if root == nil {
+			return pair{nil, 0}
 		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		d1, d2 := l.second, r.second
+		if d1 > d2 {
+			return pair{l.first, d1 + 1}
+		}
+		if d1 < d2 {
+			return pair{r.first, d2 + 1}
+		}
+		return pair{root, d1 + 1}
 	}
-	left, right := dfs(root.Left), dfs(root.Right)
-	d1, d2 := left.Depth, right.Depth
-	if d1 > d2 {
-		return Result{left.Node, d1 + 1}
-	}
-	if d1 < d2 {
-		return Result{right.Node, d2 + 1}
-	}
-	return Result{root, d1 + 1}
+	return dfs(root).first
 }
 ```
 
