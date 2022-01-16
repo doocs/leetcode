@@ -57,13 +57,82 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
+        m, n = len(grid), len(grid[0])
+        k %= (m * n)
+        t = [grid[i][j] for i in range(m) for j in range(n)]
+        t = t[-k:] + t[:-k]
+        for i in range(m):
+            for j in range(n):
+                grid[i][j] = t[i * n + j]
+        return grid
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<List<Integer>> shiftGrid(int[][] grid, int k) {
+        int m = grid.length, n = grid[0].length;
+        k %= (m * n);
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < m; ++i) {
+            List<Integer> t = new ArrayList<>();
+            for (int j = 0; j < n; ++j) {
+                t.add(0);
+            }
+            ans.add(t);
+        }
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                int t = (i * n + j + k) % (m * n);
+                ans.get(t / n).set(t % n, grid[i][j]);
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> shiftGrid(vector<vector<int>>& grid, int k) {
+        int m = grid.size(), n = grid[0].size();
+        vector<vector<int>> ans(m, vector<int>(n));
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                int t = (i * n + j + k) % (m * n);
+                ans[t / n][t % n] = grid[i][j];
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func shiftGrid(grid [][]int, k int) [][]int {
+	m, n := len(grid), len(grid[0])
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, n)
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			t := (i*n + j + k) % (m * n)
+			ans[t/n][t%n] = grid[i][j]
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
