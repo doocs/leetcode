@@ -2179,3 +2179,8 @@
   - [2134.Minimum Swaps to Group All 1's Together II](/solution/2100-2199/2134.Minimum%20Swaps%20to%20Group%20All%201%27s%20Together%20II/README.md)
   - [2135.Count Words Obtained After Adding a Letter](/solution/2100-2199/2135.Count%20Words%20Obtained%20After%20Adding%20a%20Letter/README.md)
   - [2136.Earliest Possible Day of Full Bloom](/solution/2100-2199/2136.Earliest%20Possible%20Day%20of%20Full%20Bloom/README.md)
+  - [2137.Pour Water Between Buckets to Make Water Levels Equal](/solution/2100-2199/2137.Pour%20Water%20Between%20Buckets%20to%20Make%20Water%20Levels%20Equal/README.md)
+  - [2138.Divide a String Into Groups of Size k](/solution/2100-2199/2138.Divide%20a%20String%20Into%20Groups%20of%20Size%20k/README.md)
+  - [2139.Minimum Moves to Reach Target Score](/solution/2100-2199/2139.Minimum%20Moves%20to%20Reach%20Target%20Score/README.md)
+  - [2140.Solving Questions With Brainpower](/solution/2100-2199/2140.Solving%20Questions%20With%20Brainpower/README.md)
+  - [2141.Maximum Running Time of N Computers](/solution/2100-2199/2141.Maximum%20Running%20Time%20of%20N%20Computers/README.md)
