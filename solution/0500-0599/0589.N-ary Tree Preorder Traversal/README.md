@@ -71,16 +71,16 @@ class Node:
 
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
-        if not root:
-            return []
-
-        def PO(root):
-            res.append(root.val)
-            for i in root.children:
-                PO(i)
-        res = []
-        PO(root)
-        return res
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            for child in node.children[::-1]:
+                stk.append(child)
+        return ans
 ```
 
 ### **Java**
@@ -88,7 +88,117 @@ class Solution:
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> children;
 
+    public Node() {}
+
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+    public List<Integer> preorder(Node root) {
+        if (root == null) {
+            return Collections.emptyList();
+        }
+        List<Integer> ans = new ArrayList<>();
+        Deque<Node> stk = new ArrayDeque<>();
+        stk.push(root);
+        while (!stk.isEmpty()) {
+            Node node = stk.pop();
+            ans.add(node.val);
+            List<Node> children = node.children;
+            for (int i = children.size() - 1; i >= 0; --i) {
+                stk.push(children.get(i));
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<int> preorder(Node* root) {
+        if (!root) return {};
+        vector<int> ans;
+        stack<Node*> stk;
+        stk.push(root);
+        while (!stk.empty())
+        {
+            Node* node = stk.top();
+            ans.push_back(node->val);
+            stk.pop();
+            auto children = node->children;
+            for (int i = children.size() - 1; i >= 0; --i) stk.push(children[i]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a Node.
+ * type Node struct {
+ *     Val int
+ *     Children []*Node
+ * }
+ */
+
+func preorder(root *Node) []int {
+	var ans []int
+	if root == nil {
+		return ans
+	}
+	stk := []*Node{root}
+	for len(stk) > 0 {
+		node := stk[len(stk)-1]
+		ans = append(ans, node.Val)
+		stk = stk[:len(stk)-1]
+		children := node.Children
+		for i := len(children) - 1; i >= 0; i-- {
+			stk = append(stk, children[i])
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

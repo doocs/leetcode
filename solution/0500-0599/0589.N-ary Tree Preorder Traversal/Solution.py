@@ -9,13 +9,13 @@ class Node:
 
 class Solution:
     def preorder(self, root: 'Node') -> List[int]:
-        if not root:
-            return []
-
-        def PO(root):
-            res.append(root.val)
-            for i in root.children:
-                PO(i)
-        res = []
-        PO(root)
-        return res
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            for child in node.children[::-1]:
+                stk.append(child)
+        return ans

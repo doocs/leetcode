@@ -70,16 +70,15 @@ DFS.
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         def dfs(u):
-            if u == n or u in vis:
+            if u in vis:
                 return
             vis.add(u)
             for v in rooms[u]:
                 dfs(v)
 
-        n = len(rooms)
         vis = set()
         dfs(0)
-        return len(vis) == n
+        return len(vis) == len(rooms)
 ```
 
 ### **Java**
@@ -88,18 +87,16 @@ class Solution:
 class Solution {
     private List<List<Integer>> rooms;
     private Set<Integer> vis;
-    private int n;
 
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
         vis = new HashSet<>();
         this.rooms = rooms;
-        n = rooms.size();
         dfs(0);
-        return vis.size() == n;
+        return vis.size() == rooms.size();
     }
 
     private void dfs(int u) {
-        if (u == n || vis.contains(u)) {
+        if (vis.contains(u)) {
             return;
         }
         vis.add(u);
@@ -117,18 +114,16 @@ class Solution {
 public:
     vector<vector<int>> rooms;
     unordered_set<int> vis;
-    int n;
 
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
         vis.clear();
         this->rooms = rooms;
-        n = rooms.size();
         dfs(0);
-        return vis.size() == n;
+        return vis.size() == rooms.size();
     }
 
     void dfs(int u) {
-        if (u == n || vis.count(u)) return;
+        if (vis.count(u)) return;
         vis.insert(u);
         for (int v : rooms[u]) dfs(v);
     }
@@ -139,11 +134,10 @@ public:
 
 ```go
 func canVisitAllRooms(rooms [][]int) bool {
-	n := len(rooms)
 	vis := make(map[int]bool)
 	var dfs func(u int)
 	dfs = func(u int) {
-		if u == n || vis[u] {
+		if vis[u] {
 			return
 		}
 		vis[u] = true
@@ -152,7 +146,7 @@ func canVisitAllRooms(rooms [][]int) bool {
 		}
 	}
 	dfs(0)
-	return len(vis) == n
+	return len(vis) == len(rooms)
 }
 ```
 
