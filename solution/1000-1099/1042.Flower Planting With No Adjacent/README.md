@@ -66,7 +66,21 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def gardenNoAdj(self, n: int, paths: List[List[int]]) -> List[int]:
+        g = defaultdict(list)
+        for x, y in paths:
+            x, y = x - 1, y - 1
+            g[x].append(y)
+            g[y].append(x)
+        ans = [0] * n
+        for u in range(n):
+            colors = set(ans[v] for v in g[u])
+            for c in range(1, 5):
+                if c not in colors:
+                    ans[u] = c
+                    break
+        return ans
 ```
 
 ### **Java**
@@ -74,7 +88,92 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] gardenNoAdj(int n, int[][] paths) {
+        List<Integer>[] g = new List[n];
+        for (int i = 0; i < n; ++i) {
+            g[i] = new ArrayList<>();
+        }
+        for (int[] p : paths) {
+            int x = p[0] - 1, y = p[1] - 1;
+            g[x].add(y);
+            g[y].add(x);
+        }
+        int[] ans = new int[n];
+        for (int u = 0; u < n; ++u) {
+            Set<Integer> colors = new HashSet<>();
+            for (int v : g[u]) {
+                colors.add(ans[v]);
+            }
+            for (int c = 1; c < 5; ++c) {
+                if (!colors.contains(c)) {
+                    ans[u] = c;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> gardenNoAdj(int n, vector<vector<int>>& paths) {
+        vector<vector<int>> g(n);
+        for (auto& p : paths)
+        {
+            int x = p[0] - 1, y = p[1] - 1;
+            g[x].push_back(y);
+            g[y].push_back(x);
+        }
+        vector<int> ans(n);
+        for (int u = 0; u < n; ++u)
+        {
+            unordered_set<int> colors;
+            for (int v : g[u]) colors.insert(ans[v]);
+            for (int c = 1; c < 5; ++c)
+            {
+                if (!colors.count(c))
+                {
+                    ans[u] = c;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func gardenNoAdj(n int, paths [][]int) []int {
+	g := make([][]int, n)
+	for _, p := range paths {
+		x, y := p[0]-1, p[1]-1
+		g[x] = append(g[x], y)
+		g[y] = append(g[y], x)
+	}
+	ans := make([]int, n)
+	for u := 0; u < n; u++ {
+		colors := make(map[int]bool)
+		for _, v := range g[u] {
+			colors[ans[v]] = true
+		}
+		for c := 1; c < 5; c++ {
+			if !colors[c] {
+				ans[u] = c
+				break
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
