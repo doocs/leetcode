@@ -49,18 +49,108 @@
 
 ## Solutions
 
+```bash
+a [e]
+e [a|i]
+i [a|e|o|u]
+o [i|u]
+u [a]
+
+=>
+
+[e|i|u]	a
+[a|i]	e
+[e|o]	i
+[i]	o
+[i|o]	u
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countVowelPermutation(self, n: int) -> int:
+        dp = (1, 1, 1, 1, 1)
+        MOD = 1000000007
+        for _ in range(n - 1):
+            dp = ((dp[1] + dp[2] + dp[4]) % MOD, (dp[0] + dp[2]) %
+                  MOD, (dp[1] + dp[3]) % MOD, dp[2], (dp[2] + dp[3]) % MOD)
+        return sum(dp) % MOD
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private static final long MOD = (long) 1e9 + 7;
 
+    public int countVowelPermutation(int n) {
+        long[] dp = new long[5];
+        long[] t = new long[5];
+        Arrays.fill(dp, 1);
+        for (int i = 0; i < n - 1; ++i) {
+            t[0] = (dp[1] + dp[2] + dp[4]) % MOD;
+            t[1] = (dp[0] + dp[2]) % MOD;
+            t[2] = (dp[1] + dp[3]) % MOD;
+            t[3] = dp[2];
+            t[4] = (dp[2] + dp[3]) % MOD;
+            System.arraycopy(t, 0, dp, 0, 5);
+        }
+        long ans = 0;
+        for (int i = 0; i < 5; ++i) {
+            ans = (ans + dp[i]) % MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countVowelPermutation(int n) {
+        using ll = long long;
+        const ll mod = 1e9 + 7;
+        vector<ll> dp(5, 1);
+        vector<ll> t(5);
+        for (int i = 0; i < n - 1; ++i) {
+            t[0] = (dp[1] + dp[2] + dp[4]) % mod;
+            t[1] = (dp[0] + dp[2]) % mod;
+            t[2] = (dp[1] + dp[3]) % mod;
+            t[3] = dp[2];
+            t[4] = (dp[2] + dp[3]) % mod;
+            dp = t;
+        }
+        return accumulate(dp.begin(), dp.end(), 0LL) % mod;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countVowelPermutation(n int) int {
+	const mod int = 1e9 + 7
+	dp := [5]int{1, 1, 1, 1, 1}
+	for i := 0; i < n-1; i++ {
+		dp = [5]int{
+			(dp[1] + dp[2] + dp[4]) % mod,
+			(dp[0] + dp[2]) % mod,
+			(dp[1] + dp[3]) % mod,
+			dp[2],
+			(dp[2] + dp[3]) % mod,
+		}
+	}
+	ans := 0
+	for _, v := range dp {
+		ans = (ans + v) % mod
+	}
+	return ans
+}
 ```
 
 ### **...**
