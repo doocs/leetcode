@@ -165,7 +165,7 @@ function swap(nums: number[], i: number, j: number): void {
 
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn find_repeat_number(mut nums: Vec<i32>) -> i32 {
         for i in 0..nums.len() {

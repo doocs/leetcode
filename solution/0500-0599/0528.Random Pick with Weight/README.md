@@ -252,7 +252,7 @@ Solution.prototype.pickIndex = function () {
 
 ### **Rust**
 
-```rs
+```rust
 use rand::{thread_rng, Rng};
 
 struct Solution {

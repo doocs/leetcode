@@ -167,7 +167,7 @@ func majorityElement(nums []int) int {
 
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn majority_element(nums: Vec<i32>) -> i32 {
         let mut major = 0;

@@ -188,7 +188,7 @@ func isEscapePossible(blocked [][]int, source []int, target []int) bool {
 
 ### **Rust**
 
-```rs
+```rust
 use std::collections::{HashSet, VecDeque};
 
 const BOUNDARY: i32 = 1_000_000;

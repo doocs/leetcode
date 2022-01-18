@@ -159,7 +159,7 @@ func reverse(nums []int, i, j int) {
 
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn rotate(nums: &mut Vec<i32>, k: i32) {
         let n = nums.len();

@@ -117,7 +117,7 @@ var moveZeroes = function (nums) {
 
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
         let mut i = 0;
