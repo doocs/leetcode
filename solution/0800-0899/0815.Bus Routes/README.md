@@ -64,17 +64,17 @@ class Solution:
         for a, b in richer:
             mp[b].append(a)
         
-        def bfs(i):
+        def dfs(i):
             if ans[i] == -1:
                 ans[i] = i
                 for child in mp[i]:
-                    cand = bfs(child)
+                    cand = dfs(child)
                     if quiet[cand] < quiet[ans[i]]:
                         ans[i] = cand
             return ans[i]
 
         for i in range(n):
-            bfs(i)
+            dfs(i)
         return ans
 ```
 
@@ -96,16 +96,16 @@ class Solution {
             mp.computeIfAbsent(item[1], k -> new ArrayList<>()).add(item[0]);
         }
         for (int i = 0; i < n; i++) {
-            bfs(i);
+            dfs(i);
         }
         return ans;
     }
 
-    public int bfs(int i) {
+    public int dfs(int i) {
         if (ans[i] == -1) {
             ans[i] = i;
             for (int child : mp.getOrDefault(i, new ArrayList<>())) {
-                int cand = bfs(child);
+                int cand = dfs(child);
                 if (quiet[cand] < quiet[ans[i]]) {
                     ans[i] = cand;
                 }

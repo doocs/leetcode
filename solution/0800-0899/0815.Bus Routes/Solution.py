@@ -5,15 +5,15 @@ class Solution:
         for a, b in richer:
             mp[b].append(a)
 
-        def bfs(i):
+        def dfs(i):
             if ans[i] == -1:
                 ans[i] = i
                 for child in mp[i]:
-                    cand = bfs(child)
+                    cand = dfs(child)
                     if quiet[cand] < quiet[ans[i]]:
                         ans[i] = cand
             return ans[i]
 
         for i in range(n):
-            bfs(i)
+            dfs(i)
         return ans
