@@ -65,7 +65,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+        self.parent = None
+"""
 
+
+class Solution:
+    def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
+        a, b = p, q
+        while a != b:
+            a = a.parent if a.parent else q
+            b = b.parent if b.parent else p
+        return a
 ```
 
 ### **Java**
@@ -73,7 +90,86 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node parent;
+};
+*/
 
+class Solution {
+    public Node lowestCommonAncestor(Node p, Node q) {
+        Node a = p, b = q;
+        while (a != b) {
+            a = a.parent == null ? q : a.parent;
+            b = b.parent == null ? p : b.parent;
+        }
+        return a;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+    Node* parent;
+};
+*/
+
+class Solution {
+public:
+    Node* lowestCommonAncestor(Node* p, Node * q) {
+        Node* a = p;
+        Node* b = q;
+        while (a != b)
+        {
+            a = a->parent ? a->parent : q;
+            b = b->parent ? b->parent : p;
+        }
+        return a;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for Node.
+ * type Node struct {
+ *     Val int
+ *     Left *Node
+ *     Right *Node
+ *     Parent *Node
+ * }
+ */
+
+func lowestCommonAncestor(p *Node, q *Node) *Node {
+	a, b := p, q
+	for a != b {
+		if a.Parent != nil {
+			a = a.Parent
+		} else {
+			a = q
+		}
+		if b.Parent != nil {
+			b = b.Parent
+		} else {
+			b = p
+		}
+	}
+	return a
+}
 ```
 
 ### **...**
