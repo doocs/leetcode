@@ -42,10 +42,12 @@ class Solution:
 ```java
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        Set<Integer> set = new HashSet<>();
-        for (int e : nums) {
-            if (set.contains(e)) return true;
-            set.add(e);
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (s.contains(num)) {
+                return true;
+            }
+            s.add(num);
         }
         return false;
     }
@@ -101,6 +103,18 @@ public class Solution {
         return nums.Distinct().Count() < nums.Length;
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function (nums) {
+    return new Set(nums).size !== nums.length;
+};
 ```
 
 ### **...**
