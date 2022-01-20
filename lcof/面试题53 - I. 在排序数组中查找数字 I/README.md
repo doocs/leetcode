@@ -20,7 +20,10 @@
 
 **限制：**
 
-- `0 <= 数组长度 <= 50000`
+- <code>0 <= nums.length <= 10<sup>5</sup></code>
+- <code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code>
+- `nums` 是一个非递减数组
+- <code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code>
 
 ## 解法
 
