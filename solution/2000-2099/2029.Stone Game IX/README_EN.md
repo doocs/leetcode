@@ -60,13 +60,108 @@ Alice loses the game because the sum of the removed stones (15) is divisible by 
 ### **Python3**
 
 ```python
+class Solution:
+    def stoneGameIX(self, stones: List[int]) -> bool:
+        def check(c):
+            if c[1] == 0:
+                return False
+            c[1] -= 1
+            turn = 1 + min(c[1], c[2]) * 2 + c[0]
+            if c[1] > c[2]:
+                turn += 1
+                c[1] -= 1
+            return turn % 2 == 1 and c[1] != c[2]
 
+        c = [0] * 3
+        for s in stones:
+            c[s % 3] += 1
+        c1 = [c[0], c[2], c[1]]
+        return check(c) or check(c1)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean stoneGameIX(int[] stones) {
+        int[] c = new int[3];
+        for (int s : stones) {
+            ++c[s % 3];
+        }
+        int[] t = new int[]{c[0], c[2], c[1]};
+        return check(c) || check(t);
+    }
 
+    private boolean check(int[] c) {
+        if (c[1] == 0) {
+            return false;
+        }
+        --c[1];
+        int turn = 1 + Math.min(c[1], c[2]) * 2 + c[0];
+        if (c[1] > c[2]) {
+            --c[1];
+            ++turn;
+        }
+        return turn % 2 == 1 && c[1] != c[2];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool stoneGameIX(vector<int>& stones) {
+        vector<int> c(3);
+        for (int s : stones) ++c[s % 3];
+        vector<int> t = {c[0], c[2], c[1]};
+        return check(c) || check(t);
+    }
+
+    bool check(vector<int>& c) {
+        if (c[1] == 0) return false;
+        --c[1];
+        int turn = 1 + min(c[1], c[2]) * 2 + c[0];
+        if (c[1] > c[2])
+        {
+            --c[1];
+            ++turn;
+        }
+        return turn % 2 == 1 && c[1] != c[2];
+    }
+};
+```
+
+### **Go**
+
+```go
+func stoneGameIX(stones []int) bool {
+	check := func(c [3]int) bool {
+		if c[1] == 0 {
+			return false
+		}
+		c[1]--
+		turn := 1 + min(c[1], c[2])*2 + c[0]
+		if c[1] > c[2] {
+			c[1]--
+			turn++
+		}
+		return turn%2 == 1 && c[1] != c[2]
+	}
+	c := [3]int{}
+	for _, s := range stones {
+		c[s%3]++
+	}
+	return check(c) || check([3]int{c[0], c[2], c[1]})
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
