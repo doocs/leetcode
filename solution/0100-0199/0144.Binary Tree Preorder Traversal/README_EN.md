@@ -75,17 +75,18 @@ Recursive:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
-        res = []
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        def dfs(root):
+            if root is None:
+                return
+            nonlocal ans
+            ans.append(root.val)
+            dfs(root.left)
+            dfs(root.right)
 
-        def preorder(root):
-            if root:
-                res.append(root.val)
-                preorder(root.left)
-                preorder(root.right)
-
-        preorder(root)
-        return res
+        ans = []
+        dfs(root)
+        return ans
 ```
 
 Non-recursive:
@@ -98,18 +99,19 @@ Non-recursive:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
-        res = []
-        if root:
-            s = [root]
-            while s:
-                node = s.pop()
-                res.append(node.val)
-                if node.right:
-                    s.append(node.right)
-                if node.left:
-                    s.append(node.left)
-        return res
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans = []
+        if root is None:
+            return ans
+        stk = [root]
+        while stk:
+            node = stk.pop()
+            ans.append(node.val)
+            if node.right:
+                stk.append(node.right)
+            if node.left:
+                stk.append(node.left)
+        return ans
 ```
 
 Morris Traversal:
@@ -122,24 +124,24 @@ Morris Traversal:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
-        res = []
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans = []
         while root:
             if root.left is None:
-                res.append(root.val)
+                ans.append(root.val)
                 root = root.right
             else:
-                pre = root.left
-                while pre.right and pre.right != root:
-                    pre = pre.right
-                if pre.right is None:
-                    res.append(root.val)
-                    pre.right = root
+                prev = root.left
+                while prev.right and prev.right != root:
+                    prev = prev.right
+                if prev.right is None:
+                    ans.append(root.val)
+                    prev.right = root
                     root = root.left
                 else:
-                    pre.right = None
+                    prev.right = None
                     root = root.right
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -163,18 +165,21 @@ Recursive:
  * }
  */
 class Solution {
+    private List<Integer> ans;
+
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        preorder(root, res);
-        return res;
+        ans = new ArrayList<>();
+        dfs(root);
+        return ans;
     }
 
-    private void preorder(TreeNode root, List<Integer> res) {
-        if (root != null) {
-            res.add(root.val);
-            preorder(root.left, res);
-            preorder(root.right, res);
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
         }
+        ans.add(root.val);
+        dfs(root.left);
+        dfs(root.right);
     }
 }
 ```
@@ -199,22 +204,23 @@ Non-recursive:
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        if (root != null) {
-            Deque<TreeNode> s = new LinkedList<>();
-            s.offerLast(root);
-            while (!s.isEmpty()) {
-                TreeNode node = s.pollLast();
-                res.add(node.val);
-                if (node.right != null) {
-                    s.offerLast(node.right);
-                }
-                if (node.left != null) {
-                    s.offerLast(node.left);
-                }
+        List<Integer> ans = new ArrayList<>();
+        if (root == null) {
+            return ans;
+        }
+        Deque<TreeNode> stk = new ArrayDeque<>();
+        stk.push(root);
+        while (!stk.isEmpty()) {
+            TreeNode node = stk.pop();
+            ans.add(node.val);
+            if (node.right != null) {
+                stk.push(node.right);
+            }
+            if (node.left != null) {
+                stk.push(node.left);
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -239,27 +245,27 @@ Morris Traversal:
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
+        List<Integer> ans = new ArrayList<>();
         while (root != null) {
             if (root.left == null) {
-                res.add(root.val);
+                ans.add(root.val);
                 root = root.right;
             } else {
-                TreeNode pre = root.left;
-                while (pre.right != null && pre.right != root) {
-                    pre = pre.right;
+                TreeNode prev = root.left;
+                while (prev.right != null && prev.right != root) {
+                    prev = prev.right;
                 }
-                if (pre.right == null) {
-                    res.add(root.val);
-                    pre.right = root;
+                if (prev.right == null) {
+                    ans.add(root.val);
+                    prev.right = root;
                     root = root.left;
                 } else {
-                    pre.right = null;
+                    prev.right = null;
                     root = root.right;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -282,17 +288,54 @@ class Solution {
  */
 
 function preorderTraversal(root: TreeNode | null): number[] {
-    if (root == null) return [];
-    let stack = [];
     let ans = [];
-    while (root || stack.length) {
-        while (root) {
+    if (!root) return ans;
+    let stk = [root];
+    while (stk.length) {
+        let node = stk.pop();
+        ans.push(node.val);
+        if (node.right) stk.push(node.right);
+        if (node.left) stk.push(node.left);
+    }
+    return ans;
+}
+```
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function preorderTraversal(root: TreeNode | null): number[] {
+    let ans = [];
+    while (root) {
+        if (!root.left) {
             ans.push(root.val);
-            stack.push(root);
-            root = root.left;
+            root = root.right;
+        } else {
+            let prev = root.left;
+            while (prev.right && prev.right != root) {
+                prev = prev.right;
+            }
+            if (!prev.right) {
+                ans.push(root.val);
+                prev.right = root;
+                root = root.left;
+            } else {
+                prev.right = null;
+                root = root.right;
+            }
         }
-        root = stack.pop();
-        root = root.right;
     }
     return ans;
 }
@@ -314,36 +357,36 @@ function preorderTraversal(root: TreeNode | null): number[] {
  */
 class Solution {
 public:
-    vector<int> preorderTraversal(TreeNode *root) {
-        vector<int> res;
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> ans;
         while (root)
         {
-            if (root->left == nullptr)
+            if (!root->left)
             {
-                res.push_back(root->val);
+                ans.push_back(root->val);
                 root = root->right;
             }
             else
             {
-                TreeNode *pre = root->left;
-                while (pre->right && pre->right != root)
+                TreeNode* prev = root->left;
+                while (prev->right && prev->right != root)
                 {
-                    pre = pre->right;
+                    prev = prev->right;
                 }
-                if (pre->right == nullptr)
+                if (!prev->right)
                 {
-                    res.push_back(root->val);
-                    pre->right = root;
+                    ans.push_back(root->val);
+                    prev->right = root;
                     root = root->left;
                 }
                 else
                 {
-                    pre->right = nullptr;
+                    prev->right = nullptr;
                     root = root->right;
                 }
             }
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -360,27 +403,27 @@ public:
  * }
  */
 func preorderTraversal(root *TreeNode) []int {
-	var res []int
+	var ans []int
 	for root != nil {
 		if root.Left == nil {
-			res = append(res, root.Val)
+			ans = append(ans, root.Val)
 			root = root.Right
 		} else {
-			pre := root.Left
-			for pre.Right != nil && pre.Right != root {
-				pre = pre.Right
+			prev := root.Left
+			for prev.Right != nil && prev.Right != root {
+				prev = prev.Right
 			}
-			if pre.Right == nil {
-				res = append(res, root.Val)
-				pre.Right = root
+			if prev.Right == nil {
+				ans = append(ans, root.Val)
+				prev.Right = root
 				root = root.Left
 			} else {
-				pre.Right = nil
+				prev.Right = nil
 				root = root.Right
 			}
 		}
 	}
-	return res
+	return ans
 }
 ```
 
