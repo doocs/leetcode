@@ -78,9 +78,9 @@ class Solution {
 }
 ```
 
-### **TypeScript**
+### **JavaScript**
 
-```ts
+```js
 /**
  * @param {string} num1
  * @param {string} num2
