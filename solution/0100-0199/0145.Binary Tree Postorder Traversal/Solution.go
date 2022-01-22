@@ -7,10 +7,10 @@
  * }
  */
 func postorderTraversal(root *TreeNode) []int {
-	var res []int
+	var ans []int
 	for root != nil {
 		if root.Right == nil {
-			res = append([]int{root.Val}, res...)
+			ans = append([]int{root.Val}, ans...)
 			root = root.Left
 		} else {
 			next := root.Right
@@ -18,7 +18,7 @@ func postorderTraversal(root *TreeNode) []int {
 				next = next.Left
 			}
 			if next.Left == nil {
-				res = append([]int{root.Val}, res...)
+				ans = append([]int{root.Val}, ans...)
 				next.Left = root
 				root = root.Right
 			} else {
@@ -27,5 +27,5 @@ func postorderTraversal(root *TreeNode) []int {
 			}
 		}
 	}
-	return res
+	return ans
 }

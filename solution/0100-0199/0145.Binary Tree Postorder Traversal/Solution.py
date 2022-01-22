@@ -5,21 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def postorderTraversal(self, root: TreeNode) -> List[int]:
-        res = []
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans = []
         while root:
             if root.right is None:
-                res.append(root.val)
+                ans.append(root.val)
                 root = root.left
             else:
                 next = root.right
                 while next.left and next.left != root:
                     next = next.left
-                if next.left is None:
-                    res.append(root.val)
+                if next.left != root:
+                    ans.append(root.val)
                     next.left = root
                     root = root.right
                 else:
                     next.left = None
                     root = root.left
-        return res[::-1]
+        return ans[::-1]

@@ -15,10 +15,10 @@
  */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        LinkedList<Integer> res = new LinkedList<>();
+        LinkedList<Integer> ans = new LinkedList<>();
         while (root != null) {
             if (root.right == null) {
-                res.addFirst(root.val);
+                ans.addFirst(root.val);
                 root = root.left;
             } else {
                 TreeNode next = root.right;
@@ -26,7 +26,7 @@ class Solution {
                     next = next.left;
                 }
                 if (next.left == null) {
-                    res.addFirst(root.val);
+                    ans.addFirst(root.val);
                     next.left = root;
                     root = root.right;
                 } else {
@@ -35,6 +35,6 @@ class Solution {
                 }
             }
         }
-        return res;
+        return ans;
     }
 }

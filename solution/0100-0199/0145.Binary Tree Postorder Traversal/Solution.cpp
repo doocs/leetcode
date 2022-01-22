@@ -11,25 +11,25 @@
  */
 class Solution {
 public:
-    vector<int> postorderTraversal(TreeNode *root) {
-        vector<int> res;
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> ans;
         while (root)
         {
-            if (root->right == nullptr)
+            if (!root->right)
             {
-                res.push_back(root->val);
+                ans.push_back(root->val);
                 root = root->left;
             }
             else
             {
-                TreeNode *next = root->right;
+                TreeNode* next = root->right;
                 while (next->left && next->left != root)
                 {
                     next = next->left;
                 }
-                if (next->left == nullptr)
+                if (!next->left)
                 {
-                    res.push_back(root->val);
+                    ans.push_back(root->val);
                     next->left = root;
                     root = root->right;
                 }
@@ -40,7 +40,7 @@ public:
                 }
             }
         }
-        reverse(res.begin(), res.end());
-        return res;
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };
