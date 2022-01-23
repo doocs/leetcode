@@ -40,27 +40,20 @@
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    indexes = {}
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
-        def build(inorder, postorder, i1, i2, p1, p2):
-            if i1 > i2 or p1 > p2:
-                return None
-            root_val = postorder[p2]
-            pos = self.indexes[root_val]
-            root = TreeNode(root_val)
-            root.left = None if pos == i1 else build(inorder, postorder, i1, pos - 1, p1, p1 - i1 + pos - 1)
-            root.right = None if pos == i2 else build(inorder, postorder, pos + 1, i2, p1 - i1 + pos, p2 - 1)
-            return root
-        n = len(inorder)
-        for i in range(n):
-            self.indexes[inorder[i]] = i
-        return build(inorder, postorder, 0, n - 1, 0, n - 1)
+        if not postorder:
+            return None
+        v = postorder[-1]
+        root = TreeNode(val=v)
+        i = inorder.index(v)
+        root.left = self.buildTree(inorder[: i], postorder[:i])
+        root.right = self.buildTree(inorder[i + 1:], postorder[i:-1])
+        return root
 ```
 
 ### **Java**
@@ -74,27 +67,34 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
     private Map<Integer, Integer> indexes = new HashMap<>();
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        int n = inorder.length;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < inorder.length; ++i) {
             indexes.put(inorder[i], i);
         }
-        return build(inorder, postorder, 0, inorder.length - 1, 0, postorder.length - 1);
+        return dfs(inorder, postorder, 0, 0, inorder.length);
     }
 
-    private TreeNode build(int[] inorder, int[] postorder, int i1, int i2, int p1, int p2) {
-        if (i1 > i2 || p1 > p2) return null;
-        int rootVal = postorder[p2];
-        int pos = indexes.get(rootVal);
-        TreeNode root = new TreeNode(rootVal);
-        root.left = pos == i1 ? null : build(inorder, postorder, i1, pos - 1, p1, p1 - i1 + pos - 1);
-        root.right = pos == i2 ? null : build(inorder, postorder, pos + 1, i2, p1 - i1 + pos, p2 - 1);
+    private TreeNode dfs(int[] inorder, int[] postorder, int i, int j, int n) {
+        if (n <= 0) {
+            return null;
+        }
+        int v = postorder[j + n - 1];
+        int k = indexes.get(v);
+        TreeNode root = new TreeNode(v);
+        root.left = dfs(inorder, postorder, i, j, k - i);
+        root.right = dfs(inorder, postorder, k + 1, j + k - i, n - k + i - 1);
         return root;
     }
 }
@@ -103,24 +103,68 @@ class Solution {
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
-    TreeNode *buildTree(vector<int> &inorder, vector<int> &postorder) {
-        return buildTree(inorder, 0, inorder.size() - 1, postorder, 0, postorder.size() - 1);
+    unordered_map<int, int> indexes;
+
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        for (int i = 0; i < inorder.size(); ++i) indexes[inorder[i]] = i;
+        return dfs(inorder, postorder, 0, 0, inorder.size());
     }
-    TreeNode *buildTree(vector<int> &inorder, int iLeft, int iRight, vector<int> &postorder, int pLeft, int pRight) {
-        if (iLeft > iRight || pLeft > pRight) return NULL;
-        TreeNode *cur = new TreeNode(postorder[pRight]);
-        int i = 0;
-        for (i = iLeft; i < inorder.size(); ++i) {
-            if (inorder[i] == cur->val)
-                break;
-        }
-        cur->left = buildTree(inorder, iLeft, i - 1, postorder, pLeft, pLeft + i - iLeft - 1);
-        cur->right = buildTree(inorder, i + 1, iRight, postorder, pLeft + i - iLeft, pRight - 1);
-        return cur;
+
+    TreeNode* dfs(vector<int>& inorder, vector<int>& postorder, int i, int j, int n) {
+        if (n <= 0) return nullptr;
+        int v = postorder[j + n - 1];
+        int k = indexes[v];
+        TreeNode* root = new TreeNode(v);
+        root->left = dfs(inorder, postorder, i, j, k - i);
+        root->right = dfs(inorder, postorder, k + 1, j + k - i, n - k + i - 1);
+        return root;
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func buildTree(inorder []int, postorder []int) *TreeNode {
+	indexes := make(map[int]int)
+	for i, v := range inorder {
+		indexes[v] = i
+	}
+	var dfs func(i, j, n int) *TreeNode
+	dfs = func(i, j, n int) *TreeNode {
+		if n <= 0 {
+			return nil
+		}
+		v := postorder[j+n-1]
+		k := indexes[v]
+		root := &TreeNode{Val: v}
+		root.Left = dfs(i, j, k-i)
+		root.Right = dfs(k+1, j+k-i, n-k+i-1)
+		return root
+	}
+	return dfs(0, 0, len(inorder))
+}
 ```
 
 ### **...**
