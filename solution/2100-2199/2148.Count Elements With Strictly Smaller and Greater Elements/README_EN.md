@@ -41,13 +41,77 @@ Since there are two elements with the value 3, in total there are 2 elements hav
 ### **Python3**
 
 ```python
-
+class Solution:
+    def countElements(self, nums: List[int]) -> int:
+        mi, mx = min(nums), max(nums)
+        return sum(mi < num < mx for num in nums)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public int countElements(int[] nums) {
+        int mi = 1000000, mx = -1000000;
+        for (int num : nums) {
+            mi = Math.min(mi, num);
+            mx = Math.max(mx, num);
+        }
+        int ans = 0;
+        for (int num : nums) {
+            if (mi < num && num < mx) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countElements(vector<int>& nums) {
+        int mi = 1e6, mx = -1e6;
+        for (int num : nums)
+        {
+            mi = min(mi, num);
+            mx = max(mx, num);
+        }
+        int ans = 0;
+        for (int num : nums)
+            if (mi < num && num < mx)
+                ++ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countElements(nums []int) int {
+	mi, mx := int(1e6), -int(1e6)
+	for _, num := range nums {
+		if num < mi {
+			mi = num
+		}
+		if num > mx {
+			mx = num
+		}
+	}
+	ans := 0
+	for _, num := range nums {
+		if mi < num && num < mx {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

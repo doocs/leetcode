@@ -55,13 +55,86 @@ So nums is rearranged to [1,-1].
 ### **Python3**
 
 ```python
-
+class Solution:
+    def rearrangeArray(self, nums: List[int]) -> List[int]:
+        ans = [0] * len(nums)
+        i, j = 0, 1
+        for num in nums:
+            if num > 0:
+                ans[i] = num
+                i += 2
+            else:
+                ans[j] = num
+                j += 2
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public int[] rearrangeArray(int[] nums) {
+        int[] ans = new int[nums.length];
+        int i = 0, j = 1;
+        for (int num : nums) {
+            if (num > 0) {
+                ans[i] = num;
+                i += 2;
+            } else {
+                ans[j] = num;
+                j += 2;
+            }
+        }
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> rearrangeArray(vector<int>& nums) {
+        vector<int> ans(nums.size());
+        int i = 0, j = 1;
+        for (int num : nums)
+        {
+            if (num > 0)
+            {
+                ans[i] = num;
+                i += 2;
+            }
+            else
+            {
+                ans[j] = num;
+                j += 2;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func rearrangeArray(nums []int) []int {
+	ans := make([]int, len(nums))
+	i, j := 0, 1
+	for _, num := range nums {
+		if num > 0 {
+			ans[i] = num
+			i += 2
+		} else {
+			ans[j] = num
+			j += 2
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

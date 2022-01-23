@@ -50,13 +50,77 @@ Note that [5, 1] may also be returned.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findLonely(self, nums: List[int]) -> List[int]:
+        counter = Counter(nums)
+        ans = []
+        for num, cnt in counter.items():
+            if cnt == 1 and counter[num - 1] == 0 and counter[num + 1] == 0:
+                ans.append(num)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public List<Integer> findLonely(int[] nums) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int num : nums) {
+            counter.put(num, counter.getOrDefault(num, 0) + 1);
+        }
+        List<Integer> ans = new ArrayList<>();
+        counter.forEach((k, v) -> {
+            if (
+                v == 1 &&
+                !counter.containsKey(k - 1) &&
+                !counter.containsKey(k + 1)
+            ) {
+                ans.add(k);
+            }
+        });
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> findLonely(vector<int>& nums) {
+        unordered_map<int, int> counter;
+        for (int num : nums) ++counter[num];
+        vector<int> ans;
+        for (auto& e : counter)
+        {
+            int k = e.first, v = e.second;
+            if (v == 1 && !counter.count(k - 1) && !counter.count(k + 1)) ans.push_back(k);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLonely(nums []int) []int {
+	counter := make(map[int]int)
+	for _, num := range nums {
+		counter[num]++
+	}
+	var ans []int
+	for k, v := range counter {
+		if v == 1 && counter[k-1] == 0 && counter[k+1] == 0 {
+			ans = append(ans, k)
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
