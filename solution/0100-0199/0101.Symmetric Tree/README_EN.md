@@ -41,23 +41,20 @@
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
     def isSymmetric(self, root: TreeNode) -> bool:
-        if root is None:
-            return True
-        return self.is_symmetric(root.left, root.right)
-
-    def is_symmetric(self, left: TreeNode, right: TreeNode) -> bool:
-        if left is None and right is None:
-            return True
-        if left is None or right is None or left.val != right.val:
-            return False
-        return self.is_symmetric(left.left, right.right) and self.is_symmetric(left.right, right.left)
+        def dfs(root1, root2):
+            if root1 is None and root2 is None:
+                return True
+            if root1 is None or root2 is None or root1.val != root2.val:
+                return False
+            return dfs(root1.left, root2.right) and dfs(root1.right, root2.left)
+        
+        return dfs(root, root)
 ```
 
 ### **Java**
@@ -69,19 +66,28 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        if (root == null) return true;
-        return isSymmetric(root.left, root.right);
+        return dfs(root, root);
     }
 
-    private boolean isSymmetric(TreeNode left, TreeNode right) {
-        if (left == null && right == null) return true;
-        if (left == null || right == null || left.val != right.val) return false;
-        return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
+    private boolean dfs(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+        if (root1 == null || root2 == null || root1.val != root2.val) {
+            return false;
+        }
+        return dfs(root1.left, root2.right) && dfs(root1.right, root2.left);
     }
 }
 ```
@@ -89,20 +95,56 @@ class Solution {
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        if (!root) return true;
-        return isSymmetric(root->left, root->right);
+        return dfs(root, root);
     }
 
-private:
-    bool isSymmetric(TreeNode* left, TreeNode* right) {
-        if (!left && !right) return true;
-        if (!left && right || left && !right || left->val != right->val) return false;
-        return isSymmetric(left->left, right->right) && isSymmetric(left->right, right->left);
+    bool dfs(TreeNode* root1, TreeNode* root2) {
+        if (!root1 && !root2) return 1;
+        if (!root1 || !root2 || root1->val != root2->val) return 0;
+        return dfs(root1->left, root2->right) && dfs(root1->right, root2->left);
     }
 };
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isSymmetric(root: TreeNode | null): boolean {
+    function dfs(root1, root2) {
+        if (!root1 && !root2) return true;
+        if (!root1 || !root2 || root1.val != root2.val) return false;
+        return dfs(root1.left, root2.right) && dfs(root1.right, root2.left);
+    }
+    return dfs(root, root);
+}
 ```
 
 ### **...**
