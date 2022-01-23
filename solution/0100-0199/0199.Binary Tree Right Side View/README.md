@@ -43,18 +43,17 @@
 class Solution:
     def rightSideView(self, root: TreeNode) -> List[int]:
         ans = []
-        if not root:
+        if root is None:
             return ans
-        d = deque([root])
-        while d:
-            n = len(d)
-            ans.append(d[0].val)
-            for i in range(n):
-                node = d.popleft()
+        q = deque([root])
+        while q:
+            ans.append(q[0].val)
+            for i in range(len(q), 0, -1):
+                node = q.popleft()
                 if node.right:
-                    d.append(node.right)
+                    q.append(node.right)
                 if node.left:
-                    d.append(node.left)
+                    q.append(node.left)
         return ans
 ```
 
@@ -84,17 +83,17 @@ class Solution {
         if (root == null) {
             return ans;
         }
-        Deque<TreeNode> q = new ArrayDeque<>();
-        q.offer(root);
+        Deque<TreeNode> q = new LinkedList<>();
+        q.offerLast(root);
         while (!q.isEmpty()) {
             ans.add(q.peekFirst().val);
             for (int i = q.size(); i > 0; --i) {
-                TreeNode node = q.poll();
+                TreeNode node = q.pollFirst();
                 if (node.right != null) {
-                    q.offer(node.right);
+                    q.offerLast(node.right);
                 }
                 if (node.left != null) {
-                    q.offer(node.left);
+                    q.offerLast(node.left);
                 }
             }
         }
@@ -122,13 +121,13 @@ public:
     vector<int> rightSideView(TreeNode* root) {
         vector<int> ans;
         if (!root) return ans;
-        queue<TreeNode*> q;
-        q.push(root);
+        queue<TreeNode*> q{{root}};
         while (!q.empty())
         {
             ans.push_back(q.front()->val);
-            for (int i = q.size(); i > 0; --i) {
-                auto node = q.front();
+            for (int i = q.size(); i > 0; --i)
+            {
+                TreeNode* node = q.front();
                 q.pop();
                 if (node->right) q.push(node->right);
                 if (node->left) q.push(node->left);

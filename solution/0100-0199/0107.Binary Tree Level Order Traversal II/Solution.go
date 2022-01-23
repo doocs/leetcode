@@ -14,7 +14,7 @@ func levelOrderBottom(root *TreeNode) [][]int {
 	q := []*TreeNode{root}
 	for len(q) > 0 {
 		var t []int
-		for i, n := 0, len(q); i < n; i++ {
+		for i := len(q); i > 0; i-- {
 			node := q[0]
 			q = q[1:]
 			t = append(t, node.Val)

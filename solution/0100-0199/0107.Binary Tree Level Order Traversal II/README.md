@@ -98,7 +98,7 @@ class Solution {
         q.offerLast(root);
         while (!q.isEmpty()) {
             List<Integer> t = new ArrayList<>();
-            for (int i = 0, n = q.size(); i < n; ++i) {
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.pollFirst();
                 t.add(node.val);
                 if (node.left != null) {
@@ -138,8 +138,7 @@ public:
         while (!q.empty())
         {
             vector<int> t;
-            for (int i = 0, n = q.size(); i < n; ++i)
-            {
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode* node = q.front();
                 q.pop();
                 t.push_back(node->val);
@@ -173,7 +172,7 @@ func levelOrderBottom(root *TreeNode) [][]int {
 	q := []*TreeNode{root}
 	for len(q) > 0 {
 		var t []int
-		for i, n := 0, len(q); i < n; i++ {
+		for i := len(q); i > 0; i-- {
 			node := q[0]
 			q = q[1:]
 			t = append(t, node.Val)
@@ -210,9 +209,8 @@ var levelOrderBottom = function (root) {
     if (!root) return ans;
     let q = [root];
     while (q.length) {
-        let n = q.length;
         let t = [];
-        while (n-- > 0) {
+        for (let i = q.length; i > 0; --i) {
             const node = q.shift();
             t.push(node.val);
             if (node.left) q.push(node.left);

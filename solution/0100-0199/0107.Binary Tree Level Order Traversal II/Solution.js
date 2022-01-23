@@ -15,9 +15,8 @@ var levelOrderBottom = function (root) {
     if (!root) return ans;
     let q = [root];
     while (q.length) {
-        let n = q.length;
         let t = [];
-        while (n-- > 0) {
+        for (let i = q.length; i > 0; --i) {
             const node = q.shift();
             t.push(node.val);
             if (node.left) q.push(node.left);

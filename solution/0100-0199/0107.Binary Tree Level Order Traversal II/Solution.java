@@ -23,7 +23,7 @@ class Solution {
         q.offerLast(root);
         while (!q.isEmpty()) {
             List<Integer> t = new ArrayList<>();
-            for (int i = 0, n = q.size(); i < n; ++i) {
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.pollFirst();
                 t.add(node.val);
                 if (node.left != null) {
