@@ -221,7 +221,7 @@ Complete solutions to [LeetCode](https://leetcode.com/problemset/all/), [LCOF](h
 - [Design HashSet](/solution/0700-0799/0705.Design%20HashSet/README_EN.md)
 - [Design HashMap](/solution/0700-0799/0706.Design%20HashMap/README_EN.md)
 
-## Maintainer
+## Maintainers
 
 - [Yang Libin](https://github.com/yanglbme)
 - [Mao Longlong](https://github.com/MaoLongLong)
