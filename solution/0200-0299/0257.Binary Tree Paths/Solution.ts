@@ -14,20 +14,15 @@
 
 function binaryTreePaths(root: TreeNode | null): string[] {
     let ans = [];
-    let pre = "";
-    dfs(root, pre, ans);
-    return ans;
-}
-
-function dfs(root: TreeNode | null, pre: string, ans: string[]): void {
-    if (root == null) return;
-    let val = String(root.val);
-    pre = pre.length > 0 ? `${pre}->${val}` : pre + val;
-    // 叶子节点
-    if (root.left == null && root.right == null) {
-        ans.push(pre);
-        return;
+    let t = [];
+    function dfs(root) {
+        if (!root) return;
+        t.push(String(root.val));
+        if (!root.left && !root.right) ans.push(t.join('->'));
+        dfs(root.left);
+        dfs(root.right);
+        t.pop();
     }
-    dfs(root.left, pre, ans);
-    dfs(root.right, pre, ans);
+    dfs(root);
+    return ans;
 }
