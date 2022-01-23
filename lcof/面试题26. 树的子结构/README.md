@@ -62,18 +62,16 @@ B 是 A 的子结构， 即 A 中有出现和 B 相同的结构和节点值。
 
 class Solution:
     def isSubStructure(self, A: TreeNode, B: TreeNode) -> bool:
-        def sub(A, B):
-            """判断从当前A节点开始，是否包含B"""
+        def dfs(A, B):
             if B is None:
                 return True
-            if A is None:
+            if A is None or A.val != B.val:
                 return False
-            return A.val == B.val and sub(A.left, B.left) and sub(A.right, B.right)
-        if B is None or A is None:
+            return dfs(A.left, B.left) and dfs(A.right, B.right)
+        
+        if A is None or B is None:
             return False
-        if A.val != B.val:
-            return self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
-        return sub(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
+        return dfs(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
 ```
 
 ### **Java**
@@ -90,16 +88,20 @@ class Solution:
  */
 class Solution {
     public boolean isSubStructure(TreeNode A, TreeNode B) {
-        if (B == null || A == null) return false;
-        if (A.val != B.val) return isSubStructure(A.left, B) || isSubStructure(A.right, B);
-        return sub(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+        if (A == null || B == null) {
+            return false;
+        }
+        return dfs(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
     }
 
-    private boolean sub(TreeNode A, TreeNode B) {
-        // 判断从当前A节点开始，是否包含B
-        if (B == null) return true;
-        if (A == null) return false;
-        return A.val == B.val && sub(A.left, B.left) && sub(A.right, B.right);
+    private boolean dfs(TreeNode A, TreeNode B) {
+        if (B == null) {
+            return true;
+        }
+        if (A == null || A.val != B.val) {
+            return false;
+        }
+        return dfs(A.left, B.left) && dfs(A.right, B.right);
     }
 }
 ```
@@ -119,16 +121,14 @@ class Solution {
  * @param {TreeNode} B
  * @return {boolean}
  */
-var isSubStructure = function (A, B) {
-    function sub(A, B) {
+var isSubStructure = function(A, B) {
+    function dfs(A, B) {
         if (!B) return true;
-        if (!A) return false;
-        return A.val == B.val && sub(A.left, B.left) && sub(A.right, B.right);
+        if (!A || A.val != B.val) return false;
+        return dfs(A.left, B.left) && dfs(A.right, B.right);
     }
-    if (!B || !A) return false;
-    if (A.val != B.val)
-        return isSubStructure(A.left, B) || isSubStructure(A.right, B);
-    return sub(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+    if (!A || !B) return false;
+    return dfs(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
 };
 ```
 
@@ -144,66 +144,46 @@ var isSubStructure = function (A, B) {
  * }
  */
 func isSubStructure(A *TreeNode, B *TreeNode) bool {
-    // 约定空树不是任意一个树的子结构
-    if A == nil || B == nil {
-        return false
-    }
-    return helper(A,B) || isSubStructure(A.Left,B) || isSubStructure(A.Right,B)
-}
-
-func helper(a *TreeNode, b *TreeNode) bool {
-    if b ==  nil {
-        return true
-    }
-    if a == nil {
-        return false
-    }
-    return a.Val == b.Val && helper(a.Left, b.Left) && helper(a.Right, b.Right)
+	var dfs func(A, B *TreeNode) bool
+	dfs = func(A, B *TreeNode) bool {
+		if B == nil {
+			return true
+		}
+		if A == nil || A.Val != B.Val {
+			return false
+		}
+		return dfs(A.Left, B.Left) && dfs(A.Right, B.Right)
+	}
+	if A == nil || B == nil {
+		return false
+	}
+	return dfs(A, B) || isSubStructure(A.Left, B) || isSubStructure(A.Right, B)
 }
 ```
 
 ### **C++**
 
 ```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    bool isSubTree(TreeNode* a, TreeNode* b) {
-        if (nullptr == b) {
-            // 如果小树走到头，则表示ok了
-            return true;
-        }
-
-        if (nullptr == a) {
-            // 如果大树走到头，小树却没走到头，说明不对了
-            return false;
-        }
-
-        if (a->val != b->val) {
-            return false;
-        }
-
-        return isSubTree(a->left, b->left) && isSubTree(a->right, b->right);
+    bool isSubStructure(TreeNode* A, TreeNode* B) {
+        if (!A || !B) return 0;
+        return dfs(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B);
     }
 
-    bool isSubStructure(TreeNode* a, TreeNode* b) {
-        bool ret = false;
-        if (nullptr != a && nullptr != b) {
-            // 题目约定，空树不属于任何一个数的子树
-            if (a->val == b->val) {
-                // 如果值相等，才进入判定
-                ret = isSubTree(a, b);
-            }
-
-            if (false == ret) {
-                ret = isSubStructure(a->left, b);
-            }
-
-            if (false == ret) {
-                ret = isSubStructure(a->right, b);
-            }
-        }
-
-        return ret;
+    bool dfs(TreeNode* A, TreeNode* B) {
+        if (!B) return 1;
+        if (!A || A->val != B->val) return 0;
+        return dfs(A->left, B->left) && dfs(A->right, B->right);
     }
 };
 ```
