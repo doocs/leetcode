@@ -44,29 +44,28 @@
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
+        ans = []
         if root is None:
-            return []
-        q = [root]
-        res = []
+            return ans
+        q = deque([root])
         while q:
-            size = len(q)
+            n = len(q)
             t = []
-            for _ in range(size):
-                node = q.pop(0)
+            for _ in range(n):
+                node = q.popleft()
                 t.append(node.val)
-                if node.left is not None:
+                if node.left:
                     q.append(node.left)
-                if node.right is not None:
+                if node.right:
                     q.append(node.right)
-            res.append(t)
-        return res[::-1]
+            ans.append(t)
+        return ans[::-1]
 ```
 
 ### **Java**
@@ -80,28 +79,114 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        if (root == null) return Collections.emptyList();
-        Deque<TreeNode> q = new ArrayDeque<>();
-        List<List<Integer>> res = new ArrayList<>();
-        q.offer(root);
-        while (!q.isEmpty()) {
-            int size = q.size();
-            List<Integer> t = new ArrayList<>();
-            while (size-- > 0) {
-                TreeNode node = q.poll();
-                t.add(node.val);
-                if (node.left != null) q.offer(node.left);
-                if (node.right != null) q.offer(node.right);
-            }
-            res.add(0, t);
+        LinkedList<List<Integer>> ans = new LinkedList<>();
+        if (root == null) {
+            return ans;
         }
-        return res;
+        Deque<TreeNode> q = new LinkedList<>();
+        q.offerLast(root);
+        while (!q.isEmpty()) {
+            List<Integer> t = new ArrayList<>();
+            for (int i = 0, n = q.size(); i < n; ++i) {
+                TreeNode node = q.pollFirst();
+                t.add(node.val);
+                if (node.left != null) {
+                    q.offerLast(node.left);
+                }
+                if (node.right != null) {
+                    q.offerLast(node.right);
+                }
+            }
+            ans.addFirst(t);
+        }
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> levelOrderBottom(TreeNode* root) {
+        vector<vector<int>> ans;
+        if (!root) return ans;
+        queue<TreeNode*> q{{root}};
+        while (!q.empty())
+        {
+            vector<int> t;
+            for (int i = 0, n = q.size(); i < n; ++i)
+            {
+                TreeNode* node = q.front();
+                q.pop();
+                t.push_back(node->val);
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+            ans.push_back(t);
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func levelOrderBottom(root *TreeNode) [][]int {
+	ans := [][]int{}
+	if root == nil {
+		return ans
+	}
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		var t []int
+		for i, n := 0, len(q); i < n; i++ {
+			node := q[0]
+			q = q[1:]
+			t = append(t, node.Val)
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		ans = append([][]int{t}, ans...)
+	}
+	return ans
 }
 ```
 
@@ -121,33 +206,21 @@ class Solution {
  * @return {number[][]}
  */
 var levelOrderBottom = function (root) {
-    if (!root) {
-        return [];
-    }
-    let q = [],
-        output = [],
-        levelOutput = [];
-    q.push(root);
-    q.push(null);
+    let ans = [];
+    if (!root) return ans;
+    let q = [root];
     while (q.length) {
-        let cur = q.shift();
-        levelOutput.push(cur.val);
-        if (cur.left) {
-            q.push(cur.left);
+        let n = q.length;
+        let t = [];
+        while (n-- > 0) {
+            const node = q.shift();
+            t.push(node.val);
+            if (node.left) q.push(node.left);
+            if (node.right) q.push(node.right);
         }
-        if (cur.right) {
-            q.push(cur.right);
-        }
-        if (!q[0]) {
-            q.shift();
-            output.unshift(levelOutput);
-            levelOutput = [];
-            if (q.length) {
-                q.push(null);
-            }
-        }
+        ans.unshift(t);
     }
-    return output;
+    return ans;
 };
 ```
 
