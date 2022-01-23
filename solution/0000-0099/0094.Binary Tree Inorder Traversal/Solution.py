@@ -5,21 +5,21 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
-        res = []
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ans = []
         while root:
             if root.left is None:
-                res.append(root.val)
+                ans.append(root.val)
                 root = root.right
             else:
-                pre = root.left
-                while pre.right and pre.right != root:
-                    pre = pre.right
-                if pre.right is None:
-                    pre.right = root
+                prev = root.left
+                while prev.right and prev.right != root:
+                    prev = prev.right
+                if prev.right is None:
+                    prev.right = root
                     root = root.left
                 else:
-                    res.append(root.val)
-                    pre.right = None
+                    ans.append(root.val)
+                    prev.right = None
                     root = root.right
-        return res
+        return ans

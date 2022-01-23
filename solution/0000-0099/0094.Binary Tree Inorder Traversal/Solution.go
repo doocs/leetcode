@@ -7,25 +7,25 @@
  * }
  */
 func inorderTraversal(root *TreeNode) []int {
-	var res []int
+	var ans []int
 	for root != nil {
 		if root.Left == nil {
-			res = append(res, root.Val)
+			ans = append(ans, root.Val)
 			root = root.Right
 		} else {
-			pre := root.Left
-			for pre.Right != nil && pre.Right != root {
-				pre = pre.Right
+			prev := root.Left
+			for prev.Right != nil && prev.Right != root {
+				prev = prev.Right
 			}
-			if pre.Right == nil {
-				pre.Right = root
+			if prev.Right == nil {
+				prev.Right = root
 				root = root.Left
 			} else {
-				res = append(res, root.Val)
-				pre.Right = nil
+				ans = append(ans, root.Val)
+				prev.Right = nil
 				root = root.Right
 			}
 		}
 	}
-	return res
+	return ans
 }
