@@ -103,7 +103,7 @@ class Solution {
 ### **C++**
 
 ```cpp
-typedef pair<int,int> PII;
+typedef pair<int, int> PII;
 
 class Solution {
 public:
