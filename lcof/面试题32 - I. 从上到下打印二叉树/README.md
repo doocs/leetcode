@@ -182,6 +182,90 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function levelOrder(root: TreeNode | null): number[] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+
+    const arr = [root];
+    let i = 0;
+    while (i < arr.length) {
+        const { val, left, right } = arr[i];
+        res.push(val);
+        left && arr.push(left);
+        right && arr.push(right);
+        i++;
+    }
+    return res;
+}
+
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut res = Vec::new();
+        let mut queue = VecDeque::new();
+        if let Some(node) = root {
+            queue.push_back(node);
+        }
+        while let Some(node) = queue.pop_front() {
+            let mut node = node.borrow_mut();
+            res.push(node.val);
+            if let Some(l) = node.left.take() {
+                queue.push_back(l);
+            }
+            if let Some(r) = node.right.take() {
+                queue.push_back(r);
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
