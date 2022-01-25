@@ -192,6 +192,99 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function levelOrder(root: TreeNode | null): number[][] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+    const levelFn = (nodes: TreeNode[]) => {
+        if (nodes.length === 0) {
+            return res;
+        }
+        const nextNodes = [];
+        res.push(
+            nodes.map(({ val, left, right }) => {
+                left && nextNodes.push(left);
+                right && nextNodes.push(right);
+                return val;
+            })
+        );
+        return levelFn(nextNodes);
+    };
+    return levelFn([root]);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
+        let mut res = Vec::new();
+        if root.is_none() {
+            return res;
+        }
+        let mut nodes = VecDeque::new();
+        nodes.push_back(root.unwrap());
+        while !nodes.is_empty() {
+            let mut values = Vec::new();
+            for _ in 0..nodes.len() {
+                let node = nodes.pop_front().unwrap();
+                let mut node = node.borrow_mut();
+                values.push(node.val);
+                if node.left.is_some() {
+                    nodes.push_back(node.left.take().unwrap())
+                }
+                if node.right.is_some() {
+                    nodes.push_back(node.right.take().unwrap())
+                }
+            }
+            res.push(values);
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
