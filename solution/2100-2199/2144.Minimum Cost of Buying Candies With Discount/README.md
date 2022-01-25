@@ -68,7 +68,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minimumCost(self, cost: List[int]) -> int:
+        cost.sort()
+        ans, n = 0, len(cost)
+        for i in range(n - 1, -1, -3):
+            ans += cost[i]
+            if i >= 1:
+                ans += cost[i - 1]
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +84,53 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minimumCost(int[] cost) {
+        Arrays.sort(cost);
+        int ans = 0, n = cost.length;
+        for (int i = n - 1; i >= 0; i -= 3) {
+            ans += cost[i];
+            if (i >= 1) {
+                ans += cost[i - 1];
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumCost(vector<int>& cost) {
+        sort(cost.begin(), cost.end());
+        int ans = 0, n = cost.size();
+        for (int i = n - 1; i >= 0; i -= 3)
+        {
+            ans += cost[i];
+            if (i >= 1) ans += cost[i - 1];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumCost(cost []int) int {
+	sort.Ints(cost)
+	ans, n := 0, len(cost)
+	for i := n - 1; i >= 0; i -= 3 {
+		ans += cost[i]
+		if i >= 1 {
+			ans += cost[i-1]
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**

@@ -76,7 +76,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfArrays(self, differences: List[int], lower: int, upper: int) -> int:
+        num = mi = mx = 0
+        for d in differences:
+            num += d
+            mi = min(mi, num)
+            mx = max(mx, num)
+        return max(0, upper - lower - (mx - mi) + 1)
 ```
 
 ### **Java**
@@ -84,7 +91,63 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numberOfArrays(int[] differences, int lower, int upper) {
+        long num = 0, mi = 0, mx = 0;
+        for (int d : differences) {
+            num += d;
+            mi = Math.min(mi, num);
+            mx = Math.max(mx, num);
+        }
+        return Math.max(0, (int) (upper - lower - (mx - mi) + 1));
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfArrays(vector<int>& differences, int lower, int upper) {
+        long long num = 0, mi = 0, mx = 0;
+        for (int& d : differences)
+        {
+            num += d;
+            mi = min(mi, num);
+            mx = max(mx, num);
+        }
+        return max(0, (int) (upper - lower - (mx - mi) + 1));
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfArrays(differences []int, lower int, upper int) int {
+	num, mi, mx := 0, 0, 0
+	for _, d := range differences {
+		num += d
+		mi = min(mi, num)
+		mx = max(mx, num)
+	}
+	return max(0, upper-lower-(mx-mi)+1)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**
