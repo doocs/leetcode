@@ -127,7 +127,17 @@ func countElements(nums []int) int {
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```ts
-
+function countElements(nums: number[]): number {
+    const min = Math.min(...nums), max = Math.max(...nums);
+    let ans = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        let cur = nums[i];
+        if (cur < max && cur > min) {
+            ++ans;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
