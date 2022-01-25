@@ -1,20 +1,11 @@
 class Solution {
 public:
-    bool validMountainArray(vector<int>& A) {
-        if (A.size() < 3)
-            return false ;
-        
-        A.push_back(A[0]) ;
-        int lastIndex = A.size()-2 ;
-        int p ;
-        for (p = 0; A[p] < A[p+1]; ++p)
-            ;
-        if (p == lastIndex || 0 == p)
-            return false ;
-        A[A.size()-1] = A[p] ;
-        for (; A[p] > A[p+1]; ++p)
-            ;
-        
-        return p == lastIndex ;   
+    bool validMountainArray(vector<int>& arr) {
+        int n = arr.size();
+        if (n < 3) return 0;
+        int l = 0, r = n - 1;
+        while (l + 1 < n - 1 && arr[l] < arr[l + 1]) ++l;
+        while (r - 1 > 0 && arr[r] < arr[r - 1]) --r;
+        return l == r;
     }
 };
