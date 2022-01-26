@@ -62,13 +62,118 @@ detectSquares.count([11, 10]); // return 2. You can choose:
 ### **Python3**
 
 ```python
+class DetectSquares:
 
+    def __init__(self):
+        self.mp = defaultdict(Counter)
+
+    def add(self, point: List[int]) -> None:
+        x, y = point
+        self.mp[x][y] += 1
+
+    def count(self, point: List[int]) -> int:
+        x, y = point
+        ans = 0
+        if x not in self.mp:
+            return ans
+        xcnt = self.mp[x]
+
+        for x1, counter in self.mp.items():
+            if x1 != x:
+                d = x1 - x
+                ans += xcnt[y + d] * counter[y] * counter[y + d]
+                ans += xcnt[y - d] * counter[y] * counter[y - d]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class DetectSquares {
+    private Map<Integer, Map<Integer, Integer>> mp = new HashMap<>();
 
+    public DetectSquares() {
+
+    }
+
+    public void add(int[] point) {
+        int x = point[0], y = point[1];
+        if (!mp.containsKey(x)) {
+            mp.put(x, new HashMap<>());
+        }
+        mp.get(x).put(y, mp.get(x).getOrDefault(y, 0) + 1);
+    }
+
+    public int count(int[] point) {
+        int x = point[0], y = point[1];
+        int ans = 0;
+        if (!mp.containsKey(x)) {
+            return ans;
+        }
+        Map<Integer, Integer> xcnt = mp.get(x);
+        for (Map.Entry<Integer, Map<Integer, Integer>> e : mp.entrySet()) {
+            int x1 = e.getKey();
+            Map<Integer, Integer> counter = e.getValue();
+            if (x1 != x) {
+                int d = x1 - x;
+                ans += xcnt.getOrDefault(y + d, 0) * counter.getOrDefault(y, 0) * counter.getOrDefault(y + d, 0);
+                ans += xcnt.getOrDefault(y - d, 0) * counter.getOrDefault(y, 0) * counter.getOrDefault(y - d, 0);
+            }
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your DetectSquares object will be instantiated and called as such:
+ * DetectSquares obj = new DetectSquares();
+ * obj.add(point);
+ * int param_2 = obj.count(point);
+ */
+```
+
+### **C++**
+
+```cpp
+class DetectSquares {
+public:
+    unordered_map<int, unordered_map<int, int>> mp;
+
+    DetectSquares() {
+
+    }
+
+    void add(vector<int> point) {
+        int x = point[0], y = point[1];
+        ++mp[x][y];
+    }
+
+    int count(vector<int> point) {
+        int x = point[0], y = point[1];
+        int ans = 0;
+        if (!mp.count(x)) return ans;
+        auto xcnt = mp[x];
+        for (auto e : mp)
+        {
+            int x1 = e.first;
+            auto counter = e.second;
+            if (x1 != x)
+            {
+                int d = x1 - x;
+                ans += xcnt[y + d] * counter[y] * counter[y + d];
+                ans += xcnt[y - d] * counter[y] * counter[y - d];
+            }
+        }
+        return ans;
+    }
+};
+
+/**
+ * Your DetectSquares object will be instantiated and called as such:
+ * DetectSquares* obj = new DetectSquares();
+ * obj->add(point);
+ * int param_2 = obj->count(point);
+ */
 ```
 
 ### **...**
