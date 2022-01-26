@@ -5,7 +5,7 @@ public class Program
 {
     public static void Main()
     {
-        int[] test = new int[]{31,12,10,5,6,7,8,10,23,34,56,43,32,21};
+        int[] test = new int[]{31, 12, 10, 5, 6, 7, 8, 10, 23, 34, 56, 43, 32, 21};
         InsertSortNums(test);
         foreach (var item in test)
         {
@@ -15,15 +15,12 @@ public class Program
     public static void InsertSortNums(int[] nums)
     {
         for(int initial = 1; initial < nums.Length; initial++)
-        {
-            WriteLine($"initial {initial} start");
+        {            
             for(int second_sort = 0; second_sort < initial; second_sort++)
-            {
-                WriteLine($"second {second_sort} start");
+            {                
                 if(nums[second_sort] > nums[initial])
                 {
-                    swap(ref nums[second_sort], ref nums[initial]);
-                    WriteLine($"swap index is {second_sort}");
+                    swap(ref nums[second_sort], ref nums[initial]);                    
                 }
             }
         }
