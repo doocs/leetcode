@@ -185,7 +185,7 @@ public class Program
         {
             for (int second_sort = initial; second_sort < nums.Length; second_sort++)
             {
-                if(nums[initial] > nums[second_sort])
+                if (nums[initial] > nums[second_sort])
                 {
                     swap(ref nums[initial], ref nums[second_sort]);
                 }
