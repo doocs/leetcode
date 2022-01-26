@@ -73,7 +73,19 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+        s = []
+        while head:
+            s.append(head.val)
+            head = head.next
+        n = len(s)
+        return max(s[i] + s[-(i + 1)] for i in range(n >> 1))
 ```
 
 ### **Java**
@@ -81,7 +93,79 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public int pairSum(ListNode head) {
+        List<Integer> s = new ArrayList<>();
+        for (; head != null; head = head.next) {
+            s.add(head.val);
+        }
+        int ans = 0, n = s.size();
+        for (int i = 0; i < (n >> 1); ++i) {
+            ans = Math.max(ans, s.get(i) + s.get(n - 1 - i));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    int pairSum(ListNode* head) {
+        vector<int> s;
+        for (; head != nullptr; head = head->next) s.push_back(head->val);
+        int ans = 0, n = s.size();
+        for (int i = 0; i < (n >> 1); ++i) ans = max(ans, s[i] + s[n - i - 1]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func pairSum(head *ListNode) int {
+	var s []int
+	for ; head != nil; head = head.Next {
+		s = append(s, head.Val)
+	}
+	ans, n := 0, len(s)
+	for i := 0; i < (n >> 1); i++ {
+		if ans < s[i]+s[n-i-1] {
+			ans = s[i] + s[n-i-1]
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
