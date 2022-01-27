@@ -6,23 +6,27 @@ class Node:
         self.left = left
         self.right = right
 """
+
+
 class Solution:
-    def treeToDoublyList(self, root: 'Node') -> 'Node':
-        def dfs(cur):
-            if cur is None:
+    def treeToDoublyList(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        def dfs(root):
+            if root is None:
                 return
-            dfs(cur.left)
-            if self.pre is None:
-                self.head = cur
+            nonlocal prev, head
+            dfs(root.left)
+            if prev:
+                prev.right = root
+                root.left = prev
             else:
-                self.pre.right = cur
-            cur.left = self.pre
-            self.pre = cur
-            dfs(cur.right)
+                head = root
+            prev = root
+            dfs(root.right)
+
         if root is None:
             return None
-        self.head = self.pre = None
+        head = prev = None
         dfs(root)
-        self.head.left = self.pre
-        self.pre.right = self.head
-        return self.head
+        prev.right = head
+        head.left = prev
+        return head
