@@ -70,13 +70,57 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def countValidWords(self, sentence: str) -> int:
+        def check(token):
+            hyphen = False
+            for i, c in enumerate(token):
+                if c.isdigit() or (c in '!.,' and i < len(token) - 1):
+                    return False
+                if c == '-':
+                    if hyphen or i == 0 or i == len(token) - 1 or not token[i - 1].islower() or not token[i + 1].islower():
+                        return False
+                    hyphen = True
+            return True
 
+        return sum(check(token) for token in sentence.split())
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countValidWords(String sentence) {
+        int ans = 0;
+        for (String token : sentence.split(" ")) {
+            if (check(token)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(String token) {
+        int n = token.length();
+        if (n == 0) {
+            return false;
+        }
+        boolean hyphen = false;
+        for (int i = 0; i < n; ++i) {
+            char c = token.charAt(i);
+            if (Character.isDigit(c) || (i < n - 1 && (c == '!' || c == '.' || c == ','))) {
+                return false;
+            }
+            if (c == '-') {
+                if (hyphen || i == 0 || i == n - 1 || !Character.isLetter(token.charAt(i - 1)) || !Character.isLetter(token.charAt(i + 1))) {
+                    return false;
+                }
+                hyphen = true;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **TypeScript**
