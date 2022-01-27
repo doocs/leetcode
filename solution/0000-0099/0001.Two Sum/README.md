@@ -183,7 +183,7 @@ proc twoSum(nums: seq[int], target: int): seq[int] =
 
 ```
 
-### **Nim**
+### **Rust**
 
 ```rust
 use std::collections::HashMap;
