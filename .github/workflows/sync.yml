@@ -1,4 +1,4 @@
-name: Sync
+name: sync
 
 on:
   push:
