@@ -52,6 +52,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+按攻击力从大到小排序，攻击力相同则按防御力从小到大排序。
+
+遍历，护遍历过的角色的防御的最大值 mx。
+
+对于当前角色 p，如果 p 的防御小于 mx，说明前面有防御比 p 高的角色，记作 q。根据上面的排序规则，q 的攻击是大于或等于 p 的攻击的，如果 q 和 p 攻击相同，仍然根据上面的排序规则，q 的防御不会超过 p，矛盾，因此 q 的攻击必然大于 p，于是 q 的攻防均高于 p，p 是一个弱角色。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -59,7 +65,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
+        properties.sort(key=lambda x: (-x[0], x[1]))
+        ans = mx = 0
+        for _, d in properties:
+            if mx > d:
+                ans += 1
+            mx = max(mx, d)
+        return ans
 ```
 
 ### **Java**
@@ -67,7 +81,67 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    public int numberOfWeakCharacters(int[][] properties) {
+        Arrays.sort(
+            properties,
+            (a, b) -> {
+                return a[0] == b[0] ? a[1] - b[1] : b[0] - a[0];
+            }
+        );
+        int ans = 0, mx = 0;
+        for (int[] p : properties) {
+            if (mx > p[1]) {
+                ++ans;
+            }
+            mx = Math.max(mx, p[1]);
+        }
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfWeakCharacters(vector<vector<int>> &properties) {
+        sort(properties.begin(), properties.end(), [&](vector<int> &a, vector<int> &b)
+             { return a[0] == b[0] ? a[1] < b[1] : a[0] > b[0]; });
+        int ans = 0, mx = 0;
+        for (auto &p : properties)
+        {
+            if (mx > p[1]) ++ans;
+            else mx = p[1];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfWeakCharacters(properties [][]int) int {
+	sort.Slice(properties, func(i, j int) bool {
+		if properties[i][0] == properties[j][0] {
+			return properties[i][1] < properties[j][1]
+		}
+		return properties[i][0] > properties[j][0]
+	})
+	ans, mx := 0, 0
+	for _, p := range properties {
+		if mx > p[1] {
+			ans++
+		} else {
+			mx = p[1]
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
