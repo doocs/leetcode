@@ -111,4 +111,3 @@ The total cost was 25, and this is the minimum possible.
 ```
 
 <!-- tabs:end -->
-<!-- tabs:end -->

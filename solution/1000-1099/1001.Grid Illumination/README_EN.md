@@ -76,5 +76,5 @@ The 1<sup>st</sup>&nbsp;query asks if the lamp at grid[1][0] is illuminated or n
 
 ```
 
-<!-- tabs:end -->
+
 <!-- tabs:end -->

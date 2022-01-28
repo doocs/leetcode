@@ -1,29 +1,24 @@
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-
-    def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
-        def buildtree(li):
-            if not li:
-                return
-            val = li[0]
-            if len(li) == 1:
-                root = TreeNode(val)
-            else:
-                l, r = [], []
-                for item in li[1:]:
-                    if item > val:
-                        r.append(item)
-                    else:
-                        l.append(item)
-                root = TreeNode(val)
-                root.left = buildtree(l)
-                root.right = buildtree(r)
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        def dfs(preorder):
+            if not preorder:
+                return None
+            root = TreeNode(preorder[0])
+            left, right = 1, len(preorder)
+            while left < right:
+                mid = (left + right) >> 1
+                if preorder[mid] > preorder[0]:
+                    right = mid
+                else:
+                    left = mid + 1
+            root.left = dfs(preorder[1:left])
+            root.right = dfs(preorder[left:])
             return root
-        return buildtree(preorder)
+
+        return dfs(preorder)

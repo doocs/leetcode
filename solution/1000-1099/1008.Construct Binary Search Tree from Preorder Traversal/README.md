@@ -35,6 +35,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+根据二叉搜索树的性质，DFS 构建即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -42,7 +44,30 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
+        def dfs(preorder):
+            if not preorder:
+                return None
+            root = TreeNode(preorder[0])
+            left, right = 1, len(preorder)
+            while left < right:
+                mid = (left + right) >> 1
+                if preorder[mid] > preorder[0]:
+                    right = mid
+                else:
+                    left = mid + 1
+            root.left = dfs(preorder[1:left])
+            root.right = dfs(preorder[left:])
+            return root
 
+        return dfs(preorder)
 ```
 
 ### **Java**
@@ -50,7 +75,119 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    public TreeNode bstFromPreorder(int[] preorder) {
+        return dfs(preorder, 0, preorder.length - 1);
+    }
+
+    private TreeNode dfs(int[] preorder, int i, int j) {
+        if (i > j || i >= preorder.length) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preorder[i]);
+        int left = i + 1, right = j + 1;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (preorder[mid] > preorder[i]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        root.left = dfs(preorder, i + 1, left - 1);
+        root.right = dfs(preorder, left, j);
+        return root;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        return dfs(preorder, 0, preorder.size() - 1);
+    }
+
+    TreeNode* dfs(vector<int>& preorder, int i, int j) {
+        if (i > j || i >= preorder.size()) return nullptr;
+        TreeNode* root = new TreeNode(preorder[i]);
+        int left = i + 1, right = j + 1;
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (preorder[mid] > preorder[i]) right = mid;
+            else left = mid + 1;
+        }
+        root->left = dfs(preorder, i + 1, left - 1);
+        root->right = dfs(preorder, left, j);
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func bstFromPreorder(preorder []int) *TreeNode {
+	var dfs func(i, j int) *TreeNode
+	dfs = func(i, j int) *TreeNode {
+		if i > j || i >= len(preorder) {
+			return nil
+		}
+		root := &TreeNode{Val: preorder[i]}
+		left, right := i+1, len(preorder)
+		for left < right {
+			mid := (left + right) >> 1
+			if preorder[mid] > preorder[i] {
+				right = mid
+			} else {
+				left = mid + 1
+			}
+		}
+		root.Left = dfs(i+1, left-1)
+		root.Right = dfs(left, j)
+		return root
+	}
+	return dfs(0, len(preorder)-1)
+}
 ```
 
 ### **...**
@@ -59,5 +196,4 @@
 
 ```
 
-<!-- tabs:end -->
 <!-- tabs:end -->
