@@ -72,12 +72,72 @@ Note that the last node is not considered a local maxima because it does not hav
 ### **Python3**
 
 ```python
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
+        prev, curr = head, head.next
+        first = last = None
+        i = 1
+        ans = [float('inf'), float('-inf')]
+        while curr.next:
+            if curr.val < min(prev.val, curr.next.val) or curr.val > max(prev.val, curr.next.val):
+                if last is None:
+                    first = last = i
+                else:
+                    ans[0] = min(ans[0], i - last)
+                    ans[1] = i - first
+                    last = i
+            i += 1
+            prev, curr = curr, curr.next
+        return ans if first != last else [-1, -1]
 ```
 
 ### **Java**
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+
+    public int[] nodesBetweenCriticalPoints(ListNode head) {
+        ListNode prev = head;
+        ListNode curr = head.next;
+        int first = 0, last = 0;
+        int i = 1;
+        int[] ans = new int[] { Integer.MAX_VALUE, Integer.MIN_VALUE };
+        while (curr.next != null) {
+            if (
+                curr.val < Math.min(prev.val, curr.next.val) ||
+                curr.val > Math.max(prev.val, curr.next.val)
+            ) {
+                if (last == 0) {
+                    first = i;
+                    last = i;
+                } else {
+                    ans[0] = Math.min(ans[0], i - last);
+                    ans[1] = i - first;
+                    last = i;
+                }
+            }
+            ++i;
+            prev = curr;
+            curr = curr.next;
+        }
+        return first == last ? new int[] { -1, -1 } : ans;
+    }
+}
 
 ```
 
@@ -121,6 +181,98 @@ function nodesBetweenCriticalPoints(head: ListNode | null): number[] {
         min = Math.min(nums[i] - nums[i - 1], min);
     }
     return [min, nums[n - 1] - nums[0]];
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> nodesBetweenCriticalPoints(ListNode* head) {
+        ListNode* prev = head;
+        ListNode* curr = head->next;
+        int first = 0, last = 0;
+        int i = 1;
+        vector<int> ans(2, INT_MAX);
+        while (curr->next)
+        {
+            if (curr->val < min(prev->val, curr->next->val) || curr->val > max(prev->val, curr->next->val))
+            {
+                if (last == 0) first = i;
+                else
+                {
+                    ans[0] = min(ans[0], i - last);
+                    ans[1] = i - first;
+                }
+                last = i;
+            }
+            ++i;
+            prev = curr;
+            curr = curr->next;
+        }
+        if (first == last) return {-1, -1};
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func nodesBetweenCriticalPoints(head *ListNode) []int {
+	prev, curr := head, head.Next
+	first, last := 0, 0
+	i := 1
+	ans := []int{math.MaxInt32, 0}
+	for curr.Next != nil {
+		if curr.Val < min(prev.Val, curr.Next.Val) || curr.Val > max(prev.Val, curr.Next.Val) {
+			if last == 0 {
+				first, last = i, i
+			} else {
+				ans[0] = min(ans[0], i-last)
+				ans[1] = i - first
+				last = i
+			}
+		}
+		i++
+		prev, curr = curr, curr.Next
+	}
+	if first == last {
+		return []int{-1, -1}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
