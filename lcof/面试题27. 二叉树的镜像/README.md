@@ -160,6 +160,78 @@ public:
 
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function mirrorTree(root: TreeNode | null): TreeNode | null {
+    if (root == null) {
+        return root;
+    }
+    const { left, right } = root;
+    root.left = right;
+    root.right = left;
+    mirrorTree(left);
+    mirrorTree(right);
+    return root;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::mem;
+use std::rc::Rc;
+use std::cell::RefCell;
+
+impl Solution {
+    pub fn mirror_tree(mut root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        fn dfs(root: &Option<Rc<RefCell<TreeNode>>>) {
+            if let Some(node) = root {
+                let mut node = node.borrow_mut();
+                let lt = mem::replace(&mut node.left, None);
+                let rt = mem::replace(&mut node.right, lt);
+                mem::replace(&mut node.left, rt);
+                dfs(&node.left);
+                dfs(&node.right);
+            }
+        }
+        dfs(&root);
+        root
+    }
+}
+```
 ### **...**
 
 ```
