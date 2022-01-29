@@ -51,7 +51,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxLevelSum(self, root: TreeNode) -> int:
+        ans = (float('-inf'), 0)
+        q = deque([root])
+        l = 0
+        while q:
+            l += 1
+            n = len(q)
+            s = 0
+            for _ in range(n):
+                node = q.popleft()
+                s += node.val
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            if s > ans[0]:
+                ans = (s, l)
+        return ans[1]
 ```
 
 ### **Java**
@@ -59,7 +83,131 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    public int maxLevelSum(TreeNode root) {
+        int[] ans = new int[] { Integer.MIN_VALUE, 0 };
+        int l = 0;
+        Deque<TreeNode> q = new LinkedList<>();
+        q.offerLast(root);
+        while (!q.isEmpty()) {
+            ++l;
+            int s = 0;
+            for (int i = q.size(); i > 0; --i) {
+                TreeNode node = q.pollFirst();
+                s += node.val;
+                if (node.left != null) {
+                    q.offerLast(node.left);
+                }
+                if (node.right != null) {
+                    q.offerLast(node.right);
+                }
+            }
+            if (s > ans[0]) {
+                ans[0] = s;
+                ans[1] = l;
+            }
+        }
+        return ans[1];
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int maxLevelSum(TreeNode* root) {
+        vector<int> ans(2);
+        ans[0] = INT_MIN;
+        queue<TreeNode*> q{{root}};
+        int l = 0;
+        while (!q.empty())
+        {
+            ++l;
+            int s = 0;
+            for (int i = q.size(); i > 0; --i)
+            {
+                TreeNode* node = q.front();
+                q.pop();
+                s += node->val;
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+            if (s > ans[0])
+            {
+                ans[0] = s;
+                ans[1] = l;
+            }
+        }
+        return ans[1];
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maxLevelSum(root *TreeNode) int {
+	ans := [2]int{math.MinInt32, 0}
+	q := []*TreeNode{root}
+	l := 0
+	for len(q) > 0 {
+		l++
+		s := 0
+		for i := len(q); i > 0; i-- {
+			node := q[0]
+			q = q[1:]
+			s += node.Val
+			if node.Left != nil {
+				q = append(q, node.Left)
+			}
+			if node.Right != nil {
+				q = append(q, node.Right)
+			}
+		}
+		if s > ans[0] {
+			ans = [2]int{s, l}
+		}
+	}
+	return ans[1]
+}
 ```
 
 ### **...**
