@@ -243,7 +243,8 @@ public class Solution {
 }
 ```
 
-### **Javascript**
+### **JavaScript**
+
 ```javascript
 /**
  * Definition for a binary tree node.
