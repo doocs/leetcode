@@ -36,6 +36,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+先中序遍历获取到升序排列的每个节点值，然后分治构建二叉树。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -43,7 +45,33 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def balanceBST(self, root: TreeNode) -> TreeNode:
+        def dfs(root):
+            if root is None:
+                return
+            dfs(root.left)
+            vals.append(root.val)
+            dfs(root.right)
 
+        def build(i, j):
+            if i > j:
+                return None
+            mid = (i + j) >> 1
+            root = TreeNode(vals[mid])
+            root.left = build(i, mid - 1)
+            root.right = build(mid + 1, j)
+            return root
+
+        vals = []
+        dfs(root)
+        return build(0, len(vals) - 1)
 ```
 
 ### **Java**
@@ -51,7 +79,128 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
 
+    private List<Integer> vals;
+
+    public TreeNode balanceBST(TreeNode root) {
+        vals = new ArrayList<>();
+        dfs(root);
+        return build(0, vals.size() - 1);
+    }
+
+    private void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left);
+        vals.add(root.val);
+        dfs(root.right);
+    }
+
+    private TreeNode build(int i, int j) {
+        if (i > j) {
+            return null;
+        }
+        int mid = (i + j) >> 1;
+        TreeNode root = new TreeNode(vals.get(mid));
+        root.left = build(i, mid - 1);
+        root.right = build(mid + 1, j);
+        return root;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> vals;
+
+    TreeNode* balanceBST(TreeNode* root) {
+        dfs(root);
+        return build(0, vals.size() - 1);
+    }
+
+    void dfs(TreeNode* root) {
+        if (!root) return;
+        dfs(root->left);
+        vals.push_back(root->val);
+        dfs(root->right);
+    }
+
+    TreeNode* build(int i, int j) {
+        if (i > j) return nullptr;
+        int mid = (i + j) >> 1;
+        TreeNode* root = new TreeNode(vals[mid]);
+        root->left = build(i, mid - 1);
+        root->right = build(mid + 1, j);
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func balanceBST(root *TreeNode) *TreeNode {
+	var vals []int
+	var dfs func(root *TreeNode)
+	dfs = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		dfs(root.Left)
+		vals = append(vals, root.Val)
+		dfs(root.Right)
+	}
+	dfs(root)
+	var build func(i, j int) *TreeNode
+	build = func(i, j int) *TreeNode {
+		if i > j {
+			return nil
+		}
+		mid := (i + j) >> 1
+		return &TreeNode{vals[mid], build(i, mid-1), build(mid+1, j)}
+	}
+	return build(0, len(vals)-1)
+}
 ```
 
 ### **...**
