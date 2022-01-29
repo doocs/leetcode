@@ -105,6 +105,33 @@ func numWays(n int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function numWays(n: number): number {
+    let a = 0;
+    let b = 1;
+    for (let i = 0; i < n; i++) {
+        [a, b] = [b, (a + b) % 1000000007];
+    }
+    return b;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn num_ways(n: i32) -> i32 {
+        let mut tup = (0, 1);
+        for _ in 0..n {
+            tup = (tup.1, (tup.0 + tup.1) % 1000000007);
+        }
+        tup.1
+    }
+}
+```
+
 ### **...**
 
 ```
