@@ -140,6 +140,36 @@ func max(x, y int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function maxProfit(prices: number[]): number {
+    let res = 0;
+    let min = Infinity;
+    for (const price of prices) {
+        res = Math.max(res, price - min);
+        min = Math.min(min, price);
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_profit(prices: Vec<i32>) -> i32 {
+        let mut res = 0;
+        let mut min = i32::MAX;
+        for price in prices {
+            res = res.max(price - min);
+            min = min.min(price);
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
