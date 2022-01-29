@@ -59,18 +59,150 @@ Any height assignment that has a maximum height of 2 while still meeting the rul
 
 ## Solutions
 
+BFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def highestPeak(self, isWater: List[List[int]]) -> List[List[int]]:
+        m, n = len(isWater), len(isWater[0])
+        ans = [[-1] * n for _ in range(m)]
+        q = deque()
+        for i in range(m):
+            for j in range(n):
+                if isWater[i][j] == 1:
+                    ans[i][j] = 0
+                    q.append((i, j))
+        while q:
+            i, j = q.popleft()
+            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and ans[x][y] == -1:
+                    ans[x][y] = ans[i][j] + 1
+                    q.append((x, y))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
+    public int[][] highestPeak(int[][] isWater) {
+        int m = isWater.length, n = isWater[0].length;
+        int[][] ans = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(ans[i], -1);
+        }
+        Deque<int[]> q = new LinkedList<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (isWater[i][j] == 1) {
+                    ans[i][j] = 0;
+                    q.offerLast(new int[]{i, j});
+                }
+            }
+        }
+        while (!q.isEmpty()) {
+            int[] p = q.pollFirst();
+            int i = p[0], j = p[1];
+            for (int[] dir : dirs) {
+                int x = i + dir[0], y = j + dir[1];
+                if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1) {
+                    ans[x][y] = ans[i][j] + 1;
+                    q.offerLast(new int[]{x, y});
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+typedef pair<int, int> PII;
+
+class Solution {
+public:
+    vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    vector<vector<int>> highestPeak(vector<vector<int>>& isWater) {
+        int m = isWater.size(), n = isWater[0].size();
+        vector<vector<int>> ans(m, vector<int>(n, -1));
+        queue<PII> q;
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (isWater[i][j] == 1)
+                {
+                    ans[i][j] = 0;
+                    q.push({i, j});
+                }
+            }
+        }
+        while (!q.empty())
+        {
+            PII p = q.front();
+            q.pop();
+            int i = p.first, j = p.second;
+            for (auto& dir : dirs)
+            {
+                int x = i + dir[0], y = j + dir[1];
+                if (x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1)
+                {
+                    ans[x][y] = ans[i][j] + 1;
+                    q.push({x, y});
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func highestPeak(isWater [][]int) [][]int {
+	m, n := len(isWater), len(isWater[0])
+	ans := make([][]int, m)
+	for i := range ans {
+		ans[i] = make([]int, n)
+		for j := range ans[i] {
+			ans[i][j] = -1
+		}
+	}
+	type pair struct{ i, j int }
+	var q []pair
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if isWater[i][j] == 1 {
+				ans[i][j] = 0
+				q = append(q, pair{i, j})
+			}
+		}
+	}
+	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+		for _, dir := range dirs {
+			x, y := p.i+dir[0], p.j+dir[1]
+			if x >= 0 && x < m && y >= 0 && y < n && ans[x][y] == -1 {
+				ans[x][y] = ans[p.i][p.j] + 1
+				q = append(q, pair{x, y})
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
