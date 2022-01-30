@@ -254,7 +254,7 @@ public class Solution {
 
 ### **JavaScript**
 
-```javascript
+```js
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
