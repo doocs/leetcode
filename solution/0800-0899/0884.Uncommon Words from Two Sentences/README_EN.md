@@ -63,13 +63,84 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        c = Counter(s1.split()) + Counter(s2.split())
+        return [w for w, n in c.items() if n == 1]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public String[] uncommonFromSentences(String s1, String s2) {
+        Map<String, Integer> counter = new HashMap<>();
+        add(s1, counter);
+        add(s2, counter);
+        List<String> ans = new ArrayList<>();
+        for (Map.Entry<String, Integer> e : counter.entrySet()) {
+            if (e.getValue() == 1) {
+                ans.add(e.getKey());
+            }
+        }
+        return ans.toArray(new String[0]);
+    }
+
+    private void add(String s, Map<String, Integer> counter) {
+        for (String w : s.split(" ")) {
+            counter.put(w, counter.getOrDefault(w, 0) + 1);
+        }
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<string> uncommonFromSentences(string s1, string s2) {
+        unordered_map<string, int> counter;
+
+        auto add = [&](const string& s) {
+            stringstream ss(s);
+            string word;
+            while (ss >> word) ++counter[move(word)];
+        };
+
+        add(s1);
+        add(s2);
+        vector<string> ans;
+        for (auto& [word, n] : counter)
+            if (n == 1)
+                ans.push_back(word);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func uncommonFromSentences(s1 string, s2 string) []string {
+	counter := make(map[string]int)
+	add := func(s string) {
+		for _, w := range strings.Split(s, " ") {
+			counter[w]++
+		}
+	}
+	add(s1)
+	add(s2)
+	var ans []string
+	for word, n := range counter {
+		if n == 1 {
+			ans = append(ans, word)
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
