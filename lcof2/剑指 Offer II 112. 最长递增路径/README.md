@@ -55,6 +55,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+记忆化搜索。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +64,23 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
+        @lru_cache(None)
+        def dfs(i, j):
+            ans = 1
+            for a, b in [[-1, 0], [1, 0], [0, 1], [0, -1]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and matrix[x][y] > matrix[i][j]:
+                    ans = max(ans, dfs(x, y) + 1)
+            return ans
 
+        ans = 0
+        m, n = len(matrix), len(matrix[0])
+        for i in range(m):
+            for j in range(n):
+                ans = max(ans, dfs(i, j))
+        return ans
 ```
 
 ### **Java**
@@ -70,7 +88,136 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    private int[][] memo;
+    private int[][] matrix;
+    private int m;
+    private int n;
+
+    public int longestIncreasingPath(int[][] matrix) {
+        this.matrix = matrix;
+        m = matrix.length;
+        n = matrix[0].length;
+        memo = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(memo[i], -1);
+        }
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                ans = Math.max(ans, dfs(i, j));
+            }
+        }
+        return ans;
+    }
+
+    private int dfs(int i, int j) {
+        if (memo[i][j] != -1) {
+            return memo[i][j];
+        }
+        int ans = 1;
+        int[][] dirs = { { 0, -1 }, { 0, 1 }, { 1, 0 }, { -1, 0 } };
+        for (int[] dir : dirs) {
+            int x = i + dir[0], y = j + dir[1];
+            if (
+                x >= 0 &&
+                x < m &&
+                y >= 0 &&
+                y < n &&
+                matrix[x][y] > matrix[i][j]
+            ) {
+                ans = Math.max(ans, dfs(x, y) + 1);
+            }
+        }
+        memo[i][j] = ans;
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> memo;
+    vector<vector<int>> matrix;
+    int m;
+    int n;
+
+    int longestIncreasingPath(vector<vector<int>>& matrix) {
+        m = matrix.size();
+        n = matrix[0].size();
+        memo.resize(m, vector<int>(n, -1));
+        this->matrix = matrix;
+        int ans = 0;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                ans = max(ans, dfs(i, j));
+        return ans;
+    }
+
+    int dfs(int i, int j) {
+        if (memo[i][j] != -1) return memo[i][j];
+        int ans = 1;
+        vector<vector<int>> dirs = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+        for (auto& dir : dirs)
+        {
+            int x = i + dir[0], y = j + dir[1];
+            if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j])
+                ans = max(ans, dfs(x, y) + 1);
+        }
+        memo[i][j] = ans;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestIncreasingPath(matrix [][]int) int {
+	m, n := len(matrix), len(matrix[0])
+	memo := make([][]int, m)
+	for i := range memo {
+		memo[i] = make([]int, n)
+		for j := range memo[i] {
+			memo[i][j] = -1
+		}
+	}
+	ans := -1
+	var dfs func(i, j int) int
+	dfs = func(i, j int) int {
+		if memo[i][j] != -1 {
+			return memo[i][j]
+		}
+		ans := 1
+		dirs := [4][2]int{{-1, 0}, {1, 0}, {0, 1}, {0, -1}}
+		for _, dir := range dirs {
+			x, y := i+dir[0], j+dir[1]
+			if x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j] {
+				ans = max(ans, dfs(x, y)+1)
+			}
+		}
+		memo[i][j] = ans
+		return ans
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			ans = max(ans, dfs(i, j))
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
