@@ -48,7 +48,7 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-因为只有 26 个小写字符，所以可以用一个 `int32` 存储字符的出现情况，然后枚举最大乘积
+因为只有 26 个小写字符，所以可以用一个 `int32` 存储字符的出现情况，然后枚举最大乘积。
 
 <!-- tabs:start -->
 
@@ -60,12 +60,12 @@
 class Solution:
     def maxProduct(self, words: List[str]) -> int:
         n = len(words)
-        mask = [0 for _ in range(n)]
+        mask = [0] * n
         for i, word in enumerate(words):
             for ch in word:
                 mask[i] |= 1 << (ord(ch) - ord('a'))
         ans = 0
-        for i in range(0, n - 1):
+        for i in range(n - 1):
             for j in range(i + 1, n):
                 if mask[i] & mask[j] == 0:
                     ans = max(ans, len(words[i]) * len(words[j]))
@@ -135,28 +135,17 @@ func max(a, b int) int {
 class Solution {
 public:
     int maxProduct(vector<string>& words) {
-        vector<vector<bool>> hash(words.size(), vector<bool>(26, false));
-        for (int i = 0; i < words.size(); i++)
-            for (char c: words[i])
-                hash[i][c - 'a'] = true;
-
-        int res = 0;
-        for (int i = 0; i < words.size(); i++) {
-            for (int j = i + 1; j < words.size(); j++) {
-                int k = 0;
-                for (; k < 26; k++) {
-                    if (hash[i][k] && hash[j][k])
-                        break;
-                }
-
-                if (k == 26) {
-                    int prod = words[i].size() * words[j].size();
-                    res = max(res, prod);
-                }
-            }
-        }
-
-        return res;
+        int n = words.size();
+        vector<int> mask(n);
+        for (int i = 0; i < n; ++i)
+            for (char ch : words[i])
+                mask[i] |= 1 << (ch - 'a');
+        int ans = 0;
+        for (int i = 0; i < n - 1; ++i)
+            for (int j = i + 1; j < n; ++j)
+                if (!(mask[i] & mask[j]))
+                    ans = max(ans, (int) words[i].size() * (int) words[j].size());
+        return ans;
     }
 };
 ```
