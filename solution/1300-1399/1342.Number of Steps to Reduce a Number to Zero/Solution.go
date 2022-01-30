@@ -1,12 +1,12 @@
 func numberOfSteps(num int) int {
-	res := 0
+	ans := 0
 	for num != 0 {
-		if (num & 1) == 0 {
-			num >>= 1
-		} else {
+		if (num & 1) == 1 {
 			num--
+		} else {
+			num >>= 1
 		}
-		res++
+		ans++
 	}
-	return res
+	return ans
 }
