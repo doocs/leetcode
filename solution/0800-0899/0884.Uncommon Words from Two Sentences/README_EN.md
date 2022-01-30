@@ -46,10 +46,12 @@
 
 <p><strong>Note:</strong></p>
 
-- `1 <= s1.length, s2.length <= 200`
-- `s1` and `s2` consist of lowercase English letters and spaces.
-- `s1` and `s2` do not have leading or trailing spaces.
-- All the words in `s1` and `s2` are separated by a single space.
+<ul>
+    <li><code>1 &lt;= s1.length, s2.length &lt;= 200</code></li>
+    <li><code>s1</code> and <code>s2</code> consist of lowercase English letters and spaces.</li>
+    <li><code>s1</code> and <code>s2</code> do not have leading or trailing spaces.</li>
+    <li>All the words in <code>s1</code> and <code>s2</code> are separated by a single space.</li>
+</ul>
 
 </div>
 
