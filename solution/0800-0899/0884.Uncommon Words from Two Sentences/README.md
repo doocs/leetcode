@@ -35,11 +35,12 @@
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>0 &lt;= A.length &lt;= 200</code></li>
-	<li><code>0 &lt;= B.length &lt;= 200</code></li>
-	<li><code>A</code> 和&nbsp;<code>B</code>&nbsp;都只包含空格和小写字母。</li>
-</ol>
+<ul>
+    <li><code>1 &lt;= s1.length, s2.length &lt;= 200</code></li>
+    <li><code>s1</code> 和 <code>s2</code> 由小写英文字母和空格组成</li>
+    <li><code>s1</code> 和 <code>s2</code> 都不含前导或尾随空格</li>
+    <li><code>s1</code> 和 <code>s2</code> 中的所有单词间均由单个空格分隔</li>
+</ul>
 
 ## 解法
 

@@ -46,11 +46,12 @@
 
 <p><strong>Note:</strong></p>
 
-<ol>
-	<li><code>0 &lt;= A.length &lt;= 200</code></li>
-	<li><code>0 &lt;= B.length &lt;= 200</code></li>
-	<li><code>A</code> and <code>B</code> both contain only spaces and lowercase letters.</li>
-</ol>
+<ul>
+    <li><code>1 &lt;= s1.length, s2.length &lt;= 200</code></li>
+    <li><code>s1</code> and <code>s2</code> consist of lowercase English letters and spaces.</li>
+    <li><code>s1</code> and <code>s2</code> do not have leading or trailing spaces.</li>
+    <li>All the words in <code>s1</code> and <code>s2</code> are separated by a single space.</li>
+</ul>
 
 </div>
 
