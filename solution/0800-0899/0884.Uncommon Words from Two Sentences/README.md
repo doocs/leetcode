@@ -35,11 +35,10 @@
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>0 &lt;= A.length &lt;= 200</code></li>
-	<li><code>0 &lt;= B.length &lt;= 200</code></li>
-	<li><code>A</code> 和&nbsp;<code>B</code>&nbsp;都只包含空格和小写字母。</li>
-</ol>
+- `1 <= s1.length, s2.length <= 200`
+- `s1` 和 `s2` 由小写英文字母和空格组成
+- `s1` 和 `s2` 都不含前导或尾随空格
+- `s1` 和 `s2` 中的所有单词间均由单个空格分隔
 
 ## 解法
 
