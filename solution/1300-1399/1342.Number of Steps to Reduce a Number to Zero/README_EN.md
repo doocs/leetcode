@@ -148,7 +148,7 @@ func numberOfSteps(num int) int {
 }
 ```
 
-````go
+```go
 func numberOfSteps(num int) int {
 	if num == 0 {
 		return 0
@@ -167,4 +167,3 @@ func numberOfSteps(num int) int {
 ```
 
 <!-- tabs:end -->
-````
