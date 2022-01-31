@@ -111,6 +111,19 @@ class Solution {
 
 ```
 
+### **TypeScript**
+
+```ts
+function numberOfSteps(num: number): number {
+    let ans = 0;
+    while (num) {
+        num = (num & 1) ? num - 1 : num >>> 1
+        ans++;
+    }
+    return ans;
+};
+```
+
 ### **C++**
 
 ```cpp
