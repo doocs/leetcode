@@ -53,13 +53,29 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findFinalValue(self, nums: List[int], original: int) -> int:
+        s = set(nums)
+        while original in s:
+            original <<= 1
+        return original
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findFinalValue(int[] nums, int original) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            s.add(num);
+        }
+        while (s.contains(original)) {
+            original <<= 1;
+        }
+        return original;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -72,6 +88,36 @@ function findFinalValue(nums: number[], original: number): number {
     }
     return original;
 };
+```
+
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findFinalValue(vector<int>& nums, int original) {
+        unordered_set<int> s;
+        for (int num : nums) s.insert(num);
+        while (s.count(original)) original <<= 1;
+        return original;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findFinalValue(nums []int, original int) int {
+	s := make(map[int]bool)
+	for _, num := range nums {
+		s[num] = true
+	}
+	for s[original] {
+		original <<= 1
+	}
+	return original
+}
 ```
 
 ### **...**

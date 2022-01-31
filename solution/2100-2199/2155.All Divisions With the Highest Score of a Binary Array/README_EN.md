@@ -72,12 +72,61 @@ Only index 0 has the highest possible division score 2.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxScoreIndices(self, nums: List[int]) -> List[int]:
+        left, right = 0, sum(nums)
+        mx = right
+        ans = [0]
+        for i, num in enumerate(nums):
+            if num == 0:
+                left += 1
+            else:
+                right -= 1
+            t = left + right
+            if mx == t:
+                ans.append(i + 1)
+            elif mx < t:
+                mx = t
+                ans = [i + 1]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+
+    public List<Integer> maxScoreIndices(int[] nums) {
+        int left = 0, right = sum(nums);
+        int mx = right;
+        List<Integer> ans = new ArrayList<>();
+        ans.add(0);
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 0) {
+                ++left;
+            } else {
+                --right;
+            }
+            int t = left + right;
+            if (mx == t) {
+                ans.add(i + 1);
+            } else if (mx < t) {
+                mx = t;
+                ans.clear();
+                ans.add(i + 1);
+            }
+        }
+        return ans;
+    }
+
+    private int sum(int[] nums) {
+        int s = 0;
+        for (int num : nums) {
+            s += num;
+        }
+        return s;
+    }
+}
 
 ```
 
@@ -87,7 +136,8 @@ Only index 0 has the highest possible division score 2.
 function maxScoreIndices(nums: number[]): number[] {
     const n = nums.length;
     const total = nums.reduce((a, c) => a + c, 0);
-    let left = 0, right = total;
+    let left = 0,
+        right = total;
     let record: Array<number> = [total];
     for (const num of nums) {
         if (num == 0) {
@@ -105,7 +155,63 @@ function maxScoreIndices(nums: number[]): number[] {
         }
     }
     return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> maxScoreIndices(vector<int>& nums) {
+        int left = 0, right = accumulate(nums.begin(), nums.end(), 0);
+        int mx = right;
+        vector<int> ans;
+        ans.push_back(0);
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            if (nums[i] == 0) ++left;
+            else --right;
+            int t = left + right;
+            if (mx == t) ans.push_back(i + 1);
+            else if (mx < t)
+            {
+                mx = t;
+                ans.clear();
+                ans.push_back(i + 1);
+            }
+        }
+        return ans;
+    }
 };
+```
+
+### **Go**
+
+```go
+func maxScoreIndices(nums []int) []int {
+	left, right := 0, 0
+	for _, num := range nums {
+		right += num
+	}
+	mx := right
+	ans := []int{0}
+	for i, num := range nums {
+		if num == 0 {
+			left++
+		} else {
+			right--
+		}
+		t := left + right
+		if mx == t {
+			ans = append(ans, i+1)
+		} else if mx < t {
+			mx = t
+			ans = []int{i + 1}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
