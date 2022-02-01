@@ -91,11 +91,9 @@ class Solution {
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int i = 0;
-        for (int& num : nums)
-            if (i < 1 || num != nums[i - 1])
-                nums[i++] = num;
-        return i;
+        auto ret = std::ranges::unique(nums);
+        nums.erase(ret.begin(), ret.end());
+        return nums.size();
     }
 };
 ```
