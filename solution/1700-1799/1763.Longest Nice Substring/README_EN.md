@@ -55,13 +55,92 @@ As there are multiple longest nice substrings, return &quot;dD&quot; since it oc
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestNiceSubstring(self, s: str) -> str:
+        n = len(s)
+        ans = ''
+        for i in range(n):
+            lower = upper = 0
+            for j in range(i, n):
+                if s[j].islower():
+                    lower |= 1 << (ord(s[j]) - ord('a'))
+                else:
+                    upper |= 1 << (ord(s[j]) - ord('A'))
+                if lower == upper and j - i + 1 > len(ans):
+                    ans = s[i: j + 1]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public String longestNiceSubstring(String s) {
+        int n = s.length();
+        String ans = "";
+        for (int i = 0; i < n; ++i) {
+            int lower = 0, upper = 0;
+            for (int j = i; j < n; ++j) {
+                char c = s.charAt(j);
+                if (Character.isLowerCase(c)) {
+                    lower |= 1 << (c - 'a');
+                } else {
+                    upper |= 1 << (c - 'A');
+                }
+                if (lower == upper && j - i + 1 > ans.length()) {
+                    ans = s.substring(i, j + 1);
+                }
+            }
+        }
+        return ans;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string longestNiceSubstring(string s) {
+        int n = s.size();
+        string ans = "";
+        for (int i = 0; i < n; ++i)
+        {
+            int lower = 0, upper = 0;
+            for (int j = i; j < n; ++j)
+            {
+                if (islower(s[j])) lower |= 1 << (s[j] - 'a');
+                else upper |= 1 << (s[j] - 'A');
+                if (lower == upper && j - i + 1 > ans.size()) ans = s.substr(i, j - i + 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestNiceSubstring(s string) (ans string) {
+	for i := range s {
+		lower, upper := 0, 0
+		for j := i; j < len(s); j++ {
+			if unicode.IsLower(rune(s[j])) {
+				lower |= 1 << (s[j] - 'a')
+			} else {
+				upper |= 1 << (s[j] - 'A')
+			}
+			if lower == upper && j-i+1 > len(ans) {
+				ans = s[i : j+1]
+			}
+		}
+	}
+	return
+}
 ```
 
 ### **...**
