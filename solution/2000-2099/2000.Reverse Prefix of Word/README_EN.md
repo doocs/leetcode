@@ -114,19 +114,10 @@ func reversePrefix(word string, ch byte) string {
 
 ```ts
 function reversePrefix(word: string, ch: string): string {
-    const chars = word.split('');
-    const i = word.indexOf(ch);
-    if (i !== -1) {
-        let l = 0;
-        let r = i;
-        while (l < r) {
-            [chars[l], chars[r]] = [chars[r], chars[l]];
-            l++;
-            r--;
-        }
-    }
-    return chars.join('');
-}
+    let idx = word.indexOf(ch) + 1;
+    if (!idx) return word;
+    return [...word.substring(0, idx)].reverse().join('') + word.substring(idx);
+};
 ```
 
 ### **Rust**
