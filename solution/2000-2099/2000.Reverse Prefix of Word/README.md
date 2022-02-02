@@ -61,7 +61,10 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def reversePrefix(self, word: str, ch: str) -> str:
+        i = word.find(ch)
+        return word if i == -1 else word[i::-1] + word[i + 1:]
 ```
 
 ### **Java**
@@ -69,7 +72,49 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    public String reversePrefix(String word, char ch) {
+        int i = word.indexOf(ch);
+        return i == -1
+            ? word
+            : new StringBuilder(word.substring(0, i + 1))
+                .reverse()
+                .append(word.substring(i + 1))
+                .toString();
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string reversePrefix(string word, char ch) {
+        int i = word.find(ch);
+        if (i != string::npos) reverse(word.begin(), word.begin() + i + 1);
+        return word;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reversePrefix(word string, ch byte) string {
+	j := strings.IndexByte(word, ch)
+	if j < 0 {
+		return word
+	}
+	s := []byte(word)
+	for i := 0; i < j; i++ {
+		s[i], s[j] = s[j], s[i]
+		j--
+	}
+	return string(s)
+}
 ```
 
 ### **...**
