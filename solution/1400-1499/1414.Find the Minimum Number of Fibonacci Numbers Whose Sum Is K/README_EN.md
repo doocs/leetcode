@@ -53,12 +53,36 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 ### **Python3**
 
 ```python
+class Solution:
+    def findMinFibonacciNumbers(self, k: int) -> int:
+        def dfs(k):
+            if k < 2:
+                return k
+            a = b = 1
+            while b <= k:
+                a, b = b, a + b
+            return 1 + dfs(k - a)
 
+        return dfs(k)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+
+    public int findMinFibonacciNumbers(int k) {
+        if (k < 2) {
+            return k;
+        }
+        int a = 1, b = 1;
+        while (b <= k) {
+            b = a + b;
+            a = b - a;
+        }
+        return 1 + findMinFibonacciNumbers(k - a);
+    }
+}
 
 ```
 
@@ -112,6 +136,39 @@ impl Solution {
         }
         res
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMinFibonacciNumbers(int k) {
+        if (k < 2) return k;
+        int a = 1, b = 1;
+        while (b <= k)
+        {
+            b = a + b;
+            a = b - a;
+        }
+        return 1 + findMinFibonacciNumbers(k - a);
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMinFibonacciNumbers(k int) int {
+	if k < 2 {
+		return k
+	}
+	a, b := 1, 1
+	for b <= k {
+		a, b = b, a+b
+	}
+	return 1 + findMinFibonacciNumbers(k-a)
 }
 ```
 
