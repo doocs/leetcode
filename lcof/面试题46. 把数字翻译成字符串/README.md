@@ -125,6 +125,46 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+function translateNum(num: number): number {
+    let a = 1;
+    let b = 1;
+    const str = num + '';
+    for (let i = 1; i < str.length; i++) {
+        const val = Number(str[i - 1] + str[i]);
+        if (val >= 10 && val < 26) {
+            [a, b] = [b, a + b];
+        } else {
+            a = b;
+        }
+    }
+    return b;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn translate_num(num: i32) -> i32 {
+        let mut a = 1;
+        let mut b = 1;
+        let str = num.to_string();
+        for i in 0..str.len() - 1 {
+            let c = a + b;
+            a = b;
+            let num = str[i..i + 2].parse::<i32>().unwrap();
+            if num >= 10 && num < 26 {
+                b = c;
+            }
+        }
+        b
+    }
+}
+```
+
 ### **...**
 
 ```
