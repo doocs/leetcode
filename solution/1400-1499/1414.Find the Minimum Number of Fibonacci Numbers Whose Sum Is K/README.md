@@ -60,13 +60,12 @@
 ```txt
 FIND-MIN-FIBONACCI-NUMBERS(k)
     r = 0
-    for n in f {
+    for n in f 
         if k >= n 
             k -= n
             r++
             if k === 0
                 return res
-    }
 ```
 
 <!-- tabs:start -->
