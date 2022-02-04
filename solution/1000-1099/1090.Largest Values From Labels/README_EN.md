@@ -98,13 +98,104 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def largestValsFromLabels(self, values: List[int], labels: List[int], numWanted: int, useLimit: int) -> int:
+        n = len(values)
+        idx = list(range(n))
+        idx.sort(key=lambda i: -values[i])
+        ans = num = 0
+        counter = Counter()
+        for i in idx:
+            v, l = values[i], labels[i]
+            if counter[l] < useLimit:
+                counter[l] += 1
+                ans += v
+                num += 1
+            if num == numWanted:
+                break
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int largestValsFromLabels(int[] values, int[] labels, int numWanted, int useLimit) {
+        int n = values.length;
+        int[][] p = new int[n][2];
+        for (int i = 0; i < n; ++i) {
+            p[i] = new int[]{values[i], labels[i]};
+        }
+        Arrays.sort(p, (a, b) -> b[0] - a[0]);
+        int ans = 0;
+        int num = 0;
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int i = 0; i < n && num < numWanted; ++i) {
+            int v = p[i][0], l = p[i][1];
+            if (counter.getOrDefault(l, 0) < useLimit) {
+                counter.put(l, counter.getOrDefault(l, 0) + 1);
+                ans += v;
+                ++num;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int largestValsFromLabels(vector<int>& values, vector<int>& labels, int numWanted, int useLimit) {
+        int n = values.size();
+        vector<pair<int, int>> p;
+        for (int i = 0; i < n; ++i) p.emplace_back(values[i], labels[i]);
+        sort(p.begin(), p.end());
+        unordered_map<int, int> counter;
+        int ans = 0, num = 0;
+        for (int i = n - 1; i >= 0 && num < numWanted; --i)
+        {
+            int v = p[i].first, l = p[i].second;
+            if (counter[l] < useLimit)
+            {
+                ++counter[l];
+                ++num;
+                ans += v;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func largestValsFromLabels(values []int, labels []int, numWanted int, useLimit int) int {
+	var p [][]int
+	for i, v := range values {
+		p = append(p, []int{v, labels[i]})
+	}
+	sort.Slice(p, func(i, j int) bool {
+		return p[i][0] > p[j][0]
+	})
+	counter := make(map[int]int)
+	ans, num := 0, 0
+	for _, t := range p {
+		if num >= numWanted {
+			break
+		}
+		v, l := t[0], t[1]
+		if counter[l] < useLimit {
+			counter[l]++
+			num++
+			ans += v
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

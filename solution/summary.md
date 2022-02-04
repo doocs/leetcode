@@ -2200,3 +2200,4 @@
   - [2155.All Divisions With the Highest Score of a Binary Array](/solution/2100-2199/2155.All%20Divisions%20With%20the%20Highest%20Score%20of%20a%20Binary%20Array/README.md)
   - [2156.Find Substring With Given Hash Value](/solution/2100-2199/2156.Find%20Substring%20With%20Given%20Hash%20Value/README.md)
   - [2157.Groups of Strings](/solution/2100-2199/2157.Groups%20of%20Strings/README.md)
+  - [2158.Amount of New Area Painted Each Day](/solution/2100-2199/2158.Amount%20of%20New%20Area%20Painted%20Each%20Day/README.md)
