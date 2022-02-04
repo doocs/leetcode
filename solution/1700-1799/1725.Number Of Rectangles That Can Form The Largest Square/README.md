@@ -54,7 +54,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countGoodRectangles(self, rectangles: List[List[int]]) -> int:
+        ans = mx = 0
+        for l, w in rectangles:
+            t = min(l, w)
+            if mx < t:
+                mx, ans = t, 1
+            elif mx == t:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -62,7 +71,63 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countGoodRectangles(int[][] rectangles) {
+        int ans = 0, mx = 0;
+        for (int[] r : rectangles) {
+            int t = Math.min(r[0], r[1]);
+            if (mx < t) {
+                mx = t;
+                ans = 1;
+            } else if (mx == t) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countGoodRectangles(vector<vector<int>>& rectangles) {
+        int ans = 0, mx = 0;
+        for (auto& r : rectangles)
+        {
+            int t = min(r[0], r[1]);
+            if (mx < t)
+            {
+                mx = t;
+                ans = 1;
+            }
+            else if (mx == t) ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countGoodRectangles(rectangles [][]int) int {
+	ans, mx := 0, 0
+	for _, r := range rectangles {
+		t := r[0]
+		if t > r[1] {
+			t = r[1]
+		}
+		if mx < t {
+			mx, ans = t, 1
+		} else if mx == t {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
