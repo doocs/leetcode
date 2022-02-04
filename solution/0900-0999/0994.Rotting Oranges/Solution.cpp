@@ -1,49 +1,40 @@
 class Solution {
-    int cnt;
-    int dis[10][10];
-    int dir_x[4] = {0, 1, 0, -1};
-    int dir_y[4] = {1, 0, -1, 0};
-
 public:
-    int orangesRotting(vector<vector<int>> &grid) {
-        queue<pair<int, int>> Q;
-        memset(dis, -1, sizeof(dis));
-        cnt = 0;
-        int n = (int)grid.size(), m = (int)grid[0].size(), ans = 0;
-        for (int i = 0; i < n; ++i)
+    int orangesRotting(vector<vector<int>>& grid) {
+        int m = grid.size(), n = grid[0].size();
+        int cnt = 0;
+        typedef pair<int, int> pii;
+        queue<pii> q;
+        for (int i = 0; i < m; ++i)
         {
-            for (int j = 0; j < m; ++j)
+            for (int j = 0; j < n; ++j)
             {
-                if (grid[i][j] == 2)
-                {
-                    Q.push(make_pair(i, j));
-                    dis[i][j] = 0;
-                }
-                else if (grid[i][j] == 1)
-                    cnt += 1;
+                if (grid[i][j] == 2) q.emplace(i, j);
+                else if (grid[i][j] == 1) ++cnt;
             }
         }
-        while (!Q.empty())
+        int ans = 0;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        while (!q.empty() && cnt > 0)
         {
-            pair<int, int> x = Q.front();
-            Q.pop();
-            for (int i = 0; i < 4; ++i)
+            ++ans;
+            for (int i = q.size(); i > 0; --i)
             {
-                int tx = x.first + dir_x[i];
-                int ty = x.second + dir_y[i];
-                if (tx < 0 || tx >= n || ty < 0 || ty >= m || ~dis[tx][ty] || !grid[tx][ty])
-                    continue;
-                dis[tx][ty] = dis[x.first][x.second] + 1;
-                Q.push(make_pair(tx, ty));
-                if (grid[tx][ty] == 1)
+                auto p = q.front();
+                q.pop();
+                for (int j = 0; j < 4; ++j)
                 {
-                    cnt -= 1;
-                    ans = dis[tx][ty];
-                    if (!cnt)
-                        break;
+                    int x = p.first + dirs[j];
+                    int y = p.second + dirs[j + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1)
+                    {
+                        --cnt;
+                        grid[x][y] = 2;
+                        q.emplace(x, y);
+                    }
                 }
             }
         }
-        return cnt ? -1 : ans;
+        return cnt > 0 ? -1 : ans;
     }
 };
