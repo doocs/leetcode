@@ -42,13 +42,112 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def beautySum(self, s: str) -> int:
+        ans, n = 0, len(s)
+        for i in range(n):
+            counter = Counter()
+            for j in range(i, n):
+                counter[s[j]] += 1
+                t = [v for v in counter.values() if v]
+                ans += max(t) - min(t)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int beautySum(String s) {
+        int ans = 0;
+        int n = s.length();
+        for (int i = 0; i < n; ++i) {
+            int[] counter = new int[26];
+            for (int j = i; j < n; ++j) {
+                ++counter[s.charAt(j) - 'a'];
+                int mi = 1000;
+                int mx = 0;
+                for (int v : counter) {
+                    if (v > 0) {
+                        mi = Math.min(mi, v);
+                        mx = Math.max(mx, v);
+                    }
+                }
+                ans += mx - mi;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int beautySum(string s) {
+        int ans = 0;
+        int n = s.size();
+        for (int i = 0; i < n; ++i)
+        {
+            vector<int> counter(26);
+            for (int j = i; j < n; ++j)
+            {
+                ++counter[s[j] - 'a'];
+                int mi = 1000;
+                int mx = 0;
+                for (int v : counter)
+                {
+                    if (v)
+                    {
+                        mi = min(mi, v);
+                        mx = max(mx, v);
+                    }
+                }
+                ans += mx - mi;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func beautySum(s string) int {
+	ans, n := 0, len(s)
+	for i := 0; i < n; i++ {
+		counter := make([]int, 26)
+		for j := i; j < n; j++ {
+			counter[s[j]-'a']++
+			mi, mx := 1000, 0
+			for _, v := range counter {
+				if v > 0 {
+					mi = min(mi, v)
+					mx = max(mx, v)
+				}
+			}
+			ans += mx - mi
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
