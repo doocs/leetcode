@@ -164,11 +164,8 @@ func rankTeams(votes []string) string {
 	sort.Slice(ans, func(i, j int) bool {
 		v1, v2 := counter[ans[i]], counter[ans[j]]
 		for i := range v1 {
-			if v1[i] > v2[i] {
-				return true
-			}
-			if v1[i] < v2[i] {
-				return false
+			if v1[i] != v2[i] {
+				return v1[i] > v2[i]
 			}
 		}
 		return ans[i] < ans[j]

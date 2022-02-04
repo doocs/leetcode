@@ -23,7 +23,7 @@
 - Netlify: https://lc.netlify.app
 - GitHub Pages: https://doocs.github.io/leetcode
 
-## LeetCode 全解
+## 算法全解
 
 - [LeetCode](/solution/README.md)
 - [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)

@@ -47,7 +47,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
+        counter = Counter(arr)
+        t = sorted(counter.items(), key=lambda x: x[1])
+        for v, cnt in t:
+            if k >= cnt:
+                k -= cnt
+                counter.pop(v)
+            else:
+                break
+        return len(counter)
 ```
 
 ### **Java**
@@ -55,7 +65,79 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findLeastNumOfUniqueInts(int[] arr, int k) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int v : arr) {
+            counter.put(v, counter.getOrDefault(v, 0) + 1);
+        }
+        List<Map.Entry<Integer, Integer>> t = new ArrayList<>(counter.entrySet());
+        Collections.sort(t, Comparator.comparingInt(Map.Entry::getValue));
+        for (Map.Entry<Integer, Integer> e : t) {
+            int v = e.getKey();
+            int cnt = e.getValue();
+            if (k >= cnt) {
+                k -= cnt;
+                counter.remove(v);
+            } else {
+                break;
+            }
+        }
+        return counter.size();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findLeastNumOfUniqueInts(vector<int>& arr, int k) {
+        unordered_map<int, int> counter;
+        for (int v : arr) ++counter[v];
+        vector<pair<int, int>> t(counter.begin(), counter.end());
+        sort(t.begin(), t.end(), [](const auto& a, const auto& b) {return a.second < b.second;});
+        for (auto [v, cnt] : t)
+        {
+            if (k >= cnt)
+            {
+                k -= cnt;
+                counter.erase(v);
+            }
+            else break;
+        }
+        return counter.size();
+    }
+};
+```
+
+### **Go**
+
+```go
+func findLeastNumOfUniqueInts(arr []int, k int) int {
+	counter := make(map[int]int)
+	for _, v := range arr {
+		counter[v]++
+	}
+	var t [][]int
+	for v, cnt := range counter {
+		t = append(t, []int{v, cnt})
+	}
+	sort.Slice(t, func(i, j int) bool {
+		return t[i][1] < t[j][1]
+	})
+	for _, e := range t {
+		v, cnt := e[0], e[1]
+		if k >= cnt {
+			k -= cnt
+			delete(counter, v)
+		} else {
+			break
+		}
+	}
+	return len(counter)
+}
 ```
 
 ### **...**
