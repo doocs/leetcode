@@ -79,13 +79,102 @@ There is a tie and we rank teams ascending by their IDs.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def rankTeams(self, votes: List[str]) -> str:
+        d = defaultdict(lambda: [0] * len(votes[0]))
+        for vote in votes:
+            for i, v in enumerate(vote):
+                d[v][i] -= 1
+        ans = sorted(votes[0], key=lambda x: (d[x], x))
+        return ''.join(ans)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String rankTeams(String[] votes) {
+        Map<Character, int[]> counter = new HashMap<>();
+        int n = votes[0].length();
+        for (String vote : votes) {
+            for (int i = 0; i < n; ++i) {
+                char v = vote.charAt(i);
+                counter.computeIfAbsent(v, k -> new int[26])[i]++;
+            }
+        }
+        List<Map.Entry<Character, int[]>> t = new ArrayList<>(counter.entrySet());
+        Collections.sort(t, (a, b) -> {
+            int[] v1 = a.getValue();
+            int[] v2 = b.getValue();
+            for (int i = 0; i < 26; ++i) {
+                if (v1[i] != v2[i]) {
+                    return v2[i] - v1[i];
+                }
+            }
+            return a.getKey() - b.getKey();
+        });
+        StringBuilder ans = new StringBuilder();
+        t.forEach(e -> ans.append(e.getKey()));
+        return ans.toString();
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string rankTeams(vector<string>& votes) {
+        unordered_map<char, vector<int>> counter;
+        int n = votes[0].size();
+        for (auto& vote : votes)
+        {
+            for (int i = 0; i < n; ++i)
+            {
+                char v = vote[i];
+                counter[v].resize(n);
+                ++counter[v][i];
+            }
+        }
+        string ans = votes[0];
+        sort(ans.begin(), ans.end(), [&](char a, char b){
+            return counter[a] > counter[b] || (counter[a] == counter[b] && a < b);
+        });
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func rankTeams(votes []string) string {
+	n := len(votes[0])
+	counter := make(map[byte][]int)
+	for _, v := range votes[0] {
+		counter[byte(v)] = make([]int, n)
+	}
+	for _, vote := range votes {
+		for i, v := range vote {
+			counter[byte(v)][i]++
+		}
+	}
+	ans := []byte(votes[0])
+	sort.Slice(ans, func(i, j int) bool {
+		v1, v2 := counter[ans[i]], counter[ans[j]]
+		for i := range v1 {
+			if v1[i] > v2[i] {
+				return true
+			}
+			if v1[i] < v2[i] {
+				return false
+			}
+		}
+		return ans[i] < ans[j]
+	})
+	return string(ans)
+}
 ```
 
 ### **...**
