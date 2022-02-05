@@ -1,25 +1,20 @@
 func getMaximumGold(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	vis := make([][]bool, m)
-	for i := range vis {
-		vis[i] = make([]bool, n)
-	}
-
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
-		if i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0 || vis[i][j] {
+		if i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0 {
 			return 0
 		}
-		vis[i][j] = true
-		dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-		t := 0
-		for _, dir := range dirs {
-			t = max(t, dfs(i+dir[0], j+dir[1]))
+		t := grid[i][j]
+		grid[i][j] = 0
+		res := 0
+		dirs := []int{-1, 0, 1, 0, -1}
+		for k := 0; k < 4; k++ {
+			res = max(res, t+dfs(i+dirs[k], j+dirs[k+1]))
 		}
-		vis[i][j] = false
-		return t + grid[i][j]
+		grid[i][j] = t
+		return res
 	}
-
 	ans := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {

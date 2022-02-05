@@ -66,19 +66,18 @@ DFS.
 class Solution:
     def getMaximumGold(self, grid: List[List[int]]) -> int:
         def dfs(i, j):
-            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == 0 or vis[i][j]:
+            if not (0 <= i < m and 0 <= j < n and grid[i][j]):
                 return 0
-
-            vis[i][j] = True
-            t = 0
-            for x, y in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
-                t = max(t, dfs(i + x, j + y))
-            vis[i][j] = False
-            return t + grid[i][j]
+            t = grid[i][j]
+            grid[i][j] = 0
+            res = 0
+            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                res = max(res, t + dfs(i + a, j + b))
+            grid[i][j] = t
+            return res
 
         m, n = len(grid), len(grid[0])
         ans = 0
-        vis = [[False] * n for _ in range(m)]
         for i in range(m):
             for j in range(n):
                 ans = max(ans, dfs(i, j))
@@ -90,15 +89,12 @@ class Solution:
 ```java
 class Solution {
     private int[][] grid;
-    private boolean[][] vis;
 
     public int getMaximumGold(int[][] grid) {
-        int m = grid.length, n = grid[0].length;
         this.grid = grid;
-        this.vis = new boolean[m][n];
         int ans = 0;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
+        for (int i = 0; i < grid.length; ++i) {
+            for (int j = 0; j < grid[0].length; ++j) {
                 ans = Math.max(ans, dfs(i, j));
             }
         }
@@ -106,17 +102,18 @@ class Solution {
     }
 
     private int dfs(int i, int j) {
-        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 0 || vis[i][j]) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 0) {
             return 0;
         }
-        vis[i][j] = true;
-        int t = 0;
-        int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-        for (int[] dir : dirs) {
-            t = Math.max(t, dfs(i + dir[0], j + dir[1]));
+        int t = grid[i][j];
+        grid[i][j] = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        int res = 0;
+        for (int k = 0; k < 4; ++k) {
+            res = Math.max(res, t + dfs(i + dirs[k], j + dirs[k + 1]));
         }
-        vis[i][j] = false;
-        return t + grid[i][j];
+        grid[i][j] = t;
+        return res;
     }
 }
 ```
@@ -127,27 +124,25 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> grid;
-    vector<vector<int>> dirs = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    vector<int> dirs = {-1, 0, 1, 0, -1};
 
     int getMaximumGold(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
         this->grid = grid;
-        vector<vector<bool>> vis(m, vector<bool>(n, false));
         int ans = 0;
-        for (int i = 0; i < m; ++i)
-            for (int j = 0; j < n; ++j)
-                ans = max(ans, dfs(i, j, vis));
+        for (int i = 0; i < grid.size(); ++i)
+            for (int j = 0; j < grid[0].size(); ++j)
+                ans = max(ans, dfs(i, j));
         return ans;
     }
 
-    int dfs(int i, int j,  vector<vector<bool>>& vis) {
-        if (i < 0 || i >= grid.size() || j < 0 || j >= grid[0].size() || grid[i][j] == 0 || vis[i][j]) return 0;
-        vis[i][j] = true;
-        int t = 0;
-        for (auto& dir : dirs)
-            t = max(t, dfs(i + dir[0], j + dir[1], vis));
-        vis[i][j] = false;
-        return t + grid[i][j];
+    int dfs(int i, int j) {
+        if (i < 0 || i >= grid.size() || j < 0 || j >= grid[0].size() || grid[i][j] == 0) return 0;
+        int t = grid[i][j];
+        grid[i][j] = 0;
+        int res = 0;
+        for (int k = 0; k < 4; ++k) res = max(res, t + dfs(i + dirs[k], j + dirs[k + 1]));
+        grid[i][j] = t;
+        return res;
     }
 };
 ```
@@ -157,26 +152,21 @@ public:
 ```go
 func getMaximumGold(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	vis := make([][]bool, m)
-	for i := range vis {
-		vis[i] = make([]bool, n)
-	}
-
 	var dfs func(i, j int) int
 	dfs = func(i, j int) int {
-		if i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0 || vis[i][j] {
+		if i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0 {
 			return 0
 		}
-		vis[i][j] = true
-		dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-		t := 0
-		for _, dir := range dirs {
-			t = max(t, dfs(i+dir[0], j+dir[1]))
+		t := grid[i][j]
+		grid[i][j] = 0
+		res := 0
+		dirs := []int{-1, 0, 1, 0, -1}
+		for k := 0; k < 4; k++ {
+			res = max(res, t+dfs(i+dirs[k], j+dirs[k+1]))
 		}
-		vis[i][j] = false
-		return t + grid[i][j]
+		grid[i][j] = t
+		return res
 	}
-
 	ans := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
