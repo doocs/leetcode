@@ -56,13 +56,140 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minOperations(self, nums1: List[int], nums2: List[int]) -> int:
+        s1, s2 = sum(nums1), sum(nums2)
+        if s1 == s2:
+            return 0
+        if s1 > s2:
+            return self.minOperations(nums2, nums1)
+        freq = [0] * 6
+        for x in nums1:
+            freq[6 - x] += 1
+        for x in nums2:
+            freq[x - 1] += 1
+        diff = s2 - s1
+        ans, i = 0, 5
+        while i > 0 and diff > 0:
+            while freq[i] and diff > 0:
+                diff -= i
+                freq[i] -= 1
+                ans += 1
+            i -= 1
+        return -1 if diff > 0 else ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minOperations(int[] nums1, int[] nums2) {
+        int s1 = sum(nums1);
+        int s2 = sum(nums2);
+        if (s1 == s2) {
+            return 0;
+        }
+        if (s1 > s2) {
+            return minOperations(nums2, nums1);
+        }
+        int[] freq = new int[6];
+        for (int x : nums1) {
+            ++freq[6 - x];
+        }
+        for (int x : nums2) {
+            ++freq[x - 1];
+        }
+        int diff = s2 - s1;
+        int ans = 0;
+        for (int i = 5; i > 0 && diff > 0; --i) {
+            while (freq[i] > 0 && diff > 0) {
+                diff -= i;
+                --freq[i];
+                ++ans;
+            }
+        }
+        return diff > 0 ? - 1 : ans;
+    }
 
+    private int sum(int[] nums) {
+        int s = 0;
+        for (int x : nums) {
+            s += x;
+        }
+        return s;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minOperations(vector<int>& nums1, vector<int>& nums2) {
+        int s1 = accumulate(nums1.begin(), nums1.end(), 0);
+        int s2 = accumulate(nums2.begin(), nums2.end(), 0);
+        if (s1 == s2) return 0;
+        if (s1 > s2) return minOperations(nums2, nums1);
+        vector<int> freq(6);
+        for (int x : nums1) ++freq[6 - x];
+        for (int x : nums2) ++freq[x - 1];
+        int diff = s2 - s1;
+        int ans = 0;
+        for (int i = 5; i > 0 && diff > 0; --i)
+        {
+            while (freq[i] && diff > 0)
+            {
+                diff -= i;
+                --freq[i];
+                ++ans;
+            }
+        }
+        return diff > 0 ? -1 : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minOperations(nums1 []int, nums2 []int) int {
+	s1, s2 := sum(nums1), sum(nums2)
+	if s1 == s2 {
+		return 0
+	}
+	if s1 > s2 {
+		return minOperations(nums2, nums1)
+	}
+	freq := make([]int, 6)
+	for _, x := range nums1 {
+		freq[6-x]++
+	}
+	for _, x := range nums2 {
+		freq[x-1]++
+	}
+	diff := s2 - s1
+	ans := 0
+	for i := 5; i > 0 && diff > 0; i-- {
+		for freq[i] > 0 && diff > 0 {
+			diff -= i
+			freq[i]--
+			ans++
+		}
+	}
+	if diff > 0 {
+		return -1
+	}
+	return ans
+}
+
+func sum(nums []int) int {
+	s := 0
+	for _, x := range nums {
+		s += x
+	}
+	return s
+}
 ```
 
 ### **...**
