@@ -4,12 +4,12 @@ class Solution {
         for (int num : nums) {
             ++counter[num];
         }
-        int res = 0;
-        for (int i = 1; i < 101; ++i) {
+        int ans = 0;
+        for (int i = 0; i < 101; ++i) {
             if (counter[i] == 1) {
-                res += i;
+                ans += i;
             }
         }
-        return res;
+        return ans;
     }
 }

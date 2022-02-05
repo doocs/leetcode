@@ -59,10 +59,8 @@
 ```python
 class Solution:
     def sumOfUnique(self, nums: List[int]) -> int:
-        counter = [0] * 101
-        for num in nums:
-            counter[num] += 1
-        return sum([i for i in range(1, 101) if counter[i] == 1])
+        counter = Counter(nums)
+        return sum(num for num, cnt in counter.items() if cnt == 1)
 ```
 
 ### **Java**
@@ -76,14 +74,49 @@ class Solution {
         for (int num : nums) {
             ++counter[num];
         }
-        int res = 0;
-        for (int i = 1; i < 101; ++i) {
+        int ans = 0;
+        for (int i = 0; i < 101; ++i) {
             if (counter[i] == 1) {
-                res += i;
+                ans += i;
             }
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int sumOfUnique(vector<int>& nums) {
+        vector<int> counter(101);
+        for (int num : nums) ++ counter[num];
+        int ans = 0;
+        for (int i = 0; i < 101; ++i)
+            if (counter[i] == 1)
+                ans += i;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumOfUnique(nums []int) int {
+	counter := make([]int, 101)
+	for _, num := range nums {
+		counter[num]++
+	}
+	ans := 0
+	for i := 0; i < 101; i++ {
+		if counter[i] == 1 {
+			ans += i
+		}
+	}
+	return ans
 }
 ```
 
