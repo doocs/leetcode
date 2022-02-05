@@ -26,9 +26,9 @@
 ## 算法全解
 
 - [LeetCode](/solution/README.md)
-- [LeetCode 《剑指 Offer（第 2 版）》](/lcof/README.md)
-- [LeetCode 《剑指 Offer（专项突击版）》](/lcof2/README.md)
-- [LeetCode 《程序员面试金典（第 6 版）》](/lcci/README.md)
+- [剑指 Offer（第 2 版）](/lcof/README.md)
+- [剑指 Offer（专项突击版）](/lcof2/README.md)
+- [程序员面试金典（第 6 版）](/lcci/README.md)
 
 ## 基础算法通关
 
