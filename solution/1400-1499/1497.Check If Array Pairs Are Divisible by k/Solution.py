@@ -1,19 +1,6 @@
 class Solution:
-    def isPathCrossing(self, path: str) -> bool:
-        x = y = 0
-        visited = set()
-        visited.add('0.0')
-        for c in path:
-            if c == 'N':
-                y += 1
-            elif c == 'S':
-                y -= 1
-            elif c == 'E':
-                x += 1
-            else:
-                x -= 1
-            pos = f'{x}.{y}'
-            if pos in visited:
-                return True
-            visited.add(pos)
-        return False
+    def canArrange(self, arr: List[int], k: int) -> bool:
+        mod = [0] * k
+        for v in arr:
+            mod[v % k] += 1
+        return all(mod[i] == mod[k - i] for i in range(1, k)) and mod[0] % 2 == 0

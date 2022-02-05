@@ -68,53 +68,62 @@
 
 ```python
 class Solution:
-    def isPathCrossing(self, path: str) -> bool:
-        x = y = 0
-        visited = set()
-        visited.add('0.0')
-        for c in path:
-            if c == 'N':
-                y += 1
-            elif c == 'S':
-                y -= 1
-            elif c == 'E':
-                x += 1
-            else:
-                x -= 1
-            pos = f'{x}.{y}'
-            if pos in visited:
-                return True
-            visited.add(pos)
-        return False
+    def canArrange(self, arr: List[int], k: int) -> bool:
+        mod = [0] * k
+        for v in arr:
+            mod[v % k] += 1
+        return all(mod[i] == mod[k - i] for i in range(1, k)) and mod[0] % 2 == 0
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public boolean isPathCrossing(String path) {
-        Set<String> visited = new HashSet<>();
-        visited.add("0.0");
-        int x = 0, y = 0;
-        for (int i = 0; i < path.length(); ++i) {
-            char c = path.charAt(i);
-            if (c == 'N') {
-                ++y;
-            } else if (c == 'S') {
-                --y;
-            } else if (c == 'E') {
-                ++x;
-            } else {
-                --x;
-            }
-            String pos = x + "." + y;
-            if (visited.contains(pos)) {
-                return true;
-            }
-            visited.add(pos);
+    public boolean canArrange(int[] arr, int k) {
+        int[] mod = new int[k];
+        for (int v : arr) {
+            ++mod[(v % k + k) % k];
         }
-        return false;
+        for (int i = 1; i < k; ++i) {
+            if (mod[i] != mod[k - i]) {
+                return false;
+            }
+        }
+        return mod[0] % 2 == 0;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canArrange(vector<int>& arr, int k) {
+        vector<int> mod(k);
+        for (int v : arr) ++mod[(v % k + k) % k];
+        for (int i = 1; i < k; ++i)
+            if (mod[i] != mod[k - i])
+                return false;
+        return mod[0] % 2 == 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canArrange(arr []int, k int) bool {
+	mod := make([]int, k)
+	for _, v := range arr {
+		mod[(v%k+k)%k]++
+	}
+	for i := 1; i < k; i++ {
+		if mod[i] != mod[k-i] {
+			return false
+		}
+	}
+	return mod[0]%2 == 0
 }
 ```
 
