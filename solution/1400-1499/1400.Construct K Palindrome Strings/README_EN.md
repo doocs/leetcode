@@ -89,13 +89,75 @@ Some possible constructions &quot;anna&quot; + &quot;elble&quot;, &quot;anbna&qu
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canConstruct(self, s: str, k: int) -> bool:
+        if len(s) < k:
+            return False
+        counter = Counter(s)
+        cnt = sum(1 for n in counter.values() if n % 2 == 1)
+        return cnt <= k
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean canConstruct(String s, int k) {
+        if (s.length() < k) {
+            return false;
+        }
+        int[] counter = new int[26];
+        for (char c : s.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        int cnt = 0;
+        for (int v : counter) {
+            if (v % 2 == 1) {
+                ++cnt;
+            }
+        }
+        return cnt <= k;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canConstruct(string s, int k) {
+        if (s.size() < k) return 0;
+        vector<int> counter(26);
+        for (char c : s) ++counter[c - 'a'];
+        int cnt = 0;
+        for (int v : counter)
+            if (v % 2)
+                ++cnt;
+        return cnt <= k;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canConstruct(s string, k int) bool {
+	if len(s) < k {
+		return false
+	}
+	counter := make([]int, 26)
+	for _, c := range s {
+		counter[c-'a']++
+	}
+	cnt := 0
+	for _, v := range counter {
+		if v%2 == 1 {
+			cnt++
+		}
+	}
+	return cnt <= k
+}
 ```
 
 ### **...**
