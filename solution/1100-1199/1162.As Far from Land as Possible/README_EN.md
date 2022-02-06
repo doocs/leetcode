@@ -37,18 +37,147 @@
 
 ## Solutions
 
+BFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maxDistance(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        q = deque([(i, j) for i in range(n)
+                   for j in range(n) if grid[i][j] == 1])
+        ans = -1
+        valid = False
+        while q:
+            ans += 1
+            for _ in range(len(q), 0, -1):
+                i, j = q.popleft()
+                for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+                    x, y = i + a, b + j
+                    if 0 <= x < n and 0 <= y < n and grid[x][y] == 0:
+                        valid = True
+                        grid[x][y] = 1
+                        q.append((x, y))
+        return ans if valid else -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maxDistance(int[][] grid) {
+        int n = grid.length;
+        Deque<int[]> q = new LinkedList<>();
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    q.offer(new int[]{i, j});
+                }
+            }
+        }
+        int ans = -1;
+        boolean valid = false;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            ++ans;
+            for (int k = q.size(); k > 0; --k) {
+                int[] p = q.poll();
+                for (int i = 0; i < 4; ++i) {
+                    int x = p[0] + dirs[i];
+                    int y = p[1] + dirs[i + 1];
+                    if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
+                        valid = true;
+                        grid[x][y] = 1;
+                        q.offer(new int[]{x, y});
+                    }
+                }
+            }
+        }
+        return valid ? ans : -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxDistance(vector<vector<int>>& grid) {
+        int n = grid.size();
+        typedef pair<int, int> pii;
+        queue<pii> q;
+        for (int i = 0; i < n; ++i)
+            for (int j = 0; j < n; ++j)
+                if (grid[i][j] == 1)
+                    q.push({i, j});
+        int ans = -1;
+        bool valid = false;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        while (!q.empty())
+        {
+            ++ans;
+            for (int k = q.size(); k > 0; --k)
+            {
+                pii p = q.front();
+                q.pop();
+                for (int i = 0; i < 4; ++i)
+                {
+                    int x = p.first + dirs[i];
+                    int y = p.second + dirs[i + 1];
+                    if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0)
+                    {
+                        valid = true;
+                        grid[x][y] = 1;
+                        q.push({x, y});
+                    }
+                }
+            }
+        }
+        return valid ? ans : -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxDistance(grid [][]int) int {
+	n := len(grid)
+	var q [][]int
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 {
+				q = append(q, []int{i, j})
+			}
+		}
+	}
+	ans := -1
+	valid := false
+	dirs := []int{-1, 0, 1, 0, -1}
+	for len(q) > 0 {
+		ans++
+		for k := len(q); k > 0; k-- {
+			p := q[0]
+			q = q[1:]
+			for i := 0; i < 4; i++ {
+				x, y := p[0]+dirs[i], p[1]+dirs[i+1]
+				if x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0 {
+					valid = true
+					grid[x][y] = 1
+					q = append(q, []int{x, y})
+				}
+			}
+		}
+	}
+	if valid {
+		return ans
+	}
+	return -1
+}
 ```
 
 ### **...**
