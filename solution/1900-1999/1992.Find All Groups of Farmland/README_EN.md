@@ -59,13 +59,95 @@ There are no groups of farmland.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findFarmland(self, land: List[List[int]]) -> List[List[int]]:
+        m, n = len(land), len(land[0])
+        ans = []
+        for i in range(m):
+            for j in range(n):
+                if land[i][j] == 0 or (j > 0 and land[i][j-1] == 1) or (i > 0 and land[i-1][j] == 1):
+                    continue
+                x, y = i, j
+                while x + 1 < m and land[x + 1][j] == 1:
+                    x += 1
+                while y + 1 < n and land[x][y + 1] == 1:
+                    y += 1
+                ans.append([i, j, x, y])
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[][] findFarmland(int[][] land) {
+        List<int[]> ans = new ArrayList<>();
+        int m = land.length;
+        int n = land[0].length;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (land[i][j] == 0 || (j > 0 && land[i][j-1] == 1) || (i > 0 && land[i-1][j] == 1)) {
+                    continue;
+                }
+                int x = i;
+                int y = j;
+                for (; x + 1 < m && land[x + 1][j] == 1; ++x);
+                for (; y + 1 < n && land[x][y + 1] == 1; ++y);
+                ans.add(new int[]{i, j, x, y});
+            }
+        }
+        return ans.toArray(new int[ans.size()][4]);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> findFarmland(vector<vector<int>>& land) {
+        vector<vector<int>> ans;
+        int m = land.size();
+        int n = land[0].size();
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                if (land[i][j] == 0 || (j > 0 && land[i][j-1] == 1) || (i > 0 && land[i-1][j] == 1)) continue;
+                int x = i;
+                int y = j;
+                for (; x + 1 < m && land[x + 1][j] == 1; ++x);
+                for (; y + 1 < n && land[x][y + 1] == 1; ++y);
+                ans.push_back({i, j, x, y});
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findFarmland(land [][]int) [][]int {
+	m, n := len(land), len(land[0])
+	var ans [][]int
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if land[i][j] == 0 || (j > 0 && land[i][j-1] == 1) || (i > 0 && land[i-1][j] == 1) {
+				continue
+			}
+			x, y := i, j
+			for ; x+1 < m && land[x+1][j] == 1; x++ {
+			}
+			for ; y+1 < n && land[x][y+1] == 1; y++ {
+			}
+			ans = append(ans, []int{i, j, x, y})
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
