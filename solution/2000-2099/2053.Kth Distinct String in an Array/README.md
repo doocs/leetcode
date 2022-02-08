@@ -55,6 +55,8 @@ arr 中所有字符串都是独一无二的，所以返回第 1 个字符串 "aa
 
 <!-- 这里可写通用的实现逻辑 -->
 
+哈希表计数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,7 +64,15 @@ arr 中所有字符串都是独一无二的，所以返回第 1 个字符串 "aa
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def kthDistinct(self, arr: List[str], k: int) -> str:
+        counter = Counter(arr)
+        for v in arr:
+            if counter[v] == 1:
+                k -= 1
+                if k == 0:
+                    return v
+        return ''
 ```
 
 ### **Java**
@@ -70,9 +80,65 @@ arr 中所有字符串都是独一无二的，所以返回第 1 个字符串 "aa
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public String kthDistinct(String[] arr, int k) {
+        Map<String, Integer> counter = new HashMap<>();
+        for (String v : arr) {
+            counter.put(v, counter.getOrDefault(v, 0) + 1);
+        }
+        for (String v : arr) {
+            if (counter.get(v) == 1) {
+                --k;
+                if (k == 0) {
+                    return v;
+                }
+            }
+        }
+        return "";
+    }
+}
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string kthDistinct(vector<string>& arr, int k) {
+        unordered_map<string, int> counter;
+        for (auto& v : arr) ++counter[v];
+        for (auto& v : arr)
+        {
+            if (counter[v] == 1)
+            {
+                --k;
+                if (k == 0) return v;
+            }
+        }
+        return "";
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthDistinct(arr []string, k int) string {
+	counter := make(map[string]int)
+	for _, v := range arr {
+		counter[v]++
+	}
+	for _, v := range arr {
+		if counter[v] == 1 {
+			k--
+			if k == 0 {
+				return v
+			}
+		}
+	}
+	return ""
+}
+```
 ### **...**
 
 ```

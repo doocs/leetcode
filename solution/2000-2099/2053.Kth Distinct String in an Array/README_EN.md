@@ -57,13 +57,78 @@ The only distinct string is &quot;b&quot;. Since there are fewer than 3 distinct
 ### **Python3**
 
 ```python
-
+class Solution:
+    def kthDistinct(self, arr: List[str], k: int) -> str:
+        counter = Counter(arr)
+        for v in arr:
+            if counter[v] == 1:
+                k -= 1
+                if k == 0:
+                    return v
+        return ''
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String kthDistinct(String[] arr, int k) {
+        Map<String, Integer> counter = new HashMap<>();
+        for (String v : arr) {
+            counter.put(v, counter.getOrDefault(v, 0) + 1);
+        }
+        for (String v : arr) {
+            if (counter.get(v) == 1) {
+                --k;
+                if (k == 0) {
+                    return v;
+                }
+            }
+        }
+        return "";
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string kthDistinct(vector<string>& arr, int k) {
+        unordered_map<string, int> counter;
+        for (auto& v : arr) ++counter[v];
+        for (auto& v : arr)
+        {
+            if (counter[v] == 1)
+            {
+                --k;
+                if (k == 0) return v;
+            }
+        }
+        return "";
+    }
+};
+```
+
+### **Go**
+
+```go
+func kthDistinct(arr []string, k int) string {
+	counter := make(map[string]int)
+	for _, v := range arr {
+		counter[v]++
+	}
+	for _, v := range arr {
+		if counter[v] == 1 {
+			k--
+			if k == 0 {
+				return v
+			}
+		}
+	}
+	return ""
+}
 ```
 
 ### **...**
