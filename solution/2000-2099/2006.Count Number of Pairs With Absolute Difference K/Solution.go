@@ -1,19 +1,14 @@
 func countKDifference(nums []int, k int) int {
-	n := len(nums)
-	res := 0
-	for i := 0; i < n; i++ {
-		for j := i + 1; j < n; j++ {
-			if abs(nums[i]-nums[j]) == k {
-				res++
-			}
+	ans := 0
+	counter := make([]int, 110)
+	for _, num := range nums {
+		if num >= k {
+			ans += counter[num-k]
 		}
+		if num+k <= 100 {
+			ans += counter[num+k]
+		}
+		counter[num]++
 	}
-	return res
-}
-
-func abs(x int) int {
-	if x > 0 {
-		return x
-	}
-	return -x
+	return ans
 }

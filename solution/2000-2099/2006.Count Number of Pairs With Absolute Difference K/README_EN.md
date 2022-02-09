@@ -63,13 +63,23 @@
 ```python
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
-        n = len(nums)
-        res = 0
+        ans, n = 0, len(nums)
         for i in range(n):
             for j in range(i + 1, n):
                 if abs(nums[i] - nums[j]) == k:
-                    res += 1
-        return res
+                    ans += 1
+        return ans
+```
+
+```python
+class Solution:
+    def countKDifference(self, nums: List[int], k: int) -> int:
+        ans = 0
+        counter = Counter()
+        for num in nums:
+            ans += counter[num - k] + counter[num + k]
+            counter[num] += 1
+        return ans
 ```
 
 ### **Java**
@@ -77,16 +87,34 @@ class Solution:
 ```java
 class Solution {
     public int countKDifference(int[] nums, int k) {
-        int n = nums.length;
-        int res = 0;
-        for (int i = 0; i < n; ++i) {
+        int ans = 0;
+        for (int i = 0, n = nums.length; i < n; ++i) {
             for (int j = i + 1; j < n; ++j) {
                 if (Math.abs(nums[i] - nums[j]) == k) {
-                    ++res;
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int countKDifference(int[] nums, int k) {
+        int ans = 0;
+        int[] counter = new int[110];
+        for (int num : nums) {
+            if (num >= k) {
+                ans += counter[num - k];
+            }
+            if (num + k <= 100) {
+                ans += counter[num + k];
+            }
+            ++counter[num];
+        }
+        return ans;
     }
 }
 ```
@@ -98,11 +126,28 @@ class Solution {
 public:
     int countKDifference(vector<int>& nums, int k) {
         int n = nums.size();
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i)
             for (int j = i + 1; j < n; ++j)
-                if (abs(nums[i] - nums[j]) == k) ++ res;
-        return res;
+                if (abs(nums[i] - nums[j]) == k) ++ ans;
+        return ans;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int countKDifference(vector<int>& nums, int k) {
+        int ans = 0;
+        vector<int> counter(110);
+        for (int num : nums)
+        {
+            if (num >= k) ans += counter[num - k];
+            if (num + k <= 100) ans += counter[num + k];
+            ++counter[num];
+        }
+        return ans;
     }
 };
 ```
@@ -112,15 +157,15 @@ public:
 ```go
 func countKDifference(nums []int, k int) int {
 	n := len(nums)
-	res := 0
+	ans := 0
 	for i := 0; i < n; i++ {
 		for j := i + 1; j < n; j++ {
 			if abs(nums[i]-nums[j]) == k {
-				res++
+				ans++
 			}
 		}
 	}
-	return res
+	return ans
 }
 
 func abs(x int) int {
@@ -128,6 +173,23 @@ func abs(x int) int {
 		return x
 	}
 	return -x
+}
+```
+
+```go
+func countKDifference(nums []int, k int) int {
+	ans := 0
+	counter := make([]int, 110)
+	for _, num := range nums {
+		if num >= k {
+			ans += counter[num-k]
+		}
+		if num+k <= 100 {
+			ans += counter[num+k]
+		}
+		counter[num]++
+	}
+	return ans
 }
 ```
 
