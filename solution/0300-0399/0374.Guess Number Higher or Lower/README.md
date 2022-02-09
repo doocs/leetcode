@@ -66,6 +66,29 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+解释一下，为什么要写成 `mid = left + (right - left) /2`，而不是 `mid = (left + right) / 2`。
+
+因为会溢出！！此时的溢出指的是，`mid` 可能会超出该数据类型的最大值。
+
+假定一个数据类型 `uint8`，数值范围 `0 ~ 255`：
+
+```cs
+uint8 left, right, mid;
+
+// 假定
+left = 200;
+right = 250;
+
+// 则 left + right = 450 > 255，此时已经溢出了
+// 0001 1100 0010 因为只能存储8位，实际 1100 0010 = 194
+mid = (left + right) / 2;  // 此时实际 mid = 194 / 2
+
+//此方法绝对不会溢出，最好写成这样
+mid = left+(right-left)/2; // 200 + (250 - 200) / 2 = 225
+```
+
+> 摘抄评论区，有改动，[原文链接](https://leetcode-cn.com/leetbook/read/binary-search/xee4ev/?discussion=F2ytex)
+
 <!-- tabs:start -->
 
 ### **Python3**
