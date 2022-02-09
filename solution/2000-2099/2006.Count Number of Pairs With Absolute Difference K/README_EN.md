@@ -207,6 +207,44 @@ func countKDifference(nums []int, k int) int {
 }
 ```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn count_k_difference(nums: Vec<i32>, k: i32) -> i32 {
+        let mut res = 0;
+        let n = nums.len();
+        for i in 0..n - 1 {
+            for j in i..n {
+                if (nums[i] - nums[j]).abs() == k {
+                    res += 1;
+                }
+            }
+        }
+        res
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn count_k_difference(nums: Vec<i32>, k: i32) -> i32 {
+        let mut arr = [0; 101];
+        let mut res = 0;
+        for num in nums {
+            if num - k >= 1 {
+                res += arr[(num - k) as usize];
+            }
+            if num + k <= 100 {
+                res += arr[(num + k) as usize]
+            }
+            arr[num as usize] += 1;
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
