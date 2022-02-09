@@ -65,6 +65,18 @@ class Solution:
         return True
 ```
 
+```python
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        m1, m2 = [0] * 256, [0] * 256
+        for i in range(len(s)):
+            c1, c2 = ord(s[i]), ord(t[i])
+            if m1[c1] != m2[c2]:
+                return False
+            m1[c1] = m2[c2] = i + 1
+        return True
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
@@ -83,6 +95,60 @@ class Solution {
         }
         return true;
     }
+}
+```
+
+```java
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        int[] m1 = new int[256];
+        int[] m2 = new int[256];
+        for (int i = 0; i < s.length(); ++i) {
+            char c1 = s.charAt(i);
+            char c2 = t.charAt(i);
+            if (m1[c1] != m2[c2]) {
+                return false;
+            }
+            m1[c1] = i + 1;
+            m2[c2] = i + 1;
+        }
+        return true;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        vector<int> m1(256);
+        vector<int> m2(256);
+        for (int i = 0; i < s.size(); ++i)
+        {
+            if (m1[s[i]] != m2[t[i]]) return 0;
+            m1[s[i]] = i + 1;
+            m2[t[i]] = i + 1;
+        }
+        return 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func isIsomorphic(s string, t string) bool {
+	m1, m2 := make([]int, 256), make([]int, 256)
+	for i := 0; i < len(s); i++ {
+		if m1[s[i]] != m2[t[i]] {
+			return false
+		}
+		m1[s[i]] = i + 1
+		m2[t[i]] = i + 1
+	}
+	return true
 }
 ```
 

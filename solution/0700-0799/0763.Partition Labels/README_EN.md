@@ -39,14 +39,13 @@ A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect
 ```python
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        last = defaultdict(int)
-        n = len(s)
-        for i in range(n):
-            last[s[i]] = i
+        last = [0] * 26
+        for i, c in enumerate(s):
+            last[ord(c) - ord('a')] = i
         ans = []
         left = right = 0
-        for i in range(n):
-            right = max(right, last[s[i]])
+        for i, c in enumerate(s):
+            right = max(right, last[ord(c) - ord('a')])
             if i == right:
                 ans.append(right - left + 1)
                 left = right + 1
@@ -58,14 +57,14 @@ class Solution:
 ```java
 class Solution {
     public List<Integer> partitionLabels(String s) {
-        int[] last = new int[128];
+        int[] last = new int[26];
         int n = s.length();
         for (int i = 0; i < n; ++i) {
-            last[s.charAt(i)] = i;
+            last[s.charAt(i) - 'a'] = i;
         }
         List<Integer> ans = new ArrayList<>();
         for (int i = 0, left = 0, right = 0; i < n; ++i) {
-            right = Math.max(right, last[s.charAt(i)]);
+            right = Math.max(right, last[s.charAt(i) - 'a']);
             if (i == right) {
                 ans.add(right - left + 1);
                 left = right + 1;
@@ -81,15 +80,15 @@ class Solution {
 ```ts
 function partitionLabels(s: string): number[] {
     const n = s.length;
-    let last = new Array(128);
+    let last = new Array(26);
     for (let i = 0; i < n; i++) {
-        last[s.charCodeAt(i)] = i;
+        last[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
     }
     let ans = [];
     let left = 0,
         right = 0;
     for (let i = 0; i < n; i++) {
-        right = Math.max(right, last[s.charCodeAt(i)]);
+        right = Math.max(right, last[s.charCodeAt(i) - 'a'.charCodeAt(0)]);
         if (i == right) {
             ans.push(right - left + 1);
             left = right + 1;
@@ -105,13 +104,13 @@ function partitionLabels(s: string): number[] {
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
+        vector<int> last(26);
         int n = s.size();
-        vector<int> last(128);
-        for (int i = 0; i < n; ++i) last[s[i]] = i;
+        for (int i = 0; i < n; ++i) last[s[i] - 'a'] = i;
         vector<int> ans;
         for (int i = 0, left = 0, right = 0; i < n; ++i)
         {
-            right = max(right, last[s[i]]);
+            right = max(right, last[s[i] - 'a']);
             if (i == right)
             {
                 ans.push_back(right - left + 1);
@@ -127,15 +126,14 @@ public:
 
 ```go
 func partitionLabels(s string) []int {
+	last := make([]int, 26)
 	n := len(s)
-	last := make([]int, 128)
 	for i := 0; i < n; i++ {
-		last[s[i]] = i
+		last[s[i]-'a'] = i
 	}
 	var ans []int
-	left, right := 0, 0
-	for i := 0; i < n; i++ {
-		right = max(right, last[s[i]])
+	for i, left, right := 0, 0, 0; i < n; i++ {
+		right = max(right, last[s[i]-'a'])
 		if i == right {
 			ans = append(ans, right-left+1)
 			left = right + 1
