@@ -17,15 +17,16 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [<code>4,5,6,7,0,1,2]</code>, target = 0
+<strong>输入：</strong>nums = [4,5,6,7,0,1,2], target = 0
 <strong>输出：</strong>4
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [<code>4,5,6,7,0,1,2]</code>, target = 3
-<strong>输出：</strong>-1</pre>
+<strong>输入：</strong>nums = [4,5,6,7,0,1,2], target = 3
+<strong>输出：</strong>-1
+</pre>
 
 <p><strong>示例 3：</strong></p>
 
@@ -40,10 +41,10 @@
 
 <ul>
 	<li><code>1 <= nums.length <= 5000</code></li>
-	<li><code>-10^4 <= nums[i] <= 10^4</code></li>
+	<li><code>-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup></code></li>
 	<li><code>nums</code> 中的每个值都 <strong>独一无二</strong></li>
 	<li>题目数据保证 <code>nums</code> 在预先未知的某个下标上进行了旋转</li>
-	<li><code>-10^4 <= target <= 10^4</code></li>
+	<li><code>-10<sup>4</sup> <= target <= 10<sup>4</sup></code></li>
 </ul>
 
 <p> </p>
