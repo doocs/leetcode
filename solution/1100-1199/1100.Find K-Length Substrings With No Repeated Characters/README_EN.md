@@ -53,13 +53,85 @@ Notice K can be larger than the length of S. In this case is not possible to fin
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numKLenSubstrNoRepeats(self, s: str, k: int) -> int:
+        ans = j = 0
+        mp = {}
+        for i, c in enumerate(s):
+            if c in mp:
+                j = max(j, mp[c] + 1)
+            mp[c] = i
+            if i - j + 1 >= k:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numKLenSubstrNoRepeats(String s, int k) {
+        int ans = 0;
+        Map<Character, Integer> mp = new HashMap<>();
+        for (int i = 0, j = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            if (mp.containsKey(c)) {
+                j = Math.max(j, mp.get(c) + 1);
+            }
+            mp.put(c, i);
+            if (i - j + 1 >= k) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numKLenSubstrNoRepeats(string s, int k) {
+        int ans = 0;
+        unordered_map<int, int> mp;
+        for (int i = 0, j = 0; i < s.size(); ++i)
+        {
+            char c = s[i];
+            if (mp.count(c)) j = max(j, mp[c] + 1);
+            mp[c] = i;
+            if (i - j + 1 >= k) ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numKLenSubstrNoRepeats(s string, k int) int {
+	mp := make(map[rune]int)
+	ans, j := 0, 0
+	for i, c := range s {
+		if v, ok := mp[c]; ok {
+			j = max(j, v+1)
+		}
+		mp[c] = i
+		if i-j+1 >= k {
+			ans++
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
