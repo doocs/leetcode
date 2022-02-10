@@ -1,10 +1,12 @@
 class Solution {
 public:
     bool canPermutePalindrome(string s) {
-        unordered_map<char, int> counter;
-        for (char c : s) ++counter[c];
+        vector<int> counter(26);
+        for (auto& c : s) ++counter[c - 'a'];
         int oddCnt = 0;
-        for (auto& it : counter) oddCnt += it.second % 2;
+        for (int& cnt : counter)
+            if (cnt % 2 == 1)
+                ++oddCnt;
         return oddCnt < 2;
     }
 };
