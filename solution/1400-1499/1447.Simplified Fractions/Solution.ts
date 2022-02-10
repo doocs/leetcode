@@ -10,6 +10,11 @@ function simplifiedFractions(n: number): string[] {
     return ans;
 };
 
+// a < b
 function gcd(a: number, b: number): number {
-    return a == 0 ? b : gcd(b % a, a);
+    if (a > b) [a, b] = [b, a];
+    while (a) {
+        [a, b] = [b % a, a];
+    }
+    return b;
 }
