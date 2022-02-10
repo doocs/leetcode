@@ -47,6 +47,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+简单计数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -54,7 +56,13 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        ans = 0
+        counter = Counter(text)
+        counter['l'] >>= 1
+        counter['o'] >>= 1
+        return min(counter['b'], counter['a'], counter['l'], counter['o'], counter['n'])
 ```
 
 ### **Java**
@@ -62,7 +70,65 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int maxNumberOfBalloons(String text) {
+        int[] counter = new int[26];
+        for (char c : text.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        counter['l' - 'a'] >>= 1;
+        counter['o' - 'a'] >>= 1;
+        int ans = 10000;
+        for (char c : "balon".toCharArray()) {
+            ans = Math.min(ans, counter[c - 'a']);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maxNumberOfBalloons(string text) {
+        vector<int> counter(26);
+        for (char& c : text) ++counter[c - 'a'];
+        counter['l' - 'a'] >>= 1;
+        counter['o' - 'a'] >>= 1;
+        int ans = 10000;
+        string t = "balon";
+        for (char& c : t) ans = min(ans, counter[c - 'a']);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maxNumberOfBalloons(text string) int {
+	counter := make([]int, 26)
+	for i := range text {
+		counter[text[i]-'a']++
+	}
+	counter['l'-'a'] >>= 1
+	counter['o'-'a'] >>= 1
+	ans := 10000
+	t := "balon"
+	for i := range t {
+		ans = min(ans, counter[t[i]-'a'])
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**
