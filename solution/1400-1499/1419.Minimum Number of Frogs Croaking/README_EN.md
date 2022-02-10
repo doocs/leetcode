@@ -57,13 +57,148 @@ The second frog could yell later &quot;cr<strong>c</strong>oak<strong>roak</stro
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minNumberOfFrogs(self, croakOfFrogs: str) -> int:
+        c = r = o = a = k = ans = 0
+        for ch in croakOfFrogs:
+            if ch == 'c':
+                c += 1
+                if k > 0:
+                    k -= 1
+                else:
+                    ans += 1
+            elif ch == 'r':
+                r += 1
+                c -= 1
+            elif ch == 'o':
+                o += 1
+                r -= 1
+            elif ch == 'a':
+                a += 1
+                o -= 1
+            else:
+                k += 1
+                a -= 1
+            if c < 0 or r < 0 or o < 0 or a < 0:
+                return -1
+        return -1 if c != 0 or r != 0 or o != 0 or a != 0 else ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minNumberOfFrogs(String croakOfFrogs) {
+        int c = 0, r = 0, o = 0, a = 0, k = 0;
+        int ans = 0;
+        for (char ch : croakOfFrogs.toCharArray()) {
+            if (ch == 'c') {
+                ++c;
+                if (k > 0) {
+                    --k;
+                } else {
+                    ++ans;
+                }
+            } else if (ch == 'r') {
+                ++r;
+                --c;
+            } else if (ch == 'o') {
+                ++o;
+                --r;
+            } else if (ch == 'a') {
+                ++a;
+                --o;
+            } else {
+                ++k;
+                --a;
+            }
+            if (c < 0 || r < 0 || o < 0 || a < 0) {
+                return -1;
+            }
+        }
+        return c == 0 && r == 0 && o == 0 && a == 0 ? ans : -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minNumberOfFrogs(string croakOfFrogs) {
+        int c = 0, r = 0, o = 0, a = 0, k = 0, ans = 0;
+        for (char ch : croakOfFrogs)
+        {
+            if (ch == 'c')
+            {
+                ++c;
+                if (k > 0) --k;
+                else ++ans;
+            }
+            else if (ch == 'r')
+            {
+                ++r;
+                --c;
+            }
+            else if (ch == 'o')
+            {
+                ++o;
+                --r;
+            }
+            else if (ch == 'a')
+            {
+                ++a;
+                --o;
+            }
+            else
+            {
+                ++k;
+                --a;
+            }
+            if (c < 0 || r < 0 || o < 0 || a < 0) return -1;
+        }
+        return c == 0 && r == 0 && o == 0 && a == 0 ? ans : -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minNumberOfFrogs(croakOfFrogs string) int {
+	c, r, o, a, k, ans := 0, 0, 0, 0, 0, 0
+	for i := range croakOfFrogs {
+		ch := croakOfFrogs[i]
+		if ch == 'c' {
+			c++
+			if k > 0 {
+				k--
+			} else {
+				ans++
+			}
+		} else if ch == 'r' {
+			r++
+			c--
+		} else if ch == 'o' {
+			o++
+			r--
+		} else if ch == 'a' {
+			a++
+			o--
+		} else {
+			k++
+			a--
+		}
+		if c < 0 || r < 0 || o < 0 || a < 0 {
+			return -1
+		}
+	}
+	if c == 0 && r == 0 && o == 0 && a == 0 {
+		return ans
+	}
+	return -1
+}
 ```
 
 ### **...**
