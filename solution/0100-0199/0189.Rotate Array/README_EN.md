@@ -112,7 +112,8 @@ var rotate = function (nums, k) {
     nums.splice(0, 0, ...nums.splice(-k, k));
 };
 ```
-Use three array flips
+
+Use three array reverses implemented by double pointers
 
 ```js
 /**
@@ -129,6 +130,7 @@ Use three array flips
 
 };
 function reverse(nums, start, end){
+    // reverse implemented by double pointers
     while(start < end){
         const temp = nums[start];
         nums[start] = nums[end];
