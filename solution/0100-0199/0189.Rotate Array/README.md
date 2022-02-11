@@ -136,6 +136,34 @@ var rotate = function (nums, k) {
 };
 ```
 
+使用三次数组翻转 + 双指针实现翻转
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function (nums, k) {
+    k %= nums.length;
+    // 使用三次数组翻转
+    reverse(nums, 0, nums.length - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, nums.length - 1);
+
+};
+function reverse(nums, start, end) {
+    // 双指针实现翻转
+    while (start < end) {
+        const temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+        start += 1;
+        end -= 1;
+    }
+}
+```
+
 ### **Go**
 
 ```go
