@@ -153,7 +153,7 @@ var rotate = function (nums, k) {
 
 };
 function reverse(nums, start, end) {
-    //双指针实现翻转
+    // 双指针实现翻转
     while (start < end) {
         const temp = nums[start];
         nums[start] = nums[end];
