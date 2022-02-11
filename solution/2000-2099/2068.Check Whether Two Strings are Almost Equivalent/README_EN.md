@@ -62,13 +62,73 @@ The difference is 4, which is more than the allowed 3.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def checkAlmostEquivalent(self, word1: str, word2: str) -> bool:
+        counter = defaultdict(int)
+        for c in word1:
+            counter[c] += 1
+        for c in word2:
+            counter[c] -= 1
+        return all(abs(x) <= 3 for x in counter.values())
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean checkAlmostEquivalent(String word1, String word2) {
+        int[] counter = new int[26];
+        for (char c : word1.toCharArray()) {
+            ++counter[c - 'a'];
+        }
+        for (char c : word2.toCharArray()) {
+            --counter[c - 'a'];
+        }
+        for (int i = 0; i < 26; ++i) {
+            if (Math.abs(counter[i]) > 3) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkAlmostEquivalent(string word1, string word2) {
+        vector<int> counter(26);
+        for (char& c : word1) ++counter[c - 'a'];
+        for (char& c : word2) --counter[c - 'a'];
+        for (int i = 0; i < 26; ++i)
+            if (abs(counter[i]) > 3)
+                return 0;
+        return 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func checkAlmostEquivalent(word1 string, word2 string) bool {
+	counter := make([]int, 26)
+	for i := range word1 {
+		counter[word1[i]-'a']++
+	}
+	for i := range word2 {
+		counter[word2[i]-'a']--
+	}
+	for _, v := range counter {
+		if v > 3 || -v > 3 {
+			return false
+		}
+	}
+	return true
+}
 ```
 
 ### **...**
