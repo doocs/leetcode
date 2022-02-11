@@ -176,6 +176,86 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function mergeTwoLists(
+    l1: ListNode | null,
+    l2: ListNode | null
+): ListNode | null {
+    const res = new ListNode();
+    let cur = res;
+    while (l1 && l2) {
+        let node: ListNode;
+        if (l1.val < l2.val) {
+            node = l1;
+            l1 = l1.next;
+        } else {
+            node = l2;
+            l2 = l2.next;
+        }
+        cur.next = node;
+        cur = node;
+    }
+    cur.next = l1 || l2;
+    return res.next;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn merge_two_lists(
+        l1: Option<Box<ListNode>>,
+        l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        match (l1, l2) {
+            (Some(mut n1), Some(mut n2)) => {
+                if n1.val < n2.val {
+                    n1.next = Solution::merge_two_lists(n1.next, Some(n2));
+                    Some(n1)
+                } else {
+                    n2.next = Solution::merge_two_lists(Some(n1), n2.next);
+                    Some(n2)
+                }
+            }
+            (Some(node), None) => Some(node),
+            (None, Some(node)) => Some(node),
+            (None, None) => None,
+        }
+    }
+}
+```
+
 ### **...**
 
 ```
