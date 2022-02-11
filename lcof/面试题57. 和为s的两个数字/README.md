@@ -235,6 +235,8 @@ function twoSum(nums: number[], target: number): number[] {
 
 ### **Rust**
 
+双指针：
+
 ```rust
 use std::cmp::Ordering;
 
@@ -249,6 +251,34 @@ impl Solution {
                 Ordering::Equal => break vec![nums[l], nums[r]],
             }
         }
+    }
+}
+```
+
+二分查找：
+
+```rust
+use std::cmp::Ordering;
+
+impl Solution {
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let n = nums.len() - 1;
+        let mut l: usize = 0;
+        let mut r: usize = n;
+        for i in 0..n {
+            l = i + 1;
+            r = n;
+            let target = target - nums[i];
+            while l <= r {
+                let mid = l + r >> 1;
+                match target.cmp(&nums[mid]) {
+                    Ordering::Less => r = mid - 1,
+                    Ordering::Greater => l = mid + 1,
+                    Ordering::Equal => return vec![nums[i], nums[mid]],
+                } 
+            }
+        }
+        vec![nums[l], nums[r]]
     }
 }
 ```
