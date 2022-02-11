@@ -78,6 +78,16 @@ class Solution:
         return ans
 ```
 
+```python
+class Solution:
+    def minimumLengthEncoding(self, words: List[str]) -> int:
+        s = set(words)
+        for word in words:
+            for i in range(1, len(word)):
+                s.discard(word[i:])
+        return sum(len(word) + 1 for word in s)
+```
+
 ### **Java**
 
 ```java
@@ -112,6 +122,24 @@ class Solution {
         }
         if (isLeaf) {
             ans += l;
+        }
+        return ans;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minimumLengthEncoding(String[] words) {
+        Set<String> s = new HashSet<>(Arrays.asList(words));
+        for (String word : words) {
+            for (int i = 1; i < word.length(); ++i) {
+                s.remove(word.substring(i));
+            }
+        }
+        int ans = 0;
+        for (String word : s) {
+            ans += word.length() + 1;
         }
         return ans;
     }
@@ -190,6 +218,41 @@ private:
         if (isLeaf) {
             ans += l;
         }
+        return ans;
+    }
+};
+```
+
+```go
+func minimumLengthEncoding(words []string) int {
+	s := make(map[string]bool)
+	for _, word := range words {
+		s[word] = true
+	}
+	for _, word := range words {
+		for i, n := 1, len(word); i < n; i++ {
+			delete(s, word[i:n])
+		}
+	}
+	ans := 0
+	for word := range s {
+		ans += len(word) + 1
+	}
+	return ans
+}
+```
+
+```cpp
+class Solution {
+public:
+    int minimumLengthEncoding(vector<string>& words) {
+        unordered_set<string> s(words.begin(), words.end());
+        for (auto& word : words)
+            for (int i = 1; i < word.size(); ++i)
+                s.erase(word.substr(i));
+        int ans = 0;
+        for (auto& word : s)
+            ans += word.size() + 1;
         return ans;
     }
 };
