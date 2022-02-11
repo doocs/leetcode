@@ -165,6 +165,60 @@ var twoSum = function (nums, target) {
 };
 ```
 
+### **TypeScript**
+
+哈希表：
+
+```ts
+function twoSum(nums: number[], target: number): number[] {
+    const set = new Set();
+    for (const num of nums) {
+        if (set.has(target - num)) {
+            return [target - num, num]
+        }
+        set.add(num)
+    }
+    return null
+};
+```
+
+双指针：
+
+```ts
+function twoSum(nums: number[], target: number): number[] {
+    let l = 0;
+    let r = nums.length - 1;
+    while (nums[l] + nums[r] !== target) {
+        if (nums[l] + nums[r] < target) {
+            l++;
+        } else {
+            r--;
+        }
+    }
+    return [nums[l], nums[r]];
+}
+```
+
+### **Rust**
+
+```rust
+use std::cmp::Ordering;
+
+impl Solution {
+    pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let mut l = 0;
+        let mut r = nums.len() - 1;
+        loop {
+            match target.cmp(&(nums[l] + nums[r])) {
+                Ordering::Less => r -= 1,
+                Ordering::Greater => l += 1,
+                Ordering::Equal => break vec![nums[l], nums[r]],
+            }
+        }
+    }
+}
+```
+
 ### **...**
 
 ```
