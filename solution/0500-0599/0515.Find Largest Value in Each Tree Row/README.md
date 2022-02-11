@@ -48,9 +48,8 @@ class Solution:
         q = deque([root])
         ans = []
         while q:
-            n = len(q)
             t = float('-inf')
-            for _ in range(n):
+            for _ in range(len(q), 0, -1):
                 node = q.popleft()
                 t = max(t, node.val)
                 if node.left:
@@ -83,15 +82,15 @@ class Solution:
  */
 class Solution {
     public List<Integer> largestValues(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return ans;
         }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<Integer> ans = new ArrayList<>();
         while (!q.isEmpty()) {
             int t = Integer.MIN_VALUE;
-            for (int i = 0, n = q.size(); i < n; ++i) {
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
                 t = Math.max(t, node.val);
                 if (node.left != null) {
@@ -131,7 +130,7 @@ public:
         while (!q.empty())
         {
             int t = INT_MIN;
-            for (int i = 0, n = q.size(); i < n; ++i)
+            for (int i = q.size(); i > 0; --i)
             {
                 auto node = q.front();
                 q.pop();
@@ -164,9 +163,8 @@ func largestValues(root *TreeNode) []int {
 	}
 	var q = []*TreeNode{root}
 	for len(q) > 0 {
-		n := len(q)
 		t := math.MinInt32
-		for i := 0; i < n; i++ {
+		for i := len(q); i > 0; i-- {
 			node := q[0]
 			q = q[1:]
 			t = max(t, node.Val)

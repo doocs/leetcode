@@ -18,7 +18,7 @@ public:
         while (!q.empty())
         {
             int t = INT_MIN;
-            for (int i = 0, n = q.size(); i < n; ++i)
+            for (int i = q.size(); i > 0; --i)
             {
                 auto node = q.front();
                 q.pop();

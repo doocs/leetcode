@@ -42,13 +42,85 @@ The substring &quot;BBBB&quot; has the longest repeating letters, which is 4.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        counter = [0] * 26
+        i = j = maxCnt = 0
+        while i < len(s):
+            counter[ord(s[i]) - ord('A')] += 1
+            maxCnt = max(maxCnt, counter[ord(s[i]) - ord('A')])
+            if i - j + 1 > maxCnt + k:
+                counter[ord(s[j]) - ord('A')] -= 1
+                j += 1
+            i += 1
+        return i - j
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int characterReplacement(String s, int k) {
+        int[] counter = new int[26];
+        int i = 0;
+        int j = 0;
+        for (int maxCnt = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            ++counter[c - 'A'];
+            maxCnt = Math.max(maxCnt, counter[c - 'A']);
+            if (i - j + 1 - maxCnt > k) {
+                --counter[s.charAt(j) - 'A'];
+                ++j;
+            }
+        }
+        return i - j;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int characterReplacement(string s, int k) {
+        vector<int> counter(26);
+        int i = 0, j = 0, maxCnt = 0;
+        for (char& c : s)
+        {
+            ++counter[c - 'A'];
+            maxCnt = max(maxCnt, counter[c - 'A']);
+            if (i - j + 1 > maxCnt + k)
+            {
+                --counter[s[j] - 'A'];
+                ++j;
+            }
+            ++i;
+        }
+        return i - j;
+    }
+};
+```
+
+### **Go**
+
+```go
+func characterReplacement(s string, k int) int {
+	counter := make([]int, 26)
+	j, maxCnt := 0, 0
+	for i := range s {
+		c := s[i] - 'A'
+		counter[c]++
+		if maxCnt < counter[c] {
+			maxCnt = counter[c]
+		}
+		if i-j+1 > maxCnt+k {
+			counter[s[j]-'A']--
+			j++
+		}
+	}
+	return len(s) - j
+}
 ```
 
 ### **...**
