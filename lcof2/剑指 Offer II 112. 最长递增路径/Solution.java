@@ -26,9 +26,9 @@ class Solution {
             return memo[i][j];
         }
         int ans = 1;
-        int[][] dirs = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-        for (int[] dir : dirs) {
-            int x = i + dir[0], y = j + dir[1];
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
             if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
                 ans = Math.max(ans, dfs(x, y) + 1);
             }

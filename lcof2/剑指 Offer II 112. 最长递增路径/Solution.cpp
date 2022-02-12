@@ -20,10 +20,10 @@ public:
     int dfs(int i, int j) {
         if (memo[i][j] != -1) return memo[i][j];
         int ans = 1;
-        vector<vector<int>> dirs = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-        for (auto& dir : dirs)
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k)
         {
-            int x = i + dir[0], y = j + dir[1];
+            int x = i + dirs[k], y = j + dirs[k + 1];
             if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j])
                 ans = max(ans, dfs(x, y) + 1);
         }

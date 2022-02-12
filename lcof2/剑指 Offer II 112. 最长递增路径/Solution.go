@@ -14,9 +14,9 @@ func longestIncreasingPath(matrix [][]int) int {
 			return memo[i][j]
 		}
 		ans := 1
-		dirs := [4][2]int{{-1, 0}, {1, 0}, {0, 1}, {0, -1}}
-		for _, dir := range dirs {
-			x, y := i+dir[0], j+dir[1]
+		dirs := []int{-1, 0, 1, 0, -1}
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
 			if x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j] {
 				ans = max(ans, dfs(x, y)+1)
 			}

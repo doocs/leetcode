@@ -9,9 +9,5 @@ class Solution:
                     ans = max(ans, dfs(x, y) + 1)
             return ans
 
-        ans = 0
         m, n = len(matrix), len(matrix[0])
-        for i in range(m):
-            for j in range(n):
-                ans = max(ans, dfs(i, j))
-        return ans
+        return max(dfs(i, j) for i in range(m) for j in range(n))

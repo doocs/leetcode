@@ -75,12 +75,8 @@ class Solution:
                     ans = max(ans, dfs(x, y) + 1)
             return ans
 
-        ans = 0
         m, n = len(matrix), len(matrix[0])
-        for i in range(m):
-            for j in range(n):
-                ans = max(ans, dfs(i, j))
-        return ans
+        return max(dfs(i, j) for i in range(m) for j in range(n))
 ```
 
 ### **Java**
@@ -89,7 +85,6 @@ class Solution:
 
 ```java
 class Solution {
-
     private int[][] memo;
     private int[][] matrix;
     private int m;
@@ -117,16 +112,10 @@ class Solution {
             return memo[i][j];
         }
         int ans = 1;
-        int[][] dirs = { { 0, -1 }, { 0, 1 }, { 1, 0 }, { -1, 0 } };
-        for (int[] dir : dirs) {
-            int x = i + dir[0], y = j + dir[1];
-            if (
-                x >= 0 &&
-                x < m &&
-                y >= 0 &&
-                y < n &&
-                matrix[x][y] > matrix[i][j]
-            ) {
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j]) {
                 ans = Math.max(ans, dfs(x, y) + 1);
             }
         }
@@ -134,7 +123,6 @@ class Solution {
         return ans;
     }
 }
-
 ```
 
 ### **C++**
@@ -162,10 +150,10 @@ public:
     int dfs(int i, int j) {
         if (memo[i][j] != -1) return memo[i][j];
         int ans = 1;
-        vector<vector<int>> dirs = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-        for (auto& dir : dirs)
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k)
         {
-            int x = i + dir[0], y = j + dir[1];
+            int x = i + dirs[k], y = j + dirs[k + 1];
             if (x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j])
                 ans = max(ans, dfs(x, y) + 1);
         }
@@ -194,9 +182,9 @@ func longestIncreasingPath(matrix [][]int) int {
 			return memo[i][j]
 		}
 		ans := 1
-		dirs := [4][2]int{{-1, 0}, {1, 0}, {0, 1}, {0, -1}}
-		for _, dir := range dirs {
-			x, y := i+dir[0], j+dir[1]
+		dirs := []int{-1, 0, 1, 0, -1}
+        for k := 0; k < 4; k++ {
+            x, y := i+dirs[k], j+dirs[k+1]
 			if x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] > matrix[i][j] {
 				ans = max(ans, dfs(x, y)+1)
 			}

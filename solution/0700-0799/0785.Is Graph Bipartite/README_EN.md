@@ -54,14 +54,13 @@
 ```python
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
-        n = len(graph)
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        n = len(graph)
+        p = list(range(n))
         for u, g in enumerate(graph):
             for v in g:
                 if find(u) == find(v):
@@ -112,6 +111,95 @@ function isBipartite(graph: number[][]): boolean {
     let colors = new Array(n).fill(0);
     // 0 未遍历， 1 红色标记， 2 绿色标记
 
+    function dfs(idx: number, color: number, graph: number[][]) {
+        colors[idx] = color;
+        const nextColor = color == 1 ? 2 : 1;
+        for (let j of graph[idx]) {
+            if (!colors[j]) {
+                dfs(j, nextColor, graph);
+                if (!valid) return;
+            } else if (colors[j] != nextColor) {
+                valid = false;
+                return;
+            }
+        }
+    }
+
+    for (let i = 0; i < n && valid; i++) {
+        if (!colors[i]) {
+            dfs(i, 1, graph);
+        }
+    }
+    return valid;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    bool isBipartite(vector<vector<int>>& graph) {
+        int n = graph.size();
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        for (int u = 0; u < n; ++u)
+        {
+            auto& g = graph[u];
+            for (int v : g)
+            {
+                if (find(u) == find(v)) return 0;
+                p[find(v)] = find(g[0]);
+            }
+        }
+        return 1;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+func isBipartite(graph [][]int) bool {
+	n := len(graph)
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	for u, g := range graph {
+		for _, v := range g {
+			if find(u) == find(v) {
+				return false
+			}
+			p[find(v)] = find(g[0])
+		}
+	}
+	return true
+}
+```
+
+### **TypeScript**
+
+```ts
+function isBipartite(graph: number[][]): boolean {
+    const n = graph.length;
+    let valid = true;
+    let colors = new Array(n).fill(0);
+
     function dfs (idx: number, color: number, graph: number[][]) {
         colors[idx] = color;
         const nextColor = color == 1 ? 2 : 1;
@@ -133,66 +221,6 @@ function isBipartite(graph: number[][]): boolean {
     }
     return valid;
 };
-```
-
-### **C++**
-
-```cpp
-class Solution {
-public:
-    vector<int> p;
-
-    bool isBipartite(vector<vector<int>>& graph) {
-        int n = graph.size();
-        p.resize(n);
-        for (int i = 0; i < n; ++i) p[i] = i;
-        for (int u = 0; u < n; ++u)
-        {
-            auto g = graph[u];
-            for (int v : g)
-            {
-                if (find(u) == find(v)) return false;
-                p[find(v)] = find(g[0]);
-            }
-        }
-        return true;
-    }
-
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
-    }
-};
-```
-
-### **Go**
-
-```go
-var p []int
-
-func isBipartite(graph [][]int) bool {
-	n := len(graph)
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
-		p[i] = i
-	}
-	for u, g := range graph {
-		for _, v := range g {
-			if find(u) == find(v) {
-				return false
-			}
-			p[find(v)] = find(g[0])
-		}
-	}
-	return true
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
-}
 ```
 
 ### **...**
