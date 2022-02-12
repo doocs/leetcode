@@ -424,6 +424,84 @@ func numEnclaves(grid [][]int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function numEnclaves(grid: number[][]): number {
+    let res = 0;
+    const m = grid.length;
+    const n = grid[0].length;
+    const dfs = (y: number, x: number) => {
+        if (x < 0 || x >= n || y < 0 || y >= m || grid[y][x] === 0) {
+            return;
+        }
+        grid[y][x] = 0;
+        dfs(y + 1, x);
+        dfs(y, x + 1);
+        dfs(y - 1, x);
+        dfs(y, x - 1);
+    };
+    for (let i = 0; i < n; i++) {
+        dfs(0, i);
+        dfs(m - 1, i);
+    }
+    for (let i = 0; i < m; i++) {
+        dfs(i, 0);
+        dfs(i, n - 1);
+    }
+    for (let i = 1; i < m - 1; i++) {
+        for (let j = 1; j < n - 1; j++) {
+            if (grid[i][j] === 1) {
+                res++;
+            }
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    fn dfs(grid: &mut Vec<Vec<i32>>, y: usize, x: usize) {
+        if y >= grid.len() || x >= grid[0].len() || grid[y][x] == 0 {
+            return;
+        }
+        grid[y][x] = 0;
+        Solution::dfs(grid, y + 1, x);
+        Solution::dfs(grid, y, x + 1);
+        if y != 0 {
+            Solution::dfs(grid, y - 1, x);
+        }
+        if x != 0 {
+            Solution::dfs(grid, y, x - 1);
+        }
+    }
+    pub fn num_enclaves(mut grid: Vec<Vec<i32>>) -> i32 {
+        let mut res = 0;
+        let m = grid.len();
+        let n = grid[0].len();
+        for i in 0..m {
+            Solution::dfs(&mut grid, i, 0);
+            Solution::dfs(&mut grid, i, n - 1);
+        }
+        for i in 0..n {
+            Solution::dfs(&mut grid, 0, i);
+            Solution::dfs(&mut grid, m - 1, i);
+        }
+        for i in 1..m - 1 {
+            for j in 1..n - 1 {
+                if grid[i][j] == 1 {
+                    res += 1;
+                }
+            }
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
