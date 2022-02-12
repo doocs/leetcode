@@ -55,6 +55,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+把句子分割成单词数组，然后通过公共前后缀进行判断
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -73,15 +75,14 @@ class Solution:
             sentence1, sentence2 = sentence2, sentence1
         words1, words2 = sentence1.split(), sentence2.split()
         i = j = 0
-        while i < len(words2) and words1[i] == words2[i]:
+        n1, n2 = len(words1), len(words2)
+        while i < n2 and words1[i] == words2[i]:
             i += 1
-        if i == len(words2):
+        if i == n2:
             return True
-        while j < len(words2) and words1[len(words1) - 1 - j] == words2[len(words2) - 1 - j]:
+        while j < n2 and words1[n1 - 1 - j] == words2[n2 - 1 - j]:
             j += 1
-        if j == len(words2):
-            return True
-        return i + j == len(words2)
+        return j == n2 or i + j == n2
 ```
 
 ### **Java**
@@ -91,7 +92,7 @@ class Solution:
 ```java
 class Solution {
     public boolean areSentencesSimilar(String sentence1, String sentence2) {
-        if (Objects.equals(sentence1, sentence2)) {
+        if (sentence1.equals(sentence2)) {
             return true;
         }
         int n1 = sentence1.length(), n2 = sentence2.length();
@@ -106,21 +107,88 @@ class Solution {
         String[] words1 = sentence1.split(" ");
         String[] words2 = sentence2.split(" ");
         int i = 0, j = 0;
-        while (i < words2.length &&  Objects.equals(words1[i], words2[i])) {
+        n1 = words1.length;
+        n2 = words2.length;
+        while (i < n2 &&  words1[i].equals(words2[i])) {
             ++i;
         }
-        if (i == words2.length) {
+        if (i == n2) {
             return true;
         }
-        while (j < words2.length && Objects.equals(words1[words1.length - 1 - j], words2[words2.length - 1 - j])) {
+        while (j < n2 && words1[n1 - 1 - j].equals(words2[n2 - 1 - j])) {
             ++j;
         }
-        if (j == words2.length) {
-            return true;
-        }
-        return i + j == words2.length;
+        return j == n2 || i + j == n2;
     }
 }
+```
+
+### **Go**
+
+```go
+func areSentencesSimilar(sentence1 string, sentence2 string) bool {
+	if sentence1 == sentence2 {
+		return true
+	}
+	l1, l2 := len(sentence1), len(sentence2)
+	if l1 == l2 {
+		return false
+	}
+	if l1 < l2 {
+		sentence1, sentence2 = sentence2, sentence1
+	}
+	i, j := 0, 0
+	w1, w2 := strings.Fields(sentence1), strings.Fields(sentence2)
+	l1, l2 = len(w1), len(w2)
+	for i < l2 && w1[i] == w2[i] {
+		i++
+	}
+	if i == l2 {
+		return true
+	}
+	for j < l2 && w1[l1-1-j] == w2[l2-1-j] {
+		j++
+	}
+	return j == l2 || i+j == l2
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool areSentencesSimilar(string sentence1, string sentence2) {
+        if (sentence1 == sentence2) return true;
+        int n1 = sentence1.size(), n2 = sentence2.size();
+        if (n1 == n2) return false;
+
+        if (n1 < n2) swap(sentence1, sentence2);
+        auto words1 = split(sentence1);
+        auto words2 = split(sentence2);
+        int i = 0, j = 0;
+        n1 = words1.size(), n2 = words2.size();
+
+        while (i < n2 && words1[i] == words2[i]) ++i;
+        if (i == n2) return true;
+
+        while (j < n2 && words1[n1 - 1 - j] == words2[n2 - 1 - j]) ++j;
+        return j == n2 || i + j == n2;
+    }
+
+    vector<string> split(const string &str) {
+        vector<string> words;
+        int i = str.find_first_not_of(' ');
+        int j = str.find_first_of(' ', i);
+        while (j != string::npos) {
+            words.emplace_back(str.substr(i, j - i));
+            i = str.find_first_not_of(' ', j);
+            j = str.find_first_of(' ', i);
+        }
+        words.emplace_back(str.substr(i));
+        return words;
+    }
+};
 ```
 
 ### **...**
