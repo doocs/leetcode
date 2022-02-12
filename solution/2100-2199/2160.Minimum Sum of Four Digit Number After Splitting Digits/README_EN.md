@@ -45,13 +45,62 @@ The minimum sum can be obtained by the pair [4, 9]: 4 + 9 = 13.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def minimumSum(self, num: int) -> int:
+        nums = []
+        while num:
+            nums.append(num % 10)
+            num //= 10
+        nums.sort()
+        return 10 * (nums[0] + nums[1]) + nums[2] + nums[3]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int minimumSum(int num) {
+        int[] nums = new int[4];
+        for (int i = 0; num != 0; ++i) {
+            nums[i] = num % 10;
+            num /= 10;
+        }
+        Arrays.sort(nums);
+        return 10 * (nums[0] + nums[1]) + nums[2] + nums[3];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minimumSum(int num) {
+        vector<int> nums;
+        while (num)
+        {
+            nums.push_back(num % 10);
+            num /= 10;
+        }
+        sort(nums.begin(), nums.end());
+        return 10 * (nums[0] + nums[1]) + nums[2] + nums[3];
+    }
+};
+```
+
+### **Go**
+
+```go
+func minimumSum(num int) int {
+	var nums []int
+	for num > 0 {
+		nums = append(nums, num%10)
+		num /= 10
+	}
+	sort.Ints(nums)
+	return 10*(nums[0]+nums[1]) + nums[2] + nums[3]
+}
 ```
 
 ### **TypeScript**
