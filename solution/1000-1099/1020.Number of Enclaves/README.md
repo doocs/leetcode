@@ -43,9 +43,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-并查集。
+**方法一：DFS**
 
-模板 1——朴素并查集：
+从矩阵边缘所有 1 开始进行深搜，遇到 1 则改为 0。搜索结束后，统计剩余 1 的个数，即为结果。
+
+**方法二：并查集**
+
+并查集模板 1——朴素并查集：
 
 ```python
 # 初始化，p存储每个点的父节点
@@ -108,74 +112,139 @@ d[find(a)] = distance
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+DFS：
+
 ```python
 class Solution:
     def numEnclaves(self, grid: List[List[int]]) -> int:
-        m, n = len(grid), len(grid[0])
-        p = list(range(m * n + 1))
+        def dfs(i, j):
+            grid[i][j] = 0
+            for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid[x][y] == 1:
+                    dfs(x, y)
 
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 1 and (i == 0 or i == m - 1 or j == 0 or j == n - 1):
+                    dfs(i, j)
+        return sum(grid[i][j] for i in range(m) for j in range(n))
+```
+
+并查集：
+
+```python
+class Solution:
+    def numEnclaves(self, grid: List[List[int]]) -> int:
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        m, n = len(grid), len(grid[0])
+        p = list(range(m * n + 1))
         for i in range(m):
             for j in range(n):
                 if grid[i][j] == 1:
                     if i == 0 or i == m - 1 or j == 0 or j == n - 1:
                         p[find(i * n + j)] = find(m * n)
                     else:
-                        for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                            if grid[i + x][j + y] == 1:
-                                p[find(i * n + j)] = find((i + x) * n + j + y)
-
-        res = 0
-        for i in range(m):
-            for j in range(n):
-                if grid[i][j] == 1 and find(i * n + j) != find(m * n):
-                    res += 1
-        return res
+                        for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+                            x, y = i + a, j + b
+                            if grid[x][y] == 1:
+                                p[find(i * n + j)] = find(x * n + y)
+        return sum(grid[i][j] == 1 and find(i * n + j) != find(m * n) for i in range(m) for j in range(n))
 ```
 
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+DFS：
+
+```java
+class Solution {
+    private int[][] grid;
+    private int m;
+    private int n;
+
+    public int numEnclaves(int[][] grid) {
+        m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1 && (i == 0 || i == m - 1 || j == 0 || j == n - 1)) {
+                    dfs(i, j);
+                }
+            }
+        }
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 1) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+
+    private void dfs(int i, int j) {
+        grid[i][j] = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k];
+            int y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1) {
+                dfs(x, y);
+            }
+        }
+    }
+}
+```
+
+并查集：
+
 ```java
 class Solution {
     private int[] p;
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     public int numEnclaves(int[][] grid) {
-        int m = grid.length, n = grid[0].length;
+        int m = grid.length;
+        int n = grid[0].length;
         p = new int[m * n + 1];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
+        int[] dirs = {-1, 0, 1, 0, -1};
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1) {
                     if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
                         p[find(i * n + j)] = find(m * n);
                     } else {
-                        for (int[] e : dirs) {
-                            if (grid[i + e[0]][j + e[1]] == 1) {
-                                p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                        for (int k = 0; k < 4; ++k) {
+                            int x = i + dirs[k];
+                            int y = j + dirs[k + 1];
+                            if (grid[x][y] == 1) {
+                                p[find(i * n + j)] = find(x * n + y);
                             }
                         }
                     }
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == 1 && find(i * n + j) != find(m * n)) {
-                    ++res;
+                    ++ans;
                 }
             }
         }
-        return res;
+        return ans;
     }
 
     private int find(int x) {
@@ -189,15 +258,55 @@ class Solution {
 
 ### **C++**
 
+DFS：
+
+```cpp
+class Solution {
+public:
+    int m;
+    int n;
+
+    int numEnclaves(vector<vector<int>>& grid) {
+        m = grid.size();
+        n = grid[0].size();
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if (grid[i][j] == 1 && (i == 0 || i == m - 1 || j == 0 || j == n - 1))
+                    dfs(i, j, grid);
+        int ans = 0;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if (grid[i][j] == 1)
+                    ++ans;
+        return ans;
+    }
+
+    void dfs(int i, int j, vector<vector<int>>& grid) {
+        grid[i][j] = 0;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k)
+        {
+            int x = i + dirs[k];
+            int y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1)
+                dfs(x, y, grid);
+        }
+    }
+};
+```
+
+并查集：
+
 ```cpp
 class Solution {
 public:
     vector<int> p;
-    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     int numEnclaves(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
+        int m = grid.size();
+        int n = grid[0].size();
         p.resize(m * n + 1);
+        vector<int> dirs = {-1, 0, 1, 0, -1};
         for (int i = 0; i < p.size(); ++i) p[i] = i;
         for (int i = 0; i < m; ++i)
         {
@@ -208,23 +317,22 @@ public:
                     if (i == 0 || i == m - 1 || j == 0 || j == n - 1) p[find(i * n + j)] = find(m * n);
                     else
                     {
-                        for (auto e : dirs)
+                        for (int k = 0; k < 4; ++k)
                         {
-                            if (grid[i + e[0]][j + e[1]] == 1) p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                            int x = i + dirs[k];
+                            int y = j + dirs[k + 1];
+                            if (grid[x][y] == 1) p[find(i * n + j)] = find(x * n + y);
                         }
                     }
                 }
             }
         }
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i)
-        {
             for (int j = 0; j < n; ++j)
-            {
-                if (grid[i][j] == 1 && find(i * n + j) != find(m * n)) ++res;
-            }
-        }
-        return res;
+                if (grid[i][j] == 1 && find(i * n + j) != find(m * n))
+                    ++ans;
+        return ans;
     }
 
     int find(int x) {
@@ -236,47 +344,83 @@ public:
 
 ### **Go**
 
-```go
-var p []int
+DFS：
 
+```go
 func numEnclaves(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
-	p = make([]int, m*n+1)
-	for i := 0; i < len(p); i++ {
+	dirs := []int{-1, 0, 1, 0, -1}
+	var dfs func(i, j int)
+	dfs = func(i, j int) {
+		grid[i][j] = 0
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 {
+				dfs(x, y)
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 && (i == 0 || i == m-1 || j == 0 || j == n-1) {
+				dfs(i, j)
+			}
+		}
+	}
+	ans := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == 1 {
+				ans++
+			}
+		}
+	}
+	return ans
+}
+```
+
+并查集：
+
+```go
+func numEnclaves(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	p := make([]int, m*n+1)
+	for i := range p {
 		p[i] = i
 	}
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	dirs := []int{-1, 0, 1, 0, -1}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
 			if grid[i][j] == 1 {
 				if i == 0 || i == m-1 || j == 0 || j == n-1 {
 					p[find(i*n+j)] = find(m * n)
 				} else {
-					for _, e := range dirs {
-						if grid[i+e[0]][j+e[1]] == 1 {
-							p[find(i*n+j)] = find((i+e[0])*n + j + e[1])
+					for k := 0; k < 4; k++ {
+						x, y := i+dirs[k], j+dirs[k+1]
+						if grid[x][y] == 1 {
+							p[find(i*n+j)] = find(x*n + y)
 						}
 					}
 				}
 			}
 		}
 	}
-	res := 0
+	ans := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
 			if grid[i][j] == 1 && find(i*n+j) != find(m*n) {
-				res++
+				ans++
 			}
 		}
 	}
-	return res
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return ans
 }
 ```
 
