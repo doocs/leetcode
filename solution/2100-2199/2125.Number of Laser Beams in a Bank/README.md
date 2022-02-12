@@ -67,6 +67,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+直接计数。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -74,7 +76,14 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfBeams(self, bank: List[str]) -> int:
+        last = ans = 0
+        for b in bank:
+            if (t := b.count('1')) > 0:
+                ans += last * t
+                last = t
+        return ans
 ```
 
 ### **Java**
@@ -82,7 +91,66 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numberOfBeams(String[] bank) {
+        int last = 0;
+        int ans = 0;
+        for (String b : bank) {
+            int t = 0;
+            for (char c : b.toCharArray()) {
+                if (c == '1') {
+                    ++t;
+                }
+            }
+            if (t > 0) {
+                ans += last * t;
+                last = t;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfBeams(vector<string>& bank) {
+        int ans = 0;
+        int last = 0;
+        for (auto& b : bank)
+        {
+            int t = 0;
+            for (char& c : b)
+                if (c == '1')
+                    ++t;
+            if (t)
+            {
+                ans += last * t;
+                last = t;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfBeams(bank []string) int {
+	ans, last := 0, 0
+	for _, b := range bank {
+		t := strings.Count(b, "1")
+		if t > 0 {
+			ans += t * last
+			last = t
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
