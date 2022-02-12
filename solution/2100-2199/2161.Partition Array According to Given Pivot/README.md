@@ -63,7 +63,17 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
+        a, b, c = [], [], []
+        for x in nums:
+            if x < pivot:
+                a.append(x)
+            elif x == pivot:
+                b.append(x)
+            else:
+                c.append(x)
+        return a + b + c
 ```
 
 ### **Java**
@@ -71,7 +81,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] pivotArray(int[] nums, int pivot) {
+        int n = nums.length;
+        int[] ans = new int[n];
+        int k = 0;
+        for (int x : nums) {
+            if (x < pivot) {
+                ans[k++] = x;
+            }
+        }
+        for (int x : nums) {
+            if (x == pivot) {
+                ans[k++] = x;
+            }
+        }
+        for (int x : nums) {
+            if (x > pivot) {
+                ans[k++] = x;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> pivotArray(vector<int>& nums, int pivot) {
+        vector<int> ans;
+        for (int& x : nums) if (x < pivot) ans.push_back(x);
+        for (int& x : nums) if (x == pivot) ans.push_back(x);
+        for (int& x : nums) if (x > pivot) ans.push_back(x);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func pivotArray(nums []int, pivot int) []int {
+	var ans []int
+	for _, x := range nums {
+		if x < pivot {
+			ans = append(ans, x)
+		}
+	}
+	for _, x := range nums {
+		if x == pivot {
+			ans = append(ans, x)
+		}
+	}
+	for _, x := range nums {
+		if x > pivot {
+			ans = append(ans, x)
+		}
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
