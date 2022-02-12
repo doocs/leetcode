@@ -115,6 +115,54 @@ func reverseWords(s string) string {
 }
 ```
 
+### **TypeScript**
+
+API：
+
+```ts
+function reverseWords(s: string): string {
+    return s.trim().split(/\s+/).reverse().join(' ');
+}
+```
+
+双指针：
+
+```ts
+function reverseWords(s: string): string {
+    s = s.trim();
+    const res = [];
+    let l = s.length - 1;
+    let r = s.length - 1;
+    while (l >= 0) {
+        while (s[l] !== ' ' && l >= 0) {
+            l--;
+        }
+        res.push(s.substring(l + 1, r + 1));
+        while (s[l] === ' ' && l >= 0) {
+            l--;
+        }
+        r = l;
+    }
+    return res.join(' ');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn reverse_words(mut s: String) -> String {
+        let mut res = s.trim().split(' ').rev().collect::<Vec<&str>>();
+        for i in (0..res.len()).rev() {
+            if res[i] == "" {
+                res.remove(i);
+            }
+        }
+        res.join(" ")
+    }
+}
+```
+
 ### **...**
 
 ```
