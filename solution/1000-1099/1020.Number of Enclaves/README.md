@@ -6,38 +6,40 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给出一个二维数组&nbsp;<code>A</code>，每个单元格为 0（代表海）或 1（代表陆地）。</p>
+<p>给你一个大小为 <code>m x n</code> 的二进制矩阵 <code>grid</code> ，其中 <code>0</code> 表示一个海洋单元格、<code>1</code> 表示一个陆地单元格。</p>
 
-<p>移动是指在陆地上从一个地方走到另一个地方（朝四个方向之一）或离开网格的边界。</p>
+<p>一次 <strong>移动</strong> 是指从一个陆地单元格走到另一个相邻（<strong>上、下、左、右</strong>）的陆地单元格或跨过 <code>grid</code> 的边界。</p>
 
-<p>返回网格中<strong>无法</strong>在任意次数的移动中离开网格边界的陆地单元格的数量。</p>
+<p>返回网格中<strong> 无法 </strong>在任意次数的移动中离开网格边界的陆地单元格的数量。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-
-<pre><strong>输入：</strong>[[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1020.Number%20of%20Enclaves/images/enclaves1.jpg" style="height: 200px; width: 200px;" />
+<pre>
+<strong>输入：</strong>grid = [[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]
 <strong>输出：</strong>3
-<strong>解释： </strong>
-有三个 1 被 0 包围。一个 1 没有被包围，因为它在边界上。</pre>
+<strong>解释：</strong>有三个 1 被 0 包围。一个 1 没有被包围，因为它在边界上。
+</pre>
 
 <p><strong>示例 2：</strong></p>
-
-<pre><strong>输入：</strong>[[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1000-1099/1020.Number%20of%20Enclaves/images/enclaves2.jpg" style="height: 200px; width: 200px;" />
+<pre>
+<strong>输入：</strong>grid = [[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
 <strong>输出：</strong>0
-<strong>解释：</strong>
-所有 1 都在边界上或可以到达边界。</pre>
+<strong>解释：</strong>所有 1 都在边界上或可以到达边界。
+</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= A.length &lt;= 500</code></li>
-	<li><code>1 &lt;= A[i].length &lt;= 500</code></li>
-	<li><code>0 &lt;= A[i][j] &lt;= 1</code></li>
-	<li>所有行的大小都相同</li>
-</ol>
+<ul>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 500</code></li>
+	<li><code>grid[i][j]</code> 的值为 <code>0</code> 或 <code>1</code></li>
+</ul>
 
 ## 解法
 
