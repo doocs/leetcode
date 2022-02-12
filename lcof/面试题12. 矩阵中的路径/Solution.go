@@ -1,36 +1,28 @@
 func exist(board [][]byte, word string) bool {
-	if len(board) == 0 {
-		return false
+	m, n := len(board), len(board[0])
+	var dfs func(i, j, k int) bool
+	dfs = func(i, j, k int) bool {
+		if k == len(word) {
+			return true
+		}
+		if i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word[k] {
+			return false
+		}
+		board[i][j] = ' '
+		dirs := []int{-1, 0, 1, 0, -1}
+		ans := false
+		for l := 0; l < 4; l++ {
+			ans = ans || dfs(i+dirs[l], j+dirs[l+1], k+1)
+		}
+		board[i][j] = word[k]
+		return ans
 	}
-	// 标记数组
-	isVisited := make([][]bool, len(board))
-	for i := 0; i < len(board); i++ {
-		isVisited[i] = make([]bool, len(board[0]))
-	}
-	for i := 0; i < len(board); i++ {
-		for j := 0; j < len(board[0]); j++ {
-			if board[i][j] == word[0] {
-				if bfs(board, i, j, isVisited, word, 0) {
-					return true
-				}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if dfs(i, j, 0) {
+				return true
 			}
 		}
 	}
 	return false
-}
-
-func bfs(board [][]byte, i, j int, isVisited [][]bool, word string, index int) bool {
-	if index == len(word) {
-		return true
-	}
-	if i < 0 || j < 0 || i == len(board) || j == len(board[0]) || isVisited[i][j] || board[i][j] != word[index] {
-		return false
-	}
-	isVisited[i][j] = true
-	res := bfs(board, i+1, j, isVisited, word, index+1) ||
-		bfs(board, i, j+1, isVisited, word, index+1) ||
-		bfs(board, i-1, j, isVisited, word, index+1) ||
-		bfs(board, i, j-1, isVisited, word, index+1)
-	isVisited[i][j] = false
-	return res
 }
