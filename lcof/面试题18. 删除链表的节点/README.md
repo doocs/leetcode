@@ -2,32 +2,34 @@
 
 ## 题目描述
 
-给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。
+<p>给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。</p>
 
-返回删除后的链表的头节点。
+<p>返回删除后的链表的头节点。</p>
 
-注意：此题对比[原题](/solution/0200-0299/0237.Delete%20Node%20in%20a%20Linked%20List/README.md)有改动。
+<p><strong>注意：</strong>此题对比原题有改动</p>
 
-**示例 1:**
+<p><strong>示例 1:</strong></p>
 
-```
-输入: head = [4,5,1,9], val = 5
-输出: [4,1,9]
-解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9.
-```
+<pre><strong>输入:</strong> head = [4,5,1,9], val = 5
+<strong>输出:</strong> [4,1,9]
+<strong>解释: </strong>给定你链表中值为&nbsp;5&nbsp;的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9.
+</pre>
 
-**示例 2:**
+<p><strong>示例 2:</strong></p>
 
-```
-输入: head = [4,5,1,9], val = 1
-输出: [4,5,9]
-解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9.
-```
+<pre><strong>输入:</strong> head = [4,5,1,9], val = 1
+<strong>输出:</strong> [4,5,9]
+<strong>解释: </strong>给定你链表中值为&nbsp;1&nbsp;的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9.
+</pre>
 
-**说明：**
+<p>&nbsp;</p>
 
-- 题目保证链表中节点的值互不相同
-- 若使用 C 或 C++ 语言，你不需要 `free` 或 `delete` 被删除的节点
+<p><strong>说明：</strong></p>
+
+<ul>
+	<li>题目保证链表中节点的值互不相同</li>
+	<li>若使用 C 或 C++ 语言，你不需要 <code>free</code> 或 <code>delete</code> 被删除的节点</li>
+</ul>
 
 ## 解法
 
@@ -47,9 +49,7 @@
 #         self.next = None
 class Solution:
     def deleteNode(self, head: ListNode, val: int) -> ListNode:
-        dummy = ListNode(0)
-        dummy.next = head
-        pre = dummy
+        pre = dummy = ListNode(next=head)
         while pre.next and pre.next.val != val:
             pre = pre.next
         pre.next = None if not pre.next else pre.next.next
@@ -68,17 +68,16 @@ class Solution:
  * }
  */
 class Solution {
+
     public ListNode deleteNode(ListNode head, int val) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
+        ListNode dummy = new ListNode(0, head);
         ListNode pre = dummy;
-        while (pre.next != null && pre.next.val != val) {
-            pre = pre.next;
-        }
+        for (; pre.next != null && pre.next.val != val; pre = pre.next);
         pre.next = pre.next == null ? null : pre.next.next;
         return dummy.next;
     }
 }
+
 ```
 
 ### **JavaScript**
@@ -97,13 +96,10 @@ class Solution {
  * @return {ListNode}
  */
 var deleteNode = function (head, val) {
-    const dummy = new ListNode(0);
-    dummy.next = head;
+    const dummy = new ListNode(0, head);
     let pre = dummy;
-    while (pre.next && pre.next.val != val) {
-        pre = pre.next;
-    }
-    pre.next = pre.next ? pre.next.next : null;
+    for (; pre.next && pre.next.val != val; pre = pre.next);
+    pre.next = pre.next?.next;
     return dummy.next;
 };
 ```
@@ -111,22 +107,22 @@ var deleteNode = function (head, val) {
 ### **Go**
 
 ```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 func deleteNode(head *ListNode, val int) *ListNode {
-    res := &ListNode{
-        Val: 0,
-        Next: head,
-    }
-    pre := res
-    cur := res.Next
-    for cur != nil {
-        if cur.Val == val {
-            pre.Next = cur.Next
-            return res.Next
-        }
-        cur = cur.Next
-        pre = pre.Next
-    }
-    return res.Next
+	dummy := &ListNode{0, head}
+	pre := dummy
+	for ; pre.Next != nil && pre.Next.Val != val; pre = pre.Next {
+	}
+	if pre.Next != nil {
+		pre.Next = pre.Next.Next
+	}
+	return dummy.Next
 }
 ```
 
@@ -143,28 +139,12 @@ func deleteNode(head *ListNode, val int) *ListNode {
  */
 class Solution {
 public:
-    ListNode* deleteNode(ListNode* head, int val) {
-        ListNode* cur = head;
-        if (!head) {
-            return nullptr;
-        }
-
-        if (head->val == val) {
-            // 第一个就匹配的情况
-            return head->next;
-        }
-
-        while (cur && cur->next) {
-            if (cur->next->val == val) {
-                // 如果找到了，直接指向下一个
-                cur->next = cur->next->next;
-                break;
-            } else {
-                cur = cur->next;
-            }
-        }
-
-        return head;
+    ListNode *deleteNode(ListNode *head, int val) {
+        ListNode *dummy = new ListNode(0, head);
+        ListNode *pre = dummy;
+        for (; pre->next && pre->next->val != val; pre = pre->next);
+        pre->next = pre->next ? pre->next->next : nullptr;
+        return dummy->next;
     }
 };
 ```
