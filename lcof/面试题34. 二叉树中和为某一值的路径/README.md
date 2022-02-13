@@ -206,6 +206,113 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function pathSum(root: TreeNode | null, target: number): number[][] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+    const dfs = (
+        { val, right, left }: TreeNode,
+        target: number,
+        values: number[]
+    ) => {
+        values.push(val);
+        target -= val;
+        if (left == null && right == null) {
+            if (target === 0) {
+                res.push(values);
+            }
+            return;
+        }
+        left && dfs(left, target, [...values]);
+        right && dfs(right, target, [...values]);
+    };
+    dfs(root, target, []);
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::rc::Rc;
+
+impl Solution {
+    fn dfs(
+        root: &Option<Rc<RefCell<TreeNode>>>,
+        mut target: i32,
+        mut values: Vec<i32>,
+    ) -> Vec<Vec<i32>> {
+        let node = root.as_ref().unwrap().borrow();
+        values.push(node.val);
+        target -= node.val;
+        let mut res = vec![];
+        // 确定叶结点身份
+        if node.left.is_none() && node.right.is_none() {
+            if target == 0 {
+                res.push(values);
+            }
+            return res;
+        }
+        if node.left.is_some() {
+            let res_l = Solution::dfs(&node.left, target, values.clone());
+            if !res_l.is_empty() {
+                res = [res, res_l].concat();
+            }
+        }
+        if node.right.is_some() {
+            let res_r = Solution::dfs(&node.right, target, values.clone());
+            if !res_r.is_empty() {
+                res = [res, res_r].concat();
+            }
+        }
+        res
+    }
+    pub fn path_sum(root: Option<Rc<RefCell<TreeNode>>>, target: i32) -> Vec<Vec<i32>> {
+        if root.is_none() {
+            return vec![];
+        }
+        Solution::dfs(&root, target, vec![])
+    }
+}
+```
+
 ### **...**
 
 ```
