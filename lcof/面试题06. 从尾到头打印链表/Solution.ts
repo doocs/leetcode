@@ -11,10 +11,9 @@
  */
 
 function reversePrint(head: ListNode | null): number[] {
-    let res: number[] = [];
-    while (head != null) {
-        res.unshift(head.val);
-        head = head.next;
+    let ans: number[] = [];
+    for (; !!head; head = head.next) {
+        ans.unshift(head.val);
     }
-    return res;
+    return ans;
 }

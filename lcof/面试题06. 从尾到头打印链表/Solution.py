@@ -6,8 +6,8 @@
 
 class Solution:
     def reversePrint(self, head: ListNode) -> List[int]:
-        res = []
+        ans = []
         while head:
-            res.append(head.val)
+            ans.append(head.val)
             head = head.next
-        return res[::-1]
+        return ans[::-1]

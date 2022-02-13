@@ -43,16 +43,16 @@
 
 class Solution:
     def reversePrint(self, head: ListNode) -> List[int]:
-        res = []
+        ans = []
         while head:
-            res.append(head.val)
+            ans.append(head.val)
             head = head.next
-        return res[::-1]
+        return ans[::-1]
 ```
 
 ### **Java**
 
-- 栈实现：
+栈实现：
 
 ```java
 /**
@@ -65,22 +65,21 @@ class Solution:
  */
 class Solution {
     public int[] reversePrint(ListNode head) {
-        Stack<Integer> s = new Stack<>();
-        while (head != null) {
-            s.push(head.val);
-            head = head.next;
+        Deque<Integer> stk = new ArrayDeque<>();
+        for (; head != null; head = head.next) {
+            stk.push(head.val);
         }
-        int[] res = new int[s.size()];
+        int[] ans = new int[stk.size()];
         int i = 0;
-        while (!s.isEmpty()) {
-            res[i++] = s.pop();
+        while (!stk.isEmpty()) {
+            ans[i++] = stk.pop();
         }
-        return res;
+        return ans;
     }
 }
 ```
 
-- 先计算链表长度 n，然后创建一个长度为 n 的结果数组。最后遍历链表，依次将节点值存放在数组上（从后往前）。
+先计算链表长度 n，然后创建一个长度为 n 的结果数组。最后遍历链表，依次将节点值存放在数组上（从后往前）：
 
 ```java
 /**
@@ -93,21 +92,16 @@ class Solution {
  */
 class Solution {
     public int[] reversePrint(ListNode head) {
-        if (head == null) return new int[]{};
-        // 计算链表长度n
+        if (head == null) {
+            return new int[]{};
+        }
         int n = 0;
-        ListNode cur = head;
-        while (cur != null) {
-            ++n;
-            cur = cur.next;
+        for (ListNode cur = head; cur != null; cur = cur.next, ++n);
+        int[] ans = new int[n];
+        for (ListNode cur = head; cur != null; cur = cur.next) {
+            ans[--n] = cur.val;
         }
-        int[] res = new int[n];
-        cur = head;
-        while (cur != null) {
-            res[--n] = cur.val;
-            cur = cur.next;
-        }
-        return res;
+        return ans;
     }
 }
 ```
@@ -127,12 +121,11 @@ class Solution {
  * @return {number[]}
  */
 var reversePrint = function (head) {
-    let res = [];
-    while (head != null) {
-        res.unshift(head.val);
-        head = head.next;
+    let ans = [];
+    for (; !!head; head = head.next) {
+        ans.unshift(head.val);
     }
-    return res;
+    return ans;
 };
 ```
 
@@ -146,20 +139,19 @@ var reversePrint = function (head) {
  *     Next *ListNode
  * }
  */
-//insert to the front
 func reversePrint(head *ListNode) []int {
-	res := []int{}
+	ans := []int{}
 	for head != nil {
-		res = append([]int{head.Val}, res...)
+		ans = append([]int{head.Val}, ans...)
 		head = head.Next
 	}
-	return res
+	return ans
 }
 ```
 
 ### **C++**
 
-- 递归实现
+递归实现：
 
 ```cpp
 /**
@@ -172,27 +164,16 @@ func reversePrint(head *ListNode) []int {
  */
 class Solution {
 public:
-    vector<int> ret;
-
-    void getVal(ListNode* head) {
-        // 这里可以看成是一个节点的树
-        if (head) {
-            if (head->next) {
-                getVal(head->next);
-            }
-            ret.push_back(head->val);
-        }
-    }
-
     vector<int> reversePrint(ListNode* head) {
-        getVal(head);
-        // 返回的是全局的ret信息。在getVal函数中被赋值
-        return ret;
+        if (!head) return {};
+        vector<int> ans = reversePrint(head->next);
+        ans.push_back(head->val);
+        return ans;
     }
 };
 ```
 
-- 栈实现
+栈实现：
 
 ```cpp
 class Solution {
@@ -230,18 +211,17 @@ public:
  */
 
 function reversePrint(head: ListNode | null): number[] {
-    let res: number[] = [];
-    while (head != null) {
-        res.unshift(head.val);
-        head = head.next;
+    let ans: number[] = [];
+    for (; !!head; head = head.next) {
+        ans.unshift(head.val);
     }
-    return res;
+    return ans;
 }
 ```
 
 ### **Rust**
 
-- 动态数组
+动态数组：
 
 ```rust
 // Definition for singly-linked list.
@@ -274,7 +254,7 @@ impl Solution {
 }
 ```
 
-- 遍历
+遍历：
 
 ```rust
 // Definition for singly-linked list.
