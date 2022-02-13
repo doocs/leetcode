@@ -76,7 +76,11 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minMovesToSeat(self, seats: List[int], students: List[int]) -> int:
+        seats.sort()
+        students.sort()
+        return sum(abs(seats[i] - students[i]) for i in range(len(seats)))
 ```
 
 ### **Java**
@@ -84,7 +88,54 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minMovesToSeat(int[] seats, int[] students) {
+        Arrays.sort(seats);
+        Arrays.sort(students);
+        int ans = 0;
+        for (int i = 0; i < seats.length; ++i) {
+            ans += Math.abs(seats[i] - students[i]);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minMovesToSeat(vector<int>& seats, vector<int>& students) {
+        sort(seats.begin(), seats.end());
+        sort(students.begin(), students.end());
+        int ans = 0;
+        for (int i = 0; i < seats.size(); ++i)
+            ans += abs(seats[i] - students[i]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minMovesToSeat(seats []int, students []int) int {
+	sort.Ints(seats)
+	sort.Ints(students)
+	ans := 0
+	for i := range students {
+		ans += abs(seats[i] - students[i])
+	}
+	return ans
+}
+
+func abs(x int) int {
+	if x >= 0 {
+		return x
+	}
+	return -x
+}
 ```
 
 ### **...**
