@@ -2,27 +2,27 @@
 
 ## 题目描述
 
-给你一根长度为 `n` 的绳子，请把绳子剪成整数长度的 `m` 段（m、n 都是整数，n>1 并且 m>1），每段绳子的长度记为 `k[0],k[1]...k[m-1]` 。请问 `k[0]*k[1]*...*k[m-1]` 可能的最大乘积是多少？例如，当绳子的长度是 8 时，我们把它剪成长度分别为 2、3、3 的三段，此时得到的最大乘积是 18。
+<p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m-1]</code> 。请问 <code>k[0]*k[1]*...*k[m-1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
 
-**示例 1：**
+<p><strong>示例 1：</strong></p>
 
-```
-输入: 2
-输出: 1
-解释: 2 = 1 + 1, 1 × 1 = 1
-```
+<pre><strong>输入: </strong>2
+<strong>输出: </strong>1
+<strong>解释: </strong>2 = 1 + 1, 1 &times; 1 = 1</pre>
 
-**示例  2:**
+<p><strong>示例&nbsp;2:</strong></p>
 
-```
-输入: 10
-输出: 36
-解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36
-```
+<pre><strong>输入: </strong>10
+<strong>输出: </strong>36
+<strong>解释: </strong>10 = 3 + 3 + 4, 3 &times;&nbsp;3 &times;&nbsp;4 = 36</pre>
 
-**提示：**
+<p><strong>提示：</strong></p>
 
-- `2 <= n <= 58`
+<ul>
+	<li><code>2 &lt;= n &lt;= 58</code></li>
+</ul>
+
+<p>注意：本题与主站 343 题相同：<a href="https://leetcode-cn.com/problems/integer-break/">https://leetcode-cn.com/problems/integer-break/</a></p>
 
 ## 解法
 
@@ -37,13 +37,12 @@ class Solution:
     def cuttingRope(self, n: int) -> int:
         if n < 4:
             return n - 1
-        res = 1
+        ans = 1
         while n > 4:
-            res *= 3
+            ans *= 3
             n -= 3
-        if n == 4:
-            return res << 2
-        return res * n
+        ans *= n
+        return ans
 ```
 
 ### **Java**
@@ -51,14 +50,16 @@ class Solution:
 ```java
 class Solution {
     public int cuttingRope(int n) {
-        if (n < 4) return n - 1;
-        int res = 1;
+        if (n < 4) {
+            return n - 1;
+        }
+        int ans = 1;
         while (n > 4) {
-            res *= 3;
+            ans *= 3;
             n -= 3;
         }
-        if (n == 4) return res << 2;
-        return res * n;
+        ans *= n;
+        return ans;
     }
 }
 ```
@@ -71,24 +72,14 @@ class Solution {
  * @return {number}
  */
 var cuttingRope = function (n) {
-    // 数学方法
-    if (n <= 3) return n - 1;
-    let a = ~~(n / 3);
-    let b = n % 3;
-    if (b === 1) {
-        return 3 ** (a - 1) * 2 * 2;
+    if (n < 4) return n - 1;
+    let ans = 1;
+    while (n > 4) {
+        ans *= 3;
+        n -= 3;
     }
-    if (b === 0) return 3 ** a;
-    return 3 ** a * b;
-    // dp 方法
-    // let dp = new Array(n+1).fill(0)
-    // dp[0] = 1
-    // for(let i=1;i<n;i++) {
-    //     for(let j=i;j<=n;j++) {
-    //         dp[j] = Math.max(dp[j],dp[j-i] * i)
-    //     }
-    // }
-    // return dp[n]
+    ans *= n;
+    return ans;
 };
 ```
 
@@ -96,15 +87,16 @@ var cuttingRope = function (n) {
 
 ```go
 func cuttingRope(n int) int {
-	if n <= 3 {
+	if n < 4 {
 		return n - 1
 	}
-	sum := 1
+	ans := 1
 	for n > 4 {
-		sum *= 3
+		ans *= 3
 		n -= 3
 	}
-	return sum * n
+	ans *= n
+	return ans
 }
 ```
 
@@ -122,6 +114,23 @@ public:
             }
         }
         return dp[n];
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int cuttingRope(int n) {
+        if (n < 4) return n - 1;
+        int ans = 1;
+        while (n > 4)
+        {
+            ans *= 3;
+            n -= 3;
+        }
+        ans *= n;
+        return ans;
     }
 };
 ```
