@@ -193,7 +193,7 @@ impl Solution {
         }
         arr[2] /= 2;
         arr[3] /= 2;
-        let mut res = 0;
+        let mut res = i32::MAX;
         for num in arr {
             res = res.min(num);
         }
