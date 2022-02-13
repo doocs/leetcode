@@ -98,6 +98,30 @@ function maxNumberOfBalloons(text: string): number {
 };
 ```
 
+```ts
+function maxNumberOfBalloons(text: string): number {
+    const map = new Map([
+        ['b', 0],
+        ['a', 0],
+        ['l', 0],
+        ['o', 0],
+        ['n', 0],
+    ]);
+    for (const c of text) {
+        if (map.has(c)) {
+            map.set(c, map.get(c) + 1);
+        }
+    }
+    map.set('l', Math.floor(map.get('l') / 2));
+    map.set('o', Math.floor(map.get('o') / 2));
+    let res = Infinity;
+    for (const value of map.values()) {
+        res = Math.min(res, value);
+    }
+    return res;
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -139,6 +163,33 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn max_number_of_balloons(text: String) -> i32 {
+        let mut arr = [0; 5];
+        for c in text.chars() {
+            match c {
+                'b' => arr[0] += 1,
+                'a' => arr[1] += 1,
+                'l' => arr[2] += 1,
+                'o' => arr[3] += 1,
+                'n' => arr[4] += 1,
+                _ => {}
+            }
+        }
+        arr[2] /= 2;
+        arr[3] /= 2;
+        let mut res = 0;
+        for num in arr {
+            res = res.min(num);
+        }
+        res
+    }
 }
 ```
 
