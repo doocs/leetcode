@@ -2,34 +2,45 @@
 
 ## 题目描述
 
-给定一个 `m x n` 二维字符网格 `board` 和一个字符串单词 `word`。如果 `word` 存在于网格中，返回 `true`；否则，返回 `false`。
+<p>给定一个 <code>m x n</code> 二维字符网格 <code>board</code> 和一个字符串单词 <code>word</code> 。如果 <code>word</code> 存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
-单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+<p>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
 
+<p> </p>
 
-例如，在下面的 3×4 的矩阵中包含单词 "ABCCED"（单词中的字母已标出）。
+<p>例如，在下面的 3×4 的矩阵中包含单词 "ABCCED"（单词中的字母已标出）。</p>
 
-![](./images/word2.jpg)
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9812.%20%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/images/word2.jpg" style="width: 322px; height: 242px;" /></p>
 
-**示例 1：**
+<p> </p>
 
-```
-输入：board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
-输出：true
-```
+<p><strong>示例 1：</strong></p>
 
-**示例 2：**
+<pre>
+<strong>输入：</strong>board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+<strong>输出：</strong>true
+</pre>
 
-```
-输入：board = [["a","b"],["c","d"]], word = "abcd"
-输出：false
-```
+<p><strong>示例 2：</strong></p>
 
-**提示：**
+<pre>
+<strong>输入：</strong>board = [["a","b"],["c","d"]], word = "abcd"
+<strong>输出：</strong>false
+</pre>
 
-- `1 <= board.length <= 200`
-- `1 <= board[i].length <= 200`
-- `board` 和 `word` 仅由大小写英文字母组成
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= board.length <= 200</code></li>
+	<li><code>1 <= board[i].length <= 200</code></li>
+	<li><code>board</code> 和 <code>word</code> 仅由大小写英文字母组成</li>
+</ul>
+
+<p> </p>
+
+<p><strong>注意：</strong>本题与主站 79 题相同：<a href="https://leetcode-cn.com/problems/word-search/">https://leetcode-cn.com/problems/word-search/</a></p>
 
 ## 解法
 
@@ -180,7 +191,7 @@ public:
             for (int j = 0; j < board[0].size(); ++j)
                 if (dfs(i, j, 0, board, word))
                     return 1;
-        return 0;    
+        return 0;
     }
 
     bool dfs(int i, int j, int k, vector<vector<char>>& board, string word) {

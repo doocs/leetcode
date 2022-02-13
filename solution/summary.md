@@ -2210,3 +2210,8 @@
   - [2165.Smallest Value of the Rearranged Number](/solution/2100-2199/2165.Smallest%20Value%20of%20the%20Rearranged%20Number/README.md)
   - [2166.Design Bitset](/solution/2100-2199/2166.Design%20Bitset/README.md)
   - [2167.Minimum Time to Remove All Cars Containing Illegal Goods](/solution/2100-2199/2167.Minimum%20Time%20to%20Remove%20All%20Cars%20Containing%20Illegal%20Goods/README.md)
+  - [2168.Unique Substrings With Equal Digit Frequency](/solution/2100-2199/2168.Unique%20Substrings%20With%20Equal%20Digit%20Frequency/README.md)
+  - [2169.Count Operations to Obtain Zero](/solution/2100-2199/2169.Count%20Operations%20to%20Obtain%20Zero/README.md)
+  - [2170.Minimum Operations to Make the Array Alternating](/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README.md)
+  - [2171.Removing Minimum Number of Magic Beans](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README.md)
+  - [2172.Maximum AND Sum of Array](/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README.md)
