@@ -146,6 +146,60 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+function movingCount(m: number, n: number, k: number): number {
+    const set = new Set();
+    const dfs = (y: number, x: number) => {
+        if (y === m || x === n || set.has(`${y},${x}`)) {
+            return;
+        }
+        let count = 0;
+        const str = `${y}${x}`;
+        for (const c of str) {
+            count += Number(c);
+        }
+        if (count <= k) {
+            set.add(`${y},${x}`);
+            dfs(y + 1, x);
+            dfs(y, x + 1);
+        }
+    };
+    dfs(0, 0);
+    return set.size;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::{HashSet, VecDeque};
+
+impl Solution {
+    pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
+        let mut deque = VecDeque::new();
+        let mut set = HashSet::new();
+        deque.push_back([0, 0]);
+        while let Some([y, x]) = deque.pop_front() {
+            if y < m && x < n && !set.contains(&format!("{},{}", y, x)) {
+                let str = format!("{}{}", y, x);
+                let mut count = 0;
+                for c in str.chars() {
+                    count += c.to_string().parse::<i32>().unwrap();
+                }
+                if count <= k {
+                    set.insert(format!("{},{}", y, x));
+                    deque.push_back([y + 1, x]);
+                    deque.push_back([y, x + 1]);
+                }
+            }
+        }
+        set.len() as i32
+    }
+}
+```
+
 ### **...**
 
 ```
