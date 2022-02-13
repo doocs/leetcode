@@ -2,38 +2,40 @@
 
 ## 题目描述
 
-用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 `appendTail` 和 `deleteHead` ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，`deleteHead`  操作返回 -1 )
+<p>用两个栈实现一个队列。队列的声明如下，请实现它的两个函数 <code>appendTail</code> 和 <code>deleteHead</code> ，分别完成在队列尾部插入整数和在队列头部删除整数的功能。(若队列中没有元素，<code>deleteHead</code>&nbsp;操作返回 -1 )</p>
 
-**示例 1：**
+<p>&nbsp;</p>
 
-```
-输入：
-["CQueue","appendTail","deleteHead","deleteHead"]
+<p><strong>示例 1：</strong></p>
+
+<pre><strong>输入：</strong>
+[&quot;CQueue&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]
 [[],[3],[],[]]
-输出：[null,null,3,-1]
-```
+<strong>输出：</strong>[null,null,3,-1]
+</pre>
 
-**示例 2：**
+<p><strong>示例 2：</strong></p>
 
-```
-输入：
-["CQueue","deleteHead","appendTail","appendTail","deleteHead","deleteHead"]
+<pre><strong>输入：</strong>
+[&quot;CQueue&quot;,&quot;deleteHead&quot;,&quot;appendTail&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]
 [[],[],[5],[2],[],[]]
-输出：[null,-1,null,null,5,2]
-```
+<strong>输出：</strong>[null,-1,null,null,5,2]
+</pre>
 
-**提示：**
+<p><strong>提示：</strong></p>
 
-- `1 <= values <= 10000`
-- `最多会对 appendTail、deleteHead 进行 10000 次调用`
+<ul>
+	<li><code>1 &lt;= values &lt;= 10000</code></li>
+	<li><code>最多会对&nbsp;appendTail、deleteHead 进行&nbsp;10000&nbsp;次调用</code></li>
+</ul>
 
 ## 解法
 
-- 两个栈，一个负责**输入**，一个负责**输出**；
-- 执行输入时，只放入输入栈中；
-- 执行输出时，将输入栈的所有元素依次出栈，放入输出栈中；
-- 根据栈的特点，处于输入栈**栈底**的元素，在输出栈中便是**栈顶**；
-- 只有输出栈中没有元素时才进行倒放，而非每一次。
+-   两个栈，一个负责**输入**，一个负责**输出**；
+-   执行输入时，只放入输入栈中；
+-   执行输出时，将输入栈的所有元素依次出栈，放入输出栈中；
+-   根据栈的特点，处于输入栈**栈底**的元素，在输出栈中便是**栈顶**；
+-   只有输出栈中没有元素时才进行倒放，而非每一次。
 
 <!-- tabs:start -->
 
@@ -43,21 +45,17 @@
 class CQueue:
 
     def __init__(self):
-        self.s1 = []
-        self.s2 = []
+        self.stk1 = []
+        self.stk2 = []
 
     def appendTail(self, value: int) -> None:
-        self.s1.append(value)
+        self.stk1.append(value)
 
     def deleteHead(self) -> int:
-        if not self.s2:
-            self._move()
-        return -1 if not self.s2 else self.s2.pop()
-
-    def _move(self):
-        while self.s1:
-            self.s2.append(self.s1.pop())
-
+        if not self.stk2:
+            while self.stk1:
+                self.stk2.append(self.stk1.pop())
+        return -1 if not self.stk2 else self.stk2.pop()
 
 
 # Your CQueue object will be instantiated and called as such:
@@ -70,29 +68,24 @@ class CQueue:
 
 ```java
 class CQueue {
+    private Deque<Integer> stk1 = new ArrayDeque<>();
+    private Deque<Integer> stk2 = new ArrayDeque<>();
 
-    private Deque<Integer> s1;
-    private Deque<Integer> s2;
     public CQueue() {
-        s1 = new ArrayDeque<>();
-        s2 = new ArrayDeque<>();
-    }
 
+    }
+    
     public void appendTail(int value) {
-        s1.push(value);
+        stk1.push(value);
     }
-
+    
     public int deleteHead() {
-        if (s2.isEmpty()) {
-            move();
+        if (stk2.isEmpty()) {
+            while (!stk1.isEmpty()) {
+                stk2.push(stk1.pop());
+            }
         }
-        return s2.isEmpty() ? -1 : s2.pop();
-    }
-
-    private void move() {
-        while (!s1.isEmpty()) {
-            s2.push(s1.pop());
-        }
+        return stk2.isEmpty() ? -1 : stk2.pop();
     }
 }
 
@@ -108,71 +101,76 @@ class CQueue {
 
 ```js
 var CQueue = function () {
-    this.data = [];
-    this.helper = [];
+    this.stk1 = [];
+    this.stk2 = [];
 };
+
 /**
  * @param {number} value
  * @return {void}
  */
 CQueue.prototype.appendTail = function (value) {
-    this.data.push(value);
+    this.stk1.push(value);
 };
+
 /**
  * @return {number}
  */
 CQueue.prototype.deleteHead = function () {
-    if (this.data.length) {
-        while (this.data.length > 1) {
-            this.helper.push(this.data.pop());
+    if (!this.stk2.length) {
+        while (this.stk1.length) {
+            this.stk2.push(this.stk1.pop());
         }
-        let res = this.data.pop();
-        while (this.helper.length) {
-            this.data.push(this.helper.pop());
-        }
-        return res;
-    } else {
-        return -1;
     }
+    return this.stk2.length ? this.stk2.pop() : -1;
 };
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * var obj = new CQueue()
+ * obj.appendTail(value)
+ * var param_2 = obj.deleteHead()
+ */
+
 ```
 
 ### **Go**
 
 ```go
 type CQueue struct {
-	Stack1 []int
-	Stack2 []int
+	stk1 []int
+	stk2 []int
 }
 
-// 入队都往S1压入，弹出时判定S2是否为空，S2非空则弹出S2顶，否则，S1的元素从栈顶依次入S2
-//再从S2弹出
-
 func Constructor() CQueue {
-	return CQueue{Stack1: []int{}, Stack2: []int{}}
+	return CQueue{stk1: []int{}, stk2: []int{}}
 }
 
 func (this *CQueue) AppendTail(value int) {
-	this.Stack1 = append(this.Stack1, value)
+	this.stk1 = append(this.stk1, value)
 }
 
 func (this *CQueue) DeleteHead() int {
-	if len(this.Stack1) == 0 && len(this.Stack2) == 0 {
+	if len(this.stk2) == 0 {
+		for len(this.stk1) > 0 {
+			this.stk2 = append(this.stk2, this.stk1[len(this.stk1)-1])
+			this.stk1 = this.stk1[0 : len(this.stk1)-1]
+		}
+	}
+	if len(this.stk2) == 0 {
 		return -1
 	}
-	if len(this.Stack2) > 0 {
-		res := this.Stack2[len(this.Stack2)-1]
-		this.Stack2 = this.Stack2[0 : len(this.Stack2)-1]
-		return res
-	}
-	for len(this.Stack1) > 0 {
-		this.Stack2 = append(this.Stack2, this.Stack1[len(this.Stack1)-1])
-		this.Stack1 = this.Stack1[0 : len(this.Stack1)-1]
-	}
-	res := this.Stack2[len(this.Stack2)-1]
-	this.Stack2 = this.Stack2[0 : len(this.Stack2)-1]
-	return res
+	ans := this.stk2[len(this.stk2)-1]
+	this.stk2 = this.stk2[0 : len(this.stk2)-1]
+	return ans
 }
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.AppendTail(value);
+ * param_2 := obj.DeleteHead();
+ */
 ```
 
 ### **C++**
@@ -265,11 +263,11 @@ impl CQueue {
             s2: Vec::new(),
         }
     }
-    
+
     fn append_tail(&mut self, value: i32) {
         self.s1.push(value);
     }
-    
+
     fn delete_head(&mut self) -> i32 {
         match self.s2.pop() {
             Some(value) => value,
