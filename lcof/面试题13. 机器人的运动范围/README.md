@@ -173,6 +173,8 @@ function movingCount(m: number, n: number, k: number): number {
 
 ### **Rust**
 
+循环：
+
 ```rust
 use std::collections::{HashSet, VecDeque};
 
@@ -196,6 +198,28 @@ impl Solution {
             }
         }
         set.len() as i32
+    }
+}
+```
+
+递归：
+
+```rust
+impl Solution {
+    fn dfs(sign: &mut Vec<Vec<bool>>, k: usize, y: usize, x: usize) -> i32 {
+        if y == sign.len()
+            || x == sign[0].len()
+            || sign[y][x]
+            || x % 10 + x / 10 % 10 + y % 10 + y / 10 % 10 > k
+        {
+            return 0;
+        }
+        sign[y][x] = true;
+        1 + Solution::dfs(sign, k, y + 1, x) + Solution::dfs(sign, k, y, x + 1)
+    }
+    pub fn moving_count(m: i32, n: i32, k: i32) -> i32 {
+        let mut sign = vec![vec![false; n as usize]; m as usize];
+        Solution::dfs(&mut sign, k as usize, 0, 0)
     }
 }
 ```
