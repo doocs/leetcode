@@ -33,6 +33,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+双指针，当 `s[i]` 不等于 `s[j]` 时，分别尝试跳过 `i` 或跳过 `j`。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -42,21 +44,18 @@
 ```python
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        def isPalindrome(s):
-            i, j = 0, len(s) - 1
+        def check(i, j):
             while i < j:
                 if s[i] != s[j]:
                     return False
-                i += 1
-                j -= 1
+                i, j = i + 1, j - 1
             return True
 
         i, j = 0, len(s) - 1
         while i < j:
             if s[i] != s[j]:
-                return isPalindrome(s[i: j]) or isPalindrome(s[i + 1: j + 1])
-            i += 1
-            j -= 1
+                return check(i, j - 1) or check(i + 1, j)
+            i, j = i + 1, j - 1
         return True
 ```
 
@@ -69,14 +68,14 @@ class Solution {
     public boolean validPalindrome(String s) {
         for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
             if (s.charAt(i) != s.charAt(j)) {
-                return isPalindrome(s.substring(i, j)) || isPalindrome(s.substring(i + 1, j + 1));
+                return check(s, i + 1, j) || check(s, i, j - 1);
             }
         }
         return true;
     }
 
-    private boolean isPalindrome(String s) {
-        for (int i = 0, j = s.length() - 1; i < j; ++i, --j) {
+    private boolean check(String s, int i, int j) {
+        for (; i < j; ++i, --j) {
             if (s.charAt(i) != s.charAt(j)) {
                 return false;
             }
@@ -109,6 +108,73 @@ function isPalinddrome(s: string): boolean {
     }
     return true;
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool validPalindrome(string s) {
+        for (int i = 0, j = s.size() - 1; i < j; ++i, --j)
+            if (s[i] != s[j])
+                return check(s, i + 1, j) || check(s, i, j - 1);
+        return 1;
+    }
+
+    bool check(string s, int i, int j) {
+        for (; i < j; ++i, --j)
+            if (s[i] != s[j])
+                return 0;
+        return 1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func validPalindrome(s string) bool {
+	check := func(i, j int) bool {
+		for ; i < j; i, j = i+1, j-1 {
+			if s[i] != s[j] {
+				return false
+			}
+		}
+		return true
+	}
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		if s[i] != s[j] {
+			return check(i+1, j) || check(i, j-1)
+		}
+	}
+	return true
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var validPalindrome = function (s) {
+    let check = function (i, j) {
+        for (; i < j; ++i, --j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+        }
+        return true;
+    };
+    for (let i = 0, j = s.length - 1; i < j; ++i, --j) {
+        if (s.charAt(i) != s.charAt(j)) {
+            return check(i + 1, j) || check(i, j - 1);
+        }
+    }
+    return true;
+};
 ```
 
 ### **...**
