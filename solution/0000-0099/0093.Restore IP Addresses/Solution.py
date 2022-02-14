@@ -1,7 +1,5 @@
 class Solution:
     def restoreIpAddresses(self, s: str) -> List[str]:
-        ans = []
-
         def check(s):
             if not (0 <= int(s) <= 255):
                 return False
@@ -20,5 +18,6 @@ class Solution:
                     dfs(s[i:], t)
                     t.pop()
 
+        ans = []
         dfs(s, [])
         return ans
