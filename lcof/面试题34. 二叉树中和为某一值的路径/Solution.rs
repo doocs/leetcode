@@ -16,11 +16,15 @@
 //     }
 //   }
 // }
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 impl Solution {
-    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, mut target: i32,  paths: &mut Vec<i32>) -> Vec<Vec<i32>> {
+    fn dfs(
+        root: &Option<Rc<RefCell<TreeNode>>>,
+        mut target: i32,
+        paths: &mut Vec<i32>,
+    ) -> Vec<Vec<i32>> {
         let node = root.as_ref().unwrap().borrow();
         paths.push(node.val);
         target -= node.val;
