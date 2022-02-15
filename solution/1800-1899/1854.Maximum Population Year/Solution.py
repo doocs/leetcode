@@ -4,7 +4,7 @@ class Solution:
         for birth, death in logs:
             delta[birth] += 1
             delta[death] -= 1
-        
+
         mx = res = cur = 0
         for i, v in enumerate(delta):
             cur += v

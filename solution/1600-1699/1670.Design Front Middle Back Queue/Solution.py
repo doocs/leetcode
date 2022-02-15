@@ -1,5 +1,4 @@
 class FrontMiddleBackQueue:
-
     def __init__(self):
         self.left = deque()
         self.right = deque()

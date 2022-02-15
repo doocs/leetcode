@@ -1,5 +1,7 @@
 class Solution:
-    def minimumHammingDistance(self, source: List[int], target: List[int], allowedSwaps: List[List[int]]) -> int:
+    def minimumHammingDistance(
+        self, source: List[int], target: List[int], allowedSwaps: List[List[int]]
+    ) -> int:
         n = len(source)
         p = list(range(n))
 

@@ -8,7 +8,7 @@ class Solution:
         for i in range(1, n):
             lmx[i] = max(lmx[i - 1], height[i])
             rmx[n - 1 - i] = max(rmx[n - i], height[n - 1 - i])
-        
+
         res = 0
         for i in range(n):
             res += min(lmx[i], rmx[i]) - height[i]

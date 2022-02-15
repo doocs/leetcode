@@ -20,7 +20,7 @@ class ZigzagIterator:
             if self.cur == start:
                 return False
         return True
-        
+
 
 # Your ZigzagIterator object will be instantiated and called as such:
 # i, v = ZigzagIterator(v1, v2), []

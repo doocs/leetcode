@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def mirrorTree(self, root: TreeNode) -> TreeNode:
         if root is None:

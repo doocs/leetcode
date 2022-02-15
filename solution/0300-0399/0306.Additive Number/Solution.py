@@ -18,6 +18,6 @@ class Solution:
                     break
                 if j - i > 1 and num[i] == '0':
                     continue
-                if dfs(int(num[:i]), int(num[i: j]), num[j:]):
+                if dfs(int(num[:i]), int(num[i:j]), num[j:]):
                     return True
         return False

@@ -14,7 +14,7 @@ class Solution:
         sign = -1 if str[i] == '-' else 1
         if str[i] in ['-', '+']:
             i += 1
-        res, flag = 0, (2 ** 31 - 1) // 10
+        res, flag = 0, (2**31 - 1) // 10
         while i < n:
             # 非数字，跳出循环
             if not str[i].isdigit():
@@ -22,7 +22,7 @@ class Solution:
             c = int(str[i])
             # 溢出判断
             if res > flag or (res == flag and c > 7):
-                return 2 ** 31 - 1 if sign > 0 else -2 ** 31
+                return 2**31 - 1 if sign > 0 else -(2**31)
             res = res * 10 + c
             i += 1
         return sign * res

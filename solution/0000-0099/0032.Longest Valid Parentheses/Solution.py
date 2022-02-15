@@ -4,18 +4,18 @@ class Solution:
         :type s: string
         :rtype int
         """
-        
+
         Longest = temp = 0
         stack = []
-        
+
         for i in s:
-            if i == '(' :
+            if i == '(':
                 stack.append(i)
-            elif len(stack) != 0 and stack[-1] == '(' :
+            elif len(stack) != 0 and stack[-1] == '(':
                 stack.pop()
                 temp += 2
             else:
-                stack=[]
+                stack = []
                 if temp > Longest:
                     Longest = temp
                 temp = 0

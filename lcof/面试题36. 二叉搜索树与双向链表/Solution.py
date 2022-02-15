@@ -6,6 +6,8 @@ class Node:
         self.left = left
         self.right = right
 """
+
+
 class Solution:
     def treeToDoublyList(self, root: 'Node') -> 'Node':
         def dfs(cur):
@@ -19,6 +21,7 @@ class Solution:
             cur.left = self.pre
             self.pre = cur
             dfs(cur.right)
+
         if root is None:
             return None
         self.head = self.pre = None

@@ -14,7 +14,7 @@ class Solution:
                 return
             for j in range(i, n):
                 if dp[i][j]:
-                    t.append(s[i: j + 1])
+                    t.append(s[i : j + 1])
                     dfs(s, j + 1, t)
                     t.pop(-1)
 

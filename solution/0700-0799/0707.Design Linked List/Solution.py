@@ -1,19 +1,16 @@
 class ListNode:
-    
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
 
 class MyLinkedList:
-
     def __init__(self):
         """
         Initialize your data structure here.
         """
         self.dummy = ListNode()
         self.count = 0
-
 
     def get(self, index: int) -> int:
         """
@@ -26,20 +23,17 @@ class MyLinkedList:
             cur = cur.next
         return cur.val
 
-
     def addAtHead(self, val: int) -> None:
         """
         Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
         """
         self.addAtIndex(0, val)
 
-
     def addAtTail(self, val: int) -> None:
         """
         Append a node of value val to the last element of the linked list.
         """
         self.addAtIndex(self.count, val)
-
 
     def addAtIndex(self, index: int, val: int) -> None:
         """
@@ -52,7 +46,6 @@ class MyLinkedList:
             pre = pre.next
         pre.next = ListNode(val, pre.next)
         self.count += 1
-
 
     def deleteAtIndex(self, index: int) -> None:
         """
@@ -67,7 +60,6 @@ class MyLinkedList:
         pre.next = t.next
         t.next = None
         self.count -= 1
-
 
 
 # Your MyLinkedList object will be instantiated and called as such:

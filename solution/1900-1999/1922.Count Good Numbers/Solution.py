@@ -1,6 +1,6 @@
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
-        mod = 10 ** 9 + 7
+        mod = 10**9 + 7
 
         def myPow(x, n):
             res = 1

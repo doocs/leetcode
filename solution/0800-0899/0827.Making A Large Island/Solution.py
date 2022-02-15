@@ -14,17 +14,17 @@ class Solution:
             if pa != pb:
                 size[pb] += size[pa]
                 p[pa] = pb
-        
+
         def check(i, j):
             return 0 <= i < n and 0 <= j < n and grid[i][j] == 1
-        
+
         for i in range(n):
             for j in range(n):
                 if grid[i][j] == 1:
                     for x, y in [[1, 0], [0, 1]]:
-                        if check(i + x, j +y):
+                        if check(i + x, j + y):
                             union(i * n + j, (i + x) * n + j + y)
-        
+
         res = max(size)
         for i in range(n):
             for j in range(n):

@@ -1,5 +1,4 @@
 class CustomStack:
-
     def __init__(self, maxSize: int):
         self.s = [0] * maxSize
         self.tail = 0

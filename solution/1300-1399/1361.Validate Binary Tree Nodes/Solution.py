@@ -1,5 +1,7 @@
 class Solution:
-    def validateBinaryTreeNodes(self, n: int, leftChild: List[int], rightChild: List[int]) -> bool:
+    def validateBinaryTreeNodes(
+        self, n: int, leftChild: List[int], rightChild: List[int]
+    ) -> bool:
         p = list(range(n))
         vis = [False] * n
 

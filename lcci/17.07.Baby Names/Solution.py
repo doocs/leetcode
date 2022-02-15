@@ -21,12 +21,12 @@ class Solution:
 
         for e in names:
             idx = e.find("(")
-            name, w = e[: idx], int(e[idx + 1: -1])
+            name, w = e[:idx], int(e[idx + 1 : -1])
             mp[name] = w
             p[name] = name
         for e in synonyms:
             idx = e.find(",")
-            name1, name2 = e[1: idx], e[idx + 1: -1]
+            name1, name2 = e[1:idx], e[idx + 1 : -1]
             mp[name1] += 0
             mp[name2] += 0
             p[name1] = name1
@@ -34,6 +34,6 @@ class Solution:
 
         for e in synonyms:
             idx = e.find(",")
-            name1, name2 = e[1: idx], e[idx + 1: -1]
+            name1, name2 = e[1:idx], e[idx + 1 : -1]
             union(name1, name2)
         return [f'{name}({mp[name]})' for name, w in mp.items() if name == find(name)]

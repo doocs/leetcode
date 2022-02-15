@@ -3,6 +3,7 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
+
         def reverse(s, i, j):
             while i < j:
                 s[i], s[j] = s[j], s[i]

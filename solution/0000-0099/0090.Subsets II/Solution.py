@@ -8,6 +8,7 @@ class Solution:
                 path.append(nums[j])
                 dfs(nums, j + 1, res, path)
                 path.pop()
+
         res, path = [], []
         nums.sort()
         dfs(nums, 0, res, path)

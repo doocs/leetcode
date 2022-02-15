@@ -5,8 +5,8 @@ class Node:
         self.prev = None
         self.next = None
 
-class LRUCache:
 
+class LRUCache:
     def __init__(self, capacity: int):
         self.cache = {}
         self.head = Node()
@@ -37,15 +37,15 @@ class LRUCache:
                 node = self.remove_tail()
                 self.cache.pop(node.key)
                 self.size -= 1
-    
+
     def move_to_head(self, node):
         self.remove_node(node)
         self.add_to_head(node)
-    
+
     def remove_node(self, node):
         node.prev.next = node.next
         node.next.prev = node.prev
-    
+
     def add_to_head(self, node):
         node.next = self.head.next
         self.head.next.prev = node

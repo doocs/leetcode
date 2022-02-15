@@ -1,8 +1,7 @@
 class Solution:
     def maxDistance(self, grid: List[List[int]]) -> int:
         n = len(grid)
-        q = deque([(i, j) for i in range(n)
-                   for j in range(n) if grid[i][j] == 1])
+        q = deque([(i, j) for i in range(n) for j in range(n) if grid[i][j] == 1])
         ans = -1
         valid = False
         while q:

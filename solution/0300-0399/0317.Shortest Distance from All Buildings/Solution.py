@@ -18,7 +18,12 @@ class Solution:
                             r, c = q.popleft()
                             for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
                                 x, y = r + a, c + b
-                                if 0 <= x < m and 0 <= y < n and grid[x][y] == 0 and (x, y) not in vis:
+                                if (
+                                    0 <= x < m
+                                    and 0 <= y < n
+                                    and grid[x][y] == 0
+                                    and (x, y) not in vis
+                                ):
                                     cnt[x][y] += 1
                                     dist[x][y] += d
                                     q.append((x, y))

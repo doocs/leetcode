@@ -6,6 +6,6 @@ class Solution:
             local, domain = email.split('@')
             local = local.replace('.', '')
             if '+' in local:
-                local = local[:local.find('+')]
+                local = local[: local.find('+')]
             s.add(local + '@' + domain)
         return len(s)

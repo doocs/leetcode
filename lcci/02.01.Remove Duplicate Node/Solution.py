@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def removeDuplicateNodes(self, head: ListNode) -> ListNode:
         if head is None or head.next is None:

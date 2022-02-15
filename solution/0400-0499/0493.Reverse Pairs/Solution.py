@@ -4,14 +4,13 @@ class Solution:
             if left >= right:
                 return 0
             mid = (left + right) >> 1
-            res = merge_sort(nums, left, mid) + \
-                merge_sort(nums, mid + 1, right)
+            res = merge_sort(nums, left, mid) + merge_sort(nums, mid + 1, right)
             i, j = left, mid + 1
             while i <= mid and j <= right:
                 if nums[i] <= 2 * nums[j]:
                     i += 1
                 else:
-                    res += (mid - i + 1)
+                    res += mid - i + 1
                     j += 1
             tmp = []
             i, j = left, mid + 1

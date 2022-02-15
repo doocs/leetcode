@@ -6,5 +6,5 @@ class Solution:
                 major = num
                 cnt = 1
             else:
-                cnt += (1 if major == num else -1)
+                cnt += 1 if major == num else -1
         return major

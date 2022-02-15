@@ -1,5 +1,7 @@
 class Solution:
-    def distanceLimitedPathsExist(self, n: int, edgeList: List[List[int]], queries: List[List[int]]) -> List[bool]:
+    def distanceLimitedPathsExist(
+        self, n: int, edgeList: List[List[int]], queries: List[List[int]]
+    ) -> List[bool]:
         p = list(range(n))
 
         def find(x):

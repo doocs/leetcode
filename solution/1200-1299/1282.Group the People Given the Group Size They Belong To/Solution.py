@@ -7,5 +7,5 @@ class Solution:
         for x, indexes in mp.items():
             l = len(indexes)
             for i in range(0, l, x):
-                res.append(indexes[i: i + x])
+                res.append(indexes[i : i + x])
         return res

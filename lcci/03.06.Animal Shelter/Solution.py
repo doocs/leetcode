@@ -1,5 +1,4 @@
 class AnimalShelf:
-
     def __init__(self):
         self.cats = []
         self.dogs = []

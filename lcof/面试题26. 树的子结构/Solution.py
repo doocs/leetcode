@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def isSubStructure(self, A: TreeNode, B: TreeNode) -> bool:
         def dfs(A, B):
@@ -16,4 +17,8 @@ class Solution:
 
         if A is None or B is None:
             return False
-        return dfs(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
+        return (
+            dfs(A, B)
+            or self.isSubStructure(A.left, B)
+            or self.isSubStructure(A.right, B)
+        )

@@ -9,6 +9,7 @@ class Solution:
         """
         Do not return anything, modify root in-place instead.
         """
+
         def dfs(root):
             nonlocal prev, first, second
             if root:
@@ -20,7 +21,7 @@ class Solution:
                         second = root
                 prev = root
                 dfs(root.right)
-        
+
         prev = first = second = None
         dfs(root)
         first.val, second.val = second.val, first.val

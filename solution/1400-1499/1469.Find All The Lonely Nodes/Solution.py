@@ -15,6 +15,7 @@ class Solution:
                 self.res.append(root.left.val)
             traverse(root.left)
             traverse(root.right)
+
         self.res = []
         traverse(root)
         return self.res

@@ -17,4 +17,4 @@ class Solution:
             if nums[i] == s[kai]:
                 loc = i
                 break
-        return int(s[:kai + 1] + nums[kai + 1:loc] + nums[kai] + nums[loc + 1:])
+        return int(s[: kai + 1] + nums[kai + 1 : loc] + nums[kai] + nums[loc + 1 :])

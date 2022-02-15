@@ -8,6 +8,6 @@ class Solution:
                     ans += 4
                     if i < m - 1 and grid[i + 1][j] == 1:
                         ans -= 2
-                    if j < n -1 and grid[i][j + 1] == 1:
+                    if j < n - 1 and grid[i][j + 1] == 1:
                         ans -= 2
         return ans

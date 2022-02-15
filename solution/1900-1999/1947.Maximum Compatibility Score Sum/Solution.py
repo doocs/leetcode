@@ -1,5 +1,7 @@
 class Solution:
-    def maxCompatibilitySum(self, students: List[List[int]], mentors: List[List[int]]) -> int:
+    def maxCompatibilitySum(
+        self, students: List[List[int]], mentors: List[List[int]]
+    ) -> int:
         def score(s, m):
             res = 0
             for i in range(len(s)):

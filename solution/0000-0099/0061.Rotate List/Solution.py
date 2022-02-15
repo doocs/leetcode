@@ -13,13 +13,13 @@ class Solution:
         k %= n
         if k == 0:
             return head
-        
+
         slow = fast = head
         for _ in range(k):
             fast = fast.next
         while fast.next:
             slow, fast = slow.next, fast.next
-        
+
         start = slow.next
         slow.next = None
         fast.next = head

@@ -1,6 +1,6 @@
 class Solution:
     def gcdSort(self, nums: List[int]) -> bool:
-        n = 10 ** 5 + 10
+        n = 10**5 + 10
         p = list(range(n))
         f = defaultdict(list)
         mx = max(nums)

@@ -12,7 +12,7 @@ class Solution:
             if midVal1 < midVal2:
                 return findKth(i + k // 2, j, k - k // 2)
             return findKth(i, j + k // 2, k - k // 2)
-        
+
         m, n = len(nums1), len(nums2)
         left, right = (m + n + 1) // 2, (m + n + 2) // 2
         return (findKth(0, 0, left) + findKth(0, 0, right)) / 2

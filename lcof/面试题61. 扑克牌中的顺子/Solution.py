@@ -11,4 +11,3 @@ class Solution:
             max_val = max(max_val, num)
             min_val = min(min_val, num)
         return max_val - min_val <= 4
-

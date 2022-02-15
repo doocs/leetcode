@@ -14,8 +14,8 @@ class Solution:
                 self.min_diff = min(self.min_diff, abs(root.val - self.pre))
             self.pre = root.val
             inorder(root.right)
-        
+
         self.pre = None
-        self.min_diff = 10 ** 5
+        self.min_diff = 10**5
         inorder(root)
         return self.min_diff

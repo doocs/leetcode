@@ -25,6 +25,7 @@
 #                 return False
 #         return True
 
+
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         m, n = len(s), len(t)
@@ -55,4 +56,4 @@ class Solution:
                     if window[ch] == need[ch]:
                         windowCount -= 1
                     window[ch] -= 1
-        return "" if minLen == float('inf') else s[start:start + minLen]
+        return "" if minLen == float('inf') else s[start : start + minLen]

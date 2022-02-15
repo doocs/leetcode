@@ -4,7 +4,7 @@ class Solution:
 
         def next(i):
             return (i + nums[i] % n + n) % n
-        
+
         for i in range(n):
             if nums[i] == 0:
                 continue

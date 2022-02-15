@@ -7,7 +7,7 @@ class Solution:
         for i, c in enumerate(s):
             for j, v in enumerate(vowels):
                 if c == v:
-                    state ^= (1 << j)
+                    state ^= 1 << j
             ans = max(ans, i - pos[state])
             pos[state] = min(pos[state], i)
         return ans

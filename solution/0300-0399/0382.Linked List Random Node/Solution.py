@@ -4,7 +4,6 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-
     def __init__(self, head: Optional[ListNode]):
         self.head = head
 

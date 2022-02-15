@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def getKthFromEnd(self, head: ListNode, k: int) -> ListNode:
         slow = fast = head

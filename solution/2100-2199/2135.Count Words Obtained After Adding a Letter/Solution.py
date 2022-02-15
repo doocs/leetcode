@@ -4,14 +4,14 @@ class Solution:
         for word in startWords:
             mask = 0
             for c in word:
-                mask |= (1 << (ord(c) - ord('a')))
+                mask |= 1 << (ord(c) - ord('a'))
             s.add(mask)
 
         ans = 0
         for word in targetWords:
             mask = 0
             for c in word:
-                mask |= (1 << (ord(c) - ord('a')))
+                mask |= 1 << (ord(c) - ord('a'))
             for c in word:
                 t = mask ^ (1 << (ord(c) - ord('a')))
                 if t in s:

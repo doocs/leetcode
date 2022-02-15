@@ -8,7 +8,7 @@ class Solution:
                 t.append(str(i))
                 if i < len(s):
                     t.append(s[i])
-                    dfs(s[i + 1:], t)
+                    dfs(s[i + 1 :], t)
                     t.pop()
                 else:
                     dfs(s[i:], t)

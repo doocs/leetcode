@@ -14,7 +14,10 @@ class Solution:
                     p[find(i * n + j)] = find(m * n)
                 else:
                     for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                        if grid[i + x][j + y] == '0' or grid[i][j] == grid[i + x][j + y]:
+                        if (
+                            grid[i + x][j + y] == '0'
+                            or grid[i][j] == grid[i + x][j + y]
+                        ):
                             p[find(i * n + j)] = find((i + x) * n + j + y)
 
         mp = defaultdict(int)

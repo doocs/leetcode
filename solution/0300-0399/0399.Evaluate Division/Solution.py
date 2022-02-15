@@ -1,5 +1,7 @@
 class Solution:
-    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+    def calcEquation(
+        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
+    ) -> List[float]:
         w = defaultdict(lambda: 1)
         p = defaultdict()
         for a, b in equations:
@@ -20,4 +22,7 @@ class Solution:
             p[pa] = pb
             w[pa] = w[e[1]] * values[i] / w[e[0]]
 
-        return [-1 if c not in p or d not in p or find(c) != find(d) else w[c] / w[d] for c, d in queries]
+        return [
+            -1 if c not in p or d not in p or find(c) != find(d) else w[c] / w[d]
+            for c, d in queries
+        ]

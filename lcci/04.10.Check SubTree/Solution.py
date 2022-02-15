@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def checkSubTree(self, t1: TreeNode, t2: TreeNode) -> bool:
         def dfs(t1, t2):

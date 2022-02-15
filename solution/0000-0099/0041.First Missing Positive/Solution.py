@@ -4,7 +4,7 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        
+
         i = 1
         while i in nums:
             i += 1

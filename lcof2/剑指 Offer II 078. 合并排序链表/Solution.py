@@ -11,7 +11,7 @@ class Solution:
         for i in range(n - 1):
             lists[i + 1] = self.mergeTwoLists(lists[i], lists[i + 1])
         return lists[-1]
-        
+
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         dummy = ListNode()
         cur = dummy

@@ -16,11 +16,7 @@ res = json.loads(data)
 questions = res['data']['problemsetQuestionList']['questions']
 questions = [item for item in questions if item['frontendQuestionId'][:3] == 'LCP']
 
-mp = {
-    "EASY": '简单',
-    "MEDIUM": '中等',
-    'HARD': '困难'
-}
+mp = {"EASY": '简单', "MEDIUM": '中等', 'HARD': '困难'}
 
 
 def get_question_detail(question_title_slug):
@@ -28,63 +24,65 @@ def get_question_detail(question_title_slug):
     form_data = {
         'operationName': 'globalData',
         'query': 'query globalData {\n  feature {\n    questionTranslation\n    subscription\n    signUp\n    '
-                 'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
-                 'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
-                 'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
-                 'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
-                 'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
-                 'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
-                 'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
-                 'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
-                 'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
-                 'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
-                 '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
-                 'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
-        'variables': {}
+        'discuss\n    mockInterview\n    contest\n    store\n    book\n    chinaProblemDiscuss\n    '
+        'socialProviders\n    studentFooter\n    cnJobs\n    enableLsp\n    enableWs\n    '
+        'enableDebugger\n    enableDebuggerAdmin\n    enableDarkMode\n    tasks\n    '
+        'leetbook\n    __typename\n  }\n  userStatus {\n    isSignedIn\n    isAdmin\n    '
+        'isStaff\n    isSuperuser\n    isTranslator\n    isPremium\n    isVerified\n    '
+        'isPhoneVerified\n    isWechatVerified\n    checkedInToday\n    username\n    '
+        'realName\n    userSlug\n    groups\n    avatar\n    optedIn\n    '
+        'requestRegion\n    region\n    activeSessionId\n    permissions\n    notificationStatus {\n      '
+        'lastModified\n      numUnread\n      __typename\n    }\n    completedFeatureGuides\n    '
+        'useTranslation\n    accountStatus {\n      isFrozen\n      inactiveAfter\n      __typename\n    '
+        '}\n    __typename\n  }\n  siteRegion\n  chinaHost\n  websocketUrl\n  userBannedInfo {\n    '
+        'bannedData {\n      endAt\n      bannedType\n      __typename\n    }\n    __typename\n  }\n}\n',
+        'variables': {},
     }
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) ' \
-                      'Chrome/77.0.3865.120 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/77.0.3865.120 Safari/537.36',
         'Connection': 'keep-alive',
         'Content-Type': 'application/json',
         'Referer': 'https://leetcode-cn.com/problems/' + question_title_slug,
         # lc-cn cookie here
-        'cookie': ''
+        'cookie': '',
     }
-    requests.post(url='https://leetcode-cn.com/graphql',
-                  data=json.dumps(form_data),
-                  headers=headers,
-                  timeout=10,
-                  verify=False)
+    requests.post(
+        url='https://leetcode-cn.com/graphql',
+        data=json.dumps(form_data),
+        headers=headers,
+        timeout=10,
+        verify=False,
+    )
 
     form_data = {
         'operationName': 'questionData',
-        'variables': {
-            'titleSlug': question_title_slug
-        },
+        'variables': {'titleSlug': question_title_slug},
         'query': 'query questionData($titleSlug: String!) {\n  question(titleSlug: $titleSlug) {\n    '
-                 'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
-                 'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
-                 'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
-                 'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
-                 '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
-                 'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
-                 'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
-                 'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
-                 'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
-                 'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
-                 'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
-                 'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
-                 'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
-                 'exampleTestcases\n    __typename\n  }\n}\n'
+        'questionId\n    questionFrontendId\n    categoryTitle\n    boundTopicId\n    title\n    '
+        'titleSlug\n    content\n    translatedTitle\n    translatedContent\n    isPaidOnly\n    '
+        'difficulty\n    likes\n    dislikes\n    isLiked\n    similarQuestions\n    '
+        'contributors {\n      username\n      profileUrl\n      avatarUrl\n      __typename\n    '
+        '}\n    langToValidPlayground\n    topicTags {\n      name\n      slug\n      '
+        'translatedName\n      __typename\n    }\n    companyTagStats\n    codeSnippets {\n      '
+        'lang\n      langSlug\n      code\n      __typename\n    }\n    stats\n    hints\n    '
+        'solution {\n      id\n      canSeeDetail\n      __typename\n    }\n    status\n    '
+        'sampleTestCase\n    metaData\n    judgerAvailable\n    judgeType\n    mysqlSchemas\n    '
+        'enableRunCode\n    envInfo\n    book {\n      id\n      bookName\n      pressName\n      '
+        'source\n      shortDescription\n      fullDescription\n      bookImgUrl\n      '
+        'pressImgUrl\n      productUrl\n      __typename\n    }\n    isSubscribed\n    '
+        'isDailyQuestion\n    dailyRecordStatus\n    editorType\n    ugcQuestionId\n    style\n    '
+        'exampleTestcases\n    __typename\n  }\n}\n',
     }
 
     # get question detail
-    resp = requests.post(url='https://leetcode-cn.com/graphql',
-                         data=json.dumps(form_data).encode('utf-8'),
-                         headers=headers,
-                         timeout=10,
-                         verify=False)
+    resp = requests.post(
+        url='https://leetcode-cn.com/graphql',
+        data=json.dumps(form_data).encode('utf-8'),
+        headers=headers,
+        timeout=10,
+        verify=False,
+    )
     res = resp.json()
     return res['data']['question']
 
@@ -96,7 +94,9 @@ for question in questions:
     title_cn = str(question['titleCn']).strip()
     url = 'https://leetcode-cn.com/problems/' + question_title_slug
     sub_folder = frontend_question_id + ". " + title_cn
-    topics = ','.join([f'`{topic["nameTranslated"]}`' for topic in question['topicTags']])
+    topics = ','.join(
+        [f'`{topic["nameTranslated"]}`' for topic in question['topicTags']]
+    )
     path = f'./{sub_folder}'
     diff = mp[question['difficulty']]
 
@@ -120,5 +120,5 @@ for question in questions:
 
 res = os.listdir(".")
 for file in res:
-    if os.path.isdir("./" + file)  and file != '__pycache__':
+    if os.path.isdir("./" + file) and file != '__pycache__':
         print(f'- [{file}](/lcp/{quote(file)}/README.md)')

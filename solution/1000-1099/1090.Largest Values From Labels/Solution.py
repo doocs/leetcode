@@ -1,5 +1,7 @@
 class Solution:
-    def largestValsFromLabels(self, values: List[int], labels: List[int], numWanted: int, useLimit: int) -> int:
+    def largestValsFromLabels(
+        self, values: List[int], labels: List[int], numWanted: int, useLimit: int
+    ) -> int:
         n = len(values)
         idx = list(range(n))
         idx.sort(key=lambda i: -values[i])

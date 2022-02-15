@@ -1,5 +1,4 @@
 class TripleInOne:
-
     def __init__(self, stackSize: int):
         self._capacity = stackSize
         self._s = [[], [], []]

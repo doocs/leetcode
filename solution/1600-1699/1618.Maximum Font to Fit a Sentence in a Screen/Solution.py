@@ -2,7 +2,7 @@
 # This is FontInfo's API interface.
 # You should not implement it, or speculate about its implementation
 # """
-#class FontInfo(object):
+# class FontInfo(object):
 #    Return the width of char ch when fontSize is used.
 #    def getWidth(self, fontSize, ch):
 #        """
@@ -10,14 +10,16 @@
 #        :type ch: char
 #        :rtype int
 #        """
-# 
+#
 #    def getHeight(self, fontSize):
 #        """
 #        :type fontSize: int
 #        :rtype int
 #        """
 class Solution:
-    def maxFont(self, text: str, w: int, h: int, fonts: List[int], fontInfo : 'FontInfo') -> int:
+    def maxFont(
+        self, text: str, w: int, h: int, fonts: List[int], fontInfo: 'FontInfo'
+    ) -> int:
         def check(text, fontSize, w, h, fontInfo) -> bool:
             if fontInfo.getHeight(fontSize) > h:
                 return False

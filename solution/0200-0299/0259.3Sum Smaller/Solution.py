@@ -4,12 +4,12 @@ class Solution:
             count = 0
             while start < end:
                 if nums[start] + nums[end] < target:
-                    count += (end - start)
+                    count += end - start
                     start += 1
                 else:
                     end -= 1
             return count
-            
+
         nums.sort()
         n, count = len(nums), 0
         for i in range(n - 2):

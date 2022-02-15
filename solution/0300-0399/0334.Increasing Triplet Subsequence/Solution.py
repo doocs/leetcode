@@ -9,4 +9,3 @@ class Solution:
             else:
                 mid = num
         return False
- 

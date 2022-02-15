@@ -1,5 +1,4 @@
 class UndergroundSystem:
-
     def __init__(self):
         self.check_in_station = {}
         self.check_in_time = {}

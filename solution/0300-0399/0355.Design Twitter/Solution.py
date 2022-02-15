@@ -1,5 +1,4 @@
 class Twitter:
-
     def __init__(self):
         """
         Initialize your data structure here.

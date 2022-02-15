@@ -1,5 +1,4 @@
 class DetectSquares:
-
     def __init__(self):
         self.mp = defaultdict(Counter)
 

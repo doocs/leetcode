@@ -5,7 +5,7 @@ class Solution:
         for i in range(-100, 0):
             if counter[i]:
                 ops = min(counter[i], k)
-                ans -= (i * ops * 2)
+                ans -= i * ops * 2
                 counter[i] -= ops
                 counter[-i] += ops
                 k -= ops

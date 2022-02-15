@@ -5,12 +5,12 @@ class Solution:
             i, j = n - 1, 0
             while i >= 0 and j < n:
                 if matrix[i][j] <= mid:
-                    count += (i + 1)
+                    count += i + 1
                     j += 1
                 else:
                     i -= 1
             return count >= k
-    
+
         n = len(matrix)
         left, right = matrix[0][0], matrix[n - 1][n - 1]
         while left < right:

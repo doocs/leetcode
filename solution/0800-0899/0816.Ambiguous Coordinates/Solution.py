@@ -3,9 +3,10 @@ class Solution:
         def convert(i, j):
             res = []
             for k in range(1, j - i + 1):
-                left, right = s[i: i + k], s[i + k: j]
-                valid = (left == '0' or not left.startswith(
-                    '0')) and not right.endswith('0')
+                left, right = s[i : i + k], s[i + k : j]
+                valid = (
+                    left == '0' or not left.startswith('0')
+                ) and not right.endswith('0')
                 if valid:
                     res.append(left + ('.' if k < j - i else '') + right)
             return res

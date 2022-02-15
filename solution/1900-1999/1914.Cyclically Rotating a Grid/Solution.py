@@ -11,7 +11,7 @@ class Solution:
             for i in range(s2, s1, -1):
                 t.append(grid[i][e2])
             k %= len(t)
-            t = t[-k:] +t[:-k]
+            t = t[-k:] + t[:-k]
             k = 0
             for j in range(e2, e1, -1):
                 grid[s1][j] = t[k]
@@ -25,7 +25,7 @@ class Solution:
             for i in range(s2, s1, -1):
                 grid[i][e2] = t[k]
                 k += 1
-        
+
         m, n = len(grid), len(grid[0])
         s1 = e1 = 0
         s2, e2 = m - 1, n - 1

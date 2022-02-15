@@ -23,5 +23,5 @@ class Solution:
             else:
                 ans[ord(root.val) - ord('a')] += 1
             return ans
-        
+
         return dfs(root1) == dfs(root2)

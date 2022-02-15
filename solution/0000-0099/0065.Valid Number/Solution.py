@@ -11,7 +11,7 @@ class Solution:
 
         Ans = re.match(NumberRE, s)
 
-        if Ans and len(s) == Ans.regs[0][1] :
+        if Ans and len(s) == Ans.regs[0][1]:
             return True
 
         return False

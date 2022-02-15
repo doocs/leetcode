@@ -1,5 +1,4 @@
 class RLEIterator:
-
     def __init__(self, encoding: List[int]):
         self.encoding = encoding
         self.i = 0

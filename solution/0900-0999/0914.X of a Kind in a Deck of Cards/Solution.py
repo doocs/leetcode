@@ -12,22 +12,26 @@ Memory Usage: 12.9 MB, less than 100.00% of Python3 online submissions for X of 
 '''
 
 from collections import defaultdict
+
+
 class Solution:
     def hasGroupsSizeX(self, deck: List[int]) -> bool:
-        
+
         if len(deck) < 2:
             return False
-        
+
         occurences = {}
         for card in deck:
             if card not in occurences:
                 occurences[card] = 1
             else:
                 occurences[card] += 1
-        
-        min_occurence = occurences[min(occurences.keys(), key = (lambda k: occurences[k]))]
-    
-        for factor in range(2, min_occurence+1):
+
+        min_occurence = occurences[
+            min(occurences.keys(), key=(lambda k: occurences[k]))
+        ]
+
+        for factor in range(2, min_occurence + 1):
             if min_occurence % factor == 0:
                 check = True
                 for value in occurences.values():
@@ -36,8 +40,5 @@ class Solution:
                         break
                 if check:
                     return True
-         
+
         return False
-            
-            
-        

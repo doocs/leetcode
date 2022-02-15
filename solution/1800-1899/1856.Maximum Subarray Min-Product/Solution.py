@@ -24,4 +24,4 @@ class Solution:
             start, end = prev_lesser[i], next_lesser[i]
             t = nums[i] * (pre_sum[end] - pre_sum[start + 1])
             res = max(res, t)
-        return res % (10 ** 9 + 7)
+        return res % (10**9 + 7)

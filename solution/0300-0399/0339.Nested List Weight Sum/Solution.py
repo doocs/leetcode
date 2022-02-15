@@ -2,7 +2,7 @@
 # This is the interface that allows for creating nested lists.
 # You should not implement it, or speculate about its implementation
 # """
-#class NestedInteger:
+# class NestedInteger:
 #    def __init__(self, value=None):
 #        """
 #        If value is not specified, initializes an empty list.
@@ -50,4 +50,5 @@ class Solution:
                 else:
                     depth_sum += dfs(item.getList(), depth + 1)
             return depth_sum
+
         return dfs(nestedList, 1)

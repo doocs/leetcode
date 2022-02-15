@@ -6,8 +6,8 @@ class Solution:
         res = ''
         while q < len(S):
             if S[p] != S[q]:
-                res += (S[p] + str(q - p))
+                res += S[p] + str(q - p)
                 p = q
             q += 1
-        res += (S[p] + str(q - p))
+        res += S[p] + str(q - p)
         return res if len(res) < len(S) else S

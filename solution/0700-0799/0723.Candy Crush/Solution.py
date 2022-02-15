@@ -6,14 +6,26 @@ class Solution:
             run = False
             for i in range(m):
                 for j in range(n - 2):
-                    if board[i][j] != 0 and abs(board[i][j]) == abs(board[i][j + 1]) and abs(board[i][j]) == abs(board[i][j + 2]):
+                    if (
+                        board[i][j] != 0
+                        and abs(board[i][j]) == abs(board[i][j + 1])
+                        and abs(board[i][j]) == abs(board[i][j + 2])
+                    ):
                         run = True
-                        board[i][j] = board[i][j + 1] = board[i][j + 2] = -abs(board[i][j])
+                        board[i][j] = board[i][j + 1] = board[i][j + 2] = -abs(
+                            board[i][j]
+                        )
             for j in range(n):
                 for i in range(m - 2):
-                    if board[i][j] != 0 and abs(board[i][j]) == abs(board[i + 1][j]) and abs(board[i][j]) == abs(board[i + 2][j]):
+                    if (
+                        board[i][j] != 0
+                        and abs(board[i][j]) == abs(board[i + 1][j])
+                        and abs(board[i][j]) == abs(board[i + 2][j])
+                    ):
                         run = True
-                        board[i][j] = board[i + 1][j] = board[i + 2][j] = -abs(board[i][j])
+                        board[i][j] = board[i + 1][j] = board[i + 2][j] = -abs(
+                            board[i][j]
+                        )
             if run:
                 for j in range(n):
                     curr = m - 1

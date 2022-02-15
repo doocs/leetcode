@@ -6,7 +6,12 @@ class Solution:
                     i, j = q.popleft()
                     for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
                         x, y = i + a, j + b
-                        if 0 <= x < m and 0 <= y < n and (x, y) not in vis and heights[x][y] >= heights[i][j]:
+                        if (
+                            0 <= x < m
+                            and 0 <= y < n
+                            and (x, y) not in vis
+                            and heights[x][y] >= heights[i][j]
+                        ):
                             vis.add((x, y))
                             q.append((x, y))
 

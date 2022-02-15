@@ -5,7 +5,9 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def findDuplicateSubtrees(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
+    def findDuplicateSubtrees(
+        self, root: Optional[TreeNode]
+    ) -> List[Optional[TreeNode]]:
         def dfs(root):
             if root is None:
                 return '#'
