@@ -111,8 +111,8 @@ class Solution {
 
 由于：
 
-- `dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - v] + 1, dp[i - 1][j - 2v] + 2, ... , dp[i - 1][j - kv] + k)`
-- `dp[i][j - v] = min( dp[i - 1][j - v], dp[i - 1][j - 2v] + 1, ... , dp[i - 1][j - kv] + k - 1)`
+-   `dp[i][j] = min(dp[i - 1][j], dp[i - 1][j - v] + 1, dp[i - 1][j - 2v] + 2, ... , dp[i - 1][j - kv] + k)`
+-   `dp[i][j - v] = min( dp[i - 1][j - v], dp[i - 1][j - 2v] + 1, ... , dp[i - 1][j - kv] + k - 1)`
 
 因此 `dp[i][j] = min(dp[i - 1][j], dp[i][j - v] + 1)`。
 

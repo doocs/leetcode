@@ -93,7 +93,7 @@ function maxCoins(nums: number[]): number {
             for (let k = i + 1; k < j; ++k) {
                 dp[i][j] = Math.max(
                     nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j],
-                    dp[i][j]
+                    dp[i][j],
                 );
             }
         }

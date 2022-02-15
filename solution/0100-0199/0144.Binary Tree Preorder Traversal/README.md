@@ -113,7 +113,7 @@ class Solution:
             ans.append(root.val)
             dfs(root.left)
             dfs(root.right)
-        
+
         ans = []
         dfs(root)
         return ans

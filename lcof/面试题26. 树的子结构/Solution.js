@@ -10,7 +10,7 @@
  * @param {TreeNode} B
  * @return {boolean}
  */
- var isSubStructure = function(A, B) {
+var isSubStructure = function (A, B) {
     function dfs(A, B) {
         if (!B) return true;
         if (!A || A.val != B.val) return false;

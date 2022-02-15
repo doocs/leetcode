@@ -56,8 +56,8 @@
 
 this can be analogous to matching parentheses:
 
-- right-moving asteroid (left parenthesis): will not cause a collision, will be pushed directly
-- left-moving asteroid (right parenthesis): may collision with the right-moving asteroid, special treatment
+-   right-moving asteroid (left parenthesis): will not cause a collision, will be pushed directly
+-   left-moving asteroid (right parenthesis): may collision with the right-moving asteroid, special treatment
 
 because the answer requires all the asteroids left after the collision, which is element left in the stack, you can simply represent the stack in an array
 

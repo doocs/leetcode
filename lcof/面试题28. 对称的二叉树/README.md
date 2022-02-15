@@ -109,13 +109,13 @@ class Solution {
  * @return {boolean}
  */
 var isSymmetric = function (root) {
-  function dfs(left, right) {
-    if (!left && !right) return true;
-    if (!left || !right || left.val != right.val) return false;
-    return dfs(left.left, right.right) && dfs(left.right, right.left);
-  }
-  if (!root) return true;
-  return dfs(root.left, root.right);
+    function dfs(left, right) {
+        if (!left && !right) return true;
+        if (!left || !right || left.val != right.val) return false;
+        return dfs(left.left, right.right) && dfs(left.right, right.left);
+    }
+    if (!root) return true;
+    return dfs(root.left, root.right);
 };
 ```
 
@@ -206,21 +206,24 @@ public:
  */
 
 function isSymmetric(root: TreeNode | null): boolean {
-  if (root == null) {
-    return true;
-  }
-  const dfs = (l: TreeNode | null, r: TreeNode | null) => {
-    if (l == null && r == null) {
-      return true;
+    if (root == null) {
+        return true;
     }
-    if (l == null || r == null) {
-      return false;
-    }
-    return (
-      l.val == r.val && dfs(l.left, r.right) && dfs(l.right, r.left) && true
-    );
-  };
-  return dfs(root.left, root.right);
+    const dfs = (l: TreeNode | null, r: TreeNode | null) => {
+        if (l == null && r == null) {
+            return true;
+        }
+        if (l == null || r == null) {
+            return false;
+        }
+        return (
+            l.val == r.val &&
+            dfs(l.left, r.right) &&
+            dfs(l.right, r.left) &&
+            true
+        );
+    };
+    return dfs(root.left, root.right);
 }
 ```
 

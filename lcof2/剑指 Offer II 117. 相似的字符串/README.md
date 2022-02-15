@@ -123,7 +123,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         n, l = len(strs), len(strs[0])
         p = list(range(n))
         for i in range(n):

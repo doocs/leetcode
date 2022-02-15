@@ -13,4 +13,4 @@ function maxNumberOfBalloons(text: string): number {
         ans = Math.min(cnt[char.charCodeAt(0)], ans);
     }
     return ans;
-};
+}

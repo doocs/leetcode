@@ -32,7 +32,7 @@ The compressed string is &quot;a1b2c2d1&quot;, which is longer than the original
 
 <p><strong>Note:</strong></p>
 
-- `0 <= S.length <= 50000`
+-   `0 <= S.length <= 50000`
 
 ## Solutions
 
@@ -92,7 +92,7 @@ var compressString = function (S) {
     if (!S) return S;
     let p = 0,
         q = 1;
-    let res = "";
+    let res = '';
     while (q < S.length) {
         if (S[p] != S[q]) {
             res += S[p] + (q - p);

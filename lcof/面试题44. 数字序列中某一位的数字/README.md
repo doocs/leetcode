@@ -35,9 +35,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-- pow = 0：0~9 有 10 位
-- pow = 1: 10~99 有 `90*2=180` 位
-- pow = 2: 100~999 有 `900*3=2700` 位。
+-   pow = 0：0~9 有 10 位
+-   pow = 1: 10~99 有 `90*2=180` 位
+-   pow = 2: 100~999 有 `900*3=2700` 位。
 
 先求出第 n 位所在的 pow 和真实数字，进而求出真实数字的第 `n % (pow + 1)` 位即可。
 
@@ -101,21 +101,21 @@ class Solution {
  * @return {number}
  */
 var findNthDigit = function (n) {
-  let i = 9;
-  let a = 1;
-  let remain = n;
-  while (i * a < remain) {
-    remain -= i * a;
-    i *= 10;
-    a++;
-  }
-  let b = remain % a;
-  let res = 10 ** (a - 1) + ~~(remain / a);
-  if (b === 0) {
-    b = a;
-    res--;
-  }
-  return res.toString()[b - 1];
+    let i = 9;
+    let a = 1;
+    let remain = n;
+    while (i * a < remain) {
+        remain -= i * a;
+        i *= 10;
+        a++;
+    }
+    let b = remain % a;
+    let res = 10 ** (a - 1) + ~~(remain / a);
+    if (b === 0) {
+        b = a;
+        res--;
+    }
+    return res.toString()[b - 1];
 };
 ```
 

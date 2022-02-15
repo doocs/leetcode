@@ -99,7 +99,7 @@ function convertToTitle(columnNumber: number): string {
         res.unshift(String.fromCharCode(num + 65));
         columnNumber = Math.floor(columnNumber / 26);
     }
-    return res.join("");
+    return res.join('');
 }
 ```
 

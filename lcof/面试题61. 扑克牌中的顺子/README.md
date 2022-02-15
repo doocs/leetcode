@@ -36,23 +36,23 @@
 
 顺子不成立的核心条件：
 
-- 存在重复。
-- 最大值与最小值的差距超过 4（最大最小值比较不包括 0 在内）。
+-   存在重复。
+-   最大值与最小值的差距超过 4（最大最小值比较不包括 0 在内）。
 
 解决方案：
 
-- 数组计数
+-   数组计数
 
-  - 用数组 `t` 记录是否存在重复的数，存在则直接返回 `false`。
-  - 遍历数组，忽略大小王(0)，求出数组的最大、最小值。若最后差值超过 4，则无法构成顺子，例如：`5,6,(0),8,10`。
+    -   用数组 `t` 记录是否存在重复的数，存在则直接返回 `false`。
+    -   遍历数组，忽略大小王(0)，求出数组的最大、最小值。若最后差值超过 4，则无法构成顺子，例如：`5,6,(0),8,10`。
 
-- 排序
-  - 声明一个起始指针，初始化为 0。
-  - 对数组进行排序，并遍历数组：
-    - 若遍历元素为 0，将起始指针向右移。
-    - 若遍历元素与相邻元素相同（忽略 0），则绝对不成立，`return false`。
-  - 遍历结束，比较最大值（数组末尾元素）与起始指针所指向的元素，若是两者值相差大于 4，则顺子不成立。
-    > 起始指针所做的便是找到除 0 之外，数组当中的最小值。
+-   排序
+    -   声明一个起始指针，初始化为 0。
+    -   对数组进行排序，并遍历数组：
+        -   若遍历元素为 0，将起始指针向右移。
+        -   若遍历元素与相邻元素相同（忽略 0），则绝对不成立，`return false`。
+    -   遍历结束，比较最大值（数组末尾元素）与起始指针所指向的元素，若是两者值相差大于 4，则顺子不成立。
+        > 起始指针所做的便是找到除 0 之外，数组当中的最小值。
 
 <!-- tabs:start -->
 
@@ -111,23 +111,23 @@ class Solution {
  * @return {boolean}
  */
 var isStraight = function (nums) {
-  let zeroCnt = 0;
-  nums.sort((a, b) => a - b);
-  for (let i = 0; i < nums.length - 1; i++) {
-    if (nums[i] === 0) zeroCnt++;
-    else {
-      if (nums[i] === nums[i + 1]) return false;
-      else if (nums[i] === nums[i + 1] - 1) {
-        continue;
-      } else if (nums[i] >= nums[i + 1] - zeroCnt - 1) {
-        zeroCnt--;
-      } else {
-        return false;
-      }
+    let zeroCnt = 0;
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < nums.length - 1; i++) {
+        if (nums[i] === 0) zeroCnt++;
+        else {
+            if (nums[i] === nums[i + 1]) return false;
+            else if (nums[i] === nums[i + 1] - 1) {
+                continue;
+            } else if (nums[i] >= nums[i + 1] - zeroCnt - 1) {
+                zeroCnt--;
+            } else {
+                return false;
+            }
+        }
+        if (zeroCnt < 0) return false;
     }
-    if (zeroCnt < 0) return false;
-  }
-  return true;
+    return true;
 };
 ```
 
@@ -202,16 +202,16 @@ func min(x, y int) int {
 
 ```ts
 function isStraight(nums: number[]): boolean {
-  nums.sort((a, b) => a - b);
-  let j = 0;
-  for (let i = 0; i < 4; i++) {
-    if (nums[i] === 0) {
-      j++;
-    } else if (nums[i] === nums[i + 1]) {
-      return false;
+    nums.sort((a, b) => a - b);
+    let j = 0;
+    for (let i = 0; i < 4; i++) {
+        if (nums[i] === 0) {
+            j++;
+        } else if (nums[i] === nums[i + 1]) {
+            return false;
+        }
     }
-  }
-  return nums[4] - nums[j] <= 4;
+    return nums[4] - nums[j] <= 4;
 }
 ```
 

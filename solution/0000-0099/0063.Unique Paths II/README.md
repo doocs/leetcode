@@ -56,8 +56,8 @@
 
 假设 `dp[i][j]` 表示到达网格 `(i,j)` 的路径数，先初始化 dp 第一列和第一行的所有值，然后判断。
 
-- 若 `obstacleGrid[i][j] == 1`，说明路径数为 0，`dp[i][j] = 0`；
-- 若 `obstacleGrid[i][j] == 0`，则 `dp[i][j] = dp[i - 1][j] + dp[i][j - 1]`。
+-   若 `obstacleGrid[i][j] == 1`，说明路径数为 0，`dp[i][j] = 0`；
+-   若 `obstacleGrid[i][j] == 0`，则 `dp[i][j] = dp[i - 1][j] + dp[i][j - 1]`。
 
 最后返回 `dp[m - 1][n - 1]` 即可。
 

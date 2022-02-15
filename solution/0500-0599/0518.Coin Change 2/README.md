@@ -101,8 +101,8 @@ class Solution {
 
 由于：
 
-- `dp[i][j] = dp[i - 1][j] + dp[i - 1][j - v] + dp[i - 1][j - 2v] + ... + dp[i - 1][j - kv]`
-- `dp[i][j - v] = dp[i - 1][j - v] + dp[i - 1][j - 2v] + ... + dp[i - 1][j - kv]`
+-   `dp[i][j] = dp[i - 1][j] + dp[i - 1][j - v] + dp[i - 1][j - 2v] + ... + dp[i - 1][j - kv]`
+-   `dp[i][j - v] = dp[i - 1][j - v] + dp[i - 1][j - 2v] + ... + dp[i - 1][j - kv]`
 
 因此 `dp[i][j] = dp[i - 1][j] + dp[i][j - v]`。
 

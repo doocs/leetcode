@@ -32,13 +32,13 @@ minStack.min();   --&gt; 返回 -2.
 
 ## 解法
 
-- 若是无视时间复杂度需求，使用暴力解法：执行 `min()` 时，遍历整个栈，找到最小数返回，时间复杂度是 O(n)；
-- 若是使用一个变量记录最小数，可以将时间复杂度拉到 O(1)。可是当最小数出栈之后就麻烦了，因为不知道第二小的数是谁；
-- 因此需要的是一个结构，当最小值离开，暴漏第二小的值，以此类推；
-- 此时使用一个新的栈，存储最小值，保证该栈顶元素为栈中最小数（称此栈为最小栈）；
-- 当 `push()` 时，该值只有比最小栈栈顶元素更小，才放入最小栈当中；
-- 当最小值出栈时，最小栈进行出栈操作（`pop()`）；
-- 不会有出栈问题，最小栈栈底存放了正常栈中栈底的元素。
+-   若是无视时间复杂度需求，使用暴力解法：执行 `min()` 时，遍历整个栈，找到最小数返回，时间复杂度是 O(n)；
+-   若是使用一个变量记录最小数，可以将时间复杂度拉到 O(1)。可是当最小数出栈之后就麻烦了，因为不知道第二小的数是谁；
+-   因此需要的是一个结构，当最小值离开，暴漏第二小的值，以此类推；
+-   此时使用一个新的栈，存储最小值，保证该栈顶元素为栈中最小数（称此栈为最小栈）；
+-   当 `push()` 时，该值只有比最小栈栈顶元素更小，才放入最小栈当中；
+-   当最小值出栈时，最小栈进行出栈操作（`pop()`）；
+-   不会有出栈问题，最小栈栈底存放了正常栈中栈底的元素。
 
 <!-- tabs:start -->
 
@@ -127,8 +127,8 @@ class MinStack {
  * initialize your data structure here.
  */
 var MinStack = function () {
-  this.stack = [];
-  this.minStack = [];
+    this.stack = [];
+    this.minStack = [];
 };
 
 /**
@@ -136,33 +136,33 @@ var MinStack = function () {
  * @return {void}
  */
 MinStack.prototype.push = function (x) {
-  this.stack.unshift(x);
-  if (!this.minStack.length || this.minStack[0] >= x) {
-    this.minStack.unshift(x);
-  }
+    this.stack.unshift(x);
+    if (!this.minStack.length || this.minStack[0] >= x) {
+        this.minStack.unshift(x);
+    }
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function () {
-  if (this.stack.shift() === this.minStack[0]) {
-    this.minStack.shift();
-  }
+    if (this.stack.shift() === this.minStack[0]) {
+        this.minStack.shift();
+    }
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.top = function () {
-  return this.stack[0];
+    return this.stack[0];
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.min = function () {
-  return this.minStack[0];
+    return this.minStack[0];
 };
 
 /**

@@ -81,7 +81,7 @@ class Solution:
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-- 双指针，时间复杂度 O(n²)，空间复杂度 O(1)
+-   双指针，时间复杂度 O(n²)，空间复杂度 O(1)
 
 ```java
 class Solution {
@@ -102,7 +102,7 @@ class Solution {
 }
 ```
 
-- 辅助数组，时间复杂度 O(n)，空间复杂度 O(n)
+-   辅助数组，时间复杂度 O(n)，空间复杂度 O(n)
 
 ```java
 class Solution {

@@ -48,9 +48,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-- 创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
-- 添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多 1）；若不等，放入大根堆（使得大小根堆元素个数相等）
-- 取中位数时，若两堆元素个数相等，取两堆顶求平均值；若不等，取小根堆堆顶。
+-   创建大根堆、小根堆，其中：大根堆存放较小的一半元素，小根堆存放较大的一半元素。
+-   添加元素时，若两堆元素个数相等，放入小根堆（使得小根堆个数多 1）；若不等，放入大根堆（使得大小根堆元素个数相等）
+-   取中位数时，若两堆元素个数相等，取两堆顶求平均值；若不等，取小根堆堆顶。
 
 <!-- tabs:start -->
 
@@ -136,7 +136,7 @@ class MedianFinder {
  * initialize your data structure here.
  */
 var MedianFinder = function () {
-  this.val = [];
+    this.val = [];
 };
 
 /**
@@ -144,27 +144,27 @@ var MedianFinder = function () {
  * @return {void}
  */
 MedianFinder.prototype.addNum = function (num) {
-  let left = 0;
-  let right = this.val.length;
-  while (left < right) {
-    let mid = left + ~~((right - left) / 2);
-    if (num > this.val[mid]) {
-      left = mid + 1;
-    } else {
-      right = mid;
+    let left = 0;
+    let right = this.val.length;
+    while (left < right) {
+        let mid = left + ~~((right - left) / 2);
+        if (num > this.val[mid]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
     }
-  }
-  this.val.splice(left, 0, num);
+    this.val.splice(left, 0, num);
 };
 
 /**
  * @return {number}
  */
 MedianFinder.prototype.findMedian = function () {
-  let mid = ~~(this.val.length / 2);
-  return this.val.length % 2
-    ? this.val[mid]
-    : (this.val[mid - 1] + this.val[mid]) / 2;
+    let mid = ~~(this.val.length / 2);
+    return this.val.length % 2
+        ? this.val[mid]
+        : (this.val[mid - 1] + this.val[mid]) / 2;
 };
 ```
 

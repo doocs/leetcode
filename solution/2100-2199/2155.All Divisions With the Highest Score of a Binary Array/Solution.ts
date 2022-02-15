@@ -1,7 +1,8 @@
 function maxScoreIndices(nums: number[]): number[] {
     const n = nums.length;
     const total = nums.reduce((a, c) => a + c, 0);
-    let left = 0, right = total;
+    let left = 0,
+        right = total;
     let record: Array<number> = [total];
     for (const num of nums) {
         if (num == 0) {
@@ -19,4 +20,4 @@ function maxScoreIndices(nums: number[]): number[] {
         }
     }
     return ans;
-};
+}

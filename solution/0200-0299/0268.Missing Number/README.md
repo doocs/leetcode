@@ -84,7 +84,7 @@ class Solution:
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-- 异或
+-   异或
 
 ```java
 class Solution {
@@ -98,7 +98,7 @@ class Solution {
 }
 ```
 
-- 数学
+-   数学
 
 ```java
 class Solution {

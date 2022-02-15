@@ -180,7 +180,7 @@ public class Program
         }
     }
     public static void SelectionSortNums(int[] nums)
-    {        
+    {
         for (int initial = 0; initial < nums.Length; initial++)
         {
             for (int second_sort = initial; second_sort < nums.Length; second_sort++)

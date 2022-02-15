@@ -68,7 +68,7 @@ class Solution:
 
 ### **Java**
 
-- XOR
+-   XOR
 
 ```java
 class Solution {
@@ -82,7 +82,7 @@ class Solution {
 }
 ```
 
-- Math
+-   Math
 
 ```java
 class Solution {

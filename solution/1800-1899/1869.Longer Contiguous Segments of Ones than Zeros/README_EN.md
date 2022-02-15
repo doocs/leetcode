@@ -113,7 +113,7 @@ var checkZeroOnes = function (s) {
     let t0 = 0,
         t1 = 0;
     for (let char of s) {
-        if (char == "0") {
+        if (char == '0') {
             t0++;
             t1 = 0;
         } else {

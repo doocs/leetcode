@@ -1,4 +1,8 @@
-function gridIllumination(n: number, lamps: number[][], queries: number[][]): number[] {
+function gridIllumination(
+    n: number,
+    lamps: number[][],
+    queries: number[][],
+): number[] {
     let lights: Set<string> = new Set();
     let rows: Map<number, number> = new Map(); // i
     let cols: Map<number, number> = new Map(); // j
@@ -15,10 +19,25 @@ function gridIllumination(n: number, lamps: number[][], queries: number[][]): nu
     }
 
     let ans: Array<number> = [];
-    let directions = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 0], [0, 1], [1, -1], [1, 0], [1, 1]];
+    let directions = [
+        [-1, -1],
+        [-1, 0],
+        [-1, 1],
+        [0, -1],
+        [0, 0],
+        [0, 1],
+        [1, -1],
+        [1, 0],
+        [1, 1],
+    ];
     for (let [i, j] of queries) {
         // check
-        const check = lights.has(`${i},${j}`) || rows.get(i) || cols.get(j) || mainDiagonal.get(i - j) || subDiagonal.get(i + j);
+        const check =
+            lights.has(`${i},${j}`) ||
+            rows.get(i) ||
+            cols.get(j) ||
+            mainDiagonal.get(i - j) ||
+            subDiagonal.get(i + j);
         ans.push(check ? 1 : 0);
         // close lamp
         for (let [dx, dy] of directions) {
@@ -35,4 +54,4 @@ function gridIllumination(n: number, lamps: number[][], queries: number[][]): nu
         }
     }
     return ans;
-};
+}

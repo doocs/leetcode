@@ -62,10 +62,10 @@
 
 遍历数组：
 
-- 出现递减，将 `increase` 置为 `false`；
-- 出现递增，将 `decrease` 置为 `false`；
-- 既非递增也非递减，提前返回 `false`；
-- 遍历结束，若出现递增或递减，返回 `true`。
+-   出现递减，将 `increase` 置为 `false`；
+-   出现递增，将 `decrease` 置为 `false`；
+-   既非递增也非递减，提前返回 `false`；
+-   遍历结束，若出现递增或递减，返回 `true`。
 
 <!-- tabs:start -->
 

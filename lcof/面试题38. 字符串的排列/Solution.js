@@ -17,6 +17,6 @@ var permutation = function (s) {
             isRead[i] = 0;
         }
     }
-    dfs("", {});
+    dfs('', {});
     return [...res];
 };

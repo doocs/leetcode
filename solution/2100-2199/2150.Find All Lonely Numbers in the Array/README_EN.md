@@ -138,7 +138,7 @@ function findLonely(nums: number[]): number[] {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **...**

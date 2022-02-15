@@ -170,7 +170,7 @@ var isSumEqual = function (firstWord, secondWord, targetWord) {
 
 function getNum(char) {
     if (!char) return 0;
-    return char.charCodeAt() - "a".charCodeAt();
+    return char.charCodeAt() - 'a'.charCodeAt();
 }
 ```
 

@@ -132,7 +132,7 @@ function sumOfUnique(nums: number[]): number {
 
 ### **Rust**
 
-- Count
+-   Count
 
 ```rust
 impl Solution {
@@ -152,7 +152,7 @@ impl Solution {
 }
 ```
 
-- HashMap
+-   HashMap
 
 ```rust
 use std::collections::HashMap;

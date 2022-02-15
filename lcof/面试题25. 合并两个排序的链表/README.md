@@ -79,7 +79,7 @@ class Solution {
 
 ### **JavaScript**
 
-- 递归
+-   递归
 
 ```js
 /**
@@ -95,20 +95,20 @@ class Solution {
  * @return {ListNode}
  */
 var mergeTwoLists = function (l1, l2) {
-  if (!(l1 && l2)) {
-    return l1 || l2;
-  }
-  if (l1.val < l2.val) {
-    l1.next = mergeTwoLists(l1.next, l2);
-    return l1;
-  } else {
-    l2.next = mergeTwoLists(l2.next, l1);
-    return l2;
-  }
+    if (!(l1 && l2)) {
+        return l1 || l2;
+    }
+    if (l1.val < l2.val) {
+        l1.next = mergeTwoLists(l1.next, l2);
+        return l1;
+    } else {
+        l2.next = mergeTwoLists(l2.next, l1);
+        return l2;
+    }
 };
 ```
 
-- 遍历
+-   遍历
 
 ```js
 /**
@@ -124,22 +124,22 @@ var mergeTwoLists = function (l1, l2) {
  * @return {ListNode}
  */
 var mergeTwoLists = function (l1, l2) {
-  const res = new ListNode();
-  let cur = res;
-  while (l1 && l2) {
-    let node;
-    if (l1.val < l2.val) {
-      node = l1;
-      l1 = l1.next;
-    } else {
-      node = l2;
-      l2 = l2.next;
+    const res = new ListNode();
+    let cur = res;
+    while (l1 && l2) {
+        let node;
+        if (l1.val < l2.val) {
+            node = l1;
+            l1 = l1.next;
+        } else {
+            node = l2;
+            l2 = l2.next;
+        }
+        cur.next = node;
+        cur = node;
     }
-    cur.next = node;
-    cur = node;
-  }
-  cur.next = l1 || l2;
-  return res.next;
+    cur.next = l1 || l2;
+    return res.next;
 };
 ```
 
@@ -206,25 +206,25 @@ public:
  */
 
 function mergeTwoLists(
-  l1: ListNode | null,
-  l2: ListNode | null
+    l1: ListNode | null,
+    l2: ListNode | null,
 ): ListNode | null {
-  const res = new ListNode();
-  let cur = res;
-  while (l1 && l2) {
-    let node: ListNode;
-    if (l1.val < l2.val) {
-      node = l1;
-      l1 = l1.next;
-    } else {
-      node = l2;
-      l2 = l2.next;
+    const res = new ListNode();
+    let cur = res;
+    while (l1 && l2) {
+        let node: ListNode;
+        if (l1.val < l2.val) {
+            node = l1;
+            l1 = l1.next;
+        } else {
+            node = l2;
+            l2 = l2.next;
+        }
+        cur.next = node;
+        cur = node;
     }
-    cur.next = node;
-    cur = node;
-  }
-  cur.next = l1 || l2;
-  return res.next;
+    cur.next = l1 || l2;
+    return res.next;
 }
 ```
 

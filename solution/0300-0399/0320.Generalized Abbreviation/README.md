@@ -10,14 +10,14 @@
 
 例如：
 
-- <code>"abcde"</code> 可以缩写为 <code>"a3e"</code>（<code>"bcd"</code> 变为 <code>"3"</code> ）
-- <code>"1bcd1"</code>（<code>"a"</code> 和 <code>"e"</code> 都变为 <code>"1"</code>）
-- <code>"5"</code>（<code>"abcde"</code> 变为 <code>"5"</code>）
+-   <code>"abcde"</code> 可以缩写为 <code>"a3e"</code>（<code>"bcd"</code> 变为 <code>"3"</code> ）
+-   <code>"1bcd1"</code>（<code>"a"</code> 和 <code>"e"</code> 都变为 <code>"1"</code>）
+-   <code>"5"</code>（<code>"abcde"</code> 变为 <code>"5"</code>）
 
 但是，这些缩写是无效的：
 
-- <code>"23"</code>（<code>"ab"</code> 变为 <code>"2"</code> ，<code>"cde"</code> 变为 <code>"3"</code> ），选择的子串是相邻的。
-- <code>"22de"</code>（<code>"ab"</code> 变为 <code>"2"</code> ，<code>"bc"</code> 变为 <code>"2"</code> ），选择的子串重叠了。
+-   <code>"23"</code>（<code>"ab"</code> 变为 <code>"2"</code> ，<code>"cde"</code> 变为 <code>"3"</code> ），选择的子串是相邻的。
+-   <code>"22de"</code>（<code>"ab"</code> 变为 <code>"2"</code> ，<code>"bc"</code> 变为 <code>"2"</code> ），选择的子串重叠了。
 
 </p>
 

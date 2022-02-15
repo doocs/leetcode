@@ -25,10 +25,10 @@ var convert = function (s, numRows) {
     for (let item of arr) {
         ans = ans.concat(item);
     }
-    return ans.join("");
+    return ans.join('');
 };
 
-const s = "AB",
+const s = 'AB',
     numRows = 1;
 
 console.log(convert(s, numRows));

@@ -57,7 +57,7 @@ class Solution:
                 dfs(left + 1, right, t + '(')
             if right < left:
                 dfs(left, right + 1, t + ')')
-        
+
         ans = []
         dfs(0, 0, '')
         return ans

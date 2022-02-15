@@ -113,7 +113,7 @@ function maxVowels(s: string, k: number): number {
         ans = Math.max(i < k ? cnt : preSum[i] - preSum[i - k], ans);
     }
     return ans;
-};
+}
 ```
 
 ### **...**

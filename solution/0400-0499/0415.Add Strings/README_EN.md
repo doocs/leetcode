@@ -99,7 +99,7 @@ var addStrings = function (num1, num2) {
         ans.unshift(sum % 10);
         sum = Math.floor(sum / 10);
     }
-    return ans.join("");
+    return ans.join('');
 };
 ```
 

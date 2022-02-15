@@ -38,9 +38,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-- 排序链表：二叉搜索树中序遍历得到有序序列
-- 循环链表：头节点指向链表尾节点，尾节点指向链表头节点
-- 双向链表：`pre.right = cur`、`cur.left = pre`、`pre = cur`
+-   排序链表：二叉搜索树中序遍历得到有序序列
+-   循环链表：头节点指向链表尾节点，尾节点指向链表头节点
+-   双向链表：`pre.right = cur`、`cur.left = pre`、`pre = cur`
 
 <!-- tabs:start -->
 
@@ -143,21 +143,21 @@ class Solution {
  * @return {Node}
  */
 var treeToDoublyList = function (root) {
-  function dfs(cur) {
-    if (!cur) return;
-    dfs(cur.left);
-    if (!pre) head = cur;
-    else pre.right = cur;
-    cur.left = pre;
-    pre = cur;
-    dfs(cur.right);
-  }
-  if (!root) return null;
-  let head, pre;
-  dfs(root);
-  head.left = pre;
-  pre.right = head;
-  return head;
+    function dfs(cur) {
+        if (!cur) return;
+        dfs(cur.left);
+        if (!pre) head = cur;
+        else pre.right = cur;
+        cur.left = pre;
+        pre = cur;
+        dfs(cur.right);
+    }
+    if (!root) return null;
+    let head, pre;
+    dfs(root);
+    head.left = pre;
+    pre.right = head;
+    return head;
 };
 ```
 

@@ -72,7 +72,7 @@ class Solution {
 function isAnagram(s: string, t: string): boolean {
     if (s.length != t.length) return false;
     let record = new Array(26).fill(0);
-    let base = "a".charCodeAt(0);
+    let base = 'a'.charCodeAt(0);
     for (let i = 0; i < s.length; ++i) {
         ++record[s.charCodeAt(i) - base];
         --record[t.charCodeAt(i) - base];
@@ -137,7 +137,7 @@ func isAnagram(s string, t string) bool {
 var isAnagram = function (s, t) {
     if (s.length != t.length) return false;
     let record = new Array(26).fill(0);
-    let base = "a".charCodeAt(0);
+    let base = 'a'.charCodeAt(0);
     for (let i = 0; i < s.length; ++i) {
         ++record[s.charCodeAt(i) - base];
         --record[t.charCodeAt(i) - base];

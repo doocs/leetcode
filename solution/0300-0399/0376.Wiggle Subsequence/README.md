@@ -43,8 +43,8 @@
 
 从数组下标 1 开始遍历：
 
-- 若 `nums[i] > nums[i - 1]`，则需要更新最长上升摆动序列的长度：`up = max(up, down + 1)`
-- 若 `nums[i] < nums[i - 1]`，则需要更新最长下降摆动序列的长度：`down = max(down, up + 1)`
+-   若 `nums[i] > nums[i - 1]`，则需要更新最长上升摆动序列的长度：`up = max(up, down + 1)`
+-   若 `nums[i] < nums[i - 1]`，则需要更新最长下降摆动序列的长度：`down = max(down, up + 1)`
 
 最后返回 `max(up, down)` 即可。
 

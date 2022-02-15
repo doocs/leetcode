@@ -48,10 +48,10 @@
 
 遍历字符串 s 中每个字符 c：
 
-- 若 c 是数字，则累乘数字 num
-- 若 `c == '['`，则将左括号前的数字 num 存入 s1，左括号前的字符串 res 存入 s2，并将 num 重新置为 0，res 置为空串
-- 若 `c == ']'`，则 `res = s2.pop() + res * s1.pop()`
-- 若 c 是字符，则累加字符串 res
+-   若 c 是数字，则累乘数字 num
+-   若 `c == '['`，则将左括号前的数字 num 存入 s1，左括号前的字符串 res 存入 s2，并将 num 重新置为 0，res 置为空串
+-   若 `c == ']'`，则 `res = s2.pop() + res * s1.pop()`
+-   若 c 是字符，则累加字符串 res
 
 最后返回 res 即可。
 
@@ -118,7 +118,7 @@ class Solution {
 
 ```ts
 function decodeString(s: string): string {
-    let ans = "";
+    let ans = '';
     let stack = [];
     let count = 0; // repeatCount
     for (let cur of s) {
@@ -126,10 +126,10 @@ function decodeString(s: string): string {
             count = count * 10 + Number(cur);
         } else if (/[a-z]/.test(cur)) {
             ans += cur;
-        } else if ("[" == cur) {
+        } else if ('[' == cur) {
             stack.push([ans, count]);
             // reset
-            ans = "";
+            ans = '';
             count = 0;
         } else {
             // match ']'

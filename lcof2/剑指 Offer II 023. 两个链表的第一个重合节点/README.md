@@ -232,7 +232,7 @@ var getIntersectionNode = function (headA, headB) {
 
 function getIntersectionNode(
     headA: ListNode | null,
-    headB: ListNode | null
+    headB: ListNode | null,
 ): ListNode | null {
     let p1: ListNode | null = headA;
     let p2: ListNode | null = headB;

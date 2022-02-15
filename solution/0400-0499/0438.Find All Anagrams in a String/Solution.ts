@@ -1,5 +1,6 @@
 function findAnagrams(s: string, p: string): number[] {
-    let n = s.length, m = p.length;
+    let n = s.length,
+        m = p.length;
     let cnt = new Array(26).fill(0);
     let ans = [];
     for (let i = 0; i < m; i++) {
@@ -17,4 +18,4 @@ function findAnagrams(s: string, p: string): number[] {
         }
     }
     return ans;
-};
+}

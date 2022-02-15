@@ -119,22 +119,22 @@ class Solution {
  * @return {number[][]}
  */
 var levelOrder = function (root) {
-  if (!root) return [];
-  let queue = [root];
-  let res = [];
-  let depth = 0;
-  while (queue.length) {
-    let len = queue.length;
-    for (let i = 0; i < len; i++) {
-      let node = queue.shift();
-      if (!node) continue;
-      if (!res[depth]) res[depth] = [];
-      res[depth].push(node.val);
-      queue.push(node.left, node.right);
+    if (!root) return [];
+    let queue = [root];
+    let res = [];
+    let depth = 0;
+    while (queue.length) {
+        let len = queue.length;
+        for (let i = 0; i < len; i++) {
+            let node = queue.shift();
+            if (!node) continue;
+            if (!res[depth]) res[depth] = [];
+            res[depth].push(node.val);
+            queue.push(node.left, node.right);
+        }
+        depth++;
     }
-    depth++;
-  }
-  return res;
+    return res;
 };
 ```
 
@@ -215,25 +215,25 @@ public:
  */
 
 function levelOrder(root: TreeNode | null): number[][] {
-  const res = [];
-  if (root == null) {
-    return res;
-  }
-  const levelFn = (nodes: TreeNode[]) => {
-    if (nodes.length === 0) {
-      return res;
+    const res = [];
+    if (root == null) {
+        return res;
     }
-    const nextNodes = [];
-    res.push(
-      nodes.map(({ val, left, right }) => {
-        left && nextNodes.push(left);
-        right && nextNodes.push(right);
-        return val;
-      })
-    );
-    return levelFn(nextNodes);
-  };
-  return levelFn([root]);
+    const levelFn = (nodes: TreeNode[]) => {
+        if (nodes.length === 0) {
+            return res;
+        }
+        const nextNodes = [];
+        res.push(
+            nodes.map(({ val, left, right }) => {
+                left && nextNodes.push(left);
+                right && nextNodes.push(right);
+                return val;
+            }),
+        );
+        return levelFn(nextNodes);
+    };
+    return levelFn([root]);
 }
 ```
 

@@ -11,7 +11,7 @@ var canReach = function (s, minJump, maxJump) {
     dp[0] = 1;
     sum[1] = 1;
     for (let i = 1; i < n; i++) {
-        if (s.charAt(i) == "0") {
+        if (s.charAt(i) == '0') {
             let left = Math.max(0, i - maxJump);
             let right = i - minJump;
             if (left <= right && sum[right + 1] - sum[left] > 0) {

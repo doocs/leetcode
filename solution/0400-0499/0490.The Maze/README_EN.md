@@ -72,7 +72,7 @@ class Solution:
                 while 0 <= x + a < m and 0 <= y + b < n and maze[x + a][y + b] == 0:
                     x, y = x + a, y + b
                 dfs(x, y)
-        
+
         m, n = len(maze), len(maze[0])
         vis = [[False] * n for _ in range(m)]
         dfs(start[0], start[1])

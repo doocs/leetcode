@@ -74,11 +74,11 @@ class CQueue {
     public CQueue() {
 
     }
-    
+
     public void appendTail(int value) {
         stk1.push(value);
     }
-    
+
     public int deleteHead() {
         if (stk2.isEmpty()) {
             while (!stk1.isEmpty()) {
@@ -131,7 +131,6 @@ CQueue.prototype.deleteHead = function () {
  * obj.appendTail(value)
  * var param_2 = obj.deleteHead()
  */
-
 ```
 
 ### **Go**

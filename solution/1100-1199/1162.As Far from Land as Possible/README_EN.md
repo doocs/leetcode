@@ -100,11 +100,13 @@ class Solution {
     }
 }
 ```
+
 ### **TypeScript**
 
 ```ts
 function maxDistance(grid: number[][]): number {
-    const m = grid.length, n = grid[0].length;
+    const m = grid.length,
+        n = grid[0].length;
     let queue: Array<Array<number>> = [];
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
@@ -114,7 +116,12 @@ function maxDistance(grid: number[][]): number {
         }
     }
     if ([0, m * n].includes(queue.length)) return -1;
-    const directions = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+    const directions = [
+        [0, 1],
+        [0, -1],
+        [1, 0],
+        [-1, 0],
+    ];
     let depth = 1;
     while (queue.length) {
         depth += 1;
@@ -131,7 +138,7 @@ function maxDistance(grid: number[][]): number {
         queue = nextLevel;
     }
     return depth - 2;
-};
+}
 ```
 
 ### **C++**

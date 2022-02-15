@@ -99,11 +99,11 @@ class Solution {
  * @return {TreeNode}
  */
 var mirrorTree = function (root) {
-  if (!root) return null;
-  [root.left, root.right] = [root.right, root.left];
-  mirrorTree(root.left);
-  mirrorTree(root.right);
-  return root;
+    if (!root) return null;
+    [root.left, root.right] = [root.right, root.left];
+    mirrorTree(root.left);
+    mirrorTree(root.right);
+    return root;
 };
 ```
 
@@ -178,15 +178,15 @@ public:
  */
 
 function mirrorTree(root: TreeNode | null): TreeNode | null {
-  if (root == null) {
+    if (root == null) {
+        return root;
+    }
+    const { left, right } = root;
+    root.left = right;
+    root.right = left;
+    mirrorTree(left);
+    mirrorTree(right);
     return root;
-  }
-  const { left, right } = root;
-  root.left = right;
-  root.right = left;
-  mirrorTree(left);
-  mirrorTree(right);
-  return root;
 }
 ```
 

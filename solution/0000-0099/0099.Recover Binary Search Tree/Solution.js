@@ -12,19 +12,19 @@
  */
 const recoverTree = root => {
     const data = {
-      prev: null,
-      first: null,
-      second: null
+        prev: null,
+        first: null,
+        second: null,
     };
     let tmp = 0;
-  
+
     helper(root, data);
-  
+
     tmp = data.first.val;
     data.first.val = data.second.val;
     data.second.val = tmp;
 };
-  
+
 const helper = (root, data) => {
     if (!root) return;
 

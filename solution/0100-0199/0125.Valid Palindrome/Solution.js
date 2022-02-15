@@ -2,24 +2,24 @@ const isPalindrome1 = function (s) {
     let arr1 = [],
         arr2 = [];
     for (let i = 0; i < s.length; i++) {
-        if (s[i] >= "A" && s[i] <= "Z") {
+        if (s[i] >= 'A' && s[i] <= 'Z') {
             arr1.push(s[i].toLowerCase());
         }
-        if ((s[i] >= "0" && s[i] <= "9") || (s[i] >= "a" && s[i] <= "z")) {
+        if ((s[i] >= '0' && s[i] <= '9') || (s[i] >= 'a' && s[i] <= 'z')) {
             arr1.push(s[i]);
         }
     }
     arr2 = [...arr1];
     arr2.reverse();
-    return arr1.join("") === arr2.join("");
+    return arr1.join('') === arr2.join('');
 };
 
 const isPalindrome = function (s) {
     function isNumOrAl(a) {
         if (
-            (a >= "A" && a <= "Z") ||
-            (a >= "0" && a <= "9") ||
-            (a >= "a" && a <= "z")
+            (a >= 'A' && a <= 'Z') ||
+            (a >= '0' && a <= '9') ||
+            (a >= 'a' && a <= 'z')
         ) {
             return true;
         } else {

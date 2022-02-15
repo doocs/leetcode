@@ -40,11 +40,11 @@ Hence the minimum time needed is 6 minutes.
 
 The red path shows the path to get the second minimum time.
 
-- Start at 1, time elapsed=0
-- 1 -&gt; 3: 3 minutes, time elapsed=3
-- 3 -&gt; 4: 3 minutes, time elapsed=6
-- Wait at 4 for 4 minutes, time elapsed=10
-- 4 -&gt; 5: 3 minutes, time elapsed=13
+-   Start at 1, time elapsed=0
+-   1 -&gt; 3: 3 minutes, time elapsed=3
+-   3 -&gt; 4: 3 minutes, time elapsed=6
+-   Wait at 4 for 4 minutes, time elapsed=10
+-   4 -&gt; 5: 3 minutes, time elapsed=13
 Hence the second minimum time is 13 minutes.
 </pre>
 

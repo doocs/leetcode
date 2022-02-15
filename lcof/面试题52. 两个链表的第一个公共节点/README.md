@@ -56,7 +56,6 @@
 	<li>本题与主站 160 题相同：<a href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/">https://leetcode-cn.com/problems/intersection-of-two-linked-lists/</a></li>
 </ul>
 
-
 ## 解法
 
 使用两个指针 `cur1`, `cur2` 分别指向两个链表 `headA`, `headB`。

@@ -143,20 +143,20 @@ class Solution {
  * @return {number[][]}
  */
 var pathSum = function (root, sum) {
-  if (!root) return [];
-  let res = [];
-  function dfs(node, sum, arr) {
-    if (!node) return;
-    arr = [...arr, node.val];
-    if (node.val === sum && !node.left && !node.right) {
-      res.push(arr);
-      return;
+    if (!root) return [];
+    let res = [];
+    function dfs(node, sum, arr) {
+        if (!node) return;
+        arr = [...arr, node.val];
+        if (node.val === sum && !node.left && !node.right) {
+            res.push(arr);
+            return;
+        }
+        dfs(node.left, sum - node.val, arr);
+        dfs(node.right, sum - node.val, arr);
     }
-    dfs(node.left, sum - node.val, arr);
-    dfs(node.right, sum - node.val, arr);
-  }
-  dfs(root, sum, []);
-  return res;
+    dfs(root, sum, []);
+    return res;
 };
 ```
 
@@ -238,27 +238,27 @@ public:
  */
 
 function pathSum(root: TreeNode | null, target: number): number[][] {
-  const res: number[][] = [];
-  if (root == null) {
-    return res;
-  }
-  const paths: number[] = [];
-  const dfs = ({ val, right, left }: TreeNode, target: number) => {
-    paths.push(val);
-    target -= val;
-    if (left == null && right == null) {
-      if (target === 0) {
-        res.push([...paths]);
-      }
-      paths.pop();
-      return;
+    const res: number[][] = [];
+    if (root == null) {
+        return res;
     }
-    left && dfs(left, target);
-    right && dfs(right, target);
-    paths.pop();
-  };
-  dfs(root, target);
-  return res;
+    const paths: number[] = [];
+    const dfs = ({ val, right, left }: TreeNode, target: number) => {
+        paths.push(val);
+        target -= val;
+        if (left == null && right == null) {
+            if (target === 0) {
+                res.push([...paths]);
+            }
+            paths.pop();
+            return;
+        }
+        left && dfs(left, target);
+        right && dfs(right, target);
+        paths.pop();
+    };
+    dfs(root, target);
+    return res;
 }
 ```
 

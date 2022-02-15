@@ -56,7 +56,7 @@ class Solution:
             if root.right is None:
                 return 1 + dfs(root.left)
             return 1 + min(dfs(root.left), dfs(root.right))
-        
+
         return dfs(root)
 ```
 

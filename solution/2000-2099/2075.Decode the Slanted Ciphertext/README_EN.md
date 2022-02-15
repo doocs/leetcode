@@ -117,7 +117,7 @@ function decodeCiphertext(encodedText: string, rows: number): string {
             ans.push(encodedText.charAt(i * cols + j));
         }
     }
-    return ans.join("").trimEnd();
+    return ans.join('').trimEnd();
 }
 ```
 

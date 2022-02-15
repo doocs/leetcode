@@ -217,7 +217,7 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     let index: number = inorder.indexOf(val);
     node.left = buildTree(
         preorder.slice(1, index + 1),
-        inorder.slice(0, index)
+        inorder.slice(0, index),
     );
     node.right = buildTree(preorder.slice(index + 1), inorder.slice(index + 1));
     return node;

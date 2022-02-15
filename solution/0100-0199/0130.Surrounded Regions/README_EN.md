@@ -134,7 +134,7 @@ function solve(board: string[][]): void {
     // 第一行，最后一行， 第一列， 最后一列
     for (let i of [0, m - 1]) {
         for (let j = 0; j < n; ++j) {
-            if (board[i][j] == "X") {
+            if (board[i][j] == 'X') {
                 visited[i][j] = true;
             } else {
                 dfs(board, i, j, visited, true);
@@ -143,7 +143,7 @@ function solve(board: string[][]): void {
     }
     for (let i = 0; i < m; ++i) {
         for (let j of [0, n - 1]) {
-            if (board[i][j] == "X") {
+            if (board[i][j] == 'X') {
                 visited[i][j] = true;
             } else {
                 dfs(board, i, j, visited, true);
@@ -162,7 +162,7 @@ function dfs(
     i: number,
     j: number,
     visited: boolean[][],
-    edge = false
+    edge = false,
 ): void {
     let m = board.length,
         n = board[0].length;
@@ -171,11 +171,11 @@ function dfs(
     }
 
     visited[i][j] = true;
-    if (board[i][j] == "X") {
+    if (board[i][j] == 'X') {
         return;
     }
     if (!edge) {
-        board[i][j] = "X";
+        board[i][j] = 'X';
     }
     for (let [dx, dy] of [
         [0, 1],

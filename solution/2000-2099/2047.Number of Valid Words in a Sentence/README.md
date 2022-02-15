@@ -151,7 +151,7 @@ function isValied(str: string): boolean {
         if (/^[0-9]$/.test(char)) {
             return false;
         }
-        if (char == "-") {
+        if (char == '-') {
             if (hasLine) return false;
             else {
                 hasLine = true;

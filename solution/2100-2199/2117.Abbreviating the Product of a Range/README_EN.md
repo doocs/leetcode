@@ -76,7 +76,6 @@ Thus, the abbreviated product is &quot;23510...78528e16317&quot;.
 	<li><code>1 &lt;= left &lt;=&nbsp;right &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

@@ -171,7 +171,7 @@ public class Solution {
                 sb.Append(ch);
             }
         }
-        
+
         if (stack.Count == 0)
         {
             sb.Append('/');
@@ -191,15 +191,15 @@ public class Solution {
 ```ts
 function simplifyPath(path: string): string {
     // 添加辅助斜线
-    path += "/";
+    path += '/';
 
     const stack = [];
-    let str = "";
+    let str = '';
     for (let i = 1; i < path.length; i++) {
         const c = path[i];
-        if (c === "/") {
-            if (str !== "" && str !== ".") {
-                if (str === "..") {
+        if (c === '/') {
+            if (str !== '' && str !== '.') {
+                if (str === '..') {
                     if (stack.length !== 0) {
                         stack.pop();
                     }
@@ -207,13 +207,13 @@ function simplifyPath(path: string): string {
                     stack.push(str);
                 }
             }
-            str = "";
+            str = '';
         } else {
             str += c;
         }
     }
 
-    return "/" + stack.join("/");
+    return '/' + stack.join('/');
 }
 ```
 

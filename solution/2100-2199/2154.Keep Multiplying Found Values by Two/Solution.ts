@@ -4,4 +4,4 @@ function findFinalValue(nums: number[], original: number): number {
         original *= 2;
     }
     return original;
-};
+}

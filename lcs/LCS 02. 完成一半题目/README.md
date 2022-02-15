@@ -28,9 +28,9 @@
 
 **提示：**
 
-- `questions.length == 2*n`
-- `2 <= questions.length <= 10^5`
-- `1 <= questions[i] <= 1000`
+-   `questions.length == 2*n`
+-   `2 <= questions.length <= 10^5`
+-   `1 <= questions[i] <= 1000`
 
 ## 解法
 

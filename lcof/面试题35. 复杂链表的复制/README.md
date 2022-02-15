@@ -59,16 +59,16 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-- 相比正常的克隆链表，多了一步操作，克隆随机指针。
-- 随机指针并不是读取时进行随机指向，而是没有规律。但可以确定的是，随机指向的对象都是现存的节点或 `null`。
-- 而难点在于克隆随机指针，如克隆链表头节点时，随机指针指向链尾，而链尾还未创造出来。
-- 对此，需要先完成链表的基础克隆，再回头关注随机指针。
+-   相比正常的克隆链表，多了一步操作，克隆随机指针。
+-   随机指针并不是读取时进行随机指向，而是没有规律。但可以确定的是，随机指向的对象都是现存的节点或 `null`。
+-   而难点在于克隆随机指针，如克隆链表头节点时，随机指针指向链尾，而链尾还未创造出来。
+-   对此，需要先完成链表的基础克隆，再回头关注随机指针。
 
 ### 哈希表
 
-- 使用哈希表记录所有节点， `key` 为原节点，`value` 为克隆节点。
-- 遍历链表，完成记录，克隆节点暂时只记录对应的 `val`。
-- 再次遍历，完善克隆节点的 `next` 与 `random`。
+-   使用哈希表记录所有节点， `key` 为原节点，`value` 为克隆节点。
+-   遍历链表，完成记录，克隆节点暂时只记录对应的 `val`。
+-   再次遍历，完善克隆节点的 `next` 与 `random`。
 
 ### 原地算法
 
@@ -288,7 +288,7 @@ public class Solution {
 
 ### **JavaScript**
 
-- 哈希表
+-   哈希表
 
 ```js
 /**
@@ -305,33 +305,33 @@ public class Solution {
  * @return {Node}
  */
 var copyRandomList = function (head) {
-  if (head == null) {
-    return head;
-  }
+    if (head == null) {
+        return head;
+    }
 
-  let cur = head;
-  const map = new Map();
-  while (cur != null) {
-    map.set(cur, new Node(cur.val));
-    cur = cur.next;
-  }
+    let cur = head;
+    const map = new Map();
+    while (cur != null) {
+        map.set(cur, new Node(cur.val));
+        cur = cur.next;
+    }
 
-  const res = new Node();
-  let newCur = res;
-  cur = head;
-  while (cur != null) {
-    const node = map.get(cur);
-    node.random = map.get(cur.random);
-    newCur.next = node;
-    newCur = node;
-    cur = cur.next;
-  }
+    const res = new Node();
+    let newCur = res;
+    cur = head;
+    while (cur != null) {
+        const node = map.get(cur);
+        node.random = map.get(cur.random);
+        newCur.next = node;
+        newCur = node;
+        cur = cur.next;
+    }
 
-  return res.next;
+    return res.next;
 };
 ```
 
-- 原地算法
+-   原地算法
 
 ```js
 /**
@@ -348,31 +348,31 @@ var copyRandomList = function (head) {
  * @return {Node}
  */
 var copyRandomList = function (head) {
-  if (head == null) {
-    return null;
-  }
-  let cur = head;
-  while (cur != null) {
-    let node = new Node(cur.val, cur.next);
-    cur.next = node;
-    cur = node.next;
-  }
+    if (head == null) {
+        return null;
+    }
+    let cur = head;
+    while (cur != null) {
+        let node = new Node(cur.val, cur.next);
+        cur.next = node;
+        cur = node.next;
+    }
 
-  cur = head;
-  while (cur != null) {
-    cur.next.random = cur.random == null ? null : cur.random.next;
-    cur = cur.next.next;
-  }
+    cur = head;
+    while (cur != null) {
+        cur.next.random = cur.random == null ? null : cur.random.next;
+        cur = cur.next.next;
+    }
 
-  let copy = head.next;
-  cur = head;
-  while (cur != null) {
-    let next = cur.next;
-    cur.next = next.next;
-    next.next = next.next == null ? null : next.next.next;
-    cur = cur.next;
-  }
-  return copy;
+    let copy = head.next;
+    cur = head;
+    while (cur != null) {
+        let next = cur.next;
+        cur.next = next.next;
+        next.next = next.next == null ? null : next.next.next;
+        cur = cur.next;
+    }
+    return copy;
 };
 ```
 

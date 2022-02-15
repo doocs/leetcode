@@ -143,16 +143,16 @@ func max(a, b int) int {
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-  let res = 0;
-  let chars = new Set();
-  for (let i = 0, j = 0; i < s.length; ++i) {
-    while (chars.has(s[i])) {
-      chars.delete(s[j++]);
+    let res = 0;
+    let chars = new Set();
+    for (let i = 0, j = 0; i < s.length; ++i) {
+        while (chars.has(s[i])) {
+            chars.delete(s[j++]);
+        }
+        chars.add(s[i]);
+        res = Math.max(res, i - j + 1);
     }
-    chars.add(s[i]);
-    res = Math.max(res, i - j + 1);
-  }
-  return res;
+    return res;
 };
 ```
 
@@ -160,17 +160,17 @@ var lengthOfLongestSubstring = function (s) {
 
 ```ts
 function lengthOfLongestSubstring(s: string): number {
-  let res = 0;
-  let l = 0;
-  let set = new Set<string>();
-  for (const c of s) {
-    while (set.has(c)) {
-      set.delete(s[l++]);
+    let res = 0;
+    let l = 0;
+    let set = new Set<string>();
+    for (const c of s) {
+        while (set.has(c)) {
+            set.delete(s[l++]);
+        }
+        set.add(c);
+        res = Math.max(res, set.size);
     }
-    set.add(c);
-    res = Math.max(res, set.size);
-  }
-  return res;
+    return res;
 }
 ```
 

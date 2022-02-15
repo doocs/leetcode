@@ -7,7 +7,7 @@ function reversePairs(nums: number[]): number {
         nums: number[],
         left: number,
         mid: number,
-        right: number
+        right: number,
     ): void {
         let n: number = right - left + 1;
         let t: number[] = new Array(n);

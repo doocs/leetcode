@@ -97,7 +97,7 @@ class Solution {
 ```ts
 function wordPattern(pattern: string, s: string): boolean {
     let n = pattern.length;
-    let values = s.split(" ");
+    let values = s.split(' ');
     if (n != values.length) return false;
     let table = new Array(128);
     for (let i = 0; i < n; i++) {

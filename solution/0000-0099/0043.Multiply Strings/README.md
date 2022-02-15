@@ -117,18 +117,18 @@ class Solution {
 
 ```ts
 function multiply(num1: string, num2: string): string {
-    if ([num1, num2].includes("0")) return "0";
+    if ([num1, num2].includes('0')) return '0';
     const n1 = num1.length,
         n2 = num2.length;
-    let ans = "";
+    let ans = '';
     for (let i = 0; i < n1; i++) {
         let cur1 = parseInt(num1.charAt(n1 - i - 1), 10);
-        let sum = "";
+        let sum = '';
         for (let j = 0; j < n2; j++) {
             let cur2 = parseInt(num2.charAt(n2 - j - 1), 10);
-            sum = addString(sum, cur1 * cur2 + "0".repeat(j));
+            sum = addString(sum, cur1 * cur2 + '0'.repeat(j));
         }
-        ans = addString(ans, sum + "0".repeat(i));
+        ans = addString(ans, sum + '0'.repeat(i));
     }
     return ans;
 }
@@ -145,7 +145,7 @@ function addString(s1: string, s2: string): string {
         ans.unshift(sum % 10);
         sum = Math.floor(sum / 10);
     }
-    return ans.join("");
+    return ans.join('');
 }
 ```
 

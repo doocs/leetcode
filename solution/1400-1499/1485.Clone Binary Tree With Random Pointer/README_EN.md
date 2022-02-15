@@ -125,7 +125,7 @@ class Solution {
 
     public NodeCopy copyRandomBinaryTree(Node root) {
         mp = new HashMap<>();
-        return dfs(root);    
+        return dfs(root);
     }
 
     private NodeCopy dfs(Node root) {

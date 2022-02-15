@@ -182,7 +182,7 @@ function findNumberIn2DArray(matrix: number[][], target: number): boolean {
         }
     }
     return false;
-};
+}
 ```
 
 ### **Rust**

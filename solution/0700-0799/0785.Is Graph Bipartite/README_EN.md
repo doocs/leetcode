@@ -200,7 +200,7 @@ function isBipartite(graph: number[][]): boolean {
     let valid = true;
     let colors = new Array(n).fill(0);
 
-    function dfs (idx: number, color: number, graph: number[][]) {
+    function dfs(idx: number, color: number, graph: number[][]) {
         colors[idx] = color;
         const nextColor = color == 1 ? 2 : 1;
         for (let j of graph[idx]) {
@@ -220,7 +220,7 @@ function isBipartite(graph: number[][]): boolean {
         }
     }
     return valid;
-};
+}
 ```
 
 ### **...**

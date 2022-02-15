@@ -1,7 +1,11 @@
 function longestDiverseString(a: number, b: number, c: number): string {
     let ans = [];
-    let store: Array<[string, number]> = [['a', a], ['b', b], ['c', c]];
-    while(true) {
+    let store: Array<[string, number]> = [
+        ['a', a],
+        ['b', b],
+        ['c', c],
+    ];
+    while (true) {
         store.sort((a, b) => b[1] - a[1]);
         let hasNext = false;
         for (let [i, [ch, ctn]] of store.entries()) {
@@ -22,4 +26,4 @@ function longestDiverseString(a: number, b: number, c: number): string {
         }
     }
     return ans.join('');
-};
+}

@@ -1,5 +1,5 @@
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
-    let edges = Array.from({ length: numCourses }, ()  => ([]));
+    let edges = Array.from({ length: numCourses }, () => []);
     let indeg = new Array(numCourses).fill(0);
     for (let [b, a] of prerequisites) {
         edges[a].push(b);
@@ -25,4 +25,4 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
         }
     }
     return ans.length == numCourses ? ans : [];
-};
+}

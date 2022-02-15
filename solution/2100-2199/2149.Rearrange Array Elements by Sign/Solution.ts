@@ -1,6 +1,7 @@
 function rearrangeArray(nums: number[]): number[] {
     let ans = [];
-    let i = 0, j = 1;
+    let i = 0,
+        j = 1;
     for (let num of nums) {
         if (num > 0) {
             ans[i] = num;
@@ -11,4 +12,4 @@ function rearrangeArray(nums: number[]): number[] {
         }
     }
     return ans;
-};
+}

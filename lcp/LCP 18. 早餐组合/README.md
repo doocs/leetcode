@@ -62,13 +62,13 @@
 
 **提示：**
 
-- `1 <= staple.length <= 10^5`
+-   `1 <= staple.length <= 10^5`
 
-- `1 <= drinks.length <= 10^5`
+-   `1 <= drinks.length <= 10^5`
 
-- `1 <= staple[i],drinks[i] <= 10^5`
+-   `1 <= staple[i],drinks[i] <= 10^5`
 
-- `1 <= x <= 2*10^5`
+-   `1 <= x <= 2*10^5`
 
 ## 解法
 

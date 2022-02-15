@@ -92,9 +92,10 @@ class Solution {
 
 ```ts
 function countGoodRectangles(rectangles: number[][]): number {
-    let maxLen = 0, ans = 0;
+    let maxLen = 0,
+        ans = 0;
     for (let [l, w] of rectangles) {
-        let k = Math.min(l, w,);
+        let k = Math.min(l, w);
         if (k == maxLen) {
             ans++;
         } else if (k > maxLen) {
@@ -103,7 +104,7 @@ function countGoodRectangles(rectangles: number[][]): number {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

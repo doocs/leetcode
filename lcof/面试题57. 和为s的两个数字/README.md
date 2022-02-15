@@ -33,29 +33,29 @@
 
 遍历数组，查看哈希表中是否存在对应的差值（`target` - 遍历元素）：
 
-- 存在，即 `return` 返回。
-- 不存在，记录元素，继续遍历。
+-   存在，即 `return` 返回。
+-   不存在，记录元素，继续遍历。
 
 _复杂度_：
 
-- 时间 **_O(N)_**
-- 空间 **_O(N)_**
+-   时间 **_O(N)_**
+-   空间 **_O(N)_**
 
 **双指针**
 
 1. 声明头尾指针（数组的左右两端）。
 2. 将头尾指针所指向的元素相加，与 `target` 比较：
-   - 大于：尾指针前移。
-   - 小于：头指针后移。
-   - 等于：返回两个元素即可。
+    - 大于：尾指针前移。
+    - 小于：头指针后移。
+    - 等于：返回两个元素即可。
 3. 重复步骤 2，直到等于为止。
 
 > 因为数组是有序的，指针变动对值的影响可预测。
 
 _复杂度_：
 
-- 时间 **_O(N)_**
-- 空间 **_O(1)_**
+-   时间 **_O(N)_**
+-   空间 **_O(1)_**
 
 ```txt
 TWO-SUM(A,t)
@@ -190,17 +190,17 @@ func twoSum(nums []int, target int) []int {
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-  for (let p = 0, q = nums.length; p < q; ) {
-    const s = nums[p] + nums[q];
-    if (s == target) {
-      return [nums[p], nums[q]];
+    for (let p = 0, q = nums.length; p < q; ) {
+        const s = nums[p] + nums[q];
+        if (s == target) {
+            return [nums[p], nums[q]];
+        }
+        if (s < target) {
+            ++p;
+        } else {
+            --q;
+        }
     }
-    if (s < target) {
-      ++p;
-    } else {
-      --q;
-    }
-  }
 };
 ```
 
@@ -210,14 +210,14 @@ var twoSum = function (nums, target) {
 
 ```ts
 function twoSum(nums: number[], target: number): number[] {
-  const set = new Set();
-  for (const num of nums) {
-    if (set.has(target - num)) {
-      return [target - num, num];
+    const set = new Set();
+    for (const num of nums) {
+        if (set.has(target - num)) {
+            return [target - num, num];
+        }
+        set.add(num);
     }
-    set.add(num);
-  }
-  return null;
+    return null;
 }
 ```
 
@@ -225,16 +225,16 @@ function twoSum(nums: number[], target: number): number[] {
 
 ```ts
 function twoSum(nums: number[], target: number): number[] {
-  let l = 0;
-  let r = nums.length - 1;
-  while (nums[l] + nums[r] !== target) {
-    if (nums[l] + nums[r] < target) {
-      l++;
-    } else {
-      r--;
+    let l = 0;
+    let r = nums.length - 1;
+    while (nums[l] + nums[r] !== target) {
+        if (nums[l] + nums[r] < target) {
+            l++;
+        } else {
+            r--;
+        }
     }
-  }
-  return [nums[l], nums[r]];
+    return [nums[l], nums[r]];
 }
 ```
 

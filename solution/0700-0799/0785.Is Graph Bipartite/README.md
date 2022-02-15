@@ -242,7 +242,7 @@ function isBipartite(graph: number[][]): boolean {
     let colors = new Array(n).fill(0);
     // 0 未遍历， 1 红色标记， 2 绿色标记
 
-    function dfs (idx: number, color: number, graph: number[][]) {
+    function dfs(idx: number, color: number, graph: number[][]) {
         colors[idx] = color;
         const nextColor = color == 1 ? 2 : 1;
         for (let j of graph[idx]) {
@@ -262,7 +262,7 @@ function isBipartite(graph: number[][]): boolean {
         }
     }
     return valid;
-};
+}
 ```
 
 ### **...**

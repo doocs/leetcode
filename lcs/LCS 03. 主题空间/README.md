@@ -28,9 +28,9 @@
 
 **提示：**
 
-- `1 <= grid.length <= 500`
-- `1 <= grid[i].length <= 500`
-- `grid[i][j]` 仅可能是 `"0"～"5"`
+-   `1 <= grid.length <= 500`
+-   `1 <= grid[i].length <= 500`
+-   `grid[i][j]` 仅可能是 `"0"～"5"`
 
 ## 解法
 

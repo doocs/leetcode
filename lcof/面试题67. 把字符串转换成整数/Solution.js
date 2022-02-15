@@ -3,11 +3,11 @@
  * @return {number}
  */
 var strToInt = function (str) {
-    let res = "";
+    let res = '';
     let l = 1;
     for (let i = 0; i < str.length; i++) {
-        if (l && str[i] === " ") continue;
-        if (l && (str[i] === "+" || str[i] === "-")) {
+        if (l && str[i] === ' ') continue;
+        if (l && (str[i] === '+' || str[i] === '-')) {
             l = 0;
             res += str[i];
             continue;

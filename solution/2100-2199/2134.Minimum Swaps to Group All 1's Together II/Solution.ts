@@ -6,8 +6,8 @@ function minSwaps(nums: number[]): number {
     for (let i = m; i < m + n; i++) {
         let prev = nums[i - m];
         let post = nums[i % n];
-        cnt += (post - prev);
+        cnt += post - prev;
         ans = Math.max(cnt, ans);
     }
     return m - ans;
-};
+}

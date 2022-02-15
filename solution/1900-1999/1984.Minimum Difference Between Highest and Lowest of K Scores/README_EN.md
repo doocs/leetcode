@@ -82,7 +82,7 @@ function minimumDifference(nums: number[], k: number): number {
         ans = Math.min(nums[i + k - 1] - nums[i], ans);
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

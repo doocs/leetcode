@@ -1,4 +1,8 @@
-function construct2DArray(original: number[], m: number, n: number): number[][] {
+function construct2DArray(
+    original: number[],
+    m: number,
+    n: number,
+): number[][] {
     const result = [];
 
     if (original.length != m * n) {
@@ -10,4 +14,4 @@ function construct2DArray(original: number[], m: number, n: number): number[][] 
     }
 
     return result;
-};
+}

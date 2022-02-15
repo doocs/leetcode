@@ -233,7 +233,7 @@ func minimumOperations(nums []int, start int, goal int) int {
 function minimumOperations(
     nums: number[],
     start: number,
-    goal: number
+    goal: number,
 ): number {
     const n = nums.length;
     const op1 = function (x: number, y: number): number {

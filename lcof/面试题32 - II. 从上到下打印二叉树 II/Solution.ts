@@ -27,7 +27,7 @@ function levelOrder(root: TreeNode | null): number[][] {
                 left && nextNodes.push(left);
                 right && nextNodes.push(right);
                 return val;
-            })
+            }),
         );
         return levelFn(nextNodes);
     };

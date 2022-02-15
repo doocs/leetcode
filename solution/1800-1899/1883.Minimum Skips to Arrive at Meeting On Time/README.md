@@ -75,8 +75,8 @@
 
 考虑最后一段道路 `dist[i - 1]` 是否跳过：
 
-- 若没有跳过，那么 `dp[i][j] = ⌈dp[i - 1][j] + dist[i - 1] / speed⌉`
-- 若跳过，那么 `dp[i][j] = dp[i - 1][j - 1] + dist[i - 1] / speed`
+-   若没有跳过，那么 `dp[i][j] = ⌈dp[i - 1][j] + dist[i - 1] / speed⌉`
+-   若跳过，那么 `dp[i][j] = dp[i - 1][j - 1] + dist[i - 1] / speed`
 
 综合两种情况，`dp[i][j] = min{⌈dp[i - 1][j] + dist[i - 1] / speed⌉, dp[i - 1][j - 1] + dist[i - 1] / speed}`。
 

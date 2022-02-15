@@ -72,7 +72,7 @@ class Solution:
 
 ### **Java**
 
-- Two Pointers, time complexity: O(n²), memory complexity: O(1)
+-   Two Pointers, time complexity: O(n²), memory complexity: O(1)
 
 ```java
 class Solution {
@@ -93,7 +93,7 @@ class Solution {
 }
 ```
 
-- Prefix Array & Suffix Array, time complexity: O(n), memory complexity: O(n)
+-   Prefix Array & Suffix Array, time complexity: O(n), memory complexity: O(n)
 
 ```java
 class Solution {

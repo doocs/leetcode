@@ -149,7 +149,7 @@ class Solution {
 
 function insertIntoMaxTree(
     root: TreeNode | null,
-    val: number
+    val: number,
 ): TreeNode | null {
     if (root == null || val > root.val) {
         return new TreeNode(val, root);

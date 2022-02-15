@@ -142,16 +142,16 @@ class Node {
     public int val;
     public List<Node> children;
 
-    
+
     public Node() {
         children = new ArrayList<Node>();
     }
-    
+
     public Node(int _val) {
         val = _val;
         children = new ArrayList<Node>();
     }
-    
+
     public Node(int _val,ArrayList<Node> _children) {
         val = _val;
         children = _children;
@@ -165,7 +165,7 @@ class Solution {
     public int diameter(Node root) {
         ans = 0;
         dfs(root);
-        return ans;    
+        return ans;
     }
 
     private int dfs(Node root) {
@@ -289,9 +289,9 @@ public:
     int diameter(Node* root) {
         ans = 0;
         dfs(root);
-        return ans;    
+        return ans;
     }
-    
+
     int dfs(Node* root) {
         if (!root) return 0;
         int m1 = 0, m2 = 0;

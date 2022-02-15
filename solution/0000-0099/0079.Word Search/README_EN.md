@@ -131,7 +131,7 @@ function dfs(
     i: number,
     j: number,
     depth: number,
-    visited: boolean[][]
+    visited: boolean[][],
 ): boolean {
     let m = board.length,
         n = board[0].length;

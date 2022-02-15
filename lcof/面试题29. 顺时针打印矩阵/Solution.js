@@ -26,26 +26,26 @@ var spiralOrder = function (matrix) {
         }
         res.push(matrix[i][j]);
         switch (dir) {
-            case "right":
-                if (j === col - 1 - k) dir = "down";
+            case 'right':
+                if (j === col - 1 - k) dir = 'down';
                 break;
-            case "down":
-                if (i === row - 1 - k) dir = "left";
+            case 'down':
+                if (i === row - 1 - k) dir = 'left';
                 break;
-            case "left":
+            case 'left':
                 if (j === k) {
-                    dir = "up";
+                    dir = 'up';
                     k++;
                 }
                 break;
-            case "up":
-                if (i === k) dir = "right";
+            case 'up':
+                if (i === k) dir = 'right';
                 break;
         }
         let x = i + moves[dir][0];
         let y = j + moves[dir][1];
         dfs(x, y, dir);
     }
-    dfs(0, 0, "right");
+    dfs(0, 0, 'right');
     return res;
 };

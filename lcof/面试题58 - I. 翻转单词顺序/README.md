@@ -87,11 +87,11 @@ class Solution {
  * @return {string}
  */
 var reverseWords = function (s) {
-  return s
-    .split(" ")
-    .reduce((acc, cur) => (cur !== "" ? acc.concat(cur) : acc), [])
-    .reverse()
-    .join(" ");
+    return s
+        .split(' ')
+        .reduce((acc, cur) => (cur !== '' ? acc.concat(cur) : acc), [])
+        .reverse()
+        .join(' ');
 };
 ```
 
@@ -124,7 +124,7 @@ API：
 
 ```ts
 function reverseWords(s: string): string {
-  return s.trim().split(/\s+/).reverse().join(" ");
+    return s.trim().split(/\s+/).reverse().join(' ');
 }
 ```
 
@@ -132,21 +132,21 @@ function reverseWords(s: string): string {
 
 ```ts
 function reverseWords(s: string): string {
-  s = s.trim();
-  const res = [];
-  let l = s.length - 1;
-  let r = s.length - 1;
-  while (l >= 0) {
-    while (s[l] !== " " && l >= 0) {
-      l--;
+    s = s.trim();
+    const res = [];
+    let l = s.length - 1;
+    let r = s.length - 1;
+    while (l >= 0) {
+        while (s[l] !== ' ' && l >= 0) {
+            l--;
+        }
+        res.push(s.substring(l + 1, r + 1));
+        while (s[l] === ' ' && l >= 0) {
+            l--;
+        }
+        r = l;
     }
-    res.push(s.substring(l + 1, r + 1));
-    while (s[l] === " " && l >= 0) {
-      l--;
-    }
-    r = l;
-  }
-  return res.join(" ");
+    return res.join(' ');
 }
 ```
 

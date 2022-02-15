@@ -15,8 +15,8 @@ function minOperations(nums: number[], x: number): number {
         }
         if (hashMap.has(pre - target)) {
             let left = hashMap.get(pre - target);
-            ans = Math.max(right - left, ans)
+            ans = Math.max(right - left, ans);
         }
     }
     return ans == -1 ? -1 : n - ans;
-};
+}

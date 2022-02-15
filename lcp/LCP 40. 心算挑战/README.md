@@ -25,8 +25,8 @@
 
 **提示：**
 
-- `1 <= cnt <= cards.length <= 10^5`
-- `1 <= cards[i] <= 1000`
+-   `1 <= cnt <= cards.length <= 10^5`
+-   `1 <= cards[i] <= 1000`
 
 ## 解法
 

@@ -183,7 +183,7 @@ var isValidSudoku = function (board) {
     let sub = [...Array(9)].map(() => Array(9).fill(false));
     for (let i = 0; i < 9; ++i) {
         for (let j = 0; j < 9; ++j) {
-            const num = board[i][j].charCodeAt() - "1".charCodeAt();
+            const num = board[i][j].charCodeAt() - '1'.charCodeAt();
             if (num < 0 || num > 9) {
                 continue;
             }

@@ -106,7 +106,7 @@ class Solution:
                     q.append((v, d + 1))
                 elif dist[v][0] < d + 1 < dist[v][1]:
                     dist[v][1] = d + 1
-                    if v == n:	
+                    if v == n:
                         break
                     q.append((v, d + 1))
         ans = 0

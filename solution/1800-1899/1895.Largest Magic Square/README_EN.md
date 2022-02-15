@@ -161,7 +161,7 @@ function largestMagicSquare(grid: number[][]): number {
         n = grid[0].length;
     // 前缀和
     let rowSum = Array.from({ length: m + 1 }, (v, i) =>
-            new Array(n + 1).fill(0)
+            new Array(n + 1).fill(0),
         ),
         colSum = Array.from({ length: m + 1 }, v => new Array(n + 1).fill(0));
     for (let i = 0; i < m; i++) {
@@ -200,7 +200,7 @@ function valid(
     x1: number,
     y1: number,
     x2: number,
-    y2: number
+    y2: number,
 ): boolean {
     let diff = rowSum[x1 + 1][y2 + 1] - rowSum[x1 + 1][y1];
     // 行

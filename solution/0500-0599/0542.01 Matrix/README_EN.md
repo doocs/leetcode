@@ -35,7 +35,6 @@
 	<li>There is at least one <code>0</code> in <code>mat</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

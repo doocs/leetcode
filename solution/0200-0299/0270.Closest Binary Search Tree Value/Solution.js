@@ -11,7 +11,7 @@
  * @param {number} target
  * @return {number}
  */
- var closestValue = function(root, target) {
+var closestValue = function (root, target) {
     let ans = root.val;
     let mi = Number.MAX_VALUE;
     while (root) {

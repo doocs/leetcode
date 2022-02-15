@@ -214,7 +214,7 @@ class SubrectangleQueries {
         col1: number,
         row2: number,
         col2: number,
-        newValue: number
+        newValue: number,
     ): void {
         this.history.push([row1, col1, row2, col2, newValue]);
     }

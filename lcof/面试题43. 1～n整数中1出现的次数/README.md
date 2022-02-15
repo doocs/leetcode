@@ -43,10 +43,10 @@
 
 high=3,lows=356,base=1000。此时 n 可拆分为 `0~999`,`1000~1999`,`2000~2999`,`3000~3356`，其中：
 
-- 0~999 范围内 1 的个数为 f(base-1)
-- 1000~1999 范围内 1 的个数可分为两部分：千位、其余位。千位都为 1，所以 1 的个数为 base+f(base-1)
-- 2000~2999 范围内 1 的个数为 f(base-1)
-- 3000~3356 范围内 1 的个数为 f(lows)
+-   0~999 范围内 1 的个数为 f(base-1)
+-   1000~1999 范围内 1 的个数可分为两部分：千位、其余位。千位都为 1，所以 1 的个数为 base+f(base-1)
+-   2000~2999 范围内 1 的个数为 f(base-1)
+-   3000~3356 范围内 1 的个数为 f(lows)
 
 因此，1 的总个数为 `high*f(base-1)+f(lows)+base`。
 
@@ -102,25 +102,25 @@ class Solution {
  * @return {number}
  */
 var countDigitOne = function (n) {
-  let res = 0;
-  let i = 1;
-  while (i <= n) {
-    let high = ~~(n / i / 10);
-    let cur = ~~(n / i) % 10;
-    let low = n - ~~(n / i) * i;
-    switch (cur) {
-      case 0:
-        res += high * i;
-        break;
-      case 1:
-        res += high * i + low + 1;
-        break;
-      default:
-        res += (high + 1) * i;
+    let res = 0;
+    let i = 1;
+    while (i <= n) {
+        let high = ~~(n / i / 10);
+        let cur = ~~(n / i) % 10;
+        let low = n - ~~(n / i) * i;
+        switch (cur) {
+            case 0:
+                res += high * i;
+                break;
+            case 1:
+                res += high * i + low + 1;
+                break;
+            default:
+                res += (high + 1) * i;
+        }
+        i *= 10;
     }
-    i *= 10;
-  }
-  return res;
+    return res;
 };
 ```
 

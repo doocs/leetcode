@@ -12,7 +12,7 @@
 
 function mergeTwoLists(
     l1: ListNode | null,
-    l2: ListNode | null
+    l2: ListNode | null,
 ): ListNode | null {
     const res = new ListNode();
     let cur = res;

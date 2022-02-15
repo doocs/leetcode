@@ -6,7 +6,7 @@ var compressString = function (S) {
     if (!S) return S;
     let p = 0,
         q = 1;
-    let res = "";
+    let res = '';
     while (q < S.length) {
         if (S[p] != S[q]) {
             res += S[p] + (q - p);

@@ -9,5 +9,5 @@ var largestOddNumber = function (num) {
             return num.slice(0, j + 1);
         }
     }
-    return "";
+    return '';
 };

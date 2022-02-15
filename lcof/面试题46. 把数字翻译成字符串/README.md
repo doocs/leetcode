@@ -74,21 +74,21 @@ class Solution {
  * @return {number}
  */
 var translateNum = function (num) {
-  let res = 0;
-  num = num.toString();
-  function dfs(i) {
-    if (i >= num.length) {
-      res++;
-      return;
+    let res = 0;
+    num = num.toString();
+    function dfs(i) {
+        if (i >= num.length) {
+            res++;
+            return;
+        }
+        dfs(i + 1);
+        let tmp = +(num[i] + num[i + 1]);
+        if (num[i] !== '0' && tmp >= 0 && tmp < 26) {
+            dfs(i + 2);
+        }
     }
-    dfs(i + 1);
-    let tmp = +(num[i] + num[i + 1]);
-    if (num[i] !== "0" && tmp >= 0 && tmp < 26) {
-      dfs(i + 2);
-    }
-  }
-  dfs(0);
-  return res;
+    dfs(0);
+    return res;
 };
 ```
 
@@ -133,18 +133,18 @@ public:
 
 ```ts
 function translateNum(num: number): number {
-  let a = 1;
-  let b = 1;
-  const str = num + "";
-  for (let i = 1; i < str.length; i++) {
-    const val = Number(str[i - 1] + str[i]);
-    if (val >= 10 && val < 26) {
-      [a, b] = [b, a + b];
-    } else {
-      a = b;
+    let a = 1;
+    let b = 1;
+    const str = num + '';
+    for (let i = 1; i < str.length; i++) {
+        const val = Number(str[i - 1] + str[i]);
+        if (val >= 10 && val < 26) {
+            [a, b] = [b, a + b];
+        } else {
+            a = b;
+        }
     }
-  }
-  return b;
+    return b;
 }
 ```
 

@@ -99,11 +99,11 @@ function simplifiedFractions(n: number): string[] {
         for (let i = 1; i < j; i++) {
             if (gcd(i, j) == 1) {
                 ans.push(`${i}/${j}`);
-            } 
+            }
         }
     }
     return ans;
-};
+}
 
 // a < b
 function gcd(a: number, b: number): number {

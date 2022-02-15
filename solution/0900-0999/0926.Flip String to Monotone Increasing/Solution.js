@@ -5,7 +5,7 @@ const minFlipsMonoIncr = function (S) {
         f.push(0);
     }
     for (let i = 0; i < n; i++) {
-        f[i + 1] = f[i] + (S[i] === "1");
+        f[i + 1] = f[i] + (S[i] === '1');
     }
     let ans = n;
     for (let i = 0; i <= n; i++) {

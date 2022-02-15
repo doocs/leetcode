@@ -45,9 +45,9 @@
 
 遍历字符串，判断当前字符是否为数字型字符。若是，先转为数字 `num`。然后判断数字与 `largestDigit`、`secondLargestDigit` 的大小关系：
 
-- 若 `num > largestDigit`，将 `secondLargestDigit` 更新为 `largestDigit`，而 `largestDigit` 更新为 num；
-- 若 `num > secondLargestDigit`，并且 `num < largestDigit`，将 `secondLargestDigit` 更新为 num；
-- 其他情况不做处理。
+-   若 `num > largestDigit`，将 `secondLargestDigit` 更新为 `largestDigit`，而 `largestDigit` 更新为 num；
+-   若 `num > secondLargestDigit`，并且 `num < largestDigit`，将 `secondLargestDigit` 更新为 num；
+-   其他情况不做处理。
 
 最后返回 `secondLargestDigit` 即可。
 

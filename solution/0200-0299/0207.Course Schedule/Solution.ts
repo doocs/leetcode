@@ -1,5 +1,5 @@
 function canFinish(numCourses: number, prerequisites: number[][]): boolean {
-    let edges: number[][] = Array.from({ length: numCourses }, () => ([]));
+    let edges: number[][] = Array.from({ length: numCourses }, () => []);
     let indeg = new Array(numCourses).fill(0);
 
     for (let [b, a] of prerequisites) {
@@ -26,4 +26,4 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
         }
     }
     return visited == numCourses;
-};
+}
