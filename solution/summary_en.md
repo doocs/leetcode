@@ -2235,3 +2235,4 @@
     -   [2170.Minimum Operations to Make the Array Alternating](/solution/2100-2199/2170.Minimum%20Operations%20to%20Make%20the%20Array%20Alternating/README_EN.md)
     -   [2171.Removing Minimum Number of Magic Beans](/solution/2100-2199/2171.Removing%20Minimum%20Number%20of%20Magic%20Beans/README_EN.md)
     -   [2172.Maximum AND Sum of Array](/solution/2100-2199/2172.Maximum%20AND%20Sum%20of%20Array/README_EN.md)
+    -   [2173.Longest Winning Streak](/solution/2100-2199/2173.Longest%20Winning%20Streak/README_EN.md)
