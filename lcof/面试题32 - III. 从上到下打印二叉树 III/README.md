@@ -2,33 +2,36 @@
 
 ## 题目描述
 
-请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
+<p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p>
 
-**例如:**
+<p>&nbsp;</p>
 
-给定二叉树: `[3,9,20,null,null,15,7]`,
+<p>例如:<br>
+给定二叉树:&nbsp;<code>[3,9,20,null,null,15,7]</code>,</p>
 
-```
-    3
+<pre>    3
    / \
   9  20
     /  \
    15   7
-```
+</pre>
 
-返回其层次遍历结果：
+<p>返回其层次遍历结果：</p>
 
-```
-[
+<pre>[
   [3],
   [20,9],
   [15,7]
 ]
-```
+</pre>
 
-**提示：**
+<p>&nbsp;</p>
 
-- `节点总数 <= 1000`
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>节点总数 &lt;= 1000</code></li>
+</ol>
 
 ## 解法
 
@@ -115,28 +118,28 @@ class Solution {
  * @return {number[][]}
  */
 var levelOrder = function (root) {
-    if (!root) return [];
-    let queue = [root];
-    let res = [];
-    let depth = 0;
-    let dir = true;
-    while (queue.length) {
-        let len = queue.length;
-        for (let i = 0; i < len; i++) {
-            let node = queue.shift();
-            if (!node) continue;
-            if (!res[depth]) res[depth] = [];
-            if (dir) {
-                res[depth].push(node.val);
-            } else {
-                res[depth].unshift(node.val);
-            }
-            queue.push(node.left, node.right);
-        }
-        depth++;
-        dir = !dir;
+  if (!root) return [];
+  let queue = [root];
+  let res = [];
+  let depth = 0;
+  let dir = true;
+  while (queue.length) {
+    let len = queue.length;
+    for (let i = 0; i < len; i++) {
+      let node = queue.shift();
+      if (!node) continue;
+      if (!res[depth]) res[depth] = [];
+      if (dir) {
+        res[depth].push(node.val);
+      } else {
+        res[depth].unshift(node.val);
+      }
+      queue.push(node.left, node.right);
     }
-    return res;
+    depth++;
+    dir = !dir;
+  }
+  return res;
 };
 ```
 
@@ -227,26 +230,26 @@ public:
  */
 
 function levelOrder(root: TreeNode | null): number[][] {
-    const res = [];
-    if (root == null) {
-        return res;
+  const res = [];
+  if (root == null) {
+    return res;
+  }
+  let isEven = false;
+  const levelFn = (nodes: TreeNode[]) => {
+    if (nodes.length === 0) {
+      return res;
     }
-    let isEven = false;
-    const levelFn = (nodes: TreeNode[]) => {
-        if (nodes.length === 0) {
-            return res;
-        }
-        const nextNodes = [];
-        const values = nodes.map(({ val, left, right }) => {
-            left && nextNodes.push(left);
-            right && nextNodes.push(right);
-            return val;
-        });
-        res.push(isEven ? values.reverse() : values);
-        isEven = !isEven;
-        return levelFn(nextNodes);
-    };
-    return levelFn([root]);
+    const nextNodes = [];
+    const values = nodes.map(({ val, left, right }) => {
+      left && nextNodes.push(left);
+      right && nextNodes.push(right);
+      return val;
+    });
+    res.push(isEven ? values.reverse() : values);
+    isEven = !isEven;
+    return levelFn(nextNodes);
+  };
+  return levelFn([root]);
 }
 ```
 
@@ -307,6 +310,7 @@ impl Solution {
     }
 }
 ```
+
 ### **...**
 
 ```

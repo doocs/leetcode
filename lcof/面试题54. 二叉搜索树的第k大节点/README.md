@@ -2,24 +2,25 @@
 
 ## 题目描述
 
-给定一棵二叉搜索树，请找出其中第 k 大的节点。
+<p>给定一棵二叉搜索树，请找出其中第 <code>k</code> 大的节点的值。</p>
 
-**示例 1:**
+<p>&nbsp;</p>
 
-```
-输入: root = [3,1,4,null,2], k = 1
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> root = [3,1,4,null,2], k = 1
    3
   / \
  1   4
   \
-   2
-输出: 4
-```
+&nbsp;  2
+<strong>输出:</strong> 4</pre>
 
-**示例 2:**
+<p><strong>示例 2:</strong></p>
 
-```
-输入: root = [5,3,6,2,4,null,null,1], k = 3
+<pre>
+<strong>输入:</strong> root = [5,3,6,2,4,null,null,1], k = 3
        5
       / \
      3   6
@@ -27,12 +28,15 @@
    2   4
   /
  1
-输出: 4
-```
+<strong>输出:</strong> 4</pre>
 
-**限制：**
+<p>&nbsp;</p>
 
-- `1 ≤ k ≤ 二叉搜索树元素个数`
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li>1 ≤ k ≤ 二叉搜索树元素个数</li>
+</ul>
 
 ## 解法
 
@@ -121,22 +125,22 @@ class Solution {
  * @return {number}
  */
 var kthLargest = function (root, k) {
-    const inorder = root => {
-        if (!root) {
-            return;
-        }
-        inorder(root.right);
-        --cur;
-        if (cur == 0) {
-            res = root.val;
-            return;
-        }
-        inorder(root.left);
-    };
-    let res = 0;
-    let cur = k;
-    inorder(root);
-    return res;
+  const inorder = (root) => {
+    if (!root) {
+      return;
+    }
+    inorder(root.right);
+    --cur;
+    if (cur == 0) {
+      res = root.val;
+      return;
+    }
+    inorder(root.left);
+  };
+  let res = 0;
+  let cur = k;
+  inorder(root);
+  return res;
 };
 ```
 

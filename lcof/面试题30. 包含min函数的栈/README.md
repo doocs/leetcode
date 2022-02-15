@@ -2,24 +2,33 @@
 
 ## 题目描述
 
-定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。
+<p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</p>
 
-**示例:**
+<p>&nbsp;</p>
 
-```
-MinStack minStack = new MinStack();
+<p><strong>示例:</strong></p>
+
+<pre>MinStack minStack = new MinStack();
 minStack.push(-2);
 minStack.push(0);
 minStack.push(-3);
-minStack.min();   --> 返回 -3.
+minStack.min();   --&gt; 返回 -3.
 minStack.pop();
-minStack.top();      --> 返回 0.
-minStack.min();   --> 返回 -2.
-```
+minStack.top();      --&gt; 返回 0.
+minStack.min();   --&gt; 返回 -2.
+</pre>
 
-**提示：**
+<p>&nbsp;</p>
 
-- 各函数的调用总次数不超过 20000 次
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li>各函数的调用总次数不超过 20000 次</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p>注意：本题与主站 155 题相同：<a href="https://leetcode-cn.com/problems/min-stack/">https://leetcode-cn.com/problems/min-stack/</a></p>
 
 ## 解法
 
@@ -118,8 +127,8 @@ class MinStack {
  * initialize your data structure here.
  */
 var MinStack = function () {
-    this.stack = [];
-    this.minStack = [];
+  this.stack = [];
+  this.minStack = [];
 };
 
 /**
@@ -127,33 +136,33 @@ var MinStack = function () {
  * @return {void}
  */
 MinStack.prototype.push = function (x) {
-    this.stack.unshift(x);
-    if (!this.minStack.length || this.minStack[0] >= x) {
-        this.minStack.unshift(x);
-    }
+  this.stack.unshift(x);
+  if (!this.minStack.length || this.minStack[0] >= x) {
+    this.minStack.unshift(x);
+  }
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function () {
-    if (this.stack.shift() === this.minStack[0]) {
-        this.minStack.shift();
-    }
+  if (this.stack.shift() === this.minStack[0]) {
+    this.minStack.shift();
+  }
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.top = function () {
-    return this.stack[0];
+  return this.stack[0];
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.min = function () {
-    return this.minStack[0];
+  return this.minStack[0];
 };
 
 /**
@@ -224,7 +233,7 @@ impl MinStack {
             min: Vec::new(),
         }
     }
-    
+
     fn push(&mut self, x: i32) {
         self.items.push(x);
         match self.min.last() {
@@ -236,17 +245,17 @@ impl MinStack {
             None => self.min.push(x)
         }
     }
-    
+
     fn pop(&mut self) {
         if self.items.pop().unwrap() == *self.min.last().unwrap() {
             self.min.pop();
         }
     }
-    
+
     fn top(&self) -> i32 {
         *self.items.last().unwrap()
     }
-    
+
     fn min(&self) -> i32 {
         *self.min.last().unwrap()
     }

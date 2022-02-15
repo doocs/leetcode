@@ -2,13 +2,18 @@
 
 ## 题目描述
 
-输入一个链表，输出该链表中倒数第 k 个节点。为了符合大多数人的习惯，本题从 1 开始计数，即链表的尾节点是倒数第 1 个节点。例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。
+<p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
 
-**示例：**
+<p>例如，一个链表有 <code>6</code> 个节点，从头节点开始，它们的值依次是 <code>1、2、3、4、5、6</code>。这个链表的倒数第 <code>3</code> 个节点是值为 <code>4</code> 的节点。</p>
 
-给定一个链表: 1->2->3->4->5, 和 k = 2.
+<p> </p>
 
-返回链表 4->5.
+<p><strong>示例：</strong></p>
+
+<pre>
+给定一个链表: <strong>1->2->3->4->5</strong>, 和 <em>k </em><strong>= 2</strong>.
+
+返回链表 4<strong>->5</strong>.</pre>
 
 ## 解法
 
@@ -73,29 +78,29 @@ class Solution {
  * @return {ListNode}
  */
 var getKthFromEnd = function (head, k) {
-    // 递归
-    // let cnt = 1
-    // function func(node) {
-    //     if(!node || !node.next) return node
-    //     let newNode = func(node.next)
-    //     if(cnt === k) return newNode
-    //     else cnt++
-    //     return node
-    // }
-    // return func(head)
+  // 递归
+  // let cnt = 1
+  // function func(node) {
+  //     if(!node || !node.next) return node
+  //     let newNode = func(node.next)
+  //     if(cnt === k) return newNode
+  //     else cnt++
+  //     return node
+  // }
+  // return func(head)
 
-    // 快慢指针
-    let slow = head;
-    let fast = head;
-    while (k) {
-        fast = fast.next;
-        k--;
-    }
-    while (fast) {
-        slow = slow.next;
-        fast = fast.next;
-    }
-    return slow;
+  // 快慢指针
+  let slow = head;
+  let fast = head;
+  while (k) {
+    fast = fast.next;
+    k--;
+  }
+  while (fast) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  return slow;
 };
 ```
 
@@ -146,7 +151,7 @@ public:
 //   pub val: i32,
 //   pub next: Option<Box<ListNode>>
 // }
-// 
+//
 // impl ListNode {
 //   #[inline]
 //   fn new(val: i32) -> Self {
@@ -158,7 +163,7 @@ public:
 // }
 impl Solution {
     pub fn get_kth_from_end(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
-        let mut fast = &head; 
+        let mut fast = &head;
         for _ in 0..k {
             fast = &fast.as_ref().unwrap().next;
         }

@@ -2,25 +2,26 @@
 
 ## 题目描述
 
-一个长度为 n-1 的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围 0 ～ n-1 之内。在范围 0 ～ n-1 内的 n 个数字中有且只有一个数字不在该数组中，请找出这个数字。
+<p>一个长度为 n-1 的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。</p>
 
-**示例 1:**
+<p>&nbsp;</p>
 
-```
-输入: [0,1,3]
-输出: 2
-```
+<p><strong>示例 1:</strong></p>
 
-**示例 2:**
+<pre><strong>输入:</strong> [0,1,3]
+<strong>输出:</strong> 2
+</pre>
 
-```
-输入: [0,1,2,3,4,5,6,7,9]
-输出: 8
-```
+<p><strong>示例&nbsp;2:</strong></p>
 
-**限制：**
+<pre><strong>输入:</strong> [0,1,2,3,4,5,6,7,9]
+<strong>输出:</strong> 8</pre>
 
-- `1 <= 数组长度 <= 10000`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>1 &lt;= 数组长度 &lt;= 10000</code></p>
 
 ## 解法
 
@@ -80,18 +81,18 @@ class Solution {
  * @return {number}
  */
 var missingNumber = function (nums) {
-    if (!nums || !nums.length) return 0;
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        let mid = left + ~~((right - left) / 2);
-        if (nums[mid] !== mid) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
+  if (!nums || !nums.length) return 0;
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    let mid = left + ~~((right - left) / 2);
+    if (nums[mid] !== mid) {
+      right = mid;
+    } else {
+      left = mid + 1;
     }
-    return nums[left] === left ? nums.length : left;
+  }
+  return nums[left] === left ? nums.length : left;
 };
 ```
 

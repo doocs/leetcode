@@ -4,23 +4,35 @@
 
 <!-- 这里写题目描述 -->
 
-输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。
+<p>输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。</p>
 
-为了让您更好地理解问题，以下面的二叉搜索树为例：
+<p>&nbsp;</p>
 
-![](./images/bstdlloriginalbst.png)
+<p>为了让您更好地理解问题，以下面的二叉搜索树为例：</p>
 
-我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是第一个节点。
+<p>&nbsp;</p>
 
-下图展示了上面的二叉搜索树转化成的链表。“head” 表示指向链表中有最小元素的节点。
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9836.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/images/bstdlloriginalbst.png"></p>
 
-![](./images/bstdllreturndll.png)
+<p>&nbsp;</p>
 
-特别地，我们希望可以就地完成转换操作。当转化完成以后，树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继。还需要返回链表中的第一个节点的指针。
+<p>我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是第一个节点。</p>
 
-**注意**：本题与主站 426 题相同：https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
+<p>下图展示了上面的二叉搜索树转化成的链表。&ldquo;head&rdquo; 表示指向链表中有最小元素的节点。</p>
 
-**注意**：此题对比原题有改动。
+<p>&nbsp;</p>
+
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9836.%20%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/images/bstdllreturndll.png"></p>
+
+<p>&nbsp;</p>
+
+<p>特别地，我们希望可以就地完成转换操作。当转化完成以后，树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继。还需要返回链表中的第一个节点的指针。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>本题与主站 426 题相同：<a href="https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/">https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/</a></p>
+
+<p><strong>注意：</strong>此题对比原题有改动。</p>
 
 ## 解法
 
@@ -131,21 +143,21 @@ class Solution {
  * @return {Node}
  */
 var treeToDoublyList = function (root) {
-    function dfs(cur) {
-        if (!cur) return;
-        dfs(cur.left);
-        if (!pre) head = cur;
-        else pre.right = cur;
-        cur.left = pre;
-        pre = cur;
-        dfs(cur.right);
-    }
-    if (!root) return null;
-    let head, pre;
-    dfs(root);
-    head.left = pre;
-    pre.right = head;
-    return head;
+  function dfs(cur) {
+    if (!cur) return;
+    dfs(cur.left);
+    if (!pre) head = cur;
+    else pre.right = cur;
+    cur.left = pre;
+    pre = cur;
+    dfs(cur.right);
+  }
+  if (!root) return null;
+  let head, pre;
+  dfs(root);
+  head.left = pre;
+  pre.right = head;
+  return head;
 };
 ```
 

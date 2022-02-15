@@ -4,19 +4,23 @@
 
 <!-- 这里写题目描述 -->
 
-写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“\*”、“/” 四则运算符号。
+<p>写一个函数，求两个整数之和，要求在函数体内不得使用 &ldquo;+&rdquo;、&ldquo;-&rdquo;、&ldquo;*&rdquo;、&ldquo;/&rdquo; 四则运算符号。</p>
 
-**示例:**
+<p>&nbsp;</p>
 
-```
-输入: a = 1, b = 1
-输出: 2
-```
+<p><strong>示例:</strong></p>
 
-**提示：**
+<pre><strong>输入:</strong> a = 1, b = 1
+<strong>输出:</strong> 2</pre>
 
-- `a`, `b`  均可能是负数或 0
-- 结果不会溢出 32 位整数
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>a</code>,&nbsp;<code>b</code>&nbsp;均可能是负数或 0</li>
+	<li>结果不会溢出 32 位整数</li>
+</ul>
 
 ## 解法
 
@@ -112,8 +116,8 @@ public:
  * @return {number}
  */
 var add = function (a, b) {
-    if (b == 0) return a;
-    return add(a ^ b, (a & b) << 1);
+  if (b == 0) return a;
+  return add(a ^ b, (a & b) << 1);
 };
 ```
 

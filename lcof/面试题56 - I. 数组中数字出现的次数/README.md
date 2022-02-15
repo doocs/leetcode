@@ -2,25 +2,30 @@
 
 ## 题目描述
 
-一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是 O(n)，空间复杂度是 O(1)。
+<p>一个整型数组 <code>nums</code> 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。</p>
 
-**示例 1：**
+<p>&nbsp;</p>
 
-```
-输入：nums = [4,1,4,6]
-输出：[1,6] 或 [6,1]
-```
+<p><strong>示例 1：</strong></p>
 
-**示例 2：**
+<pre><strong>输入：</strong>nums = [4,1,4,6]
+<strong>输出：</strong>[1,6] 或 [6,1]
+</pre>
 
-```
-输入：nums = [1,2,10,4,1,4,3,3]
-输出：[2,10] 或 [10,2]
-```
+<p><strong>示例 2：</strong></p>
 
-**限制：**
+<pre><strong>输入：</strong>nums = [1,2,10,4,1,4,3,3]
+<strong>输出：</strong>[2,10] 或 [10,2]</pre>
 
-- `2 <= nums <= 10000`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>2 &lt;= nums.length &lt;= 10000</code></li>
+</ul>
+
+<p>&nbsp;</p>
 
 ## 解法
 
@@ -83,19 +88,19 @@ class Solution {
  * @return {number[]}
  */
 var singleNumbers = function (nums) {
-    let eor = 0;
-    for (let num of nums) {
-        eor ^= num;
+  let eor = 0;
+  for (let num of nums) {
+    eor ^= num;
+  }
+  const diff = eor & (~eor + 1);
+  let a = 0;
+  for (let num of nums) {
+    if ((num & diff) == 0) {
+      a ^= num;
     }
-    const diff = eor & (~eor + 1);
-    let a = 0;
-    for (let num of nums) {
-        if ((num & diff) == 0) {
-            a ^= num;
-        }
-    }
-    let b = eor ^ a;
-    return [a, b];
+  }
+  let b = eor ^ a;
+  return [a, b];
 };
 ```
 

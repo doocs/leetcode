@@ -2,25 +2,29 @@
 
 ## 题目描述
 
-字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串"abcdefg"和数字 2，该函数将返回左旋转两位得到的结果"cdefgab"。
+<p>字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如，输入字符串&quot;abcdefg&quot;和数字2，该函数将返回左旋转两位得到的结果&quot;cdefgab&quot;。</p>
 
-**示例 1：**
+<p>&nbsp;</p>
 
-```
-输入: s = "abcdefg", k = 2
-输出: "cdefgab"
-```
+<p><strong>示例 1：</strong></p>
 
-**示例 2：**
+<pre><strong>输入:</strong> s = &quot;abcdefg&quot;, k = 2
+<strong>输出:&nbsp;</strong>&quot;cdefgab&quot;
+</pre>
 
-```
-输入: s = "lrloseumgh", k = 6
-输出: "umghlrlose"
-```
+<p><strong>示例 2：</strong></p>
 
-**限制：**
+<pre><strong>输入:</strong> s = &quot;lrloseumgh&quot;, k = 6
+<strong>输出:&nbsp;</strong>&quot;umghlrlose&quot;
+</pre>
 
-- `1 <= k < s.length <= 10000`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= k &lt; s.length &lt;= 10000</code></li>
+</ul>
 
 ## 解法
 
@@ -55,7 +59,7 @@ class Solution {
  * @return {string}
  */
 var reverseLeftWords = function (s, n) {
-    return s.substring(n) + s.substr(0, n);
+  return s.substring(n) + s.substr(0, n);
 };
 ```
 

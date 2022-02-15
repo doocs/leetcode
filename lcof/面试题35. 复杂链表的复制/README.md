@@ -4,48 +4,56 @@
 
 <!-- 这里写题目描述 -->
 
-请实现 `copyRandomList` 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 `next` 指针指向下一个节点，还有一个 `random` 指针指向链表中的任意节点或者 `null`。
+<p>请实现 <code>copyRandomList</code> 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 <code>next</code> 指针指向下一个节点，还有一个 <code>random</code> 指针指向链表中的任意节点或者 <code>null</code>。</p>
 
-**示例 1：**
+<p>&nbsp;</p>
 
-![](./images/e1.png)
+<p><strong>示例 1：</strong></p>
 
-```
-输入：head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
-输出：[[7,null],[13,0],[11,4],[10,2],[1,0]]
-```
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9835.%20%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/images/e1.png"></p>
 
-**示例 2：**
+<pre><strong>输入：</strong>head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
+<strong>输出：</strong>[[7,null],[13,0],[11,4],[10,2],[1,0]]
+</pre>
 
-![](./images/e2.png)
+<p><strong>示例 2：</strong></p>
 
-```
-输入：head = [[1,1],[2,1]]
-输出：[[1,1],[2,1]]
-```
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9835.%20%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/images/e2.png"></p>
 
-**示例 3：**
+<pre><strong>输入：</strong>head = [[1,1],[2,1]]
+<strong>输出：</strong>[[1,1],[2,1]]
+</pre>
 
-![](./images/e3.png)
+<p><strong>示例 3：</strong></p>
 
-```
-输入：head = [[3,null],[3,0],[3,null]]
-输出：[[3,null],[3,0],[3,null]]
-```
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9835.%20%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/images/e3.png"></strong></p>
 
-**示例 4：**
+<pre><strong>输入：</strong>head = [[3,null],[3,0],[3,null]]
+<strong>输出：</strong>[[3,null],[3,0],[3,null]]
+</pre>
 
-```
-输入：head = []
-输出：[]
-解释：给定的链表为空（空指针），因此返回 null。
-```
+<p><strong>示例 4：</strong></p>
 
-**提示：**
+<pre><strong>输入：</strong>head = []
+<strong>输出：</strong>[]
+<strong>解释：</strong>给定的链表为空（空指针），因此返回 null。
+</pre>
 
-- `-10000 <= Node.val <= 10000`
-- `Node.random`  为空（null）或指向链表中的节点。
-- 节点数目不超过 1000 。
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>-10000 &lt;= Node.val &lt;= 10000</code></li>
+	<li><code>Node.random</code>&nbsp;为空（null）或指向链表中的节点。</li>
+	<li>节点数目不超过 1000 。</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>本题与主站 138 题相同：<a href="https://leetcode-cn.com/problems/copy-list-with-random-pointer/">https://leetcode-cn.com/problems/copy-list-with-random-pointer/</a></p>
+
+<p>&nbsp;</p>
 
 ## 解法
 
@@ -297,31 +305,30 @@ public class Solution {
  * @return {Node}
  */
 var copyRandomList = function (head) {
-     if (head == null) {
-        return head
-    }
+  if (head == null) {
+    return head;
+  }
 
-    let cur = head
-    const map = new Map();
-    while (cur != null) {
-        map.set(cur, new Node(cur.val))
-        cur = cur.next
-    }
-    
-    const res = new Node();
-    let newCur = res
-    cur = head
-    while (cur != null) {
-        const node = map.get(cur)
-        node.random = map.get(cur.random)
-        newCur.next = node
-        newCur = node
-        cur = cur.next
-    }
+  let cur = head;
+  const map = new Map();
+  while (cur != null) {
+    map.set(cur, new Node(cur.val));
+    cur = cur.next;
+  }
 
-    return res.next
+  const res = new Node();
+  let newCur = res;
+  cur = head;
+  while (cur != null) {
+    const node = map.get(cur);
+    node.random = map.get(cur.random);
+    newCur.next = node;
+    newCur = node;
+    cur = cur.next;
+  }
+
+  return res.next;
 };
-
 ```
 
 - 原地算法
@@ -341,31 +348,31 @@ var copyRandomList = function (head) {
  * @return {Node}
  */
 var copyRandomList = function (head) {
-    if (head == null) {
-        return null;
-    }
-    let cur = head;
-    while (cur != null) {
-        let node = new Node(cur.val, cur.next);
-        cur.next = node;
-        cur = node.next;
-    }
+  if (head == null) {
+    return null;
+  }
+  let cur = head;
+  while (cur != null) {
+    let node = new Node(cur.val, cur.next);
+    cur.next = node;
+    cur = node.next;
+  }
 
-    cur = head;
-    while (cur != null) {
-        cur.next.random = cur.random == null ? null : cur.random.next;
-        cur = cur.next.next;
-    }
+  cur = head;
+  while (cur != null) {
+    cur.next.random = cur.random == null ? null : cur.random.next;
+    cur = cur.next.next;
+  }
 
-    let copy = head.next;
-    cur = head;
-    while (cur != null) {
-        let next = cur.next;
-        cur.next = next.next;
-        next.next = next.next == null ? null : next.next.next;
-        cur = cur.next;
-    }
-    return copy;
+  let copy = head.next;
+  cur = head;
+  while (cur != null) {
+    let next = cur.next;
+    cur.next = next.next;
+    next.next = next.next == null ? null : next.next.next;
+    cur = cur.next;
+  }
+  return copy;
 };
 ```
 

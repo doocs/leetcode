@@ -2,24 +2,30 @@
 
 ## 题目描述
 
-输入一个整型数组，数组里有正数也有负数。数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
+<p>输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。</p>
 
-要求时间复杂度为 O(n)。
+<p>要求时间复杂度为O(n)。</p>
 
-**示例 1:**
+<p>&nbsp;</p>
 
-```
-输入: nums = [-2,1,-3,4,-1,2,1,-5,4]
-输出: 6
-解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
-```
+<p><strong>示例1:</strong></p>
 
-**提示：**
+<pre><strong>输入:</strong> nums = [-2,1,-3,4,-1,2,1,-5,4]
+<strong>输出:</strong> 6
+<strong>解释:</strong>&nbsp;连续子数组&nbsp;[4,-1,2,1] 的和最大，为&nbsp;6。</pre>
 
-- `1 <= arr.length <= 10^5`
-- `-100 <= arr[i] <= 100`
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;=&nbsp;arr.length &lt;= 10^5</code></li>
+	<li><code>-100 &lt;= arr[i] &lt;= 100</code></li>
+</ul>
 
 <p>注意：本题与主站 53 题相同：<a href="https://leetcode-cn.com/problems/maximum-subarray/">https://leetcode-cn.com/problems/maximum-subarray/</a></p>
+
+<p>&nbsp;</p>
 
 ## 解法
 
@@ -65,13 +71,13 @@ class Solution {
  * @return {number}
  */
 var maxSubArray = function (nums) {
-    let res = nums[0];
-    let f = nums[0];
-    for (let i = 1; i < nums.length; ++i) {
-        f = Math.max(f, 0) + nums[i];
-        res = Math.max(res, f);
-    }
-    return res;
+  let res = nums[0];
+  let f = nums[0];
+  for (let i = 1; i < nums.length; ++i) {
+    f = Math.max(f, 0) + nums[i];
+    res = Math.max(res, f);
+  }
+  return res;
 };
 ```
 
@@ -114,12 +120,12 @@ func maxSubArray(nums []int) int {
 
 ```ts
 function maxSubArray(nums: number[]): number {
-    let res = nums[0];
-    for (let i = 1; i < nums.length; i++) {
-        nums[i] = Math.max(nums[i], nums[i - 1] + nums[i]);
-        res = Math.max(res, nums[i]);
-    }
-    return res;
+  let res = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    nums[i] = Math.max(nums[i], nums[i - 1] + nums[i]);
+    res = Math.max(res, nums[i]);
+  }
+  return res;
 }
 ```
 

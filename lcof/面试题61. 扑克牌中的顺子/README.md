@@ -4,26 +4,31 @@
 
 <!-- 这里写题目描述 -->
 
-从扑克牌中随机抽 5 张牌，判断是不是一个顺子，即这 5 张牌是不是连续的。2 ～ 10 为数字本身，A 为 1，J 为 11，Q 为 12，K 为 13，而大、小王为 0 ，可以看成任意数字。A 不能视为 14。
+<p>从<strong>若干副扑克牌</strong>中随机抽 <code>5</code> 张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王为 0 ，可以看成任意数字。A 不能视为 14。</p>
 
-**示例  1:**
+<p>&nbsp;</p>
 
-```
-输入: [1,2,3,4,5]
-输出: True
-```
+<p><strong>示例&nbsp;1:</strong></p>
 
-**示例  2:**
+<pre>
+<strong>输入:</strong> [1,2,3,4,5]
+<strong>输出:</strong> True</pre>
 
-```
-输入: [0,0,1,2,5]
-输出: True
-```
+<p>&nbsp;</p>
 
-**限制：**
+<p><strong>示例&nbsp;2:</strong></p>
 
-- 数组长度为 5
-- 数组的数取值为 `[0, 13]`
+<pre>
+<strong>输入:</strong> [0,0,1,2,5]
+<strong>输出:</strong> True</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p>数组长度为 5&nbsp;</p>
+
+<p>数组的数取值为 [0, 13] .</p>
 
 ## 解法
 
@@ -37,16 +42,17 @@
 解决方案：
 
 - 数组计数
-    - 用数组 `t` 记录是否存在重复的数，存在则直接返回 `false`。
-    - 遍历数组，忽略大小王(0)，求出数组的最大、最小值。若最后差值超过 4，则无法构成顺子，例如：`5,6,(0),8,10`。
+
+  - 用数组 `t` 记录是否存在重复的数，存在则直接返回 `false`。
+  - 遍历数组，忽略大小王(0)，求出数组的最大、最小值。若最后差值超过 4，则无法构成顺子，例如：`5,6,(0),8,10`。
 
 - 排序
-    - 声明一个起始指针，初始化为 0。
-    - 对数组进行排序，并遍历数组：
-        - 若遍历元素为 0，将起始指针向右移。
-        - 若遍历元素与相邻元素相同（忽略 0），则绝对不成立，`return false`。
-    - 遍历结束，比较最大值（数组末尾元素）与起始指针所指向的元素，若是两者值相差大于 4，则顺子不成立。
-        > 起始指针所做的便是找到除 0 之外，数组当中的最小值。
+  - 声明一个起始指针，初始化为 0。
+  - 对数组进行排序，并遍历数组：
+    - 若遍历元素为 0，将起始指针向右移。
+    - 若遍历元素与相邻元素相同（忽略 0），则绝对不成立，`return false`。
+  - 遍历结束，比较最大值（数组末尾元素）与起始指针所指向的元素，若是两者值相差大于 4，则顺子不成立。
+    > 起始指针所做的便是找到除 0 之外，数组当中的最小值。
 
 <!-- tabs:start -->
 
@@ -105,23 +111,23 @@ class Solution {
  * @return {boolean}
  */
 var isStraight = function (nums) {
-    let zeroCnt = 0;
-    nums.sort((a, b) => a - b);
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] === 0) zeroCnt++;
-        else {
-            if (nums[i] === nums[i + 1]) return false;
-            else if (nums[i] === nums[i + 1] - 1) {
-                continue;
-            } else if (nums[i] >= nums[i + 1] - zeroCnt - 1) {
-                zeroCnt--;
-            } else {
-                return false;
-            }
-        }
-        if (zeroCnt < 0) return false;
+  let zeroCnt = 0;
+  nums.sort((a, b) => a - b);
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] === 0) zeroCnt++;
+    else {
+      if (nums[i] === nums[i + 1]) return false;
+      else if (nums[i] === nums[i + 1] - 1) {
+        continue;
+      } else if (nums[i] >= nums[i + 1] - zeroCnt - 1) {
+        zeroCnt--;
+      } else {
+        return false;
+      }
     }
-    return true;
+    if (zeroCnt < 0) return false;
+  }
+  return true;
 };
 ```
 
@@ -196,16 +202,16 @@ func min(x, y int) int {
 
 ```ts
 function isStraight(nums: number[]): boolean {
-    nums.sort((a, b) => a - b);
-    let j = 0;
-    for (let i = 0; i < 4; i++) {
-        if (nums[i] === 0) {
-            j++;
-        } else if (nums[i] === nums[i + 1]) {
-            return false;
-        }
+  nums.sort((a, b) => a - b);
+  let j = 0;
+  for (let i = 0; i < 4; i++) {
+    if (nums[i] === 0) {
+      j++;
+    } else if (nums[i] === nums[i + 1]) {
+      return false;
     }
-    return nums[4] - nums[j] <= 4;
+  }
+  return nums[4] - nums[j] <= 4;
 }
 ```
 

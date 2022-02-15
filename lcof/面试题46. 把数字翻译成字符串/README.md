@@ -4,19 +4,23 @@
 
 <!-- 这里写题目描述 -->
 
-给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。
+<p>给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 &ldquo;a&rdquo; ，1 翻译成 &ldquo;b&rdquo;，&hellip;&hellip;，11 翻译成 &ldquo;l&rdquo;，&hellip;&hellip;，25 翻译成 &ldquo;z&rdquo;。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。</p>
 
-**示例 1:**
+<p>&nbsp;</p>
 
-```
-输入: 12258
-输出: 5
-解释: 12258有5种不同的翻译，分别是"bccfi", "bwfi", "bczi", "mcfi"和"mzi"
-```
+<p><strong>示例 1:</strong></p>
 
-**提示：**
+<pre><strong>输入:</strong> 12258
+<strong>输出:</strong> <code>5
+</code><strong>解释:</strong> 12258有5种不同的翻译，分别是&quot;bccfi&quot;, &quot;bwfi&quot;, &quot;bczi&quot;, &quot;mcfi&quot;和&quot;mzi&quot;</pre>
 
-- 0 <= num < 2<sup>31</sup>
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>0 &lt;= num &lt; 2<sup>31</sup></code></li>
+</ul>
 
 ## 解法
 
@@ -70,21 +74,21 @@ class Solution {
  * @return {number}
  */
 var translateNum = function (num) {
-    let res = 0;
-    num = num.toString();
-    function dfs(i) {
-        if (i >= num.length) {
-            res++;
-            return;
-        }
-        dfs(i + 1);
-        let tmp = +(num[i] + num[i + 1]);
-        if (num[i] !== "0" && tmp >= 0 && tmp < 26) {
-            dfs(i + 2);
-        }
+  let res = 0;
+  num = num.toString();
+  function dfs(i) {
+    if (i >= num.length) {
+      res++;
+      return;
     }
-    dfs(0);
-    return res;
+    dfs(i + 1);
+    let tmp = +(num[i] + num[i + 1]);
+    if (num[i] !== "0" && tmp >= 0 && tmp < 26) {
+      dfs(i + 2);
+    }
+  }
+  dfs(0);
+  return res;
 };
 ```
 
@@ -129,18 +133,18 @@ public:
 
 ```ts
 function translateNum(num: number): number {
-    let a = 1;
-    let b = 1;
-    const str = num + '';
-    for (let i = 1; i < str.length; i++) {
-        const val = Number(str[i - 1] + str[i]);
-        if (val >= 10 && val < 26) {
-            [a, b] = [b, a + b];
-        } else {
-            a = b;
-        }
+  let a = 1;
+  let b = 1;
+  const str = num + "";
+  for (let i = 1; i < str.length; i++) {
+    const val = Number(str[i - 1] + str[i]);
+    if (val >= 10 && val < 26) {
+      [a, b] = [b, a + b];
+    } else {
+      a = b;
     }
-    return b;
+  }
+  return b;
 }
 ```
 

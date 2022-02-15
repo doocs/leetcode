@@ -4,30 +4,34 @@
 
 <!-- 这里写题目描述 -->
 
-输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+<p>输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。</p>
 
-**示例 1:**
+<p>&nbsp;</p>
 
-```
-输入: [10,2]
-输出: "102"
-```
+<p><strong>示例 1:</strong></p>
 
-**示例  2:**
+<pre><strong>输入:</strong> <code>[10,2]</code>
+<strong>输出:</strong> &quot;<code>102&quot;</code></pre>
 
-```
-输入: [3,30,34,5,9]
-输出: "3033459"
-```
+<p><strong>示例&nbsp;2:</strong></p>
 
-**提示:**
+<pre><strong>输入:</strong> <code>[3,30,34,5,9]</code>
+<strong>输出:</strong> &quot;<code>3033459&quot;</code></pre>
 
-- `0 < nums.length <= 100`
+<p>&nbsp;</p>
 
-**说明:**
+<p><strong>提示:</strong></p>
 
-- 输出结果可能非常大，所以你需要返回一个字符串而不是整数。
-- 拼接起来的数字可能会有前导 0，最后结果不需要去掉前导 0。
+<ul>
+	<li><code>0 &lt; nums.length &lt;= 100</code></li>
+</ul>
+
+<p><strong>说明: </strong></p>
+
+<ul>
+	<li>输出结果可能非常大，所以你需要返回一个字符串而不是整数</li>
+	<li>拼接起来的数字可能会有前导 0，最后结果不需要去掉前导 0</li>
+</ul>
 
 ## 解法
 
@@ -82,14 +86,14 @@ class Solution {
  * @return {string}
  */
 var minNumber = function (nums) {
-    nums.sort((a, b) => {
-        let s1 = a + "" + b;
-        let s2 = b + "" + a;
-        if (s1 < s2) {
-            return -1;
-        } else return 1;
-    });
-    return nums.join("");
+  nums.sort((a, b) => {
+    let s1 = a + "" + b;
+    let s2 = b + "" + a;
+    if (s1 < s2) {
+      return -1;
+    } else return 1;
+  });
+  return nums.join("");
 };
 ```
 
@@ -120,9 +124,7 @@ public:
 
 ```ts
 function minNumber(nums: number[]): string {
-    return nums
-        .sort((a, b) => Number(`${a}${b}`) - Number(`${b}${a}`))
-        .join('');
+  return nums.sort((a, b) => Number(`${a}${b}`) - Number(`${b}${a}`)).join("");
 }
 ```
 

@@ -4,29 +4,32 @@
 
 <!-- 这里写题目描述 -->
 
-数字以 0123456789101112131415…的格式序列化到一个字符序列中。在这个序列中，第 5 位（从下标 0 开始计数）是 5，第 13 位是 1，第 19 位是 4，等等。
+<p>数字以0123456789101112131415&hellip;的格式序列化到一个字符序列中。在这个序列中，第5位（从下标0开始计数）是5，第13位是1，第19位是4，等等。</p>
 
-请写一个函数，求任意第 n 位对应的数字。
+<p>请写一个函数，求任意第n位对应的数字。</p>
 
-**示例 1：**
+<p>&nbsp;</p>
 
-```
-输入：n = 3
-输出：3
-```
+<p><strong>示例 1：</strong></p>
 
-**示例 2：**
+<pre><strong>输入：</strong>n = 3
+<strong>输出：</strong>3
+</pre>
 
-```
-输入：n = 11
-输出：0
-```
+<p><strong>示例 2：</strong></p>
 
-**限制：**
+<pre><strong>输入：</strong>n = 11
+<strong>输出：</strong>0</pre>
 
-- `0 <= n < 2^31`
+<p>&nbsp;</p>
 
-注意：本题与主站 400 题相同：https://leetcode-cn.com/problems/nth-digit/
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>0 &lt;= n &lt;&nbsp;2^31</code></li>
+</ul>
+
+<p>注意：本题与主站 400 题相同：<a href="https://leetcode-cn.com/problems/nth-digit/">https://leetcode-cn.com/problems/nth-digit/</a></p>
 
 ## 解法
 
@@ -98,21 +101,21 @@ class Solution {
  * @return {number}
  */
 var findNthDigit = function (n) {
-    let i = 9;
-    let a = 1;
-    let remain = n;
-    while (i * a < remain) {
-        remain -= i * a;
-        i *= 10;
-        a++;
-    }
-    let b = remain % a;
-    let res = 10 ** (a - 1) + ~~(remain / a);
-    if (b === 0) {
-        b = a;
-        res--;
-    }
-    return res.toString()[b - 1];
+  let i = 9;
+  let a = 1;
+  let remain = n;
+  while (i * a < remain) {
+    remain -= i * a;
+    i *= 10;
+    a++;
+  }
+  let b = remain % a;
+  let res = 10 ** (a - 1) + ~~(remain / a);
+  if (b === 0) {
+    b = a;
+    res--;
+  }
+  return res.toString()[b - 1];
 };
 ```
 

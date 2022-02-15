@@ -2,49 +2,39 @@
 
 ## 题目描述
 
-输入两棵二叉树 A 和 B，判断 B 是不是 A W 的子结构。(约定空树不是任意一个树的子结构)
+<p>输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)</p>
 
-B 是 A 的子结构， 即 A 中有出现和 B 相同的结构和节点值。
+<p>B是A的子结构， 即 A中有出现和B相同的结构和节点值。</p>
 
-**例如:**
+<p>例如:<br>
+给定的树 A:</p>
 
-给定的树 A:
+<p><code>&nbsp; &nbsp; &nbsp;3<br>
+&nbsp; &nbsp; / \<br>
+&nbsp; &nbsp;4 &nbsp; 5<br>
+&nbsp; / \<br>
+&nbsp;1 &nbsp; 2</code><br>
+给定的树 B：</p>
 
-```
-     3
-    / \
-   4   5
-  / \
- 1   2
-```
+<p><code>&nbsp; &nbsp;4&nbsp;<br>
+&nbsp; /<br>
+&nbsp;1</code><br>
+返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。</p>
 
-给定的树 B：
+<p><strong>示例 1：</strong></p>
 
-```
-   4 
-  /
- 1
-```
+<pre><strong>输入：</strong>A = [1,2,3], B = [3,1]
+<strong>输出：</strong>false
+</pre>
 
-返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。
+<p><strong>示例 2：</strong></p>
 
-**示例 1：**
+<pre><strong>输入：</strong>A = [3,4,5,1,2], B = [4,1]
+<strong>输出：</strong>true</pre>
 
-```
-输入：A = [1,2,3], B = [3,1]
-输出：false
-```
+<p><strong>限制：</strong></p>
 
-**示例 2：**
-
-```
-输入：A = [3,4,5,1,2], B = [4,1]
-输出：true
-```
-
-**限制：**
-
-- `0 <= 节点个数 <= 10000`
+<p><code>0 &lt;= 节点个数 &lt;= 10000</code></p>
 
 ## 解法
 
@@ -68,7 +58,7 @@ class Solution:
             if A is None or A.val != B.val:
                 return False
             return dfs(A.left, B.left) and dfs(A.right, B.right)
-        
+
         if A is None or B is None:
             return False
         return dfs(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
@@ -121,14 +111,14 @@ class Solution {
  * @param {TreeNode} B
  * @return {boolean}
  */
-var isSubStructure = function(A, B) {
-    function dfs(A, B) {
-        if (!B) return true;
-        if (!A || A.val != B.val) return false;
-        return dfs(A.left, B.left) && dfs(A.right, B.right);
-    }
-    if (!A || !B) return false;
-    return dfs(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+var isSubStructure = function (A, B) {
+  function dfs(A, B) {
+    if (!B) return true;
+    if (!A || A.val != B.val) return false;
+    return dfs(A.left, B.left) && dfs(A.right, B.right);
+  }
+  if (!A || !B) return false;
+  return dfs(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
 };
 ```
 
@@ -206,23 +196,23 @@ public:
  */
 
 function isSubStructure(A: TreeNode | null, B: TreeNode | null): boolean {
-    if (A == null || B == null) {
-        return false;
-    }
-    if (A.val == B.val && exam(A.left, B.left) && exam(A.right, B.right)) {
-        return true;
-    }
-    return isSubStructure(A.left, B) || isSubStructure(A.right, B);
+  if (A == null || B == null) {
+    return false;
+  }
+  if (A.val == B.val && exam(A.left, B.left) && exam(A.right, B.right)) {
+    return true;
+  }
+  return isSubStructure(A.left, B) || isSubStructure(A.right, B);
 }
 
 function exam(A: TreeNode | null, B: TreeNode | null) {
-    if (B == null) {
-        return true;
-    }
-    if (A == null) {
-        return false;
-    }
-    return A.val === B.val && exam(A.left, B.left) && exam(A.right, B.right);
+  if (B == null) {
+    return true;
+  }
+  if (A == null) {
+    return false;
+  }
+  return A.val === B.val && exam(A.left, B.left) && exam(A.right, B.right);
 }
 ```
 

@@ -4,19 +4,24 @@
 
 <!-- 这里写题目描述 -->
 
-给定一个数组 `A[0,1,…,n-1]`，请构建一个数组 `B[0,1,…,n-1]`，其中 B 中的元素 `B[i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]`。不能使用除法。
+<p>给定一个数组 <code>A[0,1,…,n-1]</code>，请构建一个数组 <code>B[0,1,…,n-1]</code>，其中 <code>B[i]</code> 的值是数组 <code>A</code> 中除了下标 <code>i</code> 以外的元素的积, 即 <code>B[i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]</code>。不能使用除法。</p>
 
-**示例:**
+<p> </p>
 
-```
-输入: [1,2,3,4,5]
-输出: [120,60,40,30,24]
-```
+<p><strong>示例:</strong></p>
 
-**提示：**
+<pre>
+<strong>输入:</strong> [1,2,3,4,5]
+<strong>输出:</strong> [120,60,40,30,24]</pre>
 
-- 所有元素乘积之和不会溢出 32 位整数
-- `a.length <= 100000`
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>所有元素乘积之和不会溢出 32 位整数</li>
+	<li><code>a.length <= 100000</code></li>
+</ul>
 
 ## 解法
 
@@ -75,17 +80,17 @@ class Solution {
  * @return {number[]}
  */
 var constructArr = function (a) {
-    const n = a.length;
-    let output = new Array(n);
-    for (let i = 0, left = 1; i < n; ++i) {
-        output[i] = left;
-        left *= a[i];
-    }
-    for (let i = n - 1, right = 1; i >= 0; --i) {
-        output[i] *= right;
-        right *= a[i];
-    }
-    return output;
+  const n = a.length;
+  let output = new Array(n);
+  for (let i = 0, left = 1; i < n; ++i) {
+    output[i] = left;
+    left *= a[i];
+  }
+  for (let i = n - 1, right = 1; i >= 0; --i) {
+    output[i] *= right;
+    right *= a[i];
+  }
+  return output;
 };
 ```
 

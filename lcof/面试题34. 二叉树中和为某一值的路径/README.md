@@ -4,42 +4,48 @@
 
 <!-- 这里写题目描述 -->
 
-给你二叉树的根节点 `root` 和一个整数目标和 `targetSum`，找出所有 **从根节点到叶子节点** 路径总和等于给定目标和的路径。
+<p>给你二叉树的根节点 <code>root</code> 和一个整数目标和 <code>targetSum</code> ，找出所有 <strong>从根节点到叶子节点</strong> 路径总和等于给定目标和的路径。</p>
 
-**叶子节点** 是指没有子节点的节点。
+<p><strong>叶子节点</strong> 是指没有子节点的节点。</p>
 
-**示例 1:**
+<p>&nbsp;</p>
 
-![](./images/pathsumii1.jpg)
+<p><strong>示例 1：</strong></p>
 
-```
-输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
-输出：[[5,4,11,2],[5,8,4,5]]
-```
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9834.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/images/pathsumii1.jpg" /></p>
 
-**示例 2:**
+<pre>
+<strong>输入：</strong>root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+<strong>输出：</strong>[[5,4,11,2],[5,8,4,5]]
+</pre>
 
-![](./images/pathsum2.jpg)
+<p><strong>示例 2：</strong></p>
 
-```
-输入：root = [1,2,3], targetSum = 5
-输出：[]
-```
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcof/%E9%9D%A2%E8%AF%95%E9%A2%9834.%20%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84/images/pathsum2.jpg" /></p>
 
-**示例 3:**
+<pre>
+<strong>输入：</strong>root = [1,2,3], targetSum = 5
+<strong>输出：</strong>[]
+</pre>
 
-```
-输入：root = [1,2], targetSum = 0
-输出：[]
-```
+<p><strong>示例 3：</strong></p>
 
-**提示：**
+<pre>
+<strong>输入：</strong>root = [1,2], targetSum = 0
+<strong>输出：</strong>[]
+</pre>
 
--  树中节点总数在范围 `[0, 5000]` 内
--  `-1000 <= Node.val <= 1000`
--  `-1000 <= targetSum <= 1000`
+<p>&nbsp;</p>
 
-注意：本题与主站 113 题相同：https://leetcode-cn.com/problems/path-sum-ii/
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>树中节点总数在范围 <code>[0, 5000]</code> 内</li>
+	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+	<li><code>-1000 &lt;= targetSum &lt;= 1000</code></li>
+</ul>
+
+<p>注意：本题与主站 113&nbsp;题相同：<a href="https://leetcode-cn.com/problems/path-sum-ii/">https://leetcode-cn.com/problems/path-sum-ii/</a></p>
 
 ## 解法
 
@@ -137,20 +143,20 @@ class Solution {
  * @return {number[][]}
  */
 var pathSum = function (root, sum) {
-    if (!root) return [];
-    let res = [];
-    function dfs(node, sum, arr) {
-        if (!node) return;
-        arr = [...arr, node.val];
-        if (node.val === sum && !node.left && !node.right) {
-            res.push(arr);
-            return;
-        }
-        dfs(node.left, sum - node.val, arr);
-        dfs(node.right, sum - node.val, arr);
+  if (!root) return [];
+  let res = [];
+  function dfs(node, sum, arr) {
+    if (!node) return;
+    arr = [...arr, node.val];
+    if (node.val === sum && !node.left && !node.right) {
+      res.push(arr);
+      return;
     }
-    dfs(root, sum, []);
-    return res;
+    dfs(node.left, sum - node.val, arr);
+    dfs(node.right, sum - node.val, arr);
+  }
+  dfs(root, sum, []);
+  return res;
 };
 ```
 
@@ -232,27 +238,27 @@ public:
  */
 
 function pathSum(root: TreeNode | null, target: number): number[][] {
-    const res: number[][] = [];
-    if (root == null) {
-        return res;
-    }
-    const paths: number[] = [];
-    const dfs = ({ val, right, left }: TreeNode, target: number) => {
-        paths.push(val);
-        target -= val;
-        if (left == null && right == null) {
-            if (target === 0) {
-                res.push([...paths]);
-            }
-            paths.pop();
-            return;
-        }
-        left && dfs(left, target);
-        right && dfs(right, target);
-        paths.pop();
-    };
-    dfs(root, target);
+  const res: number[][] = [];
+  if (root == null) {
     return res;
+  }
+  const paths: number[] = [];
+  const dfs = ({ val, right, left }: TreeNode, target: number) => {
+    paths.push(val);
+    target -= val;
+    if (left == null && right == null) {
+      if (target === 0) {
+        res.push([...paths]);
+      }
+      paths.pop();
+      return;
+    }
+    left && dfs(left, target);
+    right && dfs(right, target);
+    paths.pop();
+  };
+  dfs(root, target);
+  return res;
 }
 ```
 

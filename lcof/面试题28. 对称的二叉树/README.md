@@ -2,45 +2,43 @@
 
 ## 题目描述
 
-请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。
+<p>请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。</p>
 
-例如，二叉树  `[1,2,2,3,4,4,3]` 是对称的。
+<p>例如，二叉树&nbsp;[1,2,2,3,4,4,3] 是对称的。</p>
 
-```
-    1
-   / \
-  2   2
- / \ / \
-3  4 4  3
-```
+<p><code>&nbsp; &nbsp; 1<br>
+&nbsp; &nbsp;/ \<br>
+&nbsp; 2 &nbsp; 2<br>
+&nbsp;/ \ / \<br>
+3 &nbsp;4 4 &nbsp;3</code><br>
+但是下面这个&nbsp;[1,2,2,null,3,null,3] 则不是镜像对称的:</p>
 
-但是下面这个  `[1,2,2,null,3,null,3]` 则不是镜像对称的:
+<p><code>&nbsp; &nbsp; 1<br>
+&nbsp; &nbsp;/ \<br>
+&nbsp; 2 &nbsp; 2<br>
+&nbsp; &nbsp;\ &nbsp; \<br>
+&nbsp; &nbsp;3 &nbsp; &nbsp;3</code></p>
 
-```
-    1
-   / \
-  2   2
-   \   \
-   3    3
-```
+<p>&nbsp;</p>
 
-**示例 1：**
+<p><strong>示例 1：</strong></p>
 
-```
-输入：root = [1,2,2,3,4,4,3]
-输出：true
-```
+<pre><strong>输入：</strong>root = [1,2,2,3,4,4,3]
+<strong>输出：</strong>true
+</pre>
 
-**示例 2：**
+<p><strong>示例 2：</strong></p>
 
-```
-输入：root = [1,2,2,null,3,null,3]
-输出：false
-```
+<pre><strong>输入：</strong>root = [1,2,2,null,3,null,3]
+<strong>输出：</strong>false</pre>
 
-**限制：**
+<p>&nbsp;</p>
 
-- `0 <= 节点个数 <= 1000`
+<p><strong>限制：</strong></p>
+
+<p><code>0 &lt;= 节点个数 &lt;= 1000</code></p>
+
+<p>注意：本题与主站 101 题相同：<a href="https://leetcode-cn.com/problems/symmetric-tree/">https://leetcode-cn.com/problems/symmetric-tree/</a></p>
 
 ## 解法
 
@@ -111,13 +109,13 @@ class Solution {
  * @return {boolean}
  */
 var isSymmetric = function (root) {
-    function dfs(left, right) {
-        if (!left && !right) return true;
-        if (!left || !right || left.val != right.val) return false;
-        return dfs(left.left, right.right) && dfs(left.right, right.left);
-    }
-    if (!root) return true;
-    return dfs(root.left, root.right);
+  function dfs(left, right) {
+    if (!left && !right) return true;
+    if (!left || !right || left.val != right.val) return false;
+    return dfs(left.left, right.right) && dfs(left.right, right.left);
+  }
+  if (!root) return true;
+  return dfs(root.left, root.right);
 };
 ```
 
@@ -208,24 +206,21 @@ public:
  */
 
 function isSymmetric(root: TreeNode | null): boolean {
-    if (root == null) {
-        return true;
+  if (root == null) {
+    return true;
+  }
+  const dfs = (l: TreeNode | null, r: TreeNode | null) => {
+    if (l == null && r == null) {
+      return true;
     }
-    const dfs = (l: TreeNode | null, r: TreeNode | null) => {
-        if (l == null && r == null) {
-            return true;
-        }
-        if (l == null || r == null) {
-            return false;
-        }
-        return (
-            l.val == r.val &&
-            dfs(l.left, r.right) &&
-            dfs(l.right, r.left) &&
-            true
-        );
-    };
-    return dfs(root.left, root.right);
+    if (l == null || r == null) {
+      return false;
+    }
+    return (
+      l.val == r.val && dfs(l.left, r.right) && dfs(l.right, r.left) && true
+    );
+  };
+  return dfs(root.left, root.right);
 }
 ```
 
@@ -279,6 +274,7 @@ impl Solution {
 }
 
 ```
+
 ### **...**
 
 ```

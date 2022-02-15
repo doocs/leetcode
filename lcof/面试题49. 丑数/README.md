@@ -4,22 +4,24 @@
 
 <!-- 这里写题目描述 -->
 
-我们把只包含因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。
+<p>我们把只包含质因子 2、3 和 5 的数称作丑数（Ugly Number）。求按从小到大的顺序的第 n 个丑数。</p>
 
-**示例:**
+<p>&nbsp;</p>
 
-```
-输入: n = 10
-输出: 12
-解释: 1, 2, 3, 4, 5, 6, 8, 9, 10, 12 是前 10 个丑数。
-```
+<p><strong>示例:</strong></p>
 
-**说明:**
+<pre><strong>输入:</strong> n = 10
+<strong>输出:</strong> 12
+<strong>解释: </strong><code>1, 2, 3, 4, 5, 6, 8, 9, 10, 12</code> 是前 10 个丑数。</pre>
 
-1. `1`  是丑数。
-2. `n`  不超过 1690。
+<p><strong>说明:&nbsp;</strong>&nbsp;</p>
 
-同 [0264.Ugly Number II](/solution/0200-0299/0264.Ugly%20Number%20II/README.md)
+<ol>
+	<li><code>1</code>&nbsp;是丑数。</li>
+	<li><code>n</code>&nbsp;<strong>不超过</strong>1690。</li>
+</ol>
+
+<p>注意：本题与主站 264 题相同：<a href="https://leetcode-cn.com/problems/ugly-number-ii/">https://leetcode-cn.com/problems/ugly-number-ii/</a></p>
 
 ## 解法
 
@@ -109,21 +111,21 @@ public:
  * @return {number}
  */
 var nthUglyNumber = function (n) {
-    let dp = [1];
-    let p2 = 0,
-        p3 = 0,
-        p5 = 0;
-    for (let i = 1; i < n; ++i) {
-        const next2 = dp[p2] * 2,
-            next3 = dp[p3] * 3,
-            next5 = dp[p5] * 5;
-        dp[i] = Math.min(next2, Math.min(next3, next5));
-        if (dp[i] == next2) ++p2;
-        if (dp[i] == next3) ++p3;
-        if (dp[i] == next5) ++p5;
-        dp.push(dp[i]);
-    }
-    return dp[n - 1];
+  let dp = [1];
+  let p2 = 0,
+    p3 = 0,
+    p5 = 0;
+  for (let i = 1; i < n; ++i) {
+    const next2 = dp[p2] * 2,
+      next3 = dp[p3] * 3,
+      next5 = dp[p5] * 5;
+    dp[i] = Math.min(next2, Math.min(next3, next5));
+    if (dp[i] == next2) ++p2;
+    if (dp[i] == next3) ++p3;
+    if (dp[i] == next5) ++p5;
+    dp.push(dp[i]);
+  }
+  return dp[n - 1];
 };
 ```
 

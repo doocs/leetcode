@@ -2,28 +2,36 @@
 
 ## 题目描述
 
-统计一个数字在排序数组中出现的次数。
+<p>统计一个数字在排序数组中出现的次数。</p>
 
-**示例 1:**
+<p> </p>
 
-```
-输入: nums = [5,7,7,8,8,10], target = 8
-输出: 2
-```
+<p><strong>示例 1:</strong></p>
 
-**示例  2:**
+<pre>
+<strong>输入:</strong> nums = [<code>5,7,7,8,8,10]</code>, target = 8
+<strong>输出:</strong> 2</pre>
 
-```
-输入: nums = [5,7,7,8,8,10], target = 6
-输出: 0
-```
+<p><strong>示例 2:</strong></p>
 
-**限制：**
+<pre>
+<strong>输入:</strong> nums = [<code>5,7,7,8,8,10]</code>, target = 6
+<strong>输出:</strong> 0</pre>
 
-- <code>0 <= nums.length <= 10<sup>5</sup></code>
-- <code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code>
-- `nums` 是一个非递减数组
-- <code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code>
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>0 <= nums.length <= 10<sup>5</sup></code></li>
+	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
+	<li><code>nums</code> 是一个非递减数组</li>
+	<li><code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code></li>
+</ul>
+
+<p> </p>
+
+<p><strong>注意：</strong>本题与主站 34 题相同（仅返回值不同）：<a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/</a></p>
 
 ## 解法
 
@@ -173,33 +181,33 @@ func search(nums []int, target int) int {
  * @return {number}
  */
 var search = function (nums, target) {
-    if (nums.length == 0) {
-        return 0;
+  if (nums.length == 0) {
+    return 0;
+  }
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    const mid = (left + right) >> 1;
+    if (nums[mid] >= target) {
+      right = mid;
+    } else {
+      left = mid + 1;
     }
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] >= target) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
+  }
+  if (nums[left] != target) {
+    return 0;
+  }
+  let l = left;
+  right = nums.length - 1;
+  while (left < right) {
+    const mid = (left + right + 1) >> 1;
+    if (nums[mid] <= target) {
+      left = mid;
+    } else {
+      right = mid - 1;
     }
-    if (nums[left] != target) {
-        return 0;
-    }
-    let l = left;
-    right = nums.length - 1;
-    while (left < right) {
-        const mid = (left + right + 1) >> 1;
-        if (nums[mid] <= target) {
-            left = mid;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return left - l + 1;
+  }
+  return left - l + 1;
 };
 ```
 

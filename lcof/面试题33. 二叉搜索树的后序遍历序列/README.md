@@ -4,35 +4,35 @@
 
 <!-- 这里写题目描述 -->
 
-输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回  `true`，否则返回  `false`。假设输入的数组的任意两个数字都互不相同。
+<p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回&nbsp;<code>true</code>，否则返回&nbsp;<code>false</code>。假设输入的数组的任意两个数字都互不相同。</p>
 
-参考以下这棵二叉搜索树：
+<p>&nbsp;</p>
 
-```
-     5
+<p>参考以下这颗二叉搜索树：</p>
+
+<pre>     5
     / \
    2   6
   / \
- 1   3
-```
+ 1   3</pre>
 
-**示例 1：**
+<p><strong>示例 1：</strong></p>
 
-```
-输入: [1,6,3,2,5]
-输出: false
-```
+<pre><strong>输入: </strong>[1,6,3,2,5]
+<strong>输出: </strong>false</pre>
 
-**示例 2：**
+<p><strong>示例 2：</strong></p>
 
-```
-输入: [1,3,2,6,5]
-输出: true
-```
+<pre><strong>输入: </strong>[1,3,2,6,5]
+<strong>输出: </strong>true</pre>
 
-**提示：**
+<p>&nbsp;</p>
 
-- `数组长度 <= 1000`
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>数组长度 &lt;= 1000</code></li>
+</ol>
 
 ## 解法
 
@@ -103,20 +103,20 @@ class Solution {
  * @return {boolean}
  */
 var verifyPostorder = function (postorder) {
-    if (postorder.length < 2) return true;
-    function dfs(i, n) {
-        if (n <= 0) return true;
-        const v = postorder[i + n - 1];
-        let j = i;
-        while (j < i + n && postorder[j] < v) ++j;
-        for (let k = j; k < i + n; ++k) {
-            if (postorder[k] < v) {
-                return false;
-            }
-        }
-        return dfs(i, j - i) && dfs(j, n + i - j - 1);
+  if (postorder.length < 2) return true;
+  function dfs(i, n) {
+    if (n <= 0) return true;
+    const v = postorder[i + n - 1];
+    let j = i;
+    while (j < i + n && postorder[j] < v) ++j;
+    for (let k = j; k < i + n; ++k) {
+      if (postorder[k] < v) {
+        return false;
+      }
     }
-    return dfs(0, postorder.length);
+    return dfs(i, j - i) && dfs(j, n + i - j - 1);
+  }
+  return dfs(0, postorder.length);
 };
 ```
 

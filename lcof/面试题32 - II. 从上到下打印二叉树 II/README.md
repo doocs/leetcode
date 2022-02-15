@@ -2,33 +2,38 @@
 
 ## 题目描述
 
-从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。
+<p>从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。</p>
 
-**例如:**
+<p>&nbsp;</p>
 
-给定二叉树: `[3,9,20,null,null,15,7]`,
+<p>例如:<br>
+给定二叉树:&nbsp;<code>[3,9,20,null,null,15,7]</code>,</p>
 
-```
-    3
+<pre>    3
    / \
   9  20
     /  \
    15   7
-```
+</pre>
 
-返回其层次遍历结果：
+<p>返回其层次遍历结果：</p>
 
-```
-[
+<pre>[
   [3],
   [9,20],
   [15,7]
 ]
-```
+</pre>
 
-**提示：**
+<p>&nbsp;</p>
 
-- `节点总数 <= 1000`
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>节点总数 &lt;= 1000</code></li>
+</ol>
+
+<p>注意：本题与主站 102 题相同：<a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">https://leetcode-cn.com/problems/binary-tree-level-order-traversal/</a></p>
 
 ## 解法
 
@@ -114,22 +119,22 @@ class Solution {
  * @return {number[][]}
  */
 var levelOrder = function (root) {
-    if (!root) return [];
-    let queue = [root];
-    let res = [];
-    let depth = 0;
-    while (queue.length) {
-        let len = queue.length;
-        for (let i = 0; i < len; i++) {
-            let node = queue.shift();
-            if (!node) continue;
-            if (!res[depth]) res[depth] = [];
-            res[depth].push(node.val);
-            queue.push(node.left, node.right);
-        }
-        depth++;
+  if (!root) return [];
+  let queue = [root];
+  let res = [];
+  let depth = 0;
+  while (queue.length) {
+    let len = queue.length;
+    for (let i = 0; i < len; i++) {
+      let node = queue.shift();
+      if (!node) continue;
+      if (!res[depth]) res[depth] = [];
+      res[depth].push(node.val);
+      queue.push(node.left, node.right);
     }
-    return res;
+    depth++;
+  }
+  return res;
 };
 ```
 
@@ -210,25 +215,25 @@ public:
  */
 
 function levelOrder(root: TreeNode | null): number[][] {
-    const res = [];
-    if (root == null) {
-        return res;
+  const res = [];
+  if (root == null) {
+    return res;
+  }
+  const levelFn = (nodes: TreeNode[]) => {
+    if (nodes.length === 0) {
+      return res;
     }
-    const levelFn = (nodes: TreeNode[]) => {
-        if (nodes.length === 0) {
-            return res;
-        }
-        const nextNodes = [];
-        res.push(
-            nodes.map(({ val, left, right }) => {
-                left && nextNodes.push(left);
-                right && nextNodes.push(right);
-                return val;
-            })
-        );
-        return levelFn(nextNodes);
-    };
-    return levelFn([root]);
+    const nextNodes = [];
+    res.push(
+      nodes.map(({ val, left, right }) => {
+        left && nextNodes.push(left);
+        right && nextNodes.push(right);
+        return val;
+      })
+    );
+    return levelFn(nextNodes);
+  };
+  return levelFn([root]);
 }
 ```
 

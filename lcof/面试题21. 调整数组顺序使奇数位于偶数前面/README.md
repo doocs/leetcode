@@ -2,29 +2,35 @@
 
 ## 题目描述
 
-输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+<p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数在数组的前半部分，所有偶数在数组的后半部分。</p>
 
-**示例：**
+<p>&nbsp;</p>
 
-```
-输入：nums = [1,2,3,4]
-输出：[1,3,2,4]
-注：[3,1,2,4] 也是正确的答案之一。
-```
+<p><strong>示例：</strong></p>
 
-**提示：**
+<pre>
+<strong>输入：</strong>nums =&nbsp;[1,2,3,4]
+<strong>输出：</strong>[1,3,2,4] 
+<strong>注：</strong>[3,1,2,4] 也是正确的答案之一。</pre>
 
-- `0 <= nums.length <= 50000`
-- `0 <= nums[i] <= 10000`
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>0 &lt;= nums.length &lt;= 50000</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 10000</code></li>
+</ol>
 
 ## 解法
 
 **双指针**
 
 定义两个指针，分别指向数组左右边缘。
+
 - 查看左指针所指向的元素。
-    - 若为 **奇数**，则左指针往右移动。
-    - 若为 **偶数**，则与右指针交换元素，并将右指针往左移动。
+  - 若为 **奇数**，则左指针往右移动。
+  - 若为 **偶数**，则与右指针交换元素，并将右指针往左移动。
 - 重复该过程，直到左指针超过右指针。
 
 ```txt
@@ -37,7 +43,7 @@ EXCHANGE(n)
             n[l] = n[r]
             n[r] = t
             r--
-        else 
+        else
             l++
     return n
 ```
@@ -97,20 +103,20 @@ class Solution {
  * @return {number[]}
  */
 var exchange = function (nums) {
-    let left = 0;
-    let right = nums.length - 1;
-    while (left < right) {
-        let c = nums[left];
-        nums[left] = nums[right];
-        nums[right] = c;
-        while (nums[left] % 2) {
-            left++;
-        }
-        while (nums[right] % 2 === 0) {
-            right--;
-        }
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    let c = nums[left];
+    nums[left] = nums[right];
+    nums[right] = c;
+    while (nums[left] % 2) {
+      left++;
     }
-    return nums;
+    while (nums[right] % 2 === 0) {
+      right--;
+    }
+  }
+  return nums;
 };
 ```
 
@@ -139,17 +145,17 @@ public:
 
 ```ts
 function exchange(nums: number[]): number[] {
-    let l = 0;
-    let r = nums.length - 1;
-    while (l < r) {
-        if (nums[l] % 2 === 0) {
-            [nums[l], nums[r]] = [nums[r], nums[l]];
-            r--;
-        } else {
-            l++;
-        }
+  let l = 0;
+  let r = nums.length - 1;
+  while (l < r) {
+    if (nums[l] % 2 === 0) {
+      [nums[l], nums[r]] = [nums[r], nums[l]];
+      r--;
+    } else {
+      l++;
     }
-    return nums;
+  }
+  return nums;
 }
 ```
 
