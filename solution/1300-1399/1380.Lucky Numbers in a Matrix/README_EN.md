@@ -51,10 +51,10 @@
 
 ```python
 class Solution:
-    def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
-        row_min = {min(rows) for rows in matrix}
-        col_max = {max(cols) for cols in zip(*matrix)}
-        return [e for e in row_min if e in col_max]
+    def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
+        rows = {min(row) for row in matrix}
+        cols = {max(col) for col in zip(*matrix)}
+        return list(rows & cols)
 ```
 
 ### **Java**
@@ -63,28 +63,93 @@ class Solution:
 class Solution {
     public List<Integer> luckyNumbers (int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
-        Set<Integer> rowMin = new HashSet<>();
-        List<Integer> res = new ArrayList<>();
+        int[] rows = new int[m];
+        int[] cols = new int[n];
+        Arrays.fill(rows, Integer.MAX_VALUE);
         for (int i = 0; i < m; ++i) {
-            int min = Integer.MAX_VALUE;
             for (int j = 0; j < n; ++j) {
-                min = Math.min(min, matrix[i][j]);
+                rows[i] = Math.min(rows[i], matrix[i][j]);
+                cols[j] = Math.max(cols[j], matrix[i][j]);
             }
-            rowMin.add(min);
         }
-
-        for (int j = 0; j < n; ++j) {
-            int max = Integer.MIN_VALUE;
-            for (int i = 0; i < m; ++i) {
-                max = Math.max(max, matrix[i][j]);
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (rows[i] == cols[j]) {
+                    ans.add(matrix[i][j]);
+                }
             }
-            if (rowMin.contains(max)) {
-                res.add(max);
-            }
-
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> luckyNumbers (vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        vector<int> rows(m, INT_MAX);
+        vector<int> cols(n);
+        for (int i = 0; i < m; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                rows[i] = min(rows[i], matrix[i][j]);
+                cols[j] = max(cols[j], matrix[i][j]);
+            }
+        }
+        vector<int> ans;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if (rows[i] == cols[j])
+                    ans.push_back(matrix[i][j]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func luckyNumbers (matrix [][]int) []int {
+    m, n := len(matrix), len(matrix[0])
+    rows, cols := make([]int, m), make([]int, n)
+    for i := range rows {
+        rows[i] = math.MaxInt32
+    }
+    for i, row := range matrix {
+        for j, v := range row {
+            rows[i] = min(rows[i], v)
+            cols[j] = max(cols[j], v)
+        }
+    }
+    var ans []int
+    for i, row := range matrix {
+        for j, v := range row {
+            if rows[i] == cols[j] {
+                ans = append(ans, v)
+            }
+        }
+    }
+    return ans
+}
+
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+    return b
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
 }
 ```
 
