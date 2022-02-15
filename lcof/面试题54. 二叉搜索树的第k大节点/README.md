@@ -219,6 +219,82 @@ func inorder(ctx context.Context, cur *TreeNode, ch chan<- int) {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function kthLargest(root: TreeNode | null, k: number): number {
+    let res = 0;
+    const dfs = (root: TreeNode | null) => {
+        if (root == null) {
+            return;
+        }
+        dfs(root.right);
+        if (--k === 0) {
+            res = root.val;
+            return;
+        }
+        dfs(root.left);
+    };
+    dfs(root);
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+
+impl Solution {
+    fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, arr: &mut Vec<i32>) {
+        if let Some(node) = root {
+            let node = node.borrow();
+            Solution::dfs(&node.right, arr);
+            arr.push(node.val);
+            Solution::dfs(&node.left, arr)
+        }
+    }
+    pub fn kth_largest(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> i32 {
+        let mut arr = vec![];
+        Solution::dfs(&root, &mut arr);
+        arr[(k - 1) as usize]
+    }
+}
+```
+
 ### **...**
 
 ```
