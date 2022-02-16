@@ -9,7 +9,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> s= &quot;leetcode&quot;
+<pre><strong>输入:</strong> s = &quot;leetcode&quot;
 <strong>输出:</strong> false 
 </pre>
 

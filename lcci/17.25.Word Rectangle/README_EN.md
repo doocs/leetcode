@@ -12,17 +12,17 @@
 
 <pre>
 
-<strong>Input:</strong> <code>[&quot;this&quot;, &quot;real&quot;, &quot;hard&quot;, &quot;trh&quot;, &quot;hea&quot;, &quot;iar&quot;, &quot;sld&quot;]</code>
+<strong>Input:</strong> [&quot;this&quot;, &quot;real&quot;, &quot;hard&quot;, &quot;trh&quot;, &quot;hea&quot;, &quot;iar&quot;, &quot;sld&quot;]
 
 <strong>Output:
 
-</strong><code>[
+</strong>[
 
 &nbsp;  &quot;this&quot;,
 
 &nbsp;  &quot;real&quot;,
 
-&nbsp;  &quot;hard&quot;</code>
+&nbsp;  &quot;hard&quot;
 
 ]</pre>
 
@@ -30,7 +30,7 @@
 
 <pre>
 
-<strong>Input:</strong> <code>[&quot;aa&quot;]</code>
+<strong>Input:</strong> [&quot;aa&quot;]
 
 <strong>Output: </strong>[&quot;aa&quot;,&quot;aa&quot;]</pre>
 

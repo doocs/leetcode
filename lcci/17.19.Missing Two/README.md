@@ -11,12 +11,12 @@
 
 <p><strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong> <code>[1]</code>
+<pre><strong>输入:</strong> [1]
 <strong>输出: </strong>[2,3]</pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入:</strong> <code>[2,3]</code>
+<pre><strong>输入:</strong> [2,3]
 <strong>输出: </strong>[1,4]</pre>
 
 <p><strong>提示：</strong></p>

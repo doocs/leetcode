@@ -12,15 +12,15 @@
 <p><strong>示例 1:</strong></p>
 
 <pre><strong>输入:</strong>
-big = <code>[7,5,9,0,2,1,3,<strong>5,7,9,1</strong>,1,5,8,8,9,7]
-small = [1,5,9]</code>
+big = [7,5,9,0,2,1,3,<strong>5,7,9,1</strong>,1,5,8,8,9,7]
+small = [1,5,9]
 <strong>输出: </strong>[7,10]</pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre><strong>输入:</strong>
-big = <code>[1,2,3]
-small = [4]</code>
+big = [1,2,3]
+small = [4]
 <strong>输出: </strong>[]</pre>
 
 <p><strong>提示：</strong></p>

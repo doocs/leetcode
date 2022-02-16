@@ -12,7 +12,7 @@
 
 <pre>
 
-<strong>Input:</strong> <code>[1]</code>
+<strong>Input:</strong> [1]
 
 <strong>Output: </strong>[2,3]</pre>
 
@@ -20,7 +20,7 @@
 
 <pre>
 
-<strong>Input:</strong> <code>[2,3]</code>
+<strong>Input:</strong> [2,3]
 
 <strong>Output: </strong>[1,4]</pre>
 

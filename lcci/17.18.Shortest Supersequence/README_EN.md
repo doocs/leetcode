@@ -14,9 +14,9 @@
 
 <strong>Input:</strong>
 
-big = <code>[7,5,9,0,2,1,3,<strong>5,7,9,1</strong>,1,5,8,8,9,7]
+big = [7,5,9,0,2,1,3,<strong>5,7,9,1</strong>,1,5,8,8,9,7]
 
-small = [1,5,9]</code>
+small = [1,5,9]
 
 <strong>Output: </strong>[7,10]</pre>
 
@@ -26,9 +26,9 @@ small = [1,5,9]</code>
 
 <strong>Input:</strong>
 
-big = <code>[1,2,3]
+big = [1,2,3]
 
-small = [4]</code>
+small = [4]
 
 <strong>Output: </strong>[]</pre>
 
