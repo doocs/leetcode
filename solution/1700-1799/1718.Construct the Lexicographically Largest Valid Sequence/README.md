@@ -72,12 +72,10 @@ class Solution:
                     path[u] = path[u + i] = 0
                     cnt[i] = 2
             if cnt[1]:
-                cnt[1] = 0
-                path[u] = 1
+                cnt[1], path[u] = 0, 1
                 if dfs(u + 1):
                     return True
-                path[u] = 0
-                cnt[1] = 1
+                path[u], cnt[1] = 0, 1
             return False
 
         path = [0] * (n * 2)

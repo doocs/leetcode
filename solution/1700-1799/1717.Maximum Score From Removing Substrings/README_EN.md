@@ -59,13 +59,162 @@ Total score = 5 + 4 + 5 + 5 = 19.</pre>
 ### **Python3**
 
 ```python
-
+class Solution:
+    def maximumGain(self, s: str, x: int, y: int) -> int:
+        if x < y:
+            return self.maximumGain(s[::-1], y, x)
+        ans = 0
+        stk1, stk2 = [], []
+        for c in s:
+            if c != 'b':
+                stk1.append(c)
+            else:
+                if stk1 and stk1[-1] == 'a':
+                    stk1.pop()
+                    ans += x
+                else:
+                    stk1.append(c)
+        while stk1:
+            c = stk1.pop()
+            if c != 'b':
+                stk2.append(c)
+            else:
+                if stk2 and stk2[-1] == 'a':
+                    stk2.pop()
+                    ans += y
+                else:
+                    stk2.append(c)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int maximumGain(String s, int x, int y) {
+        if (x < y) {
+            return maximumGain(new StringBuilder(s).reverse().toString(), y, x);
+        }
+        int ans = 0;
+        Deque<Character> stk1 = new ArrayDeque<>();
+        Deque<Character> stk2 = new ArrayDeque<>();
+        for (char c : s.toCharArray()) {
+            if (c != 'b') {
+                stk1.push(c);
+            } else {
+                if (!stk1.isEmpty() && stk1.peek() == 'a') {
+                    stk1.pop();
+                    ans += x;
+                } else {
+                    stk1.push(c);
+                }
+            }
+        }
+        while (!stk1.isEmpty()) {
+            char c = stk1.pop();
+            if (c != 'b') {
+                stk2.push(c);
+            } else {
+                if (!stk2.isEmpty() && stk2.peek() == 'a') {
+                    stk2.pop();
+                    ans += y;
+                } else {
+                    stk2.push(c);
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumGain(string s, int x, int y) {
+        if (x < y)
+        {
+            reverse(s.begin(), s.end());
+            return maximumGain(s, y, x);
+        }
+        int ans = 0;
+        stack<char> stk1;
+        stack<char> stk2;
+        for (char c : s)
+        {
+            if (c != 'b') stk1.push(c);
+            else
+            {
+                if (!stk1.empty() && stk1.top() == 'a')
+                {
+                    stk1.pop();
+                    ans += x;
+                }
+                else stk1.push(c);
+            }
+        }
+        while (!stk1.empty())
+        {
+            char c = stk1.top();
+            stk1.pop();
+            if (c != 'b') stk2.push(c);
+            else
+            {
+                if (!stk2.empty() && stk2.top() == 'a')
+                {
+                    stk2.pop();
+                    ans += y;
+                }
+                else stk2.push(c);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumGain(s string, x int, y int) int {
+	if x < y {
+		t := []rune(s)
+		for i, j := 0, len(t)-1; i < j; i, j = i+1, j-1 {
+			t[i], t[j] = t[j], t[i]
+		}
+		return maximumGain(string(t), y, x)
+	}
+	ans := 0
+	var stk1 []byte
+	var stk2 []byte
+	for i := range s {
+		if s[i] != 'b' {
+			stk1 = append(stk1, s[i])
+		} else {
+			if len(stk1) > 0 && stk1[len(stk1)-1] == 'a' {
+				stk1 = stk1[0 : len(stk1)-1]
+				ans += x
+			} else {
+				stk1 = append(stk1, s[i])
+			}
+		}
+	}
+	for _, c := range stk1 {
+		if c != 'a' {
+			stk2 = append(stk2, c)
+		} else {
+			if len(stk2) > 0 && stk2[len(stk2)-1] == 'b' {
+				stk2 = stk2[0 : len(stk2)-1]
+				ans += y
+			} else {
+				stk2 = append(stk2, c)
+			}
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
