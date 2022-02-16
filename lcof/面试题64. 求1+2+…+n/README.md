@@ -52,6 +52,18 @@ class Solution {
 }
 ```
 
+### **C++**
+
+```cpp
+class Solution {
+    public int sumNums(int n) {
+        int s = n;
+        boolean t = n > 0 && (s += sumNums(n - 1)) > 0;
+        return s;
+    }
+}
+```
+
 ### **JavaScript**
 
 ```js
@@ -76,6 +88,25 @@ func sumNums(n int) int {
 	}
 	sum(n)
 	return s
+}
+```
+
+### **TypeScript**
+
+```ts
+var sumNums = function (n: number): number {
+    return n && n + sumNums(n - 1);
+};
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sum_nums(mut n: i32) -> i32 {
+        n != 0 && (n += Solution::sum_nums(n - 1), true).1;
+        n
+    }
 }
 ```
 
