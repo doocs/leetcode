@@ -51,11 +51,10 @@ XOR.
 ```python
 class Solution:
     def decode(self, encoded: List[int], first: int) -> List[int]:
-        res = [first]
+        ans = [first]
         for e in encoded:
-            first ^= e
-            res.append(first)
-        return res
+            ans.append(ans[-1] ^ e)
+        return ans
 ```
 
 ### **Java**
@@ -63,13 +62,40 @@ class Solution:
 ```java
 class Solution {
     public int[] decode(int[] encoded, int first) {
-        int[] res = new int[encoded.length + 1];
-        res[0] = first;
-        for (int i = 0; i < encoded.length; ++i) {
-            res[i + 1] = res[i] ^ encoded[i];
+        int n = encoded.length;
+        int[] ans = new int[n + 1];
+        ans[0] = first;
+        for (int i = 0; i < n; ++i) {
+            ans[i + 1] = ans[i] ^ encoded[i];
         }
-        return res;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> decode(vector<int>& encoded, int first) {
+        vector<int> ans{{first}};
+        for (int i = 0; i < encoded.size(); ++i)
+            ans.push_back(ans[i] ^ encoded[i]);
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func decode(encoded []int, first int) []int {
+	ans := []int{first}
+	for i, e := range encoded {
+		ans = append(ans, ans[i]^e)
+	}
+	return ans
 }
 ```
 
