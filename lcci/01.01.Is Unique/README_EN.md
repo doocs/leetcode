@@ -10,7 +10,7 @@
 
 <pre>
 
-<strong>Input: </strong><code>s</code> = &quot;leetcode&quot;
+<strong>Input: </strong> = &quot;leetcode&quot;
 
 <strong>Output: </strong>false
 
@@ -20,7 +20,7 @@
 
 <pre>
 
-<strong>Input: </strong><code>s</code> = &quot;abc&quot;
+<strong>Input: </strong>s = &quot;abc&quot;
 
 <strong>Output: </strong>true
 

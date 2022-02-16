@@ -9,13 +9,13 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> <code>s1</code> = &quot;abc&quot;, <code>s2</code> = &quot;bca&quot;
+<pre><strong>输入:</strong> s1 = &quot;abc&quot;, s2 = &quot;bca&quot;
 <strong>输出:</strong> true
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> <code>s1</code> = &quot;abc&quot;, <code>s2</code> = &quot;bad&quot;
+<pre><strong>输入:</strong> s1 = &quot;abc&quot;, s2 = &quot;bad&quot;
 <strong>输出:</strong> false
 </pre>
 
@@ -48,10 +48,7 @@ class Solution:
         for i in range(n1):
             counter[s1[i]] += 1
             counter[s2[i]] -= 1
-        for val in counter.values():
-            if val != 0:
-                return False
-        return True
+        return all(v == 0 for v in counter.values())
 ```
 
 ### **Java**
@@ -61,18 +58,18 @@ class Solution:
 ```java
 class Solution {
     public boolean CheckPermutation(String s1, String s2) {
-        int n1 = s1.length(), n2 = s2.length();
+        int n1 = s1.length();
+        int n2 = s2.length();
         if (n1 != n2) {
             return false;
         }
-        Map<Character, Integer> counter = new HashMap<>();
+        int[] counter = new int[128];
         for (int i = 0; i < n1; ++i) {
-            char c1 = s1.charAt(i), c2 = s2.charAt(i);
-            counter.put(c1, counter.getOrDefault(c1, 0) + 1);
-            counter.put(c2, counter.getOrDefault(c2, 0) - 1);
+            ++counter[s1.charAt(i)];
+            --counter[s2.charAt(i)];
         }
-        for (int val : counter.values()) {
-            if (val != 0) {
+        for (int v : counter) {
+            if (v != 0) {
                 return false;
             }
         }

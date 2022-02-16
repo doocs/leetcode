@@ -37,13 +37,7 @@
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
         counter = Counter(s)
-        cnt = 0
-        for val in counter.values():
-            if (val & 1) == 1:
-                cnt += 1
-            if cnt > 1:
-                return False
-        return True
+        return sum(1 for v in counter.values() if v % 2 == 1) <= 1
 ```
 
 ### **Java**
@@ -54,20 +48,14 @@ class Solution:
 class Solution {
     public boolean canPermutePalindrome(String s) {
         Map<Character, Integer> counter = new HashMap<>();
-        for (int i = 0, n = s.length(); i < n; ++i) {
-            char c = s.charAt(i);
+        for (char c : s.toCharArray()) {
             counter.put(c, counter.getOrDefault(c, 0) + 1);
         }
         int cnt = 0;
-        for (int val : counter.values()) {
-            if ((val & 1) == 1) {
-                ++cnt;
-            }
-            if (cnt > 1) {
-                return false;
-            }
+        for (int v : counter.values()) {
+            cnt += v % 2;
         }
-        return true;
+        return cnt < 2;
     }
 }
 ```
@@ -89,6 +77,21 @@ func canPermutePalindrome(s string) bool {
 	}
 	return count <= 1
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canPermutePalindrome(string s) {
+        unordered_map<char, int> counter;
+        for (char c : s) ++counter[c];
+        int cnt = 0;
+        for (auto& [k, v] : counter) cnt += v % 2;
+        return cnt < 2;
+    }
+};
 ```
 
 ### **...**

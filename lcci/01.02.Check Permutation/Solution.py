@@ -7,7 +7,4 @@ class Solution:
         for i in range(n1):
             counter[s1[i]] += 1
             counter[s2[i]] -= 1
-        for val in counter.values():
-            if val != 0:
-                return False
-        return True
+        return all(v == 0 for v in counter.values())

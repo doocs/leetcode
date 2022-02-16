@@ -9,13 +9,13 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> <code>s</code> = &quot;leetcode&quot;
+<pre><strong>输入:</strong> s= &quot;leetcode&quot;
 <strong>输出:</strong> false 
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> <code>s</code> = &quot;abc&quot;
+<pre><strong>输入:</strong> s = &quot;abc&quot;
 <strong>输出:</strong> true
 </pre>
 
