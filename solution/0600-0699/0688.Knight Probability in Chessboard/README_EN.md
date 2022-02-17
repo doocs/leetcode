@@ -53,13 +53,48 @@ The total probability the knight stays on the board is 0.0625.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def knightProbability(self, n: int, k: int, row: int, column: int) -> float:
+        dp = [[[0] * n for _ in range(n)] for _ in range(k + 1)]
+        for l in range(k + 1):
+            for i in range(n):
+                for j in range(n):
+                    if l == 0:
+                        dp[l][i][j] = 1
+                    else:
+                        for a, b in ((-2, -1), (-2, 1), (2, -1), (2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2)):
+                            x, y = i + a, j + b
+                            if 0 <= x < n and 0 <= y < n:
+                                dp[l][i][j] += dp[l - 1][x][y] / 8
+        return dp[k][row][column]
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public double knightProbability(int n, int k, int row, int column) {
+        double[][][] dp = new double[k + 1][n][n];
+        int[] dirs = {-2, -1, 2, 1, -2, 1, 2, -1, -2};
+        for (int l = 0; l <= k; ++l) {
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    if (l == 0) {
+                        dp[l][i][j] = 1;
+                    } else {
+                        for (int d = 0; d < 8; ++d) {
+                            int x = i + dirs[d], y = j + dirs[d + 1];
+                            if (x >= 0 && x < n && y >= 0 && y < n) {
+                                dp[l][i][j] += dp[l - 1][x][y] / 8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return dp[k][row][column];
+    }
+}
 ```
 
 ### **TypeScript**
@@ -87,6 +122,66 @@ function knightProbability(n: number, k: number, row: number, column: number): n
     }
     return dp[k][row][column];
 };
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    double knightProbability(int n, int k, int row, int column) {
+        vector<vector<vector<double>>> dp(k + 1, vector<vector<double>>(n, vector<double>(n)));
+        vector<int> dirs = {-2, -1, 2, 1, -2, 1, 2, -1, -2};
+        for (int l = 0; l <= k; ++l)
+        {
+            for (int i = 0; i < n; ++i)
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    if (l == 0) dp[l][i][j] = 1;
+                    else
+                    {
+                        for (int d = 0; d < 8; ++d)
+                        {
+                            int x = i + dirs[d], y = j + dirs[d + 1];
+                            if (x >= 0 && x < n && y >= 0 && y < n)
+                                dp[l][i][j] += dp[l - 1][x][y] / 8;
+                        }
+                    }
+                }
+            }
+        }
+        return dp[k][row][column];
+    }
+};
+```
+
+### **Go**
+
+```go
+func knightProbability(n int, k int, row int, column int) float64 {
+	dp := make([][][]float64, k+1)
+	dirs := []int{-2, -1, 2, 1, -2, 1, 2, -1, -2}
+	for l := range dp {
+		dp[l] = make([][]float64, n)
+		for i := 0; i < n; i++ {
+			dp[l][i] = make([]float64, n)
+			for j := 0; j < n; j++ {
+				if l == 0 {
+					dp[l][i][j] = 1
+				} else {
+					for d := 0; d < 8; d++ {
+						x, y := i+dirs[d], j+dirs[d+1]
+						if 0 <= x && x < n && 0 <= y && y < n {
+							dp[l][i][j] += dp[l-1][x][y] / 8
+						}
+					}
+				}
+			}
+		}
+	}
+	return dp[k][row][column]
+}
 ```
 
 ### **...**
