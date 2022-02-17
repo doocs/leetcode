@@ -171,18 +171,22 @@ var lowestCommonAncestor = function (root, p, q) {
  *     }
  * }
  */
-function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+function lowestCommonAncestor(
+    root: TreeNode | null,
+    p: TreeNode | null,
+    q: TreeNode | null,
+): TreeNode | null {
     if (root == null) {
-        return root
+        return root;
     }
     if (root.val > p.val && root.val > q.val) {
-        return lowestCommonAncestor(root.left, p, q)
+        return lowestCommonAncestor(root.left, p, q);
     }
     if (root.val < p.val && root.val < q.val) {
-        return lowestCommonAncestor(root.right, p, q)
+        return lowestCommonAncestor(root.right, p, q);
     }
-    return root
-};
+    return root;
+}
 ```
 
 循环：
