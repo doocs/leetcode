@@ -11,16 +11,16 @@
 <p><br>
 <strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 9
+<pre><strong>输入:</strong> nums = [-1,0,3,5,9,12], target = 9
 <strong>输出:</strong> 4
-<strong>解释:</strong> 9 出现在 <code>nums</code> 中并且下标为 4
+<strong>解释:</strong> 9 出现在 nums 中并且下标为 4
 </pre>
 
 <p><strong>示例&nbsp;2:</strong></p>
 
-<pre><strong>输入:</strong> <code>nums</code> = [-1,0,3,5,9,12], <code>target</code> = 2
+<pre><strong>输入:</strong> nums = [-1,0,3,5,9,12], target = 2
 <strong>输出:</strong> -1
-<strong>解释:</strong> 2 不存在 <code>nums</code> 中因此返回 -1
+<strong>解释:</strong> 2 不存在 nums 中因此返回 -1
 </pre>
 
 <p>&nbsp;</p>
