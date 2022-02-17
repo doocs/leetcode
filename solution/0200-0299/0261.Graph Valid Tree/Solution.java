@@ -7,10 +7,11 @@ class Solution {
             p[i] = i;
         }
         for (int[] e : edges) {
-            if (find(e[0]) == find(e[1])) {
+            int a = e[0], b = e[1];
+            if (find(a) == find(b)) {
                 return false;
             }
-            p[find(e[0])] = find(e[1]);
+            p[find(a)] = find(b);
             --n;
         }
         return n == 1;

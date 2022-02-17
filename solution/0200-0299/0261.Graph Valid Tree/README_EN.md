@@ -46,13 +46,12 @@ Union find.
 ```python
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        p = list(range(n))
         for a, b in edges:
             if find(a) == find(b):
                 return False
@@ -73,10 +72,11 @@ class Solution {
             p[i] = i;
         }
         for (int[] e : edges) {
-            if (find(e[0]) == find(e[1])) {
+            int a = e[0], b = e[1];
+            if (find(a) == find(b)) {
                 return false;
             }
-            p[find(e[0])] = find(e[1]);
+            p[find(a)] = find(b);
             --n;
         }
         return n == 1;
@@ -98,26 +98,21 @@ class Solution {
 public:
     vector<int> p;
 
-    bool validTree(int n, vector<vector<int>> &edges) {
-        for (int i = 0; i < n; ++i)
+    bool validTree(int n, vector<vector<int>>& edges) {
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        for (auto& e : edges)
         {
-            p.push_back(i);
-        }
-        for (auto e : edges)
-        {
-            if (find(e[0]) == find(e[1]))
-                return false;
-            p[find(e[0])] = find(e[1]);
+            int a = e[0], b = e[1];
+            if (find(a) == find(b)) return 0;
+            p[find(a)] = find(b);
             --n;
         }
         return n == 1;
     }
 
     int find(int x) {
-        if (p[x] != x)
-        {
-            p[x] = find(p[x]);
-        }
+        if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
 };
@@ -126,29 +121,58 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func validTree(n int, edges [][]int) bool {
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
 	for _, e := range edges {
-		if find(e[0]) == find(e[1]) {
+		a, b := e[0], e[1]
+		if find(a) == find(b) {
 			return false
 		}
-		p[find(e[0])] = find(e[1])
+		p[find(a)] = find(b)
 		n--
 	}
 	return n == 1
 }
+```
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
-}
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {boolean}
+ */
+var validTree = function (n, edges) {
+    let p = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        p[i] = i;
+    }
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+    for (const [a, b] of edges) {
+        if (find(a) == find(b)) {
+            return false;
+        }
+        p[find(a)] = find(b);
+        --n;
+    }
+    return n == 1;
+};
 ```
 
 ### **...**
