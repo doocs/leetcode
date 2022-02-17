@@ -1,22 +1,22 @@
 class Solution {
     private int[] p;
-    
+
     public int countComponents(int n, int[][] edges) {
         p = new int[n];
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
         for (int[] e : edges) {
-            p[find(e[0])] = find(e[1]);
+            int a = e[0], b = e[1];
+            p[find(a)] = find(b);
         }
-
-        int cnt = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
             if (i == find(i)) {
-                ++cnt;
+                ++ans;
             }
         }
-        return cnt;
+        return ans;
     }
 
     private int find(int x) {

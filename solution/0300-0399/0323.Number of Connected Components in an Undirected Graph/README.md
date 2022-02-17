@@ -107,13 +107,12 @@ d[find(a)] = distance
 ```python
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-
+        
+        p = list(range(n))
         for a, b in edges:
             p[find(a)] = find(b)
         return sum(i == find(i) for i in range(n))
@@ -133,16 +132,16 @@ class Solution {
             p[i] = i;
         }
         for (int[] e : edges) {
-            p[find(e[0])] = find(e[1]);
+            int a = e[0], b = e[1];
+            p[find(a)] = find(b);
         }
-
-        int cnt = 0;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
             if (i == find(i)) {
-                ++cnt;
+                ++ans;
             }
         }
-        return cnt;
+        return ans;
     }
 
     private int find(int x) {
@@ -164,13 +163,16 @@ public:
     int countComponents(int n, vector<vector<int>>& edges) {
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        for (auto e : edges) p[find(e[0])] = find(e[1]);
-        int cnt = 0;
-        for (int i = 0; i < n; ++i)
+        for (auto& e : edges)
         {
-            if (i == find(i)) ++cnt;
+            int a = e[0], b = e[1];
+            p[find(a)] = find(b);
         }
-        return cnt;
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+            if (i == find(i))
+                ++ans;
+        return ans;
     }
 
     int find(int x) {
@@ -183,31 +185,62 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func countComponents(n int, edges [][]int) int {
-	p = make([]int, n)
-	for i := 1; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	for _, e := range edges {
-		p[find(e[0])] = find(e[1])
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
 	}
-	cnt := 0
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		p[find(a)] = find(b)
+	}
+	ans := 0
 	for i := 0; i < n; i++ {
 		if i == find(i) {
-			cnt++
+			ans++
 		}
 	}
-	return cnt
+	return ans
 }
+```
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
-}
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var countComponents = function (n, edges) {
+    let p = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        p[i] = i;
+    }
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+    for (const [a, b] of edges) {
+        p[find(a)] = find(b);
+    }
+    let ans = 0;
+    for (let i = 0; i < n; ++i) {
+        if (i == find(i)) {
+            ++ans;
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**

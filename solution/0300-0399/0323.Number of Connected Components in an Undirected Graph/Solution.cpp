@@ -5,13 +5,16 @@ public:
     int countComponents(int n, vector<vector<int>>& edges) {
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        for (auto e : edges) p[find(e[0])] = find(e[1]);
-        int cnt = 0;
-        for (int i = 0; i < n; ++i)
+        for (auto& e : edges)
         {
-            if (i == find(i)) ++cnt;
+            int a = e[0], b = e[1];
+            p[find(a)] = find(b);
         }
-        return cnt;
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+            if (i == find(i))
+                ++ans;
+        return ans;
     }
 
     int find(int x) {
