@@ -3,25 +3,21 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+        def dfs(i, j):
+            board[i][j] = '.'
+            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and board[x][y] == 'O':
+                    dfs(x, y)
+
         m, n = len(board), len(board[0])
-        p = list(range(m * n + 1))
-
-        def find(x):
-            if p[x] != x:
-                p[x] = find(p[x])
-            return p[x]
-
+        for i in range(m):
+            for j in range(n):
+                if board[i][j] == 'O' and (i == 0 or i == m - 1 or j == 0 or j == n - 1):
+                    dfs(i, j)
         for i in range(m):
             for j in range(n):
                 if board[i][j] == 'O':
-                    if i == 0 or j == 0 or i == m - 1 or j == n - 1:
-                        p[find(i * n + j)] = find(m * n)
-                    else:
-                        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                            if board[i + x][j + y] == "O":
-                                p[find(i * n + j)] = find((i + x) * n + j + y)
-
-        for i in range(m):
-            for j in range(n):
-                if board[i][j] == 'O' and find(i * n + j) != find(m * n):
                     board[i][j] = 'X'
+                elif board[i][j] == '.':
+                    board[i][j] = 'O'

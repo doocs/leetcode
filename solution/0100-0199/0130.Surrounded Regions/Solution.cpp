@@ -1,40 +1,29 @@
 class Solution {
 public:
-    vector<int> p;
-    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-
     void solve(vector<vector<char>>& board) {
         int m = board.size(), n = board[0].size();
-        p.resize(m * n + 1);
-        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if ((i == 0 || i == m - 1 || j == 0 || j == n - 1) && board[i][j] == 'O')
+                    dfs(board, i, j);
         for (int i = 0; i < m; ++i)
         {
             for (int j = 0; j < n; ++j)
             {
-                if (board[i][j] == 'O')
-                {
-                    if (i == 0 || j == 0 || i == m - 1 || j == n - 1) p[find(i * n + j)] = find(m * n);
-                    else
-                    {
-                        for (auto e : dirs)
-                        {
-                            if (board[i + e[0]][j + e[1]] == 'O') p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
-                        }
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < m; ++i)
-        {
-            for (int j = 0; j < n; ++j)
-            {
-                if (board[i][j] == 'O' && find(i * n + j) != find(m * n)) board[i][j] = 'X';
+                if (board[i][j] == '.') board[i][j] = 'O';
+                else if (board[i][j] == 'O') board[i][j] = 'X';
             }
         }
     }
 
-    int find(int x) {
-        if (p[x] != x) p[x] = find(p[x]);
-        return p[x];
+    void dfs(vector<vector<char>>& board, int i, int j) {
+        board[i][j] = '.';
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k)
+        {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < board.size() && y >= 0 && y < board[0].size() && board[x][y] == 'O')
+                dfs(board, x, y);
+        }
     }
 };
