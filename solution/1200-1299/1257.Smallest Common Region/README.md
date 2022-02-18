@@ -46,6 +46,8 @@ region2 = &quot;New York&quot;
 
 <!-- 这里可写通用的实现逻辑 -->
 
+题目可转换为“求最近公共祖先”问题。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,7 +55,21 @@ region2 = &quot;New York&quot;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findSmallestRegion(self, regions: List[List[str]], region1: str, region2: str) -> str:
+        m = {}
+        for region in regions:
+            for r in region[1:]:
+                m[r] = region[0]
+        s = set()
+        while m.get(region1):
+            s.add(region1)
+            region1 = m[region1]
+        while m.get(region2):
+            if region2 in s:
+                return region2
+            region2 = m[region2]
+        return region1
 ```
 
 ### **Java**
@@ -61,7 +77,80 @@ region2 = &quot;New York&quot;
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public String findSmallestRegion(List<List<String>> regions, String region1, String region2) {
+        Map<String, String> m = new HashMap<>();
+        for (List<String> region : regions) {
+            for (int i = 1; i < region.size(); ++i) {
+                m.put(region.get(i), region.get(0));
+            }
+        }
+        Set<String> s = new HashSet<>();
+        while (m.containsKey(region1)) {
+            s.add(region1);
+            region1 = m.get(region1);
+        }
+        while (m.containsKey(region2)) {
+            if (s.contains(region2)) {
+                return region2;
+            }
+            region2 = m.get(region2);
+        }
+        return region1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findSmallestRegion(vector<vector<string>>& regions, string region1, string region2) {
+        unordered_map<string, string> m;
+        for (auto& region : regions)
+            for (int i = 1; i < region.size(); ++i)
+                m[region[i]] = region[0];
+        unordered_set<string> s;
+        while (m.count(region1))
+        {
+            s.insert(region1);
+            region1 = m[region1];
+        }
+        while (m.count(region2))
+        {
+            if (s.count(region2)) return region2;
+            region2 = m[region2];
+        }
+        return region1;
+    }
+};
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string findSmallestRegion(vector<vector<string>>& regions, string region1, string region2) {
+        unordered_map<string, string> m;
+        for (auto& region : regions)
+            for (int i = 1; i < region.size(); ++i)
+                m[region[i]] = region[0];
+        unordered_set<string> s;
+        while (m.count(region1))
+        {
+            s.insert(region1);
+            region1 = m[region1];
+        }
+        while (m.count(region2))
+        {
+            if (s.count(region2)) return region2;
+            region2 = m[region2];
+        }
+        return region1;
+    }
+};
 ```
 
 ### **...**
