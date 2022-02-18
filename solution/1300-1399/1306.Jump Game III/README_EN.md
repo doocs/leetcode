@@ -49,18 +49,99 @@ index 0 -&gt; index 4 -&gt; index 1 -&gt; index 3
 
 ## Solutions
 
+BFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def canReach(self, arr: List[int], start: int) -> bool:
+        n = len(arr)
+        q = deque([start])
+        while q:
+            i = q.popleft()
+            if arr[i] == 0:
+                return True
+            for j in [i + arr[i], i - arr[i]]:
+                if 0 <= j < n and arr[j] >= 0:
+                    q.append(j)
+            arr[i] = -1
+        return False
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public boolean canReach(int[] arr, int start) {
+        int n = arr.length;
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(start);
+        while (!q.isEmpty()) {
+            int i = q.poll();
+            if (arr[i] == 0) {
+                return true;
+            }
+            for (int j : Arrays.asList(i + arr[i], i - arr[i])) {
+                if (j >= 0 && j < n && arr[j] >= 0) {
+                    q.offer(j);
+                }
+            }
+            arr[i] = -1;
+        }
+        return false;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool canReach(vector<int> &arr, int start) {
+        int n = arr.size();
+        queue<int> q{{start}};
+        while (!q.empty())
+        {
+            int i = q.front();
+            if (arr[i] == 0)
+                return 1;
+            q.pop();
+            for (int j : {i + arr[i], i - arr[i]})
+            {
+                if (j >= 0 && j < n && arr[j] >= 0)
+                    q.push(j);
+            }
+            arr[i] = -1;
+        }
+        return 0;
+    }
+};
+```
+
+### **Go**
+
+```go
+func canReach(arr []int, start int) bool {
+	q := []int{start}
+	for len(q) > 0 {
+		i := q[0]
+		if arr[i] == 0 {
+			return true
+		}
+		q = q[1:]
+		for _, j := range []int{i + arr[i], i - arr[i]} {
+			if j >= 0 && j < len(arr) && arr[j] >= 0 {
+				q = append(q, j)
+			}
+		}
+		arr[i] = -1
+	}
+	return false
+}
 ```
 
 ### **...**

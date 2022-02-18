@@ -56,9 +56,7 @@
 ```python
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
-        a, b = edges[0]
-        c, d = edges[1]
-        return a if a == c or a == d else b
+        return edges[0][0] if edges[0][0] in edges[1] else edges[0][1]
 ```
 
 ### **Java**
