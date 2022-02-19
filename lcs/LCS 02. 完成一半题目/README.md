@@ -50,15 +50,14 @@
 class Solution:
     def halfQuestions(self, questions: List[int]) -> int:
         counter = Counter(questions)
-        counter = OrderedDict(counter.most_common())
         n = len(questions) >> 1
-        res = 0
-        for v in counter.values():
-            res += 1
+        ans = 0
+        for i, v in counter.most_common():
+            ans += 1
             if v >= n:
-                return res
+                return ans
             n -= v
-        return res
+        return ans
 ```
 
 ### **Java**
@@ -69,20 +68,17 @@ class Solution:
 class Solution {
     public int halfQuestions(int[] questions) {
         int[] counter = new int[1010];
-        for (int e : questions) {
-            ++counter[e];
+        for (int q : questions) {
+            ++counter[q];
         }
-        int n = questions.length >> 1;
         Arrays.sort(counter);
-        int res = 0;
-        for (int i = counter.length - 1; i >= 0; --i) {
-            ++res;
-            if (counter[i] >= n) {
-                return res;
-            }
+        int ans = 0;
+        int n = questions.length >> 1;
+        for (int i = counter.length - 1; n > 0; --i) {
+            ++ans;
             n -= counter[i];
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -94,17 +90,16 @@ class Solution {
 public:
     int halfQuestions(vector<int>& questions) {
         vector<int> counter(1010);
-        for (int e : questions) ++counter[e];
+        for (int q : questions) ++counter[q];
         int n = questions.size() >> 1;
         sort(counter.begin(), counter.end());
-        int res = 0;
-        for (int i = counter.size() - 1; i >= 0; --i)
+        int ans = 0;
+        for (int i = counter.size() - 1; n > 0; --i)
         {
-            ++res;
-            if (counter[i] >= n) return res;
+            ++ans;
             n -= counter[i];
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -114,21 +109,41 @@ public:
 ```go
 func halfQuestions(questions []int) int {
 	counter := make([]int, 1010)
-	for _, e := range questions {
-		counter[e]++
+	for _, q := range questions {
+		counter[q]++
 	}
 	n := len(questions) >> 1
 	sort.Ints(counter)
-	res := 0
-	for i := len(counter) - 1; i >= 0; i-- {
-		res++
-		if counter[i] >= n {
-			return res
-		}
+	ans := 0
+	for i := len(counter) - 1; n > 0; i-- {
+		ans++
 		n -= counter[i]
 	}
-	return res
+	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} questions
+ * @return {number}
+ */
+var halfQuestions = function(questions) {
+    let counter = new Array(1010).fill(0);
+    for (const q of questions) {
+        ++counter[q];
+    }
+    counter.sort((a, b) => b - a);
+    let ans = 0;
+    let n = questions.length >> 1;
+    for (let i = 0; n > 0; ++i) {
+        ++ans;
+        n -= counter[i];
+    }
+    return ans;
+};
 ```
 
 ### **...**

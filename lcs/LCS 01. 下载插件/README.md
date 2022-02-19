@@ -56,11 +56,11 @@
 ```python
 class Solution:
     def leastMinutes(self, n: int) -> int:
-        speed = res = 1
+        speed = ans = 1
         while speed < n:
             speed <<= 1
-            res += 1
-        return res
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -70,13 +70,11 @@ class Solution:
 ```java
 class Solution {
     public int leastMinutes(int n) {
-        int speed = 1;
-        int res = 1;
-        while (speed < n) {
-            speed <<= 1;
-            ++res;
+        int ans = 1;
+        for (int speed = 1; speed < n; speed <<= 1) {
+            ++ans;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -87,13 +85,9 @@ class Solution {
 class Solution {
 public:
     int leastMinutes(int n) {
-        int speed = 1, res = 1;
-        while (speed < n)
-        {
-            speed <<= 1;
-            ++res;
-        }
-        return res;
+        int ans = 1;
+        for (int speed = 1; speed < n; speed <<= 1) ++ans;
+        return ans;
     }
 };
 ```
@@ -102,13 +96,28 @@ public:
 
 ```go
 func leastMinutes(n int) int {
-	speed, res := 1, 1
-	for speed < n {
-		speed <<= 1
-		res++
+	ans := 1
+	for speed := 1; speed < n; speed <<= 1 {
+		ans++
 	}
-	return res
+	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var leastMinutes = function (n) {
+    let ans = 1;
+    for (let speed = 1; speed < n; speed <<= 1) {
+        ++ans;
+    }
+    return ans;
+};
 ```
 
 ### **...**

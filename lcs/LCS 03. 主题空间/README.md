@@ -28,9 +28,9 @@
 
 **提示：**
 
--   `1 <= grid.length <= 500`
--   `1 <= grid[i].length <= 500`
--   `grid[i][j]` 仅可能是 `"0"～"5"`
+- `1 <= grid.length <= 500`
+- `1 <= grid[i].length <= 500`
+- `grid[i][j]` 仅可能是 `"0"～"5"`
 
 ## 解法
 
@@ -97,6 +97,12 @@ p[find(a)] = find(b)
 d[find(a)] = distance
 ```
 
+对于本题，记 m, n 分别为 grid 的行数和列数。
+
+- 将所有走廊及 "0" 对应的格子与超级节点 `m * n` 相连。
+- 对于其它格子，判断其相邻（上、下、左、右）的格子是否为 "0" 或者与当前格子相同，若是，更新 size 并将两个格子相连。
+- 最后，获取不与超级节点相连的格子的最大 size，即为答案。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -110,7 +116,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         m, n = len(grid), len(grid[0])
         p = list(range(m * n + 1))
         size = [1] * (m * n + 1)
@@ -190,43 +196,38 @@ class Solution {
 class Solution {
 public:
     vector<int> p;
-    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     int largestArea(vector<string>& grid) {
         int m = grid.size(), n = grid[0].size();
         p.resize(m * n + 1);
         for (int i = 0; i < p.size(); ++i) p[i] = i;
+        vector<int> size(m * n + 1, 1);
+        vector<int> dirs = {-1, 0, 1, 0, -1};
         for (int i = 0; i < m; ++i)
         {
             for (int j = 0; j < n; ++j)
             {
-                if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || grid[i][j] == '0')
-                    p[find(i * n + j)] = find(m * n);
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || grid[i][j] == '0') p[find(i * n + j)] = find(m * n);
                 else
                 {
-                    for (auto e : dirs)
+                    for (int k = 0; k < 4; ++k)
                     {
-                        if (grid[i + e[0]][j + e[1]] == '0' || grid[i][j]== grid[i + e[0]][j + e[1]])
-                            p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        if ((grid[x][y] == '0' || grid[i][j] == grid[x][y]) && find(x * n + y) != find(i * n + j))
+                        {
+                            size[find(x * n + y)] += size[find(i * n + j)];
+                            p[find(i * n + j)] = find(x * n + y);
+                        }
                     }
                 }
             }
         }
-        unordered_map<int, int> mp;
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i)
-        {
             for (int j = 0; j < n; ++j)
-            {
-                int root = find(i * n + j);
-                if (root != find(m * n))
-                {
-                    ++mp[root];
-                    res = max(res, mp[root]);
-                }
-            }
-        }
-        return res;
+                if (find(i * n + j) != find(m * n))
+                    ans = max(ans, size[i * n + j]);
+        return ans;
     }
 
     int find(int x) {
@@ -280,6 +281,65 @@ func largestArea(grid []string) int {
 	}
 	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {string[]} grid
+ * @return {number}
+ */
+var largestArea = function (grid) {
+    const m = grid.length;
+    const n = grid[0].length;
+    let p = new Array(m * n + 1).fill(0);
+    let size = new Array(m * n + 1).fill(1);
+    for (let i = 0; i < p.length; ++i) {
+        p[i] = i;
+    }
+    const dirs = [-1, 0, 1, 0, -1];
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (
+                i == 0 ||
+                i == m - 1 ||
+                j == 0 ||
+                j == n - 1 ||
+                grid[i][j] == '0'
+            ) {
+                p[find(i * n + j)] = find(m * n);
+            } else {
+                for (let k = 0; k < 4; ++k) {
+                    const x = i + dirs[k];
+                    const y = j + dirs[k + 1];
+                    if (
+                        (grid[x][y] == '0' || grid[i][j] == grid[x][y]) &&
+                        find(x * n + y) != find(i * n + j)
+                    ) {
+                        size[find(x * n + y)] += size[find(i * n + j)];
+                        p[find(i * n + j)] = find(x * n + y);
+                    }
+                }
+            }
+        }
+    }
+    let ans = 0;
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            if (find(i * n + j) != find(m * n) && ans < size[i * n + j]) {
+                ans = size[i * n + j];
+            }
+        }
+    }
+    return ans;
+};
 ```
 
 ### **...**
