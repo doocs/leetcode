@@ -52,7 +52,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
+class Solution:
+    def fraction(self, cont: List[int]) -> List[int]:
+        def dfs(cont):
+            if len(cont) == 1:
+                return [cont[0], 1]
+            a, b = dfs(cont[1:])
+            return [a * cont[0] + b, a]
 
+        return dfs(cont)
 ```
 
 ### **Java**
@@ -60,7 +68,74 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int[] fraction(int[] cont) {
+        return dfs(cont, 0);
+    }
 
+    private int[] dfs(int[] cont, int i) {
+        if (i == cont.length - 1) {
+            return new int[]{cont[i], 1};
+        }
+        int[] ans = dfs(cont, i + 1);
+        int a = ans[0], b = ans[1];
+        return new int[]{a * cont[i] + b, a};
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> fraction(vector<int>& cont) {
+        return dfs(cont, 0);
+    }
+
+    vector<int> dfs(vector<int>& cont, int i) {
+        if (i == cont.size() - 1) return {cont[i], 1};
+        vector<int> ans = dfs(cont, i + 1);
+        int a = ans[0], b = ans[1];
+        return {a * cont[i] + b, a};
+    }
+};
+```
+
+### **Go**
+
+```go
+func fraction(cont []int) []int {
+	var dfs func(i int) []int
+	dfs = func(i int) []int {
+		if i == len(cont)-1 {
+			return []int{cont[i], 1}
+		}
+		ans := dfs(i + 1)
+		a, b := ans[0], ans[1]
+		return []int{a*cont[i] + b, a}
+	}
+	return dfs(0)
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} cont
+ * @return {number[]}
+ */
+var fraction = function (cont) {
+    function dfs(i) {
+        if (i == cont.length - 1) {
+            return [cont[i], 1];
+        }
+        const [a, b] = dfs(i + 1);
+        return [a * cont[i] + b, a];
+    }
+    return dfs(0);
+};
 ```
 
 ### **...**

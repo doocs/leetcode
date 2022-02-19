@@ -58,11 +58,11 @@ class Solution:
 ```java
 class Solution {
     public int game(int[] guess, int[] answer) {
-        int times = 0;
+        int ans = 0;
         for (int i = 0; i < 3; ++i) {
-            times += (guess[i] == answer[i] ? 1 : 0);
+            ans += guess[i] == answer[i] ? 1 : 0;
         }
-        return times;
+        return ans;
     }
 }
 ```
@@ -73,9 +73,9 @@ class Solution {
 class Solution {
 public:
     int game(vector<int>& guess, vector<int>& answer) {
-        int times = 0;
-        for (int i = 0; i < 3; ++i) times += guess[i] == answer[i];
-        return times;
+        int ans = 0;
+        for (int i = 0; i < 3; ++i) ans += guess[i] == answer[i];
+        return ans;
     }
 };
 ```
@@ -84,14 +84,31 @@ public:
 
 ```go
 func game(guess []int, answer []int) int {
-	times := 0
+	ans := 0
 	for i := 0; i < 3; i++ {
 		if guess[i] == answer[i] {
-			times++
+			ans++
 		}
 	}
-	return times
+	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} guess
+ * @param {number[]} answer
+ * @return {number}
+ */
+var game = function (guess, answer) {
+    let ans = 0;
+    for (let i = 0; i < 3; ++i) {
+        ans += guess[i] == answer[i];
+    }
+    return ans;
+};
 ```
 
 ### **...**
