@@ -57,13 +57,59 @@ Note that other answers, such as [3, 3], would also be accepted.
 ### **Python3**
 
 ```python
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        def reverse(arr, j):
+            i = 0
+            while i < j:
+                arr[i], arr[j] = arr[j], arr[i]
+                i, j = i + 1, j - 1
 
+        n = len(arr)
+        ans = []
+        for i in range(n - 1, 0, -1):
+            j = i
+            while j > 0 and arr[j] != i + 1:
+                j -= 1
+            if j < i:
+                if j > 0:
+                    ans.append(j + 1)
+                    reverse(arr, j)
+                ans.append(i + 1)
+                reverse(arr, i)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> pancakeSort(int[] arr) {
+        int n = arr.length;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = n - 1; i > 0; --i) {
+            int j = i;
+            for (; j > 0 && arr[j] != i + 1; --j);
+            if (j < i) {
+                if (j > 0) {
+                    ans.add(j + 1);
+                    reverse(arr, j);
+                }
+                ans.add(i + 1);
+                reverse(arr, i);
+            }
+        }
+        return ans;
+    }
 
+    private void reverse(int[] arr, int j) {
+        for (int i = 0; i < j; ++i, --j) {
+            int t = arr[i];
+            arr[i] = arr[j];
+            arr[j] = t;
+        }
+    }
+}
 ```
 
 ### **TypeScript**
@@ -91,6 +137,60 @@ function reverse (nums: Array<number>, end: number): void {
     for (let i = 0, j = end; i < j; i++, j--) {
         [nums[i], nums[j]] = [nums[j], nums[i]];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> pancakeSort(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> ans;
+        for (int i = n - 1; i > 0; --i)
+        {
+            int j = i;
+            for (; j > 0 && arr[j] != i + 1; --j);
+            if (j == i) continue;
+            if (j > 0)
+            {
+                ans.push_back(j + 1);
+                reverse(arr.begin(), arr.begin() + j + 1);
+            }
+            ans.push_back(i + 1);
+            reverse(arr.begin(), arr.begin() + i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func pancakeSort(arr []int) []int {
+	var ans []int
+	n := len(arr)
+	reverse := func(j int) {
+		for i := 0; i < j; i, j = i+1, j-1 {
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+	}
+	for i := n - 1; i > 0; i-- {
+		j := i
+		for ; j > 0 && arr[j] != i+1; j-- {
+		}
+		if j < i {
+			if j > 0 {
+				ans = append(ans, j+1)
+				reverse(j)
+			}
+			ans = append(ans, i+1)
+			reverse(i)
+		}
+	}
+	return ans
 }
 ```
 
