@@ -29,3 +29,40 @@ function numEnclaves(grid: number[][]): number {
     }
     return res;
 }
+
+// BFS
+function numEnclaves(grid: number[][]): number {
+    const m = grid.length, n = grid[0].length;
+    let ans = 0;
+    let queue = [];
+    // 统计全部1, 临边的1加入队列
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            let cur = grid[i][j];
+            if (cur) {
+                ans++;
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
+                    queue.push([i, j]);
+                    ans--;
+                }
+            }
+        }
+    }
+
+    let directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+    while (queue.length) {
+        let nextQueue = [];
+        for (let [x, y] of queue) {
+            for (let [dx, dy] of directions) {
+                let [i, j] = [x + dx, y + dy];
+                if (i > 0 && i < m - 1 && j > 0 && j < n - 1 && grid[i][j]) {
+                    nextQueue.push([i, j]);
+                    ans--;
+                    grid[i][j] = 0;
+                }
+            }
+            queue = nextQueue;
+        }
+    }
+    return ans;
+};
