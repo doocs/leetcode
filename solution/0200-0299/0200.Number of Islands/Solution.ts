@@ -1,33 +1,25 @@
 function numIslands(grid: string[][]): number {
-    let m = grid.length,
-        n = grid[0].length;
+    const m = grid.length;
+    const n = grid[0].length;
     let ans = 0;
+    function dfs(i, j) {
+        grid[i][j] = '0';
+        const dirs = [-1, 0, 1, 0, -1];
+        for (let k = 0; k < 4; ++k) {
+            const x = i + dirs[k];
+            const y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                dfs(x, y);
+            }
+        }
+    }
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
             if (grid[i][j] == '1') {
-                dfs(grid, i, j);
+                dfs(i, j);
                 ++ans;
             }
         }
     }
     return ans;
-}
-
-function dfs(grid: string[][], i: number, j: number) {
-    let m = grid.length,
-        n = grid[0].length;
-    if (i < 0 || i > m - 1 || j < 0 || j > n - 1 || grid[i][j] == '0') {
-        return;
-    }
-    grid[i][j] = '0';
-    for (let [dx, dy] of [
-        [0, 1],
-        [0, -1],
-        [1, 0],
-        [-1, 0],
-    ]) {
-        let x = i + dx,
-            y = j + dy;
-        dfs(grid, x, y);
-    }
 }
