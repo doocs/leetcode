@@ -20,7 +20,7 @@
 
 <pre><strong>输入：</strong>word = "<em><strong>abcd</strong></em>efd", ch = "d"
 <strong>输出：</strong>"<em><strong>dcba</strong></em>efd"
-<strong>解释：</strong>"d" 第一次出现在下标 3 。 
+<strong>解释：</strong>"d" 第一次出现在下标 3 。
 反转从下标 0 到下标 3（含下标 3）的这段字符，结果字符串是 "dcbaefd" 。
 </pre>
 
@@ -129,7 +129,7 @@ function reversePrefix(word: string, ch: string): string {
 
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn reverse_prefix(word: String, ch: char) -> String {
         match word.find(ch) {

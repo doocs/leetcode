@@ -18,7 +18,7 @@
 <pre>
 <strong>Input:</strong> word = &quot;<u>abcd</u>efd&quot;, ch = &quot;d&quot;
 <strong>Output:</strong> &quot;<u>dcba</u>efd&quot;
-<strong>Explanation:</strong>&nbsp;The first occurrence of &quot;d&quot; is at index 3. 
+<strong>Explanation:</strong>&nbsp;The first occurrence of &quot;d&quot; is at index 3.
 Reverse the part of word from 0 to 3 (inclusive), the resulting string is &quot;dcbaefd&quot;.
 </pre>
 
@@ -122,7 +122,7 @@ function reversePrefix(word: string, ch: string): string {
 
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn reverse_prefix(word: String, ch: char) -> String {
         match word.find(ch) {
