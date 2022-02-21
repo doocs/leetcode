@@ -1,38 +1,33 @@
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
-        s = set(deadends)
-        if target in s or '0000' in s:
-            return -1
-        if target == '0000':
-            return 0
-
-        def prev(c):
-            return '9' if c == '0' else str(int(c) - 1)
-
-        def next(c):
-            return '0' if c == '9' else str(int(c) + 1)
-
-        def get(t):
+        def next(s):
             res = []
-            t = list(t)
+            s = list(s)
             for i in range(4):
-                c = t[i]
-                t[i] = prev(c)
-                res.append(''.join(t))
-                t[i] = next(c)
-                res.append(''.join(t))
-                t[i] = c
+                c = s[i]
+                s[i] = '9' if c == '0' else str(int(c) - 1)
+                res.append(''.join(s))
+                s[i] = '0' if c == '9' else str(int(c) + 1)
+                res.append(''.join(s))
+                s[i] = c
             return res
 
-        visited = set()
-        q = deque([('0000', 0)])
+        if target == '0000':
+            return 0
+        s = set(deadends)
+        if '0000' in s:
+            return -1
+        q = deque([('0000')])
+        s.add('0000')
+        ans = 0
         while q:
-            status, step = q.popleft()
-            for t in get(status):
-                if t in visited or t in s:
-                    continue
-                if t == target:
-                    return step + 1
-                q.append((t, step + 1))
-                visited.add(t)
+            ans += 1
+            for _ in range(len(q), 0, -1):
+                p = q.popleft()
+                for t in next(p):
+                    if t == target:
+                        return ans
+                    if t not in s:
+                        q.append(t)
+                        s.add(t)
         return -1

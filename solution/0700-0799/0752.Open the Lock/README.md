@@ -66,6 +66,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+BFS 最小步数模型。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,41 +77,36 @@
 ```python
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
-        s = set(deadends)
-        if target in s or '0000' in s:
-            return -1
-        if target == '0000':
-            return 0
-
-        def prev(c):
-            return '9' if c == '0' else str(int(c) - 1)
-
-        def next(c):
-            return '0' if c == '9' else str(int(c) + 1)
-
-        def get(t):
+        def next(s):
             res = []
-            t = list(t)
+            s = list(s)
             for i in range(4):
-                c = t[i]
-                t[i] = prev(c)
-                res.append(''.join(t))
-                t[i] = next(c)
-                res.append(''.join(t))
-                t[i] = c
+                c = s[i]
+                s[i] = '9' if c == '0' else str(int(c) - 1)
+                res.append(''.join(s))
+                s[i] = '0' if c == '9' else str(int(c) + 1)
+                res.append(''.join(s))
+                s[i] = c
             return res
 
-        visited = set()
-        q = deque([('0000', 0)])
+        if target == '0000':
+            return 0
+        s = set(deadends)
+        if '0000' in s:
+            return -1
+        q = deque([('0000')])
+        s.add('0000')
+        ans = 0
         while q:
-            status, step = q.popleft()
-            for t in get(status):
-                if t in visited or t in s:
-                    continue
-                if t == target:
-                    return step + 1
-                q.append((t, step + 1))
-                visited.add(t)
+            ans += 1
+            for _ in range(len(q), 0, -1):
+                p = q.popleft()
+                for t in next(p):
+                    if t == target:
+                        return ans
+                    if t not in s:
+                        q.append(t)
+                        s.add(t)
         return -1
 ```
 
@@ -120,52 +117,43 @@ class Solution:
 ```java
 class Solution {
     public int openLock(String[] deadends, String target) {
-        Set<String> s = new HashSet<>(Arrays.asList(deadends));
-        if (s.contains(target) || s.contains("0000")) {
-            return -1;
-        }
-        if (Objects.equals(target, "0000")) {
+        if ("0000".equals(target)) {
             return 0;
         }
-        Set<String> visited = new HashSet<>();
+        Set<String> s = new HashSet<>(Arrays.asList(deadends));
+        if (s.contains("0000")) {
+            return -1;
+        }
         Deque<String> q = new ArrayDeque<>();
-        q.offerLast("0000");
-        int step = 0;
+        q.offer("0000");
+        s.add("0000");
+        int ans = 0;
         while (!q.isEmpty()) {
-            ++step;
-            for (int i = 0, n = q.size(); i < n; ++i) {
-                String status = q.pollFirst();
-                for (String t : get(status)) {
-                    if (visited.contains(t) || s.contains(t)) {
-                        continue;
+            ++ans;
+            for (int n = q.size(); n > 0; --n) {
+                String p = q.poll();
+                for (String t : next(p)) {
+                    if (target.equals(t)) {
+                        return ans;
                     }
-                    if (Objects.equals(t, target)) {
-                        return step;
+                    if (!s.contains(t)) {
+                        q.offer(t);
+                        s.add(t);
                     }
-                    q.offerLast(t);
-                    visited.add(t);
                 }
             }
         }
         return -1;
     }
 
-    private char prev(char c)  {
-        return c == '0' ? '9' : (char) (c - 1);
-    }
-
-    private char next(char c) {
-        return c == '9' ? '0' : (char) (c + 1);
-    }
-
-    private List<String> get(String t) {
+    private List<String> next(String t) {
         List res = new ArrayList<>();
         char[] chars = t.toCharArray();
         for (int i = 0; i < 4; ++i) {
             char c = chars[i];
-            chars[i] = prev(c);
+            chars[i] = c == '0' ? '9' : (char) (c - 1);
             res.add(String.valueOf(chars));
-            chars[i] = next(c);
+            chars[i] = c == '9' ? '0' : (char) (c + 1);
             res.add(String.valueOf(chars));
             chars[i] = c;
         }
@@ -181,53 +169,101 @@ class Solution {
 public:
     int openLock(vector<string>& deadends, string target) {
         unordered_set<string> s(deadends.begin(), deadends.end());
-        if (s.count(target) || s.count("0000")) return -1;
+        if (s.count("0000")) return -1;
         if (target == "0000") return 0;
-        unordered_set<string> visited;
-        queue<string> q;
-        q.push("0000");
-        int step = 0;
+        queue<string> q{{"0000"}};
+        s.insert("0000");
+        int ans = 0;
         while (!q.empty())
         {
-            ++step;
-            for (int i = 0, n = q.size(); i < n; ++i)
+            ++ans;
+            for (int n = q.size(); n > 0; --n)
             {
-                string status = q.front();
+                string p = q.front();
                 q.pop();
-                for (auto t : get(status))
+                for (string t : next(p))
                 {
-                    if (visited.count(t) || s.count(t)) continue;
-                    if (t == target) return step;
-                    q.push(t);
-                    visited.insert(t);
+                    if (target == t) return ans;
+                    if (!s.count(t))
+                    {
+                        q.push(t);
+                        s.insert(t);
+                    }
                 }
             }
         }
         return -1;
     }
 
-    char prev(char c) {
-        return c == '0' ? '9' : (char) (c - 1);
-    }
-
-    char next(char c) {
-        return c == '9' ? '0' : (char) (c + 1);
-    }
-
-    vector<string> get(string& t) {
+    vector<string> next(string& t) {
         vector<string> res;
         for (int i = 0; i < 4; ++i)
         {
             char c = t[i];
-            t[i] = prev(c);
+            t[i] = c == '0' ? '9' : (char) (c - 1);
             res.push_back(t);
-            t[i] = next(c);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
             res.push_back(t);
             t[i] = c;
         }
         return res;
     }
 };
+```
+
+### **Go**
+
+```go
+func openLock(deadends []string, target string) int {
+	if target == "0000" {
+		return 0
+	}
+	s := make(map[string]bool)
+	for _, d := range deadends {
+		s[d] = true
+	}
+	if s["0000"] {
+		return -1
+	}
+	q := []string{"0000"}
+	s["0000"] = true
+	ans := 0
+	next := func(t string) []string {
+		s := []byte(t)
+		var res []string
+		for i, b := range s {
+			s[i] = b - 1
+			if s[i] < '0' {
+				s[i] = '9'
+			}
+			res = append(res, string(s))
+			s[i] = b + 1
+			if s[i] > '9' {
+				s[i] = '0'
+			}
+			res = append(res, string(s))
+			s[i] = b
+		}
+		return res
+	}
+	for len(q) > 0 {
+		ans++
+		for n := len(q); n > 0; n-- {
+			p := q[0]
+			q = q[1:]
+			for _, t := range next(p) {
+				if target == t {
+					return ans
+				}
+				if !s[t] {
+					q = append(q, t)
+					s[t] = true
+				}
+			}
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**
