@@ -108,9 +108,36 @@ class Solution:
                     nx = op(x, num)
                     if nx == goal:
                         return step + 1
-                    if nx >= 0 and nx <= 1000 and not vis[nx]:
+                    if 0 <= nx <= 1000 and not vis[nx]:
                         q.append((nx, step + 1))
                         vis[nx] = True
+        return -1
+```
+
+```python
+class Solution:
+    def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
+        def next(x):
+            res = []
+            for num in nums:
+                res.append(x + num)
+                res.append(x - num)
+                res.append(x ^ num)
+            return res
+
+        q = deque([start])
+        vis = set([(start)])
+        ans = 0
+        while q:
+            ans += 1
+            for _ in range(len(q), 0, -1):
+                x = q.popleft()
+                for y in next(x):
+                    if y == goal:
+                        return ans
+                    if 0 <= y <= 1000 and y not in vis:
+                        vis.add(y)
+                        q.append(y)
         return -1
 ```
 
@@ -143,6 +170,43 @@ class Solution {
             }
         }
         return -1;
+    }
+}
+```
+
+```java
+class Solution {
+    public int minimumOperations(int[] nums, int start, int goal) {
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(start);
+        boolean[] vis = new boolean[1001];
+        int ans = 0;
+        while (!q.isEmpty()) {
+            ++ans;
+            for (int n = q.size(); n > 0; --n) {
+                int x = q.poll();
+                for (int y : next(nums, x)) {
+                    if (y == goal) {
+                        return ans;
+                    }
+                    if (y >= 0 && y <= 1000 && !vis[y]) {
+                        vis[y] = true;
+                        q.offer(y);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    private List<Integer> next(int[] nums, int x) {
+        List<Integer> res = new ArrayList<>();
+        for (int num : nums) {
+            res.add(x + num);
+            res.add(x - num);
+            res.add(x ^ num);
+        }
+        return res;
     }
 }
 ```
@@ -183,6 +247,47 @@ public:
 };
 ```
 
+```cpp
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums, int start, int goal) {
+        queue<int> q{{start}};
+        vector<bool> vis(1001);
+        int ans = 0;
+        while (!q.empty())
+        {
+            ++ans;
+            for (int n = q.size(); n > 0; --n)
+            {
+                int x = q.front();
+                q.pop();
+                for (int y : next(nums, x))
+                {
+                    if (y == goal) return ans;
+                    if (y >= 0 && y <= 1000 && !vis[y])
+                    {
+                        vis[y] = true;
+                        q.push(y);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    vector<int> next(vector<int>& nums, int x) {
+        vector<int> res;
+        for (int num : nums)
+        {
+            res.push_back(x + num);
+            res.push_back(x - num);
+            res.push_back(x ^ num);
+        }
+        return res;
+    }
+};
+```
+
 ### **Go**
 
 ```go
@@ -212,6 +317,38 @@ func minimumOperations(nums []int, start int, goal int) int {
 				if nx >= 0 && nx <= 1000 && !vis[nx] {
 					q = append(q, pair{nx, step + 1})
 					vis[nx] = true
+				}
+			}
+		}
+	}
+	return -1
+}
+```
+
+```go
+func minimumOperations(nums []int, start int, goal int) int {
+	next := func(x int) []int {
+		var res []int
+		for _, num := range nums {
+			res = append(res, []int{x + num, x - num, x ^ num}...)
+		}
+		return res
+	}
+	q := []int{start}
+	vis := make([]bool, 1001)
+	ans := 0
+	for len(q) > 0 {
+		ans++
+		for n := len(q); n > 0; n-- {
+			x := q[0]
+			q = q[1:]
+			for _, y := range next(x) {
+				if y == goal {
+					return ans
+				}
+				if y >= 0 && y <= 1000 && !vis[y] {
+					vis[y] = true
+					q = append(q, y)
 				}
 			}
 		}
