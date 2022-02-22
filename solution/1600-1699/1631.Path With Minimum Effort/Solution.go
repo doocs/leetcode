@@ -1,20 +1,25 @@
-var p []int
-
 func minimumEffortPath(heights [][]int) int {
 	m, n := len(heights), len(heights[0])
-	p = make([]int, m*n)
-	for i := 0; i < len(p); i++ {
+	p := make([]int, m*n)
+	for i := range p {
 		p[i] = i
 	}
-	var edges [][]int
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	edges := [][]int{}
+	for i, row := range heights {
+		for j, h := range row {
 			if i < m-1 {
-				s := []int{abs(heights[i][j] - heights[i+1][j]), i*n + j, (i+1)*n + j}
+				s := []int{abs(h - heights[i+1][j]), i*n + j, (i+1)*n + j}
 				edges = append(edges, s)
 			}
 			if j < n-1 {
-				s := []int{abs(heights[i][j] - heights[i][j+1]), i*n + j, i*n + j + 1}
+				s := []int{abs(h - row[j+1]), i*n + j, i*n + j + 1}
 				edges = append(edges, s)
 			}
 		}
@@ -30,13 +35,6 @@ func minimumEffortPath(heights [][]int) int {
 		}
 	}
 	return 0
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }
 
 func abs(x int) int {

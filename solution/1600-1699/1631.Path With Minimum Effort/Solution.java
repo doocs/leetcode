@@ -2,7 +2,8 @@ class Solution {
     private int[] p;
 
     public int minimumEffortPath(int[][] heights) {
-        int m = heights.length, n = heights[0].length;
+        int m = heights.length;
+        int n = heights[0].length;
         p = new int[m * n];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;

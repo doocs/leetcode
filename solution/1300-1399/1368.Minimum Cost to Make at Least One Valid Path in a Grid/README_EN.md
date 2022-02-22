@@ -72,6 +72,8 @@ The total cost = 3.
 
 ## Solutions
 
+BFS using deque.
+
 <!-- tabs:start -->
 
 ### **Python3**
