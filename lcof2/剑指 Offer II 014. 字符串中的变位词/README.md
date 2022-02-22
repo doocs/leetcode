@@ -144,7 +144,7 @@ func check(window []int) bool {
 
 ### **C++**
 
-```c++
+```cpp
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
