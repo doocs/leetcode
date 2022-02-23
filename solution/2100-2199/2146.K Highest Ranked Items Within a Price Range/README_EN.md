@@ -92,24 +92,183 @@ Note that k = 3 but there are only 2 reachable items within the price range.
 
 ## Solutions
 
+BFS.
+
 <!-- tabs:start -->
 
 ### **Python3**
 
 ```python
-
+class Solution:
+    def highestRankedKItems(self, grid: List[List[int]], pricing: List[int], start: List[int], k: int) -> List[List[int]]:
+        m, n = len(grid), len(grid[0])
+        row, col, low, high = start + pricing
+        items = []
+        if low <= grid[row][col] <= high:
+            items.append([0, grid[row][col], row, col])
+        q = deque([(row, col, 0)])
+        grid[row][col] = 0
+        while q:
+            i, j, d = q.popleft()
+            for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid[x][y]:
+                    if low <= grid[x][y] <= high:
+                        items.append([d + 1, grid[x][y], x, y])
+                    q.append((x, y, d + 1))
+                    grid[x][y] = 0
+        items.sort()
+        return [item[2:] for item in items][:k]
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<List<Integer>> highestRankedKItems(int[][] grid, int[] pricing, int[] start, int k) {
+        int m = grid.length, n = grid[0].length;
+        int row = start[0], col = start[1];
+        int low = pricing[0], high = pricing[1];
+        List<int[]> items = new ArrayList<>();
+        if (low <= grid[row][col] && grid[row][col] <= high) {
+            items.add(new int[]{0, grid[row][col], row, col});
+        }
+        grid[row][col] = 0;
+        Deque<int[]> q = new ArrayDeque<>();
+        q.offer(new int[]{row, col, 0});
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int i = p[0], j = p[1], d = p[2];
+            for (int l = 0; l < 4; ++l) {
+                int x = i + dirs[l], y = j + dirs[l + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0) {
+                    if (low <= grid[x][y] && grid[x][y] <= high) {
+                        items.add(new int[]{d + 1, grid[x][y], x, y});
+                    }
+                    grid[x][y] = 0;
+                    q.offer(new int[]{x, y, d + 1});
+                }
+            }
+        }
+        items.sort((a, b) -> {
+            if (a[0] != b[0]) {
+                return a[0] - b[0];
+            }
+            if (a[1] != b[1]) {
+                return a[1] - b[1];
+            }
+            if (a[2] != b[2]) {
+                return a[2] - b[2];
+            }
+            return a[3] - b[3];
+        });
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < items.size() && i < k; ++i) {
+            int[] p = items.get(i);
+            ans.add(Arrays.asList(p[2], p[3]));
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> highestRankedKItems(vector<vector<int>>& grid, vector<int>& pricing, vector<int>& start, int k) {
+        int m = grid.size(), n = grid[0].size();
+        int row = start[0], col = start[1];
+        int low = pricing[0], high = pricing[1];
+        vector<tuple<int, int, int, int>> items;
+        if (low <= grid[row][col] && grid[row][col] <= high)
+            items.emplace_back(0, grid[row][col], row, col);
+        queue<tuple<int, int, int>> q;
+        q.emplace(row, col, 0);
+        grid[row][col] = 0;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        while (!q.empty())
+        {
+            auto [i, j, d] = q.front();
+            q.pop();
+            for (int l = 0; l < 4; ++l)
+            {
+                int x = i + dirs[l], y = j + dirs[l + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y])
+                {
+                    if (low <= grid[x][y] && grid[x][y] <= high) items.emplace_back(d + 1, grid[x][y], x, y);
+                    grid[x][y] = 0;
+                    q.emplace(x, y, d + 1);
+                }
+            }
+        }
+        sort(items.begin(), items.end());
+        vector<vector<int>> ans;
+        for (int i = 0; i < items.size() && i < k; ++i)
+        {
+            auto [d, p, x, y] = items[i];
+            ans.push_back({x, y});
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func highestRankedKItems(grid [][]int, pricing []int, start []int, k int) [][]int {
+	m, n := len(grid), len(grid[0])
+	row, col := start[0], start[1]
+	low, high := pricing[0], pricing[1]
+	var items [][]int
+	if low <= grid[row][col] && grid[row][col] <= high {
+		items = append(items, []int{0, grid[row][col], row, col})
+	}
+	q := [][]int{{row, col, 0}}
+	grid[row][col] = 0
+	dirs := []int{-1, 0, 1, 0, -1}
+	for len(q) > 0 {
+		p := q[0]
+		q = q[1:]
+		i, j, d := p[0], p[1], p[2]
+		for l := 0; l < 4; l++ {
+			x, y := i+dirs[l], j+dirs[l+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] > 0 {
+				if low <= grid[x][y] && grid[x][y] <= high {
+					items = append(items, []int{d + 1, grid[x][y], x, y})
+				}
+				grid[x][y] = 0
+				q = append(q, []int{x, y, d + 1})
+			}
+		}
+	}
+	sort.Slice(items, func(i, j int) bool {
+		a, b := items[i], items[j]
+		if a[0] != b[0] {
+			return a[0] < b[0]
+		}
+		if a[1] != b[1] {
+			return a[1] < b[1]
+		}
+		if a[2] != b[2] {
+			return a[2] < b[2]
+		}
+		return a[3] < b[3]
+	})
+	var ans [][]int
+	for i := 0; i < len(items) && i < k; i++ {
+		ans = append(ans, items[i][2:])
+	}
+	return ans
+}
 ```
 
 ### **TypeScript**
 
 ```ts
-
 ```
 
 ### **...**
