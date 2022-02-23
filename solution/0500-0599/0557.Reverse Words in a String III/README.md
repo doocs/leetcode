@@ -96,6 +96,36 @@ func reverseWords(s string) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function reverseWords(s: string): string {
+    return s
+        .split(/\s+/)
+        .map(str => {
+            let res = '';
+            for (const c of str) {
+                res = c + res;
+            }
+            return res;
+        })
+        .join(' ');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn reverse_words(s: String) -> String {
+        s.split(' ')
+            .map(|s| s.chars().rev().collect::<String>())
+            .collect::<Vec<_>>()
+            .join(" ")
+    }
+}
+```
+
 ### **...**
 
 ```
