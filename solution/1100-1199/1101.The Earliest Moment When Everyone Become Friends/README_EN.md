@@ -46,6 +46,8 @@ The sixth event occurs at timestamp = 20190301 and after 0 and 3 become friends 
 
 ## Solutions
 
+Union find.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,19 +55,17 @@ The sixth event occurs at timestamp = 20190301 and after 0 and 3 become friends 
 ```python
 class Solution:
     def earliestAcq(self, logs: List[List[int]], n: int) -> int:
-        p = list(range(n))
-        logs.sort(key=lambda x: x[0])
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-
+        
+        p = list(range(n))
+        logs.sort()
         for t, a, b in logs:
-            pa, pb = find(a), find(b)
-            if pa == pb:
+            if find(a) == find(b):
                 continue
-            p[pa] = pb
+            p[find(a)] = find(b)
             n -= 1
             if n == 1:
                 return t
@@ -85,13 +85,11 @@ class Solution {
         }
         Arrays.sort(logs, Comparator.comparingInt(a -> a[0]));
         for (int[] log : logs) {
-            int t = log[0];
-            int a = log[1], b = log[2];
-            int pa = find(a), pb = find(b);
-            if (pa == pb) {
+            int t = log[0], a = log[1], b = log[2];
+            if (find(a) == find(b)) {
                 continue;
             }
-            p[pa] = pb;
+            p[find(a)] = find(b);
             --n;
             if (n == 1) {
                 return t;
@@ -117,26 +115,21 @@ public:
     vector<int> p;
 
     int earliestAcq(vector<vector<int>>& logs, int n) {
-        for (int i = 0; i < n; ++i)
-            p.push_back(i);
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
         sort(logs.begin(), logs.end());
-        for (auto log : logs)
+        for (auto& log : logs)
         {
-            int a = log[1], b = log[2];
-            int pa = find(a), pb = find(b);
-            if (pa == pb)
-                continue;
-            p[pa] = pb;
-            --n;
-            if (n == 1)
-                return log[0];
+            int t = log[0], a = log[1], b = log[2];
+            if (find(a) == find(b)) continue;
+            p[find(a)] = find(b);
+            if (--n == 1) return t;
         }
         return -1;
     }
 
     int find(int x) {
-        if (p[x] != x)
-            p[x] = find(p[x]);
+        if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
 };
@@ -145,36 +138,33 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func earliestAcq(logs [][]int, n int) int {
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
 	}
 	sort.Slice(logs, func(i, j int) bool {
 		return logs[i][0] < logs[j][0]
 	})
 	for _, log := range logs {
-		a, b := log[1], log[2]
-		pa, pb := find(a), find(b)
-		if pa == pb {
+		t, a, b := log[0], log[1], log[2]
+		if find(a) == find(b) {
 			continue
 		}
-		p[pa] = pb
+		p[find(a)] = find(b)
 		n--
 		if n == 1 {
-			return log[0]
+			return t
 		}
 	}
 	return -1
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }
 ```
 
