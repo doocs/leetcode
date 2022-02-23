@@ -4,81 +4,34 @@
 
 ## Description
 
-<p>Given a string <code>S</code>, return the &quot;reversed&quot; string where all characters that are not a letter&nbsp;stay in the same place, and all letters reverse their positions.</p>
+<p>Given a string <code>s</code>, reverse the string according to the following rules:</p>
+
+<ul>
+	<li>All the characters that are not English letters remain in the same position.</li>
+	<li>All the English letters (lowercase or uppercase) should be reversed.</li>
+</ul>
+
+<p>Return <code>s</code><em> after reversing it</em>.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
-<div>
-
-<div>
-
-<ol>
-
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-1-1">&quot;ab-cd&quot;</span>
-
-<strong>Output: </strong><span id="example-output-1">&quot;dc-ba&quot;</span>
-
+<pre><strong>Input:</strong> s = "ab-cd"
+<strong>Output:</strong> "dc-ba"
+</pre><p><strong>Example 2:</strong></p>
+<pre><strong>Input:</strong> s = "a-bC-dEf-ghIj"
+<strong>Output:</strong> "j-Ih-gfE-dCba"
+</pre><p><strong>Example 3:</strong></p>
+<pre><strong>Input:</strong> s = "Test1ng-Leet=code-Q!"
+<strong>Output:</strong> "Qedo1ct-eeLg=ntse-T!"
 </pre>
-
-<div>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-2-1">&quot;a-bC-dEf-ghIj&quot;</span>
-
-<strong>Output: </strong><span id="example-output-2">&quot;j-Ih-gfE-dCba&quot;</span>
-
-</pre>
-
-<div>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-
-<strong>Input: </strong><span id="example-input-3-1">&quot;Test1ng-Leet=code-Q!&quot;</span>
-
-<strong>Output: </strong><span id="example-output-3">&quot;Qedo1ct-eeLg=ntse-T!&quot;</span>
-
-</pre>
-
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<div>
-
-<p><strong><span>Note:</span></strong></p>
-
-<ol>
-	<li><code>S.length &lt;= 100</code></li>
-	<li><code>33 &lt;= S[i].ASCIIcode &lt;= 122</code>&nbsp;</li>
-	<li><code>S</code> doesn&#39;t contain <code>\</code> or <code>&quot;</code></li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 100</code></li>
+	<li><code>s</code> consists of characters with ASCII values in the range <code>[33, 122]</code>.</li>
+	<li><code>s</code> does not contain <code>&#39;\&quot;&#39;</code> or <code>&#39;\\&#39;</code>.</li>
+</ul>
 
 ## Solutions
 
@@ -87,13 +40,92 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        s = list(s)
+        i, j = 0, len(s) - 1
+        while i < j:
+            while i < j and not s[i].isalpha():
+                i += 1
+            while i < j and not s[j].isalpha():
+                j -= 1
+            if i < j:
+                s[i], s[j] = s[j], s[i]
+                i, j = i + 1, j - 1
+        return ''.join(s)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public String reverseOnlyLetters(String s) {
+        char[] chars = s.toCharArray();
+        int i = 0, j = s.length() - 1;
+        while (i < j) {
+            while (i < j && !Character.isLetter(chars[i])) {
+                ++i;
+            }
+            while (i < j && !Character.isLetter(chars[j])) {
+                --j;
+            }
+            if (i < j) {
+                char t = chars[i];
+                chars[i] = chars[j];
+                chars[j] = t;
+                ++i;
+                --j;
+            }
+        }
+        return new String(chars);
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string reverseOnlyLetters(string s) {
+        int i = 0, j = s.size() - 1;
+        while (i < j)
+        {
+            while (i < j && !isalpha(s[i])) ++i;
+            while (i < j && !isalpha(s[j])) --j;
+            if (i < j)
+            {
+                swap(s[i], s[j]);
+                ++i;
+                --j;
+            }
+        }
+        return s;
+    }
+};
+```
+
+### **Go**
+
+```go
+func reverseOnlyLetters(s string) string {
+	ans := []rune(s)
+	i, j := 0, len(s)-1
+	for i < j {
+		for i < j && !unicode.IsLetter(ans[i]) {
+			i++
+		}
+		for i < j && !unicode.IsLetter(ans[j]) {
+			j--
+		}
+		if i < j {
+			ans[i], ans[j] = ans[j], ans[i]
+			i++
+			j--
+		}
+	}
+	return string(ans)
+}
 ```
 
 ### **...**
