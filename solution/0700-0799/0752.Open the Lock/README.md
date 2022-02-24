@@ -68,6 +68,37 @@
 
 BFS 最小步数模型。本题可以用朴素 BFS，也可以用双向 BFS 优化搜索空间，从而提升效率。
 
+双向 BFS 是 BFS 常见的一个优化方法，主要实现思路如下：
+
+1. 创建两个队列 q1, q2 分别用于“起点 -> 终点”、“终点 -> 起点”两个方向的搜索；
+2. 创建两个哈希表 m1, m2 分别记录访问过的节点以及对应的扩展次数（步数）；
+3. 每次搜索时，优先选择元素数量较少的队列进行搜索扩展，如果在扩展过程中，搜索到另一个方向已经访问过的节点，说明找到了最短路径；
+4. 只要其中一个队列为空，说明当前方向的搜索已经进行不下去了，说明起点到终点不连通，无需继续搜索。
+
+```python
+while q1 and q2:
+    if len(q1) <= len(q2):
+        # 优先选择较少元素的队列进行扩展
+        extend(m1, m2, q1)
+    else:
+        extend(m2, m1, q2)
+
+def extend(m1, m2, q):
+    # 新一轮扩展
+    for _ in range(len(q), 0, -1):
+        p = q.popleft()
+        step = m1[p]
+        for t in next(p):
+            if t in m1:
+                # 此前已经访问过
+                continue
+            if t in m2:
+                # 另一个方向已经搜索过，说明找到了一条最短的连通路径
+                return step + 1 + m2[t]
+            q.append(t)
+            m1[t] = step + 1
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -128,7 +159,7 @@ class Solution:
                 res.append(''.join(s))
                 s[i] = c
             return res
-        
+
         def extend(m1, m2, q):
             for _ in range(len(q), 0, -1):
                 p = q.popleft()
@@ -141,7 +172,7 @@ class Solution:
                     m1[t] = step + 1
                     q.append(t)
             return -1
-        
+
         def bfs():
             m1, m2 = {"0000": 0}, {target: 0}
             q1, q2 = deque([('0000')]), deque([(target)])
@@ -150,7 +181,7 @@ class Solution:
                 if t != -1:
                     return t
             return -1
-        
+
         if target == '0000':
             return 0
         s = set(deadends)
@@ -354,7 +385,7 @@ public:
         if (s.count("0000")) return -1;
         this->start = "0000";
         this->target = target;
-        return bfs(); 
+        return bfs();
     }
 
     int bfs() {
