@@ -66,13 +66,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-BFS 最小步数模型。
+BFS 最小步数模型。本题可以用朴素 BFS，也可以用双向 BFS 优化搜索空间，从而提升效率。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+朴素 BFS：
 
 ```python
 class Solution:
@@ -110,9 +112,58 @@ class Solution:
         return -1
 ```
 
+双向 BFS 优化搜索：
+
+```python
+class Solution:
+    def openLock(self, deadends: List[str], target: str) -> int:
+        def next(s):
+            res = []
+            s = list(s)
+            for i in range(4):
+                c = s[i]
+                s[i] = '9' if c == '0' else str(int(c) - 1)
+                res.append(''.join(s))
+                s[i] = '0' if c == '9' else str(int(c) + 1)
+                res.append(''.join(s))
+                s[i] = c
+            return res
+        
+        def extend(m1, m2, q):
+            for _ in range(len(q), 0, -1):
+                p = q.popleft()
+                step = m1[p]
+                for t in next(p):
+                    if t in s or t in m1:
+                        continue
+                    if t in m2:
+                        return step + 1 + m2[t]
+                    m1[t] = step + 1
+                    q.append(t)
+            return -1
+        
+        def bfs():
+            m1, m2 = {"0000": 0}, {target: 0}
+            q1, q2 = deque([('0000')]), deque([(target)])
+            while q1 and q2:
+                t = extend(m1, m2, q1) if len(q1) <= len(q2) else extend(m2, m1, q2)
+                if t != -1:
+                    return t
+            return -1
+        
+        if target == '0000':
+            return 0
+        s = set(deadends)
+        if '0000' in s:
+            return -1
+        return bfs()
+```
+
 ### **Java**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+朴素 BFS：
 
 ```java
 class Solution {
@@ -162,7 +213,84 @@ class Solution {
 }
 ```
 
+双向 BFS 优化搜索：
+
+```java
+class Solution {
+    private String start;
+    private String target;
+    private Set<String> s = new HashSet<>();
+
+    public int openLock(String[] deadends, String target) {
+        if ("0000".equals(target)) {
+            return 0;
+        }
+        start = "0000";
+        this.target = target;
+        for (String d : deadends) {
+            s.add(d);
+        }
+        if (s.contains(start)) {
+            return -1;
+        }
+        return bfs();
+    }
+
+    private int bfs() {
+        Map<String, Integer> m1 = new HashMap<>();
+        Map<String, Integer> m2 = new HashMap<>();
+        Deque<String> q1 = new ArrayDeque<>();
+        Deque<String> q2 = new ArrayDeque<>();
+        m1.put(start, 0);
+        m2.put(target, 0);
+        q1.offer(start);
+        q2.offer(target);
+        while (!q1.isEmpty() && !q2.isEmpty()) {
+            int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
+            if (t != -1) {
+                return t;
+            }
+        }
+        return -1;
+    }
+
+    private int extend(Map<String, Integer> m1, Map<String, Integer> m2, Deque<String> q) {
+        for (int n = q.size(); n > 0; --n) {
+            String p = q.poll();
+            int step = m1.get(p);
+            for (String t : next(p)) {
+                if (m1.containsKey(t) || s.contains(t)) {
+                    continue;
+                }
+                if (m2.containsKey(t)) {
+                    return step + 1 + m2.get(t);
+                }
+                m1.put(t, step + 1);
+                q.offer(t);
+            }
+        }
+        return -1;
+    }
+
+    private List<String> next(String t) {
+        List res = new ArrayList<>();
+        char[] chars = t.toCharArray();
+        for (int i = 0; i < 4; ++i) {
+            char c = chars[i];
+            chars[i] = c == '0' ? '9' : (char) (c - 1);
+            res.add(String.valueOf(chars));
+            chars[i] = c == '9' ? '0' : (char) (c + 1);
+            res.add(String.valueOf(chars));
+            chars[i] = c;
+        }
+        return res;
+    }
+}
+```
+
 ### **C++**
+
+朴素 BFS：
 
 ```cpp
 class Solution {
@@ -211,7 +339,75 @@ public:
 };
 ```
 
+双向 BFS 优化搜索：
+
+```cpp
+class Solution {
+public:
+    unordered_set<string> s;
+    string start;
+    string target;
+
+    int openLock(vector<string>& deadends, string target) {
+        if (target == "0000") return 0;
+        for (auto d : deadends) s.insert(d);
+        if (s.count("0000")) return -1;
+        this->start = "0000";
+        this->target = target;
+        return bfs(); 
+    }
+
+    int bfs() {
+        unordered_map<string, int> m1;
+        unordered_map<string, int> m2;
+        m1[start] = 0;
+        m2[target] = 0;
+        queue<string> q1{{start}};
+        queue<string> q2{{target}};
+        while (!q1.empty() && !q2.empty())
+        {
+            int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
+            if (t != -1) return t;
+        }
+        return -1;
+    }
+
+    int extend(unordered_map<string, int>& m1, unordered_map<string, int>& m2, queue<string>& q) {
+        for (int n = q.size(); n > 0; --n)
+        {
+            string p = q.front();
+            int step = m1[p];
+            q.pop();
+            for (string t : next(p))
+            {
+                if (s.count(t) || m1.count(t)) continue;
+                if (m2.count(t)) return step + 1 + m2[t];
+                m1[t] = step + 1;
+                q.push(t);
+            }
+        }
+        return -1;
+    }
+
+    vector<string> next(string& t) {
+        vector<string> res;
+        for (int i = 0; i < 4; ++i)
+        {
+            char c = t[i];
+            t[i] = c == '0' ? '9' : (char) (c - 1);
+            res.push_back(t);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
+            res.push_back(t);
+            t[i] = c;
+        }
+        return res;
+    }
+};
+```
+
 ### **Go**
+
+朴素 BFS：
 
 ```go
 func openLock(deadends []string, target string) int {
@@ -263,6 +459,84 @@ func openLock(deadends []string, target string) int {
 		}
 	}
 	return -1
+}
+```
+
+双向 BFS 优化搜索：
+
+```go
+func openLock(deadends []string, target string) int {
+	if target == "0000" {
+		return 0
+	}
+	s := make(map[string]bool)
+	for _, d := range deadends {
+		s[d] = true
+	}
+	if s["0000"] {
+		return -1
+	}
+	next := func(t string) []string {
+		s := []byte(t)
+		var res []string
+		for i, b := range s {
+			s[i] = b - 1
+			if s[i] < '0' {
+				s[i] = '9'
+			}
+			res = append(res, string(s))
+			s[i] = b + 1
+			if s[i] > '9' {
+				s[i] = '0'
+			}
+			res = append(res, string(s))
+			s[i] = b
+		}
+		return res
+	}
+
+	extend := func(m1, m2 map[string]int, q *[]string) int {
+		for n := len(*q); n > 0; n-- {
+			p := (*q)[0]
+			*q = (*q)[1:]
+			step, _ := m1[p]
+			for _, t := range next(p) {
+				if s[t] {
+					continue
+				}
+				if _, ok := m1[t]; ok {
+					continue
+				}
+				if v, ok := m2[t]; ok {
+					return step + 1 + v
+				}
+				m1[t] = step + 1
+				*q = append(*q, t)
+			}
+		}
+		return -1
+	}
+
+	bfs := func() int {
+		q1 := []string{"0000"}
+		q2 := []string{target}
+		m1 := map[string]int{"0000": 0}
+		m2 := map[string]int{target: 0}
+		for len(q1) > 0 && len(q2) > 0 {
+			t := -1
+			if len(q1) <= len(q2) {
+				t = extend(m1, m2, &q1)
+			} else {
+				t = extend(m2, m1, &q2)
+			}
+			if t != -1 {
+				return t
+			}
+		}
+		return -1
+	}
+
+	return bfs()
 }
 ```
 
