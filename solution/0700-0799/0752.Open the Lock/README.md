@@ -66,7 +66,15 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-BFS 最小步数模型。本题可以用朴素 BFS，也可以用双向 BFS 优化搜索空间，从而提升效率。
+BFS 最小步数模型。
+
+**方法一：朴素 BFS**
+
+直接用朴素 BFS。
+
+**方法二：双向 BFS**
+
+本题也可以用双向 BFS 优化搜索空间，从而提升效率。
 
 双向 BFS 是 BFS 常见的一个优化方法，主要实现思路如下：
 
@@ -75,29 +83,39 @@ BFS 最小步数模型。本题可以用朴素 BFS，也可以用双向 BFS 优�
 3. 每次搜索时，优先选择元素数量较少的队列进行搜索扩展，如果在扩展过程中，搜索到另一个方向已经访问过的节点，说明找到了最短路径；
 4. 只要其中一个队列为空，说明当前方向的搜索已经进行不下去了，说明起点到终点不连通，无需继续搜索。
 
-```python
-while q1 and q2:
-    if len(q1) <= len(q2):
-        # 优先选择较少元素的队列进行扩展
-        extend(m1, m2, q1)
-    else:
-        extend(m2, m1, q2)
+   ```python
+   while q1 and q2:
+       if len(q1) <= len(q2):
+           # 优先选择较少元素的队列进行扩展
+           extend(m1, m2, q1)
+       else:
+           extend(m2, m1, q2)
 
-def extend(m1, m2, q):
-    # 新一轮扩展
-    for _ in range(len(q), 0, -1):
-        p = q.popleft()
-        step = m1[p]
-        for t in next(p):
-            if t in m1:
-                # 此前已经访问过
-                continue
-            if t in m2:
-                # 另一个方向已经搜索过，说明找到了一条最短的连通路径
-                return step + 1 + m2[t]
-            q.append(t)
-            m1[t] = step + 1
-```
+   def extend(m1, m2, q):
+       # 新一轮扩展
+       for _ in range(len(q), 0, -1):
+           p = q.popleft()
+           step = m1[p]
+           for t in next(p):
+               if t in m1:
+                   # 此前已经访问过
+                   continue
+               if t in m2:
+                   # 另一个方向已经搜索过，说明找到了一条最短的连通路径
+                   return step + 1 + m2[t]
+               q.append(t)
+               m1[t] = step + 1
+   ```
+
+**方法三：A\*算法**
+
+A\* 算法主要思想如下：
+
+1. 将 BFS 队列转换为优先队列（小根堆）；
+1. 队列中的每个元素为 `(dist[state] + f(state), state)`，`dist[state]` 表示从起点到当前 state 的距离，`f(state)` 表示从当前 state 到终点的估计距离，这两个距离之和作为堆排序的依据；
+1. 当终点第一次出队时，说明找到了从起点到终点的最短路径，直接返回对应的 step；
+1. `f(state)` 是估价函数，并且估价函数要满足 `f(state) <= g(state)`，其中 `g(state)` 表示 state 到终点的真实距离；
+1. A\* 算法只能保证终点第一次出队时，即找到了一条从起点到终点的最小路径，不能保证其他点出队时也是从起点到当前点的最短路径。
 
 <!-- tabs:start -->
 
@@ -188,6 +206,54 @@ class Solution:
         if '0000' in s:
             return -1
         return bfs()
+```
+
+A\* 算法：
+
+```python
+class Solution:
+    def openLock(self, deadends: List[str], target: str) -> int:
+        def next(s):
+            res = []
+            s = list(s)
+            for i in range(4):
+                c = s[i]
+                s[i] = '9' if c == '0' else str(int(c) - 1)
+                res.append(''.join(s))
+                s[i] = '0' if c == '9' else str(int(c) + 1)
+                res.append(''.join(s))
+                s[i] = c
+            return res
+
+        def f(s):
+            ans = 0
+            for i in range(4):
+                a = ord(s[i]) - ord('0')
+                b =ord(target[i]) - ord('0')
+                if a > b:
+                    a, b = b, a
+                ans += min(b - a, a + 10 - b)
+            return ans
+
+        if target == '0000':
+            return 0
+        s = set(deadends)
+        if '0000' in s:
+            return -1
+        start = '0000'
+        q = [(f(start), start)]
+        dist = {start: 0}
+        while q:
+            _, state = heapq.heappop(q)
+            if state == target:
+                return dist[state]
+            for t in next(state):
+                if t in s:
+                    continue
+                if t not in dist or dist[t] > dist[state] + 1:
+                    dist[t] = dist[state] + 1
+                    heapq.heappush(q, (dist[t] + f(t), t))
+        return -1
 ```
 
 ### **Java**
@@ -319,6 +385,79 @@ class Solution {
 }
 ```
 
+A\* 算法：
+
+```java
+class Solution {
+    private String target;
+
+    public int openLock(String[] deadends, String target) {
+        if ("0000".equals(target)) {
+            return 0;
+        }
+        String start = "0000";
+        this.target = target;
+        Set<String> s = new HashSet<>();
+        for (String d : deadends) {
+            s.add(d);
+        }
+        if (s.contains(start)) {
+            return -1;
+        }
+        PriorityQueue<Pair<Integer, String>> q = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
+        q.offer(new Pair<>(f(start), start));
+        Map<String, Integer> dist = new HashMap<>();
+        dist.put(start, 0);
+        while (!q.isEmpty()) {
+            String state = q.poll().getValue();
+            int step = dist.get(state);
+            if (target.equals(state)) {
+                return step;
+            }
+            for (String t : next(state)) {
+                if (s.contains(t)) {
+                    continue;
+                }
+                if (!dist.containsKey(t) || dist.get(t) > step + 1) {
+                    dist.put(t, step + 1);
+                    q.offer(new Pair<>(step + 1 + f(t), t));
+                }
+            }
+        }
+        return -1;
+    }
+
+    private int f(String s) {
+        int ans = 0;
+        for (int i = 0; i < 4; ++i) {
+            int a = s.charAt(i) - '0';
+            int b = target.charAt(i) - '0';
+            if (a > b) {
+                int t = a;
+                a = b;
+                b = a;
+            }
+            ans += Math.min(b - a, a + 10 - b);
+        }
+        return ans;
+    }
+
+    private List<String> next(String t) {
+        List res = new ArrayList<>();
+        char[] chars = t.toCharArray();
+        for (int i = 0; i < 4; ++i) {
+            char c = chars[i];
+            chars[i] = c == '0' ? '9' : (char) (c - 1);
+            res.add(String.valueOf(chars));
+            chars[i] = c == '9' ? '0' : (char) (c + 1);
+            res.add(String.valueOf(chars));
+            chars[i] = c;
+        }
+        return res;
+    }
+}
+```
+
 ### **C++**
 
 朴素 BFS：
@@ -418,6 +557,77 @@ public:
             }
         }
         return -1;
+    }
+
+    vector<string> next(string& t) {
+        vector<string> res;
+        for (int i = 0; i < 4; ++i)
+        {
+            char c = t[i];
+            t[i] = c == '0' ? '9' : (char) (c - 1);
+            res.push_back(t);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
+            res.push_back(t);
+            t[i] = c;
+        }
+        return res;
+    }
+};
+```
+
+A\* 算法：
+
+```cpp
+class Solution {
+public:
+    string target;
+
+    int openLock(vector<string>& deadends, string target) {
+        if (target == "0000") return 0;
+        unordered_set<string> s(deadends.begin(), deadends.end());
+        if (s.count("0000")) return -1;
+        string start = "0000";
+        this->target = target;
+        typedef pair<int , string> PIS;
+        priority_queue<PIS, vector<PIS>, greater<PIS>> q;
+        unordered_map<string, int> dist;
+        dist[start] = 0;
+        q.push({f(start), start});
+        while (!q.empty())
+        {
+            PIS t = q.top();
+            q.pop();
+            string state = t.second;
+            int step = dist[state];
+            if (state == target) return step;
+            for (string& t : next(state))
+            {
+                if (s.count(t)) continue;
+                if (!dist.count(t) || dist[t] > step + 1)
+                {
+                    dist[t] = step + 1;
+                    q.push({step + 1 + f(t), t});
+                }
+            }
+        }
+        return -1;
+    }
+
+    int f(string s) {
+        int ans = 0;
+        for (int i = 0; i < 4; ++i)
+        {
+            int a = s[i] - '0';
+            int b = target[i] - '0';
+            if (a < b)
+            {
+                int t = a;
+                a = b;
+                b = t;
+            }
+            ans += min(b - a, a + 10 - b);
+        }
+        return ans;
     }
 
     vector<string> next(string& t) {

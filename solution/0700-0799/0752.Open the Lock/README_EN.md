@@ -68,6 +68,8 @@ BFS.
 
 ### **Python3**
 
+BFS:
+
 ```python
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
@@ -104,6 +106,8 @@ class Solution:
         return -1
 ```
 
+Two-end BFS:
+
 ```python
 class Solution:
     def openLock(self, deadends: List[str], target: str) -> int:
@@ -118,7 +122,7 @@ class Solution:
                 res.append(''.join(s))
                 s[i] = c
             return res
-        
+
         def extend(m1, m2, q):
             for _ in range(len(q), 0, -1):
                 p = q.popleft()
@@ -131,7 +135,7 @@ class Solution:
                     m1[t] = step + 1
                     q.append(t)
             return -1
-        
+
         def bfs():
             m1, m2 = {"0000": 0}, {target: 0}
             q1, q2 = deque([('0000')]), deque([(target)])
@@ -140,7 +144,7 @@ class Solution:
                 if t != -1:
                     return t
             return -1
-        
+
         if target == '0000':
             return 0
         s = set(deadends)
@@ -150,6 +154,8 @@ class Solution:
 ```
 
 ### **Java**
+
+BFS:
 
 ```java
 class Solution {
@@ -198,6 +204,8 @@ class Solution {
     }
 }
 ```
+
+Two-end BFS:
 
 ```java
 class Solution {
@@ -272,7 +280,82 @@ class Solution {
 }
 ```
 
+A\* search:
+
+```java
+class Solution {
+    private String target;
+
+    public int openLock(String[] deadends, String target) {
+        if ("0000".equals(target)) {
+            return 0;
+        }
+        String start = "0000";
+        this.target = target;
+        Set<String> s = new HashSet<>();
+        for (String d : deadends) {
+            s.add(d);
+        }
+        if (s.contains(start)) {
+            return -1;
+        }
+        PriorityQueue<Pair<Integer, String>> q = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
+        q.offer(new Pair<>(f(start), start));
+        Map<String, Integer> dist = new HashMap<>();
+        dist.put(start, 0);
+        while (!q.isEmpty()) {
+            String state = q.poll().getValue();
+            int step = dist.get(state);
+            if (target.equals(state)) {
+                return step;
+            }
+            for (String t : next(state)) {
+                if (s.contains(t)) {
+                    continue;
+                }
+                if (!dist.containsKey(t) || dist.get(t) > step + 1) {
+                    dist.put(t, step + 1);
+                    q.offer(new Pair<>(step + 1 + f(t), t));
+                }
+            }
+        }
+        return -1;
+    }
+
+    private int f(String s) {
+        int ans = 0;
+        for (int i = 0; i < 4; ++i) {
+            int a = s.charAt(i) - '0';
+            int b = target.charAt(i) - '0';
+            if (a > b) {
+                int t = a;
+                a = b;
+                b = a;
+            }
+            ans += Math.min(b - a, a + 10 - b);
+        }
+        return ans;
+    }
+
+    private List<String> next(String t) {
+        List res = new ArrayList<>();
+        char[] chars = t.toCharArray();
+        for (int i = 0; i < 4; ++i) {
+            char c = chars[i];
+            chars[i] = c == '0' ? '9' : (char) (c - 1);
+            res.add(String.valueOf(chars));
+            chars[i] = c == '9' ? '0' : (char) (c + 1);
+            res.add(String.valueOf(chars));
+            chars[i] = c;
+        }
+        return res;
+    }
+}
+```
+
 ### **C++**
+
+BFS:
 
 ```cpp
 class Solution {
@@ -321,6 +404,8 @@ public:
 };
 ```
 
+Two-end BFS:
+
 ```cpp
 class Solution {
 public:
@@ -334,7 +419,7 @@ public:
         if (s.count("0000")) return -1;
         this->start = "0000";
         this->target = target;
-        return bfs(); 
+        return bfs();
     }
 
     int bfs() {
@@ -385,7 +470,80 @@ public:
 };
 ```
 
+A\* search:
+
+```cpp
+class Solution {
+public:
+    string target;
+
+    int openLock(vector<string>& deadends, string target) {
+        if (target == "0000") return 0;
+        unordered_set<string> s(deadends.begin(), deadends.end());
+        if (s.count("0000")) return -1;
+        string start = "0000";
+        this->target = target;
+        typedef pair<int , string> PIS;
+        priority_queue<PIS, vector<PIS>, greater<PIS>> q;
+        unordered_map<string, int> dist;
+        dist[start] = 0;
+        q.push({f(start), start});
+        while (!q.empty())
+        {
+            PIS t = q.top();
+            q.pop();
+            string state = t.second;
+            int step = dist[state];
+            if (state == target) return step;
+            for (string& t : next(state))
+            {
+                if (s.count(t)) continue;
+                if (!dist.count(t) || dist[t] > step + 1)
+                {
+                    dist[t] = step + 1;
+                    q.push({step + 1 + f(t), t});
+                }
+            }
+        }
+        return -1;
+    }
+
+    int f(string s) {
+        int ans = 0;
+        for (int i = 0; i < 4; ++i)
+        {
+            int a = s[i] - '0';
+            int b = target[i] - '0';
+            if (a < b)
+            {
+                int t = a;
+                a = b;
+                b = t;
+            }
+            ans += min(b - a, a + 10 - b);
+        }
+        return ans;
+    }
+
+    vector<string> next(string& t) {
+        vector<string> res;
+        for (int i = 0; i < 4; ++i)
+        {
+            char c = t[i];
+            t[i] = c == '0' ? '9' : (char) (c - 1);
+            res.push_back(t);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
+            res.push_back(t);
+            t[i] = c;
+        }
+        return res;
+    }
+};
+```
+
 ### **Go**
+
+BFS:
 
 ```go
 func openLock(deadends []string, target string) int {
@@ -439,6 +597,8 @@ func openLock(deadends []string, target string) int {
 	return -1
 }
 ```
+
+Two-end BFS:
 
 ```go
 func openLock(deadends []string, target string) int {
