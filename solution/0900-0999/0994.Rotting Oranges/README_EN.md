@@ -206,6 +206,105 @@ func orangesRotting(grid [][]int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function orangesRotting(grid: number[][]): number {
+    const m = grid.length;
+    const n = grid[0].length;
+    let count = 0;
+    const queue = [];
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (grid[i][j] === 1) {
+                count++;
+            } else if (grid[i][j] === 2) {
+                queue.push([i, j]);
+            }
+        }
+    }
+    let res = 0;
+    const dris = [1, 0, -1, 0, 1];
+    while (count !== 0 && queue.length !== 0) {
+        for (let i = queue.length; i > 0; i--) {
+            const [x, y] = queue.shift();
+            for (let j = 0; j < 4; j++) {
+                const newX = x + dris[j];
+                const newY = y + dris[j + 1];
+                if (
+                    newX >= 0 &&
+                    newX < m &&
+                    newY >= 0 &&
+                    newY <= n &&
+                    grid[newX][newY] === 1
+                ) {
+                    grid[newX][newY] = 2;
+                    queue.push([newX, newY]);
+                    count--;
+                }
+            }
+        }
+        res++;
+    }
+    if (count != 0) {
+        return -1;
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn oranges_rotting(mut grid: Vec<Vec<i32>>) -> i32 {
+        let mut queue = VecDeque::new();
+        let m = grid.len();
+        let n = grid[0].len();
+        let mut count = 0;
+        for i in 0..m {
+            for j in 0..n {
+                match grid[i][j] {
+                    1 => count += 1,
+                    2 => queue.push_back([i as i32, j as i32]),
+                    _ => (),
+                }
+            }
+        }
+        let mut res = 0;
+        let dirs = [1, 0, -1, 0, 1];
+        while count != 0 && queue.len() != 0 {
+            let mut len = queue.len();
+            while len != 0 {
+                let [x, y] = queue.pop_front().unwrap();
+                for i in 0..4 {
+                    let new_x = x + dirs[i];
+                    let new_y = y + dirs[i + 1];
+                    if new_x >= 0
+                        && new_x < m as i32
+                        && new_y >= 0
+                        && new_y < n as i32
+                        && grid[new_x as usize][new_y as usize] == 1
+                    {
+                        grid[new_x as usize][new_y as usize] = 2;
+                        queue.push_back([new_x, new_y]);
+                        count -= 1;
+                    }
+                }
+                len -= 1;
+            }
+            res += 1;
+        }
+        if count != 0 {
+            return -1;
+        }
+        res
+    }
+}
+```
+
 ### **...**
 
 ```
