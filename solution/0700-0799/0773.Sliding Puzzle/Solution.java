@@ -1,86 +1,80 @@
 class Solution {
-    private String[] t = new String[6];
-    private int[][] board;
+    private int m = 2;
+    private int n = 3;
 
     public int slidingPuzzle(int[][] board) {
-        this.board = board;
-        String start = gets();
+        String start = "";
         String end = "123450";
-        if (end.equals(start)) {
-            return 0;
+        String seq = "";
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                start += board[i][j];
+                if (board[i][j] != 0) {
+                    seq += board[i][j];
+                }
+            }
         }
-        Set<String> vis = new HashSet<>();
-        Deque<String> q = new ArrayDeque<>();
-        q.offer(start);
-        vis.add(start);
-        int ans = 0;
+        if (!check(seq)) {
+            return -1;
+        }
+        PriorityQueue<Pair<Integer, String>> q = new PriorityQueue<>(Comparator.comparingInt(Pair::getKey));
+        Map<String, Integer> dist = new HashMap<>();
+        dist.put(start, 0);
+        q.offer(new Pair<>(f(start), start));
+        int[] dirs = {-1, 0, 1, 0, -1};
         while (!q.isEmpty()) {
-            ++ans;
-            for (int n = q.size(); n > 0; --n) {
-                String x = q.poll();
-                setb(x);
-                for (String y : next()) {
-                    if (y.equals(end)) {
-                        return ans;
+            String state = q.poll().getValue();
+            int step = dist.get(state);
+            if (end.equals(state)) {
+                return step;
+            }
+            int p1 = state.indexOf("0");
+            int i = p1 / n, j = p1 % n;
+            char[] s = state.toCharArray();
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n) {
+                    int p2 = x * n + y;
+                    swap(s, p1, p2);
+                    String next = String.valueOf(s);
+                    if (!dist.containsKey(next) || dist.get(next) > step + 1) {
+                        dist.put(next, step + 1);
+                        q.offer(new Pair<>(step + 1 + f(next), next));
                     }
-                    if (!vis.contains(y)) {
-                        vis.add(y);
-                        q.offer(y);
-                    }
+                    swap(s, p1, p2);
                 }
             }
         }
         return -1;
     }
 
-    private String gets() {
-        for (int i = 0; i < 2; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                t[i * 3 + j] = String.valueOf(board[i][j]);
-            }
-        }
-        return String.join("", t);
+    private void swap(char[] arr, int i, int j) {
+        char t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
     }
 
-    private void setb(String s) {
-        for (int i = 0; i < 2; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                board[i][j] = s.charAt(i * 3 + j) - '0';
+    private int f(String s) {
+        int ans = 0;
+        for (int i = 0; i < m * n; ++i) {
+            if (s.charAt(i) != '0') {
+                int num = s.charAt(i) - '1';
+                ans += Math.abs(i / n - num / n) + Math.abs(i % n - num % n);
             }
         }
+        return ans;
     }
 
-    private int[] find0() {
-        for (int i = 0; i < 2; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                if (board[i][j] == 0) {
-                    return new int[]{i, j};
+    private boolean check(String s) {
+        int n = s.length();
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (s.charAt(i) > s.charAt(j)) {
+                    ++cnt;
                 }
             }
         }
-        return new int[]{0, 0};
-    }
-
-    private List<String> next() {
-        int[] p = find0();
-        int i = p[0], j = p[1];
-        int[] dirs = {-1, 0, 1, 0, -1};
-        List<String> res = new ArrayList<>();
-        for (int k = 0; k < 4; ++k) {
-            int x = i + dirs[k];
-            int y = j + dirs[k + 1];
-            if (x >= 0 && x < 2 && y >= 0 && y < 3) {
-                swap(i, j, x, y);
-                res.add(gets());
-                swap(i, j, x, y);
-            }
-        }
-        return res;
-    }
-
-    private void swap(int i, int j, int x, int y) {
-        int t = board[i][j];
-        board[i][j] = board[x][y];
-        board[x][y] = t;
+        return cnt % 2 == 0;
     }
 }
