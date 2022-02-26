@@ -43,7 +43,17 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-因为每条边权值一样，所以用 BFS 就能得出最短路径，过程中可以用状态压缩记录节点的访问情况
+因为每条边权值一样，所以用 BFS 就能得出最短路径，过程中可以用**状态压缩**记录节点的访问情况。另外，同一个节点 u 以及对应的节点访问情况需要保证只被搜索过一次，因此可以用 `vis(u, state)` 表示是否已经被搜索过，防止无效的重复搜索。
+
+本题也属于 BFS 最小步数模型，可以使用 A\* 算法优化搜索。
+
+A\* 算法主要思想如下：
+
+1. 将 BFS 队列转换为优先队列（小根堆）；
+1. 队列中的每个元素为 `(dist[state] + f(state), state)`，`dist[state]` 表示从起点到当前 state 的距离，`f(state)` 表示从当前 state 到终点的估计距离，这两个距离之和作为堆排序的依据；
+1. 当终点第一次出队时，说明找到了从起点到终点的最短路径，直接返回对应的 step；
+1. `f(state)` 是估价函数，并且估价函数要满足 `f(state) <= g(state)`，其中 `g(state)` 表示 state 到终点的真实距离；
+1. A\* 算法只能保证终点第一次出队时，即找到了一条从起点到终点的最小路径，不能保证其他点出队时也是从起点到当前点的最短路径。
 
 <!-- tabs:start -->
 
@@ -72,6 +82,33 @@ class Solution:
                 if not vis[v][nxt]:
                     q.append((v, nxt, dis + 1))
                     vis[v][nxt] = True
+        return 0
+```
+
+A\* 算法：
+
+```python
+class Solution:
+    def shortestPathLength(self, graph: List[List[int]]) -> int:
+        n = len(graph)
+
+        def f(state):
+            return sum(((state >> i) & 1) == 0 for i in range(n))
+
+        q = []
+        dist = [[float('inf')] * (1 << n) for _ in range(n)]
+        for i in range(n):
+            heapq.heappush(q, (f(1 << i), i, 1 << i))
+            dist[i][1 << i] = 0
+        while q:
+            _, u, state = heapq.heappop(q)
+            if state == (1 << n) - 1:
+                return dist[u][state]
+            for v in graph[u]:
+                nxt = state | (1 << v)
+                if dist[v][nxt] > dist[u][state] + 1:
+                    dist[v][nxt] = dist[u][state] + 1
+                    heapq.heappush(q, (dist[v][nxt] + f(nxt), v, nxt))
         return 0
 ```
 
@@ -123,6 +160,53 @@ class Solution {
 }
 ```
 
+A\* 算法：
+
+```java
+class Solution {
+    private int n;
+
+    public int shortestPathLength(int[][] graph) {
+        n = graph.length;
+        int[][] dist = new int[n][1 << n];
+        for (int i = 0; i < n; ++i) {
+            Arrays.fill(dist[i], Integer.MAX_VALUE);
+        }
+        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        for (int i = 0; i < n; ++i)
+        {
+            q.offer(new int[]{f(1 << i), i, 1 << i});
+            dist[i][1 << i] = 0;
+        }
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int u = p[1], state = p[2];
+            if (state == (1 << n) - 1) {
+                return dist[u][state];
+            }
+            for (int v : graph[u]) {
+                int nxt = state | (1 << v);
+                if (dist[v][nxt] > dist[u][state] + 1) {
+                    dist[v][nxt] = dist[u][state] + 1;
+                    q.offer(new int[]{dist[v][nxt] + f(nxt), v, nxt});
+                }
+            }
+        }
+        return 0;
+    }
+
+    private int f(int state) {
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (((state >> i) & 1) == 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
+
 ### **Go**
 
 ```go
@@ -161,6 +245,84 @@ func shortestPathLength(graph [][]int) int {
 	}
 	return 0
 }
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int shortestPathLength(vector<vector<int>>& graph) {
+        int n = graph.size();
+        queue<tuple<int, int, int>> q;
+        vector<vector<bool>> vis(n, vector<bool>(1 << n));
+        for (int i = 0; i < n; ++i)
+        {
+            q.emplace(i, 1 << i, 0);
+            vis[i][1 << i] = true;
+        }
+        while (!q.empty())
+        {
+            auto [u, state, dist] = q.front();
+            q.pop();
+            if (state == (1 << n) - 1) return dist;
+            for (int& v : graph[u])
+            {
+                int nxt = state | (1 << v);
+                if (!vis[v][nxt])
+                {
+                    q.emplace(v, nxt, dist + 1);
+                    vis[v][nxt] = true;
+                }
+            }
+        }
+        return 0;
+    }
+};
+```
+
+A\* 算法：
+
+```cpp
+class Solution {
+public:
+    int n;
+
+    int shortestPathLength(vector<vector<int>>& graph) {
+        n = graph.size();
+        priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> q;
+        vector<vector<int>> dist(n, vector<int>(1 << n, INT_MAX));
+        for (int i = 0; i < n; ++i)
+        {
+            q.push({f(1 << i), i, 1 << i});
+            dist[i][1 << i] = 0;
+        }
+        while (!q.empty())
+        {
+            auto [_, u, state] = q.top();
+            q.pop();
+            if (state == (1 << n) - 1) return dist[u][state];
+            for (int v : graph[u])
+            {
+                int nxt = state | (1 << v);
+                if (dist[v][nxt] > dist[u][state] + 1)
+                {
+                    dist[v][nxt] = dist[u][state] + 1;
+                    q.push({dist[v][nxt] + f(nxt), v, nxt});
+                }
+            }
+        }
+        return 0;
+    }
+
+    int f(int state) {
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+            if (((state >> i) & 1) == 0)
+                ++ans;
+        return ans;
+    }
+};
 ```
 
 ### **...**
