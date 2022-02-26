@@ -62,6 +62,40 @@ The maximum difference occurs with i = 0 and j = 3, nums[j] - nums[i] = 10 - 1 =
 
 ```
 
+### **TypeScript**
+
+```ts
+function maximumDifference(nums: number[]): number {
+    const n = nums.length;
+    let min = nums[0];
+    let res = -1;
+    for (let i = 1; i < n; i++) {
+        res = Math.max(res, nums[i] - min);
+        min = Math.min(min, nums[i]);
+    }
+    return res === 0 ? -1 : res;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn maximum_difference(nums: Vec<i32>) -> i32 {
+        let mut min = nums[0];
+        let mut res = -1;
+        for i in 1..nums.len() {
+            res = res.max(nums[i] - min);
+            min = min.min(nums[i]);
+        }
+        match res {
+            0 => -1,
+            _ => res,
+        }
+    }
+}
+```
+
 ### **...**
 
 ```
