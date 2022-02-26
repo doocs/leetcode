@@ -263,6 +263,165 @@ public class Solution {
 }
 ```
 
+### **TypeScript**
+
+Recursion：
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function mergeTwoLists(
+    list1: ListNode | null,
+    list2: ListNode | null,
+): ListNode | null {
+    if (list1 == null || list2 == null) {
+        return list1 || list2;
+    }
+    if (list1.val < list2.val) {
+        list1.next = mergeTwoLists(list1.next, list2);
+        return list1;
+    } else {
+        list2.next = mergeTwoLists(list1, list2.next);
+        return list2;
+    }
+}
+```
+
+Loop：
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function mergeTwoLists(
+    list1: ListNode | null,
+    list2: ListNode | null,
+): ListNode | null {
+    const dummy = new ListNode(0);
+    let cur = dummy;
+    while (list1 != null && list2 != null) {
+        if (list1.val < list2.val) {
+            cur.next = list1;
+            list1 = list1.next;
+        } else {
+            cur.next = list2;
+            list2 = list2.next;
+        }
+        cur = cur.next;
+    }
+    cur.next = list1 || list2;
+    return dummy.next;
+}
+```
+
+### **Rust**
+
+Recursion：
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn merge_two_lists(
+        list1: Option<Box<ListNode>>,
+        list2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        match (list1, list2) {
+            (None, None) => None,
+            (Some(list), None) => Some(list),
+            (None, Some(list)) => Some(list),
+            (Some(mut list1), Some(mut list2)) => {
+                if list1.val < list2.val {
+                    list1.next = Self::merge_two_lists(list1.next, Some(list2));
+                    Some(list1)
+                } else {
+                    list2.next = Self::merge_two_lists(Some(list1), list2.next);
+                    Some(list2)
+                }
+            }
+        }
+    }
+}
+```
+
+Loop：
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn merge_two_lists(
+        mut list1: Option<Box<ListNode>>,
+        mut list2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        let mut new_list = ListNode::new(0);
+        let mut cur = &mut new_list;
+        while list1.is_some() && list2.is_some() {
+            let (l1, l2) = (list1.as_deref_mut().unwrap(), list2.as_deref_mut().unwrap());
+            if l1.val < l2.val {
+                let next = l1.next.take();
+                cur.next = list1.take();
+                list1 = next;
+            } else {
+                let next = l2.next.take();
+                cur.next = list2.take();
+                list2 = next;
+            }
+            cur = cur.next.as_deref_mut().unwrap();
+        }
+        cur.next = list1.or(list2);
+        new_list.next
+    }
+}
+```
+
 ### **...**
 
 ```
