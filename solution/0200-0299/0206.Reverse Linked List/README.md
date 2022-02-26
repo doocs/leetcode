@@ -206,6 +206,149 @@ public class Solution {
 }
 ```
 
+### **TypeScript**
+
+循环：
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function reverseList(head: ListNode | null): ListNode | null {
+    if (head == null) {
+        return head;
+    }
+    let pre = null;
+    let cur = head;
+    while (cur != null) {
+        const next = cur.next;
+        cur.next = pre;
+        [pre, cur] = [cur, next];
+    }
+    return pre;
+}
+```
+
+递归：
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+const rev = (pre: ListNode | null, cur: ListNode | null): ListNode | null => {
+    if (cur == null) {
+        return pre;
+    }
+    const next = cur.next;
+    cur.next = pre;
+    return rev(cur, next);
+};
+
+function reverseList(head: ListNode | null): ListNode | null {
+    if (head == null) {
+        return head;
+    }
+    const next = head.next;
+    head.next = null;
+    return rev(head, next);
+}
+```
+
+### **Rust**
+
+循环：
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        match head {
+            None => None,
+            Some(mut head) => {
+                let mut cur = head.next.take();
+                let mut pre = Some(head);
+                while let Some(mut node) = cur {
+                    let next = node.next.take();
+                    node.next = pre;
+                    pre = Some(node);
+                    cur = next;
+                }
+                pre
+            }
+        }
+    }
+}
+```
+
+递归：
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    fn rev (pre: Option<Box<ListNode>>, cur: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        match cur {
+            None => pre,
+            Some(mut node) => {
+                let next = node.next;
+                node.next = pre;
+                Self::rev(Some(node), next)
+            },
+        }
+    }
+
+    pub fn reverse_list(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        Self::rev(None, head)
+    }
+}
+```
+
 ### **...**
 
 ```
