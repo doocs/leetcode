@@ -66,7 +66,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def maximumDifference(self, nums: List[int]) -> int:
+        mi = nums[0]
+        ans, n = -1, len(nums)
+        for i in range(1, n):
+            if nums[i] > mi:
+                ans = max(ans, nums[i] - mi)
+            else:
+                mi = nums[i]
+        return ans
 ```
 
 ### **Java**
@@ -74,21 +83,34 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
-
+class Solution {
+    public int maximumDifference(int[] nums) {
+        int mi = nums[0];
+        int ans = -1;
+        for (int i = 1; i < nums.length; ++i) {
+            if (nums[i] > mi) {
+                ans = Math.max(ans, nums[i] - mi);
+            } else {
+                mi = nums[i];
+            }
+        }
+        return ans;
+    }
+}
 ```
 
 ### **TypeScript**
 
 ```ts
 function maximumDifference(nums: number[]): number {
-    const n = nums.length;
-    let min = nums[0];
-    let res = -1;
-    for (let i = 1; i < n; i++) {
-        res = Math.max(res, nums[i] - min);
-        min = Math.min(min, nums[i]);
-    }
-    return res === 0 ? -1 : res;
+  const n = nums.length;
+  let min = nums[0];
+  let res = -1;
+  for (let i = 1; i < n; i++) {
+    res = Math.max(res, nums[i] - min);
+    min = Math.min(min, nums[i]);
+  }
+  return res === 0 ? -1 : res;
 }
 ```
 
@@ -108,6 +130,47 @@ impl Solution {
             _ => res,
         }
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int maximumDifference(vector<int>& nums) {
+        int mi = nums[0];
+        int ans = -1;
+        for (int i = 1, n = nums.size(); i < n; ++i)
+        {
+            if (nums[i] > mi) ans = max(ans, nums[i] - mi);
+            else mi = nums[i];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func maximumDifference(nums []int) int {
+	mi, ans := nums[0], -1
+	for i, n := 1, len(nums); i < n; i++ {
+		if nums[i] > mi {
+			ans = max(ans, nums[i]-mi)
+		} else {
+			mi = nums[i]
+		}
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```
 
