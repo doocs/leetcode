@@ -59,6 +59,26 @@ class Solution {
 }
 ```
 
+### **Go**
+
+```go
+func checkRecord(s string) bool {
+	return strings.Count(s, "A") < 2 && !strings.Contains(s, "LLL")
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool checkRecord(string s) {
+        return count(s.begin(), s.end(), 'A') < 2 &&
+               s.find("LLL") == string::npos;
+    }
+};
+```
+
 ### **...**
 
 ```
