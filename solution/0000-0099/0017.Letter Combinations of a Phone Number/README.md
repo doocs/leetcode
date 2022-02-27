@@ -220,6 +220,39 @@ function letterCombinations(digits: string): string[] {
 }
 ```
 
+```ts
+const map = {
+    '2': ['a', 'b', 'c'],
+    '3': ['d', 'e', 'f'],
+    '4': ['g', 'h', 'i'],
+    '5': ['j', 'k', 'l'],
+    '6': ['m', 'n', 'o'],
+    '7': ['p', 'q', 'r', 's'],
+    '8': ['t', 'u', 'v'],
+    '9': ['w', 'x', 'y', 'z']
+}
+
+function letterCombinations(digits: string): string[] {
+    const n = digits.length
+    if (n === 0) {
+        return []
+    }
+    const dfs = (i: number, ss: string[]) => {
+        if (i === n) {
+            return ss
+        }
+        const t = []
+        for (const c of map[digits[i]]) {
+            for (const s of ss) {
+                t.push(s + c)
+            }
+        }
+        return dfs(i + 1, t)
+    }
+    return dfs(1, map[digits[0]])
+};
+```
+
 ### **Rust**
 
 ```rust
