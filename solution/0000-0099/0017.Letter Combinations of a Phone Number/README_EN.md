@@ -101,6 +101,81 @@ class Solution {
 }
 ```
 
+### **Go**
+
+```go
+var table = map[string][]string {
+	"2": {"a", "b", "c"},
+	"3": {"d", "e", "f"},
+	"4": {"g", "h", "i"},
+	"5": {"j", "k", "l"},
+	"6": {"m", "n", "o"},
+	"7": {"p", "q", "r", "s"},
+	"8": {"t", "u", "v"},
+	"9": {"w", "x", "y", "z"},
+}
+
+func letterCombinations(digits string) []string {
+	if digits == "" {
+		return make([]string, 0)
+	}
+	var result = table[string(digits[0])]
+	for i:=1; i<len(digits); i++ {
+		t := table[string(digits[i])]
+		nr := make([]string, len(result) * len(t))
+		for j:=0; j<len(result); j++ {
+			for k:=0; k<len(t); k++ {
+				nr[len(t)*j + k] = result[j] + t[k]
+			}
+		}
+		result = nr
+	}
+	return result
+}
+```
+
+### **C#**
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution {
+    private static string[] chars = {
+        "abc",
+        "def",
+        "ghi",
+        "jkl",
+        "mno",
+        "pqrs",
+        "tuv",
+        "wxyz"
+    };
+
+    public IList<string> LetterCombinations(string digits) {
+        var numbers = digits.Where(d => d >= '2' && d <= '9').Select(d => d - '2').ToArray();
+        var states = new int[numbers.Length];
+        var results = new List<string>();
+        if (numbers.Length == 0) return results;
+        while (true) {
+            results.Add(new string(states.Select((s, j) => chars[numbers[j]][s]).ToArray()));
+            var i = states.Length - 1;
+            ++states[i];
+            while (i >= 0 && states[i] == chars[numbers[i]].Length)
+            {
+                states[i] = 0;
+                --i;
+                if (i >= 0)
+                {
+                    ++states[i];
+                }
+            }
+            if (i < 0) return results;
+        }
+    }
+}
+```
+
 ### **...**
 
 ```
