@@ -2226,3 +2226,4 @@
   - [2181.Merge Nodes in Between Zeros](/solution/2100-2199/2181.Merge%20Nodes%20in%20Between%20Zeros/README.md)
   - [2182.Construct String With Repeat Limit](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README.md)
   - [2183.Count Array Pairs Divisible by K](/solution/2100-2199/2183.Count%20Array%20Pairs%20Divisible%20by%20K/README.md)
+  - [2184.Number of Ways to Build Sturdy Brick Wall](/solution/2100-2199/2184.Number%20of%20Ways%20to%20Build%20Sturdy%20Brick%20Wall/README.md)
