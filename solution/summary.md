@@ -2227,3 +2227,7 @@
   - [2182.Construct String With Repeat Limit](/solution/2100-2199/2182.Construct%20String%20With%20Repeat%20Limit/README.md)
   - [2183.Count Array Pairs Divisible by K](/solution/2100-2199/2183.Count%20Array%20Pairs%20Divisible%20by%20K/README.md)
   - [2184.Number of Ways to Build Sturdy Brick Wall](/solution/2100-2199/2184.Number%20of%20Ways%20to%20Build%20Sturdy%20Brick%20Wall/README.md)
+  - [2185.Counting Words With a Given Prefix](/solution/2100-2199/2185.Counting%20Words%20With%20a%20Given%20Prefix/README.md)
+  - [2186.Minimum Number of Steps to Make Two Strings Anagram II](/solution/2100-2199/2186.Minimum%20Number%20of%20Steps%20to%20Make%20Two%20Strings%20Anagram%20II/README.md)
+  - [2187.Minimum Time to Complete Trips](/solution/2100-2199/2187.Minimum%20Time%20to%20Complete%20Trips/README.md)
+  - [2188.Minimum Time to Finish the Race](/solution/2100-2199/2188.Minimum%20Time%20to%20Finish%20the%20Race/README.md)

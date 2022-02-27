@@ -1,7 +1,5 @@
-var p []int
-
 func numIslands2(m int, n int, positions [][]int) []int {
-	p = make([]int, m*n)
+	p := make([]int, m*n)
 	for i := 0; i < len(p); i++ {
 		p[i] = i
 	}
@@ -9,35 +7,32 @@ func numIslands2(m int, n int, positions [][]int) []int {
 	for i := 0; i < m; i++ {
 		grid[i] = make([]int, n)
 	}
-	var res []int
-	cur := 0
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-	for _, position := range positions {
-		i, j := position[0], position[1]
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	var ans []int
+	cnt := 0
+	dirs := []int{-1, 0, 1, 0, -1}
+	for _, pos := range positions {
+		i, j := pos[0], pos[1]
 		if grid[i][j] == 1 {
-			res = append(res, cur)
+			ans = append(ans, cnt)
 			continue
 		}
 		grid[i][j] = 1
-		cur++
-		for _, e := range dirs {
-			if check(i+e[0], j+e[1], grid) && find(i*n+j) != find((i+e[0])*n+j+e[1]) {
-				p[find(i*n+j)] = find((i+e[0])*n + j + e[1])
-				cur--
+		cnt++
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && find(x*n+y) != find(i*n+j) {
+				p[find(x*n+y)] = find(i*n + j)
+				cnt--
 			}
 		}
-		res = append(res, cur)
+		ans = append(ans, cnt)
 	}
-	return res
-}
-
-func check(i, j int, grid [][]int) bool {
-	return i >= 0 && i < len(grid) && j >= 0 && j < len(grid[0]) && grid[i][j] == 1
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return ans
 }

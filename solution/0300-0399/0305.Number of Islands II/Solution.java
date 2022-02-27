@@ -1,41 +1,35 @@
 class Solution {
     private int[] p;
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-    private int[][] grid;
-    private int m;
-    private int n;
 
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
         p = new int[m * n];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
-        grid = new int[m][n];
-        this.m = m;
-        this.n = n;
-        List<Integer> res = new ArrayList<>();
-        int cur = 0;
-        for (int[] position : positions) {
-            int i = position[0], j = position[1];
+        int[][] grid = new int[m][n];
+        int cnt = 0;
+        List<Integer> ans = new ArrayList<>();
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int[] pos : positions) {
+            int i = pos[0];
+            int j = pos[1];
             if (grid[i][j] == 1) {
-                res.add(cur);
+                ans.add(cnt);
                 continue;
             }
             grid[i][j] = 1;
-            ++cur;
-            for (int[] e : dirs) {
-                if (check(i + e[0], j + e[1]) && find(i * n + j) != find((i + e[0]) * n + j + e[1])) {
-                    p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
-                    --cur;
+            ++cnt;
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && find(x * n + y) != find(i * n + j)) {
+                    p[find(x * n + y)] = find(i * n + j);
+                    --cnt;
                 }
             }
-            res.add(cur);
+            ans.add(cnt);
         }
-        return res;
-    }
-
-    private boolean check(int i, int j) {
-        return i >= 0 && i < m && j >= 0 && j < n && grid[i][j] == 1;
+        return ans;
     }
 
     private int find(int x) {
