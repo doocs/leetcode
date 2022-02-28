@@ -117,6 +117,35 @@ func climbStairs(n int) int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function climbStairs(n: number): number {
+    let p = 1;
+    let q = 1;
+    for (let i = 1; i < n; i++) {
+        [p, q] = [q, p + q];
+    }
+    return q;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn climb_stairs(n: i32) -> i32 {
+        let (mut p, mut q) = (1, 1);
+        for i in 1..n {
+            let t = p + q;
+            p = q;
+            q = t;
+        }
+        q
+    }
+}
+```
+
 ### **...**
 
 ```
