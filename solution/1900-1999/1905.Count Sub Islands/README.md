@@ -58,23 +58,17 @@ DFS：
 ```python
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        def dfs(grid1, grid2, i, j, m, n) -> bool:
-            res = grid1[i][j] == 1
+        def dfs(i, j):
+            ans = grid1[i][j] == 1
             grid2[i][j] = 0
-            for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                a, b = i + x, j + y
-                if a >= 0 and a < m and b >= 0 and b < n and grid2[a][b] == 1:
-                    if not dfs(grid1, grid2, a, b, m, n):
-                        res = False
-            return res
+            for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid2[x][y] == 1 and not dfs(x, y):
+                    ans = False
+            return ans
 
         m, n = len(grid1), len(grid1[0])
-        count = 0
-        for i in range(m):
-            for j in range(n):
-                if grid2[i][j] == 1 and dfs(grid1, grid2, i, j, m, n):
-                    count += 1
-        return count
+        return sum(grid2[i][j] == 1 and dfs(i, j) for i in range(m) for j in range(n))
 ```
 
 并查集：
@@ -120,34 +114,32 @@ DFS：
 
 ```java
 class Solution {
-    private int[][] directions = {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}};
-
     public int countSubIslands(int[][] grid1, int[][] grid2) {
-        int m = grid1.length, n = grid1[0].length;
-        int count = 0;
+        int m = grid1.length;
+        int n = grid1[0].length;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid2[i][j] == 1 && dfs(grid1, grid2, i, j, m, n)) {
-                    ++count;
+                if (grid2[i][j] == 1 && dfs(i, j, m, n, grid1, grid2)) {
+                    ++ans;
                 }
             }
         }
-        return count;
+        return ans;
     }
 
-    private boolean dfs(int[][] grid1, int[][] grid2, int i, int j, int m, int n) {
-        boolean res = grid1[i][j] == 1;
+    private boolean dfs(int i, int j, int m, int n, int[][] grid1, int[][] grid2) {
+        boolean ans = grid1[i][j] == 1;
         grid2[i][j] = 0;
-
-        for (int[] direction : directions) {
-            int a = i + direction[0], b = j + direction[1];
-            if (a >= 0 && a < m && b >= 0 && b < n && grid2[a][b] == 1) {
-                if (!dfs(grid1, grid2, a, b, m, n)) {
-                    res = false;
-                }
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k];
+            int y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1 && !dfs(x, y, m, n, grid1, grid2)) {
+                ans = false;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -265,40 +257,28 @@ function dfs(
 ```cpp
 class Solution {
 public:
-    int countSubIslands(vector<vector<int>> &grid1, vector<vector<int>> &grid2) {
-        int m = grid1.size(), n = grid1[0].size();
-        int count = 0;
+    int countSubIslands(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
+        int m = grid1.size();
+        int n = grid1[0].size();
+        int ans = 0;
         for (int i = 0; i < m; ++i)
-        {
             for (int j = 0; j < n; ++j)
-            {
-                if (grid2[i][j] == 1 && dfs(grid1, grid2, i, j, m, n))
-                {
-                    ++count;
-                }
-            }
-        }
-        return count;
+                if (grid2[i][j] == 1 && dfs(i, j, m, n, grid1, grid2))
+                    ++ans;
+        return ans;
     }
 
-private:
-    vector<vector<int>> directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-    bool dfs(vector<vector<int>> &grid1, vector<vector<int>> &grid2, int i, int j, int m, int n) {
-        bool res = grid1[i][j] == 1;
+    bool dfs(int i, int j, int m, int n, vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
+        bool ans = grid1[i][j];
         grid2[i][j] = 0;
-
-        for (auto direction : directions)
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k)
         {
-            int a = i + direction[0], b = j + direction[1];
-            if (a >= 0 && a < m && b >= 0 && b < n && grid2[a][b] == 1)
-            {
-                if (!dfs(grid1, grid2, a, b, m, n))
-                {
-                    res = false;
-                }
-            }
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] && !dfs(x, y, m, n, grid1, grid2))
+                ans = false;
         }
-        return res;
+        return ans;
     }
 };
 ```
@@ -308,30 +288,28 @@ private:
 ```go
 func countSubIslands(grid1 [][]int, grid2 [][]int) int {
 	m, n := len(grid1), len(grid1[0])
-	count := 0
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
-			if grid2[i][j] == 1 && dfs(grid1, grid2, i, j, m, n) {
-				count++
-			}
-		}
-	}
-	return count
-}
-
-func dfs(grid1 [][]int, grid2 [][]int, i, j, m, n int) bool {
-	res := grid1[i][j] == 1
-	grid2[i][j] = 0
-	directions := [4][2]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}
-	for _, direction := range directions {
-		a, b := i+direction[0], j+direction[1]
-		if a >= 0 && a < m && b >= 0 && b < n && grid2[a][b] == 1 {
-			if !dfs(grid1, grid2, a, b, m, n) {
+	ans := 0
+	var dfs func(i, j int) bool
+	dfs = func(i, j int) bool {
+		res := grid1[i][j] == 1
+		grid2[i][j] = 0
+		dirs := []int{-1, 0, 1, 0, -1}
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1 && !dfs(x, y) {
 				res = false
 			}
 		}
+		return res
 	}
-	return res
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid2[i][j] == 1 && dfs(i, j) {
+				ans++
+			}
+		}
+	}
+	return ans
 }
 ```
 

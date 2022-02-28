@@ -1,19 +1,13 @@
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        def dfs(grid1, grid2, i, j, m, n) -> bool:
-            res = grid1[i][j] == 1
+        def dfs(i, j):
+            ans = grid1[i][j] == 1
             grid2[i][j] = 0
-            for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                a, b = i + x, j + y
-                if a >= 0 and a < m and b >= 0 and b < n and grid2[a][b] == 1:
-                    if not dfs(grid1, grid2, a, b, m, n):
-                        res = False
-            return res
+            for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid2[x][y] == 1 and not dfs(x, y):
+                    ans = False
+            return ans
 
         m, n = len(grid1), len(grid1[0])
-        count = 0
-        for i in range(m):
-            for j in range(n):
-                if grid2[i][j] == 1 and dfs(grid1, grid2, i, j, m, n):
-                    count += 1
-        return count
+        return sum(grid2[i][j] == 1 and dfs(i, j) for i in range(m) for j in range(n))

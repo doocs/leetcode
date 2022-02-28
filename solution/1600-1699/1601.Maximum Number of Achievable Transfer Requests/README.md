@@ -82,7 +82,7 @@ class Solution:
                 if (x >> i) & 1:
                     delta[f] -= 1
                     delta[t] += 1
-            return all(delta[i] == 0 for i in range(n))
+            return all(d == 0 for d in delta)
 
         ans, m = 0, len(requests)
         for mask in range(1 << m):
