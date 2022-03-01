@@ -27,7 +27,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-把 node 的下一个节点的值赋给 node，然后改变 node 的 next 指向。
+> 此题与本站 [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/) 题意相同。
+
+步骤：
+
+1. 将 `node` 下一个节点的值赋给 `node`。
+2. 将 `node` 的 `next` 指向 `next` 的 `next`。
 
 <!-- tabs:start -->
 
