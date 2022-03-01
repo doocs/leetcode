@@ -7,7 +7,6 @@ function floodFill(
     const m = image.length;
     const n = image[0].length;
     const target = image[sr][sc];
-    // 递归函数
     const dfs = (i: number, j: number) => {
         if (
             i < 0 ||

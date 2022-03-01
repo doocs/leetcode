@@ -40,13 +40,19 @@ sr = 1, sc = 1, newColor = 2
 
 <!-- 这里可写通用的实现逻辑 -->
 
-DFS。
+Flood fill 算法。
+
+Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻区域区分开（或分别染成不同颜色）的经典算法。因为其思路类似洪水从一个区域扩散到所有能到达的区域而得名。
+
+最简单的实现方法是采用 DFS 的递归方法，也可以采用 BFS 的迭代来实现。
 
 <!-- tabs:start -->
 
 ### **Python3**
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
+
+DFS：
 
 ```python
 class Solution:
@@ -61,6 +67,8 @@ class Solution:
         dfs(sr, sc, image[sr][sc], newColor)
         return image
 ```
+
+BFS：
 
 ```python
 class Solution:
@@ -84,6 +92,8 @@ class Solution:
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+DFS：
+
 ```java
 class Solution {
     private int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
@@ -104,6 +114,8 @@ class Solution {
     }
 }
 ```
+
+BFS：
 
 ```java
 class Solution {
@@ -134,6 +146,8 @@ class Solution {
 
 ### **C++**
 
+DFS：
+
 ```cpp
 class Solution {
 public:
@@ -151,6 +165,8 @@ public:
     }
 };
 ```
+
+BFS：
 
 ```cpp
 class Solution {
@@ -184,6 +200,8 @@ public:
 
 ### **Go**
 
+DFS：
+
 ```go
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	dfs(image, sr, sc, image[sr][sc], newColor)
@@ -201,6 +219,8 @@ func dfs(image [][]int, i, j, oc, nc int) {
 	}
 }
 ```
+
+BFS：
 
 ```go
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {

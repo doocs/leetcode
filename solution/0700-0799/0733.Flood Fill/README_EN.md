@@ -62,9 +62,13 @@ to the starting pixel.
 
 DFS or BFS.
 
+> Flood fill, also called seed fill, is a flooding algorithm that determines and alters the area connected to a given node in a multi-dimensional array with some matching attribute. It is used in the "bucket" fill tool of paint programs to fill connected, similarly-colored areas with a different color.
+
 <!-- tabs:start -->
 
 ### **Python3**
+
+DFS:
 
 ```python
 class Solution:
@@ -79,6 +83,8 @@ class Solution:
         dfs(sr, sc, image[sr][sc], newColor)
         return image
 ```
+
+BFS:
 
 ```python
 class Solution:
@@ -100,6 +106,8 @@ class Solution:
 
 ### **Java**
 
+DFS:
+
 ```java
 class Solution {
     private int[][] dirs = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
@@ -120,6 +128,8 @@ class Solution {
     }
 }
 ```
+
+BFS:
 
 ```java
 class Solution {
@@ -150,6 +160,8 @@ class Solution {
 
 ### **C++**
 
+DFS:
+
 ```cpp
 class Solution {
 public:
@@ -167,6 +179,8 @@ public:
     }
 };
 ```
+
+BFS:
 
 ```cpp
 class Solution {
@@ -200,6 +214,8 @@ public:
 
 ### **Go**
 
+DFS:
+
 ```go
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
 	dfs(image, sr, sc, image[sr][sc], newColor)
@@ -217,6 +233,8 @@ func dfs(image [][]int, i, j, oc, nc int) {
 	}
 }
 ```
+
+BFS:
 
 ```go
 func floodFill(image [][]int, sr int, sc int, newColor int) [][]int {
