@@ -233,13 +233,10 @@ var convert = function (s, numRows) {
     if (numRows == 1) return s;
     let arr = new Array(numRows);
     for (let i = 0; i < numRows; i++) arr[i] = [];
-    let index = 0,
-        len = s.length,
-        mi = 0,
+    let mi = 0,
         isDown = true;
-    while (index < len) {
-        arr[mi].push(s[index]);
-        index++;
+    for (const c of s) {
+        arr[mi].push(c);
 
         if (mi >= numRows - 1) isDown = false;
         else if (mi <= 0) isDown = true;
@@ -253,11 +250,6 @@ var convert = function (s, numRows) {
     }
     return ans.join('');
 };
-
-const s = 'AB',
-    numRows = 1;
-
-console.log(convert(s, numRows));
 ```
 
 ### **TypeScript**
