@@ -66,33 +66,21 @@ P     I
 
 ```python
 class Solution:
-    def convert(self, s, numRows):
-        """
-        :type s: str
-        :type numRows: int
-        :rtype: str
-        """
-
-        if numRows == 0:
-            return ""
-        elif numRows == 1:
+    def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1:
             return s
-
-        Ret = [[] for i in range(numRows)]
-        i = 0
-        while i < len(s):
-            j = 0
-            while i < len(s) and j < numRows:  # Vertical lines
-                Ret[j].append(s[i])
-                i += 1
-                j += 1
-            j -= 2
-            while i < len(s) and j > 0:  # Diagonal lines
-                Ret[j].append(s[i])
-                j -= 1
-                i += 1
-
-        return "".join(["".join(row) for row in Ret])
+        group = 2 * numRows - 2
+        ans = []
+        for i in range(1, numRows + 1):
+            interval = group if i == numRows else 2 * numRows - 2 * i
+            idx = i - 1
+            while idx < len(s):
+                ans.append(s[idx])
+                idx += interval
+                interval = group - interval
+                if interval == 0:
+                    interval = group
+        return ''.join(ans)
 ```
 
 ### **Java**
@@ -102,21 +90,24 @@ class Solution:
 ```java
 class Solution {
     public String convert(String s, int numRows) {
-        if (numRows == 1) return s;
-        StringBuilder result = new StringBuilder();
+        if (numRows == 1) {
+            return s;
+        }
+        StringBuilder ans = new StringBuilder();
         int group = 2 * numRows - 2;
         for (int i = 1; i <= numRows; i++) {
-            int interval = 2 * numRows - 2 * i;
-            if (i == numRows) interval = 2 * numRows - 2;
-            int index = i;
-            while (index <= s.length()) {
-                result.append(s.charAt(index - 1));
-                index += interval;
+            int interval = i == numRows ? group : 2 * numRows - 2 * i;
+            int idx = i - 1;
+            while (idx < s.length()) {
+                ans.append(s.charAt(idx));
+                idx += interval;
                 interval = group - interval;
-                if (interval == 0) interval = group;
+                if (interval == 0) {
+                    interval = group;
+                }
             }
         }
-        return result.toString();
+        return ans.toString();
     }
 }
 ```
@@ -124,40 +115,25 @@ class Solution {
 ### **C++**
 
 ```cpp
-// @ID:6. ZigZag Conversion
-// @author:jxdeng3989
-
 class Solution {
 public:
     string convert(string s, int numRows) {
-        string retstr;
-        if(1==numRows)
-            return s;
-        for(int i=0; i<numRows; ++i)
+        if (numRows == 1) return s;
+        string ans;
+        int group = 2 * numRows - 2;
+        for (int i = 1; i <= numRows; ++i)
         {
-            retstr.push_back(s[i]);
-            int maxspan = 2*(numRows-1);
-            int span1 = maxspan-i*2;
-            int span2 = maxspan - span1;
-             int cntpos = i;
-            if(span1==0)
-                span1 = span2;
-            if(span2==0)
-                span2 = span1;
-             while(1)
-             {   
-				 if(cntpos+span1>=s.size())
-					 break;
-                 cntpos += span1;
-                 retstr.push_back(s[cntpos]);
-                 
-                 if(cntpos+span2>=s.size())
-                     break;
-                 cntpos += span2;
-                 retstr.push_back(s[cntpos]);
-             }
+            int interval = i == numRows ? group : 2 * numRows - 2 * i;
+            int idx = i - 1;
+            while (idx < s.length())
+            {
+                ans.push_back(s[idx]);
+                idx += interval;
+                interval = group - interval;
+                if (interval == 0) interval = group;
+            }
         }
-        return retstr;
+        return ans;
     }
 };
 ```
@@ -203,21 +179,21 @@ func convert(s string, numRows int) string {
 	if numRows == 1 {
 		return s
 	}
-	length := len(s)
-	result := make([]byte, length)
-	step := 2 * numRows - 2
+	n := len(s)
+	ans := make([]byte, n)
+	step := 2*numRows - 2
 	count := 0
 	for i := 0; i < numRows; i++ {
-		for j := 0; j + i < length; j += step {
-			result[count] = s[i+j]
+		for j := 0; j+i < n; j += step {
+			ans[count] = s[i+j]
 			count++
-			if i != 0 && i != numRows - 1 && j + step - i < length {
-				result[count] = s[j+step-i]
+			if i != 0 && i != numRows-1 && j+step-i < n {
+				ans[count] = s[j+step-i]
 				count++
 			}
 		}
 	}
-	return string(result)
+	return string(ans)
 }
 ```
 
