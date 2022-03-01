@@ -43,6 +43,10 @@
 
 ## Solutions
 
+DFS, BFS or Union find.
+
+> Flood fill, also called seed fill, is a flooding algorithm that determines and alters the area connected to a given node in a multi-dimensional array with some matching attribute. It is used in the "bucket" fill tool of paint programs to fill connected, similarly-colored areas with a different color.
+
 <!-- tabs:start -->
 
 ### **Python3**

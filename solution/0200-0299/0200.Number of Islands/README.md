@@ -53,7 +53,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-BFS、DFS、并查集均可。
+Flood fill，或者并查集。
+
+Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻区域区分开（或分别染成不同颜色）的经典算法。因为其思路类似洪水从一个区域扩散到所有能到达的区域而得名。
+
+最简单的实现方法是采用 DFS 的递归方法，也可以采用 BFS 的迭代来实现。
 
 <!-- tabs:start -->
 
@@ -61,7 +65,7 @@ BFS、DFS、并查集均可。
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-DFS：
+DFS - Flood Fill 算法：
 
 ```python
 class Solution:
@@ -135,7 +139,7 @@ class Solution:
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
-DFS：
+DFS - Flood Fill 算法：
 
 ```java
 class Solution {
@@ -173,7 +177,7 @@ class Solution {
 }
 ```
 
-BFS：
+BFS - Flood Fill 算法：
 
 ```java
 class Solution {
@@ -266,7 +270,7 @@ class Solution {
 
 ### **TypeScript**
 
-DFS：
+DFS - Flood Fill 算法：
 
 ```ts
 function numIslands(grid: string[][]): number {
@@ -296,7 +300,7 @@ function numIslands(grid: string[][]): number {
 }
 ```
 
-BFS：
+BFS - Flood Fill 算法：
 
 ```ts
 function numIslands(grid: string[][]): number {
@@ -375,7 +379,7 @@ function numIslands(grid: string[][]): number {
 
 ### **C++**
 
-DFS：
+DFS - Flood Fill 算法：
 
 ```cpp
 class Solution {
@@ -411,7 +415,7 @@ public:
 };
 ```
 
-BFS：
+BFS - Flood Fill 算法：
 
 ```cpp
 class Solution {
@@ -502,7 +506,7 @@ public:
 
 ### **Go**
 
-DFS：
+DFS - Flood Fill 算法：
 
 ```go
 func numIslands(grid [][]byte) int {
@@ -531,7 +535,7 @@ func numIslands(grid [][]byte) int {
 }
 ```
 
-BFS：
+BFS - Flood Fill 算法：
 
 ```go
 func numIslands(grid [][]byte) int {
