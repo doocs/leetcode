@@ -13,7 +13,9 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="lcci\02.04.Partition List\images\partition.jpg" style="width: 662px; height: 222px;" />
+
+![](./images/partition.jpg)
+
 <pre>
 <strong>输入：</strong>head = [1,4,3,2,5,2], x = 3
 <strong>输出</strong>：[1,2,2,4,3,5]
