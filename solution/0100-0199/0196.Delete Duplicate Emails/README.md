@@ -45,8 +45,23 @@ Id 是这个表的主键。
 
 ### **SQL**
 
+```sql
+delete from Person
+where Id not in (
+        select min(Id)
+        from (
+                select *
+                from Person
+            ) as p
+        group by p.Email
+    )
 ```
-delete from Person where Id not in (select min(Id) from (select * from Person) as p group by p.Email)
+
+```sql
+# Write your MySQL query statement below
+DELETE p1
+FROM Person p1, Person p2
+WHERE p1.email = p2.email and p1.id > p2.id
 ```
 
 <!-- tabs:end -->
