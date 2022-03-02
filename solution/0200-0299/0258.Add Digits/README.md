@@ -55,10 +55,12 @@ class Solution:
 
 ```java
 class Solution {
+
     public int addDigits(int num) {
         return (num - 1) % 9 + 1;
     }
 }
+
 ```
 
 ### **C++**
@@ -70,6 +72,17 @@ public:
         return (num - 1) % 9 + 1;
     }
 };
+```
+
+### **Go**
+
+```go
+func addDigits(num int) int {
+	if num == 0 {
+		return 0
+	}
+	return (num-1)%9 + 1
+}
 ```
 
 ### **...**
