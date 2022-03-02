@@ -14,7 +14,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-![](./images/partition.jpg)
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/lcci/02.04.Partition%20List/images/partition.jpg" style="width: 662px; height: 222px;" />
 
 <pre>
 <strong>输入：</strong>head = [1,4,3,2,5,2], x = 3
