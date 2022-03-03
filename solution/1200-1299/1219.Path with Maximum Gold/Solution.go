@@ -7,13 +7,13 @@ func getMaximumGold(grid [][]int) int {
 		}
 		t := grid[i][j]
 		grid[i][j] = 0
-		res := 0
+		ans := 0
 		dirs := []int{-1, 0, 1, 0, -1}
 		for k := 0; k < 4; k++ {
-			res = max(res, t+dfs(i+dirs[k], j+dirs[k+1]))
+			ans = max(ans, t+dfs(i+dirs[k], j+dirs[k+1]))
 		}
 		grid[i][j] = t
-		return res
+		return ans
 	}
 	ans := 0
 	for i := 0; i < m; i++ {
