@@ -22,13 +22,13 @@ public:
             w[pa] = w[b] * values[i] / w[a];
         }
         int m = queries.size();
-        vector<double> res(m);
+        vector<double> ans(m);
         for (int i = 0; i < m; ++i)
         {
             string c = queries[i][0], d = queries[i][1];
-            res[i] = p.find(c) == p.end() || p.find(d) == p.end() || find(c) != find(d) ? -1.0 : w[c] / w[d];
+            ans[i] = p.find(c) == p.end() || p.find(d) == p.end() || find(c) != find(d) ? -1.0 : w[c] / w[d];
         }
-        return res;
+        return ans;
     }
 
     string find(string x) {
