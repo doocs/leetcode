@@ -14,7 +14,7 @@ public:
                 for (int k = 0; k < 2; ++k)
                 {
                     int x = i + dirs[k], y = j + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == grid[i][j])
+                    if (x < m && y < n && grid[x][y] == grid[i][j])
                     {
                         if (find(x * n + y) == find(i * n + j)) return 1;
                         p[find(x * n + y)] = find(i * n + j);

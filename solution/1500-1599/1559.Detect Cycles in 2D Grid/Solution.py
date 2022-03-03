@@ -11,7 +11,7 @@ class Solution:
             for j in range(n):
                 for a, b in [[0, 1], [1, 0]]:
                     x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and grid[x][y] == grid[i][j]:
+                    if x < m and y < n and grid[x][y] == grid[i][j]:
                         if find(x * n + y) == find(i * n + j):
                             return True
                         p[find(x * n + y)] = find(i * n + j)

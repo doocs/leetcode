@@ -77,7 +77,7 @@ class Solution:
             for j in range(n):
                 for a, b in [[0, 1], [1, 0]]:
                     x, y = i + a, j + b
-                    if 0 <= x < m and 0 <= y < n and grid[x][y] == grid[i][j]:
+                    if x < m and y < n and grid[x][y] == grid[i][j]:
                         if find(x * n + y) == find(i * n + j):
                             return True
                         p[find(x * n + y)] = find(i * n + j)
@@ -103,7 +103,7 @@ class Solution {
                 for (int k = 0; k < 2; ++k) {
                     int x = i + dirs[k];
                     int y = j + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && grid[i][j] == grid[x][y]) {
+                    if (x < m && y < n && grid[i][j] == grid[x][y]) {
                         if (find(x * n + y) == find(i * n + j)) {
                             return true;
                         }
@@ -143,7 +143,7 @@ public:
                 for (int k = 0; k < 2; ++k)
                 {
                     int x = i + dirs[k], y = j + dirs[k + 1];
-                    if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == grid[i][j])
+                    if (x < m && y < n && grid[x][y] == grid[i][j])
                     {
                         if (find(x * n + y) == find(i * n + j)) return 1;
                         p[find(x * n + y)] = find(i * n + j);
@@ -182,7 +182,7 @@ func containsCycle(grid [][]byte) bool {
 		for j := 0; j < n; j++ {
 			for k := 0; k < 2; k++ {
 				x, y := i+dirs[k], j+dirs[k+1]
-				if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == grid[i][j] {
+				if x < m && y < n && grid[x][y] == grid[i][j] {
 					if find(x*n+y) == find(i*n+j) {
 						return true
 					}
@@ -193,6 +193,42 @@ func containsCycle(grid [][]byte) bool {
 	}
 	return false
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {character[][]} grid
+ * @return {boolean}
+ */
+var containsCycle = function (grid) {
+    const m = grid.length;
+    const n = grid[0].length;
+    let p = Array.from({ length: m * n }, (_, i) => i);
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+    const dirs = [0, 1, 0];
+    for (let i = 0; i < m; ++i) {
+        for (let j = 0; j < n; ++j) {
+            for (let k = 0; k < 2; ++k) {
+                const x = i + dirs[k];
+                const y = j + dirs[k + 1];
+                if (x < m && y < n && grid[x][y] == grid[i][j]) {
+                    if (find(x * n + y) == find(i * n + j)) {
+                        return true;
+                    }
+                    p[find(x * n + y)] = find(i * n + j);
+                }
+            }
+        }
+    }
+    return false;
+};
 ```
 
 ### **...**
