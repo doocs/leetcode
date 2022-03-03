@@ -20,7 +20,7 @@ int search(int left, int right) {
 }
 ```
 
-### Template 1
+### Template 2
 
 ```java
 boolean check(int x) {}
