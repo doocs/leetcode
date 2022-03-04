@@ -6,11 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>在由 1 x 1 方格组成的 N x N 网格&nbsp;<code>grid</code> 中，每个 1 x 1&nbsp;方块由 <code>/</code>、<code>\</code> 或空格构成。这些字符会将方块划分为一些共边的区域。</p>
+<p>在由 <code>1 x 1</code> 方格组成的 <code>n&nbsp;x n</code>&nbsp;网格&nbsp;<code>grid</code> 中，每个 <code>1 x 1</code>&nbsp;方块由 <code>'/'</code>、<code>'\'</code> 或空格构成。这些字符会将方块划分为一些共边的区域。</p>
 
-<p>（请注意，反斜杠字符是转义的，因此 <code>\</code> 用 <code>&quot;\\&quot;</code>&nbsp;表示。）。</p>
+<p>给定网格&nbsp;<code>grid</code>&nbsp;表示为一个字符串数组，返回 <em>区域的数量</em> 。</p>
 
-<p>返回区域的数目。</p>
+<p>请注意，反斜杠字符是转义的，因此&nbsp;<code>'\'</code> 用 <code>'\\'</code>&nbsp;表示。</p>
 
 <p>&nbsp;</p>
 
@@ -19,78 +19,50 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：
-</strong>[
-&nbsp; &quot; /&quot;,
-&nbsp; &quot;/ &quot;
-]
-<strong>输出：</strong>2
-<strong>解释：</strong>2x2 网格如下：
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/1.png"></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/1.png" style="height: 200px; width: 200px;" /></p>
+
+<pre>
+<strong>输入：</strong>grid = [" /","/ "]
+<strong>输出：</strong>2</pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：
-</strong>[
-&nbsp; &quot; /&quot;,
-&nbsp; &quot;  &quot;
-]
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/2.png" style="height: 198px; width: 200px;" /></p>
+
+<pre>
+<strong>输入：</strong>grid = [" /","  "]
 <strong>输出：</strong>1
-<strong>解释：</strong>2x2 网格如下：
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/2.png"></pre>
+</pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：
-</strong>[
-&nbsp; &quot;\\/&quot;,
-&nbsp; &quot;/\\&quot;
-]
-<strong>输出：</strong>4
-<strong>解释：</strong>（回想一下，因为 \ 字符是转义的，所以 &quot;\\/&quot; 表示 \/，而 &quot;/\\&quot; 表示 /\。）
-2x2 网格如下：
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/3.png"></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/4.png" style="height: 200px; width: 200px;" /></p>
 
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：
-</strong>[
-&nbsp; &quot;/\\&quot;,
-&nbsp; &quot;\\/&quot;
-]
+<pre>
+<strong>输入：</strong>grid = ["/\\","\\/"]
 <strong>输出：</strong>5
-<strong>解释：</strong>（回想一下，因为 \ 字符是转义的，所以 &quot;/\\&quot; 表示 /\，而 &quot;\\/&quot; 表示 \/。）
-2x2 网格如下：
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/4.png"></pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：
-</strong>[
-&nbsp; &quot;//&quot;,
-&nbsp; &quot;/ &quot;
-]
-<strong>输出：</strong>3
-<strong>解释：</strong>2x2 网格如下：
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/5.png">
+<strong>解释：</strong>回想一下，因为 \ 字符是转义的，所以 "/\\" 表示 /\，而 "\\/" 表示 \/。
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= grid.length == grid[0].length &lt;= 30</code></li>
-	<li><code>grid[i][j]</code> 是&nbsp;<code>&#39;/&#39;</code>、<code>&#39;\&#39;</code>、或&nbsp;<code>&#39; &#39;</code>。</li>
-</ol>
+<ul>
+	<li><code>n == grid.length == grid[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 30</code></li>
+	<li><code>grid[i][j]</code> 是&nbsp;<code>'/'</code>、<code>'\'</code>、或&nbsp;<code>' '</code></li>
+</ul>
+
+
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-并查集。
+并查集。对于本题，可以把每个方块看成四个三角形，从上开始顺时针编号 0,1,2,3，`'/'`代表 0 和 3，1 和 2 连通，`'\\'` 代表 0 和 1，2 和 3 连通，`' '` 代表 0、1、2、3 都联通，然后再和方块周围的三角形联通，最后返回总的连通分量就得到结果了。
 
-并查集模板：
+以下是并查集的几个常用模板。
 
 模板 1——朴素并查集：
 
@@ -148,8 +120,6 @@ def find(x):
 p[find(a)] = find(b)
 d[find(a)] = distance
 ```
-
-对于本题，可以把每个方块看成四个三角形，从上开始顺时针编号 0,1,2,3，`'/'`代表 0、3，1、2 连通，`'\\'` 代表 0、1，2、3 连通，`' '` 代表 0、1、2、3 都联通，然后再和方块周围的三角形联通，最后返回总的连通分量就得到结果了。
 
 <!-- tabs:start -->
 
@@ -252,38 +222,48 @@ class Solution {
 class Solution {
 public:
     vector<int> p;
+    int size;
 
     int regionsBySlashes(vector<string>& grid) {
         int n = grid.size();
-        for (int i = 0; i < n * n * 4; ++i) p.push_back(i);
-        for (int i = 0; i < n; ++i) {
-            string row = grid[i];
-            for (int j = 0; j < n; ++j) {
-                int idx = i * n + j;
-                if (i < n - 1) p[find(idx * 4 + 2)] = find((idx + n) * 4);
-                if (j < n - 1) p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3);
-                if (row[j] == '/')
+        size = n * n * 4;
+        p.resize(size);
+        for (int i = 0; i < size; ++i) p[i] = i;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                int k = i * n + j;
+                if (i < n - 1) merge(4 * k + 2, (k + n) * 4);
+                if (j < n - 1) merge(4 * k + 1, (k + 1) * 4 + 3);
+                char v = grid[i][j];
+                if (v == '/')
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 3);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
+                    merge(4 * k, 4 * k + 3);
+                    merge(4 * k + 1, 4 * k + 2);
                 }
-                else if (row[j] == '\\')
+                else if (v == '\\')
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                    merge(4 * k, 4 * k + 1);
+                    merge(4 * k + 2, 4 * k + 3);
                 }
                 else
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                    merge(4 * k, 4 * k + 1);
+                    merge(4 * k + 1, 4 * k + 2);
+                    merge(4 * k + 2, 4 * k + 3);
                 }
             }
         }
-        unordered_set<int> s;
-        for (int i = 0; i < p.size(); ++i)
-            s.insert(find(i));
-        return s.size();
+        return size;
+    }
+
+    void merge(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+        if (pa == pb) return;
+        p[pa] = pb;
+        --size;
     }
 
     int find(int x) {
@@ -296,49 +276,51 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func regionsBySlashes(grid []string) int {
 	n := len(grid)
-	p = make([]int, n*n*4)
-	for i := 0; i < len(p); i++ {
+	size := n * n * 4
+	p := make([]int, size)
+	for i := range p {
 		p[i] = i
 	}
-	for i := 0; i < n; i++ {
-		row := grid[i]
-		for j := 0; j < n; j++ {
-			idx := i*n + j
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	union := func(a, b int) {
+		pa, pb := find(a), find(b)
+		if pa == pb {
+			return
+		}
+		p[pa] = pb
+		size--
+	}
+	for i, row := range grid {
+		for j, v := range row {
+			k := i*n + j
 			if i < n-1 {
-				p[find(idx*4+2)] = find((idx + n) * 4)
+				union(4*k+2, (k+n)*4)
 			}
 			if j < n-1 {
-				p[find(idx*4+1)] = find((idx+1)*4 + 3)
+				union(4*k+1, (k+1)*4+3)
 			}
-			if row[j] == '/' {
-				p[find(idx*4)] = find(idx*4 + 3)
-				p[find(idx*4+1)] = find(idx*4 + 2)
-			} else if row[j] == '\\' {
-				p[find(idx*4)] = find(idx*4 + 1)
-				p[find(idx*4+2)] = find(idx*4 + 3)
+			if v == '/' {
+				union(4*k, 4*k+3)
+				union(4*k+1, 4*k+2)
+			} else if v == '\\' {
+				union(4*k, 4*k+1)
+				union(4*k+2, 4*k+3)
 			} else {
-				p[find(idx*4)] = find(idx*4 + 1)
-				p[find(idx*4+1)] = find(idx*4 + 2)
-				p[find(idx*4+2)] = find(idx*4 + 3)
+				union(4*k, 4*k+1)
+				union(4*k+1, 4*k+2)
+				union(4*k+2, 4*k+3)
 			}
 		}
 	}
-	s := make(map[int]bool)
-	for i := 0; i < len(p); i++ {
-		s[find(i)] = true
-	}
-	return len(s)
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return size
 }
 ```
 

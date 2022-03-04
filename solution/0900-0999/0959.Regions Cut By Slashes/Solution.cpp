@@ -1,38 +1,48 @@
 class Solution {
 public:
     vector<int> p;
+    int size;
 
     int regionsBySlashes(vector<string>& grid) {
         int n = grid.size();
-        for (int i = 0; i < n * n * 4; ++i) p.push_back(i);
-        for (int i = 0; i < n; ++i) {
-            string row = grid[i];
-            for (int j = 0; j < n; ++j) {
-                int idx = i * n + j;
-                if (i < n - 1) p[find(idx * 4 + 2)] = find((idx + n) * 4);
-                if (j < n - 1) p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3);
-                if (row[j] == '/')
+        size = n * n * 4;
+        p.resize(size);
+        for (int i = 0; i < size; ++i) p[i] = i;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                int k = i * n + j;
+                if (i < n - 1) merge(4 * k + 2, (k + n) * 4);
+                if (j < n - 1) merge(4 * k + 1, (k + 1) * 4 + 3);
+                char v = grid[i][j];
+                if (v == '/')
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 3);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
+                    merge(4 * k, 4 * k + 3);
+                    merge(4 * k + 1, 4 * k + 2);
                 }
-                else if (row[j] == '\\')
+                else if (v == '\\')
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                    merge(4 * k, 4 * k + 1);
+                    merge(4 * k + 2, 4 * k + 3);
                 }
                 else
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                    merge(4 * k, 4 * k + 1);
+                    merge(4 * k + 1, 4 * k + 2);
+                    merge(4 * k + 2, 4 * k + 3);
                 }
             }
         }
-        unordered_set<int> s;
-        for (int i = 0; i < p.size(); ++i)
-            s.insert(find(i));
-        return s.size();
+        return size;
+    }
+
+    void merge(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+        if (pa == pb) return;
+        p[pa] = pb;
+        --size;
     }
 
     int find(int x) {

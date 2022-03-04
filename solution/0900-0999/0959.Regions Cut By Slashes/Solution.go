@@ -1,44 +1,46 @@
-var p []int
-
 func regionsBySlashes(grid []string) int {
 	n := len(grid)
-	p = make([]int, n*n*4)
-	for i := 0; i < len(p); i++ {
+	size := n * n * 4
+	p := make([]int, size)
+	for i := range p {
 		p[i] = i
 	}
-	for i := 0; i < n; i++ {
-		row := grid[i]
-		for j := 0; j < n; j++ {
-			idx := i*n + j
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	union := func(a, b int) {
+		pa, pb := find(a), find(b)
+		if pa == pb {
+			return
+		}
+		p[pa] = pb
+		size--
+	}
+	for i, row := range grid {
+		for j, v := range row {
+			k := i*n + j
 			if i < n-1 {
-				p[find(idx*4+2)] = find((idx + n) * 4)
+				union(4*k+2, (k+n)*4)
 			}
 			if j < n-1 {
-				p[find(idx*4+1)] = find((idx+1)*4 + 3)
+				union(4*k+1, (k+1)*4+3)
 			}
-			if row[j] == '/' {
-				p[find(idx*4)] = find(idx*4 + 3)
-				p[find(idx*4+1)] = find(idx*4 + 2)
-			} else if row[j] == '\\' {
-				p[find(idx*4)] = find(idx*4 + 1)
-				p[find(idx*4+2)] = find(idx*4 + 3)
+			if v == '/' {
+				union(4*k, 4*k+3)
+				union(4*k+1, 4*k+2)
+			} else if v == '\\' {
+				union(4*k, 4*k+1)
+				union(4*k+2, 4*k+3)
 			} else {
-				p[find(idx*4)] = find(idx*4 + 1)
-				p[find(idx*4+1)] = find(idx*4 + 2)
-				p[find(idx*4+2)] = find(idx*4 + 3)
+				union(4*k, 4*k+1)
+				union(4*k+1, 4*k+2)
+				union(4*k+2, 4*k+3)
 			}
 		}
 	}
-	s := make(map[int]bool)
-	for i := 0; i < len(p); i++ {
-		s[find(i)] = true
-	}
-	return len(s)
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return size
 }
