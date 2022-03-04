@@ -130,36 +130,39 @@ d[find(a)] = distance
 ```python
 class Solution:
     def regionsBySlashes(self, grid: List[str]) -> int:
-        n = len(grid)
-        p = list(range(n * n * 4))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        for i in range(n):
-            for j in range(n):
-                idx = i * n + j
-                if i < n - 1:
-                    p[find(idx * 4 + 2)] = find((idx + n) * 4)
-                if j < n - 1:
-                    p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3)
+        def union(a, b):
+            pa, pb = find(a), find(b)
+            if pa != pb:
+                p[pa] = pb
+                nonlocal size
+                size -= 1
 
-                if grid[i][j] == '/':
-                    p[find(idx * 4)] = find(idx * 4 + 3)
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2)
-                elif grid[i][j] == '\\':
-                    p[find(idx * 4)] = find(idx * 4 + 1)
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3)
+        n = len(grid)
+        size = n * n * 4
+        p = list(range(size))
+        for i, row in enumerate(grid):
+            for j, v in enumerate(row):
+                k = i * n + j
+                if i < n - 1:
+                    union(4 * k + 2, (k + n) * 4)
+                if j < n - 1:
+                    union(4 * k + 1, (k + 1) * 4 + 3)
+                if v == '/':
+                    union(4 * k, 4 * k + 3)
+                    union(4 * k + 1, 4 * k + 2)
+                elif v == '\\':
+                    union(4 * k, 4 * k + 1)
+                    union(4 * k + 2, 4 * k + 3)
                 else:
-                    p[find(idx * 4)] = find(idx * 4 + 1)
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2)
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3)
-        s = set()
-        for i in range(len(p)):
-            s.add(find(i))
-        return len(s)
+                    union(4 * k, 4 * k + 1)
+                    union(4 * k + 1, 4 * k + 2)
+                    union(4 * k + 2, 4 * k + 3)
+        return size
 ```
 
 ### **Java**
@@ -169,42 +172,39 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
+    private int size;
 
     public int regionsBySlashes(String[] grid) {
         int n = grid.length;
-        p = new int[n * n * 4];
+        size = n * n * 4;
+        p = new int[size];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
         for (int i = 0; i < n; ++i) {
-            char[] row = grid[i].toCharArray();
             for (int j = 0; j < n; ++j) {
-                int idx = i * n + j;
+                int k = i * n + j;
                 if (i < n - 1) {
-                    p[find(idx * 4 + 2)] = find((idx + n) * 4);
+                    union(4 * k + 2, (k + n) * 4);
                 }
                 if (j < n - 1) {
-                    p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3);
+                    union(4 * k + 1, (k + 1) * 4 + 3);
                 }
-
-                if (row[j] == '/') {
-                    p[find(idx * 4)] = find(idx * 4 + 3);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
-                } else if (row[j] == '\\') {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                char v = grid[i].charAt(j);
+                if (v == '/') {
+                    union(4 * k, 4 * k + 3);
+                    union(4 * k + 1, 4 * k + 2);
+                } else if (v == '\\') {
+                    union(4 * k, 4 * k + 1);
+                    union(4 * k + 2, 4 * k + 3);
                 } else {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                    union(4 * k, 4 * k + 1);
+                    union(4 * k + 1, 4 * k + 2);
+                    union(4 * k + 2, 4 * k + 3);
                 }
             }
         }
-        Set<Integer> s = new HashSet<>();
-        for (int i = 0; i < p.length; ++i) {
-            s.add(find(i));
-        }
-        return s.size();
+        return size;
     }
 
     private int find(int x) {
@@ -212,6 +212,16 @@ class Solution {
             p[x] = find(p[x]);
         }
         return p[x];
+    }
+
+    private void union(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+        if (pa == pb) {
+            return;
+        }
+        p[pa] = pb;
+        --size;
     }
 }
 ```
