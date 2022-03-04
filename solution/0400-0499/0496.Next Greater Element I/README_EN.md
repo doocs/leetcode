@@ -154,6 +154,64 @@ func nextGreaterElement(nums1 []int, nums2 []int) []int {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function nextGreaterElement(nums1: number[], nums2: number[]): number[] {
+    const map = new Map<number, number>();
+    const stack: number[] = [Infinity];
+    for (const num of nums2) {
+        while (num > stack[stack.length - 1]) {
+            map.set(stack.pop(), num);
+        }
+        stack.push(num);
+    }
+    return nums1.map(num => map.get(num) || -1);
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn next_greater_element(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
+        let mut map = HashMap::new();
+        let mut stack = Vec::new();
+        for num in nums2 {
+            while num > *stack.last().unwrap_or(&i32::MAX) {
+                map.insert(stack.pop().unwrap(), num);
+            }
+            stack.push(num);
+        }
+        nums1
+            .iter()
+            .map(|n| *map.get(n).unwrap_or(&-1))
+            .collect::<Vec<i32>>()
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn next_greater_element(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
+        nums1.iter().map(|target| {
+            let mut res = -1;
+            for num in nums2.iter().rev() {
+                if num == target {
+                    break;
+                }
+                if num > target {
+                    res = *num;
+                }
+            }
+            res
+        }).collect::<Vec<i32>>()
+    }
+}
+```
+
 ### **...**
 
 ```
