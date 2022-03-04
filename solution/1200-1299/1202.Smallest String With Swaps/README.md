@@ -57,7 +57,11 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-并查集。
+并查集。对于本题，索引对具备传递性。即如果索引对是 `[0,2]`, `[0, 3]`，那么索引 0、2、3 可以进行任意交换。我们可以利用并查集，遍历每个索引对，将其中的两个索引进行合并，得到并查集，连在一起的索引对应的字符按照字典序排列，这里可以利用优先级队列实现（也可以先用列表存储，再排序）。
+
+最后遍历字符串，找到每个字符的根元素，并替换为字典序中对应的字符。
+
+以下是并查集的几个常用模板。
 
 模板 1——朴素并查集：
 
@@ -116,10 +120,6 @@ p[find(a)] = find(b)
 d[find(a)] = distance
 ```
 
-对于本题，索引对具备传递性。即如果索引对是 `[0,2]`, `[0, 3]`，那么索引 0、2、3 可以进行任意交换。我们可以利用并查集，遍历每个索引对，将其中的两个索引进行合并，得到并查集，连在一起的索引对应的字符按照字典序排列，这里可以利用优先级队列实现。
-
-最后遍历字符串，找到每个字符的根元素，并替换为字典序中对应的字符。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -129,24 +129,19 @@ d[find(a)] = distance
 ```python
 class Solution:
     def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
-        n = len(s)
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        n = len(s)
+        p = list(range(n))
         for a, b in pairs:
             p[find(a)] = find(b)
-
         mp = defaultdict(list)
-        for i in range(n):
-            heapq.heappush(mp[find(i)], s[i])
-        chars = list(s)
-        for i in range(n):
-            chars[i] = heapq.heappop(mp[find(i)])
-        return ''.join(chars)
+        for i, c in enumerate(s):
+            heapq.heappush(mp[find(i)], c)
+        return ''.join(heapq.heappop(mp[find(i)]) for i in range(n))
 ```
 
 ### **Java**
@@ -169,7 +164,7 @@ class Solution {
         Map<Integer, PriorityQueue<Character>> mp = new HashMap<>();
         char[] chars = s.toCharArray();
         for (int i = 0; i < n; ++i) {
-            mp.computeIfAbsent(find(i), key -> new PriorityQueue<>()).offer(chars[i]);
+            mp.computeIfAbsent(find(i), k -> new PriorityQueue<>()).offer(chars[i]);
         }
         for (int i = 0; i < n; ++i) {
             chars[i] = mp.get(find(i)).poll();
@@ -183,6 +178,74 @@ class Solution {
         }
         return p[x];
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> p;
+
+    string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
+        int n = s.length();
+        p.resize(n);
+        for (int i = 0; i < n; ++i) p[i] = i;
+        for (auto& pair : pairs) p[find(pair[0])] = find(pair[1]);
+        unordered_map<int, vector<char>> mp;
+        for (int i = 0; i < n; ++i) mp[find(i)].push_back(s[i]);
+        for (auto& [k, v] : mp) sort(v.rbegin(), v.rend());
+        string ans;
+        for (int i = 0; i < n; ++i)
+        {
+            ans.push_back(mp[find(i)].back());
+            mp[find(i)].pop_back();
+        }
+        return ans;
+    }
+
+    int find(int x) {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+};
+```
+
+### **Go**
+
+```go
+func smallestStringWithSwaps(s string, pairs [][]int) string {
+	n := len(s)
+	p := make([]int, n)
+	for i := range p {
+		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	for _, pair := range pairs {
+		p[find(pair[0])] = find(pair[1])
+	}
+	mp := make(map[int][]rune)
+	for i, c := range s {
+		mp[find(i)] = append(mp[find(i)], c)
+	}
+	for _, v := range mp {
+		sort.Slice(v, func(i, j int) bool {
+			return v[i] < v[j]
+		})
+	}
+	var ans []rune
+	for i := 0; i < n; i++ {
+		ans = append(ans, mp[find(i)][0])
+		mp[find(i)] = mp[find(i)][1:]
+	}
+	return string(ans)
 }
 ```
 

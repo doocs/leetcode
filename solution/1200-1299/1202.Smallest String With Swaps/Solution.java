@@ -13,7 +13,7 @@ class Solution {
         Map<Integer, PriorityQueue<Character>> mp = new HashMap<>();
         char[] chars = s.toCharArray();
         for (int i = 0; i < n; ++i) {
-            mp.computeIfAbsent(find(i), key -> new PriorityQueue<>()).offer(chars[i]);
+            mp.computeIfAbsent(find(i), k -> new PriorityQueue<>()).offer(chars[i]);
         }
         for (int i = 0; i < n; ++i) {
             chars[i] = mp.get(find(i)).poll();
