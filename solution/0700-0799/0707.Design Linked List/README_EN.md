@@ -224,6 +224,220 @@ class MyLinkedList {
  */
 ```
 
+### **TypeScript**
+
+```ts
+class LinkNode {
+    public val: number
+    public next: LinkNode
+
+    constructor(val: number, next: LinkNode = null) {
+        this.val = val;
+        this.next = next;
+    }
+}
+
+class MyLinkedList {
+    public head: LinkNode
+
+    constructor() {
+        this.head = null;
+    }
+
+    get(index: number): number {
+        if (this.head == null) {
+            return -1
+        }
+        let cur = this.head
+        let idxCur = 0;
+        while (idxCur < index) {
+            if (cur.next == null) {
+                return - 1
+            }
+            cur = cur.next;
+            idxCur++
+        }
+        return cur.val
+    }
+
+    addAtHead(val: number): void {
+        this.head = new LinkNode(val, this.head);
+    }
+
+    addAtTail(val: number): void {
+        const newNode = new LinkNode(val)
+        if (this.head == null) {
+            this.head = newNode
+            return
+        }
+        let cur = this.head;
+        while (cur.next != null) {
+            cur = cur.next
+        }
+        cur.next = newNode;
+    }
+
+    addAtIndex(index: number, val: number): void {
+        if (index <= 0) {
+            return this.addAtHead(val);
+        }
+        const dummy = new LinkNode(0, this.head);
+        let cur = dummy;
+        let idxCur = 0;
+        while (idxCur < index) {
+            if (cur.next == null) {
+                return
+            }
+            cur = cur.next
+            idxCur++
+        }
+        cur.next = new LinkNode(val, cur.next || null)
+    }
+
+    deleteAtIndex(index: number): void {
+        if (index == 0) {
+            this.head = (this.head || {}).next
+            return
+        }
+        const dummy = new LinkNode(0, this.head);
+        let cur = dummy;
+        let idxCur = 0
+        while (idxCur < index) {
+            if (cur.next == null) {
+                return
+            }
+            cur = cur.next
+            idxCur++
+        }
+        cur.next = (cur.next || {}).next
+    }
+}
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * var obj = new MyLinkedList()
+ * var param_1 = obj.get(index)
+ * obj.addAtHead(val)
+ * obj.addAtTail(val)
+ * obj.addAtIndex(index,val)
+ * obj.deleteAtIndex(index)
+ */
+```
+
+### **Rust**
+
+```rust
+struct Node {
+    val: i32,
+    next: Option<Box<Node>>,
+}
+
+#[derive(Default)]
+struct MyLinkedList {
+    head: Option<Box<Node>>,
+}
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl MyLinkedList {
+    fn new() -> Self {
+        Default::default()
+    }
+
+    fn get(&self, index: i32) -> i32 {
+        let mut cur = match self.head {
+            None => return -1,
+            Some(ref n) => n,
+        };
+        let mut idx_cur = 0;
+        while idx_cur < index {
+            match cur.next {
+                None => return -1,
+                Some(ref next) => {
+                    cur = next;
+                    idx_cur += 1;
+                }
+            }
+        }
+        cur.val
+    }
+
+    fn add_at_head(&mut self, val: i32) {
+        self.head = Some(Box::new(Node {
+            val,
+            next: self.head.take(),
+        }));
+    }
+
+    fn add_at_tail(&mut self, val: i32) {
+        let new_node = Some(Box::new(Node { val, next: None }));
+        let mut cur = match self.head {
+            Some(ref mut n) => n,
+            None => {
+                self.head = new_node;
+                return;
+            }
+        };
+        while let Some(ref mut next) = cur.next {
+            cur = next;
+        }
+        cur.next = new_node;
+    }
+
+    fn add_at_index(&mut self, index: i32, val: i32) {
+        let mut dummy = Box::new(Node {
+            val: 0,
+            next: self.head.take()
+        });
+        let mut idx = 0;
+        let mut cur = &mut dummy;
+        while idx < index {
+            if let Some(ref mut next) = cur.next {
+                cur = next;
+            } else {
+                return
+            }
+            idx += 1;
+        }
+        cur.next = Some(Box::new(Node { 
+            val, 
+            next: cur.next.take() 
+        }));
+        self.head = dummy.next;
+    }
+
+    fn delete_at_index(&mut self, index: i32) {
+        let mut dummy = Box::new(Node {
+            val: 0,
+            next: self.head.take(),
+        });
+        let mut idx = 0;
+        let mut cur = &mut dummy;
+        while idx < index {
+            if let Some(ref mut next) = cur.next {
+                cur = next;
+            }
+            idx += 1;
+        }
+        cur.next = cur.next.take().and_then(|n| n.next);
+        self.head = dummy.next;
+    }
+}
+
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * let obj = MyLinkedList::new();
+ * let ret_1: i32 = obj.get(index);
+ * obj.add_at_head(val);
+ * obj.add_at_tail(val);
+ * obj.add_at_index(index, val);
+ * obj.delete_at_index(index);
+ */
+```
+
 ### **...**
 
 ```
