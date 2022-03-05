@@ -13,7 +13,7 @@ func findRedundantConnection(edges [][]int) []int {
 	for _, e := range edges {
 		a, b := e[0], e[1]
 		if find(a) == find(b) {
-			return []int{a, b}
+			return e
 		}
 		p[find(a)] = find(b)
 	}
