@@ -30,29 +30,23 @@ func (uf *unionFind) union(a, b int) bool {
 
 func maxNumEdgesToRemove(n int, edges [][]int) int {
 	ufa, ufb := newUnionFind(n), newUnionFind(n)
-	res := 0
+	ans := 0
 	for _, e := range edges {
 		if e[0] == 3 {
-			if !ufa.union(e[1], e[2]) {
-				res++
-			} else {
+			if ufa.union(e[1], e[2]) {
 				ufb.union(e[1], e[2])
+			} else {
+				ans++
 			}
 		}
 	}
 	for _, e := range edges {
-		if e[0] == 1 {
-			if !ufa.union(e[1], e[2]) {
-				res++
-			}
-		} else if e[0] == 2 {
-			if !ufb.union(e[1], e[2]) {
-				res++
-			}
+		if (e[0] == 1 && !ufa.union(e[1], e[2])) || (e[0] == 2 && !ufb.union(e[1], e[2])) {
+			ans++
 		}
 	}
 	if ufa.n == 1 && ufb.n == 1 {
-		return res
+		return ans
 	}
 	return -1
 }
