@@ -52,7 +52,13 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-并查集。
+这是一道**离线思维**的题目。
+
+**离线**的意思是，一道题目会给出若干 query，而这些 query 会全部提前给出。也就是说，我们可以不必按照 query 的顺序依次对它们进行处理，而是可以按照另外某种顺序进行处理。与**离线**相对应的是**在线**，即所有 query 会依次给出，在返回第 k 个 query 的答案之前，不会获得第 k+1 个 query。
+
+对于本题，可以转换为：将小于 limit 的所有边加入图中，判断此时 pj, qj 是否连通。可以用并查集来实现。
+
+以下是并查集的几个常用模板。
 
 模板 1——朴素并查集：
 
@@ -111,8 +117,6 @@ p[find(a)] = find(b)
 d[find(a)] = distance
 ```
 
-对于本题，可以转换为：将小于 limit 的所有边加入图中，判断此时是否存在从 pj 到 qj 的一条路径。
-
 <!-- tabs:start -->
 
 ### **Python3**
@@ -122,23 +126,23 @@ d[find(a)] = distance
 ```python
 class Solution:
     def distanceLimitedPathsExist(self, n: int, edgeList: List[List[int]], queries: List[List[int]]) -> List[bool]:
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        p = list(range(n))
         edgeList.sort(key=lambda x: x[2])
+
         m = len(queries)
         indexes = list(range(m))
-        indexes.sort(key=lambda x: queries[x][2])
+        indexes.sort(key=lambda i: queries[i][2])
         ans = [False] * m
         i = 0
         for j in indexes:
-            pj, qj, limit = queries[j][0], queries[j][1], queries[j][2]
+            pj, qj, limit = queries[j]
             while i < len(edgeList) and edgeList[i][2] < limit:
-                u, v = edgeList[i][0], edgeList[i][1]
+                u, v, _ = edgeList[i]
                 p[find(u)] = find(v)
                 i += 1
             ans[j] = find(pj) == find(qj)
@@ -234,12 +238,17 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
-	p = make([]int, n)
+	p := make([]int, n)
 	for i := 0; i < n; i++ {
 		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
 	}
 	sort.Slice(edgeList, func(i, j int) bool {
 		return edgeList[i][2] < edgeList[j][2]
@@ -264,13 +273,6 @@ func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool 
 		ans[j] = find(pj) == find(qj)
 	}
 	return ans
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }
 ```
 
