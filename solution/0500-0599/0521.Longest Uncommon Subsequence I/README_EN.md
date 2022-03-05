@@ -53,13 +53,26 @@ Note that &quot;cdc&quot; is also a longest uncommon subsequence.
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findLUSlength(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: int
+        """
+        return -1 if a == b else max(len(a), len(b))
 ```
 
 ### **Java**
 
 ```java
-
+class Solution {
+    public int findLUSlength(String a, String b) {
+        if (a.equals(b))
+            return -1;
+        return Math.max(a.length(), b.length());
+    }
+}
 ```
 
 ### **...**
