@@ -17,7 +17,7 @@ class Solution {
             }
         }
         List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
+        for (int i = time; i < n - time; ++i) {
             if (time <= Math.min(left[i], right[i])) {
                 ans.add(i);
             }
