@@ -16,7 +16,7 @@ func goodDaysToRobBank(security []int, time int) []int {
 		}
 	}
 	var ans []int
-	for i := 0; i < n; i++ {
+	for i := time; i < n - time; i++ {
 		if time <= left[i] && time <= right[i] {
 			ans = append(ans, i)
 		}

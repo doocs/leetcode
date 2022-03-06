@@ -122,7 +122,7 @@ class Solution {
             }
         }
         List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
+        for (int i = time; i < n - time; ++i) {
             if (time <= Math.min(left[i], right[i])) {
                 ans.add(i);
             }
@@ -149,7 +149,7 @@ public:
             if (security[i] <= security[i + 1])
                 right[i] = right[i + 1] + 1;
         vector<int> ans;
-        for (int i = 0; i < n; ++i)
+        for (int i = time; i < n - time; ++i)
             if (time <= min(left[i], right[i]))
                 ans.push_back(i);
         return ans;
@@ -178,7 +178,7 @@ func goodDaysToRobBank(security []int, time int) []int {
 		}
 	}
 	var ans []int
-	for i := 0; i < n; i++ {
+	for i := time; i < n - time; i++ {
 		if time <= left[i] && time <= right[i] {
 			ans = append(ans, i)
 		}
