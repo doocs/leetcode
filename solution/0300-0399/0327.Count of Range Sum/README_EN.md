@@ -43,49 +43,109 @@
 ### **Python3**
 
 ```python
-class Solution:
-    def arrayRankTransform(self, arr: List[int]) -> List[int]:
-        def find(x):
-            left, right = 0, len(t) - 1
-            while left < right:
-                mid = (left + right) >> 1
-                if t[mid] >= x:
-                    right = mid
-                else:
-                    left = mid + 1
-            return left + 1
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
 
-        t = sorted(set(arr))
-        return [find(x) for x in arr]
-```
+    @staticmethod
+    def lowbit(x):
+        return x & -x
 
-```python
+    def update(self, x, delta):
+        while x <= self.n:
+            self.c[x] += delta
+            x += BinaryIndexedTree.lowbit(x)
+
+    def query(self, x):
+        s = 0
+        while x > 0:
+            s += self.c[x]
+            x -= BinaryIndexedTree.lowbit(x)
+        return s
+
+
 class Solution:
-    def arrayRankTransform(self, arr: List[int]) -> List[int]:
-        m = {v: i for i, v in enumerate(sorted(set(arr)), 1)}
-        return [m[v] for v in arr]
+    def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:
+        presum = [0]
+        for v in nums:
+            presum.append(presum[-1] + v)
+        alls = set()
+        for s in presum:
+            alls.add(s)
+            alls.add(s - lower)
+            alls.add(s - upper)
+        alls = sorted(alls)
+        m = {v: i for i, v in enumerate(alls, 1)}
+        tree = BinaryIndexedTree(len(m))
+        ans = 0
+        for s in presum:
+            i, j = m[s - upper], m[s - lower]
+            ans += tree.query(j) - tree.query(i - 1)
+            tree.update(m[s], 1)
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
-    public int[] arrayRankTransform(int[] arr) {
-        Set<Integer> s = new HashSet<>();
-        for (int v : arr) {
-            s.add(v);
+    public int countRangeSum(int[] nums, int lower, int upper) {
+        int n = nums.length;
+        long[] preSum = new long[n + 1];
+        for (int i = 0; i < n; ++i) {
+            preSum[i + 1] = preSum[i] + nums[i];
         }
-        List<Integer> alls = new ArrayList<>(s);
-        alls.sort((a, b) -> a - b);
-        Map<Integer, Integer> m = new HashMap<>();
-        for (int i = 0; i < alls.size(); ++i) {
-            m.put(alls.get(i), i + 1);
+        TreeSet<Long> ts = new TreeSet<>();
+        for (long s : preSum) {
+            ts.add(s);
+            ts.add(s - upper);
+            ts.add(s - lower);
         }
-        int[] ans = new int[arr.length];
-        for (int i = 0; i < arr.length; ++i) {
-            ans[i] = m.get(arr[i]);
+        Map<Long, Integer> m = new HashMap<>();
+        int idx = 1;
+        for (long s : ts) {
+            m.put(s, idx++);
+        }
+        int ans = 0;
+        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
+        for (long s : preSum) {
+            int i = m.get(s - upper);
+            int j = m.get(s - lower);
+            ans += tree.query(j) - tree.query(i - 1);
+            tree.update(m.get(s), 1);
         }
         return ans;
+    }
+}
+
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    public static int lowbit(int x) {
+        return x & -x;
     }
 }
 ```
@@ -93,16 +153,60 @@ class Solution {
 ### **C++**
 
 ```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
+
+    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+
+    void update(int x, int delta) {
+        while (x <= n)
+        {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0)
+        {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    int lowbit(int x) {
+        return x & -x;
+    }
+};
+
 class Solution {
 public:
-    vector<int> arrayRankTransform(vector<int>& arr) {
-        unordered_set<int> s(arr.begin(), arr.end());
-        vector<int> alls(s.begin(), s.end());
-        sort(alls.begin(), alls.end());
-        unordered_map<int, int> m;
-        for (int i = 0; i < alls.size(); ++i) m[alls[i]] = i + 1;
-        vector<int> ans;
-        for (int v : arr) ans.push_back(m[v]);
+    int countRangeSum(vector<int>& nums, int lower, int upper) {
+        int n = nums.size();
+        vector<long long> preSum(n + 1);
+        for (int i = 0; i < n; ++i) preSum[i + 1] = preSum[i] + nums[i];
+        set<long long> alls;
+        for (auto& s : preSum)
+        {
+            alls.insert(s);
+            alls.insert(s - upper);
+            alls.insert(s - lower);
+        }
+        unordered_map<long long, int> m;
+        int idx = 1;
+        for (auto& v : alls) m[v] = idx++;
+        BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
+        int ans = 0;
+        for (auto& s : preSum)
+        {
+            int i = m[s - upper], j = m[s - lower];
+            ans += tree->query(j) - tree->query(i - 1);
+            tree->update(m[s], 1);
+        }
         return ans;
     }
 };
@@ -111,23 +215,63 @@ public:
 ### **Go**
 
 ```go
-func arrayRankTransform(arr []int) []int {
-	s := make(map[int]bool)
-	for _, v := range arr {
-		s[v] = true
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) lowbit(x int) int {
+	return x & -x
+}
+
+func (this *BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += this.lowbit(x)
 	}
-	var alls []int
-	for v := range s {
-		alls = append(alls, v)
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= this.lowbit(x)
 	}
-	sort.Ints(alls)
+	return s
+}
+
+func countRangeSum(nums []int, lower int, upper int) int {
+	n := len(nums)
+	presum := make([]int, n+1)
+	for i, v := range nums {
+		presum[i+1] = presum[i] + v
+	}
+	alls := make(map[int]bool)
+	for _, s := range presum {
+		alls[s] = true
+		alls[s-upper] = true
+		alls[s-lower] = true
+	}
+	var t []int
+	for s, _ := range alls {
+		t = append(t, s)
+	}
+	sort.Ints(t)
 	m := make(map[int]int)
-	for i, v := range alls {
+	for i, v := range t {
 		m[v] = i + 1
 	}
-	var ans []int
-	for _, v := range arr {
-		ans = append(ans, m[v])
+	ans := 0
+	tree := newBinaryIndexedTree(len(alls))
+	for _, s := range presum {
+		i, j := m[s-upper], m[s-lower]
+		ans += tree.query(j) - tree.query(i-1)
+		tree.update(m[s], 1)
 	}
 	return ans
 }
