@@ -38,6 +38,8 @@
 
 ## Solutions
 
+Binary Indexed Tree.
+
 <!-- tabs:start -->
 
 ### **Python3**
