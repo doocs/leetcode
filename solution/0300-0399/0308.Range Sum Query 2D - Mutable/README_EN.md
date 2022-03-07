@@ -4,14 +4,19 @@
 
 ## Description
 
-<p>Given a 2D matrix <code>matrix</code>, find the sum of the elements inside the rectangle defined by its upper left corner <code>(row1, col1)</code> and lower right corner <code>(row2, col2)</code>.</p>
+<p>Given a 2D matrix <code>matrix</code>, handle multiple queries of the following types:</p>
+
+<ol>
+	<li><strong>Update</strong> the value of a cell in <code>matrix</code>.</li>
+	<li>Calculate the <strong>sum</strong> of the elements of <code>matrix</code> inside the rectangle defined by its <strong>upper left corner</strong> <code>(row1, col1)</code> and <strong>lower right corner</strong> <code>(row2, col2)</code>.</li>
+</ol>
 
 <p>Implement the NumMatrix class:</p>
 
 <ul>
-	<li><code>NumMatrix(int[][] matrix)</code> initializes the object with the integer matrix <code>matrix</code>.</li>
-	<li><code>void update(int row, int col, int val)</code> updates the value of <code>matrix[row][col]</code> to be <code>val</code>.</li>
-	<li><code>int sumRegion(int row1, int col1, int row2, int col2)</code> returns the sum of the elements of the <code>matrix</code> array inside the rectangle defined by its upper left corner <code>(row1, col1)</code> and lower right corner <code>(row2, col2)</code>.</li>
+	<li><code>NumMatrix(int[][] matrix)</code> Initializes the object with the integer matrix <code>matrix</code>.</li>
+	<li><code>void update(int row, int col, int val)</code> <strong>Updates</strong> the value of <code>matrix[row][col]</code> to be <code>val</code>.</li>
+	<li><code>int sumRegion(int row1, int col1, int row2, int col2)</code> Returns the <strong>sum</strong> of the elements of <code>matrix</code> inside the rectangle defined by its <strong>upper left corner</strong> <code>(row1, col1)</code> and <strong>lower right corner</strong> <code>(row2, col2)</code>.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -26,9 +31,9 @@
 
 <strong>Explanation</strong>
 NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]);
-numMatrix.sumRegion(2, 1, 4, 3); // return 8
-numMatrix.update(3, 2, 2);
-numMatrix.sumRegion(2, 1, 4, 3); // return 10
+numMatrix.sumRegion(2, 1, 4, 3); // return 8 (i.e. sum of the left red rectangle)
+numMatrix.update(3, 2, 2); // matrix changes from left image to right image
+numMatrix.sumRegion(2, 1, 4, 3); // return 10 (i.e. sum of the right red rectangle)
 
 </pre>
 
