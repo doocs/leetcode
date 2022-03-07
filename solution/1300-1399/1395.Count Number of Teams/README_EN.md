@@ -56,13 +56,110 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def numTeams(self, rating: List[int]) -> int:
+        n, ans = len(rating), 0
+        for j in range(1, n - 1):
+            ia = ib = ka = kb = 0
+            for i in range(j):
+                if rating[i] < rating[j]:
+                    ia += 1
+                elif rating[i] > rating[j]:
+                    ib += 1
+            for k in range(j + 1, n):
+                if rating[j] < rating[k]:
+                    ka += 1
+                elif rating[j] > rating[k]:
+                    kb += 1
+            ans += ia * ka + ib * kb
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int numTeams(int[] rating) {
+        int n = rating.length;
+        int ans = 0;
+        for (int j = 1; j < n - 1; ++j) {
+            int ia = 0;
+            int ib = 0;
+            int ka = 0;
+            int kb = 0;
+            for (int i = 0; i < j; ++i) {
+                if (rating[i] < rating[j]) {
+                    ++ia;
+                } else if (rating[i] > rating[j]) {
+                    ++ib;
+                }
+            }
+            for (int k = j + 1; k < n; ++k) {
+                if (rating[j] < rating[k]) {
+                    ++ka;
+                } else if (rating[j] > rating[k]) {
+                    ++kb;
+                }
+            }
+            ans += ia * ka + ib * kb;
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numTeams(vector<int>& rating) {
+        int n = rating.size(), ans = 0;
+        for (int j = 1; j < n - 1; ++j)
+        {
+            int ia = 0, ib = 0, ka = 0, kb = 0;
+            for (int i = 0; i < j; ++i)
+            {
+                if (rating[i] < rating[j]) ++ia;
+                else if (rating[i] > rating[j]) ++ib;
+            }
+            for (int k = j + 1; k < n; ++k)
+            {
+                if (rating[j] < rating[k]) ++ka;
+                else if (rating[j] > rating[k]) ++kb;
+            }
+            ans += ia * ka + ib * kb;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numTeams(rating []int) int {
+	n, ans := len(rating), 0
+	for j := 1; j < n-1; j++ {
+		ia, ib, ka, kb := 0, 0, 0, 0
+		for i := 0; i < j; i++ {
+			if rating[i] < rating[j] {
+				ia++
+			} else if rating[i] > rating[j] {
+				ib++
+			}
+		}
+		for k := j + 1; k < n; k++ {
+			if rating[j] < rating[k] {
+				ka++
+			} else if rating[j] > rating[k] {
+				kb++
+			}
+		}
+		ans += ia*ka + ib*kb
+	}
+	return ans
+}
 ```
 
 ### **...**
