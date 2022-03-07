@@ -99,6 +99,55 @@ class Solution {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function find132pattern(nums: number[]): boolean {
+    const n = nums.length;
+    if (n < 3) {
+        return false;
+    }
+    let last = -Infinity;
+    const stack = [];
+    for (let i = n - 1; i >= 0; i--) {
+        const num = nums[i];
+        if (num < last) {
+            return true;
+        }
+        while (stack[stack.length - 1] < num) {
+            last = Math.max(last, stack.pop());
+        }
+        stack.push(num);
+    }
+    return false;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find132pattern(nums: Vec<i32>) -> bool {
+        let n = nums.len();
+        if n < 3 {
+            return false;
+        }
+        let mut last = i32::MIN;
+        let mut stack = vec![];
+        for i in (0..n).rev() {
+            if nums[i] < last {
+                return true;
+            }
+            while !stack.is_empty() && stack.last().unwrap() < &nums[i] {
+                last = stack.pop().unwrap();
+            }
+            stack.push(nums[i])
+        }
+        false
+    }
+}
+```
+
 ### **...**
 
 ```
