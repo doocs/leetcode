@@ -242,6 +242,52 @@ def is_valid(s)
 end
 ```
 
+### **TypeScript**
+
+```ts
+const map = new Map([
+    ['(', ')'],
+    ['[', ']'],
+    ['{', '}'],
+]);
+
+function isValid(s: string): boolean {
+    const stack = [];
+    for (const c of s) {
+        if (map.has(c)) {
+            stack.push(map.get(c));
+        } else if (stack.pop() !== c) {
+            return false;
+        }
+    }
+    return stack.length === 0;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn is_valid(s: String) -> bool {
+        let mut map = HashMap::new();
+        map.insert('(', ')');
+        map.insert('[', ']');
+        map.insert('{', '}');
+        let mut stack = vec![];
+        for c in s.chars() {
+            if map.contains_key(&c) {
+                stack.push(map[&c]);
+            } else if stack.pop().unwrap_or(' ') != c {
+                return false;
+            }
+        }
+        stack.len() == 0
+    }
+}
+```
+
 ### **...**
 
 ```
