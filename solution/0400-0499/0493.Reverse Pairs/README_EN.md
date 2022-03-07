@@ -26,6 +26,8 @@
 
 ## Solutions
 
+Merge Sort or Binary Indexed Tree.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -66,6 +68,45 @@ class Solution:
             return res
 
         return merge_sort(nums, 0, len(nums) - 1)
+```
+
+```python
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
+    
+    @staticmethod
+    def lowbit(x):
+        return x & -x
+    
+    def update(self, x, delta):
+        while x <= self.n:
+            self.c[x] += delta
+            x += BinaryIndexedTree.lowbit(x)
+    
+    def query(self, x):
+        s = 0
+        while x > 0:
+            s += self.c[x]
+            x -= BinaryIndexedTree.lowbit(x)
+        return s
+
+
+class Solution:
+    def reversePairs(self, nums: List[int]) -> int:
+        s = set()
+        for num in nums:
+            s.add(num)
+            s.add(num * 2)
+        alls = sorted(s)
+        m = {v: i for i, v in enumerate(alls, 1)}
+        ans = 0
+        tree = BinaryIndexedTree(len(m))
+        for num in nums[::-1]:
+            ans += tree.query(m[num] - 1)
+            tree.update(m[num * 2], 1)
+        return ans
 ```
 
 ### **Java**
@@ -116,6 +157,61 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int reversePairs(int[] nums) {
+        TreeSet<Long> ts = new TreeSet<>();
+        for (int num : nums) {
+            ts.add((long) num);
+            ts.add((long) num * 2);
+        }
+        Map<Long, Integer> m = new HashMap<>();
+        int idx = 0;
+        for (long num : ts) {
+            m.put(num, ++idx);
+        }
+        BinaryIndexedTree tree = new BinaryIndexedTree(m.size());
+        int ans = 0;
+        for (int i = nums.length - 1; i >= 0; --i) {
+            int x = m.get((long) nums[i]);
+            ans += tree.query(x - 1);
+            tree.update(m.get((long) nums[i] * 2), 1);
+        }
+        return ans;
+    }
+}
+
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
+
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    public static int lowbit(int x) {
+        return x & -x;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -156,6 +252,61 @@ private:
         }
         copy(temp.begin() + l, temp.begin() + r + 1, nums.begin() + l);
         return count;
+    }
+};
+```
+
+```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
+
+    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+
+    void update(int x, int delta) {
+        while (x <= n)
+        {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0)
+        {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    int lowbit(int x) {
+        return x & -x;
+    }
+};
+
+class Solution {
+public:
+    int reversePairs(vector<int>& nums) {
+        set<long long> s;
+        for (int num : nums)
+        {
+            s.insert(num);
+            s.insert(num * 2ll);
+        }
+        unordered_map<long long, int> m;
+        int idx = 0;
+        for (long long num : s) m[num] = ++idx;
+        BinaryIndexedTree* tree = new BinaryIndexedTree(m.size());
+        int ans = 0;
+        for (int i = nums.size() - 1; i >= 0; --i)
+        {
+            ans += tree->query(m[nums[i]] - 1);
+            tree->update(m[nums[i] * 2ll], 1);
+        }
+        return ans;
     }
 };
 ```
@@ -205,6 +356,62 @@ func mergeSort(nums []int, left, right int) int {
 		nums[i] = tmp[i-left]
 	}
 	return res
+}
+```
+
+```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) lowbit(x int) int {
+	return x & -x
+}
+
+func (this *BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += this.lowbit(x)
+	}
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= this.lowbit(x)
+	}
+	return s
+}
+
+func reversePairs(nums []int) int {
+	s := make(map[int]bool)
+	for _, num := range nums {
+		s[num] = true
+		s[num*2] = true
+	}
+	var alls []int
+	for num := range s {
+		alls = append(alls, num)
+	}
+	sort.Ints(alls)
+	m := make(map[int]int)
+	for i, num := range alls {
+		m[num] = i + 1
+	}
+	tree := newBinaryIndexedTree(len(m))
+	ans := 0
+	for i := len(nums) - 1; i >= 0; i-- {
+		ans += tree.query(m[nums[i]] - 1)
+		tree.update(m[nums[i]*2], 1)
+	}
+	return ans
 }
 ```
 
