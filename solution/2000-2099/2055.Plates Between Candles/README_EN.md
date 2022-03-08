@@ -53,13 +53,136 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
+        n = len(s)
+        presum = [0] * (n + 1)
+        for i, c in enumerate(s):
+            presum[i + 1] = presum[i] + (c == '*')
 
+        left, right = [0] * n, [0] * n
+        l = r = -1
+        for i, c in enumerate(s):
+            if c == '|':
+                l = i
+            left[i] = l
+        for i in range(n - 1, -1, -1):
+            if s[i] == '|':
+                r = i
+            right[i] = r
+            
+        ans = [0] * len(queries)
+        for k, (l, r) in enumerate(queries):
+            i, j = right[l], left[r]
+            if i >= 0 and j >= 0 and i < j:
+                ans[k] = presum[j] - presum[i + 1]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int[] platesBetweenCandles(String s, int[][] queries) {
+        int n = s.length();
+        int[] presum = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            presum[i + 1] = presum[i] + (s.charAt(i) == '*' ? 1 : 0);
+        }
+        int[] left = new int[n];
+        int[] right = new int[n];
+        for (int i = 0, l = -1; i < n; ++i) {
+            if (s.charAt(i) == '|') {
+                l = i;
+            }
+            left[i] = l;
+        }
+        for (int i = n - 1, r = -1; i >= 0; --i) {
+            if (s.charAt(i) == '|') {
+                r = i;
+            }
+            right[i] = r;
+        }
+        int[] ans = new int[queries.length];
+        for (int k = 0; k < queries.length; ++k) {
+            int i = right[queries[k][0]];
+            int j = left[queries[k][1]];
+            if (i >= 0 && j >= 0 && i < j) {
+                ans[k] = presum[j] - presum[i + 1];
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> platesBetweenCandles(string s, vector<vector<int>>& queries) {
+        int n = s.size();
+        vector<int> presum(n + 1);
+        for (int i = 0; i < n; ++i) presum[i + 1] = presum[i] + (s[i] == '*');
+        vector<int> left(n);
+        vector<int> right(n);
+        for (int i = 0, l = -1; i < n; ++i)
+        {
+            if (s[i] == '|') l = i;
+            left[i] = l;
+        }
+        for (int i = n - 1, r = -1; i >= 0; --i)
+        {
+            if (s[i] == '|') r = i;
+            right[i] = r;
+        }
+        vector<int> ans(queries.size());
+        for (int k = 0; k < queries.size(); ++k)
+        {
+            int i = right[queries[k][0]];
+            int j = left[queries[k][1]];
+            if (i >= 0 && j >= 0 && i < j) ans[k] = presum[j] - presum[i + 1];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func platesBetweenCandles(s string, queries [][]int) []int {
+	n := len(s)
+	presum := make([]int, n+1)
+	for i := range s {
+		if s[i] == '*' {
+			presum[i+1] = 1
+		}
+		presum[i+1] += presum[i]
+	}
+	left, right := make([]int, n), make([]int, n)
+	for i, l := 0, -1; i < n; i++ {
+		if s[i] == '|' {
+			l = i
+		}
+		left[i] = l
+	}
+	for i, r := n-1, -1; i >= 0; i-- {
+		if s[i] == '|' {
+			r = i
+		}
+		right[i] = r
+	}
+	ans := make([]int, len(queries))
+	for k, q := range queries {
+		i, j := right[q[0]], left[q[1]]
+		if i >= 0 && j >= 0 && i < j {
+			ans[k] = presum[j] - presum[i+1]
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**
