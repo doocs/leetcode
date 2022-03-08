@@ -119,6 +119,79 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function hasPathSum(root: TreeNode | null, targetSum: number): boolean {
+    if (root == null) {
+        return false;
+    }
+    const { val, left, right } = root;
+    if (left == null && right == null) {
+        return targetSum - val === 0;
+    }
+    return (
+        hasPathSum(left, targetSum - val) || hasPathSum(right, targetSum - val)
+    );
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn has_path_sum(root: Option<Rc<RefCell<TreeNode>>>, target_sum: i32) -> bool {
+        match root {
+            None => false,
+            Some(node) => {
+                let mut node = node.borrow_mut();
+                // 确定叶结点身份
+                if node.left.is_none() && node.right.is_none() {
+                    return target_sum - node.val == 0;
+                }
+                let val = node.val;
+                Self::has_path_sum(node.left.take(), target_sum - val)
+                    || Self::has_path_sum(node.right.take(), target_sum - val)
+            }
+        }
+    }
+}
+```
+
 ### **...**
 
 ```
