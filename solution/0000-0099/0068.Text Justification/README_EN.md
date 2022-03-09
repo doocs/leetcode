@@ -77,13 +77,111 @@ Note that the second line is also left-justified becase it contains only one wor
 ### **Python3**
 
 ```python
+class Solution:
+    def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
+        def partition(n, cnt):
+            res = []
+            base, mod = divmod(n, cnt)
+            i = j = 0
+            while i < cnt:
+                t = [' ' * base]
+                if j < mod:
+                    t.append(' ')
+                res.append(''.join(t))
+                i, j = i + 1, j + 1
+            return res
 
+        ans = []
+        i, n = 0, len(words)
+        while i < n:
+            t = []
+            cnt = len(words[i])
+            t.append(words[i])
+            i += 1
+            while i < n and cnt + 1 + len(words[i]) <= maxWidth:
+                cnt += 1 + len(words[i])
+                t.append(words[i])
+                i += 1
+            if i == n or len(t) == 1:
+                # this is the last line or only one word in a line
+                left = ' '.join(t)
+                right = ' ' * (maxWidth - len(left))
+                ans.append(left + right)
+                if i == n:
+                    break
+                continue
+            words_width = cnt - len(t) + 1
+            space_width = maxWidth - words_width
+            spaces = partition(space_width, len(t) - 1)
+            sb = [t[0]]
+            for j in range(len(t) - 1):
+                sb.append(spaces[j])
+                sb.append(t[j + 1])
+            ans.append(''.join(sb))
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<String> fullJustify(String[] words, int maxWidth) {
+        List<String> ans = new ArrayList<>();
+        int n = words.length;
+        for (int i = 0; i < n; ) {
+            List<String> t = new ArrayList<>();
+            int cnt = words[i].length();
+            t.add(words[i++]);
+            while (i < n && cnt + 1 + words[i].length() <= maxWidth) {
+                cnt += 1 + words[i].length();
+                t.add(words[i++]);
+            }
+            if (i == n || t.size() == 1) {
+                // this is the last line or only one word in a line
+                String left = String.join(" ", t);
+                String right = blank(maxWidth - left.length());
+                ans.add(left + right);
+                if (i == n) {
+                    break;
+                }
+                continue;
+            }
 
+            int wordsWidth = cnt - t.size() + 1;
+            int spaceWidth = maxWidth - wordsWidth;
+            List<String> spaces = partition(spaceWidth, t.size() - 1);
+            StringBuilder sb = new StringBuilder(t.get(0));
+            for (int j = 0; j < t.size() - 1; ++j) {
+                sb.append(spaces.get(j));
+                sb.append(t.get(j + 1));
+            }
+            ans.add(sb.toString());
+        }
+        return ans;
+    }
+
+    private List<String> partition(int n, int cnt) {
+        List<String> ans = new ArrayList<>();
+        int base = n / cnt;
+        int mod = n % cnt;
+        for (int i = 0, j = 0; i < cnt; ++i, ++j) {
+            StringBuilder sb = new StringBuilder(blank(base));
+            if (j < mod) {
+                sb.append(' ');
+            }
+            ans.add(sb.toString());
+        }
+        return ans;
+    }
+
+    private String blank(int n) {
+        StringBuilder sb = new StringBuilder();
+        while (n-- > 0) {
+            sb.append(' ');
+        }
+        return sb.toString();
+    }
+}
 ```
 
 ### **C++**
@@ -130,6 +228,61 @@ public:
         return result;
     }
 };
+```
+
+### **Go**
+
+```go
+func fullJustify(words []string, maxWidth int) []string {
+	partition := func(n, cnt int) []string {
+		var res []string
+		base, mod := n/cnt, n%cnt
+		for i, j := 0, 0; i < cnt; i, j = i+1, j+1 {
+			t := strings.Repeat(" ", base)
+			if j < mod {
+				t += " "
+			}
+			res = append(res, t)
+		}
+		return res
+	}
+
+	var ans []string
+	for i, n := 0, len(words); i < n; {
+		t := []string{words[i]}
+		cnt := len(words[i])
+		i++
+		for i < n && cnt+1+len(words[i]) <= maxWidth {
+			cnt += 1 + len(words[i])
+			t = append(t, words[i])
+			i++
+		}
+		if i == n || len(t) == 1 {
+			left := strings.Join(t, " ")
+			right := strings.Repeat(" ", maxWidth-len(left))
+			ans = append(ans, left+right)
+			if i == n {
+				break
+			}
+			continue
+		}
+		wordsWidth := cnt - len(t) + 1
+		spaceWidth := maxWidth - wordsWidth
+		spaces := partition(spaceWidth, len(t)-1)
+		sb := t[0]
+		for j := 0; j < len(t)-1; j++ {
+			sb += spaces[j] + t[j+1]
+		}
+		ans = append(ans, sb)
+	}
+	return ans
+}
+```
+
+### **...**
+
+```
+
 ```
 
 <!-- tabs:end -->
