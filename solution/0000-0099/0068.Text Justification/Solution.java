@@ -13,7 +13,7 @@ class Solution {
             if (i == n || t.size() == 1) {
                 // this is the last line or only one word in a line
                 String left = String.join(" ", t);
-                String right = blank(maxWidth - left.length());
+                String right = " ".repeat(maxWidth - left.length());
                 ans.add(left + right);
                 if (i == n) {
                     break;
@@ -39,20 +39,12 @@ class Solution {
         int base = n / cnt;
         int mod = n % cnt;
         for (int i = 0, j = 0; i < cnt; ++i, ++j) {
-            StringBuilder sb = new StringBuilder(blank(base));
+            StringBuilder sb = new StringBuilder(" ".repeat(base));
             if (j < mod) {
                 sb.append(' ');
             }
             ans.add(sb.toString());
         }
         return ans;
-    }
-
-    private String blank(int n) {
-        StringBuilder sb = new StringBuilder();
-        while (n-- > 0) {
-            sb.append(' ');
-        }
-        return sb.toString();
     }
 }

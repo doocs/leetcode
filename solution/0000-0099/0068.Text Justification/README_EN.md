@@ -4,20 +4,20 @@
 
 ## Description
 
-<p>Given an array of words and a width&nbsp;<em>maxWidth</em>, format the text such that each line has exactly <em>maxWidth</em> characters and is fully (left and right) justified.</p>
+<p>Given an array of strings <code>words</code> and a width <code>maxWidth</code>, format the text such that each line has exactly <code>maxWidth</code> characters and is fully (left and right) justified.</p>
 
-<p>You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces <code>&#39; &#39;</code> when necessary so that each line has exactly <em>maxWidth</em> characters.</p>
+<p>You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces <code>&#39; &#39;</code> when necessary so that each line has exactly <code>maxWidth</code> characters.</p>
 
-<p>Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line do not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right.</p>
+<p>Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line does not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right.</p>
 
-<p>For the last line of text, it should be left justified and no <strong>extra</strong> space is inserted between words.</p>
+<p>For the last line of text, it should be left-justified and no extra space is inserted between words.</p>
 
 <p><strong>Note:</strong></p>
 
 <ul>
-	<li>A word is defined as a character sequence consisting&nbsp;of non-space characters only.</li>
-	<li>Each word&#39;s length is&nbsp;guaranteed to be greater than 0 and not exceed <em>maxWidth</em>.</li>
-	<li>The input array <code>words</code>&nbsp;contains at least one word.</li>
+	<li>A word is defined as a character sequence consisting of non-space characters only.</li>
+	<li>Each word&#39;s length is guaranteed to be greater than 0 and not exceed maxWidth.</li>
+	<li>The input array <code>words</code> contains at least one word.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -125,10 +125,11 @@ class Solution:
 
 ```java
 class Solution {
+
     public List<String> fullJustify(String[] words, int maxWidth) {
         List<String> ans = new ArrayList<>();
         int n = words.length;
-        for (int i = 0; i < n; ) {
+        for (int i = 0; i < n;) {
             List<String> t = new ArrayList<>();
             int cnt = words[i].length();
             t.add(words[i++]);
@@ -139,7 +140,7 @@ class Solution {
             if (i == n || t.size() == 1) {
                 // this is the last line or only one word in a line
                 String left = String.join(" ", t);
-                String right = blank(maxWidth - left.length());
+                String right = " ".repeat(maxWidth - left.length());
                 ans.add(left + right);
                 if (i == n) {
                     break;
@@ -165,7 +166,7 @@ class Solution {
         int base = n / cnt;
         int mod = n % cnt;
         for (int i = 0, j = 0; i < cnt; ++i, ++j) {
-            StringBuilder sb = new StringBuilder(blank(base));
+            StringBuilder sb = new StringBuilder(" ".repeat(base));
             if (j < mod) {
                 sb.append(' ');
             }
@@ -173,15 +174,8 @@ class Solution {
         }
         return ans;
     }
-
-    private String blank(int n) {
-        StringBuilder sb = new StringBuilder();
-        while (n-- > 0) {
-            sb.append(' ');
-        }
-        return sb.toString();
-    }
 }
+
 ```
 
 ### **C++**
@@ -276,6 +270,77 @@ func fullJustify(words []string, maxWidth int) []string {
 		ans = append(ans, sb)
 	}
 	return ans
+}
+```
+
+### **C#**
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+public class Solution {
+    public IList<string> FullJustify(string[] words, int maxWidth) {
+        var result = new List<string>();
+        var buffer = new List<string>();
+        var sb = new StringBuilder();
+        var len = 0;
+
+        for (var i = 0; i < words.Length; ++i)
+        {
+            var newLen = words[i].Length + (len == 0 ? 0 : len + 1);
+            if (newLen <= maxWidth)
+            {
+                buffer.Add(words[i]);
+                len = newLen;
+            }
+            else
+            {
+                if (buffer.Count == 1)
+                {
+                    sb.Append(buffer[0]);
+                    sb.Append(' ', maxWidth - buffer[0].Length);
+                }
+                else
+                {
+                    var spaceCount = maxWidth - len + buffer.Count - 1;
+                    for (var j = 0; j < buffer.Count - 1; ++j)
+                    {
+                        sb.Append(buffer[j]);
+                        var spaceToAdd = (spaceCount - 1) / (buffer.Count - j - 1) + 1;
+                        sb.Append(' ', spaceToAdd);
+                        spaceCount -= spaceToAdd;
+                    }
+                    sb.Append(buffer.Last());
+                }
+                result.Add(sb.ToString());
+                buffer.Clear();
+                buffer.Add(words[i]);
+                sb.Clear();
+                len = words[i].Length;
+            }
+        }
+
+        if (buffer.Count > 0)
+        {
+            for (var j = 0; j < buffer.Count; ++j)
+            {
+                if (sb.Length > 0)
+                {
+                    sb.Append(' ');
+                }
+                sb.Append(buffer[j]);
+            }
+            if (sb.Length < maxWidth)
+            {
+                sb.Append(' ', maxWidth - sb.Length);
+            }
+            result.Add(sb.ToString());
+        }
+
+        return result;
+    }
 }
 ```
 
