@@ -62,6 +62,57 @@ words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &
 
 ```
 
+### **TypeScript**
+
+```ts
+function longestWord(words: string[]): string {
+    words.sort((a, b) => {
+        const n = a.length;
+        const m = b.length;
+        if (n === m) {
+            return a < b ? -1 : 1;
+        }
+        return m - n;
+    });
+    for (const word of words) {
+        let isPass = true;
+        for (let i = 1; i <= word.length; i++) {
+            if (!words.includes(word.slice(0, i))) {
+                isPass = false;
+                break;
+            }
+        }
+        if (isPass) {
+            return word;
+        }
+    }
+    return '';
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn longest_word(mut words: Vec<String>) -> String {
+        words.sort_unstable_by(|a, b| (b.len(), a).cmp(&(a.len(), b)));
+        for word in words.iter() {
+            let mut is_pass = true;
+            for i in 1..=word.len() {
+                if !words.contains(&word[..i].to_string()) {
+                    is_pass = false;
+                    break;
+                }
+            }
+            if is_pass {
+                return word.clone();
+            }
+        }
+        String::new()
+    }
+}
+```
+
 ### **...**
 
 ```
