@@ -94,6 +94,42 @@ public:
 };
 ```
 
+### **TypeScript**
+
+```ts
+function canPermutePalindrome(s: string): boolean {
+    const set = new Set<string>();
+    for (const c of s) {
+        if (set.has(c)) {
+            set.delete(c);
+        } else {
+            set.add(c);
+        }
+    }
+    return set.size <= 1;
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn can_permute_palindrome(s: String) -> bool {
+        let mut set = HashSet::new();
+        for c in s.chars() {
+            if set.contains(&c) {
+                set.remove(&c);
+            } else {
+                set.insert(c);
+            }
+        }
+        set.len() <= 1
+    }
+}
+```
+
 ### **...**
 
 ```
