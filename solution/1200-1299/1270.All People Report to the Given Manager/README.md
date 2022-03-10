@@ -67,7 +67,6 @@ employee_id 是 3, 8 ，9 的职员不会直接或间接的汇报给公司 CEO�
 
 <!-- 这里可写通用的实现逻辑 -->
 
-## Solution
 
 <!-- tabs:start -->
 
