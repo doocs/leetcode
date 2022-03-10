@@ -6,7 +6,7 @@
 
 <p>Given an array of <strong>distinct</strong> integers <code>nums</code> and a target integer <code>target</code>, return <em>the number of possible combinations that add up to</em>&nbsp;<code>target</code>.</p>
 
-<p>The answer is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</p>
+<p>The test cases are generated so that the answer can fit in a <strong>32-bit</strong> integer.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

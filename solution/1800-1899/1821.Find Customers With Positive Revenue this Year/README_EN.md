@@ -25,12 +25,14 @@ Note that this revenue can be negative.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-Customers
+<strong>Input:</strong> 
+Customers table:
 +-------------+------+---------+
 | customer_id | year | revenue |
 +-------------+------+---------+
@@ -42,20 +44,20 @@ Customers
 | 3           | 2016 | 50      |
 | 4           | 2021 | 20      |
 +-------------+------+---------+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+
 | customer_id |
 +-------------+
 | 1           |
 | 4           |
 +-------------+
-
-Customer 1 has revenue equal to 30 in year 2021.
-Customer 2 has revenue equal to -50 in year 2021.
-Customer 3 has no revenue in year 2021.
-Customer 4 has revenue equal to 20 in year 2021.
-Thus only customers 1 and 4 have postive revenue in year 2021.</pre>
+<strong>Explanation:</strong> 
+Customer 1 has revenue equal to 30 in the year 2021.
+Customer 2 has revenue equal to -50 in the year 2021.
+Customer 3 has no revenue in the year 2021.
+Customer 4 has revenue equal to 20 in the year 2021.
+Thus only customers 1 and 4 have positive revenue in the year 2021.
+</pre>
 
 ## Solutions
 

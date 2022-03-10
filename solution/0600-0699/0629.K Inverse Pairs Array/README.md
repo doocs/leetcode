@@ -17,7 +17,7 @@
 <pre>
 <strong>输入:</strong> n = 3, k = 0
 <strong>输出:</strong> 1
-<strong>解释:</strong>
+<strong>解释:</strong> 
 只有数组 [1,2,3] 包含了从1到3的整数并且正好拥有 0 个逆序对。
 </pre>
 
@@ -26,7 +26,7 @@
 <pre>
 <strong>输入:</strong> n = 3, k = 1
 <strong>输出:</strong> 2
-<strong>解释:</strong>
+<strong>解释:</strong> 
 数组 [1,3,2] 和 [2,1,3] 都有 1 个逆序对。
 </pre>
 

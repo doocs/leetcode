@@ -4,96 +4,85 @@
 
 ## Description
 
-<p>Given a table <code>tree</code>, <b>id</b> is identifier of the tree node and <b>p_id</b> is its parent node&#39;s <b>id</b>.</p>
+<p>Table: <code>Tree</code></p>
 
 <pre>
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| p_id        | int  |
++-------------+------+
+id is the primary key column for this table.
+Each row of this table contains information about the id of a node and the id of its parent node in a tree.
+The given structure is always a valid tree.
+</pre>
 
+<p>&nbsp;</p>
+
+<p>Each node in the tree can be one of three types:</p>
+
+<ul>
+	<li><strong>&quot;Leaf&quot;</strong>: if the node is a leaf node.</li>
+	<li><strong>&quot;Root&quot;</strong>: if the node is the root of the tree.</li>
+	<li><strong>&quot;Inner&quot;</strong>: If the node is neither a leaf node nor a root node.</li>
+</ul>
+
+<p>Write an SQL query to report the type of each node in the tree.</p>
+
+<p>Return the result table <strong>ordered</strong> by <code>id</code> <strong>in ascending order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0608.Tree%20Node/images/tree1.jpg" style="width: 304px; height: 224px;" />
+<pre>
+<strong>Input:</strong> 
+Tree table:
 +----+------+
-
 | id | p_id |
-
 +----+------+
-
 | 1  | null |
-
 | 2  | 1    |
-
 | 3  | 1    |
-
 | 4  | 2    |
-
 | 5  | 2    |
-
 +----+------+
-
+<strong>Output:</strong> 
++----+-------+
+| id | type  |
++----+-------+
+| 1  | Root  |
+| 2  | Inner |
+| 3  | Leaf  |
+| 4  | Leaf  |
+| 5  | Leaf  |
++----+-------+
+<strong>Explanation:</strong> 
+Node 1 is the root node because its parent node is null and it has child nodes 2 and 3.
+Node 2 is an inner node because it has parent node 1 and child node 4 and 5.
+Nodes 3, 4, and 5 are leaf nodes because they have parent nodes and they do not have child nodes.
 </pre>
 
-Each node in the tree can be one of three types:
-
-<ul>
-	<li>Leaf: if the node is a leaf node.</li>
-	<li>Root: if the node is the root of the tree.</li>
-	<li>Inner: If the node is neither a leaf node nor a root node.</li>
-</ul>
-
-<p>&nbsp;</p>
-
-Write a query to print the node id and the type of the node. Sort your output by the node id. The result for the above sample is:
-
-<p>&nbsp;</p>
-
+<p><strong>Example 2:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0608.Tree%20Node/images/tree2.jpg" style="width: 64px; height: 65px;" />
 <pre>
-
+<strong>Input:</strong> 
+Tree table:
 +----+------+
-
-| id | Type |
-
+| id | p_id |
 +----+------+
-
-| 1  | Root |
-
-| 2  | Inner|
-
-| 3  | Leaf |
-
-| 4  | Leaf |
-
-| 5  | Leaf |
-
+| 1  | null |
 +----+------+
-
+<strong>Output:</strong> 
++----+-------+
+| id | type  |
++----+-------+
+| 1  | Root  |
++----+-------+
+<strong>Explanation:</strong> If there is only one node on the tree, you only need to output its root attributes.
 </pre>
-
-<p>&nbsp;</p>
-
-<p><b>Explanation</b></p>
-
-<p>&nbsp;</p>
-
-<ul>
-	<li>Node &#39;1&#39; is root node, because its parent node is NULL and it has child node &#39;2&#39; and &#39;3&#39;.</li>
-	<li>Node &#39;2&#39; is inner node, because it has parent node &#39;1&#39; and child node &#39;4&#39; and &#39;5&#39;.</li>
-	<li>Node &#39;3&#39;, &#39;4&#39; and &#39;5&#39; is Leaf node, because they have parent node and they don&#39;t have child node.</li>
-	<br />
-	<li>And here is the image of the sample tree as below:
-	<p>&nbsp;</p>
-	<pre>
-
-    		  1
-
-    		/   \
-
-                      2       3
-
-                    /   \
-
-                  4       5
-
-</pre>
-	<p><b>Note</b></p>
-	<p>If there is only one node on the tree, you only need to output its root attributes.</p>
-	</li>
-</ul>
 
 ## Solutions
 

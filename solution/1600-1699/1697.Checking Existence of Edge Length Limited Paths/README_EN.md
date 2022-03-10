@@ -59,7 +59,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         p = list(range(n))
         edgeList.sort(key=lambda x: x[2])
 

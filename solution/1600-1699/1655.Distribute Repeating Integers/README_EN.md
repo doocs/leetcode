@@ -20,7 +20,7 @@
 <pre>
 <strong>Input:</strong> nums = [1,2,3,4], quantity = [2]
 <strong>Output:</strong> false
-<strong>Explanation:</strong> The 0th customer cannot be given two different integers.
+<strong>Explanation:</strong> The 0<sup>th</sup> customer cannot be given two different integers.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -28,7 +28,7 @@
 <pre>
 <strong>Input:</strong> nums = [1,2,3,3], quantity = [2]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> The 0th customer is given [3,3]. The integers [1,2] are not used.
+<strong>Explanation:</strong> The 0<sup>th</sup> customer is given [3,3]. The integers [1,2] are not used.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -36,22 +36,7 @@
 <pre>
 <strong>Input:</strong> nums = [1,1,2,2], quantity = [2,2]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> The 0th customer is given [1,1], and the 1st customer is given [2,2].
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,1,2,3], quantity = [2,2]
-<strong>Output:</strong> false
-<strong>Explanation:</strong> Although the 0th customer could be given [1,1], the 1st customer cannot be satisfied.</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,1,1,1,1], quantity = [2,3]
-<strong>Output:</strong> true
-<strong>Explanation:</strong> The 0th customer is given [1,1], and the 1st customer is given [1,1,1].
+<strong>Explanation:</strong> The 0<sup>th</sup> customer is given [1,1], and the 1st customer is given [2,2].
 </pre>
 
 <p>&nbsp;</p>

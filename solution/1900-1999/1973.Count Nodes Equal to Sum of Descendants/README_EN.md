@@ -20,7 +20,7 @@ For the node with value 3: The sum of its descendants is 2+1 = 3.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src=https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/images/screenshot-2021-08-17-at-17-25-21-diagram-drawio-diagrams-net.png" style="height: 196px; width: 200px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1973.Count%20Nodes%20Equal%20to%20Sum%20of%20Descendants/images/screenshot-2021-08-17-at-17-25-21-diagram-drawio-diagrams-net.png" style="height: 196px; width: 200px;" />
 <pre>
 <strong>Input:</strong> root = [2,3,null,2,null]
 <strong>Output:</strong> 0

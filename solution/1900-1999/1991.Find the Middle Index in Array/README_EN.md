@@ -18,8 +18,7 @@
 <pre>
 <strong>Input:</strong> nums = [2,3,-1,<u>8</u>,4]
 <strong>Output:</strong> 3
-<strong>Explanation:</strong>
-The sum of the numbers before index 3 is: 2 + 3 + -1 = 4
+<strong>Explanation:</strong> The sum of the numbers before index 3 is: 2 + 3 + -1 = 4
 The sum of the numbers after index 3 is: 4 = 4
 </pre>
 
@@ -28,8 +27,7 @@ The sum of the numbers after index 3 is: 4 = 4
 <pre>
 <strong>Input:</strong> nums = [1,-1,<u>4</u>]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
-The sum of the numbers before index 2 is: 1 + -1 = 0
+<strong>Explanation:</strong> The sum of the numbers before index 2 is: 1 + -1 = 0
 The sum of the numbers after index 2 is: 0
 </pre>
 
@@ -38,18 +36,7 @@ The sum of the numbers after index 2 is: 0
 <pre>
 <strong>Input:</strong> nums = [2,5]
 <strong>Output:</strong> -1
-<strong>Explanation:</strong>
-There is no valid middleIndex.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [<u>1</u>]
-<strong>Output:</strong> 0
-<strong>Explantion:</strong>
-The sum of the numbers before index 0 is: 0
-The sum of the numbers after index 0 is: 0
+<strong>Explanation:</strong> There is no valid middleIndex.
 </pre>
 
 <p>&nbsp;</p>
@@ -59,6 +46,9 @@ The sum of the numbers after index 0 is: 0
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Note:</strong> This question is the same as&nbsp;724:&nbsp;<a href="https://leetcode.com/problems/find-pivot-index/" target="_blank">https://leetcode.com/problems/find-pivot-index/</a></p>
 
 ## Solutions
 

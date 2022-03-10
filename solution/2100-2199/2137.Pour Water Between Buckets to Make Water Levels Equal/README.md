@@ -6,47 +6,45 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You have <code>n</code> buckets each containing some gallons of water in it, represented by a <strong>0-indexed</strong> integer array <code>buckets</code>, where the <code>i<sup>th</sup></code> bucket contains <code>buckets[i]</code> gallons of water. You are also given an integer <code>loss</code>.</p>
+<p>你有 <code>n</code> 个水桶，每个水桶中所含的水量用一个 <b>下标从 0 开始</b>&nbsp;的数组 <code>buckets</code> 给出，第 <code>i</code> 个水桶中有 <code>buckets[i]</code> 升水。</p>
 
-<p>You want to make the amount of water in each bucket equal. You can pour any amount of water from one bucket to another bucket (not necessarily an integer). However, every time you pour <code>k</code> gallons of water, you spill <code>loss</code> <strong>percent</strong> of <code>k</code>.</p>
+<p>你想让所有的水桶中所含的水量相同。你可以从一个水桶向其它任意一个水桶倒任意数量的水（可以不是整数）。但是，你每倒 <code>k</code> 升水，<strong>百分之</strong> <code>loss</code> 的水会洒掉。</p>
 
-<p>Return <em>the <strong>maximum</strong> amount of water in each bucket after making the amount of water equal. </em>Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
+<p>请返回经过倒水操作，所有水桶中的水量相同时，每个水桶中的 <strong>最大</strong> 水量。如果你的答案和标准答案的误差不超过 <code>10<sup>-5</sup></code>，那么答案将被通过。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong> buckets = [1,2,7], loss = 80
-<strong>Output:</strong> 2.00000
-<strong>Explanation:</strong> Pour 5 gallons of water from buckets[2] to buckets[0].
-5 * 80% = 4 gallons are spilled and buckets[0] only receives 5 - 4 = 1 gallon of water.
-All buckets have 2 gallons of water in them so return 2.
+<p><strong>示例 1:</strong></p>
+
+<pre><strong>输入:</strong> buckets = [1,2,7], loss = 80
+<strong>输出:</strong> 2.00000
+<strong>解释:</strong> 从水桶 2 向水桶 0 倒 5 升水。
+5 * 80% = 4 升水会洒掉，水桶 0 只会获得 5 - 4 = 1 升水。
+此时所有的水桶中都含有 2 升水，所以返回 2。</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre><strong>输入:</strong> buckets = [2,4,6], loss = 50
+<strong>输出:</strong> 3.50000
+<strong>解释:</strong> 从水桶 1 向水桶 0 倒 0.5 升水。
+0.5 * 50% = 0.25 升水会洒掉，水桶 0 只会获得 0.5 - 0.25 = 0.25 升水。
+此时, buckets = [2.25, 3.5, 6].
+
+从水桶 2 向水桶 0 倒 2.5 升水。
+2.5 * 50% = 1.25 升水会洒掉，水桶 0 只会获得 2.5 - 1.25 = 1.25 升水。
+此时所有的水桶中都含有 3.5 升水，所以返回 3.5。
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> buckets = [2,4,6], loss = 50
-<strong>Output:</strong> 3.50000
-<strong>Explanation:</strong> Pour 0.5 gallons of water from buckets[1] to buckets[0].
-0.5 * 50% = 0.25 gallons are spilled and buckets[0] only receives 0.5 - 0.25 = 0.25 gallons of water.
-Now, buckets = [2.25, 3.5, 6].
-
-Pour 2.5 gallons of water from buckets[2] to buckets[0].
-2.5 * 50% = 1.25 gallons are spilled and buckets[0] only receives 2.5 - 1.25 = 1.25 gallons of water.
-All buckets have 3.5 gallons of water in them so return 3.5.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> buckets = [3,3,3,3], loss = 40
-<strong>Output:</strong> 3.00000
-<strong>Explanation:</strong> All buckets already have the same amount of water in them.
+<pre><strong>输入:</strong> buckets = [3,3,3,3], loss = 40
+<strong>输出:</strong> 3.00000
+<strong>解释:</strong> 所有的水桶已经含有相同的水量。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= buckets.length &lt;= 10<sup>5</sup></code></li>

@@ -31,14 +31,6 @@
 <strong>Explanation:</strong> Swapping 9 and 7.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [3,1,1,3]
-<strong>Output:</strong> [1,3,1,3]
-<strong>Explanation:</strong> Swapping 1 and 3.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

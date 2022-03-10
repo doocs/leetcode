@@ -8,7 +8,8 @@
 
 <p>表: <code>Customer</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | customer_id   | int     |
@@ -18,11 +19,12 @@ customer_id 是该表主键.
 该表的每行包含网上商城的每一位顾客的信息.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>表: <code>Orders</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | order_id      | int     |
@@ -36,11 +38,12 @@ order_id 是该表主键.
 sale_date 是顾客customer_id和卖家seller_id之间交易的日期.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>表: <code>Seller</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | seller_id     | int     |
@@ -50,17 +53,21 @@ seller_id 是该表主键.
 该表的每行包含每一位卖家的信息.
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>写一个SQL语句, 报告所有在2020年度没有任何卖出的卖家的名字.</p>
+<p>写一个SQL语句,&nbsp;报告所有在2020年度没有任何卖出的卖家的名字.</p>
 
-<p>返回结果按照 <code>seller_name</code> <strong>升序排列</strong>.</p>
+<p>返回结果按照&nbsp;<code>seller_name</code>&nbsp;<strong>升序排列</strong>.</p>
 
 <p>查询结果格式如下例所示.</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<pre><code>Customer</code> 表:
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<code><strong>输入：</strong>
+Customer</code> 表:
 +--------------+---------------+
 | customer_id  | customer_name |
 +--------------+---------------+
@@ -68,7 +75,6 @@ seller_id 是该表主键.
 | 102          | Bob           |
 | 103          | Charlie       |
 +--------------+---------------+
-
 <code>Orders</code> 表:
 +-------------+------------+--------------+-------------+-------------+
 | order_id    | sale_date  | order_cost   | customer_id | seller_id   |
@@ -79,7 +85,6 @@ seller_id 是该表主键.
 | 4           | 2020-09-13 | 1000         | 103         | 2           |
 | 5           | 2019-02-11 | 700          | 101         | 2           |
 +-------------+------------+--------------+-------------+-------------+
-
 <code>Seller</code> 表:
 +-------------+-------------+
 | seller_id   | seller_name |
@@ -88,17 +93,16 @@ seller_id 是该表主键.
 | 2           | Elizabeth   |
 | 3           | Frank       |
 +-------------+-------------+
-
-Result 表:
+<code><strong>输出：</strong></code>
 +-------------+
 | <code>seller_name </code>|
 +-------------+
 | Frank       |
 +-------------+
+<code><strong>解释：</strong></code>
 Daniel在2020年3月卖出1次.
 Elizabeth在2020年卖出2次, 在2019年卖出1次.
-Frank在2019年卖出1次, 在2020年没有卖出.
-</pre>
+Frank在2019年卖出1次, 在2020年没有卖出.</pre>
 
 ## 解法
 

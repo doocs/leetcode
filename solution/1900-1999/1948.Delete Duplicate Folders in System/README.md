@@ -16,18 +16,20 @@
 
 <ul>
 	<li>例如，下面文件结构中的文件夹 <code>"/a"</code> 和 <code>"/b"</code> 相同。它们（以及它们的子文件夹）应该被 <strong>全部</strong> 标记为待删除：
-	<ul>
-		<li><code>/a</code></li>
-		<li><code>/a/x</code></li>
-		<li><code>/a/x/y</code></li>
-		<li><code>/a/z</code></li>
-		<li><code>/b</code></li>
-		<li><code>/b/x</code></li>
-		<li><code>/b/x/y</code></li>
-		<li><code>/b/z</code></li>
-	</ul>
-	</li>
-	<li>然而，如果文件结构中还包含路径 <code>"/b/w"</code> ，那么文件夹 <code>"/a"</code> 和 <code>"/b"</code> 就不相同。注意，即便添加了新的文件夹 <code>"/b/w"</code> ，仍然认为 <code>"/a/x"</code> 和 <code>"/b/x"</code> 相同。</li>
+
+    <ul>
+    	<li><code>/a</code></li>
+    	<li><code>/a/x</code></li>
+    	<li><code>/a/x/y</code></li>
+    	<li><code>/a/z</code></li>
+    	<li><code>/b</code></li>
+    	<li><code>/b/x</code></li>
+    	<li><code>/b/x/y</code></li>
+    	<li><code>/b/z</code></li>
+    </ul>
+    </li>
+    <li>然而，如果文件结构中还包含路径 <code>"/b/w"</code> ，那么文件夹 <code>"/a"</code> 和 <code>"/b"</code> 就不相同。注意，即便添加了新的文件夹 <code>"/b/w"</code> ，仍然认为 <code>"/a/x"</code> 和 <code>"/b/x"</code> 相同。</li>
+
 </ul>
 
 <p>一旦所有的相同文件夹和它们的子文件夹都被标记为待删除，文件系统将会 <strong>删除</strong> 所有上述文件夹。文件系统只会执行一次删除操作。执行完这一次删除操作后，不会删除新出现的相同文件夹。</p>

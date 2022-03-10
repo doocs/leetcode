@@ -27,27 +27,6 @@ List 3: [5, 18, 22, 30], 22 is in range [20,24].
 <strong>Output:</strong> [1,1]
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [[10,10],[11,11]]
-<strong>Output:</strong> [10,11]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [[10],[11]]
-<strong>Output:</strong> [10,11]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [[1],[2],[3],[4],[5],[6],[7]]
-<strong>Output:</strong> [1,7]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

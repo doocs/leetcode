@@ -6,18 +6,22 @@
 
 <!-- 这里写题目描述 -->
 
-<p>假设 力扣（LeetCode）即将开始其 IPO。为了以更高的价格将股票卖给风险投资公司，力扣 希望在 IPO 之前开展一些项目以增加其资本。 由于资源有限，它只能在 IPO 之前完成最多 <strong>k</strong> 个不同的项目。帮助 力扣 设计完成最多 <strong>k</strong> 个不同项目后得到最大总资本的方式。</p>
+<p>假设 力扣（LeetCode）即将开始 <strong>IPO</strong> 。为了以更高的价格将股票卖给风险投资公司，力扣 希望在 IPO 之前开展一些项目以增加其资本。 由于资源有限，它只能在 IPO 之前完成最多 <code>k</code> 个不同的项目。帮助 力扣 设计完成最多 <code>k</code> 个不同项目后得到最大总资本的方式。</p>
 
-<p>给定若干个项目。对于每个项目 <strong>i</strong>，它都有一个纯利润 <strong>P<sub>i</sub></strong>，并且需要最小的资本 <strong>C<sub>i</sub></strong> 来启动相应的项目。最初，你有 <strong>W</strong> 资本。当你完成一个项目时，你将获得纯利润，且利润将被添加到你的总资本中。</p>
+<p>给你 <code>n</code> 个项目。对于每个项目 <code>i</code><strong> </strong>，它都有一个纯利润 <code>profits[i]</code> ，和启动该项目需要的最小资本 <code>capital[i]</code> 。</p>
 
-<p>总而言之，从给定项目中选择最多 <strong>k</strong> 个不同项目的列表，以最大化最终资本，并输出最终可获得的最多资本。</p>
+<p>最初，你的资本为 <code>w</code> 。当你完成一个项目时，你将获得纯利润，且利润将被添加到你的总资本中。</p>
 
-<p> </p>
+<p>总而言之，从给定项目中选择 <strong>最多</strong> <code>k</code> 个不同项目的列表，以 <strong>最大化最终资本</strong> ，并输出最终可获得的最多资本。</p>
 
-<p><strong>示例：</strong></p>
+<p>答案保证在 32 位有符号整数范围内。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>k=2, W=0, Profits=[1,2,3], Capital=[0,1,1].
+<strong>输入：</strong>k = 2, w = 0, profits = [1,2,3], capital = [0,1,1]
 <strong>输出：</strong>4
 <strong>解释：
 </strong>由于你的初始资本为 0，你仅可以从 0 号项目开始。
@@ -27,14 +31,25 @@
 因此，输出最后最大化的资本，为 0 + 1 + 3 = 4。
 </pre>
 
-<p> </p>
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>k = 3, w = 0, profits = [1,2,3], capital = [0,1,2]
+<strong>输出：</strong>6
+</pre>
+
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>假设所有输入数字都是非负整数。</li>
-	<li>表示利润和资本的数组的长度不超过 50000。</li>
-	<li>答案保证在 32 位有符号整数范围内。</li>
+	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= w &lt;= 10<sup>9</sup></code></li>
+	<li><code>n == profits.length</code></li>
+	<li><code>n == capital.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= profits[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= capital[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## 解法

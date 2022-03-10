@@ -18,7 +18,7 @@
 <strong>Output:</strong> 6
 <strong>Explanation:</strong> 
 - The first sentence, &quot;alice and bob love leetcode&quot;, has 5 words in total.
-- The second sentence, i think so too&quot;, has 4 words in total.
+- The second sentence, &quot;i think so too&quot;, has 4 words in total.
 - The third sentence, &quot;this is great thanks very much&quot;, has 6 words in total.
 Thus, the maximum number of words in a single sentence comes from the third sentence, which has 6 words.
 </pre>

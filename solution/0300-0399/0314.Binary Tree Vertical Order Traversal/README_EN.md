@@ -30,13 +30,6 @@
 <strong>Output:</strong> [[4],[9,5],[3,0,1],[8,2],[7]]
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = []
-<strong>Output:</strong> []
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

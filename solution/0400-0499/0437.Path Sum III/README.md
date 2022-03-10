@@ -6,32 +6,38 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二叉树，它的每个结点都存放着一个整数值。</p>
+<p>给定一个二叉树的根节点 <code>root</code> ，和一个整数 <code>targetSum</code> ，求该二叉树里节点值之和等于 <code>targetSum</code> 的 <strong>路径</strong> 的数目。</p>
 
-<p>找出路径和等于给定数值的路径总数。</p>
+<p><strong>路径</strong> 不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
 
-<p>路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
+<p> </p>
 
-<p>二叉树不超过1000个节点，且节点数值范围是 [-1000000,1000000] 的整数。</p>
+<p><strong>示例 1：</strong></p>
 
-<p><strong>示例：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0437.Path%20Sum%20III/images/pathsum3-1-tree.jpg" style="width: 452px; " /></p>
 
-<pre>root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
-
-      10
-     /  \
-    <strong>5</strong>   <strong>-3</strong>
-   <strong>/</strong> <strong>\</strong>    <strong>\</strong>
-  <strong>3</strong>   <strong>2</strong>   <strong>11</strong>
- / \   <strong>\</strong>
-3  -2   <strong>1</strong>
-
-返回 3。和等于 8 的路径有:
-
-1.  5 -&gt; 3
-2.  5 -&gt; 2 -&gt; 1
-3.  -3 -&gt; 11
+<pre>
+<strong>输入：</strong>root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
+<strong>输出：</strong>3
+<strong>解释：</strong>和等于 8 的路径有 3 条，如图所示。
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+<strong>输出：</strong>3
+</pre>
+
+<p> </p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li>二叉树的节点个数的范围是 <code>[0,1000]</code></li>
+	<li><meta charset="UTF-8" /><code>-10<sup>9</sup> <= Node.val <= 10<sup>9</sup></code> </li>
+	<li><code>-1000 <= targetSum <= 1000</code> </li>
+</ul>
 
 ## 解法
 

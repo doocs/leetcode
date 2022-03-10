@@ -39,14 +39,6 @@ No resulting array is strictly increasing, so return false.</pre>
 [1,1] is not strictly increasing, so return false.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,2,3]
-<strong>Output:</strong> true
-<strong>Explanation:</strong> [1,2,3] is already strictly increasing, so return true.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

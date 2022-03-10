@@ -42,14 +42,6 @@ Thus, &quot;abcabcababcc&quot; is valid.
 <strong>Explanation:</strong> It is impossible to get &quot;abccba&quot; using the operation.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;cababc&quot;
-<strong>Output:</strong> false
-<strong>Explanation:</strong> It is impossible to get &quot;cababc&quot; using the operation.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

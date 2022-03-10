@@ -44,17 +44,21 @@ It is guaranteed that the user has visited the bank in the transaction_date.(i.e
 
 <ul>
 	<li><code>transactions_count</code> which is the number of transactions done in one visit.</li>
-	<li><code>visits_count</code> which is the corresponding&nbsp;number of users who did&nbsp;<code>transactions_count</code> in one visit to the bank.</li>
+	<li><code>visits_count</code> which is the corresponding number of users who did <code>transactions_count</code> in one visit to the bank.</li>
 </ul>
 
 <p><code>transactions_count</code> should take all values from <code>0</code> to <code>max(transactions_count)</code> done by one or more users.</p>
 
-<p>Order the result table by <code>transactions_count</code>.</p>
+<p>Return the result table ordered by <code>transactions_count</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/images/chart.png" style="width: 500px; height: 299px;" />
 <pre>
-<code>Visits</code> table:
+<strong>Input:</strong> 
+Visits table:
 +---------+------------+
 | user_id | visit_date |
 +---------+------------+
@@ -69,7 +73,7 @@ It is guaranteed that the user has visited the bank in the transaction_date.(i.e
 | 9       | 2020-01-25 |
 | 8       | 2020-01-28 |
 +---------+------------+
-<code>Transactions</code> table:
+Transactions table:
 +---------+------------------+--------+
 | user_id | transaction_date | amount |
 +---------+------------------+--------+
@@ -82,23 +86,21 @@ It is guaranteed that the user has visited the bank in the transaction_date.(i.e
 | 8       | 2020-01-28       | 1      |
 | 9       | 2020-01-25       | 99     |
 +---------+------------------+--------+
-Result table:
+<strong>Output:</strong> 
 +--------------------+--------------+
-| <code>transactions_count</code> | visits_count |
+| transactions_count | visits_count |
 +--------------------+--------------+
 | 0                  | 4            |
 | 1                  | 5            |
 | 2                  | 0            |
 | 3                  | 1            |
 +--------------------+--------------+
+<strong>Explanation:</strong> The chart drawn for this example is shown above.
 * For transactions_count = 0, The visits (1, &quot;2020-01-01&quot;), (2, &quot;2020-01-02&quot;), (12, &quot;2020-01-01&quot;) and (19, &quot;2020-01-03&quot;) did no transactions so visits_count = 4.
-* For transactions_count = 1, The visits (2, &quot;2020-01-03&quot;), (7, &quot;2020-01-11&quot;), (8, &quot;2020-01-28&quot;),&nbsp;(1, &quot;2020-01-02&quot;) and (1, &quot;2020-01-04&quot;) did one transaction&nbsp;so visits_count = 5.
+* For transactions_count = 1, The visits (2, &quot;2020-01-03&quot;), (7, &amp;quo;2020-01-11&quot;), (8, &quot;2020-01-28&quot;), (1, &quot;2020-01-02&quot;) and (1, &quot;2020-01-04&quot;) did one transaction so visits_count = 5.
 * For transactions_count = 2, No customers visited the bank and did two transactions so visits_count = 0.
-* For transactions_count = 3, The visit&nbsp;(9, &quot;2020-01-25&quot;) did three&nbsp;transactions so visits_count = 1.
-* For transactions_count &gt;= 4, No customers visited the bank and did more than three transactions so we will stop at&nbsp;transactions_count = 3
-
-The chart drawn for this example is as follows:
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1336.Number%20of%20Transactions%20per%20Visit/images/chart.png" style="width: 600px; height: 359px;" />
+* For transactions_count = 3, The visit (9, &quot;2020-01-25&quot;) did three transactions so visits_count = 1.
+* For transactions_count &gt;= 4, No customers visited the bank and did more than three transactions so we will stop at transactions_count = 3
 </pre>
 
 ## Solutions

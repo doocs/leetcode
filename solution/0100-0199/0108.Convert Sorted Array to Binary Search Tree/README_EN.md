@@ -23,7 +23,7 @@
 <pre>
 <strong>Input:</strong> nums = [1,3]
 <strong>Output:</strong> [3,1]
-<strong>Explanation:</strong> [1,3] and [3,1] are both a height-balanced BSTs.
+<strong>Explanation:</strong> [1,null,3] and [3,1] are both height-balanced BSTs.
 </pre>
 
 <p>&nbsp;</p>

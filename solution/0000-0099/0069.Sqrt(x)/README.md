@@ -15,6 +15,7 @@
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
+
 <pre>
 <strong>输入：</strong>x = 4
 <strong>输出：</strong>2
@@ -33,7 +34,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-    <li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
 ## 解法

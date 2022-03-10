@@ -17,7 +17,9 @@
 
 <p>给你一个可能存在 <strong>重复</strong> 元素值的数组 <code>nums</code> ，它原来是一个升序排列的数组，并按上述情形进行了多次旋转。请你找出并返回数组中的 <strong>最小元素</strong> 。</p>
 
-<p> </p>
+<p>你必须尽可能减少整个过程的操作步骤。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -33,25 +35,20 @@
 <strong>输出：</strong>0
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>n == nums.length</code></li>
-	<li><code>1 <= n <= 5000</code></li>
-	<li><code>-5000 <= nums[i] <= 5000</code></li>
+	<li><code>1 &lt;= n &lt;= 5000</code></li>
+	<li><code>-5000 &lt;= nums[i] &lt;= 5000</code></li>
 	<li><code>nums</code> 原来是一个升序排序的数组，并进行了 <code>1</code> 至 <code>n</code> 次旋转</li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>进阶：</strong></p>
-
-<ul>
-	<li>这道题是 <a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/description/">寻找旋转排序数组中的最小值</a> 的延伸题目。</li>
-	<li>允许重复会影响算法的时间复杂度吗？会如何影响，为什么？</li>
-</ul>
+<p><strong>进阶：</strong>这道题与 <a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/description/">寻找旋转排序数组中的最小值</a> 类似，但 <code>nums</code> 可能包含重复元素。允许重复会影响算法的时间复杂度吗？会如何影响，为什么？</p>
 
 ## 解法
 

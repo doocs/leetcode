@@ -148,7 +148,7 @@ function mergeNodes(head: ListNode | null): ListNode | null {
         head = head.next;
     }
     return dummy.next;
-};
+}
 ```
 
 ### **C++**

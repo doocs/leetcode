@@ -16,7 +16,7 @@
 	</li>
 </ul>
 
-<p>Given an integer array <code>arr</code>,&nbsp;return <em>the length of the longest subarray, which is a mountain</em>.&nbsp;Return <code>0</code> if there is no mountain subarray.</p>
+<p>Given an integer array <code>arr</code>, return <em>the length of the longest subarray, which is a mountain</em>. Return <code>0</code> if there is no mountain subarray.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -39,7 +39,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1&nbsp;&lt;= arr.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= arr.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 

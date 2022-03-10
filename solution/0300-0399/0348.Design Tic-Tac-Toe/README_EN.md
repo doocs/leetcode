@@ -16,11 +16,8 @@
 
 <ul>
 	<li><code>TicTacToe(int n)</code> Initializes the object the size of the board <code>n</code>.</li>
-	<li><code>int move(int row, int col, int player)</code> Indicates that player with id <code>player</code> plays at the cell <code>(row, col)</code> of the board. The move is guaranteed to be a valid move.</li>
+	<li><code>int move(int row, int col, int player)</code> Indicates that the player with id <code>player</code> plays at the cell <code>(row, col)</code> of the board. The move is guaranteed to be a valid move.</li>
 </ul>
-
-<p><b>Follow up:</b><br />
-Could you do better than <code>O(<i>n</i><sup>2</sup>)</code> per <code>move()</code> operation?</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -77,10 +74,13 @@ ticTacToe.move(2, 1, 1); // return 1&nbsp;(player 1 wins)
 <ul>
 	<li><code>2 &lt;= n &lt;= 100</code></li>
 	<li>player is <code>1</code> or <code>2</code>.</li>
-	<li><code>1 &lt;= row, col &lt;= n</code></li>
-	<li><code>(row, col)</code>&nbsp;are <strong>unique</strong> for each different call to <code>move</code>.</li>
+	<li><code>0 &lt;= row, col &lt; n</code></li>
+	<li><code>(row, col)</code> are <strong>unique</strong> for each different call to <code>move</code>.</li>
 	<li>At most <code>n<sup>2</sup></code> calls will be made to <code>move</code>.</li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow-up:</strong> Could you do better than <code>O(n<sup>2</sup>)</code> per <code>move()</code> operation?</p>
 
 ## Solutions
 

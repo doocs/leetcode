@@ -7,13 +7,15 @@
 <p>Given a parentheses string <code>s</code> containing only the characters <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>. A parentheses string is <strong>balanced</strong> if:</p>
 
 <ul>
-	<li>Any left parenthesis&nbsp;<code>&#39;(&#39;</code>&nbsp;must have a corresponding two consecutive right parenthesis&nbsp;<code>&#39;))&#39;</code>.</li>
-	<li>Left parenthesis&nbsp;<code>&#39;(&#39;</code>&nbsp;must go before the corresponding two&nbsp;consecutive right parenthesis&nbsp;<code>&#39;))&#39;</code>.</li>
+	<li>Any left parenthesis <code>&#39;(&#39;</code> must have a corresponding two consecutive right parenthesis <code>&#39;))&#39;</code>.</li>
+	<li>Left parenthesis <code>&#39;(&#39;</code> must go before the corresponding two consecutive right parenthesis <code>&#39;))&#39;</code>.</li>
 </ul>
 
-<p>In other words, we treat <code>&#39;(&#39;</code> as openning parenthesis and <code>&#39;))&#39;</code> as closing parenthesis.</p>
+<p>In other words, we treat <code>&#39;(&#39;</code> as an opening parenthesis and <code>&#39;))&#39;</code> as a closing parenthesis.</p>
 
-<p>For example, <code>&quot;())&quot;</code>, <code>&quot;())(())))&quot;</code> and <code>&quot;(())())))&quot;</code> are&nbsp;balanced, <code>&quot;)()&quot;</code>, <code>&quot;()))&quot;</code> and <code>&quot;(()))&quot;</code> are not balanced.</p>
+<ul>
+	<li>For example, <code>&quot;())&quot;</code>, <code>&quot;())(())))&quot;</code> and <code>&quot;(())())))&quot;</code> are balanced, <code>&quot;)()&quot;</code>, <code>&quot;()))&quot;</code> and <code>&quot;(()))&quot;</code> are not balanced.</li>
+</ul>
 
 <p>You can insert the characters <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code> at any position of the string to balance it if needed.</p>
 
@@ -44,27 +46,11 @@
 <strong>Explanation:</strong> Add &#39;(&#39; to match the first &#39;))&#39;, Add &#39;))&#39; to match the last &#39;(&#39;.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;((((((&quot;
-<strong>Output:</strong> 12
-<strong>Explanation:</strong> Add 12 &#39;)&#39; to balance the string.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;)))))))&quot;
-<strong>Output:</strong> 5
-<strong>Explanation:</strong> Add 4 &#39;(&#39; at the beginning of the string and one &#39;)&#39; at the end. The string becomes &quot;(((())))))))&quot;.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 10^5</code></li>
+	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>s</code> consists of <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code> only.</li>
 </ul>
 

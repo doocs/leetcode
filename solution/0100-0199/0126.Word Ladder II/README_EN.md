@@ -37,9 +37,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= beginWord.length &lt;= 7</code></li>
+	<li><code>1 &lt;= beginWord.length &lt;= 5</code></li>
 	<li><code>endWord.length == beginWord.length</code></li>
-	<li><code>1 &lt;= wordList.length &lt;= 5000</code></li>
+	<li><code>1 &lt;= wordList.length &lt;= 1000</code></li>
 	<li><code>wordList[i].length == beginWord.length</code></li>
 	<li><code>beginWord</code>, <code>endWord</code>, and <code>wordList[i]</code> consist of lowercase English letters.</li>
 	<li><code>beginWord != endWord</code></li>

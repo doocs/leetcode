@@ -39,13 +39,6 @@ x cannot be greater since there are only 2 numbers in nums.
 <strong>Explanation:</strong> There are 3 values that are greater than or equal to 3.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [3,6,7,7,0]
-<strong>Output:</strong> -1
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

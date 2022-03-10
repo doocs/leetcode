@@ -48,14 +48,6 @@ The blue arrows show how we can find originalText from encodedText.
 <strong>Explanation:</strong> Since there is only 1 row, both originalText and encodedText are the same.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2075.Decode%20the%20Slanted%20Ciphertext/images/exam3.png" style="width: 150px; height: 101px;" />
-<pre>
-<strong>Input:</strong> encodedText = &quot; b  ac&quot;, rows = 2
-<strong>Output:</strong> &quot; abc&quot;
-<strong>Explanation:</strong> originalText cannot have trailing spaces, but it may be preceded by one or more spaces.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

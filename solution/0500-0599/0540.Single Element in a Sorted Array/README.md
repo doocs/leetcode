@@ -6,23 +6,38 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个只包含整数的有序数组，每个元素都会出现两次，唯有一个数只会出现一次，找出这个数。</p>
+<p>给你一个仅由整数组成的有序数组，其中每个元素都会出现两次，唯有一个数只会出现一次。</p>
+
+<p>请你找出并返回只出现一次的那个数。</p>
+
+<p>你设计的解决方案必须满足 <code>O(log n)</code> 时间复杂度和 <code>O(1)</code> 空间复杂度。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> [1,1,2,3,3,4,4,8,8]
+<strong>输入:</strong> nums = [1,1,2,3,3,4,4,8,8]
 <strong>输出:</strong> 2
 </pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入:</strong> [3,3,7,7,10,11,11]
+<strong>输入:</strong> nums =  [3,3,7,7,10,11,11]
 <strong>输出:</strong> 10
 </pre>
 
-<p><strong>注意:</strong> 您的方案应该在 O(log n)时间复杂度和 O(1)空间复杂度中运行。</p>
+<p>&nbsp;</p>
+
+<p><meta charset="UTF-8" /></p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 10<sup>5</sup></code></li>
+</ul>
 
 ## 解法
 

@@ -228,8 +228,8 @@ class MyLinkedList {
 
 ```ts
 class LinkNode {
-    public val: number
-    public next: LinkNode
+    public val: number;
+    public next: LinkNode;
 
     constructor(val: number, next: LinkNode = null) {
         this.val = val;
@@ -238,7 +238,7 @@ class LinkNode {
 }
 
 class MyLinkedList {
-    public head: LinkNode
+    public head: LinkNode;
 
     constructor() {
         this.head = null;
@@ -246,18 +246,18 @@ class MyLinkedList {
 
     get(index: number): number {
         if (this.head == null) {
-            return -1
+            return -1;
         }
-        let cur = this.head
+        let cur = this.head;
         let idxCur = 0;
         while (idxCur < index) {
             if (cur.next == null) {
-                return - 1
+                return -1;
             }
             cur = cur.next;
-            idxCur++
+            idxCur++;
         }
-        return cur.val
+        return cur.val;
     }
 
     addAtHead(val: number): void {
@@ -265,14 +265,14 @@ class MyLinkedList {
     }
 
     addAtTail(val: number): void {
-        const newNode = new LinkNode(val)
+        const newNode = new LinkNode(val);
         if (this.head == null) {
-            this.head = newNode
-            return
+            this.head = newNode;
+            return;
         }
         let cur = this.head;
         while (cur.next != null) {
-            cur = cur.next
+            cur = cur.next;
         }
         cur.next = newNode;
     }
@@ -286,30 +286,30 @@ class MyLinkedList {
         let idxCur = 0;
         while (idxCur < index) {
             if (cur.next == null) {
-                return
+                return;
             }
-            cur = cur.next
-            idxCur++
+            cur = cur.next;
+            idxCur++;
         }
-        cur.next = new LinkNode(val, cur.next || null)
+        cur.next = new LinkNode(val, cur.next || null);
     }
 
     deleteAtIndex(index: number): void {
         if (index == 0) {
-            this.head = (this.head || {}).next
-            return
+            this.head = (this.head || {}).next;
+            return;
         }
         const dummy = new LinkNode(0, this.head);
         let cur = dummy;
-        let idxCur = 0
+        let idxCur = 0;
         while (idxCur < index) {
             if (cur.next == null) {
-                return
+                return;
             }
-            cur = cur.next
-            idxCur++
+            cur = cur.next;
+            idxCur++;
         }
-        cur.next = (cur.next || {}).next
+        cur.next = (cur.next || {}).next;
     }
 }
 
@@ -401,9 +401,9 @@ impl MyLinkedList {
             }
             idx += 1;
         }
-        cur.next = Some(Box::new(Node { 
-            val, 
-            next: cur.next.take() 
+        cur.next = Some(Box::new(Node {
+            val,
+            next: cur.next.take()
         }));
         self.head = dummy.next;
     }

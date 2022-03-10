@@ -7,7 +7,9 @@
 <p>Given an array of strings <code>words</code>, find the <strong>longest</strong> string in <code>words</code> such that <strong>every prefix</strong> of it is also in <code>words</code>.</p>
 
 <ul>
-	<li>For example, let <code>words = [&quot;a&quot;, &quot;app&quot;, &quot;ap&quot;]</code>. The string <code>&quot;app&quot;</code> has prefixes <code>&quot;ap&quot;</code> and <code>&quot;a&quot;</code>, all of which are in <code>words</code>.</li>
+
+    <li>For example, let <code>words = [&quot;a&quot;, &quot;app&quot;, &quot;ap&quot;]</code>. The string <code>&quot;app&quot;</code> has prefixes <code>&quot;ap&quot;</code> and <code>&quot;a&quot;</code>, all of which are in <code>words</code>.</li>
+
 </ul>
 
 <p>Return <em>the string described above. If there is more than one string with the same length, return the <strong>lexicographically smallest</strong> one, and if no string exists, return </em><code>&quot;&quot;</code>.</p>
@@ -55,9 +57,13 @@ However, &quot;apple&quot; is lexicographically smaller, so we return that.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= words.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= words[i].length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
+
+    <li><code>1 &lt;= words.length &lt;= 10<sup>5</sup></code></li>
+
+    <li><code>1 &lt;= words[i].length &lt;= 10<sup>5</sup></code></li>
+
+    <li><code>1 &lt;= sum(words[i].length) &lt;= 10<sup>5</sup></code></li>
+
 </ul>
 
 ## Solutions

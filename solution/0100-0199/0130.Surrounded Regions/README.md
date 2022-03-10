@@ -232,7 +232,10 @@ function solve(board: string[][]): void {
     const n = board[0].length;
     for (let i = 0; i < m; ++i) {
         for (let j = 0; j < n; ++j) {
-            if ((i == 0 || i == m - 1 || j == 0 || j == n - 1) && board[i][j] == 'O') {
+            if (
+                (i == 0 || i == m - 1 || j == 0 || j == n - 1) &&
+                board[i][j] == 'O'
+            ) {
                 dfs(i, j);
             }
         }
@@ -246,7 +249,7 @@ function solve(board: string[][]): void {
             }
         }
     }
-};
+}
 ```
 
 并查集：
@@ -293,7 +296,7 @@ function solve(board: string[][]): void {
             }
         }
     }
-};
+}
 ```
 
 ### **C++**

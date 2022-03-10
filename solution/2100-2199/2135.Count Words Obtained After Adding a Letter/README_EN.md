@@ -12,15 +12,17 @@
 
 <ol>
 	<li><strong>Append</strong> any lowercase letter that is <strong>not present</strong> in the string to its end.
-	<ul>
-		<li>For example, if the string is <code>&quot;abc&quot;</code>, the letters <code>&#39;d&#39;</code>, <code>&#39;e&#39;</code>, or <code>&#39;y&#39;</code> can be added to it, but not <code>&#39;a&#39;</code>. If <code>&#39;d&#39;</code> is added, the resulting string will be <code>&quot;abcd&quot;</code>.</li>
-	</ul>
-	</li>
-	<li><strong>Rearrange</strong> the letters of the new string in <strong>any</strong> arbitrary order.
-	<ul>
-		<li>For example, <code>&quot;abcd&quot;</code> can be rearranged to <code>&quot;acbd&quot;</code>, <code>&quot;bacd&quot;</code>, <code>&quot;cbda&quot;</code>, and so on. Note that it can also be rearranged to <code>&quot;abcd&quot;</code> itself.</li>
-	</ul>
-	</li>
+
+    <ul>
+    	<li>For example, if the string is <code>&quot;abc&quot;</code>, the letters <code>&#39;d&#39;</code>, <code>&#39;e&#39;</code>, or <code>&#39;y&#39;</code> can be added to it, but not <code>&#39;a&#39;</code>. If <code>&#39;d&#39;</code> is added, the resulting string will be <code>&quot;abcd&quot;</code>.</li>
+    </ul>
+    </li>
+    <li><strong>Rearrange</strong> the letters of the new string in <strong>any</strong> arbitrary order.
+    <ul>
+    	<li>For example, <code>&quot;abcd&quot;</code> can be rearranged to <code>&quot;acbd&quot;</code>, <code>&quot;bacd&quot;</code>, <code>&quot;cbda&quot;</code>, and so on. Note that it can also be rearranged to <code>&quot;abcd&quot;</code> itself.</li>
+    </ul>
+    </li>
+
 </ol>
 
 <p>Return <em>the <strong>number of strings</strong> in </em><code>targetWords</code><em> that can be obtained by performing the operations on <strong>any</strong> string of </em><code>startWords</code>.</p>

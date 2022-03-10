@@ -62,7 +62,7 @@ class BinaryIndexedTree:
         while x <= self.n:
             self.c[x] += delta
             x += BinaryIndexedTree.lowbit(x)
-    
+
     def query(self, x):
         s = 0
         while x > 0:

@@ -103,7 +103,7 @@ class OrderedStream {
         data = new String[n];
         ptr = 0;
     }
-    
+
     public List<String> insert(int idKey, String value) {
         data[idKey - 1] = value;
         List<String> ans = new ArrayList<>();
@@ -132,7 +132,7 @@ public:
     OrderedStream(int n) {
         data.resize(n, "");
     }
-    
+
     vector<string> insert(int idKey, string value) {
         data[idKey - 1] = value;
         vector<string> ans;

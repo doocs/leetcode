@@ -32,7 +32,7 @@
 
 <ul>
 	<li><code>1 &lt;= preorder.length &lt;= 100</code></li>
-	<li><code>1 &lt;= preorder[i] &lt;= 10<sup>8</sup></code></li>
+	<li><code>1 &lt;= preorder[i] &lt;= 1000</code></li>
 	<li>All the values of <code>preorder</code> are <strong>unique</strong>.</li>
 </ul>
 

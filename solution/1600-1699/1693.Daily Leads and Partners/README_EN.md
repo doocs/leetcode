@@ -24,13 +24,15 @@ The name consists of only lowercase English letters.
 
 <p>Write an SQL query that will, for each <code>date_id</code> and <code>make_name</code>, return the number of <strong>distinct</strong> <code>lead_id</code>&#39;s and <strong>distinct</strong> <code>partner_id</code>&#39;s.</p>
 
-<p>Return the result table in any order.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 DailySales table:
 +-----------+-----------+---------+------------+
 | date_id   | make_name | lead_id | partner_id |
@@ -46,7 +48,7 @@ DailySales table:
 | 2020-12-7 | honda     | 1       | 2          |
 | 2020-12-7 | honda     | 2       | 1          |
 +-----------+-----------+---------+------------+
-Result table:
+<strong>Output:</strong> 
 +-----------+-----------+--------------+-----------------+
 | date_id   | make_name | unique_leads | unique_partners |
 +-----------+-----------+--------------+-----------------+
@@ -55,6 +57,7 @@ Result table:
 | 2020-12-8 | honda     | 2            | 2               |
 | 2020-12-7 | honda     | 3            | 2               |
 +-----------+-----------+--------------+-----------------+
+<strong>Explanation:</strong> 
 For 2020-12-8, toyota gets leads = [0, 1] and partners = [0, 1, 2] while honda gets leads = [1, 2] and partners = [1, 2].
 For 2020-12-7, toyota gets leads = [0] and partners = [1, 2] while honda gets leads = [0, 1, 2] and partners = [1, 2].
 </pre>

@@ -16,7 +16,7 @@
 <strong>Output:</strong> [3,3,5,5,6,7]
 <strong>Explanation:</strong> 
 Window position                Max
----------------             -----
+---------------               -----
 [1  3  -1] -3  5  3  6  7       <strong>3</strong>
  1 [3  -1  -3] 5  3  6  7       <strong>3</strong>
  1  3 [-1  -3  5] 3  6  7      <strong> 5</strong>
@@ -30,27 +30,6 @@ Window position                Max
 <pre>
 <strong>Input:</strong> nums = [1], k = 1
 <strong>Output:</strong> [1]
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,-1], k = 1
-<strong>Output:</strong> [1,-1]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [9,11], k = 2
-<strong>Output:</strong> [11]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [4,-2], k = 2
-<strong>Output:</strong> [4]
 </pre>
 
 <p>&nbsp;</p>

@@ -14,6 +14,7 @@
 <pre>
 <strong>Input:</strong> root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
 <strong>Output:</strong> true
+<strong>Explanation:</strong> The root-to-leaf path with the target sum is shown.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -21,13 +22,18 @@
 <pre>
 <strong>Input:</strong> root = [1,2,3], targetSum = 5
 <strong>Output:</strong> false
+<strong>Explanation:</strong> There two root-to-leaf paths in the tree:
+(1 --&gt; 2): The sum is 3.
+(1 --&gt; 3): The sum is 4.
+There is no root-to-leaf path with sum = 5.
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> root = [1,2], targetSum = 0
+<strong>Input:</strong> root = [], targetSum = 0
 <strong>Output:</strong> false
+<strong>Explanation:</strong> Since the tree is empty, there are no root-to-leaf paths.
 </pre>
 
 <p>&nbsp;</p>
@@ -95,13 +101,13 @@ class Solution {
 class Solution {
 public:
     bool hasPathSum(TreeNode* root, int sum) {
-        
+
         if(root == NULL)return false;
         if(root->right == NULL && root->left == NULL && sum == root->val)return true;
-        
+
         bool leftTrue = hasPathSum(root->left,sum - root->val);
         bool rightTrue = hasPathSum(root->right,sum - root->val);
-        
+
         return (leftTrue || rightTrue);
     }
 };

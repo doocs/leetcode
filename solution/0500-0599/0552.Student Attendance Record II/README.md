@@ -6,29 +6,57 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个正整数&nbsp;<strong>n</strong>，返回长度为 n 的所有可被视为可奖励的出勤记录的数量。 答案可能非常大，你只需返回结果mod 10<sup>9</sup> + 7的值。</p>
+可以用字符串表示一个学生的出勤记录，其中的每个字符用来标记当天的出勤情况（缺勤、迟到、到场）。记录中只含下面三种字符：
 
-<p>学生出勤记录是只包含以下三个字符的字符串：</p>
+<ul>
+	<li><code>'A'</code>：Absent，缺勤</li>
+	<li><code>'L'</code>：Late，迟到</li>
+	<li><code>'P'</code>：Present，到场</li>
+</ul>
 
-<ol>
-	<li><strong>&#39;A&#39;</strong> : Absent，缺勤</li>
-	<li><strong>&#39;L&#39;</strong> : Late，迟到</li>
-	<li><strong>&#39;P&#39;</strong> : Present，到场</li>
-</ol>
+<p>如果学生能够 <strong>同时</strong> 满足下面两个条件，则可以获得出勤奖励：</p>
 
-<p>如果记录不包含<strong>多于一个&#39;A&#39;（缺勤）</strong>或<strong>超过两个连续的&#39;L&#39;（迟到）</strong>，则该记录被视为可奖励的。</p>
+<ul>
+	<li>按 <strong>总出勤</strong> 计，学生缺勤（<code>'A'</code>）<strong>严格</strong> 少于两天。</li>
+	<li>学生 <strong>不会</strong> 存在 <strong>连续</strong> 3 天或 <strong>连续</strong> 3 天以上的迟到（<code>'L'</code>）记录。</li>
+</ul>
 
-<p><strong>示例 1:</strong></p>
+<p>给你一个整数 <code>n</code> ，表示出勤记录的长度（次数）。请你返回记录长度为 <code>n</code> 时，可能获得出勤奖励的记录情况 <strong>数量</strong> 。答案可能很大，所以返回对 <code>10<sup>9</sup> + 7</code> <strong>取余</strong> 的结果。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> n = 2
-<strong>输出:</strong> 8 <strong>
-解释：</strong>
-有8个长度为2的记录将被视为可奖励：
-&quot;PP&quot; , &quot;AP&quot;, &quot;PA&quot;, &quot;LP&quot;, &quot;PL&quot;, &quot;AL&quot;, &quot;LA&quot;, &quot;LL&quot;
-只有&quot;AA&quot;不会被视为可奖励，因为缺勤次数超过一次。</pre>
+<strong>输入：</strong>n = 2
+<strong>输出：</strong>8
+<strong>解释：
+</strong>有 8 种长度为 2 的记录将被视为可奖励：
+"PP" , "AP", "PA", "LP", "PL", "AL", "LA", "LL" 
+只有"AA"不会被视为可奖励，因为缺勤次数为 2 次（需要少于 2 次）。
+</pre>
 
-<p><strong>注意：n </strong>的值不会超过100000。</p>
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 1
+<strong>输出：</strong>3
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>n = 10101
+<strong>输出：</strong>183236316
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+</ul>
 
 ## 解法
 
@@ -38,9 +66,9 @@
 
 状态转移需要对第 `i` 天的出勤情况分别讨论：
 
-- 缺勤：之前不能有任何缺勤记录，即 `j == 0`
-- 迟到：之前最多连续迟到 1 次，即 `k == 0 || k == 1`
-- 到场：无限制
+-   缺勤：之前不能有任何缺勤记录，即 `j == 0`
+-   迟到：之前最多连续迟到 1 次，即 `k == 0 || k == 1`
+-   到场：无限制
 
 <!-- tabs:start -->
 

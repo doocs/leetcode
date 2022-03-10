@@ -7,50 +7,75 @@
 <p>Table: <code>Candidate</code></p>
 
 <pre>
-+-----+---------+
-| id  | Name    |
-+-----+---------+
-| 1   | A       |
-| 2   | B       |
-| 3   | C       |
-| 4   | D       |
-| 5   | E       |
-+-----+---------+  
++-------------+----------+
+| Column Name | Type     |
++-------------+----------+
+| id          | int      |
+| name        | varchar  |
++-------------+----------+
+id is the primary key column for this table.
+Each row of this table contains information about the id and the name of a candidate.
 </pre>
+
+<p>&nbsp;</p>
 
 <p>Table: <code>Vote</code></p>
 
 <pre>
-+-----+--------------+
-| id  | CandidateId  |
-+-----+--------------+
-| 1   |     2        |
-| 2   |     4        |
-| 3   |     3        |
-| 4   |     2        |
-| 5   |     5        |
-+-----+--------------+
-id is the auto-increment primary key,
-CandidateId is the id appeared in Candidate table.
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| candidateId | int  |
++-------------+------+
+id is an auto-increment primary key.
+candidateId is a foreign key to id from the Candidate table.
+Each row of this table determines the candidate who got the i<sup>th</sup> vote in the elections.
 </pre>
 
-<p>Write a sql to find the name of the winning candidate, the above example will return the winner <code>B</code>.</p>
+<p>&nbsp;</p>
+
+<p>Write an SQL query to report the name of the winning candidate (i.e., the candidate who got the largest number of votes).</p>
+
+<p>The test cases are generated so that <strong>exactly one candidate wins</strong> the elections.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
+Candidate table:
++----+------+
+| id | name |
++----+------+
+| 1  | A    |
+| 2  | B    |
+| 3  | C    |
+| 4  | D    |
+| 5  | E    |
++----+------+
+Vote table:
++----+-------------+
+| id | candidateId |
++----+-------------+
+| 1  | 2           |
+| 2  | 4           |
+| 3  | 3           |
+| 4  | 2           |
+| 5  | 5           |
++----+-------------+
+<strong>Output:</strong> 
 +------+
-| Name |
+| name |
 +------+
 | B    |
 +------+
+<strong>Explanation:</strong> 
+Candidate B has 2 votes. Candidates C, D, and E have 1 vote each.
+The winner is candidate B.
 </pre>
-
-<p><b>Notes:</b></p>
-
-<ol>
-	<li>You may assume <b>there is no tie</b>, in other words there will be <b>only one</b> winning candidate.</li>
-</ol>
-
-<p>&nbsp;</p>
 
 ## Solutions
 

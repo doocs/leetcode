@@ -21,6 +21,8 @@ name 是朋友的名字
 activity 是朋友参加的活动的名字
 </pre>
 
+<p>&nbsp;</p>
+
 <p>表: <code>Activities</code></p>
 
 <pre>
@@ -34,17 +36,22 @@ id 是该表的主键
 name 是活动的名字
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>写一条 SQL 查询那些既没有最多，也没有最少参与者的活动的名字</p>
 
-<p>可以以任何顺序返回结果，Activities 表的每项活动的参与者都来自 Friends 表</p>
+<p><code>Activities</code> 表的每项活动的参与者都来自 Friends 表。</p>
 
-<p>注意：名称相同 id 不同的参与者算作两个人</p>
+<p>可以以 <strong>任何顺序</strong> 返回结果。</p>
 
-<p>下面是查询结果格式的例子：</p>
+<p>下面是查询结果格式的例子。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
+<strong>输入：</strong>
 Friends 表:
 +------+--------------+---------------+
 | id   | name         | activity      |
@@ -56,7 +63,6 @@ Friends 表:
 | 5    | Daniel A.    | Eating        |
 | 6    | Bob B.       | Horse Riding  |
 +------+--------------+---------------+
-
 Activities 表:
 +------+--------------+
 | id   | name         |
@@ -65,18 +71,16 @@ Activities 表:
 | 2    | Singing      |
 | 3    | Horse Riding |
 +------+--------------+
-
-Result 表:
+<strong>输出：</strong>
 +--------------+
 | activity     |
 +--------------+
 | Singing      |
 +--------------+
-
+<strong>解释：</strong>
 Eating 活动有三个人参加, 是最多人参加的活动 (Jonathan D. , Elvis Q. and Daniel A.)
 Horse Riding 活动有一个人参加, 是最少人参加的活动 (Bob B.)
-Singing 活动有两个人参加 (Victor J. and Jade W.)
-</pre>
+Singing 活动有两个人参加 (Victor J. and Jade W.)</pre>
 
 ## 解法
 

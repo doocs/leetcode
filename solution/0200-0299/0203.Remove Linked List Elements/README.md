@@ -36,9 +36,9 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>列表中的节点在范围 <code>[0, 10<sup>4</sup>]</code> 内</li>
+	<li>列表中的节点数目在范围 <code>[0, 10<sup>4</sup>]</code> 内</li>
 	<li><code>1 <= Node.val <= 50</code></li>
-	<li><code>0 <= k <= 50</code></li>
+	<li><code>0 <= val <= 50</code></li>
 </ul>
 
 ## 解法

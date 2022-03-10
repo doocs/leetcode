@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given an integer array <code>coins</code> representing&nbsp;coins of different denominations and an integer <code>amount</code>&nbsp;representing a total amount of money.</p>
+<p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>amount</code> representing a total amount of money.</p>
 
 <p>Return <em>the fewest number of coins that you need to make up that amount</em>. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>
 
@@ -31,20 +31,6 @@
 <pre>
 <strong>Input:</strong> coins = [1], amount = 0
 <strong>Output:</strong> 0
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> coins = [1], amount = 1
-<strong>Output:</strong> 1
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> coins = [1], amount = 2
-<strong>Output:</strong> 2
 </pre>
 
 <p>&nbsp;</p>

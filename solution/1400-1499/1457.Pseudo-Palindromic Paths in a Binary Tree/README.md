@@ -14,9 +14,10 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/images/palindromic_paths_1.png" style="height: 201px; width: 300px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/images/palindromic_paths_1.png" style="height: 201px; width: 300px;" /></p>
 
-<pre><strong>输入：</strong>root = [2,3,1,3,1,null,1]
+<pre>
+<strong>输入：</strong>root = [2,3,1,3,1,null,1]
 <strong>输出：</strong>2 
 <strong>解释：</strong>上图为给定的二叉树。总共有 3 条从根到叶子的路径：红色路径 [2,3,3] ，绿色路径 [2,1,1] 和路径 [2,3,1] 。
      在这些路径中，只有红色和绿色的路径是伪回文路径，因为红色路径 [2,3,3] 存在回文排列 [3,2,3] ，绿色路径 [2,1,1] 存在回文排列 [1,2,1] 。
@@ -24,9 +25,10 @@
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/images/palindromic_paths_2.png" style="height: 314px; width: 300px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1457.Pseudo-Palindromic%20Paths%20in%20a%20Binary%20Tree/images/palindromic_paths_2.png" style="height: 314px; width: 300px;" /></strong></p>
 
-<pre><strong>输入：</strong>root = [2,1,1,1,3,null,null,null,null,null,1]
+<pre>
+<strong>输入：</strong>root = [2,1,1,1,3,null,null,null,null,null,1]
 <strong>输出：</strong>1 
 <strong>解释：</strong>上图为给定二叉树。总共有 3 条从根到叶子的路径：绿色路径 [2,1,1] ，路径 [2,1,3,1] 和路径 [2,1] 。
      这些路径中只有绿色路径是伪回文路径，因为 [2,1,1] 存在回文排列 [1,2,1] 。
@@ -34,7 +36,8 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>root = [9]
+<pre>
+<strong>输入：</strong>root = [9]
 <strong>输出：</strong>1
 </pre>
 
@@ -43,8 +46,8 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>给定二叉树的节点数目在&nbsp;<code>1</code>&nbsp;到&nbsp;<code>10^5</code>&nbsp;之间。</li>
-	<li>节点值在&nbsp;<code>1</code> 到&nbsp;<code>9</code>&nbsp;之间。</li>
+	<li>给定二叉树的节点数目在范围&nbsp;<code>[1, 10<sup>5</sup>]</code> 内</li>
+	<li><code>1 &lt;= Node.val &lt;= 9</code></li>
 </ul>
 
 ## 解法

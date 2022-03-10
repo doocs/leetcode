@@ -25,10 +25,14 @@ This table contains information about the orders made by customer_id.
 
 <p>Return the result table sorted in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Orders</code>
+<strong>Input:</strong> 
+Orders table:
 +----------+------------+-------------+------------+
 | order_id | order_date | customer_id | invoice    |
 +----------+------------+-------------+------------+
@@ -43,8 +47,7 @@ This table contains information about the orders made by customer_id.
 | 9        | 2021-01-07 | 3           | 31         |
 | 10       | 2021-01-15 | 2           | 20         |
 +----------+------------+-------------+------------+
-
-Result table:
+<strong>Output:</strong> 
 +---------+-------------+----------------+
 | month   | order_count | customer_count |
 +---------+-------------+----------------+
@@ -53,6 +56,7 @@ Result table:
 | 2020-12 | 2           | 1              |
 | 2021-01 | 1           | 1              |
 +---------+-------------+----------------+
+<strong>Explanation:</strong> 
 In September 2020 we have two orders from 2 different customers with invoices &gt; $20.
 In October 2020 we have two orders from 1 customer, and only one of the two orders has invoice &gt; $20.
 In November 2020 we have two orders from 2 different customers but invoices &lt; $20, so we don&#39;t include that month.

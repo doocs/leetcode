@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an n-ary tree, return the <i>level order</i> traversal of its nodes&#39; values.</p>
+<p>Given an n-ary tree, return the <em>level order</em> traversal of its nodes&#39; values.</p>
 
-<p><em>Nary-Tree input serialization&nbsp;is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
+<p><em>Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

@@ -4,7 +4,9 @@
 
 ## Description
 
-<p>Given a string <code>s</code>, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
+<p>A phrase is a <strong>palindrome</strong> if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.</p>
+
+<p>Given a string <code>s</code>, return <code>true</code><em> if it is a <strong>palindrome</strong>, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -21,6 +23,15 @@
 <strong>Input:</strong> s = &quot;race a car&quot;
 <strong>Output:</strong> false
 <strong>Explanation:</strong> &quot;raceacar&quot; is not a palindrome.
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot; &quot;
+<strong>Output:</strong> true
+<strong>Explanation:</strong> s is an empty string &quot;&quot; after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
 </pre>
 
 <p>&nbsp;</p>

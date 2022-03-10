@@ -24,7 +24,7 @@
 
 <p>Given a string <code>s</code> containing only digits, return <em>the <strong>number</strong> of ways to <strong>decode</strong> it</em>.</p>
 
-<p>The answer is guaranteed to fit in a <strong>32-bit</strong> integer.</p>
+<p>The test cases are generated so that the answer fits in a <strong>32-bit</strong> integer.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -44,16 +44,6 @@
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;0&quot;
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> There is no character that is mapped to a number starting with 0.
-The only valid mappings with 0 are &#39;J&#39; -&gt; &quot;10&quot; and &#39;T&#39; -&gt; &quot;20&quot;, neither of which start with 0.
-Hence, there are no valid ways to decode this since all digits need to be mapped.
-</pre>
-
-<p><strong>Example 4:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;06&quot;

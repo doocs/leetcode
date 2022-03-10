@@ -39,14 +39,6 @@
 <strong>Explanation:</strong> It is impossible for the mean to be 6 no matter what the 4 missing rolls are.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> rolls = [1], mean = 3, n = 1
-<strong>Output:</strong> [5]
-<strong>Explanation:</strong> The mean of all n + m rolls is (1 + 5) / 2 = 3.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

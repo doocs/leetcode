@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>A robot is located at the top-left corner of a <code>m x n</code> grid (marked &#39;Start&#39; in the diagram below).</p>
+<p>There is a robot on an <code>m x n</code> grid. The robot is initially located at the <strong>top-left corner</strong> (i.e., <code>grid[0][0]</code>). The robot tries to move to the <strong>bottom-right corner</strong> (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.</p>
 
-<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked &#39;Finish&#39; in the diagram below).</p>
+<p>Given the two integers <code>m</code> and <code>n</code>, return <em>the number of possible unique paths that the robot can take to reach the bottom-right corner</em>.</p>
 
-<p>How many possible unique paths are there?</p>
+<p>The test cases are generated so that the answer will be less than or equal to <code>2 * 10<sup>9</sup></code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -23,25 +23,10 @@
 <pre>
 <strong>Input:</strong> m = 3, n = 2
 <strong>Output:</strong> 3
-<strong>Explanation:</strong>
-From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+<strong>Explanation:</strong> From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
 1. Right -&gt; Down -&gt; Down
 2. Down -&gt; Down -&gt; Right
 3. Down -&gt; Right -&gt; Down
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> m = 7, n = 3
-<strong>Output:</strong> 28
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> m = 3, n = 3
-<strong>Output:</strong> 6
 </pre>
 
 <p>&nbsp;</p>
@@ -49,7 +34,6 @@ From the top-left corner, there are a total of 3 ways to reach the bottom-right 
 
 <ul>
 	<li><code>1 &lt;= m, n &lt;= 100</code></li>
-	<li>It&#39;s guaranteed that the answer will be less than or equal to <code>2 * 10<sup>9</sup></code>.</li>
 </ul>
 
 ## Solutions

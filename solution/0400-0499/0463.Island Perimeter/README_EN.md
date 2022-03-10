@@ -41,6 +41,7 @@
 	<li><code>col == grid[i].length</code></li>
 	<li><code>1 &lt;= row, col &lt;= 100</code></li>
 	<li><code>grid[i][j]</code> is <code>0</code> or <code>1</code>.</li>
+	<li>There is exactly one island in <code>grid</code>.</li>
 </ul>
 
 ## Solutions

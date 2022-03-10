@@ -37,27 +37,12 @@
 <strong>Output:</strong> 8
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> grid = [[1,1,1],[1,0,1],[1,1,1]]
-<strong>Output:</strong> 14
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> grid = [[2,2,2],[2,1,2],[2,2,2]]
-<strong>Output:</strong> 21
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == grid.length</code></li>
-	<li><code>n == grid[i].length</code></li>
-	<li><code>1 &lt;= n&nbsp;&lt;= 50</code></li>
+	<li><code>n == grid.length == grid[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 50</code></li>
 	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
 </ul>
 

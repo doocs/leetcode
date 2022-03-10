@@ -6,19 +6,40 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定从 <code>0</code> 到 <code>n-1</code>&nbsp;标号的&nbsp;<code>n</code> 个结点，和一个无向边列表（每条边以结点对来表示），请编写一个函数用来判断这些边是否能够形成一个合法有效的树结构。</p>
+<p>给定编号从 <code>0</code> 到 <code>n - 1</code>&nbsp;的&nbsp;<code>n</code> 个结点。给定一个整数&nbsp;<code>n</code>&nbsp;和一个&nbsp;<code>edges</code>&nbsp;列表，其中&nbsp;<code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;表示图中节点&nbsp;<code>a<sub>i</sub></code>&nbsp;和&nbsp;<code>b<sub>i</sub></code>&nbsp;之间存在一条无向边。</p>
+
+<p>如果这些边能够形成一个合法有效的树结构，则返回 <code>true</code> ，否则返回 <code>false</code> 。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> <code>n = 5</code>, 边列表 edges<code> = [[0,1], [0,2], [0,3], [1,4]]</code>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0261.Graph%20Valid%20Tree/images/tree1-graph.jpg" /></p>
+
+<pre>
+<strong>输入:</strong> <code>n = 5</code>, edges<code> = [[0,1],[0,2],[0,3],[1,4]]</code>
 <strong>输出:</strong> true</pre>
 
 <p><strong>示例 2:</strong></p>
 
-<pre><strong>输入:</strong> <code>n = 5, </code>边列表 edges<code> = [[0,1], [1,2], [2,3], [1,3], [1,4]]</code>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0261.Graph%20Valid%20Tree/images/tree2-graph.jpg" /></p>
+
+<pre>
+<strong>输入:</strong> <code>n = 5, </code>edges<code> = [[0,1],[1,2],[2,3],[1,3],[1,4]]</code>
 <strong>输出:</strong> false</pre>
 
-<p><strong>注意：</strong>你可以假定边列表 <code>edges</code> 中不会出现重复的边。由于所有的边是无向边，边&nbsp;<code>[0,1]</code>&nbsp;和边 <code>[1,0]</code>&nbsp;是相同的，因此不会同时出现在边列表 <code>edges</code> 中。</p>
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 2000</code></li>
+	<li><code>0 &lt;= edges.length &lt;= 5000</code></li>
+	<li><code>edges[i].length == 2</code></li>
+	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub>&nbsp;&lt; n</code></li>
+	<li><code>a<sub>i</sub>&nbsp;!= b<sub>i</sub></code></li>
+	<li>不存在自循环或重复的边</li>
+</ul>
 
 ## 解法
 
@@ -202,24 +223,24 @@ func validTree(n int, edges [][]int) bool {
  * @return {boolean}
  */
 var validTree = function (n, edges) {
-  let p = new Array(n);
-  for (let i = 0; i < n; ++i) {
-    p[i] = i;
-  }
-  function find(x) {
-    if (p[x] != x) {
-      p[x] = find(p[x]);
+    let p = new Array(n);
+    for (let i = 0; i < n; ++i) {
+        p[i] = i;
     }
-    return p[x];
-  }
-  for (const [a, b] of edges) {
-    if (find(a) == find(b)) {
-      return false;
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
     }
-    p[find(a)] = find(b);
-    --n;
-  }
-  return n == 1;
+    for (const [a, b] of edges) {
+        if (find(a) == find(b)) {
+            return false;
+        }
+        p[find(a)] = find(b);
+        --n;
+    }
+    return n == 1;
 };
 ```
 

@@ -23,22 +23,16 @@
 <pre>
 <strong>Input:</strong> s = &quot;Bb&quot;
 <strong>Output:</strong> &quot;Bb&quot;
-<strong>Explanation:</strong> &quot;Bb&quot; is a nice string because both &#39;B&#39; and &#39;b&#39; appear. The whole string is a substring.</pre>
+<strong>Explanation:</strong> &quot;Bb&quot; is a nice string because both &#39;B&#39; and &#39;b&#39; appear. The whole string is a substring.
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;c&quot;
 <strong>Output:</strong> &quot;&quot;
-<strong>Explanation:</strong> There are no nice substrings.</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;dDzeE&quot;
-<strong>Output:</strong> &quot;dD&quot;
-<strong>Explanation: </strong>Both &quot;dD&quot; and &quot;eE&quot; are the longest nice substrings.
-As there are multiple longest nice substrings, return &quot;dD&quot; since it occurs earlier.</pre>
+<strong>Explanation:</strong> There are no nice substrings.
+</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

@@ -34,7 +34,7 @@ The resulting string is &quot;[[]]&quot;.
 <strong>Input:</strong> s = &quot;]]][[[&quot;
 <strong>Output:</strong> 2
 <strong>Explanation:</strong> You can do the following to make the string balanced:
-- Swap index 0 with index 4. s = &quot;[]][[]&quot;.
+- Swap index 0 with index 4. s = &quot;[]][][&quot;.
 - Swap index 1 with index 5. s = &quot;[[][]]&quot;.
 The resulting string is &quot;[[][]]&quot;.
 </pre>

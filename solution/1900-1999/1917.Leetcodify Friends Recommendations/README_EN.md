@@ -43,15 +43,17 @@ Note that user1_id &lt; user2_id.
 	<li>Users <code>x</code> and <code>y</code> listened to the same three or more different songs <strong>on the same day</strong>.</li>
 </ul>
 
-<p>Note that friend recommendations are <strong>unidirectional</strong>, meaning if user <code>x</code> and user <code>y</code> should be recommended to each other, the result table should have both user <code>x</code> recommended to user <code>y</code> and user <code>y</code> recommended to user <code>x</code>.</p>
+<p>Note that friend recommendations are <strong>unidirectional</strong>, meaning if user <code>x</code> and user <code>y</code> should be recommended to each other, the result table should have both user <code>x</code> recommended to user <code>y</code> and user <code>y</code> recommended to user <code>x</code>. Also, note that the result table should not contain duplicates (i.e., user <code>y</code> should not be recommended to user <code>x</code> multiple times.).</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Listens table:
 +---------+---------+------------+
 | user_id | song_id | day        |
@@ -72,15 +74,13 @@ Listens table:
 | 5       | 11      | 2021-03-16 |
 | 5       | 12      | 2021-03-16 |
 +---------+---------+------------+
-
 Friendship table:
 +----------+----------+
 | user1_id | user2_id |
 +----------+----------+
 | 1        | 2        |
 +----------+----------+
-
-Result table:
+<strong>Output:</strong> 
 +---------+----------------+
 | user_id | recommended_id |
 +---------+----------------+
@@ -89,6 +89,7 @@ Result table:
 | 3       | 1              |
 | 3       | 2              |
 +---------+----------------+
+<strong>Explanation:</strong> 
 Users 1 and 2 listened to songs 10, 11, and 12 on the same day, but they are already friends.
 Users 1 and 3 listened to songs 10, 11, and 12 on the same day. Since they are not friends, we recommend them to each other.
 Users 1 and 4 did not listen to the same three songs.

@@ -229,7 +229,6 @@ function addTwoNumbers(
 }
 ```
 
-
 ### **Rust**
 
 ```rust

@@ -39,19 +39,6 @@ Operation 1: i=3, j=4. Swap s[2] and s[4] to get s=&quot;aaaab&quot;, then rever
 Operation 2: i=4, j=4. Swap s[3] and s[4] to get s=&quot;aaaab&quot;, then reverse the substring starting at 4. Now, s=&quot;aaaab&quot;.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;cdbea&quot;
-<strong>Output:</strong> 63</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;leetcodeleetcodeleetcode&quot;
-<strong>Output:</strong> 982157772
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

@@ -10,18 +10,19 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> n = 1, a = 2, b = 3
+
+<pre>
+<strong>Input:</strong> n = 1, a = 2, b = 3
 <strong>Output:</strong> 2
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> n = 4, a = 2, b = 3
-<strong>Output:</strong> 6
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> n = 5, a = 2, b = 4
-<strong>Output:</strong> 10
-</pre><p><strong>Example 4:</strong></p>
-<pre><strong>Input:</strong> n = 3, a = 6, b = 4
-<strong>Output:</strong> 8
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 4, a = 2, b = 3
+<strong>Output:</strong> 6
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

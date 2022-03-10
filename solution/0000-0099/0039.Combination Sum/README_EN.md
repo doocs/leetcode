@@ -36,20 +36,6 @@ These are the only two combinations.
 <strong>Output:</strong> []
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> candidates = [1], target = 1
-<strong>Output:</strong> [[1]]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> candidates = [1], target = 2
-<strong>Output:</strong> [[1,1]]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the total number of continuous subarrays whose sum equals to <code>k</code></em>.</p>
+<p>Given an array of integers <code>nums</code> and an integer <code>k</code>, return <em>the total number of subarrays whose sum equals to <code>k</code></em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

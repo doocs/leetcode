@@ -34,7 +34,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<strong>Follow up:</strong> Could you do it without sorting the array?
+<p><strong>Follow up:</strong> Could you solve the problem in <code>O(n)</code> time complexity?</p>
 
 ## Solutions
 

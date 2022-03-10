@@ -14,8 +14,7 @@
 	<li><code>void put(int key, int value)</code>&nbsp;Update the value of the <code>key</code> if the <code>key</code> exists. Otherwise, add the <code>key-value</code> pair to the cache. If the number of keys exceeds the <code>capacity</code> from this operation, <strong>evict</strong> the least recently used key.</li>
 </ul>
 
-<p><b>Follow up:</b><br />
-Could you do <code>get</code> and <code>put</code> in <code>O(1)</code> time complexity?</p>
+<p>The functions&nbsp;<code data-stringify-type="code">get</code>&nbsp;and&nbsp;<code data-stringify-type="code">put</code>&nbsp;must each run in <code>O(1)</code> average time complexity.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -45,9 +44,9 @@ lRUCache.get(4);    // return 4
 
 <ul>
 	<li><code>1 &lt;= capacity &lt;= 3000</code></li>
-	<li><code>0 &lt;= key &lt;= 3000</code></li>
-	<li><code>0 &lt;= value &lt;= 10<sup>4</sup></code></li>
-	<li>At most <code>3 * 10<sup>4</sup></code> calls will be made to <code>get</code> and <code>put</code>.</li>
+	<li><code>0 &lt;= key &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>
+	<li>At most 2<code>&nbsp;* 10<sup>5</sup></code>&nbsp;calls will be made to <code>get</code> and <code>put</code>.</li>
 </ul>
 
 ## Solutions

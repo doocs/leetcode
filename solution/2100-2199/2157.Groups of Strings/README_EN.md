@@ -26,7 +26,7 @@
 <p>Return <em>an array</em> <code>ans</code> <em>of size</em> <code>2</code> <em>where:</em></p>
 
 <ul>
-	<li><code>ans[0]</code> <em>is the <strong>total number</strong> of groups</em> <code>words</code> <em>can be divided into, and</em></li>
+	<li><code>ans[0]</code> <em>is the <strong>maximum number</strong> of groups</em> <code>words</code> <em>can be divided into, and</em></li>
 	<li><code>ans[1]</code> <em>is the <strong>size of the largest</strong> group</em>.</li>
 </ul>
 

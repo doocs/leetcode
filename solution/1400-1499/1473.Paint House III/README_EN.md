@@ -12,7 +12,7 @@
 	<li>For example: <code>houses = [1,2,2,3,3,2,1,1]</code> contains <code>5</code> neighborhoods <code>[{1}, {2,2}, {3,3}, {2}, {1,1}]</code>.</li>
 </ul>
 
-<p>Given an array <code>houses</code>, an <code>m x n</code> matrix <code>cost</code> and an integer <code><font face="monospace">target</font></code> where:</p>
+<p>Given an array <code>houses</code>, an <code>m x n</code> matrix <code>cost</code> and an integer <code>target</code> where:</p>
 
 <ul>
 	<li><code>houses[i]</code>: is the color of the house <code>i</code>, and <code>0</code> if the house is not painted yet.</li>
@@ -45,13 +45,6 @@ Cost of paint the first and last house (10 + 1) = 11.
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> houses = [0,0,0,0,0], cost = [[1,10],[10,1],[1,10],[10,1],[1,10]], m = 5, n = 2, target = 5
-<strong>Output:</strong> 5
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
 <strong>Input:</strong> houses = [3,1,2,3], cost = [[1,1,1],[1,1,1],[1,1,1],[1,1,1]], m = 4, n = 3, target = 3
 <strong>Output:</strong> -1
 <strong>Explanation:</strong> Houses are already painted with a total of 4 neighborhoods [{3},{1},{2},{3}] different of target = 3.
@@ -67,7 +60,7 @@ Cost of paint the first and last house (10 + 1) = 11.
 	<li><code>1 &lt;= n &lt;= 20</code></li>
 	<li><code>1 &lt;= target &lt;= m</code></li>
 	<li><code>0 &lt;= houses[i] &lt;= n</code></li>
-	<li><code>1 &lt;= cost[i][j] &lt;= 10^4</code></li>
+	<li><code>1 &lt;= cost[i][j] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## Solutions

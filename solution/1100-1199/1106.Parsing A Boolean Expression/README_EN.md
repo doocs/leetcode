@@ -38,19 +38,12 @@
 <strong>Output:</strong> false
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> expression = &quot;|(&amp;(t,f,t),!(t))&quot;
-<strong>Output:</strong> false
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= expression.length &lt;= 20000</code></li>
-	<li><code>expression[i]</code>&nbsp;consists of characters in <code>{&#39;(&#39;, &#39;)&#39;, &#39;&amp;&#39;, &#39;|&#39;, &#39;!&#39;, &#39;t&#39;, &#39;f&#39;, &#39;,&#39;}</code>.</li>
+	<li><code>1 &lt;= expression.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>expression[i]</code> consists of characters in <code>{&#39;(&#39;, &#39;)&#39;, &#39;&amp;&#39;, &#39;|&#39;, &#39;!&#39;, &#39;t&#39;, &#39;f&#39;, &#39;,&#39;}</code>.</li>
 	<li><code>expression</code> is a valid expression representing a boolean, as given in the description.</li>
 </ul>
 

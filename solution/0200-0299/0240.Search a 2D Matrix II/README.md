@@ -6,14 +6,14 @@
 
 <!-- 这里写题目描述 -->
 
-<p>编写一个高效的算法来搜索 <code><em>m</em> x <em>n</em></code> 矩阵 <code>matrix</code> 中的一个目标值 <code>target</code> 。该矩阵具有以下特性：</p>
+<p>编写一个高效的算法来搜索&nbsp;<code><em>m</em>&nbsp;x&nbsp;<em>n</em></code>&nbsp;矩阵 <code>matrix</code> 中的一个目标值 <code>target</code> 。该矩阵具有以下特性：</p>
 
 <ul>
 	<li>每行的元素从左到右升序排列。</li>
 	<li>每列的元素从上到下升序排列。</li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><b>示例 1：</b></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0240.Search%20a%202D%20Matrix%20II/images/searchgrid2.jpg" />
@@ -29,18 +29,18 @@
 <b>输出：</b>false
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>m == matrix.length</code></li>
 	<li><code>n == matrix[i].length</code></li>
-	<li><code>1 <= n, m <= 300</code></li>
-	<li><code>-10<sup>9</sup> <= matix[i][j] <= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= n, m &lt;= 300</code></li>
+	<li><code>-10<sup>9</sup>&nbsp;&lt;= matrix[i][j] &lt;= 10<sup>9</sup></code></li>
 	<li>每行的所有元素从左到右升序排列</li>
 	<li>每列的所有元素从上到下升序排列</li>
-	<li><code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code></li>
+	<li><code>-10<sup>9</sup>&nbsp;&lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## 解法

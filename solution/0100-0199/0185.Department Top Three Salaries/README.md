@@ -6,10 +6,56 @@
 
 <!-- 这里写题目描述 -->
 
-<p><code>Employee</code> 表包含所有员工信息，每个员工有其对应的工号&nbsp;<code>Id</code>，姓名 <code>Name</code>，工资 <code>Salary</code> 和部门编号 <code>DepartmentId</code> 。</p>
+<p>表:&nbsp;<code>Employee</code></p>
 
-<pre>+----+-------+--------+--------------+
-| Id | Name  | Salary | DepartmentId |
+<pre>
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| id           | int     |
+| name         | varchar |
+| salary       | int     |
+| departmentId | int     |
++--------------+---------+
+Id是该表的主键列。
+departmentId是Department表中ID的外键。
+该表的每一行都表示员工的ID、姓名和工资。它还包含了他们部门的ID。
+</pre>
+
+<p>&nbsp;</p>
+
+<p>表:&nbsp;<code>Department</code></p>
+
+<pre>
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
++-------------+---------+
+Id是该表的主键列。
+该表的每一行表示部门ID和部门名。
+</pre>
+
+<p>&nbsp;</p>
+
+<p>公司的主管们感兴趣的是公司每个部门中谁赚的钱最多。一个部门的 <strong>高收入者</strong> 是指一个员工的工资在该部门的 <strong>不同</strong> 工资中 <strong>排名前三</strong> 。</p>
+
+<p>编写一个SQL查询，找出每个部门中 <strong>收入高的员工</strong> 。</p>
+
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
+
+<p>查询结果格式如下所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> 
+Employee 表:
++----+-------+--------+--------------+
+| id | name  | salary | departmentId |
 +----+-------+--------+--------------+
 | 1  | Joe   | 85000  | 1            |
 | 2  | Henry | 80000  | 2            |
@@ -18,33 +64,35 @@
 | 5  | Janet | 69000  | 1            |
 | 6  | Randy | 85000  | 1            |
 | 7  | Will  | 70000  | 1            |
-+----+-------+--------+--------------+</pre>
-
-<p><code>Department</code> 表包含公司所有部门的信息。</p>
-
-<pre>+----+----------+
-| Id | Name     |
-+----+----------+
-| 1  | IT       |
-| 2  | Sales    |
-+----+----------+</pre>
-
-<p>编写一个&nbsp;SQL 查询，找出每个部门获得前三高工资的所有员工。例如，根据上述给定的表，查询结果应返回：</p>
-
-<pre>+------------+----------+--------+
++----+-------+--------+--------------+
+Department  表:
++----+-------+
+| id | name  |
++----+-------+
+| 1  | IT    |
+| 2  | Sales |
++----+-------+
+<strong>输出:</strong> 
++------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
 | IT         | Max      | 90000  |
-| IT         | Randy    | 85000  |
 | IT         | Joe      | 85000  |
+| IT         | Randy    | 85000  |
 | IT         | Will     | 70000  |
 | Sales      | Henry    | 80000  |
 | Sales      | Sam      | 60000  |
-+------------+----------+--------+</pre>
++------------+----------+--------+
+<strong>解释:
+</strong>在IT部门:
+- Max的工资最高
+- 兰迪和乔都赚取第二高的独特的薪水
+- 威尔的薪水是第三高的
 
-<p><strong>解释：</strong></p>
-
-<p>IT 部门中，Max 获得了最高的工资，Randy 和 Joe 都拿到了第二高的工资，Will 的工资排第三。销售部门（Sales）只有两名员工，Henry 的工资最高，Sam 的工资排第二。</p>
+在销售部:
+- 亨利的工资最高
+- 山姆的薪水第二高
+- 没有第三高的工资，因为只有两名员工</pre>
 
 ## 解法
 

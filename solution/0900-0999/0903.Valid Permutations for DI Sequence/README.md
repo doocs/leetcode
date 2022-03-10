@@ -6,21 +6,28 @@
 
 <!-- 这里写题目描述 -->
 
-<p>我们给出 <code>S</code>，一个源于&nbsp;<code>{&#39;D&#39;, &#39;I&#39;}</code>&nbsp;的长度为 <code>n</code>&nbsp;的字符串 。（这些字母代表 &ldquo;减少&rdquo; 和 &ldquo;增加&rdquo;。）<br>
-<em>有效排列</em>&nbsp;是对整数 <code>{0, 1, ..., n}</code>&nbsp;的一个排列&nbsp;<code>P[0], P[1], ..., P[n]</code>，使得对所有的&nbsp;<code>i</code>：</p>
+<p>给定一个长度为 <code>n</code> 的字符串 <code>s</code> ，其中 <code>s[i]</code> 是:</p>
 
 <ul>
-	<li>如果 <code>S[i] == &#39;D&#39;</code>，那么&nbsp;<code>P[i] &gt; P[i+1]</code>，以及；</li>
-	<li>如果 <code>S[i] == &#39;I&#39;</code>，那么 <code>P[i] &lt; P[i+1]</code>。</li>
+	<li><code>“D”</code> 意味着减少，或者</li>
+	<li><code>“I”</code> 意味着增加</li>
 </ul>
 
-<p>有多少个有效排列？因为答案可能很大，所以请<strong>返回你的答案模</strong><strong> <code>10^9 + 7</code></strong>.</p>
+<p><strong>有效排列</strong>&nbsp;是对有&nbsp;<code>n + 1</code>&nbsp;个在&nbsp;<code>[0, n]</code>&nbsp; 范围内的整数的一个排列&nbsp;<code>perm</code>&nbsp;，使得对所有的&nbsp;<code>i</code>：</p>
+
+<ul>
+	<li>如果 <code>s[i] == 'D'</code>，那么&nbsp;<code>perm[i] &gt; perm[i+1]</code>，以及；</li>
+	<li>如果 <code>s[i] == 'I'</code>，那么 <code>perm[i] &lt; perm[i+1]</code>。</li>
+</ul>
+
+<p>返回 <em><strong>有效排列 </strong>&nbsp;</em><code>perm</code><em>的数量 </em>。因为答案可能很大，所以请<strong>返回你的答案对</strong>&nbsp;<code>10<sup>9</sup>&nbsp;+ 7</code><strong>&nbsp;取余</strong>。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>&quot;DID&quot;
+<pre>
+<strong>输入：</strong>s = "DID"
 <strong>输出：</strong>5
 <strong>解释：</strong>
 (0, 1, 2, 3) 的五个有效排列是：
@@ -31,16 +38,22 @@
 (3, 1, 2, 0)
 </pre>
 
-<p>&nbsp;</p>
+<p><strong>示例 2:</strong></p>
 
-<p><strong>提示：</strong></p>
-
-<ol>
-	<li><code>1 &lt;= S.length &lt;= 200</code></li>
-	<li><code>S</code> 仅由集合 <code>{&#39;D&#39;, &#39;I&#39;}</code>&nbsp;中的字符组成。</li>
-</ol>
+<pre>
+<strong>输入:</strong> s = "D"
+<strong>输出:</strong> 1
+</pre>
 
 <p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>n == s.length</code></li>
+	<li><code>1 &lt;= n &lt;= 200</code></li>
+	<li><code>s[i]</code>&nbsp;不是&nbsp;<code>'I'</code>&nbsp;就是&nbsp;<code>'D'</code></li>
+</ul>
 
 ## 解法
 

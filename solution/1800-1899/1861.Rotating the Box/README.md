@@ -23,6 +23,7 @@
 <p> </p>
 
 <p><strong>示例 1：</strong></p>
+
 <p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1800-1899/1861.Rotating%20the%20Box/images/rotatingtheboxleetcodewithstones.png" style="width: 300px; height: 150px;"></p>
 
 <pre><b>输入：</b>box = [["#",".","#"]]

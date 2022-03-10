@@ -61,10 +61,15 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n&nbsp;&lt;= 10^4</code></li>
-	<li><code>distance.length == n</code></li>
-	<li><code>0 &lt;= start, destination &lt; n</code></li>
-	<li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
+
+    <li><code>1 &lt;= n&nbsp;&lt;= 10^4</code></li>
+
+    <li><code>distance.length == n</code></li>
+
+    <li><code>0 &lt;= start, destination &lt; n</code></li>
+
+    <li><code>0 &lt;= distance[i] &lt;= 10^4</code></li>
+
 </ul>
 
 ## Solutions

@@ -16,7 +16,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,2,3]
+<pre>
+<strong>输入：</strong>nums = [1,2,3]
 <strong>输出：</strong>4
 <strong>解释：</strong>nums 的 6 个子数组如下所示：
 [1]，范围 = 最大 - 最小 = 1 - 1 = 0 
@@ -29,7 +30,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,3,3]
+<pre>
+<strong>输入：</strong>nums = [1,3,3]
 <strong>输出：</strong>4
 <strong>解释：</strong>nums 的 6 个子数组如下所示：
 [1]，范围 = 最大 - 最小 = 1 - 1 = 0
@@ -43,7 +45,8 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>nums = [4,-2,-3,4,1]
+<pre>
+<strong>输入：</strong>nums = [4,-2,-3,4,1]
 <strong>输出：</strong>59
 <strong>解释：</strong>nums 中所有子数组范围的和是 59
 </pre>
@@ -56,6 +59,10 @@
 	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你可以设计一种时间复杂度为 <code>O(n)</code> 的解决方案吗？</p>
 
 ## 解法
 

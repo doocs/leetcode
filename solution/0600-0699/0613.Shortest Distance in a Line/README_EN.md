@@ -4,53 +4,48 @@
 
 ## Description
 
-Table <code>point</code> holds the x coordinate of some points on x-axis in a plane, which are all integers.
-
-<p>&nbsp;</p>
-
-Write a query to find the shortest distance between two points in these points.
-
-<p>&nbsp;</p>
+<p>Table: <code>Point</code></p>
 
 <pre>
-
-| x   |
-
-|-----|
-
-| -1  |
-
-| 0   |
-
-| 2   |
-
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| x           | int  |
++-------------+------+
+x is the primary key column for this table.
+Each row of this table indicates the position of a point on the X-axis.
 </pre>
 
 <p>&nbsp;</p>
 
-The shortest distance is &#39;1&#39; obviously, which is from point &#39;-1&#39; to &#39;0&#39;. So the output is as below:
+<p>Write an SQL query to report the shortest distance between any two points from the <code>Point</code> table.</p>
+
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-| shortest|
-
-|---------|
-
-| 1       |
-
+<strong>Input:</strong> 
+Point table:
++----+
+| x  |
++----+
+| -1 |
+| 0  |
+| 2  |
++----+
+<strong>Output:</strong> 
++----------+
+| shortest |
++----------+
+| 1        |
++----------+
+<strong>Explanation:</strong> The shortest distance is between points -1 and 0 which is |(-1) - 0| = 1.
 </pre>
 
 <p>&nbsp;</p>
-
-<b>Note:</b> Every point is unique, which means there is no duplicates in table <code>point</code>.
-
-<p>&nbsp;</p>
-
-<b>Follow-up:</b> What if all these points have an id and are arranged from the left most to the right most of x axis?
-
-<p>&nbsp;</p>
+<p><strong>Follow up:</strong> How could you optimize your query if the <code>Point</code> table is ordered <strong>in ascending order</strong>?</p>
 
 ## Solutions
 

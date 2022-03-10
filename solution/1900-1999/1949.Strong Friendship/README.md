@@ -6,36 +6,39 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Friendship</code></p>
+<p>表名: <code>Friendship</code></p>
 
 <pre>
 +-------------+------+
-| Column Name | Type |
+| 列名         | 类型 |
 +-------------+------+
 | user1_id    | int  |
 | user2_id    | int  |
 +-------------+------+
-(user1_id, user2_id) is the primary key for this table.
-Each row of this table indicates that the users user1_id and user2_id are friends.
-Note that user1_id &lt; user2_id.
+(user1_id, user2_id) 是这个表的主键。
+这张表的每一行都表示用户 user1_id 和 user2_id 是朋友。
+请注意，user1_id &lt; user2_id。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>A friendship between a pair of friends <code>x</code> and <code>y</code> is <strong>strong</strong> if <code>x</code> and <code>y</code> have <strong>at least three</strong> common friends.</p>
+<p>如果一对朋友 <code>x</code>&nbsp; 和&nbsp;<code>y</code> <strong>至少</strong>有三个共同的朋&nbsp;，那么&nbsp;<code>x</code> 和&nbsp;<code>y</code> 之间的友谊就是<strong>坚定的</strong>。</p>
 
-<p>Write an SQL query to find all the <strong>strong friendships</strong>.</p>
+<p>写一个 SQ L查询来找到所有的<strong>坚定的友谊</strong>。</p>
 
-<p>Note that the result table should not contain duplicates and the strong friendships should appear in the same order they appeared in the input..</p>
+<p>注意，结果表不应该包含重复，并且 <code>user1_id &lt; user2_id</code>。</p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p>以<strong>任何顺序</strong>返回结果表。</p>
 
-<p>The query result format is in the following example:</p>
+<p>查询结果的格式在下面的例子中。</p>
 
 <p>&nbsp;</p>
 
+<p><strong>示例&nbsp;1:</strong></p>
+
 <pre>
-Friendship table:
+<strong>输入:</strong> 
+表 Friendship:
 +----------+----------+
 | user1_id | user2_id |
 +----------+----------+
@@ -52,17 +55,17 @@ Friendship table:
 | 3        | 6        |
 | 2        | 6        |
 +----------+----------+
-
-Result table:
+<strong>输出:</strong> 
 +----------+----------+---------------+
 | user1_id | user2_id | common_friend |
 +----------+----------+---------------+
 | 1        | 2        | 4             |
 | 1        | 3        | 3             |
 +----------+----------+---------------+
-Users 1 and 2 have 4 common friends (3, 4, 5, and 6).
-Users 1 and 3 have 3 common friends (2, 6, and 7).
-We did not include the friendship of users 2 and 3 because they only have two common friends (1 and 6).
+<strong>解释:</strong> 
+用户 1 和 2 有 4 个共同的朋友（3，4，5，和 6）。
+用户 1 和 3 有 3 个共同的朋友（2，6，和 7）。
+我们没有包括用户 2 和 3 的友谊，因为他们只有两个共同的朋友（1 和 6）。
 </pre>
 
 ## 解法

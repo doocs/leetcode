@@ -35,8 +35,9 @@
 <strong>解释</strong>
 NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]);
 numMatrix.sumRegion(2, 1, 4, 3); // 返回 8 (即, 左侧红色矩形的和)
-numMatrix.update(3, 2, 2);       // 矩阵从左图变为右图
+numMatrix.update(3, 2, 2); // 矩阵从左图变为右图
 numMatrix.sumRegion(2, 1, 4, 3); // 返回 10 (即，右侧红色矩形的和)
+
 </pre>
 
 <p>&nbsp;</p>
@@ -55,7 +56,6 @@ numMatrix.sumRegion(2, 1, 4, 3); // 返回 10 (即，右侧红色矩形的和)
 	<li><code>0 &lt;= col1 &lt;= col2 &lt; n</code></li>
 	<li>最多调用<code>10<sup>4</sup></code> 次&nbsp;<code>sumRegion</code> 和 <code>update</code> 方法</li>
 </ul>
-
 
 ## 解法
 
@@ -177,13 +177,13 @@ class NumMatrix {
             trees[i] = tree;
         }
     }
-    
+
     public void update(int row, int col, int val) {
         BinaryIndexedTree tree = trees[row];
         int prev = tree.query(col + 1) - tree.query(col);
         tree.update(col + 1, val - prev);
     }
-    
+
     public int sumRegion(int row1, int col1, int row2, int col2) {
         int s = 0;
         for (int i = row1; i <= row2; ++i) {
@@ -249,13 +249,13 @@ public:
             trees[i] = tree;
         }
     }
-    
+
     void update(int row, int col, int val) {
         BinaryIndexedTree* tree = trees[row];
         int prev = tree->query(col + 1) - tree->query(col);
         tree->update(col + 1, val - prev);
     }
-    
+
     int sumRegion(int row1, int col1, int row2, int col2) {
         int s = 0;
         for (int i = row1; i <= row2; ++i)

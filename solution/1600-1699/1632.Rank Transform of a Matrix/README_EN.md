@@ -20,7 +20,7 @@
 	<li>The <strong>rank</strong> should be as <strong>small</strong> as possible.</li>
 </ul>
 
-<p>It is guaranteed that <code>answer</code> is unique under the given rules.</p>
+<p>The test cases are generated so that <code>answer</code> is unique under the given rules.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -47,13 +47,6 @@ The rank of matrix[1][1] is 3 because matrix[1][1] &gt; matrix[0][1], matrix[1][
 <pre>
 <strong>Input:</strong> matrix = [[20,-21,14],[-19,4,19],[22,-47,24],[-19,4,19]]
 <strong>Output:</strong> [[4,2,3],[1,3,4],[5,1,6],[1,3,4]]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1632.Rank%20Transform%20of%20a%20Matrix/images/rank4.jpg" style="width: 601px; height: 242px;" />
-<pre>
-<strong>Input:</strong> matrix = [[7,3,6],[1,4,5],[9,8,2]]
-<strong>Output:</strong> [[5,1,4],[1,2,3],[6,3,1]]
 </pre>
 
 <p>&nbsp;</p>

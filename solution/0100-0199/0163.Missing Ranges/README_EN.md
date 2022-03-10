@@ -33,32 +33,9 @@
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [], lower = 1, upper = 1
-<strong>Output:</strong> [&quot;1&quot;]
-<strong>Explanation:</strong> The only missing range is [1,1], which becomes &quot;1&quot;.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [], lower = -3, upper = -1
-<strong>Output:</strong> [&quot;-3-&gt;-1&quot;]
-<strong>Explanation:</strong> The only missing range is [-3,-1], which becomes &quot;-3-&gt;-1&quot;.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
 <strong>Input:</strong> nums = [-1], lower = -1, upper = -1
 <strong>Output:</strong> []
 <strong>Explanation:</strong> There are no missing ranges since there are no missing numbers.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [-1], lower = -2, upper = -1
-<strong>Output:</strong> [&quot;-2&quot;]
 </pre>
 
 <p>&nbsp;</p>

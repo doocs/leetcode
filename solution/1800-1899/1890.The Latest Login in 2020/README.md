@@ -6,96 +6,51 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Logins</code></p>
+<p>表: <code>Logins</code></p>
 
-<pre>
-
+<pre>+----------------+----------+
+| 列名           | 类型      |
 +----------------+----------+
-
-| Column Name    | Type     |
-
-+----------------+----------+
-
 | user_id        | int      |
-
 | time_stamp     | datetime |
-
 +----------------+----------+
-
-(user_id, time_stamp) is the primary key for this table.
-
-Each row contains information about the login time for the user with ID user_id.
-
+(user_id, time_stamp) 是这个表的主键。
+每一行包含的信息是user_id 这个用户的登录时间。
 </pre>
 
-<p>&nbsp;</p>
+<p>编写一个 SQL 查询，该查询可以获取在2020年登录过的所有用户的本年度最后一次登录时间。结果集不包含2020年没有登录过的用户。</p>
 
-<p>Write an SQL query to report the <strong>latest</strong> login for all users in the year <code>2020</code>. Do <strong>not</strong> include the users who did not login in <code>2020</code>.</p>
+<p>返回的结果集可以按任意顺序排列。</p>
 
-<p>Return the result table <strong>in any order</strong>.</p>
+<p>查询结果格式如下例：</p>
 
-<p>The query result format is in the following example:</p>
-
-<p>&nbsp;</p>
-
-<pre>
-
-Logins table:
-
+<pre>Logins 表:
 +---------+---------------------+
-
 | user_id | time_stamp          |
-
 +---------+---------------------+
-
 | 6       | 2020-06-30 15:06:07 |
-
 | 6       | 2021-04-21 14:06:06 |
-
 | 6       | 2019-03-07 00:18:15 |
-
 | 8       | 2020-02-01 05:10:53 |
-
 | 8       | 2020-12-30 00:46:50 |
-
 | 2       | 2020-01-16 02:49:50 |
-
 | 2       | 2019-08-25 07:59:08 |
-
 | 14      | 2019-07-14 09:00:00 |
-
 | 14      | 2021-01-06 11:59:59 |
-
 +---------+---------------------+
 
-
-
-Result table:
-
+Result 表:
 +---------+---------------------+
-
 | user_id | last_stamp          |
-
 +---------+---------------------+
-
 | 6       | 2020-06-30 15:06:07 |
-
 | 8       | 2020-12-30 00:46:50 |
-
 | 2       | 2020-01-16 02:49:50 |
-
 +---------+---------------------+
-
-
-
-User 6 logged into their account 3 times but only once in 2020, so we include this login in the result table.
-
-User 8 logged into their account 2 times in 2020, once in February and once in December. We include only the latest one (December) in the result table.
-
-User 2 logged into their account 2 times but only once in 2020, so we include this login in the result table.
-
-User 14 did not login in 2020, so we do not include them in the result table.
-
+6号用户登录了3次，但是在2020年仅有一次，所以结果集应包含此次登录。
+8号用户在2020年登录了2次，一次在2月，一次在12月，所以，结果集应该包含12月的这次登录。
+2号用户登录了2次，但是在2020年仅有一次，所以结果集应包含此次登录。
+14号用户在2020年没有登录，所以结果集不应包含。
 </pre>
 
 ## 解法

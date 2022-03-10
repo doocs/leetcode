@@ -24,7 +24,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>s = "][]["
+<pre>
+<strong>输入：</strong>s = "][]["
 <strong>输出：</strong>1
 <strong>解释：</strong>交换下标 0 和下标 3 对应的括号，可以使字符串变成平衡字符串。
 最终字符串变成 "[[]]" 。
@@ -32,17 +33,19 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>s = "]]][[["
+<pre>
+<strong>输入：</strong>s = "]]][[["
 <strong>输出：</strong>2
 <strong>解释：</strong>执行下述操作可以使字符串变成平衡字符串：
-- 交换下标 0 和下标 4 对应的括号，s = "[]][[]" 。
+- 交换下标 0 和下标 4 对应的括号，s = "[]][][" 。
 - 交换下标 1 和下标 5 对应的括号，s = "[[][]]" 。
 最终字符串变成 "[[][]]" 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>s = "[]"
+<pre>
+<strong>输入：</strong>s = "[]"
 <strong>输出：</strong>0
 <strong>解释：</strong>这个字符串已经是平衡字符串。
 </pre>

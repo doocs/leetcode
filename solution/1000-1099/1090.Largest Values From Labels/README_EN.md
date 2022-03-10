@@ -4,92 +4,53 @@
 
 ## Description
 
-<p>We have a set of items: the <code>i</code>-th item has value <code>values[i]</code> and label <code>labels[i]</code>.</p>
+<p>There is a set of <code>n</code> items. You are given two integer arrays <code>values</code> and <code>labels</code> where the value and the label of the <code>i<sup>th</sup></code> element are <code>values[i]</code> and <code>labels[i]</code> respectively. You are also given two integers <code>numWanted</code> and <code>useLimit</code>.</p>
 
-<p>Then, we choose&nbsp;a subset <code>S</code> of these items, such that:</p>
+<p>Choose a subset <code>s</code> of the <code>n</code> elements such that:</p>
 
 <ul>
-	<li><code>|S| &lt;= num_wanted</code></li>
-	<li>For every label <code>L</code>, the number of items in <code>S</code> with&nbsp;label <code>L</code> is <code>&lt;= use_limit</code>.</li>
+	<li>The size of the subset <code>s</code> is <strong>less than or equal to</strong> <code>numWanted</code>.</li>
+	<li>There are <strong>at most</strong> <code>useLimit</code> items with the same label in <code>s</code>.</li>
 </ul>
 
-<p>Return the largest possible sum of the subset <code>S</code>.</p>
+<p>The <strong>score</strong> of a subset is the sum of the values in the subset.</p>
+
+<p>Return <em>the maximum <strong>score</strong> of a subset </em><code>s</code>.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>values = <span id="example-input-1-1">[5,4,3,2,1]</span>, labels = <span id="example-input-1-2">[1,1,2,2,3]</span>, <code>num_wanted </code>= <span id="example-input-1-3">3</span>, use_limit = <span id="example-input-1-4">1</span>
-
-<strong>Output: </strong><span id="example-output-1">9</span>
-
-<strong>Explanation: </strong>The subset chosen is the first, third, and fifth item.
-
+<strong>Input:</strong> values = [5,4,3,2,1], labels = [1,1,2,2,3], numWanted = 3, useLimit = 1
+<strong>Output:</strong> 9
+<strong>Explanation:</strong> The subset chosen is the first, third, and fifth items.
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>values = <span id="example-input-2-1">[5,4,3,2,1]</span>, labels = <span id="example-input-2-2">[1,3,3,3,2]</span>, <code>num_wanted </code>= <span id="example-input-2-3">3</span>, use_limit = <span id="example-input-2-4">2</span>
-
-<strong>Output: </strong><span id="example-output-2">12</span>
-
-<strong>Explanation: </strong>The subset chosen is the first, second, and third item.
-
+<strong>Input:</strong> values = [5,4,3,2,1], labels = [1,3,3,3,2], numWanted = 3, useLimit = 2
+<strong>Output:</strong> 12
+<strong>Explanation:</strong> The subset chosen is the first, second, and third items.
 </pre>
-
-<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>values = <span id="example-input-3-1">[9,8,8,7,6]</span>, labels = <span id="example-input-3-2">[0,0,0,1,1]</span>, <code>num_wanted </code>= <span id="example-input-3-3">3</span>, use_limit = <span id="example-input-3-4">1</span>
-
-<strong>Output:</strong>&nbsp;16
-
-<strong>Explanation: </strong>The subset chosen is the first and fourth item.
-
-</pre>
-
-<div>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>values = <span id="example-input-4-1">[9,8,8,7,6]</span>, labels = <span id="example-input-4-2">[0,0,0,1,1]</span>, <code>num_wanted </code>= <span id="example-input-4-3">3</span>, use_limit = <span id="example-input-4-4">2</span>
-
-<strong>Output: </strong><span id="example-output-4">24</span>
-
-<strong>Explanation: </strong>The subset chosen is the first, second, and fourth item.
-
+<strong>Input:</strong> values = [9,8,8,7,6], labels = [0,0,0,1,1], numWanted = 3, useLimit = 1
+<strong>Output:</strong> 16
+<strong>Explanation:</strong> The subset chosen is the first and fourth items.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li><code>1 &lt;= values.length == labels.length &lt;= 20000</code></li>
-	<li><code>0 &lt;= values[i], labels[i]&nbsp;&lt;= 20000</code></li>
-	<li><code>1 &lt;= num_wanted, use_limit&nbsp;&lt;= values.length</code></li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+<ul>
+	<li><code>n == values.length == labels.length</code></li>
+	<li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= values[i], labels[i] &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= numWanted, useLimit &lt;= n</code></li>
+</ul>
 
 ## Solutions
 

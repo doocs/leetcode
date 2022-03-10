@@ -19,7 +19,6 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0173.Binary%20Search%20Tree%20Iterator/images/bst-tree.png" style="width: 189px; height: 178px;" />
-<div>
 <pre>
 <strong>Input</strong>
 [&quot;BSTIterator&quot;, &quot;next&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;next&quot;, &quot;hasNext&quot;]
@@ -40,7 +39,6 @@ bSTIterator.next(); // return 20
 bSTIterator.hasNext(); // return False
 
 </pre>
-</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

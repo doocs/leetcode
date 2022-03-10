@@ -26,7 +26,7 @@
 
 <p>玩家的 <strong>安装日期</strong> 定义为该玩家的第一个登录日。</p>
 
-<p>玩家的 <strong>第一天留存率</strong> 定义为：假定安装日期为 <code>X</code> 的玩家的数量为 <code>N</code> ，其中在 <code>X</code> 之后的某一天重新登录的玩家数量为 <code>M</code> ，<code>M/N</code> 就是第一天留存率，<strong>四舍五入到小数点后两位</strong>。</p>
+<p>玩家的 <strong>第一天留存率</strong> 定义为：假定安装日期为 <code>X</code> 的玩家的数量为 <code>N</code> ，其中在 <code>X</code> 之后的一天重新登录的玩家数量为 <code>M</code> ，<code>M/N</code> 就是第一天留存率，<strong>四舍五入到小数点后两位</strong>。</p>
 
 <p>编写一个 SQL 查询，报告所有安装日期、当天安装游戏的玩家数量和玩家的第一天留存率。</p>
 

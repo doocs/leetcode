@@ -14,7 +14,7 @@
 <pre>
 <strong>Input:</strong> num = &quot;327&quot;
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>&nbsp;You could have written down the numbers:
+<strong>Explanation:</strong> You could have written down the numbers:
 3, 27
 327
 </pre>
@@ -24,7 +24,7 @@
 <pre>
 <strong>Input:</strong> num = &quot;094&quot;
 <strong>Output:</strong> 0
-<strong>Explanation:</strong>&nbsp;No numbers can have leading zeros and all numbers must be positive.
+<strong>Explanation:</strong> No numbers can have leading zeros and all numbers must be positive.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -32,14 +32,7 @@
 <pre>
 <strong>Input:</strong> num = &quot;0&quot;
 <strong>Output:</strong> 0
-<strong>Explanation:</strong>&nbsp;No numbers can have leading zeros and all numbers must be positive.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = &quot;9999999999999&quot;
-<strong>Output:</strong> 101
+<strong>Explanation:</strong> No numbers can have leading zeros and all numbers must be positive.
 </pre>
 
 <p>&nbsp;</p>

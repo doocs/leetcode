@@ -34,7 +34,7 @@
 <ul>
 	<li>The number of nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
 	<li><code>1 &lt;= Node.val &lt;= 50</code></li>
-	<li><code>0 &lt;= k &lt;= 50</code></li>
+	<li><code>0 &lt;= val &lt;= 50</code></li>
 </ul>
 
 ## Solutions

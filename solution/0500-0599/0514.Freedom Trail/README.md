@@ -6,25 +6,26 @@
 
 <!-- 这里写题目描述 -->
 
-<p>电子游戏“辐射4”中，任务“通向自由”要求玩家到达名为“Freedom Trail Ring”的金属表盘，并使用表盘拼写特定关键词才能开门。</p>
+<p>电子游戏“辐射4”中，任务 <strong>“通向自由”</strong> 要求玩家到达名为 “<strong>Freedom Trail Ring”</strong> 的金属表盘，并使用表盘拼写特定关键词才能开门。</p>
 
-<p>给定一个字符串 <strong>ring</strong>，表示刻在外环上的编码；给定另一个字符串 <strong>key</strong>，表示需要拼写的关键词。您需要算出能够拼写关键词中所有字符的<strong>最少</strong>步数。</p>
+<p>给定一个字符串&nbsp;<code>ring</code>&nbsp;，表示刻在外环上的编码；给定另一个字符串&nbsp;<code>key</code>&nbsp;，表示需要拼写的关键词。您需要算出能够拼写关键词中所有字符的<strong>最少</strong>步数。</p>
 
-<p>最初，<strong>ring </strong>的第一个字符与12:00方向对齐。您需要顺时针或逆时针旋转 ring 以使 <strong>key </strong>的一个字符在 12:00 方向对齐，然后按下中心按钮，以此逐个拼写完 <strong>key </strong>中的所有字符。</p>
+<p>最初，<strong>ring&nbsp;</strong>的第一个字符与 <code>12:00</code> 方向对齐。您需要顺时针或逆时针旋转 <code>ring</code> 以使&nbsp;<strong>key&nbsp;</strong>的一个字符在 <code>12:00</code> 方向对齐，然后按下中心按钮，以此逐个拼写完&nbsp;<strong><code>key</code>&nbsp;</strong>中的所有字符。</p>
 
-<p>旋转 <strong>ring </strong>拼出 key 字符 <strong>key[i] </strong>的阶段中：</p>
+<p>旋转&nbsp;<code>ring</code><strong>&nbsp;</strong>拼出 key 字符&nbsp;<code>key[i]</code><strong>&nbsp;</strong>的阶段中：</p>
 
 <ol>
-	<li>您可以将 <strong>ring </strong>顺时针或逆时针旋转<strong>一个位置</strong>，计为1步。旋转的最终目的是将字符串 <strong>ring </strong>的一个字符与 12:00 方向对齐，并且这个字符必须等于字符 <strong>key[i] 。</strong></li>
-	<li>如果字符 <strong>key[i] </strong>已经对齐到12:00方向，您需要按下中心按钮进行拼写，这也将算作 <strong>1 步</strong>。按完之后，您可以开始拼写 <strong>key </strong>的下一个字符（下一阶段）, 直至完成所有拼写。</li>
+	<li>您可以将&nbsp;<strong>ring&nbsp;</strong>顺时针或逆时针旋转&nbsp;<strong>一个位置&nbsp;</strong>，计为1步。旋转的最终目的是将字符串&nbsp;<strong><code>ring</code>&nbsp;</strong>的一个字符与 <code>12:00</code> 方向对齐，并且这个字符必须等于字符&nbsp;<strong><code>key[i]</code> 。</strong></li>
+	<li>如果字符&nbsp;<strong><code>key[i]</code>&nbsp;</strong>已经对齐到12:00方向，您需要按下中心按钮进行拼写，这也将算作&nbsp;<strong>1 步</strong>。按完之后，您可以开始拼写&nbsp;<strong>key&nbsp;</strong>的下一个字符（下一阶段）, 直至完成所有拼写。</li>
 </ol>
 
-<p><strong>示例：</strong></p>
+<p>&nbsp;</p>
 
-<p> </p>
+<p><strong>示例 1：</strong></p>
 
-<center><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0514.Freedom%20Trail/images/ring.jpg" style="width: 26%;" /></center>
- 
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0514.Freedom%20Trail/images/ring.jpg" style="height: 450px; width: 450px;" /></p>
+
+<center>&nbsp;</center>
 
 <pre>
 <strong>输入:</strong> ring = "godding", key = "gd"
@@ -36,13 +37,22 @@
  因此最终的输出是 4。
 </pre>
 
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> ring = "godding", key = "godding"
+<strong>输出:</strong> 13
+</pre>
+
+<p>&nbsp;</p>
+
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><strong>ring</strong> 和 <strong>key</strong> 的字符串长度取值范围均为 1 至 100；</li>
-	<li>两个字符串中都只有小写字符，并且均可能存在重复字符；</li>
-	<li>字符串 <strong>key</strong> 一定可以由字符串 <strong>ring</strong> 旋转拼出。</li>
-</ol>
+<ul>
+	<li><code>1 &lt;= ring.length, key.length &lt;= 100</code></li>
+	<li><code>ring</code>&nbsp;和&nbsp;<code>key</code>&nbsp;只包含小写英文字母</li>
+	<li><strong>保证</strong> 字符串&nbsp;<code>key</code>&nbsp;一定可以由字符串 &nbsp;<code>ring</code>&nbsp;旋转拼出</li>
+</ul>
 
 ## 解法
 

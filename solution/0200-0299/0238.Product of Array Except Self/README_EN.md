@@ -8,6 +8,8 @@
 
 <p>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</p>
 
+<p>You must write an algorithm that runs in&nbsp;<code>O(n)</code>&nbsp;time and without using the division operation.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [1,2,3,4]
@@ -26,12 +28,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Follow up:</strong></p>
-
-<ul>
-	<li>Could you solve it in <code>O(n)</code> time complexity and without using division?</li>
-	<li>Could you solve it with <code>O(1)</code> constant space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</li>
-</ul>
+<p><strong>Follow up:</strong>&nbsp;Can you solve the problem in <code>O(1)&nbsp;</code>extra&nbsp;space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)</p>
 
 ## Solutions
 

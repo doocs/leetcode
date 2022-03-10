@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given an array of integers <code>arr</code>,&nbsp;write a function that returns <code>true</code> if and only if the number of occurrences of each value in the array is unique.</p>
+<p>Given an array of integers <code>arr</code>, return <code>true</code> if the number of occurrences of each value in the array is <strong>unique</strong>, or <code>false</code> otherwise.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

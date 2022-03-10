@@ -50,23 +50,9 @@ So function 0 spends 2 + 4 + 1 + 1 = 8 units of total time executing.
 Function 0 starts at the beginning of time 0, executes for 2 units of time, and recursively calls itself.
 Function 0 (recursive call) starts at the beginning of time 2 and executes for 4 units of time.
 Function 0 (initial call) resumes execution then immediately calls function 1.
-Function 1 starts at the beginning of time 6, executes 1 units of time, and ends at the end of time 6.
+Function 1 starts at the beginning of time 6, executes 1 unit of time, and ends at the end of time 6.
 Function 0 resumes execution at the beginning of time 6 and executes for 2 units of time.
 So function 0 spends 2 + 4 + 1 = 7 units of total time executing, and function 1 spends 1 unit of total time executing.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 2, logs = [&quot;0:start:0&quot;,&quot;0:start:2&quot;,&quot;0:end:5&quot;,&quot;1:start:7&quot;,&quot;1:end:7&quot;,&quot;0:end:8&quot;]
-<strong>Output:</strong> [8,1]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 1, logs = [&quot;0:start:0&quot;,&quot;0:end:0&quot;]
-<strong>Output:</strong> [1]
 </pre>
 
 <p>&nbsp;</p>

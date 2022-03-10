@@ -41,7 +41,7 @@
 <ul>
 	<li><code>1 &lt;= intervals.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= queries.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>queries[i].length == 2</code></li>
+	<li><code>intervals[i].length == 2</code></li>
 	<li><code>1 &lt;= left<sub>i</sub> &lt;= right<sub>i</sub> &lt;= 10<sup>7</sup></code></li>
 	<li><code>1 &lt;= queries[j] &lt;= 10<sup>7</sup></code></li>
 </ul>

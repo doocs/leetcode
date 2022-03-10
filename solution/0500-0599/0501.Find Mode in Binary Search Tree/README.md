@@ -6,29 +6,44 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。</p>
+<p>给你一个含重复值的二叉搜索树（BST）的根节点 <code>root</code> ，找出并返回 BST 中的所有 <a href="https://baike.baidu.com/item/%E4%BC%97%E6%95%B0/44796" target="_blank">众数</a>（即，出现频率最高的元素）。</p>
 
-<p>假定 BST 有如下定义：</p>
+<p>如果树中有不止一个众数，可以按 <strong>任意顺序</strong> 返回。</p>
+
+<p>假定 BST 满足如下定义：</p>
 
 <ul>
-	<li>结点左子树中所含结点的值小于等于当前结点的值</li>
-	<li>结点右子树中所含结点的值大于等于当前结点的值</li>
+	<li>结点左子树中所含节点的值 <strong>小于等于</strong> 当前节点的值</li>
+	<li>结点右子树中所含节点的值 <strong>大于等于</strong> 当前节点的值</li>
 	<li>左子树和右子树都是二叉搜索树</li>
 </ul>
 
-<p>例如：<br>
-给定 BST <code>[1,null,2,2]</code>,</p>
+<p>&nbsp;</p>
 
-<pre>   1
-    \
-     2
-    /
-   2
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0501.Find%20Mode%20in%20Binary%20Search%20Tree/images/mode-tree.jpg" style="width: 142px; height: 222px;" />
+<pre>
+<strong>输入：</strong>root = [1,null,2,2]
+<strong>输出：</strong>[2]
 </pre>
 
-<p><code>返回[2]</code>.</p>
+<p><strong>示例 2：</strong></p>
 
-<p><strong>提示</strong>：如果众数超过1个，不需考虑输出顺序</p>
+<pre>
+<strong>输入：</strong>root = [0]
+<strong>输出：</strong>[0]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li>树中节点的数目在范围 <code>[1, 10<sup>4</sup>]</code> 内</li>
+	<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
+</ul>
+
+<p>&nbsp;</p>
 
 <p><strong>进阶：</strong>你可以不使用额外的空间吗？（假设由递归产生的隐式调用栈的开销不被计算在内）</p>
 

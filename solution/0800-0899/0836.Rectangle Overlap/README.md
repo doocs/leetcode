@@ -12,7 +12,7 @@
 
 <p>给出两个矩形 <code>rec1</code> 和 <code>rec2</code> 。如果它们重叠，返回 <code>true</code>；否则，返回 <code>false</code> 。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -35,16 +35,15 @@
 <strong>输出：</strong>false
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>rect1.length == 4</code></li>
 	<li><code>rect2.length == 4</code></li>
-	<li><code>-10<sup>9</sup> <= rec1[i], rec2[i] <= 10<sup>9</sup></code></li>
-	<li><code>rec1[0] <= rec1[2]</code> 且 <code>rec1[1] <= rec1[3]</code></li>
-	<li><code>rec2[0] <= rec2[2]</code> 且 <code>rec2[1] <= rec2[3]</code></li>
+	<li><code>-10<sup>9</sup> &lt;= rec1[i], rec2[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>rec1</code> 和 <code>rec2</code> 表示一个面积不为零的有效矩形</li>
 </ul>
 
 ## 解法

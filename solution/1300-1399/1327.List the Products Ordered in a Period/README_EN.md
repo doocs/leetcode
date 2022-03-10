@@ -18,6 +18,8 @@ product_id is the primary key for this table.
 This table contains data about the company&#39;s products.
 </pre>
 
+<p>&nbsp;</p>
+
 <p>Table: <code>Orders</code></p>
 
 <pre>
@@ -28,22 +30,24 @@ This table contains data about the company&#39;s products.
 | order_date    | date    |
 | unit          | int     |
 +---------------+---------+
-There is no primary key&nbsp;for this table. It&nbsp;may have&nbsp;duplicate rows.
-product_id is a foreign key to Products table.
+There is no primary key for this table. It may have duplicate rows.
+product_id is a foreign key to the Products table.
 unit is the number of products ordered in order_date.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to get the names of products with greater than or equal to 100 units ordered in February 2020 and their amount.</p>
+<p>Write an SQL query to get the names of products that have at least <code>100</code> units ordered in <strong>February 2020</strong> and their amount.</p>
 
-<p>Return result table in any order.</p>
+<p>Return result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Products table:
 +-------------+-----------------------+------------------+
 | product_id  | product_name          | product_category |
@@ -54,7 +58,6 @@ Products table:
 | 4           | Lenovo                | Laptop           |
 | 5           | Leetcode Kit          | T-shirt          |
 +-------------+-----------------------+------------------+
-
 Orders table:
 +--------------+--------------+----------+
 | product_id   | order_date   | unit     |
@@ -72,15 +75,14 @@ Orders table:
 | 5            | 2020-02-27   | 50       |
 | 5            | 2020-03-01   | 50       |
 +--------------+--------------+----------+
-
-Result table:
+<strong>Output:</strong> 
 +--------------------+---------+
 | product_name       | unit    |
 +--------------------+---------+
 | Leetcode Solutions | 130     |
 | Leetcode Kit       | 100     |
 +--------------------+---------+
-
+<strong>Explanation:</strong> 
 Products with product_id = 1 is ordered in February a total of (60 + 70) = 130.
 Products with product_id = 2 is ordered in February a total of 80.
 Products with product_id = 3 is ordered in February a total of (2 + 3) = 5.

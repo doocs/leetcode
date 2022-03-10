@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an integer array <code>arr</code>, you should partition the array into (contiguous) subarrays of length at most <code>k</code>. After partitioning, each subarray has their values changed to become the maximum value of that subarray.</p>
+<p>Given an integer array <code>arr</code>, partition the array into (contiguous) subarrays of length <strong>at most</strong> <code>k</code>. After partitioning, each subarray has their values changed to become the maximum value of that subarray.</p>
 
-<p>Return <em>the largest sum of the given array after partitioning.</em></p>
+<p>Return <em>the largest sum of the given array after partitioning. Test cases are generated so that the answer fits in a <strong>32-bit</strong> integer.</em></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

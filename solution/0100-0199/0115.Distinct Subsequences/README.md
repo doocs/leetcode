@@ -21,14 +21,9 @@
 <strong>输出</strong></code><strong>：</strong><code>3
 </code><strong>解释：</strong>
 如下图所示, 有 3 种可以从 s 中得到 <code>"rabbit" 的方案</code>。
-(上箭头符号 ^ 表示选取的字母)
-<code>rabbbit</code>
-^^^^ ^^
-<code>rabbbit</code>
-^^ ^^^^
-<code>rabbbit</code>
-^^^ ^^^
-</pre>
+<code><strong><u>rabb</u></strong>b<strong><u>it</u></strong></code>
+<code><strong><u>ra</u></strong>b<strong><u>bbit</u></strong></code>
+<code><strong><u>rab</u></strong>b<strong><u>bit</u></strong></code></pre>
 
 <p><strong>示例 2：</strong></p>
 
@@ -36,18 +31,13 @@
 <strong>输入：</strong>s = "babgbag", t = "bag"
 <code><strong>输出</strong></code><strong>：</strong><code>5
 </code><strong>解释：</strong>
-如下图所示, 有 5 种可以从 s 中得到 <code>"bag" 的方案</code>。
-(上箭头符号 ^ 表示选取的字母)
-<code>babgbag</code>
-^^ ^
-<code>babgbag</code>
-^^    ^
-<code>babgbag</code>
-^    ^^
-<code>babgbag</code>
-  ^  ^^
-<code>babgbag</code>
-    ^^^</pre>
+如下图所示, 有 5 种可以从 s 中得到 <code>"bag" 的方案</code>。 
+<code><strong><u>ba</u></strong>b<u><strong>g</strong></u>bag</code>
+<code><strong><u>ba</u></strong>bgba<strong><u>g</u></strong></code>
+<code><u><strong>b</strong></u>abgb<strong><u>ag</u></strong></code>
+<code>ba<u><strong>b</strong></u>gb<u><strong>ag</strong></u></code>
+<code>babg<strong><u>bag</u></strong></code>
+</pre>
 
 <p> </p>
 

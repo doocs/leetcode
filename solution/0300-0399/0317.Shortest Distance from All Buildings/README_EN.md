@@ -51,7 +51,7 @@ So return 7.
 <ul>
 	<li><code>m == grid.length</code></li>
 	<li><code>n == grid[i].length</code></li>
-	<li><code>1 &lt;= m, n &lt;= 100</code></li>
+	<li><code>1 &lt;= m, n &lt;= 50</code></li>
 	<li><code>grid[i][j]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>.</li>
 	<li>There will be <strong>at least one</strong> building in the <code>grid</code>.</li>
 </ul>

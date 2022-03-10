@@ -58,14 +58,6 @@ The resulting tree is shown above. This is the only valid operation that can be 
 <strong>Explanation:</strong> It is impossible to perform any operations.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1932.Merge%20BSTs%20to%20Create%20Single%20BST/images/d4.png" style="width: 250px; height: 158px;" />
-<pre>
-<strong>Input:</strong> trees = [[2,1,3]]
-<strong>Output:</strong> [2,1,3]
-<strong>Explanation:</strong> There is only one tree, and it is already a valid BST, so return its root.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -73,6 +65,7 @@ The resulting tree is shown above. This is the only valid operation that can be 
 	<li><code>n == trees.length</code></li>
 	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
 	<li>The number of nodes in each tree is in the range <code>[1, 3]</code>.</li>
+	<li>Each node in the input may have children but no grandchildren.</li>
 	<li>No two roots of <code>trees</code> have the same value.</li>
 	<li>All the trees in the input are <strong>valid BSTs</strong>.</li>
 	<li><code>1 &lt;= TreeNode.val &lt;= 5 * 10<sup>4</sup></code>.</li>

@@ -6,55 +6,40 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given an array of strings <code>words</code>, find the <strong>longest</strong> string in <code>words</code> such that <strong>every prefix</strong> of it is also in <code>words</code>.</p>
+<p>给定一个字符串数组 <code>words</code>，找出 <code>words</code> 中<strong>所有的前缀</strong>都在 <code>words</code> 中的<strong>最长</strong>字符串。</p>
 
 <ul>
-	<li>For example, let <code>words = [&quot;a&quot;, &quot;app&quot;, &quot;ap&quot;]</code>. The string <code>&quot;app&quot;</code> has prefixes <code>&quot;ap&quot;</code> and <code>&quot;a&quot;</code>, all of which are in <code>words</code>.</li>
+	<li>例如，令 <code>words = ["a", "app", "ap"]</code>。字符串 <code>"app"</code> 含前缀 <code>"ap"</code> 和 <code>"a"</code> ，都在 <code>words</code> 中。</li>
 </ul>
 
-<p>Return <em>the string described above. If there is more than one string with the same length, return the <strong>lexicographically smallest</strong> one, and if no string exists, return </em><code>&quot;&quot;</code>.</p>
+<p>返回符合上述要求的字符串。如果存在多个（符合条件的）相同长度的字符串，返回字典序中最小的字符串，如果这样的字符串不存在，返回<em> </em><code>""</code>。</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><strong>Example 1:</strong></p>
+<p><strong>示例 1:</strong></p>
 
-<pre>
-
-<strong>Input:</strong> words = [&quot;k&quot;,&quot;ki&quot;,&quot;kir&quot;,&quot;kira&quot;, &quot;kiran&quot;]
-
-<strong>Output:</strong> &quot;kiran&quot;
-
-<strong>Explanation:</strong> &quot;kiran&quot; has prefixes &quot;kira&quot;, &quot;kir&quot;, &quot;ki&quot;, and &quot;k&quot;, and all of them appear in words.
-
+<pre><b>输入：</b> words = ["k","ki","kir","kira", "kiran"]
+<b>输出：</b> "kiran"
+<b>解释：</b> "kiran" 含前缀 "kira"、 "kir"、 "ki"、 和 "k"，这些前缀都出现在 words 中。
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 2:</strong></p>
 
-<pre>
-
-<strong>Input:</strong> words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &quot;ap&quot;, &quot;apply&quot;, &quot;apple&quot;]
-
-<strong>Output:</strong> &quot;apple&quot;
-
-<strong>Explanation:</strong> Both &quot;apple&quot; and &quot;apply&quot; have all their prefixes in words.
-
-However, &quot;apple&quot; is lexicographically smaller, so we return that.
-
+<pre><b>输入：</b> words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
+<b>输出： </b>"apple"
+<b>解释：</b> "apple" 和 "apply" 都在 words 中含有各自的所有前缀。
+然而，"apple" 在字典序中更小，所以我们返回之。
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong>示例 3:</strong></p>
 
-<pre>
-
-<strong>Input:</strong> words = [&quot;abc&quot;, &quot;bc&quot;, &quot;ab&quot;, &quot;qwe&quot;]
-
-<strong>Output:</strong> &quot;&quot;
-
+<pre><b>输入：</b> words = ["abc", "bc", "ab", "qwe"]
+<b>输出：</b> ""
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><strong>Constraints:</strong></p>
+<p><b>提示：</b></p>
 
 <ul>
 	<li><code>1 &lt;= words.length &lt;= 10<sup>5</sup></code></li>

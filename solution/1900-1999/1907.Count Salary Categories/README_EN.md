@@ -27,13 +27,17 @@ Each row contains information about the monthly income for one bank account.
 	<li><code>&quot;High Salary&quot;</code>: All the salaries <strong>strictly greater</strong> than <code>$50000</code>.</li>
 </ul>
 
-<p>The result table <strong>must</strong> contain all three categories. If there are no accounts in a category, then report <code>0</code>. Return the result table in <strong>any order</strong>.</p>
+<p>The result table <strong>must</strong> contain all three categories. If there are no accounts in a category, then report <code>0</code>.</p>
+
+<p>Return the result table in <strong>any order</strong>.</p>
 
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Accounts table:
 +------------+--------+
 | account_id | income |
@@ -43,8 +47,7 @@ Accounts table:
 | 8          | 87709  |
 | 6          | 91796  |
 +------------+--------+
-
-Result table:
+<strong>Output:</strong> 
 +----------------+----------------+
 | category       | accounts_count |
 +----------------+----------------+
@@ -52,7 +55,7 @@ Result table:
 | Average Salary | 0              |
 | High Salary    | 3              |
 +----------------+----------------+
-
+<strong>Explanation:</strong> 
 Low Salary: Account 2.
 Average Salary: No accounts.
 High Salary: Accounts 3, 6, and 8.

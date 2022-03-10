@@ -8,7 +8,8 @@
 
 <p>活动记录表：<code>Activity</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | user_id       | int     |
@@ -18,17 +19,25 @@
 +---------------+---------+
 该表是用户在社交网站的活动记录。
 该表没有主键，可能包含重复数据。
-activity_type 字段为以下四种值 (&#39;open_session&#39;, &#39;end_session&#39;, &#39;scroll_down&#39;, &#39;send_message&#39;)。
+activity_type 字段为以下四种值 ('open_session', 'end_session', 'scroll_down', 'send_message')。
 每个 session_id 只属于一个用户。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>请写SQL查询出截至&nbsp;<strong>2019-07-27</strong>（包含2019-07-27）<strong>，近&nbsp;</strong>30天的每日活跃用户数（当天只要有一条活动记录，即为活跃用户）。</p>
+<p>请写SQL查询出截至&nbsp;<code>2019-07-27</code>（包含2019-07-27），近<strong>&nbsp;</strong><code>30</code> 天的每日活跃用户数（当天只要有一条活动记录，即为活跃用户）。</p>
 
-<p>查询结果示例如下：</p>
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<pre>Activity table:
+<p>查询结果示例如下。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Activity table:
 +---------+------------+---------------+---------------+
 | user_id | session_id | activity_date | activity_type |
 +---------+------------+---------------+---------------+
@@ -44,15 +53,14 @@ activity_type 字段为以下四种值 (&#39;open_session&#39;, &#39;end_session
 | 4       | 3          | 2019-06-25    | open_session  |
 | 4       | 3          | 2019-06-25    | end_session   |
 +---------+------------+---------------+---------------+
-
-Result table:
+<strong>输出：</strong>
 +------------+--------------+ 
 | day        | active_users |
 +------------+--------------+ 
 | 2019-07-20 | 2            |
 | 2019-07-21 | 2            |
-+------------+--------------+ 
-非活跃用户的记录不需要展示。</pre>
++------------+--------------+ <strong>
+解释：</strong>注意非活跃用户的记录不需要展示。</pre>
 
 ## 解法
 

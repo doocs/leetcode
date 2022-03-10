@@ -8,7 +8,7 @@
 
 <p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
 
-<p><em>Nary-Tree input serialization&nbsp;is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
+<p><em>Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -33,8 +33,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
+	<li>The total number of nodes is in the range <code>[0, 10<sup>4</sup>]</code>.</li>
 	<li>The depth of the n-ary tree is less than or equal to <code>1000</code>.</li>
-	<li>The total number of nodes is between <code>[0,&nbsp;10<sup>4</sup>]</code>.</li>
 </ul>
 
 ## Solutions

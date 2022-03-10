@@ -132,7 +132,7 @@ impl Solution {
             m1.insert(c, m1.get(&c).unwrap_or(&0) + 1);
         }
         let cs: Vec<char> = s2.chars().collect();
-        // 初始化窗口        
+        // 初始化窗口
         let mut i = 0;
         while i < s1.len() {
             m2.insert(cs[i], m2.get(&cs[i]).unwrap_or(&0) + 1);

@@ -40,12 +40,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><b>Follow up:</b></p>
-
-<ul>
-	<li>Could you come up with the <code>O(n<sup>2</sup>)</code> solution?</li>
-	<li>Could you improve it to <code>O(n log(n))</code> time complexity?</li>
-</ul>
+<p><b>Follow up:</b>&nbsp;Can you come up with an algorithm that runs in&nbsp;<code>O(n log(n))</code> time complexity?</p>
 
 ## Solutions
 

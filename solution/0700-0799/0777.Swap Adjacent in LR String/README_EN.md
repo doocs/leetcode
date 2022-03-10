@@ -27,27 +27,6 @@ XRLXXRRLX
 <strong>Output:</strong> false
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> start = &quot;LLR&quot;, end = &quot;RRL&quot;
-<strong>Output:</strong> false
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> start = &quot;XL&quot;, end = &quot;LX&quot;
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> start = &quot;XLLR&quot;, end = &quot;LXLX&quot;
-<strong>Output:</strong> false
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

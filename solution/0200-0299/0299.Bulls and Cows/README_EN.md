@@ -40,20 +40,6 @@
 Note that only one of the two unmatched 1s is counted as a cow since the non-bull digits can only be rearranged to allow one 1 to be a bull.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> secret = &quot;1&quot;, guess = &quot;0&quot;
-<strong>Output:</strong> &quot;0A0B&quot;
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> secret = &quot;1&quot;, guess = &quot;1&quot;
-<strong>Output:</strong> &quot;1A0B&quot;
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

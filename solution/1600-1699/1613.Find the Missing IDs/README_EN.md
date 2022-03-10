@@ -28,9 +28,11 @@ Each row of this table contains the name and the id customer.
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Customers</code> table:
+<strong>Input:</strong> 
+Customers table:
 +-------------+---------------+
 | customer_id | customer_name |
 +-------------+---------------+
@@ -38,15 +40,16 @@ Each row of this table contains the name and the id customer.
 | 4           | Bob           |
 | 5           | Charlie       |
 +-------------+---------------+
-
-Result table:
+<strong>Output:</strong> 
 +-----+
-| <code>ids </code>|
+| ids |
 +-----+
 | 2   |
 | 3   |
 +-----+
-The maximum customer_id present in the table is 5, so in the range [1,5], IDs 2 and 3 are missing from the table.</pre>
+<strong>Explanation:</strong> 
+The maximum customer_id present in the table is 5, so in the range [1,5], IDs 2 and 3 are missing from the table.
+</pre>
 
 ## Solutions
 

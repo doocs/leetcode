@@ -8,188 +8,115 @@
 
 <p>Table: <code>Friendship</code></p>
 
-<pre>
-
-+---------------+---------+
-
+<pre>+---------------+---------+
 | Column Name   | Type    |
-
 +---------------+---------+
-
 | user1_id      | int     |
-
 | user2_id      | int     |
-
 +---------------+---------+
-
-(user1_id, user2_id) is the primary key for this table.
-
-Each row of this table indicates that the users user1_id and user2_id are friends.
-
+(user1_id,user2_id)是Friendship表的主键。
+该表的每一行表示用户user1_id和user2_id是好友。
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
 <p>Table: <code>Likes</code></p>
 
-<pre>
-
-+-------------+---------+
-
+<pre>+-------------+---------+
 | Column Name | Type    |
-
 +-------------+---------+
-
 | user_id     | int     |
-
 | page_id     | int     |
-
 +-------------+---------+
-
+(user_id,page_id)是Likes表的主键。
 (user_id, page_id) is the primary key for this table.
-
-Each row of this table indicates that user_id likes page_id.
-
+该表的每一行表示user_id喜欢page_id。
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p>You are implementing a page recommendation system for a social media website. Your system will <strong>recommended</strong> a page to <code>user_id</code> if the page is <strong>liked</strong> by <strong>at least one</strong> friend of <code>user_id</code> and is <strong>not liked</strong> by <code>user_id</code>.</p>
+<p>您正在为一个社交媒体网站实施一个页面推荐系统。如果页面被<code>user_id</code>的<strong>至少一个朋友喜欢</strong>，而<strong>不被</strong><code>user_id</code><strong>喜欢</strong>，你的系统将<strong>推荐</strong>一个页面到<code>user_id</code>。</p>
 
-<p>Write an SQL query to find all the possible <strong>page recommendations</strong> for every user. Each recommendation should appear as a row in the result table with these columns:</p>
+<p>编写一个SQL查询来查找针对每个用户的所有可能的<strong>页面建议</strong>。每个建议应该在结果表中显示为一行，包含以下列:</p>
 
 <ul>
-	<li><code>user_id</code>: The ID of the user that your system is making the recommendation to.</li>
-	<li><code>page_id</code>: The ID of the page that will be recommended to <code>user_id</code>.</li>
-	<li><code>friends_likes</code>: The number of the friends of <code>user_id</code> that like <code>page_id</code>.</li>
+	<li><code>user_id</code>: 系统向其提出建议的用户的ID。</li>
+	<li><code>page_id</code>: 推荐为<code>user_id</code>的页面ID。.</li>
+	<li><code>friends_likes</code>: <code>user_id</code>对应<code>page_id</code>的好友数。</li>
 </ul>
 
-<p>Return result table in <strong>any order</strong>.</p>
+<p>以<strong>任意顺序</strong>返回结果表。</p>
 
-<p>The query result format is in the following example:</p>
+<p>查询结果格式示例如下:</p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<pre>
-
-Friendship table:
-
+<pre>Friendship table:
 +----------+----------+
-
 | user1_id | user2_id |
-
 +----------+----------+
-
 | 1        | 2        |
-
 | 1        | 3        |
-
 | 1        | 4        |
-
 | 2        | 3        |
-
 | 2        | 4        |
-
 | 2        | 5        |
-
 | 6        | 1        |
-
 +----------+----------+
-
  
-
 Likes table:
-
 +---------+---------+
-
 | user_id | page_id |
-
 +---------+---------+
-
 | 1       | 88      |
-
 | 2       | 23      |
-
 | 3       | 24      |
-
 | 4       | 56      |
-
 | 5       | 11      |
-
 | 6       | 33      |
-
 | 2       | 77      |
-
 | 3       | 77      |
-
 | 6       | 88      |
-
 +---------+---------+
-
-
 
 Result table:
-
 +---------+---------+---------------+
-
 | user_id | page_id | friends_likes |
-
 +---------+---------+---------------+
-
 | 1       | 77      | 2             |
-
 | 1       | 23      | 1             |
-
 | 1       | 24      | 1             |
-
 | 1       | 56      | 1             |
-
 | 1       | 33      | 1             |
-
 | 2       | 24      | 1             |
-
 | 2       | 56      | 1             |
-
 | 2       | 11      | 1             |
-
 | 2       | 88      | 1             |
-
 | 3       | 88      | 1             |
-
 | 3       | 23      | 1             |
-
 | 4       | 88      | 1             |
-
 | 4       | 77      | 1             |
-
 | 4       | 23      | 1             |
-
 | 5       | 77      | 1             |
-
 | 5       | 23      | 1             |
-
 +---------+---------+---------------+
+以用户1为例:
 
-Take user 1 as an example:
+—用户1是用户2、3、4、6的好友。
 
-  - User 1 is friends with users 2, 3, 4, and 6.
+推荐页面有23(用户2喜欢)，24(用户3喜欢)，56(用户3喜欢)，33(用户6喜欢)，77(用户2和用户3喜欢)。
 
-  - Recommended pages are 23 (user 2 liked it), 24 (user 3 liked it), 56 (user 3 liked it), 33 (user 6 liked it), and 77 (user 2 and user 3 liked it).
-
-  - Note that page 88 is not recommended because user 1 already liked it.
-
+-请注意，第88页不推荐，因为用户1已经喜欢它。
 
 
-Another example is user 6:
+另一个例子是用户6:
 
-  - User 6 is friends with user 1.
+—用户6是用户1的好友。
 
-  - User 1 only liked page 88, but user 6 already liked it. Hence, user 6 has no recommendations.
+-用户1只喜欢了88页，但用户6已经喜欢了。因此，用户6没有推荐。
 
 
-
-You can recommend pages for users 2, 3, 4, and 5 using a similar process.
-
+您可以使用类似的过程为用户2、3、4和5推荐页面。
 </pre>
 
 ## 解法

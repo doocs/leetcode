@@ -8,7 +8,7 @@
 
 <p>给定一个整数 <code>n</code>，计算所有小于等于 <code>n</code> 的非负整数中数字 <code>1</code> 出现的个数。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -24,12 +24,12 @@
 <strong>输出：</strong>0
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= n <= 2 * 10<sup>9</sup></code></li>
+	<li><code>0 &lt;= n &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## 解法

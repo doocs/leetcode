@@ -53,7 +53,7 @@
 
 <p>The &quot;Zigzag&quot; order is not clearly defined and is ambiguous for <code>k &gt; 2</code> cases. If &quot;Zigzag&quot; does not look right to you, replace &quot;Zigzag&quot; with &quot;Cyclic&quot;.</p>
 
-<p><strong>Example:</strong></p>
+<p><strong>Follow-up Example:</strong></p>
 
 <pre>
 <strong>Input:</strong> v1 = [1,2,3], v2 = [4,5,6,7], v3 = [8,9]

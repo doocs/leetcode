@@ -12,10 +12,6 @@
 
 <p> </p>
 
-<p><strong>进阶：</strong>很容易想到时间复杂度为 <code>O(n^2)</code> 的解决方案，你可以设计一个时间复杂度为 <code>O(n logn)</code> 或 <code>O(n)</code> 的解决方案吗？</p>
-
-<p> </p>
-
 <p><strong>示例 1：</strong></p>
 
 <pre>
@@ -46,7 +42,7 @@
 
 <ul>
 	<li><code>n == nums.length</code></li>
-	<li><code>1 <= n <= 10<sup>4</sup></code></li>
+	<li><code>1 <= n <= 2 * 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 

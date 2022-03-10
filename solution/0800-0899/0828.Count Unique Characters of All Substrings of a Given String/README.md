@@ -14,7 +14,7 @@
 
 <p>由于答案可能非常大，请将结果 <strong>mod 10 ^ 9 + 7</strong> 后再返回。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -41,12 +41,12 @@
 <strong>输出：</strong>92
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= s.length <= 10^4</code></li>
+	<li><code>0 &lt;= s.length &lt;= 10^5</code></li>
 	<li><code>s</code> 只包含大写英文字符</li>
 </ul>
 

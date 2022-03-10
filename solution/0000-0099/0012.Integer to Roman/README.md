@@ -28,32 +28,32 @@ M             1000</pre>
 	<li><code>C</code> 可以放在 <code>D</code> (500) 和 <code>M</code> (1000) 的左边，来表示 400 和 900。</li>
 </ul>
 
-<p>给定一个整数，将其转为罗马数字。输入确保在 1 到 3999 的范围内。</p>
+<p>给你一个整数，将其转为罗马数字。</p>
 
 <p> </p>
 
 <p><strong>示例 1:</strong></p>
 
 <pre>
-<strong>输入:</strong> 3
+<strong>输入:</strong> num = 3
 <strong>输出:</strong> "III"</pre>
 
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入:</strong> 4
+<strong>输入:</strong> num = 4
 <strong>输出:</strong> "IV"</pre>
 
 <p><strong>示例 3:</strong></p>
 
 <pre>
-<strong>输入:</strong> 9
+<strong>输入:</strong> num = 9
 <strong>输出:</strong> "IX"</pre>
 
 <p><strong>示例 4:</strong></p>
 
 <pre>
-<strong>输入:</strong> 58
+<strong>输入:</strong> num = 58
 <strong>输出:</strong> "LVIII"
 <strong>解释:</strong> L = 50, V = 5, III = 3.
 </pre>
@@ -61,7 +61,7 @@ M             1000</pre>
 <p><strong>示例 5:</strong></p>
 
 <pre>
-<strong>输入:</strong> 1994
+<strong>输入:</strong> num = 1994
 <strong>输出:</strong> "MCMXCIV"
 <strong>解释:</strong> M = 1000, CM = 900, XC = 90, IV = 4.</pre>
 

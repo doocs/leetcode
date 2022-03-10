@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given a <code>m x n</code>&nbsp;matrix <code>mat</code> and an integer <code>threshold</code>. Return the maximum side-length of a square with a sum less than or equal to <code>threshold</code> or return <strong>0</strong> if there is no such square.</p>
+<p>Given a <code>m x n</code> matrix <code>mat</code> and an integer <code>threshold</code>, return <em>the maximum side-length of a square with a sum less than or equal to </em><code>threshold</code><em> or return </em><code>0</code><em> if there is no such square</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -22,29 +22,15 @@
 <strong>Output:</strong> 0
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> mat = [[1,1,1,1],[1,0,0,0],[1,0,0,0],[1,0,0,0]], threshold = 6
-<strong>Output:</strong> 3
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> mat = [[18,70],[61,1],[25,85],[14,40],[11,96],[97,96],[63,45]], threshold = 40184
-<strong>Output:</strong> 2
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= m, n &lt;= 300</code></li>
 	<li><code>m == mat.length</code></li>
 	<li><code>n == mat[i].length</code></li>
-	<li><code>0 &lt;= mat[i][j] &lt;= 10000</code></li>
-	<li><code>0 &lt;= threshold&nbsp;&lt;= 10^5</code></li>
+	<li><code>1 &lt;= m, n &lt;= 300</code></li>
+	<li><code>0 &lt;= mat[i][j] &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= threshold &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 ## Solutions

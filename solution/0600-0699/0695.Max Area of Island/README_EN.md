@@ -4,43 +4,37 @@
 
 ## Description
 
-<p>Given a non-empty 2D array <code>grid</code> of 0&#39;s and 1&#39;s, an <b>island</b> is a group of <code>1</code>&#39;s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
+<p>You are given an <code>m x n</code> binary matrix <code>grid</code>. An island is a group of <code>1</code>&#39;s (representing land) connected <strong>4-directionally</strong> (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water.</p>
 
-<p>Find the maximum area of an island in the given 2D array. (If there is no island, the maximum area is 0.)</p>
+<p>The <strong>area</strong> of an island is the number of cells with a value <code>1</code> in the island.</p>
 
-<p><b>Example 1:</b></p>
+<p>Return <em>the maximum <strong>area</strong> of an island in </em><code>grid</code>. If there is no island, return <code>0</code>.</p>
 
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0695.Max%20Area%20of%20Island/images/maxarea1-grid.jpg" style="width: 500px; height: 310px;" />
 <pre>
-
-[[0,0,1,0,0,0,0,1,0,0,0,0,0],
-
- [0,0,0,0,0,0,0,1,1,1,0,0,0],
-
- [0,1,1,0,1,0,0,0,0,0,0,0,0],
-
- [0,1,0,0,1,1,0,0,<b>1</b>,0,<b>1</b>,0,0],
-
- [0,1,0,0,1,1,0,0,<b>1</b>,<b>1</b>,<b>1</b>,0,0],
-
- [0,0,0,0,0,0,0,0,0,0,<b>1</b>,0,0],
-
- [0,0,0,0,0,0,0,1,1,1,0,0,0],
-
- [0,0,0,0,0,0,0,1,1,0,0,0,0]]
-
+<strong>Input:</strong> grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,1,1,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,1,1,0,0,1,0,1,0,0],[0,1,0,0,1,1,0,0,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,1,1,1,0,0,0],[0,0,0,0,0,0,0,1,1,0,0,0,0]]
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> The answer is not 11, because the island must be connected 4-directionally.
 </pre>
 
-Given the above grid, return <code>6</code>. Note the answer is not 11, because the island must be connected 4-directionally.
-
-<p><b>Example 2:</b></p>
+<p><strong>Example 2:</strong></p>
 
 <pre>
+<strong>Input:</strong> grid = [[0,0,0,0,0,0,0,0]]
+<strong>Output:</strong> 0
+</pre>
 
-[[0,0,0,0,0,0,0,0]]</pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-Given the above grid, return <code>0</code>.
-
-<p><b>Note:</b> The length of each dimension in the given <code>grid</code> does not exceed 50.</p>
+<ul>
+	<li><code>m == grid.length</code></li>
+	<li><code>n == grid[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 50</code></li>
+	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+</ul>
 
 ## Solutions
 

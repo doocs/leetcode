@@ -78,7 +78,6 @@
 	<li><code>words[i].length &lt;= maxWidth</code></li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
@@ -299,7 +298,7 @@ public class Solution {
         var buffer = new List<string>();
         var sb = new StringBuilder();
         var len = 0;
-        
+
         for (var i = 0; i < words.Length; ++i)
         {
             var newLen = words[i].Length + (len == 0 ? 0 : len + 1);
@@ -334,7 +333,7 @@ public class Solution {
                 len = words[i].Length;
             }
         }
-        
+
         if (buffer.Count > 0)
         {
             for (var j = 0; j < buffer.Count; ++j)
@@ -351,7 +350,7 @@ public class Solution {
             }
             result.Add(sb.ToString());
         }
-        
+
         return result;
     }
 }

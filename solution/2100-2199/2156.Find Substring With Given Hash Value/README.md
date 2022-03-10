@@ -85,9 +85,9 @@
  * @param {number} hashValue
  * @return {string}
  */
-var subStrHash = function(s, power, modulo, k, hashValue) {
+var subStrHash = function (s, power, modulo, k, hashValue) {
     power = BigInt(power);
-    modulo = BigInt(modulo); 
+    modulo = BigInt(modulo);
     hashValue = BigInt(hashValue);
     const n = s.length;
     let pk = 1n;
@@ -95,14 +95,14 @@ var subStrHash = function(s, power, modulo, k, hashValue) {
     // 倒序滑动窗口
     for (let i = n - 1; i > n - 1 - k; i--) {
         ac = (ac * power + getCode(s, i)) % modulo;
-        pk = pk * power % modulo;
+        pk = (pk * power) % modulo;
     }
     let ans = -1;
     if (ac == hashValue) {
         ans = n - k;
     }
     for (let i = n - 1 - k; i >= 0; i--) {
-        let pre = getCode(s, i + k) * pk % modulo;
+        let pre = (getCode(s, i + k) * pk) % modulo;
         ac = (ac * power + getCode(s, i) - pre + modulo) % modulo;
         if (ac == hashValue) {
             ans = i;

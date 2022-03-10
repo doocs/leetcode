@@ -4,63 +4,48 @@
 
 ## Description
 
-<p>
+<p>Suppose LeetCode will start its <strong>IPO</strong> soon. In order to sell a good price of its shares to Venture Capital, LeetCode would like to work on some projects to increase its capital before the <strong>IPO</strong>. Since it has limited resources, it can only finish at most <code>k</code> distinct projects before the <strong>IPO</strong>. Help LeetCode design the best way to maximize its total capital after finishing at most <code>k</code> distinct projects.</p>
 
-Suppose LeetCode will start its IPO soon. In order to sell a good price of its shares to Venture Capital, LeetCode would like to work on some projects to increase its capital before the IPO. Since it has limited resources, it can only finish at most <b>k</b> distinct projects before the IPO. Help LeetCode design the best way to maximize its total capital after finishing at most <b>k</b> distinct projects.
+<p>You are given <code>n</code> projects where the <code>i<sup>th</sup></code> project has a pure profit <code>profits[i]</code> and a minimum capital of <code>capital[i]</code> is needed to start it.</p>
 
-</p>
+<p>Initially, you have <code>w</code> capital. When you finish a project, you will obtain its pure profit and the profit will be added to your total capital.</p>
 
-<p>
+<p>Pick a list of <strong>at most</strong> <code>k</code> distinct projects from given projects to <strong>maximize your final capital</strong>, and return <em>the final maximized capital</em>.</p>
 
-You are given several projects. For each project <b>i</b>, it has a pure profit <b>P<sub>i</sub></b> and a minimum capital of <b>C<sub>i</sub></b> is needed to start the corresponding project. Initially, you have <b>W</b> capital. When you finish a project, you will obtain its pure profit and the profit will be added to your total capital.
+<p>The answer is guaranteed to fit in a 32-bit signed integer.</p>
 
-</p>
-
-<p>
-
-To sum up, pick a list of at most <b>k</b> distinct projects from given projects to maximize your final capital, and output your final maximized capital.
-
-</p>
-
-<p><b>Example 1:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> k=2, W=0, Profits=[1,2,3], Capital=[0,1,1].
-
-
-
-<b>Output:</b> 4
-
-
-
-<b>Explanation:</b> Since your initial capital is 0, you can only start the project indexed 0.
-
-             After finishing it you will obtain profit 1 and your capital becomes 1.
-
-             With capital 1, you can either start the project indexed 1 or the project indexed 2.
-
-             Since you can choose at most 2 projects, you need to finish the project indexed 2 to get the maximum capital.
-
-             Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
-
+<strong>Input:</strong> k = 2, w = 0, profits = [1,2,3], capital = [0,1,1]
+<strong>Output:</strong> 4
+<strong>Explanation:</strong> Since your initial capital is 0, you can only start the project indexed 0.
+After finishing it you will obtain profit 1 and your capital becomes 1.
+With capital 1, you can either start the project indexed 1 or the project indexed 2.
+Since you can choose at most 2 projects, you need to finish the project indexed 2 to get the maximum capital.
+Therefore, output the final maximized capital, which is 0 + 1 + 3 = 4.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b><br>
+<pre>
+<strong>Input:</strong> k = 3, w = 0, profits = [1,2,3], capital = [0,1,2]
+<strong>Output:</strong> 6
+</pre>
 
-<ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<li>You may assume all numbers in the input are non-negative integers.</li>
-
-<li>The length of Profits array and Capital array will not exceed 50,000.</li>
-
-<li>The answer is guaranteed to fit in a 32-bit signed integer.</li>
-
-</ol>
-
-</p>
+<ul>
+	<li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= w &lt;= 10<sup>9</sup></code></li>
+	<li><code>n == profits.length</code></li>
+	<li><code>n == capital.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt;= profits[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= capital[i] &lt;= 10<sup>9</sup></code></li>
+</ul>
 
 ## Solutions
 

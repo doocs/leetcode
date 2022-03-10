@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an integer array <code>arr</code>. You have to sort the integers in the array&nbsp;in ascending order by the number of <strong>1&#39;s</strong>&nbsp;in their binary representation and in case of two or more integers have the same number of <strong>1&#39;s</strong> you have to sort them in ascending order.</p>
+<p>You are given an integer array <code>arr</code>. Sort the integers in the array&nbsp;in ascending order by the number of <code>1</code>&#39;s&nbsp;in their binary representation and in case of two or more integers have the same number of <code>1</code>&#39;s you have to sort them in ascending order.</p>
 
-<p>Return <em>the sorted array</em>.</p>
+<p>Return <em>the array after sorting it</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -29,33 +29,12 @@ The sorted array by bits is [0,1,2,4,8,3,5,6,7]
 <strong>Explantion:</strong> All integers have 1 bit in the binary representation, you should just sort them in ascending order.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [10000,10000]
-<strong>Output:</strong> [10000,10000]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [2,3,5,7,11,13,17,19]
-<strong>Output:</strong> [2,3,5,17,7,11,13,19]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [10,100,1000,10000]
-<strong>Output:</strong> [10,100,10000,1000]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= arr.length &lt;= 500</code></li>
-	<li><code>0 &lt;= arr[i] &lt;= 10^4</code></li>
+	<li><code>0 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## Solutions

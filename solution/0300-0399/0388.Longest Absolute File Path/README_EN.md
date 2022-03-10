@@ -56,15 +56,6 @@ We return 32 since it is the longest absolute path to a file.
 <strong>Explanation:</strong> We do not have any files, just a single directory named &quot;a&quot;.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> input = &quot;file1.txt\nfile2.txt\nlongfile.txt&quot;
-<strong>Output:</strong> 12
-<strong>Explanation:</strong> There are 3 files at the root directory.
-Since the absolute path for anything at the root directory is just the name itself, the answer is &quot;longfile.txt&quot; with length 12.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

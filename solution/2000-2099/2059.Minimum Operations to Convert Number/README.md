@@ -18,7 +18,7 @@
 	<li><code>x ^ nums[i]</code>（按位异或 XOR）</li>
 </ul>
 
-<p>注意，你可以按任意顺序使用每个 <code>nums[i]</code> 任意次。使 <code>x</code> 越过 <code>0 &lt;= x &lt;= 1000</code> 范围的运算同样可以生效，但该该运算执行后将不能执行其他运算。</p>
+<p>注意，你可以按任意顺序使用每个 <code>nums[i]</code> 任意次。使 <code>x</code> 越过 <code>0 &lt;= x &lt;= 1000</code> 范围的运算同样可以生效，但该运算执行后将不能执行其他运算。</p>
 
 <p>返回将 <code>x = start</code><em> </em>转化为<em> </em><code>goal</code><em> </em>的最小操作数；如果无法完成转化，则返回<em> </em><code>-1</code><em> </em>。</p>
 
@@ -26,7 +26,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,3], start = 6, goal = 4
+<pre>
+<strong>输入：</strong>nums = [1,3], start = 6, goal = 4
 <strong>输出：</strong>2
 <strong>解释：</strong>
 可以按 6 → 7 → 4 的转化路径进行，只需执行下述 2 次运算：
@@ -36,7 +37,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,4,12], start = 2, goal = 12
+<pre>
+<strong>输入：</strong>nums = [2,4,12], start = 2, goal = 12
 <strong>输出：</strong>2
 <strong>解释：</strong>
 可以按 2 → 14 → 12 的转化路径进行，只需执行下述 2 次运算：
@@ -46,7 +48,8 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>nums = [3,5,7], start = 0, goal = -4
+<pre>
+<strong>输入：</strong>nums = [3,5,7], start = 0, goal = -4
 <strong>输出：</strong>2
 <strong>解释：</strong>
 可以按 0 → 3 → -4 的转化路径进行，只需执行下述 2 次运算：
@@ -57,18 +60,20 @@
 
 <p><strong>示例 4：</strong></p>
 
-<pre><strong>输入：</strong>nums = [2,8,16], start = 0, goal = 1
+<pre>
+<strong>输入：</strong>nums = [2,8,16], start = 0, goal = 1
 <strong>输出：</strong>-1
 <strong>解释：</strong>
 无法将 0 转化为 1</pre>
 
 <p><strong>示例 5：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1], start = 0, goal = 3
+<pre>
+<strong>输入：</strong>nums = [1], start = 0, goal = 3
 <strong>输出：</strong>3
 <strong>解释：</strong>
 可以按 0 → 1 → 2 → 3 的转化路径进行，只需执行下述 3 次运算：
-- 0 + 1 = 1
+- 0 + 1 = 1 
 - 1 + 1 = 2
 - 2 + 1 = 3
 </pre>
@@ -188,7 +193,7 @@ class Solution:
                 res.append(x - num)
                 res.append(x ^ num)
             return res
-        
+
         def extend(m1, m2, q):
             for _ in range(len(q), 0, -1):
                 x = q.popleft()
@@ -202,7 +207,7 @@ class Solution:
                         m1[y] = step + 1
                         q.append(y)
             return -1
-        
+
         m1, m2 = {start: 0}, {goal: 0}
         q1, q2 = deque([start]), deque([goal])
         while q1 and q2:

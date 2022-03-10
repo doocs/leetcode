@@ -4,17 +4,19 @@
 
 ## Description
 
-<p>A string is called <em>happy</em> if it does&nbsp;not have any of the strings <code>&#39;aaa&#39;</code>, <code>&#39;bbb&#39;</code>&nbsp;or <code>&#39;ccc&#39;</code>&nbsp;as a substring.</p>
-
-<p>Given three integers <code>a</code>, <code>b</code> and <code>c</code>, return <strong>any</strong> string <code>s</code>,&nbsp;which satisfies following conditions:</p>
+<p>A string <code>s</code> is called <strong>happy</strong> if it satisfies the following conditions:</p>
 
 <ul>
-	<li><code>s</code> is <em>happy&nbsp;</em>and longest possible.</li>
-	<li><code>s</code> contains <strong>at most</strong> <code>a</code>&nbsp;occurrences of the letter&nbsp;<code>&#39;a&#39;</code>, <strong>at most</strong> <code>b</code>&nbsp;occurrences of the letter <code>&#39;b&#39;</code> and <strong>at most</strong> <code>c</code> occurrences of the letter <code>&#39;c&#39;</code>.</li>
-	<li><code>s&nbsp;</code>will only contain <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code> and <code>&#39;c&#39;</code>&nbsp;letters.</li>
+	<li><code>s</code> only contains the letters <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, and <code>&#39;c&#39;</code>.</li>
+	<li><code>s</code> does not contain any of <code>&quot;aaa&quot;</code>, <code>&quot;bbb&quot;</code>, or <code>&quot;ccc&quot;</code> as a substring.</li>
+	<li><code>s</code> contains <strong>at most</strong> <code>a</code> occurrences of the letter <code>&#39;a&#39;</code>.</li>
+	<li><code>s</code> contains <strong>at most</strong> <code>b</code> occurrences of the letter <code>&#39;b&#39;</code>.</li>
+	<li><code>s</code> contains <strong>at most</strong> <code>c</code> occurrences of the letter <code>&#39;c&#39;</code>.</li>
 </ul>
 
-<p>If there is no such string <code>s</code>&nbsp;return the empty string <code>&quot;&quot;</code>.</p>
+<p>Given three integers <code>a</code>, <code>b</code>, and <code>c</code>, return <em>the <strong>longest possible happy </strong>string</em>. If there are multiple longest happy strings, return <em>any of them</em>. If there is no such string, return <em>the empty string </em><code>&quot;&quot;</code>.</p>
+
+<p>A <strong>substring</strong> is a contiguous sequence of characters within a string.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -28,16 +30,9 @@
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> a = 2, b = 2, c = 1
-<strong>Output:</strong> &quot;aabbc&quot;
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
 <strong>Input:</strong> a = 7, b = 1, c = 0
 <strong>Output:</strong> &quot;aabaa&quot;
-<strong>Explanation:</strong> It&#39;s the only correct answer in this case.
+<strong>Explanation:</strong> It is the only correct answer in this case.
 </pre>
 
 <p>&nbsp;</p>

@@ -6,56 +6,42 @@
 
 <!-- 这里写题目描述 -->
 
-<p>A perfectly straight street is represented by a number line. The street has street lamp(s) on it and is represented by a 2D integer array <code>lights</code>. Each <code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code> indicates that there is a street lamp at position <code>position<sub>i</sub></code> that lights up the area from <code>[position<sub>i</sub> - range<sub>i</sub>, position<sub>i</sub> + range<sub>i</sub>]</code> (<strong>inclusive</strong>).</p>
+<p>一条街上有很多的路灯，路灯的坐标由数组&nbsp;<code>lights&nbsp;</code>的形式给出。&nbsp;每个&nbsp;<code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code>&nbsp;代表坐标为&nbsp;<code>position<sub>i</sub></code>&nbsp;的路灯照亮的范围为&nbsp;<code>[position<sub>i</sub> - range<sub>i</sub>, position<sub>i</sub> + range<sub>i</sub>]</code>&nbsp;<strong>（包括顶点）。</strong></p>
 
-<p>The <strong>brightness</strong> of a position <code>p</code> is defined as the number of street lamp that light up the position <code>p</code>.</p>
+<p>位置&nbsp;<code>p</code>&nbsp;的亮度由能够照到&nbsp;<code>p</code>的路灯的数量来决定的。</p>
 
-<p>Given <code>lights</code>, return <em>the <strong>brightest</strong> position on the</em><em> street. If there are multiple brightest positions, return the <strong>smallest</strong> one.</em></p>
+<p>给出&nbsp;<code>lights</code>, 返回<strong>最亮</strong>的位置&nbsp;。如果有很多，返回坐标最小的。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2021.Brightest%20Position%20on%20Street/images/image-20210928155140-1.png" style="width: 700px; height: 165px;" />
-<pre>
-<strong>Input:</strong> lights = [[-3,2],[1,2],[3,3]]
-<strong>Output:</strong> -1
-<strong>Explanation:</strong>
-The first street lamp lights up the area from [(-3) - 2, (-3) + 2] = [-5, -1].
-The second street lamp lights up the area from [1 - 2, 1 + 2] = [-1, 3].
-The third street lamp lights up the area from [3 - 3, 3 + 3] = [0, 6].
 
-Position -1 has a brightness of 2, illuminated by the first and second street light.
-Positions 0, 1, 2, and 3 have a brightness of 2, illuminated by the second and third street light.
-Out of all these positions, -1 is the smallest, so return it.
+<p><strong>示例 1:</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2021.Brightest%20Position%20on%20Street/images/image-20210928155140-1.png" style="width: 700px; height: 165px;">
+<pre><strong>输入:</strong> lights = [[-3,2],[1,2],[3,3]]
+<strong>输出:</strong> -1
+<strong>解释:</strong>
+第一个路灯照亮的范围是[(-3) - 2, (-3) + 2] = [-5, -1].
+第二个路灯照亮的范围是 [1 - 2, 1 + 2] = [-1, 3].
+第三个路灯照亮的范围是 [3 - 3, 3 + 3] = [0, 6].
 
+坐标-1 被第一个和第二个路灯照亮，亮度为 2
+坐标 0，1，2 都被第二个和第三个路灯照亮，亮度为 2.
+对于以上坐标，-1 最小，所以返回-1</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre><strong>输入:</strong> lights = [[1,0],[0,1]]
+<strong>输出:</strong> 1
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong>示例 3：</strong></p>
 
-<pre>
-<strong>Input:</strong> lights = [[1,0],[0,1]]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong>
-The first street lamp lights up the area from [1 - 0, 1 + 0] = [1, 1].
-The second street lamp lights up the area from [0 - 1, 0 + 1] = [-1, 1].
-
-Position 1 has a brightness of 2, illuminated by the first and second street light.
-Return 1 because it is the brightest position on the street.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> lights = [[1,2]]
-<strong>Output:</strong> -1
-<strong>Explanation:</strong>
-The first street lamp lights up the area from [1 - 2, 1 + 2] = [-1, 3].
-
-Positions -1, 0, 1, 2, and 3 have a brightness of 1, illuminated by the first street light.
-Out of all these positions, -1 is the smallest, so return it.
+<pre><strong>输入:</strong> lights = [[1,2]]
+<strong>输出:</strong> -1
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= lights.length &lt;= 10<sup>5</sup></code></li>

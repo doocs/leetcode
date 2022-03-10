@@ -76,7 +76,7 @@ class Solution:
                 x, y = i + a, j + b
                 if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
                     dfs(x, y)
-        
+
         ans = 0
         m, n = len(grid), len(grid[0])
         for i in range(m):
@@ -122,7 +122,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         m, n = len(grid), len(grid[0])
         p = list(range(m * n))
         for i in range(m):
@@ -332,7 +332,7 @@ function numIslands(grid: string[][]): number {
         }
     }
     return ans;
-};
+}
 ```
 
 并查集：
@@ -374,7 +374,7 @@ function numIslands(grid: string[][]): number {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

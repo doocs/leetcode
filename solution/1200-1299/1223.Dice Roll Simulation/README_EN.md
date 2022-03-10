@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>A die simulator generates a random number from 1 to 6 for each roll.&nbsp;You introduced a constraint to the generator such that it cannot roll the number <code>i</code> more than <code>rollMax[i]</code> (1-indexed) <strong>consecutive</strong> times.&nbsp;</p>
+<p>A die simulator generates a random number from <code>1</code> to <code>6</code> for each roll. You introduced a constraint to the generator such that it cannot roll the number <code>i</code> more than <code>rollMax[i]</code> (<strong>1-indexed</strong>) consecutive times.</p>
 
-<p>Given an array of integers&nbsp;<code>rollMax</code>&nbsp;and an integer&nbsp;<code>n</code>, return the number of distinct sequences that can be obtained with exact <code>n</code> rolls.</p>
+<p>Given an array of integers <code>rollMax</code> and an integer <code>n</code>, return <em>the number of distinct sequences that can be obtained with exact </em><code>n</code><em> rolls</em>. Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
-<p>Two sequences are considered different if at least one element differs from each other. Since the answer&nbsp;may be too large,&nbsp;return it modulo <code>10^9 + 7</code>.</p>
+<p>Two sequences are considered different if at least one element differs from each other.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

@@ -20,7 +20,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= wordsDict.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= wordsDict.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= wordsDict[i].length &lt;= 10</code></li>
 	<li><code>wordsDict[i]</code> consists of lowercase English letters.</li>
 	<li><code>word1</code> and <code>word2</code> are in <code>wordsDict</code>.</li>

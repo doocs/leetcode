@@ -4,13 +4,11 @@
 
 ## Description
 
-<p>In an <strong>infinite</strong> chess board with coordinates from <code>-infinity</code>&nbsp;to <code>+infinity</code>, you have a <strong>knight</strong> at square&nbsp;<code>[0, 0]</code>.</p>
+<p>In an <strong>infinite</strong> chess board with coordinates from <code>-infinity</code> to <code>+infinity</code>, you have a <strong>knight</strong> at square <code>[0, 0]</code>.</p>
 
-<p>A&nbsp;knight has 8 possible moves it can make, as illustrated below. Each move is two squares in a cardinal direction, then one square in an orthogonal direction.</p>
-
-<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1197.Minimum%20Knight%20Moves/images/knight.png" style="height: 200px; width: 200px;" /></p>
-
-<p>Return the&nbsp;minimum number of steps needed to move the knight to the square <code>[x, y]</code>.&nbsp; It is guaranteed the answer exists.</p>
+<p>A knight has 8 possible moves it can make, as illustrated below. Each move is two squares in a cardinal direction, then one square in an orthogonal direction.</p>
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1100-1199/1197.Minimum%20Knight%20Moves/images/knight.png" style="height: 250px; width: 250px;" />
+<p>Return <em>the minimum number of steps needed to move the knight to the square</em> <code>[x, y]</code>. It is guaranteed the answer exists.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -33,7 +31,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>|x| + |y| &lt;= 300</code></li>
+	<li><code>-300 &lt;= x, y &lt;= 300</code></li>
+	<li><code>0 &lt;= |x| + |y| &lt;= 300</code></li>
 </ul>
 
 ## Solutions
@@ -262,7 +261,7 @@ public:
                 if (m1.count(x * n + y)) continue;
                 if (m2.count(x * n + y)) return step + 1 + m2[x * n + y];
                 m1[x * n + y] = step + 1;
-                q.push({x, y}); 
+                q.push({x, y});
             }
         }
         return -1;

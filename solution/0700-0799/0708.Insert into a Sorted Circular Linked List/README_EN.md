@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>Given a node from a <strong>Circular Linked List</strong> which is sorted in ascending order,&nbsp;write a function to insert a value&nbsp;<code>insertVal</code> into the list such that it remains a&nbsp;sorted circular list. The given node can be a reference to <em>any</em> single node in the list, and may not be necessarily the smallest value in the circular&nbsp;list.</p>
+<p>Given a Circular Linked List node, which is sorted in ascending order, write a function to insert a value <code>insertVal</code> into the list such that it remains a sorted circular list. The given node can be a reference to any single node in the list and may not necessarily be the smallest value in the circular list.</p>
 
 <p>If there are multiple suitable places for insertion, you may choose any place to insert the new value. After the insertion, the circular list should remain sorted.</p>
 
-<p>If the list is empty (i.e., given node is <code>null</code>), you should create a new single circular list and return the reference to that single node. Otherwise, you should return the original given node.</p>
+<p>If the list is empty (i.e., the given node is <code>null</code>), you should create a new single circular list and return the reference to that single node. Otherwise, you should return the originally given node.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -42,9 +42,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= Number of Nodes &lt;= 5 * 10^4</code></li>
-	<li><code><font face="monospace">-10^6 &lt;= Node.val &lt;= 10^6</font></code></li>
-	<li><code>-10^6 &lt;=&nbsp;insertVal &lt;= 10^6</code></li>
+	<li>The number of nodes in the list is in the range <code>[0, 5 * 10<sup>4</sup>]</code>.</li>
+	<li><code>-10<sup>6</sup> &lt;= Node.val, insertVal &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## Solutions

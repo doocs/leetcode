@@ -31,19 +31,25 @@ product_name is the name of the product.
 | average_daily_sales | int     |
 +---------------------+---------+
 product_id is the primary key for this table. 
-period_start&nbsp;and period_end&nbsp;indicates the start and end date for sales period, both dates are inclusive.
-The average_daily_sales column holds the average daily&nbsp;sales amount of the items for the&nbsp;period.
-
+period_start and period_end indicate the start and end date for the sales period, and both dates are inclusive.
+The average_daily_sales column holds the average daily sales amount of the items for the period.
+The dates of the sales years are between 2018 to 2020.
 </pre>
 
-<p>Write an SQL query to&nbsp;report the&nbsp;Total sales&nbsp;amount of each item for each year, with corresponding product name,&nbsp;product_id, product_name and report_year.</p>
+<p>&nbsp;</p>
 
-<p>Dates of the sales years are between 2018 to 2020.&nbsp;Return the result table <strong>ordered</strong> by product_id and report_year.</p>
+<p>Write an SQL query to report the total sales amount of each item for each year, with corresponding <code>product_name</code>, <code>product_id</code>, <code>product_name</code>, and <code>report_year</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table <strong>ordered</strong> by <code>product_id</code> and <code>report_year</code>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Product</code> table:
+<strong>Input:</strong> 
+Product table:
 +------------+--------------+
 | product_id | product_name |
 +------------+--------------+
@@ -51,8 +57,7 @@ The average_daily_sales column holds the average daily&nbsp;sales amount of the 
 | 2          | LC T-Shirt   |
 | 3          | LC Keychain  |
 +------------+--------------+
-
-<code>Sales</code> table:
+Sales table:
 +------------+--------------+-------------+---------------------+
 | product_id | period_start | period_end  | average_daily_sales |
 +------------+--------------+-------------+---------------------+
@@ -60,8 +65,7 @@ The average_daily_sales column holds the average daily&nbsp;sales amount of the 
 | 2          | 2018-12-01   | 2020-01-01  | 10                  |
 | 3          | 2019-12-01   | 2020-01-31  | 1                   |
 +------------+--------------+-------------+---------------------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+--------------+-------------+--------------+
 | product_id | product_name | report_year | total_amount |
 +------------+--------------+-------------+--------------+
@@ -72,9 +76,10 @@ Result table:
 | 3          | LC Keychain  |    2019     | 31           |
 | 3          | LC Keychain  |    2020     | 31           |
 +------------+--------------+-------------+--------------+
-LC Phone was sold for the period of 2019-01-25 to 2019-02-28, and there are 35 days for this period. Total amount 35*100 = 3500.&nbsp;
-LC T-shirt was sold for the period of 2018-12-01&nbsp;to 2020-01-01, and there are 31, 365, 1 days for years 2018, 2019 and 2020 respectively.
-LC Keychain was sold for the period of 2019-12-01&nbsp;to 2020-01-31, and there are 31, 31 days for years 2019 and 2020 respectively.
+<strong>Explanation:</strong> 
+LC Phone was sold for the period of 2019-01-25 to 2019-02-28, and there are 35 days for this period. Total amount 35*100 = 3500. 
+LC T-shirt was sold for the period of 2018-12-01 to 2020-01-01, and there are 31, 365, 1 days for years 2018, 2019 and 2020 respectively.
+LC Keychain was sold for the period of 2019-12-01 to 2020-01-31, and there are 31, 31 days for years 2019 and 2020 respectively.
 </pre>
 
 ## Solutions

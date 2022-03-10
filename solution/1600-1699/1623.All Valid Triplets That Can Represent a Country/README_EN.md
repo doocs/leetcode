@@ -68,24 +68,24 @@ All student_name are distinct.
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>SchoolA</code> table:
+<strong>Input:</strong> 
+SchoolA table:
 +------------+--------------+
 | student_id | student_name |
 +------------+--------------+
 | 1          | Alice        |
 | 2          | Bob          |
 +------------+--------------+
-
-<code>SchoolB</code> table:
+SchoolB table:
 +------------+--------------+
 | student_id | student_name |
 +------------+--------------+
 | 3          | Tom          |
 +------------+--------------+
-
-<code>SchoolC</code> table:
+SchoolC table:
 +------------+--------------+
 | student_id | student_name |
 +------------+--------------+
@@ -93,14 +93,14 @@ All student_name are distinct.
 | 2          | Jerry        |
 | 10         | Alice        |
 +------------+--------------+
-
-Result table:
+<strong>Output:</strong> 
 +----------+----------+----------+
 | member_A | member_B | member_C |
 +----------+----------+----------+
 | Alice    | Tom      | Jerry    |
 | Bob      | Tom      | Alice    |
 +----------+----------+----------+
+<strong>Explanation:</strong> 
 Let us see all the possible triplets.
 - (Alice, Tom, Tom) --&gt; Rejected because member_B and member_C have the same name and the same ID.
 - (Alice, Tom, Jerry) --&gt; Valid triplet.

@@ -6,7 +6,11 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个未排序的整数数组，找到最长递增子序列的个数。</p>
+<p>给定一个未排序的整数数组<meta charset="UTF-8" />&nbsp;<code>nums</code>&nbsp;，&nbsp;<em>返回最长递增子序列的个数</em>&nbsp;。</p>
+
+<p><strong>注意</strong>&nbsp;这个数列必须是 <strong>严格</strong> 递增的。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1:</strong></p>
 
@@ -24,7 +28,16 @@
 <strong>解释:</strong> 最长递增子序列的长度是1，并且存在5个子序列的长度为1，因此输出5。
 </pre>
 
-<p><strong>注意:</strong>&nbsp;给定的数组长度不超过 2000 并且结果一定是32位有符号整数。</p>
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong>&nbsp;</p>
+
+<p><meta charset="UTF-8" /></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 2000</code></li>
+	<li><code>-10<sup>6</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
+</ul>
 
 ## 解法
 

@@ -18,7 +18,7 @@
 <ul>
 	<li><code>ans.length == rains.length</code></li>
 	<li><code>ans[i] == -1</code> if <code>rains[i] &gt; 0</code>.</li>
-	<li><code>ans[i]</code> is the lake you choose to dry in the <code>ith</code> day&nbsp;if <code>rains[i] == 0</code>.</li>
+	<li><code>ans[i]</code> is the lake you choose to dry in the <code>ith</code> day if <code>rains[i] == 0</code>.</li>
 </ul>
 
 <p>If there are multiple valid answers return <strong>any</strong> of them. If it is impossible to avoid flood return <strong>an empty array</strong>.</p>
@@ -59,22 +59,6 @@ It is easy that this scenario is flood-free. [-1,-1,1,2,-1,-1] is another accept
 <strong>Output:</strong> []
 <strong>Explanation:</strong> After the second day, full lakes are  [1,2]. We have to dry one lake in the third day.
 After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter which lake you choose to dry in the 3rd day, the other one will flood.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> rains = [69,0,0,0,69]
-<strong>Output:</strong> [-1,69,1,1,-1]
-<strong>Explanation:</strong> Any solution on one of the forms [-1,69,x,y,-1], [-1,x,69,y,-1] or [-1,x,y,69,-1] is acceptable where 1 &lt;= x,y &lt;= 10^9
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> rains = [10,20,20]
-<strong>Output:</strong> []
-<strong>Explanation:</strong> It will rain over lake 20 two consecutive days. There is no chance to dry any lake.
 </pre>
 
 <p>&nbsp;</p>

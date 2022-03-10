@@ -21,7 +21,7 @@
 <pre>
 <strong>Input:</strong> nums = [0,1,2,2]
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> The special subsequences are [<u>0</u>,<u>1</u>,<u>2</u>,2], [<u>0</u>,<u>1</u>,2,<u>2</u>], and [<u>0</u>,<u>1</u>,<u>2</u>,<u>2</u>].
+<strong>Explanation:</strong> The special subsequences are bolded [<strong><u>0</u></strong>,<strong><u>1</u></strong>,<strong><u>2</u></strong>,2], [<strong><u>0</u></strong>,<strong><u>1</u></strong>,2,<strong><u>2</u></strong>], and [<strong><u>0</u></strong>,<strong><u>1</u></strong>,<strong><u>2</u></strong>,<strong><u>2</u></strong>].
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -37,14 +37,14 @@
 <pre>
 <strong>Input:</strong> nums = [0,1,2,0,1,2]
 <strong>Output:</strong> 7
-<strong>Explanation:</strong> The special subsequences are:
-- [<u>0</u>,<u>1</u>,<u>2</u>,0,1,2]
-- [<u>0</u>,<u>1</u>,2,0,1,<u>2</u>]
-- [<u>0</u>,<u>1</u>,<u>2</u>,0,1,<u>2</u>]
-- [<u>0</u>,<u>1</u>,2,0,<u>1</u>,<u>2</u>]
-- [<u>0</u>,1,2,<u>0</u>,<u>1</u>,<u>2</u>]
-- [<u>0</u>,1,2,0,<u>1</u>,<u>2</u>]
-- [0,1,2,<u>0</u>,<u>1</u>,<u>2</u>]
+<strong>Explanation:</strong> The special subsequences are bolded:
+- [<strong><u>0</u></strong>,<strong><u>1</u></strong>,<strong><u>2</u></strong>,0,1,2]
+- [<strong><u>0</u></strong>,<strong><u>1</u></strong>,2,0,1,<strong><u>2</u></strong>]
+- [<strong><u>0</u></strong>,<strong><u>1</u></strong>,<strong><u>2</u></strong>,0,1,<strong><u>2</u></strong>]
+- [<strong><u>0</u></strong>,<strong><u>1</u></strong>,2,0,<strong><u>1</u></strong>,<strong><u>2</u></strong>]
+- [<strong><u>0</u></strong>,1,2,<strong><u>0</u></strong>,<strong><u>1</u></strong>,<strong><u>2</u></strong>]
+- [<strong><u>0</u></strong>,1,2,0,<strong><u>1</u></strong>,<strong><u>2</u></strong>]
+- [0,1,2,<strong><u>0</u></strong>,<strong><u>1</u></strong>,<strong><u>2</u></strong>]
 </pre>
 
 <p>&nbsp;</p>

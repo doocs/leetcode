@@ -35,13 +35,17 @@ The table has information about the id of each student at a university and the i
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the id and the name of all students who are enrolled in departments that no longer exists.</p>
+<p>Write an SQL query to find the id and the name of all students who are enrolled in departments that no longer exist.</p>
 
-<p>Return the result table in any order.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Departments table:
 +------+--------------------------+
 | id   | name                     |
@@ -50,7 +54,6 @@ Departments table:
 | 7    | Computer Engineering     |
 | 13   | Bussiness Administration |
 +------+--------------------------+
-
 Students table:
 +------+----------+---------------+
 | id   | name     | department_id |
@@ -66,8 +69,7 @@ Students table:
 | 7    | Daiana   | 33            |
 | 11   | Madelynn | 1             |
 +------+----------+---------------+
-
-Result table:
+<strong>Output:</strong> 
 +------+----------+
 | id   | name     |
 +------+----------+
@@ -76,8 +78,8 @@ Result table:
 | 4    | Jasmine  |
 | 3    | Steve    |
 +------+----------+
-
-John, Daiana, Steve and Jasmine are enrolled in departments 14, 33, 74 and 77 respectively. department 14, 33, 74 and 77 doesn&#39;t exist in the Departments table.
+<strong>Explanation:</strong> 
+John, Daiana, Steve, and Jasmine are enrolled in departments 14, 33, 74, and 77 respectively. department 14, 33, 74, and 77 do not exist in the Departments table.
 </pre>
 
 ## Solutions

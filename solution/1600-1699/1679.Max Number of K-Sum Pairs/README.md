@@ -89,7 +89,7 @@ class Solution {
                 ans++;
                 l++;
                 r--;
-            }  
+            }
         }
         return ans;
     }

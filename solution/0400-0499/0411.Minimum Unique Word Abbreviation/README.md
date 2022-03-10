@@ -16,13 +16,13 @@
 	<li><code>"substitution"</code> (不替换子字符串)</li>
 </ul>
 
-<p>注意：<code>"s55n"</code> (<code>"s <strong>ubsti</strong> <strong>tutio</strong> n"</code>) 不是 <code>"substitution"</code> 的有效缩写形式，因为它试图替换两个相邻的子字符串。</p>
+<p>注意：<code>"s55n"</code> (<code>"s <strong>ubsti</strong> <strong>tutio</strong> n"</code>) 不是&nbsp;<code>"substitution"</code> 的有效缩写形式，因为它试图替换两个相邻的子字符串。</p>
 
 <p>缩写的 <strong>长度</strong> 是未被替换的字母数加上被替换的字符串数。例如，缩写 <code>"s10n"</code> 的长度为 <code>3</code>（<code>2</code> 个字母 + <code>1</code> 个子字符串），而 <code>"su3i1u2on"</code> 的长度为 <code>9</code>（<code>6</code> 个字母 + <code>3</code> 子字符串）。</p>
 
-<p>给你一个目标字符串 <code>target</code> 和一个字符串数组 <code>dictionary</code> 作为字典，为<em> </em><code>target</code> 找出并返回一个 <strong>最短 </strong>长度的缩写字符串，同时这个缩写字符串 <strong>不是</strong> 字典 <code>dictionary</code> 中其他字符串的缩写形式。如果有多个有效答案，可以返回其中任意一个。</p>
+<p>给你一个目标字符串 <code>target</code> 和一个字符串数组 <code>dictionary</code> 作为字典，为<em> </em><code>target</code> 找出并返回一个&nbsp;<strong>最短 </strong>长度的缩写字符串，同时这个缩写字符串 <strong>不是</strong> 字典&nbsp;<code>dictionary</code> 中其他字符串的缩写形式。如果有多个有效答案，可以返回其中任意一个。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -46,20 +46,21 @@
 因为它们不是字典中其他单词的缩写形式，返回其中任意一个都是正确的。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>target.length == m</code></li>
 	<li><code>dictionary.length == n</code></li>
-	<li><code>1 <= m <= 21</code></li>
-	<li><code>0 <= n <= 1000</code></li>
-	<li><code>1 <= dictionary[i] <= 100</code></li>
-	<li>如果 <code>n > 0</code> ，那么 <code>log<sub>2</sub>(n) + m <= 21</code></li>
+	<li><code>1 &lt;= m &lt;= 21</code></li>
+	<li><code>0 &lt;= n &lt;= 1000</code></li>
+	<li><code>1 &lt;= dictionary[i].length&nbsp;&lt;= 100</code></li>
+	<li>如果 <code>n &gt; 0</code> ，那么 <code>log<sub>2</sub>(n) + m &lt;= 21</code></li>
+	<li><code>target</code>&nbsp;和&nbsp;<code>dictionary[i]</code>&nbsp;仅包含小写字符</li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 ## 解法
 

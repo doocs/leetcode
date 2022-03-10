@@ -16,7 +16,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;RLRRLLRLRL&quot;
 <strong>Output:</strong> 4
-<strong>Explanation: </strong>s can be split into &quot;RL&quot;, &quot;RRLL&quot;, &quot;RL&quot;, &quot;RL&quot;, each substring contains same number of &#39;L&#39; and &#39;R&#39;.
+<strong>Explanation:</strong> s can be split into &quot;RL&quot;, &quot;RRLL&quot;, &quot;RL&quot;, &quot;RL&quot;, each substring contains same number of &#39;L&#39; and &#39;R&#39;.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -24,7 +24,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;RLLLLRRRLR&quot;
 <strong>Output:</strong> 3
-<strong>Explanation: </strong>s can be split into &quot;RL&quot;, &quot;LLLRRR&quot;, &quot;LR&quot;, each substring contains same number of &#39;L&#39; and &#39;R&#39;.
+<strong>Explanation:</strong> s can be split into &quot;RL&quot;, &quot;LLLRRR&quot;, &quot;LR&quot;, each substring contains same number of &#39;L&#39; and &#39;R&#39;.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -32,15 +32,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;LLLLRRRR&quot;
 <strong>Output:</strong> 1
-<strong>Explanation: </strong>s can be split into &quot;LLLLRRRR&quot;.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;RLRRRLLRLL&quot;
-<strong>Output:</strong> 2
-<strong>Explanation: </strong>s can be split into &quot;RL&quot;, &quot;RRRLLRLL&quot;, since each substring contains an equal number of &#39;L&#39; and &#39;R&#39;
+<strong>Explanation:</strong> s can be split into &quot;LLLLRRRR&quot;.
 </pre>
 
 <p>&nbsp;</p>

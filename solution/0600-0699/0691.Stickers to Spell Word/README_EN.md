@@ -4,81 +4,45 @@
 
 ## Description
 
-<p>
+<p>We are given <code>n</code> different types of <code>stickers</code>. Each sticker has a lowercase English word on it.</p>
 
-We are given N different types of stickers. Each sticker has a lowercase English word on it.
+<p>You would like to spell out the given string <code>target</code> by cutting individual letters from your collection of stickers and rearranging them. You can use each sticker more than once if you want, and you have infinite quantities of each sticker.</p>
 
-</p><p>
+<p>Return <em>the minimum number of stickers that you need to spell out </em><code>target</code>. If the task is impossible, return <code>-1</code>.</p>
 
-You would like to spell out the given <code>target</code> string by cutting individual letters from your collection of stickers and rearranging them.
+<p><strong>Note:</strong> In all test cases, all words were chosen randomly from the <code>1000</code> most common US English words, and <code>target</code> was chosen as a concatenation of two random words.</p>
 
-</p><p>
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
-You can use each sticker more than once if you want, and you have infinite quantities of each sticker.
-
-</p><p>
-
-What is the minimum number of stickers that you need to spell out the <code>target</code>? If the task is impossible, return -1.
-
-</p>
-
-<p><b>Example 1:</b></p>
-
-<p>Input:<pre>
-
-["with", "example", "science"], "thehat"
-
-</pre></p>
-
-<p>Output:<pre>
-
-3
-
-</pre></p>
-
-<p>Explanation:<pre>
-
-We can use 2 "with" stickers, and 1 "example" sticker.
-
-After cutting and rearrange the letters of those stickers, we can form the target "thehat".
-
+<pre>
+<strong>Input:</strong> stickers = [&quot;with&quot;,&quot;example&quot;,&quot;science&quot;], target = &quot;thehat&quot;
+<strong>Output:</strong> 3
+<strong>Explanation:</strong>
+We can use 2 &quot;with&quot; stickers, and 1 &quot;example&quot; sticker.
+After cutting and rearrange the letters of those stickers, we can form the target &quot;thehat&quot;.
 Also, this is the minimum number of stickers necessary to form the target string.
+</pre>
 
-</pre></p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Example 2:</b></p>
+<pre>
+<strong>Input:</strong> stickers = [&quot;notice&quot;,&quot;possible&quot;], target = &quot;basicbasic&quot;
+<strong>Output:</strong> -1
+Explanation:
+We cannot form the target &quot;basicbasic&quot; from cutting letters from the given stickers.
+</pre>
 
-<p>Input:<pre>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-["notice", "possible"], "basicbasic"
-
-</pre></p>
-
-<p>Output:<pre>
-
--1
-
-</pre></p>
-
-<p>Explanation:<pre>
-
-We can't form the target "basicbasic" from cutting letters from the given stickers.
-
-</pre></p>
-
-<p><b>Note:</b>
-
-<li><code>stickers</code> has length in the range <code>[1, 50]</code>.</li>
-
-<li><code>stickers</code> consists of lowercase English words (without apostrophes).</li>
-
-<li><code>target</code> has length in the range <code>[1, 15]</code>, and consists of lowercase English letters.</li>
-
-<li>In all test cases, all words were chosen <u>randomly</u> from the 1000 most common US English words, and the target was chosen as a concatenation of two random words.</li>
-
-<li>The time limit may be more challenging than usual.  It is expected that a 50 sticker test case can be solved within 35ms on average.</li>
-
-</p>
+<ul>
+	<li><code>n == stickers.length</code></li>
+	<li><code>1 &lt;= n &lt;= 50</code></li>
+	<li><code>1 &lt;= stickers[i].length &lt;= 10</code></li>
+	<li><code>1 &lt;= target &lt;= 15</code></li>
+	<li><code>stickers[i]</code> and <code>target</code> consist of lowercase English letters.</li>
+</ul>
 
 ## Solutions
 

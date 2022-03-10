@@ -14,14 +14,14 @@
 | product_id  | int  |
 | quantity    | int  |
 +-------------+------+
-(order_id, product_id) is the primary key&nbsp;for this table.
+(order_id, product_id) is the primary key for this table.
 A single order is represented as multiple rows, one row for each product in the order.
 Each row of this table contains the quantity ordered of the product product_id in the order order_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>You are running an ecommerce site that is looking for <strong>imbalanced orders</strong>. An <strong>imbalanced order</strong> is one whose <strong>maximum</strong> quantity is <strong>strictly greater</strong> than the <strong>average</strong> quantity of <strong>every order (including itself)</strong>.</p>
+<p>You are running an e-commerce site that is looking for <strong>imbalanced orders</strong>. An <strong>imbalanced order</strong> is one whose <strong>maximum</strong> quantity is <strong>strictly greater</strong> than the <strong>average</strong> quantity of <strong>every order (including itself)</strong>.</p>
 
 <p>The <strong>average </strong>quantity of an order is calculated as <code>(total quantity of all products in the order) / (number of different products in the order)</code>. The <strong>maximum</strong> quantity of an order is the highest <code>quantity</code> of any single product in the order.</p>
 
@@ -29,11 +29,13 @@ Each row of this table contains the quantity ordered of the product product_id i
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 OrdersDetails table:
 +----------+------------+----------+
 | order_id | product_id | quantity |
@@ -53,15 +55,14 @@ OrdersDetails table:
 | 3        | 9          | 20       |
 | 2        | 9          | 4        |
 +----------+------------+----------+
-
-Result table:
+<strong>Output:</strong> 
 +----------+
 | order_id |
 +----------+
 | 1        |
 | 3        |
 +----------+
-
+<strong>Explanation:</strong> 
 The average quantity of each order is:
 - order_id=1: (12+10+15)/3 = 12.3333333
 - order_id=2: (8+4+6+4)/4 = 5.5

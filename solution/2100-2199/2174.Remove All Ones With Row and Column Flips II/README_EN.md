@@ -60,7 +60,6 @@ There are no 1&#39;s to remove so return 0.
 	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 </ul>
 
-
 ## Solutions
 
 <!-- tabs:start -->

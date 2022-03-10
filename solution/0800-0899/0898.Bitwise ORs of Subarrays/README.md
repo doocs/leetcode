@@ -6,17 +6,18 @@
 
 <!-- 这里写题目描述 -->
 
-<p>我们有一个非负整数数组&nbsp;<code>A</code>。</p>
+<p>我们有一个非负整数数组<meta charset="UTF-8" />&nbsp;<code>arr</code>&nbsp;。</p>
 
-<p>对于每个（连续的）子数组&nbsp;<code>B =&nbsp;[A[i], A[i+1], ..., A[j]]</code> （&nbsp;<code>i &lt;= j</code>），我们对&nbsp;<code>B</code>&nbsp;中的每个元素进行按位或操作，获得结果&nbsp;<code>A[i] | A[i+1] | ... | A[j]</code>。</p>
+<p>对于每个（连续的）子数组<meta charset="UTF-8" />&nbsp;<code>sub = [arr[i], arr[i + 1], ..., arr[j]]</code>&nbsp;（&nbsp;<code>i &lt;= j</code>），我们对<meta charset="UTF-8" />&nbsp;<code>sub</code>&nbsp;中的每个元素进行按位或操作，获得结果<meta charset="UTF-8" />&nbsp;<code>arr[i] | arr[i + 1] | ... | arr[j]</code>&nbsp;。</p>
 
-<p>返回可能结果的数量。 （多次出现的结果在最终答案中仅计算一次。）</p>
+<p>返回可能结果的数量。 多次出现的结果在最终答案中仅计算一次。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>[0]
+<pre>
+<strong>输入：</strong>arr = [0]
 <strong>输出：</strong>1
 <strong>解释：</strong>
 只有一个可能的结果 0 。
@@ -24,7 +25,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>[1,1,2]
+<pre>
+<strong>输入：</strong>arr = [1,1,2]
 <strong>输出：</strong>3
 <strong>解释：</strong>
 可能的子数组为 [1]，[1]，[2]，[1, 1]，[1, 2]，[1, 1, 2]。
@@ -34,7 +36,8 @@
 
 <p><strong>示例&nbsp;3：</strong></p>
 
-<pre><strong>输入：</strong>[1,2,4]
+<pre>
+<strong>输入：</strong>arr = [1,2,4]
 <strong>输出：</strong>6
 <strong>解释：</strong>
 可能的结果是 1，2，3，4，6，以及 7 。
@@ -42,12 +45,12 @@
 
 <p>&nbsp;</p>
 
-<p><strong>提示：</strong></p>
+<p><strong>提示：</strong><meta charset="UTF-8" /></p>
 
-<ol>
-	<li><code>1 &lt;= A.length &lt;= 50000</code></li>
-	<li><code>0 &lt;= A[i] &lt;= 10^9</code></li>
-</ol>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= nums[i]&nbsp;&lt;= 10<sup>9</sup></code>​​​​​​​</li>
+</ul>
 
 ## 解法
 

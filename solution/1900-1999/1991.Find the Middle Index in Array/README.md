@@ -18,7 +18,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>nums = [2,3,-1,<em><strong>8</strong></em>,4]
+<pre>
+<b>输入：</b>nums = [2,3,-1,<em><strong>8</strong></em>,4]
 <b>输出：</b>3
 <strong>解释：</strong>
 下标 3 之前的数字和为：2 + 3 + -1 = 4
@@ -27,7 +28,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>nums = [1,-1,<em><strong>4</strong></em>]
+<pre>
+<b>输入：</b>nums = [1,-1,<em><strong>4</strong></em>]
 <b>输出：</b>2
 <strong>解释：</strong>
 下标 2 之前的数字和为：1 + -1 = 0
@@ -36,7 +38,8 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre><b>输入：</b>nums = [2,5]
+<pre>
+<b>输入：</b>nums = [2,5]
 <b>输出：</b>-1
 <b>解释：</b>
 不存在符合要求的 middleIndex 。
@@ -44,7 +47,8 @@
 
 <p><strong>示例 4：</strong></p>
 
-<pre><b>输入：</b>nums = [<em><strong>1</strong></em>]
+<pre>
+<b>输入：</b>nums = [<em><strong>1</strong></em>]
 <b>输出：</b>0
 <strong>解释：</strong>
 下标 0 之前的数字和为：0
@@ -59,6 +63,10 @@
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>-1000 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>本题与主站 724 题相同：<a href="https://leetcode-cn.com/problems/find-pivot-index/" target="_blank">https://leetcode-cn.com/problems/find-pivot-index/</a></p>
 
 ## 解法
 

@@ -12,12 +12,14 @@
 
 <ul>
 	<li>例如，当前回合中，运动员 <code>1, 2, 4, 6, 7</code> 站成一排
-	<ul>
-		<li>运动员 <code>1</code> 需要和运动员 <code>7</code> 比拼</li>
-		<li>运动员 <code>2</code> 需要和运动员 <code>6</code> 比拼</li>
-		<li>运动员 <code>4</code> 轮空晋级下一回合</li>
-	</ul>
-	</li>
+
+    <ul>
+    	<li>运动员 <code>1</code> 需要和运动员 <code>7</code> 比拼</li>
+    	<li>运动员 <code>2</code> 需要和运动员 <code>6</code> 比拼</li>
+    	<li>运动员 <code>4</code> 轮空晋级下一回合</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>每回合结束后，获胜者将会基于最开始分配给他们的原始顺序（升序）重新排成一排。</p>

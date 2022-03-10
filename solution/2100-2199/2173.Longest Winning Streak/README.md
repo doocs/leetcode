@@ -23,7 +23,7 @@ The result column is an ENUM type of (&#39;Win&#39;, &#39;Draw&#39;, &#39;Lose&#
 
 <p>&nbsp;</p>
 
-<p>The winning streak of a player is the number of consecutive wins uninterrupted by draws or losses.</p>
+<p>The <strong>winning streak</strong> of a player is the number of consecutive wins uninterrupted by draws or losses.</p>
 
 <p>Write an SQL query to count the longest winning streak for each player.</p>
 

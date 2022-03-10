@@ -30,7 +30,7 @@
 
 <ul>
 	<li><code>1 &lt;= matchsticks.length &lt;= 15</code></li>
-	<li><code>0 &lt;= matchsticks[i] &lt;= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= matchsticks[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
 ## Solutions

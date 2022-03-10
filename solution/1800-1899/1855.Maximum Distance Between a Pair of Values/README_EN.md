@@ -40,20 +40,11 @@ The maximum distance is 1 with pair (0,1).
 The maximum distance is 2 with pair (2,4).
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums1 = [5,4], nums2 = [3,2]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> There are no valid pairs, so return 0.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums1.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>1 &lt;= nums2.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= nums1.length, nums2.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= nums1[i], nums2[j] &lt;= 10<sup>5</sup></code></li>
 	<li>Both <code>nums1</code> and <code>nums2</code> are <strong>non-increasing</strong>.</li>
 </ul>

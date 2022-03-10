@@ -87,7 +87,8 @@ class Solution {
 ```ts
 function reverseOnlyLetters(s: string): string {
     const n = s.length;
-    let i = 0, j = n - 1;
+    let i = 0,
+        j = n - 1;
     let ans = [...s];
     while (i < j) {
         while (!/[a-zA-Z]/.test(ans[i]) && i < j) i++;
@@ -97,7 +98,7 @@ function reverseOnlyLetters(s: string): string {
         j--;
     }
     return ans.join('');
-};
+}
 ```
 
 ### **C++**

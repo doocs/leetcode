@@ -14,18 +14,20 @@
 
 <ul>
 	<li>For example, folders <code>&quot;/a&quot;</code> and <code>&quot;/b&quot;</code> in the file structure below are identical. They (as well as their subfolders) should <strong>all</strong> be marked:
-	<ul>
-		<li><code>/a</code></li>
-		<li><code>/a/x</code></li>
-		<li><code>/a/x/y</code></li>
-		<li><code>/a/z</code></li>
-		<li><code>/b</code></li>
-		<li><code>/b/x</code></li>
-		<li><code>/b/x/y</code></li>
-		<li><code>/b/z</code></li>
-	</ul>
-	</li>
-	<li>However, if the file structure also included the path <code>&quot;/b/w&quot;</code>, then the folders <code>&quot;/a&quot;</code> and <code>&quot;/b&quot;</code> would not be identical. Note that <code>&quot;/a/x&quot;</code> and <code>&quot;/b/x&quot;</code> would still be considered identical even with the added folder.</li>
+
+    <ul>
+    	<li><code>/a</code></li>
+    	<li><code>/a/x</code></li>
+    	<li><code>/a/x/y</code></li>
+    	<li><code>/a/z</code></li>
+    	<li><code>/b</code></li>
+    	<li><code>/b/x</code></li>
+    	<li><code>/b/x/y</code></li>
+    	<li><code>/b/z</code></li>
+    </ul>
+    </li>
+    <li>However, if the file structure also included the path <code>&quot;/b/w&quot;</code>, then the folders <code>&quot;/a&quot;</code> and <code>&quot;/b&quot;</code> would not be identical. Note that <code>&quot;/a/x&quot;</code> and <code>&quot;/b/x&quot;</code> would still be considered identical even with the added folder.</li>
+
 </ul>
 
 <p>Once all the identical folders and their subfolders have been marked, the file system will <strong>delete</strong> all of them. The file system only runs the deletion once, so any folders that become identical after the initial deletion are not deleted.</p>
@@ -60,29 +62,6 @@ Note that folders &quot;/a&quot; and &quot;/c&quot; are identical after the dele
 <strong>Output:</strong> [[&quot;c&quot;],[&quot;c&quot;,&quot;d&quot;],[&quot;a&quot;],[&quot;a&quot;,&quot;b&quot;]]
 <strong>Explanation:</strong> All folders are unique in the file system.
 Note that the returned array can be in a different order as the order does not matter.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/images/lc-dupfolder4_.jpg" style="width: 300px; height: 290px;" />
-<pre>
-<strong>Input:</strong> paths = [[&quot;a&quot;],[&quot;a&quot;,&quot;x&quot;],[&quot;a&quot;,&quot;x&quot;,&quot;y&quot;],[&quot;a&quot;,&quot;z&quot;],[&quot;b&quot;],[&quot;b&quot;,&quot;x&quot;],[&quot;b&quot;,&quot;x&quot;,&quot;y&quot;],[&quot;b&quot;,&quot;z&quot;]]
-<strong>Output:</strong> []
-<strong>Explanation:</strong> The file structure is as shown.
-Folders &quot;/a/x&quot; and &quot;/b/x&quot; (and their subfolders) are marked for deletion because they both contain an
-empty folder named &quot;y&quot;.
-Folders &quot;/a&quot; and &quot;/b&quot; (and their subfolders) are marked for deletion because they both contain an empty
-folder &quot;z&quot; and the folder &quot;x&quot; described above.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1948.Delete%20Duplicate%20Folders%20in%20System/images/lc-dupfolder5_.jpg" style="width: 300px; height: 282px;" />
-<pre>
-<strong>Input:</strong> paths = [[&quot;a&quot;],[&quot;a&quot;,&quot;x&quot;],[&quot;a&quot;,&quot;x&quot;,&quot;y&quot;],[&quot;a&quot;,&quot;z&quot;],[&quot;b&quot;],[&quot;b&quot;,&quot;x&quot;],[&quot;b&quot;,&quot;x&quot;,&quot;y&quot;],[&quot;b&quot;,&quot;z&quot;],[&quot;b&quot;,&quot;w&quot;]]
-<strong>Output:</strong> [[&quot;b&quot;],[&quot;b&quot;,&quot;w&quot;],[&quot;b&quot;,&quot;z&quot;],[&quot;a&quot;],[&quot;a&quot;,&quot;z&quot;]]
-<strong>Explanation:</strong> This has the same structure as the previous example, except with the added &quot;/b/w&quot;.
-Folders &quot;/a/x&quot; and &quot;/b/x&quot; are still marked, but &quot;/a&quot; and &quot;/b&quot; are no longer marked because &quot;/b&quot; has the
-empty folder named &quot;w&quot; and &quot;/a&quot; does not.
-Note that &quot;/a/z&quot; and &quot;/b/z&quot; are not marked because the set of identical subfolders must be non-empty, but these folders are empty.
 </pre>
 
 <p>&nbsp;</p>

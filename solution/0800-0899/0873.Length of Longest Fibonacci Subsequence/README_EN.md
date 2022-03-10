@@ -4,16 +4,16 @@
 
 ## Description
 
-<p>A sequence <code>X<sub>1</sub>, X<sub>2</sub>, ..., X<sub>n</sub></code> is <em>Fibonacci-like</em> if:</p>
+<p>A sequence <code>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub></code> is <em>Fibonacci-like</em> if:</p>
 
 <ul>
 	<li><code>n &gt;= 3</code></li>
-	<li><code>X<sub>i</sub> + X<sub>i+1</sub> = X<sub>i+2</sub></code> for all <code>i + 2 &lt;= n</code></li>
+	<li><code>x<sub>i</sub> + x<sub>i+1</sub> == x<sub>i+2</sub></code> for all <code>i + 2 &lt;= n</code></li>
 </ul>
 
-<p>Given a <b>strictly increasing</b> array <code>arr</code> of positive integers forming a sequence, return the <strong>length</strong> of the longest Fibonacci-like subsequence of <code>arr</code>. If one does not exist, return <code>0</code>.</p>
+<p>Given a <b>strictly increasing</b> array <code>arr</code> of positive integers forming a sequence, return <em>the <strong>length</strong> of the longest Fibonacci-like subsequence of</em> <code>arr</code>. If one does not exist, return <code>0</code>.</p>
 
-<p><em>A subsequence is derived from another sequence <code>arr</code> by deleting any number of elements (including none) from <code>arr</code>, without changing the order of the remaining elements. For example, <code>[3, 5, 8]</code> is a subsequence of <code>[3, 4, 5, 6, 7, 8]</code>.</em></p>
+<p>A <strong>subsequence</strong> is derived from another sequence <code>arr</code> by deleting any number of elements (including none) from <code>arr</code>, without changing the order of the remaining elements. For example, <code>[3, 5, 8]</code> is a subsequence of <code>[3, 4, 5, 6, 7, 8]</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

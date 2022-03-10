@@ -6,27 +6,36 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个矩阵 <code>mat</code>，其中每一行的元素都已经按 <strong>严格递增</strong> 顺序排好了。请你帮忙找出在所有这些行中 <strong>最小的公共元素</strong>。</p>
+<p>给你一个&nbsp;<code>m x n</code>&nbsp;的矩阵&nbsp;<code>mat</code>，其中每一行的元素均符合&nbsp;<strong>严格递增</strong> 。请返回 <em>所有行中的&nbsp;<strong>最小公共元素</strong>&nbsp;</em>。</p>
 
-<p>如果矩阵中没有这样的公共元素，就请返回 <code>-1</code>。</p>
+<p>如果矩阵中没有这样的公共元素，就请返回&nbsp;<code>-1</code>。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>mat = [[1,2,3,4,5],[2,4,5,8,10],[3,5,7,9,11],[1,3,5,7,9]]
 <strong>输出：</strong>5
 </pre>
 
-<p> </p>
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<b>输入：</b>mat = [[1,2,3],[2,3,4],[2,3,5]]
+<strong>输出：</strong> 2
+</pre>
+
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= mat.length, mat[i].length <= 500</code></li>
-	<li><code>1 <= mat[i][j] <= 10^4</code></li>
-	<li><code>mat[i]</code> 已按严格递增顺序排列。</li>
+	<li><code>m == mat.length</code></li>
+	<li><code>n == mat[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 500</code></li>
+	<li><code>1 &lt;= mat[i][j] &lt;= 10<sup>4</sup></code></li>
+	<li><code>mat[i]</code>&nbsp;已按严格递增顺序排列。</li>
 </ul>
 
 ## 解法

@@ -24,15 +24,17 @@ Note that user1_id &lt; user2_id.
 
 <p>Write an SQL query to find all the <strong>strong friendships</strong>.</p>
 
-<p>Note that the result table should not contain duplicates and the strong friendships should appear in the same order they appeared in the input..</p>
+<p>Note that the result table should not contain duplicates with <code>user1_id &lt; user2_id</code>.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Friendship table:
 +----------+----------+
 | user1_id | user2_id |
@@ -50,14 +52,14 @@ Friendship table:
 | 3        | 6        |
 | 2        | 6        |
 +----------+----------+
-
-Result table:
+<strong>Output:</strong> 
 +----------+----------+---------------+
 | user1_id | user2_id | common_friend |
 +----------+----------+---------------+
 | 1        | 2        | 4             |
 | 1        | 3        | 3             |
 +----------+----------+---------------+
+<strong>Explanation:</strong> 
 Users 1 and 2 have 4 common friends (3, 4, 5, and 6).
 Users 1 and 3 have 3 common friends (2, 6, and 7).
 We did not include the friendship of users 2 and 3 because they only have two common friends (1 and 6).

@@ -6,6 +6,8 @@
 
 <p>Given an <code>m x n</code> 2D binary grid <code>grid</code> which represents a map of <code>&#39;1&#39;</code>s (land) and <code>&#39;0&#39;</code>s (water), return <em>the number of islands</em>.</p>
 
+<p>An <strong>island</strong> is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -62,7 +64,7 @@ class Solution:
                 x, y = i + a, j + b
                 if 0 <= x < m and 0 <= y < n and grid[x][y] == '1':
                     dfs(x, y)
-        
+
         ans = 0
         m, n = len(grid), len(grid[0])
         for i in range(m):
@@ -108,7 +110,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         m, n = len(grid), len(grid[0])
         p = list(range(m * n))
         for i in range(m):
@@ -316,7 +318,7 @@ function numIslands(grid: string[][]): number {
         }
     }
     return ans;
-};
+}
 ```
 
 Union find:
@@ -358,7 +360,7 @@ function numIslands(grid: string[][]): number {
         }
     }
     return ans;
-};
+}
 ```
 
 ### **C++**

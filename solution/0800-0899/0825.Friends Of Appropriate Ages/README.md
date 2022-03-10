@@ -6,54 +6,56 @@
 
 <!-- 这里写题目描述 -->
 
-<p>人们会互相发送好友请求，现在给定一个包含有他们年龄的数组，<code>ages[i]</code> 表示第 i 个人的年龄。</p>
+<p>在社交媒体网站上有 <code>n</code> 个用户。给你一个整数数组 <code>ages</code> ，其中 <code>ages[i]</code> 是第 <code>i</code> 个用户的年龄。</p>
 
-<p>当满足以下任一条件时，A 不能给 B（A、B不为同一人）发送好友请求：</p>
+<p>如果下述任意一个条件为真，那么用户 <code>x</code> 将不会向用户 <code>y</code>（<code>x != y</code>）发送好友请求：</p>
 
 <ul>
-	<li><code>age[B] <= 0.5 * age[A] + 7</code></li>
-	<li><code>age[B] > age[A]</code></li>
-	<li><code>age[B] > 100 && age[A] < 100</code></li>
+	<li><code>ages[y] &lt;= 0.5 * ages[x] + 7</code></li>
+	<li><code>ages[y] &gt; ages[x]</code></li>
+	<li><code>ages[y] &gt; 100 &amp;&amp; ages[x] &lt; 100</code></li>
 </ul>
 
-<p>否则，A 可以给 B 发送好友请求。</p>
+<p>否则，<code>x</code> 将会向 <code>y</code> 发送一条好友请求。</p>
 
-<p>注意如果 A 向 B 发出了请求，不等于 B 也一定会向 A 发出请求。而且，人们不会给自己发送好友请求。 </p>
+<p>注意，如果 <code>x</code> 向 <code>y</code> 发送一条好友请求，<code>y</code> 不必也向 <code>x</code> 发送一条好友请求。另外，用户不会向自己发送好友请求。</p>
 
-<p>求总共会发出多少份好友请求?</p>
+<p>返回在该社交媒体网站上产生的好友请求总数。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>[16,16]
+<strong>输入：</strong>ages = [16,16]
 <strong>输出：</strong>2
-<strong>解释：</strong>二人可以互发好友申请。
+<strong>解释：</strong>2 人互发好友请求。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>[16,17,18]
+<strong>输入：</strong>ages = [16,17,18]
 <strong>输出：</strong>2
-<strong>解释：</strong>好友请求可产生于 17 -> 16, 18 -> 17.</pre>
+<strong>解释：</strong>产生的好友请求为 17 -&gt; 16 ，18 -&gt; 17 。
+</pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>[20,30,100,110,120]
+<strong>输入：</strong>ages = [20,30,100,110,120]
 <strong>输出：</strong>3
-<strong>解释：</strong>好友请求可产生于 110 -> 100, 120 -> 110, 120 -> 100.
+<strong>解释：</strong>产生的好友请求为 110 -&gt; 100 ，120 -&gt; 110 ，120 -&gt; 100 。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= ages.length <= 20000</code></li>
-	<li><code>1 <= ages[i] <= 120</code></li>
+	<li><code>n == ages.length</code></li>
+	<li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= ages[i] &lt;= 120</code></li>
 </ul>
 
 ## 解法

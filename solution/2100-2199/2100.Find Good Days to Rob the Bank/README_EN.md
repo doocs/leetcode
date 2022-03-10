@@ -49,15 +49,6 @@ No day has 2 days before it that have a non-increasing number of guards.
 Thus, no day is a good day to rob the bank, so return an empty list.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> security = [1], time = 5
-<strong>Output:</strong> []
-<strong>Explanation:</strong>
-No day has 5 days before and after it.
-Thus, no day is a good day to rob the bank, so return an empty list.</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

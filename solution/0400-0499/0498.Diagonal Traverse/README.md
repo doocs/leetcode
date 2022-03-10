@@ -6,32 +6,35 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个含有 M x N 个元素的矩阵（M 行，N 列），请以对角线遍历的顺序返回这个矩阵中的所有元素，对角线遍历如下图所示。</p>
+<p>给你一个大小为 <code>m x n</code> 的矩阵 <code>mat</code> ，请以对角线遍历的顺序，用一个数组返回这个矩阵中的所有元素。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0498.Diagonal%20Traverse/images/diag1-grid.jpg" style="width: 334px; height: 334px;" />
+<pre>
+<strong>输入：</strong>mat = [[1,2,3],[4,5,6],[7,8,9]]
+<strong>输出：</strong>[1,2,4,7,5,3,6,8,9]
+</pre>
 
-<pre><strong>输入:</strong>
-[
- [ 1, 2, 3 ],
- [ 4, 5, 6 ],
- [ 7, 8, 9 ]
-]
+<p><strong>示例 2：</strong></p>
 
-<strong>输出:</strong>  [1,2,4,7,5,3,6,8,9]
-
-<strong>解释:</strong>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0498.Diagonal%20Traverse/images/diag1-grid.jpg" style="width: 220px;">
+<pre>
+<strong>输入：</strong>mat = [[1,2],[3,4]]
+<strong>输出：</strong>[1,2,3,4]
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>说明:</strong></p>
+<p><strong>提示：</strong></p>
 
-<ol>
-	<li>给定矩阵中的元素总数不会超过 100000 。</li>
-</ol>
+<ul>
+	<li><code>m == mat.length</code></li>
+	<li><code>n == mat[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= m * n &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>5</sup> &lt;= mat[i][j] &lt;= 10<sup>5</sup></code></li>
+</ul>
 
 ## 解法
 

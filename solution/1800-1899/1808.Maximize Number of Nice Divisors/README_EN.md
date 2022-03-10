@@ -7,8 +7,11 @@
 <p>You are given a positive integer <code>primeFactors</code>. You are asked to construct a positive integer <code>n</code> that satisfies the following conditions:</p>
 
 <ul>
+
   <li>The number of prime factors of <code>n</code> (not necessarily distinct) is <strong>at most</strong> <code>primeFactors</code>.</li>
+
   <li>The number of nice divisors of <code>n</code> is maximized. Note that a divisor of <code>n</code> is <strong>nice</strong> if it is divisible by every prime factor of <code>n</code>. For example, if <code>n = 12</code>, then its prime factors are <code>[2,2,3]</code>, then <code>6</code> and <code>12</code> are nice divisors, while <code>3</code> and <code>4</code> are not.</li>
+
 </ul>
 
 <p>Return <em>the number of nice divisors of</em> <code>n</code>. Since that number can be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
@@ -48,7 +51,9 @@ There is not other value of n that has at most 5 prime factors and more nice div
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= primeFactors &lt;= 10<sup>9</sup></code></li>
+
+    <li><code>1 &lt;= primeFactors &lt;= 10<sup>9</sup></code></li>
+
 </ul>
 
 ## Solutions

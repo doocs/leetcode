@@ -6,18 +6,31 @@
 
 <!-- 这里写题目描述 -->
 
-<p><strong>不使用</strong>运算符&nbsp;<code>+</code> 和&nbsp;<code>-</code>&nbsp;​​​​​​​，计算两整数&nbsp;​​​​​​​<code>a</code>&nbsp;、<code>b</code>&nbsp;​​​​​​​之和。</p>
+<p>给你两个整数 <code>a</code> 和 <code>b</code> ，<strong>不使用 </strong>运算符&nbsp;<code>+</code> 和&nbsp;<code>-</code>&nbsp;​​​​​​​，计算并返回两整数之和。</p>
 
-<p><strong>示例 1:</strong></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入: </strong>a = 1, b = 2
-<strong>输出: </strong>3
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>a = 1, b = 2
+<strong>输出：</strong>3
 </pre>
 
-<p><strong>示例 2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入: </strong>a = -2, b = 3
-<strong>输出: </strong>1</pre>
+<pre>
+<strong>输入：</strong>a = 2, b = 3
+<strong>输出：</strong>5
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>-1000 &lt;= a, b &lt;= 1000</code></li>
+</ul>
 
 ## 解法
 

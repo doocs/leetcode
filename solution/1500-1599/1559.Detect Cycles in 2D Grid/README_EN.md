@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>Given a 2D array of characters&nbsp;<code>grid</code>&nbsp;of size <code>m x n</code>, you need to find if there exists any cycle consisting of the <strong>same value</strong>&nbsp;in&nbsp;<code>grid</code>.</p>
+<p>Given a 2D array of characters <code>grid</code> of size <code>m x n</code>, you need to find if there exists any cycle consisting of the <strong>same value</strong> in <code>grid</code>.</p>
 
-<p>A cycle is a path of <strong>length 4&nbsp;or more</strong>&nbsp;in the grid that starts and ends at the same cell. From a given cell, you can move to one of the cells adjacent to it - in one of the four directions (up, down, left, or right), if it has the <strong>same value</strong> of the current cell.</p>
+<p>A cycle is a path of <strong>length 4 or more</strong> in the grid that starts and ends at the same cell. From a given cell, you can move to one of the cells adjacent to it - in one of the four directions (up, down, left, or right), if it has the <strong>same value</strong> of the current cell.</p>
 
-<p>Also, you cannot move to the cell that you visited in your last move. For example, the cycle&nbsp;<code>(1, 1) -&gt; (1, 2) -&gt; (1, 1)</code>&nbsp;is invalid because from&nbsp;<code>(1, 2)</code>&nbsp;we visited&nbsp;<code>(1, 1)</code>&nbsp;which was the last visited cell.</p>
+<p>Also, you cannot move to the cell that you visited in your last move. For example, the cycle <code>(1, 1) -&gt; (1, 2) -&gt; (1, 1)</code> is invalid because from <code>(1, 2)</code> we visited <code>(1, 1)</code> which was the last visited cell.</p>
 
-<p>Return&nbsp;<code>true</code>&nbsp;if any cycle of the same value exists in&nbsp;<code>grid</code>, otherwise, return&nbsp;<code>false</code>.</p>
+<p>Return <code>true</code> if any cycle of the same value exists in <code>grid</code>, otherwise, return <code>false</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -50,9 +50,8 @@
 <ul>
 	<li><code>m == grid.length</code></li>
 	<li><code>n == grid[i].length</code></li>
-	<li><code>1 &lt;= m &lt;= 500</code></li>
-	<li><code>1 &lt;= n &lt;= 500</code></li>
-	<li><code>grid</code>&nbsp;consists only of lowercase&nbsp;English letters.</li>
+	<li><code>1 &lt;= m, n &lt;= 500</code></li>
+	<li><code>grid</code> consists only of lowercase English letters.</li>
 </ul>
 
 ## Solutions

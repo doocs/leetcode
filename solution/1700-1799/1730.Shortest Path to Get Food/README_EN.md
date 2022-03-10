@@ -43,20 +43,6 @@
 <strong>Output:</strong> 6
 <strong>Explanation:</strong> There can be multiple food cells. It only takes 6 steps to reach the bottom food.</pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> grid = [[&quot;O&quot;,&quot;*&quot;],[&quot;#&quot;,&quot;O&quot;]]
-<strong>Output:</strong> 2
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> grid = [[&quot;X&quot;,&quot;*&quot;],[&quot;#&quot;,&quot;X&quot;]]
-<strong>Output:</strong> -1
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

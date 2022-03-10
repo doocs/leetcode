@@ -4,45 +4,56 @@
 
 ## Description
 
-<p>Mary is a teacher in a middle school and she has a table <code>seat</code> storing students&#39; names and their corresponding seat ids.</p>
+<p>Table: <code>Seat</code></p>
 
-<p>The column <b>id</b> is continuous increment.</p>
-
-<p>Mary wants to change seats for the adjacent students.</p>
-
-<p>Can you write a SQL query to output the result for Mary?</p>
+<pre>
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
++-------------+---------+
+id is the primary key column for this table.
+Each row of this table indicates the name and the ID of a student.
+id is a continuous increment.
+</pre>
 
 <p>&nbsp;</p>
 
-<pre>
-+---------+---------+
-|    id   | student |
-+---------+---------+
-|    1    | Abbot   |
-|    2    | Doris   |
-|    3    | Emerson |
-|    4    | Green   |
-|    5    | Jeames  |
-+---------+---------+
-</pre>
+<p>Write an SQL query to swap the seat id of every two consecutive students. If the number of students is odd, the id of the last student is not swapped.</p>
 
-<p>For the sample input, the output is:</p>
+<p>Return the result table ordered by <code>id</code> <strong>in ascending order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-+---------+---------+
-|    id   | student |
-+---------+---------+
-|    1    | Doris   |
-|    2    | Abbot   |
-|    3    | Green   |
-|    4    | Emerson |
-|    5    | Jeames  |
-+---------+---------+
+<strong>Input:</strong> 
+Seat table:
++----+---------+
+| id | student |
++----+---------+
+| 1  | Abbot   |
+| 2  | Doris   |
+| 3  | Emerson |
+| 4  | Green   |
+| 5  | Jeames  |
++----+---------+
+<strong>Output:</strong> 
++----+---------+
+| id | student |
++----+---------+
+| 1  | Doris   |
+| 2  | Abbot   |
+| 3  | Green   |
+| 4  | Emerson |
+| 5  | Jeames  |
++----+---------+
+<strong>Explanation:</strong> 
+Note that if the number of students is odd, there is no need to change the last one&#39;s seat.
 </pre>
-
-<p><b>Note:</b></p>
-
-<p>If the number of students is odd, there is no need to change the last one&#39;s seat.</p>
 
 ## Solutions
 

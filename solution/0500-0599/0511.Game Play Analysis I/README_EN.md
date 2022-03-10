@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Table:&nbsp;<code>Activity</code></p>
+<p>Table: <code>Activity</code></p>
 
 <pre>
 +--------------+---------+
@@ -16,17 +16,23 @@
 | games_played | int     |
 +--------------+---------+
 (player_id, event_date) is the primary key of this table.
-This table shows the activity of players of some game.
-Each row is a record of a player who logged in and played a number of games (possibly 0) before logging out on some day using some device.
+This table shows the activity of players of some games.
+Each row is a record of a player who logged in and played a number of games (possibly 0) before logging out on someday using some device.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports the&nbsp;<strong>first login date</strong> for each player.</p>
+<p>Write an SQL query to report the <strong>first login date</strong> for each player.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Activity table:
 +-----------+-----------+------------+--------------+
 | player_id | device_id | event_date | games_played |
@@ -37,8 +43,7 @@ Activity table:
 | 3         | 1         | 2016-03-02 | 0            |
 | 3         | 4         | 2018-07-03 | 5            |
 +-----------+-----------+------------+--------------+
-
-Result table:
+<strong>Output:</strong> 
 +-----------+-------------+
 | player_id | first_login |
 +-----------+-------------+

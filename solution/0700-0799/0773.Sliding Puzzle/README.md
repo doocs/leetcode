@@ -129,7 +129,7 @@ class Solution:
         return -1
 ```
 
-A* 算法：
+A\* 算法：
 
 ```python
 class Solution:
@@ -274,7 +274,7 @@ class Solution {
 }
 ```
 
-A* 算法：
+A\* 算法：
 
 ```java
 class Solution {
@@ -442,7 +442,7 @@ public:
 };
 ```
 
-A* 算法：
+A\* 算法：
 
 ```cpp
 class Solution {

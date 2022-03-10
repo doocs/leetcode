@@ -39,7 +39,7 @@ Therefore, person #1 only need to give person #0 $4, and all debt is settled.
 <ul>
 	<li><code>1 &lt;= transactions.length &lt;= 8</code></li>
 	<li><code>transactions[i].length == 3</code></li>
-	<li><code>0 &lt;= from<sub>i</sub>, to<sub>i</sub> &lt;= 20</code></li>
+	<li><code>0 &lt;= from<sub>i</sub>, to<sub>i</sub> &lt; 12</code></li>
 	<li><code>from<sub>i</sub> != to<sub>i</sub></code></li>
 	<li><code>1 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>

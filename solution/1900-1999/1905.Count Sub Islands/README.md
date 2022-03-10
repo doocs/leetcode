@@ -104,7 +104,7 @@ class Solution:
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
-        
+
         m, n = len(grid1), len(grid1[0])
         p = list(range(m * n))
         for i in range(m):

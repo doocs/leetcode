@@ -10,29 +10,27 @@
 
 <p>当存在两个字符串在相同索引处只有一个字符不同时，返回 <code>True</code> ，否则返回 <code>False</code> 。</p>
 
-<p><strong>进阶：</strong>你可以以 O(n*m) 的复杂度解决问题吗？其中 n 是列表 <code>dict</code> 的长度，m 是字符串的长度。</p>
-
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>dict = [&quot;abcd&quot;,&quot;acbd&quot;, &quot;aacd&quot;]
+<strong>输入：</strong>dict = ["abcd","acbd", "aacd"]
 <strong>输出：</strong>true
-<strong>解释：</strong>字符串 &quot;a<strong>b</strong>cd&quot; 和 &quot;a<strong>a</strong>cd&quot; 只在索引 1 处有一个不同的字符。
+<strong>解释：</strong>字符串 "a<strong>b</strong>cd" 和 "a<strong>a</strong>cd" 只在索引 1 处有一个不同的字符。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>dict = [&quot;ab&quot;,&quot;cd&quot;,&quot;yz&quot;]
+<strong>输入：</strong>dict = ["ab","cd","yz"]
 <strong>输出：</strong>false
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>dict = [&quot;abcd&quot;,&quot;cccc&quot;,&quot;abyd&quot;,&quot;abab&quot;]
+<strong>输入：</strong>dict = ["abcd","cccc","abyd","abab"]
 <strong>输出：</strong>true
 </pre>
 
@@ -46,6 +44,10 @@
 	<li><code>dict[i]</code>&nbsp;是互不相同的。</li>
 	<li><code>dict[i]</code>&nbsp;只包含小写英文字母。</li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你可以以 <code>O(n*m)</code> 的复杂度解决问题吗？其中 n 是列表 <code>dict</code> 的长度，<code>m</code> 是字符串的长度。</p>
 
 ## 解法
 

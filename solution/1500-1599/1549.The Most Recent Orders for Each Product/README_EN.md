@@ -52,14 +52,18 @@ This table contains information about the Products.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the most recent&nbsp;order(s) of each product.</p>
+<p>Write an SQL query to find the most recent order(s) of each product.</p>
 
-<p>Return the result table sorted by <code>product_name</code> in <strong>ascending</strong> order and in case of a tie by the <code>product_id</code> in <strong>ascending</strong> order. If there still a tie, order them by the <code>order_id</code> in <strong>ascending</strong> order.</p>
+<p>Return the result table ordered by <code>product_name</code> in ascending order and in case of a tie by the <code>product_id</code> in <strong>ascending order</strong>. If there still a tie, order them by <code>order_id</code> in <strong>ascending order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Customers</code>
+<strong>Input:</strong> 
+Customers table:
 +-------------+-----------+
 | customer_id | name      |
 +-------------+-----------+
@@ -69,8 +73,7 @@ This table contains information about the Products.
 | 4           | Marwan    |
 | 5           | Khaled    |
 +-------------+-----------+
-
-<code>Orders</code>
+Orders table:
 +----------+------------+-------------+------------+
 | order_id | order_date | customer_id | product_id |
 +----------+------------+-------------+------------+
@@ -85,8 +88,7 @@ This table contains information about the Products.
 | 9        | 2020-08-07 | 2           | 3          |
 | 10       | 2020-07-15 | 1           | 2          |
 +----------+------------+-------------+------------+
-
-<code>Products</code>
+Products table:
 +------------+--------------+-------+
 | product_id | product_name | price |
 +------------+--------------+-------+
@@ -95,8 +97,7 @@ This table contains information about the Products.
 | 3          | screen       | 600   |
 | 4          | hard disk    | 450   |
 +------------+--------------+-------+
-
-Result table:
+<strong>Output:</strong> 
 +--------------+------------+----------+------------+
 | product_name | product_id | order_id | order_date |
 +--------------+------------+----------+------------+
@@ -105,10 +106,11 @@ Result table:
 | mouse        | 2          | 8        | 2020-08-03 |
 | screen       | 3          | 3        | 2020-08-29 |
 +--------------+------------+----------+------------+
+<strong>Explanation:</strong> 
 keyboard&#39;s most recent order is in 2020-08-01, it was ordered two times this day.
 mouse&#39;s most recent order is in 2020-08-03, it was ordered only once this day.
 screen&#39;s most recent order is in 2020-08-29, it was ordered only once this day.
-The hard disk was never ordered and we don&#39;t include it in the result table.
+The hard disk was never ordered and we do not include it in the result table.
 </pre>
 
 ## Solutions

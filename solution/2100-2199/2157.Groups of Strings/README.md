@@ -16,12 +16,7 @@
 	<li>将 <code>s1</code>&nbsp;中的一个字母替换成另外任意一个字母（也可以替换为这个字母本身）。</li>
 </ul>
 
-<p>数组&nbsp;<code>words</code>&nbsp;可以分为一个或者多个无交集的 <strong>组</strong>&nbsp;。一个字符串与一个组如果满足以下 <strong>任一</strong>&nbsp;条件，它就属于这个组：</p>
-
-<ul>
-	<li>它与组内 <strong>至少</strong>&nbsp;一个其他字符串关联。</li>
-	<li>它是这个组中 <strong>唯一</strong>&nbsp;的字符串。</li>
-</ul>
+<p>数组&nbsp;<code>words</code>&nbsp;可以分为一个或者多个无交集的 <strong>组</strong>&nbsp;。如果一个字符串与另一个字符串关联，那么它们应当属于同一个组。</p>
 
 <p>注意，你需要确保分好组后，一个组内的任一字符串与其他组的字符串都不关联。可以证明在这个条件下，分组方案是唯一的。</p>
 
@@ -36,7 +31,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>words = ["a","b","ab","cde"]
+<pre>
+<b>输入：</b>words = ["a","b","ab","cde"]
 <b>输出：</b>[2,3]
 <b>解释：</b>
 - words[0] 可以得到 words[1] （将 'a' 替换为 'b'）和 words[2] （添加 'b'）。所以 words[0] 与 words[1] 和 words[2] 关联。
@@ -48,7 +44,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>words = ["a","ab","abc"]
+<pre>
+<b>输入：</b>words = ["a","ab","abc"]
 <b>输出：</b>[1,3]
 <strong>解释：</strong>
 - words[0] 与 words[1] 关联。

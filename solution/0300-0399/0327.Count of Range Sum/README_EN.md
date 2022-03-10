@@ -4,33 +4,24 @@
 
 ## Description
 
-<p>You are given an integer array <code>nums</code> and you have to return a new <code>counts</code> array. The <code>counts</code> array has the property where <code>counts[i]</code> is the number of smaller elements to the right of <code>nums[i]</code>.</p>
+<p>Given an integer array <code>nums</code> and two integers <code>lower</code> and <code>upper</code>, return <em>the number of range sums that lie in</em> <code>[lower, upper]</code> <em>inclusive</em>.</p>
+
+<p>Range sum <code>S(i, j)</code> is defined as the sum of the elements in <code>nums</code> between indices <code>i</code> and <code>j</code> inclusive, where <code>i &lt;= j</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [5,2,6,1]
-<strong>Output:</strong> [2,1,1,0]
-<strong>Explanation:</strong>
-To the right of 5 there are <b>2</b> smaller elements (2 and 1).
-To the right of 2 there is only <b>1</b> smaller element (1).
-To the right of 6 there is <b>1</b> smaller element (1).
-To the right of 1 there is <b>0</b> smaller element.
+<strong>Input:</strong> nums = [-2,5,-1], lower = -2, upper = 2
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> The three ranges are: [0,0], [2,2], and [0,2] and their respective sums are: -2, -1, 2.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [-1]
-<strong>Output:</strong> [0]
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [-1,-1]
-<strong>Output:</strong> [0,0]
+<strong>Input:</strong> nums = [0], lower = 0, upper = 0
+<strong>Output:</strong> 1
 </pre>
 
 <p>&nbsp;</p>
@@ -38,7 +29,9 @@ To the right of 1 there is <b>0</b> smaller element.
 
 <ul>
 	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
+	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
+	<li><code>-10<sup>5</sup> &lt;= lower &lt;= upper &lt;= 10<sup>5</sup></code></li>
+	<li>The answer is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</li>
 </ul>
 
 ## Solutions

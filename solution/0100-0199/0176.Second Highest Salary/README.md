@@ -6,25 +6,68 @@
 
 <!-- 这里写题目描述 -->
 
-<p>编写一个 SQL 查询，获取 <code>Employee</code>&nbsp;表中第二高的薪水（Salary）&nbsp;。</p>
+<code>Employee</code> 表：
 
-<pre>+----+--------+
-| Id | Salary |
+<div class="original__bRMd">
+<div>
+<pre>
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| salary      | int  |
++-------------+------+
+id 是这个表的主键。
+表的每一行包含员工的工资信息。
+</pre>
+
+<p>&nbsp;</p>
+
+<p>编写一个 SQL 查询，获取并返回 <code>Employee</code>&nbsp;表中第二高的薪水 。如果不存在第二高的薪水，查询应该返回 <code>null</code> 。</p>
+
+<p>查询结果如下例所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Employee 表：
++----+--------+
+| id | salary |
 +----+--------+
 | 1  | 100    |
 | 2  | 200    |
 | 3  | 300    |
 +----+--------+
-</pre>
-
-<p>例如上述&nbsp;<code>Employee</code>&nbsp;表，SQL查询应该返回&nbsp;<code>200</code> 作为第二高的薪水。如果不存在第二高的薪水，那么查询应返回 <code>null</code>。</p>
-
-<pre>+---------------------+
+<strong>输出：</strong>
++---------------------+
 | SecondHighestSalary |
 +---------------------+
 | 200                 |
 +---------------------+
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Employee 表：
++----+--------+
+| id | salary |
++----+--------+
+| 1  | 100    |
++----+--------+
+<strong>输出：</strong>
++---------------------+
+| SecondHighestSalary |
++---------------------+
+| null                |
++---------------------+
+</pre>
+</div>
+</div>
 
 ## 解法
 

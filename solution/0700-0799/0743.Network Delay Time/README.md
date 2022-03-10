@@ -6,13 +6,13 @@
 
 <!-- 这里写题目描述 -->
 
-<p>有 <code>n</code> 个网络节点，标记为 <code>1</code> 到 <code>n</code>。</p>
+<p>有 <code>n</code> 个网络节点，标记为&nbsp;<code>1</code>&nbsp;到 <code>n</code>。</p>
 
-<p>给你一个列表 <code>times</code>，表示信号经过 <strong>有向</strong> 边的传递时间。 <code>times[i] = (u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>)</code>，其中 <code>u<sub>i</sub></code> 是源节点，<code>v<sub>i</sub></code> 是目标节点， <code>w<sub>i</sub></code> 是一个信号从源节点传递到目标节点的时间。</p>
+<p>给你一个列表&nbsp;<code>times</code>，表示信号经过 <strong>有向</strong> 边的传递时间。&nbsp;<code>times[i] = (u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>)</code>，其中&nbsp;<code>u<sub>i</sub></code>&nbsp;是源节点，<code>v<sub>i</sub></code>&nbsp;是目标节点， <code>w<sub>i</sub></code>&nbsp;是一个信号从源节点传递到目标节点的时间。</p>
 
-<p>现在，从某个节点 <code>K</code> 发出一个信号。需要多久才能使所有节点都收到信号？如果不能使所有节点收到信号，返回 <code>-1</code> 。</p>
+<p>现在，从某个节点&nbsp;<code>K</code>&nbsp;发出一个信号。需要多久才能使所有节点都收到信号？如果不能使所有节点收到信号，返回&nbsp;<code>-1</code> 。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -37,17 +37,17 @@
 <strong>输出：</strong>-1
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= k <= n <= 100</code></li>
-	<li><code>1 <= times.length <= 6000</code></li>
+	<li><code>1 &lt;= k &lt;= n &lt;= 100</code></li>
+	<li><code>1 &lt;= times.length &lt;= 6000</code></li>
 	<li><code>times[i].length == 3</code></li>
-	<li><code>1 <= u<sub>i</sub>, v<sub>i</sub> <= n</code></li>
+	<li><code>1 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n</code></li>
 	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
-	<li><code>0 <= w<sub>i</sub> <= 100</code></li>
+	<li><code>0 &lt;= w<sub>i</sub> &lt;= 100</code></li>
 	<li>所有 <code>(u<sub>i</sub>, v<sub>i</sub>)</code> 对都 <strong>互不相同</strong>（即，不含重复边）</li>
 </ul>
 

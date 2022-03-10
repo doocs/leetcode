@@ -29,8 +29,7 @@ Please remember that order doesn&#39;t matter, [2,6] is also an acceptable answe
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/images/tree.png" style="width: 363px; height: 202px;" /> </strong>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1400-1499/1469.Find%20All%20The%20Lonely%20Nodes/images/tree.png" style="width: 363px; height: 202px;" />
 <pre>
 <strong>
 Input:</strong> root = [11,99,88,77,null,null,66,55,null,null,44,33,null,null,22]
@@ -39,26 +38,12 @@ Input:</strong> root = [11,99,88,77,null,null,66,55,null,null,44,33,null,null,22
 All other nodes are lonely.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [197]
-<strong>Output:</strong> []
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [31,null,78,null,28]
-<strong>Output:</strong> [78,28]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The number of nodes in the&nbsp;<code>tree</code>&nbsp;is in the range&nbsp;<code>[1, 1000].</code></li>
-	<li>Each node&#39;s value is between&nbsp;<code>[1, 10^6]</code>.</li>
+	<li>The number of nodes in the <code>tree</code> is in the range <code>[1, 1000].</code></li>
+	<li><code>1 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## Solutions

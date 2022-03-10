@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given a <code>root</code>&nbsp;of an N-ary tree,&nbsp;return a&nbsp;<a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a>&nbsp;(clone) of the tree.</p>
+<p>Given a <code>root</code> of an N-ary tree, return a <a href="https://en.wikipedia.org/wiki/Object_copying#Deep_copy" target="_blank"><strong>deep copy</strong></a> (clone) of the tree.</p>
 
-<p>Each node in the n-ary tree&nbsp;contains a val (<code>int</code>) and a list (<code>List[Node]</code>) of its children.</p>
+<p>Each node in the n-ary tree contains a val (<code>int</code>) and a list (<code>List[Node]</code>) of its children.</p>
 
 <pre>
 class Node {
@@ -15,9 +15,7 @@ class Node {
 }
 </pre>
 
-<p><em>Nary-Tree input serialization&nbsp;is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
-
-<p><strong>Follow up:&nbsp;</strong>Can your solution work for the <a href="https://leetcode.com/problems/clone-graph/">graph problem</a>?</p>
+<p><em>Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -43,8 +41,11 @@ class Node {
 
 <ul>
 	<li>The depth of the n-ary tree is less than or equal to <code>1000</code>.</li>
-	<li>The total number of nodes is between <code>[0,&nbsp;10^4]</code>.</li>
+	<li>The total number of nodes is between <code>[0, 10<sup>4</sup>]</code>.</li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow up: </strong>Can your solution work for the <a href="https://leetcode.com/problems/clone-graph/" target="_blank">graph problem</a>?
 
 ## Solutions
 
