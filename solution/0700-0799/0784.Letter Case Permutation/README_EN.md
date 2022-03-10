@@ -4,45 +4,31 @@
 
 ## Description
 
-<p>Given a string S, we can transform every letter individually&nbsp;to be lowercase or uppercase to create another string.</p>
+<p>Given a string <code>s</code>, you&nbsp;can transform every letter individually to be lowercase or uppercase to create another string.</p>
 
-<p>Return <em>a list of all possible strings we could create</em>. You can return the output&nbsp;in <strong>any order</strong>.</p>
+<p>Return <em>a list of all possible strings we could create</em>. Return the output in <strong>any order</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> S = &quot;a1b2&quot;
+<strong>Input:</strong> s = &quot;a1b2&quot;
 <strong>Output:</strong> [&quot;a1b2&quot;,&quot;a1B2&quot;,&quot;A1b2&quot;,&quot;A1B2&quot;]
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> S = &quot;3z4&quot;
+<strong>Input:</strong> s = &quot;3z4&quot;
 <strong>Output:</strong> [&quot;3z4&quot;,&quot;3Z4&quot;]
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> S = &quot;12345&quot;
-<strong>Output:</strong> [&quot;12345&quot;]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> S = &quot;0&quot;
-<strong>Output:</strong> [&quot;0&quot;]
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>S</code> will be a string with length between <code>1</code> and <code>12</code>.</li>
-	<li><code>S</code> will consist only of letters or digits.</li>
+	<li><code>1 &lt;= s.length &lt;= 12</code></li>
+	<li><code>s</code> consists of lowercase English letters, uppercase English letters, and digits.</li>
 </ul>
 
 ## Solutions

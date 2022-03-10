@@ -7,6 +7,6 @@ class Solution:
             if nums[i] + nums[j] > target:
                 j -= 1
             else:
-                res += (j - i)
+                res += j - i
                 i += 1
         return res % 1000000007

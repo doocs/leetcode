@@ -9,9 +9,10 @@
 <p>Each node has three attributes:</p>
 
 <ul>
-	<li><code>coefficient</code>: an integer representing the number multiplier of the term. The coefficient of the term <code><strong>9</strong>x<sup>4</sup></code> is <code>9</code>.</li>
-	<li><code>power</code>: an integer representing the exponent. The power of the term <code>9x<strong><sup>4</sup></strong></code> is <code>4</code>.</li>
-	<li><code>next</code>: a pointer to the next node in the list, or <code>null</code> if it is the last node of the list.</li>
+    <li><code>coefficient</code>: an integer representing the number multiplier of the term. The coefficient of the term <code><strong>9</strong>x<sup>4</sup></code> is <code>9</code>.</li>
+    <li><code>power</code>: an integer representing the exponent. The power of the term <code>9x<strong><sup>4</sup></strong></code> is <code>4</code>.</li>
+    <li><code>next</code>: a pointer to the next node in the list, or <code>null</code> if it is the last node of the list.</li>
+
 </ul>
 
 <p>For example, the polynomial <code>5x<sup>3</sup> + 4x - 7</code> is represented by the polynomial linked list illustrated below:</p>
@@ -71,11 +72,12 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= n &lt;= 10<sup>4</sup></code></li>
-	<li><code>-10<sup>9</sup>&nbsp;&lt;= PolyNode.coefficient &lt;= 10<sup>9</sup></code></li>
-	<li><code>PolyNode.coefficient != 0</code></li>
-	<li><code>0&nbsp;&lt;= PolyNode.power &lt;= 10<sup>9</sup></code></li>
-	<li><code>PolyNode.power &gt; PolyNode.next.power</code></li>
+    <li><code>0 &lt;= n &lt;= 10<sup>4</sup></code></li>
+    <li><code>-10<sup>9</sup>&nbsp;&lt;= PolyNode.coefficient &lt;= 10<sup>9</sup></code></li>
+    <li><code>PolyNode.coefficient != 0</code></li>
+    <li><code>0&nbsp;&lt;= PolyNode.power &lt;= 10<sup>9</sup></code></li>
+    <li><code>PolyNode.power &gt; PolyNode.next.power</code></li>
+
 </ul>
 
 ## Solutions

@@ -9,13 +9,13 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> <code>s</code> = &quot;leetcode&quot;
+<pre><strong>输入:</strong> s = &quot;leetcode&quot;
 <strong>输出:</strong> false 
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> <code>s</code> = &quot;abc&quot;
+<pre><strong>输入:</strong> s = &quot;abc&quot;
 <strong>输出:</strong> true
 </pre>
 
@@ -81,7 +81,7 @@ class Solution {
 var isUnique = function (astr) {
     let bitmap = 0;
     for (let i = 0; i < astr.length; ++i) {
-        const pos = astr[i].charCodeAt() - "a".charCodeAt();
+        const pos = astr[i].charCodeAt() - 'a'.charCodeAt();
         if ((bitmap & (1 << pos)) != 0) {
             return false;
         }

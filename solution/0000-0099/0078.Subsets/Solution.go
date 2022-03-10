@@ -1,20 +1,17 @@
 func subsets(nums []int) [][]int {
-	var res [][]int
-	var t []int
-	dfs(0, nums, t, &res)
-	return res
-}
-
-func dfs(i int, nums, t []int, res *[][]int) {
-	cp := make([]int, len(t))
-	copy(cp, t)
-	*res = append(*res, cp)
-	if i == len(nums) {
-		return
-	}
-	for j := i; j < len(nums); j++ {
-		t = append(t, nums[j])
-		dfs(j+1, nums, t, res)
+	var ans [][]int
+	var dfs func(u int, t []int)
+	dfs = func(u int, t []int) {
+		if u == len(nums) {
+			ans = append(ans, append([]int(nil), t...))
+			return
+		}
+		dfs(u+1, t)
+		t = append(t, nums[u])
+		dfs(u+1, t)
 		t = t[:len(t)-1]
 	}
+	var t []int
+	dfs(0, t)
+	return ans
 }

@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given a string <code>s</code>, find the length of the <b>longest substring</b> without repeating characters.</p>
+<p>Given a string <code>s</code>, find the length of the <strong>longest substring</strong> without repeating characters.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -30,13 +30,6 @@
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> The answer is &quot;wke&quot;, with the length of 3.
 Notice that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;&quot;
-<strong>Output:</strong> 0
 </pre>
 
 <p>&nbsp;</p>
@@ -225,6 +218,34 @@ proc lengthOfLongestSubstring(s: string): int =
     i += 1
 
   result = res # result has the default return value
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn length_of_longest_substring(s: String) -> i32 {
+        let n = s.len();
+        let cs: Vec<char> = s.chars().collect();
+        let mut set = HashSet::new();
+        let mut l = 0;
+        let mut r = 0;
+        let mut res = 0;
+        while r != n {
+            let k = cs[r];
+            while set.contains(&k) {
+                set.remove(&cs[l]);
+                l += 1;
+            }
+            set.insert(k);
+            res = res.max(set.len());
+            r += 1;
+        }
+        res as i32
+    }
+}
 ```
 
 ### **...**

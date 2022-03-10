@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>There are a total of <code>n</code> courses you have to take labelled from <code>0</code> to <code>n - 1</code>.</p>
+<p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses - 1</code>. You are given an array <code>prerequisites</code> where <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that you <strong>must</strong> take course <code>b<sub>i</sub></code> first if you want to take course <code>a<sub>i</sub></code>.</p>
 
-<p>Some courses may have <code>prerequisites</code>, for example, if&nbsp;<code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>&nbsp;this means you must take the course <code>b<sub>i</sub></code> before the course <code>a<sub>i</sub></code>.</p>
+<ul>
+	<li>For example, the pair <code>[0, 1]</code>, indicates that to take course <code>0</code> you have to first take course <code>1</code>.</li>
+</ul>
 
-<p>Given the total number of courses&nbsp;<code>numCourses</code> and a list of the <code>prerequisite</code> pairs, return the ordering of courses you should take to finish all courses.</p>
-
-<p>If there are many valid answers, return <strong>any</strong> of them.&nbsp;If it is impossible to finish all courses, return <strong>an empty array</strong>.</p>
+<p>Return <em>the ordering of courses you should take to finish all courses</em>. If there are many valid answers, return <strong>any</strong> of them. If it is impossible to finish all courses, return <strong>an empty array</strong>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -42,10 +42,10 @@ So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 
 <ul>
 	<li><code>1 &lt;= numCourses &lt;= 2000</code></li>
-	<li><code>0 &lt;=&nbsp;prerequisites.length &lt;= numCourses * (numCourses - 1)</code></li>
+	<li><code>0 &lt;= prerequisites.length &lt;= numCourses * (numCourses - 1)</code></li>
 	<li><code>prerequisites[i].length == 2</code></li>
-	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;&nbsp;numCourses</code></li>
-	<li><code>a<sub>i</sub>&nbsp;!=&nbsp;b<sub>i</sub></code></li>
+	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; numCourses</code></li>
+	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>All the pairs <code>[a<sub>i</sub>, b<sub>i</sub>]</code> are <strong>distinct</strong>.</li>
 </ul>
 
@@ -119,7 +119,7 @@ class Solution {
 
 ```ts
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
-    let edges = Array.from({ length: numCourses }, ()  => ([]));
+    let edges = Array.from({ length: numCourses }, () => []);
     let indeg = new Array(numCourses).fill(0);
     for (let [b, a] of prerequisites) {
         edges[a].push(b);
@@ -145,7 +145,7 @@ function findOrder(numCourses: number, prerequisites: number[][]): number[] {
         }
     }
     return ans.length == numCourses ? ans : [];
-};
+}
 ```
 
 ### **C++**

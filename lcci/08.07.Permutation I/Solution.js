@@ -13,7 +13,7 @@ var permutation = function (S) {
 
 function dfs(arr, depth, prev, record, res) {
     if (depth == arr.length) {
-        res.push(prev.join(""));
+        res.push(prev.join(''));
         return;
     }
     for (let i = 0; i < arr.length; i++) {

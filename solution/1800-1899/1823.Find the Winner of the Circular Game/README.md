@@ -58,6 +58,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+约瑟夫环。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -65,7 +67,12 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def findTheWinner(self, n: int, k: int) -> int:
+        if n == 1:
+            return 1
+        ans = (k + self.findTheWinner(n - 1, k)) % n
+        return n if ans == 0 else ans
 ```
 
 ### **Java**
@@ -73,7 +80,43 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int findTheWinner(int n, int k) {
+        if (n == 1) {
+            return 1;
+        }
+        int ans = (findTheWinner(n - 1, k) + k) % n;
+        return ans == 0 ? n : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findTheWinner(int n, int k) {
+        if (n == 1) return 1;
+        int ans = (findTheWinner(n - 1, k) + k) % n;
+        return ans == 0 ? n : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findTheWinner(n int, k int) int {
+	if n == 1 {
+		return 1
+	}
+	ans := (findTheWinner(n-1, k) + k) % n
+	if ans == 0 {
+		return n
+	}
+	return ans
+}
 ```
 
 ### **...**

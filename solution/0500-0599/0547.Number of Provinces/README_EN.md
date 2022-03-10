@@ -45,71 +45,82 @@
 
 ### **Python3**
 
+DFS.
+
 ```python
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         def dfs(i):
+            vis[i] = True
             for j in range(n):
-                if not visited[j] and isConnected[i][j] == 1:
-                    visited[j] = True
+                if not vis[j] and isConnected[i][j]:
                     dfs(j)
 
         n = len(isConnected)
-        visited = [False] * n
-        num = 0
+        vis = [False] * n
+        ans = 0
         for i in range(n):
-            if not visited[i]:
+            if not vis[i]:
                 dfs(i)
-                num += 1
-        return num
+                ans += 1
+        return ans
 ```
+
+Union find.
 
 ```python
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        n = size = len(isConnected)
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        n = len(isConnected)
+        p = list(range(n))
         for i in range(n):
             for j in range(i + 1, n):
-                if isConnected[i][j] == 1 and find(i) != find(j):
+                if isConnected[i][j]:
                     p[find(i)] = find(j)
-                    size -= 1
-        return size
+        return sum(i == v for i, v in enumerate(p))
 ```
 
 ### **Java**
 
+DFS.
+
 ```java
 class Solution {
+    private int[][] isConnected;
+    private boolean[] vis;
+    private int n;
+
     public int findCircleNum(int[][] isConnected) {
-        int n = isConnected.length;
-        boolean[] visited = new boolean[n];
-        int num = 0;
+        n = isConnected.length;
+        vis = new boolean[n];
+        this.isConnected = isConnected;
+        int ans = 0;
         for (int i = 0; i < n; ++i) {
-            if (!visited[i]) {
-                dfs(isConnected, visited, i, n);
-                ++num;
+            if (!vis[i]) {
+                dfs(i);
+                ++ans;
             }
         }
-        return num;
+        return ans;
     }
 
-    private void dfs(int[][] isConnected, boolean[] visited, int i, int n) {
+    private void dfs(int i) {
+        vis[i] = true;
         for (int j = 0; j < n; ++j) {
-            if (!visited[j] && isConnected[i][j] == 1) {
-                visited[j] = true;
-                dfs(isConnected, visited, j, n);
+            if (!vis[j] && isConnected[i][j] == 1) {
+                dfs(j);
             }
         }
     }
 }
 ```
+
+Union find.
 
 ```java
 class Solution {
@@ -121,16 +132,20 @@ class Solution {
         for (int i = 0; i < n; ++i) {
             p[i] = i;
         }
-        int size =  n;
         for (int i = 0; i < n; ++i) {
             for (int j = i + 1; j < n; ++j) {
-                if (isConnected[i][j] == 1 && find(i) != find(j)) {
+                if (isConnected[i][j] == 1) {
                     p[find(i)] = find(j);
-                    --size;
                 }
             }
         }
-        return size;
+        int ans = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i == p[i]) {
+                ++ans;
+            }
+        }
+        return ans;
     }
 
     private int find(int x) {
@@ -144,6 +159,42 @@ class Solution {
 
 ### **C++**
 
+DFS.
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> isConnected;
+    vector<bool> vis;
+    int n;
+
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        n = isConnected.size();
+        vis.resize(n);
+        this->isConnected = isConnected;
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+        {
+            if (!vis[i])
+            {
+                dfs(i);
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    void dfs(int i) {
+        vis[i] = true;
+        for (int j = 0; j < n; ++j)
+            if (!vis[j] && isConnected[i][j])
+                dfs(j);
+    }
+};
+```
+
+Union find.
+
 ```cpp
 class Solution {
 public:
@@ -153,19 +204,16 @@ public:
         int n = isConnected.size();
         p.resize(n);
         for (int i = 0; i < n; ++i) p[i] = i;
-        int size = n;
         for (int i = 0; i < n; ++i)
-        {
             for (int j = i + 1; j < n; ++j)
-            {
-                if (isConnected[i][j] && find(i) != find(j))
-                {
+                if (isConnected[i][j])
                     p[find(i)] = find(j);
-                    --size;
-                }
-            }
-        }
-        return size;
+        int ans = 0;
+        for (int i = 0; i < n; ++i)
+            if (i == p[i])
+                ++ans;
+        return ans;
+
     }
 
     int find(int x) {
@@ -177,32 +225,62 @@ public:
 
 ### **Go**
 
-```go
-var p []int
+DFS.
 
+```go
+func findCircleNum(isConnected [][]int) int {
+    n := len(isConnected)
+    vis := make([]bool, n)
+    var dfs func(i int)
+    dfs = func(i int) {
+        vis[i] = true
+        for j := 0; j < n; j++ {
+            if !vis[j] && isConnected[i][j] == 1 {
+                dfs(j)
+            }
+        }
+    }
+    ans := 0
+    for i := 0; i < n; i++ {
+        if !vis[i] {
+            dfs(i)
+            ans++
+        }
+    }
+    return ans
+}
+```
+
+Union find.
+
+```go
 func findCircleNum(isConnected [][]int) int {
 	n := len(isConnected)
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	size := n
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
 	for i := 0; i < n; i++ {
 		for j := i + 1; j < n; j++ {
-			if isConnected[i][j] == 1 && find(i) != find(j) {
+			if isConnected[i][j] == 1 {
 				p[find(i)] = find(j)
-				size--
 			}
 		}
 	}
-	return size
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
+	ans := 0
+	for i := range p {
+		if p[i] == i {
+			ans++
+		}
 	}
-	return p[x]
+	return ans
 }
 ```
 

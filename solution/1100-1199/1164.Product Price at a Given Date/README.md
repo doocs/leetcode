@@ -21,12 +21,19 @@
 
 <p>&nbsp;</p>
 
-<p>写一段 SQL来查找在&nbsp;<strong>2019-08-16 </strong>时全部产品的价格，假设所有产品在修改前的价格都是&nbsp;<strong>10。</strong></p>
+<p>写一段 SQL来查找在&nbsp;<code>2019-08-16</code><strong> </strong>时全部产品的价格，假设所有产品在修改前的价格都是&nbsp;<code>10</code><strong> 。</strong></p>
 
-<p>查询结果格式如下例所示：</p>
+<p>以 <strong>任意顺序 </strong>返回结果表。</p>
+
+<p>查询结果格式如下例所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<code>Products</code> table:
+<code><strong>输入：</strong>
+Products</code> 表:
 +------------+-----------+-------------+
 | product_id | new_price | change_date |
 +------------+-----------+-------------+
@@ -37,16 +44,14 @@
 | 2          | 65        | 2019-08-17  |
 | 3          | 20        | 2019-08-18  |
 +------------+-----------+-------------+
-
-Result table:
+<strong>输出：</strong>
 +------------+-------+
 | product_id | price |
 +------------+-------+
 | 2          | 50    |
 | 1          | 35    |
 | 3          | 10    |
-+------------+-------+
-</pre>
++------------+-------+</pre>
 
 ## 解法
 

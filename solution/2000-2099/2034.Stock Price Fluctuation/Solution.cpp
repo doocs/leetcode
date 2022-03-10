@@ -1,26 +1,23 @@
 class StockPrice {
-private:
-    int lastTs;
-    priority_queue<int> mx;
-    priority_queue<int, vector<int>, greater<int>> mi;
-    unordered_map<int, int> mp;
-    unordered_map<int, int> counter;
 public:
+    int lastTs;
+    unordered_map<int, int> mp;
+    map<int, int> counter;
+
     StockPrice() {
-        
+
     }
     
     void update(int timestamp, int price) {
-        if (mp.find(timestamp) != mp.end())
+        if (mp.count(timestamp))
         {
             int oldPrice = mp[timestamp];
             --counter[oldPrice];
+            if (counter[oldPrice] == 0) counter.erase(oldPrice);
         }
         mp[timestamp] = price;
-        lastTs = max(lastTs, timestamp);
         ++counter[price];
-        mi.push(price);
-        mx.push(price);
+        lastTs = max(lastTs, timestamp);
     }
     
     int current() {
@@ -28,13 +25,11 @@ public:
     }
     
     int maximum() {
-        while (!counter[mx.top()]) mx.pop();
-        return mx.top();
+        return counter.rbegin()->first;
     }
     
     int minimum() {
-        while (!counter[mi.top()]) mi.pop();
-        return mi.top();
+        return counter.begin()->first;
     }
 };
 

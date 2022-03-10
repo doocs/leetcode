@@ -4,19 +4,19 @@
 
 ## Description
 
-<p>There are 3n&nbsp;piles of coins of&nbsp;varying size, you and your friends will take piles of coins as follows:</p>
+<p>There are <code>3n</code> piles of coins of varying size, you and your friends will take piles of coins as follows:</p>
 
 <ul>
-	<li>In each step, you will choose <strong>any&nbsp;</strong>3 piles of coins (not necessarily consecutive).</li>
-	<li>Of your choice,&nbsp;Alice&nbsp;will pick&nbsp;the pile with the maximum number of coins.</li>
-	<li>You will pick the next pile with maximum number of coins.</li>
+	<li>In each step, you will choose <strong>any </strong><code>3</code> piles of coins (not necessarily consecutive).</li>
+	<li>Of your choice, Alice will pick the pile with the maximum number of coins.</li>
+	<li>You will pick the next pile with the maximum number of coins.</li>
 	<li>Your friend Bob will pick the last pile.</li>
-	<li>Repeat&nbsp;until&nbsp;there are no more piles of coins.</li>
+	<li>Repeat until there are no more piles of coins.</li>
 </ul>
 
-<p>Given an array of integers <code>piles</code>&nbsp;where <code>piles[i]</code> is the number of coins in the <code>i<sup>th</sup></code> pile.</p>
+<p>Given an array of integers <code>piles</code> where <code>piles[i]</code> is the number of coins in the <code>i<sup>th</sup></code> pile.</p>
 
-<p>Return the maximum number of coins which you can have.</p>
+<p>Return the maximum number of coins that you can have.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -48,9 +48,9 @@ On the other hand if we choose this arrangement (1, <strong>2</strong>, 8), (2, 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>3 &lt;= piles.length &lt;= 10^5</code></li>
+	<li><code>3 &lt;= piles.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>piles.length % 3 == 0</code></li>
-	<li><code>1 &lt;= piles[i] &lt;= 10^4</code></li>
+	<li><code>1 &lt;= piles[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## Solutions

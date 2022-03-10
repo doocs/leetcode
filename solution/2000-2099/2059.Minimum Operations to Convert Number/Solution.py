@@ -13,7 +13,7 @@ class Solution:
                     nx = op(x, num)
                     if nx == goal:
                         return step + 1
-                    if nx >= 0 and nx <= 1000 and not vis[nx]:
+                    if 0 <= nx <= 1000 and not vis[nx]:
                         q.append((nx, step + 1))
                         vis[nx] = True
         return -1

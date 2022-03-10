@@ -16,21 +16,24 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,2,3,4,5], target = 5, start = 3
+<pre>
+<strong>输入：</strong>nums = [1,2,3,4,5], target = 5, start = 3
 <strong>输出：</strong>1
 <strong>解释：</strong>nums[4] = 5 是唯一一个等于 target 的值，所以答案是 abs(4 - 3) = 1 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1], target = 1, start = 0
+<pre>
+<strong>输入：</strong>nums = [1], target = 1, start = 0
 <strong>输出：</strong>0
-<strong>解释：</strong>nums[0] = 1 是唯一一个等于 target 的值，所以答案是 abs(0 - 0) = 1 。
+<strong>解释：</strong>nums[0] = 1 是唯一一个等于 target 的值，所以答案是 abs(0 - 0) = 0 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,1,1,1,1,1,1,1,1,1], target = 1, start = 0
+<pre>
+<strong>输入：</strong>nums = [1,1,1,1,1,1,1,1,1,1], target = 1, start = 0
 <strong>输出：</strong>0
 <strong>解释：</strong>nums 中的每个值都是 1 ，但 nums[0] 使 abs(i - start) 的结果得以最小化，所以答案是 abs(0 - 0) = 0 。
 </pre>
@@ -40,9 +43,9 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
-	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-	<li><code>0 &lt;= start &lt; nums.length</code></li>
+	<li><code>1 <= nums.length <= 1000</code></li>
+	<li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
+	<li><code>0 <= start < nums.length</code></li>
 	<li><code>target</code> 存在于 <code>nums</code> 中</li>
 </ul>
 

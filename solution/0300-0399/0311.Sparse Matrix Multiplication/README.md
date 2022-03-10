@@ -6,33 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你两个&nbsp;<a href="https://baike.baidu.com/item/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5" target="_blank">稀疏矩阵</a>&nbsp;<strong>A</strong>&nbsp;和&nbsp;<strong>B</strong>，请你返回&nbsp;<strong>AB</strong> 的结果。你可以默认&nbsp;<strong>A&nbsp;</strong>的列数等于&nbsp;<strong>B&nbsp;</strong>的行数。</p>
-
-<p>请仔细阅读下面的示例。</p>
+<p>给定两个&nbsp;<a href="https://baike.baidu.com/item/%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5" target="_blank">稀疏矩阵</a>&nbsp;：大小为 <code>m x k</code> 的稀疏矩阵 <code>mat1</code> 和大小为 <code>k x n</code> 的稀疏矩阵 <code>mat2</code> ，返回 <code>mat1 x mat2</code> 的结果。你可以假设乘法总是可能的。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/images/mult-grid.jpg" style="height: 142px; width: 500px;" /></p>
 
-A</strong> = [
-  [ 1, 0, 0],
-  [-1, 0, 3]
-]
-
-<strong>B</strong> = [
-  [ 7, 0, 0 ],
-  [ 0, 0, 0 ],
-  [ 0, 0, 1 ]
-]
-
-<strong>输出：</strong>
-
-     |  1 0 0 |   | 7 0 0 |   |  7 0 0 |
-<strong>AB</strong> = | -1 0 3 | x | 0 0 0 | = | -7 0 3 |
-                  | 0 0 1 |
+<pre>
+<strong>输入：</strong>mat1 = [[1,0,0],[-1,0,3]], mat2 = [[7,0,0],[0,0,0],[0,0,1]]
+<strong>输出：</strong>[[7,0,0],[-7,0,3]]
 </pre>
+
+<p><strong>&nbsp;示例 2:</strong></p>
+
+<pre>
+<b>输入：</b>mat1 = [[0]], mat2 = [[0]]
+<b>输出：</b>[[0]]
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>m == mat1.length</code></li>
+	<li><code>k == mat1[i].length == mat2.length</code></li>
+	<li><code>n == mat2[i].length</code></li>
+	<li><code>1 &lt;= m, n, k &lt;= 100</code></li>
+	<li><code>-100 &lt;= mat1[i][j], mat2[i][j] &lt;= 100</code></li>
+</ul>
 
 ## 解法
 

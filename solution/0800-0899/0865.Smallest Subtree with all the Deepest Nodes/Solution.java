@@ -15,22 +15,22 @@
  */
 class Solution {
     public TreeNode subtreeWithAllDeepest(TreeNode root) {
-        return dfs(root)[0];
+        return dfs(root).getKey();
     }
-
-    private TreeNode[] dfs(TreeNode root) {
+    
+    private Pair<TreeNode, Integer> dfs(TreeNode root) {
         if (root == null) {
-            return new TreeNode[]{null, new TreeNode(0)};
+            return new Pair<>(null, 0);
         }
-        TreeNode[] left = dfs(root.left);
-        TreeNode[] right = dfs(root.right);
-        int d1 = left[1].val, d2 = right[1].val;
+        Pair<TreeNode, Integer> l = dfs(root.left);
+        Pair<TreeNode, Integer> r = dfs(root.right);
+        int d1 = l.getValue(), d2 = r.getValue();
         if (d1 > d2) {
-            return new TreeNode[]{left[0], new TreeNode(d1 + 1)};
+            return new Pair<>(l.getKey(), d1 + 1);
         }
         if (d1 < d2) {
-            return new TreeNode[]{right[0], new TreeNode(d2 + 1)};
+            return new Pair<>(r.getKey(), d2 + 1);
         }
-        return new TreeNode[]{root, new TreeNode(d1 + 1)};
+        return new Pair<>(root, d1 + 1);
     }
 }

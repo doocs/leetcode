@@ -8,7 +8,8 @@
 
 <p>员工表：<code>Employees</code></p>
 
-<pre>+---------------+---------+
+<pre>
++---------------+---------+
 | Column Name   | Type    |
 +---------------+---------+
 | employee_id   | int     |
@@ -22,15 +23,16 @@ employee_id 是这个表的主键。
 
 <p>&nbsp;</p>
 
-<p>用 SQL 查询出所有直接或间接向公司 CEO 汇报工作的职工的 employee_id 。</p>
+<p>用 SQL 查询出所有直接或间接向公司 CEO 汇报工作的职工的 <code>employee_id</code> 。</p>
 
 <p>由于公司规模较小，经理之间的间接关系不超过 3 个经理。</p>
 
-<p>可以以任何顺序返回的结果，不需要去重。</p>
+<p>可以以任何顺序返回无重复项的结果。</p>
 
 <p>查询结果示例如下：</p>
 
-<pre><code>Employees </code>table:
+<pre>
+<code>Employees </code>table:
 +-------------+---------------+------------+
 | employee_id | employee_name | manager_id |
 +-------------+---------------+------------+

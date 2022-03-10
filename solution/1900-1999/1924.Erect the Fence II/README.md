@@ -6,37 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a 2D integer array <code>trees</code> where <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the location of the <code>i<sup>th</sup></code> tree in the garden.</p>
+<p>给你一个二维整数数组&nbsp;<code>trees</code>，其中 <code>trees[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示花园中第 <code>i</code> 棵树的坐标。</p>
 
-<p>You are asked to fence the entire garden using the minimum length of rope possible. The garden is well-fenced only if <strong>all the trees are enclosed</strong> and the rope used <strong>forms a perfect circle</strong>. A tree is considered enclosed if it is inside or on the border of the circle.</p>
+<p>你需要用最少的原材料给花园安装一个 <strong>圆形</strong> 的栅栏，使花园中所有的树都在被 <strong>围在栅栏内部</strong>（在栅栏边界上的树也算在内）。</p>
 
-<p>More formally, you must form a circle using the rope with a center <code>(x, y)</code> and radius <code>r</code> where all trees lie inside or on the circle and <code>r</code> is <strong>minimum</strong>.</p>
+<p>正式地说，你需要求出栅栏的圆心坐标 <code>(x,y)</code> 和半径 <code>r</code>，使花园中所有的树都在圆的内部或边界上，并且让半径 <code>r</code> <strong>最小</strong>。</p>
 
-<p>Return <em>the center and radius of the circle as a length 3 array </em><code>[x, y, r]</code><em>.</em>&nbsp;Answers within <code>10<sup>-5</sup></code> of the actual answer will be accepted.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1924.Erect%20the%20Fence%20II/images/trees1.png" style="width: 510px; height: 501px;" /></strong></p>
-
-<pre>
-<strong>Input:</strong> trees = [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
-<strong>Output:</strong> [2.00000,2.00000,2.00000]
-<strong>Explanation:</strong> The fence will have center = (2, 2) and radius = 2
-</pre>
-
-<p><strong>Example 2:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1924.Erect%20the%20Fence%20II/images/trees2.png" style="width: 510px; height: 501px;" /></strong></p>
-
-<pre>
-<strong>Input:</strong> trees = [[1,2],[2,2],[4,2]]
-<strong>Output:</strong> [2.50000,2.00000,1.50000]
-<strong>Explanation:</strong> The fence will have center = (2.5, 2) and radius = 1.5
-</pre>
+<p>请用一个长度为 3 的数组 <code>[x,y,r]</code> 来返回圆心坐标和半径。如果答案与正确答案的误差不超过&nbsp;<code>10<sup>-5</sup></code>，则该答案将被视为正确答案通过。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>示例 1:</strong></p>
+
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1924.Erect%20the%20Fence%20II/images/trees1.png" style="width: 510px; height: 501px;"></strong></p>
+
+<pre><strong>输入:</strong> trees = [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
+<strong>输出:</strong> [2.00000,2.00000,2.00000]
+<strong>解释:</strong> 栅栏的圆心应当在 (2, 2) 处，半径为 2。
+</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1900-1999/1924.Erect%20the%20Fence%20II/images/trees2.png" style="width: 510px; height: 501px;"></strong></p>
+
+<pre><strong>输入:</strong> trees = [[1,2],[2,2],[4,2]]
+<strong>输出:</strong> [2.50000,2.00000,1.50000]
+<strong>解释:</strong> 栅栏的圆心应当在 (2.5, 2) 处，半径为 1.5。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= trees.length &lt;= 3000</code></li>

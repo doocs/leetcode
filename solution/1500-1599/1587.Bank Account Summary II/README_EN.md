@@ -33,21 +33,23 @@ Each row of this table contains the account number of each user in the bank.
 trans_id is the primary key for this table.
 Each row of this table contains all changes made to all accounts.
 amount is positive if the user received money and negative if they transferred money.
-All accounts start with a balance 0.
+All accounts start with a balance of 0.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the name and balance of users with a balance higher than 10000. The balance of an account is equal to the sum of the&nbsp;amounts of all transactions involving that account.</p>
+<p>Write an SQL query to report the name and balance of users with a balance higher than <code>10000</code>. The balance of an account is equal to the sum of the amounts of all transactions involving that account.</p>
 
-<p>Return the result table in <strong>any</strong> order.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Users</code> table:
+<strong>Input:</strong> 
+Users table:
 +------------+--------------+
 | account    | name         |
 +------------+--------------+
@@ -55,8 +57,7 @@ All accounts start with a balance 0.
 | 900002     | Bob          |
 | 900003     | Charlie      |
 +------------+--------------+
-
-<code>Transactions</code> table:
+Transactions table:
 +------------+------------+------------+---------------+
 | trans_id   | account    | amount     | transacted_on |
 +------------+------------+------------+---------------+
@@ -68,13 +69,13 @@ All accounts start with a balance 0.
 | 6          | 900003     | 6000       |  2020-09-07   |
 | 7          | 900003     | -4000      |  2020-09-11   |
 +------------+------------+------------+---------------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+------------+
-| <code>name    </code>   | <code>balance  </code>  |
+| name       | balance    |
 +------------+------------+
 | Alice      | 11000      |
 +------------+------------+
+<strong>Explanation:</strong> 
 Alice&#39;s balance is (7000 + 7000 - 3000) = 11000.
 Bob&#39;s balance is 1000.
 Charlie&#39;s balance is (6000 + 6000 - 4000) = 8000.

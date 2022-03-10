@@ -11,45 +11,31 @@
 <p>A <strong>palindrome</strong> is a number that reads the same backward as forward.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> num = &quot;1221&quot;
-
 <strong>Output:</strong> &quot;2112&quot;
-
 <strong>Explanation:</strong>&nbsp;The next palindrome larger than &quot;1221&quot; is &quot;2112&quot;.
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> num = &quot;32123&quot;
-
 <strong>Output:</strong> &quot;&quot;
-
 <strong>Explanation:</strong>&nbsp;No palindromes larger than &quot;32123&quot; can be made by rearranging the digits.
-
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> num = &quot;45544554&quot;
-
 <strong>Output:</strong> &quot;54455445&quot;
-
 <strong>Explanation:</strong> The next palindrome larger than &quot;45544554&quot; is &quot;54455445&quot;.
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>

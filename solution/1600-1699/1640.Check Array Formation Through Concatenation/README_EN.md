@@ -12,19 +12,12 @@
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> arr = [85], pieces = [[85]]
+<strong>Input:</strong> arr = [15,88], pieces = [[88],[15]]
 <strong>Output:</strong> true
+<strong>Explanation:</strong> Concatenate [15] then [88]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [15,88], pieces = [[88],[15]]
-<strong>Output:</strong> true
-<strong>Explanation:</strong> Concatenate <code>[15]</code> then <code>[88]</code>
-</pre>
-
-<p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [49,18,16], pieces = [[16,18,49]]
@@ -32,18 +25,12 @@
 <strong>Explanation:</strong> Even though the numbers match, we cannot reorder pieces[0].
 </pre>
 
-<p><strong>Example 4:</strong></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> arr = [91,4,64,78], pieces = [[78],[4,64],[91]]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Concatenate <code>[91]</code> then <code>[4,64]</code> then <code>[78]</code></pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [1,3,5,7], pieces = [[2,4,6,8]]
-<strong>Output:</strong> false
+<strong>Explanation:</strong> Concatenate [91] then [4,64] then [78]
 </pre>
 
 <p>&nbsp;</p>
@@ -54,8 +41,8 @@
 	<li><code>sum(pieces[i].length) == arr.length</code></li>
 	<li><code>1 &lt;= pieces[i].length &lt;= arr.length</code></li>
 	<li><code>1 &lt;= arr[i], pieces[i][j] &lt;= 100</code></li>
-	<li>The integers in&nbsp;<code>arr</code>&nbsp;are <strong>distinct</strong>.</li>
-	<li>The integers in&nbsp;<code>pieces</code> are <strong>distinct</strong>&nbsp;(i.e., If we flatten pieces in a 1D array, all the integers in this array are distinct).</li>
+	<li>The integers in <code>arr</code> are <strong>distinct</strong>.</li>
+	<li>The integers in <code>pieces</code> are <strong>distinct</strong> (i.e., If we flatten pieces in a 1D array, all the integers in this array are distinct).</li>
 </ul>
 
 ## Solutions

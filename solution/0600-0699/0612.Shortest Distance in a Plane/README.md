@@ -6,35 +6,53 @@
 
 <!-- 这里写题目描述 -->
 
-<p>表&nbsp;<code>point_2d</code>&nbsp;保存了所有点（多于 2 个点）的坐标 (x,y) ，这些点在平面上两两不重合。</p>
+<p><code>Point2D</code> 表：</p>
+
+<div class="original__bRMd">
+<div>
+<pre>
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| x           | int  |
+| y           | int  |
++-------------+------+
+(x, y) 是这张表的主键
+这张表的每一行表示 X-Y 平面上一个点的位置
+</pre>
 
 <p>&nbsp;</p>
 
-<p>写一个查询语句找到两点之间的最近距离，保留 2 位小数。</p>
+<p><code>p<sub>1</sub>(x<sub>1</sub>, y<sub>1</sub>)</code> 和 <code>p<sub>2</sub>(x<sub>2</sub>, y<sub>2</sub>)</code> 这两点之间的距离是 <code>sqrt((x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup>)</code> 。</p>
+
+<p>请你写一个 SQL 查询报告 <code>Point2D</code> 表中任意两点之间的最短距离。保留 <strong>2 位小数</strong> 。</p>
+
+<p>查询结果格式如下例所示。</p>
 
 <p>&nbsp;</p>
 
-<pre>| x  | y  |
-|----|----|
+<p><strong>示例：</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Point2D table:
++----+----+
+| x  | y  |
++----+----+
 | -1 | -1 |
 | 0  | 0  |
 | -1 | -2 |
-</pre>
-
-<p>&nbsp;</p>
-
-<p>最近距离在点 (-1,-1) 和(-1,2) 之间，距离为 1.00 。所以输出应该为：</p>
-
-<p>&nbsp;</p>
-
-<pre>| shortest |
-|----------|
++----+----+
+<strong>输出：</strong>
++----------+
+| shortest |
++----------+
 | 1.00     |
++----------+
+<strong>解释：</strong>最短距离是 1.00 ，从点 (-1, -1) 到点 (-1, 2) 。
 </pre>
-
-<p>&nbsp;</p>
-
-<p><strong>注意：</strong>任意点之间的最远距离小于 10000 。</p>
+</div>
+</div>
 
 <p>&nbsp;</p>
 

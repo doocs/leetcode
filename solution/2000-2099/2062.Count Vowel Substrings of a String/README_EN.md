@@ -41,14 +41,7 @@
 - &quot;cu<strong><u>aieuo</u></strong>uac&quot;
 - &quot;cu<strong><u>aieuou</u></strong>ac&quot;
 - &quot;cu<strong><u>aieuoua</u></strong>c&quot;
-- &quot;cua<strong><u>ieuoua</u></strong>c&quot;</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> word = &quot;bbaeixoubb&quot;
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> The only substrings that contain all five vowels also contain consonants, so there are no vowel substrings.
+- &quot;cua<strong><u>ieuoua</u></strong>c&quot;
 </pre>
 
 <p>&nbsp;</p>
@@ -88,7 +81,7 @@ function countVowelSubstrings(word: string): number {
             // 移动左指针
             left = right + 1;
         } else {
-            let cur = word.substring(left, right + 1).split("");
+            let cur = word.substring(left, right + 1).split('');
             while (cur.length > 0) {
                 if (isValiedArr(cur)) {
                     ans++;
@@ -102,7 +95,7 @@ function countVowelSubstrings(word: string): number {
 }
 
 function isVowel(char: string): boolean {
-    return ["a", "e", "i", "o", "u"].includes(char);
+    return ['a', 'e', 'i', 'o', 'u'].includes(char);
 }
 
 function isValiedArr(arr: Array<string>): boolean {

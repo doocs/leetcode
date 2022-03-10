@@ -6,7 +6,7 @@ class Solution:
             for j in range(1, 101):
                 t = 1 if nums[i - 1] == j else 0
                 pre_sum[i][j] = pre_sum[i - 1][j] + t
-        
+
         ans = []
         for i in range(n):
             left, right = queries[i][0], queries[i][1] + 1

@@ -1,6 +1,6 @@
 class Solution {
     public boolean areSentencesSimilar(String sentence1, String sentence2) {
-        if (Objects.equals(sentence1, sentence2)) {
+        if (sentence1.equals(sentence2)) {
             return true;
         }
         int n1 = sentence1.length(), n2 = sentence2.length();
@@ -15,18 +15,17 @@ class Solution {
         String[] words1 = sentence1.split(" ");
         String[] words2 = sentence2.split(" ");
         int i = 0, j = 0;
-        while (i < words2.length &&  Objects.equals(words1[i], words2[i])) {
+        n1 = words1.length;
+        n2 = words2.length;
+        while (i < n2 &&  words1[i].equals(words2[i])) {
             ++i;
         }
-        if (i == words2.length) {
+        if (i == n2) {
             return true;
         }
-        while (j < words2.length && Objects.equals(words1[words1.length - 1 - j], words2[words2.length - 1 - j])) {
+        while (j < n2 && words1[n1 - 1 - j].equals(words2[n2 - 1 - j])) {
             ++j;
         }
-        if (j == words2.length) {
-            return true;
-        }
-        return i + j == words2.length;
+        return j == n2 || i + j == n2;
     }
 }

@@ -6,20 +6,20 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个字符串 <code>s</code> 和一个字符规律 <code>p</code>，请你来实现一个支持 <code>'.'</code> 和 <code>'*'</code> 的正则表达式匹配。</p>
+<p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个字符规律&nbsp;<code>p</code>，请你来实现一个支持 <code>'.'</code>&nbsp;和&nbsp;<code>'*'</code>&nbsp;的正则表达式匹配。</p>
 
 <ul>
 	<li><code>'.'</code> 匹配任意单个字符</li>
 	<li><code>'*'</code> 匹配零个或多个前面的那一个元素</li>
 </ul>
 
-<p>所谓匹配，是要涵盖 <strong>整个 </strong>字符串 <code>s</code>的，而不是部分字符串。</p>
- 
+<p>所谓匹配，是要涵盖&nbsp;<strong>整个&nbsp;</strong>字符串&nbsp;<code>s</code>的，而不是部分字符串。</p>
+&nbsp;
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = "aa" p = "a"
+<strong>输入：</strong>s = "aa", p = "a"
 <strong>输出：</strong>false
 <strong>解释：</strong>"a" 无法匹配 "aa" 整个字符串。
 </pre>
@@ -27,43 +27,29 @@
 <p><strong>示例 2:</strong></p>
 
 <pre>
-<strong>输入：</strong>s = "aa" p = "a*"
+<strong>输入：</strong>s = "aa", p = "a*"
 <strong>输出：</strong>true
 <strong>解释：</strong>因为 '*' 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 'a'。因此，字符串 "aa" 可被视为 'a' 重复了一次。
 </pre>
 
-<p><strong>示例 3：</strong></p>
+<p><strong>示例&nbsp;3：</strong></p>
 
 <pre>
-<strong>输入：</strong>s = "ab" p = ".*"
+<strong>输入：</strong>s = "ab", p = ".*"
 <strong>输出：</strong>true
 <strong>解释：</strong>".*" 表示可匹配零个或多个（'*'）任意字符（'.'）。
 </pre>
 
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "aab" p = "c*a*b"
-<strong>输出：</strong>true
-<strong>解释：</strong>因为 '*' 表示零个或多个，这里 'c' 为 0 个, 'a' 被重复一次。因此可以匹配字符串 "aab"。
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre>
-<strong>输入：</strong>s = "mississippi" p = "mis*is*p*."
-<strong>输出：</strong>false</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= s.length <= 20</code></li>
-	<li><code>0 <= p.length <= 30</code></li>
-	<li><code>s</code> 可能为空，且只包含从 <code>a-z</code> 的小写字母。</li>
-	<li><code>p</code> 可能为空，且只包含从 <code>a-z</code> 的小写字母，以及字符 <code>.</code> 和 <code>*</code>。</li>
-	<li>保证每次出现字符 <code>*</code> 时，前面都匹配到有效的字符</li>
+	<li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>
+	<li><code>1 &lt;= p.length&nbsp;&lt;= 30</code></li>
+	<li><code>s</code>&nbsp;只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母。</li>
+	<li><code>p</code>&nbsp;只包含从&nbsp;<code>a-z</code>&nbsp;的小写字母，以及字符&nbsp;<code>.</code>&nbsp;和&nbsp;<code>*</code>。</li>
+	<li>保证每次出现字符&nbsp;<code>*</code> 时，前面都匹配到有效的字符</li>
 </ul>
 
 ## 解法
@@ -221,9 +207,9 @@ var isMatch = function (s, p) {
     function recursive(i, j) {
         if (memo[[i, j]] !== undefined) return memo[[i, j]];
         if (j === p.length) return i === s.length;
-        let tmp = i < s.length && (s[i] === p[j] || p[j] === ".");
+        let tmp = i < s.length && (s[i] === p[j] || p[j] === '.');
         let ans = false;
-        if (p[j + 1] === "*") {
+        if (p[j + 1] === '*') {
             ans = recursive(i, j + 2) || (tmp && recursive(i + 1, j));
         } else {
             ans = tmp && recursive(i + 1, j + 1);

@@ -4,86 +4,66 @@
 
 ## Description
 
-<p>Write a query to print the sum of all total investment values in 2016 (<b>TIV_2016</b>), to a scale of 2 decimal places, for all policy holders who meet the following criteria:</p>
-
-<ol>
-	<li>Have the same <b>TIV_2015</b> value as one or more other policyholders.</li>
-	<li>Are not located in the same city as any other policyholder (i.e.: the (latitude, longitude) attribute pairs must be unique).</li>
-</ol>
-
-<p><b>Input Format:</b><br />
-
-The <b><i>insurance</i></b> table is described as follows:</p>
+<p>Table: <code>Insurance</code></p>
 
 <pre>
-
-| Column Name | Type          |
-
-|-------------|---------------|
-
-| PID         | INTEGER(11)   |
-
-| TIV_2015    | NUMERIC(15,2) |
-
-| TIV_2016    | NUMERIC(15,2) |
-
-| LAT         | NUMERIC(5,2)  |
-
-| LON         | NUMERIC(5,2)  |
-
++-------------+-------+
+| Column Name | Type  |
++-------------+-------+
+| pid         | int   |
+| tiv_2015    | float |
+| tiv_2016    | float |
+| lat         | float |
+| lon         | float |
++-------------+-------+
+pid is the primary key column for this table.
+Each row of this table contains information about one policy where:
+pid is the policyholder&#39;s policy ID.
+tiv_2015 is the total investment value in 2015 and tiv_2016 is the total investment value in 2016.
+lat is the latitude of the policy holder&#39;s city.
+lon is the longitude of the policy holder&#39;s city.
 </pre>
 
-<p>where <b>PID</b> is the policyholder&#39;s policy ID, <b>TIV_2015</b> is the total investment value in 2015, <b>TIV_2016</b> is the total investment value in 2016, <b>LAT</b> is the latitude of the policy holder&#39;s city, and <b>LON</b> is the longitude of the policy holder&#39;s city.</p>
+<p>&nbsp;</p>
 
-<p><b>Sample Input</b></p>
+<p>Write an SQL query to report the sum of all total investment values in 2016 <code>tiv_2016</code>, for all policyholders who:</p>
+
+<ul>
+	<li>have the same <code>tiv_2015</code> value as one or more other policyholders, and</li>
+	<li>are not located in the same city like any other policyholder (i.e., the (<code>lat, lon</code>) attribute pairs must be unique).</li>
+</ul>
+
+<p>Round <code>tiv_2016</code> to <strong>two decimal places</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-| PID | TIV_2015 | TIV_2016 | LAT | LON |
-
-|-----|----------|----------|-----|-----|
-
+<strong>Input:</strong> 
+Insurance table:
++-----+----------+----------+-----+-----+
+| pid | tiv_2015 | tiv_2016 | lat | lon |
++-----+----------+----------+-----+-----+
 | 1   | 10       | 5        | 10  | 10  |
-
 | 2   | 20       | 20       | 20  | 20  |
-
 | 3   | 10       | 30       | 20  | 20  |
-
 | 4   | 10       | 40       | 40  | 40  |
-
-</pre>
-
-<p><b>Sample Output</b></p>
-
-<pre>
-
-| TIV_2016 |
-
-|----------|
-
++-----+----------+----------+-----+-----+
+<strong>Output:</strong> 
++----------+
+| tiv_2016 |
++----------+
 | 45.00    |
-
-</pre>
-
-<p><b>Explanation</b></p>
-
-<pre>
-
++----------+
+<strong>Explanation:</strong> 
 The first record in the table, like the last record, meets both of the two criteria.
+The tiv_2015 value 10 is the same as the third and fourth records, and its location is unique.
 
-The <b>TIV_2015</b> value &#39;10&#39; is as the same as the third and forth record, and its location unique.
-
-
-
-The second record does not meet any of the two criteria. Its <b>TIV_2015</b> is not like any other policyholders.
-
-
-
-And its location is the same with the third record, which makes the third record fail, too.
-
-
-
-So, the result is the sum of <b>TIV_2016</b> of the first and last record, which is 45.</pre>
+The second record does not meet any of the two criteria. Its tiv_2015 is not like any other policyholders and its location is the same as the third record, which makes the third record fail, too.
+So, the result is the sum of tiv_2016 of the first and last record, which is 45.
+</pre>
 
 ## Solutions
 

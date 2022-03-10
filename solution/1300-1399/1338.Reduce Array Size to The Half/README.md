@@ -60,6 +60,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+哈希表计数，按出现的频率倒序。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -67,7 +69,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def minSetSize(self, arr: List[int]) -> int:
+        couter = Counter(arr)
+        ans = n = 0
+        for _, cnt in couter.most_common():
+            n += cnt
+            ans += 1
+            if n * 2 >= len(arr):
+                break
+        return ans
 ```
 
 ### **Java**
@@ -75,7 +86,80 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int minSetSize(int[] arr) {
+        Map<Integer, Integer> counter = new HashMap<>();
+        for (int v : arr) {
+            counter.put(v, counter.getOrDefault(v, 0) + 1);
+        }
+        List<Integer> t = new ArrayList<>();
+        for (int cnt : counter.values()) {
+            t.add(cnt);
+        }
+        Collections.sort(t, Collections.reverseOrder());
+        int ans = 0;
+        int n = 0;
+        for (int cnt : t) {
+            n += cnt;
+            ++ans;
+            if (n * 2 >= arr.length) {
+                break;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int minSetSize(vector<int>& arr) {
+        unordered_map<int, int> counter;
+        for (int v : arr) ++counter[v];
+        vector<int> t;
+        for (auto& [k, v] : counter) t.push_back(v);
+        sort(t.begin(), t.end(), greater<int>());
+        int ans = 0;
+        int n = 0;
+        for (int cnt : t)
+        {
+            n += cnt;
+            ++ans;
+            if (n * 2 >= arr.size()) break;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func minSetSize(arr []int) int {
+	counter := make(map[int]int)
+	for _, v := range arr {
+		counter[v]++
+	}
+	var t []int
+	for _, v := range counter {
+		t = append(t, v)
+	}
+	sort.Slice(t, func(i, j int) bool {
+		return t[i] > t[j]
+	})
+	ans, n := 0, 0
+	for _, cnt := range t {
+		n += cnt
+		ans++
+		if n*2 >= len(arr) {
+			break
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

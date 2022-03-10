@@ -2,7 +2,7 @@ class Solution:
     def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
         n = len(intervals)
         starts = [(intervals[i][0], i) for i in range(n)]
-        starts.sort(key=lambda x : x[0])
+        starts.sort(key=lambda x: x[0])
         res = []
         for _, end in intervals:
             left, right = 0, n - 1

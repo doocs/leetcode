@@ -4,24 +4,20 @@
  * @return {number}
  */
 var threeSumSmaller = function (nums, target) {
-    let len = nums.length;
-    if (len < 3) return 0;
     nums.sort((a, b) => a - b);
-    let res = 0;
-    for (let i = 0; i < len - 2; i++) {
-        let left = i + 1,
-            right = len - 1;
-        if (nums[i] + nums[left] + nums[i + 2] >= target) break;
-        while (left < right) {
-            if (nums[i] + nums[left] + nums[right] < target) {
-                res += right - left;
-                left++;
-                continue;
+    let ans = 0;
+    for (let i = 0, n = nums.length; i < n; ++i) {
+        let j = i + 1;
+        let k = n - 1;
+        while (j < k) {
+            s = nums[i] + nums[j] + nums[k];
+            if (s >= target) {
+                --k;
             } else {
-                right--;
-                continue;
+                ans += k - j;
+                ++j;
             }
         }
     }
-    return res;
+    return ans;
 };

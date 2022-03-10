@@ -56,14 +56,16 @@ Each row of this table contains the caller id, callee id and the duration of the
 
 <p>Write an SQL query to find the countries where this company can invest.</p>
 
-<p>Return the result table in any order.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Person</code> table:
+<strong>Input:</strong> 
+Person table:
 +----+----------+--------------+
 | id | name     | phone_number |
 +----+----------+--------------+
@@ -74,8 +76,7 @@ Each row of this table contains the caller id, callee id and the duration of the
 | 7  | Meir     | 972-1234567  |
 | 9  | Rachel   | 972-0011100  |
 +----+----------+--------------+
-
-<code>Country</code> table:
+Country table:
 +----------+--------------+
 | name     | country_code |
 +----------+--------------+
@@ -85,7 +86,6 @@ Each row of this table contains the caller id, callee id and the duration of the
 | Germany  | 049          |
 | Ethiopia | 251          |
 +----------+--------------+
-
 Calls table:
 +-----------+-----------+----------+
 | caller_id | callee_id | duration |
@@ -101,18 +101,18 @@ Calls table:
 | 9         | 7         | 1        |
 | 1         | 7         | 7        |
 +-----------+-----------+----------+
-
-Result table:
+<strong>Output:</strong> 
 +----------+
 | country  |
 +----------+
 | Peru     |
 +----------+
+<strong>Explanation:</strong> 
 The average call duration for Peru is (102 + 102 + 330 + 330 + 5 + 5) / 6 = 145.666667
 The average call duration for Israel is (33 + 4 + 13 + 13 + 3 + 1 + 1 + 7) / 8 = 9.37500
 The average call duration for Morocco is (33 + 4 + 59 + 59 + 3 + 7) / 6 = 27.5000 
 Global call duration average = (2 * (33 + 4 + 59 + 102 + 330 + 5 + 13 + 3 + 1 + 7)) / 20 = 55.70000
-Since Peru is the only country where average call duration is greater than the global average, it&#39;s the only recommended country.
+Since Peru is the only country where the average call duration is greater than the global average, it is the only recommended country.
 </pre>
 
 ## Solutions

@@ -18,14 +18,22 @@
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/images/1445_example_1.png" style="height: 404px; width: 400px;"></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/images/1445_example_1.png" style="height: 500px; width: 496px;" /></p>
 
-<pre><strong>输入：</strong>
+<pre>
+<strong>输入：</strong>
 ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 <strong>输出：</strong>3
 <strong>解释：</strong>在 [0,0] 到 [4,4] 的范围内总共有 3 艘船。
+</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入：</strong>ans = [[1,1],[2,2],[3,3]], topRight = [1000,1000], bottomLeft = [0,0]
+<strong>输出：</strong>3
 </pre>
 
 <p>&nbsp;</p>
@@ -33,10 +41,13 @@ ships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>ships</code>&nbsp;数组只用于评测系统内部初始化。你无法得知&nbsp;<code>ships</code>&nbsp;的信息，所以只能通过调用&nbsp;<code>hasShips</code>&nbsp;接口来求解。</li>
+	<li><code>ships</code>&nbsp;数组只用于评测系统内部初始化。你必须“蒙着眼睛”解决这个问题。你无法得知&nbsp;<code>ships</code>&nbsp;的信息，所以只能通过调用&nbsp;<code>hasShips</code>&nbsp;接口来求解。</li>
 	<li><code>0 &lt;=&nbsp;bottomLeft[0]&nbsp;&lt;= topRight[0]&nbsp;&lt;= 1000</code></li>
 	<li><code>0 &lt;=&nbsp;bottomLeft[1]&nbsp;&lt;= topRight[1]&nbsp;&lt;= 1000</code></li>
+	<li><code>topRight != bottomLeft</code></li>
 </ul>
+
+<p>&nbsp;</p>
 
 ## 解法
 

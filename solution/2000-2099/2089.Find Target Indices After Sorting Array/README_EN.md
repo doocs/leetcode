@@ -38,14 +38,6 @@ The index where nums[i] == 3 is 3.
 The index where nums[i] == 5 is 4.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,2,5,2,3], target = 4
-<strong>Output:</strong> []
-<strong>Explanation:</strong> There are no elements in nums with value 4.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

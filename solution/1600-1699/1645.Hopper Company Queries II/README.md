@@ -57,7 +57,7 @@ It is guaranteed that each accepted ride exists in the Rides table.
 <p>&nbsp;</p>
 
 <p>Write an SQL query to report the <strong>percentage</strong> of working drivers (<code>working_percentage</code>) for each month of <strong>2020</strong> where:</p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/images/codecogseqn.png" style="width: 970px; height: 44px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1645.Hopper%20Company%20Queries%20II/images/codecogseqn.png" style="width: 800px; height: 36px;" />
 <p><strong>Note</strong> that if the number of available drivers during a month is zero, we consider the <code>working_percentage</code> to be <code>0</code>.</p>
 
 <p>Return the result table ordered by <code>month</code> in <strong>ascending</strong> order, where <code>month</code> is the month&#39;s number (January is <code>1</code>, February is <code>2</code>, etc.). Round <code>working_percentage</code> to the nearest <strong>2 decimal places</strong>.</p>
@@ -65,8 +65,10 @@ It is guaranteed that each accepted ride exists in the Rides table.
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Drivers table:
 +-----------+------------+
 | driver_id | join_date  |
@@ -79,7 +81,6 @@ Drivers table:
 | 1         | 2020-10-24 |
 | 6         | 2021-1-5   |
 +-----------+------------+
-
 Rides table:
 +---------+---------+--------------+
 | ride_id | user_id | requested_at |
@@ -100,7 +101,6 @@ Rides table:
 | 12      | 11      | 2021-1-19    |
 | 14      | 18      | 2021-1-27    |
 +---------+---------+--------------+
-
 AcceptedRides table:
 +---------+-----------+---------------+---------------+
 | ride_id | driver_id | ride_distance | ride_duration |
@@ -117,8 +117,7 @@ AcceptedRides table:
 | 12      | 8         | 38            | 34            |
 | 14      | 1         | 90            | 74            |
 +---------+-----------+---------------+---------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------+--------------------+
 | month | working_percentage |
 +-------+--------------------+
@@ -135,7 +134,7 @@ Result table:
 | 11    | 33.33              |
 | 12    | 16.67              |
 +-------+--------------------+
-
+<strong>Explanation:</strong> 
 By the end of January --&gt; two active drivers (10, 8) and no accepted rides. The percentage is 0%.
 By the end of February --&gt; three active drivers (10, 8, 5) and no accepted rides. The percentage is 0%.
 By the end of March --&gt; four active drivers (10, 8, 5, 7) and one accepted ride by driver (10). The percentage is (1 / 4) * 100 = 25%.
@@ -144,7 +143,7 @@ By the end of May --&gt; five active drivers (10, 8, 5, 7, 4) and no accepted ri
 By the end of June --&gt; five active drivers (10, 8, 5, 7, 4) and one accepted ride by driver (10). The percentage is (1 / 5) * 100 = 20%.
 By the end of July --&gt; five active drivers (10, 8, 5, 7, 4) and one accepted ride by driver (8). The percentage is (1 / 5) * 100 = 20%.
 By the end of August --&gt; five active drivers (10, 8, 5, 7, 4) and one accepted ride by driver (7). The percentage is (1 / 5) * 100 = 20%.
-By the end of Septemeber --&gt; five active drivers (10, 8, 5, 7, 4) and no accepted rides. The percentage is 0%.
+By the end of September --&gt; five active drivers (10, 8, 5, 7, 4) and no accepted rides. The percentage is 0%.
 By the end of October --&gt; six active drivers (10, 8, 5, 7, 4, 1) and no accepted rides. The percentage is 0%.
 By the end of November --&gt; six active drivers (10, 8, 5, 7, 4, 1) and two accepted rides by <strong>two different</strong> drivers (1, 7). The percentage is (2 / 6) * 100 = 33.33%.
 By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one accepted ride by driver (4). The percentage is (1 / 6) * 100 = 16.67%.

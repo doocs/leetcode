@@ -6,29 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>根据一棵树的前序遍历与中序遍历构造二叉树。</p>
+<p>给定两个整数数组&nbsp;<code>preorder</code> 和 <code>inorder</code>&nbsp;，其中&nbsp;<code>preorder</code> 是二叉树的<strong>先序遍历</strong>， <code>inorder</code>&nbsp;是同一棵树的<strong>中序遍历</strong>，请构造二叉树并返回其根节点。</p>
 
-<p><strong>注意:</strong><br>
-你可以假设树中没有重复的元素。</p>
+<p>&nbsp;</p>
 
-<p>例如，给出</p>
+<p><strong>示例 1:</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0105.Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal/images/tree.jpg" style="height: 302px; width: 277px;" />
+<pre>
+<strong>输入</strong><strong>:</strong> preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+<strong>输出:</strong> [3,9,20,null,null,15,7]
+</pre>
 
-<pre>前序遍历 preorder =&nbsp;[3,9,20,15,7]
-中序遍历 inorder = [9,3,15,20,7]</pre>
+<p><strong>示例 2:</strong></p>
 
-<p>返回如下的二叉树：</p>
+<pre>
+<strong>输入:</strong> preorder = [-1], inorder = [-1]
+<strong>输出:</strong> [-1]
+</pre>
 
-<pre>    3
-   / \
-  9  20
-    /  \
-   15   7</pre>
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= preorder.length &lt;= 3000</code></li>
+	<li><code>inorder.length == preorder.length</code></li>
+	<li><code>-3000 &lt;= preorder[i], inorder[i] &lt;= 3000</code></li>
+	<li><code>preorder</code>&nbsp;和&nbsp;<code>inorder</code>&nbsp;均 <strong>无重复</strong> 元素</li>
+	<li><code>inorder</code>&nbsp;均出现在&nbsp;<code>preorder</code></li>
+	<li><code>preorder</code>&nbsp;<strong>保证</strong> 为二叉树的前序遍历序列</li>
+	<li><code>inorder</code>&nbsp;<strong>保证</strong> 为二叉树的中序遍历序列</li>
+</ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-先遍历前序节点，对于前序的根节点，在中序节点 `[i1, i2]` 中找到根节点的位置 pos，就可以将中序节点分成：左子树 `[i1, pos - 1]`、右子树 `[pos + 1, i2]`。
+前序序列的第一个结点 `preorder[0]` 为根节点，我们在中序序列中找到根节点的位置 i，可以将中序序列划分为左子树 `inorder[:i]` 、右子树 `inorder[i+1:]`。
 
 通过左右子树的区间，可以计算出左、右子树节点的个数，假设为 m、n。然后在前序节点中，从根节点往后的 m 个节点为左子树，再往后的 n 个节点为右子树。
 
@@ -45,29 +59,20 @@
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    indexes = {}
     def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        def build(preorder, inorder, p1, p2, i1, i2) -> TreeNode:
-            if p1 > p2 or i1 > i2:
-                return None
-            root_val = preorder[p1]
-            pos = self.indexes[root_val]
-            root = TreeNode(root_val)
-            # pos==i1，说明只有右子树，左子树为空
-            root.left = None if pos == i1 else build(preorder, inorder, p1 + 1, p1 - i1 + pos, i1, pos - 1)
-            # pos==i2，说明只有左子树，右子树为空
-            root.right = None if pos == i2 else build(preorder, inorder, p1 - i1 + pos + 1, p2, pos + 1, i2)
-            return root
-        n = len(inorder)
-        for i in range(n):
-            self.indexes[inorder[i]] = i
-        return build(preorder, inorder, 0, n - 1, 0, n - 1)
+        if not preorder:
+            return None
+        v = preorder[0]
+        root = TreeNode(val=v)
+        i = inorder.index(v)
+        root.left = self.buildTree(preorder[1:1 + i], inorder[:i])
+        root.right = self.buildTree(preorder[1 + i:], inorder[i + 1:])
+        return root
 ```
 
 ### **Java**
@@ -81,31 +86,103 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
     private Map<Integer, Integer> indexes = new HashMap<>();
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        int n = inorder.length;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < inorder.length; ++i) {
             indexes.put(inorder[i], i);
         }
-        return build(preorder, inorder, 0, n - 1, 0, n - 1);
+        return dfs(preorder, inorder, 0, 0, preorder.length);
     }
 
-    private TreeNode build(int[] preorder, int[] inorder, int p1, int p2, int i1, int i2) {
-        if (p1 > p2 || i1 > i2) return null;
-        int rootVal = preorder[p1];
-        int pos = indexes.get(rootVal);
-        TreeNode node = new TreeNode(rootVal);
-        // pos==i1，说明只有右子树，左子树为空
-        node.left = pos == i1 ? null : build(preorder, inorder, p1 + 1, pos - i1 + p1, i1, pos - 1);
-        // pos==i2，说明只有左子树，右子树为空
-        node.right = pos == i2 ? null : build(preorder, inorder, pos - i1 + p1 + 1, p2, pos + 1, i2);
-        return node;
+    private TreeNode dfs(int[] preorder, int[] inorder, int i, int j, int n) {
+        if (n <= 0) {
+            return null;
+        }
+        int v = preorder[i];
+        int k = indexes.get(v);
+        TreeNode root = new TreeNode(v);
+        root.left = dfs(preorder, inorder, i + 1, j, k - j);
+        root.right = dfs(preorder, inorder, i + 1 + k - j, k + 1, n - k + j - 1);
+        return root;
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    unordered_map<int, int> indexes;
+
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        for (int i = 0; i < inorder.size(); ++i) indexes[inorder[i]] = i;
+        return dfs(preorder, inorder, 0, 0, inorder.size());
+    }
+
+    TreeNode* dfs(vector<int>& preorder, vector<int>& inorder, int i, int j, int n) {
+        if (n <= 0) return nullptr;
+        int v = preorder[i];
+        int k = indexes[v];
+        TreeNode* root = new TreeNode(v);
+        root->left = dfs(preorder, inorder, i + 1, j, k - j);
+        root->right = dfs(preorder, inorder, i + 1 + k - j, k + 1, n - k + j - 1);
+        return root;
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func buildTree(preorder []int, inorder []int) *TreeNode {
+	indexes := make(map[int]int)
+	for i, v := range inorder {
+		indexes[v] = i
+	}
+	var dfs func(i, j, n int) *TreeNode
+	dfs = func(i, j, n int) *TreeNode {
+		if n <= 0 {
+			return nil
+		}
+		v := preorder[i]
+		k := indexes[v]
+		root := &TreeNode{Val: v}
+		root.Left = dfs(i+1, j, k-j)
+		root.Right = dfs(i+1+k-j, k+1, n-k+j-1)
+		return root
+	}
+	return dfs(0, 0, len(inorder))
 }
 ```
 

@@ -39,10 +39,10 @@ The above arrows point to positions where the corresponding bits are different.
 
 Use xor operation to find different bits.
 
-- 0 ^ 0 = 0
-- 1 ^ 1 = 0
-- 0 ^ 1 = 1
-- 1 ^ 0 = 1
+-   0 ^ 0 = 0
+-   1 ^ 1 = 0
+-   0 ^ 1 = 1
+-   1 ^ 0 = 1
 
 <!-- tabs:start -->
 

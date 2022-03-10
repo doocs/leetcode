@@ -40,18 +40,7 @@ The nodes visited are 0 and 3, giving a maximal path quality of 5 + 20 = 25.
 <strong>Output:</strong> 7
 <strong>Explanation:</strong>
 One possible path is 0 -&gt; 1 -&gt; 3 -&gt; 1 -&gt; 0. The total time taken is 10 + 13 + 13 + 10 = 46 &lt;= 50.
-The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 7.</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2065.Maximum%20Path%20Quality%20of%20a%20Graph/images/ex4drawio.png" style="width: 270px; height: 71px;" /></strong></p>
-
-<pre>
-<strong>Input:</strong> values = [0,1,2], edges = [[1,2,10]], maxTime = 10
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> 
-The only path is 0. The total time taken is 0.
-The only node visited is 0, giving a maximal path quality of 0.
+The nodes visited are 0, 1, and 3, giving a maximal path quality of 1 + 2 + 4 = 7.
 </pre>
 
 <p>&nbsp;</p>
@@ -92,12 +81,12 @@ The only node visited is 0, giving a maximal path quality of 0.
 function maximalPathQuality(
     values: number[],
     edges: number[][],
-    maxTime: number
+    maxTime: number,
 ): number {
     const n = values.length;
     let g: Array<Array<Array<number>>> = Array.from(
         { length: n },
-        v => new Array()
+        v => new Array(),
     );
     for (let edge of edges) {
         let [u, v, t] = edge;

@@ -6,38 +6,35 @@
 
 <!-- 这里写题目描述 -->
 
-<p>你总共有&nbsp;<em>n&nbsp;</em>枚硬币，你需要将它们摆成一个阶梯形状，第&nbsp;<em>k&nbsp;</em>行就必须正好有&nbsp;<em>k&nbsp;</em>枚硬币。</p>
+<p>你总共有&nbsp;<code>n</code><em>&nbsp;</em>枚硬币，并计划将它们按阶梯状排列。对于一个由 <code>k</code> 行组成的阶梯，其第 <code>i</code><em> </em>行必须正好有 <code>i</code><em> </em>枚硬币。阶梯的最后一行 <strong>可能</strong> 是不完整的。</p>
 
-<p>给定一个数字&nbsp;<em>n</em>，找出可形成完整阶梯行的总行数。</p>
+<p>给你一个数字&nbsp;<code>n</code><em> </em>，计算并返回可形成 <strong>完整阶梯行</strong> 的总行数。</p>
 
-<p><em>n&nbsp;</em>是一个非负整数，并且在32位有符号整型的范围内。</p>
+<p>&nbsp;</p>
 
-<p><strong>示例 1:</strong></p>
-
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0441.Arranging%20Coins/images/arrangecoins1-grid.jpg" style="width: 253px; height: 253px;" />
 <pre>
-n = 5
-
-硬币可排列成以下几行:
-&curren;
-&curren; &curren;
-&curren; &curren;
-
-因为第三行不完整，所以返回2.
+<strong>输入：</strong>n = 5
+<strong>输出：</strong>2
+<strong>解释：</strong>因为第三行不完整，所以返回 2 。
 </pre>
 
-<p><strong>示例 2:</strong></p>
-
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0441.Arranging%20Coins/images/arrangecoins2-grid.jpg" style="width: 333px; height: 333px;" />
 <pre>
-n = 8
-
-硬币可排列成以下几行:
-&curren;
-&curren; &curren;
-&curren; &curren; &curren;
-&curren; &curren;
-
-因为第四行不完整，所以返回3.
+<strong>输入：</strong>n = 8
+<strong>输出：</strong>3
+<strong>解释：</strong>因为第四行不完整，所以返回 3 。
 </pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
+</ul>
 
 ## 解法
 

@@ -22,31 +22,15 @@
 <pre>
 <strong>Input:</strong> name = &quot;saeed&quot;, typed = &quot;ssaaedd&quot;
 <strong>Output:</strong> false
-<strong>Explanation: </strong>&#39;e&#39; must have been pressed twice, but it wasn&#39;t in the typed output.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> name = &quot;leelee&quot;, typed = &quot;lleeelee&quot;
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> name = &quot;laiden&quot;, typed = &quot;laiden&quot;
-<strong>Output:</strong> true
-<strong>Explanation: </strong>It&#39;s not necessary to long press any character.
+<strong>Explanation: </strong>&#39;e&#39; must have been pressed twice, but it was not in the typed output.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= name.length &lt;= 1000</code></li>
-	<li><code>1 &lt;= typed.length &lt;= 1000</code></li>
-	<li><code>name</code> and <code>typed</code> contain only lowercase English letters.</li>
+	<li><code>1 &lt;= name.length, typed.length &lt;= 1000</code></li>
+	<li><code>name</code> and <code>typed</code> consist of only lowercase English letters.</li>
 </ul>
 
 ## Solutions

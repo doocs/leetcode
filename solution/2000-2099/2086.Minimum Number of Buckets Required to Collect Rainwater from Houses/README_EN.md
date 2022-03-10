@@ -45,32 +45,12 @@ There is no empty space to place a bucket to collect the rainwater from the hous
 Thus, it is impossible to collect the rainwater from all the houses.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> street = &quot;H&quot;
-<strong>Output:</strong> -1
-<strong>Explanation:</strong>
-There is no empty space to place a bucket.
-Thus, it is impossible to collect the rainwater from the house.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> street = &quot;.&quot;
-<strong>Output:</strong> 0
-<strong>Explanation:</strong>
-There is no house to collect water from.
-Thus, 0 buckets are needed.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= street.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>street[i]</code>&nbsp;is either<code>&#39;H&#39;</code>&nbsp;or&nbsp;<code>&#39;.&#39;</code>.</li>
+	<li><code>street[i]</code> is either<code>&#39;H&#39;</code> or <code>&#39;.&#39;</code>.</li>
 </ul>
 
 ## Solutions

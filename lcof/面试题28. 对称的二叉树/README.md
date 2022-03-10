@@ -2,45 +2,43 @@
 
 ## 题目描述
 
-请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。
+<p>请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。</p>
 
-例如，二叉树  `[1,2,2,3,4,4,3]` 是对称的。
+<p>例如，二叉树&nbsp;[1,2,2,3,4,4,3] 是对称的。</p>
 
-```
-    1
-   / \
-  2   2
- / \ / \
-3  4 4  3
-```
+<p><code>&nbsp; &nbsp; 1<br>
+&nbsp; &nbsp;/ \<br>
+&nbsp; 2 &nbsp; 2<br>
+&nbsp;/ \ / \<br>
+3 &nbsp;4 4 &nbsp;3</code><br>
+但是下面这个&nbsp;[1,2,2,null,3,null,3] 则不是镜像对称的:</p>
 
-但是下面这个  `[1,2,2,null,3,null,3]` 则不是镜像对称的:
+<p><code>&nbsp; &nbsp; 1<br>
+&nbsp; &nbsp;/ \<br>
+&nbsp; 2 &nbsp; 2<br>
+&nbsp; &nbsp;\ &nbsp; \<br>
+&nbsp; &nbsp;3 &nbsp; &nbsp;3</code></p>
 
-```
-    1
-   / \
-  2   2
-   \   \
-   3    3
-```
+<p>&nbsp;</p>
 
-**示例 1：**
+<p><strong>示例 1：</strong></p>
 
-```
-输入：root = [1,2,2,3,4,4,3]
-输出：true
-```
+<pre><strong>输入：</strong>root = [1,2,2,3,4,4,3]
+<strong>输出：</strong>true
+</pre>
 
-**示例 2：**
+<p><strong>示例 2：</strong></p>
 
-```
-输入：root = [1,2,2,null,3,null,3]
-输出：false
-```
+<pre><strong>输入：</strong>root = [1,2,2,null,3,null,3]
+<strong>输出：</strong>false</pre>
 
-**限制：**
+<p>&nbsp;</p>
 
-- `0 <= 节点个数 <= 1000`
+<p><strong>限制：</strong></p>
+
+<p><code>0 &lt;= 节点个数 &lt;= 1000</code></p>
+
+<p>注意：本题与主站 101 题相同：<a href="https://leetcode-cn.com/problems/symmetric-tree/">https://leetcode-cn.com/problems/symmetric-tree/</a></p>
 
 ## 解法
 
@@ -187,6 +185,96 @@ public:
         return isSymmetric(root->left, root->right);
     }
 };
+
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isSymmetric(root: TreeNode | null): boolean {
+    if (root == null) {
+        return true;
+    }
+    const dfs = (l: TreeNode | null, r: TreeNode | null) => {
+        if (l == null && r == null) {
+            return true;
+        }
+        if (l == null || r == null) {
+            return false;
+        }
+        return (
+            l.val == r.val &&
+            dfs(l.left, r.right) &&
+            dfs(l.right, r.left) &&
+            true
+        );
+    };
+    return dfs(root.left, root.right);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::cell::RefCell;
+use std::rc::Rc;
+impl Solution {
+    pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+        match root {
+            None => true,
+            Some(root) => {
+                fn dfs(
+                    l: &Option<Rc<RefCell<TreeNode>>>,
+                    r: &Option<Rc<RefCell<TreeNode>>>,
+                ) -> bool {
+                    if l.is_none() && r.is_none() {
+                        return true;
+                    }
+                    if l.is_none() || r.is_none() {
+                        return false;
+                    }
+                    let l = l.as_ref().unwrap().borrow();
+                    let r = r.as_ref().unwrap().borrow();
+                    l.val == r.val && dfs(&l.left, &r.right) && dfs(&l.right, &r.left) && true
+                }
+                let node = root.borrow();
+                dfs(&node.left, &node.right)
+            }
+        }
+    }
+}
 
 ```
 

@@ -6,28 +6,26 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给出一个字符串数组<code>words</code>组成的一本英语词典。从中找出最长的一个单词，该单词是由<code>words</code>词典中其他单词逐步添加一个字母组成。若其中有多个可行的答案，则返回答案中字典序最小的单词。</p>
+<p>给出一个字符串数组&nbsp;<code>words</code> 组成的一本英语词典。返回&nbsp;<code>words</code> 中最长的一个单词，该单词是由&nbsp;<code>words</code>&nbsp;词典中其他单词逐步添加一个字母组成。</p>
 
-<p>若无答案，则返回空字符串。</p>
+<p>若其中有多个可行的答案，则返回答案中字典序最小的单词。若无答案，则返回空字符串。</p>
 
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>
-words = [&quot;w&quot;,&quot;wo&quot;,&quot;wor&quot;,&quot;worl&quot;, &quot;world&quot;]
-<strong>输出：</strong>&quot;world&quot;
-<strong>解释：</strong> 
-单词&quot;world&quot;可由&quot;w&quot;, &quot;wo&quot;, &quot;wor&quot;, 和 &quot;worl&quot;添加一个字母组成。
+<pre>
+<strong>输入：</strong>words = ["w","wo","wor","worl", "world"]
+<strong>输出：</strong>"world"
+<strong>解释：</strong> 单词"world"可由"w", "wo", "wor", 和 "worl"逐步添加一个字母组成。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>
-words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &quot;ap&quot;, &quot;apply&quot;, &quot;apple&quot;]
-<strong>输出：</strong>&quot;apple&quot;
-<strong>解释：</strong>
-&quot;apply&quot;和&quot;apple&quot;都能由词典中的单词组成。但是&quot;apple&quot;的字典序小于&quot;apply&quot;。
+<pre>
+<strong>输入：</strong>words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
+<strong>输出：</strong>"apple"
+<strong>解释：</strong>"apply" 和 "apple" 都能由词典中的单词组成。但是 "apple" 的字典序小于 "apply" 
 </pre>
 
 <p>&nbsp;</p>
@@ -35,9 +33,9 @@ words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>所有输入的字符串都只包含小写字母。</li>
-	<li><code>words</code>数组长度范围为<code>[1,1000]</code>。</li>
-	<li><code>words[i]</code>的长度范围为<code>[1,30]</code>。</li>
+	<li><code>1 &lt;= words.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
+	<li>所有输入的字符串&nbsp;<code>words[i]</code>&nbsp;都只包含小写字母。</li>
 </ul>
 
 ## 解法
@@ -60,6 +58,57 @@ words = [&quot;a&quot;, &quot;banana&quot;, &quot;app&quot;, &quot;appl&quot;, &
 
 ```java
 
+```
+
+### **TypeScript**
+
+```ts
+function longestWord(words: string[]): string {
+    words.sort((a, b) => {
+        const n = a.length;
+        const m = b.length;
+        if (n === m) {
+            return a < b ? -1 : 1;
+        }
+        return m - n;
+    });
+    for (const word of words) {
+        let isPass = true;
+        for (let i = 1; i <= word.length; i++) {
+            if (!words.includes(word.slice(0, i))) {
+                isPass = false;
+                break;
+            }
+        }
+        if (isPass) {
+            return word;
+        }
+    }
+    return '';
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn longest_word(mut words: Vec<String>) -> String {
+        words.sort_unstable_by(|a, b| (b.len(), a).cmp(&(a.len(), b)));
+        for word in words.iter() {
+            let mut is_pass = true;
+            for i in 1..=word.len() {
+                if !words.contains(&word[..i].to_string()) {
+                    is_pass = false;
+                    break;
+                }
+            }
+            if is_pass {
+                return word.clone();
+            }
+        }
+        String::new()
+    }
+}
 ```
 
 ### **...**

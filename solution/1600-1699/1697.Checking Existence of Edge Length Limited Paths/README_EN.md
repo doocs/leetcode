@@ -46,6 +46,8 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 
 ## Solutions
 
+Union find.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -53,23 +55,23 @@ For the second query, there is a path (0 -&gt; 1 -&gt; 2) of two edges with dist
 ```python
 class Solution:
     def distanceLimitedPathsExist(self, n: int, edgeList: List[List[int]], queries: List[List[int]]) -> List[bool]:
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        p = list(range(n))
         edgeList.sort(key=lambda x: x[2])
+
         m = len(queries)
         indexes = list(range(m))
-        indexes.sort(key=lambda x: queries[x][2])
+        indexes.sort(key=lambda i: queries[i][2])
         ans = [False] * m
         i = 0
         for j in indexes:
-            pj, qj, limit = queries[j][0], queries[j][1], queries[j][2]
+            pj, qj, limit = queries[j]
             while i < len(edgeList) and edgeList[i][2] < limit:
-                u, v = edgeList[i][0], edgeList[i][1]
+                u, v, _ = edgeList[i]
                 p[find(u)] = find(v)
                 i += 1
             ans[j] = find(pj) == find(qj)
@@ -163,12 +165,17 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
-	p = make([]int, n)
+	p := make([]int, n)
 	for i := 0; i < n; i++ {
 		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
 	}
 	sort.Slice(edgeList, func(i, j int) bool {
 		return edgeList[i][2] < edgeList[j][2]
@@ -193,13 +200,6 @@ func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool 
 		ans[j] = find(pj) == find(qj)
 	}
 	return ans
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }
 ```
 

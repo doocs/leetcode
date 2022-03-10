@@ -8,7 +8,6 @@
 
 <ul>
 	<li>Operation 1: Swap any two <strong>existing</strong> characters.
-
     <ul>
     	<li>For example, <code>a<u>b</u>cd<u>e</u> -&gt; a<u>e</u>cd<u>b</u></code></li>
     </ul>
@@ -53,14 +52,6 @@ Apply Operation 1: &quot;<u>a</u>c<u>b</u>&quot; -&gt; &quot;<u>b</u>c<u>a</u>&q
 Apply Operation 1: &quot;ca<u>b</u>bb<u>a</u>&quot; -&gt; &quot;ca<u>a</u>bb<u>b</u>&quot;
 <code>Apply Operation 2: &quot;</code><u>c</u>aa<u>bbb</u>&quot; -&gt; &quot;<u>b</u>aa<u>ccc</u>&quot;
 Apply Operation 2: &quot;<u>baa</u>ccc&quot; -&gt; &quot;<u>abb</u>ccc&quot;
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> word1 = &quot;cabbba&quot;, word2 = &quot;aabbss&quot;
-<strong>Output:</strong> false
-<strong>Explanation: </strong>It is impossible to attain word2 from word1, or vice versa, in any amount of operations.
 </pre>
 
 <p>&nbsp;</p>

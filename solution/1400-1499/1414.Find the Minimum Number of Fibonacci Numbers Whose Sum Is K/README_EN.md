@@ -43,7 +43,7 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= k &lt;= 10^9</code></li>
+	<li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions
@@ -53,13 +53,123 @@ For k = 7 we can use 2 + 5 = 7.</pre>
 ### **Python3**
 
 ```python
+class Solution:
+    def findMinFibonacciNumbers(self, k: int) -> int:
+        def dfs(k):
+            if k < 2:
+                return k
+            a = b = 1
+            while b <= k:
+                a, b = b, a + b
+            return 1 + dfs(k - a)
 
+        return dfs(k)
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public int findMinFibonacciNumbers(int k) {
+        if (k < 2) {
+            return k;
+        }
+        int a = 1, b = 1;
+        while (b <= k) {
+            b = a + b;
+            a = b - a;
+        }
+        return 1 + findMinFibonacciNumbers(k - a);
+    }
+}
+
+```
+
+### **TypeScript**
+
+```ts
+const arr = [
+    1836311903, 1134903170, 701408733, 433494437, 267914296, 165580141,
+    102334155, 63245986, 39088169, 24157817, 14930352, 9227465, 5702887,
+    3524578, 2178309, 1346269, 832040, 514229, 317811, 196418, 121393, 75025,
+    46368, 28657, 17711, 10946, 6765, 4181, 2584, 1597, 987, 610, 377, 233, 144,
+    89, 55, 34, 21, 13, 8, 5, 3, 2, 1,
+];
+
+function findMinFibonacciNumbers(k: number): number {
+    let res = 0;
+    for (const num of arr) {
+        if (k >= num) {
+            k -= num;
+            res++;
+            if (k === 0) {
+                break;
+            }
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+const FIB: [i32; 45] = [
+    1836311903, 1134903170, 701408733, 433494437, 267914296, 165580141, 102334155, 63245986,
+    39088169, 24157817, 14930352, 9227465, 5702887, 3524578, 2178309, 1346269, 832040, 514229,
+    317811, 196418, 121393, 75025, 46368, 28657, 17711, 10946, 6765, 4181, 2584, 1597, 987, 610,
+    377, 233, 144, 89, 55, 34, 21, 13, 8, 5, 3, 2, 1,
+];
+
+impl Solution {
+    pub fn find_min_fibonacci_numbers(mut k: i32) -> i32 {
+        let mut res = 0;
+        for &i in FIB.into_iter() {
+            if k >= i {
+                k -= i;
+                res += 1;
+                if k == 0 {
+                    break;
+                }
+            }
+        }
+        res
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findMinFibonacciNumbers(int k) {
+        if (k < 2) return k;
+        int a = 1, b = 1;
+        while (b <= k)
+        {
+            b = a + b;
+            a = b - a;
+        }
+        return 1 + findMinFibonacciNumbers(k - a);
+    }
+};
+```
+
+### **Go**
+
+```go
+func findMinFibonacciNumbers(k int) int {
+	if k < 2 {
+		return k
+	}
+	a, b := 1, 1
+	for b <= k {
+		a, b = b, a+b
+	}
+	return 1 + findMinFibonacciNumbers(k-a)
+}
 ```
 
 ### **...**

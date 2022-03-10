@@ -9,9 +9,9 @@
 <p>The data structure should support the following functions:</p>
 
 <ul>
-	<li><strong>Lock:</strong> <strong>Locks</strong> the given node for the given user and prevents other users from locking the same node. You may only lock a node if the node is unlocked.</li>
-	<li><strong>Unlock: Unlocks</strong> the given node for the given user. You may only unlock a node if it is currently locked by the same user.</li>
-	<li><b>Upgrade</b><strong>: Locks</strong> the given node for the given user and <strong>unlocks</strong> all of its descendants. You may only upgrade a node if <strong>all</strong> 3 conditions are true:
+	<li><strong>Lock:</strong> <strong>Locks</strong> the given node for the given user and prevents other users from locking the same node. You may only lock a node using this function if the node is unlocked.</li>
+	<li><strong>Unlock: Unlocks</strong> the given node for the given user. You may only unlock a node using this function if it is currently locked by the same user.</li>
+	<li><b>Upgrade</b><strong>: Locks</strong> the given node for the given user and <strong>unlocks</strong> all of its descendants <strong>regardless</strong> of who locked it. You may only upgrade a node if <strong>all</strong> 3 conditions are true:
 	<ul>
 		<li>The node is unlocked,</li>
 		<li>It has at least one locked descendant (by <strong>any</strong> user), and</li>

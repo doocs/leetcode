@@ -49,6 +49,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+返回最大空格数量再加 1 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,7 +58,9 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def mostWordsFound(self, sentences: List[str]) -> int:
+        return 1 + max(s.count(' ') for s in sentences)
 ```
 
 ### **Java**
@@ -64,7 +68,77 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
 
+    public int mostWordsFound(String[] sentences) {
+        int ans = 0;
+        for (String s : sentences) {
+            ans = Math.max(ans, 1 + count(s, ' '));
+        }
+        return ans;
+    }
+
+    private int count(String s, char c) {
+        int cnt = 0;
+        for (char ch : s.toCharArray()) {
+            if (ch == c) {
+                ++cnt;
+            }
+        }
+        return cnt;
+    }
+}
+
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int mostWordsFound(vector<string>& sentences) {
+        int ans = 0;
+        for (string& s : sentences)
+            ans = max(ans, 1 + count(s, ' '));
+        return ans;
+    }
+
+    int count(string s, char c) {
+        int cnt = 0;
+        for (char& ch : s)
+            if (ch == c)
+                ++cnt;
+        return cnt;
+    }
+};
+```
+
+### **Go**
+
+```go
+func mostWordsFound(sentences []string) int {
+	count := func(s string, c rune) int {
+		cnt := 0
+		for _, ch := range s {
+			if ch == c {
+				cnt++
+			}
+		}
+		return cnt
+	}
+	ans := 0
+	for _, s := range sentences {
+		ans = max(ans, 1+count(s, ' '))
+	}
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **TypeScript**

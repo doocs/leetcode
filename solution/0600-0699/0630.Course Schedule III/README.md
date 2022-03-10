@@ -6,34 +6,48 @@
 
 <!-- 这里写题目描述 -->
 
-<p>这里有 <code>n</code> 门不同的在线课程，他们按从 <code>1</code> 到 <code>n</code>&nbsp;编号。每一门课程有一定的持续上课时间（课程时间）<code>t</code> 以及关闭时间第 d<sub>&nbsp;</sub>天。一门课要持续学习 <code>t</code> 天直到第 d<span style="font-size:10.5px"> </span>天时要完成，你将会从第 1 天开始。</p>
+<p>这里有 <code>n</code> 门不同的在线课程，按从 <code>1</code> 到 <code>n</code>&nbsp;编号。给你一个数组 <code>courses</code> ，其中 <code>courses[i] = [duration<sub>i</sub>, lastDay<sub>i</sub>]</code> 表示第 <code>i</code> 门课将会 <strong>持续</strong> 上 <code>duration<sub>i</sub></code> 天课，并且必须在不晚于 <code>lastDay<sub>i</sub></code> 的时候完成。</p>
 
-<p>给出 <code>n</code> 个在线课程用 <code>(t, d)</code> 对表示。你的任务是找出最多可以修几门课。</p>
+<p>你的学期从第 <code>1</code> 天开始。且不能同时修读两门及两门以上的课程。</p>
+
+<p>返回你最多可以修读的课程数目。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong> [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]
-<strong>输出:</strong> 3
-<strong>解释:</strong> 
-这里一共有 4 门课程, 但是你最多可以修 3 门:
-首先, 修第一门课时, 它要耗费 100 天，你会在第 100 天完成, 在第 101 天准备下门课。
-第二, 修第三门课时, 它会耗费 1000 天，所以你将在第 1100 天的时候完成它, 以及在第 1101 天开始准备下门课程。
-第三, 修第二门课时, 它会耗时 200 天，所以你将会在第 1300 天时完成它。
-第四门课现在不能修，因为你将会在第 3300 天完成它，这已经超出了关闭日期。</pre>
+<strong>输入：</strong>courses = [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]]
+<strong>输出：</strong>3
+<strong>解释：</strong>
+这里一共有 4 门课程，但是你最多可以修 3 门：
+首先，修第 1 门课，耗费 100 天，在第 100 天完成，在第 101 天开始下门课。
+第二，修第 3 门课，耗费 1000 天，在第 1100 天完成，在第 1101 天开始下门课程。
+第三，修第 2 门课，耗时 200 天，在第 1300 天完成。
+第 4 门课现在不能修，因为将会在第 3300 天完成它，这已经超出了关闭日期。</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>courses = [[1,2]]
+<strong>输出：</strong>1
+</pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>courses = [[3,2],[4,3]]
+<strong>输出：</strong>0
+</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示:</strong></p>
 
-<ol>
-	<li>整数 1 &lt;= d, t, n &lt;= 10,000 。</li>
-	<li>你不能同时修两门课程。</li>
-</ol>
-
-<p>&nbsp;</p>
+<ul>
+	<li><code>1 &lt;= courses.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= duration<sub>i</sub>, lastDay<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
+</ul>
 
 ## 解法
 
@@ -43,8 +57,8 @@
 
 先根据「结束时间」对 `courses` 升序排列，从前往后考虑每个课程，过程中维护一个总时长 s，对于某个课程 `courses[i]` 而言，根据如果学习该课程，是否满足「最晚完成时间」条件进行讨论：
 
-- 学习该课程后，满足「最晚完成时间」要求，即 s + `courses[i][0]` <= `courses[i][1]`，则进行学习；
-- 学习该课程后，不满足「最晚完成时间」要求，此时从过往学习的课程中找出「持续时间」最长的课程进行「回退」操作（这个持续时长最长的课程也有可能是当前课程）。
+-   学习该课程后，满足「最晚完成时间」要求，即 s + `courses[i][0]` <= `courses[i][1]`，则进行学习；
+-   学习该课程后，不满足「最晚完成时间」要求，此时从过往学习的课程中找出「持续时间」最长的课程进行「回退」操作（这个持续时长最长的课程也有可能是当前课程）。
 
 <!-- tabs:start -->
 

@@ -45,20 +45,12 @@
 <strong>Output:</strong> [[3,null],[3,0],[3,null]]
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> head = []
-<strong>Output:</strong> []
-<strong>Explanation:</strong> The given linked list is empty (null pointer), so return null.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>0 &lt;= n &lt;= 1000</code></li>
-	<li><code>-10000 &lt;= Node.val &lt;= 10000</code></li>
+	<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 	<li><code>Node.random</code> is <code>null</code> or is pointing to some node in the linked list.</li>
 </ul>
 

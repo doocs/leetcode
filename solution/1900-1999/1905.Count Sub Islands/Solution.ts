@@ -16,7 +16,7 @@ function dfs(
     grid1: number[][],
     grid2: number[][],
     i: number,
-    j: number
+    j: number,
 ): boolean {
     let m = grid1.length,
         n = grid1[0].length;

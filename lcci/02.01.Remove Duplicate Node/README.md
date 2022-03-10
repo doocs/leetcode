@@ -186,6 +186,115 @@ func removeDuplicateNodes(head *ListNode) *ListNode {
 }
 ```
 
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function removeDuplicateNodes(head: ListNode | null): ListNode | null {
+    if (head == null) {
+        return head;
+    }
+    const set = new Set<number>([head.val]);
+    let cur = head;
+    while (cur.next != null) {
+        if (set.has(cur.next.val)) {
+            cur.next = cur.next.next;
+        } else {
+            set.add(cur.next.val);
+            cur = cur.next;
+        }
+    }
+    return head;
+}
+```
+
+暴力（不推荐）
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function removeDuplicateNodes(head: ListNode | null): ListNode | null {
+    let n1 = head;
+    while (n1 != null) {
+        let n2 = n1;
+        while (n2.next != null) {
+            if (n1.val === n2.next.val) {
+                n2.next = n2.next.next;
+            } else {
+                n2 = n2.next;
+            }
+        }
+        n1 = n1.next;
+    }
+    return head;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+use std::collections::HashSet;
+
+impl Solution {
+    pub fn remove_duplicate_nodes(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        match head {
+            None => head,
+            Some(mut head) => {
+                let mut set = HashSet::new();
+                set.insert(head.val);
+                let mut pre = &mut head;
+                while let Some(cur) = &pre.next {
+                    if set.contains(&cur.val) {
+                        pre.next = pre.next.take().unwrap().next;
+                    } else {
+                        set.insert(cur.val);
+                        pre = pre.next.as_mut().unwrap();
+                    }
+                }
+                Some(head)
+            }
+        }
+    }
+}
+```
+
 ### **...**
 
 ```

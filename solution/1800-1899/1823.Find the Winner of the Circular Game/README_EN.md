@@ -9,11 +9,12 @@
 <p>The rules of the game are as follows:</p>
 
 <ol>
-	<li><strong>Start</strong> at the <code>1<sup>st</sup></code> friend.</li>
-	<li>Count the next <code>k</code> friends in the clockwise direction <strong>including</strong> the friend you started at. The counting wraps around the circle and may count some friends more than once.</li>
-	<li>The last friend you counted leaves the circle and loses the game.</li>
-	<li>If there is still more than one friend in the circle, go back to step <code>2</code> <strong>starting</strong> from the friend <strong>immediately clockwise</strong> of the friend who just lost and repeat.</li>
-	<li>Else, the last friend in the circle wins the game.</li>
+    <li><strong>Start</strong> at the <code>1<sup>st</sup></code> friend.</li>
+    <li>Count the next <code>k</code> friends in the clockwise direction <strong>including</strong> the friend you started at. The counting wraps around the circle and may count some friends more than once.</li>
+    <li>The last friend you counted leaves the circle and loses the game.</li>
+    <li>If there is still more than one friend in the circle, go back to step <code>2</code> <strong>starting</strong> from the friend <strong>immediately clockwise</strong> of the friend who just lost and repeat.</li>
+    <li>Else, the last friend in the circle wins the game.</li>
+
 </ol>
 
 <p>Given the number of friends, <code>n</code>, and an integer <code>k</code>, return <em>the winner of the game</em>.</p>
@@ -67,7 +68,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= k &lt;= n &lt;= 500</code></li>
+    <li><code>1 &lt;= k &lt;= n &lt;= 500</code></li>
+
 </ul>
 
 ## Solutions
@@ -77,13 +79,54 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def findTheWinner(self, n: int, k: int) -> int:
+        if n == 1:
+            return 1
+        ans = (k + self.findTheWinner(n - 1, k)) % n
+        return n if ans == 0 else ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int findTheWinner(int n, int k) {
+        if (n == 1) {
+            return 1;
+        }
+        int ans = (findTheWinner(n - 1, k) + k) % n;
+        return ans == 0 ? n : ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int findTheWinner(int n, int k) {
+        if (n == 1) return 1;
+        int ans = (findTheWinner(n - 1, k) + k) % n;
+        return ans == 0 ? n : ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func findTheWinner(n int, k int) int {
+	if n == 1 {
+		return 1
+	}
+	ans := (findTheWinner(n-1, k) + k) % n
+	if ans == 0 {
+		return n
+	}
+	return ans
+}
 ```
 
 ### **...**

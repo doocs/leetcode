@@ -14,6 +14,18 @@
 	<li><code>boolean hasNext()</code> Returns <code>true</code> if there are still some integers in the nested list and <code>false</code> otherwise.</li>
 </ul>
 
+<p>Your code will be tested with the following pseudocode:</p>
+
+<pre>
+initialize iterator with nestedList
+res = []
+while iterator.hasNext()
+    append iterator.next() to the end of res
+return res
+</pre>
+
+<p>If <code>res</code> matches the expected flattened list, then your code will be judged as correct.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 

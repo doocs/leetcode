@@ -33,21 +33,15 @@ Hence, the total sum of vowels = 0 + 1 + 1 + 1 + 1 + 2 = 6.
 All possible substrings are: &quot;a&quot;, &quot;ab&quot;, &quot;abc&quot;, &quot;b&quot;, &quot;bc&quot;, and &quot;c&quot;.
 - &quot;a&quot;, &quot;ab&quot;, and &quot;abc&quot; have 1 vowel each
 - &quot;b&quot;, &quot;bc&quot;, and &quot;c&quot; have 0 vowels each
-Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3. </pre>
+Hence, the total sum of vowels = 1 + 1 + 1 + 0 + 0 + 0 = 3.
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> word = &quot;ltcd&quot;
 <strong>Output:</strong> 0
-<strong>Explanation:</strong> There are no vowels in any substring of &quot;ltcd&quot;.</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> word = &quot;noosabasboosa&quot;
-<strong>Output:</strong> 237
-<strong>Explanation:</strong> There are a total of 237 vowels in all the substrings.
+<strong>Explanation:</strong> There are no vowels in any substring of &quot;ltcd&quot;.
 </pre>
 
 <p>&nbsp;</p>
@@ -99,7 +93,7 @@ function countVowels(word: string): number {
     let ans = 0;
     for (let i = 0; i < n; i++) {
         let char = word.charAt(i);
-        if (["a", "e", "i", "o", "u"].includes(char)) {
+        if (['a', 'e', 'i', 'o', 'u'].includes(char)) {
             ans += (i + 1) * (n - i);
         }
     }

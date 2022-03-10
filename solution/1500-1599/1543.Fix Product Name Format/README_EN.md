@@ -35,9 +35,11 @@ Each row of this table contains the product name and the date it was sold.
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Sales</code>
+<strong>Input:</strong> 
+Sales table:
 +---------+--------------+------------+
 | sale_id | product_name | sale_date  |
 +---------+--------------+------------+
@@ -48,8 +50,7 @@ Each row of this table contains the product name and the date it was sold.
 | 5       | LCKeyChain   | 2000-02-28 |
 | 6       | Matryoshka   | 2000-03-31 |
 +---------+--------------+------------+
-
-Result table:
+<strong>Output:</strong> 
 +--------------+-----------+-------+
 | product_name | sale_date | total |
 +--------------+-----------+-------+
@@ -58,9 +59,10 @@ Result table:
 | lcphone      | 2000-02   | 1     |
 | matryoshka   | 2000-03   | 1     |
 +--------------+-----------+-------+
-In January, 2 LcPhones were sold, please note that the product names are not case sensitive and may contain spaces.
-In Februery, 2 LCKeychains and 1 LCPhone were sold.
-In March, 1 matryoshka was sold.
+<strong>Explanation:</strong> 
+In January, 2 LcPhones were sold. Please note that the product names are not case sensitive and may contain spaces.
+In February, 2 LCKeychains and 1 LCPhone were sold.
+In March, one matryoshka was sold.
 </pre>
 
 ## Solutions

@@ -1,9 +1,14 @@
-var p []int
-
 func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool {
-	p = make([]int, n)
+	p := make([]int, n)
 	for i := 0; i < n; i++ {
 		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
 	}
 	sort.Slice(edgeList, func(i, j int) bool {
 		return edgeList[i][2] < edgeList[j][2]
@@ -28,11 +33,4 @@ func distanceLimitedPathsExist(n int, edgeList [][]int, queries [][]int) []bool 
 		ans[j] = find(pj) == find(qj)
 	}
 	return ans
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }

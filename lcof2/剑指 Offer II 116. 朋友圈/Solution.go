@@ -1,30 +1,21 @@
-var p []int
-
 func findCircleNum(isConnected [][]int) int {
 	n := len(isConnected)
-	p = make([]int, n)
-	for i := 1; i < n; i++ {
-		p[i] = i
-	}
-	for i := 0; i < n; i++ {
+	vis := make([]bool, n)
+	var dfs func(i int)
+	dfs = func(i int) {
+		vis[i] = true
 		for j := 0; j < n; j++ {
-			if isConnected[i][j] == 1 {
-				p[find(i)] = find(j)
+			if !vis[j] && isConnected[i][j] == 1 {
+				dfs(j)
 			}
 		}
 	}
-	cnt := 0
+	ans := 0
 	for i := 0; i < n; i++ {
-		if i == find(i) {
-			cnt++
+		if !vis[i] {
+			dfs(i)
+			ans++
 		}
 	}
-	return cnt
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return ans
 }

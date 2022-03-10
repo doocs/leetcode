@@ -21,48 +21,27 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>[1,2,3,4,4,3,2,1]
+<pre>
+<strong>输入：</strong>deck = [1,2,3,4,4,3,2,1]
 <strong>输出：</strong>true
 <strong>解释：</strong>可行的分组是 [1,1]，[2,2]，[3,3]，[4,4]
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>[1,1,1,2,2,2,3,3]
+<pre>
+<strong>输入：</strong>deck = [1,1,1,2,2,2,3,3]
 <strong>输出：</strong>false
 <strong>解释：</strong>没有满足要求的分组。
 </pre>
 
-<p><strong>示例 3：</strong></p>
-
-<pre><strong>输入：</strong>[1]
-<strong>输出：</strong>false
-<strong>解释：</strong>没有满足要求的分组。
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre><strong>输入：</strong>[1,1]
-<strong>输出：</strong>true
-<strong>解释：</strong>可行的分组是 [1,1]
-</pre>
-
-<p><strong>示例 5：</strong></p>
-
-<pre><strong>输入：</strong>[1,1,2,2,2,2]
-<strong>输出：</strong>true
-<strong>解释：</strong>可行的分组是 [1,1]，[2,2]，[2,2]
-</pre>
-
-<p><br>
+<p><br />
 <strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 &lt;= deck.length &lt;= 10000</code></li>
-	<li><code>0 &lt;= deck[i] &lt;&nbsp;10000</code></li>
-</ol>
-
-<p>&nbsp;</p>
+<ul>
+	<li><code>1 &lt;= deck.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= deck[i] &lt; 10<sup>4</sup></code></li>
+</ul>
 
 ## 解法
 

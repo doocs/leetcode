@@ -4,60 +4,59 @@
 
 ## Description
 
-<p>We are given the <code>root</code>&nbsp;node of a <em>maximum tree:</em> a tree where every node has a value greater than any other value in its subtree.</p>
+<p>A <strong>maximum tree</strong> is a tree where every node has a value greater than any other value in its subtree.</p>
 
-<p>Just as in the <a href="https://leetcode.com/problems/maximum-binary-tree/">previous problem</a>, the given tree&nbsp;was constructed from an list&nbsp;<code>A</code>&nbsp;(<code>root = Construct(A)</code>) recursively with the following&nbsp;<code>Construct(A)</code> routine:</p>
+<p>You are given the <code>root</code> of a maximum binary tree and an integer <code>val</code>.</p>
+
+<p>Just as in the <a href="https://leetcode.com/problems/maximum-binary-tree/" target="_blank">previous problem</a>, the given tree was constructed from a list <code>a</code> (<code>root = Construct(a)</code>) recursively with the following <code>Construct(a)</code> routine:</p>
 
 <ul>
-	<li>If <code>A</code> is empty, return <code>null</code>.</li>
-	<li>Otherwise, let <code>A[i]</code> be the largest element of <code>A</code>.&nbsp; Create a <code>root</code> node with value <code>A[i]</code>.</li>
-	<li>The left child of <code>root</code> will be <code>Construct([A[0], A[1], ..., A[i-1]])</code></li>
-	<li>The right child of <code>root</code>&nbsp;will be <code>Construct([A[i+1], A[i+2], ..., A[A.length - 1]])</code></li>
+	<li>If <code>a</code> is empty, return <code>null</code>.</li>
+	<li>Otherwise, let <code>a[i]</code> be the largest element of <code>a</code>. Create a <code>root</code> node with the value <code>a[i]</code>.</li>
+	<li>The left child of <code>root</code> will be <code>Construct([a[0], a[1], ..., a[i - 1]])</code>.</li>
+	<li>The right child of <code>root</code> will be <code>Construct([a[i + 1], a[i + 2], ..., a[a.length - 1]])</code>.</li>
 	<li>Return <code>root</code>.</li>
 </ul>
 
-<p>Note that we were not given A directly, only a root node <code>root = Construct(A)</code>.</p>
+<p>Note that we were not given <code>a</code> directly, only a root node <code>root = Construct(a)</code>.</p>
 
-<p>Suppose <code>B</code> is a copy of <code>A</code> with the value <code>val</code> appended to it.&nbsp; It is guaranteed that <code>B</code> has unique values.</p>
+<p>Suppose <code>b</code> is a copy of <code>a</code> with the value <code>val</code> appended to it. It is guaranteed that <code>b</code> has unique values.</p>
 
-<p>Return <code>Construct(B)</code>.</p>
+<p>Return <code>Construct(b)</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-1-1.png" style="width: 159px; height: 160px;" /><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-1-2.png" style="width: 169px; height: 160px;" /></strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree1.JPG" style="width: 376px; height: 235px;" />
 <pre>
-<strong>Input: </strong>root = <span id="example-input-1-1">[4,1,3,null,null,2]</span>, val = <span id="example-input-1-2">5</span>
-<strong>Output: </strong><span id="example-output-1">[5,4,null,1,3,null,null,2]
-<strong>Explanation:</strong> A = </span><span>[1,4,2,3], B = </span><span>[1,4,2,3,5]</span>
+<strong>Input:</strong> root = [4,1,3,null,null,2], val = 5
+<strong>Output:</strong> [5,4,null,1,3,null,null,2]
+<strong>Explanation:</strong> a = [1,4,2,3], b = [1,4,2,3,5]
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-2-1.png" style="width: 180px; height: 160px;" /><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-2-2.png" style="width: 214px; height: 160px;" /></strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree21.JPG" style="width: 358px; height: 156px;" />
 <pre>
-<strong>Input: </strong>root = <span id="example-input-2-1">[5,2,4,null,1]</span>, val = <span id="example-input-2-2">3</span>
-<strong>Output: </strong><span id="example-output-2">[5,2,4,null,1,null,3]
-</span><span id="example-output-1"><strong>Explanation:</strong> A = </span><span>[2,1,5,4], B = </span><span>[2,1,5,4,3]</span>
+<strong>Input:</strong> root = [5,2,4,null,1], val = 3
+<strong>Output:</strong> [5,2,4,null,1,null,3]
+<strong>Explanation:</strong> a = [2,1,5,4], b = [2,1,5,4,3]
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-3-1.png" style="width: 180px; height: 160px;" /><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maximum-binary-tree-3-2.png" style="width: 201px; height: 160px;" /></strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0998.Maximum%20Binary%20Tree%20II/images/maxtree3.JPG" style="width: 404px; height: 180px;" />
 <pre>
-<strong>Input: </strong>root = <span id="example-input-3-1">[5,2,3,null,1]</span>, val = <span id="example-input-3-2">4</span>
-<strong>Output: </strong><span id="example-output-3">[5,2,4,null,1,3]
-</span><span id="example-output-1"><strong>Explanation:</strong> A = </span><span>[2,1,5,3], B = </span><span>[2,1,5,3,4]</span>
+<strong>Input:</strong> root = [5,2,3,null,1], val = 4
+<strong>Output:</strong> [5,2,4,null,1,3]
+<strong>Explanation:</strong> a = [2,1,5,3], b = [2,1,5,3,4]
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= B.length &lt;= 100</code></li>
+	<li>The number of nodes in the tree is in the range <code>[1, 100]</code>.</li>
+	<li><code>1 &lt;= Node.val &lt;= 100</code></li>
+	<li>All the values of the tree are <strong>unique</strong>.</li>
+	<li><code>1 &lt;= val &lt;= 100</code></li>
 </ul>
 
 ## Solutions
@@ -129,7 +128,7 @@ class Solution {
 
 function insertIntoMaxTree(
     root: TreeNode | null,
-    val: number
+    val: number,
 ): TreeNode | null {
     if (root == null || val > root.val) {
         return new TreeNode(val, root);

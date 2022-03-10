@@ -16,23 +16,31 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> n = 1
+
+<pre>
+<strong>Input:</strong> n = 1
 <strong>Output:</strong> []
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> n = 12
-<strong>Output:</strong> [[2,6],[3,4],[2,2,3]]
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> n = 37
-<strong>Output:</strong> []
-</pre><p><strong>Example 4:</strong></p>
-<pre><strong>Input:</strong> n = 32
-<strong>Output:</strong> [[2,16],[4,8],[2,2,8],[2,4,4],[2,2,2,4],[2,2,2,2,2]]
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 12
+<strong>Output:</strong> [[2,6],[3,4],[2,2,3]]
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> n = 37
+<strong>Output:</strong> []
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10<sup>8</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>7</sup></code></li>
 </ul>
 
 ## Solutions

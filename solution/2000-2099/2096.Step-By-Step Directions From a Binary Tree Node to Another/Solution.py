@@ -5,7 +5,9 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getDirections(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
+    def getDirections(
+        self, root: Optional[TreeNode], startValue: int, destValue: int
+    ) -> str:
         edges = defaultdict(list)
         ans = None
         visited = set()

@@ -5,7 +5,6 @@
 #         self.left = left
 #         self.right = right
 class CBTInserter:
-
     def __init__(self, root: TreeNode):
         self.tree = []
         q = deque([root])

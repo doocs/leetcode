@@ -6,8 +6,6 @@
 
 <p>Given an integer array of size <code>n</code>, find all elements that appear more than <code>&lfloor; n/3 &rfloor;</code> times.</p>
 
-<p><strong>Follow-up: </strong>Could you solve the problem&nbsp;in linear time and in O(1) space?</p>
-
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -37,6 +35,9 @@
 	<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Could you solve the problem in linear time and in <code>O(1)</code> space?</p>
 
 ## Solutions
 

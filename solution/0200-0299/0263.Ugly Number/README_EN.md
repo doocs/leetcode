@@ -14,14 +14,15 @@
 <pre>
 <strong>Input:</strong> n = 6
 <strong>Output:</strong> true
-<strong>Explanation:</strong> 6 = 2 &times; 3</pre>
+<strong>Explanation:</strong> 6 = 2 &times; 3
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> n = 8
+<strong>Input:</strong> n = 1
 <strong>Output:</strong> true
-<strong>Explanation:</strong> 8 = 2 &times; 2 &times; 2
+<strong>Explanation:</strong> 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -30,14 +31,6 @@
 <strong>Input:</strong> n = 14
 <strong>Output:</strong> false
 <strong>Explanation:</strong> 14 is not ugly since it includes the prime factor 7.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 1
-<strong>Output:</strong> true
-<strong>Explanation:</strong> 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
 </pre>
 
 <p>&nbsp;</p>

@@ -4,96 +4,74 @@
 
 ## Description
 
-<p>A university uses 2 data tables, <b><i>student</i></b> and <b><i>department</i></b>, to store data about its students and the departments associated with each major.</p>
-
-<p>Write a query to print the respective department name and number of students majoring in each department for all departments in the <b><i>department</i></b> table (even ones with no current students).</p>
-
-<p>Sort your results by descending number of students; if two or more departments have the same number of students, then sort those departments alphabetically by department name.</p>
-
-<p>The <b><i>student</i></b> is described as follow:</p>
+<p>Table: <code>Student</code></p>
 
 <pre>
-
-| Column Name  | Type      |
-
-|--------------|-----------|
-
-| student_id   | Integer   |
-
-| student_name | String    |
-
-| gender       | Character |
-
-| dept_id      | Integer   |
-
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| student_id   | int     |
+| student_name | varchar |
+| gender       | varchar |
+| dept_id      | int     |
++--------------+---------+
+student_id is the primary key column for this table.
+dept_id is a foreign key to dept_id in the Department tables.
+Each row of this table indicates the name of a student, their gender, and the id of their department.
 </pre>
 
-<p>where student_id is the student&#39;s ID number, student_name is the student&#39;s name, gender is their gender, and dept_id is the department ID associated with their declared major.</p>
+<p>&nbsp;</p>
 
-<p>And the <b><i>department</i></b> table is described as below:</p>
+<p>Table: <code>Department</code></p>
 
 <pre>
-
++-------------+---------+
 | Column Name | Type    |
-
-|-------------|---------|
-
-| dept_id     | Integer |
-
-| dept_name   | String  |
-
++-------------+---------+
+| dept_id     | int     |
+| dept_name   | varchar |
++-------------+---------+
+dept_id is the primary key column for this table.
+Each row of this table contains the id and the name of a department.
 </pre>
 
-<p>where dept_id is the department&#39;s ID number and dept_name is the department name.</p>
+<p>&nbsp;</p>
 
-<p>Here is an example <b>input</b>:<br />
+<p>Write an SQL query to report the respective department name and number of students majoring in each department for all departments in the <code>Department</code> table (even ones with no current students).</p>
 
-<b><i>student</i></b> table:</p>
+<p>Return the result table <strong>ordered</strong> by <code>student_number</code> <strong>in descending order</strong>. In case of a tie, order them by <code>dept_name</code> <strong>alphabetically</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
+<strong>Input:</strong> 
+Student table:
++------------+--------------+--------+---------+
 | student_id | student_name | gender | dept_id |
-
-|------------|--------------|--------|---------|
-
++------------+--------------+--------+---------+
 | 1          | Jack         | M      | 1       |
-
 | 2          | Jane         | F      | 1       |
-
 | 3          | Mark         | M      | 2       |
-
-</pre>
-
-<p><b><i>department</i></b> table:</p>
-
-<pre>
-
++------------+--------------+--------+---------+
+Department table:
++---------+-------------+
 | dept_id | dept_name   |
-
-|---------|-------------|
-
++---------+-------------+
 | 1       | Engineering |
-
 | 2       | Science     |
-
 | 3       | Law         |
-
-</pre>
-
-<p>The <b>Output</b> should be:</p>
-
-<pre>
-
++---------+-------------+
+<strong>Output:</strong> 
++-------------+----------------+
 | dept_name   | student_number |
-
-|-------------|----------------|
-
++-------------+----------------+
 | Engineering | 2              |
-
 | Science     | 1              |
-
 | Law         | 0              |
-
++-------------+----------------+
 </pre>
 
 ## Solutions

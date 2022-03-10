@@ -17,7 +17,9 @@ team_id is the primary key of this table.
 Each row of this table represents a single football team.
 </pre>
 
-<p>Table:&nbsp;<code>Matches</code></p>
+<p>&nbsp;</p>
+
+<p>Table: <code>Matches</code></p>
 
 <pre>
 +---------------+---------+
@@ -31,24 +33,30 @@ Each row of this table represents a single football team.
 +---------------+---------+
 match_id is the primary key of this table.
 Each row is a record of a finished match between two different teams. 
-Teams host_team and guest_team are represented by their IDs in the teams table (team_id) and they scored host_goals and guest_goals goals respectively.
+Teams host_team and guest_team are represented by their IDs in the Teams table (team_id), and they scored host_goals and guest_goals goals, respectively.
 </pre>
 
 <p>&nbsp;</p>
 You would like to compute the scores of all teams after all matches. Points are awarded as follows:
 
 <ul>
-	<li>A team&nbsp;receives three points if they win&nbsp;a match (Score strictly more goals than the opponent team).</li>
-	<li>A team&nbsp;receives one point if they draw a match (Same number of goals as the opponent team).</li>
-	<li>A team&nbsp;receives no points if they lose a match (Score less goals than the opponent team).</li>
+	<li>A team receives <strong>three points</strong> if they win a match (i.e., Scored more goals than the opponent team).</li>
+	<li>A team receives <strong>one point</strong> if they draw a match (i.e., Scored the same number of goals as the opponent team).</li>
+	<li>A team receives <strong>no points</strong> if they lose a match (i.e., Scored fewer goals than the opponent team).</li>
 </ul>
 
-<p>Write an SQL query that selects the <strong>team_id</strong>, <strong>team_name</strong> and <strong>num_points</strong> of each team in the tournament after all described matches. Result table should be ordered by <strong>num_points</strong> (decreasing order). In case of a tie, order the records by <strong>team_id</strong> (increasing order).</p>
+<p>Write an SQL query that selects the <code>team_id</code>, <code>team_name</code> and <code>num_points</code> of each team in the tournament after all described matches.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table ordered by <code>num_points</code> <strong>in decreasing order</strong>. In case of a tie, order the records by <code>team_id</code> <strong>in increasing order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Teams </code>table:
+<strong>Input:</strong> 
+Teams table:
 +-----------+--------------+
 | team_id   | team_name    |
 +-----------+--------------+
@@ -58,8 +66,7 @@ You would like to compute the scores of all teams after all matches. Points are 
 | 40        | Chicago FC   |
 | 50        | Toronto FC   |
 +-----------+--------------+
-
-<code>Matches </code>table:
+Matches table:
 +------------+--------------+---------------+-------------+--------------+
 | match_id   | host_team    | guest_team    | host_goals  | guest_goals  |
 +------------+--------------+---------------+-------------+--------------+
@@ -69,8 +76,7 @@ You would like to compute the scores of all teams after all matches. Points are 
 | 4          | 20           | 30            | 1           | 0            |
 | 5          | 50           | 30            | 1           | 0            |
 +------------+--------------+---------------+-------------+--------------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+--------------+---------------+
 | team_id    | team_name    | num_points    |
 +------------+--------------+---------------+

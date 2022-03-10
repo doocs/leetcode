@@ -36,20 +36,6 @@ These are the only two combinations.
 <strong>Output:</strong> []
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> candidates = [1], target = 1
-<strong>Output:</strong> [[1]]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> candidates = [1], target = 2
-<strong>Output:</strong> [[1,1]]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -71,21 +57,19 @@ DFS.
 ```python
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        ans = []
-        n = len(candidates)
-
         def dfs(s, u, t):
             if s == target:
-                ans.append(t.copy())
+                ans.append(t[:])
                 return
             if s > target:
                 return
-            for i in range(u, n):
+            for i in range(u, len(candidates)):
                 c = candidates[i]
                 t.append(c)
                 dfs(s + c, i, t)
                 t.pop()
 
+        ans = []
         dfs(0, 0, [])
         return ans
 ```

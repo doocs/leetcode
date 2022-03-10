@@ -6,50 +6,46 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given a <strong>0-indexed</strong> binary matrix <code>grid</code>. In one operation, you can flip any <code>1</code> in <code>grid</code> to be <code>0</code>.</p>
+<p>给你一个 <strong>下标从 0 开始&nbsp;</strong>的矩阵 <code>grid</code>。每次操作，你可以把 <code>grid</code>&nbsp;中的 一个&nbsp;<code>1</code> 变成&nbsp;<code>0</code> 。</p>
 
-<p>A binary matrix is <strong>well-isolated</strong> if there is no <code>1</code> in the matrix that is <strong>4-directionally connected</strong> (i.e., horizontal and vertical) to another <code>1</code>.</p>
+<p>如果一个矩阵中，没有 <code>1</code> 与其它的 <code>1</code> <strong>四连通</strong>（也就是说所有 <code>1</code> 在上下左右四个方向上不能与其他 <code>1</code> 相邻），那么该矩阵就是 <strong>完全独立</strong> 的。</p>
 
-<p>Return <em>the minimum number of operations to make </em><code>grid</code><em> <strong>well-isolated</strong></em>.</p>
+<p>请返回让&nbsp;<code>grid</code> 成为 <strong>完全独立</strong> 的矩阵的 <em>最小操作数</em>。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181501-1.png" style="width: 644px; height: 250px;" />
-<pre>
-<strong>Input:</strong> grid = [[1,1,0],[0,1,1],[1,1,1]]
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> Use 3 operations to change grid[0][1], grid[1][2], and grid[2][1] to 0.
-After, no more 1&#39;s are 4-directionally connected and grid is well-isolated.
+
+<p><strong>示例 1:</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181501-1.png" style="width: 644px; height: 250px;">
+<pre><strong>输入:</strong> grid = [[1,1,0],[0,1,1],[1,1,1]]
+<strong>输出:</strong> 3
+<strong>解释:</strong> 可以进行三次操作（把 grid[0][1], grid[1][2] 和 grid[2][1] 变成 0）。
+操作后的矩阵中的所有的 1 与其它 1 均不相邻，因此矩阵是完全独立的。
 </pre>
 
-<p><strong>Example 2:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181518-2.png" style="height: 250px; width: 255px;" />
-<pre>
-<strong>Input:</strong> grid = [[0,0,0],[0,0,0],[0,0,0]]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> There are no 1&#39;s in grid and it is well-isolated.
-No operations were done so return 0.
+<p><strong>示例 2:</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181518-2.png" style="height: 250px; width: 255px;">
+<pre><strong>输入:</strong> grid = [[0,0,0],[0,0,0],[0,0,0]]
+<strong>输出:</strong> 0
+<strong>解释:</strong> 矩阵中没有 1，此时矩阵也是完全独立的，因此无需操作，返回 0。
 </pre>
 
-<p><strong>Example 3:</strong></p>
-<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181817-3.png" style="width: 165px; height: 167px;" />
-<pre>
-<strong>Input:</strong> grid = [[0,1],[1,0]]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> None of the 1&#39;s are 4-directionally connected and grid is well-isolated.
-No operations were done so return 0.
+<p><strong>示例 3:</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2123.Minimum%20Operations%20to%20Remove%20Adjacent%20Ones%20in%20Matrix/images/image-20211223181817-3.png" style="width: 165px; height: 167px;">
+<pre><strong>输入:</strong> grid = [[0,1],[1,0]]
+<strong>输出:</strong> 0
+<strong>解释:</strong> 矩阵中的所有的 1 与其它 1 均不相邻，已经是完全独立的，因此无需操作，返回 0。
 </pre>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>m == grid.length</code></li>
 	<li><code>n == grid[i].length</code></li>
 	<li><code>1 &lt;= m, n &lt;= 300</code></li>
-	<li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
+	<li><code>grid[i][j]</code> 是&nbsp;<code>0</code>&nbsp;或者&nbsp;<code>1</code>.</li>
 </ul>
-
 
 ## 解法
 

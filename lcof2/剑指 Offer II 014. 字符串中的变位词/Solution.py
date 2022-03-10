@@ -7,11 +7,13 @@ class Solution:
         for i in range(n1):
             window[ord(s1[i]) - ord('a')] += 1
             window[ord(s2[i]) - ord('a')] -= 1
-        if self.check(window): return True
+        if self.check(window):
+            return True
         for i in range(n1, n2):
             window[ord(s2[i]) - ord('a')] -= 1
             window[ord(s2[i - n1]) - ord('a')] += 1
-            if self.check(window): return True
+            if self.check(window):
+                return True
         return False
 
     def check(self, window: List[int]) -> bool:

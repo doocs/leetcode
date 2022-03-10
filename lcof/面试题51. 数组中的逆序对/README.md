@@ -4,18 +4,20 @@
 
 <!-- 这里写题目描述 -->
 
-在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
+<p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。</p>
 
-**示例 1:**
+<p>&nbsp;</p>
 
-```
-输入: [7,5,6,4]
-输出: 5
-```
+<p><strong>示例 1:</strong></p>
 
-**限制：**
+<pre><strong>输入</strong>: [7,5,6,4]
+<strong>输出</strong>: 5</pre>
 
-- `0 <= 数组长度 <= 50000`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>0 &lt;= 数组长度 &lt;= 50000</code></p>
 
 ## 解法
 
@@ -189,7 +191,7 @@ function reversePairs(nums: number[]): number {
         nums: number[],
         left: number,
         mid: number,
-        right: number
+        right: number,
     ): void {
         let n: number = right - left + 1;
         let t: number[] = new Array(n);

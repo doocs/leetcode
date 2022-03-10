@@ -15,7 +15,7 @@
 
 <ul>
 	<li>If an answer <strong>equals</strong> the correct answer of the expression, this student will be rewarded <code>5</code> points;</li>
-	<li>Otherwise, if the answer <strong>could be interpreted</strong> as if the student used the <strong>incorrect order of operations</strong>, <strong>once</strong> or <strong>multiple</strong> times, this student will be rewarded <code>2</code> points;</li>
+	<li>Otherwise, if the answer <strong>could be interpreted</strong> as if the student applied the operators <strong>in the wrong order</strong> but had <strong>correct arithmetic</strong>, this student will be rewarded <code>2</code> points;</li>
 	<li>Otherwise, this student will be rewarded <code>0</code> points.</li>
 </ul>
 
@@ -28,7 +28,7 @@
 <strong>Input:</strong> s = &quot;7+3*1*2&quot;, answers = [20,13,42]
 <strong>Output:</strong> 7
 <strong>Explanation:</strong> As illustrated above, the correct answer of the expression is 13, therefore one student is rewarded 5 points: [20,<u><strong>13</strong></u>,42]
-A student might have used this incorrect order of operations: 7+3=10, 10*1=10, 10*2=20. Therefore one student is rewarded 2 points: [<u><strong>20</strong></u>,13,42]
+A student might have applied the operators in this wrong order: ((7+3)*1)*2 = 20. Therefore one student is rewarded 2 points: [<u><strong>20</strong></u>,13,42]
 The points for the students are: [2,5,0]. The sum of the points is 2+5+0=7.
 </pre>
 
@@ -38,7 +38,7 @@ The points for the students are: [2,5,0]. The sum of the points is 2+5+0=7.
 <strong>Input:</strong> s = &quot;3+5*2&quot;, answers = [13,0,10,13,13,16,16]
 <strong>Output:</strong> 19
 <strong>Explanation:</strong> The correct answer of the expression is 13, therefore three students are rewarded 5 points each: [<strong><u>13</u></strong>,0,10,<strong><u>13</u></strong>,<strong><u>13</u></strong>,16,16]
-A student might have used this incorrect order of operations: 3+5=8, 8*2=16. Therefore two students are rewarded 2 points: [13,0,10,13,13,<strong><u>16</u></strong>,<strong><u>16</u></strong>]
+A student might have applied the operators in this wrong order: ((3+5)*2 = 16. Therefore two students are rewarded 2 points: [13,0,10,13,13,<strong><u>16</u></strong>,<strong><u>16</u></strong>]
 The points for the students are: [5,0,0,5,5,2,2]. The sum of the points is 5+0+0+5+5+2+2=19.
 </pre>
 
@@ -48,7 +48,7 @@ The points for the students are: [5,0,0,5,5,2,2]. The sum of the points is 5+0+0
 <strong>Input:</strong> s = &quot;6+0*1&quot;, answers = [12,9,6,4,8,6]
 <strong>Output:</strong> 10
 <strong>Explanation:</strong> The correct answer of the expression is 6.
-If a student had used some incorrect order of operations, the answer would also be 6.
+If a student had incorrectly done (6+0)*1, the answer would also be 6.
 By the rules of grading, the students will still be rewarded 5 points (as they got the correct answer), not 2 points.
 The points for the students are: [0,0,5,0,0,5]. The sum of the points is 10.
 </pre>

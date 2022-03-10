@@ -42,7 +42,15 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        counter = Counter()
+        ans = 0
+        for a, b in dominoes:
+            v = a * 10 + b if a > b else b * 10 + a
+            ans += counter[v]
+            counter[v] += 1
+        return ans
 ```
 
 ### **Java**
@@ -50,7 +58,74 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numEquivDominoPairs(int[][] dominoes) {
+        int ans = 0;
+        int[] counter = new int[100];
+        for (int[] d : dominoes) {
+            int v = d[0] > d[1] ? d[0] * 10 + d[1] : d[1] * 10 + d[0];
+            ans += counter[v];
+            ++counter[v];
+        }
+        return ans;
+    }
+}
+```
 
+```java
+class Solution {
+    public int numEquivDominoPairs(int[][] dominoes) {
+        int[] counter = new int[100];
+        for (int[] d : dominoes) {
+            int v = d[0] > d[1] ? d[0] * 10 + d[1] : d[1] * 10 + d[0];
+            ++counter[v];
+        }
+        int ans = 0;
+        for (int c : counter) {
+            ans += c * (c - 1) / 2;
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numEquivDominoPairs(vector<vector<int>>& dominoes) {
+        vector<int> counter(100);
+        int ans = 0;
+        for (auto& d : dominoes)
+        {
+            int v = d[0] > d[1] ? d[0] * 10 + d[1] : d[1] * 10 + d[0];
+            ans += counter[v];
+            ++counter[v];
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numEquivDominoPairs(dominoes [][]int) int {
+	counter := make([]int, 100)
+	for _, d := range dominoes {
+		if d[1] < d[0] {
+			d[0], d[1] = d[1], d[0]
+		}
+		v := d[0]*10 + d[1]
+		counter[v]++
+	}
+	ans := 0
+	for _, c := range counter {
+		ans += c * (c - 1) / 2
+	}
+	return ans
+}
 ```
 
 ### **...**

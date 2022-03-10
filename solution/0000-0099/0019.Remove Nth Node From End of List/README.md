@@ -6,11 +6,9 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个链表，删除链表的倒数第 <code>n</code><em> </em>个结点，并且返回链表的头结点。</p>
+<p>给你一个链表，删除链表的倒数第&nbsp;<code>n</code><em>&nbsp;</em>个结点，并且返回链表的头结点。</p>
 
-<p><strong>进阶：</strong>你能尝试使用一趟扫描实现吗？</p>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0000-0099/0019.Remove%20Nth%20Node%20From%20End%20of%20List/images/remove_ex1.jpg" style="width: 542px; height: 222px;" />
@@ -33,16 +31,20 @@
 <strong>输出：</strong>[1]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li>链表中结点的数目为 <code>sz</code></li>
-	<li><code>1 <= sz <= 30</code></li>
-	<li><code>0 <= Node.val <= 100</code></li>
-	<li><code>1 <= n <= sz</code></li>
+	<li><code>1 &lt;= sz &lt;= 30</code></li>
+	<li><code>0 &lt;= Node.val &lt;= 100</code></li>
+	<li><code>1 &lt;= n &lt;= sz</code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你能尝试使用一趟扫描实现吗？</p>
 
 ## 解法
 
@@ -224,6 +226,43 @@ def remove_nth_from_end(head, n)
     slow.next = slow.next.next
     return dummy.next
 end
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn remove_nth_from_end(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+        let mut dummy = Some(Box::new(ListNode { val: 0, next: head }));
+        let mut slow = &mut dummy;
+        let mut fast = &slow.clone();
+        for _ in 0..=n {
+            fast = &fast.as_ref().unwrap().next;
+        }
+        while fast.is_some() {
+            fast = &fast.as_ref().unwrap().next;
+            slow = &mut slow.as_mut().unwrap().next;
+        }
+        slow.as_mut().unwrap().next = slow.as_mut().unwrap().next.as_mut().unwrap().next.take();
+        dummy.unwrap().next
+    }
+}
 ```
 
 ### **...**

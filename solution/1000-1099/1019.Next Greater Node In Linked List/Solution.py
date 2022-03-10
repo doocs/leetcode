@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def nextLargerNodes(self, head: ListNode) -> List[int]:
         nums = []

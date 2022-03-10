@@ -21,13 +21,17 @@ The table holds information about food delivery to customers that make orders at
 
 <p>&nbsp;</p>
 
-<p>If the preferred delivery date of the customer is the same as the&nbsp;order date&nbsp;then the order is called <em>immediate</em>&nbsp;otherwise it&#39;s called <em>scheduled</em>.</p>
+<p>If the customer&#39;s preferred delivery date is the same as the order date, then the order is called <strong>immediate;</strong> otherwise, it is called <strong>scheduled</strong>.</p>
 
-<p>Write an SQL query to find the&nbsp;percentage of immediate orders in the table,&nbsp;<strong>rounded to 2 decimal places</strong>.</p>
+<p>Write an SQL query to find the percentage of immediate orders in the table, <strong>rounded to 2 decimal places</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Delivery table:
 +-------------+-------------+------------+-----------------------------+
 | delivery_id | customer_id | order_date | customer_pref_delivery_date |
@@ -39,14 +43,13 @@ Delivery table:
 | 5           | 4           | 2019-08-21 | 2019-08-22                  |
 | 6           | 2           | 2019-08-11 | 2019-08-13                  |
 +-------------+-------------+------------+-----------------------------+
-
-Result table:
+<strong>Output:</strong> 
 +----------------------+
 | immediate_percentage |
 +----------------------+
 | 33.33                |
 +----------------------+
-The orders with delivery id 2 and 3 are immediate while the others are scheduled.
+<strong>Explanation:</strong> The orders with delivery id 2 and 3 are immediate while the others are scheduled.
 </pre>
 
 ## Solutions

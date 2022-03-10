@@ -10,6 +10,8 @@
 
 <p>You may imagine that <code>nums[-1] = nums[n] = -&infin;</code>.</p>
 
+<p>You must write an algorithm that runs in&nbsp;<code>O(log n)</code> time.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -33,9 +35,6 @@
 	<li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></li>
 	<li><code>nums[i] != nums[i + 1]</code> for all valid <code>i</code>.</li>
 </ul>
-
-<p>&nbsp;</p>
-<strong>Follow up:</strong>&nbsp;Could you implement a solution with logarithmic complexity?
 
 ## Solutions
 

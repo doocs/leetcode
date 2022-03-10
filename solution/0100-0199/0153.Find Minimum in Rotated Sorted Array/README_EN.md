@@ -15,6 +15,8 @@
 
 <p>Given the sorted rotated array <code>nums</code> of <strong>unique</strong> elements, return <em>the minimum element of this array</em>.</p>
 
+<p>You must write an algorithm that runs in&nbsp;<code>O(log n) time.</code></p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -145,6 +147,26 @@ var findMin = function (nums) {
     }
     return nums[l];
 };
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_min(nums: Vec<i32>) -> i32 {
+        let mut l = 0;
+        let mut r = nums.len() - 1;
+        while l < r {
+            let mid = l + (r - l) / 2;
+            if nums[mid] > nums[r] {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        nums[l]
+    }
+}
 ```
 
 ### **...**

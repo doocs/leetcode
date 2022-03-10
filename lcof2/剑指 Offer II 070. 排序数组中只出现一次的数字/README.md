@@ -61,22 +61,8 @@ class Solution:
         left, right = 0, len(nums) - 1
         while left < right:
             mid = (left + right) >> 1
-            if (mid & 1) == 1:
-                mid -= 1
-            if nums[mid] == nums[mid + 1]:
-                left = mid + 2
-            else:
-                right = mid
-        return nums[left]
-```
-
-```python
-class Solution:
-    def singleNonDuplicate(self, nums: List[int]) -> int:
-        left, right = 0, len(nums) - 1
-        while left < right:
-            mid = (left + right) >> 1
-            if (mid % 2 == 0 and nums[mid] != nums[mid + 1]) or (mid % 2 != 0 and nums[mid] != nums[mid - 1]):
+            # Equals to: if (mid % 2 == 0 and nums[mid] != nums[mid + 1]) or (mid % 2 == 1 and nums[mid] != nums[mid - 1]):
+            if nums[mid] != nums[mid ^ 1]:
                 right = mid
             else:
                 left = mid + 1
@@ -92,28 +78,9 @@ class Solution {
     public int singleNonDuplicate(int[] nums) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
-            int mid = (left + right) >>> 1;
-            if ((mid & 1) == 1) {
-                --mid;
-            }
-            if (nums[mid] == nums[mid + 1]) {
-                left = mid + 2;
-            } else {
-                right = mid;
-            }
-        }
-        return nums[left];
-    }
-}
-```
-
-```java
-class Solution {
-    public int singleNonDuplicate(int[] nums) {
-        int left = 0, right = nums.length - 1;
-        while (left < right) {
             int mid = (left + right) >> 1;
-            if ((mid % 2 == 0 && nums[mid] != nums[mid + 1]) || (mid % 2 != 0 && nums[mid] != nums[mid - 1])) {
+            // if ((mid % 2 == 0 && nums[mid] != nums[mid + 1]) || (mid % 2 == 1 && nums[mid] != nums[mid - 1])) {
+            if (nums[mid] != nums[mid ^ 1]) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -131,12 +98,11 @@ function singleNonDuplicate(nums: number[]): number {
     let left = 0,
         right = nums.length - 1;
     while (left < right) {
-        let mid = (left + right) >> 1;
-        if ((mid & 1) == 1) --mid;
-        if (nums[mid] == nums[mid + 1]) {
-            left = mid + 2;
-        } else {
+        const mid = (left + right) >> 1;
+        if (nums[mid] != nums[mid ^ 1]) {
             right = mid;
+        } else {
+            left = mid + 1;
         }
     }
     return nums[left];
@@ -148,15 +114,13 @@ function singleNonDuplicate(nums: number[]): number {
 ```cpp
 class Solution {
 public:
-    int singleNonDuplicate(vector<int> &nums) {
+    int singleNonDuplicate(vector<int>& nums) {
         int left = 0, right = nums.size() - 1;
         while (left < right)
         {
             int mid = left + right >> 1;
-            if ((mid % 2 == 0 && nums[mid] != nums[mid + 1]) || (mid % 2 != 0 && nums[mid] != nums[mid - 1]))
-                right = mid;
-            else
-                left = mid + 1;
+            if (nums[mid] != nums[mid ^ 1]) right = mid;
+            else left = mid + 1;
         }
         return nums[left];
     }
@@ -170,13 +134,10 @@ func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
 	for left < right {
 		mid := (left + right) >> 1
-		if (mid & 1) == 1 {
-			mid--
-		}
-		if nums[mid] == nums[mid+1] {
-			left = mid + 2
-		} else {
+		if nums[mid] != nums[mid^1] {
 			right = mid
+		} else {
+			left = mid + 1
 		}
 	}
 	return nums[left]

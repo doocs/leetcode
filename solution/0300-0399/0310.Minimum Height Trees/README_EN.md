@@ -28,20 +28,6 @@
 <strong>Output:</strong> [3,4]
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 1, edges = []
-<strong>Output:</strong> [0]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 2, edges = [[0,1]]
-<strong>Output:</strong> [0,1]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

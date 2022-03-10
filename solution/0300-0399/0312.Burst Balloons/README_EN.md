@@ -32,7 +32,7 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 <ul>
 	<li><code>n == nums.length</code></li>
-	<li><code>1 &lt;= n &lt;= 500</code></li>
+	<li><code>1 &lt;= n &lt;= 300</code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
@@ -93,7 +93,7 @@ function maxCoins(nums: number[]): number {
             for (let k = i + 1; k < j; ++k) {
                 dp[i][j] = Math.max(
                     nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j],
-                    dp[i][j]
+                    dp[i][j],
                 );
             }
         }

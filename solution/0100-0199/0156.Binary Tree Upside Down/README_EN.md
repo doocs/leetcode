@@ -11,12 +11,10 @@
 <ol>
 	<li>The original left child becomes the new root.</li>
 	<li>The original root becomes the new right child.</li>
-	<li>The original right child&nbsp;becomes the new left child.</li>
+	<li>The original right child becomes the new left child.</li>
 </ol>
-
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/images/main.jpg" style="width: 100%; height: 100%;" /></p>
-
-<p>The mentioned steps are done level by level, it is <strong>guaranteed</strong> that every node in the given tree has either <strong>0 or 2 children</strong>.</p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0156.Binary%20Tree%20Upside%20Down/images/main.jpg" style="width: 600px; height: 95px;" />
+<p>The mentioned steps are done level by level. It is <strong>guaranteed</strong> that every right node has a sibling (a left node with the same parent) and has no children.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -46,7 +44,8 @@
 <ul>
 	<li>The number of nodes in the tree will be in the range <code>[0, 10]</code>.</li>
 	<li><code>1 &lt;= Node.val &lt;= 10</code></li>
-	<li><code>Every node has either 0 or 2 children.</code></li>
+	<li>Every right node in the tree has a sibling (a left node that shares the same parent).</li>
+	<li>Every right node in the tree has no children.</li>
 </ul>
 
 ## Solutions

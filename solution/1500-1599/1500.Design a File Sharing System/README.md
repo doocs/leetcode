@@ -12,7 +12,7 @@
 
 <p>用户可以请求文件中的某个指定的文件块，系统应当返回拥有这个文件块的所有用户的 ID。如果用户收到&nbsp;ID 的非空列表，就表示成功接收到请求的文件块。</p>
 
-<p><br>
+<p><br />
 实现&nbsp;<code>FileSharing</code> 类：</p>
 
 <ul>
@@ -24,21 +24,11 @@
 
 <p>&nbsp;</p>
 
-<p><strong>进阶：</strong></p>
-
-<ul>
-	<li>当系统以用户的 IP 地址而不是独有 ID 来识别用户，且用户断开连接后以相同 IP 重新连接系统时，会发生什么？</li>
-	<li>当用户频繁加入并退出系统，且该用户不请求任何文件块时，你的解决方案仍然保持高效吗？</li>
-	<li>当所有用户同时加入系统，请求所有文件并离开时，你的解决方案仍然保持高效吗？</li>
-	<li>如果系统用于分享&nbsp;<code>n</code>&nbsp;个文件，其中第 &nbsp;<code>i</code>&nbsp;个文件由&nbsp;<code>m[i]</code>&nbsp;组成，你需要如何修改？</li>
-</ul>
-
-<p>&nbsp;</p>
-
 <p><strong>示例:</strong></p>
 
-<pre><strong>输入:</strong>
-[&quot;FileSharing&quot;,&quot;join&quot;,&quot;join&quot;,&quot;join&quot;,&quot;request&quot;,&quot;request&quot;,&quot;leave&quot;,&quot;request&quot;,&quot;leave&quot;,&quot;join&quot;]
+<pre>
+<strong>输入:</strong>
+["FileSharing","join","join","join","request","request","leave","request","leave","join"]
 [[4],[[1,2]],[[2,3]],[[4]],[1,3],[2,2],[1],[2,1],[2],[[]]]
 <strong>输出:</strong>
 [null,1,2,3,[2],[1,2],null,[],null,1]
@@ -69,14 +59,25 @@ fileSharing.join([]);        // 一个不拥有任何文件块的用户加入系
 <p><strong>提示:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= m &lt;= 10^5</code></li>
+	<li><code>1 &lt;= m &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;=&nbsp;ownedChunks.length &lt;= min(100, m)</code></li>
 	<li><code>1 &lt;= ownedChunks[i] &lt;= m</code></li>
 	<li><code>ownedChunks</code> 的值是互不相同的。</li>
 	<li><code>1 &lt;=&nbsp;chunkID &lt;= m</code></li>
 	<li>当你<strong>正确地注册</strong>用户 ID 时，题目保证&nbsp;<code>userID</code>&nbsp;是系统中的一个已注册用户。</li>
-	<li><code>join</code>、&nbsp;<code>leave</code>&nbsp;和&nbsp;<code>request</code>&nbsp;最多被调用&nbsp;<code>10^4</code>&nbsp;次。</li>
+	<li><code>join</code>、&nbsp;<code>leave</code>&nbsp;和&nbsp;<code>request</code>&nbsp;最多被调用&nbsp;<code>10<sup>4</sup></code>&nbsp;次。</li>
 	<li>每次对&nbsp;<code>leave</code>&nbsp;的调用都有对应的对&nbsp;<code>join</code>&nbsp;的调用。</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong></p>
+
+<ul>
+	<li>当系统以用户的 IP 地址而不是独有 ID 来识别用户，且用户断开连接后以相同 IP 重新连接系统时，会发生什么？</li>
+	<li>当用户频繁加入并退出系统，且该用户不请求任何文件块时，你的解决方案仍然保持高效吗？</li>
+	<li>当所有用户同时加入系统，请求所有文件并离开时，你的解决方案仍然保持高效吗？</li>
+	<li>如果系统用于分享&nbsp;<code>n</code>&nbsp;个文件，其中第 &nbsp;<code>i</code>&nbsp;个文件由&nbsp;<code>m[i]</code>&nbsp;组成，你需要如何修改？</li>
 </ul>
 
 ## 解法

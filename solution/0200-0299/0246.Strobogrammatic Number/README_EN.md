@@ -10,18 +10,26 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> num = "69"
-<strong>Output:</strong> true
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> num = "88"
-<strong>Output:</strong> true
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> num = "962"
-<strong>Output:</strong> false
-</pre><p><strong>Example 4:</strong></p>
-<pre><strong>Input:</strong> num = "1"
+
+<pre>
+<strong>Input:</strong> num = &quot;69&quot;
 <strong>Output:</strong> true
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> num = &quot;88&quot;
+<strong>Output:</strong> true
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> num = &quot;962&quot;
+<strong>Output:</strong> false
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

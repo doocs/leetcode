@@ -4,31 +4,38 @@
 
 ## Description
 
-<p>A string <code>S</code> of lowercase English letters is given. We want to partition this string into as many parts as possible so that each letter appears in at most one part, and return a list of integers representing the size of these parts.</p>
+<p>You are given a string <code>s</code>. We want to partition the string into as many parts as possible so that each letter appears in at most one part.</p>
+
+<p>Note that the partition is done so that after concatenating all the parts in order, the resultant string should be <code>s</code>.</p>
+
+<p>Return <em>a list of integers representing the size of these parts</em>.</p>
 
 <p>&nbsp;</p>
-
-<p><b>Example 1:</b></p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<b>Input:</b> S = &quot;ababcbacadefegdehijhklij&quot;
-<b>Output:</b> [9,7,8]
-<b>Explanation:</b>
+<strong>Input:</strong> s = &quot;ababcbacadefegdehijhklij&quot;
+<strong>Output:</strong> [9,7,8]
+<strong>Explanation:</strong>
 The partition is &quot;ababcbaca&quot;, &quot;defegde&quot;, &quot;hijhklij&quot;.
 This is a partition so that each letter appears in at most one part.
-A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect, because it splits S into less parts.
+A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect, because it splits s into less parts.
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;eccbbbbdec&quot;
+<strong>Output:</strong> [10]
 </pre>
 
 <p>&nbsp;</p>
-
-<p><b>Note:</b></p>
+<p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>S</code> will have length in range <code>[1, 500]</code>.</li>
-	<li><code>S</code> will consist of lowercase English&nbsp;letters (<code>&#39;a&#39;</code> to <code>&#39;z&#39;</code>) only.</li>
+	<li><code>1 &lt;= s.length &lt;= 500</code></li>
+	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
-
-<p>&nbsp;</p>
 
 ## Solutions
 
@@ -39,14 +46,13 @@ A partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect
 ```python
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        last = defaultdict(int)
-        n = len(s)
-        for i in range(n):
-            last[s[i]] = i
+        last = [0] * 26
+        for i, c in enumerate(s):
+            last[ord(c) - ord('a')] = i
         ans = []
         left = right = 0
-        for i in range(n):
-            right = max(right, last[s[i]])
+        for i, c in enumerate(s):
+            right = max(right, last[ord(c) - ord('a')])
             if i == right:
                 ans.append(right - left + 1)
                 left = right + 1
@@ -58,14 +64,14 @@ class Solution:
 ```java
 class Solution {
     public List<Integer> partitionLabels(String s) {
-        int[] last = new int[128];
+        int[] last = new int[26];
         int n = s.length();
         for (int i = 0; i < n; ++i) {
-            last[s.charAt(i)] = i;
+            last[s.charAt(i) - 'a'] = i;
         }
         List<Integer> ans = new ArrayList<>();
         for (int i = 0, left = 0, right = 0; i < n; ++i) {
-            right = Math.max(right, last[s.charAt(i)]);
+            right = Math.max(right, last[s.charAt(i) - 'a']);
             if (i == right) {
                 ans.add(right - left + 1);
                 left = right + 1;
@@ -81,15 +87,15 @@ class Solution {
 ```ts
 function partitionLabels(s: string): number[] {
     const n = s.length;
-    let last = new Array(128);
+    let last = new Array(26);
     for (let i = 0; i < n; i++) {
-        last[s.charCodeAt(i)] = i;
+        last[s.charCodeAt(i) - 'a'.charCodeAt(0)] = i;
     }
     let ans = [];
     let left = 0,
         right = 0;
     for (let i = 0; i < n; i++) {
-        right = Math.max(right, last[s.charCodeAt(i)]);
+        right = Math.max(right, last[s.charCodeAt(i) - 'a'.charCodeAt(0)]);
         if (i == right) {
             ans.push(right - left + 1);
             left = right + 1;
@@ -105,13 +111,13 @@ function partitionLabels(s: string): number[] {
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
+        vector<int> last(26);
         int n = s.size();
-        vector<int> last(128);
-        for (int i = 0; i < n; ++i) last[s[i]] = i;
+        for (int i = 0; i < n; ++i) last[s[i] - 'a'] = i;
         vector<int> ans;
         for (int i = 0, left = 0, right = 0; i < n; ++i)
         {
-            right = max(right, last[s[i]]);
+            right = max(right, last[s[i] - 'a']);
             if (i == right)
             {
                 ans.push_back(right - left + 1);
@@ -127,15 +133,14 @@ public:
 
 ```go
 func partitionLabels(s string) []int {
+	last := make([]int, 26)
 	n := len(s)
-	last := make([]int, 128)
 	for i := 0; i < n; i++ {
-		last[s[i]] = i
+		last[s[i]-'a'] = i
 	}
 	var ans []int
-	left, right := 0, 0
-	for i := 0; i < n; i++ {
-		right = max(right, last[s[i]])
+	for i, left, right := 0, 0, 0; i < n; i++ {
+		right = max(right, last[s[i]-'a'])
 		if i == right {
 			ans = append(ans, right-left+1)
 			left = right + 1

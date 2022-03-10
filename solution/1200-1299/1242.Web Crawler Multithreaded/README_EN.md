@@ -4,45 +4,34 @@
 
 ## Description
 
-<p>Given a url <code>startUrl</code> and an interface <code>HtmlParser</code>, implement <strong>a Multi-threaded web&nbsp;crawler</strong> to crawl all links that are under the&nbsp;<strong>same hostname</strong> as&nbsp;<code>startUrl</code>.&nbsp;</p>
+<p>Given a URL <code>startUrl</code> and an interface <code>HtmlParser</code>, implement <strong>a Multi-threaded web crawler</strong> to crawl all links that are under the <strong>same hostname</strong> as <code>startUrl</code>.</p>
 
-<p>Return&nbsp;all urls obtained by your web crawler in <strong>any</strong> order.</p>
+<p>Return all URLs obtained by your web crawler in <strong>any</strong> order.</p>
 
 <p>Your crawler should:</p>
 
 <ul>
 	<li>Start from the page: <code>startUrl</code></li>
-	<li>Call <code>HtmlParser.getUrls(url)</code> to get all urls from a webpage of given url.</li>
+	<li>Call <code>HtmlParser.getUrls(url)</code> to get all URLs from a webpage of a given URL.</li>
 	<li>Do not crawl the same link twice.</li>
 	<li>Explore only the links that are under the <strong>same hostname</strong> as <code>startUrl</code>.</li>
 </ul>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/urlhostname.png" style="width: 500px; height: 136px;" />
+<p>As shown in the example URL above, the hostname is <code>example.org</code>. For simplicity&#39;s sake, you may assume all URLs use <strong>HTTP protocol</strong> without any <strong>port</strong> specified. For example, the URLs <code>http://leetcode.com/problems</code> and <code>http://leetcode.com/contest</code> are under the same hostname, while URLs <code>http://example.org/test</code> and <code>http://example.com/abc</code> are not under the same hostname.</p>
 
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/urlhostname.png" style="width: 600px; height: 164px;" /></p>
-
-<p>As shown in the example url above, the hostname is <code>example.org</code>. For simplicity sake, you may assume all&nbsp;urls use <strong>http protocol</strong> without any&nbsp;<strong>port</strong> specified. For example, the urls&nbsp;<code>http://leetcode.com/problems</code> and&nbsp;<code>http://leetcode.com/contest</code> are under the same hostname, while urls <code>http://example.org/test</code> and <code>http://example.com/abc</code> are not under the same hostname.</p>
-
-<p>The <code>HtmlParser</code> interface is defined as such:&nbsp;</p>
+<p>The <code>HtmlParser</code> interface is defined as such:</p>
 
 <pre>
 interface HtmlParser {
   // Return a list of all urls from a webpage of given <em>url</em>.
   // This is a blocking call, that means it will do HTTP request and return when this request is finished.
   public List&lt;String&gt; getUrls(String url);
-}</pre>
+}
+</pre>
 
-<p>Note that&nbsp;<code>getUrls(String url)</code>&nbsp;simulates performing a&nbsp;HTTP request. You can treat it as a blocking function call which waits for a&nbsp;HTTP request to finish. It is guaranteed that&nbsp;<code>getUrls(String url)</code> will return the urls within <strong>15ms.&nbsp;</strong> Single-threaded solutions will exceed the time limit so, can your multi-threaded web crawler do better?</p>
+<p>Note that <code>getUrls(String url)</code> simulates performing an HTTP request. You can treat it as a blocking function call that waits for an HTTP request to finish. It is guaranteed that <code>getUrls(String url)</code> will return the URLs within <strong>15ms. </strong> Single-threaded solutions will exceed the time limit so, can your multi-threaded web crawler do better?</p>
 
-<p>Below&nbsp;are two examples explaining the functionality of the problem, for custom testing purposes you&#39;ll have three&nbsp;variables&nbsp;<code data-stringify-type="code">urls</code>,&nbsp;<code data-stringify-type="code">edges</code>&nbsp;and&nbsp;<code data-stringify-type="code">startUrl</code>. Notice that you will only have access to&nbsp;<code data-stringify-type="code">startUrl</code>&nbsp;in your code, while&nbsp;<code data-stringify-type="code">urls</code>&nbsp;and&nbsp;<code data-stringify-type="code">edges</code>&nbsp;are not directly accessible to you in code.</p>
-
-<p>&nbsp;</p>
-
-<p><strong>Follow up:</strong></p>
-
-<ol>
-	<li>Assume we have 10,000 nodes and 1 billion URLs to crawl.&nbsp;We will deploy the same software onto each node.&nbsp;The software can know about all the nodes. We have to minimize communication between machines and make sure each node does equal amount of work. How would your web crawler design change?</li>
-	<li>What if one node fails or does not work?</li>
-	<li>How do you know when the crawler is done?</li>
-</ol>
+<p>Below are two examples explaining the functionality of the problem. For custom testing purposes, you&#39;ll have three variables <code>urls</code>, <code>edges</code> and <code>startUrl</code>. Notice that you will only have access to <code>startUrl</code> in your code, while <code>urls</code> and <code>edges</code> are not directly accessible to you in code.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -92,11 +81,20 @@ startUrl = &quot;http://news.google.com&quot;
 	<li><code>1 &lt;= urls.length &lt;= 1000</code></li>
 	<li><code>1 &lt;= urls[i].length &lt;= 300</code></li>
 	<li><code>startUrl</code>&nbsp;is one of the <code>urls</code>.</li>
-	<li>Hostname label must be from 1 to 63 characters long, including the dots, may contain only the ASCII letters from &#39;a&#39; to&nbsp;&#39;z&#39;, digits from &#39;0&#39; to &#39;9&#39; and the&nbsp;hyphen-minus&nbsp;character (&#39;-&#39;).</li>
+	<li>Hostname label must be from <code>1</code> to <code>63</code> characters long, including the dots, may contain only the ASCII letters from <code>&#39;a&#39;</code> to&nbsp;<code>&#39;z&#39;</code>, digits from <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code> and the&nbsp;hyphen-minus&nbsp;character (<code>&#39;-&#39;</code>).</li>
 	<li>The hostname may not start or end with&nbsp;the hyphen-minus character (&#39;-&#39;).&nbsp;</li>
-	<li>See:&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames">https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames</a></li>
-	<li>You may assume there&#39;re&nbsp;no duplicates in url library.</li>
+	<li>See:&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames" target="_blank">https://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_hostnames</a></li>
+	<li>You may assume there&#39;re&nbsp;no duplicates in the URL library.</li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong></p>
+
+<ol>
+	<li>Assume we have 10,000 nodes and 1 billion URLs to crawl. We will deploy the same software onto each node. The software can know about all the nodes. We have to minimize communication between machines and make sure each node does equal amount of work. How would your web crawler design change?</li>
+	<li>What if one node fails or does not work?</li>
+	<li>How do you know when the crawler is done?</li>
+</ol>
 
 ## Solutions
 

@@ -6,27 +6,24 @@
 
 <!-- 这里写题目描述 -->
 
-<p><code>N</code> &nbsp;辆车沿着一条车道驶向位于&nbsp;<code>target</code>&nbsp;英里之外的共同目的地。</p>
+<p>在一条单行道上，有 <code>n</code> 辆车开往同一目的地。目的地是几英里以外的&nbsp;<code>target</code>&nbsp;。</p>
 
-<p>每辆车&nbsp;<code>i</code>&nbsp;以恒定的速度&nbsp;<code>speed[i]</code>&nbsp;（英里/小时），从初始位置&nbsp;<code>position[i]</code>&nbsp;（英里） 沿车道驶向目的地。</p>
+<p>给定两个整数数组&nbsp;<code>position</code>&nbsp;和&nbsp;<code>speed</code>&nbsp;，长度都是 <code>n</code> ，其中&nbsp;<code>position[i]</code>&nbsp;是第 <code>i</code> 辆车的位置，&nbsp;<code>speed[i]</code>&nbsp;是第 <code>i</code> 辆车的速度(单位是英里/小时)。</p>
 
-<p>一辆车永远不会超过前面的另一辆车，但它可以追上去，并与前车以相同的速度紧接着行驶。</p>
+<p>一辆车永远不会超过前面的另一辆车，但它可以追上去，并与前车 <strong>以相同的速度</strong> 紧接着行驶。此时，我们会忽略这两辆车之间的距离，也就是说，它们被假定处于相同的位置。</p>
 
-<p>此时，我们会忽略这两辆车之间的距离，也就是说，它们被假定处于相同的位置。</p>
-
-<p><em>车队&nbsp;</em>是一些由行驶在相同位置、具有相同速度的车组成的非空集合。注意，一辆车也可以是一个车队。</p>
+<p><strong>车队</strong><em>&nbsp;</em>是一些由行驶在相同位置、具有相同速度的车组成的非空集合。注意，一辆车也可以是一个车队。</p>
 
 <p>即便一辆车在目的地才赶上了一个车队，它们仍然会被视作是同一个车队。</p>
 
-<p>&nbsp;</p>
-
-<p>会有多少车队到达目的地?</p>
+<p>返回到达目的地的 <strong>车队数量</strong> 。</p>
 
 <p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
+<pre>
+<strong>输入：</strong>target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
 <strong>输出：</strong>3
 <strong>解释：</strong>
 从 10 和 8 开始的车会组成一个车队，它们在 12 处相遇。
@@ -35,16 +32,35 @@
 请注意，在到达目的地之前没有其它车会遇到这些车队，所以答案是 3。
 </pre>
 
-<p><br>
-<strong>提示：</strong></p>
+<p><strong>示例 2:</strong></p>
 
-<ol>
-	<li><code>0 &lt;= N &lt;= 10 ^ 4</code></li>
-	<li><code>0 &lt; target&nbsp;&lt;= 10 ^ 6</code></li>
-	<li><code>0 &lt;&nbsp;speed[i] &lt;= 10 ^ 6</code></li>
+<pre>
+<strong>输入:</strong> target = 10, position = [3], speed = [3]
+<strong>输出:</strong> 1
+<strong>解释:</strong> 只有一辆车，因此只有一个车队。
+</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> target = 100, position = [0,2,4], speed = [4,2,1]
+<strong>输出:</strong> 1
+<strong>解释:</strong>
+以0(速度4)和2(速度2)出发的车辆组成车队，在4点相遇。舰队以2的速度前进。
+然后，车队(速度2)和以4(速度1)出发的汽车组成一个车队，在6点相遇。舰队以1的速度前进，直到到达目标。</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>n == position.length == speed.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>0 &lt; target &lt;= 10<sup>6</sup></code></li>
 	<li><code>0 &lt;= position[i] &lt; target</code></li>
-	<li>所有车的初始位置各不相同。</li>
-</ol>
+	<li><code>position</code>&nbsp;中每个值都 <strong>不同</strong></li>
+	<li><code>0 &lt; speed[i] &lt;= 10<sup>6</sup></code></li>
+</ul>
 
 ## 解法
 

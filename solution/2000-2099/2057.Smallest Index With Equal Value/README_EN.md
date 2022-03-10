@@ -42,14 +42,6 @@ i=3: 3 mod 10 = 3 != nums[3].
 <strong>Explanation:</strong> No index satisfies i mod 10 == nums[i].
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [2,1,3,5,2]
-<strong>Output:</strong> 1
-<strong>Explanation:</strong> 1 is the only index with i mod 10 == nums[i].
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

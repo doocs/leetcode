@@ -4,7 +4,7 @@
  * @param {number} n
  * @return {number[][]}
  */
-var construct2DArray = function(original, m, n) {
+var construct2DArray = function (original, m, n) {
     const result = [];
 
     if (original.length != m * n) {

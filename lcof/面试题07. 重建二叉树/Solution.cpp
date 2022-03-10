@@ -1,22 +1,28 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
+    unordered_map<int, int> indexes;
+
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        return build(preorder, inorder, 0, preorder.size() - 1, 0, inorder.size() - 1);
+        for (int i = 0; i < inorder.size(); ++i) indexes[inorder[i]] = i;
+        return dfs(preorder, inorder, 0, 0, inorder.size());
     }
 
-private:
-    TreeNode* build(vector<int>& preorder, vector<int>& inorder, int pre_l, int pre_r, int in_l, int in_r) {
-        if (pre_l > pre_r || in_l > in_r) {
-            return NULL;
-        }
-        int root = preorder[pre_l];
-        int i = in_l;
-        while (i <= in_r && inorder[i] != root) {
-            ++i;
-        }
-        TreeNode* node = new TreeNode(root);
-        node->left = build(preorder, inorder, pre_l + 1, pre_l + i - in_l, in_l, i - 1);
-        node->right = build(preorder, inorder, pre_l + i - in_l + 1, pre_r, i + 1, in_r);
-        return node;
+    TreeNode* dfs(vector<int>& preorder, vector<int>& inorder, int i, int j, int n) {
+        if (n <= 0) return nullptr;
+        int v = preorder[i];
+        int k = indexes[v];
+        TreeNode* root = new TreeNode(v);
+        root->left = dfs(preorder, inorder, i + 1, j, k - j);
+        root->right = dfs(preorder, inorder, i + 1 + k - j, k + 1, n - k + j - 1);
+        return root;
     }
 };

@@ -6,43 +6,35 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个字符串 <code>s</code> ，找到其中最长的回文子序列，并返回该序列的长度。可以假设 <code>s</code> 的最大长度为 <code>1000</code> 。</p>
+<p>给你一个字符串 <code>s</code> ，找出其中最长的回文子序列，并返回该序列的长度。</p>
 
-<p>&nbsp;</p>
+<p>子序列定义为：不改变剩余字符顺序的情况下，删除某些字符或者不删除任何字符形成的一个序列。</p>
 
-<p><strong>示例 1:</strong><br>
-输入:</p>
+<p> </p>
 
-<pre>&quot;bbbab&quot;
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>s = "bbbab"
+<strong>输出：</strong>4
+<strong>解释：</strong>一个可能的最长回文子序列为 "bbbb" 。
 </pre>
 
-<p>输出:</p>
+<p><strong>示例 2：</strong></p>
 
-<pre>4
+<pre>
+<strong>输入：</strong>s = "cbbd"
+<strong>输出：</strong>2
+<strong>解释：</strong>一个可能的最长回文子序列为 "bb" 。
 </pre>
 
-<p>一个可能的最长回文子序列为 &quot;bbbb&quot;。</p>
-
-<p><strong>示例 2:</strong><br>
-输入:</p>
-
-<pre>&quot;cbbd&quot;
-</pre>
-
-<p>输出:</p>
-
-<pre>2
-</pre>
-
-<p>一个可能的最长回文子序列为 &quot;bb&quot;。</p>
-
-<p>&nbsp;</p>
+<p> </p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-	<li><code>s</code> 只包含小写英文字母</li>
+	<li><code>1 <= s.length <= 1000</code></li>
+	<li><code>s</code> 仅由小写英文字母组成</li>
 </ul>
 
 ## 解法
@@ -53,8 +45,8 @@
 
 设 `dp[i][j]` 表示字符串 `s[i..j]` 中的最长回文子序列的长度。初始化 `dp[i][i] = 1`(`i∈[0, n-1]`)。
 
-- 对于 `s[i] == s[j]`，`dp[i][j] = dp[i + 1][j - 1] + 2`；
-- 对于 `s[i] != s[j]`，`dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])`。
+-   对于 `s[i] == s[j]`，`dp[i][j] = dp[i + 1][j - 1] + 2`；
+-   对于 `s[i] != s[j]`，`dp[i][j] = max(dp[i + 1][j], dp[i][j - 1])`。
 
 <!-- tabs:start -->
 

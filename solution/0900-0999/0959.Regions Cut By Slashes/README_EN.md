@@ -4,180 +4,43 @@
 
 ## Description
 
-<p>In a N x N&nbsp;<code>grid</code> composed of 1 x 1 squares, each 1 x 1 square consists of a <code>/</code>, <code>\</code>, or blank space.&nbsp; These characters divide the square into contiguous regions.</p>
+<p>An <code>n x n</code> grid is composed of <code>1 x 1</code> squares where each <code>1 x 1</code> square consists of a <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or blank space <code>&#39; &#39;</code>. These characters divide the square into contiguous regions.</p>
 
-<p>(Note that backslash characters are escaped, so a <code>\</code>&nbsp;is represented as <code>&quot;\\&quot;</code>.)</p>
+<p>Given the grid <code>grid</code> represented as a string array, return <em>the number of regions</em>.</p>
 
-<p>Return the number of regions.</p>
+<p>Note that backslash characters are escaped, so a <code>&#39;\&#39;</code> is represented as <code>&#39;\\&#39;</code>.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
-<div>
-
-<div>
-
-<div>
-
-<div>
-
-<ol>
-
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/1.png" style="width: 200px; height: 200px;" />
 <pre>
-
-<strong>Input:
-
-</strong><span id="example-input-1-1">[
-
-&nbsp; &quot; /&quot;,
-
-&nbsp; &quot;/ &quot;
-
-]</span>
-
-<strong>Output: </strong><span id="example-output-1">2</span>
-
-<strong>Explanation: </strong>The 2x2 grid is as follows:
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/1.png" style="width: 82px; height: 82px;" />
-
+<strong>Input:</strong> grid = [&quot; /&quot;,&quot;/ &quot;]
+<strong>Output:</strong> 2
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/2.png" style="width: 200px; height: 198px;" />
 <pre>
-
-<strong>Input:
-
-</strong><span id="example-input-2-1">[
-
-&nbsp; &quot; /&quot;,
-
-&nbsp; &quot;  &quot;
-
-]</span>
-
-<strong>Output: </strong><span id="example-output-2">1</span>
-
-<strong>Explanation: </strong>The 2x2 grid is as follows:
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/2.png" style="width: 82px; height: 82px;" />
-
+<strong>Input:</strong> grid = [&quot; /&quot;,&quot;  &quot;]
+<strong>Output:</strong> 1
 </pre>
-
-<div>
 
 <p><strong>Example 3:</strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/4.png" style="width: 200px; height: 200px;" />
 <pre>
-
-<strong>Input:
-
-</strong><span id="example-input-3-1">[
-
-&nbsp; &quot;\\/&quot;,
-
-&nbsp; &quot;/\\&quot;
-
-]</span>
-
-<strong>Output: </strong><span id="example-output-3">4</span>
-
-<strong>Explanation: </strong>(Recall that because \ characters are escaped, &quot;\\/&quot; refers to \/, and &quot;/\\&quot; refers to /\.)
-
-The 2x2 grid is as follows:
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/3.png" style="width: 82px; height: 82px;" />
-
-</pre>
-
-<div>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-
-<strong>Input:
-
-</strong><span id="example-input-4-1">[
-
-&nbsp; &quot;/\\&quot;,
-
-&nbsp; &quot;\\/&quot;
-
-]</span>
-
-<strong>Output: </strong><span id="example-output-4">5</span>
-
-<strong>Explanation: </strong>(Recall that because \ characters are escaped, &quot;/\\&quot; refers to /\, and &quot;\\/&quot; refers to \/.)
-
-The 2x2 grid is as follows:
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/4.png" style="width: 82px; height: 82px;" />
-
-</pre>
-
-<div>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-
-<strong>Input:
-
-</strong><span id="example-input-5-1">[
-
-&nbsp; &quot;//&quot;,
-
-&nbsp; &quot;/ &quot;
-
-]</span>
-
-<strong>Output: </strong><span id="example-output-5">3</span>
-
-<strong>Explanation: </strong>The 2x2 grid is as follows:
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0959.Regions%20Cut%20By%20Slashes/images/5.png" style="width: 82px; height: 82px;" />
-
+<strong>Input:</strong> grid = [&quot;/\\&quot;,&quot;\\/&quot;]
+<strong>Output:</strong> 5
+<strong>Explanation: </strong>Recall that because \ characters are escaped, &quot;\\/&quot; refers to \/, and &quot;/\\&quot; refers to /\.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li><code>1 &lt;= grid.length == grid[0].length &lt;= 30</code></li>
+<ul>
+	<li><code>n == grid.length == grid[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 30</code></li>
 	<li><code>grid[i][j]</code> is either <code>&#39;/&#39;</code>, <code>&#39;\&#39;</code>, or <code>&#39; &#39;</code>.</li>
-</ol>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+</ul>
 
 ## Solutions
 
@@ -188,36 +51,39 @@ The 2x2 grid is as follows:
 ```python
 class Solution:
     def regionsBySlashes(self, grid: List[str]) -> int:
-        n = len(grid)
-        p = list(range(n * n * 4))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        for i in range(n):
-            for j in range(n):
-                idx = i * n + j
-                if i < n - 1:
-                    p[find(idx * 4 + 2)] = find((idx + n) * 4)
-                if j < n - 1:
-                    p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3)
+        def union(a, b):
+            pa, pb = find(a), find(b)
+            if pa != pb:
+                p[pa] = pb
+                nonlocal size
+                size -= 1
 
-                if grid[i][j] == '/':
-                    p[find(idx * 4)] = find(idx * 4 + 3)
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2)
-                elif grid[i][j] == '\\':
-                    p[find(idx * 4)] = find(idx * 4 + 1)
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3)
+        n = len(grid)
+        size = n * n * 4
+        p = list(range(size))
+        for i, row in enumerate(grid):
+            for j, v in enumerate(row):
+                k = i * n + j
+                if i < n - 1:
+                    union(4 * k + 2, (k + n) * 4)
+                if j < n - 1:
+                    union(4 * k + 1, (k + 1) * 4 + 3)
+                if v == '/':
+                    union(4 * k, 4 * k + 3)
+                    union(4 * k + 1, 4 * k + 2)
+                elif v == '\\':
+                    union(4 * k, 4 * k + 1)
+                    union(4 * k + 2, 4 * k + 3)
                 else:
-                    p[find(idx * 4)] = find(idx * 4 + 1)
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2)
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3)
-        s = set()
-        for i in range(len(p)):
-            s.add(find(i))
-        return len(s)
+                    union(4 * k, 4 * k + 1)
+                    union(4 * k + 1, 4 * k + 2)
+                    union(4 * k + 2, 4 * k + 3)
+        return size
 ```
 
 ### **Java**
@@ -225,42 +91,39 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
+    private int size;
 
     public int regionsBySlashes(String[] grid) {
         int n = grid.length;
-        p = new int[n * n * 4];
+        size = n * n * 4;
+        p = new int[size];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
         for (int i = 0; i < n; ++i) {
-            char[] row = grid[i].toCharArray();
             for (int j = 0; j < n; ++j) {
-                int idx = i * n + j;
+                int k = i * n + j;
                 if (i < n - 1) {
-                    p[find(idx * 4 + 2)] = find((idx + n) * 4);
+                    union(4 * k + 2, (k + n) * 4);
                 }
                 if (j < n - 1) {
-                    p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3);
+                    union(4 * k + 1, (k + 1) * 4 + 3);
                 }
-
-                if (row[j] == '/') {
-                    p[find(idx * 4)] = find(idx * 4 + 3);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
-                } else if (row[j] == '\\') {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                char v = grid[i].charAt(j);
+                if (v == '/') {
+                    union(4 * k, 4 * k + 3);
+                    union(4 * k + 1, 4 * k + 2);
+                } else if (v == '\\') {
+                    union(4 * k, 4 * k + 1);
+                    union(4 * k + 2, 4 * k + 3);
                 } else {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                    union(4 * k, 4 * k + 1);
+                    union(4 * k + 1, 4 * k + 2);
+                    union(4 * k + 2, 4 * k + 3);
                 }
             }
         }
-        Set<Integer> s = new HashSet<>();
-        for (int i = 0; i < p.length; ++i) {
-            s.add(find(i));
-        }
-        return s.size();
+        return size;
     }
 
     private int find(int x) {
@@ -268,6 +131,16 @@ class Solution {
             p[x] = find(p[x]);
         }
         return p[x];
+    }
+
+    private void union(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+        if (pa == pb) {
+            return;
+        }
+        p[pa] = pb;
+        --size;
     }
 }
 ```
@@ -278,38 +151,48 @@ class Solution {
 class Solution {
 public:
     vector<int> p;
+    int size;
 
     int regionsBySlashes(vector<string>& grid) {
         int n = grid.size();
-        for (int i = 0; i < n * n * 4; ++i) p.push_back(i);
-        for (int i = 0; i < n; ++i) {
-            string row = grid[i];
-            for (int j = 0; j < n; ++j) {
-                int idx = i * n + j;
-                if (i < n - 1) p[find(idx * 4 + 2)] = find((idx + n) * 4);
-                if (j < n - 1) p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3);
-                if (row[j] == '/')
+        size = n * n * 4;
+        p.resize(size);
+        for (int i = 0; i < size; ++i) p[i] = i;
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = 0; j < n; ++j)
+            {
+                int k = i * n + j;
+                if (i < n - 1) merge(4 * k + 2, (k + n) * 4);
+                if (j < n - 1) merge(4 * k + 1, (k + 1) * 4 + 3);
+                char v = grid[i][j];
+                if (v == '/')
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 3);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
+                    merge(4 * k, 4 * k + 3);
+                    merge(4 * k + 1, 4 * k + 2);
                 }
-                else if (row[j] == '\\')
+                else if (v == '\\')
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                    merge(4 * k, 4 * k + 1);
+                    merge(4 * k + 2, 4 * k + 3);
                 }
                 else
                 {
-                    p[find(idx * 4)] = find(idx * 4 + 1);
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2);
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3);
+                    merge(4 * k, 4 * k + 1);
+                    merge(4 * k + 1, 4 * k + 2);
+                    merge(4 * k + 2, 4 * k + 3);
                 }
             }
         }
-        unordered_set<int> s;
-        for (int i = 0; i < p.size(); ++i)
-            s.insert(find(i));
-        return s.size();
+        return size;
+    }
+
+    void merge(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+        if (pa == pb) return;
+        p[pa] = pb;
+        --size;
     }
 
     int find(int x) {
@@ -322,49 +205,51 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func regionsBySlashes(grid []string) int {
 	n := len(grid)
-	p = make([]int, n*n*4)
-	for i := 0; i < len(p); i++ {
+	size := n * n * 4
+	p := make([]int, size)
+	for i := range p {
 		p[i] = i
 	}
-	for i := 0; i < n; i++ {
-		row := grid[i]
-		for j := 0; j < n; j++ {
-			idx := i*n + j
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	union := func(a, b int) {
+		pa, pb := find(a), find(b)
+		if pa == pb {
+			return
+		}
+		p[pa] = pb
+		size--
+	}
+	for i, row := range grid {
+		for j, v := range row {
+			k := i*n + j
 			if i < n-1 {
-				p[find(idx*4+2)] = find((idx + n) * 4)
+				union(4*k+2, (k+n)*4)
 			}
 			if j < n-1 {
-				p[find(idx*4+1)] = find((idx+1)*4 + 3)
+				union(4*k+1, (k+1)*4+3)
 			}
-			if row[j] == '/' {
-				p[find(idx*4)] = find(idx*4 + 3)
-				p[find(idx*4+1)] = find(idx*4 + 2)
-			} else if row[j] == '\\' {
-				p[find(idx*4)] = find(idx*4 + 1)
-				p[find(idx*4+2)] = find(idx*4 + 3)
+			if v == '/' {
+				union(4*k, 4*k+3)
+				union(4*k+1, 4*k+2)
+			} else if v == '\\' {
+				union(4*k, 4*k+1)
+				union(4*k+2, 4*k+3)
 			} else {
-				p[find(idx*4)] = find(idx*4 + 1)
-				p[find(idx*4+1)] = find(idx*4 + 2)
-				p[find(idx*4+2)] = find(idx*4 + 3)
+				union(4*k, 4*k+1)
+				union(4*k+1, 4*k+2)
+				union(4*k+2, 4*k+3)
 			}
 		}
 	}
-	s := make(map[int]bool)
-	for i := 0; i < len(p); i++ {
-		s[find(i)] = true
-	}
-	return len(s)
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return size
 }
 ```
 

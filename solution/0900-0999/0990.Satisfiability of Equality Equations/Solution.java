@@ -8,15 +8,13 @@ class Solution {
         }
         for (String e : equations) {
             int a = e.charAt(0) - 'a', b = e.charAt(3) - 'a';
-            String r = e.substring(1, 3);
-            if ("==".equals(r)) {
+            if (e.charAt(1) == '=') {
                 p[find(a)] = find(b);
             }
         }
         for (String e : equations) {
             int a = e.charAt(0) - 'a', b = e.charAt(3) - 'a';
-            String r = e.substring(1, 3);
-            if ("!=".equals(r) && find(a) == find(b)) {
+            if (e.charAt(1) == '!' && find(a) == find(b)) {
                 return false;
             }
         }

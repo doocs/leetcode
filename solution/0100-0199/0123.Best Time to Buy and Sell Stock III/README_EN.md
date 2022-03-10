@@ -36,13 +36,6 @@ Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are 
 <strong>Explanation:</strong> In this case, no transaction is done, i.e. max profit = 0.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> prices = [1]
-<strong>Output:</strong> 0
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

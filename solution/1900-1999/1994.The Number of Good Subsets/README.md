@@ -6,15 +6,16 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;。如果&nbsp;<code>nums</code>&nbsp;的一个子集中，所有元素的乘积可以用若干个 <strong>互不相同的质数</strong>&nbsp;相乘得到，那么我们称它为&nbsp;<strong>好子集</strong>&nbsp;。</p>
+<p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;。如果&nbsp;<code>nums</code>&nbsp;的一个子集中，所有元素的乘积可以表示为一个或多个 <strong>互不相同的质数</strong> 的乘积，那么我们称它为&nbsp;<strong>好子集</strong>&nbsp;。</p>
 
 <ul>
 	<li>比方说，如果&nbsp;<code>nums = [1, 2, 3, 4]</code>&nbsp;：
-	<ul>
-		<li><code>[2, 3]</code>&nbsp;，<code>[1, 2, 3]</code>&nbsp;和&nbsp;<code>[1, 3]</code>&nbsp;是 <strong>好</strong>&nbsp;子集，乘积分别为&nbsp;<code>6 = 2*3</code>&nbsp;，<code>6 = 2*3</code>&nbsp;和&nbsp;<code>3 = 3</code>&nbsp;。</li>
-		<li><code>[1, 4]</code> 和&nbsp;<code>[4]</code>&nbsp;不是 <strong>好</strong>&nbsp;子集，因为乘积分别为&nbsp;<code>4 = 2*2</code> 和&nbsp;<code>4 = 2*2</code>&nbsp;。</li>
-	</ul>
-	</li>
+    <ul>
+    	<li><code>[2, 3]</code>&nbsp;，<code>[1, 2, 3]</code>&nbsp;和&nbsp;<code>[1, 3]</code>&nbsp;是 <strong>好</strong>&nbsp;子集，乘积分别为&nbsp;<code>6 = 2*3</code>&nbsp;，<code>6 = 2*3</code>&nbsp;和&nbsp;<code>3 = 3</code>&nbsp;。</li>
+    	<li><code>[1, 4]</code> 和&nbsp;<code>[4]</code>&nbsp;不是 <strong>好</strong>&nbsp;子集，因为乘积分别为&nbsp;<code>4 = 2*2</code> 和&nbsp;<code>4 = 2*2</code>&nbsp;。</li>
+    </ul>
+    </li>
+
 </ul>
 
 <p>请你返回 <code>nums</code>&nbsp;中不同的&nbsp;<strong>好</strong>&nbsp;子集的数目对<em>&nbsp;</em><code>10<sup>9</sup> + 7</code>&nbsp;<strong>取余</strong>&nbsp;的结果。</p>
@@ -25,7 +26,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><b>输入：</b>nums = [1,2,3,4]
+<pre>
+<b>输入：</b>nums = [1,2,3,4]
 <b>输出：</b>6
 <b>解释：</b>好子集为：
 - [1,2]：乘积为 2 ，可以表示为质数 2 的乘积。
@@ -38,7 +40,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><b>输入：</b>nums = [4,2,3,15]
+<pre>
+<b>输入：</b>nums = [4,2,3,15]
 <b>输出：</b>5
 <b>解释：</b>好子集为：
 - [2]：乘积为 2 ，可以表示为质数 2 的乘积。
@@ -61,6 +64,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+状态压缩 DP。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +73,31 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numberOfGoodSubsets(self, nums: List[int]) -> int:
+        counter = Counter(nums)
+        mod = 10**9 + 7
+        prime = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+        n = len(prime)
+        dp = [0] * (1 << n)
+        dp[0] = 1
+        for x in range(2, 31):
+            if counter[x] == 0 or x % 4 == 0 or x % 9 == 0 or x % 25 == 0:
+                continue
+            mask = 0
+            for i, p in enumerate(prime):
+                if x % p == 0:
+                    mask |= (1 << i)
+            for state in range(1 << n):
+                if mask & state:
+                    continue
+                dp[mask | state] = (dp[mask | state] + counter[x] * dp[state]) % mod
+        ans = 0
+        for i in range(1, 1 << n):
+            ans = (ans + dp[i]) % mod
+        for i in range(counter[1]):
+            ans = (ans << 1) % mod
+        return ans
 ```
 
 ### **Java**
@@ -76,7 +105,121 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    private static final int MOD = (int) 1e9 + 7;
 
+    public int numberOfGoodSubsets(int[] nums) {
+        int[] counter = new int[31];
+        for (int x : nums) {
+            ++counter[x];
+        }
+        int[] prime = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+        int n = prime.length;
+        long[] dp = new long[1 << n];
+        dp[0] = 1;
+        for (int x = 2; x <= 30; ++x) {
+            if (counter[x] == 0 || x % 4 == 0 || x % 9 == 0 || x % 25 == 0) {
+                continue;
+            }
+            int mask = 0;
+            for (int i = 0; i < n; ++i) {
+                if (x % prime[i] == 0) {
+                    mask |= (1 << i);
+                }
+            }
+            for (int state = 0; state < 1 << n; ++state) {
+                if ((mask & state) > 0) {
+                    continue;
+                }
+                dp[mask | state] = (dp[mask | state] + counter[x] * dp[state]) % MOD;
+            }
+        }
+        long ans = 0;
+        for (int i = 1; i < 1 << n; ++i) {
+            ans = (ans + dp[i]) % MOD;
+        }
+        while (counter[1]-- > 0) {
+            ans = (ans << 1) % MOD;
+        }
+        return (int) ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numberOfGoodSubsets(vector<int>& nums) {
+        vector<int> counter(31);
+        for (int& x : nums) ++counter[x];
+        vector<int> prime = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+        const int MOD = 1e9 + 7;
+        int n = prime.size();
+        vector<long long> dp(1 << n);
+        dp[0] = 1;
+        for (int x = 2; x <= 30; ++x)
+        {
+            if (counter[x] == 0 || x % 4 == 0 || x % 9 == 0 || x % 25 == 0) continue;
+            int mask = 0;
+            for (int i = 0; i < n; ++i)
+                if (x % prime[i] == 0)
+                    mask |= (1 << i);
+            for (int state = 0; state < 1 << n; ++state)
+            {
+                if ((mask & state) > 0) continue;
+                dp[mask | state] = (dp[mask | state] + counter[x] * dp[state]) % MOD;
+            }
+        }
+        long long ans = 0;
+        for (int i = 1; i < 1 << n; ++i) ans = (ans + dp[i]) % MOD;
+        while (counter[1]--) ans = (ans << 1) % MOD;
+        return (int) ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func numberOfGoodSubsets(nums []int) int {
+	counter := make([]int, 31)
+	for _, x := range nums {
+		counter[x]++
+	}
+	const mod int = 1e9 + 7
+	prime := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29}
+	n := len(prime)
+	dp := make([]int, 1<<n)
+	dp[0] = 1
+	for x := 2; x <= 30; x++ {
+		if counter[x] == 0 || x%4 == 0 || x%9 == 0 || x%25 == 0 {
+			continue
+		}
+		mask := 0
+		for i, p := range prime {
+			if x%p == 0 {
+				mask |= (1 << i)
+			}
+		}
+		for state := 0; state < 1<<n; state++ {
+			if (mask & state) > 0 {
+				continue
+			}
+			dp[mask|state] = (dp[mask|state] + counter[x]*dp[state]) % mod
+		}
+	}
+	ans := 0
+	for i := 1; i < 1<<n; i++ {
+		ans = (ans + dp[i]) % mod
+	}
+	for counter[1] > 0 {
+		ans = (ans << 1) % mod
+		counter[1]--
+	}
+	return ans
+}
 ```
 
 ### **...**

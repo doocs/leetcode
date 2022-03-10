@@ -1,37 +1,21 @@
 class Solution {
 public:
-    int checksum(int m, int n, int target) {
-        int a = 0;
-        while (m > 0) {
-            a += m % 10;
-            m /= 10;
-        }
-        int b = 0;
-        while (n > 0) {
-            b += n % 10;
-            n /= 10;
-        }
-        return a + b <= target;
-    }
-    int moving(int row, int col, vector<vector<int>>& arr, int i, int j, int target) {
-        int count = 0;
-        if (checksum(i, j, target) 
-            && i>=0 && i < row && j>=0 && j < col
-            && arr[i][j] == 0) {
-            arr[i][j] = 1;
-            count = 1 + moving(row, col, arr, i-1, j, target)
-                    + moving(row, col, arr, i, j-1, target)
-                    + moving(row, col, arr, i+1, j, target)
-                    + moving(row, col, arr, i, j+1, target);
-        }
-        return count;
-    }
+    int m;
+    int n;
+    int k;
+    vector<vector<bool>> vis;
+
     int movingCount(int m, int n, int k) {
-        if (m == 0 || n == 0) {
-            return 0;
-        }
-        vector<vector<int>> arr(m, vector<int>(n, 0));
-        int cnt = moving(m, n, arr, 0, 0, k);
-        return cnt;
+        this->m = m;
+        this->n = n;
+        this->k = k;
+        vis.resize(m, vector<bool>(n, false));
+        return dfs(0, 0);
+    }
+
+    int dfs(int i, int j) {
+        if (i >= m || j >= n || vis[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) return 0;
+        vis[i][j] = true;
+        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
     }
 };

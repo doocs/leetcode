@@ -22,14 +22,16 @@ id is the primary key for this table.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Logs table:
 +----+-----+
-| Id | Num |
+| id | num |
 +----+-----+
 | 1  | 1   |
 | 2  | 1   |
@@ -39,14 +41,13 @@ Logs table:
 | 6  | 2   |
 | 7  | 2   |
 +----+-----+
-
-Result table:
+<strong>Output:</strong> 
 +-----------------+
 | ConsecutiveNums |
 +-----------------+
 | 1               |
 +-----------------+
-1 is the only number that appears consecutively for at least three times.
+<strong>Explanation:</strong> 1 is the only number that appears consecutively for at least three times.
 </pre>
 
 ## Solutions

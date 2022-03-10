@@ -70,6 +70,55 @@
 
 以“二分”的方式枚举速度值，找到满足条件的最小速度。
 
+以下是二分查找的两个模板：
+
+模板 1：
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
+    while (left < right) {
+        int mid = (left + right) >> 1;
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
+模板 2：
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
+    while (left < right) {
+        int mid = (left + right + 1) >> 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+```
+
+做二分题目时，可以按照以下步骤：
+
+1. 写出循环条件：`while (left < right)`，注意是 `left < right`，而非 `left <= right`；
+1. 循环体内，先无脑写出 `mid = (left + right) >> 1`；
+1. 根据具体题目，实现 `check()` 函数（有时很简单的逻辑，可以不定义 `check`），想一下究竟要用 `right = mid`（模板 1） 还是 `left = mid`（模板 2）；
+    - 如果 `right = mid`，那么无脑写出 else 语句 `left = mid + 1`，并且不需要更改 mid 的计算，即保持 `mid = (left + right) >> 1`；
+    - 如果 `left = mid`，那么无脑写出 else 语句 `right = mid - 1`，并且在 mid 计算时补充 +1，即 `mid = (left + right + 1) >> 1`。
+1. 循环结束时，left 与 right 相等。
+
+注意，这两个模板的优点是始终保持答案位于二分区间内，二分结束条件对应的值恰好在答案所处的位置。 对于可能无解的情况，只要判断二分结束后的 left 或者 right 是否满足题意即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -79,7 +128,7 @@
 ```python
 class Solution:
     def minSpeedOnTime(self, dist: List[int], hour: float) -> int:
-        def arrive_on_time(speed):
+        def check(speed):
             res = 0
             for i, d in enumerate(dist):
                 res += (d / speed) if i == len(dist) - 1 else math.ceil(d / speed)
@@ -88,11 +137,11 @@ class Solution:
         left, right = 1, 10 ** 7
         while left < right:
             mid = (left + right) >> 1
-            if arrive_on_time(mid):
+            if check(mid):
                 right = mid
             else:
                 left = mid + 1
-        return left if arrive_on_time(left) else -1
+        return left if check(left) else -1
 ```
 
 ### **Java**
@@ -105,16 +154,16 @@ class Solution {
         int left = 1, right = (int) 1e7;
         while (left < right) {
             int mid = (left + right) >> 1;
-            if (arriveOnTime(dist, mid, hour)) {
+            if (check(dist, mid, hour)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        return arriveOnTime(dist, left, hour) ? left : -1;
+        return check(dist, left, hour) ? left : -1;
     }
 
-    private boolean arriveOnTime(int[] dist, int speed, double hour) {
+    private boolean check(int[] dist, int speed, double hour) {
         double res = 0;
         for (int i = 0; i < dist.length; ++i) {
             double cost = dist[i] * 1.0 / speed;
@@ -134,16 +183,16 @@ public:
         int left = 1, right = 1e7;
         while (left < right) {
             int mid = (left + right) >> 1;
-            if (arriveOnTime(dist, mid, hour)) {
+            if (check(dist, mid, hour)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        return arriveOnTime(dist, left, hour) ? left : -1;
+        return check(dist, left, hour) ? left : -1;
     }
 
-    bool arriveOnTime(vector<int>& dist, int speed, double hour) {
+    bool check(vector<int>& dist, int speed, double hour) {
         double res = 0;
         for (int i = 0; i < dist.size(); ++i) {
             double cost = dist[i] * 1.0 / speed;
@@ -197,27 +246,27 @@ function arriveOnTime(dist, speed, hour) {
 func minSpeedOnTime(dist []int, hour float64) int {
 	n := len(dist)
 	left, right := 1, int(1e7)
+	check := func(speed float64) bool {
+		var cost float64
+		for _, v := range dist[:n-1] {
+			cost += math.Ceil(float64(v) / speed)
+		}
+		cost += float64(dist[n-1]) / speed
+		return cost <= hour
+
+	}
 	for left < right {
 		mid := (left + right) >> 1
-		if arriveOnTime(dist, n, float64(mid), hour) {
+		if check(float64(mid)) {
 			right = mid
 		} else {
 			left = mid + 1
 		}
 	}
-	if arriveOnTime(dist, n, float64(left), hour) {
+	if check(float64(left)) {
 		return left
 	}
 	return -1
-}
-
-func arriveOnTime(dist []int, n int, speed, hour float64) bool {
-	var cost float64
-	for _, v := range dist[:n-1] {
-		cost += math.Ceil(float64(v) / speed)
-	}
-	cost += float64(dist[n-1]) / speed
-	return cost <= hour
 }
 ```
 

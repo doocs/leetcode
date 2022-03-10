@@ -5,12 +5,11 @@
  *     Next *ListNode
  * }
  */
-//insert to the front
 func reversePrint(head *ListNode) []int {
-	res := []int{}
+	ans := []int{}
 	for head != nil {
-		res = append([]int{head.Val}, res...)
+		ans = append([]int{head.Val}, ans...)
 		head = head.Next
 	}
-	return res
+	return ans
 }

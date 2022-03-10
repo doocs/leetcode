@@ -31,21 +31,6 @@ The maximum total value is 2 + 5 + 4 + 3 = 14.
 The maximum total value is 3 + 2 + 5 + 4 + 3 + 2 = 19.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> inventory = [2,8,4,10,6], orders = 20
-<strong>Output:</strong> 110
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> inventory = [1000000000], orders = 1000000000
-<strong>Output:</strong> 21
-<strong>Explanation: </strong>Sell the 1st color 1000000000 times for a total value of 500000000500000000. 500000000500000000 modulo 10<sup>9 </sup>+ 7 = 21.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

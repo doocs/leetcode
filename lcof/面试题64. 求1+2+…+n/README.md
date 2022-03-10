@@ -2,25 +2,29 @@
 
 ## 题目描述
 
-求 `1+2+...+n`，要求不能使用乘除法、for、while、if、else、switch、case 等关键字及条件判断语句（A?B:C）。
+<p>求 <code>1+2+...+n</code> ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
 
-**示例 1：**
+<p>&nbsp;</p>
 
-```
-输入: n = 3
-输出: 6
-```
+<p><strong>示例 1：</strong></p>
 
-**示例 2：**
+<pre><strong>输入:</strong> n = 3
+<strong>输出:&nbsp;</strong>6
+</pre>
 
-```
-输入: n = 9
-输出: 45
-```
+<p><strong>示例 2：</strong></p>
 
-**限制：**
+<pre><strong>输入:</strong> n = 9
+<strong>输出:&nbsp;</strong>45
+</pre>
 
-- `1 <= n <= 10000`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n&nbsp;&lt;= 10000</code></li>
+</ul>
 
 ## 解法
 
@@ -39,6 +43,18 @@ class Solution:
 ### **Java**
 
 ```java
+class Solution {
+    public int sumNums(int n) {
+        int s = n;
+        boolean t = n > 0 && (s += sumNums(n - 1)) > 0;
+        return s;
+    }
+}
+```
+
+### **C++**
+
+```cpp
 class Solution {
     public int sumNums(int n) {
         int s = n;
@@ -72,6 +88,25 @@ func sumNums(n int) int {
 	}
 	sum(n)
 	return s
+}
+```
+
+### **TypeScript**
+
+```ts
+var sumNums = function (n: number): number {
+    return n && n + sumNums(n - 1);
+};
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sum_nums(mut n: i32) -> i32 {
+        n != 0 && (n += Solution::sum_nums(n - 1), true).1;
+        n
+    }
 }
 ```
 

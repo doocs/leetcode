@@ -2,18 +2,18 @@
 
 ## 题目描述
 
-输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
+<p>输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。</p>
 
-**示例 1：**
+<p><strong>示例1：</strong></p>
 
-```
-输入：1->2->4, 1->3->4
-输出：1->1->2->3->4->4
-```
+<pre><strong>输入：</strong>1-&gt;2-&gt;4, 1-&gt;3-&gt;4
+<strong>输出：</strong>1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</pre>
 
-**限制：**
+<p><strong>限制：</strong></p>
 
-- `0 <= 链表长度 <= 1000`
+<p><code>0 &lt;= 链表长度 &lt;= 1000</code></p>
+
+<p>注意：本题与主站 21 题相同：<a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/">https://leetcode-cn.com/problems/merge-two-sorted-lists/</a></p>
 
 ## 解法
 
@@ -79,6 +79,8 @@ class Solution {
 
 ### **JavaScript**
 
+-   递归
+
 ```js
 /**
  * Definition for singly-linked list.
@@ -93,9 +95,9 @@ class Solution {
  * @return {ListNode}
  */
 var mergeTwoLists = function (l1, l2) {
-    // 法一 - 递归
-    if (!l1) return l2;
-    if (!l2) return l1;
+    if (!(l1 && l2)) {
+        return l1 || l2;
+    }
     if (l1.val < l2.val) {
         l1.next = mergeTwoLists(l1.next, l2);
         return l1;
@@ -103,29 +105,41 @@ var mergeTwoLists = function (l1, l2) {
         l2.next = mergeTwoLists(l2.next, l1);
         return l2;
     }
-    // 法二 - 遍历
-    // if(!l1 || !l2) return l1 ? l1 : l2
-    // let a = l1
-    // let b = l2
-    // let res = l1
-    // if(a.val > b.val) {
-    //     let c = a
-    //     a = b
-    //     b = c
-    //     res = l2
-    // }
-    // while(a && b) {
-    //     while(a.next && a.next.val < b.val) {
-    //         a = a.next
-    //     }
-    //     let tmp = a.next
-    //     let rec = b.next
-    //     a.next = b
-    //     a.next.next = tmp
-    //     a = a.next
-    //     b = rec
-    // }
-    // return res
+};
+```
+
+-   遍历
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function (l1, l2) {
+    const res = new ListNode();
+    let cur = res;
+    while (l1 && l2) {
+        let node;
+        if (l1.val < l2.val) {
+            node = l1;
+            l1 = l1.next;
+        } else {
+            node = l2;
+            l2 = l2.next;
+        }
+        cur.next = node;
+        cur = node;
+    }
+    cur.next = l1 || l2;
+    return res.next;
 };
 ```
 
@@ -174,6 +188,86 @@ public:
         return node;
     }
 };
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function mergeTwoLists(
+    l1: ListNode | null,
+    l2: ListNode | null,
+): ListNode | null {
+    const res = new ListNode();
+    let cur = res;
+    while (l1 && l2) {
+        let node: ListNode;
+        if (l1.val < l2.val) {
+            node = l1;
+            l1 = l1.next;
+        } else {
+            node = l2;
+            l2 = l2.next;
+        }
+        cur.next = node;
+        cur = node;
+    }
+    cur.next = l1 || l2;
+    return res.next;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for singly-linked list.
+// #[derive(PartialEq, Eq, Clone, Debug)]
+// pub struct ListNode {
+//   pub val: i32,
+//   pub next: Option<Box<ListNode>>
+// }
+//
+// impl ListNode {
+//   #[inline]
+//   fn new(val: i32) -> Self {
+//     ListNode {
+//       next: None,
+//       val
+//     }
+//   }
+// }
+impl Solution {
+    pub fn merge_two_lists(
+        l1: Option<Box<ListNode>>,
+        l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
+        match (l1, l2) {
+            (Some(mut n1), Some(mut n2)) => {
+                if n1.val < n2.val {
+                    n1.next = Solution::merge_two_lists(n1.next, Some(n2));
+                    Some(n1)
+                } else {
+                    n2.next = Solution::merge_two_lists(Some(n1), n2.next);
+                    Some(n2)
+                }
+            }
+            (Some(node), None) => Some(node),
+            (None, Some(node)) => Some(node),
+            (None, None) => None,
+        }
+    }
+}
 ```
 
 ### **...**

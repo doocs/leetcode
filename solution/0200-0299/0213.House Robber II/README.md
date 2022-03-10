@@ -10,9 +10,9 @@
 
 <p>给定一个代表每个房屋存放金额的非负整数数组，计算你 <strong>在不触动警报装置的情况下</strong> ，今晚能够偷窃到的最高金额。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例 1：</strong></p>
+<p><strong>示例&nbsp;1：</strong></p>
 
 <pre>
 <strong>输入：</strong>nums = [2,3,2]
@@ -26,22 +26,22 @@
 <strong>输入：</strong>nums = [1,2,3,1]
 <strong>输出：</strong>4
 <strong>解释：</strong>你可以先偷窃 1 号房屋（金额 = 1），然后偷窃 3 号房屋（金额 = 3）。
-     偷窃到的最高金额 = 1 + 3 = 4 。</pre>
+&nbsp;    偷窃到的最高金额 = 1 + 3 = 4 。</pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>nums = [0]
-<strong>输出：</strong>0
+<strong>输入：</strong>nums = [1,2,3]
+<strong>输出：</strong>3
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 100</code></li>
-	<li><code>0 <= nums[i] <= 1000</code></li>
+	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
 ## 解法

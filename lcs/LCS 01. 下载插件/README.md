@@ -6,8 +6,8 @@
 
 小扣打算给自己的 **VS code** 安装使用插件，初始状态下带宽每分钟可以完成 `1` 个插件的下载。假定每分钟选择以下两种策略之一:
 
-- 使用当前带宽下载插件
-- 将带宽加倍（下载插件数量随之加倍）
+-   使用当前带宽下载插件
+-   将带宽加倍（下载插件数量随之加倍）
 
 请返回小扣完成下载 `n` 个插件最少需要多少分钟。
 
@@ -22,8 +22,8 @@
 > 解释：
 > 以下两个方案，都能实现 2 分钟内下载 2 个插件
 >
-> - 方案一：第一分钟带宽加倍，带宽可每分钟下载 2 个插件；第二分钟下载 2 个插件
-> - 方案二：第一分钟下载 1 个插件，第二分钟下载 1 个插件
+> -   方案一：第一分钟带宽加倍，带宽可每分钟下载 2 个插件；第二分钟下载 2 个插件
+> -   方案二：第一分钟下载 1 个插件，第二分钟下载 1 个插件
 
 **示例 2：**
 
@@ -39,7 +39,7 @@
 
 **提示：**
 
-- `1 <= n <= 10^5`
+-   `1 <= n <= 10^5`
 
 ## 解法
 
@@ -56,11 +56,11 @@
 ```python
 class Solution:
     def leastMinutes(self, n: int) -> int:
-        speed = res = 1
+        speed = ans = 1
         while speed < n:
             speed <<= 1
-            res += 1
-        return res
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -70,13 +70,11 @@ class Solution:
 ```java
 class Solution {
     public int leastMinutes(int n) {
-        int speed = 1;
-        int res = 1;
-        while (speed < n) {
-            speed <<= 1;
-            ++res;
+        int ans = 1;
+        for (int speed = 1; speed < n; speed <<= 1) {
+            ++ans;
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -87,13 +85,9 @@ class Solution {
 class Solution {
 public:
     int leastMinutes(int n) {
-        int speed = 1, res = 1;
-        while (speed < n)
-        {
-            speed <<= 1;
-            ++res;
-        }
-        return res;
+        int ans = 1;
+        for (int speed = 1; speed < n; speed <<= 1) ++ans;
+        return ans;
     }
 };
 ```
@@ -102,13 +96,28 @@ public:
 
 ```go
 func leastMinutes(n int) int {
-	speed, res := 1, 1
-	for speed < n {
-		speed <<= 1
-		res++
+	ans := 1
+	for speed := 1; speed < n; speed <<= 1 {
+		ans++
 	}
-	return res
+	return ans
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var leastMinutes = function (n) {
+    let ans = 1;
+    for (let speed = 1; speed < n; speed <<= 1) {
+        ++ans;
+    }
+    return ans;
+};
 ```
 
 ### **...**

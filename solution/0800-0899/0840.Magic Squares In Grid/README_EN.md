@@ -29,20 +29,6 @@ In total, there is only one magic square inside the given grid.
 <strong>Output:</strong> 0
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> grid = [[4,4],[3,3]]
-<strong>Output:</strong> 0
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> grid = [[4,7,8],[9,5,1],[2,3,6]]
-<strong>Output:</strong> 0
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

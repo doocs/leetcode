@@ -12,6 +12,7 @@ class Solution:
                 chars[i], chars[x] = chars[x], chars[i]
                 dfs(x + 1)
                 chars[i], chars[x] = chars[x], chars[i]
+
         chars, res = list(s), []
         dfs(0)
         return res

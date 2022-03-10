@@ -1,5 +1,4 @@
 class Vector2D:
-
     def __init__(self, vec: List[List[int]]):
         self.flatten = []
         for item in vec:

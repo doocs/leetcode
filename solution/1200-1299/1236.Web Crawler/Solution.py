@@ -9,6 +9,7 @@
 #        :rtype List[str]
 #        """
 
+
 class Solution:
     def crawl(self, startUrl: str, htmlParser: 'HtmlParser') -> List[str]:
         def host(url):

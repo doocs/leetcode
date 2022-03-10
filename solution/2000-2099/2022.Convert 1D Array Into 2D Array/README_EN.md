@@ -16,8 +16,7 @@
 <pre>
 <strong>Input:</strong> original = [1,2,3,4], m = 2, n = 2
 <strong>Output:</strong> [[1,2],[3,4]]
-<strong>Explanation:
-</strong>The constructed 2D array should contain 2 rows and 2 columns.
+<strong>Explanation:</strong> The constructed 2D array should contain 2 rows and 2 columns.
 The first group of n=2 elements in original, [1,2], becomes the first row in the constructed 2D array.
 The second group of n=2 elements in original, [3,4], becomes the second row in the constructed 2D array.
 </pre>
@@ -27,8 +26,7 @@ The second group of n=2 elements in original, [3,4], becomes the second row in t
 <pre>
 <strong>Input:</strong> original = [1,2,3], m = 1, n = 3
 <strong>Output:</strong> [[1,2,3]]
-<b>Explanation:</b>
-The constructed 2D array should contain 1 row and 3 columns.
+<strong>Explanation:</strong> The constructed 2D array should contain 1 row and 3 columns.
 Put all three elements in original into the first row of the constructed 2D array.
 </pre>
 
@@ -37,19 +35,8 @@ Put all three elements in original into the first row of the constructed 2D arra
 <pre>
 <strong>Input:</strong> original = [1,2], m = 1, n = 1
 <strong>Output:</strong> []
-<strong>Explanation:
-</strong>There are 2 elements in original.
+<strong>Explanation:</strong> There are 2 elements in original.
 It is impossible to fit 2 elements in a 1x1 2D array, so return an empty 2D array.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> original = [3], m = 1, n = 2
-<strong>Output:</strong> []
-<strong>Explanation:</strong>
-There is 1 element in original.
-It is impossible to make 1 element fill all the spots in a 1x2 2D array, so return an empty 2D array.
 </pre>
 
 <p>&nbsp;</p>
@@ -138,17 +125,17 @@ func construct2DArray(original []int, m int, n int) [][]int {
  * @param {number} n
  * @return {number[][]}
  */
-var construct2DArray = function(original, m, n) {
+var construct2DArray = function (original, m, n) {
     const result = [];
 
     if (original.length != m * n) {
         return result;
     }
-    
+
     for (let i = 0; i < m; i++) {
         result.push(original.slice(i * n, i * n + n));
     }
-    
+
     return result;
 };
 ```
@@ -156,19 +143,23 @@ var construct2DArray = function(original, m, n) {
 ### **TypeScript**
 
 ```ts
-function construct2DArray(original: number[], m: number, n: number): number[][] {
+function construct2DArray(
+    original: number[],
+    m: number,
+    n: number,
+): number[][] {
     const result = [];
 
     if (original.length != m * n) {
         return result;
     }
-    
+
     for (let i = 0; i < m; i++) {
         result.push(original.slice(i * n, i * n + n));
     }
-    
+
     return result;
-};
+}
 ```
 
 ### **...**

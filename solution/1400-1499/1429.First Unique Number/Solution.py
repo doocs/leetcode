@@ -1,5 +1,4 @@
 class FirstUnique:
-
     def __init__(self, nums: List[int]):
         self.counter = OrderedDict()
         self.unique_nums = OrderedDict()
@@ -23,6 +22,7 @@ class FirstUnique:
             self.counter[value] += 1
             if value in self.unique_nums:
                 self.unique_nums.pop(value)
+
 
 # Your FirstUnique object will be instantiated and called as such:
 # obj = FirstUnique(nums)

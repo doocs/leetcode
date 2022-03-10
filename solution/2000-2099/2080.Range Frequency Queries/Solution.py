@@ -1,10 +1,8 @@
 class RangeFreqQuery:
-
     def __init__(self, arr: List[int]):
         self.mp = defaultdict(list)
         for i, x in enumerate(arr):
             self.mp[x].append(i)
-
 
     def query(self, left: int, right: int, value: int) -> int:
         if value not in self.mp:

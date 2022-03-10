@@ -64,12 +64,6 @@ Union find.
 ```python
 class Solution:
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
-        w = defaultdict(lambda: 1)
-        p = defaultdict()
-        for a, b in equations:
-            p[a] = a
-            p[b] = b
-
         def find(x):
             if p[x] != x:
                 origin = p[x]
@@ -77,13 +71,17 @@ class Solution:
                 w[x] *= w[origin]
             return p[x]
 
-        for i, e in enumerate(equations):
-            pa, pb = find(e[0]), find(e[1])
+        w = defaultdict(lambda: 1)
+        p = defaultdict()
+        for a, b in equations:
+            p[a], p[b] = a, b
+        for i, v in enumerate(values):
+            a, b = equations[i]
+            pa, pb = find(a), find(b)
             if pa == pb:
                 continue
             p[pa] = pb
-            w[pa] = w[e[1]] * values[i] / w[e[0]]
-
+            w[pa] = w[b] * v / w[a]
         return [-1 if c not in p or d not in p or find(c) != find(d) else w[c] / w[d] for c, d in queries]
 ```
 
@@ -96,8 +94,8 @@ class Solution {
 
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         int n = equations.size();
-        p = new HashMap<>(n << 1);
-        w = new HashMap<>(n << 1);
+        p = new HashMap<>();
+        w = new HashMap<>();
         for (List<String> e : equations) {
             p.put(e.get(0), e.get(0));
             p.put(e.get(1), e.get(1));
@@ -115,12 +113,12 @@ class Solution {
             w.put(pa, w.get(b) * values[i] / w.get(a));
         }
         int m = queries.size();
-        double[] res = new double[m];
+        double[] ans = new double[m];
         for (int i = 0; i < m; ++i) {
             String c = queries.get(i).get(0), d = queries.get(i).get(1);
-            res[i] = !p.containsKey(c) || !p.containsKey(d) || !Objects.equals(find(c), find(d)) ? - 1.0 : w.get(c) / w.get(d);
+            ans[i] = !p.containsKey(c) || !p.containsKey(d) || !Objects.equals(find(c), find(d)) ? - 1.0 : w.get(c) / w.get(d);
         }
-        return res;
+        return ans;
     }
 
     private String find(String x) {
@@ -161,13 +159,13 @@ public:
             w[pa] = w[b] * values[i] / w[a];
         }
         int m = queries.size();
-        vector<double> res(m);
+        vector<double> ans(m);
         for (int i = 0; i < m; ++i)
         {
             string c = queries[i][0], d = queries[i][1];
-            res[i] = p.find(c) == p.end() || p.find(d) == p.end() || find(c) != find(d) ? -1.0 : w[c] / w[d];
+            ans[i] = p.find(c) == p.end() || p.find(d) == p.end() || find(c) != find(d) ? -1.0 : w[c] / w[d];
         }
-        return res;
+        return ans;
     }
 
     string find(string x) {
@@ -185,46 +183,44 @@ public:
 ### **Go**
 
 ```go
-var p map[string]string
-var w map[string]float64
-
 func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {
-	p = make(map[string]string)
-	w = make(map[string]float64)
+	p := make(map[string]string)
+	w := make(map[string]float64)
 	for _, e := range equations {
-		p[e[0]] = e[0]
-		p[e[1]] = e[1]
-		w[e[0]] = 1.0
-		w[e[1]] = 1.0
-	}
-	for i, e := range equations {
 		a, b := e[0], e[1]
+		p[a], p[b] = a, b
+		w[a], w[b] = 1.0, 1.0
+	}
+
+	var find func(x string) string
+	find = func(x string) string {
+		if p[x] != x {
+			origin := p[x]
+			p[x] = find(p[x])
+			w[x] *= w[origin]
+		}
+		return p[x]
+	}
+
+	for i, v := range values {
+		a, b := equations[i][0], equations[i][1]
 		pa, pb := find(a), find(b)
 		if pa == pb {
 			continue
 		}
 		p[pa] = pb
-		w[pa] = w[b] * values[i] / w[a]
+		w[pa] = w[b] * v / w[a]
 	}
-	var res []float64
+	var ans []float64
 	for _, e := range queries {
 		c, d := e[0], e[1]
 		if p[c] == "" || p[d] == "" || find(c) != find(d) {
-			res = append(res, -1.0)
+			ans = append(ans, -1.0)
 		} else {
-			res = append(res, w[c]/w[d])
+			ans = append(ans, w[c]/w[d])
 		}
 	}
-	return res
-}
-
-func find(x string) string {
-	if p[x] != x {
-		origin := p[x]
-		p[x] = find(p[x])
-		w[x] *= w[origin]
-	}
-	return p[x]
+	return ans
 }
 ```
 

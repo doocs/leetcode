@@ -61,6 +61,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+BFS。
+
+将所有门放入队列，依次向外扩进行宽搜。由于宽度优先搜索保证我们在搜索 d + 1 距离的位置时， 距离为 d 的位置都已经被搜索过了，所以到达每一个房间的时候一定是最短距离。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -68,7 +72,25 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def wallsAndGates(self, rooms: List[List[int]]) -> None:
+        """
+        Do not return anything, modify rooms in-place instead.
+        """
+        m, n = len(rooms), len(rooms[0])
+        inf = 2 ** 31 - 1
+        q = deque([(i, j) for i in range(m)
+                   for j in range(n) if rooms[i][j] == 0])
+        d = 0
+        while q:
+            d += 1
+            for _ in range(len(q), 0, -1):
+                i, j = q.popleft()
+                for a, b in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and rooms[x][y] == inf:
+                        rooms[x][y] = d
+                        q.append((x, y))
 ```
 
 ### **Java**
@@ -76,7 +98,106 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public void wallsAndGates(int[][] rooms) {
+        int m = rooms.length;
+        int n = rooms[0].length;
+        Deque<int[]> q = new LinkedList<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (rooms[i][j] == 0) {
+                    q.offer(new int[]{i, j});
+                }
+            }
+        }
+        int d = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            ++d;
+            for (int i = q.size(); i > 0; --i) {
+                int[] p = q.poll();
+                for (int j = 0; j < 4; ++j) {
+                    int x = p[0] + dirs[j];
+                    int y = p[1] + dirs[j + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && rooms[x][y] == Integer.MAX_VALUE) {
+                        rooms[x][y] = d;
+                        q.offer(new int[]{x, y});
+                    }
+                }
+            }
+        }
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    void wallsAndGates(vector<vector<int>>& rooms) {
+        int m = rooms.size();
+        int n = rooms[0].size();
+        queue<pair<int, int>> q;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if (rooms[i][j] == 0)
+                    q.emplace(i, j);
+        int d = 0;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        while (!q.empty())
+        {
+            ++d;
+            for (int i = q.size(); i > 0; --i)
+            {
+                auto p = q.front();
+                q.pop();
+                for (int j = 0; j < 4; ++j)
+                {
+                    int x = p.first + dirs[j];
+                    int y = p.second + dirs[j + 1];
+                    if (x >= 0 && x < m && y >= 0 && y < n && rooms[x][y] == INT_MAX)
+                    {
+                        rooms[x][y] = d;
+                        q.emplace(x, y);
+                    }
+                }
+            }
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func wallsAndGates(rooms [][]int) {
+	m, n := len(rooms), len(rooms[0])
+	var q [][]int
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if rooms[i][j] == 0 {
+				q = append(q, []int{i, j})
+			}
+		}
+	}
+	d := 0
+	dirs := []int{-1, 0, 1, 0, -1}
+	for len(q) > 0 {
+		d++
+		for i := len(q); i > 0; i-- {
+			p := q[0]
+			q = q[1:]
+			for j := 0; j < 4; j++ {
+				x, y := p[0]+dirs[j], p[1]+dirs[j+1]
+				if x >= 0 && x < m && y >= 0 && y < n && rooms[x][y] == math.MaxInt32 {
+					rooms[x][y] = d
+					q = append(q, []int{x, y})
+				}
+			}
+		}
+	}
+}
 ```
 
 ### **...**

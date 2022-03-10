@@ -44,9 +44,8 @@ Therefore, you can&#39;t travel around the circuit once no matter where you star
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>gas.length == n</code></li>
-	<li><code>cost.length == n</code></li>
-	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
+	<li><code>n == gas.length == cost.length</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= gas[i], cost[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 

@@ -10,7 +10,7 @@ class Solution:
                     return False
             return True
 
-        for i in range(n + 1, 10 ** 7):
-            if (check(i)):
+        for i in range(n + 1, 10**7):
+            if check(i):
                 return i
         return -1

@@ -6,21 +6,34 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个单词列表和两个单词 <em>word1</em> 和 <em>word2</em>，返回列表中这两个单词之间的最短距离。</p>
+<p>给定一个字符串数组&nbsp;<code>wordDict</code>&nbsp;和两个已经存在于该数组中的不同的字符串&nbsp;<code>word1</code> 和 <code>word2</code> 。返回列表中这两个单词之间的最短距离。</p>
 
-<p><strong>示例:</strong><br>
-假设 words = <code>[&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]</code></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入:</strong> <em>word1</em> = <code>&ldquo;coding&rdquo;</code>, <em>word2</em> = <code>&ldquo;practice&rdquo;</code>
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> wordsDict = ["practice", "makes", "perfect", "coding", "makes"], word1 = "coding", word2 = "practice"
 <strong>输出:</strong> 3
 </pre>
 
-<pre><strong>输入:</strong> <em>word1</em> = <code>&quot;makes&quot;</code>, <em>word2</em> = <code>&quot;coding&quot;</code>
-<strong>输出:</strong> 1
-</pre>
+<p><strong>示例&nbsp;2:</strong></p>
 
-<p><strong>注意:</strong><br>
-你可以假设 <em>word1</em> 不等于 <em>word2</em>, 并且 <em>word1</em> 和 <em>word2</em> 都在列表里。</p>
+<pre>
+<strong>输入:</strong> wordsDict = ["practice", "makes", "perfect", "coding", "makes"], word1 = "makes", word2 = "coding"
+<strong>输出:</strong> 1</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong><meta charset="UTF-8" /></p>
+
+<ul>
+	<li><code>1 &lt;= wordsDict.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= wordsDict[i].length &lt;= 10</code></li>
+	<li><code>wordsDict[i]</code>&nbsp;由小写英文字母组成</li>
+	<li><code>word1</code>&nbsp;和&nbsp;<code>word2</code>&nbsp;在&nbsp;<code>wordsDict</code> 中</li>
+	<li><code>word1 != word2</code></li>
+</ul>
 
 ## 解法
 

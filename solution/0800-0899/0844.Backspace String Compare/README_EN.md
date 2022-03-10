@@ -28,14 +28,6 @@
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> s = &quot;a##c&quot;, t = &quot;#a#c&quot;
-<strong>Output:</strong> true
-<strong>Explanation:</strong> Both s and t become &quot;c&quot;.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
 <strong>Input:</strong> s = &quot;a#c&quot;, t = &quot;b&quot;
 <strong>Output:</strong> false
 <strong>Explanation:</strong> s becomes &quot;c&quot; while t becomes &quot;b&quot;.
@@ -46,7 +38,7 @@
 
 <ul>
 	<li><code><span>1 &lt;= s.length, t.length &lt;= 200</span></code></li>
-	<li><span><code>s</code>&nbsp;and <code>t</code> only contain&nbsp;lowercase letters and <code>&#39;#&#39;</code> characters.</span></li>
+	<li><span><code>s</code> and <code>t</code> only contain lowercase letters and <code>&#39;#&#39;</code> characters.</span></li>
 </ul>
 
 <p>&nbsp;</p>

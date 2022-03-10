@@ -59,9 +59,9 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-并查集。
+并查集。对于本题，`可以移除的石头数量 = 石头总数 - 连通分量个数`。遍历 `stones` 数组，将每个 `stone` 的横、纵坐标进行合并。需要注意的是，横、纵坐标数值可能相同，我们需要处理成不同的值，结合横、纵坐标的范围，我们只需要在其中一个坐标值加上 10010 即可。
 
-并查集模板：
+以下是并查集的几个常用模板。
 
 模板 1——朴素并查集：
 
@@ -129,20 +129,17 @@ d[find(a)] = distance
 ```python
 class Solution:
     def removeStones(self, stones: List[List[int]]) -> int:
-        n = 10010
-        p = list(range(n << 1))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        n = 10010
+        p = list(range(n << 1))
         for x, y in stones:
             p[find(x)] = find(y + n)
 
-        s = set()
-        for x, _ in stones:
-            s.add(find(x))
+        s = {find(x) for x, _ in stones}
         return len(stones) - len(s)
 ```
 
@@ -160,12 +157,12 @@ class Solution {
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
-        for (int[] e : stones) {
-            p[find(e[0])] = find(e[1] + n);
+        for (int[] stone : stones) {
+            p[find(stone[0])] = find(stone[1] + n);
         }
         Set<Integer> s = new HashSet<>();
-        for (int[] e : stones) {
-            s.add(find(e[0]));
+        for (int[] stone : stones) {
+            s.add(find(stone[0]));
         }
         return stones.length - s.size();
     }
@@ -186,26 +183,18 @@ class Solution {
 public:
     vector<int> p;
 
-    int removeStones(vector<vector<int>> &stones) {
+    int removeStones(vector<vector<int>>& stones) {
         int n = 10010;
         p.resize(n << 1);
-        for (int i = 0; i < p.size(); ++i)
-            p[i] = i;
-        for (auto e : stones)
-        {
-            p[find(e[0])] = find(e[1] + 10010);
-        }
+        for (int i = 0; i < p.size(); ++i) p[i] = i;
+        for (auto& stone : stones) p[find(stone[0])] = find(stone[1] + n);
         unordered_set<int> s;
-        for (auto e : stones)
-        {
-            s.insert(find(e[0]));
-        }
+        for (auto& stone : stones) s.insert(find(stone[0]));
         return stones.size() - s.size();
     }
 
     int find(int x) {
-        if (p[x] != x)
-            p[x] = find(p[x]);
+        if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
 };
@@ -214,29 +203,27 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func removeStones(stones [][]int) int {
 	n := 10010
-	p = make([]int, n<<1)
-	for i := 0; i < len(p); i++ {
+	p := make([]int, n<<1)
+	for i := range p {
 		p[i] = i
 	}
-	for _, e := range stones {
-		p[find(e[0])] = find(e[1] + n)
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	for _, stone := range stones {
+		p[find(stone[0])] = find(stone[1] + n)
 	}
 	s := make(map[int]bool)
-	for _, e := range stones {
-		s[find(e[0])] = true
+	for _, stone := range stones {
+		s[find(stone[0])] = true
 	}
 	return len(stones) - len(s)
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }
 ```
 

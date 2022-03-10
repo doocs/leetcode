@@ -6,11 +6,19 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一颗根结点为&nbsp;<code>root</code>&nbsp;的二叉树，树中的每一个结点都有一个从&nbsp;<code>0</code> 到&nbsp;<code>25</code>&nbsp;的值，分别代表字母&nbsp;<code>&#39;a&#39;</code> 到&nbsp;<code>&#39;z&#39;</code>：值&nbsp;<code>0</code> 代表&nbsp;<code>&#39;a&#39;</code>，值&nbsp;<code>1</code>&nbsp;代表&nbsp;<code>&#39;b&#39;</code>，依此类推。</p>
+<p>给定一颗根结点为&nbsp;<code>root</code>&nbsp;的二叉树，树中的每一个结点都有一个&nbsp;<code>[0, 25]</code>&nbsp;范围内的值，分别代表字母&nbsp;<code>'a'</code> 到&nbsp;<code>'z'</code>。</p>
 
-<p>找出按字典序最小的字符串，该字符串从这棵树的一个叶结点开始，到根结点结束。</p>
+<p>返回 <em><strong>按字典序最小</strong> 的字符串，该字符串从这棵树的一个叶结点开始，到根结点结束</em>。</p>
 
-<p><em>（小贴士：字符串中任何较短的前缀在字典序上都是较小的：例如，在字典序上&nbsp;<code>&quot;ab&quot;</code> 比&nbsp;<code>&quot;aba&quot;</code>&nbsp;要小。叶结点是指没有子结点的结点。）</em></p>
+<blockquote>
+<p>注<strong>：</strong>字符串中任何较短的前缀在 <strong>字典序上</strong> 都是 <strong>较小</strong> 的：</p>
+
+<ul>
+	<li>例如，在字典序上&nbsp;<code>"ab"</code> 比&nbsp;<code>"aba"</code>&nbsp;要小。叶结点是指没有子结点的结点。&nbsp;</li>
+</ul>
+</blockquote>
+
+<p>节点的叶节点是没有子节点的节点。</p>
 
 <p>&nbsp;</p>
 
@@ -19,36 +27,39 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree1.png" style="height: 107px; width: 160px;"></strong></p>
+<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree1.png" style="height: 358px; width: 534px;" /></strong></p>
 
-<pre><strong>输入：</strong>[0,1,2,3,4,3,4]
-<strong>输出：</strong>&quot;dba&quot;
+<pre>
+<strong>输入：</strong>root = [0,1,2,3,4,3,4]
+<strong>输出：</strong>"dba"
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree2.png" style="height: 107px; width: 160px;"></strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree2.png" /></p>
 
-<pre><strong>输入：</strong>[25,1,3,1,3,0,2]
-<strong>输出：</strong>&quot;adz&quot;
+<pre>
+<strong>输入：</strong>root = [25,1,3,1,3,0,2]
+<strong>输出：</strong>"adz"
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree3.png" style="height: 180px; width: 268px;"></strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0988.Smallest%20String%20Starting%20From%20Leaf/images/tree3.png" style="height: 513px; width: 490px;" /></p>
 
-<pre><strong>输入：</strong>[2,2,1,null,1,0,null,0]
-<strong>输出：</strong>&quot;abc&quot;
+<pre>
+<strong>输入：</strong>root = [2,2,1,null,1,0,null,0]
+<strong>输出：</strong>"abc"
 </pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li>给定树的结点数介于&nbsp;<code>1</code> 和&nbsp;<code>8500</code>&nbsp;之间。</li>
-	<li>树中的每个结点都有一个介于&nbsp;<code>0</code>&nbsp;和&nbsp;<code>25</code>&nbsp;之间的值。</li>
-</ol>
+<ul>
+	<li>给定树的结点数在&nbsp;<code>[1, 8500]</code> 范围内</li>
+	<li><code>0 &lt;= Node.val &lt;= 25</code></li>
+</ul>
 
 ## 解法
 

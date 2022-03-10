@@ -12,7 +12,7 @@
 
 <p>设 <code>maxLen</code> 为可以从矩形数组 <code>rectangles</code> 切分得到的 <strong>最大正方形</strong> 的边长。</p>
 
-<p>返回可以切出边长为<em> </em><code>maxLen</code> 的正方形的矩形 <strong>数目</strong> 。</p>
+<p>请你统计有多少个矩形能够切出边长为<em> </em><code>maxLen</code> 的正方形，并返回矩形 <strong>数目</strong> 。</p>
 
 <p> </p>
 
@@ -54,7 +54,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countGoodRectangles(self, rectangles: List[List[int]]) -> int:
+        ans = mx = 0
+        for l, w in rectangles:
+            t = min(l, w)
+            if mx < t:
+                mx, ans = t, 1
+            elif mx == t:
+                ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -62,7 +71,82 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countGoodRectangles(int[][] rectangles) {
+        int ans = 0, mx = 0;
+        for (int[] r : rectangles) {
+            int t = Math.min(r[0], r[1]);
+            if (mx < t) {
+                mx = t;
+                ans = 1;
+            } else if (mx == t) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+}
+```
 
+### **TypeSript**
+
+```ts
+function countGoodRectangles(rectangles: number[][]): number {
+    let maxLen = 0,
+        ans = 0;
+    for (let [l, w] of rectangles) {
+        let k = Math.min(l, w);
+        if (k == maxLen) {
+            ans++;
+        } else if (k > maxLen) {
+            maxLen = k;
+            ans = 1;
+        }
+    }
+    return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countGoodRectangles(vector<vector<int>>& rectangles) {
+        int ans = 0, mx = 0;
+        for (auto& r : rectangles)
+        {
+            int t = min(r[0], r[1]);
+            if (mx < t)
+            {
+                mx = t;
+                ans = 1;
+            }
+            else if (mx == t) ++ans;
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countGoodRectangles(rectangles [][]int) int {
+	ans, mx := 0, 0
+	for _, r := range rectangles {
+		t := r[0]
+		if t > r[1] {
+			t = r[1]
+		}
+		if mx < t {
+			mx, ans = t, 1
+		} else if mx == t {
+			ans++
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

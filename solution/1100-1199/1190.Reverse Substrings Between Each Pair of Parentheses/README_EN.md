@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>You are given a string <code>s</code> that consists of lower case English letters and brackets.&nbsp;</p>
+<p>You are given a string <code>s</code> that consists of lower case English letters and brackets.</p>
 
-<p>Reverse the strings&nbsp;in each&nbsp;pair of matching parentheses, starting&nbsp;from the innermost one.</p>
+<p>Reverse the strings in each pair of matching parentheses, starting from the innermost one.</p>
 
 <p>Your result should <strong>not</strong> contain any brackets.</p>
 
@@ -23,7 +23,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;(u(love)i)&quot;
 <strong>Output:</strong> &quot;iloveu&quot;
-<strong>Explanation:</strong>&nbsp;The substring &quot;love&quot; is reversed first, then the whole string is reversed.
+<strong>Explanation:</strong> The substring &quot;love&quot; is reversed first, then the whole string is reversed.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -31,23 +31,16 @@
 <pre>
 <strong>Input:</strong> s = &quot;(ed(et(oc))el)&quot;
 <strong>Output:</strong> &quot;leetcode&quot;
-<strong>Explanation:</strong>&nbsp;First, we reverse the substring &quot;oc&quot;, then &quot;etco&quot;, and finally, the whole string.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;a(bcdefghijkl(mno)p)q&quot;
-<strong>Output:</strong> &quot;apmnolkjihgfedcbq&quot;
+<strong>Explanation:</strong> First, we reverse the substring &quot;oc&quot;, then &quot;etco&quot;, and finally, the whole string.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= s.length &lt;= 2000</code></li>
+	<li><code>1 &lt;= s.length &lt;= 2000</code></li>
 	<li><code>s</code> only contains lower case English characters and parentheses.</li>
-	<li>It&#39;s guaranteed that all parentheses are balanced.</li>
+	<li>It is guaranteed that all parentheses are balanced.</li>
 </ul>
 
 ## Solutions
@@ -116,9 +109,9 @@ var reverseParentheses = function (s) {
     const n = s.length;
     for (let i = 0; i < n; i++) {
         let cur = s.charAt(i);
-        if (cur == "(") {
+        if (cur == '(') {
             stack.push(i);
-        } else if (cur == ")") {
+        } else if (cur == ')') {
             let left = stack.pop();
             hashMap[left] = i;
             hashMap[i] = left;
@@ -129,7 +122,7 @@ var reverseParentheses = function (s) {
     let step = 1; // 1向右，-1向左
     while (i > -1 && i < n) {
         let cur = s.charAt(i);
-        if (cur == "(" || cur == ")") {
+        if (cur == '(' || cur == ')') {
             step = -step;
             i = hashMap[i];
         } else {
@@ -137,7 +130,7 @@ var reverseParentheses = function (s) {
         }
         i += step;
     }
-    return res.join("");
+    return res.join('');
 };
 ```
 

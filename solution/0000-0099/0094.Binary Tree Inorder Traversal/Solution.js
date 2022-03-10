@@ -11,17 +11,25 @@
  * @return {number[]}
  */
 var inorderTraversal = function (root) {
-    let res = [];
-    let s = [];
-    while (root || s.length > 0) {
-        if (root) {
-            s.push(root);
-            root = root.left;
-        } else {
-            root = s.pop();
-            res.push(root.val);
+    let ans = [];
+    while (root) {
+        if (!root.left) {
+            ans.push(root.val);
             root = root.right;
+        } else {
+            let prev = root.left;
+            while (prev.right && prev.right != root) {
+                prev = prev.right;
+            }
+            if (!prev.right) {
+                prev.right = root;
+                root = root.left;
+            } else {
+                ans.push(root.val);
+                prev.right = null;
+                root = root.right;
+            }
         }
     }
-    return res;
+    return ans;
 };

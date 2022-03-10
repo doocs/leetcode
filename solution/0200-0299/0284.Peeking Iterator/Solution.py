@@ -19,6 +19,7 @@
 #         :rtype: int
 #         """
 
+
 class PeekingIterator:
     def __init__(self, iterator):
         """
@@ -55,7 +56,7 @@ class PeekingIterator:
         :rtype: bool
         """
         return self.has_peeked or self.iterator.hasNext()
-        
+
 
 # Your PeekingIterator object will be instantiated and called as such:
 # iter = PeekingIterator(Iterator(nums))

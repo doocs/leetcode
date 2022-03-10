@@ -39,7 +39,7 @@ Or paint house 0 into color 2, paint house 1 into color 0. Minimum cost: 3 + 2 =
 	<li><code>costs.length == n</code></li>
 	<li><code>costs[i].length == k</code></li>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
-	<li><code>1 &lt;= k &lt;= 20</code></li>
+	<li><code>2 &lt;= k &lt;= 20</code></li>
 	<li><code>1 &lt;= costs[i][j] &lt;= 20</code></li>
 </ul>
 

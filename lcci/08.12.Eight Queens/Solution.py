@@ -17,6 +17,6 @@ class Solution:
                     dfs(u + 1)
                     g[u][i] = '.'
                     col[i] = dg[u + i] = udg[n - u + i] = False
-        
+
         dfs(0)
         return res

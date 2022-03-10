@@ -6,12 +6,12 @@
 
 <p>A sentence consists of lowercase letters (<code>&#39;a&#39;</code> to <code>&#39;z&#39;</code>), digits (<code>&#39;0&#39;</code> to <code>&#39;9&#39;</code>), hyphens (<code>&#39;-&#39;</code>), punctuation marks (<code>&#39;!&#39;</code>, <code>&#39;.&#39;</code>, and <code>&#39;,&#39;</code>), and spaces (<code>&#39; &#39;</code>) only. Each sentence can be broken down into <strong>one or more tokens</strong> separated by one or more spaces <code>&#39; &#39;</code>.</p>
 
-<p>A token is a valid word if:</p>
+<p>A token is a valid word if <strong>all three</strong> of the following are true:</p>
 
 <ul>
 	<li>It only contains lowercase letters, hyphens, and/or punctuation (<strong>no</strong> digits).</li>
-	<li>There is <strong>at most one</strong> hyphen <code>&#39;-&#39;</code>. If present, it should be surrounded by lowercase characters (<code>&quot;a-b&quot;</code> is valid, but <code>&quot;-ab&quot;</code> and <code>&quot;ab-&quot;</code> are not valid).</li>
-	<li>There is <strong>at most one</strong> punctuation mark. If present, it should be at the <strong>end</strong> of the token.</li>
+	<li>There is <strong>at most one</strong> hyphen <code>&#39;-&#39;</code>. If present, it <strong>must</strong> be surrounded by lowercase characters (<code>&quot;a-b&quot;</code> is valid, but <code>&quot;-ab&quot;</code> and <code>&quot;ab-&quot;</code> are not valid).</li>
+	<li>There is <strong>at most one</strong> punctuation mark. If present, it <strong>must</strong> be at the <strong>end</strong> of the token (<code>&quot;ab,&quot;</code>, <code>&quot;cd!&quot;</code>, and <code>&quot;.&quot;</code> are valid, but <code>&quot;a!b&quot;</code> and <code>&quot;c.,&quot;</code> are not valid).</li>
 </ul>
 
 <p>Examples of valid words include <code>&quot;a-b.&quot;</code>, <code>&quot;afad&quot;</code>, <code>&quot;ba-c&quot;</code>, <code>&quot;a!&quot;</code>, and <code>&quot;!&quot;</code>.</p>
@@ -46,14 +46,6 @@
 &quot;stone-game10&quot; is invalid because it contains digits.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> sentence = &quot;<u>he</u> <u>bought</u> 2 <u>pencils,</u> 3 <u>erasers,</u> <u>and</u> 1  <u>pencil-sharpener.</u>&quot;
-<strong>Output:</strong> 6
-<strong>Explanation:</strong> The valid words in the sentence are &quot;he&quot;, &quot;bought&quot;, &quot;pencils,&quot;, &quot;erasers,&quot;, &quot;and&quot;, and &quot;pencil-sharpener.&quot;.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -70,13 +62,57 @@
 ### **Python3**
 
 ```python
+class Solution:
+    def countValidWords(self, sentence: str) -> int:
+        def check(token):
+            hyphen = False
+            for i, c in enumerate(token):
+                if c.isdigit() or (c in '!.,' and i < len(token) - 1):
+                    return False
+                if c == '-':
+                    if hyphen or i == 0 or i == len(token) - 1 or not token[i - 1].islower() or not token[i + 1].islower():
+                        return False
+                    hyphen = True
+            return True
 
+        return sum(check(token) for token in sentence.split())
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int countValidWords(String sentence) {
+        int ans = 0;
+        for (String token : sentence.split(" ")) {
+            if (check(token)) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
 
+    private boolean check(String token) {
+        int n = token.length();
+        if (n == 0) {
+            return false;
+        }
+        boolean hyphen = false;
+        for (int i = 0; i < n; ++i) {
+            char c = token.charAt(i);
+            if (Character.isDigit(c) || (i < n - 1 && (c == '!' || c == '.' || c == ','))) {
+                return false;
+            }
+            if (c == '-') {
+                if (hyphen || i == 0 || i == n - 1 || !Character.isLetter(token.charAt(i - 1)) || !Character.isLetter(token.charAt(i + 1))) {
+                    return false;
+                }
+                hyphen = true;
+            }
+        }
+        return true;
+    }
+}
 ```
 
 ### **TypeScript**
@@ -101,7 +137,7 @@ function isValied(str: string): boolean {
         if (/^[0-9]$/.test(char)) {
             return false;
         }
-        if (char == "-") {
+        if (char == '-') {
             if (hasLine) return false;
             else {
                 hasLine = true;

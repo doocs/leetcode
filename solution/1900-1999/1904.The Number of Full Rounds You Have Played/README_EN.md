@@ -4,54 +4,53 @@
 
 ## Description
 
-<p>A new online video game has been released, and in this video game, there are <strong>15-minute</strong> rounds scheduled every <strong>quarter-hour</strong> period. This means that at <code>HH:00</code>, <code>HH:15</code>, <code>HH:30</code> and <code>HH:45</code>, a new round starts, where <code>HH</code> represents an integer number from <code>00</code> to <code>23</code>. A <strong>24-hour clock</strong> is used, so the earliest time in the day is <code>00:00</code> and the latest is <code>23:59</code>.</p>
-
-<p>Given two strings <code>startTime</code> and <code>finishTime</code> in the format <code>&quot;HH:MM&quot;</code> representing the exact time you <strong>started</strong> and <strong>finished</strong> playing the game, respectively, calculate the <strong>number of full rounds</strong> that you played during your game session.</p>
+<p>You are participating in an online chess tournament. There is a chess round that starts every <code>15</code> minutes. The first round of the day starts at <code>00:00</code>, and after every <code>15</code> minutes, a new round starts.</p>
 
 <ul>
-	<li>For example, if <code>startTime = &quot;05:20&quot;</code> and <code>finishTime = &quot;05:59&quot;</code> this means you played only one full round from <code>05:30</code> to <code>05:45</code>. You did not play the full round from <code>05:15</code> to <code>05:30</code> because you started after the round began, and you did not play the full round from <code>05:45</code> to <code>06:00</code> because you stopped before the round ended.</li>
+	<li>For example, the second round starts at <code>00:15</code>, the fourth round starts at <code>00:45</code>, and the seventh round starts at <code>01:30</code>.</li>
 </ul>
 
-<p>If <code>finishTime</code> is <strong>earlier</strong> than <code>startTime</code>, this means you have played overnight (from <code>startTime</code> to the midnight and from midnight to <code>finishTime</code>).</p>
+<p>You are given two strings <code>loginTime</code> and <code>logoutTime</code> where:</p>
 
-<p>Return <em>the <strong>number of full rounds</strong> that you have played if you had started playing at </em><code>startTime</code><em> and finished at </em><code>finishTime</code>.</p>
+<ul>
+	<li><code>loginTime</code> is the time you will login to the game, and</li>
+	<li><code>logoutTime</code> is the time you will logout from the game.</li>
+</ul>
+
+<p>If <code>logoutTime</code> is <strong>earlier</strong> than <code>loginTime</code>, this means you have played from <code>loginTime</code> to midnight and from midnight to <code>logoutTime</code>.</p>
+
+<p>Return <em>the number of full chess rounds you have played in the tournament</em>.</p>
+
+<p><strong>Note:</strong>&nbsp;All the given times follow the 24-hour clock. That means the first round of the day starts at <code>00:00</code> and the last round of the day starts at <code>23:45</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> startTime = &quot;12:01&quot;, finishTime = &quot;12:44&quot;
+<strong>Input:</strong> loginTime = &quot;09:31&quot;, logoutTime = &quot;10:14&quot;
 <strong>Output:</strong> 1
-<strong>Explanation:</strong> You played one full round from 12:15 to 12:30.
-You did not play the full round from 12:00 to 12:15 because you started playing at 12:01 after it began.
-You did not play the full round from 12:30 to 12:45 because you stopped playing at 12:44 before it ended.
+<strong>Explanation:</strong> You played one full round from 09:45 to 10:00.
+You did not play the full round from 09:30 to 09:45 because you logged in at 09:31 after it began.
+You did not play the full round from 10:00 to 10:15 because you logged out at 10:14 before it ended.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> startTime = &quot;20:00&quot;, finishTime = &quot;06:00&quot;
-<strong>Output:</strong> 40
-<strong>Explanation:</strong> You played 16 full rounds from 20:00 to 00:00 and 24 full rounds from 00:00 to 06:00.
-16 + 24 = 40.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> startTime = &quot;00:00&quot;, finishTime = &quot;23:59&quot;
-<strong>Output:</strong> 95
-<strong>Explanation:</strong> You played 4 full rounds each hour except for the last hour where you played 3 full rounds.
+<strong>Input:</strong> loginTime = &quot;21:30&quot;, logoutTime = &quot;03:00&quot;
+<strong>Output:</strong> 22
+<strong>Explanation:</strong> You played 10 full rounds from 21:30 to 00:00 and 12 full rounds from 00:00 to 03:00.
+10 + 12 = 22.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>startTime</code> and <code>finishTime</code> are in the format <code>HH:MM</code>.</li>
-	<li><code>00 &lt;= HH &lt;= 23</code></li>
-	<li><code>00 &lt;= MM &lt;= 59</code></li>
-	<li><code>startTime</code> and <code>finishTime</code> are not equal.</li>
+	<li><code>loginTime</code> and <code>logoutTime</code> are in the format <code>hh:mm</code>.</li>
+	<li><code>00 &lt;= hh &lt;= 23</code></li>
+	<li><code>00 &lt;= mm &lt;= 59</code></li>
+	<li><code>loginTime</code> and <code>logoutTime</code> are not equal.</li>
 </ul>
 
 ## Solutions
@@ -97,16 +96,17 @@ class Solution {
 
 ```ts
 function numberOfRounds(startTime: string, finishTime: string): number {
-    let m1 = toMinutes(startTime), m2 = toMinutes(finishTime);
+    let m1 = toMinutes(startTime),
+        m2 = toMinutes(finishTime);
     if (m1 > m2) {
         m2 += 24 * 60;
     }
     let ans = Math.floor(m2 / 15) - Math.ceil(m1 / 15);
     return ans > 0 ? ans : 0;
-};
+}
 
 function toMinutes(time: string): number {
-    let [h, m] = time.split(":").map(Number);
+    let [h, m] = time.split(':').map(Number);
     return h * 60 + m;
 }
 ```

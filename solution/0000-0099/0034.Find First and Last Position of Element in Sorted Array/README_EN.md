@@ -4,11 +4,11 @@
 
 ## Description
 
-<p>Given an array of integers <code>nums</code> sorted in ascending order, find the starting and ending position of a given <code>target</code> value.</p>
+<p>Given an array of integers <code>nums</code> sorted in non-decreasing order, find the starting and ending position of a given <code>target</code> value.</p>
 
 <p>If <code>target</code> is not found in the array, return <code>[-1, -1]</code>.</p>
 
-<p><strong>Follow up:</strong>&nbsp;Could you write an algorithm with&nbsp;<code>O(log n)</code> runtime complexity?</p>
+<p>You must&nbsp;write an algorithm with&nbsp;<code>O(log n)</code> runtime complexity.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -34,6 +34,42 @@
 ## Solutions
 
 Binary search.
+
+Template 1:
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
+    while (left < right) {
+        int mid = (left + right) >> 1;
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
+Template 2:
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
+    while (left < right) {
+        int mid = (left + right + 1) >> 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+```
 
 <!-- tabs:start -->
 
@@ -206,6 +242,56 @@ func searchRange(nums []int, target int) []int {
 		}
 	}
 	return []int{l, left}
+}
+```
+
+### **Rust**
+
+```rust
+use std::cmp::Ordering;
+
+impl Solution {
+    pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let n = nums.len();
+        let mut l = 0;
+        let mut r = n;
+        while l < r {
+            let mid = l + (r - l) / 2;
+            match nums[mid].cmp(&target) {
+                Ordering::Less => l = mid + 1,
+                Ordering::Greater => r = mid,
+                Ordering::Equal => {
+                    let mut res = vec![mid as i32, mid as i32];
+                    let mut t = mid;
+                    while l < t {
+                        let mid = l + (t - l) / 2;
+                        match nums[mid].cmp(&target) {
+                            Ordering::Less => l = mid + 1,
+                            Ordering::Greater => t = mid,
+                            Ordering::Equal => {
+                                res[0] = mid as i32;
+                                t = mid;
+                            }
+                        }
+                    }
+                    t = mid + 1;
+                    while t < r {
+                        let mid = t + (r - t) / 2;
+                        match nums[mid].cmp(&target) {
+                            Ordering::Less => t = mid + 1,
+                            Ordering::Greater => r = mid,
+                            Ordering::Equal => {
+                                res[1] = mid as i32;
+                                t = mid + 1;
+                            }
+                        }
+                    }
+                    return res;
+                }
+            }
+        }
+        vec![-1, -1]
+    }
 }
 ```
 

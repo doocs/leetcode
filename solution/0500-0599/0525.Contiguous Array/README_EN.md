@@ -4,41 +4,32 @@
 
 ## Description
 
-<p>Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1. </p>
+<p>Given a binary array <code>nums</code>, return <em>the maximum length of a contiguous subarray with an equal number of </em><code>0</code><em> and </em><code>1</code>.</p>
 
-<p><b>Example 1:</b><br />
-
-<pre>
-
-<b>Input:</b> [0,1]
-
-<b>Output:</b> 2
-
-<b>Explanation:</b> [0, 1] is the longest contiguous subarray with equal number of 0 and 1.
-
-</pre>
-
-</p>
-
-<p><b>Example 2:</b><br />
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-
-<b>Input:</b> [0,1,0]
-
-<b>Output:</b> 2
-
-<b>Explanation:</b> [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.
-
+<strong>Input:</strong> nums = [0,1]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
 </pre>
 
-</p>
+<p><strong>Example 2:</strong></p>
 
-<p><b>Note:</b>
+<pre>
+<strong>Input:</strong> nums = [0,1,0]
+<strong>Output:</strong> 2
+<strong>Explanation:</strong> [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.
+</pre>
 
-The length of the given binary array will not exceed 50,000.
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</p>
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.</li>
+</ul>
 
 ## Solutions
 
@@ -127,6 +118,27 @@ func max(a, b int) int {
 	}
 	return b
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMaxLength = function (nums) {
+    const mp = new Map();
+    mp.set(0, -1);
+    let s = 0;
+    let ans = 0;
+    for (let i = 0; i < nums.length; ++i) {
+        s += nums[i] == 0 ? -1 : 1;
+        if (mp.has(s)) ans = Math.max(ans, i - mp.get(s));
+        else mp.set(s, i);
+    }
+    return ans;
+};
 ```
 
 ### **...**

@@ -29,7 +29,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The given <code>address</code> is a valid IPv4 address.</li>
+    <li>The given <code>address</code> is a valid IPv4 address.</li>
+
 </ul>
 
 ## Solutions
@@ -58,7 +59,7 @@ class Solution {
 
 ```ts
 function defangIPaddr(address: string): string {
-    return address.split(".").join("[.]");
+    return address.split('.').join('[.]');
 }
 ```
 

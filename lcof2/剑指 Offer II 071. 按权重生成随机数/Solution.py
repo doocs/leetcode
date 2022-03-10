@@ -1,5 +1,4 @@
 class Solution:
-
     def __init__(self, w: List[int]):
         n = len(w)
         self.presum = [0] * (n + 1)
@@ -17,6 +16,7 @@ class Solution:
             else:
                 left = mid + 1
         return left
+
 
 # Your Solution object will be instantiated and called as such:
 # obj = Solution(w)

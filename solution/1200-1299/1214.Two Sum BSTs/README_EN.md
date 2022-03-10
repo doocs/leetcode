@@ -8,7 +8,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/1368_1_a2.png" style="height: 140px; width: 150px;"><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/1368_1_b.png" style="height: 136px; width: 150px;"></strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/ex1.png" style="width: 369px; height: 169px;" />
 <pre>
 <strong>Input:</strong> root1 = [2,1,4], root2 = [1,0,3], target = 5
 <strong>Output:</strong> true
@@ -16,7 +16,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/1368_2_a.png" style="height: 137px; width: 150px;"><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/1368_2_b.png" style="height: 168px; width: 150px;"></strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1214.Two%20Sum%20BSTs/images/ex2.png" style="width: 453px; height: 290px;" />
 <pre>
 <strong>Input:</strong> root1 = [0,-10,10], root2 = [5,1,7,0,2], target = 18
 <strong>Output:</strong> false

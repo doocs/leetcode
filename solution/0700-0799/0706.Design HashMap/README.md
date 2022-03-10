@@ -17,7 +17,7 @@
 	<li><code>void remove(key)</code> 如果映射中存在 <code>key</code> 的映射，则移除 <code>key</code> 和它所对应的 <code>value</code> 。</li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例：</strong></p>
 
@@ -40,18 +40,14 @@ myHashMap.remove(2); // 删除键为 2 的数据，myHashMap 现在为 [[1,1]]
 myHashMap.get(2);    // 返回 -1（未找到），myHashMap 现在为 [[1,1]]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= key, value <= 10<sup>6</sup></code></li>
+	<li><code>0 &lt;= key, value &lt;= 10<sup>6</sup></code></li>
 	<li>最多调用 <code>10<sup>4</sup></code> 次 <code>put</code>、<code>get</code> 和 <code>remove</code> 方法</li>
 </ul>
-
-<p> </p>
-
-<p><strong>进阶：</strong>你能否不使用内置的 HashMap 库解决此问题？</p>
 
 ## 解法
 

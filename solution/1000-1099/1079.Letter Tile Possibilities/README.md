@@ -14,25 +14,33 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>&quot;AAB&quot;
+<pre>
+<strong>输入：</strong>"AAB"
 <strong>输出：</strong>8
-<strong>解释：</strong>可能的序列为 &quot;A&quot;, &quot;B&quot;, &quot;AA&quot;, &quot;AB&quot;, &quot;BA&quot;, &quot;AAB&quot;, &quot;ABA&quot;, &quot;BAA&quot;。
+<strong>解释：</strong>可能的序列为 "A", "B", "AA", "AB", "BA", "AAB", "ABA", "BAA"。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>&quot;AAABBC&quot;
+<pre>
+<strong>输入：</strong>"AAABBC"
 <strong>输出：</strong>188
 </pre>
+
+<p><strong>示例 3：</strong></p>
+
+<pre>
+<strong>输入：</strong>"V"
+<strong>输出：</strong>1</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
+<ul>
 	<li><code>1 &lt;= tiles.length &lt;= 7</code></li>
 	<li><code>tiles</code> 由大写英文字母组成</li>
-</ol>
+</ul>
 
 ## 解法
 

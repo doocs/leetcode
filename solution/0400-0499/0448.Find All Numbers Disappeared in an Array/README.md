@@ -6,29 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个范围在&nbsp; 1 &le; a[i] &le; <em>n</em> (&nbsp;<em>n</em> = 数组大小 ) 的 整型数组，数组中的元素一些出现了两次，另一些只出现一次。</p>
+<p>给你一个含 <code>n</code> 个整数的数组 <code>nums</code> ，其中 <code>nums[i]</code> 在区间 <code>[1, n]</code> 内。请你找出所有在 <code>[1, n]</code> 范围内但没有出现在 <code>nums</code> 中的数字，并以数组的形式返回结果。</p>
 
-<p>找到所有在 [1, <em>n</em>] 范围之间没有出现在数组中的数字。</p>
+<p> </p>
 
-<p>您能在不使用额外空间且时间复杂度为<em>O(n)</em>的情况下完成这个任务吗? 你可以假定返回的数组不算在额外空间内。</p>
-
-<p><strong>示例:</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入:</strong>
-[4,3,2,7,8,2,3,1]
-
-<strong>输出:</strong>
-[5,6]
+<strong>输入：</strong>nums = [4,3,2,7,8,2,3,1]
+<strong>输出：</strong>[5,6]
 </pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>nums = [1,1]
+<strong>输出：</strong>[2]
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>n == nums.length</code></li>
+	<li><code>1 <= n <= 10<sup>5</sup></code></li>
+	<li><code>1 <= nums[i] <= n</code></li>
+</ul>
+
+<p><strong>进阶：</strong>你能在不使用额外空间且时间复杂度为<em> </em><code>O(n)</code><em> </em>的情况下解决这个问题吗? 你可以假定返回的数组不算在额外空间内。</p>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
 
-- 遍历输入数组的每个元素一次。
-- 把 `abs(nums[i]) - 1` 索引位置的元素标记为负数。即 `nums[abs(nums[i]) - 1] *= -1`。
-- 然后遍历数组，若当前数组元素 `nums[i]` 为负数，说明我们在数组中存在数字 `i+1`。否则，说明数组不存在数字 `i+1`，添加到结果列表中。
+-   遍历输入数组的每个元素一次。
+-   把 `abs(nums[i]) - 1` 索引位置的元素标记为负数。即 `nums[abs(nums[i]) - 1] *= -1`。
+-   然后遍历数组，若当前数组元素 `nums[i]` 为负数，说明我们在数组中存在数字 `i+1`。否则，说明数组不存在数字 `i+1`，添加到结果列表中。
 
 <!-- tabs:start -->
 

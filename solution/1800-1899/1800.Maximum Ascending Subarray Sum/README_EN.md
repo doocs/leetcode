@@ -35,13 +35,6 @@
 <strong>Explanation: </strong>[10,11,12] is the ascending subarray with the maximum sum of 33.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [100,10,1]
-<strong>Output:</strong> 100
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

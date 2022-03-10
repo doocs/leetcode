@@ -34,15 +34,17 @@ customer_id is the id of the customer who bought the product &quot;product_name&
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to&nbsp;report the&nbsp;customer_id and customer_name of customers who bought products &quot;A&quot;, &quot;B&quot; but did not buy the product &quot;C&quot; since we want to recommend them buy this product.</p>
+<p>Write an SQL query to report the customer_id and customer_name of customers who bought products <strong>&quot;A&quot;</strong>, <strong>&quot;B&quot;</strong> but did not buy the product <strong>&quot;C&quot;</strong> since we want to recommend them to purchase this product.</p>
 
-<p>Return the result table <strong>ordered</strong> by customer_id.</p>
+<p>Return the result table <strong>ordered</strong> by <code>customer_id</code>.</p>
 
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Customers table:
 +-------------+---------------+
 | customer_id | customer_name |
@@ -52,7 +54,6 @@ Customers table:
 | 3           | Elizabeth     |
 | 4           | Jhon          |
 +-------------+---------------+
-
 Orders table:
 +------------+--------------+---------------+
 | order_id   | customer_id  | product_name  |
@@ -67,14 +68,14 @@ Orders table:
 | 80         |     3        |     D         |
 | 90         |     4        |     C         |
 +------------+--------------+---------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+---------------+
 | customer_id | customer_name |
 +-------------+---------------+
 | 3           | Elizabeth     |
 +-------------+---------------+
-Only the customer_id with id 3 bought the product A and B but not the product C.</pre>
+<strong>Explanation:</strong> Only the customer_id with id 3 bought the product A and B but not the product C.
+</pre>
 
 ## Solutions
 

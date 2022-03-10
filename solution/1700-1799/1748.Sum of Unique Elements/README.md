@@ -46,9 +46,12 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-定义一个计数器 counter，存放数组每个元素出现的次数。
-
-然后遍历 counter 中每个元素，累加次数为 1 的所有下标即可。
+-   计数
+    -   定义一个计数器 counter，存放数组每个元素出现的次数。
+    -   然后遍历 counter 中每个元素，累加次数为 1 的所有下标即可。
+-   哈希表
+    -   遍历 `nums`，累加元素，并使用哈希表记录数字出现的次数。
+    -   当数字二次出现时，从累加中删减，二次以上则无视。
 
 <!-- tabs:start -->
 
@@ -59,10 +62,8 @@
 ```python
 class Solution:
     def sumOfUnique(self, nums: List[int]) -> int:
-        counter = [0] * 101
-        for num in nums:
-            counter[num] += 1
-        return sum([i for i in range(1, 101) if counter[i] == 1])
+        counter = Counter(nums)
+        return sum(num for num, cnt in counter.items() if cnt == 1)
 ```
 
 ### **Java**
@@ -76,13 +77,116 @@ class Solution {
         for (int num : nums) {
             ++counter[num];
         }
-        int res = 0;
-        for (int i = 1; i < 101; ++i) {
+        int ans = 0;
+        for (int i = 0; i < 101; ++i) {
             if (counter[i] == 1) {
+                ans += i;
+            }
+        }
+        return ans;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int sumOfUnique(vector<int>& nums) {
+        vector<int> counter(101);
+        for (int num : nums) ++ counter[num];
+        int ans = 0;
+        for (int i = 0; i < 101; ++i)
+            if (counter[i] == 1)
+                ans += i;
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func sumOfUnique(nums []int) int {
+	counter := make([]int, 101)
+	for _, num := range nums {
+		counter[num]++
+	}
+	ans := 0
+	for i := 0; i < 101; i++ {
+		if counter[i] == 1 {
+			ans += i
+		}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+function sumOfUnique(nums: number[]): number {
+    let res = 0;
+    const map = new Map();
+    for (const num of nums) {
+        if (map.has(num)) {
+            if (map.get(num)) {
+                map.set(num, false);
+                res -= num;
+            }
+        } else {
+            map.set(num, true);
+            res += num;
+        }
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+-   计数
+
+```rust
+impl Solution {
+    pub fn sum_of_unique(nums: Vec<i32>) -> i32 {
+        let mut arr = [0; 101];
+        for num in nums {
+            arr[num as usize] += 1;
+        }
+        let mut res = 0;
+        for i in 1..101 {
+            if arr[i] == 1 {
                 res += i;
             }
         }
-        return res;
+        res as i32
+    }
+}
+```
+
+-   哈希表
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn sum_of_unique(nums: Vec<i32>) -> i32 {
+        let mut res = 0;
+        let mut map = HashMap::new();
+        for num in nums {
+            if map.contains_key(&num) {
+                if *map.get(&num).unwrap() {
+                    map.insert(num, false);
+                    res -= num;
+                }
+            } else {
+                map.insert(num, true);
+                res += num;
+            }
+        }
+        res
     }
 }
 ```

@@ -2,33 +2,36 @@
 
 ## 题目描述
 
-请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。
+<p>请实现一个函数按照之字形顺序打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右到左的顺序打印，第三行再按照从左到右的顺序打印，其他行以此类推。</p>
 
-**例如:**
+<p>&nbsp;</p>
 
-给定二叉树: `[3,9,20,null,null,15,7]`,
+<p>例如:<br>
+给定二叉树:&nbsp;<code>[3,9,20,null,null,15,7]</code>,</p>
 
-```
-    3
+<pre>    3
    / \
   9  20
     /  \
    15   7
-```
+</pre>
 
-返回其层次遍历结果：
+<p>返回其层次遍历结果：</p>
 
-```
-[
+<pre>[
   [3],
   [20,9],
   [15,7]
 ]
-```
+</pre>
 
-**提示：**
+<p>&nbsp;</p>
 
-- `节点总数 <= 1000`
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>节点总数 &lt;= 1000</code></li>
+</ol>
 
 ## 解法
 
@@ -207,6 +210,105 @@ public:
         return ans;
     }
 };
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function levelOrder(root: TreeNode | null): number[][] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+    let isEven = false;
+    const levelFn = (nodes: TreeNode[]) => {
+        if (nodes.length === 0) {
+            return res;
+        }
+        const nextNodes = [];
+        const values = nodes.map(({ val, left, right }) => {
+            left && nextNodes.push(left);
+            right && nextNodes.push(right);
+            return val;
+        });
+        res.push(isEven ? values.reverse() : values);
+        isEven = !isEven;
+        return levelFn(nextNodes);
+    };
+    return levelFn([root]);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
+        let mut res = Vec::new();
+        if root.is_none() {
+            return res;
+        }
+        let mut nodes = VecDeque::new();
+        nodes.push_back(root.unwrap());
+        let mut is_even = false;
+        while !nodes.is_empty() {
+            let mut values = Vec::new();
+            for _ in 0..nodes.len() {
+                let node = nodes.pop_front().unwrap();
+                let mut node = node.borrow_mut();
+                values.push(node.val);
+                if node.left.is_some() {
+                    nodes.push_back(node.left.take().unwrap())
+                }
+                if node.right.is_some() {
+                    nodes.push_back(node.right.take().unwrap())
+                }
+            }
+            if is_even {
+                values.reverse()
+            }
+            res.push(values);
+            is_even = !is_even
+        }
+        res
+    }
+}
 ```
 
 ### **...**

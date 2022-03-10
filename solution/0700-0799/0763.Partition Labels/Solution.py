@@ -1,13 +1,12 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        last = defaultdict(int)
-        n = len(s)
-        for i in range(n):
-            last[s[i]] = i
+        last = [0] * 26
+        for i, c in enumerate(s):
+            last[ord(c) - ord('a')] = i
         ans = []
         left = right = 0
-        for i in range(n):
-            right = max(right, last[s[i]])
+        for i, c in enumerate(s):
+            right = max(right, last[ord(c) - ord('a')])
             if i == right:
                 ans.append(right - left + 1)
                 left = right + 1

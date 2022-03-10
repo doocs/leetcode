@@ -6,62 +6,50 @@
 
 <!-- 这里写题目描述 -->
 
-<p>假设你设计一个游戏，用一个&nbsp;<code>m</code>&nbsp;行&nbsp;<code>n</code>&nbsp;列的&nbsp;2D 网格来存储你的游戏地图。</p>
+<p>给你一个大小为 <code>m x n</code> 的二进制网格 <code>grid</code> 。网格表示一个地图，其中，<code>0</code> 表示水，<code>1</code> 表示陆地。最初，<code>grid</code> 中的所有单元格都是水单元格（即，所有单元格都是 <code>0</code>）。</p>
 
-<p>起始的时候，每个格子的地形都被默认标记为「水」。我们可以通过使用&nbsp;<code>addLand</code>&nbsp;进行操作，将位置 <code>(row, col)</code> 的「水」变成「陆地」。</p>
+<p>可以通过执行 <code>addLand</code> 操作，将某个位置的水转换成陆地。给你一个数组 <code>positions</code> ，其中 <code>positions[i] = [r<sub>i</sub>, c<sub>i</sub>]</code> 是要执行第 <code>i</code> 次操作的位置 <code>(r<sub>i</sub>, c<sub>i</sub>)</code> 。</p>
 
-<p>你将会被给定一个列表，来记录所有需要被操作的位置，然后你需要返回计算出来&nbsp;<strong>每次&nbsp;<em>addLand </em>操作后岛屿的数量</strong>。</p>
+<p>返回一个整数数组 <code>answer</code> ，其中 <code>answer[i]</code> 是将单元格 <code>(r<sub>i</sub>, c<sub>i</sub>)</code> 转换为陆地后，地图中岛屿的数量。</p>
 
-<p>注意：一个岛的定义是被「水」包围的「陆地」，通过水平方向或者垂直方向上相邻的陆地连接而成。你可以假设地图网格的四边均被无边无际的「水」所包围。</p>
+<p><strong>岛屿</strong> 的定义是被「水」包围的「陆地」，通过水平方向或者垂直方向上相邻的陆地连接而成。你可以假设地图网格的四边均被无边无际的「水」所包围。</p>
+&nbsp;
 
-<p>请仔细阅读下方示例与解析，更加深入了解岛屿的判定。</p>
-
-<p><strong>示例:</strong></p>
-
-<pre><strong>输入:</strong> m = 3, n = 3, positions = [[0,0], [0,1], [1,2], [2,1]]
-<strong>输出:</strong> [1,1,2,3]
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0305.Number%20of%20Islands%20II/images/tmp-grid.jpg" style="width: 500px; height: 294px;" />
+<pre>
+<strong>输入：</strong>m = 3, n = 3, positions = [[0,0],[0,1],[1,2],[2,1]]
+<strong>输出：</strong>[1,1,2,3]
+<strong>解释：</strong>
+起初，二维网格&nbsp;<code>grid</code>&nbsp;被全部注入「水」。（0 代表「水」，1 代表「陆地」）
+- 操作&nbsp;#1：<code>addLand(0, 0)</code> 将&nbsp;<code>grid[0][0]</code> 的水变为陆地。此时存在 1 个岛屿。
+- 操作&nbsp;#2：<code>addLand(0, 1)</code> 将&nbsp;<code>grid[0][1]</code> 的水变为陆地。此时存在 1 个岛屿。
+- 操作&nbsp;#3：<code>addLand(1, 2)</code> 将&nbsp;<code>grid[1][2]</code> 的水变为陆地。此时存在 2 个岛屿。
+- 操作&nbsp;#4：<code>addLand(2, 1)</code> 将&nbsp;<code>grid[2][1]</code> 的水变为陆地。此时存在 3 个岛屿。
 </pre>
 
-<p><strong>解析:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<p>起初，二维网格&nbsp;<code>grid</code>&nbsp;被全部注入「水」。（0 代表「水」，1 代表「陆地」）</p>
-
-<pre>0 0 0
-0 0 0
-0 0 0
+<pre>
+<strong>输入：</strong>m = 1, n = 1, positions = [[0,0]]
+<strong>输出：</strong>[1]
 </pre>
 
-<p>操作&nbsp;#1：<code>addLand(0, 0)</code> 将&nbsp;<code>grid[0][0]</code> 的水变为陆地。</p>
+<p>&nbsp;</p>
 
-<pre>1 0 0
-0 0 0   Number of islands = 1
-0 0 0
-</pre>
+<p><strong>提示：</strong></p>
 
-<p>操作&nbsp;#2：<code>addLand(0, 1)</code> 将&nbsp;<code>grid[0][1]</code> 的水变为陆地。</p>
+<ul>
+	<li><code>1 &lt;= m, n, positions.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= m * n &lt;= 10<sup>4</sup></code></li>
+	<li><code>positions[i].length == 2</code></li>
+	<li><code>0 &lt;= r<sub>i</sub> &lt; m</code></li>
+	<li><code>0 &lt;= c<sub>i</sub> &lt; n</code></li>
+</ul>
 
-<pre>1 1 0
-0 0 0   岛屿的数量为 1
-0 0 0
-</pre>
+<p>&nbsp;</p>
 
-<p>操作&nbsp;#3：<code>addLand(1, 2)</code> 将&nbsp;<code>grid[1][2]</code> 的水变为陆地。</p>
-
-<pre>1 1 0
-0 0 1   岛屿的数量为 2
-0 0 0
-</pre>
-
-<p>操作&nbsp;#4：<code>addLand(2, 1)</code> 将&nbsp;<code>grid[2][1]</code> 的水变为陆地。</p>
-
-<pre>1 1 0
-0 0 1   岛屿的数量为 3
-0 1 0
-</pre>
-
-<p><strong>拓展：</strong></p>
-
-<p>你是否能在 O(k log mn) 的时间复杂度程度内完成每次的计算？（k 表示&nbsp;<code>positions</code>&nbsp;的长度）</p>
+<p><strong>进阶：</strong>你可以设计一个时间复杂度 <code>O(k log(mn))</code> 的算法解决此问题吗？（其中 <code>k == positions.length</code>）</p>
 
 ## 解法
 
@@ -137,31 +125,28 @@ d[find(a)] = distance
 ```python
 class Solution:
     def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
-        p = list(range(m * n))
-        grid = [[0] * n for _ in range(m)]
-
-        def check(i, j):
-            return 0 <= i < m and 0 <= j < n and grid[i][j] == 1
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        res = []
-        cur = 0
+        grid = [[0] * n for _ in range(m)]
+        cnt = 0
+        p = list(range(m * n))
+        ans = []
         for i, j in positions:
             if grid[i][j] == 1:
-                res.append(cur)
+                ans.append(cnt)
                 continue
             grid[i][j] = 1
-            cur += 1
-            for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                if check(i + x, j + y) and find(i * n + j) != find((i + x) * n + j + y):
-                    p[find(i * n + j)] = find((i + x) * n + j + y)
-                    cur -= 1
-            res.append(cur)
-        return res
+            cnt += 1
+            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid[x][y] == 1 and find(i * n + j) != find(x * n + y):
+                    p[find(i * n + j)] = find(x * n + y)
+                    cnt -= 1
+            ans.append(cnt)
+        return ans
 ```
 
 ### **Java**
@@ -171,42 +156,36 @@ class Solution:
 ```java
 class Solution {
     private int[] p;
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-    private int[][] grid;
-    private int m;
-    private int n;
 
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
         p = new int[m * n];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
-        grid = new int[m][n];
-        this.m = m;
-        this.n = n;
-        List<Integer> res = new ArrayList<>();
-        int cur = 0;
-        for (int[] position : positions) {
-            int i = position[0], j = position[1];
+        int[][] grid = new int[m][n];
+        int cnt = 0;
+        List<Integer> ans = new ArrayList<>();
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int[] pos : positions) {
+            int i = pos[0];
+            int j = pos[1];
             if (grid[i][j] == 1) {
-                res.add(cur);
+                ans.add(cnt);
                 continue;
             }
             grid[i][j] = 1;
-            ++cur;
-            for (int[] e : dirs) {
-                if (check(i + e[0], j + e[1]) && find(i * n + j) != find((i + e[0]) * n + j + e[1])) {
-                    p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
-                    --cur;
+            ++cnt;
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && find(x * n + y) != find(i * n + j)) {
+                    p[find(x * n + y)] = find(i * n + j);
+                    --cnt;
                 }
             }
-            res.add(cur);
+            ans.add(cnt);
         }
-        return res;
-    }
-
-    private boolean check(int i, int j) {
-        return i >= 0 && i < m && j >= 0 && j < n && grid[i][j] == 1;
+        return ans;
     }
 
     private int find(int x) {
@@ -224,38 +203,36 @@ class Solution {
 class Solution {
 public:
     vector<int> p;
-    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     vector<int> numIslands2(int m, int n, vector<vector<int>>& positions) {
         p.resize(m * n);
         for (int i = 0; i < p.size(); ++i) p[i] = i;
-        vector<vector<int>> grid(m, vector<int>(n, 0));
-        vector<int> res;
-        int cur = 0;
-        for (auto position : positions)
+        vector<vector<int>> grid(m, vector<int>(n));
+        vector<int> ans;
+        int cnt = 0;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        for (auto& pos : positions)
         {
-            int i = position[0], j = position[1];
+            int i = pos[0], j = pos[1];
             if (grid[i][j] == 1)
             {
-                res.push_back(cur);
+                ans.push_back(cnt);
                 continue;
             }
             grid[i][j] = 1;
-            ++cur;
-            for (auto e : dirs) {
-                if (check(i + e[0], j + e[1], grid) && find(i * n + j) != find((i + e[0]) * n + j + e[1]))
+            ++cnt;
+            for (int k = 0; k < 4; ++k)
+            {
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && find(x * n + y) != find(i * n + j))
                 {
-                    p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
-                    --cur;
+                    p[find(x * n + y)] = find(i * n + j);
+                    --cnt;
                 }
             }
-            res.push_back(cur);
+            ans.push_back(cnt);
         }
-        return res;
-    }
-
-    bool check(int i, int j, vector<vector<int>>& grid) {
-        return i >= 0 && i < grid.size() && j >= 0 && j < grid[0].size() && grid[i][j] == 1;
+        return ans;
     }
 
     int find(int x) {
@@ -268,10 +245,8 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func numIslands2(m int, n int, positions [][]int) []int {
-	p = make([]int, m*n)
+	p := make([]int, m*n)
 	for i := 0; i < len(p); i++ {
 		p[i] = i
 	}
@@ -279,37 +254,34 @@ func numIslands2(m int, n int, positions [][]int) []int {
 	for i := 0; i < m; i++ {
 		grid[i] = make([]int, n)
 	}
-	var res []int
-	cur := 0
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
-	for _, position := range positions {
-		i, j := position[0], position[1]
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	var ans []int
+	cnt := 0
+	dirs := []int{-1, 0, 1, 0, -1}
+	for _, pos := range positions {
+		i, j := pos[0], pos[1]
 		if grid[i][j] == 1 {
-			res = append(res, cur)
+			ans = append(ans, cnt)
 			continue
 		}
 		grid[i][j] = 1
-		cur++
-		for _, e := range dirs {
-			if check(i+e[0], j+e[1], grid) && find(i*n+j) != find((i+e[0])*n+j+e[1]) {
-				p[find(i*n+j)] = find((i+e[0])*n + j + e[1])
-				cur--
+		cnt++
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == 1 && find(x*n+y) != find(i*n+j) {
+				p[find(x*n+y)] = find(i*n + j)
+				cnt--
 			}
 		}
-		res = append(res, cur)
+		ans = append(ans, cnt)
 	}
-	return res
-}
-
-func check(i, j int, grid [][]int) bool {
-	return i >= 0 && i < len(grid) && j >= 0 && j < len(grid[0]) && grid[i][j] == 1
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return ans
 }
 ```
 

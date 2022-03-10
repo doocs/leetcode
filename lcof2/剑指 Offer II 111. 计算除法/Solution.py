@@ -1,5 +1,7 @@
 class Solution:
-    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+    def calcEquation(
+        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
+    ) -> List[float]:
         n = len(equations)
         p = list(range(n << 1))
         w = [1.0] * (n << 1)

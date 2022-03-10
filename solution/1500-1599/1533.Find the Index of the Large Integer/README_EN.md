@@ -7,26 +7,20 @@
 <p>We have an integer array <code>arr</code>, where all the integers in <code>arr</code> are equal except for one integer which is <strong>larger</strong> than the rest of the integers. You will not be given direct access to the array, instead, you will have an <strong>API</strong> <code>ArrayReader</code> which have the following functions:</p>
 
 <ul>
-	<li><code>int compareSub(int l, int r, int x, int y)</code>: where <code>0 &lt;= l, r, x, y &lt;&nbsp;ArrayReader.length()</code>, <code>l &lt;= r and</code>&nbsp;<code>x &lt;= y</code>. The function compares the sum of sub-array <code>arr[l..r]</code> with the sum of the sub-array <code>arr[x..y]</code> and returns:
-	<ul>
-		<li><strong>1</strong> if <code>arr[l]+arr[l+1]+...+arr[r] &gt; arr[x]+arr[x+1]+...+arr[y]</code>.</li>
-		<li><strong>0</strong> if <code>arr[l]+arr[l+1]+...+arr[r] == arr[x]+arr[x+1]+...+arr[y]</code>.</li>
-		<li><strong>-1</strong> if <code>arr[l]+arr[l+1]+...+arr[r] &lt; arr[x]+arr[x+1]+...+arr[y]</code>.</li>
-	</ul>
-	</li>
-	<li><code>int length()</code>: Returns the size of the array.</li>
+	<li><code>int compareSub(int l, int r, int x, int y)</code>: where <code>0 &lt;= l, r, x, y &lt; ArrayReader.length()</code>, <code>l &lt;= r and</code> <code>x &lt;= y</code>. The function compares the sum of sub-array <code>arr[l..r]</code> with the sum of the sub-array <code>arr[x..y]</code> and returns:
+    <ul>
+    	<li><strong>1</strong> if <code>arr[l]+arr[l+1]+...+arr[r] &gt; arr[x]+arr[x+1]+...+arr[y]</code>.</li>
+    	<li><strong>0</strong> if <code>arr[l]+arr[l+1]+...+arr[r] == arr[x]+arr[x+1]+...+arr[y]</code>.</li>
+    	<li><strong>-1</strong> if <code>arr[l]+arr[l+1]+...+arr[r] &lt; arr[x]+arr[x+1]+...+arr[y]</code>.</li>
+    </ul>
+    </li>
+    <li><code>int length()</code>: Returns the size of the array.</li>
+
 </ul>
 
-<p>You are allowed to call&nbsp;<code>compareSub()</code>&nbsp;<b>20 times</b> at most. You can assume both functions work in <code>O(1)</code> time.</p>
+<p>You are allowed to call <code>compareSub()</code> <b>20 times</b> at most. You can assume both functions work in <code>O(1)</code> time.</p>
 
 <p>Return <em>the index of the array <code>arr</code> which has the largest integer</em>.</p>
-
-<p><strong>Follow-up:</strong></p>
-
-<ul>
-	<li>What if there are two numbers in <code>arr</code> that are bigger than all other numbers?</li>
-	<li>What if there is one number that is bigger than other numbers and one number that is smaller than other numbers?</li>
-</ul>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -53,9 +47,17 @@ Notice that we made only 3 calls, so the answer is valid.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= arr.length&nbsp;&lt;= 5 * 10^5</code></li>
+	<li><code>2 &lt;= arr.length &lt;= 5 * 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= arr[i] &lt;= 100</code></li>
 	<li>All elements of <code>arr</code> are equal except for one element which is larger than all other elements.</li>
+</ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong></p>
+
+<ul>
+	<li>What if there are two numbers in <code>arr</code> that are bigger than all other numbers?</li>
+	<li>What if there is one number that is bigger than other numbers and one number that is smaller than other numbers?</li>
 </ul>
 
 ## Solutions

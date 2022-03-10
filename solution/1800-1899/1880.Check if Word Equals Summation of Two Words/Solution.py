@@ -4,6 +4,7 @@ class Solution:
             res = 0
             for c in word:
                 res *= 10
-                res += (ord(c) - ord('a'))
+                res += ord(c) - ord('a')
             return res
+
         return convert(firstWord) + convert(secondWord) == convert(targetWord)

@@ -15,7 +15,7 @@ class Solution:
         slow, fast = head, head.next
         while fast and fast.next:
             slow, fast = slow.next, fast.next.next
-        
+
         # cur 指向右半部分链表
         cur = slow.next
         slow.next = None

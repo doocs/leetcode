@@ -65,7 +65,6 @@
 	<li><code>ingredients[i]</code>&nbsp;中的字符串互不相同。</li>
 </ul>
 
-
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->

@@ -6,33 +6,33 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Relations</code></p>
+<p>表: <code>Relations</code></p>
 
-<pre>
-+-------------+------+
+<pre>+-------------+------+
 | Column Name | Type |
 +-------------+------+
 | user_id     | int  |
 | follower_id | int  |
 +-------------+------+
-(user_id, follower_id) is the primary key for this table.
-Each row of this table indicates that the user with ID follower_id is following the user with ID user_id.
+(user_id, follower_id) 是这个表的主键.
+这个表的每一行，表示这个user_id的用户和他的关注者，关注者的id 就是本表的 user_id.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find all the pairs of users with the maximum number of common followers. In other words, if the maximum number of common followers between any two users is <code>maxCommon</code>, then you have to return any pair of users that have <code>maxCommon</code> common followers.</p>
+<p>写出一个查询语句，找到具有最多共同关注者的所有两两结对组。换句话说，如果有两个用户的共同关注者是最大的，我们应该返回所有具有此最大值的两两结对组</p>
 
 <p>The result table should contain the pairs <code>user1_id</code> and <code>user2_id</code> where <code>user1_id &lt; user2_id</code>.</p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p>结果返回表，每一行应该包含<code>user1_id</code>和&nbsp;<code>user2_id，</code>其中<code>user1_id &lt; user2_id</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>返回结果&nbsp;<strong>不要求顺序</strong>&nbsp;。</p>
+
+<p>查询结果格式如下例：</p>
 
 <p>&nbsp;</p>
 
-<pre>
-Relations table:
+<pre>Relations 表:
 +---------+-------------+
 | user_id | follower_id |
 +---------+-------------+
@@ -47,18 +47,19 @@ Relations table:
 | 7       | 5           |
 +---------+-------------+
 
-Result table:
+Result 表:
 +----------+----------+
 | user1_id | user2_id |
 +----------+----------+
 | 1        | 7        |
 +----------+----------+
 
-Users 1 and 2 have 2 common followers (3 and 4).
-Users 1 and 7 have 3 common followers (3, 4, and 5).
-Users 2 and 7 have 2 common followers (3 and 4).
-Since the maximum number of common followers between any two users is 3, we return any pair of friends with 3 common followers which is only the pair (1, 7) here. We return the pair as [1, 7] not as [7, 1].
-Note that we do not have any information about the users that follow users 3, 4, and 5, so we consider them with 0 followers.
+用户1 和用户 2 有2个共同的关注者（3和4）。
+用户1 和用户 7 有3个共同的关注者（3，4和5）。
+用户2 和用户7 有2个共同的关注者（3和4）。
+既然两两结对的所有组队的最大共同关注者的数值是3，所以，我们应该返回所有拥有3个共同关注者的两两组队，这就是仅有的一对(1, 7).
+我们返回的是(1, 7).，而不是(7, 1).
+注意，我们没有关于用户3，4，5的任何关注者信息，我们认为他们有0个关注者。
 </pre>
 
 ## 解法

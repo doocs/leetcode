@@ -6,45 +6,47 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个已按照<strong><em> </em>升序排列  </strong>的整数数组 <code>numbers</code> ，请你从数组中找出两个数满足相加之和等于目标数 <code>target</code> 。</p>
+<p>给你一个下标从 <strong>1</strong> 开始的整数数组&nbsp;<code>numbers</code> ，该数组已按<strong><em> </em>非递减顺序排列&nbsp; </strong>，请你从数组中找出满足相加之和等于目标数&nbsp;<code>target</code> 的两个数。如果设这两个数分别是 <code>numbers[index<sub>1</sub>]</code> 和 <code>numbers[index<sub>2</sub>]</code> ，则 <code>1 &lt;= index<sub>1</sub> &lt; index<sub>2</sub> &lt;= numbers.length</code> 。</p>
 
-<p>函数应该以长度为 <code>2</code> 的整数数组的形式返回这两个数的下标值<em>。</em><code>numbers</code> 的下标 <strong>从 1 开始计数</strong> ，所以答案数组应当满足 <code>1 <= answer[0] < answer[1] <= numbers.length</code> 。</p>
+<p>以长度为 2 的整数数组 <code>[index<sub>1</sub>, index<sub>2</sub>]</code> 的形式返回这两个整数的下标 <code>index<sub>1</sub></code><em> </em>和<em> </em><code>index<sub>2</sub></code>。</p>
 
-<p>你可以假设每个输入只对应唯一的答案，而且你不可以重复使用相同的元素。</p>
- 
+<p>你可以假设每个输入 <strong>只对应唯一的答案</strong> ，而且你 <strong>不可以</strong> 重复使用相同的元素。</p>
+
+<p>你所设计的解决方案必须只使用常量级的额外空间。</p>
+&nbsp;
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>numbers = [2,7,11,15], target = 9
+<strong>输入：</strong>numbers = [<strong><em>2</em></strong>,<strong><em>7</em></strong>,11,15], target = 9
 <strong>输出：</strong>[1,2]
-<strong>解释：</strong>2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。
-</pre>
+<strong>解释：</strong>2 与 7 之和等于目标数 9 。因此 index<sub>1</sub> = 1, index<sub>2</sub> = 2 。返回 [1, 2] 。</pre>
 
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>numbers = [2,3,4], target = 6
+<strong>输入：</strong>numbers = [<strong><em>2</em></strong>,3,<strong><em>4</em></strong>], target = 6
 <strong>输出：</strong>[1,3]
-</pre>
+<strong>解释：</strong>2 与 4 之和等于目标数 6 。因此 index<sub>1</sub> = 1, index<sub>2</sub> = 3 。返回 [1, 3] 。</pre>
 
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>numbers = [-1,0], target = -1
+<strong>输入：</strong>numbers = [<strong><em>-1</em></strong>,<strong><em>0</em></strong>], target = -1
 <strong>输出：</strong>[1,2]
+<strong>解释：</strong>-1 与 0 之和等于目标数 -1 。因此 index<sub>1</sub> = 1, index<sub>2</sub> = 2 。返回 [1, 2] 。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>2 <= numbers.length <= 3 * 10<sup>4</sup></code></li>
-	<li><code>-1000 <= numbers[i] <= 1000</code></li>
-	<li><code>numbers</code> 按 <strong>递增顺序</strong> 排列</li>
-	<li><code>-1000 <= target <= 1000</code></li>
-	<li>仅存在一个有效答案</li>
+	<li><code>2 &lt;= numbers.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>-1000 &lt;= numbers[i] &lt;= 1000</code></li>
+	<li><code>numbers</code> 按 <strong>非递减顺序</strong> 排列</li>
+	<li><code>-1000 &lt;= target &lt;= 1000</code></li>
+	<li><strong>仅存在一个有效答案</strong></li>
 </ul>
 
 ## 解法
@@ -145,6 +147,57 @@ func twoSum(numbers []int, target int) []int {
 		}
 	}
 	return []int{-1, -1}
+}
+```
+
+### **JavaScript**
+
+```js
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function (numbers, target) {
+    let left = 0;
+    let right = numbers.length - 1;
+    while (right > 0) {
+        let tem = target - numbers[right];
+        while (left < right) {
+            if (numbers[left] == tem) {
+                break;
+            }
+            left++;
+        }
+        if (left < right) {
+            break;
+        }
+        left = 0;
+        right--;
+    }
+    return [left + 1, right + 1];
+};
+```
+
+### **Rust**
+
+```rust
+use std::cmp::Ordering;
+
+impl Solution {
+    pub fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
+        let n = numbers.len();
+        let mut l = 0;
+        let mut r = n - 1;
+        loop {
+            match (numbers[l] + numbers[r]).cmp(&target) {
+                Ordering::Less => l += 1,
+                Ordering::Greater => r -= 1,
+                Ordering::Equal => break,
+            }
+        }
+        vec![l as i32 + 1, r as i32 + 1]
+    }
 }
 ```
 

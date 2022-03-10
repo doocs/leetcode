@@ -73,6 +73,8 @@ Hence the result is [0,0].
 
 ## Solutions
 
+Union find.
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -80,11 +82,6 @@ Hence the result is [0,0].
 ```python
 class Solution:
     def hitBricks(self, grid: List[List[int]], hits: List[List[int]]) -> List[int]:
-        m, n = len(grid), len(grid[0])
-        p = list(range(m * n + 1))
-        size = [1] * len(p)
-        g = [[grid[i][j] for j in range(n)] for i in range(m)]
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -96,16 +93,15 @@ class Solution:
                 size[pb] += size[pa]
                 p[pa] = pb
 
-        def check(i, j):
-            return 0 <= i < m and 0 <= j < n and g[i][j] == 1
-
+        m, n = len(grid), len(grid[0])
+        p = list(range(m * n + 1))
+        size = [1] * len(p)
+        g = deepcopy(grid)
         for i, j in hits:
             g[i][j] = 0
-
         for j in range(n):
             if g[0][j] == 1:
                 union(j, m * n)
-
         for i in range(1, m):
             for j in range(n):
                 if g[i][j] == 0:
@@ -114,22 +110,22 @@ class Solution:
                     union(i * n + j, (i - 1) * n + j)
                 if j > 0 and g[i][j - 1] == 1:
                     union(i * n + j, i * n + j - 1)
-
-        res = []
+        ans = []
         for i, j in hits[::-1]:
             if grid[i][j] == 0:
-                res.append(0)
+                ans.append(0)
                 continue
-            origin = size[find(m * n)]
+            g[i][j] = 1
+            prev = size[find(m * n)]
             if i == 0:
                 union(j, m * n)
-            for x, y in [(-1, 0), (1, 0), (0, 1), (0, -1)]:
-                if check(i + x, j + y):
-                    union(i * n + j, (i + x) * n + (j + y))
-            cur = size[find(m * n)]
-            res.append(max(0, cur - origin - 1))
-            g[i][j] = 1
-        return res[::-1]
+            for a, b in [(-1, 0), (1, 0), (0, 1), (0, -1)]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and g[x][y] == 1:
+                    union(i * n + j, x * n + y)
+            curr = size[find(m * n)]
+            ans.append(max(0, curr - prev - 1))
+        return ans[::-1]
 ```
 
 ### **Java**
@@ -138,28 +134,24 @@ class Solution:
 class Solution {
     private int[] p;
     private int[] size;
-    private int[][] g;
-    private int m;
-    private int n;
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     public int[] hitBricks(int[][] grid, int[][] hits) {
-        m = grid.length;
-        n = grid[0].length;
+        int m = grid.length;
+        int n = grid[0].length;
         p = new int[m * n + 1];
         size = new int[m * n + 1];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
             size[i] = 1;
         }
-        g = new int[m][n];
+        int[][] g = new int[m][n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 g[i][j] = grid[i][j];
             }
         }
-        for (int[] e : hits) {
-            g[e[0]][e[1]] = 0;
+        for (int[] h : hits) {
+            g[h[0]][h[1]] = 0;
         }
         for (int j = 0; j < n; ++j) {
             if (g[0][j] == 1) {
@@ -179,26 +171,30 @@ class Solution {
                 }
             }
         }
-        int[] res = new int[hits.length];
+        int[] ans = new int[hits.length];
+        int[] dirs = {-1, 0, 1, 0, -1};
         for (int k = hits.length - 1; k >= 0; --k) {
-            int i = hits[k][0], j = hits[k][1];
+            int i = hits[k][0];
+            int j = hits[k][1];
             if (grid[i][j] == 0) {
                 continue;
             }
-            int origin = size[find(m * n)];
+            g[i][j] = 1;
+            int prev = size[find(m * n)];
             if (i == 0) {
                 union(j, m * n);
             }
-            for (int[] e : dirs) {
-                if (check(i + e[0], j + e[1])) {
-                    union(i * n + j, (i + e[0]) * n + j + e[1]);
+            for (int l = 0; l < 4; ++l) {
+                int x = i + dirs[l];
+                int y = j + dirs[l + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 1) {
+                    union(i * n + j, x * n + y);
                 }
             }
-            int cur = size[find(m * n)];
-            res[k] = Math.max(0, cur - origin - 1);
-            g[i][j] = 1;
+            int curr = size[find(m * n)];
+            ans[k] = Math.max(0, curr - prev - 1);
         }
-        return res;
+        return ans;
     }
 
     private int find(int x) {
@@ -209,15 +205,12 @@ class Solution {
     }
 
     private void union(int a, int b) {
-        int pa = find(a), pb = find(b);
+        int pa = find(a);
+        int pb = find(b);
         if (pa != pb) {
             size[pb] += size[pa];
             p[pa] = pb;
         }
-    }
-
-    private boolean check(int i, int j) {
-        return i >= 0 && i < m && j >= 0 && j < n && g[i][j] == 1;
     }
 }
 ```
@@ -229,22 +222,21 @@ class Solution {
 public:
     vector<int> p;
     vector<int> size;
-    vector<vector<int>> g;
-    int m;
-    int n;
-    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     vector<int> hitBricks(vector<vector<int>>& grid, vector<vector<int>>& hits) {
-        m = grid.size();
-        n = grid[0].size();
-        for (int i = 0; i < m * n + 1; ++i)
+        int m = grid.size(), n = grid[0].size();
+        p.resize(m * n + 1);
+        size.resize(m * n + 1);
+        for (int i = 0; i < p.size(); ++i)
         {
-            p.push_back(i);
-            size.push_back(1);
+            p[i] = i;
+            size[i] = 1;
         }
-        g = grid;
-        for (auto e : hits)
-            g[e[0]][e[1]] = 0;
+        vector<vector<int>> g(m, vector<int>(n));
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                g[i][j] = grid[i][j];
+        for (auto& h : hits) g[h[0]][h[1]] = 0;
         for (int j = 0; j < n; ++j)
             if (g[0][j] == 1)
                 merge(j, m * n);
@@ -257,22 +249,25 @@ public:
                 if (j > 0 && g[i][j - 1] == 1) merge(i * n + j, i * n + j - 1);
             }
         }
-        vector<int> res(hits.size());
+        vector<int> ans(hits.size());
+        vector<int> dirs = {-1, 0, 1, 0, -1};
         for (int k = hits.size() - 1; k >= 0; --k)
         {
             int i = hits[k][0], j = hits[k][1];
             if (grid[i][j] == 0) continue;
-            int origin = size[find(m * n)];
-            if (i == 0)
-                merge(j, m * n);
-            for (auto dir : dirs)
-                if (check(i + dir[0], j + dir[1]))
-                    merge(i * n + j, ((i + dir[0]) * n + j + dir[1]));
-            int cur = size[find(m * n)];
-            res[k] = max(0, cur - origin - 1);
             g[i][j] = 1;
+            int prev = size[find(m * n)];
+            if (i == 0) merge(j, m * n);
+            for (int l = 0; l < 4; ++l)
+            {
+                int x = i + dirs[l], y = j + dirs[l + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 1)
+                    merge(i * n + j, x * n + y);
+            }
+            int curr = size[find(m * n)];
+            ans[k] = max(0, curr - prev - 1);
         }
-        return res;
+        return ans;
     }
 
     int find(int x) {
@@ -288,42 +283,48 @@ public:
             p[pa] = pb;
         }
     }
-
-    bool check(int i, int j) {
-        return i >= 0 && i < m && j >= 0 && j < n && g[i][j] == 1;
-    }
 };
 ```
 
 ### **Go**
 
 ```go
-var p []int
-var size []int
-var g [][]int
-var m int
-var n int
-
 func hitBricks(grid [][]int, hits [][]int) []int {
-	m, n = len(grid), len(grid[0])
-	p = make([]int, m*n+1)
-	size = make([]int, m*n+1)
-	for i := 0; i < len(p); i++ {
+	m, n := len(grid), len(grid[0])
+	p := make([]int, m*n+1)
+	size := make([]int, len(p))
+	for i := range p {
 		p[i] = i
 		size[i] = 1
 	}
-	g = make([][]int, m)
-	for i := 0; i < m; i++ {
+
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	union := func(a, b int) {
+		pa, pb := find(a), find(b)
+		if pa != pb {
+			size[pb] += size[pa]
+			p[pa] = pb
+		}
+	}
+
+	g := make([][]int, m)
+	for i := range g {
 		g[i] = make([]int, n)
-		for j := 0; j < n; j++ {
+		for j := range g[i] {
 			g[i][j] = grid[i][j]
 		}
 	}
-	for _, e := range hits {
-		g[e[0]][e[1]] = 0
+	for _, h := range hits {
+		g[h[0]][h[1]] = 0
 	}
-	for j := 0; j < n; j++ {
-		if g[0][j] == 1 {
+	for j, v := range g[0] {
+		if v == 1 {
 			union(j, m*n)
 		}
 	}
@@ -340,47 +341,28 @@ func hitBricks(grid [][]int, hits [][]int) []int {
 			}
 		}
 	}
-
-	res := make([]int, len(hits))
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	ans := make([]int, len(hits))
+	dirs := []int{-1, 0, 1, 0, -1}
 	for k := len(hits) - 1; k >= 0; k-- {
 		i, j := hits[k][0], hits[k][1]
 		if grid[i][j] == 0 {
 			continue
 		}
-		origin := size[find(m*n)]
+		g[i][j] = 1
+		prev := size[find(m*n)]
 		if i == 0 {
 			union(j, m*n)
 		}
-		for _, dir := range dirs {
-			if check(i+dir[0], j+dir[1]) {
-				union(i*n+j, (i+dir[0])*n+j+dir[1])
+		for l := 0; l < 4; l++ {
+			x, y := i+dirs[l], j+dirs[l+1]
+			if x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 1 {
+				union(i*n+j, x*n+y)
 			}
 		}
-		cur := size[find(m*n)]
-		res[k] = max(0, cur-origin-1)
-		g[i][j] = 1
+		curr := size[find(m*n)]
+		ans[k] = max(0, curr-prev-1)
 	}
-	return res
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
-}
-
-func union(a, b int) {
-	pa, pb := find(a), find(b)
-	if pa != pb {
-		size[pb] += size[pa]
-		p[pa] = pb
-	}
-}
-
-func check(i, j int) bool {
-	return i >= 0 && i < m && j >= 0 && j < n && g[i][j] == 1
+	return ans
 }
 
 func max(a, b int) int {

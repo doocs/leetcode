@@ -2,13 +2,10 @@ func singleNonDuplicate(nums []int) int {
 	left, right := 0, len(nums)-1
 	for left < right {
 		mid := (left + right) >> 1
-		if (mid & 1) == 1 {
-			mid--
-		}
-		if nums[mid] == nums[mid+1] {
-			left = mid + 2
-		} else {
+		if nums[mid] != nums[mid^1] {
 			right = mid
+		} else {
+			left = mid + 1
 		}
 	}
 	return nums[left]

@@ -5,9 +5,6 @@
 ## Description
 
 <p>Given an array of <code>n</code> integers <code>nums</code> and an integer&nbsp;<code>target</code>, find the number of index triplets <code>i</code>, <code>j</code>, <code>k</code> with <code>0 &lt;= i &lt; j &lt; k &lt; n</code> that satisfy the condition <code>nums[i] + nums[j] + nums[k] &lt; target</code>.</p>
-
-<p><b style="font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;;">Follow up:</b> Could you solve it in <code>O(n<sup>2</sup>)</code> runtime?</p>
-
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -38,7 +35,7 @@
 
 <ul>
 	<li><code>n == nums.length</code></li>
-	<li><code>0 &lt;= n &lt;= 300</code></li>
+	<li><code>0 &lt;= n &lt;= 3500</code></li>
 	<li><code>-100 &lt;= nums[i] &lt;= 100</code></li>
 	<li><code>-100 &lt;= target &lt;= 100</code></li>
 </ul>
@@ -52,21 +49,18 @@
 ```python
 class Solution:
     def threeSumSmaller(self, nums: List[int], target: int) -> int:
-        def threeSumSmaller(nums, start, end, target):
-            count = 0
-            while start < end:
-                if nums[start] + nums[end] < target:
-                    count += (end - start)
-                    start += 1
-                else:
-                    end -= 1
-            return count
-
         nums.sort()
-        n, count = len(nums), 0
-        for i in range(n - 2):
-            count += threeSumSmaller(nums, i + 1, n - 1, target - nums[i])
-        return count
+        ans, n = 0, len(nums)
+        for i in range(n):
+            j, k = i + 1, n - 1
+            while j < k:
+                s = nums[i] + nums[j] + nums[k]
+                if s >= target:
+                    k -= 1
+                else:
+                    ans += k - j
+                    j += 1
+        return ans
 ```
 
 ### **Java**
@@ -75,26 +69,71 @@ class Solution:
 class Solution {
     public int threeSumSmaller(int[] nums, int target) {
         Arrays.sort(nums);
-        int n = nums.length;
-        int count = 0;
-        for (int i = 0; i < n - 2; ++i) {
-            count += threeSumSmaller(nums, i + 1, n - 1, target - nums[i]);
-        }
-        return count;
-    }
-
-    private int threeSumSmaller(int[] nums, int start, int end, int target) {
-        int count = 0;
-        while (start < end) {
-            if (nums[start] + nums[end] < target) {
-                count += (end - start);
-                ++start;
-            } else {
-                --end;
+        int ans = 0;
+        for (int i = 0, n = nums.length; i < n; ++i) {
+            int j = i + 1;
+            int k = n - 1;
+            while (j < k) {
+                int s = nums[i] + nums[j] + nums[k];
+                if (s >= target) {
+                    --k;
+                } else {
+                    ans += k - j;
+                    ++j;
+                }
             }
         }
-        return count;
+        return ans;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int threeSumSmaller(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        int ans = 0;
+        for (int i = 0, n = nums.size(); i < n; ++i)
+        {
+            int j = i + 1, k = n - 1;
+            while (j < k)
+            {
+                int s = nums[i] + nums[j] + nums[k];
+                if (s >= target) --k;
+                else
+                {
+                    ans += k - j;
+                    ++j;
+                }
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func threeSumSmaller(nums []int, target int) int {
+	sort.Ints(nums)
+	ans := 0
+	for i, n := 0, len(nums); i < n; i++ {
+		j, k := i+1, n-1
+		for j < k {
+			s := nums[i] + nums[j] + nums[k]
+			if s >= target {
+				k--
+			} else {
+				ans += k - j
+				j++
+			}
+		}
+	}
+	return ans
 }
 ```
 
@@ -107,26 +146,22 @@ class Solution {
  * @return {number}
  */
 var threeSumSmaller = function (nums, target) {
-    let len = nums.length;
-    if (len < 3) return 0;
     nums.sort((a, b) => a - b);
-    let res = 0;
-    for (let i = 0; i < len - 2; i++) {
-        let left = i + 1,
-            right = len - 1;
-        if (nums[i] + nums[left] + nums[i + 2] >= target) break;
-        while (left < right) {
-            if (nums[i] + nums[left] + nums[right] < target) {
-                res += right - left;
-                left++;
-                continue;
+    let ans = 0;
+    for (let i = 0, n = nums.length; i < n; ++i) {
+        let j = i + 1;
+        let k = n - 1;
+        while (j < k) {
+            s = nums[i] + nums[j] + nums[k];
+            if (s >= target) {
+                --k;
             } else {
-                right--;
-                continue;
+                ans += k - j;
+                ++j;
             }
         }
     }
-    return res;
+    return ans;
 };
 ```
 

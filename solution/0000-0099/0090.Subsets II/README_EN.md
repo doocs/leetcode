@@ -33,43 +33,97 @@
 ```python
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-        def dfs(nums, i, res, path):
-            res.append(copy.deepcopy(path))
-            for j in range(i, len(nums)):
-                if j != i and nums[j] == nums[j - 1]:
+        def dfs(u, t):
+            ans.append(t[:])
+            for i in range(u, len(nums)):
+                if i != u and nums[i] == nums[i - 1]:
                     continue
-                path.append(nums[j])
-                dfs(nums, j + 1, res, path)
-                path.pop()
-        res, path = [], []
+                t.append(nums[i])
+                dfs(i + 1, t)
+                t.pop()
+
+        ans = []
         nums.sort()
-        dfs(nums, 0, res, path)
-        return res
+        dfs(0, [])
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private List<List<Integer>> ans;
+    private int[] nums;
+
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<Integer> path = new ArrayList<>();
-        List<List<Integer>> res = new ArrayList<>();
+        ans = new ArrayList<>();
         Arrays.sort(nums);
-        dfs(nums, 0, res, path);
-        return res;
+        this.nums = nums;
+        dfs(0, new ArrayList<>());
+        return ans;
     }
 
-    private void dfs(int[] nums, int i, List<List<Integer>> res, List<Integer> path) {
-        res.add(new ArrayList<>(path));
-        for (int j = i; j < nums.length; ++j) {
-            if (j != i && nums[j] == nums[j - 1]) {
+    private void dfs(int u, List<Integer> t) {
+        ans.add(new ArrayList<>(t));
+        for (int i = u; i < nums.length; ++i) {
+            if (i != u && nums[i] == nums[i - 1]) {
                 continue;
             }
-            path.add(nums[j]);
-            dfs(nums, i + 1, res, path);
-            path.remove(path.size() - 1);
+            t.add(nums[i]);
+            dfs(i + 1, t);
+            t.remove(t.size() - 1);
         }
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> ans;
+        vector<int> t;
+        dfs(0, t, nums, ans);
+        return ans;
+    }
+
+    void dfs(int u, vector<int>& t, vector<int>& nums, vector<vector<int>>& ans) {
+        ans.push_back(t);
+        for (int i = u; i < nums.size(); ++i)
+        {
+            if (i != u && nums[i] == nums[i - 1]) continue;
+            t.push_back(nums[i]);
+            dfs(i + 1, t, nums, ans);
+            t.pop_back();
+        }
+    }
+};
+```
+
+### **Go**
+
+```go
+func subsetsWithDup(nums []int) [][]int {
+	sort.Ints(nums)
+	var ans [][]int
+	var dfs func(u int, t []int)
+	dfs = func(u int, t []int) {
+		ans = append(ans, append([]int(nil), t...))
+		for i := u; i < len(nums); i++ {
+			if i != u && nums[i] == nums[i-1] {
+				continue
+			}
+			t = append(t, nums[i])
+			dfs(i+1, t)
+			t = t[:len(t)-1]
+		}
+	}
+	var t []int
+	dfs(0, t)
+	return ans
 }
 ```
 

@@ -10,39 +10,26 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/images/failing1-grid.jpg" style="width: 499px; height: 500px;" />
 <pre>
 <strong>Input:</strong> matrix = [[2,1,3],[6,5,4],[7,8,9]]
 <strong>Output:</strong> 13
-<strong>Explanation:</strong> There are two falling paths with a minimum sum underlined below:
-[[2,<u>1</u>,3],      [[2,<u>1</u>,3],
- [6,<u>5</u>,4],       [6,5,<u>4</u>],
- [<u>7</u>,8,9]]       [7,<u>8</u>,9]]
+<strong>Explanation:</strong> There are two falling paths with a minimum sum as shown.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0931.Minimum%20Falling%20Path%20Sum/images/failing2-grid.jpg" style="width: 164px; height: 365px;" />
 <pre>
 <strong>Input:</strong> matrix = [[-19,57],[-40,-5]]
 <strong>Output:</strong> -59
-<strong>Explanation:</strong> The falling path with a minimum sum is underlined below:
-[[<u>-19</u>,57],
- [<u>-40</u>,-5]]
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> matrix = [[-48]]
-<strong>Output:</strong> -48
+<strong>Explanation:</strong> The falling path with a minimum sum is shown.
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == matrix.length</code></li>
-	<li><code>n == matrix[i].length</code></li>
+	<li><code>n == matrix.length == matrix[i].length</code></li>
 	<li><code>1 &lt;= n &lt;= 100</code></li>
 	<li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></li>
 </ul>

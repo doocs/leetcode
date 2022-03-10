@@ -5,6 +5,7 @@
 #         self.power = y
 #         self.next = next
 
+
 class Solution:
     def addPoly(self, poly1: 'PolyNode', poly2: 'PolyNode') -> 'PolyNode':
         dummy = PolyNode()

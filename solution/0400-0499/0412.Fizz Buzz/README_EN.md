@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>Given an integer <code>n</code>, return <em>a string array</em> <code>answer</code> (<strong>1-indexed</strong>) <em>where</em>:</p>
+<p>Given an integer <code>n</code>, return <em>a string array </em><code>answer</code><em> (<strong>1-indexed</strong>) where</em>:</p>
 
 <ul>
 	<li><code>answer[i] == &quot;FizzBuzz&quot;</code> if <code>i</code> is divisible by <code>3</code> and <code>5</code>.</li>
 	<li><code>answer[i] == &quot;Fizz&quot;</code> if <code>i</code> is divisible by <code>3</code>.</li>
 	<li><code>answer[i] == &quot;Buzz&quot;</code> if <code>i</code> is divisible by <code>5</code>.</li>
-	<li><code>answer[i] == i</code> if non of the above conditions are true.</li>
+	<li><code>answer[i] == i</code> (as a string) if none of the above conditions are true.</li>
 </ul>
 
 <p>&nbsp;</p>

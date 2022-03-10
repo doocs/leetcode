@@ -17,7 +17,7 @@
 +--------------+------+
 box_id is the primary key for this table.
 chest_id is a foreign key of the chests table.
-This table contains information about the boxes and the number of oranges and apples they contain. Each box may contain a chest, which also can contain oranges and apples.
+This table contains information about the boxes and the number of oranges and apples they have. Each box may include a chest, which also can contain oranges and apples.
 </pre>
 
 <p>&nbsp;</p>
@@ -33,20 +33,20 @@ This table contains information about the boxes and the number of oranges and ap
 | orange_count | int  |
 +--------------+------+
 chest_id is the primary key for this table.
-This table contains information about the chests we have, and the corresponding number if oranges and apples they contain.
+This table contains information about the chests and the corresponding number of oranges and apples they have.
 </pre>
 
 <p>&nbsp;</p>
 
 <p>Write an SQL query to count the number of apples and oranges in all the boxes. If a box contains a chest, you should also include the number of apples and oranges it has.</p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
-
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Boxes table:
 +--------+----------+-------------+--------------+
 | box_id | chest_id | apple_count | orange_count |
@@ -59,7 +59,6 @@ Boxes table:
 | 8      | 6        | 9           | 9            |
 | 3      | 14       | 16          | 7            |
 +--------+----------+-------------+--------------+
-
 Chests table:
 +----------+-------------+--------------+
 | chest_id | apple_count | orange_count |
@@ -70,13 +69,13 @@ Chests table:
 | 3        | 19          | 4            |
 | 16       | 19          | 19           |
 +----------+-------------+--------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+--------------+
 | apple_count | orange_count |
 +-------------+--------------+
 | 151         | 123          |
 +-------------+--------------+
+<strong>Explanation:</strong> 
 box 2 has 6 apples and 15 oranges.
 box 18 has 4 + 20 (from the chest) = 24 apples and 15 + 10 (from the chest) = 25 oranges.
 box 19 has 8 + 19 (from the chest) = 27 apples and 4 + 4 (from the chest) = 8 oranges.

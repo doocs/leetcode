@@ -54,13 +54,13 @@ class Solution:
 ```java
 class Solution {
     public boolean canPermutePalindrome(String s) {
-        Map<Character, Integer> counter = new HashMap<>();
+        int[] counter = new int[26];
         for (char c : s.toCharArray()) {
-            counter.put(c, counter.getOrDefault(c, 0) + 1);
+            ++counter[c - 'a'];
         }
         int oddCnt = 0;
-        for (int e : counter.values()) {
-            oddCnt += e % 2;
+        for (int cnt : counter) {
+            oddCnt += cnt % 2;
         }
         return oddCnt < 2;
     }
@@ -73,10 +73,10 @@ class Solution {
 class Solution {
 public:
     bool canPermutePalindrome(string s) {
-        unordered_map<char, int> counter;
-        for (char c : s) ++counter[c];
+        vector<int> counter(26);
+        for (auto& c : s) ++counter[c - 'a'];
         int oddCnt = 0;
-        for (auto& it : counter) oddCnt += it.second % 2;
+        for (int& cnt : counter) oddCnt += cnt % 2;
         return oddCnt < 2;
     }
 };
@@ -86,15 +86,15 @@ public:
 
 ```go
 func canPermutePalindrome(s string) bool {
-    counter := make(map[rune]int)
-    for _, c := range s {
-        counter[c]++
-    }
-    oddCnt := 0
-    for _, e := range counter {
-        oddCnt += e % 2
-    }
-    return oddCnt < 2
+	counter := make([]int, 26)
+	for i := range s {
+		counter[s[i]-'a']++
+	}
+	oddCnt := 0
+	for _, cnt := range counter {
+		oddCnt += cnt % 2
+	}
+	return oddCnt < 2
 }
 ```
 

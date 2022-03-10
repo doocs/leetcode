@@ -4,53 +4,54 @@
 
 ## Description
 
-A U.S graduate school has students from Asia, Europe and America. The students&#39; location information are stored in table <code>student</code> as below.
+<p>Table: <code>Student</code></p>
+
+<pre>
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| name        | varchar |
+| continent   | varchar |
++-------------+---------+
+There is no primary key for this table. It may contain duplicate rows.
+Each row of this table indicates the name of a student and the continent they came from.
+</pre>
 
 <p>&nbsp;</p>
 
-<pre>
+<p>A school has students from Asia, Europe, and America.</p>
 
+<p>Write an SQL query to <a href="https://en.wikipedia.org/wiki/Pivot_table" target="_blank">pivot</a> the continent column in the <code>Student</code> table so that each name is <strong>sorted alphabetically</strong> and displayed underneath its corresponding continent. The output headers should be <code>America</code>, <code>Asia</code>, and <code>Europe</code>, respectively.</p>
+
+<p>The test cases are generated so that the student number from America is not less than either Asia or Europe.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> 
+Student table:
++--------+-----------+
 | name   | continent |
-
-|--------|-----------|
-
-| Jack   | America   |
-
-| Pascal | Europe    |
-
-| Xi     | Asia      |
-
++--------+-----------+
 | Jane   | America   |
-
-</pre>
-
-<p>&nbsp;</p>
-
-<a href="https://en.wikipedia.org/wiki/Pivot_table"> Pivot</a> the continent column in this table so that each name is sorted alphabetically and displayed underneath its corresponding continent. The output headers should be America, Asia and Europe respectively. It is guaranteed that the student number from America is no less than either Asia or Europe.
-
-<p>&nbsp;</p>
-
-For the sample input, the output is:
-
-<p>&nbsp;</p>
-
-<pre>
-
+| Pascal | Europe    |
+| Xi     | Asia      |
+| Jack   | America   |
++--------+-----------+
+<strong>Output:</strong> 
++---------+------+--------+
 | America | Asia | Europe |
-
-|---------|------|--------|
-
++---------+------+--------+
 | Jack    | Xi   | Pascal |
-
-| Jane    |      |        |
-
+| Jane    | null | null   |
++---------+------+--------+
 </pre>
 
 <p>&nbsp;</p>
-
-<b>Follow-up:</b> If it is unknown which continent has the most students, can you write a query to generate the student report?
-
-<p>&nbsp;</p>
+<p><strong>Follow up:</strong> If it is unknown which continent has the most students, could you write a query to generate the student report?</p>
 
 ## Solutions
 

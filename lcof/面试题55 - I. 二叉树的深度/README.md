@@ -2,25 +2,29 @@
 
 ## 题目描述
 
-输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。
+<p>输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。</p>
 
-例如：
+<p>例如：</p>
 
-给定二叉树 `[3,9,20,null,null,15,7]`，
+<p>给定二叉树 <code>[3,9,20,null,null,15,7]</code>，</p>
 
-```
-    3
+<pre>    3
    / \
   9  20
     /  \
-   15   7
-```
+   15   7</pre>
 
-返回它的最大深度  3 。
+<p>返回它的最大深度&nbsp;3 。</p>
 
-**提示：**
+<p>&nbsp;</p>
 
-- `节点总数 <= 10000`
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>节点总数 &lt;= 10000</code></li>
+</ol>
+
+<p>注意：本题与主站 104&nbsp;题相同：<a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/">https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/</a></p>
 
 ## 解法
 
@@ -130,6 +134,44 @@ func maxDepth(root *TreeNode) int {
         return 1 + left
     }
     return 1 + right
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        match root {
+            None => 0,
+            Some(node) => {
+                let mut node = node.borrow_mut();
+                let left = node.left.take();
+                let right = node.right.take();
+                1 + Self::max_depth(left).max(Self::max_depth(right))
+            }
+        }
+    }
 }
 ```
 

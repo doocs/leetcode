@@ -23,27 +23,6 @@
 <strong>Output:</strong> [3,2,null,1]
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1], low = 1, high = 2
-<strong>Output:</strong> [1]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1,null,2], low = 1, high = 3
-<strong>Output:</strong> [1,null,2]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1,null,2], low = 2, high = 4
-<strong>Output:</strong> [2]
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

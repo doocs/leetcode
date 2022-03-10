@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary search tree, and an integer <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> (<strong>1-indexed</strong>) <em>smallest element in the tree</em>.</p>
+<p>Given the <code>root</code> of a binary search tree, and an integer <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> <em>smallest value (<strong>1-indexed</strong>) of all the values of the nodes in the tree</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -31,7 +31,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<strong>Follow up:</strong> If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?
+<p><strong>Follow up:</strong> If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?</p>
 
 ## Solutions
 
@@ -223,6 +223,87 @@ func kthSmallest(root *TreeNode, k int) int {
 
 	dfs(root)
 	return ans
+}
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function kthSmallest(root: TreeNode | null, k: number): number {
+    const dfs = (root: TreeNode | null) => {
+        if (root == null) {
+            return -1;
+        }
+        const { val, left, right } = root;
+        const l = dfs(left);
+        if (l !== -1) {
+            return l;
+        }
+        k--;
+        if (k === 0) {
+            return val;
+        }
+        return dfs(right);
+    };
+    return dfs(root);
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+impl Solution {
+    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, res: &mut Vec<i32>, k: usize) {
+        if let Some(node) = root {
+            let mut node = node.borrow_mut();
+            Self::dfs(node.left.take(), res, k);
+            res.push(node.val);
+            if res.len() >= k {
+                return;
+            }
+            Self::dfs(node.right.take(), res, k);
+        }
+    }
+    pub fn kth_smallest(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> i32 {
+        let k = k as usize;
+        let mut res: Vec<i32> = Vec::with_capacity(k);
+        Self::dfs(root, &mut res, k);
+        res[k - 1]
+    }
 }
 ```
 

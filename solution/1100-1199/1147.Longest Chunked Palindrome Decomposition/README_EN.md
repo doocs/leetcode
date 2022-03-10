@@ -39,14 +39,6 @@
 <strong>Explanation:</strong> We can split the string on &quot;(a)(nt)(a)(pre)(za)(tpe)(za)(pre)(a)(nt)(a)&quot;.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> text = &quot;aaa&quot;
-<strong>Output:</strong> 3
-<strong>Explanation:</strong> We can split the string on &quot;(a)(a)(a)&quot;.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

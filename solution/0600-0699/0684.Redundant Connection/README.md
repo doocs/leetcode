@@ -6,43 +6,45 @@
 
 <!-- 这里写题目描述 -->
 
-<p>在本问题中, 树指的是一个连通且无环的<strong>无向</strong>图。</p>
+<p>树可以看成是一个连通且 <strong>无环 </strong>的 <strong>无向 </strong>图。</p>
 
-<p>输入一个图，该图由一个有着N个节点 (节点值不重复1, 2, ..., N) 的树及一条附加的边构成。附加的边的两个顶点包含在1到N中间，这条附加的边不属于树中已存在的边。</p>
+<p>给定往一棵 <code>n</code> 个节点 (节点值 <code>1～n</code>) 的树中添加一条边后的图。添加的边的两个顶点包含在 <code>1</code> 到 <code>n</code> 中间，且这条附加的边不属于树中已存在的边。图的信息记录于长度为 <code>n</code> 的二维数组 <code>edges</code> ，<code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> 表示图中在 <code>ai</code> 和 <code>bi</code> 之间存在一条边。</p>
 
-<p>结果图是一个以<code>边</code>组成的二维数组。每一个<code>边</code>的元素是一对<code>[u, v]</code>&nbsp;，满足&nbsp;<code>u &lt; v</code>，表示连接顶点<code>u</code>&nbsp;和<code>v</code>的<strong>无向</strong>图的边。</p>
+<p>请找出一条可以删去的边，删除后可使得剩余部分是一个有着 <code>n</code> 个节点的树。如果有多个答案，则返回数组 <code>edges</code> 中最后出现的边。</p>
 
-<p>返回一条可以删去的边，使得结果图是一个有着N个节点的树。如果有多个答案，则返回二维数组中最后出现的边。答案边&nbsp;<code>[u, v]</code> 应满足相同的格式&nbsp;<code>u &lt; v</code>。</p>
+<p> </p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入:</strong> [[1,2], [1,3], [2,3]]
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0684.Redundant%20Connection/images/1626676174-hOEVUL-image.png" style="width: 152px; " /></p>
+
+<pre>
+<strong>输入:</strong> edges = [[1,2], [1,3], [2,3]]
 <strong>输出:</strong> [2,3]
-<strong>解释:</strong> 给定的无向图为:
-  1
- / \
-2 - 3
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> [[1,2], [2,3], [3,4], [1,4], [1,5]]
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0684.Redundant%20Connection/images/1626676179-kGxcmu-image.png" style="width: 250px; " /></p>
+
+<pre>
+<strong>输入:</strong> edges = [[1,2], [2,3], [3,4], [1,4], [1,5]]
 <strong>输出:</strong> [1,4]
-<strong>解释:</strong> 给定的无向图为:
-5 - 1 - 2
-    |   |
-    4 - 3
 </pre>
 
-<p><strong>注意:</strong></p>
+<p> </p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
-	<li>输入的二维数组大小在 3 到 1000。</li>
-	<li>二维数组中的整数在1到N之间，其中N是输入数组的大小。</li>
+	<li><code>n == edges.length</code></li>
+	<li><code>3 <= n <= 1000</code></li>
+	<li><code>edges[i].length == 2</code></li>
+	<li><code>1 <= ai < bi <= edges.length</code></li>
+	<li><code>ai != bi</code></li>
+	<li><code>edges</code> 中无重复元素</li>
+	<li>给定的图是连通的 </li>
 </ul>
-
-<p><strong>更新(2017-09-26):</strong><br>
-我们已经重新检查了问题描述及测试用例，明确图是<em><strong>无向&nbsp;</strong></em>图。对于有向图详见<strong><a href="https://leetcodechina.com/problems/redundant-connection-ii/description/">冗余连接II</a>。</strong>对于造成任何不便，我们深感歉意。</p>
 
 ## 解法
 
@@ -118,13 +120,12 @@ d[find(a)] = distance
 ```python
 class Solution:
     def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
-        p = list(range(1010))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        p = list(range(1010))
         for a, b in edges:
             if find(a) == find(b):
                 return [a, b]
@@ -146,10 +147,11 @@ class Solution {
             p[i] = i;
         }
         for (int[] e : edges) {
-            if (find(e[0]) == find(e[1])) {
+            int a = e[0], b = e[1];
+            if (find(a) == find(b)) {
                 return e;
             }
-            p[find(e[0])] = find(e[1]);
+            p[find(a)] = find(b);
         }
         return null;
     }
@@ -173,10 +175,11 @@ public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         p.resize(1010);
         for (int i = 0; i < p.size(); ++i) p[i] = i;
-        for (auto e : edges)
+        for (auto& e : edges)
         {
-            if (find(e[0]) == find(e[1])) return e;
-            p[find(e[0])] = find(e[1]);
+            int a = e[0], b = e[1];
+            if (find(a) == find(b)) return e;
+            p[find(a)] = find(b);
         }
         return {};
     }
@@ -191,28 +194,52 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func findRedundantConnection(edges [][]int) []int {
-	p = make([]int, 1010)
-	for i := 0; i < len(p); i++ {
+	p := make([]int, 1010)
+	for i := range p {
 		p[i] = i
 	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
 	for _, e := range edges {
-		if find(e[0]) == find(e[1]) {
+		a, b := e[0], e[1]
+		if find(a) == find(b) {
 			return e
 		}
-		p[find(e[0])] = find(e[1])
+		p[find(a)] = find(b)
 	}
-	return nil
+	return []int{}
 }
+```
 
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
-}
+### **JavaScript**
+
+```js
+/**
+ * @param {number[][]} edges
+ * @return {number[]}
+ */
+var findRedundantConnection = function (edges) {
+    let p = Array.from({ length: 1010 }, (_, i) => i);
+    function find(x) {
+        if (p[x] != x) {
+            p[x] = find(p[x]);
+        }
+        return p[x];
+    }
+    for (let [a, b] of edges) {
+        if (find(a) == find(b)) {
+            return [a, b];
+        }
+        p[find(a)] = find(b);
+    }
+    return [];
+};
 ```
 
 ### **...**

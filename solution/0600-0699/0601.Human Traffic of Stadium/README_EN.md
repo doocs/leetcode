@@ -28,9 +28,11 @@ No two rows will have the same visit_date, and as the id increases, the dates in
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Stadium</code> table:
+<strong>Input:</strong> 
+Stadium table:
 +------+------------+-----------+
 | id   | visit_date | people    |
 +------+------------+-----------+
@@ -43,8 +45,7 @@ No two rows will have the same visit_date, and as the id increases, the dates in
 | 7    | 2017-01-07 | 199       |
 | 8    | 2017-01-09 | 188       |
 +------+------------+-----------+
-
-Result table:
+<strong>Output:</strong> 
 +------+------------+-----------+
 | id   | visit_date | people    |
 +------+------------+-----------+
@@ -53,8 +54,10 @@ Result table:
 | 7    | 2017-01-07 | 199       |
 | 8    | 2017-01-09 | 188       |
 +------+------------+-----------+
+<strong>Explanation:</strong> 
 The four rows with ids 5, 6, 7, and 8 have consecutive ids and each of them has &gt;= 100 people attended. Note that row 8 was included even though the visit_date was not the next day after row 7.
-The rows with ids 2 and 3 are not included because we need at least three consecutive ids.</pre>
+The rows with ids 2 and 3 are not included because we need at least three consecutive ids.
+</pre>
 
 ## Solutions
 

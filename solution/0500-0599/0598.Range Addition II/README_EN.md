@@ -36,7 +36,7 @@
 
 <ul>
 	<li><code>1 &lt;= m, n &lt;= 4 * 10<sup>4</sup></code></li>
-	<li><code>1 &lt;= ops.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= ops.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>ops[i].length == 2</code></li>
 	<li><code>1 &lt;= a<sub>i</sub> &lt;= m</code></li>
 	<li><code>1 &lt;= b<sub>i</sub> &lt;= n</code></li>

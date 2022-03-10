@@ -98,7 +98,7 @@ function countVowelSubstrings(word: string): number {
             // 移动左指针
             left = right + 1;
         } else {
-            let cur = word.substring(left, right + 1).split("");
+            let cur = word.substring(left, right + 1).split('');
             while (cur.length > 0) {
                 if (isValiedArr(cur)) {
                     ans++;
@@ -112,7 +112,7 @@ function countVowelSubstrings(word: string): number {
 }
 
 function isVowel(char: string): boolean {
-    return ["a", "e", "i", "o", "u"].includes(char);
+    return ['a', 'e', 'i', 'o', 'u'].includes(char);
 }
 
 function isValiedArr(arr: Array<string>): boolean {

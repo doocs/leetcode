@@ -6,32 +6,40 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一位研究者论文被引用次数的数组（被引用次数是非负整数），数组已经按照&nbsp;<strong>升序排列&nbsp;</strong>。编写一个方法，计算出研究者的 <em>h</em> 指数。</p>
+<p>给你一个整数数组 <code>citations</code> ，其中 <code>citations[i]</code> 表示研究者的第 <code>i</code> 篇论文被引用的次数，<code>citations</code> 已经按照 <strong>升序排列 </strong>。计算并返回该研究者的 <strong><code>h</code><em> </em>指数</strong>。</p>
 
-<p><a href="https://baike.baidu.com/item/h-index/3991452?fr=aladdin">h 指数的定义</a>: &ldquo;h 代表&ldquo;高引用次数&rdquo;（high citations），一名科研人员的 h 指数是指他（她）的 （N 篇论文中）<strong>总共</strong>有 h 篇论文分别被引用了<strong>至少</strong> h 次。（其余的&nbsp;<em>N - h&nbsp;</em>篇论文每篇被引用次数<strong>不多于 </strong><em>h </em>次。）&quot;</p>
+<p><a href="https://baike.baidu.com/item/h-index/3991452?fr=aladdin" target="_blank">h 指数的定义</a>：h 代表“高引用次数”（high citations），一名科研人员的 h 指数是指他（她）的 （<code>n</code> 篇论文中）<strong>总共</strong>有 <code>h</code> 篇论文分别被引用了<strong>至少</strong> <code>h</code> 次。且其余的 <em><code>n - h</code> </em>篇论文每篇被引用次数 <strong>不超过 </strong><em><code>h</code> </em>次。</p>
 
-<p>&nbsp;</p>
+<p><strong>提示：</strong>如果 <code>h</code><em> </em>有多种可能的值，<strong><code>h</code> 指数 </strong>是其中最大的那个。</p>
 
-<p><strong>示例:</strong></p>
+<p>请你设计并实现对数时间复杂度的算法解决此问题。</p>
 
-<pre><strong>输入:</strong> <code>citations = [0,1,3,5,6]</code>
-<strong>输出:</strong> 3 
-<strong>解释: </strong>给定数组表示研究者总共有 <code>5</code> 篇论文，每篇论文相应的被引用了 0<code>, 1, 3, 5, 6</code> 次。
-&nbsp;    由于研究者有 <code>3 </code>篇论文每篇<strong>至少</strong>被引用了 <code>3</code> 次，其余两篇论文每篇被引用<strong>不多于</strong> <code>3</code> 次，所以她的<em> h </em>指数是 <code>3</code>。</pre>
+<p> </p>
 
-<p>&nbsp;</p>
+<p><strong>示例 1：</strong></p>
 
-<p><strong>说明:</strong></p>
+<pre>
+<strong>输入<code>：</code></strong><code>citations = [0,1,3,5,6]</code>
+<strong>输出：</strong>3 
+<strong>解释：</strong>给定数组表示研究者总共有 <code>5</code> 篇论文，每篇论文相应的被引用了 0<code>, 1, 3, 5, 6</code> 次。
+     由于研究者有 <code>3 </code>篇论文每篇<strong> 至少 </strong>被引用了 <code>3</code> 次，其余两篇论文每篇被引用<strong> 不多于</strong> <code>3</code> 次，所以她的<em> h </em>指数是 <code>3</code> 。</pre>
 
-<p>如果 <em>h </em>有多有种可能的值 ，<em>h</em> 指数是其中最大的那个。</p>
+<p><strong>示例 2：</strong></p>
 
-<p>&nbsp;</p>
+<pre>
+<strong>输入：</strong>citations = [1,2,100]
+<strong>输出：</strong>2
+</pre>
 
-<p><strong>进阶：</strong></p>
+<p> </p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>这是&nbsp;<a href="/problems/h-index/description/">H 指数</a>&nbsp;的延伸题目，本题中的&nbsp;<code>citations</code>&nbsp;数组是保证有序的。</li>
-	<li>你可以优化你的算法到对数时间复杂度吗？</li>
+	<li><code>n == citations.length</code></li>
+	<li><code>1 <= n <= 10<sup>5</sup></code></li>
+	<li><code>0 <= citations[i] <= 1000</code></li>
+	<li><code>citations</code> 按 <strong>升序排列</strong></li>
 </ul>
 
 ## 解法

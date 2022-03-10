@@ -59,13 +59,110 @@ os.insert(4, &quot;ddddd&quot;); // Inserts (4, &quot;ddddd&quot;), returns [&qu
 ### **Python3**
 
 ```python
+class OrderedStream:
 
+    def __init__(self, n: int):
+        self.data = [None] * n
+        self.ptr = 0
+
+    def insert(self, idKey: int, value: str) -> List[str]:
+        self.data[idKey - 1] = value
+        ans = []
+        while self.ptr < len(self.data) and self.data[self.ptr]:
+            ans.append(self.data[self.ptr])
+            self.ptr += 1
+        return ans
+
+
+# Your OrderedStream object will be instantiated and called as such:
+# obj = OrderedStream(n)
+# param_1 = obj.insert(idKey,value)
 ```
 
 ### **Java**
 
 ```java
+class OrderedStream {
+    private String[] data;
+    private int ptr;
 
+    public OrderedStream(int n) {
+        data = new String[n];
+        ptr = 0;
+    }
+
+    public List<String> insert(int idKey, String value) {
+        data[idKey - 1] = value;
+        List<String> ans = new ArrayList<>();
+        while (ptr < data.length && data[ptr] != null) {
+            ans.add(data[ptr++]);
+        }
+        return ans;
+    }
+}
+
+/**
+ * Your OrderedStream object will be instantiated and called as such:
+ * OrderedStream obj = new OrderedStream(n);
+ * List<String> param_1 = obj.insert(idKey,value);
+ */
+```
+
+### **C++**
+
+```cpp
+class OrderedStream {
+public:
+    vector<string> data;
+    int ptr = 0;
+
+    OrderedStream(int n) {
+        data.resize(n, "");
+    }
+
+    vector<string> insert(int idKey, string value) {
+        data[idKey - 1] = value;
+        vector<string> ans;
+        while (ptr < data.size() && data[ptr] != "") ans.push_back(data[ptr++]);
+        return ans;
+    }
+};
+
+/**
+ * Your OrderedStream object will be instantiated and called as such:
+ * OrderedStream* obj = new OrderedStream(n);
+ * vector<string> param_1 = obj->insert(idKey,value);
+ */
+```
+
+### **Go**
+
+```go
+type OrderedStream struct {
+	data []string
+	ptr  int
+}
+
+func Constructor(n int) OrderedStream {
+	data := make([]string, n)
+	return OrderedStream{data, 0}
+}
+
+func (this *OrderedStream) Insert(idKey int, value string) []string {
+	this.data[idKey-1] = value
+	var ans []string
+	for this.ptr < len(this.data) && this.data[this.ptr] != "" {
+		ans = append(ans, this.data[this.ptr])
+		this.ptr++
+	}
+	return ans
+}
+
+/**
+ * Your OrderedStream object will be instantiated and called as such:
+ * obj := Constructor(n);
+ * param_1 := obj.Insert(idKey,value);
+ */
 ```
 
 ### **...**

@@ -6,11 +6,13 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定由若干 0 和 1 组成的矩阵 <code>matrix</code>，从中选出任意数量的列并翻转其上的 <strong>每个 </strong>单元格。翻转后，单元格的值从 0 变成 1，或者从 1 变为 0 。</p>
+<p>给定&nbsp;<code>m x n</code>&nbsp;矩阵&nbsp;<code>matrix</code>&nbsp;。</p>
 
-<p>回经过一些翻转后，行与行之间所有值都相等的最大行数。</p>
+<p>你可以从中选出任意数量的列并翻转其上的&nbsp;<strong>每个&nbsp;</strong>单元格。（即翻转后，单元格的值从 <code>0</code> 变成 <code>1</code>，或者从 <code>1</code> 变为 <code>0</code> 。）</p>
 
-<p> </p>
+<p>返回 <em>经过一些翻转后，行与行之间所有值都相等的最大行数</em>&nbsp;。</p>
+
+<p>&nbsp;</p>
 
 <ol>
 </ol>
@@ -18,7 +20,7 @@
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>[[0,1],[1,1]]
+<strong>输入：</strong>matrix = [[0,1],[1,1]]
 <strong>输出：</strong>1
 <strong>解释：</strong>不进行翻转，有 1 行所有值都相等。
 </pre>
@@ -26,7 +28,7 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>[[0,1],[1,0]]
+<strong>输入：</strong>matrix = [[0,1],[1,0]]
 <strong>输出：</strong>2
 <strong>解释：</strong>翻转第一列的值之后，这两行都由相等的值组成。
 </pre>
@@ -34,20 +36,20 @@
 <p><strong>示例 3：</strong></p>
 
 <pre>
-<strong>输入：</strong>[[0,0,0],[0,0,1],[1,1,0]]
+<strong>输入：</strong>matrix = [[0,0,0],[0,0,1],[1,1,0]]
 <strong>输出：</strong>2
 <strong>解释：</strong>翻转前两列的值之后，后两行由相等的值组成。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>1 <= matrix.length <= 300</code></li>
-	<li><code>1 <= matrix[i].length <= 300</code></li>
-	<li>所有 <code>matrix[i].length</code> 都相等</li>
-	<li><code>matrix[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
-</ol>
+<ul>
+	<li><code>m == matrix.length</code></li>
+	<li><code>n == matrix[i].length</code></li>
+	<li><code>1 &lt;= m, n &lt;= 300</code></li>
+	<li><code>matrix[i][j] == 0</code> 或&nbsp;<code>1</code></li>
+</ul>
 
 ## 解法
 

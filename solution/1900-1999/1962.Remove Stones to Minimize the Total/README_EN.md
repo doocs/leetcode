@@ -34,8 +34,8 @@ The total number of stones in [3,4,5] is 12.
 <strong>Input:</strong> piles = [4,3,6,7], k = 3
 <strong>Output:</strong> 12
 <strong>Explanation:</strong>&nbsp;Steps of a possible scenario are:
-- Apply the operation on pile 3. The resulting piles are [4,3,<u>3</u>,7].
-- Apply the operation on pile 4. The resulting piles are [4,3,3,<u>4</u>].
+- Apply the operation on pile 2. The resulting piles are [4,3,<u>3</u>,7].
+- Apply the operation on pile 3. The resulting piles are [4,3,3,<u>4</u>].
 - Apply the operation on pile 0. The resulting piles are [<u>2</u>,3,3,4].
 The total number of stones in [2,3,3,4] is 12.
 </pre>

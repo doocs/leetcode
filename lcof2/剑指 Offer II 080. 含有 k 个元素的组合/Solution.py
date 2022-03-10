@@ -10,6 +10,6 @@ class Solution:
                 t.append(j)
                 dfs(j + 1, n, k, t)
                 t.pop()
-        
+
         dfs(1, n, k, [])
         return res

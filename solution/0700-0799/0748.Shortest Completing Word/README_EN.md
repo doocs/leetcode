@@ -34,27 +34,6 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 <strong>Explanation:</strong> licensePlate only contains the letter &#39;s&#39;. All the words contain &#39;s&#39;, but among these &quot;pest&quot;, &quot;stew&quot;, and &quot;show&quot; are shortest. The answer is &quot;pest&quot; because it is the word that appears earliest of the 3.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> licensePlate = &quot;Ah71752&quot;, words = [&quot;suggest&quot;,&quot;letter&quot;,&quot;of&quot;,&quot;husband&quot;,&quot;easy&quot;,&quot;education&quot;,&quot;drug&quot;,&quot;prevent&quot;,&quot;writer&quot;,&quot;old&quot;]
-<strong>Output:</strong> &quot;husband&quot;
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> licensePlate = &quot;OgEu755&quot;, words = [&quot;enough&quot;,&quot;these&quot;,&quot;play&quot;,&quot;wide&quot;,&quot;wonder&quot;,&quot;box&quot;,&quot;arrive&quot;,&quot;money&quot;,&quot;tax&quot;,&quot;thus&quot;]
-<strong>Output:</strong> &quot;enough&quot;
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> licensePlate = &quot;iMSlpe4&quot;, words = [&quot;claim&quot;,&quot;consumer&quot;,&quot;student&quot;,&quot;camera&quot;,&quot;public&quot;,&quot;never&quot;,&quot;wonder&quot;,&quot;simple&quot;,&quot;thought&quot;,&quot;use&quot;]
-<strong>Output:</strong> &quot;simple&quot;
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

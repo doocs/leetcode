@@ -37,10 +37,10 @@
 
 **提示：**
 
-- `2 <= tasks.length <= 10^5`
-- `tasks[i].length == 3`
-- `0 <= tasks[i][0] <= tasks[i][1] <= 10^9`
-- `1 <= tasks[i][2] <= tasks[i][1]-tasks[i][0] + 1`
+-   `2 <= tasks.length <= 10^5`
+-   `tasks[i].length == 3`
+-   `0 <= tasks[i][0] <= tasks[i][1] <= 10^9`
+-   `1 <= tasks[i][2] <= tasks[i][1]-tasks[i][0] + 1`
 
 ## 解法
 

@@ -21,11 +21,17 @@ Note that equal author_id and viewer_id indicate the same person.</pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find all the people who viewed more than one article on the same date, sorted in ascending order by their id.</p>
+<p>Write an SQL query to find all the people who viewed more than one article on the same date.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table sorted by <code>id</code> in ascending order.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Views table:
 +------------+-----------+-----------+------------+
 | article_id | author_id | viewer_id | view_date  |
@@ -39,14 +45,14 @@ Views table:
 | 3          | 4         | 4         | 2019-07-21 |
 | 3          | 4         | 4         | 2019-07-21 |
 +------------+-----------+-----------+------------+
-
-Result table:
+<strong>Output:</strong> 
 +------+
 | id   |
 +------+
 | 5    |
 | 6    |
-+------+</pre>
++------+
+</pre>
 
 ## Solutions
 

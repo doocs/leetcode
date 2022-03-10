@@ -6,47 +6,49 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Given an integer array <code>nums</code> of length <code>n</code> and an integer <code>k</code>, return <em>the </em><code>k<sup>th</sup></code> <em><strong>smallest subarray sum</strong>.</em></p>
+<p>给你一个 长度为&nbsp;<code>n</code>&nbsp;的整型数组&nbsp;<code>nums</code>&nbsp;和一个数值&nbsp;<code>k</code>&nbsp;，返回<strong> 第<em>&nbsp;</em><code>k</code>&nbsp;小的子数组和<i>。</i></strong></p>
 
-<p>A <strong>subarray</strong> is defined as a <strong>non-empty</strong> contiguous sequence of elements in an array. A <strong>subarray sum</strong> is the sum of all elements in the subarray.</p>
-
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [2,1,3], k = 4
-<strong>Output:</strong> 3
-<strong>Explanation: </strong>The subarrays of [2,1,3] are:
-- [2] with sum 2
-- [1] with sum 1
-- [3] with sum 3
-- [2,1] with sum 3
-- [1,3] with sum 4
-- [2,1,3] with sum 6 
-Ordering the sums from smallest to largest gives 1, 2, 3, <u>3</u>, 4, 6. The 4th smallest is 3.
-</pre>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [3,3,5,5], k = 7
-<strong>Output:</strong> 10
-<strong>Explanation: </strong>The subarrays of [3,3,5,5] are:
-- [3] with sum 3
-- [3] with sum 3
-- [5] with sum 5
-- [5] with sum 5
-- [3,3] with sum 6
-- [3,5] with sum 8
-- [5,5] with sum 10
-- [3,3,5], with sum 11
-- [3,5,5] with sum 13
-- [3,3,5,5] with sum 16
-Ordering the sums from smallest to largest gives 3, 3, 5, 5, 6, 8, <u>10</u>, 11, 13, 16. The 7th smallest is 10.
-</pre>
+<p><b>子数组</b> 是指数组中一个 <b>非空</b>&nbsp;且不间断的子序列。&nbsp; <b>子数组和</b> 则指子数组中所有元素的和。</p>
 
 <p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> nums = [2,1,3], k = 4
+<strong>输出:</strong> 3
+<strong>解释: </strong>[2,1,3] 的子数组为：
+- [2] 和为 2
+- [1] 和为 1
+- [3] 和为 3
+- [2,1] 和为 3
+- [1,3] 和为 4
+- [2,1,3] 和为 6 
+最小子数组和的升序排序为 1, 2, 3, <strong><em>3</em></strong>, 4, 6。 第 4 小的子数组和为 3 。
+</pre>
+
+<strong>示例 2：</strong>
+
+<pre>
+<strong>输入：</strong>nums = [3,3,5,5], k = 7
+<strong>输出：</strong>10
+<strong>解释：</strong>[3,3,5,5] 的子数组为：
+- [3] 和为 3
+- [3] 和为 3
+- [5] 和为 5
+- [5] 和为 5
+- [3,3] 和为 6
+- [3,5] 和为 8
+- [5,5] 和为 10
+- [3,3,5], 和为 11
+- [3,5,5] 和为 13
+- [3,3,5,5] 和为 16
+最小子数组和的升序排序为 3, 3, 5, 5, 6, 8, <strong><em>10</em></strong>, 11, 13, 16。第 7 小的子数组和为 10 。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>n == nums.length</code></li>

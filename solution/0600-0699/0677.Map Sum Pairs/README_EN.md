@@ -4,12 +4,19 @@
 
 ## Description
 
+<p>Design a map that allows you to do the following:</p>
+
+<ul>
+	<li>Maps a string key to a given value.</li>
+	<li>Returns the sum of the values that have a key with a prefix equal to a given string.</li>
+</ul>
+
 <p>Implement the <code>MapSum</code> class:</p>
 
 <ul>
-	<li><code>MapSum()</code> Initializes the&nbsp;<code>MapSum</code> object.</li>
+	<li><code>MapSum()</code> Initializes the <code>MapSum</code> object.</li>
 	<li><code>void insert(String key, int val)</code> Inserts the <code>key-val</code> pair into the map. If the <code>key</code> already existed, the original <code>key-value</code> pair will be overridden to the new one.</li>
-	<li><code>int sum(string prefix)</code> Returns&nbsp;the sum of all the pairs&#39; value whose <code>key</code> starts with the <code>prefix</code>.</li>
+	<li><code>int sum(string prefix)</code> Returns the sum of all the pairs&#39; value whose <code>key</code> starts with the <code>prefix</code>.</li>
 </ul>
 
 <p>&nbsp;</p>

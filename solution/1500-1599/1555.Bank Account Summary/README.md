@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>用户表： <code>Users</code></p>
+<p>用户表：&nbsp;<code>Users</code></p>
 
 <pre>
 +--------------+---------+
@@ -19,7 +19,7 @@
 user_id 是这个表的主键。
 表中的每一列包含每一个用户当前的额度信息。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p>交易表：<code>Transactions</code></p>
 
@@ -38,27 +38,30 @@ trans_id 是这个表的主键。
 ID 为 paid_by 的用户给 ID 为 paid_to 的用户转账。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p>力扣银行 (LCB) 帮助程序员们完成虚拟支付。我们的银行在表 <em>Transaction</em> 中记录每条交易信息，我们要查询每个用户的当前余额，并检查他们是否已透支（当前额度小于 0）。</p>
+<p>力扣银行 (LCB) 帮助程序员们完成虚拟支付。我们的银行在表&nbsp;<em>Transaction</em>&nbsp;中记录每条交易信息，我们要查询每个用户的当前余额，并检查他们是否已透支（当前额度小于 0）。</p>
 
 <p>写一条 SQL 语句，查询：</p>
 
 <ul>
-	<li><code>user_id</code> 用户 ID</li>
-	<li><code>user_name</code> 用户名</li>
-	<li><code>credit</code> 完成交易后的余额</li>
-	<li><code>credit_limit_breached</code> 检查是否透支 （"Yes" 或 "No"）</li>
+	<li><code>user_id</code>&nbsp;用户 ID</li>
+	<li><code>user_name</code>&nbsp;用户名</li>
+	<li><code>credit</code>&nbsp;完成交易后的余额</li>
+	<li><code>credit_limit_breached</code>&nbsp;检查是否透支 （"Yes" 或&nbsp;"No"）</li>
 </ul>
 
 <p>以<strong>任意</strong>顺序返回结果表。</p>
 
-<p> </p>
+<p>查询格式见如下所示。</p>
 
-<p>查询格式见如下示例：</p>
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
 
 <pre>
-<code>Users</code> 表：
+<code><strong>输入：</strong>
+Users</code> 表：
 +------------+--------------+-------------+
 | user_id    | user_name    | credit      |
 +------------+--------------+-------------+
@@ -77,7 +80,7 @@ ID 为 paid_by 的用户给 ID 为 paid_to 的用户转账。
 | 3          | 2          | 1          | 200      | 2020-08-03    |
 +------------+------------+------------+----------+---------------+
 
-结果表：
+<strong>输出：</strong>
 +------------+------------+------------+-----------------------+
 | <code>user_id </code>   | <code>user_name</code>  | <code>credit </code>    | <code>credit_limit_breached</code> |
 +------------+------------+------------+-----------------------+

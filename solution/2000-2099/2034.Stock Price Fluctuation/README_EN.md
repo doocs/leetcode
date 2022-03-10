@@ -66,39 +66,36 @@ stockPrice.minimum();     // return 2, the minimum price is 2 at timestamp 4.
 ### **Python3**
 
 ```python
+from sortedcontainers import SortedDict
+
+
 class StockPrice:
 
     def __init__(self):
         self.last_ts = 0
         self.mp = {}
-        self.mi = []
-        self.mx = []
-        self.counter = Counter()
+        self.counter = SortedDict()
 
     def update(self, timestamp: int, price: int) -> None:
         if timestamp in self.mp:
             old_price = self.mp[timestamp]
             self.counter[old_price] -= 1
-
+            if self.counter[old_price] == 0:
+                del self.counter[old_price]
+        if price not in self.counter:
+            self.counter[price] = 0
+        self.counter[price] += 1
         self.mp[timestamp] = price
         self.last_ts = max(self.last_ts, timestamp)
-        self.counter[price] += 1
-        heapq.heappush(self.mi, price)
-        heapq.heappush(self.mx, -price)
-
 
     def current(self) -> int:
         return self.mp[self.last_ts]
 
     def maximum(self) -> int:
-        while self.counter[-self.mx[0]] == 0:
-            heapq.heappop(self.mx)
-        return -self.mx[0]
+        return self.counter.keys()[-1]
 
     def minimum(self) -> int:
-        while self.counter[self.mi[0]] == 0:
-            heapq.heappop(self.mi)
-        return self.mi[0]
+        return self.counter.keys()[0]
 
 
 # Your StockPrice object will be instantiated and called as such:
@@ -114,10 +111,8 @@ class StockPrice:
 ```java
 class StockPrice {
     private int lastTs;
-    private PriorityQueue<Integer> mi = new PriorityQueue<>();
-    private PriorityQueue<Integer> mx = new PriorityQueue<>(Collections.reverseOrder());
     private Map<Integer, Integer> mp = new HashMap<>();
-    private Map<Integer, Integer> counter = new HashMap<>();
+    private TreeMap<Integer, Integer> counter = new TreeMap<>();
 
     public StockPrice() {
 
@@ -127,12 +122,13 @@ class StockPrice {
         if (mp.containsKey(timestamp)) {
             int oldPrice = mp.get(timestamp);
             counter.put(oldPrice, counter.get(oldPrice) - 1);
+            if (counter.get(oldPrice) == 0) {
+                counter.remove(oldPrice);
+            }
         }
         mp.put(timestamp, price);
-        lastTs = Math.max(lastTs, timestamp);
         counter.put(price, counter.getOrDefault(price, 0) + 1);
-        mi.offer(price);
-        mx.offer(price);
+        lastTs = Math.max(lastTs, timestamp);
     }
 
     public int current() {
@@ -140,17 +136,11 @@ class StockPrice {
     }
 
     public int maximum() {
-        while (counter.getOrDefault(mx.peek(), 0) == 0) {
-            mx.poll();
-        }
-        return mx.peek();
+        return counter.lastKey();
     }
 
     public int minimum() {
-        while (counter.getOrDefault(mi.peek(), 0) == 0) {
-            mi.poll();
-        }
-        return mi.peek();
+        return counter.firstKey();
     }
 }
 
@@ -168,28 +158,25 @@ class StockPrice {
 
 ```cpp
 class StockPrice {
-private:
-    int lastTs;
-    priority_queue<int> mx;
-    priority_queue<int, vector<int>, greater<int>> mi;
-    unordered_map<int, int> mp;
-    unordered_map<int, int> counter;
 public:
+    int lastTs;
+    unordered_map<int, int> mp;
+    map<int, int> counter;
+
     StockPrice() {
 
     }
 
     void update(int timestamp, int price) {
-        if (mp.find(timestamp) != mp.end())
+        if (mp.count(timestamp))
         {
             int oldPrice = mp[timestamp];
             --counter[oldPrice];
+            if (counter[oldPrice] == 0) counter.erase(oldPrice);
         }
         mp[timestamp] = price;
-        lastTs = max(lastTs, timestamp);
         ++counter[price];
-        mi.push(price);
-        mx.push(price);
+        lastTs = max(lastTs, timestamp);
     }
 
     int current() {
@@ -197,13 +184,11 @@ public:
     }
 
     int maximum() {
-        while (!counter[mx.top()]) mx.pop();
-        return mx.top();
+        return counter.rbegin()->first;
     }
 
     int minimum() {
-        while (!counter[mi.top()]) mi.pop();
-        return mi.top();
+        return counter.begin()->first;
     }
 };
 
@@ -214,6 +199,68 @@ public:
  * int param_2 = obj->current();
  * int param_3 = obj->maximum();
  * int param_4 = obj->minimum();
+ */
+```
+
+### **Go**
+
+```go
+type StockPrice struct {
+	lastTs  int
+	mp      map[int]int
+	counter *redblacktree.Tree
+}
+
+func Constructor() StockPrice {
+	return StockPrice{
+		mp:      make(map[int]int),
+		counter: redblacktree.NewWithIntComparator(),
+	}
+}
+
+func (this *StockPrice) Update(timestamp int, price int) {
+	if timestamp > this.lastTs {
+		this.lastTs = timestamp
+	}
+	if old, ok := this.mp[timestamp]; ok {
+		cnt := getInt(this.counter, old)
+		if cnt == 1 {
+			this.counter.Remove(old)
+		} else {
+			this.counter.Put(old, cnt-1)
+		}
+	}
+	this.mp[timestamp] = price
+	this.counter.Put(price, getInt(this.counter, price)+1)
+}
+
+func (this *StockPrice) Current() int {
+	return this.mp[this.lastTs]
+}
+
+func (this *StockPrice) Maximum() int {
+	return this.counter.Right().Key.(int)
+}
+
+func (this *StockPrice) Minimum() int {
+	return this.counter.Left().Key.(int)
+}
+
+func getInt(rbt *redblacktree.Tree, key int) int {
+	val, found := rbt.Get(key)
+	if !found {
+		return 0
+	}
+	return val.(int)
+}
+
+/**
+ * Your StockPrice object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Update(timestamp,price);
+ * param_2 := obj.Current();
+ * param_3 := obj.Maximum();
+ * param_4 := obj.Minimum();
  */
 ```
 

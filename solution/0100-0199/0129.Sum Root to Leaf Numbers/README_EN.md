@@ -12,7 +12,7 @@
 	<li>For example, the root-to-leaf path <code>1 -&gt; 2 -&gt; 3</code> represents the number <code>123</code>.</li>
 </ul>
 
-<p>Return <em>the total sum of all root-to-leaf numbers</em>.</p>
+<p>Return <em>the total sum of all root-to-leaf numbers</em>. Test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</p>
 
 <p>A <strong>leaf</strong> node is a node with no children.</p>
 

@@ -122,7 +122,7 @@ class Solution {
             }
         }
         List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
+        for (int i = time; i < n - time; ++i) {
             if (time <= Math.min(left[i], right[i])) {
                 ans.add(i);
             }
@@ -149,7 +149,7 @@ public:
             if (security[i] <= security[i + 1])
                 right[i] = right[i + 1] + 1;
         vector<int> ans;
-        for (int i = 0; i < n; ++i)
+        for (int i = time; i < n - time; ++i)
             if (time <= min(left[i], right[i]))
                 ans.push_back(i);
         return ans;
@@ -178,7 +178,7 @@ func goodDaysToRobBank(security []int, time int) []int {
 		}
 	}
 	var ans []int
-	for i := 0; i < n; i++ {
+	for i := time; i < n - time; i++ {
 		if time <= left[i] && time <= right[i] {
 			ans = append(ans, i)
 		}
@@ -189,10 +189,66 @@ func goodDaysToRobBank(security []int, time int) []int {
 
 ### **TypeScript**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
+function goodDaysToRobBank(security: number[], time: number): number[] {
+    const n = security.length;
+    if (n <= time * 2) {
+        return [];
+    }
+    const l = new Array(n).fill(0);
+    const r = new Array(n).fill(0);
+    for (let i = 1; i < n; i++) {
+        if (security[i] <= security[i - 1]) {
+            l[i] = l[i - 1] + 1;
+        }
+        if (security[n - i - 1] <= security[n - i]) {
+            r[n - i - 1] = r[n - i] + 1;
+        }
+    }
+    const res = [];
+    for (let i = time; i < n - time; i++) {
+        if (time <= Math.min(l[i], r[i])) {
+            res.push(i);
+        }
+    }
+    return res;
+}
+```
 
+### **Rust**
+
+```rust
+use std::cmp::Ordering;
+
+impl Solution {
+    pub fn good_days_to_rob_bank(security: Vec<i32>, time: i32) -> Vec<i32> {
+        let time = time as usize;
+        let n = security.len();
+        if time * 2 >= n {
+            return vec![];
+        }
+        let mut g = vec![0; n];
+        for i in 1..n {
+            g[i] = match security[i].cmp(&security[i - 1]) {
+                Ordering::Less => -1,
+                Ordering::Greater => 1,
+                Ordering::Equal => 0,
+            }
+        }
+        let (mut a, mut b) = (vec![0; n + 1], vec![0; n + 1]);
+        for i in 1..=n {
+            a[i] = a[i - 1] + if g[i - 1] == 1 { 1 } else { 0 };
+            b[i] = b[i - 1] + if g[i - 1] == -1 { 1 } else { 0 };
+        }
+        let mut res = vec![];
+        for i in time..n - time {
+            if a[i + 1] - a[i + 1 - time] == 0 && b[i + 1 + time] - b[i + 1] == 0 {
+                res.push((i) as i32);
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**

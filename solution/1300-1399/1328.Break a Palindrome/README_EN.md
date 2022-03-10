@@ -28,19 +28,6 @@ Of all the ways, &quot;aaccba&quot; is the lexicographically smallest.
 <strong>Explanation:</strong> There is no way to replace a single character to make &quot;a&quot; not a palindrome, so return an empty string.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> palindrome = &quot;aa&quot;
-<strong>Output:</strong> &quot;ab&quot;</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> palindrome = &quot;aba&quot;
-<strong>Output:</strong> &quot;abb&quot;
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

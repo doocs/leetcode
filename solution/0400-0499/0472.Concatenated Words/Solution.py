@@ -29,7 +29,7 @@ class Solution:
                 if node is None:
                     return False
                 if node.is_end:
-                    if dfs(word[i + 1:]):
+                    if dfs(word[i + 1 :]):
                         return True
             return False
 

@@ -17,69 +17,43 @@
 <p>Return <code>true</code> <em>if the <strong>summation</strong> of the <strong>numerical values</strong> of </em><code>firstWord</code><em> and </em><code>secondWord</code><em> equals the <strong>numerical value</strong> of </em><code>targetWord</code><em>, or </em><code>false</code><em> otherwise.</em></p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> firstWord = &quot;acb&quot;, secondWord = &quot;cba&quot;, targetWord = &quot;cdb&quot;
-
 <strong>Output:</strong> true
-
 <strong>Explanation:</strong>
-
 The numerical value of firstWord is &quot;acb&quot; -&gt; &quot;021&quot; -&gt; 21.
-
 The numerical value of secondWord is &quot;cba&quot; -&gt; &quot;210&quot; -&gt; 210.
-
 The numerical value of targetWord is &quot;cdb&quot; -&gt; &quot;231&quot; -&gt; 231.
-
 We return true because 21 + 210 == 231.
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> firstWord = &quot;aaa&quot;, secondWord = &quot;a&quot;, targetWord = &quot;aab&quot;
-
 <strong>Output:</strong> false
-
 <strong>Explanation:</strong> 
-
 The numerical value of firstWord is &quot;aaa&quot; -&gt; &quot;000&quot; -&gt; 0.
-
 The numerical value of secondWord is &quot;a&quot; -&gt; &quot;0&quot; -&gt; 0.
-
 The numerical value of targetWord is &quot;aab&quot; -&gt; &quot;001&quot; -&gt; 1.
-
 We return false because 0 + 0 != 1.
-
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> firstWord = &quot;aaa&quot;, secondWord = &quot;a&quot;, targetWord = &quot;aaaa&quot;
-
 <strong>Output:</strong> true
-
 <strong>Explanation:</strong> 
-
 The numerical value of firstWord is &quot;aaa&quot; -&gt; &quot;000&quot; -&gt; 0.
-
 The numerical value of secondWord is &quot;a&quot; -&gt; &quot;0&quot; -&gt; 0.
-
 The numerical value of targetWord is &quot;aaaa&quot; -&gt; &quot;0000&quot; -&gt; 0.
-
 We return true because 0 + 0 == 0.
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
@@ -170,7 +144,7 @@ var isSumEqual = function (firstWord, secondWord, targetWord) {
 
 function getNum(char) {
     if (!char) return 0;
-    return char.charCodeAt() - "a".charCodeAt();
+    return char.charCodeAt() - 'a'.charCodeAt();
 }
 ```
 

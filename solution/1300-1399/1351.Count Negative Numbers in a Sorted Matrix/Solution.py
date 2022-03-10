@@ -4,7 +4,7 @@ class Solution:
         i, j = 0, n - 1
         while i < m and j >= 0:
             if grid[i][j] < 0:
-                cnt += (m - i)
+                cnt += m - i
                 j -= 1
             else:
                 i += 1

@@ -1,11 +1,12 @@
 class Solution {
     private int[][] grid;
-    private boolean[][] vis;
+    private int m;
+    private int n;
 
     public int getMaximumGold(int[][] grid) {
-        int m = grid.length, n = grid[0].length;
+        m = grid.length;
+        n = grid[0].length;
         this.grid = grid;
-        this.vis = new boolean[m][n];
         int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
@@ -16,16 +17,17 @@ class Solution {
     }
 
     private int dfs(int i, int j) {
-        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 0 || vis[i][j]) {
+        if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == 0) {
             return 0;
         }
-        vis[i][j] = true;
-        int t = 0;
-        int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
-        for (int[] dir : dirs) {
-            t = Math.max(t, dfs(i + dir[0], j + dir[1]));
+        int t = grid[i][j];
+        grid[i][j] = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        int ans = 0;
+        for (int k = 0; k < 4; ++k) {
+            ans = Math.max(ans, t + dfs(i + dirs[k], j + dirs[k + 1]));
         }
-        vis[i][j] = false;
-        return t + grid[i][j];
+        grid[i][j] = t;
+        return ans;
     }
 }

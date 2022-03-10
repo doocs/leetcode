@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Count the number of prime numbers less than a non-negative number, <code>n</code>.</p>
+<p>Given an integer <code>n</code>, return <em>the number of prime numbers that are strictly less than</em> <code>n</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

@@ -4,28 +4,50 @@
 
 ## Description
 
-<p>Given two strings <code>s</code> and <code>t</code>, return <em>the minimum window in <code>s</code> which will contain all the characters in <code>t</code></em>. If there is no such window in <code>s</code> that covers all characters in <code>t</code>, return <em>the empty string <code>&quot;&quot;</code></em>.</p>
+<p>Given two strings <code>s</code> and <code>t</code> of lengths <code>m</code> and <code>n</code> respectively, return <em>the <strong>minimum window substring</strong> of </em><code>s</code><em> such that every character in </em><code>t</code><em> (<strong>including duplicates</strong>) is included in the window. If there is no such substring</em><em>, return the empty string </em><code>&quot;&quot;</code><em>.</em></p>
 
-<p><strong>Note</strong> that If there is such a window, it is&nbsp;guaranteed that there will always be only one unique minimum window in <code>s</code>.</p>
+<p>The testcases will be generated such that the answer is <strong>unique</strong>.</p>
+
+<p>A <strong>substring</strong> is a contiguous sequence of characters within the string.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> s = "ADOBECODEBANC", t = "ABC"
-<strong>Output:</strong> "BANC"
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> s = "a", t = "a"
-<strong>Output:</strong> "a"
+
+<pre>
+<strong>Input:</strong> s = &quot;ADOBECODEBANC&quot;, t = &quot;ABC&quot;
+<strong>Output:</strong> &quot;BANC&quot;
+<strong>Explanation:</strong> The minimum window substring &quot;BANC&quot; includes &#39;A&#39;, &#39;B&#39;, and &#39;C&#39; from string t.
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;a&quot;, t = &quot;a&quot;
+<strong>Output:</strong> &quot;a&quot;
+<strong>Explanation:</strong> The entire string s is the minimum window.
+</pre>
+
+<p><strong>Example 3:</strong></p>
+
+<pre>
+<strong>Input:</strong> s = &quot;a&quot;, t = &quot;aa&quot;
+<strong>Output:</strong> &quot;&quot;
+<strong>Explanation:</strong> Both &#39;a&#39;s from t must be included in the window.
+Since the largest window of s only has one &#39;a&#39;, return empty string.
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length, t.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>s</code> and <code>t</code> consist of English letters.</li>
+	<li><code>m == s.length</code></li>
+	<li><code>n == t.length</code></li>
+	<li><code>1 &lt;= m, n&nbsp;&lt;= 10<sup>5</sup></code></li>
+	<li><code>s</code> and <code>t</code> consist of uppercase and lowercase English letters.</li>
 </ul>
 
 <p>&nbsp;</p>
-<strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(n)</code> time?
+<strong>Follow up:</strong> Could you find an algorithm that runs in <code>O(m + n)</code> time?
 
 ## Solutions
 
@@ -49,7 +71,7 @@
 function minWindow(s: string, t: string): string {
     let n1 = s.length,
         n2 = t.length;
-    if (n1 < n2) return "";
+    if (n1 < n2) return '';
     let need = new Array(128).fill(0);
     let window = new Array(128).fill(0);
     for (let i = 0; i < n2; ++i) {
@@ -58,7 +80,7 @@ function minWindow(s: string, t: string): string {
 
     let left = 0,
         right = 0;
-    let res = "";
+    let res = '';
     let count = 0;
     let min = n1 + 1;
     while (right < n1) {

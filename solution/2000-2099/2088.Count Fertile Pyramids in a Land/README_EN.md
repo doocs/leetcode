@@ -26,42 +26,30 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg11.png" style="width: 200px; height: 102px;" />&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa12.png" style="width: 200px; height: 102px;" />&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa13.png" style="width: 200px; height: 102px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/1.JPG" style="width: 575px; height: 109px;" />
 <pre>
 <strong>Input:</strong> grid = [[0,1,1,0],[1,1,1,1]]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
-The 2 possible pyramidal plots are shown in blue and red respectively.
-There are no inverse pyramidal plots in this grid.&nbsp;
+<strong>Explanation:</strong> The 2 possible pyramidal plots are shown in blue and red respectively.
+There are no inverse pyramidal plots in this grid. 
 Hence total number of pyramidal and inverse pyramidal plots is 2 + 0 = 2.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg21.png" style="width: 180px; height: 122px;" />&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa22.png" style="width: 180px; height: 122px;" />&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/exa23.png" style="width: 180px; height: 122px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/2.JPG" style="width: 502px; height: 120px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,1],[1,1,1]]
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
-The pyramidal plot is shown in blue, and the inverse pyramidal plot is shown in red.&nbsp;
+<strong>Explanation:</strong> The pyramidal plot is shown in blue, and the inverse pyramidal plot is shown in red. 
 Hence the total number of plots is 1 + 1 = 2.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg3.png" style="width: 149px; height: 150px;" />
-<pre>
-<strong>Input:</strong> grid = [[1,0,1],[0,0,0],[1,0,1]]
-<strong>Output:</strong> 0
-<strong>Explanation:</strong>
-There are no pyramidal or inverse pyramidal plots in the grid.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg41.png" style="width: 180px; height: 144px;" />&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg42.png" style="width: 180px; height: 144px;" />&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg43.png" style="width: 180px; height: 144px;" />&nbsp;<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/eg44.png" style="width: 180px; height: 144px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/2000-2099/2088.Count%20Fertile%20Pyramids%20in%20a%20Land/images/3.JPG" style="width: 676px; height: 148px;" />
 <pre>
 <strong>Input:</strong> grid = [[1,1,1,1,0],[1,1,1,1,1],[1,1,1,1,1],[0,1,0,0,1]]
 <strong>Output:</strong> 13
-<strong>Explanation:</strong>
-There are 7 pyramidal plots, 3 of which are shown in the 2nd and 3rd figures.
+<strong>Explanation:</strong> There are 7 pyramidal plots, 3 of which are shown in the 2nd and 3rd figures.
 There are 6 inverse pyramidal plots, 2 of which are shown in the last figure.
 The total number of plots is 7 + 6 = 13.
 </pre>

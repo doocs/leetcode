@@ -6,7 +6,10 @@ class Solution:
             l1, l2 = len(w1), len(w2)
             flag = False
             for j in range(max(l1, l2)):
-                i1, i2 = -1 if j >= l1 else index[w1[j]], -1 if j >= l2 else index[w2[j]]
+                i1, i2 = (
+                    -1 if j >= l1 else index[w1[j]],
+                    -1 if j >= l2 else index[w2[j]],
+                )
                 if i1 > i2:
                     return False
                 if i1 < i2:

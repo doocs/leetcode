@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.</p>
+<p>Given two strings <code>ransomNote</code> and <code>magazine</code>, return <code>true</code><em> if </em><code>ransomNote</code><em> can be constructed from </em><code>magazine</code><em> and </em><code>false</code><em> otherwise</em>.</p>
 
-<p>Each letter in the magazine string can only be used once in your ransom note.</p>
+<p>Each letter in <code>magazine</code> can only be used once in <code>ransomNote</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -23,7 +23,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>You may assume that both strings contain only lowercase letters.</li>
+	<li><code>1 &lt;= ransomNote.length, magazine.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>ransomNote</code> and <code>magazine</code> consist of lowercase English letters.</li>
 </ul>
 
 ## Solutions
@@ -68,7 +69,7 @@ class Solution {
 ```ts
 function canConstruct(ransomNote: string, magazine: string): boolean {
     let counter = new Array(26).fill(0);
-    let base = "a".charCodeAt(0);
+    let base = 'a'.charCodeAt(0);
     for (let s of magazine) {
         ++counter[s.charCodeAt(0) - base];
     }

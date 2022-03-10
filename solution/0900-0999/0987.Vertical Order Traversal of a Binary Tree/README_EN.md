@@ -180,7 +180,7 @@ function dfs(
     root: TreeNode | null,
     depth: number,
     idx: number,
-    solution: Array<Array<number>>
+    solution: Array<Array<number>>,
 ) {
     if (!root) return;
     solution.push([root.val, depth, idx]);

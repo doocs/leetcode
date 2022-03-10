@@ -2,7 +2,7 @@ function possiblyEquals(s1: string, s2: string): boolean {
     const n = s1.length,
         m = s2.length;
     let dp: Array<Array<Set<number>>> = Array.from({ length: n + 1 }, v =>
-        Array.from({ length: m + 1 }, w => new Set())
+        Array.from({ length: m + 1 }, w => new Set()),
     );
     dp[0][0].add(0);
 

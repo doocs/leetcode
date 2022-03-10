@@ -8,7 +8,7 @@
 
 <p>Each result of the division is rounded to the nearest integer greater than or equal to that element. (For example: <code>7/3 = 3</code> and <code>10/2 = 5</code>).</p>
 
-<p>It is guaranteed that there will be an answer.</p>
+<p>The test cases are generated so&nbsp;that there will be an answer.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -25,20 +25,6 @@ If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the 
 <pre>
 <strong>Input:</strong> nums = [44,22,33,11,1], threshold = 5
 <strong>Output:</strong> 44
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [21212,10101,12121], threshold = 1000000
-<strong>Output:</strong> 1
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [2,3,5,7,11], threshold = 11
-<strong>Output:</strong> 3
 </pre>
 
 <p>&nbsp;</p>

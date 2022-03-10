@@ -10,7 +10,7 @@
 
 <pre>
 
-<strong>Input: </strong><code>s1</code> = &quot;abc&quot;, <code>s2</code> = &quot;bca&quot;
+<strong>Input: </strong>s1 = &quot;abc&quot;, s2 = &quot;bca&quot;
 
 <strong>Output: </strong>true
 
@@ -20,7 +20,7 @@
 
 <pre>
 
-<strong>Input: </strong><code>s1</code> = &quot;abc&quot;, <code>s2</code> = &quot;bad&quot;
+<strong>Input: </strong>s1 = &quot;abc&quot;, s2 = &quot;bad&quot;
 
 <strong>Output: </strong>false
 
@@ -48,10 +48,7 @@ class Solution:
         for i in range(n1):
             counter[s1[i]] += 1
             counter[s2[i]] -= 1
-        for val in counter.values():
-            if val != 0:
-                return False
-        return True
+        return all(v == 0 for v in counter.values())
 ```
 
 ### **Java**
@@ -59,18 +56,18 @@ class Solution:
 ```java
 class Solution {
     public boolean CheckPermutation(String s1, String s2) {
-        int n1 = s1.length(), n2 = s2.length();
+        int n1 = s1.length();
+        int n2 = s2.length();
         if (n1 != n2) {
             return false;
         }
-        Map<Character, Integer> counter = new HashMap<>();
+        int[] counter = new int[128];
         for (int i = 0; i < n1; ++i) {
-            char c1 = s1.charAt(i), c2 = s2.charAt(i);
-            counter.put(c1, counter.getOrDefault(c1, 0) + 1);
-            counter.put(c2, counter.getOrDefault(c2, 0) - 1);
+            ++counter[s1.charAt(i)];
+            --counter[s2.charAt(i)];
         }
-        for (int val : counter.values()) {
-            if (val != 0) {
+        for (int v : counter) {
+            if (v != 0) {
                 return false;
             }
         }
@@ -117,6 +114,105 @@ func CheckPermutation(s1 string, s2 string) bool {
 		}
 	}
 	return true
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool CheckPermutation(string s1, string s2) {
+        int n1 = s1.size();
+        int n2 = s2.size();
+        if (n1 != n2) return 0;
+        vector<int> counter(128);
+        for (int i = 0; i < n1; ++i)
+        {
+            ++counter[s1[i]];
+            --counter[s2[i]];
+        }
+        for (int v : counter)
+            if (v) return 0;
+        return 1;
+    }
+};
+```
+
+### **TypeScript**
+
+```ts
+function CheckPermutation(s1: string, s2: string): boolean {
+    const n = s1.length;
+    const m = s2.length;
+    if (n !== m) {
+        return false;
+    }
+    const map = new Map<string, number>();
+    for (let i = 0; i < n; i++) {
+        map.set(s1[i], (map.get(s1[i]) || 0) + 1);
+        map.set(s2[i], (map.get(s2[i]) || 0) - 1);
+    }
+    for (const v of map.values()) {
+        if (v !== 0) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+```ts
+function CheckPermutation(s1: string, s2: string): boolean {
+    if (s1.length !== s2.length) {
+        return false;
+    }
+    return (
+        s1
+            .split('')
+            .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+            .join('') ===
+        s2
+            .split('')
+            .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0))
+            .join('')
+    );
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn check_permutation(s1: String, s2: String) -> bool {
+        let n = s1.len();
+        let m = s2.len();
+        if n != m {
+            return false;
+        }
+        let s1: Vec<char> = s1.chars().collect();
+        let s2: Vec<char> = s2.chars().collect();
+        let mut map = HashMap::new();
+        for i in 0..n {
+            map.insert(s1[i], map.get(&s1[i]).unwrap_or(&0) + 1);
+            map.insert(s2[i], map.get(&s2[i]).unwrap_or(&0) - 1);
+        }
+        map.values().all(|i| *i == 0)
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn check_permutation(s1: String, s2: String) -> bool {
+        let mut v1: Vec<char> = s1.chars().collect();
+        let mut v2: Vec<char> = s2.chars().collect();
+        v1.sort();
+        v2.sort();
+        v1 == v2
+    }
 }
 ```
 

@@ -1,32 +1,35 @@
 class Solution:
     def regionsBySlashes(self, grid: List[str]) -> int:
-        n = len(grid)
-        p = list(range(n * n * 4))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
-        for i in range(n):
-            for j in range(n):
-                idx = i * n + j
-                if i < n - 1:
-                    p[find(idx * 4 + 2)] = find((idx + n) * 4)
-                if j < n - 1:
-                    p[find(idx * 4 + 1)] = find((idx + 1) * 4 + 3)
+        def union(a, b):
+            pa, pb = find(a), find(b)
+            if pa != pb:
+                p[pa] = pb
+                nonlocal size
+                size -= 1
 
-                if grid[i][j] == '/':
-                    p[find(idx * 4)] = find(idx * 4 + 3)
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2)
-                elif grid[i][j] == '\\':
-                    p[find(idx * 4)] = find(idx * 4 + 1)
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3)
+        n = len(grid)
+        size = n * n * 4
+        p = list(range(size))
+        for i, row in enumerate(grid):
+            for j, v in enumerate(row):
+                k = i * n + j
+                if i < n - 1:
+                    union(4 * k + 2, (k + n) * 4)
+                if j < n - 1:
+                    union(4 * k + 1, (k + 1) * 4 + 3)
+                if v == '/':
+                    union(4 * k, 4 * k + 3)
+                    union(4 * k + 1, 4 * k + 2)
+                elif v == '\\':
+                    union(4 * k, 4 * k + 1)
+                    union(4 * k + 2, 4 * k + 3)
                 else:
-                    p[find(idx * 4)] = find(idx * 4 + 1)
-                    p[find(idx * 4 + 1)] = find(idx * 4 + 2)
-                    p[find(idx * 4 + 2)] = find(idx * 4 + 3)
-        s = set()
-        for i in range(len(p)):
-            s.add(find(i))
-        return len(s)
+                    union(4 * k, 4 * k + 1)
+                    union(4 * k + 1, 4 * k + 2)
+                    union(4 * k + 2, 4 * k + 3)
+        return size

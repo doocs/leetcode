@@ -57,13 +57,168 @@ Note that other answers, such as [3, 3], would also be accepted.
 ### **Python3**
 
 ```python
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        def reverse(arr, j):
+            i = 0
+            while i < j:
+                arr[i], arr[j] = arr[j], arr[i]
+                i, j = i + 1, j - 1
 
+        n = len(arr)
+        ans = []
+        for i in range(n - 1, 0, -1):
+            j = i
+            while j > 0 and arr[j] != i + 1:
+                j -= 1
+            if j < i:
+                if j > 0:
+                    ans.append(j + 1)
+                    reverse(arr, j)
+                ans.append(i + 1)
+                reverse(arr, i)
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public List<Integer> pancakeSort(int[] arr) {
+        int n = arr.length;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = n - 1; i > 0; --i) {
+            int j = i;
+            for (; j > 0 && arr[j] != i + 1; --j);
+            if (j < i) {
+                if (j > 0) {
+                    ans.add(j + 1);
+                    reverse(arr, j);
+                }
+                ans.add(i + 1);
+                reverse(arr, i);
+            }
+        }
+        return ans;
+    }
 
+    private void reverse(int[] arr, int j) {
+        for (int i = 0; i < j; ++i, --j) {
+            int t = arr[i];
+            arr[i] = arr[j];
+            arr[j] = t;
+        }
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function pancakeSort(arr: number[]): number[] {
+    let ans = [];
+    for (let n = arr.length; n > 1; n--) {
+        let index = 0;
+        for (let i = 1; i < n; i++) {
+            if (arr[i] >= arr[index]) {
+                index = i;
+            }
+        }
+        if (index == n - 1) continue;
+        reverse(arr, index);
+        reverse(arr, n - 1);
+        ans.push(index + 1);
+        ans.push(n);
+    }
+    return ans;
+}
+
+function reverse(nums: Array<number>, end: number): void {
+    for (let i = 0, j = end; i < j; i++, j--) {
+        [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<int> pancakeSort(vector<int>& arr) {
+        int n = arr.size();
+        vector<int> ans;
+        for (int i = n - 1; i > 0; --i)
+        {
+            int j = i;
+            for (; j > 0 && arr[j] != i + 1; --j);
+            if (j == i) continue;
+            if (j > 0)
+            {
+                ans.push_back(j + 1);
+                reverse(arr.begin(), arr.begin() + j + 1);
+            }
+            ans.push_back(i + 1);
+            reverse(arr.begin(), arr.begin() + i + 1);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func pancakeSort(arr []int) []int {
+	var ans []int
+	n := len(arr)
+	reverse := func(j int) {
+		for i := 0; i < j; i, j = i+1, j-1 {
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+	}
+	for i := n - 1; i > 0; i-- {
+		j := i
+		for ; j > 0 && arr[j] != i+1; j-- {
+		}
+		if j < i {
+			if j > 0 {
+				ans = append(ans, j+1)
+				reverse(j)
+			}
+			ans = append(ans, i+1)
+			reverse(i)
+		}
+	}
+	return ans
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn pancake_sort(mut arr: Vec<i32>) -> Vec<i32> {
+        let mut res = vec![];
+        for n in (1..arr.len()).rev() {
+            let mut max_idx = 0;
+            for idx in 0..=n {
+                if arr[max_idx] < arr[idx] {
+                    max_idx = idx;
+                }
+            }
+            if max_idx != n {
+                if max_idx != 0 {
+                    arr[..=max_idx].reverse();
+                    res.push(max_idx as i32 + 1);
+                }
+                arr[..=n].reverse();
+                res.push(n as i32 + 1);
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**

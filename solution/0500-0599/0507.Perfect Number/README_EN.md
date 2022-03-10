@@ -21,28 +21,7 @@
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> num = 6
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = 496
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = 8128
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = 2
+<strong>Input:</strong> num = 7
 <strong>Output:</strong> false
 </pre>
 

@@ -42,15 +42,17 @@ refunded is the amount refunded for this invoice.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that will, for all products, return each product name with total&nbsp;amount due, paid, canceled, and refunded across all invoices.</p>
+<p>Write an SQL query that will, for all products, return each product name with the total amount due, paid, canceled, and refunded across all invoices.</p>
 
-<p>Return the result table ordered by <code> product_name</code>.</p>
+<p>Return the result table ordered by <code>product_name</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Product table:
 +------------+-------+
 | product_id | name  |
@@ -69,13 +71,14 @@ Invoice table:
 | 3          | 1          | 0    | 1    | 1        | 1        |
 | 4          | 1          | 1    | 1    | 1        | 0        |
 +------------+------------+------+------+----------+----------+
-Result table:
+<strong>Output:</strong> 
 +-------+------+------+----------+----------+
 | name  | rest | paid | canceled | refunded |
 +-------+------+------+----------+----------+
 | bacon | 3    | 3    | 3        | 3        |
 | ham   | 2    | 4    | 5        | 3        |
 +-------+------+------+----------+----------+
+<strong>Explanation:</strong> 
 - The amount of money left to pay for bacon is 1 + 1 + 0 + 1 = 3
 - The amount of money paid for bacon is 1 + 0 + 1 + 1 = 3
 - The amount of money canceled for bacon is 0 + 1 + 1 + 1 = 3

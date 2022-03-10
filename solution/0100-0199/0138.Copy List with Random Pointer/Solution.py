@@ -7,6 +7,7 @@ class Node:
         self.random = random
 """
 
+
 class Solution:
     def copyRandomList(self, head: 'Node') -> 'Node':
         if head is None:
@@ -17,12 +18,12 @@ class Solution:
             node = Node(cur.val, cur.next)
             cur.next = node
             cur = node.next
-        
+
         cur = head
         while cur:
             cur.next.random = None if cur.random is None else cur.random.next
             cur = cur.next.next
-        
+
         copy = head.next
         cur = head
         while cur:

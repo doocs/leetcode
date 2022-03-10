@@ -13,63 +13,40 @@
 <p>Both Alice and Bob play <strong>optimally</strong>.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> piles = [1]
-
 <strong>Output:</strong> true
-
 <strong>Explanation:</strong> There is only one possible scenario:
-
 - On the first turn, Alice removes one stone from the first pile. piles = [0].
-
 - On the second turn, there are no stones left for Bob to remove. Alice wins.
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> piles = [1,1]
-
 <strong>Output:</strong> false
-
 <strong>Explanation:</strong> It can be proven that Bob will always win. One possible scenario is:
-
 - On the first turn, Alice removes one stone from the first pile. piles = [0,1].
-
 - On the second turn, Bob removes one stone from the second pile. piles = [0,0].
-
 - On the third turn, there are no stones left for Alice to remove. Bob wins.
-
 </pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> piles = [1,2,3]
-
 <strong>Output:</strong> false
-
 <strong>Explanation:</strong> It can be proven that Bob will always win. One possible scenario is:
-
 - On the first turn, Alice removes three stones from the third pile. piles = [1,2,0].
-
 - On the second turn, Bob removes one stone from the second pile. piles = [1,1,0].
-
 - On the third turn, Alice removes one stone from the first pile. piles = [0,1,0].
-
 - On the fourth turn, Bob removes one stone from the second pile. piles = [0,0,0].
-
 - On the fifth turn, there are no stones left for Alice to remove. Bob wins.</pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
@@ -77,6 +54,9 @@
 	<li><code>1 &lt;= n &lt;= 7</code></li>
 	<li><code>1 &lt;= piles[i] &lt;= 7</code></li>
 </ul>
+
+<p>&nbsp;</p>
+<p><strong>Follow-up:</strong> Could you find a linear time solution? Although the linear time solution may be beyond the scope of an interview, it could be interesting to know.</p>
 
 ## Solutions
 

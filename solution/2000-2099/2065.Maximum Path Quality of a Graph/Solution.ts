@@ -1,12 +1,12 @@
 function maximalPathQuality(
     values: number[],
     edges: number[][],
-    maxTime: number
+    maxTime: number,
 ): number {
     const n = values.length;
     let g: Array<Array<Array<number>>> = Array.from(
         { length: n },
-        v => new Array()
+        v => new Array(),
     );
     for (let edge of edges) {
         let [u, v, t] = edge;

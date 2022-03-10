@@ -13,6 +13,7 @@
 | customer_id | int     |
 | product_key | int     |
 +-------------+---------+
+There is no primary key for this table. It may contain duplicates.
 product_key is a foreign key to <code>Product</code> table.
 </pre>
 
@@ -31,15 +32,17 @@ product_key is the primary key column for this table.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query for a report that provides the customer ids from the <code>Customer</code> table that bought all the products in the <code>Product</code> table.</p>
+<p>Write an SQL query to report the customer ids from the <code>Customer</code> table that bought all the products in the <code>Product</code> table.</p>
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Customer table:
 +-------------+-------------+
 | customer_id | product_key |
@@ -50,7 +53,6 @@ Customer table:
 | 3           | 6           |
 | 1           | 6           |
 +-------------+-------------+
-
 Product table:
 +-------------+
 | product_key |
@@ -58,15 +60,15 @@ Product table:
 | 5           |
 | 6           |
 +-------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------------+
 | customer_id |
 +-------------+
 | 1           |
 | 3           |
 +-------------+
-The customers who bought all the products (5 and 6) are customers with id 1 and 3.
+<strong>Explanation:</strong> 
+The customers who bought all the products (5 and 6) are customers with IDs 1 and 3.
 </pre>
 
 ## Solutions

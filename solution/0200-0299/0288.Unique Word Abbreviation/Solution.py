@@ -1,5 +1,4 @@
 class ValidWordAbbr:
-
     def __init__(self, dictionary: List[str]):
         self.words = defaultdict(set)
         for word in dictionary:

@@ -8,7 +8,7 @@ class Solution:
             if t in seen:
                 if mx < i - seen[t]:
                     mx = i - seen[t]
-                    ans = array[seen[t] + 1: i + 1]
+                    ans = array[seen[t] + 1 : i + 1]
             else:
                 seen[t] = i
         return ans

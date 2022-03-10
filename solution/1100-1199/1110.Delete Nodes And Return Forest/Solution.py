@@ -30,7 +30,7 @@ class Solution:
         # 2) It's not in set_delete
         # dfs return False when 1) Node is none and 2) node is in set_delete
         # When that happen, set the parent link to that node to None
-        
+
         def dfs(node, is_parent_in_delete):
             nonlocal set_delete, forests
             if not node:
@@ -51,5 +51,6 @@ class Solution:
             if node.right and not dfs(node.right, False):
                 node.right = None
             return True
+
         dfs(root, True)
         return forests

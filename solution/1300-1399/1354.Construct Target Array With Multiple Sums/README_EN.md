@@ -4,15 +4,15 @@
 
 ## Description
 
-<p>Given an array of integers&nbsp;<code>target</code>. From a starting array, <code>A</code>&nbsp;consisting of all 1&#39;s, you may perform the following procedure :</p>
+<p>You are given an array <code>target</code> of n integers. From a starting array <code>arr</code> consisting of <code>n</code> 1&#39;s, you may perform the following procedure :</p>
 
 <ul>
 	<li>let <code>x</code> be the sum of all elements currently in your array.</li>
-	<li>choose index <code>i</code>, such that&nbsp;<code>0 &lt;= i &lt; target.size</code> and set the value of <code>A</code> at index <code>i</code> to <code>x</code>.</li>
-	<li>You may repeat this procedure&nbsp;as many times as needed.</li>
+	<li>choose index <code>i</code>, such that <code>0 &lt;= i &lt; n</code> and set the value of <code>arr</code> at index <code>i</code> to <code>x</code>.</li>
+	<li>You may repeat this procedure as many times as needed.</li>
 </ul>
 
-<p>Return True if it is possible to construct the <code>target</code> array from <code>A</code> otherwise&nbsp;return False.</p>
+<p>Return <code>true</code> <em>if it is possible to construct the</em> <code>target</code> <em>array from</em> <code>arr</code><em>, otherwise, return</em> <code>false</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -20,7 +20,7 @@
 <pre>
 <strong>Input:</strong> target = [9,3,5]
 <strong>Output:</strong> true
-<strong>Explanation:</strong> Start with [1, 1, 1] 
+<strong>Explanation:</strong> Start with arr = [1, 1, 1] 
 [1, 1, 1], sum = 3 choose index 1
 [1, 3, 1], sum = 5 choose index 2
 [1, 3, 5], sum = 9 choose index 0
@@ -46,9 +46,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>N == target.length</code></li>
-	<li><code>1 &lt;= target.length&nbsp;&lt;= 5 * 10^4</code></li>
-	<li><code>1 &lt;= target[i] &lt;= 10^9</code></li>
+	<li><code>n == target.length</code></li>
+	<li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= target[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
 ## Solutions

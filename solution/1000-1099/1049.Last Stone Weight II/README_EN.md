@@ -37,13 +37,6 @@ we can combine 1 and 1 to get 0, so the array converts to [1], then that&#39;s t
 <strong>Output:</strong> 5
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> stones = [1,2]
-<strong>Output:</strong> 1
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

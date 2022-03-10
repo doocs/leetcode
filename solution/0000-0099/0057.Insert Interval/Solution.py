@@ -1,5 +1,7 @@
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(
+        self, intervals: List[List[int]], newInterval: List[int]
+    ) -> List[List[int]]:
         def merge(intervals: List[List[int]]) -> List[List[int]]:
             intervals.sort(key=lambda x: x[0])
             st = ed = -1

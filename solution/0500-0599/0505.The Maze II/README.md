@@ -68,6 +68,10 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+BFS。
+
+注意在一般的广度优先搜索中，我们不会经过同一个节点超过一次，但在这道题目中，只要从起始位置到当前节点的步数 step 小于之前记录的最小步数 `dist[i, j]`，我们就会把 `(i, j)` 再次加入队列中。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -75,7 +79,24 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
+        m, n = len(maze), len(maze[0])
+        rs, cs = start
+        rd, cd = destination
+        dist = [[float('inf')] * n for _ in range(m)]
+        dist[rs][cs] = 0
+        q = deque([(rs, cs)])
+        while q:
+            i, j = q.popleft()
+            for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                x, y, step = i, j, dist[i][j]
+                while 0 <= x + a < m and 0 <= y + b < n and maze[x + a][y + b] == 0:
+                    x, y, step = x + a, y + b, step + 1
+                if step < dist[x][y]:
+                    dist[x][y] = step
+                    q.append((x, y))
+        return -1 if dist[rd][cd] == float('inf') else dist[rd][cd]
 ```
 
 ### **Java**
@@ -83,7 +104,114 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int shortestDistance(int[][] maze, int[] start, int[] destination) {
+        int m = maze.length;
+        int n = maze[0].length;
+        int[][] dist = new int[m][n];
+        for (int i = 0; i < m; ++i) {
+            Arrays.fill(dist[i], Integer.MAX_VALUE);
+        }
+        dist[start[0]][start[1]] = 0;
+        Deque<int[]> q = new LinkedList<>();
+        q.offer(start);
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            int i = p[0], j = p[1];
+            for (int k = 0; k < 4; ++k) {
+                int x = i, y = j, step = dist[i][j];
+                int a = dirs[k], b = dirs[k + 1];
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0) {
+                    x += a;
+                    y += b;
+                    ++step;
+                }
+                if (step < dist[x][y]) {
+                    dist[x][y] = step;
+                    q.offer(new int[]{x, y});
+                }
+            }
+        }
+        return dist[destination[0]][destination[1]] == Integer.MAX_VALUE ? -1 : dist[destination[0]][destination[1]];
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int shortestDistance(vector<vector<int>>& maze, vector<int>& start, vector<int>& destination) {
+        int m = maze.size();
+        int n = maze[0].size();
+        vector<vector<int>> dist(m, vector<int>(n, INT_MAX));
+        dist[start[0]][start[1]] = 0;
+        queue<vector<int>> q{{start}};
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        while (!q.empty())
+        {
+            auto p = q.front();
+            q.pop();
+            int i = p[0], j = p[1];
+            for (int k = 0; k < 4; ++k)
+            {
+                int x = i, y = j, step = dist[i][j];
+                int a = dirs[k], b = dirs[k + 1];
+                while (x + a >= 0 && x + a < m && y + b >= 0 && y + b < n && maze[x + a][y + b] == 0)
+                {
+                    x += a;
+                    y += b;
+                    ++step;
+                }
+                if (step < dist[x][y])
+                {
+                    dist[x][y] = step;
+                    q.push({x, y});
+                }
+            }
+        }
+        return dist[destination[0]][destination[1]] == INT_MAX ? -1 : dist[destination[0]][destination[1]];
+    }
+};
+```
+
+### **Go**
+
+```go
+func shortestDistance(maze [][]int, start []int, destination []int) int {
+	m, n := len(maze), len(maze[0])
+	dist := make([][]int, m)
+	for i := range dist {
+		dist[i] = make([]int, n)
+		for j := range dist[i] {
+			dist[i][j] = math.MaxInt32
+		}
+	}
+	dist[start[0]][start[1]] = 0
+	q := [][]int{start}
+	dirs := []int{-1, 0, 1, 0, -1}
+	for len(q) > 0 {
+		i, j := q[0][0], q[0][1]
+		q = q[1:]
+		for k := 0; k < 4; k++ {
+			x, y, step := i, j, dist[i][j]
+			a, b := dirs[k], dirs[k+1]
+			for x+a >= 0 && x+a < m && y+b >= 0 && y+b < n && maze[x+a][y+b] == 0 {
+				x, y, step = x+a, y+b, step+1
+			}
+			if step < dist[x][y] {
+				dist[x][y] = step
+				q = append(q, []int{x, y})
+			}
+		}
+	}
+	if dist[destination[0]][destination[1]] == math.MaxInt32 {
+		return -1
+	}
+	return dist[destination[0]][destination[1]]
+}
 ```
 
 ### **...**

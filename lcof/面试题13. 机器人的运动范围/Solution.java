@@ -1,37 +1,22 @@
 class Solution {
+    private boolean[][] vis;
     private int m;
     private int n;
-    private boolean[][] visited;
-    private int cnt;
+    private int k;
+
     public int movingCount(int m, int n, int k) {
-        visited = new boolean[m][n];
         this.m = m;
         this.n = n;
-        cnt = 0;
-        dfs(0, 0, k);
-        return cnt;
+        this.k = k;
+        vis = new boolean[m][n];
+        return dfs(0, 0);
     }
 
-    private void dfs(int i, int j, int k) {
-        if (i < 0 || i >= m || j < 0 || j >= n || visited[i][j] || cal(i, j) > k) return;
-        ++cnt;
-        visited[i][j] = true;
-        dfs(i + 1, j, k);
-        dfs(i - 1, j, k);
-        dfs(i, j + 1, k);
-        dfs(i, j - 1, k);
-    }
-
-    private int cal(int i, int j) {
-        int res = 0;
-        while (i != 0) {
-            res += (i % 10);
-            i /= 10;
+    private int dfs(int i, int j) {
+        if (i >= m || j >= n || vis[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) {
+            return 0;
         }
-        while (j != 0) {
-            res += (j % 10);
-            j /= 10;
-        }
-        return res;
+        vis[i][j] = true;
+        return 1 + dfs(i + 1, j) + dfs(i, j + 1);
     }
 }

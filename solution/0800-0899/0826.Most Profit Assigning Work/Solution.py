@@ -1,5 +1,7 @@
 class Solution:
-    def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
+    def maxProfitAssignment(
+        self, difficulty: List[int], profit: List[int], worker: List[int]
+    ) -> int:
         n = len(difficulty)
         job = [(difficulty[i], profit[i]) for i in range(n)]
         job.sort(key=lambda x: x[0])

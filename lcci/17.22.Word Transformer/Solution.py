@@ -1,5 +1,7 @@
 class Solution:
-    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[str]:
+    def findLadders(
+        self, beginWord: str, endWord: str, wordList: List[str]
+    ) -> List[str]:
         def check(a, b):
             return sum(a[i] != b[i] for i in range(len(a))) == 1
 

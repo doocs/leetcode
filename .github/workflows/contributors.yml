@@ -1,4 +1,4 @@
-name: Contributors
+name: update-contributors
 
 on:
   schedule:

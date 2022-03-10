@@ -8,7 +8,7 @@
 
 <p>给定一个 24 小时制（小时:分钟 <strong>"HH:MM"</strong>）的时间列表，找出列表中任意两个时间的最小时间差并以分钟数表示。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -24,18 +24,22 @@
 <strong>输出：</strong>0
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>2 <= timePoints <= 2 * 10<sup>4</sup></code></li>
+	<li><code>2 &lt;= timePoints.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>timePoints[i]</code> 格式为 <strong>"HH:MM"</strong></li>
 </ul>
 
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+我们注意到，时间点最多只有 `24 * 60` 个，因此，当 timePoints 长度超过 `24 * 60`，说明有重复的时间点，提前返回 0。
+
+接下来：
 
 首先，遍历时间列表，将其转换为“分钟制”列表 `mins`，比如，对于时间点 `13:14`，将其转换为 `13 * 60 + 14`。
 
@@ -137,6 +141,27 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMinDifference(timePoints: string[]): number {
+    const mins = timePoints
+        .map(item => Number(item.slice(0, 2)) * 60 + Number(item.slice(3, 5)))
+        .sort((a, b) => a - b);
+    const n = mins.length;
+    let res = Infinity;
+    for (let i = 0; i < n - 1; i++) {
+        res = Math.min(res, mins[i + 1] - mins[i]);
+    }
+
+    const first = mins[0] + 24 * 60;
+    const last = mins[n - 1];
+    res = Math.min(res, first - last);
+
+    return res;
 }
 ```
 

@@ -1,43 +1,38 @@
 class Solution {
 public:
     vector<int> p;
-    int dirs[4][2] = {{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     int largestArea(vector<string>& grid) {
         int m = grid.size(), n = grid[0].size();
         p.resize(m * n + 1);
         for (int i = 0; i < p.size(); ++i) p[i] = i;
+        vector<int> size(m * n + 1, 1);
+        vector<int> dirs = {-1, 0, 1, 0, -1};
         for (int i = 0; i < m; ++i)
         {
             for (int j = 0; j < n; ++j)
             {
-                if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || grid[i][j] == '0') 
-                    p[find(i * n + j)] = find(m * n);
+                if (i == 0 || i == m - 1 || j == 0 || j == n - 1 || grid[i][j] == '0') p[find(i * n + j)] = find(m * n);
                 else
                 {
-                    for (auto e : dirs)
+                    for (int k = 0; k < 4; ++k)
                     {
-                        if (grid[i + e[0]][j + e[1]] == '0' || grid[i][j]== grid[i + e[0]][j + e[1]])
-                            p[find(i * n + j)] = find((i + e[0]) * n + j + e[1]);
+                        int x = i + dirs[k], y = j + dirs[k + 1];
+                        if ((grid[x][y] == '0' || grid[i][j] == grid[x][y]) && find(x * n + y) != find(i * n + j))
+                        {
+                            size[find(x * n + y)] += size[find(i * n + j)];
+                            p[find(i * n + j)] = find(x * n + y);
+                        }
                     }
                 }
             }
         }
-        unordered_map<int, int> mp;
-        int res = 0;
+        int ans = 0;
         for (int i = 0; i < m; ++i)
-        {
             for (int j = 0; j < n; ++j)
-            {
-                int root = find(i * n + j);
-                if (root != find(m * n))
-                {
-                    ++mp[root];
-                    res = max(res, mp[root]);
-                }
-            }
-        }
-        return res;
+                if (find(i * n + j) != find(m * n))
+                    ans = max(ans, size[i * n + j]);
+        return ans;
     }
 
     int find(int x) {

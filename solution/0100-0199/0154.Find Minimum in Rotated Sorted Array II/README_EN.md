@@ -15,6 +15,8 @@
 
 <p>Given the sorted rotated array <code>nums</code> that may contain <strong>duplicates</strong>, return <em>the minimum element of this array</em>.</p>
 
+<p>You must decrease the overall operation steps as much as possible.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [1,3,5]
@@ -34,7 +36,9 @@
 </ul>
 
 <p>&nbsp;</p>
-<strong>Follow up:</strong> This is the same as <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/" target="_blank">Find Minimum in Rotated Sorted Array</a> but with duplicates. Would allow duplicates affect the run-time complexity? How and why?
+<p><strong>Follow up:</strong> This problem is similar to&nbsp;<a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/" target="_blank">Find Minimum in Rotated Sorted Array</a>, but&nbsp;<code>nums</code> may contain <strong>duplicates</strong>. Would this affect the runtime complexity? How and why?</p>
+
+<p>&nbsp;</p>
 
 ## Solutions
 

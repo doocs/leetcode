@@ -16,14 +16,16 @@
 <pre>
 <strong>Input:</strong> matrix = [[5,2],[1,6]], k = 1
 <strong>Output:</strong> 7
-<strong>Explanation:</strong> The value of coordinate (0,1) is 5 XOR 2 = 7, which is the largest value.</pre>
+<strong>Explanation:</strong> The value of coordinate (0,1) is 5 XOR 2 = 7, which is the largest value.
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
 <strong>Input:</strong> matrix = [[5,2],[1,6]], k = 2
 <strong>Output:</strong> 5
-<strong>Explanation: </strong>The value of coordinate (0,0) is 5 = 5, which is the 2nd largest value.</pre>
+<strong>Explanation:</strong> The value of coordinate (0,0) is 5 = 5, which is the 2nd largest value.
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
@@ -31,13 +33,6 @@
 <strong>Input:</strong> matrix = [[5,2],[1,6]], k = 3
 <strong>Output:</strong> 4
 <strong>Explanation:</strong> The value of coordinate (1,0) is 5 XOR 1 = 4, which is the 3rd largest value.</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> matrix = [[5,2],[1,6]], k = 4
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> The value of coordinate (1,1) is 5 XOR 2 XOR 1 XOR 6 = 0, which is the 4th largest value.</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>

@@ -14,8 +14,7 @@ class Solution:
                 if i == k:
                     t[i][k] = True
                 else:
-                    t[i][k] = all([picture[i][j] == picture[k][j]
-                                   for j in range(n)])
+                    t[i][k] = all([picture[i][j] == picture[k][j] for j in range(n)])
                 t[k][i] = t[i][k]
         res = 0
         for i in range(m):

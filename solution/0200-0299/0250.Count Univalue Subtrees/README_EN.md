@@ -34,7 +34,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li>The numbrt of the node in the tree will be in the range <code>[0, 1000]</code>.</li>
+	<li>The number of the node in the tree will be in the range <code>[0, 1000]</code>.</li>
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
 

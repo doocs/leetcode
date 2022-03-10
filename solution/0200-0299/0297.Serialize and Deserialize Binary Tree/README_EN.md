@@ -8,7 +8,7 @@
 
 <p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
 
-<p><strong>Clarification:</strong> The input/output format is the same as <a href="/faq/#binary-tree">how LeetCode serializes a binary tree</a>. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.</p>
+<p><strong>Clarification:</strong> The input/output format is the same as <a href="/faq/#binary-tree" target="_blank">how LeetCode serializes a binary tree</a>. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -23,20 +23,6 @@
 <pre>
 <strong>Input:</strong> root = []
 <strong>Output:</strong> []
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1]
-<strong>Output:</strong> [1]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1,2]
-<strong>Output:</strong> [1,2]
 </pre>
 
 <p>&nbsp;</p>
@@ -250,7 +236,7 @@ public:
  * @return {string}
  */
 var serialize = function (root) {
-    return rserialize(root, "");
+    return rserialize(root, '');
 };
 
 /**
@@ -260,15 +246,15 @@ var serialize = function (root) {
  * @return {TreeNode}
  */
 var deserialize = function (data) {
-    const dataArray = data.split(",");
+    const dataArray = data.split(',');
     return rdeserialize(dataArray);
 };
 
 const rserialize = (root, str) => {
     if (root === null) {
-        str += "#,";
+        str += '#,';
     } else {
-        str += root.val + "" + ",";
+        str += root.val + '' + ',';
         str = rserialize(root.left, str);
         str = rserialize(root.right, str);
     }
@@ -276,7 +262,7 @@ const rserialize = (root, str) => {
 };
 
 const rdeserialize = dataList => {
-    if (dataList[0] === "#") {
+    if (dataList[0] === '#') {
         dataList.shift();
         return null;
     }

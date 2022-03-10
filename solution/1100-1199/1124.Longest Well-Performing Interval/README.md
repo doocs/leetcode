@@ -18,16 +18,24 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>hours = [9,9,6,0,6,6,9]
+<pre>
+<strong>输入：</strong>hours = [9,9,6,0,6,6,9]
 <strong>输出：</strong>3
 <strong>解释：</strong>最长的表现良好时间段是 [9,9,6]。</pre>
+
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>hours = [6,6,6]
+<strong>输出：</strong>0
+</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 &lt;= hours.length &lt;= 10000</code></li>
+	<li><code>1 &lt;= hours.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= hours[i] &lt;= 16</code></li>
 </ul>
 

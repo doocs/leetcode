@@ -18,7 +18,7 @@ class Solution:
                     self.res += p.right.val
             dfs(p, p.left)
             dfs(p, p.right)
-        
+
         dfs(root, root.left)
         dfs(root, root.right)
         return self.res

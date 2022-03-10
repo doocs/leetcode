@@ -114,7 +114,7 @@ class Solution {
 
 ### **Go**
 
-- Non-recursive in-order traversal
+-   Non-recursive in-order traversal
 
 ```go
 func isValidBST(root *TreeNode) bool {
@@ -139,7 +139,7 @@ func isValidBST(root *TreeNode) bool {
 }
 ```
 
-- Use upper bound and lower bound to check
+-   Use upper bound and lower bound to check
 
 ```go
 func isValidBST(root *TreeNode) bool {

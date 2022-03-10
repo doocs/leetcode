@@ -4,24 +4,24 @@
 
 ## Description
 
-<p>Given an array of positive integers <code>target</code> and an array <code>initial</code> of same size with all zeros.</p>
+<p>You are given an integer array <code>target</code>. You have an integer array <code>initial</code> of the same size as <code>target</code> with all elements initially zeros.</p>
 
-<p>Return the minimum number of operations to form a <code>target</code> array from <code>initial</code>&nbsp;if you are allowed to do the following operation:</p>
+<p>In one operation you can choose <strong>any</strong> subarray from <code>initial</code> and increment each value by one.</p>
 
-<ul>
-	<li>Choose <strong>any</strong> subarray from <code>initial</code>&nbsp;and increment each value by one.</li>
-</ul>
-The answer is guaranteed to fit within the range of a 32-bit signed integer.
+<p>Return <em>the minimum number of operations to form a </em><code>target</code><em> array from </em><code>initial</code>.</p>
+
+<p>The test cases are generated so that the answer fits in a 32-bit integer.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
 <pre>
 <strong>Input:</strong> target = [1,2,3,2,1]
 <strong>Output:</strong> 3
-<strong>Explanation: </strong>We need at least 3 operations to form the target array from the initial array.
-[0,0,0,0,0] increment 1 from index 0 to 4&nbsp;(inclusive).
-[1,1,1,1,1] increment 1 from index 1 to 3&nbsp;(inclusive).
-[1,2,2,2,1] increment 1 at index 2.
+<strong>Explanation:</strong> We need at least 3 operations to form the target array from the initial array.
+[<strong><u>0,0,0,0,0</u></strong>] increment 1 from index 0 to 4 (inclusive).
+[1,<strong><u>1,1,1</u></strong>,1] increment 1 from index 1 to 3 (inclusive).
+[1,2,<strong><u>2</u></strong>,2,1] increment 1 at index 2.
 [1,2,3,2,1] target array is formed.
 </pre>
 
@@ -30,7 +30,7 @@ The answer is guaranteed to fit within the range of a 32-bit signed integer.
 <pre>
 <strong>Input:</strong> target = [3,1,1,2]
 <strong>Output:</strong> 4
-<strong>Explanation: </strong>(initial)[0,0,0,0] -&gt; [1,1,1,1] -&gt; [1,1,1,2] -&gt; [2,1,1,2] -&gt; [3,1,1,2] (target).
+<strong>Explanation:</strong> [<strong><u>0,0,0,0</u></strong>] -&gt; [1,1,1,<strong><u>1</u></strong>] -&gt; [<strong><u>1</u></strong>,1,1,2] -&gt; [<strong><u>2</u></strong>,1,1,2] -&gt; [3,1,1,2]
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -38,23 +38,15 @@ The answer is guaranteed to fit within the range of a 32-bit signed integer.
 <pre>
 <strong>Input:</strong> target = [3,1,5,4,2]
 <strong>Output:</strong> 7
-<strong>Explanation: </strong>(initial)[0,0,0,0,0] -&gt; [1,1,1,1,1] -&gt; [2,1,1,1,1] -&gt; [3,1,1,1,1] 
-                                  -&gt; [3,1,2,2,2] -&gt; [3,1,3,3,2] -&gt; [3,1,4,4,2] -&gt; [3,1,5,4,2] (target).
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> target = [1,1,1,1]
-<strong>Output:</strong> 1
+<strong>Explanation:</strong> [<strong><u>0,0,0,0,0</u></strong>] -&gt; [<strong><u>1</u></strong>,1,1,1,1] -&gt; [<strong><u>2</u></strong>,1,1,1,1] -&gt; [3,1,<strong><u>1,1,1</u></strong>] -&gt; [3,1,<strong><u>2,2</u></strong>,2] -&gt; [3,1,<strong><u>3,3</u></strong>,2] -&gt; [3,1,<strong><u>4</u></strong>,4,2] -&gt; [3,1,5,4,2].
 </pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= target.length &lt;= 10^5</code></li>
-	<li><code>1 &lt;= target[i] &lt;= 10^5</code></li>
+	<li><code>1 &lt;= target.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= target[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
 ## Solutions

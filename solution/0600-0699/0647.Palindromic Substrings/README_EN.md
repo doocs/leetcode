@@ -4,45 +4,36 @@
 
 ## Description
 
-<p>Given a string, your task is to count how many palindromic substrings in this string.</p>
+<p>Given a string <code>s</code>, return <em>the number of <strong>palindromic substrings</strong> in it</em>.</p>
 
-<p>The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.</p>
+<p>A string is a <strong>palindrome</strong> when it reads the same backward as forward.</p>
 
-<p><b>Example 1:</b></p>
+<p>A <strong>substring</strong> is a contiguous sequence of characters within the string.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> s = &quot;abc&quot;
+<strong>Output:</strong> 3
+<strong>Explanation:</strong> Three palindromic strings: &quot;a&quot;, &quot;b&quot;, &quot;c&quot;.
+</pre>
 
-<b>Input:</b> &quot;abc&quot;
+<p><strong>Example 2:</strong></p>
 
-<b>Output:</b> 3
-
-<b>Explanation:</b> Three palindromic strings: &quot;a&quot;, &quot;b&quot;, &quot;c&quot;.
-
+<pre>
+<strong>Input:</strong> s = &quot;aaa&quot;
+<strong>Output:</strong> 6
+<strong>Explanation:</strong> Six palindromic strings: &quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;aa&quot;, &quot;aa&quot;, &quot;aaa&quot;.
 </pre>
 
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><b>Example 2:</b></p>
-
-<pre>
-
-<b>Input:</b> &quot;aaa&quot;
-
-<b>Output:</b> 6
-
-<b>Explanation:</b> Six palindromic strings: &quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;aa&quot;, &quot;aa&quot;, &quot;aaa&quot;.
-
-</pre>
-
-<p>&nbsp;</p>
-
-<p><b>Note:</b></p>
-
-<ol>
-	<li>The input string length won&#39;t exceed 1000.</li>
-</ol>
-
-<p>&nbsp;</p>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+	<li><code>s</code> consists of lowercase English letters.</li>
+</ul>
 
 ## Solutions
 

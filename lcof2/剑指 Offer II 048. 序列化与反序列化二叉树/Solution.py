@@ -5,11 +5,11 @@
 #         self.left = None
 #         self.right = None
 
-class Codec:
 
+class Codec:
     def serialize(self, root):
         """Encodes a tree to a single string.
-        
+
         :type root: TreeNode
         :rtype: str
         """
@@ -25,14 +25,13 @@ class Codec:
             res.append(str(root.val) + ",")
             preorder(root.left)
             preorder(root.right)
-        
+
         preorder(root)
         return ''.join(res)
-        
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
-        
+
         :type data: str
         :rtype: TreeNode
         """
@@ -45,8 +44,9 @@ class Codec:
             if first == '#':
                 return None
             return TreeNode(int(first), inner(), inner())
-        
+
         return inner()
+
 
 # Your Codec object will be instantiated and called as such:
 # ser = Codec()

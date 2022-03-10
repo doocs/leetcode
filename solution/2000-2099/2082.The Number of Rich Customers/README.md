@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Store</code></p>
+<p>表： <code>Store</code></p>
 
 <pre>
 +-------------+------+
@@ -16,22 +16,23 @@
 | customer_id | int  |
 | amount      | int  |
 +-------------+------+
-bill_id is the primary key for this table.
-Each row contains information about the amount of one bill and the customer associated with it.
+bill_id 是这个表的主键。
+每一行包含一个订单的金额及相关客户的信息。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to report the number of customers who had <strong>at least one</strong> bill with an amount <strong>strictly greater</strong> than <code>500</code>.</p>
+<p>写一条 SQL 语句，查询<strong>至少有一个</strong>订单的金额<strong>严格大于</strong> <code>500</code> 的客户的数量。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下示例所示：</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+
+<p><strong>示例:</strong></p>
 
 <pre>
-<strong>Input:</strong> 
-Store table:
+<strong>输入：</strong>
+Store 表:
 +---------+-------------+--------+
 | bill_id | customer_id | amount |
 +---------+-------------+--------+
@@ -41,16 +42,16 @@ Store table:
 | 11      | 3           | 657    |
 | 13      | 3           | 257    |
 +---------+-------------+--------+
-<strong>Output:</strong> 
+<strong>输出：</strong> 
 +------------+
 | rich_count |
 +------------+
 | 2          |
 +------------+
-<strong>Explanation:</strong> 
-Customer 1 has two bills with amounts strictly greater than 500.
-Customer 2 does not have any bills with an amount strictly greater than 500.
-Customer 3 has one bill with an amount strictly greater than 500.
+<strong>解释：</strong>
+客户 1 有 2 个订单金额严格大于 500。
+客户 2 没有任何订单金额严格大于 500。
+客户 3 有 1 个订单金额严格大于 500。
 </pre>
 
 ## 解法

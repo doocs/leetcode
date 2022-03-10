@@ -20,7 +20,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;abbxxxxzzy&quot;
 <strong>Output:</strong> [[3,6]]
-<strong>Explanation</strong>: <code>&quot;xxxx&quot; is the only </code>large group with start index 3 and end index 6.
+<strong>Explanation:</strong> <code>&quot;xxxx&quot; is the only </code>large group with start index 3 and end index 6.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -28,7 +28,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;abc&quot;
 <strong>Output:</strong> []
-<strong>Explanation</strong>: We have groups &quot;a&quot;, &quot;b&quot;, and &quot;c&quot;, none of which are large groups.
+<strong>Explanation:</strong> We have groups &quot;a&quot;, &quot;b&quot;, and &quot;c&quot;, none of which are large groups.
 </pre>
 
 <p><strong>Example 3:</strong></p>
@@ -36,14 +36,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;abcdddeeeeaabbbcd&quot;
 <strong>Output:</strong> [[3,5],[6,9],[12,14]]
-<strong>Explanation</strong>: The large groups are &quot;ddd&quot;, &quot;eeee&quot;, and &quot;bbb&quot;.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;aba&quot;
-<strong>Output:</strong> []
+<strong>Explanation:</strong> The large groups are &quot;ddd&quot;, &quot;eeee&quot;, and &quot;bbb&quot;.
 </pre>
 
 <p>&nbsp;</p>
@@ -51,7 +44,7 @@
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-	<li><code>s</code> contains lower-case English letters only.</li>
+	<li><code>s</code> contains lowercase English letters only.</li>
 </ul>
 
 ## Solutions

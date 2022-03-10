@@ -7,12 +7,12 @@ class Solution {
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
-        for (int[] e : stones) {
-            p[find(e[0])] = find(e[1] + n);
+        for (int[] stone : stones) {
+            p[find(stone[0])] = find(stone[1] + n);
         }
         Set<Integer> s = new HashSet<>();
-        for (int[] e : stones) {
-            s.add(find(e[0]));
+        for (int[] stone : stones) {
+            s.add(find(stone[0]));
         }
         return stones.length - s.size();
     }

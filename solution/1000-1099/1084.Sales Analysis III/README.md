@@ -8,19 +8,22 @@
 
 <p>Table:&nbsp;<code>Product</code></p>
 
-<pre>+--------------+---------+
+<pre>
++--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
 | product_id   | int     |
 | product_name | varchar |
 | unit_price   | int     |
 +--------------+---------+
-product_id 是这个表的主键
+Product_id是该表的主键。
+该表的每一行显示每个产品的名称和价格。
 </pre>
 
 <p>Table:&nbsp;<code>Sales</code></p>
 
-<pre>+-------------+---------+
+<pre>
++-------------+---------+
 | Column Name | Type    |
 +-------------+---------+
 | seller_id   | int     |
@@ -30,16 +33,26 @@ product_id 是这个表的主键
 | quantity    | int     |
 | price       | int     |
 +------ ------+---------+
-这个表没有主键，它可以有重复的行.
-product_id 是 Product 表的外键.</pre>
+这个表没有主键，它可以有重复的行。
+product_id 是 Product 表的外键。
+该表的每一行包含关于一个销售的一些信息。
+</pre>
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询，报告2019年春季才售出的产品。即<strong>仅</strong>在<strong>2019-01-01</strong>至<strong>2019-03-31</strong>（含）之间出售的商品。</p>
+<p>编写一个SQL查询，报告<code>2019年春季</code>才售出的产品。即<strong>仅</strong>在<code><strong>2019-01-01</strong></code>至<code><strong>2019-03-31</strong></code>（含）之间出售的商品。</p>
 
-<p>查询结果格式如下所示：</p>
+<p>以 <strong>任意顺序</strong> 返回结果表。</p>
 
-<pre>Product table:
+<p>查询结果格式如下所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入：</strong>
+Product table:
 +------------+--------------+------------+
 | product_id | product_name | unit_price |
 +------------+--------------+------------+
@@ -47,7 +60,6 @@ product_id 是 Product 表的外键.</pre>
 | 2          | G4           | 800        |
 | 3          | iPhone       | 1400       |
 +------------+--------------+------------+
-
 <code>Sales </code>table:
 +-----------+------------+----------+------------+----------+-------+
 | seller_id | product_id | buyer_id | sale_date  | quantity | price |
@@ -57,14 +69,17 @@ product_id 是 Product 表的外键.</pre>
 | 2         | 2          | 3        | 2019-06-02 | 1        | 800   |
 | 3         | 3          | 4        | 2019-05-13 | 2        | 2800  |
 +-----------+------------+----------+------------+----------+-------+
-
-Result table:
+<strong>输出：</strong>
 +-------------+--------------+
 | product_id  | product_name |
 +-------------+--------------+
 | 1           | S8           |
 +-------------+--------------+
-id为1的产品仅在2019年春季销售，其他两个产品在之后销售。</pre>
+<strong>解释:</strong>
+id为1的产品仅在2019年春季销售。
+id为2的产品在2019年春季销售，但也在2019年春季之后销售。
+id 3的产品在2019年春季之后销售。
+我们只退回产品1，因为它是2019年春季才销售的产品。</pre>
 
 ## 解法
 

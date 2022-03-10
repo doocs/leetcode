@@ -4,67 +4,48 @@
 
 ## Description
 
-<p>In a group of N people (labelled <code>0, 1, 2, ..., N-1</code>), each person has different amounts of money, and different levels of quietness.</p>
+<p>There is a group of <code>n</code> people labeled from <code>0</code> to <code>n - 1</code> where each person has a different amount of money and a different level of quietness.</p>
 
-<p>For convenience, we&#39;ll call the person with label <code>x</code>, simply &quot;person <code>x</code>&quot;.</p>
+<p>You are given an array <code>richer</code> where <code>richer[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that <code>a<sub>i</sub></code> has more money than <code>b<sub>i</sub></code> and an integer array <code>quiet</code> where <code>quiet[i]</code> is the quietness of the <code>i<sup>th</sup></code> person. All the given data in richer are <strong>logically correct</strong> (i.e., the data will not lead you to a situation where <code>x</code> is richer than <code>y</code> and <code>y</code> is richer than <code>x</code> at the same time).</p>
 
-<p>We&#39;ll say that <code>richer[i] = [x, y]</code> if person <code>x</code>&nbsp;definitely has more money than person&nbsp;<code>y</code>.&nbsp; Note that <code>richer</code>&nbsp;may only be a subset of valid observations.</p>
-
-<p>Also, we&#39;ll say <code>quiet[x] = q</code> if person <font face="monospace">x</font>&nbsp;has quietness <code>q</code>.</p>
-
-<p>Now, return <code>answer</code>, where <code>answer[x] = y</code> if <code>y</code> is the least quiet person (that is, the person <code>y</code> with the smallest value of <code>quiet[y]</code>), among all people&nbsp;who definitely have&nbsp;equal to or more money than person <code>x</code>.</p>
+<p>Return <em>an integer array </em><code>answer</code><em> where </em><code>answer[x] = y</code><em> if </em><code>y</code><em> is the least quiet person (that is, the person </em><code>y</code><em> with the smallest value of </em><code>quiet[y]</code><em>) among all people who definitely have equal to or more money than the person </em><code>x</code>.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong>richer = <span id="example-input-1-1">[[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]]</span>, quiet = <span id="example-input-1-2">[3,2,5,4,6,1,7,0]</span>
-
-<strong>Output: </strong><span id="example-output-1">[5,5,2,5,4,5,6,7]</span>
-
-<strong>Explanation: </strong>
-
+<strong>Input:</strong> richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
+<strong>Output:</strong> [5,5,2,5,4,5,6,7]
+<strong>Explanation:</strong> 
 answer[0] = 5.
-
 Person 5 has more money than 3, which has more money than 1, which has more money than 0.
-
-The only person who is quieter (has lower quiet[x]) is person 7, but
-
-it isn&#39;t clear if they have more money than person 0.
-
-
-
+The only person who is quieter (has lower quiet[x]) is person 7, but it is not clear if they have more money than person 0.
 answer[7] = 7.
-
-Among all people that definitely have equal to or more money than person 7
-
-(which could be persons 3, 4, 5, 6, or 7), the person who is the quietest (has lower quiet[x])
-
-is person 7.
-
-
-
+Among all people that definitely have equal to or more money than person 7 (which could be persons 3, 4, 5, 6, or 7), the person who is the quietest (has lower quiet[x]) is person 7.
 The other answers can be filled out with similar reasoning.
-
 </pre>
 
-</div>
+<p><strong>Example 2:</strong></p>
 
-<p><strong>Note:</strong></p>
+<pre>
+<strong>Input:</strong> richer = [], quiet = [0]
+<strong>Output:</strong> [0]
+</pre>
 
-<ol>
-	<li><code>1 &lt;= quiet.length = N &lt;= 500</code></li>
-	<li><code>0 &lt;= quiet[i] &lt; N</code>, all <code>quiet[i]</code> are different.</li>
-	<li><code>0 &lt;= richer.length &lt;= N * (N-1) / 2</code></li>
-	<li><code>0 &lt;= richer[i][j] &lt; N</code></li>
-	<li><code>richer[i][0] != richer[i][1]</code></li>
-	<li><code>richer[i]</code>&#39;s are all different.</li>
-	<li>The&nbsp;observations in <code>richer</code> are all logically consistent.</li>
-</ol>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>n == quiet.length</code></li>
+	<li><code>1 &lt;= n &lt;= 500</code></li>
+	<li><code>0 &lt;= quiet[i] &lt; n</code></li>
+	<li>All the values of <code>quiet</code> are <strong>unique</strong>.</li>
+	<li><code>0 &lt;= richer.length &lt;= n * (n - 1) / 2</code></li>
+	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; n</code></li>
+	<li><code>a<sub>i </sub>!= b<sub>i</sub></code></li>
+	<li>All the pairs of <code>richer</code> are <strong>unique</strong>.</li>
+	<li>The observations in <code>richer</code> are all logically consistent.</li>
+</ul>
 
 ## Solutions
 

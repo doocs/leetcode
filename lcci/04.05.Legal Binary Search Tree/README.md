@@ -85,7 +85,7 @@ class Solution {
 
 ### **Go**
 
-- 非递归中序遍历
+-   非递归中序遍历
 
 ```go
 func isValidBST(root *TreeNode) bool {
@@ -110,7 +110,7 @@ func isValidBST(root *TreeNode) bool {
 }
 ```
 
-- 利用上界下界判定
+-   利用上界下界判定
 
 ```go
 func isValidBST(root *TreeNode) bool {

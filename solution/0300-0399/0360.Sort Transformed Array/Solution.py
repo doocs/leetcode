@@ -1,5 +1,7 @@
 class Solution:
-    def sortTransformedArray(self, nums: List[int], a: int, b: int, c: int) -> List[int]:
+    def sortTransformedArray(
+        self, nums: List[int], a: int, b: int, c: int
+    ) -> List[int]:
         def f(x):
             return a * x * x + b * x + c
 

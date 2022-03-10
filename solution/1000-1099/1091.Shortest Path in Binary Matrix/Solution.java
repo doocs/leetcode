@@ -1,31 +1,30 @@
 class Solution {
     public int shortestPathBinaryMatrix(int[][] grid) {
-        int n = grid.length;
-        if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1) {
+        if (grid[0][0] == 1) {
             return -1;
         }
-        Queue<int[]> queue = new ArrayDeque<>();
-        boolean[][] vis = new boolean[n][n];
-        queue.offer(new int[]{0, 0});
-        vis[0][0] = true;
-        int[][] dirs = new int[][]{{0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}, {-1, 0}, {-1, 1}};
-        int res = 1;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            while (size-- != 0) {
-                int[] cur = queue.poll();
-                if (cur[0] == n - 1 && cur[1] == n - 1) {
-                    return res;
+        int n = grid.length;
+        Deque<int[]> q = new ArrayDeque<>();
+        q.offer(new int[]{0, 0});
+        grid[0][0] = 1;
+        int ans = 0;
+        while (!q.isEmpty()) {
+            ++ans;
+            for (int m = q.size(); m > 0; --m) {
+                int[] p = q.poll();
+                int i = p[0], j = p[1];
+                if (i == n - 1 && j == n - 1) {
+                    return ans;
                 }
-                for (int[] dir : dirs) {
-                    int x = cur[0] + dir[0], y = cur[1] + dir[1];
-                    if (x >= 0 && x < n && y >= 0 && y < n && !vis[x][y] && grid[x][y] == 0) {
-                        vis[x][y] = true;
-                        queue.offer(new int[]{x, y});
+                for (int x = i - 1; x <= i + 1; ++x) {
+                    for (int y = j - 1; y <= j + 1; ++y) {
+                        if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] == 0) {
+                            q.offer(new int[]{x, y});
+                            grid[x][y] = 1;
+                        }
                     }
                 }
             }
-            ++res;
         }
         return -1;
     }

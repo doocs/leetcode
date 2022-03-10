@@ -5,5 +5,5 @@ class Solution:
             pos = ord(c) - ord('a')
             if (bitmap & (1 << pos)) != 0:
                 return False
-            bitmap |= (1 << pos)
+            bitmap |= 1 << pos
         return True

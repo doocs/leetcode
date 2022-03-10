@@ -6,6 +6,7 @@ class Node:
         self.next = next
 """
 
+
 class Solution:
     def insert(self, head: 'Node', insertVal: int) -> 'Node':
         node = Node(insertVal)
@@ -14,9 +15,13 @@ class Solution:
             return node
         p = head
         while True:
-            if p.val <= insertVal and insertVal <= p.next.val or \
-                p.val > p.next.val and (insertVal <= p.next.val or insertVal >= p.val) or \
-                p.next == head:
+            if (
+                p.val <= insertVal
+                and insertVal <= p.next.val
+                or p.val > p.next.val
+                and (insertVal <= p.next.val or insertVal >= p.val)
+                or p.next == head
+            ):
 
                 node.next = p.next
                 p.next = node

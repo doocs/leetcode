@@ -58,13 +58,79 @@ The fourth data point from sensor 1 is dropped, and the last value of sensor 1 i
 ### **Python3**
 
 ```python
-
+class Solution:
+    def badSensor(self, sensor1: List[int], sensor2: List[int]) -> int:
+        i, n = 0, len(sensor1)
+        while i < n - 1:
+            if sensor1[i] != sensor2[i]:
+                break
+            i += 1
+        while i < n - 1:
+            if sensor1[i + 1] != sensor2[i]:
+                return 1
+            if sensor1[i] != sensor2[i + 1]:
+                return 2
+            i += 1
+        return -1
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public int badSensor(int[] sensor1, int[] sensor2) {
+        int i = 0;
+        int n = sensor1.length;
+        for (; i < n - 1 && sensor1[i] == sensor2[i]; ++i) {}
+        for (; i < n - 1; ++i) {
+            if (sensor1[i + 1] != sensor2[i]) {
+                return 1;
+            }
+            if (sensor1[i] != sensor2[i + 1]) {
+                return 2;
+            }
+        }
+        return -1;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int badSensor(vector<int>& sensor1, vector<int>& sensor2) {
+        int i = 0;
+        int n = sensor1.size();
+        for (; i < n - 1 && sensor1[i] == sensor2[i]; ++i) {}
+        for (; i < n - 1; ++i)
+        {
+            if (sensor1[i + 1] != sensor2[i]) return 1;
+            if (sensor1[i] != sensor2[i + 1]) return 2;
+        }
+        return -1;
+    }
+};
+```
+
+### **Go**
+
+```go
+func badSensor(sensor1 []int, sensor2 []int) int {
+	i, n := 0, len(sensor1)
+	for ; i < n-1 && sensor1[i] == sensor2[i]; i++ {
+	}
+	for ; i < n-1; i++ {
+		if sensor1[i+1] != sensor2[i] {
+			return 1
+		}
+		if sensor1[i] != sensor2[i+1] {
+			return 2
+		}
+	}
+	return -1
+}
 ```
 
 ### **...**

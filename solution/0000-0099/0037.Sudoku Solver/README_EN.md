@@ -6,12 +6,12 @@
 
 <p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
 
-<p>A&nbsp;sudoku solution must satisfy <strong>all of&nbsp;the following rules</strong>:</p>
+<p>A sudoku solution must satisfy <strong>all of the following rules</strong>:</p>
 
 <ol>
-	<li>Each of the digits&nbsp;<code>1-9</code> must occur exactly&nbsp;once in each row.</li>
-	<li>Each of the digits&nbsp;<code>1-9</code>&nbsp;must occur&nbsp;exactly once in each column.</li>
-	<li>Each of the digits&nbsp;<code>1-9</code> must occur exactly once in each of the 9 <code>3x3</code> sub-boxes of the grid.</li>
+	<li>Each of the digits <code>1-9</code> must occur exactly once in each row.</li>
+	<li>Each of the digits <code>1-9</code> must occur exactly once in each column.</li>
+	<li>Each of the digits <code>1-9</code> must occur exactly once in each of the 9 <code>3x3</code> sub-boxes of the grid.</li>
 </ol>
 
 <p>The <code>&#39;.&#39;</code> character indicates empty cells.</p>

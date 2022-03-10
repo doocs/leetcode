@@ -7,11 +7,13 @@ class Solution:
         for i in range(n):
             window[ord(p[i]) - ord('a')] += 1
             window[ord(s[i]) - ord('a')] -= 1
-        if self.check(window): ans.append(0)
+        if self.check(window):
+            ans.append(0)
         for i in range(n, m):
             window[ord(s[i]) - ord('a')] -= 1
             window[ord(s[i - n]) - ord('a')] += 1
-            if self.check(window): ans.append(i - n + 1)
+            if self.check(window):
+                ans.append(i - n + 1)
         return False
 
     def check(self, window: List[int]) -> bool:

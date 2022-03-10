@@ -1,5 +1,4 @@
 class Leaderboard:
-
     def __init__(self):
         self.player_scores = {}
 

@@ -4,9 +4,7 @@
 
 ## Description
 
-<p>You are given the <code>root</code> of a binary search tree (BST), where exactly two nodes of the tree were swapped by mistake. <em>Recover the tree without changing its structure</em>.</p>
-
-<p><strong>Follow up:</strong> A solution using <code>O(n)</code> space is pretty straight forward. Could you devise a constant space solution?</p>
+<p>You are given the <code>root</code> of a binary search tree (BST), where the values of <strong>exactly</strong> two nodes of the tree were swapped by mistake. <em>Recover the tree without changing its structure</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -32,6 +30,9 @@
 	<li>The number of nodes in the tree is in the range <code>[2, 1000]</code>.</li>
 	<li><code>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow up:</strong> A solution using <code>O(n)</code> space is pretty straight-forward. Could you devise a constant <code>O(1)</code> space solution?
 
 ## Solutions
 
@@ -241,6 +242,52 @@ public class Solution {
         }
     }
 }
+```
+
+### **JavaScript**
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {void} Do not return anything, modify root in-place instead.
+ */
+const recoverTree = root => {
+    const data = {
+        prev: null,
+        first: null,
+        second: null,
+    };
+    let tmp = 0;
+
+    helper(root, data);
+
+    tmp = data.first.val;
+    data.first.val = data.second.val;
+    data.second.val = tmp;
+};
+
+const helper = (root, data) => {
+    if (!root) return;
+
+    helper(root.left, data);
+
+    if (data.prev && data.prev.val >= root.val) {
+        if (!data.first) data.first = data.prev;
+        data.second = root;
+    }
+
+    data.prev = root;
+
+    helper(root.right, data);
+};
 ```
 
 ### **...**

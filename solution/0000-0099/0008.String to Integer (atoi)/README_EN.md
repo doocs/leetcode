@@ -11,7 +11,7 @@
 <ol>
 	<li>Read in and ignore any leading whitespace.</li>
 	<li>Check if the next character (if not already at the end of the string) is <code>&#39;-&#39;</code> or <code>&#39;+&#39;</code>. Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present.</li>
-	<li>Read in next the characters until the next non-digit charcter or the end of the input is reached. The rest of the string is ignored.</li>
+	<li>Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored.</li>
 	<li>Convert these digits into an integer (i.e. <code>&quot;123&quot; -&gt; 123</code>, <code>&quot;0032&quot; -&gt; 32</code>). If no digits were read, then the integer is <code>0</code>. Change the sign as necessary (from step 2).</li>
 	<li>If the integer is out of the 32-bit signed integer range <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code>, then clamp the integer so that it remains in the range. Specifically, integers less than <code>-2<sup>31</sup></code> should be clamped to <code>-2<sup>31</sup></code>, and integers greater than <code>2<sup>31</sup> - 1</code> should be clamped to <code>2<sup>31</sup> - 1</code>.</li>
 	<li>Return the integer as the final result.</li>
@@ -71,38 +71,6 @@ Step 3: &quot;<u>4193</u> with words&quot; (&quot;4193&quot; is read in; reading
              ^
 The parsed integer is 4193.
 Since 4193 is in the range [-2<sup>31</sup>, 2<sup>31</sup> - 1], the final result is 4193.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;words and 987&quot;
-<strong>Output:</strong> 0
-<strong>Explanation:
-</strong>Step 1: &quot;words and 987&quot; (no characters read because there is no leading whitespace)
-         ^
-Step 2: &quot;words and 987&quot; (no characters read because there is neither a &#39;-&#39; nor &#39;+&#39;)
-         ^
-Step 3: &quot;words and 987&quot; (reading stops immediately because there is a non-digit &#39;w&#39;)
-         ^
-The parsed integer is 0 because no digits were read.
-Since 0 is in the range [-2<sup>31</sup>, 2<sup>31</sup> - 1], the final result is 0.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;-91283472332&quot;
-<strong>Output:</strong> -2147483648
-<strong>Explanation:
-</strong>Step 1: &quot;-91283472332&quot; (no characters read because there is no leading whitespace)
-         ^
-Step 2: &quot;<u>-</u>91283472332&quot; (&#39;-&#39; is read, so the result should be negative)
-          ^
-Step 3: &quot;-<u>91283472332</u>&quot; (&quot;91283472332&quot; is read in)
-                     ^
-The parsed integer is -91283472332.
-Since -91283472332 is less than the lower bound of the range [-2<sup>31</sup>, 2<sup>31</sup> - 1], the final result is clamped to -2<sup>31</sup> = -2147483648.<strong><span style="display: none;"> </span></strong>
 </pre>
 
 <p>&nbsp;</p>

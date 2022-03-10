@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>Design a class to find&nbsp;the <code>k<sup>th</sup></code> largest element in a stream. Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
+<p>Design a class to find the <code>k<sup>th</sup></code> largest element in a stream. Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
 
-<p>Implement&nbsp;<code>KthLargest</code>&nbsp;class:</p>
+<p>Implement <code>KthLargest</code> class:</p>
 
 <ul>
-	<li><code>KthLargest(int k, int[] nums)</code>&nbsp;Initializes the object with the integer <code>k</code> and the stream of integers <code>nums</code>.</li>
-	<li><code>int add(int val)</code>&nbsp;Returns the element representing the <code>k<sup>th</sup></code> largest element in the stream.</li>
+	<li><code>KthLargest(int k, int[] nums)</code> Initializes the object with the integer <code>k</code> and the stream of integers <code>nums</code>.</li>
+	<li><code>int add(int val)</code> Appends the integer <code>val</code> to the stream and returns the element representing the <code>k<sup>th</sup></code> largest element in the stream.</li>
 </ul>
 
 <p>&nbsp;</p>
@@ -109,7 +109,7 @@ class KthLargest {
  * @param {number} k
  * @param {number[]} nums
  */
-var KthLargest = function(k, nums) {
+var KthLargest = function (k, nums) {
     this.k = k;
     this.heap = new MinHeap();
     for (let num of nums) {
@@ -117,11 +117,11 @@ var KthLargest = function(k, nums) {
     }
 };
 
-/** 
+/**
  * @param {number} val
  * @return {number}
  */
-KthLargest.prototype.add = function(val) {
+KthLargest.prototype.add = function (val) {
     this.heap.offer(val);
     if (this.heap.size() > this.k) {
         this.heap.poll();
@@ -139,7 +139,7 @@ class MinHeap {
     heapify() {
         if (this.size() < 2) return;
         for (let i = 1; i < this.size(); i++) {
-        this.bubbleUp(i);
+            this.bubbleUp(i);
         }
     }
 
@@ -205,8 +205,11 @@ class MinHeap {
         }
     }
 
-  swap(index1, index2) {
-        [this.data[index1], this.data[index2]] = [this.data[index2], this.data[index1]];
+    swap(index1, index2) {
+        [this.data[index1], this.data[index2]] = [
+            this.data[index2],
+            this.data[index1],
+        ];
     }
 
     size() {

@@ -6,6 +6,8 @@
 
 <p>Given two strings <code>s</code> and <code>p</code>, return <em>an array of all the start indices of </em><code>p</code><em>&#39;s anagrams in </em><code>s</code>. You may return the answer in <strong>any order</strong>.</p>
 
+<p>An <strong>Anagram</strong> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -86,6 +88,32 @@ class Solution {
         }
         return ans;
     }
+}
+```
+
+### **TypeScript**
+
+```ts
+function findAnagrams(s: string, p: string): number[] {
+    let n = s.length,
+        m = p.length;
+    let cnt = new Array(26).fill(0);
+    let ans = [];
+    for (let i = 0; i < m; i++) {
+        cnt[p.charCodeAt(i) - 97]--;
+        cnt[s.charCodeAt(i) - 97]++;
+    }
+    if (cnt.every(v => v == 0)) {
+        ans.push(0);
+    }
+    for (let i = m; i < n; i++) {
+        cnt[s.charCodeAt(i) - 97]++;
+        cnt[s.charCodeAt(i - m) - 97]--;
+        if (cnt.every(v => v == 0)) {
+            ans.push(i - m + 1);
+        }
+    }
+    return ans;
 }
 ```
 

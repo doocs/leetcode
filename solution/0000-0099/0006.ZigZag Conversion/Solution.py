@@ -1,29 +1,16 @@
 class Solution:
-    def convert(self, s, numRows):
-        """
-        :type s: str
-        :type numRows: int
-        :rtype: str
-        """
-        
-        if numRows == 0:
-            return ""
-        elif numRows == 1:
+    def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1:
             return s
-        
-        Ret = [[] for i in range(numRows)]
-        i = 0
-        while i < len(s):
-            j = 0
-            while i<len(s) and j<numRows:    # Vertical lines
-                Ret[j].append(s[i])
-                i+=1
-                j+=1
-            j -= 2
-            while i<len(s) and j>0:     # Diagonal lines
-                Ret[j].append(s[i])
-                j-=1
-                i+=1
-        
-        return "".join(["".join(row) for row in Ret])
-            
+        group = 2 * numRows - 2
+        ans = []
+        for i in range(1, numRows + 1):
+            interval = group if i == numRows else 2 * numRows - 2 * i
+            idx = i - 1
+            while idx < len(s):
+                ans.append(s[idx])
+                idx += interval
+                interval = group - interval
+                if interval == 0:
+                    interval = group
+        return ''.join(ans)

@@ -7,7 +7,7 @@
 class Solution:
     def subtreeWithAllDeepest(self, root: TreeNode) -> TreeNode:
         def dfs(root):
-            if not root:
+            if root is None:
                 return None, 0
             l, d1 = dfs(root.left)
             r, d2 = dfs(root.right)

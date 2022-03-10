@@ -23,7 +23,7 @@ def merge_sort(nums, left, right):
     while j <= right:
         tmp.append(nums[j])
         j += 1
-    
+
     j = 0
     for i in range(left, right + 1):
         nums[i] = tmp[j]

@@ -10,7 +10,7 @@
 
 <p><strong>高度平衡 </strong>二叉树是一棵满足「每个节点的左右两个子树的高度差的绝对值不超过 1 」的二叉树。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0108.Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree/images/btree1.jpg" style="width: 302px; height: 222px;" />
@@ -26,16 +26,16 @@
 <pre>
 <strong>输入：</strong>nums = [1,3]
 <strong>输出：</strong>[3,1]
-<strong>解释：</strong>[1,3] 和 [3,1] 都是高度平衡二叉搜索树。
+<strong>解释：</strong>[1,null,3] 和 [3,1] 都是高度平衡二叉搜索树。
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= nums.length <= 10<sup>4</sup></code></li>
-	<li><code>-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 	<li><code>nums</code> 按 <strong>严格递增</strong> 顺序排列</li>
 </ul>
 

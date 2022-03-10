@@ -10,7 +10,7 @@
 
 <ul>
 	<li>Assuming that on a day, you visit room <code>i</code>,</li>
-	<li>if you have been in room <code>i</code> an <strong>odd</strong> number of times (<strong>including</strong> the current visit), on the <strong>next</strong> day you will visit the room specified by <code>nextVisit[i]</code> where <code>0 &lt;= nextVisit[i] &lt;= i</code>;</li>
+	<li>if you have been in room <code>i</code> an <strong>odd</strong> number of times (<strong>including</strong> the current visit), on the <strong>next</strong> day you will visit a room with a <strong>lower or equal room number</strong> specified by <code>nextVisit[i]</code> where <code>0 &lt;= nextVisit[i] &lt;= i</code>;</li>
 	<li>if you have been in room <code>i</code> an <strong>even</strong> number of times (<strong>including</strong> the current visit), on the <strong>next</strong> day you will visit room <code>(i + 1) mod n</code>.</li>
 </ul>
 

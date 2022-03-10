@@ -4,8 +4,8 @@ class Solution {
 
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         int n = equations.size();
-        p = new HashMap<>(n << 1);
-        w = new HashMap<>(n << 1);
+        p = new HashMap<>();
+        w = new HashMap<>();
         for (List<String> e : equations) {
             p.put(e.get(0), e.get(0));
             p.put(e.get(1), e.get(1));
@@ -23,12 +23,12 @@ class Solution {
             w.put(pa, w.get(b) * values[i] / w.get(a));
         }
         int m = queries.size();
-        double[] res = new double[m];
+        double[] ans = new double[m];
         for (int i = 0; i < m; ++i) {
             String c = queries.get(i).get(0), d = queries.get(i).get(1);
-            res[i] = !p.containsKey(c) || !p.containsKey(d) || !Objects.equals(find(c), find(d)) ? - 1.0 : w.get(c) / w.get(d);
+            ans[i] = !p.containsKey(c) || !p.containsKey(d) || !Objects.equals(find(c), find(d)) ? - 1.0 : w.get(c) / w.get(d);
         }
-        return res;
+        return ans;
     }
 
     private String find(String x) {

@@ -51,9 +51,54 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
-二分查找。
+二分查找。两遍二分，分别查找出左边界和右边界。
 
-两遍二分，分别查找出左边界和右边界。
+模板 1：
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
+    while (left < right) {
+        int mid = (left + right) >> 1;
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
+模板 2：
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
+    while (left < right) {
+        int mid = (left + right + 1) >> 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+```
+
+做二分题目时，可以按照以下步骤：
+
+1. 写出循环条件：`while (left < right)`，注意是 `left < right`，而非 `left <= right`；
+1. 循环体内，先无脑写出 `mid = (left + right) >> 1`；
+1. 根据具体题目，实现 `check()` 函数（有时很简单的逻辑，可以不定义 `check`），想一下究竟要用 `right = mid`（模板 1） 还是 `left = mid`（模板 2）；
+    - 如果 `right = mid`，那么无脑写出 else 语句 `left = mid + 1`，并且不需要更改 mid 的计算，即保持 `mid = (left + right) >> 1`；
+    - 如果 `left = mid`，那么无脑写出 else 语句 `right = mid - 1`，并且在 mid 计算时补充 +1，即 `mid = (left + right + 1) >> 1`。
+1. 循环结束时，left 与 right 相等。
+
+注意，这两个模板的优点是始终保持答案位于二分区间内，二分结束条件对应的值恰好在答案所处的位置。 对于可能无解的情况，只要判断二分结束后的 left 或者 right 是否满足题意即可。
 
 <!-- tabs:start -->
 
@@ -230,6 +275,56 @@ func searchRange(nums []int, target int) []int {
 		}
 	}
 	return []int{l, left}
+}
+```
+
+### **Rust**
+
+```rust
+use std::cmp::Ordering;
+
+impl Solution {
+    pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
+        let n = nums.len();
+        let mut l = 0;
+        let mut r = n;
+        while l < r {
+            let mid = l + (r - l) / 2;
+            match nums[mid].cmp(&target) {
+                Ordering::Less => l = mid + 1,
+                Ordering::Greater => r = mid,
+                Ordering::Equal => {
+                    let mut res = vec![mid as i32, mid as i32];
+                    let mut t = mid;
+                    while l < t {
+                        let mid = l + (t - l) / 2;
+                        match nums[mid].cmp(&target) {
+                            Ordering::Less => l = mid + 1,
+                            Ordering::Greater => t = mid,
+                            Ordering::Equal => {
+                                res[0] = mid as i32;
+                                t = mid;
+                            }
+                        }
+                    }
+                    t = mid + 1;
+                    while t < r {
+                        let mid = t + (r - t) / 2;
+                        match nums[mid].cmp(&target) {
+                            Ordering::Less => t = mid + 1,
+                            Ordering::Greater => r = mid,
+                            Ordering::Equal => {
+                                res[1] = mid as i32;
+                                t = mid + 1;
+                            }
+                        }
+                    }
+                    return res;
+                }
+            }
+        }
+        vec![-1, -1]
+    }
 }
 ```
 

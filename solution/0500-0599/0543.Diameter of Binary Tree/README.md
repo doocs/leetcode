@@ -87,7 +87,7 @@ class Solution:
                 d[root.right].add(root)
             build(root.left)
             build(root.right)
-        
+
         def dfs(u, t):
             nonlocal ans, vis, d, next
             if u in vis:

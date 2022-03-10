@@ -4,15 +4,15 @@
 
 ## Description
 
-<p>There are&nbsp;<code>n</code>&nbsp;computers numbered from&nbsp;<code>0</code>&nbsp;to&nbsp;<code>n-1</code>&nbsp;connected by&nbsp;ethernet cables&nbsp;<code>connections</code>&nbsp;forming a network where&nbsp;<code>connections[i] = [a, b]</code>&nbsp;represents a connection between computers&nbsp;<code>a</code>&nbsp;and&nbsp;<code>b</code>. Any computer&nbsp;can reach any other computer directly or indirectly through the network.</p>
+<p>There are <code>n</code> computers numbered from <code>0</code> to <code>n - 1</code> connected by ethernet cables <code>connections</code> forming a network where <code>connections[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> represents a connection between computers <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>. Any computer can reach any other computer directly or indirectly through the network.</p>
 
-<p>Given an initial computer network <code>connections</code>. You can extract certain cables between two directly connected computers, and place them between any pair of disconnected computers to make them directly connected. Return the <em>minimum number of times</em> you need to do this in order to make all the computers connected. If it&#39;s not possible, return -1.&nbsp;</p>
+<p>You are given an initial computer network <code>connections</code>. You can extract certain cables between two directly connected computers, and place them between any pair of disconnected computers to make them directly connected.</p>
+
+<p>Return <em>the minimum number of times you need to do this in order to make all the computers connected</em>. If it is not possible, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/images/sample_1_1677.png" style="width: 570px; height: 167px;" /></strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/images/sample_1_1677.png" style="width: 500px; height: 148px;" />
 <pre>
 <strong>Input:</strong> n = 4, connections = [[0,1],[0,2],[1,2]]
 <strong>Output:</strong> 1
@@ -20,9 +20,7 @@
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/images/sample_2_1677.png" style="width: 660px; height: 167px;" /></strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1319.Number%20of%20Operations%20to%20Make%20Network%20Connected/images/sample_2_1677.png" style="width: 500px; height: 129px;" />
 <pre>
 <strong>Input:</strong> n = 6, connections = [[0,1],[0,2],[0,3],[1,2],[1,3]]
 <strong>Output:</strong> 2
@@ -36,27 +34,22 @@
 <strong>Explanation:</strong> There are not enough cables.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 5, connections = [[0,1],[0,2],[3,4],[2,3]]
-<strong>Output:</strong> 0
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 10^5</code></li>
-	<li><code>1 &lt;= connections.length &lt;= min(n*(n-1)/2, 10^5)</code></li>
+	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= connections.length &lt;= min(n * (n - 1) / 2, 10<sup>5</sup>)</code></li>
 	<li><code>connections[i].length == 2</code></li>
-	<li><code>0 &lt;= connections[i][0], connections[i][1]&nbsp;&lt; n</code></li>
-	<li><code>connections[i][0] != connections[i][1]</code></li>
+	<li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; n</code></li>
+	<li><code>a<sub>i</sub> != b<sub>i</sub></code></li>
 	<li>There are no repeated connections.</li>
 	<li>No two computers are connected by more than one cable.</li>
 </ul>
 
 ## Solutions
+
+Union find.
 
 <!-- tabs:start -->
 
@@ -65,21 +58,20 @@
 ```python
 class Solution:
     def makeConnected(self, n: int, connections: List[List[int]]) -> int:
-        p = list(range(n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
         cnt = 0
+        p = list(range(n))
         for a, b in connections:
             if find(a) == find(b):
                 cnt += 1
             else:
                 p[find(a)] = find(b)
-        total = sum(i == find(i) for i in range(n))
-        return -1 if total - 1 > cnt else total - 1
+                n -= 1
+        return -1 if n - 1 > cnt else n - 1
 ```
 
 ### **Java**
@@ -95,19 +87,16 @@ class Solution {
         }
         int cnt = 0;
         for (int[] e : connections) {
-            if (find(e[0]) == find(e[1])) {
+            int a = e[0];
+            int b = e[1];
+            if (find(a) == find(b)) {
                 ++cnt;
             } else {
-                p[find(e[0])] = find(e[1]);
+                p[find(a)] = find(b);
+                --n;
             }
         }
-        int total = 0;
-        for (int i = 0; i < n; ++i) {
-            if (i == find(i)) {
-                ++total;
-            }
-        }
-        return total - 1 > cnt ? -1 : total - 1;
+        return n - 1 > cnt ? -1 : n - 1;
     }
 
     private int find(int x) {
@@ -126,38 +115,25 @@ class Solution {
 public:
     vector<int> p;
 
-    int makeConnected(int n, vector<vector<int>> &connections) {
+    int makeConnected(int n, vector<vector<int>>& connections) {
         p.resize(n);
-        for (int i = 0; i < n; ++i)
-        {
-            p[i] = i;
-        }
+        for (int i = 0; i < n; ++i) p[i] = i;
         int cnt = 0;
-        for (auto e : connections)
+        for (auto& e : connections)
         {
-            if (find(e[0]) == find(e[1]))
-            {
-                ++cnt;
-            }
+            int a = e[0], b = e[1];
+            if (find(a) == find(b)) ++cnt;
             else
             {
-                p[find(e[0])] = find(e[1]);
+                p[find(a)] = find(b);
+                --n;
             }
         }
-        int total = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            if (i == find(i))
-            {
-                ++total;
-            }
-        }
-        return total - 1 > cnt ? -1 : total - 1;
+        return n - 1 > cnt ? -1 : n - 1;
     }
 
     int find(int x) {
-        if (p[x] != x)
-            p[x] = find(p[x]);
+        if (p[x] != x) p[x] = find(p[x]);
         return p[x];
     }
 };
@@ -166,38 +142,32 @@ public:
 ### **Go**
 
 ```go
-var p []int
-
 func makeConnected(n int, connections [][]int) int {
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
 	cnt := 0
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
 	for _, e := range connections {
-		if find(e[0]) == find(e[1]) {
+		a, b := e[0], e[1]
+		if find(a) == find(b) {
 			cnt++
 		} else {
-			p[find(e[0])] = find(e[1])
+			p[find(a)] = find(b)
+			n--
 		}
 	}
-	total := 0
-	for i := 0; i < n; i++ {
-		if i == find(i) {
-			total++
-		}
-	}
-	if total-1 > cnt {
+	if n-1 > cnt {
 		return -1
 	}
-	return total - 1
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return n - 1
 }
 ```
 

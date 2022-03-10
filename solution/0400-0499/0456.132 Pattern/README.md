@@ -12,10 +12,6 @@
 
 <p> </p>
 
-<p><strong>进阶：</strong>很容易想到时间复杂度为 <code>O(n^2)</code> 的解决方案，你可以设计一个时间复杂度为 <code>O(n logn)</code> 或 <code>O(n)</code> 的解决方案吗？</p>
-
-<p> </p>
-
 <p><strong>示例 1：</strong></p>
 
 <pre>
@@ -46,7 +42,7 @@
 
 <ul>
 	<li><code>n == nums.length</code></li>
-	<li><code>1 <= n <= 10<sup>4</sup></code></li>
+	<li><code>1 <= n <= 2 * 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 
@@ -95,6 +91,55 @@ class Solution {
             stack.push(nums[i]);
         }
         return false;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function find132pattern(nums: number[]): boolean {
+    const n = nums.length;
+    if (n < 3) {
+        return false;
+    }
+    let last = -Infinity;
+    const stack = [];
+    for (let i = n - 1; i >= 0; i--) {
+        const num = nums[i];
+        if (num < last) {
+            return true;
+        }
+        while (stack[stack.length - 1] < num) {
+            last = Math.max(last, stack.pop());
+        }
+        stack.push(num);
+    }
+    return false;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find132pattern(nums: Vec<i32>) -> bool {
+        let n = nums.len();
+        if n < 3 {
+            return false;
+        }
+        let mut last = i32::MIN;
+        let mut stack = vec![];
+        for i in (0..n).rev() {
+            if nums[i] < last {
+                return true;
+            }
+            while !stack.is_empty() && stack.last().unwrap() < &nums[i] {
+                last = stack.pop().unwrap();
+            }
+            stack.push(nums[i])
+        }
+        false
     }
 }
 ```

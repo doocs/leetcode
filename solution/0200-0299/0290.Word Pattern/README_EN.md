@@ -30,13 +30,6 @@
 <strong>Output:</strong> false
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> pattern = &quot;abba&quot;, s = &quot;dog dog dog dog&quot;
-<strong>Output:</strong> false
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -44,7 +37,7 @@
 	<li><code>1 &lt;= pattern.length &lt;= 300</code></li>
 	<li><code>pattern</code> contains only lower-case English letters.</li>
 	<li><code>1 &lt;= s.length &lt;= 3000</code></li>
-	<li><code>s</code> contains only lower-case English letters and spaces <code>&#39; &#39;</code>.</li>
+	<li><code>s</code> contains only lowercase English letters and spaces <code>&#39; &#39;</code>.</li>
 	<li><code>s</code> <strong>does not contain</strong> any leading or trailing spaces.</li>
 	<li>All the words in <code>s</code> are separated by a <strong>single space</strong>.</li>
 </ul>
@@ -107,7 +100,7 @@ class Solution {
 ```ts
 function wordPattern(pattern: string, s: string): boolean {
     let n = pattern.length;
-    let values = s.split(" ");
+    let values = s.split(' ');
     if (n != values.length) return false;
     let table = new Array(128);
     for (let i = 0; i < n; i++) {

@@ -8,19 +8,16 @@ class Solution {
         }
         int cnt = 0;
         for (int[] e : connections) {
-            if (find(e[0]) == find(e[1])) {
+            int a = e[0];
+            int b = e[1];
+            if (find(a) == find(b)) {
                 ++cnt;
             } else {
-                p[find(e[0])] = find(e[1]);
+                p[find(a)] = find(b);
+                --n;
             }
         }
-        int total = 0;
-        for (int i = 0; i < n; ++i) {
-            if (i == find(i)) {
-                ++total;
-            }
-        }
-        return total - 1 > cnt ? -1 : total - 1;
+        return n - 1 > cnt ? -1 : n - 1;
     }
 
     private int find(int x) {

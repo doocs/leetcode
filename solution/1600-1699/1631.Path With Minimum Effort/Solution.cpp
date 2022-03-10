@@ -16,7 +16,7 @@ public:
             }
         }
         sort(edges.begin(), edges.end());
-        for (auto e : edges)
+        for (auto& e : edges)
         {
             int i = e[1], j = e[2];
             p[find(i)] = find(j);

@@ -8,13 +8,11 @@ class Solution {
         }
         Arrays.sort(logs, Comparator.comparingInt(a -> a[0]));
         for (int[] log : logs) {
-            int t = log[0];
-            int a = log[1], b = log[2];
-            int pa = find(a), pb = find(b);
-            if (pa == pb) {
+            int t = log[0], a = log[1], b = log[2];
+            if (find(a) == find(b)) {
                 continue;
             }
-            p[pa] = pb;
+            p[find(a)] = find(b);
             --n;
             if (n == 1) {
                 return t;

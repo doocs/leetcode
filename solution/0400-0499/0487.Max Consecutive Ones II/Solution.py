@@ -10,13 +10,13 @@ class Solution:
             else:
                 prefix[i] = 0 if nums[i] == 0 else prefix[i - 1] + 1
             res = max(res, prefix[i])
-        
+
         for i in range(n - 1, -1, -1):
             if i == n - 1:
                 suffix[i] = nums[i]
             else:
                 suffix[i] = 0 if nums[i] == 0 else suffix[i + 1] + 1
-        
+
         for i in range(n):
             if nums[i] == 0:
                 t = 1

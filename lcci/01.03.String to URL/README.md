@@ -110,6 +110,41 @@ func replaceSpaces(S string, length int) string {
 }
 ```
 
+### **TypeScript**
+
+```ts
+function replaceSpaces(S: string, length: number): string {
+    return S.slice(0, length).replace(/\s/g, '%20');
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn replace_spaces(s: String, length: i32) -> String {
+        s[..length as usize].replace(' ', "%20")
+    }
+}
+```
+
+```rust
+impl Solution {
+    pub fn replace_spaces(s: String, length: i32) -> String {
+        s.chars()
+            .take(length as usize)
+            .map(|c| {
+                if c == ' ' {
+                    "%20".to_string()
+                } else {
+                    c.to_string()
+                }
+            })
+            .collect()
+    }
+}
+```
+
 ### **...**
 
 ```

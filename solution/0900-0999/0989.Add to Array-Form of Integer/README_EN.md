@@ -37,21 +37,13 @@
 <strong>Explanation:</strong> 215 + 806 = 1021
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> num = [9,9,9,9,9,9,9,9,9,9], k = 1
-<strong>Output:</strong> [1,0,0,0,0,0,0,0,0,0,0]
-<strong>Explanation:</strong> 9999999999 + 1 = 10000000000
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= num.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= num[i] &lt;= 9</code></li>
-	<li><code>num</code>&nbsp;does not contain any leading zeros except for the zero itself.</li>
+	<li><code>num</code> does not contain any leading zeros except for the zero itself.</li>
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 </ul>
 

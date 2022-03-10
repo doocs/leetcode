@@ -1,31 +1,28 @@
-var p []int
-
 func earliestAcq(logs [][]int, n int) int {
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
 	}
 	sort.Slice(logs, func(i, j int) bool {
 		return logs[i][0] < logs[j][0]
 	})
 	for _, log := range logs {
-		a, b := log[1], log[2]
-		pa, pb := find(a), find(b)
-		if pa == pb {
+		t, a, b := log[0], log[1], log[2]
+		if find(a) == find(b) {
 			continue
 		}
-		p[pa] = pb
+		p[find(a)] = find(b)
 		n--
 		if n == 1 {
-			return log[0]
+			return t
 		}
 	}
 	return -1
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }

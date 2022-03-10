@@ -1,6 +1,4 @@
 class Solution:
     def sumOfUnique(self, nums: List[int]) -> int:
-        counter = [0] * 101
-        for num in nums:
-            counter[num] += 1
-        return sum([i for i in range(1, 101) if counter[i] == 1])
+        counter = Counter(nums)
+        return sum(num for num, cnt in counter.items() if cnt == 1)

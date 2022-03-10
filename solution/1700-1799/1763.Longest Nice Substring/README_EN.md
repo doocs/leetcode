@@ -23,22 +23,16 @@
 <pre>
 <strong>Input:</strong> s = &quot;Bb&quot;
 <strong>Output:</strong> &quot;Bb&quot;
-<strong>Explanation:</strong> &quot;Bb&quot; is a nice string because both &#39;B&#39; and &#39;b&#39; appear. The whole string is a substring.</pre>
+<strong>Explanation:</strong> &quot;Bb&quot; is a nice string because both &#39;B&#39; and &#39;b&#39; appear. The whole string is a substring.
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> s = &quot;c&quot;
 <strong>Output:</strong> &quot;&quot;
-<strong>Explanation:</strong> There are no nice substrings.</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;dDzeE&quot;
-<strong>Output:</strong> &quot;dD&quot;
-<strong>Explanation: </strong>Both &quot;dD&quot; and &quot;eE&quot; are the longest nice substrings.
-As there are multiple longest nice substrings, return &quot;dD&quot; since it occurs earlier.</pre>
+<strong>Explanation:</strong> There are no nice substrings.
+</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
@@ -55,13 +49,117 @@ As there are multiple longest nice substrings, return &quot;dD&quot; since it oc
 ### **Python3**
 
 ```python
-
+class Solution:
+    def longestNiceSubstring(self, s: str) -> str:
+        n = len(s)
+        ans = ''
+        for i in range(n):
+            lower = upper = 0
+            for j in range(i, n):
+                if s[j].islower():
+                    lower |= 1 << (ord(s[j]) - ord('a'))
+                else:
+                    upper |= 1 << (ord(s[j]) - ord('A'))
+                if lower == upper and j - i + 1 > len(ans):
+                    ans = s[i: j + 1]
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
 
+    public String longestNiceSubstring(String s) {
+        int n = s.length();
+        String ans = "";
+        for (int i = 0; i < n; ++i) {
+            int lower = 0, upper = 0;
+            for (int j = i; j < n; ++j) {
+                char c = s.charAt(j);
+                if (Character.isLowerCase(c)) {
+                    lower |= 1 << (c - 'a');
+                } else {
+                    upper |= 1 << (c - 'A');
+                }
+                if (lower == upper && j - i + 1 > ans.length()) {
+                    ans = s.substring(i, j + 1);
+                }
+            }
+        }
+        return ans;
+    }
+}
+
+```
+
+### **TypeScript**
+
+```ts
+function longestNiceSubstring(s: string): string {
+    const n = s.length;
+    let ans = '';
+    for (let i = 0; i < n; i++) {
+        let lower = 0,
+            upper = 0;
+        for (let j = i; j < n; j++) {
+            const c = s.charCodeAt(j);
+            if (c > 96) {
+                lower |= 1 << (c - 97);
+            } else {
+                upper |= 1 << (c - 65);
+            }
+            if (lower == upper && j - i + 1 > ans.length) {
+                ans = s.substring(i, j + 1);
+            }
+        }
+    }
+    return ans;
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    string longestNiceSubstring(string s) {
+        int n = s.size();
+        string ans = "";
+        for (int i = 0; i < n; ++i)
+        {
+            int lower = 0, upper = 0;
+            for (int j = i; j < n; ++j)
+            {
+                if (islower(s[j])) lower |= 1 << (s[j] - 'a');
+                else upper |= 1 << (s[j] - 'A');
+                if (lower == upper && j - i + 1 > ans.size()) ans = s.substr(i, j - i + 1);
+            }
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func longestNiceSubstring(s string) (ans string) {
+	for i := range s {
+		lower, upper := 0, 0
+		for j := i; j < len(s); j++ {
+			if unicode.IsLower(rune(s[j])) {
+				lower |= 1 << (s[j] - 'a')
+			} else {
+				upper |= 1 << (s[j] - 'A')
+			}
+			if lower == upper && j-i+1 > len(ans) {
+				ans = s[i : j+1]
+			}
+		}
+	}
+	return
+}
 ```
 
 ### **...**

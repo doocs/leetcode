@@ -20,11 +20,17 @@ The activity column is an ENUM type of (&#39;login&#39;, &#39;logout&#39;, &#39;
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query that reports for every date within at most&nbsp;<strong>90 days</strong> from today, the number of users that logged in for the first time on that date. Assume today is <strong>2019-06-30</strong>.</p>
+<p>Write an SQL query to reports for every date within at most <code>90</code> days from today, the number of users that logged in for the first time on that date. Assume today is <code>2019-06-30</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Traffic table:
 +---------+----------+---------------+
 | user_id | activity | activity_date |
@@ -45,14 +51,14 @@ Traffic table:
 | 5       | login    | 2019-06-21    |
 | 5       | logout   | 2019-06-21    |
 +---------+----------+---------------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+-------------+
 | login_date | user_count  |
 +------------+-------------+
 | 2019-05-01 | 1           |
 | 2019-06-21 | 2           |
 +------------+-------------+
+<strong>Explanation:</strong> 
 Note that we only care about dates with non zero user count.
 The user with id 5 first logged in on 2019-03-01 so he&#39;s not counted on 2019-06-21.
 </pre>

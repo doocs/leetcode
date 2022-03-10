@@ -46,11 +46,11 @@
 ```python
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        helper = {}
+        mp = {}
         for i, v in enumerate(nums):
-            if v in helper and i - helper[v] <= k:
+            if v in mp and i - mp[v] <= k:
                 return True
-            helper[v] = i
+            mp[v] = i
         return False
 ```
 
@@ -59,15 +59,65 @@ class Solution:
 ```java
 class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        Map<Integer, Integer> helper = new HashMap<>();
-        for (int i = 0, n = nums.length; i < n; ++i) {
-            if (helper.containsKey(nums[i])) {
-                int j = helper.get(nums[i]);
-                if (i - j <= k) {
-                    return true;
-                }
+        Map<Integer, Integer> mp = new HashMap<>();
+        for (int i = 0; i < nums.length; ++i) {
+            if (mp.containsKey(nums[i]) && i - mp.get(nums[i]) <= k) {
+                return true;
             }
-            helper.put(nums[i], i);
+            mp.put(nums[i], i);
+        }
+        return false;
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int, int> mp;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            if (mp.count(nums[i]) && i - mp[nums[i]] <= k) return true;
+            mp[nums[i]] = i;
+        }
+        return false;
+    }
+};
+```
+
+### **Go**
+
+```go
+func containsNearbyDuplicate(nums []int, k int) bool {
+	mp := make(map[int]int)
+	for i, v := range nums {
+		if j, ok := mp[v]; ok {
+			if i-j <= k {
+				return true
+			}
+		}
+		mp[v] = i
+	}
+	return false
+}
+```
+
+### **C#**
+
+```cs
+public class Solution {
+    public bool ContainsNearbyDuplicate(int[] nums, int k) {
+        var mp = new Dictionary<int, int>();
+        for (int i = 0; i < nums.Length; ++i)
+        {
+            if (mp.ContainsKey(nums[i]) && i - mp[nums[i]] <= k)
+            {
+                return true;
+            }
+            mp[nums[i]] = i;
         }
         return false;
     }

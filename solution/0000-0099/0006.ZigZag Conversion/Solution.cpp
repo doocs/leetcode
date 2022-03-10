@@ -1,36 +1,21 @@
-// @ID:6. ZigZag Conversion
-// @author:jxdeng3989
-
 class Solution {
 public:
     string convert(string s, int numRows) {
-        string retstr;
-        if(1==numRows)
-            return s;
-        for(int i=0; i<numRows; ++i)
+        if (numRows == 1) return s;
+        string ans;
+        int group = 2 * numRows - 2;
+        for (int i = 1; i <= numRows; ++i)
         {
-            retstr.push_back(s[i]);
-            int maxspan = 2*(numRows-1);
-            int span1 = maxspan-i*2;
-            int span2 = maxspan - span1;
-             int cntpos = i;
-            if(span1==0)
-                span1 = span2;
-            if(span2==0)
-                span2 = span1;
-             while(1)
-             {   
-				 if(cntpos+span1>=s.size())
-					 break;
-                 cntpos += span1;
-                 retstr.push_back(s[cntpos]);
-                 
-                 if(cntpos+span2>=s.size())
-                     break;
-                 cntpos += span2;
-                 retstr.push_back(s[cntpos]);
-             }
+            int interval = i == numRows ? group : 2 * numRows - 2 * i;
+            int idx = i - 1;
+            while (idx < s.length())
+            {
+                ans.push_back(s[idx]);
+                idx += interval;
+                interval = group - interval;
+                if (interval == 0) interval = group;
+            }
         }
-        return retstr;
+        return ans;
     }
 };

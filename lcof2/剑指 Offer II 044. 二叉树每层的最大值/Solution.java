@@ -15,15 +15,15 @@
  */
 class Solution {
     public List<Integer> largestValues(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return ans;
         }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<Integer> ans = new ArrayList<>();
         while (!q.isEmpty()) {
             int t = Integer.MIN_VALUE;
-            for (int i = 0, n = q.size(); i < n; ++i) {
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
                 t = Math.max(t, node.val);
                 if (node.left != null) {

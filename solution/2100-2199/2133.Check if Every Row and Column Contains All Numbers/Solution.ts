@@ -11,4 +11,4 @@ function checkValid(matrix: number[][]): boolean {
         }
     }
     return true;
-};
+}

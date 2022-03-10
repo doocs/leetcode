@@ -6,23 +6,36 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个单词列表和两个单词 <em>word1</em> 和 <em>word2</em>，返回列表中这两个单词之间的最短距离。</p>
+<p>给定一个字符串数组&nbsp;<code>wordsDict</code> 和两个字符串 <code>word1</code> 和 <code>word2</code> ，返回列表中这两个单词之间的最短距离。</p>
 
-<p><em>word1</em> 和 <em>word2</em>&nbsp;是有可能相同的，并且它们将分别表示为列表中两个独立的单词。</p>
+<p>注意：<code>word1</code> 和 <code>word2</code>&nbsp;是有可能相同的，并且它们将分别表示为列表中 <strong>两个独立的单词</strong> 。</p>
 
-<p><strong>示例:</strong><br>
-假设 words = <code>[&quot;practice&quot;, &quot;makes&quot;, &quot;perfect&quot;, &quot;coding&quot;, &quot;makes&quot;]</code>.</p>
+<p>&nbsp;</p>
 
-<pre><strong>输入:</strong> <em>word1</em> = <code>&ldquo;makes&rdquo;</code>, <em>word2</em> = <code>&ldquo;coding&rdquo;</code>
-<strong>输出:</strong> 1
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>wordsDict = ["practice", "makes", "perfect", "coding", "makes"], word1 = "makes", word2 = "coding"
+<strong>输出：</strong>1
 </pre>
 
-<pre><strong>输入:</strong> <em>word1</em> = <code>&quot;makes&quot;</code>, <em>word2</em> = <code>&quot;makes&quot;</code>
-<strong>输出:</strong> 3
+<p><strong>示例 2：</strong></p>
+
+<pre>
+<strong>输入：</strong>wordsDict = ["practice", "makes", "perfect", "coding", "makes"], word1 = "makes", word2 = "makes"
+<strong>输出：</strong>3
 </pre>
 
-<p><strong>注意:</strong><br>
-你可以假设 <em>word1</em> 和 <em>word2</em> 都在列表里。</p>
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= wordsDict.length &lt;= 10<sup>5</sup></code></li>
+	<li><code>1 &lt;= wordsDict[i].length &lt;= 10</code></li>
+	<li><code>wordsDict[i]</code> 由小写英文字母组成</li>
+	<li><code>word1</code> 和 <code>word2</code> 都在 <code>wordsDict</code> 中</li>
+</ul>
 
 ## 解法
 

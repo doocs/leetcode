@@ -1,10 +1,8 @@
 class Solution {
     private int[] p;
-    private int n;
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
 
     public int swimInWater(int[][] grid) {
-        n = grid.length;
+        int n = grid.length;
         p = new int[n * n];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
@@ -12,18 +10,21 @@ class Solution {
         int[] hi = new int[n * n];
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
-                hi[grid[i][j]] = index(i, j);
+                hi[grid[i][j]] = i * n + j;
             }
         }
-        for (int h = 0; h < n * n; ++h) {
-            int x = hi[h] / n, y = hi[h] % n;
-            for (int[] dir : dirs) {
-                int x1 = x + dir[0], y1 = y + dir[1];
-                if (check(x1, y1) && grid[x1][y1] <= h) {
-                    p[find(index(x1, y1))] = find(hi[h]);
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int t = 0; t < n * n; ++t) {
+            int i = hi[t] / n;
+            int j = hi[t] % n;
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < n && y >= 0 && y < n && grid[x][y] <= t) {
+                    p[find(x * n + y)] = find(i * n + j);
                 }
                 if (find(0) == find(n * n - 1)) {
-                    return h;
+                    return t;
                 }
             }
         }
@@ -35,13 +36,5 @@ class Solution {
             p[x] = find(p[x]);
         }
         return p[x];
-    }
-
-    private int index(int i, int j) {
-        return i * n + j;
-    }
-
-    private boolean check(int i, int j) {
-        return i >= 0 && i < n && j >= 0 && j < n;
     }
 }

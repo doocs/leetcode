@@ -9,33 +9,22 @@
 <p>You are given a 2D integer array <code>edges</code> where each <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>]</code> indicates that there is an edge between the nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code>. Return the center of the given star graph.</p>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1700-1799/1791.Find%20Center%20of%20Star%20Graph/images/star_graph.png" style="width: 331px; height: 321px;" />
-
 <pre>
-
 <strong>Input:</strong> edges = [[1,2],[2,3],[4,2]]
-
 <strong>Output:</strong> 2
-
 <strong>Explanation:</strong> As shown in the figure above, node 2 is connected to every other node, so 2 is the center.
-
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
 <strong>Input:</strong> edges = [[1,2],[5,1],[1,3],[1,4]]
-
 <strong>Output:</strong> 1
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>
@@ -56,9 +45,7 @@
 ```python
 class Solution:
     def findCenter(self, edges: List[List[int]]) -> int:
-        a, b = edges[0]
-        c, d = edges[1]
-        return a if a == c or a == d else b
+        return edges[0][0] if edges[0][0] in edges[1] else edges[0][1]
 ```
 
 ### **Java**
@@ -108,6 +95,19 @@ func findCenter(edges [][]int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find_center(edges: Vec<Vec<i32>>) -> i32 {
+        if edges[0][0] == edges[1][0] || edges[0][0] == edges[1][1] {
+            return edges[0][0];
+        }
+        edges[0][1]
+    }
 }
 ```
 

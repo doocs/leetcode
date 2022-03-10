@@ -6,23 +6,19 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个根为 <code>root</code> 的二叉树，每个节点的深度是 <strong>该节点到根的最短距离</strong> 。</p>
+<p>给定一个根为&nbsp;<code>root</code>&nbsp;的二叉树，每个节点的深度是 <strong>该节点到根的最短距离</strong> 。</p>
+
+<p>返回包含原始树中所有 <strong>最深节点</strong> 的 <em>最小子树</em> 。</p>
 
 <p>如果一个节点在 <strong>整个树 </strong>的任意节点之间具有最大的深度，则该节点是 <strong>最深的</strong> 。</p>
 
 <p>一个节点的 <strong>子树</strong> 是该节点加上它的所有后代的集合。</p>
 
-<p>返回能满足 <strong>以该节点为根的子树中包含所有最深的节点</strong> 这一条件的具有最大深度的节点。</p>
-
-<p> </p>
-
-<p><strong>注意：</strong>本题与力扣 1123 重复：<a href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-deepest-leaves/" target="_blank">https://leetcode-cn.com/problems/lowest-common-ancestor-of-deepest-leaves/</a></p>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" height="475" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/images/sketch1.png" width="560" /></p>
+<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0865.Smallest%20Subtree%20with%20all%20the%20Deepest%20Nodes/images/sketch1.png" style="width: 300px;" /></p>
 
 <pre>
 <strong>输入：</strong>root = [3,5,1,6,2,0,8,null,null,7,4]
@@ -47,15 +43,19 @@
 <strong>输出：</strong>[2]
 <strong>解释：</strong>树中最深的节点为 2 ，有效子树为节点 2、1 和 0 的子树，但节点 2 的子树最小。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li>树中节点的数量介于 1 和 500 之间。</li>
-	<li><code>0 <= Node.val <= 500</code></li>
-	<li>每个节点的值都是独一无二的。</li>
+	<li>树中节点的数量在<meta charset="UTF-8" />&nbsp;<code>[1, 500]</code>&nbsp;范围内。</li>
+	<li><code>0 &lt;= Node.val &lt;= 500</code></li>
+	<li>每个节点的值都是 <strong>独一无二</strong> 的。</li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>注意：</strong>本题与力扣 1123 重复：<a href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-deepest-leaves/" target="_blank">https://leetcode-cn.com/problems/lowest-common-ancestor-of-deepest-leaves</a></p>
 
 ## 解法
 
@@ -77,7 +77,7 @@
 class Solution:
     def subtreeWithAllDeepest(self, root: TreeNode) -> TreeNode:
         def dfs(root):
-            if not root:
+            if root is None:
                 return None, 0
             l, d1 = dfs(root.left)
             r, d2 = dfs(root.right)
@@ -112,23 +112,23 @@ class Solution:
  */
 class Solution {
     public TreeNode subtreeWithAllDeepest(TreeNode root) {
-        return dfs(root)[0];
+        return dfs(root).getKey();
     }
 
-    private TreeNode[] dfs(TreeNode root) {
+    private Pair<TreeNode, Integer> dfs(TreeNode root) {
         if (root == null) {
-            return new TreeNode[]{null, new TreeNode(0)};
+            return new Pair<>(null, 0);
         }
-        TreeNode[] left = dfs(root.left);
-        TreeNode[] right = dfs(root.right);
-        int d1 = left[1].val, d2 = right[1].val;
+        Pair<TreeNode, Integer> l = dfs(root.left);
+        Pair<TreeNode, Integer> r = dfs(root.right);
+        int d1 = l.getValue(), d2 = r.getValue();
         if (d1 > d2) {
-            return new TreeNode[]{left[0], new TreeNode(d1 + 1)};
+            return new Pair<>(l.getKey(), d1 + 1);
         }
         if (d1 < d2) {
-            return new TreeNode[]{right[0], new TreeNode(d2 + 1)};
+            return new Pair<>(r.getKey(), d2 + 1);
         }
-        return new TreeNode[]{root, new TreeNode(d1 + 1)};
+        return new Pair<>(root, d1 + 1);
     }
 }
 ```
@@ -147,19 +147,20 @@ class Solution {
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+using pti = pair<TreeNode*, int>;
 class Solution {
 public:
     TreeNode* subtreeWithAllDeepest(TreeNode* root) {
         return dfs(root).first;
     }
 
-    pair<TreeNode*, int> dfs(TreeNode* root) {
+    pti dfs(TreeNode* root) {
         if (!root) return {nullptr, 0};
-        auto left = dfs(root->left);
-        auto right = dfs(root->right);
-        int d1 = left.second, d2 = right.second;
-        if (d1 > d2) return {left.first, d1 + 1};
-        if (d1 < d2) return {right.first, d2 + 1};
+        pti l = dfs(root->left);
+        pti r = dfs(root->right);
+        int d1 = l.second, d2 = r.second;
+        if (d1 > d2) return {l.first, d1 + 1};
+        if (d1 < d2) return {r.first, d2 + 1};
         return {root, d1 + 1};
     }
 };
@@ -176,30 +177,28 @@ public:
  *     Right *TreeNode
  * }
  */
-type Result struct {
-	Node  *TreeNode
-	Depth int
+type pair struct {
+	first  *TreeNode
+	second int
 }
 
 func subtreeWithAllDeepest(root *TreeNode) *TreeNode {
-	return dfs(root).Node
-}
-
-func dfs(root *TreeNode) Result {
-	if root == nil {
-		return Result{
-			nil, 0,
+	var dfs func(root *TreeNode) pair
+	dfs = func(root *TreeNode) pair {
+		if root == nil {
+			return pair{nil, 0}
 		}
+		l, r := dfs(root.Left), dfs(root.Right)
+		d1, d2 := l.second, r.second
+		if d1 > d2 {
+			return pair{l.first, d1 + 1}
+		}
+		if d1 < d2 {
+			return pair{r.first, d2 + 1}
+		}
+		return pair{root, d1 + 1}
 	}
-	left, right := dfs(root.Left), dfs(root.Right)
-	d1, d2 := left.Depth, right.Depth
-	if d1 > d2 {
-		return Result{left.Node, d1 + 1}
-	}
-	if d1 < d2 {
-		return Result{right.Node, d2 + 1}
-	}
-	return Result{root, d1 + 1}
+	return dfs(root).first
 }
 ```
 

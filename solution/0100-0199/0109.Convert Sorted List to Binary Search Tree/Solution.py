@@ -15,8 +15,10 @@ class Solution:
             if start > end:
                 return None
             mid = (start + end) >> 1
-            return TreeNode(nums[mid], buildBST(nums, start, mid - 1), buildBST(nums, mid + 1, end))
-        
+            return TreeNode(
+                nums[mid], buildBST(nums, start, mid - 1), buildBST(nums, mid + 1, end)
+            )
+
         nums = []
         while head:
             nums.append(head.val)

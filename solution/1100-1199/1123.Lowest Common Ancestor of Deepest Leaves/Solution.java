@@ -1,27 +1,36 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public TreeNode lcaDeepestLeaves(TreeNode root) {
-        Data data = dfs(root);
-        return data.root;
+        return dfs(root).getKey();
     }
 
-    private Data dfs(TreeNode root) {
+    private Pair<TreeNode, Integer> dfs(TreeNode root) {
         if (root == null) {
-            return new Data(null, 0);
+            return new Pair<>(null, 0);
         }
-        Data left = dfs(root.left);
-        Data right = dfs(root.right);
-        if (left.d > right.d) return new Data(left.root, 1 + left.d);
-        if (left.d < right.d) return new Data(right.root, 1 + right.d);
-        return new Data(root, 1 + left.d);
-    }
-
-    class Data {
-        TreeNode root;
-        int d;
-
-        public Data(TreeNode root, int d) {
-            this.root = root;
-            this.d = d;
+        Pair<TreeNode, Integer> l = dfs(root.left);
+        Pair<TreeNode, Integer> r = dfs(root.right);
+        int d1 = l.getValue(), d2 = r.getValue();
+        if (d1 > d2) {
+            return new Pair<>(l.getKey(), d1 + 1);
         }
+        if (d1 < d2) {
+            return new Pair<>(r.getKey(), d2 + 1);
+        }
+        return new Pair<>(root, d1 + 1);
     }
 }

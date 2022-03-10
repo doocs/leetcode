@@ -3,7 +3,8 @@ class Solution:
         n, ans = len(nums), []
         nums.sort()
         for i in range(n - 2):
-            if i > 0 and nums[i] == nums[i - 1]: continue
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
             left, right = i + 1, n - 1
             while left < right:
                 cur = nums[i] + nums[left] + nums[right]

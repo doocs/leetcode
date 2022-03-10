@@ -14,7 +14,7 @@
 
 function mergeTrees(
     root1: TreeNode | null,
-    root2: TreeNode | null
+    root2: TreeNode | null,
 ): TreeNode | null {
     if (root1 == null && root2 == null) return null;
     if (root1 == null) return root2;

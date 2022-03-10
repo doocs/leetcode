@@ -1,25 +1,24 @@
-var p []int
-
 func countComponents(n int, edges [][]int) int {
-	p = make([]int, n)
-	for i := 1; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
 	}
-	for _, e := range edges {
-		p[find(e[0])] = find(e[1])
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
 	}
-	cnt := 0
+	for _, e := range edges {
+		a, b := e[0], e[1]
+		p[find(a)] = find(b)
+	}
+	ans := 0
 	for i := 0; i < n; i++ {
 		if i == find(i) {
-			cnt++
+			ans++
 		}
 	}
-	return cnt
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
+	return ans
 }

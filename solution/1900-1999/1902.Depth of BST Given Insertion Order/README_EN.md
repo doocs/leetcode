@@ -9,16 +9,18 @@
 <p>A binary search tree is defined as follows:</p>
 
 <ul>
-	<li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node&#39;s key.</li>
-	<li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node&#39;s key.</li>
-	<li>Both the left and right subtrees must also be binary search trees.</li>
+    <li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node&#39;s key.</li>
+    <li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node&#39;s key.</li>
+    <li>Both the left and right subtrees must also be binary search trees.</li>
+
 </ul>
 
 <p>The binary search tree is constructed as follows:</p>
 
 <ul>
-	<li><code>order[0]</code> will be the <strong>root</strong> of the binary search tree.</li>
-	<li>All subsequent elements are inserted as the <strong>child</strong> of <strong>any</strong> existing node such that the binary search tree properties hold.</li>
+    <li><code>order[0]</code> will be the <strong>root</strong> of the binary search tree.</li>
+    <li>All subsequent elements are inserted as the <strong>child</strong> of <strong>any</strong> existing node such that the binary search tree properties hold.</li>
+
 </ul>
 
 <p>Return <em>the <strong>depth</strong> of the binary search tree</em>.</p>
@@ -74,9 +76,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>n == order.length</code></li>
-	<li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-	<li><code>order</code> is a permutation of integers between <code>1</code> and <code>n</code>.</li>
+    <li><code>n == order.length</code></li>
+    <li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
+    <li><code>order</code> is a permutation of integers between <code>1</code> and <code>n</code>.</li>
+
 </ul>
 
 ## Solutions

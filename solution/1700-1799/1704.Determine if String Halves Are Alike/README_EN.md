@@ -16,7 +16,7 @@
 <pre>
 <strong>Input:</strong> s = &quot;book&quot;
 <strong>Output:</strong> true
-<strong>Explanation:</strong>&nbsp;a = &quot;b<u>o</u>&quot; and b = &quot;<u>o</u>k&quot;. a has 1 vowel and b has 1 vowel. Therefore, they are alike.
+<strong>Explanation:</strong> a = &quot;b<u>o</u>&quot; and b = &quot;<u>o</u>k&quot;. a has 1 vowel and b has 1 vowel. Therefore, they are alike.
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -24,22 +24,8 @@
 <pre>
 <strong>Input:</strong> s = &quot;textbook&quot;
 <strong>Output:</strong> false
-<strong>Explanation:</strong>&nbsp;a = &quot;t<u>e</u>xt&quot; and b = &quot;b<u>oo</u>k&quot;. a has 1 vowel whereas b has 2. Therefore, they are not alike.
+<strong>Explanation:</strong> a = &quot;t<u>e</u>xt&quot; and b = &quot;b<u>oo</u>k&quot;. a has 1 vowel whereas b has 2. Therefore, they are not alike.
 Notice that the vowel o is counted twice.
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;MerryChristmas&quot;
-<strong>Output:</strong> false
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;AbCdEfGh&quot;
-<strong>Output:</strong> true
 </pre>
 
 <p>&nbsp;</p>

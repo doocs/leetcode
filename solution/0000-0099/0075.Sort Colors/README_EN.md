@@ -8,36 +8,34 @@
 
 <p>We will use the integers <code>0</code>, <code>1</code>, and <code>2</code> to represent the color red, white, and blue, respectively.</p>
 
+<p>You must solve this problem without using the library&#39;s sort function.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<pre><strong>Input:</strong> nums = [2,0,2,1,1,0]
+
+<pre>
+<strong>Input:</strong> nums = [2,0,2,1,1,0]
 <strong>Output:</strong> [0,0,1,1,2,2]
-</pre><p><strong>Example 2:</strong></p>
-<pre><strong>Input:</strong> nums = [2,0,1]
-<strong>Output:</strong> [0,1,2]
-</pre><p><strong>Example 3:</strong></p>
-<pre><strong>Input:</strong> nums = [0]
-<strong>Output:</strong> [0]
-</pre><p><strong>Example 4:</strong></p>
-<pre><strong>Input:</strong> nums = [1]
-<strong>Output:</strong> [1]
 </pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums = [2,0,1]
+<strong>Output:</strong> [0,1,2]
+</pre>
+
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>n == nums.length</code></li>
 	<li><code>1 &lt;= n &lt;= 300</code></li>
-	<li><code>nums[i]</code> is <code>0</code>, <code>1</code>, or <code>2</code>.</li>
+	<li><code>nums[i]</code> is either <code>0</code>, <code>1</code>, or <code>2</code>.</li>
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Follow up:</strong></p>
-
-<ul>
-	<li>Could you solve this problem without using the library&#39;s sort function?</li>
-	<li>Could you come up with a one-pass algorithm using only <code>O(1)</code> constant space?</li>
-</ul>
+<p><strong>Follow up:</strong>&nbsp;Could you come up with a one-pass algorithm using only&nbsp;constant extra space?</p>
 
 ## Solutions
 
@@ -155,6 +153,40 @@ func sortColors(nums []int) {
 			nums[cur], nums[j] = nums[j], nums[cur]
 		}
 	}
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sort_colors(nums: &mut Vec<i32>) {
+        let len = nums.len();
+        if len < 2 {
+            return;
+        }
+
+        let mut l = 0;
+        let mut r = len - 1;
+        let mut i = 0;
+        while i <= r {
+            match nums[i] {
+                0 => {
+                    nums.swap(i, l);
+                    l += 1;
+                    i += 1;
+                }
+                2 => {
+                    nums.swap(i, r);
+                    match r {
+                        0 => return,
+                        _ => r -= 1,
+                    }
+                }
+                _ => i += 1,
+            }
+        }
+    }
 }
 ```
 

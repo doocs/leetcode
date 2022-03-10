@@ -34,13 +34,17 @@ Each row of this table contains the id and the corresponding unique id of an emp
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to show the <strong>unique ID </strong>of each user, If a user doesn&#39;t have a unique ID replace just show null.</p>
+<p>Write an SQL query to show the <strong>unique ID </strong>of each user, If a user does not have a unique ID replace just show <code>null</code>.</p>
 
 <p>Return the result table in <strong>any</strong> order.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Employees table:
 +----+----------+
 | id | name     |
@@ -51,7 +55,6 @@ Employees table:
 | 90 | Winston  |
 | 3  | Jonathan |
 +----+----------+
-
 EmployeeUNI table:
 +----+-----------+
 | id | unique_id |
@@ -60,8 +63,7 @@ EmployeeUNI table:
 | 11 | 2         |
 | 90 | 3         |
 +----+-----------+
-
-Result table:
+<strong>Output:</strong> 
 +-----------+----------+
 | unique_id | name     |
 +-----------+----------+
@@ -71,8 +73,8 @@ Result table:
 | 3         | Winston  |
 | 1         | Jonathan |
 +-----------+----------+
-
-Alice and Bob don&#39;t have a unique ID, We will show null instead.
+<strong>Explanation:</strong> 
+Alice and Bob do not have a unique ID, We will show null instead.
 The unique ID of Meir is 2.
 The unique ID of Winston is 3.
 The unique ID of Jonathan is 1.

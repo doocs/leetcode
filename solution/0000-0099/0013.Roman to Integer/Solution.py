@@ -13,14 +13,14 @@ class Solution:
             'IX': 9,
             'V': 5,
             'IV': 4,
-            'I': 1
+            'I': 1,
         }
         i = res = 0
         while i < len(s):
-            if i + 1 < len(s) and s[i:i + 2] in nums:
-                res += nums[s[i: i + 2]]
+            if i + 1 < len(s) and s[i : i + 2] in nums:
+                res += nums[s[i : i + 2]]
                 i += 2
             else:
-                res += nums[s[i: i + 1]]
+                res += nums[s[i : i + 1]]
                 i += 1
         return res

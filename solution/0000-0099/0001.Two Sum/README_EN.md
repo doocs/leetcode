@@ -37,11 +37,14 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= nums.length &lt;= 10<sup>3</sup></code></li>
+	<li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
 	<li><strong>Only one valid answer exists.</strong></li>
 </ul>
+
+<p>&nbsp;</p>
+<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than&nbsp;<code>O(n<sup>2</sup>)&nbsp;</code>time complexity?
 
 ## Solutions
 
@@ -167,6 +170,25 @@ proc twoSum(nums: seq[int], target: int): seq[int] =
             if idx != tdx:
                 return @[idx, tdx]
 
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+pub fn soluation(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    let mut map = HashMap::new();
+    for (i, item) in nums.iter().enumerate() {
+        if map.contains_key(item) {
+            return vec![i as i32, map[item]];
+        } else {
+            let x = target - nums[i];
+            map.insert(x, i as i32);
+        }
+    }
+    unreachable!()
+}
 ```
 
 ### **...**

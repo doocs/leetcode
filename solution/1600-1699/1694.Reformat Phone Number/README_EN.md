@@ -53,26 +53,12 @@ Step 3: There are 2 digits left, so put them in a single block of length 2. The 
 Joining the blocks gives &quot;123-456-78&quot;.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> number = &quot;12&quot;
-<strong>Output:</strong> &quot;12&quot;
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> number = &quot;--17-5 229 35-39475 &quot;
-<strong>Output:</strong> &quot;175-229-353-94-75&quot;
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>2 &lt;= number.length &lt;= 100</code></li>
-	<li><code>number</code> consists of digits&nbsp;and the characters <code>&#39;-&#39;</code> and <code>&#39; &#39;</code>.</li>
+	<li><code>number</code> consists of digits and the characters <code>&#39;-&#39;</code> and <code>&#39; &#39;</code>.</li>
 	<li>There are at least <strong>two</strong> digits in <code>number</code>.</li>
 </ul>
 

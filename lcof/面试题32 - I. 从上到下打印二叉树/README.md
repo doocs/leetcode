@@ -2,29 +2,32 @@
 
 ## 题目描述
 
-从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。
+<p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p>
 
-**例如:**
+<p>&nbsp;</p>
 
-给定二叉树: `[3,9,20,null,null,15,7]`,
+<p>例如:<br>
+给定二叉树:&nbsp;<code>[3,9,20,null,null,15,7]</code>,</p>
 
-```
-    3
+<pre>    3
    / \
   9  20
     /  \
    15   7
-```
+</pre>
 
-**返回：**
+<p>返回：</p>
 
-```
-[3,9,20,15,7]
-```
+<pre>[3,9,20,15,7]
+</pre>
 
-**提示：**
+<p>&nbsp;</p>
 
-- `节点总数 <= 1000`
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li><code>节点总数 &lt;= 1000</code></li>
+</ol>
 
 ## 解法
 
@@ -180,6 +183,89 @@ public:
         return ret;
     }
 };
+```
+
+### **TypeScript**
+
+```ts
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function levelOrder(root: TreeNode | null): number[] {
+    const res = [];
+    if (root == null) {
+        return res;
+    }
+
+    const arr = [root];
+    let i = 0;
+    while (i < arr.length) {
+        const { val, left, right } = arr[i];
+        res.push(val);
+        left && arr.push(left);
+        right && arr.push(right);
+        i++;
+    }
+    return res;
+}
+```
+
+### **Rust**
+
+```rust
+// Definition for a binary tree node.
+// #[derive(Debug, PartialEq, Eq)]
+// pub struct TreeNode {
+//   pub val: i32,
+//   pub left: Option<Rc<RefCell<TreeNode>>>,
+//   pub right: Option<Rc<RefCell<TreeNode>>>,
+// }
+//
+// impl TreeNode {
+//   #[inline]
+//   pub fn new(val: i32) -> Self {
+//     TreeNode {
+//       val,
+//       left: None,
+//       right: None
+//     }
+//   }
+// }
+use std::rc::Rc;
+use std::cell::RefCell;
+use std::collections::VecDeque;
+
+impl Solution {
+    pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+        let mut res = Vec::new();
+        let mut queue = VecDeque::new();
+        if let Some(node) = root {
+            queue.push_back(node);
+        }
+        while let Some(node) = queue.pop_front() {
+            let mut node = node.borrow_mut();
+            res.push(node.val);
+            if let Some(l) = node.left.take() {
+                queue.push_back(l);
+            }
+            if let Some(r) = node.right.take() {
+                queue.push_back(r);
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**

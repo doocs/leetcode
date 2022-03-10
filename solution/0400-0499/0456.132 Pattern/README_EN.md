@@ -8,8 +8,6 @@
 
 <p>Return <em><code>true</code> if there is a <strong>132 pattern</strong> in <code>nums</code>, otherwise, return <code>false</code>.</em></p>
 
-<p><strong>Follow up: </strong>The <code>O(n^2)</code> is trivial, could you come up with the <code>O(n logn)</code> or the <code>O(n)</code> solution?</p>
-
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -40,7 +38,7 @@
 
 <ul>
 	<li><code>n == nums.length</code></li>
-	<li><code>1 &lt;= n &lt;= 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= n &lt;= 2 * 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
@@ -81,6 +79,55 @@ class Solution {
             stack.push(nums[i]);
         }
         return false;
+    }
+}
+```
+
+### **TypeScript**
+
+```ts
+function find132pattern(nums: number[]): boolean {
+    const n = nums.length;
+    if (n < 3) {
+        return false;
+    }
+    let last = -Infinity;
+    const stack = [];
+    for (let i = n - 1; i >= 0; i--) {
+        const num = nums[i];
+        if (num < last) {
+            return true;
+        }
+        while (stack[stack.length - 1] < num) {
+            last = Math.max(last, stack.pop());
+        }
+        stack.push(num);
+    }
+    return false;
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn find132pattern(nums: Vec<i32>) -> bool {
+        let n = nums.len();
+        if n < 3 {
+            return false;
+        }
+        let mut last = i32::MIN;
+        let mut stack = vec![];
+        for i in (0..n).rev() {
+            if nums[i] < last {
+                return true;
+            }
+            while !stack.is_empty() && stack.last().unwrap() < &nums[i] {
+                last = stack.pop().unwrap();
+            }
+            stack.push(nums[i])
+        }
+        false
     }
 }
 ```

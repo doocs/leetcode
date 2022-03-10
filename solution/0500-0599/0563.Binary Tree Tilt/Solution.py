@@ -16,6 +16,6 @@ class Solution:
             right = sum(root.right)
             ans += abs(left - right)
             return root.val + left + right
-        
+
         sum(root)
         return ans

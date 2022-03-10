@@ -6,37 +6,35 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Accounts</code></p>
+<p>表: <code>Accounts</code></p>
 
-<pre>
-+-------------+------+
-| Column Name | Type |
+<pre>+-------------+------+
+| 列名        | 类型  |
 +-------------+------+
 | account_id  | int  |
 | income      | int  |
 +-------------+------+
-account_id is the primary key for this table.
-Each row contains information about the monthly income for one bank account.
+account_id 是这个表的主键。
+每一行都包含一个银行帐户的月收入的信息。
 </pre>
 
-<p>&nbsp;</p>
-
-<p>Write an SQL query to report the number of bank accounts of each salary category. The salary categories are:</p>
+<p>写出一个 SQL 查询，来报告每个工资类别的银行账户数量。 工资类别如下：</p>
 
 <ul>
-	<li><code>&quot;Low Salary&quot;</code>: All the salaries <strong>strictly less</strong> than <code>$20000</code>.</li>
-	<li><code>&quot;Average Salary&quot;</code>: All the salaries in the <strong>inclusive</strong> range <code>[$20000, $50000]</code>.</li>
-	<li><code>&quot;High Salary&quot;</code>: All the salaries <strong>strictly greater</strong> than <code>$50000</code>.</li>
+	<li>“低薪”：所有工资严格低于20000美元。</li>
+	<li>“中等薪水”：包含范围内的所有工资 [$20000, $50000]。</li>
+	<li>
+	<p>“高薪”：所有工资严格大于50000美元。</p>
+	</li>
 </ul>
 
-<p>The result table <strong>must</strong> contain all three categories. If there are no accounts in a category, then report <code>0</code>. Return the result table in <strong>any order</strong>.</p>
+<p>结果表必须包含所有三个类别。 如果某个类别中没有帐户，则报告 0。</p>
 
-<p>The query result format is in the following example.</p>
+<p>按任意顺序返回结果表。</p>
 
-<p>&nbsp;</p>
+<p>查询结果格式如下示例：</p>
 
-<pre>
-Accounts table:
+<pre>Accounts 表:
 +------------+--------+
 | account_id | income |
 +------------+--------+
@@ -46,7 +44,7 @@ Accounts table:
 | 6          | 91796  |
 +------------+--------+
 
-Result table:
+Result 表:
 +----------------+----------------+
 | category       | accounts_count |
 +----------------+----------------+
@@ -55,9 +53,9 @@ Result table:
 | High Salary    | 3              |
 +----------------+----------------+
 
-Low Salary: Account 2.
-Average Salary: No accounts.
-High Salary: Accounts 3, 6, and 8.
+低薪: 数量为 2.
+中等薪水: 没有.
+高薪: 有三个账户，他们是 3, 6和 8.
 </pre>
 
 ## 解法

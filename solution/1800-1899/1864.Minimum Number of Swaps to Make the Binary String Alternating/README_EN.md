@@ -126,7 +126,7 @@ var minSwaps = function (s) {
     if (n1 == Math.ceil(half) && n0 == Math.floor(half)) {
         let cur = 0;
         for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != "1") cur++;
+            if (i % 2 == 0 && s.charAt(i) != '1') cur++;
         }
         count = Math.min(count, cur);
     }
@@ -134,7 +134,7 @@ var minSwaps = function (s) {
     if (n0 == Math.ceil(half) && n1 == Math.floor(half)) {
         let cur = 0;
         for (let i = 0; i < n; i++) {
-            if (i % 2 == 0 && s.charAt(i) != "0") cur++;
+            if (i % 2 == 0 && s.charAt(i) != '0') cur++;
         }
         count = Math.min(count, cur);
     }

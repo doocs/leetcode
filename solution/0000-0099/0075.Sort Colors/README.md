@@ -6,14 +6,16 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个包含红色、白色和蓝色，一共 <code>n</code><em> </em>个元素的数组，<strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong>对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。</p>
+<p>给定一个包含红色、白色和蓝色、共&nbsp;<code>n</code><em> </em>个元素的数组<meta charset="UTF-8" />&nbsp;<code>nums</code>&nbsp;，<strong><a href="https://baike.baidu.com/item/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95" target="_blank">原地</a></strong>对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。</p>
 
-<p>此题中，我们使用整数 <code>0</code>、 <code>1</code> 和 <code>2</code> 分别表示红色、白色和蓝色。</p>
+<p>我们使用整数 <code>0</code>、&nbsp;<code>1</code> 和 <code>2</code> 分别表示红色、白色和蓝色。</p>
 
 <ul>
 </ul>
 
-<p> </p>
+<p>必须在不使用库的sort函数的情况下解决这个问题。</p>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -29,31 +31,17 @@
 <strong>输出：</strong>[0,1,2]
 </pre>
 
-<p><strong>示例 3：</strong></p>
-
-<pre>
-<strong>输入：</strong>nums = [0]
-<strong>输出：</strong>[0]
-</pre>
-
-<p><strong>示例 4：</strong></p>
-
-<pre>
-<strong>输入：</strong>nums = [1]
-<strong>输出：</strong>[1]
-</pre>
-
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>n == nums.length</code></li>
-	<li><code>1 <= n <= 300</code></li>
+	<li><code>1 &lt;= n &lt;= 300</code></li>
 	<li><code>nums[i]</code> 为 <code>0</code>、<code>1</code> 或 <code>2</code></li>
 </ul>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>进阶：</strong></p>
 
@@ -65,6 +53,18 @@
 ## 解法
 
 <!-- 这里可写通用的实现逻辑 -->
+
+有两种方式
+
+-   排序
+    -   题目本质还是排序，可用 `sort()` 一键解锁。
+-   双指针
+    -   数组元素只存在 `0`、`1` 和 `2` 三种，因此将 `0` 移动至数组头部，`2` 移动至数组尾部，排序便完成了。
+    -   安排两个变量，分别指向数组头部与尾部。
+    -   遍历数组，分三种情况：
+        -   `0`：与头指针数值交换，并向前一步，遍历指针向前。
+        -   `2`：与尾指针数值交换，并向后一步。**遍历指针不变**（还需要处理交换上来的数值）。
+        -   `1`：遍历指针向前。
 
 <!-- tabs:start -->
 
@@ -184,6 +184,41 @@ func sortColors(nums []int) {
 			nums[cur], nums[j] = nums[j], nums[cur]
 		}
 	}
+}
+```
+
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sort_colors(nums: &mut Vec<i32>) {
+        let len = nums.len();
+        if len < 2 {
+            return;
+        }
+
+        let mut l = 0;
+        let mut r = len - 1;
+        let mut i = 0;
+        while i <= r {
+            match nums[i] {
+                0 => {
+                    nums.swap(i, l);
+                    l += 1;
+                    i += 1;
+                }
+                2 => {
+                    nums.swap(i, r);
+                    // usize 不可为负数，会导致 Rust panic
+                    match r {
+                        0 => return,
+                        _ => r -= 1,
+                    }
+                }
+                _ => i += 1,
+            }
+        }
+    }
 }
 ```
 

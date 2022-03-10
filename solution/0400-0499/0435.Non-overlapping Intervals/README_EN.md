@@ -35,9 +35,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= intervals.length &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>1 &lt;= intervals.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>intervals[i].length == 2</code></li>
-	<li><code>-2 * 10<sup>4</sup> &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>-5 * 10<sup>4</sup> &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
 ## Solutions

@@ -53,7 +53,7 @@
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= points.length <= 10<sup>4</sup></code></li>
+	<li><code>1 <= points.length <= 10<sup>4</sup></code></li>
 	<li><code>points[i].length == 2</code></li>
 	<li><code>-2<sup>31</sup> <= x<sub>start</sub> < x<sub>end</sub> <= 2<sup>31</sup> - 1</code></li>
 </ul>

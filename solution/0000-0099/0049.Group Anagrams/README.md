@@ -6,23 +6,39 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。</p>
+<p>给你一个字符串数组，请你将 <strong>字母异位词</strong> 组合在一起。可以按任意顺序返回结果列表。</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>字母异位词</strong> 是由重新排列源单词的字母得到的一个新单词，所有源单词中的字母通常恰好只用一次。</p>
 
-<pre><strong>输入:</strong> <code>[&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;]</code>
-<strong>输出:</strong>
-[
-  [&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;],
-  [&quot;nat&quot;,&quot;tan&quot;],
-  [&quot;bat&quot;]
-]</pre>
+<p>&nbsp;</p>
 
-<p><strong>说明：</strong></p>
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> strs = <code>["eat", "tea", "tan", "ate", "nat", "bat"]</code>
+<strong>输出: </strong>[["bat"],["nat","tan"],["ate","eat","tea"]]</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> strs = <code>[""]</code>
+<strong>输出: </strong>[[""]]
+</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> strs = <code>["a"]</code>
+<strong>输出: </strong>[["a"]]</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>所有输入均为小写字母。</li>
-	<li>不考虑答案输出的顺序。</li>
+	<li><code>1 &lt;= strs.length &lt;= 10<sup>4</sup></code></li>
+	<li><code>0 &lt;= strs[i].length &lt;= 100</code></li>
+	<li><code>strs[i]</code>&nbsp;仅包含小写字母</li>
 </ul>
 
 ## 解法
@@ -80,9 +96,9 @@ class Solution {
 function groupAnagrams(strs: string[]): string[][] {
     let map = new Map();
     for (let str of strs) {
-        let arr = str.split("");
+        let arr = str.split('');
         arr.sort();
-        let key = arr.join("");
+        let key = arr.join('');
         let value = map.get(key) ? map.get(key) : [];
         value.push(str);
         map.set(key, value);

@@ -4,13 +4,13 @@
 
 ## Description
 
-<p>You are playing a simplified PAC-MAN game on an infinite 2-D grid. You start at the point <code>[0, 0]</code>, and you are given a destination point <code>target = [x<sub>target</sub>, y<sub>target</sub>]</code>, which you are trying to get to. There are several ghosts on the map with their starting positions given as an array <code>ghosts</code>, where <code>ghosts[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the starting position of the <code>i<sup>th</sup></code> ghost. All inputs are <strong>integral coordinates</strong>.</p>
+<p>You are playing a simplified PAC-MAN game on an infinite 2-D grid. You start at the point <code>[0, 0]</code>, and you are given a destination point <code>target = [x<sub>target</sub>, y<sub>target</sub>]</code> that you are trying to get to. There are several ghosts on the map with their starting positions given as a 2D array <code>ghosts</code>, where <code>ghosts[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> represents the starting position of the <code>i<sup>th</sup></code> ghost. All inputs are <strong>integral coordinates</strong>.</p>
 
-<p>Each turn, you and all the ghosts may independently choose to either <strong>move 1 unit</strong> in any of the four cardinal directions: north, east, south, or west or <strong>stay still</strong>. All actions happen <strong>simultaneously</strong>.</p>
+<p>Each turn, you and all the ghosts may independently choose to either <strong>move 1 unit</strong> in any of the four cardinal directions: north, east, south, or west, or <strong>stay still</strong>. All actions happen <strong>simultaneously</strong>.</p>
 
 <p>You escape if and only if you can reach the target <strong>before</strong> any ghost reaches you. If you reach any square (including the target) at the <strong>same time</strong> as a ghost, it <strong>does not</strong> count as an escape.</p>
 
-<p>Return <code>true</code><em> if it is possible to escape, otherwise return </em><code>false</code><em>.</em></p>
+<p>Return <code>true</code><em> if it is possible to escape regardless of how the ghosts move, otherwise return </em><code>false</code><em>.</em></p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -35,20 +35,6 @@
 <strong>Input:</strong> ghosts = [[2,0]], target = [1,0]
 <strong>Output:</strong> false
 <strong>Explanation:</strong> The ghost can reach the target at the same time as you.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> ghosts = [[5,0],[-10,-2],[0,-5],[-2,-2],[-7,1]], target = [7,7]
-<strong>Output:</strong> false
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> ghosts = [[-1,0],[0,1],[-1,0],[0,1],[-1,0]], target = [0,0]
-<strong>Output:</strong> true
 </pre>
 
 <p>&nbsp;</p>

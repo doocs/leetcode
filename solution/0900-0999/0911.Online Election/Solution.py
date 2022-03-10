@@ -1,5 +1,4 @@
 class TopVotedCandidate:
-
     def __init__(self, persons: List[int], times: List[int]):
         mx = cur = 0
         counter = Counter()

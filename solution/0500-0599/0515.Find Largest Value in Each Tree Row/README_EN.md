@@ -7,10 +7,8 @@
 <p>Given the <code>root</code> of a binary tree, return <em>an array of the largest value in each row</em> of the tree <strong>(0-indexed)</strong>.</p>
 
 <p>&nbsp;</p>
-
-<p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/images/largest_e1.jpg" style="width: 450px; height: 258px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0515.Find%20Largest%20Value%20in%20Each%20Tree%20Row/images/largest_e1.jpg" style="width: 300px; height: 172px;" />
 <pre>
 <strong>Input:</strong> root = [1,3,2,5,3,null,9]
 <strong>Output:</strong> [1,3,9]
@@ -21,27 +19,6 @@
 <pre>
 <strong>Input:</strong> root = [1,2,3]
 <strong>Output:</strong> [1,3]
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1]
-<strong>Output:</strong> [1]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1,null,2]
-<strong>Output:</strong> [1,2]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = []
-<strong>Output:</strong> []
 </pre>
 
 <p>&nbsp;</p>
@@ -72,9 +49,8 @@ class Solution:
         q = deque([root])
         ans = []
         while q:
-            n = len(q)
             t = float('-inf')
-            for _ in range(n):
+            for _ in range(len(q), 0, -1):
                 node = q.popleft()
                 t = max(t, node.val)
                 if node.left:
@@ -105,15 +81,15 @@ class Solution:
  */
 class Solution {
     public List<Integer> largestValues(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
         if (root == null) {
-            return Collections.emptyList();
+            return ans;
         }
         Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(root);
-        List<Integer> ans = new ArrayList<>();
         while (!q.isEmpty()) {
             int t = Integer.MIN_VALUE;
-            for (int i = 0, n = q.size(); i < n; ++i) {
+            for (int i = q.size(); i > 0; --i) {
                 TreeNode node = q.poll();
                 t = Math.max(t, node.val);
                 if (node.left != null) {
@@ -153,7 +129,7 @@ public:
         while (!q.empty())
         {
             int t = INT_MIN;
-            for (int i = 0, n = q.size(); i < n; ++i)
+            for (int i = q.size(); i > 0; --i)
             {
                 auto node = q.front();
                 q.pop();
@@ -186,9 +162,8 @@ func largestValues(root *TreeNode) []int {
 	}
 	var q = []*TreeNode{root}
 	for len(q) > 0 {
-		n := len(q)
 		t := math.MinInt32
-		for i := 0; i < n; i++ {
+		for i := len(q); i > 0; i-- {
 			node := q[0]
 			q = q[1:]
 			t = max(t, node.Val)

@@ -29,8 +29,8 @@ Total amount you can rob = 1 + 3 = 4.
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [0]
-<strong>Output:</strong> 0
+<strong>Input:</strong> nums = [1,2,3]
+<strong>Output:</strong> 3
 </pre>
 
 <p>&nbsp;</p>

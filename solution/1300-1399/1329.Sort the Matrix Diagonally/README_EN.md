@@ -40,7 +40,15 @@
 ### **Python3**
 
 ```python
-
+class Solution:
+    def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
+        m, n = len(mat), len(mat[0])
+        for k in range(min(m, n) - 1):
+            for i in range(m - 1):
+                for j in range(n - 1):
+                    if mat[i][j] > mat[i + 1][j + 1]:
+                        mat[i][j], mat[i + 1][j + 1] = mat[i + 1][j + 1], mat[i][j]
+        return mat
 ```
 
 ### **Java**
@@ -48,26 +56,55 @@
 ```java
 class Solution {
     public int[][] diagonalSort(int[][] mat) {
-        for (int i = 0; i < mat.length; i++) {
-            handler(mat, i, 0);
-        }
-        for (int i = 0; i < mat[0].length; i++) {
-            handler(mat, 0, i);
-        }
-        return mat;
-    }
-
-    public void handler(int[][] mat, int i, int j) {
-        for (; i < mat.length && j < mat[0].length; i++, j++) {
-            for (int k = i + 1, p = j + 1; k < mat.length && p < mat[0].length; k++, p++) {
-                if (mat[k][p] < mat[i][j]){
-                    int temp = mat[k][p];
-                    mat[k][p] = mat[i][j];
-                    mat[i][j] = temp;
+        int m = mat.length, n = mat[0].length;
+        for (int k = 0; k < Math.min(m, n) - 1; ++k) {
+            for (int i = 0; i < m - 1; ++i) {
+                for (int j = 0; j < n - 1; ++j) {
+                    if (mat[i][j] > mat[i + 1][j + 1]) {
+                        int t = mat[i][j];
+                        mat[i][j] = mat[i + 1][j + 1];
+                        mat[i + 1][j + 1] = t;
+                    }
                 }
             }
         }
+        return mat;
     }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> diagonalSort(vector<vector<int>>& mat) {
+        int m = mat.size(), n = mat[0].size();
+        for (int k = 0; k < min(m, n) - 1; ++k)
+            for (int i = 0; i < m - 1; ++i)
+                for (int j = 0; j < n - 1; ++j)
+                    if (mat[i][j] > mat[i + 1][j + 1])
+                        swap(mat[i][j], mat[i + 1][j + 1]);
+        return mat;
+    }
+};
+```
+
+### **Go**
+
+```go
+func diagonalSort(mat [][]int) [][]int {
+	m, n := len(mat), len(mat[0])
+	for k := 0; k < m-1 && k < n-1; k++ {
+		for i := 0; i < m-1; i++ {
+			for j := 0; j < n-1; j++ {
+				if mat[i][j] > mat[i+1][j+1] {
+					mat[i][j], mat[i+1][j+1] = mat[i+1][j+1], mat[i][j]
+				}
+			}
+		}
+	}
+	return mat
 }
 ```
 

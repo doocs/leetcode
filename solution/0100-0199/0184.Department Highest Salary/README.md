@@ -6,40 +6,75 @@
 
 <!-- 这里写题目描述 -->
 
-<p><code>Employee</code> 表包含所有员工信息，每个员工有其对应的&nbsp;Id, salary 和 department Id。</p>
+<p>表：&nbsp;<code>Employee</code></p>
 
-<pre>+----+-------+--------+--------------+
-| Id | Name  | Salary | DepartmentId |
+<pre>
++--------------+---------+
+| 列名          | 类型    |
++--------------+---------+
+| id           | int     |
+| name         | varchar |
+| salary       | int     |
+| departmentId | int     |
++--------------+---------+
+id是此表的主键列。
+departmentId是Department表中ID的外键。
+此表的每一行都表示员工的ID、姓名和工资。它还包含他们所在部门的ID。
+</pre>
+
+<p>&nbsp;</p>
+
+<p>表：&nbsp;<code>Department</code></p>
+
+<pre>
++-------------+---------+
+| 列名         | 类型    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
++-------------+---------+
+id是此表的主键列。
+此表的每一行都表示一个部门的ID及其名称。
+</pre>
+
+<p>&nbsp;</p>
+
+<p>编写SQL查询以查找每个部门中薪资最高的员工。<br />
+按 <strong>任意顺序</strong> 返回结果表。<br />
+查询结果格式如下例所示。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<b>输入：</b>
+Employee 表:
++----+-------+--------+--------------+
+| id | name  | salary | departmentId |
 +----+-------+--------+--------------+
 | 1  | Joe   | 70000  | 1            |
-| 2 &nbsp;| Jim &nbsp; | 90000 &nbsp;| 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+| 2  | Jim   | 90000  | 1            |
 | 3  | Henry | 80000  | 2            |
 | 4  | Sam   | 60000  | 2            |
 | 5  | Max   | 90000  | 1            |
-+----+-------+--------+--------------+</pre>
-
-<p><code>Department</code>&nbsp;表包含公司所有部门的信息。</p>
-
-<pre>+----+----------+
-| Id | Name     |
-+----+----------+
-| 1  | IT       |
-| 2  | Sales    |
-+----+----------+</pre>
-
-<p>编写一个 SQL 查询，找出每个部门工资最高的员工。对于上述表，您的 SQL 查询应返回以下行（行的顺序无关紧要）。</p>
-
-<pre>+------------+----------+--------+
++----+-------+--------+--------------+
+Department 表:
++----+-------+
+| id | name  |
++----+-------+
+| 1  | IT    |
+| 2  | Sales |
++----+-------+
+<b>输出：</b>
++------------+----------+--------+
 | Department | Employee | Salary |
 +------------+----------+--------+
-| IT         | Max      | 90000  |
-| IT &nbsp; &nbsp; &nbsp; &nbsp; | Jim &nbsp; &nbsp; &nbsp;| 90000 &nbsp;|
+| IT         | Jim      | 90000  |
 | Sales      | Henry    | 80000  |
-+------------+----------+--------+</pre>
-
-<p><strong>解释：</strong></p>
-
-<p>Max 和 Jim 在 IT 部门的工资都是最高的，Henry 在销售部的工资最高。</p>
+| IT         | Max      | 90000  |
++------------+----------+--------+
+<strong>解释：</strong>Max 和 Jim 在 IT 部门的工资都是最高的，Henry 在销售部的工资最高。</pre>
 
 ## 解法
 

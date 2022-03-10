@@ -51,17 +51,6 @@ At time 2, person 3 shares the secret with person 4.
 Thus, people 0, 1, 2, 3, and 4 know the secret after all the meetings.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> n = 6, meetings = [[0,2,1],[1,3,1],[4,5,1]], firstPerson = 1
-<strong>Output:</strong> [0,1,2,3]
-<strong>Explanation:</strong>
-At time 0, person 0 shares the secret with person 1.
-At time 1, person 0 shares the secret with person 2, and person 1 shares the secret with person 3.
-Thus, people 0, 1, 2, and 3 know the secret after all the meetings.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -97,7 +86,7 @@ Thus, people 0, 1, 2, and 3 know the secret after all the meetings.
 function findAllPeople(
     n: number,
     meetings: number[][],
-    firstPerson: number
+    firstPerson: number,
 ): number[] {
     let parent: Array<number> = Array.from({ length: n + 1 }, (v, i) => i);
     parent[firstPerson] = 0;

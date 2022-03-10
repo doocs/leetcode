@@ -1,5 +1,4 @@
 class AuthenticationManager:
-
     def __init__(self, timeToLive: int):
         self.timeToLive = timeToLive
         self.tokens = {}

@@ -19,7 +19,11 @@ class Solution:
             if root.val != head.val:
                 return False
             return dfs(head.next, root.left) or dfs(head.next, root.right)
-        
+
         if root is None:
             return False
-        return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
+        return (
+            dfs(head, root)
+            or self.isSubPath(head, root.left)
+            or self.isSubPath(head, root.right)
+        )

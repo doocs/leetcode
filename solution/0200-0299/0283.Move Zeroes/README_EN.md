@@ -116,9 +116,38 @@ var moveZeroes = function (nums) {
 };
 ```
 
+```js
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function (nums) {
+    let left = 0;
+    let right = left;
+    while (left < nums.length) {
+        if (nums[left] != 0) {
+            left++;
+        } else {
+            right = left + 1;
+            while (right < nums.length) {
+                if (nums[right] == 0) {
+                    right++;
+                } else {
+                    let tem = nums[left];
+                    nums[left] = nums[right];
+                    nums[right] = tem;
+                    break;
+                }
+            }
+            left++;
+        }
+    }
+};
+```
+
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn move_zeroes(nums: &mut Vec<i32>) {
         let mut i = 0;

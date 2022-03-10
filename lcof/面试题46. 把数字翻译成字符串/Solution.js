@@ -12,7 +12,7 @@ var translateNum = function (num) {
         }
         dfs(i + 1);
         let tmp = +(num[i] + num[i + 1]);
-        if (num[i] !== "0" && tmp >= 0 && tmp < 26) {
+        if (num[i] !== '0' && tmp >= 0 && tmp < 26) {
             dfs(i + 2);
         }
     }

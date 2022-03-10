@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Table:&nbsp;<code>Players</code></p>
+<p>Table: <code>Players</code></p>
 
 <pre>
 +-------------+-------+
@@ -17,7 +17,7 @@ player_id is the primary key of this table.
 Each row of this table indicates the group of each player.
 </pre>
 
-<p>Table:&nbsp;<code>Matches</code></p>
+<p>Table: <code>Matches</code></p>
 
 <pre>
 +---------------+---------+
@@ -32,19 +32,25 @@ Each row of this table indicates the group of each player.
 match_id is the primary key of this table.
 Each row is a record of a match, first_player and second_player contain the player_id of each match.
 first_score and second_score contain the number of points of the first_player and second_player respectively.
-You may assume that, in each match, players belongs to the same group.
+You may assume that, in each match, players belong to the same group.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>The winner in each group is the player who scored the maximum total points within the group.&nbsp;In the case of a tie, the <strong>lowest</strong> player_id&nbsp;wins.</p>
+<p>The winner in each group is the player who scored the maximum total points within the group. In the case of a tie, the <strong>lowest</strong> <code>player_id</code> wins.</p>
 
 <p>Write an SQL query to find the winner in each group.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Players </code>table:
+<strong>Input:</strong> 
+Players table:
 +-----------+------------+
 | player_id | group_id   |
 +-----------+------------+
@@ -58,8 +64,7 @@ You may assume that, in each match, players belongs to the same group.
 | 20        | 3          |
 | 40        | 3          |
 +-----------+------------+
-
-<code>Matches </code>table:
+Matches table:
 +------------+--------------+---------------+-------------+--------------+
 | match_id   | first_player | second_player | first_score | second_score |
 +------------+--------------+---------------+-------------+--------------+
@@ -69,8 +74,7 @@ You may assume that, in each match, players belongs to the same group.
 | 4          | 40           | 20            | 5           | 2            |
 | 5          | 35           | 50            | 1           | 1            |
 +------------+--------------+---------------+-------------+--------------+
-
-Result table:
+<strong>Output:</strong> 
 +-----------+------------+
 | group_id  | player_id  |
 +-----------+------------+ 

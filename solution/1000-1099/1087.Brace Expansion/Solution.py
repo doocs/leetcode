@@ -5,12 +5,12 @@ class Solution:
                 return
             if s[0] == '{':
                 j = s.find('}')
-                items.append(s[1: j].split(','))
-                convert(s[j + 1:])
+                items.append(s[1:j].split(','))
+                convert(s[j + 1 :])
             else:
                 j = s.find('{')
                 if j != -1:
-                    items.append(s[: j].split(','))
+                    items.append(s[:j].split(','))
                     convert(s[j:])
                 else:
                     items.append(s.split(','))

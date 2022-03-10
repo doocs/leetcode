@@ -10,7 +10,6 @@
 
 <ul>
 	<li>操作 1 ：如果二进制串包含子字符串 <code>"00"</code> ，你可以用 <code>"10"</code> 将其替换。
-
     <ul>
     	<li>比方说， <code>"<strong>00</strong>010" -> "<strong>10</strong>010"</code></li>
     </ul>

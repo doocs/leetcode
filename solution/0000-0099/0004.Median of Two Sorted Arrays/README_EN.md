@@ -6,6 +6,8 @@
 
 <p>Given two sorted arrays <code>nums1</code> and <code>nums2</code> of size <code>m</code> and <code>n</code> respectively, return <strong>the median</strong> of the two sorted arrays.</p>
 
+<p>The overall run time complexity should be <code>O(log (m+n))</code>.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -23,27 +25,6 @@
 <strong>Explanation:</strong> merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums1 = [0,0], nums2 = [0,0]
-<strong>Output:</strong> 0.00000
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums1 = [], nums2 = [1]
-<strong>Output:</strong> 1.00000
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums1 = [2], nums2 = []
-<strong>Output:</strong> 2.00000
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -56,10 +37,9 @@
 	<li><code>-10<sup>6</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-<p>&nbsp;</p>
-<strong>Follow up:</strong> The overall run time complexity should be <code>O(log (m+n))</code>.
-
 ## Solutions
+
+Binary search.
 
 <!-- tabs:start -->
 
@@ -68,38 +48,120 @@
 ```python
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-       # concatenate the 2 lists and sort them
-        nums1 += nums2
-        nums1.sort()
-        length = len(nums1)
-        value = length/2
-        if length % 2 == 0:
-            value = int(value)
-            return (nums1[value-1] + nums1[value])/2
-        else:
-            return nums1[int(value)]
+        def findKth(i, j, k):
+            if i >= m:
+                return nums2[j + k - 1]
+            if j >= n:
+                return nums1[i + k - 1]
+            if k == 1:
+                return min(nums1[i], nums2[j])
+            midVal1 = nums1[i + k // 2 - 1] if i + k // 2 - 1 < m else float('inf')
+            midVal2 = nums2[j + k // 2 - 1] if j + k // 2 - 1 < n else float('inf')
+            if midVal1 < midVal2:
+                return findKth(i + k // 2, j, k - k // 2)
+            return findKth(i, j + k // 2, k - k // 2)
+
+        m, n = len(nums1), len(nums2)
+        left, right = (m + n + 1) // 2, (m + n + 2) // 2
+        return (findKth(0, 0, left) + findKth(0, 0, right)) / 2
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
+        int left = (m + n + 1) / 2;
+        int right = (m + n + 2) / 2;
+        return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
+    }
 
+    private int findKth(int[] nums1, int i, int[] nums2, int j, int k) {
+        if (i >= nums1.length) {
+            return nums2[j + k - 1];
+        }
+        if (j >= nums2.length) {
+            return nums1[i + k - 1];
+        }
+        if (k == 1) {
+            return Math.min(nums1[i], nums2[j]);
+        }
+        int midVal1 = (i + k / 2 - 1 < nums1.length) ? nums1[i + k / 2 - 1] : Integer.MAX_VALUE;
+        int midVal2 = (j + k / 2 - 1 < nums2.length) ? nums2[j + k / 2 - 1] : Integer.MAX_VALUE;
+        if (midVal1 < midVal2) {
+            return findKth(nums1, i + k / 2, nums2, j, k - k / 2);
+        }
+        return findKth(nums1, i, nums2, j + k / 2, k - k / 2);
+    }
+}
 ```
 
-### **Nim**
+### **C++**
 
-```nim
-proc medianOfTwoSortedArrays(nums1: seq[int], nums2: seq[int]): float =
-  var
-    fullList: seq[int] = concat(nums1, nums2)
-    value: int = fullList.len div 2
+```cpp
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int m = nums1.size();
+        int n = nums2.size();
+        int left = (m + n + 1) / 2;
+        int right = (m + n + 2) / 2;
+        return (findKth(nums1, 0, nums2, 0, left) + findKth(nums1, 0, nums2, 0, right)) / 2.0;
+    }
 
-  fullList.sort()
+    int findKth(vector<int>& nums1, int i, vector<int>& nums2, int j, int k) {
+        if (i >= nums1.size()) return nums2[j + k - 1];
+        if (j >= nums2.size()) return nums1[i + k - 1];
+        if (k == 1) return min(nums1[i], nums2[j]);
+        int midVal1 = i + k / 2 - 1 < nums1.size() ? nums1[i + k / 2 - 1] : INT_MAX;
+        int midVal2 = j + k / 2 - 1 < nums2.size() ? nums2[j + k / 2 - 1] : INT_MAX;
+        if (midVal1 < midVal2) return findKth(nums1, i + k / 2, nums2, j, k - k / 2);
+        return findKth(nums1, i, nums2, j + k / 2, k - k / 2);
+    }
+};
+```
 
-  if fullList.len mod 2 == 0:
-    result = (fullList[value - 1] + fullList[value]) / 2
-  else:
-    result = fullList[value].toFloat()
+### **Go**
+
+```go
+func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+	m, n := len(nums1), len(nums2)
+	left, right := (m+n+1)/2, (m+n+2)/2
+	var findKth func(i, j, k int) int
+	findKth = func(i, j, k int) int {
+		if i >= m {
+			return nums2[j+k-1]
+		}
+		if j >= n {
+			return nums1[i+k-1]
+		}
+		if k == 1 {
+			return min(nums1[i], nums2[j])
+		}
+		midVal1 := math.MaxInt32
+		midVal2 := math.MaxInt32
+		if i+k/2-1 < m {
+			midVal1 = nums1[i+k/2-1]
+		}
+		if j+k/2-1 < n {
+			midVal2 = nums2[j+k/2-1]
+		}
+		if midVal1 < midVal2 {
+			return findKth(i+k/2, j, k-k/2)
+		}
+		return findKth(i, j+k/2, k-k/2)
+	}
+	return (float64(findKth(0, 0, left)) + float64(findKth(0, 0, right))) / 2.0
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

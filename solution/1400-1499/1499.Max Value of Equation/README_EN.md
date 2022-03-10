@@ -4,9 +4,11 @@
 
 ## Description
 
-<p>Given an&nbsp;array <code>points</code> containing the coordinates of points on a 2D plane,&nbsp;sorted by the x-values, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;such that&nbsp;<code>x<sub>i</sub> &lt; x<sub>j</sub></code> for all <code>1 &lt;= i &lt; j &lt;= points.length</code>. You are also given an integer&nbsp;<code>k</code>.</p>
+<p>You are given an array <code>points</code> containing the coordinates of points on a 2D plane, sorted by the x-values, where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> such that <code>x<sub>i</sub> &lt; x<sub>j</sub></code> for all <code>1 &lt;= i &lt; j &lt;= points.length</code>. You are also given an integer <code>k</code>.</p>
 
-<p>Find the <em>maximum value of the equation </em><code>y<sub>i</sub>&nbsp;+ y<sub>j</sub>&nbsp;+ |x<sub>i</sub>&nbsp;- x<sub>j</sub>|</code>&nbsp;where <code>|x<sub>i</sub>&nbsp;- x<sub>j</sub>|&nbsp;&lt;= k</code>&nbsp;and <code>1 &lt;= i &lt; j &lt;= points.length</code>. It is guaranteed that there exists at least one pair of points that satisfy the constraint <code>|x<sub>i</sub>&nbsp;- x<sub>j</sub>|&nbsp;&lt;= k</code>.</p>
+<p>Return <em>the maximum value of the equation </em><code>y<sub>i</sub> + y<sub>j</sub> + |x<sub>i</sub> - x<sub>j</sub>|</code> where <code>|x<sub>i</sub> - x<sub>j</sub>| &lt;= k</code> and <code>1 &lt;= i &lt; j &lt;= points.length</code>.</p>
+
+<p>It is guaranteed that there exists at least one pair of points that satisfy the constraint <code>|x<sub>i</sub> - x<sub>j</sub>| &lt;= k</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -14,8 +16,9 @@
 <pre>
 <strong>Input:</strong> points = [[1,3],[2,0],[5,10],[6,-10]], k = 1
 <strong>Output:</strong> 4
-<strong>Explanation:</strong> The first two points satisfy the condition |x<sub>i</sub>&nbsp;- x<sub>j</sub>| &lt;= 1 and if we calculate the equation we get 3 + 0 + |1 - 2| = 4. Third and fourth points also satisfy the condition and give a value of 10 + -10 + |5 - 6| = 1.
-No other pairs satisfy the condition, so we return the max of 4 and 1.</pre>
+<strong>Explanation:</strong> The first two points satisfy the condition |x<sub>i</sub> - x<sub>j</sub>| &lt;= 1 and if we calculate the equation we get 3 + 0 + |1 - 2| = 4. Third and fourth points also satisfy the condition and give a value of 10 + -10 + |5 - 6| = 1.
+No other pairs satisfy the condition, so we return the max of 4 and 1.
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
@@ -29,12 +32,12 @@ No other pairs satisfy the condition, so we return the max of 4 and 1.</pre>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= points.length &lt;= 10^5</code></li>
+	<li><code>2 &lt;= points.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>points[i].length == 2</code></li>
-	<li><code>-10^8&nbsp;&lt;= points[i][0], points[i][1] &lt;= 10^8</code></li>
-	<li><code>0 &lt;= k &lt;= 2 * 10^8</code></li>
-	<li><code>points[i][0] &lt; points[j][0]</code>&nbsp;for all&nbsp;<code>1 &lt;= i &lt; j &lt;= points.length</code></li>
-	<li><code>x<sub>i</sub></code>&nbsp;form a strictly increasing sequence.</li>
+	<li><code>-10<sup>8</sup> &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
+	<li><code>0 &lt;= k &lt;= 2 * 10<sup>8</sup></code></li>
+	<li><code>x<sub>i</sub> &lt; x<sub>j</sub></code> for all <code>1 &lt;= i &lt; j &lt;= points.length</code></li>
+	<li><code>x<sub>i</sub></code> form a strictly increasing sequence.</li>
 </ul>
 
 ## Solutions

@@ -1,11 +1,14 @@
 class Solution {
 public:
     int countKDifference(vector<int>& nums, int k) {
-        int n = nums.size();
-        int res = 0;
-        for (int i = 0; i < n; ++i)
-            for (int j = i + 1; j < n; ++j)
-                if (abs(nums[i] - nums[j]) == k) ++ res;
-        return res;
+        int ans = 0;
+        vector<int> counter(110);
+        for (int num : nums)
+        {
+            if (num >= k) ans += counter[num - k];
+            if (num + k <= 100) ans += counter[num + k];
+            ++counter[num];
+        }
+        return ans;
     }
 };

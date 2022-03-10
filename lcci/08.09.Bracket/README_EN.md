@@ -82,7 +82,7 @@ class Solution {
 ```ts
 function generateParenthesis(n: number): string[] {
     let ans = [];
-    dfs(0, 0, n, "", ans);
+    dfs(0, 0, n, '', ans);
     return ans;
 }
 
@@ -92,10 +92,10 @@ function dfs(left: number, right: number, n: number, t: string, ans: string[]) {
         return;
     }
     if (left < n) {
-        dfs(left + 1, right, n, t + "(", ans);
+        dfs(left + 1, right, n, t + '(', ans);
     }
     if (right < left) {
-        dfs(left, right + 1, n, t + ")", ans);
+        dfs(left, right + 1, n, t + ')', ans);
     }
 }
 ```
@@ -155,7 +155,7 @@ func dfs(left, right, n int, t string, ans *[]string) {
  */
 var generateParenthesis = function (n) {
     let res = [];
-    dfs(n, 0, 0, "", res);
+    dfs(n, 0, 0, '', res);
     return res;
 };
 
@@ -165,10 +165,10 @@ function dfs(n, left, right, prev, res) {
         return;
     }
     if (left < n) {
-        dfs(n, left + 1, right, prev + "(", res);
+        dfs(n, left + 1, right, prev + '(', res);
     }
     if (right < left) {
-        dfs(n, left, right + 1, prev + ")", res);
+        dfs(n, left, right + 1, prev + ')', res);
     }
 }
 ```

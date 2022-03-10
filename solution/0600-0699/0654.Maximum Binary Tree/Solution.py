@@ -14,5 +14,5 @@ class Solution:
                 if nums[mx] < nums[i]:
                     mx = i
             return TreeNode(nums[mx], inner(nums, l, mx - 1), inner(nums, mx + 1, r))
-        
+
         return inner(nums, 0, len(nums) - 1)

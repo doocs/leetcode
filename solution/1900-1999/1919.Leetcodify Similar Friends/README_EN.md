@@ -45,11 +45,13 @@ Note that user1_id &lt; user2_id.
 
 <p>Return the result table in <strong>any order</strong>. Note that you must return the similar pairs of friends the same way they were represented in the input (i.e., always <code>user1_id &lt; user2_id</code>).</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Listens table:
 +---------+---------+------------+
 | user_id | song_id | day        |
@@ -70,7 +72,6 @@ Listens table:
 | 5       | 11      | 2021-03-16 |
 | 5       | 12      | 2021-03-16 |
 +---------+---------+------------+
-
 Friendship table:
 +----------+----------+
 | user1_id | user2_id |
@@ -79,14 +80,13 @@ Friendship table:
 | 2        | 4        |
 | 2        | 5        |
 +----------+----------+
-
-Result table:
+<strong>Output:</strong> 
 +----------+----------+
 | user1_id | user2_id |
 +----------+----------+
 | 1        | 2        |
 +----------+----------+
-
+<strong>Explanation:</strong> 
 Users 1 and 2 are friends, and they listened to songs 10, 11, and 12 on the same day. They are similar friends.
 Users 1 and 3 listened to songs 10, 11, and 12 on the same day, but they are not friends.
 Users 2 and 4 are friends, but they did not listen to the same three different songs.

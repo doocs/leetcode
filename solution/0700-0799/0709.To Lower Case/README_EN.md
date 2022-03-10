@@ -4,51 +4,37 @@
 
 ## Description
 
-<p>Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.</p>
+<p>Given a string <code>s</code>, return <em>the string after replacing every uppercase letter with the same lowercase letter</em>.</p>
 
 <p>&nbsp;</p>
-
-<div>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-1-1">&quot;Hello&quot;</span>
-
-<strong>Output: </strong><span id="example-output-1">&quot;hello&quot;</span>
-
+<strong>Input:</strong> s = &quot;Hello&quot;
+<strong>Output:</strong> &quot;hello&quot;
 </pre>
-
-<div>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-2-1">&quot;here&quot;</span>
-
-<strong>Output: </strong><span id="example-output-2">&quot;here&quot;</span>
-
+<strong>Input:</strong> s = &quot;here&quot;
+<strong>Output:</strong> &quot;here&quot;
 </pre>
-
-<div>
 
 <p><strong>Example 3:</strong></p>
 
 <pre>
-
-<strong>Input: </strong><span id="example-input-3-1">&quot;LOVELY&quot;</span>
-
-<strong>Output: </strong><span id="example-output-3">&quot;lovely&quot;</span>
-
+<strong>Input:</strong> s = &quot;LOVELY&quot;
+<strong>Output:</strong> &quot;lovely&quot;
 </pre>
 
-</div>
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-</div>
-
-</div>
+<ul>
+	<li><code>1 &lt;= s.length &lt;= 100</code></li>
+	<li><code>s</code> consists of printable ASCII characters.</li>
+</ul>
 
 ## Solutions
 

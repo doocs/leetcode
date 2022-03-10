@@ -1,12 +1,17 @@
 class Solution {
-    private int[][] dirs = new int[][]{{0, -1}, {0, 1}, {1, 0}, {-1, 0}};
+    private char[][] grid;
+    private int m;
+    private int n;
 
     public int numIslands(char[][] grid) {
+        m = grid.length;
+        n = grid[0].length;
+        this.grid = grid;
         int ans = 0;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
                 if (grid[i][j] == '1') {
-                    dfs(grid, i, j);
+                    dfs(i, j);
                     ++ans;
                 }
             }
@@ -14,13 +19,15 @@ class Solution {
         return ans;
     }
 
-    public void dfs(char[][] grid, int i, int j) {
-        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] != '1') {
-            return;
-        }
+    private void dfs(int i, int j) {
         grid[i][j] = '0';
-        for (int[] dir : dirs) {
-            dfs(grid, i + dir[0], j + dir[1]);
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k];
+            int y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid[x][y] == '1') {
+                dfs(x, y);
+            }
         }
     }
 }

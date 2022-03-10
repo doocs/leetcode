@@ -65,7 +65,16 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def countBalls(self, lowLimit: int, highLimit: int) -> int:
+        counter = [0] * 60
+        for i in range(lowLimit, highLimit + 1):
+            s = 0
+            while i:
+                s += (i % 10)
+                i //= 10
+            counter[s] += 1
+        return max(counter)
 ```
 
 ### **Java**
@@ -73,7 +82,68 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int countBalls(int lowLimit, int highLimit) {
+        int[] counter = new int[60];
+        int ans = 0;
+        for (int i = lowLimit; i <= highLimit; ++i) {
+            int s = 0;
+            int j = i;
+            while (j > 0) {
+                s += (j % 10);
+                j /= 10;
+            }
+            ++counter[s];
+            ans = Math.max(ans, counter[s]);
+        }
+        return ans;
+    }
+}
+```
 
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int countBalls(int lowLimit, int highLimit) {
+        vector<int> counter(60);
+        int ans = 0;
+        for (int i = lowLimit; i <= highLimit; ++i)
+        {
+            int s = 0, j = i;
+            while (j)
+            {
+                s += (j % 10);
+                j /= 10;
+            }
+            ++counter[s];
+            ans = max(ans, counter[s]);
+        }
+        return ans;
+    }
+};
+```
+
+### **Go**
+
+```go
+func countBalls(lowLimit int, highLimit int) int {
+	counter := make([]int, 60)
+	ans := 0
+	for i := lowLimit; i <= highLimit; i++ {
+		s, j := 0, i
+		for j > 0 {
+			s += (j % 10)
+			j /= 10
+		}
+		counter[s]++
+		if counter[s] > ans {
+			ans = counter[s]
+		}
+	}
+	return ans
+}
 ```
 
 ### **...**

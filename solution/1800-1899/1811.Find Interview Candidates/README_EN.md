@@ -46,11 +46,13 @@ This table contains information about the users.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Contests table:
 +------------+------------+--------------+--------------+
 | contest_id | gold_medal | silver_medal | bronze_medal |
@@ -63,7 +65,6 @@ Contests table:
 | 195        | 4          | 2            | 1            |
 | 196        | 1          | 5            | 2            |
 +------------+------------+--------------+--------------+
-
 Users table:
 +---------+--------------------+-------+
 | user_id | mail               | name  |
@@ -74,8 +75,7 @@ Users table:
 | 4       | hercy@leetcode.com | Hercy |
 | 5       | quarz@leetcode.com | Quarz |
 +---------+--------------------+-------+
-
-Result table:
+<strong>Output:</strong> 
 +-------+--------------------+
 | name  | mail               |
 +-------+--------------------+
@@ -84,7 +84,7 @@ Result table:
 | Alice | alice@leetcode.com |
 | Quarz | quarz@leetcode.com |
 +-------+--------------------+
-
+<strong>Explanation:</strong> 
 Sarah won 3 gold medals (190, 193, and 196), so we include her in the result table.
 Bob won a medal in 3 consecutive contests (190, 191, and 192), so we include him in the result table.
     - Note that he also won a medal in 3 other consecutive contests (194, 195, and 196).

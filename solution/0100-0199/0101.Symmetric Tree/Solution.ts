@@ -11,15 +11,12 @@
  *     }
  * }
  */
-type TreeNodeOptional = TreeNode | null;
-const isSame = (a: TreeNodeOptional, b: TreeNodeOptional): boolean => {
-    if (!a && !b) return true;
-    if (!a || !b) return false;
-    return (
-        a.val === b.val && isSame(a.left, b.right) && isSame(a.right, b.left)
-    );
-};
-var isSymmetric = function (root: TreeNode | null): boolean {
-    if (!root) return true;
-    return isSame(root.left, root.right);
-};
+
+function isSymmetric(root: TreeNode | null): boolean {
+    function dfs(root1, root2) {
+        if (!root1 && !root2) return true;
+        if (!root1 || !root2 || root1.val != root2.val) return false;
+        return dfs(root1.left, root2.right) && dfs(root1.right, root2.left);
+    }
+    return dfs(root, root);
+}

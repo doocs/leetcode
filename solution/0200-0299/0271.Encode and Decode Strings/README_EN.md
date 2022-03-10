@@ -39,6 +39,8 @@ vector&lt;string&gt; strs2 = decode(encoded_string);
 
 <p>Implement the <code>encode</code> and <code>decode</code> methods.</p>
 
+<p>You are not allowed to&nbsp;solve the problem using any serialize methods (such as <code>eval</code>).</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
@@ -73,12 +75,7 @@ String[] strs = decoder.decode(msg);
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Follow up:</strong></p>
-
-<ul>
-	<li>Could you write a generalized algorithm to work on any possible characters?</li>
-	<li>Could you solve the problem without using any serialize methods (such as <code>eval</code>)?</li>
-</ul>
+<p><strong>Follow up: </strong>Could you write a generalized algorithm to work on any possible set of characters?</p>
 
 ## Solutions
 

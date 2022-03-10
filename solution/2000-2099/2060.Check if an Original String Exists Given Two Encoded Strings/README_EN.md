@@ -67,32 +67,6 @@
 - The original string encoded as s2 must start with the letter &#39;c&#39;.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s1 = &quot;112s&quot;, s2 = &quot;g841&quot;
-<strong>Output:</strong> true
-<strong>Explanation:</strong> It is possible that &quot;gaaaaaaaaaaaas&quot; was the original string
-- &quot;gaaaaaaaaaaaas&quot;
-  -&gt; Split:      [&quot;g&quot;, &quot;aaaaaaaaaaaa&quot;, &quot;s&quot;]
-  -&gt; Replace:    [&quot;1&quot;, &quot;12&quot;,           &quot;s&quot;]
-  -&gt; Concatenate: &quot;112s&quot;, which is s1.
-- &quot;gaaaaaaaaaaaas&quot;
-  -&gt; Split:      [&quot;g&quot;, &quot;aaaaaaaa&quot;, &quot;aaaa&quot;, &quot;s&quot;]
-  -&gt; Replace:    [&quot;g&quot;, &quot;8&quot;,        &quot;4&quot;,    &quot;1&quot;]
-  -&gt; Concatenate: &quot;g841&quot;, which is s2.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> s1 = &quot;ab&quot;, s2 = &quot;a2&quot;
-<strong>Output:</strong> false
-<strong>Explanation:</strong> It is impossible.
-- The original string encoded as s1 has two letters.
-- The original string encoded as s2 has three letters.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -127,7 +101,7 @@ function possiblyEquals(s1: string, s2: string): boolean {
     const n = s1.length,
         m = s2.length;
     let dp: Array<Array<Set<number>>> = Array.from({ length: n + 1 }, v =>
-        Array.from({ length: m + 1 }, w => new Set())
+        Array.from({ length: m + 1 }, w => new Set()),
     );
     dp[0][0].add(0);
 

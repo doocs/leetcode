@@ -19,7 +19,7 @@
 
 <ul>
 	<li><code>Robot(int width, int height)</code> Initializes the <code>width x height</code> grid with the robot at <code>(0, 0)</code> facing <code>&quot;East&quot;</code>.</li>
-	<li><code>void move(int num)</code> Instructs the robot to move forward <code>num</code> steps.</li>
+	<li><code>void step(int num)</code> Instructs the robot to move forward <code>num</code> steps.</li>
 	<li><code>int[] getPos()</code> Returns the current cell the robot is at, as an array of length 2, <code>[x, y]</code>.</li>
 	<li><code>String getDir()</code> Returns the current direction of the robot, <code>&quot;North&quot;</code>, <code>&quot;East&quot;</code>, <code>&quot;South&quot;</code>, or <code>&quot;West&quot;</code>.</li>
 </ul>
@@ -57,7 +57,7 @@ robot.getDir(); // return &quot;West&quot;
 <ul>
 	<li><code>2 &lt;= width, height &lt;= 100</code></li>
 	<li><code>1 &lt;= num &lt;= 10<sup>5</sup></code></li>
-	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>move</code>, <code>getPos</code>, and <code>getDir</code>.</li>
+	<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>step</code>, <code>getPos</code>, and <code>getDir</code>.</li>
 </ul>
 
 ## Solutions

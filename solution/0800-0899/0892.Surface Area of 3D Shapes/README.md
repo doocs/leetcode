@@ -6,9 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个 <code>n * n</code> 的网格 <code>grid</code> ，上面放置着一些 <code>1 x 1 x 1</code> 的正方体。</p>
-
-<p>每个值 <code>v = grid[i][j]</code> 表示 <code>v</code> 个正方体叠放在对应单元格 <code>(i, j)</code> 上。</p>
+<p>给你一个 <code>n * n</code> 的网格&nbsp;<code>grid</code> ，上面放置着一些&nbsp;<code>1 x 1 x 1</code>&nbsp;的正方体。每个值&nbsp;<code>v = grid[i][j]</code>&nbsp;表示&nbsp;<code>v</code>&nbsp;个正方体叠放在对应单元格&nbsp;<code>(i, j)</code>&nbsp;上。</p>
 
 <p>放置好正方体后，任何直接相邻的正方体都会互相粘在一起，形成一些不规则的三维形体。</p>
 
@@ -16,55 +14,41 @@
 
 <p><strong>注意：</strong>每个形体的底面也需要计入表面积中。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <ul>
 </ul>
 
 <p><strong>示例 1：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid1.jpg" style="width: 82px; height: 82px;" />
-<pre>
-<strong>输入：</strong>grid = [[2]]
-<strong>输出：</strong>10
-</pre>
-
-<p><strong>示例 2：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid2.jpg" style="width: 162px; height: 162px;" />
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid2.jpg" style="height: 80px; width: 80px;" />
 <pre>
 <strong>输入：</strong>grid = [[1,2],[3,4]]
 <strong>输出：</strong>34
 </pre>
 
-<p><strong>示例 3：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid3.jpg" style="width: 162px; height: 162px;" />
-<pre>
-<strong>输入：</strong>grid = [[1,0],[0,2]]
-<strong>输出：</strong>16
-</pre>
-
-<p><strong>示例 4：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid4.jpg" style="width: 242px; height: 242px;" />
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid4.jpg" style="height: 100px; width: 100px;" />
 <pre>
 <strong>输入：</strong>grid = [[1,1,1],[1,0,1],[1,1,1]]
 <strong>输出：</strong>32
 </pre>
 
-<p><strong>示例 5：</strong></p>
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid5.jpg" style="width: 242px; height: 242px;" />
+<p><strong>示例 3：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0892.Surface%20Area%20of%203D%20Shapes/images/tmp-grid5.jpg" style="height: 100px; width: 100px;" />
 <pre>
 <strong>输入：</strong>grid = [[2,2,2],[2,1,2],[2,2,2]]
 <strong>输出：</strong>46
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
 	<li><code>n == grid.length</code></li>
 	<li><code>n == grid[i].length</code></li>
-	<li><code>1 <= n <= 50</code></li>
-	<li><code>0 <= grid[i][j] <= 50</code></li>
+	<li><code>1 &lt;= n &lt;= 50</code></li>
+	<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
 </ul>
 
 ## 解法

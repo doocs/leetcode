@@ -10,7 +10,7 @@ class Solution:
                     continue
                 num = int(c) - 1
                 k = i // 3 * 3 + j // 3
-                if row[i][num] or col[j][num] or sub[k][num]: 
+                if row[i][num] or col[j][num] or sub[k][num]:
                     return False
                 row[i][num] = True
                 col[j][num] = True

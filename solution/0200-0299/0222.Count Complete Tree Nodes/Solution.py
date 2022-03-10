@@ -12,7 +12,7 @@ class Solution:
                 res += 1
                 root = root.left
             return res
-        
+
         if root is None:
             return 0
         left, right = depth(root.left), depth(root.right)

@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>写一个 <code>RecentCounter</code> 类来计算特定时间范围内最近的请求。</p>
+<p>写一个&nbsp;<code>RecentCounter</code>&nbsp;类来计算特定时间范围内最近的请求。</p>
 
 <p>请你实现 <code>RecentCounter</code> 类：</p>
 
@@ -17,9 +17,9 @@
 
 <p><strong>保证</strong> 每次对 <code>ping</code> 的调用都使用比之前更大的 <code>t</code> 值。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
-<p><strong>示例：</strong></p>
+<p><strong>示例 1：</strong></p>
 
 <pre>
 <strong>输入：</strong>
@@ -36,12 +36,12 @@ recentCounter.ping(3001);  // requests = [<strong>1</strong>, <strong>100</stron
 recentCounter.ping(3002);  // requests = [1, <strong>100</strong>, <strong>3001</strong>, <strong>3002</strong>]，范围是 [2,3002]，返回 3
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>1 <= t <= 10<sup>9</sup></code></li>
+	<li><code>1 &lt;= t &lt;= 10<sup>9</sup></code></li>
 	<li>保证每次对 <code>ping</code> 调用所使用的 <code>t</code> 值都 <strong>严格递增</strong></li>
 	<li>至多调用 <code>ping</code> 方法 <code>10<sup>4</sup></code> 次</li>
 </ul>

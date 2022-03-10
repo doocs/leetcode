@@ -4,16 +4,18 @@
 
 ## Description
 
-<p>Design an iterator that supports the <code>peek</code> operation on a list in addition to the <code>hasNext</code> and the <code>next</code> operations.</p>
+<p>Design an iterator that supports the <code>peek</code> operation on an existing iterator in addition to the <code>hasNext</code> and the <code>next</code> operations.</p>
 
 <p>Implement the <code>PeekingIterator</code> class:</p>
 
 <ul>
-	<li><code>PeekingIterator(int[] nums)</code> Initializes the object with the given integer array <code>nums</code>.</li>
+	<li><code>PeekingIterator(Iterator&lt;int&gt; nums)</code> Initializes the object with the given integer iterator <code>iterator</code>.</li>
 	<li><code>int next()</code> Returns the next element in the array and moves the pointer to the next element.</li>
-	<li><code>bool hasNext()</code> Returns <code>true</code> if there are still elements in the array.</li>
+	<li><code>boolean hasNext()</code> Returns <code>true</code> if there are still elements in the array.</li>
 	<li><code>int peek()</code> Returns the next element in the array <strong>without</strong> moving the pointer.</li>
 </ul>
+
+<p><strong>Note:</strong> Each language may have a different implementation of the constructor and <code>Iterator</code>, but they all support the <code>int next()</code> and <code>boolean hasNext()</code> functions.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>

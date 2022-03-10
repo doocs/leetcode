@@ -80,7 +80,7 @@ class Solution:
         for i in range(1, len(rings), 2):
             c = int(rings[i])
             mp[c].add(rings[i - 1])
-        return sum(1 for v in mp.values() if len(v) == 3)
+        return sum(len(v) == 3 for v in mp.values())
 ```
 
 ### **Java**
@@ -127,9 +127,29 @@ public:
 };
 ```
 
-### **TypeScript**
+### **Go**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
+```go
+func countPoints(rings string) int {
+	mp := make(map[byte]map[byte]bool)
+	for i := 1; i < len(rings); i += 2 {
+		c := rings[i]
+		if len(mp[c]) == 0 {
+			mp[c] = make(map[byte]bool)
+		}
+		mp[c][rings[i-1]] = true
+	}
+	ans := 0
+	for _, v := range mp {
+		if len(v) == 3 {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+### **TypeScript**
 
 ```ts
 

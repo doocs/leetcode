@@ -45,8 +45,8 @@ coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>
 
 区间 DP。
 
-- 状态表示：`dp[i][j]` 表示戳破区间 `(i, j)` 内所有气球获得的最大硬币数。
-- 状态计算：枚举开区间 `(i, j)` 中以气球 k 作为最后戳破的气球。那么 `dp[i][j] = max(dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j]), k ∈ [i + 1, j)`。
+-   状态表示：`dp[i][j]` 表示戳破区间 `(i, j)` 内所有气球获得的最大硬币数。
+-   状态计算：枚举开区间 `(i, j)` 中以气球 k 作为最后戳破的气球。那么 `dp[i][j] = max(dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j]), k ∈ [i + 1, j)`。
 
 以区间长度 l 从小到大开始处理每个状态值。
 
@@ -109,7 +109,7 @@ function maxCoins(nums: number[]): number {
             for (let k = i + 1; k < j; ++k) {
                 dp[i][j] = Math.max(
                     nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j],
-                    dp[i][j]
+                    dp[i][j],
                 );
             }
         }

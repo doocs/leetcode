@@ -16,9 +16,7 @@
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_1_1966.png" style="width: 362px; height: 229px;" /></strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_1_1966.png" style="width: 362px; height: 229px;" />
 <pre>
 <strong>Input:</strong> root = [1,10,4,3,null,7,9,12,8,6,null,null,2]
 <strong>Output:</strong> true
@@ -27,13 +25,11 @@ Level 0: [1]
 Level 1: [10,4]
 Level 2: [3,7,9]
 Level 3: [12,8,6,2]
-Since levels 0 and 2 are all odd and increasing, and levels 1 and 3 are all even and decreasing, the tree is Even-Odd.
+Since levels 0 and 2 are all odd and increasing and levels 1 and 3 are all even and decreasing, the tree is Even-Odd.
 </pre>
 
 <p><strong>Example 2:</strong></p>
-
-<p><strong><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_2_1966.png" style="width: 363px; height: 167px;" /></strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_2_1966.png" style="width: 363px; height: 167px;" />
 <pre>
 <strong>Input:</strong> root = [5,4,2,3,3,7]
 <strong>Output:</strong> false
@@ -41,31 +37,15 @@ Since levels 0 and 2 are all odd and increasing, and levels 1 and 3 are all even
 Level 0: [5]
 Level 1: [4,2]
 Level 2: [3,3,7]
-Node values in the level 2 must be in strictly increasing order, so the tree is not Even-Odd.
+Node values in level 2 must be in strictly increasing order, so the tree is not Even-Odd.
 </pre>
 
 <p><strong>Example 3:</strong></p>
-
-<p><img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_1_333_1966.png" style="width: 363px; height: 167px;" /></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/1600-1699/1609.Even%20Odd%20Tree/images/sample_1_333_1966.png" style="width: 363px; height: 167px;" />
 <pre>
 <strong>Input:</strong> root = [5,9,1,3,5,7]
 <strong>Output:</strong> false
 <strong>Explanation:</strong> Node values in the level 1 should be even integers.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [1]
-<strong>Output:</strong> true
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> root = [11,8,6,1,3,9,11,30,20,18,16,12,10,4,2,17]
-<strong>Output:</strong> true
 </pre>
 
 <p>&nbsp;</p>

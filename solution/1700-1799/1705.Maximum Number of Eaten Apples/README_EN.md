@@ -38,8 +38,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>apples.length == n</code></li>
-	<li><code>days.length == n</code></li>
+	<li><code>n == apples.length == days.length</code></li>
 	<li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>0 &lt;= apples[i], days[i] &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>days[i] = 0</code> if and only if <code>apples[i] = 0</code>.</li>
@@ -103,7 +102,7 @@ class Solution {
 ### **C++**
 
 ```cpp
-typedef pair<int,int> PII;
+typedef pair<int, int> PII;
 
 class Solution {
 public:

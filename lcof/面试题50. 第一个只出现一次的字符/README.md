@@ -2,21 +2,27 @@
 
 ## 题目描述
 
-在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。
+<p>在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。</p>
 
-**示例:**
+<p><strong>示例 1:</strong></p>
 
-```
-s = "abaccdeff"
-返回 "b"
+<pre>
+输入：s = "abaccdeff"
+输出：'b'
+</pre>
 
-s = ""
-返回 " "
-```
+<p><strong>示例 2:</strong></p>
 
-**限制：**
+<pre>
+输入：s = "" 
+输出：' '
+</pre>
 
-- `0 <= s 的长度 <= 50000`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>0 &lt;= s 的长度 &lt;= 50000</code></p>
 
 ## 解法
 
@@ -69,17 +75,17 @@ class Solution {
  * @return {character}
  */
 var firstUniqChar = function (s) {
-    if (s.length == 0) return " ";
+    if (s.length == 0) return ' ';
     let counter = new Array(26).fill(0);
     for (let i = 0; i < s.length; ++i) {
-        const index = s[i].charCodeAt() - "a".charCodeAt();
+        const index = s[i].charCodeAt() - 'a'.charCodeAt();
         ++counter[index];
     }
     for (let i = 0; i < s.length; ++i) {
-        const index = s[i].charCodeAt() - "a".charCodeAt();
+        const index = s[i].charCodeAt() - 'a'.charCodeAt();
         if (counter[index] == 1) return s[i];
     }
-    return " ";
+    return ' ';
 };
 ```
 
@@ -101,6 +107,50 @@ public:
         return ' ';
     }
 };
+```
+
+### **TypeScript**
+
+```ts
+function firstUniqChar(s: string): string {
+    const map = new Map();
+    for (const c of s) {
+        map.set(c, !map.has(c));
+    }
+    for (const c of s) {
+        if (map.get(c)) {
+            return c;
+        }
+    }
+    return ' ';
+}
+```
+
+### **Rust**
+
+```rust
+use std::collections::HashMap;
+
+impl Solution {
+    pub fn first_uniq_char(s: String) -> char {
+        let mut map = HashMap::new();
+        let s = s.chars().collect::<Vec<char>>();
+        for c in s.iter() {
+            match map.contains_key(c) {
+                true => map.insert(c, false),
+                false => map.insert(c, true),
+            };
+        }
+        for c in s.iter() {
+            if let Some(is_single) = map.get(c) {
+                if *is_single {
+                    return *c;
+                }
+            }
+        }
+        ' '
+    }
+}
 ```
 
 ### **...**

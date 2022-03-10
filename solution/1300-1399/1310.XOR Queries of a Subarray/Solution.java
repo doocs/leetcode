@@ -1,14 +1,17 @@
 class Solution {
     public int[] xorQueries(int[] arr, int[][] queries) {
-        int[] preXor = new int[arr.length + 1];
-        for (int i = 1; i <= arr.length; ++i) {
-            preXor[i] = preXor[i - 1] ^ arr[i - 1];
+        int n = arr.length;
+        int[] xors = new int[n + 1];
+        for (int i = 0; i < n; ++i) {
+            xors[i + 1] = xors[i] ^ arr[i];
         }
-        int[] res = new int[queries.length];
-        for (int i = 0; i < queries.length; ++i) {
-            int l = queries[i][0], r = queries[i][1];
-            res[i] = preXor[l] ^ preXor[r + 1];
+        int m = queries.length;
+        int[] ans = new int[m];
+        for (int i = 0; i < m; ++i) {
+            int l = queries[i][0];
+            int r = queries[i][1];
+            ans[i] = xors[l] ^ xors[r + 1];
         }
-        return res;
+        return ans;
     }
 }

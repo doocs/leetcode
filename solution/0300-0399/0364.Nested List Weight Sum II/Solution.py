@@ -2,7 +2,7 @@
 # This is the interface that allows for creating nested lists.
 # You should not implement it, or speculate about its implementation
 # """
-#class NestedInteger:
+# class NestedInteger:
 #    def __init__(self, value=None):
 #        """
 #        If value is not specified, initializes an empty list.
@@ -49,7 +49,7 @@ class Solution:
                     continue
                 depth = max(depth, max_depth(item.getList()) + 1)
             return depth
-        
+
         def dfs(nestedList, max_depth):
             depth_sum = 0
             for item in nestedList:

@@ -10,7 +10,7 @@ class Solution:
         q = deque([root])
         while q:
             n = len(q)
-            prev = 0 if even else 10 ** 6
+            prev = 0 if even else 10**6
             for _ in range(n):
                 node = q.popleft()
                 if even and (prev >= node.val or node.val % 2 == 0):

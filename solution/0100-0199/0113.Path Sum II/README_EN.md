@@ -4,9 +4,9 @@
 
 ## Description
 
-<p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return all <strong>root-to-leaf</strong> paths where each path&#39;s sum equals <code>targetSum</code>.</p>
+<p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return <em>all <strong>root-to-leaf</strong> paths where the sum of the node values in the path equals </em><code>targetSum</code><em>. Each path should be returned as a list of the node <strong>values</strong>, not node references</em>.</p>
 
-<p>A <strong>leaf</strong> is a node with no children.</p>
+<p>A <strong>root-to-leaf</strong> path is a path starting from the root and ending at any leaf node. A <strong>leaf</strong> is a node with no children.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -14,6 +14,9 @@
 <pre>
 <strong>Input:</strong> root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
 <strong>Output:</strong> [[5,4,11,2],[5,8,4,5]]
+<strong>Explanation:</strong> There are two paths whose sum equals targetSum:
+5 + 4 + 11 + 2 = 22
+5 + 8 + 4 + 5 = 22
 </pre>
 
 <p><strong>Example 2:</strong></p>
@@ -48,28 +51,30 @@
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
-        def dfs(root, sum):
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        def dfs(root, s):
             if root is None:
                 return
-            path.append(root.val)
-            if root.val == sum and root.left is None and root.right is None:
-                res.append(path.copy())
-            dfs(root.left, sum - root.val)
-            dfs(root.right, sum - root.val)
-            path.pop()
-        if not root:
-            return []
-        res = []
-        path = []
-        dfs(root, sum)
-        return res
+            t.append(root.val)
+            s += root.val
+            if root.left is None and root.right is None:
+                if s == targetSum:
+                    ans.append(t[:])
+            dfs(root.left, s)
+            dfs(root.right, s)
+            t.pop()
+
+        ans = []
+        t = []
+        if root is None:
+            return ans
+        dfs(root, 0)
+        return ans
 ```
 
 ### **Java**
@@ -81,31 +86,116 @@ class Solution:
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
-    private List<List<Integer>> res;
-    private List<Integer> path;
+    private List<List<Integer>> ans;
+    private List<Integer> t;
+    private int target;
 
-    public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        if (root == null) return Collections.emptyList();
-        res = new ArrayList<>();
-        path = new ArrayList<>();
-        dfs(root, sum);
-        return res;
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        ans = new ArrayList<>();
+        t = new ArrayList<>();
+        target = targetSum;
+        dfs(root, 0);
+        return ans;
     }
 
-    private void dfs(TreeNode root, int sum) {
-        if (root == null) return;
-        path.add(root.val);
-        if (root.val == sum && root.left == null && root.right == null) {
-            res.add(new ArrayList<>(path));
+    private void dfs(TreeNode root, int s) {
+        if (root == null) {
+            return;
         }
-        dfs(root.left, sum - root.val);
-        dfs(root.right, sum - root.val);
-        path.remove(path.size() - 1);
+        t.add(root.val);
+        s += root.val;
+        if (root.left == null && root.right == null) {
+            if (s == target) {
+                ans.add(new ArrayList<>(t));
+            }
+        }
+        dfs(root.left, s);
+        dfs(root.right, s);
+        t.remove(t.size() - 1);
     }
+}
+```
+
+### **C++**
+
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> ans;
+    vector<int> t;
+    int target;
+
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        target = targetSum;
+        dfs(root, 0);
+        return ans;
+    }
+
+    void dfs(TreeNode* root, int s) {
+        if (!root) return;
+        t.push_back(root->val);
+        s += root->val;
+        if (!root->left && !root->right && s == target) ans.push_back(t);
+        dfs(root->left, s);
+        dfs(root->right, s);
+        t.pop_back();
+    }
+};
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func pathSum(root *TreeNode, targetSum int) [][]int {
+	ans := [][]int{}
+	t := []int{}
+	var dfs func(root *TreeNode, s int)
+	dfs = func(root *TreeNode, s int) {
+		if root == nil {
+			return
+		}
+		t = append(t, root.Val)
+		s += root.Val
+		if root.Left == nil && root.Right == nil && s == targetSum {
+			cp := make([]int, len(t))
+			copy(cp, t)
+			ans = append(ans, cp)
+		}
+		dfs(root.Left, s)
+		dfs(root.Right, s)
+		t = t[:len(t)-1]
+	}
+	dfs(root, 0)
+	return ans
 }
 ```
 

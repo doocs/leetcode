@@ -78,11 +78,11 @@
 ```python
 class Solution:
     def hammingWeight(self, n: int) -> int:
-        res = 0
+        ans = 0
         while n:
-            n &= (n - 1)
-            res += 1
-        return res
+            n &= n - 1
+            ans += 1
+        return ans
 ```
 
 ### **Java**
@@ -93,14 +93,44 @@ class Solution:
 public class Solution {
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
-        int res = 0;
+        int ans = 0;
         while (n != 0) {
-            n &= (n - 1);
-            ++res;
+            n &= n - 1;
+            ++ans;
         }
-        return res;
+        return ans;
     }
 }
+```
+
+### **Go**
+
+```go
+func hammingWeight(num uint32) int {
+	ans := 0
+	for num != 0 {
+		num &= num - 1
+		ans++
+	}
+	return ans
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int ans = 0;
+        while (n)
+        {
+            n &= n - 1;
+            ++ans;
+        }
+        return ans;
+    }
+};
 ```
 
 ### **JavaScript**
@@ -111,12 +141,12 @@ public class Solution {
  * @return {number}
  */
 var hammingWeight = function (n) {
-    let res = 0;
+    let ans = 0;
     while (n) {
         n &= n - 1;
-        ++res;
+        ++ans;
     }
-    return res;
+    return ans;
 };
 ```
 

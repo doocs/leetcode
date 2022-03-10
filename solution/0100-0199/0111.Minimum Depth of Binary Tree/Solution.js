@@ -11,8 +11,11 @@
  * @return {number}
  */
 var minDepth = function (root) {
-    if (root == null) return 0;
-    if (root.left == null) return minDepth(root.right) + 1;
-    if (root.right == null) return minDepth(root.left) + 1;
-    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+    function dfs(root) {
+        if (!root) return 0;
+        if (!root.left) return 1 + dfs(root.right);
+        if (!root.right) return 1 + dfs(root.left);
+        return 1 + Math.min(dfs(root.left), dfs(root.right));
+    }
+    return dfs(root);
 };

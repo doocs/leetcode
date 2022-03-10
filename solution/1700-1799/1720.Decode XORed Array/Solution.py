@@ -1,7 +1,6 @@
 class Solution:
     def decode(self, encoded: List[int], first: int) -> List[int]:
-        res = [first]
+        ans = [first]
         for e in encoded:
-            first ^= e
-            res.append(first)
-        return res
+            ans.append(ans[-1] ^ e)
+        return ans

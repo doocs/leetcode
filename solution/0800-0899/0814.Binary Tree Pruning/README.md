@@ -6,47 +6,44 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定二叉树根结点&nbsp;<code>root</code>&nbsp;，此外树的每个结点的值要么是 0，要么是 1。</p>
+<p>给你二叉树的根结点&nbsp;<code>root</code>&nbsp;，此外树的每个结点的值要么是 <code>0</code> ，要么是 <code>1</code> 。</p>
 
-<p>返回移除了所有不包含 1 的子树的原二叉树。</p>
+<p>返回移除了所有不包含 <code>1</code> 的子树的原二叉树。</p>
 
-<p>( 节点 X 的子树为 X 本身，以及所有 X 的后代。)</p>
+<p>节点 <code>node</code> 的子树为 <code>node</code> 本身加上所有 <code>node</code> 的后代。</p>
 
+<p>&nbsp;</p>
+
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028_2.png" style="width: 500px; height: 140px;" />
 <pre>
-<strong>示例1:</strong>
-<strong>输入:</strong> [1,null,0,0,1]
-<strong>输出: </strong>[1,null,0,null,1]
-
-<strong>解释:</strong>
-只有红色节点满足条件&ldquo;所有不包含 1 的子树&rdquo;。
-右图为返回的答案。
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028_2.png" style="width:450px" />
+<strong>输入：</strong>root = [1,null,0,0,1]
+<strong>输出：</strong>[1,null,0,null,1]
+<strong>解释：</strong>
+只有红色节点满足条件“所有不包含 1 的子树”。 右图为返回的答案。
 </pre>
 
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028_1.png" style="width: 500px; height: 115px;" />
 <pre>
-<strong>示例2:</strong>
-<strong>输入:</strong> [1,0,1,0,0,0,1]
-<strong>输出: </strong>[1,null,1,null,1]
-
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028_1.png" style="width:450px" />
+<strong>输入：</strong>root = [1,0,1,0,0,0,1]
+<strong>输出：</strong>[1,null,1,null,1]
 </pre>
 
+<p><strong>示例 3：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028.png" style="width: 500px; height: 134px;" />
 <pre>
-<strong>示例3:</strong>
-<strong>输入:</strong> [1,1,0,1,1,0,1,0]
-<strong>输出: </strong>[1,1,0,1,1,null,1]
-
-
-<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0800-0899/0814.Binary%20Tree%20Pruning/images/1028.png" style="width:450px" />
+<strong>输入：</strong>root = [1,1,0,1,1,0,1,0]
+<strong>输出：</strong>[1,1,0,1,1,null,1]
 </pre>
 
-<p><strong>说明: </strong></p>
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
 
 <ul>
-	<li>给定的二叉树最多有&nbsp;<code>100</code>&nbsp;个节点。</li>
-	<li>每个节点的值只会为&nbsp;<code>0</code> 或&nbsp;<code>1</code>&nbsp;。</li>
+	<li>树中节点的数目在范围 <code>[1, 200]</code> 内</li>
+	<li><code>Node.val</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
 ## 解法

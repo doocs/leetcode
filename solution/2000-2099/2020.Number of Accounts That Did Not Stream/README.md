@@ -49,7 +49,7 @@ Each row of this table contains information about the account and the date assoc
 
 <pre>
 <strong>Input:</strong> 
-Subscription table:
+Subscriptions table:
 +------------+------------+------------+
 | account_id | start_date | end_date   |
 +------------+------------+------------+

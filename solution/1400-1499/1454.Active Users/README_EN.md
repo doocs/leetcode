@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Table <code>Accounts</code>:</p>
+<p>Table: <code>Accounts</code></p>
 
 <pre>
 +---------------+---------+
@@ -13,13 +13,13 @@
 | id            | int     |
 | name          | varchar |
 +---------------+---------+
-the id is the primary key for this table.
+id is the primary key for this table.
 This table contains the account id and the user name of each account.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Table <code>Logins</code>:</p>
+<p>Table: <code>Logins</code></p>
 
 <pre>
 +---------------+---------+
@@ -34,15 +34,19 @@ This table contains the account id of the user who logged in and the login date.
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the id and the name of active users.</p>
+<p><strong>Active users</strong> are those who logged in to their accounts for five or more consecutive days.</p>
 
-<p>Active users are those who logged in to their accounts for 5 or more consecutive days.</p>
+<p>Write an SQL query to find the id and the name of <strong>active users</strong>.</p>
 
-<p>Return the result table <strong>ordered</strong> by the id.</p>
+<p>Return the result table <strong>ordered</strong> by <code>id</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Accounts table:
 +----+----------+
 | id | name     |
@@ -50,7 +54,6 @@ Accounts table:
 | 1  | Winston  |
 | 7  | Jonathan |
 +----+----------+
-
 Logins table:
 +----+------------+
 | id | login_date |
@@ -65,19 +68,19 @@ Logins table:
 | 1  | 2020-06-07 |
 | 7  | 2020-06-10 |
 +----+------------+
-
-Result table:
+<strong>Output:</strong> 
 +----+----------+
 | id | name     |
 +----+----------+
 | 7  | Jonathan |
 +----+----------+
+<strong>Explanation:</strong> 
 User Winston with id = 1 logged in 2 times only in 2 different days, so, Winston is not an active user.
 User Jonathan with id = 7 logged in 7 times in 6 different days, five of them were consecutive days, so, Jonathan is an active user.
 </pre>
 
-<p><strong>Follow up question:</strong><br />
-Can you write a general solution if the active&nbsp;users are those who logged in to their accounts for <code>n</code> or more consecutive days?</p>
+<p>&nbsp;</p>
+<p><strong>Follow up:</strong> Could you write a general solution if the active users are those who logged in to their accounts for <code>n</code> or more consecutive days?</p>
 
 ## Solutions
 

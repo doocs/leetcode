@@ -2,18 +2,24 @@
 
 ## 题目描述
 
-定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
+<p>定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。</p>
 
-**示例:**
+<p>&nbsp;</p>
 
-```
-输入: 1->2->3->4->5->NULL
-输出: 5->4->3->2->1->NULL
-```
+<p><strong>示例:</strong></p>
 
-**限制：**
+<pre><strong>输入:</strong> 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+<strong>输出:</strong> 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</pre>
 
-- `0 <= 节点个数 <= 5000`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<p><code>0 &lt;= 节点个数 &lt;= 5000</code></p>
+
+<p>&nbsp;</p>
+
+<p><strong>注意</strong>：本题与主站 206 题相同：<a href="https://leetcode-cn.com/problems/reverse-linked-list/">https://leetcode-cn.com/problems/reverse-linked-list/</a></p>
 
 ## 解法
 
@@ -84,7 +90,7 @@ class Solution {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
+var reverseList = function (head) {
     let node = head;
     let pre = null;
     while (node) {
@@ -183,7 +189,7 @@ function reverseList(head: ListNode | null): ListNode | null {
 //   pub val: i32,
 //   pub next: Option<Box<ListNode>>
 // }
-// 
+//
 // impl ListNode {
 //   #[inline]
 //   fn new(val: i32) -> Self {

@@ -8,11 +8,11 @@
 
 <p>返回所有长度为 <code>n</code> 且满足其每两个连续位上的数字之间的差的绝对值为 <code>k</code> 的<strong> 非负整数 </strong>。</p>
 
-<p>请注意，<strong>除了 </strong>数字 <code>0</code> 本身之外，答案中的每个数字都 <strong>不能 </strong>有前导零。例如，<code>01</code> 有一个前导零，所以是无效的；但 <code>0</code> 是有效的。</p>
+<p>请注意，<strong>除了 </strong>数字 <code>0</code> 本身之外，答案中的每个数字都 <strong>不能 </strong>有前导零。例如，<code>01</code> 有一个前导零，所以是无效的；但 <code>0</code>&nbsp;是有效的。</p>
 
 <p>你可以按 <strong>任何顺序</strong> 返回答案。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -42,13 +42,13 @@
 <strong>输出：</strong>[13,20,24,31,35,42,46,53,57,64,68,75,79,86,97]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>2 <= n <= 9</code></li>
-	<li><code>0 <= k <= 9</code></li>
+	<li><code>2 &lt;= n &lt;= 9</code></li>
+	<li><code>0 &lt;= k &lt;= 9</code></li>
 </ul>
 
 ## 解法

@@ -41,6 +41,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+若左子树和右子树其中一个为空，那么需要返回比较大的那个子树的深度加 1；左右子树都不为空，返回最小深度加 1 即可。
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -56,15 +58,16 @@
 #         self.right = right
 class Solution:
     def minDepth(self, root: TreeNode) -> int:
-        if root is None:
-            return 0
-        # 如果左子树和右子树其中一个为空，那么需要返回比较大的那个子树的深度+1
-        if root.left is None:
-            return 1 + self.minDepth(root.right)
-        if root.right is None:
-            return 1 + self.minDepth(root.left)
-        # 左右子树都不为空，返回最小深度+1即可
-        return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+        def dfs(root):
+            if root is None:
+                return 0
+            if root.left is None:
+                return 1 + dfs(root.right)
+            if root.right is None:
+                return 1 + dfs(root.left)
+            return 1 + min(dfs(root.left), dfs(root.right))
+
+        return dfs(root)
 ```
 
 ### **Java**
@@ -89,16 +92,20 @@ class Solution:
  */
 class Solution {
     public int minDepth(TreeNode root) {
+        return dfs(root);
+    }
+
+    private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
         if (root.left == null) {
-            return 1 + minDepth(root.right);
+            return 1 + dfs(root.right);
         }
         if (root.right == null) {
-            return 1 + minDepth(root.left);
+            return 1 + dfs(root.left);
         }
-        return 1 + Math.min(minDepth(root.left), minDepth(root.right));
+        return 1 + Math.min(dfs(root.left), dfs(root.right));
     }
 }
 ```
@@ -119,10 +126,13 @@ class Solution {
  * @return {number}
  */
 var minDepth = function (root) {
-    if (root == null) return 0;
-    if (root.left == null) return minDepth(root.right) + 1;
-    if (root.right == null) return minDepth(root.left) + 1;
-    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+    function dfs(root) {
+        if (!root) return 0;
+        if (!root.left) return 1 + dfs(root.right);
+        if (!root.right) return 1 + dfs(root.left);
+        return 1 + Math.min(dfs(root.left), dfs(root.right));
+    }
+    return dfs(root);
 };
 ```
 
@@ -143,18 +153,52 @@ var minDepth = function (root) {
 class Solution {
 public:
     int minDepth(TreeNode* root) {
-        if (root == nullptr) {
-            return 0;
-        }
-        if (root->left == nullptr) {
-            return 1 + minDepth(root->right);
-        }
-        if (root->right == nullptr) {
-            return 1 + minDepth(root->left);
-        }
-        return 1 + min(minDepth(root->left), minDepth(root->right));
+        return dfs(root);
+    }
+
+    int dfs(TreeNode* root) {
+        if (!root) return 0;
+        if (!root->left) return 1 + dfs(root->right);
+        if (!root->right) return 1 + dfs(root->left);
+        return 1 + min(dfs(root->left), dfs(root->right));
     }
 };
+```
+
+### **Go**
+
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func minDepth(root *TreeNode) int {
+	var dfs func(root *TreeNode) int
+	dfs = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		if root.Left == nil {
+			return 1 + dfs(root.Right)
+		}
+		if root.Right == nil {
+			return 1 + dfs(root.Left)
+		}
+		return 1 + min(dfs(root.Left), dfs(root.Right))
+	}
+	return dfs(root)
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
 ```
 
 ### **...**

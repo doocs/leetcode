@@ -48,7 +48,6 @@ Query = [2,5]: Room number 3 is the only room with a size of at least 5. The ans
 	<li><code>1 &lt;= k &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= roomId<sub>i</sub>, preferred<sub>j</sub> &lt;= 10<sup>7</sup></code></li>
 	<li><code>1 &lt;= size<sub>i</sub>, minSize<sub>j</sub> &lt;= 10<sup>7</sup></code></li>
-	<li>&nbsp;</li>
 </ul>
 
 ## Solutions

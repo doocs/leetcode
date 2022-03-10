@@ -6,15 +6,32 @@
 
 <!-- 这里写题目描述 -->
 
-<p>中心对称数是指一个数字在旋转了&nbsp;180 度之后看起来依旧相同的数字（或者上下颠倒地看）。</p>
+<p>给定一个整数&nbsp;<code>n</code>&nbsp;，返回所有长度为&nbsp;<code>n</code>&nbsp;的 <strong>中心对称数</strong>&nbsp;。你可以以 <strong>任何顺序</strong> 返回答案。</p>
 
-<p>找到所有长度为 n 的中心对称数。</p>
+<p><strong>中心对称数&nbsp;</strong>是一个数字在旋转了&nbsp;<code>180</code> 度之后看起来依旧相同的数字（或者上下颠倒地看）。</p>
 
-<p><strong>示例</strong> <strong>:</strong></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入:</strong>  n = 2
-<strong>输出:</strong> <code>[&quot;11&quot;,&quot;69&quot;,&quot;88&quot;,&quot;96&quot;]</code>
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<b>输入：</b>n = 2
+<b>输出：</b>["11","69","88","96"]
 </pre>
+
+<p><strong>示例&nbsp;2:</strong></p>
+
+<pre>
+<b>输入：</b>n = 1
+<b>输出：</b>["0","1","8"]</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= n &lt;= 14</code></li>
+</ul>
 
 ## 解法
 

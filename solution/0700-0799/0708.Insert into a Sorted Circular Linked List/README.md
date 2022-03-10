@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定循环升序列表中的一个点，写一个函数向这个列表中插入一个新元素 <code>insertVal</code> ，使这个列表仍然是循环升序的。</p>
+<p>给定<strong>循环单调非递减列表</strong>中的一个点，写一个函数向这个列表中插入一个新元素&nbsp;<code>insertVal</code> ，使这个列表仍然是循环非降序的。</p>
 
 <p>给定的可以是这个列表中任意一个顶点的指针，并不一定是这个列表中最小元素的指针。</p>
 
@@ -14,11 +14,11 @@
 
 <p>如果列表为空（给定的节点是 <code>null</code>），你需要创建一个循环有序列表并返回这个节点。否则。请返回原先给定的节点。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0708.Insert%20into%20a%20Sorted%20Circular%20Linked%20List/images/example_1_before_65p.jpg" style="height: 149px; width: 250px;" /><br />
- 
+&nbsp;
 <pre>
 <strong>输入：</strong>head = [3,4,1], insertVal = 2
 <strong>输出：</strong>[3,4,1,2]
@@ -42,14 +42,13 @@
 <strong>输出：</strong>[1,0]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= Number of Nodes <= 5 * 10^4</code></li>
-	<li><code><font face="monospace">-10^6 <= Node.val <= 10^6</font></code></li>
-	<li><code>-10^6 <= insertVal <= 10^6</code></li>
+	<li><code>0 &lt;= Number of Nodes &lt;= 5 * 10<sup>4</sup></code></li>
+	<li><code>-10<sup>6</sup> &lt;= Node.val, insertVal &lt;= 10<sup>6</sup></code></li>
 </ul>
 
 ## 解法

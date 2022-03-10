@@ -1,7 +1,7 @@
 function findAllPeople(
     n: number,
     meetings: number[][],
-    firstPerson: number
+    firstPerson: number,
 ): number[] {
     let parent: Array<number> = Array.from({ length: n + 1 }, (v, i) => i);
     parent[firstPerson] = 0;

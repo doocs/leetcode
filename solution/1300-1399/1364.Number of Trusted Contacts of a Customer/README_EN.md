@@ -33,7 +33,6 @@ Each row of this table contains the name and the email of a customer of an onlin
 (user_id, contact_email) is the primary key for this table.
 Each row of this table contains the name and email of one contact of customer with user_id.
 This table contains information about people each customer trust. The contact may or may not exist in the Customers table.
-
 </pre>
 
 <p>&nbsp;</p>
@@ -60,15 +59,19 @@ Each row of this table indicates that user_id has an invoice with invoice_id and
 	<li><code>customer_name</code>: The name of the customer the invoice is related to.</li>
 	<li><code>price</code>: The price of the invoice.</li>
 	<li><code>contacts_cnt</code>: The number of contacts related to the customer.</li>
-	<li><code>trusted_contacts_cnt</code>: The number of contacts related to the customer and at the same time they are customers to the shop. (i.e His/Her email exists in the Customers table.)</li>
+	<li><code>trusted_contacts_cnt</code>: The number of contacts related to the customer and at the same time they are customers to the shop. (i.e their email exists in the <code>Customers</code> table.)</li>
 </ul>
 
-<p>Order the result table by <code><font face="monospace">invoice_id</font></code>.</p>
+<p>Return the result table <strong>ordered</strong> by <code>invoice_id</code>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Customers</code> table:
+<strong>Input:</strong> 
+Customers table:
 +-------------+---------------+--------------------+
 | customer_id | customer_name | email              |
 +-------------+---------------+--------------------+
@@ -99,7 +102,7 @@ Invoices table:
 | 55         | 500   | 13      |
 | 44         | 60    | 6       |
 +------------+-------+---------+
-Result table:
+<strong>Output:</strong> 
 +------------+---------------+-------+--------------+----------------------+
 | invoice_id | customer_name | price | contacts_cnt | trusted_contacts_cnt |
 +------------+---------------+-------+--------------+----------------------+
@@ -110,6 +113,7 @@ Result table:
 | 88         | Alice         | 200   | 3            | 2                    |
 | 99         | Bob           | 300   | 2            | 0                    |
 +------------+---------------+-------+--------------+----------------------+
+<strong>Explanation:</strong> 
 Alice has three contacts, two of them are trusted contacts (Bob and John).
 Bob has two contacts, none of them is a trusted contact.
 Alex has one contact and it is a trusted contact (Alice).

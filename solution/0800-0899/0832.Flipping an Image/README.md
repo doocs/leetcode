@@ -6,18 +6,26 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个二进制矩阵 <code>A</code>，我们想先水平翻转图像，然后反转图像并返回结果。</p>
+<p>给定一个<meta charset="UTF-8" />&nbsp;<code>n x n</code>&nbsp;的二进制矩阵&nbsp;<code>image</code>&nbsp;，先 <strong>水平</strong> 翻转图像，然后&nbsp;<strong>反转&nbsp;</strong>图像并返回&nbsp;<em>结果</em>&nbsp;。</p>
 
-<p>水平翻转图片就是将图片的每一行都进行翻转，即逆序。例如，水平翻转 <code>[1, 1, 0]</code> 的结果是 <code>[0, 1, 1]</code>。</p>
+<p><strong>水平</strong>翻转图片就是将图片的每一行都进行翻转，即逆序。</p>
 
-<p>反转图片的意思是图片中的 <code>0</code> 全部被 <code>1</code> 替换， <code>1</code> 全部被 <code>0</code> 替换。例如，反转 <code>[0, 1, 1]</code> 的结果是 <code>[1, 0, 0]</code>。</p>
+<ul>
+	<li>例如，水平翻转&nbsp;<code>[1,1,0]</code>&nbsp;的结果是&nbsp;<code>[0,1,1]</code>。</li>
+</ul>
 
-<p> </p>
+<p><strong>反转</strong>图片的意思是图片中的&nbsp;<code>0</code>&nbsp;全部被&nbsp;<code>1</code>&nbsp;替换，&nbsp;<code>1</code>&nbsp;全部被&nbsp;<code>0</code>&nbsp;替换。</p>
+
+<ul>
+	<li>例如，反转&nbsp;<code>[0,1,1]</code>&nbsp;的结果是&nbsp;<code>[1,0,0]</code>。</li>
+</ul>
+
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
 <pre>
-<strong>输入：</strong>[[1,1,0],[1,0,1],[0,0,0]]
+<strong>输入：</strong>image = [[1,1,0],[1,0,1],[0,0,0]]
 <strong>输出：</strong>[[1,0,0],[0,1,0],[1,1,1]]
 <strong>解释：</strong>首先翻转每一行: [[0,1,1],[1,0,1],[0,0,0]]；
      然后反转图片: [[1,0,0],[0,1,0],[1,1,1]]
@@ -26,19 +34,23 @@
 <p><strong>示例 2：</strong></p>
 
 <pre>
-<strong>输入：</strong>[[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
+<strong>输入：</strong>image = [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
 <strong>输出：</strong>[[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 <strong>解释：</strong>首先翻转每一行: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]]；
      然后反转图片: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
 </pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
+<p><meta charset="UTF-8" /></p>
+
 <ul>
-	<li><code>1 <= A.length = A[0].length <= 20</code></li>
-	<li><code>0 <= A[i][j] <= 1</code></li>
+	<li><code>n == image.length</code></li>
+	<li><code>n == image[i].length</code></li>
+	<li><code>1 &lt;= n &lt;= 20</code></li>
+	<li><code>images[i][j]</code>&nbsp;==&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>.</li>
 </ul>
 
 ## 解法

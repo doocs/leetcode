@@ -43,9 +43,6 @@
 	<li><code>1 &lt;= k &lt;= m + n</code></li>
 </ul>
 
-<p>&nbsp;</p>
-<p><strong>Follow up:</strong> Try to optimize your time and space complexity.</p>
-
 ## Solutions
 
 <!-- tabs:start -->

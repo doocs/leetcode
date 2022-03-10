@@ -40,15 +40,6 @@ They are strictly increasing from left to right: 1 &lt; 3 &lt; 4 &lt; 6 &lt; 12.
 <strong>Explanation:</strong> The numbers in s are: 7, <u><strong>51</strong></u>, <u><strong>50</strong></u>, 60. They are not strictly increasing.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;4 5 11 26&quot;
-<strong>Output:</strong> true
-<strong>Explanation:</strong> The numbers in s are: 4, 5, 11, 26.
-They are strictly increasing from left to right: 4 &lt; 5 &lt; 11 &lt; 26.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -105,7 +96,7 @@ class Solution {
 
 ```ts
 function areNumbersAscending(s: string): boolean {
-    let strs = s.split(" ");
+    let strs = s.split(' ');
     let prev = Number.MIN_SAFE_INTEGER;
     for (let str of strs) {
         let num = Number(str);

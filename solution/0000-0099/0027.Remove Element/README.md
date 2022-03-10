@@ -153,7 +153,7 @@ func removeElement(nums []int, val int) int {
 
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
         let mut len = 0;

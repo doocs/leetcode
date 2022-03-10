@@ -1,5 +1,4 @@
 class MovingAverage:
-
     def __init__(self, size: int):
         """
         Initialize your data structure here.
@@ -16,6 +15,7 @@ class MovingAverage:
         self.sum += val - old_val
         self.count += 1
         return self.sum / min(self.count, self.size)
+
 
 # Your MovingAverage object will be instantiated and called as such:
 # obj = MovingAverage(size)

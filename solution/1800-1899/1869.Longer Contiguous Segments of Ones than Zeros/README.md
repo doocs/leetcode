@@ -22,8 +22,8 @@
 <strong>输入：</strong>s = "1101"
 <strong>输出：</strong>true
 <strong>解释：</strong>
-由 1 组成的最长连续子字符串的长度是 2："<strong>11</strong>01"
-由 0 组成的最长连续子字符串的长度是 1："11<strong>0</strong>1"
+由 <code>1</code> 组成的最长连续子字符串的长度是 2："<strong>11</strong>01"
+由 <code>0</code> 组成的最长连续子字符串的长度是 1："11<strong>0</strong>1"
 由 1 组成的子字符串更长，故返回 true 。
 </pre>
 
@@ -33,8 +33,8 @@
 <strong>输入：</strong>s = "111000"
 <strong>输出：</strong>false
 <strong>解释：</strong>
-由 1 组成的最长连续子字符串的长度是 3："<strong>111</strong>000"
-由 0 组成的最长连续子字符串的长度是 3："111<strong>000</strong>"
+由 <code>1</code> 组成的最长连续子字符串的长度是 3："<strong>111</strong>000"
+由<code> 0</code> 组成的最长连续子字符串的长度是 3："111<strong>000</strong>"
 由 1 组成的子字符串不比由 0 组成的子字符串长，故返回 false 。
 </pre>
 
@@ -44,8 +44,8 @@
 <strong>输入：</strong>s = "110100010"
 <strong>输出：</strong>false
 <strong>解释：</strong>
-由 1 组成的最长连续子字符串的长度是 2："<strong>11</strong>0100010"
-由 0 组成的最长连续子字符串的长度是 3："1101<strong>000</strong>10"
+由 <code>1</code> 组成的最长连续子字符串的长度是 2："<strong>11</strong>0100010"
+由 <code>0</code> 组成的最长连续子字符串的长度是 3："1101<strong>000</strong>10"
 由 1 组成的子字符串不比由 0 组成的子字符串长，故返回 false 。
 </pre>
 
@@ -127,7 +127,7 @@ var checkZeroOnes = function (s) {
     let t0 = 0,
         t1 = 0;
     for (let char of s) {
-        if (char == "0") {
+        if (char == '0') {
             t0++;
             t1 = 0;
         } else {

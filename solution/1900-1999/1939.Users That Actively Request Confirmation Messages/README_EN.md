@@ -38,13 +38,15 @@ Each row of this table indicates that the user with ID user_id requested a confi
 
 <p>Write an SQL query to find the IDs of the users that requested a confirmation message <strong>twice</strong> within a 24-hour window. Two messages exactly 24 hours apart are considered to be within the window. The <code>action</code> does not affect the answer, only the request time.</p>
 
-<p>Return the result table <strong>in any order</strong>.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Signups table:
 +---------+---------------------+
 | user_id | time_stamp          |
@@ -54,7 +56,6 @@ Signups table:
 | 2       | 2020-07-29 23:09:44 |
 | 6       | 2020-12-09 10:39:37 |
 +---------+---------------------+
-
 Confirmations table:
 +---------+---------------------+-----------+
 | user_id | time_stamp          | action    |
@@ -68,8 +69,7 @@ Confirmations table:
 | 6       | 2021-10-23 14:14:14 | confirmed |
 | 6       | 2021-10-24 14:14:13 | timeout   |
 +---------+---------------------+-----------+
-
-Result table
+<strong>Output:</strong> 
 +---------+
 | user_id |
 +---------+
@@ -77,7 +77,7 @@ Result table
 | 3       |
 | 6       |
 +---------+
-
+<strong>Explanation:</strong> 
 User 2 requested two messages within exactly 24 hours of each other, so we include them.
 User 3 requested two messages within 6 minutes and 59 seconds of each other, so we include them.
 User 6 requested two messages within 23 hours, 59 minutes, and 59 seconds of each other, so we include them.

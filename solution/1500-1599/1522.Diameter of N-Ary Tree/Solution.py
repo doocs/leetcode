@@ -13,6 +13,7 @@ class Solution:
         :type root: 'Node'
         :rtype: int
         """
+
         def dfs(root):
             if root is None:
                 return 0

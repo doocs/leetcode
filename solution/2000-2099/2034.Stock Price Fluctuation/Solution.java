@@ -1,9 +1,7 @@
 class StockPrice {
     private int lastTs;
-    private PriorityQueue<Integer> mi = new PriorityQueue<>();
-    private PriorityQueue<Integer> mx = new PriorityQueue<>(Collections.reverseOrder());
     private Map<Integer, Integer> mp = new HashMap<>();
-    private Map<Integer, Integer> counter = new HashMap<>();
+    private TreeMap<Integer, Integer> counter = new TreeMap<>();
 
     public StockPrice() {
 
@@ -13,12 +11,13 @@ class StockPrice {
         if (mp.containsKey(timestamp)) {
             int oldPrice = mp.get(timestamp);
             counter.put(oldPrice, counter.get(oldPrice) - 1);
+            if (counter.get(oldPrice) == 0) {
+                counter.remove(oldPrice);
+            }
         }
         mp.put(timestamp, price);
-        lastTs = Math.max(lastTs, timestamp);
         counter.put(price, counter.getOrDefault(price, 0) + 1);
-        mi.offer(price);
-        mx.offer(price);
+        lastTs = Math.max(lastTs, timestamp);
     }
     
     public int current() {
@@ -26,17 +25,11 @@ class StockPrice {
     }
     
     public int maximum() {
-        while (counter.getOrDefault(mx.peek(), 0) == 0) {
-            mx.poll();
-        }
-        return mx.peek();
+        return counter.lastKey();
     }
     
     public int minimum() {
-        while (counter.getOrDefault(mi.peek(), 0) == 0) {
-            mi.poll();
-        }
-        return mi.peek();
+        return counter.firstKey();
     }
 }
 

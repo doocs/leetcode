@@ -1,19 +1,16 @@
 class Solution {
     public int halfQuestions(int[] questions) {
         int[] counter = new int[1010];
-        for (int e : questions) {
-            ++counter[e];
+        for (int q : questions) {
+            ++counter[q];
         }
-        int n = questions.length >> 1;
         Arrays.sort(counter);
-        int res = 0;
-        for (int i = counter.length - 1; i >= 0; --i) {
-            ++res;
-            if (counter[i] >= n) {
-                return res;
-            }
+        int ans = 0;
+        int n = questions.length >> 1;
+        for (int i = counter.length - 1; n > 0; --i) {
+            ++ans;
             n -= counter[i];
         }
-        return res;
+        return ans;
     }
 }

@@ -2,7 +2,7 @@ class Solution:
     def rob(self, nums: List[int]) -> int:
         def robRange(nums, l, r):
             a, b = 0, nums[l]
-            for num in nums[l + 1: r + 1]:
+            for num in nums[l + 1 : r + 1]:
                 a, b = b, max(num + a, b)
             return b
 

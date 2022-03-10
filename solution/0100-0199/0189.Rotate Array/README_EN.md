@@ -23,7 +23,7 @@ rotate 3 steps to the right: [5,6,7,1,2,3,4]
 <pre>
 <strong>Input:</strong> nums = [-1,-100,3,99], k = 2
 <strong>Output:</strong> [3,99,-1,-100]
-<strong>Explanation:</strong>
+<strong>Explanation:</strong> 
 rotate 1 steps to the right: [99,-1,-100,3]
 rotate 2 steps to the right: [3,99,-1,-100]
 </pre>
@@ -99,6 +99,8 @@ class Solution {
 
 ### **JavaScript**
 
+the elements in the range `k~n-1` of the array to the front with the native API.
+
 ```js
 /**
  * @param {number[]} nums
@@ -109,6 +111,33 @@ var rotate = function (nums, k) {
     k %= nums.length;
     nums.splice(0, 0, ...nums.splice(-k, k));
 };
+```
+
+Use three array reverses implemented by double pointers
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate = function (nums, k) {
+    k %= nums.length;
+    // Use three array reverses
+    reverse(nums, 0, nums.length - 1);
+    reverse(nums, 0, k - 1);
+    reverse(nums, k, nums.length - 1);
+};
+function reverse(nums, start, end) {
+    // reverse implemented by double pointers
+    while (start < end) {
+        const temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+        start += 1;
+        end -= 1;
+    }
+}
 ```
 
 ### **Go**
@@ -134,7 +163,7 @@ func reverse(nums []int, i, j int) {
 
 ### **Rust**
 
-```rs
+```rust
 impl Solution {
     pub fn rotate(nums: &mut Vec<i32>, k: i32) {
         let n = nums.len();

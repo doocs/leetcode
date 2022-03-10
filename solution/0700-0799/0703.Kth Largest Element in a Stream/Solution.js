@@ -2,7 +2,7 @@
  * @param {number} k
  * @param {number[]} nums
  */
- var KthLargest = function(k, nums) {
+var KthLargest = function (k, nums) {
     this.k = k;
     this.heap = new MinHeap();
     for (let num of nums) {
@@ -10,11 +10,11 @@
     }
 };
 
-/** 
+/**
  * @param {number} val
  * @return {number}
  */
-KthLargest.prototype.add = function(val) {
+KthLargest.prototype.add = function (val) {
     this.heap.offer(val);
     if (this.heap.size() > this.k) {
         this.heap.poll();
@@ -32,7 +32,7 @@ class MinHeap {
     heapify() {
         if (this.size() < 2) return;
         for (let i = 1; i < this.size(); i++) {
-        this.bubbleUp(i);
+            this.bubbleUp(i);
         }
     }
 
@@ -98,8 +98,11 @@ class MinHeap {
         }
     }
 
-  swap(index1, index2) {
-        [this.data[index1], this.data[index2]] = [this.data[index2], this.data[index1]];
+    swap(index1, index2) {
+        [this.data[index1], this.data[index2]] = [
+            this.data[index2],
+            this.data[index1],
+        ];
     }
 
     size() {

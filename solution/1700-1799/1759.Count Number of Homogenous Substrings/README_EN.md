@@ -63,8 +63,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
-	<li><code>s</code> consists of lowercase letters.</li>
+    <li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code></li>
+    <li><code>s</code> consists of lowercase letters.</li>
+
 </ul>
 
 ## Solutions

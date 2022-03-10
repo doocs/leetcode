@@ -55,6 +55,44 @@ Hence, the maximum k is 2.
 
 ## Solutions
 
+Binary search.
+
+Template 1:
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
+    while (left < right) {
+        int mid = (left + right) >> 1;
+        if (check(mid)) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+```
+
+Template 2:
+
+```java
+boolean check(int x) {}
+
+int search(int left, int right) {
+    while (left < right) {
+        int mid = (left + right + 1) >> 1;
+        if (check(mid)) {
+            left = mid;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+```
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -62,15 +100,16 @@ Hence, the maximum k is 2.
 ```python
 class Solution:
     def maximumRemovals(self, s: str, p: str, removable: List[int]) -> int:
-        def check(mid):
-            m, n, i, j = len(s), len(p), 0, 0
-            ids = set(removable[:mid])
+        def check(k):
+            i = j = 0
+            ids = set(removable[:k])
             while i < m and j < n:
                 if i not in ids and s[i] == p[j]:
                     j += 1
                 i += 1
             return j == n
 
+        m, n = len(s), len(p)
         left, right = 0, len(removable)
         while left < right:
             mid = (left + right + 1) >> 1
@@ -186,31 +225,31 @@ public:
 
 ```go
 func maximumRemovals(s string, p string, removable []int) int {
+	check := func(k int) bool {
+		ids := make(map[int]bool)
+		for _, r := range removable[:k] {
+			ids[r] = true
+		}
+		var i, j int
+		for i < len(s) && j < len(p) {
+			if !ids[i] && s[i] == p[j] {
+				j++
+			}
+			i++
+		}
+		return j == len(p)
+	}
+
 	left, right := 0, len(removable)
 	for left < right {
 		mid := (left + right + 1) >> 1
-		if check(s, p, removable, mid) {
+		if check(mid) {
 			left = mid
 		} else {
 			right = mid - 1
 		}
 	}
 	return left
-}
-
-func check(s string, p string, removable []int, mid int) bool {
-	m, n, i, j := len(s), len(p), 0, 0
-	ids := make(map[int]bool)
-	for k := 0; k < mid; k++ {
-		ids[removable[k]] = true
-	}
-	for i < m && j < n {
-		if !ids[i] && s[i] == p[j] {
-			j++
-		}
-		i++
-	}
-	return j == n
 }
 ```
 

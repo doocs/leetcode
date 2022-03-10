@@ -3,7 +3,7 @@ class Solution:
         s = set()
         for word in dict:
             for i in range(len(word)):
-                t = word[:i] + "*" + word[i + 1:]
+                t = word[:i] + "*" + word[i + 1 :]
                 if t in s:
                     return True
                 s.add(t)

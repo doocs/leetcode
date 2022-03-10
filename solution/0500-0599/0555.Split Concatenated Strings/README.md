@@ -6,7 +6,7 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个字符串列表，你可以将这些字符串连接成一个循环字符串，对于每个字符串，你可以选择是否翻转它。在所有可能的循环字符串中，你需要分割循环字符串（这将使循环字符串变成一个常规的字符串），然后找到字典序最大的字符串。</p>
+<p>给定一个字符串列表&nbsp;<code>strs</code>，你可以将这些字符串连接成一个循环字符串，对于每个字符串，你可以选择是否翻转它。在所有可能的循环字符串中，你需要分割循环字符串（这将使循环字符串变成一个常规的字符串），然后找到字典序最大的字符串。</p>
 
 <p>具体来说，要找到字典序最大的字符串，你需要经历两个阶段：</p>
 
@@ -17,26 +17,34 @@
 
 <p>你的工作是在所有可能的常规字符串中找到字典序最大的一个。</p>
 
-<p><strong>示例:</strong></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入:</strong> &quot;abc&quot;, &quot;xyz&quot;
-<strong>输出:</strong> &quot;zyxcba&quot;
-<strong>解释:</strong> 你可以得到循环字符串 &quot;-abcxyz-&quot;, &quot;-abczyx-&quot;, &quot;-cbaxyz-&quot;, &quot;-cbazyx-&quot;，
-其中 &#39;-&#39; 代表循环状态。 
-答案字符串来自第四个循环字符串， 
-你可以从中间字符 &#39;a&#39; 分割开然后得到 &quot;zyxcba&quot;。
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> strs = ["abc","xyz"]
+<strong>输出:</strong> "zyxcba"
+<strong>解释:</strong> 你可以得到循环字符串 "-abcxyz-", "-abczyx-", "-cbaxyz-", "-cbazyx-"，其中 '-' 代表循环状态。 
+答案字符串来自第四个循环字符串， 你可以从中间字符 'a' 分割开然后得到 "zyxcba"。
+</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> strs = ["abc"]
+<strong>输出:</strong> "cba"
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>注意:</strong></p>
+<p><strong>提示:</strong></p>
 
-<ol>
-	<li>输入字符串只包含小写字母。</li>
-	<li>所有字符串的总长度不会超过 1,000。</li>
-</ol>
-
-<p>&nbsp;</p>
+<ul>
+	<li><code>1 &lt;= strs.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= strs[i].length &lt;= 1000</code></li>
+	<li><code>1 &lt;= sum(strs[i].length) &lt;= 1000</code></li>
+	<li><code>strs[i]</code>&nbsp;只包含小写英文字母</li>
+</ul>
 
 ## 解法
 

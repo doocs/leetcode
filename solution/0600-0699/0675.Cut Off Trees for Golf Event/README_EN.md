@@ -63,13 +63,174 @@ Note that you can cut off the first tree at (0, 0) before making any steps.
 ### **Python3**
 
 ```python
+class Solution:
+    def cutOffTree(self, forest: List[List[int]]) -> int:
+        def f(i, j, x, y):
+            return abs(i - x) + abs(j - y)
 
+        def bfs(i, j, x, y):
+            q = [(f(i, j, x, y), i, j)]
+            dist = {i * n + j: 0}
+            while q:
+                _, i, j = heapq.heappop(q)
+                step = dist[i * n + j]
+                if (i, j) == (x, y):
+                    return step
+                for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+                    c, d = i + a, j + b
+                    if 0 <= c < m and 0 <= d < n and forest[c][d] > 0:
+                        if c * n + d not in dist or dist[c * n + d] > step + 1:
+                            dist[c * n + d] = step + 1
+                            heapq.heappush(q, (dist[c * n + d] + f(c, d, x, y), c, d))
+            return -1
+
+        m, n = len(forest), len(forest[0])
+        trees = [(forest[i][j], i, j) for i in range(m) for j in range(n) if forest[i][j] > 1]
+        trees.sort()
+        i = j = 0
+        ans = 0
+        for _, x, y in trees:
+            t = bfs(i, j, x, y)
+            if t == -1:
+                return -1
+            ans += t
+            i, j = x, y
+        return ans
 ```
 
 ### **Java**
 
 ```java
+class Solution {
+    private int[] dist = new int[3600];
+    private List<List<Integer>> forest;
+    private int m;
+    private int n;
 
+    public int cutOffTree(List<List<Integer>> forest) {
+        this.forest = forest;
+        m = forest.size();
+        n = forest.get(0).size();
+        List<int[]> trees = new ArrayList<>();
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (forest.get(i).get(j) > 1) {
+                    trees.add(new int[]{forest.get(i).get(j), i * n + j});
+                }
+            }
+        }
+        trees.sort(Comparator.comparingInt(a -> a[0]));
+        int ans = 0;
+        int start = 0;
+        for (int[] tree : trees) {
+            int end = tree[1];
+            int t = bfs(start, end);
+            if (t == -1) {
+                return -1;
+            }
+            ans += t;
+            start = end;
+        }
+        return ans;
+    }
+
+    private int bfs(int start, int end) {
+        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        q.offer(new int[]{f(start, end), start});
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[start] = 0;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            int state = q.poll()[1];
+            if (state == end) {
+                return dist[state];
+            }
+            for (int k = 0; k < 4; ++k) {
+                int x = state / n + dirs[k];
+                int y = state % n + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && forest.get(x).get(y) > 0) {
+                    if (dist[x * n + y] > dist[state] + 1) {
+                        dist[x * n + y] = dist[state] + 1;
+                        q.offer(new int[]{dist[x * n + y] + f(x * n + y, end), x * n + y});
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    private int f(int start, int end) {
+        int a = start / n;
+        int b = start % n;
+        int c = end / n;
+        int d = end % n;
+        return Math.abs(a - c) + Math.abs(b - d);
+    }
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int m;
+    int n;
+    vector<int> dist;
+
+    int cutOffTree(vector<vector<int>>& forest) {
+        m = forest.size();
+        n = forest[0].size();
+        dist.resize(3600);
+        vector<pair<int, int>> trees;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if (forest[i][j] > 1)
+                    trees.push_back({forest[i][j], i * n + j});
+        sort(trees.begin(), trees.end());
+        int ans = 0;
+        int start = 0;
+        for (auto& tree : trees)
+        {
+            int end = tree.second;
+            int t = bfs(start, end, forest);
+            if (t == -1) return -1;
+            ans += t;
+            start = end;
+        }
+        return ans;
+    }
+
+    int bfs(int start, int end, vector<vector<int>>& forest) {
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
+        q.push({f(start, end), start});
+        fill(dist.begin(), dist.end(), INT_MAX);
+        dist[start] = 0;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        while (!q.empty())
+        {
+            int state = q.top().second;
+            q.pop();
+            if (state == end) return dist[state];
+            for (int k = 0; k < 4; ++k)
+            {
+                int x = state / n + dirs[k], y = state % n + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && forest[x][y] && dist[x * n + y] > dist[state] + 1)
+                {
+                    dist[x * n + y] = dist[state] + 1;
+                    q.push({dist[x * n + y] + f(x * n + y, end), x * n + y});
+                }
+            }
+        }
+        return -1;
+    }
+
+    int f(int start, int end) {
+        int a = start / n, b = start % n;
+        int c = end / n, d = end % n;
+        return abs(a - c) + abs(b - d);
+    }
+};
 ```
 
 ### **...**

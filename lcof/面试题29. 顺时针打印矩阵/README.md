@@ -2,26 +2,32 @@
 
 ## 题目描述
 
-输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
+<p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
 
-**示例 1：**
+<p>&nbsp;</p>
 
-```
-输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
-输出：[1,2,3,6,9,8,7,4,5]
-```
+<p><strong>示例 1：</strong></p>
 
-**示例 2：**
+<pre><strong>输入：</strong>matrix = [[1,2,3],[4,5,6],[7,8,9]]
+<strong>输出：</strong>[1,2,3,6,9,8,7,4,5]
+</pre>
 
-```
-输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-输出：[1,2,3,4,8,12,11,10,9,5,6,7]
-```
+<p><strong>示例 2：</strong></p>
 
-**限制：**
+<pre><strong>输入：</strong>matrix =&nbsp;[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+<strong>输出：</strong>[1,2,3,4,8,12,11,10,9,5,6,7]
+</pre>
 
-- `0 <= matrix.length <= 100`
-- `0 <= matrix[i].length <= 100`
+<p>&nbsp;</p>
+
+<p><strong>限制：</strong></p>
+
+<ul>
+	<li><code>0 &lt;= matrix.length &lt;= 100</code></li>
+	<li><code>0 &lt;= matrix[i].length&nbsp;&lt;= 100</code></li>
+</ul>
+
+<p>注意：本题与主站 54 题相同：<a href="https://leetcode-cn.com/problems/spiral-matrix/">https://leetcode-cn.com/problems/spiral-matrix/</a></p>
 
 ## 解法
 
@@ -132,27 +138,27 @@ var spiralOrder = function (matrix) {
         }
         res.push(matrix[i][j]);
         switch (dir) {
-            case "right":
-                if (j === col - 1 - k) dir = "down";
+            case 'right':
+                if (j === col - 1 - k) dir = 'down';
                 break;
-            case "down":
-                if (i === row - 1 - k) dir = "left";
+            case 'down':
+                if (i === row - 1 - k) dir = 'left';
                 break;
-            case "left":
+            case 'left':
                 if (j === k) {
-                    dir = "up";
+                    dir = 'up';
                     k++;
                 }
                 break;
-            case "up":
-                if (i === k) dir = "right";
+            case 'up':
+                if (i === k) dir = 'right';
                 break;
         }
         let x = i + moves[dir][0];
         let y = j + moves[dir][1];
         dfs(x, y, dir);
     }
-    dfs(0, 0, "right");
+    dfs(0, 0, 'right');
     return res;
 };
 ```

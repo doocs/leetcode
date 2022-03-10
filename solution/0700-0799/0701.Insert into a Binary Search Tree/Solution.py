@@ -1,51 +1,18 @@
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
-# 解法一
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def insertIntoBST(self, root, val):
-        """
-        :type root: TreeNode
-        :type val: int
-        :rtype: TreeNode
-        """
-        if not root:
-            return TreeNode(val)
-        if root.val < val:
-            if root.right:
-                self.insertIntoBST(root.right, val)
+    def insertIntoBST(self, root: TreeNode, val: int) -> TreeNode:
+        def dfs(root):
+            if root is None:
+                return TreeNode(val)
+            if root.val < val:
+                root.right = dfs(root.right)
             else:
-                root.right = TreeNode(val)
-        if root.val > val:
-            if root.left:
-                self.insertIntoBST(root.left, val)
-            else:
-                root.left = TreeNode(val)
-        return root
+                root.left = dfs(root.left)
+            return root
 
-
-"""
-# 解法二
-class Solution:
-    def insertIntoBST(self, root, val):
-        """
-        : type root: TreeNode
-        : type val: int
-        : rtype: TreeNode
-        """
-        if not root:
-            return TreeNode(val)
-        elif root.left is None:
-            root.left = TreeNode(root.val)
-            root.val = val
-        root.val, val = val, root.val
-        node = root.left
-        while node.right:
-            node = node.right
-        node.right = TreeNode(val)
-        return root
-"""
+        return dfs(root)

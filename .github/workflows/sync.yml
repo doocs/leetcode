@@ -1,4 +1,4 @@
-name: Sync
+name: sync
 
 on:
   push:
@@ -23,5 +23,5 @@ jobs:
         with:
           gitee-username: yanglbme
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
-          gitee-repo: doocs/leetcode
+          gitee-repo: Doocs/leetcode
           branch: main

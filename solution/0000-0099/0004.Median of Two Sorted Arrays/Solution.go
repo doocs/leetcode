@@ -1,68 +1,36 @@
-/*
- * Report by leetcode.com
- * Runtime: 16 ms, Memory Usage: 5.4 MB
- */
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-	mathMax := func(a, b int) int {
-		if a > b {
-			return a
+	m, n := len(nums1), len(nums2)
+	left, right := (m+n+1)/2, (m+n+2)/2
+	var findKth func(i, j, k int) int
+	findKth = func(i, j, k int) int {
+		if i >= m {
+			return nums2[j+k-1]
 		}
-		return b
-	}
-	mathMin := func(a, b int) int {
-		if a < b {
-			return a
+		if j >= n {
+			return nums1[i+k-1]
 		}
-		return b
-	}
-
-	var len1, len2 int
-	len1 = len(nums1)
-	len2 = len(nums2)
-	if len1 > len2 {
-		var tmp []int = nums1
-		nums1 = nums2
-		nums2 = tmp
-		var t int = len1
-		len1 = len2
-		len2 = t
-	}
-
-	var min, max int = 0, 0
-	max = len1
-
-	halfLen := (len1 + len2 + 1) / 2
-
-	for min <= max {
-		i := (min + max) / 2
-		j := halfLen - i
-
-		if i < max && nums2[j-1] > nums1[i] {
-			min++
-		} else if i > min && nums1[i-1] > nums2[j] {
-			max--
-		} else {
-			var maxLeft int
-			if i == 0 {
-				maxLeft = nums2[j-1]
-			} else if j == 0 {
-				maxLeft = nums1[i-1]
-			} else {
-				maxLeft = mathMax(nums1[i-1], nums2[j-1])
-			}
-			if ((len1 + len2) & 1) == 1 {
-				return float64(maxLeft)
-			}
-			var minRight int
-			if i == len1 {
-				minRight = nums2[j]
-			} else if j == len2 {
-				minRight = nums1[i]
-			} else {
-				minRight = mathMin(nums2[j], nums1[i])
-			}
-			return float64(maxLeft+minRight) / 2
+		if k == 1 {
+			return min(nums1[i], nums2[j])
 		}
+		midVal1 := math.MaxInt32
+		midVal2 := math.MaxInt32
+		if i+k/2-1 < m {
+			midVal1 = nums1[i+k/2-1]
+		}
+		if j+k/2-1 < n {
+			midVal2 = nums2[j+k/2-1]
+		}
+		if midVal1 < midVal2 {
+			return findKth(i+k/2, j, k-k/2)
+		}
+		return findKth(i, j+k/2, k-k/2)
 	}
-	return 0
+	return (float64(findKth(0, 0, left)) + float64(findKth(0, 0, right))) / 2.0
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }

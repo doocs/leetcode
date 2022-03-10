@@ -21,13 +21,15 @@ This table contains all the tweets in a social media app.
 
 <p>Write an SQL query to find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is <strong>strictly greater</strong> than <code>15</code>.</p>
 
-<p>Return the result table <strong>in any order</strong>.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Tweets table:
 +----------+----------------------------------+
 | tweet_id | content                          |
@@ -35,13 +37,13 @@ Tweets table:
 | 1        | Vote for Biden                   |
 | 2        | Let us make America great again! |
 +----------+----------------------------------+
-
-Result table:
+<strong>Output:</strong> 
 +----------+
 | tweet_id |
 +----------+
 | 2        |
 +----------+
+<strong>Explanation:</strong> 
 Tweet 1 has length = 14. It is a valid tweet.
 Tweet 2 has length = 32. It is an invalid tweet.
 </pre>

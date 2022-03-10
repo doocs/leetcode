@@ -22,11 +22,10 @@ class Solution {
         }
         Map<Integer, Set<String>> mp = new HashMap<>();
         for (int i = 0; i < n; ++i) {
-            int pa = find(i);
             List<String> account = accounts.get(i);
             for (int j = 1; j < account.size(); ++j) {
                 String email = account.get(j);
-                mp.computeIfAbsent(pa, k -> new HashSet<>()).add(email);
+                mp.computeIfAbsent(find(i), k -> new HashSet<>()).add(email);
             }
         }
         List<List<String>> res = new ArrayList<>();

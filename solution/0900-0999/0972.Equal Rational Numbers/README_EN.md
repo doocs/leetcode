@@ -10,7 +10,6 @@
 
 <ul>
 	<li><code>&lt;IntegerPart&gt;</code>
-
     <ul>
     	<li>For example, <code>12</code>, <code>0</code>, and <code>123</code>.</li>
     </ul>

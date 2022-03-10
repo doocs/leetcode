@@ -1,5 +1,4 @@
 class WordDistance:
-
     def __init__(self, wordsDict: List[str]):
         self.words = {}
         for i, word in enumerate(wordsDict):

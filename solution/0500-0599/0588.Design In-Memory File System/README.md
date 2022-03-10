@@ -8,38 +8,64 @@
 
 <p>设计一个内存文件系统，模拟以下功能：</p>
 
-<p><code>ls</code>： 以字符串的格式输入一个路径。如果它是一个文件的路径，那么函数返回一个列表，仅包含这个文件的名字。如果它是一个文件夹的的路径，那么返回该 <strong>文件夹内</strong>&nbsp;的所有文件和子文件夹的名字。你的返回结果（包括文件和子文件夹）应该按字典序排列。</p>
+<p>实现文件系统类:</p>
 
-<p><code>mkdir</code>：输入一个当前不存在的&nbsp;<strong>文件夹路径</strong>&nbsp;，你需要根据路径名创建一个新的文件夹。如果有上层文件夹路径不存在，那么你也应该将它们全部创建。这个函数的返回类型为 void 。</p>
+<ul>
+	<li><code>FileSystem()</code>&nbsp;初始化系统对象</li>
+	<li><code>List&lt;String&gt; ls(String path)</code>
+	<ul>
+		<li>如果 <code>path</code> 是一个文件路径，则返回一个仅包含该文件名称的列表。</li>
+		<li>如果 <code>path</code> 是一个目录路径，则返回该目录中文件和 <strong>目录名</strong> 的列表。</li>
+	</ul>
+	</li>
+</ul>
 
-<p><code>addContentToFile</code>： 输入字符串形式的&nbsp;<strong>文件路径</strong>&nbsp;和 <strong>文件内容</strong>&nbsp;。如果文件不存在，你需要创建包含给定文件内容的文件。如果文件已经存在，那么你需要将给定的文件内容 <strong>追加</strong>&nbsp;在原本内容的后面。这个函数的返回类型为 void 。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 答案应该 按<strong>字典顺序</strong> 排列。</p>
 
-<p><code>readContentFromFile</code>： 输入 <strong>文件路径</strong>&nbsp;，以字符串形式返回该文件的&nbsp;<strong>内容</strong>&nbsp;。</p>
+<ul>
+	<li><code>void mkdir(String path)</code>&nbsp;根据给定的路径创建一个新目录。给定的目录路径不存在。如果路径中的中间目录不存在，您也应该创建它们。</li>
+	<li><code>void addContentToFile(String filePath, String content)</code>
+	<ul>
+		<li>如果 <code>filePath</code> 不存在，则创建包含给定内容&nbsp;<code>content</code>的文件。</li>
+		<li>如果 <code>filePath</code> 已经存在，将给定的内容&nbsp;<code>content</code>附加到原始内容。</li>
+	</ul>
+	</li>
+	<li><code>String readContentFromFile(String filePath)</code>&nbsp;返回 <code>filePath</code>下的文件内容。</li>
+</ul>
 
 <p>&nbsp;</p>
 
-<p><strong>示例:</strong></p>
+<p><strong>示例 1:</strong></p>
 
-<pre><strong>输入:</strong> 
-[&quot;FileSystem&quot;,&quot;ls&quot;,&quot;mkdir&quot;,&quot;addContentToFile&quot;,&quot;ls&quot;,&quot;readContentFromFile&quot;]
-[[],[&quot;/&quot;],[&quot;/a/b/c&quot;],[&quot;/a/b/c/d&quot;,&quot;hello&quot;],[&quot;/&quot;],[&quot;/a/b/c/d&quot;]]
+<p><img src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0588.Design%20In-Memory%20File%20System/images/filesystem.png" style="height: 315px; width: 650px;" /></p>
 
+<pre>
+<strong>输入:</strong> 
+["FileSystem","ls","mkdir","addContentToFile","ls","readContentFromFile"]
+[[],["/"],["/a/b/c"],["/a/b/c/d","hello"],["/"],["/a/b/c/d"]]
 <strong>输出:</strong>
-[null,[],null,null,[&quot;a&quot;],&quot;hello&quot;]
+[null,[],null,null,["a"],"hello"]
 
 <strong>解释:</strong>
-<img alt="filesystem" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0588.Design%20In-Memory%20File%20System/images/filesystem.png" style="width: 640px;">
-</pre>
+FileSystem fileSystem = new FileSystem();
+fileSystem.ls("/");                         // 返回 []
+fileSystem.mkdir("/a/b/c");
+fileSystem.addContentToFile("/a/b/c/d", "hello");
+fileSystem.ls("/");                         // 返回 ["a"]
+fileSystem.readContentFromFile("/a/b/c/d"); // 返回 "hello"</pre>
 
 <p>&nbsp;</p>
 
 <p><strong>注意:</strong></p>
 
-<ol>
-	<li>你可以假定所有文件和文件夹的路径都是绝对路径，除非是根目录&nbsp;<code>/</code>&nbsp;自身，其他路径都是以&nbsp;<code>/</code>&nbsp;开头且 <strong>不</strong> 以&nbsp;<code>/</code>&nbsp;结束。</li>
+<ul>
+	<li><code>1 &lt;= path.length,&nbsp;filePath.length &lt;= 100</code></li>
+	<li><code>path</code>&nbsp;和&nbsp;<code>filePath</code>&nbsp;都是绝对路径，除非是根目录&nbsp;<code>‘/’</code>&nbsp;自身，其他路径都是以&nbsp;<code>‘/’</code>&nbsp;开头且 <strong>不</strong> 以&nbsp;<code>‘/’</code>&nbsp;结束。</li>
 	<li>你可以假定所有操作的参数都是有效的，即用户不会获取不存在文件的内容，或者获取不存在文件夹和文件的列表。</li>
 	<li>你可以假定所有文件夹名字和文件名字都只包含小写字母，且同一文件夹下不会有相同名字的文件夹或文件。</li>
-</ol>
+	<li><code>1 &lt;= content.length &lt;= 50</code></li>
+	<li><code>ls</code>,&nbsp;<code>mkdir</code>,&nbsp;<code>addContentToFile</code>, and&nbsp;<code>readContentFromFile</code>&nbsp;最多被调用&nbsp;<code>300</code>&nbsp;次</li>
+</ul>
 
 ## 解法
 

@@ -3,10 +3,10 @@ const numUniqueEmails2 = function (emails) {
         let index = str.search(/@/);
         let s = str.substring(0, index);
         let s2 = str.substring(index + 1, str.length);
-        let res = "";
+        let res = '';
         for (let i = 0; i < s.length; i++) {
-            if (s[i] === "+") break;
-            if (s[i] === ".") continue;
+            if (s[i] === '+') break;
+            if (s[i] === '.') continue;
             res = res + s[i];
         }
         return res + s2;
@@ -27,10 +27,10 @@ const numUniqueEmails = function (emails) {
         let index = str.search(/@/);
         let s = str.substring(0, index);
         let s2 = str.substring(index + 1, str.length);
-        let res = "";
+        let res = '';
         for (let i = 0; i < s.length; i++) {
-            if (s[i] === "+") break;
-            if (s[i] === ".") continue;
+            if (s[i] === '+') break;
+            if (s[i] === '.') continue;
             res = res + s[i];
         }
         return res + s2;

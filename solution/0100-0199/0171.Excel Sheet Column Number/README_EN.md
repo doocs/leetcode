@@ -41,13 +41,6 @@ AB -&gt; 28
 <strong>Output:</strong> 701
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> columnTitle = &quot;FXSHRXW&quot;
-<strong>Output:</strong> 2147483647
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

@@ -45,7 +45,7 @@ grid2 中标红的 1 区域是子岛屿，总共有 2 个子岛屿。
 
 <!-- 这里可写通用的实现逻辑 -->
 
-深度优先搜索，或者并查集。
+BFS、DFS 或者并查集。
 
 <!-- tabs:start -->
 
@@ -53,28 +53,46 @@ grid2 中标红的 1 区域是子岛屿，总共有 2 个子岛屿。
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+BFS - Flood Fill 算法：
+
+```python
+class Solution:
+    def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
+        def bfs(i, j):
+            q = deque([(i, j)])
+            grid2[i][j] = 0
+            ans = True
+            while q:
+                i, j = q.popleft()
+                if grid1[i][j] == 0:
+                    ans = False
+                for a, b in [[0, -1], [0, 1], [1, 0], [-1, 0]]:
+                    x, y = i + a, j + b
+                    if 0 <= x < m and 0 <= y < n and grid2[x][y]:
+                        q.append((x, y))
+                        grid2[x][y] = 0
+            return ans
+
+        m, n = len(grid1), len(grid1[0])
+        return sum(grid2[i][j] and bfs(i, j) for i in range(m) for j in range(n))
+```
+
 DFS：
 
 ```python
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        def dfs(grid1, grid2, i, j, m, n) -> bool:
-            res = grid1[i][j] == 1
+        def dfs(i, j):
+            ans = grid1[i][j] == 1
             grid2[i][j] = 0
-            for x, y in [[0, 1], [0, -1], [1, 0], [-1, 0]]:
-                a, b = i + x, j + y
-                if a >= 0 and a < m and b >= 0 and b < n and grid2[a][b] == 1:
-                    if not dfs(grid1, grid2, a, b, m, n):
-                        res = False
-            return res
+            for a, b in [[0, -1], [0, 1], [-1, 0], [1, 0]]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and grid2[x][y] == 1 and not dfs(x, y):
+                    ans = False
+            return ans
 
         m, n = len(grid1), len(grid1[0])
-        count = 0
-        for i in range(m):
-            for j in range(n):
-                if grid2[i][j] == 1 and dfs(grid1, grid2, i, j, m, n):
-                    count += 1
-        return count
+        return sum(grid2[i][j] == 1 and dfs(i, j) for i in range(m) for j in range(n))
 ```
 
 并查集：
@@ -82,27 +100,24 @@ class Solution:
 ```python
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        m, n = len(grid1), len(grid1[0])
-        p = list(range(m * n))
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
             return p[x]
 
+        m, n = len(grid1), len(grid1[0])
+        p = list(range(m * n))
         for i in range(m):
             for j in range(n):
-                if grid2[i][j] == 1:
-                    idx = i * n + j
-                    if i < m - 1 and grid2[i + 1][j] == 1:
-                        p[find(idx)] = find((i + 1) * n + j)
-                    if j < n - 1 and grid2[i][j + 1] == 1:
-                        p[find(idx)] = find(i * n + j + 1)
-
+                if grid2[i][j]:
+                    for a, b in [[0, 1], [1, 0]]:
+                        x, y = i + a, j + b
+                        if x < m and y < n and grid2[x][y]:
+                            p[find(x * n + y)] = find(i * n + j)
         s = [0] * (m * n)
         for i in range(m):
             for j in range(n):
-                if grid2[i][j] == 1:
+                if grid2[i][j]:
                     s[find(i * n + j)] = 1
         for i in range(m):
             for j in range(n):
@@ -116,38 +131,81 @@ class Solution:
 
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
+BFS - Flood Fill 算法：
+
+```java
+class Solution {
+    public int countSubIslands(int[][] grid1, int[][] grid2) {
+        int m = grid1.length;
+        int n = grid1[0].length;
+        int ans = 0;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid2[i][j] == 1 && bfs(i, j, m, n, grid1, grid2)) {
+                    ++ans;
+                }
+            }
+        }
+        return ans;
+    }
+
+    private boolean bfs(int i, int j, int m, int n, int[][] grid1, int[][] grid2) {
+        Queue<int[]> q = new ArrayDeque<>();
+        grid2[i][j] = 0;
+        q.offer(new int[]{i, j});
+        boolean ans = true;
+        int[] dirs = {-1, 0, 1, 0, -1};
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            i = p[0];
+            j = p[1];
+            if (grid1[i][j] == 0) {
+                ans = false;
+            }
+            for (int k = 0; k < 4; ++k) {
+                int x = i + dirs[k];
+                int y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1) {
+                    q.offer(new int[]{x, y});
+                    grid2[x][y] = 0;
+                }
+            }
+        }
+        return ans;
+    }
+}
+```
+
 DFS：
 
 ```java
 class Solution {
-    private int[][] directions = {{0, 1}, {0, - 1}, {1, 0}, {-1, 0}};
-
     public int countSubIslands(int[][] grid1, int[][] grid2) {
-        int m = grid1.length, n = grid1[0].length;
-        int count = 0;
+        int m = grid1.length;
+        int n = grid1[0].length;
+        int ans = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if (grid2[i][j] == 1 && dfs(grid1, grid2, i, j, m, n)) {
-                    ++count;
+                if (grid2[i][j] == 1 && dfs(i, j, m, n, grid1, grid2)) {
+                    ++ans;
                 }
             }
         }
-        return count;
+        return ans;
     }
 
-    private boolean dfs(int[][] grid1, int[][] grid2, int i, int j, int m, int n) {
-        boolean res = grid1[i][j] == 1;
+    private boolean dfs(int i, int j, int m, int n, int[][] grid1, int[][] grid2) {
+        boolean ans = grid1[i][j] == 1;
         grid2[i][j] = 0;
-
-        for (int[] direction : directions) {
-            int a = i + direction[0], b = j + direction[1];
-            if (a >= 0 && a < m && b >= 0 && b < n && grid2[a][b] == 1) {
-                if (!dfs(grid1, grid2, a, b, m, n)) {
-                    res = false;
-                }
+        int[] dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k) {
+            int x = i + dirs[k];
+            int y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1 && !dfs(x, y, m, n, grid1, grid2)) {
+                ans = false;
             }
         }
-        return res;
+        return ans;
     }
 }
 ```
@@ -159,47 +217,47 @@ class Solution {
     private int[] p;
 
     public int countSubIslands(int[][] grid1, int[][] grid2) {
-        int m = grid2.length, n = grid2[0].length;
+        int m = grid1.length;
+        int n = grid1[0].length;
         p = new int[m * n];
         for (int i = 0; i < p.length; ++i) {
             p[i] = i;
         }
+        int[] dirs = {1, 0, 1};
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid2[i][j] == 1) {
-                    int idx = i * n + j;
-                    if (i < m - 1 && grid2[i + 1][j] == 1) {
-                        p[find(idx)] = find((i + 1) * n + j);
-                    }
-                    if (j < n - 1 && grid2[i][j + 1] == 1) {
-                        p[find(idx)] = find(i * n + j + 1);
+                    for (int k = 0; k < 2; ++k) {
+                        int x = i + dirs[k];
+                        int y = j + dirs[k + 1];
+                        if (x < m && y < n && grid2[x][y] == 1) {
+                            p[find(x * n + y)] = find(i * n + j);
+                        }
                     }
                 }
             }
         }
-        boolean[] s = new boolean[m * n];
+        int[] s = new int[m * n];
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (grid2[i][j] == 1) {
-                    s[find(i * n + j)] = true;
+                    s[find(i * n + j)] = 1;
                 }
             }
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 int root = find(i * n + j);
-                if (s[root] && grid1[i][j] == 0) {
-                    s[root] = false;
+                if (s[root] == 1 && grid1[i][j] == 0) {
+                    s[root] = 0;
                 }
             }
         }
-        int res = 0;
-        for (boolean e : s) {
-            if (e) {
-                ++res;
-            }
+        int ans = 0;
+        for (int i = 0; i < s.length; ++i) {
+            ans += s[i];
         }
-        return res;
+        return ans;
     }
 
     private int find(int x) {
@@ -232,7 +290,7 @@ function dfs(
     grid1: number[][],
     grid2: number[][],
     i: number,
-    j: number
+    j: number,
 ): boolean {
     let m = grid1.length,
         n = grid1[0].length;
@@ -262,76 +320,147 @@ function dfs(
 
 ### **C++**
 
+BFS - Flood Fill 算法：
+
 ```cpp
 class Solution {
 public:
-    int countSubIslands(vector<vector<int>> &grid1, vector<vector<int>> &grid2) {
-        int m = grid1.size(), n = grid1[0].size();
-        int count = 0;
+    int countSubIslands(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
+        int m = grid1.size();
+        int n = grid1[0].size();
+        int ans = 0;
         for (int i = 0; i < m; ++i)
-        {
             for (int j = 0; j < n; ++j)
-            {
-                if (grid2[i][j] == 1 && dfs(grid1, grid2, i, j, m, n))
-                {
-                    ++count;
-                }
-            }
-        }
-        return count;
+                ans += (grid2[i][j] == 1 && bfs(i, j, m, n, grid1, grid2));
+        return ans;
     }
 
-private:
-    vector<vector<int>> directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-    bool dfs(vector<vector<int>> &grid1, vector<vector<int>> &grid2, int i, int j, int m, int n) {
-        bool res = grid1[i][j] == 1;
+    bool bfs(int i, int j, int m, int n, vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
+        queue<pair<int, int>> q;
+        q.push({i, j});
         grid2[i][j] = 0;
-
-        for (auto direction : directions)
+        bool ans = true;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        while (!q.empty())
         {
-            int a = i + direction[0], b = j + direction[1];
-            if (a >= 0 && a < m && b >= 0 && b < n && grid2[a][b] == 1)
+            auto p = q.front();
+            q.pop();
+            i = p.first;
+            j = p.second;
+            if (grid1[i][j] == 0) ans = false;
+            for (int k = 0; k < 4; ++k)
             {
-                if (!dfs(grid1, grid2, a, b, m, n))
+                int x = i + dirs[k], y = j + dirs[k + 1];
+                if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y])
                 {
-                    res = false;
+                    q.push({x, y});
+                    grid2[x][y] = 0;
                 }
             }
         }
-        return res;
+        return ans;
+    }
+};
+```
+
+DFS：
+
+```cpp
+class Solution {
+public:
+    int countSubIslands(vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
+        int m = grid1.size();
+        int n = grid1[0].size();
+        int ans = 0;
+        for (int i = 0; i < m; ++i)
+            for (int j = 0; j < n; ++j)
+                if (grid2[i][j] == 1 && dfs(i, j, m, n, grid1, grid2))
+                    ++ans;
+        return ans;
+    }
+
+    bool dfs(int i, int j, int m, int n, vector<vector<int>>& grid1, vector<vector<int>>& grid2) {
+        bool ans = grid1[i][j];
+        grid2[i][j] = 0;
+        vector<int> dirs = {-1, 0, 1, 0, -1};
+        for (int k = 0; k < 4; ++k)
+        {
+            int x = i + dirs[k], y = j + dirs[k + 1];
+            if (x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] && !dfs(x, y, m, n, grid1, grid2))
+                ans = false;
+        }
+        return ans;
     }
 };
 ```
 
 ### **Go**
 
+BFS - Flood Fill 算法：
+
 ```go
 func countSubIslands(grid1 [][]int, grid2 [][]int) int {
 	m, n := len(grid1), len(grid1[0])
-	count := 0
+	ans := 0
+	bfs := func(i, j int) bool {
+		q := [][]int{{i, j}}
+		grid2[i][j] = 0
+		res := true
+		dirs := []int{-1, 0, 1, 0, -1}
+		for len(q) > 0 {
+			i, j = q[0][0], q[0][1]
+			if grid1[i][j] == 0 {
+				res = false
+			}
+			q = q[1:]
+			for k := 0; k < 4; k++ {
+				x, y := i+dirs[k], j+dirs[k+1]
+				if x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1 {
+					q = append(q, []int{x, y})
+					grid2[x][y] = 0
+				}
+			}
+		}
+		return res
+	}
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			if grid2[i][j] == 1 && dfs(grid1, grid2, i, j, m, n) {
-				count++
+			if grid2[i][j] == 1 && bfs(i, j) {
+				ans++
 			}
 		}
 	}
-	return count
+	return ans
 }
+```
 
-func dfs(grid1 [][]int, grid2 [][]int, i, j, m, n int) bool {
-	res := grid1[i][j] == 1
-	grid2[i][j] = 0
-	directions := [4][2]int{{0, 1}, {0, -1}, {1, 0}, {-1, 0}}
-	for _, direction := range directions {
-		a, b := i+direction[0], j+direction[1]
-		if a >= 0 && a < m && b >= 0 && b < n && grid2[a][b] == 1 {
-			if !dfs(grid1, grid2, a, b, m, n) {
+DFS：
+
+```go
+func countSubIslands(grid1 [][]int, grid2 [][]int) int {
+	m, n := len(grid1), len(grid1[0])
+	ans := 0
+	var dfs func(i, j int) bool
+	dfs = func(i, j int) bool {
+		res := grid1[i][j] == 1
+		grid2[i][j] = 0
+		dirs := []int{-1, 0, 1, 0, -1}
+		for k := 0; k < 4; k++ {
+			x, y := i+dirs[k], j+dirs[k+1]
+			if x >= 0 && x < m && y >= 0 && y < n && grid2[x][y] == 1 && !dfs(x, y) {
 				res = false
 			}
 		}
+		return res
 	}
-	return res
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid2[i][j] == 1 && dfs(i, j) {
+				ans++
+			}
+		}
+	}
+	return ans
 }
 ```
 

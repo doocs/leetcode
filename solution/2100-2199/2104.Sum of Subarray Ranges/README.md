@@ -16,7 +16,8 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,2,3]
+<pre>
+<strong>输入：</strong>nums = [1,2,3]
 <strong>输出：</strong>4
 <strong>解释：</strong>nums 的 6 个子数组如下所示：
 [1]，范围 = 最大 - 最小 = 1 - 1 = 0 
@@ -29,7 +30,8 @@
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>nums = [1,3,3]
+<pre>
+<strong>输入：</strong>nums = [1,3,3]
 <strong>输出：</strong>4
 <strong>解释：</strong>nums 的 6 个子数组如下所示：
 [1]，范围 = 最大 - 最小 = 1 - 1 = 0
@@ -43,7 +45,8 @@
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入：</strong>nums = [4,-2,-3,4,1]
+<pre>
+<strong>输入：</strong>nums = [4,-2,-3,4,1]
 <strong>输出：</strong>59
 <strong>解释：</strong>nums 中所有子数组范围的和是 59
 </pre>
@@ -56,6 +59,10 @@
 	<li><code>1 &lt;= nums.length &lt;= 1000</code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你可以设计一种时间复杂度为 <code>O(n)</code> 的解决方案吗？</p>
 
 ## 解法
 
@@ -165,10 +172,42 @@ func min(a, b int) int {
 
 ### **TypeScript**
 
-<!-- 这里可写当前语言的特殊实现逻辑 -->
-
 ```ts
+function subArrayRanges(nums: number[]): number {
+    const n = nums.length;
+    let res = 0;
+    for (let i = 0; i < n - 1; i++) {
+        let min = nums[i];
+        let max = nums[i];
+        for (let j = i + 1; j < n; j++) {
+            min = Math.min(min, nums[j]);
+            max = Math.max(max, nums[j]);
+            res += max - min;
+        }
+    }
+    return res;
+}
+```
 
+### **Rust**
+
+```rust
+impl Solution {
+    pub fn sub_array_ranges(nums: Vec<i32>) -> i64 {
+        let n = nums.len();
+        let mut res: i64 = 0;
+        for i in 1..n {
+            let mut min = nums[i - 1];
+            let mut max = nums[i - 1];
+            for j in i..n {
+                min = min.min(nums[j]);
+                max = max.max(nums[j]);
+                res += (max - min) as i64;
+            }
+        }
+        res
+    }
+}
 ```
 
 ### **...**

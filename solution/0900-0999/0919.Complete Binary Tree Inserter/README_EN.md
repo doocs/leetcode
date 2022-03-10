@@ -4,69 +4,46 @@
 
 ## Description
 
-<p>A <em>complete</em> binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</p>
+<p>A <strong>complete binary tree</strong> is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible.</p>
 
-<p>Write a data structure&nbsp;<code>CBTInserter</code>&nbsp;that is initialized with a complete binary tree and supports the following operations:</p>
+<p>Design an algorithm to insert a new node to a complete binary tree keeping it complete after the insertion.</p>
+
+<p>Implement the <code>CBTInserter</code> class:</p>
 
 <ul>
-	<li><code>CBTInserter(TreeNode root)</code> initializes the data structure on a given tree&nbsp;with head node <code>root</code>;</li>
-	<li><code>CBTInserter.insert(int v)</code> will insert a <code>TreeNode</code>&nbsp;into the tree with value <code>node.val =&nbsp;v</code>&nbsp;so that the tree remains complete, <strong>and returns the value of the parent of the inserted <code>TreeNode</code></strong>;</li>
-	<li><code>CBTInserter.get_root()</code> will return the head node of the tree.</li>
+	<li><code>CBTInserter(TreeNode root)</code> Initializes the data structure with the <code>root</code> of the complete binary tree.</li>
+	<li><code>int insert(int v)</code> Inserts a <code>TreeNode</code> into the tree with value <code>Node.val == val</code> so that the tree remains complete, and returns the value of the parent of the inserted <code>TreeNode</code>.</li>
+	<li><code>TreeNode get_root()</code> Returns the root node of the tree.</li>
 </ul>
 
-<ol>
-
-</ol>
-
-<div>
-
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
-
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0919.Complete%20Binary%20Tree%20Inserter/images/lc-treeinsert.jpg" style="width: 500px; height: 143px;" />
 <pre>
+<strong>Input</strong>
+[&quot;CBTInserter&quot;, &quot;insert&quot;, &quot;insert&quot;, &quot;get_root&quot;]
+[[[1, 2]], [3], [4], []]
+<strong>Output</strong>
+[null, 1, 2, [1, 2, 3, 4]]
 
-<strong>Input: </strong>inputs = <span id="example-input-1-1">[&quot;CBTInserter&quot;,&quot;insert&quot;,&quot;get_root&quot;]</span>, inputs = <span id="example-input-1-2">[[[1]],[2],[]]</span>
-
-<strong>Output: </strong><span id="example-output-1">[null,1,[1,2]]</span>
+<strong>Explanation</strong>
+CBTInserter cBTInserter = new CBTInserter([1, 2]);
+cBTInserter.insert(3); // return 1
+cBTInserter.insert(4); // return 2
+cBTInserter.get_root(); // return [1, 2, 3, 4]
 
 </pre>
 
-<div>
-
-<p><strong>Example 2:</strong></p>
-
-<pre>
-
-<strong>Input: </strong>inputs = <span id="example-input-2-1">[&quot;CBTInserter&quot;,&quot;insert&quot;,&quot;insert&quot;,&quot;get_root&quot;]</span>, inputs = <span id="example-input-2-2">[[[1,2,3,4,5,6]],[7],[8],[]]</span>
-
-<strong>Output: </strong><span id="example-output-2">[null,3,4,[1,2,3,4,5,6,7,8]]</span></pre>
-
-</div>
-
-<div>
-
 <p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
 
-<p><strong>Note:</strong></p>
-
-<ol>
-	<li>The initial given tree is complete and contains between <code>1</code> and <code>1000</code> nodes.</li>
-	<li><code>CBTInserter.insert</code> is called at most <code>10000</code> times per test case.</li>
-	<li>Every value of a given or inserted node is between <code>0</code> and <code>5000</code>.</li>
-</ol>
-
-</div>
-
-</div>
-
-<div>
-
-<p>&nbsp;</p>
-
-<div>&nbsp;</div>
-
-</div>
+<ul>
+	<li>The number of nodes in the tree will be in the range <code>[1, 1000]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 5000</code></li>
+	<li><code>root</code> is a complete binary tree.</li>
+	<li><code>0 &lt;= val &lt;= 5000</code></li>
+	<li>At most <code>10<sup>4</sup></code> calls will be made to <code>insert</code> and <code>get_root</code>.</li>
+</ul>
 
 ## Solutions
 

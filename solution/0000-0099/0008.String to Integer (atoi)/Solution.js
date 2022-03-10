@@ -4,10 +4,10 @@ const myAtoi = function (str) {
     let isPositive = 1;
     let i = 0,
         ans = 0;
-    if (str[i] === "+") {
+    if (str[i] === '+') {
         isPositive = 1;
         i++;
-    } else if (str[i] === "-") {
+    } else if (str[i] === '-') {
         isPositive = 0;
         i++;
     }

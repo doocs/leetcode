@@ -26,26 +26,12 @@
 <strong>Output:</strong> 0
 </pre>
 
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> arrays = [[1],[2]]
-<strong>Output:</strong> 1
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> arrays = [[1,4],[0,5]]
-<strong>Output:</strong> 4
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>m == arrays.length</code></li>
-	<li><code>2&nbsp;&lt;= m &lt;= 10<sup>5</sup></code></li>
+	<li><code>2 &lt;= m &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= arrays[i].length &lt;= 500</code></li>
 	<li><code>-10<sup>4</sup> &lt;= arrays[i][j] &lt;= 10<sup>4</sup></code></li>
 	<li><code>arrays[i]</code> is sorted in <strong>ascending order</strong>.</li>

@@ -6,21 +6,37 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一个已经<strong>&nbsp;排好序</strong>&nbsp;的整数数组&nbsp;nums&nbsp;和整数&nbsp;a、b、c。对于数组中的每一个数 x，计算函数值&nbsp;f(<em>x</em>) = <em>ax</em><sup>2</sup> + <em>bx</em> + c，请将函数值产生的数组返回。</p>
+<p>给你一个已经<strong>&nbsp;排好序</strong>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;和整数&nbsp;<code>a</code>&nbsp;、&nbsp;<code>b</code>&nbsp;、&nbsp;<code>c</code>&nbsp;。对于数组中的每一个元素&nbsp;<code>nums[i]</code>&nbsp;，计算函数值&nbsp;<code>f(<em>x</em>) = <em>ax</em><sup>2</sup> + <em>bx</em> + c</code>&nbsp;，请 <em>按升序返回数组</em> 。</p>
 
-<p>要注意，返回的这个数组必须按照 <strong>升序排列</strong>，并且我们所期望的解法时间复杂度为&nbsp;<strong>O(<em>n</em>)</strong>。</p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入: </strong>nums = [-4,-2,2,4], a = 1, b = 3, c = 5
+<pre>
+<strong>输入: </strong>nums = [-4,-2,2,4], a = 1, b = 3, c = 5
 <strong>输出: </strong>[3,9,15,33]
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入: </strong>nums = [-4,-2,2,4], a = -1, b = 3, c = 5
+<pre>
+<strong>输入: </strong>nums = [-4,-2,2,4], a = -1, b = 3, c = 5
 <strong>输出: </strong>[-23,-5,1,7]
 </pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums.length &lt;= 200</code></li>
+	<li><code>-100 &lt;= nums[i], a, b, c &lt;= 100</code></li>
+	<li><code>nums</code>&nbsp;按照 <strong>升序排列</strong></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你可以在时间复杂度为&nbsp;<code>O(n)</code>&nbsp;的情况下解决这个问题吗？</p>
 
 ## 解法
 
@@ -30,9 +46,9 @@
 
 利用抛物线的性质，i，j 分别指向排序数组首尾，从两端向中间夹逼。
 
-- 若 `a > 0`，抛物线向上，两端具有最大值，比较两端点的较大值，添加到结果数组。
-- 若 `a < 0`，抛物线向下，两端具有最小值，比较两端点的较小值，添加到结果数组。
-- 若 `a == 0`，合并到以上的任意一种情况均可。
+-   若 `a > 0`，抛物线向上，两端具有最大值，比较两端点的较大值，添加到结果数组。
+-   若 `a < 0`，抛物线向下，两端具有最小值，比较两端点的较小值，添加到结果数组。
+-   若 `a == 0`，合并到以上的任意一种情况均可。
 
 <!-- tabs:start -->
 

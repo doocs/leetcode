@@ -8,9 +8,9 @@
 
 <p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 
-<p>如果不存在公共前缀，返回空字符串 <code>""</code>。</p>
+<p>如果不存在公共前缀，返回空字符串&nbsp;<code>""</code>。</p>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
 
@@ -26,13 +26,13 @@
 <strong>输出：</strong>""
 <strong>解释：</strong>输入不存在公共前缀。</pre>
 
-<p> </p>
+<p>&nbsp;</p>
 
 <p><strong>提示：</strong></p>
 
 <ul>
-	<li><code>0 <= strs.length <= 200</code></li>
-	<li><code>0 <= strs[i].length <= 200</code></li>
+	<li><code>1 &lt;= strs.length &lt;= 200</code></li>
+	<li><code>0 &lt;= strs[i].length &lt;= 200</code></li>
 	<li><code>strs[i]</code> 仅由小写英文字母组成</li>
 </ul>
 

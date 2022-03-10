@@ -66,8 +66,10 @@ It is guaranteed that each accepted ride exists in the Rides table.
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Drivers table:
 +-----------+------------+
 | driver_id | join_date  |
@@ -80,7 +82,6 @@ Drivers table:
 | 1         | 2020-10-24 |
 | 6         | 2021-1-5   |
 +-----------+------------+
-
 Rides table:
 +---------+---------+--------------+
 | ride_id | user_id | requested_at |
@@ -101,7 +102,6 @@ Rides table:
 | 12      | 11      | 2021-1-19    |
 | 14      | 18      | 2021-1-27    |
 +---------+---------+--------------+
-
 AcceptedRides table:
 +---------+-----------+---------------+---------------+
 | ride_id | driver_id | ride_distance | ride_duration |
@@ -118,8 +118,7 @@ AcceptedRides table:
 | 12      | 8         | 38            | 34            |
 | 14      | 1         | 90            | 74            |
 +---------+-----------+---------------+---------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------+----------------+----------------+
 | month | active_drivers | accepted_rides |
 +-------+----------------+----------------+
@@ -136,7 +135,7 @@ Result table:
 | 11    | 6              | 2              |
 | 12    | 6              | 1              |
 +-------+----------------+----------------+
-
+<strong>Explanation:</strong> 
 By the end of January --&gt; two active drivers (10, 8) and no accepted rides.
 By the end of February --&gt; three active drivers (10, 8, 5) and no accepted rides.
 By the end of March --&gt; four active drivers (10, 8, 5, 7) and one accepted ride (10).
@@ -145,7 +144,7 @@ By the end of May --&gt; five active drivers (10, 8, 5, 7, 4) and no accepted ri
 By the end of June --&gt; five active drivers (10, 8, 5, 7, 4) and one accepted ride (13).
 By the end of July --&gt; five active drivers (10, 8, 5, 7, 4) and one accepted ride (7).
 By the end of August --&gt; five active drivers (10, 8, 5, 7, 4) and one accepted ride (17).
-By the end of Septemeber --&gt; five active drivers (10, 8, 5, 7, 4) and no accepted rides.
+By the end of September --&gt; five active drivers (10, 8, 5, 7, 4) and no accepted rides.
 By the end of October --&gt; six active drivers (10, 8, 5, 7, 4, 1) and no accepted rides.
 By the end of November --&gt; six active drivers (10, 8, 5, 7, 4, 1) and two accepted rides (20, 5).
 By the end of December --&gt; six active drivers (10, 8, 5, 7, 4, 1) and one accepted ride (2).

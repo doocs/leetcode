@@ -6,28 +6,33 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个字符串<code>S</code>，通过将字符串<code>S</code>中的每个字母转变大小写，我们可以获得一个新的字符串。返回所有可能得到的字符串集合。</p>
+<p>给定一个字符串&nbsp;<code>s</code>&nbsp;，通过将字符串&nbsp;<code>s</code>&nbsp;中的每个字母转变大小写，我们可以获得一个新的字符串。</p>
+
+<p>返回 <em>所有可能得到的字符串集合</em> 。以 <strong>任意顺序</strong> 返回输出。</p>
 
 <p>&nbsp;</p>
 
-<pre><strong>示例：</strong>
-<strong>输入：</strong>S = &quot;a1b2&quot;
-<strong>输出：</strong>[&quot;a1b2&quot;, &quot;a1B2&quot;, &quot;A1b2&quot;, &quot;A1B2&quot;]
+<p><strong>示例 1：</strong></p>
 
-<strong>输入：</strong>S = &quot;3z4&quot;
-<strong>输出：</strong>[&quot;3z4&quot;, &quot;3Z4&quot;]
+<pre>
+<strong>输入：</strong>s = "a1b2"
+<strong>输出：</strong>["a1b2", "a1B2", "A1b2", "A1B2"]
+</pre>
 
-<strong>输入：</strong>S = &quot;12345&quot;
-<strong>输出：</strong>[&quot;12345&quot;]
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> s = "3z4"
+<strong>输出:</strong> ["3z4","3Z4"]
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>提示：</strong></p>
+<p><strong>提示:</strong></p>
 
 <ul>
-	<li><code>S</code>&nbsp;的长度不超过<code>12</code>。</li>
-	<li><code>S</code>&nbsp;仅由数字和字母组成。</li>
+	<li><code>1 &lt;= s.length &lt;= 12</code></li>
+	<li><code>s</code>&nbsp;由小写英文字母、大写英文字母和数字组成</li>
 </ul>
 
 ## 解法

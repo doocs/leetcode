@@ -17,13 +17,19 @@ employee_id is the primary key for this table.
 Each row of this table contains the ID of each employee and their respective team.
 </pre>
 
+<p>&nbsp;</p>
+
 <p>Write an SQL query to find the team size of each of the employees.</p>
 
-<p>Return result table in any order.</p>
+<p>Return result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Employee Table:
 +-------------+------------+
 | employee_id | team_id    |
@@ -35,7 +41,7 @@ Employee Table:
 |     5       |     9      |
 |     6       |     9      |
 +-------------+------------+
-Result table:
+<strong>Output:</strong> 
 +-------------+------------+
 | employee_id | team_size  |
 +-------------+------------+
@@ -46,10 +52,10 @@ Result table:
 |     5       |     2      |
 |     6       |     2      |
 +-------------+------------+
+<strong>Explanation:</strong> 
 Employees with Id 1,2,3 are part of a team with team_id = 8.
-Employees with Id 4 is part of a team with team_id = 7.
+Employee with Id 4 is part of a team with team_id = 7.
 Employees with Id 5,6 are part of a team with team_id = 9.
-
 </pre>
 
 ## Solutions

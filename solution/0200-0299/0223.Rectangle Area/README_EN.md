@@ -6,22 +6,22 @@
 
 <p>Given the coordinates of two <strong>rectilinear</strong> rectangles in a 2D plane, return <em>the total area covered by the two rectangles</em>.</p>
 
-<p>The first rectangle is defined by its <strong>bottom-left</strong> corner <code>(A, B)</code> and its <strong>top-right</strong> corner <code>(C, D)</code>.</p>
+<p>The first rectangle is defined by its <strong>bottom-left</strong> corner <code>(ax1, ay1)</code> and its <strong>top-right</strong> corner <code>(ax2, ay2)</code>.</p>
 
-<p>The second rectangle is defined by its <strong>bottom-left</strong> corner <code>(E, F)</code> and its <strong>top-right</strong> corner <code>(G, H)</code>.</p>
+<p>The second rectangle is defined by its <strong>bottom-left</strong> corner <code>(bx1, by1)</code> and its <strong>top-right</strong> corner <code>(bx2, by2)</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
-<img alt="Rectangle Area" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle-plane.png" style="width: 600px; height: 325px;" />
+<img alt="Rectangle Area" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0223.Rectangle%20Area/images/rectangle-plane.png" style="width: 700px; height: 365px;" />
 <pre>
-<strong>Input:</strong> A = -3, B = 0, C = 3, D = 4, E = 0, F = -1, G = 9, H = 2
+<strong>Input:</strong> ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2
 <strong>Output:</strong> 45
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> A = -2, B = -2, C = 2, D = 2, E = -2, F = -2, G = 2, H = 2
+<strong>Input:</strong> ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2
 <strong>Output:</strong> 16
 </pre>
 
@@ -29,7 +29,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>-10<sup>4</sup> &lt;= A, B, C, D, E, F, G, H &lt;= 10<sup>4</sup></code></li>
+	<li><code>-10<sup>4</sup> &lt;= ax1, ay1, ax2, ay2, bx1, by1, bx2, by2 &lt;= 10<sup>4</sup></code></li>
 </ul>
 
 ## Solutions

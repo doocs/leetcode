@@ -6,85 +6,116 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给你一条个人信息字符串 <code>S</code>，它可能是一个 <strong>邮箱地址</strong> ，也可能是一串 <strong>电话号码</strong> 。</p>
+<p>给你一条个人信息字符串 <code>s</code> ，可能表示一个 <strong>邮箱地址</strong> ，也可能表示一串 <strong>电话号码</strong> 。返回按如下规则 <strong>隐藏</strong> 个人信息后的结果：</p>
 
-<p>我们将隐藏它的隐私信息，通过如下规则:</p>
+<p><em><strong>电子邮件地址：</strong></em></p>
 
-<p>&nbsp;</p>
+<p>一个电子邮件地址由以下部分组成：</p>
 
-<p><strong>1. 电子邮箱</strong></p>
+<ul>
+	<li>一个 <strong>名字</strong> ，由大小写英文字母组成，后面跟着</li>
+	<li>一个 <code>'@'</code> 字符，后面跟着</li>
+	<li>一个 <strong>域名</strong> ，由大小写英文字母和一个位于中间的 <code>'.'</code> 字符组成。<code>'.'</code> 不会是域名的第一个或者最后一个字符。</li>
+</ul>
 
-<p>定义名称 <strong>name</strong> 是长度大于等于 2 （<code>length &ge; 2</code>），并且只包含小写字母 <code>a-z</code> 和大写字母 <code>A-Z</code> 的字符串。</p>
+<p>要想隐藏电子邮件地址中的个人信息：</p>
 
-<p>电子邮箱地址由名称 <strong>name</strong> 开头，紧接着是符号 <code>&#39;@&#39;</code>，后面接着一个名称 <strong>name</strong>，再接着一个点号 <code>&#39;.&#39;</code>，然后是一个名称 <strong>name</strong>。</p>
+<ul>
+	<li><strong>名字</strong> 和 <strong>域名</strong> 部分的大写英文字母应当转换成小写英文字母。</li>
+	<li><strong>名字</strong> 中间的字母（即，除第一个和最后一个字母外）必须用 5 个 <code>"*****"</code> 替换。</li>
+</ul>
 
-<p>电子邮箱地址确定为有效的，并且格式是 <code>&quot;name1@name2.name3&quot;</code>。</p>
+<p><em><strong>电话号码：</strong></em></p>
 
-<p>为了隐藏电子邮箱，所有的名称 <strong>name</strong> 必须被转换成小写的，并且第一个名称&nbsp;<strong>name</strong> 的第一个字母和最后一个字母的中间的所有字母由 5 个 <code>&#39;*&#39;</code> 代替。</p>
+<p>一个电话号码应当按下述格式组成：</p>
 
-<p>&nbsp;</p>
+<ul>
+	<li>电话号码可以由 10-13 位数字组成</li>
+	<li>后 10 位构成 <strong>本地号码</strong></li>
+	<li>前面剩下的 0-3 位，构成 <strong>国家代码</strong></li>
+	<li>利用 <code>{'+', '-', '(', ')', ' '}</code> 这些 <strong>分隔字符</strong> 按某种形式对上述数字进行分隔</li>
+</ul>
 
-<p><strong>2. 电话号码</strong></p>
+<p>要想隐藏电话号码中的个人信息：</p>
 
-<p>电话号码是一串包括数字&nbsp;<code>0-9</code>，以及 <code>{&#39;+&#39;, &#39;-&#39;, &#39;(&#39;, &#39;)&#39;, &#39;&nbsp;&#39;}</code> 这几个字符的字符串。你可以假设电话号码包含 10 到 13 个数字。</p>
+<ul>
+	<li>移除所有 <strong>分隔字符</strong></li>
+	<li>隐藏个人信息后的电话号码应该遵从这种格式：
+	<ul>
+		<li><code>"***-***-XXXX"</code> 如果国家代码为 0 位数字</li>
+		<li><code>"+*-***-***-XXXX"</code> 如果国家代码为 1 位数字</li>
+		<li><code>"+**-***-***-XXXX"</code> 如果国家代码为 2 位数字</li>
+		<li><code>"+***-***-***-XXXX"</code> 如果国家代码为 3 位数字</li>
+	</ul>
+	</li>
+	<li><code>"XXXX"</code> 是最后 4 位 <strong>本地号码</strong></li>
+</ul>
+&nbsp;
 
-<p>电话号码的最后 10 个数字组成本地号码，在这之前的数字组成国际号码。注意，国际号码是可选的。我们只暴露最后 4 个数字并隐藏所有其他数字。</p>
-
-<p>本地号码是有格式的，并且如 <code>&quot;***-***-1111&quot;</code> 这样显示，这里的 1 表示暴露的数字。</p>
-
-<p>为了隐藏有国际号码的电话号码，像&nbsp;<code>&quot;+111 111 111 1111&quot;</code>，我们以 <code>&quot;+***-***-***-1111&quot;</code> 的格式来显示。在本地号码前面的 <code>&#39;+&#39;</code> 号和第一个 <code>&#39;-&#39;</code> 号仅当电话号码中包含国际号码时存在。例如，一个 12 位的电话号码应当以 <code>&quot;+**-&quot;</code> 开头进行显示。</p>
-
-<p>注意：像 <code>&quot;(&quot;，&quot;)&quot;，&quot; &quot;</code> 这样的不相干的字符以及不符合上述格式的额外的减号或者加号都应当被删除。</p>
-
-<p>&nbsp;</p>
-
-<p>最后，将提供的信息正确隐藏后返回。</p>
-
-<p>&nbsp;</p>
-
+<div class="top-view__1vxA">
+<div class="original__bRMd">
+<div>
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入: </strong>&quot;LeetCode@LeetCode.com&quot;
-<strong>输出: </strong>&quot;l*****e@leetcode.com&quot;
-<strong>解释： 
-</strong>所有的名称转换成小写, 第一个名称的第一个字符和最后一个字符中间由 5 个星号代替。
-因此，&quot;leetcode&quot; -&gt; &quot;l*****e&quot;。
+<pre>
+<strong>输入：</strong>s = "LeetCode@LeetCode.com"
+<strong>输出：</strong>"l*****e@leetcode.com"
+<strong>解释：</strong>s 是一个电子邮件地址。
+名字和域名都转换为小写，名字的中间用 5 个 * 替换。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入: </strong>&quot;AB@qq.com&quot;
-<strong>输出: </strong>&quot;a*****b@qq.com&quot;
-<strong>解释:&nbsp;
-</strong>第一个名称&quot;ab&quot;的第一个字符和最后一个字符的中间必须有 5 个星号
-因此，&quot;ab&quot; -&gt; &quot;a*****b&quot;。
+<pre>
+<strong>输入：</strong>s = "AB@qq.com"
+<strong>输出：</strong>"a*****b@qq.com"
+<strong>解释：</strong>s 是一个电子邮件地址。
+名字和域名都转换为小写，名字的中间用 5 个 * 替换。
+注意，尽管 "ab" 只有两个字符，但中间仍然必须有 5 个 * 。
 </pre>
 
 <p><strong>示例 3：</strong></p>
 
-<pre><strong>输入: </strong>&quot;1(234)567-890&quot;
-<strong>输出: </strong>&quot;***-***-7890&quot;
-<strong>解释:</strong>&nbsp;
-10 个数字的电话号码，那意味着所有的数字都是本地号码。
+<pre>
+<strong>输入：</strong>s = "1(234)567-890"
+<strong>输出：</strong>"***-***-7890"
+<strong>解释：</strong>s 是一个电话号码。
+共计 10 位数字，所以本地号码为 10 位数字，国家代码为 0 位数字。
+因此，隐藏后的电话号码应该是 "***-***-7890" 。
 </pre>
 
 <p><strong>示例 4：</strong></p>
 
-<pre><strong>输入: </strong>&quot;86-(10)12345678&quot;
-<strong>输出: </strong>&quot;+**-***-***-5678&quot;
-<strong>解释:</strong>&nbsp;
-12 位数字，2 个数字是国际号码另外 10 个数字是本地号码 。
+<pre>
+<strong>输入：</strong>s = "86-(10)12345678"
+<strong>输出：</strong>"+**-***-***-5678"
+<strong>解释：</strong>s 是一个电话号码。
+共计 12 位数字，所以本地号码为 10 位数字，国家代码为 2 位数字。
+因此，隐藏后的电话号码应该是 "+**-***-***-7890" 。
 </pre>
 
 <p>&nbsp;</p>
 
-<p><strong>注意:</strong></p>
+<p><strong>提示：</strong></p>
 
-<ol>
-	<li><code>S.length&nbsp;&lt;=&nbsp;40</code>。</li>
-	<li>邮箱的长度至少是 8。</li>
-	<li>电话号码的长度至少是 10。</li>
-</ol>
+<ul>
+	<li><code>s</code> 是一个 <strong>有效</strong> 的电子邮件或者电话号码</li>
+	<li>如果 <code>s</code> 是一个电子邮件：
+	<ul>
+		<li><code>8 &lt;= s.length &lt;= 40</code></li>
+		<li><code>s</code> 是由大小写英文字母，恰好一个 <code>'@'</code> 字符，以及 <code>'.'</code> 字符组成</li>
+	</ul>
+	</li>
+	<li>如果 <code>s</code> 是一个电话号码：
+	<ul>
+		<li><code>10 &lt;= s.length &lt;= 20</code></li>
+		<li><code>s</code> 是由数字、空格、字符 <code>'('</code>、<code>')'</code>、<code>'-'</code> 和 <code>'+'</code> 组成</li>
+	</ul>
+	</li>
+</ul>
+</div>
+</div>
+</div>
 
 ## 解法
 

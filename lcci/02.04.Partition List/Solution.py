@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def partition(self, head: ListNode, x: int) -> ListNode:
         l1, l2 = ListNode(0), ListNode(0)

@@ -6,29 +6,27 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Days</code></p>
+<p>表: <code>Days</code></p>
 
-<pre>
-+-------------+------+
+<pre>+-------------+------+
 | Column Name | Type |
 +-------------+------+
 | day         | date |
 +-------------+------+
-day is the primary key for this table.
+day 是这个表的主键。
 </pre>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p>Write an SQL query to convert each date in <code>Days</code> into a string formatted as <code>&quot;day_name, month_name day, year&quot;</code>.</p>
+<p>给定一个<code>Days</code>表，请你编写SQL查询语句，将<code>Days</code>表中的每一个日期转化为<code>"day_name, month_name day, year"</code>格式的字符串。</p>
 
-<p>Return the result table <strong>in any order</strong>.</p>
+<p>返回的结果表不计顺序。</p>
 
-<p>The query result format is in the following example:</p>
+<p> </p>
 
-<p>&nbsp;</p>
+<p>例如：</p>
 
-<pre>
-Days table:
+<pre>Days table:
 +------------+
 | day        |
 +------------+
@@ -45,7 +43,7 @@ Result table:
 | Monday, August 9, 2021  |
 | Friday, June 26, 2020   |
 +-------------------------+
-Please note that the output is case-sensitive.
+请注意，输出对大小写敏感。
 </pre>
 
 ## 解法

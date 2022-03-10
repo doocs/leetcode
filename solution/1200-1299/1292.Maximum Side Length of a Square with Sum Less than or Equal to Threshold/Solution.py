@@ -4,16 +4,14 @@ class Solution:
         s = [[0] * 310 for _ in range(310)]
         for i in range(m):
             for j in range(n):
-                s[i + 1][j + 1] = s[i][j + 1] + \
-                    s[i + 1][j] - s[i][j] + mat[i][j]
+                s[i + 1][j + 1] = s[i][j + 1] + s[i + 1][j] - s[i][j] + mat[i][j]
 
         def check(l):
             for i in range(m):
                 for j in range(n):
                     if i + l - 1 < m and j + l - 1 < n:
                         i1, j1 = i + l - 1, j + l - 1
-                        t = s[i1 + 1][j1 + 1] - s[i1 + 1][j] - \
-                            s[i][j1 + 1] + s[i][j]
+                        t = s[i1 + 1][j1 + 1] - s[i1 + 1][j] - s[i][j1 + 1] + s[i][j]
                         if t <= threshold:
                             return True
             return False

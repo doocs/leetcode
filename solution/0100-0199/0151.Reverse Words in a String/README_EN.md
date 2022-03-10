@@ -36,20 +36,6 @@
 <strong>Explanation:</strong> You need to reduce multiple spaces between two words to a single space in the reversed string.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;  Bob    Loves  Alice   &quot;
-<strong>Output:</strong> &quot;Alice Loves Bob&quot;
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;Alice does not even like bob&quot;
-<strong>Output:</strong> &quot;bob like even not does Alice&quot;
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
@@ -60,7 +46,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<p><strong>Follow up:</strong> Could you solve it <strong>in-place</strong> with <code>O(1)</code> extra space?</p>
+<p><b data-stringify-type="bold">Follow-up:&nbsp;</b>If the string data type is mutable in your language, can&nbsp;you solve it&nbsp;<b data-stringify-type="bold">in-place</b>&nbsp;with&nbsp;<code data-stringify-type="code">O(1)</code>&nbsp;extra space?</p>
 
 ## Solutions
 
@@ -103,7 +89,7 @@ public class Solution {
 function reverseWords(s: string): string {
     let words: string[] = s.trim().split(/\s+/g);
     words.reverse();
-    return words.join(" ");
+    return words.join(' ');
 }
 ```
 

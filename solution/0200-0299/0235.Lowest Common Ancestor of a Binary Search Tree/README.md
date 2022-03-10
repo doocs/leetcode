@@ -166,7 +166,7 @@ class Solution {
 function lowestCommonAncestor(
     root: TreeNode | null,
     p: TreeNode | null,
-    q: TreeNode | null
+    q: TreeNode | null,
 ): TreeNode | null {
     while (root) {
         if (root.val > p.val && root.val > q.val) {
@@ -200,7 +200,7 @@ function lowestCommonAncestor(
 function lowestCommonAncestor(
     root: TreeNode | null,
     p: TreeNode | null,
-    q: TreeNode | null
+    q: TreeNode | null,
 ): TreeNode | null {
     if (root.val > p.val && root.val > q.val)
         return lowestCommonAncestor(root.left, p, q);

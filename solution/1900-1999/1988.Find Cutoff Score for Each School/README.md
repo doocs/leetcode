@@ -6,57 +6,54 @@
 
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Schools</code></p>
+<p>表：&nbsp;<code>Schools</code></p>
 
-<pre>
-+-------------+------+
+<pre>+-------------+------+
 | Column Name | Type |
 +-------------+------+
 | school_id   | int  |
 | capacity    | int  |
 +-------------+------+
-school_id is the primary key for this table.
-This table contains information about the capacity of some schools. The capacity is the maximum number of students the school can accept.
+school_id 是该表的主键。
+此表包含了一些学校的容纳能力。容纳能力指的是学校能够接纳学生的最大数量。
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Table: <code>Exam</code></p>
+<p>表：&nbsp;<code>Exam</code></p>
 
-<pre>
-+---------------+------+
+<pre>+---------------+------+
 | Column Name   | Type |
 +---------------+------+
 | score         | int  |
 | student_count | int  |
 +---------------+------+
-score is the primary key for this table.
-Each row in this table indicates that there are student_count students that got at least score points in the exam.
-The data in this table will be logically correct, meaning a row recording a higher score will have the same or smaller student_count compared to a row recording a lower score. More formally, for every two rows i and j in the table, if score<sub>i</sub> &gt; score<sub>j</sub> then student_count<sub>i</sub> &lt;= student_count<sub>j</sub>.
+score 是该表的主键。
+表中每一行表示有 student_count 名学生在考试中至少获得了 score 分。
+表中的数据在逻辑上是正确的，即记录了高score的行相比记录了低score的行拥有相同或更少的student_count。
+也就是说，对于表中的i行与j行，如果score<sub>i</sub> &gt; score<sub>j，那么</sub>student_count<sub>i</sub> &lt;= student_count<sub>j</sub>
 </pre>
 
-<p>&nbsp;</p>
-
-<p>Every year, each school announces a <strong>minimum score requirement</strong> that a student needs to apply to it. The school chooses the minimum score requirement based on the exam results of all the students:</p>
+<p>每年，学校会公布学生申请所需的<strong>最低分数要求</strong>。学校根据所有学生的考试成绩来决定其最低分数要求。</p>
 
 <ol>
-	<li>They want to ensure that even if <strong>every</strong> student meeting the requirement applies, the school can accept everyone.</li>
-	<li>They also want to <strong>maximize</strong> the possible number of students that can apply.</li>
-	<li>They <strong>must</strong> use a score that is in the <code>Exam</code> table.</li>
+	<li>学校希望确保即使每一个满足分数要求的学生都申请该学校，学校也有足够的能力接纳每一个学生。</li>
+	<li>学校也希望<strong>尽可能多</strong>的学生能申请该学校。</li>
+	<li>学校<strong>必须</strong>使用在&nbsp;<code>Exam</code> 表中的 score 来作为最低分数要求。</li>
 </ol>
 
-<p>Write an SQL query to report the <strong>minimum score requirement</strong> for each school. If there are multiple score values satisfying the above conditions, choose the <strong>smallest</strong> one. If the input data is not enough to determine the score, report <code>-1</code>.</p>
+<p>编写一个SQL查询来查询每所学校的<strong>最低分数要求</strong>。如果同时有多个score值满足上述要求，则选择其中<strong>最小的</strong>一个。如果数据不足以决定<strong>最低分数要求</strong>，那么输出&nbsp;<code>-1</code>。</p>
 
-<p>Return the result table in <strong>any order</strong>.</p>
+<p>返回的结果表可以按<strong>任意顺序</strong>排序。</p>
 
-<p>The query result format is in the following example.</p>
+<p>查询结果格式如下例所示：</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
 
-<pre>
-<strong>Input:</strong>
-Schools table:
+<p><strong>示例：</strong></p>
+
+<pre><strong>输入:</strong>
+Schools 表:
 +-----------+----------+
 | school_id | capacity |
 +-----------+----------+
@@ -65,7 +62,7 @@ Schools table:
 | 9         | 9        |
 | 10        | 99       |
 +-----------+----------+
-Exam table:
+Exam 表:
 +-------+---------------+
 | score | student_count |
 +-------+---------------+
@@ -75,7 +72,7 @@ Exam table:
 | 749   | 76            |
 | 744   | 100           |
 +-------+---------------+
-<strong>Output:</strong>
+<strong>输出:</strong>
 +-----------+-------+
 | school_id | score |
 +-----------+-------+
@@ -84,11 +81,11 @@ Exam table:
 | 10        | 749   |
 | 11        | 744   |
 +-----------+-------+
-<strong>Explanation:</strong> 
-- School 5: The school&#39;s capacity is 48. Choosing 975 as the min score requirement, the school will get at most 10 applications, which is within capacity.
-- School 10: The school&#39;s capacity is 99. Choosing 844 or 749 as the min score requirement, the school will get at most 76 applications, which is within capacity. We choose the smallest of them, which is 749.
-- School 11: The school&#39;s capacity is 151. Choosing 744 as the min score requirement, the school will get at most 100 applications, which is within capacity.
-- School 9: The data given is not enough to determine the min score requirement. Choosing 975 as the min score, the school may get 10 requests while its capacity is 9. We do not have information about higher scores, hence we report -1.
+<b>解释：</b> 
+- School 5：学校的容纳能力为 48 。选择 975 作为最低分数要求，因为学校最多会收到 10 份申请，这在学校的容纳能力以内。
+- School 10：学校的容纳能力为 99 。可以选择 844 或 749 作为最低分数要求，因为学校最多会收到 76 份申请，这在学校的容纳能力以内。又因为 749 是所有可选项中最小的，因此我们选择 749 。
+- School 11：学校的容纳能力为 151 。选择 744 作为最低分数要求，因为学校最多会收到 100 份申请，这在学校的容纳能力以内。
+- School 9：给出的数据不足以确定最低分数要求。如果选择 975 作为最低分数要求，学校可能会收到 10 份申请，然而学校的容纳能力只有 9 。我们没有关于更高分数的信息，因此我们返回 -1 。
 </pre>
 
 ## 解法

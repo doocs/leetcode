@@ -1,29 +1,39 @@
-var p []int
-var size []int
-var g [][]int
-var m int
-var n int
-
 func hitBricks(grid [][]int, hits [][]int) []int {
-	m, n = len(grid), len(grid[0])
-	p = make([]int, m*n+1)
-	size = make([]int, m*n+1)
-	for i := 0; i < len(p); i++ {
+	m, n := len(grid), len(grid[0])
+	p := make([]int, m*n+1)
+	size := make([]int, len(p))
+	for i := range p {
 		p[i] = i
 		size[i] = 1
 	}
-	g = make([][]int, m)
-	for i := 0; i < m; i++ {
+
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
+	}
+	union := func(a, b int) {
+		pa, pb := find(a), find(b)
+		if pa != pb {
+			size[pb] += size[pa]
+			p[pa] = pb
+		}
+	}
+
+	g := make([][]int, m)
+	for i := range g {
 		g[i] = make([]int, n)
-		for j := 0; j < n; j++ {
+		for j := range g[i] {
 			g[i][j] = grid[i][j]
 		}
 	}
-	for _, e := range hits {
-		g[e[0]][e[1]] = 0
+	for _, h := range hits {
+		g[h[0]][h[1]] = 0
 	}
-	for j := 0; j < n; j++ {
-		if g[0][j] == 1 {
+	for j, v := range g[0] {
+		if v == 1 {
 			union(j, m*n)
 		}
 	}
@@ -40,47 +50,28 @@ func hitBricks(grid [][]int, hits [][]int) []int {
 			}
 		}
 	}
-
-	res := make([]int, len(hits))
-	dirs := [4][2]int{{0, -1}, {0, 1}, {1, 0}, {-1, 0}}
+	ans := make([]int, len(hits))
+	dirs := []int{-1, 0, 1, 0, -1}
 	for k := len(hits) - 1; k >= 0; k-- {
 		i, j := hits[k][0], hits[k][1]
 		if grid[i][j] == 0 {
 			continue
 		}
-		origin := size[find(m*n)]
+		g[i][j] = 1
+		prev := size[find(m*n)]
 		if i == 0 {
 			union(j, m*n)
 		}
-		for _, dir := range dirs {
-			if check(i+dir[0], j+dir[1]) {
-				union(i*n+j, (i+dir[0])*n+j+dir[1])
+		for l := 0; l < 4; l++ {
+			x, y := i+dirs[l], j+dirs[l+1]
+			if x >= 0 && x < m && y >= 0 && y < n && g[x][y] == 1 {
+				union(i*n+j, x*n+y)
 			}
 		}
-		cur := size[find(m*n)]
-		res[k] = max(0, cur-origin-1)
-		g[i][j] = 1
+		curr := size[find(m*n)]
+		ans[k] = max(0, curr-prev-1)
 	}
-	return res
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
-}
-
-func union(a, b int) {
-	pa, pb := find(a), find(b)
-	if pa != pb {
-		size[pb] += size[pa]
-		p[pa] = pb
-	}
-}
-
-func check(i, j int) bool {
-	return i >= 0 && i < m && j >= 0 && j < n && g[i][j] == 1
+	return ans
 }
 
 func max(a, b int) int {

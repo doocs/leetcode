@@ -1,10 +1,15 @@
-var p []int
-
 func isBipartite(graph [][]int) bool {
 	n := len(graph)
-	p = make([]int, n)
-	for i := 0; i < n; i++ {
+	p := make([]int, n)
+	for i := range p {
 		p[i] = i
+	}
+	var find func(x int) int
+	find = func(x int) int {
+		if p[x] != x {
+			p[x] = find(p[x])
+		}
+		return p[x]
 	}
 	for u, g := range graph {
 		for _, v := range g {
@@ -15,11 +20,4 @@ func isBipartite(graph [][]int) bool {
 		}
 	}
 	return true
-}
-
-func find(x int) int {
-	if p[x] != x {
-		p[x] = find(p[x])
-	}
-	return p[x]
 }

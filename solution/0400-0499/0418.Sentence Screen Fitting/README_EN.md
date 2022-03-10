@@ -49,7 +49,7 @@ The character &#39;-&#39; signifies an empty space on the screen.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= sentemce.length &lt;= 100</code></li>
+	<li><code>1 &lt;= sentence.length &lt;= 100</code></li>
 	<li><code>1 &lt;= sentence[i].length &lt;= 10</code></li>
 	<li><code>sentence[i]</code> consists of lowercase English letters.</li>
 	<li><code>1 &lt;= rows, cols &lt;= 2 * 10<sup>4</sup></code></li>

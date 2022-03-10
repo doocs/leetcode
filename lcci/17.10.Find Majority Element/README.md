@@ -45,8 +45,8 @@
 
 对于列表中的每个元素 num，我们首先检查计数值 cnt，
 
-- 若 `cnt == 0`，我们将候选值 candidate 设置为当前元素值，即 `candidate = num`。
-- 若 `candidate == num`，将 cnt 加 1，否则减 1。
+-   若 `cnt == 0`，我们将候选值 candidate 设置为当前元素值，即 `candidate = num`。
+-   若 `candidate == num`，将 cnt 加 1，否则减 1。
 
 **第二次遍历**，则是扫描列表中 candidate 出现的次数，若大于 `n/2`，则该候选值就是多数值，否则返回 -1。
 

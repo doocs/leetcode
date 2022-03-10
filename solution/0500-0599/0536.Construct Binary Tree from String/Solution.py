@@ -22,10 +22,10 @@ class Solution:
                     cnt -= 1
                 if cnt == 0:
                     if start == p:
-                        root.left = dfs(s[start + 1: i])
+                        root.left = dfs(s[start + 1 : i])
                         start = i + 1
                     else:
-                        root.right = dfs(s[start + 1: i])
+                        root.right = dfs(s[start + 1 : i])
             return root
 
         return dfs(s)

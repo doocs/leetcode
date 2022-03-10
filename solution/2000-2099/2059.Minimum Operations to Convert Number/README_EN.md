@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> containing <strong>distinct</strong> numbers, an integer <code>start</code>, and an integer <code>goal</code>. There is an integer <code>x</code>&nbsp;that is initially set to <code>start</code>, and you want to perform operations on <code>x</code> such that it is converted to <code>goal</code>. You can perform the following operation repeatedly on the number <code>x</code>:</p>
+<p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> containing <strong>distinct</strong> numbers, an integer <code>start</code>, and an integer <code>goal</code>. There is an integer <code>x</code> that is initially set to <code>start</code>, and you want to perform operations on <code>x</code> such that it is converted to <code>goal</code>. You can perform the following operation repeatedly on the number <code>x</code>:</p>
 
 <p>If <code>0 &lt;= x &lt;= 1000</code>, then for any index <code>i</code> in the array (<code>0 &lt;= i &lt; nums.length</code>), you can set <code>x</code> to any of the following:</p>
 
@@ -22,55 +22,30 @@
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [1,3], start = 6, goal = 4
+<strong>Input:</strong> nums = [2,4,12], start = 2, goal = 12
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
-We can go from 6 &rarr; 7 &rarr; 4 with the following 2 operations.
-- 6 ^ 1 = 7
-- 7 ^ 3 = 4
+<strong>Explanation:</strong> We can go from 2 &rarr; 14 &rarr; 12 with the following 2 operations.
+- 2 + 12 = 14
+- 14 - 2 = 12
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> nums = [2,4,12], start = 2, goal = 12
-<strong>Output:</strong> 2
-<strong>Explanation:</strong>
-We can go from 2 &rarr; 14 &rarr; 12 with the following 2 operations.
-- 2 + 12 = 14
-- 14 - 2 = 12
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
 <strong>Input:</strong> nums = [3,5,7], start = 0, goal = -4
 <strong>Output:</strong> 2
-<strong>Explanation:</strong>
-We can go from 0 &rarr; 3 &rarr; -4 with the following 2 operations.
+<strong>Explanation:</strong> We can go from 0 &rarr; 3 &rarr; -4 with the following 2 operations. 
 - 0 + 3 = 3
 - 3 - 7 = -4
 Note that the last operation sets x out of the range 0 &lt;= x &lt;= 1000, which is valid.
 </pre>
 
-<p><strong>Example 4:</strong></p>
+<p><strong>Example 3:</strong></p>
 
 <pre>
 <strong>Input:</strong> nums = [2,8,16], start = 0, goal = 1
 <strong>Output:</strong> -1
-<strong>Explanation:</strong>
-There is no way to convert 0 into 1.</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1], start = 0, goal = 3
-<strong>Output:</strong> 3
-<strong>Explanation:</strong>
-We can go from 0 &rarr; 1 &rarr; 2 &rarr; 3 with the following 3 operations.
-- 0 + 1 = 1
-- 1 + 1 = 2
-- 2 + 1 = 3
+<strong>Explanation:</strong> There is no way to convert 0 into 1.
 </pre>
 
 <p>&nbsp;</p>
@@ -86,7 +61,7 @@ We can go from 0 &rarr; 1 &rarr; 2 &rarr; 3 with the following 3 operations.
 
 ## Solutions
 
-BFS
+BFS.
 
 <!-- tabs:start -->
 
@@ -108,9 +83,72 @@ class Solution:
                     nx = op(x, num)
                     if nx == goal:
                         return step + 1
-                    if nx >= 0 and nx <= 1000 and not vis[nx]:
+                    if 0 <= nx <= 1000 and not vis[nx]:
                         q.append((nx, step + 1))
                         vis[nx] = True
+        return -1
+```
+
+```python
+class Solution:
+    def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
+        def next(x):
+            res = []
+            for num in nums:
+                res.append(x + num)
+                res.append(x - num)
+                res.append(x ^ num)
+            return res
+
+        q = deque([start])
+        vis = set([(start)])
+        ans = 0
+        while q:
+            ans += 1
+            for _ in range(len(q), 0, -1):
+                x = q.popleft()
+                for y in next(x):
+                    if y == goal:
+                        return ans
+                    if 0 <= y <= 1000 and y not in vis:
+                        vis.add(y)
+                        q.append(y)
+        return -1
+```
+
+Two-end BFS:
+
+```python
+class Solution:
+    def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
+        def next(x):
+            res = []
+            for num in nums:
+                res.append(x + num)
+                res.append(x - num)
+                res.append(x ^ num)
+            return res
+
+        def extend(m1, m2, q):
+            for _ in range(len(q), 0, -1):
+                x = q.popleft()
+                step = m1[x]
+                for y in next(x):
+                    if y in m1:
+                        continue
+                    if y in m2:
+                        return step + 1 + m2[y]
+                    if 0 <= y <= 1000:
+                        m1[y] = step + 1
+                        q.append(y)
+            return -1
+
+        m1, m2 = {start: 0}, {goal: 0}
+        q1, q2 = deque([start]), deque([goal])
+        while q1 and q2:
+            t = extend(m1, m2, q1) if len(q1) <= len(q2) else extend(m2, m1, q2)
+            if t != -1:
+                return t
         return -1
 ```
 
@@ -147,6 +185,100 @@ class Solution {
 }
 ```
 
+```java
+class Solution {
+    public int minimumOperations(int[] nums, int start, int goal) {
+        Deque<Integer> q = new ArrayDeque<>();
+        q.offer(start);
+        boolean[] vis = new boolean[1001];
+        int ans = 0;
+        while (!q.isEmpty()) {
+            ++ans;
+            for (int n = q.size(); n > 0; --n) {
+                int x = q.poll();
+                for (int y : next(nums, x)) {
+                    if (y == goal) {
+                        return ans;
+                    }
+                    if (y >= 0 && y <= 1000 && !vis[y]) {
+                        vis[y] = true;
+                        q.offer(y);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    private List<Integer> next(int[] nums, int x) {
+        List<Integer> res = new ArrayList<>();
+        for (int num : nums) {
+            res.add(x + num);
+            res.add(x - num);
+            res.add(x ^ num);
+        }
+        return res;
+    }
+}
+```
+
+Two-end BFS:
+
+```java
+class Solution {
+    private int[] nums;
+
+    public int minimumOperations(int[] nums, int start, int goal) {
+        this.nums = nums;
+        Map<Integer, Integer> m1 = new HashMap<>();
+        Map<Integer, Integer> m2 = new HashMap<>();
+        Deque<Integer> q1 = new ArrayDeque<>();
+        Deque<Integer> q2 = new ArrayDeque<>();
+        m1.put(start, 0);
+        m2.put(goal, 0);
+        q1.offer(start);
+        q2.offer(goal);
+        while (!q1.isEmpty() && !q2.isEmpty()) {
+            int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
+            if (t != -1) {
+                return t;
+            }
+        }
+        return -1;
+    }
+
+    private int extend(Map<Integer, Integer> m1, Map<Integer, Integer> m2, Deque<Integer> q) {
+        for (int i = q.size(); i > 0; --i) {
+            int x = q.poll();
+            int step = m1.get(x);
+            for (int y : next(x)) {
+                if (m1.containsKey(y)) {
+                    continue;
+                }
+                if (m2.containsKey(y)) {
+                    return step + 1 + m2.get(y);
+                }
+                if (y >= 0 && y <= 1000) {
+                    m1.put(y, step + 1);
+                    q.offer(y);
+                }
+            }
+        }
+        return -1;
+    }
+
+    private List<Integer> next(int x) {
+        List<Integer> res = new ArrayList<>();
+        for (int num : nums) {
+            res.add(x + num);
+            res.add(x - num);
+            res.add(x ^ num);
+        }
+        return res;
+    }
+}
+```
+
 ### **C++**
 
 ```cpp
@@ -179,6 +311,100 @@ public:
             }
         }
         return -1;
+    }
+};
+```
+
+```cpp
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums, int start, int goal) {
+        queue<int> q{{start}};
+        vector<bool> vis(1001);
+        int ans = 0;
+        while (!q.empty())
+        {
+            ++ans;
+            for (int n = q.size(); n > 0; --n)
+            {
+                int x = q.front();
+                q.pop();
+                for (int y : next(nums, x))
+                {
+                    if (y == goal) return ans;
+                    if (y >= 0 && y <= 1000 && !vis[y])
+                    {
+                        vis[y] = true;
+                        q.push(y);
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    vector<int> next(vector<int>& nums, int x) {
+        vector<int> res;
+        for (int num : nums)
+        {
+            res.push_back(x + num);
+            res.push_back(x - num);
+            res.push_back(x ^ num);
+        }
+        return res;
+    }
+};
+```
+
+Two-end BFS:
+
+```cpp
+class Solution {
+public:
+    int minimumOperations(vector<int>& nums, int start, int goal) {
+        unordered_map<int, int> m1;
+        unordered_map<int, int> m2;
+        m1[start] = 0;
+        m2[goal] = 0;
+        queue<int> q1{{start}};
+        queue<int> q2{{goal}};
+        while (!q1.empty() && !q2.empty())
+        {
+            int t = q1.size() <= q2.size() ? extend(m1, m2, q1, nums) : extend(m2, m1, q2, nums);
+            if (t != -1) return t;
+        }
+        return -1;
+    }
+
+    int extend(unordered_map<int, int>& m1, unordered_map<int, int>& m2, queue<int>& q, vector<int>& nums) {
+        for (int i = q.size(); i > 0; --i)
+        {
+            int x = q.front();
+            int step = m1[x];
+            q.pop();
+            for (int y : next(nums, x))
+            {
+                if (m1.count(y)) continue;
+                if (m2.count(y)) return step + 1 + m2[y];
+                if (y >= 0 && y <= 1000)
+                {
+                    m1[y] = step + 1;
+                    q.push(y);
+                }
+            }
+        }
+        return -1;
+    }
+
+    vector<int> next(vector<int>& nums, int x) {
+        vector<int> res;
+        for (int num : nums)
+        {
+            res.push_back(x + num);
+            res.push_back(x - num);
+            res.push_back(x ^ num);
+        }
+        return res;
     }
 };
 ```
@@ -220,13 +446,92 @@ func minimumOperations(nums []int, start int, goal int) int {
 }
 ```
 
+```go
+func minimumOperations(nums []int, start int, goal int) int {
+	next := func(x int) []int {
+		var res []int
+		for _, num := range nums {
+			res = append(res, []int{x + num, x - num, x ^ num}...)
+		}
+		return res
+	}
+	q := []int{start}
+	vis := make([]bool, 1001)
+	ans := 0
+	for len(q) > 0 {
+		ans++
+		for n := len(q); n > 0; n-- {
+			x := q[0]
+			q = q[1:]
+			for _, y := range next(x) {
+				if y == goal {
+					return ans
+				}
+				if y >= 0 && y <= 1000 && !vis[y] {
+					vis[y] = true
+					q = append(q, y)
+				}
+			}
+		}
+	}
+	return -1
+}
+```
+
+Two-end BFS:
+
+```go
+func minimumOperations(nums []int, start int, goal int) int {
+	next := func(x int) []int {
+		var res []int
+		for _, num := range nums {
+			res = append(res, []int{x + num, x - num, x ^ num}...)
+		}
+		return res
+	}
+	m1, m2 := map[int]int{start: 0}, map[int]int{goal: 0}
+	q1, q2 := []int{start}, []int{goal}
+	extend := func() int {
+		for i := len(q1); i > 0; i-- {
+			x := q1[0]
+			q1 = q1[1:]
+			step, _ := m1[x]
+			for _, y := range next(x) {
+				if _, ok := m1[y]; ok {
+					continue
+				}
+				if v, ok := m2[y]; ok {
+					return step + 1 + v
+				}
+				if y >= 0 && y <= 1000 {
+					m1[y] = step + 1
+					q1 = append(q1, y)
+				}
+			}
+		}
+		return -1
+	}
+	for len(q1) > 0 && len(q2) > 0 {
+		if len(q1) > len(q2) {
+			m1, m2 = m2, m1
+			q1, q2 = q2, q1
+		}
+		t := extend()
+		if t != -1 {
+			return t
+		}
+	}
+	return -1
+}
+```
+
 ### **TypeScript**
 
 ```ts
 function minimumOperations(
     nums: number[],
     start: number,
-    goal: number
+    goal: number,
 ): number {
     const n = nums.length;
     const op1 = function (x: number, y: number): number {

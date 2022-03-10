@@ -14,17 +14,26 @@
 <p><strong>Example 1:</strong></p>
 
 <pre>
-<strong>Input:</strong> cost = [10,15,20]
+<strong>Input:</strong> cost = [10,<u>15</u>,20]
 <strong>Output:</strong> 15
-<strong>Explanation:</strong> Cheapest is: start on cost[1], pay that cost, and go to the top.
+<strong>Explanation:</strong> You will start at index 1.
+- Pay 15 and climb two steps to reach the top.
+The total cost is 15.
 </pre>
 
 <p><strong>Example 2:</strong></p>
 
 <pre>
-<strong>Input:</strong> cost = [1,100,1,1,1,100,1,1,100,1]
+<strong>Input:</strong> cost = [<u>1</u>,100,<u>1</u>,1,<u>1</u>,100,<u>1</u>,<u>1</u>,100,<u>1</u>]
 <strong>Output:</strong> 6
-<strong>Explanation:</strong> Cheapest is: start on cost[0], and only step on 1s, skipping cost[3].
+<strong>Explanation:</strong> You will start at index 0.
+- Pay 1 and climb two steps to reach index 2.
+- Pay 1 and climb two steps to reach index 4.
+- Pay 1 and climb two steps to reach index 6.
+- Pay 1 and climb one step to reach index 7.
+- Pay 1 and climb two steps to reach index 9.
+- Pay 1 and climb one step to reach the top.
+The total cost is 6.
 </pre>
 
 <p>&nbsp;</p>

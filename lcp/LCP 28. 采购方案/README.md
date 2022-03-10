@@ -30,8 +30,8 @@
 
 **提示：**
 
-- `2 <= nums.length <= 10^5`
-- `1 <= nums[i], target <= 10^5`
+-   `2 <= nums.length <= 10^5`
+-   `1 <= nums[i], target <= 10^5`
 
 ## 解法
 

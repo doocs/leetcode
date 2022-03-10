@@ -18,7 +18,7 @@ Given a list of 24-hour clock time points in <strong>&quot;HH:MM&quot;</strong> 
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>2 &lt;= timePoints &lt;= 2 * 10<sup>4</sup></code></li>
+	<li><code>2 &lt;= timePoints.length &lt;= 2 * 10<sup>4</sup></code></li>
 	<li><code>timePoints[i]</code> is in the format <strong>&quot;HH:MM&quot;</strong>.</li>
 </ul>
 
@@ -119,6 +119,27 @@ func min(a, b int) int {
 		return a
 	}
 	return b
+}
+```
+
+### **TypeScript**
+
+```ts
+function findMinDifference(timePoints: string[]): number {
+    const mins = timePoints
+        .map(item => Number(item.slice(0, 2)) * 60 + Number(item.slice(3, 5)))
+        .sort((a, b) => a - b);
+    const n = mins.length;
+    let res = Infinity;
+    for (let i = 0; i < n - 1; i++) {
+        res = Math.min(res, mins[i + 1] - mins[i]);
+    }
+
+    const first = mins[0] + 24 * 60;
+    const last = mins[n - 1];
+    res = Math.min(res, first - last);
+
+    return res;
 }
 ```
 

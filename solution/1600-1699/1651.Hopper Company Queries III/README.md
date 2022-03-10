@@ -65,8 +65,10 @@ It is guaranteed that each accepted ride exists in the Rides table.
 <p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Drivers table:
 +-----------+------------+
 | driver_id | join_date  |
@@ -79,7 +81,6 @@ Drivers table:
 | 1         | 2020-10-24 |
 | 6         | 2021-1-5   |
 +-----------+------------+
-
 Rides table:
 +---------+---------+--------------+
 | ride_id | user_id | requested_at |
@@ -100,7 +101,6 @@ Rides table:
 | 12      | 11      | 2021-1-19    |
 | 14      | 18      | 2021-1-27    |
 +---------+---------+--------------+
-
 AcceptedRides table:
 +---------+-----------+---------------+---------------+
 | ride_id | driver_id | ride_distance | ride_duration |
@@ -117,8 +117,7 @@ AcceptedRides table:
 | 12      | 8         | 38            | 34            |
 | 14      | 1         | 90            | 74            |
 +---------+-----------+---------------+---------------+
-
-Result table:
+<strong>Output:</strong> 
 +-------+-----------------------+-----------------------+
 | month | average_ride_distance | average_ride_duration |
 +-------+-----------------------+-----------------------+
@@ -133,7 +132,7 @@ Result table:
 | 9     | 54.33                 | 64.33                 |
 | 10    | 56.33                 | 77.00                 |
 +-------+-----------------------+-----------------------+
-
+<strong>Explanation:</strong> 
 By the end of January --&gt; average_ride_distance = (0+0+63)/3=21, average_ride_duration = (0+0+38)/3=12.67
 By the end of February --&gt; average_ride_distance = (0+63+0)/3=21, average_ride_duration = (0+38+0)/3=12.67
 By the end of March --&gt; average_ride_distance = (63+0+0)/3=21, average_ride_duration = (38+0+0)/3=12.67

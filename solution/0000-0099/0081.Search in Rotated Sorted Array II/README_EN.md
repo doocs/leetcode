@@ -10,6 +10,8 @@
 
 <p>Given the array <code>nums</code> <strong>after</strong> the rotation and an integer <code>target</code>, return <code>true</code><em> if </em><code>target</code><em> is in </em><code>nums</code><em>, or </em><code>false</code><em> if it is not in </em><code>nums</code><em>.</em></p>
 
+<p>You must decrease the overall operation steps as much as possible.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <pre><strong>Input:</strong> nums = [2,5,6,0,0,1,2], target = 0
@@ -29,7 +31,7 @@
 </ul>
 
 <p>&nbsp;</p>
-<strong>Follow up:</strong> This problem is the same as <a href="/problems/search-in-rotated-sorted-array/description/" target="_blank">Search in Rotated Sorted Array</a>, where <code>nums</code> may contain <strong>duplicates</strong>. Would this affect the runtime complexity? How and why?
+<p><strong>Follow up:</strong> This problem is similar to&nbsp;<a href="/problems/search-in-rotated-sorted-array/description/" target="_blank">Search in Rotated Sorted Array</a>, but&nbsp;<code>nums</code> may contain <strong>duplicates</strong>. Would this affect the runtime complexity? How and why?</p>
 
 ## Solutions
 

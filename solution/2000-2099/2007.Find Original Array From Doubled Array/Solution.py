@@ -12,8 +12,8 @@ class Solution:
         for i in range(1, n):
             if counter[i] == 0:
                 continue
-            if i * 2 > n or counter[i] > counter[i*2]:
+            if i * 2 > n or counter[i] > counter[i * 2]:
                 return []
             res.extend([i] * counter[i])
-            counter[i*2] -= counter[i]
+            counter[i * 2] -= counter[i]
         return res

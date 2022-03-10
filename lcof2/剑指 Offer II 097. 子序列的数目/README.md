@@ -29,7 +29,7 @@
 <strong>输入：</strong>s = &quot;babgbag&quot;, t = &quot;bag&quot;
 <code><strong>输出</strong></code><strong>：</strong><code>5
 </code><strong>解释：</strong>
-如下图所示, 有 5 种可以从 s 中得到 <code>&quot;bag&quot; 的方案</code>。 
+如下图所示, 有 5 种可以从 s 中得到 <code>&quot;bag&quot; 的方案</code>。
 <code><strong><u>ba</u></strong>b<u><strong>g</strong></u>bag</code>
 <code><strong><u>ba</u></strong>bgba<strong><u>g</u></strong></code>
 <code><u><strong>b</strong></u>abgb<strong><u>ag</u></strong></code>
@@ -54,6 +54,8 @@
 
 <!-- 这里可写通用的实现逻辑 -->
 
+动态规划，`dp[i][j]` 表示 `s[:i]` 的子序列中 `t[:j]` 的出现次数
+
 <!-- tabs:start -->
 
 ### **Python3**
@@ -61,7 +63,18 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```python
-
+class Solution:
+    def numDistinct(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        for i in range(m + 1):
+            dp[i][0] = 1
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                dp[i][j] = dp[i - 1][j]
+                if s[i - 1] == t[j - 1]:
+                    dp[i][j] += dp[i - 1][j - 1]
+        return dp[m][n]
 ```
 
 ### **Java**
@@ -69,7 +82,71 @@
 <!-- 这里可写当前语言的特殊实现逻辑 -->
 
 ```java
+class Solution {
+    public int numDistinct(String s, String t) {
+        int m = s.length();
+        int n = t.length();
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 0; i <= m; i++) {
+            dp[i][0] = 1;
+        }
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                dp[i][j] = dp[i - 1][j];
+                if (s.charAt(i - 1) == t.charAt(j - 1)) {
+                    dp[i][j] += dp[i - 1][j - 1];
+                }
+            }
+        }
+        return dp[m][n];
+    }
+}
+```
 
+### **Go**
+
+```go
+func numDistinct(s string, t string) int {
+	m, n := len(s), len(t)
+	dp := make([][]int, m+1)
+	for i := 0; i <= m; i++ {
+		dp[i] = make([]int, n+1)
+		dp[i][0] = 1
+	}
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			dp[i][j] = dp[i-1][j]
+			if s[i-1] == t[j-1] {
+				dp[i][j] += dp[i-1][j-1]
+			}
+		}
+	}
+	return dp[m][n]
+}
+```
+
+### **C++**
+
+```cpp
+class Solution {
+public:
+    int numDistinct(string s, string t) {
+        int m = s.size(), n = t.size();
+        vector<vector<unsigned long long>> dp(m + 1, vector<unsigned long long>(n + 1));
+        for (int i = 0; i <= m; ++i) {
+            dp[i][0] = 1;
+        }
+        for (int i = 1; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                dp[i][j] = dp[i - 1][j];
+                if (s[i - 1] == t[j - 1]) {
+                    dp[i][j] += dp[i - 1][j - 1];
+                }
+            }
+        }
+        return dp[m][n];
+    }
+};
 ```
 
 ### **...**

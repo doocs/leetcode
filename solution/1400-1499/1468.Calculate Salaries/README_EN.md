@@ -16,26 +16,30 @@
 | salary        | int     |
 +---------------+---------+
 (company_id, employee_id) is the primary key for this table.
-This table contains the company id, the id, the name and the salary for an employee.
+This table contains the company id, the id, the name, and the salary for an employee.
 </pre>
 
 <p>&nbsp;</p>
 
-<p>Write an SQL query to find the salaries of the employees after applying taxes.</p>
+<p>Write an SQL query to find the salaries of the employees after applying taxes. Round the salary to <strong>the nearest integer</strong>.</p>
 
 <p>The tax rate is calculated for each company based on the following criteria:</p>
 
 <ul>
-	<li>0% If the max salary of any employee in the company is less than&nbsp;1000$.</li>
-	<li>24% If the max salary of any employee in the company is in the range [1000, 10000] inclusive.</li>
-	<li>49% If the max salary of any employee in the company is greater than 10000$.</li>
+	<li><code>0%</code> If the max salary of any employee in the company is less than <code>$1000</code>.</li>
+	<li><code>24%</code> If the max salary of any employee in the company is in the range <code>[1000, 10000]</code> inclusive.</li>
+	<li><code>49%</code> If the max salary of any employee in the company is greater than <code>$10000</code>.</li>
 </ul>
 
-<p>Return the result table <b>in any order</b>. Round the salary to the nearest integer.</p>
+<p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Salaries table:
 +------------+-------------+---------------+--------+
 | company_id | employee_id | employee_name | salary |
@@ -51,8 +55,7 @@ Salaries table:
 | 3          | 13          | Nyancat       | 3300   |
 | 3          | 15          | Morninngcat   | 7777   |
 +------------+-------------+---------------+--------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+-------------+---------------+--------+
 | company_id | employee_id | employee_name | salary |
 +------------+-------------+---------------+--------+
@@ -67,6 +70,7 @@ Result table:
 | 3          | 13          | Nyancat       | 2508   |
 | 3          | 15          | Morninngcat   | 5911   |
 +------------+-------------+---------------+--------+
+<strong>Explanation:</strong> 
 For company 1, Max salary is 21300. Employees in company 1 have taxes = 49%
 For company 2, Max salary is 700. Employees in company 2 have taxes = 0%
 For company 3, Max salary is 7777. Employees in company 3 have taxes = 24%

@@ -35,26 +35,12 @@
 <strong>Explanation:</strong> Inserting 5 characters the string becomes &quot;leetcodocteel&quot;.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;g&quot;
-<strong>Output:</strong> 0
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;no&quot;
-<strong>Output:</strong> 1
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= s.length &lt;= 500</code></li>
-	<li>All characters of <code>s</code>&nbsp;are lower case English letters.</li>
+	<li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
 ## Solutions

@@ -6,58 +6,55 @@
 
 <!-- 这里写题目描述 -->
 
-<p>You are given an integer array <code>ribbons</code>, where <code>ribbons[i]</code> represents the length of the <code>i<sup>th</sup></code> ribbon, and an integer <code>k</code>. You may cut any of the ribbons into any number of segments of <strong>positive integer</strong> lengths, or perform no cuts at all.</p>
+<p>给定一个整数数组 <code>ribbons</code> 和一个整数 <code>k</code>，数组每项 <code>ribbons[i]</code> 表示第 <code>i</code> 条绳子的长度。对于每条绳子，你可以将任意切割成一系列长度为<strong>正整数</strong>的部分，或者选择不进行切割。</p>
+
+<p>例如，如果给你一条长度为 <code>4</code> 的绳子，你可以：</p>
 
 <ul>
-	<li>For example, if you have a ribbon of length <code>4</code>, you can:
-	<ul>
-		<li>Keep the ribbon of length <code>4</code>,</li>
-		<li>Cut it into one ribbon of length <code>3</code> and one ribbon of length <code>1</code>,</li>
-		<li>Cut it into two ribbons of length <code>2</code>,</li>
-		<li>Cut it into one ribbon of length <code>2</code> and two ribbons of length <code>1</code>, or</li>
-		<li>Cut it into four ribbons of length <code>1</code>.</li>
-	</ul>
-	</li>
+	<li>保持绳子的长度为 <code>4</code> 不变；</li>
+	<li>切割成一条长度为 <code>3</code> 和一条长度为 <code>1</code> 的绳子；</li>
+	<li>切割成两条长度为 <code>2</code> 的绳子；</li>
+	<li>切割成一条长度为 <code>2</code> 和两条长度为 <code>1</code> 的绳子；</li>
+	<li>切割成四条长度为 <code>1</code> 的绳子。</li>
 </ul>
 
-<p>Your goal is to obtain <code>k</code> ribbons of all the <strong>same positive integer length</strong>. You are allowed to throw away any excess ribbon as a result of cutting.</p>
+<p>你的任务是最终得到 <code>k</code> 条完全一样的绳子，他们的长度均为<strong>相同的正整数</strong>。如果绳子切割后有剩余，你可以直接舍弃掉多余的部分。</p>
 
-<p>Return <em>the <strong>maximum</strong> possible positive integer length that you can obtain </em><code>k</code><em> ribbons of</em><em>, or </em><code>0</code><em> if you cannot obtain </em><code>k</code><em> ribbons of the same length</em>.</p>
+<p>对于这 <code>k</code> 根绳子，返回你能得到的绳子<strong>最大</strong>长度；如果你无法得到 <code>k</code> 根相同长度的绳子，返回 <code>0</code>。</p>
 
-<p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p> </p>
 
-<pre>
-<strong>Input:</strong> ribbons = [9,7,5], k = 3
-<strong>Output:</strong> 5
-<strong>Explanation:</strong>
-- Cut the first ribbon to two ribbons, one of length 5 and one of length 4.
-- Cut the second ribbon to two ribbons, one of length 5 and one of length 2.
-- Keep the third ribbon as it is.
-Now you have 3 ribbons of length 5.</pre>
+<p><strong>示例 1:</strong></p>
 
-<p><strong>Example 2:</strong></p>
+<pre><strong>输入:</strong> ribbons = [9,7,5], k = 3
+<strong>输出:</strong> 5
+<strong>解释:</strong>
+- 把第一条绳子切成两部分，一条长度为 5，一条长度为 4；
+- 把第二条绳子切成两部分，一条长度为 5，一条长度为 2；
+- 第三条绳子不进行切割；
+现在，你得到了 3 条长度为 5 的绳子。</pre>
 
-<pre>
-<strong>Input:</strong> ribbons = [7,5,9], k = 4
-<strong>Output:</strong> 4
-<strong>Explanation:</strong>
-- Cut the first ribbon to two ribbons, one of length 4 and one of length 3.
-- Cut the second ribbon to two ribbons, one of length 4 and one of length 1.
-- Cut the third ribbon to three ribbons, two of length 4 and one of length 1.
-Now you have 4 ribbons of length 4.
+<p><strong>示例 2:</strong></p>
+
+<pre><strong>输入:</strong> ribbons = [7,5,9], k = 4
+<strong>输出:</strong> 4
+<strong>解释:</strong>
+- 把第一条绳子切成两部分，一条长度为 4，一条长度为 3；
+- 把第二条绳子切成两部分，一条长度为 4，一条长度为 1；
+- 把第二条绳子切成三部分，一条长度为 4，一条长度为 4，还有一条长度为 1；
+现在，你得到了 4 条长度为 4 的绳子。
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong>示例 3:</strong></p>
 
-<pre>
-<strong>Input:</strong> ribbons = [5,7,9], k = 22
-<strong>Output:</strong> 0
-<strong>Explanation:</strong> You cannot obtain k ribbons of the same positive integer length.
+<pre><strong>输入:</strong> ribbons = [5,7,9], k = 22
+<strong>输出:</strong> 0
+<strong>解释:</strong> 由于绳子长度需要为正整数，你无法得到 22 条长度相同的绳子。
 </pre>
 
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
+<p> </p>
+
+<p><strong>提示:</strong></p>
 
 <ul>
 	<li><code>1 &lt;= ribbons.length &lt;= 10<sup>5</sup></code></li>

@@ -17,11 +17,11 @@
 <strong>Input:</strong> rowSum = [3,8], colSum = [4,7]
 <strong>Output:</strong> [[3,0],
          [1,7]]
-<strong>Explanation:</strong>
-0th row: 3 + 0 = 3 == rowSum[0]
-1st row: 1 + 7 = 8 == rowSum[1]
-0th column: 3 + 1 = 4 == colSum[0]
-1st column: 0 + 7 = 7 == colSum[1]
+<strong>Explanation:</strong> 
+0<sup>th</sup> row: 3 + 0 = 3 == rowSum[0]
+1<sup>st</sup> row: 1 + 7 = 8 == rowSum[1]
+0<sup>th</sup> column: 3 + 1 = 4 == colSum[0]
+1<sup>st</sup> column: 0 + 7 = 7 == colSum[1]
 The row and column sums match, and all matrix elements are non-negative.
 Another possible matrix is: [[1,2],
                              [3,5]]
@@ -34,29 +34,6 @@ Another possible matrix is: [[1,2],
 <strong>Output:</strong> [[0,5,0],
          [6,1,0],
          [2,0,8]]
-</pre>
-
-<p><strong>Example 3:</strong></p>
-
-<pre>
-<strong>Input:</strong> rowSum = [14,9], colSum = [6,9,8]
-<strong>Output:</strong> [[0,9,5],
-         [6,0,3]]
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> rowSum = [1,0], colSum = [1]
-<strong>Output:</strong> [[1],
-         [0]]
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> rowSum = [0], colSum = [0]
-<strong>Output:</strong> [[0]]
 </pre>
 
 <p>&nbsp;</p>

@@ -28,9 +28,13 @@ It is guaranteed that no two events on the same day intersect in time, and in_ti
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Employees table:
 +--------+------------+---------+----------+
 | emp_id | event_day  | in_time | out_time |
@@ -41,7 +45,7 @@ Employees table:
 | 2      | 2020-11-28 | 3       | 33       |
 | 2      | 2020-12-09 | 47      | 74       |
 +--------+------------+---------+----------+
-Result table:
+<strong>Output:</strong> 
 +------------+--------+------------+
 | day        | emp_id | total_time |
 +------------+--------+------------+
@@ -50,6 +54,7 @@ Result table:
 | 2020-12-03 | 1      | 41         |
 | 2020-12-09 | 2      | 27         |
 +------------+--------+------------+
+<strong>Explanation:</strong> 
 Employee 1 has three events: two on day 2020-11-28 with a total of (32 - 4) + (200 - 55) = 173, and one on day 2020-12-03 with a total of (42 - 1) = 41.
 Employee 2 has two events: one on day 2020-11-28 with a total of (33 - 3) = 30, and one on day 2020-12-09 with a total of (74 - 47) = 27.
 </pre>

@@ -6,37 +6,58 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定一个正整数，返回它在 Excel 表中相对应的列名称。</p>
+<p>给你一个整数 <code>columnNumber</code> ，返回它在 Excel 表中相对应的列名称。</p>
 
-<p>例如，</p>
+<p>例如：</p>
 
-<pre>    1 -&gt; A
-    2 -&gt; B
-    3 -&gt; C
-    ...
-    26 -&gt; Z
-    27 -&gt; AA
-    28 -&gt; AB 
-    ...
+<pre>
+A -> 1
+B -> 2
+C -> 3
+...
+Z -> 26
+AA -> 27
+AB -> 28 
+...
 </pre>
 
-<p><strong>示例 1:</strong></p>
+<p> </p>
 
-<pre><strong>输入:</strong> 1
-<strong>输出:</strong> &quot;A&quot;
+<p><strong>示例 1：</strong></p>
+
+<pre>
+<strong>输入：</strong>columnNumber = 1
+<strong>输出：</strong>"A"
 </pre>
 
-<p><strong>示例&nbsp;2:</strong></p>
+<p><strong>示例 2：</strong></p>
 
-<pre><strong>输入:</strong> 28
-<strong>输出:</strong> &quot;AB&quot;
+<pre>
+<strong>输入：</strong>columnNumber = 28
+<strong>输出：</strong>"AB"
 </pre>
 
-<p><strong>示例&nbsp;3:</strong></p>
+<p><strong>示例 3：</strong></p>
 
-<pre><strong>输入:</strong> 701
-<strong>输出:</strong> &quot;ZY&quot;
+<pre>
+<strong>输入：</strong>columnNumber = 701
+<strong>输出：</strong>"ZY"
 </pre>
+
+<p><strong>示例 4：</strong></p>
+
+<pre>
+<strong>输入：</strong>columnNumber = 2147483647
+<strong>输出：</strong>"FXSHRXW"
+</pre>
+
+<p> </p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 <= columnNumber <= 2<sup>31</sup> - 1</code></li>
+</ul>
 
 ## 解法
 
@@ -88,7 +109,7 @@ function convertToTitle(columnNumber: number): string {
         res.unshift(String.fromCharCode(num + 65));
         columnNumber = Math.floor(columnNumber / 26);
     }
-    return res.join("");
+    return res.join('');
 }
 ```
 

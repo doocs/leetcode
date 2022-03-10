@@ -1,10 +1,5 @@
 class Solution:
     def hitBricks(self, grid: List[List[int]], hits: List[List[int]]) -> List[int]:
-        m, n = len(grid), len(grid[0])
-        p = list(range(m * n + 1))
-        size = [1] * len(p)
-        g = [[grid[i][j] for j in range(n)] for i in range(m)]
-
         def find(x):
             if p[x] != x:
                 p[x] = find(p[x])
@@ -16,16 +11,15 @@ class Solution:
                 size[pb] += size[pa]
                 p[pa] = pb
 
-        def check(i, j):
-            return 0 <= i < m and 0 <= j < n and g[i][j] == 1
-
+        m, n = len(grid), len(grid[0])
+        p = list(range(m * n + 1))
+        size = [1] * len(p)
+        g = deepcopy(grid)
         for i, j in hits:
             g[i][j] = 0
-
         for j in range(n):
             if g[0][j] == 1:
                 union(j, m * n)
-
         for i in range(1, m):
             for j in range(n):
                 if g[i][j] == 0:
@@ -34,19 +28,19 @@ class Solution:
                     union(i * n + j, (i - 1) * n + j)
                 if j > 0 and g[i][j - 1] == 1:
                     union(i * n + j, i * n + j - 1)
-
-        res = []
+        ans = []
         for i, j in hits[::-1]:
             if grid[i][j] == 0:
-                res.append(0)
+                ans.append(0)
                 continue
-            origin = size[find(m * n)]
+            g[i][j] = 1
+            prev = size[find(m * n)]
             if i == 0:
                 union(j, m * n)
-            for x, y in [(-1, 0), (1, 0), (0, 1), (0, -1)]:
-                if check(i + x, j + y):
-                    union(i * n + j, (i + x) * n + (j + y))
-            cur = size[find(m * n)]
-            res.append(max(0, cur - origin - 1))
-            g[i][j] = 1
-        return res[::-1]
+            for a, b in [(-1, 0), (1, 0), (0, 1), (0, -1)]:
+                x, y = i + a, j + b
+                if 0 <= x < m and 0 <= y < n and g[x][y] == 1:
+                    union(i * n + j, x * n + y)
+            curr = size[find(m * n)]
+            ans.append(max(0, curr - prev - 1))
+        return ans[::-1]

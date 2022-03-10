@@ -8,7 +8,8 @@
 
 <p>销售表&nbsp;<code>Sales</code>：</p>
 
-<pre>+-------------+-------+
+<pre>
++-------------+-------+
 | Column Name | Type  |
 +-------------+-------+
 | sale_id     | int   |
@@ -24,7 +25,8 @@ product_id 是关联到产品表 Product 的外键.
 
 <p>产品表&nbsp;<code>Product</code>：</p>
 
-<pre>+--------------+---------+
+<pre>
++--------------+---------+
 | Column Name  | Type    |
 +--------------+---------+
 | product_id   | int     |
@@ -37,11 +39,14 @@ product_id&nbsp;是表的主键.
 
 <p>写一条SQL&nbsp;查询语句获取 <code>Sales</code>&nbsp;表中所有产品对应的 <strong>产品名称 product_name</strong> 以及该产品的所有 <strong>售卖年份 year</strong>&nbsp;和 <strong>价格 price</strong> 。</p>
 
+<p>查询结果中的顺序无特定要求。</p>
+
+<p>查询结果格式示例如下：</p>
+
 <p>&nbsp;</p>
 
-<p><strong>示例</strong>：</p>
-
-<pre><code>Sales</code> 表：
+<pre>
+<code>Sales</code> 表：
 +---------+------------+------+----------+-------+
 | sale_id | product_id | year | quantity | price |
 +---------+------------+------+----------+-------+ 

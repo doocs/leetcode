@@ -2,26 +2,43 @@
 
 ## 题目描述
 
-定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。
+<p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</p>
 
-**示例:**
+<p>&nbsp;</p>
 
-```
-MinStack minStack = new MinStack();
+<p><strong>示例:</strong></p>
+
+<pre>MinStack minStack = new MinStack();
 minStack.push(-2);
 minStack.push(0);
 minStack.push(-3);
-minStack.min();   --> 返回 -3.
+minStack.min();   --&gt; 返回 -3.
 minStack.pop();
-minStack.top();      --> 返回 0.
-minStack.min();   --> 返回 -2.
-```
+minStack.top();      --&gt; 返回 0.
+minStack.min();   --&gt; 返回 -2.
+</pre>
 
-**提示：**
+<p>&nbsp;</p>
 
-- 各函数的调用总次数不超过 20000 次
+<p><strong>提示：</strong></p>
+
+<ol>
+	<li>各函数的调用总次数不超过 20000 次</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p>注意：本题与主站 155 题相同：<a href="https://leetcode-cn.com/problems/min-stack/">https://leetcode-cn.com/problems/min-stack/</a></p>
 
 ## 解法
+
+-   若是无视时间复杂度需求，使用暴力解法：执行 `min()` 时，遍历整个栈，找到最小数返回，时间复杂度是 O(n)；
+-   若是使用一个变量记录最小数，可以将时间复杂度拉到 O(1)。可是当最小数出栈之后就麻烦了，因为不知道第二小的数是谁；
+-   因此需要的是一个结构，当最小值离开，暴漏第二小的值，以此类推；
+-   此时使用一个新的栈，存储最小值，保证该栈顶元素为栈中最小数（称此栈为最小栈）；
+-   当 `push()` 时，该值只有比最小栈栈顶元素更小，才放入最小栈当中；
+-   当最小值出栈时，最小栈进行出栈操作（`pop()`）；
+-   不会有出栈问题，最小栈栈底存放了正常栈中栈底的元素。
 
 <!-- tabs:start -->
 
@@ -192,6 +209,66 @@ public:
         return b.top();
     }
 };
+```
+
+### **Rust**
+
+```rust
+struct MinStack {
+    items: Vec<i32>,
+    min: Vec<i32>,
+}
+
+
+/**
+ * `&self` means the method takes an immutable reference.
+ * If you need a mutable reference, change it to `&mut self` instead.
+ */
+impl MinStack {
+
+    /** initialize your data structure here. */
+    fn new() -> Self {
+        MinStack {
+            items: Vec::new(),
+            min: Vec::new(),
+        }
+    }
+
+    fn push(&mut self, x: i32) {
+        self.items.push(x);
+        match self.min.last() {
+            Some(min) => {
+                if *min >= x {
+                    self.min.push(x)
+                }
+            },
+            None => self.min.push(x)
+        }
+    }
+
+    fn pop(&mut self) {
+        if self.items.pop().unwrap() == *self.min.last().unwrap() {
+            self.min.pop();
+        }
+    }
+
+    fn top(&self) -> i32 {
+        *self.items.last().unwrap()
+    }
+
+    fn min(&self) -> i32 {
+        *self.min.last().unwrap()
+    }
+}
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * let obj = MinStack::new();
+ * obj.push(x);
+ * obj.pop();
+ * let ret_3: i32 = obj.top();
+ * let ret_4: i32 = obj.min();
+ */
 ```
 
 ### **...**

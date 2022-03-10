@@ -35,6 +35,7 @@
 	<li><code>3 &lt;= n &lt;= 1000</code></li>
 	<li><code>edges[i].length == 2</code></li>
 	<li><code>1 &lt;= u<sub>i</sub>, v<sub>i</sub> &lt;= n</code></li>
+	<li><code>u<sub>i</sub> != v<sub>i</sub></code></li>
 </ul>
 
 ## Solutions

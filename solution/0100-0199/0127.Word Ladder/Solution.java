@@ -1,48 +1,50 @@
 class Solution {
+    private Set<String> words;
+
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        Queue<String> queue = new LinkedList<>();
-        
-        // 需要转hashSet
-        Set<String> wordSet = new HashSet<>(wordList);
-        queue.offer(beginWord);
-        int level = 1;
-        int curNum = 1;
-        int nextNum = 0;
-        while (!queue.isEmpty()) {
-            String s = queue.poll();
-            --curNum;
-            char[] chars = s.toCharArray();
-            for (int i = 0; i < chars.length; ++i) {
-                char ch = chars[i];
-                for (char j = 'a'; j <= 'z'; ++j) {
-                    chars[i] = j;
-                    String tmp = new String(chars);
-                    // 字典中包含生成的中间字符串
-                    if (wordSet.contains(tmp)) {
-                        // 中间字符串与 endWord 相等
-                        if (endWord.equals(tmp)) {
-                            return level + 1;
-                        }
-
-                        // 中间字符串不是 endWord，则入队
-                        queue.offer(tmp);
-                        ++nextNum;
-
-                        // 确保之后不会再保存 tmp 字符串
-                        wordSet.remove(tmp);
-                    }
-                }
-                chars[i] = ch;
-            }
-
-            if (curNum == 0) {
-                curNum = nextNum;
-                nextNum = 0;
-                ++level;
-            }
-
+        words = new HashSet<>(wordList);
+        if (!words.contains(endWord)) {
+            return 0;
         }
-        
+        Queue<String> q1 = new ArrayDeque<>();
+        Queue<String> q2 = new ArrayDeque<>();
+        Map<String, Integer> m1 = new HashMap<>();
+        Map<String, Integer> m2 = new HashMap<>();
+        q1.offer(beginWord);
+        q2.offer(endWord);
+        m1.put(beginWord, 0);
+        m2.put(endWord, 0);
+        while (!q1.isEmpty() && !q2.isEmpty()) {
+            int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
+            if (t != -1) {
+                return t + 1;
+            }
+        }
         return 0;
+    }
+
+    private int extend(Map<String, Integer> m1, Map<String, Integer> m2, Queue<String> q) {
+        for (int i = q.size(); i > 0; --i) {
+            String s = q.poll();
+            int step = m1.get(s);
+            char[] chars = s.toCharArray();
+            for (int j = 0; j < chars.length; ++j) {
+                char ch = chars[j];
+                for (char k = 'a'; k <= 'z'; ++k) {
+                    chars[j] = k;
+                    String t = new String(chars);
+                    if (!words.contains(t) || m1.containsKey(t)) {
+                        continue;
+                    }
+                    if (m2.containsKey(t)) {
+                        return step + 1 + m2.get(t);
+                    }
+                    q.offer(t);
+                    m1.put(t, step + 1);
+                }
+                chars[j] = ch;
+            }
+        }
+        return -1;
     }
 }

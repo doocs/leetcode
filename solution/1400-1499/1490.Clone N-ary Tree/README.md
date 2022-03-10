@@ -19,8 +19,6 @@ class Node {
 
 <p><em>N 叉树的输入序列用层序遍历表示，每组子节点用 null 分隔（见示例）。</em></p>
 
-<p><strong>进阶：</strong>你的答案可以适用于<a href="https://leetcode-cn.com/problems/clone-graph/">克隆图</a>问题吗？</p>
-
 <p>&nbsp;</p>
 
 <p><strong>示例 1：</strong></p>
@@ -49,6 +47,10 @@ class Node {
 	<li>给定的 N 叉树的深度小于或等于&nbsp;<code>1000</code>。</li>
 	<li>节点的总个数在&nbsp;<code>[0,&nbsp;10^4]</code>&nbsp;之间</li>
 </ul>
+
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong>你的解决方案可以适用于<a href="https://leetcode-cn.com/problems/clone-graph/">克隆图</a>问题吗？</p>
 
 ## 解法
 

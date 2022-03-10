@@ -43,41 +43,43 @@ DFS.
 ```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        res = []
-
-        def dfs(i, n, t):
-            res.append(t.copy())
-            if i == n:
+        def dfs(u, t):
+            if u == len(nums):
+                ans.append(t[:])
                 return
-            for j in range(i, n):
-                t.append(nums[j])
-                dfs(j + 1, n, t)
-                t.pop()
+            dfs(u + 1, t)
+            t.append(nums[u])
+            dfs(u + 1, t)
+            t.pop()
 
-        dfs(0, len(nums), [])
-        return res
+        ans = []
+        dfs(0, [])
+        return ans
 ```
 
 ### **Java**
 
 ```java
 class Solution {
+    private List<List<Integer>> ans;
+    private int[] nums;
+
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        dfs(0, nums, new ArrayList<>(), res);
-        return res;
+        ans = new ArrayList<>();
+        this.nums = nums;
+        dfs(0, new ArrayList<>());
+        return ans;
     }
 
-    private void dfs(int i, int[] nums, List<Integer> t, List<List<Integer>> res) {
-        res.add(new ArrayList<>(t));
-        if (i == nums.length) {
+    private void dfs(int u, List<Integer> t) {
+        if (u == nums.length) {
+            ans.add(new ArrayList<>(t));
             return;
         }
-        for (int j = i; j < nums.length; ++j) {
-            t.add(nums[j]);
-            dfs(j + 1, nums, t, res);
-            t.remove(t.size() - 1);
-        }
+        dfs(u + 1, t);
+        t.add(nums[u]);
+        dfs(u + 1, t);
+        t.remove(t.size() - 1);
     }
 }
 ```
@@ -88,21 +90,22 @@ class Solution {
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
-        vector<vector<int>> res;
+        vector<vector<int>> ans;
         vector<int> t;
-        dfs(0, nums, t, res);
-        return res;
+        dfs(0, nums, t, ans);
+        return ans;
     }
 
-    void dfs(int i, vector<int>& nums, vector<int> t, vector<vector<int>>& res) {
-        res.push_back(t);
-        if (i == nums.size()) return;
-        for (int j = i; j < nums.size(); ++j)
+    void dfs(int u, vector<int>& nums, vector<int>& t, vector<vector<int>>& ans) {
+        if (u == nums.size())
         {
-            t.push_back(nums[j]);
-            dfs(j + 1, nums, t, res);
-            t.pop_back();
+            ans.push_back(t);
+            return;
         }
+        dfs(u + 1, nums, t, ans);
+        t.push_back(nums[u]);
+        dfs(u + 1, nums, t, ans);
+        t.pop_back();
     }
 };
 ```
@@ -111,24 +114,21 @@ public:
 
 ```go
 func subsets(nums []int) [][]int {
-	var res [][]int
-	var t []int
-	dfs(0, nums, t, &res)
-	return res
-}
-
-func dfs(i int, nums, t []int, res *[][]int) {
-	cp := make([]int, len(t))
-	copy(cp, t)
-	*res = append(*res, cp)
-	if i == len(nums) {
-		return
-	}
-	for j := i; j < len(nums); j++ {
-		t = append(t, nums[j])
-		dfs(j+1, nums, t, res)
+	var ans [][]int
+	var dfs func(u int, t []int)
+	dfs = func(u int, t []int) {
+		if u == len(nums) {
+			ans = append(ans, append([]int(nil), t...))
+			return
+		}
+		dfs(u+1, t)
+		t = append(t, nums[u])
+		dfs(u+1, t)
 		t = t[:len(t)-1]
 	}
+	var t []int
+	dfs(0, t)
+	return ans
 }
 ```
 

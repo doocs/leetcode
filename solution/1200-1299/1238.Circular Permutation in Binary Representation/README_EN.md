@@ -7,9 +7,10 @@
 <p>Given 2 integers <code>n</code> and <code>start</code>. Your task is return <strong>any</strong> permutation <code>p</code>&nbsp;of <code>(0,1,2.....,2^n -1) </code>such that :</p>
 
 <ul>
-	<li><code>p[0] = start</code></li>
-	<li><code>p[i]</code> and <code>p[i+1]</code>&nbsp;differ by only one bit in their binary representation.</li>
-	<li><code>p[0]</code> and <code>p[2^n -1]</code>&nbsp;must also differ by only one bit in their binary representation.</li>
+    <li><code>p[0] = start</code></li>
+    <li><code>p[i]</code> and <code>p[i+1]</code>&nbsp;differ by only one bit in their binary representation.</li>
+    <li><code>p[0]</code> and <code>p[2^n -1]</code>&nbsp;must also differ by only one bit in their binary representation.</li>
+
 </ul>
 
 <p>&nbsp;</p>
@@ -45,8 +46,9 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>1 &lt;= n &lt;= 16</code></li>
-	<li><code>0 &lt;= start&nbsp;&lt;&nbsp;2 ^ n</code></li>
+    <li><code>1 &lt;= n &lt;= 16</code></li>
+    <li><code>0 &lt;= start&nbsp;&lt;&nbsp;2 ^ n</code></li>
+
 </ul>
 
 ## Solutions

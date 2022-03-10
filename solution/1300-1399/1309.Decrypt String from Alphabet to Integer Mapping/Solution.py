@@ -7,7 +7,7 @@ class Solution:
         res = []
         while i < n:
             if i + 2 < n and s[i + 2] == '#':
-                res.append(get(s[i: i + 2]))
+                res.append(get(s[i : i + 2]))
                 i += 3
             else:
                 res.append(get(s[i]))

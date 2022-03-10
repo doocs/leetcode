@@ -9,7 +9,7 @@ class Solution:
                 return step
             for i, v in enumerate(t):
                 for j in mp[v]:
-                    next = t[:i] + j + t[i + 1:]
+                    next = t[:i] + j + t[i + 1 :]
                     if next in s:
                         q.append((next, step + 1))
                         s.remove(next)

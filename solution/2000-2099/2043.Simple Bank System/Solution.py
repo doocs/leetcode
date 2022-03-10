@@ -1,5 +1,4 @@
 class Bank:
-
     def __init__(self, balance: List[int]):
         self.balance = balance
         self.n = len(balance)
@@ -22,6 +21,7 @@ class Bank:
             return False
         self.balance[account - 1] -= money
         return True
+
 
 # Your Bank object will be instantiated and called as such:
 # obj = Bank(balance)

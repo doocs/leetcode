@@ -16,53 +16,31 @@
 </ul>
 
 <p>&nbsp;</p>
-
 <p><strong>Example 1:</strong></p>
 
 <pre>
-
 <strong>Input</strong>
-
 [&quot;CustomStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;pop&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;increment&quot;,&quot;increment&quot;,&quot;pop&quot;,&quot;pop&quot;,&quot;pop&quot;,&quot;pop&quot;]
-
 [[3],[1],[2],[],[2],[3],[4],[5,100],[2,100],[],[],[],[]]
-
 <strong>Output</strong>
-
 [null,null,null,2,null,null,null,null,null,103,202,201,-1]
-
 <strong>Explanation</strong>
-
 CustomStack customStack = new CustomStack(3); // Stack is Empty []
-
 customStack.push(1);                          // stack becomes [1]
-
 customStack.push(2);                          // stack becomes [1, 2]
-
 customStack.pop();                            // return 2 --&gt; Return top of the stack 2, stack becomes [1]
-
 customStack.push(2);                          // stack becomes [1, 2]
-
 customStack.push(3);                          // stack becomes [1, 2, 3]
-
 customStack.push(4);                          // stack still [1, 2, 3], Don&#39;t add another elements as size is 4
-
 customStack.increment(5, 100);                // stack becomes [101, 102, 103]
-
 customStack.increment(2, 100);                // stack becomes [201, 202, 103]
-
 customStack.pop();                            // return 103 --&gt; Return top of the stack 103, stack becomes [201, 202]
-
 customStack.pop();                            // return 202 --&gt; Return top of the stack 102, stack becomes [201]
-
 customStack.pop();                            // return 201 --&gt; Return top of the stack 101, stack becomes []
-
 customStack.pop();                            // return -1 --&gt; Stack is empty return -1.
-
 </pre>
 
 <p>&nbsp;</p>
-
 <p><strong>Constraints:</strong></p>
 
 <ul>

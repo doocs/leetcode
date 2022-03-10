@@ -8,7 +8,14 @@
 
 <p>给你一个字符串 <code>s</code> 、一个字符串 <code>t</code> 。返回 <code>s</code> 中涵盖 <code>t</code> 所有字符的最小子串。如果 <code>s</code> 中不存在涵盖 <code>t</code> 所有字符的子串，则返回空字符串 <code>""</code> 。</p>
 
-<p><strong>注意：</strong>如果 <code>s</code> 中存在这样的子串，我们保证它是唯一的答案。</p>
+<p> </p>
+
+<p><strong>注意：</strong></p>
+
+<ul>
+	<li>对于 <code>t</code> 中重复字符，我们寻找的子字符串中该字符数量必须不少于 <code>t</code> 中该字符数量。</li>
+	<li>如果 <code>s</code> 中存在这样的子串，我们保证它是唯一的答案。</li>
+</ul>
 
 <p> </p>
 
@@ -25,6 +32,14 @@
 <strong>输入：</strong>s = "a", t = "a"
 <strong>输出：</strong>"a"
 </pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> s = "a", t = "aa"
+<strong>输出:</strong> ""
+<strong>解释:</strong> t 中两个字符 'a' 均应包含在 s 的子串中，
+因此没有符合条件的子字符串，返回空字符串。</pre>
 
 <p> </p>
 
@@ -68,7 +83,7 @@
 function minWindow(s: string, t: string): string {
     let n1 = s.length,
         n2 = t.length;
-    if (n1 < n2) return "";
+    if (n1 < n2) return '';
     let need = new Array(128).fill(0);
     let window = new Array(128).fill(0);
     for (let i = 0; i < n2; ++i) {
@@ -77,7 +92,7 @@ function minWindow(s: string, t: string): string {
 
     let left = 0,
         right = 0;
-    let res = "";
+    let res = '';
     let count = 0;
     let min = n1 + 1;
     while (right < n1) {

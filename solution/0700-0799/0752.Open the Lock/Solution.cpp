@@ -1,48 +1,58 @@
 class Solution {
 public:
+    unordered_set<string> s;
+    string start;
+    string target;
+
     int openLock(vector<string>& deadends, string target) {
-        unordered_set<string> s(deadends.begin(), deadends.end());
-        if (s.count(target) || s.count("0000")) return -1;
         if (target == "0000") return 0;
-        unordered_set<string> visited;
-        queue<string> q;
-        q.push("0000");
-        int step = 0;
-        while (!q.empty())
+        for (auto d : deadends) s.insert(d);
+        if (s.count("0000")) return -1;
+        this->start = "0000";
+        this->target = target;
+        return bfs(); 
+    }
+
+    int bfs() {
+        unordered_map<string, int> m1;
+        unordered_map<string, int> m2;
+        m1[start] = 0;
+        m2[target] = 0;
+        queue<string> q1{{start}};
+        queue<string> q2{{target}};
+        while (!q1.empty() && !q2.empty())
         {
-            ++step;
-            for (int i = 0, n = q.size(); i < n; ++i)
+            int t = q1.size() <= q2.size() ? extend(m1, m2, q1) : extend(m2, m1, q2);
+            if (t != -1) return t;
+        }
+        return -1;
+    }
+
+    int extend(unordered_map<string, int>& m1, unordered_map<string, int>& m2, queue<string>& q) {
+        for (int n = q.size(); n > 0; --n)
+        {
+            string p = q.front();
+            int step = m1[p];
+            q.pop();
+            for (string t : next(p))
             {
-                string status = q.front();
-                q.pop();
-                for (auto t : get(status))
-                {
-                    if (visited.count(t) || s.count(t)) continue;
-                    if (t == target) return step;
-                    q.push(t);
-                    visited.insert(t);
-                }
+                if (s.count(t) || m1.count(t)) continue;
+                if (m2.count(t)) return step + 1 + m2[t];
+                m1[t] = step + 1;
+                q.push(t);
             }
         }
         return -1;
     }
 
-    char prev(char c) {
-        return c == '0' ? '9' : (char) (c - 1);
-    }
-
-    char next(char c) {
-        return c == '9' ? '0' : (char) (c + 1);
-    }
-
-    vector<string> get(string& t) {
+    vector<string> next(string& t) {
         vector<string> res;
         for (int i = 0; i < 4; ++i)
         {
             char c = t[i];
-            t[i] = prev(c);
+            t[i] = c == '0' ? '9' : (char) (c - 1);
             res.push_back(t);
-            t[i] = next(c);
+            t[i] = c == '9' ? '0' : (char) (c + 1);
             res.push_back(t);
             t[i] = c;
         }

@@ -52,12 +52,6 @@ The key &quot;a&quot; has a value of &quot;yes&quot;, so replace all occurrences
 Notice that the &quot;a&quot;s not in a bracket pair are not evaluated.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;(a)(b)&quot;, knowledge = [[&quot;a&quot;,&quot;b&quot;],[&quot;b&quot;,&quot;a&quot;]]
-<strong>Output:</strong> &quot;ba&quot;</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

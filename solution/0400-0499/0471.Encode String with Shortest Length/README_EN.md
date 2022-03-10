@@ -35,22 +35,6 @@
 <strong>Explanation:</strong> &quot;a9[a]&quot; or &quot;9[a]a&quot; are also valid solutions, both of them have the same length = 5, which is the same as &quot;10[a]&quot;.
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;aabcaabcd&quot;
-<strong>Output:</strong> &quot;2[aabc]d&quot;
-<strong>Explanation:</strong> &quot;aabc&quot; occurs twice, so one answer can be &quot;2[aabc]d&quot;.
-</pre>
-
-<p><strong>Example 5:</strong></p>
-
-<pre>
-<strong>Input:</strong> s = &quot;abbbabbbcabbbabbbc&quot;
-<strong>Output:</strong> &quot;2[2[abbb]c]&quot;
-<strong>Explanation:</strong> &quot;abbbabbbc&quot; occurs twice, but &quot;abbbabbbc&quot; can also be encoded to &quot;2[abbb]c&quot;, so one answer can be &quot;2[2[abbb]c]&quot;.
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 

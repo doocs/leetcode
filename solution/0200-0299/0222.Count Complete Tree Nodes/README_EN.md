@@ -8,6 +8,8 @@
 
 <p>According to <strong><a href="http://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees" target="_blank">Wikipedia</a></strong>, every level, except possibly the last, is completely filled in a complete binary tree, and all nodes in the last level are as far left as possible. It can have between <code>1</code> and <code>2<sup>h</sup></code> nodes inclusive at the last level <code>h</code>.</p>
 
+<p>Design an algorithm that runs in less than&nbsp;<code data-stringify-type="code">O(n)</code>&nbsp;time complexity.</p>
+
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 <img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0200-0299/0222.Count%20Complete%20Tree%20Nodes/images/complete.jpg" style="width: 372px; height: 302px;" />
@@ -38,9 +40,6 @@
 	<li><code>0 &lt;= Node.val &lt;= 5 * 10<sup>4</sup></code></li>
 	<li>The tree is guaranteed to be <strong>complete</strong>.</li>
 </ul>
-
-<p>&nbsp;</p>
-<strong>Follow up:</strong> Traversing the tree to count the number of nodes in the tree is an easy solution but with <code>O(n)</code> complexity. Could you find a faster algorithm?
 
 ## Solutions
 
@@ -240,6 +239,38 @@ public class Solution {
         int res = 0;
         for (; root != null; ++res, root = root.left);
         return res;
+    }
+}
+```
+
+### **Rust**
+
+```rust
+use std::cell::RefCell;
+use std::rc::Rc;
+
+impl Solution {
+    pub fn count_nodes(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if let Some(node) = root {
+            let node = node.borrow();
+            let left = Self::depth(&node.left);
+            let right = Self::depth(&node.right);
+            if left == right {
+                Self::count_nodes(node.right.clone()) + (1 << left)
+            } else {
+                Self::count_nodes(node.left.clone()) + (1 << right)
+            }
+        } else {
+            0
+        }
+    }
+
+    fn depth(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if let Some(node) = root {
+            Self::depth(&node.borrow().left) + 1
+        } else {
+            0
+        }
     }
 }
 ```

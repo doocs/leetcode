@@ -1,5 +1,4 @@
 class MyCircularQueue:
-
     def __init__(self, k: int):
         self.q = [0] * k
         self.front = 0

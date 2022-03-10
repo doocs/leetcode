@@ -43,11 +43,13 @@ timestamp is the moment of time at which the ad was shown.
 
 <p>Return the result table in <strong>any order</strong>.</p>
 
-<p>The query result format is in the following example:</p>
+<p>The query result format is in the following example.</p>
 
 <p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
+<strong>Input:</strong> 
 Playback table:
 +------------+-------------+------------+----------+
 | session_id | customer_id | start_time | end_time |
@@ -58,7 +60,6 @@ Playback table:
 | 4          | 2           | 17         | 28       |
 | 5          | 2           | 2          | 8        |
 +------------+-------------+------------+----------+
-
 Ads table:
 +-------+-------------+-----------+
 | ad_id | customer_id | timestamp |
@@ -67,8 +68,7 @@ Ads table:
 | 2     | 2           | 17        |
 | 3     | 2           | 20        |
 +-------+-------------+-----------+
-
-Result table:
+<strong>Output:</strong> 
 +------------+
 | session_id |
 +------------+
@@ -76,10 +76,12 @@ Result table:
 | 3          |
 | 5          |
 +------------+
+<strong>Explanation:</strong> 
 The ad with ID 1 was shown to user 1 at time 5 while they were in session 1.
 The ad with ID 2 was shown to user 2 at time 17 while they were in session 4.
 The ad with ID 3 was shown to user 2 at time 20 while they were in session 4.
-We can see that sessions 1 and 4 had at least one ad. Sessions 2, 3, and 5 did not have any ads, so we return them.</pre>
+We can see that sessions 1 and 4 had at least one ad. Sessions 2, 3, and 5 did not have any ads, so we return them.
+</pre>
 
 ## Solutions
 

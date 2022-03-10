@@ -54,12 +54,18 @@ This table contains information about the products.
 
 <p>Write an SQL query to find the most frequently ordered product(s) for each customer.</p>
 
-<p>The result table should have the <code>product_id</code> and <code>product_name</code> for each <code>customer_id</code> who ordered at least one order. Return the result table in <strong>any order</strong>.</p>
+<p>The result table should have the <code>product_id</code> and <code>product_name</code> for each <code>customer_id</code> who ordered at least one order.</p>
 
-<p>The query result format is in the following example:</p>
+<p>Return the result table in <strong>any order</strong>.</p>
+
+<p>The query result format is in the following example.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
 
 <pre>
-<code>Customers</code>
+<strong>Input:</strong> 
+Customers table:
 +-------------+-------+
 | customer_id | name  |
 +-------------+-------+
@@ -69,8 +75,7 @@ This table contains information about the products.
 | 4           | Jerry |
 | 5           | John  |
 +-------------+-------+
-
-<code>Orders</code>
+Orders table:
 +----------+------------+-------------+------------+
 | order_id | order_date | customer_id | product_id |
 +----------+------------+-------------+------------+
@@ -85,8 +90,7 @@ This table contains information about the products.
 | 9        | 2020-08-07 | 2           | 3          |
 | 10       | 2020-07-15 | 1           | 2          |
 +----------+------------+-------------+------------+
-
-<code>Products</code>
+Products table:
 +------------+--------------+-------+
 | product_id | product_name | price |
 +------------+--------------+-------+
@@ -95,7 +99,7 @@ This table contains information about the products.
 | 3          | screen       | 600   |
 | 4          | hard disk    | 450   |
 +------------+--------------+-------+
-Result table:
+<strong>Output:</strong> 
 +-------------+------------+--------------+
 | customer_id | product_id | product_name |
 +-------------+------------+--------------+
@@ -106,11 +110,11 @@ Result table:
 | 3           | 3          | screen       |
 | 4           | 1          | keyboard     |
 +-------------+------------+--------------+
-
-Alice (customer 1) ordered the mouse three times and the keyboard one time, so the mouse is the most frquently ordered product for them.
-Bob (customer 2) ordered the keyboard, the mouse, and the screen one time, so those are the most frquently ordered products for them.
-Tom (customer 3) only ordered the screen (two times), so that is the most frquently ordered product for them.
-Jerry (customer 4) only ordered the keyboard (one time), so that is the most frquently ordered product for them.
+<strong>Explanation:</strong> 
+Alice (customer 1) ordered the mouse three times and the keyboard one time, so the mouse is the most frequently ordered product for them.
+Bob (customer 2) ordered the keyboard, the mouse, and the screen one time, so those are the most frequently ordered products for them.
+Tom (customer 3) only ordered the screen (two times), so that is the most frequently ordered product for them.
+Jerry (customer 4) only ordered the keyboard (one time), so that is the most frequently ordered product for them.
 John (customer 5) did not order anything, so we do not include them in the result table.
 </pre>
 

@@ -30,17 +30,6 @@
 <p><strong>Example 3:</strong></p>
 
 <pre>
-<strong>Input:</strong> pattern = &quot;abab&quot;, s = &quot;asdasdasdasd&quot;
-<strong>Output:</strong> true
-<strong>Explanation:</strong> One possible mapping is as follows:
-&#39;a&#39; -&gt; &quot;a&quot;
-&#39;b&#39; -&gt; &quot;sdasd&quot;
-Note that &#39;a&#39; and &#39;b&#39; cannot both map to &quot;asd&quot; since the mapping is a bijection.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre>
 <strong>Input:</strong> pattern = &quot;aabb&quot;, s = &quot;xyzabcxzyabc&quot;
 <strong>Output:</strong> false
 </pre>
@@ -50,7 +39,7 @@ Note that &#39;a&#39; and &#39;b&#39; cannot both map to &quot;asd&quot; since t
 
 <ul>
 	<li><code>1 &lt;= pattern.length, s.length &lt;= 20</code></li>
-	<li><code>pattern</code> and <code>s</code> consist of only lower-case English letters.</li>
+	<li><code>pattern</code> and <code>s</code> consist of only lowercase English letters.</li>
 </ul>
 
 ## Solutions

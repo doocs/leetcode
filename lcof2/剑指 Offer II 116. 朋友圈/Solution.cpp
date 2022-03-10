@@ -1,38 +1,29 @@
 class Solution {
 public:
-    vector<int> p;
+    vector<vector<int>> isConnected;
+    vector<bool> vis;
+    int n;
 
-    int findCircleNum(vector<vector<int>> &isConnected) {
-        int n = isConnected.size();
-        p.resize(n);
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        n = isConnected.size();
+        vis.resize(n);
+        this->isConnected = isConnected;
+        int ans = 0;
         for (int i = 0; i < n; ++i)
         {
-            p[i] = i;
-        }
-        for (int i = 0; i < n; ++i)
-        {
-            for (int j = 0; j < n; ++j)
+            if (!vis[i])
             {
-                if (isConnected[i][j])
-                {
-                    p[find(i)] = find(j);
-                }
+                dfs(i);
+                ++ans;
             }
         }
-        int cnt = 0;
-        for (int i = 0; i < n; ++i)
-        {
-            if (i == find(i))
-                ++cnt;
-        }
-        return cnt;
+        return ans;
     }
 
-    int find(int x) {
-        if (p[x] != x)
-        {
-            p[x] = find(p[x]);
-        }
-        return p[x];
+    void dfs(int i) {
+        vis[i] = true;
+        for (int j = 0; j < n; ++j)
+            if (!vis[j] && isConnected[i][j])
+                dfs(j);
     }
 };

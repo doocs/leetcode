@@ -47,12 +47,13 @@ Since none of them are abbreviations of words in the dictionary, returning any o
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>target.length == m</code></li>
-	<li><code>dictionary.length == n</code></li>
+	<li><code>m == target.length</code></li>
+	<li><code>n == dictionary.length</code></li>
 	<li><code>1 &lt;= m &lt;= 21</code></li>
 	<li><code>0 &lt;= n &lt;= 1000</code></li>
-	<li><code>1 &lt;= dictionary[i] &lt;= 100</code></li>
+	<li><code>1 &lt;= dictionary[i].length &lt;= 100</code></li>
 	<li><code>log<sub>2</sub>(n) + m &lt;= 21</code> if <code>n &gt; 0</code></li>
+	<li><code>target</code> and <code>dictionary[i]</code> consist of lowercase English letters.</li>
 </ul>
 
 ## Solutions

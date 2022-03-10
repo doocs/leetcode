@@ -4,7 +4,7 @@
 
 ## Description
 
-<p>Given an array of integers <code>arr</code> of even length, return <code>true</code> if and only if it is possible to reorder it such that <code>arr[2 * i + 1] = 2 * arr[2 * i]</code> for every <code>0 &lt;= i &lt; len(arr) / 2</code>.</p>
+<p>Given an integer array of even length <code>arr</code>, return <code>true</code><em> if it is possible to reorder </em><code>arr</code><em> such that </em><code>arr[2 * i + 1] = 2 * arr[2 * i]</code><em> for every </em><code>0 &lt;= i &lt; len(arr) / 2</code><em>, or </em><code>false</code><em> otherwise</em>.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -29,18 +29,11 @@
 <strong>Explanation:</strong> We can take two groups, [-2,-4] and [2,4] to form [-2,-4,2,4] or [2,4,-2,-4].
 </pre>
 
-<p><strong>Example 4:</strong></p>
-
-<pre>
-<strong>Input:</strong> arr = [1,2,4,16,8,4]
-<strong>Output:</strong> false
-</pre>
-
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
 
 <ul>
-	<li><code>0 &lt;= arr.length &lt;= 3 * 10<sup>4</sup></code></li>
+	<li><code>2 &lt;= arr.length &lt;= 3 * 10<sup>4</sup></code></li>
 	<li><code>arr.length</code> is even.</li>
 	<li><code>-10<sup>5</sup> &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 </ul>

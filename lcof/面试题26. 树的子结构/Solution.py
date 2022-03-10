@@ -5,16 +5,20 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def isSubStructure(self, A: TreeNode, B: TreeNode) -> bool:
-        def sub(A, B):
+        def dfs(A, B):
             if B is None:
                 return True
-            if A is None:
+            if A is None or A.val != B.val:
                 return False
-            return A.val == B.val and sub(A.left, B.left) and sub(A.right, B.right)
-        if B is None or A is None:
+            return dfs(A.left, B.left) and dfs(A.right, B.right)
+
+        if A is None or B is None:
             return False
-        if A.val != B.val:
-            return self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
-        return sub(A, B) or self.isSubStructure(A.left, B) or self.isSubStructure(A.right, B)
+        return (
+            dfs(A, B)
+            or self.isSubStructure(A.left, B)
+            or self.isSubStructure(A.right, B)
+        )

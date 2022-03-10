@@ -6,27 +6,43 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给一个嵌套整数序列，请你返回每个数字在序列中的加权和，它们的权重由它们的深度决定。</p>
+<p>给你一个整数嵌套列表&nbsp;<code>nestedList</code> ，每一个元素要么是一个整数，要么是一个列表（这个列表中的每个元素也同样是整数或列表）。</p>
 
-<p>序列中的每一个元素要么是一个整数，要么是一个序列（这个序列中的每个元素也同样是整数或序列）。</p>
+<p>整数的 <strong>深度</strong> 取决于它位于多少个列表内部。例如，嵌套列表 <code>[1,[2,2],[[3],2],1]</code> 的每个整数的值都等于它的 <strong>深度</strong> 。令 <code>maxDepth</code> 是任意整数的 <strong>最大深度</strong> 。</p>
 
-<p>与 <a href="http://leetcode.com/problems/nested-list-weight-sum/">前一个问题</a> 不同的是，前一题的权重按照从根到叶逐一增加，而本题的权重从叶到根逐一增加。</p>
+<p>整数的 <strong>权重</strong> 为 <code>maxDepth - (整数的深度) + 1</code> 。</p>
 
-<p>也就是说，在本题中，叶子的权重为1，而根拥有最大的权重。</p>
+<p>将 <code>nestedList</code> 列表中每个整数先乘权重再求和，返回该加权和。</p>
 
-<p><strong>示例 1:</strong></p>
+<p>&nbsp;</p>
 
-<pre><strong>输入: </strong>[[1,1],2,[1,1]]
-<strong>输出: </strong>8 
-<strong>解释: 四</strong>个 1 在深度为 1 的位置， 一个 2 在深度为 2 的位置。
+<p><strong>示例 1：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/images/nestedlistweightsumiiex1.png" style="width: 426px; height: 181px;" />
+<pre>
+<strong>输入：</strong>nestedList = [[1,1],2,[1,1]]
+<strong>输出：</strong>8
+<strong>解释：</strong>4<strong> </strong>个 1 在深度为 1 的位置， 一个 2 在深度为 2 的位置。
+1*1 + 1*1 + 2*2 + 1*1 + 1*1 = 8
 </pre>
 
-<p><strong>示例 2:</strong></p>
-
-<pre><strong>输入: </strong>[1,[4,[6]]]
-<strong>输出: </strong>17 
-<strong>解释:</strong> 一个 1 在深度为 3 的位置， 一个 4 在深度为 2 的位置，一个 6 在深度为 1 的位置。 1*3 + 4*2 + 6*1 = 17。
+<p><strong>示例 2：</strong></p>
+<img alt="" src="https://cdn.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0364.Nested%20List%20Weight%20Sum%20II/images/nestedlistweightsumiiex2.png" style="width: 349px; height: 192px;" />
+<pre>
+<strong>输入：</strong>nestedList = [1,[4,[6]]]
+<strong>输出：</strong>17
+<strong>解释：</strong>一个 1 在深度为 3 的位置， 一个 4 在深度为 2 的位置，一个 6 在深度为 1 的位置。 
+1*3 + 4*2 + 6*1 = 17
 </pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示：</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nestedList.length &lt;= 50</code></li>
+	<li>嵌套列表中整数的值在范围 <code>[-100, 100]</code></li>
+	<li>任意整数的最大 <strong>深度</strong> 小于等于 <code>50</code></li>
+</ul>
 
 ## 解法
 

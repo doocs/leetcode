@@ -6,25 +6,59 @@
 
 <!-- 这里写题目描述 -->
 
-<p>给定两个句子 <code>words1, words2</code> （每个用字符串数组表示），和一个相似单词对的列表&nbsp;<code>pairs</code>&nbsp;，判断是否两个句子是相似的。</p>
+<p>我们可以将一个句子表示为一个单词数组，例如，句子 <code>I am happy with leetcode"</code>可以表示为&nbsp;<code>arr = ["I","am",happy","with","leetcode"]</code></p>
 
-<p>例如，当相似单词对是 <code>pairs = [[&quot;great&quot;, &quot;fine&quot;], [&quot;acting&quot;,&quot;drama&quot;], [&quot;skills&quot;,&quot;talent&quot;]]</code>的时候，<code>words1 = [&quot;great&quot;, &quot;acting&quot;, &quot;skills&quot;]</code> 和&nbsp;<code>words2 = [&quot;fine&quot;, &quot;drama&quot;, &quot;talent&quot;]</code> 是相似的。</p>
+<p>给定两个句子 <code>sentence1</code> 和 <code>sentence2</code> 分别表示为一个字符串数组，并给定一个字符串对 <code>similarPairs</code> ，其中&nbsp;<code>similarPairs[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>&nbsp;表示两个单词&nbsp;<code>x<sub>i</sub></code>&nbsp;和&nbsp;<code>y<sub>i</sub></code>&nbsp;是相似的。</p>
 
-<p>注意相似关系是 <strong>具有</strong> 传递性的。例如，如果 &quot;great&quot; 和&nbsp;&quot;fine&quot; 是相似的，&quot;fine&quot; 和&nbsp;&quot;good&quot; 是相似的，则 &quot;great&quot; 和 &quot;good&quot; <strong>是相似的</strong>。</p>
+<p>如果 <code>sentence1</code> 和 <code>sentence2</code> 相似则返回 <code>true</code> ，如果不相似则返回 <code>false</code> 。</p>
 
-<p>而且，相似关系是具有对称性的。例如，&quot;great&quot; 和 &quot;fine&quot; 是相似的相当于&nbsp;&quot;fine&quot; 和&nbsp;&quot;great&quot; 是相似的。</p>
-
-<p>并且，一个单词总是与其自身相似。例如，句子 <code>words1 = [&quot;great&quot;], words2 = [&quot;great&quot;], pairs = []</code> 是相似的，尽管没有输入特定的相似单词对。</p>
-
-<p>最后，句子只会在具有相同单词个数的前提下才会相似。所以一个句子 <code>words1 = [&quot;great&quot;]</code> 永远不可能和句子 <code>words2 = [&quot;doubleplus&quot;,&quot;good&quot;]</code> 相似。</p>
-
-<p><strong>注：</strong></p>
+<p>两个句子是相似的，如果:</p>
 
 <ul>
-	<li><code>words1</code> and <code>words2</code> 的长度不会超过&nbsp;<code>1000</code>。</li>
-	<li><code>pairs</code>&nbsp;的长度不会超过&nbsp;<code>2000</code>。</li>
-	<li>每个<code>pairs[i]</code>&nbsp;的长度为&nbsp;<code>2</code>。</li>
-	<li>每个&nbsp;<code>words[i]</code>&nbsp;和&nbsp;<code>pairs[i][j]</code>&nbsp;的长度范围为&nbsp;<code>[1, 20]</code>。</li>
+	<li>它们具有 <strong>相同的长度</strong> (即相同的字数)</li>
+	<li><code>sentence1[i]</code>&nbsp;和&nbsp;<code>sentence2[i]</code>&nbsp;是相似的</li>
+</ul>
+
+<p>请注意，一个词总是与它自己相似，也请注意，相似关系是可传递的。例如，如果单词 <code>a</code> 和 <code>b</code> 是相似的，单词&nbsp;<code>b</code> 和 <code>c</code> 也是相似的，那么 <code>a</code> 和 <code>c</code> 也是 <strong>相似</strong> 的。</p>
+
+<p>&nbsp;</p>
+
+<p><strong>示例 1:</strong></p>
+
+<pre>
+<strong>输入:</strong> sentence1 = ["great","acting","skills"], sentence2 = ["fine","drama","talent"], similarPairs = [["great","good"],["fine","good"],["drama","acting"],["skills","talent"]]
+<strong>输出:</strong> true
+<strong>解释:</strong> 这两个句子长度相同，每个单词都相似。
+</pre>
+
+<p><strong>示例 2:</strong></p>
+
+<pre>
+<strong>输入:</strong> sentence1 = ["I","love","leetcode"], sentence2 = ["I","love","onepiece"], similarPairs = [["manga","onepiece"],["platform","anime"],["leetcode","platform"],["anime","manga"]]
+<strong>输出:</strong> true
+<strong>解释:</strong> "leetcode" --&gt; "platform" --&gt; "anime" --&gt; "manga" --&gt; "onepiece".
+因为“leetcode”和“onepiece”相似，而且前两个单词是相同的，所以这两句话是相似的。</pre>
+
+<p><strong>示例 3:</strong></p>
+
+<pre>
+<strong>输入:</strong> sentence1 = ["I","love","leetcode"], sentence2 = ["I","love","onepiece"], similarPairs = [["manga","hunterXhunter"],["platform","anime"],["leetcode","platform"],["anime","manga"]]
+<strong>输出:</strong> false
+<strong>解释: </strong>“leetcode”和“onepiece”不相似。
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>提示:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= sentence1.length, sentence2.length &lt;= 1000</code></li>
+	<li><code>1 &lt;= sentence1[i].length, sentence2[i].length &lt;= 20</code></li>
+	<li><code>sentence1[i]</code>&nbsp;和&nbsp;<code>sentence2[i]</code>&nbsp;只包含大小写英文字母</li>
+	<li><code>0 &lt;= similarPairs.length &lt;= 2000</code></li>
+	<li><code>similarPairs[i].length == 2</code></li>
+	<li><code>1 &lt;= x<sub>i</sub>.length, y<sub>i</sub>.length &lt;= 20</code></li>
+	<li><code>x<sub>i</sub></code>&nbsp;和&nbsp;<code>y<sub>i</sub></code>&nbsp;只含英文字母</li>
 </ul>
 
 ## 解法
