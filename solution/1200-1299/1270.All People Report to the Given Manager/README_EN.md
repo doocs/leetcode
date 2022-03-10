@@ -64,14 +64,23 @@ The employee with employee_id 7 reports their work indirectly to the head of the
 The employees with employee_id 3, 8, and 9 do not report their work to the head of the company directly or indirectly. 
 </pre>
 
-## Solutions
+## Solution
 
 <!-- tabs:start -->
 
 ### **SQL**
 
 ```sql
+# Write your MySQL query statement below
 
+SELECT e1.employee_id
+FROM   employees e1
+JOIN   employees e2
+JOIN   employees e3
+ON     e1.manager_id=e2.employee_id
+AND    e2.manager_id=e3.employee_id
+where  e3.manager_id=1
+AND    e1.employee_id!=1;
 ```
 
 <!-- tabs:end -->
