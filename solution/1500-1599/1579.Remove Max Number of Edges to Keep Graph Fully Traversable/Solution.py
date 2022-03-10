@@ -27,6 +27,8 @@ class Solution:
                     ufb.union(u, v)
                 else:
                     ans += 1
-        ans += sum((t == 1 and not ufa.union(u, v))
-                   or (t == 2 and not ufb.union(u, v)) for t, u, v in edges)
+        ans += sum(
+            (t == 1 and not ufa.union(u, v)) or (t == 2 and not ufb.union(u, v))
+            for t, u, v in edges
+        )
         return ans if ufa.n == 1 and ufb.n == 1 else -1

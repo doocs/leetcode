@@ -8,7 +8,16 @@ class Solution:
                 i, j = q.popleft()
                 if (i, j) == (x, y):
                     return ans
-                for a, b in [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]]:
+                for a, b in [
+                    [-2, 1],
+                    [-1, 2],
+                    [1, 2],
+                    [2, 1],
+                    [2, -1],
+                    [1, -2],
+                    [-1, -2],
+                    [-2, -1],
+                ]:
                     c, d = i + a, j + b
                     if (c, d) not in vis:
                         vis.add((c, d))

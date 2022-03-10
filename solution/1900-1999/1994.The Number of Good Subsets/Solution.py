@@ -12,7 +12,7 @@ class Solution:
             mask = 0
             for i, p in enumerate(prime):
                 if x % p == 0:
-                    mask |= (1 << i)
+                    mask |= 1 << i
             for state in range(1 << n):
                 if mask & state:
                     continue

@@ -11,7 +11,7 @@ class Solution:
                 res.append(''.join(s))
                 s[i] = c
             return res
-        
+
         def extend(m1, m2, q):
             for _ in range(len(q), 0, -1):
                 p = q.popleft()
@@ -24,7 +24,7 @@ class Solution:
                     m1[t] = step + 1
                     q.append(t)
             return -1
-        
+
         def bfs():
             m1, m2 = {"0000": 0}, {target: 0}
             q1, q2 = deque([('0000')]), deque([(target)])
@@ -33,7 +33,7 @@ class Solution:
                 if t != -1:
                     return t
             return -1
-        
+
         if target == '0000':
             return 0
         s = set(deadends)

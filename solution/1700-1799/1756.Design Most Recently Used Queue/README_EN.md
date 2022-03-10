@@ -142,7 +142,7 @@ class MRUQueue {
         }
         tree = new BinaryIndexedTree(n + 2010);
     }
-    
+
     public int fetch(int k) {
         int left = 1;
         int right = n++;
@@ -212,7 +212,7 @@ public:
         for (int i = 1; i <= n; ++i) data[i] = i;
         tree = new BinaryIndexedTree(n + 2010);
     }
-    
+
     int fetch(int k) {
         int left = 1, right = data.size();
         while (left < right)

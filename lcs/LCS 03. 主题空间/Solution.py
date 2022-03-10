@@ -16,7 +16,17 @@ class Solution:
                 else:
                     for a, b in dirs:
                         x, y = i + a, j + b
-                        if (grid[x][y] == '0' or grid[i][j] == grid[x][y]) and find(x * n + y) != find(i * n + j):
+                        if (grid[x][y] == '0' or grid[i][j] == grid[x][y]) and find(
+                            x * n + y
+                        ) != find(i * n + j):
                             size[find(x * n + y)] += size[find(i * n + j)]
                             p[find(i * n + j)] = find(x * n + y)
-        return max([size[i * n + j] for i in range(m) for j in range(n) if find(i * n + j) != find(m * n)], default=0)
+        return max(
+            [
+                size[i * n + j]
+                for i in range(m)
+                for j in range(n)
+                if find(i * n + j) != find(m * n)
+            ],
+            default=0,
+        )

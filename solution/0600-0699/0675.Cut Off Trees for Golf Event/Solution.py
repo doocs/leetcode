@@ -16,13 +16,13 @@ class Solution:
                     if 0 <= c < m and 0 <= d < n and forest[c][d] > 0:
                         if c * n + d not in dist or dist[c * n + d] > step + 1:
                             dist[c * n + d] = step + 1
-                            heapq.heappush(
-                                q, (dist[c * n + d] + f(c, d, x, y), c, d))
+                            heapq.heappush(q, (dist[c * n + d] + f(c, d, x, y), c, d))
             return -1
 
         m, n = len(forest), len(forest[0])
-        trees = [(forest[i][j], i, j) for i in range(m)
-                 for j in range(n) if forest[i][j] > 1]
+        trees = [
+            (forest[i][j], i, j) for i in range(m) for j in range(n) if forest[i][j] > 1
+        ]
         trees.sort()
         i = j = 0
         ans = 0

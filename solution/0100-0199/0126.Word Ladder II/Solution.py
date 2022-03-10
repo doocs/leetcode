@@ -1,5 +1,7 @@
 class Solution:
-    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+    def findLadders(
+        self, beginWord: str, endWord: str, wordList: List[str]
+    ) -> List[List[str]]:
         def dfs(path, cur):
             if cur == beginWord:
                 ans.append(path[::-1])

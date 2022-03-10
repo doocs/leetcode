@@ -8,7 +8,7 @@ class Solution:
                 t.append(nums[i])
                 dfs(i + 1, t)
                 t.pop()
-        
+
         ans = []
         nums.sort()
         dfs(0, [])
