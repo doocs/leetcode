@@ -16,7 +16,6 @@
 
 <ul>
 	<li>例如，下面文件结构中的文件夹 <code>"/a"</code> 和 <code>"/b"</code> 相同。它们（以及它们的子文件夹）应该被 <strong>全部</strong> 标记为待删除：
-
     <ul>
     	<li><code>/a</code></li>
     	<li><code>/a/x</code></li>

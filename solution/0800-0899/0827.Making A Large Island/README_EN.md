@@ -51,13 +51,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>n == grid.length</code></li>
-
     <li><code>n == grid[i].length</code></li>
-
     <li><code>1 &lt;= n &lt;= 500</code></li>
-
     <li><code>grid[i][j]</code> is either <code>0</code> or <code>1</code>.</li>
 
 </ul>

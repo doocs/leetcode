@@ -14,7 +14,6 @@
 
 <ul>
 	<li>选定目标方格 <code>next</code> ，目标方格的编号符合范围&nbsp;<code>[curr + 1, min(curr + 6, n<sup>2</sup>)]</code> 。
-
     <ul>
     	<li>该选择模拟了掷 <strong>六面体骰子</strong> 的情景，无论棋盘大小如何，玩家最多只能有 6 个目的地。</li>
     </ul>

@@ -7,7 +7,6 @@
 <p>The <strong>product difference</strong> between two pairs <code>(a, b)</code> and <code>(c, d)</code> is defined as <code>(a * b) - (c * d)</code>.</p>
 
 <ul>
-
     <li>For example, the product difference between <code>(5, 6)</code> and <code>(2, 7)</code> is <code>(5 * 6) - (2 * 7) = 16</code>.</li>
 
 </ul>
@@ -51,9 +50,7 @@ The product difference is (9 * 8) - (2 * 4) = 64.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>4 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>
-
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 
 </ul>
@@ -91,10 +88,10 @@ class Solution {
  * @return {number}
  */
 var maxProductDifference = function (nums) {
-    nums.sort((a, b) => a - b);
-    let n = nums.length;
-    let ans = nums[n - 1] * nums[n - 2] - nums[0] * nums[1];
-    return ans;
+  nums.sort((a, b) => a - b);
+  let n = nums.length;
+  let ans = nums[n - 1] * nums[n - 2] - nums[0] * nums[1];
+  return ans;
 };
 ```
 

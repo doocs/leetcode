@@ -63,11 +63,8 @@ Each word would be put on only one column and that in one column there will be o
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= s.length &lt;= 200</code></li>
-
     <li><code>s</code>&nbsp;contains only upper case English letters.</li>
-
     <li>It&#39;s guaranteed that there is only one&nbsp;space between 2 words.</li>
 
 </ul>

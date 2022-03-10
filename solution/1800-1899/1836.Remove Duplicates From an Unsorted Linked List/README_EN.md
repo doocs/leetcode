@@ -57,9 +57,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li>The number of nodes in the list is in the range&nbsp;<code>[1, 10<sup>5</sup>]</code></li>
-
     <li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>
 
 </ul>

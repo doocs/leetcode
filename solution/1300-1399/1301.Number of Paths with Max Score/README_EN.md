@@ -39,7 +39,6 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>2 &lt;= board.length == board[i].length &lt;= 100</code></li>
 
 </ul>

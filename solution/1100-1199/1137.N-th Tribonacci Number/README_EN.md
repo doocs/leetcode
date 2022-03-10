@@ -43,9 +43,7 @@ T_4 = 1 + 1 + 2 = 4
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>0 &lt;= n &lt;= 37</code></li>
-
     <li>The answer is guaranteed to fit within a 32-bit integer, ie. <code>answer &lt;= 2^31 - 1</code>.</li>
 
 </ul>
@@ -120,16 +118,16 @@ func tribonacci(n int) int {
  * @return {number}
  */
 var tribonacci = function (n) {
-    let a = 0;
-    let b = 1;
-    let c = 1;
-    while (n--) {
-        let d = a + b + c;
-        a = b;
-        b = c;
-        c = d;
-    }
-    return a;
+  let a = 0;
+  let b = 1;
+  let c = 1;
+  while (n--) {
+    let d = a + b + c;
+    a = b;
+    b = c;
+    c = d;
+  }
+  return a;
 };
 ```
 

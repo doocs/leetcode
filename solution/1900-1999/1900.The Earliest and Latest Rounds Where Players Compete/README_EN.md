@@ -10,7 +10,6 @@
 
 <ul>
 	<li>For example, if the row consists of players <code>1, 2, 4, 6, 7</code>
-
     <ul>
     	<li>Player <code>1</code> competes against player <code>7</code>.</li>
     	<li>Player <code>2</code> competes against player <code>6</code>.</li>

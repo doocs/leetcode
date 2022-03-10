@@ -51,7 +51,6 @@ There is not other value of n that has at most 5 prime factors and more nice div
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= primeFactors &lt;= 10<sup>9</sup></code></li>
 
 </ul>

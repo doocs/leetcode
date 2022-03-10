@@ -10,7 +10,6 @@
 
 <ul>
 	<li>For example, when <code>num = &quot;5489355142&quot;</code>:
-
     <ul>
     	<li>The 1<sup>st</sup> smallest wonderful integer is <code>&quot;5489355214&quot;</code>.</li>
     	<li>The 2<sup>nd</sup> smallest wonderful integer is <code>&quot;5489355241&quot;</code>.</li>

@@ -9,11 +9,8 @@
 <p>There are <code>n</code> stones arranged in a row. On each player&#39;s turn, while the number of stones is <strong>more than one</strong>, they will do the following:</p>
 
 <ol>
-
     <li>Choose an integer <code>x &gt; 1</code>, and <strong>remove</strong> the leftmost <code>x</code> stones from the row.</li>
-
     <li>Add the <strong>sum</strong> of the <strong>removed</strong> stones&#39; values to the player&#39;s score.</li>
-
     <li>Place a <strong>new stone</strong>, whose value is equal to that sum, on the left side of the row.</li>
 
 </ol>
@@ -89,11 +86,8 @@ The difference between their scores is (-22) - 0 = -22.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>n == stones.length</code></li>
-
     <li><code>2 &lt;= n &lt;= 10<sup>5</sup></code></li>
-
     <li><code>-10<sup>4</sup> &lt;= stones[i] &lt;= 10<sup>4</sup></code></li>
 
 </ul>

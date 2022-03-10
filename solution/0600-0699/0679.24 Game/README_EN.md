@@ -10,7 +10,6 @@
 
 <ul>
 	<li>The division operator <code>&#39;/&#39;</code> represents real division, not integer division.
-
     <ul>
     	<li>For example, <code>4 / (1 - 2 / 3) = 4 / (1 / 3) = 12</code>.</li>
     </ul>

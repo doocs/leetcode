@@ -12,7 +12,6 @@
 
 <ul>
 	<li><code>&lt;IntegerPart&gt;</code>&nbsp;
-
     <ul>
     	<li>例：&nbsp;<code>0</code>&nbsp;,<code>12</code>&nbsp;和&nbsp;<code>123</code>&nbsp;</li>
     </ul>

@@ -43,13 +43,9 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= rectangles.length &lt;= 1000</code></li>
-
     <li><code>rectangles[i].length == 2</code></li>
-
     <li><code>1 &lt;= l<sub>i</sub>, w<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
-
     <li><code>l<sub>i</sub> != w<sub>i</sub></code></li>
 
 </ul>
@@ -97,18 +93,18 @@ class Solution {
 
 ```ts
 function countGoodRectangles(rectangles: number[][]): number {
-    let maxLen = 0,
-        ans = 0;
-    for (let [l, w] of rectangles) {
-        let k = Math.min(l, w);
-        if (k == maxLen) {
-            ans++;
-        } else if (k > maxLen) {
-            maxLen = k;
-            ans = 1;
-        }
+  let maxLen = 0,
+    ans = 0;
+  for (let [l, w] of rectangles) {
+    let k = Math.min(l, w);
+    if (k == maxLen) {
+      ans++;
+    } else if (k > maxLen) {
+      maxLen = k;
+      ans = 1;
     }
-    return ans;
+  }
+  return ans;
 }
 ```
 

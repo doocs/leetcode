@@ -9,7 +9,6 @@
 <p>A sentence can be <strong>shuffled</strong> by appending the <strong>1-indexed word position</strong> to each word then rearranging the words in the sentence.</p>
 
 <ul>
-
     <li>For example, the sentence <code>&quot;This is a sentence&quot;</code> can be shuffled as <code>&quot;sentence4 a3 is2 This1&quot;</code> or <code>&quot;is2 sentence4 This1 a3&quot;</code>.</li>
 
 </ul>
@@ -47,15 +46,10 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>2 &lt;= s.length &lt;= 200</code></li>
-
     <li><code>s</code> consists of lowercase and uppercase English letters, spaces, and digits from <code>1</code> to <code>9</code>.</li>
-
     <li>The number of words in <code>s</code> is between <code>1</code> and <code>9</code>.</li>
-
     <li>The words in <code>s</code> are separated by a single space.</li>
-
     <li><code>s</code> contains no leading or trailing spaces.</li>
 
 </ul>
@@ -101,15 +95,15 @@ class Solution {
  * @return {string}
  */
 var sortSentence = function (s) {
-    let words = s.split(' ');
-    let n = words.length;
-    let res = new Array(n);
-    for (let word of words) {
-        let key = word.slice(-1);
-        let val = word.slice(0, -1);
-        res[parseInt(key) - 1] = val;
-    }
-    return res.join(' ');
+  let words = s.split(" ");
+  let n = words.length;
+  let res = new Array(n);
+  for (let word of words) {
+    let key = word.slice(-1);
+    let val = word.slice(0, -1);
+    res[parseInt(key) - 1] = val;
+  }
+  return res.join(" ");
 };
 ```
 

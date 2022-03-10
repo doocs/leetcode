@@ -8,7 +8,6 @@
 
 <ul>
 	<li>Remove substring <code>&quot;ab&quot;</code> and gain <code>x</code> points.
-
     <ul>
     	<li>For example, when removing <code>&quot;ab&quot;</code> from <code>&quot;c<u>ab</u>xbae&quot;</code> it becomes <code>&quot;cxbae&quot;</code>.</li>
     </ul>

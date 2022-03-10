@@ -50,13 +50,256 @@ mRUQueue.fetch(8); // The 8<sup>th</sup> element (2) is already at the end of th
 ### **Python3**
 
 ```python
+class BinaryIndexedTree:
+    def __init__(self, n):
+        self.n = n
+        self.c = [0] * (n + 1)
 
+    @staticmethod
+    def lowbit(x):
+        return x & -x
+
+    def update(self, x, delta):
+        while x <= self.n:
+            self.c[x] += delta
+            x += BinaryIndexedTree.lowbit(x)
+
+    def query(self, x):
+        s = 0
+        while x > 0:
+            s += self.c[x]
+            x -= BinaryIndexedTree.lowbit(x)
+        return s
+
+
+class MRUQueue:
+
+    def __init__(self, n: int):
+        self.data = list(range(n + 1))
+        self.tree = BinaryIndexedTree(n + 2010)
+
+    def fetch(self, k: int) -> int:
+        left, right = 1, len(self.data)
+        while left < right:
+            mid = (left + right) >> 1
+            if mid - self.tree.query(mid) >= k:
+                right = mid
+            else:
+                left = mid + 1
+        self.data.append(self.data[left])
+        self.tree.update(left, 1)
+        return self.data[left]
+
+
+# Your MRUQueue object will be instantiated and called as such:
+# obj = MRUQueue(n)
+# param_1 = obj.fetch(k)
 ```
 
 ### **Java**
 
 ```java
+class BinaryIndexedTree {
+    private int n;
+    private int[] c;
 
+    public BinaryIndexedTree(int n) {
+        this.n = n;
+        c = new int[n + 1];
+    }
+
+    public void update(int x, int delta) {
+        while (x <= n) {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    public int query(int x) {
+        int s = 0;
+        while (x > 0) {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    public static int lowbit(int x) {
+        return x & -x;
+    }
+}
+
+class MRUQueue {
+    private int n;
+    private int[] data;
+    private BinaryIndexedTree tree;
+
+    public MRUQueue(int n) {
+        this.n = n;
+        data = new int[n + 2010];
+        for (int i = 1; i <= n; ++i) {
+            data[i] = i;
+        }
+        tree = new BinaryIndexedTree(n + 2010);
+    }
+    
+    public int fetch(int k) {
+        int left = 1;
+        int right = n++;
+        while (left < right) {
+            int mid = (left + right) >> 1;
+            if (mid - tree.query(mid) >= k) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        data[n] = data[left];
+        tree.update(left, 1);
+        return data[left];
+    }
+}
+
+/**
+ * Your MRUQueue object will be instantiated and called as such:
+ * MRUQueue obj = new MRUQueue(n);
+ * int param_1 = obj.fetch(k);
+ */
+```
+
+### **C++**
+
+```cpp
+class BinaryIndexedTree {
+public:
+    int n;
+    vector<int> c;
+
+    BinaryIndexedTree(int _n): n(_n), c(_n + 1){}
+
+    void update(int x, int delta) {
+        while (x <= n)
+        {
+            c[x] += delta;
+            x += lowbit(x);
+        }
+    }
+
+    int query(int x) {
+        int s = 0;
+        while (x > 0)
+        {
+            s += c[x];
+            x -= lowbit(x);
+        }
+        return s;
+    }
+
+    int lowbit(int x) {
+        return x & -x;
+    }
+};
+
+class MRUQueue {
+public:
+    int n;
+    vector<int> data;
+    BinaryIndexedTree* tree;
+
+    MRUQueue(int n) {
+        this->n = n;
+        data.resize(n + 1);
+        for (int i = 1; i <= n; ++i) data[i] = i;
+        tree = new BinaryIndexedTree(n + 2010);
+    }
+    
+    int fetch(int k) {
+        int left = 1, right = data.size();
+        while (left < right)
+        {
+            int mid = (left + right) >> 1;
+            if (mid - tree->query(mid) >= k) right = mid;
+            else left = mid + 1;
+        }
+        data.push_back(data[left]);
+        tree->update(left, 1);
+        return data[left];
+    }
+};
+
+/**
+ * Your MRUQueue object will be instantiated and called as such:
+ * MRUQueue* obj = new MRUQueue(n);
+ * int param_1 = obj->fetch(k);
+ */
+```
+
+### **Go**
+
+```go
+type BinaryIndexedTree struct {
+	n int
+	c []int
+}
+
+func newBinaryIndexedTree(n int) *BinaryIndexedTree {
+	c := make([]int, n+1)
+	return &BinaryIndexedTree{n, c}
+}
+
+func (this *BinaryIndexedTree) lowbit(x int) int {
+	return x & -x
+}
+
+func (this *BinaryIndexedTree) update(x, delta int) {
+	for x <= this.n {
+		this.c[x] += delta
+		x += this.lowbit(x)
+	}
+}
+
+func (this *BinaryIndexedTree) query(x int) int {
+	s := 0
+	for x > 0 {
+		s += this.c[x]
+		x -= this.lowbit(x)
+	}
+	return s
+}
+
+type MRUQueue struct {
+	data []int
+	tree *BinaryIndexedTree
+}
+
+func Constructor(n int) MRUQueue {
+	data := make([]int, n+1)
+	for i := range data {
+		data[i] = i
+	}
+	return MRUQueue{data, newBinaryIndexedTree(n + 2010)}
+}
+
+func (this *MRUQueue) Fetch(k int) int {
+	left, right := 1, len(this.data)
+	for left < right {
+		mid := (left + right) >> 1
+		if mid-this.tree.query(mid) >= k {
+			right = mid
+		} else {
+			left = mid + 1
+		}
+	}
+	this.data = append(this.data, this.data[left])
+	this.tree.update(left, 1)
+	return this.data[left]
+}
+
+/**
+ * Your MRUQueue object will be instantiated and called as such:
+ * obj := Constructor(n);
+ * param_1 := obj.Fetch(k);
+ */
 ```
 
 ### **...**

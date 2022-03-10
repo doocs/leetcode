@@ -55,13 +55,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>costs.length == n</code></li>
-
     <li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= costs[i] &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= coins &lt;= 10<sup>8</sup></code></li>
 
 </ul>

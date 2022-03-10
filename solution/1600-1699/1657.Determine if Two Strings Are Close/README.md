@@ -10,7 +10,6 @@
 
 <ul>
 	<li>操作 1：交换任意两个 <strong>现有</strong> 字符。
-
     <ul>
     	<li>例如，<code>a<strong>b</strong>cd<strong>e</strong> -> a<strong>e</strong>cd<strong>b</strong></code></li>
     </ul>

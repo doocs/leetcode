@@ -47,17 +47,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>n == colors.length</code></li>
-
     <li><code>m == edges.length</code></li>
-
     <li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-
     <li><code>0 &lt;= m &lt;= 10<sup>5</sup></code></li>
-
     <li><code>colors</code> consists of lowercase English letters.</li>
-
     <li><code>0 &lt;= a<sub>j</sub>, b<sub>j</sub>&nbsp;&lt; n</code></li>
 
 </ul>

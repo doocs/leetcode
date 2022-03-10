@@ -7,7 +7,6 @@
 <p>A <strong>wonderful</strong> string is a string where <strong>at most one</strong> letter appears an <strong>odd</strong> number of times.</p>
 
 <ul>
-
     <li>For example, <code>&quot;ccjjc&quot;</code> and <code>&quot;abab&quot;</code> are wonderful, but <code>&quot;ab&quot;</code> is not.</li>
 
 </ul>
@@ -89,9 +88,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= word.length &lt;= 10<sup>5</sup></code></li>
-
     <li><code>word</code> consists of lowercase English letters from <code>&#39;a&#39;</code>&nbsp;to <code>&#39;j&#39;</code>.</li>
 
 </ul>
@@ -147,19 +144,19 @@ class Solution {
  * @return {number}
  */
 var wonderfulSubstrings = function (word) {
-    let counter = new Array(1 << 10).fill(0);
-    counter[0] = 1;
-    let state = 0;
-    let ans = 0;
-    for (let c of word) {
-        state ^= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
-        ans += counter[state];
-        for (let i = 0; i < 10; ++i) {
-            ans += counter[state ^ (1 << i)];
-        }
-        ++counter[state];
+  let counter = new Array(1 << 10).fill(0);
+  counter[0] = 1;
+  let state = 0;
+  let ans = 0;
+  for (let c of word) {
+    state ^= 1 << (c.charCodeAt(0) - "a".charCodeAt(0));
+    ans += counter[state];
+    for (let i = 0; i < 10; ++i) {
+      ans += counter[state ^ (1 << i)];
     }
-    return ans;
+    ++counter[state];
+  }
+  return ans;
 };
 ```
 

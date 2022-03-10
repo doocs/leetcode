@@ -7,7 +7,6 @@
 <p>The <b>product sum </b>of two equal-length arrays <code>a</code> and <code>b</code> is equal to the sum of <code>a[i] * b[i]</code> for all <code>0 &lt;= i &lt; a.length</code> (<strong>0-indexed</strong>).</p>
 
 <ul>
-
     <li>For example, if <code>a = [1,2,3,4]</code> and <code>b = [5,2,3,1]</code>, the <strong>product sum</strong> would be <code>1*5 + 2*2 + 3*3 + 4*1 = 22</code>.</li>
 
 </ul>
@@ -45,11 +44,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>n == nums1.length == nums2.length</code></li>
-
     <li><code>1 &lt;= n &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
 
 </ul>

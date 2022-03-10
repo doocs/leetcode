@@ -9,13 +9,9 @@
 <p>A triplet <code>(arr[i], arr[j], arr[k])</code>&nbsp;is <strong>good</strong> if the following conditions are true:</p>
 
 <ul>
-
     <li><code>0 &lt;= i &lt; j &lt; k &lt;&nbsp;arr.length</code></li>
-
     <li><code>|arr[i] - arr[j]| &lt;= a</code></li>
-
     <li><code>|arr[j] - arr[k]| &lt;= b</code></li>
-
     <li><code>|arr[i] - arr[k]| &lt;= c</code></li>
 
 </ul>
@@ -55,11 +51,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>3 &lt;= arr.length &lt;= 100</code></li>
-
     <li><code>0 &lt;= arr[i] &lt;= 1000</code></li>
-
     <li><code>0 &lt;= a, b, c &lt;= 1000</code></li>
 
 </ul>

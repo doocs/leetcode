@@ -12,7 +12,6 @@
 
 <ul>
 	<li>例如，当前回合中，运动员 <code>1, 2, 4, 6, 7</code> 站成一排
-
     <ul>
     	<li>运动员 <code>1</code> 需要和运动员 <code>7</code> 比拼</li>
     	<li>运动员 <code>2</code> 需要和运动员 <code>6</code> 比拼</li>

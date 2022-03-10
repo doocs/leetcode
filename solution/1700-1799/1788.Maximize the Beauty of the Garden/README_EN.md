@@ -9,9 +9,7 @@
 <p>A garden is <strong>valid</strong> if it meets these conditions:</p>
 
 <ul>
-
     <li>The garden has at least two flowers.</li>
-
     <li>The first and the last flower of the garden have the same beauty value.</li>
 
 </ul>
@@ -61,11 +59,8 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>2 &lt;= flowers.length &lt;= 10<sup>5</sup></code></li>
-
     <li><code>-10<sup>4</sup> &lt;= flowers[i] &lt;= 10<sup>4</sup></code></li>
-
     <li>It is possible to create a valid garden by removing some (possibly none) flowers.</li>
 
 </ul>

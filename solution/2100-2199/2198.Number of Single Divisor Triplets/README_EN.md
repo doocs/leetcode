@@ -68,6 +68,7 @@ Note that (0, 1, 2) is not a single divisor triplet because nums[0] + nums[1] + 
 ### **TypeScript**
 
 ```ts
+
 ```
 
 ### **...**

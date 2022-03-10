@@ -10,7 +10,6 @@
 
 <ul>
 	<li>删除子字符串 <code>"ab"</code> 并得到 <code>x</code> 分。
-
     <ul>
     	<li>比方说，从 <code>"c<strong>ab</strong>xbae"</code> 删除 <code>ab</code> ，得到 <code>"cxbae"</code> 。</li>
     </ul>

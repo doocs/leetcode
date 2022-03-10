@@ -12,7 +12,6 @@
 
 <ol>
 	<li><code>addScore(playerId, score)</code>：
-
     <ul>
     	<li>假如参赛者已经在排行榜上，就给他的当前得分增加 <code>score</code> 点分值并更新排行。</li>
     	<li>假如该参赛者不在排行榜上，就把他添加到榜单上，并且将分数设置为 <code>score</code>。</li>

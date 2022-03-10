@@ -12,7 +12,6 @@
 
 <ul>
 	<li>如果元素是<strong> 偶数</strong> ，<strong>除以</strong> <code>2</code>
-
     <ul>
     	<li>例如，如果数组是 <code>[1,2,3,4]</code> ，那么你可以对最后一个元素执行此操作，使其变成 <code>[1,2,3,<strong>2</strong>]</code></li>
     </ul>

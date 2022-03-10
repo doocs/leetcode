@@ -12,7 +12,6 @@
 
 <ul>
 	<li><code>void checkIn(int id, string stationName, int t)</code>
-
     <ul>
     	<li>通行卡 ID 等于 <code>id</code> 的乘客，在时间 <code>t</code> ，从 <code>stationName</code> 站进入</li>
     	<li>乘客一次只能从一个站进入</li>

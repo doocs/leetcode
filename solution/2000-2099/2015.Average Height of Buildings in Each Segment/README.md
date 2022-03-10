@@ -12,7 +12,6 @@
 
 <ul>
 	<li>For example, if <code>buildings = [[1,5,2],[3,10,4]],</code> the street could be represented by <code>street = [[1,3,2],[3,5,3],[5,10,4]]</code> because:
-
     <ul>
     	<li>From 1 to 3, there is only the first building with an average height of <code>2 / 1 = 2</code>.</li>
     	<li>From 3 to 5, both the first and the second building are there with an average height of <code>(2+4) / 2 = 3</code>.</li>

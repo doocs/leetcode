@@ -14,7 +14,6 @@
 
 <ul>
 	<li>For example, folders <code>&quot;/a&quot;</code> and <code>&quot;/b&quot;</code> in the file structure below are identical. They (as well as their subfolders) should <strong>all</strong> be marked:
-
     <ul>
     	<li><code>/a</code></li>
     	<li><code>/a/x</code></li>

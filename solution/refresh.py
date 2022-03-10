@@ -44,3 +44,5 @@ for question in data:
 
     with open(path_en, 'w', encoding='utf-8') as f2:
         f2.write(en_content)
+
+# format documents: prettier --write "**/*.md"

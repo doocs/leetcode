@@ -7,7 +7,6 @@
 <p>The <strong>alternating sum</strong> of a <strong>0-indexed</strong> array is defined as the <strong>sum</strong> of the elements at <strong>even</strong> indices <strong>minus</strong> the <strong>sum</strong> of the elements at <strong>odd</strong> indices.</p>
 
 <ul>
-
     <li>For example, the alternating sum of <code>[4,2,5,3]</code> is <code>(4 + 5) - (2 + 3) = 4</code>.</li>
 
 </ul>
@@ -63,9 +62,7 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 
 </ul>

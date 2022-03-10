@@ -8,7 +8,6 @@
 
 <ul>
 	<li>For example, <code>&quot;abcde&quot;</code> can be abbreviated into:
-
     <ul>
     	<li><code>&quot;a3e&quot;</code> (<code>&quot;bcd&quot;</code> turned into <code>&quot;3&quot;</code>)</li>
     	<li><code>&quot;1bcd1&quot;</code> (<code>&quot;a&quot;</code> and <code>&quot;e&quot;</code> both turned into <code>&quot;1&quot;</code>)</li>

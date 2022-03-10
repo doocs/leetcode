@@ -8,7 +8,6 @@
 
 <ul>
 	<li>When you get an instruction <code>&#39;A&#39;</code>, your car does the following:
-
     <ul>
     	<li><code>position += speed</code></li>
     	<li><code>speed *= 2</code></li>

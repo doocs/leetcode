@@ -7,9 +7,7 @@
 <p>Given an integer array <code>instructions</code>, you are asked to create a sorted array from the elements in <code>instructions</code>. You start with an empty container <code>nums</code>. For each element from <strong>left to right</strong> in <code>instructions</code>, insert it into <code>nums</code>. The <strong>cost</strong> of each insertion is the <b>minimum</b> of the following:</p>
 
 <ul>
-
     <li>The number of elements currently in <code>nums</code> that are <strong>strictly less than</strong> <code>instructions[i]</code>.</li>
-
     <li>The number of elements currently in <code>nums</code> that are <strong>strictly greater than</strong> <code>instructions[i]</code>.</li>
 
 </ul>
@@ -103,9 +101,7 @@ The total cost is 0 + 0 + 0 + 0 + 1 + 0 + 1 + 0 + 2 = 4.
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>1 &lt;= instructions.length &lt;= 10<sup>5</sup></code></li>
-
     <li><code>1 &lt;= instructions[i] &lt;= 10<sup>5</sup></code></li>
 
 </ul>

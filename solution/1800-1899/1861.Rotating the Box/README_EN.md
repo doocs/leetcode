@@ -7,11 +7,8 @@
 <p>You are given an <code>m x n</code> matrix of characters <code>box</code> representing a side-view of a box. Each cell of the box is one of the following:</p>
 
 <ul>
-
     <li>A stone <code>&#39;#&#39;</code></li>
-
     <li>A stationary obstacle <code>&#39;*&#39;</code></li>
-
     <li>Empty <code>&#39;.&#39;</code></li>
 
 </ul>
@@ -91,13 +88,9 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>m == box.length</code></li>
-
     <li><code>n == box[i].length</code></li>
-
     <li><code>1 &lt;= m, n &lt;= 500</code></li>
-
     <li><code>box[i][j]</code> is either <code>&#39;#&#39;</code>, <code>&#39;*&#39;</code>, or <code>&#39;.&#39;</code>.</li>
 
 </ul>

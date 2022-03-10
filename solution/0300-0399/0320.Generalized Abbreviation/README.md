@@ -10,7 +10,6 @@
 
 <ul>
 	<li>例如，<code>"abcde"</code> 可以缩写为：
-
     <ul>
     	<li><code>"a3e"</code>（<code>"bcd"</code> 变为 <code>"3"</code> ）</li>
     	<li><code>"1bcd1"</code>（<code>"a"</code> 和 <code>"e"</code> 都变为 <code>"1"</code>）<meta charset="UTF-8" /></li>

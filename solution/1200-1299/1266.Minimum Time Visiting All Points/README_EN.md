@@ -10,7 +10,6 @@
 
 <ul>
 	<li>In <code>1</code> second, you can either:
-
     <ul>
     	<li>move vertically by one&nbsp;unit,</li>
     	<li>move horizontally by one unit, or</li>

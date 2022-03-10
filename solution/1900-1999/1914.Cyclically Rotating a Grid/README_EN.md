@@ -51,17 +51,11 @@
 <p><strong>Constraints:</strong></p>
 
 <ul>
-
     <li><code>m == grid.length</code></li>
-
     <li><code>n == grid[i].length</code></li>
-
     <li><code>2 &lt;= m, n &lt;= 50</code></li>
-
     <li>Both <code>m</code> and <code>n</code> are <strong>even</strong> integers.</li>
-
     <li><code>1 &lt;= grid[i][j] &lt;=<sup> </sup>5000</code></li>
-
     <li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></li>
 
 </ul>

@@ -8,7 +8,6 @@
 
 <ul>
 	<li>For example, if you have a ribbon of length <code>4</code>, you can:
-
     <ul>
     	<li>Keep the ribbon of length <code>4</code>,</li>
     	<li>Cut it into one ribbon of length <code>3</code> and one ribbon of length <code>1</code>,</li>
